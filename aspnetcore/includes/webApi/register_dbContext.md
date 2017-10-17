@@ -1,0 +1,10 @@
+## <a name="register-the-database-context"></a><span data-ttu-id="529cd-101">Zarejestruj kontekst bazy danych</span><span class="sxs-lookup"><span data-stu-id="529cd-101">Register the database context</span></span>
+
+<span data-ttu-id="529cd-102">Aby wstawić kontekst bazy danych do kontrolera, należy zarejestrować go z [iniekcji zależności](xref:fundamentals/dependency-injection) kontenera.</span><span class="sxs-lookup"><span data-stu-id="529cd-102">In order to inject the database context into the controller, we need to register it with the [dependency injection](xref:fundamentals/dependency-injection) container.</span></span> <span data-ttu-id="529cd-103">Zarejestruj kontekst bazy danych z kontenerem usługi przy użyciu wbudowaną obsługę [iniekcji zależności](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="529cd-103">Register the database context with the service container using the built-in support for [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="529cd-104">Zastąp zawartość *Startup.cs* pliku następującym kodem:</span><span class="sxs-lookup"><span data-stu-id="529cd-104">Replace the contents of the *Startup.cs* file with the following:</span></span>
+
+<span data-ttu-id="529cd-105">[!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Startup.cs?highlight=2,4,12)]</span><span class="sxs-lookup"><span data-stu-id="529cd-105">[!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Startup.cs?highlight=2,4,12)]</span></span>
+
+<span data-ttu-id="529cd-106">Poprzedni kod:</span><span class="sxs-lookup"><span data-stu-id="529cd-106">The preceding code:</span></span>
+
+* <span data-ttu-id="529cd-107">Usuwa kod, który firma Microsoft nie korzysta.</span><span class="sxs-lookup"><span data-stu-id="529cd-107">Removes the code we're not using.</span></span>
+* <span data-ttu-id="529cd-108">Określa, że bazy danych w pamięci są wstrzykiwane do kontenera usług.</span><span class="sxs-lookup"><span data-stu-id="529cd-108">Specifies an in-memory database is injected into the service container.</span></span>
