@@ -1,0 +1,12 @@
+Wzorzec architektury Model-widok-kontroler (MVC) dzieli aplikację na trzy główne składniki: **M**odelu, **V**widoku, a **C**ontroller. Wzorzec MVC pomaga w tworzeniu aplikacji, które są bardziej testować i łatwiejsze do zaktualizowania niż tradycyjne aplikacje wbudowanymi. Aplikacji MVC zawiera:
+
+* **M**odels: klasy reprezentujące dane aplikacji. Klasy modeli umożliwia logikę weryfikacji wymuszania reguł biznesowych dla tych danych. Zazwyczaj obiekty modelu pobrać i przechowywanie stanu modelu w bazie danych. W tym samouczku `Movie` modelu pobiera filmu dane z bazy danych, przekazuje go do widoku lub aktualizacji. Zaktualizowane dane są zapisywane w bazie danych.
+
+* **V**iews: widoki są składnikami wyświetlającymi interfejs użytkownika aplikacji (UI). Ogólnie rzecz biorąc to interfejs użytkownika wyświetla dane modelu.
+
+* **C**ontrollers: klasy, które obsługuje żądania przeglądarki. Pobierają dane z modelu i wywołać szablonów widoków, które zwracają odpowiedź. W aplikacji MVC widoku wyświetlane są tylko informacje; Kontroler obsługuje i ma odpowiadać na dane wejściowe użytkownika i interakcja. Na przykład kontroler obsługuje wartości danych i ciągu zapytania trasy i przekazuje te wartości do modelu. Model może użyć tych wartości, aby w bazie danych. Na przykład `http://localhost:1234/Home/About` zawiera dane trasy z `Home` (kontrolera) i `About` (metoda akcji do wywołania w domu kontrolera). `http://localhost:1234/Movies/Edit/5`to żądanie, aby edytować filmu o identyfikatorze = 5, korzystając z kontrolera filmu.  Będzie omawianiu dane trasy później w samouczku.
+
+Wzorzec MVC pomaga w tworzeniu aplikacji, których różne aspekty aplikacji (logika danych wejściowych, logika biznesowa i logika interfejsu użytkownika), zapewniając luźne powiązanie między tymi elementami. Wzorzec Określa, gdzie każdy rodzaj logiki powinien znajdować się w aplikacji. Logika interfejsu użytkownika należy w widoku. Logika danych wejściowych jest powiązana z kontrolerem. Logika biznesowa jest powiązana w modelu. Taki rozdział pomaga w zarządzaniu złożonością podczas tworzenia aplikacji, ponieważ umożliwia ona działać na jednym aspekcie implementacji jednocześnie bez wpływu na kod innego. Na przykład można pracować w widoku kodu bez stosownie do kodu logiki biznesowej.
+
+Firma Microsoft opisano te pojęcia związane z tego samouczka serii i opisano, jak ich używać do tworzenia aplikacji filmu. Projekt MVC zawiera foldery *kontrolerów* i *widoków*. A *modele* zostanie dodany folder w kolejnym kroku.
+
