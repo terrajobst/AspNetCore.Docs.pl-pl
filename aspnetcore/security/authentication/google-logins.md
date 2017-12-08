@@ -1,6 +1,6 @@
 ---
-redirect_url: /aspnet/core/getting-started
-ms.openlocfilehash: 2cac37889390eb4d6fe25c9103a41aed0f2a5b35
+redirect_url: /aspnet/core/security/authentication/social/google-logins
+ms.openlocfilehash: 1e3dff83ad94441287bfa65825419fde17b0ed25
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
