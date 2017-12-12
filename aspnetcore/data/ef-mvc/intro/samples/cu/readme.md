@@ -1,0 +1,1 @@
+Ten projekt jest używana do prezentowania wstawki aby [serii samouczek EF MVC Core](https://docs.microsoft.com/aspnet/core/data/ef-mvc/intro). Przykładowy projekt korzysta z wbudowanej wykonując samouczków wynosi https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final.

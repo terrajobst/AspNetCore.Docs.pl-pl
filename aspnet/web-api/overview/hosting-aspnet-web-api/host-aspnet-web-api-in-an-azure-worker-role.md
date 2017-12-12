@@ -1,0 +1,169 @@
+---
+uid: web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
+title: Host ASP.NET Web API 2 w roli procesu roboczego platformy Azure | Dokumentacja firmy Microsoft
+author: MikeWasson
+description: "Ten samouczek pokazuje, jak do obsługi interfejsu API sieci Web platformy ASP.NET w roli procesu roboczego platformy Azure przy użyciu OWIN do hosta samodzielnego strukturę interfejsu API sieci Web. Otwórz interfejs sieci Web dla platformy .NET (OWIN) de..."
+ms.author: aspnetcontent
+manager: wpickett
+ms.date: 04/02/2014
+ms.topic: article
+ms.assetid: 6980ee2e-d6b0-4a08-8fb6-ab96362dd0e3
+ms.technology: dotnet-webapi
+ms.prod: .net-framework
+msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
+msc.type: authoredcontent
+ms.openlocfilehash: 326c4a4e274dbc1aa6e09f1d07c4d135e4304484
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 11/10/2017
+---
+<a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>Host ASP.NET Web API 2 w roli procesu roboczego platformy Azure
+====================
+przez [Wasson Jan](https://github.com/MikeWasson)
+
+> Ten samouczek pokazuje, jak do obsługi interfejsu API sieci Web platformy ASP.NET w roli procesu roboczego platformy Azure przy użyciu OWIN do hosta samodzielnego strukturę interfejsu API sieci Web.
+> 
+> [Otwórz interfejs sieci Web dla platformy .NET](http://owin.org/) (OWIN) definiuje abstrakcję między serwerami sieci web .NET i aplikacji sieci web. OWIN oddziela aplikacji sieci web na serwerze, co sprawia, że OWIN idealne rozwiązanie w przypadku samodzielnej obsługi aplikacji sieci web w własnego procesu poza usług IIS — na przykład w roli procesu roboczego platformy Azure.
+> 
+> W tym samouczku użyjesz pakietu Microsoft.Owin.Host.HttpListener zapewniające serwera HTTP używany do hosta samodzielnego aplikacji OWIN.
+> 
+> ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
+> 
+> 
+> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+> - Składnik Web API 2
+> - [Zestaw Azure SDK dla platformy .NET w wersji 2.3](https://azure.microsoft.com/en-us/downloads/)
+
+
+## <a name="create-a-microsoft-azure-project"></a>Tworzenie projektu platformy Microsoft Azure
+
+Uruchom program Visual Studio z uprawnieniami administratora. Aby debugować aplikację lokalnie, przy użyciu emulatora obliczeń platformy Azure, potrzebne są uprawnienia administratora.
+
+Na **pliku** menu, kliknij przycisk **nowy**, następnie kliknij przycisk **projektu**. Z **zainstalowane szablony**, w obszarze Visual C#, kliknij przycisk **chmury** , a następnie kliknij przycisk **usługi w chmurze Windows Azure**. Nazwij projekt "AzureApp", a następnie kliknij przycisk **OK**.
+
+[![](host-aspnet-web-api-in-an-azure-worker-role/_static/image2.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image1.png)
+
+W **nowej usługi systemu Windows Azure Cloud** okna dialogowego, kliknij dwukrotnie **roli procesu roboczego**. Pozostaw nazwę domyślną ("WorkerRole1"). Ten krok powoduje dodanie roli procesu roboczego do rozwiązania. Kliknij przycisk **OK**.
+
+[![](host-aspnet-web-api-in-an-azure-worker-role/_static/image4.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image3.png)
+
+Rozwiązanie programu Visual Studio, która jest tworzona zawiera dwa projekty:
+
+- &quot;AzureApp&quot; definiuje ról i konfiguracji aplikacji Azure.
+- &quot;WorkerRole1&quot; zawiera kod roli proces roboczy.
+
+Ogólnie rzecz biorąc aplikacja Azure może zawierać wiele ról, chociaż w tym samouczku korzysta z jedną rolę.
+
+![](host-aspnet-web-api-in-an-azure-worker-role/_static/image5.png)
+
+## <a name="add-the-web-api-and-owin-packages"></a>Dodaj składnik Web API i OWIN pakietów
+
+Z **narzędzia** menu, kliknij przycisk **Menedżer pakietów biblioteki**, następnie kliknij przycisk **Konsola Menedżera pakietów**.
+
+W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
+
+[!code-console[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample1.cmd)]
+
+## <a name="add-an-http-endpoint"></a>Dodawanie punktu końcowego HTTP
+
+W Eksploratorze rozwiązań rozwiń projekt AzureApp. Rozwiń węzeł ról, kliknij prawym przyciskiem myszy WorkerRole1, a następnie wybierz **właściwości**.
+
+![](host-aspnet-web-api-in-an-azure-worker-role/_static/image6.png)
+
+Kliknij przycisk **punkty końcowe**, a następnie kliknij przycisk **Dodawanie punktu końcowego**.
+
+W **protokołu** listy rozwijanej wybierz opcję "http". W **Port publiczny** i **Port prywatny**, wpisz 80. Numery portów mogą być różne. Port publiczny jest co używana przez klientów podczas wysyłania żądania do roli.
+
+[![](host-aspnet-web-api-in-an-azure-worker-role/_static/image8.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image7.png)
+
+## <a name="configure-web-api-for-self-host"></a>Skonfiguruj interfejs API sieci Web dla hosta samodzielnego
+
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt WorkerRole1 i wybierz **Dodaj** / **klasy** Aby dodać nową klasę. Nazwa klasy `Startup`.
+
+![](host-aspnet-web-api-in-an-azure-worker-role/_static/image9.png)
+
+Zastąp cały schematyczny kod w tym pliku następujące czynności:
+
+[!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample2.cs)]
+
+## <a name="add-a-web-api-controller"></a>Dodawanie kontrolera interfejsu API sieci Web
+
+Następnie Dodaj klasę kontrolera interfejsu API sieci Web. Kliknij prawym przyciskiem myszy projekt WorkerRole1 i wybierz **Dodaj** / **klasy**. Nazwa klasy kontrolera testów. Zastąp cały schematyczny kod w tym pliku następujące czynności:
+
+[!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample3.cs)]
+
+Dla uproszczenia tego kontrolera po prostu definiuje dwie metody GET, które zwracają zwykłego tekstu.
+
+## <a name="start-the-owin-host"></a>Uruchom hosta OWIN
+
+Otwórz plik WorkerRole.cs. Ta klasa definiuje kod, uruchamiany w momencie uruchamiania i zatrzymywania roli procesu roboczego.
+
+Dodaj następującą instrukcję using:
+
+[!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample4.cs)]
+
+Dodaj **IDisposable** członka `WorkerRole` klasy:
+
+[!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample5.cs)]
+
+W `OnStart` metody, Dodaj następujący kod, aby uruchomić hosta:
+
+[!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample6.cs?highlight=5)]
+
+**WebApp.Start** metoda uruchamia hosta OWIN. Nazwa `Startup` klasy jest parametrem typu metody. Według Konwencji wywoła hosta `Configure` metody tej klasy.
+
+Zastąpienie `OnStop` zlikwidować  *\_aplikacji* wystąpienie:
+
+[!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample7.cs)]
+
+W tym miejscu jest kompletny kod dla WorkerRole.cs:
+
+[!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample8.cs)]
+
+Skompiluj rozwiązanie, a następnie naciśnij klawisz F5, aby uruchomić aplikację lokalnie w emulatorze obliczeniowe Azure. W zależności od ustawienia zapory konieczne może być Zezwalaj emulatora przez zaporę.
+
+> [!NOTE]
+> Jeśli otrzymasz wyjątek podobnie do poniższego, można znaleźć pod adresem [ten wpis w blogu](https://blogs.msdn.com/b/praburaj/archive/2013/11/20/fileloadexception-on-microsoft-owin-when-running-on-worker-role.aspx) obejście tego problemu. "Nie można załadować pliku lub zestawu ' Microsoft.Owin, Version = 2.0.2.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" lub jednej z jego zależności. Definicja manifestu zestawu znajduje nie odpowiada odwołaniu do zestawu. (Wyjątek od HRESULT: 0x80131040) "
+
+
+Emulator obliczeń przypisuje lokalny adres IP punktu końcowego. Adres IP można znaleźć, wyświetlając interfejs użytkownika emulatora obliczeń. Kliknij prawym przyciskiem myszy ikonę emulatora w pasku obszaru powiadomień zadań, a następnie wybierz **Pokaż interfejs użytkownika emulatora obliczeń**.
+
+[![](host-aspnet-web-api-in-an-azure-worker-role/_static/image11.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image10.png)
+
+Znajdowanie adresu IP w ramach wdrożenia usługi, wdrażania [id], szczegóły usługi. Otwórz przeglądarkę sieci web i przejdź do http://*adres*/test/1, gdzie *adres* to adres IP przypisany przez emulator obliczeń; na przykład `http://127.0.0.1:80/test/1`. Powinny pojawić się odpowiedzi z kontrolera interfejsu API sieci Web:
+
+![](host-aspnet-web-api-in-an-azure-worker-role/_static/image12.png)
+
+## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
+
+W tym kroku musi mieć konto platformy Azure. Jeśli nie masz jeszcze jeden, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać więcej informacji, zobacz [bezpłatna wersja próbna programu Microsoft Azure](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt AzureApp. Wybierz **publikowania**.
+
+![](host-aspnet-web-api-in-an-azure-worker-role/_static/image13.png)
+
+Jeśli użytkownik nie jest zalogowany do konta platformy Azure, kliknij przycisk **logowania**.
+
+[![](host-aspnet-web-api-in-an-azure-worker-role/_static/image15.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image14.png)
+
+Po zarejestrowaniu w Wybierz subskrypcję i kliknij przycisk **dalej**.
+
+[![](host-aspnet-web-api-in-an-azure-worker-role/_static/image17.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image16.png)
+
+Wprowadź nazwę usługi w chmurze i wybierz region. Kliknij przycisk **Utwórz**.
+
+![](host-aspnet-web-api-in-an-azure-worker-role/_static/image18.png)
+
+Kliknij przycisk **publikowania**.
+
+[![](host-aspnet-web-api-in-an-azure-worker-role/_static/image20.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image19.png)
+
+Okno Dziennik aktywności platformy Azure będzie wyświetlany postęp wdrażania. Gdy aplikacja jest wdrożona, przejdź do http://appname.cloudapp.net/test/1.
+
+![](host-aspnet-web-api-in-an-azure-worker-role/_static/image21.png)
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+- [Przegląd projektu Katana](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
+- [Projekt Katana w witrynie GitHub](https://github.com/aspnet/AspNetKatana)

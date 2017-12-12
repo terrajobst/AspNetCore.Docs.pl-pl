@@ -1,0 +1,1 @@
+Jeśli dla SignalR zawartość tego folderu. Usuń ten plik, gdy pierwszy plik zostanie dodany do tego katalogu.

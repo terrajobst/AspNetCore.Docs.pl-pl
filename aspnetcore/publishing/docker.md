@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.prod: aspnet-core
 uid: publishing/docker
 ms.openlocfilehash: e643d4fea75c3013623e19638f797c8becebd506
-ms.sourcegitcommit: b861bab71ea6945f673c62223ae2cba3aa74cb6b
-ms.translationtype: HT
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="host-aspnet-core-in-docker-containers"></a>Host platformy ASP.NET Core w kontenerach Docker
 

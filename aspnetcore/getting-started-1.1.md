@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: getting-started-1.1
 ms.openlocfilehash: e8fd9ef60ebc1cff6ca0e03000ea50eebff0a9f9
-ms.sourcegitcommit: 297ee5d2f3b3b24eb8a2c4a25195c9e2973cb91b
-ms.translationtype: HT
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="getting-started-with-aspnet-core-11"></a>Wprowadzenie do platformy ASP.NET Core 1.1
 
