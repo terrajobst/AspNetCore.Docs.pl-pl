@@ -12,7 +12,7 @@ W poniższej tabeli wymieniono pliki i foldery w projekcie. W tym samouczku *Sta
 | ----------------- | ------------ | 
 | Wwwroot | Zawiera pliki statyczne. Zobacz [Praca z pliki statyczne](xref:fundamentals/static-files). |
 | Strony | Folder [stron Razor](xref:mvc/razor-pages/index). | 
-| *appSettings.JSON* | [Konfiguracja](xref:fundamentals/configuration) |
+| *appSettings.JSON* | [Konfiguracja](xref:fundamentals/configuration/index) |
 | *bower.JSON* | Po stronie klienta pakietu zarządzania. Zobacz [Bower](xref:client-side/bower).|
 | *Plik program.CS* | [Hosty](xref:fundamentals/hosting) aplikacji platformy ASP.NET Core.|
 | *Startup.CS* | Konfigurowanie usługi i żądania potoku. Zobacz [uruchamiania](xref:fundamentals/startup).|

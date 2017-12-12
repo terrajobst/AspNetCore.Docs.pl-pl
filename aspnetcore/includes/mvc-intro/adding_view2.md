@@ -27,7 +27,11 @@ Uwaga: Wersja platformy ASP.NET Core 2.0 jest nieco inne. Nie zawiera on `@injec
 >[!WARNING]
 > Firma Microsoft nie zaimplementował `Movies` jeszcze kontrolera, dlatego możesz kliknąć łącze, zostanie wyświetlony błąd 404 (nie znaleziono).
 
-Zapisz zmiany, a następnie naciśnij pozycję **o** łącza. Zwróć uwagę, jak tytuł na karcie przeglądarki są obecnie wyświetlane **o - Movie App** zamiast **o - Mvc Movie**. Wybierz **skontaktuj się z** i zwróć uwagę, że w niej również wyświetlane łącza **Movie App**. Udało się zmienić raz w szablonie układ i mieć wszystkich stron w witrynie uwzględniać nowy tekst łącza i nowy tytuł.
+Zapisz zmiany, a następnie naciśnij pozycję **o** łącza. Zwróć uwagę, jak tytuł na karcie przeglądarki są obecnie wyświetlane **o - Movie App** zamiast **o - Mvc Movie**: 
+
+![O karcie](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+
+Wybierz **skontaktuj się z** i zwróć uwagę, że w niej również wyświetlane łącza **Movie App**. Udało się zmienić raz w szablonie układ i mieć wszystkich stron w witrynie uwzględniać nowy tekst łącza i nowy tytuł.
 
 Sprawdź *Views/_ViewStart.cshtml* pliku:
 

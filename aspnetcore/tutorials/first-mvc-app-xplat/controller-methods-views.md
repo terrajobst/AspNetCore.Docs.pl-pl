@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/controller-methods-views
 ms.openlocfilehash: b72fb5077d3bd577cd6282e7a6231a0806ee1fd2
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
-ms.translationtype: HT
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="controller-methods-and-views"></a>Metody kontrolera i widoków
 
