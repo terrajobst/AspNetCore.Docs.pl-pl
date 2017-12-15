@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 7ae83b9bdadf5ebf8846b0c09c585da406708d12
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e42e7e469e411d2d4bc1bd1b3a3995a77c355ebd
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Szkieletu Razor strony platformy ASP.NET Core
 
@@ -28,7 +28,7 @@ W tym samouczku sprawdza stron Razor, tworzonych przez szkieletów w poprzednim 
 
 Sprawdź *Pages/Movies/Index.cshtml.cs* pliku CodeBehind:[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
 
-Pochodne stron razor `PageModel`. Według konwencji `PageModel`-nosi nazwę klasy pochodnej `<PageName>Model`. Używa konstruktora [iniekcji zależności](xref:fundamentals/dependency-injection) można dodać `MovieContext` do strony. Wszystkie strony szkieletu wykonaj tego wzorca.
+Pochodne stron razor `PageModel`. Według konwencji `PageModel`-nosi nazwę klasy pochodnej `<PageName>Model`. Używa konstruktora [iniekcji zależności](xref:fundamentals/dependency-injection) można dodać `MovieContext` do strony. Wszystkie strony szkieletu wykonaj tego wzorca. Zobacz [kod asynchroniczny](xref:data/ef-rp/intro#asynchronous-code) uzyskać więcej informacji o asynchronicznych programing Entity Framework.
 
 Po wysłaniu żądania dla tej strony, `OnGetAsync` metoda zwraca listę filmów na stronie aparatu Razor. `OnGetAsync`lub `OnGet` jest wywoływana na stronie aparatu Razor zainicjować stan strony. W takim przypadku `OnGetAsync` pobiera listę filmów do wyświetlenia.
 

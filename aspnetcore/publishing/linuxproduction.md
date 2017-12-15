@@ -11,11 +11,11 @@ ms.assetid: 1c33e576-33de-481a-8ad3-896b94fde0e3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/linuxproduction
-ms.openlocfilehash: 01768263fe82dc75a7da0e113b1850c8d788bfd3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c7401657486a8e5dbc8213d79dcfd5e0ec76585
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-linux-with-nginx-and-deploy-to-it"></a>Konfigurowanie środowiska macierzystego dla platformy ASP.NET Core w systemie Linux z Nginx i wdrażać do niego
 
@@ -45,8 +45,6 @@ Skopiuj aplikacji platformy ASP.NET Core na serwerze przy użyciu dowolnego narz
  - W wierszu polecenia Uruchom`dotnet yourapp.dll`
  - W przeglądarce przejdź do `http://<serveraddress>:<port>` można zweryfikować aplikacja działa w systemie Linux. 
  
-**Uwaga:** użyj [narzędzia Yeoman](xref:client-side/yeoman) do utworzenia nowej aplikacji platformy ASP.NET Core dla nowego projektu.
-
 ## <a name="configure-a-reverse-proxy-server"></a>Skonfiguruj serwer zwrotnego serwera proxy
 
 Zwrotny serwer proxy jest typowe dla obsługująca dynamicznych aplikacji sieci web. Zwrotny serwer proxy kończy żądanie HTTP i przekazuje je do aplikacji platformy ASP.NET Core.

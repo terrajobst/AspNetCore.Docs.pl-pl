@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: 352d125b9042c603b59ed9bda0e99b6a49c7ab9f
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 19cab22176c732c5cb8e337d7635bddc54107921
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Dostawca konfiguracji usługi Azure Key Vault
 
@@ -63,7 +63,7 @@ Dostawca jest dodawany do `ConfigurationBuilder` z `AddAzureKeyVault` rozszerzen
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
   * Zarejestruj przykładowej aplikacji w usłudze Azure Active Directory.
-  * Zezwolić aplikacji na dostęp do magazynu kluczy. Jeśli używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby zezwolić aplikacji na dostęp do magazynu kluczy, podaj `List` i `Get` dostęp do kluczy tajnych z `-PermissionsToKeys list,get`.
+  * Zezwolić aplikacji na dostęp do magazynu kluczy. Jeśli używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby zezwolić aplikacji na dostęp do magazynu kluczy, podaj `List` i `Get` dostęp do kluczy tajnych z `-PermissionsToSecrets list,get`.
 2. Aktualizowanie aplikacji *appsettings.json* pliku z wartościami `Vault`, `ClientId`, i `ClientSecret`.
 3. Uruchamianie przykładowej aplikacji, która uzyskuje jego wartości konfiguracji z `IConfigurationRoot` o takiej samej nazwie jak nazwa klucza tajnego.
   * Inne niż hierarchicznych wartości: wartość `SecretName` są uzyskiwane z `config["SecretName"]`.
@@ -105,7 +105,7 @@ Po zaimplementowaniu tej metody:
       * `5000-AppSecret`: `5.0.0.0_secret_value`
       * `5100-AppSecret`: `5.1.0.0_secret_value`
   * Zarejestruj przykładowej aplikacji w usłudze Azure Active Directory.
-  * Zezwolić aplikacji na dostęp do magazynu kluczy. Jeśli używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby zezwolić aplikacji na dostęp do magazynu kluczy, podaj `List` i `Get` dostęp do kluczy tajnych z `-PermissionsToKeys list,get`.
+  * Zezwolić aplikacji na dostęp do magazynu kluczy. Jeśli używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby zezwolić aplikacji na dostęp do magazynu kluczy, podaj `List` i `Get` dostęp do kluczy tajnych z `-PermissionsToSecrets list,get`.
 2. Aktualizowanie aplikacji *appsettings.json* pliku z wartościami `Vault`, `ClientId`, i `ClientSecret`.
 3. Uruchamianie przykładowej aplikacji, która uzyskuje jego wartości konfiguracji z `IConfigurationRoot` z taką samą nazwę jak prefiksem nazwa klucza tajnego. W tym przykładzie prefiks jest wersja aplikacji, który dostarczony do `PrefixKeyVaultSecretManager` po dodaniu dostawcę konfiguracji usługi Azure Key Vault. Wartość `AppSecret` są uzyskiwane z `config["AppSecret"]`. Strony sieci Web wygenerowany przez aplikację przedstawia załadowana wartość:
 

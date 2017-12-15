@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 5095def776f79d0bb76d5a8e94a4228ef0abed75
-ms.sourcegitcommit: a80d35647aff66323160b2cb413b65d79d98f7a6
+ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Wprowadzenie do platformy ASP.NET Core MVC i Entity Framework Core za pomocą programu Visual Studio (od 1 do 10)
 
@@ -244,15 +244,10 @@ Automatyczne tworzenie widoków i metod akcji CRUD jest określany jako szkielet
 
 * Kliknij prawym przyciskiem myszy **kontrolerów** folderu w **Eksploratora rozwiązań** i wybierz **Dodaj > Nowy element szkieletu**.
 
-* W **Dodaj zależności MVC** okno dialogowe, wybierz opcję **minimalnego zależności**i wybierz **Dodaj**.
+Jeśli **Dodaj zależności MVC** zostanie wyświetlone okno dialogowe:
 
-  ![Dodaj zależności](intro/_static/add-depend.png)
-
-  Visual Studio dodaje zależności niezbędne do tworzenia szkieletu kontrolera. Zmiana tylko w pliku projektu jest dodanie `Microsoft.VisualStudio.Web.CodeGeneration.Design` pakietu.
-
-  A *ScaffoldingReadMe.txt* tworzony jest plik, który można usunąć.
-
-* Ponownie, kliknij prawym przyciskiem myszy **kontrolerów** folderu w **Eksploratora rozwiązań** i wybierz **Dodaj > Nowy element szkieletu**.
+* [Aktualizowanie do najnowszej wersji programu Visual Studio](https://www.visualstudio.com/downloads/). Visual Studio wersje poprzedzające 15,5 cala pokazuj tego okna dialogowego.
+* Jeśli nie można zaktualizować, wybierz **Dodaj**, a następnie ponownie wykonaj kroki kontrolera Dodaj.
 
 * W **Dodawanie szkieletu** okno dialogowe:
 
@@ -371,4 +366,4 @@ Aby uzyskać więcej informacji na temat programowania asynchronicznego w progra
 Teraz utworzyć prostą aplikację, która używa do przechowywania i wyświetlania danych programu Entity Framework Core i SQL Server Express LocalDB. Następujące kroki samouczka, dowiesz się, jak wykonać podstawowe CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) operacji.
 
 >[!div class="step-by-step"]
-[Dalej](crud.md)  
+[Next](crud.md)  

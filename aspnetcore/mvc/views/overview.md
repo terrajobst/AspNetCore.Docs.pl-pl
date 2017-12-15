@@ -5,21 +5,22 @@ description: "Dowiedz się, jak widoki obsługi aplikacji prezentacji danych i i
 keywords: "Platformy ASP.NET Core wyświetlić MVC, razor, viewmodel, viewdata, obiekt viewbag"
 ms.author: riande
 manager: wpickett
-ms.date: 09/26/2017
+ms.date: 12/12/2017
 ms.topic: article
-ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 4530d2f500dd887bf649a753283fb3e4af995322
-ms.sourcegitcommit: c2f6c593d81fbd90e6ddd672fe0a5636d06b615a
+ms.openlocfilehash: 2562d4e5fb85159e6ccb47990f54448ddc188077
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Widoki w podstawowej platformy ASP.NET MVC
 
 Przez [Steve Smith](https://ardalis.com/) i [Luke Latham](https://github.com/guardrex)
+
+W tym dokumencie opisano widoki używane w aplikacjach ASP.NET Core MVC. Aby uzyskać informacje na stronach Razor, zobacz [wprowadzenie do stron Razor](xref:mvc/razor-pages/index).
 
 W **M**odelu -**V**rzeglądaj -**C**wzorzec ontroller (MVC) *widoku* obsługuje interakcję danych aplikacji prezentacji i użytkownika. Widok jest szablonu HTML z osadzonych [znaczników Razor](xref:mvc/views/razor). Kod znaczników razor jest kod, który współdziała z kod znaczników HTML do tworzenia strony sieci Web, które są wysyłane do klienta.
 

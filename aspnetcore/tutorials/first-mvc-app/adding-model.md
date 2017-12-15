@@ -5,23 +5,20 @@ description: Dodawanie modelu do prostej aplikacji platformy ASP.NET Core.
 keywords: Platformy ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 03/30/2017
+ms.date: 12/8/2017
 ms.topic: get-started-article
-ms.assetid: 8dc28498-00ee-4d66-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: a29bab9cf0712936fa9c3f2b4bb3b275a46fe6f6
-ms.sourcegitcommit: e641c5794525f983485621860926d8ab4e7360c8
+ms.openlocfilehash: 03c16e523fe2f91cae5c71357835684d813e3a1f
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 Uwaga: Szablony ASP.NET Core 2.0 zawierają *modele* folderu.
-
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **MvcMovie** projektu > **Dodaj** > **nowy Folder**. Nazwa folderu *modele*.
 
 Kliknij prawym przyciskiem myszy *modele* folder > **Dodaj** > **klasy**. Nazwa klasy **film** i dodaj następujące właściwości:
 
@@ -37,15 +34,10 @@ W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *kontrolerów* 
 
 ![Widok powyżej kroku](adding-model/_static/add_controller.png)
 
-W **Dodaj zależności MVC** okno dialogowe, wybierz opcję **minimalnego zależności**i wybierz **Dodaj**.
+Jeśli **Dodaj zależności MVC** zostanie wyświetlone okno dialogowe:
 
-![Widok powyżej kroku](adding-model/_static/add_depend.png)
-
-Visual Studio dodaje zależności niezbędne do tworzenia szkieletu z kontrolerem, ale sam kontroler nie został utworzony. Następny invoke z **> Dodaj > kontrolera** tworzy kontroler. 
-
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *kontrolerów* folderu **> Dodaj > kontrolera**.
-
-![Widok powyżej kroku](adding-model/_static/add_controller.png)
+* [Aktualizowanie do najnowszej wersji programu Visual Studio](https://www.visualstudio.com/downloads/). Visual Studio wersje poprzedzające 15,5 cala pokazuj tego okna dialogowego.
+* Jeśli nie można zaktualizować, wybierz **Dodaj**, a następnie ponownie wykonaj kroki kontrolera Dodaj.
 
 W **Dodawanie szkieletu** okno dialogowe, naciśnij **kontroler MVC z widokami używający narzędzia Entity Framework > Dodaj**.
 
@@ -72,7 +64,7 @@ Program Visual Studio tworzy:
 
 Automatyczne tworzenie kontekstu bazy danych i [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (tworzenia, odczytu, aktualizacji i usuwania) metody akcji i widoki nosi nazwę *szkieletów*. Konieczne będzie wkrótce aplikacji funkcjonalnej sieci web, która umożliwia zarządzanie filmu bazy danych.
 
-Uruchom aplikację i kliknięcie na **Mvc Movie** link, zostanie wyświetlony błąd podobny do następującego:
+Uruchom aplikację i kliknięcie na **Mvc Movie** łącza, wystąpi błąd podobny do następującego:
 
 ```
 An unhandled exception occurred while processing the request.

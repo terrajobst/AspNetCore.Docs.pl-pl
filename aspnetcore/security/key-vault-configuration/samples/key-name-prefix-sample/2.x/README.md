@@ -12,7 +12,7 @@ Aby uzyskać więcej informacji na działanie próbki, zobacz [dostawcę konfigu
       * `5000-AppSecret`: `5.0.0.0_secret_value`
       * `5100-AppSecret`: `5.1.0.0_secret_value`
   * Zarejestruj przykładowej aplikacji w usłudze Azure Active Directory.
-  * Zezwolić aplikacji na dostęp do magazynu kluczy. Jeśli używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby zezwolić aplikacji na dostęp do magazynu kluczy, podaj `List` i `Get` dostęp do kluczy tajnych z `-PermissionsToKeys list,get`.
+  * Zezwolić aplikacji na dostęp do magazynu kluczy. Jeśli używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby zezwolić aplikacji na dostęp do magazynu kluczy, podaj `List` i `Get` dostęp do kluczy tajnych z `-PermissionsToSecrets list,get`.
 2. Aktualizowanie aplikacji *appsettings.json* pliku z wartościami `Vault`, `ClientId`, i `ClientSecret`.
 3. Uruchamianie przykładowej aplikacji, która uzyskuje jego wartości konfiguracji z `IConfigurationRoot` z taką samą nazwę jak prefiksem nazwa klucza tajnego. W tym przykładzie prefiks jest wersja aplikacji, który dostarczony do `PrefixKeyVaultSecretManager` po dodaniu dostawcę konfiguracji usługi Azure Key Vault. Wartość `AppSecret` są uzyskiwane z `config["AppSecret"]`.
 4. Zmień wersję zestawu aplikacji w pliku projektu z `5.0.0.0` do `5.1.0.0` i ponownie uruchom aplikację. Teraz, tajne wartość zwracana jest `5.1.0.0_secret_value`.

@@ -16,7 +16,7 @@ Aby uzyskać więcej informacji na działanie próbki, zobacz [dostawcę konfigu
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
   * Zarejestruj przykładowej aplikacji w usłudze Azure Active Directory.
-  * Zezwolić aplikacji na dostęp do magazynu kluczy. Jeśli używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby zezwolić aplikacji na dostęp do magazynu kluczy, podaj `List` i `Get` dostęp do kluczy tajnych z `-PermissionsToKeys list,get`.
+  * Zezwolić aplikacji na dostęp do magazynu kluczy. Jeśli używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby zezwolić aplikacji na dostęp do magazynu kluczy, podaj `List` i `Get` dostęp do kluczy tajnych z `-PermissionsToSecrets list,get`.
 2. Aktualizowanie aplikacji *appsettings.json* pliku z wartościami `Vault`, `ClientId`, i `ClientSecret`.
 3. Uruchamianie przykładowej aplikacji, która uzyskuje jego wartości konfiguracji z `IConfigurationRoot` o takiej samej nazwie jak nazwa klucza tajnego.
   * Inne niż hierarchicznych wartości: wartość `SecretName` są uzyskiwane z `config["SecretName"]`.

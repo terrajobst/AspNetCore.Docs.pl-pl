@@ -11,11 +11,11 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: ac52b791e02ce52da35fe8d599465076d251b4da
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0759f16ada531774a3945f67495e5f634e6154e
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Konfiguracja modułu Core programu ASP.NET
 
@@ -66,7 +66,7 @@ Moduł platformy ASP.NET Core jest skonfigurowana za pośrednictwem witryny lub 
 | startupTimeLimit | <p>Opcjonalny atrybut całkowity.</p><p>Czas w sekundach, oczekiwania modułu dla pliku wykonywalnego do uruchomienia procesu nasłuchiwanie na porcie. Po przekroczeniu tego limitu czasu, moduł będzie kasowanie procesu. Moduł spróbuje ponownie uruchomić proces, kiedy odbierze żądanie nowej i będzie podejmować próby ponownego uruchomienia procesu dla kolejnych żądań przychodzących, chyba że aplikacja nie może uruchomić **rapidFailsPerMinute** numer razy w ciągu ostatniej minuty stopniowego.</p><p>Wartość domyślna to 120.</p> |
 | shutdownTimeLimit | <p>Opcjonalny atrybut całkowity.</p><p>Czas w sekundach, dla których moduł będzie oczekiwał na plik wykonywalny jest bezpiecznie zamknąć po *app_offline.htm* Wykryto plik.</p><p>Wartość domyślna to 10.</p> |
 | rapidFailsPerMinute | <p>Opcjonalny atrybut całkowity.</p><p>Określa liczbę powtórzeń procesu w **processPath** może awarii na minutę. Po przekroczeniu tego limitu modułu przestanie uruchamiania procesu w pozostałej części minutę.</p><p>Wartość domyślna to 10.</p> |
-| RequestTimeout | <p>Atrybut opcjonalny timespan.</p><p>Określa okres czasu, dla którego moduł platformy ASP.NET Core będzie oczekiwał na odpowiedź z procesu nasłuchiwanie ASPNETCORE_PORT %.</p><p>Wartość domyślna to "00: 02:00".</p> |
+| RequestTimeout | <p>Atrybut opcjonalny timespan.</p><p>Określa okres czasu, dla którego moduł platformy ASP.NET Core będzie oczekiwał na odpowiedź z procesu nasłuchiwanie ASPNETCORE_PORT %.</p><p>Wartość domyślna to "00: 02:00".</p><p>`requestTimeout` Muszą być określone w pełnych minutach, w przeciwnym razie domyślne 2 minuty.</p> |
 | stdoutLogEnabled | <p>Opcjonalny logiczny atrybut.</p><p>Jeśli PRAWDA, **stdout** i **stderr** dla określonym w procesie **processPath** nastąpi przekierowanie do określonego w pliku **stdoutLogFile**.</p><p>Wartość domyślna to false.</p> |
 | stdoutLogFile | <p>Opcjonalny atrybut ciągu.</p><p>Określa ścieżkę względną lub bezwzględną, dla którego **stdout** i **stderr** z określonym w procesie **processPath** będą rejestrowane. Ścieżki względne są względem katalogu głównego witryny. Dowolną ścieżkę, rozpoczynając od '.' będzie względem katalogu głównego witryny i innych ścieżek będą traktowane jako ścieżki bezwzględne. Wszystkie foldery w ścieżce musi istnieć w kolejności dla modułu utworzyć plik dziennika. Identyfikator procesu sygnatury czasowej (*yyyyMdhms*) i rozszerzenie pliku (*log*) podkreślenia ograniczniki są dodawane do ostatniego segment **stdoutLogFile** podane.</p><p>Wartość domyślna to `aspnetcore-stdout`.</p> |
 | forwardWindowsAuthToken | prawda lub fałsz.</p><p>Jeśli PRAWDA, token będą przekazywane do procesu podrzędnego nasłuchiwanie ASPNETCORE_PORT % jako nagłówek "MS-ASPNETCORE-WINAUTHTOKEN" na żądanie. Jest odpowiedzialny za ten proces może wywołać funkcji CloseHandle: ten token na żądanie.</p><p>Wartość domyślna to true.</p> |

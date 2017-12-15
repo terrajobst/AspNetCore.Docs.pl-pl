@@ -11,11 +11,11 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: d3f9eb4943ed62b674d6bb2ab1b275b0a3c02343
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8d46862af44379d8592efdf214a80214dce2d69d
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Sterownik HTTP.sys implementacja serwera sieci web platformy ASP.NET Core
 
@@ -24,7 +24,7 @@ Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Roaming Krzysztof](https:
 > [!NOTE]
 > Ten temat dotyczy tylko programu ASP.NET Core 2.0 i nowszych. We wcześniejszych wersjach programu ASP.NET Core, nosi nazwę HTTP.sys [WebListener](xref:fundamentals/servers/weblistener).
 
-Sterownik HTTP.sys jest [serwera sieci web dla platformy ASP.NET Core](index.md) , na którym działają tylko w systemie Windows. Jest zbudowany na [sterownik trybu jądra Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). Sterownik HTTP.sys stanowi alternatywę dla [Kestrel](kestrel.md) oferująca niektórych funkcji, które nie Kestel. **Składnik HTTP.sys nie można używać z usług IIS lub usług IIS Express, ponieważ nie jest zgodna z [platformy ASP.NET Core modułu](aspnet-core-module.md).**
+Sterownik HTTP.sys jest [serwera sieci web dla platformy ASP.NET Core](index.md) , na którym działają tylko w systemie Windows. Jest zbudowany na [sterownik trybu jądra Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). Sterownik HTTP.sys stanowi alternatywę dla [Kestrel](kestrel.md) oferująca niektórych funkcji, które nie Kestel. **Składnik HTTP.sys nie można używać z usług IIS lub usług IIS Express, ponieważ nie jest zgodny z [platformy ASP.NET Core modułu](aspnet-core-module.md).**
 
 Sterownik HTTP.sys obsługuje następujące funkcje:
 
@@ -166,7 +166,7 @@ W tym miejscu znajduje się dokumentacja odwołanie *netsh.exe*:
 
 Następujące zasoby zawierają szczegółowe instrukcje dotyczące kilka scenariuszy. Artykuły, które odwołują się do HttpListener są stosowane jednakowo do pliku HTTP.sys, zgodnie z obu są oparte na pliku Http.Sys.
 
-* [Porady: Konfigurowanie portu z certyfikatem SSL](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
+* [Instrukcje: konfigurowanie portu z certyfikatem SSL](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [Komunikacja HTTPS - HttpListener na podstawie hostingu oraz certyfikatu klienta](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) to jest blogu innych firm i jest dość stary, ale nadal zawiera przydatne informacje.
 * [Porady: HttpListener za pomocą wskazówki lub serwer Http niezarządzanych kodu (C++) jako serwera SSL proste](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/) starsze blogu zawierający przydatne informacje jest zbyt.
 

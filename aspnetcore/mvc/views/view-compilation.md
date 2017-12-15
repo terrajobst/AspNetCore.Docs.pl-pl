@@ -5,17 +5,17 @@ description: "Dokument odwołanie wyjaśniający, jak włączyć kompilacji wido
 keywords: "Platformy ASP.NET Core kompilacji widoku Razor, Razor pre kompilacji, Razor wstępnej kompilacji"
 ms.author: riande
 manager: wpickett
-ms.date: 12/05/2017
+ms.date: 12/13/2017
 ms.topic: article
 ms.assetid: ab4705b7-1638-1638-bc97-ea7f292fe92a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 873f6203f9e7b5bb14968dcec3f8d8e5548bd834
-ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
+ms.openlocfilehash: 6839892c104673af0fd0fd074d368f3f42259d76
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>Kompilacja widoku razor i wstępnej kompilacji w ASP.NET Core
 
@@ -23,7 +23,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Widokami razor są kompilowane w czasie wykonywania, gdy widok jest wywoływany. ASP.NET podstawowe 1.1.0 i wyższe można opcjonalnie widokami Razor skompilować i wdrożyć je z aplikacją&mdash;proces znany jako wstępnej kompilacji. Szablony projektów platformy ASP.NET Core 2.x domyślnie włączone wstępnej kompilacji.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Wstępnej kompilacji widoku razor jest obecnie niedostępna podczas wykonywania [niezależne wdrożenia (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) w programie ASP.NET 2.0 Core. Funkcja będzie dostępna dla SCDs, gdy zwalnia 2.1. Aby uzyskać więcej informacji, zobacz [widoku kompilacja zakończy się niepowodzeniem, podczas kompilowania między dla systemu Linux w systemie Windows](https://github.com/aspnet/MvcPrecompilation/issues/102).
 
 Kwestie do rozważenia wstępnej kompilacji:
@@ -54,6 +54,12 @@ Ustaw `MvcRazorCompileOnPublish` do `true`i zawiera odwołanie do pakietu `Micro
 [!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish.csproj?highlight=5,12)]
 
 ---
+
+Przygotowanie aplikacji dla [wdrożenia zależne od framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd) , wykonując polecenie, takie jak wymienione poniżej w katalogu głównym projektu:
+
+```console
+dotnet publish -c Release
+```
 
 A *< project_name >. PrecompiledViews.dll* zawierający skompilowanych widokami Razor, jest generowany po wstępnej kompilacji zakończy się pomyślnie. Na przykład poniższy zrzut ekranu przedstawia zawartość *Index.cshtml* wewnątrz *WebApplication1.PrecompiledViews.dll*:
 
