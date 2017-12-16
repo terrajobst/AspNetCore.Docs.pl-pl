@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: 2455bbed891179466de8fb6ade3b0a8e66eadee6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b87ae7420e1295030e90c30e97b1e331413ce263
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/15/2017
 ---
 <a name="troubleshooting-http-405-errors-after-publishing-web-api-2-applications"></a>Rozwiązywanie problemów z HTTP 405 błędy po opublikowaniu interfejs API sieci Web 2 aplikacji
 ====================
@@ -44,7 +44,7 @@ Jako krótki przegląd w tym miejscu jest kilka metod HTTP najczęściej używan
 | **POBIERZ** | Ta metoda służy do pobierania danych z identyfikatorem URI który prawdopodobnie metoda HTTP najczęściej używane. |
 | **HEAD** | Ta metoda jest podobne jak w przypadku metody GET, z wyjątkiem tego, że faktycznie nie pobierać dane z identyfikatora URI żądania — po prostu pobiera stan HTTP. |
 | **POST** | Ta metoda jest zwykle używana do wysyłania nowe dane do identyfikatora URI; POST jest często używany do przesyłania danych formularza. |
-| **UMIEŚĆ** | Ta metoda jest zwykle używana do danych pierwotnych do identyfikatora URI; PUT jest często używany do przesyłania danych JSON i XML do aplikacji interfejsu API sieci Web. |
+| **UMIEŚĆ** | Ta metoda jest zwykle używana do wysyłania danych pierwotnych do identyfikatora URI; PUT jest często używany do przesyłania danych JSON i XML do aplikacji interfejsu API sieci Web. |
 | **USUŃ** | Ta metoda jest używana do usunięcia danych z identyfikatora URI. |
 | **OPCJE** | Ta metoda jest zwykle używany można pobrać listy metod HTTP, które są obsługiwane dla identyfikatora URI. |
 | **KOPIOWANIE PRZENOSZENIE** | Te dwie metody są używane z WebDAV, a ich celem jest oczywiste. |

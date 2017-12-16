@@ -10,11 +10,11 @@ ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe012345
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: 4f3a74d67ce3453499ea9785cc80bee183dc1aff
-ms.sourcegitcommit: e4fb6b13be56a0fb2f2778623740a047d6489227
+ms.openlocfilehash: 3f4df08d6cf5d183735ae4b4ec4f07ed60a9623a
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="aspnet-core-security-overview"></a>Przegląd zabezpieczeń platformy ASP.NET Core
 
@@ -56,7 +56,7 @@ Istnieje więcej usterek, które należy zwrócić uwagę. Aby uzyskać więcej 
         *   [Wywołanie interfejsu API sieci Web w aplikacji sieci Web platformy ASP.NET Core za pomocą usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
         *   [Aplikacji sieci web platformy ASP.NET Core za pomocą usługi Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
     *   [Zabezpieczanie aplikacji za pomocą IdentityServer4 platformy ASP.NET Core](https://identityserver4.readthedocs.io)
-*   [Autoryzacji](authorization/index.md)
+*   [Autoryzacja](authorization/index.md)
     *   [Wprowadzenie](authorization/introduction.md)
     *   [Tworzenie aplikacji przy użyciu danych użytkownika chronione przez autoryzacji](xref:security/authorization/secure-data)
     *   [Proste autoryzacji](authorization/simple.md)

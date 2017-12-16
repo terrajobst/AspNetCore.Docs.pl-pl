@@ -5,18 +5,18 @@ description: "Więcej informacji na temat struktury rejestrowania w ASP.NET Core
 keywords: Platformy ASP.NET Core, rejestrowanie, providers,Microsoft.Extensions.Logging,ILogger,ILoggerFactory,LogLevel,WithFilter,TraceSource,EventLog,EventSource,scopes rejestrowania
 ms.author: tdykstra
 manager: wpickett
-ms.date: 11/15/2017
+ms.date: 12/15/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging/index
-ms.openlocfilehash: f7f5f08799513aa07223995410f2125407c58c94
-ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
+ms.openlocfilehash: 737de614625ce560df1c3d7cfd9810f9433c153d
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="introduction-to-logging-in-aspnet-core"></a>Wprowadzenie do rejestrowania w platformy ASP.NET Core
+# <a name="introduction-to-logging-in-aspnet-core"></a>Wprowadzenie do rejestrowania w ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/) i [Dykstra niestandardowy](https://github.com/tdykstra)
 
@@ -587,7 +587,13 @@ Poniższy przykład konfiguruje `TraceSource` dostawcy, który rejestruje `Warni
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Nie trzeba zainstalować pakiet dostawcy lub wywołanie `AddAzureWebAppDiagnostics` — metoda rozszerzenia. Dostawca jest automatycznie dostępne dla aplikacji, podczas wdrażania aplikacji w usłudze Azure App Service.
+Jeśli przeznaczonych dla platformy .NET Core, nie trzeba zainstalować pakiet dostawcy lub jawnie wywołać `AddAzureWebAppDiagnostics`. Dostawca jest automatycznie dostępne dla aplikacji, podczas wdrażania aplikacji w usłudze Azure App Service.
+
+Jeśli przeznaczonych dla platformy .NET Framework, Dodaj pakiet dostawcy do projektu i wywołać `AddAzureWebAppDiagnostics`:
+
+```csharp
+logging.AddAzureWebAppDiagnostics();
+```
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
 
