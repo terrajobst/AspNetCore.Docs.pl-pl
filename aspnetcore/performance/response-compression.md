@@ -11,11 +11,11 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: fdb396d8857dc9c118cc19da1f7d1d498dfaacd5
-ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
+ms.openlocfilehash: 68e8c89f6e5485f25d1a551ab3e524f0e9c53d0d
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Oprogramowanie pośredniczące kompresji odpowiedzi dla platformy ASP.NET Core
 
@@ -183,7 +183,7 @@ Podczas kompresowania odpowiedzi na podstawie `Accept-Encoding` nagłówka, istn
 
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet1)]
 
-## <a name="middlware-issue-when-behind-an-nginx-reverse-proxy"></a>Middlware problem podczas za Nginx wstecznego serwera proxy
+## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Oprogramowanie pośredniczące problem podczas za Nginx wstecznego serwera proxy
 Jeśli żądanie jest przekazywane przez serwer proxy przez Nginx, `Accept-Encoding` nagłówka zostaną usunięte. Zapobiega to oprogramowanie pośredniczące od kompresji odpowiedzi. Aby uzyskać więcej informacji, zobacz [NGINX: kompresji i dekompresji](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Ten problem jest śledzony przez [zorientować się przekazujące kompresja nginx (BasicMiddleware #123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Praca z kompresji dynamicznej usług IIS

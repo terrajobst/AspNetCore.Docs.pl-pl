@@ -5,18 +5,18 @@ description: Wprowadzenie do platformy ASP.NET Core stron Razor
 keywords: Platformy ASP.NET Core stron Razor, Razor, MVC
 ms.author: riande
 manager: wpickett
-ms.date: 08/27/2017
+ms.date: 12/22/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: d76f993a9843de6ecb6e90c411e46bf7eff0672c
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 12685d6a391c127d78399408291c26caa0192ee2
+ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="getting-started-with-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
+# <a name="get-started-with-razor-pages-in-aspnet-core"></a>Rozpoczynanie pracy z Razor strony platformy ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -40,7 +40,11 @@ Istnieją trzy wersje tego samouczka:
 * Utwórz nową aplikację sieci Web platformy ASP.NET Core. Nazwij projekt **RazorPagesMovie**. Ważne jest, aby nazwa projektu *RazorPagesMovie* , przestrzenie nazw będzie dopasowania, gdy użytkownik kopiowanie/wklejanie kodu.
   ![nową aplikację sieci Web Core ASP.NET](../../mvc/razor-pages/index/_static/np.png)
 * Wybierz **ASP.NET Core 2.0** w listy rozwijanej, a następnie wybierz **aplikacji sieci Web**.
-  ![Aplikacja sieci Web (Razor strony)](../../mvc/razor-pages/index/_static/np2.png)
+
+> [!NOTE]
+> Jeśli chcesz użyć platformy ASP.NET Core w programie .NET Framework, musisz najpierw wybrać **.NET Framework** z pierwszej listy rozwijanej w oknie dialogowym, można wybrać odpowiednią wersję platformy ASP.NET Core.
+
+  ![Aplikacja sieci Web (Razor strony)](razor-pages-start/_static/np2.png)
 
 Szablon programu Visual Studio tworzy projekt starter:
 

@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 1922037245a33f49c17f1c361003260462d96264
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a3fdbf8a1ab4ca397824a46da445fa34ddd35204
+ms.sourcegitcommit: 4be61844141d3cfb6f263636a36aebd26e90fb28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w ASP.NET Core
 
@@ -124,7 +124,7 @@ W kodzie poprzedzających `SharedResource` jest klasa odpowiadający resx przech
 
 Platformy ASP.NET Core służy do określania dwóch wartości kultury, `SupportedCultures` i `SupportedUICultures`. [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo) obiekt do `SupportedCultures` określa wyniki funkcje zależne od kultury, takie jak data, czas, numer i formatowanie waluty. `SupportedCultures`Określa również kolejność sortowania tekstu, konwencje wielkość liter i porównywania ciągów. Zobacz [wartość CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture) uzyskać więcej informacji dotyczących sposobu serwera pobiera kultury. `SupportedUICultures` Określa, który tłumaczy ciągi (z *.resx* pliki) są wyszukiwane przez [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager). `ResourceManager` Po prostu wyszukuje specyficzne dla kultury ciągów, które jest określane przez `CurrentUICulture`. Każdy wątek .NET ma `CurrentCulture` i `CurrentUICulture` obiektów. Platformy ASP.NET Core sprawdzi te wartości podczas renderowania funkcje zależne od kultury. Na przykład, jeśli kultury bieżącej wątku ma ustawioną wartość "en US" (angielski, Stany Zjednoczone) `DateTime.Now.ToLongDateString()` Wyświetla "Czwartek, 18 luty 2016 r.", ale jeśli `CurrentCulture` jest ustawiona na "es-ES" (wersja hiszpańska, Hiszpania) dane wyjściowe będą "jueves, de febrero 18 de 2016".
 
-## <a name="working-with-resource-files"></a>Praca z plikami zasobów
+## <a name="resource-files"></a>Pliki zasobów
 
 Plik zasobów jest mechanizm przydatne do oddzielania Lokalizowalny ciągów z kodu. Przetłumaczone ciągi dla języków innych niż domyślne są izolowane *.resx* plików zasobów. Na przykład można utworzyć plik hiszpańskim zasobów o nazwie *Welcome.es.resx* zawierający przetłumaczone ciągi. "es" jest kod języka hiszpańskiego. Aby utworzyć ten plik zasobu w programie Visual Studio:
 
@@ -172,19 +172,21 @@ Pliki zasobów przy użyciu `@inject IViewLocalizer` w widokach Razor wykonaj po
 
 Jeśli nie używasz `ResourcesPath` opcji *.resx* pliku dla widoku będzie znajdować się w tym samym folderze co widoku.
 
-Jeśli po usunięciu określenia kultury ".fr" ma kulturę ustawione na język francuski (za pośrednictwem pliku cookie lub inny mechanizm), domyślny plik zasobu jest do odczytu i są zlokalizowane ciągi. Menedżer zasobów określa domyślne lub powrotu zasobu, jeśli nic nie spełnia Twoje żądaną kulturę, są obsługiwane pliku *.resx bez określenia kultury. Jeśli chcesz przywrócić klucz tylko, gdy nie ma zasobu dla żądanego kultury nie może mieć domyślnego pliku zasobów.
+## <a name="culture-fallback-behavior"></a>Działanie rezerwowe kultury
 
-### <a name="generating-resource-files-with-visual-studio"></a>Generowanie plików zasobów z programem Visual Studio
+Na przykład jeśli usuniesz określenia kultury ".fr" i ma kultury ustawione na język francuski, domyślny plik zasobu jest do odczytu i są zlokalizowane ciągi. Menedżer zasobów wyznacza domyślny lub rezerwowej zasobu dla Jeśli nic nie spełnia Twoje żądaną kulturę. Jeśli chcesz przywrócić klucz tylko, gdy nie ma zasobu dla żądanego kultury nie może mieć domyślnego pliku zasobów.
+
+### <a name="generate-resource-files-with-visual-studio"></a>Generowanie plików zasobów z programem Visual Studio
 
 Jeśli utworzysz plik zasobów w programie Visual Studio bez kultury w nazwie pliku (na przykład *Welcome.resx*), programu Visual Studio utworzy klasę C# z właściwością dla każdego ciągu. To zwykle nie chcesz z platformy ASP.NET Core; zwykle nie ma wartości domyślnej *.resx* pliku zasobów (A *.resx* pliku bez nazwy kultury). Zaleca się tworzenia *.resx* plik o nazwie kultury (na przykład *Welcome.fr.resx*). Po utworzeniu *.resx* plik o nazwie kultury, Visual Studio nie wygeneruje pliku klasy. Przewidujemy, że będzie wielu deweloperów **nie** Utwórz plik zasobu języka domyślnego.
 
-### <a name="adding-other-cultures"></a>Dodawanie innych kultur
+### <a name="add-other-cultures"></a>Dodawanie innych kultur
 
 Każda kombinacja języka i kultury (innego niż domyślny język) wymaga pliku unikatowy zasób. Tworzenie plików zasobów dla innych kultur i ustawień regionalnych przez tworzenie nowych plików zasobów, w których kodów języka ISO należą do nazwy pliku (na przykład **en-us**, **fr-ca**, i  **pl pl.**). Te kody ISO umieszcza się pomiędzy nazwą i *.resx* rozszerzeniem, podobnie jak w *Welcome.es MX.resx* Hiszpański/Meksyk (). Aby określić kulturalnie niezależnym od języka, usuń numer kierunkowy kraju (`MX` w poprzednim przykładzie). Nazwa pliku kulturalnie neutralnego zasobu hiszpańskim jest *Welcome.es.resx*.
 
 ## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Wdrożenie strategii wybierz języka/kultury dla każdego żądania  
 
-### <a name="configuring-localization"></a>Konfigurowanie lokalizacji
+### <a name="configure-localization"></a>Konfigurowanie lokalizacji
 
 Lokalizacja jest skonfigurowana w `ConfigureServices` metody:
 
@@ -236,7 +238,7 @@ Jeśli określono tylko jedna z informacji kultury lub kultury interfejsu użytk
 
 [Nagłówka Accept-Language](https://www.w3.org/International/questions/qa-accept-lang-locales) można ustawić w większości przeglądarek i pierwotnie był przeznaczony do Określ język użytkownika. To ustawienie wskazuje co przeglądarki została ustawiona do wysłania lub odziedziczył system operacyjny. Nagłówek Accept-Language HTTP z żądanie przeglądarki nie jest infallible sposób, aby wykryć preferowanego języka użytkownika (zobacz [ustawienie Preferencje językowe w przeglądarce](https://www.w3.org/International/questions/qa-lang-priorities.en.php)). Aplikacji produkcyjnej powinny uwzględniać sposób, aby użytkownik mógł dostosować wybór kultury.
 
-### <a name="setting-the-accept-language-http-header-in-ie"></a>Ustawienie nagłówka Accept-Language HTTP w programie Internet Explorer
+### <a name="set-the-accept-language-http-header-in-ie"></a>Ustaw nagłówek Accept-Language HTTP w programie Internet Explorer
 
 1. Na koło zębate ikonę, naciśnij **Opcje internetowe**.
 
@@ -252,7 +254,7 @@ Jeśli określono tylko jedna z informacji kultury lub kultury interfejsu użytk
 
 6. Wybierz język, a następnie wybierz **Przenieś w górę**.
 
-### <a name="using-a-custom-provider"></a>Przy użyciu niestandardowego dostawcy
+### <a name="use-a-custom-provider"></a>Użyj niestandardowego dostawcy
 
 Załóżmy, że chcesz umożliwić klientom przechowywanie ich języka i kultury w bazach danych. Można zapisać dostawcy wyszukiwania te wartości dla użytkownika. Poniższy kod przedstawia sposób dodawania niestandardowego dostawcy:
 
@@ -281,7 +283,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 Użyj `RequestLocalizationOptions` Aby dodać lub usunąć lokalizacji dostawcy.
 
-### <a name="setting-the-culture-programmatically"></a>Ustawienie kultury programowo
+### <a name="set-the-culture-programmatically"></a>Ustaw programowo kultury
 
 W tym przykładzie **Localization.StarterWeb** projektu na [GitHub](https://github.com/aspnet/entropy) zawiera interfejsu użytkownika można ustawić `Culture`. *Views/Shared/_SelectLanguagePartial.cshtml* pliku można wybrać z listy obsługiwanych kultur kultura:
 

@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: a66b5ea32c2090b9944cd61f90f7fe011a823e82
-ms.sourcegitcommit: 3511552becb081fb860a23d6c9b6c4efcab74577
+ms.openlocfilehash: 31d8b1f662d3d5e7dad8f459d951c7b8181148b8
+ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
@@ -165,7 +165,7 @@ Kod związany z *Index.cshtml.cs* pliku:
 
 [!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-[Pomocnika Tag kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) używane [asp - route - {wartość value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#route) atrybut do generowania łącza do edycji strony. Ten link zawiera dane trasy, o kontakt identyfikatora. Na przykład `http://localhost:5000/Edit/1`.
+[Pomocnika Tag kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) używane `asp-route-{value}` atrybut do generowania łącza do edycji strony. Ten link zawiera dane trasy, o kontakt identyfikatora. Na przykład `http://localhost:5000/Edit/1`.
 
 *Pages/Edit.cshtml* pliku:
 
@@ -415,7 +415,7 @@ services.AddMvc()
 
 ## <a name="see-also"></a>Zobacz także
 
-* [Wprowadzenie do stron Razor](xref:tutorials/razor-pages/razor-pages-start)
+* [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Konwencje autoryzacji stron razor](xref:security/authorization/razor-pages-authorization)
 * [Razor strony trasy i strony modelu dostawców niestandardowych](xref:mvc/razor-pages/razor-pages-convention-features)
 * [Jednostka stron razor i integracji testowania](xref:testing/razor-pages-testing)

@@ -5,18 +5,17 @@ description: "Więcej informacji o weryfikacji modelu w programie ASP.NET MVC Co
 keywords: Weryfikacji platformy ASP.NET Core MVC,
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 12/18/2016
 ms.topic: article
 ms.assetid: 3a8676dd-7ed8-4a05-bca2-44e288ab99ee
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3f3f7010d7744d59ce2dd88b323418423b3ae08
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: 7f641c247cb672934e76fa13bc7b7beb3990dd82
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Wprowadzenie do sprawdzania poprawności modelu w programie ASP.NET MVC Core
 
@@ -84,7 +83,7 @@ MVC będzie sprawdzanie poprawności pól, dopóki nie osiągnie maksymalną lic
 
 ## <a name="handling-model-state-errors"></a>Stan modelu obsługi błędów
 
-Weryfikacja modelu występuje przed każdego wywoływana Akcja kontrolera i odpowiada metoda akcji sprawdzić `ModelState.IsValid` i odpowiednio zareagować. W wielu przypadkach odpowiednie reakcji jest zwracany określonego rodzaju odpowiedzi błędu, najlepiej opisujący szczegółowo przyczynę niepowodzenia weryfikacji modelu.
+Weryfikacja modelu występuje przed każdego wywoływana Akcja kontrolera i odpowiada metoda akcji sprawdzić `ModelState.IsValid` i odpowiednio zareagować. W wielu przypadkach odpowiednie reakcji jest zwracany w odpowiedzi na błąd, najlepiej opisujący szczegółowo przyczynę niepowodzenia weryfikacji modelu.
 
 Niektóre aplikacje wybierze wykonać standardowej konwencji zajmujących się błędy sprawdzania poprawności modelu, w których przypadku filtru może być odpowiednie miejsce do wdrożenia tych zasad. Należy przetestować zachowanie akcji z stanów modelu prawidłowe oraz nieprawidłowe.
 
@@ -98,7 +97,7 @@ Może być konieczne ręczne uruchomienie walidacji. Aby to zrobić, należy wyw
 
 ## <a name="custom-validation"></a>Walidacji niestandardowej
 
-Atrybuty weryfikacji działają w wielu zastosowaniach sprawdzania poprawności. Jednak niektóre reguły sprawdzania poprawności są specyficzne dla firmy, ponieważ nie są one tylko jest wymagana weryfikacja danych typu ogólnego, takich jak zapewnienie pola lub że spełnia on zakresu wartości. W tych sytuacjach niestandardowego sprawdzania poprawności atrybutów są doskonałe rozwiązanie. Tworzenie własnego niestandardowego sprawdzania poprawności atrybutów w MVC jest bardzo proste. Tylko dziedziczyć `ValidationAttribute`i Zastąp `IsValid` metody. `IsValid` Metoda przyjmuje dwa parametry pierwszy jest obiekt o nazwie *wartość* a drugim `ValidationContext` obiektu o nazwie *validationContext*. *Wartość* odwołuje się do wartości rzeczywistej z pola niestandardowego modułu sprawdzania poprawności przeprowadza walidację.
+Atrybuty weryfikacji działają w wielu zastosowaniach sprawdzania poprawności. Jednak niektóre reguły sprawdzania poprawności są specyficzne dla firmy. Reguły może nie być typowe techniki sprawdzania poprawności danych, takich jak zapewnienie pole jest wymagane lub że spełnia on zakresu wartości. W tych sytuacjach niestandardowego sprawdzania poprawności atrybutów są doskonałe rozwiązanie. Tworzenie własnego niestandardowego sprawdzania poprawności atrybutów w MVC jest bardzo proste. Tylko dziedziczyć `ValidationAttribute`i Zastąp `IsValid` metody. `IsValid` Metoda przyjmuje dwa parametry pierwszy jest obiekt o nazwie *wartość* a drugim `ValidationContext` obiektu o nazwie *validationContext*. *Wartość* odwołuje się do wartości rzeczywistej z pola niestandardowego modułu sprawdzania poprawności przeprowadza walidację.
 
 W poniższym przykładzie reguła biznesowa określają, czy użytkownicy mogą nie ustawiono genre *klasycznego* filmu wydaną po 1960. `[ClassicMovie]` Atrybut najpierw sprawdza genre, a jeśli klasyczny, następnie sprawdza Data wydania jest późniejsza niż 1960. Jeśli po uwolnieniu po 1960, uwierzytelnienie nie powiedzie się. Atrybut akceptuje parametr całkowitą reprezentującą rok, który służy do sprawdzania poprawności danych. Wartość parametru w Konstruktorze ten atrybut można przechwycić w sposób pokazany poniżej:
 
@@ -145,11 +144,11 @@ Powyżej pomocników tagów renderowania elementów HTML poniżej. Zwróć uwag�
 </form>
 ```
 
-W związku z tym weryfikacji po stronie klienta uniemożliwia przesyłanie, dopóki formularza jest nieprawidłowy. Przycisk Prześlij uruchamia JavaScript, która wyśle formularz lub wyświetlane komunikaty o błędach.
+Weryfikacji po stronie klienta uniemożliwia przesyłanie, dopóki formularza jest nieprawidłowy. Przycisk Prześlij uruchamia JavaScript, która wyśle formularz lub wyświetlane komunikaty o błędach.
 
 MVC określa na podstawie typu danych .NET właściwości, prawdopodobnie przesłonić przy użyciu wartości atrybutu typu `[DataType]` atrybutów. Podstawowym `[DataType]` atrybut zapewnia Weryfikacja nie rzeczywistym po stronie serwera. Przeglądarki wybrać własne komunikaty o błędach i wyświetlić te błędy, jednak życzą, jednak pakiet sprawdzania poprawności dyskretnego kodu jQuery można zastąpić wiadomości i ich konsekwentnie wyświetlić z innymi osobami. Dzieje się tak najczęściej oczywiście, gdy użytkownicy zastosują `[DataType]` podklasy, takich jak `[EmailAddress]`.
 
-### <a name="adding-validation-to-dynamic-forms"></a>Dodawanie walidacji do formularzy dynamicznych:
+### <a name="add-validation-to-dynamic-forms"></a>Dodawanie walidacji do dynamicznego formularzy
 
 Ponieważ jQuery sprawdzania poprawności dyskretnego kodu przekazuje parametry i logikę weryfikacji do weryfikacji jQuery, po pierwszym załadowaniu strony, formularze dynamicznie generowanym nie będzie automatycznie zawierać sprawdzania poprawności. Zamiast tego należy wskazać jQuery dyskretnego kodu sprawdzania poprawności można przeanalizować dynamiczny formularz natychmiast po jej utworzeniu. Na przykład poniższy kod przedstawia, jak można skonfigurować weryfikacji po stronie klienta na formularzu dodane za pośrednictwem interfejsu AJAX.
 
@@ -172,7 +171,7 @@ $.get({
 
 `$.validator.unobtrusive.parse()` Metoda przyjmuje selektora jQuery dla jednego argumentu. Ta metoda określa, że jQuery dyskretnego kodu sprawdzania poprawności można przeanalizować `data-` atrybuty formularzy w selektora. Wartości tych atrybutów są następnie przekazywane do wtyczki weryfikacji jQuery tak, aby formularz wykazuje reguł weryfikacji po stronie klienta żądany.
 
-### <a name="adding-validation-to-dynamic-controls"></a>Dodawanie walidacji do formantów dynamicznych:
+### <a name="add-validation-to-dynamic-controls"></a>Dodawanie walidacji do formantów dynamicznych
 
 Można także zaktualizować reguły walidacji na formularzu, gdy osoba formanty, takie jak `<input/>`s i `<select/>`s, są generowane dynamicznie. Nie można przekazać selektory dla tych elementów do `parse()` metody bezpośrednio ponieważ otaczające formularz już został przeanalizowany i nie będzie aktualizowana.  Zamiast tego należy najpierw usunąć istniejące dane sprawdzania poprawności, a następnie ponownej analizy całego formularza, jak pokazano poniżej:
 

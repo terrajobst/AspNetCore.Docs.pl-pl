@@ -2,21 +2,22 @@
 title: "Publikowanie aplikacji platformy ASP.NET Core dla platformy Azure przy użyciu programu Visual Studio"
 author: rick-anderson
 description: 
-keywords: Platformy ASP.NET Core
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 10/05/2017
+ms.date: 12/16/2017
 ms.topic: get-started-article
-ms.assetid: 78571e4a-a143-452d-9cf2-0860f85972e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 6f697ed4d8876a19cd058533e4f6a5d4f7cdc2fb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fdd439a5e4fd41e72fd7a3c602183d4a4e9e0aa5
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/19/2017
 ---
+/en-us
+
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Publikowanie aplikacji sieci web platformy ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Silveira Blum Cesarowi](https://github.com/cesarbs), i [Rachel Appel](https://twitter.com/rachelappel)
@@ -36,9 +37,7 @@ W Visual Studio — strona początkowa, wybierz **Plik > Nowy > Projekt...**
 Zakończenie **nowy projekt** okna dialogowego:
 
 * W okienku po lewej stronie wybierz **.NET Core**.
-
 * W środkowym okienku wybierz **aplikacji sieci Web platformy ASP.NET Core**.
-
 * Wybierz **OK**.
 
 ![Okno dialogowe nowego projektu](publish-to-azure-webapp-using-vs/_static/new_prj.png)
@@ -46,7 +45,6 @@ Zakończenie **nowy projekt** okna dialogowego:
 W **nową aplikację sieci Web Core ASP.NET** okna dialogowego:
 
 * Wybierz **aplikacji sieci Web**.
-
 * Wybierz **Zmień uwierzytelnianie**.
 
 ![Okno dialogowe nowego projektu](publish-to-azure-webapp-using-vs/_static/new_prj_2.png)
@@ -54,25 +52,24 @@ W **nową aplikację sieci Web Core ASP.NET** okna dialogowego:
 **Zmień uwierzytelnianie** zostanie wyświetlone okno dialogowe. 
 
 * Wybierz **indywidualne konta użytkowników**.
-
 * Wybierz **OK** aby powrócić do **nową aplikację sieci Web Core ASP.NET**, a następnie wybierz pozycję **OK** ponownie.
 
 ![Okno dialogowe nowego uwierzytelniania sieci Web platformy ASP.NET Core](publish-to-azure-webapp-using-vs/_static/new_prj_auth.png) 
 
 Program Visual Studio tworzy rozwiązanie.
 
-## <a name="run-the-app-locally"></a>Uruchamianie aplikacji lokalnie
+## <a name="run-the-app"></a>Uruchamianie aplikacji
 
-* Wybierz **debugowania** następnie **uruchomić bez debugowania** Aby uruchomić aplikację lokalnie.
-
-* Kliknij przycisk **o** i **skontaktuj się z** łącza do weryfikowanie działania aplikacji sieci web.
+* Naciśnij klawisze CTRL + F5, aby uruchomić projekt.
+* Test **o** i **skontaktuj się z** łącza.
 
 ![Aplikacja sieci Web otwórz w programie Microsoft Edge na hoście lokalnym](publish-to-azure-webapp-using-vs/_static/show.png)
+
+### <a name="register-a-user"></a>Zarejestruj użytkownika
 
 * Wybierz **zarejestrować** i zarejestrować nowego użytkownika. Można użyć adresu e-mail fikcyjne. Podczas przesyłania, zostanie wyświetlona strona następujący błąd:
 
     *"Wewnętrzny błąd serwera: Operacja bazy danych nie powiodło się podczas przetwarzania żądania. Wyjątku SQL: nie można otworzyć bazy danych. Stosowanie istniejących migracje dla kontekst bazy danych aplikacji może rozwiązać ten problem."*
-
 * Wybierz **zastosować migracje** i po aktualizacji strony, Odśwież stronę.
 
 ![Wewnętrzny błąd serwera: Operacja bazy danych nie powiodła się podczas przetwarzania żądania. Wyjątku SQL: nie można otworzyć bazy danych. Stosowanie istniejących migracje dla kontekst bazy danych aplikacji może rozwiązać ten problem.](publish-to-azure-webapp-using-vs/_static/mig.png)
@@ -83,23 +80,24 @@ Aplikacja wyświetla wiadomości e-mail używany do rejestrowania nowego użytko
 
 ## <a name="deploy-the-app-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 
-Zamknij stronę sieci web, wróć do programu Visual Studio i wybierz **Zatrzymaj debugowanie** z **debugowania** menu.
-
 Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **publikowania...** .
 
 ![Menu kontekstowe Otwórz za pomocą łącza publikowania wyróżnione](publish-to-azure-webapp-using-vs/_static/pub.png)
 
-W **publikowania** okno dialogowe, wybierz opcję **Microsoft Azure App Service** i kliknij przycisk **publikowania**.
+W **publikowania** okna dialogowego:
+
+* Wybierz **usługi Microsoft Azure App Service**.
+* Wybierz ikonę Koło zębate, a następnie wybierz **Utwórz profil**.
+* Wybierz **Utwórz profil**.
 
 ![Okno dialogowe publikowania](publish-to-azure-webapp-using-vs/_static/maas1.png)
 
-* Nadaj nazwę unikatową nazwę aplikacji. 
+### <a name="create-azure-resources"></a>Utworzenie zasobów platformy Azure
 
-* Wybierz subskrypcję.
+**Tworzenie usługi App Service** zostanie wyświetlone okno dialogowe:
 
-* Wybierz **nowych...**  zasobu grupy, a następnie wprowadź nazwę nowej grupy zasobów.
-
-* Wybierz **nowych...**  dla planu usługi aplikacji i wybierz lokalizację w pobliżu. Można zachować na nazwę, która jest generowana przez domyślny.
+* Wprowadź swoją subskrypcję.
+* **Nazwa aplikacji**, **grupy zasobów**, i **planu usługi App Service** pola wejścia zostaną wypełnione. Można zachować te nazwy lub je zmienić.
 
 ![Usługi aplikacji — okno dialogowe](publish-to-azure-webapp-using-vs/_static/newrg1.png)
 
@@ -115,9 +113,7 @@ W **publikowania** okno dialogowe, wybierz opcję **Microsoft Azure App Service*
 
 **Konfiguruj serwer SQL** zostanie wyświetlone okno dialogowe.
 
-* Wprowadź nazwę użytkownika administratora i hasło, a następnie wybierz **OK**. Nie zapomnij nazwę użytkownika i hasło utworzone w tym kroku. Domyślne można zachować **nazwy serwera**. 
-
-* Wprowadź nazwy parametrów połączenia i bazy danych.
+* Wprowadź nazwę użytkownika administratora i hasło, a następnie wybierz **OK**. Domyślne można zachować **nazwy serwera**. 
 
 > [!NOTE]
 > "Administrator" nie jest dozwolona jako nazwa użytkownika administratora.
@@ -132,21 +128,22 @@ Visual Studio zwraca do **Tworzenie usługi App Service** okna dialogowego.
 
 ![Konfigurowanie bazy danych SQL w oknie dialogowym](publish-to-azure-webapp-using-vs/_static/conf_final.png)
 
-* Kliknij przycisk **ustawienia** łącze w **publikowania** okna dialogowego.
+Visual Studio tworzy aplikację sieci Web i programu SQL Server na platformie Azure. Ten krok może potrwać kilka minut. Aby uzyskać informacji na temat tworzenia zasobów, zobacz [zasoby dodatkowe](#additonal-resources).
 
-![Okno dialogowe publikowania: panel połączenia](publish-to-azure-webapp-using-vs/_static/pubc.png)
+Po zakończeniu wdrożenia, wybierz **ustawienia**:
+
+![Konfigurowanie okna dialogowego programu SQL Server](publish-to-azure-webapp-using-vs/_static/set.png)
 
 Na **ustawienia** strony **publikowania** okna dialogowego:
 
   * Rozwiń węzeł **baz danych** i sprawdź **Użyj tych parametrów połączenia w czasie wykonywania**.
-
   * Rozwiń węzeł **Entity Framework migracje** i sprawdź **Zastosuj publikowania tej migracji na**.
 
 * Wybierz **zapisać**. Visual Studio zwraca do **publikowania** okna dialogowego. 
 
 ![Okno dialogowe publikowania: panel ustawień](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
-Kliknij przycisk **publikowania**. Visual Studio będzie publikowanie aplikacji na platformie Azure i uruchomić aplikację w chmurze w przeglądarce.
+Kliknij przycisk **publikowania**. Visual Studio publishs aplikacji na platformie Azure. Po ukończeniu depoyment aplikacji jest otwarty w przeglądarce.
 
 ### <a name="test-your-app-in-azure"></a>Testowanie aplikacji na platformie Azure
 
@@ -158,9 +155,7 @@ Kliknij przycisk **publikowania**. Visual Studio będzie publikowanie aplikacji 
 
 ### <a name="update-the-app"></a>Aktualizowanie aplikacji
 
-* Edytuj *Pages/About.cshtml* Razor strony i zmienić jego zawartość. Na przykład można zmodyfikować akapitu znaczy "Hello platformy ASP.NET Core!":
-
-    [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
+* Edytuj *Pages/About.cshtml* Razor strony i zmienić jego zawartość. Na przykład można zmodyfikować akapitu znaczy "Hello platformy ASP.NET Core!":[!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
 * Kliknij prawym przyciskiem myszy na projekt i wybierz **publikowania...**  ponownie.
 
@@ -187,3 +182,10 @@ Po zakończeniu testowania aplikacji, przejdź do [portalu Azure](https://portal
 ### <a name="next-steps"></a>Następne kroki
 
 * [Ciągłe wdrażanie na platformie Azure za pomocą programu Visual Studio i Git](../publishing/azure-continuous-deployment.md)
+
+
+## <a name="additonal-resources"></a>Zasoby dodatkowe
+
+* [Usługa aplikacji Azure](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-overview)
+* [Grup zasobów platformy Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups)
+* [Baza danych Azure SQL](https://docs.microsoft.com/en-us/azure/sql-database/)

@@ -11,11 +11,11 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: f0759f16ada531774a3945f67495e5f634e6154e
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 277e63a5663aca622e8252d6c6be1671e57cbf68
+ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Konfiguracja modułu Core programu ASP.NET
 
@@ -117,6 +117,7 @@ Poniżej przedstawiono przykładowe `aspNetCore` element, który konfiguruje `st
     stdoutLogFile="\\?\%home%\LogFiles\stdout">
 </aspNetCore>
 ```
+Zobacz [konfiguracji za pomocą pliku web.config](#configuration-via-webconfig) przykład `aspNetCore` element *web.config* pliku.
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>Moduł platformy ASP.NET Core z programem IIS konfiguracji udostępnionej
 
