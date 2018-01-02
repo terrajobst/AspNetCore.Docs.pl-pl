@@ -37,6 +37,18 @@
 ### [Aktualizowanie powiązanych danych](xref:data/ef-rp/update-related-data)
 ### [Obsługa konfliktów współbieżności](xref:data/ef-rp/concurrency)
 
+## [Dostęp do danych — wzorzec MVC z programem EF Core](data/ef-mvc/index.md)
+### [Wprowadzenie](data/ef-mvc/intro.md)
+### [Operacje tworzenia, odczytu, aktualizowania i usuwania](data/ef-mvc/crud.md)
+### [Sortowanie, filtrowanie, stronicowanie i grupowanie](data/ef-mvc/sort-filter-page.md)
+### [Migracje](data/ef-mvc/migrations.md)
+### [Tworzenie złożonego modelu danych](data/ef-mvc/complex-data-model.md)
+### [Odczytywanie powiązanych danych](data/ef-mvc/read-related-data.md)
+### [Aktualizowanie powiązanych danych](data/ef-mvc/update-related-data.md)
+### [Obsługa konfliktów współbieżności](data/ef-mvc/concurrency.md)
+### [Dziedziczenie](data/ef-mvc/inheritance.md)
+### [Tematy zaawansowane](data/ef-mvc/advanced.md)
+
 ## [Tworzenie usług zaplecza dla aplikacji mobilnych](mobile/native-mobile-backend.md)
 ## [Kompilowanie interfejsów Web API](mvc/web-api/index.md)
 ## [Tworzenie interfejsu Web API](xref:tutorials/first-web-api-mac)
