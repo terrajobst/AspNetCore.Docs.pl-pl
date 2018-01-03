@@ -18,7 +18,7 @@ Wybierz z menu łączy (**MvcMovie**, **Home**, **o**). Każda strona zawiera te
 
 ## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Zmień łącza tytuł i menu w pliku układu
 
-Zmienić zawartość elementu tytułu. Zmień tekst zakotwiczenia w szablon układu "Movie App" i kontroler z `Home` do `Movies` jak wyróżniono poniżej:
+W elemencie tytuł zmienić `MvcMovie` do `Movie App`. Zmień tekst zakotwiczenia w szablon układu z `MvcMovie` do `Mvc Movie` i kontroler z `Home` do `Movies` jak wyróżniono poniżej:
 
 Uwaga: Wersja platformy ASP.NET Core 2.0 jest nieco inne. Nie zawiera on `@inject ApplicationInsights` i `@Html.Raw(JavaScriptSnippet.FullScript)`.
 
@@ -29,9 +29,9 @@ Uwaga: Wersja platformy ASP.NET Core 2.0 jest nieco inne. Nie zawiera on `@injec
 
 Zapisz zmiany, a następnie naciśnij pozycję **o** łącza. Zwróć uwagę, jak tytuł na karcie przeglądarki są obecnie wyświetlane **o - Movie App** zamiast **o - Mvc Movie**: 
 
-![O karcie](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+![O karcie](../../tutorials/first-mvc-app/adding-view/_static/about2.png)
 
-Wybierz **skontaktuj się z** i zwróć uwagę, że w niej również wyświetlane łącza **Movie App**. Udało się zmienić raz w szablonie układ i mieć wszystkich stron w witrynie uwzględniać nowy tekst łącza i nowy tytuł.
+Wybierz **skontaktuj się z** link i zwróć uwagę tekstu tytułu i zakotwiczenia również wyświetlić **Movie App**. Udało się zmienić raz w szablonie układ i mieć wszystkich stron w witrynie uwzględniać nowy tekst łącza i nowy tytuł.
 
 Sprawdź *Views/_ViewStart.cshtml* pliku:
 
@@ -105,7 +105,7 @@ Zapisz zmiany i przejdź do następującego adresu URL:
 
 Dane są pobierane z adresu URL i przekazywane do kontrolera przy użyciu [integratora modelu MVC](xref:mvc/models/model-binding) . Kontroler pakiety danych w `ViewData` słownika i przekazuje, które obiekt do widoku. Widok następnie renderuje dane jako HTML do przeglądarki.
 
-![Widok pokazujący powitalnej etykiety i frazy Hello Rick przedstawiono cztery razy — informacje](../../tutorials/first-mvc-app/adding-view/_static/rick.png)
+![Widok pokazujący powitalnej etykiety i frazy Hello Rick przedstawiono cztery razy — informacje](../../tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
 W powyższym przykładzie użyliśmy `ViewData` słownika do przekazywania danych z kontrolera do widoku. Później w samouczku używamy model widoku do przekazywania danych z kontrolera do widoku. Podejście modelu widoku do przekazywania danych jest zwykle znacznie preferowany nad `ViewData` podejście słownika. Zobacz [ViewModel vs vs ViewData vs obiekt ViewBag TempData vs sesji na platformie MVC](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc) Aby uzyskać więcej informacji.
 

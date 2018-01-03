@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 7a3f1bfa8bec830216af37d89aa588a921485e6b
-ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
+ms.openlocfilehash: 1ecdf010f7c283a0a08b224d570a5bc5cdf536df
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Jednostka stron razor i integracji testowania w ASP.NET Core
 
@@ -30,7 +30,7 @@ Platformy ASP.NET Core obsługuje jednostki i integracji testowania aplikacji st
 W tym temacie założono, że masz podstawową wiedzę na temat stron Razor aplikacji, testy jednostkowe i integracji testowania. Jeśli znasz stron Razor aplikacji lub koncepcji testowania, zobacz następujące tematy:
 
 * [Wprowadzenie do stron Razor](xref:mvc/razor-pages/index)
-* [Wprowadzenie do stron Razor](xref:tutorials/razor-pages/razor-pages-start)
+* [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Badanie C# .NET Core za pomocą testu dotnet i xUnit jednostki](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 * [Testowanie integracji](xref:testing/integration-testing)
 
@@ -57,7 +57,7 @@ Aplikacja wiadomości jest prosty system komunikatów stron Razor o następując
 * Komunikat jest opisane przez `Message` klasy (*Data/Message.cs*) z dwóch właściwości: `Id` (klucz) i `Text` (komunikat). `Text` Właściwość jest wymagana i maksymalnie 200 znaków.
 * Wiadomości są przechowywane przy użyciu [bazy danych programu Entity Framework w pamięci](/ef/core/providers/in-memory/)&#8224;.
 * Ta aplikacja zawiera Warstwa dostępu do danych (DAL) w swojej klasie kontekst bazy danych `AppDbContext` (*Data/AppDbContext.cs*). Metody DAL są oznaczone `virtual`, dzięki czemu mocking metod do użycia w testach.
-* W środowisku programistycznym magazyn komunikatu jest inicjowany z trzech wiadomości. Te *rozpoczęta wiadomości* są również używane do testowania.
+* Jeśli baza danych jest pusta podczas uruchamiania aplikacji, Magazyn komunikatu jest inicjowany z trzech wiadomości. Te *rozpoczęta wiadomości* są również używane do testowania.
 
 &#8224; Temat EF [testowanie za pomocą InMemory](/ef/core/miscellaneous/testing/in-memory), opisano sposób korzystania z bazy danych w pamięci testowania za pomocą przełącznika MSTest. W tym temacie używa [xUnit](https://xunit.github.io/) testowania framework. Pojęcia dotyczące testowania i implementacje testu na różnych platformach testowych są podobne, lecz nie są identyczne.
 

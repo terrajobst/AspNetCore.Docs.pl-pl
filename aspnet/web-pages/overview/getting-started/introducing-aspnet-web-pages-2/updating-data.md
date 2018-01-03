@@ -5,24 +5,24 @@ author: tfitzmac
 description: "Ten samouczek pokazuje, jak zaktualizować wpis (Zmień) istniejącej bazy danych, korzystając z stron sieci Web platformy ASP.NET (Razor). Przyjęto założenie, że zostały wykonane serii th..."
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 6fdb365c1449e6c54dfdbe492211700211f61005
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aabf572e254de9861719fdc502340353482919b4
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Wprowadzenie do strony sieci Web ASP.NET — aktualizowanie bazy danych
 ====================
 przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 
-> Ten samouczek pokazuje, jak zaktualizować wpis (Zmień) istniejącej bazy danych, korzystając z stron sieci Web platformy ASP.NET (Razor). Przyjęto założenie, że zostały wykonane serii za pomocą [wprowadzanie danych przez za pomocą formularzy przy użyciu stron ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251582).
+> Ten samouczek pokazuje, jak zaktualizować wpis (Zmień) istniejącej bazy danych, korzystając z stron sieci Web platformy ASP.NET (Razor). Przyjęto założenie, że zostały wykonane serii za pomocą [wprowadzanie danych przez za pomocą formularzy przy użyciu stron ASP.NET Web Pages](entering-data.md).
 > 
 > Zawartość:
 > 
@@ -143,7 +143,7 @@ Utwórz stronę o nazwie *EditMovie.cshtml* i Zastąp nowości w pliku o następ
 
 Ten kod znaczników i kodu jest podobny do masz *AddMovie* strony. Istnieje niewielka różnica w tekst dla przycisku Prześlij. Jak *AddMovie* strony, jest `Html.ValidationSummary` wywołaniu, które będą wyświetlane błędy sprawdzania poprawności, jeśli istnieją. Teraz możemy Cię pomijając wywołania `Validation.Message`, ponieważ błędy będą wyświetlane w podsumowania weryfikacji. Jak wspomniano w poprzedniej samouczek, można użyć podsumowania weryfikacji i komunikaty o poszczególnych w różnych kombinacjach.
 
-Zwróć uwagę, ponownie że `method` atrybutu `<form>` element jest ustawiony na wartość `post`. Jak *AddMovie.cshtml* strony, strony dokonuje zmian w bazie danych. W związku z tym należy wykonać ten formularz `POST` operacji. (Aby uzyskać więcej informacji o różnicach między `GET` i `POST` operacji, zobacz [GET, POST i bezpieczeństwa zlecenie HTTP](https://go.microsoft.com/fwlink/?LinkId=251581#GET,_POST,_and_HTTP_Verb_Safety) paska bocznego w samouczku w formularzach HTML.)
+Zwróć uwagę, ponownie że `method` atrybutu `<form>` element jest ustawiony na wartość `post`. Jak *AddMovie.cshtml* strony, strony dokonuje zmian w bazie danych. W związku z tym należy wykonać ten formularz `POST` operacji. (Aby uzyskać więcej informacji o różnicach między `GET` i `POST` operacji, zobacz [GET, POST i bezpieczeństwa zlecenie HTTP](form-basics.md#GET,_POST,_and_HTTP_Verb_Safety) paska bocznego w samouczku w formularzach HTML.)
 
 Jak przedstawiono wcześniej samouczka `value` atrybutów pola tekstowe są ustawiane z kodu Razor w celu wstępnego załadowania je. Teraz, jednak używasz zmiennych, na przykład `title` i `genre` dla tego zadania, a nie `Request.Form["title"]`:
 
@@ -224,7 +224,7 @@ Po kodzie użyto `db.Execute` do uruchomienia `Update` instrukcji przekierowuje 
 > 
 > Oczywiście `Query` metoda może zwracać tylko jeden wiersz bazy danych. Jednak ASP.NET zawsze traktuje wyniki `Query` metody jako kolekcja. Nawet wtedy, gdy metoda zwróci wartość tylko jeden wiersz, należy wyodrębnić ten pojedynczy wiersz z kolekcji. W związku z tym w sytuacjach, w którym możesz *wiedzieć* zostanie wyświetlony ponownie tylko jeden wiersz, jest bardziej wygodne bit `QuerySingle`.
 > 
-> Istnieje kilka metod, wykonujących określone typy operacji w bazie danych. Można znaleźć listę metod bazy danych w [interfejsu API stron sieci Web platformy ASP.NET — dokumentacja szybkie](https://go.microsoft.com/fwlink/?LinkID=202907#Data).
+> Istnieje kilka metod, wykonujących określone typy operacji w bazie danych. Można znaleźć listę metod bazy danych w [interfejsu API stron sieci Web platformy ASP.NET — dokumentacja szybkie](../../api-reference/asp-net-web-pages-api-reference.md#Data).
 
 
 ## <a name="making-validation-for-the-id-more-robust"></a>Tworzenie weryfikacji dla Identyfikatora więcej niezawodne
@@ -308,7 +308,7 @@ W następnym samouczku pojawi się, jak usunąć rekord filmu.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor](introducing-razor-syntax-c.md)
 - [Instrukcji SQL UPDATE](http://www.w3schools.com/sql/sql_update.asp) w witrynie W3Schools
 
 >[!div class="step-by-step"]

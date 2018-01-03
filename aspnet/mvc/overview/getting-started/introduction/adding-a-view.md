@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 52f15784f16d355791360021f045cf4f3c467897
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: cf0bb7984ad3460f8784193f7bb407c9b0ad50db
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="adding-a-view"></a>Dodawanie widoku
 ====================
@@ -109,7 +109,7 @@ Należy również zauważyć, jak zawartości w *Index.cshtml* Wyświetl szablon
 
 ![](adding-a-view/_static/image9.png)
 
-Nasze niewielki &quot;danych&quot; (w tym przypadku &quot;Hello z naszych szablonu widoku!&quot; wiadomości) jest ustalony, mimo że. Aplikacja MVC ma &quot;V&quot; (Widok) i masz &quot;C&quot; (kontroler), lecz nie &quot;M&quot; (model) jeszcze. Wkrótce, zostanie omówiony sposób utworzyć bazę danych i pobrać modelu danych.
+Nasze niewielki &quot;danych&quot; (w tym przypadku &quot;Hello z naszych szablonu widoku!&quot; wiadomości) jest ustalony, mimo że. Aplikacja MVC ma &quot;V&quot; (Widok) i masz &quot;C&quot; (kontroler), lecz nie &quot;M&quot; (model) jeszcze. Wkrótce, zostanie omówiony sposób tworzenia bazy danych i pobrać modelu danych.
 
 ## <a name="passing-data-from-the-controller-to-the-view"></a>Przekazywanie danych z kontrolera do widoku
 
