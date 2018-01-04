@@ -5,24 +5,24 @@ author: tfitzmac
 description: "Ten samouczek pokazuje, jak można usunąć wpisu poszczególne bazy danych. Zakłada się, że zostały wykonane serii za pośrednictwem aktualizacji bazy danych w sieci Web ASP.NET Pa...."
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: aef31b6170cc3bba2421eb8c2c41e83aadc129c5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5bc92b5d40e7a55dcd730d552c71031d913b277e
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>Wprowadzenie do strony sieci Web ASP.NET — usuwanie danych z baz danych
 ====================
 przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 
-> Ten samouczek pokazuje, jak można usunąć wpisu poszczególne bazy danych. Przyjęto założenie, że zostały wykonane serii za pomocą [aktualizowania bazy danych w programie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251583).
+> Ten samouczek pokazuje, jak można usunąć wpisu poszczególne bazy danych. Przyjęto założenie, że zostały wykonane serii za pomocą [aktualizowania bazy danych w programie ASP.NET Web Pages](updating-data.md).
 > 
 > Zawartość:
 > 
@@ -76,7 +76,7 @@ Nowej kolumny, która zawiera link (`<a>` element) którego tekst mówi, "Delete
 
 To łącze wywoła stronę o nazwie *DeleteMovie* i przekaż go identyfikator filmu wybrano.
 
-W tym samouczku nie przejdź do szczegółów dotyczących sposobu ten link jest tworzony, ponieważ jest niemal identyczny **Edytuj** łącza z poprzednich samouczek ([aktualizowania bazy danych w programie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251583)).
+W tym samouczku nie przejdź do szczegółów dotyczących sposobu ten link jest tworzony, ponieważ jest niemal identyczny **Edytuj** łącza z poprzednich samouczek ([aktualizowania bazy danych w programie ASP.NET Web Pages](updating-data.md)).
 
 ## <a name="creating-the-delete-page"></a>Tworzenie strony usuwania
 
@@ -137,7 +137,7 @@ Drugi warunek jest `!Request["buttonDelete"].IsEmpty()`, co oznacza, że żądan
   
  AND  
   
-** `buttonDelete` *Przycisk został przycisk formularz został przesłany.*
+*Przycisk* `buttonDelete`*został przycisk formularz został przesłany.*
 
 Ten formularz (w rzeczywistości ta strona) zawiera tylko jeden przycisk Tak dodatkowy test na `buttonDelete` nie technicznie jest wymagana. Nadal którą zamierzasz wykonać operację, która spowoduje trwałe usunięcie danych. Dlatego należy się, jak to możliwe, że wykonujesz operację tylko wtedy, gdy użytkownik jawnie zgłosił żądanie. Załóżmy na przykład, możesz później rozszerzyć tę stronę i dodane do niej inne przyciski. Nawet wówczas kod, który usuwa filmu zostanie uruchomiony tylko wtedy, gdy `buttonDelete` przycisk został kliknięty.
 
@@ -169,7 +169,7 @@ Następnym samouczku przedstawiono sposób zapewnić wszystkich stron w witrynie
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor](../introducing-razor-syntax-c.md)
 - [Instrukcja DELETE SQL](http://www.w3schools.com/sql/sql_delete.asp) w witrynie W3Schools
 
 >[!div class="step-by-step"]
