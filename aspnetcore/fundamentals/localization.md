@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: a3fdbf8a1ab4ca397824a46da445fa34ddd35204
-ms.sourcegitcommit: 4be61844141d3cfb6f263636a36aebd26e90fb28
+ms.openlocfilehash: d1f8cf5607fdd08bf0dadc224ae0fdba7ec696bc
+ms.sourcegitcommit: 677986b3a39817b712e2432cce85ad1685326b75
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w ASP.NET Core
 
@@ -25,7 +25,7 @@ Tworzenie wielu języków witryny sieci Web za pomocą platformy ASP.NET Core um
 
 Przystosowywanie do warunków międzynarodowych obejmuje [globalizacji](https://docs.microsoft.com/dotnet/api/system.globalization) i [lokalizacja](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization). Globalizacja to proces projektowania aplikacji, które obsługują innych kultur. Globalizacja dodaje obsługę danych wejściowych, wyświetlania i dane wyjściowe ze zdefiniowanym zestawem język skryptów, które odnoszą się do określonych obszarach geograficznych.
 
-Lokalizacja jest procesem dostosowywania uniwersalnych aplikacji, która już przeprowadzono dla możliwości zlokalizowania do określonej kultury/ustawień regionalnych.  Aby uzyskać więcej informacji, zobacz **warunki lokalizacja i globalizacja** pod koniec tego dokumentu.
+Lokalizacja jest procesem dostosowywania uniwersalnych aplikacji, która już przeprowadzono dla możliwości zlokalizowania do określonej kultury/ustawień regionalnych. Aby uzyskać więcej informacji, zobacz **warunki lokalizacja i globalizacja** pod koniec tego dokumentu.
 
 Lokalizacja aplikacji obejmuje następujące czynności:
 
@@ -305,7 +305,7 @@ Proces lokalizowania aplikacji wymaga również podstawową wiedzę na temat zes
 
 [Możliwość lokalizacji](https://docs.microsoft.com/dotnet/standard/globalization-localization/localizability-review) pośredniego proces weryfikacji, że uniwersalnych aplikacji jest gotowy do lokalizacji.
 
-[RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) format nazwy kultury jest "<languagecode2>-< kraj/regioncode2 >", gdzie <languagecode2> jest kod języka i < kraju/regioncode2 > przeszczepiania kodu. Na przykład `es-CL` dla języka hiszpańskiego (podrzędnej lokacji), `en-US` angielski (Stany Zjednoczone), a `en-AU` dla języka angielskiego (Australia). [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) jest kombinacją ISO 639 Kod kultury małe dwuliterowych skojarzone z językiem normy ISO 3166, kod przeszczepiania wielkie dwuliterowych skojarzone z kraju lub regionu.  Zobacz [nazwa kultury języka](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx).
+[RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) format nazwy kultury jest `<languagecode2>-<country/regioncode2>`, gdzie `<languagecode2>` jest kod języka i `<country/regioncode2>` przeszczepiania kodu. Na przykład `es-CL` dla języka hiszpańskiego (podrzędnej lokacji), `en-US` angielski (Stany Zjednoczone), a `en-AU` dla języka angielskiego (Australia). [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) jest kombinacją ISO 639 Kod kultury małe dwuliterowych skojarzone z językiem normy ISO 3166, kod przeszczepiania wielkie dwuliterowych skojarzone z kraju lub regionu. Zobacz [nazwa kultury języka](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx).
 
 Przystosowywanie do warunków międzynarodowych jest często skracana do "I18N". Skrót przyjmuje litery imię i nazwisko, a liczba liter między nimi tak 18 oznacza liczbę litery od pierwszego "I" i ostatniego "N". To samo dotyczy (G11N), lokalizacja i globalizacja (L10N).
 
