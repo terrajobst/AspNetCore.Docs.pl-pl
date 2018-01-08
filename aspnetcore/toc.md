@@ -153,7 +153,7 @@
 ## [Kompilowanie i minifikacja](xref:client-side/bundling-and-minification)
 ## [Korzystanie z łączności z przeglądarkami](xref:client-side/using-browserlink)
 ## [Korzystanie z technologii JavaScriptServices dla aplikacji jednostronicowych](xref:client-side/spa-services)
-## [Korzystanie z szablonów projektów aplikacji jednostronicowych (wersja zapoznawcza)](xref:spa/index)
+## [Za pomocą szablonów projektu SPA (RC)](xref:spa/index)
 ### [Szablon projektu biblioteki Angular](xref:spa/angular)
 ### [Szablon projektu biblioteki React](xref:spa/react)
 ### [Szablon projektu biblioteki React z implementacją Redux](xref:spa/react-with-redux)
