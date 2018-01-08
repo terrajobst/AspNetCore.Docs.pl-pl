@@ -1,7 +1,7 @@
 ---
 title: "Należy użyć szablonu projektu w bibliotece React."
 author: SteveSandersonMS
-description: "Dowiedz się, jak rozpocząć pracę z szablonu projektu platformy ASP.NET Core jednostronicowej aplikacji JEDNOSTRONICOWEJ podglądu dla platformy React i utworzyć platformy react aplikacji."
+description: "Dowiedz się, jak rozpocząć pracę z szablonu projektu platformy ASP.NET Core jednostronicowej aplikacji JEDNOSTRONICOWEJ release candidate dla platformy React i utworzyć platformy react aplikacji."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,16 +11,16 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: 1e1e48491acb904c1c8fc6c8286d3b152c382daa
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 6a0de008979823baae17eb66df2d991300c197f2
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="use-the-react-project-template-preview"></a>Należy użyć szablonu projektu platformy React (wersja zapoznawcza)
+# <a name="use-the-react-project-template-release-candidate"></a>Należy użyć szablonu projektu platformy React (w wersji release candidate)
 
 > [!NOTE]
-> Ta dokumentacja nie jest o wydanych szablonu projektu platformy React. **Niniejsza dokumentacja jest dotyczące wersji zapoznawczej szablonu platformy React.** Mamy nadzieję, należy wysłać wersji wydanej w wczesne 2018.
+> Ta dokumentacja nie jest o wydanych szablonu projektu platformy React. **Ta dokumentacja dotyczy wersji release candidate szablonu platformy React.** Mamy nadzieję, należy wysłać wersji wydanej w wczesne 2018.
 
 Zaktualizowany szablon projektu platformy React udostępnia dogodny punkt początkowy dla platformy ASP.NET Core aplikacji przy użyciu platformy React i [utworzyć platformy react aplikacji](https://github.com/facebookincubator/create-react-app) konwencje (CRA) do zaimplementowania rozbudowanego klienta interfejsu użytkownika (UI).
 

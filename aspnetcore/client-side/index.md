@@ -2,7 +2,7 @@
 title: Programowanie po stronie klienta w ASP.NET Core
 author: rick-anderson
 description: 
-keywords: Platformy ASP.NET Core
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,24 +11,24 @@ ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe0ba2e4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/index
-ms.openlocfilehash: b4770a91a735cf9c7304e03b848f9593bacb1455
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 926aecb243153b92d70d5aa5a689eeec4dc8415a
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="client-side-development-in-aspnet-core"></a>Programowanie po stronie klienta w ASP.NET Core
 
-- [Przy użyciu Gulp](xref:client-side/using-gulp)
-- [Przy użyciu Grunt](xref:client-side/using-grunt)
-- [Zarządzaj pakietami po stronie klienta z Bower](xref:client-side/bower)
-- [Tworzenie doskonałych, dynamiczne witryny z ładowania początkowego](xref:client-side/bootstrap)
-- [Ustawianie stylów aplikacji jest mniejsza, Sass i świetny czcionki](xref:client-side/less-sass-fa)
-- [Tworzenie pakietów i minimalizowanie](xref:client-side/bundling-and-minification)
+- [Korzystanie z Gulp](xref:client-side/using-gulp)
+- [Korzystanie z Grunt](xref:client-side/using-grunt)
+- [Zarządzanie pakietami po stronie klienta za pomocą narzędzi Bower](xref:client-side/bower)
+- [Tworzenie pięknych i szybko reagujących witryn za pomocą narzędzi Bootstrap](xref:client-side/bootstrap)
+- [Ustawianie stylów aplikacji za pomocą Less, Sass i Font Awesome](xref:client-side/less-sass-fa)
+- [Kompilowanie i minifikacja](xref:client-side/bundling-and-minification)
 - [TypeScript](https://www.typescriptlang.org/docs/handbook/asp-net-core.html)
-- [Przy użyciu Browser Link](xref:client-side/using-browserlink)
-- [Za pomocą JavaScriptServices dla źródła](xref:client-side/spa-services)
-- [Za pomocą szablonów projektu SPA (wersja zapoznawcza)](xref:spa/index)
-    - [Szablon projektu dyrektywy angular](xref:spa/angular)
-    - [Szablon projektu w bibliotece react.](xref:spa/react)
-    - [Reagowanie na podstawie szablonu projektu Redux](xref:spa/react-with-redux)
+- [Korzystanie z łączności z przeglądarkami](xref:client-side/using-browserlink)
+- [Korzystanie z technologii JavaScriptServices dla aplikacji jednostronicowych](xref:client-side/spa-services)
+- [Za pomocą szablonów projektu SPA (RC)](xref:spa/index)
+    - [Szablon projektu biblioteki Angular](xref:spa/angular)
+    - [Szablon projektu biblioteki React](xref:spa/react)
+    - [Szablon projektu biblioteki React z implementacją Redux](xref:spa/react-with-redux)

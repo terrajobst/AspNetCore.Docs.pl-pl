@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 7af53bfad2b77558a06003cbc6534236235054c4
-ms.sourcegitcommit: 677986b3a39817b712e2432cce85ad1685326b75
+ms.openlocfilehash: 4a5d3622a22b70daa22333cafe58f8831bf0918e
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości na platformy ASP.NET Core
 
@@ -32,28 +32,29 @@ W tym temacie będzie używanie ASP.NET Core Identity funkcje, aby zarejestrowa�
 1.  Tworzenie projektu aplikacji sieci Web platformy ASP.NET Core z indywidualnych kont użytkowników.
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-    W programie Visual Studio, wybierz **pliku** -> **nowy** -> **projektu**. Wybierz **aplikacji sieci Web platformy ASP.NET Core** i kliknij przycisk **OK**. 
+
+    W programie Visual Studio, wybierz **pliku** -> **nowy** -> **projektu**. Wybierz **aplikacji sieci Web platformy ASP.NET Core** i kliknij przycisk **OK**.
 
     ![Okno dialogowe nowego projektu](identity/_static/01-new-project.png)
 
-    Wybierz platformy ASP.NET Core **aplikacji sieci Web (Model-View-Controller)** dla platformy ASP.NET Core 2.x, a następnie wybierz **Zmień uwierzytelnianie**. 
+    Wybierz platformy ASP.NET Core **aplikacji sieci Web (Model-View-Controller)** dla platformy ASP.NET Core 2.x, a następnie wybierz **Zmień uwierzytelnianie**.
 
     ![Okno dialogowe nowego projektu](identity/_static/02-new-project.png)
 
     Zostanie wyświetlone okno dialogowe wysyłania ofert opcje uwierzytelniania. Wybierz **indywidualnych kont użytkowników** i kliknij przycisk **OK** aby powrócić do poprzedniego okna dialogowego.
 
     ![Okno dialogowe nowego projektu](identity/_static/03-new-project-auth.png)
-    
+
     Wybieranie **indywidualnych kont użytkowników** kieruje Visual Studio do tworzenia modeli, ViewModels, widoki, kontrolery i inne zasoby wymagane do uwierzytelniania w ramach szablonu projektu.
- 
-    
+
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
     Jeśli używasz interfejsu wiersza polecenia platformy .NET Core, Utwórz nowy projekt za pomocą ``dotnet new mvc --auth Individual``. To polecenie tworzy nowy projekt z tego samego kodu szablonu tożsamości tworzonych w Visual Studio.
- 
+
     Utworzony projekt zawiera `Microsoft.AspNetCore.Identity.EntityFrameworkCore` pakiet, który będzie się powtarzać, dane tożsamości i schematu przy użyciu programu SQL Server [Entity Framework Core](https://docs.microsoft.com/ef/).
-    
+
     ---
- 
+
 2.  Konfigurowanie usługi tożsamości i Dodaj oprogramowanie pośredniczące w `Startup`.
 
     Usługi tożsamości są dodawane do aplikacji w `ConfigureServices` metoda `Startup` klasy:
@@ -162,7 +163,7 @@ W tym temacie będzie używanie ASP.NET Core Identity funkcje, aby zarejestrowa�
     }
     ```
     
-    # <a name="visual-studiotabvisualstudio"></a>[Visual Studio](#tab/visualstudio)     
+    # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
     Uruchom projekt za pomocą **Ctrl** + **F5** i przejdź do **o** strony. Tylko uwierzytelnieni użytkownicy mogą uzyskać dostępu do **o** strony, dlatego ASP.NET przekieruje Cię do strony logowania, aby zalogować się lub zarejestrować.
 

@@ -1,7 +1,7 @@
 ---
 title: "Należy użyć szablonu projektu dyrektywy Angular"
 author: SteveSandersonMS
-description: "Dowiedz się, jak rozpocząć pracę z szablonem projektu platformy ASP.NET Core jednostronicowej aplikacji JEDNOSTRONICOWEJ Podgląd kątową i kątowego interfejsu wiersza polecenia."
+description: "Dowiedz się, jak rozpocząć pracę z szablonu projektu platformy ASP.NET Core jednostronicowej aplikacji JEDNOSTRONICOWEJ release candidate dla kątową i kątowego interfejsu wiersza polecenia."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,16 +11,16 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: de7b32099f225e838ec40ce4f04bf67bffb9c260
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: ebe40015cc2e6b5947e844a0ce7db9efd867266b
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="use-the-angular-project-template-preview"></a>Należy użyć szablonu projektu kątowego (wersja zapoznawcza)
+# <a name="use-the-angular-project-template-release-candidate"></a>Należy użyć szablonu projektu kątowego (w wersji release candidate)
 
 > [!NOTE]
-> Ta dokumentacja nie jest o szablonie wydanych kątowego projektu. **Niniejsza dokumentacja jest dotyczące wersji zapoznawczej kątowego szablonu.** Mamy nadzieję, należy wysłać wersji wydanej w wczesne 2018.
+> Ta dokumentacja nie jest o szablonie wydanych kątowego projektu. **Ta dokumentacja dotyczy wersji release candidate kątowego szablonu.** Mamy nadzieję, należy wysłać wersji wydanej w wczesne 2018.
 
 Szablon zaktualizowany projekt kątowego udostępnia dogodny punkt początkowy dla platformy ASP.NET Core aplikacji przy użyciu dyrektywy Angular 5 i kątowego interfejsu wiersza polecenia do zaimplementowania rozbudowanego klienta interfejsu użytkownika (UI).
 
