@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: cf0bb7984ad3460f8784193f7bb407c9b0ad50db
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: d273eb5e99da6c6b7678e03b1a8973041113744c
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 <a name="adding-a-view"></a>Dodawanie widoku
 ====================
@@ -31,7 +31,7 @@ Obecnie `Index` metoda zwraca ciąg zawierający komunikat, który jest ustalony
 
 `Index` Metod powyżej szablonu widok używane do generowania odpowiedzi HTML do przeglądarki. Metody kontrolera (znanej także jako [metod akcji](http://rachelappel.com/asp.net-mvc-actionresults-explained)), takich jak `Index` zazwyczaj zwracany przez metodę powyżej [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (lub klasą pochodną [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx)), typy pierwotne nie, takich jak ciąg.
 
-Kliknij prawym przyciskiem myszy *Views\HelloWorld* folder i kliknij przycisk **Dodaj**, następnie kliknij przycisk **strona widoku MVC 5 z (układu Razor)**.
+Kliknij prawym przyciskiem myszy *Views\HelloWorld* folder i kliknij przycisk **Dodaj**, następnie kliknij przycisk **strona widoku MVC 5 z układem (Razor)**.
   
 ![](adding-a-view/_static/image1.png)   
   

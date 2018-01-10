@@ -11,11 +11,11 @@ ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: 6279d3b4ac3be102449089dc66eeeb0495cfc4c0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee660667251ec4a64f2b3e83f39214e9defcea03
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>Przy użyciu uwierzytelniania plików Cookie bez tożsamości platformy ASP.NET Core
 
@@ -39,7 +39,7 @@ W `ConfigureServices` metody, Utwórz usługę oprogramowania pośredniczącego 
 
 `AuthenticationScheme`przekazany do `AddAuthentication` ustawia domyślny schemat uwierzytelniania dla aplikacji. `AuthenticationScheme`jest przydatne, gdy istnieje wiele wystąpień uwierzytelniania plików cookie i chcesz [autoryzacji z określonym schematem](xref:security/authorization/limitingidentitybyscheme). Ustawienie `AuthenticationScheme` do `CookieAuthenticationDefaults.AuthenticationScheme` zawiera wartość "Plików cookie" schematu. Możesz podać dowolną wartość ciągu, która odróżnia schemat.
 
-W `Configure` metody, użyj `UseAuthentication` metodę do wywołania, oprogramowanie pośredniczące uwierzytelniania, która ustawia `HttpContext.User` właściwości. Wywołanie `UseAuthentication` metoda przed wywołaniem `AddMvcWithDefaultRoute` w aplikacji MVC lub `AddMvc` w aplikacji Razor strony:
+W `Configure` metody, użyj `UseAuthentication` metodę do wywołania, oprogramowanie pośredniczące uwierzytelniania, która ustawia `HttpContext.User` właściwości. Wywołanie `UseAuthentication` metoda przed wywołaniem `UseMvcWithDefaultRoute` lub `UseMvc`:
 
 [!code-csharp[Main](cookie/sample/Startup.cs?name=snippet2)]
 
@@ -434,4 +434,4 @@ await HttpContext.Authentication.SignInAsync(
 ## <a name="see-also"></a>Zobacz także
 
 * [Zmiany uwierzytelniania 2.0 / migracji anonsu](https://github.com/aspnet/Announcements/issues/262)
-* [Ograniczenie tożsamości przez system](xref:security/authorization/limitingidentitybyscheme)
+* [Ograniczanie tożsamości według schematu](xref:security/authorization/limitingidentitybyscheme)
