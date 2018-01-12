@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: c10eb343259b58052fd1f2411dbdc2196eafc858
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 7427b4f7c6b7a00fe795053aac0f612471a163cd
+ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 <a name="adding-a-new-field"></a>Dodanie nowego pola
 ====================
@@ -161,7 +161,7 @@ Skompiluj rozwiązanie, a następnie otwórz **Konsola Menedżera pakietów** ok
 
 `add-migration` Polecenie informuje framework migracji do badania bieżącego modelu film z bieżącego schematu filmu bazy danych i utworzyć niezbędne kod, aby przeprowadzić migrację bazy danych do nowego modelu. Nazwa *klasyfikacji* dowolnej i jest używany do nazywania plików migracji. Warto użyć opisową nazwę krok migracji.
 
-Po zakończeniu działania tego polecenia programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMIgration` klasy, a następnie w `Up` — metoda zostanie wyświetlony kod, który tworzy nową kolumnę.
+Po zakończeniu działania tego polecenia programu Visual Studio otwiera plik klasy, który definiuje nowy `DbMigration` klasy, a następnie w `Up` — metoda zostanie wyświetlony kod, który tworzy nową kolumnę.
 
 [!code-csharp[Main](adding-a-new-field/samples/sample11.cs)]
 
