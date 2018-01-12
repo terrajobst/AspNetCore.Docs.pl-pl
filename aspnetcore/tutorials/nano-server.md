@@ -11,11 +11,11 @@ ms.assetid: 50922cf1-ca58-4006-9236-99b7ff2dd0cf
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/nano-server
-ms.openlocfilehash: 337cc69ef522452c17cdd6ea4a5e71cd122035dc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f30e911703d5c36d076872f91d4b2fafeefb91f5
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="aspnet-core-with-iis-on-nano-server"></a>Platformy ASP.NET Core z usługami IIS na serwerze Nano
 
@@ -37,7 +37,7 @@ Istnieją trzy sposoby łatwo można wypróbować Nano Server. Zarejestrowanie s
 
 W tym samouczku firma Microsoft będzie używać opcji 2 wbudowanych Nano Server wirtualny dysk twardy z systemem Windows Server 2016.
 
-Przed kontynuowaniem w tym samouczku, konieczne będzie [opublikowane dane wyjściowe](xref:hosting/directory-structure) istniejącej aplikacji platformy ASP.NET Core. Upewnij się, aplikacja korzysta z wbudowanej uruchamiane w **64-bitowych** procesu.
+Przed kontynuowaniem w tym samouczku, konieczne będzie [opublikowane dane wyjściowe](xref:host-and-deploy/directory-structure) istniejącej aplikacji platformy ASP.NET Core. Upewnij się, aplikacja korzysta z wbudowanej uruchamiane w **64-bitowych** procesu.
 
 ## <a name="setting-up-the-nano-server-instance"></a>Konfigurowanie wystąpienia Nano Server
 
@@ -191,7 +191,7 @@ Przykładem *web.config* może wyglądać Jeśli *dotnet.exe* jest **nie** w ŚC
 </configuration>
 ```
 
-Uruchom następujące polecenia w sesji zdalnej, aby utworzyć nową lokację w usługach IIS dla opublikowanych aplikacji do innego portu niż domyślna witryna sieci Web. Należy również otworzyć ten port dostępu do sieci web. Ten skrypt używa `DefaultAppPool` dla uproszczenia. Więcej uwagi na uruchomione w ramach puli aplikacji można znaleźć [pul aplikacji](xref:publishing/iis#application-pools).
+Uruchom następujące polecenia w sesji zdalnej, aby utworzyć nową lokację w usługach IIS dla opublikowanych aplikacji do innego portu niż domyślna witryna sieci Web. Należy również otworzyć ten port dostępu do sieci web. Ten skrypt używa `DefaultAppPool` dla uproszczenia. Więcej uwagi na uruchomione w ramach puli aplikacji można znaleźć [pul aplikacji](xref:host-and-deploy/iis/index#application-pools).
 
 ```PowerShell
 Import-module IISAdministration
@@ -205,4 +205,4 @@ New-NetFirewallRule -Name "AspNetCore Port 81 IIS" -DisplayName "Allow HTTP on T
 
 ## <a name="running-the-application"></a>Uruchamianie aplikacji
 
-Opublikowana aplikacja sieci web nie jest dostępny w przeglądarce w `http://192.168.1.10:8000`. Jeśli po skonfigurowaniu rejestrowania zgodnie z opisem w [tworzenia i Przekierowanie dziennika](xref:hosting/aspnet-core-module#log-creation-and-redirection), można wyświetlać dzienniki na *C:\PublishedApps\AspNetCoreSampleForNano\logs*.
+Opublikowana aplikacja sieci web nie jest dostępny w przeglądarce w `http://192.168.1.10:8000`. Jeśli po skonfigurowaniu rejestrowania zgodnie z opisem w [tworzenia i Przekierowanie dziennika](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection), można wyświetlać dzienniki na *C:\PublishedApps\AspNetCoreSampleForNano\logs*.

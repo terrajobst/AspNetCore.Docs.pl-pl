@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 6281d6ba254670b111964715410fc0694ae4d149
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: b662e66ab5b4c46d1a8d10eb7c38bf4064b5b927
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Konfigurowanie aplikacji platformy ASP.NET Core
 
@@ -375,7 +375,7 @@ Left: 1988
 
 ## <a name="the-webconfig-file"></a>Plik web.config
 
-A *web.config* hostowania aplikacji w usługach IIS lub usług IIS Express jest wymagany plik. *plik Web.config* włącza AspNetCoreModule w usługach IIS, aby uruchomić aplikację. Ustawienia w *web.config* włączyć AspNetCoreModule w usługach IIS do uruchomienia aplikacji i skonfigurować inne ustawienia usług IIS i modułów. Jeśli używasz programu Visual Studio i usunąć *web.config*, Visual Studio utworzy nowy.
+A *web.config* hosting aplikacji w usługach IIS lub usług IIS Express jest wymagany plik. Ustawienia w *web.config* włączyć [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) do uruchomienia aplikacji i skonfigurować inne ustawienia usług IIS i modułów. Jeśli *web.config* plik nie jest obecny i plik projektu zawiera `<Project Sdk="Microsoft.NET.Sdk.Web">`, publikowania projektu tworzy *web.config* plików publikowanych danych wyjściowych ( *publikowania* folderu). Aby uzyskać więcej informacji, zobacz [hosta platformy ASP.NET Core w systemie Windows z programem IIS](xref:host-and-deploy/iis/index#webconfig).
 
 ## <a name="additional-notes"></a>Dodatkowe uwagi
 
@@ -389,7 +389,7 @@ A *web.config* hostowania aplikacji w usługach IIS lub usług IIS Express jest 
 
 * [Opcje](xref:fundamentals/configuration/options)
 * [Praca w środowiskach wielu](xref:fundamentals/environments)
-* [Bezpieczne przechowywanie klucze tajne aplikacji w czasie projektowania](xref:security/app-secrets)
+* [Bezpieczne przechowywanie kluczy tajnych aplikacji w czasie projektowania](xref:security/app-secrets)
 * [Hosting w platformy ASP.NET Core](xref:fundamentals/hosting)
 * [Iniekcji zależności](xref:fundamentals/dependency-injection)
 * [Dostawca konfiguracji usługi Azure Key Vault](xref:security/key-vault-configuration)

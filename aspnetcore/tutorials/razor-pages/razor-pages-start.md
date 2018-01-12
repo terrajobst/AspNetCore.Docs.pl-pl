@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 12685d6a391c127d78399408291c26caa0192ee2
-ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
+ms.openlocfilehash: 4643665d48ca07ff43ce52064291fc106bd5c8ac
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>Rozpoczynanie pracy z Razor strony platformy ASP.NET Core
 
@@ -41,10 +41,7 @@ Istnieją trzy wersje tego samouczka:
   ![nową aplikację sieci Web Core ASP.NET](../../mvc/razor-pages/index/_static/np.png)
 * Wybierz **ASP.NET Core 2.0** w listy rozwijanej, a następnie wybierz **aplikacji sieci Web**.
 
-> [!NOTE]
-> Jeśli chcesz użyć platformy ASP.NET Core w programie .NET Framework, musisz najpierw wybrać **.NET Framework** z pierwszej listy rozwijanej w oknie dialogowym, można wybrać odpowiednią wersję platformy ASP.NET Core.
-
-  ![Aplikacja sieci Web (Razor strony)](razor-pages-start/_static/np2.png)
+  [!INCLUDE[install 2.0](../../includes/dotnetcore-on-dotnetfx-vs.md)]
 
 Szablon programu Visual Studio tworzy projekt starter:
 
@@ -58,6 +55,9 @@ Naciśnij klawisz **F5** do uruchomienia aplikacji w trybie debugowania lub **Ct
 * Uruchamianie aplikacji z **Ctrl + F5** (tryb-debug) pozwala wprowadzać zmiany kodu, Zapisz plik, Odśwież przeglądarkę i zobaczyć zmiany kodu. Wielu deweloperów preferowane jest w trybie bez debugowania szybko uruchomić aplikację i zobaczyć zmiany.
 
 [!INCLUDE[razor-pages-start](../../includes/RP/razor-pages-start.md)]
+
+>[!div class="step-by-step"]
+[Następnie: Dodawanie modelu](xref:tutorials/razor-pages/model)
 
 >[!div class="step-by-step"]
 [Następnie: Dodawanie modelu](xref:tutorials/razor-pages/model)

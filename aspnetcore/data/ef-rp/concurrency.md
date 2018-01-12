@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 8862c6b9a5eb7ac3b6889071e4ce9ff6f02512c9
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 841c638b2cacaab7970f2b173fee488972957b63
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 en-us /
 
@@ -302,7 +302,7 @@ Przeglądarka wyświetla stronę indeksu z zmieniona wartość i zaktualizowane 
 
 Usuń działu testu z drugiej karty. Błąd współbieżności jest wyświetlana bieżącymi wartościami z bazy danych. Kliknięcie przycisku **usunąć** usuwa jednostki, chyba że `RowVersion` został updated.department został usunięty.
 
-Zobacz [dziedziczenia](xref:data/ef-mvc/inheritance) instrukcje dotyczące sposobu dziedziczenia w modelu danych.
+Zobacz [dziedziczenia](xref:data/ef-mvc/inheritance) na temat sposobu dziedziczą modelu danych.
 
 ### <a name="additional-resources"></a>Dodatkowe zasoby
 

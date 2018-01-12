@@ -11,11 +11,11 @@ ms.assetid: 08c9f457-9c24-40f9-a08b-47dc251e4cec
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-2.0
-ms.openlocfilehash: 98af3788652e87f6222551cb4a8e5427b312660c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f01f047f809e4eaa055a4204611b152c5db87f74
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Co to jest nowe w programie ASP.NET 2.0 Core
 
@@ -28,7 +28,7 @@ Stron razor to nowa funkcja platformy ASP.NET Core MVC umożliwia kodowanie stro
 Aby uzyskać więcej informacji zobacz wprowadzenie i samouczek:
 
 * [Wprowadzenie do stron Razor](xref:mvc/razor-pages/index)
-* [Wprowadzenie do stron Razor](xref:tutorials/razor-pages/razor-pages-start)
+* [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 
 ## <a name="aspnet-core-metapackage"></a>Metapackage platformy ASP.NET Core
 
@@ -142,7 +142,7 @@ Aby uzyskać informacje o stanie funkcji 7.1 C#, zobacz [repozytorium Roslyn Git
 
 ## <a name="other-documentation-updates-for-20"></a>Inne aktualizacje dokumentacji 2.0
 
-* [Tworzenie profilów dla programu Visual Studio i MSBuild, jak wdrażać aplikacje platformy ASP.NET Core publikowania](xref:publishing/web-publishing-vs)
+* [Profilów dla wdrożenia aplikacji platformy ASP.NET Core publikowania programu Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles)
 * [Zarządzanie kluczami](xref:security/data-protection/implementation/key-management)
 * [Konfigurowanie uwierzytelniania usługi Facebook](xref:security/authentication/facebook-logins)
 * [Konfigurowanie uwierzytelniania usługi Twitter](xref:security/authentication/twitter-logins)

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d1f551dbde5f3dd6e71808154c2e5885d588d7c
-ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
+ms.openlocfilehash: 5eef9405c0c3d219755d7cffa5d45c3df45ddb5c
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Wprowadzenie do platformy ASP.NET Core modułu
 
@@ -54,7 +54,7 @@ ANCM ma kilka innych funkcji, jak również:
 
 ## <a name="how-to-use-ancm-in-aspnet-core-apps"></a>Jak używać ANCM w aplikacji platformy ASP.NET Core
 
-Ta sekcja zawiera omówienie procesu konfigurowania aplikacji platformy ASP.NET Core i serwera usług IIS. Aby uzyskać szczegółowe instrukcje, zobacz [publikowania w usługach IIS](../../publishing/iis.md).
+Ta sekcja zawiera omówienie procesu konfigurowania aplikacji platformy ASP.NET Core i serwera usług IIS. Aby uzyskać szczegółowe instrukcje, zobacz [hosta w systemie Windows z programem IIS](xref:host-and-deploy/iis/index).
 
 ### <a name="install-ancm"></a>Zainstaluj ANCM
 
@@ -107,7 +107,7 @@ W ASP.NET Core 1.0, jeśli wywołujesz `UseUrls`, wywołać ją **przed** należ
 
 ### <a name="configure-ancm-options-in-webconfig"></a>Skonfiguruj opcje ANCM w pliku Web.config
 
-Konfiguracja modułu platformy ASP.NET Core są przechowywane w *Web.config* pliku, który znajduje się w folderze głównym. Ustawienia w tym pliku punktu do uruchamiania polecenia i argumentów, które uruchomiona aplikacja platformy ASP.NET Core. Aby uzyskać wskazówki na temat opcji konfiguracji i przykładowy kod pliku Web.config, zobacz [odwołania do platformy ASP.NET Core modułu konfiguracji](../../hosting/aspnet-core-module.md).
+Konfiguracja modułu platformy ASP.NET Core są przechowywane w *web.config* pliku, który znajduje się w folderze głównym. Ustawienia w tym pliku punktu do uruchamiania polecenia i argumentów, które uruchomiona aplikacja platformy ASP.NET Core. Dla przykładu *web.config* wskazówki na temat opcji konfiguracji i kod zobacz [odwołania do platformy ASP.NET Core modułu konfiguracji](xref:host-and-deploy/aspnet-core-module).
 
 ### <a name="run-with-iis-express-in-development"></a>Uruchom z programem IIS Express do rozwoju
 
@@ -125,5 +125,5 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 * [Przykładowa aplikacja dla tego artykułu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)
 * [Kod źródłowy platformy ASP.NET Core modułu](https://github.com/aspnet/AspNetCoreModule)
-* [Odwołania do konfiguracji modułu platformy ASP.NET Core](../../hosting/aspnet-core-module.md)
-* [Publikowanie w usługach IIS](../../publishing/iis.md)
+* [Odwołania do konfiguracji modułu platformy ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
+* [Hosting w systemie Windows z usługami IIS](xref:host-and-deploy/iis/index)

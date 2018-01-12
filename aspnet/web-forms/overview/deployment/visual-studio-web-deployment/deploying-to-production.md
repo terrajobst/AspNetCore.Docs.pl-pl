@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2a8b165c149ceacba49a193c25e4a66a701ea0d6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie w środowisku produkcyjnym
 ====================
@@ -42,7 +42,7 @@ Jeśli nie masz jeszcze konta platformy Azure, możesz utworzyć bezpłatne kont
 ## <a name="create-a-staging-environment"></a>Tworzenie środowiska przemieszczania
 
 > [!NOTE]
-> Ponieważ w tym samouczku zostały zapisane, usługi Azure App Service dodać nową funkcję można zautomatyzować wiele procesów wokół o środowisk przemieszczania i produkcji. Zobacz [Konfigurowanie środowiska dla aplikacji sieci web w usłudze Azure App Service przejściowe](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/).
+> Ponieważ w tym samouczku zostały zapisane, usługi Azure App Service dodać nową funkcję można zautomatyzować wiele procesów tworzenia środowisk przemieszczania i produkcji. Zobacz [Konfigurowanie środowiska dla aplikacji sieci web w usłudze Azure App Service przejściowe](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/).
 
 
 Zgodnie z objaśnieniem w [Wdróż do samouczka środowiska testu](deploying-to-iis.md), najbardziej środowiska testowego niezawodnej jest witryną sieci web u dostawcy hostingu, który ma podobnie jak witryny sieci web w środowisku produkcyjnym. Wielu dostawców hostingu należy porównać zalety względem dodatkowych kosztów, ale na platformie Azure można utworzyć aplikacji sieci web na wolne dodatkowych jako tymczasowej aplikacji. Należy również bazy danych, a dodatkowe wydatków dla tej za pośrednictwem wydatków produkcyjnej bazy danych będzie mieć wartość Brak lub minimalnej. Na platformie Azure płacisz ilości magazynu bazy danych, którego używasz, a nie dla każdej bazy danych, a ilość dodatkowego magazynu, które będą używane w przemieszczania jest minimalny.

@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 4a5d3622a22b70daa22333cafe58f8831bf0918e
-ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
+ms.openlocfilehash: fc8e076af92bd8f9a95e73abb66ce32cae8ab9cf
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości na platformy ASP.NET Core
 
@@ -25,6 +25,8 @@ Tożsamość platformy ASP.NET Core to system członkostwa, co pozwala na dodawa
 
 Można skonfigurować ASP.NET Identity Core używać bazy danych programu SQL Server do przechowywania nazwy użytkownika, hasła i danych profilu. Alternatywnie można użyć własnych magazynu trwałego, na przykład magazynu tabel Azure. Ten dokument zawiera instrukcje dla programu Visual Studio i przy użyciu interfejsu wiersza polecenia.
 
+[Wyświetl lub pobrać przykładowy kod.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Jak pobrać)](https://docs.microsoft.com/en-us/aspnet/core/tutorials/index#how-to-download-a-sample)
+
 ## <a name="overview-of-identity"></a>Omówienie tożsamości
 
 W tym temacie będzie używanie ASP.NET Core Identity funkcje, aby zarejestrować, zaloguj się i wylogowania użytkownika. Bardziej szczegółowe instrukcje dotyczące tworzenia aplikacji korzystających z platformy ASP.NET Identity Core zobacz sekcję następne kroki na końcu tego artykułu.
@@ -33,7 +35,7 @@ W tym temacie będzie używanie ASP.NET Core Identity funkcje, aby zarejestrowa�
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-    W programie Visual Studio, wybierz **pliku** -> **nowy** -> **projektu**. Wybierz **aplikacji sieci Web platformy ASP.NET Core** i kliknij przycisk **OK**.
+    W programie Visual Studio, wybierz **pliku** > **nowy** > **projektu**. Wybierz **aplikacji sieci Web platformy ASP.NET Core** i kliknij przycisk **OK**.
 
     ![Okno dialogowe nowego projektu](identity/_static/01-new-project.png)
 
@@ -144,7 +146,7 @@ W tym temacie będzie używanie ASP.NET Core Identity funkcje, aby zarejestrowa�
  
 7.  Wyświetl bazy danych.
 
-    Jeśli aplikacja używa bazy danych programu SQL Server (domyślnie w systemie Windows, jak i dla użytkowników programu Visual Studio), można wyświetlić baza danych utworzona aplikacja. Można użyć **programu SQL Server Management Studio**. W programie Visual Studio, wybierz opcję **widoku** -> **Eksplorator obiektów SQL Server**. Połączyć się z **(localdb) \MSSQLLocalDB**. Baza danych o nazwie odpowiadającej  **aspnet — <*Nazwa projektu*>-<*Data ciąg*> ** jest wyświetlany.
+    Jeśli aplikacja używa bazy danych programu SQL Server (domyślnie w systemie Windows, jak i dla użytkowników programu Visual Studio), można wyświetlić baza danych utworzona aplikacja. Można użyć **programu SQL Server Management Studio**. W programie Visual Studio, wybierz opcję **widoku** > **Eksplorator obiektów SQL Server**. Połączyć się z **(localdb) \MSSQLLocalDB**. Baza danych o nazwie odpowiadającej  **aspnet — <*Nazwa projektu*>-<*Data ciąg*> ** jest wyświetlany.
 
     ![Menu kontekstowe w tabeli bazy danych AspNetUsers](identity/_static/04-db.png)
     

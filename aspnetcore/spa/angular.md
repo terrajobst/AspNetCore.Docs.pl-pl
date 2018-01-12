@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: ebe40015cc2e6b5947e844a0ce7db9efd867266b
-ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
+ms.openlocfilehash: b54798a43f6a448c2e2aad0613ee60805a61f303
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-angular-project-template-release-candidate"></a>Należy użyć szablonu projektu kątowego (w wersji release candidate)
 
@@ -98,7 +98,7 @@ W rozwoju aplikacji jest uruchamiany w trybie zoptymalizowane pod kątem wygody 
 
 W środowisku produkcyjnym obsługiwać wersji aplikacji jest zoptymalizowany pod kątem wydajności. To jest skonfigurowany automatycznie. Podczas publikowania, zminimalizowany emituje konfigurację kompilacji, kompilacja kodu po stronie klienta skompilowane z wyprzedzeniem elementu time (drzewa obiektów aplikacji). W przeciwieństwie do kompilacji programowanie kompilacji produkcyjnym nie wymaga Node.js do zainstalowania na serwerze (Jeśli nie włączono [prerendering po stronie serwera](#server-side-rendering)).
 
-Można użyć standardowego [platformy ASP.NET Core publikowania i metody wdrażania](xref:publishing/index).
+Można użyć standardowego [metody wdrażania i hostingu ASP.NET Core](xref:host-and-deploy/index).
 
 ## <a name="run-ng-serve-independently"></a>Uruchom niezależnie "ng służą"
 

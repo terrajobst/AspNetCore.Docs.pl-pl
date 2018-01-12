@@ -11,11 +11,11 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: d63502a32e38eb192b40f21f5cd57d20048154e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c20ed37e1e54273929593dddc9fe1180f1492d6
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Tematy zaawansowane - Core EF z samouczek platformy ASP.NET Core MVC (10 10)
 
@@ -192,7 +192,7 @@ Na tym kończy się tej serii samouczków przy użyciu programu Entity Framework
 
 Aby uzyskać więcej informacji na temat EF Core, zobacz [dokumentację programu Entity Framework Core](https://docs.microsoft.com/ef/core). Jest również dostępna w książce: [Entity Framework Core w akcji](https://www.manning.com/books/entity-framework-core-in-action).
 
-Informacje o sposobie wdrażania aplikacji sieci web po jego powstanie, zobacz [publikowania i wdrażania](../../publishing/index.md).
+Aby uzyskać informacje na temat wdrażania aplikacji sieci web, zobacz [hosta i wdrażanie](xref:host-and-deploy/index).
 
 Informacje o innych tematów dotyczących podstawowych ASP.NET MVC, takie jak uwierzytelniania i autoryzacji, zobacz [dokumentacji platformy ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
 

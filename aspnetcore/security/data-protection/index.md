@@ -11,11 +11,11 @@ ms.assetid: 1f402da8-1052-4970-9835-9f9f16a02dbc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/index
-ms.openlocfilehash: 8b42e65bb6121355120a6f4fbe8cd4d1fea153de
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cbf18c6ec867fefec22980f3e3493562594ef72d
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="data-protection-in-aspnet-core-consumer-apis-configuration-extensibility-apis-and-implementation"></a>Ochrona danych w ASP.NET Core: interfejsy API konsumenta, konfigurowanie, rozszerzalności interfejsów API i wdrażanie
 
@@ -23,19 +23,19 @@ ms.lasthandoff: 11/10/2017
 
 * [Rozpoczynanie pracy z interfejsami API ochrony danych](using-data-protection.md)
 
-* [Interfejsy API klienta](consumer-apis/index.md)
+* [Interfejsy API przeznaczone dla klientów](consumer-apis/index.md)
 
   * [Omówienie interfejsów API klienta](consumer-apis/overview.md)
 
   * [Cel ciągów](consumer-apis/purpose-strings.md)
 
-  * [Cel hierarchii i obsługi wielu dzierżawców](consumer-apis/purpose-strings-multitenancy.md)
+  * [Hierarchia celów i obsługa wielu dzierżawców](consumer-apis/purpose-strings-multitenancy.md)
 
   * [Tworzenia skrótu hasła](consumer-apis/password-hashing.md)
 
   * [Ograniczanie okresu istnienia ładunków chronionych](consumer-apis/limited-lifetime-payloads.md)
 
-  * [Wyłączanie ochrony ładunków, której klucze zostały odwołane.](consumer-apis/dangerous-unprotect.md)
+  * [Wyłączanie ochrony ładunków, których klucze zostały odwołane](consumer-apis/dangerous-unprotect.md)
 
 * [Konfiguracja](configuration/index.md)
 
@@ -43,9 +43,9 @@ ms.lasthandoff: 11/10/2017
 
   * [Ustawienia domyślne](configuration/default-settings.md)
 
-  * [Międzynarodowe zasad komputera](configuration/machine-wide-policy.md)
+  * [Zasady dla komputera](configuration/machine-wide-policy.md)
 
-  * [Scenariusze pamiętać z systemem innym niż Podpisane](configuration/non-di-scenarios.md)
+  * [Scenariusze z systemem innym niż Podpisane aware](configuration/non-di-scenarios.md)
 
 * [Interfejsy API rozszerzalności](extensibility/index.md)
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/10/2017
 
   * [Rozszerzalność zarządzania kluczami](extensibility/key-management.md)
 
-  * [Dodatkowe interfejsy API](extensibility/misc-apis.md)
+  * [Różne interfejsy API](extensibility/misc-apis.md)
 
 * [Implementacja](implementation/index.md)
 
@@ -73,10 +73,10 @@ ms.lasthandoff: 11/10/2017
 
   * [Format magazynu kluczy](implementation/key-storage-format.md)
 
-  * [Dostawców ochrony danych tymczasowych](implementation/key-storage-ephemeral.md)
+  * [Dostawcy efemerycznej ochrony danych](implementation/key-storage-ephemeral.md)
 
 * [Zgodność](compatibility/index.md)
 
   * [Udostępnianie plików cookie między aplikacjami](compatibility/cookie-sharing.md)
 
-  * [Zastępowanie <machineKey> w programie ASP.NET](compatibility/replacing-machinekey.md)
+  * [Zastępowanie <machineKey> na platformie ASP.NET](compatibility/replacing-machinekey.md)

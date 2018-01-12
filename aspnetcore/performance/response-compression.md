@@ -11,11 +11,11 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 68e8c89f6e5485f25d1a551ab3e524f0e9c53d0d
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: 86244179115fe6a7d0f7298495086a96ee9570d9
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Oprogramowanie pośredniczące kompresji odpowiedzi dla platformy ASP.NET Core
 
@@ -183,11 +183,11 @@ Podczas kompresowania odpowiedzi na podstawie `Accept-Encoding` nagłówka, istn
 
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet1)]
 
-## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Oprogramowanie pośredniczące problem podczas za Nginx wstecznego serwera proxy
+## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Oprogramowanie pośredniczące problem podczas pod zwrotny serwer proxy Nginx
 Jeśli żądanie jest przekazywane przez serwer proxy przez Nginx, `Accept-Encoding` nagłówka zostaną usunięte. Zapobiega to oprogramowanie pośredniczące od kompresji odpowiedzi. Aby uzyskać więcej informacji, zobacz [NGINX: kompresji i dekompresji](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Ten problem jest śledzony przez [zorientować się przekazujące kompresja nginx (BasicMiddleware #123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Praca z kompresji dynamicznej usług IIS
-Jeśli masz aktywnego IIS dynamicznej kompresji modułu skonfigurowane na poziomie serwera, który ma zostać wyłączone dla aplikacji, możesz to zrobić z dodatku programu *web.config* pliku. Aby uzyskać więcej informacji, zobacz [moduły IIS wyłączenie](xref:hosting/iis-modules#disabling-iis-modules).
+Jeśli masz aktywnego IIS dynamicznej kompresji modułu skonfigurowane na poziomie serwera, który ma zostać wyłączone dla aplikacji, możesz to zrobić z dodatku programu *web.config* pliku. Aby uzyskać więcej informacji, zobacz [moduły IIS wyłączenie](xref:host-and-deploy/iis/modules#disabling-iis-modules).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 Użyj narzędzia, takiego jak [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), lub [Postman](https://www.getpostman.com/), umożliwiają skonfigurowanie `Accept-Encoding` nagłówek żądania i badania nagłówki odpowiedzi, rozmiar i treść. Oprogramowanie pośredniczące kompresji odpowiedzi kompresuje odpowiedzi, które spełniają poniższe warunki:

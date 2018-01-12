@@ -5,17 +5,17 @@ description: "Dowiedz się, jak zoptymalizować zasoby statyczne w aplikacji sie
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/01/2017
+ms.date: 01/10/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: c271b7ef386bacedbd45fbe9f62c9c486db55b36
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: ac8e7fee7600dabb8f4970b5bf87ad7a57ebf17f
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="bundling-and-minification"></a>Tworzenie pakietów i minimalizowanie
 
@@ -75,7 +75,7 @@ Szablony projektów MVC i stron Razor zapewniają *bundleconfig.json* pliku konf
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
 
-Dostępne są następujące opcje pakietu:
+Opcje konfiguracji obejmują:
 
 * `outputFileName`: Nazwa pliku pakietu do danych wyjściowych. Może zawierać ścieżki względnej z *bundleconfig.json* pliku. **Wymagane**
 * `inputFiles`: Tablica plików do łączenia się ze sobą. Są to względne ścieżki do pliku konfiguracji. **opcjonalne**, * pustą wartość wyniki w pliku wyjściowym puste. [Globbing](http://www.tldp.org/LDP/abs/html/globbingref.html) wzorce są obsługiwane.
@@ -91,6 +91,9 @@ Dostępne są następujące opcje pakietu:
 ## <a name="build-time-execution-of-bundling-and-minification"></a>Tworzenie pakietów i minimalizowanie wykonywanie czas kompilacji
 
 [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) pakietu NuGet umożliwia wykonywanie tworzenie pakietów i minimalizowanie podczas kompilacji. Pakiet injects [docelowych elementów MSBuild](/visualstudio/msbuild/msbuild-targets) uruchamiania kompilacji i wyczyść godzinie. *Bundleconfig.json* plików są analizowane przez proces kompilacji, aby utworzyć pliki wyjściowe na podstawie zdefiniowanych konfiguracji.
+
+> [!NOTE]
+> BuildBundlerMinifier należy do projektu społeczność w witrynie GitHub, dla którego Microsoft nie zapewnia obsługi. Powinny być zgłaszane problemy [tutaj](https://github.com/madskristensen/BundlerMinifier/issues).
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
@@ -176,6 +179,9 @@ Istnieje możliwość uruchomienia zadania Tworzenie pakietów i minimalizowanie
 
 [!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=10)]
 
+> [!NOTE]
+> BundlerMinifier.Core należy do projektu społeczność w witrynie GitHub, dla którego Microsoft nie zapewnia obsługi. Powinny być zgłaszane problemy [tutaj](https://github.com/madskristensen/BundlerMinifier/issues).
+
 Ten pakiet rozszerza .NET Core interfejsu wiersza polecenia do uwzględnienia *pakietu dotnet* narzędzia. Polecenie można wykonać w oknie konsoli Menedżera pakietów (PMC) lub w powłoce poleceń:
 
 ```console
@@ -244,6 +250,9 @@ Istnieją przypadki, w których aplikacja tworzenie pakietów i minimalizowanie 
 
 Visual Studio [program instalujący niezamówione pakiety & element minimalizujący](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier) rozszerzenie obsługuje konwersję Gulp.
 
+> [!NOTE]
+> Program instalujący niezamówione pakiety & element minimalizujący rozszerzenia należy do projektu społeczność w witrynie GitHub, dla którego Microsoft nie zapewnia obsługi. Powinny być zgłaszane problemy [tutaj](https://github.com/madskristensen/BundlerMinifier/issues).
+
 Kliknij prawym przyciskiem myszy *bundleconfig.json* plików w Eksploratorze rozwiązań i wybierz **program instalujący niezamówione pakiety & element minimalizujący** > **Konwertuj do system Gulp...** :
 
 ![Konwertuj na system Gulp w menu kontekstowym](../client-side/bundling-and-minification/_static/convert-to-gulp.png)
@@ -308,7 +317,7 @@ Alternatywnie Eksploratora modułu uruchamiającego zadania programu Visual Stud
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Przy użyciu Gulp](xref:client-side/using-gulp)
-* [Przy użyciu Grunt](xref:client-side/using-grunt)
+* [Korzystanie z Gulp](xref:client-side/using-gulp)
+* [Korzystanie z Grunt](xref:client-side/using-grunt)
 * [Praca w środowiskach wielu](xref:fundamentals/environments)
 * [Pomocników tagów](xref:mvc/views/tag-helpers/intro)

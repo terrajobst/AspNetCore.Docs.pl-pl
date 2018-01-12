@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: 6a0de008979823baae17eb66df2d991300c197f2
-ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
+ms.openlocfilehash: a63d81633a0f37d24ad5e05de293e3c41004eba1
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-react-project-template-release-candidate"></a>Należy użyć szablonu projektu platformy React (w wersji release candidate)
 
@@ -78,7 +78,7 @@ W rozwoju aplikacji jest uruchamiany w trybie zoptymalizowane pod kątem wygody 
 
 W środowisku produkcyjnym obsługiwać wersji aplikacji jest zoptymalizowany pod kątem wydajności. To jest skonfigurowany automatycznie. Podczas publikowania, konfiguracja kompilacji emituje zminimalizowany, kompilacji transpiled kodu po stronie klienta. W przeciwieństwie do kompilacji programowanie kompilacji produkcyjnym nie wymaga Node.js do zainstalowania na serwerze.
 
-Można użyć standardowego [platformy ASP.NET Core publikowania i metody wdrażania](xref:publishing/index).
+Można użyć standardowego [metody wdrażania i hostingu ASP.NET Core](xref:host-and-deploy/index).
 
 ## <a name="run-the-cra-server-independently"></a>Uruchom serwer CRA niezależnie
 

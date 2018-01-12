@@ -1,6 +1,6 @@
 ---
 title: "Publikowanie aplikacji platformy ASP.NET Core dla platformy Azure przy użyciu narzędzia wiersza polecenia | Dokumentacja firmy Microsoft"
-description: "Informacje dotyczące sposobu tworzenia i wdrażania aplikacji Microsoft Azure przy użyciu platformy ASP.NET Core, a klient wiersza polecenia Git."
+description: "Dowiedz się, jak opublikować aplikację platformy ASP.NET Core w usłudze Azure App Service przy użyciu klienta wiersza polecenia Git."
 services: multiple
 keywords: Platformy ASP.NET Core, Azure App Service, Git, wiersza polecenia
 author: camsoper
@@ -13,11 +13,11 @@ ms.technology: aspnet
 ms.custom: mvc
 ms.devlang: dotnet
 uid: tutorials/publish-to-azure-webapp-using-cli
-ms.openlocfilehash: 0bcff4f79356b960f663dcebb1d79a108417dbd2
-ms.sourcegitcommit: f017f940a164dbaf84307410c78eb14e0f3ac811
+ms.openlocfilehash: 6af5de584cbf8cd59d86a965592b958061014c95
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-aspnet-core-application-to-azure-app-service-from-the-command-line"></a>Wdrażanie aplikacji platformy ASP.NET Core usłudze Azure App Service z wiersza polecenia
 

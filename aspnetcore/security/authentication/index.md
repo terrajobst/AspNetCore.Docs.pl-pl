@@ -11,11 +11,11 @@ ms.assetid: 981852c9-78f9-4590-aaee-9d50a2838dfe
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/index
-ms.openlocfilehash: 9b92a3206e2d6ca921e8580fa367e4bae12725c5
-ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
+ms.openlocfilehash: 182d3b5d567a46bb0f7d7c5864ebbc252782d8a3
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="authentication"></a>Uwierzytelnianie
 
@@ -23,28 +23,28 @@ ms.lasthandoff: 12/01/2017
 
 * [Wprowadzenie do tożsamości](identity.md)
 
-* [Włączanie uwierzytelniania za pomocą usługi Facebook, Google i innych dostawców zewnętrznych](social/index.md)
+* [Włącz uwierzytelnianie za pomocą usługi Facebook, Google i innych dostawców zewnętrznych](social/index.md)
 
-* [Włączenie generowania kodu QR w produkcie ASP.NET identity](identity-enable-qrcodes.md)
+* [Włącz generowanie kodu QR w tożsamości](identity-enable-qrcodes.md)
 
-* [Skonfiguruj uwierzytelnianie systemu Windows](windowsauth.md)
+* [Konfigurowanie uwierzytelniania systemu Windows](windowsauth.md)
 
 * [Potwierdzenie konta i hasła odzyskiwania](accconfirm.md)
 
-* [Uwierzytelnianie dwuskładnikowe z programem SMS](2fa.md)
+* [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS](2fa.md)
 
-* [Przy użyciu uwierzytelniania plików Cookie bez tożsamości platformy ASP.NET Core](cookie.md)
+* [Użyj plików cookie uwierzytelniania bez tożsamości](cookie.md)
 
-* [Usługa Azure Active Directory](azure-active-directory/index.md)
+* [Azure Active Directory](azure-active-directory/index.md)
 
-  * [Integrowanie usługi Azure AD w aplikacji sieci Web platformy ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+  * [Integrowanie usługi Azure AD do aplikacji sieci web platformy ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
 
-  * [Wywoływanie składnika Web API platformy ASP.NET Core z aplikacji WPF przy użyciu usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
+  * [Wywołanie interfejsu API platformy ASP.NET Core sieci Web z aplikacji WPF przy użyciu usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 
-  * [Wywołanie interfejsu API sieci Web w aplikacji sieci Web platformy ASP.NET Core za pomocą usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
+  * [Wywołanie interfejsu API sieci Web w aplikacji sieci web platformy ASP.NET Core za pomocą usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
 
 * [Zabezpieczanie aplikacji za pomocą IdentityServer4 platformy ASP.NET Core](http://docs.identityserver.io/en/release/)
 
-* [Zabezpieczanie aplikacji za pomocą usługi aplikacji Azure uwierzytelniania (uwierzytelnianie łatwe) platformy ASP.NET Core](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)
+* [Zabezpieczenia platformy ASP.NET Core aplikacji za pomocą usługi aplikacji Azure uwierzytelniania (uwierzytelnianie łatwe)](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)
 
 * [Artykułów opartych na projektów utworzonych za pomocą indywidualne konta użytkowników](xref:security/authentication/individual)

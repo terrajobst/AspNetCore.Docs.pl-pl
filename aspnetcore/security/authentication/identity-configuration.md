@@ -5,24 +5,24 @@ description: "Zrozumienie ASP.NET Core Identity wartości domyślne i skonfiguro
 keywords: "Uwierzytelnianie ASP.NET Core tożsamości, zabezpieczeń"
 ms.author: scaddie
 manager: wpickett
-ms.date: 09/18/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 2861ca474e7e82da81943966394a92040ce96ab8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac204cb89aac1f90adc64c4f0bec4e946cb8c4d9
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="configure-identity"></a>Konfigurowanie tożsamości
 
-Niektóre zachowania domyślnego, które można łatwo zastąpić w aplikacji ma ASP.NET Core Identity `Startup` klasy.
+ASP.NET Core Identity ma wspólnego zachowania w aplikacji, takich jak zasady haseł, czasu blokady i ustawienia plików cookie, które można łatwo zastąpić w aplikacji `Startup` klasy.
 
 ## <a name="passwords-policy"></a>Zasady haseł
 
-Domyślnie tożsamości wymaga haseł zawierających wielką literę, małą literę, cyfrę i znaków innych niż alfanumeryczne. Istnieją także inne ograniczenia dotyczące. Aby uprościć ograniczenia haseł, możesz to zrobić `Startup` klasy aplikacji.
+Domyślnie tożsamości wymaga haseł zawierających wielką literę, małą literę, cyfrę i znaków innych niż alfanumeryczne. Istnieją także inne ograniczenia dotyczące. Aby uprościć ograniczeń hasła, należy zmodyfikować `ConfigureServices` metody `Startup` klasy aplikacji.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -37,12 +37,15 @@ Platformy ASP.NET Core 2.0 dodane `RequiredUniqueChars` właściwości. W przeci
 ---
 
 `IdentityOptions.Password`ma następujące właściwości:
-* `RequireDigit`: Wymaga liczbą z zakresu od 0 do 9 w haśle. Wartość domyślna to true.
-* `RequiredLength`: Minimalna długość hasła. Wartość domyślna to 6.
-* `RequireNonAlphanumeric`: Wymaga inne niż alfanumeryczne znaków w haśle. Wartość domyślna to true.
-* `RequireUppercase`: Wymaga się wielką literą w haśle. Wartość domyślna to true.
-* `RequireLowercase`: Wymaga się małą literą w haśle. Wartość domyślna to true.
-* `RequiredUniqueChars`: Wymaga liczbę unikatowych znaków w haśle. Wartość domyślna to 1.
+
+| Właściwość                | Opis                       | Domyślny |
+| ----------------------- | --------------------------------- | ------- |
+| `RequireDigit`          | Wymaga liczbą z zakresu od 0 do 9 w haśle. | true |
+| `RequiredLength`        | Minimalna długość hasła. | 6 |
+| `RequireNonAlphanumeric`| Wymaga inne niż alfanumeryczne znaków w haśle. | true |
+| `RequireUppercase`      | Wymaga się wielką literą w haśle. | true |
+| `RequireLowercase`      | Wymaga się małą literą w haśle. | true |
+| `RequiredUniqueChars`   | Wymaga liczby unikatowych znaków w haśle. | 1 |
 
 
 ## <a name="users-lockout"></a>Blokady użytkownika
@@ -50,27 +53,35 @@ Platformy ASP.NET Core 2.0 dodane `RequiredUniqueChars` właściwości. W przeci
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,39-42,50-52)]
 
 `IdentityOptions.Lockout`ma następujące właściwości:
-* `DefaultLockoutTimeSpan`: Ilość czasu blokady użytkownika po wystąpieniu blokady. Wartość domyślna to 5 minut.
-* `MaxFailedAccessAttempts`: Liczba nieudanych prób uzyskania dostępu do momentu użytkownika jest zablokowane, jeśli funkcja blokady jest włączona. Wartość domyślna to 5.
-* `AllowedForNewUsers`: Określa, czy nowego użytkownika można zablokować. Wartość domyślna to true.
 
+| Właściwość                | Opis                       | Domyślny |
+| ----------------------- | --------------------------------- | ------- |
+| `DefaultLockoutTimeSpan` | Czas użytkownika zostanie zablokowane po wystąpieniu blokady.  | 5 minut  |
+| `MaxFailedAccessAttempts` | Liczba nieudanych prób uzyskania dostępu do momentu użytkownika jest zablokowane, jeśli funkcja blokady jest włączona.  | 5 |
+| `AllowedForNewUsers` | Określa, czy nowego użytkownika można zablokować.  | true |
 
 ## <a name="sign-in-settings"></a>Zaloguj się, ustawienia
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,44-46,50-52)]
 
 `IdentityOptions.SignIn`ma następujące właściwości:
-* `RequireConfirmedEmail`: Wymaga potwierdzone poczty e-mail do logowania. Wartość domyślna to false.
-* `RequireConfirmedPhoneNumber`: Wymaga numeru telefonu potwierdzone do logowania. Wartość domyślna to false.
 
+| Właściwość                | Opis                       | Domyślny |
+| ----------------------- | --------------------------------- | ------- |
+| `RequireConfirmedEmail` | Wymaga potwierdzone poczty e-mail do logowania. | false  |
+| `RequireConfirmedPhoneNumber` |  Wymaga numeru telefonu potwierdzone do logowania. | false  |
 
 ## <a name="user-validation-settings"></a>Ustawienia weryfikacji użytkownika
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,48-52)]
 
 `IdentityOptions.User`ma następujące właściwości:
-* `RequireUniqueEmail`: Wymaga unikatowego adresu e-mail każdego użytkownika. Wartość domyślna to false.
-* `AllowedUserNameCharacters`: Dozwolonych znaków nazwy użytkownika. Wartość domyślna to abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+.
+
+| Właściwość                | Opis                       | Domyślny |
+| ----------------------- | --------------------------------- | ------- |
+| `RequireUniqueEmail`  | Wymaga unikatowego adresu e-mail każdego użytkownika. | false  |
+| `AllowedUserNameCharacters`  | Dozwolonych znaków nazwy użytkownika. | abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+ |
+
 
 ## <a name="applications-cookie-settings"></a>Ustawienia plików cookie aplikacji
 
@@ -86,17 +97,19 @@ W obszarze `ConfigureServices` w `Startup` klasy, można skonfigurować plik coo
 
 [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?range=58-59,72-80,84)]
 
---- 
+---
 
 `CookieAuthenticationOptions`ma następujące właściwości:
-* `Cookie.Name`: Nazwa pliku cookie. Wartość domyślna to. AspNetCore.Cookies.
-* `Cookie.HttpOnly`: W przypadku wartości true, plik cookie nie jest dostępny ze skryptów po stronie klienta. Wartość domyślna to true.
-* `ExpireTimeSpan`: Określa, ile czasu przechowywania biletu uwierzytelniania w pliku cookie pozostanie ważny od punktu, w którym jest tworzona. Wartość domyślna to 14 dni.
-* `LoginPath`: Jeśli użytkownik nie ma autoryzacji, zostanie przekierowany do tej ścieżki do logowania. Wartość domyślna to/Account/logowania.
-* `LogoutPath`: Jeśli użytkownik jest zalogowany, zostanie przekierowany do tej ścieżki. Wartość domyślna to/Account/wylogowania.
-* `AccessDeniedPath`: W przypadku niepowodzenia autoryzacji wyboru użytkownik zostanie przekierowany do tej ścieżki. Wartość domyślna to/Account/AccessDenied.
-* `SlidingExpiration`: W przypadku wartości true nowy plik cookie zostanie wystawiony nową godzinę wygaśnięcia po bieżącym plikiem cookie jest przekroczyło połowę okna wygaśnięcia. Wartość domyślna to true.
-* `ReturnUrlParameter`: Parametr ReturnUrlParameter Określa nazwę parametru ciągu zapytania, która jest dołączana przez oprogramowanie pośredniczące, gdy kod stanu 401 nieautoryzowane zostanie zmieniona na przekierowanie 302 na ścieżkę logowania.
-* `AuthenticationScheme`: To ma zastosowanie tylko dla platformy ASP.NET Core 1.x. Nazwa logiczna schemat danego uwierzytelniania.
-* `AutomaticAuthenticate`: Ta flaga ma zastosowanie tylko dla platformy ASP.NET Core 1.x. W przypadku wartości true, uruchom na każde żądanie uwierzytelniania plików cookie i próbę zweryfikowania i rekonstrukcji serializacji podmiot zabezpieczeń, z którym utworzony.
 
+| Właściwość                | Opis                       | Domyślny |
+| ----------------------- | --------------------------------- | ------- |
+| `Cookie.Name`  | Nazwa pliku cookie.  | . AspNetCore.Cookies.  |
+| `Cookie.HttpOnly`  | Gdy ma wartość true, plik cookie nie jest dostępny ze skryptów po stronie klienta.  |  true |
+| `ExpireTimeSpan`  | Określa, ile czasu przechowywania biletu uwierzytelniania w pliku cookie pozostanie ważny od punktu, w którym jest tworzona.  | 14 dni  |
+| `LoginPath`  | Gdy użytkownik nie ma autoryzacji, zostanie przekierowany do tej ścieżki do logowania. | / / Logowanie się na koncie  |
+| `LogoutPath`  | Gdy użytkownik jest zalogowany, zostanie przekierowany do tej ścieżki.  | / Konta/wylogowania  |
+| `AccessDeniedPath`  | Gdy użytkownik nie powiodło się sprawdzanie autoryzacji, zostanie przekierowany do tej ścieżki.  |   |
+| `SlidingExpiration`  | W przypadku wartości true nowy plik cookie zostanie wystawiony nową godzinę wygaśnięcia po bieżącym plikiem cookie jest przekroczyło połowę okna wygaśnięcia.  | / Konta/AccessDenied |
+| `ReturnUrlParameter`  | Określa nazwę parametru ciągu zapytania, która jest dołączana przez oprogramowanie pośredniczące, gdy kod stanu 401 nieautoryzowane zostanie zmieniona na przekierowanie 302 na ścieżkę logowania.  |  true |
+| `AuthenticationScheme`  | Jest to tylko istotne dla platformy ASP.NET Core 1.x. Nazwa logiczna schemat danego uwierzytelniania. |  |
+| `AutomaticAuthenticate`  | Ta flaga ma zastosowanie tylko dla platformy ASP.NET Core 1.x. W przypadku wartości true, uruchom na każde żądanie uwierzytelniania plików cookie i próbę zweryfikowania i rekonstrukcji serializacji podmiot zabezpieczeń, z którym utworzony.  |  |

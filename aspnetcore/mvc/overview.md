@@ -1,23 +1,23 @@
 ---
-title: "Przegląd platformy ASP.NET Core MVC"
+title: "Omówienie platformy ASP.NET Core MVC"
 author: ardalis
 description: "Dowiedz się, jak platformy ASP.NET Core MVC jest sformatowany framework do tworzenia aplikacji sieci web i interfejsów API przy użyciu Model-View-Controller projektowanie wzorca."
-keywords: Platformy ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 01/08/2018
 ms.topic: article
 ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 33c293e15c0a7f18bbace9dc564fe11d93a7d509
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="overview-of-aspnet-core-mvc"></a>Przegląd platformy ASP.NET Core MVC
+# <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
 Przez [Steve Smith](https://ardalis.com/)
 
@@ -38,7 +38,7 @@ Ta nakreślenia obowiązki pomaga skalowanie aplikacji pod względem stopnia zł
 
 ### <a name="model-responsibilities"></a>Obowiązki modelu
 
-Model w aplikacji MVC reprezentuje stan aplikacji i wszelka logika biznesowa lub operacje, które powinny zostać wykonane przez nią. Logika biznesowa powinna hermetyzowany w modelu, wraz z wszelka logika implementacji dla utrwalanie stanu aplikacji. Widoki jednoznacznie zazwyczaj używają typów ViewModel specjalnie zaprojektowane do zawierają dane do wyświetlenia w tym widoku. kontroler zostanie tworzenia i wypełniania te instancje ViewModel z modelu.
+Model w aplikacji MVC reprezentuje stan aplikacji i wszelka logika biznesowa lub operacje, które powinny zostać wykonane przez nią. Logika biznesowa powinna hermetyzowany w modelu, wraz z wszelka logika implementacji dla utrwalanie stanu aplikacji. Widoki jednoznacznie zazwyczaj używają typów ViewModel przeznaczone do wyświetlania danych do wyświetlenia w tym widoku. Kontroler tworzy i wypełnia te instancje ViewModel z modelu.
 
 > [!NOTE]
 > Istnieje wiele sposobów w celu zorganizowania modelu w aplikacji, która używa wzorzec architektury MVC. Dowiedz się więcej o niektórych [różnych typów modeli](http://deviq.com/kinds-of-models/).
@@ -69,7 +69,7 @@ Platformy ASP.NET Core MVC obejmuje następujące funkcje:
 
 * [Routing](#routing)
 * [Wiązanie modelu](#model-binding)
-* [Weryfikacja modelu](#model-validation)
+* [Walidacja modelu](#model-validation)
 * [Iniekcji zależności](../fundamentals/dependency-injection.md)
 * [Filtry](#filters)
 * [Obszary](#areas)
@@ -142,12 +142,12 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
     {
       // work with the model
     }
-    // If we got this far, something failed, redisplay form
+    // At this point, something failed, redisplay form
     return View(model);
 }
 ```
 
-Platformę obsłuży, sprawdzanie poprawności danych żądania zarówno na kliencie, jak i na serwerze. Logikę weryfikacji określoną w typach modelu jest dodawany do widoków renderowanych jako adnotacje dyskretnego kodu i jest wymuszana w przeglądarce z [jQuery weryfikacji](https://jqueryvalidation.org/).
+Platformę obsługi sprawdzania poprawności danych żądania zarówno na kliencie, jak i na serwerze. Logikę weryfikacji określoną w typach modelu jest dodawany do widoków renderowanych jako adnotacje dyskretnego kodu i jest wymuszana w przeglądarce z [jQuery weryfikacji](https://jqueryvalidation.org/).
 
 ### <a name="dependency-injection"></a>Iniekcji zależności
 
@@ -181,11 +181,11 @@ Aplikację można również użyć [iniekcji zależności w widoku pliki](views/
 
 ### <a name="areas"></a>Obszary
 
-[Obszary](controllers/areas.md) umożliwiają partycji dużych aplikacji sieci Web platformy ASP.NET Core MVC w mniejszych funkcjonalności grupowania. Obszar skutecznie to struktura MVC wewnątrz aplikacji. W projekcie MVC składników logicznych, takich jak Model, kontrolera i widoku są przechowywane w różnych folderach i MVC używa konwencji nazewnictwa do utworzenia relacji między tymi składnikami. W przypadku dużych aplikacji może być korzystne partycji aplikacji na oddzielnych wysokiej obszary poziomu funkcjonalności. Na przykład aplikacji handlu elektronicznego z wiele jednostek biznesowych, takich jak wyewidencjonowania, rozliczeń i wyszukiwania itd. Każdy z tych jednostek ma własne logiczny składnik widoki, kontrolery i modeli.
+[Obszary](controllers/areas.md) umożliwiają partycji dużych aplikacji sieci Web platformy ASP.NET Core MVC w mniejszych funkcjonalności grupowania. Obszar to struktura MVC wewnątrz aplikacji. W projekcie MVC składników logicznych, takich jak Model, kontrolera i widoku są przechowywane w różnych folderach i MVC używa konwencji nazewnictwa do utworzenia relacji między tymi składnikami. W przypadku dużych aplikacji może być korzystne partycji aplikacji na oddzielnych wysokiej obszary poziomu funkcjonalności. Na przykład aplikacji handlu elektronicznego z wiele jednostek biznesowych, takich jak wyewidencjonowania, rozliczeń i wyszukiwania itd. Każdy z tych jednostek ma własne logiczny składnik widoki, kontrolery i modeli.
 
-### <a name="web-apis"></a>Interfejsy API sieci Web
+### <a name="web-apis"></a>Interfejsy Web API
 
-Oprócz stanowi doskonałe platformę do tworzenia witryn sieci web, ASP.NET Core MVC ma dużą obsługę tworzenia interfejsów API sieci Web. Można utworzyć usługi, które może korzystać szeroka gama klientów, w tym przeglądarki i urządzenia przenośne.
+Oprócz stanowi doskonałe platformę do tworzenia witryn sieci web, ASP.NET Core MVC ma dużą obsługę tworzenia interfejsów API sieci Web. Można utworzyć usługi, które są używane przez szeroki wachlarz klientów, w tym przeglądarki i urządzenia przenośne.
 
 Platformę obsługuje negocjowanie zawartości HTTP z wbudowaną obsługę [formatowania danych](models/formatting.md) jako JSON i XML. Zapis [niestandardowe elementy formatujące](advanced/custom-formatters.md) Aby dodać obsługę własnych formatów.
 
@@ -213,7 +213,7 @@ Przy użyciu aparatu widoku Razor można zdefiniować [układów](views/layout.m
 
 Widoków MVC razor można zdecydowanie wpisywać oparte na modelu. Kontrolery można przekazać jednoznacznie modelu z widokami włączanie widoków Sprawdzanie typu i obsługę funkcji IntelliSense.
 
-Na przykład następujący widok definiuje model typu `IEnumerable<Product>`:
+Na przykład następujący widok renderuje modelu typu `IEnumerable<Product>`:
 
 ```cshtml
 @model IEnumerable<Product>
