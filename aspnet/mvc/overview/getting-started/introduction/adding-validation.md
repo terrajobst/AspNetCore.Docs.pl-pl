@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: db09b6c947b219ce21e8f4248dcc6629c6add76c
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 11fc0363c20b179a4d74f29c4dafed81ca692ef2
+ms.sourcegitcommit: 77b8025c30ec2fd46d85ee2a2b497c44435d3009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 <a name="adding-validation"></a>Dodawanie walidacji
 ====================
@@ -42,7 +42,7 @@ Otwórz *Movie.cs* pliku. Powiadomienie [ `System.ComponentModel.DataAnnotations
 
 Teraz zaktualizować `Movie` klasy, aby móc korzystać z wbudowanych [ `Required` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), [wyrażenia regularnego](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx), i [ `Range` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutów sprawdzania poprawności. Zastąp `Movie` klasy następującym kodem:
 
-[!code-csharp[Main](adding-validation/samples/sample1.cs?highlight=8,22-24,30-31,37-38)]
+[!code-csharp[Main](adding-validation/samples/sample1.cs?highlight=5,13-15,18-19,22-23)]
 
 [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) Atrybut Ustawia maksymalną długość ciągu i ustawia tego ograniczenia w bazie danych, w związku z tym spowoduje zmianę schematu bazy danych. Kliknij prawym przyciskiem myszy **filmy** tabeli w **Eksploratora serwera** i kliknij przycisk **Otwórz definicję tabeli**:
 

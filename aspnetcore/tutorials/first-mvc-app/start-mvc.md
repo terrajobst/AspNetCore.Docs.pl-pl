@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 4b86eb22e367d2305b7995421aec6f37008c5637
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72852678a296107e6a2a146ed2324335a6e870ee
+ms.sourcegitcommit: 77b8025c30ec2fd46d85ee2a2b497c44435d3009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
 
@@ -96,7 +96,7 @@ Wybierz **F5** do uruchomienia aplikacji w trybie debugowania lub **Ctrl-F5** w 
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
 ![uruchomionej aplikacji](start-mvc/_static/1.png)
 
-* Uruchamia program Visual Studio [usług IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchamia aplikację. Należy zauważyć, że na pasku adresu `localhost:port#` i nie coś, takich jak `example.com`. Jest to spowodowane tym `localhost` jest standardowa nazwa hosta komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci web, losowy port jest używany dla serwera sieci web. Powyższy obraz numer portu to 5000. Po uruchomieniu aplikacji zostanie wyświetlony inny numer portu.
+* Uruchamia program Visual Studio [usług IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchamia aplikację. Należy zauważyć, że na pasku adresu `localhost:port#` i nie coś, takich jak `example.com`. Jest to spowodowane tym `localhost` jest standardowa nazwa hosta komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci web, losowy port jest używany dla serwera sieci web. Powyższy obraz numer portu to 5000. Adres URL w przeglądarce przedstawiono `localhost:5000`. Po uruchomieniu aplikacji zostanie wyświetlony inny numer portu.
 * Uruchamianie aplikacji z **Ctrl + F5** (tryb-debug) pozwala wprowadzać zmiany kodu, Zapisz plik, Odśwież przeglądarkę i zobaczyć zmiany kodu. Wielu deweloperów preferowane jest w trybie bez debugowania szybko uruchomić aplikację i zobaczyć zmiany.
 * Możesz uruchomić aplikację w trybie bez debugowania z lub debugowania **debugowania** element menu:
 
@@ -115,4 +115,4 @@ Podczas uruchamiania w trybie debugowania, naciśnij przycisk **Shift-F5** możn
 W następnej części tego samouczka możemy Dowiedz się więcej o MVC i rozpocząć pisanie kodu.
 
 >[!div class="step-by-step"]
-[Dalej](adding-controller.md)  
+[Next](adding-controller.md)  
