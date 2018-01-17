@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: ad44ee525601f308498967159e964aa41a2ce00c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c563f566b8456b63ffe0a3c4876432c60a19e89
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Atrybut routingu w składniku ASP.NET Web API 2
 ====================
@@ -31,7 +31,7 @@ W tym temacie pokazano, jak włączyć routing atrybutu i zawiera opis różnych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional lub Enterprise Edition
+[Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional, or Enterprise Edition
 
 Można również użyć Menedżera pakietów NuGet w celu zainstalowania wymaganych pakietów. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżer pakietów biblioteki**, a następnie wybierz pozycję **Konsola Menedżera pakietów**. Wprowadź następujące polecenie w oknie konsoli Menedżera pakietów:
 
@@ -130,7 +130,7 @@ Wszystkie metody kontrolera, które nie mają atrybutu trasy korzystać z oparty
 
 Interfejs API sieci Web wybiera także działania na podstawie metody HTTP żądania (GET, POST itp.). Domyślnie interfejsu API sieci Web wygląda bez uwzględniania wielkości liter dopasowanie z początku nazwy metody kontrolera. Na przykład metoda kontrolera o nazwie `PutCustomers` dopasowuje żądanie HTTP PUT.
 
-Można zastąpić tę Konwencję dekoracji — metoda ze wszystkimi następującymi atrybutami:
+Można zastąpić tę Konwencję dekoracji metoda ze wszystkimi następującymi atrybutami:
 
 - **[HttpDelete]**
 - **[HttpGet]**
@@ -180,22 +180,22 @@ W poniższej tabeli wymieniono ograniczenia, które są obsługiwane.
 
 | Ograniczenia | Opis | Przykład |
 | --- | --- | --- |
-| Alpha | Dopasowań wielkie lub małe litery alfabetu łacińskiego (a – z, A-Z) | {x: alfa} |
-| bool | Dopasowuje wartość logiczną. | {x: bool} |
+| alpha | Dopasowań wielkie lub małe litery alfabetu łacińskiego (a – z, A-Z) | {x:alpha} |
+| bool | Dopasowuje wartość logiczną. | {x:bool} |
 | datetime | Dopasowań **DateTime** wartość. | {x: datetime} |
 | decimal | Odpowiada wartości dziesiętnej. | {x: decimal} |
-| double | Odpowiada wartość 64-bitowych liczb zmiennoprzecinkowych. | {x: double} |
+| double | Odpowiada wartość 64-bitowych liczb zmiennoprzecinkowych. | {x:double} |
 | float | Dopasowuje wartości zmiennoprzecinkowej 32-bitowych. | {x: float} |
-| Identyfikator GUID | Dopasowuje wartości identyfikatora GUID. | {x: guid} |
-| int | Zgodna z wartością 32-bitową liczbę całkowitą. | {x: int} |
+| Identyfikator GUID | Dopasowuje wartości identyfikatora GUID. | {x:guid} |
+| int | Zgodna z wartością 32-bitową liczbę całkowitą. | {x:int} |
 | length | Dopasowuje ciąg znaków o określonej długości lub zakresu określonej długości. | {x: length(6)} {x: length(1,20)} |
-| long | Odpowiada wartość 64-bitową liczbę całkowitą. | {x: long} |
-| max | Dopasowuje typu integer o wartości maksymalnej. | {x: max(10)} |
-| Element MaxLength | Dopasowuje ciąg o maksymalnej długości. | {x: maxlength(10)} |
-| min | Dopasowuje jako liczba całkowita, wartość minimalna. | {x: min(10)} |
-| Element MinLength | Dopasowuje ciąg o minimalnej długości. | {x: minlength(10)} |
-| range | Dopasowuje całkowitą w zakresie wartości. | {x: range(10,50)} |
-| wyrażenia regularnego | Pasuje do wyrażenia regularnego. | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
+| long | Odpowiada wartość 64-bitową liczbę całkowitą. | {x:long} |
+| max | Dopasowuje typu integer o wartości maksymalnej. | {x:max(10)} |
+| Element MaxLength | Dopasowuje ciąg o maksymalnej długości. | {x:maxlength(10)} |
+| min | Dopasowuje jako liczba całkowita, wartość minimalna. | {x:min(10)} |
+| minlength | Dopasowuje ciąg o minimalnej długości. | {x:minlength(10)} |
+| range | Dopasowuje całkowitą w zakresie wartości. | {x:range(10,50)} |
+| regex | Pasuje do wyrażenia regularnego. | {x:regex(^\d{3}-\d{3}-\d{4}$)} |
 
 Powiadomienie niektórych ograniczeń, takich jak &quot;min&quot;, przyjmuje argumentów w nawiasach. Można stosować wiele ograniczeń do parametru, oddzielone dwukropkiem.
 
@@ -271,7 +271,7 @@ Te trasy są sortowane w następujący sposób.
 
 1. Szczegóły/zamówień
 2. zamówienia / {id}
-3. zamówienia / {customerName}
+3. orders/{customerName}
 4. zamówienia / {\*Data}
 5. zamówienia / oczekujące
 

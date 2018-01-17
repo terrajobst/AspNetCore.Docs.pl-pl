@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: 163bc35afed0bf1d9236935d5ce60e6975356594
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 246e6307989f2660d84288ceac6793c422875f93
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Tworzenia, odczytu, aktualizacji i usuwania - Core EF Razor strony (2 8)
 
@@ -50,7 +50,7 @@ Zastąp globalnie `SingleOrDefaultAsync` z `FirstOrDefaultAsync`. `SingleOrDefau
 * `OnGetAsync`i `OnPostAsync` na edytowanie i usuwanie stron.
 
 <a name="FindAsync"></a>
-### <a name="findasync"></a>Metoda FindAsync
+### <a name="findasync"></a>FindAsync
 
 W bardzo szkieletu kodu [metoda FindAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) można użyć zamiast `FirstOrDefaultAsync` lub `SingleOrDefaultAsync`. 
 
@@ -202,7 +202,7 @@ W aplikacji sieci web `DbContext` które odczytuje jednostki i wyświetla dane z
 
 ## <a name="update-the-delete-page"></a>Zaktualizuj strony usuwania
 
-W tej sekcji kod zostanie dodany do wdrożenia błędu niestandardowego komunikatu, gdy wywołanie `SaveChanges` zakończy się niepowodzeniem. Dodaj ciąg zawiera komunikaty o błędach possile:
+W tej sekcji kod zostanie dodany do wdrożenia błędu niestandardowego komunikatu, gdy wywołanie `SaveChanges` zakończy się niepowodzeniem. Dodaj ciąg zawierający komunikatów o błędach:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
 

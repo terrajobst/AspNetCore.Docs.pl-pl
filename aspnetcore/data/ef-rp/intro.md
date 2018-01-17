@@ -2,7 +2,7 @@
 title: Stron razor z Entity Framework Core - 1 samouczka 8
 author: rick-anderson
 description: "Pokazuje, jak utworzyć aplikację stron Razor przy użyciu programu Entity Framework Core"
-keywords: Samouczek platformy ASP.NET Core Entity Framework Core,
+keywords: ASP.NET Core,Entity Framework Core,tutorial
 ms.author: riande
 manager: wpickett
 ms.date: 11/15/2017
@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: 86f9eceb5b8646e371811fa4611a4509ff652231
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 2725960aa8a54c803a141b8d1275e65f245f7082
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Wprowadzenie do stron Razor i Entity Framework Core za pomocą programu Visual Studio (1 8)
 
@@ -34,7 +34,7 @@ Znajomość [stron Razor](xref:mvc/razor-pages/index). Nowe programistów powinn
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli napotkasz problem, nie można rozpoznać zwykle można znaleźć rozwiązania na podstawie porównania ilości kodu do [ukończone etap](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots) lub [projektu zakończone](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu-final). Aby uzyskać listę typowych błędów i sposobów ich rozwiązania, zobacz [sekcji rozwiązywania problemów ostatniego samouczek z tej serii](xref:data/ef-mvc/advanced#common-errors). Nie można znaleźć, muszą, możesz wysłać zapytanie do StackOverflow.com dla [platformy ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) lub [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
+Jeśli napotkasz problem, nie można rozpoznać zwykle można znaleźć rozwiązania na podstawie porównania ilości kodu do [ukończone etap](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots) lub [projektu zakończone](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu-final). Aby uzyskać listę typowych błędów i sposobów ich rozwiązania, zobacz [sekcji rozwiązywania problemów ostatniego samouczek z tej serii](xref:data/ef-mvc/advanced#common-errors). Jeśli nie możesz znaleźć, muszą, możesz wysłać zapytanie do [StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) dla [platformy ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) lub [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP]
 > Tej serii samouczków opiera się na czynności wykonane w starszych samouczki. Warto zapisać kopię projektu po każdym pomyślnym ukończeniu samouczka. Jeśli wystąpiły problemy, możesz zacząć od nowa z poprzednich samouczek zamiast po powrocie do początku. Alternatywnie możesz pobrać [ukończone etap](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots) i zacząć od nowa przy użyciu etap ukończone.
