@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: d72c01971b1dbf26b96e438543fea037eda3a879
-ms.sourcegitcommit: bc723b483182fbcbf8c4c7098f70443662076905
+ms.openlocfilehash: 894d836d33e01d839285e45b3acd7f5372b69887
+ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="adding-a-model-to-a-razor-pages-app"></a>Dodawanie modelu do aplikacji stron Razor
 
@@ -60,7 +60,7 @@ Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet** > **Konsola
 W kryterium wprowadź następujące polecenia:
 
 ```powershell
-Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design -Version 2.0.0
+Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
 Add-Migration Initial
 Update-Database
 ```

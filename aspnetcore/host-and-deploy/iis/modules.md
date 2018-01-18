@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: b52327523467600ff62289022434a77af5d8fa22
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 405297bdd1ceac390b995ed6e15ae8d95bb8501f
+ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>Używanie modułów usług IIS z platformy ASP.NET Core
 
@@ -33,9 +33,9 @@ Moduł | .NET core aktywny | Opcja platformy ASP.NET Core
 **Sprawdzanie poprawności konfiguracji**<br>`ConfigurationValidationModule` | Tak | 
 **Błędy HTTP**<br>`CustomErrorModule` | Nie | [Oprogramowanie pośredniczące strony kod stanu](xref:fundamentals/error-handling#configuring-status-code-pages)
 **Rejestrowanie niestandardowe**<br>`CustomLoggingModule` | Tak | 
-**Dokument domyślny**<br>`DefaultDocumentModule` | Nie | [Oprogramowanie pośredniczące plików domyślne](xref:fundamentals/static-files#serving-a-default-document)
+**Dokument domyślny**<br>`DefaultDocumentModule` | Nie | [Oprogramowanie pośredniczące plików domyślne](xref:fundamentals/static-files#serve-a-default-document)
 **Uwierzytelnianie szyfrowane**<br>`DigestAuthenticationModule` | Tak | 
-**Przeglądanie katalogów**<br>`DirectoryListingModule` | Nie | [Oprogramowanie pośredniczące przeglądania w katalogu](xref:fundamentals/static-files#enabling-directory-browsing)
+**Przeglądanie katalogów**<br>`DirectoryListingModule` | Nie | [Oprogramowanie pośredniczące przeglądania w katalogu](xref:fundamentals/static-files#enable-directory-browsing)
 **Kompresja dynamiczna**<br>`DynamicCompressionModule` | Tak | [Oprogramowanie pośredniczące kompresji odpowiedzi](xref:performance/response-compression)
 **Śledzenie**<br>`FailedRequestsTracingModule` | Tak | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index#the-tracesource-provider)
 **Buforowanie plików**<br>`FileCacheModule` | Nie | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
@@ -45,7 +45,7 @@ Moduł | .NET core aktywny | Opcja platformy ASP.NET Core
 **Uwierzytelnianie mapowań certyfikatów klientów usług IIS**<br>`IISCertificateMappingAuthenticationModule` | Tak | 
 **Ograniczenia adresów IP i domen**<br>`IpRestrictionModule` | Tak | 
 **Filtry ISAPI**<br>`IsapiFilterModule` | Tak | [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
-**INTERFEJS ISAPI**<br>`IsapiModule` | Tak | [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
+**ISAPI**<br>`IsapiModule` | Tak | [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
 **Obsługa protokołu**<br>`ProtocolSupportModule` | Tak | 
 **Filtrowanie żądań**<br>`RequestFilteringModule` | Tak | [Ponowne zapisywanie adresów URL w oprogramowania pośredniczącego`IRule`](xref:fundamentals/url-rewriting#irule-based-rule)
 **Monitor żądań**<br>`RequestMonitorModule` | Tak | 
@@ -55,7 +55,7 @@ Moduł | .NET core aktywny | Opcja platformy ASP.NET Core
 **Zawartość statyczna**<br>`StaticFileModule` | Nie | [Oprogramowanie pośredniczące plików statycznych](xref:fundamentals/static-files)
 **Buforowanie tokenu**<br>`TokenCacheModule` | Tak | 
 **Identyfikator URI w pamięci podręcznej**<br>`UriCacheModule` | Tak | 
-**Autoryzacja adresów URL**<br>`UrlAuthorizationModule` | Tak | [Tożsamość platformy ASP.NET Core](xref:security/authentication/identity)
+**Autoryzacja adresów URL**<br>`UrlAuthorizationModule` | Tak | [ASP.NET Core Identity](xref:security/authentication/identity)
 **Uwierzytelnianie systemu Windows**<br>`WindowsAuthenticationModule` | Tak | 
 
 †The moduł ponowne zapisywanie adresów URL `isFile` i `isDirectory` nie działają w aplikacjach ASP.NET Core z powodu zmian w [struktury katalogów](xref:host-and-deploy/directory-structure).
@@ -71,11 +71,11 @@ Uwierzytelniania formularzy | Nie | [Oprogramowanie pośredniczące uwierzytelni
 OutputCache | Nie | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
 Profil | Nie | 
 RoleManager | Nie | 
-ScriptModule 4.0 | Nie | 
+ScriptModule-4.0 | Nie | 
 Sesja | Nie | [Oprogramowanie pośredniczące sesji](xref:fundamentals/app-state)
 UrlAuthorization | Nie | 
 UrlMappingsModule | Nie | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting)
-UrlRoutingModule 4.0 | Nie | [Tożsamość platformy ASP.NET Core](xref:security/authentication/identity)
+UrlRoutingModule-4.0 | Nie | [ASP.NET Core  Identity](xref:security/authentication/identity)
 WindowsAuthentication | Nie | 
 
 ## <a name="iis-manager-application-changes"></a>Zmiany aplikacji Menedżera usług IIS

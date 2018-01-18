@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: e3c3149254d602db1fcc6d42360690be026189a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6df769069fce52755a57d8404f88203a652a1ab9
+ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Składnia razor dla platformy ASP.NET Core
 
@@ -76,7 +76,7 @@ Poprzedni kod generowany jest błąd kompilatora podobny do jednego z następuj�
  * Element "int" nie został zamknięty.  Wszystkie elementy muszą być albo samodzielnie zamknięcie lub ma zgodnego tagu końcowego.
  *  Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzasz wywołać metodę? " 
  
-Wywołania metody rodzajowe muszą być ujęte w [jawne wyrażenie Razor](#explicit-razor-expressions) lub [blok kodu Razor](#razor-code-blocks). To ograniczenie nie dotyczy *.vbhtml* Razor plików, ponieważ składnia języka Visual Basic umieszcza nawiasy parametry typu ogólnego zamiast nawiasy.
+Wywołania metody rodzajowe muszą być ujęte w [jawne wyrażenie Razor](#explicit-razor-expressions) lub [blok kodu Razor](#razor-code-blocks).
 
 ## <a name="explicit-razor-expressions"></a>Jawne wyrażenia Razor
 
@@ -127,8 +127,6 @@ Poprzedni kod generowany jest błąd kompilatora podobny do jednego z następuj�
 ```cshtml
 <p>@(GenericMethod<int>())</p>
 ```
-
-Uwaga: to ograniczenie nie dotyczy *.vbhtml* pliki Razor.  Z *.vbhtml* nawiasy parametry typu ogólnego zamiast nawiasy umieszcza pliki Razor, składnia języka Visual Basic.
 
 ## <a name="expression-encoding"></a>Kodowanie wyrażenia
 

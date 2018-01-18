@@ -2,7 +2,7 @@
 title: Migrowanie ASP.NET ASP.NET Core 2.0
 author: isaac2004
 description: "To odwołanie dokument zawiera wskazówki dotyczące migrowania istniejących aplikacji ASP.NET MVC lub Web API platformy ASP.NET Core 2.0."
-keywords: Migrowanie platformy ASP.NET Core MVC,
+keywords: ASP.NET Core,MVC,migrating
 ms.author: scaddie
 manager: wpickett
 ms.date: 08/27/2017
@@ -11,11 +11,11 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc2
-ms.openlocfilehash: 8005d23ad00774e488eecc9771f36a244a051126
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 68188072da5a857d730a1bc8a57df0ef6d10b922
+ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>Migrowanie ASP.NET ASP.NET Core 2.0
 
@@ -70,7 +70,7 @@ Platformy ASP.NET Core używa podejście podobne, ale nie zależą od OWIN do ob
 * [BrowserLink](http://vswebessentials.com/features/browserlink)
 * Strony błędów
 * Pliki statyczne
-* Podstawowe ASP.NET MVC
+* ASP.NET Core MVC
 * Tożsamość
 
 [!code-csharp[Main](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
@@ -141,7 +141,7 @@ W programie ASP.NET pliki statyczne są przechowywane w różnych katalogach i p
 
 W ASP.NET Core pliki statyczne są przechowywane w katalogu"web" (*&lt;zawartości głównego&gt;/wwwroot*), chyba że skonfigurowano inaczej. Pliki są ładowane do potoku żądania, wywołując `UseStaticFiles` — metoda rozszerzenia z `Startup.Configure`:
 
-[!code-csharp[Main](../../fundamentals/static-files/sample/StartupStaticFiles.cs?highlight=3&name=snippet1)]
+[!code-csharp[Main](../../fundamentals/static-files/samples/1x/StartupStaticFiles.cs?highlight=3&name=snippet_ConfigureMethod)]
 
 **Uwaga:** Jeśli przeznaczonych dla platformy .NET Framework, zainstaluj pakiet NuGet `Microsoft.AspNetCore.StaticFiles`.
 
