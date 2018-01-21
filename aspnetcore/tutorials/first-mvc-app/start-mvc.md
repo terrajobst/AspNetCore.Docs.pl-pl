@@ -2,7 +2,6 @@
 title: Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
 author: rick-anderson
 description: Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
-keywords: Platformy ASP.NET Core MVC
 ms.author: riande
 manager: wpickett
 ms.date: 10/07/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 72852678a296107e6a2a146ed2324335a6e870ee
-ms.sourcegitcommit: 77b8025c30ec2fd46d85ee2a2b497c44435d3009
+ms.openlocfilehash: a55b0b2a52856755b89e8ae6a2598c713f1d436d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
 
@@ -30,13 +29,13 @@ Istnieją 3 wersje tego samouczka:
 
 ## <a name="install-visual-studio-and-net-core"></a>Zainstaluj oprogramowanie .NET Core i Visual Studio
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!INCLUDE[install 2.0](../../includes/install2.0.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Zainstaluj program Visual Studio Community 2017 r. Wybierz pobieranie społeczności. Jeśli masz program Visual Studio 2017 r zainstalowany, Pomiń ten krok.
+Install Visual Studio Community 2017. Wybierz pobieranie społeczności. Jeśli masz program Visual Studio 2017 r zainstalowany, Pomiń ten krok.
 
 * [Visual Studio 2017 głównej strony Instalatora](https://www.visualstudio.com/)
 
@@ -67,7 +66,7 @@ Zakończenie **nowy projekt** okna dialogowego:
 ![Okno dialogowe nowego projektu, .net core w okienku po lewej stronie sieci web platformy ASP.NET Core ](start-mvc/_static/new_project2.png)
 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Zakończenie **nowej platformy ASP.NET Core aplikacji sieci Web (.NET Core) — MvcMovie** okna dialogowego:
 
@@ -77,7 +76,7 @@ Zakończenie **nowej platformy ASP.NET Core aplikacji sieci Web (.NET Core) — 
 
 ![Okno dialogowe nowego projektu, .net core w okienku po lewej stronie sieci web platformy ASP.NET Core ](start-mvc/_static/new_project22.png)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Zakończenie **nowej platformy ASP.NET Core aplikacji sieci Web (.NET Core) — MvcMovie** okna dialogowego:
 

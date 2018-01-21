@@ -2,7 +2,6 @@
 title: "Przy użyciu Gulp w platformy ASP.NET Core"
 author: rick-anderson
 description: "Dowiedz się, jak używać Gulp w ASP.NET Core."
-keywords: Platformy ASP.NET Core Gulp
 ms.author: riande
 manager: wpickett
 ms.date: 02/28/2017
@@ -11,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-gulp
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68f6838889cfb830f2c5a1976b3140ae5d94ac25
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 11f7254a2f3d3d132f2f6af6d5ddab23f896cf63
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Wprowadzenie do korzystania z Gulp w ASP.NET Core 
 
@@ -30,7 +29,7 @@ W typowej nowoczesnych witryn sieci web aplikacji może być procesu kompilacji:
 
 A *modułu uruchamiającego zadania* to narzędzie, które automatyzuje tych zadań związanych z projektowaniem rutynowych i inne. Program Visual Studio udostępnia wbudowaną obsługę dla dwóch uczestników popularnych zadań oparte na języku JavaScript: [system Gulp](https://gulpjs.com/) i [Grunt](using-grunt.md).
 
-## <a name="gulp"></a>Gulp
+## <a name="gulp"></a>gulp
 
 Gulp jest oparte na języku JavaScript przesyłania strumieniowego kompilacji pakiet narzędzi dla kodu po stronie klienta. Często służy do przesyłania strumieniowego plików po stronie klienta za pośrednictwem serii procesów, po wyzwoleniu określonego zdarzenia w środowisku kompilacji. Na przykład Gulp może służyć do automatyzowania [tworzenie pakietów i minimalizowanie](bundling-and-minification.md) lub czyszczenia Środowisko deweloperskie przed nowej kompilacji.
 
@@ -65,7 +64,7 @@ Powyższy kod określa, które moduły węzła są wymagane. `require` Funkcja i
 |gulp|Gulp przesyłania strumieniowego system kompilacji. Aby uzyskać więcej informacji, zobacz [system gulp](https://www.npmjs.com/package/gulp).|
 |rimraf|Moduł usuwania węzła. Aby uzyskać więcej informacji, zobacz [rimraf](https://www.npmjs.com/package/rimraf).|
 |gulp concat|Moduł, który łączy pliki oparte na znak nowego wiersza systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [gulp concat](https://www.npmjs.com/package/gulp-concat).|
-|gulp cssmin|Moduł, który minimalizuje pliki CSS. Aby uzyskać więcej informacji, zobacz [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin).|
+|gulp-cssmin|Moduł, który minimalizuje pliki CSS. Aby uzyskać więcej informacji, zobacz [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin).|
 |gulp uglify|Moduł, który minimalizuje *js* plików. Aby uzyskać więcej informacji, zobacz [gulp uglify](https://www.npmjs.com/package/gulp-uglify).|
 
 Gdy wymagane moduły są importowane, można określić zadania. W tym miejscu jest sześć zadań zarejestrowany, reprezentowany przez następujący kod:
@@ -102,11 +101,11 @@ Poniższa tabela zawiera objaśnienie zadania określone w powyższym kodzie:
 
 |Nazwa zadania|Opis|
 |--- |--- |
-|Wyczyść: js|Zadanie, które używa modułu usunięcie węzła rimraf usunąć zminimalizowany wersję pliku site.js.|
+|clean:js|Zadanie, które używa modułu usunięcie węzła rimraf usunąć zminimalizowany wersję pliku site.js.|
 |Wyczyść: css|Zadanie, które używa modułu usunięcie węzła rimraf usunąć zminimalizowany wersję pliku site.css.|
 |Czyszczenie|Zadanie, które wywołuje `clean:js` zadań, a następnie `clean:css` zadań.|
 |min:js|Zadanie, które minimalizuje i łączy wszystkie pliki js znajdujących się w folderze js. . Pliki min.js są wyłączone.|
-|min:CSS|Zadanie, które minimalizuje i łączy wszystkie pliki CSS w folderze css. . Pliki min.css są wyłączone.|
+|min:css|Zadanie, które minimalizuje i łączy wszystkie pliki CSS w folderze css. . Pliki min.css są wyłączone.|
 |min|Zadanie, które wywołuje `min:js` zadań, a następnie `min:css` zadań.|
 
 ## <a name="running-default-tasks"></a>Uruchomione zadania domyślne
@@ -249,7 +248,7 @@ Po uruchomieniu zadania wielu zadań jednocześnie domyślnie uruchamiane. Jedna
     gulp.task("series", ["series:first", "series:second"], function () {});
     ```
  
-    Masz teraz trzy zadania: `series:first`, `series:second`, i `series`. `series:second` Zadanie zawiera drugi parametr, który określa tablicę zadania do uruchomienia, a ukończone przed `series:second` zadanie zostanie uruchomione.  Jak określono w kodzie powyżej, tylko `series:first` zadań muszą zostać wykonane przed `series:second` zadanie zostanie uruchomione.
+    Masz teraz trzy zadania: `series:first`, `series:second`, i `series`. `series:second` Zadanie zawiera drugi parametr, który określa tablicę zadania do uruchomienia, a ukończone przed `series:second` zadanie zostanie uruchomione. Jak określono w kodzie powyżej, tylko `series:first` zadań muszą zostać wykonane przed `series:second` zadanie zostanie uruchomione.
 
 2.  Zapisz *gulpfile.js*.
 
@@ -328,7 +327,7 @@ Aby uzyskać więcej informacji związanych z środowiska w programie ASP.NET Co
 
 ## <a name="task-and-module-details"></a>Szczegóły zadania i modułu
 
-Zadanie Gulp jest zarejestrowana nazwa funkcji.  Jeśli inne zadania musi zostać uruchomiony przed bieżącym zadań można określić zależności. Dodatkowe funkcje umożliwiają uruchamianie i obejrzyj Gulp zadania, a także Ustaw źródło (*src*) i docelowego (*dest*) plików jest modyfikowany. Poniżej przedstawiono podstawowe funkcje system Gulp interfejsu API:
+Zadanie Gulp jest zarejestrowana nazwa funkcji. Jeśli inne zadania musi zostać uruchomiony przed bieżącym zadań można określić zależności. Dodatkowe funkcje umożliwiają uruchamianie i obejrzyj Gulp zadania, a także Ustaw źródło (*src*) i docelowego (*dest*) plików jest modyfikowany. Poniżej przedstawiono podstawowe funkcje system Gulp interfejsu API:
 
 |Funkcja gulp|Składnia|Opis|
 |---   |--- |--- |

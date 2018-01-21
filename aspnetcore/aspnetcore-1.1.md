@@ -2,26 +2,24 @@
 title: What's new in ASP.NET Core 1.1
 author: rick-anderson
 description: What's new in ASP.NET Core 1.1
-keywords: Platformy ASP.NET Core, bower
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: 062f8353-d1bc-4e99-a821-c1d1bb162c47
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-1.1
-ms.openlocfilehash: f014bdb41447f0354938c719ab37104b2d4b08e5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 56260241cd42eeb98b47277cd3f8a139a2a2fe50
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>What's new in ASP.NET Core 1.1
 
 Platformy ASP.NET Core 1.1 obejmuje następujące nowe funkcje:
 
-- [Ponowne zapisywanie adresów URL w oprogramowania pośredniczącego](xref:fundamentals/url-rewriting)
+- [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting)
 - [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
 - [Składniki widoku jako pomocników tagów](xref:mvc/views/view-components#invoking-a-view-component-as-a-tag-helper)
 - [Oprogramowanie pośredniczące jako filtrów platformy MVC](xref:mvc/controllers/filters#using-middleware-in-the-filter-pipeline)

@@ -2,20 +2,18 @@
 title: "Migrowanie programów obsługi HTTP i modułów platformy ASP.NET Core oprogramowania pośredniczącego"
 author: rick-anderson
 description: 
-keywords: Platformy ASP.NET Core
 ms.author: tdykstra
 manager: wpickett
 ms.date: 12/07/2016
 ms.topic: article
-ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: f217e5264742826f285444dcbaea4b28b97c4d7e
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 44b2b38c284e678344432d4473162404b4bb75a5
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrowanie programów obsługi HTTP i modułów platformy ASP.NET Core oprogramowania pośredniczącego 
 
@@ -247,7 +245,7 @@ public async Task Invoke(HttpContext context)
 
 `HttpContext`znacznie została zmieniona w ASP.NET Core. W tej sekcji przedstawiono sposób tłumaczenia najczęściej używane właściwości [System.Web.HttpContext](https://docs.microsoft.com/dotnet/api/system.web.httpcontext) do nowego `Microsoft.AspNetCore.Http.HttpContext`.
 
-### <a name="httpcontext"></a>Element HttpContext
+### <a name="httpcontext"></a>HttpContext
 
 **HttpContext.Items** umożliwia to:
 
@@ -273,7 +271,7 @@ Zawiera unikatowy identyfikator dla każdego żądania. Bardzo przydatny w dzien
 
 [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Url)]
 
-**HttpContext.Request.IsSecureConnection** umożliwia to:
+**HttpContext.Request.IsSecureConnection** translates to:
 
 [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Secure)]
 
@@ -285,7 +283,7 @@ Zawiera unikatowy identyfikator dla każdego żądania. Bardzo przydatny w dzien
 
 [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Cookies)]
 
-**HttpContext.Request.RequestContext.RouteData** umożliwia to:
+**HttpContext.Request.RequestContext.RouteData** translates to:
 
 [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Route)]
 

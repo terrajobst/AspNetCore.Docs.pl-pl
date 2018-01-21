@@ -6,15 +6,14 @@ ms.author: rachelap
 manager: wpickett
 ms.date: 11/01/2017
 ms.topic: article
-ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe012345
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: f6a1f32c1edd098b0782fd066d8e32f09952a9b7
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 71bde77e0bc5698b670b560455301cae642165a6
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-security-overview"></a>Przegląd zabezpieczeń platformy ASP.NET Core
 
@@ -45,38 +44,38 @@ Istnieje więcej usterek, które należy zwrócić uwagę. Aby uzyskać więcej 
 
 *   [Uwierzytelnianie](authentication/index.md)
     *   [Wprowadzenie do tożsamości](authentication/identity.md)
-    *   [Włącz uwierzytelnianie za pomocą usługi Facebook, Google i innych dostawców zewnętrznych](authentication/social/index.md)
+    *   [Włączanie uwierzytelniania za pomocą usługi Facebook, Google i innych dostawców zewnętrznych](authentication/social/index.md)
     * [Konfigurowanie uwierzytelniania systemu Windows](authentication/windowsauth.md)
-    *   [Potwierdzenie konta i hasła odzyskiwania](authentication/accconfirm.md)
+    *   [Potwierdzenie konta i odzyskiwanie hasła](authentication/accconfirm.md)
     *   [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS](authentication/2fa.md) 
     *   [Użyj plików cookie uwierzytelniania bez tożsamości](authentication/cookie.md)
     *   [Azure Active Directory](authentication/azure-active-directory/index.md)
         *   [Integrowanie usługi Azure AD do aplikacji sieci web platformy ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
         *   [Wywołanie interfejsu API platformy ASP.NET Core sieci Web z aplikacji WPF przy użyciu usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
-        *   [Wywołanie interfejsu API sieci Web w aplikacji sieci web platformy ASP.NET Core za pomocą usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
+        *   [Wywoływanie interfejsu Web API z aplikacji internetowej platformy ASP.NET Core przy użyciu usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
         *   [Aplikacji sieci web platformy ASP.NET Core za pomocą usługi Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
-    *   [Zabezpieczanie aplikacji za pomocą IdentityServer4 platformy ASP.NET Core](https://identityserver4.readthedocs.io)
+    *   [Zabezpieczanie aplikacji platformy ASP.NET Core za pomocą usługi IdentityServer4](https://identityserver4.readthedocs.io)
 *   [Autoryzacja](authorization/index.md)
     *   [Wprowadzenie](authorization/introduction.md)
     *   [Tworzenie aplikacji przy użyciu danych użytkownika chronionych przez autoryzację](xref:security/authorization/secure-data)
-    *   [Proste autoryzacji](authorization/simple.md)
-    *   [Autoryzacji opartej na rolach](authorization/roles.md)
-    *   [Autoryzacji opartej na oświadczeniach](authorization/claims.md)
-    *   [Na podstawie zasad autoryzacji](authorization/policies.md)
-    *   [Iniekcji zależności w obsłudze wymaganie](authorization/dependencyinjection.md)
+    *   [Autoryzacja prosta](authorization/simple.md)
+    *   [Autoryzacja oparta na rolach](authorization/roles.md)
+    *   [Autoryzacja oparta na oświadczeniach](authorization/claims.md)
+    *   [Autoryzacja oparta na zasadach](authorization/policies.md)
+    *   [Wstrzykiwanie zależności w programach obsługi wymagań](authorization/dependencyinjection.md)
     *   [Autoryzacja na podstawie zasobów](authorization/resourcebased.md)
     *   [Autoryzacja na podstawie widoku](authorization/views.md)
-    *   [Ograniczenie tożsamości przez system](authorization/limitingidentitybyscheme.md)
+    *   [Ograniczanie tożsamości według schematu](authorization/limitingidentitybyscheme.md)
 *   [Ochrona danych](data-protection/index.md)
     *   [Wprowadzenie do ochrony danych](data-protection/introduction.md)
-    *   [Rozpoczynanie pracy z interfejsami API ochrony danych](data-protection/using-data-protection.md)
+    *   [Wprowadzenie do interfejsów API ochrony danych](data-protection/using-data-protection.md)
     *   [Interfejsy API przeznaczone dla klientów](data-protection/consumer-apis/index.md)
         *   [Omówienie interfejsów API przeznaczonych dla klientów](data-protection/consumer-apis/overview.md)
-        *   [Cel ciągów](data-protection/consumer-apis/purpose-strings.md)
+        *   [Ciągi celów](data-protection/consumer-apis/purpose-strings.md)
         *   [Hierarchia celów i obsługa wielu dzierżawców](data-protection/consumer-apis/purpose-strings-multitenancy.md)
-        *   [Tworzenia skrótu hasła](data-protection/consumer-apis/password-hashing.md)
-        *   [Limit ważności ładunków chronionych](data-protection/consumer-apis/limited-lifetime-payloads.md)
-        *   [Wyłącz ochronę ładunków, której klucze zostały odwołane.](data-protection/consumer-apis/dangerous-unprotect.md)
+        *   [Tworzenia skrótów haseł](data-protection/consumer-apis/password-hashing.md)
+        *   [Ograniczanie okresu istnienia ładunków chronionych](data-protection/consumer-apis/limited-lifetime-payloads.md)
+        *   [Wyłączanie ochrony ładunków, których klucze zostały odwołane](data-protection/consumer-apis/dangerous-unprotect.md)
     *   [Konfiguracja](data-protection/configuration/index.md)
         *   [Konfigurowanie ochrony danych](data-protection/configuration/overview.md)
         *   [Ustawienia domyślne](data-protection/configuration/default-settings.md)
@@ -88,22 +87,22 @@ Istnieje więcej usterek, które należy zwrócić uwagę. Aby uzyskać więcej 
         *   [Różne interfejsy API](data-protection/extensibility/misc-apis.md)
     *   [Implementacja](data-protection/implementation/index.md)
         *   [Szczegóły uwierzytelnionego szyfrowania](data-protection/implementation/authenticated-encryption-details.md)
-        *   [Pochodnym podkluczy i uwierzytelnionego szyfrowania](data-protection/implementation/subkeyderivation.md)
+        *   [Wyprowadzanie podkluczy i uwierzytelnione szyfrowanie](data-protection/implementation/subkeyderivation.md)
         *   [Nagłówki kontekstu](data-protection/implementation/context-headers.md)
         *   [Zarządzanie kluczami](data-protection/implementation/key-management.md)
         *   [Dostawcy magazynu kluczy](data-protection/implementation/key-storage-providers.md)
-        *   [Szyfrowanie klucza magazynowane](data-protection/implementation/key-encryption-at-rest.md)
-        *   [Immutability klucza i zmienianie ustawień](data-protection/implementation/key-immutability.md)
+        *   [Szyfrowanie kluczy podczas magazynowania](data-protection/implementation/key-encryption-at-rest.md)
+        *   [Niezmienność kluczy i zmienianie ustawień](data-protection/implementation/key-immutability.md)
         *   [Format magazynu kluczy](data-protection/implementation/key-storage-format.md)
         *   [Dostawcy efemerycznej ochrony danych](data-protection/implementation/key-storage-ephemeral.md)
     *   [Zgodność](data-protection/compatibility/index.md)
         *   [Udostępnianie plików cookie między aplikacjami](data-protection/compatibility/cookie-sharing.md)
-        *   [Zastąp <machineKey> w programie ASP.NET](data-protection/compatibility/replacing-machinekey.md)
+        *   [Zamienianie elementu <machineKey> na platformie ASP.NET](data-protection/compatibility/replacing-machinekey.md)
 *   [Tworzenie aplikacji przy użyciu danych użytkownika chronionych przez autoryzację](xref:security/authorization/secure-data)
 *   [Bezpieczne przechowywanie kluczy tajnych aplikacji w czasie projektowania](app-secrets.md)
 *   [Dostawca konfiguracji usługi Azure Key Vault](key-vault-configuration.md)
 *   [Wymuszanie protokołu SSL](enforcing-ssl.md)
 *   [Ochrona przed fałszerstwem żądań](anti-request-forgery.md)
-*   [Zapobieganie atakom Otwórz przekierowania](preventing-open-redirects.md)
-*   [Zapobiegaj skryptów krzyżowych](cross-site-scripting.md)
-*   [Włącz żądania między źródłami (CORS)](cors.md)
+*   [Zapobieganie atakom na otwarte przekierowywanie](preventing-open-redirects.md)
+*   [Zapobieganie atakom z użyciem skryptów między witrynami](cross-site-scripting.md)
+*   [Włączanie żądań Cross-Origin (CORS)](cors.md)

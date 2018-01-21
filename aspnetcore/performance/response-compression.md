@@ -2,20 +2,18 @@
 title: "Oprogramowanie pośredniczące kompresji odpowiedzi dla platformy ASP.NET Core"
 author: guardrex
 description: "Więcej informacji na temat kompresji odpowiedzi i sposobie używania oprogramowania pośredniczącego kompresji odpowiedzi w aplikacji platformy ASP.NET Core."
-keywords: "Platformy ASP.NET Core, wydajność, kompresji odpowiedzi, gzip, Zaakceptuj encoding, oprogramowanie pośredniczące"
 ms.author: riande
 manager: wpickett
 ms.date: 08/20/2017
 ms.topic: article
-ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 86244179115fe6a7d0f7298495086a96ee9570d9
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 9270287b62f91ddb81d6a347dd583e1cbb32f3c3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Oprogramowanie pośredniczące kompresji odpowiedzi dla platformy ASP.NET Core
 
@@ -33,7 +31,7 @@ Użyj oprogramowania pośredniczącego kompresji odpowiedzi, gdy jesteś:
 * Nie można użyć następujących technologii serwerowych kompresji:
   * [Moduł dynamicznej kompresji usług IIS](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
   * [Apache mod_deflate modułu](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
-  * [NGINX kompresji i dekompresji](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
+  * [Nginx kompresji i dekompresji](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Hosting bezpośrednio na:
   * [Serwer HTTP.sys](xref:fundamentals/servers/httpsys) (wcześniej nazywanych [WebListener](xref:fundamentals/servers/weblistener))
   * [Kestrel](xref:fundamentals/servers/kestrel)
@@ -83,11 +81,11 @@ Aby dołączyć oprogramowanie pośredniczące w projekcie, należy dodać odwo�
 ## <a name="configuration"></a>Konfiguracja
 Poniższy kod przedstawia sposób włączania oprogramowania pośredniczącego kompresji odpowiedzi z kompresji gzip domyślne i domyślnych typów MIME.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](response-compression/samples/2.x/StartupBasic.cs?name=snippet1&highlight=4,8)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](response-compression/samples/1.x/StartupBasic.cs?name=snippet1&highlight=3,8)]
 
@@ -117,11 +115,11 @@ Domyślnie dostawca kompresji gzip najszybszym poziom kompresji (`CompressionLev
 | `CompressionLevel.Optimal`       | Odpowiedzi powinna być optymalnie kompresowana, nawet jeśli kompresja trwa dłużej.                |
 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=3,8-11)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,10-13)]
 
@@ -140,11 +138,11 @@ Oprogramowanie pośredniczące Określa domyślny zestaw typy MIME kompresji:
 
 Można zastąpić, lub Dołącz typy MIME opcje oprogramowania pośredniczącego kompresji odpowiedzi. Należy pamiętać, że symbol wieloznaczny MIME typy, takich jak `text/*` nie są obsługiwane. Przykładowa aplikacja dodaje typ MIME dla `image/svg+xml` kompresuje i obsługuje platformy ASP.NET Core obraz transparentu (*banner.svg*).
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=5)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7)]
 
@@ -155,13 +153,13 @@ Można tworzyć niestandardowe kompresji implementacje z `ICompressionProvider`.
 
 Przy użyciu aplikacji przykładowej, klient przesyła żądanie z `Accept-Encoding: mycustomcompression` nagłówka. Oprogramowanie pośredniczące używa implementacji niestandardowych kompresji i zwraca odpowiedź z `Content-Encoding: mycustomcompression` nagłówka. Klient musi mieć możliwość dekompresja niestandardowego kodowania w kolejności stosowania niestandardowego kompresji do pracy.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=4)]
 
 [!code-csharp[Main](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
 
@@ -184,7 +182,7 @@ Podczas kompresowania odpowiedzi na podstawie `Accept-Encoding` nagłówka, istn
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet1)]
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Oprogramowanie pośredniczące problem podczas pod zwrotny serwer proxy Nginx
-Jeśli żądanie jest przekazywane przez serwer proxy przez Nginx, `Accept-Encoding` nagłówka zostaną usunięte. Zapobiega to oprogramowanie pośredniczące od kompresji odpowiedzi. Aby uzyskać więcej informacji, zobacz [NGINX: kompresji i dekompresji](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Ten problem jest śledzony przez [zorientować się przekazujące kompresja nginx (BasicMiddleware #123)](https://github.com/aspnet/BasicMiddleware/issues/123).
+Jeśli żądanie jest przekazywane przez serwer proxy przez Nginx, `Accept-Encoding` nagłówka zostaną usunięte. Zapobiega to oprogramowanie pośredniczące od kompresji odpowiedzi. Aby uzyskać więcej informacji, zobacz [NGINX: kompresji i dekompresji](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Ten problem jest śledzony przez [zorientować się przekazujące kompresja Nginx (BasicMiddleware #123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Praca z kompresji dynamicznej usług IIS
 Jeśli masz aktywnego IIS dynamicznej kompresji modułu skonfigurowane na poziomie serwera, który ma zostać wyłączone dla aplikacji, możesz to zrobić z dodatku programu *web.config* pliku. Aby uzyskać więcej informacji, zobacz [moduły IIS wyłączenie](xref:host-and-deploy/iis/modules#disabling-iis-modules).

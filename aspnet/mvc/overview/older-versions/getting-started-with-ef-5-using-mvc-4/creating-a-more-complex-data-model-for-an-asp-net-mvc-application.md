@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 350c2e4e92c8a53d22dd2500330281b4003a05e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5283da2786d41c0ae06607185dd416aeb7d2b62a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application-4-of-10"></a>Tworzenie bardziej złożonych modelu danych dla aplikacji platformy ASP.NET MVC (4 10)
 ====================
@@ -81,7 +81,7 @@ Można również określić reguły sprawdzania poprawności danych i komunikat�
 
 [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybutu nie uniemożliwić wprowadzanie biały znak dla nazwy użytkownika. Można użyć [wyrażenia regularnego](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atrybutu, aby zastosować ograniczenia do danych wejściowych. Na przykład następujący kod wymaga pierwszego znaku się wielkie litery i pozostałych znaków jako alfabetycznej:
 
-`[RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]`
+`[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]`
 
 [MaxLength](https://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.MaxLengthAttribute.aspx) atrybutu zapewnia funkcje podobne do [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybutu, ale nie zapewnia po stronie klienta sprawdzania poprawności.
 
@@ -295,17 +295,17 @@ Relację wiele do wielu między `Student` i `Course` jednostek i `Enrollment` je
 
 Na poniższej ilustracji przedstawiono, jak wyglądają te relacje w diagramie jednostki. (Ten diagram został wygenerowany za pomocą [Entity Framework zaawansowanych narzędzi](https://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d); Tworzenie diagramu nie stanowi części samouczka, po prostu jest on używany jako ilustrację.)
 
-![Uczniowie Course_many do many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image11.png)
+![Student-Course_many-to-many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image11.png)
 
 Każdy wiersz relacji ma 1 w jeden element end i znak gwiazdki (\*) na drugim, wskazując relacji jeden do wielu.
 
 Jeśli `Enrollment` tabeli nie włączono informacji o kategorii, czy tylko musi zawierać dwa klucze obce `CourseID` i `StudentID`. W takim przypadku odpowiada on tabeli sprzężenia wiele do wielu *bez ładunku* (lub *czysty sprzężenia tabeli*) w bazie danych i nie należy utworzyć klasę modelu dla niej w ogóle. `Instructor` i `Course` mają takie relacji wiele do wielu, i jak widać, nie żadna z klas jednostek między nimi:
 
-![Instruktora Course_many do many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image12.png)
+![Instructor-Course_many-to-many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image12.png)
 
 Tabela sprzężenia jest wymagana w bazie danych, jednak, jak pokazano na poniższym diagramie bazy danych:
 
-![Instruktora Course_many do many_relationship_tables](https://asp.net/media/2577802/Windows-Live-Writer_Creating-a.NET-MVC-Application-4-of-10h1_B662_Instructor-Course_many-to-many_relationship_tables_03e042cf-db89-4b4c-985a-e458351ada76.png)
+![Instructor-Course_many-to-many_relationship_tables](https://asp.net/media/2577802/Windows-Live-Writer_Creating-a.NET-MVC-Application-4-of-10h1_B662_Instructor-Course_many-to-many_relationship_tables_03e042cf-db89-4b4c-985a-e458351ada76.png)
 
 Entity Framework automatycznie tworzy `CourseInstructor` tabeli i odczytu i zaktualizować go pośrednio za odczytywanie i aktualizowanie `Instructor.Courses` i `Course.Instructors` właściwości nawigacji.
 

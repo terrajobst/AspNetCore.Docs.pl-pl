@@ -2,7 +2,6 @@
 title: Bezpieczne przechowywanie kluczy tajnych aplikacji w czasie opracowywania w ASP.NET Core
 author: rick-anderson
 description: "Pokazuje, jak bezpiecznie przechowywać klucze tajne podczas tworzenia"
-keywords: Platformy ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 09/15/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 897d9b360ceeb5fbb0863ff1c1fcec039e1a8b8f
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: e2c11b768098b3d92ef702e0daad746963dc3856
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Bezpieczne przechowywanie kluczy tajnych aplikacji w czasie opracowywania w ASP.NET Core
 
@@ -60,7 +59,7 @@ Zapisywanie zmodyfikowanych *.csproj* również plik zostanie otwarta `secrets.j
 }
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Kod Visual Studio](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Dodaj `Microsoft.Extensions.SecretManager.Tools` do *.csproj* pliku i uruchom `dotnet restore`. Te same kroki można użyć do zainstalowania narzędzia menedżera klucz tajny przy użyciu wiersza polecenia.
 
@@ -117,7 +116,7 @@ Narzędzie Menedżer klucz tajny optymalizacji abstracts szczegóły implementac
 
 * System Windows:`%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`
 
-* Linux:`~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+* Linux: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
 * Mac:`~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 

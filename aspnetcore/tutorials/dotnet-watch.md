@@ -2,20 +2,18 @@
 title: "Tworzenie aplikacji platformy ASP.NET Core za pomocą czujki dotnet"
 author: rick-anderson
 description: "Ten samouczek pokazuje, jak zainstalować i używać narzędzia obserwatora (dotnet czujki) pliku .NET Core CLI w aplikacji platformy ASP.NET Core."
-keywords: "Platformy ASP.NET Core, przy użyciu czujki dotnet"
 ms.author: riande
 manager: wpickett
 ms.date: 10/05/2017
 ms.topic: article
-ms.assetid: 563ffb3f-d369-4aa5-bf0a-7300b4e7832c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 1b26beaa41f4b38e0cfd2c8300cb521a3dcce47d
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: cadd4a6a78c29e2213c39a02729b5c32a2b93ebd
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>Tworzenie aplikacji platformy ASP.NET Core za pomocą czujki dotnet
 
@@ -109,7 +107,7 @@ Sprawdź `http://localhost:<port number>/api/math/product?a=4&b=5` zwraca prawid
 
 `dotnet watch`wykrywa zmiany pliku i zwracające testy. Dane wyjściowe konsoli wskazuje testy zostały zakończone pomyślnie.
 
-## <a name="dotnet-watch-in-github"></a>wyrażenie kontrolne DotNet w serwisie GitHub
+## <a name="dotnet-watch-in-github"></a>dotnet-watch in GitHub
 
 Obejrzyj DotNet jest częścią usługi GitHub [repozytorium DotNetTools](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch).
 

@@ -1,6 +1,6 @@
 ---
-title: Host platformy ASP.NET Core w systemie Linux z nginx
-description: "Opisuje sposób instalacji nginx jako zwrotny serwer proxy na 16.04 Ubuntu, aby przesyłał dalej ruch HTTP dla aplikacji sieci web platformy ASP.NET Core systemem Kestrel."
+title: Host platformy ASP.NET Core w systemie Linux z Nginx
+description: "Opisuje sposób instalacji Nginx jako zwrotny serwer proxy na 16.04 Ubuntu, aby przesyłał dalej ruch HTTP dla aplikacji sieci web platformy ASP.NET Core systemem Kestrel."
 author: rick-anderson
 ms.author: riande
 manager: wpickett
@@ -10,13 +10,13 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: cc15efc25abbfb5bfc9b748b49802afebc75bfb2
-ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
+ms.openlocfilehash: db437b5a17f54f039b3af82dfd8b450df42a9e8d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="host-aspnet-core-on-linux-with-nginx"></a>Host platformy ASP.NET Core w systemie Linux z nginx
+# <a name="host-aspnet-core-on-linux-with-nginx"></a>Host platformy ASP.NET Core w systemie Linux z Nginx
 
 Przez [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
@@ -51,9 +51,9 @@ Zwrotny serwer proxy jest typowe dla obsługi aplikacji sieci web dynamicznych. 
 
 ### <a name="why-use-a-reverse-proxy-server"></a>Dlaczego warto używać zwrotnego serwera proxy?
 
-Kestrel stanowi doskonałe rozwiązanie do obsługi zawartości dynamicznej z platformy ASP.NET Core; jednak części usług sieci web nie są jako funkcja sformatowany jako serwery, takimi jak usługi IIS, Apache lub nginx. Zwrotnego serwera proxy można odciążyć pracy, takich jak obsługę zawartości statycznej, buforowanie żądań, kompresowania żądań i kończenia żądań SSL z serwera HTTP. Zwrotnego serwera proxy może znajdować się na dedykowanym komputerze lub mogą można wdrożyć obok serwera HTTP.
+Kestrel stanowi doskonałe rozwiązanie do obsługi zawartości dynamicznej z platformy ASP.NET Core; jednak części usług sieci web nie są jako funkcja sformatowany jako serwery, takimi jak usługi IIS, Apache lub Nginx. Zwrotnego serwera proxy można odciążyć pracy, takich jak obsługę zawartości statycznej, buforowanie żądań, kompresowania żądań i kończenia żądań SSL z serwera HTTP. Zwrotnego serwera proxy może znajdować się na dedykowanym komputerze lub mogą można wdrożyć obok serwera HTTP.
 
-Na potrzeby tego przewodnika jest używany przez pojedyncze wystąpienie nginx. Uruchamia go na tym samym serwerze, z serwera HTTP. Na podstawie wymagań, różnych konfiguracji może być wybrana opcja.
+Na potrzeby tego przewodnika jest używany przez pojedyncze wystąpienie Nginx. Uruchamia go na tym samym serwerze, z serwera HTTP. Na podstawie wymagań, różnych konfiguracji może być wybrana opcja.
 
 Ponieważ żądania są przekazywane przez zwrotny serwer proxy, należy użyć `ForwardedHeaders` oprogramowania pośredniczącego z `Microsoft.AspNetCore.HttpOverrides` pakietu. Aktualizacje tego oprogramowania pośredniczącego `Request.Scheme`za pomocą `X-Forwarded-Proto` nagłówka, więc poprawne działanie tego przekierowania URI i innymi zasadami zabezpieczeń.
 
@@ -92,28 +92,28 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 ---
 
-### <a name="install-nginx"></a>Zainstaluj nginx
+### <a name="install-nginx"></a>Zainstaluj Nginx
 
 ```bash
 sudo apt-get install nginx
 ```
 
 > [!NOTE]
-> Jeśli zostaną zainstalowane moduły opcjonalne nginx, może być wymagane tworzenie nginx ze źródła.
+> Jeśli zostanie zainstalowana opcjonalnych modułów Nginx, może być wymagane tworzenie Nginx ze źródła.
 
-Użyj `apt-get` do zainstalowania nginx. Instalator tworzy skrypt init System V uruchamiany nginx jako demon podczas uruchamiania systemu. Po zainstalowaniu nginx po raz pierwszy, jawnie uruchomić:
+Użyj `apt-get` do zainstalowania Nginx. Instalator tworzy skrypt init System V uruchamiany Nginx jako demon podczas uruchamiania systemu. Po zainstalowaniu Nginx po raz pierwszy, jawnie uruchomić:
 
 ```bash
 sudo service nginx start
 ```
 
-Sprawdź, czy przeglądarka wyświetla domyślna strona dla nginx początkowa.
+Sprawdź, czy przeglądarka wyświetla domyślna strona początkowa dla Nginx.
 
-### <a name="configure-nginx"></a>Skonfiguruj nginx
+### <a name="configure-nginx"></a>Skonfiguruj Nginx
 
-Aby skonfigurować nginx jako zwrotny serwer proxy do przesyłania żądań do aplikacji platformy ASP.NET Core, zmodyfikuj `/etc/nginx/sites-available/default`. Otwórz go w edytorze tekstów i Zastąp zawartość z następujących czynności:
+Aby skonfigurować Nginx jako zwrotny serwer proxy do przesyłania żądań do aplikacji platformy ASP.NET Core, zmodyfikuj `/etc/nginx/sites-available/default`. Otwórz go w edytorze tekstów i Zastąp zawartość z następujących czynności:
 
-```nginx
+```
 server {
     listen 80;
     location / {
@@ -127,13 +127,13 @@ server {
 }
 ```
 
-Ten plik konfiguracji nginx przekazuje ruch przychodzący publicznych z portu `80` do portu `5000`.
+Ten plik konfiguracji Nginx przekazuje ruch przychodzący publicznych z portu `80` do portu `5000`.
 
-Po ustanowieniu konfiguracji nginx, uruchom `sudo nginx -t` Aby sprawdzić składnię plików konfiguracji. Jeśli test konfiguracji w pliku zakończy się pomyślnie, wymusić nginx do zastosowania zmian, uruchamiając `sudo nginx -s reload`.
+Po ustanowieniu konfiguracji Nginx, uruchom `sudo nginx -t` Aby sprawdzić składnię plików konfiguracji. Jeśli test konfiguracji w pliku zakończy się pomyślnie, wymusić Nginx do zastosowania zmian, uruchamiając `sudo nginx -s reload`.
 
 ## <a name="monitoring-the-app"></a>Monitorowanie aplikacji
 
-Serwer jest skonfigurowany do przekazywania żądań wysyłanych do `http://<serveraddress>:80` się do aplikacji platformy ASP.NET Core systemem Kestrel na `http://127.0.0.1:5000`. Jednak nginx nie skonfigurowano do zarządzania procesem Kestrel. *systemd* może służyć do tworzenia pliku usługi, aby uruchomić i monitorować podstawowej aplikacji sieci web. *systemd* to system init zapewnia wiele zaawansowanych funkcji uruchamianie, zatrzymywanie oraz procesy zarządzania. 
+Serwer jest skonfigurowany do przekazywania żądań wysyłanych do `http://<serveraddress>:80` się do aplikacji platformy ASP.NET Core systemem Kestrel na `http://127.0.0.1:5000`. Jednak Nginx nie skonfigurowano do zarządzania procesem Kestrel. *systemd* może służyć do tworzenia pliku usługi, aby uruchomić i monitorować podstawowej aplikacji sieci web. *systemd* to system init zapewnia wiele zaawansowanych funkcji uruchamianie, zatrzymywanie oraz procesy zarządzania. 
 
 ### <a name="create-the-service-file"></a>Tworzenie pliku usługi
 
@@ -229,9 +229,9 @@ sudo ufw allow 80/tcp
 sudo ufw allow 443/tcp
 ```
 
-### <a name="securing-nginx"></a>Zabezpieczanie nginx
+### <a name="securing-nginx"></a>Securing Nginx
 
-Rozkład domyślne nginx nie Włącz protokół SSL. Aby włączyć dodatkowe funkcje zabezpieczeń, kompilacji ze źródła.
+Rozkład domyślne Nginx nie Włącz protokół SSL. Aby włączyć dodatkowe funkcje zabezpieczeń, kompilacji ze źródła.
 
 #### <a name="download-the-source-and-install-the-build-dependencies"></a>Pobierz źródła i zainstaluj zależności kompilacji
 
@@ -240,12 +240,12 @@ Rozkład domyślne nginx nie Włącz protokół SSL. Aby włączyć dodatkowe fu
 sudo apt-get update
 sudo apt-get install build-essential zlib1g-dev libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev
 
-# Download nginx 1.10.0 or latest
+# Download Nginx 1.10.0 or latest
 wget http://www.nginx.org/download/nginx-1.10.0.tar.gz
 tar zxf nginx-1.10.0.tar.gz
 ```
 
-#### <a name="change-the-nginx-response-name"></a>Zmień nazwę nginx odpowiedzi
+#### <a name="change-the-nginx-response-name"></a>Zmień nazwę Nginx odpowiedzi
 
 Edit *src/http/ngx_http_header_filter_module.c*:
 
@@ -287,7 +287,7 @@ Edytuj */etc/nginx/nginx.conf* pliku konfiguracji. Przykład zawiera zarówno `h
 
 [!code-nginx[Main](linux-nginx/nginx.conf?highlight=2)]
 
-#### <a name="secure-nginx-from-clickjacking"></a>Bezpieczne nginx z porywaniu kliknięć
+#### <a name="secure-nginx-from-clickjacking"></a>Bezpieczny Nginx z porywaniu kliknięć
 Porywaniu kliknięć to technika złośliwego zbierać zainfekowane użytkownik klika polecenie. Porywaniu kliknięć sztuczki ofiara (użytkownik) do kliknięcia zainfekowane w witrynie. Użyj X-FRAME-OPTIONS do zabezpieczenia witryny.
 
 Edytuj *nginx.conf* pliku:
@@ -296,7 +296,7 @@ Edytuj *nginx.conf* pliku:
 sudo nano /etc/nginx/nginx.conf
 ```
 
-Dodaj wiersz `add_header X-Frame-Options "SAMEORIGIN";` i Zapisz plik, a następnie uruchom ponownie nginx.
+Dodaj wiersz `add_header X-Frame-Options "SAMEORIGIN";` i Zapisz plik, a następnie uruchom ponownie Nginx.
 
 #### <a name="mime-type-sniffing"></a>Wykrywanie typ MIME
 
@@ -308,4 +308,4 @@ Edytuj *nginx.conf* pliku:
 sudo nano /etc/nginx/nginx.conf
 ```
 
-Dodaj wiersz `add_header X-Content-Type-Options "nosniff";` i Zapisz plik, a następnie uruchom ponownie nginx.
+Dodaj wiersz `add_header X-Content-Type-Options "nosniff";` i Zapisz plik, a następnie uruchom ponownie Nginx.

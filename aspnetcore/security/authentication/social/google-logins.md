@@ -2,7 +2,6 @@
 title: "Ustawienia logowania zewnętrznego Google w ASP.NET Core"
 author: rick-anderson
 description: "W tym samouczku przedstawiono integrację uwierzytelnianie użytkownika konto Google do istniejącej aplikacji platformy ASP.NET Core."
-keywords: Platformy ASP.NET Core, Google, logowania, uwierzytelniania
 ms.author: riande
 manager: wpickett
 ms.date: 08/02/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/google-logins
-ms.openlocfilehash: af316d832de7356d539eaaab5be6485639030c7a
-ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
+ms.openlocfilehash: 30d224061bce3a727fc31d19c194e96559e28310
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configuring-google-authentication-in-aspnet-core"></a>Konfigurowanie uwierzytelniania serwisu Google w ASP.NET Core
 
@@ -49,7 +48,7 @@ W tym samouczku przedstawiono sposób umożliwić użytkownikom logowanie za pom
 ![Strona Menedżer interfejsu API Google + interfejsu API](index/_static/GoogleConsoleGoCredentials.png)
 
 * Wybierz:
-   * **Google + interfejsu API**
+   * **Google+ API**
    * **Serwer sieci Web (np. node.js, Tomcat)**, i
    * **Dane użytkownika**:
 
@@ -87,7 +86,7 @@ Tokeny te wartości można znaleźć w pliku JSON pobranego w poprzednim kroku, 
 
 ## <a name="configure-google-authentication"></a>Konfigurowanie uwierzytelniania serwisu Google
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Dodaj usługę Google w `ConfigureServices` metody w *Startup.cs* pliku:
 
@@ -105,7 +104,7 @@ services.AddAuthentication().AddGoogle(googleOptions =>
 
 [!INCLUDE[default settings configuration](includes/default-settings.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Szablon projektu używany w tym samouczku upewnia się, że [Microsoft.AspNetCore.Authentication.Google](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Google) pakiet jest zainstalowany.
 

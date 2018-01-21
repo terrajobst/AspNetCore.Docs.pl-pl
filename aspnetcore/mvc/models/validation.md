@@ -2,20 +2,18 @@
 title: Weryfikacja modelu w programie ASP.NET MVC Core
 author: rachelappel
 description: "Więcej informacji o weryfikacji modelu w programie ASP.NET MVC Core."
-keywords: Weryfikacji platformy ASP.NET Core MVC,
 ms.author: riande
 manager: wpickett
 ms.date: 12/18/2016
 ms.topic: article
-ms.assetid: 3a8676dd-7ed8-4a05-bca2-44e288ab99ee
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.openlocfilehash: 7f641c247cb672934e76fa13bc7b7beb3990dd82
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: 91db17e103723ac411a2ad4f3f9549860f250cce
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Wprowadzenie do sprawdzania poprawności modelu w programie ASP.NET MVC Core
 
@@ -173,7 +171,7 @@ $.get({
 
 ### <a name="add-validation-to-dynamic-controls"></a>Dodawanie walidacji do formantów dynamicznych
 
-Można także zaktualizować reguły walidacji na formularzu, gdy osoba formanty, takie jak `<input/>`s i `<select/>`s, są generowane dynamicznie. Nie można przekazać selektory dla tych elementów do `parse()` metody bezpośrednio ponieważ otaczające formularz już został przeanalizowany i nie będzie aktualizowana.  Zamiast tego należy najpierw usunąć istniejące dane sprawdzania poprawności, a następnie ponownej analizy całego formularza, jak pokazano poniżej:
+Można także zaktualizować reguły walidacji na formularzu, gdy osoba formanty, takie jak `<input/>`s i `<select/>`s, są generowane dynamicznie. Nie można przekazać selektory dla tych elementów do `parse()` metody bezpośrednio ponieważ otaczające formularz już został przeanalizowany i nie będzie aktualizowana. Zamiast tego należy najpierw usunąć istniejące dane sprawdzania poprawności, a następnie ponownej analizy całego formularza, jak pokazano poniżej:
 
 ```js
 $.get({
@@ -233,11 +231,11 @@ Definicja `VerifyEmail()` metody obowiązują następujące reguły, jak pokazan
 
 Podczas wprowadzania wiadomości e-mail, JavaScript, w widoku umożliwia teraz zdalne wywołanie czy tej wiadomości e-mail zostały podjęte, a jeśli tak, wyświetla komunikat o błędzie. W przeciwnym razie użytkownik można przesłać formularza, w zwykły sposób.
 
-`AdditionalFields` Właściwość `[Remote]` atrybutu przydaje się do sprawdzania poprawności kombinacji pól w odniesieniu do danych na serwerze.  Na przykład jeśli `User` modelu z powyższych ma dwie dodatkowe właściwości o nazwie `FirstName` i `LastName`, należy sprawdzić, czy nie istniejący użytkownicy mają już tej pary nazw.  Możesz zdefiniować nowe właściwości, jak pokazano w poniższym kodzie:
+`AdditionalFields` Właściwość `[Remote]` atrybutu przydaje się do sprawdzania poprawności kombinacji pól w odniesieniu do danych na serwerze. Na przykład jeśli `User` modelu z powyższych ma dwie dodatkowe właściwości o nazwie `FirstName` i `LastName`, należy sprawdzić, czy nie istniejący użytkownicy mają już tej pary nazw. Możesz zdefiniować nowe właściwości, jak pokazano w poniższym kodzie:
 
 [!code-csharp[Main](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields`można mieć został jawnie ustaw ciągi `"FirstName"` i `"LastName"`, ale przy użyciu [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) upraszcza operator podobny do tego później refaktoryzacji.  Metoda akcji do wykonania walidacji następnie zaakceptować dwa argumenty, jeden dla wartości `FirstName` i jeden dla wartości `LastName`.
+`AdditionalFields`można mieć został jawnie ustaw ciągi `"FirstName"` i `"LastName"`, ale przy użyciu [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) upraszcza operator podobny do tego później refaktoryzacji. Metoda akcji do wykonania walidacji następnie zaakceptować dwa argumenty, jeden dla wartości `FirstName` i jeden dla wartości `LastName`.
 
 
 [!code-csharp[Main](validation/sample/UsersController.cs?range=30-39)]
@@ -248,11 +246,11 @@ Teraz po użytkowników Wprowadź imię i nazwisko, JavaScript:
 * Jeśli podjęto pary, zostanie wyświetlony komunikat o błędzie. 
 * Jeśli nie zostanie podjęta, użytkownik może przesłać formularza.
 
-Jeśli musisz sprawdzić poprawności co najmniej dwa dodatkowe pola z `[Remote]` atrybutu, można podać je jako listę rozdzielaną przecinkami.  Na przykład, aby dodać `MiddleName` ustawić właściwości w modelu `[Remote]` atrybutu, jak pokazano w poniższym kodzie:
+Jeśli musisz sprawdzić poprawności co najmniej dwa dodatkowe pola z `[Remote]` atrybutu, można podać je jako listę rozdzielaną przecinkami. Na przykład, aby dodać `MiddleName` ustawić właściwości w modelu `[Remote]` atrybutu, jak pokazano w poniższym kodzie:
 
 ```cs
 [Remote(action: "VerifyName", controller: "Users", AdditionalFields = nameof(FirstName) + "," + nameof(LastName))]
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, takich jak wszystkich argumentów atrybutu musi być wyrażeniem stałym.  W związku z tym nie można używać [interpolowane ciąg](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) lub zadzwoń [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) zainicjować `AdditionalFields`. Dla każdego pola dodatkowe, które można dodać do `[Remote]` atrybutu, należy dodać inny argument do odpowiedniej metody akcji kontrolera.
+`AdditionalFields`, takich jak wszystkich argumentów atrybutu musi być wyrażeniem stałym. W związku z tym nie można używać [interpolowane ciąg](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) lub zadzwoń [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) zainicjować `AdditionalFields`. Dla każdego pola dodatkowe, które można dodać do `[Remote]` atrybutu, należy dodać inny argument do odpowiedniej metody akcji kontrolera.

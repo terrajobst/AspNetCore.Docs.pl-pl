@@ -2,7 +2,6 @@
 title: Samouczki platformy ASP.NET Core
 author: rick-anderson
 description: "Lista przewodniki krok po kroku dotyczące poznanie metod tworzenia aplikacji platformy ASP.NET Core."
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: acedebaa9b89a0e00602b497d11d5612fce99a5f
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: dc81edce2b54683b20520babeed8ddb78073e709
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-tutorials"></a>Samouczki platformy ASP.NET Core
 
@@ -37,8 +36,8 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
    * [Aplikacja sieci Web z programem Visual Studio dla komputerów Mac](first-mvc-app-mac/index.md)
    * [Aplikacja sieci Web programu Visual Studio kodu Mac lub Linux](first-mvc-app-xplat/index.md)
 
-* [Wprowadzenie do platformy ASP.NET Core oraz Entity Framework Core za pomocą programu Visual Studio](../data/ef-mvc/index.md)
-* [Utwórz pomocników tagów](../mvc/views/tag-helpers/authoring.md)
+* [Rozpoczynanie pracy z platformą ASP.NET Core i programem Entity Framework Core przy użyciu programu Visual Studio](../data/ef-mvc/index.md)
+* [Tworzenie pomocników tagów](../mvc/views/tag-helpers/authoring.md)
 * [Tworzenie prostego widoku składnika](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
 * [Tworzenie aplikacji platformy ASP.NET Core za pomocą czujki dotnet](dotnet-watch.md)
 
@@ -49,24 +48,24 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
   * [Składnik Web API z programem Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
   * [Składnik Web API z kodem Visual Studio](web-api-vsc.md)
   
-* [Platformy ASP.NET Core interfejsu API sieci Web pomocy strony za pomocą programu Swagger](web-api-help-pages-using-swagger.md)
+* [Strony pomocy dla interfejsu Web API platformy ASP.NET Core korzystające z programu Swagger](web-api-help-pages-using-swagger.md)
 * [Tworzenie zaplecza usługi sieci web do natywnej aplikacji mobilnych](../mobile/native-mobile-backend.md)
 
 ## <a name="data-access-and-storage"></a>Dostęp do danych i magazynu
-* [Wprowadzenie do platformy ASP.NET Core oraz Entity Framework Core za pomocą programu Visual Studio](../data/ef-mvc/index.md)
+* [Rozpoczynanie pracy z platformą ASP.NET Core i programem Entity Framework Core przy użyciu programu Visual Studio](../data/ef-mvc/index.md)
 * [Platforma ASP.NET Core z programem EF Core — nowa baza danych](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
 * [Platforma ASP.NET Core z programem EF Core — istniejąca baza danych](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
 
 ## <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
-* [Włącz uwierzytelnianie za pomocą usługi Facebook, Google i innych dostawców zewnętrznych](../security/authentication/social/index.md)
-* [Potwierdzenie konta i hasła odzyskiwania](../security/authentication/accconfirm.md)
+* [Włączanie uwierzytelniania za pomocą usługi Facebook, Google i innych dostawców zewnętrznych](../security/authentication/social/index.md)
+* [Potwierdzenie konta i odzyskiwanie hasła](../security/authentication/accconfirm.md)
 * [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS](../security/authentication/2fa.md)
 
 ## <a name="client-side-development"></a>Programowanie po stronie klienta
-* [Użyj Gulp](../client-side/using-gulp.md)
-* [Użyj Grunt](../client-side/using-grunt.md)
+* [Korzystanie z Gulp](../client-side/using-gulp.md)
+* [Korzystanie z Grunt](../client-side/using-grunt.md)
 * [Zarządzanie pakietami po stronie klienta za pomocą narzędzi Bower](../client-side/bower.md)
-* [Tworzyć dynamiczne witryny z ładowania początkowego](../client-side/bootstrap.md)
+* [Tworzenie szybko reagujących witryn za pomocą narzędzi Bootstrap](../client-side/bootstrap.md)
 
 ## <a name="test"></a>Test
 * [Jednostka testowania w .NET Core za pomocą testu dotnet](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)

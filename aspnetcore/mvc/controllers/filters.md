@@ -1,21 +1,19 @@
 ---
 title: Filtry
 author: ardalis
-description: "Dowiedz się, jak * filtry * pracy i sposobu ich używania w programie ASP.NET MVC Core."
-keywords: "Platformy ASP.NET Core, filtry, mvc filtry, filtry akcji, filtry autoryzacji, filtrów zasobów, filtry wyników, filtry wyjątków"
+description: "Dowiedz się, jak *filtry* pracy i sposobu ich używania w programie ASP.NET MVC Core."
 ms.author: tdykstra
 manager: wpickett
 ms.date: 12/12/2016
 ms.topic: article
-ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: 0a2a374ac77b9fd7c626aa6749cffbd3fb0f08d5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: db5d6a98d5e6702842e8b036c378ed96aef61b70
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="filters"></a>Filtry
 

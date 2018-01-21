@@ -2,32 +2,30 @@
 title: "Dostawca konfiguracji usługi Azure Key Vault"
 author: guardrex
 description: "Dowiedz się, jak skonfigurować aplikację przy użyciu pary nazwa wartość załadowane w czasie wykonywania przy użyciu dostawcy konfiguracji magazynu kluczy Azure."
-keywords: "Platformy ASP.NET Core, konfiguracji usługi Azure Key Vault"
 ms.author: riande
 manager: wpickett
 ms.date: 08/09/2017
 ms.topic: article
-ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: 19cab22176c732c5cb8e337d7635bddc54107921
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 25c7d38a27741c9877538673425c5a9dceccac93
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Dostawca konfiguracji usługi Azure Key Vault
 
 Przez [Luke Latham](https://github.com/guardrex) i [Andrew Stanton pielęgniarki](https://github.com/anurse)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Wyświetl lub pobrać przykładowy kod 2.x:
 
 * [Podstawowy przykład](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/2.x) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))-odczytuje wartości tajnych w aplikacji.
 * [Przykład prefiks nazwy klucza](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/2.x) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)) — odczyty wartości tajny przy użyciu prefiks nazwy klucza, który reprezentuje wersji aplikacji, dzięki czemu można załadować zestaw tajny wartości dla każdej wersji aplikacji.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Wyświetl lub pobrać przykładowy kod 1.x:
 
@@ -49,8 +47,8 @@ Dostawca jest dodawany do `ConfigurationBuilder` z `AddAzureKeyVault` rozszerzen
 | Ustawienia aplikacji    | Opis                    | Przykład                                      |
 | -------------- | ------------------------------ | -------------------------------------------- |
 | `Vault`        | Nazwa magazynu kluczy Azure           | contosovault                                 |
-| `ClientId`     | Identyfikator aplikacji usługi Azure Active Directory  | 627e911e-43CC-61d4-992e-12db9c81b413         |
-| `ClientSecret` | Klucz aplikacji usługi Azure Active Directory | g58K3dtg59o1Pa + e59v2Tx829w6VxTB2yv9sv/101di = |
+| `ClientId`     | Identyfikator aplikacji usługi Azure Active Directory  | 627e911e-43cc-61d4-992e-12db9c81b413         |
+| `ClientSecret` | Klucz aplikacji usługi Azure Active Directory | g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di= |
 
 [!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
 

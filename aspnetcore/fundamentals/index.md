@@ -2,27 +2,25 @@
 title: Podstawowe informacje na temat platformy ASP.NET Core
 author: rick-anderson
 description: "Poznaj podstawowe pojęcia do tworzenia aplikacji platformy ASP.NET Core."
-keywords: "Platformy ASP.NET Core podstawy, omówienie"
 ms.author: riande
 manager: wpickett
 ms.date: 09/30/2017
 ms.topic: get-started-article
-ms.assetid: a19b7836-63e4-44e8-8250-50d426dd1070
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/index
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83bed4676be3ca752442da3fe560f1f2a4d728a1
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 0d977c13eb5f4cbe8bac261733bdc747e6c19b2a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET Core
 
 Aplikacja platformy ASP.NET Core jest aplikacji konsoli, która tworzy serwer sieci web w jego `Main` metody:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program2x.cs)]
 
@@ -30,7 +28,7 @@ Aplikacja platformy ASP.NET Core jest aplikacji konsoli, która tworzy serwer si
 
 `IWebHostBuilder`, zwracany typ `WebHost.CreateDefaultBuilder` wywołania, udostępnia wiele metod opcjonalne. Oto niektóre z tych metod `UseHttpSys` do hostowania aplikacji w pliku HTTP.sys i `UseContentRoot` służący do określania zawartości katalogu. `Build` i `Run` metody Konstruuj `IWebHost` obiekt, który hostuje aplikację i rozpoczyna nasłuchiwanie żądań HTTP.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program.cs)]
 
@@ -44,11 +42,11 @@ Aplikacja platformy ASP.NET Core jest aplikacji konsoli, która tworzy serwer si
 
 `UseStartup` Metoda `WebHostBuilder` Określa `Startup` klasy dla aplikacji:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program2x.cs?highlight=10&range=6-17)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program.cs?highlight=7&range=6-17)]
 
@@ -101,7 +99,7 @@ Platformy ASP.NET Core zawiera bogaty zestaw wbudowanych oprogramowania pośredn
 * [Routing](xref:fundamentals/routing)
 * [Uwierzytelnianie](xref:security/authentication/index)
 * [Oprogramowanie pośredniczące kompresji odpowiedzi](xref:performance/response-compression)
-* [Ponowne zapisywanie adresów URL w oprogramowania pośredniczącego](xref:fundamentals/url-rewriting)
+* [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting)
 
 [OWIN](http://owin.org)— oparte na oprogramowaniu pośredniczącym jest dostępne dla aplikacji platformy ASP.NET Core, a można pisać własne niestandardowe oprogramowania pośredniczącego.
 
@@ -163,12 +161,12 @@ Aby uzyskać więcej informacji, zobacz [sesji i stan aplikacji](xref:fundamenta
 
 ## <a name="servers"></a>Serwery
 
-Model hostowania w programie ASP.NET Core bezpośrednio nie nasłuchuje żądań. Model hostowania polega na implementację serwera HTTP do przekazywania żądań do aplikacji. Przekazane żądanie jest zawijany jako zestaw obiektów funkcji, które są dostępne za pośrednictwem interfejsów. Serwer sieci web zarządzany, i platform, w nazwie zawiera platformy ASP.NET Core [Kestrel](xref:fundamentals/servers/kestrel). Kestrel jest często wykonywane za produkcyjnym serwerem sieci web, takich jak [IIS](https://www.iis.net/) lub [nginx](http://nginx.org). Kestrel może działać jako serwer graniczny.
+Model hostowania w programie ASP.NET Core bezpośrednio nie nasłuchuje żądań. Model hostowania polega na implementację serwera HTTP do przekazywania żądań do aplikacji. Przekazane żądanie jest zawijany jako zestaw obiektów funkcji, które są dostępne za pośrednictwem interfejsów. Serwer sieci web zarządzany, i platform, w nazwie zawiera platformy ASP.NET Core [Kestrel](xref:fundamentals/servers/kestrel). Kestrel jest często wykonywane za produkcyjnym serwerem sieci web, takich jak [IIS](https://www.iis.net/) lub [Nginx](http://nginx.org). Kestrel może działać jako serwer graniczny.
 
 Aby uzyskać więcej informacji, zobacz [serwerów](xref:fundamentals/servers/index) i następujące tematy:
 
 * [Kestrel](xref:fundamentals/servers/kestrel)
-* [Moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
+* [Moduł ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
 * [Sterownik HTTP.sys](xref:fundamentals/servers/httpsys) (wcześniej nazywanych [WebListener](xref:fundamentals/servers/weblistener))
 
 ## <a name="globalization-and-localization"></a>Lokalizacja i globalizacja

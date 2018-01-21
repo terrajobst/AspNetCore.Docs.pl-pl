@@ -2,20 +2,18 @@
 title: Dostawcy magazynu niestandardowego dla ASP.NET Core Identity | Dokumentacja firmy Microsoft
 author: ardalis
 description: "Jak skonfigurować magazyn na niestandardowych dostawców dla ASP.NET Core Identity."
-keywords: "Dostawcy magazynu niestandardowych platformy ASP.NET Core tożsamości,"
 ms.author: riande
 manager: wpickett
 ms.date: 05/24/2017
 ms.topic: article
-ms.assetid: b2ace545-ecf6-4664-b31e-b65bd4a6b025
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 687ca96be5121502e816bdc856e17dcd5923fe05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6a5feb9039c5b0e9823e5f22f4d55a70830dd3e6
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Dostawcy magazynu niestandardowego dla ASP.NET Core Identity
 
@@ -161,7 +159,7 @@ W ramach `UserStore` klasy, użyj klasy dostępu do danych, które zostały utwo
  [IUserRoleStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1) interfejs definiuje metody wdrożenia do mapowania użytkownika do roli. Zawiera metody do dodawania, usuwania i pobierania ról użytkownika i metodę sprawdzania, czy użytkownik jest przypisany do roli.
 - **IUserPasswordStore**  
  [IUserPasswordStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1) interfejs definiuje metody wdrożenia do utrwalenia haseł mieszanych. Zawiera metody służące do pobierania i ustawiania skrótem hasła i metody, która wskazuje, czy użytkownik ma ustawione hasło.
-- **Elementu IUserSecurityStampStore**  
+- **IUserSecurityStampStore**  
  [Elementu IUserSecurityStampStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) interfejs definiuje metody wdrożenia do użycia sygnaturę bezpieczeństwa dla wskazującą, czy informacje o koncie użytkownika został zmieniony. Ta sygnatura jest aktualizowany, gdy użytkownik zmieni hasło, lub dodaje lub usuwa logowania. Zawiera metody służące do pobierania i ustawiania sygnatury bezpieczeństwa.
 - **IUserTwoFactorStore**  
  [IUserTwoFactorStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) interfejs definiuje metody wdrożenia do obsługi uwierzytelniania dwuskładnikowego. Zawiera metody służące do pobierania i ustawiania czy uwierzytelnianie dwuskładnikowe jest włączone dla użytkownika.
@@ -204,9 +202,9 @@ Poniżej przedstawiono przykład klasy roli:
 
 Można utworzyć ``RoleStore`` klasy, która udostępnia metody dla wszystkich operacji danych na rolach. Ta klasa jest odpowiednikiem [elemencie RoleStore<TRole> ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) klasy. W `RoleStore` klasa implementuje ``IRoleStore<TRole>`` i opcjonalnie ``IQueryableRoleStore<TRole>`` interfejsu.
 
-- **Interfejs IRoleStore&lt;TRole&gt;**  
+- **IRoleStore&lt;TRole&gt;**  
  [Interfejs IRoleStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.irolestore-1) interfejs definiuje metody służące do implementacji klasy magazynu roli. Zawiera metody do tworzenia, aktualizowania, usuwania i pobierania ról.
-- **Elemencie RoleStore&lt;TRole&gt;**  
+- **RoleStore&lt;TRole&gt;**  
  Aby dostosować `RoleStore`, Utwórz klasę, która implementuje `IRoleStore` interfejsu. 
 
 ## <a name="reconfigure-app-to-use-new-storage-provider"></a>Ponownie skonfigurować aplikację do używania nowego dostawcę magazynu

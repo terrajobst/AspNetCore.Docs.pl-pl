@@ -2,7 +2,6 @@
 title: "Potwierdzenie konta i hasła odzyskiwania w platformy ASP.NET Core"
 author: rick-anderson
 description: "Przedstawia sposób tworzenia aplikacji platformy ASP.NET Core z funkcją resetowania hasła i potwierdzania poczty e-mail."
-keywords: "Platformy ASP.NET Core resetowania hasła, wiadomości e-mail z potwierdzeniem, zabezpieczeń"
 ms.author: riande
 manager: wpickett
 ms.date: 12/1/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 955064122d2335016c7eb3dd7451b14106a3b83f
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: b004a8e7680b203416552e5a7a2809799e657759
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Potwierdzenie konta i hasła odzyskiwania w ASP.NET Core
 
@@ -24,7 +23,7 @@ W tym samouczku przedstawiono sposób tworzenia aplikacji platformy ASP.NET Core
 
 ## <a name="create-a-new-aspnet-core-project"></a>Utwórz nowy projekt platformy ASP.NET Core
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Ten krok dotyczy programu Visual Studio w systemie Windows. Zobacz następną sekcję, aby uzyskać instrukcje interfejsu wiersza polecenia.
 
@@ -37,7 +36,7 @@ Samouczek wymaga programu Visual Studio 2017 Preview 2 lub nowszym.
 
 ![Okno dialogowe nowego projektu przedstawiający "Indywidualne konta użytkowników radio" wybrane](accconfirm/_static/2.png)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Samouczek wymaga programu Visual Studio 2017 lub nowszej.
 
@@ -96,12 +95,12 @@ Zazwyczaj chcesz uniemożliwić użytkownikom nowe przesyłanie danych do witryn
 
 Aktualizacja `ConfigureServices` aby wymagać potwierdzenia poczty e-mail:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Startup.cs?name=snippet1&highlight=6-9)]
 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=13-16)]
 
@@ -145,11 +144,11 @@ Zawartość *secrets.json* pliku nie są szyfrowane. *Secrets.json* plików są 
 
 Dodaj `AuthMessageSenderOptions` w kontenerze usługi na końcu `ConfigureServices` metody w *Startup.cs* pliku:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Startup.cs?name=snippet1&highlight=18)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 [!code-csharp[Main](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
 
 ---
@@ -166,14 +165,14 @@ W tym samouczku przedstawiono sposób dodawania powiadomień pocztą e-mail za p
 
 #### <a name="configure-sendgrid"></a>Skonfiguruj SendGrid
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 * Dodaj kod w *Services/EmailSender.cs* podobne do następujących czynności, aby skonfigurować SendGrid:
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Services/EmailSender.cs)]
 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 * Dodaj kod w *Services/MessageServices.cs* podobne do następujących czynności, aby skonfigurować SendGrid:
 
 [!code-csharp[Main](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
@@ -184,7 +183,7 @@ W tym samouczku przedstawiono sposób dodawania powiadomień pocztą e-mail za p
 
 Szablon ma kod odzyskiwania potwierdzenie i hasło konta. Znajdź `[HttpPost] Register` metody w *AccountController.cs* pliku.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Uniemożliwić użytkownikom nowo zarejestrowanych automatycznie zalogowania się przez komentowania się następujący wiersz:
 
@@ -198,7 +197,7 @@ Metody ukończenia jest wyświetlany z wierszem zmienione wyróżnione:
 
 Uwaga: Poprzedni kod zakończy się niepowodzeniem w przypadku zastosowania `IEmailSender` i wysłać wiadomość e-mail w formacie zwykłego tekstu. Zobacz [ten problem](https://github.com/aspnet/Home/issues/2152) uzyskać więcej informacji i obejście tego problemu.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Usuń komentarz kodu w celu włączenia potwierdzenie konta.
 
@@ -241,14 +240,14 @@ Konieczne może być Rozwiń pasek nawigacyjny, aby wyświetlić nazwy użytkown
 
 ![pasek nawigacyjny](accconfirm/_static/x.png)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Na stronie Zarządzanie zostanie wyświetlony z **profilu** kartę zaznaczone. **E-mail** zawiera pole wyboru, wskazując wiadomości e-mail został potwierdzony. 
 
 ![Strona Zarządzanie](accconfirm/_static/rick2.png)
 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Ta strona będzie opisano później w samouczku.
 ![Strona Zarządzanie](accconfirm/_static/rick2.png)

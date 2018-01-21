@@ -2,7 +2,6 @@
 title: Dodawanie do platformy ASP.NET Core Razor strony wyszukiwania
 author: rick-anderson
 description: "Przedstawiono sposób dodawania wyszukiwania do platformy ASP.NET Core Razor stron"
-keywords: Platformy ASP.NET Core wyszukiwania, stron Razor
 ms.author: riande
 manager: wpickett
 ms.date: 08/07/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 3729f351ba7d1e5f566046a619c17e9e1e6614cb
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 2859d52e42d4430808e01739474df0598c07c805
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="adding-search-to-a-razor-pages-app"></a>Dodawanie do aplikacji stron Razor wyszukiwania
 

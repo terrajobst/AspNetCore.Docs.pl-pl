@@ -2,7 +2,6 @@
 title: "Tworzenie aplikacji sieci web Razor strony z platformy ASP.NET Core dla komputerów Mac"
 author: rick-anderson
 description: Tworzenie aplikacji sieci web Razor strony platformy ASP.NET Core i EF Core.
-keywords: "Platformy ASP.NET Core, stron Razor, tworzenia szkieletu, Entity Framework Core, EF, EF Core, bazy danych, mac, macOS, Visual Studio dla komputerów Mac"
 ms.author: riande
 manager: wpickett
 ms.date: 07/26/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/index
-ms.openlocfilehash: 95a89f11a946bbfacc8eb234151d85bfc3046d6e
-ms.sourcegitcommit: 7444087ee28ca5789e08532605683d1d235212e2
+ms.openlocfilehash: 029f4dc6c0e9a7b7294a39c9152b06f3eb5a54d4
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core-and-visual-studio-for-mac"></a>Tworzenie aplikacji sieci web Razor strony z programu Visual Studio i ASP.NET Core dla komputerów Mac
 
@@ -28,9 +27,9 @@ Tej serii opisano podstawowe informacje dotyczące tworzenia aplikacji sieci web
 
 Do czasu ukończenia następnej sekcji wykonaj wersji programu Visual Studio dla systemu Windows.
 
-1. [Szkieletu Razor strony](xref:tutorials/razor-pages/page)
-1. [Praca z bazy danych LocalDB programu SQL Server](xref:tutorials/razor-pages/sql)
+1. [Strony Razor ze szkieletami](xref:tutorials/razor-pages/page)
+1. [Praca z bazą danych LocalDB programu SQL Server](xref:tutorials/razor-pages/sql)
 1. [Aktualizowanie stron](xref:tutorials/razor-pages/da1)
 1. [Dodawanie wyszukiwania](xref:tutorials/razor-pages/search)
 1. [Dodanie nowego pola](xref:tutorials/razor-pages/new-field)
-1. [Dodawanie walidacji](xref:tutorials/razor-pages/validation)
+1. [Dodawanie weryfikacji](xref:tutorials/razor-pages/validation)

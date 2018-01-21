@@ -2,20 +2,18 @@
 title: "Zakotwicz pomocnika tagów | Dokumentacja firmy Microsoft"
 author: pkellner
 description: "Pokazuje, jak pracować z Pomocnika Tag kotwicy"
-keywords: "Platformy ASP.NET Core pomocnika tagów"
 ms.author: riande
 manager: wpickett
 ms.date: 12/20/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a011
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 86756a1d09e6e55ca79aed6e5b718088b82b782c
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 7923876c792544ac4d559eb8de29475d8a4b37e0
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="anchor-tag-helper"></a>Pomocnik Tag kotwicy
 
@@ -99,7 +97,7 @@ https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
 > [!NOTE]
 > Aby użyć `asp-page` atrybutu w stron Razor, adresy URL musi być ścieżką względną, na przykład `"./Speaker"`. Ścieżki względne w `asp-page` atrybutów nie są dostępne w widokach MVC. Zamiast tego użyj składni "/" dla widoków MVC.
 
-### <a name="asp-route-value"></a>ASP - route - {wartość value}
+### <a name="asp-route-value"></a>asp-route-{value}
 
 `asp-route-`jest symbol wieloznaczny prefiksu trasy. Wartość, umieszczone po kreska kończąca zostanie potraktowany jako potencjalne parametru trasy. Jeśli trasa domyślna nie zostanie znaleziony, prefiks trasy zostaną dodane do wygenerowanego href żądania parametr i wartość. W przeciwnym razie zostaną zastąpione w szablonie trasy.
 
@@ -168,7 +166,7 @@ Jeśli dowolny `asp-controller` lub `asp-action` nie są określone, następnie 
 
 `Name = "speakerevals"`Określa, że Generowanie trasę bezpośrednio do tej metody za pomocą adresu URL pomocnika Tag kotwicy `/Speaker/Evaluations`. Jeśli `asp-controller` lub `asp-action` określono oprócz `asp-route`, generowane trasy nie może być oczekiwań. `asp-route`nie należy używać przy użyciu jednej z wartości atrybutów `asp-controller` lub `asp-action` Aby uniknąć konfliktu trasy.
 
-### <a name="asp-all-route-data"></a>ASP-all danych trasy
+### <a name="asp-all-route-data"></a>asp-all-route-data
 
 `asp-all-route-data`Umożliwia tworzenie słownik par kluczy i wartości gdzie klucz to nazwa parametru, a wartość jest wartością skojarzonego z tym kluczem.
 
@@ -193,7 +191,7 @@ Po kliknięciu łącza, metoda kontrolera `EvaluationsCurrent` jest wywoływana.
 
 Jeśli parametry trasy klucze w słowniku dopasowania, te wartości zostaną zastąpione w trasie zgodnie z potrzebami i inne niepasujące wartości zostaną wygenerowane jako parametry żądania.
 
-### <a name="asp-fragment"></a>ASP fragment
+### <a name="asp-fragment"></a>asp-fragment
 
 `asp-fragment`Definiuje fragmentu adresu URL, aby dołączyć do adresu URL. Pomocnik Tag kotwicy spowoduje dodanie znaku numeru (#). Jeśli utworzysz tag:
 
@@ -206,12 +204,12 @@ Zostanie wygenerowany adres URL: http://localhost/Speaker/Evaluations#SpeakerEva
 
 Skrót tagi są przydatne podczas tworzenia aplikacji po stronie klienta. Służy do łatwego oznaczenie i wyszukiwanie w języku JavaScript, na przykład.
 
-### <a name="asp-area"></a>obszar ASP
+### <a name="asp-area"></a>asp-area
 
 `asp-area`Ustawia nazwę obszaru, która korzysta z platformy ASP.NET Core można ustawić odpowiednie trasy. Poniżej przedstawiono przykłady sposobu atrybut obszaru powoduje zmianę mapowania tras. Ustawienie `asp-area` blogach prefiksy katalogu `Areas/Blogs` do tras skojarzone kontrolery i widoki dla ten tag kotwicy.
 
 * Nazwa projektu
-  * Wwwroot
+  * wwwroot
   * Obszary
     * Blogi
       * Kontrolery
@@ -237,7 +235,7 @@ Wygenerowany kod HTML będzie zawierać segmentu obszarów i będzie wyglądać 
 > [!TIP]
 > Obszarów MVC do pracy w aplikacji sieci web szablon trasy musi zawierać odwołanie do obszaru, jeśli istnieje. Szablonu, który jest drugi parametr z `routes.MapRoute` wywołania metody, będą wyświetlane jako:`template: '"{area:exists}/{controller=Home}/{action=Index}"'`
 
-### <a name="asp-protocol"></a>Protokół ASP
+### <a name="asp-protocol"></a>asp-protocol
 
 `asp-protocol` Służy do określania protokół (takie jak `https`) w adresie URL. Przykład pomocnika Tag kotwicy, zawierającym nazwę protokołu będzie wyglądać w następujący sposób:
 

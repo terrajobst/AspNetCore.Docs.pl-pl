@@ -2,7 +2,6 @@
 title: Migrowanie z platformy ASP.NET Core 1.x 2.0
 author: scottaddie
 description: "W tym artykule opisano wymagania wstępne i najbardziej typowe kroki dotyczące migrowania projekt platformy ASP.NET Core 1.x ASP.NET Core 2.0."
-keywords: Platformy ASP.NET Core, migracji
 ms.author: scaddie
 manager: wpickett
 ms.date: 10/03/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 12734504953f2942458c3bfe1fe146f48d8f24ff
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 7f34e15ca9f31db8c70a940a5f0552d97a1ea4ed
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>Migrowanie z platformy ASP.NET Core 1.x do platformy ASP.NET Core 2.0
 

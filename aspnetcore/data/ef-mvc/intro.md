@@ -2,20 +2,18 @@
 title: Platformy ASP.NET Core MVC z Entity Framework Core - 1 samouczka 10
 author: tdykstra
 description: 
-keywords: Samouczek platformy ASP.NET Core Entity Framework Core,
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: df13726689c430ab19786e104ea7404051107aa9
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Wprowadzenie do platformy ASP.NET Core MVC i Entity Framework Core za pomocą programu Visual Studio (od 1 do 10)
 
@@ -44,7 +42,7 @@ Podstawowe EF 2.0 jest najnowsza wersja EF, ale nie ma jeszcze wszystkich funkcj
 Jeśli napotkasz problem, nie można rozpoznać zwykle można znaleźć rozwiązania na podstawie porównania ilości kodu do [projektu zakończone](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Aby uzyskać listę typowych błędów i sposobów ich rozwiązania, zobacz [sekcji rozwiązywania problemów ostatniego samouczek z tej serii](advanced.md#common-errors). Nie można znaleźć, muszą, możesz wysłać zapytanie do StackOverflow.com dla [platformy ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) lub [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP] 
-> Jest to szereg 10 samouczków, z których każdy opiera się na czynności wykonane w starszych samouczki.  Warto zapisać kopię projektu po każdym pomyślnym ukończeniu samouczka.  Następnie w razie problemów, możesz zacząć od nowa z poprzednich samouczek zamiast po powrocie do początku całej serii.
+> Jest to szereg 10 samouczków, z których każdy opiera się na czynności wykonane w starszych samouczki. Warto zapisać kopię projektu po każdym pomyślnym ukończeniu samouczka. Następnie w razie problemów, możesz zacząć od nowa z poprzednich samouczek zamiast po powrocie do początku całej serii.
 
 ## <a name="the-contoso-university-web-application"></a>Aplikacja sieci web University firmy Contoso
 
@@ -136,7 +134,7 @@ W *modele* folderu, Utwórz plik klasy o nazwie *Student.cs* i Zastąp kod szabl
 
 `Enrollments` Właściwość jest właściwością nawigacji. Właściwości nawigacji zawiera inne jednostki, które są powiązane z tą jednostką. W takim przypadku `Enrollments` właściwość `Student entity` będą przechowywane wszystkie `Enrollment` jednostek, które są powiązane z których `Student` jednostki. Innymi słowy, jeśli dany wiersz uczniów w bazie danych ma dwa powiązane rejestracji wierszy (wiersze, które zawierają Studenta dla tej wartości klucza podstawowego w kolumnie klucza obcego ich StudentID), który `Student` jednostki `Enrollments` właściwość nawigacji będzie zawierał te dwa `Enrollment` jednostek.
 
-Jeśli właściwość nawigacji może zawierać wiele jednostek (jak relacje wiele do wielu lub jeden do wielu), w którym wpisów można można dodane, usunięte i zaktualizowane, takie jak listy musi być typu `ICollection<T>`.  Można określić `ICollection<T>` lub typu, takich jak `List<T>` lub `HashSet<T>`. Jeśli określisz `ICollection<T>`, tworzy EF `HashSet<T>` kolekcji domyślnie.
+Jeśli właściwość nawigacji może zawierać wiele jednostek (jak relacje wiele do wielu lub jeden do wielu), w którym wpisów można można dodane, usunięte i zaktualizowane, takie jak listy musi być typu `ICollection<T>`. Można określić `ICollection<T>` lub typu, takich jak `List<T>` lub `HashSet<T>`. Jeśli określisz `ICollection<T>`, tworzy EF `HashSet<T>` kolekcji domyślnie.
 
 ### <a name="the-enrollment-entity"></a>Jednostka rejestracji
 
@@ -210,7 +208,7 @@ Parametry połączenia określa bazę danych programu SQL Server LocalDB. LocalD
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>Dodaj kod, aby zainicjować bazy danych z danych testowych
 
-Entity Framework utworzy pustej bazy danych dla Ciebie.  W tej sekcji napiszesz metodę, która jest wywoływana po utworzeniu bazy danych, aby wypełnić go danymi testu.
+Entity Framework utworzy pustej bazy danych dla Ciebie. W tej sekcji napiszesz metodę, która jest wywoływana po utworzeniu bazy danych, aby wypełnić go danymi testu.
 
 W tym miejscu użyjesz `EnsureCreated` metodę, aby automatycznie utworzyć bazę danych. W [nowsze samouczek](migrations.md) zobaczysz jak obsługiwać zmiany modelu przy użyciu migracje Code First, aby zmienić schemat bazy danych zamiast usunięcie i ponowne utworzenie bazy danych.
 
@@ -218,7 +216,7 @@ W *danych* folderu, Utwórz nowy plik klasy o nazwie *DbInitializer.cs* i Zastą
 
 [!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
-Kod sprawdza, czy istnieją wszystkie studentów w bazie danych jeśli nie, przyjęto założenie, baza danych jest nowa i musi zostać rozpoczęta z danych testowych.  Ładuje dane testowe do tablic zamiast `List<T>` kolekcje w celu optymalizacji wydajności.
+Kod sprawdza, czy istnieją wszystkie studentów w bazie danych jeśli nie, przyjęto założenie, baza danych jest nowa i musi zostać rozpoczęta z danych testowych. Ładuje dane testowe do tablic zamiast `List<T>` kolekcje w celu optymalizacji wydajności.
 
 W *Program.cs*, zmodyfikuj `Main` metody wykonać następujące czynności podczas uruchamiania aplikacji:
 
@@ -353,7 +351,7 @@ W poniższym kodzie `async` — słowo kluczowe, `Task<T>` zwrócić wartość, 
 
 Należy pamiętać o podczas pisania kodu asynchroniczne, który korzysta z programu Entity Framework w kilku kwestiach:
 
-* Tylko instrukcji, które powodują zapytań i poleceń do wysłania do bazy danych są wykonywane asynchronicznie. Zawierającej, na przykład `ToListAsync`, `SingleOrDefaultAsync`, i `SaveChangesAsync`.  Nie obejmuje, na przykład instrukcji, które można zmienić `IQueryable`, takich jak `var students = context.Students.Where(s => s.LastName == "Davolio")`.
+* Tylko instrukcji, które powodują zapytań i poleceń do wysłania do bazy danych są wykonywane asynchronicznie. Zawierającej, na przykład `ToListAsync`, `SingleOrDefaultAsync`, i `SaveChangesAsync`. Nie obejmuje, na przykład instrukcji, które można zmienić `IQueryable`, takich jak `var students = context.Students.Where(s => s.LastName == "Davolio")`.
 
 * Kontekst EF nie jest bezpieczne dla wątków: nie należy próbować wykonać kilka operacji wykonywane równolegle. Po wywołaniu dowolnej metody EF async zawsze używaj `await` — słowo kluczowe.
 
@@ -366,4 +364,4 @@ Aby uzyskać więcej informacji na temat programowania asynchronicznego w progra
 Teraz utworzyć prostą aplikację, która używa do przechowywania i wyświetlania danych programu Entity Framework Core i SQL Server Express LocalDB. Następujące kroki samouczka, dowiesz się, jak wykonać podstawowe CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) operacji.
 
 >[!div class="step-by-step"]
-[Next](crud.md)  
+[Next](crud.md)

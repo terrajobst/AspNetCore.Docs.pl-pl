@@ -2,20 +2,18 @@
 title: Routing w platformy ASP.NET Core
 author: ardalis
 description: "Odkryj, jak funkcji routingu platformy ASP.NET Core jest odpowiedzialny za mapowania przychodzącego żądania do obsługi trasy."
-keywords: Platformy ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 58388f674ed5d353c1c7208a67fb338e49fdb592
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ffa3178dc4e3aac3ba51c29b7efa3f71eb56bcfe
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w platformy ASP.NET Core
 
@@ -277,12 +275,12 @@ Poniższa tabela przedstawia niektóre szablony trasy i ich zachowanie.
 
 | Szablon trasy | Przykładowy adres URL dopasowania | Uwagi |
 | -------- | -------- | ------- |
-| Cześć  | człon  | Zgodny tylko pojedynczą ścieżkę`/hello` |
-| {Strony = Home} | / | Dopasowuje i ustawia `Page` do`Home` |
-| {Strony = Home}  | / Skontaktuj się z  | Dopasowuje i ustawia `Page` do`Contact` |
+| Cześć  | /hello  | Zgodny tylko pojedynczą ścieżkę`/hello` |
+| {Page=Home} | / | Dopasowuje i ustawia `Page` do`Home` |
+| {Page=Home}  | / Skontaktuj się z  | Dopasowuje i ustawia `Page` do`Contact` |
 | {controller} / {action} / {id}? | / / Listy produktów | Mapuje `Products` kontrolera i `List` akcji |
 | {controller} / {action} / {id}? | / Produkty/szczegóły/123  |  Mapuje `Products` kontrolera i `Details` akcji.  `id`Ustaw 123 |
-| {kontrolera = Home} / {akcji = indeks} / {id}? | /  |  Mapuje `Home` kontrolera i `Index` metody; `id` jest ignorowana. |
+| {controller=Home}/{action=Index}/{id?} | /  |  Mapuje `Home` kontrolera i `Index` metody; `id` jest ignorowana. |
 
 Przy użyciu szablonu zwykle jest najprostsza metoda routingu. Ograniczenia i ustawienia domyślne można również określić poza szablon trasy.
 
@@ -340,7 +338,7 @@ Wyrażenia regularne użyte w routingu często zacznie działanie od `^` znaków
 | ----------------- | ------------ |  ------------ |  ------------ | 
 | `[a-z]{2}` | Cześć | Tak | dopasowań podciągów |
 | `[a-z]{2}` | 123abc456 | Tak | dopasowań podciągów |
-| `[a-z]{2}` | MZ | Tak | pasuje do wyrażenia |
+| `[a-z]{2}` | mz | Tak | pasuje do wyrażenia |
 | `[a-z]{2}` | MZ | Tak | bez rozróżniania wielkości liter |
 | `^[a-z]{2}$` |  Cześć | Brak | zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` |  123abc456 | Brak | zobacz `^` i `$` powyżej |
@@ -365,10 +363,10 @@ Wartości są dostarczane bezpośrednio, ale która nie odpowiada niczego są do
 
 | Wartości otoczenia | Jawne wartości | Wynik |
 | -------------   | -------------- | ------ |
-| Kontroler = "Strona główna" | Akcja = "O" | `/Home/About` |
-| Kontroler = "Strona główna" | Kontroler = "Order", Akcja = "O" | `/Order/About` |
-| Kontroler = "Home", color = "Red" | Akcja = "O" | `/Home/About` |
-| Kontroler = "Strona główna" | Akcja = "O" color = "Red" | `/Home/About?color=Red`
+| controller="Home" | action="About" | `/Home/About` |
+| controller="Home" | controller="Order",action="About" | `/Order/About` |
+| controller="Home",color="Red" | action="About" | `/Home/About` |
+| controller="Home" | action="About",color="Red" | `/Home/About?color=Red`
 
 Jeśli ta wartość nie zostanie podany wprost trasy ma wartość domyślną, który nie jest zgodny z parametrem, musi być zgodna wartość domyślną. Na przykład:
 

@@ -2,20 +2,18 @@
 title: "Omówienie platformy ASP.NET Core MVC"
 author: ardalis
 description: "Dowiedz się, jak platformy ASP.NET Core MVC jest sformatowany framework do tworzenia aplikacji sieci web i interfejsów API przy użyciu Model-View-Controller projektowanie wzorca."
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 01/08/2018
 ms.topic: article
-ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 33c293e15c0a7f18bbace9dc564fe11d93a7d509
-ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
+ms.openlocfilehash: ad8a1dfae89a7ecd5573c16ba70d7d12216b4c57
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
@@ -74,10 +72,10 @@ Platformy ASP.NET Core MVC obejmuje następujące funkcje:
 * [Filtry](#filters)
 * [Obszary](#areas)
 * [Interfejsy API sieci Web](#web-apis)
-* [Pola](#testability)
+* [Testability](#testability)
 * [Aparat widoku razor](#razor-view-engine)
 * [Jednoznacznie widoków](#strongly-typed-views)
-* [Pomocników tagów](#tag-helpers)
+* [Pomocnicy tagów](#tag-helpers)
 * [Składniki w widoku](#view-components)
 
 ### <a name="routing"></a>Routing

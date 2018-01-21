@@ -2,20 +2,18 @@
 title: "Kompilacja widoku razor i wstępnej kompilacji"
 author: rick-anderson
 description: "Dokument odwołanie wyjaśniający, jak włączyć kompilacji widoku MVC Razor i wstępnej kompilacji w aplikacji platformy ASP.NET Core."
-keywords: "Platformy ASP.NET Core kompilacji widoku Razor, Razor pre kompilacji, Razor wstępnej kompilacji"
 ms.author: riande
 manager: wpickett
 ms.date: 12/13/2017
 ms.topic: article
-ms.assetid: ab4705b7-1638-1638-bc97-ea7f292fe92a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 6839892c104673af0fd0fd074d368f3f42259d76
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 87989455c2fb6b5a922c7fb6133aa3e8cef42c88
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>Kompilacja widoku razor i wstępnej kompilacji w ASP.NET Core
 
@@ -33,7 +31,7 @@ Kwestie do rozważenia wstępnej kompilacji:
 
 Aby wdrożyć prekompilowany widoków:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Jeśli projekt jest przeznaczony dla środowiska .NET Framework, zawierać odwołanie do pakietu [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/):
 
@@ -47,7 +45,7 @@ Szablony projektów platformy ASP.NET Core 2.x ustawiane niejawnie `MvcRazorComp
 
 [!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish2.csproj?highlight=5)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Ustaw `MvcRazorCompileOnPublish` do `true`i zawiera odwołanie do pakietu `Microsoft.AspNetCore.Mvc.Razor.ViewCompilation`. Następujące *.csproj* przykładzie wyróżniono te ustawienia:
 

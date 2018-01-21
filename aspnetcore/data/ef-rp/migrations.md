@@ -2,7 +2,6 @@
 title: Stron razor podstawowych EF - Migrations - 4, 8
 author: rick-anderson
 description: "W tym samouczku możesz uruchomić przy użyciu funkcji migracji EF Core zarządzania zmianami modelu danych w aplikacji ASP.NET Core MVC."
-keywords: Migracje platformy ASP.NET Core Entity Framework Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/15/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 8549fc522bcd05a5755a449cd6d4b655f00d998b
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: 26fbda99b0c1dfa2d09cf387e43f3123c58215f8
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Migracje - Core EF z samouczka stron Razor (4 8)
 
@@ -126,7 +125,7 @@ Ponieważ bieżący schemat bazy danych jest reprezentowana w kodzie, EF Core ni
 
 Plik migawki musi być zsynchronizowane z migracji, które go utworzył. Nie można usunąć migracji przez usunięcie pliku o nazwie  *\<sygnatury czasowej > _\<migrationname > .cs*. Jeśli ten plik zostanie usunięty, pozostałe migracji nie są zsynchronizowane z plikiem migawki bazy danych. Aby usunąć ostatniego migracji dodany, użyj [Usuń migracje ef dotnet](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) polecenia.
 
-## <a name="remove-ensurecreated"></a>Usuń EnsureCreated
+## <a name="remove-ensurecreated"></a>Remove EnsureCreated
 
 Wczesne rozwoju `EnsureCreated` użyto polecenia. W tym samouczku jest używany migracji. `EnsureCreated`ma następujące limatitions:
 

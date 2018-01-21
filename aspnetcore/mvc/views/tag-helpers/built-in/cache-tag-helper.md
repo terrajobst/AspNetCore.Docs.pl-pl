@@ -2,20 +2,18 @@
 title: "Buforuj pomocnika tagów w podstawowej platformy ASP.NET MVC"
 author: pkellner
 description: "Pokazuje, jak pracować z pamięci podręcznej pomocnika tagów"
-keywords: "Platformy ASP.NET Core pomocnika tagów"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a012
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 74080d089dc7a72da96f9f18d613cb313cd930db
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: dfd9c3c0c4e50a99e4f8703b01bd9b384930b87a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Buforuj pomocnika tagów w podstawowej platformy ASP.NET MVC
 
@@ -60,7 +58,7 @@ Przykład:
 
 - - -
 
-### <a name="expires-on"></a>wygasa 
+### <a name="expires-on"></a>expires-on 
 
 | Typ atrybutu    | Przykładowa wartość     |
 |----------------   |----------------   |
@@ -79,11 +77,11 @@ Przykład:
 
 - - -
 
-### <a name="expires-after"></a>Po wygaśnięciu
+### <a name="expires-after"></a>expires-after
 
 | Typ atrybutu    | Przykładowa wartość     |
 |----------------   |----------------   |
-| Zakres czasu    | "@TimeSpan.FromSeconds(120)"    |
+| TimeSpan    | "@TimeSpan.FromSeconds(120)"    |
 
 
 Ustawia czas od pierwszego żądania, aby buforować zawartość. 
@@ -102,7 +100,7 @@ Przykład:
 
 | Typ atrybutu    | Przykładowa wartość     |
 |----------------   |----------------   |
-| Zakres czasu    | "@TimeSpan.FromSeconds(60)"     |
+| TimeSpan    | "@TimeSpan.FromSeconds(60)"     |
 
 
 Ustawia czas, który wykluczyć wpisu pamięci podręcznej, jeśli nie uzyska dostępu.
@@ -117,12 +115,12 @@ Przykład:
 
 - - -
 
-### <a name="vary-by-header"></a>różnią się w nagłówku
+### <a name="vary-by-header"></a>vary-by-header
 
 | Typ atrybutu    | Przykładowe wartości                |
 |----------------   |----------------               |
-| String            | "Agent użytkownika"                  |
-|                   | "Agent użytkownika, kodowania zawartości" |
+| String            | "User-Agent"                  |
+|                   | "User-Agent,content-encoding" |
 
 Akceptuje wartości jeden nagłówek lub rozdzielaną przecinkami listę wartości nagłówka, które mogą powodować odświeżenie pamięci podręcznej po zmianie. Poniższy przykład monitoruje wartość nagłówka `User-Agent`. Przykład będzie buforowanie zawartości dla każdego innego `User-Agent` przedstawiony na serwerze sieci web.
 
@@ -141,7 +139,7 @@ Przykład:
 | Typ atrybutu    | Przykładowe wartości                |
 |----------------   |----------------               |
 | String            | "Przechowuj"                |
-|                   | "Marki, modelu" |
+|                   | "Make,Model" |
 
 Akceptuje wartości jeden nagłówek lub rozdzielaną przecinkami listę wartości nagłówka, które mogą powodować odświeżenie pamięci podręcznej po zmianie wartości nagłówka. Poniższy przykład analizuje wartości `Make` i `Model`.
 
@@ -160,11 +158,11 @@ Przykład:
 | Typ atrybutu    | Przykładowe wartości                |
 |----------------   |----------------               |
 | String            | "Przechowuj"                |
-|                   | "Marki, modelu" |
+|                   | "Make,Model" |
 
 Akceptuje wartości jeden nagłówek lub rozdzielaną przecinkami listę wartości nagłówka, które mogą powodować odświeżenie pamięci podręcznej podczas zmiany wartości parametru danych trasy. Przykład:
 
-*Startup.CS* 
+*Startup.cs* 
 
 ```csharp
 routes.MapRoute(
@@ -186,8 +184,8 @@ routes.MapRoute(
 
 | Typ atrybutu    | Przykładowe wartości                |
 |----------------   |----------------               |
-| String            | ". AspNetCore.Identity.Application"                |
-|                   | ". AspNetCore.Identity.Application,HairColor" |
+| String            | ".AspNetCore.Identity.Application"                |
+|                   | ".AspNetCore.Identity.Application,HairColor" |
 
 Akceptuje wartości jeden nagłówek lub rozdzielaną przecinkami listę wartości nagłówka, które mogą powodować odświeżenie pamięci podręcznej podczas zmiany (s) wartości nagłówka. Poniższy przykład analizuje plik cookie skojarzone z tożsamością ASP.NET. Gdy użytkownik jest uwierzytelniany żądania plik cookie należy ustawić wartość, która wyzwala odświeżania pamięci podręcznej.
 

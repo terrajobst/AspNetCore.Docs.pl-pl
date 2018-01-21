@@ -2,19 +2,17 @@
 title: "Platformy ASP.NET Core MVC EF podstawowych — sortowanie, filtrowanie, stronicowania - 3 10"
 author: tdykstra
 description: "W tym samouczku zostanie dodana sortowanie, filtrowanie i stronicowania funkcji na stronę przy użyciu programu Entity Framework Core i ASP.NET Core."
-keywords: Platformy ASP.NET Core, Entity Framework Core, sortowanie, filtrowanie, stronicowania, grupowanie
 ms.author: tdykstra
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 59fff4dbf4736f0776aac4072f3f4e2d40119842
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6da2073b18f6fff9738808c84441e59240caefe3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sortowanie, filtrowanie, stronicowania i grupowanie — podstawowe EF z samouczek platformy ASP.NET Core MVC (3 10)
 
@@ -114,7 +112,7 @@ Na tym etapie po kliknięciu łącza sortowania nagłówka kolumny zostanie utra
 
 Aby dodać stronicowania do strony indeksu studentów, należy utworzyć `PaginatedList` klasy, która używa `Skip` i `Take` instrukcje, aby filtrować dane na serwerze zamiast zawsze pobierania wszystkie wiersze w tabeli. Następnie będzie można wprowadzić dodatkowe zmiany w `Index` — metoda i dodać przyciski stronicowania `Index` widoku. Na poniższej ilustracji przedstawiono przyciski stronicowania.
 
-![Strona zawierająca linki stronicowania indeksu uczniów lub studentów](sort-filter-page/_static/paging.png)
+![Strona indeksu studentów z łączami stronicowania](sort-filter-page/_static/paging.png)
 
 W folderze projektu Utwórz `PaginatedList.cs`, a następnie Zastąp kod szablonu z następującym kodem.
 
@@ -195,7 +193,7 @@ Przyciski stronicowania są wyświetlane przez pomocników tagów:
 
 Uruchom aplikację i przejdź do strony studenta.
 
-![Strona zawierająca linki stronicowania indeksu uczniów lub studentów](sort-filter-page/_static/paging.png)
+![Strona indeksu studentów z łączami stronicowania](sort-filter-page/_static/paging.png)
 
 Kliknij łącza stronicowania w różnych sortowania, aby upewnić się, że działa stronicowania. Następnie wprowadź ciąg wyszukiwania i spróbuj stronicowania ponownie, aby sprawdzić, czy stronicowania również działa poprawnie z sortowania i filtrowania.
 

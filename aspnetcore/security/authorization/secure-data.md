@@ -1,20 +1,18 @@
 ---
 title: "Tworzenie aplikacji platformy ASP.NET Core z danych użytkownika chronione przez autoryzacji"
 author: rick-anderson
-keywords: "Platformy ASP.NET Core, MVC, autoryzacji, role zabezpieczeń, administrator"
 ms.author: riande
 manager: wpickett
 ms.date: 05/22/2017
 ms.topic: article
-ms.assetid: abeb2f8e-dfbf-4398-a04c-338a613a65bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: db95d46dafdd300d4ec13e8cc31a3d995016ab92
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 861ac619c7f5fb19a56c59536e20724d96bbddca
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core z danych użytkownika chronione przez autoryzacji
 
@@ -57,7 +55,7 @@ A `ContactIsOwnerAuthorizationHandler` obsługi autoryzacji gwarantuje, że uży
 
 Nie jest to początek samouczka. Należy zapoznać się z:
 
-* [Podstawowe ASP.NET MVC](xref:tutorials/first-mvc-app/start-mvc)
+* [ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
 ## <a name="the-starter-and-completed-app"></a>Starter i ukończonej aplikacji
@@ -221,7 +219,7 @@ Wstaw usługi autoryzacji w *Views/_ViewImports.cshtml* plik, będzie on dostęp
 
 Aktualizacja *Views/Contacts/Index.cshtml* widoku Razor tylko wyświetlanie, edytowanie i usuwanie łączy dla użytkowników, którzy mogą edytowanie/usuwanie kontaktu.
 
-Dodaj`@using ContactManager.Authorization;`
+Add `@using ContactManager.Authorization;`
 
 Aktualizacja `Edit` i `Delete` łączy, aby były wyświetlane tylko dla użytkowników z uprawnieniem do edytowania i usuwania kontaktu.
 

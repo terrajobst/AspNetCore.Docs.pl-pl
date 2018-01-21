@@ -2,18 +2,17 @@
 title: "Stron razor podstawowych EF — sortowanie, filtrowanie, stronicowania - 3 8"
 author: rick-anderson
 description: "W tym samouczku zostanie dodana sortowanie, filtrowanie i stronicowania funkcji na stronę przy użyciu programu Entity Framework Core i ASP.NET Core."
-keywords: Platformy ASP.NET Core, Entity Framework Core, sortowanie, filtrowanie, stronicowania, grupowanie
 ms.author: riande
 ms.date: 10/22/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 5e17663b88a622101245228e9372db55e4e874be
-ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
+ms.openlocfilehash: 08f00e183dd8a8daa883d0b9ff15698b3a39f625
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sortowanie, filtrowanie, stronicowania i grupowanie — podstawowe EF Razor strony (3 8)
 
@@ -161,7 +160,7 @@ Obecnie, gdy łącze sortowania nagłówka kolumny jest zaznaczona, wartość fi
 
 W tej sekcji `PaginatedList` utworzeniu klasy do obsługi stronicowania. `PaginatedList` Klasy używa `Skip` i `Take` instrukcje, aby filtrować dane na serwerze zamiast pobierania wszystkie wiersze w tabeli. Na poniższej ilustracji przedstawiono przyciski stronicowania.
 
-![Strona zawierająca linki stronicowania indeksu uczniów lub studentów](sort-filter-page/_static/paging.png)
+![Strona indeksu studentów z łączami stronicowania](sort-filter-page/_static/paging.png)
 
 W folderze projektu Utwórz `PaginatedList.cs` następującym kodem:
 

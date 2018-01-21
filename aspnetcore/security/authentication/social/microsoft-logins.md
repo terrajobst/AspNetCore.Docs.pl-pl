@@ -2,20 +2,18 @@
 title: "Konfigurowanie logowania zewnętrznego Account firmy Microsoft"
 author: rick-anderson
 description: "W tym samouczku przedstawiono integrację uwierzytelnianie użytkownika konta Microsoft do istniejącej aplikacji platformy ASP.NET Core."
-keywords: Platformy ASP.NET Core konta Microsoft, logowania, uwierzytelniania
 ms.author: riande
 manager: wpickett
 ms.date: 08/24/2017
 ms.topic: article
-ms.assetid: 66DB4B94-C78C-4005-BA03-3D982B87C268
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 77c16e3ae93c9bfe1f569d0a5888c5b765d04241
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6e4586eb681bd230413ace67ca9eddc3fe3e9e60
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configuring-microsoft-account-authentication"></a>Konfigurowanie uwierzytelniania Account firmy Microsoft
 
@@ -76,7 +74,7 @@ Szablon projektu używany w tym samouczku upewnia się, że [Microsoft.AspNetCor
 
    `dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Dodaj usługę Microsoft Account w `ConfigureServices` metody w *Startup.cs* pliku:
 
@@ -94,7 +92,7 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 
 [!INCLUDE[default settings configuration](includes/default-settings.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Dodaj oprogramowanie pośredniczące Account Microsoft w `Configure` metody w *Startup.cs* pliku:
 

@@ -1,20 +1,7 @@
 ---
-title: Wprowadzenie do platformy ASP.NET Core stron Razor
-author: Rick-Anderson
-description: "Ten dokument zawiera omówienie używanie stron Razor w platformy ASP.NET Core, aby ułatwić projektowanie strony scenariuszy."
-keywords: Platformy ASP.NET Core stron Razor
-ms.author: riande
-manager: wpickett
-ms.date: 09/12/2017
-ms.topic: get-started-article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/razor-pages/index
-ms.openlocfilehash: 31d8b1f662d3d5e7dad8f459d951c7b8181148b8
-ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
-ms.translationtype: MT
-ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+title: wprowadzenie do stron Razor platformy ASP.NET Core Autor: opis Rick Anderson: samouczek platformy ASP.NET Core na stronach Razor. Zawiera podstawowe MVC, ASP.NET Core 2.x, wprowadzenie do aplikacji sieci web i Visual Studio 2017 r.
+jest, że dokument zawiera omówienie używanie stron Razor w platformy ASP.NET Core, aby ułatwić projektowanie strony scenariuszy.
+ms.author: riande manager: wpickett ms.date: 09/12/2017 ms.topic: get-started-article ms.technology: aspnet ms.prod: asp.net-core uid: mvc/razor-pages/index
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
@@ -45,13 +32,13 @@ Jeśli używasz programu Visual Studio, zainstaluj [programu Visual Studio](http
 
 Zobacz [wprowadzenie stron Razor](xref:tutorials/razor-pages/razor-pages-start) szczegółowe informacje dotyczące sposobu tworzenia stron Razor projektu za pomocą programu Visual Studio.
 
-#   <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+#   <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 Uruchom `dotnet new razor` z wiersza polecenia.
 
 Otwórz wygenerowany *.csproj* plików z programu Visual Studio dla komputerów Mac.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Kod Visual Studio](#tab/visual-studio-code) 
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
 
 Uruchom `dotnet new razor` z wiersza polecenia.
 
@@ -87,10 +74,10 @@ Skojarzenia ścieżki adresu URL do strony zależą od lokalizacji strony w syst
 
 | Nazwa i ścieżka pliku               | Dopasowywanie adresu URL |
 | ----------------- | ------------ |
-| */Pages/index.cshtml* | `/`lub`/Index` |
+| */Pages/Index.cshtml* | `/`lub`/Index` |
 | */Pages/Contact.cshtml* | `/Contact` |
 | */Pages/Store/Contact.cshtml* | `/Store/Contact` |
-| */Pages/Store/index.cshtml* | `/Store`lub`/Store/Index` |
+| */Pages/Store/Index.cshtml* | `/Store`lub`/Store/Index` |
 
 Uwagi:
 
@@ -290,7 +277,7 @@ Aplikacja ma następującą strukturę plik lub folder:
 * */ Stron*
 
   * *Index.cshtml*
-  * */ Klienta*
+  * */Customer*
 
     * *Create.cshtml*
     * *Edit.cshtml*
@@ -310,7 +297,7 @@ Generowania adresu URL dla stron obsługuje nazw względnych. W poniższej tabel
 | ----------------- | ------------ |
 | RedirectToPage("/Index") | *Strony/indeksu* |
 | RedirectToPage("./Index"); | *Strony/klientów/indeksu* |
-| RedirectToPage(".. / Indeks") | *Strony/indeksu* |
+| RedirectToPage("../Index") | *Strony/indeksu* |
 | RedirectToPage("Index")  | *Strony/klientów/indeksu* |
 
 `RedirectToPage("Index")`, `RedirectToPage("./Index")`, i `RedirectToPage("../Index")` są *względne nazwy*. `RedirectToPage` Parametr jest *łączyć* ze ścieżką bieżącej strony do obliczenia nazwę strony docelowej.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->

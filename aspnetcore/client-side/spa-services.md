@@ -2,21 +2,19 @@
 title: "Przy użyciu JavaScriptServices do tworzenia aplikacji jednej strony"
 author: scottaddie
 description: "Poznaj korzyści wynikające ze stosowania JavaScriptServices do utworzenia jednej strony aplikacji JEDNOSTRONICOWEJ obsługiwana przez platformy ASP.NET Core."
-keywords: "Platformy ASP.NET Core kątowego, SPA, JavaScriptServices, SpaServices"
 ms.author: scaddie
 manager: wpickett
 ms.date: 08/02/2017
 ms.topic: article
-ms.assetid: 4b30576b-2718-4c39-9253-a59966747893
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d47910beef9195295c8da6ac81b83b3ffe20124
-ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
+ms.openlocfilehash: 6d84659c8c65bebb46551eb38bd52e405ff56016
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Do tworzenia aplikacji jednej strony z platformy ASP.NET Core za pomocą JavaScriptServices
 
@@ -75,7 +73,7 @@ Uwaga: Jeśli wdrażasz do witryny sieci web platformy Azure, nie musisz tutaj w
 * [Zestaw SDK programu .NET core](https://www.microsoft.com/net/download/core) 1.0 (lub nowszy)
     * Jeśli w systemie Windows, to można zainstalować, wybierając w Visual Studio 2017 **aplikacji dla wielu platform .NET Core** obciążenia.
 
-* [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) pakietu NuGet
+* [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet package
 
 <a name="server-prerendering"></a>
 

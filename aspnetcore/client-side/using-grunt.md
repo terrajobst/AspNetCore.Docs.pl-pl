@@ -2,20 +2,18 @@
 title: "Przy użyciu Grunt w platformy ASP.NET Core"
 author: rick-anderson
 description: 
-keywords: Platformy ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 471112e9-2c33-454b-96fc-32916102ce73
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: 8ae50514ce24c7f9e3bb1e347d5d860e1de43c5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 959a3e61af9834b9364e9fe4bf65a04962e28969
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Przy użyciu Grunt w platformy ASP.NET Core 
 
@@ -294,4 +292,4 @@ Grunt jest modułu uruchamiającego zadania zaawansowanego, który może służy
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-   * [Przy użyciu Gulp](using-gulp.md)
+   * [Korzystanie z Gulp](using-gulp.md)

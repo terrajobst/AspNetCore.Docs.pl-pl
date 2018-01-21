@@ -2,7 +2,6 @@
 title: "Odwołania do składni razor dla platformy ASP.NET Core"
 author: rick-anderson
 description: "Więcej informacji o składni Razor znaczników do osadzania kodu na serwerze do stron sieci Web."
-keywords: Dyrektywy Razor platformy ASP.NET Core, Razor,
 ms.author: riande
 manager: wpickett
 ms.date: 10/18/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 6df769069fce52755a57d8404f88203a652a1ab9
-ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
+ms.openlocfilehash: d932e28246998c60e2b3f9c77a2521fe55991e85
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Składnia razor dla platformy ASP.NET Core
 
@@ -24,7 +23,7 @@ Razor jest składnię znaczników osadzanie kodu na serwerze w witrynach sieci W
 
 ## <a name="rendering-html"></a>Renderowanie kodu HTML
 
-Domyślny język Razor jest HTML. Renderowanie kodu HTML, z znaczników Razor nie różni się od renderowania kodu HTML z pliku HTML.  Kod znaczników HTML w *.cshtml* pliki Razor jest renderowany na serwerze bez zmian.
+Domyślny język Razor jest HTML. Renderowanie kodu HTML, z znaczników Razor nie różni się od renderowania kodu HTML z pliku HTML. Kod znaczników HTML w *.cshtml* pliki Razor jest renderowany na serwerze bez zmian.
 
 ## <a name="razor-syntax"></a>Składnia razor
 
@@ -73,8 +72,8 @@ Wyrażenia niejawnego **nie** zawiera typami ogólnymi C#, jako znak wewnątrz n
 
 Poprzedni kod generowany jest błąd kompilatora podobny do jednego z następujących czynności:
 
- * Element "int" nie został zamknięty.  Wszystkie elementy muszą być albo samodzielnie zamknięcie lub ma zgodnego tagu końcowego.
- *  Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzasz wywołać metodę? " 
+ * Element "int" nie został zamknięty. Wszystkie elementy muszą być albo samodzielnie zamknięcie lub ma zgodnego tagu końcowego.
+ * Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzasz wywołać metodę? " 
  
 Wywołania metody rodzajowe muszą być ujęte w [jawne wyrażenie Razor](#explicit-razor-expressions) lub [blok kodu Razor](#razor-code-blocks).
 
@@ -119,10 +118,10 @@ Jawne wyrażenia może zostać użyty do renderowania dane wyjściowe metody rod
 
 Poprzedni kod generowany jest błąd kompilatora podobny do jednego z następujących czynności:
 
- * Element "int" nie został zamknięty.  Wszystkie elementy muszą być albo samodzielnie zamknięcie lub ma zgodnego tagu końcowego.
- *  Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzasz wywołać metodę? " 
+ * Element "int" nie został zamknięty. Wszystkie elementy muszą być albo samodzielnie zamknięcie lub ma zgodnego tagu końcowego.
+ * Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzasz wywołać metodę? " 
  
- Następujący kod przedstawia sposób poprawne zapisu tego kodu.  Kod jest zapisywany jako jawne wyrażenie:
+ Następujący kod przedstawia sposób poprawne zapisu tego kodu. Kod jest zapisywany jako jawne wyrażenie:
 
 ```cshtml
 <p>@(GenericMethod<int>())</p>
@@ -213,7 +212,7 @@ Aby zdefiniować podsekcji bloku kodu, które mają renderować kod HTML, Otocz 
 
 Tej metody można użyć do renderowania kodu HTML, który nie jest ujęta w tagu HTML. Bez tagu HTML lub Razor występuje błąd w czasie wykonywania Razor.
 
- **\<Tekst >** tag jest przydatne do kontroli odstępu podczas renderowania zawartości:
+**\<Tekst >** tag jest przydatne do kontroli odstępu podczas renderowania zawartości:
 
 * Tylko zawartość między  **\<tekst >** renderowania tagu. 
 * Nie spacji przed lub po  **\<tekst >** tag jest wyświetlany w danych wyjściowych HTML.
@@ -232,7 +231,7 @@ Aby renderować rest całego wiersza jako HTML w bloku kodu, należy użyć `@:`
 
 Bez `@:` w kodzie, generowany jest błąd w czasie wykonywania Razor.
 
-Ostrzeżenie: Dodatkowy `@` znaki w pliku Razor może spowodować błędy kompilatora Przyczyna w instrukcji w dalszej części tego bloku. Te błędy kompilatora może być trudne do zrozumienia, ponieważ błędu występuje przed zgłoszonego błędu.  Ten błąd jest typowe po łączenie wielu niejawnej/jawnej wyrażenia w bloku kodu pojedynczego.
+Ostrzeżenie: Dodatkowy `@` znaki w pliku Razor może spowodować błędy kompilatora Przyczyna w instrukcji w dalszej części tego bloku. Te błędy kompilatora może być trudne do zrozumienia, ponieważ błędu występuje przed zgłoszonego błędu. Ten błąd jest typowe po łączenie wielu niejawnej/jawnej wyrażenia w bloku kodu pojedynczego.
 
 ## <a name="control-structures"></a>Struktury sterujące
 
@@ -285,7 +284,7 @@ Następujący kod przedstawia sposób użycia instrukcji switch:
 
 ### <a name="looping-for-foreach-while-and-do-while"></a>Zapętlenie @for, @foreach, @while, i @do podczas
 
-HTML opartego na szablonie można renderować z pętli instrukcji sterowania.  Do renderowania listy osób:
+HTML opartego na szablonie można renderować z pętli instrukcji sterowania. Do renderowania listy osób:
 
 ```cshtml
 @{
@@ -496,7 +495,7 @@ Kod Renderuje poniższy kod HTML:
 <div>Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping a slop bucket on the street below.</div>
 ```
 
- `@model`i `@inherits` mogą być używane w jednym widoku.  `@inherits`mogą znajdować się w *_ViewImports.cshtml* pliku, który importuje widoku:
+ `@model`i `@inherits` mogą być używane w jednym widoku. `@inherits`mogą znajdować się w *_ViewImports.cshtml* pliku, który importuje widoku:
 
 [!code-cshtml[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
 

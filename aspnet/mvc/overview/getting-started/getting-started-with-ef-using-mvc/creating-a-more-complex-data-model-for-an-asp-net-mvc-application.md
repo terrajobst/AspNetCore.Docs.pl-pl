@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: fc21857d5017799536f153dac3ee54ba2f8f5778
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c4710c507f605c539d3e595a6c757f4d5393292b
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application"></a>Tworzenie bardziej złożonych modelu danych dla aplikacji platformy ASP.NET MVC
 ====================
@@ -81,7 +81,7 @@ Załóżmy, że chcesz upewnić się, że użytkownicy nie wprowadzić więcej n
 
 [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybutu nie uniemożliwić wprowadzanie biały znak dla nazwy użytkownika. Można użyć [wyrażenia regularnego](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atrybutu, aby zastosować ograniczenia do danych wejściowych. Na przykład następujący kod wymaga pierwszego znaku się wielkie litery i pozostałych znaków jako alfabetycznej:
 
-`[RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]`
+`[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]`
 
 [MaxLength](https://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.MaxLengthAttribute.aspx) atrybutu zapewnia funkcje podobne do [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybutu, ale nie zapewnia po stronie klienta sprawdzania poprawności.
 
@@ -301,17 +301,17 @@ Relację wiele do wielu między `Student` i `Course` jednostek i `Enrollment` je
 
 Na poniższej ilustracji przedstawiono, jak wyglądają te relacje w diagramie jednostki. (Ten diagram został wygenerowany za pomocą [Entity Framework zaawansowanych narzędzi](https://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d); Tworzenie diagramu nie stanowi części samouczka, po prostu jest on używany jako ilustrację.)
 
-![Uczniowie Course_many do many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image12.png)
+![Student-Course_many-to-many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image12.png)
 
 Każdy wiersz relacji ma 1 w jeden element end i znak gwiazdki (\*) na drugim, wskazując relacji jeden do wielu.
 
 Jeśli `Enrollment` tabeli nie włączono informacji o kategorii, czy tylko musi zawierać dwa klucze obce `CourseID` i `StudentID`. W takim przypadku odpowiada on tabeli sprzężenia wiele do wielu *bez ładunku* (lub *czysty sprzężenia tabeli*) w bazie danych i nie należy utworzyć klasę modelu dla niej w ogóle. `Instructor` i `Course` mają takie relacji wiele do wielu, i jak widać, nie żadna z klas jednostek między nimi:
 
-![Instruktora Course_many do many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image13.png)
+![Instructor-Course_many-to-many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image13.png)
 
 Tabela sprzężenia jest wymagana w bazie danych, jednak, jak pokazano na poniższym diagramie bazy danych:
 
-![Instruktora Course_many do many_relationship_tables](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image14.png)
+![Instructor-Course_many-to-many_relationship_tables](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image14.png)
 
 Entity Framework automatycznie tworzy `CourseInstructor` tabeli i odczytu i zaktualizować go pośrednio za odczytywanie i aktualizowanie `Instructor.Courses` i `Course.Instructors` właściwości nawigacji.
 

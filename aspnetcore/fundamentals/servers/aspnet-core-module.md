@@ -2,21 +2,19 @@
 title: "Moduł platformy ASP.NET Core"
 author: tdykstra
 description: "Wprowadza platformy ASP.NET Core modułu (ANCM), moduł usług IIS, który umożliwia Kestrel serwera sieci web usług IIS lub usług IIS Express jest używany jako serwer zwrotnego serwera proxy."
-keywords: "Moduł Core platformy ASP.NET Core usług IIS, usługi IIS Express,ASP.NET, UseIISIntegration"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 08/03/2017
 ms.topic: article
-ms.assetid: 4661af33-34c5-4d71-93a0-8c7632f43580
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5eef9405c0c3d219755d7cffa5d45c3df45ddb5c
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 153c40f0e825ff5826e916c7ea877a25d81954f1
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Wprowadzenie do platformy ASP.NET Core modułu
 
@@ -63,11 +61,11 @@ Moduł platformy ASP.NET Core musi być zainstalowany w usługach IIS na serwera
 
 ### <a name="install-the-iisintegration-nuget-package"></a>Zainstaluj pakiet IISIntegration NuGet
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) pakietu znajduje się w metapackages platformy ASP.NET Core ([Microsoft.AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore/) i [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) ). Jeśli nie używasz jednego z metapackages, zainstaluj `Microsoft.AspNetCore.Server.IISIntegration` oddzielnie. `IISIntegration` Pakiet jest pakiet współdziałanie odczytujący zmiennych środowiskowych emitowane przez ANCM do skonfigurowania aplikacji. Zmienne środowiskowe, podaj informacje o konfiguracji, takie jak port do nasłuchiwania. 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 W aplikacji, należy zainstalować [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/). `IISIntegration` Pakiet jest pakiet współdziałanie odczytujący zmiennych środowiskowych emitowane przez ANCM do skonfigurowania aplikacji. Zmienne środowiskowe, podaj informacje o konfiguracji, takie jak port do nasłuchiwania. 
 
@@ -75,13 +73,13 @@ W aplikacji, należy zainstalować [Microsoft.AspNetCore.Server.IISIntegration](
 
 ### <a name="call-useiisintegration"></a>Wywołanie UseIISIntegration
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 `UseIISIntegration` — Metoda rozszerzenia na [ `WebHostBuilder` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) jest wywoływana automatycznie po uruchomieniu z programu IIS.
 
 Jeśli nie są przy użyciu jednej z platformy ASP.NET Core metapackages i nie zostały zainstalowane `Microsoft.AspNetCore.Server.IISIntegration` pakietów, Pobierz błąd w czasie wykonywania. Jeśli należy wywołać `UseIISIntegration` jawnie, Pobierz błąd w czasie kompilacji Jeśli pakiet nie jest zainstalowany.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 W aplikacji `Main` metody, wywołaj `UseIISIntegration` — metoda rozszerzenia na [ `WebHostBuilder` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder). 
 
@@ -93,11 +91,11 @@ W aplikacji `Main` metody, wywołaj `UseIISIntegration` — metoda rozszerzenia 
 
 ### <a name="ancm-port-binding-overrides-other-port-bindings"></a>Powiązanie portu ANCM przesłania pozostałych powiązaniach portu
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ANCM generuje portów dynamicznych do przypisania do procesu zaplecza. `UseIISIntegration` Metoda przejmuje ten port dynamiczny i konfiguruje Kestrel do nasłuchiwania `http://locahost:{dynamicPort}/`. Przesłania inne konfiguracje adresu URL, takie jak wywołania `UseUrls` lub [API nasłuchiwania na Kestrel](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#endpoint-configuration). W związku z tym nie należy wywołać `UseUrls` lub jego Kestrel `Listen` interfejsu API, korzystając z ANCM. Jeśli zostanie wywołana `UseUrls` lub `Listen`, Kestrel nasłuchuje na porcie określić podczas uruchamiania aplikacji bez usług IIS.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ANCM generuje portów dynamicznych do przypisania do procesu zaplecza. `UseIISIntegration` Metoda przejmuje ten port dynamiczny i konfiguruje Kestrel do nasłuchiwania `http://locahost:{dynamicPort}/`. Przesłania inne konfiguracje adresu URL, takie jak wywołania `UseUrls`. W związku z tym nie należy wywołać `UseUrls` korzystając ANCM. Jeśli zostanie wywołana `UseUrls`, Kestrel nasłuchuje na porcie określić podczas uruchamiania aplikacji bez usług IIS.
 

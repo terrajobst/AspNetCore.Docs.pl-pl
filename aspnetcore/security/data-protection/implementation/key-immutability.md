@@ -2,20 +2,18 @@
 title: "Immutability klucza i zmienianie ustawień"
 author: rick-anderson
 description: "W tym dokumencie przedstawiono szczegóły implementacji platformy ASP.NET Core danych ochrony klucza immutability interfejsów API."
-keywords: Immutability klucza platformy ASP.NET Core, ochrony danych
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: fc911ae3-feca-4ffe-8b43-362bc632fe04
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-immutability
-ms.openlocfilehash: 96860b44b64f241a1bbff2ac8366e0863b1ac10c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8e46e634266fa5f082c47f3be306009eb54bcbcc
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="key-immutability-and-changing-settings"></a>Klucz Immutability i zmienianie ustawień
 

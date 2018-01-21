@@ -2,29 +2,27 @@
 title: "Tworzenie pomocników tagów w platformy ASP.NET Core"
 author: rick-anderson
 description: "Dowiedz się, jak tworzyć pomocników tagów w ASP.NET Core."
-keywords: "Platformy ASP.NET Core pomocników tagów"
 ms.author: riande
 manager: wpickett
-ms.date: 06/14/2017
+ms.date: 01/19/2018
 ms.topic: article
-ms.assetid: 4f16d978-5695-4abf-a785-fdaabf3bbcb9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cbe46ee1d3cd9f7a30a87d364074f1302f9af7ab
-ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
+ms.openlocfilehash: 9aaf40377e07e53fd0b7ebb177bcbb2df52b7553
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Tworzenie pomocników tagów w ASP.NET Core wskazówki próbki
+# <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Autor pomocników tagów w ASP.NET Core wskazówki próbki
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="getting-started-with-tag-helpers"></a>Wprowadzenie do korzystania z pomocników tagów
+## <a name="get-started-with-tag-helpers"></a>Rozpoczynanie pracy z pomocników tagów
 
 Ten samouczek zawiera wprowadzenie do programowania pomocników tagów. [Wprowadzenie do pomocników tagów](intro.md) opisuje korzyści, które zapewniają pomocników tagów.
 
@@ -46,7 +44,7 @@ Nasze pomocnika tagów poczty e-mail będzie używany przez serwer programu moż
 
 ```html
 <a href="mailto:Support@contoso.com">Support@contoso.com</a>
-   ```
+```
 
 Oznacza to, że tag kotwicy dzięki temu to łącze w wiadomości e-mail. Można to zrobić, jeśli pisania aparat blogu i potrzebny do wysyłania wiadomości e-mail sprzedaży, pomocy technicznej i inne kontaktów wszystko do tej samej domenie.
 
@@ -148,7 +146,7 @@ W tej sekcji firma Microsoft będzie zapisu pomocnika asynchroniczne poczty e-ma
 
 3.  Uruchom aplikację i sprawdź, czy generuje łącza prawidłowy adres e-mail.
 
-### <a name="removeall-precontentsethtmlcontent-and-postcontentsethtmlcontent"></a>RemoveAll, PreContent.SetHtmlContent i PostContent.SetHtmlContent
+### <a name="removeall-precontentsethtmlcontent-and-postcontentsethtmlcontent"></a>RemoveAll, PreContent.SetHtmlContent and PostContent.SetHtmlContent
 
 1.  Dodaj następujące `BoldTagHelper` klasy do *TagHelpers* folderu.
 
@@ -188,7 +186,7 @@ Można również użyć `[HtmlTargetElement]` Aby zmienić nazwę elementu docel
 [HtmlTargetElement("MyBold")]
    ```
 
-## <a name="passing-a-model-to-a-tag-helper"></a>Przekazywanie modelu do pomocnika tagów
+## <a name="pass-a-model-to-a-tag-helper"></a>Przekaż modelu do pomocnika tagów
 
 1.  Dodaj *modele* folderu.
 
@@ -285,7 +283,7 @@ Warunek pomocnika tagów renderuje dane wyjściowe po upływie wartość true.
 >
 >[Nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operatora będzie chronić kod powinien on kiedykolwiek można refaktorować (może chcemy zmienić nazwę na `RedCondition`).
 
-### <a name="avoiding-tag-helper-conflicts"></a>Unikanie konfliktów pomocnika tagów
+### <a name="avoid-tag-helper-conflicts"></a>Unikaj konfliktów pomocnika tagów
 
 W tej sekcji należy napisać parę automatyczne łączenie pomocników tagów. Pierwszy spowoduje zastąpienie znaczników zawierający adres URL rozpoczynający się protokołu HTTP z HTML zakotwiczenia tag zawierający ten sam adres URL (i w związku z tym reaguje łącze do adresu URL). Drugi będzie wykonywać takie same dla danego adresu URL począwszy WWW.
 
@@ -329,7 +327,7 @@ Ponieważ te dwa pomocników są ściśle powiązane i mogą je w przyszłości 
     
     Powyższy kod zagwarantuje, że pomocnika tagów HTTP jest uruchamiany przed pomocnika tagów WWW. Zmień `Order` do `MaxValue` i sprawdź, czy znacznika generowany dla tagu WWW jest niepoprawny.
 
-## <a name="inspecting-and-retrieving-child-content"></a>Sprawdzanie i pobierania zawartość elementu podrzędnego
+## <a name="inspect-and-retrieve-child-content"></a>Zbadaj i pobrać zawartość elementu podrzędnego
 
 Pomocników tagów podać kilka właściwości, aby pobrać zawartość.
 

@@ -2,20 +2,18 @@
 title: "Platformy ASP.NET Core MVC podstawowych EF — Model danych — 5 10"
 author: tdykstra
 description: "W tym samouczku można dodać więcej jednostki i relacje i dostosować modelu danych, określając formatowania, sprawdzanie poprawności i reguły mapowania bazy danych."
-keywords: Platformy ASP.NET Core Entity Framework Core, adnotacji danych
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: cacb23441e5f5ab06c6be27f3068276f21ff4ed9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5b5645936504333573950b5bd17f5a037ffd984f
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Tworzenie modelu danych złożonych - Core EF z samouczek platformy ASP.NET Core MVC (5, 10)
 
@@ -76,7 +74,7 @@ Załóżmy, że chcesz upewnić się, że użytkownicy nie wprowadzić więcej n
 `StringLength` Atrybutu nie uniemożliwić wprowadzanie biały znak dla nazwy użytkownika. Można użyć `RegularExpression` atrybutu, aby zastosować ograniczenia do danych wejściowych. Na przykład następujący kod wymaga pierwszego znaku się wielkie litery i pozostałych znaków jako alfabetycznej:
 
 ```csharp
-[RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
+[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
 ```
 
 `MaxLength` Atrybutu zapewnia funkcje podobne do `StringLength` atrybutu, ale nie zapewnia po stronie klienta sprawdzania poprawności.

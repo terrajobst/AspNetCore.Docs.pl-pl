@@ -2,20 +2,18 @@
 title: Implementacje serwera sieci Web w ASP.NET Core
 author: tdykstra
 description: "Wprowadza serwerów sieci web Kestrel i WebListener dla platformy ASP.NET Core. Zawiera wskazówki dotyczące sposobu wybierz jedną i kiedy należy użyć jednej z zwrotnego serwera proxy."
-keywords: Serwer sieci web platformy ASP.NET Core IServer, Kestrel, WebListener, odwrotny serwer proxy
 ms.author: tdykstra
 manager: wpickett
 ms.date: 08/03/2017
 ms.topic: article
-ms.assetid: dba74f39-58cd-4dee-a061-6d15f7346959
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/index
-ms.openlocfilehash: b149cb316e4266e67d846b8ef8c2c7f2a25ded5c
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 807e60e61d4ce4d5755987cffe65d130c9bbbd42
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementacje serwera sieci Web w ASP.NET Core
 
@@ -25,13 +23,13 @@ Aplikacja platformy ASP.NET Core jest uruchamiana z implementację serwera HTTP 
 
 Platformy ASP.NET Core dostarczany dwóch implementacji serwera:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 * [Kestrel](kestrel.md) serwera HTTP i platform opiera się na [libuv](https://github.com/libuv/libuv), biblioteki i platform asynchroniczne We/Wy.
 
 * [Sterownik HTTP.sys](httpsys.md) serwera HTTP systemu Windows opiera się na [sterownik Http.Sys jądra](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 * [Kestrel](kestrel.md) serwera HTTP i platform opiera się na [libuv](https://github.com/libuv/libuv), biblioteki i platform asynchroniczne We/Wy.
 
@@ -39,11 +37,11 @@ Platformy ASP.NET Core dostarczany dwóch implementacji serwera:
 
 ---
 
-## <a name="kestrel"></a>kestrel
+## <a name="kestrel"></a>Kestrel
 
 Kestrel to serwer sieci web, który jest domyślnie włączone w szablonach nowy projekt platformy ASP.NET Core. 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Samodzielnie lub z użyciem Kestrel *zwrotnego serwera proxy*, takie jak usługi IIS, Nginx lub Apache. Zwrotnego serwera proxy odbiera żądania HTTP z Internetem i przekazuje je do Kestrel po niektórych wstępne obsługi.
 
@@ -55,7 +53,7 @@ Albo konfiguracji &mdash; z lub bez zwrotnego serwera proxy &mdash; można równ
 
 Aby uzyskać informacje o tym, kiedy używać Kestrel z zwrotny serwer proxy, zobacz [wprowadzenie do Kestrel](kestrel.md).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Jeśli aplikacja akceptuje żądania tylko z siecią wewnętrzną, można użyć Kestrel przez samego siebie.
 
@@ -85,9 +83,9 @@ Aby uzyskać informacje o sposobie używania Nginx w systemie Linux jako zwrotne
 
 Aby uzyskać informacje o sposobie używania Apache w systemie Linux jako zwrotnego serwera proxy dla Kestrel, zobacz [hosta w systemie Linux z Apache](xref:host-and-deploy/linux-apache).
 
-## <a name="httpsys"></a>Sterownik HTTP.sys
+## <a name="httpsys"></a>HTTP.sys
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Jeśli uruchamianie aplikacji platformy ASP.NET Core w systemie Windows, sterownik HTTP.sys stanowi alternatywę Kestrel. Sterownik HTTP.sys służy do scenariuszy, w którym udostępnianie aplikacji z Internetem i potrzebne funkcje HTTP.sys, które Kestrel nie są obsługiwane. 
 
@@ -99,7 +97,7 @@ Można także HTTP.sys dla aplikacji, które są dostępne tylko z siecią wewn�
 
 W przypadku scenariuszy sieci wewnętrznej Kestrel zazwyczaj jest zalecane w przypadku najlepszą wydajność; Jednak w niektórych scenariuszach, można użyć funkcji, która oferuje tylko w pliku HTTP.sys. Aby uzyskać informacje o funkcjach HTTP.sys, zobacz [HTTP.sys](httpsys.md).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Sterownik HTTP.sys nosi nazwę WebListener w ASP.NET Core 1.x. Po uruchomieniu programu ASP.NET Core aplikacji w systemie Windows, WebListener stanowi alternatywę, który służy do scenariuszy, w którym chcesz udostępnić aplikację do Internetu, ale nie można używać usług IIS.
 
@@ -127,7 +125,7 @@ Jeśli wbudowane serwery nie spełniają potrzeb użytkownika, można utworzyć 
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 - [Kestrel](kestrel.md)
 - [Kestrel z usługami IIS](aspnet-core-module.md)
@@ -135,7 +133,7 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 - [Hosting w systemie Linux z Apache](xref:host-and-deploy/linux-apache)
 - [HTTP.sys](httpsys.md)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 - [Kestrel](kestrel.md)
 - [Kestrel z usługami IIS](aspnet-core-module.md)

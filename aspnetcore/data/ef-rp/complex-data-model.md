@@ -2,7 +2,6 @@
 title: "Stron razor podstawowych EF — Model danych — 5 8"
 author: rick-anderson
 description: "W tym samouczku można dodać więcej jednostki i relacje i dostosować modelu danych, określając formatowania, sprawdzanie poprawności i reguły mapowania bazy danych."
-keywords: Platformy ASP.NET Core Entity Framework Core, adnotacji danych
 ms.author: riande
 manager: wpickett
 ms.date: 10/25/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: c2761f79fa4836d29541526782969bb0fd47778b
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: c375fe6ea98c621012eb55589c8b174c2a95b697
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-razor-pages-tutorial-5-of-8"></a>Tworzenie modelu danych złożonych - Core EF z samouczka stron Razor (5 8)
 
@@ -84,7 +83,7 @@ Aktualizacja `Student` modelu z następującym kodem:
 Poprzedni kod ogranicza nazwy do nie więcej niż 50 znaków. `StringLength` Atrybutu nie uniemożliwić wprowadzanie biały znak dla nazwy użytkownika. [Wyrażenia regularnego](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) atrybut jest używany, aby zastosować ograniczenia do danych wejściowych. Na przykład następujący kod wymaga pierwszego znaku się wielkie litery i pozostałych znaków jako alfabetycznej:
 
 ```csharp
-[RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
+[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
 ```
 
 Uruchom aplikację:

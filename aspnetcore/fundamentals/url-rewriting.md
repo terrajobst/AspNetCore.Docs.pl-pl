@@ -2,20 +2,18 @@
 title: "Adres URL ponowne zapisanie oprogramowania pośredniczącego w platformy ASP.NET Core"
 author: guardrex
 description: "Więcej informacji na temat adresu URL ponowne zapisywanie i przekierowywania z pośredniczącym ponowne zapisywanie adresów URL w aplikacji platformy ASP.NET Core."
-keywords: "Platformy ASP.NET Core ponowne zapisywanie ponowne zapisywanie adresów URL, przekierowywanie adresu URL, adres URL przekierowania, oprogramowanie pośredniczące, apache_mod adresu URL"
 ms.author: riande
 manager: wpickett
 ms.date: 08/17/2017
 ms.topic: article
-ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: e07634a6d7ad97bf8735029b5c28d6935b71eb52
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 769696931498605bd3cf3459279939afb86a4ee8
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Adres URL ponowne zapisanie oprogramowania pośredniczącego w platformy ASP.NET Core
 
@@ -62,11 +60,11 @@ Aby dołączyć oprogramowanie pośredniczące w projekcie, należy dodać odwo�
 ## <a name="extension-and-options"></a>Opcje i rozszerzenia
 Ustanowić Twojej ponowne zapisywanie adresów URL i Przekierowanie reguł przez utworzenie wystąpienia `RewriteOptions` klasy z metody rozszerzenia dla poszczególnych reguł. Łańcucha wielu reguł w kolejności, że chcesz je przetworzyć. `RewriteOptions` Są przekazywane do oprogramowania pośredniczącego ponowne zapisywanie adresów URL, który jest dodawany do potoku żądania z `app.UseRewriter(options);`.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1)]
 
@@ -75,11 +73,11 @@ Ustanowić Twojej ponowne zapisywanie adresów URL i Przekierowanie reguł przez
 ### <a name="url-redirect"></a>Adres URL przekierowania
 Użyj `AddRedirect` Przekierowywanie żądań. Pierwszy parametr zawiera z wyrażenia regularnego do dopasowania w ścieżce przychodzącego adresu URL. Drugi parametr jest ciąg zastępczy. Trzeci parametr, jeśli jest obecny, określa kod stanu. Jeśli kod stanu nie jest określony, domyślnie 302 (Found), który wskazuje, że zasób jest tymczasowo przeniesiony lub zastąpione.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=5)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=2)]
 
@@ -122,11 +120,11 @@ Oryginalnego żądania przy użyciu `AddRedirectToHttpsPermanent`:`/secure`
 ### <a name="url-rewrite"></a>Ponowne zapisywanie adresów URL
 Użyj `AddRewrite` Aby utworzyć regułę dla ponowne zapisywanie adresów URL. Pierwszy parametr zawiera z wyrażenia regularnego do dopasowania na ścieżkę przychodzącego adresu URL. Drugi parametr jest ciąg zastępczy. Trzeci parametr `skipRemainingRules: {true|false}`, wskazuje, aby oprogramowanie pośredniczące umożliwia określenie, czy pominąć reguły ponownego zapisywania dodatkowe, jeśli zastosowano bieżącej regule.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=6)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=3)]
 
@@ -166,13 +164,13 @@ Nie ma żadnych obie strony do serwera w celu uzyskania zasobu. Jeśli zasób is
 ### <a name="apache-modrewrite"></a>Apache mod_rewrite
 Zastosuj reguły mod_rewrite Apache z `AddApacheModRewrite`. Upewnij się, że plik reguł jest wdrażany z aplikacją. Aby uzyskać więcej informacji i przykłady reguł mod_rewrite, zobacz [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/).
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 A `StreamReader` jest używany do odczytu reguły z *ApacheModRewrite.txt* pliku reguł.
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=1,7)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Pierwszy parametr przyjmuje `IFileProvider`, które zostaną przekazane za pośrednictwem [iniekcji zależności](dependency-injection.md). `IHostingEnvironment` Jest wprowadzonym w celu zapewnienia `ContentRootFileProvider`. Drugi parametr jest ścieżka do pliku reguł, który jest *ApacheModRewrite.txt* w przykładowej aplikacji.
 
@@ -191,9 +189,9 @@ Oryginalne żądanie:`/apache-mod-rules-redirect/1234`
 ##### <a name="supported-server-variables"></a>Zmienne serwera obsługiwanych
 Oprogramowanie pośredniczące obsługuje następujące zmienne serwera Apache mod_rewrite:
 * CONN_REMOTE_ADDR
-* SPECJALNY RODZAJ
+* HTTP_ACCEPT
 * HTTP_CONNECTION
-* MOŻNA TAKŻE WYLICZYĆ WSZYSTKIE
+* HTTP_COOKIE
 * HTTP_FORWARDED
 * HTTP_HOST
 * HTTP_REFERER
@@ -223,13 +221,13 @@ Oprogramowanie pośredniczące obsługuje następujące zmienne serwera Apache m
 ### <a name="iis-url-rewrite-module-rules"></a>Reguły moduł ponowne zapisywanie adresów URL usług IIS
 Aby użyć reguł, które dotyczą moduł ponowne zapisywanie adresów URL usług IIS, użyj `AddIISUrlRewrite`. Upewnij się, że plik reguł jest wdrażany z aplikacją. Nie bezpośrednie oprogramowaniu pośredniczącym, aby korzystać z *web.config* pliku podczas uruchamiania w systemie Windows Server IIS. Z programem IIS, zasady te powinny być przechowywane poza Twojej *web.config* w celu uniknięcia konfliktów z modułem ponownego zapisywania usług IIS. Aby uzyskać więcej informacji i przykłady reguł moduł ponowne zapisywanie adresów URL usług IIS, zobacz [przy użyciu adresu Url przepisywania moduł 2.0](https://docs.microsoft.com/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) i [odwołania konfiguracji modułu ponowne zapisywanie adresów URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference).
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 A `StreamReader` jest używany do odczytu reguły z *IISUrlRewrite.xml* pliku reguł.
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=2,8)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Pierwszy parametr przyjmuje `IFileProvider`, a drugi parametr jest ścieżka do pliku reguł XML, który jest *IISUrlRewrite.xml* w przykładowej aplikacji.
 
@@ -249,7 +247,7 @@ Jeśli masz aktywnego modułu ponownego zapisywania usług IIS skonfigurowanych 
 
 #### <a name="unsupported-features"></a>Nieobsługiwane funkcje
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Oprogramowanie pośredniczące zwolnione z platformy ASP.NET Core 2.x nie obsługuje następujące funkcje moduł ponowne zapisywanie adresów URL usług IIS:
 * Reguły ruchu wychodzącego
@@ -257,7 +255,7 @@ Oprogramowanie pośredniczące zwolnione z platformy ASP.NET Core 2.x nie obsłu
 * Symbole wieloznaczne
 * LogRewrittenUrl
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Oprogramowanie pośredniczące zwolnione z platformy ASP.NET Core 1.x nie obsługuje następujące funkcje moduł ponowne zapisywanie adresów URL usług IIS:
 * Globalne zasady
@@ -275,9 +273,9 @@ Oprogramowanie pośredniczące zwolnione z platformy ASP.NET Core 1.x nie obsłu
 Oprogramowanie pośredniczące obsługuje następujące zmienne serwera moduł ponowne zapisywanie adresów URL usług IIS:
 * CONTENT_LENGTH
 * TYP_ZAWARTOŚCI
-* SPECJALNY RODZAJ
+* HTTP_ACCEPT
 * HTTP_CONNECTION
-* MOŻNA TAKŻE WYLICZYĆ WSZYSTKIE
+* HTTP_COOKIE
 * HTTP_HOST
 * HTTP_REFERER
 * HTTP_URL
@@ -299,17 +297,17 @@ Oprogramowanie pośredniczące obsługuje następujące zmienne serwera moduł p
 ### <a name="method-based-rule"></a>Reguły na podstawie — metoda
 Użyj `Add(Action<RewriteContext> applyRule)` implementacji logiki reguły w metodzie. `RewriteContext` Przedstawia `HttpContext` do użycia w metodę. `context.Result` Określa, jak dodatkowe potoku przetwarzania jest obsługiwane.
 
-| kontekst. Wynik                       | Akcja                                                          |
+| context.Result                       | Akcja                                                          |
 | ------------------------------------ | --------------------------------------------------------------- |
 | `RuleResult.ContinueRules`(ustawienie domyślne) | Kontynuować stosowanie reguł                                         |
 | `RuleResult.EndResponse`             | Zaprzestanie stosowania reguły i wysyłania odpowiedzi                       |
 | `RuleResult.SkipRemainingRules`      | Zaprzestanie stosowania reguły i wysyłać kontekstu do następnego oprogramowania pośredniczącego |
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=9)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=6)]
 
@@ -317,11 +315,11 @@ Użyj `Add(Action<RewriteContext> applyRule)` implementacji logiki reguły w met
 
 Przykładowa aplikacja przedstawiono metodę, która przekierowuje żądania dla ścieżek czy kończą się *.xml*. Jeśli żądanie `/file.xml`, nastąpi przekierowanie do `/xmlfiles/file.xml`. Kod stanu jest ustawiona na 301 (trwale przeniesiona). Dla przekierowania Musisz jawnie ustawić kod stanu odpowiedzi; w przeciwnym razie zwracany jest kod stanu 200 (OK) i Przekierowanie nie występują na komputerze klienckim.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/RewriteRules.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet2)]
 
@@ -334,11 +332,11 @@ Oryginalne żądanie:`/file.xml`
 ### <a name="irule-based-rule"></a>Reguły na podstawie IRule
 Użyj `Add(IRule)` implementacji logiki reguły w klasie, która jest pochodną `IRule`. Przy użyciu `IRule` zapewnia większą elastyczność w przypadku metody oparte na metodzie reguły. Klasy pochodne mogą obejmować konstruktora, w którym można przekazać w parametrach `ApplyRule` metody.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=10-11)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=7-8)]
 
@@ -346,11 +344,11 @@ Użyj `Add(IRule)` implementacji logiki reguły w klasie, która jest pochodną 
 
 Wartości parametrów w Przykładowa aplikacja dla `extension` i `newPath` są sprawdzane w celu spełnienia kilku warunków. `extension` Musi zawierać wartość, a wartość musi być *.png*, *.jpg*, lub *.gif*. Jeśli `newPath` nie jest prawidłowy, `ArgumentException` jest generowany. Jeśli żądanie *image.png*, nastąpi przekierowanie do `/png-images/image.png`. Jeśli żądanie *image.jpg*, nastąpi przekierowanie do `/jpg-images/image.jpg`. Kod stanu ma ustawioną wartość 301 (przenieść trwale) i `context.Result` ustawiono Zatrzymaj przetwarzanie reguł i wysyłania odpowiedzi.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/RewriteRules.cs?name=snippet2)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/RewriteRule.cs?name=snippet1)]
 

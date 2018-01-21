@@ -2,20 +2,18 @@
 title: Autoryzacja w platformy ASP.NET Core
 author: rick-anderson
 description: "Ten dokument służy jako spisu treści dla różnych tematów autoryzacji platformy ASP.NET Core."
-keywords: Platformy ASP.NET Core autoryzacji
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 1abd456b-2199-4ba3-9698-3241e0bd4afc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/index
-ms.openlocfilehash: 13b4e1db7e3ae73a0cba49d214c5ffdb31601e5c
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 3aa690138730ec45f4b6c6fad8ff534e0c11f888
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="authorization-in-aspnet-core-simple-role-claims-based-and-custom"></a>Autoryzacja w ASP.NET Core: prosty, rolę, opartej na oświadczeniach, a niestandardowe
 
@@ -23,15 +21,15 @@ ms.lasthandoff: 01/11/2018
 
 * [Autoryzacja stron Razor](xref:security/authorization/razor-pages-authorization)
 
-* [Proste autoryzacji](simple.md)
+* [Autoryzacja prosta](simple.md)
 
-* [Autoryzacji opartej na rolach](roles.md)
+* [Autoryzacja oparta na rolach](roles.md)
 
-* [Autoryzacji opartej na oświadczeniach](claims.md)
+* [Autoryzacja oparta na oświadczeniach](claims.md)
 
-* [Na podstawie zasad autoryzacji](policies.md)
+* [Autoryzacja oparta na zasadach](policies.md)
 
-* [Iniekcji zależności w obsłudze wymaganie](dependencyinjection.md)
+* [Wstrzykiwanie zależności w programach obsługi wymagań](dependencyinjection.md)
 
 * [Autoryzacja na podstawie zasobów](resourcebased.md)
 

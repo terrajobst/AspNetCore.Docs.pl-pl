@@ -2,20 +2,18 @@
 title: "ASP.NET Core stron sieci Web interfejsu API pomocy przy użyciu programu Swagger"
 author: spboyer
 description: "Ten samouczek zawiera wskazówki dodawania programu Swagger do generowania dokumentacji i strony dla aplikacji interfejsu API sieci Web pomocy."
-keywords: Platformy ASP.NET Core, programu Swagger, Swashbuckle, strony, interfejsu API sieci Web pomocy
 ms.author: spboyer
 manager: wpickett
 ms.date: 09/01/2017
 ms.topic: article
-ms.assetid: 54bb961d-29d9-4dee-8e2c-a93fc33c16f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 08503b724aaea64ad2d32eaa710378ec77b9a1fe
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: d044c820057dba762d3a0f621855a8f4e298ab23
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-web-api-help-pages-using-swagger"></a>ASP.NET Core stron sieci Web interfejsu API pomocy przy użyciu programu Swagger
 
@@ -62,14 +60,14 @@ Pakiet Swashbuckle można dodać z następujących metod:
      * W polu wyszukiwania wprowadź "Swashbuckle.AspNetCore"
      * Wybierz pakiet "Swashbuckle.AspNetCore" **Przeglądaj** i kliknij polecenie **instalacji**
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Kliknij prawym przyciskiem myszy *pakiety* folderu w **konsoli rozwiązania** > **Dodawanie pakietów...**
 * Ustaw **Dodawanie pakietów** okna **źródła** listy rozwijanej "nuget.org"
 * W polu wyszukiwania wprowadź Swashbuckle.AspNetCore
 * Wybierz pakiet Swashbuckle.AspNetCore w okienku wyniki, a następnie kliknij przycisk **Dodawanie pakietu**
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Kod Visual Studio](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Uruchom następujące polecenie z **zintegrowane Terminal**:
 
@@ -178,7 +176,7 @@ Uruchom aplikację i przejdź do `http://localhost:<random_port>/swagger/v1/swag
 
 Ten dokument dyski interfejsu użytkownika programu Swagger, który można wyświetlić, przechodząc do `http://localhost:<random_port>/swagger`:
 
-![Interfejs użytkownika struktury swagger](web-api-help-pages-using-swagger/_static/swagger-ui.png)
+![Swagger UI](web-api-help-pages-using-swagger/_static/swagger-ui.png)
 
 Każda metoda akcji publicznego w `TodoController` można przetestować w interfejsie użytkownika. Kliknij nazwę metody, aby rozwinąć sekcję. Dodaj wszystkie niezbędne parametry, a następnie kliknij przycisk "Wypróbuj ją!".
 
@@ -209,14 +207,14 @@ Komentarze XML można włączyć z następujących metod:
 
 ![Na karcie właściwości projektu kompilacji](web-api-help-pages-using-swagger/_static/swagger-xml-comments.png)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio dla komputerów Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * Otwórz **opcje projektu** okna dialogowego > **kompilacji** > **kompilatora**
 * Sprawdź **Generowanie dokumentacji xml** obszarze **Opcje ogólne** sekcji:
 
 ![Sekcja Opcje ogólne opcje projektu](web-api-help-pages-using-swagger/_static/swagger-xml-comments-mac.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Kod Visual Studio](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ręcznie dodaj poniższy fragment do *.csproj* pliku:
 

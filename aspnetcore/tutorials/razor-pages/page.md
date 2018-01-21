@@ -2,7 +2,6 @@
 title: Szkieletu Razor strony platformy ASP.NET Core
 author: rick-anderson
 description: "W tym artykule wyjaśniono stron Razor generowane przez funkcję szkieletów."
-keywords: Platformy ASP.NET Core stron Razor, Razor, MVC
 ms.author: riande
 manager: wpickett
 ms.date: 09/27/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 599894c301db3412d7ff23c0fb58fd8799a9588f
-ms.sourcegitcommit: bc723b483182fbcbf8c4c7098f70443662076905
+ms.openlocfilehash: ad2a2b48beb31dddcfd78a8aab79ac58ccda28f3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Szkieletu Razor strony platformy ASP.NET Core
 

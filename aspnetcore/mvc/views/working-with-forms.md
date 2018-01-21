@@ -2,21 +2,19 @@
 title: "Pomocników tagów w formularzy w programie ASP.NET Core"
 author: rick-anderson
 description: "W tym artykule opisano wbudowane pomocników tagów używane w formularzach."
-keywords: "Formularzy platformy ASP.NET Core pomocnika tagów pomocnika tagów, formularza HTML"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: 25595059-4fac-4785-8152-f88590e3169b
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da36985206521798d3bfe71f6372dc5cc4fca09a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9fbe2c5cb495aabee0e1f0bdb3871641efa03599
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Wprowadzenie do korzystania z pomocników tagów w formularzy w programie ASP.NET Core
 
@@ -111,9 +109,9 @@ Type expected
 
 |Typ architektury .NET|Typ danych wejściowych|
 |---|---|
-|wartość logiczna|Typ = "checkbox"|
+|wartość logiczna|type=”checkbox”|
 |String|Typ = "text"|
-|DataGodzina|Typ "datetime" =|
+|DataGodzina|type=”datetime”|
 |Byte|Typ = "number"|
 |int|Typ = "number"|
 |Single, Double|Typ = "number"|
@@ -124,11 +122,11 @@ W poniższej tabeli przedstawiono niektóre typowe [adnotacji danych](https://do
 
 |Atrybut|Typ danych wejściowych|
 |---|---|
-|[EmailAddress]|Typ = "e-mail"|
-|[Url]|Typ = "url"|
-|[HiddenInput]|Typ = "hidden"|
-|[Phone]|Typ = "tel"|
-|[DataType(DataType.Password)]| Typ = 'password'|
+|[EmailAddress]|type=”email”|
+|[Url]|type=”url”|
+|[HiddenInput]|type=”hidden”|
+|[Phone]|type=”tel”|
+|[DataType(DataType.Password)]| type=”password”|
 |[DataType(DataType.Date)]| Typ "date" =|
 |[DataType(DataType.Time)]| Typ = "razem"|
 
@@ -320,7 +318,7 @@ Istnieją dwa pomocników tagów sprawdzania poprawności. `Validation Message T
 
 ### <a name="the-validation-message-tag-helper"></a>Pomocnik Tag komunikatu weryfikacji
 
-* Dodaje [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` atrybutu [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element, który dołącza komunikatów o błędach weryfikacji na pole wejściowe właściwości określonego modelu.   Gdy wystąpi błąd weryfikacji po stronie klienta, [jQuery](https://jquery.com/) wyświetla komunikat o błędzie w `<span>` elementu.
+* Dodaje [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` atrybutu [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element, który dołącza komunikatów o błędach weryfikacji na pole wejściowe właściwości określonego modelu. Gdy wystąpi błąd weryfikacji po stronie klienta, [jQuery](https://jquery.com/) wyświetla komunikat o błędzie w `<span>` elementu.
 
 * Sprawdzanie poprawności również odbywa się na serwerze. Klienci mogą mieć JavaScript wyłączona i niektóre sprawdzania poprawności jest możliwe tylko po stronie serwera.
 
@@ -574,7 +572,7 @@ Poprawny `<option>` będzie można wybrać elementu (zawierać `selected="select
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Pomocników tagów](tag-helpers/intro.md)
+* [Pomocnicy tagów](tag-helpers/intro.md)
 
 * [Element formularza HTML](https://www.w3.org/TR/html401/interact/forms.html)
 

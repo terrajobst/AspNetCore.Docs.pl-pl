@@ -2,20 +2,18 @@
 title: "Części aplikacji platformy ASP.NET Core"
 author: ardalis
 description: "Dowiedz się, jak używać części aplikacji, które są abstrations nad zasobami aplikacji, aby skonfigurować aplikację do odnajdowania lub uniknąć obciążania funkcji z zestawu."
-keywords: "Platformy ASP.NET Core, część aplikacji, część aplikacji"
 ms.author: riande
 manager: wpickett
 ms.date: 01/04/2017
 ms.topic: article
-ms.assetid: b355a48e-a15c-4d58-b69c-899963613a98
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: a260675e7461105d4f6a0c61fd13971663c268f2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 12c34b7a9521835533998c5609870bc712a6d48c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>Części aplikacji platformy ASP.NET Core
 
@@ -68,7 +66,7 @@ Dostawcy funkcji aplikacji Sprawdź części aplikacji i udostępnia funkcje dla
 
 * [Kontrolery](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
 * [Odwołanie do metadanych](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.compilation.metadatareferencefeatureprovider)
-* [Pomocników tagów](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
+* [Pomocnicy tagów](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
 * [Składniki w widoku](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
 
 Dziedzicz dostawców funkcji `IApplicationFeatureProvider<T>`, gdzie `T` jest typem funkcji. Można zaimplementować własnych funkcji dostawców dla dowolnego typu funkcji MVC wymienionych powyżej. Kolejność dostawców funkcji w `ApplicationPartManager.FeatureProviders` kolekcji może być ważne, ponieważ nowsze dostawców można reagować na akcje wykonywane przez poprzednie dostawców.

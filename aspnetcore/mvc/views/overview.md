@@ -2,7 +2,6 @@
 title: Widoki w podstawowej platformy ASP.NET MVC
 author: ardalis
 description: "Dowiedz się, jak widoki obsługi aplikacji prezentacji danych i interakcji z użytkownikiem w nazwie wzorca MVC ASP.NET Core."
-keywords: "Platformy ASP.NET Core wyświetlić MVC, razor, viewmodel, viewdata, obiekt viewbag"
 ms.author: riande
 manager: wpickett
 ms.date: 12/12/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 2562d4e5fb85159e6ccb47990f54448ddc188077
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: c0a1f475941f3389e9aa1f5bb7819bef491b2cae
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Widoki w podstawowej platformy ASP.NET MVC
 
@@ -93,7 +92,7 @@ Domyślne zachowanie `View` — metoda (`return View();`) jest do zwrócenia wid
 
 Nie ma znaczenia, gdy zwracają niejawnie `ViewResult` z `return View();` lub jawnego przesłania nazwy widoku, aby `View` metody z `return View("<ViewName>");`. W obu przypadkach widok odnajdywania wyszukuje odpowiedniego pliku widoku w następującej kolejności:
 
-   1. *Widoki /\[ControllerName]\[ViewName] .cshtml*
+   1. *Views/\[ControllerName]\[ViewName].cshtml*
    1. *Widoki/udostępnione/\[ViewName] .cshtml*
 
 Ścieżka pliku widoku można podać zamiast nazwy widoku. Jeśli przy użyciu ścieżką bezwzględną, zaczynając od katalogu głównego aplikacji (opcjonalnie rozpoczynających się od "/" lub "~ /"), *.cshtml* rozszerzenia musi być określona:

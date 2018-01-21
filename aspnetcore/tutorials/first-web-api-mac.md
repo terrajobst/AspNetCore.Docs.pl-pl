@@ -9,13 +9,12 @@ ms.prod: asp.net-core
 uid: tutorials/first-web-api-mac
 helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
 ms.technology: aspnet
-keywords: "Platformy ASP.NET Core, WebAPI, interfejsu API sieci Web, REST, mac, macOS, HTTP, usługi, usługa HTTP"
 manager: wpickett
-ms.openlocfilehash: 3f84fa55baf6d808185a28db290d9e6d3c46bdac
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 4f2643a91e1523008b68df670a9734e3d4dea5a8
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Tworzenie składnika Web API platformy ASP.NET Core MVC i programu Visual Studio dla komputerów Mac
 
@@ -40,7 +39,7 @@ Istnieją 3 wersje tego samouczka:
 Zainstaluj następujące czynności:
 
 - [Oprogramowanie .NET core 2.0.0 SDK](https://www.microsoft.com/net/core) lub nowszy
-- [Visual Studio dla komputerów Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+- [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ## <a name="create-the-project"></a>Utwórz projekt
 

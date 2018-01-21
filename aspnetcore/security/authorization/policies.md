@@ -2,21 +2,19 @@
 title: Autoryzacja niestandardowa oparte na zasadach w ASP.NET Core
 author: rick-anderson
 description: "Informacje o sposobie tworzenia i używania programów obsługi zasad autoryzacji niestandardowej dla wymuszania wymagań autoryzacji w aplikacji platformy ASP.NET Core."
-keywords: Platformy ASP.NET Core autoryzacji, niestandardowych zasad, zasady autoryzacji
 ms.author: riande
 ms.custom: mvc
 manager: wpickett
 ms.date: 11/21/2017
 ms.topic: article
-ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: 280dd72b75e39546061d8455931f597f50c829fe
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 1067e97dd6e71021929aa3690b0c3f5bfc6c9724
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="custom-policy-based-authorization"></a>Niestandardowe autoryzacji opartych na zasadach
 

@@ -2,20 +2,18 @@
 title: "Włączanie żądań Cross-Origin (CORS)"
 author: rick-anderson
 description: "Ten dokument wprowadza CORS jako standard zezwalających lub odrzucanie żądań cross-origin w aplikacji platformy ASP.NET Core."
-keywords: "Platformy ASP.NET Core CORS, cross źródła"
 ms.author: riande
 manager: wpickett
 ms.date: 05/17/2017
 ms.topic: article
-ms.assetid: f9d95e88-4d7e-4d0c-a8e1-47de1128d505
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: 5398b6ad6531710de2b8000cb368e5fa607ae7ff
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: e6b49b9dde94cc7d035ea91b992a13df8cb8caf2
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Włączanie żądań Cross-Origin (CORS)
 
@@ -162,7 +160,7 @@ Przeglądarki nie są całkowicie zgodne, w konfiguracji do programu Access-Cont
 
 ### <a name="set-the-exposed-response-headers"></a>Ustawianie nagłówków odpowiedzi narażonych
 
-Domyślnie przeglądarka nie ujawnia wszystkich nagłówków odpowiedzi do aplikacji. (Zobacz [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Nagłówki odpowiedzi, które są domyślnie dostępne są następujące:
+Domyślnie przeglądarka nie ujawnia wszystkich nagłówków odpowiedzi do aplikacji. (See [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Nagłówki odpowiedzi, które są domyślnie dostępne są następujące:
 
 * Cache-Control
 
@@ -172,7 +170,7 @@ Domyślnie przeglądarka nie ujawnia wszystkich nagłówków odpowiedzi do aplik
 
 * Wygasa
 
-* Ostatniej modyfikacji
+* Last-Modified
 
 * Wartość dyrektywy pragma
 
@@ -266,7 +264,7 @@ Dla niektórych żądań CORS przeglądarce wysyła żądanie dodatkowych, o naz
 
 * Nagłówek Content-Type (Jeśli ustawiona) jest jednym z następujących czynności:
 
-  * Application/x--www-form-urlencoded
+  * application/x-www-form-urlencoded
 
   * dane multipart/formularza
 

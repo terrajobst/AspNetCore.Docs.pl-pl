@@ -2,20 +2,18 @@
 title: "Tworzenie doskonałych, dynamiczne witryny z ładowania początkowego"
 author: ardalis
 description: 
-keywords: Platformy ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: bd27832c-2877-4b7b-9337-e009361d845f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bootstrap
-ms.openlocfilehash: f89ad584600c3f12a936599de27f931aff0cd4b5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aee3304515686fc8e45e8e2aafb79d957219f94a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Tworzenie doskonałych, dynamiczne witryny z ładowania początkowego
 
@@ -73,7 +71,7 @@ Najbardziej podstawowa szablonu Bootstrap wygląda bardzo podobnie *_Layout.csht
 
 ### <a name="basic-navigation"></a>Podstawowe nawigacji
 
-Domyślny szablon używa zestawu `<div>` elementy do renderowania górny pasek nawigacyjny i głównej części strony. Jeśli używasz HTML5, możesz zastąpić pierwszy `<div>` tagu z `<nav>` tag, aby uzyskać ten sam efekt, ale semantyka bardziej dokładne.  W tym pierwszym `<div>` widać, istnieje kilka innych. Najpierw `<div>` z klasą "kontener", a następnie w tym, dwa więcej `<div>` elementów: "navbar-header" i "navbar-collapse".  Div pasek nawigacyjny Nagłówek zawiera przycisk, który będzie wyświetlany, gdy ekran jest poniżej niektórych minimalnej szerokości, pokazujący 3 poziome linie (tak zwane "hamburger ikonę"). Ikona jest renderowany przy użyciu czysty HTML i CSS; obraz nie jest wymagane. To jest kod, który wyświetla ikonę z poszczególnymi <span> znaczników renderowania jeden z pasków białe:
+Domyślny szablon używa zestawu `<div>` elementy do renderowania górny pasek nawigacyjny i głównej części strony. Jeśli używasz HTML5, możesz zastąpić pierwszy `<div>` tagu z `<nav>` tag, aby uzyskać ten sam efekt, ale semantyka bardziej dokładne. W tym pierwszym `<div>` widać, istnieje kilka innych. Najpierw `<div>` z klasą "kontener", a następnie w tym, dwa więcej `<div>` elementów: "navbar-header" i "navbar-collapse". Div pasek nawigacyjny Nagłówek zawiera przycisk, który będzie wyświetlany, gdy ekran jest poniżej niektórych minimalnej szerokości, pokazujący 3 poziome linie (tak zwane "hamburger ikonę"). Ikona jest renderowany przy użyciu czysty HTML i CSS; obraz nie jest wymagane. To jest kod, który wyświetla ikonę z poszczególnymi <span> znaczników renderowania jeden z pasków białe:
 
 ```html
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -83,7 +81,7 @@ Domyślny szablon używa zestawu `<div>` elementy do renderowania górny pasek n
 </button>
 ```
 
-Zawiera również nazwę aplikacji, która pojawia się w lewej górnej części.  Menu główne nawigacji jest renderowana przez `<ul>` element div drugiego oraz linki do Home około i skontaktuj się z pomocą. Linki do dodatkowych rejestru i logowania są dodawane przez _LoginPartial wiersz w wierszu 29. Poniżej nawigacji, główną każdej strony jest renderowany w innym `<div>`, oznaczone przy klasy "treść" i "kontenera". W pliku _Layout domyślne proste pokazane, zawartość strony są renderowany przez widok określonych skojarzone z strony, a następnie prostą `<footer>` zostanie dodany na końcu `<div>` elementu.  Zobacz temat jak wbudowane o stronie pojawia się przy użyciu tego szablonu:
+Zawiera również nazwę aplikacji, która pojawia się w lewej górnej części. Menu główne nawigacji jest renderowana przez `<ul>` element div drugiego oraz linki do Home około i skontaktuj się z pomocą. Linki do dodatkowych rejestru i logowania są dodawane przez _LoginPartial wiersz w wierszu 29. Poniżej nawigacji, główną każdej strony jest renderowany w innym `<div>`, oznaczone przy klasy "treść" i "kontenera". W pliku _Layout domyślne proste pokazane, zawartość strony są renderowany przez widok określonych skojarzone z strony, a następnie prostą `<footer>` zostanie dodany na końcu `<div>` elementu. Zobacz temat jak wbudowane o stronie pojawia się przy użyciu tego szablonu:
 
 ![Strona — informacje](bootstrap/_static/about-page-wide.png)
 
@@ -118,9 +116,9 @@ Następnie dodaj dodatkowe `<div>` elementy dla każdej kolumny i określ liczb�
 Prefiks klasy CSS | Warstwa urządzenia | Szerokość
 :---: | :---: | :---:
 Kolumna-xs - | Telefony | < 768px
-Kolumna-ZS - | Tablety | > = 768px
-Kolumna-md - | Komputery stacjonarne | > = 992px
-Kolumna-lg - | Większe Wyświetla pulpitu | > = 1200px
+Kolumna-ZS - | Tablety | >= 768px
+Kolumna-md - | Komputery stacjonarne | >= 992px
+Kolumna-lg - | Większe Wyświetla pulpitu | >= 1200px
 
 Podczas określania dwie kolumny zarówno z "kolumna md-6" układu wynikowy będzie dwie kolumny o rozdzielczościach pulpitu, ale tymi dwiema kolumnami stosu pionowo podczas renderowania na mniejsze urządzenia (lub mniejszą niż okno przeglądarki na pulpicie), dzięki czemu użytkownicy mogą łatwo wyświetlić zawartość bez konieczności przewijane w poziomie.
 
@@ -136,7 +134,7 @@ W tym przykładzie tylko pojedynczy wiersz `<div>` był używany, a nadal Bootst
 
 ### <a name="jumbotron"></a>Jumbotron
 
-Jeśli używano domyślne szablony ASP.NET MVC w programie Visual Studio 2012 lub 2013, prawdopodobnie przedstawiono Jumbotron w akcji. Odnosi się do dużych sekcji pełnej szerokości strony, który może służyć do wyświetlania obrazu tła dużych, wywołanie akcji, rotator lub podobnych elementów. Aby dodać jumbotron do strony, po prostu Dodaj `<div>` i nadaj klasie "jumbotron", a następnie umieść kontener `<div>` wewnątrz i dodać zawartość.  Firma Microsoft może łatwo dostosować standard o służą jumbotron główne nagłówki, które są wyświetlane:
+Jeśli używano domyślne szablony ASP.NET MVC w programie Visual Studio 2012 lub 2013, prawdopodobnie przedstawiono Jumbotron w akcji. Odnosi się do dużych sekcji pełnej szerokości strony, który może służyć do wyświetlania obrazu tła dużych, wywołanie akcji, rotator lub podobnych elementów. Aby dodać jumbotron do strony, po prostu Dodaj `<div>` i nadaj klasie "jumbotron", a następnie umieść kontener `<div>` wewnątrz i dodać zawartość. Firma Microsoft może łatwo dostosować standard o służą jumbotron główne nagłówki, które są wyświetlane:
 
 ![przykład jumbotron](bootstrap/_static/jumbotron.png)
 
@@ -154,7 +152,7 @@ Identyfikatory odwoływać się do krótkich, zwykle numerycznych objaśnienia o
 
 ### <a name="alerts"></a>Alerty
 
-Konieczne może być wyświetlany rodzaj powiadomień, alertu lub komunikat o błędzie z użytkownikami aplikacji. To, gdzie standardowe klasy alertów są przydatne.  Istnieją cztery różne poziomy ważności ze schematami skojarzone kolorów:
+Konieczne może być wyświetlany rodzaj powiadomień, alertu lub komunikat o błędzie z użytkownikami aplikacji. To, gdzie standardowe klasy alertów są przydatne. Istnieją cztery różne poziomy ważności ze schematami skojarzone kolorów:
 
 ![alerty motywów](bootstrap/_static/theme-alerts.png)
 
@@ -164,23 +162,23 @@ Nasze układ już zawiera standardowe pasek nawigacyjny, ale Bootstrap motywu ob
 
 ![tabstrips motywów](bootstrap/_static/theme-tabstrips.png)
 
-Navbars są wbudowane w podobny sposób, ale nieco bardziej skomplikowane.  Zaczynają `<nav>` lub `<div>` z klasą "navbar", w którym div kontenera przechowuje pozostałe elementy. Naszą stronę obejmuje pasek nawigacyjny w nagłówku już — przedstawionego poniżej po prostu rozszerza się na tym, dodanie obsługi menu rozwijane:
+Navbars są wbudowane w podobny sposób, ale nieco bardziej skomplikowane. Zaczynają `<nav>` lub `<div>` z klasą "navbar", w którym div kontenera przechowuje pozostałe elementy. Naszą stronę obejmuje pasek nawigacyjny w nagłówku już — przedstawionego poniżej po prostu rozszerza się na tym, dodanie obsługi menu rozwijane:
 
 ![navbars motywów](bootstrap/_static/theme-navbars.png)
 
 ### <a name="additional-elements"></a>Dodatkowe elementy
 
-Motyw domyślny mogą służyć do prezentowania tabel HTML w stylu dobrze sformatowana, w tym obsługi widoków rozłożone. Brak etykiety style, które są podobne do tych przycisków. Można tworzyć niestandardowe menu rozwijanych obsługujących opcje dodatkowymi stylami poza standardowe HTML `<select>` element wraz z Navbars jak już używa naszego domyślnej witryny początkowej. Jeśli potrzebujesz pasek postępu, istnieje kilka stylów do wyboru, a także wyświetlanie listy grup i panele, które obejmują tytuł i zawartości.  Poznaj dodatkowe opcje w standardowe motywu Bootstrap tutaj:
+Motyw domyślny mogą służyć do prezentowania tabel HTML w stylu dobrze sformatowana, w tym obsługi widoków rozłożone. Brak etykiety style, które są podobne do tych przycisków. Można tworzyć niestandardowe menu rozwijanych obsługujących opcje dodatkowymi stylami poza standardowe HTML `<select>` element wraz z Navbars jak już używa naszego domyślnej witryny początkowej. Jeśli potrzebujesz pasek postępu, istnieje kilka stylów do wyboru, a także wyświetlanie listy grup i panele, które obejmują tytuł i zawartości. Poznaj dodatkowe opcje w standardowe motywu Bootstrap tutaj:
 
 [http://getbootstrap.com/Examples/theme/](http://getbootstrap.com/examples/theme/)
 
 ## <a name="more-themes"></a>Więcej kompozycji
 
-Standardowa motywu ładowania początkowego można rozszerzyć przez zastąpienie niektórych lub wszystkich jego CSS dostosowywania kolorów i styl stosownie do potrzeb swojej aplikacji. Jeśli chcesz rozpocząć od gotowych motywu, istnieje kilka motywu galerii online który specialize ładowania początkowego kompozycje, takich jak WrapBootstrap.com (mającej kompozycje komercyjnych) i Bootswatch.com (który oferuje wolnego motywów).  Niektóre z dostępnych szablonów płatną zapewnić dużą funkcjonalność rozszerzającą podstawowe motywu Bootstrap, takie jak obsługa zaawansowanych menu administracyjnych i pulpity nawigacyjne funkcje sformatowanego wykresów i mierników. Przykład popularnych płatnej szablonu jest Inspinia, obecnie do sprzedaży dla $18, w tym szablonem ASP.NET MVC5 oprócz AngularJS i statyczne wersje HTML. Poniżej przedstawiono przykład zrzutu ekranu.
+Standardowa motywu ładowania początkowego można rozszerzyć przez zastąpienie niektórych lub wszystkich jego CSS dostosowywania kolorów i styl stosownie do potrzeb swojej aplikacji. Jeśli chcesz rozpocząć od gotowych motywu, istnieje kilka motywu galerii online który specialize ładowania początkowego kompozycje, takich jak WrapBootstrap.com (mającej kompozycje komercyjnych) i Bootswatch.com (który oferuje wolnego motywów). Niektóre z dostępnych szablonów płatną zapewnić dużą funkcjonalność rozszerzającą podstawowe motywu Bootstrap, takie jak obsługa zaawansowanych menu administracyjnych i pulpity nawigacyjne funkcje sformatowanego wykresów i mierników. Przykład popularnych płatnej szablonu jest Inspinia, obecnie do sprzedaży dla $18, w tym szablonem ASP.NET MVC5 oprócz AngularJS i statyczne wersje HTML. Poniżej przedstawiono przykład zrzutu ekranu.
 
 ![Przykład inspinia motywu](bootstrap/_static/theme-inspinia.png)
 
-Jeśli chcesz zmienić kompozycję ładowania początkowego *bootstrap.css* pliku kompozycji w **wwwroot/css** folder i zmień odwołania w *_Layout.cshtml* Aby go wskazać.  Zmień łącza dla wszystkich środowisk:
+Jeśli chcesz zmienić kompozycję ładowania początkowego *bootstrap.css* pliku kompozycji w **wwwroot/css** folder i zmień odwołania w *_Layout.cshtml* Aby go wskazać. Zmień łącza dla wszystkich środowisk:
 
 ```html
 <environment names="Development">
@@ -204,7 +202,7 @@ Bootstrap obejmuje zestawy ikon z Glyphicons ([http://glyphicons.com](http://gly
 
 ![Glyphicons](bootstrap/_static/theme-glyphicons.png)
 
-### <a name="input-groups"></a>Wejściowy grup
+### <a name="input-groups"></a>wejściowy grup
 
 Wejściowy grupy umożliwiają paczki dodatkowy tekst lub przycisków z elementu input udostępnia użytkownikowi bardziej intuicyjne środowisko:
 

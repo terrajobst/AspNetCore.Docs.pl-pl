@@ -2,20 +2,18 @@
 title: "Obsługuje zasady komputera ochrony danych w ASP.NET Core"
 author: rick-anderson
 description: "Więcej informacji na temat obsługują ustawiania domyślnych zasad komputera dla wszystkich aplikacji używających platformy ASP.NET Core do ochrony danych."
-keywords: Platformy ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 285ae47d-e0bf-4b03-b0a8-2b1fb18bc3a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 692e120f13882be594afc5fb926b96b82d9609e2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c3ae3b628ebe17c7926c71f1fad664d719d1706
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>Obsługuje zasady komputera ochrony danych w ASP.NET Core
 
@@ -51,7 +49,7 @@ Jeśli EncryptionType CNG CBC, system jest skonfigurowany do używania szyfrowan
 | Algorytm szyfrowania         | string | Nazwa algorytmu szyfrowania symetrycznego bloku zrozumiałe CNG. Ten algorytm jest otwarty w trybie CBC. |
 | EncryptionAlgorithmProvider | string | Nazwa implementacji dostawcy CNG, które mogą wytwarzać algorytmu EncryptionAlgorithm. |
 | EncryptionAlgorithmKeySize  | DWORD  | Długość (w bitach) klucza pochodzić dla algorytmu szyfrowania symetrycznego bloku. |
-| Algorytm skrótu               | string | Nazwa algorytmu wyznaczania wartości skrótu, zrozumiałe CNG. Ten algorytm jest otwarty w trybie HMAC. |
+| HashAlgorithm               | string | Nazwa algorytmu wyznaczania wartości skrótu, zrozumiałe CNG. Ten algorytm jest otwarty w trybie HMAC. |
 | HashAlgorithmProvider       | string | Nazwa implementacja dostawcy CNG, które mogą wytwarzać algorytm algorytm skrótu. |
 
 Jeśli EncryptionType CNG GCM, system został skonfigurowany do użycia szyfrowania symetrycznego bloku liczników Galois trybu poufności oraz autentyczności z usług świadczonych przez CNG systemu Windows (zobacz [Określanie niestandardowych algorytmów Windows CNG](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms) Aby uzyskać więcej informacji). Obsługiwane są następujące dodatkowe wartości, z których każdy odpowiada właściwości w typie CngGcmAuthenticatedEncryptionSettings.

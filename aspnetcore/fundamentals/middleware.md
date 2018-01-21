@@ -2,20 +2,18 @@
 title: "Oprogramowanie pośredniczące platformy ASP.NET Core"
 author: rick-anderson
 description: "Więcej informacji na temat oprogramowania pośredniczącego platformy ASP.NET Core i żądania potoku."
-keywords: "Platformy ASP.NET Core, oprogramowanie pośredniczące potoku, delegata"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2017
 ms.topic: article
-ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: ad8d207b1e6de396f16d098fb07ddc89bea2c520
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af16046c97964e8e1c16a4f5989fcfa794741c4d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET Core oprogramowania pośredniczącego
 
@@ -74,7 +72,7 @@ Konfigurowanie metody (pokazana poniżej) dodaje następujące składniki oprogr
 3. Uwierzytelnianie
 4. MVC
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 
 ```csharp
@@ -92,7 +90,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -115,12 +113,12 @@ W powyższym kodzie `UseExceptionHandler` jest pierwszy składnik oprogramowania
 
 Oprogramowanie pośredniczące plików statycznych jest wywoływana wcześnie w potoku, więc może obsługiwać żądania ani zwarcia bez pośrednictwa pozostałe składniki. Udostępnia oprogramowanie pośredniczące plików statycznych **nie** sprawdzeń autoryzacji. Wszystkie pliki obsługiwane przez, włącznie z zawartymi w obszarze *wwwroot*, są dostępne publicznie. Zobacz [Praca z pliki statyczne](xref:fundamentals/static-files) podejścia do zabezpieczania plików statycznych.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 
 Jeśli żądanie nie jest obsługiwany przez oprogramowanie pośredniczące plików statycznych, będzie przekazany z oprogramowaniem pośredniczącym tożsamości (`app.UseAuthentication`), który przeprowadza uwierzytelnianie. Tożsamość nie zwarcia nieuwierzytelnione żądania. Mimo że tożsamości uwierzytelniania żądań autoryzacji (i odrzucenia) występuje tylko po MVC wybierze określonych Razor strony lub kontrolera i akcji.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Jeśli żądanie nie jest obsługiwany przez oprogramowanie pośredniczące plików statycznych, będzie przekazany z oprogramowaniem pośredniczącym tożsamości (`app.UseIdentity`), który przeprowadza uwierzytelnianie. Tożsamość nie zwarcia nieuwierzytelnione żądania. Mimo że tożsamości uwierzytelnia żądania, autoryzacji (i odrzucenia) występuje tylko wtedy, gdy wybiera MVC określonego kontrolera i akcji.
 
@@ -153,9 +151,9 @@ W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:123
 | Żądanie | Odpowiedź |
 | --- | --- |
 | localhost:1234 | Powitania od elementu delegate-Map.  |
-| localhost:1234 / map1 | Mapa Test 1 |
-| localhost:1234 / map2 — | Mapa Test 2 |
-| localhost:1234 / map3 — | Powitania od elementu delegate-Map.  |
+| localhost:1234/map1 | Mapa Test 1 |
+| localhost:1234/map2 | Mapa Test 2 |
+| localhost:1234/map3 | Powitania od elementu delegate-Map.  |
 
 Gdy `Map` jest, następującą liczbę segmentów ścieżki dopasowane są usuwane z `HttpRequest.Path` i jest dołączany do `HttpRequest.PathBase` dla każdego żądania.
 
@@ -168,7 +166,7 @@ W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:123
 | Żądanie | Odpowiedź |
 | --- | --- |
 | localhost:1234 | Powitania od elementu delegate-Map.  |
-| localhost:1234 /? gałęzi = wzorca | Gałąź używane = wzorca|
+| localhost:1234/?branch=master | Gałąź używane = wzorca|
 
 `Map`obsługuje zagnieżdżania, na przykład:
 
@@ -202,9 +200,9 @@ Platformy ASP.NET Core jest dostarczany z następujących składników oprogramo
 | [Buforowanie odpowiedzi](xref:performance/caching/middleware) | Zapewnia obsługę buforowania odpowiedzi. |
 | [Kompresja odpowiedzi](xref:performance/response-compression) | Zapewnia obsługę kompresowania odpowiedzi. |
 | [Routing](xref:fundamentals/routing) | Definiuje i ogranicza trasy żądania. |
-| [Sesji](xref:fundamentals/app-state) | Zapewnia obsługę zarządzania sesjami użytkownika. |
+| [Sesja](xref:fundamentals/app-state) | Zapewnia obsługę zarządzania sesjami użytkownika. |
 | [Pliki statyczne](xref:fundamentals/static-files) | Zapewnia obsługę obsługujących pliki statyczne oraz przeglądanie katalogów. |
-| [Ponowne zapisywanie adresów URL w oprogramowania pośredniczącego](xref:fundamentals/url-rewriting) | Umożliwia ponowne zapisywanie adresów URL i przekierowywanie żądań. |
+| [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) | Umożliwia ponowne zapisywanie adresów URL i przekierowywanie żądań. |
 
 <a name="middleware-writing-middleware"></a>
 

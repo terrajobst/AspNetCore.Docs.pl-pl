@@ -2,20 +2,18 @@
 title: Skonfiguruj uwierzytelnianie systemu Windows w ASP.NET Core
 author: ardalis
 description: "W tym artykule opisano sposób konfigurowania uwierzytelniania systemu Windows w ASP.NET, za pomocą usług IIS Express, usługi IIS, sterownik HTTP.sys i WebListener Core."
-keywords: Platformy ASP.NET Core uwierzytelniania systemu Windows, atrybut autoryzacji, AllowAnonymous atrybutu
 ms.author: riande
 manager: wpickett
 ms.date: 10/24/2017
 ms.topic: article
-ms.assetid: cf119f21-1a2b-49a2-b052-548ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/windowsauth
-ms.openlocfilehash: e5ceffe5b7f7e3ef4f6158b6b7b7d571a21ee130
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: d4523ca65852de8cfd963838d8bf3caa1d7204cc
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Skonfiguruj uwierzytelnianie systemu Windows w aplikacji platformy ASP.NET Core
 
@@ -86,13 +84,13 @@ Uruchom aplikację w celu zweryfikowania, czy działa uwierzytelnianie systemu W
 
 ## <a name="enable-windows-authentication-with-httpsys-or-weblistener"></a>Włącz uwierzytelnianie systemu Windows z pliku HTTP.sys lub WebListener
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Chociaż Kestrel nie obsługuje uwierzytelniania systemu Windows, można użyć [HTTP.sys](xref:fundamentals/servers/httpsys) na potrzeby obsługi scenariuszy własnym hostowanej w systemie Windows. Poniższy przykład umożliwia skonfigurowanie aplikacji sieci web hosta do pliku HTTP.sys za pomocą uwierzytelniania systemu Windows:
 
 [!code-csharp[](windowsauth/sample/Program2x.cs?highlight=9-14)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Chociaż Kestrel nie obsługuje uwierzytelniania systemu Windows, można użyć [WebListener](xref:fundamentals/servers/weblistener) na potrzeby obsługi scenariuszy własnym hostowanej w systemie Windows. Poniższy przykład umożliwia skonfigurowanie aplikacji sieci web hosta do WebListener za pomocą uwierzytelniania systemu Windows:
 
@@ -124,7 +122,7 @@ Jeśli za pomocą usług IIS, Dodaj następujący kod do `ConfigureServices` met
 services.AddAuthentication(IISDefaults.AuthenticationScheme);
 ```
 
-#### <a name="httpsys"></a>Sterownik HTTP.sys
+#### <a name="httpsys"></a>HTTP.sys
 
 Jeśli z pliku HTTP.sys, Dodaj następujący kod do `ConfigureServices` metody:
 

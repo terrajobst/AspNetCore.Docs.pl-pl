@@ -2,20 +2,18 @@
 title: Pochodnym podkluczy i uwierzytelnionego szyfrowania
 author: rick-anderson
 description: "W tym dokumencie opisano szczegóły implementacji ochrony danych platformy ASP.NET Core podkluczy pochodnym i uwierzytelniony szyfrowania."
-keywords: Platformy ASP.NET Core, ochrony danych, podkluczy pochodnym uwierzytelniony szyfrowania
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 34bb58a3-5a9a-41e5-b090-08f75b4bbefa
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 3eb27b8a6d04074662bf619a09fd867252624209
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3927678b7b67b0e521a961e363200bdfe0bdaeb3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>Pochodnym podkluczy i uwierzytelnionego szyfrowania
 

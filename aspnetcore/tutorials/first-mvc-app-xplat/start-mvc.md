@@ -2,20 +2,18 @@
 title: Wprowadzenie do platformy ASP.NET Core MVC Mac, Linux lub Windows
 author: rick-anderson
 description: Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio Code, Mac, Linux i Windows
-keywords: Platformy ASP.NET Core MVC, VS, kod programu Visual Studio, Mac, Linux, w systemie Windows
 ms.author: riande
 manager: wpickett
 ms.date: 07/07/2017
 ms.topic: get-started-article
-ms.assetid: 1d18b589-1638-4dc6-1638-fb0f41998d78
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: 87ce5dca011a7bc37d34799db159d933c158cba1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f439b6414d95f6edd1c2201c8aee043f1eab9b76
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc--on-mac-linux-or-windows"></a>Wprowadzenie do platformy ASP.NET MVC rdzeni na Mac, Linux lub Windows
 
@@ -36,7 +34,7 @@ Ten samouczek wymaga [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) l
 Zainstaluj następujące czynności:
 
 * [Oprogramowanie .NET core 2.0.0 SDK](https://www.microsoft.com/net/core) lub nowszym.
-* [Kod Visual Studio](https://code.visualstudio.com)
+* [Visual Studio Code](https://code.visualstudio.com)
 * Kod VS [rozszerzenia C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
 
 ## <a name="create-a-web-app-with-dotnet"></a>Tworzenie aplikacji sieci web w usłudze dotnet
