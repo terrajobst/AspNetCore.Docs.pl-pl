@@ -2,24 +2,22 @@
 title: Praca z SQLite
 author: rick-anderson
 description: "Przy użyciu systemu SQLite z prostej aplikacji MVC"
-keywords: Platformy ASP.NET Core SQLite, programu SQL Server
 ms.author: riande
 manager: wpickett
 ms.date: 04/07/2017
 ms.topic: get-started-article
-ms.assetid: 1638d9b8-7c98-424d-8641-1638e23bf541
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/working-with-sql
-ms.openlocfilehash: 4579063d704e751dd566696020e1923a4a4387d2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aba8afc1d44aa6d3cf35e34dc876ff8fe71ce923
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/sql.md)]
 
 >[!div class="step-by-step"]
-<span data-ttu-id="52df3-104">[Poprzednie — Dodaj model](adding-model.md)
-[dalej - metod kontrolera oraz widoków](controller-methods-views.md)</span><span class="sxs-lookup"><span data-stu-id="52df3-104">[Previous - Add a model](adding-model.md)
+<span data-ttu-id="92da0-103">[Poprzednie — Dodaj model](adding-model.md)
+[dalej - metod kontrolera oraz widoków](controller-methods-views.md)</span><span class="sxs-lookup"><span data-stu-id="92da0-103">[Previous - Add a model](adding-model.md)
 [Next - Controller methods and views](controller-methods-views.md)</span></span>
