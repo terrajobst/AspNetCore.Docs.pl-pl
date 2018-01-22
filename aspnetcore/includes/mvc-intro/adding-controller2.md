@@ -16,7 +16,7 @@ MVC wywołuje klasy kontrolera (i metod akcji w nich), w zależności od przycho
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-Określanie formatu routingu w *Startup.cs* pliku.
+Określanie formatu routingu w `Configure` metody w *Startup.cs* pliku.
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 

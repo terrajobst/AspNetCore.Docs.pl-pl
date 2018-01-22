@@ -205,6 +205,7 @@
 ### [Korzystanie z uwierzytelniania za pomocą plików cookie bez użycia produktu Identity](xref:security/authentication/cookie)
 ### [Azure Active Directory](xref:security/authentication/azure-active-directory/index)
 #### [Integrowanie usługi Azure AD z aplikacją internetową platformy ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+#### [Integrowanie usługi Azure AD B2C aplikacja sieci web platformy ASP.NET Core skierowane do klienta](xref:security/authentication/azure-ad-b2c)
 #### [Wywoływanie interfejsu Web API platformy ASP.NET Core z aplikacji WPF przy użyciu usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 #### [Wywoływanie interfejsu Web API z aplikacji internetowej platformy ASP.NET Core przy użyciu usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
 ### [Zabezpieczanie aplikacji platformy ASP.NET Core za pomocą usługi IdentityServer4](https://identityserver4.readthedocs.io/)

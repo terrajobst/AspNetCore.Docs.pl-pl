@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/index
-ms.openlocfilehash: e8d9a8b36b4f7b6392d1dde42532caec51b140ee
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 017aa939ce4c469c08d1cc3a63002ae24c66c096
+ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="authentication"></a>Uwierzytelnianie
 
@@ -36,6 +36,8 @@ ms.lasthandoff: 01/19/2018
 * [Azure Active Directory](azure-active-directory/index.md)
 
   * [Integrowanie usługi Azure AD do aplikacji sieci web platformy ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+
+  * [Integrowanie usługi Azure AD B2C aplikacja sieci web platformy ASP.NET Core skierowane do klienta](azure-ad-b2c.md)
 
   * [Wywołanie interfejsu API platformy ASP.NET Core sieci Web z aplikacji WPF przy użyciu usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 

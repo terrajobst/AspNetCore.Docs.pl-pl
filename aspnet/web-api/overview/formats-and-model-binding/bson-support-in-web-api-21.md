@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/bson-support-in-web-api-21
 msc.type: authoredcontent
-ms.openlocfilehash: 08ef1564b2f8f11294c3bb1ec0ff9a3d063895b6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 53ad705fad6d2225cecca4d73355bd6ebfcf56d5
+ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/22/2018
 ---
 <a name="bson-support-in-aspnet-web-api-21"></a>Obsługa formatu BSON w składniku ASP.NET Web API 2.1
 ====================
@@ -30,7 +30,7 @@ Składnik Web API 2.1 wprowadzono obsługę formatu BSON. W tym temacie pokazano
 
 BSON został opracowany jako lekkie, łatwo przeglądać i szybkie do kodowania dekodowania.
 
-- BSON jest porównywalna o rozmiarze do formatu JSON. W zależności od danych ładunku BSON może być mniejsza lub większa od ładunek JSON. Dla serializacji danych binarnych, takich jak plik obrazu BSON jest mniejszy niż JSON, ponieważ jest danych binarnych nie jest kodowany w formacie base64.
+- BSON jest porównywalna o rozmiarze do formatu JSON. W zależności od danych ładunku BSON może być mniejsza lub większa od ładunek JSON. Dla serializacji danych binarnych, takich jak plik obrazu BSON jest mniejszy niż JSON, ponieważ dane binarne nie jest kodowany w formacie base64.
 - Dokumenty BSON są łatwe do skanowania, ponieważ elementy są poprzedzane prefiksem długość pola, więc analizatorem przejść elementów bez ich dekodowania.
 - Kodowania i dekodowania są wydajne, ponieważ numeryczne typy danych są przechowywane w postaci liczb i ciągów nie.
 

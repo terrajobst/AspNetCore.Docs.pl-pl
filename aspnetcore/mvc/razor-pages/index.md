@@ -1,7 +1,19 @@
 ---
-title: wprowadzenie do stron Razor platformy ASP.NET Core Autor: opis Rick Anderson: samouczek platformy ASP.NET Core na stronach Razor. Zawiera podstawowe MVC, ASP.NET Core 2.x, wprowadzenie do aplikacji sieci web i Visual Studio 2017 r.
-jest, że dokument zawiera omówienie używanie stron Razor w platformy ASP.NET Core, aby ułatwić projektowanie strony scenariuszy.
-ms.author: riande manager: wpickett ms.date: 09/12/2017 ms.topic: get-started-article ms.technology: aspnet ms.prod: asp.net-core uid: mvc/razor-pages/index
+title: Wprowadzenie do platformy ASP.NET Core stron Razor
+author: Rick-Anderson
+description: "Samouczek platformy ASP.NET Core na stronach Razor. Zawiera podstawowe MVC, ASP.NET Core 2.x, wprowadzenie do aplikacji sieci web i Visual Studio 2017 r. Ten dokument zawiera omówienie używanie stron Razor w platformy ASP.NET Core, aby ułatwić projektowanie strony scenariuszy."
+ms.author: riande
+manager: wpickett
+ms.date: 09/12/2017
+ms.topic: get-started-article
+ms.technology: aspnet
+ms.prod: asp.net-core
+uid: mvc/razor-pages/index
+ms.openlocfilehash: 059dc3a163c646877da40a73bcc9a75eb38fb345
+ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
