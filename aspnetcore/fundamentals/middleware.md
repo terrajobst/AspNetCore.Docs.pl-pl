@@ -4,16 +4,16 @@ author: rick-anderson
 description: "Więcej informacji na temat oprogramowania pośredniczącego platformy ASP.NET Core i żądania potoku."
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2017
+ms.date: 01/22/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: af16046c97964e8e1c16a4f5989fcfa794741c4d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: ef130e736e2f32fa134156d979ce5bfbedcae828
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET Core oprogramowania pośredniczącego
 
@@ -23,7 +23,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Steve Smith](https://a
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="what-is-middleware"></a>Co to jest oprogramowanie pośredniczące
+## <a name="what-is-middleware"></a>Co to jest oprogramowanie pośredniczące?
 
 Oprogramowanie pośredniczące to oprogramowanie, które są umieszczone w potoku aplikacji do obsługi żądań i odpowiedzi. Poszczególne składniki:
 
@@ -191,18 +191,22 @@ app.Map("/level1/level2", HandleMultiSeg);
 
 ## <a name="built-in-middleware"></a>Wbudowane oprogramowania pośredniczącego
 
-Platformy ASP.NET Core jest dostarczany z następujących składników oprogramowania pośredniczącego:
+Platformy ASP.NET Core jest dostarczany z następujących składników oprogramowania pośredniczącego, a także opis kolejności, w którym powinny zostać dodane:
 
-| Oprogramowanie pośredniczące | Opis |
-| ----- | ------- |
-| [Uwierzytelnianie](xref:security/authentication/identity) | Zapewnia obsługę uwierzytelniania. |
-| [CORS](xref:security/cors) | Konfiguruje współużytkowanie zasobów między źródłami. |
-| [Buforowanie odpowiedzi](xref:performance/caching/middleware) | Zapewnia obsługę buforowania odpowiedzi. |
-| [Kompresja odpowiedzi](xref:performance/response-compression) | Zapewnia obsługę kompresowania odpowiedzi. |
-| [Routing](xref:fundamentals/routing) | Definiuje i ogranicza trasy żądania. |
-| [Sesja](xref:fundamentals/app-state) | Zapewnia obsługę zarządzania sesjami użytkownika. |
-| [Pliki statyczne](xref:fundamentals/static-files) | Zapewnia obsługę obsługujących pliki statyczne oraz przeglądanie katalogów. |
-| [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) | Umożliwia ponowne zapisywanie adresów URL i przekierowywanie żądań. |
+| Oprogramowanie pośredniczące | Opis | Kolejność |
+| ---------- | ----------- | ----- |
+| [Uwierzytelnianie](xref:security/authentication/identity) | Zapewnia obsługę uwierzytelniania. | Przed `HttpContext.User` jest wymagana. Terminalu wywołania zwrotne OAuth. |
+| [CORS](xref:security/cors) | Konfiguruje współużytkowanie zasobów między źródłami. | Przed składników, które korzystają z CORS. |
+| [Diagnostyka](xref:fundamentals/error-handling) | Konfiguruje diagnostyki. | Przed składniki, które generują błędy. |
+| [ForwardedHeaders/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Przekazuje proxy nagłówki na bieżącego żądania. | Przed składniki używające zaktualizowanych pól (przykłady: schemat, hosta, ClientIP, metoda). |
+| [Buforowanie odpowiedzi](xref:performance/caching/middleware) | Zapewnia obsługę buforowania odpowiedzi. | Przed składniki, które wymagają buforowania. |
+| [Kompresja odpowiedzi](xref:performance/response-compression) | Zapewnia obsługę kompresowania odpowiedzi. | Przed składniki, które wymagają kompresji. |
+| [RequestLocalization](xref:fundamentals/localization) | Zapewnia obsługę lokalizacji. | Przed składniki poufnych lokalizacji. |
+| [Routing](xref:fundamentals/routing) | Definiuje i ogranicza trasy żądania. | Terminalu zgodnych tras. |
+| [Sesja](xref:fundamentals/app-state) | Zapewnia obsługę zarządzania sesjami użytkownika. | Przed składniki, które wymagają sesji. |
+| [Pliki statyczne](xref:fundamentals/static-files) | Zapewnia obsługę obsługujących pliki statyczne oraz przeglądanie katalogów. | Terminal, jeśli żądanie pasuje do plików. |
+| [Ponowne zapisywanie adresów URL](xref:fundamentals/url-rewriting) | Umożliwia ponowne zapisywanie adresów URL i przekierowywanie żądań. | Przed składniki używające adresu URL. |
+| [Obiekty WebSocket](xref:fundamentals/websockets) | Włącza protokołu WebSockets. | Przed składników, które są wymagane, aby akceptował żądania protokołu WebSocket. |
 
 <a name="middleware-writing-middleware"></a>
 

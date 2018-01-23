@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 769696931498605bd3cf3459279939afb86a4ee8
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 99f8d1cc73fdcbd99cffe595ae89f3c61a6f9a53
+ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Adres URL ponowne zapisanie oprogramowania pośredniczącego w platformy ASP.NET Core
 
@@ -38,7 +38,9 @@ Można zdefiniować reguły zmiana adresu URL na kilka sposobów, łącznie z wy
 ## <a name="url-redirect-and-url-rewrite"></a>Ponowne zapisywanie adresów URL przekierowania i adres URL
 Różnica w treść między *adres URL przekierowania* i *ponowne zapisywanie adresów URL* może wydawać się niewielkie w pierwszym, ale ma istotny wpływ na zapewnianie zasobów na klientach. Ponowne zapisywanie adresów URL platformy ASP.NET Core w oprogramowaniu pośredniczącym jest w stanie spełniających potrzeby dla obu.
 
-A *adres URL przekierowania* jest operacją po stronie klienta, w którym klient otrzymuje instrukcję do uzyskania dostępu do zasobu na inny adres. To wymaga przesłania danych do serwera, a adres URL przekierowania do klienta zwracany jest wyświetlany w pasku adresu przeglądarki, gdy klient wysyła żądanie nowego zasobu. Jeśli `/resource` jest *przekierowanie* do `/different-resource`, żądań klientów `/resource`, a serwer odpowiada, że klient Zażądaj zasobu pod adresem `/different-resource` z stan kodu wskazujący, że przekierowanie tymczasowych lub trwałych. Klient wykonuje żądanie nowego zasobu pod adresem URL przekierowania.
+A *adres URL przekierowania* jest operacją po stronie klienta, w którym klient otrzymuje instrukcję do uzyskania dostępu do zasobu na inny adres. To wymaga przesłania danych do serwera. Adres URL przekierowania do klienta zwracany jest wyświetlany w pasku adresu przeglądarki, gdy klient wysyła żądanie nowego zasobu. 
+
+Jeśli `/resource` jest *przekierowanie* do `/different-resource`, żądań klientów `/resource`. Serwer odpowiada, że klient Zażądaj zasobu pod adresem `/different-resource` z stan kodu wskazujący, że przekierowanie tymczasowych lub trwałych. Klient wykonuje żądanie nowego zasobu pod adresem URL przekierowania.
 
 ![Punkt końcowy usługi WebAPI tymczasowo zmieniono z wersji 1 (wersja 1) w wersji 2 (v2) na serwerze. Klient wysyła żądanie do usługi w wersji 1 /v1/api ścieżki. Serwer wysyła ponownie odpowiedzi 302 (Found) z nowego, tymczasowego źródła ścieżkę dla usługi w wersji 2 /v2/api. Klient wysyła drugie żądanie do usługi pod adresem URL przekierowania. Serwer odpowiada, z kodem stanu 200 (OK).](url-rewriting/_static/url_redirect.png)
 
@@ -369,7 +371,7 @@ Oryginalne żądanie:`/image.jpg`
 | Ścieżka Napisz ponownie w ciągu kwerendy | `^path/(.*)/(.*)`<br>`/path/abc/123` | `path?var1=$1&var2=$2`<br>`/path?var1=abc&var2=123` |
 | Usuwanie ukośnika | `(.*)/$`<br>`/path/` | `$1`<br>`/path` |
 | Wymuszanie ukośnika | `(.*[^/])$`<br>`/path` | `$1/`<br>`/path/` |
-| Unikaj ponowne zapisywanie określone żądania | `(.*[^(\.axd)])$`<br>Tak:`/resource.htm`<br>Nie:`/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
+| Unikaj ponowne zapisywanie określone żądania | `^(.*)(?<!\.axd)$`lub`^(?!.*\.axd$)(.*)$`<br>Tak:`/resource.htm`<br>Nie:`/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
 | Rozmieszczanie segmenty adresu URL | `path/(.*)/(.*)/(.*)`<br>`path/1/2/3` | `path/$3/$2/$1`<br>`path/3/2/1` |
 | Zastąp segment adresu URL | `^(.*)/segment2/(.*)`<br>`/segment1/segment2/segment3` | `$1/replaced/$2`<br>`/segment1/replaced/segment3` |
 

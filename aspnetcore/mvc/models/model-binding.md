@@ -1,19 +1,20 @@
 ---
 title: "Wiązanie modelu"
-author: rick-anderson
-description: 
-ms.author: riande
+author: rachelappel
+description: "Informacje o wiązaniu modelu w programie ASP.NET MVC Core"
+ms.author: rachelap
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 01/22/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
+ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 uid: mvc/models/model-binding
-ms.openlocfilehash: 84b9c5dc3a87b739affaeaecaa180d1b01f49b8e
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8fc6ff66d05164c1040f8cc77886357a633a0472
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="model-binding"></a>Wiązanie modelu
 
@@ -41,7 +42,7 @@ MVC spróbuje powiązać dane żądania z parametrami akcji według nazwy. MVC s
 
 1. `Form values`: Są to wartości formularza, które go w programie żądań HTTP używających metody POST. (włącznie z żądaniami POST jQuery).
 
-2. `Route values`: Zestaw wartości trasy udostępniane przez [routingu](../../fundamentals/routing.md)
+2. `Route values`: Zestaw wartości trasy udostępniane przez [routingu](xref:fundamentals/routing)
 
 3. `Query strings`Części ciągu zapytania identyfikatora URI.
 
@@ -101,7 +102,7 @@ MVC zawiera kilka atrybutów, które umożliwia bezpośrednie jego domyślne zac
 
 Atrybuty są bardzo przydatne narzędzia, gdy chcesz zastąpić domyślne zachowanie wiązania modelu.
 
-## <a name="binding-formatted-data-from-the-request-body"></a>Powiązanie sformatowanych danych z treści żądania
+## <a name="bind-formatted-data-from-the-request-body"></a>Wiązanie danych sformatowany z treści żądania
 
 Dane żądania są dostępne w różnych formatach, w tym JSON, XML i wiele innych. Użycie atrybutu [FromBody] Aby wskazać, że chcesz powiązać parametr z danymi w treści żądania, MVC używa skonfigurowany zestaw programów formatujących do obsługi danych żądania na podstawie jego typu zawartości. Domyślnie platforma MVC zawiera `JsonInputFormatter` klasy do obsługi danych JSON, ale można dodać dodatkowe elementy formatujące obsługi XML i inne niestandardowe formaty.
 

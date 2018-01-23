@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 2955888bc745fa3d49e40d364196283f16ad95ef
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: f69f707ba64d13fc372b7bc44718c9dcf8cec6e2
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/22/2018
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax sieci dostarczania zawartości
 ====================
@@ -161,6 +161,14 @@ Usługa CDN obsługuje niektóre najbardziej popularnych bibliotek JavaScript in
 ### <a name="jquery-releases-on-the-cdn"></a>Wersje dostępne w sieci CDN
 
 Następujące wersje jQuery znajdują się w sieci CDN:
+
+#### <a name="jquery-version-331"></a>Wersja jQuery 3.3.1
+- http://AJAX.aspnetcdn.com/AJAX/jQuery/jquery-3.3.1.js
+- http://AJAX.aspnetcdn.com/AJAX/jQuery/jquery-3.3.1.min.js
+- http://AJAX.aspnetcdn.com/AJAX/jQuery/jquery-3.3.1.min.map
+- http://AJAX.aspnetcdn.com/AJAX/jQuery/jquery-3.3.1.SLIM.js
+- http://AJAX.aspnetcdn.com/AJAX/jQuery/jquery-3.3.1.SLIM.min.js
+- http://AJAX.aspnetcdn.com/AJAX/jQuery/jquery-3.3.1.SLIM.min.map
 
 #### <a name="jquery-version-321"></a>Wersja jQuery 3.2.1
 - http://AJAX.aspnetcdn.com/AJAX/jQuery/jquery-3.2.1.js

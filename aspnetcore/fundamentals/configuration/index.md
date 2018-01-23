@@ -5,16 +5,16 @@ description: "Interfejs API konfiguracji umożliwia konfigurowanie aplikacji pla
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/11/2018
+ms.date: 01/11/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 0f8618898089418f709506aee5eb013f983dc294
-ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
+ms.openlocfilehash: c4f57d1e02ad5f4e235039999af9df9d236756a7
+ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Konfigurowanie aplikacji platformy ASP.NET Core
 
@@ -50,7 +50,7 @@ Odczytuje i wyświetla następujące ustawienia konfiguracji aplikacji:
 
 Konfiguracja obejmuje hierarchiczną listę par nazwa wartość, w których węzły są oddzielone dwukropkiem. Aby pobrać wartość, należy pobrać `Configuration` indeksatora kluczem odpowiedniego elementu:
 
-[!code-csharp[Main](index/sample/ConfigJson/Program.cs?range=24-24)]
+[!code-csharp[Main](index/sample/ConfigJson/Program.cs?range=21-22)]
 
 Aby pracować z tablic w formacie JSON konfiguracji źródła, należy użyć indeks tablicy jako część ciągu oddzielone dwukropkiem. Poniższy przykład pobiera nazwę pierwszego elementu w poprzednim `wizards` tablicy:
 
@@ -59,7 +59,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}");
 // Output: Gandalf
 ```
 
-Pary nazwa wartość zapisywane do wbudowanej [konfiguracji](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration) dostawcy są **nie** utrwalone. Można jednak utworzyć niestandardowego dostawcę, który zapisuje wartości. Zobacz [niestandardowego dostawcy konfiguracji](xref:fundamentals/configuration/index#custom-config-providers).
+Pary nazwa wartość zapisywane do wbudowanej [konfiguracji](/dotnet/api/microsoft.extensions.configuration) dostawcy są **nie** utrwalone. Można jednak utworzyć niestandardowego dostawcę, który zapisuje wartości. Zobacz [niestandardowego dostawcy konfiguracji](xref:fundamentals/configuration/index#custom-config-providers).
 
 Powyższego przykładu używa indeksatora konfiguracji można odczytać wartości. Do konfiguracji dostępu poza `Startup`, użyj *wzorzec opcje*. Aby uzyskać więcej informacji, zobacz [opcje](xref:fundamentals/configuration/options) tematu.
 
@@ -72,7 +72,7 @@ Jest to typowe do innej konfiguracji ustawień dla różnych środowisk, na przy
 * *appsettings.\<EnvironmentName>.json*
 * Zmienne środowiskowe
 
-Aplikacje 1.x platformy ASP.NET Core musi wywołać `AddJsonFile` i [AddEnvironmentVariables](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables #Microsoft_Extensions_Configuration_EnvironmentVariablesExtensions_AddEnvironmentVariables_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_).
+Aplikacje 1.x platformy ASP.NET Core musi wywołać `AddJsonFile` i [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables#Microsoft_Extensions_Configuration_EnvironmentVariablesExtensions_AddEnvironmentVariables_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_).
 
 Zobacz [AddJsonFile](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions) dla objaśnienie parametrów. `reloadOnChange`jest obsługiwana tylko w ASP.NET Core 1.1 lub nowszej.
 
@@ -106,7 +106,7 @@ Wartości konfiguracji są zwracane jako ciągi, ale powiązanie umożliwia kons
 
 ### <a name="getvalue"></a>GetValue
 
-W poniższym przykładzie pokazano [GetValue&lt;T&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationbinder#Microsoft_Extensions_Configuration_ConfigurationBinder_GetValue_Microsoft_Extensions_Configuration_IConfiguration_System_Type_System_String_System_Object_) — metoda rozszerzenia:
+W poniższym przykładzie pokazano [GetValue&lt;T&gt; ](/dotnet/api/microsoft.extensions.configuration.configurationbinder.get?view=aspnetcore-2.0#Microsoft_Extensions_Configuration_ConfigurationBinder_Get__1_Microsoft_Extensions_Configuration_IConfiguration_) — metoda rozszerzenia:
 
 [!code-csharp[Main](index/sample/InMemoryGetValue/Program.cs?highlight=31)]
 
@@ -175,11 +175,11 @@ Dodaj `ConfigurationContext` do przechowywania i uzyskać dostęp do skonfigurow
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/ConfigurationContext.cs?name=snippet1)]
 
-Utwórz klasę, która implementuje [IConfigurationSource](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.iconfigurationsource):
+Utwórz klasę, która implementuje [IConfigurationSource](/dotnet/api/Microsoft.Extensions.Configuration.IConfigurationSource):
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationSource.cs?highlight=7)]
 
-Tworzenie niestandardowego dostawcy konfiguracji przez dziedziczenie z [ConfigurationProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationprovider). Dostawca konfiguracji inicjuje bazy danych, gdy nie jest pusty:
+Tworzenie niestandardowego dostawcy konfiguracji przez dziedziczenie z [ConfigurationProvider](/dotnet/api/Microsoft.Extensions.Configuration.ConfigurationProvider). Dostawca konfiguracji inicjuje bazy danych, gdy nie jest pusty:
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationProvider.cs?highlight=9,18-31,38-39)]
 
@@ -401,7 +401,7 @@ A *web.config* hosting aplikacji w usługach IIS lub usług IIS Express jest wym
 * `IConfiguration`ma dwa specjalizacje:
   * `IConfigurationRoot`Użyty dla węzła głównego. Może spowodować ponowne załadowanie.
   * `IConfigurationSection`Reprezentuje sekcję konfiguracji wartości. `GetSection` i `GetChildren` metody zwracają `IConfigurationSection`.
-  * Użyj [IConfigurationRoot](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration.iconfigurationroot) podczas ponownego ładowania konfiguracji lub muszą mieć dostęp do każdego dostawcy. Żadna z tych sytuacji są często używane.
+  * Użyj [IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot) podczas ponownego ładowania konfiguracji lub muszą mieć dostęp do każdego dostawcy. Żadna z tych sytuacji są często używane.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
