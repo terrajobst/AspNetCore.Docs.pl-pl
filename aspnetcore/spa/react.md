@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: a63d81633a0f37d24ad5e05de293e3c41004eba1
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
-ms.translationtype: MT
+ms.openlocfilehash: aa70a35ad938fff6911367ee9d12aac9d575be7e
+ms.sourcegitcommit: efc9e5b5fffa0e13957131a0da52cc1532a87651
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-the-react-project-template-release-candidate"></a>Należy użyć szablonu projektu platformy React (w wersji release candidate)
 
@@ -33,7 +33,7 @@ Aby rozpocząć, upewnij się, które zostały [zainstalowany zaktualizowany sza
 Utwórz nowy projekt z wiersza polecenia przy użyciu polecenia `dotnet new react` w pustych katalogów. Na przykład poniższe polecenia Utwórz aplikację w *— nowy — aplikacji my* katalogu i przełącznika do tego katalogu:
 
 ```console
-dotnet new -o my-new-app
+dotnet new react -o my-new-app
 cd my-new-app
 ```
 
