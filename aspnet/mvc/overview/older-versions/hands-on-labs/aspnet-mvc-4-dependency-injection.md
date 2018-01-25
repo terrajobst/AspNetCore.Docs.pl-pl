@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: af4967f642ba4615f3392c0c404d2ec62edaaae8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 48a7d7fdb670aebb72450fc4eb12a364ef595c53
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-dependency-injection"></a>Iniekcji zależności platformy ASP.NET MVC 4
 ====================
@@ -25,7 +25,7 @@ przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > [!NOTE]
 > W tym laboratorium Hands-on zakłada mieć podstawową wiedzę na temat **ASP.NET MVC** i **filtrów platformy ASP.NET MVC 4**. Jeśli nie używasz **filtrów platformy ASP.NET MVC 4** przed, zalecamy zapoznać się z **filtry akcji niestandardowych MVC ASP.NET** Hands-on laboratorium.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 W **programowanie zorientowane na obiekt** modelu, obiekty współdziałają ze sobą w modelu współpracy w przypadku, gdy istnieją współautorzy i konsumentów. Oczywiście ten model komunikacji generuje zależności między obiektami i składników, staje się trudno było zarządzać podczas zwiększa złożoności.
@@ -192,9 +192,9 @@ To zadanie będzie zawierać **Unity.Mvc3** pakietu NuGet w rozwiązaniu.
 
     [!code-powershell[Main](aspnet-mvc-4-dependency-injection/samples/sample3.ps1)]
 
-    ![Instalowanie pakietu NuGet Unity.Mvc3](aspnet-mvc-4-dependency-injection/_static/image4.png "Instalowanie pakietu NuGet Unity.Mvc3")
+    ![Installing Unity.Mvc3 NuGet Package](aspnet-mvc-4-dependency-injection/_static/image4.png "Installing Unity.Mvc3 NuGet Package")
 
-    *Instalowanie pakietu NuGet Unity.Mvc3*
+    *Installing Unity.Mvc3 NuGet Package*
 3. Raz **Unity.Mvc3** pakiet jest zainstalowany, Analizuj pliki i foldery, które automatycznie dodaje Aby uprościć konfigurację Unity.
 
     ![Zainstalowanym pakietem Unity.Mvc3](aspnet-mvc-4-dependency-injection/_static/image5.png "zainstalowanym pakietem Unity.Mvc3")
@@ -474,7 +474,7 @@ W tym zadaniu zostanie Uruchom aplikację i przetestować, czy filtr akcji niest
 
     ![Muzyka magazynu](aspnet-mvc-4-dependency-injection/_static/image11.png "magazynu utworów muzycznych")
 
-    *Muzyka magazynu*
+    *Music Store*
 3. Przejdź do **/Trace.axd** aby zobaczyć śledzenie aplikacji, a następnie kliknij przycisk **Wyświetl szczegóły**.
 
     ![Dziennik śledzenia aplikacji](aspnet-mvc-4-dependency-injection/_static/image12.png "dziennik śledzenia aplikacji")

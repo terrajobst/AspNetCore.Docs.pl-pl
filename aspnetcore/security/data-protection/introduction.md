@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/introduction
-ms.openlocfilehash: b98027ee0e7c63bac23054d7623f28294388dede
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b02ef9121e50ab9d9f24032d32f1e65fe73049c0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-data-protection"></a>Wprowadzenie do ochrony danych
 
@@ -23,7 +23,7 @@ Stos ochrony danych platformy ASP.NET Core zaprojektowano jako długoterminowej 
 
 ## <a name="problem-statement"></a>Opis problemu
 
-Instrukcja zasadniczy problem może być krótkiej formie wyrażona w pojedynczym zdaniu: musisz utrwalić zaufanych informacje dotyczące pobierania nowszej, ale nie masz zaufania mechanizmu stanu trwałego. W warunkach sieci web to mogą być zapisane jako "Musisz obustronne zaufanego stanu za pomocą niezaufanego klienta."
+Instrukcja zasadniczy problem może być krótkiej formie wyrażona w pojedynczym zdaniu: musisz utrwalić zaufanych informacje dotyczące pobierania nowszej, ale nie można zaufać mechanizmu stanu trwałego. W warunkach sieci web to mogą być zapisane jako "Musisz obustronne zaufanego stanu za pomocą niezaufanego klienta."
 
 Canonical przykład to jest plik cookie uwierzytelniania lub elementu nośnego tokenu. Generuje serwer "Mam Groot i uprawnień xyz" token i przekazuje ją do klienta. W przyszłości klienta przedstawi token do serwera, ale serwer musi mieć określonego rodzaju gwarancji, że klient nie sfałszowane tokenu. W związku z tym pierwszego zapotrzebowania: autentyczności () integralność, sprawdzające odporne na próby).
 
@@ -31,7 +31,7 @@ Ponieważ stanu utrwalonego jest uważany za zaufany przez serwer, przewidujemy,
 
 Ponadto ponieważ nowoczesne aplikacje są składnikowa, co możemy w tym samouczku jest pojedynczych składników spowoduje chcesz skorzystać z tego systemu, niezależnie od innych składników w systemie. Na przykład jeśli składnik tokenu elementu nośnego używa tego stosu, powinien działać bez zakłóceń z mechanizm anti-CSRF, który może również korzystać z tym samym stosie. W związku z tym ostatnim wymaganie: izolacji.
 
-Firma Microsoft może dostarczyć więcej ograniczenia Aby zawęzić zakres bieżących wymagań. Przyjęto założenie, że wszystkie usługi działające w ramach cryptosystem są równie zaufane i że dane nie musi zostać wygenerowany lub używane poza usług w naszym bezpośrednią kontrolę. Ponadto wymagane operacje są tak szybko, jak to możliwe, ponieważ każde żądanie usługi sieci web może przejść cryptosystem jeden lub więcej razy. Dzięki temu Kryptografia symetryczna idealny dla naszej scenariusza i firma Microsoft discount kryptografii asymetrycznej do taki czas, który jest wymagana.
+Firma Microsoft może dostarczyć więcej ograniczenia Aby zawęzić zakres bieżących wymagań. Przyjęto założenie, że wszystkie usługi działające w ramach cryptosystem są równie zaufane i że dane nie musi zostać wygenerowany lub używane poza usług w naszym bezpośrednią kontrolę. Ponadto wymagane operacje są tak szybko, jak to możliwe, ponieważ każde żądanie usługi sieci web może przejść cryptosystem jeden lub więcej razy. Dzięki temu Kryptografia symetryczna idealny dla naszej scenariusza i firma Microsoft discount kryptografii asymetrycznej do taki czas, który jest potrzebna.
 
 ## <a name="design-philosophy"></a>Zasady projektowania klas
 
@@ -41,7 +41,7 @@ Firma Microsoft jest uruchomiony przez identyfikowania problemów z istniejąceg
 
 * Zapewniają prosty interfejs API dla użytkownika. Interfejsy API powinno być łatwe w użyciu poprawnie i trudny do wykorzystania niepoprawnie.
 
-* Deweloperzy nie powinien Dowiedz się, zasady zarządzania kluczami. System powinna obsługiwać wybór algorytmu i okresu istnienia klucza w imieniu dewelopera. Najlepiej dewelopera nigdy nie nawet ma dostęp do nieprzetworzonej materiału klucza.
+* Deweloperzy nie należy dowiedzieć się zasady zarządzania kluczami. System powinna obsługiwać wybór algorytmu i okresu istnienia klucza w imieniu dewelopera. Najlepiej dewelopera nigdy nie nawet ma dostęp do nieprzetworzonej materiału klucza.
 
 * Klucze powinny być chronione w stanie spoczynku, gdy jest to możliwe. System powinien ustalić odpowiedni mechanizm ochrony i zastosować je automatycznie.
 

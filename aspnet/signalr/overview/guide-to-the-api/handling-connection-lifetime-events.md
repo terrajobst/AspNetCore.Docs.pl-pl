@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 7a0a549f73ea303ec5694bb69d4eac52beb54098
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2fd9cafd8d7706807998793c3c39377fe9604266
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>Opis i obsługa zdarzeń okres istnienia połączenia SignalR
 ====================
@@ -61,15 +61,15 @@ Ten artykuł zawiera następujące sekcje:
 - [Ustawienia limitu czasu i utrzymywania aktywności](#timeoutkeepalive)
 
     - [ConnectionTimeout](#connectiontimeout)
-    - [Wartości DisconnectTimeout](#disconnecttimeout)
-    - [Utrzymywania aktywności](#keepalive)
+    - [DisconnectTimeout](#disconnecttimeout)
+    - [KeepAlive](#keepalive)
     - [Jak zmienić ustawienia limitu czasu i utrzymywania aktywności](#changetimeout)
 - [Jak użytkownicy są powiadamiani o rozłączeń](#notifydisconnect)
 - [Jak połączyć się ponownie w sposób ciągły](#continuousreconnect)
 - [Jak można rozłączyć klienta w kodzie serwera](#disconnectclientfromserver)
 - [Wykrywanie Przyczyna zakończenia połączenia](#detectingreasonfordisconnection)
 
-Linki do tematów dokumentacji interfejsu API są wersja platformy .NET 4.5 interfejsu API. Jeśli używasz programu .NET 4, zobacz [wersji .NET 4 tematy interfejsu API](https://msdn.microsoft.com/en-us/library/jj891075(v=vs.100).aspx).
+Linki do tematów dokumentacji interfejsu API są wersja platformy .NET 4.5 interfejsu API. Jeśli używasz programu .NET 4, zobacz [wersji .NET 4 tematy interfejsu API](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx).
 
 <a id="terminology"></a>
 
@@ -192,13 +192,13 @@ To ustawienie jest stosowane tylko podczas utrzymywania aktywności funkcji jest
 
 <a id="disconnecttimeout"></a>
 
-### <a name="disconnecttimeout"></a>Wartości DisconnectTimeout
+### <a name="disconnecttimeout"></a>DisconnectTimeout
 
 To ustawienie reprezentuje czas oczekiwania po połączenie transportu są tracone przed zgłoszeniem `Disconnected` zdarzeń. Wartość domyślna to 30 sekund. Podczas ustawiania `DisconnectTimeout`, `KeepAlive` automatycznie ma ustawioną wartość 1/3 `DisconnectTimeout` wartość.
 
 <a id="keepalive"></a>
 
-### <a name="keepalive"></a>Utrzymywania aktywności
+### <a name="keepalive"></a>KeepAlive
 
 To ustawienie oznacza ilość czasu oczekiwania przed wysłaniem pakietów keepalive bezczynnego połączenia. Wartość domyślna to 10 sekund. Ta wartość nie może być więcej niż 1/3 `DisconnectTimeout` wartość.
 

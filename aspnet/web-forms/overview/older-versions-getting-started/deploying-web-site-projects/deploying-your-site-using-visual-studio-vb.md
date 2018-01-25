@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-vb
 msc.type: authoredcontent
-ms.openlocfilehash: af4257a91c08efc498c86aceac6fa7f64e527a74
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 362f8391f3352b3abf00045bca0c212cd850b17f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-your-site-using-visual-studio-vb"></a>Wdrażanie witryny za pomocą programu Visual Studio (VB)
 ====================
@@ -33,7 +33,7 @@ Samouczek poprzedniego przeglądał wdrażanie prostej aplikacji sieci web ASP.N
 
 
 > [!NOTE]
-> Inne narzędzia dotyczący wdrażania oferowane przez program Visual Studio obejmują [projekty Instalatora sieci Web](https://msdn.microsoft.com/en-us/library/wx3b589t.aspx) i [projekty sieci Web wdrożenia](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) dodatku. Projekty sieci Web Instalatora pakietu zawartości witryny sieci Web i informacje o konfiguracji w jednym pliku MSI. Ta opcja jest najbardziej przydatne dla witryn sieci Web, które są wdrożone w intranecie lub dla firm, które sprzedawać aplikacji sieci web opakowanych zainstalować klientów na serwerach sieci web. Dodatek projekty wdrażania sieci Web jest Visual Studio dodatku ułatwiający określenie konfiguracji różnice między kompilacji dla środowisk projektowych oraz środowisk produkcyjnych. Projekty Instalatora sieci Web nie zostały omówione w tym samouczku; Projekty wdrażania w sieci Web zostały podsumowane w [ *typowych konfiguracji różnice między rozwoju i produkcji* ](common-configuration-differences-between-development-and-production-vb.md) samouczka.
+> Inne narzędzia dotyczący wdrażania oferowane przez program Visual Studio obejmują [projekty Instalatora sieci Web](https://msdn.microsoft.com/library/wx3b589t.aspx) i [projekty sieci Web wdrożenia](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) dodatku. Projekty sieci Web Instalatora pakietu zawartości witryny sieci Web i informacje o konfiguracji w jednym pliku MSI. Ta opcja jest najbardziej przydatne dla witryn sieci Web, które są wdrożone w intranecie lub dla firm, które sprzedawać aplikacji sieci web opakowanych zainstalować klientów na serwerach sieci web. Dodatek projekty wdrażania sieci Web jest Visual Studio dodatku ułatwiający określenie konfiguracji różnice między kompilacji dla środowisk projektowych oraz środowisk produkcyjnych. Projekty Instalatora sieci Web nie zostały omówione w tym samouczku; Projekty wdrażania w sieci Web zostały podsumowane w [ *typowych konfiguracji różnice między rozwoju i produkcji* ](common-configuration-differences-between-development-and-production-vb.md) samouczka.
 
 
 ## <a name="deploying-your-site-using-the-copy-web-site-tool"></a>Wdrażanie witryny za pomocą narzędzia Kopia witryny sieci Web
@@ -150,11 +150,11 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Kopiowanie witryny sieci Web za pomocą narzędzia Kopia witryny sieci Web](https://msdn.microsoft.com/en-us/library/1cc82atw.aspx)
+- [Kopiowanie witryny sieci Web za pomocą narzędzia Kopia witryny sieci Web](https://msdn.microsoft.com/library/1cc82atw.aspx)
 - [Jak I: wdrażać witryny sieci Web za pomocą narzędzia Kopia witryny sieci Web](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md) (klip wideo)
-- [Porady: Publikowanie projektów aplikacji sieci Web](https://msdn.microsoft.com/en-us/library/aa983453.aspx)
-- [Porady: Publikowanie witryn sieci Web](https://msdn.microsoft.com/en-us/library/20yh9f1b.aspx)
-- [Projekty instalacji i wdrażania w programie Visual Studio](https://msdn.microsoft.com/en-us/library/wx3b589t.aspx)
+- [Porady: Publikowanie projektów aplikacji sieci Web](https://msdn.microsoft.com/library/aa983453.aspx)
+- [Porady: Publikowanie witryn sieci Web](https://msdn.microsoft.com/library/20yh9f1b.aspx)
+- [Projekty instalacji i wdrażania w programie Visual Studio](https://msdn.microsoft.com/library/wx3b589t.aspx)
 
 >[!div class="step-by-step"]
 [Poprzednie](deploying-your-site-using-an-ftp-client-vb.md)

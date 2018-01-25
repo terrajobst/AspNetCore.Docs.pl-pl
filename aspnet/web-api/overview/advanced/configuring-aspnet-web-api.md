@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 1c007c4c327b7cde6ff52c6b0022acdff3c9b137
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f9b471fe2afdce278869a2e4d9b693a78030324b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-aspnet-web-api-2"></a>Konfigurowanie składnika ASP.NET Web API 2
 ====================
@@ -33,14 +33,14 @@ W tym temacie opisano sposób konfigurowania interfejsu API sieci Web platformy 
 <a id="settings"></a>
 ## <a name="configuration-settings"></a>Ustawienia konfiguracji
 
-Ustawienia konfiguracji interfejsu API sieci Web są zdefiniowane w [HttpConfiguration](https://msdn.microsoft.com/en-us/library/system.web.http.httpconfiguration.aspx) klasy.
+Ustawienia konfiguracji interfejsu API sieci Web są zdefiniowane w [HttpConfiguration](https://msdn.microsoft.com/library/system.web.http.httpconfiguration.aspx) klasy.
 
 | Element członkowski | Opis |
 | --- | --- |
 | **Klasy DependencyResolver** | Umożliwia iniekcji zależności dla kontrolerów. Zobacz [za pomocą mechanizmu rozpoznawania zależności interfejsu API sieci Web](dependency-injection.md). |
 | **Filtry** | Filtry akcji. |
 | **Elementy formatujące** | [Programy formatujące typy nośnika](../formats-and-model-binding/media-formatters.md). |
-| **IncludeErrorDetailPolicy** | Określa, czy serwer ma uwzględniać szczegóły błędu, takie jak komunikaty wyjątku i ślady stosu, w komunikatów odpowiedzi HTTP. Zobacz [IncludeErrorDetailPolicy](https://msdn.microsoft.com/en-us/library/system.web.http.includeerrordetailpolicy(v=vs.108)). |
+| **IncludeErrorDetailPolicy** | Określa, czy serwer ma uwzględniać szczegóły błędu, takie jak komunikaty wyjątku i ślady stosu, w komunikatów odpowiedzi HTTP. Zobacz [IncludeErrorDetailPolicy](https://msdn.microsoft.com/library/system.web.http.includeerrordetailpolicy(v=vs.108)). |
 | **Inicjator** | Funkcja, która wykonuje końcowego inicjowania elementu **HttpConfiguration**. |
 | **MessageHandlers** | [Programy obsługi komunikatów HTTP](http-message-handlers.md). |
 | **ParameterBindingRules** | Kolekcja reguł dla wiązania parametrów na akcji kontrolera. |
@@ -56,7 +56,7 @@ Ustawienia konfiguracji interfejsu API sieci Web są zdefiniowane w [HttpConfigu
 <a id="webhost"></a>
 ## <a name="configuring-web-api-with-aspnet-hosting"></a>Konfigurowanie witryny sieci Web interfejsu API z hostingu ASP.NET
 
-W aplikacji ASP.NET, należy skonfigurować interfejs API sieci Web przez wywołanie metody [GlobalConfiguration.Configure](https://msdn.microsoft.com/en-us/library/system.web.http.globalconfiguration.configure.aspx) w **aplikacji\_Start** metody. **Konfiguruj** metoda przyjmuje delegata z pojedynczym parametrem typu **HttpConfiguration**. Wykonaj wszystkie Twoje konfiguracyjny wewnątrz obiektu delegowanego.
+W aplikacji ASP.NET, należy skonfigurować interfejs API sieci Web przez wywołanie metody [GlobalConfiguration.Configure](https://msdn.microsoft.com/library/system.web.http.globalconfiguration.configure.aspx) w **aplikacji\_Start** metody. **Konfiguruj** metoda przyjmuje delegata z pojedynczym parametrem typu **HttpConfiguration**. Wykonaj wszystkie Twoje konfiguracyjny wewnątrz obiektu delegowanego.
 
 Oto przykład przy użyciu anonimowego delegata:
 

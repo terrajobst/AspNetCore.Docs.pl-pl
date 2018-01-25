@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 3d6cc52f7fa3089f30f1a6bbd76593f1eca95009
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 85276377671b96e65406639c8584d9ebf8d77ff7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>Zaawansowane Entity Framework 6 scenariusze dla aplikacji MVC 5 sieci Web (12 12)
 ====================
@@ -58,9 +58,9 @@ Większość tych tematów będzie współpracować z stron, które zostały ju�
 
 Interfejsu API z pierwszego kodu Entity Framework zawiera metody, które umożliwiają przekazywania poleceń SQL bezpośrednio do bazy danych. Do wyboru są następujące opcje:
 
-- Użyj [DbSet.SqlQuery](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset.sqlquery.aspx) metodę dla zapytań zwracających typów jednostek. Zwracane obiekty muszą mieć typ oczekiwany przez `DbSet` obiektów i ich automatycznie są śledzone przez kontekst bazy danych, chyba że wyłączyć śledzenie. (Zobacz następującą sekcję [AsNoTracking](https://msdn.microsoft.com/en-us/library/system.data.entity.dbextensions.asnotracking.aspx) metody.)
-- Użyj [Database.SqlQuery](https://msdn.microsoft.com/en-us/library/system.data.entity.database.sqlquery.aspx) metodę dla zapytań zwracających typy, które nie są jednostek. Zwrócone dane nie jest śledzony przez kontekst bazy danych, nawet w przypadku użycia tej metody można pobrać typów jednostek.
-- Użyj [Database.ExecuteSqlCommand](https://msdn.microsoft.com/en-us/library/gg679456.aspx) -query poleceń.
+- Użyj [DbSet.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.dbset.sqlquery.aspx) metodę dla zapytań zwracających typów jednostek. Zwracane obiekty muszą mieć typ oczekiwany przez `DbSet` obiektów i ich automatycznie są śledzone przez kontekst bazy danych, chyba że wyłączyć śledzenie. (Zobacz następującą sekcję [AsNoTracking](https://msdn.microsoft.com/library/system.data.entity.dbextensions.asnotracking.aspx) metody.)
+- Użyj [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery.aspx) metodę dla zapytań zwracających typy, które nie są jednostek. Zwrócone dane nie jest śledzony przez kontekst bazy danych, nawet w przypadku użycia tej metody można pobrać typów jednostek.
+- Użyj [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456.aspx) -query poleceń.
 
 Jedną z zalet funkcji programu Entity Framework jest, że unika wiązanie kodu zbytnio do określonej metody przechowywania danych. Robi to przez generowanie zapytań SQL i poleceń, które zwalnia z konieczności pisania samodzielnie. Ale są wyjątkowych scenariusze, w należy uruchomić określonego zapytania SQL, które zostały utworzone ręcznie, a te metody umożliwiają obsługę tych wyjątków.
 
@@ -68,7 +68,7 @@ Podobnie jak zawsze podczas wykonywania polecenia SQL w aplikacji sieci web, nal
 
 ### <a name="calling-a-query-that-returns-entities"></a>Wywoływanie kwerendę, która zwraca jednostki
 
-[DbSet&lt;TEntity&gt; ](https://msdn.microsoft.com/en-us/library/gg696460.aspx) klasa udostępnia metodę, która służy do wykonywania zapytania, które zwraca jednostki typu `TEntity`. Aby zobaczyć, jak to działa użytkownik będzie Zmień kod w `Details` metody `Department` kontrolera.
+[DbSet&lt;TEntity&gt; ](https://msdn.microsoft.com/library/gg696460.aspx) klasa udostępnia metodę, która służy do wykonywania zapytania, które zwraca jednostki typu `TEntity`. Aby zobaczyć, jak to działa użytkownik będzie Zmień kod w `Details` metody `Department` kontrolera.
 
 W *DepartmentController.cs*w `Details` metody, Zastąp `db.Departments.FindAsync` wywołanie metody z `db.Departments.SqlQuery` wywołania metody, jak pokazano w poniższym kodzie wyróżnione:
 
@@ -84,7 +84,7 @@ Wcześniej utworzono siatka uczniów statystyki dla strony informacje wskazując
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample2.cs)]
 
-Załóżmy, że chcesz pisania kodu, który pobiera dane bezpośrednio w SQL, a nie za pomocą LINQ. Aby zrobić, należy uruchomić kwerendę, która zwraca wartość inną niż obiekty obiektów, co oznacza, że należy użyć [Database.SqlQuery](https://msdn.microsoft.com/en-us/library/system.data.entity.database.sqlquery(v=VS.103).aspx) metody.
+Załóżmy, że chcesz pisania kodu, który pobiera dane bezpośrednio w SQL, a nie za pomocą LINQ. Aby zrobić, należy uruchomić kwerendę, która zwraca wartość inną niż obiekty obiektów, co oznacza, że należy użyć [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery(v=VS.103).aspx) metody.
 
 W *HomeController.cs*, zastąp instrukcję LINQ w `About` metody za pomocą instrukcji SQL, jak pokazano w poniższym kodzie wyróżnione:
 
@@ -130,19 +130,19 @@ Kliknij przycisk **powrót do listy** Lista kursów poprawione numer środków.
 
 ![Courses_Index_page_showing_revised_credits](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image9.png)
 
-Aby uzyskać więcej informacji o raw zapytania SQL, zobacz [Raw zapytania SQL](https://msdn.microsoft.com/en-us/data/jj592907) w witrynie MSDN.
+Aby uzyskać więcej informacji o raw zapytania SQL, zobacz [Raw zapytania SQL](https://msdn.microsoft.com/data/jj592907) w witrynie MSDN.
 
 <a id="notracking"></a>
 ## <a name="no-tracking-queries"></a>Zapytania dotyczące śledzenia nie
 
 Jeśli kontekst bazy danych pobiera wiersze tabeli i tworzy obiekty jednostki, które reprezentują je, domyślnie go przechowuje informacje o czy jednostek w pamięci są zsynchronizowane z nowości w bazie danych. Dane w pamięci działa jako pamięci podręcznej i jest używany podczas aktualizacji jednostki. Często jest wykorzystywana w aplikacji sieci web to buforowanie, ponieważ kontekst wystąpienia są zwykle krótkotrwałą (nowy jest utworzony i usunięty dla każdego żądania) oraz kontekst które odczytuje jednostki zazwyczaj zostanie usunięty, zanim będzie można ponownie użyć tej jednostki.
 
-Śledzenie obiektów jednostek w pamięci można wyłączyć za pomocą [AsNoTracking](https://msdn.microsoft.com/en-us/library/gg679352(v=vs.103).aspx) metody. Następujące typowe scenariusze, w których można to zrobić:
+Śledzenie obiektów jednostek w pamięci można wyłączyć za pomocą [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx) metody. Następujące typowe scenariusze, w których można to zrobić:
 
 - Zapytanie pobiera takie dużą ilość danych, które wyłączenie śledzenia może znacznie zwiększyć wydajność.
 - Aby dołączyć jednostki, aby można było zaktualizować go, ale wcześniej pobrać tej samej jednostki w innym celu. Ponieważ jednostka jest już śledzony przez kontekst bazy danych, nie można dołączyć jednostki, która ma zostać zmieniony. Jednym ze sposobów obsłużyć taką sytuację jest użycie `AsNoTracking` opcji wcześniejsze zapytanie.
 
-Na przykład, który demonstruje sposób użycia [AsNoTracking](https://msdn.microsoft.com/en-us/library/gg679352(v=vs.103).aspx) metody, zobacz [starszą wersję tego samouczka](../../older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application.md). Ta wersja samouczka nie Ustaw flagę zmodyfikowane w jednostce utworzyć integratora modelu w metodzie edycji, więc nie musi `AsNoTracking`.
+Na przykład, który demonstruje sposób użycia [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx) metody, zobacz [starszą wersję tego samouczka](../../older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application.md). Ta wersja samouczka nie Ustaw flagę zmodyfikowane w jednostce utworzyć integratora modelu w metodzie edycji, więc nie musi `AsNoTracking`.
 
 <a id="sql"></a>
 ## <a name="examining-sql-sent-to-the-database"></a>Badanie SQL wysyłane do bazy danych
@@ -204,8 +204,8 @@ Wielu deweloperów napisać kod do implementacji repozytorium i jednostki pracy 
 Aby uzyskać więcej informacji dotyczących sposobu wdrażania repozytorium i jednostki pracy, zobacz [wersji programu Entity Framework 5 tego samouczka serii](../../older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md). Aby uzyskać informacje na temat implementacji TDD w programie Entity Framework 6 zobacz następujące zasoby:
 
 - [Jak EF6 umożliwia Mocking DbSets łatwiej](http://thedatafarm.com/data-access/how-ef6-enables-mocking-dbsets-more-easily/)
-- [Testowanie za pomocą mocking framework](https://msdn.microsoft.com/en-us/data/dn314429)
-- [Testowanie za pomocą własnych symulacyjnych testu](https://msdn.microsoft.com/en-us/data/dn314431)
+- [Testowanie za pomocą mocking framework](https://msdn.microsoft.com/data/dn314429)
+- [Testowanie za pomocą własnych symulacyjnych testu](https://msdn.microsoft.com/data/dn314431)
 
 <a id="proxies"></a>
 ## <a name="proxy-classes"></a>Klasy serwera proxy
@@ -220,11 +220,11 @@ Ta klasa proxy przesłania niektórych właściwości wirtualnych jednostki do w
 
 W większości przypadków nie trzeba znać to korzystanie z serwerów proxy, ale istnieją wyjątki:
 
-- W niektórych scenariuszach można zapobiec tworzenia wystąpień serwera proxy programu Entity Framework. Na przykład gdy w przypadku serializacji jednostek zazwyczaj mają klasy POCO, a nie klasy serwera proxy. Jeden sposób na uniknięcie problemów serializacji jest do serializacji obiektów transfer danych (DTOs) zamiast obiektów jednostek, jak pokazano w [przy użyciu interfejsu API sieci Web z programu Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-1.md) samouczka. Innym sposobem jest [wyłączyć tworzenie serwera proxy](https://msdn.microsoft.com/en-US/data/jj592886.aspx).
-- Gdy wystąpienia klasy jednostki przy użyciu `new` operator nie pobieraj wystąpienia serwera proxy. Oznacza to, że nie pobieraj funkcje, takie jak opóźnionego ładowania i automatyczne śledzenie zmian. Jest to zazwyczaj zgoda; Zazwyczaj nie trzeba opóźnionego ładowania, ponieważ tworzysz nowy obiekt, który nie znajduje się w bazie danych i zazwyczaj nie trzeba zmian, jeśli jest jawnie oznaczenie jednostki jako `Added`. Jednak jeśli trzeba opóźnionego ładowania i trzeba śledzenia zmian, możesz utworzyć nowe wystąpienia jednostki z serwerów proxy przy użyciu [Utwórz](https://msdn.microsoft.com/en-us/library/gg679504.aspx) metody `DbSet` klasy.
-- Możesz pobrać z typ obiektu pośredniczącego rzeczywistego typu jednostki. Można użyć [Element GetObjectType](https://msdn.microsoft.com/en-us/library/system.data.objects.objectcontext.getobjecttype.aspx) metody `ObjectContext` klasy można pobrać rzeczywistego typu jednostki wystąpienia typu serwera proxy.
+- W niektórych scenariuszach można zapobiec tworzenia wystąpień serwera proxy programu Entity Framework. Na przykład gdy w przypadku serializacji jednostek zazwyczaj mają klasy POCO, a nie klasy serwera proxy. Jeden sposób na uniknięcie problemów serializacji jest do serializacji obiektów transfer danych (DTOs) zamiast obiektów jednostek, jak pokazano w [przy użyciu interfejsu API sieci Web z programu Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-1.md) samouczka. Innym sposobem jest [wyłączyć tworzenie serwera proxy](https://msdn.microsoft.com/data/jj592886.aspx).
+- Gdy wystąpienia klasy jednostki przy użyciu `new` operator nie pobieraj wystąpienia serwera proxy. Oznacza to, że nie pobieraj funkcje, takie jak opóźnionego ładowania i automatyczne śledzenie zmian. Jest to zazwyczaj zgoda; Zazwyczaj nie trzeba opóźnionego ładowania, ponieważ tworzysz nowy obiekt, który nie znajduje się w bazie danych i zazwyczaj nie trzeba zmian, jeśli jest jawnie oznaczenie jednostki jako `Added`. Jednak jeśli trzeba opóźnionego ładowania i trzeba śledzenia zmian, możesz utworzyć nowe wystąpienia jednostki z serwerów proxy przy użyciu [Utwórz](https://msdn.microsoft.com/library/gg679504.aspx) metody `DbSet` klasy.
+- Możesz pobrać z typ obiektu pośredniczącego rzeczywistego typu jednostki. Można użyć [Element GetObjectType](https://msdn.microsoft.com/library/system.data.objects.objectcontext.getobjecttype.aspx) metody `ObjectContext` klasy można pobrać rzeczywistego typu jednostki wystąpienia typu serwera proxy.
 
-Aby uzyskać więcej informacji, zobacz [Praca z serwerów proxy](https://msdn.microsoft.com/en-us/data/JJ592886.aspx) w witrynie MSDN.
+Aby uzyskać więcej informacji, zobacz [Praca z serwerów proxy](https://msdn.microsoft.com/data/JJ592886.aspx) w witrynie MSDN.
 
 <a id="changedetection"></a>
 ## <a name="automatic-change-detection"></a>Zmiana automatycznego wykrywania
@@ -241,12 +241,12 @@ Entity Framework określa zmian jednostki (i w związku z tym aktualizacje, któ
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-Jeśli podczas śledzenia dużą liczbę jednostek i wywołania jednej z tych metod wiele razy w pętlę, można otrzymać znaczną poprawę wydajności wyłączając tymczasowo zmień automatycznego wykrywania przy użyciu [AutoDetectChangesEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx) właściwości. Aby uzyskać więcej informacji, zobacz [automatyczne wykrywanie zmian](https://msdn.microsoft.com/en-us/data/jj556205) w witrynie MSDN.
+Jeśli podczas śledzenia dużą liczbę jednostek i wywołania jednej z tych metod wiele razy w pętlę, można otrzymać znaczną poprawę wydajności wyłączając tymczasowo zmień automatycznego wykrywania przy użyciu [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx) właściwości. Aby uzyskać więcej informacji, zobacz [automatyczne wykrywanie zmian](https://msdn.microsoft.com/data/jj556205) w witrynie MSDN.
 
 <a id="validation"></a>
 ## <a name="automatic-validation"></a>Automatycznego sprawdzania poprawności
 
-Podczas wywoływania `SaveChanges` metody, domyślnie programu Entity Framework sprawdza poprawność danych we właściwościach wszystkich wszystkich jednostek zmienione przed zaktualizowaniem bazy danych. Jeśli użytkownik zaktualizował dużą liczbę jednostek i możesz już upewnieniu się, dane, tej pracy jest niepotrzebne można utworzyć procesu zapisywania zmian zająć mniej czasu tymczasowe wyłączenie sprawdzania poprawności. Możesz zrobić tego za pomocą [ValidateOnSaveEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx) właściwości. Aby uzyskać więcej informacji, zobacz [weryfikacji](https://msdn.microsoft.com/en-us/data/gg193959) w witrynie MSDN.
+Podczas wywoływania `SaveChanges` metody, domyślnie programu Entity Framework sprawdza poprawność danych we właściwościach wszystkich wszystkich jednostek zmienione przed zaktualizowaniem bazy danych. Jeśli użytkownik zaktualizował dużą liczbę jednostek i możesz już upewnieniu się, dane, tej pracy jest niepotrzebne można utworzyć procesu zapisywania zmian zająć mniej czasu tymczasowe wyłączenie sprawdzania poprawności. Możesz zrobić tego za pomocą [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx) właściwości. Aby uzyskać więcej informacji, zobacz [weryfikacji](https://msdn.microsoft.com/data/gg193959) w witrynie MSDN.
 
 <a id="tools"></a>
 ## <a name="entity-framework-power-tools"></a>Entity Framework zaawansowanych narzędzi
@@ -267,7 +267,7 @@ Mimo że kod źródłowy jest otwarty, Entity Framework jest w pełni obsługiwa
 <a id="summary"></a>
 ## <a name="summary"></a>Podsumowanie
 
-Na tym kończy się tej serii samouczków przy użyciu programu Entity Framework w aplikacji platformy ASP.NET MVC. Aby uzyskać więcej informacji na temat pracy z danymi przy użyciu programu Entity Framework, zobacz [EF stronę dokumentacji w witrynie MSDN](https://msdn.microsoft.com/en-us/data/ee712907) i [dostępu do danych programu ASP.NET - zalecane zasobów](../../../../whitepapers/aspnet-data-access-content-map.md).
+Na tym kończy się tej serii samouczków przy użyciu programu Entity Framework w aplikacji platformy ASP.NET MVC. Aby uzyskać więcej informacji na temat pracy z danymi przy użyciu programu Entity Framework, zobacz [EF stronę dokumentacji w witrynie MSDN](https://msdn.microsoft.com/data/ee712907) i [dostępu do danych programu ASP.NET - zalecane zasobów](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 Aby uzyskać więcej informacji na temat wdrażania aplikacji sieci web po jego powstanie zobacz [wdrożenie sieci Web programu ASP.NET - zalecane zasobów](../../../../whitepapers/aspnet-web-deployment-content-map.md) w bibliotece MSDN.
 

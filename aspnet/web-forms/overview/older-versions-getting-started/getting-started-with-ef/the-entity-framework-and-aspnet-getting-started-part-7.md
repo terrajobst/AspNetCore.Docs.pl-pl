@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 7697763b97e36304d686c77e8cedd060d630c530
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aeea122636f5235364e6a40cb6e041b1fe221317
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i formularzy sieci Web 4 ASP.NET - część 7
 ====================
@@ -135,7 +135,7 @@ Zamień ten element następujący kod:
 
 Strona używa teraz `GetCourses` przechowywane procedury, aby pobrać listę wszystkich kursów. Uruchomić stronę, aby sprawdzić, czy działa tak jak poprzednio.
 
-(Właściwości nawigacji jednostki pobierane przez procedurę składowaną może nie automatycznie wypełniane przy użyciu danych związanych z tymi podmiotami, w zależności od `ObjectContext` ustawienia domyślne. Aby uzyskać więcej informacji, zobacz [ładowanie powiązanych obiektów](https://msdn.microsoft.com/en-us/library/bb896272.aspx) w bibliotece MSDN.)
+(Właściwości nawigacji jednostki pobierane przez procedurę składowaną może nie automatycznie wypełniane przy użyciu danych związanych z tymi podmiotami, w zależności od `ObjectContext` ustawienia domyślne. Aby uzyskać więcej informacji, zobacz [ładowanie powiązanych obiektów](https://msdn.microsoft.com/library/bb896272.aspx) w bibliotece MSDN.)
 
 W następnym samouczku nauczysz się, jak ułatwić reguły programu i badanie danych formatowania i walidacji przy użyciu funkcji danych dynamicznych. Zamiast określania na każdej reguły strony sieci web, na przykład ciągi formatu danych i czy pole jest wymagane, takie reguły można określić w metadanych modelu danych i są automatycznie stosowane na każdej stronie.
 

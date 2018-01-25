@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: fa1cd068a7466e0b6b6fe7716090c8a7afd2a4d5
-ms.sourcegitcommit: ec9371e2fbfcb8d62e7e7cae69e7752f3f205385
+ms.openlocfilehash: 6ff9fd279a03197f761454bba3f180d7428b1b1f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-aspnet-web-api-2-c"></a>Wprowadzenie do składnika ASP.NET Web API 2 (C#)
 ====================
@@ -30,7 +30,7 @@ Interfejs API sieci Web platformy ASP.NET to platforma do tworzenia interfejsów
  
  ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
   
- - [Visual Studio 2017 r.](https://www.visualstudio.com/downloads/)
+ - [Visual Studio 2017](https://www.visualstudio.com/downloads/)
  - Składnik Web API 2
 
 Zobacz [Tworzenie składnika web API platformy ASP.NET Core i Visual Studio dla systemu Windows](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api) jest dostępna nowsza wersja tego samouczka.
@@ -186,11 +186,11 @@ Czy chcesz w witrynie Zakończono uruchomione jako aplikacji sieci web? Pełną 
 
 Potrzebujesz konta platformy Azure, aby wdrożyć to rozwiązanie do platformy Azure. Jeśli nie masz już konto, dostępne są następujące opcje:
 
-- [Otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymasz kredyt służy do wypróbowania płatnych usług Azure, a nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
-- [Aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -subskrypcji Your MSDN otrzymasz kredyt, co miesiąc, używanego programu płatnych usług Azure.
+- [Otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymasz kredyt służy do wypróbowania płatnych usług Azure, a nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
+- [Aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -subskrypcji Your MSDN otrzymasz kredyt, co miesiąc, używanego programu płatnych usług Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby bardziej szczegółowy przykład usługi HTTP, która obsługuje operacje POST, PUT i DELETE i zapisuje do bazy danych, zobacz [przy użyciu sieci Web API 2 z programu Entity Framework 6](../data/using-web-api-with-entity-framework/part-1.md).
 - Aby uzyskać więcej informacji na temat tworzenia aplikacji sieci web płynne i szybkie ponad usługą HTTP, zobacz [aplikacji jednej strony ASP.NET](../../../single-page-application/index.md).
-- Aby uzyskać informacje dotyczące wdrażania projektu sieci web programu Visual Studio w usłudze Azure App Service, zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+- Aby uzyskać informacje dotyczące wdrażania projektu sieci web programu Visual Studio w usłudze Azure App Service, zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).

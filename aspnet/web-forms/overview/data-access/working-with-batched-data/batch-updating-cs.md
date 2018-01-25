@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 506ecc9fad47cc39a0323e9ed18814c26e28ee47
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1210f9048401ca1b4e29d6dde9bf5dbef987091f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-updating-c"></a>Wsadowe aktualizacji (C#)
 ====================
@@ -47,7 +47,7 @@ Rozpoczynanie pracy dzięki s!
 
 ## <a name="examining-the-steps-for-making-all-gridview-rows-editable"></a>Badanie kroki dokonywania można edytować wszystkie wiersze w widoku GridView
 
-Zgodnie z opisem w [omówienie Wstawianie, aktualizowanie i usuwanie danych](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) samouczka widoku GridView udostępnia wbudowaną obsługę edytowanie jej odpowiednie dane na podstawie na wiersz. Wewnętrznie widoku GridView notatki wiersza można edytować za pomocą jego [ `EditIndex` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). Ponieważ w widoku GridView jest związany ze swoim źródłem danych, sprawdza każdego wiersza, aby zobaczyć, jeśli indeks wiersza jest równa wartości `EditIndex`. Jeśli tak, aby wiersz s, który ich edycję pola mają być renderowane interfejsów. BoundFields, interfejs edytowania jest pole tekstowe których `Text` właściwości jest przypisywana wartość pola danych, określonej przez s elementu BoundField `DataField` właściwości. Dla TemplateFields `EditItemTemplate` jest używany zamiast `ItemTemplate`.
+Zgodnie z opisem w [omówienie Wstawianie, aktualizowanie i usuwanie danych](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) samouczka widoku GridView udostępnia wbudowaną obsługę edytowanie jej odpowiednie dane na podstawie na wiersz. Wewnętrznie widoku GridView notatki wiersza można edytować za pomocą jego [ `EditIndex` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). Ponieważ w widoku GridView jest związany ze swoim źródłem danych, sprawdza każdego wiersza, aby zobaczyć, jeśli indeks wiersza jest równa wartości `EditIndex`. Jeśli tak, aby wiersz s, który ich edycję pola mają być renderowane interfejsów. BoundFields, interfejs edytowania jest pole tekstowe których `Text` właściwości jest przypisywana wartość pola danych, określonej przez s elementu BoundField `DataField` właściwości. Dla TemplateFields `EditItemTemplate` jest używany zamiast `ItemTemplate`.
 
 Odwołaj, gdy użytkownik kliknie przycisk Edytuj wiersz s rozpoczyna się edytowania przepływu pracy. To powoduje odświeżenie strony, ustawia GridView s `EditIndex` właściwości indeks wiersza klikniętej s i rebinds danych do siatki. Po kliknięciu przycisku Anuluj wiersza s na ogłaszania zwrotnego `EditIndex` ma ustawioną wartość `-1` przed ponownego wiązania danych do siatki. Ponieważ wierszy s GridView uruchomić indeksowania na zero, ustawienie `EditIndex` do `-1` powoduje wyświetlanie widoku GridView w trybie tylko do odczytu.
 
@@ -240,7 +240,7 @@ Utwórz metodę o nazwie `BatchUpdate` w `BatchUpdate.aspx.cs` i Dodaj następuj
 
 [!code-csharp[Main](batch-updating-cs/samples/sample5.cs)]
 
-Ta metoda rozpoczyna się od pobrania wszystkich produktów w `ProductsDataTable` rozmów na s logiki warstwy Biznesowej `GetProducts` metody. Następnie wylicza `ProductGrid` GridView s [ `Rows` kolekcji](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). `Rows` Kolekcja zawiera [ `GridViewRow` wystąpienia](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridviewrow.aspx) dla każdego wiersza wyświetlany w widoku GridView. Ponieważ firma Microsoft są wyświetlane maksymalnie dziesięciu wierszy na stronie, GridView s `Rows` kolekcji nie odniesie nie więcej niż dziesięć elementów.
+Ta metoda rozpoczyna się od pobrania wszystkich produktów w `ProductsDataTable` rozmów na s logiki warstwy Biznesowej `GetProducts` metody. Następnie wylicza `ProductGrid` GridView s [ `Rows` kolekcji](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). `Rows` Kolekcja zawiera [ `GridViewRow` wystąpienia](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewrow.aspx) dla każdego wiersza wyświetlany w widoku GridView. Ponieważ firma Microsoft są wyświetlane maksymalnie dziesięciu wierszy na stronie, GridView s `Rows` kolekcji nie odniesie nie więcej niż dziesięć elementów.
 
 Dla każdego wiersza `ProductID` jest pobierany z `DataKeys` kolekcji i odpowiednie `ProductsRow` wybrano `ProductsDataTable`. Programowo odwołuje się cztery kontrolki wejściowe TemplateField i ich wartości przypisane do `ProductsRow` wystąpienia właściwości s. Po każdym widoku GridView wartości wierszy s zostały już użyte do zaktualizowania `ProductsDataTable`, go s przekazany do s logiki warstwy Biznesowej `UpdateWithTransaction` metodę, która jako widzieliśmy w poprzednim samouczek, po prostu wywołuje w dół do DAL s `UpdateWithTransaction` metody.
 
@@ -270,7 +270,7 @@ Dla tych typów sytuacjach należy rozważyć użycie następujących `BatchUpda
 
 [!code-csharp[Main](batch-updating-cs/samples/sample7.cs)]
 
-`BatchMethodAlternate`Uruchamia, tworząc nowe puste `ProductsDataTable` o nazwie `products`. Następnie kroki do widoku GridView s `Rows` kolekcji i dla każdego wiersza pobiera informacje o określonym produktem przy użyciu logiki warstwy Biznesowej s `GetProductByProductID(productID)` metody. Pobranej `ProductsRow` wystąpienie ma właściwości zaktualizowane w taki sam sposób jak `BatchUpdate`, ale po zaktualizowaniu wiersza jest importowany do `products``ProductsDataTable` za pośrednictwem DataTable s [ `ImportRow(DataRow)` — metoda](https://msdn.microsoft.com/en-us/library/system.data.datatable.importrow(VS.80).aspx).
+`BatchMethodAlternate`Uruchamia, tworząc nowe puste `ProductsDataTable` o nazwie `products`. Następnie kroki do widoku GridView s `Rows` kolekcji i dla każdego wiersza pobiera informacje o określonym produktem przy użyciu logiki warstwy Biznesowej s `GetProductByProductID(productID)` metody. Pobranej `ProductsRow` wystąpienie ma właściwości zaktualizowane w taki sam sposób jak `BatchUpdate`, ale po zaktualizowaniu wiersza jest importowany do `products``ProductsDataTable` za pośrednictwem DataTable s [ `ImportRow(DataRow)` — metoda](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
 Po `foreach` pętli zakończeniu `products` zawiera jeden `ProductsRow` wystąpienia dla każdego wiersza w widoku GridView. Ponieważ każdy z `ProductsRow` wystąpienia zostały dodane do `products` (zamiast aktualizacji), jeśli ślepo jest przekazywana do `UpdateWithTransaction` — metoda `ProductsTableAdatper` podejmie próbę wstawienia każdego rekordu do bazy danych. Zamiast tego należy określić, że każdy z tych wierszy została zmodyfikowana (nie dodany).
 

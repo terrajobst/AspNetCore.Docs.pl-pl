@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 06c7fc31e138e9009640d20202e4745a61b68eeb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 120c35755784ba5a08a9592fdc58f17879848631
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="iteration-3--add-form-validation-c"></a>Iteracja #3 — Dodaj walidacji formularza (C#)
 ====================
@@ -63,7 +63,7 @@ W tym iteracji możemy dodać logikę weryfikacji bezpośrednio do akcji kontrol
 
 W tym iteracji aby zapewnić prosty, możemy zapisanie wszystkich kodu walidacji ręcznie. Zamiast pisanie kodu sprawdzania poprawności, nad, firma Microsoft może korzystać z strukturze weryfikacji. Na przykład można użyć Microsoft Enterprise biblioteki weryfikacji aplikacji bloku (VAB) wdrożyć logikę weryfikacji dla aplikacji ASP.NET MVC. Aby dowiedzieć się więcej na temat sprawdzania poprawności bloku aplikacji, zobacz:
 
-[*http://msdn.microsoft.com/en-us/library/dd203099.aspx*](https://msdn.microsoft.com/en-us/library/dd203099.aspx)
+[*http://msdn.microsoft.com/library/dd203099.aspx*](https://msdn.microsoft.com/library/dd203099.aspx)
 
 ## <a name="adding-validation-to-the-create-view"></a>Dodawanie walidacji do tworzenia widoku
 

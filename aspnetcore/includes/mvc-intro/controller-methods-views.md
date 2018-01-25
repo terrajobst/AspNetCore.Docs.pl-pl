@@ -1,5 +1,5 @@
 
-Omówione zostaną następujące czynności [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) w następnym samouczku. [Wyświetlić](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) Określa atrybut, co ma być wyświetlany dla nazwy pola (w tym przypadku "Data wydania" zamiast "ReleaseDate"). [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) atrybut określa typ danych (Data), co nie jest wyświetlane informacje o godzinie przechowywana w polu.
+Omówione zostaną następujące czynności [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) w następnym samouczku. [Wyświetlić](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) Określa atrybut, co ma być wyświetlany dla nazwy pola (w tym przypadku "Data wydania" zamiast "ReleaseDate"). [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) atrybut określa typ danych (Data), co nie jest wyświetlane w polu informacje o godzinie.
 
 Przejdź do `Movies` kontrolera i umieść wskaźnik myszy nad **Edytuj** łącze, aby wyświetlić docelowy adres URL.
 
@@ -9,7 +9,7 @@ Przejdź do `Movies` kontrolera i umieść wskaźnik myszy nad **Edytuj** łącz
 
 [!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
 
-[Pomocników tagów](xref:mvc/views/tag-helpers/intro) kodu po stronie serwera do tworzenia i renderowania elementów HTML w plikach Razor. W powyższym kodzie `AnchorTagHelper` dynamicznie generuje kod HTML `href` wartość atrybutu z identyfikator metody i tras akcji kontrolera. Możesz użyć **Wyświetl źródło** z ulubionych przeglądarki lub użyj narzędzia dla deweloperów do sprawdzenia wygenerowanego kodu znaczników. Poniżej przedstawiono fragment wygenerowanego kodu HTML:
+[Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) umożliwiają uczestniczenie kodu po stronie serwera w tworzeniu i renderowaniu elementów HTML w plikach Razor. W powyższym kodzie `AnchorTagHelper` dynamicznie generuje kod HTML `href` wartość atrybutu z identyfikator metody i tras akcji kontrolera. Możesz użyć **Wyświetl źródło** z ulubionych przeglądarki lub użyj narzędzia dla deweloperów do sprawdzenia wygenerowanego kodu znaczników. Poniżej przedstawiono fragment wygenerowanego kodu HTML:
 
 ```html
  <td>
@@ -77,18 +77,18 @@ Poniżej przedstawiono listę `[HttpPost]` wersji `Edit` metody akcji.
 
 [Modelu powiązania](xref:mvc/models/model-binding) systemu przyjmuje wartości przesłanego formularza i tworzy `Movie` obiekt, który jest przekazywany jako `movie` parametru. `ModelState.IsValid` Metoda sprawdza, czy dane dostarczone w formie może służyć do modyfikowania (edycji lub aktualizacji) `Movie` obiektu. Jeśli dane są prawidłowe są zapisywane. Dane zaktualizowane movie (edytowanych) są zapisywane w bazie danych przez wywołanie metody `SaveChangesAsync` metody kontekst bazy danych. Po zapisaniu danych, kod przekierowuje użytkownika do `Index` metody akcji `MoviesController` klasy, która wyświetla kolekcję film, w tym tylko zmiany.
 
-Przed opublikowania formularza do serwera, weryfikacji po stronie klienta sprawdza reguł sprawdzania poprawności w polach. Jeśli wystąpią jakieś błędy sprawdzania poprawności, zostanie wyświetlony komunikat o błędzie, a nie opublikowania formularza. Jeśli JavaScript jest wyłączona, nie będziesz mieć weryfikacji po stronie klienta, ale serwer wykryje opublikowanych wartości, które nie są prawidłowe, a wartości formularza zostanie wyświetlony ponownie, z komunikatów o błędach. Później w samouczku omówione [sprawdzania poprawności modelu](xref:mvc/models/validation) bardziej szczegółowo. [Pomocnika tagów weryfikacji](xref:mvc/views/working-with-forms) w *Views/Movies/Edit.cshtml* widok szablonu zajmuje się wyświetlanie odpowiednie komunikaty o błędach.
+Przed opublikowania formularza do serwera, weryfikacji po stronie klienta sprawdza reguł sprawdzania poprawności w polach. Jeśli wystąpią jakieś błędy sprawdzania poprawności, zostanie wyświetlony komunikat o błędzie i formularz nie jest opublikowane. Jeśli JavaScript jest wyłączona, nie będziesz mieć weryfikacji po stronie klienta, ale serwer wykryje opublikowanych wartości, które nie są prawidłowe, a wartości formularza zostanie wyświetlony ponownie, z komunikatów o błędach. Później w samouczku omówione [sprawdzania poprawności modelu](xref:mvc/models/validation) bardziej szczegółowo. [Pomocnika tagów weryfikacji](xref:mvc/views/working-with-forms) w *Views/Movies/Edit.cshtml* widok szablonu zajmuje się wyświetlanie odpowiednie komunikaty o błędach.
 
 ![Edytowanie widoku: wyjątek niepoprawną wartość ceny ABC określają, czy pole Cena musi być liczbą. Wyjątek niepoprawną wartość Data wydania stanów xyz należy wprowadzić prawidłową datą.](../../tutorials/first-mvc-app/controller-methods-views/_static/val.png)
 
-Wszystkie `HttpGet` metod w kontrolerze filmu wykonaj podobnego wzorca. Otrzymują obiektu movie (lub listę obiektów, w przypadku `Index`) oraz przekazania obiektu (model) do widoku. `Create` Metoda przekazuje obiekt pusty film, aby `Create` widoku. Wszystkie metody, które tworzenia, edytowania, usuwania lub modyfikację danych należy więc w `[HttpPost]` przeciążenia metody. Modyfikowanie danych w `HTTP GET` metody stanowi zagrożenie bezpieczeństwa. Modyfikowanie danych w `HTTP GET` metody również narusza HTTP najlepszych rozwiązań i architektury [REST](http://rest.elkstein.org/) wzorca, który określa, że żądania GET nie należy zmieniać stanu aplikacji. Innymi słowy wykonanie operacji GET powinny być bezpieczne operację, która nie ma skutków ubocznych i nie modyfikuje danych trwałych.
+Wszystkie `HttpGet` metod w kontrolerze filmu wykonaj podobnego wzorca. Otrzymują obiektu movie (lub listę obiektów, w przypadku `Index`) oraz przekazania obiektu (model) do widoku. `Create` Metoda przekazuje obiekt pusty film, aby `Create` widoku. Wszystkie metody, które tworzenia, edytowania, usuwania lub modyfikację danych należy więc w `[HttpPost]` przeciążenia metody. Modyfikowanie danych w `HTTP GET` metody stanowi zagrożenie bezpieczeństwa. Modyfikowanie danych w `HTTP GET` metody również narusza HTTP najlepszych rozwiązań i architektury [REST](http://rest.elkstein.org/) wzorca, który określa, że żądania GET nie należy zmienić stan aplikacji. Innymi słowy wykonanie operacji GET powinny być bezpieczne operację, która nie ma skutków ubocznych i nie modyfikuje danych trwałych.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lokalizacja i globalizacja](xref:fundamentals/localization)
+* [Globalizacja i lokalizacja](xref:fundamentals/localization)
 * [Wprowadzenie do pomocników tagów](xref:mvc/views/tag-helpers/intro)
 * [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
-* [Żądanie przed fałszerstwem](xref:security/anti-request-forgery)
+* [Ochrona przed fałszerstwem żądań](xref:security/anti-request-forgery)
 * Ochrona kontroler z [zbyt księgowej](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
 * [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Pomocnik Tag formularza](xref:mvc/views/working-with-forms)

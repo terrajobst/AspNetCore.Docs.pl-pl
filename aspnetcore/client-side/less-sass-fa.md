@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/less-sass-fa
-ms.openlocfilehash: c3a53d6118a72c00d61d9139b05325fd1cbd53da
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 764b11bbd301c0116488265d32f7d46dfc5bce27
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Wprowadzenie do aplikacji stylów jest mniejsza, Sass i czcionki świetny w ASP.NET Core
 
@@ -97,7 +97,7 @@ body {
 .bgDark2    {color:@darker2}
 ```
 
-`@base`a druga @-prefixed zmienne są elementy. Każdy z nich reprezentuje kolor. Z wyjątkiem `@base`, są ustawiane przy użyciu funkcji kolorów: rozjaśnić Ciemniej i pokrętła. Rozjaśnić i przyciemnić oczekiwaniami pomogą czy; SPIN dopasowuje odcień koloru liczba stopni (około koło kolorów). Inteligentne zignorować zmiennych, które nie są używane, tak aby zademonstrować, jak działają te zmienne, należy użyć je gdzieś jest mniej procesora. Klasy `.baseColor`, itp. zostaną przedstawione obliczone wartości poszczególnych zmiennych w utworzonym pliku CSS.
+`@base`a druga @-prefixed zmienne są elementy. Każdy z nich reprezentuje kolor. Z wyjątkiem `@base`, są ustawione przy użyciu funkcji kolorów: rozjaśnić Ciemniej i pokrętła. Rozjaśnić i przyciemnić oczekiwaniami pomogą czy; SPIN dopasowuje odcień koloru liczba stopni (około koło kolorów). Inteligentne zignorować zmiennych, które nie są używane, tak aby zademonstrować, jak działają te zmienne, należy użyć je gdzieś jest mniej procesora. Klasy `.baseColor`, itp. zostaną przedstawione obliczone wartości poszczególnych zmiennych w utworzonym pliku CSS.
 
 ### <a name="getting-started"></a>Wprowadzenie
 
@@ -246,7 +246,7 @@ nav {
 }
 ```
 
-Należy pamiętać, że w przypadku wszystkich elementów podrzędnych elementu `nav` są zawarte w swoim zakresie. Nie ma żadnych powtarzania elementy nadrzędne (`nav`, `li`, `a`), a liczba całkowita liczba wierszy spadła również (chociaż niektóre, który jest wynikiem wprowadzanie wartości w tej samej linii w drugim przykładzie). Może być bardzo przydatne, organizacji, aby wyświetlić wszystkie reguły dla danego elementu interfejsu użytkownika w zakresie ograniczonego jawnie, w tym przypadku ustawieniem od pozostałej części pliku nawiasów klamrowych.
+Należy pamiętać, że w przypadku wszystkich elementów podrzędnych elementu `nav` są zawarte w swoim zakresie. Nie ma żadnych powtarzania elementy nadrzędne (`nav`, `li`, `a`), a także spadła liczba całkowita liczba wierszy (chociaż niektóre który jest wynikiem wprowadzanie wartości w tej samej linii w drugim przykładzie). Może być bardzo przydatne, organizacji, aby wyświetlić wszystkie reguły dla danego elementu interfejsu użytkownika w zakresie ograniczonego jawnie, w tym przypadku ustawieniem od pozostałej części pliku nawiasów klamrowych.
 
 `&` Składni jest mniej funkcji selektor z & reprezentujący bieżącego elementu nadrzędnego selektora. Tak, w ramach {...} blok, `&` reprezentuje `a` tag, a tym samym `&:link` jest odpowiednikiem `a:link`.
 
@@ -321,7 +321,7 @@ Mniejsze udostępnia szereg dodatkowych funkcji, ale to należy przedstawić moc
 
 ## <a name="sass"></a>Sass
 
-Sass jest podobny do mniej, zapewniając obsługę wielu te same funkcje, ale ze składnią nieco inne. Jest zbudowany przy użyciu Ruby zamiast JavaScript, a więc ma wymagania dotyczące różnych konfiguracji. Język Sass oryginalny bez użycia nawiasów klamrowych lub średników, ale zamiast tego zdefiniowanego zakresu przy użyciu biały znak i wcięcia. W wersji 3 Sass wprowadzono nowej składni, **SCSS** ("Sassy CSS"). SCSS jest podobny do CSS, ponieważ ignoruje poziomów wcięć i spacja i użyje średnikami i nawiasów klamrowych.
+Sass jest podobny do mniej, zapewniając obsługę wielu te same funkcje, ale ze składnią nieco inne. Jest zbudowany przy użyciu Ruby zamiast JavaScript, a więc ma wymagania dotyczące różnych konfiguracji. Język Sass oryginalny nie użyto nawiasów klamrowych lub średników, ale zamiast tego zdefiniowanego zakresu przy użyciu biały znak i wcięcia. W wersji 3 Sass wprowadzono nowej składni, **SCSS** ("Sassy CSS"). SCSS jest podobny do CSS, ponieważ ignoruje poziomów wcięć i spacja i użyje średnikami i nawiasów klamrowych.
 
 Aby zainstalować Sass, zwykle można będzie najpierw zainstalować Ruby (wstępnie zainstalowane w systemie Mac), a następnie uruchom:
 

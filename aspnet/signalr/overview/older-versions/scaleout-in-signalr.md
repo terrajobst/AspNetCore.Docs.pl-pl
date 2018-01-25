@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: e6230d4d65adb8c9a064545ad761898ca53562bf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee3384046bf8a0f363aa6801d7a46f68b2bf125a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-scaleout-in-signalr-1x"></a>Wprowadzenie do skalowania w SignalR 1.x
 ====================
@@ -45,13 +45,13 @@ W przypadku wdrożenia aplikacji na platformie Azure, należy rozważyć użycie
 
 Samouczki krok po kroku dla każdej płyty montażowej można znaleźć w następujących tematach:
 
-- [Skalowania SignalR z usługi Azure Service Bus](scaleout-with-windows-azure-service-bus.md)
-- [Skalowania SignalR z pamięci podręcznej Redis](scaleout-with-redis.md)
-- [Skalowania SignalR z programem SQL Server](scaleout-with-sql-server.md)
+- [SignalR — skalowanie w poziomie z użyciem usługi Azure Service Bus](scaleout-with-windows-azure-service-bus.md)
+- [SignalR — skalowanie w poziomie z użyciem pamięci podręcznej Redis](scaleout-with-redis.md)
+- [SignalR — skalowanie w poziomie z użyciem programu SQL Server](scaleout-with-sql-server.md)
 
 ## <a name="implementation"></a>Implementacja
 
-W bibliotece SignalR każdy komunikat jest wysyłany za pośrednictwem magistrali komunikatów. Implementuje magistrali komunikatów [IMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) interfejsu, która dostarcza abstrakcji publikowania/subskrypcji. Montażowych pracy przez zastąpienie domyślnie **IMessageBus** z magistralą przeznaczone dla tego systemu backplane. Na przykład jest magistrali komunikatu Redis [RedisMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx), i używa pamięci podręcznej Redis [pub/sub](http://redis.io/topics/pubsub) mechanizm do wysyłania i odbierania wiadomości.
+W bibliotece SignalR każdy komunikat jest wysyłany za pośrednictwem magistrali komunikatów. Implementuje magistrali komunikatów [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) interfejsu, która dostarcza abstrakcji publikowania/subskrypcji. Montażowych pracy przez zastąpienie domyślnie **IMessageBus** z magistralą przeznaczone dla tego systemu backplane. Na przykład jest magistrali komunikatu Redis [RedisMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx), i używa pamięci podręcznej Redis [pub/sub](http://redis.io/topics/pubsub) mechanizm do wysyłania i odbierania wiadomości.
 
 Każde wystąpienie serwera łączy do systemu backplane za pośrednictwem magistrali. Po wysłaniu komunikatu trafia do systemu backplane i wysyła go do każdego serwera systemu backplane. Gdy serwer pobiera wiadomość z systemu backplane, umieszcza ją w lokalnej pamięci podręcznej. Serwer następnie dostarcza klientom z lokalnej pamięci podręcznej.
 

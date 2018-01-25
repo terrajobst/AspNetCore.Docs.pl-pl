@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fd365ca3ae8e832e368fa4c29c33af8a42cf41d2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d5cf45e391a2b32e1d22e160fd2757b754753875
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="paging-and-sorting-report-data-c"></a>Stronicowania i sortowania danych raportu (C#)
 ====================
@@ -101,7 +101,7 @@ Rysunek 6 przedstawia naszych postępu dotychczasowych widzianego za pośrednict
 
 ## <a name="step-3-adding-paging-support"></a>Krok 3: Dodawanie obsługi stronicowania
 
-Wyświetlanie listy *wszystkie* produktów na jednym ekranie może prowadzić do przeciążenia informacje dla użytkownika perusing danych. Aby sprawić, że wyniki łatwiejsze w obsłudze, możemy podzielić danych na mniejszym strony danych i umożliwia użytkownikowi kroków opisanych w jedną stronę danych w czasie. Aby wykonać to po prostu zaznacz pole wyboru Włącz stronicowanie w widoku GridView tag inteligentny s (to ustawienie GridView s [ `AllowPaging` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) do `true`).
+Wyświetlanie listy *wszystkie* produktów na jednym ekranie może prowadzić do przeciążenia informacje dla użytkownika perusing danych. Aby sprawić, że wyniki łatwiejsze w obsłudze, możemy podzielić danych na mniejszym strony danych i umożliwia użytkownikowi kroków opisanych w jedną stronę danych w czasie. Aby wykonać to po prostu zaznacz pole wyboru Włącz stronicowanie w widoku GridView tag inteligentny s (to ustawienie GridView s [ `AllowPaging` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) do `true`).
 
 
 [![Zaznacz pole wyboru stronicowania Włącz, aby dodać obsługę stronicowania](paging-and-sorting-report-data-cs/_static/image10.png)](paging-and-sorting-report-data-cs/_static/image9.png)
@@ -111,12 +111,12 @@ Wyświetlanie listy *wszystkie* produktów na jednym ekranie może prowadzić do
 
 Włączanie stronicowania ogranicza liczbę rekordów wyświetlanych na stronie i dodaje *interfejsu stronicowania* do widoku GridView. Domyślny interfejs stronicowania, pokazano na rysunku 7 jest szereg numery stron, dzięki czemu można szybko przejść z jednej strony danych do innego użytkownika. Ten interfejs stronicowania powinna wyglądać znajomo, jak firma Microsoft Zapisz go występuje w przypadku dodawania obsługi stronicowania do widoku DetailsView i FormView formantów w ciągu ostatnich samouczkach.
 
-Formanty widoku DetailsView i FormView Pokaż tylko jeden rekord na stronie. Jednak sprawdza widoku GridView, jego [ `PageSize` właściwości](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.pagesize.aspx) do ustalenia, ile rekordy wyświetlanych na stronie (Ta właściwość domyślnie przyjmowana jest wartość 10).
+Formanty widoku DetailsView i FormView Pokaż tylko jeden rekord na stronie. Jednak sprawdza widoku GridView, jego [ `PageSize` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.pagesize.aspx) do ustalenia, ile rekordy wyświetlanych na stronie (Ta właściwość domyślnie przyjmowana jest wartość 10).
 
 Tego widoku GridView widoku DetailsView i FormView interfejsu stronicowania s można dostosować z następującymi właściwościami:
 
 - `PagerStyle`Wskazuje informacji o stylu interfejsu stronicowania; można określić ustawień, takich jak `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`i tak dalej.
-- `PagerSettings`zawiera bevy właściwości, które można dostosować funkcjonalność interfejsu stronicowania; `PageButtonCount` wskazuje maksymalną liczbę numerów liczbowych strony wyświetlany w interfejsie stronicowania (wartość domyślna wynosi 10); [ `Mode` właściwości](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.pagersettings.mode.aspx) wskazuje, jak działa interfejs stronicowania i może być ustawiony na: 
+- `PagerSettings`zawiera bevy właściwości, które można dostosować funkcjonalność interfejsu stronicowania; `PageButtonCount` wskazuje maksymalną liczbę numerów liczbowych strony wyświetlany w interfejsie stronicowania (wartość domyślna wynosi 10); [ `Mode` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) wskazuje, jak działa interfejs stronicowania i może być ustawiony na: 
 
     - `NextPrevious`Pokazuje przycisków Następny i poprzedni, umożliwiając użytkownikowi krok przodu lub do tyłu jedną stronę w czasie
     - `NextPreviousFirstLast`Oprócz przycisków Następny i poprzedni pierwszy i ostatni przyciski również są uwzględnione, dzięki czemu użytkownik szybko przejść do pierwszej lub ostatniej strony danych
@@ -216,7 +216,7 @@ Jak pokazano na rysunku nr 11, zmiana jedynie GridView s `PageIndex` właściwo�
 
 ## <a name="step-5-adding-bi-directional-sorting-support"></a>Krok 5: Dodawanie obsługi sortowania dwukierunkowych
 
-Dodawanie sortowania Obsługa dwukierunkowych jest tak proste, jak dodać obsługę stronicowania po prostu zaznacz opcję Włącz sortowanie z tagów inteligentnych s GridView (który ustawia GridView s [ `AllowSorting` właściwości](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.allowsorting.aspx) do `true`). To pozwala każdej nagłówki pól s GridView jako LinkButtons, po kliknięciu, powoduje odświeżenie strony i zwrócić dane posortowane według kolumny klikniętego w kolejności rosnącej. Ponownie ponowne kliknięcie tego samego nagłówka LinkButton sortowania danych w kolejności malejącej.
+Dodawanie sortowania Obsługa dwukierunkowych jest tak proste, jak dodać obsługę stronicowania po prostu zaznacz opcję Włącz sortowanie z tagów inteligentnych s GridView (który ustawia GridView s [ `AllowSorting` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowsorting.aspx) do `true`). To pozwala każdej nagłówki pól s GridView jako LinkButtons, po kliknięciu, powoduje odświeżenie strony i zwrócić dane posortowane według kolumny klikniętego w kolejności rosnącej. Ponownie ponowne kliknięcie tego samego nagłówka LinkButton sortowania danych w kolejności malejącej.
 
 > [!NOTE]
 > Jeśli używasz niestandardowego Warstwa dostępu do danych, a nie typu zestawu danych nie może mieć opcję Włącz sortowanie w widoku GridView tag inteligentny s. Tylko GridViews powiązać ze źródłami danych, które natywnie obsługują sortowanie ma dostępne to pole wyboru. Wpisane DataSet zapewnia obsługę sortowania poza pole, ponieważ zapewnia ADO.NET DataTable `Sort` — metoda, gdy została wywołana, sortuje s DataTable wierszy danych przy użyciu określonych kryteriów.
@@ -243,11 +243,11 @@ Po dodaniu tego CSS podczas odwiedzania strony za pośrednictwem przeglądarki e
 
 GridView wszystkie pola elementu BoundField, CheckBoxField, TemplateField, i mieć itp `SortExpression` właściwość, która określa wyrażenie, które mają być używane do posortować dane, po kliknięciu tego pola s sortowania nagłówka łącza. Ma również widoku GridView `SortExpression` właściwości. Podczas sortowania nagłówka zostanie kliknięty przycisk łącza widoku GridView przypisuje tego pola s `SortExpression` do wartości jego `SortExpression` właściwości. Następnie ponownie pobrany z elementu ObjectDataSource i posortowane według GridView s danych `SortExpression` właściwości. Poniżej przedstawiono szczegóły wynika, gdy użytkownik końcowy sortuje dane w widoku GridView sekwencja kroków:
 
-1. GridView s [zdarzenia Sorting](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) uruchamiany
-2. GridView s [ `SortExpression` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) ma ustawioną wartość `SortExpression` pola, którego sortowania nagłówek został kliknięty przycisk łącza
+1. GridView s [zdarzenia Sorting](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) uruchamiany
+2. GridView s [ `SortExpression` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) ma ustawioną wartość `SortExpression` pola, którego sortowania nagłówek został kliknięty przycisk łącza
 3. Element ObjectDataSource ponownie pobiera wszystkie dane z logiki warstwy Biznesowej i następnie sortuje danych za pomocą s widoku GridView`SortExpression`
 4. GridView s `PageIndex` właściwość zostanie zresetowana do 0, co oznacza, że podczas sortowania użytkownika jest zwracana do pierwszej strony danych (przy założeniu, obsługę stronicowania została zaimplementowana)
-5. GridView s [ `Sorted` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) uruchamiany
+5. GridView s [ `Sorted` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) uruchamiany
 
 Jak stronicowania domyślne domyślną opcję sortowania ponownie pobiera *wszystkie* rekordy z logiki warstwy Biznesowej. Podczas korzystania z sortowania bez stronicowania lub w przypadku korzystania z sortowania z domyślne stronicowania, że s ma sposobu obejścia tego wydajności trafień (zbyt mała buforowanie danych w bazie danych). Jednak, ponieważ zajmiemy się w przyszłości samouczek go s umożliwia wydajne sortowanie danych podczas używania stronicowania niestandardowego.
 
@@ -274,7 +274,7 @@ Raz `SortExpression` właściwości zostały usunięte przez `UnitPrice` element
 
 ## <a name="programmatically-sorting-the-gridview"></a>Programowo sortowania w widoku GridView
 
-Można także sortować zawartość widoku GridView programowo przy użyciu widoku GridView s [ `Sort` metody](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sort.aspx). Po prostu Przekaż `SortExpression` wartość, aby posortować według wraz z [ `SortDirection` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` lub `Descending`), i dane s GridView będą ponownie sortowane.
+Można także sortować zawartość widoku GridView programowo przy użyciu widoku GridView s [ `Sort` metody](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sort.aspx). Po prostu Przekaż `SortExpression` wartość, aby posortować według wraz z [ `SortDirection` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` lub `Descending`), i dane s GridView będą ponownie sortowane.
 
 Wyobraź sobie powód możemy wyłączenia sortowanie według `UnitPrice` został, ponieważ wystąpiły Boisz, się klientów po prostu kupuje tylko produkty najniższej cenie. Jednak chcemy zachęcić kupić najdroższych produktów, dlatego firma Microsoft d podoba, aby można było sortować produkty cen, ale tylko z najdroższych cen do najmniej.
 
@@ -309,4 +309,4 @@ Programowanie przyjemność!
 [Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
-[Dalej](efficiently-paging-through-large-amounts-of-data-cs.md)
+[Next](efficiently-paging-through-large-amounts-of-data-cs.md)

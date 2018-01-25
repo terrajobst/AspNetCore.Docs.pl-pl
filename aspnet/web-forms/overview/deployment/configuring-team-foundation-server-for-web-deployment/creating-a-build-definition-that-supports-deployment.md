@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: c2e7a768c2cf9900731b822ec187093a4b250ead
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e5610753968328e5d0f1dba4cbbfed08480fd773
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>Tworzenie definicji kompilacji, która obsługuje wdrożenia
 ====================
@@ -42,7 +42,7 @@ Definicja kompilacji jest mechanizm, który określa, jak i kiedy kompilacje wys
 - Różnych innych parametrów procesu kompilacji.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji o definicje kompilacji, zobacz [Definiowanie procesu kompilacji](https://msdn.microsoft.com/en-us/library/ms181715.aspx).
+> Aby uzyskać więcej informacji o definicje kompilacji, zobacz [Definiowanie procesu kompilacji](https://msdn.microsoft.com/library/ms181715.aspx).
 
 
 W tym temacie opisano sposób tworzenia definicji kompilacji, która używa elementu konfiguracji, tak aby kompilacji jest wyzwalane, gdy projektant sprawdza w nową zawartość. Jeśli kompilacja zakończy się powodzeniem, usługa kompilacji uruchamia plik projektu niestandardowe, aby wdrożyć rozwiązanie do środowiska testowego.
@@ -149,7 +149,7 @@ Tych informacji umożliwia rozwiązywanie problemów z niepowodzeniem kompilacji
 
 ## <a name="monitor-the-build-process"></a>Monitorowanie procesu kompilacji
 
-TFS oferuje szeroką gamę funkcji, które pomagają monitorować proces kompilacji. Na przykład TFS można wysłać wiadomości e-mail lub wyświetlić alerty w obszarze powiadomień paska zadań po ukończeniu kompilacji. Aby uzyskać więcej informacji, zobacz [wykonywania i tworzy Monitor](https://msdn.microsoft.com/en-us/library/ms181721.aspx).
+TFS oferuje szeroką gamę funkcji, które pomagają monitorować proces kompilacji. Na przykład TFS można wysłać wiadomości e-mail lub wyświetlić alerty w obszarze powiadomień paska zadań po ukończeniu kompilacji. Aby uzyskać więcej informacji, zobacz [wykonywania i tworzy Monitor](https://msdn.microsoft.com/library/ms181721.aspx).
 
 ## <a name="conclusion"></a>Wniosek
 
@@ -159,7 +159,7 @@ Aby automatycznego wdrażania do pomyślnego jako część procesu kompilacji na
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać więcej informacji na temat tworzenia definicje kompilacji, zobacz [utworzyć podstawową definicję kompilacji](https://msdn.microsoft.com/en-us/library/ms181716.aspx) i [Definiowanie procesu kompilacji](https://msdn.microsoft.com/en-us/library/ms181715.aspx). Aby uzyskać więcej pomocy w przypadku kompilacji usługi kolejkowania wiadomości, zobacz [kolejki kompilację](https://msdn.microsoft.com/en-us/library/ms181722.aspx).
+Aby uzyskać więcej informacji na temat tworzenia definicje kompilacji, zobacz [utworzyć podstawową definicję kompilacji](https://msdn.microsoft.com/library/ms181716.aspx) i [Definiowanie procesu kompilacji](https://msdn.microsoft.com/library/ms181715.aspx). Aby uzyskać więcej pomocy w przypadku kompilacji usługi kolejkowania wiadomości, zobacz [kolejki kompilację](https://msdn.microsoft.com/library/ms181722.aspx).
 
 >[!div class="step-by-step"]
 [Poprzednie](configuring-a-tfs-build-server-for-web-deployment.md)

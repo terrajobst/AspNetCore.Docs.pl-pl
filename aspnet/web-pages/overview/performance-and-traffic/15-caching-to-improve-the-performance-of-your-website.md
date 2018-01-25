@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 msc.type: authoredcontent
-ms.openlocfilehash: c747fef33a6d1db19f09fd0303c47d689b956687
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 742409219bd3b05f8ddf2c0d5034919fc9bf1d26
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>Buforowanie danych w lokacji (Razor) stron sieci Web ASP.NET w celu poprawy wydajności
 ====================
@@ -36,7 +36,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 >   
 > 
 > W tym samouczku współdziała również z programu ASP.NET Web Pages 2.
@@ -75,7 +75,7 @@ Program ASP.NET zawiera `WebCache` pomocnika, która ułatwia dodawanie buforowa
     ![pamięć podręczna-1](15-caching-to-improve-the-performance-of-your-website/_static/image1.jpg)
 4. Odśwież *WebCache.cshtml* w przeglądarce. Teraz, przy zbieraniu danych jest w pamięci podręcznej. Zwróć uwagę, że czas nie zmieniła się od czasu ostatniego wyświetlania strony.
 
-    ![pamięć podręczna 2](15-caching-to-improve-the-performance-of-your-website/_static/image2.jpg)
+    ![cache-2](15-caching-to-improve-the-performance-of-your-website/_static/image2.jpg)
 5. Zaczekaj minutę dla można opróżnić pamięć podręczną, a następnie odśwież stronę. Strona ponownie wskazuje, że przy zbieraniu danych nie został znaleziony w pamięci podręcznej i zaktualizowane razem jest dodawany do pamięci podręcznej.
 
 <a id="Additional_Resources"></a>
@@ -83,4 +83,4 @@ Program ASP.NET zawiera `WebCache` pomocnika, która ułatwia dodawanie buforowa
 
 
 - [Wyświetlanie danych na wykresie](https://go.microsoft.com/fwlink/?LinkId=202895)
-- [Dokumentacja interfejsu API WebCache](https://msdn.microsoft.com/en-us/library/system.web.helpers.webcache(v=vs.99).aspx) (MSDN)
+- [Dokumentacja interfejsu API WebCache](https://msdn.microsoft.com/library/system.web.helpers.webcache(v=vs.99).aspx) (MSDN)

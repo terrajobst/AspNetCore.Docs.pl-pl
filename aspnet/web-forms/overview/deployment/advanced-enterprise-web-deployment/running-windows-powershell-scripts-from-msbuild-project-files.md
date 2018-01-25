@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: 5f6ba0655f5dc1d043b905428a3797ed141b0fed
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: afee7b0621df42a8bc70fc6f7c4a8fd0383fa83a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>Uruchomionych skryptów PowerShell systemu Windows z plików projektów MSBuild
 ====================
@@ -137,10 +137,10 @@ Po wykonaniu tego obiektu docelowego jako część procesu kompilacji programu W
 
 ## <a name="executing-a-windows-powershell-script-on-a-remote-computer"></a>Wykonywanie skryptu programu Windows PowerShell na komputerze zdalnym
 
-Program Windows PowerShell jest może uruchamiać skrypty na komputerach zdalnych za pośrednictwem [zdalnego zarządzania systemem Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384426.aspx) (WinRM). Aby to zrobić, należy użyć [Invoke-Command](https://technet.microsoft.com/en-us/library/dd347578.aspx) polecenia cmdlet. Dzięki temu można wykonać skryptu na co najmniej jeden komputer zdalny bez kopiowania skrypt do komputerów zdalnych. Wyniki są zwracane do komputera lokalnego, z którego uruchomiono skrypt.
+Program Windows PowerShell jest może uruchamiać skrypty na komputerach zdalnych za pośrednictwem [zdalnego zarządzania systemem Windows](https://msdn.microsoft.com/library/windows/desktop/aa384426.aspx) (WinRM). Aby to zrobić, należy użyć [Invoke-Command](https://technet.microsoft.com/library/dd347578.aspx) polecenia cmdlet. Dzięki temu można wykonać skryptu na co najmniej jeden komputer zdalny bez kopiowania skrypt do komputerów zdalnych. Wyniki są zwracane do komputera lokalnego, z którego uruchomiono skrypt.
 
 > [!NOTE]
-> Przed użyciem **Invoke-Command** skrypty polecenia cmdlet do wykonania programu Windows PowerShell na komputerze zdalnym, należy skonfigurować odbiornik usługi WinRM do akceptowania zdalnego wiadomości. Można to zrobić, uruchamiając polecenie **winrm quickconfig** na komputerze zdalnym. Aby uzyskać więcej informacji, zobacz [instalacji i konfiguracji do zdalnego zarządzania systemem Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384372(v=vs.85).aspx).
+> Przed użyciem **Invoke-Command** skrypty polecenia cmdlet do wykonania programu Windows PowerShell na komputerze zdalnym, należy skonfigurować odbiornik usługi WinRM do akceptowania zdalnego wiadomości. Można to zrobić, uruchamiając polecenie **winrm quickconfig** na komputerze zdalnym. Aby uzyskać więcej informacji, zobacz [instalacji i konfiguracji do zdalnego zarządzania systemem Windows](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx).
 
 
 Z okna programu Windows PowerShell, należy użyć następującej składni, aby Uruchom **LogDeploy.ps1** skryptu na komputerze zdalnym:
@@ -179,7 +179,7 @@ W tym temacie opisano sposób uruchamiania skryptu programu Windows PowerShell z
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać wskazówki dotyczące podpisywania skryptów programu Windows PowerShell i zarządzanie zasadami wykonywania, zobacz [uruchomione skrypty programu Windows PowerShell](https://technet.microsoft.com/en-us/library/ee176949.aspx). Aby uzyskać wskazówki na temat uruchamiania poleceń programu Windows PowerShell z komputera zdalnego, zobacz [uruchamiania poleceń zdalnych](https://technet.microsoft.com/en-us/library/dd819505.aspx).
+Aby uzyskać wskazówki dotyczące podpisywania skryptów programu Windows PowerShell i zarządzanie zasadami wykonywania, zobacz [uruchomione skrypty programu Windows PowerShell](https://technet.microsoft.com/library/ee176949.aspx). Aby uzyskać wskazówki na temat uruchamiania poleceń programu Windows PowerShell z komputera zdalnego, zobacz [uruchamiania poleceń zdalnych](https://technet.microsoft.com/library/dd819505.aspx).
 
 Aby uzyskać więcej informacji na temat używania niestandardowe pliki projektu MSBuild kontrolować proces wdrażania, zobacz [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md) i [opis procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
 

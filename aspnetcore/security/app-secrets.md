@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: e2c11b768098b3d92ef702e0daad746963dc3856
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 94356cef7a0333f0faac6420b1b5425920b99deb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Bezpieczne przechowywanie kluczy tajnych aplikacji w czasie opracowywania w ASP.NET Core
 
@@ -37,7 +37,7 @@ Na przykład w przypadku utworzenia nowej aplikacji sieci web platformy ASP.NET 
 Narzędzie Menedżer klucz tajny są przechowywane poufne dane w projektach poza drzewa Twojego projektu. Narzędzie Menedżer klucz tajny jest narzędzie projektu, który może służyć do przechowywania kluczy tajnych dla [.NET Core](https://www.microsoft.com/net/core) projektu w czasie projektowania. Za pomocą narzędzia menedżera klucz tajny można skojarzyć klucze tajne aplikacji z określonego projektu i udostępniać je w wielu projektach.
 
 >[!WARNING]
-> Narzędzie Menedżer klucz tajny Szyfruj przechowywane klucze tajne i nie powinien być traktowany jako zaufany magazyn. Jest tylko do celów programistycznych. Klucze i wartości są przechowywane w pliku konfiguracji JSON w katalogu profilu użytkownika.
+> Narzędzie Menedżer klucz tajny nie Szyfruj przechowywane klucze tajne i nie powinny być traktowane jako zaufanego magazynu. Jest tylko do celów programistycznych. Klucze i wartości są przechowywane w pliku konfiguracji JSON w katalogu profilu użytkownika.
 
 ## <a name="installing-the-secret-manager-tool"></a>Instalowanie narzędzia menedżera klucz tajny
 
@@ -122,7 +122,7 @@ Narzędzie Menedżer klucz tajny optymalizacji abstracts szczegóły implementac
 
 Wartość `userSecretsId` pochodzi z wartością określoną w *.csproj* pliku.
 
-Nie należy pisania kodu, który zależy od lokalizacji lub format dane zapisane za pomocą narzędzia menedżera klucz tajny, jak te szczegóły implementacji mogą ulec zmianie. Na przykład tajny wartości są obecnie *nie* dzisiaj zaszyfrowany, ale może być w przyszłości.
+Nie należy napisać kod, który zależy od lokalizacji lub format dane zapisane za pomocą narzędzia menedżera klucz tajny, jak te szczegóły implementacji mogą ulec zmianie. Na przykład tajny wartości są obecnie *nie* dzisiaj zaszyfrowany, ale może być w przyszłości.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
-ms.openlocfilehash: a1fe1844e582f402a1eed9ddf10ee249e856b083
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c3ddd4e341511f520927e924b25d890088adb69e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-mvc-template"></a>Szablon niestandardowy MVC
 ====================
@@ -26,7 +26,7 @@ Wersja aktualizacji narzędzi programu MVC 3 dla programu Visual Studio 2010 wpr
 
 Dodawanie niestandardowych szablonów został uciążliwe procesu, który zależał od za pomocą rejestru, aby wyświetlić nowe szablony Kreator projektów MVC. Tworzenie nowego szablonu było zawijany MSI, aby upewnić się, że wpisy rejestru niezbędne zostałyby utworzone w czasie instalacji. Alternatywne został plik ZIP zawierający dostępny szablon i mieć ręcznie utworzyć wpisy rejestru wymagane przez użytkownika.
 
-Żadna z wyżej wymienionych metod doskonale, zdecydowaliśmy się korzystać z niektórych istniejącą infrastrukturę [VSIX](https://msdn.microsoft.com/en-us/library/ff363239.aspx) rozszerzenia, aby ułatwić autora, dystrybucji i zainstalować szablonów niestandardowych MVC, począwszy od MVC 4 dla programu Visual Studio 2012. Niektóre z zalet tej metody to:
+Żadna z wyżej wymienionych metod doskonale, zdecydowaliśmy się korzystać z niektórych istniejącą infrastrukturę [VSIX](https://msdn.microsoft.com/library/ff363239.aspx) rozszerzenia, aby ułatwić autora, dystrybucji i zainstalować szablonów niestandardowych MVC, począwszy od MVC 4 dla programu Visual Studio 2012. Niektóre z zalet tej metody to:
 
 - Rozszerzenie VSIX może zawierać wiele szablonów, które włączenia obsługi różnych języków (C# i Visual Basic) i wiele aparatów widoku (ASPX i Razor).
 - Rozszerzenie VSIX celem może być wiele jednostki SKU programu Visual Studio Express SKU włącznie.
@@ -63,15 +63,15 @@ Jeśli zamierzasz obsługiwać wszystkie Professional i nowsze wersje produktu (
 
 **Zasoby** karta służy do dodawania wszystkie pliki zawartości do pliku VSIX. Ponieważ MVC wymaga metadanych niestandardowych można będzie edycji raw XML w pliku manifestu VSIX zamiast **zasoby** kartę, aby dodać zawartość. Rozpocznij od dodania zawartość szablonu projektu VSIX. Należy pamiętać, że struktura folderu i zawartość duplikatów układ projektu. Poniższy przykład zawiera cztery szablony projektów, utworzone na podstawie szablonu projektu podstawowe MVC. Upewnij się, że wszystkie pliki wchodzące w skład szablonu projektu (wszystko pod folderem ProjectTemplates) są dodawane do **zawartości** itemgroup w pliku VSIX projektu pliku oraz że każdy element zawiera  **CopyToOutputDirectory** i **IncludeInVsix** zestawu metadanych, jak pokazano w poniższym przykładzie.
 
-&lt;Zawartość =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
+&lt;Content Include=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
 
-&lt;CopyToOutputDirectory&gt;zawsze&lt;/CopyToOutputDirectory&gt;
+&lt;CopyToOutputDirectory&gt;Always&lt;/CopyToOutputDirectory&gt;
 
 &lt;IncludeInVSIX&gt;true&lt;/IncludeInVSIX&gt;
 
-&lt;/ Zawartości&gt;
+&lt;/Content&gt;
 
-W przeciwnym razie IDE spróbuje Kompilacja zawartości szablonu podczas tworzenia pliku VSIX i prawdopodobnie zostanie wyświetlony komunikat o błędzie. Pliki kodu w szablonach często zawierają specjalne [parametrów szablonu](https://msdn.microsoft.com/en-us/library/eehb4faa(v=vs.110).aspx) używana przez program Visual Studio, gdy szablon projektu zostanie uruchomiony i nie można skompilować w IDE.
+W przeciwnym razie IDE spróbuje Kompilacja zawartości szablonu podczas tworzenia pliku VSIX i prawdopodobnie zostanie wyświetlony komunikat o błędzie. Pliki kodu w szablonach często zawierają specjalne [parametrów szablonu](https://msdn.microsoft.com/library/eehb4faa(v=vs.110).aspx) używana przez program Visual Studio, gdy szablon projektu zostanie uruchomiony i nie można skompilować w IDE.
 
 ![Eksplorator rozwiązań](custom-mvc-templates/_static/image6.jpg)
 
@@ -83,21 +83,21 @@ Utwórz  **&lt;zasoby&gt;**  element i Dodaj  **&lt;zasobów&gt;**  elementu dla
 
 Tylko dodanie plików do pliku VSIX nie wystarcza do rejestracji szablonów przy użyciu Kreatora MVC. Musisz podać informacje, takie jak nazwa szablonu, opis i aparatów widoków obsługiwanych język programowania, w Kreatorze programu MVC. Te informacje są przenoszone w niestandardowe atrybuty powiązane z  **&lt;zasobów&gt;**  elementu dla każdego **vstemplate** pliku.
 
-&lt;D:VsixSubPath zasobów =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
+&lt;Asset d:VsixSubPath=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
 
-Typ =&quot;Microsoft.VisualStudio.Mvc.Template&quot;
+Type=&quot;Microsoft.VisualStudio.Mvc.Template&quot;
 
-d:Source =&quot;pliku&quot;
+d:Source=&quot;File&quot;
 
-Ścieżka =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
+Path=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
 
-Typ projektu =&quot;MVC&quot;
+ProjectType=&quot;MVC&quot;
 
-Język =&quot;C#&quot;
+Language=&quot;C#&quot;
 
-ViewEngine =&quot;Aspx&quot;
+ViewEngine=&quot;Aspx&quot;
 
-TemplateId =&quot;MyMvcApplication&quot;
+TemplateId=&quot;MyMvcApplication&quot;
 
 Tytuł =&quot;niestandardowej podstawowe aplikacji sieci Web&quot;
 

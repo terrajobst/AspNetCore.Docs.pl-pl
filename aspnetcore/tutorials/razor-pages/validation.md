@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 2c7473647f23daf20ce7b204f621fb34f1a528c2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 43d9ecacc479dac3eff35cc745b30d859c5cfd1d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Dodawanie walidacji do strony Razor
 
@@ -59,7 +59,7 @@ Zwróć uwagę, jak formularz automatycznie renderowany komunikat o błędzie we
 
 Jest to znaczące korzyści, że **nie** zmiany kodu zostały niezbędne na stronach Tworzenie lub edytowanie. Po DataAnnotations zostały zastosowane do modelu, została włączona weryfikacja interfejsu użytkownika. Stron Razor utworzonej w tym samouczku automatycznie pobierane reguł sprawdzania poprawności (przy użyciu atrybutów weryfikacji właściwości `Movie` klasa modelu). Weryfikacja testów za pomocą edycji strony tego samego sprawdzania poprawności jest stosowany.
 
-Dane formularza nie jest przesłane do serwera, dopóki nie ma żadnych błędów weryfikacji po stronie klienta. Sprawdź formularza, do którego dane nie jest przesyłane przez jedną lub więcej z następujących metod:
+Dane formularza nie jest opublikowana do serwera, dopóki nie ma żadnych błędów weryfikacji po stronie klienta. Sprawdź formularza, do którego dane nie jest przesyłane przez jedną lub więcej z następujących metod:
 
 * Umieść punkt przerwania w `OnPostAsync` metody. Walidacja (wybierz **Utwórz** lub **zapisać**). Nigdy nie zostaje trafiony punkt przerwania.
 * Użyj [narzędzie Fiddler](http://www.telerik.com/fiddler).
@@ -103,7 +103,7 @@ Sprawdź `Movie` klasy. `System.ComponentModel.DataAnnotations` Przestrzeń nazw
 
 `DataType` Wyliczenie zawiera wiele typów danych, takich jak daty, godziny, numer telefonu, waluty, EmailAddress i więcej. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza `DataType.EmailAddress`. Można podać selektora daty `DataType.Date` w przeglądarkach obsługujących HTML5. `DataType` Atrybuty emituje HTML 5 `data-` atrybutów (dash wyraźnym danych), które korzystać z przeglądarki HTML 5. `DataType` Czy atrybuty **nie** Podaj wszystkich sprawdzania poprawności.
 
-`DataType.Date`Określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze `CultureInfo`.
+`DataType.Date`nie określono format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze `CultureInfo`.
 
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 

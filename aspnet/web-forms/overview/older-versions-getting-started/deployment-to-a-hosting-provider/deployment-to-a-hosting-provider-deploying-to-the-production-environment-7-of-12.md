@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: ad44968975b7929f5b0f70334deabc7238797402
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4aa6766c2c7765f499f5c5380962a5fe443e8c9d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: wdrażania w środowisku produkcyjnym - 7 12
 ====================
@@ -246,7 +246,7 @@ Pierwsza z tych metod jest oczywiście najwyższy poziom bezpieczeństwa, ale pr
 
 `User-agent` Wiersza poleca aparatów wyszukiwania, które zasady w pliku dotyczą wszystkich aparat web przeszukiwarek (robotów), i `Disallow` wiersz określa, że można przeszukać stron w witrynie.
 
-Aparaty wyszukiwania do katalogu witryny sieci produkcyjnej, więc należy wykluczyć ten plik z wdrożenia w środowisku produkcyjnym pożądane. Aby to zrobić, zobacz **można wykluczyć określone pliki lub foldery z wdrożenia?** w [ASP.NET sieci Web aplikacji projektu wdrożenia — często zadawane pytania](https://msdn.microsoft.com/en-us/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment). Upewnij się, określ wykluczenia, tylko dla profilu publikowania produkcji.
+Aparaty wyszukiwania do katalogu witryny sieci produkcyjnej, więc należy wykluczyć ten plik z wdrożenia w środowisku produkcyjnym pożądane. Aby to zrobić, zobacz **można wykluczyć określone pliki lub foldery z wdrożenia?** w [ASP.NET sieci Web aplikacji projektu wdrożenia — często zadawane pytania](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment). Upewnij się, określ wykluczenia, tylko dla profilu publikowania produkcji.
 
 Tworzenie drugiego konta hostingu jest podejście do pracy z środowiska testowego nie jest wymagana, ale może być warto dodano wydatków. W następujących samouczkach nastąpi przejście do używania serwera IIS jako środowiska testowego.
 

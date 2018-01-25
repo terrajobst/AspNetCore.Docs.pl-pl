@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: 5c0e16df7d60b944c96f8d5510225fff321124d1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9fe6f28685d6a423b03f9c7abe753283b89344e1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="shopping-cart"></a>Koszyk
 ====================
@@ -321,7 +321,7 @@ Moduł koszyka zakupów obsługuje dodawanie, usuwanie i aktualizowanie element�
 
 ## <a name="addition-information"></a>Dodatkowych informacji
 
-[Przegląd stanu sesji ASP.NET](https://msdn.microsoft.com/en-us/library/ms178581.aspx)
+[Przegląd stanu sesji ASP.NET](https://msdn.microsoft.com/library/ms178581.aspx)
 
 >[!div class="step-by-step"]
 [Poprzednie](display_data_items_and_details.md)

@@ -18,7 +18,7 @@ Aktualizacja `Movie` klasy, aby móc korzystać z wbudowanych `Required`, `Strin
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
-Atrybuty weryfikacji Określ zachowanie, które mają zostać wymuszone we właściwościach modelu, które są stosowane do. `Required` i `MinimumLength` atrybuty wskazuje, że właściwość musi mieć wartość, ale nic nie uniemożliwia wprowadzanie biały znak do zaspokojenia tej weryfikacji przez użytkownika. `RegularExpression` Atrybut służy do ograniczania znaków, które można wprowadzić. W powyższym kodzie `Genre` i `Rating` należy używać tylko liter (białe miejsca, cyfry i znaki specjalne są niedozwolone). `Range` Atrybut ogranicza wartość do określonego zakresu. `StringLength` Atrybut pozwala określić maksymalną długość ciągu właściwości oraz opcjonalnie długości minimalnej. Typy wartości (takie jak `decimal`, `int`, `float`, `DateTime`) są z założenia wymagane i nie wymagają `[Required]` atrybutu.
+Atrybuty weryfikacji Określ zachowanie, które mają zostać wymuszone we właściwościach modelu, do którego jest stosowany. `Required` i `MinimumLength` atrybuty wskazuje, że właściwość musi mieć wartość, ale nic nie uniemożliwia wprowadzanie biały znak do zaspokojenia tej weryfikacji przez użytkownika. `RegularExpression` Atrybut służy do ograniczania znaków, które można wprowadzić. W powyższym kodzie `Genre` i `Rating` należy używać tylko liter (białe miejsca, cyfry i znaki specjalne są niedozwolone). `Range` Atrybut ogranicza wartość do określonego zakresu. `StringLength` Atrybut pozwala określić maksymalną długość ciągu właściwości oraz opcjonalnie długości minimalnej. Typy wartości (takie jak `decimal`, `int`, `float`, `DateTime`) są z założenia wymagane i nie wymagają `[Required]` atrybutu.
 
 Posiadanie reguły sprawdzania poprawności automatycznie wymuszane przez ASP.NET pomaga upewnij bardziej niezawodnych aplikacji. Gwarantuje również, że nie zapomnisz do sprawdzania poprawności coś i przypadkowo let złe dane do bazy danych.
 
@@ -37,7 +37,7 @@ Zwróć uwagę, jak formularz automatycznie renderowany odpowiedni komunikat o b
 
 Znaczące korzyści jest, że nie trzeba zmienić pojedynczy wiersz kodu w `MoviesController` klasy lub *Create.cshtml* widoku w celu umożliwienia tej weryfikacji interfejsu użytkownika. Kontroler i widoki utworzone wcześniej w tym samouczku automatycznie pobierane up sprawdzania poprawności reguły, określona za pomocą atrybutów weryfikacji właściwości `Movie` klasa modelu. Test weryfikacji za pomocą `Edit` metody akcji, a tym samym sprawdzania poprawności jest stosowany.
 
-Dane nie są wysyłane do serwera, dopóki nie ma żadnych błędów weryfikacji po stronie klienta. Można to sprawdzić, ustawiając dla punktu przerwania `HTTP Post` — metoda, za pomocą [narzędzie Fiddler](http://www.telerik.com/fiddler) , lub [F12 Developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).
+Dane formularza nie jest wysyłane do serwera, dopóki nie ma żadnych błędów weryfikacji po stronie klienta. Można to sprawdzić, ustawiając dla punktu przerwania `HTTP Post` — metoda, za pomocą [narzędzie Fiddler](http://www.telerik.com/fiddler) , lub [F12 Developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).
 
 ## <a name="how-validation-works"></a>Działanie sprawdzania poprawności
 
@@ -45,9 +45,9 @@ Może zastanawiasz się, jak weryfikacji interfejsu użytkownika został wygener
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Controllers/MoviesController.cs?name=snippetCreate)]
 
-Pierwszy (HTTP GET) `Create` formularza początkowego Utwórz Wyświetla metody akcji. Druga (`[HttpPost]`) wersja obsługuje post formularza. Drugi `Create` — metoda ( `[HttpPost]` wersji) wywołań `ModelState.IsValid` do sprawdzenia, czy film ma jakieś błędy sprawdzania poprawności. Wywołanie tej metody ocenia wszystkie atrybuty weryfikacji, które zostały zastosowane do tego obiektu. Jeśli obiekt ma błędy sprawdzania poprawności `Create` — metoda zostanie ponownie wyświetlony formularz. Jeśli nie ma żadnych błędów, metoda zapisuje nowe filmu w bazie danych. W naszym przykładzie filmu nie opublikowania formularza na serwerze, gdy występują błędy sprawdzania poprawności wykryto po stronie klienta; drugi `Create` metoda nigdy nie jest wywoływana, gdy występują błędy sprawdzania poprawności po stronie klienta. Jeśli wyłączysz JavaScript w przeglądarce, sprawdzanie poprawności klienta jest wyłączona i można przetestować HTTP POST `Create` metody `ModelState.IsValid` wykrywanie jakieś błędy sprawdzania poprawności.
+Pierwszy (HTTP GET) `Create` formularza początkowego Utwórz Wyświetla metody akcji. Druga (`[HttpPost]`) wersja obsługuje post formularza. Drugi `Create` — metoda ( `[HttpPost]` wersji) wywołań `ModelState.IsValid` do sprawdzenia, czy film ma jakieś błędy sprawdzania poprawności. Wywołanie tej metody ocenia wszystkie atrybuty weryfikacji, które zostały zastosowane do tego obiektu. Jeśli obiekt ma błędy sprawdzania poprawności `Create` — metoda zostanie ponownie wyświetlony formularz. Jeśli nie ma żadnych błędów, metoda zapisuje nowe filmu w bazie danych. W naszym przykładzie filmu formularza nie jest zaksięgowany na serwerze, gdy występują błędy sprawdzania poprawności wykryto po stronie klienta; drugi `Create` metoda nigdy nie jest wywoływana, gdy występują błędy sprawdzania poprawności po stronie klienta. Jeśli wyłączysz JavaScript w przeglądarce, sprawdzanie poprawności klienta jest wyłączona i można przetestować HTTP POST `Create` metody `ModelState.IsValid` wykrywanie jakieś błędy sprawdzania poprawności.
 
-Można ustawić punktu przerwania w `[HttpPost] Create` — metoda i sprawdź nigdy nie jest wywoływana metoda, weryfikacji po stronie klienta nie prześle dane formularza w przypadku wykrycia błędów sprawdzania poprawności. Jeśli musisz wyłączyć JavaScript w przeglądarce, a następnie przesłać formularza z błędami, nastąpi trafienie punktu przerwania. Nadal otrzymywać pełne sprawdzanie poprawności bez JavaScript. 
+Można ustawić punktu przerwania w `[HttpPost] Create` — metoda i sprawdź nigdy nie jest wywoływana metoda, weryfikacji po stronie klienta nie będzie dłużej przesyłać dane formularza, gdy wykryto błędy sprawdzania poprawności. Jeśli musisz wyłączyć JavaScript w przeglądarce, a następnie przesłać formularza z błędami, nastąpi trafienie punktu przerwania. Nadal otrzymywać pełne sprawdzanie poprawności bez JavaScript. 
 
 Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce FireFox.
 
@@ -77,9 +77,9 @@ Otwórz *Movie.cs* pliku i sprawdź, czy `Movie` klasy. `System.ComponentModel.D
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
-`DataType` Atrybuty zapewniają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i podaj atrybutów, takich jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` do obsługi poczty e-mail. Można użyć `RegularExpression` atrybut do zweryfikowania formatu danych. `DataType` Atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych, nie są one atrybutów sprawdzania poprawności. W takim przypadku tylko chcemy śledzić datę, a nie czas. `DataType` Wyliczenie zapewnia dla różnych typów danych, takie jak data, czas, numer telefonu, waluty, EmailAddress i inne. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza `DataType.EmailAddress`, i może zostać dostarczony selektora daty `DataType.Date` w przeglądarkach obsługujących HTML5. `DataType` Atrybuty emituje HTML 5 `data-` atrybutów (wyraźnym danych dash), które byłyby zrozumiałe dla przeglądarki HTML 5. `DataType` Czy atrybuty **nie** Podaj wszystkich sprawdzania poprawności.
+`DataType` Atrybuty zapewniają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i dostarcza elementy/atrybutów, takich jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` do obsługi poczty e-mail. Można użyć `RegularExpression` atrybut do zweryfikowania formatu danych. `DataType` Atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych, nie ma atrybutów sprawdzania poprawności. W takim przypadku tylko chcemy śledzić datę, a nie czas. `DataType` Wyliczenie zapewnia dla różnych typów danych, takie jak data, czas, numer telefonu, waluty, EmailAddress i inne. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza `DataType.EmailAddress`, i może zostać dostarczony selektora daty `DataType.Date` w przeglądarkach obsługujących HTML5. `DataType` Atrybuty emituje HTML 5 `data-` atrybutów (wyraźnym danych dash), które byłyby zrozumiałe dla przeglądarki HTML 5. `DataType` Czy atrybuty **nie** Podaj wszystkich sprawdzania poprawności.
 
-`DataType.Date`Określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze `CultureInfo`.
+`DataType.Date`nie określono format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze `CultureInfo`.
 
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 
@@ -99,7 +99,7 @@ Można użyć `DisplayFormat` atrybutu przez sam, ale jest zwykle warto użyć `
 * `DataType` Atrybut można włączyć MVC wybrać szablon pola prawo do renderowania danych ( `DisplayFormat` Jeśli używany przez samego używa szablonu ciągu).
 
 > [!NOTE]
-> nie obsługuje weryfikacji jQuery `Range` atrybutu i `DateTime`. Na przykład następujący kod zawsze wyświetli błąd sprawdzania poprawności po stronie klienta, nawet wtedy, gdy data jest w określonym zakresie:
+> weryfikacji jQuery nie działa z `Range` atrybutu i `DateTime`. Na przykład następujący kod zawsze wyświetli błąd sprawdzania poprawności po stronie klienta, nawet wtedy, gdy data jest w określonym zakresie:
 
 ```csharp
 [Range(typeof(DateTime), "1/1/1966", "1/1/2020")]
@@ -115,7 +115,7 @@ W następnej części serii, firma Microsoft będzie Przejrzyj aplikacji i popra
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Praca z formularzy](xref:mvc/views/working-with-forms)
-* [Lokalizacja i globalizacja](xref:fundamentals/localization)
+* [Praca z formularzami](xref:mvc/views/working-with-forms)
+* [Globalizacja i lokalizacja](xref:fundamentals/localization)
 * [Wprowadzenie do pomocników tagów](xref:mvc/views/tag-helpers/intro)
 * [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)

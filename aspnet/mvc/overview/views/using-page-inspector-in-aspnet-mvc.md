@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 6aa9f16f166ecf5529ae33a17951eb5ea425e7af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5b443963a089f96a9dab11b7db4a25451075d6be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>Za pomocą narzędzia Page Inspector na platformie ASP.NET MVC
 ====================
@@ -46,7 +46,7 @@ przez Ammann Timowi
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Program Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us) lub [programu Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web).
+- [Program Visual Studio 2012](https://www.microsoft.com/visualstudio/11) lub [programu Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
 > Aby uzyskać najnowszą wersję narzędzia Page Inspector, należy użyć [Instalatora platformy sieci Web](https://go.microsoft.com/fwlink/?LinkId=255386) zainstalować zestaw Windows Azure SDK dla platformy .NET 2.0.
@@ -84,9 +84,9 @@ W **Eksploratora rozwiązań**, rozwiń węzeł **widoków** folder, a następni
 
 ![Wyświetl Index.cshtml w narzędzie Page Inspector](using-page-inspector-in-aspnet-mvc/_static/image8.png)
 
-Domyślnie narzędzie Page Inspector jest zadokowany jako okno po lewej stronie środowiska Visual Studio. Jeśli wolisz, możesz dock go w innym miejscu lub Oddokuj okna. Zobacz [porady: Aranżowanie i dokowanie okien](https://msdn.microsoft.com/en-us/library/z4y0hsax.aspx).
+Domyślnie narzędzie Page Inspector jest zadokowany jako okno po lewej stronie środowiska Visual Studio. Jeśli wolisz, możesz dock go w innym miejscu lub Oddokuj okna. Zobacz [porady: Aranżowanie i dokowanie okien](https://msdn.microsoft.com/library/z4y0hsax.aspx).
 
-Górne okienko okna narzędzia Page Inspector pokazuje bieżącą stronę w przeglądarce. Dolne okienko zawiera strony w kod znaczników HTML, wraz z niektórych kart, które pozwalają sprawdzić różnych aspektów strony. Dolne okienko jest podobny do [F12 Developer Tools](https://msdn.microsoft.com/en-us/ie/aa740478) w programie Internet Explorer.
+Górne okienko okna narzędzia Page Inspector pokazuje bieżącą stronę w przeglądarce. Dolne okienko zawiera strony w kod znaczników HTML, wraz z niektórych kart, które pozwalają sprawdzić różnych aspektów strony. Dolne okienko jest podobny do [F12 Developer Tools](https://msdn.microsoft.com/ie/aa740478) w programie Internet Explorer.
 
 ![Aplikacji ASP.NET MVC w narzędzie Page Inspector](using-page-inspector-in-aspnet-mvc/_static/image10.png)
 
@@ -177,7 +177,7 @@ Zaznacz pole wyboru ponownie, kliknij dwukrotnie wartość właściwości i zmie
 **Style** sprawia, że okno łatwe do testowania i Podgląd CSS zmienia przed dokonaniem zmiany stylu arkusza samej siebie.
 
 <a id="css_auto_sync"></a>
-## <a name="css-auto-sync"></a>Automatyczna synchronizacja z CSS
+## <a name="css-auto-sync"></a>CSS Auto Sync
 
 > [!NOTE]
 > Ta funkcja wymaga wersji 1.3 narzędzie Page Inspector.

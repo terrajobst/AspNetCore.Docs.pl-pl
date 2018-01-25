@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: c26ba75f6a401d50a6b46bd7ee40500c5736f20f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d9b34c141401fbeaafe439fae1a7a75f2fe7b4ae
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Tworzenia, odczytu, aktualizacji i usuwania - Core EF Razor strony (2 8)
 
@@ -86,7 +86,7 @@ Nie zmieniaj globalnie `@page` do `@page "{id:int}"`, sposób podziału tak łą
 
 ### <a name="add-related-data"></a>Dodawanie danych powiązanych
 
-Nie ma szkieletu kodu strony indeksu studentów `Enrollments` właściwości. W tej sekcji zawartości `Enrollments` Kolekcja zostanie wyświetlona na stronie szczegółów.
+Nie zawiera utworzony szkielet kodu strony indeksu studentów `Enrollments` właściwości. W tej sekcji zawartości `Enrollments` Kolekcja zostanie wyświetlona na stronie szczegółów.
 
 `OnGetAsync` Metody *Pages/Students/Details.cshtml.cs* używa `FirstOrDefaultAsync` metoda pobierania pojedynczy `Student` jednostki. Dodaj następujący wyróżniony kod:
 
@@ -132,7 +132,7 @@ W poprzednim przykładzie:
 <a id="overpost"></a>
 ### <a name="overposting"></a>Overposting
 
-Przy użyciu `TryUpdateModel` można zaktualizować pola z wartościami oczekujących na opublikowanie jest ze względów bezpieczeństwa, ponieważ nie dopuszcza overposting. Na przykład, załóżmy, że zawiera jednostki uczniów `Secret` właściwości, które ta strona sieci web nie może zaktualizować lub dodać:
+Przy użyciu `TryUpdateModel` można zaktualizować pola z wartościami oczekujących na opublikowanie jest ze względów bezpieczeństwa, ponieważ nie dopuszcza overposting. Na przykład, załóżmy, że zawiera jednostki uczniów `Secret` właściwości, które ta strona sieci web nie należy zaktualizować lub dodać:
 
 [!code-csharp[Main](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
 

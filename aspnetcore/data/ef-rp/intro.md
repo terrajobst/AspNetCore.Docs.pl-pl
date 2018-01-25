@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: bea3b12ebe476c4b59abe117393b0ec8bb7f0306
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6d36c0f0cabaf99195470a212091bd5e35c8eb30
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Wprowadzenie do stron Razor i Entity Framework Core za pomocą programu Visual Studio (1 8)
 
@@ -271,7 +271,7 @@ Skompiluj projekt. Kompilacja generuje błędy podobne do następujących:
  <a name="test"></a>
 ### <a name="test-the-app"></a>Testowanie aplikacji
 
-Uruchom aplikację i wybierz **studentów** łącza. W zależności od szerokości przeglądarki **studentów** łącza wyświetlany w górnej części strony. Jeśli **studentów** łącze nie jest widoczne, kliknij ikonę nawigacji w prawym górnym rogu.
+Uruchom aplikację i wybierz **studentów** łącza. W zależności od szerokości przeglądarki **studentów** łącza wyświetlany w górnej części strony. Jeśli **studentów** łącze nie jest widoczny, kliknij ikonę nawigacji w prawym górnym rogu.
 
 ![Strona główna contoso University wąskie](intro/_static/home-page-narrow.png)
 
@@ -339,7 +339,7 @@ Należy pamiętać o podczas pisania kodu asynchroniczne EF Core używa w kilku 
 
 * Tylko te instrukcje, które powodują zapytań i poleceń do wysłania do bazy danych są wykonywane asynchronicznie. Zawierającej, `ToListAsync`, `SingleOrDefaultAsync`, `FirstOrDefaultAsync`, i `SaveChangesAsync`. Nie zawiera instrukcji, które można zmienić `IQueryable`, takich jak `var students = context.Students.Where(s => s.LastName == "Davolio")`.
 
-* Kontekst EF Core nie jest bezwątkowy bezpieczne: nie należy próbować wykonać kilka operacji wykonywane równolegle. 
+* Kontekst EF Core nie jest bezpieczne dla wątków: nie należy próbować wykonać kilka operacji wykonywane równolegle. 
 
 * Można wykorzystać zalety wydajności async kodu, sprawdź, czy pakiety bibliotekę (takie jak w przypadku stronicowania) używają async Jeśli wywołują metody EF podstawowych, które wysyłanie zapytań do bazy danych.
 

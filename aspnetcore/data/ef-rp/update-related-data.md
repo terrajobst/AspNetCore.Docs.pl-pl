@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 817bfd48dce94e7dbad96cb6f822494e3adfae1d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 236589d0202a7f30f1e1a9d69902000fd9a2dd71
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>Aktualizowanie danych powiązanych - stron Razor EF Core (7, 8)
 
@@ -69,7 +69,7 @@ Poprzedni kod znaczników wprowadza następujące zmiany:
 * Zmienia podpisu z **DepartmentID** do **działu**.
 * Zastępuje `"ViewBag.DepartmentID"` z `DepartmentNameSL` (od klasy podstawowej).
 * Dodaje opcję "Wybierz dział". Ta zmiana powoduje "Wybierz dział" zamiast pierwszy działu.
-* Dodaje komunikat dotyczący sprawdzania poprawności, gdy nie wybrano działu.
+* Dodaje komunikat dotyczący sprawdzania poprawności, gdy dział nie jest wybrany.
 
 Strona Razor używa [wybierz pomocnika tagów](xref:mvc/views/working-with-forms#the-select-tag-helper):
 
@@ -91,11 +91,11 @@ Aktualizacja *Pages/Courses/Edit.cshtml* z następujący kod:
 
 Poprzedni kod znaczników wprowadza następujące zmiany:
 
-* Wyświetla identyfikator kursu. Ogólnie rzecz biorąc podstawowego klucza (PK) z jednostki nie jest wyświetlana. PKs są zazwyczaj bezużyteczne dla użytkowników. W takim przypadku PK jest to liczba kursu.
+* Wyświetla identyfikator kursu. Zazwyczaj nie są wyświetlane podstawowego klucza (PK) z jednostki. PKs są zazwyczaj bezużyteczne dla użytkowników. W takim przypadku PK jest to liczba kursu.
 * Zmienia podpisu z **DepartmentID** do **działu**.
 * Zastępuje `"ViewBag.DepartmentID"` z `DepartmentNameSL` (od klasy podstawowej).
 * Dodaje opcję "Wybierz dział". Ta zmiana powoduje "Wybierz dział" zamiast pierwszy działu.
-* Dodaje komunikat dotyczący sprawdzania poprawności, gdy nie wybrano działu.
+* Dodaje komunikat dotyczący sprawdzania poprawności, gdy dział nie jest wybrany.
 
 Strona zawiera pola ukrytego (`<input type="hidden">`) dla porach numeru. Dodawanie `<label>` pomocnika za pomocą tagów `asp-for="Course.CourseID"` nie eliminuje potrzebę stosowania ukryte pole. `<input type="hidden">`jest wymagany dla numeru kursu mają zostać uwzględnione w przesłane dane, gdy użytkownik kliknie **zapisać**.
 
@@ -103,7 +103,7 @@ Przetestuj zaktualizowanego kodu. Tworzenie, edytowanie i usuwanie kursu.
 
 ## <a name="add-asnotracking-to-the-details-and-delete-page-models"></a>Dodaj AsNoTracking do szczegółów i usuń modele strony
 
-[AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) może poprawić wydajność podczas śledzenia nie jest wymagana. Dodaj `AsNoTracking` do modelu strony Delete i szczegóły. Poniższy kod przedstawia w zaktualizowanym modelu. Usuń strony:
+[AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) może poprawić wydajność podczas śledzenia nie jest wymagane. Dodaj `AsNoTracking` do modelu strony Delete i szczegóły. Poniższy kod przedstawia w zaktualizowanym modelu. Usuń strony:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
 
@@ -164,7 +164,7 @@ Instruktorów może nauczyć dowolną liczbę kursów. W tej sekcji możesz doda
 Pola wyboru Włącz zmiany kursów przydzielonej instruktora. Pole wyboru jest wyświetlane dla porach co w bazie danych. Kursy przypisane instruktora są sprawdzane. Użytkownika można zaznaczyć lub wyczyścić pola wyboru, aby zmienić przypisania kursu. Jeśli liczba kursów była większa:
 
 * Interfejs inny użytkownik użyje prawdopodobnie do wyświetlenia kursów.
-* Metoda manipulowania jednostki sprzężenia, można utworzyć ani usunąć relacji nie ulegnie zmianie.
+* Metoda manipulowania jednostki sprzężenia, można utworzyć ani usunąć relacji nie zmieniać.
 
 ### <a name="add-classes-to-support-create-and-edit-instructor-pages"></a>Dodawanie klasy do obsługi tworzyć i edytować instruktora strony
 

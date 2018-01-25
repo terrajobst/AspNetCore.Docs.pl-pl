@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: ef7674476e0db334642daa29e352f615135b07ab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3b33543f02479b97112a63eb3879967ae31ccfb3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="part-6-creating-product-and-order-controllers"></a>Część 6: Tworzenie produktu i kolejność kontrolerów
 ====================
@@ -86,7 +86,7 @@ Zmień `GetOrder` metody w następujący sposób:
 Poniżej przedstawiono zmiany wprowadzone do metody:
 
 - Wartość zwracana jest `OrderDTO` wystąpienia, zamiast `Order`.
-- Firma Microsoft kwerendy bazy danych dla zlecenia, używamy [DbQuery.Include](https://msdn.microsoft.com/en-us/library/gg696395) metodę, aby pobrać pokrewny `OrderDetail` i `Product` jednostek.
+- Firma Microsoft kwerendy bazy danych dla zlecenia, używamy [DbQuery.Include](https://msdn.microsoft.com/library/gg696395) metodę, aby pobrać pokrewny `OrderDetail` i `Product` jednostek.
 - Firma Microsoft spłaszczanie wynik przy użyciu projekcji.
 
 Odpowiedź HTTP będzie zawierać tablicę produkty z ilości:

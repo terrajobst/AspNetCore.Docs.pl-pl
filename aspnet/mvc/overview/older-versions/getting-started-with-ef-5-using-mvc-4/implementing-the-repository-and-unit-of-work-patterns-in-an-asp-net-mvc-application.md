@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c920dc8defe18b6f27d122c2cd1a6c6ffdaad608
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 02b1de31b9513247facc92bc6b72247865d176f9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Implementowanie repozytorium i jednostki pracy w aplikacji platformy ASP.NET MVC (9, 10)
 ====================
@@ -45,15 +45,15 @@ Na poniższej ilustracji przedstawiono jeden ze sposobów conceptualize relacje 
 
 ![Repository_pattern_diagram](https://asp.net/media/2578149/Windows-Live-Writer_8c4963ba1fa3_CE3B_Repository_pattern_diagram_1df790d3-bdf2-4c11-9098-946ddd9cd884.png)
 
-W tym samouczku nie tworzenia testów jednostkowych. Aby obejrzeć wprowadzenie do TDD przy użyciu aplikacji MVC, który korzysta ze wzorca repozytorium, zobacz [wskazówki: przy użyciu TDD z platformą ASP.NET MVC](https://msdn.microsoft.com/en-us/library/ff847525.aspx). Aby uzyskać więcej informacji na temat wzorca repozytorium zobacz następujące zasoby:
+W tym samouczku nie tworzenia testów jednostkowych. Aby obejrzeć wprowadzenie do TDD przy użyciu aplikacji MVC, który korzysta ze wzorca repozytorium, zobacz [wskazówki: przy użyciu TDD z platformą ASP.NET MVC](https://msdn.microsoft.com/library/ff847525.aspx). Aby uzyskać więcej informacji na temat wzorca repozytorium zobacz następujące zasoby:
 
-- [Wzorzec repozytorium](https://msdn.microsoft.com/en-us/library/ff649690.aspx) w witrynie MSDN.
+- [Wzorzec repozytorium](https://msdn.microsoft.com/library/ff649690.aspx) w witrynie MSDN.
 - [Przy użyciu wzorców repozytorium i jednostki pracy z programu Entity Framework 4.0](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) na blogu zespołu programu Entity Framework.
 - [Elastyczne Entity Framework 4 repozytorium](http://thedatafarm.com/blog/data-access/agile-entity-framework-4-repository-part-1-model-and-poco-classes/) serii wpisach w blogu Julie Lerman.
 - [Tworzenie konta w aplikacji HTML5/jQuery oka](https://weblogs.asp.net/dwahlin/archive/2011/08/15/building-the-account-at-a-glance-html5-jquery-application.aspx) na blogu Dan Wahlin.
 
 > [!NOTE]
-> Istnieje wiele sposobów, aby zaimplementować repozytorium i jednostki pracy. Można użyć klasy repozytorium, z lub bez jednostki pracy klasy. Można zaimplementować jednym repozytorium dla wszystkich typów jednostek lub po jednej dla każdego typu. W przypadku zastosowania po jednej dla każdego typu, można użyć osobnych klas, ogólny klasy podstawowej i klasy pochodne lub abstrakcyjna klasa podstawowa i klas pochodnych. Można uwzględnić logiki biznesowej w repozytorium lub ograniczyć jego logika dostępu do danych. Można także utworzyć warstwę abstrakcji do własnej klasy kontekstu bazy danych, za pomocą [IDbSet](https://msdn.microsoft.com/en-us/library/gg679233(v=vs.103).aspx) interfejsy zamiast [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=vs.103).aspx) typy z zestawów jednostek. Podejście do implementowania warstwy abstrakcji przedstawiona w tym samouczku jest jedną z opcji należy rozważyć, nie zalecamy dla wszystkich scenariuszach i środowiskach.
+> Istnieje wiele sposobów, aby zaimplementować repozytorium i jednostki pracy. Można użyć klasy repozytorium, z lub bez jednostki pracy klasy. Można zaimplementować jednym repozytorium dla wszystkich typów jednostek lub po jednej dla każdego typu. W przypadku zastosowania po jednej dla każdego typu, można użyć osobnych klas, ogólny klasy podstawowej i klasy pochodne lub abstrakcyjna klasa podstawowa i klas pochodnych. Można uwzględnić logiki biznesowej w repozytorium lub ograniczyć jego logika dostępu do danych. Można także utworzyć warstwę abstrakcji do własnej klasy kontekstu bazy danych, za pomocą [IDbSet](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx) interfejsy zamiast [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) typy z zestawów jednostek. Podejście do implementowania warstwy abstrakcji przedstawiona w tym samouczku jest jedną z opcji należy rozważyć, nie zalecamy dla wszystkich scenariuszach i środowiskach.
 
 
 ## <a name="creating-the-student-repository-class"></a>Tworzenie klasy repozytorium dla użytkowników domowych
@@ -74,7 +74,7 @@ Kontekst bazy danych jest zdefiniowany w zmiennej klasy i konstruktora oczekuje 
 
 Można utworzyć wystąpienia nowy kontekst w repozytorium, ale następnie użycie wielu repozytoriów w jeden kontroler każdego pojawiłyby się oddzielny kontekst. Później będzie używać wielu repozytoriów w `Course` kontrolera, pojawi się jak jednostki pracy klasy można zagwarantować, że wszystkie repozytoria używać tego samego kontekstu.
 
-Implementuje repozytorium [IDisposable](https://msdn.microsoft.com/en-us/library/system.idisposable.aspx) i usuwa kontekst bazy danych, jak widać wcześniej w kontrolerze, a jego metody CRUD wykonywania wywołań do kontekstu bazy danych w taki sam sposób, który był wyświetlany poprzednio.
+Implementuje repozytorium [IDisposable](https://msdn.microsoft.com/library/system.idisposable.aspx) i usuwa kontekst bazy danych, jak widać wcześniej w kontrolerze, a jego metody CRUD wykonywania wywołań do kontekstu bazy danych w taki sam sposób, który był wyświetlany poprzednio.
 
 ## <a name="change-the-student-controller-to-use-the-repository"></a>Zmień kontroler uczniów do użytku w repozytorium
 
@@ -126,7 +126,7 @@ W wersji oryginalnej kodu `students` jest typu `IQueryable` obiektu. Zapytanie n
 
 > [!TIP] 
 > 
-> **IQueryable vs. Interfejs IEnumerable**
+> **IQueryable vs. IEnumerable**
 > 
 > Po zaimplementowaniu repozytorium w sposób pokazany poniżej, nawet jeśli coś po wprowadzeniu **wyszukiwania** pole zapytań wysyłanych do serwera SQL zwraca wszystkie wiersze dla użytkowników domowych, ponieważ nie ma wśród nich kryteria wyszukiwania:
 > 
@@ -245,7 +245,7 @@ Strona wygląda i działa tak samo, jak poprzednio wprowadzone zmiany i innych s
 
 ## <a name="summary"></a>Podsumowanie
 
-Teraz zaimplementowano repozytorium i jednostki pracy. Użyto wyrażenia lambda jako parametry metody w ogólnym repozytorium. Aby uzyskać więcej informacji o sposobie używania tych wyrażeń z `IQueryable` obiektów, zobacz [IQueryable(T) interfejsu (System.Linq)](https://msdn.microsoft.com/en-us/library/bb351562.aspx) w bibliotece MSDN. W następnej samouczka, dowiesz się, jak obsługiwać niektórych zaawansowanych scenariuszy.
+Teraz zaimplementowano repozytorium i jednostki pracy. Użyto wyrażenia lambda jako parametry metody w ogólnym repozytorium. Aby uzyskać więcej informacji o sposobie używania tych wyrażeń z `IQueryable` obiektów, zobacz [IQueryable(T) interfejsu (System.Linq)](https://msdn.microsoft.com/library/bb351562.aspx) w bibliotece MSDN. W następnej samouczka, dowiesz się, jak obsługiwać niektórych zaawansowanych scenariuszy.
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [Mapa zawartości dostępu do danych programu ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 

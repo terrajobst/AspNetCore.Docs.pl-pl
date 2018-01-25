@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 24c986f7ec8376bc997f1ebc575338772507cbc9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e057d9f106aaa8afbe521d8185a06dfbf48e46fb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="improving-the-details-and-delete-methods-vb"></a>Poprawa szczegóły i metody Delete (VB)
 ====================
@@ -73,11 +73,11 @@ W tym samouczku podstawowe otrzymano pracę wprowadzania kontrolerów, kojarzeni
 
 Jeśli chcesz wdrożyć aplikację, warto pierwszego testu aplikacji na lokalnym serwerze IIS 7. Możesz użyć tej funkcji [Instalatora platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;) łącze, aby włączyć ustawienie programu IIS dla aplikacji ASP.NET. Zobacz następujące linki wdrażania:
 
-- [Mapa zawartości wdrożenia programu ASP.NET](https://msdn.microsoft.com/en-us/library/dd394698.aspx)
-- [Włączanie usług IIS 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
-- [Wdrażanie projektów aplikacji sieci Web](https://msdn.microsoft.com/en-us/library/dd394698.aspx)
+- [Mapa zawartości wdrożenia programu ASP.NET](https://msdn.microsoft.com/library/dd394698.aspx)
+- [Enabling IIS 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
+- [Wdrażanie projektów aplikacji sieci Web](https://msdn.microsoft.com/library/dd394698.aspx)
 
-Można teraz zachęca do przejdź do naszego poziomu pośredniego [tworzenia modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) i [magazynu utworów muzycznych MVC](../../mvc-music-store/mvc-music-store-part-1.md) samouczki, aby zapoznać się z [ASP.NET artykuły w witrynie MSDN](https://msdn.microsoft.com/en-us/library/gg416514(VS.98).aspx)i zapoznaj się z wielu plików wideo i zasobów w [https://asp.net/mvc](https://asp.net/mvc) nawet więcej informacji o platformie ASP.NET MVC! [ASP.NET MVC forum](https://forums.asp.net/1146.aspx) są doskonałe miejsce, aby zadać pytania.
+Można teraz zachęca do przejdź do naszego poziomu pośredniego [tworzenia modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) i [magazynu utworów muzycznych MVC](../../mvc-music-store/mvc-music-store-part-1.md) samouczki, aby zapoznać się z [ASP.NET artykuły w witrynie MSDN](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)i zapoznaj się z wielu plików wideo i zasobów w [https://asp.net/mvc](https://asp.net/mvc) nawet więcej informacji o platformie ASP.NET MVC! [ASP.NET MVC forum](https://forums.asp.net/1146.aspx) są doskonałe miejsce, aby zadać pytania.
 
 Owocnej pracy.
 

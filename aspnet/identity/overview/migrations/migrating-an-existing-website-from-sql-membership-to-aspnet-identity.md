@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: b88cd54040c02c977a83e20d7af7fda4fff969c1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3638c6779a0fcedaaa49623126b28ecf09a4954f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migrowanie istniejącej witryny sieci Web z członkostwa SQL do tożsamości platformy ASP.NET
 ====================
@@ -51,7 +51,7 @@ W tym samouczku teraz nastąpi przekierowanie do szablonu aplikacji sieci web (f
 
 ### <a name="migrating-to-visual-studio-2013"></a>Migracja do programu Visual Studio 2013
 
-1. Instalowanie programu Visual Studio Express 2013 dla sieci Web lub Visual Studio 2013 wraz z [najnowsze aktualizacje](https://www.microsoft.com/en-us/download/details.aspx?id=44921).
+1. Instalowanie programu Visual Studio Express 2013 dla sieci Web lub Visual Studio 2013 wraz z [najnowsze aktualizacje](https://www.microsoft.com/download/details.aspx?id=44921).
 2. Otwórz projekt powyżej w zainstalowanej wersji programu Visual Studio. Jeśli na komputerze nie zainstalowano programu SQL Server Express, monit jest wyświetlany po otwarciu projektu, ponieważ ciąg połączenia używany program SQL Express. Można albo zainstalować program SQL Express lub jako obejścia Zmień parametry połączenia do LocalDb. W tym artykule zmienimy jej do LocalDb.
 3. Otwórz plik web.config, a następnie zmień parametry połączenia z. SQLExpess do v11.0 (LocalDb). Usuń "wystąpienia użytkownika = true" z ciągu połączenia.
 
@@ -88,7 +88,7 @@ Dla klas ASP.NET Identity pracy fabrycznej przy użyciu danych istniejących uż
 
 | **IdentityUser** | **Typ** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
 | --- | --- | --- | --- | --- | --- |
-| Identyfikator | string | Identyfikator | RoleId | Kluczem ProviderKey | Identyfikator |
+| Id | string | Id | RoleId | Kluczem ProviderKey | Id |
 | Nazwa użytkownika | string | Nazwa | Nazwa użytkownika | Nazwa użytkownika | Typ oświadczenia |
 | PasswordHash | string |  |  | LoginProvider | ClaimValue |
 | SecurityStamp | string |  |  |  | Użytkownik\_Id |
@@ -100,15 +100,15 @@ Dla klas ASP.NET Identity pracy fabrycznej przy użyciu danych istniejących uż
 | LockoutEndDate | DataGodzina |  |  |  |  |
 | AccessFailedCount | int |  |  |  |  |
 
-Musimy mieć tabel dla każdego z tych modeli z kolumnami odpowiadającej właściwości. Mapowanie między klasami i tabel jest zdefiniowany w `OnModelCreating` metody `IdentityDBContext`. Jest to określane jako metodę interfejsu API fluent konfiguracji i więcej informacji można znaleźć [tutaj](https://msdn.microsoft.com/en-us/data/jj591617.aspx). Konfiguracja dla klas jest wymienione poniżej
+Musimy mieć tabel dla każdego z tych modeli z kolumnami odpowiadającej właściwości. Mapowanie między klasami i tabel jest zdefiniowany w `OnModelCreating` metody `IdentityDBContext`. Jest to określane jako metodę interfejsu API fluent konfiguracji i więcej informacji można znaleźć [tutaj](https://msdn.microsoft.com/data/jj591617.aspx). Konfiguracja dla klas jest wymienione poniżej
 
 | **Klasy** | **Tabela** | **Klucz podstawowy** | **Klucz obcy** |
 | --- | --- | --- | --- |
-| IdentityUser | AspnetUsers | Identyfikator |  |
-| IdentityRole | AspnetRoles | Identyfikator |  |
+| IdentityUser | AspnetUsers | Id |  |
+| IdentityRole | AspnetRoles | Id |  |
 | IdentityUserRole | AspnetUserRole | Identyfikator UserId + RoleId | Użytkownik\_identyfikator -&gt;AspnetUsers RoleId -&gt;AspnetRoles |
 | IdentityUserLogin | AspnetUserLogins | Providerkey lub + UserId + LoginProvider | Nazwa użytkownika -&gt;AspnetUsers |
-| IdentityUserClaim | AspnetUserClaims | Identyfikator | Użytkownik\_identyfikator -&gt;AspnetUsers |
+| IdentityUserClaim | AspnetUserClaims | Id | Użytkownik\_identyfikator -&gt;AspnetUsers |
 
 Dzięki tym informacjom można utworzyć instrukcji SQL, aby utworzyć nowe tabele. Możemy zapisać każda instrukcja indywidualnie lub wygenerować cały skrypt za pomocą poleceń programu PowerShell platformy EntityFramework, które firma Microsoft może następnie edytować zgodnie z wymaganiami. Aby to zrobić, w PORÓWNANIU z Otwórz **Konsola Menedżera pakietów** z **widoku** lub **narzędzia** menu
 
@@ -122,7 +122,7 @@ Informacje o użytkowniku członkostwa SQL ma inne właściwości oprócz tych t
 
 [!code-sql[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample1.sql)]
 
-Obok należy skopiować istniejące informacje z członkostwa w bazie danych SQL do nowo dodanego tabel dla tożsamości. Można to zrobić za pomocą programu SQL przez skopiowanie danych bezpośrednio z jednej tabeli. Dodawanie danych do wierszy w tabeli, używamy `INSERT INTO [Table]` utworzenia. Aby skopiować z innej tabeli, możemy użyć `INSERT INTO` instrukcji wraz z programem `SELECT` instrukcji. Aby uzyskać wszystkie informacje o użytkowniku musimy zbadać *aspnet\_użytkowników* i *aspnet\_członkostwa* tabele i skopiuj dane na *AspNetUsers*tabeli. Używamy `INSERT INTO` i `SELECT` wraz z `JOIN` i `LEFT OUTER JOIN` instrukcje. Aby uzyskać więcej informacji na temat kwerend i kopiowanie danych między tabelami, zapoznaj się [to](https://technet.microsoft.com/en-us/library/ms190750%28v=sql.105%29.aspx) łącza. Ponadto w tabelach AspnetUserLogins i AspnetUserClaims są puste rozpoczynać się od znaku, ponieważ nie ma żadnych informacji w członkostwie SQL, który jest mapowany na to domyślnie. Tylko informacje, kopiowane są przeznaczone dla użytkowników i ról. Projekt utworzony w poprzednich krokach będzie zapytanie SQL, aby skopiować informacje do tabeli użytkowników
+Obok należy skopiować istniejące informacje z członkostwa w bazie danych SQL do nowo dodanego tabel dla tożsamości. Można to zrobić za pomocą programu SQL przez skopiowanie danych bezpośrednio z jednej tabeli. Dodawanie danych do wierszy w tabeli, używamy `INSERT INTO [Table]` utworzenia. Aby skopiować z innej tabeli, możemy użyć `INSERT INTO` instrukcji wraz z programem `SELECT` instrukcji. Aby uzyskać wszystkie informacje o użytkowniku musimy zbadać *aspnet\_użytkowników* i *aspnet\_członkostwa* tabele i skopiuj dane na *AspNetUsers*tabeli. Używamy `INSERT INTO` i `SELECT` wraz z `JOIN` i `LEFT OUTER JOIN` instrukcje. Aby uzyskać więcej informacji na temat kwerend i kopiowanie danych między tabelami, zapoznaj się [to](https://technet.microsoft.com/library/ms190750%28v=sql.105%29.aspx) łącza. Ponadto w tabelach AspnetUserLogins i AspnetUserClaims są puste rozpoczynać się od znaku, ponieważ nie ma żadnych informacji w członkostwie SQL, który jest mapowany na to domyślnie. Tylko informacje, kopiowane są przeznaczone dla użytkowników i ról. Projekt utworzony w poprzednich krokach będzie zapytanie SQL, aby skopiować informacje do tabeli użytkowników
 
 [!code-sql[Main](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/samples/sample2.sql)]
 

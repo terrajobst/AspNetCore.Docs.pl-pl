@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 6362f0506934ca3b3cc86e1a927af75e7bc4e1d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 103cd68c576463d87d0077cc149f9b89c6e028e8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-custom-action-filters"></a>Filtry akcji niestandardowych platformy ASP.NET MVC 4
 ====================
@@ -96,7 +96,7 @@ Rozszerzenie filtr **ActionFilterAttributeClass** i zastąpić **OnActionExecuti
 > - **Wynik** filtr, który opakowuje wykonanie obiektu ActionResult. Ten filtr może wykonywać dodatkowego przetwarzania wyniku, takie jak modyfikowanie odpowiedzi HTTP.
 > - **Wyjątek** filtr, który wykonuje przypadku nieobsługiwany wyjątek gdzieś w metodzie akcji, począwszy od filtry autoryzacji i kończy wykonywanie wyniku. Filtry wyjątków może służyć do zadań, takich jak rejestrowanie lub wyświetlanie stronę błędu.
 > 
-> Aby uzyskać więcej informacji o dostawcach filtry odwiedź linkiem MSDN: ([https://msdn.microsoft.com/en-us/library/dd410209.aspx](https://msdn.microsoft.com/en-us/library/dd410209.aspx)).
+> Aby uzyskać więcej informacji o dostawcach filtry odwiedź linkiem MSDN: ([https://msdn.microsoft.com/library/dd410209.aspx](https://msdn.microsoft.com/library/dd410209.aspx)).
 
 
 <a id="AboutLoggingFeature"></a>
@@ -164,7 +164,7 @@ W ramach tego zadania spowoduje utworzenie klasy atrybutu niestandardowego filtr
     > [!NOTE]
     > **OnActionExecuting** używa metody **Entity Framework** można dodać nowego rejestru ActionLog. Tworzy i wypełnia nowe wystąpienie jednostki informacje o kontekście z **filterContext**.
     > 
-    > Możesz przeczytać dodatkowe informacje **kontekstem ControllerContext** klasy w [msdn](https://msdn.microsoft.com/en-us/library/system.web.mvc.controllercontext.aspx).
+    > Możesz przeczytać dodatkowe informacje **kontekstem ControllerContext** klasy w [msdn](https://msdn.microsoft.com/library/system.web.mvc.controllercontext.aspx).
 
 <a id="Ex1Task2"></a>
 
@@ -231,7 +231,7 @@ Można zdefiniować **zakres** dla każdego z filtrów, na przykład można zakr
 
 Ponadto każdy filtr akcji ma właściwość kolejność, która służy do określania kolejności wykonywania w zakresie filtru.
 
-Aby uzyskać więcej informacji na temat kolejność wykonywania filtrów akcji niestandardowej, odwiedź ten artykuł w witrynie MSDN: ([https://msdn.microsoft.com/en-us/library/dd381609(v=vs.98).aspx](https://msdn.microsoft.com/en-us/library/dd381609(v=vs.98).aspx)).
+Aby uzyskać więcej informacji na temat kolejność wykonywania filtrów akcji niestandardowej, odwiedź ten artykuł w witrynie MSDN: ([https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx](https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx)).
 
 <a id="Ex2Task1"></a>
 

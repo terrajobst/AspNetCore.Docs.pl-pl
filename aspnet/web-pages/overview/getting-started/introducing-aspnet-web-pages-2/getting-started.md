@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 615ddc31d0d857e5bf9a7f372b7efcf67d185905
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a6789ee75b4ca6e9443681cc7ec0bd3ab94cedcd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a>Wprowadzenie do strony sieci Web ASP.NET — wprowadzenie
 ====================
@@ -43,7 +43,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > Funkcje/technologie omówione:
 > 
 > - Instalator platformy sieci Web firmy Microsoft.
-> - Program WebMatrix.
+> - WebMatrix.
 > - *.cshtml* stron
 >   
 > 
@@ -52,7 +52,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 2
+> - ASP.NET Web Pages (Razor) 2
 > - Program WebMatrix 3
 
 
@@ -124,8 +124,8 @@ Czy chcesz w witrynie Zakończono uruchomione jako aplikacji sieci web? Pełną 
 
 Potrzebujesz konta platformy Azure, aby wdrożyć to rozwiązanie do platformy Azure. Jeśli nie masz już konto, dostępne są następujące opcje:
 
-- [Otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymasz kredyt służy do wypróbowania płatnych usług Azure, a nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
-- [Aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -subskrypcji Your MSDN otrzymasz kredyt, co miesiąc, używanego programu płatnych usług Azure.
+- [Otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymasz kredyt służy do wypróbowania płatnych usług Azure, a nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
+- [Aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -subskrypcji Your MSDN otrzymasz kredyt, co miesiąc, używanego programu płatnych usług Azure.
 
 ## <a name="installing-everything"></a>Instalowanie wszystko
 
@@ -151,11 +151,11 @@ Instalator platformy sieci Web zostanie wyświetlona, gotowe do zainstalowania p
 
 Proces instalacji określa posiada do zainstalowania na komputerze i rozpoczyna proces. W zależności od tego, co dokładnie musi być zainstalowany proces może potrwać od kilku minut do kilku minut. Wybierz **akceptuję** do akceptowania postanowień licencyjnych.
 
-## <a name="hello-webmatrix"></a>Witaj, programu WebMatrix
+## <a name="hello-webmatrix"></a>Hello, WebMatrix
 
 Po zakończeniu procesu instalacji można uruchomić program WebMatrix automatycznie. W przeciwnym razie w systemie Windows, z **Start** menu, uruchom **Microsoft WebMatrix**.
 
-Po uruchomieniu programu WebMatrix po raz pierwszy podana jest stosowany do logowania do systemu Microsoft Azure z Twoim kontem Microsoft. Logując się, zostanie wyświetlony 10 aplikacje wolnej sieci web za pośrednictwem platformy Azure. Aplikacje sieci web wolnej umożliwiają wygodny do testowania aplikacji. Jeśli nie masz jeszcze konta platformy Azure, ale masz subskrypcję MSDN, możesz [aktywować korzyści dla subskrypcji MSDN](https://www.windowsazure.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). W przeciwnym razie możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać więcej informacji, zobacz [bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Po uruchomieniu programu WebMatrix po raz pierwszy podana jest stosowany do logowania do systemu Microsoft Azure z Twoim kontem Microsoft. Logując się, zostanie wyświetlony 10 aplikacje wolnej sieci web za pośrednictwem platformy Azure. Aplikacje sieci web wolnej umożliwiają wygodny do testowania aplikacji. Jeśli nie masz jeszcze konta platformy Azure, ale masz subskrypcję MSDN, możesz [aktywować korzyści dla subskrypcji MSDN](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). W przeciwnym razie możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać więcej informacji, zobacz [bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
 Nie masz teraz zalogować się do kontynuowania tego samouczka. Jeśli nie zalogujesz teraz, konieczne będzie nadal opcję, aby zalogować się później. Ostatni [tematu](publishing.md) w tym samouczku serii opisano sposób wdrażania witryny sieci Web na platformie Azure; w związku z tym musisz zalogować się do ukończenia tego tematu.
 
@@ -290,4 +290,4 @@ W następnym samouczku tej serii eksplorowania stron ASP.NET Web Pages nieco pro
 [Tworzenie witryny sieci Web platformy ASP.NET od początku](https://www.microsoft.com/web/post/create-an-aspnet-website-from-scratch). Jest to samouczek, który jest specjalnie o za pomocą programu WebMatrix (nie stron sieci Web programu ASP.NET). Umieszczanej w kodzie nieco więcej szczegółów na temat niektóre dodatkowe funkcje programu WebMatrix, który firma Microsoft nie będzie obejmować w tym zestawie samouczka.
 
 >[!div class="step-by-step"]
-[Dalej](intro-to-web-pages-programming.md)
+[Next](intro-to-web-pages-programming.md)

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 10835c39d3bca752ed3068a23fecaaab56449e41
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7f38a0f2693aeb2a4884b9c03719b583423957a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET i narzędzia sieci Web dla programu Visual Studio 2013 informacje o wersji
 ====================
@@ -33,10 +33,10 @@ przez [firmy Microsoft](https://github.com/microsoft)
 
 ### <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>Nowe funkcje programu ASP.NET i narzędzia sieci Web dla programu Visual Studio 2013
 
-- [Jeden ASP.NET](#TOC6)
+- [One ASP.NET](#TOC6)
 - [Nowe środowisko projektu sieci Web](#newproj)
-- [Funkcja szkieletów ASP.NET](#scaffold)
-- [Łącze przeglądarki](#browser-link)
+- [ASP.NET Scaffolding](#scaffold)
+- [Łączność z przeglądarkami](#browser-link)
 - [Ulepszenia edytora sieci Web programu Visual Studio](#web-editor)
 - [Obsługa aplikacji sieci Web usługi aplikacji Azure w programie Visual Studio](#waws)
 - [Ulepszenia publikowania w sieci Web](#publish)
@@ -45,7 +45,7 @@ przez [firmy Microsoft](https://github.com/microsoft)
 - [ASP.NET MVC 5](#TOC10)
 - [ASP.NET Web API 2](#TOC11)
 - [Biblioteka SignalR platformy ASP.NET](#TOC13)
-- [Tożsamość platformy ASP.NET](#TOC8)
+- [ASP.NET Identity](#TOC8)
 - [Składniki Microsoft OWIN](#TOC7)
 - [Entity Framework 6](#ef6)
 - [ASP.NET Razor 3](#TOC14)
@@ -96,7 +96,7 @@ Nowe okno dialogowe umożliwia zmianę domyślne opcje uwierzytelniania dla wiel
 Aby uzyskać więcej informacji na temat nowego procesu tworzenia projektów sieci web, zobacz [tworzenia projektów sieci Web ASP.NET w programie Visual Studio 2013](creating-web-projects-in-visual-studio.md). Aby uzyskać więcej informacji na temat nowej opcji uwierzytelniania, zobacz [ASP.NET Identity](#TOC8) dalszej części tego dokumentu.
 
 <a id="scaffold"></a>
-## <a name="aspnet-scaffolding"></a>Funkcja szkieletów ASP.NET
+## <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
 
 Rusztowania ASP.NET to platforma generowania kodu dla aplikacji sieci Web ASP.NET. Ułatwia on dodać schematyczny kod służący do projektu, który współdziała z modelem danych.
 
@@ -137,8 +137,8 @@ W programie Visual Studio 2013 z zestawem Azure SDK dla platformy .NET 2.2, moż
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
-- [Tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/)
-- [Rozwiązywanie problemów z aplikacji sieci web w usłudze Azure App Service przy użyciu programu Visual Studio](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)
+- [Rozwiązywanie problemów z aplikacji sieci web w usłudze Azure App Service przy użyciu programu Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 <a id="publish"></a>
 ## <a name="web-publish-enhancements"></a>Ulepszenia publikowania w sieci Web
@@ -166,11 +166,11 @@ Ta wersja programu NuGet spowoduje również usunięcie trzeba podać wyraźnej 
 
 Szablony projektów formularzy sieci Web integrują się z nowego środowiska ASP.NET jeden. Możesz dodać obsługę MVC i interfejsu API sieci Web projektu formularzy sieci Web i można skonfigurować uwierzytelnianie przy użyciu Kreatora tworzenia projektu ASP.NET jeden. Aby uzyskać więcej informacji, zobacz [tworzenia projektów sieci Web ASP.NET w programie Visual Studio 2013](creating-web-projects-in-visual-studio.md).
 
-### <a name="aspnet-identity"></a>Tożsamość platformy ASP.NET
+### <a name="aspnet-identity"></a>ASP.NET Identity
 
 Szablony projektów formularzy sieci Web obsługi nowej struktury ASP.NET Identity. Ponadto szablony obsługuje teraz tworzenia projekt intranet formularzy sieci Web. Aby uzyskać więcej informacji, zobacz [metod uwierzytelniania](creating-web-projects-in-visual-studio.md#auth) w **tworzenia projektów sieci Web ASP.NET w programie Visual Studio 2013**.
 
-### <a name="bootstrap"></a>Ładowania początkowego
+### <a name="bootstrap"></a>Bootstrap
 
 Szablony formularzy sieci Web używają [Bootstrap](http://twitter.github.io/bootstrap/) zapewnienie elegancki i elastyczny wyglądu i działania, które można łatwo dostosować. Aby uzyskać więcej informacji, zobacz [Bootstrap w szablonach projektu sieci web programu Visual Studio 2013](creating-web-projects-in-visual-studio.md#bootstrap).
 
@@ -183,11 +183,11 @@ Szablony projektów sieci Web MVC integrują się z nowego środowiska ASP.NET j
 
 Aby uzyskać informacje o uaktualnianiu projektów MVC 4 do MVC 5, zobacz [sposób uaktualnienia programu ASP.NET MVC 4 i projekt interfejsu API sieci Web platformy ASP.NET MVC 5 i Web API 2](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 
-### <a name="aspnet-identity"></a>Tożsamość platformy ASP.NET
+### <a name="aspnet-identity"></a>ASP.NET Identity
 
-Szablony projektów MVC zostały zaktualizowane do korzystania z tożsamości ASP.NET do uwierzytelniania i zarządzania tożsamościami. Samouczek uwierzytelniania serwisu Facebook i Google i nowy interfejs API członkostwa można znaleźć w folderze [tworzenie aplikacji ASP.NET MVC 5 z usługi Facebook i Google OAuth2 i OpenID logowania jednokrotnego](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) i [tworzenie aplikacji ASP.NET MVC z uwierzytelniania i Bazy danych SQL i wdrożyć w usłudze Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+Szablony projektów MVC zostały zaktualizowane do korzystania z tożsamości ASP.NET do uwierzytelniania i zarządzania tożsamościami. Samouczek uwierzytelniania serwisu Facebook i Google i nowy interfejs API członkostwa można znaleźć w folderze [tworzenie aplikacji ASP.NET MVC 5 z usługi Facebook i Google OAuth2 i OpenID logowania jednokrotnego](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) i [tworzenie aplikacji ASP.NET MVC z uwierzytelniania i Bazy danych SQL i wdrożyć w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 
-### <a name="bootstrap"></a>Ładowania początkowego
+### <a name="bootstrap"></a>Bootstrap
 
 Szablon projektu MVC została zaktualizowana w celu użycia [Bootstrap](http://getbootstrap.com/) zapewnienie elegancki i elastyczny wyglądu i działania, które można łatwo dostosować. Aby uzyskać więcej informacji, zobacz [Bootstrap w szablonach projektu sieci web programu Visual Studio 2013](creating-web-projects-in-visual-studio.md#bootstrap).
 
@@ -303,7 +303,7 @@ ASP.NET Web API teraz w pełni obsługuje OWIN i mogą być uruchamiane na żadn
 Dzięki integracji OWIN interfejsu API sieci Web można hosta samodzielnego w procesie równolegle z innymi oprogramowanie pośredniczące OWIN, takich jak SignalR. Aby uzyskać więcej informacji, zobacz [OWIN Użyj interfejsu API sieci Web ASP.NET Self-Host](../../../signalr/overview/deployment/tutorial-signalr-self-host.md).
 
 <a id="TOC13"></a>
-## <a name="aspnet-signalr-20"></a>Biblioteka SignalR platformy ASP.NET 2.0
+## <a name="aspnet-signalr-20"></a>ASP.NET SignalR 2.0
 
 W poniższych sekcjach opisano funkcje SignalR 2.0.
 
@@ -396,7 +396,7 @@ Dodano obsługę dla systemów iOS i Android będących klientami przy użyciu s
 
 Aby lepiej ułatwiają aplikacji dla wielu platform, Silverlight, WinRT i Windows Phone klientów zostały zastąpione pojedynczego przenośny klient .NET, który obsługuje następujące platformy:
 
-- ASP.NET 4.5
+- NET 4.5
 - Silverlight 5
 - WinRT (platforma .NET dla aplikacji ze Sklepu Windows)
 - Windows Phone 8
@@ -496,7 +496,7 @@ W SignalR 2.0 wszystkie wywołania zwrotne obsługi błędów JavaScript zwraca�
 [!code-javascript[Main](release-notes/samples/sample20.js)]
 
 <a id="TOC8"></a>
-## <a name="aspnet-identity"></a>Tożsamość platformy ASP.NET
+## <a name="aspnet-identity"></a>ASP.NET Identity
 
 ### <a name="new-aspnet-membership-system"></a>Nowe systemu członkostwa programu ASP.NET
 
@@ -643,7 +643,7 @@ W tej sekcji opisano znane problemy i fundamentalne zmiany w ASP.NET i narzędzi
     Ten problem zostanie rozwiązany w następnej wersji.
 2. Po uaktualnieniu aplikacji MVC4 do MVC5, Skompiluj rozwiązanie, a następnie uruchom go. Powinien zostać wyświetlony następujący błąd:
 
-    [A] Nie można rzutować System.Web.WebPages.Razor.Configuration.HostSection [B]System.Web.WebPages.Razor.Configuration.HostSection. Typ A pochodzi od "System.Web.WebPages.Razor, wersja = 2.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" w kontekście "Default" w lokalizacji "C:\windows\Microsoft.Net\assembly\GAC\_MSIL\System.Web.WebPages.Razor\ v4.0\_2.0.0.0\_\_31bf3856ad364e35\System.Web.WebPages.Razor.dll ". B typ pochodzi z "System.Web.WebPages.Razor, wersja = 3.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" w kontekście "Default" w lokalizacji "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\6d05bbd0\ e8b5908e\assembly\dl3\c9cbca63\f8910382\_6273ce01\System.Web.WebPages.Razor.dll ".
+    [A] Nie można rzutować System.Web.WebPages.Razor.Configuration.HostSection [B]System.Web.WebPages.Razor.Configuration.HostSection. Type A originates from 'System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' in the context 'Default' at location 'C:\windows\Microsoft.Net\assembly\GAC\_MSIL\System.Web.WebPages.Razor\v4.0\_2.0.0.0\_\_31bf3856ad364e35\System.Web.WebPages.Razor.dll'. Type B originates from 'System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' in the context 'Default' at location 'C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\6d05bbd0\e8b5908e\assembly\dl3\c9cbca63\f8910382\_6273ce01\System.Web.WebPages.Razor.dll'.
 
     Aby naprawić błąd powyżej, otwórz *wszystkich* plików Web.config (w tym te w folderze widoków) w projekcie i wykonaj następujące czynności:
 
@@ -666,7 +666,7 @@ W tej sekcji opisano znane problemy i fundamentalne zmiany w ASP.NET i narzędzi
     Do:
 
     `@Html.TextBoxFor(person => person.Age)`
-4. ASP.NET MVC 5 nie obsługuje już częściowej relacji zaufania. Łączenie z plików binarnych MVC ani WebAPI projektów należy usunąć [SecurityTransparent](https://msdn.microsoft.com/en-us/library/system.security.securitytransparentattribute.aspx) atrybutu i [AllowPartiallyTrustedCallers](https://msdn.microsoft.com/en-us/library/system.security.allowpartiallytrustedcallersattribute.aspx) atrybutu. Wyeliminuje błędy kompilatora, takie jak usunąć te atrybuty.
+4. ASP.NET MVC 5 nie obsługuje już częściowej relacji zaufania. Łączenie z plików binarnych MVC ani WebAPI projektów należy usunąć [SecurityTransparent](https://msdn.microsoft.com/library/system.security.securitytransparentattribute.aspx) atrybutu i [AllowPartiallyTrustedCallers](https://msdn.microsoft.com/library/system.security.allowpartiallytrustedcallersattribute.aspx) atrybutu. Wyeliminuje błędy kompilatora, takie jak usunąć te atrybuty.
 
     `Attempt by security transparent method ‘MyComponent' to access security critical type 'System.Web.Mvc.MvcHtmlString' failed. Assembly 'PagedList.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1' is marked with the AllowPartiallyTrustedCallersAttribute, and uses the level 2 security transparency model. Level 2 transparency causes all methods in AllowPartiallyTrustedCallers assemblies to become security transparent by default, which may be the cause of this exception.`
 

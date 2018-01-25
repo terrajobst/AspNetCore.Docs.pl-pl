@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 3c5abe84a5c7cc399e0586e680a414fab7a26c1d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bc1cfe0d6ee88a0af49cdff9ce77ad42f57b95f7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>W przypadku platformy ASP.NET Core przekazywania plików
 
@@ -199,4 +199,4 @@ To ustawienie dotyczy tylko programu IIS. To zachowanie nie występuje domyślni
 
 ### <a name="null-reference-exception-with-iformfile"></a>Wyjątek odwołania zerowego z IFormFile
 
-Jeśli kontroler jest akceptują przekazać pliki przy użyciu `IFormFile` , ale możesz znaleźć wartość zawsze ma wartość null, upewnij się, że formularza HTML jest określenie `enctype` wartość `multipart/form-data`. Jeśli ten atrybut nie jest ustawiony na `<form>` elementu przekazywania plików nie zostanie przeprowadzona i wszelkie powiązane z `IFormFile` argumentów będzie mieć wartość null.
+Jeśli kontroler jest akceptują przekazać pliki przy użyciu `IFormFile` , ale możesz znaleźć wartość zawsze ma wartość null, upewnij się, że formularza HTML jest określenie `enctype` wartość `multipart/form-data`. Jeśli ten atrybut nie jest ustawiony na `<form>` elementu przekazywania plików nie zostanie przeprowadzone i wszelkie powiązane z `IFormFile` argumentów będzie mieć wartość null.

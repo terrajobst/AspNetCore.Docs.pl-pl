@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: ccde4209d121918e0160368806095111505835b9
-ms.sourcegitcommit: 77b8025c30ec2fd46d85ee2a2b497c44435d3009
+ms.openlocfilehash: 58c5ec6bb2603499332698fd4225e2fe636256e4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Typowe błędy odwołania dla usługi Azure App Service i IIS z platformy ASP.NET Core
 

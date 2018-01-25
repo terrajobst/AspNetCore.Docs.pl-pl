@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: 7f34bc7766b41beafb2a1ee09577109bc1402867
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f27e7ec43cd17e249dd646a7dfbce5df69d59664
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>Testowanie logiką kontrolera w ASP.NET Core
 
@@ -65,9 +65,9 @@ Nieprawidłowy stan modelu można sprawdzić przez dodanie błędów za pomocą 
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
-Potwierdza pierwszego testu, gdy `ModelState` nie jest prawidłowa, taka sama `ViewResult` jest zwracane jako `GET` żądania. Należy pamiętać, że test nie próba przekazania w nieprawidłowy model. To zadziała nie mimo to ponieważ wiązania modelu nie jest uruchomiony (chociaż [testu integracji](xref:mvc/controllers/testing#integration-testing) użyje wiązania modelu wykonywania). W takim przypadku wiązania modelu nie jest poddawana testom. Te testy jednostkowe tylko testowania jest kod w metodzie akcji.
+Potwierdza pierwszego testu, gdy `ModelState` nie jest prawidłowa, taka sama `ViewResult` jest zwracane jako `GET` żądania. Należy pamiętać, że test nie próba przekazania w nieprawidłowy model. To zadziała nie mimo to ponieważ wiązania modelu nie jest uruchomiony (chociaż [testu integracji](xref:mvc/controllers/testing#integration-testing) użyje wiązania modelu wykonywania). W takim przypadku nie jest poddawana testom wiązania modelu. Te testy jednostkowe tylko testowania jest kod w metodzie akcji.
 
-Drugi test sprawdza, że w przypadku `ModelState` jest prawidłowy, nowy `BrainstormSession` jest dodawana (repozytorium), a metoda zwraca `RedirectToActionResult` z oczekiwanym właściwości. Mocked wywołania, które nie są nazywane są zwykle została zignorowana, ale wywołanie `Verifiable` na końcu instalacji wywołania umożliwi można sprawdzić w teście. Jest to zrobić za pomocą wywołania `mockRepo.Verify`, który zakończy się niepowodzeniem testu, jeśli nie wywołano metody oczekiwanej.
+Drugi test sprawdza, że w przypadku `ModelState` jest prawidłowy, nowy `BrainstormSession` jest dodawana (repozytorium), a metoda zwraca `RedirectToActionResult` z oczekiwanym właściwości. Mocked wywołania, które nie są nazywane są zwykle została zignorowana, ale wywołanie `Verifiable` na końcu instalacji wywołania umożliwi można sprawdzić w teście. Jest to zrobić za pomocą wywołania `mockRepo.Verify`, który zakończy się niepowodzeniem testu, jeśli nie został wywołany oczekiwanej metody.
 
 > [!NOTE]
 > Biblioteka Moq używane w tym przykładzie ułatwia mieszać mocks weryfikowalny lub "strict" z-weryfikowalny mocks (zwaną również "utracić" mocks lub klas zastępczych). Dowiedz się więcej o [Dostosowywanie zachowania makiety z Moq](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
@@ -121,7 +121,7 @@ Zobaczysz `GetTestSession` metody często używane w testach integracji poniżej
 Umożliwia skonfigurowanie każdej klasy testowej integracji `TestServer` który uruchomi aplikacji platformy ASP.NET Core. Domyślnie `TestServer` hostem aplikacji sieci web w folderze, w którym jest uruchomiona — w takim przypadku folderu projektu testowego. W związku z tym podczas próby test akcji kontrolera, które zwracają `ViewResult`, może zostać wyświetlony ten błąd:
 
 ```
-The view 'Index' was not found. The following locations were searched:
+The view 'Index' wasn't found. The following locations were searched:
 (list of locations)
 ```
 

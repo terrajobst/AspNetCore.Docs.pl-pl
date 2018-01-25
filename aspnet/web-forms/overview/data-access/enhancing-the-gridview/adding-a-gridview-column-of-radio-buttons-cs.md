@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ba6b163078bbab1bda302676e7e4c8a1d07f3c98
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 386fcb1cef896edbb465ba36415712af70d916ec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-c"></a>Dodawanie kolumny widoku GridView przycisków radiowych (C#)
 ====================
@@ -148,7 +148,7 @@ Po wprowadzeniu tych dodatków poprzez projektanta, znaczników s z widoku GridV
 
 [!code-aspx[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample3.aspx)]
 
-RadioButton s [ `GroupName` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.radiobutton.groupname(VS.80).aspx) co to jest używana do grupowania serii przycisków radiowych. Wszystkich kontrolek RadioButton o takim samym `GroupName` wartości są traktowane jako pogrupowane; można wybrać tylko jedną opcję z grupy naraz. `GroupName` Właściwość określa wartość dla przycisku radiowego renderowanych s `name` atrybutu. Przeglądarka sprawdza przycisków radiowych `name` atrybutów radia przycisk grupowania.
+RadioButton s [ `GroupName` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.radiobutton.groupname(VS.80).aspx) co to jest używana do grupowania serii przycisków radiowych. Wszystkich kontrolek RadioButton o takim samym `GroupName` wartości są traktowane jako pogrupowane; można wybrać tylko jedną opcję z grupy naraz. `GroupName` Właściwość określa wartość dla przycisku radiowego renderowanych s `name` atrybutu. Przeglądarka sprawdza przycisków radiowych `name` atrybutów radia przycisk grupowania.
 
 Za pomocą formantu RadioButton sieci Web dodany do `ItemTemplate`, odwiedź stronę tej strony za pośrednictwem przeglądarki i kliknij pozycję przycisków radiowych w wierszami siatki s. Powiadomienia, jak przyciski radiowe nie są grupowane i umożliwiając wybierz wszystkie wiersze, jako rysunek 11 zawiera.
 
@@ -184,7 +184,7 @@ Istnieją dwie metody, które można podjąć w celu iniekcję niskiego poziomu 
 
 W tym miejscu `GetUniqueRadioButton` i `GetRadioButtonValue` jest zdefiniowany w klasie związanej z kodem, który zwrócony odpowiedni metody `id` i `value` atrybutu wartości dla każdego przycisku radiowego. Ta metoda sprawdza się w przypadku przypisywania `id` i `value` atrybuty, ale znajduje się krótki po określeniu `checked` wartość atrybutu, ponieważ składnia wiązania z danymi jest wykonywane tylko, gdy dane najpierw jest powiązana z widoku GridView. W związku z tym, jeśli w widoku GridView jest włączony stan widoku, metod formatowania tylko uruchomią podczas ładowania strony do (lub gdy widoku GridView jest jawnie odbitych do źródła danych) i w związku z tym funkcja, która ustawia `checked` można wywołać atrybutu won t ogłaszania zwrotnego. Go s raczej niewielkie problem i nieco poza zakres tego artykułu, więc I pozostanie w tej. Czy, jednak zachęca spróbuj użyć powyższe podejście i działa ona za pośrednictwem do punktu, w którym będzie można zostać zablokowane. Gdy t wykonywania won uzyskać żadnych bliżej do wersji roboczych, może pomóc sprzyjać głębsze zrozumienie widoku GridView i cyklem życia wiązania z danymi.
 
-Inne podejścia iniekcję niestandardowy, niskiego poziomu znacznika w szablonie i metody, która będzie używana w tym samouczku jest dodanie [formancie Literal](https://msdn.microsoft.com/en-us/library/sz4949ks(VS.80).aspx) do szablonu. Następnie, w widoku GridView s `RowCreated` lub `RowDataBound` obsługi zdarzeń w formancie Literal mogą uzyskiwać programowo i jego `Text` właściwość znaczników emisji.
+Inne podejścia iniekcję niestandardowy, niskiego poziomu znacznika w szablonie i metody, która będzie używana w tym samouczku jest dodanie [formancie Literal](https://msdn.microsoft.com/library/sz4949ks(VS.80).aspx) do szablonu. Następnie, w widoku GridView s `RowCreated` lub `RowDataBound` obsługi zdarzeń w formancie Literal mogą uzyskiwać programowo i jego `Text` właściwość znaczników emisji.
 
 Uruchom przez usunięcie RadioButton z TemplateField s `ItemTemplate`, zastępując formancie Literal. Ustawianie formantu literału s `ID` do `RadioButtonMarkup`.
 
@@ -205,7 +205,7 @@ Gdy zostanie wybrany wiersz widoku GridView i odświeżenie strony, Dbamy o `Sup
 
 Po dodaniu tego kod obsługi zdarzeń, zabrać kilka minut na przetestowanie strony w przeglądarce. Najpierw należy pamiętać, że opcji tylko jeden przycisk w siatce można wybrać w czasie. Jednak gdy wybranie przycisku radiowego i kliknij jeden z przycisków, odświeżenie strony występuje i przywrócić wszystkie przycisków radiowych do stanu początkowego (czyli, strony, wybranego przycisku radiowego jest już zaznaczone). Aby rozwiązać ten problem, należy rozszerzyć `RowCreated` obsługi zdarzeń, tak że bada indeksu przycisk opcji wybranych wysyłane z ogłaszania zwrotnego i dodaje `checked="checked"` atrybutu emitowany znaczników dopasowań indeks wiersza.
 
-Podczas odświeżania strony wystąpienia przeglądarki odsyła `name` i `value` z wybranego przycisku radiowego. Wartość można programowo pobrać przy użyciu `Request.Form["name"]`. [ `Request.Form` Właściwości](https://msdn.microsoft.com/en-us/library/system.web.httprequest.form.aspx) zapewnia [ `NameValueCollection` ](https://msdn.microsoft.com/en-us/library/system.collections.specialized.namevaluecollection.aspx) reprezentujący zmiennych formularza. Zmiennych formularza są nazwy i wartości pola formularza na stronie sieci web i są wysyłane przez przeglądarki sieci web, przy każdym ensues odświeżania strony. Ponieważ renderowanych `name` atrybut przycisków radiowych w widoku GridView jest `SuppliersGroup`, gdy strony sieci web jest przesyłana z powrotem wyśle przeglądarki `SuppliersGroup=valueOfSelectedRadioButton` do serwera sieci web (wraz z innych pól formularza). Następnie te informacje są dostępne z `Request.Form` przy użyciu właściwości: `Request.Form["SuppliersGroup"]`.
+Podczas odświeżania strony wystąpienia przeglądarki odsyła `name` i `value` z wybranego przycisku radiowego. Wartość można programowo pobrać przy użyciu `Request.Form["name"]`. [ `Request.Form` Właściwości](https://msdn.microsoft.com/library/system.web.httprequest.form.aspx) zapewnia [ `NameValueCollection` ](https://msdn.microsoft.com/library/system.collections.specialized.namevaluecollection.aspx) reprezentujący zmiennych formularza. Zmiennych formularza są nazwy i wartości pola formularza na stronie sieci web i są wysyłane przez przeglądarki sieci web, przy każdym ensues odświeżania strony. Ponieważ renderowanych `name` atrybut przycisków radiowych w widoku GridView jest `SuppliersGroup`, gdy strony sieci web jest przesyłana z powrotem wyśle przeglądarki `SuppliersGroup=valueOfSelectedRadioButton` do serwera sieci web (wraz z innych pól formularza). Następnie te informacje są dostępne z `Request.Form` przy użyciu właściwości: `Request.Form["SuppliersGroup"]`.
 
 Ponieważ firma Microsoft będzie konieczne ustalenie wybranego przycisku radiowego indeksu nie tylko w `RowCreated` program obsługi zdarzeń, ale w `Click` dodać let s obsługi zdarzeń dla formantów sieci Web przycisku, `SuppliersSelectedIndex` właściwości do klasy związane z kodem, które zwraca `-1`zaznaczenie ma przycisku radiowego i wybranego indeksu, jeśli wybrano jeden z przycisków radiowych.
 
@@ -222,7 +222,7 @@ Dzięki tej zmianie wybranego przycisku radiowego pozostaje zaznaczone po odświ
 W tym momencie w widoku GridView umożliwiający pojedynczy wiersz widoku GridView i zapamiętanych między ogłaszania zwrotnego dodaliśmy kolumnie przycisków radiowych grupowanych. Nasze następne kroki są do wyświetlenia produktów dostarczone przez wybranego dostawcę. W kroku 4 zajmiemy się tym, jak przekierowanie użytkownika do innej strony wysyłania wzdłuż wybranego `SupplierID`. W kroku 5 Firma Microsoft będzie widoczny sposób wyświetlania produktów s wybranego dostawcy w widoku GridView na tej samej stronie.
 
 > [!NOTE]
-> Zamiast przy użyciu TemplateField (fokus to długie krok 3), można utworzyć niestandardowy `DataControlField` klasy, która renderuje interfejs odpowiedniego użytkownika i funkcje. [ `DataControlField` Klasy](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datacontrolfield.aspx) jest klasą podstawową, z którego pochodzi elementu BoundField, CheckBoxField TemplateField i innych pól wbudowanych GridView i widoku DetailsView. Tworzenie niestandardowego `DataControlField` klasy oznaczałoby mógł zostać dodany tylko za pomocą składni deklaratywnej kolumnie przycisków radiowych, a także spowodowałoby replikowanie funkcji na innych stron sieci web i innych aplikacji sieci web znacznie łatwiejsze.
+> Zamiast przy użyciu TemplateField (fokus to długie krok 3), można utworzyć niestandardowy `DataControlField` klasy, która renderuje interfejs odpowiedniego użytkownika i funkcje. [ `DataControlField` Klasy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datacontrolfield.aspx) jest klasą podstawową, z którego pochodzi elementu BoundField, CheckBoxField TemplateField i innych pól wbudowanych GridView i widoku DetailsView. Tworzenie niestandardowego `DataControlField` klasy oznaczałoby mógł zostać dodany tylko za pomocą składni deklaratywnej kolumnie przycisków radiowych, a także spowodowałoby replikowanie funkcji na innych stron sieci web i innych aplikacji sieci web znacznie łatwiejsze.
 
 
 Jeśli był tworzenia niestandardowych, skompilowany formantów w ASP.NET, jednak znasz czy to tak wymaga odpowiedniej ilości legwork i niesie ze sobą hosta precyzyjnie oraz przypadków krawędzi, musi być starannie obsługiwane. W związku z tym firma Microsoft będzie zrezygnujesz z implementacji kolumnie przycisków radiowych jako niestandardowego `DataControlField` klasy teraz i przestrzegaj opcja TemplateField. Prawdopodobnie będziesz mieć możliwość tworzenia, przy użyciu i wdrażanie niestandardowych `DataControlField` klas w przyszłości samouczek!
@@ -295,7 +295,7 @@ Po skonfigurowaniu wyboru, aktualizacji, wstawianie i usuwanie kart, kliknij prz
 
 Mamy kilka opcji tutaj w określanie źródło wartości parametru s. Firma Microsoft może używać domyślnego parametru obiektu i programowo przypisać wartość `SuppliersSelectedIndex` właściwości do parametru s `DefaultValue` właściwości w elemencie ObjectDataSource s `Selecting` program obsługi zdarzeń. Odwołaj się do [programowane Ustawianie wartości parametrów elementu ObjectDataSource](../basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs.md) samouczka dla odświeżacza na programowo przypisywania wartości parametrów elementu ObjectDataSource s.
 
-Możemy również użyć parametrze ControlParameter i zapoznaj się z `Suppliers` GridView s [ `SelectedValue` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedvalue.aspx) (patrz rysunek 19). GridView s `SelectedValue` zwraca `DataKey` wartość odpowiadającą [ `SelectedIndex` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedindex.aspx). Aby ta opcja działała, należy ustawić programowo s widoku GridView `SelectedIndex` właściwości wybranego wiersza, kiedy `ListProducts` kliknięciu przycisku. Jako dodatkowa korzyść, ustawiając `SelectedIndex`, będzie miał wybranego rekordu `SelectedRowStyle` zdefiniowane w `DataWebControls` motywu (żółty tła).
+Możemy również użyć parametrze ControlParameter i zapoznaj się z `Suppliers` GridView s [ `SelectedValue` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue.aspx) (patrz rysunek 19). GridView s `SelectedValue` zwraca `DataKey` wartość odpowiadającą [ `SelectedIndex` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex.aspx). Aby ta opcja działała, należy ustawić programowo s widoku GridView `SelectedIndex` właściwości wybranego wiersza, kiedy `ListProducts` kliknięciu przycisku. Jako dodatkowa korzyść, ustawiając `SelectedIndex`, będzie miał wybranego rekordu `SelectedRowStyle` zdefiniowane w `DataWebControls` motywu (żółty tła).
 
 
 [![Umożliwia określenie SelectedValue s widoku GridView, jako źródło parametru w parametrze ControlParameter](adding-a-gridview-column-of-radio-buttons-cs/_static/image19.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image33.png)
@@ -342,4 +342,4 @@ Programowanie przyjemność!
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Suru Dominika. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Dalej](adding-a-gridview-column-of-checkboxes-cs.md)
+[Next](adding-a-gridview-column-of-checkboxes-cs.md)

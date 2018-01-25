@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
-ms.openlocfilehash: 551e31a7a2d0a4e6259f74977c2f8e21cb694e42
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3efcefc40dc135ff42f55911036f8b38b5aa13b1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="understanding-the-build-process"></a>Opis procesu kompilacji
 ====================
@@ -77,7 +77,7 @@ Aby wdrożyć rozwiązanie Contact Manager do środowiska testowego developer, u
 
 
 > [!NOTE]
-> **/Fl** przełącznika (skrót od **/fileLogger**) rejestruje dane wyjściowe kompilacji w pliku o nazwie *msbuild.log* w bieżącym katalogu. Aby uzyskać więcej informacji, zobacz [informacje w wierszu polecenia programu MSBuild](https://msdn.microsoft.com/en-us/library/ms164311.aspx).
+> **/Fl** przełącznika (skrót od **/fileLogger**) rejestruje dane wyjściowe kompilacji w pliku o nazwie *msbuild.log* w bieżącym katalogu. Aby uzyskać więcej informacji, zobacz [informacje w wierszu polecenia programu MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
 
 W tym momencie MSBuild zacznie działać, ładuje *Publish.proj* plików i rozpoczyna przetwarzanie z instrukcjami wyświetlanymi w nim. Pierwsza instrukcja informuje program MSBuild Importowanie projektu pliku **TargetEnvPropsFile** określa parametr.
@@ -178,7 +178,7 @@ Elementy nie są używane w ramach tego docelowego & #x 2014; ten element docelo
 **DbPublishPackages** element będzie zawierać pojedynczą wartość, ścieżka do *ContactManager.Database.deploymanifest* pliku.
 
 > [!NOTE]
-> Plik .deploymanifest jest generowany podczas kompilowania projektu bazy danych i używa tego samego schematu jako plik projektu programu MSBuild. Zawiera wszystkie informacje wymagane do wdrożenia bazy danych, takie jak lokalizacja schematu bazy danych (.dbschema) i szczegóły skrypty przed wdrożeniem i po wdrożeniu. Aby uzyskać więcej informacji, zobacz [Przegląd bazy danych kompilacji i wdrażania](https://msdn.microsoft.com/en-us/library/aa833165.aspx).
+> Plik .deploymanifest jest generowany podczas kompilowania projektu bazy danych i używa tego samego schematu jako plik projektu programu MSBuild. Zawiera wszystkie informacje wymagane do wdrożenia bazy danych, takie jak lokalizacja schematu bazy danych (.dbschema) i szczegóły skrypty przed wdrożeniem i po wdrożeniu. Aby uzyskać więcej informacji, zobacz [Przegląd bazy danych kompilacji i wdrażania](https://msdn.microsoft.com/library/aa833165.aspx).
 
 
 Dowiesz się więcej o sposobie wdrażania pakietów i manifestów wdrożenia bazy danych są tworzone i używane w [budynku i projekty aplikacji sieci Web pakowania](building-and-packaging-web-application-projects.md) i [wdrażania projektów bazy danych](deploying-database-projects.md).
@@ -193,13 +193,13 @@ Po pierwsze, zwróć uwagę, że otwierający tag zawiera **dane wyjściowe** at
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
 
 
-To jest przykład *przetwarzaniu wsadowym obiektów docelowych*. W plikach projektu MSBuild przetwarzanie wsadowe to technika potrzeby iteracji w kolekcji. Wartość **dane wyjściowe** atrybutu **"% (DbPublishPackages.Identity)"**, odwołuje się do **tożsamości** właściwości metadanych **DbPublishPackages**  listy elementów. Ta notacja **dane wyjściowe = %***(ItemList.ItemMetadataName)*, jest translacja jako:
+To jest przykład *przetwarzaniu wsadowym obiektów docelowych*. W plikach projektu MSBuild przetwarzanie wsadowe to technika potrzeby iteracji w kolekcji. Wartość **dane wyjściowe** atrybutu **"% (DbPublishPackages.Identity)"**, odwołuje się do **tożsamości** właściwości metadanych **DbPublishPackages**  listy elementów. Ten element notation, **Outputs=%***(ItemList.ItemMetadataName)*, jest translacja jako:
 
 - Podziel elementy w **DbPublishPackages** w partie elementów, które zawierają takie same **tożsamości** wartości metadanych.
 - Wykonanie docelowego raz w każdej partii.
 
 > [!NOTE]
-> **Tożsamość** jest jednym z [wartości wbudowanych metadanych](https://msdn.microsoft.com/en-us/library/ms164313.aspx) przypisany do każdego elementu po utworzeniu. Odnosi się do wartości **Include** atrybutu w **elementu** elementu & #x 2014; innymi słowy, ścieżkę i nazwę elementu.
+> **Tożsamość** jest jednym z [wartości wbudowanych metadanych](https://msdn.microsoft.com/library/ms164313.aspx) przypisany do każdego elementu po utworzeniu. Odnosi się do wartości **Include** atrybutu w **elementu** elementu & #x 2014; innymi słowy, ścieżkę i nazwę elementu.
 
 
 W takim przypadku ponieważ nigdy nie może mieć więcej niż jeden element o tej samej ścieżki i nazwy pliku, zasadniczo pracujemy o rozmiarze partii jednego. Element docelowy jest wykonywana raz dla każdego pakietu bazy danych.
@@ -210,7 +210,7 @@ Zostanie wyświetlony podobne Notacja w  **\_Cmd** właściwość, która tworzy
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
 
 
-W takim przypadku **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, i **%(DbPublishPackages.FullPath)** wszystkie odnoszą się do wartości metadanych **DbPublishPackages** Kolekcja elementów.  **\_Cmd** jest używana przez **Exec** zadania, które wywołuje polecenie.
+W takim przypadku **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, i **%(DbPublishPackages.FullPath)** wszystkie odnoszą się do wartości metadanych **DbPublishPackages** Kolekcja elementów. **\_Cmd** jest używana przez **Exec** zadania, które wywołuje polecenie.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]
@@ -219,7 +219,7 @@ W takim przypadku **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPubli
 W wyniku tego notacji **Exec** zadania spowoduje utworzenie partie oparte na unikatowych kombinacji **DatabaseConnectionString**, **TargetDatabase**i **FullPath** wartości metadanych i zadanie będzie wykonywane raz dla każdej partii. To jest przykład *przetwarzanie wsadowe zadań*. Jednakże, ponieważ przetwarzanie wsadowe poziom docelowy ma już podzielony naszych kolekcji elementów w partiach pojedynczego elementu **Exec** zadanie będzie uruchamiane raz i tylko jeden raz dla każdej iteracji obiektu docelowego. Innymi słowy to zadanie wywołuje narzędzie VSDBCMD raz dla każdego pakietu bazy danych w rozwiązaniu.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na docelowy i przetwarzanie wsadowe zadań, zobacz MSBuild [wsadowe](https://msdn.microsoft.com/en-us/library/ms171473.aspx), [metadane elementu w przetwarzaniu wsadowym obiektów docelowych](https://msdn.microsoft.com/en-US/library/ms228229.aspx), i [metadane elementu w przetwarzaniu wsadowym zadań](https://msdn.microsoft.com/en-us/library/ms171474.aspx).
+> Aby uzyskać więcej informacji na docelowy i przetwarzanie wsadowe zadań, zobacz MSBuild [wsadowe](https://msdn.microsoft.com/library/ms171473.aspx), [metadane elementu w przetwarzaniu wsadowym obiektów docelowych](https://msdn.microsoft.com/library/ms228229.aspx), i [metadane elementu w przetwarzaniu wsadowym zadań](https://msdn.microsoft.com/library/ms171474.aspx).
 
 
 ### <a name="the-publishwebpackages-target"></a>Element docelowy PublishWebPackages

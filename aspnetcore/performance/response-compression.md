@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 9270287b62f91ddb81d6a347dd583e1cbb32f3c3
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2b39a5105339beb416490db282d4cd8b83d08660
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Oprogramowanie pośredniczące kompresji odpowiedzi dla platformy ASP.NET Core
 
@@ -96,7 +96,7 @@ Poniższy kod przedstawia sposób włączania oprogramowania pośredniczącego k
 
 Prześlij żądanie do przykładowej aplikacji bez `Accept-Encoding` nagłówka i sprawdź, czy odpowiedź jest nieskompresowane. `Content-Encoding` i `Vary` nagłówki nie są dostępne w odpowiedzi.
 
-![Wynik żądania bez nagłówka Accept-Encoding przedstawiający okno fiddler. Odpowiedź nie jest kompresowany.](response-compression/_static/request-uncompressed.png)
+![Wynik żądania bez nagłówka Accept-Encoding przedstawiający okno fiddler. Odpowiedź nie jest kompresowana.](response-compression/_static/request-uncompressed.png)
 
 Prześlij żądanie do aplikacji przykładowej przy `Accept-Encoding: gzip` nagłówka i sprawdź, czy odpowiedź jest kompresowana. `Content-Encoding` i `Vary` nagłówki są obecne w odpowiedzi.
 
@@ -110,7 +110,7 @@ Domyślnie dostawca kompresji gzip najszybszym poziom kompresji (`CompressionLev
 
 | Poziom kompresji                | Opis                                                                                                   |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `CompressionLevel.Fastest`       | Kompresja powinno zakończyć tak szybko, jak to możliwe, nawet jeśli dane wyjściowe nie będzie skompresowany optymalnie. |
+| `CompressionLevel.Fastest`       | Kompresja powinno zakończyć tak szybko jak to możliwe, nawet jeśli dane wyjściowe nie jest optymalnie skompresowane. |
 | `CompressionLevel.NoCompression` | Kompresja nie powinny być wykonywane.                                                                           |
 | `CompressionLevel.Optimal`       | Odpowiedzi powinna być optymalnie kompresowana, nawet jeśli kompresja trwa dłużej.                |
 

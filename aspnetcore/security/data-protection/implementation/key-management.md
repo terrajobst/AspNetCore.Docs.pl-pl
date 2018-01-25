@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 53adb067751917a9539a310bb7d91e599696f213
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9c4d293355e26d8bf5ba1360b070a7b9809bfe56
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="key-management"></a>Zarządzanie kluczami
 
@@ -48,7 +48,7 @@ Brak Wystąpił wyjątek. Jeśli Deweloper aplikacji ma [wyłączona, automatycz
 
 ## <a name="key-expiration-and-rolling"></a>Wygaśnięcie klucza i wdrażania
 
-Po utworzeniu klucza automatycznie znajduje się data aktywacji {teraz + 2 dni} i {teraz + 90 dni} daty wygaśnięcia. 2-dniowego opóźnienie aktywacji daje klucza czas na propagację za pośrednictwem systemu. Oznacza to umożliwia innym aplikacjom wskazując magazynu zapasowego przestrzegać klucz ich następnego okresu automatycznego odświeżania, w związku z tym maksymalizacja prawdopodobieństwo, że po klucz pierścienia ma stają się aktywne, którą ma on propagowane do wszystkich aplikacji, które może być konieczne jej używać.
+Po utworzeniu klucza automatycznie została podana data aktywacji {teraz + 2 dni} i {teraz + 90 dni} daty wygaśnięcia. 2-dniowego opóźnienie aktywacji daje klucza czas na propagację za pośrednictwem systemu. Oznacza to umożliwia innym aplikacjom wskazując magazynu zapasowego przestrzegać klucz ich następnego okresu automatycznego odświeżania, w związku z tym maksymalizacja prawdopodobieństwo, że po klucz pierścienia ma stają się aktywne, którą ma on propagowane do wszystkich aplikacji, które może być konieczne jej używać.
 
 Domyślny klucz wygaśnie w ciągu 2 dni i pierścień klucza nie ma już klucz, który będzie aktywny po wygaśnięciu domyślny klucz, w systemu ochrony danych będą automatycznie utrwalić nowy klucz do pierścień klucza. Ten nowy klucz ma Data aktywacji {Data wygaśnięcia domyślny klucz} i {teraz + 90 dni} daty wygaśnięcia. Dzięki temu system automatycznie wycofanie kluczy na bieżąco z przerwy w świadczeniu usług.
 

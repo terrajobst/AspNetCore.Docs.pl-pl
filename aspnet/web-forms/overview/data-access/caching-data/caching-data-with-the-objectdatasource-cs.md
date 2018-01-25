@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5ce0bd1d3302ee68c9c65584686172a07143e4a4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8cd4fd2afb16772baf45618ccee2c3c3caea5b64
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-with-the-objectdatasource-c"></a>Buforowanie danych z elementu ObjectDataSource (C#)
 ====================
@@ -44,7 +44,7 @@ Buforowanie może znacznie ulepszyć s aplikacji ogólnej wydajności i skalowal
 
 Niezależnie od określone kryteria wykluczenia elementu w pamięci podręcznej może być *oczyszczany* przed kryterium opartego na czasie lub na podstawie zależności zostały spełnione. Jeśli pamięć podręczna osiągnęła, należy usunąć istniejące elementy przed dodaniem nowych. W rezultacie pracując programowo z danych z pamięci podręcznej go s istotne, że należy zawsze przyjęto założenie, że buforowane dane mogą nie występować. Przyjrzymy wzorzec do użycia podczas uzyskiwania dostępu do danych z pamięci podręcznej programowo w naszym samouczku dalej *buforowania danych w architekturze*.
 
-Buforowanie zapewnia ekonomiczny sposób ściskanie większą wydajność aplikacji. Jako [Steven Smith](http://aspadvice.com/blogs/ssmith/) articulates w jego artykule [ASP.NET buforowanie: technik i najlepszych rozwiązań](https://msdn.microsoft.com/en-us/library/aa478965.aspx):
+Buforowanie zapewnia ekonomiczny sposób ściskanie większą wydajność aplikacji. Jako [Steven Smith](http://aspadvice.com/blogs/ssmith/) articulates w jego artykule [ASP.NET buforowanie: technik i najlepszych rozwiązań](https://msdn.microsoft.com/library/aa478965.aspx):
 
 Buforowanie może być dobrym sposobem uzyskania dobrej dostateczną wydajność bez konieczności dużo czasu i analizy. Ilość pamięci jest tanie, więc jeśli można uzyskać wydajności przez buforowanie danych wyjściowych przez 30 sekund zamiast wydatków dnia lub tygodnia próby zoptymalizować z kodu lub bazy danych, wykonaj buforowania rozwiązania (przy założeniu, 30 - starych sekundę danych jest ok) i przenieść. Po pewnym czasie niską projekt będzie prawdopodobnie nadążyć, więc oczywiście należy poprawnie projektowania aplikacji. Jednak jeśli wystarczy pobrać dostateczną wydajność dzisiaj, buforowanie może być znakomity [Metoda], kupowanie czasu Refaktoryzuj aplikacji w późniejszym terminie, jeśli masz czas, aby to zrobić.
 
@@ -175,10 +175,10 @@ Może wydawać się niepotrzebne można pobrać za każdym razem danych jest str
 
 Wystarczy wybrać ustawienie kilka właściwości, można skonfigurować elementu ObjectDataSource automatycznie buforowania jego pobrane dane w pamięci podręcznej danych ASP.NET. Poniższa lista zawiera podsumowanie właściwości związanych z pamięci podręcznej elementu ObjectDataSource:
 
-- [EnableCaching](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx) musi mieć ustawioną `true` Aby włączyć buforowanie. Wartość domyślna to `false`.
-- [CacheDuration](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) czas w sekundach, które dane są buforowane. Wartość domyślna to 0. Element ObjectDataSource będą tylko dane z pamięci podręcznej Jeśli `EnableCaching` jest `true` i `CacheDuration` jest ustawiona na wartość większą niż zero.
-- [CacheExpirationPolicy](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) może być ustawiony na `Absolute` lub `Sliding`. Jeśli `Absolute`, ObjectDataSource buforuje jego pobrane dane w celu `CacheDuration` sekundy; Jeśli `Sliding`, dane wygasną tylko wtedy, gdy nie uzyska dostępu dla `CacheDuration` sekund. Wartość domyślna to `Absolute`.
-- [CacheKeyDependency](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx) tej właściwości należy użyć do skojarzenia wpisów pamięci podręcznej s ObjectDataSource z istniejących zależności pamięci podręcznej. Wpisy danych s ObjectDataSource może przedwcześnie wykluczony z pamięci podręcznej poprzez wygaszenie skojarzone `CacheKeyDependency`. Ta właściwość jest najczęściej używana do skojarzenia z pamięci podręcznej s ObjectDataSource zależności bufora SQL, temat firma Microsoft będzie Eksplorowanie w przyszłości [przy użyciu zależności buforu SQL](using-sql-cache-dependencies-cs.md) samouczka.
+- [EnableCaching](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx) musi mieć ustawioną `true` Aby włączyć buforowanie. Wartość domyślna to `false`.
+- [CacheDuration](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) czas w sekundach, które dane są buforowane. Wartość domyślna to 0. Element ObjectDataSource będą tylko dane z pamięci podręcznej Jeśli `EnableCaching` jest `true` i `CacheDuration` jest ustawiona na wartość większą niż zero.
+- [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) może być ustawiony na `Absolute` lub `Sliding`. Jeśli `Absolute`, ObjectDataSource buforuje jego pobrane dane w celu `CacheDuration` sekundy; Jeśli `Sliding`, dane wygasną tylko wtedy, gdy nie uzyska dostępu dla `CacheDuration` sekund. Wartość domyślna to `Absolute`.
+- [CacheKeyDependency](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx) tej właściwości należy użyć do skojarzenia wpisów pamięci podręcznej s ObjectDataSource z istniejących zależności pamięci podręcznej. Wpisy danych s ObjectDataSource może przedwcześnie wykluczony z pamięci podręcznej poprzez wygaszenie skojarzone `CacheKeyDependency`. Ta właściwość jest najczęściej używana do skojarzenia z pamięci podręcznej s ObjectDataSource zależności bufora SQL, temat firma Microsoft będzie Eksplorowanie w przyszłości [przy użyciu zależności buforu SQL](using-sql-cache-dependencies-cs.md) samouczka.
 
 Let s skonfigurować `ProductsDataSource` ObjectDataSource do jego dane z pamięci podręcznej przez 30 sekund na skalę bezwzględną. Ustaw element ObjectDataSource s `EnableCaching` właściwości `true` i jego `CacheDuration` właściwości do 30. Pozostaw `CacheExpirationPolicy` właściwości wartości domyślne, `Absolute`.
 
@@ -206,7 +206,7 @@ Rysunek 12 przedstawiono s ObjectDataSource buforowanie przepływu pracy. Podcza
 
 Każda aplikacja ASP.NET ma własne wystąpienie tego s współużytkowana przez wszystkie strony i gości pamięci podręcznej danych. Oznacza to, że dane przechowywane w pamięci podręcznej danych przez element ObjectDataSource podobnie jest współużytkowana przez wszystkich użytkowników, którzy odwiedź stronę. Aby to sprawdzić, należy otworzyć `ObjectDataSource.aspx` strony w przeglądarce. Podczas odwiedzania najpierw strony, Zaznaczanie tekstu zdarzenia wywoływane pojawi się (przy założeniu, że dane dodanych do pamięci podręcznej przez powyższych testów w obecnie został wykluczony). Otwórz drugie wystąpienie przeglądarki i skopiuj i wklej adres URL z pierwszego wystąpienia przeglądarki do drugiego. W drugim wystąpieniu przeglądarki, Zaznaczanie tekstu zdarzenia wywoływane jest nie wyświetlany, ponieważ jego s korzystającej z tego samego buforowane dane jako pierwszy.
 
-Podczas wstawiania danych pobrane do pamięci podręcznej, ObjectDataSource korzysta z wartości klucza pamięci podręcznej, który obejmuje: `CacheDuration` i `CacheExpirationPolicy` wartości właściwości; Typ obiektu podstawowego firm używany przez element ObjectDataSource, które jest określone za pomocą [ `TypeName` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.typename.aspx) (`ProductsBLL`, w tym przykładzie); wartość `SelectMethod` właściwości oraz nazwy i wartości parametrów w `SelectParameters` kolekcji; i wartości jego `StartRowIndex`i `MaximumRows` właściwości, które są używane podczas implementowania [stronicowania niestandardowego.](../paging-and-sorting/paging-and-sorting-report-data-cs.md)
+Podczas wstawiania danych pobrane do pamięci podręcznej, ObjectDataSource korzysta z wartości klucza pamięci podręcznej, który obejmuje: `CacheDuration` i `CacheExpirationPolicy` wartości właściwości; Typ obiektu podstawowego firm używany przez element ObjectDataSource, które jest określone za pomocą [ `TypeName` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.typename.aspx) (`ProductsBLL`, w tym przykładzie); wartość `SelectMethod` właściwości oraz nazwy i wartości parametrów w `SelectParameters` kolekcji; i wartości jego `StartRowIndex`i `MaximumRows` właściwości, które są używane podczas implementowania [stronicowania niestandardowego.](../paging-and-sorting/paging-and-sorting-report-data-cs.md)
 
 Obsługuje tworzenie pamięci podręcznej wartość klucza jako połączenie tych właściwości zapewnia wpis pamięci podręcznej unikatowy po zmianie tych wartości. Na przykład w ciągu ostatnich samouczkach możemy kolejnych przeglądał przy użyciu `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)`, która zwraca wszystkich produktów dla określonej kategorii. Jeden użytkownik może się napoje strony i widoku, który ma `CategoryID` 1. Jeśli element ObjectDataSource buforowane wyniki bez względu na `SelectParameters` wartości, gdy inny użytkownik dołączone do strony do wyświetlenia przyprawy podczas produktów napoje znajdowały się w pamięci podręcznej, d zobaczy produktów napoju pamięci podręcznej, a nie przyprawy. Przez zróżnicowanie klucz pamięci podręcznej przez te właściwości, które obejmują wartości `SelectParameters`, ObjectDataSource przechowuje wpis w pamięci podręcznej osobne dla napojów i przypraw.
 
@@ -230,8 +230,8 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [ASP.NET buforowanie: Technik i najlepszych rozwiązań](https://msdn.microsoft.com/en-us/library/aa478965.aspx)
-- [Przewodnik dotyczący architektury buforowania dla aplikacji .NET Framework](https://msdn.microsoft.com/en-us/library/ee817645.aspx)
+- [ASP.NET buforowanie: Technik i najlepszych rozwiązań](https://msdn.microsoft.com/library/aa478965.aspx)
+- [Przewodnik dotyczący architektury buforowania dla aplikacji .NET Framework](https://msdn.microsoft.com/library/ee817645.aspx)
 - [Buforowanie wyjściowe w programie ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)
 
 ## <a name="about-the-author"></a>Informacje o autorze
@@ -243,4 +243,4 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Dalej](caching-data-in-the-architecture-cs.md)
+[Next](caching-data-in-the-architecture-cs.md)

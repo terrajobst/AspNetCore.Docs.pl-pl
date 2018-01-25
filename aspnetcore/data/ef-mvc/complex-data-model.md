@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 5b5645936504333573950b5bd17f5a037ffd984f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d844e2a69e4bbfdf3942f2666ead0047bdf83b7a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Tworzenie modelu danych złożonych - Core EF z samouczek platformy ASP.NET Core MVC (5, 10)
 
@@ -39,9 +39,9 @@ W *Models/Student.cs*, Dodaj `using` instrukcji dla `System.ComponentModel.DataA
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-`DataType` Atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych. W takim przypadku tylko chcemy śledzić data nie Data i godzina. `DataType` Wyliczenie zawiera wiele typów danych, takich jak daty, godziny, numer telefonu, waluty, EmailAddress i więcej. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza `DataType.EmailAddress`, i może zostać dostarczony selektora daty `DataType.Date` w przeglądarkach obsługujących HTML5. `DataType` HTML 5 emituje atrybut `data-` atrybutów (wyraźnym danych dash), które byłyby zrozumiałe dla przeglądarki HTML 5. `DataType` Atrybutów nie dostarcza żadnych sprawdzania poprawności.
+`DataType` Atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych. W takim przypadku tylko chcemy śledzić data nie Data i godzina. `DataType` Wyliczenie zawiera wiele typów danych, takich jak daty, godziny, numer telefonu, waluty, EmailAddress i więcej. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza `DataType.EmailAddress`, i może zostać dostarczony selektora daty `DataType.Date` w przeglądarkach obsługujących HTML5. `DataType` HTML 5 emituje atrybut `data-` atrybutów (wyraźnym danych dash), które byłyby zrozumiałe dla przeglądarki HTML 5. `DataType` Atrybutów nie oferują żadnych sprawdzania poprawności.
 
-`DataType.Date`Określa format daty, która jest wyświetlana. Domyślnie są wyświetlane w polu danych domyślny format oparte na obiekt CultureInfo serwera.
+`DataType.Date`nie określono format daty, która jest wyświetlana. Domyślnie są wyświetlane w polu danych domyślny format oparte na obiekt CultureInfo serwera.
 
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 
@@ -103,7 +103,7 @@ Uruchom aplikację, wybierz **studentów** , kliknij pozycję **Utwórz nowy**i 
 
 Atrybuty umożliwia także kontrolować sposób z klas i właściwości są mapowane do bazy danych. Załóżmy, że używasz nazwy `FirstMidName` nazwę pierwszego pola, ponieważ pole może także zawierać drugie imię. Ale ma być nazwane kolumna bazy danych `FirstName`, ponieważ użytkownicy, którzy będą Pisanie zapytań ad hoc w bazie danych są zapoznanie tej nazwy. Aby to mapowanie, można użyć `Column` atrybutu.
 
-`Column` Atrybut określa, że po utworzeniu bazy danych, w kolumnie `Student` tabeli, który jest mapowany na `FirstMidName` właściwość o nazwie `FirstName`. Innymi słowy, gdy kod odwołuje się do `Student.FirstMidName`, dane będą pobierane z lub zaktualizowane w `FirstName` kolumny `Student` tabeli. Jeśli nie określisz nazwy kolumn mających taką samą nazwę jak nazwa właściwości.
+`Column` Atrybut określa, że po utworzeniu bazy danych, w kolumnie `Student` tabeli, który jest mapowany na `FirstMidName` właściwość o nazwie `FirstName`. Innymi słowy, gdy kod odwołuje się do `Student.FirstMidName`, dane będą pobierane z lub zaktualizowane w `FirstName` kolumny `Student` tabeli. Jeśli nie określisz nazwy kolumn, ich otrzymuje taką samą nazwę jak nazwa właściwości.
 
 W *Student.cs* plików, dodawanie `using` instrukcji dla `System.ComponentModel.DataAnnotations.Schema` i dodać atrybut nazwy kolumny do `FirstMidName` właściwości, jak pokazano w poniższym kodzie wyróżnione:
 
@@ -125,7 +125,7 @@ W **Eksplorator obiektów SQL Server**, otwórz projektanta tabel dla użytkowni
 
 ![Tabela studentów w SSOX po migracji](complex-data-model/_static/ssox-after-migration.png)
 
-Przed zastosowaniem dwóch pierwszych migracji, nazwa kolumny były typu nvarchar(MAX). Są to obecnie nvarchar(50) i nazwę kolumny zmienił się z FirstMidName imię.
+Przed zastosowaniem dwóch pierwszych migracji, nazwa kolumny były typu nvarchar(MAX). Są one obecnie nvarchar(50) i nazwę kolumny zmieniła się z FirstMidName na imię.
 
 > [!Note]
 > Jeśli spróbujesz skompilować przed zakończeniem Tworzenie wszystkich klas jednostek w poniższych sekcjach można otrzymać błędy kompilatora.
@@ -140,7 +140,7 @@ W *Models/Student.cs*, Zastąp kod dodane wcześniej następujący kod. Zmiany z
 
 ### <a name="the-required-attribute"></a>Wymagany atrybut
 
-`Required` Atrybut powoduje, że nazwa właściwości wymaganych pól. `Required` Atrybut nie jest wymagany dla typów wartości null, takich jak typy wartości (DateTime, int, kliknij dwukrotnie, float, itp.). Typy, które nie może mieć wartości null są automatycznie traktowane jako wymagane pola.
+`Required` Atrybut powoduje, że nazwa właściwości wymaganych pól. `Required` Atrybut nie jest wymagane dla typów wartości null, takich jak typy wartości (DateTime, int, kliknij dwukrotnie, float, itp.). Typy, które nie może mieć wartości null są automatycznie traktowane jako wymagane pola.
 
 Można usunąć `Required` atrybutu i zamień ją na minimalną długość parametru `StringLength` atrybutu:
 
@@ -231,7 +231,7 @@ W *Models/Course.cs*, Zastąp kod dodane wcześniej następujący kod. Zmiany zo
 
 Jednostka kursu ma właściwości klucza obcego `DepartmentID` wskazujących powiązanej jednostki działu i ma `Department` właściwości nawigacji.
 
-Nie wymaga programu Entity Framework, można dodać właściwości klucza obcego do modelu danych w przypadku właściwości nawigacji dla obiekt pokrewny.  EF wszędzie tam, gdzie jest to konieczne, tworzy klucze obce w bazie danych i automatycznie tworzy [w tle właściwości](https://docs.microsoft.com/ef/core/modeling/shadow-properties) dla nich. Jednak po klucz obcy w modelu danych może uaktualniać prostszy i efektywniejszy. Na przykład podczas pobierania jednostki kursu, aby edytować, jednostki działu ma wartość null, jeśli nie zostanie załadowany, więc po zaktualizowaniu jednostki kursu należy najpierw pobrać jednostki działu. Gdy właściwość klucza obcego `DepartmentID` znajduje się w modelu danych, nie trzeba było pobrać jednostki działu, przed uaktualnieniem.
+Nie wymaga programu Entity Framework, można dodać właściwości klucza obcego do modelu danych w przypadku właściwości nawigacji dla obiekt pokrewny.  EF automatycznie tworzy klucze obce w bazie danych, wszędzie tam, gdzie są potrzebne i tworzy [w tle właściwości](https://docs.microsoft.com/ef/core/modeling/shadow-properties) dla nich. Jednak po klucz obcy w modelu danych może uaktualniać prostszy i efektywniejszy. Na przykład podczas pobierania jednostki kursu, aby edytować, jednostki działu ma wartość null, jeśli nie zostanie załadowany, więc po zaktualizowaniu jednostki kursu należy najpierw pobrać jednostki działu. Gdy właściwość klucza obcego `DepartmentID` znajduje się w modelu danych, nie trzeba było pobrać jednostki działu, przed uaktualnieniem.
 
 ### <a name="the-databasegenerated-attribute"></a>Atrybut DatabaseGenerated
 
@@ -308,7 +308,7 @@ public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> Według Konwencji programu Entity Framework umożliwia usuwanie kaskadowe dla klucza obcego nie dopuszcza wartości null i relacje wiele do wielu. Może to spowodować cykliczne cascade delete reguł, które spowoduje, że wystąpił wyjątek podczas próby dodania migracji. Na przykład jeśli właściwość Department.InstructorID nie zostały zdefiniowane jako wartości null, EF skonfigurować reguły usuwania kaskadowego można usunąć instruktora po usunięciu działu, której nie chcesz mieć wystąpić. W razie potrzeby reguł biznesowych `InstructorID` właściwości dopuszczać wartości null, użyj następującej instrukcji interfejsu API fluent, aby wyłączyć usuwanie kaskadowe w relacji musi:
+> Według Konwencji programu Entity Framework umożliwia usuwanie kaskadowe dla klucza obcego nie dopuszcza wartości null i relacje wiele do wielu. Może to spowodować cykliczne cascade delete reguł, które spowoduje, że wystąpił wyjątek podczas próby dodania migracji. Na przykład jeśli właściwość Department.InstructorID nie zostały zdefiniowane jako wartości null, EF skonfigurować reguły usuwania kaskadowego można usunąć instruktora po usunięciu działu, które nie mają mieć wystąpić. W razie potrzeby reguł biznesowych `InstructorID` właściwości dopuszczać wartości null, użyj następującej instrukcji interfejsu API fluent, aby wyłączyć usuwanie kaskadowe w relacji musi:
 > ```csharp
 > modelBuilder.Entity<Department>()
 >    .HasOne(d => d.Administrator)

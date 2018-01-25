@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: 0ab0b4c24c1771a21c45bac011b5f156cb15d28a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e06d37c01ab66f0723b687f4ed1ee72561099aef
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="manually-installing-web-packages"></a>Ręczne instalowanie pakietów sieci Web
 ====================
@@ -131,7 +131,7 @@ W tym temacie opisano jak zaimportować pakiet wdrożeniowy sieci web do witryny
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać wskazówki dotyczące sposobu konfigurowania serwera sieci web usług IIS do obsługi Ręczne importowanie pakietu sieci web, zobacz [Konfiguracja serwera sieci Web dla wdrożenia publikowania w sieci Web (wdrożenie w trybie Offline)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Aby uzyskać bardziej ogólne wskazówki dotyczące wdrażania pakietów sieci web, zobacz [wskazówki: Wdrażanie pomocą projektu aplikacji sieci Web pakietu wdrożeniowego sieci Web (część 1 z 4)](https://msdn.microsoft.com/en-us/library/dd483479.aspx).
+Aby uzyskać wskazówki dotyczące sposobu konfigurowania serwera sieci web usług IIS do obsługi Ręczne importowanie pakietu sieci web, zobacz [Konfiguracja serwera sieci Web dla wdrożenia publikowania w sieci Web (wdrożenie w trybie Offline)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Aby uzyskać bardziej ogólne wskazówki dotyczące wdrażania pakietów sieci web, zobacz [wskazówki: Wdrażanie pomocą projektu aplikacji sieci Web pakietu wdrożeniowego sieci Web (część 1 z 4)](https://msdn.microsoft.com/library/dd483479.aspx).
 
 >[!div class="step-by-step"]
 [Poprzednie](creating-and-running-a-deployment-command-file.md)

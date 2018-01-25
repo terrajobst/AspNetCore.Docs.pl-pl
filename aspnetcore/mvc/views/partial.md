@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/partial
-ms.openlocfilehash: e5c8aac855a1f4ec4c6f08087dbe77f6820cc506
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5919c273de2a298c3e407f118ac478e6a6031332
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="partial-views"></a>Widoki częściowe
 
@@ -37,7 +37,7 @@ Porada: Wykonaj [nie powtarzaj samodzielnie zasady](http://deviq.com/don-t-repea
 
 ## <a name="declaring-partial-views"></a>Deklarowanie widoki częściowe
 
-Widoki częściowe są tworzone, podobnie jak inne widoki: tworzenia *.cshtml* pliku w ramach *widoków* folderu. Nie ma żadnej semantycznego różnicy między widok częściowy i widokiem regularnych — są po prostu renderowane inaczej. Masz widoku, który jest zwracany bezpośrednio z poziomu kontrolera `ViewResult`, i tego samego widoku mogą być używane jako widok częściowy. Główną różnicą między sposobu renderowania widoku oraz widoku częściowego jest, widoki częściowe nie uruchamiaj *_ViewStart.cshtml* (gdy widoków Dowiedz się więcej o *_ViewStart.cshtml* w [układu ](layout.md)).
+Widoki częściowe są tworzone, podobnie jak inne widoki: tworzenia *.cshtml* pliku w ramach *widoków* folderu. Nie ma żadnej semantycznego różnicy między widok częściowy i widokiem regularnych — jest po prostu renderowane inaczej. Masz widoku, który jest zwracany bezpośrednio z poziomu kontrolera `ViewResult`, i tego samego widoku mogą być używane jako widok częściowy. Główną różnicą między sposobu renderowania widoku oraz widoku częściowego jest, że widoki częściowe, nie uruchamiaj *_ViewStart.cshtml* (gdy widoków Dowiedz się więcej o *_ViewStart.cshtml* w [układu ](layout.md)).
 
 ## <a name="referencing-a-partial-view"></a>Odwołuje się do widoku częściowego
 

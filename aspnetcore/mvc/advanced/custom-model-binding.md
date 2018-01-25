@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: d8b94f53954c5ab63ccf3aab4eb7a7a7dbea487b
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 85d5ca18944e774d1f2577459c6c45acde01e4d9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-model-binding"></a>Wiązania niestandardowe modelu
 
@@ -100,7 +100,7 @@ Poniższy kod przedstawia sposób użycia `AuthorEntityBinder` w metodzie akcji:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo2&highlight=2)]
 
-`ModelBinder` Atrybut może służyć do zastosowania `AuthorEntityBinder` parametrów, które nie korzystają z domyślnych Konwencji:
+`ModelBinder` Atrybut może służyć do zastosowania `AuthorEntityBinder` parametrów, które nie używają domyślnych Konwencji:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
@@ -133,6 +133,6 @@ Dodawanie dostawcy do końca kolekcji może spowodować integratora modelu wbudo
 ## <a name="recommendations-and-best-practices"></a>Zalecenia i najlepsze rozwiązania
 
 Integratorów modeli niestandardowych:
-- Nie powinny podejmować próby ustawiania kodów stanu lub zwracania wyników (na przykład 404 — Nie znaleziono). W przypadku niepowodzenia wiązania modelu [filtr akcji](xref:mvc/controllers/filters) lub logiki w ramach tej metody akcji powinna obsługiwać awarii.
+- Nie należy próbować ustawiania kodów stanu lub zwracania wyników (na przykład 404 — Nie znaleziono). W przypadku niepowodzenia wiązania modelu [filtr akcji](xref:mvc/controllers/filters) lub logiki w ramach tej metody akcji powinna obsługiwać awarii.
 - Są najbardziej przydatny w przypadku wyeliminowanie powtarzających się kodu oraz problemów powiązanych z metody akcji.
-- Zwykle nie należy używać do przekonwertowania ciągu na typ niestandardowy, [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter) jest zwykle lepszym rozwiązaniem.
+- Zwykle nie można użyć do przekonwertowania ciągu na typ niestandardowy, [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter) jest zwykle lepszym rozwiązaniem.

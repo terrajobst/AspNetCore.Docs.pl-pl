@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: d3a8183fecaf830b2ee1211acd56da86454b4437
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0e7ad52662f7ceaa1f087d007d0b14b610f90bee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>ASP.NET i narzędzia sieci Web 2013.2 dla programu Visual Studio 2013 informacje o wersji
 ====================
@@ -41,20 +41,20 @@ W poniższych sekcjach opisano funkcje, które zostały wprowadzone w wersji.
 - [Szablony projektów programu ASP.NET](#oneaspnet)
 - [Obsługa protokołu SSL podczas uruchamiania aplikacji sieci Web w usługach IIS Express](#ssl)
 - [Ulepszenia edytora sieci Web programu Visual Studio](#vswebeditor)
-- [Łącze przeglądarki](#browserlink)
+- [Łączność z przeglądarkami](#browserlink)
 - [Obsługa aplikacji sieci Web usługi aplikacji Azure w programie Visual Studio](#waws)
 - [Utwórz zasoby zdalne Azure podczas tworzenia nowego projektu sieci Web](#AzureResources)
 - [Ulepszenia publikowania w sieci Web](#webpublish)
-- [Funkcja szkieletów ASP.NET](#scaffolding)
+- [ASP.NET Scaffolding](#scaffolding)
 - [NuGet 2.8.1](#nuget)
 - [Formularze sieci Web ASP.NET](#webforms)
 - [ASP.NET MVC 5.1.2](#mvc)
 - [ASP.NET Web API 2.1.2](#webapi)
-- [3.1.2 strony sieci Web ASP.NET](#webpages)
+- [ASP.NET Web Pages 3.1.2](#webpages)
 - [Entity Framework 6.1](#ef)
 - [ASP.NET Identity 2.0.0](#identity)
 - [Składniki Microsoft OWIN](#owin)
-- [Biblioteka SignalR platformy ASP.NET pkt 2.0.2](#signalr)
+- [ASP.NET SignalR 2.0.2](#signalr)
 
 <a id="oneaspnet"></a>
 ### <a name="one-aspnet-project-templates"></a>Szablony projektów programu ASP.NET
@@ -123,7 +123,7 @@ Firefox używa magazynu certyfikatów, więc zostanie wyświetlone ostrzeżenie 
     ![Wybór adresu URL dla znacznika obrazu](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image16.png)    ![Wybór adresu URL dla widoków](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image17.png)    ![Wybór adresu URL CSS](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image18.png)
 
 <a id="browserlink"></a>
-### <a name="browser-link"></a>Łącze przeglądarki
+### <a name="browser-link"></a>Browser Link
 
 - Łącze przeglądarki teraz obsługuje połączenia HTTPS i będzie listy na pulpicie nawigacyjnym przy użyciu innych połączeń tak długo, jak certyfikat jest zaufany przez przeglądarkę.
 - Statyczne mapowania źródła HTML
@@ -149,7 +149,7 @@ Dodaliśmy Azure ["Utwórz zasoby zdalne"](https://docs.microsoft.com/azure/app-
 - Udoskonalanie użytkownika do publikowania.
 
 <a id="scaffolding"></a>
-### <a name="aspnet-scaffolding"></a>Funkcja szkieletów ASP.NET
+### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
 
 - **Obsługa wyliczenia:** Jeśli model jest przy użyciu wyliczenia, a następnie tworzenia szkieletu MVC wygeneruje listy rozwijanej dla wyliczenia. W nazwie wzorca MVC używa pomocników wyliczenia.
 - **Wykryto obsługę**: Zaktualizowano szablonów EditorFor w szkieletów MVC, aby ich używać klas ładowania początkowego.
@@ -225,17 +225,17 @@ NuGet 2.8.1, który RTM zostaną wydane w ramach kwietnia 2014 r. Poniżej przed
 - Różne [poprawki błędów](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=v5.1%20Preview%7cv5.1%20RTM&assignedTo=All&component=Web%20API%7cWeb%20API%20OData&sortField=AssignedTo&sortDirection=Ascending&page=0&reasonClosed=Fixed)
 
 <a id="webpages"></a>
-### <a name="aspnet-web-pages-312"></a>3.1.2 strony sieci Web ASP.NET
+### <a name="aspnet-web-pages-312"></a>ASP.NET Web Pages 3.1.2
 
 - Różne [poprawki błędów](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=v5.1%20Preview%7cv5.1%20RTM&assignedTo=All&component=Web%20Pages/Razor&sortField=AssignedTo&sortDirection=Ascending&page=0&reasonClosed=Fixed)
 
 <a id="ef"></a>
 ### <a name="entity-framework-61"></a>Entity Framework 6.1
 
-Entity Framework została zaktualizowana do wersji 6.1 dla środowiska uruchomieniowego i narzędzi. Entity Framework (EF) 6.1 jest aktualizacją pomocnicza do narzędzia Entity Framework 6 i zawiera szereg poprawek usterek i nowe funkcje. Szczegółowe informacje na temat EF6.1 oraz łącza do dokumentacji dla nowych funkcji, zobacz [Historia wersji programu Entity Framework](https://msdn.microsoft.com/en-US/data/jj574253). Nowe funkcje w tej wersji:
+Entity Framework została zaktualizowana do wersji 6.1 dla środowiska uruchomieniowego i narzędzi. Entity Framework (EF) 6.1 jest aktualizacją pomocnicza do narzędzia Entity Framework 6 i zawiera szereg poprawek usterek i nowe funkcje. Szczegółowe informacje na temat EF6.1 oraz łącza do dokumentacji dla nowych funkcji, zobacz [Historia wersji programu Entity Framework](https://msdn.microsoft.com/data/jj574253). Nowe funkcje w tej wersji:
 
 - **Narzędzia konsolidacji** zapewnia spójny sposób, aby utworzyć nowy model EF. Ta funkcja rozszerza kreatora modelu danych jednostki ADO.NET do obsługi tworzenia modeli Code First, łącznie z odtwarzania z istniejącej bazy danych. Funkcje te wcześniej były dostępne w wersji Beta jakość EF zaawansowanych narzędzi.
-- **Obsługa błędów zatwierdzania transakcji** udostępnia nowe [System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx) korzystające z nowo wprowadzonych możliwości przechwycenia operacji transakcji. **CommitFailureHandler** umożliwia automatyczne odzyskiwanie po błędach połączenia podczas potwierdzania transakcji.
+- **Obsługa błędów zatwierdzania transakcji** udostępnia nowe [System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx) korzystające z nowo wprowadzonych możliwości przechwycenia operacji transakcji. **CommitFailureHandler** umożliwia automatyczne odzyskiwanie po błędach połączenia podczas potwierdzania transakcji.
 - **Atrybutu indeksu** umożliwia indeksów określoną przez umieszczenie atrybutu na właściwości (lub właściwości) w modelu Code First. Kod najpierw następnie utworzy odpowiedni indeks w bazie danych.
 - **Mapowanie publiczny interfejs API** zapewnia dostęp do informacji EF ma na sposobie mapowania właściwości i typy kolumn i tabel w bazie danych. W przeszłości wersje tego interfejsu API było wewnętrzny.
 - **Możliwość konfigurowania interceptory za pomocą pliku App/Web.config**(dzięki czemu interceptory do dodania bez konieczności ponownego kompilowania aplikacji).
@@ -268,6 +268,6 @@ Entity Framework została zaktualizowana do wersji 6.1 dla środowiska uruchomie
 Znaleziono wiele błędów, które zostały usunięte w tej wersji. Zobacz [informacje o wersji programu 2.1.0 wersji](https://katanaproject.codeplex.com/releases/view/113281) więcej szczegółowych informacji.
 
 <a id="signalr"></a>
-### <a name="aspnet-signalr-202"></a>Biblioteka SignalR platformy ASP.NET pkt 2.0.2
+### <a name="aspnet-signalr-202"></a>ASP.NET SignalR 2.0.2
 
 Znaleziono wiele błędów, które zostały usunięte w tej wersji. Zobacz [informacje o wersji programu pkt 2.0.2 wersji](https://github.com/SignalR/SignalR/releases/tag/2.0.2) więcej szczegółowych informacji.

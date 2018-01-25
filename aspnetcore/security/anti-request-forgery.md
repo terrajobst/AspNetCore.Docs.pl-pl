@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/anti-request-forgery
-ms.openlocfilehash: d7df8f91e88290509c8751a4b69804b60138846e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3831bf737186d10eb1b298f5ec2da1fd33ebedd9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Zapobieganie atakom sfałszowaniem (XSRF/CSRF) żądania Międzywitrynowego na platformie ASP.NET Core
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="what-attack-does-anti-forgery-prevent"></a>Jakie ataku uniemożliwia zabezpieczający przed sfałszowaniem?
 
-Fałszowanie żądań między witrynami (znanej także jako XSRF lub CSRF, Wymowa *surf zobacz*) jest atak wykorzystujący aplikacje obsługiwane w sieci web, zgodnie z którymi złośliwa witryna sieci web może mieć wpływ interakcji między przeglądarką klienta i witryny sieci web, które ufają Przeglądarka. Tego rodzaju ataki są możliwe, ponieważ przeglądarki sieci web wysyłać niektóre typy tokenów uwierzytelniania automatycznie z każdego żądania do witryny sieci web. Ten formularz wykorzystać jest także znana jako *ataku jednym kliknięciem* lub jako *sesji jazda*, ponieważ wykorzystuje ataku użytkownika wcześniej uwierzytelniona sesji.
+Fałszowanie żądań między witrynami (znanej także jako XSRF lub CSRF, Wymowa *surf zobacz*) jest atak wykorzystujący aplikacje obsługiwane w sieci web, zgodnie z którymi złośliwa witryna sieci web może mieć wpływ interakcji między przeglądarką klienta i witryny sieci web, które ufają Przeglądarka. Tego rodzaju ataki są możliwe, ponieważ przeglądarki sieci web wysyłać niektóre typy tokenów uwierzytelniania automatycznie z każdego żądania do witryny sieci web. Ten formularz wykorzystać do znanej także jako *ataku jednym kliknięciem* lub jako *sesji jazda*, ponieważ wykorzystuje ataku użytkownika wcześniej uwierzytelniona sesji.
 
 Przykład atak CSRF:
 
@@ -51,13 +51,13 @@ W tym przykładzie wymaga od użytkownika kliknij przycisk formularza. Strony z�
 * Wysyła żądanie AJAX przesyłania formularza. 
 * Formularz ukryty z CSS. 
 
-Przy użyciu protokołu SSL nie zapobiega atak CSRF, złośliwa witryna można wysyłać `https://` żądania. 
+Przy użyciu protokołu SSL nie uniemożliwia atak CSRF, złośliwa witryna można wysyłać `https://` żądania. 
 
 Niektóre ataki docelowych punktów końcowych witryny, które odpowiadają na `GET` żądania, w których przypadku tag obrazu może służyć do wykonywania akcji (Ta forma ataku jest typowe na forum witryn, które zezwala na obrazy, ale zablokowanie JavaScript). Aplikacje, które spowodują zmianę stanu z `GET` żądania są narażone przed złośliwymi atakami.
 
 Ataki CSRF są możliwe do przed witryn sieci web, które używają plików cookie do uwierzytelniania, ponieważ przeglądarki wysyłać wszystkich odpowiednich plików cookie do docelowej witryny sieci web. Jednak ataków CSRF nie są ograniczone do wykorzystania plików cookie. Na przykład uwierzytelnianie podstawowe i szyfrowane również są zagrożone. Po zalogowaniu się użytkownika za pomocą uwierzytelnianie podstawowe lub szyfrowane, przeglądarka automatycznie wysyła poświadczenia zakończenia sesji.
 
-Uwaga: W tym kontekście *sesji* odwołuje się do sesji po stronie klienta, w którym użytkownik jest uwierzytelniony. Jest związana z sesji po stronie serwera lub [oprogramowanie pośredniczące sesji](xref:fundamentals/app-state).
+Uwaga: W tym kontekście *sesji* odwołuje się do sesji po stronie klienta, w którym użytkownik jest uwierzytelniony. Jest niezwiązanych ze sobą do sesji po stronie serwera lub [oprogramowanie pośredniczące sesji](xref:fundamentals/app-state).
 
 Użytkownicy mogą ochronić CSRF luki w zabezpieczeniach poprzez:
 * Wylogowując się witryn sieci web, gdy zostało ukończone z nich korzystać.
@@ -84,8 +84,8 @@ Automatyczne generowanie tokenów zabezpieczających przed sfałszowaniem elemen
 
 * `form` Tag zawiera `method="post"` atrybutu i
 
-  * Atrybut akcji jest pusty. ( `action=""`) LUB
-  * Nie podano atrybutu akcji. (`<form method="post">`)
+  * Atrybut akcji jest pusty. ( `action=""`) OR
+  * Nie jest podany w atrybucie akcji. (`<form method="post">`)
 
 Możesz wyłączyć automatyczne generowanie tokenów zabezpieczających przed sfałszowaniem elementów formularza HTML przez:
 
@@ -171,9 +171,9 @@ public async Task<IActionResult> RemoveLogin(RemoveLoginViewModel account)
 
 ### <a name="autovalidateantiforgerytoken"></a>AutoValidateAntiforgeryToken
 
-Aplikacje platformy ASP.NET Core zazwyczaj nie generują antiforgery tokeny dla bezpieczne metody HTTP (GET, HEAD, opcje i śledzenia). Zamiast stosowania szeroko ``ValidateAntiForgeryToken`` atrybutu, a następnie przesłanianie go z ``IgnoreAntiforgeryToken`` atrybutów, można użyć ``AutoValidateAntiforgeryToken`` atrybutu. Ten atrybut działa identycznie do ``ValidateAntiForgeryToken`` atrybutów, z wyjątkiem tego, czy nie wymaga tokeny żądań zostało nawiązane przy użyciu następujących metod HTTP:
+Ogólnie rzecz biorąc aplikacji platformy ASP.NET Core nie generować antiforgery tokeny dla bezpieczne metody HTTP (GET, HEAD, opcje i śledzenia). Zamiast stosowania szeroko ``ValidateAntiForgeryToken`` atrybutu, a następnie przesłanianie go z ``IgnoreAntiforgeryToken`` atrybutów, można użyć ``AutoValidateAntiforgeryToken`` atrybutu. Ten atrybut działa identycznie do ``ValidateAntiForgeryToken`` atrybutów, z wyjątkiem tego, czy nie wymaga tokeny żądań zostało nawiązane przy użyciu następujących metod HTTP:
 
-* POBIERZ
+* GET
 * HEAD
 * OPCJE
 * TRACE
@@ -326,26 +326,26 @@ services.AddAntiforgery(options =>
 |Opcja        | Opis |
 |------------- | ----------- |
 |CookieDomain  | Domena pliku cookie. Domyślnie `null`. |
-|Nazwę CookieName    | Nazwa pliku cookie. Jeśli nie jest ustawiona, system wygeneruje unikatowa nazwa zaczyna się od `DefaultCookiePrefix` (". AspNetCore.Antiforgery."). |
+|CookieName    | Nazwa pliku cookie. Jeśli nie jest ustawiona, system wygeneruje unikatowa nazwa zaczyna się od `DefaultCookiePrefix` (". AspNetCore.Antiforgery."). |
 |CookiePath    | Ścieżka ustawiona w pliku cookie. |
-|NazwaPolaFormularza | Nazwa ukryte pole formularza używany przez antiforgery system do renderowania antiforgery tokenów w widokach. |
+|FormFieldName | Nazwa ukryte pole formularza używany przez antiforgery system do renderowania antiforgery tokenów w widokach. |
 |HeaderName    | Nazwa nagłówka używany przez antiforgery system. Jeśli `null`, system będzie uwzględniać tylko dane formularza. |
-|parametru requireSsl    | Określa, czy protokół SSL jest wymagany przez antiforgery system. Domyślnie `false`. Jeśli `true`, żądania bez użycia protokołu SSL zakończy się niepowodzeniem. |
+|RequireSsl    | Określa, czy protokół SSL jest wymagany przez antiforgery system. Domyślnie `false`. Jeśli `true`, żądania bez użycia protokołu SSL zakończy się niepowodzeniem. |
 |SuppressXFrameOptionsHeader  | Określa, czy pominąć Generowanie `X-Frame-Options` nagłówka. Domyślnie nagłówek jest generowany z wartością "SAMEORIGIN". Domyślnie `false`. |
 
 Zobacz https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.cookieauthenticationoptions Aby uzyskać więcej informacji.
 
 ### <a name="extending-antiforgery"></a>Rozszerzanie Antiforgery
 
-[IAntiForgeryAdditionalDataProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) typu umożliwia deweloperom rozszerzyć zachowanie systemu anti-XSRF przez dwustronną komunikację w każdym token dodatkowe dane. [GetAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_GetAdditionalData_Microsoft_AspNetCore_Http_HttpContext_) metoda jest wywoływana za każdym razem zostanie wygenerowany token pola i wartość zwracana jest osadzony w wygenerowany token. Realizator może zwracać sygnaturę czasową, identyfikatora jednorazowego lub wszelkie inne wartości, a następnie wywołać [ValidateAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_ValidateAdditionalData_Microsoft_AspNetCore_Http_HttpContext_System_String_) do sprawdzania poprawności danych podczas weryfikowania tokenu. Nazwa użytkownika klienta już jest osadzony w generowanych tokenach, więc nie trzeba wpisywać te informacje. Jeśli token zawiera dane dodatkowe, ale nie `IAntiForgeryAdditionalDataProvider` został skonfigurowany, dane dodatkowe nie jest weryfikowany.
+[IAntiForgeryAdditionalDataProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) typu umożliwia deweloperom rozszerzyć zachowanie systemu anti-XSRF przez dwustronną komunikację w każdym token dodatkowe dane. [GetAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_GetAdditionalData_Microsoft_AspNetCore_Http_HttpContext_) metoda jest wywoływana za każdym razem zostanie wygenerowany token pola i wartość zwracana jest osadzony w wygenerowany token. Realizator może zwracać sygnaturę czasową, identyfikatora jednorazowego lub wszelkie inne wartości, a następnie wywołać [ValidateAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_ValidateAdditionalData_Microsoft_AspNetCore_Http_HttpContext_System_String_) do sprawdzania poprawności danych podczas weryfikowania tokenu. Nazwa użytkownika klienta już jest osadzony w generowanych tokenach, więc nie trzeba wpisywać te informacje. Jeśli token zawiera dane dodatkowe, ale nie `IAntiForgeryAdditionalDataProvider` został skonfigurowany, dane dodatkowe nie jest zweryfikowany.
 
-## <a name="fundamentals"></a>Podstawowe założenia
+## <a name="fundamentals"></a>Podstawy
 
 CSRF ataki polegają na domyślne zachowanie przeglądarki przesyłać pliki cookie skojarzone z domeną z wszystkie żądania skierowane do tej domeny. Te pliki cookie są przechowywane w przeglądarce. Często zawierają one plików cookie sesji dla uwierzytelnionych użytkowników. Plik cookie uwierzytelniania jest popularnych formy uwierzytelniania. Systemami uwierzytelniania opartego na tokenie ma zostały rośnie w popularne, szczególnie w przypadku źródła i innych scenariuszy "inteligentne klienta".
 
 ### <a name="cookie-based-authentication"></a>Uwierzytelnianie na podstawie plików cookie
 
-Gdy użytkownik został uwierzytelniony przy użyciu nazwy użytkownika i hasła, wystawiane token, który może służyć do ich identyfikacji i weryfikacji, czy zostały uwierzytelnione. Token jest przechowywany jako sprawia, że plik cookie dołączona każde żądanie klienta. Generowanie i sprawdzanie poprawności ten plik cookie odbywa się przez oprogramowanie pośredniczące uwierzytelniania plików cookie. Platformy ASP.NET Core zawiera plik cookie [oprogramowanie pośredniczące](../fundamentals/middleware.md) co serializuje głównej nazwy użytkownika do zaszyfrowanego pliku cookie i kolejne żądania sprawdza poprawność pliku cookie, odtwarza podmiot zabezpieczeń i przypisuje go do `User` właściwości `HttpContext`.
+Gdy użytkownik został uwierzytelniony przy użyciu nazwy użytkownika i hasła, ich jest wystawiony token, który może służyć do ich identyfikacji i weryfikacji, czy zostały uwierzytelnione. Token jest przechowywany jako sprawia, że plik cookie dołączona każde żądanie klienta. Generowanie i sprawdzanie poprawności ten plik cookie odbywa się przez oprogramowanie pośredniczące uwierzytelniania plików cookie. Platformy ASP.NET Core zawiera plik cookie [oprogramowanie pośredniczące](../fundamentals/middleware.md) co serializuje głównej nazwy użytkownika do zaszyfrowanego pliku cookie i kolejne żądania sprawdza poprawność pliku cookie, odtwarza podmiot zabezpieczeń i przypisuje go do `User` właściwości `HttpContext`.
 
 Gdy używany jest plik cookie, plik cookie uwierzytelniania jest tylko kontenerem dla biletu uwierzytelniania formularzy. Bilet jest przekazywany jako wartość pliku cookie uwierzytelniania formularzy z każdym żądaniem i jest używany przez uwierzytelnianie formularzy, na serwerze, aby zidentyfikować uwierzytelnionego użytkownika.
 
@@ -353,7 +353,7 @@ Gdy użytkownik jest zalogowany do systemu, sesja użytkownika jest tworzony po 
 
 ### <a name="user-tokens"></a>Tokeny użytkownika
 
-Uwierzytelnianie na podstawie tokenu nie przechowuje sesji na serwerze. Zamiast tego gdy użytkownik jest zalogowany są wydawane token (nie antiforgery token). Token ten zawiera wszystkie dane, które jest wymagane do weryfikacji tokenu. Zawiera także informacje o użytkowniku w formie [oświadczeń](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Gdy użytkownik chce, aby uzyskać dostęp do zasobów serwera wymaga uwierzytelnienia, token jest wysyłany na serwer z nagłówkiem dodatkowe autoryzacji w formie {tokenu} elementu nośnego. Dzięki temu aplikacji bezstanowych, ponieważ w kolejnych żądań token jest przekazywany w żądania do weryfikacji po stronie serwera. Ten token nie jest *zaszyfrowanych*; jest raczej *zakodowane*. Po stronie serwera token może zostać odczytany na dostęp do nieprzetworzonej informacji w tokenie. Aby wysłać token w kolejnych żądań, można przechowywać go w magazynie lokalnym w przeglądarce lub w pliku cookie. Nie trzeba martwić XSRF luki w zabezpieczeniach, jeśli token jest przechowywany w magazynie lokalnym, ale jest to problem, jeśli token jest przechowywany w pliku cookie.
+Uwierzytelnianie na podstawie tokenu nie przechowuje sesji na serwerze. Zamiast tego gdy użytkownik jest zalogowany jest wystawiony token (nie antiforgery token). Token ten zawiera wszystkie dane, które są wymagane do weryfikacji tokenu. Zawiera także informacje o użytkowniku w formie [oświadczeń](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Gdy użytkownik chce, aby uzyskać dostęp do zasobów serwera wymaga uwierzytelnienia, token jest wysyłany na serwer z nagłówkiem dodatkowe autoryzacji w formie {tokenu} elementu nośnego. Dzięki temu aplikacji bezstanowych, ponieważ w kolejnych żądań token jest przekazywany w żądania do weryfikacji po stronie serwera. Ten token nie jest *zaszyfrowanych*; jest raczej *zakodowane*. Po stronie serwera token może zostać odczytany na dostęp do nieprzetworzonej informacji w tokenie. Aby wysłać token w kolejnych żądań, można przechowywać go w magazynie lokalnym w przeglądarce lub w pliku cookie. Nie trzeba martwić XSRF luki w zabezpieczeniach, jeśli token jest przechowywany w magazynie lokalnym, ale jest to problem, jeśli token jest przechowywany w pliku cookie.
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>Wiele aplikacji znajdują się w jednej domenie
 

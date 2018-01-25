@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 6a0c8dbbd02549757c316807b8e8e64fdfd70123
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b4280c6ab1b6d8d2ceaa7cef14fce94ab8c6df53
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>Używanie metod asynchronicznych na platformie ASP.NET MVC 4
 ====================
 Przez [Rick Anderson](https://github.com/Rick-Anderson)
 
-> W tym samouczku udzieli Ci podstawy asynchroniczne sieci Web programu ASP.NET MVC aplikacji za pomocą [programu Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11/en-us), który jest bezpłatną wersję programu Microsoft Visual Studio. Można również użyć [programu Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us).
+> W tym samouczku udzieli Ci podstawy asynchroniczne sieci Web programu ASP.NET MVC aplikacji za pomocą [programu Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11), który jest bezpłatną wersję programu Microsoft Visual Studio. Można również użyć [programu Visual Studio 2012](https://www.microsoft.com/visualstudio/11).
 
 > Kompletnego przykładu znajduje się w tym samouczku w serwisie github [https://github.com/RickAndMSFT/Async-ASP.NET/](https://github.com/RickAndMSFT/Async-ASP.NET/)
 
 
-ASP.NET MVC 4 [kontrolera](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller(VS.108).aspx) klasy w połączeniu [.NET 4.5](https://msdn.microsoft.com/en-us/library/w0x726c2(VS.110).aspx) umożliwia pisanie metod asynchronicznych akcji, które zwracają obiekt typu [zadań&lt;ActionResult&gt; ](https://msdn.microsoft.com/en-us/library/dd321424(VS.110).aspx). .NET Framework 4 wprowadzono asynchroniczne koncepcji programowania nazywane [zadań](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) i obsługuje platformy ASP.NET MVC 4 [zadań](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx). Zadania są reprezentowane przez **zadań** typu i powiązanych typów z [System.Threading.Tasks](https://msdn.microsoft.com/en-us/library/system.threading.tasks.aspx) przestrzeni nazw. .NET Framework 4.5 opiera się na tym obsługa komunikacji asynchronicznej z [await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) słów kluczowych, które sprawiają, że praca z [zadań](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) znacznie mniej złożona niż poprzednie obiektów metody asynchroniczne. [Await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) — słowo kluczowe jest syntaktycznych skrócona forma wskazujący, który fragment kodu asynchronicznie ma oczekiwać na innych części kodu. [Async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) — słowo kluczowe reprezentuje wskazówkę, która służy do oznaczania metod jako opartego na zadaniach asynchronicznej metody. Kombinacja **await**, **async**i **zadań** obiektu ułatwia do pisania kodu asynchronicznego w programie .NET 4.5. Nowy model do metod asynchronicznych jest nazywany *wzorca asynchronicznego opartego na zadaniach* (**wybierz**). Ten samouczek zakłada, masz pewną znajomość asynchronicznych za pomocą programing [await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) słów kluczowych i [zadań](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) przestrzeni nazw.
+ASP.NET MVC 4 [kontrolera](https://msdn.microsoft.com/library/system.web.mvc.controller(VS.108).aspx) klasy w połączeniu [.NET 4.5](https://msdn.microsoft.com/library/w0x726c2(VS.110).aspx) umożliwia pisanie metod asynchronicznych akcji, które zwracają obiekt typu [zadań&lt;ActionResult&gt; ](https://msdn.microsoft.com/library/dd321424(VS.110).aspx). .NET Framework 4 wprowadzono asynchroniczne koncepcji programowania nazywane [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) i obsługuje platformy ASP.NET MVC 4 [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Zadania są reprezentowane przez **zadań** typu i powiązanych typów z [System.Threading.Tasks](https://msdn.microsoft.com/library/system.threading.tasks.aspx) przestrzeni nazw. .NET Framework 4.5 opiera się na tym obsługa komunikacji asynchronicznej z [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) słów kluczowych, które sprawiają, że praca z [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) znacznie mniej złożona niż poprzednie obiektów metody asynchroniczne. [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) — słowo kluczowe jest syntaktycznych skrócona forma wskazujący, który fragment kodu asynchronicznie ma oczekiwać na innych części kodu. [Async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) — słowo kluczowe reprezentuje wskazówkę, która służy do oznaczania metod jako opartego na zadaniach asynchronicznej metody. Kombinacja **await**, **async**i **zadań** obiektu ułatwia do pisania kodu asynchronicznego w programie .NET 4.5. Nowy model do metod asynchronicznych jest nazywany *wzorca asynchronicznego opartego na zadaniach* (**wybierz**). Ten samouczek zakłada, masz pewną znajomość asynchronicznych za pomocą programing [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) słów kluczowych i [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) przestrzeni nazw.
 
-Aby uzyskać więcej informacji na temat używania [await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) słów kluczowych i [zadań](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) przestrzeni nazw, zobacz następujące odwołania.
+Aby uzyskać więcej informacji na temat używania [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) słów kluczowych i [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) przestrzeni nazw, zobacz następujące odwołania.
 
 - [Oficjalny dokument: Asynchrony w .NET](https://go.microsoft.com/fwlink/?LinkId=204844)
 - [Async/Await — często zadawane pytania](https://blogs.msdn.com/b/pfxteam/archive/2012/04/12/10293335.aspx)
-- [Programowanie asynchroniczne programu Visual Studio](https://msdn.microsoft.com/en-us/vstudio/gg316360)
+- [Programowanie asynchroniczne programu Visual Studio](https://msdn.microsoft.com/vstudio/gg316360)
 
 ## <a id="HowRequestsProcessedByTP"></a>Jak żądania są przetwarzane przez puli wątków
 
@@ -64,7 +64,7 @@ Ogólnie rzecz biorąc Użyj metod synchronicznych następujące warunki:
 - Gdy korzyści przełączania wątków limit przeprowadzi koszt przełączania kontekstu. Ogólnie rzecz biorąc należy metody asynchroniczne, jeśli metoda synchroniczna oczekuje na wątek żądania ASP.NET podczas wykonywania żadne czynności. Za pomocą wywołania asynchronicznego, wątku żądania ASP.NET jest zainstalowany ten żadne czynności podczas oczekiwania na żądanie usługi sieci web zakończyć.
 - Testowanie pokazuje, czy operacji blokowania wąskich gardeł wydajności lokacji i usług IIS może obsłużyć więcej żądań przy użyciu metod asynchronicznych tymi połączeniami blokowania.
 
- Do pobrania przykładowych pokazano, jak skutecznie używać metod asynchronicznych akcji. Przykładu dostępnego zaprojektowano tak, aby zapewnić prosty pokaz programowania asynchronicznego w programie ASP.NET MVC 4 przy użyciu platformy .NET 4.5. Przykład nie jest przeznaczona do architektury odwołania do programowania asynchronicznego w programie ASP.NET MVC. Wywołuje program przykładowy [ASP.NET Web API](../../../web-api/index.md) metod, które z kolei wymagają [Task.Delay](https://msdn.microsoft.com/en-us/library/hh139096(VS.110).aspx) do symulowania wywołania usługi sieci web długotrwałe. Większość aplikacji produkcyjnych, nie będą widoczne takie oczywiste korzyści wynikające z używania metod asynchronicznych akcji.   
+ Do pobrania przykładowych pokazano, jak skutecznie używać metod asynchronicznych akcji. Przykładu dostępnego zaprojektowano tak, aby zapewnić prosty pokaz programowania asynchronicznego w programie ASP.NET MVC 4 przy użyciu platformy .NET 4.5. Przykład nie jest przeznaczona do architektury odwołania do programowania asynchronicznego w programie ASP.NET MVC. Wywołuje program przykładowy [ASP.NET Web API](../../../web-api/index.md) metod, które z kolei wymagają [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) do symulowania wywołania usługi sieci web długotrwałe. Większość aplikacji produkcyjnych, nie będą widoczne takie oczywiste korzyści wynikające z używania metod asynchronicznych akcji.   
   
 Kilka aplikacji wymaga wszystkich metod akcji była asynchroniczna. Często konwertowanie kilka metod synchronicznych akcji do metod asynchronicznych zapewnia najlepsze zwiększenia efektywności ilości pracy wymagane.
 
@@ -93,7 +93,7 @@ Na poniższej ilustracji przedstawiono widok gizmos z przykładowy projekt.
 
 ## <a id="CreatingAsynchGizmos"></a>Tworzenie Gizmos asynchronicznej metody akcji
 
-Przykład używa nowego [async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) i [await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) słowa kluczowe (dostępne w .NET 4.5 i programu Visual Studio 2012) pozwala kompilatora odpowiada za utrzymywanie złożone przekształcenia niezbędne do Programowanie asynchroniczne. Kompilator umożliwia pisanie kodu za pomocą, który tworzy przepływ sterowania synchroniczne C# w i kompilator automatycznie stosuje przekształcenia trzeba użyć wywołania zwrotne w celu unikania blokowania wątków.
+Przykład używa nowego [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) i [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) słowa kluczowe (dostępne w .NET 4.5 i programu Visual Studio 2012) pozwala kompilatora odpowiada za utrzymywanie złożone przekształcenia niezbędne do Programowanie asynchroniczne. Kompilator umożliwia pisanie kodu za pomocą, który tworzy przepływ sterowania synchroniczne C# w i kompilator automatycznie stosuje przekształcenia trzeba użyć wywołania zwrotne w celu unikania blokowania wątków.
 
 Poniższy kod przedstawia `Gizmos` metoda synchroniczna i `GizmosAsync` metody asynchronicznej. Jeśli przeglądarka obsługuje [HTML 5 `<mark>` elementu](http://www.w3.org/wiki/HTML/Elements/mark), zmiany w `GizmosAsync` w Wyróżnij żółty.
 
@@ -103,15 +103,15 @@ Poniższy kod przedstawia `Gizmos` metoda synchroniczna i `GizmosAsync` metody a
 
  Następujące zmiany zostały zastosowane, aby umożliwić `GizmosAsync` była asynchroniczna.
 
-- Metoda jest oznaczona atrybutem [async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) — słowo kluczowe, które informuje kompilator, aby wygenerować wywołań zwrotnych dla części treści i automatycznie utworzyć `Task<ActionResult>` który jest zwracany.
+- Metoda jest oznaczona atrybutem [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) — słowo kluczowe, które informuje kompilator, aby wygenerować wywołań zwrotnych dla części treści i automatycznie utworzyć `Task<ActionResult>` który jest zwracany.
 - &quot;Asynchroniczne&quot; został dołączony do nazwy metody. Dołączanie "Async" nie jest wymagana, ale jest Konwencji podczas zapisywania metod asynchronicznych.
 - Zwracany typ został zmieniony z `ActionResult` do `Task<ActionResult>`. Zwracany typ `Task<ActionResult>` reprezentuje pracy w toku i dostarcza wywołań metody z dojściem za pośrednictwem której czekać na zakończenie operacji asynchronicznej. W takim przypadku obiekt wywołujący jest usługą sieci web. `Task<ActionResult>`reprezentuje trwającej pracy z wyniku`ActionResult.`
-- [Await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) — słowo kluczowe została zastosowana do wywołania usługi sieci web.
+- [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) — słowo kluczowe została zastosowana do wywołania usługi sieci web.
 - Interfejs API usługi sieci web asynchroniczne została wywołana (`GetGizmosAsync`).
 
 Wewnątrz `GetGizmosAsync` innej metody asynchroniczne, treści metody `GetGizmosAsync` jest wywoływana. `GetGizmosAsync`natychmiast zwraca `Task<List<Gizmo>>` który ostatecznie zostanie zakończony, gdy dane są dostępne. Ponieważ nie chcesz wykonywanie dodatkowych czynności, aż do uzyskania danych gizmo kod oczekujące na zadanie (przy użyciu **await** — słowo kluczowe). Można użyć **await** — słowo kluczowe tylko w metodach opatrzoną **async** — słowo kluczowe.
 
-**Await** — słowo kluczowe nie blokuje wątek, do czasu ukończenia zadania. Rejestruje się pozostałe metody jako wywołania zwrotnego dla zadania i natychmiast zwraca. Po ukończeniu ostatecznie oczekiwano zadania, spowoduje wywołanie wywołanie zwrotne i w związku z tym wznowić wykonywanie prawa metody, w którym przerwał. Aby uzyskać więcej informacji na temat używania [await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) słów kluczowych i [zadań](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) przestrzeni nazw, zobacz [odwołania async](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async).
+**Await** — słowo kluczowe nie blokuje wątek, do czasu ukończenia zadania. Rejestruje się pozostałe metody jako wywołania zwrotnego dla zadania i natychmiast zwraca. Po ukończeniu ostatecznie oczekiwano zadania, spowoduje wywołanie wywołanie zwrotne i w związku z tym wznowić wykonywanie prawa metody, w którym przerwał. Aby uzyskać więcej informacji na temat używania [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) słów kluczowych i [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) przestrzeni nazw, zobacz [odwołania async](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async).
 
 Poniższy kod przedstawia `GetGizmos` i `GetGizmosAsync` metody.
 
@@ -121,9 +121,9 @@ Poniższy kod przedstawia `GetGizmos` i `GetGizmosAsync` metody.
 
  Asynchroniczne zmiany są podobne do tych wprowadzone **GizmosAsync** powyżej. 
 
-- Podpis metody został oznaczony za pomocą [async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) — słowo kluczowe, zwracany typ został zmieniony na `Task<List<Gizmo>>`, i *Async* został dołączony do nazwy metody.
-- Asynchroniczną [HttpClient](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(VS.110).aspx) klasa jest używana zamiast [WebClient](https://msdn.microsoft.com/en-us/library/system.net.webclient.aspx) klasy.
-- [Await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) — słowo kluczowe została zastosowana do [HttpClient](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(VS.110).aspx) metod asynchronicznych.
+- Podpis metody został oznaczony za pomocą [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) — słowo kluczowe, zwracany typ został zmieniony na `Task<List<Gizmo>>`, i *Async* został dołączony do nazwy metody.
+- Asynchroniczną [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) klasa jest używana zamiast [WebClient](https://msdn.microsoft.com/library/system.net.webclient.aspx) klasy.
+- [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) — słowo kluczowe została zastosowana do [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) metod asynchronicznych.
 
 Na poniższej ilustracji przedstawiono widok gizmo asynchronicznego.
 
@@ -133,7 +133,7 @@ Przeglądarki prezentację danych gizmos jest identyczny z widoku utworzonego pr
 
 ## <a id="Parallel"></a>Wykonywanie operacji na wielu równolegle
 
-Metod asynchronicznych akcji ma znaczących korzyści za pośrednictwem metod synchronicznych, gdy akcję, należy wykonać kilka operacji niezależnych. W przykładowym pod warunkiem, metoda synchroniczna `PWG`(dla produktów, elementów widget i Gizmos) są wyświetlane wyniki trzy wywołania usługi sieci web w celu uzyskania listy produktów, elementów widget i gizmos. [ASP.NET Web API](../../../web-api/index.md) projektu, który zawiera te usługi używa [Task.Delay](https://msdn.microsoft.com/en-us/library/hh139096(VS.110).aspx) wywołuje w celu symulowania opóźnienia lub powolnej sieci. Jeśli opóźnienie jest równa 500 milisekund asynchroniczną `PWGasync` metoda pobiera nieco ponad 500 MS, aby ukończyć podczas synchronicznego `PWG` wersji przejmuje 1500 MS. Synchroniczne `PWG` metody przedstawiono w poniższym kodzie.
+Metod asynchronicznych akcji ma znaczących korzyści za pośrednictwem metod synchronicznych, gdy akcję, należy wykonać kilka operacji niezależnych. W przykładowym pod warunkiem, metoda synchroniczna `PWG`(dla produktów, elementów widget i Gizmos) są wyświetlane wyniki trzy wywołania usługi sieci web w celu uzyskania listy produktów, elementów widget i gizmos. [ASP.NET Web API](../../../web-api/index.md) projektu, który zawiera te usługi używa [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) wywołuje w celu symulowania opóźnienia lub powolnej sieci. Jeśli opóźnienie jest równa 500 milisekund asynchroniczną `PWGasync` metoda pobiera nieco ponad 500 MS, aby ukończyć podczas synchronicznego `PWG` wersji przejmuje 1500 MS. Synchroniczne `PWG` metody przedstawiono w poniższym kodzie.
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-mvc-4/samples/sample7.cs)]
 
@@ -147,11 +147,11 @@ Na poniższej ilustracji przedstawiono widok zwrócony z **PWGasync** metody.
 
 ## <a id="CancelToken"></a>Przy użyciu Token anulowania
 
-Metody akcji asynchronicznego zwracania `Task<ActionResult>`czy można anulować, będącą podejmują [CancellationToken](https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(VS.110).aspx) parametru, gdy zostało ono określone z [Wartość AsyncTimeout](https://msdn.microsoft.com/en-us/library/system.web.mvc.asynctimeoutattribute(VS.108).aspx) atrybutu. Poniższy kod przedstawia `GizmosCancelAsync` metoda z limitem czasu w milisekundach czas oczekiwania 150.
+Metody akcji asynchronicznego zwracania `Task<ActionResult>`czy można anulować, będącą podejmują [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken(VS.110).aspx) parametru, gdy zostało ono określone z [Wartość AsyncTimeout](https://msdn.microsoft.com/library/system.web.mvc.asynctimeoutattribute(VS.108).aspx) atrybutu. Poniższy kod przedstawia `GizmosCancelAsync` metoda z limitem czasu w milisekundach czas oczekiwania 150.
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-mvc-4/samples/sample9.cs?highlight=1-3,5,10)]
 
-Poniższy kod przedstawia przeciążenia GetGizmosAsync, która przyjmuje [CancellationToken](https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(VS.110).aspx) parametru.
+Poniższy kod przedstawia przeciążenia GetGizmosAsync, która przyjmuje [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken(VS.110).aspx) parametru.
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-mvc-4/samples/sample10.cs)]
 
@@ -164,7 +164,7 @@ Aby wykorzystać zalety aplikacji sieci web asynchroniczne, może być konieczne
 - Windows 7, Windows Vista i wszystkie klienckie systemy operacyjne Windows mieć maksymalnie 10 równoczesnych żądań. Będziesz potrzebować systemu operacyjnego Windows Server, aby można było wykorzystać zalety metod asynchronicznych mocno obciążony.
 - Zarejestruj .NET 4.5 z usługami IIS w wierszu polecenia z podwyższonym poziomem uprawnień:  
  %windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet\_regiis -i  
- Zobacz [narzędzie rejestracji programu ASP.NET usług IIS (Aspnet\_regiis.exe)](https://msdn.microsoft.com/en-us/library/k6h9cz8h.aspx)
+ Zobacz [narzędzie rejestracji programu ASP.NET usług IIS (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h.aspx)
 - Może być konieczne w celu zwiększenia [HTTP.sys](https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture) limitu kolejki z domyślnej wartości 1000 do 5000. Jeśli ustawienie jest zbyt niska, mogą pojawić się [HTTP.sys](https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture) odrzucanie żądań o stan HTTP 503. Aby zmienić limit kolejki sterownik HTTP.sys:
 
     - Otwórz Menedżera usług IIS i przejdź do okienka pul aplikacji.
@@ -177,6 +177,6 @@ Aby wykorzystać zalety aplikacji sieci web asynchroniczne, może być konieczne
 
     - [Przechowywanie wersji platformy .NET i Wielowersyjności - .NET 4.5 jest uaktualnienie w miejscu do programu .NET 4.0](http://www.hanselman.com/blog/NETVersioningAndMultiTargetingNET45IsAnInplaceUpgradeToNET40.aspx)
     - [Jak ustawić aplikacji usług IIS lub puli aplikacji, aby używała ASP.NET 3.5, a nie 2.0](http://www.hanselman.com/blog/HowToSetAnIISApplicationOrAppPoolToUseASPNET35RatherThan20.aspx)
-    - [Wersje programu .NET framework i zależności](https://msdn.microsoft.com/en-us/library/bb822049(VS.110).aspx)
-- Jeśli aplikacja korzysta z usług sieci web lub może być konieczne System.NET do komunikowania się z wewnętrznej bazy danych za pośrednictwem protokołu HTTP należy zwiększyć [connectionmanagement — / maxconnection](https://msdn.microsoft.com/en-us/library/fb6y0fyc(VS.110).aspx) elementu. Dla aplikacji ASP.NET to jest ograniczona przez funkcję automatycznej konfiguracji do 12 razy liczba procesorów. Oznacza to, że na quad-proc, użytkownik może mieć co najwyżej 12 \* 4 = 48 równoczesnych połączeń punkt końcowy IP. Ponieważ to jest związany z [autokonfiguracji](https://msdn.microsoft.com/en-us/library/7w2sway1(VS.110).aspx), najprostszym sposobem, aby zwiększyć `maxconnection` w programie ASP.NET jest skonfigurowanie aplikacji [System.Net.ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/en-us/library/system.net.servicepointmanager.defaultconnectionlimit(VS.110).aspx) programowo w z `Application_Start` metody w *global.asax* pliku. Zobacz przykład Pobierz przykład.
+    - [Wersje programu .NET framework i zależności](https://msdn.microsoft.com/library/bb822049(VS.110).aspx)
+- Jeśli aplikacja korzysta z usług sieci web lub może być konieczne System.NET do komunikowania się z wewnętrznej bazy danych za pośrednictwem protokołu HTTP należy zwiększyć [connectionmanagement — / maxconnection](https://msdn.microsoft.com/library/fb6y0fyc(VS.110).aspx) elementu. Dla aplikacji ASP.NET to jest ograniczona przez funkcję automatycznej konfiguracji do 12 razy liczba procesorów. Oznacza to, że na quad-proc, użytkownik może mieć co najwyżej 12 \* 4 = 48 równoczesnych połączeń punkt końcowy IP. Ponieważ to jest związany z [autokonfiguracji](https://msdn.microsoft.com/library/7w2sway1(VS.110).aspx), najprostszym sposobem, aby zwiększyć `maxconnection` w programie ASP.NET jest skonfigurowanie aplikacji [System.Net.ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(VS.110).aspx) programowo w z `Application_Start` metody w *global.asax* pliku. Zobacz przykład Pobierz przykład.
 - W programie .NET 4.5, domyślnie 5000 dla [MaxConcurrentRequestsPerCPU](https://blogs.msdn.com/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx) powinna być poprawnie.

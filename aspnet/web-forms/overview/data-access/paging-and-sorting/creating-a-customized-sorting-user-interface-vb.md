@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c9d6229c88e4fd67f384a5ec459ed661f32f0a50
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 527bfe62a7293d0aa2d6b5b83119bb922906120b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-customized-sorting-user-interface-vb"></a>Tworzenie interfejsu użytkownika sortowania dostosowanych (VB)
 ====================
@@ -187,7 +187,7 @@ Z uwzględnieniem powyższych kodu, nagłówki grupy sortowania występują tera
 
 
 > [!NOTE]
-> Jeśli masz w produktach `NULL` bazy danych wartości `CategoryID`, `SupplierID`, lub `UnitPrice` pola, te wartości będą wyświetlane jako puste ciągi w widoku GridView domyślnie, co oznacza tekst wiersza s separatora dla tych produktów z `NULL`odczyta wartości podobnie jak kategoria: (to znaczy występują s bez nazwy po kategorii: o kategorii, takich jak: napoje). Jeśli chcesz użyć wartości wyświetlane w tym miejscu można ustawić BoundFields [ `NullDisplayText` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx) tekst ma być wyświetlany lub dodać instrukcji warunkowej w metodzie renderowania podczas przypisywania `currentValue` do tego separatora. Wiersz s `Text` właściwości.
+> Jeśli masz w produktach `NULL` bazy danych wartości `CategoryID`, `SupplierID`, lub `UnitPrice` pola, te wartości będą wyświetlane jako puste ciągi w widoku GridView domyślnie, co oznacza tekst wiersza s separatora dla tych produktów z `NULL`odczyta wartości podobnie jak kategoria: (to znaczy występują s bez nazwy po kategorii: o kategorii, takich jak: napoje). Jeśli chcesz użyć wartości wyświetlane w tym miejscu można ustawić BoundFields [ `NullDisplayText` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx) tekst ma być wyświetlany lub dodać instrukcji warunkowej w metodzie renderowania podczas przypisywania `currentValue` do tego separatora. Wiersz s `Text` właściwości.
 
 
 ## <a name="summary"></a>Podsumowanie

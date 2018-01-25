@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e3f505e525fd5e701bb40dc3e6467b880bf75447
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0133a74454a7754f4f7087e2121c7387a1aef8a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a>Sortowanie danych w kontrolce elementu powtarzanego (VB) lub DataList
 ====================
@@ -81,7 +81,7 @@ Rysunek 3 przedstawia tę stronę, podczas wyświetlania za pośrednictwem przeg
 
 ## <a name="step-3-instructing-the-objectdatasource-to-sort-the-data"></a>Krok 3: Jeśli element ObjectDataSource sortowanie danych
 
-Aby posortować dane wyświetlane w elemencie powtarzanym, należy poinformować ObjectDataSource wyrażenia sortowania, według której mają być sortowane dane. Przed ObjectDataSource pobiera dane, go najpierw generowane jego [ `Selecting` zdarzenia](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx), który zapewnia firmie Microsoft w celu określenia wyrażenie sortowania. `Selecting` Program obsługi zdarzeń jest przekazywany obiekt typu [ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx), który zawiera właściwości o nazwie [ `Arguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx) typu [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.aspx). `DataSourceSelectArguments` Klasa służy do przekazywania żądań związanych z danymi od konsumenta danych do kontroli źródła danych i zawiera [ `SortExpression` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.sortexpression.aspx).
+Aby posortować dane wyświetlane w elemencie powtarzanym, należy poinformować ObjectDataSource wyrażenia sortowania, według której mają być sortowane dane. Przed ObjectDataSource pobiera dane, go najpierw generowane jego [ `Selecting` zdarzenia](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx), który zapewnia firmie Microsoft w celu określenia wyrażenie sortowania. `Selecting` Program obsługi zdarzeń jest przekazywany obiekt typu [ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx), który zawiera właściwości o nazwie [ `Arguments` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx) typu [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx). `DataSourceSelectArguments` Klasa służy do przekazywania żądań związanych z danymi od konsumenta danych do kontroli źródła danych i zawiera [ `SortExpression` właściwości](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.sortexpression.aspx).
 
 Aby przekazać informacje sortowania ze strony ASP.NET do ObjectDataSource, utworzyć programu obsługi zdarzeń dla `Selecting` zdarzeń i użyj następującego kodu:
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: bf4bb5c6f9ad8339c3597b0d6666c7077ac476e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 076fa87eff140a3e7ff6855e4876abac40419c57
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-models-and-data-access"></a>Modele platformy ASP.NET MVC 4 oraz dostęp do danych
 ====================
@@ -27,7 +27,7 @@ przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > 
 > W tym laboratorium przeprowadzi Cię przez rozszerzenia oraz nowe funkcje opisane wcześniej przez zastosowanie drobne zmiany do przykładowej aplikacji sieci Web w folderze źródłowym.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 W **podstawowe informacje na temat platformy ASP.NET MVC** laboratorium Hands-on można mieć zostały przekazywanie ustalony danych z kontrolerów do widoku szablonów. Jednak aby można było tworzyć rzeczywista aplikacji sieci Web, możesz chcieć użyć rzeczywistych bazy danych.
@@ -235,7 +235,7 @@ To zadanie spowoduje zaktualizowanie klasy StoreController tak, aby zamiast dane
     > [!NOTE]
     > W przypadku korzystania z możliwości .NET o nazwie **LINQ** (zapytanie o języku zintegrowanym) do zapisania wyrażeń jednoznacznie zapytania względem tych kolekcje — co spowoduje wykonanie kodu w bazie danych i zwracać obiekty można umieszczonych przed.
     > 
-    > Aby uzyskać więcej informacji na temat LINQ, odwiedź stronę [witrynę msdn](https://msdn.microsoft.com/en-us/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
+    > Aby uzyskać więcej informacji na temat LINQ, odwiedź stronę [witrynę msdn](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
 3. Aktualizacja **indeksu** metody akcji, aby pobrać wszystkie genres.
 
     (Fragment - kodu *modeli i Data Access — indeks magazynu Ex1*)
@@ -351,7 +351,7 @@ Teraz, gdy skonfigurowano już połączenie z bazą danych, zostaną połączone
     > [!NOTE]
     > Aby pracować z konwencjami Code First, klasa Genre musi mieć właściwości klucza podstawowego, który będzie wykrywane automatycznie.
     > 
-    > Możesz przeczytać więcej na temat Konwencji pierwszy kod w tym [artykuł w witrynie msdn](https://msdn.microsoft.com/en-us/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
+    > Możesz przeczytać więcej na temat Konwencji pierwszy kod w tym [artykuł w witrynie msdn](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
 2. Teraz Otwórz klasy modelu POCO **albumu** z **modele** folderu projektu i zawierają kluczy obcych, Utwórz właściwości o nazwach **GenreId** i  **ArtistId**. Ta klasa już **GenreId** klucza podstawowego.
 
     (Fragment - kodu *modeli i dostęp do danych - Ex2 kod pierwszego albumu*)
@@ -385,7 +385,7 @@ Teraz, gdy skonfigurowano już połączenie z bazą danych, zostaną połączone
     [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
 
     > [!NOTE]
-    > Z programu Entity Framework **DbContext** i **DBSet** można zbadać klasy POCO Genre. Rozszerzając **OnModelCreating** metody, określasz w **kod** jak Genre zostaną zmapowane do tabeli bazy danych. Więcej informacji na temat obiektu DBContext i DBSet można znaleźć w tym artykule w witrynie msdn: [łącza](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.103).aspx)
+    > Z programu Entity Framework **DbContext** i **DBSet** można zbadać klasy POCO Genre. Rozszerzając **OnModelCreating** metody, określasz w **kod** jak Genre zostaną zmapowane do tabeli bazy danych. Więcej informacji na temat obiektu DBContext i DBSet można znaleźć w tym artykule w witrynie msdn: [łącza](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
 
 <a id="Ex2Task4"></a>
 
@@ -416,7 +416,7 @@ To zadanie spowoduje zaktualizowanie klasy StoreController tak, aby zamiast dane
     > [!NOTE]
     > W przypadku korzystania z możliwości .NET o nazwie **LINQ** (zapytanie o języku zintegrowanym) do zapisania wyrażeń jednoznacznie zapytania względem tych kolekcje — co spowoduje wykonanie kodu w bazie danych i zwracać obiekty można umieszczonych przed.
     > 
-    > Aby uzyskać więcej informacji na temat LINQ, odwiedź stronę [witrynę msdn](https://msdn.microsoft.com/en-us/library/bb397926(v=vs.110).aspx).
+    > Aby uzyskać więcej informacji na temat LINQ, odwiedź stronę [witrynę msdn](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
 3. Aktualizacja **indeksu** metody akcji, aby pobrać wszystkie genres.
 
     (Fragment - kodu *modeli i Data Access — indeks magazynu Ex2*)
@@ -457,7 +457,7 @@ To zadanie będzie sprawdzać, czy strona indeksu magazynu wyświetli Genres prz
 W tym ćwiczeniu dowiesz się, jak wykonać zapytanie dotyczące bazy danych przy użyciu parametrów i sposobu użycia, kształtowania wyników zapytania, funkcja, która ogranicza numerów bazy danych uzyskuje dostęp do pobierania danych w bardziej wydajny sposób.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na kształtowania wyników zapytania, można znaleźć w następującej [artykuł w witrynie msdn](https://msdn.microsoft.com/en-us/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx).
+> Aby uzyskać więcej informacji na kształtowania wyników zapytania, można znaleźć w następującej [artykuł w witrynie msdn](https://msdn.microsoft.com/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx).
 
 
 <a id="Ex3Task1"></a>

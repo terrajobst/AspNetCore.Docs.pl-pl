@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: 0440f807c7baa7b92e5f05590eca9cc237b5aef9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df37acd8901b457f7887afe767d42d53e45e4815
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Przy użyciu programu Entity Framework 4.0 i kontrolki ObjectDataSource, część 2: Dodawanie warstwy logiki biznesowej i testów jednostkowych
 ====================
@@ -74,7 +74,7 @@ Zmienna klasy, która zawiera odwołanie do klasy repozytorium jest zdefiniowany
 Metody CRUD, które wywołują klasę repozytorium i dwa konstruktory umożliwiają użycie klasy logiki biznesowej z dowolnego magazynu danych zaplecza, możesz wybrać. Klasa logiki biznesowej nie musi wiedzieć, jak klasy, która wywołuje ona będzie się powtarzał danych. (Jest to często nazywane *nieznajomości trwałości*.) Ułatwia testowanie, jednostki, ponieważ klasa logiki biznesowej można nawiązać implementację repozytorium, która używa coś jako prosty jako w pamięci `List` kolekcje do przechowywania danych.
 
 > [!NOTE]
-> Z technicznego punktu widzenia obiekt jednostki są nadal nie trwałości ignorujących, ponieważ są one utworzone z klasy, które dziedziczą z programu Entity Framework `EntityObject` klasy. Nieznajomości pełną trwałości, można użyć *zwykły stare obiekty CLR*, lub *POCOs*, zamiast obiektów, które dziedziczą z `EntityObject` klasy. Przy użyciu POCOs wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji, zobacz [testowania i Entity Framework 4.0](https://msdn.microsoft.com/en-us/library/ff714955.aspx) w witrynie MSDN.)
+> Z technicznego punktu widzenia obiekt jednostki są nadal nie trwałości ignorujących, ponieważ są one utworzone z klasy, które dziedziczą z programu Entity Framework `EntityObject` klasy. Nieznajomości pełną trwałości, można użyć *zwykły stare obiekty CLR*, lub *POCOs*, zamiast obiektów, które dziedziczą z `EntityObject` klasy. Przy użyciu POCOs wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji, zobacz [testowania i Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) w witrynie MSDN.)
 
 
 Teraz możesz połączyć `ObjectDataSource` formantów z logiką biznesową klasa zamiast do repozytorium i sprawdź, czy wszystko działa tak jak poprzednio.
@@ -221,7 +221,7 @@ Dodaj następujące programu obsługi zdarzeń:
 
 Teraz możesz przetestować *DepartmentsAdd.aspx.cs* stronę, aby zweryfikować również poprawnie obsługi prób wprowadzenia jedną osobę administratora działu więcej niż jeden.
 
-Na tym kończy się wprowadzenie do implementacji wzorca repozytorium dla przy użyciu `ObjectDataSource` kontrolki z programu Entity Framework. Aby uzyskać więcej informacji na temat wzorca repozytorium i testowania, zobacz oficjalny dokument MSDN [testowania i Entity Framework 4.0](https://msdn.microsoft.com/en-us/library/ff714955.aspx).
+Na tym kończy się wprowadzenie do implementacji wzorca repozytorium dla przy użyciu `ObjectDataSource` kontrolki z programu Entity Framework. Aby uzyskać więcej informacji na temat wzorca repozytorium i testowania, zobacz oficjalny dokument MSDN [testowania i Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx).
 
 W samouczku następujące zobaczysz sposób dodawania sortowania i filtrowania funkcje do aplikacji.
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 7d89416626433bf737b63eda4b17e65b089ae142
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: aab96b5313a8632950e51f5586612c1d0d3d176e
+ms.sourcegitcommit: 83b5a4715fd25e4eb6f7c8427c0ef03850a7fa07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcje dla platformy ASP.NET Core
 
@@ -258,6 +258,12 @@ services.PostConfigureAll<MyOptions>("named_options_1", myOptions =>
 [IOptionsFactory&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) (platformy ASP.NET Core w wersji 2.0 lub nowszej) jest odpowiedzialny za tworzenie nowych opcji wystąpień. Ma on jeden [Utwórz](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1.create) metody. Domyślna implementacja pobiera wszystkich zarejestrowanych `IConfigureOptions` i `IPostConfigureOptions` i uruchamia wszystkie konfiguruje się najpierw, a następnie po konfiguruje. Go rozróżnia `IConfigureNamedOptions` i `IConfigureOptions` i tylko wywołuje odpowiedniego interfejsu.
 
 [IOptionsMonitorCache&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1) (platformy ASP.NET Core w wersji 2.0 lub nowszej) jest używany przez `IOptionsMonitor` do pamięci podręcznej `TOptions` wystąpień. `IOptionsMonitorCache` Unieważnia wystąpień opcje w monitorze tak, aby wartość jest przeliczane ([TryRemove](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.tryremove)). Wartości mogą być ręcznie wprowadzone również z [TryAdd](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.tryadd). [Wyczyść](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.clear) metoda jest używana, gdy wszystkie wystąpienia nazwanego powinny zostać ponownie utworzone na żądanie.
+
+## <a name="accessing-options-during-startup"></a>Dostęp do opcji podczas uruchamiania
+
+`IOptions`mogą być używane w `Configure`, ponieważ usługi są wbudowane przed `Configure` metoda jest wykonywana. Jeśli usługodawca korzysta z wbudowanej w `ConfigureServices` uzyskać dostęp do opcji, ona nie zawierać opcje konfiguracji po utworzeniu dostawcy usług. W związku z tym stanie niespójne opcje mogą występować z powodu zamawiania rejestracji usługi.
+
+Ponieważ opcje zwykle są ładowane z konfiguracji, konfiguracji mogą być używane w uruchomienia zarówno `Configure` i `ConfigureServices`. Przykłady za pomocą konfiguracji podczas uruchamiania, zobacz [uruchamiania aplikacji](xref:fundamentals/startup) tematu.
 
 ## <a name="see-also"></a>Zobacz także
 

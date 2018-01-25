@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: 90f24550d2bb50147bab6be545be63c1838f312a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b8402aa3db1b2566878c4d56212facbbb2925eec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="webmatrix-readme"></a>Plik Readme programu WebMatrix
 ====================
@@ -34,8 +34,8 @@ ms.lasthandoff: 11/10/2017
 - [Zmiany i problemów](#ChangesAndIssues)
 
     - [Instalacja programu WebMatrix w wersji 1.0](#Known_Issues_Installation)
-    - [Strony sieci Web ASP.NET](#Known_Issues_ASPNET)
-    - [Program WebMatrix](#Known_Issues_WebMatrix)
+    - [ASP.NET Web Pages](#Known_Issues_ASPNET)
+    - [WebMatrix](#Known_Issues_WebMatrix)
     - [Usługi IIS Express](#Known_Issues_IISExpress)
     - [SQL Server Compact](#Known_Issues_SQLServerCompact)
     - [Instalowanie aplikacji](#Known_Issues_Installing_Applications)
@@ -97,8 +97,8 @@ ms.lasthandoff: 11/10/2017
 
 > Podczas instalowania programu SQL Server Compact 4.0 na komputerze 64-bitowy komputer ma tylko .NET Framework 3.5 SP1 Client Profile zainstalowany zarządzanych zestawów dla programu SQL Server Compact 4.0 nie są umieszczane w globalnej pamięci podręcznej zestawów (GAC). Zarządzanych zestawów, które nie są zainstalowane w GAC są:
 > 
-> - *System.Data.SqlServerCe.dll* (dostawcy ADO.NET)
-> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework)
+> - *System.Data.SqlServerCe.dll* (ADO.NET provider)
+> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
 > 
 > **Obejście problemu**  
 > Odinstaluj program SQL Server Compact 4.0. Pobierz i zainstaluj pełną wersję programu .NET Framework 3.5 z dodatkiem SP1 z następującej lokalizacji:  
@@ -118,7 +118,7 @@ ms.lasthandoff: 11/10/2017
 
 <a id="Known_Issues_ASPNET"></a>
 
-### <a name="aspnet-web-pages"></a>Strony sieci Web ASP.NET
+### <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 
 W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji 1.0 ASP.NET Web Pages o składni Razor.
 
@@ -218,7 +218,7 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji 1.
 > 
 > [!code-xml[Main](overview/samples/sample2.xml)]
 > 
-> Aby uzyskać więcej informacji na temat konfigurowania serwera proxy, zobacz [ &lt;proxy&gt; elementu (ustawienia sieciowe)](https://msdn.microsoft.com/en-us/library/sa91de1e.aspx) w witrynie MSDN.
+> Aby uzyskać więcej informacji na temat konfigurowania serwera proxy, zobacz [ &lt;proxy&gt; elementu (ustawienia sieciowe)](https://msdn.microsoft.com/library/sa91de1e.aspx) w witrynie MSDN.
 
 
 #### <a name="issue-uninstalling-the-net-framework-version-4-disables-aspnet-web-pages-with-razor-syntax"></a>Problem: Odinstalowywanie programu .NET Framework w wersji 4 wyłącza stron ASP.NET Web Pages o składni Razor
@@ -257,10 +257,10 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji 1.
 > 
 > 1. Kopiowanie zestawów aparatu bazy danych do *Bin* folderze (i jego podfolderach) aplikacji na komputerze docelowym:  
 > 
->     - Kopiuj *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
+>     - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
 >         **Aby** *\Bin*
->     - Kopiuj *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\*** do***\Bin\x86*
->     - Kopiuj *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **do***\Bin\amd64*
+>     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\****to***\Bin\x86*
+>     - Kopiuj *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\****do *** \Bin\amd64*
 > 2. W folderze głównym witryny sieci Web, należy utworzyć lub otworzyć *web.config* pliku. (W wersji 1.0 programu WebMatrix, ten typ pliku jest dostępna po kliknięciu **wszystkie** w **wybierz typ pliku** okno dialogowe.)
 > 3. Dodaj następujący element jako element podrzędny `<configuration>` elementu (nie znajduje się w `<system.web>` element):
 > 
@@ -291,7 +291,7 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji 1.
 
 <a id="Known_Issues_WebMatrix"></a>
 
-### <a name="webmatrix"></a>Program WebMatrix
+### <a name="webmatrix"></a>WebMatrix
 
 > [!NOTE]
 > Aby uzyskać informacje dotyczące problemów z instalacją dla programu WebMatrix, zobacz [problemy z instalacją programu WebMatrix](#Known_Issues_Installation) we wcześniejszej części tego dokumentu.
@@ -400,7 +400,7 @@ W tej sekcji dokumentu opisano znane problemy dotyczące środowiska programowan
 
 Usługi IIS Express ma własny plik readme, który jest dostępny pod adresem URL:
 
-[https://go.microsoft.com/fwlink/?LinkId=207675&amp;clcid = 0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
+[https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
 
 <a id="Known_Issues_SQLServerCompact"></a>
 
@@ -408,7 +408,7 @@ Usługi IIS Express ma własny plik readme, który jest dostępny pod adresem UR
 
 SQL Server Compact ma własny plik readme, który jest dostępny pod adresem URL:
 
-[https://go.microsoft.com/fwlink/?LinkId=208545](https://go.microsoft.com/fwlink/?LinkID=208545&amp;clcid=0x409)
+[https://go.microsoft.com/fwlink/?LinkID=208545](https://go.microsoft.com/fwlink/?LinkID=208545&amp;clcid=0x409)
 
 Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL Server Compact jako część programu WebMatrix, zobacz [problemy z instalacją programu WebMatrix](#Known_Issues_Installation) we wcześniejszej części tego dokumentu.
 
@@ -559,8 +559,8 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 
 Aby uzyskać więcej informacji o programie WebMatrix w wersji 1.0 zobacz następujące witryny sieci Web:
 
-- [Program IIS.net](http://iis.net/)
+- [IIS.net](http://iis.net/)
 - [ASP.NET](https://asp.net/webmatrix)
-- [Microsoft.com/Web](https://www.microsoft.com/web)
+- [Microsoft.com/web](https://www.microsoft.com/web)
 
-© Microsoft 2011 Corporation. Wszelkie prawa zastrzeżone. [Warunki użytkowania](https://msdn.microsoft.com/en-us/cc300389.aspx).
+© 2011 Microsoft Corporation. Wszelkie prawa zastrzeżone. [Warunki użytkowania](https://msdn.microsoft.cos/cc300389.aspx).

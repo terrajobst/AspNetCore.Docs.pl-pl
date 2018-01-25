@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 965d2e740cc76838b1b4e1c618a2a6d784672fcc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0d053cecbf9a59f258470ee370852e3f112908c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-oauth-providers-with-mvc-4"></a>Przy użyciu dostawców uwierzytelniania OAuth z MVC 4
 ====================
@@ -45,7 +45,7 @@ Mimo że przykłady w tym samouczku dotyczą za pomocą usługi Facebook jako do
 Lub
 
 - Microsoft Visual Studio 2010 z dodatkiem SP1 lub [programu Visual Web Developer Express 2010 z dodatkiem SP1](https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express)
-- [PLATFORMA ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)
+- [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)
 
 Ponadto w tym temacie założono, że dysponujesz podstawową wiedzą o platformie ASP.NET MVC i Visual Studio. Jeśli potrzebujesz wprowadzenia do platformy ASP.NET MVC 4, zobacz [wprowadzenie do platformy ASP.NET MVC 4](getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md).
 
@@ -81,10 +81,10 @@ Do uwierzytelniania użytkowników przy użyciu poświadczeń z zewnętrznego do
 
 W tym samouczku nie są wyświetlane wszystkie czynności, które należy wykonać, aby zarejestrować z usług tych dostawców. Kroki nie są zwykle trudne. Aby pomyślnie zarejestrować witryny, wykonaj instrukcje podane w tych witrynach. Aby rozpocząć rejestrowanie witryny, zobacz deweloperskiej dla:
 
-- [Usługi Facebook](https://developers.facebook.com/)
+- [Facebook](https://developers.facebook.com/)
 - [Google](https://developers.google.com/)
 - [Microsoft](http://manage.dev.live.com/)
-- [W usłudze Twitter](https://dev.twitter.com/)
+- [Twitter](https://dev.twitter.com/)
 
 Podczas rejestrowania witryny z usługą Facebook, możesz podać &quot;localhost&quot; dla domeny, lokacji i `&quot;http://localhost/&quot;` dla adresu URL, jak pokazano na poniższej ilustracji. Przy użyciu localhost współpracuje z dostawców większości, ale obecnie nie współpracujesz z dostawcy firmy Microsoft. Dla dostawcy usługi Microsoft musi zawierać adres URL witryny sieci web prawidłowe.
 
@@ -148,7 +148,7 @@ Jeśli chcesz włączyć uwierzytelnianie zewnętrzne, wszystko będzie gotowe. 
 
 Jak można zauważyć w poprzednich sekcjach, nie trzeba pobierać żadnych dodatkowych informacji o rejestrację wbudowane konto do pracy. Jednak większość zewnętrznych dostawców Przekaż ponownie dodatkowe informacje o użytkowniku. Poniższe sekcje pokazują, jak zachować tych informacji i zapisać ją w bazie danych. W szczególności zostanie zachowana wartości dla użytkownika Pełna nazwa, identyfikator URI strony sieci web osobiste użytkownika, a wartość, która wskazuje, czy usługi Facebook zweryfikował konta.
 
-Użyjesz [migracje Code First](https://msdn.microsoft.com/en-us/data/jj591621) do dodawania tabeli do przechowywania dodatkowe informacje dotyczące użytkownika. Dodajesz tabeli do istniejącej bazy danych, dlatego najpierw należy utworzyć migawkę bieżącej bazy danych. Tworząc migawkę bieżącej bazy danych, można utworzyć później migracji, która zawiera nową tabelę. Aby utworzyć migawkę bieżącej bazy danych:
+Użyjesz [migracje Code First](https://msdn.microsoft.com/data/jj591621) do dodawania tabeli do przechowywania dodatkowe informacje dotyczące użytkownika. Dodajesz tabeli do istniejącej bazy danych, dlatego najpierw należy utworzyć migawkę bieżącej bazy danych. Tworząc migawkę bieżącej bazy danych, można utworzyć później migracji, która zawiera nową tabelę. Aby utworzyć migawkę bieżącej bazy danych:
 
 1. Otwórz **Konsola Menedżera pakietów**
 2. Uruchom polecenie **enable-migrations,**
@@ -188,7 +188,7 @@ Dodatkowe dane są przekazywane w **ExtraData** właściwość **AuthenticationR
 
 - identyfikator
 - nazwa
-- Link
+- link
 - płci
 - accesstoken
 

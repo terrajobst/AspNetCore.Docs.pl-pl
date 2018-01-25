@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5daa9d1fe63e4ad8ec8c667f84de00fadd77fefa
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 88f6beb3f3514c6a9784d4cb936a5b779ce75ae1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-events-associated-with-inserting-updating-and-deleting-vb"></a>Badanie ze zdarzeniami związanymi z Wstawianie, aktualizowanie i usuwanie (VB)
 ====================
@@ -162,12 +162,12 @@ Dzięki tej zmianie wartości `UnitPrice` wyświetlane w edytowanych wiersz jest
 
 Jednak aktualizowania produktu o symbol waluty w polu tekstowym, takich jak $19,00 zgłasza `FormatException`. Podczas próby przypisania wartości dostarczone przez użytkownika do ObjectDataSource widoku GridView `UpdateParameters` kolekcji nie może przekonwertować `UnitPrice` na ciąg znaków "$19,00" `Decimal` wymagane przez parametr (patrz rysunek 11). Aby rozwiązać ten problem można utworzyć programu obsługi zdarzeń dla w widoku GridView `RowUpdating` zdarzeń i przeanalizować podanego użytkownika `UnitPrice` jako formacie waluty `Decimal`.
 
-W widoku GridView `RowUpdating` zdarzeń akceptuje jako drugi parametr typu obiektu [GridViewUpdateEventArgs](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridviewupdateeventargs(VS.80).aspx), która obejmuje `NewValues` słownika jako jeden z jego właściwości, które przechowuje dostarczone przez użytkownika wartości gotowe do przeniesienia przypisane do elementu ObjectDataSource `UpdateParameters` kolekcji. Firma Microsoft może spowodować nadpisanie istniejących `UnitPrice` wartość w `NewValues` kolekcji o wartości dziesiętnej przeanalizowany w formacie waluty następujące wiersze kodu w `RowUpdating` obsługi zdarzeń:
+W widoku GridView `RowUpdating` zdarzeń akceptuje jako drugi parametr typu obiektu [GridViewUpdateEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdateeventargs(VS.80).aspx), która obejmuje `NewValues` słownika jako jeden z jego właściwości, które przechowuje dostarczone przez użytkownika wartości gotowe do przeniesienia przypisane do elementu ObjectDataSource `UpdateParameters` kolekcji. Firma Microsoft może spowodować nadpisanie istniejących `UnitPrice` wartość w `NewValues` kolekcji o wartości dziesiętnej przeanalizowany w formacie waluty następujące wiersze kodu w `RowUpdating` obsługi zdarzeń:
 
 
 [!code-vb[Main](examining-the-events-associated-with-inserting-updating-and-deleting-vb/samples/sample4.vb)]
 
-Jeśli użytkownik ma podany `UnitPrice` wartości (na przykład "$19,00"), ta wartość jest zastępowany wartości dziesiętnej obliczone przez [Decimal.Parse](https://msdn.microsoft.com/en-us/library/system.decimal.parse(VS.80).aspx), analizy wartości jako walutę. To zostanie prawidłowo przeanalizować dziesiętnego w przypadku symbol waluty, przecinki, miejsc dziesiętnych i tak dalej, a używa [wyliczenie NumberStyles](https://msdn.microsoft.com/en-US/library/system.globalization.numberstyles(VS.80).aspx) w [System.Globalization](https://msdn.microsoft.com/en-US/library/abeh092z(VS.80).aspx) przestrzeni nazw.
+Jeśli użytkownik ma podany `UnitPrice` wartości (na przykład "$19,00"), ta wartość jest zastępowany wartości dziesiętnej obliczone przez [Decimal.Parse](https://msdn.microsoft.com/library/system.decimal.parse(VS.80).aspx), analizy wartości jako walutę. To zostanie prawidłowo przeanalizować dziesiętnego w przypadku symbol waluty, przecinki, miejsc dziesiętnych i tak dalej, a używa [wyliczenie NumberStyles](https://msdn.microsoft.com/library/system.globalization.numberstyles(VS.80).aspx) w [System.Globalization](https://msdn.microsoft.com/library/abeh092z(VS.80).aspx) przestrzeni nazw.
 
 Rysunek 11 pokazuje problem spowodowany przez symbole waluty w podanego użytkownika `UnitPrice`, oraz jak w widoku GridView `RowUpdating` obsługi zdarzeń mogą zostać użyte można poprawnie przeanalizować takich danych wejściowych.
 
@@ -216,10 +216,10 @@ Jeśli użytkownik próbuje zapisać produktu bez określania cenę, aktualizacj
 
 Do tej pory ma pokazano sposób użycia w widoku GridView `RowUpdating` zdarzeń programowo zmienić wartości parametru dla elementu ObjectDataSource `UpdateParameters` kolekcji także jak anulować aktualizację przetworzyć całkowicie. Te pojęcia przenoszone do formantów w widoku DetailsView i FormView i dotyczą również Wstawianie i usuwanie.
 
-Można również wykonać te zadania za pomocą obsługi zdarzeń na poziomie elementu ObjectDataSource jego `Inserting`, `Updating`, i `Deleting` zdarzenia. Te zdarzenia wyzwalać przed skojarzona metoda obiektu podstawowego i podaj ostatniej szansy możliwość modyfikowania kolekcji parametrów wejściowych, lub Anuluj operację bezpośrednich. Programy obsługi zdarzeń dla zdarzenia te trzy są przekazywane typu obiektu [ObjectDataSourceMethodEventArgs](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs(VS.80).aspx) mający dwie właściwości odsetek:
+Można również wykonać te zadania za pomocą obsługi zdarzeń na poziomie elementu ObjectDataSource jego `Inserting`, `Updating`, i `Deleting` zdarzenia. Te zdarzenia wyzwalać przed skojarzona metoda obiektu podstawowego i podaj ostatniej szansy możliwość modyfikowania kolekcji parametrów wejściowych, lub Anuluj operację bezpośrednich. Programy obsługi zdarzeń dla zdarzenia te trzy są przekazywane typu obiektu [ObjectDataSourceMethodEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs(VS.80).aspx) mający dwie właściwości odsetek:
 
-- [Anuluj](https://msdn.microsoft.com/en-US/library/system.componentmodel.canceleventargs.cancel(VS.80).aspx), która, jeśli ustawioną `True`, anuluje operację
-- [InputParameters](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs.inputparameters(VS.80).aspx), który jest kolekcją `InsertParameters`, `UpdateParameters`, lub `DeleteParameters`w zależności od tego, czy program obsługi zdarzeń jest dla `Inserting`, `Updating`, lub `Deleting` zdarzeń
+- [Anuluj](https://msdn.microsoft.com/library/system.componentmodel.canceleventargs.cancel(VS.80).aspx), która, jeśli ustawioną `True`, anuluje operację
+- [InputParameters](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs.inputparameters(VS.80).aspx), który jest kolekcją `InsertParameters`, `UpdateParameters`, lub `DeleteParameters`w zależności od tego, czy program obsługi zdarzeń jest dla `Inserting`, `Updating`, lub `Deleting` zdarzeń
 
 Aby zilustrować pracy przy użyciu wartości parametrów na poziomie elementu ObjectDataSource, umożliwia dołączenie Element DetailsView naszą stronę, który umożliwia użytkownikom dodanie nowego produktu. Tego widoku DetailsView będzie służyć do zapewnienia interfejs szybkie dodanie nowego produktu do bazy danych. Aby zachować spójny interfejs użytkownika, gdy umożliwia dodanie nowego produktu umożliwia użytkownikowi tylko wprowadź wartości w polach `ProductName` i `UnitPrice` pól. Domyślnie te wartości, które nie są dostarczane w interfejsie Wstawianie DetailsView zostanie ustawiona do `NULL` bazy danych wartości. Jednak można użyć elementu ObjectDataSource `Inserting` zdarzeń iniekcję różne domyślne wartości, ponieważ zajmiemy się wkrótce.
 

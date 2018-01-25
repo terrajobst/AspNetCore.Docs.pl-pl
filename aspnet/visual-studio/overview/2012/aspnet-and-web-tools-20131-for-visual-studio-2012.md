@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 1e4ee8eb4901305bf6a8c9c5b949dc4ee10290e5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c11e2ef9c33b0cae1f196690533094ce1c342da5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Informacje o wersji dla platformy ASP.NET i narzędzia sieci Web 2013.1 dla programu Visual Studio 2012
 ====================
@@ -31,19 +31,19 @@ przez [firmy Microsoft](https://github.com/microsoft)
 - [Wymagania dotyczące oprogramowania](#requirements)
 - Nowe funkcje programu ASP.NET i narzędzia sieci Web 2013.1 dla programu Visual Studio 2012
 
-    - [Ładowania początkowego](#bootstrap)
+    - [Bootstrap](#bootstrap)
     - [Szablony](#templates)
 
         - [Szablonu platformy ASP.NET MVC 5](#mvc5template)
         - [Szablon 2 interfejsu API sieci Web ASP.NET](#apitemplate)
         - [Szablony elementu](#itemtemplate)
     - [Entity Framework 6](#ef6)
-    - [Funkcja szkieletów ASP.NET](#scaffold)
+    - [ASP.NET Scaffolding](#scaffold)
     - [Razor Editor](#razor)
     - [NuGet 2.7](#nuget)
 - Znane problemy i fundamentalne zmiany
 
-    - [Funkcja szkieletów ASP.NET](#issuescaffolding)
+    - [ASP.NET Scaffolding](#issuescaffolding)
 
         - [MVC i Web API szkieletów - HTTP 404 błędu nie znaleziono](#404issue)
         - [Visual Studio Express 2012 for Web przestaje działać po Dodawanie elementu szkieletu](#expressissue)
@@ -66,7 +66,7 @@ Musi mieć programu Visual Studio 2012 lub Visual Studio Express 2012 for Web.
 ## <a name="new-features-in-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Nowe funkcje programu ASP.NET i narzędzia sieci Web 2013.1 dla programu Visual Studio 2012
 
 <a id="bootstrap"></a>
-### <a name="bootstrap"></a>Ładowania początkowego
+### <a name="bootstrap"></a>Bootstrap
 
 Po utworzeniu szkieletu kontrolerów MVC 5 z widokami, korzysta z kodu znaczników dla widoków [Bootstrap](http://getbootstrap.com/).
 
@@ -96,7 +96,7 @@ Po utworzeniu szkieletu kontrolera MVC lub Web API przy użyciu programu Entity 
 Można również pobrać i zainstalować narzędzia Entity Framework 6 dla programu Visual Studio 2012. Zobacz [uzyskać programu Entity Framework](https://msdn.com/data/ee712906#tooling).
 
 <a id="scaffold"></a>
-### <a name="aspnet-scaffolding"></a>Funkcja szkieletów ASP.NET
+### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
 
 Rusztowania ASP.NET to platforma generowania kodu dla aplikacji sieci Web ASP.NET. Ułatwia on dodać schematyczny kod służący do projektu, który współdziała z modelem danych.
 
@@ -125,7 +125,7 @@ Ta wersja programu NuGet eliminuje to potrzebę dla użytkowników jawnie zezwol
 ## <a name="known-issues-and-breaking-changes"></a>Znane problemy i fundamentalne zmiany
 
 <a id="issuescaffolding"></a>
-### <a name="aspnet-scaffolding"></a>Funkcja szkieletów ASP.NET
+### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
 
 <a id="404issue"></a>
 #### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC i Web API szkieletów - HTTP 404 błędu nie znaleziono
@@ -190,7 +190,7 @@ Po utworzeniu ASP.NET MVC projektów programu Visual Studio 2012, Windows 8.1 lu
 
 ![Błąd konfiguracji](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image2.png)
 
-Zostanie wyświetlony ten błąd, ponieważ program Visual Studio 2012 nie obsługuje funkcję ASP.NET 4.5 zainstalowanego w tych wersjach systemu Windows. Aby włączyć funkcję ASP.NET 4.5, wykonaj czynności opisane w [Włącz lub wyłącz funkcje systemu Windows](https://windows.microsoft.com/en-us/windows-8/turn-windows-features-on-off).
+Zostanie wyświetlony ten błąd, ponieważ program Visual Studio 2012 nie obsługuje funkcję ASP.NET 4.5 zainstalowanego w tych wersjach systemu Windows. Aby włączyć funkcję ASP.NET 4.5, wykonaj czynności opisane w [Włącz lub wyłącz funkcje systemu Windows](https://windows.microsoft.com/windows-8/turn-windows-features-on-off).
 
 ![Włącz lub wyłącz funkcje systemu Windows](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image3.png)
 

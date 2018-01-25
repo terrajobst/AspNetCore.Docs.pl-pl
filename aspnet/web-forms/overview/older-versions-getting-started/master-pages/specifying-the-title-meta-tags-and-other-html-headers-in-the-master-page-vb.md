@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1bbc2efc67d2d828dd0a5c1fcfe95145e8ffb2cb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6d004a0ee0b46e2984aec8d0a99835dbf414ed9d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a>Określenie tytuł, tagi Meta i innych nagłówków HTML na stronie wzorcowej (VB)
 ====================
@@ -42,7 +42,7 @@ Plik strony głównej domyślny utworzony przez program Visual Studio 2008 zawie
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample1.aspx)]
 
-Zwróć uwagę, że `<head>` zawiera element `runat="server"` atrybut, który wskazuje, że jest kontrolki serwera (zamiast Statycznych). Wszystkie strony ASP.NET, pochodzi z [ `Page` klasy](https://msdn.microsoft.com/en-us/library/system.web.ui.page.aspx), który znajduje się w `System.Web.UI` przestrzeni nazw. Ta klasa zawiera [ `Header` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.page.header.aspx) zapewniający dostęp do tej strony `<head>` regionu. Przy użyciu `Header` właściwości możemy Ustaw tytuł strony platformy ASP.NET, lub Dodaj dodatkowe znaczników do renderowanej `<head>` sekcji. Jest to możliwe, następnie w celu dostosowania strony zawartości `<head>` element pisząc fragmentem kodu na stronie `Page_Load` obsługi zdarzeń. Omówione jak programowo ustawia tytuł strony w kroku 1.
+Zwróć uwagę, że `<head>` zawiera element `runat="server"` atrybut, który wskazuje, że jest kontrolki serwera (zamiast Statycznych). Wszystkie strony ASP.NET, pochodzi z [ `Page` klasy](https://msdn.microsoft.com/library/system.web.ui.page.aspx), który znajduje się w `System.Web.UI` przestrzeni nazw. Ta klasa zawiera [ `Header` właściwości](https://msdn.microsoft.com/library/system.web.ui.page.header.aspx) zapewniający dostęp do tej strony `<head>` regionu. Przy użyciu `Header` właściwości możemy Ustaw tytuł strony platformy ASP.NET, lub Dodaj dodatkowe znaczników do renderowanej `<head>` sekcji. Jest to możliwe, następnie w celu dostosowania strony zawartości `<head>` element pisząc fragmentem kodu na stronie `Page_Load` obsługi zdarzeń. Omówione jak programowo ustawia tytuł strony w kroku 1.
 
 Znaczników pokazano `<head>` powyżej zawiera również element ContentPlaceHolder formantu o nazwie `head`. Ten formant ContentPlaceHolder nie jest to konieczne, jak strony zawartości można dodać niestandardowe zawartości do `<head>` element programowo. Jest przydatne, jednak w sytuacjach, w którym strony zawartości musi dodać statycznych znaczników do `<head>` jako statyczne znaczników można można dodać elementu deklaratywnie do odpowiedniego formantu zawartości, a nie programowo.
 
@@ -69,7 +69,7 @@ Zawartość strony nie mają `<title>` elementu, ponieważ jest zdefiniowana na 
 
 ### <a name="setting-the-pages-title-declaratively"></a>Ustawienie deklaratywnie tytuł strony
 
-Tytuł strony zawartości można ustawić deklaratywnie za pomocą `Title` atrybutu [ `<%@ Page %>` dyrektywy](https://msdn.microsoft.com/en-us/library/ydy4x04a.aspx). Tej właściwości można ustawić bezpośrednio modyfikując `<%@ Page %>` dyrektywy lub za pośrednictwem okna właściwości. Przyjrzyjmy się obu podejść.
+Tytuł strony zawartości można ustawić deklaratywnie za pomocą `Title` atrybutu [ `<%@ Page %>` dyrektywy](https://msdn.microsoft.com/library/ydy4x04a.aspx). Tej właściwości można ustawić bezpośrednio modyfikując `<%@ Page %>` dyrektywy lub za pośrednictwem okna właściwości. Przyjrzyjmy się obu podejść.
 
 W widoku źródła zlokalizuj `<%@ Page %>` dyrektywy, który znajduje się na górze strony deklaratywne znaczników. `<%@ Page %>` Dyrektywy dla `Default.aspx` następuje:
 
@@ -96,7 +96,7 @@ Tytuł strony mogą także umieszczać w oknie właściwości. W oknie właściw
 
 ### <a name="setting-the-pages-title-programmatically"></a>Ustawienie programowo tytuł strony
 
-Strony wzorcowej `<head runat="server">` znaczników jest przekształcana na [ `HtmlHead` klasy](https://msdn.microsoft.com/en-us/library/system.web.ui.htmlcontrols.htmlhead.aspx) wystąpienie podczas renderowania strony przez aparat programu ASP.NET. `HtmlHead` Klasa ma [ `Title` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.htmlcontrols.htmlhead.title.aspx) którego wartość ta jest uwzględniana w renderowanym `<title>` elementu. Ta właściwość jest dostępna z klasy związane z kodem strony ASP.NET za pośrednictwem `Page.Header.Title`; tym samym właściwości są dostępne za pośrednictwem `Page.Title`.
+Strony wzorcowej `<head runat="server">` znaczników jest przekształcana na [ `HtmlHead` klasy](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlhead.aspx) wystąpienie podczas renderowania strony przez aparat programu ASP.NET. `HtmlHead` Klasa ma [ `Title` właściwości](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlhead.title.aspx) którego wartość ta jest uwzględniana w renderowanym `<title>` elementu. Ta właściwość jest dostępna z klasy związane z kodem strony ASP.NET za pośrednictwem `Page.Header.Title`; tym samym właściwości są dostępne za pośrednictwem `Page.Title`.
 
 Ćwiczenie ustawienie tytuł strony programowo, przejdź do `About.aspx` kodem strony klasy i utworzyć program obsługi zdarzeń dla strony `Load` zdarzeń. Następnie ustaw tytuł strony "samouczki strony wzorca:: o:: *data*", gdzie *data* jest data bieżąca. Po dodaniu tego kodu użytkownika `Page_Load` obsługi zdarzeń powinien wyglądać podobnie do następującego:
 
@@ -189,7 +189,7 @@ Struktura mapy witryny również można uzyskać programistycznie z klasy związ
 
 ### <a name="creating-the-site-map"></a>Tworzenie mapy witryny
 
-System mapy witryny została stworzona [modelu dostawcy](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), która oddziela mapy witryny interfejsu API z logiki, który serializuje mapy witryny między pamięcią i magazynu trwałego. .NET Framework jest dostarczany z [ `XmlSiteMapProvider` klasy](https://msdn.microsoft.com/en-us/library/system.web.xmlsitemapprovider.aspx), czyli domyślnego dostawcy mapy witryny. Jak jego nazwa wskazuje, `XmlSiteMapProvider` używa pliku XML jako jego magazynu mapy witryny. Teraz Użyj tego dostawcy do definiowania naszych mapy witryny.
+System mapy witryny została stworzona [modelu dostawcy](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), która oddziela mapy witryny interfejsu API z logiki, który serializuje mapy witryny między pamięcią i magazynu trwałego. .NET Framework jest dostarczany z [ `XmlSiteMapProvider` klasy](https://msdn.microsoft.com/library/system.web.xmlsitemapprovider.aspx), czyli domyślnego dostawcy mapy witryny. Jak jego nazwa wskazuje, `XmlSiteMapProvider` używa pliku XML jako jego magazynu mapy witryny. Teraz Użyj tego dostawcy do definiowania naszych mapy witryny.
 
 Rozpocznij od utworzenia pliku mapy witryny w folderze głównym witryny sieci Web o nazwie `Web.sitemap`. W tym celu kliknij prawym przyciskiem myszy nazwę witryny sieci Web w Eksploratorze rozwiązań, wybierz polecenie Dodaj nowy element, a następnie wybierz szablon mapy witryny. Upewnij się, że plik ma nazwę `Web.sitemap` i kliknij przycisk Dodaj.
 
@@ -247,7 +247,7 @@ Po skonfigurowaniu szablonów elementu ListView, odwiedź witrynę sieci Web. Ja
 **Rysunek 09**: sekcja — lekcje zawiera pojedynczy element listy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image17.png))
 
 
-Do wyświetlania na różnych poziomach możemy zagnieździć wielu widokach listy w `ItemTemplate`. Ta technika zostały sprawdzone w [ *stron wzorcowych i nawigacji w witrynie* samouczek](../../data-access/introduction/master-pages-and-site-navigation-vb.md) z mojej [pracy z samouczkiem serii danych](../../data-access/index.md). Jednak dla tej serii samouczek naszych mapy witryny będzie zawierać dwa poziomy: głównej (najwyższego poziomu); i każdej lekcji jako element podrzędny głównej. Zamiast obsługuje tworzenie zagnieżdżonych ListView, firma Microsoft zamiast nakazać SiteMapDataSource, aby nie zwracał węzeł początkowy przez ustawienie jej [ `ShowStartingNode` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sitemapdatasource.showstartingnode.aspx) do `False`. Net powoduje, że SiteMapDataSource zaczyna się zwracając z drugiej warstwy węzły mapy witryny.
+Do wyświetlania na różnych poziomach możemy zagnieździć wielu widokach listy w `ItemTemplate`. Ta technika zostały sprawdzone w [ *stron wzorcowych i nawigacji w witrynie* samouczek](../../data-access/introduction/master-pages-and-site-navigation-vb.md) z mojej [pracy z samouczkiem serii danych](../../data-access/index.md). Jednak dla tej serii samouczek naszych mapy witryny będzie zawierać dwa poziomy: głównej (najwyższego poziomu); i każdej lekcji jako element podrzędny głównej. Zamiast obsługuje tworzenie zagnieżdżonych ListView, firma Microsoft zamiast nakazać SiteMapDataSource, aby nie zwracał węzeł początkowy przez ustawienie jej [ `ShowStartingNode` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sitemapdatasource.showstartingnode.aspx) do `False`. Net powoduje, że SiteMapDataSource zaczyna się zwracając z drugiej warstwy węzły mapy witryny.
 
 Dzięki tej zmianie ListView Wyświetla punktów na temat i przy użyciu wielu formantów elementu ContentPlaceHolder lekcje, ale pominięto elementu punktor dla strony głównej. Aby rozwiązać ten problem, jawnie dodamy elementu punktor dla strony głównej w `LayoutTemplate`:
 
@@ -279,7 +279,7 @@ Aktualizacja `BasePage` klasy `OnLoadComplete` metodę w celu uwzględnienia nas
 
 Jak wcześniej `OnLoadComplete` metoda uruchamia przez określenie, czy tytuł strony została jawnie ustawiona. Jeśli `Page.Title` jest `Nothing`, ciągiem pustym lub jest przypisywana wartość "Bez tytułu strony", a następnie kod automatycznie przypisuje wartość do `Page.Title`.
 
-Aby określić tytuł, aby użyć, odwołując zaczyna się kod [ `SiteMap` klasy](https://msdn.microsoft.com/en-us/library/system.web.sitemap.aspx)w [ `CurrentNode` właściwości](https://msdn.microsoft.com/en-us/library/system.web.sitemap.currentnode.aspx). `CurrentNode`Zwraca [ `SiteMapNode` ](https://msdn.microsoft.com/en-us/library/system.web.sitemapnode.aspx) wystąpienia mapy witryny, umożliwiająca obecnie żądanej strony. Zakładając, że obecnie żądanej strony znajduje się w obrębie mapy witryny `SiteMapNode`w `Title` właściwości jest przypisany do tytułu strony. Jeśli obecnie żądana strona nie ma mapy witryny `CurrentNode` zwraca `Nothing` filename żądanej strony służy jako tytuł (jak to zostało zrobione w kroku 2).
+Aby określić tytuł, aby użyć, odwołując zaczyna się kod [ `SiteMap` klasy](https://msdn.microsoft.com/library/system.web.sitemap.aspx)w [ `CurrentNode` właściwości](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx). `CurrentNode`Zwraca [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) wystąpienia mapy witryny, umożliwiająca obecnie żądanej strony. Zakładając, że obecnie żądanej strony znajduje się w obrębie mapy witryny `SiteMapNode`w `Title` właściwości jest przypisany do tytułu strony. Jeśli obecnie żądana strona nie ma mapy witryny `CurrentNode` zwraca `Nothing` filename żądanej strony służy jako tytuł (jak to zostało zrobione w kroku 2).
 
 Przedstawia rysunek 12 `MultipleContentPlaceHolders.aspx` strony podczas wyświetlania za pośrednictwem przeglądarki. Ponieważ tytułu tej strony nie jest jawnie ustawiona, zamiast tego użyć jej odpowiednie węzeł mapy witryny w tytule.
 
@@ -320,10 +320,10 @@ Możliwość programowane Dodawanie zawartości do `<head>` region jest przydatn
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample15.vb)]
 
-Powyższy kod dodaje `<meta>` elementu słowa kluczowe do `<head>` regionu, który zawiera listę słów kluczowych, które opisują strony rozdzielonych przecinkami. Należy pamiętać, że aby dodać `<meta>` tag tworzenia [ `HtmlMeta` ](https://msdn.microsoft.com/en-us/library/system.web.ui.htmlcontrols.htmlmeta.aspx) wystąpienia, ustaw jej `Name` i `Content` właściwości, a następnie dodaj go do `Header`w `Controls` kolekcji. Podobnie można dodać programistycznie `<link>` elementu, Utwórz [ `HtmlLink` ](https://msdn.microsoft.com/en-us/library/system.web.ui.htmlcontrols.htmllink.aspx) obiekt, ustaw jej właściwości, a następnie dodaj go do `Header`w `Controls` kolekcji.
+Powyższy kod dodaje `<meta>` elementu słowa kluczowe do `<head>` regionu, który zawiera listę słów kluczowych, które opisują strony rozdzielonych przecinkami. Należy pamiętać, że aby dodać `<meta>` tag tworzenia [ `HtmlMeta` ](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlmeta.aspx) wystąpienia, ustaw jej `Name` i `Content` właściwości, a następnie dodaj go do `Header`w `Controls` kolekcji. Podobnie można dodać programistycznie `<link>` elementu, Utwórz [ `HtmlLink` ](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmllink.aspx) obiekt, ustaw jej właściwości, a następnie dodaj go do `Header`w `Controls` kolekcji.
 
 > [!NOTE]
-> Aby dodać dowolny kod znaczników, Utwórz [ `LiteralControl` ](https://msdn.microsoft.com/en-us/library/system.web.ui.literalcontrol.aspx) wystąpienia, należy ustawić jej `Text` właściwości, a następnie dodaj go do `Header`w `Controls` kolekcji.
+> Aby dodać dowolny kod znaczników, Utwórz [ `LiteralControl` ](https://msdn.microsoft.com/library/system.web.ui.literalcontrol.aspx) wystąpienia, należy ustawić jej `Text` właściwości, a następnie dodaj go do `Header`w `Controls` kolekcji.
 
 
 ## <a name="summary"></a>Podsumowanie

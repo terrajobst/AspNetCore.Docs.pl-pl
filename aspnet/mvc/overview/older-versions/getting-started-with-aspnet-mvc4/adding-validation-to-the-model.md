@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 73332d168e2f22621cb234a6591f3ce0eeed802f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 93b4df5fcbde8d87866d00dffda8a241d0dd596b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation-to-the-model"></a>Dodawanie walidacji do modelu
 ====================
@@ -40,13 +40,13 @@ Oto jak możliwość korzystania z tej obsługi sprawdzania poprawności w aplik
 
 Będzie rozpocząć, dodając logikę sprawdzania poprawności do `Movie` klasy.
 
-Otwórz *Movie.cs* pliku. Dodaj `using` instrukcji w górnej części pliku, który odwołuje się do [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) przestrzeni nazw:
+Otwórz *Movie.cs* pliku. Dodaj `using` instrukcji w górnej części pliku, który odwołuje się do [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) przestrzeni nazw:
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample1.cs)]
 
 Zwróć uwagę, przestrzeń nazw nie zawiera `System.Web`. DataAnnotations zawiera zestaw wbudowanych atrybutów sprawdzania poprawności, które można zastosować deklaratywnie do klasy lub właściwości.
 
-Teraz zaktualizować `Movie` klasy, aby móc korzystać z wbudowanych [ `Required` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), i [ `Range` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutów sprawdzania poprawności . Użyć poniższego kodu, na przykład gdzie stosować atrybutów.
+Teraz zaktualizować `Movie` klasy, aby móc korzystać z wbudowanych [ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), i [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutów sprawdzania poprawności . Użyć poniższego kodu, na przykład gdzie stosować atrybutów.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample2.cs?highlight=4,10,13,17)]
 
@@ -99,7 +99,7 @@ Zwróć uwagę na właściwości `Title` i `Genre`, wymaganego atrybutu nie są 
 5. Usuń tekst.
 6. Karta wychodzących.
 
-Sekwencja powyżej wyzwoli wymaganej weryfikacji bez naciśnięcie przycisku Prześlij. Po prostu naciśnięcie przycisku Prześlij bez wprowadzania żadnego pola spowodują uruchomienie weryfikacji po stronie klienta. Dane nie są wysyłane do serwera, dopóki nie ma żadnych błędów weryfikacji po stronie klienta. Można to sprawdzić przez umieszczenie punktu przerwania w metodzie Post protokołu HTTP lub przy użyciu [narzędzie fiddler](http://fiddler2.com/fiddler2/) lub programu Internet Explorer 9 [narzędzi deweloperskich F12](https://msdn.microsoft.com/en-us/ie/aa740478).
+Sekwencja powyżej wyzwoli wymaganej weryfikacji bez naciśnięcie przycisku Prześlij. Po prostu naciśnięcie przycisku Prześlij bez wprowadzania żadnego pola spowodują uruchomienie weryfikacji po stronie klienta. Dane nie są wysyłane do serwera, dopóki nie ma żadnych błędów weryfikacji po stronie klienta. Można to sprawdzić przez umieszczenie punktu przerwania w metodzie Post protokołu HTTP lub przy użyciu [narzędzie fiddler](http://fiddler2.com/fiddler2/) lub programu Internet Explorer 9 [narzędzi deweloperskich F12](https://msdn.microsoft.com/ie/aa740478).
 
 ![](adding-validation-to-the-model/_static/image2.png)
 
@@ -137,17 +137,17 @@ Jeśli chcesz później zmienić logikę weryfikacji, możesz to zrobić w dokł
 
 ## <a name="adding-formatting-to-the-movie-model"></a>Dodanie formatowania do modelu film
 
-Otwórz *Movie.cs* pliku i sprawdź, czy `Movie` klasy. [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) Przestrzeń nazw zawiera atrybuty formatowania oprócz wbudowanych zestaw atrybutów weryfikacji. Zastosowaliśmy już [ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) wartość wyliczenia Data wydania i pola cen. Poniższy kod przedstawia `ReleaseDate` i `Price` właściwości z odpowiednią [ `DisplayFormat` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybutu.
+Otwórz *Movie.cs* pliku i sprawdź, czy `Movie` klasy. [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) Przestrzeń nazw zawiera atrybuty formatowania oprócz wbudowanych zestaw atrybutów weryfikacji. Zastosowaliśmy już [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) wartość wyliczenia Data wydania i pola cen. Poniższy kod przedstawia `ReleaseDate` i `Price` właściwości z odpowiednią [ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybutu.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample9.cs)]
 
-[ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) Atrybuty nie są atrybutów sprawdzania poprawności, są one używane do Poinformuj aparat widoku w sposób renderowania kodu HTML. W powyższym przykładzie `DataType.Date` atrybutu Wyświetla daty filmu jako daty, bez czasu. Na przykład następująca [ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) atrybutów nie sprawdzania poprawności formatu danych:
+[ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) Atrybuty nie są atrybutów sprawdzania poprawności, są one używane do Poinformuj aparat widoku w sposób renderowania kodu HTML. W powyższym przykładzie `DataType.Date` atrybutu Wyświetla daty filmu jako daty, bez czasu. Na przykład następująca [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) atrybutów nie sprawdzania poprawności formatu danych:
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample10.cs)]
 
-Atrybuty wymienione powyżej zapewniają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i podaj atrybutów, takich jak &lt;&gt; dla adresu URL i &lt;href =&quot;mailto:EmailAddress.com&quot; &gt; do obsługi poczty e-mail. Można użyć [wyrażenia regularnego](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atrybut do zweryfikowania formatu danych.
+Atrybuty wymienione powyżej zapewniają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i podaj atrybutów, takich jak &lt;&gt; dla adresu URL i &lt;href =&quot;mailto:EmailAddress.com&quot; &gt; do obsługi poczty e-mail. Można użyć [wyrażenia regularnego](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atrybut do zweryfikowania formatu danych.
 
-Informacje o innym podejściu do przy użyciu `DataType` atrybutów, można jawnie ustawić [ `DataFormatString` ](https://msdn.microsoft.com/en-us/library/system.string.format.aspx) wartości. Poniższy kod przedstawia właściwość Data wydania zawierające ciąg formatu daty (to znaczy, &quot;d&quot;). Spowoduje to użyć do określenia, że nie chcesz czas jako część Data wydania.
+Informacje o innym podejściu do przy użyciu `DataType` atrybutów, można jawnie ustawić [ `DataFormatString` ](https://msdn.microsoft.com/library/system.string.format.aspx) wartości. Poniższy kod przedstawia właściwość Data wydania zawierające ciąg formatu daty (to znaczy, &quot;d&quot;). Spowoduje to użyć do określenia, że nie chcesz czas jako część Data wydania.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample11.cs)]
 

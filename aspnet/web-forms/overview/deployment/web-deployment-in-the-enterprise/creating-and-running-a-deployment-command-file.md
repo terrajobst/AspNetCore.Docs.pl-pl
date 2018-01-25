@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: 729b4fa4c461eedbd0447371102010451eb51586
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bc31bf55b29661816e0ca9a50b51b0abc3eb2c98
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-and-running-a-deployment-command-file"></a>Tworzenie i uruchamianie pliku poleceń wdrażania
 ====================
@@ -116,7 +116,7 @@ Plik polecenia do publikowania w środowisku przemieszczania mogą zawierać teg
 > Aby uzyskać wskazówki dotyczące sposobu dostosowywania pliki projektu określonego środowiska dla środowiska serwera, zobacz [konfigurowania właściwości wdrożenia dla środowiska docelowego](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
 
-Proces kompilacji dla każdego środowiska można również dostosować przez zastępowanie właściwości albo ustawienie różnych przełączników inne polecenia programu MSBuild. Aby uzyskać więcej informacji, zobacz [informacje w wierszu polecenia programu MSBuild](https://msdn.microsoft.com/en-us/library/ms164311.aspx).
+Proces kompilacji dla każdego środowiska można również dostosować przez zastępowanie właściwości albo ustawienie różnych przełączników inne polecenia programu MSBuild. Aby uzyskać więcej informacji, zobacz [informacje w wierszu polecenia programu MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
 >[!div class="step-by-step"]
 [Poprzednie](deploying-database-projects.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 8f68a85e44389ed17576436a9210c0ca3f414403
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed78b55d2b0315cf428f137c56ad85b29a95e1c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: przekształcenia pliku Web.Config - 3 12
 ====================
@@ -37,7 +37,7 @@ Przypomnienie: Jeśli coś nie działa podczas wykonywania kroków samouczka wy�
 
 ## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Parametry wdrożenia transformacji pliku Web.config i sieci Web
 
-Istnieją dwa sposoby automatyzacji procesu zmiany *Web.config* ustawienia plików: [przekształcenia pliku Web.config](https://msdn.microsoft.com/en-us/library/dd465326.aspx) i [parametrów narzędzia Web Deploy](https://msdn.microsoft.com/en-us/library/ff398068.aspx). A *Web.config* plik przekształcenia zawiera kod znaczników XML, który określa, jak zmienić *Web.config* pliku podczas jego wdrażania. Można określić różne zmiany określonych konfiguracje kompilacji i dla określonych profilów publikowania. Domyślne konfiguracje kompilacji są Debug i Release i można tworzyć konfiguracje kompilacji niestandardowej. Profil publikowania zazwyczaj odpowiada środowisku docelowym. (Dowiesz się więcej na temat profilów w publikowania [wdrażania usług IIS jako środowisko testowe](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) samouczek.)
+Istnieją dwa sposoby automatyzacji procesu zmiany *Web.config* ustawienia plików: [przekształcenia pliku Web.config](https://msdn.microsoft.com/library/dd465326.aspx) i [parametrów narzędzia Web Deploy](https://msdn.microsoft.com/library/ff398068.aspx). A *Web.config* plik przekształcenia zawiera kod znaczników XML, który określa, jak zmienić *Web.config* pliku podczas jego wdrażania. Można określić różne zmiany określonych konfiguracje kompilacji i dla określonych profilów publikowania. Domyślne konfiguracje kompilacji są Debug i Release i można tworzyć konfiguracje kompilacji niestandardowej. Profil publikowania zazwyczaj odpowiada środowisku docelowym. (Dowiesz się więcej na temat profilów w publikowania [wdrażania usług IIS jako środowisko testowe](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) samouczek.)
 
 Parametry wdrażania w sieci Web można określić wiele różnych ustawień, które muszą być skonfigurowane podczas wdrażania ustawień, które znajdują się w tym *Web.config* plików. Gdy jest używany do określenia *Web.config* plik ulegnie zmianie, narzędzie Web Deploy parametry są bardziej złożone, aby skonfigurować, ale są przydatne, gdy nie znasz wartość do ustawienia, dopóki nie zostanie wdrożony. Na przykład w środowisku przedsiębiorstwa może utworzyć *pakietu wdrożeniowego* i nadaj mu do osoby w dziale IT, aby zainstalować w środowisku produkcyjnym, a ma mieć możliwość wprowadź parametry połączenia lub hasła, które nie są znać.
 
@@ -146,7 +146,7 @@ Teraz określono wszystkie *Web.config* transformacje, których potrzebujesz do 
 
 ## <a name="more-information"></a>Więcej informacji
 
-Aby uzyskać więcej informacji o tematach opisane w tym samouczku, zobacz scenariusz transformacji pliku Web.config w [Mapa zawartości platformy ASP.NET wdrożenia](https://msdn.microsoft.com/en-us/library/bb386521.aspx).
+Aby uzyskać więcej informacji o tematach opisane w tym samouczku, zobacz scenariusz transformacji pliku Web.config w [Mapa zawartości platformy ASP.NET wdrożenia](https://msdn.microsoft.com/library/bb386521.aspx).
 
 >[!div class="step-by-step"]
 [Poprzednie](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

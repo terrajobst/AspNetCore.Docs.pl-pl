@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 msc.type: authoredcontent
-ms.openlocfilehash: 4cb0d72330086ecb8cd9e6fb70ce0a57698dda5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ef8cddb7733c1f8cacd24c5cf341a42741d25a95
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-team-project-in-tfs"></a>Tworzenie nowego projektu zespołowego w programie TFS
 ====================
@@ -111,12 +111,12 @@ Następnie należy przyznać uprawnienia użytkownika do tworzenia nowych lokacj
     > Może pojawić się **HTTP 404 — Nie znaleziono** błąd z powodu podwójnego usterki kodowania protokołu HTTP. W takim przypadku należy zastąpić adres URL to:   
     > [*adres URL zbioru witryn*] /\_layouts/permsetup.aspx  
     > Na przykład:  
-    > http://TFS/Sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
+    > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
 8. Na **Konfigurowanie grup w tej witrynie** strony, Dodaj użytkownika, który spowoduje utworzenie projektów zespołowych do **właścicieli** grupy, a następnie kliknij przycisk **OK**.
 
     ![](creating-a-team-project-in-tfs/_static/image10.png)
 
-Aby uzyskać więcej informacji na temat włączania użytkownikom na tworzenie nowych projektów zespołowych w kolekcji projektów zespołowych, zobacz [Ustawianie uprawnień administratora dla kolekcji projektu zespołowego](https://msdn.microsoft.com/en-us/library/dd547204.aspx).
+Aby uzyskać więcej informacji na temat włączania użytkownikom na tworzenie nowych projektów zespołowych w kolekcji projektów zespołowych, zobacz [Ustawianie uprawnień administratora dla kolekcji projektu zespołowego](https://msdn.microsoft.com/library/dd547204.aspx).
 
 ## <a name="create-a-new-team-project-and-add-users"></a>Tworzenie nowego projektu zespołowego i dodawanie użytkowników
 
@@ -162,9 +162,9 @@ W następnej procedurze opisano sposób tworzenia nowego projektu zespołowego w
 11. Na **wybierz szablon procesu** wybierz szablon procesu, który ma być używany do zarządzania procesem tworzenia, a następnie kliknij pozycję **dalej**.
 
     > [!NOTE]
-    > Aby uzyskać więcej informacji dotyczących szablonów procesów dla serwera TFS, zobacz [szablonów procesów i narzędzi](https://msdn.microsoft.com/en-us/vstudio/aa718795).
+    > Aby uzyskać więcej informacji dotyczących szablonów procesów dla serwera TFS, zobacz [szablonów procesów i narzędzi](https://msdn.microsoft.com/vstudio/aa718795).
 12. Na **ustawienia witryny zespołu** , pozostaw domyślne ustawienie bez zmian, a następnie kliknij przycisk **dalej**.
-13. To ustawienie powoduje utworzenie lub identyfikuje witryna zespołu programu SharePoint, który jest skojarzony z projektem zespołowym TFS. Zespół deweloperów można użyć tej lokacji do zarządzania dokumentacji, uczestniczyć w wątkach na dyskusję, tworzenie stron typu wiki i wykonywania różnych zadań, które nie są związane z kodem. Aby uzyskać więcej informacji, zobacz [interakcje między produktów programu SharePoint i serwera Team Foundation Server](https://msdn.microsoft.com/en-us/library/ms253177.aspx).
+13. To ustawienie powoduje utworzenie lub identyfikuje witryna zespołu programu SharePoint, który jest skojarzony z projektem zespołowym TFS. Zespół deweloperów można użyć tej lokacji do zarządzania dokumentacji, uczestniczyć w wątkach na dyskusję, tworzenie stron typu wiki i wykonywania różnych zadań, które nie są związane z kodem. Aby uzyskać więcej informacji, zobacz [interakcje między produktów programu SharePoint i serwera Team Foundation Server](https://msdn.microsoft.com/library/ms253177.aspx).
 14. Na **Określ ustawienia kontroli źródła** , pozostaw domyślne ustawienie bez zmian, a następnie kliknij przycisk **dalej**.
 15. To ustawienie określa lub tworzy lokalizacji w hierarchii folderów TFS, który będzie pełnił rolę folderu głównego dla zawartości.
 16. Na **Potwierdź ustawienia projektu zespołowego** kliknij przycisk **Zakończ**.
@@ -200,7 +200,7 @@ Następnym temacie [Dodawanie zawartości do kontroli źródła](adding-content-
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Szerszych wskazówki dotyczące tworzenia projektów zespołowych w programie TFS, zobacz [utworzenia projektu zespołowego](https://msdn.microsoft.com/en-us/library/ms181477(v=VS.100).aspx). Aby uzyskać więcej informacji na temat włączania użytkownikom na tworzenie nowych projektów zespołowych w kolekcji projektów zespołowych, zobacz [Ustawianie uprawnień administratora dla kolekcji projektu zespołowego](https://msdn.microsoft.com/en-us/library/dd547204.aspx). Aby uzyskać więcej informacji na temat dodawania użytkowników do zespołów i projektów, zobacz [Dodawanie użytkowników do zespołów i projektów](https://msdn.microsoft.com/en-us/library/bb558971.aspx).
+Szerszych wskazówki dotyczące tworzenia projektów zespołowych w programie TFS, zobacz [utworzenia projektu zespołowego](https://msdn.microsoft.com/library/ms181477(v=VS.100).aspx). Aby uzyskać więcej informacji na temat włączania użytkownikom na tworzenie nowych projektów zespołowych w kolekcji projektów zespołowych, zobacz [Ustawianie uprawnień administratora dla kolekcji projektu zespołowego](https://msdn.microsoft.com/library/dd547204.aspx). Aby uzyskać więcej informacji na temat dodawania użytkowników do zespołów i projektów, zobacz [Dodawanie użytkowników do zespołów i projektów](https://msdn.microsoft.com/library/bb558971.aspx).
 
 >[!div class="step-by-step"]
 [Poprzednie](configuring-team-foundation-server-for-web-deployment.md)

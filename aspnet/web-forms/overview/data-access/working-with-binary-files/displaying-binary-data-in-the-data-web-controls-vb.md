@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1b9dadbfb82790a08a25a5c0f759b733cb59eb60
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df79748bf5734ffcb9eb81ca089aeded0e63bdc5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>Wyświetlanie danych binarnych w formantach sieci Web danych (VB)
 ====================
@@ -129,7 +129,7 @@ Następnie należy utworzyć `Protected` metody w ASP.NET strony s związane z k
 
 [!code-vb[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample3.vb)]
 
-Ta metoda określa, czy przekazywany do `Object` wartość jest bazą danych `NULL` i jeśli tak, zwraca komunikat wskazujący, że kategoria brakuje broszurę. W przeciwnym razie, jeśli istnieje `BrochurePath` wartość on s wyświetlane w hiperłączu. Należy pamiętać, że jeśli `BrochurePath` wartość jest prezentować przekazanych do [ `ResolveUrl(url)` metody](https://msdn.microsoft.com/en-us/library/system.web.ui.control.resolveurl.aspx). Ta metoda usuwa przekazany do *adres url*, zastępując `~` znak z odpowiednią ścieżką wirtualną. Na przykład, jeśli aplikacja w `/Tutorial55`, `ResolveUrl("~/Brochures/Meats.pdf")` zwróci `/Tutorial55/Brochures/Meat.pdf`.
+Ta metoda określa, czy przekazywany do `Object` wartość jest bazą danych `NULL` i jeśli tak, zwraca komunikat wskazujący, że kategoria brakuje broszurę. W przeciwnym razie, jeśli istnieje `BrochurePath` wartość on s wyświetlane w hiperłączu. Należy pamiętać, że jeśli `BrochurePath` wartość jest prezentować przekazanych do [ `ResolveUrl(url)` metody](https://msdn.microsoft.com/library/system.web.ui.control.resolveurl.aspx). Ta metoda usuwa przekazany do *adres url*, zastępując `~` znak z odpowiednią ścieżką wirtualną. Na przykład, jeśli aplikacja w `/Tutorial55`, `ResolveUrl("~/Brochures/Meats.pdf")` zwróci `/Tutorial55/Brochures/Meat.pdf`.
 
 Rysunek nr 10 przedstawia strony, po zastosowaniu tych zmian. Należy pamiętać, że kategoria ryby s `BrochurePath` tekst nie broszura dostępne są obecnie wyświetlane pola.
 
@@ -164,7 +164,7 @@ W klasie związanej z kodem strony s, Dodaj następujący kod do `Page_Load` obs
 
 [!code-vb[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample6.vb)]
 
-Ten kod rozpoczyna się od odczytu w `CategoryID` wartości querystring w zmiennej o nazwie `categoryID`. Następnie dane obrazu są pobierane za pośrednictwem wywołania `CategoriesBLL` klasy s `GetCategoryWithBinaryDataByCategoryID(categoryID)` metody. Te dane, jest zwracana do klienta przy użyciu `Response.BinaryWrite(data)` metody, ale przed jest to nazywane `Picture` nagłówka OLE wartość s kolumny muszą zostać usunięte. Jest to osiągane przez utworzenie `Byte` tablicy o nazwie `strippedImageData` który wstrzymuje dokładnie 78 znaków mniejszej niż podana w `Picture` kolumny. [ `Array.Copy` Metody](https://msdn.microsoft.com/en-us/library/z50k9bft.aspx) służy do kopiowania danych z `category.Picture` zaczynając od pozycji 78 za pośrednictwem do `strippedImageData`.
+Ten kod rozpoczyna się od odczytu w `CategoryID` wartości querystring w zmiennej o nazwie `categoryID`. Następnie dane obrazu są pobierane za pośrednictwem wywołania `CategoriesBLL` klasy s `GetCategoryWithBinaryDataByCategoryID(categoryID)` metody. Te dane, jest zwracana do klienta przy użyciu `Response.BinaryWrite(data)` metody, ale przed jest to nazywane `Picture` nagłówka OLE wartość s kolumny muszą zostać usunięte. Jest to osiągane przez utworzenie `Byte` tablicy o nazwie `strippedImageData` który wstrzymuje dokładnie 78 znaków mniejszej niż podana w `Picture` kolumny. [ `Array.Copy` Metody](https://msdn.microsoft.com/library/z50k9bft.aspx) służy do kopiowania danych z `category.Picture` zaczynając od pozycji 78 za pośrednictwem do `strippedImageData`.
 
 `Response.ContentType` Właściwość określa [typ MIME](http://en.wikipedia.org/wiki/MIME) zwracanych tak, aby przeglądarka potrafi do renderowania jej zawartości. Ponieważ `Categories` tabeli s `Picture` kolumna jest obraz mapy bitowej, mapy bitowej typ MIME jest używany tutaj (obraz/bmp). W przypadku pominięcia typ MIME, w większości przeglądarek nadal wyświetli obrazu poprawnie, ponieważ ich można wnioskować o typie, na podstawie zawartości danych binarnych s pliku obrazu. Jednak go s, aby uwzględnić MIME typu, jeśli to możliwe. Zobacz [witryny sieci Web Internet Assigned Numbers Authority s](http://www.iana.org/) Pełna lista [typów nośników MIME](http://www.iana.org/assignments/media-types/).
 

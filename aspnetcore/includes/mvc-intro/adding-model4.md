@@ -30,7 +30,7 @@ Można również przekazać `id` za pomocą kwerendy ciągu w następujący spos
 
 `http://localhost:1234/movies/details?id=1`
 
-`id` Parametr jest zdefiniowany jako [typ dopuszczający wartość null](https://docs.microsoft.com/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) w przypadku, gdy nie podano wartość Identyfikatora.
+`id` Parametr jest zdefiniowany jako [typ dopuszczający wartość null](https://docs.microsoft.com/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) w przypadku, gdy nie jest podana wartość Identyfikatora.
 
 A [wyrażenia lambda](https://docs.microsoft.com/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) jest przekazywany do `SingleOrDefaultAsync` Wybierz film jednostek, które odpowiada wartości ciągu danych lub zapytanie trasy.
 

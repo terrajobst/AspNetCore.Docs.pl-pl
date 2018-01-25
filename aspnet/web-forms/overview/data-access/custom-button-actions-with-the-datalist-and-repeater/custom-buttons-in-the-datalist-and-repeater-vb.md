@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 14e245f5fd25079b4ee1dee566ca451f955a8b25
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fc6c297f08790cdcc74867df21e32258017c5a7d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>Przyciski niestandardowe DataList i powtarzanego (VB)
 ====================
@@ -114,17 +114,17 @@ Na przykład ustawić LinkButton s `CommandName` właściwości ShowProducts i p
 
 Po kliknięciu przycisku, występuje odświeżania strony i s DataList lub elementu powtarzanego `ItemCommand` generowane zdarzenie. Program obsługi zdarzeń jest przekazywany przycisk s `CommandName` i `CommandArgument` wartości.
 
-Utwórz program obsługi zdarzeń dla elementu powtarzanego s `ItemCommand` zdarzeń i zanotuj drugi parametr przekazany do obsługi zdarzeń (nazwane `e`). Jest to drugi parametr typu [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) i ma cztery następujące właściwości:
+Utwórz program obsługi zdarzeń dla elementu powtarzanego s `ItemCommand` zdarzeń i zanotuj drugi parametr przekazany do obsługi zdarzeń (nazwane `e`). Jest to drugi parametr typu [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) i ma cztery następujące właściwości:
 
 - `CommandArgument`wartość kliknięty przycisk s `CommandArgument` właściwości
 - `CommandName`Wartość przycisku s `CommandName` właściwości
 - `CommandSource`Odwołanie do formantu przycisku, który został kliknięty
-- `Item`Odwołanie do [ `RepeaterItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeateritem.aspx) zawiera przycisk został kliknięty; każdy rekord powiązany powtarzanego jest dyskowe wyświetlane jako`RepeaterItem`
+- `Item`Odwołanie do [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) zawiera przycisk został kliknięty; każdy rekord powiązany powtarzanego jest dyskowe wyświetlane jako`RepeaterItem`
 
 Od wybranej kategorii s `CategoryID` przekazany za pośrednictwem `CommandArgument` właściwości, możemy Pobierz zestaw produktów skojarzonych z wybranej kategorii w `ItemCommand` obsługi zdarzeń. Następnie można powiązać te produkty formantu listy BulletedList w `ItemTemplate` (których firma Microsoft kolejnych jeszcze, aby dodać). Wszystkie, pozostaje, a następnie jest dodanie listy BulletedList, odwołania `ItemCommand` obsługi zdarzeń i powiązać zestawu produktów dla wybranej kategorii, firma Microsoft będzie rozwiązania w kroku 4.
 
 > [!NOTE]
-> DataList s `ItemCommand` program obsługi zdarzeń jest przekazywany obiekt typu [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), które oferuje te same właściwości cztery jako `RepeaterCommandEventArgs` klasy.
+> DataList s `ItemCommand` program obsługi zdarzeń jest przekazywany obiekt typu [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), które oferuje te same właściwości cztery jako `RepeaterCommandEventArgs` klasy.
 
 
 ## <a name="step-4-displaying-the-selected-category-s-products-in-a-bulleted-list"></a>Krok 4: Wyświetlanie wybranej kategorii produktów s na liście punktowanej

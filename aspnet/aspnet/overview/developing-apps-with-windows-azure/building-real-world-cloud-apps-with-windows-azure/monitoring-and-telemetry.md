@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: dfb0158ec05c890ecf80571d95b22d8c791ba7fc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9baddd1836323385239206a3cf49e5938bbaff58
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Monitorowanie i dane telemetryczne (tworzenia rzeczywistych aplikacji w chmurze platformy Azure)
 ====================
@@ -41,7 +41,7 @@ Jednym z elementów, które wyróżnia środowiska chmury jest naprawdę łatwo 
 - [AppDynamics](http://www.appdynamics.com/)
 - [Dynatrace](https://datamarket.azure.com/application/b4011de2-1212-4375-9211-e882766121ff)
 
-Począwszy od marca 2015 [Microsoft Application Insights dla programu Visual Studio Online](https://azure.microsoft.com/en-us/documentation/articles/app-insights-get-started/) nie jest jeszcze zwolnione, ale są dostępne w wersji zapoznawczej możesz wypróbować usługę. [Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) obejmuje również funkcji monitorowania.
+Począwszy od marca 2015 [Microsoft Application Insights dla programu Visual Studio Online](https://azure.microsoft.com/documentation/articles/app-insights-get-started/) nie jest jeszcze zwolnione, ale są dostępne w wersji zapoznawczej możesz wypróbować usługę. [Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) obejmuje również funkcji monitorowania.
 
 Szybko pomożemy przy konfigurowaniu usługi New Relic pokazanie, jak łatwo można ją przy użyciu systemu telemetrii.
 
@@ -156,13 +156,13 @@ Zdecydowanie zaleca się Zapisz dziennik każdorazowego aplikacji uwidacznia do 
 
 Co zaleca się zrobienie podczas tworzenia aplikacji produkcyjnych jest utworzenie prostego *ILogger* interfejsu i kształcie niektóre metody w nim. Dzięki temu można łatwo zmienić później implementacji rejestrowania i nie musi przechodzić przez wszystkie swój kod, aby to zrobić. Firma Microsoft może używać `System.Diagnostics.Trace` klasy w całej aplikacji rozwiązać, ale zamiast tego używamy go w obszarze obejmuje w klasie rejestrowania, który implementuje *ILogger*, i wykonujemy *ILogger* wywołania metod w ciągu aplikacja.
 
-Dzięki temu, jeśli kiedykolwiek mają być bardziej rozbudowane, Twoje rejestrowania można zastąpić [ `System.Diagnostics.Trace` ](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio#apptracelogs) z dowolnego mechanizmu rejestrowania. Na przykład, wraz z rozwojem aplikacji można zdecydować mają używać pakietu bardziej szczegółowe rejestrowanie, takich jak [NLog](http://nlog-project.org/) lub [bloku aplikacji rejestrowania biblioteki Enterprise](https://msdn.microsoft.com/en-us/library/dn440731(v=pandp.60).aspx). ([Log4Net](http://logging.apache.org/log4net/) jest inny struktury rejestrowania popularnych, ale nie wykonuje asynchroniczne rejestrowania.)
+Dzięki temu, jeśli kiedykolwiek mają być bardziej rozbudowane, Twoje rejestrowania można zastąpić [ `System.Diagnostics.Trace` ](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio#apptracelogs) z dowolnego mechanizmu rejestrowania. Na przykład, wraz z rozwojem aplikacji można zdecydować mają używać pakietu bardziej szczegółowe rejestrowanie, takich jak [NLog](http://nlog-project.org/) lub [bloku aplikacji rejestrowania biblioteki Enterprise](https://msdn.microsoft.com/library/dn440731(v=pandp.60).aspx). ([Log4Net](http://logging.apache.org/log4net/) jest inny struktury rejestrowania popularnych, ale nie wykonuje asynchroniczne rejestrowania.)
 
 Jedną z możliwych przyczyn przy użyciu platformy takie jak NLog funkcji jest ułatwienie podziału rejestrowania danych wyjściowych do magazynów oddzielnego danych dużych i wysokiej wartości. Który ułatwia efektywne przechowywania dużych ilości danych INFORM, który nie jest konieczne wykonywanie szybkiej zapytań względem, przy zachowaniu szybki dostęp do danych ACT.
 
 ### <a name="semantic-logging"></a>Rejestrowanie semantycznego
 
-Dla stosunkowo nowy sposób rejestrowania, który może tworzyć bardziej użyteczne informacje diagnostyczne czy, zobacz [Enterprise biblioteki semantycznego rejestrowania aplikacji bloku (PŁYCIE)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). Używa PŁYCIE [śledzenia zdarzeń dla systemu Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/bb968803.aspx) (ETW) i [EventSource](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracing.eventsource.aspx) obsługi w programie .NET 4.5, aby umożliwić tworzenie więcej dzienników strukturalnych i kolejność. Należy zdefiniować inną metodę dla każdego typu zdarzenia logowania, dzięki czemu można tak dostosować informacje zostanie zapisany. Na przykład, aby rejestrować błąd bazy danych SQL może wywołać `LogSQLDatabaseError` metody. Tego rodzaju wyjątku znasz klucza część informacji jest kod błędu może zawierać parametr liczby błędów w podpisie metody i Zapisz jako osobne pole w rekordzie dziennika zostanie zapisany numer błędu. Ponieważ kod jest w osobnym polu łatwiejsze i bardziej niezawodny sposób uzyskania raportów opartych na numery błąd SQL niż w przypadku były tylko łączenie numer błędu w ciąg komunikatu.
+Dla stosunkowo nowy sposób rejestrowania, który może tworzyć bardziej użyteczne informacje diagnostyczne czy, zobacz [Enterprise biblioteki semantycznego rejestrowania aplikacji bloku (PŁYCIE)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). Używa PŁYCIE [śledzenia zdarzeń dla systemu Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) i [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) obsługi w programie .NET 4.5, aby umożliwić tworzenie więcej dzienników strukturalnych i kolejność. Należy zdefiniować inną metodę dla każdego typu zdarzenia logowania, dzięki czemu można tak dostosować informacje zostanie zapisany. Na przykład, aby rejestrować błąd bazy danych SQL może wywołać `LogSQLDatabaseError` metody. Tego rodzaju wyjątku znasz klucza część informacji jest kod błędu może zawierać parametr liczby błędów w podpisie metody i Zapisz jako osobne pole w rekordzie dziennika zostanie zapisany numer błędu. Ponieważ kod jest w osobnym polu łatwiejsze i bardziej niezawodny sposób uzyskania raportów opartych na numery błąd SQL niż w przypadku były tylko łączenie numer błędu w ciąg komunikatu.
 
 ## <a name="logging-in-the-fix-it-app"></a>Rejestrowanie w poprawkę aplikacji
 
@@ -244,13 +244,13 @@ Aplikacja napraw korzysta z System.Diagnostics śledzenia. Wszystko, co należy 
 
 Po włączeniu rejestrowania na platformie Azure, dzienniki w oknie programu Visual Studio dane wyjściowe są widoczne, zgodnie z ich tworzenia.
 
-![Menu Dzienniki przesyłania strumieniowego](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-viewlogsmenu.png)
+![Menu Dzienniki przesyłania strumieniowego](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-viewlogsmenu.png)
 
-![Menu Dzienniki przesyłania strumieniowego](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-nologsyet.png)
+![Menu Dzienniki przesyłania strumieniowego](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-nologsyet.png)
 
 Może także zawierać dzienniki zapisywane na koncie magazynu i wyświetl je za pomocą dowolnego narzędzia, które mogą uzyskiwać dostęp do usługi tabel magazynu Azure, takich jak **Eksploratora serwera** w programie Visual Studio lub [Eksploratora usługi Storage Azure](https://azure.microsoft.com/features/storage-explorer/).
 
-![Dzienniki w Eksploratorze serwera](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
+![Dzienniki w Eksploratorze serwera](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -264,10 +264,10 @@ Aby uzyskać więcej informacji zobacz następujące zasoby.
 
 Dokumentacja głównie o telemetrii:
 
-- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Zobacz wskazówki Instrumentacji i dane telemetryczne, zliczania usługi wskazówki wzorzec monitorowania kondycji punktu końcowego i wzorzec ponownej konfiguracji środowiska wykonawczego.
+- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wskazówki Instrumentacji i dane telemetryczne, zliczania usługi wskazówki wzorzec monitorowania kondycji punktu końcowego i wzorzec ponownej konfiguracji środowiska wykonawczego.
 - [Wartość punkty zaciskające w chmurze: Włączanie wydajności usługi New Relic na witryn sieci Web Azure monitorowanie](http://www.hanselman.com/blog/PennyPinchingInTheCloudEnablingNewRelicPerformanceMonitoringOnWindowsAzureWebsites.aspx).
-- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na usług w chmurze Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Oficjalny dokument przez moduły SIMM znaku i Michael Thomassy. Zobacz sekcję Telemetrii i informacji diagnostycznych.
-- [Tworzenie nowej generacji za pomocą usługi Application Insights](https://msdn.microsoft.com/en-us/magazine/dn683794.aspx). Artykuł MSDN Magazine.
+- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na usług w chmurze Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument przez moduły SIMM znaku i Michael Thomassy. Zobacz sekcję Telemetrii i informacji diagnostycznych.
+- [Tworzenie nowej generacji za pomocą usługi Application Insights](https://msdn.microsoft.com/magazine/dn683794.aspx). Artykuł MSDN Magazine.
 
 Dokumentacja przede wszystkim dotyczące rejestrowania:
 

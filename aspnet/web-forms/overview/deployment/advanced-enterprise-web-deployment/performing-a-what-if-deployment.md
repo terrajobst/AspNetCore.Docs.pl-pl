@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 62be7c9636fb74c40bec812e9ac76b360995da50
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cea805c86f0764c7443ccc5c9f89248860a6a842
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="performing-a-what-if-deployment"></a>Wykonywanie wdrożenia "Co w przypadku"
 ====================
@@ -52,7 +52,7 @@ Jeśli używasz programu MSDeploy.exe bezpośrednio, dodając można uruchomić 
 Po zakończeniu wyniki wdrożenia "co w przypadku" można usunąć **-whatif** flagi uruchamiania wdrożenia na żywo.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji o opcjach wiersza polecenia programu MSDeploy.exe, zobacz [ustawienia operację wdrażania w sieci Web](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx).
+> Aby uzyskać więcej informacji o opcjach wiersza polecenia programu MSDeploy.exe, zobacz [ustawienia operację wdrażania w sieci Web](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
 
 Jeśli używasz *. pliku deploy.cmd* plików, można uruchomić wdrożenia "co w przypadku" umieszczając **/t** flaga Flaga (trybu wersji próbnej) zamiast **/y** Flaga ("tak", lub tryb aktualizacji) w polecenie. Na przykład, aby obliczyć, co się stanie po wdrożeniu pakietu ContactManager.Mvc.zip, uruchamiając *. pliku deploy.cmd* pliku polecenia powinien wyglądać następująco:
@@ -68,7 +68,7 @@ Po zakończeniu wyników wdrożenia "Tryb próbne", można zastąpić **/t** fla
 
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat opcji wiersza polecenia dla *. pliku deploy.cmd* plików, zobacz [porady: Instalowanie wdrożenia pakietu za pomocą pliku deploy.cmd pliku](https://msdn.microsoft.com/en-us/library/ff356104.aspx). Po uruchomieniu *. pliku deploy.cmd* pliku bez określenia flagi, wiersz polecenia spowoduje wyświetlenie listy dostępnych flag.
+> Aby uzyskać więcej informacji na temat opcji wiersza polecenia dla *. pliku deploy.cmd* plików, zobacz [porady: Instalowanie wdrożenia pakietu za pomocą pliku deploy.cmd pliku](https://msdn.microsoft.com/library/ff356104.aspx). Po uruchomieniu *. pliku deploy.cmd* pliku bez określenia flagi, wiersz polecenia spowoduje wyświetlenie listy dostępnych flag.
 
 
 ## <a name="performing-a-what-if-deployment-for-databases"></a>Wykonywanie wdrożenia "Co w przypadku" dla bazy danych
@@ -142,7 +142,7 @@ W tym temacie opisano sposób uruchamiania "co w przypadku" wdrożenia przy uży
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać więcej informacji o składni wiersza polecenia narzędzia Web Deploy, zobacz [ustawienia operację wdrażania w sieci Web](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx). Wskazówki dotyczące opcji wiersza polecenia, korzystając z *. pliku deploy.cmd* plików, zobacz [porady: Zainstaluj wdrażania pakietu przy użyciu pliku deploy.cmd pliku](https://msdn.microsoft.com/en-us/library/ff356104.aspx). Aby uzyskać wskazówki dotyczące VSDBCMD składni wiersza polecenia, zobacz [dotyczące wiersza polecenia dla VSDBCMD. EXE (wdrożenia i importowania schematu)](https://msdn.microsoft.com/en-us/library/dd193283.aspx).
+Aby uzyskać więcej informacji o składni wiersza polecenia narzędzia Web Deploy, zobacz [ustawienia operację wdrażania w sieci Web](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Wskazówki dotyczące opcji wiersza polecenia, korzystając z *. pliku deploy.cmd* plików, zobacz [porady: Zainstaluj wdrażania pakietu przy użyciu pliku deploy.cmd pliku](https://msdn.microsoft.com/library/ff356104.aspx). Aby uzyskać wskazówki dotyczące VSDBCMD składni wiersza polecenia, zobacz [dotyczące wiersza polecenia dla VSDBCMD. EXE (wdrożenia i importowania schematu)](https://msdn.microsoft.com/library/dd193283.aspx).
 
 >[!div class="step-by-step"]
 [Poprzednie](advanced-enterprise-web-deployment.md)

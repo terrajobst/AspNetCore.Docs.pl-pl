@@ -1,6 +1,6 @@
 ---
 uid: whitepapers/mvc3-release-notes
-title: PROGRAM ASP.NET MVC 3 | Dokumentacja firmy Microsoft
+title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
 description: 
 ms.author: aspnetcontent
@@ -12,13 +12,13 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: a86fae5698c54a71cb598f508aa91e7d96d1b409
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c1fa5d31f68b44bfdfda61c870a6825eeba18647
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
-<a name="aspnet-mvc-3"></a>PROGRAM ASP.NET MVC 3
+<a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
 - [Omówienie](#overview)
 - [Informacje o instalacji](#installation-notes)
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/10/2017
 - [Program ASP.NET MVC 3 Release Candidate (9 lis 2010)](#TOC_ASP_NET_3_RC)
 
     - [Nowe funkcje w wersji platformy ASP.NET MVC 3 RC](#_Toc276711785)
-    - [Menedżer pakietów NuGet](#_Toc276711786)
+    - [NuGet Package Manager](#_Toc276711786)
     - [Ulepszone "Nowego projektu" — okno dialogowe](#_Toc276711787)
     - [Bezsesyjne kontrolerów](#_Toc276711788)
     - [Nowe atrybuty weryfikacji](#_Toc276711789)
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/10/2017
 - [ŚRODOWISKO ASP. Informacje o wersji Beta MVC 3 (6 Oct 2010)](#TOC_ASP_NET_3_Beta)
 
     - [Nowe funkcje w wersji Beta programu ASP.NET MVC 3](#0.1__Toc274034215)
-    - [NuPack Menedżera pakietów](#0.1__Toc274034216)
+    - [NuPack Package Manager](#0.1__Toc274034216)
     - [Ulepszone okno dialogowe Nowy projekt](#0.1__Toc274034217)
     - [Uproszczony sposób określania silnie wpisana modeli widokami Razor](#0.1__Toc274034218)
     - [Obsługa nowej metody pomocnicze stron sieci Web ASP.NET](#0.1__Toc274034219)
@@ -107,18 +107,18 @@ Ten dokument zawiera opis wersji RTM programu ASP.NET MVC 3 dla programu Visual 
 
 Pełny zestaw informacje o wersji dla każdej wersji wstępnej programu ASP.NET MVC 3 można znaleźć w witrynie internetowej platformy ASP.NET z następującego adresu URL:
 
-https://www.asp.NET/Learn/whitepapers/mvc3-Release-Notes
+https://www.asp.net/learn/whitepapers/mvc3-release-notes
 
 <a id="installation-notes"></a>
 ## <a name="installation-notes"></a>Informacje o instalacji
 
 Aby zainstalować program ASP.NET MVC 3 RTM za pomocą Instalatora platformy sieci Web (Web PI), odwiedź następującą stronę:
 
-[https://www.microsoft.com/Web/Gallery/Install.aspx?AppID=MVC3](https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3)
+[https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3](https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3)
 
 Alternatywnie można pobrać Instalatora RTM programu ASP.NET MVC 3 dla programu Visual Studio 2010 z następującej strony:
 
-https://go.microsoft.com/fwlink/?LinkId=208140
+https://go.microsoft.com/fwlink/?LinkID=208140
 
 ASP.NET MVC 3 można zainstalować i uruchomić side-by-side z platformy ASP.NET MVC 2.
 
@@ -141,7 +141,7 @@ Dokumentacja dla platformy ASP.NET MVC jest dostępna w witrynie sieci Web MSDN 
 
 Samouczki i inne informacje o platformie ASP.NET MVC są dostępne na stronie MVC witryny sieci Web ASP.NET z następującego adresu URL:
 
-[https://www.asp.NET/MVC/](../mvc/index.md)
+[https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
 ## <a name="support"></a>Obsługa
@@ -150,7 +150,7 @@ Jest to pełnej wersji. Informacje o uzyskiwaniu pomocy technicznej można znale
 
 Możesz również post pytania dotyczące tej wersji na forum platformy ASP.NET MVC, w których często można zapewnić obsługę nieformalne są członkami społeczności programu ASP.NET:
 
-[https://forums.asp.NET/1146.aspx](https://forums.asp.net/1146.aspx)
+[https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)
 
 <a id="upgrading"></a>
 ## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>Uaktualnianie projektów programu ASP.NET MVC 2 do platformy ASP.NET MVC 3 narzędzia aktualizacji
@@ -163,7 +163,7 @@ Aby ręcznie uaktualnić istniejącą aplikację ASP.NET MVC 2 do wersji 3, wyko
 2. Skopiuj następujące pliki z projektu programu ASP.NET MVC 3 w odpowiedniej lokalizacji projektu programu ASP.NET MVC 2. Należy zaktualizować wszystkie odwołania do biblioteki jQuery w celu uwzględnienia nowej nazwy pliku (jQuery 1.5.1.js): 
 
     - /Views/Web.config
-    - /Packages.config
+    - /packages.config
     - /scripts/\*js
     - /Zawartości/motywów/\*.\*
 3. Kopiuj *pakiety* folderu w folderze głównym puste rozwiązanie projektu programu ASP.NET MVC 3, w folderze głównym Twojego rozwiązania, które znajduje się w katalogu, w którym znajduje się plik .sln rozwiązania.
@@ -251,7 +251,7 @@ Okno dialogowe, które służy do tworzenia nowych projektów programu ASP.NET M
 
 Lista szablon projektu zawiera nowy szablon aplikacji w sieci Intranet. Ten szablon zawiera ustawienia umożliwiające tworzenie aplikacji sieci web przy użyciu uwierzytelniania systemu Windows zamiast uwierzytelniania formularzy. Ponieważ aplikacja intranet wymaga niektóre ustawienia usług IIS, które nie są umieszczane w szablonie projektu, szablon zawiera plik readme z instrukcjami, jak szablon projektu w programie IIS działają. Dokumentacja szablonu aplikacji sieci Intranet jest dostępna w witrynie MSDN pod adresem URL:
 
-[https://msdn.microsoft.com/en-us/library/gg703322 (VS.98).aspx](https://msdn.microsoft.com/en-us/library/gg703322(VS.98).aspx)
+[https://msdn.microsoft.com/library/gg703322(VS.98).aspx](https://msdn.microsoft.com/library/gg703322(VS.98).aspx)
 
 #### <a name="project-templates-are-now-html5-enabled"></a>Szablony projektu są teraz włączone HTML5
 
@@ -269,9 +269,9 @@ Modernizr jest biblioteka języka JavaScript, która umożliwia obsługę CSS 3 
 
 Szablony projektów zawierają teraz skryptów jQuery następujące wersje:
 
-- 1.5.1 jQuery
+- jQuery 1.5.1
 - 1.8 weryfikacji jQuery
-- jQuery 1.8.11 interfejsu użytkownika
+- jQuery UI 1.8.11
 
 Te biblioteki są dołączone jako wstępnie zainstalowane pakiety NuGet.
 
@@ -284,7 +284,7 @@ Kod najpierw koncentruje się wokół Definiowanie modelu za pomocą klasy POCO 
 
 Dokumentacji przy użyciu kodu Firstwith ASP.NET MVC jest dostępna w witrynie sieci Web programu ASP.NET, w następujących adresów URL:
 
-[https://www.asp.NET/MVC/Tutorials/Getting-Started-with-mvc3-Part1-CS](../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) [https://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application](../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
+[https://www.asp.net/mvc/tutorials/getting-started-with-mvc3-part1-cs](../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) [https://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application](../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 
 <a id="tu-JavaScriptLibsNuget"></a>
 ### <a name="project-templates-include-javascript-libraries-as-pre-installed-nuget-packages"></a>Szablony projektu obejmują bibliotek JavaScript jako wstępnie zainstalowane pakiety NuGet
@@ -465,7 +465,7 @@ W starszych wersjach, jawne wartości, które zostały przekazane do *RenderActi
 - W poprzednich wersjach programu ASP.NET MVC filtry akcji zostały utworzone na żądanie, chyba że w niektórych przypadkach. To zachowanie nie zostały zachowanie gwarantuje, ale tylko szczegóły implementacji i kontraktu dla filtrów była wziąć pod uwagę ich bezstanowych. W programie ASP.NET MVC 3 filtry są buforowane bardziej agresywnie. W związku z tym wszystkie filtry akcji niestandardowej, które nieprawidłowo przechowują stan wystąpienia może być uszkodzona.
 - Kolejność wykonywania filtrów wyjątków została zmieniona dla filtry wyjątków, które mają taki sam *kolejności* wartość. W programie ASP.NET MVC 2 i starszych wyjątek filtry na kontrolerze, który ma takie same *kolejności* wartość jak te na metody akcji zostały wykonane przed filtrami wyjątek w metodzie akcji. Zwykle można sytuacji, gdy zostały zastosowane filtry wyjątków bez określonej *kolejności* wartość. W programie ASP.NET MVC 3 ta kolejność została wycofana tak, aby najpierw wykonana specyficzny obsługi wyjątków. Jak w starszych wersjach Jeśli *kolejności* jawnie określono właściwość, filtry są uruchamiane w określonej kolejności.
 - Nowe właściwości o nazwie *FileExtensions* został dodany do *VirtualPathProviderViewEngine* klasy podstawowej. Gdy ASP.NET wyszukuje widoku za pomocą ścieżki (a nie według nazwy), są traktowane jako tylko widoki z rozszerzeniem zawarte na liście określonej przez tę właściwość nowe. W przypadku, gdy dostawca niestandardowej kompilacji jest zarejestrowany w celu umożliwienia rozszerzenie pliku niestandardowych widoków formularza sieci Web, a dostawca odwołuje się do tych widoków przy użyciu pełnej ścieżki, a nie nazwę jest istotne zmiany w aplikacjach. Należy zmodyfikować wartość *FileExtensions* właściwości do niestandardowego pliku rozszerzenia.
-- Implementacje fabryka kontrolera niestandardowego, bezpośrednio implementujących *IControllerFactory* interfejs musi zapewniać implementację nowej *GetControllerSessionBehavior*  *Metoda, która została dodana do interfejsu w tej wersji*. Ogólnie rzecz biorąc, zaleca się, możesz nie implementuje ten interfejs bezpośrednio i pochodzi z klasy *DefaultControllerFactory*.
+- Implementacje fabryka kontrolera niestandardowego, bezpośrednio implementujących *IControllerFactory* interfejs musi zapewniać implementację nowej *GetControllerSessionBehavior ** — metoda, która została dodana do Interfejs w tej wersji*. Ogólnie rzecz biorąc, zaleca się, możesz nie implementuje ten interfejs bezpośrednio i pochodzi z klasy *DefaultControllerFactory*.
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>Znane problemy
@@ -491,7 +491,7 @@ ASP.NET MVC w wersji Release Candidate 9 listopada 2010 został wydany.
 W tej sekcji opisano funkcje, które zostały wprowadzone w wersji platformy ASP.NET MVC 3 RC od czasu wydania Beta.
 
 <a id="_Toc276711786"></a>
-### <a name="nuget-package-manager"></a>Menedżer pakietów NuGet
+### <a name="nuget-package-manager"></a>NuGet Package Manager
 
 Platforma ASP.NET MVC 3 zawiera Menedżera pakietów NuGet (wcześniej znane jako NuPack), który jest zintegrowany pakiet narzędzia do zarządzania dodawania biblioteki i narzędzia do projektów programu Visual Studio. To narzędzie automatyzuje czynności, które deweloperzy obecnie wykonać próba pobrania biblioteki do drzewa ich źródła.
 
@@ -519,7 +519,7 @@ Lista Szablony projektów, która jest wyświetlana w oknie dialogowym jest okre
 <a id="_Toc276711788"></a>
 ### <a name="sessionless-controllers"></a>Bezsesyjne kontrolerów
 
-Nowy *ControllerSessionStateAttribute* zapewnia większą kontrolę nad zachowanie stanu sesji dla kontrolerów, określając [System.Web.SessionState.SessionStateBehavior](https://msdn.microsoft.com/en-us/library/system.web.sessionstate.sessionstatebehavior.aspx) wartości wyliczenia.
+Nowy *ControllerSessionStateAttribute* zapewnia większą kontrolę nad zachowanie stanu sesji dla kontrolerów, określając [System.Web.SessionState.SessionStateBehavior](https://msdn.microsoft.com/library/system.web.sessionstate.sessionstatebehavior.aspx) wartości wyliczenia.
 
 Poniższy przykład pokazuje, jak wyłączyć stanu sesji dla wszystkich żądań do kontrolera.
 
@@ -581,7 +581,7 @@ ClassName (przestrzeń nazw)
 
 We wcześniejszych wersjach to czy zostały wyświetlone następujące parametry:
 
-ObszarNazw.NazwaKlasy
+Namespace.ClassName
 
 <a id="_Toc276711793"></a>
 ### <a name="granular-request-validation"></a>Sprawdzanie poprawności żądań szczegółowego
@@ -625,7 +625,7 @@ Można również wyłączyć weryfikację żądań dla każdej właściwości w 
 - Podczas edytowania widoku Razor (cshtml plik), przejdź do kontrolera elementu menu w programie Visual Studio nie będą dostępne, a nie ma żadnych wstawki kodu.
 
 <a id="TOC_ASP_NET_3_Beta"></a>
-## <a name="aspnet-mvc-3-beta"></a>ASP.NET MVC 3 w wersji Beta
+## <a name="aspnet-mvc-3-beta"></a>ASP.NET MVC 3 Beta
 
 Platforma ASP.NET MVC 3 Beta 6 października 2010 został wydany. Poniższe uwagi są specyficzne dla wersji Beta i podlegają aktualizacje lub zmiany w powyższej sekcji platformy ASP.NET MVC 3 Release Candidate.
 
@@ -679,7 +679,7 @@ Nowej technologii ASP.NET Web Pages zawiera zestaw metody pomocnicze, które są
 
 Temat krótki przewodnik zawierający listę pomocników i podstawowa składnia jest dostępna jako część składni ASP.NET Razor dokumentacji pod adresem URL:
 
-[https://www.asp.NET/webmatrix/Tutorials/ASP-NET-Web-Pages-API-Reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
+[https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-api-reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 
 ### <a id="0.1__Toc274034220"></a>Obsługa iniekcji zależności dodatkowe
 
@@ -743,8 +743,8 @@ Platforma ASP.NET MVC zawiera metody pomocnicze Ajax, takie jak następujące:
 
 Te metody używany język JavaScript do wywołania metody akcji na serwerze, a nie przy użyciu pełnego ogłaszania zwrotnego. Ta funkcja została zaktualizowana przeprowadzać jQuery w sposób dyskretny kod. Zamiast intrusively emitowanie wbudowane skrypty klienta, te metody pomocnicze do rozdzielania zachowanie z znaczników emitowanie atrybutów HTML5 przy użyciu *danych ajax* prefiks. Zachowanie jest następnie stosowany znaczników odwołując odpowiednie pliki JavaScript. Upewnij się, że odwołują się następujące pliki JavaScript:
 
-- jquery 1.4.1.js
-- jquery.unobtrusive.AJAX.js
+- jquery-1.4.1.js
+- jquery.unobtrusive.ajax.js
 
 Ta funkcja jest domyślnie włączone w pliku Web.config w nowych szablonów projektu programu ASP.NET MVC 3, ale jest domyślnie wyłączona dla istniejących projektów. Aby uzyskać więcej informacji, zobacz [dodać flag całej aplikacji dla weryfikacji klienta i dyskretny kod JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) dalszej części tego dokumentu.
 
@@ -760,9 +760,9 @@ Wymaga to, że właściwość ViewContext.UnobtrusiveJavaScriptEnabled jest usta
 
 Upewnij się, że odwołują się następujące pliki JavaScript.
 
-- jquery 1.4.1.js
-- jquery.Validate.js
-- jquery.Validate.unobtrusive.js
+- jquery-1.4.1.js
+- jquery.validate.js
+- jquery.validate.unobtrusive.js
 
 Ta funkcja jest domyślnie włączone na w pliku Web.config w nowych szablonów projektu programu ASP.NET MVC 3, ale jest domyślnie wyłączona dla istniejących projektów. Aby uzyskać więcej informacji, zobacz [nowe flagi całej aplikacji dla weryfikacji klienta i dyskretny kod JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) dalszej części tego dokumentu.
 
@@ -800,7 +800,7 @@ W poprzedniej wersji zapoznawczej programu ASP.NET MVC uwzględnione obsługę w
 
 Aby obejrzeć wprowadzenie do przy użyciu składni języka Visual Basic na stronach VBHTML zobacz samouczek z następującego adresu URL:
 
-[https://www.asp.NET/webmatrix/Tutorials/ASP-NET-Web-Pages-Visual-Basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
+[https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-visual-basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
 
 ### <a id="0.1__Toc274034226"></a>Bardziej szczegółową kontrolę nad atrybut ValidateInputAttribute
 
@@ -864,6 +864,6 @@ Jest to znany problem, który powoduje, że uwierzytelnianie formularzy zawsze p
 
 ## <a id="0.1__Toc274034231"></a>Zrzeczenie odpowiedzialności
 
-© Microsoft 2011 Corporation. Wszelkie prawa zastrzeżone. Niniejszy dokument jest udostępniany "jako — jest." Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i inne odsyłacze do witryn internetowych, mogą ulec zmianie bez uprzedzenia. Użytkownik ponosi ryzyko związane z użyciem jej.
+© 2011 Microsoft Corporation. Wszelkie prawa zastrzeżone. Niniejszy dokument jest udostępniany "jako — jest." Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i inne odsyłacze do witryn internetowych, mogą ulec zmianie bez uprzedzenia. Użytkownik ponosi ryzyko związane z użyciem jej.
 
 Ten dokument nie daje użytkownikowi żadnych praw do jakiejkolwiek własności intelektualnej związanej z jakimkolwiek produktem firmy Microsoft. Można kopiować i używać tego dokumentu do wewnętrznych celów referencyjnych.

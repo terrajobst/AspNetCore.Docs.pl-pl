@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fbe2c5cb495aabee0e1f0bdb3871641efa03599
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9fd51755e1dc9a1dfb9ab5cc4558f7da9475ce32
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Wprowadzenie do korzystania z pomocników tagów w formularzy w programie ASP.NET Core
 
@@ -22,7 +22,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://
 
 W tym dokumencie przedstawiono pracy z formularzami i elementy HTML często używane w formularzu. Kod HTML [formularza](https://www.w3.org/TR/html401/interact/forms.html) element udostępnia użycia aplikacji sieci web podstawowego mechanizmu publikowania dane do serwera. Większość ten dokument zawiera opis [pomocników tagów](tag-helpers/intro.md) i jak ich można efektywnie tworzyć niezawodne formularzy HTML. Zalecamy przeczytanie [wprowadzenie do pomocników tagów](tag-helpers/intro.md) przed przeczytaniem tego dokumentu.
 
-W wielu przypadkach pomocników HTML Podaj informacje o innym podejściu do określonych pomocniczego znacznika, ale ważne jest, aby rozpoznać pomocników tagów nie zastępują pomocników HTML, a nie ma tagu pomocnika dla każdego pomocnika kodu HTML. Jeśli istnieje alternatywna pomocnika kodu HTML, to wymienione.
+W wielu przypadkach pomocników HTML Podaj informacje o innym podejściu do określonych pomocniczego znacznika, ale ważne jest, aby rozpoznać pomocników tagów nie Zastąp pomocników HTML, a nie ma tagu pomocnika dla każdego pomocnika kodu HTML. Jeśli istnieje alternatywna pomocnika kodu HTML, to wymienione.
 
 <a name="my-asp-route-param-ref-label"></a>
 
@@ -86,7 +86,7 @@ Pomocnik tagu wejściowego:
 
 * Ustawia kod HTML `type` atrybutu wartości na podstawie typu modelu i [adnotacji danych elementu](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybuty zastosowane do właściwości modelu
 
-* Nie spowoduje zastąpienie HTML `type` wartość atrybutu, gdy został określony
+* Nie zastępować HTML `type` wartość atrybutu, gdy został określony
 
 * Generuje [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) sprawdzania poprawności atrybutów z [adnotacji danych elementu](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybuty stosowane do właściwości modelu
 
@@ -159,7 +159,7 @@ Adnotacje danych dotyczy `Email` i `Password` właściwości Generowanie metadan
 
 ### <a name="html-helper-alternatives-to-input-tag-helper"></a>Alternatywy pomocnika kodu HTML dla danych wejściowych pomocnika tagów
 
-`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` i `Html.EditorFor` mają pokrywające się funkcji przy użyciu Pomocnika Tag danych wejściowych. Automatycznie ustawi pomocnika Tag danych wejściowych `type` atrybutu; `Html.TextBox` i `Html.TextBoxFor` nie. `Html.Editor`i `Html.EditorFor` obsługiwać kolekcje obiektów złożonych i szablonów; pomocnika Tag danych wejściowych nie. Pomocnik Tag danych wejściowych, `Html.EditorFor` i `Html.TextBoxFor` są silnie typizowane (one użycie wyrażeń lambda); `Html.TextBox` i `Html.Editor` nie są (używają nazwy wyrażeń).
+`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` i `Html.EditorFor` mają pokrywające się funkcji przy użyciu Pomocnika Tag danych wejściowych. Automatycznie ustawi pomocnika Tag danych wejściowych `type` atrybutu; `Html.TextBox` i `Html.TextBoxFor` nie. `Html.Editor`i `Html.EditorFor` obsługiwać kolekcje obiektów złożonych i szablonów; nie pomocnika Tag danych wejściowych. Pomocnik Tag danych wejściowych, `Html.EditorFor` i `Html.TextBoxFor` są silnie typizowane (one użycie wyrażeń lambda); `Html.TextBox` i `Html.Editor` nie są (używają nazwy wyrażeń).
 
 ### <a name="htmlattributes"></a>HtmlAttributes
 

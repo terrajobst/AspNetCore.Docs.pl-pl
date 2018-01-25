@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: a66e2a80668dbf291b9cc34f205b546b72d92bcc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c7dcb7903b0d0772acc560161ff39c6869c599a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-aspnet-identity"></a>Wprowadzenie do tożsamości platformy ASP.NET
 ====================
@@ -31,7 +31,7 @@ przez [Galloway Jan](https://github.com/jongalloway), [Pranav Rastogi](https://g
 
 ### <a name="aspnet-membership"></a>Członkostwo ASP.NET
 
-[Członkostwo ASP.NET](https://msdn.microsoft.com/en-us/library/yh26yfzy(v=VS.100).aspx) została zaprojektowana w celu rozwiązania wymagania członkostwa lokacji, które były często używane w 2005 r., uwierzytelnianie formularzy i bazy danych programu SQL Server dla nazwy użytkownika, hasła i dane profilu. Obecnie jest tablicą szerszych wiele opcji przechowywania danych aplikacji sieci web, a większość deweloperów chcesz włączyć ich lokacji do używania dostawcy tożsamości społecznościowych dla funkcji uwierzytelniania i autoryzacji. Ograniczenia dotyczące projektowania członkostwa ASP.NET utrudnić ten proces przejścia:
+[Członkostwo ASP.NET](https://msdn.microsoft.com/library/yh26yfzy(v=VS.100).aspx) została zaprojektowana w celu rozwiązania wymagania członkostwa lokacji, które były często używane w 2005 r., uwierzytelnianie formularzy i bazy danych programu SQL Server dla nazwy użytkownika, hasła i dane profilu. Obecnie jest tablicą szerszych wiele opcji przechowywania danych aplikacji sieci web, a większość deweloperów chcesz włączyć ich lokacji do używania dostawcy tożsamości społecznościowych dla funkcji uwierzytelniania i autoryzacji. Ograniczenia dotyczące projektowania członkostwa ASP.NET utrudnić ten proces przejścia:
 
 - Schemat bazy danych została zaprojektowana dla programu SQL Server i nie można go zmienić. Można dodać informacji o profilu, ale dodatkowe dane są pakowane w innej tabeli, która utrudnia dostępu w jakikolwiek sposób z wyjątkiem za pośrednictwem interfejsu API dostawcy profilu.
 - Dostawca systemu umożliwia zmianę zapasowego magazynu danych, ale system jest zaprojektowana dla założenia odpowiednie dla relacyjnej bazy danych. Można napisać dostawcy do przechowywania informacji o członkostwie w mechanizm nierelacyjnych magazynu, takich jak tabele magazynu Azure, ale następnie trzeba będzie obejść relacyjne projektowania pisząc dużej ilości kodu i wiele `System.NotImplementedException` wyjątki dla metod, które nie mają zastosowanie do bazy danych NoSQL.
@@ -47,13 +47,13 @@ Członkostwa prostego ułatwić Dostosuj informacje o profilu użytkownika, ale 
 - Nie można go używać z oprogramowaniem OWIN.
 - Ta funkcja nie działa prawidłowo w przypadku istniejących dostawców członkostwa ASP.NET, a nie jest rozszerzony.
 
-### <a name="aspnet-universal-providers"></a>Dostawców uniwersalnych ASP.NET
+### <a name="aspnet-universal-providers"></a>Standardowi dostawcy ASP.NET
 
 [Dostawców uniwersalnych ASP.NET](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) opracowano pod pozwala zachować informacje o członkostwie w usłudze Microsoft Azure SQL Database i one również współpracować z programu SQL Server Compact. Dostawców uniwersalnych zostały zbudowane na Entity Framework Code First, co oznacza, że dostawców uniwersalnych może służyć do utrwalenia danych w magazynie, wszystkie obsługiwane przez EF. Z dostawców uniwersalnych schemat bazy danych został oczyszczony wielu również.
 
 Dostawców uniwersalnych są wbudowane w infrastrukturze członkostwa ASP.NET, więc one nadal wykonać te same ograniczenia co SqlMembership dostawcy. Oznacza to, że zostały zaprojektowane tak, relacyjnych baz danych i trudno Dostosuj informacje o profilu i użytkownika. Tych dostawców nadal można używać uwierzytelniania formularzy do obsługi funkcji logowania i wyloguj się.
 
-## <a name="aspnet-identity"></a>Tożsamość platformy ASP.NET
+## <a name="aspnet-identity"></a>ASP.NET Identity
 
 Jako członkostwa wątku w programie ASP.NET powstał całościowo, zespół ASP.NET dowiedziała się znacznie od informacji uzyskanych od klientów.
 
@@ -88,7 +88,7 @@ Biorąc pod uwagę te zmiany w tworzenie aplikacji sieci web ASP.NET Identity zo
 - **Dostawców logowania społecznościowych**
 
     - Możesz łatwo dodać społecznościowych dodatków dziennika takich jak Account Microsoft, Facebook, Twitter, Google i inne osoby do aplikacji i przechowywać dane specyficzne dla użytkownika w aplikacji.
-- **Usługa Azure Active Directory**
+- **Azure Active Directory**
 
     - Można również dodaje funkcji obsługi logowania za pomocą usługi Azure Active Directory i przechowywać dane specyficzne dla użytkownika w aplikacji. Aby uzyskać więcej informacji, zobacz [konta organizacyjne](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauth) w tworzenia projektów sieci Web ASP.NET w programie Visual Studio 2013
 - **Integracja OWIN**
@@ -132,7 +132,7 @@ ASP.NET Identity jest implementowane za pomocą poniższej procedury. Celem tego
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample3.cs?highlight=5-6)]
 
- Wyróżniony kod powyżej w `SignInAsync` metoda generuje [ClaimsIdentity](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsidentity.aspx). Ponieważ ASP.NET Identity i uwierzytelniania plików Cookie OWIN systemu opartego na oświadczeniach, framework wymaga aplikacji do wygenerowania ClaimsIdentity dla użytkownika. Identyfikator oświadczenia ma informacje o wszystkich oświadczenia dla użytkownika, takich jak role, jakie użytkownik należy do. Na tym etapie można również dodać więcej oświadczenia dla użytkownika.  
+ Wyróżniony kod powyżej w `SignInAsync` metoda generuje [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). Ponieważ ASP.NET Identity i uwierzytelniania plików Cookie OWIN systemu opartego na oświadczeniach, framework wymaga aplikacji do wygenerowania ClaimsIdentity dla użytkownika. Identyfikator oświadczenia ma informacje o wszystkich oświadczenia dla użytkownika, takich jak role, jakie użytkownik należy do. Na tym etapie można również dodać więcej oświadczenia dla użytkownika.  
   
  Wyróżniony kod poniżej w `SignInAsync` metody loguje użytkownika przy użyciu elementu AuthenticationManager z OWIN i wywoływania `SignIn` i przekazując ClaimsIdentity.  
 
@@ -142,7 +142,7 @@ ASP.NET Identity jest implementowane za pomocą poniższej procedury. Celem tego
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample5.cs?highlight=6)]
 
- Zaznaczony kod powyżej przedstawiono OWIN `AuthenticationManager.SignOut` metody. To jest odpowiednikiem [FormsAuthentication.SignOut](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.signout.aspx) metodę używaną przez [FormsAuthentication](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx) modułu w formularzach sieci Web.
+ Zaznaczony kod powyżej przedstawiono OWIN `AuthenticationManager.SignOut` metody. To jest odpowiednikiem [FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) metodę używaną przez [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) modułu w formularzach sieci Web.
 
 ## <a name="components-of-aspnet-identity"></a>Składniki tożsamości platformy ASP.NET
 

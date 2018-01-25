@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: c0d6fd421dad02298326d1975ae68d1e7cc78d8c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8376c6537d693841a621158358cc8f69cda0a1d6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-scaleout-with-redis-signalr-1x"></a>Skalowania SignalR z pamięci podręcznej Redis (SignalR 1.x)
 ====================
@@ -132,7 +132,7 @@ Obejmuje to też usługi zarządzania (wymienione w obszarze "Narzędzia do zarz
 
 Sprawdź, czy jest uruchomiona usługa zarządzania siecią Web. Jeśli nie, należy uruchomić usługę. (Usługa zarządzania siecią Web nie jest widoczny na liście usług systemu Windows, aby się, że po dodaniu roli usług IIS są zainstalowane usługi zarządzania.)
 
-Domyślnie usługa zarządzania siecią Web nasłuchuje na porcie TCP 8172. W Zaporze systemu Windows utwórz nową regułę ruchu przychodzącego zezwalająca na ruch TCP na porcie 8172. Aby uzyskać więcej informacji, zobacz [Konfigurowanie reguł zapory](https://technet.microsoft.com/en-us/library/dd448559(WS.10).aspx). (Jeśli są hostingu maszyn wirtualnych na platformie Azure, można w tym bezpośrednio w portalu Azure. Zobacz [jak skonfigurować punkty końcowe z maszyną wirtualną](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/).)
+Domyślnie usługa zarządzania siecią Web nasłuchuje na porcie TCP 8172. W Zaporze systemu Windows utwórz nową regułę ruchu przychodzącego zezwalająca na ruch TCP na porcie 8172. Aby uzyskać więcej informacji, zobacz [Konfigurowanie reguł zapory](https://technet.microsoft.com/library/dd448559(WS.10).aspx). (Jeśli są hostingu maszyn wirtualnych na platformie Azure, można w tym bezpośrednio w portalu Azure. Zobacz [jak skonfigurować punkty końcowe z maszyną wirtualną](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).)
 
 Teraz można przystąpić do wdrażania projektu programu Visual Studio z komputerze deweloperskim z serwerem. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy rozwiązanie, a następnie kliknij przycisk **publikowania**.
 

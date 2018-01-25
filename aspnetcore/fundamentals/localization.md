@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 1c93a53ea23ec13ca3d6fc138024ba38ec4883ee
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5f1579b5682b2f0b3f8227f0cf6b4c0361eb1e67
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w ASP.NET Core
 
@@ -39,9 +39,9 @@ Wprowadzone w ASP.NET Core `IStringLocalizer` i `IStringLocalizer<T>` zostały z
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/AboutController.cs)]
 
-W powyższym kodzie `IStringLocalizer<T>` implementacji pochodzi z [iniekcji zależności](dependency-injection.md). Jeśli nie odnaleziono zlokalizowaną wartość tytułu"temat", a następnie z kluczem indeksatora, jest zwracany, czyli ciąg "Title o". Możesz pozostaw wartość domyślną literału ciągi języka w aplikacji i zawijanie je w lokalizatora, dzięki czemu można skupić się na temat tworzenia aplikacji. Opracuj swoją aplikację z językiem domyślnym i przygotowania kroku lokalizacji bez tworzenia domyślnego pliku zasobów. Alternatywnie można użyć tradycyjne podejście i podaj klucz, aby pobrać domyślny ciąg języka. Dla wielu deweloperów nowy przepływ pracy nie ma domyślny język *.resx* plików i po prostu zawijania Literały ciągu można zmniejszyć koszty lokalizowanie aplikacji. Inni deweloperzy preferowane przepływu pracy tradycyjnych zgodnie z jego może ułatwić pracę z dłużej literały ciągów i ułatwić aktualizowanie zlokalizowanych ciągów.
+W powyższym kodzie `IStringLocalizer<T>` implementacji pochodzi z [iniekcji zależności](dependency-injection.md). Jeśli nie zostanie odnaleziony zlokalizowaną wartość tytułu"temat", a następnie z kluczem indeksatora, jest zwracany, czyli ciąg "Title o". Możesz pozostaw wartość domyślną literału ciągi języka w aplikacji i zawijanie je w lokalizatora, dzięki czemu można skupić się na temat tworzenia aplikacji. Opracuj swoją aplikację z językiem domyślnym i przygotowania kroku lokalizacji bez tworzenia domyślnego pliku zasobów. Alternatywnie można użyć tradycyjne podejście i podaj klucz, aby pobrać domyślny ciąg języka. Dla wielu deweloperów nowy przepływ pracy nie ma domyślny język *.resx* plików i po prostu zawijania Literały ciągu można zmniejszyć koszty lokalizowanie aplikacji. Inni deweloperzy preferowane przepływu pracy tradycyjnych zgodnie z jego może ułatwić pracę z dłużej literały ciągów i ułatwić aktualizowanie zlokalizowanych ciągów.
 
-Użyj `IHtmlLocalizer<T>` implementacji dla zasobów, które zawierają HTML. `IHtmlLocalizer`Argumenty, które są sformatowane w ciągu zasobu koduje HTML, ale jest kodowanie HTML nie sam ciąg zasobu. W przykładzie wyróżnione poniżej tylko wartości `name` parametr ma kodowania HTML.
+Użyj `IHtmlLocalizer<T>` implementacji dla zasobów, które zawierają HTML. `IHtmlLocalizer`Argumenty, które są sformatowane w ciągu zasobu koduje HTML, ale nie sam ciąg zasobu kodowanie HTML. W przykładzie wyróżnione poniżej tylko wartości `name` parametr ma kodowania HTML.
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
@@ -176,7 +176,7 @@ Na przykład jeśli usuniesz określenia kultury ".fr" i ma kultury ustawione na
 
 ### <a name="generate-resource-files-with-visual-studio"></a>Generowanie plików zasobów z programem Visual Studio
 
-Jeśli utworzysz plik zasobów w programie Visual Studio bez kultury w nazwie pliku (na przykład *Welcome.resx*), programu Visual Studio utworzy klasę C# z właściwością dla każdego ciągu. To zwykle nie chcesz z platformy ASP.NET Core; zwykle nie ma wartości domyślnej *.resx* pliku zasobów (A *.resx* pliku bez nazwy kultury). Zaleca się tworzenia *.resx* plik o nazwie kultury (na przykład *Welcome.fr.resx*). Po utworzeniu *.resx* plik o nazwie kultury, Visual Studio nie wygeneruje pliku klasy. Przewidujemy, że będzie wielu deweloperów **nie** Utwórz plik zasobu języka domyślnego.
+Jeśli utworzysz plik zasobów w programie Visual Studio bez kultury w nazwie pliku (na przykład *Welcome.resx*), programu Visual Studio utworzy klasę C# z właściwością dla każdego ciągu. To zwykle nie chcesz z platformy ASP.NET Core; zwykle nie ma wartości domyślnej *.resx* pliku zasobów (A *.resx* pliku bez nazwy kultury). Zaleca się tworzenia *.resx* plik o nazwie kultury (na przykład *Welcome.fr.resx*). Po utworzeniu *.resx* plik o nazwie kultury, Visual Studio nie będzie Generowanie pliku klasy. Przewidujemy, że będzie wielu deweloperów **nie** Utwórz plik zasobu języka domyślnego.
 
 ### <a name="add-other-cultures"></a>Dodawanie innych kultur
 

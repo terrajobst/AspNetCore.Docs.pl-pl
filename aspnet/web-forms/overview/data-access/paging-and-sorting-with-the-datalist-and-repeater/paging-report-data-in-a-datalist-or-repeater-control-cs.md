@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 783557b69486c284a6ed927e32e71cb602695080
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4952adff752ec834b8be5f190181be98a034ccfd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>Dane raportu stronicowania DataList lub w kontrolce elementu powtarzanego (C#)
 ====================
@@ -80,7 +80,7 @@ Ponieważ domyślne stronicowania zażąda ponownie wszystkie rekordy na każdej
 
 *Stronicowania niestandardowego* rozwiązuje problemy wydajności domyślnej stronicowania przez Przechwytywanie dokładne podzbiór rekordów do wyświetlenia w żądanej strony. Podczas implementowania stronicowania niestandardowego, możemy napisać zapytanie SQL, które skutecznie zwróci tylko poprawny zestaw rekordów. Widzieliśmy jak utworzyć takie zapytanie, używając nowego programu SQL Server 2005 s [ `ROW_NUMBER()` — słowo kluczowe](http://www.4guysfromrolla.com/webtech/010406-1.shtml) w [wydajnie stronicowania za pośrednictwem dużych ilości danych](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md) samouczka.
 
-Aby zaimplementować domyślnego stronicowania w formantach DataList lub elementu powtarzanego, możemy użyć [ `PagedDataSource` klasy](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.aspx) jako otokę `ProductsDataTable` są trwa stronicowanej których zawartość. `PagedDataSource` Klasa ma `DataSource` właściwość, którą można przypisać do dowolnego obiektu wyliczalny i [ `PageSize` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) i [ `CurrentPageIndex` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) właściwości, które wskazują, jak wiele rekordów do Pokaż na stronie i indeks bieżącej strony. Po ustawieniu właściwości `PagedDataSource` mogą być używane jako źródło danych danych formantu sieci Web. `PagedDataSource`, Gdy wyliczone, będą zwracane tylko odpowiednie podzbiór rekordów jego wewnętrzny `DataSource` na podstawie `PageSize` i `CurrentPageIndex` właściwości. Rysunek 4 przedstawia funkcjonalność `PagedDataSource` klasy.
+Aby zaimplementować domyślnego stronicowania w formantach DataList lub elementu powtarzanego, możemy użyć [ `PagedDataSource` klasy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx) jako otokę `ProductsDataTable` są trwa stronicowanej których zawartość. `PagedDataSource` Klasa ma `DataSource` właściwość, którą można przypisać do dowolnego obiektu wyliczalny i [ `PageSize` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) i [ `CurrentPageIndex` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) właściwości, które wskazują, jak wiele rekordów do Pokaż na stronie i indeks bieżącej strony. Po ustawieniu właściwości `PagedDataSource` mogą być używane jako źródło danych danych formantu sieci Web. `PagedDataSource`, Gdy wyliczone, będą zwracane tylko odpowiednie podzbiór rekordów jego wewnętrzny `DataSource` na podstawie `PageSize` i `CurrentPageIndex` właściwości. Rysunek 4 przedstawia funkcjonalność `PagedDataSource` klasy.
 
 
 ![Obiekt Wyliczalny z interfejsem stronicowalnej Opakowuje PagedDataSource](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image6.png)
@@ -204,7 +204,7 @@ Oprócz `TotalRowCount`, po upływie kilku minut utworzyć poziomu strony właś
 
 ## <a name="determining-the-total-number-of-records-being-paged-through"></a>Całkowita liczba rekordów jest stronicowana za pomocą określania
 
-`PagedDataSource` Zwróciła obiekt ObjectDataSource s `Select()` metoda ma w niej *wszystkie* rekordów produktu, mimo że tylko ich podzbiór są wyświetlane w elementu DataList. `PagedDataSource` s [ `Count` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.count.aspx) zwraca liczbę elementów, które będą wyświetlane w DataList; [ `DataSourceCount` właściwość](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx) zwraca całkowitą liczbę elementów w `PagedDataSource`. W związku z tym należy przypisać ASP.NET strony s `TotalRowCount` wartość właściwości z `PagedDataSource` s `DataSourceCount` właściwości.
+`PagedDataSource` Zwróciła obiekt ObjectDataSource s `Select()` metoda ma w niej *wszystkie* rekordów produktu, mimo że tylko ich podzbiór są wyświetlane w elementu DataList. `PagedDataSource` s [ `Count` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.count.aspx) zwraca liczbę elementów, które będą wyświetlane w DataList; [ `DataSourceCount` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx) zwraca całkowitą liczbę elementów w `PagedDataSource`. W związku z tym należy przypisać ASP.NET strony s `TotalRowCount` wartość właściwości z `PagedDataSource` s `DataSourceCount` właściwości.
 
 W tym celu należy utworzyć programu obsługi zdarzeń dla elementu ObjectDataSource s `Selected` zdarzeń. W `Selected` obsługi zdarzeń mamy dostęp do wartość zwracaną przez element ObjectDataSource s `Select()` metody w tym przypadku `PagedDataSource`.
 
@@ -224,7 +224,7 @@ Z `Click` zakończenie obsługi zdarzenia, rekordy DataList s może być stronic
 
 ## <a name="disabling-paging-interface-controls"></a>Wyłączenie stronicowania formantów interfejsu
 
-Obecnie wszystkie cztery przyciski są włączone, bez względu na wyświetlanej stronie. Jednak chcemy wyłączyć przyciski pierwszy i poprzedni przy wyświetlaniu pierwszej strony danych i przycisków Następny i ostatni przy wyświetlaniu ostatniej strony. `PagedDataSource` Obiektu zwróconego przez element ObjectDataSource s `Select()` metoda ma właściwości [ `IsFirstPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) i [ `IsLastPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) który omówione można określić możemy wyświetlania pierwszej lub ostatniej strony danych.
+Obecnie wszystkie cztery przyciski są włączone, bez względu na wyświetlanej stronie. Jednak chcemy wyłączyć przyciski pierwszy i poprzedni przy wyświetlaniu pierwszej strony danych i przycisków Następny i ostatni przy wyświetlaniu ostatniej strony. `PagedDataSource` Obiektu zwróconego przez element ObjectDataSource s `Select()` metoda ma właściwości [ `IsFirstPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) i [ `IsLastPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) który omówione można określić możemy wyświetlania pierwszej lub ostatniej strony danych.
 
 Dodaj następującą wartość do ObjectDataSource s `Selected` obsługi zdarzeń:
 
@@ -282,4 +282,4 @@ Programowanie przyjemność!
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Liz Shulok, Krzysztof Pespisa i Bernadette Leigh. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Dalej](sorting-data-in-a-datalist-or-repeater-control-cs.md)
+[Next](sorting-data-in-a-datalist-or-repeater-control-cs.md)

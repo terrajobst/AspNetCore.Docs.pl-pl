@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/preventing-open-redirects
-ms.openlocfilehash: e57ae429e9af54ade74485361ba591cb75c16752
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6ecf2440ac7073bdad098f6fe48f6c788ba7795a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-open-redirect-attacks-in-an-aspnet-core-app"></a>Zapobieganie atakom przekierowania otwartych w aplikacji platformy ASP.NET Core
 
@@ -23,7 +23,7 @@ Zawsze, gdy logiki aplikacji przekierowuje pod określony adres URL, należy spr
 
 ## <a name="what-is-an-open-redirect-attack"></a>Co to jest atak przekierowania Otwórz?
 
-Podczas uzyskiwania dostępu do zasobów, które wymagają uwierzytelniania aplikacji sieci Web często przekierować użytkowników do strony logowania. Obejmuje typlically przekierowania `returnUrl` parametr querystring, dzięki czemu użytkownik może być zwracany do pierwotnie żądanego adresu URL po ich pomyślnym zalogowaniu. Po uwierzytelnia użytkownika, zostanie przekierowany do były one pierwotnie żądanego adresu URL.
+Podczas uzyskiwania dostępu do zasobów, które wymagają uwierzytelniania aplikacji sieci Web często przekierować użytkowników do strony logowania. Obejmuje typlically przekierowania `returnUrl` parametr querystring, dzięki czemu użytkownik może być zwracany do pierwotnie żądanego adresu URL po ich pomyślnym zalogowaniu. Po uwierzytelnia użytkownika, są one przekierowywani do były one pierwotnie żądanego adresu URL.
 
 Docelowy adres URL, ponieważ określono w ciąg zapytania żądania złośliwy użytkownik może manipulować ciąg zapytania. Zmodyfikowany querystring umożliwia witrynie przekierowanie użytkownika do witryny zewnętrznej, złośliwe. Ta metoda jest wywoływana Otwórz atak przekierowania (lub przekierowania).
 
@@ -36,7 +36,7 @@ Złośliwy użytkownik może utworzyć atak ma umożliwić złośliwemu użytkow
 3. Użytkownik zostaje przekierowany (przez witrynę) do ``http://nerddiner.com/Account/LogOn`` (złośliwa witryna przypominającą rzeczywistej lokacji).
 4. Użytkownik loguje się ponownie (podając złośliwego lokacji poświadczeń) i jest przekierowywany do rzeczywistego witryny.
 
-Użytkownik prawdopodobnie będą sądziły pierwsza próba logowania nie powiodła się, a ich drugi zakończyło się pomyślnie. Prawdopodobnie będziesz pozostają bez "świadomości" swoje poświadczenia zostały naruszone.
+Użytkownik prawdopodobnie będą sądziły pierwsza próba logowania nie powiodła się, a ich drugi zakończyło się pomyślnie. Prawdopodobnie pozostanie bez "świadomości" swoje poświadczenia zostały naruszone.
 
 ![Otwórz przekierowania ataku procesu](preventing-open-redirects/_static/open-redirection-attack-process.png)
 

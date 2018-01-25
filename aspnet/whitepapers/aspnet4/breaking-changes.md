@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: a0f25ed3c996b73e362177b196539c6f2b143739
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98647830125670ee2ed43538d65fb3ce6ac40d0d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 najważniejszych zmian
 ====================
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/10/2017
 [Błędy konfiguracji związane z nowej konfiguracji głównego 4 ASP.NET](#0.1__Toc256770149 "_Toc256770149")  
 [Aplikacji programu ASP.NET 4 podrzędnych nie Start w ASP.NET 2.0 lub ASP.NET 3.5 Applications](#0.1__Toc256770150 "_Toc256770150")  
 [ASP.NET 4 witryn sieci Web nie można uruchomić na komputerach, na którym jest zainstalowany program SharePoint](#0.1__Toc256770151 "_Toc256770151")  
-[Właściwość HttpRequest.FilePath nie zawiera już PATHINFO zawiera wartości](#0.1__Toc256770152 "_Toc256770152")  
+[The HttpRequest.FilePath Property No Longer Includes PathInfo Values](#0.1__Toc256770152 "_Toc256770152")  
 [Platforma ASP.NET 2.0 aplikacji może generować błędy HttpException, które odwołują się eurl.axd](#0.1__Toc256770153 "_Toc256770153")  
 [Programy obsługi zdarzeń nie może zostać nie wywołane w dokumentu domyślnego w usługach IIS 7 lub usług IIS 7.5 zintegrowane tryb](#0.1__Toc256770154 "_Toc256770154")  
 [Zmiany w implementacji zabezpieczeń (CAS) dostępu do kodu ASP.NET](#0.1__Toc256770155 "_Toc256770155")  
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/10/2017
 [Typy System.Web.Security na potrzeby usługi Passport są przestarzałe](#0.1__Toc256770158 "_Toc256770158")  
 [Właściwość MenuItem.PopOutImageUrl nie powiedzie się, by renderować obraz w programie ASP.NET 4](#0.1__Toc256770159 "_Toc256770159")  
 [Menu.StaticPopOutImageUrl i niepowodzenie Menu.DynamicPopOutImageUrl do realizacji obrazów, gdy ścieżki zawierać ukośników odwrotnych](#0.1__Toc256770160 "_Toc256770160")  
-[Zastrzeżenie](#0.1__Toc256770161 "_Toc256770161")
+[Disclaimer](#0.1__Toc256770161 "_Toc256770161")
 
 <a id="0.1__ControlRenderingCompatibilityVersio"></a><a id="0.1__Toc245724853"></a><a id="0.1__Toc255587630"></a><a id="0.1__Toc256770141"></a>
 
@@ -272,13 +272,13 @@ Poprzednie wersje programu ASP.NET uwzględnione **PATHINFO zawiera** wartość 
 
 We wcześniejszych wersjach programu ASP.NET **HttpRequest** właściwości mieć następujące wartości:
 
-**HttpRequest.FilePath**:`/testapp/Action.mvc/SomeAction`
+**HttpRequest.FilePath**: `/testapp/Action.mvc/SomeAction`
 
 **HttpRequest.PathInfo**: (pusta)
 
 W przypadku programu ASP.NET 4 **HttpRequest** właściwości zamiast mieć następujące wartości:
 
-**HttpRequest.FilePath**:`/testapp/Action.mvc`
+**HttpRequest.FilePath**: `/testapp/Action.mvc`
 
 **HttpRequest.PathInfo**:`SomeAction`
 
@@ -385,7 +385,7 @@ Poniżej znajduje się podsumowanie wysokiego poziomu zmian, aby Domyślna imple
 - Dynamicznie skompilowane zestawy, które zostały utworzone przy użyciu dostawcy kompilacji platformy ASP.NET zostały zaktualizowane do jawnie Oznacz zestawy jako przezroczysty.
 - Wszystkie zestawy ASP.NET zostały oznaczone w taki sposób, że atrybut APTCA jest honorowane tylko w środowiskach hostingu w sieci Web. Częściowo zaufany środowiskach hostingu sieci Web takich jak ClickOnce nie będzie wywołują zestawów ASP.NET.
 
-Aby uzyskać więcej informacji o nowy model zabezpieczeń dostępu kodu platformy ASP.NET 4, zobacz [przy użyciu zabezpieczenia dostępu kodu w aplikacjach ASP.NET](https://msdn.microsoft.com/en-us/library/dd984947%28VS.100%29.aspx) w witrynie MSDN.
+Aby uzyskać więcej informacji o nowy model zabezpieczeń dostępu kodu platformy ASP.NET 4, zobacz [przy użyciu zabezpieczenia dostępu kodu w aplikacjach ASP.NET](https://msdn.microsoft.com/library/dd984947%28VS.100%29.aspx) w witrynie MSDN.
 
 <a id="0.1__Toc256770156"></a><a id="0.1__Toc245724863"></a><a id="0.1__Toc252995496"></a><a id="0.1__Toc255587645"></a><a id="0.1__Toc245724864"></a>
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: 97e4a2a1794dbdccf80f0b44c1246c743fa23019
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 68056759b2e80230e5fd2c0f9b2d2a89b549cf37
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>Wprowadzenie do strony sieci Web ASP.NET - podstawy formularza HTML
 ====================
@@ -220,7 +220,7 @@ Jeśli te elementy jednocześnie, otrzymasz następujący kod:
 > 
 > **Ważne!** Przy użyciu symboli zastępczych (takich jak `@0`) do przekazania wartości do polecenia SQL jest *bardzo ważne* zabezpieczeń. Sposób możesz w tym miejscu, zobacz z symbole zastępcze danych zmiennej jest jedynym sposobem, należy konstruować poleceń SQL.
 > 
-> Nigdy nie Skonstruuj instrukcję SQL przez zestawienie (łączenie) literały tekstowe i wartości, które można uzyskać od użytkownika. Łączenie danych wejściowych użytkownika do instrukcji SQL otwiera witryny *ataku polegającego na iniekcji SQL* gdzie złośliwy użytkownik przesyła wartości do strony, które hack bazy danych. (Więcej w artykule [iniekcja kodu SQL](https://msdn.microsoft.com/en-us/library/ms161953.aspx) witryny sieci Web MSDN.)
+> Nigdy nie Skonstruuj instrukcję SQL przez zestawienie (łączenie) literały tekstowe i wartości, które można uzyskać od użytkownika. Łączenie danych wejściowych użytkownika do instrukcji SQL otwiera witryny *ataku polegającego na iniekcji SQL* gdzie złośliwy użytkownik przesyła wartości do strony, które hack bazy danych. (Więcej w artykule [iniekcja kodu SQL](https://msdn.microsoft.com/library/ms161953.aspx) witryny sieci Web MSDN.)
 
 
 ## <a name="updating-the-movies-page-with-search-code"></a>Aktualizowanie strony filmów z kodem wyszukiwania

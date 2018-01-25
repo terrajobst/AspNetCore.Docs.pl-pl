@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: 923a8257376e98e6cae10d905f1cb18f7fdb28e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 24ede9cb9289c84140f6e2573f9d526f19cac64b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Rozproszone buforowania (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -79,12 +79,12 @@ Oto przykłady ilustrujący prostego kodu buforowania; buforowanie nie została 
 
 ## <a name="azure-caching-services"></a>Buforowanie usług Azure
 
-Platforma Azure oferuje następujące usługi buforowania: [pamięć podręczna Redis Azure](https://msdn.microsoft.com/en-us/library/dn690523.aspx) i [Azure zarządzanych w pamięci podręcznej](https://msdn.microsoft.com/en-us/library/dn386094.aspx). Pamięć podręczna Redis Azure jest oparta na popularnych [Otwórz źródło pamięci podręcznej Redis](http://redis.io/) i jest pierwszy wybór dla większości scenariuszy buforowania.
+Platforma Azure oferuje następujące usługi buforowania: [pamięć podręczna Redis Azure](https://msdn.microsoft.com/library/dn690523.aspx) i [Azure zarządzanych w pamięci podręcznej](https://msdn.microsoft.com/library/dn386094.aspx). Pamięć podręczna Redis Azure jest oparta na popularnych [Otwórz źródło pamięci podręcznej Redis](http://redis.io/) i jest pierwszy wybór dla większości scenariuszy buforowania.
 
 <a id="sessionstate"></a>
 ## <a name="aspnet-session-state-using-a-cache-provider"></a>Stan sesji ASP.NET przy użyciu dostawcy pamięci podręcznej
 
-Jak wspomniano w [sieci web development najlepszych rozwiązań rozdział](web-development-best-practices.md), najlepszym rozwiązaniem jest unikać stanu sesji. Jeśli aplikacja wymaga stanu sesji, dalej najlepszym rozwiązaniem jest unikać domyślnego dostawcy w pamięci, ponieważ nie umożliwiających skalowania w poziomie (wielu wystąpień serwera sieci web). Dostawca stanu sesji ASP.NET SQL Server umożliwia lokacji, która działa na wielu serwerach sieci web do korzystania ze stanu sesji, ale wiąże się z kosztami duże opóźnienie w porównaniu do dostawcy w pamięci. Najlepszym rozwiązaniem, jeśli zajdzie potrzeba korzystania ze stanu sesji jest użycie dostawcy pamięci podręcznej, takich jak [dostawcę stanu sesji dla usługi pamięć podręczna Azure](https://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx).
+Jak wspomniano w [sieci web development najlepszych rozwiązań rozdział](web-development-best-practices.md), najlepszym rozwiązaniem jest unikać stanu sesji. Jeśli aplikacja wymaga stanu sesji, dalej najlepszym rozwiązaniem jest unikać domyślnego dostawcy w pamięci, ponieważ nie umożliwiających skalowania w poziomie (wielu wystąpień serwera sieci web). Dostawca stanu sesji ASP.NET SQL Server umożliwia lokacji, która działa na wielu serwerach sieci web do korzystania ze stanu sesji, ale wiąże się z kosztami duże opóźnienie w porównaniu do dostawcy w pamięci. Najlepszym rozwiązaniem, jeśli zajdzie potrzeba korzystania ze stanu sesji jest użycie dostawcy pamięci podręcznej, takich jak [dostawcę stanu sesji dla usługi pamięć podręczna Azure](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx).
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -96,11 +96,11 @@ Aby uzyskać więcej informacji na temat buforowania zobacz następujące zasoby
 
 Dokumentacja
 
-- [Pamięć podręczna Azure](https://msdn.microsoft.com/en-us/library/gg278356.aspx). Oficjalnej dokumentacji MSDN na buforowanie na platformie Azure.
-- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Zobacz wskazówki buforowanie i wzorzec Zarezerwuj pamięci podręcznej.
-- [Przed uszkodzeniami: Wskazówki dotyczące architektury chmury odporność](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Oficjalny dokument Mercuri wytłoków, Ulrich Homann i Andrew Townhill. Zobacz sekcję dotyczącą buforowanie.
-- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na usług w chmurze Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). W. Oficjalny dokument przez moduły SIMM znaku i Michael Thomassy. Zobacz sekcję dotyczącą systemy buforowania rozproszonego.
-- [Rozproszone buforowanie na ścieżkę do skalowalność](https://msdn.microsoft.com/en-us/magazine/dd942840.aspx). Starsze artykuł MSDN Magazine (2009), ale wyraźnie napisane wprowadzenie do buforowania rozproszonego ogólnie; przechodzi w stan głębokość więcej niż sekcji buforowania oficjalne dokumenty przed uszkodzeniami i najlepsze rozwiązania.
+- [Azure Cache](https://msdn.microsoft.com/library/gg278356.aspx). Oficjalnej dokumentacji MSDN na buforowanie na platformie Azure.
+- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wskazówki buforowanie i wzorzec Zarezerwuj pamięci podręcznej.
+- [Przed uszkodzeniami: Wskazówki dotyczące architektury chmury odporność](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument Mercuri wytłoków, Ulrich Homann i Andrew Townhill. Zobacz sekcję dotyczącą buforowanie.
+- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na usług w chmurze Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. Oficjalny dokument przez moduły SIMM znaku i Michael Thomassy. Zobacz sekcję dotyczącą systemy buforowania rozproszonego.
+- [Rozproszone buforowanie na ścieżkę do skalowalność](https://msdn.microsoft.com/magazine/dd942840.aspx). Starsze artykuł MSDN Magazine (2009), ale wyraźnie napisane wprowadzenie do buforowania rozproszonego ogólnie; przechodzi w stan głębokość więcej niż sekcji buforowania oficjalne dokumenty przed uszkodzeniami i najlepsze rozwiązania.
 
 Wideo
 

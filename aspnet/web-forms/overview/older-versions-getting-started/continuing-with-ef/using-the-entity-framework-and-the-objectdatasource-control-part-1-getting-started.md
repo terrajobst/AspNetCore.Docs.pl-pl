@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 6f93d6033b68773507d624125936f0a69777e2b7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83fe815af9030aee10a5204718b00c79925e9126
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Przy użyciu programu Entity Framework 4.0 i kontrolki ObjectDataSource, część 1: wprowadzenie
 ====================
@@ -30,7 +30,7 @@ przez [Dykstra niestandardowy](https://github.com/tdykstra)
 > 
 > ## <a name="database-first"></a>Najpierw bazy danych
 > 
-> Istnieją trzy sposoby pracy z danymi programu Entity Framework: *Database First*, *Model First*, i *Code First*. Ten samouczek jest przeznaczony dla pierwszej bazy danych. Aby uzyskać informacji o różnicach między te przepływy pracy i wskazówki na temat wybierania najlepszy dla danego scenariusza, zobacz [przepływów pracy programu Entity Framework programowanie](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+> Istnieją trzy sposoby pracy z danymi programu Entity Framework: *Database First*, *Model First*, i *Code First*. Ten samouczek jest przeznaczony dla pierwszej bazy danych. Aby uzyskać informacji o różnicach między te przepływy pracy i wskazówki na temat wybierania najlepszy dla danego scenariusza, zobacz [przepływów pracy programu Entity Framework programowanie](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > ## <a name="web-forms"></a>Formularze sieci Web
 > 
@@ -47,7 +47,7 @@ przez [Dykstra niestandardowy](https://github.com/tdykstra)
 > 
 > ## <a name="questions"></a>Pytania
 > 
-> Jeśli masz pytania, które nie są bezpośrednio związane z tego samouczka możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework i składnika LINQ to Entities forum](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/), lub [ StackOverflow.com](http://stackoverflow.com/).
+> Jeśli masz pytania, które nie są bezpośrednio związane z tego samouczka możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework i składnika LINQ to Entities forum](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), lub [ StackOverflow.com](http://stackoverflow.com/).
 
 
 `EntityDataSource` Kontroli umożliwia szybkie tworzenie aplikacji, ale zwykle wymaga zachować dużą logika biznesowa i logika dostępu do danych w sieci *.aspx* stron. Jeśli aplikacja zwiększa się złożoność i wymaganie rutynowej konserwacji, więcej czasu programowanie można zainwestować góry aby można było utworzyć *n warstwowa* lub *warstwie* struktury aplikacji to jest bardziej łatwy w obsłudze. Do wdrożenia tej architektury, można oddzielić od warstwy logiki biznesowej (logiki warstwy Biznesowej) oraz warstwa dostępu do danych (DAL) warstwy prezentacji. Jednym ze sposobów implementuje ta struktura jest użycie `ObjectDataSource` kontrolować zamiast `EntityDataSource` formantu. Jeśli używasz `ObjectDataSource` kontroli, wykonania kodu dostępu do danych, a następnie wywołaj w *.aspx* strony za pomocą formantu, który ma wiele takich samych funkcji innych formantów źródła danych. Dzięki temu można łączyć zalety podejścia n warstwowa z zalet dotyczących dostępu do danych za pomocą kontrolki formularzy sieci Web.
@@ -60,7 +60,7 @@ przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 Oprócz podstawowych operacji CRUD, tworzona za pomocą klasy `ObjectDataSource` formant może być konieczne wykonanie logiki biznesowej po `ObjectDataSource` odczytuje lub aktualizuje dane. Na przykład po zaktualizowaniu działu, może być konieczne Sprawdź, czy nie inne działy mają tego samego konta administratora, ponieważ jedna osoba nie może być administratorem działu więcej niż jeden.
 
-W niektórych `ObjectDataSource` dokumentacji, takich jak [Przegląd klasy ObjectDataSource](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.aspx), kontrolka wywołuje klasy nazywane *obiektu biznesowego* zawierającą zarówno logika biznesowa i logika dostępu do danych . W tym samouczku utworzysz osobnych klas logika biznesowa i logika dostępu do danych. Klasa, która hermetyzuje logika dostępu do danych jest nazywany *repozytorium*. Klasa logika biznesowa zawiera metody logiki biznesowej i metod dostępu do danych, ale metody dostępu do danych mogą wywoływać repozytorium, aby wykonywać zadania dostępu do danych.
+W niektórych `ObjectDataSource` dokumentacji, takich jak [Przegląd klasy ObjectDataSource](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.aspx), kontrolka wywołuje klasy nazywane *obiektu biznesowego* zawierającą zarówno logika biznesowa i logika dostępu do danych . W tym samouczku utworzysz osobnych klas logika biznesowa i logika dostępu do danych. Klasa, która hermetyzuje logika dostępu do danych jest nazywany *repozytorium*. Klasa logika biznesowa zawiera metody logiki biznesowej i metod dostępu do danych, ale metody dostępu do danych mogą wywoływać repozytorium, aby wykonywać zadania dostępu do danych.
 
 Warstwa abstrakcji między logiki warstwy Biznesowej i warstwy DAL umożliwiającą automatyczne jednostki spowoduje również utworzenie testowania logiki warstwy Biznesowej. Ta warstwa abstrakcji jest implementowany przez tworzenie interfejsu i przy użyciu interfejsu w przypadku wystąpienia repozytorium w klasie logiki biznesowej. Dzięki temu można podać klasy logiki biznesowej w odniesieniu do dowolnego obiektu, który implementuje interfejs repozytorium. Do normalnego działania musisz podać obiektu repozytorium, który działa z programu Entity Framework. Do testowania, musisz podać obiekt repozytorium, który współpracuje z danych przechowywanych w taki sposób, który można łatwo manipulować, takich jak klasy zmienne zdefiniowane jako kolekcji.
 
@@ -325,4 +325,4 @@ Zmień wartość pola lub wybierz innego administratora i kliknij przycisk **akt
 Na tym kończy się wprowadzenie do korzystania z `ObjectDataSource` kontrola basic CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) operacje przy użyciu programu Entity Framework. Powstanie prostej aplikacji warstwowych, ale warstwy logiki biznesowej jest nadal ściśle powiązane do warstwy dostępu do danych, co stwarza automatyczne testy jednostkowe. W samouczku następujące zobaczysz sposobu implementacji wzorca repozytorium w celu ułatwienia testowania jednostki.
 
 >[!div class="step-by-step"]
-[Dalej](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+[Next](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)

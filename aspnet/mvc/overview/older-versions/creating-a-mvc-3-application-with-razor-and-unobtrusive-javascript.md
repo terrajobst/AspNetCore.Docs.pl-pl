@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 68870caf1608e596962650cf653e5b455b82382a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29b45c07b5498542abbf22c4c3001b1cee41edc9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Tworzenie MVC 3 aplikacji Razor i dyskretny kod JavaScript
 ====================
@@ -68,7 +68,7 @@ Nazwa klasy `UserModel`. Zastąp zawartość *UserModel* pliku następującym ko
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample2.cs)]
 
-`UserModel` Klasa reprezentuje użytkowników. Każdy element członkowski klasy jest oznaczony za pomocą [wymagane](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx) atrybutu z [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) przestrzeni nazw. Atrybuty w [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) przestrzeni nazw udostępnienia weryfikacji automatyczne klienta — i po stronie serwera dla aplikacji sieci web.
+`UserModel` Klasa reprezentuje użytkowników. Każdy element członkowski klasy jest oznaczony za pomocą [wymagane](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) atrybutu z [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) przestrzeni nazw. Atrybuty w [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) przestrzeni nazw udostępnienia weryfikacji automatyczne klienta — i po stronie serwera dla aplikacji sieci web.
 
 Otwórz `HomeController` klasy i Dodaj `using` dyrektywy, dzięki czemu można uzyskać dostępu do `UserModel` i `Users` klasy:
 
@@ -172,7 +172,7 @@ Należy również uwzględnić w widoku renderowanym kilka plików JavaScript. P
 
 Pierwsze dwa skrypty jQuery są obsługiwane przez Microsoft Ajax sieci dostarczania zawartości (CDN). Korzystając z usługi Microsoft Ajax CDN, może znacznie poprawić wydajność trafień pierwszej aplikacji.
 
-Uruchom aplikację, a następnie kliknij łącze edycji. Wyświetl źródło strony w przeglądarce. Źródła przeglądarki zawiera wiele atrybutów w postaci `data-val` (do sprawdzania poprawności danych). Gdy włączone jest sprawdzanie poprawności klienta i dyskretny kod JavaScript, zawierać pól wejściowych przy użyciu reguły weryfikacji klienta `data-val="true"` atrybut do wyzwolenia sprawdzania poprawności dyskretnego kodu klienta. Na przykład `City` pola w modelu zostało oznaczone [wymagane](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx) atrybut, który powoduje HTML pokazano w poniższym przykładzie:
+Uruchom aplikację, a następnie kliknij łącze edycji. Wyświetl źródło strony w przeglądarce. Źródła przeglądarki zawiera wiele atrybutów w postaci `data-val` (do sprawdzania poprawności danych). Gdy włączone jest sprawdzanie poprawności klienta i dyskretny kod JavaScript, zawierać pól wejściowych przy użyciu reguły weryfikacji klienta `data-val="true"` atrybut do wyzwolenia sprawdzania poprawności dyskretnego kodu klienta. Na przykład `City` pola w modelu zostało oznaczone [wymagane](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) atrybut, który powoduje HTML pokazano w poniższym przykładzie:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample15.cshtml)]
 
@@ -180,7 +180,7 @@ Dla każdej reguły weryfikacji klienta dodaje się atrybut, który ma postać `
 
 ![Miasto wymagane](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image14.png)
 
-Podobnie, dla każdego parametru reguły weryfikacji klienta jest dodawany atrybut mający formularza `data-val-rulename-paramname=paramvalue`. Na przykład `FirstName` właściwość jest oznaczona przy [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybutu i określa minimalną długość wynosi 3 i maksymalnie 8. Reguły sprawdzania poprawności danych o nazwie `length` ma nazwę parametru `max` i wartość parametru 8. Oto kod HTML, który zostanie wygenerowany dla `FirstName` podczas edycji jednego użytkowników:
+Podobnie, dla każdego parametru reguły weryfikacji klienta jest dodawany atrybut mający formularza `data-val-rulename-paramname=paramvalue`. Na przykład `FirstName` właściwość jest oznaczona przy [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybutu i określa minimalną długość wynosi 3 i maksymalnie 8. Reguły sprawdzania poprawności danych o nazwie `length` ma nazwę parametru `max` i wartość parametru 8. Oto kod HTML, który zostanie wygenerowany dla `FirstName` podczas edycji jednego użytkowników:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample16.cshtml)]
 

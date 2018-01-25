@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: cd800062e87c07a0ef1d8d3d32c910aaf3e683cc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98a7ce4991d58181177cf56976888e9fd1526987
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Samouczek: Serwer emisji z SignalR 2
 ====================
@@ -133,7 +133,7 @@ Mają tylko jedno wystąpienie klasy StockTicker, aby uruchomić na serwerze, wi
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample2.cs)]
 
-    [Centrum](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx) klasa jest używana do definiowania metod klientów można wywołać na serwerze. Definiujesz jednej metody: `GetAllStocks()`. Gdy klient początkowo łączy się z serwerem, wywoła tę metodę, aby uzyskać listę wszystkich zasobów z ich bieżącej ceny. Metody można synchronicznie wykonać i zwracać `IEnumerable<Stock>` ponieważ zwraca dane z pamięci. Jeśli metoda musiały uzyskać danych przy wykonywaniu czegoś, co wymagałoby oczekiwania, takich jak wyszukiwania w bazie danych lub wywołania usługi sieci web, należy określić `Task<IEnumerable<Stock>>` jako wartości zwracane, aby włączyć przetwarzanie asynchroniczne. Aby uzyskać więcej informacji, zobacz [ASP.NET SignalR koncentratory interfejsu API przewodnik - Server - kiedy asynchroniczne](../guide-to-the-api/hubs-api-guide-server.md#asyncmethods).
+    [Centrum](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx) klasa jest używana do definiowania metod klientów można wywołać na serwerze. Definiujesz jednej metody: `GetAllStocks()`. Gdy klient początkowo łączy się z serwerem, wywoła tę metodę, aby uzyskać listę wszystkich zasobów z ich bieżącej ceny. Metody można synchronicznie wykonać i zwracać `IEnumerable<Stock>` ponieważ zwraca dane z pamięci. Jeśli metoda musiały uzyskać danych przy wykonywaniu czegoś, co wymagałoby oczekiwania, takich jak wyszukiwania w bazie danych lub wywołania usługi sieci web, należy określić `Task<IEnumerable<Stock>>` jako wartości zwracane, aby włączyć przetwarzanie asynchroniczne. Aby uzyskać więcej informacji, zobacz [ASP.NET SignalR koncentratory interfejsu API przewodnik - Server - kiedy asynchroniczne](../guide-to-the-api/hubs-api-guide-server.md#asyncmethods).
 
     Atrybut HubName Określa, jak koncentratora zostanie dodane odwołanie w kodzie JavaScript na kliencie. Domyślna nazwa na kliencie, jeśli nie możesz użyć tego atrybutu to wersja formatu — z uwzględnieniem wielkości liter nazwy klasy, która w tym przypadku będzie stockTickerHub.
 
@@ -146,7 +146,7 @@ Mają tylko jedno wystąpienie klasy StockTicker, aby uruchomić na serwerze, wi
 
     ### <a name="storing-the-singleton-instance-in-a-static-field"></a>Przechowywanie pojedyncze wystąpienie w polu statycznym
 
-    Kod inicjuje statycznych \_pole wystąpienia, aby utworzyć kopię zapasową właściwości wystąpienia przy użyciu wystąpienia klasy, a to jest tylko wystąpienia klasy, które można utworzyć, ponieważ Konstruktor jest oznaczony jako prywatny. [Inicjalizacja z opóźnieniem](https://msdn.microsoft.com/en-us/library/dd997286.aspx) służy do \_pola wystąpienia nie ze względu na wydajność, ale aby upewnić się, że tworzenie wystąpienia jest threadsafe.
+    Kod inicjuje statycznych \_pole wystąpienia, aby utworzyć kopię zapasową właściwości wystąpienia przy użyciu wystąpienia klasy, a to jest tylko wystąpienia klasy, które można utworzyć, ponieważ Konstruktor jest oznaczony jako prywatny. [Inicjalizacja z opóźnieniem](https://msdn.microsoft.com/library/dd997286.aspx) służy do \_pola wystąpienia nie ze względu na wydajność, ale aby upewnić się, że tworzenie wystąpienia jest threadsafe.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample4.cs)]
 
@@ -160,7 +160,7 @@ Mają tylko jedno wystąpienie klasy StockTicker, aby uruchomić na serwerze, wi
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample6.cs)]
 
-    Kolekcja zasobów została zdefiniowana jako [obiekt ConcurrentDictionary](https://msdn.microsoft.com/en-us/library/dd287191.aspx) typu dla bezpieczeństwa wątków. Alternatywnie, można użyć [słownika](https://msdn.microsoft.com/en-us/library/xfhwa508.aspx) obiektu i jawnie zablokować słownik po wprowadzeniu zmian do niego.
+    Kolekcja zasobów została zdefiniowana jako [obiekt ConcurrentDictionary](https://msdn.microsoft.com/library/dd287191.aspx) typu dla bezpieczeństwa wątków. Alternatywnie, można użyć [słownika](https://msdn.microsoft.com/library/xfhwa508.aspx) obiektu i jawnie zablokować słownik po wprowadzeniu zmian do niego.
 
     Ta przykładowa aplikacja jest OK do przechowywania danych aplikacji w pamięci i utratę danych, jeśli wystąpienie StockTicker zostanie usunięty. W rzeczywistej aplikacji będzie działać z magazynem danych wewnętrznych, takich jak bazy danych.
 
@@ -172,7 +172,7 @@ Mają tylko jedno wystąpienie klasy StockTicker, aby uruchomić na serwerze, wi
 
     UpdateStockPrices jest wywoływana przez czasomierz, który przekazuje wartość null w parametrze state. Przed zaktualizowaniem ceny, blokada jest pobierany podczas \_updateStockPricesLock obiektu. Kod sprawdza, czy inny wątek już aktualizuje ceny, a następnie wywołuje TryUpdateStockPrice dla każdej akcji na liście. Metoda TryUpdateStockPrice decyduje o tym, czy chcesz zmienić giełdowy i ile je zmienić. Zmiana giełdowy BroadcastStockPrice jest wywoływana emisji zmiany giełdowy wszyscy połączeni klienci.
 
-    \_UpdatingStockPrices flaga jest oznaczony jako [volatile](https://msdn.microsoft.com/en-us/library/x13ttww7.aspx) w celu zapewnienia threadsafe do niego dostęp.
+    \_UpdatingStockPrices flaga jest oznaczony jako [volatile](https://msdn.microsoft.com/library/x13ttww7.aspx) w celu zapewnienia threadsafe do niego dostęp.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample8.cs)]
 
@@ -192,7 +192,7 @@ Mają tylko jedno wystąpienie klasy StockTicker, aby uruchomić na serwerze, wi
 
     Metoda updateStockPrice wywołujesz BroadcastStockPrice nie istnieje jeszcze; można będzie dodać później podczas pisania kodu, który działa na kliencie. Ponieważ Clients.All jest dynamiczny, co oznacza, że wyrażenie, które zostanie obliczone w czasie wykonywania mogą odwoływać się do updateStockPrice tutaj. Gdy wykonuje wywołanie tej metody, SignalR wysyła nazwę metody i wartość parametru do klienta, a jeśli klient ma metodę o nazwie updateStockPrice, zostanie wywołana metoda i wartość parametru zostaną przekazane do niej.
 
-    Clients.All oznacza wysłać do wszystkich klientów. SignalR udostępnia inne opcje, aby określić klientów lub grupy klientów do wysyłania do. Aby uzyskać więcej informacji, zobacz [HubConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx).
+    Clients.All oznacza wysłać do wszystkich klientów. SignalR udostępnia inne opcje, aby określić klientów lub grupy klientów do wysyłania do. Aby uzyskać więcej informacji, zobacz [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx).
 
 ### <a name="register-the-signalr-route"></a>Zarejestruj trasy SignalR
 
@@ -295,11 +295,11 @@ Dla danego połączenia SignalR wybiera najlepszą metodę transportu, który ob
 
     Jeśli korzystasz z programu Internet Explorer 10 w systemie Windows 8 (IIS 8), Metoda transportu jest Websocket.
 
-    ![Konsola programu IE 10 IIS 8](tutorial-server-broadcast-with-signalr/_static/image9.png)
+    ![IE 10 IIS 8 Console](tutorial-server-broadcast-with-signalr/_static/image9.png)
 
     Jeśli korzystasz z programu Internet Explorer 10 w systemie Windows 7 (usług IIS 7.5), Metoda transportu jest iframe.
 
-    ![IE 10 konsoli, IIS 7.5](tutorial-server-broadcast-with-signalr/_static/image10.png)
+    ![IE 10 Console, IIS 7.5](tutorial-server-broadcast-with-signalr/_static/image10.png)
 
     W programie Firefox Zainstaluj dodatek Firebug można pobrać okna konsoli. Jeśli używasz przeglądarki Firefox 19 w systemie Windows 8 (IIS 8), Metoda transportu jest Websocket.
 
@@ -412,4 +412,4 @@ Aby uzyskać bardziej zaawansowane pojęcia dotyczące programowania SignalR, od
 - [SignalR Github i przykłady](https://github.com/SignalR/SignalR)
 - [Witryna typu Wiki biblioteki SignalR](https://github.com/SignalR/SignalR/wiki)
 
-Aby uzyskać wskazówki dotyczące sposobu wdrażania aplikacji SignalR na platformie Azure, zobacz [SignalR korzystanie z aplikacji sieci Web w usłudze Azure App Service](../deployment/using-signalr-with-azure-web-sites.md). Aby uzyskać szczegółowe informacje o sposobie wdrażania projektu sieci web programu Visual Studio do witryny sieci Web systemu Windows Azure, zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+Aby uzyskać wskazówki dotyczące sposobu wdrażania aplikacji SignalR na platformie Azure, zobacz [SignalR korzystanie z aplikacji sieci Web w usłudze Azure App Service](../deployment/using-signalr-with-azure-web-sites.md). Aby uzyskać szczegółowe informacje o sposobie wdrażania projektu sieci web programu Visual Studio do witryny sieci Web systemu Windows Azure, zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).

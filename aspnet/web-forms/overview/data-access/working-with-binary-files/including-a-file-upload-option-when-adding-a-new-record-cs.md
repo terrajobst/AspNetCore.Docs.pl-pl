@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fcb791868e6af9eef1614d039d11ef5232b40af5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 384251e5d0d72c6d1cc014c929a5d504be11d1d6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>Opcja przekazywania pliku w tym podczas dodawania nowego rekordu (C#)
 ====================
@@ -176,7 +176,7 @@ Jeśli użytkownik prześle niepoprawny typ pliku, należy usunąć insert i wy�
 
 ## <a name="step-6-saving-the-uploaded-brochure-to-the-web-server-s-file-system"></a>Krok 6: Zapisywanie broszura przekazane do systemu plików s serwera sieci Web
 
-Gdy użytkownik wprowadza wartości dla nowej kategorii i kliknie przycisk Wstaw, występuje odświeżania strony i rozwoju Wstawianie przepływu pracy. Po pierwsze, s widoku DetailsView [ `ItemInserting` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx) uruchamiany. Następnie, ObjectDataSource s `Insert()` wywoływana jest metoda, która powoduje dodawany do nowego rekordu `Categories` tabeli. Po wykonaniu tej s widoku DetailsView [ `ItemInserted` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx) uruchamiany.
+Gdy użytkownik wprowadza wartości dla nowej kategorii i kliknie przycisk Wstaw, występuje odświeżania strony i rozwoju Wstawianie przepływu pracy. Po pierwsze, s widoku DetailsView [ `ItemInserting` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx) uruchamiany. Następnie, ObjectDataSource s `Insert()` wywoływana jest metoda, która powoduje dodawany do nowego rekordu `Categories` tabeli. Po wykonaniu tej s widoku DetailsView [ `ItemInserted` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx) uruchamiany.
 
 Przed ObjectDataSource s `Insert()` wywołania metody, firma Microsoft musi najpierw upewnij się, że odpowiednie typy zostały przekazane przez użytkownika, a następnie zapisz broszura PDF w systemie plików serwera s sieci web. Tworzenie procedury obsługi zdarzeń dla widoku DetailsView s `ItemInserting` zdarzeń i Dodaj następujący kod:
 
@@ -191,7 +191,7 @@ Uruchamia program obsługi zdarzeń za pomocą odwołań do `BrochureUpload` kon
 
 Zgodnie z opisem w [przesyłanie plików](uploading-files-cs.md) samouczek, należy zachować ostrożność podczas zapisywania plików w systemie plików, tak że jeden użytkownik s przekazywania nie powoduje zastąpienia s innej. W tym samouczku firma Microsoft podejmie próbę użycia taką samą nazwę jak przekazanego pliku. Jeśli istnieje już plik w `~/Brochures` katalog o tej samej nazwie, jednak firma Microsoft będzie append numer na końcu aż do znalezienia unikatową nazwę. Na przykład, jeśli użytkownik prześle broszura plik o nazwie `Meats.pdf`, ale istnieje już plik o nazwie `Meats.pdf` w `~/Brochures` folderu, zmienimy nazwy zapisanego pliku `Meats-1.pdf`. Jeśli który istnieje, zostanie uruchomiony `Meats-2.pdf`i tak dalej, aż do znalezienia unikatową nazwę pliku.
 
-Poniższy kod używa [ `File.Exists(path)` metody](https://msdn.microsoft.com/en-us/library/system.io.file.exists.aspx) do ustalenia, czy istnieje już plik o takiej samej nazwie. Jeśli tak, nadal spróbuj nowe nazwy pliku broszury, aż do znalezienia nie było konfliktu.
+Poniższy kod używa [ `File.Exists(path)` metody](https://msdn.microsoft.com/library/system.io.file.exists.aspx) do ustalenia, czy istnieje już plik o takiej samej nazwie. Jeśli tak, nadal spróbuj nowe nazwy pliku broszury, aż do znalezienia nie było konfliktu.
 
 
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample7.cs)]

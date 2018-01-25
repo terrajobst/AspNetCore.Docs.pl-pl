@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: abd3f3f78dd9a9e6394e2f61aa9bd692810ca875
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie w środowisku produkcyjnym
 ====================
@@ -150,7 +150,7 @@ Teraz, po utworzeniu aplikacji sieci web i bazy danych w środowisku przemieszcz
     5. Zamknij **Konfigurowanie aktualizacji bazy danych** okno dialogowe.
 10. W obszarze **SchoolContext** w **baz danych** zaznacz **wykonaj migracje Code First (wywoływane po uruchomieniu aplikacji)**.
 
-    Wyświetla programu Visual Studio **wykonaj migracje Code First** zamiast **aktualizacji bazy danych** dla `DbContext` klasy. Jeśli chcesz użyć dostawcy dbDacFx zamiast migracje do bazy danych, do którego dostęp przy użyciu wdrożenia `DbContext` , zobacz [sposób wdrażania Code First bazy danych bez migracje?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#deploy_code_first_without_migrations) w sieci Web wdrożenia często zadawane pytania dla programu Visual Studio i platformy ASP.NET w witrynie MSDN.
+    Wyświetla programu Visual Studio **wykonaj migracje Code First** zamiast **aktualizacji bazy danych** dla `DbContext` klasy. Jeśli chcesz użyć dostawcy dbDacFx zamiast migracje do bazy danych, do którego dostęp przy użyciu wdrożenia `DbContext` , zobacz [sposób wdrażania Code First bazy danych bez migracje?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) w sieci Web wdrożenia często zadawane pytania dla programu Visual Studio i platformy ASP.NET w witrynie MSDN.
 
     **Ustawienia** kartę teraz wygląda następująco:
 
@@ -193,7 +193,7 @@ Ważną kwestią przemieszczania aplikacji jest będzie na żywo w Internecie, �
 - Użyj zaciemnionego adresu URL, który będzie niemożliwe do odgadnięcia.
 - Utwórz *robots.txt* pliku, aby upewnić się, że aparatów wyszukiwania będzie Przeszukuj łącza aplikacji i raportu testu do niego w wynikach wyszukiwania.
 
-Pierwsza z tych metod jest najbardziej efektywne, ale nie jest uwzględnione w tym samouczku, ponieważ wymagałyby wdrażania do usługi w chmurze platformy Azure zamiast usługi Azure App Service. Więcej informacji o usługach w chmurze oraz ograniczenia adresów IP na platformie Azure, zobacz [obliczeniowe Hosting opcje dostarczany przez platformę Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) i [bloku określonych adresów IP, dostęp do roli sieci Web](https://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx). Jeśli wdrażasz do innego dostawcy hostingu, skontaktuj się z dostawcą, aby dowiedzieć się, jak zaimplementować ograniczenia adresów IP.
+Pierwsza z tych metod jest najbardziej efektywne, ale nie jest uwzględnione w tym samouczku, ponieważ wymagałyby wdrażania do usługi w chmurze platformy Azure zamiast usługi Azure App Service. Więcej informacji o usługach w chmurze oraz ograniczenia adresów IP na platformie Azure, zobacz [obliczeniowe Hosting opcje dostarczany przez platformę Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) i [bloku określonych adresów IP, dostęp do roli sieci Web](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx). Jeśli wdrażasz do innego dostawcy hostingu, skontaktuj się z dostawcą, aby dowiedzieć się, jak zaimplementować ograniczenia adresów IP.
 
 W tym samouczku utworzysz *robots.txt* pliku.
 
@@ -256,7 +256,7 @@ Domyślnie *.pubxml* pliki znajdują się w projekcie, podczas tworzenia profilu
 
 Dla każdego *.pubxml* pliku jest *. pubxml.user* pliku. *. Pubxml.user* plik zawiera zaszyfrowane hasło, jeśli wybrano **Zapisz hasło** opcję i domyślnie jest on wykluczony z projektu.
 
-A *.pubxml* plik zawiera ustawienia, które odnoszą się do profilu publikowania określonych. Jeśli chcesz skonfigurować ustawienia stosowane do wszystkich profilów, możesz utworzyć *. wpp.targets* pliku. Proces kompilacji importuje tych plików do *.csproj* lub *vbproj* pliku projektu, dlatego w tych plikach można skonfigurować większość ustawień, które można skonfigurować w pliku projektu. Aby uzyskać więcej informacji na temat *.pubxml* plików i *. wpp.targets* plików, zobacz [porady: edytowanie ustawień wdrażania w plikach profilu publikacji (.pubxml) i. wpp.targets pliku w programie Visual Studio Projekty w sieci Web](https://msdn.microsoft.com/en-us/library/ff398069.aspx).
+A *.pubxml* plik zawiera ustawienia, które odnoszą się do profilu publikowania określonych. Jeśli chcesz skonfigurować ustawienia stosowane do wszystkich profilów, możesz utworzyć *. wpp.targets* pliku. Proces kompilacji importuje tych plików do *.csproj* lub *vbproj* pliku projektu, dlatego w tych plikach można skonfigurować większość ustawień, które można skonfigurować w pliku projektu. Aby uzyskać więcej informacji na temat *.pubxml* plików i *. wpp.targets* plików, zobacz [porady: edytowanie ustawień wdrażania w plikach profilu publikacji (.pubxml) i. wpp.targets pliku w programie Visual Studio Projekty w sieci Web](https://msdn.microsoft.com/library/ff398069.aspx).
 
 1. W **Eksploratora rozwiązań**, rozwiń węzeł **właściwości** i rozwiń **PublishProfiles**.
 2. Kliknij prawym przyciskiem myszy *Production.pubxml* i kliknij przycisk **Otwórz**.
@@ -271,7 +271,7 @@ A *.pubxml* plik zawiera ustawienia, które odnoszą się do profilu publikowani
 
     [!code-xml[Main](deploying-to-production/samples/sample4.xml?highlight=18-20)]
 
-    Aby uzyskać więcej informacji o sposobie wykluczyć pliki i foldery, zobacz [można wykluczyć określone pliki lub foldery z wdrożenia?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) w **często zadawane pytania wdrażania w sieci Web dla platformy ASP.NET i Visual Studio** w witrynie MSDN.
+    Aby uzyskać więcej informacji o sposobie wykluczyć pliki i foldery, zobacz [można wykluczyć określone pliki lub foldery z wdrożenia?](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) w **często zadawane pytania wdrażania w sieci Web dla platformy ASP.NET i Visual Studio** w witrynie MSDN.
 
 ### <a name="deploy-to-production"></a>Wdrażanie w środowisku produkcyjnym
 
@@ -295,7 +295,7 @@ Teraz pomyślnie wdrożyć i przetestować aplikację sieci web i jest dostępny
 W następnym samouczku możesz zaktualizować kodu aplikacji i wdrożenia zmiany do środowiska testowego, tymczasową i produkcyjną.
 
 > [!NOTE]
-> Gdy aplikacja jest używana w środowisku produkcyjnym powinien być wykonawczych planu odzyskiwania. To, że użytkownik należy okresowo kopii zapasowych baz danych z aplikacji produkcyjnej do lokalizacji bezpiecznego magazynu i należy zachować kilka generacji tych kopii zapasowych. Podczas aktualizowania bazy danych należy kopii zapasowej z bezpośrednio przed zmianą. Następnie jeśli popełnienia błędu, a nie odnalezienia dopiero po wdrożeniu w środowisku produkcyjnym, nadal będzie można odzyskać bazy danych do stanu sprzed przed jego uległa uszkodzeniu. Aby uzyskać więcej informacji, zobacz [i przywracania kopii zapasowej bazy danych SQL Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj650016.aspx).
+> Gdy aplikacja jest używana w środowisku produkcyjnym powinien być wykonawczych planu odzyskiwania. To, że użytkownik należy okresowo kopii zapasowych baz danych z aplikacji produkcyjnej do lokalizacji bezpiecznego magazynu i należy zachować kilka generacji tych kopii zapasowych. Podczas aktualizowania bazy danych należy kopii zapasowej z bezpośrednio przed zmianą. Następnie jeśli popełnienia błędu, a nie odnalezienia dopiero po wdrożeniu w środowisku produkcyjnym, nadal będzie można odzyskać bazy danych do stanu sprzed przed jego uległa uszkodzeniu. Aby uzyskać więcej informacji, zobacz [i przywracania kopii zapasowej bazy danych SQL Azure](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
 
 
 > [!NOTE]

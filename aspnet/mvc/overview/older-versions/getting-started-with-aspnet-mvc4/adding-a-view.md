@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 4309290294b28d4c177e0193719bcff4b3f2a8cf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 60374ddc6754f7e312ad08b420268308a9935bb4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-view"></a>Dodawanie widoku
 ====================
@@ -34,7 +34,7 @@ Obecnie `Index` metoda zwraca ciąg zawierający komunikat, który jest ustalony
 
 [!code-csharp[Main](adding-a-view/samples/sample1.cs)]
 
-`Index` Metod powyżej szablonu widok używane do generowania odpowiedzi HTML do przeglądarki. Metody kontrolera (znanej także jako [metod akcji](http://rachelappel.com/asp.net-mvc-actionresults-explained)), takich jak `Index` zazwyczaj zwracany przez metodę powyżej [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (lub klasą pochodną [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx)), typy pierwotne nie, takich jak ciąg.
+`Index` Metod powyżej szablonu widok używane do generowania odpowiedzi HTML do przeglądarki. Metody kontrolera (znanej także jako [metod akcji](http://rachelappel.com/asp.net-mvc-actionresults-explained)), takich jak `Index` zazwyczaj zwracany przez metodę powyżej [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx) (lub klasą pochodną [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx)), typy pierwotne nie, takich jak ciąg.
 
 W projekcie Dodaj szablon widoku, który można używać z `Index` metody. Aby to zrobić, kliknij prawym przyciskiem myszy wewnątrz `Index` — metoda i kliknij przycisk **Dodaj widok**.
 

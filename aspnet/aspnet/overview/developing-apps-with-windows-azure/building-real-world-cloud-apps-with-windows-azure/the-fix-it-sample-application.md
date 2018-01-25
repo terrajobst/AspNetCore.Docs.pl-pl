@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 470b8a5f4a004c85f603c9c5d0766e5826c96e38
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c98e79bf8e9a1fe0899ed6d952c3e411ca472f7e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Dodatek: Poprawkę go aplikacji przykładowej (Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure)
 ====================
@@ -62,10 +62,10 @@ Administrator powinien móc zmienić własności na istniejące zadania. Na przy
 
 Komunikat z kolejki przetwarzania w aplikacji Usuń został opracowany jako proste w celu zilustrowania wzorzec skoncentrowane kolejki pracy z minimalną ilością kodu. Ten prosty kod nie są odpowiednie dla aplikacji rzeczywistej produkcji.
 
-- Kod nie gwarantuje co najwyżej raz przetwarzania każdego komunikatu w kolejce. Gdy pojawi się komunikat z kolejki, istnieje limit czasu, w którym jest niewidoczny dla innych odbiorników kolejki wiadomości. Limit czasu wygaśnięcia przed usunięciem komunikatu, komunikat staje się widoczna ponownie. W związku z tym jeśli wystąpienie roli procesu roboczego zużywa dużo czasu przetwarzania komunikatu, prawdopodobnie teoretycznie dla tego samego komunikatu na przetworzenie dwa razy, co zduplikowane zadania w bazie danych. Aby uzyskać więcej informacji na temat tego problemu, zobacz [przy użyciu kolejki magazynu Azure](https://msdn.microsoft.com/en-us/library/ff803365.aspx#sec7).
-- Logika sondowania kolejki może być bardziej ekonomiczne rozwiązanie przez przetwarzanie wsadowe pobieranie wiadomości. Za każdym razem, gdy jest wywoływana [CloudQueue.GetMessageAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx), brak kosztów transakcji. Zamiast tego można wywołać [CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (należy zwrócić uwagę na liczbę mnogą "), która pobiera wiele komunikatów w ramach jednej transakcji. Koszty transakcji dla kolejek magazynu Azure są bardzo niskie, więc nie jest znaczny, w większości przypadków wpływ na koszty.
+- Kod nie gwarantuje co najwyżej raz przetwarzania każdego komunikatu w kolejce. Gdy pojawi się komunikat z kolejki, istnieje limit czasu, w którym jest niewidoczny dla innych odbiorników kolejki wiadomości. Limit czasu wygaśnięcia przed usunięciem komunikatu, komunikat staje się widoczna ponownie. W związku z tym jeśli wystąpienie roli procesu roboczego zużywa dużo czasu przetwarzania komunikatu, prawdopodobnie teoretycznie dla tego samego komunikatu na przetworzenie dwa razy, co zduplikowane zadania w bazie danych. Aby uzyskać więcej informacji na temat tego problemu, zobacz [przy użyciu kolejki magazynu Azure](https://msdn.microsoft.com/library/ff803365.aspx#sec7).
+- Logika sondowania kolejki może być bardziej ekonomiczne rozwiązanie przez przetwarzanie wsadowe pobieranie wiadomości. Za każdym razem, gdy jest wywoływana [CloudQueue.GetMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx), brak kosztów transakcji. Zamiast tego można wywołać [CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (należy zwrócić uwagę na liczbę mnogą "), która pobiera wiele komunikatów w ramach jednej transakcji. Koszty transakcji dla kolejek magazynu Azure są bardzo niskie, więc nie jest znaczny, w większości przypadków wpływ na koszty.
 - Ścisłej pętli w kodzie przetwarzania komunikatów kolejki powoduje, że koligacji procesora CPU, który nie korzysta z maszyn wirtualnych w wielordzeniowych wydajnie. Lepszego projektowania użyje równoległość zadań, aby równolegle wielu zadań asynchronicznych.
-- Przetwarzanie komunikatów w kolejce ma tylko podstawowe wyjątków. Na przykład kod nie obsługuje [zanieczyszczonych komunikatów](https://msdn.microsoft.com/en-us/library/ms789028.aspx). (Podczas przetwarzania komunikatu powoduje zgłoszenie wyjątku, trzeba błąd i usuwanie wiadomości, lub roli proces roboczy spróbuje ponownie przetworzyć, i pętli będzie nieskończoność.)
+- Przetwarzanie komunikatów w kolejce ma tylko podstawowe wyjątków. Na przykład kod nie obsługuje [zanieczyszczonych komunikatów](https://msdn.microsoft.com/library/ms789028.aspx). (Podczas przetwarzania komunikatu powoduje zgłoszenie wyjątku, trzeba błąd i usuwanie wiadomości, lub roli proces roboczy spróbuje ponownie przetworzyć, i pętli będzie nieskończoność.)
 
 ### <a name="sql-queries-are-unbounded"></a>Zapytania SQL są niepowiązanego
 
@@ -85,7 +85,7 @@ Przykładowe skrypty automatyzacji środowiska PowerShell zostały napisane tylk
 
 ### <a name="special-handling-for-html-codes-in-user-input"></a>Obsługa specjalnej kodów HTML w danych wejściowych użytkownika
 
-ASP.NET jest automatycznie zapobiega wiele sposobów, w których złośliwych użytkowników może podejmować atakami skryptów między witrynami, wprowadzając skrypt w polach tekstowych wejściowych użytkownika. I MVC `DisplayFor` pomocnika używany do wyświetlania zadań tytuły i uwagi dotyczące automatycznie koduje HTML wartości, które wysyła do przeglądarki. Jednak w aplikacji produkcyjnej warto zastosować dodatkowe środki. Aby uzyskać więcej informacji, zobacz [żądania weryfikacji w programie ASP.NET](https://msdn.microsoft.com/en-us/library/hh882339.aspx).
+ASP.NET jest automatycznie zapobiega wiele sposobów, w których złośliwych użytkowników może podejmować atakami skryptów między witrynami, wprowadzając skrypt w polach tekstowych wejściowych użytkownika. I MVC `DisplayFor` pomocnika używany do wyświetlania zadań tytuły i uwagi dotyczące automatycznie koduje HTML wartości, które wysyła do przeglądarki. Jednak w aplikacji produkcyjnej warto zastosować dodatkowe środki. Aby uzyskać więcej informacji, zobacz [żądania weryfikacji w programie ASP.NET](https://msdn.microsoft.com/library/hh882339.aspx).
 
 <a id="bestpractices"></a>
 ## <a name="best-practices"></a>Najlepsze praktyki
@@ -146,13 +146,13 @@ Aby wyświetlić kod proste, z oryginalną wersją aplikacji Usuń nie określ d
 
 ### <a name="mark-private-members-as-readonly-when-they-arent-expected-to-change"></a>Oznacz prywatne elementy członkowskie jako tylko do odczytu, gdy nie są one oczekiwane zmiany
 
-Na przykład w `DashboardController` wystąpienia klasy `FixItTaskRepository` zostanie utworzona i nie jest oczekiwany można zmienić, więc go jako zdefiniowanego [tylko do odczytu](https://msdn.microsoft.com/en-us/library/acdd6hb7.aspx).
+Na przykład w `DashboardController` wystąpienia klasy `FixItTaskRepository` zostanie utworzona i nie jest oczekiwany można zmienić, więc go jako zdefiniowanego [tylko do odczytu](https://msdn.microsoft.com/library/acdd6hb7.aspx).
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample9.cs?highlight=3)]
 
 ### <a name="use-listany-instead-of-listcount-gt-0"></a>Użyj listy. Any() zamiast listy. Funkcji Count() &gt; 0
 
-Jeśli użytkownik Cię interesuje czy jeden lub więcej elementów na liście dopasowania określone kryteria, użyj [żadnych](https://msdn.microsoft.com/en-us/library/bb534972.aspx) metody, ponieważ zwraca ono jak kryteria dopasowywania element zostanie znaleziony, podczas gdy `Count` iteracyjne ma zawsze — metoda do każdego elementu. Pulpit nawigacyjny *Index.cshtml* pliku była pierwotnie ten kod:
+Jeśli użytkownik Cię interesuje czy jeden lub więcej elementów na liście dopasowania określone kryteria, użyj [żadnych](https://msdn.microsoft.com/library/bb534972.aspx) metody, ponieważ zwraca ono jak kryteria dopasowywania element zostanie znaleziony, podczas gdy `Count` iteracyjne ma zawsze — metoda do każdego elementu. Pulpit nawigacyjny *Index.cshtml* pliku była pierwotnie ten kod:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample10.cshtml)]
 
@@ -166,13 +166,13 @@ Dla **napraw go utworzyć** przycisk na stronie głównej poprawka aplikacji twa
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample12.cshtml)]
 
-Dla łącza widoku/akcji, takich jak to jest lepiej jest użyć [Url.Action](https://msdn.microsoft.com/en-us/library/system.web.mvc.urlhelper.action.aspx) pomocnika kodu HTML, na przykład:
+Dla łącza widoku/akcji, takich jak to jest lepiej jest użyć [Url.Action](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.action.aspx) pomocnika kodu HTML, na przykład:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample13.cshtml)]
 
 ### <a name="use-taskdelay-instead-of-threadsleep-in-worker-role"></a>Użyj Task.Delay zamiast Thread.Sleep w roli procesu roboczego
 
-Nowy projekt szablonu umieszcza `Thread.Sleep` w próbce kod roli proces roboczy, ale powoduje wątku w stan uśpienia może spowodować puli wątków uruchomić dodatkowe wątki niepotrzebne. Można uniknąć który za pomocą [Task.Delay](https://msdn.microsoft.com/en-us/library/hh139096.aspx) zamiast tego.
+Nowy projekt szablonu umieszcza `Thread.Sleep` w próbce kod roli proces roboczy, ale powoduje wątku w stan uśpienia może spowodować puli wątków uruchomić dodatkowe wątki niepotrzebne. Można uniknąć który za pomocą [Task.Delay](https://msdn.microsoft.com/library/hh139096.aspx) zamiast tego.
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample14.cs?highlight=11)]
 
@@ -184,11 +184,11 @@ W tym przykładzie pochodzi z `FixItQueueManager` klasy:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample15.cs)]
 
-Należy używać `async void` tylko dla programów obsługi zdarzeń najwyższego poziomu. W przypadku definiowania metodę jako `async void`, obiekt wywołujący nie **await** metody lub przechwycić wszelkie wyjątki, metoda wygeneruje. Aby uzyskać więcej informacji, zobacz [programowania asynchronicznych — najlepsze praktyki](https://msdn.microsoft.com/en-us/magazine/jj991977.aspx). 
+Należy używać `async void` tylko dla programów obsługi zdarzeń najwyższego poziomu. W przypadku definiowania metodę jako `async void`, obiekt wywołujący nie **await** metody lub przechwycić wszelkie wyjątki, metoda wygeneruje. Aby uzyskać więcej informacji, zobacz [programowania asynchronicznych — najlepsze praktyki](https://msdn.microsoft.com/magazine/jj991977.aspx). 
 
 ### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>Użyj token anulowania, aby przerwać pętlę roli procesu roboczego
 
-Zazwyczaj **Uruchom** metody w roli procesu roboczego zawiera Pętla nieskończona. Gdy rola proces roboczy jest zatrzymywana, [RoleEntryPoint.OnStop](https://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) metoda jest wywoływana. Należy użyć tej metody do anulowania pracy, która jest wykonywana wewnątrz **Uruchom** metody i wyjścia bezpiecznie zamknąć. W przeciwnym razie proces mogą być zakończone w trakcie wykonywania operacji.
+Zazwyczaj **Uruchom** metody w roli procesu roboczego zawiera Pętla nieskończona. Gdy rola proces roboczy jest zatrzymywana, [RoleEntryPoint.OnStop](https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) metoda jest wywoływana. Należy użyć tej metody do anulowania pracy, która jest wykonywana wewnątrz **Uruchom** metody i wyjścia bezpiecznie zamknąć. W przeciwnym razie proces mogą być zakończone w trakcie wykonywania operacji.
 
 ### <a name="opt-out-of-automatic-mime-sniffing-procedure"></a>Opcja rezygnacji z procedury automatyczne wykrywanie MIME
 
@@ -219,7 +219,7 @@ Istnieją dwa sposoby uruchamiania aplikacji napraw:
 <a id="runbase"></a>
 ### <a name="run-the-base-application"></a>Uruchom podstawowej aplikacji
 
-1. Zainstaluj [Visual Studio 2013 lub Visual Studio Express 2013 for Web](https://www.visualstudio.com/en-us/downloads).
+1. Zainstaluj [Visual Studio 2013 lub Visual Studio Express 2013 for Web](https://www.visualstudio.com/downloads).
 2. Zainstaluj [Azure SDK dla platformy .NET dla programu Visual Studio 2013.](https://go.microsoft.com/fwlink/p/?linkid=323510&amp;clcid=0x409)
 3. Pobierz plik zip z [galerii kodu MSDN](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4).
 4. W Eksploratorze plików kliknij prawym przyciskiem myszy plik zip i kliknij polecenie Właściwości, a następnie w oknie dialogowym właściwości kliknij przycisk Odblokuj.
@@ -228,7 +228,7 @@ Istnieją dwa sposoby uruchamiania aplikacji napraw:
 7. W menu Narzędzia kliknij pozycję Menedżer pakietów biblioteki, a następnie Konsola Menedżera pakietów.
 8. W konsoli Menedżera pakietów (PMC), kliknij przycisk Przywróć.
 9. Zamknij program Visual Studio.
-10. Uruchom [emulatora magazynu Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx).
+10. Uruchom [emulatora magazynu Azure](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx).
 11. Uruchom ponownie program Visual Studio, otwierając plik rozwiązania zamknięte w poprzednim kroku.
 12. Upewnij się, że projekt automatyczne jest ustawiony jako projekt startowy, a następnie naciśnij klawisze CTRL + F5, aby uruchomić projekt.
 
@@ -240,7 +240,7 @@ Istnieją dwa sposoby uruchamiania aplikacji napraw:
 3. W aplikacji *Web.config* w pliku *MyFixIt* projekt (projekt sieci web), zmień wartość `appSettings/UseQueues` na wartość "true": 
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample19.cmd?highlight=3)]
-4. Jeśli [emulatora magazynu Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx) nie jest nadal uruchomiona, uruchom go ponownie.
+4. Jeśli [emulatora magazynu Azure](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx) nie jest nadal uruchomiona, uruchom go ponownie.
 5. Automatyczne projektu sieci web i projektu MyFixItCloudService być uruchomione jednocześnie.
 
     Za pomocą programu Visual Studio 2013:
@@ -397,7 +397,7 @@ W MyFixItCloudService\ServiceConfiguration.Cloud.cscfg Zastąp tego samego dwóc
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample34.xml?highlight=3)]
 
-Teraz można przystąpić do wdrażania usługi w chmurze. W zapoznać się z rozwiązania, kliknij prawym przyciskiem myszy projekt MyFixItCloudService, a następnie wybierz **publikowania**. Aby uzyskać więcej informacji, zobacz "[wdrażanie aplikacji w usłudze Azure](https://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", która znajduje się w części 2 [w tym samouczku](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
+Teraz można przystąpić do wdrażania usługi w chmurze. W zapoznać się z rozwiązania, kliknij prawym przyciskiem myszy projekt MyFixItCloudService, a następnie wybierz **publikowania**. Aby uzyskać więcej informacji, zobacz "[wdrażanie aplikacji w usłudze Azure](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", która znajduje się w części 2 [w tym samouczku](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
 
 >[!div class="step-by-step"]
 [Poprzednie](more-patterns-and-guidance.md)

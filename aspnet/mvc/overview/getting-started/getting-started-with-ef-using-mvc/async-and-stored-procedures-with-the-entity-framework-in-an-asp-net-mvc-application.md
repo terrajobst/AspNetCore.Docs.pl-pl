@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5b4904037838441942ea266ce71d735642d0a717
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7412b32ac29179dfa319544781d4c7165c58196b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Async i procedur składowanych z programu Entity Framework w aplikacji platformy ASP.NET MVC
 ====================
@@ -128,11 +128,11 @@ Niektóre deweloperów i DBAs preferowane procedur składowanych na potrzeby dos
 
     ![SP Insert działu](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
-Kod najpierw tworzy domyślną przechowywane procedury nazwy. Jeśli korzystasz z istniejącej bazy danych, konieczne może być Dostosowywanie nazw procedury składowanej, aby można było używać procedury składowane już zdefiniowana w bazie danych. Aby dowiedzieć się, jak to zrobić, zobacz [Entity Framework kod pierwszego wstawiania/aktualizacji/usuwania procedur składowanych](https://msdn.microsoft.com/en-us/data/dn468673).
+Kod najpierw tworzy domyślną przechowywane procedury nazwy. Jeśli korzystasz z istniejącej bazy danych, konieczne może być Dostosowywanie nazw procedury składowanej, aby można było używać procedury składowane już zdefiniowana w bazie danych. Aby dowiedzieć się, jak to zrobić, zobacz [Entity Framework kod pierwszego wstawiania/aktualizacji/usuwania procedur składowanych](https://msdn.microsoft.com/data/dn468673).
 
 Jeśli chcesz dostosować generowane co czy procedury składowane można edytować kod z utworzonym szkieletem migracji `Up` metodę, która tworzy procedury składowanej. W ten sposób zmiany zostaną odzwierciedlone zawsze, gdy zostanie uruchomione migracji, a zostaną zastosowane do produkcyjnej bazy danych podczas migracji automatycznie uruchamia się w środowisku produkcyjnym po zakończeniu wdrożenia.
 
-Jeśli chcesz zmienić istniejącą procedurę składowaną, który został utworzony w poprzedniej migracji, można wygenerować puste migracji za pomocą polecenia Add-Migration i ręcznie napisać kod, który wywołuje [AlterStoredProcedure](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.dbmigration.alterstoredprocedure.aspx) — metoda .
+Jeśli chcesz zmienić istniejącą procedurę składowaną, który został utworzony w poprzedniej migracji, można wygenerować puste migracji za pomocą polecenia Add-Migration i ręcznie napisać kod, który wywołuje [AlterStoredProcedure](https://msdn.microsoft.com/library/system.data.entity.migrations.dbmigration.alterstoredprocedure.aspx) — metoda .
 
 ## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
 

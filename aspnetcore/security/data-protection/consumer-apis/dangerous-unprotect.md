@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/dangerous-unprotect
-ms.openlocfilehash: f2425de3f790cd8dab17940ec52a2a7e170cc630
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 08a8ad9b3b3cc2de48751d4149bf39c58954fd90
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="unprotecting-payloads-whose-keys-have-been-revoked"></a>Wyłączanie ochrony ładunków, której klucze zostały odwołane.
 
@@ -44,6 +44,6 @@ Ten interfejs API przyjmuje chronione obciążenie (w postaci tablicy bajtów) i
 * `wasRevoked`: zostanie ustawiona na true, jeśli klucz używany do ochrony tego ładunku został odwołany.
 
 >[!WARNING]
-> Zachować wyjątkową ostrożność podczas przekazywania `ignoreRevocationErrors: true` do `DangerousUnprotect` metody. Jeśli po wywołaniu tej metody `wasRevoked` ma wartość true, a następnie klucz używany do ochrony tego ładunku został odwołany i autentyczności ładunku powinny być traktowane jako podejrzana. W takim przypadku tylko kontynuowania działania na niechronionych ładunku, jeśli masz niektórych oddzielne gwarancji czy jest autentyczna, np. jego obiektu pochodzące z bezpiecznej bazie danych, a nie są wysyłane przez klienta niezaufanych sieci web.
+> Zachować wyjątkową ostrożność podczas przekazywania `ignoreRevocationErrors: true` do `DangerousUnprotect` metody. Jeśli po wywołaniu tej metody `wasRevoked` ma wartość true, a następnie klucz używany do ochrony tego ładunku został odwołany i autentyczności ładunku powinny być traktowane jako podejrzana. W takim przypadku tylko nadal działających na niechronione ładunku, jeśli masz niektórych oddzielne gwarancji jest autentyczna, np. czy jest pochodzi z bezpiecznej bazie danych nie są wysyłane przez klienta niezaufanych sieci web.
 
 [!code-csharp[Main](dangerous-unprotect/samples/dangerous-unprotect.cs)]

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: a6a90a03674cfe7565da0ed56148186ee9525707
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d46e2697d10ca27f8e08533350a6e7f2354b4a43
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-content-to-source-control"></a>Dodawanie zawartości do kontroli źródła
 ====================
@@ -90,7 +90,7 @@ Aby dodać projekty i rozwiązania do kontroli źródła, należy najpierw przen
 1. Na stacji roboczej developer Przenieś swoje projekty i rozwiązania do odpowiedniej lokalizacji w strukturze zamapowany folder dla projektu zespołowego.
 
     > [!NOTE]
-    > Wiele organizacji ma preferowana metoda sposób organizowania projektów i rozwiązań w kontroli źródła. Aby uzyskać instrukcje na temat struktury folderów, zobacz [jak: struktura Your źródła formantu folderów na serwerze Team Foundation Server](https://msdn.microsoft.com/en-us/library/bb668992.aspx).
+    > Wiele organizacji ma preferowana metoda sposób organizowania projektów i rozwiązań w kontroli źródła. Aby uzyskać instrukcje na temat struktury folderów, zobacz [jak: struktura Your źródła formantu folderów na serwerze Team Foundation Server](https://msdn.microsoft.com/library/bb668992.aspx).
 2. Otwórz rozwiązanie w Visual Studio 2010.
 3. W **Eksploratora rozwiązań** , kliknij prawym przyciskiem myszy rozwiązanie, a następnie kliknij przycisk **Dodaj rozwiązanie do kontroli źródła**.
 
@@ -149,13 +149,13 @@ W tym momencie dodano zależności zewnętrznych dla rozwiązania do kontroli ź
 
 ## <a name="conclusion"></a>Wniosek
 
-W tym temacie opisano sposób Połącz z projektem zespołowym, mapy struktury folderów i Dodaj do kontroli źródła zawartości. Aby uzyskać więcej informacji na temat pracy z elementami pod kontrolą źródła, zobacz [przy użyciu kontroli wersji](https://msdn.microsoft.com/en-us/library/ms181368.aspx).
+W tym temacie opisano sposób Połącz z projektem zespołowym, mapy struktury folderów i Dodaj do kontroli źródła zawartości. Aby uzyskać więcej informacji na temat pracy z elementami pod kontrolą źródła, zobacz [przy użyciu kontroli wersji](https://msdn.microsoft.com/library/ms181368.aspx).
 
 Następnym temacie [Konfigurowanie kompilacji serwera TFS dla Web Deployment](configuring-a-tfs-build-server-for-web-deployment.md), w tym artykule opisano sposób przygotowania serwera TFS Team Build do tworzenia i wdrażania rozwiązania.
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać bardziej szczegółowe informacje na temat pracy z kontroli źródła w programie TFS, zobacz [przy użyciu kontroli wersji](https://msdn.microsoft.com/en-us/library/ms181368.aspx).
+Aby uzyskać bardziej szczegółowe informacje na temat pracy z kontroli źródła w programie TFS, zobacz [przy użyciu kontroli wersji](https://msdn.microsoft.com/library/ms181368.aspx).
 
 >[!div class="step-by-step"]
 [Poprzednie](creating-a-team-project-in-tfs.md)

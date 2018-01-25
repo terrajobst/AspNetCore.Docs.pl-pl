@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d4b83d99fcf1247d08ce83364cc00e738b6a16c8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 63b1266e03041c4261e71fd25e988c63932b503e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authenticating-users-with-windows-authentication-vb"></a>Uwierzytelnianie użytkowników przy użyciu uwierzytelniania systemu Windows (VB)
 ====================
@@ -51,7 +51,7 @@ W przypadku aplikacji sieci web produkcyjnej strony, należy użyć usług IIS j
 
 > [!NOTE] 
 > 
-> Bardziej szczegółowe omówienie różnego typu uwierzytelniania, zobacz [https://msdn.microsoft.com/en-us/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/en-us/library/aa292114(VS.71).aspx).
+> Bardziej szczegółowe omówienie różnego typu uwierzytelniania, zobacz [https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
 
 Aby włączyć określony typ uwierzytelniania, można użyć Menedżera internetowych usług informacyjnych. Należy pamiętać, że wszystkie typy uwierzytelniania nie są dostępne w przypadku każdej wersji systemu operacyjnego. Ponadto jeśli korzystasz z usług IIS 7.0 z systemem Windows Vista, należy włączyć różne typy uwierzytelniania systemu Windows, zanim pojawią się one w Menedżera internetowych usług informacyjnych. Otwórz **Panelu sterowania, programy, programy i funkcje, Włącz lub wyłącz funkcje systemu Windows**, rozwiń węzeł Internetowe usługi informacyjne (patrz rysunek 2).

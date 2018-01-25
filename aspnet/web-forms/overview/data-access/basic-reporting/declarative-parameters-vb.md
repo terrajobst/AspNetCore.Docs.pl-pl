@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7759b3d078ddabd335034f2ff76f10fb0de7dd28
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ea1aed2b76eb4196196f8a800c0bdb891bceda91
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="declarative-parameters-vb"></a>Parametry deklaratywne (VB)
 ====================
@@ -111,7 +111,7 @@ Ponieważ `GetSuppliersByCountry(country)` metoda ma parametr wejściowy, Kreato
 **Rysunek 8**: Ustaw wartość parametru `CountryName` wartości formantu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](declarative-parameters-vb/_static/image24.png))
 
 
-Znaczników deklaracyjne element ObjectDataSource różni się nieco z pierwszego przykładu, za pomocą [parametrze ControlParameter](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.controlparameter.aspx) zamiast standardowego `Parameter` obiektu. A `ControlParameter` ma dodatkowe właściwości, aby określić `ID` kontrolka sieci Web i wartości właściwości do użycia dla parametru (`PropertyName`). Kreator konfigurowania źródła danych nie inteligentne określić, że dla pola tekstowego, firma Microsoft będzie prawdopodobnie zechcesz użyć `Text` właściwości dla wartości parametru. Jeśli jednak chcesz użyć wartości różnych właściwości z formantu sieci Web można zmienić `PropertyName` wartości w tym miejscu lub klikając łącze "Pokaż zaawansowane właściwości" w kreatorze.
+Znaczników deklaracyjne element ObjectDataSource różni się nieco z pierwszego przykładu, za pomocą [parametrze ControlParameter](https://msdn.microsoft.com/library/system.web.ui.webcontrols.controlparameter.aspx) zamiast standardowego `Parameter` obiektu. A `ControlParameter` ma dodatkowe właściwości, aby określić `ID` kontrolka sieci Web i wartości właściwości do użycia dla parametru (`PropertyName`). Kreator konfigurowania źródła danych nie inteligentne określić, że dla pola tekstowego, firma Microsoft będzie prawdopodobnie zechcesz użyć `Text` właściwości dla wartości parametru. Jeśli jednak chcesz użyć wartości różnych właściwości z formantu sieci Web można zmienić `PropertyName` wartości w tym miejscu lub klikając łącze "Pokaż zaawansowane właściwości" w kreatorze.
 
 [!code-aspx[Main](declarative-parameters-vb/samples/sample2.aspx)]
 

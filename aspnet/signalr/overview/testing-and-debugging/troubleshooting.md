@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: d7a1dcc04baaa5ab27aecf95936d943f5a9b3f0c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2394ee81f4592417a034e47db6eefd3e4b91a9af
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-troubleshooting"></a>Rozwiązywanie problemów z SignalR
 ====================
@@ -192,7 +192,7 @@ Istnieje kilka przyczyn tego problemu. Sprawdź wszystkie z następujących czyn
 
 - **Odwołanie do adresu serwera proxy koncentratora nieprawidłowo sformatowana:** ten błąd często jest widoczny, gdy odwołanie do wygenerowanego Centrum adres serwera proxy nie jest prawidłowo sformatowany. Upewnij się, że adres centrum odniesienia poprawnie. Zobacz [jak odwołuje się dynamicznie generowanym obiektu pośredniczącego](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) szczegółowe informacje.
 - **Dodawanie tras do aplikacji przed dodaniem trasę koncentratora:** Jeśli aplikacja korzysta z innych tras, sprawdź, czy trasa pierwszy dodawane wywołania `MapSignalR`.
-- **Za pomocą usług IIS 7 lub bez aktualizacji w wersji 7.5 dla adresy URL bez rozszerzeń:** za pomocą usług IIS 7 i 7.5 wymaga aktualizacji dla adresów URL bez rozszerzenia, aby serwer można zapewnić dostęp do Centrum definicji w `/signalr/hubs`. Aktualizację można znaleźć [tutaj](https://support.microsoft.com/kb/980368/en-us).
+- **Za pomocą usług IIS 7 lub bez aktualizacji w wersji 7.5 dla adresy URL bez rozszerzeń:** za pomocą usług IIS 7 i 7.5 wymaga aktualizacji dla adresów URL bez rozszerzenia, aby serwer można zapewnić dostęp do Centrum definicji w `/signalr/hubs`. Aktualizację można znaleźć [tutaj](https://support.microsoft.com/kb/980368).
 - **Usługi IIS pamięci podręcznej nieaktualny lub uszkodzony:** Aby sprawdzić, czy zawartość pamięci podręcznej nie jest nieaktualny, wprowadź następujące polecenie w oknie programu PowerShell, aby wyczyścić pamięć podręczną:
 
     [!code-powershell[Main](troubleshooting/samples/sample11.ps1)]
@@ -311,7 +311,7 @@ To zachowanie jest celowe. SignalR nie obsługuje stanu sesji ASP.NET, ponieważ
 
 Ten błąd może być wyświetlana, jeśli używasz kodu ze starszą dokumentacją lub blogów. Sprawdź, czy użytkownik nie odwołują się do nazwy metody, które zostały zmienione lub przestarzałe (takie jak `OnConnectedAsync`).
 
-### <a name="hostcontextextensionswebsocketserverurl-is-null"></a>HostContextExtensions.WebSocketServerUrl ma wartość null
+### <a name="hostcontextextensionswebsocketserverurl-is-null"></a>HostContextExtensions.WebSocketServerUrl is null
 
 To zachowanie jest celowe. Ten element członkowski jest przestarzały i nie powinna być używana.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging/index
-ms.openlocfilehash: 387d19af9165d4b54ce3cb1a9b04412271da6fb0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: af8364c584b686fd5c0fe30a89e241d9d08a30c0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Wprowadzenie do rejestrowania w ASP.NET Core
 
@@ -43,7 +43,7 @@ Następnie wywołania metody rejestrowania dla tego obiektu rejestratora:
 
 W tym przykładzie tworzy dzienniki z `TodoController` klasy *kategorii*. Kategorie są objaśnione [dalszej części tego artykułu](#log-category).
 
-Platformy ASP.NET Core nie udostępniają asynchronicznej metody rejestratora, ponieważ rejestrowania należy rozważnie nie warto kosztów asynchronicznego. Jeśli pracujesz w sytuacji, w przypadku, gdy nie jest prawdziwe, należy rozważyć zmianę sposobu logowania. Jeśli w magazynie danych przebiega powoli, najpierw zapisać komunikaty dziennika do szybkiego magazynu, a następnie przenieść je do magazynu powolne później. Na przykład Zaloguj się do kolejki komunikatów, która jest do odczytu i utrwalone w magazynie powolne przez inny proces.
+Platformy ASP.NET Core nie async rejestratora udostępniają metody służące ponieważ rejestrowania należy rozważnie nie warto kosztów asynchronicznego. Jeśli pracujesz w sytuacji, w przypadku, gdy nie jest prawdziwe, należy rozważyć zmianę sposobu logowania. Jeśli w magazynie danych przebiega powoli, najpierw zapisać komunikaty dziennika do szybkiego magazynu, a następnie przenieść je do magazynu powolne później. Na przykład Zaloguj się do kolejki komunikatów, która ma odczytu i utrwalone w magazynie powolne przez inny proces.
 
 ## <a name="how-to-add-providers"></a>Jak dodać dostawców
 
@@ -147,11 +147,11 @@ Platformy ASP.NET Core definiuje następujące [dziennika poziomy](https://docs.
 
 * Śledzenia = 0
 
-  Aby uzyskać informacje, których jest przydatna tylko dla deweloperów, debugowanie problemu. Te komunikaty mogą zawierać dane poufne aplikacji i dlatego nie powinna być włączona w środowisku produkcyjnym. *Domyślnie wyłączone.* Przykład:`Credentials: {"User":"someuser", "Password":"P@ssword"}`
+  Aby uzyskać informacje, których jest przydatna tylko dla deweloperów, debugowanie problemu. Te komunikaty mogą zawierać dane poufne aplikacji i dlatego nie można włączyć w środowisku produkcyjnym. *Domyślnie wyłączone.* Przykład:`Credentials: {"User":"someuser", "Password":"P@ssword"}`
 
 * Debugowanie = 1
 
-  Aby uzyskać informacje, których ma krótkoterminowej przydatność podczas projektowania i debugowania. Przykład: `Entering method Configure with flag set to true.` można zwykle nie umożliwia `Debug` poziomu rejestruje w środowisku produkcyjnym, chyba że występuje problem z powodu dużej liczby dzienników.
+  Aby uzyskać informacje, których ma krótkoterminowej przydatność podczas projektowania i debugowania. Przykład: `Entering method Configure with flag set to true.` zwykle nie włączyć `Debug` poziomu rejestruje w środowisku produkcyjnym, chyba że występuje problem z powodu dużej liczby dzienników.
 
 * Informacje o = 2
 
@@ -159,7 +159,7 @@ Platformy ASP.NET Core definiuje następujące [dziennika poziomy](https://docs.
 
 * Ostrzeżenie = 3
 
-  Dla nieprawidłowego lub nieoczekiwanego zdarzenia w procesie aplikacji. Mogą one zawierać błędy lub inne warunki nie powodują aplikacji do zatrzymania, ale które mogą wymagać należy zbadać. Obsługiwany wyjątki są spójne użyj `Warning` poziom dziennika. Przykład:`FileNotFoundException for file quotes.txt.`
+  Dla nieprawidłowego lub nieoczekiwanego zdarzenia w procesie aplikacji. Mogą one zawierać błędy lub inne warunki, które nie powodują przerwania aplikacji, ale które mogą wymagać należy zbadać. Obsługiwany wyjątki są spójne użyj `Warning` poziom dziennika. Przykład:`FileNotFoundException for file quotes.txt.`
 
 * Błąd = 4
 
@@ -344,7 +344,7 @@ Jeśli nie zostanie jawnie ustawiona na poziomie minimalnym, wartością domyśl
 
 **Funkcje filtrowania**
 
-W funkcji Filtr można zastosować reguł filtrowania, można napisać kod. Funkcja filtru jest wywoływany dla wszystkich dostawców i kategorie, które nie ma przypisanego przez konfiguracji lub kod reguł. Kod w funkcji ma dostęp do typ dostawcy, kategorii i poziom dziennika, aby zdecydować, czy wiadomość powinny być rejestrowane. Na przykład:
+W funkcji Filtr można zastosować reguł filtrowania, można napisać kod. Funkcja filtru jest wywoływany dla wszystkich dostawców i kategorie, które nie mają reguł przypisanego przez konfiguracji lub kodu. Kod w funkcji ma dostęp do typ dostawcy, kategorii i poziom dziennika, aby zdecydować, czy wiadomość powinny być rejestrowane. Na przykład:
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
@@ -356,7 +356,7 @@ Niektórzy dostawcy rejestrowania pozwalają określić, gdy zapisywane na nośn
 
 [!code-csharp[](index/sample/Startup.cs?name=snippet_AddConsoleAndDebugWithFilter&highlight=6-7)]
 
-`AddEventLog` Metoda ma przeciążenia, które przyjmuje `EventLogSettings` wystąpienia, która może zawierać funkcji filtrowania w jego `Filter` właściwości. Dostawca TraceSource nie ma żadnych z tych przeciążeń, ponieważ jej poziom rejestrowania i inne parametry są oparte na `SourceSwitch` i `TraceListener` go używa.
+`AddEventLog` Metoda ma przeciążenia, które przyjmuje `EventLogSettings` wystąpienia, która może zawierać funkcji filtrowania w jego `Filter` właściwości. Dostawcy TraceSource nie zapewnia żadnego z tych przeciążeń, ponieważ jej poziom rejestrowania i inne parametry są oparte na `SourceSwitch` i `TraceListener` go używa.
 
 Można ustawić reguły filtrowania dla wszystkich dostawców, które są zarejestrowane w usłudze `ILoggerFactory` wystąpienia przy użyciu `WithFilter` — metoda rozszerzenia. W poniższym przykładzie ogranicza dzienniki framework (kategoria rozpoczyna się od "Microsoft" lub "System") z ostrzeżeniami, a w dzienniku aplikacji na poziomie debugowania.
 
@@ -364,7 +364,7 @@ Można ustawić reguły filtrowania dla wszystkich dostawców, które są zareje
 
 Jeśli chcesz użyć filtrowania, aby uniemożliwić wszystkie dzienniki zapisywane dla określonej kategorii, można określić `LogLevel.None` jako poziom dziennika minimalną dla tej kategorii. Wartość całkowita `LogLevel.None` to 6, która jest wyższa niż `LogLevel.Critical` (5).
 
-`WithFilter` — Metoda rozszerzenia są dostarczane przez [Microsoft.Extensions.Logging.Filter](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) pakietu NuGet. Metoda zwraca nową `ILoggerFactory` wystąpienia, która będzie filtrować wiadomości dziennika przekazany do wszystkich dostawców rejestratora zarejestrowany z nim. Nie dotyczy ono innych `ILoggerFactory` wystąpienia, w tym oryginalnej `ILoggerFactory` wystąpienia.
+`WithFilter` — Metoda rozszerzenia są dostarczane przez [Microsoft.Extensions.Logging.Filter](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) pakietu NuGet. Metoda zwraca nową `ILoggerFactory` wystąpienia, która będzie filtrować wiadomości dziennika przekazany do wszystkich dostawców rejestratora zarejestrowany z nim. Nie wpływa na inne `ILoggerFactory` wystąpienia, w tym oryginalnej `ILoggerFactory` wystąpienia.
 
 ---
 
@@ -647,7 +647,7 @@ Aby skonfigurować przesyłania strumieniowego dzienników Azure:
 
 ![Strona Azure portalu dzienników diagnostycznych](index/_static/azure-diagnostic-logs.png)
 
-Przejdź do **dzienników przesyłania strumieniowego** strony w celu wyświetlenia komunikatów aplikacji. Są one rejestrowane przez aplikację za pomocą `ILogger` interfejsu. 
+Przejdź do **dzienników przesyłania strumieniowego** strony w celu wyświetlenia komunikatów aplikacji. Są one zarejestrowane przez aplikację za pomocą `ILogger` interfejsu. 
 
 ![Przesyłanie strumieniowe dziennika aplikacji z portalu Azure](index/_static/azure-log-streaming.png)
 

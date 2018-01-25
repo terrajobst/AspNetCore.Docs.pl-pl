@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 82dc6900d3603a97340633fe8dfb2d3e63b2fd4b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0c0db7fd76a7a486ff45085329ef7c77b0af5ebe
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="control-id-naming-in-content-pages-c"></a>Identyfikator formantu nazewnictwa na stronach zawartości (C#)
 ====================
@@ -34,7 +34,7 @@ Obejmują wszystkie kontrolek serwera ASP.NET `ID` właściwość, która unikat
 Do obsługi takich scenariuszy, ASP.NET umożliwia niektórych formantów być oznaczona jako nazw kontenerów. Kontener nazewnictwa służy jako nowy `ID` przestrzeni nazw. Wszystkie kontrolki serwera, które pojawiają się w kontenerze nazewnictwa ma ich renderowanych `id` wartość prefiks `ID` formantu kontenera nazewnictwa. Na przykład `GridView` i `GridViewRow` klasy są oba kontenery nazewnictwa. W rezultacie Etykieta zdefiniowana w widoku GridView TemplateField z `ID` ProductName podano renderowanych `id` wartość `GridViewID_GridViewRowID_ProductName`. Ponieważ *GridViewRowID* jest unikatowy dla każdego wiersza w widoku GridView, powstałe w ten sposób `id` wartości są unikatowe.
 
 > [!NOTE]
-> [ `INamingContainer` Interfejsu](https://msdn.microsoft.com/en-us/library/system.web.ui.inamingcontainer.aspx) służy do wskazania, że określonego formantu serwera ASP.NET powinny działać jako kontenera nazewnictwa. `INamingContainer` Żadnych metod, które kontrolki serwera musi implementować interfejs nie pełnych; zamiast jest używany jako znacznik. Podczas generowania renderowanego kodu znaczników, jeśli formant implementuje ten interfejs następnie aparatu ASP.NET automatycznie prefiksy jego `ID` renderowania wartości jego elementów podrzędnych `id` wartości atrybutów. Ten proces jest omówiona bardziej szczegółowo w kroku 2.
+> [ `INamingContainer` Interfejsu](https://msdn.microsoft.com/library/system.web.ui.inamingcontainer.aspx) służy do wskazania, że określonego formantu serwera ASP.NET powinny działać jako kontenera nazewnictwa. `INamingContainer` Żadnych metod, które kontrolki serwera musi implementować interfejs nie pełnych; zamiast jest używany jako znacznik. Podczas generowania renderowanego kodu znaczników, jeśli formant implementuje ten interfejs następnie aparatu ASP.NET automatycznie prefiksy jego `ID` renderowania wartości jego elementów podrzędnych `id` wartości atrybutów. Ten proces jest omówiona bardziej szczegółowo w kroku 2.
 
 
 Kontenery nazewnictwa nie tylko zmienić renderowanych `id` wartość atrybutu, ale również wpływa na sposób kontrolki odwołania mogą dotyczyć programowo z klasy związane z kodem strony ASP.NET. `FindControl("controlID")` Metody jest najczęściej używany do programowego odwołania formantu sieci Web. Jednak `FindControl` nie spenetrowanie za pomocą nazw kontenerów. W rezultacie nie można bezpośrednio używać `Page.FindControl` metodę odwołują się do formantów w widoku GridView lub innych kontenera nazewnictwa.
@@ -121,7 +121,7 @@ Należy pamiętać, że `id` atrybutu obejmuje zarówno strony wzorcowej `ID` wa
 
 Kontrolka serwerowa ASP.NET, co obejmuje `FindControl("controlID")` metody, która wyszukuje elementów podrzędnych formantu dla formantu o nazwie *controlID*. Jeśli zostanie znaleziony taki formant, jest zwracany; Jeśli brak pasującego formantu zostanie znaleziony, `FindControl` zwraca `null`.
 
-`FindControl`jest przydatne w sytuacji, gdy trzeba kontroli dostępu, ale nie masz bezpośrednie odwołanie do niej. Podczas pracy z danymi formantów sieci Web, takich jak na przykład GridView formantów w widoku GridView pola są definiowane raz w składni deklaratywnej, ale w czasie wykonywania jest tworzone wystąpienie formantu dla każdego wiersza w widoku GridView. W rezultacie istnieją formanty generowane w czasie wykonywania, ale nie ma bezpośredniego odwołania dostępne w klasie związanej z kodem. W związku z tym należy użyć `FindControl` programowo pracować z określonego formantu w obrębie pola w widoku GridView. (Aby uzyskać więcej informacji na temat używania `FindControl` Aby uzyskać dostęp do formantów w szablonach formantów sieci Web danych, zobacz [niestandardowe formatowanie oparte na danych](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) W tym samym scenariuszu występuje podczas dynamicznego dodawania formantów sieci Web do formularza sieci Web, temat omówione w [tworzenie dynamicznych danych wpisu interfejsy użytkownika](https://msdn.microsoft.com/en-us/library/aa479330.aspx).
+`FindControl`jest przydatne w sytuacji, gdy trzeba kontroli dostępu, ale nie masz bezpośrednie odwołanie do niej. Podczas pracy z danymi formantów sieci Web, takich jak na przykład GridView formantów w widoku GridView pola są definiowane raz w składni deklaratywnej, ale w czasie wykonywania jest tworzone wystąpienie formantu dla każdego wiersza w widoku GridView. W rezultacie istnieją formanty generowane w czasie wykonywania, ale nie ma bezpośredniego odwołania dostępne w klasie związanej z kodem. W związku z tym należy użyć `FindControl` programowo pracować z określonego formantu w obrębie pola w widoku GridView. (Aby uzyskać więcej informacji na temat używania `FindControl` Aby uzyskać dostęp do formantów w szablonach formantów sieci Web danych, zobacz [niestandardowe formatowanie oparte na danych](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) W tym samym scenariuszu występuje podczas dynamicznego dodawania formantów sieci Web do formularza sieci Web, temat omówione w [tworzenie dynamicznych danych wpisu interfejsy użytkownika](https://msdn.microsoft.com/library/aa479330.aspx).
 
 Aby zilustrować przy użyciu `FindControl` metody do wyszukiwania formantów na stronie zawartości, utworzyć programu obsługi zdarzeń dla `SubmitButton`w `Click` zdarzeń. W obsłudze zdarzeń, Dodaj następujący kod, który odwołuje się programowo `Age` pole tekstowe i `Results` etykietę przy użyciu `FindControl` — metoda, a następnie wyświetla komunikat w `Results` oparte na danych wejściowych użytkownika.
 
@@ -228,7 +228,7 @@ Odwołania, który w programie ASP.NET stron, które nie zawierają nazwy konten
 
 Tego podejścia przy rozwiązywaniu problemu jest fakt, że za pomocą stron wzorcowych (lub innych mechanizmów kontroli kontenera nazewnictwa) HTML renderowanych `id` nie jest tożsame z formantu sieci Web `ID` właściwości. Twoje pierwsze nachylenia może być odwiedź stronę za pośrednictwem przeglądarki i Wyświetl źródło, aby określić rzeczywiste `id` atrybutu. Jeśli znasz już renderowanych `id` wartości, możesz wkleić go do wywołania `getElementById` na dostęp do elementu HTML, potrzebujesz do pracy z za pomocą skryptu po stronie klienta. Takie podejście jest mniejsza niż nadaje się doskonale, ponieważ pewnych zmian wprowadzonych na stronie kontrolować hierarchii lub zmiany w `ID` właściwości formantów nazewnictwa zmieni powstałe w ten sposób `id` atrybutu, co spowodowało uszkodzenie kodu JavaScript.
 
-Dobre wieści jest to, że `id` wartość atrybutu, który jest renderowany jest dostępny w kodzie po stronie serwera za pomocą formantu sieci Web [ `ClientID` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.control.clientid.aspx). Należy używać tej właściwości, aby określić `id` atrybutu wartość używana przez skrypt po stronie klienta. Na przykład, aby dodać funkcję JavaScript do strony, która po wywołaniu, wyświetlana jest wartość `Age` TextBox w polu komunikatów modalnych, Dodaj następujący kod do `Page_Load` obsługi zdarzeń:
+Dobre wieści jest to, że `id` wartość atrybutu, który jest renderowany jest dostępny w kodzie po stronie serwera za pomocą formantu sieci Web [ `ClientID` właściwości](https://msdn.microsoft.com/library/system.web.ui.control.clientid.aspx). Należy używać tej właściwości, aby określić `id` atrybutu wartość używana przez skrypt po stronie klienta. Na przykład, aby dodać funkcję JavaScript do strony, która po wywołaniu, wyświetlana jest wartość `Age` TextBox w polu komunikatów modalnych, Dodaj następujący kod do `Page_Load` obsługi zdarzeń:
 
 
 [!code-javascript[Main](control-id-naming-in-content-pages-cs/samples/sample15.js)]
@@ -241,7 +241,7 @@ Powyższy kod injects wartość `Age` właściwości ClientID w pole tekstowe do
 Powiadomienie jak poprawny `id` wartość atrybutu `ctl00_MainContent_Age`, pojawi się w wywołaniu `getElementById`. Ponieważ ta wartość jest obliczana w czasie wykonywania, działa niezależnie od późniejsze zmiany hierarchia formantów strony.
 
 > [!NOTE]
-> W tym przykładzie JavaScript jedynie przedstawiono sposób dodawania funkcji JavaScript, która poprawnie odwołuje się do elementu HTML renderowane przez kontrolki serwera. Aby użyć tej funkcji należy tworzyć dodatkowe JavaScript do wywołania tej funkcji, podczas ładowania dokumentu lub techniczną niektóre akcje określonego użytkownika. Aby uzyskać więcej informacji na temat tych i materiały pokrewne, przeczytaj [pracy przy użyciu skryptu po stronie klienta](https://msdn.microsoft.com/en-us/library/aa479302.aspx).
+> W tym przykładzie JavaScript jedynie przedstawiono sposób dodawania funkcji JavaScript, która poprawnie odwołuje się do elementu HTML renderowane przez kontrolki serwera. Aby użyć tej funkcji należy tworzyć dodatkowe JavaScript do wywołania tej funkcji, podczas ładowania dokumentu lub techniczną niektóre akcje określonego użytkownika. Aby uzyskać więcej informacji na temat tych i materiały pokrewne, przeczytaj [pracy przy użyciu skryptu po stronie klienta](https://msdn.microsoft.com/library/aa479302.aspx).
 
 
 ## <a name="summary"></a>Podsumowanie
@@ -257,11 +257,11 @@ Programowanie przyjemność!
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
 - [Strony wzorcowe ASP.NET i`FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
-- [Tworzenie interfejsów użytkownika wpisu danych dynamicznych](https://msdn.microsoft.com/en-us/library/aa479330.aspx)
+- [Tworzenie interfejsów użytkownika wpisu danych dynamicznych](https://msdn.microsoft.com/library/aa479330.aspx)
 - [Rozszerzanie funkcjonalności typu podstawowego z metody rozszerzenia](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
-- [Porady: Odwołania zawartość strony ASP.NET wzorca](https://msdn.microsoft.com/en-us/library/xxwa0ff0.aspx)
+- [Porady: Odwołania zawartość strony ASP.NET wzorca](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
 - [Sprawa strony: Porady, wskazówki i pułapek](http://www.odetocode.com/articles/450.aspx)
-- [Praca z skryptu po stronie klienta](https://msdn.microsoft.com/en-us/library/aa479302.aspx)
+- [Praca z skryptu po stronie klienta](https://msdn.microsoft.com/library/aa479302.aspx)
 
 ### <a name="about-the-author"></a>Informacje o autorze
 

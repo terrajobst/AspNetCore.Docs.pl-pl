@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: dfcddb4373fbf17ca29c5ab94c6ab3387ed6b526
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8714f673cb0434189ca23d2dda14035d8652a051
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Kod edycji ASP.NET Web Forms w programie Visual Studio 2013
 ====================
@@ -38,7 +38,7 @@ W tym przewodniku przedstawiono sposób:
 
 W celu przeprowadzenia tego instruktażu potrzebne są:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) lub [programu Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework jest instalowana automatycznie. 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) lub [programu Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework jest instalowana automatycznie. 
 
     > [!NOTE] 
     > 
@@ -132,8 +132,8 @@ W tej części przewodnika będą napisanie kodu, proste, a następnie Wyodrębn
 ### <a name="to-extract-a-method-in-a-c-page"></a>Aby wyodrębnić metody na stronie C#
 
 1. Przełącz się do **projekt** widoku.
-2. W **przybornika**, z **standardowe** karcie, przeciągnij [przycisk](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.button.aspx) kontrolki na stronie.
-3. Kliknij dwukrotnie **przycisk** formantu, aby utworzyć uchwytu dla jego [kliknij](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.button.click.aspx) zdarzenia, a następnie dodaj następujący wyróżniony kod:
+2. W **przybornika**, z **standardowe** karcie, przeciągnij [przycisk](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) kontrolki na stronie.
+3. Kliknij dwukrotnie **przycisk** formantu, aby utworzyć uchwytu dla jego [kliknij](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) zdarzenia, a następnie dodaj następujący wyróżniony kod:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
@@ -185,13 +185,13 @@ Podczas pracy z obiektów, a także zmienne, można zmienić ich nazwy po ich s�
 
 Ponieważ istnieje wiele zadań kodowania, które deweloperzy formularzy sieci Web często konieczne jest wykonanie, edytora kodu zawiera bibliotekę wstawki lub bloków kodu przedpisanych. Na stronie można wstawić tych fragmentów.
 
-Każdego języka używanego w programie Visual Studio ma niewielkie różnice w sposób wstawiania wstawki kodu. Aby dowiedzieć się, jak wstawianie fragmentów, zobacz [Visual Basic IntelliSense — wstawki programu](https://msdn.microsoft.com/en-us/library/18yz4be4.aspx). Aby dowiedzieć się, jak wstawianie fragmenty kodu języka Visual C#, zobacz [Visual C# — wstawki](https://msdn.microsoft.com/en-us/library/z41h7fat.aspx).
+Każdego języka używanego w programie Visual Studio ma niewielkie różnice w sposób wstawiania wstawki kodu. Aby dowiedzieć się, jak wstawianie fragmentów, zobacz [Visual Basic IntelliSense — wstawki programu](https://msdn.microsoft.com/library/18yz4be4.aspx). Aby dowiedzieć się, jak wstawianie fragmenty kodu języka Visual C#, zobacz [Visual C# — wstawki](https://msdn.microsoft.com/library/z41h7fat.aspx).
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku ma przedstawiono podstawowe funkcje programu Visual Studio 2010 edytora kodu poprawianie błędów w kodzie, refaktoryzacji kodu, zmiana nazwy zmiennych i wstawiania wstawki kodu w kodzie. Dodatkowe funkcje w edytorze ułatwia projektowanie aplikacji szybkie i łatwe. Na przykład możesz chcieć:
 
-- Więcej informacji na temat funkcji IntelliSense, takich jak modyfikowanie opcji IntelliSense, zarządzanie fragmentów kodu i wyszukiwanie wstawki kodu w trybie online. Aby uzyskać więcej informacji, zobacz [za pomocą funkcji IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b.aspx).
-- Dowiedz się, jak utworzyć własne wstawki kodu. Aby uzyskać więcej informacji, zobacz [tworzenie i przy użyciu fragmentów kodu IntelliSense](https://msdn.microsoft.com/en-us/library/ms165392.aspx)
-- Dowiedz się więcej na temat funkcji specyficznych dla języka Visual Basic, fragmentów kodu IntelliSense, takie jak dostosowywanie fragmenty kodu i rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [Visual Basic IntelliSense — wstawki programu](https://msdn.microsoft.com/en-us/library/18yz4be4.aspx)
-- Dowiedz się więcej na temat języka C# — funkcje IntelliSense, takie jak wstawki refaktoryzacji i kod. Aby uzyskać więcej informacji, zobacz [Visual C# IntelliSense](https://msdn.microsoft.com/en-us/library/43f44291.aspx).
+- Więcej informacji na temat funkcji IntelliSense, takich jak modyfikowanie opcji IntelliSense, zarządzanie fragmentów kodu i wyszukiwanie wstawki kodu w trybie online. Aby uzyskać więcej informacji, zobacz [za pomocą funkcji IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx).
+- Dowiedz się, jak utworzyć własne wstawki kodu. Aby uzyskać więcej informacji, zobacz [tworzenie i przy użyciu fragmentów kodu IntelliSense](https://msdn.microsoft.com/library/ms165392.aspx)
+- Dowiedz się więcej na temat funkcji specyficznych dla języka Visual Basic, fragmentów kodu IntelliSense, takie jak dostosowywanie fragmenty kodu i rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [Visual Basic IntelliSense — wstawki programu](https://msdn.microsoft.com/library/18yz4be4.aspx)
+- Dowiedz się więcej na temat języka C# — funkcje IntelliSense, takie jak wstawki refaktoryzacji i kod. Aby uzyskać więcej informacji, zobacz [Visual C# IntelliSense](https://msdn.microsoft.com/library/43f44291.aspx).

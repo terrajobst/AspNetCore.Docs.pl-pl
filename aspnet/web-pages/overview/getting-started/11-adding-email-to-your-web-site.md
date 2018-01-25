@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 2db94088a04e87c6ab89df26a7a7b0e2a2653a1a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c5878c3bc468daef050dcebee99f64441066409a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>Wysyłanie wiadomości E-mail z witryny sieci Web platformy ASP.NET (Razor) stron
 ====================
@@ -37,7 +37,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 >   
 > 
 > W tym samouczku współdziała również z programu ASP.NET Web Pages 2.
@@ -138,6 +138,6 @@ Można również wysłać pliki, które są dołączone do wiadomości e-mail. W
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 
-- [Strony sieci Web platformy ASP.NET (Razor) przewodnik rozwiązywania problemów](https://go.microsoft.com/fwlink/?LinkId=253001)
-- [Protokół Simple Mail Transfer Protocol](https://msdn.microsoft.com/en-us/library/aa480435.aspx)
+- [Przewodnik rozwiązywania problemów ze wzorcem ASP.NET Web Pages (Razor)](https://go.microsoft.com/fwlink/?LinkId=253001)
+- [Protokół Simple Mail Transfer Protocol](https://msdn.microsoft.com/library/aa480435.aspx)
 - [Dostosowywanie zachowania całej witryny dla stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202906)

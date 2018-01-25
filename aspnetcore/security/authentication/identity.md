@@ -1,19 +1,19 @@
 ---
 title: "Wprowadzenie do tożsamości na platformy ASP.NET Core"
 author: rick-anderson
-description: "Użyj tożsamości w aplikacji platformy ASP.NET Core"
+description: "Tożsamość aplikacji korzystać z platformy ASP.NET Core. Zawiera wymagania dotyczące hasła ustawienie (RequireDigit, RequiredLength, RequiredUniqueChars i inne)."
 ms.author: riande
 manager: wpickett
-ms.date: 01/02/2018
+ms.date: 01/24/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 436a5ecfd126c9660591cd55efc1cc52b9493136
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b1dc6d31f44a26a2b91a92dc43032b0315e73cce
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości na platformy ASP.NET Core
 
@@ -23,7 +23,7 @@ Tożsamość platformy ASP.NET Core to system członkostwa, co pozwala na dodawa
 
 Można skonfigurować ASP.NET Identity Core używać bazy danych programu SQL Server do przechowywania nazwy użytkownika, hasła i danych profilu. Alternatywnie można użyć własnych magazynu trwałego, na przykład magazynu tabel Azure. Ten dokument zawiera instrukcje dla programu Visual Studio i przy użyciu interfejsu wiersza polecenia.
 
-[Wyświetl lub pobrać przykładowy kod.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Jak pobrać)](https://docs.microsoft.com/en-us/aspnet/core/tutorials/index#how-to-download-a-sample)
+[Wyświetl lub pobrać przykładowy kod.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Jak pobrać)](https://docs.microsoft.com/aspnet/core/tutorials/index#how-to-download-a-sample)
 
 ## <a name="overview-of-identity"></a>Omówienie tożsamości
 
@@ -124,9 +124,10 @@ W tym temacie będzie używanie ASP.NET Core Identity funkcje, aby zarejestrowa�
  
     Poprzedni kod powyżej wywołania `_signInManager.SignOutAsync` metody. `SignOutAsync` Metody czyści oświadczeń użytkownika przechowywane w pliku cookie.
  
+<a name="pw"></a>
 6.  Konfiguracja.
 
-    Tożsamość ma pewne domyślne zachowania przesłaniające w klasie uruchomienia aplikacji. Nie ma potrzeby konfigurowania ``IdentityOptions`` Jeśli korzystasz z domyślnego zachowania.
+    Tożsamość ma niektóre domyślne zachowania, które mogą zostać zastąpione w klasie uruchomienia aplikacji. `IdentityOptions`Nie można skonfigurować, korzystając z domyślnego zachowania. Poniższy kod ustawia kilka opcji siły hasła:
 
     # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
@@ -194,6 +195,10 @@ Te zależności są niezbędne do używania systemu tożsamości w aplikacji pla
 ## <a name="migrating-to-aspnet-core-identity"></a>Migrowanie tożsamości platformy ASP.NET Core
 
 Aby uzyskać dodatkowe informacje i wskazówki dotyczące migrowania istniejących tożsamości przechowywania można znaleźć [Migrowanie uwierzytelnianie i tożsamość](xref:migration/identity).
+
+## <a name="setting-password-strength"></a>Ustawianie siły hasła
+
+Zobacz [konfiguracji](#pw) dla przykładu, która ustawia wymagania minimalnej hasła.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 41efda63026c9d17cb9dceb92b5efc87490a722d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 92d9e583b6c26fa8c928d33e14593d280702a269
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="intro-to-aspnet-mvc-4"></a>Wprowadzenie do platformy ASP.NET MVC 4
 ====================
@@ -24,7 +24,7 @@ Przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Zaktualizowanej wersji, jeśli jest dostępna w tym samouczku [tutaj](../../getting-started/introduction/getting-started.md) przy użyciu [programu Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). Nowe samouczku platformy ASP.NET MVC 5, która udostępnia wiele ulepszeń w porównaniu z tego samouczka.
 > 
-> W tym samouczku udzieli Ci podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC 4 przy użyciu Microsoft [programu Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express) lub Visual Web Developer 2010 Express Service Pack 1. Zaleca się programu Visual Studio 2012, nie trzeba będzie zainstalować niczego na ukończenie tego samouczka. Jeśli używasz programu Visual Studio 2010 należy zainstalować poniższe składniki. Można zainstalować wszystkie z nich, klikając poniższe łącza:
+> W tym samouczku udzieli Ci podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC 4 przy użyciu Microsoft [programu Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) lub Visual Web Developer 2010 Express Service Pack 1. Zaleca się programu Visual Studio 2012, nie trzeba będzie zainstalować niczego na ukończenie tego samouczka. Jeśli używasz programu Visual Studio 2010 należy zainstalować poniższe składniki. Można zainstalować wszystkie z nich, klikając poniższe łącza:
 > 
 > - [Visual Studio Web Developer Express z dodatkiem SP1 wymagania wstępne](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
 > - [Instalator usługi dla platformy ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)
@@ -35,7 +35,7 @@ Przez [Rick Anderson](https://github.com/Rick-Anderson)
 > 
 > Projekt Visual Web Developer z kodu źródłowego C# jest dostępna powiązany z tym tematem. [Pobierz wersję języka C#](https://code.msdn.microsoft.com/Intro-to-ASPNET-MVC-4-61d0219d/file/114480/1/MvcMovie.zip).
 > 
-> W samouczku uruchomieniu aplikacji w programie Visual Studio. Można również udostępnić aplikacji w Internecie przez wdrożenie jej do dostawcy hostingu. Firma Microsoft oferuje usługi hostingu sieci web wolnego maksymalnie 10 witryn sieci web w [bezpłatnego konta wersji próbnej systemu Windows Azure](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604). Aby uzyskać informacje dotyczące wdrażania projektu sieci web programu Visual Studio do witryny sieci Web systemu Windows Azure, zobacz [tworzenia i wdrażania witryn sieci web ASP.NET i bazy danych SQL z programem Visual Studio](https://docs.microsoft.com/dotnet/azure/). Ten samouczek również przedstawia sposób użycia migracje Code First Framework jednostki do wdrażania bazy danych SQL Server do systemu Windows Azure SQL Database (poprzednio Azure SQL).
+> W samouczku uruchomieniu aplikacji w programie Visual Studio. Można również udostępnić aplikacji w Internecie przez wdrożenie jej do dostawcy hostingu. Firma Microsoft oferuje usługi hostingu sieci web wolnego maksymalnie 10 witryn sieci web w [bezpłatnego konta wersji próbnej systemu Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Aby uzyskać informacje dotyczące wdrażania projektu sieci web programu Visual Studio do witryny sieci Web systemu Windows Azure, zobacz [tworzenia i wdrażania witryn sieci web ASP.NET i bazy danych SQL z programem Visual Studio](https://docs.microsoft.com/dotnet/azure/). Ten samouczek również przedstawia sposób użycia migracje Code First Framework jednostki do wdrażania bazy danych SQL Server do systemu Windows Azure SQL Database (poprzednio Azure SQL).
 > 
 > W tym samouczku zapisał Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ).
 
@@ -89,4 +89,4 @@ F5 powoduje, że Visual Studio, aby uruchomić usługi IIS Express i uruchom apl
 Dodatkowych zabiegów ten szablon domyślny zawiera strony domowej, kontaktów oraz o. Ponadto zapewnia obsługę rejestracji i logowania, a linki do serwisu Facebook i Twitter. Następnym krokiem jest zmienić sposób działania tej aplikacji i nieco więcej informacji na temat platformy ASP.NET MVC. Zamknij przeglądarkę i Zmieńmy kodu.
 
 >[!div class="step-by-step"]
-[Dalej](adding-a-controller.md)
+[Next](adding-a-controller.md)

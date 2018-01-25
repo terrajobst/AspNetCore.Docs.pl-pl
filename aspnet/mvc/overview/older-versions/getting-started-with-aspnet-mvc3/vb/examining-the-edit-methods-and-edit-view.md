@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: db2b39fab9c0701c8792d48f2ed0a059b9e450ad
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9a933324b48d4117d5d4c806920f1691a7ef7849
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view-vb"></a>Badanie widoku edycji (VB) i Edytuj metody
 ====================
@@ -65,7 +65,7 @@ Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `HttpPost` atrybutu. 
 
 Zwróć uwagę, jak szablon widoku ma `@ModelType MvcMovie.Models.Movie` instrukcji w górnej części pliku — to ustawienie określa, czy widok oczekuje modelu widoku szablonu typu `Movie`.
 
-Kod z utworzonym szkieletem używa kilku *metody pomocnicze* uprościć kod znaczników HTML. [ `Html.LabelFor` ](https://msdn.microsoft.com/en-us/library/gg401864(VS.98).aspx) Pomocnika Wyświetla nazwę pola (&quot;tytuł&quot;, &quot;ReleaseDate&quot;, &quot;Genre&quot;, lub &quot;cen &quot;). [ `Html.EditorFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) Pomocnik wyświetli HTML `<input>` elementu. [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) Pomocnik wyświetli żadnych komunikatów dotyczących sprawdzania poprawności skojarzone z tą właściwością.
+Kod z utworzonym szkieletem używa kilku *metody pomocnicze* uprościć kod znaczników HTML. [ `Html.LabelFor` ](https://msdn.microsoft.com/library/gg401864(VS.98).aspx) Pomocnika Wyświetla nazwę pola (&quot;tytuł&quot;, &quot;ReleaseDate&quot;, &quot;Genre&quot;, lub &quot;cen &quot;). [ `Html.EditorFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) Pomocnik wyświetli HTML `<input>` elementu. [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) Pomocnik wyświetli żadnych komunikatów dotyczących sprawdzania poprawności skojarzone z tą właściwością.
 
 Uruchom aplikację i przejdź do */Movies* adresu URL. Kliknij przycisk **Edytuj** łącza. W przeglądarce Wyświetl źródło strony. HTML na stronie wygląda jak w następującym przykładzie. (Znaczników menu został wykluczony, aby były bardziej zrozumiałe).
 
@@ -85,7 +85,7 @@ Jeśli przesłanych wartości nie są prawidłowe, są wyświetlane ponownie w f
 
 [![abcNotValid](examining-the-edit-methods-and-edit-view/_static/image7.png)](examining-the-edit-methods-and-edit-view/_static/image6.png)
 
-> **Uwaga dotycząca ustawień regionalnych** zwykle pracy z ustawień regionalnych innych niż angielski, zobacz [obsługi platformy ASP.NET MVC 3 weryfikacji z innym niż angielski.](https://msdn.microsoft.com/en-us/library/gg674880(VS.98).aspx)
+> **Uwaga dotycząca ustawień regionalnych** zwykle pracy z ustawień regionalnych innych niż angielski, zobacz [obsługi platformy ASP.NET MVC 3 weryfikacji z innym niż angielski.](https://msdn.microsoft.com/library/gg674880(VS.98).aspx)
 
 
 ## <a name="making-the-edit-method-more-robust"></a>Tworzenie bardziej niezawodna metoda edycji
@@ -114,7 +114,7 @@ Rozpocznij od dodania `SearchIndex` metody akcji do istniejącej `MoviesControll
 
 [!code-vb[Main](examining-the-edit-methods-and-edit-view/samples/sample8.vb)]
 
-W pierwszym wierszu `SearchIndex` metoda tworzy następujące [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) zapytanie, aby wybrać filmy:
+W pierwszym wierszu `SearchIndex` metoda tworzy następujące [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) zapytanie, aby wybrać filmy:
 
 [!code-vb[Main](examining-the-edit-methods-and-edit-view/samples/sample9.vb)]
 
@@ -126,7 +126,7 @@ Jeśli nie jest następnie String.IsNullOrEmpty(searchString)
  filmy = filmów. Gdzie (funkcje s.Title.Contains(searchString))   
  Jeśli wewnętrzne
 
-Zapytania LINQ nie są wykonywane, gdy są one zdefiniowane lub modyfikacji przez wywołanie metody, takie jak `Where` lub `OrderBy`. Zamiast tego wykonywania zapytania jest opóźnione, co oznacza, że obliczania wyrażenia jest opóźnione aż do jej wartość rzeczywista jest rzeczywiście iterowane za pośrednictwem lub [ `ToList` ](https://msdn.microsoft.com/en-us/library/bb342261.aspx) metoda jest wywoływana. W `SearchIndex` przykładowe zapytanie jest wykonywane w widoku SearchIndex. Aby uzyskać więcej informacji na temat wykonywania zapytań odroczonych, zobacz [wykonywania zapytania](https://msdn.microsoft.com/en-us/library/bb738633.aspx).
+Zapytania LINQ nie są wykonywane, gdy są one zdefiniowane lub modyfikacji przez wywołanie metody, takie jak `Where` lub `OrderBy`. Zamiast tego wykonywania zapytania jest opóźnione, co oznacza, że obliczania wyrażenia jest opóźnione aż do jej wartość rzeczywista jest rzeczywiście iterowane za pośrednictwem lub [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx) metoda jest wywoływana. W `SearchIndex` przykładowe zapytanie jest wykonywane w widoku SearchIndex. Aby uzyskać więcej informacji na temat wykonywania zapytań odroczonych, zobacz [wykonywania zapytania](https://msdn.microsoft.com/library/bb738633.aspx).
 
 Teraz można wdrożyć `SearchIndex` widok, który będzie wyświetlany formularz dla użytkownika. Kliknij prawym przyciskiem myszy wewnątrz `SearchIndex` metody, a następnie kliknij przycisk **Dodaj widok**. W **Dodaj widok** oknie dialogowym Określ, że zamierzasz przekazać `Movie` obiekt w szablonie widoku, jak jego klasa modelu. W **szablonu szkieletu** wybierz **listy**, następnie kliknij przycisk **Dodaj**.
 

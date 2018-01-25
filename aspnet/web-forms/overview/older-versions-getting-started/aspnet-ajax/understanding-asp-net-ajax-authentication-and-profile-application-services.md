@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 7e0ddc15fac9af40a0a20a99979a80517eb1b6a2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 182276f9f91b99beb1ce0fc40dcda1f19376669a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>Uwierzytelnianie ASP.NET AJAX i profilu usługi aplikacji
 ====================
@@ -43,7 +43,7 @@ Usługa uwierzytelniania umożliwia użytkownikom o podanie poświadczeń w celu
 
 Usługa profilu umożliwia automatyczne integracji i przechowywania danych użytkownika na podstawie członkostwa dostarczone przez usługę uwierzytelniania. Określono przechowywanych danych przez plik web.config i profilowania różnych dostawców usług obsługi zarządzania danymi. Podobnie jak w przypadku usługi uwierzytelniania usługa AJAX profilu jest zgodny z standardowe usługą profilów platformy ASP.NET, aby nie należy dzielić stron obecnie włączenia funkcji usługi profilu platformy ASP.NET dzięki dodaniu obsługi interfejsu AJAX.
 
-Dołączanie do aplikacji ASP.NET uwierzytelnienia i uwierzytelnienia usługi profilowania, wykracza poza zakres tego dokumentu. Aby uzyskać więcej informacji na temat można znaleźć w bibliotece MSDN odwołania artykule Zarządzanie użytkownikami przy użyciu członkostwa w [https://msdn.microsoft.com/en-us/library/tw292whz.aspx](https://msdn.microsoft.com/en-us/library/tw292whz.aspx). Program ASP.NET zawiera również narzędzia, aby automatycznie skonfigurować członkostwa z programem SQL Server, który jest domyślnego uwierzytelniania usługi dostawcy członkostwa ASP.NET. Aby uzyskać więcej informacji, zobacz artykuł ASP.NET SQL Server Registration Tool (Aspnet\_regsql.exe) na [https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx).
+Dołączanie do aplikacji ASP.NET uwierzytelnienia i uwierzytelnienia usługi profilowania, wykracza poza zakres tego dokumentu. Aby uzyskać więcej informacji na temat można znaleźć w bibliotece MSDN odwołania artykule Zarządzanie użytkownikami przy użyciu członkostwa w [https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx). Program ASP.NET zawiera również narzędzia, aby automatycznie skonfigurować członkostwa z programem SQL Server, który jest domyślnego uwierzytelniania usługi dostawcy członkostwa ASP.NET. Aby uzyskać więcej informacji, zobacz artykuł ASP.NET SQL Server Registration Tool (Aspnet\_regsql.exe) na [https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
 
 ## <a name="using-the-aspnet-ajax-authentication-service"></a>*Przy użyciu usługi uwierzytelniania AJAX ASP.NET*
 
@@ -55,7 +55,7 @@ Usługa uwierzytelniania wymaga można włączyć uwierzytelnianie formularzy AS
 
 Gdy usługa AJAX uwierzytelniania jest włączona i skonfigurowana, skrypt po stronie klienta można natychmiast zalet obiektu Sys.Services.AuthenticationService. Przede wszystkim skrypt po stronie klienta będzie przeprowadzać `login` — metoda i `isLoggedIn` właściwości. Istnieje kilka właściwości zapewnienie wartości domyślnych w przypadku metody logowania może akceptować dużej liczby parametrów.
 
-*Elementy członkowskie Sys.Services.AuthenticationService*
+*Sys.Services.AuthenticationService members*
 
 *Metoda logowania:*
 
@@ -65,7 +65,7 @@ Metoda: login() rozpoczyna żądanie uwierzytelnienia poświadczeń użytkownika
 
 | **Nazwa parametru** | **Znaczenie** |
 | --- | --- |
-| Nazwa użytkownika | Wymagany. Nazwa użytkownika do uwierzytelniania. |
+| userName | Wymagany. Nazwa użytkownika do uwierzytelniania. |
 | Hasło | Opcjonalnie (wartość domyślna to null). Hasło użytkownika. |
 | isPersistent | Opcjonalnie (wartość domyślna to false). Określa, czy plik cookie uwierzytelniania użytkownika powinien być zachowywane między sesjami. W przypadku wartości FAŁSZ, użytkownik będzie Wyloguj się przy zamykaniu przeglądarki lub wygaśnięcia sesji. |
 | redirectUrl | Opcjonalnie (wartość domyślna to null). Adres URL przekierowania przeglądarkę, aby po pomyślnym uwierzytelnieniu. Jeśli ten parametr ma wartość null lub pusty ciąg, przekierowanie nie występuje. |
@@ -195,7 +195,7 @@ Skrypt po stronie klienta będzie mogła uzyskiwać dostęp do nazwy, Address.Li
 
 Po skonfigurowaniu usługi profilowania AJAX będzie natychmiast dostępny na stronach; jednak ma być załadowana raz przed użyciem.
 
-*Elementy członkowskie Sys.Services.ProfileService*
+*Sys.Services.ProfileService members*
 
 *pole właściwości:*
 
@@ -341,7 +341,7 @@ Usługi ASP.NET — w szczególności usług profilowania, członkostwo i uwierz
 
 Ponadto tworząc implementacji usługi sieci web uproszczony z sygnaturami metod równoważne, deweloperzy mogą tworzyć skryptu niestandardowego dostawcy dla tych wewnętrznych usług platformy ASP.NET. Obsługę tych technik upraszcza tworzenie zaawansowanych aplikacji klienckich, jednocześnie zapewniając deweloperzy szeroką gamę elastyczność do konkretnych potrzeb.
 
-## <a name="bio"></a>*Mnie*
+## <a name="bio"></a>*Bio*
 
 Scott IE pracuje z technologii Microsoft Web od 1997 i jest Prezes myKB.com ([www.myKB.com](http://www.myKB.com)) gdzie specjalizuje się on w pisaniu ASP.NET aplikacje oparte na systemie koncentruje się na rozwiązania w zakresie oprogramowania bazy wiedzy Knowledge Base. Scott można nawiązać połączenie za pośrednictwem poczty e-mail na [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) lub jego blogu w [ScottCate.com](http://ScottCate.com)
 

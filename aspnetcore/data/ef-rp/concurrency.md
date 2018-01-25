@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: a980669d49d332d7ef2ff5a18c73e9b269281287
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b36fb71cba058a3409b30a1d9469159fcd027375
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 en-us /
 
@@ -32,7 +32,7 @@ Występuje konflikt współbieżności, gdy:
 * Użytkownik przechodzi do edycji strony dla jednostki.
 * Inny użytkownik aktualizacje tej samej jednostki przed zapisaniem zmian pierwszy użytkownik z bazą danych.
 
-Jeśli wykrywanie współbieżności nie jest włączone, gdy występują równoczesnych aktualizacji:
+Jeśli wykrywania współbieżności nie jest włączone, gdy występują równoczesnych aktualizacji:
 
 * Ostatnia aktualizacja usługi wins. Oznacza to ostatnie wartości aktualizacji są zapisywane w bazie danych.
 * Pierwszy bieżące aktualizacje zostaną utracone.
@@ -57,13 +57,13 @@ Optymistycznej współbieżności zawiera następujące opcje:
 
 * Można zachować informacje o właściwości, które zostało zmodyfikowane przez użytkownika i aktualizować tylko odpowiednie kolumny w bazie danych.
 
- W tym scenariuszu żadne dane nie może zostać utracone. Inne właściwości zostały zaktualizowane przez użytkowników. Przy następnym ktoś przegląda w angielskiej wersji językowej działu, ich zmiany będą widoczne zarówno Joanny i jego Jan. Ta metoda aktualizacji może zmniejszyć liczbę konfliktów, które może spowodować utratę danych. Takie podejście: * nie można uniknąć utraty danych, jeśli konkurują zmian z tą samą właściwością.
+ W tym scenariuszu żadne dane nie może zostać utracone. Inne właściwości zostały zaktualizowane przez użytkowników. Przy następnym ktoś przegląda w angielskiej wersji językowej działu, zobaczą zmiany zarówno Joanny i jego Jan. Ta metoda aktualizacji może zmniejszyć liczbę konfliktów, które może spowodować utratę danych. Takie podejście: * nie można uniknąć utraty danych, jeśli konkurują zmian z tą samą właściwością.
         * Jest zazwyczaj nie jest praktyczne w aplikacji sieci web. Wymaga to zachowanie znaczących stanu w celu śledzenia wszystkich pobranych oraz nowych wartości. Obsługa dużych ilości stan może mieć wpływ na wydajność aplikacji.
         * Może zwiększyć złożoność aplikacji w porównaniu do wykrywania współbieżności na jednostkę.
 
 * Możesz pozwolić, aby zmiany w Jan zastąpić zmiany nazwy.
 
- Przy następnym ktoś przegląda w angielskiej wersji językowej działu, będzie zobaczy 9/1/2013 i pobranych wartość $350,000.00. Ta metoda jest wywoływana *klienta Wins* lub *ostatniego w usłudze Wins* scenariusza. (Wszystkie wartości z klienta wyższy priorytet niż co znajduje się w magazynie danych). Jeśli nie ma żadnych kodowania obsługi współbieżności, Wins klienta odbywa się automatycznie.
+ Przy następnym ktoś przegląda w angielskiej wersji językowej działu, zobaczą 9/1/2013 i pobranych wartość $350,000.00. Ta metoda jest wywoływana *klienta Wins* lub *ostatniego w usłudze Wins* scenariusza. (Wszystkie wartości z klienta wyższy priorytet niż co znajduje się w magazynie danych). Jeśli nie ma żadnych kodowania obsługi współbieżności, Wins klienta odbywa się automatycznie.
 
 * Aby uniemożliwić zmianę jego Jan aktualizację w bazie danych. Zwykle, czy aplikacja: * wyświetlony komunikat o błędzie.
         * Wyświetlić bieżący stan danych.
@@ -73,16 +73,16 @@ Optymistycznej współbieżności zawiera następujące opcje:
 
 ## <a name="handling-concurrency"></a>Obsługa współbieżności 
 
-Jeśli właściwość została skonfigurowana jako [tokenu współbieżności](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency):
+Jeśli właściwość została skonfigurowana jako [tokenu współbieżności](https://docs.microsoft.com/ef/core/modeling/concurrency):
 
-* Podstawowe EF sprawdza, czy właściwości nie został zmodyfikowany po jego pobrania. Sprawdzanie jest wykonywane podczas [SaveChanges](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) lub [SaveChangesAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) jest wywoływana.
+* Podstawowe EF sprawdza, czy właściwości nie został zmodyfikowany po jego pobrania. Sprawdzanie jest wykonywane podczas [SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) lub [SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) jest wywoływana.
 * Jeśli właściwość została zmieniona po pobrano, [DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) jest generowany. 
 
 Model danych i bazy danych musi być skonfigurowany do obsługi zgłaszanie `DbUpdateConcurrencyException`.
 
 ### <a name="detecting-concurrency-conflicts-on-a-property"></a>Wykrywanie konfliktów współbieżności we właściwości
 
-Mogą być wykrywane konfliktom współbieżności na poziomie właściwości z [ConcurrencyCheck](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) atrybutu. Ten atrybut można zastosować na wiele właściwości w modelu. Aby uzyskać więcej informacji, zobacz [danych adnotacje-ConcurrencyCheck](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency#data-annotations).
+Mogą być wykrywane konfliktom współbieżności na poziomie właściwości z [ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) atrybutu. Ten atrybut można zastosować na wiele właściwości w modelu. Aby uzyskać więcej informacji, zobacz [danych adnotacje-ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations).
 
 `[ConcurrencyCheck]` Atrybut nie jest używana w tym samouczku.
 
@@ -127,7 +127,7 @@ Następujący wyróżniony kod T-SQL, który sprawdza, czy dokładnie jeden wier
 
 [!code-sql[](intro/samples/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT ](https://docs.microsoft.com/en-us/sql/t-sql/functions/rowcount-transact-sql) zwraca liczbę wierszy objętych ostatniej instrukcji. W żadnym wierszy są aktualizowane, zgłasza EF Core `DbUpdateConcurrencyException`.
+[@@ROWCOUNT ](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql) zwraca liczbę wierszy objętych ostatniej instrukcji. W żadnym wierszy są aktualizowane, zgłasza EF Core `DbUpdateConcurrencyException`.
 
 Można zauważyć, że generuje rdzeń EF T-SQL w oknie danych wyjściowych programu Visual Studio.
 
@@ -175,7 +175,7 @@ Skompiluj projekt. Kompilacja generuje błędy podobne do następujących:
 
 ### <a name="update-the-departments-index-page"></a>Zaktualizuj strony indeksu działów
 
-Aparat szkieletów utworzony `RowVersion` nie można wyświetlić kolumny do strony indeksu, ale tego pola. W tym samouczku ostatniego bajtu `RowVersion` wyświetleniem ułatwi zrozumienie współbieżności. Ostatniego bajtu nie musi być unikatowa. Rzeczywiste aplikacji nie wyświetlić `RowVersion` lub ostatniego bajtu `RowVersion`.
+Aparat szkieletów utworzony `RowVersion` nie można wyświetlić kolumny do strony indeksu, ale tego pola. W tym samouczku ostatniego bajtu `RowVersion` wyświetleniem ułatwi zrozumienie współbieżności. Ostatniego bajtu nie musi być unikatowy. Rzeczywiste aplikacji nie wyświetlić `RowVersion` lub ostatniego bajtu `RowVersion`.
 
 Zaktualizuj strony indeksu:
 
@@ -250,7 +250,7 @@ Kliknij przycisk **zapisać**. Możesz wyświetlić komunikaty o błędach dla w
 
 ![Komunikat o błędzie działu edycji strony](concurrency/_static/edit-error.png)
 
-To okno przeglądarki nie chcesz zmienić nazwę pola. Skopiuj i Wklej bieżącą wartość (języki) w polu Nazwa. Karta wychodzących. Sprawdzanie poprawności klienta usuwa komunikat o błędzie.
+Aby zmienić nazwę pola przypadkowo tego okna przeglądarki. Skopiuj i Wklej bieżącą wartość (języki) w polu Nazwa. Karta wychodzących. Sprawdzanie poprawności klienta usuwa komunikat o błędzie.
 
 ![Komunikat o błędzie działu edycji strony](concurrency/_static/cv.png)
 
@@ -305,8 +305,8 @@ Zobacz [dziedziczenia](xref:data/ef-mvc/inheritance) na temat sposobu dziedzicz�
 
 ### <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Tokeny współbieżności w EF Core](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency)
-* [Obsługa współbieżności w EF Core](https://docs.microsoft.com/en-us/ef/core/saving/concurrency)
+* [Tokeny współbieżności w EF Core](https://docs.microsoft.com/ef/core/modeling/concurrency)
+* [Obsługa współbieżności w EF Core](https://docs.microsoft.com/ef/core/saving/concurrency)
 
 >[!div class="step-by-step"]
 [Poprzednie](xref:data/ef-rp/update-related-data)

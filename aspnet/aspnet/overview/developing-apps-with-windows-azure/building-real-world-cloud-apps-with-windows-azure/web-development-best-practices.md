@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: a40a3779ddc416e141dd27b665f43830a43590b1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de536a0ca39cb752c0962f0c4ae36eb00b586bff
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Najlepsze rozwiązania Projektowanie sieci Web (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -142,20 +142,20 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby.
 
 Serwery sieci web bezstanowe:
 
-- [Microsoft Patterns and Practices — wskazówki dotyczące Skalowanie automatyczne](https://msdn.microsoft.com/en-us/library/dn589774.aspx).
+- [Microsoft Patterns and Practices — wskazówki dotyczące Skalowanie automatyczne](https://msdn.microsoft.com/library/dn589774.aspx).
 - [Wyłączanie ARR wystąpienia koligacji w Windows Azure Web Sites](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/). Wpis w blogu przez Erez Benari wyjaśniono koligacji sesji w systemie Windows Azure Web Sites.
 
 CDN:
 
 - [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalności, odporności](https://channel9.msdn.com/Series/FailSafe). Seria filmów dziewięć części Ulrich Homann, Mercuri wytłoków i moduły SIMM znaku. Zawiera omówienie sieci CDN w epizodu 3, zaczynając od 1:34:00.
-- [Wzorzec Microsoft Patterns i rozwiązań statycznej zawartości hostingu](https://msdn.microsoft.com/en-us/library/dn589776.aspx)
+- [Wzorzec Microsoft Patterns i rozwiązań statycznej zawartości hostingu](https://msdn.microsoft.com/library/dn589776.aspx)
 - [Przeglądy CDN](http://www.cdnreviews.com/). Omówienie CDN wiele.
 
 Programowanie asynchroniczne:
 
 - [Używanie metod asynchronicznych na platformie ASP.NET MVC 4](../../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md). Samouczek autorstwa Ricka Andersona.
-- [Programowanie asynchroniczne z Async i Await (C# i Visual Basic)](https://msdn.microsoft.com/en-us/library/vstudio/hh191443.aspx). MSDN oficjalny dokument, który objaśnia uzasadnienie programowanie asynchroniczne, jak to działa w programie ASP.NET 4.5 i jak napisać kod, aby ją wdrożyć.
-- [Entity Framework asynchronicznych zapytań i Zapisz](https://msdn.microsoft.com/en-us/data/jj819165)
+- [Programowanie asynchroniczne z Async i Await (C# i Visual Basic)](https://msdn.microsoft.com/library/vstudio/hh191443.aspx). MSDN oficjalny dokument, który objaśnia uzasadnienie programowanie asynchroniczne, jak to działa w programie ASP.NET 4.5 i jak napisać kod, aby ją wdrożyć.
+- [Entity Framework asynchronicznych zapytań i Zapisz](https://msdn.microsoft.com/data/jj819165)
 - [Jak tworzyć aplikacje sieci Web ASP.NET przy użyciu asynchronicznej](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/DEV-B337#fbid=tgkT4SR_DK7). Wideo prezentacji przez Tomaszewski Rowan. Zawiera graficzne pokaz programowania asynchronicznego w jaki sposób można ułatwić znaczący wzrost przepływność serwera sieci web w warunkach dużego obciążenia.
 - [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalności, odporności](https://channel9.msdn.com/Series/FailSafe). Seria filmów dziewięć części Ulrich Homann, Mercuri wytłoków i moduły SIMM znaku. Do dyskusji dotyczących wpływu programowania asynchronicznego na skalowalność Zobacz epizodu 4 i epizodu 8.
 - [Magiczna użycia metod asynchronicznych w ASP.NET 4.5, a także ważne gotcha](http://www.hanselman.com/blog/TheMagicOfUsingAsynchronousMethodsInASPNET45PlusAnImportantGotcha.aspx). Wpis w blogu w którym Scott Hanselman o przede wszystkim za pomocą asynchroniczne w aplikacji formularzy sieci Web programu ASP.NET.

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b308ee9ec209ba8bbb021827655c83443dd149e6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 564f859e73a88ac9c5f27e9b8f7409ec126642f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="self-host-aspnet-web-api-1-c"></a>Host samodzielny ASP.NET Web API 1 (C#)
 ====================
@@ -43,7 +43,7 @@ W **szablony** okienku wybierz **zainstalowane szablony** i rozwiń **Visual C#*
 
 ## <a name="set-the-target-framework-visual-studio-2010"></a>Ustaw docelową platformę (Visual Studio 2010)
 
-Jeśli używasz programu Visual Studio 2010, należy zmienić platformę docelową programu .NET Framework 4.0. (Domyślnie elementy docelowe projektu szablonu [.Net Framework Client Profile](https://msdn.microsoft.com/en-us/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)
+Jeśli używasz programu Visual Studio 2010, należy zmienić platformę docelową programu .NET Framework 4.0. (Domyślnie elementy docelowe projektu szablonu [.Net Framework Client Profile](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)
 
 W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **właściwości**. W **platformy docelowej** listy rozwijanej pozycję zmienić platformę docelową programu .NET Framework 4.0. Po wyświetleniu monitu, aby zastosować zmiany, kliknij przycisk **tak**.
 

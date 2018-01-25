@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 42851cb9b8046ca4f70894b9ec5b671b269da04c
-ms.sourcegitcommit: 97432cbf9b8673bc4ad7012d5b6f2ed273420295
+ms.openlocfilehash: 4e1270f9fb58032d22380117f4ec18b00bd725fc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>Oprogramowanie pośredniczące OWIN w zintegrowanym potoku usług IIS
 ====================
@@ -36,9 +36,9 @@ Oznacza to, że wszystkie struktury aplikacji, nawet te, które nie są jeszcze 
 
 ## <a name="how-owin-middleware-executes-in-the-iis-integrated-pipeline"></a>Jak oprogramowanie pośredniczące OWIN wykonuje w zintegrowanym potoku usług IIS
 
-W przypadku aplikacji konsoli OWIN potoku aplikacji utworzony za pomocą [konfiguracji uruchamiania](owin-startup-class-detection.md) ustawiono według kolejności składniki są dodawane przy użyciu `IAppBuilder.Use` metody. Oznacza to, że potok OWIN w [Katana](an-overview-of-project-katana.md) środowiska uruchomieniowego przetworzy OMCs w kolejności zostały zarejestrowane przy użyciu `IAppBuilder.Use`. W zintegrowanym potoku usług IIS Potok żądań składa się z [HttpModules](https://msdn.microsoft.com/en-us/library/ms178468(v=vs.85).aspx) subskrybuje wstępnie zdefiniowany zestaw zdarzeń potoku, takich jak [powstaniem zdarzenia BeginRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.beginrequest.aspx), [AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx), [AuthorizeRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx)itp.
+W przypadku aplikacji konsoli OWIN potoku aplikacji utworzony za pomocą [konfiguracji uruchamiania](owin-startup-class-detection.md) ustawiono według kolejności składniki są dodawane przy użyciu `IAppBuilder.Use` metody. Oznacza to, że potok OWIN w [Katana](an-overview-of-project-katana.md) środowiska uruchomieniowego przetworzy OMCs w kolejności zostały zarejestrowane przy użyciu `IAppBuilder.Use`. W zintegrowanym potoku usług IIS Potok żądań składa się z [HttpModules](https://msdn.microsoft.com/library/ms178468(v=vs.85).aspx) subskrybuje wstępnie zdefiniowany zestaw zdarzeń potoku, takich jak [powstaniem zdarzenia BeginRequest](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx), [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx), [AuthorizeRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx)itp.
 
-Jeśli firma Microsoft porównania OMC niż [HttpModule](https://msdn.microsoft.com/en-us/library/zec9k340(v=vs.85).aspx) na świecie ASP.NET OMC musi być zarejestrowana w zdarzeniu poprawne uprzednio zdefiniowanej potoku. Na przykład HttpModule `MyModule` będzie pobrać wywoływane, gdy dotrze żądanie [AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx) etap w potoku:
+Jeśli firma Microsoft porównania OMC niż [HttpModule](https://msdn.microsoft.com/library/zec9k340(v=vs.85).aspx) na świecie ASP.NET OMC musi być zarejestrowana w zdarzeniu poprawne uprzednio zdefiniowanej potoku. Na przykład HttpModule `MyModule` będzie pobrać wywoływane, gdy dotrze żądanie [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx) etap w potoku:
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample2.cs?highlight=10)]
 
@@ -57,7 +57,7 @@ Ustawienie konfiguracji uruchamiania potoku składników oprogramowania pośredn
 
 [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample5.cmd)]
 
-Środowisko uruchomieniowe Katana zamapować wszystkich składników oprogramowania pośredniczącego OWIN do [PreExecuteRequestHandler](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx) domyślnie, które odpowiada zdarzenie potoku usług IIS [PreRequestHandlerExecute](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx).
+Środowisko uruchomieniowe Katana zamapować wszystkich składników oprogramowania pośredniczącego OWIN do [PreExecuteRequestHandler](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx) domyślnie, które odpowiada zdarzenie potoku usług IIS [PreRequestHandlerExecute](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx).
 
 ## <a name="stage-markers"></a>Etap znaczników
 
@@ -65,7 +65,7 @@ Można oznaczyć OMCs można wykonać na poszczególnych etapów potoku przy uż
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample6.cs?highlight=13,19)]
 
-`app.UseStageMarker(PipelineStage.Authenticate)` Wywołania konfiguruje wszystkich składników oprogramowania pośredniczącego wcześniej zarejestrowane (w tym przypadku naszej dwa składniki diagnostycznych) do uruchamiania na etapie uwierzytelniania potoku. Ostatni składnik oprogramowania pośredniczącego (która wyświetla diagnostyki i odpowiada na żądania) zostanie uruchomiony na `ResolveCache` etap ( [ResolveRequestCache](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.resolverequestcache.aspx) zdarzeń).
+`app.UseStageMarker(PipelineStage.Authenticate)` Wywołania konfiguruje wszystkich składników oprogramowania pośredniczącego wcześniej zarejestrowane (w tym przypadku naszej dwa składniki diagnostycznych) do uruchamiania na etapie uwierzytelniania potoku. Ostatni składnik oprogramowania pośredniczącego (która wyświetla diagnostyki i odpowiada na żądania) zostanie uruchomiony na `ResolveCache` etap ( [ResolveRequestCache](https://msdn.microsoft.com/library/system.web.httpapplication.resolverequestcache.aspx) zdarzeń).
 
 Naciśnij klawisz F5, aby uruchomić aplikację. W oknie danych wyjściowych zawiera następujące czynności:
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bb0b80f63ea69bb12a28f01193946f5689e70fb9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2e0698269c0a29c234f03dc56f7b63e7bc83d032
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-the-tableadapter-to-use-joins-vb"></a>Aktualizowanie TableAdapter w celu użycia sprzężenia (VB)
 ====================
@@ -54,7 +54,7 @@ Alternatywnie `JOIN` służy do zwracania nazwy każdego produktu s dostawcy i k
 A `JOIN` scala rekordy z jednej tabeli z rekordów z innej tabeli na podstawie niektórych kryteriów. W powyższym zapytaniu, na przykład `LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID` powoduje, że program SQL Server do scalenia każdego rekordu produktu z kategorią rekordów, których `CategoryID` wartość odpowiada produktu s `CategoryID` wartość. Wynik scalonych pozwala pracować z odpowiednich pól kategorii dla każdego produktu (takie jak `CategoryName`).
 
 > [!NOTE]
-> `JOIN`s są często używane podczas wykonywania zapytań dotyczących danych relacyjnych baz danych. Jeśli jesteś nowym użytkownikiem `JOIN` składni lub konieczność lepiej poznać nieco jej użycie d najlepiej [samouczek SQL Join](http://www.w3schools.com/sql/sql_join.asp) w [szkoły W3](http://www.w3schools.com/). Warto odczytu są także [ `JOIN` podstawy](https://msdn.microsoft.com/en-us/library/ms191517.aspx) i [podstawy podzapytania](https://msdn.microsoft.com/en-us/library/ms189575.aspx) sekcje [SQL — książki Online](https://msdn.microsoft.com/en-us/library/ms130214.aspx).
+> `JOIN`s są często używane podczas wykonywania zapytań dotyczących danych relacyjnych baz danych. Jeśli jesteś nowym użytkownikiem `JOIN` składni lub konieczność lepiej poznać nieco jej użycie d najlepiej [samouczek SQL Join](http://www.w3schools.com/sql/sql_join.asp) w [szkoły W3](http://www.w3schools.com/). Warto odczytu są także [ `JOIN` podstawy](https://msdn.microsoft.com/library/ms191517.aspx) i [podstawy podzapytania](https://msdn.microsoft.com/library/ms189575.aspx) sekcje [SQL — książki Online](https://msdn.microsoft.com/library/ms130214.aspx).
 
 
 Ponieważ `JOIN` s i podzapytania skorelowane mogą posłużyć do pobierania danych powiązanych z innych tabel, wielu deweloperów pozostało drapanie ich głowic i zastanawiać, które rozwiązanie do użycia. Wszystkie SQL gurus I Zapisz zawsze mówię do dostęp około samo, że t naprawdę istotne performance-wise sposób planów około identyczne wykonania programu SQL Server. Następnie rad, jest użycie metody, która Ciebie i Twojego zespołu są najbardziej Ci. Uzasadnia, biorąc pod uwagę, że po nadając tej porady tych ekspertów od razu express swoje preferencje `JOIN` s za pośrednictwem skorelowane podzapytania.

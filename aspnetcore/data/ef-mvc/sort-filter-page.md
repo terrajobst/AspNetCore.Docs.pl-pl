@@ -8,11 +8,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 6da2073b18f6fff9738808c84441e59240caefe3
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 60ac1844e7747002d72aa892a47490cb7a416359
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sortowanie, filtrowanie, stronicowania i grupowanie — podstawowe EF z samouczek platformy ASP.NET Core MVC (3 10)
 
@@ -53,7 +53,7 @@ Są to trójargumentowy instrukcje. Pierwsza z nich Określa, że jeśli `sortOr
 | Data w kolejności rosnącej       | ascending           | descending     |
 | Data, malejąco      | ascending           | ascending      |
 
-Metoda używa do składnika LINQ to Entities Określ kolumny, aby posortować według. Kod tworzy `IQueryable` zmiennej przed instrukcją switch modyfikuje go w instrukcji switch i wywołania `ToListAsync` metody po `switch` instrukcji. Podczas tworzenia i modyfikowania `IQueryable` zmiennych, nie zapytanie jest wysyłane do bazy danych. Kwerenda nie została wykonana, do momentu konwersji `IQueryable` obiektu do kolekcji, wywołując metodę, takich jak `ToListAsync`. W związku z tym powoduje ten kod w jednym zapytaniu, która nie jest wykonywana do czasu `return View` instrukcji.
+Metoda używa do składnika LINQ to Entities Określ kolumny, aby posortować według. Kod tworzy `IQueryable` zmiennej przed instrukcją switch modyfikuje go w instrukcji switch i wywołania `ToListAsync` metody po `switch` instrukcji. Podczas tworzenia i modyfikowania `IQueryable` zmiennych, nie zapytanie jest wysyłane do bazy danych. Zapytanie nie jest wykonywany do momentu konwersji `IQueryable` obiektu do kolekcji, wywołując metodę, takich jak `ToListAsync`. W związku z tym powoduje ten kod w jednym zapytaniu, która nie jest wykonywana do czasu `return View` instrukcji.
 
 Ten kod może pobrać verbose z dużą liczbą kolumn. [Ostatni samouczku tej serii](advanced.md#dynamic-linq) pokazano, jak napisać kod, który umożliwia przekazywania nazwy `OrderBy` kolumny w zmiennej ciągu.
 
@@ -144,7 +144,7 @@ Po raz pierwszy, ta strona jest wyświetlana, lub jeśli użytkownik nie klikną
 
 `ViewData` Elementu o nazwie BieżącyFiltr zawiera widok z bieżącym ciąg filtru. Ta wartość musi być uwzględniona w łącza stronicowania w celu utrzymania ustawień filtru podczas stronicowania i go muszą być przywrócone do pola tekstowego, gdy strona zostanie wyświetlony ponownie.
 
-Jeśli ciąg wyszukiwania została zmieniona podczas stronicowania, strona musi zresetowana do wartości 1, nowy filtr może powodować różnych danych do wyświetlenia. Ciąg wyszukiwania jest zmieniany, gdy wartość jest wprowadzana w polu tekstowym i kliknięciu przycisku Prześlij. W takim przypadku `searchString` parametru nie jest zerowa.
+Jeśli ciąg wyszukiwania została zmieniona podczas stronicowania, strona musi zresetowana do wartości 1, nowy filtr może powodować różnych danych do wyświetlenia. Ciąg wyszukiwania jest zmieniany, gdy wartość jest wprowadzana w polu tekstowym i kliknięciu przycisku Prześlij. W takim przypadku `searchString` parametru nie ma wartości null.
 
 ```csharp
 if (searchString != null)

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 213626147424e08d10d6442034ec450174200b09
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3c56356aaa595e200a16fe0045a8b00dc5823b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-details-and-delete-methods"></a>Badanie informacji i metody Delete
 ====================
@@ -66,7 +66,7 @@ Masz teraz kompletna aplikacja platformy ASP.NET MVC, która przechowuje dane w 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po utworzone i przetestowane aplikacji sieci web, następnym krokiem jest aby udostępnić ją innym użytkownikom za pośrednictwem Internetu. W tym celu należy wdrożyć ją do usługi hosta sieci web. Firma Microsoft oferuje usługi hostingu sieci web wolnego maksymalnie 10 witryn sieci web w [bezpłatnego konta wersji próbnej systemu Windows Azure](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604). I zasugerować dalej wykonaj Moje samouczek [wdrażanie aplikacji platformy ASP.NET MVC Secure z członkostwa, OAuth i bazy danych SQL do witryny sieci Web systemu Windows Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Samouczek znakomity jest poziomu pośredniego Tomasz Dykstra [tworzenia modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). [StackOverflow](http://stackoverflow.com/help) i [ASP.NET MVC forum](https://forums.asp.net/1146.aspx) jest doskonałym umieszcza zadawać pytania. Postępuj zgodnie z [mnie](https://twitter.com/RickAndMSFT) w serwisie twitter, aby aktualizacje na Moje najnowsze samouczki.
+Po utworzone i przetestowane aplikacji sieci web, następnym krokiem jest aby udostępnić ją innym użytkownikom za pośrednictwem Internetu. W tym celu należy wdrożyć ją do usługi hosta sieci web. Firma Microsoft oferuje usługi hostingu sieci web wolnego maksymalnie 10 witryn sieci web w [bezpłatnego konta wersji próbnej systemu Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). I zasugerować dalej wykonaj Moje samouczek [wdrażanie aplikacji platformy ASP.NET MVC Secure z członkostwa, OAuth i bazy danych SQL do witryny sieci Web systemu Windows Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Samouczek znakomity jest poziomu pośredniego Tomasz Dykstra [tworzenia modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). [StackOverflow](http://stackoverflow.com/help) i [ASP.NET MVC forum](https://forums.asp.net/1146.aspx) jest doskonałym umieszcza zadawać pytania. Postępuj zgodnie z [mnie](https://twitter.com/RickAndMSFT) w serwisie twitter, aby aktualizacje na Moje najnowsze samouczki.
 
 Opinie użytkowników są powitalnej.
 

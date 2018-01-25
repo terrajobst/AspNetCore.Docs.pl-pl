@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d575c8f597bcb5d2a5d2e27e1145d39110daabe1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c9e40ff968f82a9d05fc9441e2399e52a6c55f51
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-data-with-the-objectdatasource-vb"></a>Wyświetlanie danych z elementu ObjectDataSource (VB)
 ====================
@@ -31,10 +31,10 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 Z naszej aplikacji architektury i witryny sieci Web układ strony pełną jest już rozpocząć eksplorowanie sposobu wykonywania różnych zadań i raportowania związanych z danymi. W poprzednich samouczki możemy przedstawiono sposób programowo wiązanie danych z warstwy DAL i logiki warstwy Biznesowej danych formantu sieci Web strony ASP.NET. Ta składnia przypisywanie kontrolka sieci Web danych `DataSource` właściwości do danych do wyświetlenia i następnie wywoływanie formantu `DataBind()` metoda układ używany w aplikacjach ASP.NET 1.x i mogą w dalszym ciągu można użyć w aplikacjach 2.0. Jednak nowe kontrolki źródła danych programu ASP.NET 2.0 oferuje deklaratywne pracować z danymi. Za pomocą tych kontrolek można powiązać dane pobrane z logiki warstwy Biznesowej utworzony w poprzednim samouczek bez konieczności pisania wiersz kodu!
 
-Platforma ASP.NET 2.0 jest dostarczany z pięciu kontrolki źródła danych wbudowanych [SqlDataSource](https://msdn.microsoft.com/en-us/library/dz12d98w%28vs.80%29.aspx), [AccessDataSource](https://msdn.microsoft.com/en-us/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/en-us/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/en-us/library/e8d8587a%28en-US,VS.80%29.aspx), i [SiteMapDataSource](https://msdn.microsoft.com/en-us/library/5ex9t96x%28en-US,VS.80%29.aspx) mimo że można tworzyć własne [źródła danych niestandardowych formantów](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnvs05/html/DataSourceCon1.asp), jeśli to konieczne. Ponieważ opracowaliśmy architekturę dla naszej aplikacji samouczek, będziemy używać ObjectDataSource względem naszego klasy logiki warstwy Biznesowej.
+Platforma ASP.NET 2.0 jest dostarczany z pięciu kontrolki źródła danych wbudowanych [SqlDataSource](https://msdn.microsoft.com/library/dz12d98w%28vs.80%29.aspx), [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a%28en-US,VS.80%29.aspx), i [SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x%28en-US,VS.80%29.aspx) mimo że można tworzyć własne [źródła danych niestandardowych formantów](https://msdn.microsoft.com/library/default.asp?url=/library/dnvs05/html/DataSourceCon1.asp), jeśli to konieczne. Ponieważ opracowaliśmy architekturę dla naszej aplikacji samouczek, będziemy używać ObjectDataSource względem naszego klasy logiki warstwy Biznesowej.
 
 
-![Program ASP.NET 2.0 zawiera pięć kontrolki źródła danych wbudowane](displaying-data-with-the-objectdatasource-vb/_static/image1.png)
+![ASP.NET 2.0 Includes Five Built-In Data Source Controls](displaying-data-with-the-objectdatasource-vb/_static/image1.png)
 
 **Rysunek 1**: program ASP.NET 2.0 zawiera pięć kontrolki źródła danych wbudowane
 
@@ -90,7 +90,7 @@ Kreator konfigurowania źródła danych przez element ObjectDataSource pozwala s
 
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-vb/samples/sample1.aspx)]
 
-Nawet jeśli wolisz kreatora skonfiguruj źródło danych może być czas, kiedy trzeba ręcznie skonfigurować ObjectDataSource, jak Kreator wyświetla tylko klasy utworzonych przez dewelopera. Jeśli chcesz powiązać ObjectDataSource klasę w programie .NET Framework, takich jak [klasy członkostwa](https://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx), aby uzyskać dostępu do informacji o koncie użytkownika, lub [klasy katalogu](https://msdn.microsoft.com/en-us/library/system.io.directory.aspx) do pracy z informacje o systemie plików należy ręcznie ustawić właściwości w elemencie ObjectDataSource.
+Nawet jeśli wolisz kreatora skonfiguruj źródło danych może być czas, kiedy trzeba ręcznie skonfigurować ObjectDataSource, jak Kreator wyświetla tylko klasy utworzonych przez dewelopera. Jeśli chcesz powiązać ObjectDataSource klasę w programie .NET Framework, takich jak [klasy członkostwa](https://msdn.microsoft.com/library/system.web.security.membership.aspx), aby uzyskać dostępu do informacji o koncie użytkownika, lub [klasy katalogu](https://msdn.microsoft.com/library/system.io.directory.aspx) do pracy z informacje o systemie plików należy ręcznie ustawić właściwości w elemencie ObjectDataSource.
 
 ## <a name="step-2-adding-a-data-web-control-and-binding-it-to-the-objectdatasource"></a>Krok 2: Dodawanie formantu danych sieci Web i powiązania jej z ObjectDataSource
 
@@ -172,7 +172,7 @@ Z naszych motywu zdefiniowane ostatnim krokiem jest do stosowania motywu do stro
 
 [!code-xml[Main](displaying-data-with-the-objectdatasource-vb/samples/sample5.xml)]
 
-To wszystko jest do niego! `styleSheetTheme` Ustawienie wskazuje, że właściwości określone w motywie powinien *nie* zastąpienie właściwości określonego na poziomie formantu. Aby określić, że ustawienia motywu powinien trump ustawienia kontroli, użyj `theme` atrybutu zamiast `styleSheetTheme`; Niestety, ustawienia kompozycji nie są wyświetlane w widoku Projekt usługi Visual Studio. Zapoznaj się [omówienie skórek i kompozycji ASP.NET](https://msdn.microsoft.com/en-us/library/ykzx33wh.aspx) i [motywów przy użyciu stylów po stronie serwera](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx) Aby uzyskać więcej informacji na temat kompozycje i karnacji; zobacz [jak: Zastosuj kompozycji ASP.NET](https://msdn.microsoft.com/en-us/library/0yy5hxdk%28VS.80%29.aspx) Aby uzyskać więcej informacji na temat Konfigurowanie strony do użycia motywu.
+To wszystko jest do niego! `styleSheetTheme` Ustawienie wskazuje, że właściwości określone w motywie powinien *nie* zastąpienie właściwości określonego na poziomie formantu. Aby określić, że ustawienia motywu powinien trump ustawienia kontroli, użyj `theme` atrybutu zamiast `styleSheetTheme`; Niestety, ustawienia kompozycji nie są wyświetlane w widoku Projekt usługi Visual Studio. Zapoznaj się [omówienie skórek i kompozycji ASP.NET](https://msdn.microsoft.com/library/ykzx33wh.aspx) i [motywów przy użyciu stylów po stronie serwera](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx) Aby uzyskać więcej informacji na temat kompozycje i karnacji; zobacz [jak: Zastosuj kompozycji ASP.NET](https://msdn.microsoft.com/library/0yy5hxdk%28VS.80%29.aspx) Aby uzyskać więcej informacji na temat Konfigurowanie strony do użycia motywu.
 
 
 [![Wyświetla widoku GridView produktu nazwa, Kategoria dostawcy, ceny i wycofane informacji](displaying-data-with-the-objectdatasource-vb/_static/image31.png)](displaying-data-with-the-objectdatasource-vb/_static/image30.png)
@@ -182,7 +182,7 @@ To wszystko jest do niego! `styleSheetTheme` Ustawienie wskazuje, że właściwo
 
 ## <a name="displaying-one-record-at-a-time-in-the-detailsview"></a>Wyświetlanie jeden rekord naraz w widoku DetailsView
 
-Widoku GridView Wyświetla jeden wiersz dla każdego rekordu zwróconego przez formant źródła danych, z którą jest powiązany. Brak sytuacji, gdy firma Microsoft może mają być wyświetlane wyłącznie rekordu lub tylko jeden rekord naraz. [Formantu widoku DetailsView](https://msdn.microsoft.com/en-us/library/s3w1w7t4.aspx) oferuje tę funkcję, renderowania w formacie HTML `<table>` z kolumnami i jeden wiersz dla każdej kolumny lub właściwości powiązane z formantem. Widoku DetailsView można traktować jako element GridView z pojedynczego rekordu obrócony o 90 stopni.
+Widoku GridView Wyświetla jeden wiersz dla każdego rekordu zwróconego przez formant źródła danych, z którą jest powiązany. Brak sytuacji, gdy firma Microsoft może mają być wyświetlane wyłącznie rekordu lub tylko jeden rekord naraz. [Formantu widoku DetailsView](https://msdn.microsoft.com/library/s3w1w7t4.aspx) oferuje tę funkcję, renderowania w formacie HTML `<table>` z kolumnami i jeden wiersz dla każdej kolumny lub właściwości powiązane z formantem. Widoku DetailsView można traktować jako element GridView z pojedynczego rekordu obrócony o 90 stopni.
 
 Rozpocznij od dodania formantu widoku DetailsView *powyżej* w widoku GridView `SimpleDisplay.aspx`. Następnie powiązać go z tej samej kontrolki ObjectDataSource jako widoku GridView. Jak z widoku GridView, elementu BoundField zostanie dodany do widoku DetailsView dla każdej właściwości w obiekcie zwracanym przez element ObjectDataSource `Select` metody. Jedyna różnica polega na tym, że DetailsView BoundFields zostały przedstawione w poziomie, a nie w pionie.
 
@@ -219,7 +219,7 @@ Firma Microsoft będzie komunikować więcej informacji o stronicowaniu w przysz
 
 Widoku DetailsView jest dość sztywnego w sposób jego wyświetlania każdego rekordu zwrócone przez element ObjectDataSource. Firma Microsoft może być bardziej elastyczne widoku danych. Na przykład zamiast przedstawiający nazwę produktu, Kategoria dostawcy, ceny i wycofane informacji w oddzielnym wierszu, może chcemy się widoczna nazwa produktu i ceny w `<h4>` pozycji z kategorii i Dostawca informacji pojawiających się poniżej nazwę i cen w mniejszej czcionki. I nie może Dbamy można wyświetlić nazwy właściwości (produktu, kategorii i tak dalej) obok wartości.
 
-[Kontroli FormView](https://msdn.microsoft.com/en-US/library/fyf1dk77.aspx) zawiera ten poziom dostosowania. Zamiast przy użyciu pól (np. opcji widoku GridView i widoku DetailsView nie), FormView korzysta z szablonów, które umożliwiają różnych formantów sieci Web, statyczne HTML i [składnia wiązania z danymi](http://www.15seconds.com/issue/040630.htm). Jeśli znasz kontrolce elementu powtarzanego z platformy ASP.NET 1.x, możesz traktować FormView jako elementu powtarzanego do wyświetlania pojedynczego rekordu.
+[Kontroli FormView](https://msdn.microsoft.com/library/fyf1dk77.aspx) zawiera ten poziom dostosowania. Zamiast przy użyciu pól (np. opcji widoku GridView i widoku DetailsView nie), FormView korzysta z szablonów, które umożliwiają różnych formantów sieci Web, statyczne HTML i [składnia wiązania z danymi](http://www.15seconds.com/issue/040630.htm). Jeśli znasz kontrolce elementu powtarzanego z platformy ASP.NET 1.x, możesz traktować FormView jako elementu powtarzanego do wyświetlania pojedynczego rekordu.
 
 Dodawanie do formantu FormView `SimpleDisplay.aspx` powierzchni projektu strony. Początkowo FormView wyświetlane jako blok szarego informowania potrzebujemy zapewnić co najmniej formantu `ItemTemplate`.
 
@@ -256,12 +256,12 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Utwórz własne kontrolki źródła danych](https://msdn.microsoft.com/en-us/library/ms364049.aspx)
-- [Element GridView przykłady dla programu ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/aa479339.aspx)
+- [Utwórz własne kontrolki źródła danych](https://msdn.microsoft.com/library/ms364049.aspx)
+- [Element GridView przykłady dla programu ASP.NET 2.0](https://msdn.microsoft.com/library/aa479339.aspx)
 - [Uproszczone i rozszerzone powiązania danych składni w programie ASP.NET 2.0](http://www.15seconds.com/issue/040630.htm)
 - [Motywy w programie ASP.NET 2.0](http://www.odetocode.com/Articles/423.aspx)
 - [Style po stronie serwera za pomocą motywów](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)
-- [Porady: Programowane zastosować kompozycji ASP.NET](https://msdn.microsoft.com/en-us/library/tx35bd89.aspx)
+- [Porady: Programowane zastosować kompozycji ASP.NET](https://msdn.microsoft.com/library/tx35bd89.aspx)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 

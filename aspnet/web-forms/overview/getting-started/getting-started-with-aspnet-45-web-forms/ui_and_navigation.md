@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 98c96749781f577d9544c80f58404353d40848b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7f1d8a1a473820a7c8da4c8086904cc41c86fd2a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="ui-and-navigation"></a>Interfejs użytkownika i nawigacja
 ====================
@@ -288,8 +288,8 @@ W tym samouczku serii dodano podstawowy interfejs użytkownika, grafiki, stron i
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-[Wprowadzenie do programowania stron sieci Web ASP.NET](https://msdn.microsoft.com/en-us/library/ms178125.aspx)   
-[Omówienie kontrolki serwera sieci Web ASP.NET](https://msdn.microsoft.com/en-us/library/zsyt68f1.aspx)   
+[Wprowadzenie do programowania stron sieci Web ASP.NET](https://msdn.microsoft.com/library/ms178125.aspx)   
+[Omówienie kontrolki serwera sieci Web ASP.NET](https://msdn.microsoft.com/library/zsyt68f1.aspx)   
 [Samouczek CSS](http://www.w3schools.com/css/default.asp)
 
 >[!div class="step-by-step"]

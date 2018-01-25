@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 04487614b219f8f6f8f0524c3b5f1aa42480c4d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ebc83098b73902fa3f7a90a38dafc43b413e75fe
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-signalr-security-signalr-1x"></a>Wprowadzenie do zabezpieczeń SignalR (SignalR 1.x)
 ====================
@@ -54,7 +54,7 @@ Ten dokument zawiera następujące sekcje:
 
 Celem jest zintegrowana z istniejącej struktury uwierzytelniania dla aplikacji SignalR. Nie zawiera żadnych funkcji do uwierzytelniania użytkowników. Zamiast tego można uwierzytelniać użytkowników, jako normalny w aplikacji, a następnie pracować z wynikami uwierzytelniania w kodzie SignalR. Na przykład mogą uwierzytelnianie użytkowników za pomocą uwierzytelniania formularzy ASP.NET, a następnie w Centrum, wymusić użytkowników, którzy lub role mają uprawnienia do wywołania metody. W Centrum należy przekazać informacje uwierzytelniania, takie jak nazwa użytkownika lub określa, czy użytkownik należy do roli, do klienta.
 
-Biblioteka SignalR udostępnia [autoryzacji](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) atrybutu, aby określić, którzy użytkownicy mają dostęp do Centrum lub metody. Zastosuj atrybut autoryzacji do koncentratora lub konkretnej metody koncentratora. Bez atrybutu autoryzacji wszystkich metod publicznych koncentratora są dostępne dla klienta, który jest podłączony do koncentratora. Aby uzyskać więcej informacji na temat koncentratorów, zobacz [uwierzytelniania i autoryzacji dla koncentratorów SignalR](../security/hub-authorization.md).
+Biblioteka SignalR udostępnia [autoryzacji](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) atrybutu, aby określić, którzy użytkownicy mają dostęp do Centrum lub metody. Zastosuj atrybut autoryzacji do koncentratora lub konkretnej metody koncentratora. Bez atrybutu autoryzacji wszystkich metod publicznych koncentratora są dostępne dla klienta, który jest podłączony do koncentratora. Aby uzyskać więcej informacji na temat koncentratorów, zobacz [uwierzytelniania i autoryzacji dla koncentratorów SignalR](../security/hub-authorization.md).
 
 `Authorize` Atrybut jest używany tylko z koncentratorami. Aby wymusić reguł autoryzacji, korzystając z `PersistentConnection` konieczne jest przesłonięcie `AuthorizeRequest` metody. Aby uzyskać więcej informacji na temat połączeń trwałych, zobacz [uwierzytelniania i autoryzacji dla połączenia trwałego SignalR](../security/persistent-connection-authorization.md).
 

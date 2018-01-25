@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
-ms.openlocfilehash: cc23a053fb1ba60ea84eca59e99f0e375fefc4cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8a26d356f7abafba021199761f9a49dcb81765c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="enabling-windows-authentication-in-katana"></a>Włączanie uwierzytelniania systemu Windows w kolekcji Katana
 ====================
@@ -34,7 +34,7 @@ Katana to implementacja firmy Microsoft [OWIN](http://owin.org/), Otwórz interf
 Katana obecnie zawiera dwa serwery, które obsługuje zintegrowane uwierzytelnianie systemu Windows:
 
 - **Microsoft.Owin.Host.SystemWeb**. Korzysta z usług IIS z potoku ASP.NET.
-- **Microsoft.Owin.Host.HttpListener**. Używa [System.Net.HttpListener](https://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx). Ten serwer jest obecnie opcją domyślną, gdy hostingu samodzielnego Katana.
+- **Microsoft.Owin.Host.HttpListener**. Uses [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx). Ten serwer jest obecnie opcją domyślną, gdy hostingu samodzielnego Katana.
 
 > [!NOTE]
 > Katana nie jest aktualnie dostępny oprogramowanie pośredniczące OWIN do uwierzytelniania systemu Windows, ponieważ ta funkcja jest już dostępny na serwerach.
@@ -98,8 +98,8 @@ W narzędziu Fiddler, aby upewnić się, że aplikacja używa uwierzytelniania s
 
 ## <a name="related-topics"></a>Tematy pokrewne
 
-[Przegląd projektu Katana](an-overview-of-project-katana.md)
+[Omówienie projektu Katana](an-overview-of-project-katana.md)
 
-[System.Net.HttpListener](https://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx)
+[System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx)
 
 [Opis uwierzytelniania formularzy OWIN w nazwie wzorca MVC 5](https://blogs.msdn.com/b/webdev/archive/2013/07/03/understanding-owin-forms-authentication-in-mvc-5.aspx)

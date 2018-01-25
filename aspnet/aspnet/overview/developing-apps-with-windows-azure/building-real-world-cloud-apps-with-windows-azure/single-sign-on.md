@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: f0d465b363652c691c203d608f2cb9d139e72fed
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b3640c94a8ae9ede330c0fe6a392acb5843cb65c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Logowanie jednokrotne (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -31,12 +31,12 @@ Istnieje wiele problemów z zabezpieczeniami można traktować Jeśli projektuje
 
 ## <a name="introduction-to-azure-ad"></a>Wprowadzenie do usługi Azure AD
 
-[Usługi Azure AD](https://docs.microsoft.com/azure/active-directory/) zapewnia [usługi Active Directory](https://msdn.microsoft.com/en-us/library/windows/desktop/aa746492.aspx) w chmurze. Najważniejsze funkcje obejmują:
+[Usługi Azure AD](https://docs.microsoft.com/azure/active-directory/) zapewnia [usługi Active Directory](https://msdn.microsoft.com/library/windows/desktop/aa746492.aspx) w chmurze. Najważniejsze funkcje obejmują:
 
 - Umożliwia integrację z lokalnej usługi Active Directory.
 - Umożliwia logowanie jednokrotne z aplikacjami.
 - Obsługuje on otwarty standardy, takie jak [SAML](http://en.wikipedia.org/wiki/SAML_2.0), [WS-Fed](http://en.wikipedia.org/wiki/WS-Federation), i [OAuth 2.0](http://oauth.net/2/).
-- Obsługuje ona Enterprise [interfejsu API REST wykresu](https://msdn.microsoft.com/en-us/library/hh974476.aspx).
+- Obsługuje ona Enterprise [interfejsu API REST wykresu](https://msdn.microsoft.com/library/hh974476.aspx).
 
 Załóżmy, że masz środowiska usługi Active Directory systemu Windows Server lokalnego, który umożliwia pracownikom zalogować się do aplikacji w sieci Intranet:
 
@@ -64,7 +64,7 @@ Jeśli firma jest przy użyciu lub przechodzenia do usługi Office 365 szczęśc
 
 ## <a name="set-up-an-azure-ad-tenant"></a>Konfigurowanie dzierżawa usługi Azure AD
 
-katalog usługi Azure AD jest nazywany usługi Azure AD [dzierżawy](https://technet.microsoft.com/en-us/library/jj573650.aspx), i skonfigurowanie dzierżawcy jest bardzo prosty. Poniżej opisano jak jest wykonywane w portalu zarządzania Azure w celu zilustrowania koncepcji, ale oczywiście podobnie jak inne funkcje portalu również należy go za pomocą skryptów lub interfejsu API zarządzania.
+katalog usługi Azure AD jest nazywany usługi Azure AD [dzierżawy](https://technet.microsoft.com/library/jj573650.aspx), i skonfigurowanie dzierżawcy jest bardzo prosty. Poniżej opisano jak jest wykonywane w portalu zarządzania Azure w celu zilustrowania koncepcji, ale oczywiście podobnie jak inne funkcje portalu również należy go za pomocą skryptów lub interfejsu API zarządzania.
 
 W portalu zarządzania na karcie usługi Active Directory.
 
@@ -118,7 +118,7 @@ Kliknij przycisk **dalej**, a następnie wskaż, jeśli chcesz Przechowywanie sk
 
 ![Kreator konfiguracji narzędzia synchronizacji drewna](single-sign-on/_static/image17.png)
 
-Wartość skrótu hasła, które mogą być przechowywane w chmurze jest skrót jednokierunkowy; rzeczywiste hasła nigdy nie są przechowywane w usłudze Azure AD. Jeśli zdecydujesz się na przechowywanie skrótów w chmurze, musisz użyć [Active Directory Federation Services](https://technet.microsoft.com/en-us/library/hh831502.aspx) (AD FS). Dostępne są także [inne czynniki, które należy wziąć pod uwagę podczas wybierania, czy należy używać usług AD FS](https://technet.microsoft.com/en-us/library/jj573653.aspx). Opcja usług AD FS wymaga kilka dodatkowych czynności konfiguracyjnych.
+Wartość skrótu hasła, które mogą być przechowywane w chmurze jest skrót jednokierunkowy; rzeczywiste hasła nigdy nie są przechowywane w usłudze Azure AD. Jeśli zdecydujesz się na przechowywanie skrótów w chmurze, musisz użyć [Active Directory Federation Services](https://technet.microsoft.com/library/hh831502.aspx) (AD FS). Dostępne są także [inne czynniki, które należy wziąć pod uwagę podczas wybierania, czy należy używać usług AD FS](https://technet.microsoft.com/library/jj573653.aspx). Opcja usług AD FS wymaga kilka dodatkowych czynności konfiguracyjnych.
 
 Jeśli zdecydujesz się przechowywać skróty w chmurze, wszystko gotowe i uruchamia narzędzie synchronizacji katalogów po kliknięciu **dalej**.
 
@@ -156,7 +156,7 @@ Wybierz konta organizacyjne, wpisz nazwę domeny, a następnie wybierz rejestrac
 
 ![Skonfiguruj dialog uwierzytelniania](single-sign-on/_static/image24.png)
 
-Możesz też udzielić aplikacji odczytu i odczytu/zapisu uprawnień do katalogu danych. Jeśli możesz to zrobić, można użyć [interfejsu API REST wykres Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh974476.aspx) aby wyszukać użytkowników numer telefonu, dowiedzieć się, jeśli są one w pakiecie office, podczas ich ostatniego logowania na itp.
+Możesz też udzielić aplikacji odczytu i odczytu/zapisu uprawnień do katalogu danych. Jeśli możesz to zrobić, można użyć [interfejsu API REST wykres Azure](https://msdn.microsoft.com/library/windowsazure/hh974476.aspx) aby wyszukać użytkowników numer telefonu, dowiedzieć się, jeśli są one w pakiecie office, podczas ich ostatniego logowania na itp.
 
 To wszystko, co trzeba zrobić — Visual Studio poprosi o podanie poświadczeń administratora dzierżawy usługi Azure AD, a następnie konfiguruje zarówno projektu i dzierżawy usługi Azure AD dla nowej aplikacji.
 
@@ -186,7 +186,7 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 - [Dokumentacja usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Strona Portal dokumentacji usługi Azure AD w witrynie windowsazure.com. Samouczki krok po kroku, zobacz **opracowanie** sekcji.
 - [Usługa Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/). Strona Portal dokumentacji na temat uwierzytelniania wieloskładnikowego na platformie Azure.
 - [Opcje uwierzytelniania konto organizacyjne](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauthoptions). Wyjaśnienie opcje uwierzytelniania usługi Azure AD w oknie dialogowym Nowy projekt programu Visual Studio 2013.
-- [Microsoft Patterns and Practices — wzorzec tożsamości federacyjnych](https://msdn.microsoft.com/en-us/library/dn589790.aspx).
+- [Microsoft Patterns and Practices — wzorzec tożsamości federacyjnych](https://msdn.microsoft.com/library/dn589790.aspx).
 - [Porada: Zainstaluj narzędzie do synchronizacji usługi Azure Active Directory](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx).
 - [Active Directory Federation Services 2.0 Mapa zawartości](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx). Łącza do dokumentacji usług AD FS 2.0.
 - [Autoryzacji opartej na rolach i na podstawie listy ACL w aplikacji systemu Windows Azure AD](https://code.msdn.microsoft.com/Role-Based-and-ACL-Based-86ad71a1). Przykładowa aplikacja.

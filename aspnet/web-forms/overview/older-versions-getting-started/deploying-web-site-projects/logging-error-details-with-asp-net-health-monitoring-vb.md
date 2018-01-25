@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6a1533b80828532b756940d0b08fe4c6dab2d5dd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 95c0b72e3811dc23f8bdea180be5b20800ab3bd8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>Szczegóły błędu rejestrowania kondycji programu ASP.NET (VB) do monitorowania
 ====================
@@ -43,13 +43,13 @@ Zdarzenia monitorowania systemu kondycji dzienniki, wraz z dziennika źródła d
 
 ## <a name="exploring-the-health-monitoring-systems-configuration"></a>Eksploracja monitorowania konfiguracji systemu kondycji
 
-Monitorowanie zachowania systemu kondycji jest definiowana za pomocą jej informacje o konfiguracji, który znajduje się w [ `<healthMonitoring>` elementu](https://msdn.microsoft.com/en-us/library/2fwh2ss9.aspx) w `Web.config`. Ta sekcja konfiguracji definiuje między innymi następujące trzy ważne informacje:
+Monitorowanie zachowania systemu kondycji jest definiowana za pomocą jej informacje o konfiguracji, który znajduje się w [ `<healthMonitoring>` elementu](https://msdn.microsoft.com/library/2fwh2ss9.aspx) w `Web.config`. Ta sekcja konfiguracji definiuje między innymi następujące trzy ważne informacje:
 
 1. Zdarzenia monitorowania kondycji, gdy zgłoszone, powinny być rejestrowane,
 2. Źródła dziennika i
 3. Sposób monitorowania zdarzeń zdefiniowanych w (1) każdej kondycji jest mapowany na źródła dziennika zdefiniowane w (2).
 
-Tych informacji jest określany za pośrednictwem trzy elementy podrzędne elementy konfiguracji: [ `<eventMappings>` ](https://msdn.microsoft.com/en-us/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/en-us/library/zaa41kz1.aspx), i [ `<rules>` ](https://msdn.microsoft.com/en-us/library/fe5wyxa0.aspx)odpowiednio.
+Tych informacji jest określany za pośrednictwem trzy elementy podrzędne elementy konfiguracji: [ `<eventMappings>` ](https://msdn.microsoft.com/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/library/zaa41kz1.aspx), i [ `<rules>` ](https://msdn.microsoft.com/library/fe5wyxa0.aspx)odpowiednio.
 
 Kondycja domyślne monitorowanie informacji o konfiguracji systemu znajdują się w `Web.config` w pliku `%WINDIR%\Microsoft.NET\Framework\version\CONFIG` folderu. Te informacje konfiguracji domyślnej, z niektórych znaczników usunięta, jednak jest pokazany poniżej:
 
@@ -114,7 +114,7 @@ Teraz zaktualizuj przeglądy książki konfiguracji witryny sieci Web, aby firma
 2. Zarejestruj dostawcę w wiadomości e-mail dziennika źródła w `<providers>` elementu, a
 3. Dodawanie wpisu do `<rules>` element, który mapuje zdarzeń "Wszystkie błędy" dostawca źródło dziennika dodanej w kroku (2).
 
-System monitorowania kondycji zawiera dwie klasy dostawcy źródła dziennika poczty e-mail: `SimpleMailWebEventProvider` i `TemplatedMailWebEventProvider`. [ `SimpleMailWebEventProvider` Klasy](https://msdn.microsoft.com/en-us/library/system.web.management.simplemailwebeventprovider.aspx) wysyła wiadomości e-mail w formacie zwykłego tekstu, która zawiera zdarzenia szczegółowe informacje i zapewnia małego dostosowania treści wiadomości e-mail. Z [ `TemplatedMailWebEventProvider` klasy](https://msdn.microsoft.com/en-us/library/system.web.management.templatedmailwebeventprovider.aspx) Określ strony platformy ASP.NET, w których renderowanego kodu znaczników jest używana jako treść wiadomości e-mail. [ `TemplatedMailWebEventProvider` Klasy](https://msdn.microsoft.com/en-us/library/system.web.management.templatedmailwebeventprovider.aspx) zapewnia znacznie większą kontrolę nad zawartość i format wiadomości e-mail, ale wymaga nieco więcej wysiłku góry jako trzeba tworzyć strony ASP.NET, który generuje treść wiadomości e-mail. Ten samouczek koncentruje się na temat używania `SimpleMailWebEventProvider` klasy.
+System monitorowania kondycji zawiera dwie klasy dostawcy źródła dziennika poczty e-mail: `SimpleMailWebEventProvider` i `TemplatedMailWebEventProvider`. [ `SimpleMailWebEventProvider` Klasy](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) wysyła wiadomości e-mail w formacie zwykłego tekstu, która zawiera zdarzenia szczegółowe informacje i zapewnia małego dostosowania treści wiadomości e-mail. Z [ `TemplatedMailWebEventProvider` klasy](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) Określ strony platformy ASP.NET, w których renderowanego kodu znaczników jest używana jako treść wiadomości e-mail. [ `TemplatedMailWebEventProvider` Klasy](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) zapewnia znacznie większą kontrolę nad zawartość i format wiadomości e-mail, ale wymaga nieco więcej wysiłku góry jako trzeba tworzyć strony ASP.NET, który generuje treść wiadomości e-mail. Ten samouczek koncentruje się na temat używania `SimpleMailWebEventProvider` klasy.
 
 Zaktualizuj monitorowania systemu kondycji `<providers>` element `Web.config` pliku, aby uwzględnić źródło dziennika `SimpleMailWebEventProvider` klasy:
 
@@ -139,7 +139,7 @@ Używa znacznika powyżej `SimpleMailWebEventProvider` klasy jako dostawcę dzie
 
 System monitorowania kondycji programu ASP.NET umożliwia administratorom monitorowanie kondycji wdrożonej aplikacji sieci web. Zdarzenia monitorowania kondycji są wywoływane, gdy ujawniać pewne akcje, takie jak po zatrzymaniu aplikacji, gdy pomyślnie zalogował się użytkownik lokacji lub gdy wystąpi nieobsługiwany wyjątek. Zdarzenia te mogą być rejestrowane do dowolnej liczby dziennika źródła. W tym samouczku pokazano, jak rejestrować szczegółowe informacje o nieobsługiwanych wyjątków do bazy danych i za pośrednictwem wiadomości e-mail.
 
-Ten samouczek koncentruje się na korzystanie z programu health monitorowania do rejestrowania nieobsługiwanych wyjątków, ale należy pamiętać, że monitorowanie kondycji jest przeznaczona do mierzenia ogólną kondycję wdrożonej aplikacji ASP.NET i zawiera wiele zdarzeń monitorowania kondycji i nie dziennika źródła przedstawione tutaj. Ponadto można tworzyć własne kondycji monitorowanie zdarzeń i dzienników źródła, jeśli będzie to potrzebne wystąpić. Jeśli chcesz dowiedzieć się więcej na temat monitorowania kondycji, dobrym pierwszym krokiem jest zapoznaj się z artykułem [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)w [często zadawane pytania dotyczące monitorowania kondycji](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). Następujące, zapoznaj się [jak: Użyj monitorowanie kondycji w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998306.aspx).
+Ten samouczek koncentruje się na korzystanie z programu health monitorowania do rejestrowania nieobsługiwanych wyjątków, ale należy pamiętać, że monitorowanie kondycji jest przeznaczona do mierzenia ogólną kondycję wdrożonej aplikacji ASP.NET i zawiera wiele zdarzeń monitorowania kondycji i nie dziennika źródła przedstawione tutaj. Ponadto można tworzyć własne kondycji monitorowanie zdarzeń i dzienników źródła, jeśli będzie to potrzebne wystąpić. Jeśli chcesz dowiedzieć się więcej na temat monitorowania kondycji, dobrym pierwszym krokiem jest zapoznaj się z artykułem [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)w [często zadawane pytania dotyczące monitorowania kondycji](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). Następujące, zapoznaj się [jak: Użyj monitorowanie kondycji w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998306.aspx).
 
 Programowanie przyjemność!
 
@@ -147,11 +147,11 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Omówienie monitorowania kondycji programu ASP.NET](https://msdn.microsoft.com/en-us/library/bb398933.aspx)
+- [Omówienie monitorowania kondycji programu ASP.NET](https://msdn.microsoft.com/library/bb398933.aspx)
 - [Konfigurowanie i dostosowywanie kondycji systemu programu ASP.NET monitorowania](http://dotnetslackers.com/articles/aspnet/ConfiguringAndCustomizingTheHealthMonitoringSystemOfASPNET.aspx)
 - [Często zadawane pytania — monitorowania w programie ASP.NET 2.0 kondycji](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)
-- [Porady: Wysyłanie wiadomości E-Mail dla powiadomień dotyczących monitorowania kondycji](https://msdn.microsoft.com/en-us/library/ms227553.aspx)
-- [Porady: Użyj monitorowanie kondycji w programie ASP.NET](https://msdn.microsoft.com/en-us/library/ms998306.aspx)
+- [Porady: Wysyłanie wiadomości E-Mail dla powiadomień dotyczących monitorowania kondycji](https://msdn.microsoft.com/library/ms227553.aspx)
+- [Porady: Użyj monitorowanie kondycji w programie ASP.NET](https://msdn.microsoft.com/library/ms998306.aspx)
 - [Kondycja monitorowania w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
 
 >[!div class="step-by-step"]

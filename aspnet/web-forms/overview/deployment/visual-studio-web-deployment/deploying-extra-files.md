@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
 msc.type: authoredcontent
-ms.openlocfilehash: a34607b25f6cf502f5fbf2fe51bf1937f470159e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46e18ba81c3db8bb04c5cb997bcc1607e4e38bae
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie dodatkowych plików
 ====================
@@ -83,20 +83,20 @@ Na tym kończy się tej serii samouczków dotyczących wdrażania aplikacji siec
 
 ## <a name="more-information"></a>Więcej informacji
 
-Jeśli wiesz, jak pracować z plikami programu MSBuild, można zautomatyzować wiele innych zadań wdrożeniowych pisanie kodu w *.pubxml* plików (w przypadku zadania specyficzne dla profilu) lub projektu *. wpp.targets* pliku (dla zadań związanych z zarządzaniem Zastosuj do wszystkich profilów). Aby uzyskać więcej informacji na temat *.pubxml* i *. wpp.targets* plików, zobacz [porady: edytowanie ustawień wdrażania w plikach profilu publikacji (.pubxml) i. wpp.targets pliku w Visual Studio Web Projekty](https://msdn.microsoft.com/en-us/library/ff398069). Podstawowe wprowadzenie do programu MSBuild kod, zobacz **Anatomia pliku projektu** w [serii wdrożenia przedsiębiorstwa: opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Aby dowiedzieć się, jak pracować z plikami MSBuild do wykonywania zadań własnych scenariuszy, zobacz ten podręcznik: [wewnątrz kompilacji aparatu Microsoft: przy użyciu programu MSBuild i Team Foundation Build](http://msbuildbook.com) Sayed Ibraham Hashimi i Bartholomew łączy.
+Jeśli wiesz, jak pracować z plikami programu MSBuild, można zautomatyzować wiele innych zadań wdrożeniowych pisanie kodu w *.pubxml* plików (w przypadku zadania specyficzne dla profilu) lub projektu *. wpp.targets* pliku (dla zadań związanych z zarządzaniem Zastosuj do wszystkich profilów). Aby uzyskać więcej informacji na temat *.pubxml* i *. wpp.targets* plików, zobacz [porady: edytowanie ustawień wdrażania w plikach profilu publikacji (.pubxml) i. wpp.targets pliku w Visual Studio Web Projekty](https://msdn.microsoft.com/library/ff398069). Podstawowe wprowadzenie do programu MSBuild kod, zobacz **Anatomia pliku projektu** w [serii wdrożenia przedsiębiorstwa: opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Aby dowiedzieć się, jak pracować z plikami MSBuild do wykonywania zadań własnych scenariuszy, zobacz ten podręcznik: [wewnątrz kompilacji aparatu Microsoft: przy użyciu programu MSBuild i Team Foundation Build](http://msbuildbook.com) Sayed Ibraham Hashimi i Bartholomew łączy.
 
 ## <a name="acknowledgements"></a>Potwierdzeń
 
 Chcę Dziękujemy następujących osób istotny wkład do zawartości z tego samouczka serii:
 
-- [Alberto Poblacion, MVP &amp; MCT, (Hiszpania)](https://mvp.microsoft.com/en-us/mvp/Alberto%20Poblacion%20Bolano-36772)
+- [Alberto Poblacion, MVP &amp; MCT, (Hiszpania)](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
 - Jarod Ferguson, dane aplikacji na wiele Platform MVP, Stany Zjednoczone
-- Ostrym Mittal, Microsoft
+- Harsh Mittal, Microsoft
 - [Jan Galloway](https://weblogs.asp.net/jgalloway) (twitter: [ @jongalloway ](http://twitter.com/jongalloway))
 - [Kristina Olson, Microsoft](https://blogs.iis.net/krolson/default.aspx)
-- [Jan Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
+- [Mike Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
 - Mohit Srivastava, Microsoft
-- [Raffaele Rialdi, Włochy](http://www.iamraf.net/)
+- [Raffaele Rialdi, Italy](http://www.iamraf.net/)
 - [Rick Anderson firmy Microsoft](https://blogs.msdn.com/b/rickandy/)
 - [Sayed Hashimi, Microsoft](http://sedodream.com/default.aspx)(twitter: [ @sayedihashimi ](http://twitter.com/sayedihashimi))
 - [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](http://twitter.com/shanselman))

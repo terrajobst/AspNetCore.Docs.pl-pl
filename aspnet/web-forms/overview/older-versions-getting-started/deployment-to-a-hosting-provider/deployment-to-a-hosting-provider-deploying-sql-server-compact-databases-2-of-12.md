@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: d0b76c06495c51df3ed0f61cd318507a05240392
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5296bc1ca3fd0b24123bd79a550a7e2cffc34a44
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: Wdrażanie serwera Compact baz danych — 2 12
 ====================
@@ -37,7 +37,7 @@ Aby uzyskać dostęp do bazy danych aplikacja Contoso University wymaga następu
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/en/us/editions/compact.aspx) (aparat bazy danych).
 - [Dostawców uniwersalnych ASP.NET](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (umożliwiające systemu członkostwa programu ASP.NET użyć programu SQL Server Compact)
-- [Entity Framework 5.0](https://msdn.microsoft.com/en-us/library/gg696172(d=lightweight,v=vs.103).aspx)(Code First z migracji).
+- [Entity Framework 5.0](https://msdn.microsoft.com/library/gg696172(d=lightweight,v=vs.103).aspx)(Code First z migracji).
 
 Struktura bazy danych, a niektóre (nie wszystkie) danych w dwóch aplikacji bazy danych musi być także wdrożony. Zazwyczaj podczas opracowywania aplikacji test dane wprowadzane do bazy danych, których nie chcesz, aby wdrożyć w witrynie na żywo. Jednak może również wprowadzić części danych produkcyjnych, które chcesz wdrożyć. W tym samouczku skonfigurujesz projektu Contoso University tak, aby wymagane oprogramowanie i prawidłowe dane są uwzględnione podczas wdrażania.
 
@@ -47,7 +47,7 @@ Przypomnienie: Jeśli coś nie działa podczas wykonywania kroków samouczka wy�
 
 Przykładowa aplikacja korzysta z programu SQL Server Compact 4.0. Ten aparat bazy danych jest stosunkowo nowej opcji witryn sieci Web; wcześniejszych wersji programu SQL Server Compact nie działają w środowisku hosta sieci web. SQL Server Compact zapewnia kilka korzyści w porównaniu do częściej scenariusz programowania z użyciem programu SQL Server Express i wdrażających aplikacje w pełnej wersji programu SQL Server. W zależności od wybranego dostawcy hostingu programu SQL Server Compact może być tańsze do wdrożenia, ponieważ niektórzy dostawcy pobierają dodatkowy do obsługi pełnej bazy danych SQL Server. Brak bez dodatkowych opłat dla programu SQL Server Compact, ponieważ samego aparatu bazy danych można wdrożyć w ramach aplikacji sieci web.
 
-Jednak należy wziąć pod uwagę swoje ograniczenia. SQL Server Compact nie obsługuje procedur składowanych, wyzwalaczy, widoków i replikacji. (Aby uzyskać pełną listę funkcji programu SQL Server, które nie są obsługiwane przez program SQL Server Compact, zobacz [różnice między programu SQL Server Compact i SQL Server](https://msdn.microsoft.com/en-us/library/bb896140.aspx).) Ponadto niektóre narzędzia, które służy do modyfikowania schematów i danych w programie SQL Server Express i baz danych programu SQL Server nie współpracujesz z programu SQL Server Compact. Na przykład nie można używać programu SQL Server Management Studio lub SQL Server Data Tools w programie Visual Studio baz danych programu SQL Server Compact. Masz inne opcje do pracy z bazy danych programu SQL Server Compact:
+Jednak należy wziąć pod uwagę swoje ograniczenia. SQL Server Compact nie obsługuje procedur składowanych, wyzwalaczy, widoków i replikacji. (Aby uzyskać pełną listę funkcji programu SQL Server, które nie są obsługiwane przez program SQL Server Compact, zobacz [różnice między programu SQL Server Compact i SQL Server](https://msdn.microsoft.com/library/bb896140.aspx).) Ponadto niektóre narzędzia, które służy do modyfikowania schematów i danych w programie SQL Server Express i baz danych programu SQL Server nie współpracujesz z programu SQL Server Compact. Na przykład nie można używać programu SQL Server Management Studio lub SQL Server Data Tools w programie Visual Studio baz danych programu SQL Server Compact. Masz inne opcje do pracy z bazy danych programu SQL Server Compact:
 
 - W programie Visual Studio, który udostępnia funkcje manipulowania ograniczone baz danych programu SQL Server Compact, można użyć Eksploratora serwera.
 - Można użyć funkcji manipulowania bazy danych z [WebMatrix](https://www.microsoft.com/web/webmatrix/), który ma więcej funkcji niż Eksploratora serwera.
@@ -77,11 +77,11 @@ Skompiluj projekt, a następnie w **Eksploratora rozwiązań** kliknij **Pokaż 
 
 Rozwiń węzeł **bin** folder, aby wyświetlić **amd64** i **x86** folderów, a następnie wybierz tych folderów, kliknij prawym przyciskiem myszy i wybierz **Include w projekcie**.
 
-![amd64_and_x86_in_Solution_Explorer.PNG](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
+![amd64_and_x86_in_Solution_Explorer.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
 
 Ikony folderu zmieniają się że folder został dołączony do projektu.
 
-![Solution_Explorer_amd64_included.PNG](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
+![Solution_Explorer_amd64_included.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
 
 ## <a name="configuring-code-first-migrations-for-application-database-deployment"></a>Konfigurowanie migracje Code First dla wdrożenia aplikacji bazy danych
 
@@ -190,7 +190,7 @@ Zaloguj się jako "admin" przy użyciu hasła "Adresy$ w0rd" (Zwróć uwagę, li
 Podczas wdrażania witryny po raz pierwszy jest często, aby wykluczyć większość lub wszystkie konta użytkowników, które tworzysz do testowania. W takim przypadku przedstawiono wdrażania konta administratora i żadnych kont użytkowników. Zamiast ręcznego usuwania testowe konta, utworzysz nową bazę danych członkostwa, który ma tylko jeden administrator konta użytkownika, które należy w środowisku produkcyjnym.
 
 > [!NOTE]
-> Baza danych członkostwa przechowuje skrót hasła do kont. Aby można było wdrożyć kont z jednego komputera na inny, należy się upewnić procedury wyznaczania wartości skrótu nie Generowanie skrótów różnych na serwerze docelowym niż na komputerze źródłowym. Tej samej wartości skrótu zostanie wygenerowany używania dostawców uniwersalnych ASP.NET, pod warunkiem, nie zmieniaj domyślny algorytm. Domyślny algorytm jest HMACSHA256 i jest określony w **weryfikacji** atrybutu  **[machineKey](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx)**  elementu w pliku Web.config.
+> Baza danych członkostwa przechowuje skrót hasła do kont. Aby można było wdrożyć kont z jednego komputera na inny, należy się upewnić procedury wyznaczania wartości skrótu nie Generowanie skrótów różnych na serwerze docelowym niż na komputerze źródłowym. Tej samej wartości skrótu zostanie wygenerowany używania dostawców uniwersalnych ASP.NET, pod warunkiem, nie zmieniaj domyślny algorytm. Domyślny algorytm jest HMACSHA256 i jest określony w **weryfikacji** atrybutu  **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)**  elementu w pliku Web.config.
 
 
 Bazy danych członkostwa nie jest obsługiwana przez migracje Code First, i nie ma żadnego inicjatora automatyczne określającej wartość początkową bazy danych z kontami testu (ponieważ jest służbowe bazy danych). W związku z tym aby zachować dane testowe dostępnych będzie wykonanie kopii bazy danych testu przed utworzeniem nowego.
@@ -243,7 +243,7 @@ Aparat bazy danych programu SQL Server Compact i obie bazy danych jest teraz got
 
 ## <a name="more-information"></a>Więcej informacji
 
-Aby uzyskać więcej informacji o NuGet, zobacz [Zarządzanie biblioteki projektu z NuGet](https://msdn.microsoft.com/en-us/magazine/hh547106.aspx) i [dokumentacji NuGet](http://docs.nuget.org/docs/start-here/overview). Jeśli nie chcesz używać NuGet, należy dowiedzieć się, jak analizować pakietu NuGet, aby ustalić, jakie operacje po jej zainstalowaniu. (Na przykład może skonfigurować *Web.config* przekształcenia, skonfigurować skrypty programu PowerShell do uruchamiania w czasie kompilacji itp.) Aby dowiedzieć się więcej na temat działania NuGet, zobacz szczególnie [tworzenie i publikowanie pakietu](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) i [pliku konfiguracji i przekształcenia kod źródłowy](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
+Aby uzyskać więcej informacji o NuGet, zobacz [Zarządzanie biblioteki projektu z NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) i [dokumentacji NuGet](http://docs.nuget.org/docs/start-here/overview). Jeśli nie chcesz używać NuGet, należy dowiedzieć się, jak analizować pakietu NuGet, aby ustalić, jakie operacje po jej zainstalowaniu. (Na przykład może skonfigurować *Web.config* przekształcenia, skonfigurować skrypty programu PowerShell do uruchamiania w czasie kompilacji itp.) Aby dowiedzieć się więcej na temat działania NuGet, zobacz szczególnie [tworzenie i publikowanie pakietu](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) i [pliku konfiguracji i przekształcenia kod źródłowy](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
 >[!div class="step-by-step"]
 [Poprzednie](deployment-to-a-hosting-provider-introduction-1-of-12.md)

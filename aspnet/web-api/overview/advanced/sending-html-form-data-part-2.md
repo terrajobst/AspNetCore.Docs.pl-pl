@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 3df59aab2a0c43f4a4f5c59530b0655f68d95cc7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 331d0e520a1fd8ec84aecd09a9c9e6d286c5893b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sending-html-form-data-in-aspnet-web-api-file-upload-and-multipart-mime"></a>Wysyłanie danych formularza HTML zakodowanych w składniku ASP.NET Web API: Przekaż i wieloczęściowej wiadomości MIME pliku
 ====================
@@ -72,7 +72,7 @@ Po zakończeniu działania metody, można uzyskać informacji o plikach z **File
 - **MultipartFileData.FileName** jest nazwą pliku lokalnego na serwerze, w którym został zapisany plik.
 - **MultipartFileData.Headers** zawiera nagłówek części (*nie* nagłówek żądania). Umożliwia to dostęp do zawartości\_nagłówki typu zawartości i dyspozycji.
 
-Jak wynika z nazwy, **ReadAsMultipartAsync** jest metody asynchronicznej. Aby wykonywać zadania po zakończeniu metody, należy użyć [zadania kontynuacji](https://msdn.microsoft.com/en-us/library/ee372288.aspx) (.NET 4.0) lub **await** — słowo kluczowe (.NET 4.5).
+Jak wynika z nazwy, **ReadAsMultipartAsync** jest metody asynchronicznej. Aby wykonywać zadania po zakończeniu metody, należy użyć [zadania kontynuacji](https://msdn.microsoft.com/library/ee372288.aspx) (.NET 4.0) lub **await** — słowo kluczowe (.NET 4.5).
 
 W tym miejscu jest wersja programu .NET Framework 4.0 poprzedni kod:
 

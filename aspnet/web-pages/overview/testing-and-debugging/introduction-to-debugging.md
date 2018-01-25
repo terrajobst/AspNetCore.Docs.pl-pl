@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: 2bc1f096540d17095ef760eed67b458fcd4e1372
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b6b5a886efe515b434948dade1ae840ddaecd42
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Wprowadzenie do debugowania ASP.NET Web Pages witryny (Razor)
 ====================
@@ -39,7 +39,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions"></a>Wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 > - Visual Studio 2013
 >   
 > 
@@ -62,7 +62,7 @@ W pierwszej kolejności ich uniknięcie jest ważnym aspektem rozwiązywania pro
     > **Ważne** należy usunąć wszelkie kod diagnostyczny ze stron sieci web przed przeniesieniem stron sieci web na serwerze produkcyjnym. Dotyczy to `ServerInfo` pomocnika, jak również inne techniki diagnostyczne w tym artykule obejmujących dodawanie kodu do strony. Ponieważ tego rodzaju informacje mogą być przydatne do osób ze złośliwymi działaniami, które nie mają odwiedzających witrynę sieci Web, aby wyświetlić informacje o Twojej nazwy serwera, nazwy użytkowników, ścieżki na serwerze i podobne szczegóły.
 3. Strony i uruchom go w przeglądarce.
 
-    ![Debugowanie 1](introduction-to-debugging/_static/image1.jpg)
+    ![Debugging-1](introduction-to-debugging/_static/image1.jpg)
 
     `ServerInfo` Pomocnik wyświetli cztery tabel zawierających informacje na stronie:
 
@@ -71,7 +71,7 @@ W pierwszej kolejności ich uniknięcie jest ważnym aspektem rozwiązywania pro
     - Informacje środowiska wykonawczego protokołu HTTP. Ta sekcja zawiera szczegółowe informacje o tym, że wersji programu Microsoft .NET Framework strony sieci web działa w ramach, ścieżka, szczegółowe informacje o pamięci podręcznej i tak dalej. (W wyniku uczenia się w [wprowadzenie do platformy ASP.NET Web programowania przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890), przy użyciu składni jest oparty na technologii serwera sieci web ASP.NET firmy Microsoft, która jest oparta na szeroką gamę oprogramowania elementu Razor strony sieci Web ASP.NET Biblioteka programowanie nazywana programu .NET Framework).
     - Zmienne środowiskowe. Ta sekcja zawiera listę wszystkich zmiennych środowiska lokalnego i ich wartości, na serwerze sieci web.
 
-    Pełny opis wszystkie dane serwera i żądania wykracza poza zakres tego artykułu, ale można stwierdzić, że `ServerInfo` pomocnika zwraca wiele informacji diagnostycznych. Aby uzyskać więcej informacji o wartościach który `ServerInfo` zwraca, zobacz [rozpoznany zmiennych środowiskowych](https://technet.microsoft.com/en-us/library/dd560744(WS.10).aspx) w witrynie Microsoft TechNet w sieci Web i [zmienne serwera usług IIS](https://msdn.microsoft.com/en-us/library/ms524602(VS.90).aspx) w witrynie MSDN.
+    Pełny opis wszystkie dane serwera i żądania wykracza poza zakres tego artykułu, ale można stwierdzić, że `ServerInfo` pomocnika zwraca wiele informacji diagnostycznych. Aby uzyskać więcej informacji o wartościach który `ServerInfo` zwraca, zobacz [rozpoznany zmiennych środowiskowych](https://technet.microsoft.com/library/dd560744(WS.10).aspx) w witrynie Microsoft TechNet w sieci Web i [zmienne serwera usług IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) w witrynie MSDN.
 
 ## <a name="embedding-output-expressions-to-display-page-values"></a>Osadzanie wyrażeń dane wyjściowe do wyświetlania wartości strony
 
@@ -93,7 +93,7 @@ Inny sposób, aby zobaczyć, co dzieje się w kodzie jest osadzanie wyrażeń w 
 
     Zostaje wyświetlona strona rzeczywistych dzień tygodnia najpierw, a następnie zaktualizowane dzień tygodnia powoduje dodawanie jeden dzień, a następnie komunikat wynikowy od `switch` instrukcji. Dane wyjściowe z dwóch wyrażeń zmiennej (`@weekday`) ma bez spacji między dni, ponieważ nie zostały dodane kodu HTML `<p>` znaczniki, aby dane wyjściowe; wyrażenia znajdują się tylko do testowania.
 
-    ![Debugowanie 2](introduction-to-debugging/_static/image2.jpg)
+    ![Debugging-2](introduction-to-debugging/_static/image2.jpg)
 
     Spowoduje to wyświetlenie w przypadku błędu. Po pierwszym wyświetleniu `weekday` zmiennych w kodzie, zawiera poprawny dzień. Po wyświetleniu go za drugim razem po `if` bloków w kodzie, dzień jest wyłączony, przez co. Aby wiedzieć, czy jest coś się stało między wygląd pierwszej i drugiej zmiennej dzień tygodnia. Jeżeli to rzeczywiste usterki, tego rodzaju podejście pomóc zawęzić lokalizacji kodu, który jest przyczyną problemu.
 6. Usuń kod na stronie Usuwanie wyrażenia dwóch danych wyjściowych, dodane i usuwając kod, który zmienia dzień tygodnia. Pełną, pozostałe bloku kodu wygląda następująco:
@@ -111,7 +111,7 @@ Inny sposób, aby zobaczyć, co dzieje się w kodzie jest osadzanie wyrażeń w 
     [!code-html[Main](introduction-to-debugging/samples/sample5.html)]
 3. Zapisz i uruchom strony w przeglądarce.
 
-    ![Debugowanie 4](introduction-to-debugging/_static/image3.jpg)
+    ![Debugging-4](introduction-to-debugging/_static/image3.jpg)
 
     W tym przykładzie `ObjectInfo` Pomocnik wyświetli dwóch elementów:
 
@@ -139,5 +139,5 @@ Aby dowiedzieć się, jak za pomocą zintegrowanego debugera programu Visual Stu
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Programowanie stron sieci Web platformy ASP.NET (Razor) za pomocą programu Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)
-- [Zmienne serwera usług IIS](https://msdn.microsoft.com/en-us/library/ms524602(VS.90).aspx) (MSDN)
-- [Rozpoznany zmiennych środowiskowych](https://technet.microsoft.com/en-us/library/dd560744(WS.10).aspx) (TechNet)
+- [Zmienne serwera usług IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) (MSDN)
+- [Rozpoznany zmiennych środowiskowych](https://technet.microsoft.com/library/dd560744(WS.10).aspx) (TechNet)

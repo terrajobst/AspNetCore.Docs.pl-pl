@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: e14f3bed001592c85bdbba868f51141bc52a9470
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 51344535e7ff42f1bd6641aeaaf043be6423f1b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: wprowadzenie
 ====================
@@ -53,7 +53,7 @@ Samouczków mają na celu deweloperów platformy ASP.NET, którzy pracują w śr
 Wdrożenia z [kontroli źródła](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md) przy użyciu [ciągłego dostarczania](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) w tych samouczkach z wyjątkiem jednego samouczek, który pokazuje, jak wdrożyć z wiersza polecenia nie pasuje do procesu. Aby uzyskać informacje na temat ciągłego dostarczania zobacz następujące zasoby:
 
 - [Ciągłej integracji i ciągłego dostarczania (Tworzenie chmury rzeczywistych aplikacji z systemu Windows Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
-- [Wdrażanie aplikacji sieci web w usłudze Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/)
+- [Wdrażanie aplikacji sieci web w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
 - [Wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md) (starsze zestaw samouczki przeznaczone dla programu Visual Studio 2010, który nadal zawiera informacje przydatne dla przedsiębiorstw.)
 
 ## <a name="using-a-third-party-hosting-provider"></a>Przy użyciu innego dostawcy hostingu
@@ -120,7 +120,7 @@ W tym samouczku został napisany dla następujących produktów:
 
 - Windows 8 lub Windows 7.
 - Visual Studio 2012 lub Visual Studio 2012 Express for Web z [najnowszą aktualizację](https://go.microsoft.com/fwlink/?LinkId=272486).
-- [Zestaw Azure SDK dla programu Visual Studio 2012](https://go.microsoft.com/fwlink/?LinkId=254364)
+- [Azure SDK for Visual Studio 2012](https://go.microsoft.com/fwlink/?LinkId=254364)
 
 Samouczka można wykonać za pomocą programu Visual Studio 2010 z dodatkiem SP1 lub programu Visual Studio 2013, ale niektóre zrzuty ekranu mogą być inne i niektóre funkcje mogą być inne.
 
@@ -128,9 +128,9 @@ Jeśli używasz programu Visual Studio 2013, zainstaluj [zestawu Azure SDK dla p
 
 Jeśli używasz programu Visual Studio 2010 z dodatkiem SP1, należy zainstalować następujące oprogramowanie:
 
-- [Zestaw Azure SDK dla programu Visual Studio 2010](https://go.microsoft.com/fwlink/?LinkID=254269)
+- [Azure SDK for Visual Studio 2010](https://go.microsoft.com/fwlink/?LinkID=254269)
 - [SQL Server Express LocalDB.](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=SQLLocalDBOnly_11_0)
-- [SQL Server Data Tools](https://msdn.microsoft.com/en-us/library/hh500335.aspx).
+- [SQL Server Data Tools](https://msdn.microsoft.com/library/hh500335.aspx).
 
 W zależności od tego, jak wiele zależności zestawu SDK już istnieje na tym komputerze Instalowanie zestawu SDK usługi Azure może zająć dużo czasu, od kilku minut do pół godziny lub dłużej. Należy zestawu Azure SDK, nawet wtedy, gdy planujesz publikować do innych firm dostawcy obsługi zamiast na platformie Azure, ponieważ zestaw SDK zawiera najnowsze aktualizacje programu Visual Studio web publikowanie funkcji.
 
@@ -203,4 +203,4 @@ Poniższe funkcje aplikacji wpływa na sposób wdrażania lub masz celu jej wdro
 W tym samouczku pierwszy z serii pobraniu przykładowy projekt programu Visual Studio i przejrzeć funkcji witryny, które mają wpływ na sposób wdrażania aplikacji. W następujących samouczkach przygotować się do wdrożenia, konfigurując niektóre z nich mają zostać obsłużone automatycznie. Inne rozwiązywane ręcznie.
 
 >[!div class="step-by-step"]
-[Dalej](preparing-databases.md)
+[Next](preparing-databases.md)

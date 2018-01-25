@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 48e0f2bad8c048e943ec2a3ce72cc0f7ca4d34d9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 460fc36062f3338ffd178aceda2b3b224752a089
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>Formatowanie DataList i powtarzanego na podstawie danych (VB)
 ====================
@@ -40,25 +40,25 @@ Oba te techniki formatowania są dostępne z formantami DataList i elementu powt
 
 ## <a name="using-theitemdataboundevent-handler"></a>Przy użyciu`ItemDataBound`obsługi zdarzeń
 
-Gdy danych jest powiązany z DataList z kontroli źródła danych lub programowo przypisując danych do kontrolki s `DataSource` właściwości i wywołanie jego `DataBind()` metody DataList s `DataBinding` zdarzenia generowane wyliczone, źródła danych a każdy rekord danych jest powiązany z elementu DataList. Dla każdego rekordu w źródle danych, tworzy elementu DataList [ `DataListItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistitem.aspx) obiekt, a następnie powiązany z bieżącym rekordem. W trakcie tego procesu elementu DataList zgłasza dwa zdarzenia:
+Gdy danych jest powiązany z DataList z kontroli źródła danych lub programowo przypisując danych do kontrolki s `DataSource` właściwości i wywołanie jego `DataBind()` metody DataList s `DataBinding` zdarzenia generowane wyliczone, źródła danych a każdy rekord danych jest powiązany z elementu DataList. Dla każdego rekordu w źródle danych, tworzy elementu DataList [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx) obiekt, a następnie powiązany z bieżącym rekordem. W trakcie tego procesu elementu DataList zgłasza dwa zdarzenia:
 
 - **`ItemCreated`**generowane po `DataListItem` został utworzony
 - **`ItemDataBound`**generowane po powiązany bieżącego rekordu`DataListItem`
 
 Poniższe kroki wchodzą w skład procesu wiązania danych formant DataList.
 
-1. DataList s [ `DataBinding` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.ui.control.databinding.aspx) uruchamiany
+1. DataList s [ `DataBinding` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx) uruchamiany
 2. Do elementu DataList powiązania danych  
   
  Dla każdego rekordu w źródle danych 
 
     1. Utwórz `DataListItem` obiektu
-    2. Fire [ `ItemCreated` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
+    2. Fire [ `ItemCreated` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
     3. Powiąż rekordu`DataListItem`
-    4. Fire [ `ItemDataBound` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
+    4. Fire [ `ItemDataBound` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
     5. Dodaj `DataListItem` do `Items` kolekcji
 
-Wiązanie danych w kontrolce elementu powtarzanego, jego postępów za pośrednictwem dokładnie tej samej sekwencji kroków. Jedyną różnicą jest to, że zamiast `DataListItem` używa powtarzanego wystąpień tworzona, [ `RepeaterItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s.
+Wiązanie danych w kontrolce elementu powtarzanego, jego postępów za pośrednictwem dokładnie tej samej sekwencji kroków. Jedyną różnicą jest to, że zamiast `DataListItem` używa powtarzanego wystąpień tworzona, [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s.
 
 > [!NOTE]
 > Czytnik astute zauważyć nieznaczne anomalii między sekwencja kroków, które orzeczona podczas DataList i powtarzanego są związane z danymi i gdy widoku GridView jest powiązany z danymi. Na końcu tail proces wiązania danych, zgłasza widoku GridView `DataBound` zdarzeń; jednak formant DataList ani elementu powtarzanego mieć takiego zdarzenia. Jest to spowodowane formant DataList i powtarzanego zostały utworzone w przedziale czasu 1.x ASP.NET, przed wzorzec programu obsługi zdarzeń przed i po poziomu stała wspólnej.
@@ -93,7 +93,7 @@ Utwórz `ItemDataBound` zdarzeń dla elementu DataList i Dodaj następujący kod
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample1.vb)]
 
-Podczas koncepcji i semantyki za DataList s `ItemDataBound` obsługi zdarzeń są takie same, jak w widoku GridView s `RowDataBound` obsługi zdarzeń w *niestandardowe formatowanie oparte na danych* samouczka składnia różni się nieznacznie. Gdy `ItemDataBound` generowane zdarzenie `DataListItem` tylko powiązany z danych są przekazywane do odpowiedniego programu obsługi zdarzeń za pomocą `e.Item` (zamiast `e.Row`, podobnie jak w przypadku GridView s `RowDataBound` obsługi zdarzeń). DataList s `ItemDataBound` obsługi zdarzenia generowane dla *każdego* wiersz dodany do elementu DataList, w tym wiersze nagłówka, stopki i separatora wierszy. Jednak informacji o produkcie jest powiązany tylko z wierszy danych. W związku z tym korzystając z `ItemDataBound` zdarzenie, aby sprawdzić dane, powiązany z elementu DataList, należy najpierw upewnij się, że firma Microsoft odnośnie do pracy z elementu danych. Można to osiągnąć poprzez sprawdzenie `DataListItem` s [ `ItemType` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx), który może mieć jeden z [następujące wartości osiem](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.listitemtype.aspx):
+Podczas koncepcji i semantyki za DataList s `ItemDataBound` obsługi zdarzeń są takie same, jak w widoku GridView s `RowDataBound` obsługi zdarzeń w *niestandardowe formatowanie oparte na danych* samouczka składnia różni się nieznacznie. Gdy `ItemDataBound` generowane zdarzenie `DataListItem` tylko powiązany z danych są przekazywane do odpowiedniego programu obsługi zdarzeń za pomocą `e.Item` (zamiast `e.Row`, podobnie jak w przypadku GridView s `RowDataBound` obsługi zdarzeń). DataList s `ItemDataBound` obsługi zdarzenia generowane dla *każdego* wiersz dodany do elementu DataList, w tym wiersze nagłówka, stopki i separatora wierszy. Jednak informacji o produkcie jest powiązany tylko z wierszy danych. W związku z tym korzystając z `ItemDataBound` zdarzenie, aby sprawdzić dane, powiązany z elementu DataList, należy najpierw upewnij się, że firma Microsoft odnośnie do pracy z elementu danych. Można to osiągnąć poprzez sprawdzenie `DataListItem` s [ `ItemType` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx), który może mieć jeden z [następujące wartości osiem](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listitemtype.aspx):
 
 - `AlternatingItem`
 - `EditItem`
@@ -104,7 +104,7 @@ Podczas koncepcji i semantyki za DataList s `ItemDataBound` obsługi zdarzeń s�
 - `SelectedItem`
 - `Separator`
 
-Zarówno `Item` i `AlternatingItem``DataListItem` elementy danych w skład DataList s s. Zakładając, że firma Microsoft odnośnie do pracy z `Item` lub `AlternatingItem`, możemy dostępu rzeczywiste `ProductsRow` wystąpienia, która została powiązana z bieżącą `DataListItem`. `DataListItem` s [ `DataItem` właściwości](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalistitem.dataitem.aspx) zawiera odwołanie do `DataRowView` obiektu, którego `Row` właściwość zawiera odwołanie do rzeczywistego `ProductsRow` obiektu.
+Zarówno `Item` i `AlternatingItem``DataListItem` elementy danych w skład DataList s s. Zakładając, że firma Microsoft odnośnie do pracy z `Item` lub `AlternatingItem`, możemy dostępu rzeczywiste `ProductsRow` wystąpienia, która została powiązana z bieżącą `DataListItem`. `DataListItem` s [ `DataItem` właściwości](https://msdn.microsoft.com/system.web.ui.webcontrols.datalistitem.dataitem.aspx) zawiera odwołanie do `DataRowView` obiektu, którego `Row` właściwość zawiera odwołanie do rzeczywistego `ProductsRow` obiektu.
 
 Następnie sprawdzamy `ProductsRow` wystąpienia s `UnitPrice` właściwości. Od tabeli Produkty s `UnitPrice` pole umożliwia `NULL` wartości, przed podjęciem próby uzyskania dostępu `UnitPrice` właściwości możemy najpierw sprawdź, czy ma `NULL` wartości przy użyciu `IsUnitPriceNull()` metody. Jeśli `UnitPrice` wartość nie jest `NULL`, możemy następnie sprawdź, czy jest ona mniejsza niż 20,00 $ s. Jeśli tak jest rzeczywiście w obszarze $20,00, następnie należy zastosować niestandardowe formatowanie.
 

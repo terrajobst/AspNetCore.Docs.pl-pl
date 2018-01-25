@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f35c8a10018ce796e2d905d6ee839ff09bb380a1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7392ae5d9bc4c3aab45a9373099a0ee18e873a4f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>Śledzenie w składniku ASP.NET Web API 2
 ====================
@@ -58,7 +58,7 @@ Otwórz plik WebApiConfig.cs w aplikacji\_folder początkowy. Dodaj następując
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample2.cs?highlight=6)]
 
-Ten kod dodaje [klasę SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/en-us/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) klasy potok składnika Web API. **Klasę SystemDiagnosticsTraceWriter** klasy zapisuje śladów do [System.Diagnostics.Trace](https://msdn.microsoft.com/en-us/library/system.diagnostics.trace).
+Ten kod dodaje [klasę SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) klasy potok składnika Web API. **Klasę SystemDiagnosticsTraceWriter** klasy zapisuje śladów do [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace).
 
 Aby wyświetlić dane śledzenia, należy uruchomić aplikację w debugerze. W przeglądarce przejdź do `/api/values`.
 
@@ -68,7 +68,7 @@ Instrukcje śledzenia są zapisywane w oknie danych wyjściowych w programie Vis
 
 [![](tracing-in-aspnet-web-api/_static/image7.png)](tracing-in-aspnet-web-api/_static/image6.png)
 
-Ponieważ **klasę SystemDiagnosticsTraceWriter** zapisuje dane śledzenia do **System.Diagnostics.Trace**, możesz zarejestrować obiekty nasłuchujące śledzenia dodatkowe; na przykład, aby zapisać śladów do pliku dziennika. Aby uzyskać więcej informacji na temat zapisywania śledzenia, zobacz [obiektów nasłuchujących śledzenia](https://msdn.microsoft.com/en-us/library/4y5y10s7.aspx) temacie w witrynie MSDN.
+Ponieważ **klasę SystemDiagnosticsTraceWriter** zapisuje dane śledzenia do **System.Diagnostics.Trace**, możesz zarejestrować obiekty nasłuchujące śledzenia dodatkowe; na przykład, aby zapisać śladów do pliku dziennika. Aby uzyskać więcej informacji na temat zapisywania śledzenia, zobacz [obiektów nasłuchujących śledzenia](https://msdn.microsoft.com/library/4y5y10s7.aspx) temacie w witrynie MSDN.
 
 ### <a name="configuring-systemdiagnosticstracewriter"></a>Konfigurowanie klasę SystemDiagnosticsTraceWriter
 
@@ -89,7 +89,7 @@ Dodawanie moduł zapisujący śledzenia umożliwia natychmiastowy dostęp do śl
 
 Aby uzyskać moduł zapisujący śledzenia, należy wywołać **HttpConfiguration.Services.GetTraceWriter**. Z kontrolera, ta metoda jest dostępna za pośrednictwem **ApiController.Configuration** właściwości.
 
-Aby napisać śledzenia, należy wywołać **ITraceWriter.Trace** metody bezpośrednio, ale [ITraceWriterExtensions](https://msdn.microsoft.com/en-us/library/system.web.http.tracing.itracewriterextensions.aspx) klasa definiuje niektóre metody rozszerzenia, które są bardziej przyjazna dla użytkownika. Na przykład **informacji** metod przedstawionych powyżej tworzy śledzenia z poziomu śledzenia **informacji**.
+Aby napisać śledzenia, należy wywołać **ITraceWriter.Trace** metody bezpośrednio, ale [ITraceWriterExtensions](https://msdn.microsoft.com/library/system.web.http.tracing.itracewriterextensions.aspx) klasa definiuje niektóre metody rozszerzenia, które są bardziej przyjazna dla użytkownika. Na przykład **informacji** metod przedstawionych powyżej tworzy śledzenia z poziomu śledzenia **informacji**.
 
 ## <a name="web-api-tracing-infrastructure"></a>Infrastruktura śledzenia interfejsu API sieci Web
 

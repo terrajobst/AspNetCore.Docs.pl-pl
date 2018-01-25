@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 9294da7cd5b7a362d4ade9d1bf7e7747e20ee1a8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 58a9dfb621630f23b37247b96ed3a19a661857f1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-entity-relations"></a>Obsługa relacjami jednostek
 ====================
@@ -86,7 +86,7 @@ Jest jednym ze sposobów uniknąć problemów serializacji do serializacji obiek
 
 ### <a name="explicit-loading"></a>Ładowanie jawne
 
-Jawne ładowania jest podobny do opóźnionego ładowania, z wyjątkiem jawnie pobrać powiązanych danych w kodzie; go nie jest realizowane automatycznie podczas dostępu do właściwości nawigacji. Ładowanie jawne zapewnia deweloperom większą kontrolę nad tym, kiedy można załadować dane dotyczące, ale wymaga dodatkowego kodu. Aby uzyskać więcej informacji na temat jawnego ładowania, zobacz [ładowanie powiązanych jednostek](https://msdn.microsoft.com/en-us/data/jj574232#explicit).
+Jawne ładowania jest podobny do opóźnionego ładowania, z wyjątkiem jawnie pobrać powiązanych danych w kodzie; go nie jest realizowane automatycznie podczas dostępu do właściwości nawigacji. Ładowanie jawne zapewnia deweloperom większą kontrolę nad tym, kiedy można załadować dane dotyczące, ale wymaga dodatkowego kodu. Aby uzyskać więcej informacji na temat jawnego ładowania, zobacz [ładowanie powiązanych jednostek](https://msdn.microsoft.com/data/jj574232#explicit).
 
 ## <a name="navigation-properties-and-circular-references"></a>Właściwości nawigacji oraz odwołania cykliczne
 

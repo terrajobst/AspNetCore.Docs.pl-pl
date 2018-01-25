@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b5f223f59a8b222f4f01322d228cf7434e3dfc14
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 683a0cf88225fee762e82925afe3785a2defd5bf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Scenariusz: Konfigurowanie środowiska przemieszczania na potrzeby wdrażania w sieci Web
 ====================
@@ -35,7 +35,7 @@ Wiele organizacji, użyj środowisk przemieszczania, aby przejrzeć aktualizacje
 - Zmiany do aplikacji są wdrażane na podstawie często, dlatego środowisko musi obsługiwać pojedynczy krok lub automatycznego wdrażania.
 
 > [!NOTE]
-> Skalowanie w poziomie wdrożenie bazy danych na wielu serwerach wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji na ten obszar, zapoznaj się [programu SQL Server — książki Online](https://technet.microsoft.com/en-us/library/ms130214.aspx).
+> Skalowanie w poziomie wdrożenie bazy danych na wielu serwerach wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji na ten obszar, zapoznaj się [programu SQL Server — książki Online](https://technet.microsoft.com/library/ms130214.aspx).
 
 
 Na przykład w naszym [samouczka scenariusza](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), rozwiązanie Contact Manager zarządza Team Foundation Server (TFS). Administratora TFS, Tomasz Tomasz utworzył definicję kompilacji, która umożliwia deweloperom wyzwolić wdrożenie do środowiska pomostowego zgodnie z potrzebami.

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3caeeb83e4c074ae0ffc30f035d793a821eb6be2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b743b04789c5e5ebf5ab922cf34a516a16a6d356
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Obsługa (Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure) wystąpienia błędu przejściowego
 ====================
@@ -39,11 +39,11 @@ Zamiast generowania wyjątku i wyświetlanie nie jest dostępna lub błąd stron
 
 Istnieje kilka metod, które można zaimplementować Logika ponawiania inteligentne.
 
-- Microsoft Patterns &amp; grupa rozwiązań ma [bloku aplikacji obsługi błędów przejściowych](https://msdn.microsoft.com/en-us/library/dn440719(v=pandp.60).aspx) wykonuje wszystko dla Ciebie Jeśli używasz ADO.NET dla dostępu do bazy danych SQL (nie za pośrednictwem programu Entity Framework). Wystarczy ustawić zasady dla ponownych prób — ile razy, aby ponowić próbę wykonania kwerendy lub polecenia i jak długo czekać między prób — a zawijania programu SQL kodu w *przy użyciu* bloku.
+- Microsoft Patterns &amp; grupa rozwiązań ma [bloku aplikacji obsługi błędów przejściowych](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx) wykonuje wszystko dla Ciebie Jeśli używasz ADO.NET dla dostępu do bazy danych SQL (nie za pośrednictwem programu Entity Framework). Wystarczy ustawić zasady dla ponownych prób — ile razy, aby ponowić próbę wykonania kwerendy lub polecenia i jak długo czekać między prób — a zawijania programu SQL kodu w *przy użyciu* bloku.
 
     [!code-csharp[Main](transient-fault-handling/samples/sample1.cs)]
 
-    Obsługuje również TFH [pamięci podręcznej na roli Azure](https://msdn.microsoft.com/en-us/library/windowsazure/dn386103.aspx) i [usługi Service Bus](https://azure.microsoft.com/services/service-bus/).
+    Obsługuje również TFH [pamięci podręcznej na roli Azure](https://msdn.microsoft.com/library/windowsazure/dn386103.aspx) i [usługi Service Bus](https://azure.microsoft.com/services/service-bus/).
 - Korzystając z programu Entity Framework zwykle nie są pracy bezpośrednio z połączeniami SQL, więc nie można użyć tego pakietu wzorców i rozwiązania, ale Entity Framework 6 kompilacje tego rodzaju Logika ponawiania bezpośrednio w ramach. W podobny sposób określić strategii ponownych prób, a następnie EF używa tej strategii zawsze, gdy uzyskuje dostęp do bazy danych.
 
     Aby użyć tej funkcji w aplikacji rozwiązać, musimy wykonać jest dodać klasę pochodzącą z *DbConfiguration* i Włącz logiki ponawiania próby.
@@ -88,11 +88,11 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
 Dokumentacja
 
-- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na usług w chmurze Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Oficjalny dokument przez moduły SIMM znaku i Michael Thomassy. Podobnie jak seria przed uszkodzeniami, ale przechodzi w szczegółowe instrukcje. Zobacz sekcję Telemetrii i informacji diagnostycznych.
-- [Przed uszkodzeniami: Wskazówki dotyczące architektury chmury odporność](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Oficjalny dokument Mercuri wytłoków, Ulrich Homann i Andrew Townhill. Wersja strony sieci Web seria filmów przed uszkodzeniami.
-- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Zobacz ponawiania wzorzec, wzorzec przełożonego agenta harmonogramu.
+- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na usług w chmurze Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument przez moduły SIMM znaku i Michael Thomassy. Podobnie jak seria przed uszkodzeniami, ale przechodzi w szczegółowe instrukcje. Zobacz sekcję Telemetrii i informacji diagnostycznych.
+- [Przed uszkodzeniami: Wskazówki dotyczące architektury chmury odporność](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument Mercuri wytłoków, Ulrich Homann i Andrew Townhill. Wersja strony sieci Web seria filmów przed uszkodzeniami.
+- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz ponawiania wzorzec, wzorzec przełożonego agenta harmonogramu.
 - [Odporność na uszkodzenia w bazie danych Azure SQL](https://blogs.msdn.com/b/windowsazure/archive/2012/07/30/fault-tolerance-in-windows-azure-sql-database.aspx). Wpis w blogu przez Tony Petrossian.
-- [Entity Framework - połączenia odporności / Logika ponawiania próby](https://msdn.microsoft.com/en-us/data/dn456835). Jak używać i dostosować błędu przejściowego obsługi funkcji programu Entity Framework 6.
+- [Entity Framework - połączenia odporności / Logika ponawiania próby](https://msdn.microsoft.com/data/dn456835). Jak używać i dostosować błędu przejściowego obsługi funkcji programu Entity Framework 6.
 - [Elastyczność połączenia i przechwytywaniu polecenia Entity Framework w aplikacji platformy ASP.NET MVC](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Czwarty w serii dziewięć części samouczka przedstawiono sposób ustawienia odporności funkcji Połączenia programów EF 6 dla bazy danych SQL.
 
 Wideo

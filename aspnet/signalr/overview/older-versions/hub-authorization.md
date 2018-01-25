@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: e52e39bf9c66419e18bf78036138d1f15376f2be
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d73ab6c9091556a62e5d9475baf67a18e305585f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authentication-and-authorization-for-signalr-hubs-signalr-1x"></a>Uwierzytelnianie i autoryzacja koncentratorów SignalR (SignalR 1.x)
 ====================
@@ -44,7 +44,7 @@ Ten temat zawiera następujące sekcje:
 
 ## <a name="authorize-attribute"></a>Autoryzowanie atrybutu
 
-Biblioteka SignalR udostępnia [autoryzacji](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) atrybutu, aby określić, których użytkowników lub role mają dostęp do koncentratora lub metody. Ten atrybut znajduje się w `Microsoft.AspNet.SignalR` przestrzeni nazw. Należy zastosować `Authorize` atrybutu koncentratora lub konkretnej metody koncentratora. Po zastosowaniu `Authorize` atrybut do klasy koncentratora, wymaganie autoryzacji określony jest stosowane do wszystkich metod koncentratora. Poniżej przedstawiono wymagania autoryzacji, które można stosować różne typy. Bez `Authorize` atrybutu, wszystkie metody publiczne koncentratora są dostępne dla klienta, który jest podłączony do koncentratora.
+Biblioteka SignalR udostępnia [autoryzacji](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) atrybutu, aby określić, których użytkowników lub role mają dostęp do koncentratora lub metody. Ten atrybut znajduje się w `Microsoft.AspNet.SignalR` przestrzeni nazw. Należy zastosować `Authorize` atrybutu koncentratora lub konkretnej metody koncentratora. Po zastosowaniu `Authorize` atrybut do klasy koncentratora, wymaganie autoryzacji określony jest stosowane do wszystkich metod koncentratora. Poniżej przedstawiono wymagania autoryzacji, które można stosować różne typy. Bez `Authorize` atrybutu, wszystkie metody publiczne koncentratora są dostępne dla klienta, który jest podłączony do koncentratora.
 
 Jeśli zdefiniowano roli w aplikacji sieci web o nazwie "Administrator", można określić, że tylko użytkownicy w tej roli mają dostęp do Centrum następującym kodem.
 
@@ -65,7 +65,7 @@ Poniższe przykłady dotyczą autoryzacji różnych scenariuszy:
 
 ## <a name="require-authentication-for-all-hubs"></a>Wymagaj uwierzytelniania dla wszystkich koncentratorów.
 
-Może być wymagane uwierzytelnienie dla wszystkich koncentratorów i metod koncentratorów w aplikacji przez wywołanie metody [RequireAuthentication](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubpipelineextensions.requireauthentication(v=vs.111).aspx) metody podczas uruchamiania aplikacji. Gdy ma wiele koncentratorów i mają być egzekwowane wymaganie uwierzytelniania dla wszystkich z nich można użyć tej metody. Przy użyciu tej metody nie można określić roli, użytkowników lub wychodzących autoryzacji. Można tylko określić, że dostęp do metod koncentratora jest ograniczony do użytkowników uwierzytelnionych. Można jednak nadal stosować atrybutu autoryzacji do koncentratorów i metod, aby określić dodatkowe wymagania. Wszystkie wymagania określone w atrybutach jest stosowany oprócz podstawowych wymagań uwierzytelniania.
+Może być wymagane uwierzytelnienie dla wszystkich koncentratorów i metod koncentratorów w aplikacji przez wywołanie metody [RequireAuthentication](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubpipelineextensions.requireauthentication(v=vs.111).aspx) metody podczas uruchamiania aplikacji. Gdy ma wiele koncentratorów i mają być egzekwowane wymaganie uwierzytelniania dla wszystkich z nich można użyć tej metody. Przy użyciu tej metody nie można określić roli, użytkowników lub wychodzących autoryzacji. Można tylko określić, że dostęp do metod koncentratora jest ograniczony do użytkowników uwierzytelnionych. Można jednak nadal stosować atrybutu autoryzacji do koncentratorów i metod, aby określić dodatkowe wymagania. Wszystkie wymagania określone w atrybutach jest stosowany oprócz podstawowych wymagań uwierzytelniania.
 
 W poniższym przykładzie przedstawiono plik Global.asax, który ogranicza wszystkich metod koncentratora użytkownikom uwierzytelnionym.
 
@@ -77,7 +77,7 @@ Jeśli należy wywołać `RequireAuthentication()` metody po przetworzeniu żąd
 
 ## <a name="customized-authorization"></a>Dostosowane autoryzacji
 
-Jeśli musisz dostosować jak Autoryzacja jest określona, można utworzyć klasy, która jest pochodną `AuthorizeAttribute` i zastąpić [UserAuthorized](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.authorizeattribute.userauthorized(v=vs.111).aspx) metody. Ta metoda jest wywoływana dla każdego żądania w celu określenia, czy użytkownik jest autoryzowany do wykonania żądania. Przeciążonej musisz podać logiki niezbędne dla danego scenariusza autoryzacji. Poniższy przykład pokazuje, jak wymusić autoryzacji za pomocą tożsamości opartej na oświadczeniach.
+Jeśli musisz dostosować jak Autoryzacja jest określona, można utworzyć klasy, która jest pochodną `AuthorizeAttribute` i zastąpić [UserAuthorized](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute.userauthorized(v=vs.111).aspx) metody. Ta metoda jest wywoływana dla każdego żądania w celu określenia, czy użytkownik jest autoryzowany do wykonania żądania. Przeciążonej musisz podać logiki niezbędne dla danego scenariusza autoryzacji. Poniższy przykład pokazuje, jak wymusić autoryzacji za pomocą tożsamości opartej na oświadczeniach.
 
 [!code-csharp[Main](hub-authorization/samples/sample4.cs)]
 
@@ -103,9 +103,9 @@ Jeśli masz klienta programu .NET, na przykład aplikacji konsoli, która wspó�
 
 <a id="cookie"></a>
 
-### <a name="cookie"></a>Plik cookie
+### <a name="cookie"></a>Cookie
 
-Gdy klient .NET użyje koncentratora, który korzysta z uwierzytelniania formularzy ASP.NET, należy ręcznie ustawić pliku cookie uwierzytelniania w połączeniu. Dodawanie pliku cookie do `CookieContainer` właściwość [HubConnection](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.hubs.hubconnection(v=vs.111).aspx) obiektu. W poniższym przykładzie przedstawiono aplikacji konsoli, która pobiera pliku cookie uwierzytelniania ze strony sieci web i dodaje ten plik cookie dla połączenia. Adres URL `https://www.contoso.com/RemoteLogin` w punktach przykład do strony sieci web, którą należy utworzyć. Strona może pobrać nazwy oczekujących na opublikowanie użytkownika i hasła i prób zalogowania użytkownika przy użyciu poświadczeń.
+Gdy klient .NET użyje koncentratora, który korzysta z uwierzytelniania formularzy ASP.NET, należy ręcznie ustawić pliku cookie uwierzytelniania w połączeniu. Dodawanie pliku cookie do `CookieContainer` właściwość [HubConnection](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.hubs.hubconnection(v=vs.111).aspx) obiektu. W poniższym przykładzie przedstawiono aplikacji konsoli, która pobiera pliku cookie uwierzytelniania ze strony sieci web i dodaje ten plik cookie dla połączenia. Adres URL `https://www.contoso.com/RemoteLogin` w punktach przykład do strony sieci web, którą należy utworzyć. Strona może pobrać nazwy oczekujących na opublikowanie użytkownika i hasła i prób zalogowania użytkownika przy użyciu poświadczeń.
 
 [!code-csharp[Main](hub-authorization/samples/sample7.cs)]
 
@@ -117,7 +117,7 @@ Aplikacja konsoli wpisów poświadczenia www.contoso.com/RemoteLogin którego mo
 
 ### <a name="windows-authentication"></a>Uwierzytelnianie systemu Windows
 
-Podczas korzystania z uwierzytelniania systemu Windows, można przekazać poświadczeń bieżącego użytkownika za pomocą [DefaultCredentials](https://msdn.microsoft.com/en-us/library/system.net.credentialcache.defaultcredentials.aspx) właściwości. Poświadczenia dla połączenia zostanie ustawiona wartość DefaultCredentials.
+Podczas korzystania z uwierzytelniania systemu Windows, można przekazać poświadczeń bieżącego użytkownika za pomocą [DefaultCredentials](https://msdn.microsoft.com/library/system.net.credentialcache.defaultcredentials.aspx) właściwości. Poświadczenia dla połączenia zostanie ustawiona wartość DefaultCredentials.
 
 [!code-csharp[Main](hub-authorization/samples/sample9.cs?highlight=6)]
 
@@ -135,6 +135,6 @@ Następnie w Centrum, możesz Zweryfikuj token użytkownika.
 
 ### <a name="certificate"></a>certyfikat
 
-Można przekazać certyfikatu klienta w celu weryfikacji użytkownika. Możesz dodać certyfikat, podczas tworzenia połączenia. Poniższy przykład przedstawia tylko sposób dodawania certyfikat klienta do połączenia; nie są wyświetlane w aplikacji konsoli pełna. Używa [X509Certificate](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate.aspx) klasy, która zapewnia kilka różnych sposobów, aby utworzyć certyfikat.
+Można przekazać certyfikatu klienta w celu weryfikacji użytkownika. Możesz dodać certyfikat, podczas tworzenia połączenia. Poniższy przykład przedstawia tylko sposób dodawania certyfikat klienta do połączenia; nie są wyświetlane w aplikacji konsoli pełna. Używa [X509Certificate](https://msdn.microsoft.com/library/system.security.cryptography.x509certificates.x509certificate.aspx) klasy, która zapewnia kilka różnych sposobów, aby utworzyć certyfikat.
 
 [!code-csharp[Main](hub-authorization/samples/sample11.cs?highlight=6)]

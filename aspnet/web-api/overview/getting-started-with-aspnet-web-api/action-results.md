@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
-ms.openlocfilehash: 68b82661b97434795e1c306b168033dfcde529bc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d0db5c6d45020861d7295ab1db989caee525fff9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="action-results-in-web-api-2"></a>Wyniki akcji w składniku Web API 2
 ====================
@@ -56,7 +56,7 @@ Odpowiedź HTTP:
 
 ## <a name="httpresponsemessage"></a>HttpResponseMessage
 
-Jeśli akcja zwraca [HttpResponseMessage](https://msdn.microsoft.com/en-us/library/system.net.http.httpresponsemessage.aspx), interfejsu API sieci Web konwertuje wartości zwracanej bezpośrednio na komunikat odpowiedzi HTTP przy użyciu właściwości **HttpResponseMessage** obiektu, aby wypełnić odpowiedź.
+Jeśli akcja zwraca [HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx), interfejsu API sieci Web konwertuje wartości zwracanej bezpośrednio na komunikat odpowiedzi HTTP przy użyciu właściwości **HttpResponseMessage** obiektu, aby wypełnić odpowiedź.
 
 Ta opcja umożliwia szczegółową kontrolę nad komunikat odpowiedzi. Na przykład następująca Akcja kontrolera ustawia nagłówek Cache-Control.
 
@@ -98,9 +98,9 @@ Odpowiedź:
 
 [!code-console[Main](action-results/samples/sample9.cmd)]
 
-Częściej, którego użyjesz **IHttpActionResult** zdefiniowane w implementacji  **[System.Web.Http.Results](https://msdn.microsoft.com/en-us/library/system.web.http.results.aspx)**  przestrzeni nazw. **Klasy ApiController** klasa definiuje metody pomocnicze, które zwracają wyniki tych działań wbudowanych.
+Częściej, którego użyjesz **IHttpActionResult** zdefiniowane w implementacji  **[System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)**  przestrzeni nazw. **Klasy ApiController** klasa definiuje metody pomocnicze, które zwracają wyniki tych działań wbudowanych.
 
-W poniższym przykładzie, jeśli żądanie nie pasuje do istniejącego Identyfikatora produktu, kontrolera wywołuje [ApiController.NotFound](https://msdn.microsoft.com/en-us/library/system.web.http.apicontroller.notfound.aspx) do tworzenia odpowiedzi 404 (nie znaleziono). W przeciwnym razie wywołuje kontrolera [ApiController.OK](https://msdn.microsoft.com/en-us/library/dn314591.aspx), który utworzy odpowiedź 200 (OK) która zawiera produktu.
+W poniższym przykładzie, jeśli żądanie nie pasuje do istniejącego Identyfikatora produktu, kontrolera wywołuje [ApiController.NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) do tworzenia odpowiedzi 404 (nie znaleziono). W przeciwnym razie wywołuje kontrolera [ApiController.OK](https://msdn.microsoft.com/library/dn314591.aspx), który utworzy odpowiedź 200 (OK) która zawiera produktu.
 
 [!code-csharp[Main](action-results/samples/sample10.cs)]
 

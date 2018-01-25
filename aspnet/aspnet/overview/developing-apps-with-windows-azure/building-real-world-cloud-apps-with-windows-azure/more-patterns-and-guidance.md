@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 2ac18799d214777d098cc85ec6c85fd09f84a782
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a388f2e0ca3e1f0ce24a6def2a2b91711a7bf5a7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>Więcej wzorców i wskazówki (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -31,18 +31,18 @@ Masz teraz widoczna 13 wzorców, które zawierają wskazówki dotyczące powodze
 
 - Migrowanie istniejących aplikacji lokalnych do chmury. 
 
-    - [Przenoszenie aplikacji w chmurze](https://msdn.microsoft.com/en-us/library/ff728592.aspx). E-book przez Microsoft Patterns and Practices. Również dostępny jako [paperback wydruku](https://www.amazon.com/dp/1621140202).
+    - [Przenoszenie aplikacji w chmurze](https://msdn.microsoft.com/library/ff728592.aspx). E-book przez Microsoft Patterns and Practices. Również dostępny jako [paperback wydruku](https://www.amazon.com/dp/1621140202).
     - [Migrowanie Microsoft ASP.NET i IIS.NET](https://go.microsoft.com/fwlink/?LinkId=400656). Analiza przypadku przez Roberta Mcmurraya.
     - [Przenoszenie 4 &amp; burmistrz do witryn sieci Web Azure](http://www.jeff.wilcox.name/2013/04/4thandmayor-azure-websites/). W blogu przez Jeff Wilcox chronicling jego środowisko przenoszenie aplikacji sieci web z usług Amazon Web Services do aplikacji Web Apps w usłudze Azure App Service.
-    - [Przenoszenia aplikacji na platformie Azure: jakie zmiany?](https://azure.microsoft.com/en-us/documentation/videos/web-sites-internals-and-the-file-system/) Krótki klip wideo od Stefan Schackow, wyjaśnia dostępu do systemu plików w aplikacji sieci Web w usłudze Azure App Service.
+    - [Przenoszenia aplikacji na platformie Azure: jakie zmiany?](https://azure.microsoft.com/documentation/videos/web-sites-internals-and-the-file-system/) Krótki klip wideo od Stefan Schackow, wyjaśnia dostępu do systemu plików w aplikacji sieci Web w usłudze Azure App Service.
     - [Chmura hybrydowa Azure](https://www.amazon.com/dp/B00EOP4UQW). Pisemnie książki lub Książka elektroniczna Danny Garber, Jamal Malik i Adam Fazio.
 - Problemy zabezpieczeń, uwierzytelniania i autoryzacji unikatowy dla aplikacji w chmurze
 
     - [Wskazówki dotyczące zabezpieczeń platformy Azure](https://azure.microsoft.com/blog/2014/02/10/best-practices-windows-azure-websites-waws/)
-    - [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Zobacz strażnika wzorzec, wzorzec tożsamości federacyjnych.
+    - [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz strażnika wzorzec, wzorzec tożsamości federacyjnych.
     - [Zabezpieczenia sieci Azure](https://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx). Oficjalny dokument przez Ashin Palekar.
 
-Zobacz też dodatkowe chmury obliczeniowej wzorców i wskazówki na [Microsoft Patterns and Practices — wskazówki dotyczące usługi Azure](https://msdn.microsoft.com/en-us/library/dn568099.aspx).
+Zobacz też dodatkowe chmury obliczeniowej wzorców i wskazówki na [Microsoft Patterns and Practices — wskazówki dotyczące usługi Azure](https://msdn.microsoft.com/library/dn568099.aspx).
 
 <a id="resources"></a>
 ## <a name="resources"></a>Resources
@@ -51,9 +51,9 @@ Aby uzyskać więcej informacji na temat określonego tematu każdego rozdziały
 
 Dokumentacja
 
-- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na usług w chmurze Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Oficjalny dokument przez moduły SIMM znaku i Michael Thomassy.
-- [Przed uszkodzeniami: Wskazówki dotyczące architektury chmury odporność](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Oficjalny dokument Mercuri wytłoków, Ulrich Homann i Andrew Townhill. Wersja strony sieci Web seria filmów przed uszkodzeniami.
-- [Wskazówki dotyczące usługi Azure](https://azure.microsoft.com/en-us/develop/net/guidance/) strony portalu oficjalna dokumentacja związane z opracowywanie aplikacji dla platformy Azure.
+- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na usług w chmurze Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument przez moduły SIMM znaku i Michael Thomassy.
+- [Przed uszkodzeniami: Wskazówki dotyczące architektury chmury odporność](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument Mercuri wytłoków, Ulrich Homann i Andrew Townhill. Wersja strony sieci Web seria filmów przed uszkodzeniami.
+- [Wskazówki dotyczące usługi Azure](https://azure.microsoft.com/develop/net/guidance/) strony portalu oficjalna dokumentacja związane z opracowywanie aplikacji dla platformy Azure.
 
 Wideo
 
@@ -71,11 +71,11 @@ Wydruk książek
 - [Chmury obliczeniowej biblijny](https://www.amazon.com/dp/0470903562). Przez Barrie Sosinsky.
 - [Zwolnij go! Projektowanie i wdrażanie oprogramowania gotowe do produkcji](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Przez Michael T. Nygard.
 - [Wzorce architektury chmury: Microsoft Azure przy użyciu](http://shop.oreilly.com/product/0636920023777.do). Przez Wilder faktury.
-- [Windows Azure platformy](https://www.amazon.com/dp/1430235632). Przez Tejaswi Redkar.
+- [Windows Azure platformy](https://www.amazon.com/dp/1430235632). By Tejaswi Redkar.
 - [Windows Azure wzorców programowania dla nowych](https://www.amazon.com/dp/1849685606). Przez Riccardo Becker.
 - [Microsoft Windows Azure programowanie Cookbook](https://www.amazon.com/dp/1849682224). Przez Neil Mackenzie.
 
-Na koniec po rozpocząć tworzenie aplikacji rzeczywistych i działają na platformie Azure, wcześniej lub później prawdopodobnie należy uzyskać pomoc od ekspertów. Można zadawać pytania w witryn społeczności, takich jak [forach platformy Azure lub StackOverflow](https://azure.microsoft.com/en-us/support/forums/), lub kontakt z firmą Microsoft bezpośrednio pomocy technicznej platformy Azure. Firma Microsoft oferuje kilka poziomów pomocy technicznej platformy Azure: Podsumowanie i porównanie opcji, zobacz [Azure obsługuje](https://azure.microsoft.com/en-us/support/plans/).
+Na koniec po rozpocząć tworzenie aplikacji rzeczywistych i działają na platformie Azure, wcześniej lub później prawdopodobnie należy uzyskać pomoc od ekspertów. Można zadawać pytania w witryn społeczności, takich jak [forach platformy Azure lub StackOverflow](https://azure.microsoft.com/support/forums/), lub kontakt z firmą Microsoft bezpośrednio pomocy technicznej platformy Azure. Firma Microsoft oferuje kilka poziomów pomocy technicznej platformy Azure: Podsumowanie i porównanie opcji, zobacz [Azure obsługuje](https://azure.microsoft.com/support/plans/).
 
 <a id="acknowledgments"></a>
 ## <a name="acknowledgments"></a>Potwierdzenia

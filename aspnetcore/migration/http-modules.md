@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: 44b2b38c284e678344432d4473162404b4bb75a5
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a38ddc64583de05b4088cd31d48fbd7ee949d4e5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrowanie programów obsługi HTTP i modułów platformy ASP.NET Core oprogramowania pośredniczącego 
 
@@ -51,7 +51,7 @@ Przed przystąpieniem do platformy ASP.NET Core oprogramowanie pośredniczące, 
 
    1. [Cyklu życia aplikacji](https://msdn.microsoft.com/library/ms227673.aspx), która jest zdarzenia serii wywoływane przez platformę ASP.NET: [powstaniem zdarzenia BeginRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.authenticaterequest)itp. Każdy moduł można utworzyć programu obsługi dla co najmniej jednego zdarzenia.
 
-   2. Dla tego samego zdarzenia kolejności, w której są konfigurowane w *Web.config*.
+   2. Dla tego samego zdarzenia kolejności, w której jest skonfigurowany w *Web.config*.
 
 Oprócz modułów, można dodać obsługi zdarzeń cyklu życia z *Global.asax.cs* pliku. Po obsługi w modułach skonfigurowanych Uruchom te programy obsługi zdarzeń.
 
@@ -77,7 +77,7 @@ Oprócz modułów, można dodać obsługi zdarzeń cyklu życia z *Global.asax.c
 
 **Oprogramowanie pośredniczące i moduły są przetwarzane w innej kolejności:**
 
-   * Kolejność oprogramowania pośredniczącego opiera się na kolejność, w którym wstawieniu do potoku żądania podczas kolejność modułów opiera się głównie na [cyklu życia aplikacji](https://msdn.microsoft.com/library/ms227673.aspx) zdarzeń
+   * Kolejność oprogramowania pośredniczącego opiera się na kolejność, w którym wstawiane są one z potokiem żądań, gdy kolejność modułów opiera się głównie na [cyklu życia aplikacji](https://msdn.microsoft.com/library/ms227673.aspx) zdarzeń
 
    * Kolejność oprogramowania pośredniczącego odpowiedzi jest odwrotnie niż dla żądania, podczas kolejność modułów jest taki sam dla żądań i odpowiedzi
 
@@ -109,7 +109,7 @@ Modułu może zakończyć żądania, na przykład jeśli użytkownik nie ma upra
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyTerminatingModule.cs?highlight=9,10,11,12,13&name=snippet_Terminate)]
 
-Oprogramowanie pośredniczące obsługuje to nie wywołując `Invoke` na następne oprogramowanie pośredniczące w potoku. Należy pamiętać, że to nie pełni kończy żądanie, ponieważ poprzednie middlewares nadal zostanie wywołany, gdy odpowiedź sprawia, że jego sposób za pośrednictwem potoku.
+Oprogramowanie pośredniczące obsługuje to nie wywołując `Invoke` na następne oprogramowanie pośredniczące w potoku. Należy pamiętać, że to nie pełni zakończyć żądania, ponieważ poprzednie middlewares nadal zostanie wywołany, gdy odpowiedź sprawia, że jego sposób za pośrednictwem potoku.
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyTerminatingMiddleware.cs?highlight=7,8&name=snippet_Terminate)]
 

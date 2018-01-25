@@ -12,13 +12,13 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 84ca4bbaebe401d14233131bcaa027debf7ea0f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46f53279e2e6daa4266c06feb4ba544e14b68a03
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
-<a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>Wprowadzenie do programu Entity Framework 6 Code First przy użyciu MVC 5
+<a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>Wprowadzenie do podejścia Code First w programie Entity Framework 6 z wykorzystaniem MVC 5
 ====================
 przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
@@ -29,7 +29,7 @@ przez [Dykstra niestandardowy](https://github.com/tdykstra)
 > > Dostępna jest nowsza wersja tego samouczka serii: [wprowadzenie do platformy ASP.NET Core oraz Entity Framework Core za pomocą programu Visual Studio 2015](https://docs.asp.net/en/latest/data/ef-mvc/intro.html).
 > 
 > 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu programu Entity Framework 6 i Visual Studio 2013. W tym samouczku używana Code First przepływu pracy. Aby dowiedzieć się, jak dokonać wyboru między Code First, pierwszy bazy danych i Model First, zobacz [przepływów pracy programu Entity Framework programowanie](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 przy użyciu programu Entity Framework 6 i Visual Studio 2013. W tym samouczku używana Code First przepływu pracy. Aby dowiedzieć się, jak dokonać wyboru między Code First, pierwszy bazy danych i Model First, zobacz [przepływów pracy programu Entity Framework programowanie](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > Przykładowa aplikacja jest witryną sieci web dla fikcyjnej uniwersytetu Contoso. Obejmuje funkcje, takie jak wprowadzenia studentów, tworzenie kursu i instruktora przypisania. Ten samouczek serii wyjaśniono sposób zastosowania Contoso University przykładowej aplikacji. Możesz [Pobierz ukończona aplikacja](https://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8).
 > 
@@ -53,7 +53,7 @@ przez [Dykstra niestandardowy](https://github.com/tdykstra)
 > 
 > ## <a name="questions-and-comments"></a>Pytania i komentarze
 > 
-> Wystaw opinię na jak zbędne tego samouczka i jakie firma Microsoft może poprawić w komentarze u dołu strony. Jeśli masz pytania, które nie są bezpośrednio związane z tego samouczka możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework i składnika LINQ to Entities forum](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/), lub [ StackOverflow.com](http://stackoverflow.com/).
+> Wystaw opinię na jak zbędne tego samouczka i jakie firma Microsoft może poprawić w komentarze u dołu strony. Jeśli masz pytania, które nie są bezpośrednio związane z tego samouczka możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework i składnika LINQ to Entities forum](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), lub [ StackOverflow.com](http://stackoverflow.com/).
 > 
 > Jeśli napotkasz problem, którego nie można rozpoznać rozwiązania tego problemu można znaleźć ogólnie na podstawie porównania ilości kodu ukończone projekt, który można pobrać. Dla niektórych typowych błędów i sposobu rozwiązania tych problemów, zobacz [typowych błędów i rozwiązania lub obejścia dla nich.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
@@ -169,7 +169,7 @@ W *modele* folderu, Utwórz *Enrollment.cs* i Zastąp istniejący kod następuj�
 
 `EnrollmentID` Właściwość będzie klucza podstawowego; używa tej jednostki *classname* `ID` wzorca zamiast `ID` sam jak opisany w `Student` jednostki. Zwykle będzie wybierz jeden wzorzec i używać go w modelu danych. W tym miejscu odmiany przedstawiono służy albo wzorzec. W samouczku nowsze, zobaczysz jak polecenie `ID` bez `classname` ułatwia wdrażanie dziedziczenia w modelu danych.
 
-`Grade` Właściwość jest [wyliczenia](https://msdn.microsoft.com/en-us/data/hh859576.aspx). Znak zapytania po `Grade` deklaracji typu wskazuje, że `Grade` właściwość jest [nullable](https://msdn.microsoft.com/en-us/library/2cf62fcy.aspx). Ma wartość null, która różni się od zera klasy — null oznacza, że klasa nie jest znana lub nie została jeszcze przypisana.
+`Grade` Właściwość jest [wyliczenia](https://msdn.microsoft.com/data/hh859576.aspx). Znak zapytania po `Grade` deklaracji typu wskazuje, że `Grade` właściwość jest [nullable](https://msdn.microsoft.com/library/2cf62fcy.aspx). Ma wartość null, która różni się od zera klasy — null oznacza, że klasa nie jest znana lub nie została jeszcze przypisana.
 
 `StudentID` Właściwość jest kluczem obcym i odpowiednią właściwość nawigacji jest `Student`. `Enrollment` Jednostka jest skojarzony z jednym `Student` jednostki, więc właściwości może zawierać tylko jeden `Student` jednostki (w przeciwieństwie do `Student.Enrollments` właściwość nawigacji był wyświetlany poprzednio, która zawiera wiele `Enrollment` jednostek).
 
@@ -187,11 +187,11 @@ W *modele* folderu, Utwórz *Course.cs*, zastępując kod szablonu z następują
 
 `Enrollments` Właściwość jest właściwością nawigacji. A `Course` jednostka może być powiązane z dowolną liczbę `Enrollment` jednostek.
 
-Firma Microsoft będzie więcej powiedzieć o [DatabaseGenerated](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx) atrybutu w późniejszym samouczku z tej serii. Zasadniczo ten atrybut umożliwia wprowadzenie klucza podstawowego dla porach zamiast generować go bazy danych.
+Firma Microsoft będzie więcej powiedzieć o [DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx) atrybutu w późniejszym samouczku z tej serii. Zasadniczo ten atrybut umożliwia wprowadzenie klucza podstawowego dla porach zamiast generować go bazy danych.
 
 ## <a name="create-the-database-context"></a>Tworzenie kontekstu bazy danych
 
-Klasy głównym, która koordynuje funkcji programu Entity Framework o dany model danych jest *kontekst bazy danych* klasy. Utworzyć tę klasę przez pochodny [System.Data.Entity.DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) klasy. W kodzie należy określić jednostki, które znajdują się w modelu danych. Można również dostosować określone zachowanie programu Entity Framework. W tym projekcie klasy o nazwie `SchoolContext`.
+Klasy głównym, która koordynuje funkcji programu Entity Framework o dany model danych jest *kontekst bazy danych* klasy. Utworzyć tę klasę przez pochodny [System.Data.Entity.DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) klasy. W kodzie należy określić jednostki, które znajdują się w modelu danych. Można również dostosować określone zachowanie programu Entity Framework. W tym projekcie klasy o nazwie `SchoolContext`.
 
 Aby utworzyć folder w projekcie ContosoUniversity, kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i kliknij przycisk **Dodaj**, a następnie kliknij przycisk **nowy Folder**. Nazwa nowego folderu *DAL* (dla warstwy dostępu do danych). W tym folderze utwórz plik klasy o nazwie *SchoolContext.cs*i Zastąp kod szablonu z następującym kodem:
 
@@ -199,7 +199,7 @@ Aby utworzyć folder w projekcie ContosoUniversity, kliknij prawym przyciskiem m
 
 ### <a name="specifying-entity-sets"></a>Określanie zestawów jednostek
 
-Ten kod tworzy [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=VS.103).aspx) właściwości dla każdego zestawu jednostek. W terminologii programu Entity Framework *zestaw jednostek* zazwyczaj odpowiada tabeli bazy danych i *jednostki* odpowiada wiersza w tabeli.
+Ten kod tworzy [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=VS.103).aspx) właściwości dla każdego zestawu jednostek. W terminologii programu Entity Framework *zestaw jednostek* zazwyczaj odpowiada tabeli bazy danych i *jednostki* odpowiada wiersza w tabeli.
 
 > [!NOTE] 
 > 
@@ -212,13 +212,13 @@ Nazwa ciągu połączenia (które można będzie później dodać do pliku Web.c
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample7.cs?highlight=1)]
 
-Można również przekazać w parametrach połączenia zamiast nazwy, który jest przechowywany w pliku Web.config. Aby uzyskać więcej informacji na temat opcji służącą do bazy danych do użycia, zobacz [Entity Framework - połączenia i modele](https://msdn.microsoft.com/en-us/data/jj592674).
+Można również przekazać w parametrach połączenia zamiast nazwy, który jest przechowywany w pliku Web.config. Aby uzyskać więcej informacji na temat opcji służącą do bazy danych do użycia, zobacz [Entity Framework - połączenia i modele](https://msdn.microsoft.com/data/jj592674).
 
 Jeśli nie zostanie określony ciąg połączenia lub nazwę jednego jawnie, Entity Framework zakłada, że nazwę ciągu połączenia jest taka sama jak nazwa klasy. Nazwa ciągu połączenia, w tym przykładzie będzie wówczas `SchoolContext`, taka sama jak co określasz jawnie.
 
 ### <a name="specifying-singular-table-names"></a>Określanie nazw pojedynczej tabeli
 
-`modelBuilder.Conventions.Remove` Instrukcji w [OnModelCreating](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) metody uniemożliwia trwa pluralized nazwy tabeli. Jeśli tego nie zrobisz, będą miały postać wygenerowanego tabele w bazie danych `Students`, `Courses`, i `Enrollments`. Zamiast tego nazwy tabeli będą `Student`, `Course`, i `Enrollment`. Deweloperzy nie zgadzają się na temat tego, czy należy pluralized nazwy tabeli lub nie. Ten samouczek używa pojedynczej formularza, ale istotne jest, można wybrać dowolną wskazaną formularza preferowane przy tym lub pominięcie ten wiersz kodu.
+`modelBuilder.Conventions.Remove` Instrukcji w [OnModelCreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) metody uniemożliwia trwa pluralized nazwy tabeli. Jeśli tego nie zrobisz, będą miały postać wygenerowanego tabele w bazie danych `Students`, `Courses`, i `Enrollments`. Zamiast tego nazwy tabeli będą `Student`, `Course`, i `Enrollment`. Deweloperzy nie zgadzają się na temat tego, czy należy pluralized nazwy tabeli lub nie. Ten samouczek używa pojedynczej formularza, ale istotne jest, można wybrać dowolną wskazaną formularza preferowane przy tym lub pominięcie ten wiersz kodu.
 
 ## <a name="set-up-ef-to-initialize-the-database-with-test-data"></a>Konfigurowanie EF zainicjować bazy danych z danych testowych
 
@@ -241,7 +241,7 @@ Aby przekazać Entity Framework do użycia klasy inicjatora, Dodaj element do `e
 
 [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample9.xml?highlight=2-6)]
 
-`context type` Określa kontekstu w pełni kwalifikowaną nazwę klasy i zestawu w, i `databaseinitializer type` określa klasy inicjatora i zestawu jest w pełni kwalifikowaną nazwę. (Gdy nie chcesz EF, aby użyć inicjatora, można ustawić atrybutu na `context` element: `disableDatabaseInitialization="true"`.) Aby uzyskać więcej informacji, zobacz [Entity Framework - ustawienia w pliku Config](https://msdn.microsoft.com/en-us/data/jj556606).
+`context type` Określa kontekstu w pełni kwalifikowaną nazwę klasy i zestawu w, i `databaseinitializer type` określa klasy inicjatora i zestawu jest w pełni kwalifikowaną nazwę. (Gdy nie chcesz EF, aby użyć inicjatora, można ustawić atrybutu na `context` element: `disableDatabaseInitialization="true"`.) Aby uzyskać więcej informacji, zobacz [Entity Framework - ustawienia w pliku Config](https://msdn.microsoft.com/data/jj556606).
 
 Jako alternatywę do ustawienia inicjatora w *Web.config* pliku jest on w kodzie, dodając `Database.SetInitializer` instrukcji `Application_Start` metody w *Global.asax.cs* pliku. Aby uzyskać więcej informacji, zobacz [opis inicjatory bazy danych w Entity Framework Code First](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm).
 
@@ -264,9 +264,9 @@ Jeśli używasz programu Visual Studio 2015, zastąp "v11.0" w parametrach poł�
 
 [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample10.xml?highlight=1-3)]
 
-Ciąg połączenia został dodany Określa, że Entity Framework będzie używać bazy danych LocalDB *ContosoUniversity1.mdf*. (Baza danych nie istnieje jeszcze; EF zostanie utworzony.) Jeśli potrzebujesz bazy danych mogą być tworzone w Twojej *aplikacji\_danych* folderu, można dodać `AttachDBFilename=|DataDirectory|\ContosoUniversity1.mdf` w parametrach połączenia. Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [parametry połączenia serwera SQL dla aplikacji sieci Web ASP.NET](https://msdn.microsoft.com/en-us/library/jj653752.aspx).
+Ciąg połączenia został dodany Określa, że Entity Framework będzie używać bazy danych LocalDB *ContosoUniversity1.mdf*. (Baza danych nie istnieje jeszcze; EF zostanie utworzony.) Jeśli potrzebujesz bazy danych mogą być tworzone w Twojej *aplikacji\_danych* folderu, można dodać `AttachDBFilename=|DataDirectory|\ContosoUniversity1.mdf` w parametrach połączenia. Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [parametry połączenia serwera SQL dla aplikacji sieci Web ASP.NET](https://msdn.microsoft.com/library/jj653752.aspx).
 
-Faktycznie nie muszą mieć parametry połączenia w *Web.config* pliku. Jeśli nie zostanie podane parametry połączenia, Entity Framework zostanie użyty domyślny jedną oparte na klasie kontekstu. Aby uzyskać więcej informacji, zobacz [Code First nową bazę danych](https://msdn.microsoft.com/en-us/data/jj193542).
+Faktycznie nie muszą mieć parametry połączenia w *Web.config* pliku. Jeśli nie zostanie podane parametry połączenia, Entity Framework zostanie użyty domyślny jedną oparte na klasie kontekstu. Aby uzyskać więcej informacji, zobacz [Code First nową bazę danych](https://msdn.microsoft.com/data/jj193542).
 
 ## <a name="creating-a-student-controller-and-views"></a>Tworzenie kontrolera dla użytkowników domowych i widoków
 
@@ -334,7 +334,7 @@ Ilość kodu musiały zapisu w kolejności Entity Framework można było utworzy
 - Właściwości jednostki, które są nazywane `ID` lub *classname* `ID` są rozpoznawane jako właściwości klucza podstawowego.
 - Właściwość jest interpretowana jako właściwości klucza obcego, jeśli jest o nazwie  *&lt;nazwą właściwości nawigacji&gt;&lt;nazwa właściwości klucza podstawowego&gt;*  (na przykład `StudentID` dla `Student` właściwość nawigacji, ponieważ `Student` klucza podstawowego jednostki jest `ID`). Właściwości klucza obcego może również być taką samą nazwę po prostu &lt;nazwa właściwości klucza podstawowego&gt; (na przykład `EnrollmentID` ponieważ `Enrollment` klucza podstawowego jednostki jest `EnrollmentID`).
 
-Przedstawiono konwencje może zostać zastąpiona. Na przykład określić nazwy tabeli nie powinny być pluralized, czy pojawi się później sposobu oznaczania jawnie właściwości jako właściwość klucza obcego. Dowiesz się więcej na temat Konwencji i jak zastąpić je w [tworzenia więcej złożonych modelu danych](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) samouczek później w tej serii. Aby uzyskać więcej informacji na temat Konwencji, zobacz [pierwszy konwencje związane z kodami](https://msdn.microsoft.com/en-us/data/jj679962).
+Przedstawiono konwencje może zostać zastąpiona. Na przykład określić nazwy tabeli nie powinny być pluralized, czy pojawi się później sposobu oznaczania jawnie właściwości jako właściwość klucza obcego. Dowiesz się więcej na temat Konwencji i jak zastąpić je w [tworzenia więcej złożonych modelu danych](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) samouczek później w tej serii. Aby uzyskać więcej informacji na temat Konwencji, zobacz [pierwszy konwencje związane z kodami](https://msdn.microsoft.com/data/jj679962).
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -345,4 +345,4 @@ Wystaw opinię na jak zbędne tego samouczka i co można możemy ulepszyć. Moż
 Linki do innych zasobów programu Entity Framework, można znaleźć w [dostępu do danych programu ASP.NET - zalecane zasobów](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 >[!div class="step-by-step"]
-[Dalej](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+[Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

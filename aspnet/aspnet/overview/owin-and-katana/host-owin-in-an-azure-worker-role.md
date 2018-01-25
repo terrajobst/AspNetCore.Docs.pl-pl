@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 647514ae5a92b9d729179327fb97bd8005b0a4b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8c0fdfdf60ff3bde34b6869adf3f8693b4d9615d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="host-owin-in-an-azure-worker-role"></a>Host OWIN w roli procesu roboczego platformy Azure
 ====================
@@ -26,13 +26,13 @@ przez [Wasson Jan](https://github.com/MikeWasson)
 > 
 > [Otwórz interfejs sieci Web dla platformy .NET](http://owin.org/) (OWIN) definiuje abstrakcję między serwerami sieci web .NET i aplikacji sieci web. OWIN oddziela aplikacji sieci web na serwerze, co sprawia, że OWIN idealne rozwiązanie w przypadku samodzielnej obsługi aplikacji sieci web w własnego procesu poza usług IIS — na przykład w roli procesu roboczego platformy Azure.
 > 
-> Z tego samouczka dowiesz się, jak własnym obsługi aplikacji OWIN wewnątrz roli procesu roboczego Microsoft Azure. Aby dowiedzieć się więcej na temat roli proces roboczy, zobacz [modeli wykonywania Azure](https://azure.microsoft.com/en-us/documentation/articles/fundamentals-application-models/#CloudServices).
+> Z tego samouczka dowiesz się, jak własnym obsługi aplikacji OWIN wewnątrz roli procesu roboczego Microsoft Azure. Aby dowiedzieć się więcej na temat roli proces roboczy, zobacz [modeli wykonywania Azure](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices).
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
-> - [Zestaw Azure SDK dla platformy .NET w wersji 2.3](https://azure.microsoft.com/en-us/downloads/)
+> - [Zestaw Azure SDK dla platformy .NET w wersji 2.3](https://azure.microsoft.com/downloads/)
 > - [Microsoft.Owin.Selfhost 2.1.0](http://www.nuget.org/packages/Microsoft.Owin.SelfHost/2.1.0)
 
 
@@ -125,7 +125,7 @@ Znajdowanie adresu IP w ramach wdrożenia usługi, wdrażania [id], szczegóły 
 
 ## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
 
-W tym kroku musi mieć konto platformy Azure. Jeśli nie masz jeszcze jeden, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać więcej informacji, zobacz [bezpłatna wersja próbna programu Microsoft Azure](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+W tym kroku musi mieć konto platformy Azure. Jeśli nie masz jeszcze jeden, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać więcej informacji, zobacz [bezpłatna wersja próbna programu Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
 W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt AzureApp. Wybierz **publikowania**.
 
@@ -151,5 +151,5 @@ Okno Dziennik aktywności platformy Azure będzie wyświetlany postęp wdrażani
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Przegląd projektu Katana](an-overview-of-project-katana.md)
+- [Omówienie projektu Katana](an-overview-of-project-katana.md)
 - [Projekt Katana w witrynie GitHub](https://github.com/aspnet/AspNetKatana/)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 1f19d54a5f2679f790575d520b28472d4ff3233f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: caa79725ede320c4bd3e87ac246966c57175eb8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: przygotowywanie do wdrożenia bazy danych
 ====================
@@ -52,7 +52,7 @@ Aby uzyskać więcej informacji o wersjach programu SQL Server, w tym LocalDB, z
 Aby uzyskać dostęp do bazy danych aplikacja Contoso University wymaga następującego oprogramowania, które należy wdrożyć w aplikacji, ponieważ nie znajduje się w programie .NET Framework:
 
 - [Dostawców uniwersalnych ASP.NET](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (umożliwia systemu członkostwa programu ASP.NET użyć usługi Azure SQL Database)
-- [Entity Framework](https://msdn.microsoft.com/en-us/library/gg696172.aspx)
+- [Entity Framework](https://msdn.microsoft.com/library/gg696172.aspx)
 
 Ponieważ to oprogramowanie, znajduje się w pakietach NuGet, projekt jest już skonfigurowane tak, aby wymagane zestawy są wdrażane w projekcie. (Łącza wskaż bieżące wersje tych pakietów, które może być nowsza niż zainstalowana w projekcie starter pobranego w ramach tego samouczka).
 
@@ -171,12 +171,12 @@ W tym miejscu, zwykle nie ma tych samych danych w środowisku produkcyjnym, czy 
 Użytkownicy programowanie wdrożony do środowiska testowego i produkcyjnego użytkownikom tymczasową i produkcyjną. W tym celu zostaną utworzone dwa skrypty SQL, w tym samouczku, jeden dla rozwoju i jeden w środowisku produkcyjnym, a w kolejnych samouczkach skonfigurujesz proces publikowania ich uruchamiać.
 
 > [!NOTE]
-> Baza danych członkostwa przechowuje skrót hasła do kont. Aby można było wdrożyć kont z jednego komputera na inny, należy się upewnić procedury wyznaczania wartości skrótu nie Generowanie skrótów różnych na serwerze docelowym niż na komputerze źródłowym. Tej samej wartości skrótu zostanie wygenerowany używania dostawców uniwersalnych ASP.NET, pod warunkiem, nie zmieniaj domyślny algorytm. Domyślny algorytm jest HMACSHA256 i jest określony w **weryfikacji** atrybutu  **[machineKey](https://msdn.microsoft.com/en-us/library/system.web.configuration.machinekeysection.aspx)**  elementu w pliku Web.config.
+> Baza danych członkostwa przechowuje skrót hasła do kont. Aby można było wdrożyć kont z jednego komputera na inny, należy się upewnić procedury wyznaczania wartości skrótu nie Generowanie skrótów różnych na serwerze docelowym niż na komputerze źródłowym. Tej samej wartości skrótu zostanie wygenerowany używania dostawców uniwersalnych ASP.NET, pod warunkiem, nie zmieniaj domyślny algorytm. Domyślny algorytm jest HMACSHA256 i jest określony w **weryfikacji** atrybutu  **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)**  elementu w pliku Web.config.
 
 
 Skrypty wdrażania danych można utworzyć ręcznie, za pomocą programu SQL Server Management Studio (SSMS) lub przy użyciu narzędzia innej firmy. Ta pozostałej części tego samouczka zostanie pokazują, jak to zrobić w programie SSMS, ale jeśli nie chcesz zainstalować i używać narzędzia SSMS można uzyskać skrypty ukończone wersji projektu i przejdź do sekcji, w której są przechowywane w folderze rozwiązania.
 
-Aby zainstalować narzędzia SSMS, zainstaluj go z [Download Center: Microsoft SQL Server 2012 Express](https://www.microsoft.com/en-us/download/details.aspx?id=29062) , klikając [ENU\x64\SQLManagementStudio\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) lub [ ENU\x86\SQLManagementStudio\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe). Po wybraniu niewłaściwy systemu nie będzie można go zainstalować i spróbować jeden z nich.
+Aby zainstalować narzędzia SSMS, zainstaluj go z [Download Center: Microsoft SQL Server 2012 Express](https://www.microsoft.com/download/details.aspx?id=29062) , klikając [ENU\x64\SQLManagementStudio\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) lub [ ENU\x86\SQLManagementStudio\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe). Po wybraniu niewłaściwy systemu nie będzie można go zainstalować i spróbować jeden z nich.
 
 (Należy pamiętać, że jest to pobieranie 600 MB. Może potrwać długo, aby zainstalować i będzie wymagać ponownego uruchomienia komputera.)
 
@@ -184,7 +184,7 @@ Na pierwszej stronie Centrum instalacji programu SQL Server, kliknij przycisk **
 
 ### <a name="create-the-development-database-script"></a>Utwórz skrypt programowanie bazy danych
 
-1. Uruchom narzędzia SSMS.
+1. Run SSMS.
 2. W **Połącz z serwerem** okna dialogowego wprowadź *(localdb) \v11.0* jako **nazwy serwera**, pozostaw **uwierzytelniania** ustawioną **Uwierzytelniania systemu Windows**, a następnie kliknij przycisk **Connect**.
 
     ![SSMS połączyć się z serwerem](preparing-databases/_static/image10.png)
@@ -231,7 +231,7 @@ W samouczku następujące skonfigurować ustawienia projektu, które mają wpły
 
 ## <a name="more-information"></a>Więcej informacji
 
-Aby uzyskać więcej informacji o NuGet, zobacz [Zarządzanie biblioteki projektu z NuGet](https://msdn.microsoft.com/en-us/magazine/hh547106.aspx) i [dokumentacji NuGet](http://docs.nuget.org/docs/start-here/overview). Jeśli nie chcesz używać NuGet, należy dowiedzieć się, jak analizować pakietu NuGet, aby ustalić, jakie operacje po jej zainstalowaniu. (Na przykład może skonfigurować *Web.config* przekształcenia, skonfigurować skrypty programu PowerShell do uruchamiania w czasie kompilacji itp.) Aby dowiedzieć się więcej na temat działania NuGet, zobacz [tworzenie i publikowanie pakietu](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) i [pliku konfiguracji i przekształcenia kod źródłowy](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
+Aby uzyskać więcej informacji o NuGet, zobacz [Zarządzanie biblioteki projektu z NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) i [dokumentacji NuGet](http://docs.nuget.org/docs/start-here/overview). Jeśli nie chcesz używać NuGet, należy dowiedzieć się, jak analizować pakietu NuGet, aby ustalić, jakie operacje po jej zainstalowaniu. (Na przykład może skonfigurować *Web.config* przekształcenia, skonfigurować skrypty programu PowerShell do uruchamiania w czasie kompilacji itp.) Aby dowiedzieć się więcej na temat działania NuGet, zobacz [tworzenie i publikowanie pakietu](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) i [pliku konfiguracji i przekształcenia kod źródłowy](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
 >[!div class="step-by-step"]
 [Poprzednie](introduction.md)

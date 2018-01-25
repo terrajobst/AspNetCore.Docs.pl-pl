@@ -2,7 +2,7 @@
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
 title: 'Samouczek: Wprowadzenie do korzystania z SignalR 2 | Dokumentacja firmy Microsoft'
 author: pfletcher
-description: "Ten samouczek pokazuje, jak używać SignalR do tworzenia aplikacji rozmów w czasie rzeczywistym. Spowoduje dodanie SignalR do pustą aplikację sieci web ASP.NET i utworzyć pa HTML..."
+description: "Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Spowoduje dodanie SignalR do pustą aplikację sieci web ASP.NET i utworzyć pa HTML..."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 3bec32b9b21325cde461541d7a313f401a0cfce7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8be851f5a2b1cca39f5f8f284ff1c002c486d7e8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-getting-started-with-signalr-2"></a>Samouczek: Wprowadzenie do korzystania z SignalR 2
 ====================
@@ -24,7 +24,7 @@ przez [Patrick Fletcher](https://github.com/pfletcher)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
 
-> Ten samouczek pokazuje, jak używać SignalR do tworzenia aplikacji rozmów w czasie rzeczywistym. Spowoduje dodanie SignalR do pustą aplikację sieci web ASP.NET i Utwórz stronę HTML do wysyłania i wyświetlenie komunikatów. 
+> Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Spowoduje dodanie SignalR do pustą aplikację sieci web ASP.NET i Utwórz stronę HTML do wysyłania i wyświetlenie komunikatów. 
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
@@ -207,7 +207,7 @@ Poniższy kod przedstawia sposób nawiązać połączenie z koncentratorem. Kod 
 
 Wiesz, że SignalR to struktura służąca do tworzenia aplikacji sieci web w czasie rzeczywistym. Przedstawiono również kilka zadań związanych z projektowaniem SignalR: jak dodać do aplikacji ASP.NET SignalR, Tworzenie klasy koncentratora oraz sposobu wysyłania i odbierania wiadomości z koncentratora.
 
-Aby uzyskać wskazówki dotyczące sposobu wdrażania przykładowej aplikacji SignalR na platformie Azure, zobacz [SignalR korzystanie z aplikacji sieci Web w usłudze Azure App Service](../deployment/using-signalr-with-azure-web-sites.md). Aby uzyskać szczegółowe informacje o sposobie wdrażania projektu sieci web programu Visual Studio do witryny sieci Web systemu Windows Azure, zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+Aby uzyskać wskazówki dotyczące sposobu wdrażania przykładowej aplikacji SignalR na platformie Azure, zobacz [SignalR korzystanie z aplikacji sieci Web w usłudze Azure App Service](../deployment/using-signalr-with-azure-web-sites.md). Aby uzyskać szczegółowe informacje o sposobie wdrażania projektu sieci web programu Visual Studio do witryny sieci Web systemu Windows Azure, zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
 
 Aby uzyskać bardziej zaawansowane pojęcia rozwój SignalR, odwiedź następującą witrynę SignalR kod źródłowy i zasobów:
 

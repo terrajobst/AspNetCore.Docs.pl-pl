@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: b072134043ceda809bfeca98447a132ed407b323
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 87bb08a4d16965a10112a42c4e9318c32f192c04
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>Obsługa współbieżności Entity Framework w aplikacji platformy ASP.NET MVC (7 10)
 ====================
@@ -67,18 +67,18 @@ Jan klika **zapisać** pierwszy i widzi kliknie jego zmiany, gdy przeglądarka p
 
 ### <a name="detecting-concurrency-conflicts"></a>Wykrywanie konfliktów współbieżności
 
-Obsługa może rozwiązać konflikty [OptimisticConcurrencyException](https://msdn.microsoft.com/en-us/library/system.data.optimisticconcurrencyexception.aspx) wyjątki, które generuje programu Entity Framework. Aby wiedzieć, kiedy throw te wyjątki, Entity Framework musi mieć możliwość wykrywania konfliktów. W związku z tym musisz skonfigurować bazę danych i modelu danych odpowiednio. Niektóre opcje umożliwiających wykrywanie konfliktów są następujące:
+Obsługa może rozwiązać konflikty [OptimisticConcurrencyException](https://msdn.microsoft.com/library/system.data.optimisticconcurrencyexception.aspx) wyjątki, które generuje programu Entity Framework. Aby wiedzieć, kiedy throw te wyjątki, Entity Framework musi mieć możliwość wykrywania konfliktów. W związku z tym musisz skonfigurować bazę danych i modelu danych odpowiednio. Niektóre opcje umożliwiających wykrywanie konfliktów są następujące:
 
 - W tabeli bazy danych należy dołączyć kolumny śledzenia, który może służyć do określania, kiedy wiersz został zmieniony. Następnie można skonfigurować programu Entity Framework w celu uwzględnienia tej kolumny `Where` klauzuli SQL `Update` lub `Delete` poleceń.
 
-    Typ danych kolumny śledzenia jest zwykle [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx). [Rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx) wartość jest liczbą sekwencyjnych, który jest zwiększany po każdej zaktualizować wiersza. W `Update` lub `Delete` polecenia `Where` klauzula zawiera oryginalnej wartości kolumny śledzenia (oryginalnej wersji wierszy). Jeśli aktualizacji wiersza został zmieniony przez innego użytkownika, wartość w `rowversion` kolumny różni się od oryginalnej wartości, więc `Update` lub `Delete` instrukcji nie można odnaleźć wiersza do aktualizacji z powodu `Where` klauzuli. Gdy programu Entity Framework stwierdzi, że żadne wiersze nie zostały zaktualizowane przez `Update` lub `Delete` polecenia (Jeśli liczba wierszy, których dotyczy to zero), interpretuje który jako konflikt współbieżności.
+    Typ danych kolumny śledzenia jest zwykle [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx). [Rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) wartość jest liczbą sekwencyjnych, który jest zwiększany po każdej zaktualizować wiersza. W `Update` lub `Delete` polecenia `Where` klauzula zawiera oryginalnej wartości kolumny śledzenia (oryginalnej wersji wierszy). Jeśli aktualizacji wiersza został zmieniony przez innego użytkownika, wartość w `rowversion` kolumny różni się od oryginalnej wartości, więc `Update` lub `Delete` instrukcji nie można odnaleźć wiersza do aktualizacji z powodu `Where` klauzuli. Gdy programu Entity Framework stwierdzi, że żadne wiersze nie zostały zaktualizowane przez `Update` lub `Delete` polecenia (Jeśli liczba wierszy, których dotyczy to zero), interpretuje który jako konflikt współbieżności.
 - Konfigurowanie programu Entity Framework, aby uwzględnić oryginalnych wartości wszystkich kolumn w tabeli w `Where` klauzuli `Update` i `Delete` poleceń.
 
     Jak pierwsza opcja, jeśli dowolny wiersz zmieniła się od najpierw odczytano wiersza `Where` klauzuli nie zwrócą wiersza do aktualizacji, które programu Entity Framework interpretowane jako konflikt współbieżności. Dla tabel bazy danych, które mają wiele kolumn, ta metoda może spowodować bardzo dużych `Where` klauzule i może wymagać, aby zachować stan dużych ilości. Jak wspomniano wcześniej, obsługa dużych ilości stan może mieć wpływ na wydajność aplikacji ponieważ go wymaga zasobów serwera lub muszą być zawarte w stronie sieci web. W związku z tym tej metody zwykle nie jest zalecane, a nie jest ona metodę używaną w tym samouczku.
 
-    Jeśli chcesz wdrożyć takie podejście do współbieżności, masz Oznacz wszystkie właściwości bez klucza podstawowego w jednostce chcesz śledzić concurrency przez dodanie [ConcurrencyCheck](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.concurrencycheckattribute.aspx) atrybutu do nich. Czy zmiana umożliwia programu Entity Framework uwzględnić wszystkie kolumny w SQL `WHERE` klauzuli `UPDATE` instrukcje.
+    Jeśli chcesz wdrożyć takie podejście do współbieżności, masz Oznacz wszystkie właściwości bez klucza podstawowego w jednostce chcesz śledzić concurrency przez dodanie [ConcurrencyCheck](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.concurrencycheckattribute.aspx) atrybutu do nich. Czy zmiana umożliwia programu Entity Framework uwzględnić wszystkie kolumny w SQL `WHERE` klauzuli `UPDATE` instrukcje.
 
-W pozostałej części tego samouczka zostanie dodana [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx) śledzenia dla właściwości `Department` jednostki, Tworzenie kontrolera i widoków i sprawdzenie, czy wszystko działa prawidłowo.
+W pozostałej części tego samouczka zostanie dodana [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) śledzenia dla właściwości `Department` jednostki, Tworzenie kontrolera i widoków i sprawdzenie, czy wszystko działa prawidłowo.
 
 ## <a name="add-an-optimistic-concurrency-property-to-the-department-entity"></a>Dodaj właściwość optymistycznej współbieżności do działu jednostki
 
@@ -86,7 +86,7 @@ W *Models\Department.cs*, Dodaj właściwość śledzenia o nazwie `RowVersion`:
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs?highlight=18-19)]
 
-[Sygnatury czasowej](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.timestampattribute.aspx) atrybut określa, czy mają być uwzględnieni w tej kolumnie w `Where` klauzuli `Update` i `Delete` polecenia wysyłane do bazy danych. Ten atrybut jest nazywany [sygnatury czasowej](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.timestampattribute.aspx) ponieważ poprzednie wersje programu SQL Server SQL [sygnatury czasowej](https://msdn.microsoft.com/en-us/library/ms182776(v=SQL.90).aspx) — typ danych przed SQL [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx) on zastąpiony. Typ architektury .net dla `rowversion` jest tablicą bajtów. Jeśli wolisz korzystać z interfejsu API fluent, możesz użyć [IsConcurrencyToken](https://msdn.microsoft.com/en-us/library/gg679501(v=VS.103).aspx) metodę, aby określić właściwości śledzenia, jak pokazano w poniższym przykładzie:
+[Sygnatury czasowej](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) atrybut określa, czy mają być uwzględnieni w tej kolumnie w `Where` klauzuli `Update` i `Delete` polecenia wysyłane do bazy danych. Ten atrybut jest nazywany [sygnatury czasowej](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) ponieważ poprzednie wersje programu SQL Server SQL [sygnatury czasowej](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx) — typ danych przed SQL [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) on zastąpiony. Typ architektury .net dla `rowversion` jest tablicą bajtów. Jeśli wolisz korzystać z interfejsu API fluent, możesz użyć [IsConcurrencyToken](https://msdn.microsoft.com/library/gg679501(v=VS.103).aspx) metodę, aby określić właściwości śledzenia, jak pokazano w poniższym przykładzie:
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 

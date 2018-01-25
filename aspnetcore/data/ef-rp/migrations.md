@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 9a0fb52a1d1a62bce3f11c7e0394c00b9d544ab3
-ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
+ms.openlocfilehash: 7b0a3f73efd1d30b903b3258bea2082792eb6e8c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Migracje - Core EF z samouczka stron Razor (4 8)
 
@@ -54,7 +54,7 @@ W *appsettings.json* pliku, Zmień nazwę bazy danych w parametrach połączenia
 
 [!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
 
-Zmiana nazwy bazy danych w parametrach połączenia powoduje, że pierwszy migracji do utworzenia nowej bazy danych. Nowe bazy danych jest utworzony, ponieważ o tej nazwie nie istnieje. Zmiana parametrów połączenia nie jest wymagane wprowadzenie do migracji.
+Zmiana nazwy bazy danych w parametrach połączenia powoduje, że pierwszy migracji do utworzenia nowej bazy danych. Nowe bazy danych jest tworzony, ponieważ o tej nazwie nie istnieje. Zmiana parametrów połączenia nie jest wymagane wprowadzenie do migracji.
 
 Zmiana nazwy bazy danych zamiast jest usunięcie bazy danych. Użyj **Eksplorator obiektów SQL Server** (SSOX) lub `database drop` polecenia interfejsu wiersza polecenia:
 
@@ -189,7 +189,7 @@ Uruchom aplikację i sprawdź, czy wszystko działa.
 
 ## <a name="appling-migrations-in-production"></a>Appling migracji w środowisku produkcyjnym
 
-Firma Microsoft zaleca aplikacji w środowisku produkcyjnym należy **nie** wywołać [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) podczas uruchamiania aplikacji. `Migrate`Nie można wywoływać z aplikacji w farmie serwerów. Na przykład, jeśli aplikacja została chmury z skalowalnego w poziomie (uruchomionych wiele wystąpień aplikacji).
+Firma Microsoft zaleca aplikacji w środowisku produkcyjnym należy **nie** wywołać [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) podczas uruchamiania aplikacji. `Migrate`Nie można wywołać z aplikacji w farmie serwerów. Na przykład, jeśli aplikacja została chmury z skalowalnego w poziomie (uruchomionych wiele wystąpień aplikacji).
 
 Migracja bazy danych powinno być wykonywane w ramach wdrożenia, a następnie w kontrolowany sposób. Podejścia do produkcyjnej bazy danych migracji obejmują:
 

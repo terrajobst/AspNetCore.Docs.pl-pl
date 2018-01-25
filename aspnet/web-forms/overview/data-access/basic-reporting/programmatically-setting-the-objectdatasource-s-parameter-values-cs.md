@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7a009d57f97838feb5b4a3253c6de9a872a9e9ee
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7694c56fa5c50ff75db931e88c2334f560631d74
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-c"></a>Programowo Trwa ustawianie wartości parametrów elementu ObjectDataSource (C#)
 ====================
@@ -33,7 +33,7 @@ Jak widzieliśmy w [poprzedniego samouczek](declarative-parameters-cs.md), liczb
 
 Może to być sytuacji, gdy wartość parametru pochodzi z niektórych źródła nie jest jeszcze uwzględnione przez jednego źródła danych wbudowanych `Parameter` obiektów. Jeśli naszej witrynie obsługiwane konta użytkowników mogą chcemy ustaw dla parametru oparte na aktualnie zalogowanego użytkownika nazwę użytkownika. Lub musimy dostosować wartość parametru przed wysłaniem wzdłuż metody ObjectDataSource obiektu źródłowego.
 
-Zawsze, gdy element ObjectDataSource `Select` wywoływana jest metoda ObjectDataSource najpierw zgłasza jego [zdarzenia Selecting](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx). Następnie wywoływana jest metoda ObjectDataSource obiektu źródłowego. Po zakończeniu który ObjectDataSource [wybrane zdarzenie](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx) uruchamiany (rysunek 1 pokazuje, jak ta sekwencja zdarzeń). Wartości parametrów przekazane do metody ObjectDataSource podstawowego obiektu można ustawić lub dostosować w obsłudze zdarzeń dla `Selecting` zdarzeń.
+Zawsze, gdy element ObjectDataSource `Select` wywoływana jest metoda ObjectDataSource najpierw zgłasza jego [zdarzenia Selecting](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx). Następnie wywoływana jest metoda ObjectDataSource obiektu źródłowego. Po zakończeniu który ObjectDataSource [wybrane zdarzenie](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx) uruchamiany (rysunek 1 pokazuje, jak ta sekwencja zdarzeń). Wartości parametrów przekazane do metody ObjectDataSource podstawowego obiektu można ustawić lub dostosować w obsłudze zdarzeń dla `Selecting` zdarzeń.
 
 
 [![Jest wywoływany przez element ObjectDataSource wybrane i wybierając Fire zdarzenia przed i po jego podstawowego obiektu — metoda](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image1.png)
@@ -55,7 +55,7 @@ W naszym przykładzie pierwsze musimy dodać sposób pobrać pracowników, któr
 **Rysunek 2**: Dodaj nowe zapytanie w celu `EmployeesTableAdapter` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image6.png))
 
 
-Wybierz dodać instrukcję SQL, która zwraca wiersze. Po przejściu określ `SELECT` instrukcji ekranu domyślnie `SELECT` instrukcji dla `EmployeesTableAdapter` już zostanie załadowany. Po prostu Dodaj w `WHERE` klauzuli: `WHERE DATEPART(m, HireDate) = @Month`. [DATEPART](https://msdn.microsoft.com/en-us/library/ms174420.aspx) jest funkcja T-SQL, która zwraca określoną datę część `datetime` typu; w takim przypadku używamy `DATEPART` do zwrócenia miesiąc `HireDate` kolumny.
+Wybierz dodać instrukcję SQL, która zwraca wiersze. Po przejściu określ `SELECT` instrukcji ekranu domyślnie `SELECT` instrukcji dla `EmployeesTableAdapter` już zostanie załadowany. Po prostu Dodaj w `WHERE` klauzuli: `WHERE DATEPART(m, HireDate) = @Month`. [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx) jest funkcja T-SQL, która zwraca określoną datę część `datetime` typu; w takim przypadku używamy `DATEPART` do zwrócenia miesiąc `HireDate` kolumny.
 
 
 [![Zwracane tylko tych wierszy gdzie rekrutacji kolumny jest mniejsze niż lub równe @HiredBeforeDate parametru](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image8.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image7.png)

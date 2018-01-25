@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: 4c89ca004ad4c9d731868e868cf6723aa4ed625d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c114627388217e892c84d6b76366d0fa96b0b70c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-the-entity-framework-40"></a>Co to jest nowa w programie Entity Framework 4.0
 ====================
@@ -90,7 +90,7 @@ Uruchom *Courses.aspx* stronę ponownie, aby zobaczyć zmienione dane.
 
 (Aby ustalić środki na korzystanie z powrotem do ich oryginalnych wartości w *UpdateCredits.aspx.cs* zmienić `Credits * {0}` do `Credits / {0}` i uruchom ponownie strony wprowadzenia 10 jako dzielnik.)
 
-Aby uzyskać więcej informacji na temat wykonywanie zapytań, które definiują w kodzie, zobacz [porady: bezpośrednio wykonania polecenia względem źródła danych](https://msdn.microsoft.com/en-us/library/ee358769.aspx).
+Aby uzyskać więcej informacji na temat wykonywanie zapytań, które definiują w kodzie, zobacz [porady: bezpośrednio wykonania polecenia względem źródła danych](https://msdn.microsoft.com/library/ee358769.aspx).
 
 ## <a name="model-first-development"></a>Pierwszy model programowania
 
@@ -178,7 +178,7 @@ Uruchom strony.
 
 (Uwaga: Ta strona jest dołączony do projektu do pobrania, ale aby działała, musisz utworzyć bazy danych w lokalnym wystąpieniu programu SQL Server Express; bazy danych nie jest uwzględniana jako *.mdf* w pliku *aplikacji\_ Dane* folderu.)
 
-Aby uzyskać więcej informacji dotyczących używania funkcji pierwszego modelu programu Entity Framework, zobacz [pierwszego modelu w Entity Framework 4](https://msdn.microsoft.com/en-us/data/ff830362.aspx).
+Aby uzyskać więcej informacji dotyczących używania funkcji pierwszego modelu programu Entity Framework, zobacz [pierwszego modelu w Entity Framework 4](https://msdn.microsoft.com/data/ff830362.aspx).
 
 ## <a name="poco-support"></a>Obsługa obiektów POCO
 
@@ -188,7 +188,7 @@ Entity Framework 4 wprowadzono możliwość używania klas jednostek, które nie
 
 Aby uzyskać więcej informacji o używaniu POCOs w programie Entity Framework Zobacz następujące zasoby:
 
-- [Praca z jednostki POCO](https://msdn.microsoft.com/en-us/library/dd456853.aspx). To jest dokument MSDN, który znajduje się przegląd POCOs, wraz z łączami do inne dokumenty, które zawierają bardziej szczegółowe informacje.
+- [Praca z jednostki POCO](https://msdn.microsoft.com/library/dd456853.aspx). To jest dokument MSDN, który znajduje się przegląd POCOs, wraz z łączami do inne dokumenty, które zawierają bardziej szczegółowe informacje.
 - [Wskazówki: Obiektów POCO szablonu Entity Framework](https://blogs.msdn.com/b/adonet/archive/2010/01/25/walkthrough-poco-template-for-the-entity-framework.aspx) to w blogu z programu Entity Framework zespół deweloperów, wraz z łączami do innych blogach o POCOs.
 
 ## <a name="code-first-development"></a>Programowanie pierwszy kodu
@@ -209,7 +209,7 @@ Ponadto nowe samouczek pierwszego kodu MVC, który tworzy podobny do aplikacji C
 
 Na tym kończy się przegląd, aby what's new in programu Entity Framework i ten proces jest kontynuowany z serii samouczka programu Entity Framework. Aby uzyskać więcej informacji na temat nowych funkcji programu Entity Framework 4, które nie są zawarte w tym miejscu zobacz następujące zasoby:
 
-- [What's New in ADO.NET](https://msdn.microsoft.com/en-us/library/ex6y04yf.aspx) MSDN temat nowych funkcji programu Entity Framework w wersji 4.
+- [What's New in ADO.NET](https://msdn.microsoft.com/library/ex6y04yf.aspx) MSDN temat nowych funkcji programu Entity Framework w wersji 4.
 - [Informuje o wersji programu Entity Framework 4](https://blogs.msdn.com/b/efdesign/archive/2010/04/12/announcing-the-release-of-entity-framework-4.aspx) zespół deweloperów program Entity Framework wpis w blogu nowe funkcje w wersji 4.
 
 >[!div class="step-by-step"]

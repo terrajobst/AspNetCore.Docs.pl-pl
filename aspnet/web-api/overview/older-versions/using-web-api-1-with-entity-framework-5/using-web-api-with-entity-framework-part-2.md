@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 5d4c7d7d02ced5a99db5b59f9e2e1adf6588208a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a573b47d27767dc78d557cd2b6c73714eb9e94f4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="part-2-creating-the-domain-models"></a>Część 2: Tworzenie modeli domeny
 ====================
@@ -32,9 +32,9 @@ Istnieją trzy sposoby podejście Entity Framework:
 - Pierwszy modelu: zaczynać visual modelu i generuje Entity Framework, bazy danych i kodu.
 - Pierwszy kod: Uruchom z kodem i Entity Framework generuje bazy danych.
 
-Użyto podejście pierwszy kod, więc Rozpoczniemy definiując naszych obiektów domeny jako POCOs (stary zwykły obiektów CLR). Podejście pierwszy kod obiektów domeny nie wymagają żadnych dodatkowych kodu do obsługi warstwy bazy danych, takich jak trwałości lub transakcji. (W szczególności nie muszą dziedziczyć [typu EntityObject](https://msdn.microsoft.com/en-us/library/system.data.objects.dataclasses.entityobject.aspx) klasy.) Można nadal używać adnotacji danych do kontrolowania sposobu Entity Framework utworzy schemat bazy danych.
+Użyto podejście pierwszy kod, więc Rozpoczniemy definiując naszych obiektów domeny jako POCOs (stary zwykły obiektów CLR). Podejście pierwszy kod obiektów domeny nie wymagają żadnych dodatkowych kodu do obsługi warstwy bazy danych, takich jak trwałości lub transakcji. (W szczególności nie muszą dziedziczyć [typu EntityObject](https://msdn.microsoft.com/library/system.data.objects.dataclasses.entityobject.aspx) klasy.) Można nadal używać adnotacji danych do kontrolowania sposobu Entity Framework utworzy schemat bazy danych.
 
-Ponieważ POCOs nie zawierają żadnych dodatkowych właściwości opisujących [bazy danych stanu](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx), łatwo może być Zserializowany do formatu JSON i XML. Jednak, który oznacza to, że zawsze powinny ujawniać modeli Entity Framework bezpośrednio do klientów, jak zajmiemy się później w samouczku.
+Ponieważ POCOs nie zawierają żadnych dodatkowych właściwości opisujących [bazy danych stanu](https://msdn.microsoft.com/library/system.data.entitystate.aspx), łatwo może być Zserializowany do formatu JSON i XML. Jednak, który oznacza to, że zawsze powinny ujawniać modeli Entity Framework bezpośrednio do klientów, jak zajmiemy się później w samouczku.
 
 Utworzymy POCOs następujące:
 

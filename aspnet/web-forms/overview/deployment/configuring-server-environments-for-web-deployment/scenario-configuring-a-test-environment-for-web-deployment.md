@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 008b9cd081152e6a378d0fa2e08497a6771fd9b5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 23e317c6e0b6daf2d7937b73738e5cb6fa32cde2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-test-environment-for-web-deployment"></a>Scenariusz: Konfigurowanie środowiska testowego na potrzeby wdrażania w sieci Web
 ====================
@@ -49,7 +49,7 @@ Jako pracy realizowany i deweloperów więcej przyłączyć zespołu menedżera 
 - Skonfiguruj serwer sieci web testów do obsługi wdrożenia przy użyciu procedury obsługi narzędzia Web Deploy.
 
 > [!NOTE]
-> Można także użyć [sieci Web wdrażanie na żądanie](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx) ("agent tymczasowego"). To jest podobna do metody zdalnego agenta pod względem wymagań i ograniczeń.
+> Można także użyć [sieci Web wdrażanie na żądanie](https://technet.microsoft.com/library/ee517345(WS.10).aspx) ("agent tymczasowego"). To jest podobna do metody zdalnego agenta pod względem wymagań i ograniczeń.
 
 
 W takim przypadku deweloperzy mają uprawnienia administratora na serwerze docelowym, a środowisko testowe nie podlega ograniczenia ograniczeniami zabezpieczeń, wybór logicznej jest skonfigurowanie testu serwera sieci web do obsługi wdrożenia przy użyciu agenta zdalnego. To jest mniej złożona i wymaga mniej początkowej konfiguracji niż podejście program obsługi wdrażania w sieci Web. Należy także skonfigurować serwer bazy danych do obsługi dostępu zdalnego i wdrażania.

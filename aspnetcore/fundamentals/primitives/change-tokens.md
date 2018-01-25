@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: a9479e3d676ed4dc880996a4a77de30d82b84cd5
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: 94bf356fcbfab3930804485c1b65e4a0f4c52b8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Wykrywanie zmian z tokenami zmiany w ASP.NET Core
 
@@ -135,7 +135,7 @@ Przycisk włącza i wyłącza monitorowanie:
 
 [!code-csharp[Main](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet2)]
 
-Gdy `OnPostStartMonitoring` jest wyzwalane, jest włączone monitorowanie, oraz bieżący stan jest usuwany. Gdy `OnPostStopMonitoring` jest wyzwalane, monitorowanie jest wyłączone, a stan ma ustawioną wartość odzwierciedlają nie występuje monitorowania.
+Gdy `OnPostStartMonitoring` jest wyzwalane, jest włączone monitorowanie, oraz bieżący stan jest usuwany. Gdy `OnPostStopMonitoring` jest wyzwalane, monitorowanie jest wyłączone, a stan ma ustawioną wartość odzwierciedlają, że nie jest wykonywane monitorowanie.
 
 ## <a name="monitoring-cached-file-changes"></a>Monitorowanie zmian plików w pamięci podręcznej
 
@@ -204,5 +204,5 @@ var compositeChangeToken =
 * [Wykrywanie zmian z tokenami zmiany](xref:fundamentals/primitives/change-tokens)
 * [Buforowanie odpowiedzi](xref:performance/caching/response)
 * [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
-* [Pamięć podręczna pomocnika tagów](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Pomocnik Tag rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

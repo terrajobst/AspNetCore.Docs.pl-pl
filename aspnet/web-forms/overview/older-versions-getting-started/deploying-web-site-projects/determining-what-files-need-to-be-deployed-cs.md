@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ccfaa2311fe7d9bf750276c969eeb08d5c5568de
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d58956323275a46b44b36d4f19db4d2f607e3916
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-c"></a>Określanie pliki muszą być wdrożone (C#)
 ====================
@@ -43,7 +43,7 @@ Należy wziąć pod uwagę strony ASP.NET o nazwie Clock.aspx, który zawiera fo
 
 Aby aparatu ASP.NET do obsługi żądania dla tej strony, strony fragment kodu ( `WebPage.aspx.cs` pliku) musi najpierw zostać skompilowany. Ta kompilacja może się zdarzyć, jawnie lub automatycznie.
 
-Jeśli kompilacja jawnie się stanie, a następnie całej aplikacji kod źródłowy jest kompilowany do jednego lub więcej zestawów (`.dll` pliki) znajduje się w aplikacji `Bin` katalogu. Jeśli kompilacja odbywa się automatycznie, a następnie powstałe w ten sposób automatycznego generowania zestaw jest domyślnie umieszczane w `Temporary ASP.NET` folderu plików, w którym można znaleźć w folderze `%WINDOWS%\Microsoft.NET\Framework\`  *&lt;wersji&gt;*, Mimo że można konfigurować za pomocą tej lokalizacji [ `<compilation>` elementu](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) w `Web.config`. Kompilację typu explicit musi mieć niektóre akcje, aby skompilować kod aplikacji ASP.NET do zestawu, a ten krok występuje przed ich wdrożeniem. Z automatycznego tworzenia procesu kompilacji występuje na serwerze sieci web, gdy najpierw dostępu do zasobu.
+Jeśli kompilacja jawnie się stanie, a następnie całej aplikacji kod źródłowy jest kompilowany do jednego lub więcej zestawów (`.dll` pliki) znajduje się w aplikacji `Bin` katalogu. Jeśli kompilacja odbywa się automatycznie, a następnie powstałe w ten sposób automatycznego generowania zestaw jest domyślnie umieszczane w `Temporary ASP.NET` folderu plików, w którym można znaleźć w folderze `%WINDOWS%\Microsoft.NET\Framework\`  *&lt;wersji&gt;*, Mimo że można konfigurować za pomocą tej lokalizacji [ `<compilation>` elementu](https://msdn.microsoft.com/library/s10awwz0.aspx) w `Web.config`. Kompilację typu explicit musi mieć niektóre akcje, aby skompilować kod aplikacji ASP.NET do zestawu, a ten krok występuje przed ich wdrożeniem. Z automatycznego tworzenia procesu kompilacji występuje na serwerze sieci web, gdy najpierw dostępu do zasobu.
 
 Niezależnie od tego, jaki model kompilacji w przypadku użycia, znaczników część wszystkich stron ASP.NET ( `WebPage.aspx` pliki) mają zostać skopiowane do środowiska produkcyjnego. Z kompilację typu explicit należy skopiować się zestawów w `Bin` folder, ale nie trzeba kopiować się fragmentów kodu strony ASP.NET ( `WebPage.aspx.cs` plików). Z automatyczne kompilowanie należy skopiować zapasowej części kodu, aby kod jest obecny i mogą być kompilowane automatycznie, gdy odwiedzenia strony. Część znacznika każdej strony sieci web platformy ASP.NET zawiera `@Page` dyrektywy z atrybutami, które wskazują, czy strony skojarzony kod został skompilowany już jawnie lub czy musi być tworzone automatycznie. W związku z tym środowisku produkcyjnym może bezproblemowo współpracować z modelem albo kompilacji i nie trzeba zastosować wszystkie ustawienia konfiguracji specjalne, aby wskazać służy kompilacji jawne lub automatyczne.
 
@@ -69,7 +69,7 @@ Firma Microsoft opublikowała program Visual Studio 2005 porzucony obsługę mod
 - Tworzenie projektu programu Visual Studio nie powoduje utworzenia zestawu w `Bin` katalogu. Zamiast tego wówczas skompilowanie projektu witryny sieci Web raporty błędy kompilacji.
 - Obsługa automatycznego kompilacji. Projektów witryny sieci Web zwykle są wdrażane przez kopiowanie kodu znaczników i źródła do środowiska produkcyjnego, mimo że można wstępnie skompilowanym (kompilację typu explicit).
 
-Microsoft przywrócona modelu projektu aplikacji sieci Web w wydaniu dodatku Service Pack 1 dla programu Visual Studio 2005. Jednak nadal obsługują tylko model projekt witryny sieci Web programu Visual Web Developer. Dobre wieści jest, że ten limit został porzucony z dodatku Service Pack 1 dla programu Visual Web Developer 2008. Obecnie można utworzyć aplikacji ASP.NET w Visual Studio (i Visual Web Developer) przy użyciu modelu projektu aplikacji sieci Web lub modelu projekt witryny sieci Web. Oba modele ma ich zalet i wad. Zapoznaj się [wprowadzenie do projektów aplikacji sieci Web: porównanie projektów witryny sieci Web i projekty aplikacji sieci Web](https://msdn.microsoft.com/en-us/library/aa730880.aspx#wapp_topic5) porównanie dwóch modeli i pomóc zdecydować, jaki model projektu działa najlepiej w danej sytuacji.
+Microsoft przywrócona modelu projektu aplikacji sieci Web w wydaniu dodatku Service Pack 1 dla programu Visual Studio 2005. Jednak nadal obsługują tylko model projekt witryny sieci Web programu Visual Web Developer. Dobre wieści jest, że ten limit został porzucony z dodatku Service Pack 1 dla programu Visual Web Developer 2008. Obecnie można utworzyć aplikacji ASP.NET w Visual Studio (i Visual Web Developer) przy użyciu modelu projektu aplikacji sieci Web lub modelu projekt witryny sieci Web. Oba modele ma ich zalet i wad. Zapoznaj się [wprowadzenie do projektów aplikacji sieci Web: porównanie projektów witryny sieci Web i projekty aplikacji sieci Web](https://msdn.microsoft.com/library/aa730880.aspx#wapp_topic5) porównanie dwóch modeli i pomóc zdecydować, jaki model projektu działa najlepiej w danej sytuacji.
 
 ## <a name="exploring-the-sample-web-application"></a>Eksploracja przykładowej aplikacji sieci Web
 
@@ -175,15 +175,15 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Omówienie kompilacji programu ASP.NET](https://msdn.microsoft.com/en-us/library/ms178466.aspx)
-- [Formanty użytkownika ASP.NET](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx)
+- [Omówienie kompilacji programu ASP.NET](https://msdn.microsoft.com/library/ms178466.aspx)
+- [Formanty użytkownika ASP.NET](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 - [Badanie ASP. Nawigowanie po witrynie przez sieć](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
-- [Wprowadzenie do projektów aplikacji sieci Web](https://msdn.microsoft.com/en-us/library/aa730880.aspx)
+- [Wprowadzenie do projektów aplikacji sieci Web](https://msdn.microsoft.com/library/aa730880.aspx)
 - [Samouczki strony wzorca](../master-pages/creating-a-site-wide-layout-using-master-pages-cs.md)
 - [Udostępnianie kodu między stronami](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/pages/code.aspx)
 - [Za pomocą niestandardowej klasy podstawowej dla klas CodeBehind stron ASP.NET](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
 - [System projektu witryny sieci Web w programie Visual Studio 2005: co to jest i dlaczego możemy to zrobić?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
-- [Wskazówki: Konwersji projektu witryny sieci Web do projektu aplikacji sieci Web w programie Visual Studio](https://msdn.microsoft.com/en-us/library/aa983476.aspx)
+- [Wskazówki: Konwersji projektu witryny sieci Web do projektu aplikacji sieci Web w programie Visual Studio](https://msdn.microsoft.com/library/aa983476.aspx)
 
 >[!div class="step-by-step"]
 [Poprzednie](asp-net-hosting-options-cs.md)

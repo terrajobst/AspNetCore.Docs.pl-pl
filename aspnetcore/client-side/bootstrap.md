@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bootstrap
-ms.openlocfilehash: aee3304515686fc8e45e8e2aafb79d957219f94a
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 4332dce4c341cb8e5c241a67547048301ae9a8b1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Tworzenie doskonałych, dynamiczne witryny z ładowania początkowego
 
@@ -214,8 +214,8 @@ Obszar nawigacji są typowe składnik interfejsu użytkownika używane do wyświ
 
 ## <a name="javascript-support"></a>Obsługa języka JavaScript
 
-Biblioteka języka JavaScript dla początkowego obsługuje API dołączone składniki, dzięki czemu można kontrolować działanie programowo w aplikacji. Ponadto *bootstrap.js* zawiera ponad dwanaście wtyczek niestandardowe jQuery, zapewniając dodatkowe funkcje, takie jak przejścia, modalne okna dialogowe, przewiń wykrywania (Aktualizowanie style, na którym użytkownik jest przewijane w dokumencie podstawie), Zwiń zachowanie, carousels i umieszczanie menu do okna, więc ich nie przewinięcie ekranu. Nie jest wystarczające miejsca, aby zaspokajać wszystkie dodatki JavaScript wbudowane ładowania początkowego — Aby dowiedzieć się więcej, odwiedź [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
+Biblioteka języka JavaScript dla początkowego obsługuje API dołączone składniki, dzięki czemu można kontrolować działanie programowo w aplikacji. Ponadto *bootstrap.js* zawiera ponad dwanaście wtyczek niestandardowe jQuery, zapewniając dodatkowe funkcje, takie jak przejścia, modalne okna dialogowe, przewiń wykrywania (Aktualizowanie style, na którym użytkownik jest przewijane w dokumencie podstawie), Zwiń zachowanie, carousels i umieszczanie menu do okna, więc nie przewinięcie ekranu. Nie jest wystarczające miejsca, aby zaspokajać wszystkie dodatki JavaScript wbudowane ładowania początkowego — Aby dowiedzieć się więcej, odwiedź [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
 
 ## <a name="summary"></a>Podsumowanie
 
-Bootstrap zapewnia platforma sieci web, która może służyć do szybkiego i efektywnie układ i styl szerokiej gamy witryn internetowych i aplikacji. Jego podstawowe typografii i style zapewniają przyjemne wygląd i działanie może łatwo operować dzięki obsłudze motyw niestandardowy, można ręcznie, co lub zakupionych komercyjnie. Obsługuje ona hostem składniki sieci web, które wymagałyby kosztowne formanty innych firm do wykonania podczas obsługi standardów sieci web nowoczesnych i Otwórz w przeszłości.
+Bootstrap zapewnia platforma sieci web, która może służyć do szybkiego i efektywnie układ i styl szerokiej gamy witryn internetowych i aplikacji. Jego podstawowe typografii i style zapewniają przyjemne wygląd i działanie może łatwo operować dzięki obsłudze motyw niestandardowy, można ręcznie, co lub zakupionych komercyjnie. Hosta składników sieci web, które w przeszłości czy wymagana jest kosztowne formanty innych firm do wykonania podczas obsługi standardów sieci web nowoczesnych i otwórz go obsługuje.

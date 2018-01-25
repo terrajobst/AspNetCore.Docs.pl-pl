@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: 
 msc.type: content
-ms.openlocfilehash: e54c5e2a0188f3ef8288c191517bd632254cfa00
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed11c882c801248ffaca95b82f16d23c87fb9be7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-overview"></a>Omówienie programu ASP.NET
 
@@ -38,9 +38,9 @@ Poniżej znajduje się przegląd wszystkich platform i sugestii, jak wybrać mi�
 
 |   | Jeśli masz doświadczenie | Styl programowanie | Wiedzy | 
 |-----------|----------------------|-----------------------------------------------------|----------------|
-| Formularze sieci Web | Win formularzy, WPF, .NET | Szybkie programowanie przy użyciu zaawansowanych biblioteki formantów, które hermetyzują kod znaczników HTML | RAD średni poziom, zaawansowane |
+| Formularze sieci Web | Win Forms, WPF, .NET | Szybkie programowanie przy użyciu zaawansowanych biblioteki formantów, które hermetyzują kod znaczników HTML | RAD średni poziom, zaawansowane |
 | MVC       | Ruby na szyny, .NET  | Pełną kontrolę nad znaczników HTML, kodu i znaczniki rozdzielone i łatwo można napisać testy. Najlepszym rozwiązaniem dla aplikacji mobilnych i jednej strony (SPA). | Średni poziom, zaawansowane |
-| Strony sieci Web  | Classic ASP, PHP     | Kod znaczników HTML i kod razem w jednym pliku | Nowy, średni poziom |
+| Model Web Pages  | Classic ASP, PHP     | Kod znaczników HTML i kod razem w jednym pliku | Nowy, średni poziom |
 
 ### <a name="web-forms"></a>Formularze sieci Web
 
@@ -54,7 +54,7 @@ ASP.NET MVC umożliwia wydajne, na podstawie wzorców do tworzenia dynamicznych 
 
 [Dowiedz się więcej o MVC](mvc/index.md)
 
-### <a name="aspnet-web-pages"></a>Strony sieci Web ASP.NET
+### <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 
 Strony sieci Web ASP.NET i składnia Razor oferują szybki, bezpośredni i nieskomplikowany sposób łączenia kodu serwera z HTML w celu tworzenia dynamicznej zawartości sieci web. Połączenie z bazami danych, dodawanie wideo, połącz się z witrynami sieci społecznościowych i obejmuje wiele innych funkcji, które ułatwiają tworzenie doskonałych witryn, które są zgodne z najnowszych standardów sieci web.
 
@@ -66,7 +66,7 @@ Wszystkie trzy platformy ASP.NET są oparte na programie .NET Framework i udost�
 
 Ponadto trzy struktur nie są całkowicie niezależne i wybierając jedną nie wyklucza przy użyciu innego. Ponieważ struktury mogą współistnieć w tej samej aplikacji sieci web, nie jest rzadko, aby wyświetlić poszczególne składniki aplikacji napisanych przy użyciu różnych platform. Na przykład klienta uwzględniającym części aplikacji mogą zostać opracowane w nazwie wzorca MVC, aby zoptymalizować znaczników, gdy dostęp do danych i części administracyjne są tworzone w formularzach sieci Web, aby móc korzystać z prostego danych dostępu i kontroli danych.
 
-## <a name="web-apis"></a>Interfejsy API sieci Web
+## <a name="web-apis"></a>Interfejsy Web API
 
 Interfejs API sieci Web platformy ASP.NET to platforma, która ułatwia tworzenie usług HTTP, które są używane przez szeroki wachlarz klientów, w tym przeglądarki i urządzenia przenośne. Interfejs API sieci Web ASP.NET jest idealną platformą do tworzenia RESTful aplikacji w programie .NET Framework.
 
@@ -96,7 +96,7 @@ ASP.NET pojedynczej strony aplikacji JEDNOSTRONICOWEJ pomaga tworzyć aplikacje,
 
 [Dowiedz się więcej na temat tworzenia aplikacji jednostronicowej](single-page-application/index.md)
 
-## <a name="webhooks"></a>Elementów Webhook
+## <a name="webhooks"></a>Elementy webhook
 
 Elementów Webhook to lekkie wzorzec HTTP zapewnienie modelu prostego pub/sub dla połączeń ze sobą usług interfejsów API sieci Web i SaaS. W przypadku zdarzeń w usłudze powiadomienie jest wysyłane w postaci żądanie HTTP POST do subskrybentów w zarejestrowany. Żądanie POST zawiera informacje dotyczące zdarzeń, dzięki czemu odbiorcy do działania w związku z tym.
 
@@ -113,9 +113,9 @@ Create Deployment TOC based on https://www.asp.net/aspnet/overview/deployment
 Copy deployment content map to MVC, WebForms, Web Pages, Web API sections.
 Copy Web Deployment in Enterprise from WebForms to MVC
 Move under ASP.NET Best practices
-    What not to do in ASP.NET, and what to do instead https://review.docs.microsoft.com/en-us/aspnet/aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
+    What not to do in ASP.NET, and what to do instead https://review.docs.microsoft.cus/aspnet/aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
     Async and await https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/async-and-await
-    Building Real World Cloud Apps with Azure https://review.docs.microsoft.com/en-us/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
-    Hands on Lab: Maintainable Azure Websites: Managing Change and Scale https://review.docs.microsoft.com/en-us/aspnet/aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
+    Building Real World Cloud Apps with Azure https://review.docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
+    Hands on Lab: Maintainable Azure Websites: Managing Change and Scale https://review.docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 
 -->

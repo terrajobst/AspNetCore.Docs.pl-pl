@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: d3ef613f625d862314eb0bb60f083f60bb2317e5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9b229de60e09b94189f62a6bb6fa61a9973d637b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching"></a>Buforowanie
 ====================
@@ -102,7 +102,7 @@ Po uruchomieniu tego polecenia bazy danych programu SQL Server zostały wprowadz
 | AspNet\_SqlCacheUpdateChangeIdStoredProcedure | Aktualizuje tabeli powiadomienia zwiększając changeId zmienione tabeli. ASP.NET używa tej wartości, aby określić, czy dane zostały zmienione. Jak pokazano poniżej, to przechowywanej jest wykonywana przez wyzwalacz utworzony po włączeniu tabeli. |
 
 
-- Wyzwalacz programu SQL Server o nazwie  ***tabeli\_nazwa*\_AspNet\_SqlCacheNotification\_wyzwalacza** jest tworzony dla tabeli. Wyzwalacz wykonuje AspNet\_SqlCacheUpdateChangeIdStoredProcedure podczas INSERT, UPDATE lub DELETE jest wykonywana na tabeli.
+- Wyzwalacz programu SQL Server o nazwie ***tabeli\_nazwa *\_AspNet\_SqlCacheNotification\_wyzwalacza** jest tworzony dla tabeli. Wyzwalacz wykonuje AspNet\_SqlCacheUpdateChangeIdStoredProcedure podczas INSERT, UPDATE lub DELETE jest wykonywana na tabeli.
 - Rola serwera SQL o nazwie **aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** zostanie dodany do bazy danych.
 
 **Aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** roli programu SQL Server ma uprawnienia EXEC do AspNet\_SqlCachePollingStoredProcedure. Aby modelu sondowania działał prawidłowo, należy dodać konto procesu do aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess roli. Aspnet\_narzędzia regsql.exe nie będzie to za Ciebie.
@@ -144,7 +144,7 @@ Poniższy przykładowy kod przedstawia sposób poprawnie skonfigurować Obsługa
 
 [!code-csharp[Main](caching/samples/sample11.cs)]
 
-Więcej informacji: [https://msdn.microsoft.com/en-us/library/t9x04ed2.aspx](https://msdn.microsoft.com/en-us/library/t9x04ed2.aspx)
+More Information: [https://msdn.microsoft.com/library/t9x04ed2.aspx](https://msdn.microsoft.com/library/t9x04ed2.aspx)
 
 ## <a name="query-based-sql-cache-dependencies-sql-server-2005-only"></a>Zależności buforu SQL na podstawie kwerendy (dotyczy tylko programu SQL Server 2005)
 
@@ -170,9 +170,9 @@ Inną metodą konfiguracji oparte na zapytaniach zależności bufora SQL jest w 
 
 [!code-csharp[Main](caching/samples/sample14.cs)]
 
-Więcej informacji: [https://msdn.microsoft.com/library/default.asp?url=/library/enus/dnvs05/html/querynotification.asp](https://msdn.microsoft.com/library/default.asp?url=/library/enus/dnvs05/html/querynotification.asp)
+More Information: [https://msdn.microsoft.com/library/default.asp?url=/library/enus/dnvs05/html/querynotification.asp](https://msdn.microsoft.com/library/default.asp?url=/library/enus/dnvs05/html/querynotification.asp)
 
-## <a name="post-cache-substitution"></a>Podstawianie po pamięci podręcznej
+## <a name="post-cache-substitution"></a>Post-Cache Substitution
 
 Buforowanie strony mogą znacznie zwiększyć wydajność aplikacji sieci Web. Jednak w niektórych przypadkach należy większość strony pamięci podręcznej i niektóre fragmenty wewnątrz strony dynamiczne. Na przykład jeśli tworzysz stronę wiadomości, która jest całkowicie statycznych dla ustawione okresów, można ustawić całej strony pamięci podręcznej. Chcąc Dołącz obracania transparent ad, które zmienione na każdym żądaniu strony, część strony zawierającej anons musi być dynamiczny. Aby umożliwić w pamięci podręcznej strony, ale Zastąp zawartość dynamicznie, można użyć podstawiania po pamięci podręcznej programu ASP.NET. Z podstawienia pamięci podręcznej po całej strony jest z określonych części oznaczona jako wykluczona z buforowania w pamięci podręcznej danych wyjściowych. W tym przykładzie transparentach ad kontroli AdRotator umożliwia korzystać z pamięci podręcznej po podstawienia tak, aby reklam tworzone dynamicznie dla każdego użytkownika i dla każdej odświeżania strony.
 
@@ -188,7 +188,7 @@ Kontrolki zastępczej ASP.NET określa sekcję buforowana strona, która jest tw
 
 ### <a name="substitution-api"></a>Podstawienie interfejsu API
 
-Aby utworzyć dynamicznej zawartości buforowana strona programowo, można wywołać [WriteSubstitution](https://msdn.microsoft.com/en-us/library/system.web.httpresponse.writesubstitution.aspx) metody w kodzie strony, przekazując go nazwą metody jako parametr. Metoda, która obsługuje tworzenie dynamicznej zawartości przyjmuje jeden [element HttpContext](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx) parametrów i zwraca wartość typu ciąg. Zwracany ciąg ma zawartość, która zostanie zastąpiona w podanej lokalizacji. Zaletą wywołanie metody WriteSubstitution zamiast kontrolki zastępczej deklaratywnie jest, czy należy wywołać metodę z dowolnych obiektów zamiast wywołanie metody statycznej strony lub obiektu UserControl.
+Aby utworzyć dynamicznej zawartości buforowana strona programowo, można wywołać [WriteSubstitution](https://msdn.microsoft.com/library/system.web.httpresponse.writesubstitution.aspx) metody w kodzie strony, przekazując go nazwą metody jako parametr. Metoda, która obsługuje tworzenie dynamicznej zawartości przyjmuje jeden [element HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) parametrów i zwraca wartość typu ciąg. Zwracany ciąg ma zawartość, która zostanie zastąpiona w podanej lokalizacji. Zaletą wywołanie metody WriteSubstitution zamiast kontrolki zastępczej deklaratywnie jest, czy należy wywołać metodę z dowolnych obiektów zamiast wywołanie metody statycznej strony lub obiektu UserControl.
 
 Wywołanie metody WriteSubstitution powoduje, że buforowanie po stronie klienta, należy zmienić buforowanie serwera, dzięki czemu strony nie będą buforowane na kliencie. Dzięki temu, że przyszłych żądań do strony Wywołaj metodę ponownie do generowania zawartości dynamicznej.
 
@@ -198,15 +198,15 @@ AdRotator, który implementuje kontrolki serwera obsługę pamięci podręcznej 
 
 ## <a name="controlcachepolicy-class"></a>Klasa ControlCachePolicy
 
-Klasa ControlCachePolicy umożliwia sterowanie programowe fragmentu buforowanie za pomocą kontrolki użytkownika. ASP.NET osadza kontrolek użytkownika w ramach [BasePartialCachingControl](https://msdn.microsoft.com/en-us/library/system.web.ui.basepartialcachingcontrol.aspx) wystąpienia. Klasa BasePartialCachingControl reprezentuje kontrolkę użytkownika, który ma produkt wyjściowy włączone buforowanie.
+Klasa ControlCachePolicy umożliwia sterowanie programowe fragmentu buforowanie za pomocą kontrolki użytkownika. ASP.NET osadza kontrolek użytkownika w ramach [BasePartialCachingControl](https://msdn.microsoft.com/library/system.web.ui.basepartialcachingcontrol.aspx) wystąpienia. Klasa BasePartialCachingControl reprezentuje kontrolkę użytkownika, który ma produkt wyjściowy włączone buforowanie.
 
-Podczas uzyskiwania dostępu [BasePartialCachingControl.CachePolicy](https://msdn.microsoft.com/en-us/library/system.web.ui.basepartialcachingcontrol.cachepolicy.aspx) właściwość [PartialCachingControl](https://msdn.microsoft.com/en-us/library/system.web.ui.partialcachingcontrol.aspx) kontroli, zawsze otrzymasz prawidłowy obiekt ControlCachePolicy. Jednak jeśli dostęp do [UserControl.CachePolicy](https://msdn.microsoft.com/en-us/library/system.web.ui.usercontrol.cachepolicy.aspx) właściwość [UserControl](https://msdn.microsoft.com/en-us/library/system.web.ui.usercontrol.aspx) kontroli, zostanie wyświetlony prawidłowy obiekt ControlCachePolicy tylko wtedy, gdy formant użytkownika jest już opakowana przez Formant BasePartialCachingControl. Jeśli nie jest on zawijany, ControlCachePolicy obiekcie zwracanym przez właściwość zostanie zgłaszają wyjątki, gdy użytkownik podejmie próbę manipulowania on, ponieważ nie ma skojarzonego BasePartialCachingControl. Aby ustalić, czy wystąpienie UserControl obsługuje buforowanie bez generowania wyjątków, sprawdź [SupportsCaching](https://msdn.microsoft.com/en-us/library/system.web.ui.controlcachepolicy.supportscaching.aspx) właściwości.
+Podczas uzyskiwania dostępu [BasePartialCachingControl.CachePolicy](https://msdn.microsoft.com/library/system.web.ui.basepartialcachingcontrol.cachepolicy.aspx) właściwość [PartialCachingControl](https://msdn.microsoft.com/library/system.web.ui.partialcachingcontrol.aspx) kontroli, zawsze otrzymasz prawidłowy obiekt ControlCachePolicy. Jednak jeśli dostęp do [UserControl.CachePolicy](https://msdn.microsoft.com/library/system.web.ui.usercontrol.cachepolicy.aspx) właściwość [UserControl](https://msdn.microsoft.com/library/system.web.ui.usercontrol.aspx) kontroli, zostanie wyświetlony prawidłowy obiekt ControlCachePolicy tylko wtedy, gdy formant użytkownika jest już opakowana przez Formant BasePartialCachingControl. Jeśli nie jest on zawijany, ControlCachePolicy obiekcie zwracanym przez właściwość zostanie zgłaszają wyjątki, gdy użytkownik podejmie próbę manipulowania on, ponieważ nie ma skojarzonego BasePartialCachingControl. Aby ustalić, czy wystąpienie UserControl obsługuje buforowanie bez generowania wyjątków, sprawdź [SupportsCaching](https://msdn.microsoft.com/library/system.web.ui.controlcachepolicy.supportscaching.aspx) właściwości.
 
 Za pomocą klasy ControlCachePolicy jest kilka sposobów, aby umożliwić buforowanie danych wyjściowych. Poniższa lista zawiera opis metody, których można użyć, aby włączyć buforowanie danych wyjściowych:
 
-- Użyj [@ OutputCache](https://msdn.microsoft.com/en-us/library/hdxfb6cy.aspx) output dyrektywy, aby włączyć buforowanie w scenariuszach deklaratywne.
-- Użyj [PartialCachingAttribute](https://msdn.microsoft.com/en-us/library/system.web.ui.partialcachingattribute.aspx) atrybutu, aby włączyć buforowanie dla formantu użytkownika w pliku CodeBehind.
-- Użyj klasy ControlCachePolicy, aby określić ustawienia pamięci podręcznej w scenariuszach programowe, w których użytkownik pracuje z wystąpieniami BasePartialCachingControl, które zostały pamięci podręcznej obsługą przy użyciu jednej z powyższych metod i dynamicznie ładowane przy użyciu [System.Web.UI.TemplateControl.LoadControl](https://msdn.microsoft.com/en-us/library/system.web.ui.templatecontrol.loadcontrol.aspx) metody.
+- Użyj [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) output dyrektywy, aby włączyć buforowanie w scenariuszach deklaratywne.
+- Użyj [PartialCachingAttribute](https://msdn.microsoft.com/library/system.web.ui.partialcachingattribute.aspx) atrybutu, aby włączyć buforowanie dla formantu użytkownika w pliku CodeBehind.
+- Użyj klasy ControlCachePolicy, aby określić ustawienia pamięci podręcznej w scenariuszach programowe, w których użytkownik pracuje z wystąpieniami BasePartialCachingControl, które zostały pamięci podręcznej obsługą przy użyciu jednej z powyższych metod i dynamicznie ładowane przy użyciu [System.Web.UI.TemplateControl.LoadControl](https://msdn.microsoft.com/library/system.web.ui.templatecontrol.loadcontrol.aspx) metody.
 
 Wystąpienie ControlCachePolicy może manipulować pomyślnie tylko między Init i PreRender etapy cyklu życia formantu. Jeśli zmodyfikujesz obiektu ControlCachePolicy po fazie PreRender ASP.NET zgłasza wyjątek, ponieważ wszelkie zmiany dokonane po renderowania formantu rzeczywiście nie ma wpływu na ustawienia pamięci podręcznej (formantu jest buforowana na etapie renderowania). Na koniec wystąpienie kontrolki użytkownika (i w związku z tym obiektem ControlCachePolicy) jest dostępny tylko dla programowe manipulowania faktycznie jest renderowany.
 
@@ -216,7 +216,7 @@ Istnieje kilka zmian w pamięci podręcznej konfiguracji w programie ASP.NET 2.0
 
 | **Element** | **Opis** |
 | --- | --- |
-| **pamięć podręczna** | Element opcjonalny. Określa ustawienia pamięci podręcznej globalnych aplikacji. |
+| **cache** | Element opcjonalny. Określa ustawienia pamięci podręcznej globalnych aplikacji. |
 | **outputCache** | Element opcjonalny. Określa ustawienia pamięci podręcznej danych wyjściowych całej aplikacji. |
 | **outputCacheSettings** | Element opcjonalny. Określa ustawienia pamięci podręcznej danych wyjściowych, które można zastosować do stron w aplikacji. |
 | **sqlCacheDependency** | Element opcjonalny. Konfiguruje zależności buforu SQL dla aplikacji ASP.NET. |
@@ -240,7 +240,7 @@ Następujące atrybuty są dostępne dla &lt;outputCache&gt; elementu.
 | **Atrybut** | **Opis** |
 | --- | --- |
 | **enableOutputCache** | Opcjonalne **logiczna** atrybutu. Włącza/wyłącza pamięci podręcznej danych wyjściowych strony. Jeśli wyłączone, niezależnie od ustawień programistycznych albo zezwala na deklaratywne nie są buforowane nie ma żadnych stron. Wartość domyślna to **true**. |
-| **enableFragmentCache** | Opcjonalne **logiczna** atrybutu. Włącza/wyłącza pamięci podręcznej fragmentu aplikacji. Jeśli wyłączona, żadne strony nie są buforowane bez względu na to [@ OutputCache](https://msdn.microsoft.com/en-us/library/hdxfb6cy.aspx) dyrektywa lub profil używany do buforowania. Zawiera nagłówek z kontroli pamięci podręcznej wskazującą, czy serwery proxy nadrzędnego, jak również klientów w przeglądarkach nie powinny podejmować próby pamięci podręcznej danych wyjściowych strony. Wartość domyślna to **false**. |
+| **enableFragmentCache** | Opcjonalne **logiczna** atrybutu. Włącza/wyłącza pamięci podręcznej fragmentu aplikacji. Jeśli wyłączona, żadne strony nie są buforowane bez względu na to [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) dyrektywa lub profil używany do buforowania. Zawiera nagłówek z kontroli pamięci podręcznej wskazującą, czy serwery proxy nadrzędnego, jak również klientów w przeglądarkach nie powinny podejmować próby pamięci podręcznej danych wyjściowych strony. Wartość domyślna to **false**. |
 | **sendCacheControlHeader** | Opcjonalne **logiczna** atrybutu. Pobiera lub ustawia wartość wskazującą czy **pamięci podręcznej-kontrolki: prywatne** nagłówka domyślnie wysyłane przez moduł wyjściowej pamięci podręcznej. Wartość domyślna to **false**. |
 | **omitVaryStar** | Opcjonalne **logiczna** atrybutu. Włącza/wyłącza wysyłanie Http "**Vary: \*** " nagłówka w odpowiedzi. Z domyślnym ustawieniem false, "**Vary: \*** " nagłówka jest wysyłane do stron pamięci podręcznej danych wyjściowych. Po wysłaniu nagłówka Vary umożliwia dla innej wersji można buforować oparte na nazwie określonej w nagłówka Vary. Na przykład *Vary: użytkownik-agentów* będzie przechowywać różne wersje strony oparte na agenta użytkownika żądania. Wartość domyślna to **false**. |
 

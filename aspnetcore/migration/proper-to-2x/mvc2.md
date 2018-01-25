@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc2
-ms.openlocfilehash: f9845449659960e82afd4f51d64084b7f55f68d4
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 95bedf9299b4ff65c2f520358136174c4d2c4623
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>Migrowanie ASP.NET ASP.NET Core 2.0
 
@@ -38,7 +38,7 @@ Przeznaczonych dla platformy .NET Core pozwala wyeliminować wiele odwołań jaw
 </ItemGroup>
 ```
 
-W przypadku metapackage żadnych pakietów, do którego odwołuje się metapackage zostały wdrożone za pomocą aplikacji. Magazynie środowiska uruchomieniowego .NET Core obejmuje te zasoby oraz są one wstępnie skompilowana, aby zwiększyć wydajność. Zobacz [metapackage Microsoft.AspNetCore.All dla platformy ASP.NET Core 2.x](xref:fundamentals/metapackage) uzyskać więcej szczegółowych informacji.
+W przypadku metapackage żadnych pakietów, do którego odwołuje się metapackage zostały wdrożone za pomocą aplikacji. Magazynie środowiska uruchomieniowego .NET Core obejmuje te zasoby oraz są one wstępnie skompilowana do zwiększenia wydajności. Zobacz [metapackage Microsoft.AspNetCore.All dla platformy ASP.NET Core 2.x](xref:fundamentals/metapackage) uzyskać więcej szczegółowych informacji.
 
 ## <a name="project-structure-differences"></a>Różnice struktury projektu
 *.Csproj* format pliku jest teraz prostszy w ASP.NET Core. Niektóre ważne zmiany obejmują:

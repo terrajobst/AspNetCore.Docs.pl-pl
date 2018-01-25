@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 465c9cf6f452c268e7e23509e7a29547df5d3e83
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 995d9a088e3095f36a01d2adb19ec08e6a6d1b3e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure App Service
 ====================
@@ -54,7 +54,7 @@ Znacznika w pliku zewnętrznym (*AppSettingsSecrets.config* w tym przykładzie),
 Zawartość zewnętrznego pliku z kodu znaczników w scala środowiska uruchomieniowego ASP.NET &lt;appSettings&gt; elementu. Środowisko uruchomieniowe ignoruje atrybut pliku, jeśli nie można odnaleźć określonego pliku.
 
 > [!WARNING]
-> Zabezpieczenia — nie należy dodawać Twojej *.config kluczy tajnych* plików do projektu lub sprawdź go do kontroli źródła. Domyślnie program Visual Studio ustawia `Build Action` do `Content`, co oznacza, że plik jest wdrożona. Aby uzyskać więcej informacji, zobacz [Dlaczego nie wszystkie pliki w folderze projektu wdrożony?](https://msdn.microsoft.com/en-us/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Mimo że można użyć dowolnego rozszerzenia dla *.config kluczy tajnych* pliku, warto zachować *.config*, jak pliki konfiguracji nie są obsługiwane przez usługi IIS. Zauważ również, że *AppSettingsSecrets.config* plik jest dwa poziomy katalogu się z *web.config* pliku, tak aby zawierała całkowicie poza katalog rozwiązania. Przez przenoszenie pliku poza katalog rozwiązania &quot;dodać git \* &quot; nie dodać go do repozytorium.
+> Zabezpieczenia — nie należy dodawać Twojej *.config kluczy tajnych* plików do projektu lub sprawdź go do kontroli źródła. Domyślnie program Visual Studio ustawia `Build Action` do `Content`, co oznacza, że plik jest wdrożona. Aby uzyskać więcej informacji, zobacz [Dlaczego nie wszystkie pliki w folderze projektu wdrożony?](https://msdn.microsoft.com/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Mimo że można użyć dowolnego rozszerzenia dla *.config kluczy tajnych* pliku, warto zachować *.config*, jak pliki konfiguracji nie są obsługiwane przez usługi IIS. Zauważ również, że *AppSettingsSecrets.config* plik jest dwa poziomy katalogu się z *web.config* pliku, tak aby zawierała całkowicie poza katalog rozwiązania. Przez przenoszenie pliku poza katalog rozwiązania &quot;dodać git \* &quot; nie dodać go do repozytorium.
 
 
 <a id="con"></a>
@@ -96,7 +96,7 @@ Podczas wdrażania aplikacji sieci web na platformie Azure, *AppSettingsSecrets.
 
 **Ustawień aplikacji** i **ciąg połączenia** wartości zastępują tych samych ustawień w *web.config* pliku. W tym przykładzie firma Microsoft nie zostały wdrożone te ustawienia na platformie Azure, ale jeśli klucze te były w *web.config* pliku, ustawienia wyświetlane w portalu będzie pierwszeństwo.
 
-Najlepszym rozwiązaniem jest wykonaj [DevOps przepływu pracy](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything.md) i użyj [programu Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) (lub innej platformy takie jak [Chef](http://www.opscode.com/chef/) lub [Puppet](http://puppetlabs.com/puppet/what-is-puppet)) do zautomatyzować, ustawianie tych wartości na platformie Azure. Poniższy skrypt programu PowerShell używa [CliXml eksportu](http://www.powershellcookbook.com/recipe/PukO/securely-store-credentials-on-disk) można wyeksportować zaszyfrowanych kluczy tajnych na dysku:
+Najlepszym rozwiązaniem jest wykonaj [DevOps przepływu pracy](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything.md) i użyj [programu Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/) (lub innej platformy takie jak [Chef](http://www.opscode.com/chef/) lub [Puppet](http://puppetlabs.com/puppet/what-is-puppet)) do zautomatyzować, ustawianie tych wartości na platformie Azure. Poniższy skrypt programu PowerShell używa [CliXml eksportu](http://www.powershellcookbook.com/recipe/PukO/securely-store-credentials-on-disk) można wyeksportować zaszyfrowanych kluczy tajnych na dysku:
 
 [!code-powershell[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample6.ps1)]
 
@@ -105,7 +105,7 @@ W powyższym skryptu "Name" jest nazwą klucz tajny, takich jak "&quot;FB\_AppSe
 [!code-powershell[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample7.ps1)]
 
 > [!WARNING]
-> Zabezpieczenia — nie zawiera hasła lub innych informacji poufnych skrypt programu PowerShell, w sposób tak stanowi zaprzeczenie celu do wdrażania danych poufnych za pomocą skryptu programu PowerShell. [Get-Credential](https://technet.microsoft.com/en-us/library/hh849815.aspx) polecenia cmdlet zapewnia mechanizm bezpiecznego uzyskanie hasła. Użycie wiersza interfejsu użytkownika może uniemożliwić przeciek hasła.
+> Zabezpieczenia — nie zawiera hasła lub innych informacji poufnych skrypt programu PowerShell, w sposób tak stanowi zaprzeczenie celu do wdrażania danych poufnych za pomocą skryptu programu PowerShell. [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) polecenia cmdlet zapewnia mechanizm bezpiecznego uzyskanie hasła. Użycie wiersza interfejsu użytkownika może uniemożliwić przeciek hasła.
 
 
 ### <a name="deploying-db-connection-strings"></a>Wdrażanie parametry połączenia bazy danych
@@ -119,7 +119,7 @@ Ponieważ pary klucz wartość dla obu **ustawień aplikacji** i **parametry po�
 
 ## <a name="notes-for-on-premises-servers"></a>Informacje o lokalnych serwerów
 
-Jeśli wdrażasz do lokalnych serwerów sieci web, możesz pomóc bezpiecznego hasła przez [szyfrowanie sekcji konfiguracyjnych plików konfiguracji](https://msdn.microsoft.com/en-us/library/ff647398.aspx). Alternatywnie, można użyć tej samej metody zalecane w przypadku witryn sieci Web platformy Azure: Zachowaj ustawienia środowiska deweloperskiego w plikach konfiguracji i używać wartości zmiennych środowiskowych dla ustawień produkcji. W takim przypadku jednak trzeba napisać kod aplikacji dla funkcji, które są wykonywane automatycznie w witrynach sieci Web platformy Azure: pobrać ustawienia zmiennych środowiskowych i użyć tych wartości, zamiast ustawień pliku konfiguracji lub ustawień pliku konfiguracji po zmienne środowiskowe nie został znaleziony.
+Jeśli wdrażasz do lokalnych serwerów sieci web, możesz pomóc bezpiecznego hasła przez [szyfrowanie sekcji konfiguracyjnych plików konfiguracji](https://msdn.microsoft.com/library/ff647398.aspx). Alternatywnie, można użyć tej samej metody zalecane w przypadku witryn sieci Web platformy Azure: Zachowaj ustawienia środowiska deweloperskiego w plikach konfiguracji i używać wartości zmiennych środowiskowych dla ustawień produkcji. W takim przypadku jednak trzeba napisać kod aplikacji dla funkcji, które są wykonywane automatycznie w witrynach sieci Web platformy Azure: pobrać ustawienia zmiennych środowiskowych i użyć tych wartości, zamiast ustawień pliku konfiguracji lub ustawień pliku konfiguracji po zmienne środowiskowe nie został znaleziony.
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby

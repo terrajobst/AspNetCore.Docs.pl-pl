@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8168f2d8431a1f051167dcd2f5123fafa942fa23
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c57722965b510ac4f5cf0c06c7c01c8cea26384f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>Konfiguracja uwierzytelniania formularzy i Tematy zaawansowane (C#)
 ====================
@@ -35,7 +35,7 @@ W tym samouczku będziemy zbada różnych ustawień uwierzytelniania formularzy 
 
 ## <a name="step-1-examining-the-ltformsgt-configuration-settings"></a>Krok 1: Sprawdzenie &lt;formularze&gt; ustawienia konfiguracji
 
-System uwierzytelniania formularzy w programie ASP.NET oferuje wiele ustawień konfiguracji, które mogą być dostosowywane na podstawie aplikacji przez aplikację. Obejmuje to ustawienia, takie jak: uwierzytelnianie formularzy okres istnienia biletu; jakiego rodzaju ochrony zostały zastosowane do biletu; w obszarze rodzaju warunki bez plików cookie uwierzytelniania są używane bilety; Ścieżka do strony logowania; i inne informacje. Aby zmodyfikować wartości domyślne, należy dodać [ &lt;formularze&gt; elementu](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx) jako element podrzędny [ &lt;uwierzytelniania&gt; elementu](https://msdn.microsoft.com/en-us/library/532aee0e.aspx), określenie tych właściwości wartości, które chcesz dostosować jako atrybuty XML w następujący sposób:
+System uwierzytelniania formularzy w programie ASP.NET oferuje wiele ustawień konfiguracji, które mogą być dostosowywane na podstawie aplikacji przez aplikację. Obejmuje to ustawienia, takie jak: uwierzytelnianie formularzy okres istnienia biletu; jakiego rodzaju ochrony zostały zastosowane do biletu; w obszarze rodzaju warunki bez plików cookie uwierzytelniania są używane bilety; Ścieżka do strony logowania; i inne informacje. Aby zmodyfikować wartości domyślne, należy dodać [ &lt;formularze&gt; elementu](https://msdn.microsoft.com/library/1d3t3c61.aspx) jako element podrzędny [ &lt;uwierzytelniania&gt; elementu](https://msdn.microsoft.com/library/532aee0e.aspx), określenie tych właściwości wartości, które chcesz dostosować jako atrybuty XML w następujący sposób:
 
 [!code-xml[Main](forms-authentication-configuration-and-advanced-topics-cs/samples/sample1.xml)]
 
@@ -43,7 +43,7 @@ Tabela 1 zawiera podsumowanie właściwości, które można dostosować za pomoc
 
 | **Atrybut** | **Opis** |
 | --- | --- |
-| bez plików cookie | Ten atrybut określa pod jakimi warunkami biletu uwierzytelniania są przechowywane w pliku cookie i osadzona w adresie URL. Dopuszczalne wartości to: UseCookies; UseUri; Autowykrywanie; i UseDeviceProfile (ustawienie domyślne). Krok 2 sprawdza, czy to ustawienie bardziej szczegółowo. |
+| cookieless | Ten atrybut określa pod jakimi warunkami biletu uwierzytelniania są przechowywane w pliku cookie i osadzona w adresie URL. Dopuszczalne wartości to: UseCookies; UseUri; Autowykrywanie; i UseDeviceProfile (ustawienie domyślne). Krok 2 sprawdza, czy to ustawienie bardziej szczegółowo. |
 | defaultUrl | Określa adres URL, który użytkownicy są przekierowywani do po zalogowaniu się na stronie logowania, jeśli nie ma żadnej wartości RedirectUrl określony w zmiennej querystring. Wartość domyślna to plik default.aspx. |
 | domena | Korzystając z bilety uwierzytelniania opartego na pliku cookie, to ustawienie określa wartość domeny pliku cookie. Wartość domyślna to pusty ciąg, który powoduje, że przeglądarka Użyj domeny, z którego zostało wydane (na przykład www.yourdomain.com). W takim przypadku plik cookie będzie **nie** wysłania w przypadku wprowadzania żądań poddomen, takich jak admin.yourdomain.com. Jeśli chcesz, aby plik cookie do przekazania do wszystkich domen podrzędnych, musisz dostosować atrybut domain ustawieniem dla niego twoja_domena.com. |
 | enableCrossAppRedirects | Wartość logiczna wskazująca, czy użytkownicy uwierzytelnieni są zapamiętywane, gdy przekierowywane do adresów URL w innych aplikacjach sieci web na tym samym serwerze. Wartością domyślną jest false. |
@@ -57,7 +57,7 @@ Tabela 1 zawiera podsumowanie właściwości, które można dostosować za pomoc
 
 **Tabela 1**: Podsumowanie A &lt;formularze&gt; atrybuty elementu
 
-W programie ASP.NET 2.0 i ponad wartość domyślną wartości uwierzytelniania formularzy są zakodowane na stałe w klasie FormsAuthenticationConfiguration w programie .NET Framework. Wszelkie zmiany, muszą być stosowane na podstawie aplikacji przez aplikacji w pliku Web.config. Ta różni się od ASP.NET 1.x, których wartości domyślne uwierzytelniania formularzy były przechowywane w pliku machine.config (i w związku z tym może zostać zmodyfikowany za pomocą edycji pliku machine.config). Czas na temat programu ASP.NET 1.x, warto wspomnieć o że wiele ustawień systemu uwierzytelniania formularzy mają przypisane wartości domyślne różnych w programie ASP.NET 2.0 i poza niż w programie ASP.NET 1.x. W przypadku migracji aplikacji ze środowiska 1.x ASP.NET, ważne jest pod uwagę następujące różnice. Zapoznaj się [ &lt;formularze&gt; dokumentacji technicznej element](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx) listę różnic.
+W programie ASP.NET 2.0 i ponad wartość domyślną wartości uwierzytelniania formularzy są zakodowane na stałe w klasie FormsAuthenticationConfiguration w programie .NET Framework. Wszelkie zmiany, muszą być stosowane na podstawie aplikacji przez aplikacji w pliku Web.config. Ta różni się od ASP.NET 1.x, których wartości domyślne uwierzytelniania formularzy były przechowywane w pliku machine.config (i w związku z tym może zostać zmodyfikowany za pomocą edycji pliku machine.config). Czas na temat programu ASP.NET 1.x, warto wspomnieć o że wiele ustawień systemu uwierzytelniania formularzy mają przypisane wartości domyślne różnych w programie ASP.NET 2.0 i poza niż w programie ASP.NET 1.x. W przypadku migracji aplikacji ze środowiska 1.x ASP.NET, ważne jest pod uwagę następujące różnice. Zapoznaj się [ &lt;formularze&gt; dokumentacji technicznej element](https://msdn.microsoft.com/library/1d3t3c61.aspx) listę różnic.
 
 > [!NOTE]
 > Kilka ustawień uwierzytelniania formularzy, takie jak limit czasu, domeny i ścieżkę, określ szczegóły wynikowego pliku cookie biletu uwierzytelniania formularzy. Aby uzyskać więcej informacji na pliki cookie, jak działają i ich różnych właściwości odczytu [w tym samouczku plików cookie](http://www.quirksmode.org/js/cookies.html).
@@ -137,7 +137,7 @@ Zasady pliku cookie uwierzytelniania formularzy systemu zależy od ustawienia be
 Zależne od ustawienia Autowykrywanie i UseDeviceProfile *profil urządzenia* w upewnieniu się, czy ma być używany biletów uwierzytelniania pliku cookie lub bez plików cookie. Program ASP.NET używa bazy danych z różnych urządzeń i ich funkcji, takich jak czy obsługują one plików cookie, jakiej wersji JavaScript, które obsługują i tak dalej. Zawsze urządzenie zażąda strony sieci web z serwera sieci web wysyła wzdłuż *agenta użytkownika* nagłówka HTTP, który identyfikuje typ urządzenia. Program ASP.NET automatycznie dopasowuje ciąg agenta użytkownika podane odpowiedni profil określony w swojej bazie danych.
 
 > [!NOTE]
-> Ta baza danych możliwości dotyczące urządzeń są przechowywane w liczbę plików XML, która jest zgodna [schematu pliku definicji przeglądarki](https://msdn.microsoft.com/en-us/library/ms228122.aspx). Domyślne pliki profilu urządzenia znajdują się w lokalizacji % WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG\Browsers. Można również dodać niestandardowe pliki do aplikacji App\_folderu przeglądarki. Aby uzyskać więcej informacji, zobacz [jak: typy przeglądarek wykryć stron ASP.NET Web Pages](https://msdn.microsoft.com/en-us/library/3yekbd5b.aspx).
+> Ta baza danych możliwości dotyczące urządzeń są przechowywane w liczbę plików XML, która jest zgodna [schematu pliku definicji przeglądarki](https://msdn.microsoft.com/library/ms228122.aspx). Domyślne pliki profilu urządzenia znajdują się w lokalizacji % WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG\Browsers. Można również dodać niestandardowe pliki do aplikacji App\_folderu przeglądarki. Aby uzyskać więcej informacji, zobacz [jak: typy przeglądarek wykryć stron ASP.NET Web Pages](https://msdn.microsoft.com/library/3yekbd5b.aspx).
 
 
 Ustawieniem domyślnym jest UseDeviceProfile, biletów uwierzytelniania formularzy cookieless będą używane po odwiedzeniu witryny przez urządzenie, którego profil zgłasza, że nie obsługuje pliki cookie.
@@ -199,7 +199,7 @@ Firma Microsoft zaleca użycie wszystkie ustawienia.
 
 ### <a name="setting-the-validation-and-decryption-keys"></a>Ustawienia weryfikacji i kluczy Odszyfrowujących
 
-Szyfrowania i tworzenia skrótów algorytmów używanych przez system uwierzytelniania formularzy, szyfrowanie i sprawdzanie poprawności biletu uwierzytelniania są można dostosować za pomocą [ &lt;machineKey&gt; elementu](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx) w pliku Web.config. Tabela 2 zawiera &lt;machineKey&gt; atrybuty elementu i ich możliwe wartości.
+Szyfrowania i tworzenia skrótów algorytmów używanych przez system uwierzytelniania formularzy, szyfrowanie i sprawdzanie poprawności biletu uwierzytelniania są można dostosować za pomocą [ &lt;machineKey&gt; elementu](https://msdn.microsoft.com/library/w8h3skw9.aspx) w pliku Web.config. Tabela 2 zawiera &lt;machineKey&gt; atrybuty elementu i ich możliwe wartości.
 
 | **Atrybut** | **Opis** |
 | --- | --- |
@@ -223,7 +223,7 @@ Podczas pracy w farmie sieci web, ustawień lub udostępniania biletów uwierzyt
 
 [!code-xml[Main](forms-authentication-configuration-and-advanced-topics-cs/samples/sample5.xml)]
 
-Aby uzyskać więcej informacji, zapoznaj się z [jak: Konfigurowanie MachineKey w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998288.aspx).
+Aby uzyskać więcej informacji, zapoznaj się z [jak: Konfigurowanie MachineKey w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998288.aspx).
 
 > [!NOTE]
 > Wartości decryptionKey i validationKey zostały pobrane z [Steve Gibson](http://www.grc.com/stevegibson.htm)w [strony sieci web doskonałe hasła](https://www.grc.com/passwords.htm), generująca 64 losowo wybranych znaków szesnastkowych wizyty każdej strony. Aby zmniejszyć prawdopodobieństwo te klucze wprowadzania sposób ich do aplikacji produkcyjnych, zachęca się zastąpić powyżej klucze losowo generowany widocznych na stronie doskonałe hasła.
@@ -233,7 +233,7 @@ Aby uzyskać więcej informacji, zapoznaj się z [jak: Konfigurowanie MachineKey
 
 Wiele aplikacji sieci web wyświetlić informacje o lub podstawowa wyświetlania strony na aktualnie zalogowanego użytkownika. Na przykład strony sieci web mogą być wyświetlane nazwy użytkownika i datę ona ostatniego zalogowanego w górnym rogu każdej strony. Biletu uwierzytelniania formularzy przechowuje obecnie zalogowanego użytkownika, ale w razie potrzeby inne informacje strony musi przejdź do Sklepu użytkownika — zwykle bazy danych — do wyszukiwania informacji nie są przechowywane w biletu uwierzytelniania.
 
-Dodatkowe informacje dotyczące użytkownika z niewielki kod można są przechowywane w biletu uwierzytelniania formularzy. Dane te można wyrazić za pomocą [klasy FormsAuthenticationTicket](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationticket.aspx)w [właściwości danych użytkownika](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationticket.userdata.aspx). Jest to przydatne miejsce do umieszczania niewielkich ilości informacji o użytkowniku, który jest zwykle potrzebne. Wartość określona w danych użytkownika właściwości wchodzi w skład pliku cookie biletu uwierzytelniania i, podobnie jak inne pola biletu, zostaje zaszyfrowany i zweryfikowane na podstawie systemu uwierzytelniania formularzy konfiguracji. Domyślnie danych użytkownika jest pustym ciągiem.
+Dodatkowe informacje dotyczące użytkownika z niewielki kod można są przechowywane w biletu uwierzytelniania formularzy. Dane te można wyrazić za pomocą [klasy FormsAuthenticationTicket](https://msdn.microsoft.com/library/system.web.security.formsauthenticationticket.aspx)w [właściwości danych użytkownika](https://msdn.microsoft.com/library/system.web.security.formsauthenticationticket.userdata.aspx). Jest to przydatne miejsce do umieszczania niewielkich ilości informacji o użytkowniku, który jest zwykle potrzebne. Wartość określona w danych użytkownika właściwości wchodzi w skład pliku cookie biletu uwierzytelniania i, podobnie jak inne pola biletu, zostaje zaszyfrowany i zweryfikowane na podstawie systemu uwierzytelniania formularzy konfiguracji. Domyślnie danych użytkownika jest pustym ciągiem.
 
 W celu przechowywania danych użytkownika w bilecie uwierzytelniania, należy zapisać fragmentem kodu na stronie logowania, która grabs informacje specyficzne dla użytkownika i zapisuje go w bilecie. Ponieważ danych użytkownika jest właściwością typu String, przechowywanych w nim danych należy prawidłowo serializacji jako ciąg. Załóżmy na przykład naszym magazynie użytkownika uwzględnione każdego użytkownika daty urodzenia i nazwę pracodawcy, czy możemy do przechowywania wartości tych dwóch właściwości w biletu uwierzytelniania. Firma Microsoft można serializować te wartości na ciąg, łącząc użytkownika daty urodzenia w ciągu symbolem kreski pionowej (|), a po niej nazwę pracodawcy. Dla użytkownika na świat w 15 sierpnia 1974, który działa w przypadku Northwind Traders, możemy przypisywanej właściwości danych użytkownika ciąg: 1974-08-15 | Northwind Traders.
 
@@ -267,9 +267,9 @@ ciąg userDataString = ciąg. Concat (NazwaFirmy [i] "|", titleAtCompany[i]);
 
 Następnie FormsAuthentication.GetAuthCookie wywoływana jest metoda, która tworzy bilet uwierzytelniania, są szyfrowane i weryfikuje on zgodnie z ustawieniami konfiguracji i umieszcza je w obiekcie HttpCookie.
 
-HttpCookie authCookie = FormsAuthentication.GetAuthCookie (UserName.Text, RememberMe.Checked);
+HttpCookie authCookie = FormsAuthentication.GetAuthCookie(UserName.Text, RememberMe.Checked);
 
-Aby pracować z FormAuthenticationTicket osadzone w pliku cookie, należy wywołać klasy FormAuthentication [odszyfrować metody](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.decrypt.aspx), przekazując wartość pliku cookie.
+Aby pracować z FormAuthenticationTicket osadzone w pliku cookie, należy wywołać klasy FormAuthentication [odszyfrować metody](https://msdn.microsoft.com/library/system.web.security.formsauthentication.decrypt.aspx), przekazując wartość pliku cookie.
 
 Bilet FormsAuthenticationTicket = FormsAuthentication.Decrypt(authCookie.Value);
 
@@ -277,7 +277,7 @@ Następnie utwórz *nowe* FormsAuthenticationTicket wystąpienia na podstawie is
 
 FormsAuthenticationTicket newTicket = nowe FormsAuthenticationTicket (biletu. Wersja, biletu. Nazwa, biletu. IssueDate, biletu. Wygaśnięcie, biletu. IsPersistent, userDataString);
 
-Firma Microsoft następnie szyfrowania (i zweryfikować) nowe wystąpienie FormsAuthenticationTicket przez wywołanie metody [szyfrowania metody](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.encrypt.aspx)i te dane zaszyfrowane (i zweryfikowane) ponownie poddane authCookie.
+Firma Microsoft następnie szyfrowania (i zweryfikować) nowe wystąpienie FormsAuthenticationTicket przez wywołanie metody [szyfrowania metody](https://msdn.microsoft.com/library/system.web.security.formsauthentication.encrypt.aspx)i te dane zaszyfrowane (i zweryfikowane) ponownie poddane authCookie.
 
 authCookie.Value = FormsAuthentication.Encrypt(newTicket);
 
@@ -322,7 +322,7 @@ Obiekt główny ma dwa obowiązki: aby wskazać role, jakie użytkownik należy 
 Klasa GenericPrincipal spełnia potrzeby większości scenariuszy uwierzytelnianie oparte na formularzach, gdzie role nie są używane. Dla tych sytuacji, gdy domyślny obsługi roli są niewystarczające lub gdy należy skojarzyć z użytkownikiem niestandardowych obiektów tożsamości, można utworzyć niestandardowego obiektu interfejsu IPrincipal podczas przepływu pracy uwierzytelniania i przypisz je do właściwości HttpContext.User.
 
 > [!NOTE]
-> Jak zostanie wyświetlone w przyszłości samouczki, gdy ASP. Włączono jego NET framework ról tworzy niestandardowy obiekt główny typu [RolePrincipal](https://msdn.microsoft.com/en-us/library/system.web.security.roleprincipal.aspx) i zastępuje obiekt GenericPrincipal utworzone uwierzytelniania formularzy. Dzieje się tak, aby dostosować metody IsInRole podmiotu na potrzeby interfejsu z interfejsu API w ramach ról.
+> Jak zostanie wyświetlone w przyszłości samouczki, gdy ASP. Włączono jego NET framework ról tworzy niestandardowy obiekt główny typu [RolePrincipal](https://msdn.microsoft.com/library/system.web.security.roleprincipal.aspx) i zastępuje obiekt GenericPrincipal utworzone uwierzytelniania formularzy. Dzieje się tak, aby dostosować metody IsInRole podmiotu na potrzeby interfejsu z interfejsu API w ramach ról.
 
 
 Ponieważ firma Microsoft ma nie dotyczy nad z rolami jeszcze, tylko urząd, który mamy do tworzenia niestandardowego podmiotu w tym momencie jest kojarzenie niestandardowych obiektów tożsamości do podmiotu zabezpieczeń. W kroku 4 analizujemy przechowywania dodatkowe informacje dotyczące użytkownika we właściwości danych użytkownika biletu uwierzytelniania, w szczególności nazwa firmy użytkownika i ich tytułu. Informacje o danych użytkownika jest jednak tylko dostępny za pośrednictwem biletu uwierzytelniania, a następnie tylko jako ciąg serializacji, co oznacza, że w dowolnym momencie chcemy wyświetlić dane użytkownika przechowywane w bilecie należy przeanalizować właściwości danych użytkownika.
@@ -334,7 +334,7 @@ Możemy ulepszyć środowisko dewelopera, tworząc klasę, która implementuje t
 W tym samouczku, umożliwia tworzenie niestandardowych obiektów Principal role i tożsamości w aplikacji\_katalogu z kodem. Rozpocznij od dodania aplikacji\_kodu folderu do projektu — kliknij prawym przyciskiem myszy nazwę projektu w Eksploratorze rozwiązań, wybierz opcję Dodaj Folder ASP.NET i wybierz aplikację\_kodu. Aplikacja\_kodu jest folderem specjalne ASP.NET przechowujący klasy pliki specyficzne dla witryny sieci Web.
 
 > [!NOTE]
-> Aplikacja\_katalogu z kodem należy używać tylko, gdy zarządzania projektem za pośrednictwem modelu projektu witryny sieci Web. Jeśli używasz [modelu projektu aplikacji sieci Web](https://msdn.microsoft.com/en-us/asp.net/Aa336618.aspx), Utwórz folder standardowe i dodać do tej klasy. Można na przykład dodać nowy folder o nazwie klasy, a umieść swój kod.
+> Aplikacja\_katalogu z kodem należy używać tylko, gdy zarządzania projektem za pośrednictwem modelu projektu witryny sieci Web. Jeśli używasz [modelu projektu aplikacji sieci Web](https://msdn.microsoft.com/asp.net/Aa336618.aspx), Utwórz folder standardowe i dodać do tej klasy. Można na przykład dodać nowy folder o nazwie klasy, a umieść swój kod.
 
 
 Następnie dodaj dwa nowe pliki klasy do aplikacji\_katalogu z kodem, jeden CustomIdentity.cs nazwane i jedną o nazwie CustomPrincipal.cs.
@@ -359,9 +359,9 @@ Następnie należy utworzyć klasa CustomPrincipal. Ponieważ firma Microsoft ni
 
 Mamy teraz klasę, która rozszerza specyfikacji tożsamości domyślnej właściwościami NazwaFirmy i tytułu, a także niestandardowe klasy głównej, która korzysta z tożsamości niestandardowej. Firma Microsoft jest gotowe do Wkrocz do potoku platformy ASP.NET i przypisać naszych niestandardowy obiekt główny kontekst zabezpieczeń żądania przychodzącego.
 
-Potoku ASP.NET przyjmuje przychodzącego żądania i przetwarza je za pośrednictwem kilku kroków. W każdym kroku określonego zdarzenie jest wywoływane, co umożliwia deweloperom naciśnij w potoku platformy ASP.NET i modyfikować żądania w niektórych punktach cykl życia. FormsAuthenticationModule, czeka na przykład ASP.NET podnieść [zdarzeń AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx), po czym sprawdza pod żądania przychodzącego na bilet uwierzytelnienia. Jeśli bilet uwierzytelnienia zostanie znaleziony, obiektu GenericPrincipal jest tworzone i przypisywane do właściwości HttpContext.User.
+Potoku ASP.NET przyjmuje przychodzącego żądania i przetwarza je za pośrednictwem kilku kroków. W każdym kroku określonego zdarzenie jest wywoływane, co umożliwia deweloperom naciśnij w potoku platformy ASP.NET i modyfikować żądania w niektórych punktach cykl życia. FormsAuthenticationModule, czeka na przykład ASP.NET podnieść [zdarzeń AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx), po czym sprawdza pod żądania przychodzącego na bilet uwierzytelnienia. Jeśli bilet uwierzytelnienia zostanie znaleziony, obiektu GenericPrincipal jest tworzone i przypisywane do właściwości HttpContext.User.
 
-Po zdarzeniu AuthenticateRequest potoku ASP.NET zgłasza [zdarzeń PostAuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.postauthenticaterequest.aspx), która jest, gdzie można zastąpić obiektu GenericPrincipal utworzonego przez FormsAuthenticationModule z wystąpieniem klasy Nasze Obiekcie CustomPrincipal. Na rysunku nr 7 przedstawia ten przepływ pracy.
+Po zdarzeniu AuthenticateRequest potoku ASP.NET zgłasza [zdarzeń PostAuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.postauthenticaterequest.aspx), która jest, gdzie można zastąpić obiektu GenericPrincipal utworzonego przez FormsAuthenticationModule z wystąpieniem klasy Nasze Obiekcie CustomPrincipal. Na rysunku nr 7 przedstawia ten przepływ pracy.
 
 
 [![GenericPrincipal zastępuje CustomPrincipal w zdarzeniu PostAuthenticationRequest](forms-authentication-configuration-and-advanced-topics-cs/_static/image20.png)](forms-authentication-configuration-and-advanced-topics-cs/_static/image19.png)
@@ -377,13 +377,13 @@ Aby można było wykonać kod w odpowiedzi na zdarzenie potoku platformy ASP.NET
 **Rysunek 08**: Dodawanie pliku Global.asax do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](forms-authentication-configuration-and-advanced-topics-cs/_static/image24.png))
 
 
-Domyślny szablon pliku Global.asax zawiera obsługi zdarzeń dla liczby zdarzeniami potoku platformy ASP.NET, w tym początek zakończenia i [zdarzenie błędu](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.error.aspx), między innymi. Możesz usunąć te programy obsługi zdarzeń, jak firma Microsoft nie potrzebne dla tej aplikacji. Zdarzenie, które Dbamy o jest PostAuthenticateRequest. Zaktualizuj plik Global.asax, więc jego znaczników podobny do następującego:
+Domyślny szablon pliku Global.asax zawiera obsługi zdarzeń dla liczby zdarzeniami potoku platformy ASP.NET, w tym początek zakończenia i [zdarzenie błędu](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx), między innymi. Możesz usunąć te programy obsługi zdarzeń, jak firma Microsoft nie potrzebne dla tej aplikacji. Zdarzenie, które Dbamy o jest PostAuthenticateRequest. Zaktualizuj plik Global.asax, więc jego znaczników podobny do następującego:
 
 [!code-aspx[Main](forms-authentication-configuration-and-advanced-topics-cs/samples/sample11.aspx)]
 
 Aplikacja\_OnPostAuthenticateRequest metoda wykonuje zawsze środowiska uruchomieniowego ASP.NET zgłasza zdarzenie PostAuthenticateRequest, które odbywa się raz dla każdego przychodzącego żądania strony. Uruchamia program obsługi zdarzeń przez sprawdzenie, czy użytkownik jest uwierzytelniony i został uwierzytelniony przy użyciu uwierzytelniania formularzy. Jeśli tak, nowy obiekt CustomIdentity jest utworzony i przekazywane bieżącego żądania biletu uwierzytelniania w jego konstruktora. Następujące, obiekcie CustomPrincipal jest utworzony i przekazano obiekt CustomIdentity po prostu utworzyć jego konstruktora. Na koniec bieżącego żądania kontekst zabezpieczeń jest przypisany do nowo utworzony obiekt CustomPrincipal.
 
-Należy pamiętać, że ostatni krok - kojarzenie obiekcie CustomPrincipal kontekst zabezpieczeń żądania - przypisuje podmiot zabezpieczeń dwie właściwości: HttpContext.User i Thread.CurrentPrincipal. Te dwie przypisania są niezbędne ze względu na sposób kontekstów zabezpieczeń są obsługiwane w programie ASP.NET. .NET Framework kojarzy kontekstu zabezpieczeń z każdym uruchomiony wątek; Ta informacja jest dostępna jako obiekt IPrincipal za pośrednictwem [obiektu wątku](https://msdn.microsoft.com/en-us/library/system.threading.thread.aspx)w [CurrentPrincipal właściwości](https://msdn.microsoft.com/en-us/library/system.threading.thread.currentcontext.aspx). Co to jest skomplikowana się, że program ASP.NET ma własną informacje kontekstu zabezpieczeń (HttpContext.User).
+Należy pamiętać, że ostatni krok - kojarzenie obiekcie CustomPrincipal kontekst zabezpieczeń żądania - przypisuje podmiot zabezpieczeń dwie właściwości: HttpContext.User i Thread.CurrentPrincipal. Te dwie przypisania są niezbędne ze względu na sposób kontekstów zabezpieczeń są obsługiwane w programie ASP.NET. .NET Framework kojarzy kontekstu zabezpieczeń z każdym uruchomiony wątek; Ta informacja jest dostępna jako obiekt IPrincipal za pośrednictwem [obiektu wątku](https://msdn.microsoft.com/library/system.threading.thread.aspx)w [CurrentPrincipal właściwości](https://msdn.microsoft.com/library/system.threading.thread.currentcontext.aspx). Co to jest skomplikowana się, że program ASP.NET ma własną informacje kontekstu zabezpieczeń (HttpContext.User).
 
 W niektórych scenariuszach właściwość Thread.CurrentPrincipal jest zbadane, określając kontekstu zabezpieczeń; w innych scenariuszach HttpContext.User jest używany. Na przykład istnieją funkcje zabezpieczeń w środowisku .NET, które umożliwiają deweloperom deklaratywnie stanu co użytkownicy lub role można utworzyć wystąpienia klasy lub wywołać określonej metody (zobacz [Dodawanie reguły autoryzacji do działalności biznesowej i warstwy danych przy użyciu PrincipalPermissionAttributes](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)). Poniżej obejmuje te techniki deklaratywne ustalić kontekst zabezpieczeń za pomocą właściwości Thread.CurrentPrincipal.
 
@@ -412,23 +412,23 @@ Programowanie przyjemność!
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
 - [Pincety uwierzytelniania formularzy](http://aspnet.4guysfromrolla.com/articles/072005-1.aspx)
-- [Objaśniono: Uwierzytelnianie formularzy w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/aa480476.aspx)
-- [Porady: Ochrona uwierzytelniania formularzy w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998310.aspx)
+- [Objaśniono: Uwierzytelnianie formularzy w programie ASP.NET 2.0](https://msdn.microsoft.com/library/aa480476.aspx)
+- [Porady: Ochrona uwierzytelniania formularzy w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998310.aspx)
 - [Professional ASP.NET 2.0 zabezpieczeń, członkostwo i zarządzanie rolami](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
-- [Zabezpieczanie kontrolek logowania](https://msdn.microsoft.com/en-us/library/ms178346.aspx)
-- [&lt;Uwierzytelniania&gt; — Element](https://msdn.microsoft.com/en-us/library/532aee0e.aspx)
-- [&lt;Formularze&gt; elementu &lt;uwierzytelniania&gt;](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx)
-- [&lt;MachineKey&gt; — Element](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx)
+- [Zabezpieczanie kontrolek logowania](https://msdn.microsoft.com/library/ms178346.aspx)
+- [&lt;Uwierzytelniania&gt; — Element](https://msdn.microsoft.com/library/532aee0e.aspx)
+- [&lt;Formularze&gt; elementu &lt;uwierzytelniania&gt;](https://msdn.microsoft.com/library/1d3t3c61.aspx)
+- [&lt;MachineKey&gt; — Element](https://msdn.microsoft.com/library/w8h3skw9.aspx)
 - [Opis biletu uwierzytelniania formularzy i plików Cookie](https://support.microsoft.com/kb/910443)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Szkolenie wideo na tematy zawarte w tym samouczku
 
 - [Jak zmienić właściwości uwierzytelniania formularzy](../../../videos/authentication/how-to-change-the-forms-authentication-properties.md)
 - [Sposób instalacji i używania uwierzytelniania plików Cookie bez w aplikacji ASP.NET](../../../videos/authentication/how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
-- [Przeniesienie logowania formularze ASP](../../../videos/authentication/asp-forms-login-relocation.md)
-- [Konfiguracja niestandardowa klucza logowania formularzy](../../../videos/authentication/forms-login-custom-key-configuration.md)
-- [Dodaj niestandardowe dane do metody uwierzytelniania](../../../videos/authentication/add-custom-data-to-the-authentication-method.md)
-- [Obiekty Principal niestandardowych Użyj](../../../videos/authentication/use-custom-principal-objects.md)
+- [Relokacja logowania formularzy stron ASP](../../../videos/authentication/asp-forms-login-relocation.md)
+- [Konfiguracja niestandardowa kluczy logowania formularzy](../../../videos/authentication/forms-login-custom-key-configuration.md)
+- [Dodawanie niestandardowych danych do metody uwierzytelniania](../../../videos/authentication/add-custom-data-to-the-authentication-method.md)
+- [Używanie niestandardowych obiektów głównych](../../../videos/authentication/use-custom-principal-objects.md)
 
 ### <a name="about-the-author"></a>Informacje o autorze
 

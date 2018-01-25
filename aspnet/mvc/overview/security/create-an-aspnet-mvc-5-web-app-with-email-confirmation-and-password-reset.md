@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: e3d8ad6e00b7fcb95f1c9bbe556021269c1a0624
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5689031015279484cc616090a767a8c25eefa3c1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji sieci web platformy ASP.NET MVC 5 z dziennikiem, poczty e-mail resetowania hasła i potwierdzania (C#)
 ====================
@@ -38,9 +38,9 @@ Rozpocznij od instalowania i uruchamiania [programu Visual Studio Express 2013 f
 
 1. Utwórz nowy projekt sieci Web ASP.NET i wybierz szablon MVC. Formularze sieci Web obsługuje również tożsamości platformy ASP.NET, można wykonać podobne kroki w aplikacji formularzy sieci web.  
     ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image1.png)
-2. Pozostaw domyślne uwierzytelnianie jako **indywidualnych kont użytkowników**. Jeśli chcesz udostępniać aplikacji na platformie Azure, pozostaw zaznaczone pole wyboru. Później w samouczku będziemy zostanie wdrożona na platformie Azure. Możesz [otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+2. Pozostaw domyślne uwierzytelnianie jako **indywidualnych kont użytkowników**. Jeśli chcesz udostępniać aplikacji na platformie Azure, pozostaw zaznaczone pole wyboru. Później w samouczku będziemy zostanie wdrożona na platformie Azure. Możesz [otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 3. Ustaw [projektu do używania protokołu SSL](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
-4. Uruchom aplikację, kliknij przycisk **zarejestrować** i łącza do zarejestrowania użytkownika. W tym momencie jest tylko sprawdzanie poprawności w wiadomości e-mail z [[EmailAddress]](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) atrybutu.
+4. Uruchom aplikację, kliknij przycisk **zarejestrować** i łącza do zarejestrowania użytkownika. W tym momencie jest tylko sprawdzanie poprawności w wiadomości e-mail z [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) atrybutu.
 5. W Eksploratorze serwera, przejdź do **Connections\DefaultConnection\Tables\AspNetUsers danych**, kliknij prawym przyciskiem myszy i wybierz **Otwórz definicję tabeli**.
 
     Poniższy obraz przedstawia `AspNetUsers` schematu:
@@ -108,7 +108,7 @@ Utwórz `Views\Shared\Info.cshtml` i Dodaj następujący kod razor:
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample8.cshtml)]
 
-Dodaj [atrybutu autoryzacji](https://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.118).aspx) do `Contact` metody akcji kontrolera głównej. Możesz użyć kliknij na **skontaktuj się z** łącze, aby zweryfikować użytkownicy anonimowi nie mają dostępu oraz uwierzytelnieni użytkownicy mają dostęp.
+Dodaj [atrybutu autoryzacji](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx) do `Contact` metody akcji kontrolera głównej. Możesz użyć kliknij na **skontaktuj się z** łącze, aby zweryfikować użytkownicy anonimowi nie mają dostępu oraz uwierzytelnieni użytkownicy mają dostęp.
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample9.cs?highlight=1)]
 
@@ -129,7 +129,7 @@ Usuń znaki komentarza z `HttpPost ForgotPassword` metody akcji w kontrolerze ko
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample12.cs?highlight=17-20)]
 
-Usuń znaki komentarza z `ForgotPassword` [ActionLink](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.linkextensions.actionlink(v=vs.118).aspx) w *Views\Account\Login.cshtml* pliku widoku razor:
+Usuń znaki komentarza z `ForgotPassword` [ActionLink](https://msdn.microsoft.com/library/system.web.mvc.html.linkextensions.actionlink(v=vs.118).aspx) w *Views\Account\Login.cshtml* pliku widoku razor:
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample13.cshtml?highlight=47-50)]
 

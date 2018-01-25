@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 4f1ad959c45281cdd831c37c2e3ca428f3fae9a0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f1d15250682305f6d0512b72bd2e40cb4a8a18e5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-scaleout-in-signalr"></a>Wprowadzenie do skalowania w SignalR
 ====================
@@ -59,17 +59,17 @@ Biblioteka SignalR udostępnia obecnie trzy montażowych:
 - **Redis**. Redis jest magazyn kluczy i wartości w pamięci. Redis obsługuje wzorzec publikowania/subskrypcji ("pub/sub") do wysyłania wiadomości.
 - **Program SQL Server**. Środowiska IDE programu SQL Server zapisuje komunikaty do tabel SQL. Systemu backplane używa brokera usług dla wydajność obsługi wiadomości. Jednak działa także jeśli Service Broker jest wyłączona.
 
-Jeśli w przypadku wdrażania aplikacji na platformie Azure, należy rozważyć użycie przy użyciu płyty montażowej Redis [pamięć podręczna Redis Azure](https://azure.microsoft.com/en-us/services/cache/). Jeśli są wdrażane w farmie serwerów, należy wziąć pod uwagę program SQL Server lub montażowych Redis.
+Jeśli w przypadku wdrażania aplikacji na platformie Azure, należy rozważyć użycie przy użyciu płyty montażowej Redis [pamięć podręczna Redis Azure](https://azure.microsoft.com/services/cache/). Jeśli są wdrażane w farmie serwerów, należy wziąć pod uwagę program SQL Server lub montażowych Redis.
 
 Samouczki krok po kroku dla każdej płyty montażowej można znaleźć w następujących tematach:
 
-- [Skalowania SignalR z usługi Azure Service Bus](scaleout-with-windows-azure-service-bus.md)
-- [Skalowania SignalR z pamięci podręcznej Redis](scaleout-with-redis.md)
-- [Skalowania SignalR z programem SQL Server](scaleout-with-sql-server.md)
+- [SignalR — skalowanie w poziomie z użyciem usługi Azure Service Bus](scaleout-with-windows-azure-service-bus.md)
+- [SignalR — skalowanie w poziomie z użyciem pamięci podręcznej Redis](scaleout-with-redis.md)
+- [SignalR — skalowanie w poziomie z użyciem programu SQL Server](scaleout-with-sql-server.md)
 
 ## <a name="implementation"></a>Implementacja
 
-W bibliotece SignalR każdy komunikat jest wysyłany za pośrednictwem magistrali komunikatów. Implementuje magistrali komunikatów [IMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) interfejsu, która dostarcza abstrakcji publikowania/subskrypcji. Montażowych pracy przez zastąpienie domyślnie **IMessageBus** z magistralą przeznaczone dla tego systemu backplane. Na przykład jest magistrali komunikatu Redis [RedisMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx), i używa pamięci podręcznej Redis [pub/sub](http://redis.io/topics/pubsub) mechanizm do wysyłania i odbierania wiadomości.
+W bibliotece SignalR każdy komunikat jest wysyłany za pośrednictwem magistrali komunikatów. Implementuje magistrali komunikatów [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) interfejsu, która dostarcza abstrakcji publikowania/subskrypcji. Montażowych pracy przez zastąpienie domyślnie **IMessageBus** z magistralą przeznaczone dla tego systemu backplane. Na przykład jest magistrali komunikatu Redis [RedisMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx), i używa pamięci podręcznej Redis [pub/sub](http://redis.io/topics/pubsub) mechanizm do wysyłania i odbierania wiadomości.
 
 Każde wystąpienie serwera łączy do systemu backplane za pośrednictwem magistrali. Po wysłaniu komunikatu trafia do systemu backplane i wysyła go do każdego serwera systemu backplane. Gdy serwer pobiera wiadomość z systemu backplane, umieszcza ją w lokalnej pamięci podręcznej. Serwer następnie dostarcza klientom z lokalnej pamięci podręcznej.
 

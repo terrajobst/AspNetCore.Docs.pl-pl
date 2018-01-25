@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: e55efd644dd4b6fb57061ffb89a5c041136c7b5e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d767e1a9d27670387133e5a48a8f92f5bdd39d9e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unit-testing-signalr-applications"></a>Jednostka testowania aplikacji SignalR
 ====================
@@ -41,7 +41,7 @@ przez [Patrick Fletcher](https://github.com/pfletcher)
 <a id="unit"></a>
 ## <a name="unit-testing-signalr-applications"></a>Testy jednostkowe aplikacji SignalR
 
-Funkcje testu jednostki w SignalR 2 służy do tworzenia testów jednostkowych dla aplikacji SignalR. SignalR 2 zawiera [IHubCallerConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) interfejs, który może służyć do tworzenia obiektu zasymulować symulowanie testowanie metody koncentratora.
+Funkcje testu jednostki w SignalR 2 służy do tworzenia testów jednostkowych dla aplikacji SignalR. SignalR 2 zawiera [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) interfejs, który może służyć do tworzenia obiektu zasymulować symulowanie testowanie metody koncentratora.
 
 W tej sekcji dodasz testów jednostkowych dla aplikacji utworzonych w [Wprowadzenie — samouczek](../getting-started/tutorial-getting-started-with-signalr.md) przy użyciu [XUnit.net](https://github.com/xunit/xunit) i [Moq](https://github.com/Moq/moq4).
 
@@ -82,7 +82,7 @@ W tej sekcji dodasz testu jednostkowego dla aplikacji utworzonych w [Wprowadzeni
 
     [!code-csharp[Main](unit-testing-signalr-applications/samples/sample1.cs)]
 
-    W powyższym kodzie klienta testowego jest tworzony przy użyciu `Mock` obiekt z [Moq](https://github.com/Moq/moq4) biblioteki typu [IHubCallerConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (SignalR 2.1, przypisywanie `dynamic` dla typu Parametr). `IHubCallerConnectionContext` Interfejs jest obiekt serwera proxy, z którym wywołania metody na kliencie. `broadcastMessage` Funkcja następnie jest zdefiniowany dla zasymulować klienta, dzięki czemu może być wywoływany przez `ChatHub` klasy. Następnie wywołuje aparat testów `Send` metody `ChatHub` klasy, która z kolei wywołuje mocked `broadcastMessage` funkcji.
+    W powyższym kodzie klienta testowego jest tworzony przy użyciu `Mock` obiekt z [Moq](https://github.com/Moq/moq4) biblioteki typu [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (SignalR 2.1, przypisywanie `dynamic` dla typu Parametr). `IHubCallerConnectionContext` Interfejs jest obiekt serwera proxy, z którym wywołania metody na kliencie. `broadcastMessage` Funkcja następnie jest zdefiniowany dla zasymulować klienta, dzięki czemu może być wywoływany przez `ChatHub` klasy. Następnie wywołuje aparat testów `Send` metody `ChatHub` klasy, która z kolei wywołuje mocked `broadcastMessage` funkcji.
 9. Skompiluj rozwiązanie, naciskając klawisz **F6**.
 10. Uruchamianie testu jednostkowego. W programie Visual Studio, wybierz **testu**, **Windows**, **Eksploratora testów**. W oknie Eksploratora testów, kliknij prawym przyciskiem myszy **HubsAreMockableViaDynamic** i wybierz **Uruchom wybrane testy**.
 
@@ -101,7 +101,7 @@ W tej sekcji dodasz testu dla aplikacji utworzonych w [Wprowadzenie — samoucze
 
     [!code-csharp[Main](unit-testing-signalr-applications/samples/sample2.cs)]
 
-    W powyższym kodzie utworzono interfejs definiujący podpis `broadcastMessage` metody, dla której aparat testów utworzy zasymulować klienta. Zasymulować klienta jest tworzony przy użyciu `Mock` obiektu typu [IHubCallerConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (SignalR 2.1, przypisywanie `dynamic` dla parametru typu.) `IHubCallerConnectionContext` Interfejs jest obiekt serwera proxy, z którym wywołania metody na kliencie.
+    W powyższym kodzie utworzono interfejs definiujący podpis `broadcastMessage` metody, dla której aparat testów utworzy zasymulować klienta. Zasymulować klienta jest tworzony przy użyciu `Mock` obiektu typu [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (SignalR 2.1, przypisywanie `dynamic` dla parametru typu.) `IHubCallerConnectionContext` Interfejs jest obiekt serwera proxy, z którym wywołania metody na kliencie.
 
     Testu następnie tworzy wystąpienie `ChatHub`, a następnie tworzy wersję makiety `broadcastMessage` metodę, która z kolei jest wywoływany przez wywołanie metody `Send` metody koncentratora.
 3. Skompiluj rozwiązanie, naciskając klawisz **F6**.

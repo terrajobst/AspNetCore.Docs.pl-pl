@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: e6b49b9dde94cc7d035ea91b992a13df8cb8caf2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9f53ce11f1659aa3416fe4fbb94183c64ab0dab5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Włączanie żądań Cross-Origin (CORS)
 
@@ -160,7 +160,7 @@ Przeglądarki nie są całkowicie zgodne, w konfiguracji do programu Access-Cont
 
 ### <a name="set-the-exposed-response-headers"></a>Ustawianie nagłówków odpowiedzi narażonych
 
-Domyślnie przeglądarka nie ujawnia wszystkich nagłówków odpowiedzi do aplikacji. (See [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Nagłówki odpowiedzi, które są domyślnie dostępne są następujące:
+Domyślnie przeglądarka nie pokazuje wszystkie nagłówki odpowiedzi do aplikacji. (See [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Nagłówki odpowiedzi, które są domyślnie dostępne są następujące:
 
 * Cache-Control
 
@@ -207,7 +207,7 @@ Ponadto poświadczenia muszą zezwalać na serwerze. Aby umożliwić cross-origi
 
 Teraz odpowiedzi HTTP będzie zawierać nagłówka dostępu-formant-Allow-Credentials, który informuje przeglądarkę, że serwer umożliwia poświadczenia dla żądań cross-origin.
 
-Jeśli przeglądarka wysyła poświadczenia, ale odpowiedź nie zawiera prawidłowego nagłówka dostępu-formant-Allow-Credentials, przeglądarka nie powoduje to udostępnienie odpowiedzi do aplikacji i żądanie AJAX nie powiedzie się.
+Jeśli przeglądarka wysyła poświadczenia, ale odpowiedź nie zawiera prawidłowego nagłówka dostępu-formant-Allow-Credentials, przeglądarka nie uwidacznia odpowiedzi do aplikacji i żądanie AJAX nie powiedzie się.
 
 Należy zachować ostrożność bardzo stosowanie cross-origin poświadczeń, ponieważ oznacza to, że witryna sieci Web w innej domenie można wysłać poświadczeń zalogowanego użytkownika do aplikacji w imieniu użytkownika bez wiedzy użytkownika. CORS spec również stanów tego ustawienia źródeł do "*" (wszystkie pochodzenia) jest nieprawidłowy, jeśli jest obecny nagłówek dostępu-formant-Allow-Credentials.
 
@@ -252,7 +252,7 @@ Content-Length: 12
 Test message
 ```
 
-Odpowiedź nie zawiera nagłówka Access-Control-Allow-Origin, żądanie AJAX nie powiodło się. W szczególności przeglądarki nie zezwala na żądanie. Nawet wtedy, gdy serwer zwraca odpowiedź oznaczająca Powodzenie, przeglądarka nie udostępnia odpowiedzi aplikacji klienckiej.
+Jeżeli odpowiedź nie zawiera nagłówka Access-Control-Allow-Origin, żądanie AJAX nie powiedzie się. W szczególności przeglądarki nie zezwala na żądanie. Nawet wtedy, gdy serwer zwraca odpowiedź oznaczająca Powodzenie, przeglądarka nie udostępnia odpowiedzi aplikacji klienckiej.
 
 ### <a name="preflight-requests"></a>Żądania wstępnego
 
@@ -260,7 +260,7 @@ Dla niektórych żądań CORS przeglądarce wysyła żądanie dodatkowych, o naz
 
 * Metoda żądania jest GET, HEAD lub POST, a
 
-* Aplikacja nie określa żadnych nagłówków żądania innego niż Akceptuj, Accept-Language, Content-Language, Content-Type lub Last-zdarzenia-ID, a
+* Aplikacja nie zmienia żadnych nagłówków żądania innego niż Akceptuj, Accept-Language, Content-Language, Content-Type lub Last-zdarzenia-ID, a
 
 * Nagłówek Content-Type (Jeśli ustawiona) jest jednym z następujących czynności:
 
@@ -270,7 +270,7 @@ Dla niektórych żądań CORS przeglądarce wysyła żądanie dodatkowych, o naz
 
   * zwykły tekst
 
-Reguła o nagłówków żądań ma zastosowanie do nagłówki, które ustawia aplikacji przez wywołanie metody setRequestHeader obiektu XMLHttpRequest. (Specyfikacja CORS wywołuje te "Autor nagłówki żądania"). Reguła nie ma zastosowania do nagłówki, które można ustawić przeglądarki, takich jak Agent użytkownika, hosta lub Content-Length.
+Reguła o nagłówków żądań ma zastosowanie do nagłówki, które ustawia aplikacji przez wywołanie metody setRequestHeader obiektu XMLHttpRequest. (Specyfikacja CORS wywołuje te "Autor nagłówki żądania"). Reguła nie ma zastosowania do nagłówków, które można ustawić przeglądarki, takich jak Agent użytkownika, hosta lub Content-Length.
 
 Oto przykład żądania wstępnego:
 
@@ -290,7 +290,7 @@ Content-Length: 0
 
 * Access-Control-Request-Method: Metoda HTTP, która będzie służyć do rzeczywistego żądania.
 
-* Access-Control-Request-Headers: Lista nagłówków żądań, których aplikacja jest ustawiona na rzeczywistego żądania. (Ponownie, ta nie obejmuje nagłówki, które ustawia przeglądarki).
+* Access-Control-Request-Headers: Lista nagłówków żądań, których aplikacja jest ustawiona na rzeczywistego żądania. (Ponownie, to nie obejmuje nagłówki, które ustawia przeglądarki).
 
 Oto przykład odpowiedzi, przy założeniu, że serwer zezwala na żądanie:
 

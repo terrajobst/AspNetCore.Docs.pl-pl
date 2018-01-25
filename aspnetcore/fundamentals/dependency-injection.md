@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1da3d557c48921747634b08cedb518184fb5f963
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7a5a0991694b2c7caa79dbc09f6471d614f67dac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>Wprowadzenie do iniekcji zależności w platformy ASP.NET Core
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 01/19/2018
 
 Przez [Steve Smith](https://ardalis.com/) i [Scott Addie](https://scottaddie.com)
 
-Platformy ASP.NET Core zaprojektowano od podstaw w górę do obsługi i korzystać z iniekcji zależności. Platformy ASP.NET Core aplikacje mogą korzystać z usług wbudowana struktura, konfigurując je do metod w klasie uruchamiania, a także iniekcji można skonfigurować usługi aplikacji. Domyślny kontener usługi udostępniane przez platformy ASP.NET Core zawiera minimalne funkcji ustawiony i nie ma zastąpić inne kontenery.
+Platformy ASP.NET Core zaprojektowano od podstaw w górę do obsługi i korzystać z iniekcji zależności. Platformy ASP.NET Core aplikacje mogą korzystać z usług wbudowana struktura, konfigurując je do metod w klasie uruchamiania, a także iniekcji można skonfigurować usługi aplikacji. Domyślny kontener usługi udostępniane przez platformy ASP.NET Core zawiera minimalnego funkcji ustawiony i nie jest przeznaczony do zastąpić inne kontenery.
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
@@ -30,7 +30,7 @@ Platformy ASP.NET Core zaprojektowano od podstaw w górę do obsługi i korzysta
 
 Iniekcji zależności (Podpisane) to technika służące osiągnięciu luźne powiązanie między obiektów i ich współpracownicy lub zależności. Zamiast bezpośrednio uruchamianiu współpracownicy lub przy użyciu statycznych odwołań obiektów klasy wymaga, aby jego akcje są przekazywane do klasy, w dowolny sposób. W większości przypadków deklaracją klasy ich zależności za pomocą ich konstruktora, dzięki czemu mogą wykonać [jawne zależności zasady](http://deviq.com/explicit-dependencies-principle/). Takie podejście jest określany jako "iniekcji konstruktora".
 
-Gdy klasy zostały zaprojektowane z Podpisane pamiętać, są one bardziej luźno powiązane, ponieważ nie mają bezpośredniego, ustalony zależności w swoich współpracowników. Wynika to [zasady odwracanie zależności](http://deviq.com/dependency-inversion-principle/), które stwierdza, że *"wysokiego poziomu moduły nie należy uwzględniać na niskim poziomie modułów; powinien zależą od obiektów abstrakcyjnych".* Zamiast odwołania do określonej implementacji, klas żądania obiektów abstrakcyjnych (zazwyczaj `interfaces`) które są dostarczane do nich, gdy jest utworzony w klasie. Wyodrębnianie zależności do interfejsów i zapewnianie implementacje te interfejsy jako parametry jest również przykład [wzorzec projektowania strategii](http://deviq.com/strategy-design-pattern/).
+Gdy klasy zostały zaprojektowane z Podpisane pamiętać, są one więcej luźno powiązane ponieważ nie mają bezpośredniego, ustalony zależności w swoich współpracowników. Wynika to [zasady odwracanie zależności](http://deviq.com/dependency-inversion-principle/), które stwierdza, że *"wysokiego poziomu moduły nie są zależne od niskiego poziomu modułów; powinien zależą od obiektów abstrakcyjnych".* Zamiast odwołania do określonej implementacji, klas żądania obiektów abstrakcyjnych (zazwyczaj `interfaces`) które są dostarczane do nich, gdy jest utworzony w klasie. Wyodrębnianie zależności do interfejsów i zapewnianie implementacje te interfejsy jako parametry jest również przykład [wzorzec projektowania strategii](http://deviq.com/strategy-design-pattern/).
 
 Gdy system jest przeznaczony do użycia Podpisane, z wielu klas żąda ich zależności za pośrednictwem ich konstruktora (lub właściwości), warto mieć klasy dedykowane do tworzenia tych klas z ich skojarzone zależności. Tych klas są określane jako *kontenery*, lub w szczególności [Inwersja kontroli (IoC)](http://deviq.com/inversion-of-control/) kontenery lub zależności Iniekcja kontenerów. Kontener jest zasadniczo fabrykę, który jest odpowiedzialny za zapewnienie wystąpienia typów, których wymagane są od niego. Podany typ został zadeklarowany, zawiera on zależności, czy kontener został skonfigurowany, aby zapewnić typów zależności, utworzy zależności w ramach tworzenia żądanego wystąpienia. W ten sposób można podać wykresy złożonych zależności do klasy bez konieczności stosowania żadnych konstrukcji obiektów ustalony. Oprócz tworzenia obiektów z ich zależności, kontenery Zarządzanie zwykle okresy istnienia obiektu w aplikacji.
 
@@ -112,7 +112,7 @@ Usługi aplikacji można zarejestrować w następujący sposób. Pierwszy ogóln
 
 `AddTransient` Metoda służy do mapowania typów abstrakcyjnych do konkretnych usług, które są tworzone oddzielnie dla każdego obiektu, który wymaga. Jest to nazywane usługi *okres istnienia*, a okres istnienia dodatkowe opcje zostały opisane poniżej. Należy wybrać odpowiedni istnienia dla każdej usługi, które należy zarejestrować. Należy podać nowe wystąpienie usługi do każdej klasy, która zażąda tego? Należy użyć jednego wystąpienia w całym żądania sieci web danego? Czy należy używać pojedynczego wystąpienia dla okresu istnienia aplikacji?
 
-W przykładowym tego artykułu jest proste kontroler, który wyświetla znak nazwy, o nazwie `CharactersController`. Jego `Index` metoda Wyświetla bieżącą listę znaków, które były przechowywane w aplikacji i inicjuje połączenie z kilku znaków, jeśli nie ma żadnego. Należy pamiętać, że chociaż Entity Framework Core korzysta z tej aplikacji i `ApplicationDbContext` klasy jego trwałości, żaden z który nie jest widoczna w kontrolerze. Zamiast tego mechanizmu dostępu określonych danych ma zostały usunięte za interfejsu `ICharacterRepository`, który następuje [wzorca repozytorium](http://deviq.com/repository-pattern/). Wystąpienie `ICharacterRepository` za pośrednictwem konstruktora i ma przypisaną do prywatnego pola, które są następnie używane do dostęp do znaków w razie potrzeby.
+W przykładowym tego artykułu jest proste kontroler, który wyświetla znak nazwy, o nazwie `CharactersController`. Jego `Index` metoda Wyświetla bieżącą listę znaków, które były przechowywane w aplikacji i inicjuje połączenie z kilku znaków, jeśli nie ma żadnego. Należy pamiętać, że chociaż Entity Framework Core korzysta z tej aplikacji i `ApplicationDbContext` klasy jego trwałości, żaden z jest widoczna w kontrolerze. Zamiast tego mechanizmu dostępu określonych danych ma zostały usunięte za interfejsu `ICharacterRepository`, który następuje [wzorca repozytorium](http://deviq.com/repository-pattern/). Wystąpienie `ICharacterRepository` za pośrednictwem konstruktora i ma przypisaną do prywatnego pola, które są następnie używane do dostęp do znaków w razie potrzeby.
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
 
@@ -120,7 +120,7 @@ W przykładowym tego artykułu jest proste kontroler, który wyświetla znak naz
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
 
-Ten interfejs z kolei jest implementowany przez typem konkretnym `CharacterRepository`, która jest używana w czasie wykonywania.
+Ten interfejs z kolei jest implementowany przez typem konkretnym `CharacterRepository`, który jest używany w czasie wykonywania.
 
 > [!NOTE]
 > Sposób Podpisane jest używany z `CharacterRepository` klasy jest ogólny model można wykonać dla wszystkich usług aplikacji, nie tylko w "repozytoria" lub klas dostępu do danych.
@@ -149,7 +149,7 @@ Usługi ASP.NET można skonfigurować za pomocą następujących okresów:
 
 **Przejściowy**
 
-Przejściowa istnienia usług są tworzone za każdym razem, żądania. Ten okres istnienia jest najlepsza dla lekkich usług bezstanowych.
+Przejściowa istnienia usług są tworzone zawsze, gdy są one wymagane. Ten okres istnienia jest najlepsza dla lekkich usług bezstanowych.
 
 **Zakres**
 
@@ -157,7 +157,7 @@ Okres istnienia w zakresie usług są tworzone raz na każde żądanie.
 
 **Pojedyncze**
 
-Pojedyncze okres istnienia usług są tworzone po raz pierwszy żądania (lub gdy `ConfigureServices` jest uruchamiany, jeśli określone wystąpienie) i wszystkie kolejne żądania będą następnie używa tego samego wystąpienia. Jeśli aplikacja wymaga zachowania singleton, umożliwiając kontener usług do zarządzania istnienia usługi jest zalecane zamiast wzorca projektowego singleton wdrażanie i zarządzanie nim okres istnienia z obiektów w klasie samodzielnie.
+Pojedyncze okres istnienia usług są tworzone po raz pierwszy jest żądanej (lub gdy `ConfigureServices` jest uruchamiany, jeśli określone wystąpienie) i wszystkie kolejne żądania będą następnie używa tego samego wystąpienia. Jeśli aplikacja wymaga zachowania singleton, umożliwiając kontener usług do zarządzania istnienia usługi jest zalecane zamiast wzorca projektowego singleton wdrażanie i zarządzanie nim okres istnienia z obiektów w klasie samodzielnie.
 
 Usługi mogą być rejestrowane w kontenerze na kilka sposobów. Już widzieliśmy rejestrowania implementacji usługi z danym typem przez określenie konkretnego typu do użycia. Ponadto fabrykę można określić, który zostanie następnie użyte do utworzenia wystąpienia na żądanie. Trzeci podejście jest bezpośrednio określić wystąpienie typu do użycia, w którego przypadku kontenera nigdy nie będzie podejmować próby utworzenia wystąpienia (ani będzie dysponować wystąpienia).
 
@@ -237,14 +237,14 @@ public void ConfigureServices(IServiceCollection services)
     services.AddSingleton<Service2>();
     services.AddSingleton<ISomeService>(sp => new SomeServiceImplementation());
 
-    // container did not create instance so it will NOT dispose it
+    // container didn't create instance so it will NOT dispose it
     services.AddSingleton<Service3>(new Service3());
     services.AddSingleton(new Service3());
 }
 ```
 
 > [!NOTE]
-> W wersji 1.0 kontenera wywołano metodę dispose *wszystkie* `IDisposable` obiektów, w tym te, nie może utworzyć.
+> W wersji 1.0 kontenera wywołano metodę dispose *wszystkie* `IDisposable` obiektów, w tym te nie zostały utworzone.
 
 ## <a name="replacing-the-default-services-container"></a>Zastępowanie domyślnego kontenera usług
 

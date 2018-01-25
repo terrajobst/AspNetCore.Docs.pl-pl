@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 4dd10430778dc51fef1199315ee02eb2cd4970ba
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 925d659f42496045089ba056e194ac977c37a8de
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Pomocników platformy ASP.NET MVC 4, formularzy i sprawdzania poprawności
 ====================
@@ -36,7 +36,7 @@ przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > 
 > W tym laboratorium przeprowadzi Cię przez rozszerzenia oraz nowe funkcje opisane wcześniej przez zastosowanie drobne zmiany do przykładowej aplikacji sieci Web w folderze źródłowym.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 <a id="Objectives"></a>
@@ -89,7 +89,7 @@ Następujące ćwiczeń tworzą tego laboratorium Hands-On:
 3. [Tworzenie widoku edycji](#Exercise3)
 4. [Dodawanie widoku Create](#Exercise4)
 5. [Obsługa usuwania](#Exercise5)
-6. [Dodawanie walidacji](#Exercise6)
+6. [Dodawanie weryfikacji](#Exercise6)
 7. [Przy użyciu jQuery dyskretny kod po stronie klienta](#Exercise7)
 
 > [!NOTE]
@@ -228,7 +228,7 @@ Na poniższej ilustracji widać, jak zmienić format ze względu na długość t
 To zadanie spowoduje dodanie nowej metody **Truncate** do **HTML** obiektu w widoków MVC ASP.NET. Aby to zrobić, zostaną zaimplementowane **— metoda rozszerzenia** do wbudowanej **System.Web.Mvc.HtmlHelper** klasy przez platformę ASP.NET MVC.
 
 > [!NOTE]
-> Aby dowiedzieć się więcej o **metody rozszerzenia**, odwiedź ten artykuł w witrynie msdn. [https://msdn.microsoft.com/en-us/library/bb383977.aspx](https://msdn.microsoft.com/en-us/library/bb383977.aspx).
+> Aby dowiedzieć się więcej o **metody rozszerzenia**, odwiedź ten artykuł w witrynie msdn. [https://msdn.microsoft.com/library/bb383977.aspx](https://msdn.microsoft.com/library/bb383977.aspx).
 
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się na **źródło/Ex2-AddingAnHTMLHelper/Begin/** folderu. W przeciwnym razie możesz nadal korzystać **zakończenia** uzyskane rozwiązanie, wykonując poprzednim ćwiczeniu.
@@ -745,11 +745,11 @@ W tym zadaniu zostanie sprawdzić, czy **StoreManager** utworzyć widok szablonu
     > Dla każdej reguły weryfikacji klienta jQuery dyskretny kod dodaje atrybut z danymi-val -*rulename*=&quot;*komunikat*&quot;. Poniżej znajduje się lista znaczników tej Unobtrusive jQuery wstawia do pola wejściowego html do sprawdzania poprawności klienta:
     > 
     > - Val danych
-    > - Dane val numerów
+    > - Data-val-number
     > - Zakres danych val
     > - Dane val zakresu min / danych val zakresu max.
     > - Wymagane wartości danych
-    > - Długość danych val
+    > - Data-val-length
     > - Dane val długość max / danych val długość min
     > 
     > Wszystkie wartości są wypełniane modelu **adnotacji danych elementu**. Następnie całą logikę, która działa po stronie serwera może działać po stronie klienta. Na przykład atrybut cen ma następujące adnotacji danych w modelu:

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: f244e6bd1cd8abd23b64d07ccafcef5c4db1029b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e3ce68b949199db35c18a09771d99d38562b74e9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kontroli źródła (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -137,9 +137,9 @@ Wszystkie środowiska kontroli źródła służy do wdrożenia struktura rozgał
 
 [Git](http://git-scm.com/) jest DVCS, który jest stała się bardzo popularna. Korzystając z programu Git do kontroli źródła, masz pełną kopię repozytorium i wszystkie jego historii na komputerze lokalnym. Wiele osób preferowane czy ponieważ łatwiej aby kontynuować pracę, gdy nie masz połączenia z siecią — może być nadal wykonywać zatwierdza i wycofywanie zmian, Utwórz i przełączania gałęzi i tak dalej. Nawet wtedy, gdy masz połączenie z siecią, jest łatwiejsze i szybsze tworzenie gałęzi i przełączania gałęzi, gdy wszystko jest lokalny. Można także utworzyć lokalnego zatwierdzeniami i wycofań bez mających wpływ na inne deweloperów. I wsadowego zatwierdzeń przed ich wysłaniem do serwera.
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), wcześniej znana jako Team Foundation Service oferuje zarówno Git i [Team Foundation Version Control](https://msdn.microsoft.com/en-us/library/ms181237(v=vs.120).aspx) (TFVC; scentralizowane kontroli źródła). Tutaj w firmie Microsoft w grupie Azure niektóre zespoły użyć scentralizowane kontroli wersji, niektóre Użyj dystrybucji, a w niektórych mieszanego (scentralizowane dla niektórych projektów i dystrybuowane do innych projektów). Usługi VSO jest bezpłatna dla użytkowników do 5. Możesz utworzyć konto dla planu free [tutaj](https://go.microsoft.com/fwlink/?LinkId=307137).
+[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), wcześniej znana jako Team Foundation Service oferuje zarówno Git i [Team Foundation Version Control](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; scentralizowane kontroli źródła). Tutaj w firmie Microsoft w grupie Azure niektóre zespoły użyć scentralizowane kontroli wersji, niektóre Użyj dystrybucji, a w niektórych mieszanego (scentralizowane dla niektórych projektów i dystrybuowane do innych projektów). Usługi VSO jest bezpłatna dla użytkowników do 5. Możesz utworzyć konto dla planu free [tutaj](https://go.microsoft.com/fwlink/?LinkId=307137).
 
-Visual Studio 2013 obejmuje wbudowane najwyższej jakości [obsługi systemu Git](https://msdn.microsoft.com/en-us/library/hh850437.aspx); poniżej przedstawiono krótkie pokaz jak to zrobić.
+Visual Studio 2013 obejmuje wbudowane najwyższej jakości [obsługi systemu Git](https://msdn.microsoft.com/library/hh850437.aspx); poniżej przedstawiono krótkie pokaz jak to zrobić.
 
 Z projektem Otwórz w programie Visual Studio 2013, kliknij prawym przyciskiem myszy rozwiązanie w **Eksploratora rozwiązań**i wybierz polecenie **Dodaj rozwiązanie do kontroli źródła**.
 
@@ -187,7 +187,7 @@ Po przełączeniu do poziomu głównego gałęzi, zawartość  *\_Layout.cshtml*
 
 Ten prosty przykład jak szybko utwórz gałąź i przerzucanie i z powrotem między gałęzi. Ta funkcja umożliwia bardzo elastyczne przepływu pracy przy użyciu struktury gałęzi i skryptów automatyzacji przedstawionych w [zautomatyzować wszystko](automate-everything.md) działu. Na przykład może być Praca w gałęzi programowanie, utwórz gałąź poprawki poza głównym, przejdź do nowej gałęzi, wprowadź zmiany i zatwierdzić je i następnie przełączyć z powrotem do gałęzi programowanie i kontynuować działania.
 
-Opisane w tym miejscu jest sposób pracy z lokalnego repozytorium Git w programie Visual Studio. W środowisku zespołu można zwykle również Wypchnij zmiany do wspólnego repozytorium. Narzędzia Visual Studio umożliwiają również wskaż zdalnego repozytorium Git. Służy do tego celu witryną GitHub.com lub skorzystać z [Git w Visual Studio Online](https://msdn.microsoft.com/en-us/library/hh850437.aspx) zintegrowany z wszystkie inne Visual Studio Online funkcje takie jak elementu roboczego i śledzenia błędów.
+Opisane w tym miejscu jest sposób pracy z lokalnego repozytorium Git w programie Visual Studio. W środowisku zespołu można zwykle również Wypchnij zmiany do wspólnego repozytorium. Narzędzia Visual Studio umożliwiają również wskaż zdalnego repozytorium Git. Służy do tego celu witryną GitHub.com lub skorzystać z [Git w Visual Studio Online](https://msdn.microsoft.com/library/hh850437.aspx) zintegrowany z wszystkie inne Visual Studio Online funkcje takie jak elementu roboczego i śledzenia błędów.
 
 Nie jest to jedyny sposób można zaimplementować strategię rozgałęziania agile oczywiście. Można włączyć tego samego przepływu pracy agile, przy użyciu repozytorium kontroli źródła scentralizowane.
 
@@ -202,14 +202,14 @@ Zmierzenie powodzenia system kontroli źródła na podstawie jak szybko zmiany i
 
 Aby uzyskać więcej informacji na temat TFVC (kontrola wersji scentralizowane) i Git (kontrola wersji rozproszonej) zobacz następujące zasoby:
 
-- [System kontroli wersji, które powinny używać: TFVC lub Git?](https://msdn.microsoft.com/en-us/library/vstudio/ms181368.aspx#tfvc_or_git_summary) Dokumentacji MSDN zawiera tabelę podsumowania różnice między TFVC i Git.
+- [System kontroli wersji, które powinny używać: TFVC lub Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) Dokumentacji MSDN zawiera tabelę podsumowania różnice między TFVC i Git.
 - [Również podoba Team Foundation Server i podoba Git, ale który jest lepszym rozwiązaniem?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Porównanie Git i TFVC.
 
 Aby uzyskać więcej informacji na temat strategii rozgałęziania zobacz następujące zasoby:
 
-- [Tworzenie potoku wersji z Team Foundation Server 2012](https://msdn.microsoft.com/en-us/library/dn449957.aspx). Dokumentacja firmy Microsoft Patterns and Practices. Zobacz rozdział 6 Omówienie strategii rozgałęziania. Funkcja obronie przełącza za pośrednictwem funkcji gałęzie i użycie gałęzi dla funkcji zaleca zachować ich krótkim okresie (godzin lub dni co najwyżej).
+- [Tworzenie potoku wersji z Team Foundation Server 2012](https://msdn.microsoft.com/library/dn449957.aspx). Dokumentacja firmy Microsoft Patterns and Practices. Zobacz rozdział 6 Omówienie strategii rozgałęziania. Funkcja obronie przełącza za pośrednictwem funkcji gałęzie i użycie gałęzi dla funkcji zaleca zachować ich krótkim okresie (godzin lub dni co najwyżej).
 - [Kontrola wersji — przewodnik](https://aka.ms/vsarsolutions). Przewodnik po rozgałęziania strategii przez ALM Rangers. Na karcie pliki do pobrania, zobacz Strategies.pdf rozgałęziania.
-- [Tworzenie oprogramowania z Włącza lub wyłącza funkcję](https://msdn.microsoft.com/en-us/magazine/dn683796.aspx). Artykuł MSDN Magazine.
+- [Tworzenie oprogramowania z Włącza lub wyłącza funkcję](https://msdn.microsoft.com/magazine/dn683796.aspx). Artykuł MSDN Magazine.
 - [Funkcja przełączania](http://martinfowler.com/bliki/FeatureToggle.html). Wprowadzenie do funkcji przełącza / funkcja flagi na blogu Fowler pole.
 - [Funkcja przełącza vs gałęzie funkcji](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Inny wpis w blogu o Włącza lub wyłącza funkcję, przez Dylan Smith.
 

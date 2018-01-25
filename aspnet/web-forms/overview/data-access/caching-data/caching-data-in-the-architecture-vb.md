@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f1d94045236cc8e1b12839ced4de1258466a626e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1aca89b022bb3bb7e4154ab575b5bb5513144cd5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-in-the-architecture-vb"></a>Buforowanie danych w architekturze (VB)
 ====================
@@ -62,7 +62,7 @@ ObjectDataSource przedstawione w powyższej samouczek wewnętrznie funkcji bufor
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample1.vb)]
 
-[ `Cache` Klasy](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.aspx) s [ `Insert` metody](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.insert.aspx) ma kilka przeciążeń. `Cache("key") = value`i `Cache.Insert(key, value)` to samo i zarówno dodania elementu do pamięci podręcznej przy użyciu określonego klucza bez zdefiniowanego wygaśnięcia. Zazwyczaj chcemy Określ wygaśnięcia podczas dodawania elementu do pamięci podręcznej, zarówno jako zależność i/lub na podstawie czasu wygaśnięcia. Użyj jednego z innych `Insert` przeciążenia metody s, aby podać informacje na podstawie zależności lub czasu wygaśnięcia.
+[ `Cache` Klasy](https://msdn.microsoft.com/library/system.web.caching.cache.aspx) s [ `Insert` metody](https://msdn.microsoft.com/library/system.web.caching.cache.insert.aspx) ma kilka przeciążeń. `Cache("key") = value`i `Cache.Insert(key, value)` to samo i zarówno dodania elementu do pamięci podręcznej przy użyciu określonego klucza bez zdefiniowanego wygaśnięcia. Zazwyczaj chcemy Określ wygaśnięcia podczas dodawania elementu do pamięci podręcznej, zarówno jako zależność i/lub na podstawie czasu wygaśnięcia. Użyj jednego z innych `Insert` przeciążenia metody s, aby podać informacje na podstawie zależności lub czasu wygaśnięcia.
 
 Buforowanie warstwy s metody, należy najpierw sprawdź, czy żądane dane są w pamięci podręcznej, a jeśli tak, przywrócić go stamtąd. Jeśli żądanych danych nie jest w pamięci podręcznej, musi być wywoływane odpowiedniej metody logiki warstwy Biznesowej. Jego wartość zwrotna, należy w pamięci podręcznej i zwracany, jak pokazano na poniższym diagramie sekwencji.
 
@@ -90,7 +90,7 @@ Różnica w drugą fragment niepoprawny kod jest to, że zamiast odwołania do e
 > Pamięć podręczna danych jest bezpieczne wątkowo, dzięki czemu nie trzeba synchronizujący dostęp wątku dla prostego odczytów i zapisów. Jednak jeśli zachodzi potrzeba wykonania wielu operacji na danych w pamięci podręcznej, które muszą być atomic, jest odpowiedzialny za wdrażanie blokady lub innych mechanizmu w celu zapewnienia bezpieczeństwa wątków. Zobacz [synchronizowanie dostęp do pamięci podręcznej programu ASP.NET](http://www.ddj.com/184406369) Aby uzyskać więcej informacji.
 
 
-Element może zostać wykluczony programowo z pamięci podręcznej danych przy użyciu [ `Remove` metody](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.remove.aspx) w następujący sposób:
+Element może zostać wykluczony programowo z pamięci podręcznej danych przy użyciu [ `Remove` metody](https://msdn.microsoft.com/library/system.web.caching.cache.remove.aspx) w następujący sposób:
 
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample4.vb)]
@@ -115,10 +115,10 @@ W `GetProducts()` i `GetProductsByCategoryID(categoryID)` metody, dane zwrócone
 
 `GetCacheItem(key)`nie używa *klucza* wartość jak podany, ale zamiast tego wywołania `GetCacheKey(key)` metody, która zwraca *klucza* poprzedzony przez ProductsCache —. `MasterCacheKeyArray`, Które zawiera ciąg ProductsCache, jest już używana przez `AddCacheItem(key, value)` metody, ponieważ zajmiemy się na chwilę.
 
-Z kodem klasę strony ASP.NET pamięci podręcznej danych jest możliwy za pomocą `Page` klasy s [ `Cache` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.page.cache.aspx)i umożliwia składnię `Cache("key") = value`, zgodnie z opisem w kroku 2. Po klasie w architekturze pamięci podręcznej danych jest możliwy za pomocą `HttpRuntime.Cache` lub `HttpContext.Current.Cache`. [Peterowi Johnson](https://weblogs.asp.net/pjohnson/default.aspx)jego wpis w blogu [HttpRuntime.Cache vs. HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache) uwagi dotyczące wydajności nieznaczne zaletą używania `HttpRuntime` zamiast `HttpContext.Current`; w rezultacie `ProductsCL` używa `HttpRuntime`.
+Z kodem klasę strony ASP.NET pamięci podręcznej danych jest możliwy za pomocą `Page` klasy s [ `Cache` właściwości](https://msdn.microsoft.com/library/system.web.ui.page.cache.aspx)i umożliwia składnię `Cache("key") = value`, zgodnie z opisem w kroku 2. Po klasie w architekturze pamięci podręcznej danych jest możliwy za pomocą `HttpRuntime.Cache` lub `HttpContext.Current.Cache`. [Peterowi Johnson](https://weblogs.asp.net/pjohnson/default.aspx)jego wpis w blogu [HttpRuntime.Cache vs. HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache) uwagi dotyczące wydajności nieznaczne zaletą używania `HttpRuntime` zamiast `HttpContext.Current`; w rezultacie `ProductsCL` używa `HttpRuntime`.
 
 > [!NOTE]
-> Jeśli architektury jest implementowane za pomocą projektów biblioteki klas, musisz dodać odwołanie do `System.Web` zestawu, aby można było używać [ `HttpRuntime` ](https://msdn.microsoft.com/en-us/library/system.web.httpruntime.aspx) i [ `HttpContext` ](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx) klasy.
+> Jeśli architektury jest implementowane za pomocą projektów biblioteki klas, musisz dodać odwołanie do `System.Web` zestawu, aby można było używać [ `HttpRuntime` ](https://msdn.microsoft.com/library/system.web.httpruntime.aspx) i [ `HttpContext` ](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) klasy.
 
 
 Jeśli element nie zostanie znaleziony w pamięci podręcznej, `ProductsCL` metod klasy s pobrać danych z logiki warstwy Biznesowej i dodaj go do pamięci podręcznej przy użyciu `AddCacheItem(key, value)` metody. Aby dodać *wartość* do pamięci podręcznej możemy użyć następujący kod, który używa upływie 60 sekund:
@@ -126,7 +126,7 @@ Jeśli element nie zostanie znaleziony w pamięci podręcznej, `ProductsCL` meto
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample7.vb)]
 
-`DateTime.Now.AddSeconds(CacheDuration)`Określa okres ważności na podstawie czasu 60 sekund w przyszłości podczas [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) wskazuje s, ponieważ nie wygasanie przewijania. Podczas to `Insert` przeciążenie metody ma wejściowych parametry dla obu bezwzględnym i przedłużanie ważności, możesz udostępniać jedno z nich. Jeśli spróbujesz określić bezwzględny czas i przedział czasu, `Insert` metoda zgłosi `ArgumentException` wyjątku.
+`DateTime.Now.AddSeconds(CacheDuration)`Określa okres ważności na podstawie czasu 60 sekund w przyszłości podczas [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) wskazuje s, ponieważ nie wygasanie przewijania. Podczas to `Insert` przeciążenie metody ma wejściowych parametry dla obu bezwzględnym i przedłużanie ważności, możesz udostępniać jedno z nich. Jeśli spróbujesz określić bezwzględny czas i przedział czasu, `Insert` metoda zgłosi `ArgumentException` wyjątku.
 
 > [!NOTE]
 > Ta implementacja `AddCacheItem(key, value)` metoda ma obecnie niektóre nieprawidłowości. Firma Microsoft będzie adresu i rozwiązać te problemy w kroku 4.
@@ -150,7 +150,7 @@ Aktualizacja Let s `AddCacheItem(key, value)` — metoda poszczególnych element
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample9.vb)]
 
-`MasterCacheKeyArray`jest tablicą ciągów, który zawiera pojedynczą wartość ProductsCache. Po pierwsze element pamięci podręcznej zostanie dodany do pamięci podręcznej i przypisane do bieżącej daty i godziny. Jeśli istnieje już element pamięci podręcznej, jest aktualizowana. Następnie jest tworzony zależności pamięci podręcznej. [ `CacheDependency` Klasy](https://msdn.microsoft.com/en-US/library/system.web.caching.cachedependency(VS.80).aspx) s Konstruktor ma kilka przeciążeń, ale używaną w tym miejscu oczekuje dwóch `String` tablicy danych wejściowych. Pierwsza z nich określa zestaw plików, które mają być używane jako zależności. Ponieważ firma Microsoft ADAM Chcę używać zależności opartych na plikach, wartość `Nothing` służy do pierwszego parametru wejściowego. Drugi parametr wejściowy określa zestaw kluczy pamięci podręcznej do użycia jako zależności. W tym miejscu możemy określić naszego jednego zależności `MasterCacheKeyArray`. `CacheDependency` Są następnie przekazywane do `Insert` metody.
+`MasterCacheKeyArray`jest tablicą ciągów, który zawiera pojedynczą wartość ProductsCache. Po pierwsze element pamięci podręcznej zostanie dodany do pamięci podręcznej i przypisane do bieżącej daty i godziny. Jeśli istnieje już element pamięci podręcznej, jest aktualizowana. Następnie jest tworzony zależności pamięci podręcznej. [ `CacheDependency` Klasy](https://msdn.microsoft.com/library/system.web.caching.cachedependency(VS.80).aspx) s Konstruktor ma kilka przeciążeń, ale używaną w tym miejscu oczekuje dwóch `String` tablicy danych wejściowych. Pierwsza z nich określa zestaw plików, które mają być używane jako zależności. Ponieważ firma Microsoft ADAM Chcę używać zależności opartych na plikach, wartość `Nothing` służy do pierwszego parametru wejściowego. Drugi parametr wejściowy określa zestaw kluczy pamięci podręcznej do użycia jako zależności. W tym miejscu możemy określić naszego jednego zależności `MasterCacheKeyArray`. `CacheDependency` Są następnie przekazywane do `Insert` metody.
 
 Z tym modyfikację `AddCacheItem(key, value)`, invaliding pamięci podręcznej jest tak proste, jak usunięcie zależności.
 

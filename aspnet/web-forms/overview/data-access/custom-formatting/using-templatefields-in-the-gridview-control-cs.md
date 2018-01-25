@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4202f25b241a6ca115c1ffc0a80258ee96563f72
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 004f1450937cc6543cb728e01586e3c3529a57d0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-templatefields-in-the-gridview-control-c"></a>Używanie TemplateFields w kontrolce GridView (C#)
 ====================
@@ -158,7 +158,7 @@ Aby ukończyć ten krok pierwszy, Usuń `LastName` elementu BoundField i zmiana 
 
 ## <a name="step-3-using-the-calendar-control-to-display-thehireddatefield"></a>Krok 3: Za pomocą formantu kalendarza wyświetlania`HiredDate`pola
 
-Wyświetlanie wartości pola danych jako tekst w widoku GridView jest tak proste, jak użyć elementu BoundField. W niektórych scenariuszach jednak danych jest najlepiej wyrazić przy użyciu określonego formantu sieci Web zamiast tylko tekst. Takie dostosowania wyświetlania danych jest możliwe za pomocą TemplateFields. Na przykład zamiast niż wyświetlić datę zatrudnienia pracownika jako tekst, firma Microsoft może pokazać kalendarza (przy użyciu [formant kalendarza](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar(VS.80).aspx)) z ich data zatrudnienia wyróżnione.
+Wyświetlanie wartości pola danych jako tekst w widoku GridView jest tak proste, jak użyć elementu BoundField. W niektórych scenariuszach jednak danych jest najlepiej wyrazić przy użyciu określonego formantu sieci Web zamiast tylko tekst. Takie dostosowania wyświetlania danych jest możliwe za pomocą TemplateFields. Na przykład zamiast niż wyświetlić datę zatrudnienia pracownika jako tekst, firma Microsoft może pokazać kalendarza (przy użyciu [formant kalendarza](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar(VS.80).aspx)) z ich data zatrudnienia wyróżnione.
 
 W tym celu uruchom konwertując `HiredDate` elementu BoundField na pole TemplateField. Po prostu przejdź do widoku GridView tagów inteligentnych i kliknij łącze edycji kolumn otworzeniem okna dialogowego pól. Wybierz `HiredDate` elementu BoundField i kliknij przycisk "Konwertuj to pole na pole TemplateField."
 
@@ -178,7 +178,7 @@ Aby zastąpić tekst formantu kalendarza, edytowanie szablonu, usuwając etykiet
 **Rysunek 12**: Dodawanie formantu kalendarza `HireDate` na pole TemplateField `ItemTemplate` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-templatefields-in-the-gridview-control-cs/_static/image36.png))
 
 
-W tym momencie każdego wiersza w widoku GridView będzie zawierać formant kalendarza w jego `HiredDate` TemplateField. Jednak rzeczywista przez pracownika `HiredDate` nie określono wartości dowolne miejsce w formancie kalendarza, powodując każdego formantu kalendarza domyślnie wyświetla bieżącego miesiąca oraz daty. Aby rozwiązać ten problem, należy przypisać każdego pracownika `HiredDate` do formantu kalendarza [SelectedDate](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx) i [VisibleDate](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx) właściwości.
+W tym momencie każdego wiersza w widoku GridView będzie zawierać formant kalendarza w jego `HiredDate` TemplateField. Jednak rzeczywista przez pracownika `HiredDate` nie określono wartości dowolne miejsce w formancie kalendarza, powodując każdego formantu kalendarza domyślnie wyświetla bieżącego miesiąca oraz daty. Aby rozwiązać ten problem, należy przypisać każdego pracownika `HiredDate` do formantu kalendarza [SelectedDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx) i [VisibleDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx) właściwości.
 
 Tag inteligentny formant kalendarza wybierz Edytuj powiązania danych. Następnie powiązać zarówno `SelectedDate` i `VisibleDate` właściwości `HiredDate` pola danych.
 

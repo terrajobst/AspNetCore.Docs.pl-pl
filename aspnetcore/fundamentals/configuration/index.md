@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: c4f57d1e02ad5f4e235039999af9df9d236756a7
-ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
+ms.openlocfilehash: f8847a70b24a2f25ff2e73a5cb2244d62c4f4c29
+ms.sourcegitcommit: 83b5a4715fd25e4eb6f7c8427c0ef03850a7fa07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Konfigurowanie aplikacji platformy ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Michaelis znak](http://intellitect.com/author/mark-michaelis/), [Steve Smith](https://ardalis.com/), [Roth Danielowi](https://github.com/danroth27), i [Luke Latham](https://github.com/guardrex)
 
-Interfejs API konfiguracji umożliwia konfigurowanie platformy ASP.NET Core aplikacji sieci web na podstawie listy par nazwa wartość. Konfiguracja jest do odczytu w czasie wykonywania z wielu źródeł. Te pary nazwa wartość można grupować w wielopoziomowej hierarchii.
+Interfejs API konfiguracji umożliwia konfigurowanie platformy ASP.NET Core aplikacji sieci web na podstawie listy par nazwa wartość. Konfiguracja jest do odczytu w czasie wykonywania z wielu źródeł. Pary nazwa wartość można grupować w wielopoziomowej hierarchii.
 
 Brak dostawcy konfiguracji:
 
@@ -59,7 +59,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}");
 // Output: Gandalf
 ```
 
-Pary nazwa wartość zapisywane do wbudowanej [konfiguracji](/dotnet/api/microsoft.extensions.configuration) dostawcy są **nie** utrwalone. Można jednak utworzyć niestandardowego dostawcę, który zapisuje wartości. Zobacz [niestandardowego dostawcy konfiguracji](xref:fundamentals/configuration/index#custom-config-providers).
+Pary nazwa wartość zapisywane do wbudowanej [konfiguracji](/dotnet/api/microsoft.extensions.configuration) dostawcy są **nie** utrwalone. Jednak można utworzyć niestandardowego dostawcę, który zapisuje wartości. Zobacz [niestandardowego dostawcy konfiguracji](xref:fundamentals/configuration/index#custom-config-providers).
 
 Powyższego przykładu używa indeksatora konfiguracji można odczytać wartości. Do konfiguracji dostępu poza `Startup`, użyj *wzorzec opcje*. Aby uzyskać więcej informacji, zobacz [opcje](xref:fundamentals/configuration/options) tematu.
 
@@ -93,7 +93,7 @@ Zagadnienia dotyczące konfiguracji:
 
 * `IOptionsSnapshot`można ponownie załadować dane konfiguracji, gdy zmienia. Aby uzyskać więcej informacji, zobacz [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot).,
 * Klucze konfiguracji **nie** z uwzględnieniem wielkości liter.
-* **Nigdy nie** przechowywania haseł i innych poufnych danych w konfiguracji dostawcy kodu lub pliki konfiguracyjne w formacie zwykłego tekstu. Nie używasz kluczy tajnych produkcji przy projektowaniu lub test środowisk. Określ klucze tajne poza projektem, aby nie może być przypadkowo przekazane do repozytorium. Dowiedz się więcej o [Praca w środowiskach wielu](xref:fundamentals/environments) i zarządzanie [bezpiecznego magazynu kluczy tajnych aplikacji podczas tworzenia](xref:security/app-secrets).
+* **Nigdy nie** przechowywania haseł i innych poufnych danych w konfiguracji dostawcy kodu lub pliki konfiguracyjne w formacie zwykłego tekstu. Nie używasz produkcji kluczy tajnych w rozwoju lub testowania środowisk. Określ klucze tajne poza projektem, aby nie może być przypadkowo przekazane do repozytorium kodu źródłowego. Dowiedz się więcej o [Praca w środowiskach wielu](xref:fundamentals/environments) i zarządzanie [bezpiecznego magazynu kluczy tajnych aplikacji podczas tworzenia](xref:security/app-secrets).
 * Jeśli dwukropkiem (`:`) nie może być używany w zmiennych środowiskowych w systemie, Zastąp dwukropkiem (`:`) o podwójnej precyzji znak podkreślenia (`__`).
 
 ## <a name="in-memory-provider-and-binding-to-a-poco-class"></a>Dostawca w pamięci i powiązanie z klasą POCO
@@ -110,11 +110,11 @@ W poniższym przykładzie pokazano [GetValue&lt;T&gt; ](/dotnet/api/microsoft.ex
 
 [!code-csharp[Main](index/sample/InMemoryGetValue/Program.cs?highlight=31)]
 
-ConfigurationBinder `GetValue<T>` metoda pozwala na określenie wartości domyślnej (80 w próbce). `GetValue<T>`Służy do scenariuszy proste i nie jest powiązana z całą sekcję. `GetValue<T>`pobiera wartości skalarnych z `GetSection(key).Value` przekonwertować dla określonego typu.
+ConfigurationBinder `GetValue<T>` metody umożliwia określenie wartości domyślnej (80 w próbce). `GetValue<T>`Służy do scenariuszy proste i nie należy powiązać całą sekcję. `GetValue<T>`pobiera wartości skalarnych z `GetSection(key).Value` przekonwertować dla określonego typu.
 
 ## <a name="bind-to-an-object-graph"></a>Powiązanie do obiektu wykresu.
 
-Można rekursywnie bind do każdego obiektu w klasie. Należy rozważyć `AppSettings` klasy:
+Każdy obiekt w klasie można rekursywnie powiązany. Należy rozważyć `AppSettings` klasy:
 
 [!code-csharp[Main](index/sample/ObjectGraph/AppSettings.cs)]
 
@@ -185,7 +185,7 @@ Tworzenie niestandardowego dostawcy konfiguracji przez dziedziczenie z [Configur
 
 Wyróżnione wartości z bazy danych ("value_from_ef_1" i "value_from_ef_2") są wyświetlane po uruchomieniu próbki.
 
-Możesz dodać `EFConfigSource` metody rozszerzenia umożliwiające dodawanie źródło konfiguracji:
+`EFConfigSource` Metody rozszerzenia umożliwiające dodawanie źródło konfiguracji można użyć:
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkExtensions.cs?highlight=12)]
 
@@ -331,7 +331,7 @@ Jeśli zduplikowane klucze są dostarczane, używana jest ostatnią parę klucz 
 
 ### <a name="switch-mappings"></a>Mapowania przełącznika
 
-Podczas ręcznego tworzenia konfiguracji o `ConfigurationBuilder`, opcjonalnie można podać słownik mapowań przełącznika, który `AddCommandLine` metody. Mapowanie przełącznika umożliwić należy podać nazwę klucza wymiany logiki.
+Podczas ręcznego tworzenia konfiguracji o `ConfigurationBuilder`, słownik mapowań przełącznika mogą być dodawane do `AddCommandLine` metody. Mapowanie przełącznika umożliwić nazwę klucza wymiany logiki.
 
 W przypadku przełącznika słownik mapowań słownik jest sprawdzany pod kątem klucz pasujący do klucza dostarczonego przez argument wiersza polecenia. Jeśli klucz wiersza polecenia zostanie znaleziony w słowniku, wartość słownika (wymiana klucza) jest przekazywane z powrotem do konfiguracji. Mapowanie przełącznika jest wymagane dla dowolnego klucz wiersza polecenia i jest poprzedzony prefiksem jeden pulpit (`-`).
 
@@ -340,7 +340,7 @@ Przełącz zasady klucza słownika mapowania:
 * Przełączniki musi rozpoczynać się kreską (`-`) lub kreska o podwójnej precyzji (`--`).
 * Słownik mapowań przełącznik nie może zawierać zduplikowanych kluczy.
 
-W poniższym przykładzie `GetSwitchMappings` metoda umożliwia Twojej argumenty wiersza polecenia użyj pojedynczego dash (`-`) a uniknąć początkowe prefiksy podkluczy dla klucza prefiks.
+W poniższym przykładzie `GetSwitchMappings` metoda pozwala argumenty wiersza polecenia użyć jednego dash (`-`) a uniknąć początkowe prefiksy podkluczy dla klucza prefiks.
 
 [!code-csharp[Main](index/sample/CommandLine/Program.cs?highlight=10-19,32)]
 
@@ -394,14 +394,18 @@ Left: 1988
 
 A *web.config* hosting aplikacji w usługach IIS lub usług IIS Express jest wymagany plik. Ustawienia w *web.config* włączyć [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) do uruchomienia aplikacji i skonfigurować inne ustawienia usług IIS i modułów. Jeśli *web.config* plik nie jest obecny i plik projektu zawiera `<Project Sdk="Microsoft.NET.Sdk.Web">`, publikowania projektu tworzy *web.config* plików publikowanych danych wyjściowych ( *publikowania* folderu). Aby uzyskać więcej informacji, zobacz [hosta platformy ASP.NET Core w systemie Windows z programem IIS](xref:host-and-deploy/iis/index#webconfig).
 
+## <a name="accessing-configuration-during-startup"></a>Uzyskiwanie dostępu do konfiguracji podczas uruchamiania
+
+Do konfiguracji dostępu w ramach `ConfigureServices` lub `Configure` podczas uruchamiania, zobacz przykłady w [uruchamiania aplikacji](xref:fundamentals/startup) tematu.
+
 ## <a name="additional-notes"></a>Dodatkowe uwagi
 
-* Zależności Iniekcja nie jest ustawiona do po `ConfigureServices` jest wywoływana.
+* Zależności Iniekcja nie został skonfigurowany do po `ConfigureServices` jest wywoływana.
 * System konfiguracji nie jest świadome Podpisane.
 * `IConfiguration`ma dwa specjalizacje:
   * `IConfigurationRoot`Użyty dla węzła głównego. Może spowodować ponowne załadowanie.
   * `IConfigurationSection`Reprezentuje sekcję konfiguracji wartości. `GetSection` i `GetChildren` metody zwracają `IConfigurationSection`.
-  * Użyj [IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot) podczas ponownego ładowania konfiguracji lub muszą mieć dostęp do każdego dostawcy. Żadna z tych sytuacji są często używane.
+  * Użyj [IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot) podczas ponownego ładowania konfiguracji lub dostęp do każdego dostawcy. Żadna z tych sytuacji są często używane.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

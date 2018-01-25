@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 57a729501d15ebf9a533716b2a1767766954bb4c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6c9c3bf004b13677728c7c6bf2f5adf6a264dc49
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>Przy użyciu platformy ASP.NET MVC z różnymi wersjami usług IIS (VB)
 ====================
@@ -33,13 +33,13 @@ Poniżej przedstawiono podsumowanie różnych wersji programu IIS:
 - Usługi IIS 7.0 (trybu klasycznego) — należy przeprowadzić specjalnej konfiguracji, aby korzystać z routingu platformy ASP.NET.
 - Usługi IIS w wersji 6.0 lub poniżej — należy przeprowadzić specjalnej konfiguracji, aby korzystać z routingu platformy ASP.NET.
 
-Najnowszą wersję usług IIS jest wersja 7.5 (na Win7). Usługi IIS w usługach IIS 7 jest dołączony z systemu Windows Server 2008 i VISTA/z dodatkiem SP1 lub nowszy. Można też zainstalować usług IIS 7.0 w dowolnej wersji systemu operacyjnego Vista oprócz Home Basic (zobacz [https://technet.microsoft.com/en-us/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/en-us/library/cc731179%28WS.10%29.aspx)).
+Najnowszą wersję usług IIS jest wersja 7.5 (na Win7). Usługi IIS w usługach IIS 7 jest dołączony z systemu Windows Server 2008 i VISTA/z dodatkiem SP1 lub nowszy. Można też zainstalować usług IIS 7.0 w dowolnej wersji systemu operacyjnego Vista oprócz Home Basic (zobacz [https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx)).
 
 Usługi IIS 7.0 obsługuje dwa tryby do przetwarzania żądań. Można użyć trybu zintegrowanego lub w trybie klasycznym. Nie trzeba wykonywać żadnych czynności konfiguracyjnych specjalne, korzystając z usług IIS 7.0 w trybie zintegrowanym. Jednak należy wykonać dodatkowe czynności konfiguracyjne, korzystając z usług IIS 7.0 w trybie klasycznym.
 
 Microsoft Windows Server 2003 zawiera usług IIS 6.0. Nie można uaktualnić usług IIS 6.0 do usług IIS 7.0, korzystając z systemu operacyjnego Windows Server 2003. Korzystając z usług IIS 6.0, należy wykonać dodatkowe czynności konfiguracyjne.
 
-Microsoft Windows XP Professional obejmuje usługi IIS 5.1. Podczas korzystania z wersji 5.1 usług IIS, należy wykonać dodatkowe czynności konfiguracyjne.
+Microsoft Windows XP Professional includes IIS 5.1. Podczas korzystania z wersji 5.1 usług IIS, należy wykonać dodatkowe czynności konfiguracyjne.
 
 Na koniec Microsoft Windows 2000 i Microsoft Windows 2000 Professional obejmuje programem IIS 5.0. Korzystając z programem IIS 5.0, należy wykonać dodatkowe czynności konfiguracyjne.
 
@@ -66,7 +66,7 @@ Zwróć uwagę, że tryb przetwarzania żądań w oknie dialogowym Edytowanie ap
 
 - Uaktualnianie 1.1 programu ASP.NET w usługach IIS 7.0 w systemach Windows Vista i Windows Server 2008 — [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008)
 
-- Integracja platformy ASP.NET z usług IIS 7.0 - [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
+- ASP.NET Integration With IIS 7.0 - [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
 
 
 Jeśli aplikacja ASP.NET używa domyślna pula aplikacji, następnie nie trzeba wykonywać żadnych dodatkowych czynności w celu pobrania routingu platformy ASP.NET (i w związku z tym ASP.NET MVC) do pracy. Jednak jeśli aplikacja ASP.NET jest skonfigurowany do Użyj klasycznego pulę aplikacji .NET, a następnie zachować odczytu, ma więcej pracy.
@@ -129,7 +129,7 @@ Istnieją dwie ważne zmiany w pliku Global.asax w wyświetlania 2. Istnieją te
 
 Dodawanie rozszerzenia MVC zmienia typ plików, które przechwytuje modułu routingu platformy ASP.NET. Dzięki tej zmianie teraz aplikacji ASP.NET MVC kieruje żądania podobne do poniższych:
 
-/Home.MVC/index/
+/Home.mvc/Index/
 
 /Product.MVC/details/3
 

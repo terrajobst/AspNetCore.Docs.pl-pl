@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
-ms.openlocfilehash: df75a69644033cc76fee86b5a9692ab65beb4d01
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1ca627397f0f100d13388f9afc27ff481886e098
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="use-code-first-migrations-to-seed-the-database"></a>Umożliwia migracje Code First inicjatora bazy danych
 ====================
@@ -24,7 +24,7 @@ przez [Wasson Jan](https://github.com/MikeWasson)
 
 [Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
 
-W tej sekcji użyjesz [migracje Code First](https://msdn.microsoft.com/en-us/data/jj591621) w EF w celu umieszczenia bazy danych z danych testowych.
+W tej sekcji użyjesz [migracje Code First](https://msdn.microsoft.com/data/jj591621) w EF w celu umieszczenia bazy danych z danych testowych.
 
 Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz pozycję **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wprowadź następujące polecenie:
 
@@ -46,7 +46,7 @@ W oknie Konsola Menedżera pakietów wpisz następujące polecenia:
 
 [!code-console[Main](part-3/samples/sample4.cmd)]
 
-Pierwsze polecenie generuje kod, który utworzy bazę danych, a drugie polecenie wykonuje kodu. Bazy danych jest tworzony lokalnie, przy użyciu [LocalDB](https://msdn.microsoft.com/en-us/library/hh510202.aspx).
+Pierwsze polecenie generuje kod, który utworzy bazę danych, a drugie polecenie wykonuje kodu. Bazy danych jest tworzony lokalnie, przy użyciu [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx).
 
 ![](part-3/_static/image2.png)
 

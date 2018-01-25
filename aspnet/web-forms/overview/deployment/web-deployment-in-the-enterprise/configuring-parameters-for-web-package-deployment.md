@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: dd1ae266740ea4728c0624b1833a98ac262e0e5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 12a4ba8ad30df43e7192500ad4514dfa9679f899
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a>Konfigurowanie parametrów na potrzeby wdrażania pakietu sieci Web
 ====================
@@ -88,7 +88,7 @@ Oprócz parametryzacja URL punktu końcowego w pakiecie wdrożeniowym, WPP dodaj
 
 Jeśli ręcznie zainstalować pakiet wdrożeniowy Menedżera usług IIS wyświetli monit o adres punktu końcowego usługi obok właściwości, które zostały automatycznie sparametryzowana. Po zainstalowaniu pakietu wdrożeniowego, uruchamiając *. pliku deploy.cmd* plików, można edytować *SetParameters.xml* plik, aby podać wartość adres punktu końcowego usługi wraz z wartości właściwości, które zostały automatycznie sparametryzowana.
 
-Aby uzyskać szczegółowe informacje na temat tworzenia *parameters.xml* plików, zobacz [porady: Korzystanie z parametrów do konfigurowania ustawień podczas pakietu wdrożeniowego zainstalowano](https://msdn.microsoft.com/en-us/library/ff398068.aspx). Procedury o nazwie **używania parametrów wdrożenia dla ustawienia pliku Web.config** zawiera instrukcje krok po kroku.
+Aby uzyskać szczegółowe informacje na temat tworzenia *parameters.xml* plików, zobacz [porady: Korzystanie z parametrów do konfigurowania ustawień podczas pakietu wdrożeniowego zainstalowano](https://msdn.microsoft.com/library/ff398068.aspx). Procedury o nazwie **używania parametrów wdrożenia dla ustawienia pliku Web.config** zawiera instrukcje krok po kroku.
 
 ## <a name="modifying-the-setparametersxml-file"></a>Modyfikowanie pliku SetParameters.xml
 
@@ -144,7 +144,7 @@ Następnym temacie [wdrażanie pakietów sieci Web](deploying-web-packages.md), 
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać informacje na temat tworzenia pakietów sieci web, zobacz [budynku i projekty aplikacji sieci Web pakowania](building-and-packaging-web-application-projects.md). Aby uzyskać wskazówki na temat faktycznie wdrażania pakietu sieci web, zobacz [wdrażanie pakietów sieci Web](deploying-web-packages.md). Przewodnik krok po kroku dotyczące sposobu tworzenia *parameters.xml* plików, zobacz [porady: Korzystanie z parametrów do konfigurowania ustawień podczas pakietu wdrożeniowego zainstalowano](https://msdn.microsoft.com/en-us/library/ff398068.aspx).
+Aby uzyskać informacje na temat tworzenia pakietów sieci web, zobacz [budynku i projekty aplikacji sieci Web pakowania](building-and-packaging-web-application-projects.md). Aby uzyskać wskazówki na temat faktycznie wdrażania pakietu sieci web, zobacz [wdrażanie pakietów sieci Web](deploying-web-packages.md). Przewodnik krok po kroku dotyczące sposobu tworzenia *parameters.xml* plików, zobacz [porady: Korzystanie z parametrów do konfigurowania ustawień podczas pakietu wdrożeniowego zainstalowano](https://msdn.microsoft.com/library/ff398068.aspx).
 
 Aby uzyskać więcej ogólnych informacji o parametryzacja w narzędzia Web Deploy, zobacz [parametryzacja wdrażania sieci Web, w akcji](https://go.microsoft.com/?linkid=9805119) (wpis w blogu).
 

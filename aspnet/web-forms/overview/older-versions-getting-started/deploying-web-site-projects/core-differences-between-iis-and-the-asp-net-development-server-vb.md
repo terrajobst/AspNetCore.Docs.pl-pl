@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4fb0b71792422a75efa5d936ffc7b88a8ec19a57
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8e8ae3c0fd1d67fba6dff965704b550bdc919c6a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-vb"></a>Podstawowe różnice między usługami IIS a ASP.NET Development Server (VB)
 ====================
@@ -47,7 +47,7 @@ Aby wyświetlić tego typu błędu w akcji utworzono stronę w witrynie sieci We
 [!code-vb[Main](core-differences-between-iis-and-the-asp-net-development-server-vb/samples/sample1.vb)]
 
 > [!NOTE]
-> [ `File.WriteAllText` Metody](https://msdn.microsoft.com/en-us/library/system.io.file.writealltext.aspx) tworzy nowy plik, jeśli nie istnieje, a następnie zapisuje określoną zawartość do niego. Jeśli plik już istnieje, jej istniejąca zawartość zostanie zastąpiony.
+> [ `File.WriteAllText` Metody](https://msdn.microsoft.com/library/system.io.file.writealltext.aspx) tworzy nowy plik, jeśli nie istnieje, a następnie zapisuje określoną zawartość do niego. Jeśli plik już istnieje, jej istniejąca zawartość zostanie zastąpiony.
 
 
 Następnie odwiedź *nauczyć się ASP.NET 3.5 w ciągu 24 godzin* stronę przeglądu książki w środowisku programistycznym przy użyciu serwera projektowego ASP.NET. Przy założeniu, że użytkownik jest zalogowany do komputera przy użyciu konta, które ma odpowiednie uprawnienia do tworzenia i modyfikowania pliku tekstowego w sieci web katalogu głównego aplikacji przejrzyj książki pojawi się taka sama jak przed, ale zawsze, gdy strona jest odwiedzi daty i godziny oraz użytkownika  Adres IP jest przechowywany w `LastTYASP35Access.txt` pliku. Wskazać w przeglądarce tego pliku. powinien zostać wyświetlony komunikat podobny do przedstawionego na rysunku 1.
@@ -58,7 +58,7 @@ Następnie odwiedź *nauczyć się ASP.NET 3.5 w ciągu 24 godzin* stronę przeg
 **Rysunek 1**: plik tekstowy zawierający Data i godzina ostatniej przeglądu książki został odwiedzony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image3.png))
 
 
-Wdrażanie aplikacji sieci web w środowisku produkcyjnym, a następnie odwiedź hostowanej *nauczyć się ASP.NET 3.5 w ciągu 24 godzin* książki stronę przeglądu. W tym momencie albo powinna zostać wyświetlona strona przeglądu książki jako normalny lub komunikat o błędzie pokazany na rysunku 2. Niektóre dostawców usług hosta sieci web Udziel uprawnień zapisu do anonimowego konta komputera platformy ASP.NET, w których przypadku strony będzie działać bez błędów. Jeśli jednak dostawcy usługi hosta sieci web nie zezwala na dostęp do zapisu dla anonimowego konta, a następnie [ `UnauthorizedAccessException` wyjątek](https://msdn.microsoft.com/en-us/library/system.unauthorizedaccessexception.aspx) jest wywoływane, gdy `TYASP35.aspx` strona próbuje zapisać bieżącą datę i godzinę do `LastTYASP35Access.txt` pliku.
+Wdrażanie aplikacji sieci web w środowisku produkcyjnym, a następnie odwiedź hostowanej *nauczyć się ASP.NET 3.5 w ciągu 24 godzin* książki stronę przeglądu. W tym momencie albo powinna zostać wyświetlona strona przeglądu książki jako normalny lub komunikat o błędzie pokazany na rysunku 2. Niektóre dostawców usług hosta sieci web Udziel uprawnień zapisu do anonimowego konta komputera platformy ASP.NET, w których przypadku strony będzie działać bez błędów. Jeśli jednak dostawcy usługi hosta sieci web nie zezwala na dostęp do zapisu dla anonimowego konta, a następnie [ `UnauthorizedAccessException` wyjątek](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) jest wywoływane, gdy `TYASP35.aspx` strona próbuje zapisać bieżącą datę i godzinę do `LastTYASP35Access.txt` pliku.
 
 
 [![Domyślne konto komputera używany przez usługi IIS nie ma uprawnień do zapisu w systemie plików](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-vb/_static/image4.png)
@@ -123,7 +123,7 @@ Po usług IIS został skonfigurowany do używania zintegrowanego potoku Dodaj na
 Ten kod znaczników nakazuje IIS 7 do użycia moduły uwierzytelniania i autoryzacji oparty na programie ASP.NET. Ponownie wdrożyć aplikację i ponownie można znaleźć w pliku PDF. Tym razem, gdy usługi IIS obsługuje żądanie udostępnia logikę uwierzytelniania i autoryzacji środowiska uruchomieniowego ASP.NET możliwość sprawdzić żądanie. Ponieważ tylko uwierzytelnieni użytkownicy mogą wyświetlać zawartość w `PrivateDocs` folderu, użytkownik anonimowy jest automatycznie przekierowywane do strony logowania (odwołują się do rysunku 3).
 
 > [!NOTE]
-> Dostawcy usługi hosta sieci web jest w dalszym ciągu używają programu IIS 6 nie można użyć funkcji zintegrowanego potoku. Jeden obejście jest umieszczenie prywatne dokumenty w folderze, który uniemożliwia dostęp HTTP (takie jak `App_Data`), a następnie utworzyć strony do obsługi tych dokumentów. Ta strona może zostać wywołana `GetPDF.aspx`, a jest przekazywana nazwy pliku PDF za pośrednictwem parametru querystring. `GetPDF.aspx` Czy najpierw sprawdź, czy użytkownik ma uprawnienia do wyświetlania zawartości pliku i jeśli tak, użyj [ `Response.WriteFile(filePath)` ](https://msdn.microsoft.com/en-us/library/system.web.httpresponse.writefile.aspx) metody do odesłania do klienta zawartość żądany plik PDF. Ta technika również będzie działać dla usług IIS 7, jeśli nie ma włączyć zintegrowanego potoku.
+> Dostawcy usługi hosta sieci web jest w dalszym ciągu używają programu IIS 6 nie można użyć funkcji zintegrowanego potoku. Jeden obejście jest umieszczenie prywatne dokumenty w folderze, który uniemożliwia dostęp HTTP (takie jak `App_Data`), a następnie utworzyć strony do obsługi tych dokumentów. Ta strona może zostać wywołana `GetPDF.aspx`, a jest przekazywana nazwy pliku PDF za pośrednictwem parametru querystring. `GetPDF.aspx` Czy najpierw sprawdź, czy użytkownik ma uprawnienia do wyświetlania zawartości pliku i jeśli tak, użyj [ `Response.WriteFile(filePath)` ](https://msdn.microsoft.com/library/system.web.httpresponse.writefile.aspx) metody do odesłania do klienta zawartość żądany plik PDF. Ta technika również będzie działać dla usług IIS 7, jeśli nie ma włączyć zintegrowanego potoku.
 
 
 ## <a name="summary"></a>Podsumowanie
@@ -138,7 +138,7 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 - [Integracja platformy ASP.NET z usług IIS 7.0](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
 - [Korzystanie z uwierzytelniania forach platformy ASP.NET z wszystkich typów zawartości w usługach IIS 7](https://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx) (klip wideo)
-- [Serwery sieci Web w programie Visual Web Developer](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx)
+- [Serwery sieci Web w programie Visual Web Developer](https://msdn.microsoft.com/library/58wxa9w5.aspx)
 
 >[!div class="step-by-step"]
 [Poprzednie](common-configuration-differences-between-development-and-production-vb.md)

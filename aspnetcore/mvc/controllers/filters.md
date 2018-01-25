@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: db5d6a98d5e6702842e8b036c378ed96aef61b70
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 32bfddde48f5e5de9c06cb159493eb9ba6ede8be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filters"></a>Filtry
 
@@ -207,9 +207,9 @@ System.InvalidOperationException: No service for type
 
 ### <a name="typefilterattribute"></a>TypeFilterAttribute
 
-`TypeFilterAttribute`jest bardzo podobny do `ServiceFilterAttribute` (i implementuje również `IFilterFactory`), ale jego typ nie został rozpoznany bezpośrednio z kontenera Podpisane. Zamiast tego tworzy typu przy użyciu `Microsoft.Extensions.DependencyInjection.ObjectFactory`.
+`TypeFilterAttribute`jest bardzo podobny do `ServiceFilterAttribute` (i implementuje również `IFilterFactory`), ale jego typ nie zostanie rozwiązany bezpośrednio z kontenera Podpisane. Zamiast tego tworzy typu przy użyciu `Microsoft.Extensions.DependencyInjection.ObjectFactory`.
 
-Z powodu tej różnicy typy, które są używane, za pomocą `TypeFilterAttribute` nie muszą być najpierw zarejestrowany w usłudze kontenera (ale nadal będzie miał zależności są spełnione przez kontener). Ponadto `TypeFilterAttribute` opcjonalnie mogą akceptować argumenty konstruktora dla danego typu. W poniższym przykładzie pokazano sposób przekazać argumenty do typu przy użyciu `TypeFilterAttribute`:
+Z powodu tej różnicy typy, które są używane, za pomocą `TypeFilterAttribute` nie trzeba najpierw zarejestrowane z kontenera (ale nadal będzie miał zależności są spełnione przez kontener). Ponadto `TypeFilterAttribute` opcjonalnie mogą akceptować argumenty konstruktora dla danego typu. W poniższym przykładzie pokazano sposób przekazać argumenty do typu przy użyciu `TypeFilterAttribute`:
 
 [!code-csharp[Main](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_TypeFilter&highlight=1,2)]
 
@@ -223,7 +223,7 @@ Ten filtr można zastosować do klasy lub metody za pomocą `[SampleActionFilter
 
 *Filtry autoryzacji* kontroli dostępu do metody akcji i pierwszy filtrów do wykonania w potoku filtru. Mają one tylko przed metody, w przeciwieństwie do większości filtry, które obsługują przed i po metody. Należy tylko zapisać filtr autoryzacji niestandardowej Jeśli piszesz własne framework autoryzacji. Preferowane jest konfigurowanie zasad autoryzacji lub zapisywanie niestandardowych zasad autoryzacji przez zapisywanie filtru niestandardowego. Implementacja wbudowany filtr tylko odpowiada za wywołanie systemu autoryzacji.
 
-Należy pamiętać, należy nie generowanie wyjątków w ramach filtry autoryzacji, ponieważ nic nie będzie obsługiwać wyjątek (filtry wyjątków nie będzie obsługiwać je). Zamiast tego wydania wyzwania lub znaleźć inny sposób.
+Należy pamiętać, nie należy zgłosić wyjątków w ramach filtry autoryzacji, ponieważ nic nie będzie obsługiwać wyjątek (filtry wyjątków nie będzie obsługiwać je). Zamiast tego wydania wyzwania lub znaleźć inny sposób.
 
 Dowiedz się więcej o [autoryzacji](../../security/authorization/index.md).
 
@@ -252,7 +252,7 @@ Oto przykładowy filtr akcji:
 * `Canceled`-będzie mieć wartość true, jeśli zwartym został wykonanie akcji przez inny filtr.
 * `Exception`-mieć wartości null, jeśli akcji lub filtr akcji kolejnych zwrócił wyjątek. Ustawienie tej właściwości na wartość null, efektywnie "handles" Wystąpił wyjątek, i `Result` będą wykonywane tak, jakby jego zwykle zwróconych przez metodę akcji.
 
-Aby uzyskać `IAsyncActionFilter`, wywołanie `ActionExecutionDelegate` wykonuje wszystkie filtry akcji kolejnych i metody akcji, zwracając `ActionExecutedContext`. Zwarcie, Przypisz `ActionExecutingContext.Result` niektóre wartości w wyniku wystąpienia i nie wymagają `ActionExecutionDelegate`.
+Aby uzyskać `IAsyncActionFilter`, wywołanie `ActionExecutionDelegate` wykonuje wszystkie filtry akcji kolejnych i metody akcji, zwracając `ActionExecutedContext`. Zwarcie, Przypisz `ActionExecutingContext.Result` niektóre wartości w wyniku wystąpienia i nie wywołuj `ActionExecutionDelegate`.
 
 Abstrakcyjnego zapewnia platformę `ActionFilterAttribute` mogących podklasy. 
 
@@ -270,14 +270,14 @@ Następujący przykładowy filtr wyjątek używa widoku błędów niestandardowy
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/CustomExceptionFilterAttribute.cs?name=snippet_ExceptionFilter&highlight=1,14)]
 
-Filtry wyjątków nie mają dwa zdarzenia (dla przed i po) — tylko zaimplementować `OnException` (lub `OnExceptionAsync`). 
+Filtry wyjątków, które nie mają dwa zdarzenia (dla przed i po) — tylko zaimplementować `OnException` (lub `OnExceptionAsync`). 
 
 Filtry wyjątków obsługi nieobsługiwanych wyjątków, które występują w tworzenia kontrolera [modelu powiązania](../models/model-binding.md), filtry akcji lub metody akcji. Nie będą one catch wyjątków, które występują w filtrów zasobów, filtry wyników lub wykonywania wynik MVC.
 
 Do obsługi wyjątku, ustaw `ExceptionContext.ExceptionHandled` właściwości na wartość true lub zapisu odpowiedzi. Powoduje to zatrzymanie propagacji wyjątku. Należy pamiętać, że filtra wyjątku nie można włączyć wyjątek do "Powodzenie". Filtr akcji można to zrobić.
 
 > [!NOTE]
-> W ASP.NET 1.1 odpowiedzi nie są wysyłane po ustawieniu `ExceptionHandled` TRUE **i** zapisu odpowiedzi. W tym scenariuszu platformy ASP.NET Core 1.0 wysyłania odpowiedzi i platformy ASP.NET Core 1.1.2 powróci do zachowania 1.0. Aby uzyskać więcej informacji, zobacz [wystawiać #5594](https://github.com/aspnet/Mvc/issues/5594) w repozytorium GitHub. 
+> W ASP.NET 1.1 odpowiedzi nie jest wysyłane, jeśli ustawisz `ExceptionHandled` TRUE **i** zapisu odpowiedzi. W tym scenariuszu platformy ASP.NET Core 1.0 wysyłania odpowiedzi i platformy ASP.NET Core 1.1.2 powróci do zachowania 1.0. Aby uzyskać więcej informacji, zobacz [wystawiać #5594](https://github.com/aspnet/Mvc/issues/5594) w repozytorium GitHub. 
 
 Filtry wyjątków są dobrym zalewania wyjątków, które występują w ramach działań MVC, ale nie są one tak elastyczne jako błąd obsługi oprogramowania pośredniczącego. Preferowane jest oprogramowanie pośredniczące w przypadku ogólnych i za pomocą filtrów, tylko gdy należy wykonywać obsługi błędów *inaczej* oparte na Akcja kontrolera MVC, który został wybrany. Na przykład aplikacja może mieć metody akcji dla obu punkty końcowe interfejsu API i widoki/HTML. Punkty końcowe interfejsu API może zwrócić informacji o błędach w formacie JSON, gdy czynności na podstawie widok może zwrócić strony błędu w formacie HTML.
 
@@ -307,7 +307,7 @@ Abstrakcyjnego zapewnia platformę `ResultFilterAttribute` mogących podklasy. [
 
 ## <a name="using-middleware-in-the-filter-pipeline"></a>Za pomocą oprogramowania pośredniczącego w potoku filtru
 
-Filtry zasobów działają podobnie jak [oprogramowanie pośredniczące](../../fundamentals/middleware.md) w tym ujęty wykonanie wszystkich elementów, które później w potoku. Jednak filtry różnią się z oprogramowania pośredniczącego, że są one częścią MVC, co oznacza, że mają dostęp do kontekstu MVC i konstrukcji.
+Filtry zasobów działają podobnie jak [oprogramowanie pośredniczące](../../fundamentals/middleware.md) w tym ujęty wykonanie wszystkich elementów, które później w potoku. Jednak filtry różnią się od oprogramowania pośredniczącego, są one częścią MVC, co oznacza, że mają dostęp do kontekstu MVC i konstrukcji.
 
 W ASP.NET Core 1.1 można użyć oprogramowania pośredniczącego w potoku filtru. Można to zrobić, jeśli składnik oprogramowania pośredniczącego, które wymagają dostępu do danych trasy MVC lub taki, który należy uruchamiać tylko dla niektórych kontrolerach ani akcji.
 

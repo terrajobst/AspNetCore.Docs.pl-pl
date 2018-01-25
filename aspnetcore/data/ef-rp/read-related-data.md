@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: d0cdb5aaa4b1129c3f2404d069e9781ca16260b7
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 532020a8fe4c5a0312cbd89278e61f614b1825f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Odczytywanie powiązane dane - Core EF Razor strony (6 8)
 
@@ -54,7 +54,7 @@ Istnieje kilka sposobów EF Core może ładować powiązanych danych do właści
 
  ![Przykład jawnego ładowania](read-related-data/_static/explicit-loading.png)
 
-* [Powolne ładowanie](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [Podstawowe EF aktualnie nie obsługuje ładowania opóźnionego](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Gdy obiekt jest najpierw przeczytać artykuł, pobrać nie jest powiązane dane. Właściwość nawigacji jest dostępny, po raz pierwszy jest automatycznie pobierany wymagane dane dla tej właściwości nawigacji. Zapytanie jest wysyłane do bazy danych zawsze właściwość nawigacji jest dostępny po raz pierwszy.
+* [Powolne ładowanie](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF Core aktualnie nie obsługuje ładowania opóźnionego](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Gdy obiekt jest najpierw przeczytać artykuł, pobrać nie jest powiązane dane. Właściwość nawigacji jest dostępny, po raz pierwszy jest automatycznie pobierany wymagane dane dla tej właściwości nawigacji. Zapytanie jest wysyłane do bazy danych zawsze właściwość nawigacji jest dostępny po raz pierwszy.
 
 * `Select` Operator ładuje tylko powiązane dane potrzebne.
 
@@ -93,7 +93,7 @@ Skompiluj projekt. Kompilacja generuje błędy podobne do następujących:
 
 Otwórz *Pages/Courses/Index.cshtml.cs* i sprawdź, czy `OnGetAsync` metody. Aparat szkieletów określony wczesny ładowania dla `Department` właściwości nawigacji. `Include` Metody określa wczesny ładowania.
 
-Uruchom aplikację i wybierz **kursów** łącza. Przedstawia kolumnę Dział `DepartmentID`, która nie jest użyteczne.
+Uruchom aplikację i wybierz **kursów** łącza. Przedstawia kolumnę Dział `DepartmentID`, który nie jest użyteczne.
 
 Aktualizacja `OnGetAsync` metodę z następującym kodem:
 
@@ -210,7 +210,7 @@ Poprzedni kod znaczników wprowadza następujące zmiany:
     `http://localhost:1234/Instructors/2`
 
 * Tytuł strony jest **instruktorów**.
-* Dodaje **Office** kolumnę wyświetlającą `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie jest zerowa. Ponieważ jest to relacji jeden do zero lub jeden, może nie być OfficeAssignment powiązanej jednostki.
+* Dodaje **Office** kolumnę wyświetlającą `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie ma wartości null. Ponieważ jest to relacji jeden do zero lub jeden, może nie być OfficeAssignment powiązanej jednostki.
 
   ```html
   @if (item.OfficeAssignment != null)

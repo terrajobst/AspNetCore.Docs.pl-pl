@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 01cedb4e3abb35670d2908fe8cb4367c3fd58b33
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 18c7448ad79891d04eca1e939a0aeeabe417bde8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core w systemie Windows z programem IIS
 
@@ -70,7 +70,7 @@ W przypadku wdrażania aplikacji na serwerach z [narzędzia Web Deploy](/iis/pub
 
 ### <a name="enabling-the-iisintegration-components"></a>Włączanie składników IISIntegration
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Typowe *Program.cs* wywołania [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) aby rozpocząć konfigurowanie hosta. `CreateDefaultBuilder`Konfiguruje [Kestrel](xref:fundamentals/servers/kestrel) jako sieci web Integracja serwera i umożliwia usług IIS przez skonfigurowanie ścieżki podstawowej i port [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
 
@@ -80,7 +80,7 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Obejmują zależności na [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) pakietu w zależnościach aplikacji. Włączenie oprogramowanie pośredniczące integracji usług IIS do aplikacji przez dodanie *UseIISIntegration* metodę rozszerzenie *WebHostBuilder*:
 
@@ -114,7 +114,7 @@ services.Configure<IISOptions>(options =>
 | `AuthenticationDisplayName`    | `null`  | Ustawia nazwę wyświetlaną pokazywana użytkownikom na stronach logowania. |
 | `ForwardClientCertificate`     | `true`  | Jeśli `true` i `MS-ASPNETCORE-CLIENTCERT` nagłówek żądania jest obecny, `HttpContext.Connection.ClientCertificate` jest wypełnione. |
 
-### <a name="webconfig"></a>plik Web.config
+### <a name="webconfig"></a>web.config
 
 *Web.config* tego pliku podstawowego służy do konfigurowania [platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module). Opcjonalnie ona dodatkowych ustawień konfiguracji usług IIS. Tworzenie, przekształcanie i publikowanie *web.config* jest obsługiwany przez zestaw SDK programu .NET Core sieci Web (`Microsoft.NET.Sdk.Web`). Zestaw SDK jest ustawiony na początku pliku projektu `<Project Sdk="Microsoft.NET.Sdk.Web">`. Aby zapobiec przekształcania zestawu SDK *web.config* plików, dodawanie  **\<IsTransformWebConfigDisabled >** właściwości do pliku projektu z ustawieniem `true`:
 
@@ -126,7 +126,7 @@ services.Configure<IISOptions>(options =>
 
 Jeśli *web.config* plik znajduje się w projekcie, jest przekształcana z prawidłowym *processPath* i *argumenty* skonfigurować [platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module) i przenieść do [opublikowane dane wyjściowe](xref:host-and-deploy/directory-structure). Transformacja nie zmodyfikować ustawień konfiguracji usług IIS w pliku.
 
-### <a name="webconfig-location"></a>Lokalizacja pliku Web.config
+### <a name="webconfig-location"></a>web.config location
 
 Aplikacje .NET core są obsługiwane przez zwrotny serwer proxy między usługami IIS a Kestrel serwera. Aby można było utworzyć zwrotny serwer proxy, *web.config* plik musi znajdować się w ścieżce zawartości katalogu głównego (zazwyczaj ścieżki podstawowej aplikacji) wdrożonej aplikacji, to ścieżka fizyczna witryny sieci Web do usług IIS. *Web.config* plik jest wymagany w katalogu głównym aplikacji, aby umożliwić publikowanie wielu aplikacji za pomocą narzędzia Web Deploy.
 
@@ -295,9 +295,9 @@ Konfiguracja usług IIS ma wpływ  **\<system.webServer >** sekcji *web.config* 
 
 Sekcje Configruation aplikacji struktury ASP.NET w *web.config* nie są używane przez aplikacje platformy ASP.NET Core dla konfiguracji:
 
-* **\<System.Web >**
-* **\<appSettings >**
-* **\<connectionStrings >**
+* **\<system.web>**
+* **\<appSettings>**
+* **\<connectionStrings>**
 * **\<Lokalizacja >**
 
 Aplikacje platformy ASP.NET Core są skonfigurowane przy użyciu innych dostawców konfiguracji. Aby uzyskać więcej informacji, zobacz [konfiguracji](xref:fundamentals/configuration/index).
@@ -340,10 +340,10 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Rozwiązywanie problemów z platformy ASP.NET Core w usługach IIS](xref:host-and-deploy/iis/troubleshoot)
+* [Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS](xref:host-and-deploy/iis/troubleshoot)
 * [Typowe błędy odwołania dla usługi Azure App Service i IIS z platformy ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
 * [Wprowadzenie do platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module)
-* [Konfiguracja modułu Core programu ASP.NET](xref:host-and-deploy/aspnet-core-module)
+* [Odwołania do konfiguracji modułu platformy ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
 * [Używanie modułów usług IIS z platformy ASP.NET Core](xref:host-and-deploy/iis/modules)
 * [Wprowadzenie do platformy ASP.NET Core](../index.md)
 * [Witryna oficjalnego Microsoft IIS](https://www.iis.net/)

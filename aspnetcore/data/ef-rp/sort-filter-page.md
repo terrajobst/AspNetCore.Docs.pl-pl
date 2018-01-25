@@ -8,11 +8,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 08f00e183dd8a8daa883d0b9ff15698b3a39f625
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 24649374b71da39d638d943617a219d45f064846
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sortowanie, filtrowanie, stronicowania i grupowanie — podstawowe EF Razor strony (3 8)
 
@@ -71,7 +71,7 @@ Metoda używa do składnika LINQ to Entities Określ kolumny, aby posortować we
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-)]
 
- Gdy`IQueryable` tworzenia lub modyfikowania, nie zapytanie jest wysyłane do bazy danych. Kwerenda nie została wykonana do `IQueryable` obiektu jest konwertowany na kolekcję. `IQueryable`są konwertowane na kolekcję przez wywołanie metody, takie jak `ToListAsync`. W związku z tym `IQueryable` kodu wyników w ramach jednego zapytania, który nie jest wykonywany do momentu następująca instrukcja:
+ Gdy`IQueryable` tworzenia lub modyfikowania, nie zapytanie jest wysyłane do bazy danych. Zapytanie nie jest wykonywane przed `IQueryable` obiektu jest konwertowany na kolekcję. `IQueryable`są konwertowane na kolekcję przez wywołanie metody, takie jak `ToListAsync`. W związku z tym `IQueryable` kodu wyników w ramach jednego zapytania, który nie jest wykonywany do momentu następująca instrukcja:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
 
@@ -201,7 +201,7 @@ Po kliknięciu łącza stronicowania, zmienna index strony zawiera numer strony 
 Jeśli ciąg wyszukiwania została zmieniona podczas stronicowania, strony jest ustawiony na 1. Strona ma zresetowanie do 1 nowy filtr może powodować różnych danych do wyświetlenia. Po wprowadzeniu wartości wyszukiwania i **przesyłania** wybrano:
 
 * Ciąg wyszukiwania zostanie zmieniona.
-* `searchString` Parametr nie jest zerowa.
+* `searchString` Parametr nie ma wartości null.
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage3)]
 

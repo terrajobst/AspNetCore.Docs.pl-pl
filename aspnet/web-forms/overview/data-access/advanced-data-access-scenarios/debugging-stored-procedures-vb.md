@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e74d368b1f9eec2177a528a6b09c599d6a307b74
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ad09847d828d02019a72e3022d035a8fbe921568
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="debugging-stored-procedures-vb"></a>Debugowanie procedur składowanych (VB)
 ====================
@@ -39,7 +39,7 @@ W tym samouczku przedstawiono Wkraczanie do procedur składowanych z Eksplorator
 
 ## <a name="sql-server-debugging-concepts"></a>Pojęcia debugowanie serwera SQL
 
-Microsoft SQL Server 2005 zaprojektowano tak, aby zapewnić integrację z [środowiska uruchomieniowego języka wspólnego (CLR)](https://msdn.microsoft.com/en-us/netframework/aa497266.aspx), który jest używany przez wszystkie zestawy .NET środowiska uruchomieniowego. W związku z tym SQL Server 2005 obsługuje obiektów zarządzanych bazy danych. Oznacza to, że można tworzyć obiektów bazy danych, takich jak procedury składowane i funkcje zdefiniowane przez użytkownika (UDF) jako metody w klasie Visual Basic. Dzięki temu te procedury składowane i funkcje UDF mogą korzystać z funkcji w programie .NET Framework i z klas niestandardowych. Oczywiście SQL Server 2005 także zapewnia obsługę T-SQL obiektów bazy danych.
+Microsoft SQL Server 2005 zaprojektowano tak, aby zapewnić integrację z [środowiska uruchomieniowego języka wspólnego (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), który jest używany przez wszystkie zestawy .NET środowiska uruchomieniowego. W związku z tym SQL Server 2005 obsługuje obiektów zarządzanych bazy danych. Oznacza to, że można tworzyć obiektów bazy danych, takich jak procedury składowane i funkcje zdefiniowane przez użytkownika (UDF) jako metody w klasie Visual Basic. Dzięki temu te procedury składowane i funkcje UDF mogą korzystać z funkcji w programie .NET Framework i z klas niestandardowych. Oczywiście SQL Server 2005 także zapewnia obsługę T-SQL obiektów bazy danych.
 
 SQL Server 2005 oferuje obsługę debugowania dla T-SQL i obiekty zarządzane bazy danych. Jednak te obiekty może być debugowany tylko przez wersje programu Visual Studio 2005 Professional i systemy zespołu. W tym samouczku omówione obiektów bazy danych w usłudze debugowania T-SQL. Samouczek kolejnych analizuje debugowanie zarządzane obiekty.
 
@@ -53,7 +53,7 @@ Visual Studio można debugować procedury przechowywane w lokalnych i zdalnych w
 
 Jeśli korzystasz z lokalnego wystąpienia programu SQL Server, można uruchomić z kroku 1 i skorzystać z tego samouczka na końcu. Jeśli używasz zdalnego wystąpienia programu SQL Server, jednak użytkownik będzie upewnij się, że podczas debugowania, możesz pierwszy potrzebę są rejestrowane na komputerze deweloperskim przy użyciu konta użytkownika systemu Windows ma logowania programu SQL Server w wystąpieniu zdalnym. Moveover, zarówno w przypadku tej nazwy logowania bazy danych, jak i nazwy logowania bazy danych używane do łączenia z bazą danych z działającej aplikacji ASP.NET muszą być elementami członkowskimi `sysadmin` roli. Zobacz debugowania T-SQL obiektów bazy danych w sekcji wystąpień zdalnego na końcu tego samouczka, aby uzyskać więcej informacji na temat konfigurowania programu Visual Studio i SQL Server do debugowania zdalnego wystąpienia.
 
-Na koniec Dowiedz się, że debugowanie obsługę obiektów bazy danych T-SQL nie jest jako funkcja sformatowanego jako debugowania obsługę aplikacji .NET. Na przykład warunków punktu przerwania i filtry nie są obsługiwane, tylko podzbiór debugowania systemu windows są dostępne, nie można użyć Edytuj i Kontynuuj, w oknie bezpośrednim jest renderowany bezużyteczne itd. Zobacz [mają zastosowanie ograniczenia dotyczące poleceń debugera i funkcji](https://msdn.microsoft.com/en-us/library/ms165035(VS.80).aspx) Aby uzyskać więcej informacji.
+Na koniec Dowiedz się, że debugowanie obsługę obiektów bazy danych T-SQL nie jest jako funkcja sformatowanego jako debugowania obsługę aplikacji .NET. Na przykład warunków punktu przerwania i filtry nie są obsługiwane, tylko podzbiór debugowania systemu windows są dostępne, nie można użyć Edytuj i Kontynuuj, w oknie bezpośrednim jest renderowany bezużyteczne itd. Zobacz [mają zastosowanie ograniczenia dotyczące poleceń debugera i funkcji](https://msdn.microsoft.com/library/ms165035(VS.80).aspx) Aby uzyskać więcej informacji.
 
 ## <a name="step-1-directly-stepping-into-a-stored-procedure"></a>Krok 1: Bezpośrednio Wkraczanie do procedury składowanej
 
@@ -172,10 +172,10 @@ Przykład powinny pomóc w wyjaśnienia rzeczy. Załóżmy, że istnieje konto s
 
 [!code-console[Main](debugging-stored-procedures-vb/samples/sample2.cmd)]
 
-Aby uzyskać bardziej szczegółowy opis w tym procesie, zobacz [Vaughn R. łączy](http://betav.com/BLOG/billva/) s *Hitchhiker s Przewodnik po Visual Studio i SQL Server Edition siódmego* oraz [jak: Ustawianie uprawnień serwera SQL debugowanie](https://msdn.microsoft.com/en-us/library/w1bhybwz(VS.80).aspx).
+Aby uzyskać bardziej szczegółowy opis w tym procesie, zobacz [Vaughn R. łączy](http://betav.com/BLOG/billva/) s *Hitchhiker s Przewodnik po Visual Studio i SQL Server Edition siódmego* oraz [jak: Ustawianie uprawnień serwera SQL debugowanie](https://msdn.microsoft.com/library/w1bhybwz(VS.80).aspx).
 
 > [!NOTE]
-> Jeśli na komputerze deweloperskim działa dodatku Service Pack 2 dla systemu Windows XP należy skonfigurować zaporę połączenia internetowego w celu zezwolenia na debugowanie zdalne. [Jak do: Włączanie debugowania programu SQL Server 2005](https://msdn.microsoft.com/en-us/library/s0fk6z6e(VS.80).aspx) zawiera informacje dotyczące artykułu, ten proces obejmuje dwa kroki: () na komputerze hosta programu Visual Studio, należy dodać `Devenv.exe` do listy wyjątków i otwórz port TCP 135; oraz (b) na komputerze zdalnym (SQL), należy otworzyć TCP 135 portu, a następnie dodaj `sqlservr.exe` do listy wyjątków. Jeśli zasady domeny wymaga komunikacji sieciowej można zrobić za pomocą protokołu IPSec, należy otworzyć porty UDP 4500 i UDP 500.
+> Jeśli na komputerze deweloperskim działa dodatku Service Pack 2 dla systemu Windows XP należy skonfigurować zaporę połączenia internetowego w celu zezwolenia na debugowanie zdalne. [Jak do: Włączanie debugowania programu SQL Server 2005](https://msdn.microsoft.com/library/s0fk6z6e(VS.80).aspx) zawiera informacje dotyczące artykułu, ten proces obejmuje dwa kroki: () na komputerze hosta programu Visual Studio, należy dodać `Devenv.exe` do listy wyjątków i otwórz port TCP 135; oraz (b) na komputerze zdalnym (SQL), należy otworzyć TCP 135 portu, a następnie dodaj `sqlservr.exe` do listy wyjątków. Jeśli zasady domeny wymaga komunikacji sieciowej można zrobić za pomocą protokołu IPSec, należy otworzyć porty UDP 4500 i UDP 500.
 
 
 ## <a name="summary"></a>Podsumowanie

@@ -1,6 +1,6 @@
 ---
 uid: mvc/mvc3
-title: PROGRAM ASP.NET MVC 3 | Dokumentacja firmy Microsoft
+title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
 description: "(obejmuje kwietnia 2011 aktualizacji narzędzi) ASP.NET MVC 3 to struktura służąca do tworzenia aplikacji sieci web skalowalnych, opartych na standardach przy użyciu wzorca projektowego ustalonym..."
 ms.author: aspnetcontent
@@ -12,13 +12,13 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc3
 msc.type: content
-ms.openlocfilehash: 1aa059e92b5637b9ba7ce488da4b44322dab6d8e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c7eee987b28a5d7f8b40fe89a7bf7517ec06646f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
-<a name="aspnet-mvc-3"></a>PROGRAM ASP.NET MVC 3
+<a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
 > *(obejmuje kwietnia 2011 aktualizacji narzędzi)*
 > 
@@ -165,7 +165,7 @@ Aby uzyskać więcej informacji na temat Razor zobacz następujące zasoby:
 Czasami chcesz przeprowadzić logiki przed uruchomieniem metody akcji lub po wykonaniu metody akcji. Aby to obsłużyć, ASP.NET MVC 2 podać filtrów akcji. Filtry akcji są deklaratywne umożliwiają dodanie akcji przed i po zachowania do metody akcji kontrolera określone atrybuty niestandardowe. Jednak w niektórych przypadkach można określić zachowanie akcji przed lub po akcji, która dotyczy wszystkich metod akcji. MVC 3 umożliwia określenie filtry globalne przez dodanie ich do `GlobalFilters` kolekcji. Aby uzyskać więcej informacji na temat globalne filtry akcji zobacz następujące zasoby:
 
 - [Scott Guthrie blogu w wersji zapoznawczej 3 MVC](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)
-- [Filtrowanie na platformie ASP.NET MVC](https://msdn.microsoft.com/en-us/library/gg416513(VS.98).aspx)
+- [Filtrowanie na platformie ASP.NET MVC](https://msdn.microsoft.com/library/gg416513(VS.98).aspx)
 
 ### <a name="new-viewbag-property"></a>Nowe właściwości "Obiekt ViewBag."
 
@@ -175,9 +175,9 @@ Obsługa kontrolerów MVC 2 `ViewData` właściwość, która umożliwia przekaz
 
 Następujące `ActionResult` typy i metody pomocnicze odpowiednie są nowe i udoskonalone w MVC 3:
 
-- [HttpNotFoundResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx). Zwraca kod stanu HTTP 404 do klienta.
-- [RedirectResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.redirectresult(v=VS.98).aspx). Zwraca Przekierowanie tymczasowe (kod stanu HTTP 302) lub przekierowanie trwałe (kod stanu HTTP 301), w zależności od parametrów typu Boolean. W połączeniu z tą zmianą [kontrolera](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller(v=VS.98).aspx) klasa ma teraz trzech metod wykonywania przekierowania stałych: `RedirectPermanent`, `RedirectToRoutePermanent`, i `RedirectToActionPermanent`. Te metody zwracają wystąpienia `RedirectResult` z `Permanent` ustawioną właściwość `true`.
-- [HttpStatusCodeResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx). Zwraca kod stanu HTTP określone przez użytkownika.
+- [HttpNotFoundResult](https://msdn.microsoft.com/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx). Zwraca kod stanu HTTP 404 do klienta.
+- [RedirectResult](https://msdn.microsoft.com/library/system.web.mvc.redirectresult(v=VS.98).aspx). Zwraca Przekierowanie tymczasowe (kod stanu HTTP 302) lub przekierowanie trwałe (kod stanu HTTP 301), w zależności od parametrów typu Boolean. W połączeniu z tą zmianą [kontrolera](https://msdn.microsoft.com/library/system.web.mvc.controller(v=VS.98).aspx) klasa ma teraz trzech metod wykonywania przekierowania stałych: `RedirectPermanent`, `RedirectToRoutePermanent`, i `RedirectToActionPermanent`. Te metody zwracają wystąpienia `RedirectResult` z `Permanent` ustawioną właściwość `true`.
+- [HttpStatusCodeResult](https://msdn.microsoft.com/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx). Zwraca kod stanu HTTP określone przez użytkownika.
 
 <a id="BM_JavaScript_and_Ajax_Improvements"></a>
 
@@ -199,7 +199,7 @@ Aby weryfikacji po stronie klienta do pracy należy nadal odwoływać się odpow
 
 ### <a name="remote-validator"></a>Zdalnego modułu weryfikacji
 
-ASP.NET MVC 3 obsługuje nowe [RemoteAttribute](https://msdn.microsoft.com/en-us/library/system.web.mvc.remoteattribute(v=VS.98).aspx) klasy, która pozwala na wykorzystanie jQuery weryfikacji w plug na obsługę zdalnego modułu weryfikacji. Dzięki temu biblioteki weryfikacji po stronie klienta, umożliwiająca automatyczne wywoływanie metody niestandardowej, zdefiniowanego na serwerze w celu wykonywania logiki sprawdzania poprawności, które jest możliwe tylko po stronie serwera.
+ASP.NET MVC 3 obsługuje nowe [RemoteAttribute](https://msdn.microsoft.com/library/system.web.mvc.remoteattribute(v=VS.98).aspx) klasy, która pozwala na wykorzystanie jQuery weryfikacji w plug na obsługę zdalnego modułu weryfikacji. Dzięki temu biblioteki weryfikacji po stronie klienta, umożliwiająca automatyczne wywoływanie metody niestandardowej, zdefiniowanego na serwerze w celu wykonywania logiki sprawdzania poprawności, które jest możliwe tylko po stronie serwera.
 
 W poniższym przykładzie `Remote` atrybut określa, czy sprawdzanie poprawności klienta wywoła akcję o nazwie `UserNameAvailable` na `UsersController` klasy do weryfikacji `UserName` pola.
 
@@ -209,7 +209,7 @@ W poniższym przykładzie przedstawiono odpowiedniego kontrolera.
 
 [!code-csharp[Main](mvc3/samples/sample2.cs)]
 
-Aby uzyskać więcej informacji o sposobie używania `Remote` atrybutów, zobacz [porady: Implementowanie zdalnej weryfikacji w aplikacji ASP.NET MVC](https://msdn.microsoft.com/en-us/library/gg508808(VS.98).aspx) w bibliotece MSDN.
+Aby uzyskać więcej informacji o sposobie używania `Remote` atrybutów, zobacz [porady: Implementowanie zdalnej weryfikacji w aplikacji ASP.NET MVC](https://msdn.microsoft.com/library/gg508808(VS.98).aspx) w bibliotece MSDN.
 
 ### <a name="json-binding-support"></a>Obsługa powiązanie JSON
 
@@ -231,9 +231,9 @@ Obsługuje platformy ASP.NET MVC 3 `DataAnnotations` metadanych atrybutów, taki
 
 ### <a name="validation-interfaces"></a>Sprawdzanie poprawności interfejsów
 
-[IValidatableObject](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.ivalidatableobject.aspx) interfejs umożliwia przeprowadzanie weryfikacji na poziomie modelu i umożliwia udostępnienia weryfikacji komunikaty o błędach, które są specyficzne dla stan ogólny modelu lub między dwoma właściwości w modelu . MVC 3 teraz pobiera błędów z `IValidatableObject` interfejsu podczas wiązania modelu i automatycznie flagi lub prezentuje dotyczy pól w widoku przy użyciu wbudowanych pomocników formularza HTML.
+[IValidatableObject](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.ivalidatableobject.aspx) interfejs umożliwia przeprowadzanie weryfikacji na poziomie modelu i umożliwia udostępnienia weryfikacji komunikaty o błędach, które są specyficzne dla stan ogólny modelu lub między dwoma właściwości w modelu . MVC 3 teraz pobiera błędów z `IValidatableObject` interfejsu podczas wiązania modelu i automatycznie flagi lub prezentuje dotyczy pól w widoku przy użyciu wbudowanych pomocników formularza HTML.
 
-[IClientValidatable](https://msdn.microsoft.com/en-us/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx) interfejs umożliwia platformie ASP.NET MVC wykrywanie w czasie wykonywania czy moduł weryfikacji obsługuje weryfikację klienta. Ten interfejs został zaprojektowany tak, aby można zintegrować z różnych platform sprawdzania poprawności.
+[IClientValidatable](https://msdn.microsoft.com/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx) interfejs umożliwia platformie ASP.NET MVC wykrywanie w czasie wykonywania czy moduł weryfikacji obsługuje weryfikację klienta. Ten interfejs został zaprojektowany tak, aby można zintegrować z różnych platform sprawdzania poprawności.
 
 Aby uzyskać więcej informacji o weryfikacji interfejsów, temacie **ulepszenia sprawdzania poprawności modelu** sekcji [MVC 3 Podgląd Scott Guthrie wpis w blogu](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx). (Jednak pamiętaj, że odwołanie do "IValidateObject" w blogu powinien być "IValidatableObject".)
 
@@ -278,7 +278,7 @@ ASP.NET MVC ma obsługiwane buforowanie danych wyjściowych strony pełnej odpow
 
 ### <a name="granular-control-over-request-validation"></a>Szczegółową kontrolę nad weryfikacji żądań
 
-ASP.NET MVC ma weryfikacji żądań wbudowanych, który automatycznie pomaga w ochronie przed atakami polegającymi na wprowadzeniu XSS i HTML. Jednak czasami chcą jawnie wyłącz żądania weryfikacji, np. Jeśli chcesz umożliwić użytkownikom wysyłanie zawartości (na przykład w wpisy blogu lub zawartość CMS) HTML. Można teraz dodawać [AllowHtml](https://msdn.microsoft.com/en-us/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx) atrybut modele lub wyświetl modele, aby wyłączyć sprawdzanie poprawności żądań na podstawie dla właściwości podczas wiązania modelu. Aby uzyskać więcej informacji o weryfikacji żądań zobacz następujące zasoby:
+ASP.NET MVC ma weryfikacji żądań wbudowanych, który automatycznie pomaga w ochronie przed atakami polegającymi na wprowadzeniu XSS i HTML. Jednak czasami chcą jawnie wyłącz żądania weryfikacji, np. Jeśli chcesz umożliwić użytkownikom wysyłanie zawartości (na przykład w wpisy blogu lub zawartość CMS) HTML. Można teraz dodawać [AllowHtml](https://msdn.microsoft.com/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx) atrybut modele lub wyświetl modele, aby wyłączyć sprawdzanie poprawności żądań na podstawie dla właściwości podczas wiązania modelu. Aby uzyskać więcej informacji o weryfikacji żądań zobacz następujące zasoby:
 
 - **Dyskretny kod JavaScript i weryfikacja** sekcji [Scott Guthrie wpis w blogu w wersji release candidate MVC 3](https://weblogs.asp.net/scottgu/archive/2010/11/09/announcing-the-asp-net-mvc-3-release-candidate.aspx).
 - [Informacje o wersji platformy MVC 3](../whitepapers/mvc3-release-notes.md)
@@ -303,7 +303,7 @@ ASP.NET MVC 3, można określić, czy klasa kontrolera, do korzystania ze stanu 
 
 ### <a name="new-additionalmetadataattribute-class"></a>Nowa klasa "AdditionalMetadataAttribute"
 
-Można użyć [AdditionalMetadata](https://msdn.microsoft.com/en-us/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx) atrybutu, aby wypełnić `ModelMetadata.AdditionalValues` słownika właściwości modelu. Na przykład jeśli model widoku ma właściwość, która powinna być wyświetlana tylko dla administratora, użytkownik może dodawać adnotacje do tej właściwości jak pokazano w poniższym przykładzie:
+Można użyć [AdditionalMetadata](https://msdn.microsoft.com/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx) atrybutu, aby wypełnić `ModelMetadata.AdditionalValues` słownika właściwości modelu. Na przykład jeśli model widoku ma właściwość, która powinna być wyświetlana tylko dla administratora, użytkownik może dodawać adnotacje do tej właściwości jak pokazano w poniższym przykładzie:
 
 [!code-csharp[Main](mvc3/samples/sample4.cs)]
 

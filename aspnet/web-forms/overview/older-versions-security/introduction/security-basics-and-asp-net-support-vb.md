@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1ff76d08b6de20be7263ae134b102883fc8d99a2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 43edf6745627e92d20c26377404e44f07e649a75
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="security-basics-and-aspnet-support-vb"></a>Podstawowe informacje o zabezpieczeniach i pomoc techniczna platformy ASP.NET (VB)
 ====================
@@ -102,7 +102,7 @@ Po pomyślnym zalogowaniu się użytkownika, kolejne żądania HTTP obejmują bi
 **Rysunek 2**: przepływ uwierzytelniania formularzy
 
 
-Firma Microsoft będzie odnajdywać do uwierzytelniania formularzy znacznie bardziej szczegółowo w dwóch następnych samouczków[omówienie uwierzytelniania formularzy](an-overview-of-forms-authentication-vb.md) i [konfiguracji uwierzytelniania formularzy i Tematy zaawansowane](forms-authentication-configuration-and-advanced-topics-vb.md). Aby uzyskać więcej informacji na temat ASP. Opcje uwierzytelniania w sieci, zobacz [Uwierzytelnianie ASP.NET](https://msdn.microsoft.com/en-us/library/eeyk640h.aspx).
+Firma Microsoft będzie odnajdywać do uwierzytelniania formularzy znacznie bardziej szczegółowo w dwóch następnych samouczków[omówienie uwierzytelniania formularzy](an-overview-of-forms-authentication-vb.md) i [konfiguracji uwierzytelniania formularzy i Tematy zaawansowane](forms-authentication-configuration-and-advanced-topics-vb.md). Aby uzyskać więcej informacji na temat ASP. Opcje uwierzytelniania w sieci, zobacz [Uwierzytelnianie ASP.NET](https://msdn.microsoft.com/library/eeyk640h.aspx).
 
 ## <a name="limiting-access-to-web-pages-directories-and-page-functionality"></a>Ograniczanie dostępu do stron sieci Web, katalogów i funkcji strony
 
@@ -113,9 +113,9 @@ Program ASP.NET udostępnia dwa sposoby ustalić, czy dany użytkownik ma uprawn
 
 Plik uwierzytelnianie i Autoryzacja adresów URL należy zdefiniować reguły autoryzacji do uzyskiwania dostępu do określonej strony ASP.NET dla wszystkich stron ASP.NET z określonego katalogu. Przy użyciu tych metod możemy poinstruuj ASP.NET odrzucanie żądań do określonej strony dla danego użytkownika, lub zezwolić na dostęp do zbioru użytkowników i odmowa dostępu do osoby. Co sytuacji, gdy wszyscy użytkownicy mogą uzyskiwać dostęp do strony, ale funkcjonalność strony zależy od użytkownika? Na przykład wiele witryn, które obsługują konta użytkowników mają stron z inną zawartością lub dane dla uwierzytelnionych użytkowników w zależności od użytkowników anonimowych. Użytkownik anonimowy napotkać łącze do logowania się w lokacji, podczas gdy uwierzytelniony użytkownik zobaczy zamiast tego komunikatu, takich jak, Witamy z powrotem, *Username* wraz z linkiem się wylogować. Inny przykład: podczas wyświetlania elementu na witryną Zobacz różne informacje w zależności od tego, czy oferta najwyższa lub jeden system aukcji elementu.
 
-Takie dostosowania na poziomie strony można osiągnąć deklaratywnie lub programowo. Aby wyświetlić różne zawartości dla anonimowego niż uwierzytelnionych użytkowników, po prostu przeciągania [formantu LoginView](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginview.aspx) na stronę, a następnie wprowadź odpowiednią zawartość do jego AnonymousTemplate i LoggedInTemplate szablonów. Alternatywnie, można programowo określić, czy bieżące żądanie jest uwierzytelniane, kto jest użytkownika oraz role należą one do (jeśli istnieje). Tych informacji umożliwia następnie Pokazywanie lub ukrywanie kolumn w siatce lub panele na stronie.
+Takie dostosowania na poziomie strony można osiągnąć deklaratywnie lub programowo. Aby wyświetlić różne zawartości dla anonimowego niż uwierzytelnionych użytkowników, po prostu przeciągania [formantu LoginView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) na stronę, a następnie wprowadź odpowiednią zawartość do jego AnonymousTemplate i LoggedInTemplate szablonów. Alternatywnie, można programowo określić, czy bieżące żądanie jest uwierzytelniane, kto jest użytkownika oraz role należą one do (jeśli istnieje). Tych informacji umożliwia następnie Pokazywanie lub ukrywanie kolumn w siatce lub panele na stronie.
 
-Ta seria zawiera trzy samouczków, z którymi się skupić na autoryzacji. ***Autoryzacji na podstawie użytkownika***sprawdza jak ograniczyć dostęp do stron w katalogu lub strony na określonych kont użytkowników; ***Autoryzacji na podstawie roli*** analizuje dostarczanie reguły autoryzacji w ramach roli poziomu; Ponadto ***wyświetlanie zawartości na podstawie obecnie zalogowany w użytkownika*** w tym samouczku przedstawiono modyfikacja szczególności zawartość i funkcje na podstawie użytkownika, odwiedzając stronę strony. Aby uzyskać więcej informacji na temat ASP. Opcje autoryzacji w sieci, zobacz [autoryzacji programu ASP.NET](https://msdn.microsoft.com/en-us/library/wce3kxhd.aspx).
+Ta seria zawiera trzy samouczków, z którymi się skupić na autoryzacji. ***Autoryzacji na podstawie użytkownika***sprawdza jak ograniczyć dostęp do stron w katalogu lub strony na określonych kont użytkowników; ***Autoryzacji na podstawie roli*** analizuje dostarczanie reguły autoryzacji w ramach roli poziomu; Ponadto ***wyświetlanie zawartości na podstawie obecnie zalogowany w użytkownika*** w tym samouczku przedstawiono modyfikacja szczególności zawartość i funkcje na podstawie użytkownika, odwiedzając stronę strony. Aby uzyskać więcej informacji na temat ASP. Opcje autoryzacji w sieci, zobacz [autoryzacji programu ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx).
 
 ## <a name="user-accounts-and-roles"></a>Konta użytkowników i ról
 
@@ -123,21 +123,21 @@ Ta seria zawiera trzy samouczków, z którymi się skupić na autoryzacji. ***Au
 
 Przed składnika ASP.NET 2.0 deweloperzy zostały odpowiedzialną za tworzenie własnych magazynów użytkownika i roli. Znajdowały się również w haku projektowanie interfejsów użytkownika i pisanie kodu dla użytkownika niezbędne stron związanych z kontem, takich jak strony logowania i stronę, aby utworzyć nowe konto, między innymi. Bez żadnych framework konto wbudowane użytkownika w programie ASP.NET, każdy Deweloper implementującej kont użytkowników musiały osiągnąć własnej decyzji projektowych na pytania, jak przechowywać hasła lub inne poufne informacje? i jakie wytyczne powinna nałożyć dotyczące długość hasła i siły?
 
-Obecnie implementacja kont użytkowników w aplikacji ASP.NET jest znacznie prostsze dzięki *framework członkostwa* i wbudowane formanty sieci Web logowania. W ramach członkostwa jest kilka klas w [System.Web.Security przestrzeni nazw](https://msdn.microsoft.com/en-us/library/system.web.security.aspx) które zapewniają funkcje do wykonywania zadań związanych z kontem użytkownika podstawowych. Klasa klucza w ramach członkostwa jest [klasy członkostwa](https://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx), która zawiera metody, takie jak:
+Obecnie implementacja kont użytkowników w aplikacji ASP.NET jest znacznie prostsze dzięki *framework członkostwa* i wbudowane formanty sieci Web logowania. W ramach członkostwa jest kilka klas w [System.Web.Security przestrzeni nazw](https://msdn.microsoft.com/library/system.web.security.aspx) które zapewniają funkcje do wykonywania zadań związanych z kontem użytkownika podstawowych. Klasa klucza w ramach członkostwa jest [klasy członkostwa](https://msdn.microsoft.com/library/system.web.security.membership.aspx), która zawiera metody, takie jak:
 
-- Tworzenie użytkownika
+- CreateUser
 - DeleteUser
 - GetAllUsers
 - GetUser
 - UpdateUser
-- Funkcja ValidateUser
+- ValidateUser
 
 Platforma członkostwa korzysta z [modelu dostawcy](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), który prawidłowo oddziela interfejsu API w ramach członkostwa od jego wykonania. Umożliwia deweloperom korzystanie ze wspólnego interfejsu API, ale upoważnia je, aby korzystać z implementacji zaspokoi potrzeby niestandardowych ich aplikacji. Krótko mówiąc klasa członkostwa definiuje podstawowych funkcji platformy (metody, właściwości i zdarzeń), ale faktycznie nie dostarcza żadnych szczegółów implementacji. Zamiast tego metody klasy członkostwa wywołania skonfigurowanego dostawcy, czyli co wykonuje całą pracę. Na przykład po wywołaniu metody włączenie klasa członkowska klasy członkostwa nie może ustalić szczegółowe informacje o magazynie użytkownika. Nie wiadomo, jeśli użytkownicy są obsługiwane w bazie danych lub w pliku XML lub w niektórych innym magazynie. Klasa członkowska sprawdza konfigurację aplikacji sieci web, aby ustalić, jakie dostawcy, aby delegować wywołanie i klasy dostawcy jest odpowiedzialny za faktycznie Tworzenie nowego konta użytkownika w magazynie odpowiedniego użytkownika. Rysunek 3 przedstawia interakcji.
 
 Microsoft dwie klasy dostawcy członkostwa jest dostarczany w programie .NET Framework:
 
-- [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.activedirectorymembershipprovider.aspx) -implementuje interfejs API członkostwa w usłudze Active Directory i tryb aplikacji usługi Active Directory (ADAM) serwerów.
-- [SqlMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlmembershipprovider.aspx) -implementuje interfejs API członkostwa w bazie danych programu SQL Server.
+- [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/library/system.web.security.activedirectorymembershipprovider.aspx) -implementuje interfejs API członkostwa w usłudze Active Directory i tryb aplikacji usługi Active Directory (ADAM) serwerów.
+- [SqlMembershipProvider](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx) -implementuje interfejs API członkostwa w bazie danych programu SQL Server.
 
 Ta seria samouczek koncentruje się wyłącznie na SqlMembershipProvider.
 
@@ -147,17 +147,17 @@ Ta seria samouczek koncentruje się wyłącznie na SqlMembershipProvider.
 **Rysunek 03**: Dostawca modelu umożliwia różnych implementacji można bezproblemowo podłączony w ramach ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](security-basics-and-asp-net-support-vb/_static/image5.png))
 
 
-Zaletą modelu dostawcy jest alternatywnych implementacji może być opracowane przez firmę Microsoft, dostawców innych firm lub indywidualnych deweloperów i bezproblemowo podłączony w ramach członkostwa. Na przykład firma Microsoft wydała [dostawcę członkostwa dla baz danych programu Microsoft Access](https://download.microsoft.com/download/5/5/b/55bc291f-4316-4fd7-9269-dbf9edbaada8/sampleaccessproviders.vsi). Aby uzyskać więcej informacji o dostawcach członkostwa, zapoznaj się [Toolkit dostawcy](https://msdn.microsoft.com/en-us/asp.net/aa336558.aspx), w tym instruktażu dostawców członkostwa, przykładowe dostawców niestandardowych, ponad 100 stron dokumentacji modelu dostawcy i uzupełnianie kodu źródłowego dla wbudowanego dostawcy członkostwa (to znaczy, ActiveDirectoryMembershipProvider i SqlMembershipProvider).
+Zaletą modelu dostawcy jest alternatywnych implementacji może być opracowane przez firmę Microsoft, dostawców innych firm lub indywidualnych deweloperów i bezproblemowo podłączony w ramach członkostwa. Na przykład firma Microsoft wydała [dostawcę członkostwa dla baz danych programu Microsoft Access](https://download.microsoft.com/download/5/5/b/55bc291f-4316-4fd7-9269-dbf9edbaada8/sampleaccessproviders.vsi). Aby uzyskać więcej informacji o dostawcach członkostwa, zapoznaj się [Toolkit dostawcy](https://msdn.microsoft.com/asp.net/aa336558.aspx), w tym instruktażu dostawców członkostwa, przykładowe dostawców niestandardowych, ponad 100 stron dokumentacji modelu dostawcy i uzupełnianie kodu źródłowego dla wbudowanego dostawcy członkostwa (to znaczy, ActiveDirectoryMembershipProvider i SqlMembershipProvider).
 
-Platforma ASP.NET 2.0 wprowadzono również framework ról. Jak framework członkostwa w ramach ról została stworzona z modelu dostawcy. Jego interfejsu API jest udostępniane za pośrednictwem funkcji [klasy ról](https://msdn.microsoft.com/en-us/library/system.web.security.roles.aspx) i .NET Framework jest dostarczany z trzech klas dostawcy:
+Platforma ASP.NET 2.0 wprowadzono również framework ról. Jak framework członkostwa w ramach ról została stworzona z modelu dostawcy. Jego interfejsu API jest udostępniane za pośrednictwem funkcji [klasy ról](https://msdn.microsoft.com/library/system.web.security.roles.aspx) i .NET Framework jest dostarczany z trzech klas dostawcy:
 
-- [Element AuthorizationStoreRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.authorizationstoreroleprovider.aspx) -zarządza informacje o rolach w magazynie zasad Menedżera autoryzacji, takich jak usługa Active Directory lub ADAM.
-- [SqlRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlroleprovider.aspx) -implementuje ról w bazie danych programu SQL Server.
-- [WindowsTokenRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.windowstokenroleprovider.aspx) -kojarzy informacje o rolach oparte na odwiedzającego grupy systemu Windows. Ta metoda jest zwykle używana z uwierzytelnianiem systemu Windows.
+- [Element AuthorizationStoreRoleProvider](https://msdn.microsoft.com/library/system.web.security.authorizationstoreroleprovider.aspx) -zarządza informacje o rolach w magazynie zasad Menedżera autoryzacji, takich jak usługa Active Directory lub ADAM.
+- [SqlRoleProvider](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx) -implementuje ról w bazie danych programu SQL Server.
+- [WindowsTokenRoleProvider](https://msdn.microsoft.com/library/system.web.security.windowstokenroleprovider.aspx) -kojarzy informacje o rolach oparte na odwiedzającego grupy systemu Windows. Ta metoda jest zwykle używana z uwierzytelnianiem systemu Windows.
 
 Ta seria samouczek koncentruje się wyłącznie na elementu SqlRoleProvider.
 
-Ponieważ model dostawcy zawiera jeden interfejs API skierowany do przodu (klasy członkostwo i role), jest możliwe utworzenie funkcji wokół tego interfejsu API, nie martwiąc się o szczegóły implementacji — te są obsługiwane przez dostawców wybranych przez strony Developer. Ten ujednolicony interfejs API umożliwia do formantów sieci Web interfejsu z członkostwa oraz ról platformy firmy Microsoft i innych dostawców. Program ASP.NET jest dostarczany z liczbą [formanty sieci Web logowania](https://msdn.microsoft.com/en-us/library/ms178329.aspx) stosowania wspólnych interfejsów użytkownika konta użytkownika. Na przykład [formantu logowania](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.aspx) monituje użytkownika o podanie poświadczeń, sprawdza je i rejestruje je za pomocą uwierzytelniania formularzy. [Formantu LoginView](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginview.aspx) udostępnia szablony do wyświetlania różnych znaczników do użytkowników anonimowych, a użytkownicy uwierzytelnieni lub różnych znaczników na podstawie roli użytkownika. I [formancie CreateUserWizard](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.aspx) udostępnia interfejs użytkownika krok po kroku dotyczące tworzenia nowego konta użytkownika.
+Ponieważ model dostawcy zawiera jeden interfejs API skierowany do przodu (klasy członkostwo i role), jest możliwe utworzenie funkcji wokół tego interfejsu API, nie martwiąc się o szczegóły implementacji — te są obsługiwane przez dostawców wybranych przez strony Developer. Ten ujednolicony interfejs API umożliwia do formantów sieci Web interfejsu z członkostwa oraz ról platformy firmy Microsoft i innych dostawców. Program ASP.NET jest dostarczany z liczbą [formanty sieci Web logowania](https://msdn.microsoft.com/library/ms178329.aspx) stosowania wspólnych interfejsów użytkownika konta użytkownika. Na przykład [formantu logowania](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx) monituje użytkownika o podanie poświadczeń, sprawdza je i rejestruje je za pomocą uwierzytelniania formularzy. [Formantu LoginView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) udostępnia szablony do wyświetlania różnych znaczników do użytkowników anonimowych, a użytkownicy uwierzytelnieni lub różnych znaczników na podstawie roli użytkownika. I [formancie CreateUserWizard](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.aspx) udostępnia interfejs użytkownika krok po kroku dotyczące tworzenia nowego konta użytkownika.
 
 Poniżej obejmuje różne kontrolek logowania interakcji z platform członkostwa i ról. Większość kontrolek logowania można zaimplementować bez konieczności pisania pojedynczy wiersz kodu. Tych kontrolek bardziej szczegółowo omówione zostaną w przyszłości samouczki, w tym techniki rozszerzanie i dostosowywanie ich funkcje.
 
@@ -174,16 +174,16 @@ Programowanie przyjemność!
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
 - [Platforma ASP.NET 2.0 członkostwo, role, uwierzytelnianie formularzy i zabezpieczeń zasobów](https://weblogs.asp.net/scottgu/ASP.NET-2.0-Membership_2C00_-Roles_2C00_-Forms-Authentication_2C00_-and-Security-Resources-)
-- [Wytyczne dotyczące zabezpieczeń 2.0 ASP.NET](https://msdn.microsoft.com/en-us/library/ms998258.aspx)
-- [Uwierzytelnianie ASP.NET](https://msdn.microsoft.com/en-us/library/eeyk640h.aspx)
-- [Autoryzacja w programie ASP.NET](https://msdn.microsoft.com/en-us/library/wce3kxhd.aspx)
-- [Omówienie kontrolki logowania programu ASP.NET](https://msdn.microsoft.com/en-us/library/ms178329.aspx)
+- [Wytyczne dotyczące zabezpieczeń 2.0 ASP.NET](https://msdn.microsoft.com/library/ms998258.aspx)
+- [Uwierzytelnianie ASP.NET](https://msdn.microsoft.com/library/eeyk640h.aspx)
+- [Autoryzacja w programie ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx)
+- [Omówienie kontrolki logowania programu ASP.NET](https://msdn.microsoft.com/library/ms178329.aspx)
 - [Badanie ASP.NET 2.0 na członkostwo, role i profilu](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [Jak I: zabezpieczyć przy użyciu członkostwo i role lokacji](https://asp.net/learn/videos/video-45.aspx) (Klip wideo)
-- [Wprowadzenie do członkostwa](https://msdn.microsoft.com/en-us/library/yh26yfzy.aspx)
-- [Centrum deweloperów zabezpieczeń MSDN](https://msdn.microsoft.com/en-us/security/default.aspx)
+- [Wprowadzenie do członkostwa](https://msdn.microsoft.com/library/yh26yfzy.aspx)
+- [Centrum deweloperów zabezpieczeń MSDN](https://msdn.microsoft.com/security/default.aspx)
 - [Professional ASP.NET 2.0 zabezpieczeń, członkostwo i zarządzanie rolami](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
-- [Zestaw narzędzi do dostawcy](https://msdn.microsoft.com/en-us/asp.net/aa336558.aspx)
+- [Zestaw narzędzi do dostawcy](https://msdn.microsoft.com/asp.net/aa336558.aspx)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 

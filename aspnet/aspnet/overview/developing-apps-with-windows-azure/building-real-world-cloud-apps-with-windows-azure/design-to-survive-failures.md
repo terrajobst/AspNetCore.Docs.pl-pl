@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: a0ee790da07c99cdb1279a6bca637a4ce8076e84
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 62a16e9a99cd1298b0db5f8099092212f9f6850b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Projektowanie po awarii (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -117,14 +117,14 @@ Aby uzyskać więcej informacji zobacz dalszych rozdziałach Książka elektroni
 
 Dokumentacja:
 
-- [Przed uszkodzeniami: Wskazówki dotyczące architektury chmury odporność](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Oficjalny dokument Mercuri wytłoków, Ulrich Homann i Andrew Townhill. Wersja strony sieci Web seria filmów przed uszkodzeniami.
-- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na usług w chmurze Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Oficjalny dokument przez moduły SIMM znaku i Michael Thomassy.
-- [Wskazówki techniczne ciągłości biznesowej Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh873027.aspx). Oficjalny dokument Patrick Wickline i Jason Roth.
-- [Odzyskiwanie po awarii i wysoką dostępność aplikacji Azure](https://msdn.microsoft.com/en-us/library/windowsazure/dn251004.aspx). Oficjalny dokument Michael McKeown, Hanu Kommalapati i Jason Roth.
-- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Wskazówki dotyczące wdrażania centrum danych Zobacz Multi, wyłącznika wzorca.
+- [Przed uszkodzeniami: Wskazówki dotyczące architektury chmury odporność](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument Mercuri wytłoków, Ulrich Homann i Andrew Townhill. Wersja strony sieci Web seria filmów przed uszkodzeniami.
+- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na usług w chmurze Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Oficjalny dokument przez moduły SIMM znaku i Michael Thomassy.
+- [Wskazówki techniczne ciągłości biznesowej Azure](https://msdn.microsoft.com/library/windowsazure/hh873027.aspx). Oficjalny dokument Patrick Wickline i Jason Roth.
+- [Odzyskiwanie po awarii i wysoką dostępność aplikacji Azure](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx). Oficjalny dokument Michael McKeown, Hanu Kommalapati i Jason Roth.
+- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/library/dn568099.aspx). Wskazówki dotyczące wdrażania centrum danych Zobacz Multi, wyłącznika wzorca.
 - [Pomoc techniczna platformy Azure - umów dotyczących poziomu usług](https://azure.microsoft.com/support/legal/sla/).
-- [Ciągłość prowadzenia działalności biznesowej w bazie danych Azure SQL](https://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx). Dokumentację dotyczącą bazy danych SQL wysokiej dostępności i odzyskiwaniem po awarii funkcji odzyskiwania.
-- [Wysoka dostępność i odzyskiwanie po awarii dla programu SQL Server na maszynach wirtualnych Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj870962.aspx).
+- [Ciągłość prowadzenia działalności biznesowej w bazie danych Azure SQL](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx). Dokumentację dotyczącą bazy danych SQL wysokiej dostępności i odzyskiwaniem po awarii funkcji odzyskiwania.
+- [Wysoka dostępność i odzyskiwanie po awarii dla programu SQL Server na maszynach wirtualnych Azure](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx).
 
 Filmy wideo:
 

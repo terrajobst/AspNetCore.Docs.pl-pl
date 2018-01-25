@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 1cd5569554c3fbd966ee5d55ad08a79b81af36de
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c2567d4d39a494daf77a23db5dff83c8fae4925d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>Podręcznik interfejsu API koncentratorów SignalR platformy ASP.NET — serwera (C#)
 ====================
@@ -59,7 +59,7 @@ Ten dokument zawiera następujące sekcje:
     - [Okres istnienia obiektu Centrum](#transience)
     - [Wielkość liter formatu Centrum nazw klientów języka JavaScript](#hubnames)
     - [Wiele centrów](#multiplehubs)
-    - [Koncentratory silnie Typizowane](#stronglytypedhubs)
+    - [Strongly-Typed Hubs](#stronglytypedhubs)
 - [Sposób definiowania metod w klasie koncentratora, której klienci mogą wywoływać](#hubmethods)
 
     - [Wielkość liter formatu nazw klientów języka JavaScript — metoda](#methodnames)
@@ -102,7 +102,7 @@ Składniki serwera dla SignalR 2 są dostępne tylko w programie .NET 4.5. Serwe
 
 ## <a name="how-to-register-signalr-middleware"></a>Jak zarejestrować oprogramowanie pośredniczące SignalR
 
-Aby zdefiniować trasy, którego klienci będą używać do nawiązania połączenia z koncentratorem, należy wywołać `MapSignalR` metody podczas uruchamiania aplikacji. `MapSignalR`jest [— metoda rozszerzenia](https://msdn.microsoft.com/en-us/library/vstudio/bb383977.aspx) dla `OwinExtensions` klasy. Poniższy przykład przedstawia sposób definiowania tras koncentratory SignalR za pomocą klasy początkowej OWIN.
+Aby zdefiniować trasy, którego klienci będą używać do nawiązania połączenia z koncentratorem, należy wywołać `MapSignalR` metody podczas uruchamiania aplikacji. `MapSignalR`jest [— metoda rozszerzenia](https://msdn.microsoft.com/library/vstudio/bb383977.aspx) dla `OwinExtensions` klasy. Poniższy przykład przedstawia sposób definiowania tras koncentratory SignalR za pomocą klasy początkowej OWIN.
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample1.cs)]
 
@@ -156,7 +156,7 @@ Poniższy przykład przedstawia sposób określić te opcje i adres URL połącz
 
 ## <a name="how-to-create-and-use-hub-classes"></a>Jak utworzyć i używać klas elementu Hub
 
-Koncentrator, utworzyć klasę, która jest pochodną [Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). W poniższym przykładzie przedstawiono prostą klasę Centrum dla aplikacji czatu.
+Koncentrator, utworzyć klasę, która jest pochodną [Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). W poniższym przykładzie przedstawiono prostą klasę Centrum dla aplikacji czatu.
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample7.cs)]
 
@@ -216,7 +216,7 @@ Można zdefiniować wiele klas elementu Hub w aplikacji. Po wykonaniu tej czynno
     W SignalR, którą można zdefiniować nazwę grupy w celu emisji podzbiorowi klientów połączonych. Grupy są obsługiwane oddzielnie dla każdej koncentratora. Na przykład grupa o nazwie "Administratorzy" to jeden zestaw klientów z `ContosoChatHub` klasy i tej samej nazwy grupy może odwoływać się do innej grupy klientów dla Twojego `StockTickerHub` klasy.
 
 <a id="stronglytypedhubs"></a>
-### <a name="strongly-typed-hubs"></a>Koncentratory silnie Typizowane
+### <a name="strongly-typed-hubs"></a>Strongly-Typed Hubs
 
 Aby zdefiniować interfejs dla metod koncentratora, z których klient może odwołanie i włączanie funkcji Intellisense na metody koncentratora, pochodzi z Centrum `Hub<T>` (zostanie wprowadzony w SignalR 2.1) zamiast `Hub`:
 
@@ -262,7 +262,7 @@ Jeśli chcesz określić inną nazwę dla klientów do używania, Dodaj `HubMeth
 
 ### <a name="when-to-execute-asynchronously"></a>Kiedy asynchroniczne
 
-Jeśli metoda będzie można długotrwałe lub ma pracę który będzie obejmują oczekujące, takich jak wyszukiwania w bazie danych lub wywołania usługi sieci web należy metody koncentratora asynchroniczne zwracając [zadań](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) (zamiast `void` zwracać) lub [ Zadanie&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/dd321424.aspx) obiektu (zamiast `T` zwracany typ). Po powrocie `Task` obiektu z metody SignalR czeka na `Task` aby zakończyć, a następnie wysyła bez otoki wynik do klienta, więc nie ma żadnej różnicy w sposób code wywołania metody w kliencie.
+Jeśli metoda będzie można długotrwałe lub ma pracę który będzie obejmują oczekujące, takich jak wyszukiwania w bazie danych lub wywołania usługi sieci web należy metody koncentratora asynchroniczne zwracając [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) (zamiast `void` zwracać) lub [ Zadanie&lt;T&gt; ](https://msdn.microsoft.com/library/dd321424.aspx) obiektu (zamiast `T` zwracany typ). Po powrocie `Task` obiektu z metody SignalR czeka na `Task` aby zakończyć, a następnie wysyła bez otoki wynik do klienta, więc nie ma żadnej różnicy w sposób code wywołania metody w kliencie.
 
 Tworzenie metody koncentratora asynchroniczne pozwala uniknąć blokuje połączenia, gdy używa transportu protokołu WebSocket. Gdy metody koncentratora wykonuje synchronicznie i transport jest protokołu WebSocket, kolejne wywołania metody koncentratora od tego samego klienta są zablokowane, dopiero po zakończeniu metody koncentratora.
 
@@ -331,7 +331,7 @@ Można określić typy złożone i tablic parametrów. Poniższy przykład przek
 
 ### <a name="selecting-which-clients-will-receive-the-rpc"></a>Wybieranie których klienci otrzymają RPC
 
-Zwraca właściwości klientów [HubConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) obiekt, który zapewnia kilka opcji określenie, którzy klienci otrzymają RPC:
+Zwraca właściwości klientów [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) obiekt, który zapewnia kilka opcji określenie, którzy klienci otrzymają RPC:
 
 - Wszyscy połączeni klienci.
 
@@ -403,7 +403,7 @@ Jeśli używasz `await` do poczekaj na zakończenie metodę klienta, przed wykon
 
 ### <a name="how-to-use-a-string-variable-as-the-method-name"></a>Jak używać zmiennej ciągu jako nazwy — metoda
 
-Aby wywołać metodę klienta za pomocą zmiennej ciągu jako nazwy metody rzutowania `Clients.All` (lub `Clients.Others`, `Clients.Caller`, itd.) do `IClientProxy` , a następnie wywołać [Invoke (methodName, argumenty...) ](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
+Aby wywołać metodę klienta za pomocą zmiennej ciągu jako nazwy metody rzutowania `Clients.All` (lub `Clients.Others`, `Clients.Caller`, itd.) do `IClientProxy` , a następnie wywołać [Invoke (methodName, argumenty...) ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample42.cs)]
 
@@ -413,7 +413,7 @@ Aby wywołać metodę klienta za pomocą zmiennej ciągu jako nazwy metody rzuto
 
 Grupy w SignalR udostępnia metody emisji wiadomości do określonego podzbiór połączonych klientów. Grupa może zawierać dowolną liczbę klientów, a klient może być członkiem dowolnej liczby grup.
 
-Aby zarządzać członkostwa w grupie, należy użyć [Dodaj](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) i [Usuń](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) metody udostępniane przez `Groups` właściwość klasy koncentratora. W poniższym przykładzie przedstawiono `Groups.Add` i `Groups.Remove` metody używane w metodach koncentratora, które są wywoływane przez kod klienta, a następnie kod JavaScript klienta, który je wywołuje.
+Aby zarządzać członkostwa w grupie, należy użyć [Dodaj](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) i [Usuń](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) metody udostępniane przez `Groups` właściwość klasy koncentratora. W poniższym przykładzie przedstawiono `Groups.Add` i `Groups.Remove` metody używane w metodach koncentratora, które są wywoływane przez kod klienta, a następnie kod JavaScript klienta, który je wywołuje.
 
 **Serwer**
 
@@ -494,7 +494,7 @@ Metody obsługi zdarzeń okres istnienia połączenia są nazywane z serwera, co
 
 ## <a name="how-to-get-information-about-the-client-from-the-context-property"></a>Jak uzyskać informacji o kliencie z właściwości kontekstu
 
-Aby uzyskać informacje o kliencie, należy użyć `Context` właściwość klasy koncentratora. `Context` Zwraca [HubCallerContext](https://msdn.microsoft.com/en-us/library/jj890883(v=vs.111).aspx) obiektu, który zapewnia dostęp do następujących informacji:
+Aby uzyskać informacje o kliencie, należy użyć `Context` właściwość klasy koncentratora. `Context` Zwraca [HubCallerContext](https://msdn.microsoft.com/library/jj890883(v=vs.111).aspx) obiektu, który zapewnia dostęp do następujących informacji:
 
 - Identyfikator połączenia klienta wywołującego.
 
@@ -578,7 +578,7 @@ W VB.NET lub koncentrator jednoznacznie, obiekt wywołujący stanu nie są dost�
 Do obsługi błędów, które występują w Centrum metody klasy, należy użyć co najmniej jeden z następujących metod:
 
 - Zawijanie kodu metody w bloków try-catch i dziennika obiekt wyjątku. Wyjątek na potrzeby debugowania można wysłać do klienta, ale zabezpieczeń powodów wysyłanie szczegółowych informacji do klientów w środowisku produkcyjnym nie jest zalecane.
-- Utwórz moduł potoku koncentratory, który obsługuje [OnIncomingError](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) metody. W poniższym przykładzie przedstawiono modułu potoku, który rejestruje błędy, następuje kod w pliku Startup.cs, który injects modułu z potokiem koncentratorów.
+- Utwórz moduł potoku koncentratory, który obsługuje [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) metody. W poniższym przykładzie przedstawiono modułu potoku, który rejestruje błędy, następuje kod w pliku Startup.cs, który injects modułu z potokiem koncentratorów.
 
     [!code-csharp[Main](hubs-api-guide-server/samples/sample61.cs)]
 
@@ -674,4 +674,4 @@ Poniższy kod w *Startup.cs* pliku rejestruje modułu do działania w potoku kon
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample77.cs?highlight=3)]
 
-Istnieje wiele różnych metod, które można zastąpić. Aby uzyskać pełną listę, zobacz [metody HubPipelineModule](https://msdn.microsoft.com/en-us/library/jj918633(v=vs.111).aspx).
+Istnieje wiele różnych metod, które można zastąpić. Aby uzyskać pełną listę, zobacz [metody HubPipelineModule](https://msdn.microsoft.com/library/jj918633(v=vs.111).aspx).

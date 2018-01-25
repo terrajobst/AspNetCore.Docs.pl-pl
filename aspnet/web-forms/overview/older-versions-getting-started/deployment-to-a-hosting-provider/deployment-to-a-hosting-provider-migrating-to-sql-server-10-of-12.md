@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 31d83a11488212ab0ff83494d5e896ffcbeaa8a4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b97834e3e287645151bf927996fde63d93ae8356
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: Migracja do programu SQL Server - 10, 12
 ====================
@@ -37,7 +37,7 @@ Ten samouczek pokazuje, jak przeprowadzić migrację z programu SQL Server Compa
 
 Gdy decydujesz się na uaktualnienie do programu SQL Server, można użyć programu SQL Server lub SQL Server Express w swoich środowiskach programistycznych i testowych. Oprócz różnice w obsłudze narzędzia i funkcje aparatu bazy danych ma różnic w implementacji dostawcy programu SQL Server Compact i inne wersje programu SQL Server. Te różnice może spowodować ten sam kod można wygenerować różne wyniki. W związku z tym Jeśli zdecydujesz się zachować programu SQL Server Compact jako programowanie bazy danych, należy dokładnie przetestować witryny w programie SQL Server lub SQL Server Express w środowisku testowym przed każdym wdrożenia do produkcji.
 
-W przeciwieństwie do programu SQL Server Compact programu SQL Server Express jest zasadniczo tego samego aparatu bazy danych i używa tego samego dostawcy .NET jako pełnego serwera SQL. Podczas testowania z programu SQL Server Express, można mieć pewność pobierania takie same wyniki jak będzie z programem SQL Server. Większość tych samych narzędzi bazy danych można używać z programu SQL Server Express używanego z programem SQL Server (oprócz trwa [programu SQL Server Profiler](https://msdn.microsoft.com/en-us/library/ms181091.aspx)), i obsługuje inne funkcje programu SQL Server, takich jak widoki procedur składowanych, wyzwalaczy, i replikacji. (Zazwyczaj należy jednak używać pełnej wersji programu SQL Server w środowisku produkcyjnym witryny sieci Web. Program SQL Server Express można uruchomić w środowisku macierzystym udostępnionego, ale nie został zaprojektowany do tego, a wielu dostawców hostingu nie obsługują.)
+W przeciwieństwie do programu SQL Server Compact programu SQL Server Express jest zasadniczo tego samego aparatu bazy danych i używa tego samego dostawcy .NET jako pełnego serwera SQL. Podczas testowania z programu SQL Server Express, można mieć pewność pobierania takie same wyniki jak będzie z programem SQL Server. Większość tych samych narzędzi bazy danych można używać z programu SQL Server Express używanego z programem SQL Server (oprócz trwa [programu SQL Server Profiler](https://msdn.microsoft.com/library/ms181091.aspx)), i obsługuje inne funkcje programu SQL Server, takich jak widoki procedur składowanych, wyzwalaczy, i replikacji. (Zazwyczaj należy jednak używać pełnej wersji programu SQL Server w środowisku produkcyjnym witryny sieci Web. Program SQL Server Express można uruchomić w środowisku macierzystym udostępnionego, ale nie został zaprojektowany do tego, a wielu dostawców hostingu nie obsługują.)
 
 Jeśli używasz programu Visual Studio 2012, zwykle wybierz programu SQL Server Express LocalDB dla środowiska deweloperskiego ponieważ jest to, co jest instalowany domyślnie z programem Visual Studio. Jednak LocalDB nie działa w usługach IIS, dlatego dla danego środowiska testowego należy użyć programu SQL Server lub SQL Server Express.
 
@@ -57,9 +57,9 @@ Przypomnienie: Jeśli coś nie działa podczas wykonywania kroków samouczka wy�
 
 SQL Server Express jest automatycznie instalowany domyślnie z programu Visual Studio 2010, ale domyślnie nie jest zainstalowana z programu Visual Studio 2012. Aby zainstalować program SQL Server 2012 Express, kliknij poniższe łącze.
 
-- [Program SQL Server Express 2012](https://www.microsoft.com/en-us/download/details.aspx?id=29062)
+- [SQL Server Express 2012](https://www.microsoft.com/download/details.aspx?id=29062)
 
-Wybierz *SQLEXPR-plk/x64\_x64\_ENU.exe* lub *SQLEXPR-plk/x86\_x86\_ENU.exe*i w Kreatorze instalacji zaakceptuj wartość domyślną Ustawienia. Aby uzyskać więcej informacji na temat opcji instalacji, zobacz [Instalowanie programu SQL Server 2012 z poziomu Kreatora instalacji (Instalator)](https://msdn.microsoft.com/en-us/library/ms143219.aspx).
+Wybierz *SQLEXPR-plk/x64\_x64\_ENU.exe* lub *SQLEXPR-plk/x86\_x86\_ENU.exe*i w Kreatorze instalacji zaakceptuj wartość domyślną Ustawienia. Aby uzyskać więcej informacji na temat opcji instalacji, zobacz [Instalowanie programu SQL Server 2012 z poziomu Kreatora instalacji (Instalator)](https://msdn.microsoft.com/library/ms143219.aspx).
 
 ## <a name="creating-sql-server-express-databases-for-the-test-environment"></a>Tworzenie bazy danych programu SQL Server Express dla środowiska testowego
 

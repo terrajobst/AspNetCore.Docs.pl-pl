@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c25ebf472df5dcbc664257cdf8678bfac535d846
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 223dd48bb996de527f20291e4701e7d1b60a539d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>Tworzenie modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC (od 1 do 10)
 ====================
@@ -33,7 +33,7 @@ przez [Dykstra niestandardowy](https://github.com/tdykstra)
 > 
 > ## <a name="code-first"></a>Najpierw kodu
 > 
-> Istnieją trzy sposoby pracy z danymi programu Entity Framework: *Database First*, *Model First*, i *Code First*. Ten samouczek jest przeznaczony dla Code First. Aby uzyskać informacji o różnicach między te przepływy pracy i wskazówki na temat wybierania najlepszy dla danego scenariusza, zobacz [przepływów pracy programu Entity Framework programowanie](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+> Istnieją trzy sposoby pracy z danymi programu Entity Framework: *Database First*, *Model First*, i *Code First*. Ten samouczek jest przeznaczony dla Code First. Aby uzyskać informacji o różnicach między te przepływy pracy i wskazówki na temat wybierania najlepszy dla danego scenariusza, zobacz [przepływów pracy programu Entity Framework programowanie](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > ## <a name="mvc"></a>MVC
 > 
@@ -51,7 +51,7 @@ przez [Dykstra niestandardowy](https://github.com/tdykstra)
 > 
 > ## <a name="questions"></a>Pytania
 > 
-> Jeśli masz pytania, które nie są bezpośrednio związane z tego samouczka możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework i składnika LINQ to Entities forum](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/), lub [ StackOverflow.com](http://stackoverflow.com/).
+> Jeśli masz pytania, które nie są bezpośrednio związane z tego samouczka możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework i składnika LINQ to Entities forum](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), lub [ StackOverflow.com](http://stackoverflow.com/).
 > 
 > ## <a name="acknowledgments"></a>Potwierdzenia
 > 
@@ -84,7 +84,7 @@ Jeśli masz zainstalowanego programu Visual Studio, powyższe łącze zainstaluj
 
 ## <a name="create-an-mvc-web-application"></a>Tworzenie aplikacji sieci Web MVC
 
-Otwórz program Visual Studio i utworzyć nowy projekt C# o nazwie "ContosoUniversity" przy użyciu **aplikacji sieci Web programu ASP.NET MVC 4** szablonu. Upewnij się, że docelowych **.NET Framework 4.5** (należy używać [ `enum` właściwości](https://msdn.microsoft.com/en-us/data/hh859576.aspx), i który wymaga platformy .NET 4.5).
+Otwórz program Visual Studio i utworzyć nowy projekt C# o nazwie "ContosoUniversity" przy użyciu **aplikacji sieci Web programu ASP.NET MVC 4** szablonu. Upewnij się, że docelowych **.NET Framework 4.5** (należy używać [ `enum` właściwości](https://msdn.microsoft.com/data/hh859576.aspx), i który wymaga platformy .NET 4.5).
 
 ![New_project_dialog_box](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image3.png)
 
@@ -159,7 +159,7 @@ W *modele* folderu, Utwórz *Enrollment.cs* i Zastąp istniejący kod następuj�
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample5.cs)]
 
-Właściwość klasy jest [wyliczenia](https://msdn.microsoft.com/en-us/data/hh859576.aspx). Znak zapytania po `Grade` deklaracji typu wskazuje, że `Grade` właściwość jest [nullable](https://msdn.microsoft.com/en-us/library/2cf62fcy.aspx). Ma wartość null, która różni się od zera klasy — null oznacza, że klasa nie jest znana lub nie została jeszcze przypisana.
+Właściwość klasy jest [wyliczenia](https://msdn.microsoft.com/data/hh859576.aspx). Znak zapytania po `Grade` deklaracji typu wskazuje, że `Grade` właściwość jest [nullable](https://msdn.microsoft.com/library/2cf62fcy.aspx). Ma wartość null, która różni się od zera klasy — null oznacza, że klasa nie jest znana lub nie została jeszcze przypisana.
 
 `StudentID` Właściwość jest kluczem obcym i odpowiednią właściwość nawigacji jest `Student`. `Enrollment` Jednostka jest skojarzony z jednym `Student` jednostki, więc właściwości może zawierać tylko jeden `Student` jednostki (w przeciwieństwie do `Student.Enrollments` właściwość nawigacji był wyświetlany poprzednio, która zawiera wiele `Enrollment` jednostek).
 
@@ -175,19 +175,19 @@ W *modele* folderu, Utwórz *Course.cs*, zastępując istniejący kod następuj�
 
 `Enrollments` Właściwość jest właściwością nawigacji. A `Course` jednostka może być powiązane z dowolną liczbę `Enrollment` jednostek.
 
-Firma Microsoft będzie więcej powiedzieć o [[DatabaseGenerated](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([element DatabaseGeneratedOption](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx). Brak)] atrybutu w następnym samouczku. Zasadniczo ten atrybut umożliwia wprowadzenie klucza podstawowego dla porach zamiast generować go bazy danych.
+Firma Microsoft będzie więcej powiedzieć o [[DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([element DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx). Brak)] atrybutu w następnym samouczku. Zasadniczo ten atrybut umożliwia wprowadzenie klucza podstawowego dla porach zamiast generować go bazy danych.
 
 ## <a name="create-the-database-context"></a>Tworzenie kontekstu bazy danych
 
-Klasy głównym, która koordynuje funkcji programu Entity Framework o dany model danych jest *kontekst bazy danych* klasy. Utworzyć tę klasę przez pochodny [System.Data.Entity.DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) klasy. W kodzie należy określić jednostki, które znajdują się w modelu danych. Można również dostosować określone zachowanie programu Entity Framework. W tym projekcie klasy o nazwie `SchoolContext`.
+Klasy głównym, która koordynuje funkcji programu Entity Framework o dany model danych jest *kontekst bazy danych* klasy. Utworzyć tę klasę przez pochodny [System.Data.Entity.DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) klasy. W kodzie należy określić jednostki, które znajdują się w modelu danych. Można również dostosować określone zachowanie programu Entity Framework. W tym projekcie klasy o nazwie `SchoolContext`.
 
 Utwórz folder o nazwie *DAL* (dla warstwy dostępu do danych). W tym folderze utwórz plik klasy o nazwie *SchoolContext.cs*i Zastąp istniejący kod następującym kodem:
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample7.cs)]
 
-Ten kod tworzy [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=VS.103).aspx) właściwości dla każdego zestawu jednostek. W terminologii programu Entity Framework *zestaw jednostek* zazwyczaj odpowiada tabeli bazy danych i *jednostki* odpowiada wiersza w tabeli.
+Ten kod tworzy [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=VS.103).aspx) właściwości dla każdego zestawu jednostek. W terminologii programu Entity Framework *zestaw jednostek* zazwyczaj odpowiada tabeli bazy danych i *jednostki* odpowiada wiersza w tabeli.
 
-`modelBuilder.Conventions.Remove` Instrukcji w [OnModelCreating](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) metody uniemożliwia trwa pluralized nazwy tabeli. Jeśli tego nie zrobisz, będą miały postać wygenerowanego tabel `Students`, `Courses`, i `Enrollments`. Zamiast tego nazwy tabeli będą `Student`, `Course`, i `Enrollment`. Deweloperzy nie zgadzają się na temat tego, czy należy pluralized nazwy tabeli lub nie. Ten samouczek używa pojedynczej formularza, ale istotne jest, można wybrać dowolną wskazaną formularza preferowane przy tym lub pominięcie ten wiersz kodu.
+`modelBuilder.Conventions.Remove` Instrukcji w [OnModelCreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) metody uniemożliwia trwa pluralized nazwy tabeli. Jeśli tego nie zrobisz, będą miały postać wygenerowanego tabel `Students`, `Courses`, i `Enrollments`. Zamiast tego nazwy tabeli będą `Student`, `Course`, i `Enrollment`. Deweloperzy nie zgadzają się na temat tego, czy należy pluralized nazwy tabeli lub nie. Ten samouczek używa pojedynczej formularza, ale istotne jest, można wybrać dowolną wskazaną formularza preferowane przy tym lub pominięcie ten wiersz kodu.
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB.
 
@@ -201,15 +201,15 @@ W tym samouczku będziesz pracy z bazy danych LocalDB, aby bazy danych mogą by�
 
 [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample8.xml)]
 
-Domyślnie program Entity Framework wyszukuje ciąg połączenia o nazwie takiej jak `DbContext` klasy (`SchoolContext` dla tego projektu). Określa ciąg połączenia został dodany, bazy danych LocalDB *ContosoUniversity.mdf* znajduje się w *aplikacji\_danych* folderu. Aby uzyskać więcej informacji, zobacz [parametry połączenia serwera SQL dla aplikacji sieci Web ASP.NET](https://msdn.microsoft.com/en-us/library/jj653752.aspx).
+Domyślnie program Entity Framework wyszukuje ciąg połączenia o nazwie takiej jak `DbContext` klasy (`SchoolContext` dla tego projektu). Określa ciąg połączenia został dodany, bazy danych LocalDB *ContosoUniversity.mdf* znajduje się w *aplikacji\_danych* folderu. Aby uzyskać więcej informacji, zobacz [parametry połączenia serwera SQL dla aplikacji sieci Web ASP.NET](https://msdn.microsoft.com/library/jj653752.aspx).
 
-Faktycznie nie trzeba określić parametry połączenia. Jeśli nie zostanie podane parametry połączenia, Entity Framework utworzy przez; Niemniej jednak bazy danych nie może być w *aplikacji\_danych* folderu aplikacji. Aby uzyskać informacje, na którym zostanie utworzona bazy danych, zobacz [Code First nową bazę danych](https://msdn.microsoft.com/en-us/data/jj193542).
+Faktycznie nie trzeba określić parametry połączenia. Jeśli nie zostanie podane parametry połączenia, Entity Framework utworzy przez; Niemniej jednak bazy danych nie może być w *aplikacji\_danych* folderu aplikacji. Aby uzyskać informacje, na którym zostanie utworzona bazy danych, zobacz [Code First nową bazę danych](https://msdn.microsoft.com/data/jj193542).
 
 `connectionStrings` Kolekcji ma także parametry połączenia o nazwie `DefaultConnection` używany dla bazy danych członkostwa. Bazy danych członkostwa nie będzie używany w tym samouczku. Jedyną różnicą między parametry połączenia dwóch jest nazwa bazy danych i wartości atrybutu name.
 
 ## <a name="set-up-and-execute-a-code-first-migration"></a>Konfigurowanie i wykonywanie migracji pierwszy kodu
 
-Przy pierwszym uruchomieniu tworzenie aplikacji, model danych zmiany często i za każdym razem zmian modelu, który pobiera zsynchronizowane z bazą danych. Można skonfigurować programu Entity Framework, aby automatycznie Porzuć i ponownie utworzyć bazę danych w każdej zmianie modelu danych. Nie jest problem na początku programowanie, ponieważ dane testowe jest łatwo ponownego utworzenia, ale po wdrożeniu w środowisku produkcyjnym zwykle chcesz zaktualizować schemat bazy danych bez usuwania bazy danych. Funkcja migracji umożliwia Code First zaktualizować bazy danych bez usunięcie i ponowne utworzenie. Wczesnym etapie cyklu tworzenia nowego projektu można użyć [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/en-us/library/gg679604(v=vs.103).aspx) porzucić i ponownie utwórz ponownie inicjatora bazy danych po każdej aktualizacji zmiany modelu. Jeden użytkownik przygotowania do wdrożenia aplikacji, możesz przekształcić w ujęciu migracji. W tym samouczku będą używane wyłącznie migracji. Aby uzyskać więcej informacji, zobacz [migracje Code First](https://msdn.microsoft.com/en-us/data/jj591621) i [serii Screencast migracje](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx).
+Przy pierwszym uruchomieniu tworzenie aplikacji, model danych zmiany często i za każdym razem zmian modelu, który pobiera zsynchronizowane z bazą danych. Można skonfigurować programu Entity Framework, aby automatycznie Porzuć i ponownie utworzyć bazę danych w każdej zmianie modelu danych. Nie jest problem na początku programowanie, ponieważ dane testowe jest łatwo ponownego utworzenia, ale po wdrożeniu w środowisku produkcyjnym zwykle chcesz zaktualizować schemat bazy danych bez usuwania bazy danych. Funkcja migracji umożliwia Code First zaktualizować bazy danych bez usunięcie i ponowne utworzenie. Wczesnym etapie cyklu tworzenia nowego projektu można użyć [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=vs.103).aspx) porzucić i ponownie utwórz ponownie inicjatora bazy danych po każdej aktualizacji zmiany modelu. Jeden użytkownik przygotowania do wdrożenia aplikacji, możesz przekształcić w ujęciu migracji. W tym samouczku będą używane wyłącznie migracji. Aby uzyskać więcej informacji, zobacz [migracje Code First](https://msdn.microsoft.com/data/jj591621) i [serii Screencast migracje](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx).
 
 ### <a name="enable-code-first-migrations"></a>Włącz migracje Code First
 
@@ -234,9 +234,9 @@ Przy pierwszym uruchomieniu tworzenie aplikacji, model danych zmiany często i z
 
 ### <a name="set-up-the-seed-method"></a>Konfigurowanie Seed — metoda
 
-[Inicjatora](https://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx) metody uruchamia w bazie danych tworzy migracje Code First i zawsze powoduje zaktualizowanie bazy danych do najnowszej migracji. Seed — metoda służy do wstawiania danych do tabel przed zastosowaniem uzyskuje dostęp do bazy danych po raz pierwszy.
+[Inicjatora](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) metody uruchamia w bazie danych tworzy migracje Code First i zawsze powoduje zaktualizowanie bazy danych do najnowszej migracji. Seed — metoda służy do wstawiania danych do tabel przed zastosowaniem uzyskuje dostęp do bazy danych po raz pierwszy.
 
-We wcześniejszych wersjach programu Code First, zanim migracje został zwolniony, był często `Seed` metod do wstawiania danych testowych, ponieważ przy każdej zmianie modelu podczas tworzenia bazy danych musiała zostać całkowicie usunięty i utworzony ponownie od początku. Migracje Code First, test dane zostaną zachowane po wprowadzeniu zmian w bazie danych, więc tym dane testowe w [inicjatora](https://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx) zwykle — metoda nie jest konieczne. W rzeczywistości nie chcesz `Seed` do wstawienia danych testowych, jeśli należy używać migracji do wdrażania bazy danych do środowiska produkcyjnego, ponieważ `Seed` metody zostanie uruchomiony w środowisku produkcyjnym. W takim przypadku ma `Seed` do wstawienia do bazy danych do wstawienia w środowisku produkcyjnym. Na przykład można znaleźć w bazie danych działu rzeczywistej nazwy w `Department` tabeli po udostępnieniu aplikacji, w środowisku produkcyjnym.
+We wcześniejszych wersjach programu Code First, zanim migracje został zwolniony, był często `Seed` metod do wstawiania danych testowych, ponieważ przy każdej zmianie modelu podczas tworzenia bazy danych musiała zostać całkowicie usunięty i utworzony ponownie od początku. Migracje Code First, test dane zostaną zachowane po wprowadzeniu zmian w bazie danych, więc tym dane testowe w [inicjatora](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) zwykle — metoda nie jest konieczne. W rzeczywistości nie chcesz `Seed` do wstawienia danych testowych, jeśli należy używać migracji do wdrażania bazy danych do środowiska produkcyjnego, ponieważ `Seed` metody zostanie uruchomiony w środowisku produkcyjnym. W takim przypadku ma `Seed` do wstawienia do bazy danych do wstawienia w środowisku produkcyjnym. Na przykład można znaleźć w bazie danych działu rzeczywistej nazwy w `Department` tabeli po udostępnieniu aplikacji, w środowisku produkcyjnym.
 
 W tym samouczku, należy używać migracje dla wdrożenia, ale Twoje `Seed` metody powoduje wstawienie danych testowych mimo to w celu ułatwienia zobaczyć, jak działa funkcji aplikacji bez konieczności wstawiać ręcznie partii danych.
 
@@ -244,11 +244,11 @@ W tym samouczku, należy używać migracje dla wdrożenia, ale Twoje `Seed` meto
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample11.cs)]
 
-    [Inicjatora](https://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx) metoda przyjmuje jako parametr wejściowy obiekt kontekstu bazy danych i kod w metodzie używa tego obiektu, aby dodać nowe jednostki w bazie danych. Dla poszczególnych typów jednostek kodu tworzy kolekcję nowych jednostek, dodaje je do odpowiednich [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=vs.103).aspx) właściwości, a następnie zapisuje zmiany w bazie danych. Nie trzeba wywołać [SaveChanges](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) metody po każdej grupie jednostek, jak odbywa się w tym miejscu, ale które pomaga Znajdź źródło problemu w przypadku wystąpienia wyjątku, gdy kod jest zapisywania do bazy danych.
+    [Inicjatora](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) metoda przyjmuje jako parametr wejściowy obiekt kontekstu bazy danych i kod w metodzie używa tego obiektu, aby dodać nowe jednostki w bazie danych. Dla poszczególnych typów jednostek kodu tworzy kolekcję nowych jednostek, dodaje je do odpowiednich [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) właściwości, a następnie zapisuje zmiany w bazie danych. Nie trzeba wywołać [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) metody po każdej grupie jednostek, jak odbywa się w tym miejscu, ale które pomaga Znajdź źródło problemu w przypadku wystąpienia wyjątku, gdy kod jest zapisywania do bazy danych.
 
-    Niektóre z oświadczeń, które wstawiają dane użycia [AddOrUpdate](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metodę można wykonać operacji "upsert". Ponieważ `Seed` metody uruchamiany przy każdej migracji, po prostu nie można wstawić danych, ponieważ wierszy chcesz dodać już będą dostępne po pierwszej migracji, które utworzy bazę danych. Operacja "upsert" uniemożliwia błędów, które może się zdarzyć, jeśli podczas próby wstawienia wiersza, który już istnieje, ale ***zastępuje*** wszelkie zmiany danych, które mogły zostać wprowadzone podczas testowania aplikacji. Z danych testowych w niektórych tabel nie można się zdarzyć, że: w niektórych przypadkach po zmianie danych podczas testowania ma zmiany po aktualizacji bazy danych. W takim przypadku chcesz wykonać operację wstawiania warunkowe: Wstaw wiersz tylko wtedy, gdy jeszcze nie istnieje. Seed — metoda korzysta z obu podejść.
+    Niektóre z oświadczeń, które wstawiają dane użycia [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metodę można wykonać operacji "upsert". Ponieważ `Seed` metody uruchamiany przy każdej migracji, po prostu nie można wstawić danych, ponieważ wierszy chcesz dodać już będą dostępne po pierwszej migracji, które utworzy bazę danych. Operacja "upsert" uniemożliwia błędów, które może się zdarzyć, jeśli podczas próby wstawienia wiersza, który już istnieje, ale ***zastępuje*** wszelkie zmiany danych, które mogły zostać wprowadzone podczas testowania aplikacji. Z danych testowych w niektórych tabel nie można się zdarzyć, że: w niektórych przypadkach po zmianie danych podczas testowania ma zmiany po aktualizacji bazy danych. W takim przypadku chcesz wykonać operację wstawiania warunkowe: Wstaw wiersz tylko wtedy, gdy jeszcze nie istnieje. Seed — metoda korzysta z obu podejść.
 
-    Pierwszy parametr przekazany do [AddOrUpdate](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metody Określa właściwość, można użyć do sprawdzenia, czy wiersz już istnieje. Dla danych uczniów testów, które udostępniasz `LastName` właściwość może być używana w tym celu, ponieważ każdy nazwisko na liście jest unikatowa:
+    Pierwszy parametr przekazany do [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metody Określa właściwość, można użyć do sprawdzenia, czy wiersz już istnieje. Dla danych uczniów testów, które udostępniasz `LastName` właściwość może być używana w tym celu, ponieważ każdy nazwisko na liście jest unikatowa:
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample12.cs)]
 
@@ -258,7 +258,7 @@ W tym samouczku, należy używać migracje dla wdrożenia, ale Twoje `Seed` meto
 
     Aby uzyskać więcej informacji na temat `AddOrUpdate` metody, zobacz [zajmie się za pomocą metody AddOrUpdate EF 4.3](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/) na blogu Julie Lerman.
 
-    Kod, który dodaje `Enrollment` jednostek nie są używane `AddOrUpdate` metody. Sprawdza, czy jednostka już istnieje i wstawi jednostkę, jeśli nie istnieje. Takie podejście zostanie zachować zmiany wprowadzone do klasy rejestracji podczas uruchamiania migracji. Kod w pętli każdy element członkowski `Enrollment` [listy](https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx) i jeśli rejestracja nie zostanie znaleziony w bazie danych, dodaje rejestracji z bazą danych. Po raz pierwszy aktualizacji bazy danych, bazy danych jest pusta, tak spowoduje dodanie każdego rejestracji.
+    Kod, który dodaje `Enrollment` jednostek nie są używane `AddOrUpdate` metody. Sprawdza, czy jednostka już istnieje i wstawi jednostkę, jeśli nie istnieje. Takie podejście zostanie zachować zmiany wprowadzone do klasy rejestracji podczas uruchamiania migracji. Kod w pętli każdy element członkowski `Enrollment` [listy](https://msdn.microsoft.com/library/6sh2ey19.aspx) i jeśli rejestracja nie zostanie znaleziony w bazie danych, dodaje rejestracji z bazą danych. Po raz pierwszy aktualizacji bazy danych, bazy danych jest pusta, tak spowoduje dodanie każdego rejestracji.
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample13.cs)]
 
@@ -343,7 +343,7 @@ Ilość kodu musiały zapisu w kolejności Entity Framework można było utworzy
 - Nazwy właściwości jednostki są używane dla nazw kolumn.
 - Właściwości jednostki, które są nazywane `ID` lub *classname* `ID` są rozpoznawane jako właściwości klucza podstawowego.
 
-W tym samouczku można zastąpić konwencje (na przykład określono czy nazwy tabeli nie powinny być pluralized), i dowiesz się więcej na temat Konwencji i jak zastąpić je w [tworzenia więcej złożonych modelu danych](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) samouczka w dalszej części tej serii. Aby uzyskać więcej informacji, zobacz [pierwszy konwencje związane z kodami](https://msdn.microsoft.com/en-us/data/jj679962).
+W tym samouczku można zastąpić konwencje (na przykład określono czy nazwy tabeli nie powinny być pluralized), i dowiesz się więcej na temat Konwencji i jak zastąpić je w [tworzenia więcej złożonych modelu danych](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) samouczka w dalszej części tej serii. Aby uzyskać więcej informacji, zobacz [pierwszy konwencje związane z kodami](https://msdn.microsoft.com/data/jj679962).
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -352,4 +352,4 @@ Teraz utworzyć prostą aplikację, która korzysta z programu Entity Framework 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [Mapa zawartości dostępu do danych programu ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 >[!div class="step-by-step"]
-[Dalej](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+[Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

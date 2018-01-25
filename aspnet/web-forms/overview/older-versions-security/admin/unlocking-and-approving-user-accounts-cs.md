@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 65d32309cbd8bed6decbba4c5027d8e10a558ae8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f22a745f42dae66cd64dc38df28c59b910c17070
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unlocking-and-approving-user-accounts-c"></a>Odblokowywanie i zatwierdzania konta użytkownika (C#)
 ====================
@@ -57,7 +57,7 @@ Po dodaniu pole hiperłącza HyperLinkField do widoku GridView, Poświęć chwil
 **Rysunek 1**: pole hiperłącza HyperLinkField dodaje łącze "Manage", dla każdego konta użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](unlocking-and-approving-user-accounts-cs/_static/image3.png))
 
 
-Firma Microsoft utworzy interfejsu użytkownika i kodu dla `UserInformation.aspx` strony w momencie, ale najpierw umożliwia poproś o jak programowo zmienić użytkownika zablokowane i zatwierdzone stanów. [ `MembershipUser` Klasy](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.aspx) ma [ `IsLockedOut` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.islockedout.aspx) i [ `IsApproved` właściwości](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.isapproved.aspx). `IsLockedOut` Właściwość jest tylko do odczytu. Nie istnieje mechanizm do programowego zablokowania użytkownika; Aby odblokować użytkownika, należy użyć `MembershipUser` klasy [ `UnlockUser` metody](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.unlockuser.aspx). `IsApproved` Właściwość jest do odczytu i zapisu. Aby zapisać zmiany w tej właściwości, należy wywołać `Membership` klasy [ `UpdateUser` metody](https://msdn.microsoft.com/en-us/library/system.web.security.membership.updateuser.aspx), przekazując zmodyfikowanych `MembershipUser` obiektu.
+Firma Microsoft utworzy interfejsu użytkownika i kodu dla `UserInformation.aspx` strony w momencie, ale najpierw umożliwia poproś o jak programowo zmienić użytkownika zablokowane i zatwierdzone stanów. [ `MembershipUser` Klasy](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx) ma [ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx) i [ `IsApproved` właściwości](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx). `IsLockedOut` Właściwość jest tylko do odczytu. Nie istnieje mechanizm do programowego zablokowania użytkownika; Aby odblokować użytkownika, należy użyć `MembershipUser` klasy [ `UnlockUser` metody](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx). `IsApproved` Właściwość jest do odczytu i zapisu. Aby zapisać zmiany w tej właściwości, należy wywołać `Membership` klasy [ `UpdateUser` metody](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx), przekazując zmodyfikowanych `MembershipUser` obiektu.
 
 Ponieważ `IsApproved` właściwość do odczytu i zapisu, pole wyboru jest prawdopodobnie najlepsze elementu interfejsu użytkownika dotyczące konfigurowania tej właściwości. Jednak pole wyboru nie będzie działać dla `IsLockedOut` właściwości, ponieważ administrator nie zablokowania użytkownika, użytkownik może tylko odblokowanie użytkownika. Interfejs użytkownika odpowiedniego `IsLockedOut` właściwości jest przycisk, po kliknięciu odblokowuje konto użytkownika. Ten przycisk powinien być włączony tylko, jeśli użytkownik jest zablokowany.
 
@@ -88,7 +88,7 @@ Powyższy kod rozpoczyna się przez zapewnienie, że jest to pierwsza wizyta str
 
 `MembershipUser` Obiektu `UserName` są następnie wyświetlane wartości `UserNameLabel` i `IsApproved` jest zaznaczone pole wyboru na podstawie `IsApproved` wartości właściwości.
 
-`MembershipUser` Obiektu [ `LastLockoutDate` właściwości](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.lastlockoutdate.aspx) zwraca `DateTime` wartość wskazującą, kiedy użytkownik został ostatnio zablokowane. Jeśli użytkownik nigdy nie zostało zablokowane, wartość zwracana jest zależna od dostawcy członkostwa. Po utworzeniu nowego konta `SqlMembershipProvider` ustawia `aspnet_Membership` tabeli `LastLockoutDate` do `1754-01-01 12:00:00 AM`. Powyższy kod wyświetla pusty ciąg `LastLockoutDateLabel` Jeśli `LastLockoutDate` właściwość występuje przed rokiem 2000; w przeciwnym razie daty część `LastLockoutDate` właściwość jest wyświetlana w etykiecie. `UnlockUserButton'` s `Enabled` właściwość jest ustawiona na użytkownika zablokowane w stanie, co oznacza, że tego przycisku zostanie tylko włączone, jeśli użytkownik jest zablokowany.
+`MembershipUser` Obiektu [ `LastLockoutDate` właściwości](https://msdn.microsoft.com/library/system.web.security.membershipuser.lastlockoutdate.aspx) zwraca `DateTime` wartość wskazującą, kiedy użytkownik został ostatnio zablokowane. Jeśli użytkownik nigdy nie zostało zablokowane, wartość zwracana jest zależna od dostawcy członkostwa. Po utworzeniu nowego konta `SqlMembershipProvider` ustawia `aspnet_Membership` tabeli `LastLockoutDate` do `1754-01-01 12:00:00 AM`. Powyższy kod wyświetla pusty ciąg `LastLockoutDateLabel` Jeśli `LastLockoutDate` właściwość występuje przed rokiem 2000; w przeciwnym razie daty część `LastLockoutDate` właściwość jest wyświetlana w etykiecie. `UnlockUserButton'` s `Enabled` właściwość jest ustawiona na użytkownika zablokowane w stanie, co oznacza, że tego przycisku zostanie tylko włączone, jeśli użytkownik jest zablokowany.
 
 Poświęć chwilę, aby przetestować `UserInformation.aspx` strony za pośrednictwem przeglądarki. Należy rozpocząć od `ManageUsers.aspx` i wybierz konto użytkownika do zarządzania. Po otrzymywanych `UserInformation.aspx`, należy pamiętać, że `IsApproved` tylko jest zaznaczone pole wyboru, jeśli użytkownik jest zatwierdzony. Jeśli użytkownik kiedykolwiek zostało zablokowane, wyświetlany jest ostatnią zablokowane daty. Przycisk Odblokuj użytkownika jest włączona tylko wtedy, gdy użytkownik jest obecnie zablokowane. Zaznaczenie lub usunięcie zaznaczenia `IsApproved` wyboru lub przycisku odblokowanie użytkownika powoduje odświeżenie strony, ale nie modyfikacje są dokonywane na koncie użytkownika, ponieważ jeszcze mamy do tworzenie obsługi zdarzeń dla tych zdarzeń.
 
@@ -146,7 +146,7 @@ Następnie należy skonfigurować w formancie CreateUserWizard do wysyłania wia
 
 ### <a name="sending-a-verification-email-to-new-users"></a>Wysyłając wiadomość E-mail z weryfikacji do nowych użytkowników
 
-Aby wysłać wiadomość e-mail w formancie CreateUserWizard, skonfiguruj jego `MailDefinition` właściwości odpowiednio. Zgodnie z opisem w <a id="Tutorial13"> </a> [poprzedniego samouczek](recovering-and-changing-passwords-cs.md), dostępne kontrolki Element ChangePassword i PasswordRecovery [ `MailDefinition` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx) działający w taki sam sposób jak CreateUserWizard formantu.
+Aby wysłać wiadomość e-mail w formancie CreateUserWizard, skonfiguruj jego `MailDefinition` właściwości odpowiednio. Zgodnie z opisem w <a id="Tutorial13"> </a> [poprzedniego samouczek](recovering-and-changing-passwords-cs.md), dostępne kontrolki Element ChangePassword i PasswordRecovery [ `MailDefinition` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx) działający w taki sam sposób jak CreateUserWizard formantu.
 
 > [!NOTE]
 > Aby użyć `MailDefinition` opcje właściwości, należy określić dostarczanie poczty w `Web.config`. Aby uzyskać więcej informacji, zapoznaj się [wysyłania poczty E-mail w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx).
@@ -160,7 +160,7 @@ Ustaw `MailDefinition'` s `BodyFileName` dla właściwości "~ / EmailTemplates/
 
 Należy pamiętać, że `CreateUserWizard.txt` szablon wiadomości e-mail zawiera `<%VerificationUrl%>` symbolu zastępczego. Jest to, gdy adres URL `Verification.aspx` strony zostaną umieszczone. Automatycznie zastępuje CreateUserWizard `<%UserName%>` i `<%Password%>` symbole zastępcze z nazwy użytkownika i hasła, nowe konto, ale nie istnieje żadne wbudowane `<%VerificationUrl%>` symbolu zastępczego. Należy ręcznie, zastąp ją odpowiednią weryfikacji adresu URL.
 
-W tym celu należy utworzyć program obsługi zdarzeń dla CreateUserWizard [ `SendingMail` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx) i Dodaj następujący kod:
+W tym celu należy utworzyć program obsługi zdarzeń dla CreateUserWizard [ `SendingMail` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx) i Dodaj następujący kod:
 
 [!code-csharp[Main](unlocking-and-approving-user-accounts-cs/samples/sample4.cs)]
 

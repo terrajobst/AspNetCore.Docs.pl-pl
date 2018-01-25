@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: b82c30fe40c4badc74645dafa9f0d13f6ffae031
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8a3f4cf267998ddc7f393401059ca9d83ef2d8e7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="core-cryptography-extensibility"></a>Rozszerzalność kryptografii Core
 
@@ -128,7 +128,7 @@ Deskryptor serializacji mogą zawierać poufne informacje, takie jak materiał k
 >[!TIP]
 > Brak pomocnik interfejsu API dla ustawienie tego atrybutu. Wywołanie metody rozszerzenia, które XElement.MarkAsRequiresEncryption() znajduje się w przestrzeni nazw Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.
 
-Można także przypadki, w którym deskryptora serializacji nie zawiera poufne informacje. Rozważmy przykład ponownie klucza kryptograficznego przechowywane w module HSM. Deskryptor nie można zapisać materiału klucza podczas serializowania się, ponieważ moduł HSM nie powoduje to udostępnienie materiału w formie zwykłego tekstu. Zamiast tego deskryptora może zapisać opakowana klucz wersji klucza (Jeśli moduł HSM umożliwia eksportu w ten sposób) lub własne HSM Unikatowy identyfikator dla klucza.
+Można także przypadki, w którym deskryptora serializacji nie zawiera poufne informacje. Rozważmy przykład ponownie klucza kryptograficznego przechowywane w module HSM. Deskryptor nie można zapisać materiału klucza podczas serializowania się, ponieważ moduł HSM nie uwidacznia materiału w formie zwykłego tekstu. Zamiast tego deskryptora może zapisać opakowana klucz wersji klucza (Jeśli moduł HSM umożliwia eksportu w ten sposób) lub własne HSM Unikatowy identyfikator dla klucza.
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer"></a>
 
@@ -157,7 +157,7 @@ Typy implementujące IAuthenticatedEncryptorDescriptorDeserializer powinny mieć
 
 * CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
 
-AlgorithmConfiguration można traktować jako fabryka najwyższego poziomu. Konfiguracja służy jako szablon. Jest zawijany algorytmicznego informacji (np. Ta konfiguracja daje deskryptory z kluczem głównym AES-128-GCM), ale nie jest jeszcze skojarzona z określonym kluczem.
+AlgorithmConfiguration można traktować jako fabryka najwyższego poziomu. Konfiguracja służy jako szablon. Jest zawijany algorytmicznego informacji (np. Ta konfiguracja daje deskryptory z kluczem głównym AES-128-GCM), ale nie ma nie został jeszcze skojarzony z określonym kluczem.
 
 Gdy CreateNewDescriptor jest wywoływana, świeże materiału klucza jest przeznaczone wyłącznie dla tego wywołania i jest generowany nowy IAuthenticatedEncryptorDescriptor który koduje tego materiału klucza i algorytmicznego informacje wymagane użycie materiałów. Materiału klucza można utworzyć w oprogramowaniu (i przechowywane w pamięci), można utworzyć i przechowywane w module HSM i tak dalej. Kluczowe punkt znajduje się wszelkie dwóch wywołania CreateNewDescriptor powinien nigdy tworzyć wystąpienia IAuthenticatedEncryptorDescriptor równoważne.
 
@@ -169,7 +169,7 @@ Typ AlgorithmConfiguration służy jako punkt wejścia dla procedury tworzenia k
 
 * CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
 
-IAuthenticatedEncryptorConfiguration można traktować jako fabryka najwyższego poziomu. Konfiguracja służy jako szablon. Jest zawijany algorytmicznego informacji (np. Ta konfiguracja daje deskryptory z kluczem głównym AES-128-GCM), ale nie jest jeszcze skojarzona z określonym kluczem.
+IAuthenticatedEncryptorConfiguration można traktować jako fabryka najwyższego poziomu. Konfiguracja służy jako szablon. Jest zawijany algorytmicznego informacji (np. Ta konfiguracja daje deskryptory z kluczem głównym AES-128-GCM), ale nie ma nie został jeszcze skojarzony z określonym kluczem.
 
 Gdy CreateNewDescriptor jest wywoływana, świeże materiału klucza jest przeznaczone wyłącznie dla tego wywołania i jest generowany nowy IAuthenticatedEncryptorDescriptor który koduje tego materiału klucza i algorytmicznego informacje wymagane użycie materiałów. Materiału klucza można utworzyć w oprogramowaniu (i przechowywane w pamięci), można utworzyć i przechowywane w module HSM i tak dalej. Kluczowe punkt znajduje się wszelkie dwóch wywołania CreateNewDescriptor powinien nigdy tworzyć wystąpienia IAuthenticatedEncryptorDescriptor równoważne.
 

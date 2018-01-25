@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e6ee3f9c055a15b13c27f94675006b9a7e804f1b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 118233338112a71216b909b1dabed2333bfa235e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-inheritance-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-11-of-12"></a>Wdrażanie dziedziczenia z programu Entity Framework 6 w aplikacji platformy ASP.NET MVC 5 (11, 12)
 ====================
@@ -49,7 +49,7 @@ Ten wzorzec generowania strukturę jednostek dziedziczenia z tabeli pojedynczej 
 
 Alternatywą jest wyglądu struktury dziedziczenia bazę danych. Na przykład można mieć tylko pola nazwy `Person` tabeli i mieć osobne `Instructor` i `Student` tabele z polami daty.
 
-![Tabela na type_inheritance](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+![Table-per-type_inheritance](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
 Ten wzorzec dokonywania tabeli bazy danych w każdej klasie jednostki jest nazywana *tabel na typ* dziedziczenia (TPT).
 
@@ -57,7 +57,7 @@ Jeszcze inną możliwością jest wykonanie mapowania wszystkich typów nieabstr
 
 TPC i wzorce dziedziczenia TPH zazwyczaj dostarczania lepszą wydajność programu Entity Framework niż w przypadku wzorców dziedziczenia TPT wzorce TPT może powodować sprzężenia złożonych zapytań.
 
-Ten samouczek pokazuje, jak zaimplementować dziedziczenia TPH. TPH jest domyślny wzorzec dziedziczenia w ramach jednostki, tak aby wszystkie wystarczy utworzyć `Person` klasy, zmień `Instructor` i `Student` pochodzi od klasy `Person`, Dodaj nową klasę do `DbContext`i Utwórz Migracja. (Uzyskać informacji o sposobie wykonania innych wzorcach dziedziczenia, zobacz [mapowania dziedziczenia dla tabeli (TPT)](https://msdn.microsoft.com/en-us/data/jj591617#2.5) i [mapowania dziedziczenia klasy tabeli na konkretnych (TPC)](https://msdn.microsoft.com/en-us/data/jj591617#2.6) w witrynie MSDN Dokumentacja Framework jednostki.)
+Ten samouczek pokazuje, jak zaimplementować dziedziczenia TPH. TPH jest domyślny wzorzec dziedziczenia w ramach jednostki, tak aby wszystkie wystarczy utworzyć `Person` klasy, zmień `Instructor` i `Student` pochodzi od klasy `Person`, Dodaj nową klasę do `DbContext`i Utwórz Migracja. (Uzyskać informacji o sposobie wykonania innych wzorcach dziedziczenia, zobacz [mapowania dziedziczenia dla tabeli (TPT)](https://msdn.microsoft.com/data/jj591617#2.5) i [mapowania dziedziczenia klasy tabeli na konkretnych (TPC)](https://msdn.microsoft.com/data/jj591617#2.6) w witrynie MSDN Dokumentacja Framework jednostki.)
 
 ## <a name="create-the-person-class"></a>Utwórz klasę osoby
 
@@ -159,7 +159,7 @@ W tej sekcji wymaga zakończył opcjonalny **wdrażania aplikacji na platformie 
 
 ## <a name="summary"></a>Podsumowanie
 
-Zostały zaimplementowane tabeli na hierarchii dziedziczenia dla `Person`, `Student`, i `Instructor` klasy. Aby uzyskać więcej informacji dotyczących tego i innych konstrukcji dziedziczenia, zobacz [wzorzec dziedziczenia TPT](https://msdn.microsoft.com/en-us/data/jj618293) i [wzorzec dziedziczenia TPH](https://msdn.microsoft.com/en-us/data/jj618292) w witrynie MSDN. W następnym samouczku zobaczysz sposób obsługi różnych stosunkowo zaawansowanych scenariuszy programu Entity Framework.
+Zostały zaimplementowane tabeli na hierarchii dziedziczenia dla `Person`, `Student`, i `Instructor` klasy. Aby uzyskać więcej informacji dotyczących tego i innych konstrukcji dziedziczenia, zobacz [wzorzec dziedziczenia TPT](https://msdn.microsoft.com/data/jj618293) i [wzorzec dziedziczenia TPH](https://msdn.microsoft.com/data/jj618292) w witrynie MSDN. W następnym samouczku zobaczysz sposób obsługi różnych stosunkowo zaawansowanych scenariuszy programu Entity Framework.
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [dostępu do danych programu ASP.NET - zalecane zasobów](../../../../whitepapers/aspnet-data-access-content-map.md).
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 167cd24d27977c3652f6a8903054654f5edf7756
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bda5148a4c1553d70f3173de66371fbb8576e83f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unit-testing-controllers-in-aspnet-web-api-2"></a>Jednostka testowania kontrolerów w składniku ASP.NET Web API 2
 ====================
@@ -26,7 +26,7 @@ przez [Wasson Jan](https://github.com/MikeWasson)
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
-> - [Visual Studio 2017 r.](https://www.visualstudio.com/vs/)
+> - [Visual Studio 2017](https://www.visualstudio.com/vs/)
 > - Składnik Web API 2
 > - [Moq](https://github.com/Moq) 4.5.30
 
@@ -68,7 +68,7 @@ Ważne jest, aby ustawić **żądania** i **konfiguracji** na kontrolerze. W prz
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample3.cs)]
 
-**UrlHelper** klasa musi żądanie adresu URL i dane trasy, więc nie można ustawić wartości dla nich testu. Innym rozwiązaniem jest makiety lub stub **UrlHelper**. Takie podejście, należy zastąpić wartość domyślną [ApiController.Url](https://msdn.microsoft.com/en-us/library/system.web.http.apicontroller.url.aspx) na wersję makiety lub stub zwracające wartość stałą.
+**UrlHelper** klasa musi żądanie adresu URL i dane trasy, więc nie można ustawić wartości dla nich testu. Innym rozwiązaniem jest makiety lub stub **UrlHelper**. Takie podejście, należy zastąpić wartość domyślną [ApiController.Url](https://msdn.microsoft.com/library/system.web.http.apicontroller.url.aspx) na wersję makiety lub stub zwracające wartość stałą.
 
 Umożliwia ponowne zapisywanie adresów testu za pomocą [Moq](https://github.com/Moq) framework. Zainstaluj `Moq` pakietu NuGet w projekcie testowym.
 

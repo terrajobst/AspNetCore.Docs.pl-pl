@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 9ecc233e595716a167ad800a0a21a6162b051648
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c1d0b3e1644ef7f9ebb4be74c3fdf3df90cf3537
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Tworzenie interfejsu API REST z atrybutem routingu w składniku ASP.NET Web API 2
 ====================
@@ -65,7 +65,7 @@ W **nowy projekt ASP.NET** okno dialogowe, wybierz opcję **pusty** szablonu. W 
 
 Spowoduje to utworzenie szkielet projektu, który jest skonfigurowany do obsługi funkcji interfejsu API sieci Web.
 
-### <a name="domain-models"></a>Modele domeny
+### <a name="domain-models"></a>Domain Models
 
 Następnie Dodaj klasy dla modeli domeny. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder modeli. Wybierz **Dodaj**, a następnie wybierz pozycję **klasy**. Nazwa klasy `Author`.
 
@@ -141,7 +141,7 @@ Dodaj kolejną klasę o nazwie `BookDetailDto`.
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample8.cs)]
 
-Następnie zaktualizuj `BooksController` służącą do zwracania `BookDto` wystąpień. Użyjemy [Queryable.Select](https://msdn.microsoft.com/en-us/library/system.linq.queryable.select.aspx) metody do projektu `Book` wystąpień do `BookDto` wystąpień. Oto zaktualizowanego kodu do klasy kontrolera.
+Następnie zaktualizuj `BooksController` służącą do zwracania `BookDto` wystąpień. Użyjemy [Queryable.Select](https://msdn.microsoft.com/library/system.linq.queryable.select.aspx) metody do projektu `Book` wystąpień do `BookDto` wystąpień. Oto zaktualizowanego kodu do klasy kontrolera.
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample9.cs)]
 

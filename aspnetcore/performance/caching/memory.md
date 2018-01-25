@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23312e73b4530b24b8479e2d379f16315b672ca4
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: 12d3982ce1abf74a575dae5362b037bd4ecc3d0f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="in-memory-caching-in-aspnet-core"></a>Buforowanie w pamięci w ASP.NET Core
 
@@ -68,7 +68,7 @@ Poniższy kod wywołania [uzyskać](https://docs.microsoft.com/aspnet/core/api/m
 
 Zobacz [metody IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache) i [metody CacheExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions) opis metody pamięci podręcznej.
 
-## <a name="using-memorycacheentryoptions"></a>Przy użyciu MemoryCacheEntryOptions
+## <a name="using-memorycacheentryoptions"></a>Using MemoryCacheEntryOptions
 
 Poniższy przykład:
 
@@ -102,5 +102,5 @@ Przy użyciu `CancellationTokenSource` zezwala na wiele wpisów pamięci podręc
 * [Wykrywanie zmian z tokenami zmiany](xref:fundamentals/primitives/change-tokens)
 * [Buforowanie odpowiedzi](xref:performance/caching/response)
 * [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
-* [Pamięć podręczna pomocnika tagów](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Pomocnik Tag rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 78a54fb1b0e4c0ebd5445cca175103471925a065
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 323ee44f43f6d4081bd9ba50791755696bc9128f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-8"></a>Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i formularzy sieci Web 4 ASP.NET - część 8
 ====================
@@ -125,11 +125,11 @@ Zakończenie tej serii samouczków na wprowadzenie do korzystania z programu Ent
 
 - [Entity Framework często zadawane pytania](http://www.ef-faq.org/introduction.html)
 - [Blog zespołu programu Entity Framework](https://blogs.msdn.com/b/adonet/)
-- [Entity Framework w bibliotece MSDN](https://msdn.microsoft.com/en-us/library/bb399572.aspx)
-- [Entity Framework w Centrum deweloperów MSDN danych](https://msdn.microsoft.com/en-us/data/ef.aspx)
-- [Informacje o formancie serwera sieci Web obiektu EntityDataSource w bibliotece MSDN](https://msdn.microsoft.com/en-us/library/cc488502.aspx)
-- [Formant EntityDataSource dokumentacja interfejsu API w bibliotece MSDN](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.entitydatasource.aspx)
-- [Entity Framework forum w witrynie MSDN](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/)
+- [Entity Framework w bibliotece MSDN](https://msdn.microsoft.com/library/bb399572.aspx)
+- [Entity Framework w Centrum deweloperów MSDN danych](https://msdn.microsoft.com/data/ef.aspx)
+- [Informacje o formancie serwera sieci Web obiektu EntityDataSource w bibliotece MSDN](https://msdn.microsoft.com/library/cc488502.aspx)
+- [Formant EntityDataSource dokumentacja interfejsu API w bibliotece MSDN](https://msdn.microsoft.com/library/system.web.ui.webcontrols.entitydatasource.aspx)
+- [Entity Framework forum w witrynie MSDN](https://social.msdn.microsoft.com/forums/adodotnetentityframework/)
 - [Blog Julie Lerman](http://thedatafarm.com/blog/)
 
 >[!div class="step-by-step"]

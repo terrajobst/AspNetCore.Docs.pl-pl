@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 57ac8052223c1fd00bff8df1c3180db8bea8d38a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 15efb8e2f38b7a405da0c0e12e447e5c3146f025
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="specifying-the-master-page-programmatically-c"></a>Określanie strony wzorcowej programowo (C#)
 ====================
@@ -34,7 +34,7 @@ Od inauguracyjnym przykład [ *tworzenia całej lokacji układu przy użyciu str
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample1.aspx)]
 
-[ `Page` Klasy](https://msdn.microsoft.com/en-us/library/system.web.ui.page.aspx) w `System.Web.UI` przestrzeń nazw zawiera [ `MasterPageFile` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.page.masterpagefile.aspx) która zwraca ścieżkę do strony głównej strony zawartości, lecz tej właściwości, który jest uporządkowany według `@Page` dyrektywy. Ta właściwość umożliwia również programowo Określ strony zawartości strony wzorcowej. Ta metoda jest przydatna, jeśli chcesz przypisać dynamicznie na podstawie czynników zewnętrznych, takich jak użytkownika, odwiedzając stronę strony wzorcowej.
+[ `Page` Klasy](https://msdn.microsoft.com/library/system.web.ui.page.aspx) w `System.Web.UI` przestrzeń nazw zawiera [ `MasterPageFile` właściwości](https://msdn.microsoft.com/library/system.web.ui.page.masterpagefile.aspx) która zwraca ścieżkę do strony głównej strony zawartości, lecz tej właściwości, który jest uporządkowany według `@Page` dyrektywy. Ta właściwość umożliwia również programowo Określ strony zawartości strony wzorcowej. Ta metoda jest przydatna, jeśli chcesz przypisać dynamicznie na podstawie czynników zewnętrznych, takich jak użytkownika, odwiedzając stronę strony wzorcowej.
 
 W tym samouczku będziemy Dodaj drugą stronę wzorcową do naszej witryny sieci Web i dynamicznie zdecydować, które strony wzorcowej do użycia w czasie wykonywania.
 
@@ -54,7 +54,7 @@ Rysunek 1 pokazuje to fusion. Krok 1 na rysunku 1 przedstawiono oryginalnej zawa
 
 Jakie strony wzorcowej partakes w tym fusion zależy od wartości `Page` obiektu `MasterPageFile` właściwości. Ustawienie `MasterPageFile` atrybutu w `@Page` dyrektywy skutkuje net przypisywanie `Page`w `MasterPageFile` właściwości etapie inicjalizacji jest pierwszego etap cyklu życia strony. Możemy również ustawić tę właściwość programowo. Jednak jest konieczne, że można ustawić tę właściwość przed dokonaniem fusion na rysunku 1.
 
-Na początku na etapie PreInit `Page` obiekt zgłasza jego [ `PreInit` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.ui.page.preinit.aspx) i wywołuje jego [ `OnPreInit` metody](https://msdn.microsoft.com/en-us/library/system.web.ui.page.onpreinit.aspx). Aby ustawić strony wzorcowej programowo, następnie, możemy utworzyć programu obsługi zdarzeń dla `PreInit` zdarzenia lub zastąpienie `OnPreInit` metody. Przyjrzyjmy się obu podejść.
+Na początku na etapie PreInit `Page` obiekt zgłasza jego [ `PreInit` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.page.preinit.aspx) i wywołuje jego [ `OnPreInit` metody](https://msdn.microsoft.com/library/system.web.ui.page.onpreinit.aspx). Aby ustawić strony wzorcowej programowo, następnie, możemy utworzyć programu obsługi zdarzeń dla `PreInit` zdarzenia lub zastąpienie `OnPreInit` metody. Przyjrzyjmy się obu podejść.
 
 Uruchamianie przez otwarcie `Default.aspx.cs`, plik CodeBehind klasy naszej witrynie strony głównej. Dodaj program obsługi zdarzeń dla strony `PreInit` zdarzeń, wpisując polecenie w następującym kodzie:
 
@@ -275,8 +275,8 @@ Programowanie przyjemność!
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
 - [Diagram cyklu życia strony ASP.NET](http://emanish.googlepages.com/Asp.Net2.0Lifecycle.PNG)
-- [Przegląd cyklu życia strony ASP.NET](https://msdn.microsoft.com/en-us/library/ms178472.aspx)
-- [Omówienie skórek i kompozycji ASP.NET](https://msdn.microsoft.com/en-us/library/ykzx33wh.aspx)
+- [Przegląd cyklu życia strony ASP.NET](https://msdn.microsoft.com/library/ms178472.aspx)
+- [Omówienie skórek i kompozycji ASP.NET](https://msdn.microsoft.com/library/ykzx33wh.aspx)
 - [Stron wzorcowych: Wskazówki dotyczące, wskazówki i pułapek](http://www.odetocode.com/articles/450.aspx)
 - [Motywy w programie ASP.NET](http://www.odetocode.com/articles/423.aspx)
 

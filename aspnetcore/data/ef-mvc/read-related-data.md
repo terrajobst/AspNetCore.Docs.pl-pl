@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 1321cb00a432669b4a97ad20063b6cf9ea75f24c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2333ac70c77847ece1f90c9ff22eec30bc35fea1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Odczytywanie powiązane dane - Core EF z samouczek platformy ASP.NET Core MVC (6 10)
 
@@ -173,7 +173,7 @@ Następujące zmiany wprowadzone do istniejącego kodu:
 
 * Zmienić tytuł strony z **indeksu** do **instruktorów**.
 
-* Dodaje **Office** kolumnę wyświetlającą `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie jest zerowa. (Ponieważ jest to relacji jeden do zero lub jeden, być może obiekt pokrewny OfficeAssignment.)
+* Dodaje **Office** kolumnę wyświetlającą `item.OfficeAssignment.Location` tylko wtedy, gdy `item.OfficeAssignment` nie ma wartości null. (Ponieważ jest to relacji jeden do zero lub jeden, być może obiekt pokrewny OfficeAssignment.)
 
   ```html
   @if (item.OfficeAssignment != null)

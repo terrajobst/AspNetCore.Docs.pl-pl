@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 69f73085198c79c01988aab9e63f3ce9e7647034
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29671970dc6f53d0e14170cf6376c02634b7b08e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-vb"></a>Do utworzenia układu całej lokacji za pomocą stron wzorcowych (VB)
 ====================
@@ -60,7 +60,7 @@ Tworzenia witryny sieci Web z układem spójne strony całej lokacji wymaga czy 
 
 Istnieją różne metody tworzenia stron sieci web z spójny wygląd i zachowanie. Prostym rozwiązaniem jest po prostu skopiuj i Wklej typowych znaczników układu do wszystkich stron sieci web, ale takie podejście charakteryzuje się liczba downsides. Po pierwsze za każdym razem, gdy jest tworzona nowa strona, należy pamiętać skopiować i wkleić do strony zawartości udostępnionej. Takie kopiowanie i wklejanie działań są dojrzałe błędu, ponieważ mogą przypadkowo skopiować tylko podzestaw znacznika udostępnionego do nowej strony. I do góry go, ta metoda powoduje, że zastępując istniejący wygląd całej witryny nową słabe rzeczywistych, ponieważ należy edytować aby można było używać nowego wyglądu i działania każdej pojedynczej strony w witrynie.
 
-Przed platformę ASP.NET w wersji 2.0, strony programistów często umieszcza markup wspólnego w [kontrolek użytkownika](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx) , a następnie dodać tych kontrolek użytkownika do każdej strony. Takie podejście wymagane, pamiętaj, aby ręcznie dodaj formanty użytkownika do każdej strony projektanta strony, ale można łatwiej modyfikacji całej lokacji, ponieważ podczas aktualizowania markup wspólnego tylko formanty użytkownika wymagane do zmodyfikowania. Niestety program Visual Studio .NET 2002 i 2003 — wersje programu Visual Studio będzie używany do tworzenia aplikacji 1.x ASP.NET — jest renderowana kontrolek użytkownika w widoku Projekt szare pola. W związku z tym deweloperzy strony przy użyciu tej metody nie posiada WYSIWYG środowiska czasu projektowania.
+Przed platformę ASP.NET w wersji 2.0, strony programistów często umieszcza markup wspólnego w [kontrolek użytkownika](https://msdn.microsoft.com/library/y6wb1a0e.aspx) , a następnie dodać tych kontrolek użytkownika do każdej strony. Takie podejście wymagane, pamiętaj, aby ręcznie dodaj formanty użytkownika do każdej strony projektanta strony, ale można łatwiej modyfikacji całej lokacji, ponieważ podczas aktualizowania markup wspólnego tylko formanty użytkownika wymagane do zmodyfikowania. Niestety program Visual Studio .NET 2002 i 2003 — wersje programu Visual Studio będzie używany do tworzenia aplikacji 1.x ASP.NET — jest renderowana kontrolek użytkownika w widoku Projekt szare pola. W związku z tym deweloperzy strony przy użyciu tej metody nie posiada WYSIWYG środowiska czasu projektowania.
 
 Niedociągnięć za pomocą formantów użytkownika zostały rozwiązane w ASP.NET w wersji 2.0 i programu Visual Studio 2005 wraz z wprowadzeniem *strony wzorcowe*. Strona wzorcowa jest specjalnym rodzajem strony ASP.NET, który definiuje znaczników całej lokacji oraz *regionów* w przypadku, gdy skojarzone *zawartości strony* zdefiniować ich niestandardowych znaczników. Zostanie wyświetlone w kroku 1, tych regionów są określone przez element ContentPlaceHolder formanty. Formant ContentPlaceHolder oznacza po prostu pozycji w hierarchii formantu strony wzorcowej, gdzie niestandardowej zawartości mogą zostać dodane przez strony zawartości.
 
@@ -95,7 +95,7 @@ Teraz, gdy Omówiliśmy jak strony wzorcowe pracy Spójrzmy na tworzenie strony 
 Zanim firma Microsoft może zapoznać się z tworzenia i używania strony wzorcowej i zawartości, należy najpierw witryny sieci Web platformy ASP.NET. Rozpocznij od utworzenia nowego pliku oparte na systemie ASP.NET witryny sieci Web. Aby to zrobić, uruchom Visual Web Developer a następnie przejdź do menu Plik i wybierz nową witrynę sieci Web, wyświetlanie okna dialogowego nowej witryny sieci Web (zobacz rysunek 4). Wybierz szablon witryny sieci Web ASP.NET, wartość na liście rozwijanej lokalizacji do systemu plików, wybierz folder, który można umieścić witrynę sieci web i ustawić język Visual Basic. Spowoduje to utworzenie nowej witryny sieci web z `Default.aspx` strony ASP.NET `App_Data` folderu, a `Web.config` pliku.
 
 > [!NOTE]
-> Program Visual Studio obsługuje dwa tryby zarządzania projektem: witryny sieci Web i projektów aplikacji sieci Web. Projektów witryny sieci Web brakuje pliku projektu, podczas gdy projekty aplikacji sieci Web naśladować architektura projektu w Visual Studio .NET 2002/2003 — dołączenie pliku projektu i kompilowanie kodu źródłowego projektu w jednym zestawie, który jest umieszczony w `/bin` folder. Visual Studio 2005 projektów początkowo tylko obsługiwane witryny sieci Web, mimo że projektu aplikacji sieci Web modelu została przywrócona z dodatkiem Service Pack 1; Program Visual Studio 2008 oferuje oba modele projektu. Visual 2005 Developer sieci Web i wersje 2008, jednak obsługują tylko projektów witryny sieci Web. Model projekt witryny sieci Web można używać do mojego pokazy w tym samouczku. Jeśli używasz wersji-Express i chcesz użyć [modelu projektu aplikacji sieci Web](https://msdn.microsoft.com/en-us/library/aa730880(vs.80).aspx) zamiast tego możesz to zrobić, ale należy pamiętać, że może zostać pewne rozbieżności między informacje wyświetlane na ekranie i kroki należy wykonać w porównaniu z zrzuty ekranu pokazano i instrukcje podane w tych samouczkach.
+> Program Visual Studio obsługuje dwa tryby zarządzania projektem: witryny sieci Web i projektów aplikacji sieci Web. Projektów witryny sieci Web brakuje pliku projektu, podczas gdy projekty aplikacji sieci Web naśladować architektura projektu w Visual Studio .NET 2002/2003 — dołączenie pliku projektu i kompilowanie kodu źródłowego projektu w jednym zestawie, który jest umieszczony w `/bin` folder. Visual Studio 2005 projektów początkowo tylko obsługiwane witryny sieci Web, mimo że projektu aplikacji sieci Web modelu została przywrócona z dodatkiem Service Pack 1; Program Visual Studio 2008 oferuje oba modele projektu. Visual 2005 Developer sieci Web i wersje 2008, jednak obsługują tylko projektów witryny sieci Web. Model projekt witryny sieci Web można używać do mojego pokazy w tym samouczku. Jeśli używasz wersji-Express i chcesz użyć [modelu projektu aplikacji sieci Web](https://msdn.microsoft.com/library/aa730880(vs.80).aspx) zamiast tego możesz to zrobić, ale należy pamiętać, że może zostać pewne rozbieżności między informacje wyświetlane na ekranie i kroki należy wykonać w porównaniu z zrzuty ekranu pokazano i instrukcje podane w tych samouczkach.
 
 
 [![Tworzenie nowego pliku oparte na systemie witryny sieci Web](creating-a-site-wide-layout-using-master-pages-vb/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image8.png)
@@ -115,7 +115,7 @@ Dodawanie nowego pliku strony głównej przy użyciu programu Visual Web Develop
 
 [!code-aspx[Main](creating-a-site-wide-layout-using-master-pages-vb/samples/sample1.aspx)]
 
-Pierwszy wiersz w znaczniku deklaratywne [ `@Master` dyrektywy](https://msdn.microsoft.com/en-us/library/ms228176.aspx). `@Master` Dyrektywa jest podobny do [ `@Page` dyrektywy](https://msdn.microsoft.com/en-us/library/ydy4x04a.aspx) wyświetlonym w stron ASP.NET. Definiuje język po stronie serwera (VB) i informacje o lokalizacji i dziedziczenia klasy związane z kodem strony wzorcowej.
+Pierwszy wiersz w znaczniku deklaratywne [ `@Master` dyrektywy](https://msdn.microsoft.com/library/ms228176.aspx). `@Master` Dyrektywa jest podobny do [ `@Page` dyrektywy](https://msdn.microsoft.com/library/ydy4x04a.aspx) wyświetlonym w stron ASP.NET. Definiuje język po stronie serwera (VB) i informacje o lokalizacji i dziedziczenia klasy związane z kodem strony wzorcowej.
 
 `DOCTYPE` a declarative znaczników strony zostanie wyświetlone poniżej `@Master` dyrektywy. Strona zawiera statyczny HTML oraz cztery kontroli po stronie serwera:
 
@@ -163,7 +163,7 @@ Całościowo I został skompilowany wiele aplikacji sieci web platformy ASP.NET 
 Na szczęście innumerous witryn sieci Web oferuje bezpłatne szablony projektów HTML — Google zwróciło więcej niż sześciu milionów wyników dla wyszukiwanego terminu "Szablony bezpłatne witryny sieci Web". Jednym z moich ulubionych z nich jest [OpenDesigns.org](http://opendesigns.org/). Po znalezieniu szablonu witryny sieci Web, którą chcesz dodać pliki CSS i obrazy do projektu witryny sieci Web i integracji w szablonie HTML na stronie głównej.
 
 > [!NOTE]
-> Firma Microsoft oferuje także szereg [wolne ASP.NET uruchomić zestaw szablony](https://msdn.microsoft.com/en-us/asp.net/aa336613.aspx) który zintegrować okno dialogowe nowej witryny sieci Web w programie Visual Studio.
+> Firma Microsoft oferuje także szereg [wolne ASP.NET uruchomić zestaw szablony](https://msdn.microsoft.com/asp.net/aa336613.aspx) który zintegrować okno dialogowe nowej witryny sieci Web w programie Visual Studio.
 
 
 ## <a name="step-2-creating-associated-content-pages"></a>Krok 2: Tworzenie skojarzone strony z zawartością
@@ -272,8 +272,8 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [ASP.NET dla projektantów: Zwolnij szablonów projektu i wskazówki na tworzeniu witryn sieci Web ASP.NET przy użyciu standardów sieci Web](https://msdn.microsoft.com/en-us/asp.net/aa336602.aspx)
-- [Omówienie stron ASP.NET wzorca](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx)
+- [ASP.NET dla projektantów: Zwolnij szablonów projektu i wskazówki na tworzeniu witryn sieci Web ASP.NET przy użyciu standardów sieci Web](https://msdn.microsoft.com/asp.net/aa336602.aspx)
+- [Omówienie stron ASP.NET wzorca](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
 - [Samouczki usługi kaskadowych arkuszy stylów (CSS)](http://www.w3schools.com/css/default.asp)
 - [Dynamicznie ustawienie tytuł strony](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
 - [Stron wzorcowych w programie ASP.NET](http://www.odetocode.com/articles/419.aspx)

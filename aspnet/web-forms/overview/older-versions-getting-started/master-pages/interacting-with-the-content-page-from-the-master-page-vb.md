@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0a2720c8dbd1b0fb12d4000ac5e309e203128604
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a25f739e5d5717d275554909e1584bb7e7fed302
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>Interakcji ze strony zawartość z strony wzorcowej (VB)
 ====================
@@ -158,7 +158,7 @@ Klasa subskrybuje zdarzenia przez utworzenie *obsługi zdarzeń*, czyli metody, 
 Drugi parametr przekazany do programu obsługi zdarzeń może zawierać dodatkowe informacje o zdarzeniu. Podczas podstawowym `EventArgs` klasy nie przekazują informacje, .NET Framework zawiera szereg klas, które rozszerzają `EventArgs` i obejmować dodatkowe właściwości. Na przykład `CommandEventArgs` wystąpienie zostanie przekazany do procedury obsługi zdarzeń, które odpowiadają na `Command` zdarzeń i zawiera dwie właściwości informacyjną: `CommandArgument` i `CommandName`.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat tworzenia wywoływanie i obsługa zdarzeń, zobacz [zdarzenia i delegatów](https://msdn.microsoft.com/en-us/library/17sde2xt.aspx) i [delegatów zdarzeń w prosty angielskim](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
+> Aby uzyskać więcej informacji na temat tworzenia wywoływanie i obsługa zdarzeń, zobacz [zdarzenia i delegatów](https://msdn.microsoft.com/library/17sde2xt.aspx) i [delegatów zdarzeń w prosty angielskim](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
 
 
 Aby zdefiniować zdarzenia, użyj następującej składni:
@@ -251,7 +251,7 @@ Programowanie przyjemność!
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
 - [Uzyskiwanie dostępu i aktualizowanie danych w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
-- [Zdarzenia i Delegaty](https://msdn.microsoft.com/en-us/library/17sde2xt.aspx)
+- [Zdarzenia i Delegaty](https://msdn.microsoft.com/library/17sde2xt.aspx)
 - [Przekazywanie informacji między zawartości i stron wzorcowych](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
 - [Praca z danymi w samouczkach ASP.NET](../../data-access/index.md)
 

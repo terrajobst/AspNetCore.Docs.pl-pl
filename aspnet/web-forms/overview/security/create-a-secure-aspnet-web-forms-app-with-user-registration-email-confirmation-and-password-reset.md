@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: b6f3821a8022daa26f5efcc009ab3e6283a76a19
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed39295ed1bcaa924336a1faf52049e291abeadb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji formularzy sieci Web ASP.NET rejestracja użytkownika w wiadomości e-mail resetowania hasła i potwierdzania (C#)
 ====================
@@ -53,7 +53,7 @@ Rozpocznij od instalowania i uruchamiania [programu Visual Studio Express 2013 f
  Następnie kliknij przycisk **OK** do utworzenia nowego projektu.  
     ![Okno dialogowe Nowy projekt ASP.NET](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image1.png)
 3. Włącz Secure Sockets Layer (SSL) dla projektu. Wykonaj kroki, które są dostępne w **Włącz SSL dla projektu** sekcji [wprowadzenie do korzystania z samouczka serii formularzy sieci Web](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms).
-4. Uruchom aplikację, kliknij przycisk **zarejestrować** link i zarejestrować nowego użytkownika. W tym momencie tylko sprawdzanie poprawności w wiadomości e-mail jest oparty na [[EmailAddress]](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) atrybutu, aby upewnić się, adres e-mail jest poprawnie sformułowany. Należy zmodyfikować kod, aby dodać wiadomości e-mail z potwierdzeniem. Zamknij okno przeglądarki.
+4. Uruchom aplikację, kliknij przycisk **zarejestrować** link i zarejestrować nowego użytkownika. W tym momencie tylko sprawdzanie poprawności w wiadomości e-mail jest oparty na [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) atrybutu, aby upewnić się, adres e-mail jest poprawnie sformułowany. Należy zmodyfikować kod, aby dodać wiadomości e-mail z potwierdzeniem. Zamknij okno przeglądarki.
 5. W **Eksploratora serwera** programu Visual Studio (**widoku**  - &gt; **Eksploratora serwera**), przejdź do **Connections\ danych DefaultConnection\Tables\AspNetUsers**, kliknij prawym przyciskiem myszy i wybierz **Otwórz definicję tabeli**. 
 
     Poniższy obraz przedstawia `AspNetUsers` schemat tabeli:
@@ -78,7 +78,7 @@ Mimo że w tym samouczku tylko przedstawiono sposób dodawania powiadomienia poc
 
 1. W programie Visual Studio Otwórz **Konsola Menedżera pakietów** (**narzędzia**  - &gt; **Menedżer pakietów NuGet**  - &gt; **Konsola Menedżera pakietów**), a następnie wprowadź następujące polecenie:  
     `Install-Package SendGrid`
-2. Przejdź do [stronę tworzenia konta Azure SendGrid](https://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/) i zarejestrować bezpłatne konto SendGrid. Możesz również Załóż bezpłatne konto SendGrid bezpośrednio na [SendGrid w witrynie](http://www.sendgrid.com).
+2. Przejdź do [stronę tworzenia konta Azure SendGrid](https://azure.microsoft.com/gallery/store/sendgrid/sendgrid-azure/) i zarejestrować bezpłatne konto SendGrid. Możesz również Załóż bezpłatne konto SendGrid bezpośrednio na [SendGrid w witrynie](http://www.sendgrid.com).
 3. Z **Eksploratora rozwiązań** Otwórz *IdentityConfig.cs* w pliku *aplikacji\_Start* folderu i Dodaj następujący kod wyróżnione kolorem żółtym do `EmailService` klasa do konfigurowania **SendGrid**:
 
     [!code-csharp[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample1.cs?highlight=3,5,8-37)]
@@ -186,5 +186,5 @@ Jeśli nie otrzymasz wiadomość e-mail zawierającą łącze do zweryfikowania 
 - [Łącza do tożsamości ASP.NET zalecane zasobów](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)
 - [Potwierdzenie konta i hasło odzyskiwania za pomocą tożsamości platformy ASP.NET](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
 - [Samouczek serii formularzy sieci Web platformy ASP.NET — Dodaj dostawcę uwierzytelniania OAuth 2.0](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#OAuthWebForms)
-- [Wdrażanie aplikacji formularzy bezpiecznej sieci Web platformy ASP.NET z członkostwa, OAuth i bazy danych SQL Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
+- [Wdrażanie aplikacji formularzy bezpiecznej sieci Web platformy ASP.NET z członkostwa, OAuth i bazy danych SQL Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
 - [Serii samouczek formularzy sieci Web ASP.NET - Włącz SSL dla projektu](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms)

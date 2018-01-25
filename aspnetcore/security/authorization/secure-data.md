@@ -8,11 +8,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 861ac619c7f5fb19a56c59536e20724d96bbddca
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7404b8ec20ed6a00554c8a7ade9a282362b9a186
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Tworzenie aplikacji platformy ASP.NET Core z danych użytkownika chronione przez autoryzacji
 
@@ -221,11 +221,11 @@ Aktualizacja *Views/Contacts/Index.cshtml* widoku Razor tylko wyświetlanie, edy
 
 Add `@using ContactManager.Authorization;`
 
-Aktualizacja `Edit` i `Delete` łączy, aby były wyświetlane tylko dla użytkowników z uprawnieniem do edytowania i usuwania kontaktu.
+Aktualizacja `Edit` i `Delete` łączy, dlatego są one tylko renderowania dla użytkowników z uprawnieniem do edytowania i usuwania kontaktu.
 
 [!code-html[Main](secure-data/samples/final/Views/Contacts/Index.cshtml?range=63-84)]
 
-Ostrzeżenie: Ukrywanie łącza z użytkowników, którzy nie mają uprawnień do edytowania ani usuwania danych nie zabezpieczyć aplikację. Ukrywanie łączy powoduje, że aplikacja więcej użytkowników przyjazną przez wyświetlanie łączy jedyne prawidłowe. Użytkownicy mogą hack wygenerowanego adresy URL do wywołania edytowania i usuwania operacji na danych, które nie są właścicielami.  Kontroler należy powtórzyć kontroli dostępu do zabezpieczenia.
+Ostrzeżenie: Ukrywanie łącza od użytkowników, które nie mają uprawnień do edytowania ani usuwania danych nie zabezpieczenia aplikacji. Ukrywanie łączy powoduje, że aplikacja więcej użytkowników przyjazną przez wyświetlanie łączy jedyne prawidłowe. Użytkownicy mogą hack wygenerowanego adresy URL do wywołania edytowania i usuwania operacji na danych, które nie są właścicielami.  Kontroler należy powtórzyć kontroli dostępu do zabezpieczenia.
 
 ### <a name="update-the-details-view"></a>Aktualizacja w widoku szczegółów
 

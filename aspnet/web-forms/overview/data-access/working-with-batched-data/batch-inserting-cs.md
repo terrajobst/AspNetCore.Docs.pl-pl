@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9eb65b99a955770c72b28713d8daa66bcd1d5344
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9dc18e259da24d71464a156a70a85cfc9a1745ce
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-inserting-c"></a>Wsadowe Wstawianie (C#)
 ====================
@@ -96,7 +96,7 @@ Start, przeciągając je z przybornika do projektanta umieszczenia go pod istnie
 Następnie należy utworzyć Wstawianie interfejs, który został przedstawiony wstecz na rysunku 1. Ten interfejs mogą być tworzone za pomocą różnych technik HTML, ale używamy jednego bardzo prosta: cztery kolumny, siedmiu wiersza tabeli.
 
 > [!NOTE]
-> Podczas wprowadzania kodu znaczników HTML `<table>` elementów, chcę użyć widoku źródła. Chociaż w Visual Studio narzędzia do dodawania `<table>` elementów przy użyciu narzędzia Projektant, Projektant wydaje się wszystkie zbyt chce wstrzyknąć nieproszony dla `style` ustawienia do znaczników. Gdy utworzono `<table>` znaczników, zwykle wrócić do projektanta, aby dodać formantów sieci Web i ustawiania ich właściwości. Podczas tworzenia tabel przy użyciu wstępnie określonych kolumn i wierszy wolę przy użyciu Statycznych zamiast [kontrolka sieci Web tabeli](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.table.aspx) ponieważ wszystkie formanty sieci Web umieścić w formancie tabeli w sieci Web można uzyskać tylko za pomocą `FindControl("controlID")` wzorca. Jednak używam formantów sieci Web tabeli dla tabel dynamicznie o rozmiarze (widocznych kolumn lub wierszy, których są oparte na niektóre bazy danych lub kryteria określone przez użytkownika), od sieci Web tabeli formantu można skonstruować programowo.
+> Podczas wprowadzania kodu znaczników HTML `<table>` elementów, chcę użyć widoku źródła. Chociaż w Visual Studio narzędzia do dodawania `<table>` elementów przy użyciu narzędzia Projektant, Projektant wydaje się wszystkie zbyt chce wstrzyknąć nieproszony dla `style` ustawienia do znaczników. Gdy utworzono `<table>` znaczników, zwykle wrócić do projektanta, aby dodać formantów sieci Web i ustawiania ich właściwości. Podczas tworzenia tabel przy użyciu wstępnie określonych kolumn i wierszy wolę przy użyciu Statycznych zamiast [kontrolka sieci Web tabeli](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx) ponieważ wszystkie formanty sieci Web umieścić w formancie tabeli w sieci Web można uzyskać tylko za pomocą `FindControl("controlID")` wzorca. Jednak używam formantów sieci Web tabeli dla tabel dynamicznie o rozmiarze (widocznych kolumn lub wierszy, których są oparte na niektóre bazy danych lub kryteria określone przez użytkownika), od sieci Web tabeli formantu można skonstruować programowo.
 
 
 Wprowadź następujący kod w `<asp:Panel>` tagi `InsertingInterface` panelu:

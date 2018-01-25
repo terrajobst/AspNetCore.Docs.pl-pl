@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 1d6d9265d93fbd32e2d9c22e2ac3db9b5ffd9776
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3d24c633368abc14efcd9fcf200a4d05c5b182c9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Przekazuje w laboratorium: łatwy w obsłudze witryn sieci Web Azure: Zarządzanie zmianami i skali
 ====================
@@ -251,7 +251,7 @@ W tym zadaniu użyjesz **migracje Code First Framework jednostki** wykrywa zmian
 W tym ćwiczeniu zostanie wdrożona **Geek quizu** aplikacji do środowiska pomostowego aplikacji sieci web przy użyciu kontroli wersji Git. Aby to zrobić, zostanie tworzenie aplikacji sieci web i obsługi administracyjnej wymaganych składników w portalu zarządzania, skonfiguruj **Git** repozytorium i wypychania aplikacji kodu z komputera lokalnego do tymczasowej miejsca źródłowego. Zostanie również zaktualizować produkcyjnej bazy danych za pomocą **migracje Code First** utworzonego w poprzednim ćwiczeniu. Następnie wykona aplikacji w środowisku testowym, to aby sprawdzić jej działanie. Po zakończeniu jego działa zgodnie z oczekiwaniami, propaguje aplikacji do środowiska produkcyjnego.
 
 > [!NOTE]
-> Aby umożliwić publikowanie przemieszczanego, aplikacji sieci web musi być w **Tryb standardowy**. Należy pamiętać, że dodatkowe opłaty zostaną naliczone w przypadku zmiany Tryb standardowy aplikacji sieci web. Aby uzyskać więcej informacji o cenach, zobacz [App Service — ceny](https://azure.microsoft.com/en-us/pricing/details/app-service/).
+> Aby umożliwić publikowanie przemieszczanego, aplikacji sieci web musi być w **Tryb standardowy**. Należy pamiętać, że dodatkowe opłaty zostaną naliczone w przypadku zmiany Tryb standardowy aplikacji sieci web. Aby uzyskać więcej informacji o cenach, zobacz [App Service — ceny](https://azure.microsoft.com/pricing/details/app-service/).
 
 
 <a id="Ex2Task1"></a>
@@ -664,7 +664,7 @@ W tym zadaniu zostanie okno Eksploratora serwera z programu Visual Studio do ł�
 
     ![Wyświetl kontenera obiektów Blob](maintainable-azure-websites-managing-change-and-scale/_static/image69.png "wyświetlić kontenera obiektów Blob")
 
-    *Widok kontenera obiektów Blob*
+    *View Blob Container*
 12. Kontener obrazów należy otworzyć nowe okno i legenda o żadnych wpisów, które mają być wyświetlane. Kliknij przycisk **przekazać** ikonę, aby przekazać plik do kontenera obiektów blob.
 
     ![Kontener obrazów z żadnych wpisów](maintainable-azure-websites-managing-change-and-scale/_static/image70.png "kontener obrazów z żadnych wpisów")
@@ -695,7 +695,7 @@ W tym zadaniu zostanie skonfigurowana **GeekQuiz** rozwiązanie, aby korzystać 
     [!code-xml[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample17.xml)]
 
     > [!NOTE]
-    > Ponowne zapisywanie adresów URL jest proces przechwytywaniu przychodzącego żądania sieci Web i Przekierowanie żądania do innego zasobu. Adres URL ponowne zapisywanie reguł informuje przebudowywania aparatu, gdy żądanie musi zostać przekierowane i którym powinny one zostać przekierowane. Reguła przebudowywania składa się z dwóch ciągów: wzorzec do wyszukania w żądanym adresie URL (zazwyczaj za pomocą wyrażeń regularnych), i Zastąp wzorzec, jeśli ciąg. Aby uzyskać więcej informacji, zobacz [w programie ASP.NET ponowne zapisywanie adresów URL](https://msdn.microsoft.com/en-us/library/ms972974.aspx).
+    > Ponowne zapisywanie adresów URL jest proces przechwytywaniu przychodzącego żądania sieci Web i Przekierowanie żądania do innego zasobu. Adres URL ponowne zapisywanie reguł informuje przebudowywania aparatu, gdy żądanie musi zostać przekierowane i którym powinny one zostać przekierowane. Reguła przebudowywania składa się z dwóch ciągów: wzorzec do wyszukania w żądanym adresie URL (zazwyczaj za pomocą wyrażeń regularnych), i Zastąp wzorzec, jeśli ciąg. Aby uzyskać więcej informacji, zobacz [w programie ASP.NET ponowne zapisywanie adresów URL](https://msdn.microsoft.com/library/ms972974.aspx).
 3. Naciśnij klawisz **CTRL + S** Aby zapisać zmiany.
 4. Otwórz nowe **Git Bash** konsoli do wdrażania zaktualizowaną aplikację w usłudze Azure App Service.
 5. Wykonaj następujące polecenia, aby wypchnąć zmiany do platformy Azure. Aktualizacja *[YOUR-aplikacji-PATH]* symbolu zastępczego ze ścieżką do **GeekQuiz** rozwiązania. Pojawi się monit o podanie hasła wdrożenia.
@@ -883,9 +883,9 @@ Można teraz wykonania testu obciążenia utworzony w poprzednim zadaniu i zobac
 
 1. W **Eksploratora rozwiązań**, kliknij dwukrotnie **LoadTest1.loadtest** otworzyć testu obciążenia.
 
-    ![Otwieranie LoadTest1.loadtest](maintainable-azure-websites-managing-change-and-scale/_static/image99.png "otwierania LoadTest1.loadtest")
+    ![Opening LoadTest1.loadtest](maintainable-azure-websites-managing-change-and-scale/_static/image99.png "Opening LoadTest1.loadtest")
 
-    *Otwieranie LoadTest1.loadtest*
+    *Opening LoadTest1.loadtest*
 2. W **LoadTest1.loadtest** okna, kliknij pierwszy przycisk w przyborniku, aby uruchomić test obciążenia.
 
     ![Uruchamianie testu obciążenia](maintainable-azure-websites-managing-change-and-scale/_static/image100.png "wykonywania testu obciążenia")
@@ -910,7 +910,7 @@ Można teraz wykonania testu obciążenia utworzony w poprzednim zadaniu i zobac
     > 
     > - Zwiększ czas trwania testu obciążenia (np. **10 minut**)
     > - Zmniejszyć maksymalne i minimalne wartości **Procesora docelowej** zakresu w konfiguracji automatycznego skalowania aplikacji sieci web
-    > - Uruchamianie testu obciążenia w chmurze za pomocą **Visual Studio Online**. Więcej informacji [tutaj](https://www.visualstudio.com/en-us/get-started/load-test-your-app-vs.aspx)
+    > - Uruchamianie testu obciążenia w chmurze za pomocą **Visual Studio Online**. Więcej informacji [tutaj](https://www.visualstudio.com/get-started/load-test-your-app-vs.aspx)
 
 * * *
 

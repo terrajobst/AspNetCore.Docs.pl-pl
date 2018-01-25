@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f5ebdf168610b715dc918ff6addf88d3c2a67097
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2269458cbc41fd3a483aaade0f07288ee805bdd1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-vb"></a>Obsługa wyjątków logiki warstwy Biznesowej i warstwy DAL poziom strony ASP.NET (VB)
 ====================
@@ -101,9 +101,9 @@ W tym momencie mamy listę wszystkich produktów `ProductName`, `QuantityPerUnit
 
 ## <a name="step-2-gracefully-handling-dal-level-exceptions"></a>Krok 2: Bezpiecznie obsługi wyjątków na poziomie warstwy DAL
 
-Gdy naszych można edytować widoku GridView działa bajeczną podczas wprowadzania wartości nazwy produktu edytowany, ceny i jednostki w magazynie, wprowadzanie wartości niedozwolony powoduje wygenerowanie wyjątku. Na przykład, pomijając `ProductName` wartość przyczyny [nonullallowedexception —](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp) zostanie wygenerowany od `ProductName` właściwości w `ProdcutsRow` klasa ma jego `AllowDBNull` ustawioną właściwość `false`; Jeśli Baza danych nie działa, `SqlException` zgłoszony przez TableAdapter podczas próby nawiązania połączenia z bazą danych. Bez podejmowania żadnych działań, te wyjątki bąbelkowy się z warstwy dostępu do danych do warstwy logiki biznesowej, a następnie do strony ASP.NET i w końcu do środowiska wykonawczego programu ASP.NET.
+Gdy naszych można edytować widoku GridView działa bajeczną podczas wprowadzania wartości nazwy produktu edytowany, ceny i jednostki w magazynie, wprowadzanie wartości niedozwolony powoduje wygenerowanie wyjątku. Na przykład, pomijając `ProductName` wartość przyczyny [nonullallowedexception —](https://msdn.microsoft.com/library/default.asp?url=/library/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp) zostanie wygenerowany od `ProductName` właściwości w `ProdcutsRow` klasa ma jego `AllowDBNull` ustawioną właściwość `false`; Jeśli Baza danych nie działa, `SqlException` zgłoszony przez TableAdapter podczas próby nawiązania połączenia z bazą danych. Bez podejmowania żadnych działań, te wyjątki bąbelkowy się z warstwy dostępu do danych do warstwy logiki biznesowej, a następnie do strony ASP.NET i w końcu do środowiska wykonawczego programu ASP.NET.
 
-W zależności od konfiguracji aplikacji sieci web i czy odwiedzasz aplikacji z `localhost`, nieobsługiwany wyjątek może spowodować strony ogólny błąd serwera, raport szczegóły błędu lub strony sieci web przyjaznych dla użytkownika. Zobacz [sieci Web obsługi błędu aplikacji, w programie ASP.NET](http://www.15seconds.com/issue/030102.htm) i [customErrors Element](https://msdn.microsoft.com/en-US/library/h0hfz6fc(VS.80).aspx) uzyskać więcej informacji na temat sposobu środowiska uruchomieniowego ASP.NET odpowiada nieprzechwycony wyjątek.
+W zależności od konfiguracji aplikacji sieci web i czy odwiedzasz aplikacji z `localhost`, nieobsługiwany wyjątek może spowodować strony ogólny błąd serwera, raport szczegóły błędu lub strony sieci web przyjaznych dla użytkownika. Zobacz [sieci Web obsługi błędu aplikacji, w programie ASP.NET](http://www.15seconds.com/issue/030102.htm) i [customErrors Element](https://msdn.microsoft.com/library/h0hfz6fc(VS.80).aspx) uzyskać więcej informacji na temat sposobu środowiska uruchomieniowego ASP.NET odpowiada nieprzechwycony wyjątek.
 
 Rysunek 6 przedstawia ekranu napotkanych podczas próby zaktualizowania produktu bez określania `ProductName` wartość. Jest to domyślny raport szczegółowe informacje o błędzie wyświetlany po wznowieniu za pośrednictwem `localhost`.
 
@@ -153,7 +153,7 @@ Tworzenie ten program obsługi zdarzeń Dodaj następujący kod do klasy związa
 
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb/samples/sample4.vb)]
 
-Drugi parametr wejściowy tej obsługi zdarzeń jest obiektem typu [GridViewUpdatedEventArgs](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), która zawiera trzy właściwości istotnych dla obsługi wyjątków:
+Drugi parametr wejściowy tej obsługi zdarzeń jest obiektem typu [GridViewUpdatedEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), która zawiera trzy właściwości istotnych dla obsługi wyjątków:
 
 - `Exception`Odwołanie do zgłoszenia wyjątku; Jeśli żaden wyjątek nie były zgłaszane, ta właściwość będzie mieć wartość`null`
 - `ExceptionHandled`wartość logiczna, która wskazuje, czy wyjątek został obsłużony w `RowUpdated` obsługi zdarzeń; Jeśli `false` (ustawienie domyślne), wyjątek jest zgłoszony ponownie wypływająca do środowiska wykonawczego programu ASP.NET

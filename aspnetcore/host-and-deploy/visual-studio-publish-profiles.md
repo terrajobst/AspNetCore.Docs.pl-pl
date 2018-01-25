@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: cd59b33bc9fef29a769912617bf9aa3d95d689ec
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 1f403447c39db4ebfe3dafda591602f0dc9db8c3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Profilów dla wdrożenia aplikacji platformy ASP.NET Core publikowania programu Visual Studio
 
@@ -24,7 +24,7 @@ Ten artykuł skupia się na tworzenie za pomocą programu Visual Studio 2017 pro
 
 Następujące *.csproj* plik został utworzony przy użyciu polecenia `dotnet new mvc`:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -44,7 +44,7 @@ Następujące *.csproj* plik został utworzony przy użyciu polecenia `dotnet ne
 </Project>
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -117,14 +117,14 @@ dotnet publish c:/webs/web1
 
 Uruchom następujące polecenia, aby utworzyć i opublikować aplikację sieci web:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```console
 dotnet new mvc
 dotnet publish
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```console
 dotnet new mvc
@@ -327,7 +327,7 @@ Następujące `<MsDeploySkipRules>` exludes znacznika elementu wszystkie pliki z
 <ItemGroup>
   <MsDeploySkipRules Include="CustomSkipFolder">
     <ObjectName>dirPath</ObjectName>
-    <AbsolutePath>wwwroot\content</AbsolutePath>
+    <AbsolutePath>wwwroot\\content</AbsolutePath>
   </MsDeploySkipRules>
 </ItemGroup>
 ```
@@ -359,7 +359,7 @@ Jeśli następujące `<MsDeploySkipRules>` znaczników dodaniu, nie można usun�
 </ItemGroup>
 ```
 
-`<MsDeploySkipRules>` Uniemożliwia znaczników pokazanym powyżej *pominięte* plików przed depoyed, ale nie usuwa te pliki po ich wdrożeniu.
+`<MsDeploySkipRules>` Uniemożliwia znaczników pokazanym powyżej *pominięte* plików przed depoyed, ale nie usuwa tych plików, gdy są one wdrażane.
 
 Następujące `<Content>` znaczników usuwa pliki docelowe w witrynie wdrażania:
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4dbb3804bbb0ccb80506a592f1efb585c5748c2f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b87a69df24a410161dfaf055519eb6137fa76c06
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-vb"></a>Tworzenie aplikacji bazy danych filmu w ciągu 15 minut z platformą ASP.NET MVC (VB)
 ====================
@@ -59,21 +59,21 @@ Potrzebujesz programu Visual Studio 2008 lub Visual Web Developer 2008 Express, 
 
 Jeśli nie masz programu Visual Studio 2008, można pobrać 90-dniowa wersja próbna programu Visual Studio 2008 z tej witryny sieci Web:
 
-[https://msdn.microsoft.com/en-us/VS2008/Products/cc268305.aspx](https://msdn.microsoft.com/en-us/vs2008/products/cc268305.aspx)
+[https://msdn.microsoft.com/vs2008/products/cc268305.aspx](https://msdn.microsoft.com/vs2008/products/cc268305.aspx)
 
 Alternatywnie można tworzyć ASP.NET MVC aplikacji z programu Visual Web Developer Express 2008. Jeśli zdecydujesz się używać programu Visual Web Developer Express musi mieć dodatku Service Pack 1. Visual Web Developer 2008 Express z dodatkiem Service Pack 1 można pobrać z tej witryny sieci Web:
 
-[https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang = en](https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en](https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en)
 
 Po zainstalowaniu programu Visual Studio 2008 lub Visual Web Developer 2008, musisz zainstalować platformę ASP.NET MVC. Platforma ASP.NET MVC można pobrać z następującej stronie internetowej:
 
-[https://www.asp.NET/MVC/](../../../index.md)
+[https://www.asp.net/mvc/](../../../index.md)
 
 > [!NOTE] 
 > 
 > Zamiast struktury programu ASP.NET i platforma ASP.NET MVC oddzielnie, można korzystać z Instalatora platformy sieci Web. Instalator platformy sieci Web jest aplikacja, która umożliwia łatwe zarządzanie zainstalowanych aplikacji komputera:
 > 
-> [https://www.microsoft.com/Web/Gallery/Install.aspx](https://www.microsoft.com/web/gallery/Install.aspx)
+> [https://www.microsoft.com/web/gallery/Install.aspx](https://www.microsoft.com/web/gallery/Install.aspx)
 
 
 ## <a name="creating-an-aspnet-mvc-web-application-project"></a>Tworzenie projektu aplikacji sieci Web platformy ASP.NET MVC
@@ -105,7 +105,7 @@ Aplikacji platformy ASP.NET MVC zawiera standardowy zestaw folderów: folder mod
 
 Podczas tworzenia nowej aplikacji MVC za pomocą programu Visual Studio, możesz uzyskać przykładowej aplikacji. Ponieważ chcemy rozpocząć od początku, należy usunąć zawartość dla tej aplikacji przykładowej. Należy usunąć następujący plik i następujący folder:
 
-- Controllers\HomeController.VB
+- Controllers\HomeController.vb
 - Views\Home
 
 ## <a name="creating-the-database"></a>Tworzenie bazy danych
@@ -135,7 +135,7 @@ Następnie należy utworzyć nową tabelę bazy danych. W oknie Eksploratora ser
 
 | **Nazwa kolumny** | **Typ danych** | **Dopuszcza wartości null** |
 | --- | --- | --- |
-| Identyfikator | int | False |
+| Id | int | False |
 | Tytuł | Nvarchar(100) | False |
 | Dyrektor | Nvarchar(100) | False |
 | DateReleased | DataGodzina | False |

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 32ddda8d883a99805d2448c9673e585bfe9ef2f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c44ad7ec1b43129365cc22f5076b4fa7fe860f4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="master-pages-and-site-navigation-c"></a>Strony wzorcowej i nawigacji w witrynie (C#)
 ====================
@@ -61,7 +61,7 @@ Aby utworzyć strony wzorcowej, kliknij prawym przyciskiem myszy nazwę projektu
 
 Zdefiniuj tutaj układ strony całej lokacji, na stronie głównej. Można użyć widoku projektu i Dodaj formanty niezależnie od układu lub sieci Web należy, lub można ręcznie dodać kod znaczników ręcznie w widoku źródła. Na stronie głównej w programie używać [kaskadowych arkuszy stylów](http://www.w3schools.com/css/default.asp) pozycjonowanie i style CSS ustawienia zdefiniowane w pliku zewnętrznym `Style.css`. Gdy nie można ustalić, z poziomu znacznika pokazano poniżej, reguły CSS są zdefiniowane tak, aby nawigacji `<div>`w zawartości jest bezwzględnego, który pojawia się po lewej stronie i ma stałą szerokość 200 pikseli.
 
-Site.Master
+Site.master
 
 
 [!code-aspx[Main](master-pages-and-site-navigation-cs/samples/sample1.aspx)]
@@ -154,7 +154,7 @@ Plik mapy witryny jest plikiem XML. Należy pamiętać, że program Visual Studi
 
 Zdefiniuj mapy witryny, aby naśladował strukturę systemu plików. Oznacza to, Dodaj `<siteMapNode>` elementu dla każdego z trzech folderów i podrzędne `<siteMapNode>` elementy dla każdej strony ASP.NET w tych folderach w następujący sposób:
 
-Web.SiteMap
+Web.sitemap
 
 
 [!code-xml[Main](master-pages-and-site-navigation-cs/samples/sample4.xml)]
@@ -167,11 +167,11 @@ Mapy witryny definiuje struktury nawigacji witryny sieci Web, która jest hierar
 **Na rysunku nr 10**: mapy witryny reprezentuje strukturę hierarchiczną nawigacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-pages-and-site-navigation-cs/_static/image26.png))
 
 
-Program ASP.NET udostępnia struktury mapy witryny za pomocą programu .NET Framework [klasy SiteMap](https://msdn.microsoft.com/en-us/library/system.web.sitemap.aspx). Ta klasa ma `CurrentNode` właściwość, która zwraca informacje o sekcji, użytkownik jest obecnie odwiedzający; `RootNode` właściwość Zwraca pierwiastek mapy witryny (głównej, w naszym mapy witryny). Zarówno `CurrentNode` i `RootNode` return właściwości [SiteMapNode](https://msdn.microsoft.com/en-us/library/system.web.sitemapnode.aspx) wystąpienia, które mają właściwości takich jak `ParentNode`, `ChildNodes`, `NextSibling`, `PreviousSibling`i tak dalej umożliwiające mapy witryny Hierarchia można udał.
+Program ASP.NET udostępnia struktury mapy witryny za pomocą programu .NET Framework [klasy SiteMap](https://msdn.microsoft.com/library/system.web.sitemap.aspx). Ta klasa ma `CurrentNode` właściwość, która zwraca informacje o sekcji, użytkownik jest obecnie odwiedzający; `RootNode` właściwość Zwraca pierwiastek mapy witryny (głównej, w naszym mapy witryny). Zarówno `CurrentNode` i `RootNode` return właściwości [SiteMapNode](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) wystąpienia, które mają właściwości takich jak `ParentNode`, `ChildNodes`, `NextSibling`, `PreviousSibling`i tak dalej umożliwiające mapy witryny Hierarchia można udał.
 
 ## <a name="step-3-displaying-a-menu-based-on-the-site-map"></a>Krok 3: Wyświetlanie Menu oparty na mapie witryny
 
-Uzyskiwanie dostępu do danych w programie ASP.NET 2.0 można wykonać programowo, takich jak w programie ASP.NET 1.x, lub deklaratywnie, za pomocą nowego [kontroli źródła danych](https://msdn.microsoft.com/en-us/library/ms227679.aspx). Istnieje kilka kontrolki źródła danych wbudowanych, takich jak kontrola SqlDataSource, do uzyskiwania dostępu do danych relacyjnych baz danych, kontrolki ObjectDataSource, uzyskać dostęp do danych z klasy i inne. Można też tworzyć własne [źródła danych niestandardowych formantów](https://msdn.microsoft.com/asp.net/reference/data/default.aspx?pull=/library/en-us/dnvs05/html/DataSourceCon1.asp).
+Uzyskiwanie dostępu do danych w programie ASP.NET 2.0 można wykonać programowo, takich jak w programie ASP.NET 1.x, lub deklaratywnie, za pomocą nowego [kontroli źródła danych](https://msdn.microsoft.com/library/ms227679.aspx). Istnieje kilka kontrolki źródła danych wbudowanych, takich jak kontrola SqlDataSource, do uzyskiwania dostępu do danych relacyjnych baz danych, kontrolki ObjectDataSource, uzyskać dostęp do danych z klasy i inne. Można też tworzyć własne [źródła danych niestandardowych formantów](https://msdn.microsoft.com/asp.net/reference/data/default.aspx?pull=/library/dnvs05/html/DataSourceCon1.asp).
 
 Kontrolki źródła danych służą jako serwer proxy między strony ASP.NET i danych. Aby wyświetlić dane pobrane z kontroli źródła danych, firma Microsoft będzie zwykle na stronie Dodaj inny formant sieci Web i powiązać ją z kontroli źródła danych. Aby powiązać formant sieci Web do kontroli źródła danych, wystarczy ustawić formant sieci Web `DataSourceID` na wartość formantu źródła danych `ID` właściwości.
 
@@ -218,7 +218,7 @@ To menu strony wzorcowej i powiązany z mapy witryny zdefiniowane w `Web.sitemap
 
 Wszystkie kontrolki ASP.NET Opcjonalnie można utrwalić stanu do [stanu widoku](https://msdn.microsoft.com/msdnmag/issues/03/02/CuttingEdge/), który jest szeregowana jako ukryte pole formularza w renderowanym HTML. Stan widoku jest używany przez formanty do zapamiętania ich programowo zmienić stan między ogłaszania zwrotnego, takich jak dane powiązane formantu danych sieci Web. Gdy stan widoku na to zezwala informacji należy pamiętać, między ogłaszania zwrotnego spowoduje zwiększenie rozmiaru kod znaczników, który należy wysłać do klienta i może spowodować pociągnięcie strony rozrostu Jeśli nie zostanie dokładnie monitorowane. Formanty sieci Web danych szczególnie widoku GridView są szczególnie odpowiedzialne za dodawanie dziesiątki dodatkowe kilobajtów znaczników do strony. Takie zwiększenie może być nieistotne dla użytkowników z połączenia szerokopasmowego lub intranecie, stan widoku można dodać kilka sekund do obiegu dla użytkowników programu dial-up.
 
-Aby zobaczyć wpływ stanu widoku, odwiedź stronę w przeglądarce, a następnie Wyświetl źródło wysyłane przez stronę sieci web (w programie Internet Explorer przejdź do menu Widok i wybierz opcję źródła). Można też włączyć [śledzenie strony](https://msdn.microsoft.com/en-us/library/sfbfw58f.aspx) wyświetlić alokacji stan widoku, używane przez każdy z formantów na stronie. Informacje o stanie widoku jest serializowany w ukryte pole o nazwie `__VIEWSTATE`, który znajduje się w `<div>` element natychmiast po otwarciu `<form>` tagu. Stan widoku jest zachowywane tylko w przypadku jest używany; formularzy sieci Web Jeśli nie ma strony ASP.NET `<form runat="server">` w jego składni deklaratywnej nie będzie `__VIEWSTATE` ukryte pole formularza w renderowanego kodu znaczników.
+Aby zobaczyć wpływ stanu widoku, odwiedź stronę w przeglądarce, a następnie Wyświetl źródło wysyłane przez stronę sieci web (w programie Internet Explorer przejdź do menu Widok i wybierz opcję źródła). Można też włączyć [śledzenie strony](https://msdn.microsoft.com/library/sfbfw58f.aspx) wyświetlić alokacji stan widoku, używane przez każdy z formantów na stronie. Informacje o stanie widoku jest serializowany w ukryte pole o nazwie `__VIEWSTATE`, który znajduje się w `<div>` element natychmiast po otwarciu `<form>` tagu. Stan widoku jest zachowywane tylko w przypadku jest używany; formularzy sieci Web Jeśli nie ma strony ASP.NET `<form runat="server">` w jego składni deklaratywnej nie będzie `__VIEWSTATE` ukryte pole formularza w renderowanego kodu znaczników.
 
 `__VIEWSTATE` Pola formularza, generowane przez strony wzorcowej dodaje około 1800 bajtów do strony wygenerowanego kodu znaczników. Ta dodatkowa rozrostu wynika głównie kontrolce elementu powtarzanego jako zawartości formantu SiteMapDataSource są trwałe, aby wyświetlić stan. Gdy dodatkowych 1800 bajtów nie dość znacznie uzyskanie radością, jeśli element GridView z wielu pól i rekordów, stan widoku można łatwo spęcznienia przez współczynnik 10 lub więcej.
 
@@ -252,7 +252,7 @@ Dla witryny, należy dodać ten formant do nagłówka `<div>`:
 
 Samouczki w naszej witrynie są rozkładane na różne kategorie podstawowym raportowaniem, filtrowanie, formatowanie niestandardowe, i tak dalej z folderu dla każdej kategorii i odpowiednie samouczki jako strony ASP.NET w tym folderze. Ponadto każdy folder zawiera `Default.aspx` strony. Na tej stronie domyślne teraz wyświetlić wszystkie samouczków dla bieżącej sekcji. Oznacza to aby uzyskać `Default.aspx` w `BasicReporting` folderu trzeba łącza do `SimpleDisplay.aspx`, `DeclarativeParams.aspx`, i `ProgrammaticParams.aspx`. W tym miejscu, możemy użyć `SiteMap` klas i danych formantu sieci Web, aby wyświetlić te informacje oparte na mapy witryny zdefiniowane w `Web.sitemap`.
 
-Umożliwia wyświetlanie nieuporządkowaną listę ponownie, ale tym razem będzie wyświetlić tytuł i opis samouczków, przy użyciu elementu powtarzanego. Ponieważ znaczników i kodu do wykonania będzie konieczne należy powtórzyć dla każdego `Default.aspx` strony, możemy Hermetyzowanie tego logika interfejsu użytkownika w [kontrolki użytkownika](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx). Utwórz folder w witrynie sieci Web o nazwie `UserControls` i Dodaj do tego nowego elementu typu kontrolka użytkownika sieci Web o nazwie `SectionLevelTutorialListing.ascx`i Dodaj następujący kod:
+Umożliwia wyświetlanie nieuporządkowaną listę ponownie, ale tym razem będzie wyświetlić tytuł i opis samouczków, przy użyciu elementu powtarzanego. Ponieważ znaczników i kodu do wykonania będzie konieczne należy powtórzyć dla każdego `Default.aspx` strony, możemy Hermetyzowanie tego logika interfejsu użytkownika w [kontrolki użytkownika](https://msdn.microsoft.com/library/y6wb1a0e.aspx). Utwórz folder w witrynie sieci Web o nazwie `UserControls` i Dodaj do tego nowego elementu typu kontrolka użytkownika sieci Web o nazwie `SectionLevelTutorialListing.ascx`i Dodaj następujący kod:
 
 
 [![Dodaj kontrolkę użytkownika sieci Web do folderu elementy UserControls](master-pages-and-site-navigation-cs/_static/image30.png)](master-pages-and-site-navigation-cs/_static/image29.png)
@@ -297,15 +297,15 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Omówienie stron ASP.NET wzorca](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx)
+- [Omówienie stron ASP.NET wzorca](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
 - [Stron wzorcowych w programie ASP.NET 2.0](http://odetocode.com/Articles/419.aspx)
 - [Szablony projektów 2.0 ASP.NET](https://msdn.microsoft.com/asp.net/reference/design/templates/default.aspx)
-- [Omówienie nawigacji witryny ASP.NET](https://msdn.microsoft.com/en-us/library/e468hxky.aspx)
+- [Omówienie nawigacji witryny ASP.NET](https://msdn.microsoft.com/library/e468hxky.aspx)
 - [Badanie ASP.NET 2.0 do nawigacji w witrynie](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
 - [Funkcje programu ASP.NET 2.0 lokacji nawigacji](https://weblogs.asp.net/scottgu/archive/2005/11/20/431019.aspx)
-- [Opis ASP.NET widok stanu](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnaspp/html/viewstate.asp)
-- [Porady: Włączanie śledzenia dla strony platformy ASP.NET](https://msdn.microsoft.com/en-us/library/94c55d08%28VS.80%29.aspx)
-- [Formanty użytkownika ASP.NET](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx)
+- [Opis ASP.NET widok stanu](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/viewstate.asp)
+- [Porady: Włączanie śledzenia dla strony platformy ASP.NET](https://msdn.microsoft.com/library/94c55d08%28VS.80%29.aspx)
+- [Formanty użytkownika ASP.NET](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 

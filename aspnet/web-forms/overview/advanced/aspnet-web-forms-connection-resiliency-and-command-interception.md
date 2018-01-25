@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: 1c24ccd220bf6df09a958d07b13077f004da0a03
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e3347657fb5c7bf8c7bb4e51a2e810a1edde826a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>Elastyczność połączenia formularzy sieci Web ASP.NET i polecenia zatrzymania
 ====================
@@ -39,7 +39,7 @@ W tym samouczku należy zmodyfikować Wingtip Toys przykładowej aplikacji do ob
 
 Przed rozpoczęciem upewnij się, że masz następujące oprogramowanie zainstalowane na komputerze:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) lub [programu Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework jest instalowana automatycznie.
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) lub [programu Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework jest instalowana automatycznie.
 - Wingtip Toys przykładowe projektu, dzięki czemu można zaimplementować funkcje wymienione w tym samouczku w projekcie Wingtip Toys. Poniższe łącze szczegółowe pobierania:
 
     - [Wprowadzenie do platformy ASP.NET 4.5.1 sieci Web Forms - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (C#)
@@ -81,7 +81,7 @@ Entity Framework automatycznie uruchamia kod znajdzie się w klasie, która jest
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample3.cs?highlight=14-15,17-22)]
 
-Dodając `RetryLimitExceededException` wyjątku, można zapewnić lepsze rejestrowanie lub wyświetlić komunikat o błędzie dla użytkownika, w którym można wybrać, aby spróbować ponownie uruchomić proces. Przez `RetryLimitExceededException` wyjątek, tylko błędy, które mogą być przejściowy będzie już zostały nastąpiła i nie można wielokrotnie. Faktyczny wyjątek, zwrócone zostaną opakowane w `RetryLimitExceededException` wyjątku. Ponadto również dodać bloku catch ogólne. Aby uzyskać więcej informacji na temat `RetryLimitExceededException` wyjątek, zobacz [Entity Framework połączenia odporności / ponów logiki](https://msdn.microsoft.com/en-us/data/dn456835).
+Dodając `RetryLimitExceededException` wyjątku, można zapewnić lepsze rejestrowanie lub wyświetlić komunikat o błędzie dla użytkownika, w którym można wybrać, aby spróbować ponownie uruchomić proces. Przez `RetryLimitExceededException` wyjątek, tylko błędy, które mogą być przejściowy będzie już zostały nastąpiła i nie można wielokrotnie. Faktyczny wyjątek, zwrócone zostaną opakowane w `RetryLimitExceededException` wyjątku. Ponadto również dodać bloku catch ogólne. Aby uzyskać więcej informacji na temat `RetryLimitExceededException` wyjątek, zobacz [Entity Framework połączenia odporności / ponów logiki](https://msdn.microsoft.com/data/dn456835).
 
 ## <a name="command-interception"></a>Polecenie zatrzymania
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 86ec6454313f5a6e78c0f64433ef4e5a4f8461ee
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6e09951be5483ed098b8cab6517335f9962a5d95
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>Stron wzorcowych i ASP.NET AJAX (C#)
 ====================
@@ -31,7 +31,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 W ciągu ostatnich kilku lat, deweloperzy coraz więcej zostały tworzenia [AJAX](http://en.wikipedia.org/wiki/Ajax_(programming))— aplikacji sieci web. Witryny sieci Web z obsługą technologii AJAX korzysta wielu technologii pokrewnych w sieci web oferuje bardziej odpowiednie środowisko użytkownika. Tworzenie aplikacji platformy ASP.NET z włączoną obsługą technologii AJAX jest łatwe zdumiewająco dzięki firmy Microsoft [ASP.NET AJAX framework](../../../../ajax/index.md). ASP.NET AJAX jest wbudowana w programie ASP.NET 3.5 i Visual Studio 2008; jest również dostępny jako osobny plik do pobrania dla aplikacji programu ASP.NET 2.0.
 
-Podczas kompilowania z włączoną obsługą technologii AJAX stron sieci web platformy ASP.NET AJAX framework, należy dodać dokładnie jeden [formantu ScriptManager](https://msdn.microsoft.com/en-us/library/bb398863.aspx) do każdej strony, która używa platformę. Jak jego nazwa wskazuje, ScriptManager zarządza skryptu po stronie klienta używany na stronach sieci web z włączoną obsługą technologii AJAX. Co najmniej ScriptManager emituje kod HTML, który informuje przeglądarkę, aby pobrać pliki JavaScript tej biblioteki klienckiej ASP.NET AJAX w skład. Można go również służyć do Rejestrowanie niestandardowe pliki JavaScript, usług sieci web obsługujących skryptu i funkcjonalność usługi niestandardowych aplikacji.
+Podczas kompilowania z włączoną obsługą technologii AJAX stron sieci web platformy ASP.NET AJAX framework, należy dodać dokładnie jeden [formantu ScriptManager](https://msdn.microsoft.com/library/bb398863.aspx) do każdej strony, która używa platformę. Jak jego nazwa wskazuje, ScriptManager zarządza skryptu po stronie klienta używany na stronach sieci web z włączoną obsługą technologii AJAX. Co najmniej ScriptManager emituje kod HTML, który informuje przeglądarkę, aby pobrać pliki JavaScript tej biblioteki klienckiej ASP.NET AJAX w skład. Można go również służyć do Rejestrowanie niestandardowe pliki JavaScript, usług sieci web obsługujących skryptu i funkcjonalność usługi niestandardowych aplikacji.
 
 Jeśli w Twojej lokacji używa stron wzorcowych (jak powinno), z niekoniecznie zbędna, nie można dodać formantu ScriptManager do każdej pojedynczej strony zawartości; zamiast można dodać formantu ScriptManager strony wzorcowej. W tym samouczku przedstawiono sposób dodawania formantu ScriptManager strony wzorcowej. Analizuje również sposób używania kontroli ScriptManagerProxy można zarejestrować usługi skryptu i skrypty niestandardowe w określonej strony zawartości.
 
@@ -117,7 +117,7 @@ Skonfigurować SqlDataSource formantu do nawiązania połączenia z bazą danych
 
 [!code-sql[Main](master-pages-and-asp-net-ajax-cs/samples/sample3.sql)]
 
-`TOP 1` — Słowo kluczowe w `SELECT` klauzula zwraca tylko pierwszy rekord zwróconych przez kwerendę. [ `NEWID()` Funkcja](https://msdn.microsoft.com/en-us/library/ms190348.aspx) generuje nowy [wartość Unikatowy identyfikator globalny (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) i mogą być używane w `ORDER BY` klauzuli do zwracania tabeli rekordów w kolejności losowej.
+`TOP 1` — Słowo kluczowe w `SELECT` klauzula zwraca tylko pierwszy rekord zwróconych przez kwerendę. [ `NEWID()` Funkcja](https://msdn.microsoft.com/library/ms190348.aspx) generuje nowy [wartość Unikatowy identyfikator globalny (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) i mogą być używane w `ORDER BY` klauzuli do zwracania tabeli rekordów w kolejności losowej.
 
 
 [![Skonfigurować SqlDataSource można przywrócić rekord jednej, losowo wybranych](master-pages-and-asp-net-ajax-cs/_static/image11.png)](master-pages-and-asp-net-ajax-cs/_static/image10.png)

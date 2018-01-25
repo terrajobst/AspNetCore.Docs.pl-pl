@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 24320b9f0262fba0aa5ac77f6c1294541c42267a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e483c37cc773a7255f18c26bc3609d68f71dff7d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Omówienie Wstawianie, aktualizowanie i usuwanie danych (C#)
 ====================
@@ -140,7 +140,7 @@ Po skonfigurowaniu ObjectDataSource jego kreatora, przejdź do widoku źródłow
 
 Element ObjectDataSource zawiera parametr dla każdego z parametrów wejściowych skojarzonych z nim metod, podobnie jak lista `SelectParameter` s jest obecna, gdy element ObjectDataSource jest skonfigurowany do wywołania metody select, która oczekuje parametru wejściowego (takie jak `GetProductsByCategoryID(categoryID)`). Jak zajmiemy się wkrótce, wartości dla nich `DeleteParameters`, `UpdateParameters`, i `InsertParameters` są ustawiane automatycznie GridView, widoku DetailsView i FormView przed wywołaniem elementu ObjectDataSource `Insert()`, `Update()`, lub `Delete()` Metoda. Te wartości można również ustawić programowo, zgodnie z potrzebami, jak omówiono w przyszłości samouczka.
 
-Jeden po stronie za pomocą kreatora można skonfigurować tak, aby element ObjectDataSource powoduje, że program Visual Studio ustawia [właściwości elementu OldValuesParameterFormatString](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.oldvaluesparameterformatstring(VS.80).aspx) do `original_{0}`. Wartość tej właściwości jest używana do włączenia oryginalne wartości danych, edytowania i jest przydatne w przypadku dwóch scenariuszy:
+Jeden po stronie za pomocą kreatora można skonfigurować tak, aby element ObjectDataSource powoduje, że program Visual Studio ustawia [właściwości elementu OldValuesParameterFormatString](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.oldvaluesparameterformatstring(VS.80).aspx) do `original_{0}`. Wartość tej właściwości jest używana do włączenia oryginalne wartości danych, edytowania i jest przydatne w przypadku dwóch scenariuszy:
 
 - Jeśli podczas edytowania rekordu, użytkownicy będą mogli zmienić wartość klucza podstawowego. W takim przypadku zarówno nowe wartości klucza podstawowego, jak i oryginalną wartość klucza podstawowego należy podać rekord z oryginalną wartość klucza podstawowego można znaleźć i jego wartość odpowiednio aktualizowany.
 - Korzystając z optymistycznej współbieżności. Optymistycznej współbieżności to technika, aby upewnić się, że dwa równoczesnych użytkowników nie zastępuj siebie nawzajem zmiany i jest temat przyszłych samouczek.
@@ -168,8 +168,8 @@ Uruchom, wystarczy przeciągnąć element GridView z przybornika do projektanta.
 
 Powiązanie widoku GridView ObjectDataSource za pośrednictwem jego tagów inteligentnych ma dwie korzyści:
 
-- BoundFields i CheckBoxFields są tworzone automatycznie dla każdego pola zwrócony przez element ObjectDataSource. Ponadto właściwości elementu BoundField i w polu CheckBoxField jest ustawiona na podstawie metadanych pola źródłowego. Na przykład `ProductID`, `CategoryName`, i `SupplierName` pola są oznaczone jako tylko do odczytu w `ProductsDataTable` i w związku z tym nie należy zezwalać na aktualizacje podczas edycji. Aby zmieścił się w tym, te BoundFields [właściwości tylko do odczytu](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.boundfield.readonly(VS.80).aspx) są ustawione na `true`.
-- [Właściwości DataKeyNames](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.datakeynames(VS.80).aspx) jest przypisany do pola klucza podstawowego obiektu źródłowego. Jest to istotne, kiedy przy użyciu widoku GridView do edycji lub usuwania danych, ponieważ ta właściwość wskazuje pola (lub zestaw pól) to unikatowy identyfikuje każdego rekordu. Aby uzyskać więcej informacji na temat `DataKeyNames` właściwości, odwołaj się do [wzorca/Detail, przy użyciu wybieranych GridView wzorca z DetailView szczegóły](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) samouczka.
+- BoundFields i CheckBoxFields są tworzone automatycznie dla każdego pola zwrócony przez element ObjectDataSource. Ponadto właściwości elementu BoundField i w polu CheckBoxField jest ustawiona na podstawie metadanych pola źródłowego. Na przykład `ProductID`, `CategoryName`, i `SupplierName` pola są oznaczone jako tylko do odczytu w `ProductsDataTable` i w związku z tym nie należy zezwalać na aktualizacje podczas edycji. Aby zmieścił się w tym, te BoundFields [właściwości tylko do odczytu](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.readonly(VS.80).aspx) są ustawione na `true`.
+- [Właściwości DataKeyNames](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames(VS.80).aspx) jest przypisany do pola klucza podstawowego obiektu źródłowego. Jest to istotne, kiedy przy użyciu widoku GridView do edycji lub usuwania danych, ponieważ ta właściwość wskazuje pola (lub zestaw pól) to unikatowy identyfikuje każdego rekordu. Aby uzyskać więcej informacji na temat `DataKeyNames` właściwości, odwołaj się do [wzorca/Detail, przy użyciu wybieranych GridView wzorca z DetailView szczegóły](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) samouczka.
 
 Gdy widoku GridView może być powiązana z ObjectDataSource przy użyciu okna właściwości lub składni deklaratywnej, wymaga można ręcznie dodać odpowiedniego elementu BoundField i `DataKeyNames` znaczników.
 
@@ -327,7 +327,7 @@ Należy pamiętać, że dla widoku DetailsView CommandField domyślnie pojawia s
 
 Kliknij przycisk Usuń taką samą sekwencję zdarzeń, ponieważ rozpoczyna się od widoku GridView: a ogłaszania zwrotnego; następuje widoku DetailsView wypełnianie jej ObjectDataSource `DeleteParameters` na podstawie `DataKeyNames` wartości i zakończone wywołanie jego ObjectDataSource `Delete()` metodę, która faktycznie spowoduje usunięcie produktu z bazy danych. Edytowanie w widoku DetailsView działa również w sposób identyczne z widoku GridView.
 
-Podczas wstawiania, użytkownik końcowy zobaczy nowego przycisku, po kliknięciu renderuje widoku DetailsView w "trybie wstawiania." Z "tryb wstawiania" nowy przycisk zastępuje Insert i Anuluj przycisków i tylko te BoundFields których `InsertVisible` właściwość jest ustawiona na `true` (ustawienie domyślne) są wyświetlane. Te pola danych identyfikowane jako pola automatycznego przyrostu, takich jak `ProductID`, ma ich [właściwości InsertVisible](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datacontrolfield.insertvisible(VS.80).aspx) ustawioną `false` podczas wiązania ze źródłem danych za pomocą tagów inteligentnych widoku DetailsView.
+Podczas wstawiania, użytkownik końcowy zobaczy nowego przycisku, po kliknięciu renderuje widoku DetailsView w "trybie wstawiania." Z "tryb wstawiania" nowy przycisk zastępuje Insert i Anuluj przycisków i tylko te BoundFields których `InsertVisible` właściwość jest ustawiona na `true` (ustawienie domyślne) są wyświetlane. Te pola danych identyfikowane jako pola automatycznego przyrostu, takich jak `ProductID`, ma ich [właściwości InsertVisible](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datacontrolfield.insertvisible(VS.80).aspx) ustawioną `false` podczas wiązania ze źródłem danych za pomocą tagów inteligentnych widoku DetailsView.
 
 Podczas tworzenia wiązania DetailsView za pomocą tagów inteligentnych źródła danych, ustawia Visual Studio `InsertVisible` właściwości `false` tylko dla pól automatycznego przyrostu. Pola tylko do odczytu, takich jak `CategoryName` i `SupplierName`, będzie wyświetlana w interfejsie użytkownika "tryb wstawiania", chyba że ich `InsertVisible` właściwość jest jawnie ustawiona na `false`. Poświęć chwilę, aby ustawić tych dwóch pól `InsertVisible` właściwości `false`, albo za pomocą składni deklaratywnej DetailsView lub Edytuj pola łącze w tagu. 19 rysunek pokazuje ustawienie `InsertVisible` właściwości `false` , klikając polecenie Edytuj pola łącza.
 
@@ -354,7 +354,7 @@ Po Wprowadzanie szczegółów dotyczących Zepołowy xyz, a następnie kliknąć
 
 
 > [!NOTE]
-> DetailsView [właściwości CurrentMode](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx) wskazuje interfejs wyświetlane i może być jedną z następujących wartości: `Edit`, `Insert`, lub `ReadOnly`. [Właściwości DefaultMode właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx) wskazuje trybu DetailsView zwraca po modyfikacji lub Wstaw zostało ukończone i jest używane do wyświetlania widoku DetailsView, jest trwale edycji lub tryb wstawiania.
+> DetailsView [właściwości CurrentMode](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx) wskazuje interfejs wyświetlane i może być jedną z następujących wartości: `Edit`, `Insert`, lub `ReadOnly`. [Właściwości DefaultMode właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx) wskazuje trybu DetailsView zwraca po modyfikacji lub Wstaw zostało ukończone i jest używane do wyświetlania widoku DetailsView, jest trwale edycji lub tryb wstawiania.
 
 
 Punkt i kliknij przycisk wstawiania i edytowania DetailsView boryka się z te same ograniczenia co widoku GridView: użytkownik musi wprowadzić istniejące `CategoryID` i `SupplierID` wartości do pola tekstowego; nie ma interfejsu wszelka logika weryfikacji; wszystkie pola produktów, które nie zezwalają na `NULL` wartości lub nie ma wartości domyślnej wartości z określonego na poziomie bazy danych muszą być zawarte w Wstawianie interfejsu i tak dalej.
@@ -443,4 +443,4 @@ Programowanie przyjemność!
 [Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
-[Dalej](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
+[Next](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)

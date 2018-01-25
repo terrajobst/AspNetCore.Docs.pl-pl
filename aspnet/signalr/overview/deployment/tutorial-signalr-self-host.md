@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 997756ff8d48e41da981491d6154f3107ec7a051
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d38e6fbc3407e4beca6942bbdefcaa8258ebc5ad
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-signalr-self-host"></a>Samouczek: SignalR Host samodzielny
 ====================
@@ -94,7 +94,7 @@ W tym samouczku utworzysz serwer, który znajduje się w aplikacji konsoli, ale 
 
     Powyższy kod obejmuje trzy klasy:
 
-    - **Program**, takie jak **Main** metody Definiowanie ścieżki podstawowej wykonywania. W przypadku tej metody, aplikacji sieci web typu **uruchamiania** została uruchomiona z określonym adresem URL (`http://localhost:8080`). Jeśli zabezpieczeń jest wymagane dla punktu końcowego, można stosować protokół SSL. Zobacz [porady: Konfigurowanie portu z certyfikatem SSL](https://msdn.microsoft.com/en-us/library/ms733791.aspx) Aby uzyskać więcej informacji.
+    - **Program**, takie jak **Main** metody Definiowanie ścieżki podstawowej wykonywania. W przypadku tej metody, aplikacji sieci web typu **uruchamiania** została uruchomiona z określonym adresem URL (`http://localhost:8080`). Jeśli zabezpieczeń jest wymagane dla punktu końcowego, można stosować protokół SSL. Zobacz [porady: Konfigurowanie portu z certyfikatem SSL](https://msdn.microsoft.com/library/ms733791.aspx) Aby uzyskać więcej informacji.
     - **Uruchamianie**, klasa zawierająca konfiguracje serwera SignalR (tylko konfiguracja, w tym samouczku używana jest wywołanie `UseCors`) i wywołania w celu `MapSignalR`, co powoduje trasy dla obiektów Centrum w projekcie.
     - **MyHub**, klasy koncentratora SignalR udostępniającą aplikacji do klientów. Ta klasa zawiera tylko jedną metodę **wysyłania**, że klienci wywoła wysyłać wiadomości do wszystkich innych połączonych klientów.
 6. Kompilowanie i uruchamianie aplikacji. Adres, który jest uruchomiony serwer powinien być wyświetlony w oknie konsoli.

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: ac780c6cd522f9216cafe3b5f23772ef6ebf5d11
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 226c28622f76e866fba1fc33cf9b9b7a01e5295b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a>Wdrażanie członkostwo roli bazy danych do środowisk testowych
 ====================
@@ -87,7 +87,7 @@ W idealnym przypadku należy uruchomić wszystkie wymagane skrypty języka Trans
 
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat opcji wiersza polecenia sqlcmd, zobacz [narzędzia sqlcmd](https://msdn.microsoft.com/en-us/library/ms162773.aspx).
+> Aby uzyskać więcej informacji na temat opcji wiersza polecenia sqlcmd, zobacz [narzędzia sqlcmd](https://msdn.microsoft.com/library/ms162773.aspx).
 
 
 Zanim to polecenie jest osadzić w celu MSBuild, należy wziąć pod uwagę pod jakimi warunkami ma uruchomienie skryptu:
@@ -130,7 +130,7 @@ W tym temacie opisano jeden sposób, w którym można dodać bazy danych użytko
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać więcej informacji na temat używania VSDBCMD wdrażania projektów bazy danych, zobacz [wdrażania projektów bazy danych](../web-deployment-in-the-enterprise/deploying-database-projects.md). Aby uzyskać wskazówki dotyczące dostosowywania wdrożenia bazy danych dla środowisk inny element docelowy, zobacz [Dostosowywanie wdrożenia bazy danych w wielu środowiskach](customizing-database-deployments-for-multiple-environments.md). Aby uzyskać więcej informacji na temat używania niestandardowe pliki projektu MSBuild kontrolować proces wdrażania, zobacz [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md) i [opis procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Aby uzyskać więcej informacji na temat opcji wiersza polecenia sqlcmd, zobacz [narzędzia sqlcmd](https://msdn.microsoft.com/en-us/library/ms162773.aspx).
+Aby uzyskać więcej informacji na temat używania VSDBCMD wdrażania projektów bazy danych, zobacz [wdrażania projektów bazy danych](../web-deployment-in-the-enterprise/deploying-database-projects.md). Aby uzyskać wskazówki dotyczące dostosowywania wdrożenia bazy danych dla środowisk inny element docelowy, zobacz [Dostosowywanie wdrożenia bazy danych w wielu środowiskach](customizing-database-deployments-for-multiple-environments.md). Aby uzyskać więcej informacji na temat używania niestandardowe pliki projektu MSBuild kontrolować proces wdrażania, zobacz [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md) i [opis procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Aby uzyskać więcej informacji na temat opcji wiersza polecenia sqlcmd, zobacz [narzędzia sqlcmd](https://msdn.microsoft.com/library/ms162773.aspx).
 
 >[!div class="step-by-step"]
 [Poprzednie](customizing-database-deployments-for-multiple-environments.md)

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 5054f932d05fb612a6e18a81274719d7e249b77b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4de0b52e0b4ae7ce00e7b07bce2decfc5068964a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure
 ====================
@@ -103,7 +103,7 @@ Książka elektroniczna objaśniono trzunastu zalecane wzorce dla rozwoju chmury
     - Włączyć wysoką dostępność i poprawić skalowalność przez słabo sprzężenia warstw web i proces roboczy.
     - Pokaz: Kolejek usługi Azure storage w aplikacji rozwiązać.
 - [Więcej usług w chmurze, wskazówki i wzorce aplikacji](more-patterns-and-guidance.md).
-- [Dodatek: Napraw go Przykładowa aplikacja](the-fix-it-sample-application.md)
+- [Dodatek: Przykładowa aplikacja Fix It](the-fix-it-sample-application.md)
 
     - Znane problemy
     - Najlepsze praktyki
@@ -155,7 +155,7 @@ Jeśli komputer ulegnie awarii, Azure automatycznie pobiera go z obrót, obraca 
 
 Wszystko to odbywa się automatycznie. To wszystko, co należy zrobić, tworzenie witryny sieci web i wdrażanie aplikacji, przy użyciu programu Windows PowerShell, Visual Studio lub portalu zarządzania Azure.
 
-Szybkie i łatwe samouczek krok po kroku, który pokazuje, jak utworzyć aplikację sieci web w programie Visual Studio i wdrożyć ją do witryny sieci Web platformy Azure, zobacz [wprowadzenie do platformy Azure i ASP.NET](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+Szybkie i łatwe samouczek krok po kroku, który pokazuje, jak utworzyć aplikację sieci web w programie Visual Studio i wdrożyć ją do witryny sieci Web platformy Azure, zobacz [wprowadzenie do platformy Azure i ASP.NET](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
 
 <a id="summary"></a>
 ## <a name="summary"></a>Podsumowanie
@@ -168,14 +168,14 @@ Aby uzyskać więcej informacji na temat tematy omówione w tym rozdziale zobacz
 
 Dokumentacja:
 
-- [Web Apps w usłudze aplikacji Azure](https://azure.microsoft.com/en-us/services/app-service/web/). Strona portalu dokumentacji platformy Azure o aplikacjach sieci Web.
-- [Sieci Web aplikacji, usługi w chmurze i maszyn wirtualnych: kiedy należy używać?](https://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/) WAWS, jak pokazano w tym rozdziale jest tylko jeden z trzech sposobów, które mogą korzystać z aplikacji sieci web na platformie Azure. W tym artykule wyjaśniono różnice między trzy sposoby oraz zapewnia wskazówki na temat wybierania który z nich jest odpowiednia dla danego scenariusza. Podobnie jak witryn sieci Web usługi w chmurze jest funkcją PaaS systemu Azure. Maszyny wirtualne są funkcją IaaS. Aby uzyskać informacje o PaaS i IaaS, zobacz [opcje danych](data-storage-options.md#paasiaas) działu.
+- [Web Apps w usłudze aplikacji Azure](https://azure.microsoft.com/services/app-service/web/). Strona portalu dokumentacji platformy Azure o aplikacjach sieci Web.
+- [Sieci Web aplikacji, usługi w chmurze i maszyn wirtualnych: kiedy należy używać?](https://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/) WAWS, jak pokazano w tym rozdziale jest tylko jeden z trzech sposobów, które mogą korzystać z aplikacji sieci web na platformie Azure. W tym artykule wyjaśniono różnice między trzy sposoby oraz zapewnia wskazówki na temat wybierania który z nich jest odpowiednia dla danego scenariusza. Podobnie jak witryn sieci Web usługi w chmurze jest funkcją PaaS systemu Azure. Maszyny wirtualne są funkcją IaaS. Aby uzyskać informacje o PaaS i IaaS, zobacz [opcje danych](data-storage-options.md#paasiaas) działu.
 
 Filmy wideo:
 
-- [Scott Guthrie rozpoczyna się od kroku 0 - co to jest system operacyjny chmury Azure?](https://azure.microsoft.com/en-us/documentation/videos/what-is-the-cloud-os-scottgu/)
-- [Architektura witryn sieci Web — z Stefan Schackow](https://azure.microsoft.com/en-us/documentation/videos/why-azure-web-sites-plus-architecture/).
+- [Scott Guthrie rozpoczyna się od kroku 0 - co to jest system operacyjny chmury Azure?](https://azure.microsoft.com/documentation/videos/what-is-the-cloud-os-scottgu/)
+- [Architektura witryn sieci Web — z Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/).
 - [Ustawienia wewnętrzne witryny sieci Web platformy Azure z Nir Mashkowski](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski).
 
 >[!div class="step-by-step"]
-[Dalej](automate-everything.md)
+[Next](automate-everything.md)

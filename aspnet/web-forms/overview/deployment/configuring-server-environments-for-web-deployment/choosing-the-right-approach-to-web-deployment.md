@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 5265f9962ca6244b1fe13ca6e37a5217c15b8cdf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b77aa37160f3822f58908866e44497aea3d3bdc8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Wybieranie podejście do wdrożenia sieci Web
 ====================
@@ -38,7 +38,7 @@ W poniższej tabeli zamieszczono główne zalety i wady każdej metody wdrożeni
 
 | Podejście | Zalety | Wady | Typowe scenariusze |
 | --- | --- | --- | --- |
-| Agent zdalnego | Jest łatwy w konfiguracji. Nadaje się do regularnych aktualizacji aplikacji sieci web i zawartości. | Użytkownik musi być administratorem na serwerze docelowym. użytkownik nie może podać alternatywne poświadczenia. | Środowisk deweloperskich. Przetestuj środowisk. |
+| Agent zdalnego | Jest łatwy w konfiguracji. Nadaje się do regularnych aktualizacji aplikacji sieci web i zawartości. | Użytkownik musi być administratorem na serwerze docelowym. Użytkownik nie może podać alternatywne poświadczenia. | Środowisk deweloperskich. Przetestuj środowisk. |
 | Tymczasowego agenta | Nie istnieje potrzeba do zainstalowania narzędzia Web Deploy na komputerze docelowym. Automatycznie jest używana najnowsza wersja narzędzia Web Deploy. | Użytkownik musi być administratorem na serwerze docelowym. Użytkownik nie może podać alternatywne poświadczenia. | Środowisk deweloperskich. Przetestuj środowisk. |
 | Obsługa narzędzia Web Deploy | Użytkownicy niebędący administratorami można wdrożyć zawartość. Nadaje się do regularnych aktualizacji aplikacji sieci web i zawartości. | Jest znacznie bardziej złożone, aby skonfigurować. | Środowiska przejściowe. Intranet środowisk produkcyjnych. Środowiskach hostowanych. |
 | Wdrożenia w trybie offline | Jest bardzo łatwo skonfigurować. Jest ona odpowiednia dla środowiska izolowanego. | Administrator serwera należy ręcznie skopiować i zaimportować pakiet zawsze. | Internetowy środowisk produkcyjnych. W środowiskach sieci izolowanej. |
@@ -69,7 +69,7 @@ Faktycznie pliku wykonywalnego narzędzia Web Deploy można wywnioskować adres 
 
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat składni wiersza polecenia narzędzia Web Deploy i *. pliku deploy.cmd* plików, zobacz [porady: Instalowanie wdrożenia pakietu za pomocą pliku deploy.cmd pliku](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+> Aby uzyskać więcej informacji na temat składni wiersza polecenia narzędzia Web Deploy i *. pliku deploy.cmd* plików, zobacz [porady: Instalowanie wdrożenia pakietu za pomocą pliku deploy.cmd pliku](https://msdn.microsoft.com/library/ff356104.aspx).
 
 
 Agenta zdalnego oferuje łatwe wdrażanie zawartości z lokalizacji zdalnej, a takie podejście może współpracować z jednym kliknięciem i automatycznego wdrażania. Jednak użytkownik, który uruchamia polecenie wdrożenia również musi być administratorem domeny lub członek lokalnej grupy administratorów na serwerze docelowym. Ponadto agenta zdalnego nie obsługuje uwierzytelnianie podstawowe, więc nie można przekazać alternatywne poświadczenia w wierszu polecenia.
@@ -94,7 +94,7 @@ Jeśli chcesz użyć ustawienie dostawcy tymczasowego agenta, należy dodać **/
 
 Zaletą tej metody jest nie potrzebnych do obsługi instalacji narzędzia Web Deploy na serwerach sieci docelowej. Ponadto nie należy się upewnić, czy komputer źródłowy i docelowy są uruchomiona ta sama wersja programu Web Deploy. Jednak takie podejście odczuwa te same ograniczenia główną jako rozwiązanie agenta zdalnego mianowicie musi być administratorem lokalnym na serwerze docelowym w celu wdrażania zawartości, czy obsługiwane jest tylko uwierzytelnianie NTLM. Podejście tymczasowego agenta wymaga również znacznie więcej początkowej konfiguracji środowiska docelowego.
 
-Aby uzyskać więcej informacji na temat używania tymczasowego agenta, zobacz [porady: Instalowanie wdrożenia pakietu za pomocą pliku deploy.cmd pliku](https://msdn.microsoft.com/en-us/library/ff356104.aspx) i [sieci Web wdrażanie na żądanie](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx).
+Aby uzyskać więcej informacji na temat używania tymczasowego agenta, zobacz [porady: Instalowanie wdrożenia pakietu za pomocą pliku deploy.cmd pliku](https://msdn.microsoft.com/library/ff356104.aspx) i [sieci Web wdrażanie na żądanie](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
 ## <a name="using-the-web-deploy-handler"></a>Korzystanie z sieci Web wdrażanie programu obsługi
 
@@ -125,7 +125,7 @@ Na przykład załóżmy, że proces kompilacji jest skonfigurowany do automatycz
 
 
 > [!NOTE]
-> Aby uzyskać więcej informacji dotyczących narzędzia Web Deploy operacji wiersza polecenia i składnię, zobacz [odwołania wiersza polecenia wdrażania w sieci Web](https://technet.microsoft.com/en-us/library/dd568991(v=ws.10).aspx). Aby uzyskać więcej informacji na temat używania *. pliku deploy.cmd* plików, zobacz [porady: Instalowanie wdrożenia pakietu za pomocą pliku deploy.cmd pliku](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+> Aby uzyskać więcej informacji dotyczących narzędzia Web Deploy operacji wiersza polecenia i składnię, zobacz [odwołania wiersza polecenia wdrażania w sieci Web](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx). Aby uzyskać więcej informacji na temat używania *. pliku deploy.cmd* plików, zobacz [porady: Instalowanie wdrożenia pakietu za pomocą pliku deploy.cmd pliku](https://msdn.microsoft.com/library/ff356104.aspx).
 
 
 Obsługa wdrażania w sieci Web udostępnia przydatne podejście do wdrożenia w przejściowym środowiskach, środowiskach hostowanych i środowisk produkcyjnych opartych na sieci intranet, gdzie zdalny dostęp do serwera jest dostępna, ale nie są poświadczenia administratora.
@@ -146,9 +146,9 @@ Na przykład end-to-end scenariusza, który używa metody wdrożenia w trybie of
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać więcej informacji dotyczących narzędzia Web Deploy operacji wiersza polecenia i składnię, zobacz [odwołania wiersza polecenia wdrażania w sieci Web](https://technet.microsoft.com/en-us/library/dd568991(v=ws.10).aspx). Aby uzyskać więcej informacji na temat używania *. pliku deploy.cmd* plików, zobacz [porady: Instalowanie wdrożenia pakietu za pomocą pliku deploy.cmd pliku](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+Aby uzyskać więcej informacji dotyczących narzędzia Web Deploy operacji wiersza polecenia i składnię, zobacz [odwołania wiersza polecenia wdrażania w sieci Web](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx). Aby uzyskać więcej informacji na temat używania *. pliku deploy.cmd* plików, zobacz [porady: Instalowanie wdrożenia pakietu za pomocą pliku deploy.cmd pliku](https://msdn.microsoft.com/library/ff356104.aspx).
 
-Aby uzyskać bardziej ogólne wskazówki na różne sposoby, w którym można wdrożyć pakietów sieci web z komputera zdalnego, zobacz [przy użyciu sieci Web wdrażanie zdalnie](https://technet.microsoft.com/en-us/library/ee461175(WS.10).aspx). Aby uzyskać więcej informacji na temat używania sieci Web wdrażanie na żądanie, zobacz [sieci Web wdrażanie na żądanie](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx).
+Aby uzyskać bardziej ogólne wskazówki na różne sposoby, w którym można wdrożyć pakietów sieci web z komputera zdalnego, zobacz [przy użyciu sieci Web wdrażanie zdalnie](https://technet.microsoft.com/library/ee461175(WS.10).aspx). Aby uzyskać więcej informacji na temat używania sieci Web wdrażanie na żądanie, zobacz [sieci Web wdrażanie na żądanie](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
 >[!div class="step-by-step"]
 [Poprzednie](configuring-server-environments-for-web-deployment.md)

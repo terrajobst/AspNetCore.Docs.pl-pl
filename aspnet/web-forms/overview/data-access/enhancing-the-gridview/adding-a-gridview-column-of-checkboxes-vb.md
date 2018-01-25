@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 326201f9fe9ba5f482308dc8bfd7d2decb9fbd8f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4468f7e0c142fa432e58d4c686dd79d3b38612ad
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-gridview-column-of-checkboxes-vb"></a>Dodawanie kolumny widoku GridView pola wyboru (VB)
 ====================
@@ -100,7 +100,7 @@ Z formantem TemplateField i pole wyboru w sieci Web dodany każdy wiersz zawiera
 
 W tym momencie mamy kolumny pola wyboru, ale nie można określić, jakie pola wyboru zostały zaznaczone na ogłaszania zwrotnego. Po kliknięciu przycisku Usuń wybrane produkty, musimy wiedzieć, jakie pola wyboru zostały zaznaczone w celu usunięcia tych produktów.
 
-GridView s [ `Rows` właściwość](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rows.aspx) zapewnia dostęp do wierszy danych w widoku GridView. Firma Microsoft iterację te wiersze uzyskania programowego dostępu do formantu wyboru, a następnie zapoznaj się jego `Checked` właściwości w celu określenia, czy pole wyboru zostało zaznaczone.
+GridView s [ `Rows` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows.aspx) zapewnia dostęp do wierszy danych w widoku GridView. Firma Microsoft iterację te wiersze uzyskania programowego dostępu do formantu wyboru, a następnie zapoznaj się jego `Checked` właściwości w celu określenia, czy pole wyboru zostało zaznaczone.
 
 Tworzenie procedury obsługi zdarzeń dla `DeleteSelectedProducts` kontrolki przycisku w sieci Web s `Click` zdarzeń i Dodaj następujący kod:
 

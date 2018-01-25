@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4e8b4e6a12c010b227ee9a236130cbfd26d75657
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 715f7e3fae89e773b686faa7c49522c587693eec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Tworzenie nowego procedur składowanych do TableAdapters Typizowanego obiektu DataSet (C#)
 ====================
@@ -47,7 +47,7 @@ Funkcje są wspólne dla wszystkich języków programowania konstrukcję. Funkcj
 > Procedury składowane są często określane jako sprocs lub SPs.
 
 
-Procedury składowane są tworzone przy użyciu [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/en-us/library/aa258259(SQL.80).aspx) instrukcji T-SQL. Na przykład poniższy skrypt T-SQL tworzy procedury składowanej o nazwie `GetProductsByCategoryID` który przyjmuje jeden parametr o nazwie `@CategoryID` i zwraca `ProductID`, `ProductName`, `UnitPrice`, i `Discontinued` pola tych kolumn `Products` tabeli, która ma zgodnego `CategoryID` wartość:
+Procedury składowane są tworzone przy użyciu [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/library/aa258259(SQL.80).aspx) instrukcji T-SQL. Na przykład poniższy skrypt T-SQL tworzy procedury składowanej o nazwie `GetProductsByCategoryID` który przyjmuje jeden parametr o nazwie `@CategoryID` i zwraca `ProductID`, `ProductName`, `UnitPrice`, i `Discontinued` pola tych kolumn `Products` tabeli, która ma zgodnego `CategoryID` wartość:
 
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample1.sql)]
@@ -384,7 +384,7 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Tworzenie i obsługę procedury składowane](https://msdn.microsoft.com/en-us/library/aa214299(SQL.80).aspx)
+- [Tworzenie i obsługę procedury składowane](https://msdn.microsoft.com/library/aa214299(SQL.80).aspx)
 - [Pobieranie danych skalarnych z procedury składowanej](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 - [Podstawowe informacje dotyczące procedury przechowywane programu SQL Server](http://www.awprofessional.com/articles/article.asp?p=25288&amp;rl=1)
 - [Procedury składowane: Omówienie](http://www.sqlteam.com/item.asp?ItemID=563)
@@ -399,4 +399,4 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Hilton Geisenow. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Dalej](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
+[Next](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)

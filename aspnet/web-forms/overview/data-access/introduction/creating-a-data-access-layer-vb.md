@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 556b90f5e29f30756a4bd3b16be9608011558c4d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ad578d5d5fb1ef0ac63d3cbde3f307535ea3d98c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-data-access-layer-vb"></a>Tworzenie Warstwa dostępu do danych (VB)
 ====================
@@ -89,7 +89,7 @@ Na przykład elementu DataReader i zestawie danych (domyślnie) są typowaniem l
 Aby przywrócić silnie typizowanych obiektów, deweloperzy można utworzyć własne obiektów niestandardowych biznesowych albo użyj wpisanych zestawów danych. Obiekt biznesowy jest implementowany przez dewelopera jako reprezentuje klasę, którego właściwości zazwyczaj odzwierciedla kolumny tabeli podstawowej bazy danych obiektu biznesowego. Zestaw danych wpisany jest klasą wygenerowane automatycznie przez program Visual Studio na podstawie schematu bazy danych i której członkami są jednoznacznie zgodnie z tym schemacie. Wpisane zestawu danych sam składa się z klasy, stanowiące rozszerzenie klasy zestawu danych ADO.NET, DataTable i DataRow. Oprócz jednoznacznie DataTables wpisanych zestawów danych teraz także TableAdapters, które są klas z metody wypełnianie zestawu danych DataTables i propagowanie zmian w DataTables w bazie danych.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na zalety i wady używania wpisanych zestawów danych i obiektów niestandardowych biznesowych, zapoznaj się [projektowania składników warstwy danych i przekazywanie danych za pośrednictwem warstw](https://msdn.microsoft.com/en-us/library/ms978496.aspx).
+> Aby uzyskać więcej informacji na zalety i wady używania wpisanych zestawów danych i obiektów niestandardowych biznesowych, zapoznaj się [projektowania składników warstwy danych i przekazywanie danych za pośrednictwem warstw](https://msdn.microsoft.com/library/ms978496.aspx).
 
 
 Te samouczki architektury użyjemy silnie typizowane zestawy danych. Rysunek 3 przedstawia przepływ pracy między różne warstwy aplikacji, która używa wpisanych zestawów danych.
@@ -273,7 +273,7 @@ Beverages.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-vb/samples/sample4.aspx)]
 
-Beverages.aspx.VB
+Beverages.aspx.vb
 
 [!code-vb[Main](creating-a-data-access-layer-vb/samples/sample5.vb)]
 
@@ -293,7 +293,7 @@ Istnieją dwa wzorce najczęściej używanych Wstawianie, aktualizowanie i usuwa
 **Rysunek 21**: każdy Insert, Update i usunąć żądania są wysyłane do bazy danych od razu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image57.png))
 
 
-Inne wzorzec, który będzie można odwołać się do w partii aktualizacji wzorzec, jest aktualizacja cały zestaw danych, DataTable lub kolekcji wierszy danych w wywołaniu jedną metodę. Z tego wzorca dewelopera usuwa, wstawia, modyfikuje wierszy danych w DataTable i następnie przekazuje do metody aktualizacji tych elementów DataRows lub elementu DataTable. Ta metoda następnie wylicza wierszy danych, przekazano, określa, czy są już został zmodyfikowany, dodane lub usunięty (za pośrednictwem DataRow [RowState właściwości](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx) wartość) i wystawia żądanie odpowiednie bazy danych dla każdego rekordu.
+Inne wzorzec, który będzie można odwołać się do w partii aktualizacji wzorzec, jest aktualizacja cały zestaw danych, DataTable lub kolekcji wierszy danych w wywołaniu jedną metodę. Z tego wzorca dewelopera usuwa, wstawia, modyfikuje wierszy danych w DataTable i następnie przekazuje do metody aktualizacji tych elementów DataRows lub elementu DataTable. Ta metoda następnie wylicza wierszy danych, przekazano, określa, czy są już został zmodyfikowany, dodane lub usunięty (za pośrednictwem DataRow [RowState właściwości](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) wartość) i wystawia żądanie odpowiednie bazy danych dla każdego rekordu.
 
 
 [![Wszystkie zmiany są synchronizowane z bazy danych, gdy wywoływana jest metoda aktualizacji](creating-a-data-access-layer-vb/_static/image59.png)](creating-a-data-access-layer-vb/_static/image58.png)
@@ -339,7 +339,7 @@ Aby utworzyć niestandardowe metody, wróć do Projektanta obiektów DataSet. Kl
 **Rysunek 25**: Tworzenie metody, aby dodać nowy wiersz do `Products` tabeli ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-vb/_static/image69.png))
 
 
-Na następnym ekranie `InsertCommand`na `CommandText` pojawi się. Rozszerzyć przez dodanie tego zapytania `SELECT SCOPE_IDENTITY()` na końcu zapytania, które zwraca ostatnią wartość tożsamości wstawione do `IDENTITY` kolumny w tym samym zakresie. (Zobacz [dokumentacji technicznej](https://msdn.microsoft.com/en-us/library/ms190315.aspx) uzyskać więcej informacji o `SCOPE_IDENTITY()` i dlaczego warto [Użyj zakresu\_IDENTITY() miejsce z @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Upewnij się, że kończyć `INSERT` instrukcji średnikiem przed dodaniem `SELECT` instrukcji.
+Na następnym ekranie `InsertCommand`na `CommandText` pojawi się. Rozszerzyć przez dodanie tego zapytania `SELECT SCOPE_IDENTITY()` na końcu zapytania, które zwraca ostatnią wartość tożsamości wstawione do `IDENTITY` kolumny w tym samym zakresie. (Zobacz [dokumentacji technicznej](https://msdn.microsoft.com/library/ms190315.aspx) uzyskać więcej informacji o `SCOPE_IDENTITY()` i dlaczego warto [Użyj zakresu\_IDENTITY() miejsce z @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Upewnij się, że kończyć `INSERT` instrukcji średnikiem przed dodaniem `SELECT` instrukcji.
 
 
 [![Rozszerzyć zapytanie zwraca wartość SCOPE_IDENTITY()](creating-a-data-access-layer-vb/_static/image71.png)](creating-a-data-access-layer-vb/_static/image70.png)
@@ -520,11 +520,11 @@ Programowanie przyjemność!
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
 - [Tworzenie warstwy DAL przy użyciu silnie Typizowanej TableAdapters i DataTables VS 2005 i ASP.NET 2.0](https://weblogs.asp.net/scottgu/435498)
-- [Projektowanie składników warstwy danych i przekazywania danych za pomocą warstw](https://msdn.microsoft.com/en-us/library/ms978496.aspx)
+- [Projektowanie składników warstwy danych i przekazywania danych za pomocą warstw](https://msdn.microsoft.com/library/ms978496.aspx)
 - [Tworzenie warstwy dostępu do danych przy użyciu projektanta programu Visual Studio 2005 zestawu danych](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)
 - [Szyfrowanie informacji o konfiguracji w programie ASP.NET 2.0 aplikacji](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
-- [TableAdapter — Przegląd](https://msdn.microsoft.com/en-us/library/bz9tthwx.aspx)
-- [Praca z Typizowanego obiektu DataSet](https://msdn.microsoft.com/en-us/library/esbykkzb.aspx)
+- [TableAdapter — Przegląd](https://msdn.microsoft.com/library/bz9tthwx.aspx)
+- [Praca z Typizowanego obiektu DataSet](https://msdn.microsoft.com/library/esbykkzb.aspx)
 - [Dostępu do danych jednoznacznie w Visual Studio 2005 i ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/020806-1.aspx)
 - [Jak rozszerzyć metody TableAdapter](https://blogs.msdn.com/vbteam/archive/2005/05/04/ExtendingTableAdapters.aspx)
 - [Pobieranie danych skalarnych z procedury składowanej](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)

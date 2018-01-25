@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
-ms.openlocfilehash: 2f01ab5d66e44cd82634f1b3df1ca6c78b7fd9d5
-ms.sourcegitcommit: c07fb5cb5df0a12f9fe6735fcbc90964608fa687
+ms.openlocfilehash: ac979acf162084a195bb769f842e77ad2498c7f3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="enabling-signalr-tracing"></a>Włączanie śledzenia SignalR
 ====================
@@ -61,7 +61,7 @@ Gdy śledzenie jest włączone, aplikacji SignalR tworzy wpisy dziennika zdarze�
 <a id="server"></a>
 ## <a name="enabling-tracing-on-the-server"></a>Włączanie śledzenia na serwerze
 
-Włącz śledzenie na serwerze w pliku konfiguracji aplikacji (App.config lub Web.config, w zależności od typu projektu.) Określ, które kategorie zdarzeń, które mają być rejestrowane. W pliku konfiguracji, należy również określić, czy do rejestrowania zdarzeń do pliku tekstowego, dziennika zdarzeń systemu Windows lub dziennik niestandardowy przy użyciu implementacja [TraceListener](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracelistener(v=vs.110).aspx).
+Włącz śledzenie na serwerze w pliku konfiguracji aplikacji (App.config lub Web.config, w zależności od typu projektu.) Określ, które kategorie zdarzeń, które mają być rejestrowane. W pliku konfiguracji, należy również określić, czy do rejestrowania zdarzeń do pliku tekstowego, dziennika zdarzeń systemu Windows lub dziennik niestandardowy przy użyciu implementacja [TraceListener](https://msdn.microsoft.com/library/system.diagnostics.tracelistener(v=vs.110).aspx).
 
 Kategorie zdarzeń serwera obejmują następujące rodzaje komunikatów:
 
@@ -87,7 +87,7 @@ Poniższy kod przedstawia sposób włączania śledzenia dla każdej kategorii z
 
 [!code-html[Main](enabling-signalr-tracing/samples/sample1.html)]
 
-W powyższym kodzie `SignalRSwitch` wpis określa [TraceLevel](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracelevel(v=vs.110).aspx) używany do wysyłane do określonego dziennika zdarzeń. W takim przypadku ma ustawioną `Verbose` są rejestrowane, co oznacza wszystkie debugowania i śledzenia wiadomości.
+W powyższym kodzie `SignalRSwitch` wpis określa [TraceLevel](https://msdn.microsoft.com/library/system.diagnostics.tracelevel(v=vs.110).aspx) używany do wysyłane do określonego dziennika zdarzeń. W takim przypadku ma ustawioną `Verbose` są rejestrowane, co oznacza wszystkie debugowania i śledzenia wiadomości.
 
 Następujące dane wyjściowe zawiera wpisy z `transports.log.txt` pliku przy użyciu tego pliku konfiguracji aplikacji. Widoczny jest nowe połączenie, usunięte połączenie i zdarzenia Puls transportu.
 
@@ -112,9 +112,9 @@ Zdarzenia są rejestrowane w dzienniku aplikacji i są dostępne w Podglądzie z
 <a id="net_client"></a>
 ## <a name="enabling-tracing-in-the-net-client-windows-desktop-apps"></a>Włączanie śledzenia w kliencie programu .NET (aplikacje dla pulpitu systemu Windows)
 
-Klienta .NET można rejestrować zdarzenia konsoli, plik tekstowy lub dziennik niestandardowy przy użyciu implementacja [TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter.aspx).
+Klienta .NET można rejestrować zdarzenia konsoli, plik tekstowy lub dziennik niestandardowy przy użyciu implementacja [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx).
 
-Aby włączyć rejestrowanie w kliencie programu .NET, Ustaw połączenie `TraceLevel` właściwości [TraceLevels](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.tracelevels(v=vs.118).aspx) wartości i `TraceWriter` prawidłowej właściwości [TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter.aspx) wystąpienia.
+Aby włączyć rejestrowanie w kliencie programu .NET, Ustaw połączenie `TraceLevel` właściwości [TraceLevels](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.tracelevels(v=vs.118).aspx) wartości i `TraceWriter` prawidłowej właściwości [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) wystąpienia.
 
 <a id="desktop_console"></a>
 ### <a name="logging-desktop-client-events-to-the-console"></a>Rejestrowanie zdarzeń klienta w konsoli programu
@@ -137,23 +137,23 @@ Następujące dane wyjściowe zawiera wpisy z `ClientLog.txt` pliku przy użyciu
 <a id="phone"></a>
 ## <a name="enabling-tracing-in-windows-phone-8-clients"></a>Włączanie śledzenia w klientach Windows Phone 8
 
-Aplikacji SignalR dla aplikacji Windows Phone, użyj tego samego klienta .NET jako aplikacje komputerowe, ale [Console.Out](https://msdn.microsoft.com/en-us/library/system.console.out(v=vs.110).aspx) i zapisywanie do plików z [StreamWriter](https://msdn.microsoft.com/en-us/library/system.io.streamwriter(v=vs.110).aspx) nie są dostępne. Zamiast tego należy utworzyć niestandardową implementację [TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter(v=vs.110).aspx) śledzenia. 
+Aplikacji SignalR dla aplikacji Windows Phone, użyj tego samego klienta .NET jako aplikacje komputerowe, ale [Console.Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx) i zapisywanie do plików z [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) nie są dostępne. Zamiast tego należy utworzyć niestandardową implementację [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx) śledzenia. 
 
 <a id="phone_ui"></a>
 ### <a name="logging-windows-phone-client-events-to-the-ui"></a>Rejestrowanie zdarzeń klienta Windows Phone do interfejsu użytkownika
 
-[SignalR codebase](https://github.com/SignalR/SignalR/archive/master.zip) zawiera przykładowe Windows Phone, który zapisuje dane wyjściowe śledzenia do [blok tekstu](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) przy użyciu niestandardowego [TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter(v=vs.110).aspx) wdrożenia o nazwie `TextBlockWriter`. Ta klasa znajduje się w **samples/Microsoft.AspNet.SignalR.Client.WP8.Samples** projektu. Podczas tworzenia wystąpienia `TextBlockWriter`, należy przekazać w bieżącej [obiektu SynchronizationContext](https://msdn.microsoft.com/en-us/library/system.threading.synchronizationcontext(v=vs.110).aspx), a [Panel stosu](https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx) których zostaną utworzone [blok tekstu](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) do użycia na potrzeby śledzenia dane wyjściowe:
+[SignalR codebase](https://github.com/SignalR/SignalR/archive/master.zip) zawiera przykładowe Windows Phone, który zapisuje dane wyjściowe śledzenia do [blok tekstu](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) przy użyciu niestandardowego [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx) wdrożenia o nazwie `TextBlockWriter`. Ta klasa znajduje się w **samples/Microsoft.AspNet.SignalR.Client.WP8.Samples** projektu. Podczas tworzenia wystąpienia `TextBlockWriter`, należy przekazać w bieżącej [obiektu SynchronizationContext](https://msdn.microsoft.com/library/system.threading.synchronizationcontext(v=vs.110).aspx), a [Panel stosu](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx) których zostaną utworzone [blok tekstu](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) do użycia na potrzeby śledzenia dane wyjściowe:
 
 [!code-csharp[Main](enabling-signalr-tracing/samples/sample7.cs)]
 
-Następnie dane wyjściowe śledzenia będą zapisywane na nowy [blok tekstu](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) utworzone w [Panel stosu](https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx) przekazany w:
+Następnie dane wyjściowe śledzenia będą zapisywane na nowy [blok tekstu](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) utworzone w [Panel stosu](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx) przekazany w:
 
 ![](enabling-signalr-tracing/_static/image2.png)
 
 <a id="phone_debug"></a>
 ### <a name="logging-windows-phone-client-events-to-the-debug-console"></a>Rejestrowanie zdarzeń klienta Windows Phone do konsoli debugowania
 
-Aby wysłać dane wyjściowe do konsoli debugowania zamiast interfejsu użytkownika, Utwórz implementację [TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter(v=vs.110).aspx) zapisuje do okna debugowania i przypisz je do tego połączenia [TraceWriter](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.connection.tracewriter(v=vs.118).aspx) właściwości:
+Aby wysłać dane wyjściowe do konsoli debugowania zamiast interfejsu użytkownika, Utwórz implementację [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx) zapisuje do okna debugowania i przypisz je do tego połączenia [TraceWriter](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connection.tracewriter(v=vs.118).aspx) właściwości:
 
 [!code-csharp[Main](enabling-signalr-tracing/samples/sample8.cs)]
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: ecb1fc693063995a3a05a7af5db64554c9f595e2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0f9ff7cf74048a008b150da1e843ff15333269ab
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="two-factor-authentication-using-sms-and-email-with-aspnet-identity"></a>Uwierzytelnianie dwuskładnikowe przy użyciu programu SMS i wiadomości e-mail z tożsamości platformy ASP.NET
 ====================
@@ -168,7 +168,7 @@ Po wprowadź kod i kliknij przycisk Prześlij kod jest zamieszczana HTTP POST `V
 
 `isPersistent` Parametr określa, czy sesja uwierzytelniania jest trwała dla wielu żądań.
 
-Jeśli zmienisz profil zabezpieczeń nową sygnaturę bezpieczeństwa są generowane i przechowywane w `SecurityStamp` pole *AspNetUsers* tabeli. Uwaga: `SecurityStamp` pola różni się od pliku cookie zabezpieczeń. Plik cookie zabezpieczeń nie są przechowywane w `AspNetUsers` tabeli (lub dowolnego miejsca w bazie danych tożsamości). Token pliku cookie zabezpieczeń jest podpisany przy użyciu [DPAPI](https://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata.aspx) i zostanie utworzony z `UserId, SecurityStamp` i informacje dotyczące czasu wygaśnięcia.
+Jeśli zmienisz profil zabezpieczeń nową sygnaturę bezpieczeństwa są generowane i przechowywane w `SecurityStamp` pole *AspNetUsers* tabeli. Uwaga: `SecurityStamp` pola różni się od pliku cookie zabezpieczeń. Plik cookie zabezpieczeń nie są przechowywane w `AspNetUsers` tabeli (lub dowolnego miejsca w bazie danych tożsamości). Token pliku cookie zabezpieczeń jest podpisany przy użyciu [DPAPI](https://msdn.microsoft.com/library/system.security.cryptography.protecteddata.aspx) i zostanie utworzony z `UserId, SecurityStamp` i informacje dotyczące czasu wygaśnięcia.
 
 Oprogramowanie pośredniczące plików cookie sprawdza, czy plik cookie na każde żądanie. `SecurityStampValidator` Metody w `Startup` klasy trafienia bazę danych i okresowo sprawdza sygnaturę bezpieczeństwa z określonej `validateInterval`. Tylko dzieje co 30 minut (w naszym przykładzie), chyba że zostanie zmienione profil zabezpieczeń. Aby zminimalizować rund do bazy danych wybrano 30 minut.
 
@@ -264,7 +264,7 @@ Logowanie lokalne i społecznościowych logowania Sprawdź, czy włączono 2FA. 
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample17.cs?highlight=10-11,17-18)]
 
-Poniższy kod przedstawia `SendCode` metody akcji. A [SelectListItem](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlistitem.aspx) jest tworzony za pomocą metod 2FA włączone dla danego użytkownika. [SelectListItem](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlistitem.aspx) jest przekazywana do [DropDownListFor](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.dropdownlist.aspx) pomocnika, który umożliwia użytkownikowi wybranie metody 2FA (zazwyczaj poczty e-mail i SMS).
+Poniższy kod przedstawia `SendCode` metody akcji. A [SelectListItem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx) jest tworzony za pomocą metod 2FA włączone dla danego użytkownika. [SelectListItem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx) jest przekazywana do [DropDownListFor](https://msdn.microsoft.com/library/system.web.ui.webcontrols.dropdownlist.aspx) pomocnika, który umożliwia użytkownikowi wybranie metody 2FA (zazwyczaj poczty e-mail i SMS).
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample18.cs)]
 
@@ -284,6 +284,6 @@ Mimo że można ustawić blokady konta na niepowodzenia próba hasło logowania,
 - [Aplikacji MVC 5 za pomocą usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowania jednokrotnego](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) także przedstawiono sposób dodawania informacji o profilu do tabeli użytkowników.
 - [ASP.NET MVC i tożsamość 2.0: opis podstawowych funkcji](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) przez Atten Jan.
 - [Potwierdzenie konta i hasło odzyskiwania za pomocą tożsamości platformy ASP.NET](account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [Wprowadzenie do tożsamości platformy ASP.NET](../getting-started/introduction-to-aspnet-identity.md)
+- [Wprowadzenie do produktu ASP.NET Identity](../getting-started/introduction-to-aspnet-identity.md)
 - [Anonsowanie RTM programu ASP.NET Identity 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) przez Pranav Rastogi.
 - [Tożsamości ASP.NET 2.0: Sprawdzanie poprawności konta i dwuskładnikowego autoryzacji konfigurowania](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) przez Atten Jan.

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 7e495ba56958012713836c1dd75ac0c5a8bff942
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 873e4592ba668bbcb22f761c2a547a2a27d7e443
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Tworzenia, odczytu, aktualizacji i usuwania - Core EF z samouczek platformy ASP.NET Core MVC (2 10)
 
@@ -118,7 +118,7 @@ W *StudentsController.cs*, zmodyfikuj HttpPost `Create` metody bloku try-catch D
 
 Ten kod dodaje jednostki uczniów utworzony przez obiekt wiążący modelu platformy ASP.NET MVC do jednostki studentów ustawić, a następnie zapisuje zmiany w bazie danych. Integrator modelu odwołuje się do funkcji ASP.NET MVC, który ułatwi pracę z danych przesyłanych przez formularz, (integratora modelu konwertuje wartości przesłanego formularza na typy CLR i przekazuje je do metody akcji w parametrach. W tym przypadku integratora modelu tworzy wystąpienie jednostki uczniów przy użyciu wartości właściwości z kolekcji formularza.)
 
-Możesz usunąć `ID` z `Bind` atrybutu, ponieważ identyfikator ma wartość klucza podstawowego, której program SQL Server ustawi automatycznie, gdy zostanie wstawiona. Dane wejściowe użytkownika nie ustawia wartość Identyfikatora.
+Możesz usunąć `ID` z `Bind` atrybutu, ponieważ identyfikator ma wartość klucza podstawowego, której program SQL Server ustawi automatycznie, gdy zostanie wstawiona. Dane wejściowe użytkownika nie zmienia wartości Identyfikatora.
 
 Inne niż `Bind` atrybutu, blok try-catch jest tylko zmiany wprowadzone do szkieletu kodu. Jeśli wyjątek, która jest pochodną `DbUpdateException` jest zgłoszony, gdy trwa zapisywanie zmian, zostanie wyświetlony komunikat ogólny błąd. `DbUpdateException`wyjątki są czasami spowodowane coś zewnętrzne do aplikacji, a nie błąd programistyczny, dlatego zalecane jest użytkownik, aby spróbować ponownie. Chociaż nie jest zaimplementowana w tym przykładzie, jakości aplikacji produkcyjnej może zarejestruje wyjątek. Aby uzyskać więcej informacji, zobacz **dziennik, aby uzyskać szczegółowe informacje o** sekcji [monitorowanie i dane telemetryczne (tworzenia rzeczywistych aplikacji w chmurze platformy Azure)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
 
@@ -216,7 +216,7 @@ W aplikacji sieci web `DbContext` który początkowo odczytuje jednostki i wyśw
 
 Ale jeśli nie chcesz zrobić nadmiarowe operacja odczytu, należy użyć obiektu jednostki, utworzonego przez integratora modelu.  Najprostszym sposobem, aby to zrobić, jest do ustawienia stanu jednostki zmodyfikowane, co jest wykonywane w kodzie HttpPost Edytuj alternatywnych przedstawiona wcześniej. Następnie podczas wywoływania `SaveChanges`, Entity Framework aktualizacji wszystkie kolumny wiersza bazy danych, ponieważ kontekst nie ma możliwości wiedzieć, właściwości, które zostało zmienione.
 
-Jeśli chce się uniknąć odczytu pierwszego podejścia, ale ma także instrukcji SQL UPDATE można zaktualizować tylko pola, które użytkownik faktycznie zmienił, kod jest bardziej złożony. Masz próbę zapisania oryginalnych wartości w jakiś sposób (takich jak przy użyciu pola ukryte), aby były dostępne podczas HttpPost `Edit` metoda jest wywoływana. Następnie można utworzyć jednostki dla użytkowników domowych, przy użyciu oryginalnych wartości, wywołanie `Attach` metody z tej wersji oryginalnej jednostki, zaktualizuj wartości jednostki do nowych wartości, a następnie wywołać `SaveChanges`.
+Jeśli chce się uniknąć odczytu pierwszego podejścia, ale ma także instrukcji SQL UPDATE można zaktualizować tylko pola, które użytkownik faktycznie zmienił, kod jest bardziej złożony. Masz próbę zapisania oryginalnych wartości w jakiś sposób (takich jak przy użyciu pola ukryte), dzięki czemu są one dostępne podczas HttpPost `Edit` metoda jest wywoływana. Następnie można utworzyć jednostki dla użytkowników domowych, przy użyciu oryginalnych wartości, wywołanie `Attach` metody z tej wersji oryginalnej jednostki, zaktualizuj wartości jednostki do nowych wartości, a następnie wywołać `SaveChanges`.
 
 ### <a name="test-the-edit-page"></a>Testowanie edycji strony
 

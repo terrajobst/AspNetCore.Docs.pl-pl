@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 65e369a393a8c5d2d1bba11b5c71347df8f9c69d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 794ab576d3c6600911f331bab7c335476e45a0c9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>Przewodnik interfejsu API koncentratorów SignalR platformy ASP.NET — JavaScript klienta
 ====================
@@ -142,7 +142,7 @@ W aplikacji formularzy sieci Web ASP.NET, użyj `ResolveClientUrl` Twojego proxy
 
 [!code-aspx[Main](hubs-api-guide-javascript-client/samples/sample7.aspx)]
 
-Jako ogólną regułę należy używać tej samej metody do określania adresu URL "/ signalr/hubs" używanego w przypadku plików CSS i JavaScript. Jeśli określisz adresu URL bez użycia tyldy w niektórych scenariuszach aplikacja będzie działać poprawnie podczas testowania w programie Visual Studio za pomocą usług IIS Express, ale zakończy się niepowodzeniem z błędem 404, podczas wdrażania usługi IIS. Aby uzyskać więcej informacji, zobacz **rozpoznawania odwołania do zasobów na poziomie głównym** w [serwerów sieci Web w programie Visual Studio dla projektów sieci Web ASP.NET](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx) w witrynie MSDN.
+Jako ogólną regułę należy używać tej samej metody do określania adresu URL "/ signalr/hubs" używanego w przypadku plików CSS i JavaScript. Jeśli określisz adresu URL bez użycia tyldy w niektórych scenariuszach aplikacja będzie działać poprawnie podczas testowania w programie Visual Studio za pomocą usług IIS Express, ale zakończy się niepowodzeniem z błędem 404, podczas wdrażania usługi IIS. Aby uzyskać więcej informacji, zobacz **rozpoznawania odwołania do zasobów na poziomie głównym** w [serwerów sieci Web w programie Visual Studio dla projektów sieci Web ASP.NET](https://msdn.microsoft.com/library/58wxa9w5.aspx) w witrynie MSDN.
 
 Po uruchomieniu projektu sieci web w programie Visual Studio 2013 w trybie debugowania, i jeśli używasz programu Internet Explorer jako przeglądarki widać pliku serwera proxy w **Eksploratora rozwiązań** w obszarze **dokumentów skryptu**, jak pokazano w poniższej ilustracji.
 
@@ -308,7 +308,7 @@ Alternatywnie można określić wielu metod transportu w kolejności, w której 
 
 Następujące wartości można użyć do określenia metody transportu:
 
-- "Websocket"
+- "webSockets"
 - "foreverFrame"
 - "serverSentEvents"
 - "longPolling"

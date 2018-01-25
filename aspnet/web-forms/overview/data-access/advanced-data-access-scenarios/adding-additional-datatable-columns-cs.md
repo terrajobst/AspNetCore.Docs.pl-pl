@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0b1fe8d2e376065aed8d94b1267910bd1f7e5bd0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2982af897b433706889cb4eda79dcb4e76baea62
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-additional-datatable-columns-c"></a>Dodawanie kolumn do DataTable dodatkowe (C#)
 ====================
@@ -90,12 +90,12 @@ Następnie możemy monit o podanie `SELECT` zapytania. W kreatorze należy wprow
 
 [!code-sql[Main](adding-additional-datatable-columns-cs/samples/sample1.sql)]
 
-Powyższe zapytanie używa programu SQL Server 2005 s nowe [ `NTILE` funkcja](https://msdn.microsoft.com/en-us/library/ms175126.aspx) do dzielenia wyników na czterech grup, w której grupy jest określana przez `UnitPrice` wartości posortowane w kolejności malejącej.
+Powyższe zapytanie używa programu SQL Server 2005 s nowe [ `NTILE` funkcja](https://msdn.microsoft.com/library/ms175126.aspx) do dzielenia wyników na czterech grup, w której grupy jest określana przez `UnitPrice` wartości posortowane w kolejności malejącej.
 
 Niestety, Konstruktor kwerend nie wie jak przeanalizować `OVER` — słowo kluczowe i zostanie wyświetlony błąd podczas analizowania powyższym zapytaniu. W związku z tym wprowadź powyżej zapytanie bezpośrednio w polu tekstowym w Kreatorze bez przy użyciu konstruktora zapytań.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat s NTILE i SQL Server 2005 inne funkcje klasyfikacji, zobacz [zwracanie wyniki związane z programu Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml) i [sekcji funkcje klasyfikacji](https://msdn.microsoft.com/en-us/library/ms189798.aspx) z [SQL Server 2005 — książki Online](https://msdn.microsoft.com/en-us/library/ms189798.aspx).
+> Aby uzyskać więcej informacji na temat s NTILE i SQL Server 2005 inne funkcje klasyfikacji, zobacz [zwracanie wyniki związane z programu Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml) i [sekcji funkcje klasyfikacji](https://msdn.microsoft.com/library/ms189798.aspx) z [SQL Server 2005 — książki Online](https://msdn.microsoft.com/library/ms189798.aspx).
 
 
 Po wprowadzeniu `SELECT` zapytań i klikając przycisk Dalej, Kreator zapyta nas o podanie nazwy dla procedury składowanej, zostanie utworzony. Nazwa nowej procedury składowanej `Products_SelectWithPriceQuartile` i kliknij przycisk Dalej.

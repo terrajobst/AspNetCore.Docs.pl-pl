@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: fecdd582918a61f3d01519c75d159f9c601c8223
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a28284e203904cc943e5e46b369e8a58ea5c820
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Elastyczność połączenia i przechwytywaniu polecenia Entity Framework w aplikacji platformy ASP.NET MVC
 ====================
@@ -49,14 +49,14 @@ Funkcji odporności połączenia muszą być skonfigurowane odpowiednio dla usł
 
 Można skonfigurować te ustawienia ręcznie w każdym środowisku bazy danych, obsługiwane przez dostawcy programu Entity Framework, ale zostały już skonfigurowane wartości domyślne, które zwykle działa dobrze w przypadku aplikacji online, która używa bazy danych SQL Azure z systemem Windows, a są to ustawienia, które będzie wdrożenia dla aplikacji Contoso University.
 
-Wszystkie trzeba wykonać, aby włączyć elastyczności połączenia jest utworzyć klasę w używanego zestawu, która pochodzi z [DbConfiguration](https://msdn.microsoft.com/en-us/data/jj680699.aspx) klasy, a w tej klasie ustawić bazy danych SQL *strategia wykonywania*, która w EF jest inna nazwa *zasady ponawiania*.
+Wszystkie trzeba wykonać, aby włączyć elastyczności połączenia jest utworzyć klasę w używanego zestawu, która pochodzi z [DbConfiguration](https://msdn.microsoft.com/data/jj680699.aspx) klasy, a w tej klasie ustawić bazy danych SQL *strategia wykonywania*, która w EF jest inna nazwa *zasady ponawiania*.
 
 1. W folderze DAL, Dodaj plik klasy o nazwie *SchoolConfiguration.cs*.
 2. Zastąp kod szablonu z następującym kodem:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-    Entity Framework automatycznie uruchamia kod znajdzie się w klasie, która jest pochodną `DbConfiguration`. Można użyć `DbConfiguration` klasy do wykonywania zadań konfiguracji w kodzie, które w przeciwnym razie należy *Web.config* pliku. Aby uzyskać więcej informacji, zobacz [EntityFramework konfiguracji opartej na kodzie](https://msdn.microsoft.com/en-us/data/jj680699).
+    Entity Framework automatycznie uruchamia kod znajdzie się w klasie, która jest pochodną `DbConfiguration`. Można użyć `DbConfiguration` klasy do wykonywania zadań konfiguracji w kodzie, które w przeciwnym razie należy *Web.config* pliku. Aby uzyskać więcej informacji, zobacz [EntityFramework konfiguracji opartej na kodzie](https://msdn.microsoft.com/data/jj680699).
 3. W *StudentController.cs*, Dodaj `using` instrukcji dla `System.Data.Entity.Infrastructure`.
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
@@ -66,13 +66,13 @@ Wszystkie trzeba wykonać, aby włączyć elastyczności połączenia jest utwor
 
     W przypadku używania `DataException` celu zidentyfikowania błędów, które mogą być przejściowy, aby zapewnić przyjazny komunikat "spróbuj ponownie". Ale teraz, gdy włączono zasady ponawiania tylko błędy, które mogą być przejściowy będzie już zostały nastąpiła i nie można wielokrotnie i faktyczny wyjątek, zwrócone zostaną opakowane w `RetryLimitExceededException` wyjątku.
 
-Aby uzyskać więcej informacji, zobacz [Entity Framework połączenia odporności / ponów logiki](https://msdn.microsoft.com/en-us/data/dn456835).
+Aby uzyskać więcej informacji, zobacz [Entity Framework połączenia odporności / ponów logiki](https://msdn.microsoft.com/data/dn456835).
 
 ## <a name="enable-command-interception"></a>Włącz polecenie zatrzymania
 
 Po włączeniu zasady ponawiania jak przetestowanie można zweryfikować, że działa zgodnie z oczekiwaniami? Nie jest tak proste wymusić Błąd przejściowy się stać, szczególnie gdy używasz lokalnie i być szczególnie trudne do integracji rzeczywiste błędów przejściowych testu jednostkowego automatyczne. Aby przetestować funkcje ochrony połączenia, należy przechwycić zapytań, które Entity Framework wysyła do serwera SQL i Zamień na typ wyjątku, który jest zwykle charakter przejściowy odpowiedź serwera SQL.
 
-Przechwycenie zapytania można również użyć w celu wdrożenia najlepszym rozwiązaniem dla aplikacji w chmurze: [dziennika opóźnienia i powodzenie lub niepowodzenie wszystkie wywołania usług zewnętrznych](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) takich jak usługi bazy danych. Udostępnia EF6 [rejestrowania interfejsu API w wersji dedykowanej](https://msdn.microsoft.com/en-us/data/dn469464) która może ułatwić do rejestrowania, ale w tej części samouczka dowiesz się, jak używać programu Entity Framework [funkcji zatrzymania](https://msdn.microsoft.com/en-us/data/dn469464) bezpośrednio, zarówno dla Rejestrowanie i symulowanie błędów przejściowych.
+Przechwycenie zapytania można również użyć w celu wdrożenia najlepszym rozwiązaniem dla aplikacji w chmurze: [dziennika opóźnienia i powodzenie lub niepowodzenie wszystkie wywołania usług zewnętrznych](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) takich jak usługi bazy danych. Udostępnia EF6 [rejestrowania interfejsu API w wersji dedykowanej](https://msdn.microsoft.com/data/dn469464) która może ułatwić do rejestrowania, ale w tej części samouczka dowiesz się, jak używać programu Entity Framework [funkcji zatrzymania](https://msdn.microsoft.com/data/dn469464) bezpośrednio, zarówno dla Rejestrowanie i symulowanie błędów przejściowych.
 
 ### <a name="create-a-logging-interface-and-class"></a>Utwórz interfejs rejestrowania i klasy
 

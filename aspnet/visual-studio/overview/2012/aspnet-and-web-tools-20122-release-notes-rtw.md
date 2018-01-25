@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw
 msc.type: content
-ms.openlocfilehash: b9abad56a5a5b9219f92cc5b96efee7250a97c55
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ab1642f1a3de298919aa9c6c1ddbd6bbb0cb99b5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>Informacje o wersji platformy ASP.NET i narzędzia sieci Web 2012.2
 ====================
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/10/2017
     - [Narzędzia](#_Tooling)
     - [Publikowanie w sieci Web](#_Web_Publishing)
     - [Szablony ASP.NET MVC](#_Templates)
-    - [Interfejs API sieci Web ASP.NET](#_ASP.NET_Web_API)
+    - [ASP.NET Web API](#_ASP.NET_Web_API)
 
     - [Biblioteka SignalR platformy ASP.NET](#_ASP.NET_SignalR)
     - [ASP.NET, przyjazne adresy URL](#_ASP.NET_Friendly_URLs)
@@ -152,7 +152,7 @@ Aby uzyskać więcej informacji na temat programu ASP.NET Web API OData zobacz [
 
 #### <a name="aspnet-web-api-tracing"></a>Śledzenie interfejsu API sieci Web ASP.NET
 
-Śledzenia ASP.NET Web API integruje dane śledzenia z sieci web API z włączonym śledzeniem .NET. Teraz włączono domyślny szablon projektu interfejsu API sieci Web. Śledzenie danych w sieci Web jest wysyłane do okna wyjściowego interfejsów API i jest udostępniana przy użyciu funkcji IntelliTrace. ASP.NET Web API Tracing pozwala do śledzenia informacji na temat interfejsu API sieci Web podczas udostępniania w systemie Windows Azure dzięki integracji z [Windows Azure Diagnostics](https://msdn.microsoft.com/en-us/library/windowsazure/hh411529.aspx). Można również zainstalować i włączyć ASP.NET Web API Tracing w dowolnej aplikacji przy użyciu pakietu NuGet śledzenia interfejsu API sieci Web platformy ASP.NET ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
+Śledzenia ASP.NET Web API integruje dane śledzenia z sieci web API z włączonym śledzeniem .NET. Teraz włączono domyślny szablon projektu interfejsu API sieci Web. Śledzenie danych w sieci Web jest wysyłane do okna wyjściowego interfejsów API i jest udostępniana przy użyciu funkcji IntelliTrace. ASP.NET Web API Tracing pozwala do śledzenia informacji na temat interfejsu API sieci Web podczas udostępniania w systemie Windows Azure dzięki integracji z [Windows Azure Diagnostics](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx). Można również zainstalować i włączyć ASP.NET Web API Tracing w dowolnej aplikacji przy użyciu pakietu NuGet śledzenia interfejsu API sieci Web platformy ASP.NET ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
 
 Aby uzyskać więcej informacji na temat konfigurowania i używania programu ASP.NET Web API Tracing zobacz [https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874).
 
@@ -163,7 +163,7 @@ Stronę pomocy programu ASP.NET Web API jest teraz zawarta domyślny szablon pro
 Aby uzyskać więcej informacji na temat instalowania i dostosowywania Zobacz strona pomocy interfejsu API sieci Web ASP.NET [https://go.microsoft.com/fwlink/?LinkId=271140](https://go.microsoft.com/fwlink/?LinkId=271140).
 
 <a id="_ASP.NET_SignalR"></a>
-### <a name="aspnet-signalr"></a>Biblioteka SignalR platformy ASP.NET
+### <a name="aspnet-signalr"></a>ASP.NET SignalR
 
 Biblioteka SignalR platformy ASP.NET ułatwia dodawanie funkcji sieci web w czasie rzeczywistym do aplikacji ASP.NET przy użyciu protokołu WebSockets, jeśli jest dostępny i automatycznie nastąpi powrót do innych technik, gdy nie jest.
 
@@ -283,9 +283,9 @@ Todo.model.js pliku
 
 Funkcja todoList.prototype.addTodo, Dodaj poniższy tekst blacked:  
  **self.isSelected(true);**  
- self.newTodoTitle (&quot;&quot;);
+ self.newTodoTitle(&quot;&quot;);
 
 Plik index.cshtml, Dodaj poniższy tekst blacked:  
  &lt;tworzą data-bind =&quot;przesyłania: addTodo&quot;&gt;  
  &lt;dane wejściowe klasy =&quot;addTodo&quot; typu =&quot;tekst&quot; wiązania danych =&quot;wartość: newTodoTitle, symbol zastępczy: "Wpisz tutaj", blurOnEnter: ma wartość true, **hasfocus: isSelected**, zdarzenia: {rozmycia: addTodo}&quot; /&gt;  
- &lt;/ Form&gt;
+ &lt;/form&gt;

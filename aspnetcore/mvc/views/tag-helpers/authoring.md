@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9aaf40377e07e53fd0b7ebb177bcbb2df52b7553
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a1f1b2c2e60a1337c15f019185c764d0a9ada1b5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Autor pomocników tagów w ASP.NET Core wskazówki próbki
 
@@ -208,7 +208,7 @@ Można również użyć `[HtmlTargetElement]` Aby zmienić nazwę elementu docel
     [HtmlTargetElement("WebsiteInformation")]
     ```
     
-    Niższe znacznika skrzynki kebab `<website-information />` nie będą zgodne. Jeśli chcesz używać `[HtmlTargetElement]` atrybutu, należy użyć przypadku kebab, jak pokazano poniżej:
+    Niższe znacznika skrzynki kebab `<website-information />` nie odpowiada. Jeśli chcesz używać `[HtmlTargetElement]` atrybutu, należy użyć przypadku kebab, jak pokazano poniżej:
     
     ```csharp
     [HtmlTargetElement("Website-Information")]
@@ -306,7 +306,7 @@ Ponieważ te dwa pomocników są ściśle powiązane i mogą je w przyszłości 
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
-5.  Uruchom aplikację. Zwróć uwagę, www tekst jest traktowany jako łącze, ale nie jest tekst HTTP. Jeśli umieścisz punkt przerwania w obu klasach widać, czy klasa pomocnika tagów HTTP jest uruchamiany pierwszy. Problem polega na dane wyjściowe pomocnika tagów są buforowane, czy po uruchomieniu pomocnika tagów WWW, zastępuje on dane wyjściowe pamięci podręcznej pomocnika tagów HTTP. W dalszej części samouczka przedstawiono będzie sterowanie pomocników tagów uruchamiane w kolejności. Firma Microsoft będzie naprawić kod z następujących czynności:
+5.  Uruchom aplikację. Zwróć uwagę, www tekst jest traktowany jako łącze, ale nie ma tekstu HTTP. Jeśli umieścisz punkt przerwania w obu klasach widać, czy klasa pomocnika tagów HTTP jest uruchamiany pierwszy. Problem polega na dane wyjściowe pomocnika tagów są buforowane, czy po uruchomieniu pomocnika tagów WWW, zastępuje on dane wyjściowe pamięci podręcznej pomocnika tagów HTTP. W dalszej części samouczka przedstawiono będzie sterowanie pomocników tagów uruchamiane w kolejności. Firma Microsoft będzie naprawić kod z następujących czynności:
 
     [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
 
@@ -333,8 +333,8 @@ Pomocników tagów podać kilka właściwości, aby pobrać zawartość.
 
 -  Wynik `GetChildContentAsync` można dołączać do `output.Content`.
 -  Możesz sprawdzić wynik `GetChildContentAsync` z `GetContent`.
--  Jeśli zmodyfikujesz `output.Content`, treści pomocnika tagów nie zostanie wykonana ani renderowane, chyba że wywołujesz `GetChildContentAsync` jak naszej próbki automatycznie konsolidatora:
+-  Jeśli zmodyfikujesz `output.Content`, treści pomocnika tagów nie będą wykonywane lub renderowane, chyba że wywołujesz `GetChildContentAsync` jak naszej próbki automatycznie konsolidatora:
 
 [!code-csharp[Main](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
--  Wiele wywołań `GetChildContentAsync` zwróci taką samą wartość i nie zostanie wykonany ponownie `TagHelper` body, chyba że przekazujesz w parametrze false wskazujący używaj buforowanego zestawu wyników.
+-  Wiele wywołań `GetChildContentAsync` zwraca tę samą wartość i ponownie nie jest wykonywana `TagHelper` body, chyba że przekazujesz w parametrze wartość false, wskazującą, nie należy używać buforowanego zestawu wyników.

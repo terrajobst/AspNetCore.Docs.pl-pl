@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 52052ad202958eb5d648ceb64d9f06fb86ef3777
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bad742af28d6c36bb1b66207c2ba09d140332449
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-performance-signalr-1x"></a>SignalR wydajności (SignalR 1.x)
 ====================
@@ -70,7 +70,7 @@ Ponieważ komunikaty są przechowywane w magistrali komunikatów w pamięci serw
 
 ### <a name="tuning-your-signalr-server-for-performance"></a>Dostrajanie wydajności serwera SignalR
 
-Następujące ustawienia konfiguracji może służyć do dostrojenia serwera w celu poprawy wydajności w aplikacji SignalR. Aby uzyskać ogólne informacje na temat sposobu zwiększenia wydajności w aplikacji ASP.NET, zobacz [poprawę wydajności ASP.NET](https://msdn.microsoft.com/en-us/library/ff647787.aspx).
+Następujące ustawienia konfiguracji może służyć do dostrojenia serwera w celu poprawy wydajności w aplikacji SignalR. Aby uzyskać ogólne informacje na temat sposobu zwiększenia wydajności w aplikacji ASP.NET, zobacz [poprawę wydajności ASP.NET](https://msdn.microsoft.com/library/ff647787.aspx).
 
 **Ustawienia konfiguracji SignalR**
 
@@ -219,11 +219,11 @@ Następujące liczniki wydajności mogą być również przydatne w ramach monit
 - ASP.NET\Queued
 - ASP.NET\Rejected
 
-**PROCESOR CPU**
+**CPU**
 
 - Czas procesora Information\Processor
 
-**PROTOKÓŁ TCP/IP**
+**TCP/IP**
 
 - TCPv6/połączeń
 - TCPv4/połączeń
@@ -244,6 +244,6 @@ Następujące liczniki wydajności mogą być również przydatne w ramach monit
 
 Aby uzyskać więcej informacji na temat wydajności programu ASP.NET, monitorowania i dostrajania, zobacz następujące tematy:
 
-- [Omówienie wydajności programu ASP.NET](https://msdn.microsoft.com/en-us/library/cc668225(v=vs.100).aspx)
+- [Omówienie wydajności programu ASP.NET](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
 - [Użycie wątku ASP.NET usług IIS 7.5, usługi IIS 7.0 i IIS 6.0](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
-- [&lt;applicationPool&gt; elementu (ustawienia sieci Web)](https://msdn.microsoft.com/en-us/library/dd560842.aspx)
+- [&lt;applicationPool&gt; elementu (ustawienia sieci Web)](https://msdn.microsoft.com/library/dd560842.aspx)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f171929da3610f70f3641030d9a5fdb88f610f7f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a71405bc84304bf7c47f400dfa9886208316d223
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-custom-paged-data-c"></a>Sortowanie niestandardowe stronicowanej danych (C#)
 ====================
@@ -51,7 +51,7 @@ Niestety, sparametryzowana `ORDER BY` klauzule są niedozwolone. Zamiast tego na
 
 - Pisać zapytania ustalony dla każdego z wyrażenia sortowania, które mogą być używane; następnie należy użyć `IF/ELSE` instrukcje T-SQL, aby określić, które zapytania do wykonania.
 - Użyj `CASE` instrukcji, aby zapewnić dynamiczne `ORDER BY` na podstawie wyrażenia `@sortExpressio` n parametr wejściowy; Zobacz używane w sekcji dynamicznie sortowania wyników zapytania [Power SQL `CASE` instrukcje](http://www.4guysfromrolla.com/webtech/102704-1.shtml) Aby uzyskać więcej informacji.
-- Jednostki właściwe zapytania jako ciąg w procedurze składowanej, a następnie użyj [ `sp_executesql` procedury składowanej systemu](https://msdn.microsoft.com/en-us/library/ms188001.aspx) można wykonać zapytania dynamicznego.
+- Jednostki właściwe zapytania jako ciąg w procedurze składowanej, a następnie użyj [ `sp_executesql` procedury składowanej systemu](https://msdn.microsoft.com/library/ms188001.aspx) można wykonać zapytania dynamicznego.
 
 Każda z tych rozwiązań ma niektóre wady. Pierwsza opcja nie jest jako utrzymaniu jako dwa inne, ponieważ wymaga ona utworzenie zapytania dla każdego wyrażenia sortowania możliwe. W związku z tym jeśli później zdecydujesz się dodać nowe, sortowanie pola do widoku GridView będzie również należy wrócić i zaktualizować procedury składowanej. Drugi podejście charakteryzuje się niektóre precyzyjnie wprowadzenie problemów z wydajnością podczas sortowania według kolumn innych niż ciąg bazy danych, które również odczuwa te same kwestie utrzymanie jako pierwszy. I trzecią, używający dynamiczne SQL wprowadza ryzykiem w przypadku ataku polegającego na iniekcji SQL, jeśli osoba atakująca może wykonać procedurę składowaną, przekazując ich wybieranie wartości parametru wejściowego.
 
@@ -126,7 +126,7 @@ Teraz tego możemy kolejnych rozszerzony DAL, możemy re gotowe, aby włączyć 
 
 O rozszerzony DAL i logiki warstwy Biznesowej, aby uwzględnić metody wykorzystujące `GetProductsPagedAndSorted` procedury składowanej, wszystkie który pozostaje jest skonfigurowanie ObjectDataSource w `SortParameter.aspx` strony do używania nowej metody logiki warstwy Biznesowej i przekaż `SortExpression` na podstawie parametru kolumny, która zażądała Sortuj wyniki według użytkownika.
 
-Najpierw zmienić ObjectDataSource s `SelectMethod` z `GetProductsPaged` do `GetProductsPagedAndSorted`. Można to zrobić za pomocą kreatora Konfigurowanie źródła danych z okna właściwości lub bezpośrednio za pomocą składni deklaratywnej. Następnie należy podać wartość dla elementu ObjectDataSource s [ `SortParameterName` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx). Jeśli ta właściwość jest ustawiona, element ObjectDataSource podejmuje próbę przekazania w widoku GridView s `SortExpression` właściwości `SelectMethod`. W szczególności ObjectDataSource szuka parametr wejściowy, którego nazwa jest równa wartości `SortParameterName` właściwości. Ponieważ s logiki warstwy Biznesowej `GetProductsPagedAndSorted` metoda ma parametr wejściowy wyrażenie sortowania, o nazwie `sortExpression`, ustaw ObjectDataSource s `SortExpression` sortExpression dla właściwości.
+Najpierw zmienić ObjectDataSource s `SelectMethod` z `GetProductsPaged` do `GetProductsPagedAndSorted`. Można to zrobić za pomocą kreatora Konfigurowanie źródła danych z okna właściwości lub bezpośrednio za pomocą składni deklaratywnej. Następnie należy podać wartość dla elementu ObjectDataSource s [ `SortParameterName` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx). Jeśli ta właściwość jest ustawiona, element ObjectDataSource podejmuje próbę przekazania w widoku GridView s `SortExpression` właściwości `SelectMethod`. W szczególności ObjectDataSource szuka parametr wejściowy, którego nazwa jest równa wartości `SortParameterName` właściwości. Ponieważ s logiki warstwy Biznesowej `GetProductsPagedAndSorted` metoda ma parametr wejściowy wyrażenie sortowania, o nazwie `sortExpression`, ustaw ObjectDataSource s `SortExpression` sortExpression dla właściwości.
 
 Po wprowadzeniu tych zmian dwóch składni deklaratywnej s ObjectDataSource powinien wyglądać podobny do następującego:
 
@@ -139,7 +139,7 @@ Po wprowadzeniu tych zmian dwóch składni deklaratywnej s ObjectDataSource powi
 
 Aby włączyć sortowanie w widoku GridView, po prostu zaznacz pole wyboru Włącz sortowania w widoku GridView s tagu inteligentnego, który ustawia GridView s `AllowSorting` właściwości `true` , powodując tekst nagłówka dla każdej kolumny do renderowania jako element LinkButton. Gdy użytkownik końcowy kliknie jeden z nagłówków LinkButtons, ensues odświeżania strony i orzeczona następujące czynności:
 
-1. Aktualizacje GridView jego [ `SortExpression` właściwości](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) wartość `SortExpression` pola, którego łącze nagłówek został kliknięty
+1. Aktualizacje GridView jego [ `SortExpression` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) wartość `SortExpression` pola, którego łącze nagłówek został kliknięty
 2. Element ObjectDataSource wywołuje s logiki warstwy Biznesowej `GetProductsPagedAndSorted` metody, przekazując GridView s `SortExpression` właściwość jako wartość metody s `sortExpression` parametru wejściowego (wraz z odpowiednią `startRowIndex` i `maximumRows` wartości parametrów wejściowych)
 3. Logiki warstwy Biznesowej wywołuje DAL s `GetProductsPagedAndSorted` — metoda
 4. Wykonuje warstwy DAL `GetProductsPagedAndSorted` przechowywane procedury, przekazywanie w `@sortExpression` parametr (wraz z `@startRowIndex` i `@maximumRows` wartości parametrów wejściowych)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 2d416432aad9d5654aefd8c63b84b6ae18967515
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a7a66e7e67539e4b075da6fc054a7b53984b6ce1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Rozwiązywanie problemów
 ====================
@@ -31,8 +31,8 @@ Na tej stronie opisano niektóre typowe problemy, które mogą wystąpić podcza
 
 Te scenariusze przedstawiono dotyczą zarówno Azure, jak i zewnętrznych dostawców hostingu. Aby uzyskać więcej informacji na temat rozwiązywania problemów z aplikacjami sieci web w usłudze Azure App Service zobacz następujące zasoby:
 
-- [Rozwiązywanie problemów z aplikacji sieci web w usłudze Azure App Service przy użyciu programu Visual Studio](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
-- [Monitorowanie aplikacji sieci Web w usłudze aplikacji Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-monitor//)
+- [Rozwiązywanie problemów z aplikacji sieci web w usłudze Azure App Service przy użyciu programu Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Monitorowanie aplikacji sieci Web w usłudze aplikacji Azure](https://azure.microsoft.com/documentation/articles/web-sites-monitor//)
 - [Informuje o wersji systemu Windows Azure SDK 2.0 dla programu .NET](http://https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net) (ScottGu blog pokazano, jak można pobrać dzienników diagnostycznych w programie Visual Studio)
 
 ## <a name="server-error-in--application---current-custom-error-settings-prevent-details-of-the-error-from-being-viewed-remotely"></a>Błąd serwera w "/" aplikacja — aktualne niestandardowe ustawienia błędów uniemożliwiają szczegóły błędu przeglądanie zdalnie
@@ -180,7 +180,7 @@ System.Data.SqlClient.SqlException: Nie można otworzyć bazy danych "DatabaseNa
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Nazwa *.mdf* pliku nie może odpowiadać nazwie dowolnego programu SQL Server Express bazy danych, która ma kiedykolwiek znajdował się na komputerze, nawet po usunięciu *.mdf* pliku wcześniej istniejącej bazy danych. Zmień nazwę *.mdf* nigdy nie był używany jako nazwa bazy danych i Zmień nazwę pliku *Web.config* pliku do użycia nowej nazwy. Alternatywnie, można użyć [programu SQL Server Management Studio Express](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=7593) do usuwania istniejących programu SQL Server Express w bazach danych.
+Nazwa *.mdf* pliku nie może odpowiadać nazwie dowolnego programu SQL Server Express bazy danych, która ma kiedykolwiek znajdował się na komputerze, nawet po usunięciu *.mdf* pliku wcześniej istniejącej bazy danych. Zmień nazwę *.mdf* nigdy nie był używany jako nazwa bazy danych i Zmień nazwę pliku *Web.config* pliku do użycia nowej nazwy. Alternatywnie, można użyć [programu SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) do usuwania istniejących programu SQL Server Express w bazach danych.
 
 ## <a name="model-compatibility-cannot-be-checked"></a>Nie zgodność modelu można sprawdzić
 
@@ -192,7 +192,7 @@ Nie można sprawdzić zgodności modelu, ponieważ baza danych nie zawiera metad
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Jeśli nazwa bazy danych, należy umieścić w pliku Web.config kiedykolwiek została użyta przed na komputerze, bazy danych może już istnieć niektóre tabele w nim. Wybierz nową nazwę, która nie została użyta na komputerze przed i zmień *Web.config* pliku do punktu, aby użyć tej nowej nazwy bazy danych. Alternatywnie, można użyć [programu SQL Server Express narzędzie](https://www.microsoft.com/en-us/download/details.aspx?DisplayLang=en&amp;id=3990) lub [programu SQL Server Management Studio Express](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=7593) usunąć istniejącą bazę danych.
+Jeśli nazwa bazy danych, należy umieścić w pliku Web.config kiedykolwiek została użyta przed na komputerze, bazy danych może już istnieć niektóre tabele w nim. Wybierz nową nazwę, która nie została użyta na komputerze przed i zmień *Web.config* pliku do punktu, aby użyć tej nowej nazwy bazy danych. Alternatywnie, można użyć [programu SQL Server Express narzędzie](https://www.microsoft.com/download/details.aspx?DisplayLang=en&amp;id=3990) lub [programu SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) usunąć istniejącą bazę danych.
 
 ## <a name="sql-error-when-a-script-attempts-to-create-users-or-roles"></a>Błąd SQL podczas próby utworzenia użytkowników lub ról skryptu
 
@@ -210,7 +210,7 @@ Konto użytkownika, którego używasz do wykonywania wdrożenia nie ma uprawnie�
 
 [!code-console[Main](troubleshooting/samples/sample9.cmd)]
 
-Aby uzyskać informacje o sposobie edytowania PreSource elementu w pliku projektu, zobacz [porady: edytowanie ustawień wdrażania w pliku projektu](https://msdn.microsoft.com/en-us/library/ff398069(v=vs.100).aspx). Jeśli użytkownicy lub role w bazie danych programowanie muszą być w docelowej bazie danych, skontaktuj się z dostawcą hostingu.
+Aby uzyskać informacje o sposobie edytowania PreSource elementu w pliku projektu, zobacz [porady: edytowanie ustawień wdrażania w pliku projektu](https://msdn.microsoft.com/library/ff398069(v=vs.100).aspx). Jeśli użytkownicy lub role w bazie danych programowanie muszą być w docelowej bazie danych, skontaktuj się z dostawcą hostingu.
 
 ## <a name="sql-server-timeout-error-when-running-custom-scripts-during-deployment"></a>Błąd programu SQL Server limit czasu podczas uruchamiania niestandardowych skryptów podczas wdrażania
 
@@ -220,7 +220,7 @@ Określono niestandardowe skrypty SQL, aby uruchomić podczas wdrażania i uruch
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Uruchamianie wielu skryptów, które mają tryby innej transakcji może spowodować błędy przekroczenia limitu czasu. Domyślnie automatycznie wygenerowanych skryptów uruchomić w transakcji, ale skrypty niestandardowe nie. W przypadku wybrania **pobierania danych i/lub schemat z istniejącej bazy danych** opcja **Pakuj/Publikuj SQL** karcie i Dodawanie niestandardowego skryptu SQL, należy zmienić ustawienia transakcji na niektóre skrypty, aby wszystkie skrypty używać tych samych ustawień transakcji. Aby uzyskać więcej informacji, zobacz [porady: Wdrażanie bazy danych z projektu aplikacji sieci Web](https://msdn.microsoft.com/en-us/library/dd465343.aspx).
+Uruchamianie wielu skryptów, które mają tryby innej transakcji może spowodować błędy przekroczenia limitu czasu. Domyślnie automatycznie wygenerowanych skryptów uruchomić w transakcji, ale skrypty niestandardowe nie. W przypadku wybrania **pobierania danych i/lub schemat z istniejącej bazy danych** opcja **Pakuj/Publikuj SQL** karcie i Dodawanie niestandardowego skryptu SQL, należy zmienić ustawienia transakcji na niektóre skrypty, aby wszystkie skrypty używać tych samych ustawień transakcji. Aby uzyskać więcej informacji, zobacz [porady: Wdrażanie bazy danych z projektu aplikacji sieci Web](https://msdn.microsoft.com/library/dd465343.aspx).
 
 Jeśli skonfigurowano ustawienia transakcji, tak aby wszystkie są takie same, ale nadal ten błąd, możliwym obejściem jest oddzielnie uruchamiania skryptów. W **skryptów bazy danych** siatki w **pakowania/publikowania** karcie SQL, wyczyść **Include** pole wyboru dla skryptu, który powoduje błąd upływu limitu czasu następnie publikowania projektu. Następnie przejdź do **skryptów bazy danych** siatki, wybierz ten skrypt **Include** pole wyboru, a następnie wyczyść **Include** pól wyboru dla innych skryptów. Następnie ponownie opublikować projekt. Teraz po opublikowaniu, uruchamia wybrane niestandardowego skryptu.
 
@@ -280,7 +280,7 @@ Wdrożone lokacji nie ma *amd64* i *x86* podfoldery z natywnych zestawów w nich
 
 Wdrażanie aplikacji, która używa migracje Code First Framework jednostki i bazami danych, takich jak SQL Server Compact służący do przechowywania bazy danych w pliku w aplikacji\_folderem danych. Masz migracje Code First skonfigurowany tak, aby utworzyć bazę danych po pierwszym wdrożeniu. Po uruchomieniu aplikacji zostanie wyświetlony komunikat o błędzie, jak w następującym przykładzie:
 
-Ścieżka jest nieprawidłowa. Sprawdź katalog bazy danych. [Ścieżka = c:\inetpub\wwwroot\App\_Data\DatabaseName.sdf]
+Ścieżka jest nieprawidłowa. Sprawdź katalog bazy danych. [Path = c:\inetpub\wwwroot\App\_Data\DatabaseName.sdf ]
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
@@ -309,7 +309,7 @@ Publikowanie kończy się niepowodzeniem z powodu błędu z informacją nie maj�
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Domyślnie program Visual Studio zestawów uprawnień w folderze głównym lokacji Odczyt i zapis w aplikacji\_folderem danych. Jeśli wiesz, czy domyślne uprawnienia do folderów są prawidłowe i nie trzeba ustawić, dodając wyłączyć to zachowanie  **&lt;docelowego IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  pliku profilu publikowania (na jednym profilu) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o sposobie edytowania tych plików, zobacz [porady: edytowanie ustawień wdrażania plików profilu (.pubxml)](https://msdn.microsoft.com/en-us/library/ff398069.aspx).
+Domyślnie program Visual Studio zestawów uprawnień w folderze głównym lokacji Odczyt i zapis w aplikacji\_folderem danych. Jeśli wiesz, czy domyślne uprawnienia do folderów są prawidłowe i nie trzeba ustawić, dodając wyłączyć to zachowanie  **&lt;docelowego IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  pliku profilu publikowania (na jednym profilu) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o sposobie edytowania tych plików, zobacz [porady: edytowanie ustawień wdrażania plików profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Błędy odmowa dostępu, gdy aplikacja próbuje zapisać w folderze aplikacji
 
@@ -319,7 +319,7 @@ Błędy aplikacji podczas próby tworzenia lub edytowania pliku w jednym z folde
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Domyślnie program Visual Studio zestawów uprawnień w folderze głównym lokacji Odczyt i zapis w aplikacji\_folderem danych. Jeśli aplikacja wymaga dostępu do zapisu do podfolderu, należy ustawić uprawnienia do tego folderu, jak pokazano ustawiania uprawnień do folderu i wdrażanie w tej serii samouczków środowiska produkcyjnego. Jeśli aplikacja wymaga uprawnienia do zapisu w folderze głównym witryny, należy uniemożliwić ustawienie dostęp tylko do odczytu w folderze głównym, dodając  **&lt;docelowego IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  pliku profilu publikowania (na jednym profilu) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o sposobie edytowania tych plików, zobacz [porady: edytowanie ustawień wdrażania plików profilu (.pubxml)](https://msdn.microsoft.com/en-us/library/ff398069.aspx).
+Domyślnie program Visual Studio zestawów uprawnień w folderze głównym lokacji Odczyt i zapis w aplikacji\_folderem danych. Jeśli aplikacja wymaga dostępu do zapisu do podfolderu, należy ustawić uprawnienia do tego folderu, jak pokazano ustawiania uprawnień do folderu i wdrażanie w tej serii samouczków środowiska produkcyjnego. Jeśli aplikacja wymaga uprawnienia do zapisu w folderze głównym witryny, należy uniemożliwić ustawienie dostęp tylko do odczytu w folderze głównym, dodając  **&lt;docelowego IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  pliku profilu publikowania (na jednym profilu) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o sposobie edytowania tych plików, zobacz [porady: edytowanie ustawień wdrażania plików profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
 
 <a id="aspnet45error"></a>
 
@@ -341,7 +341,7 @@ Serwer nie obsługuje platformy ASP.NET 4.5. Skontaktuj się z pomocą dostawcy 
 
 Wdrożenie programu ASP.NET 4 lub starszej projektu sieci web do tego samego miejsca docelowego, wybierz **Usuń dodatkowe pliki w miejscu docelowym** pole wyboru na **ustawienia** karcie **publikowanie w sieci Web**kreatora. Jeśli nie zaznaczysz **Usuń dodatkowe pliki w miejscu docelowym**, możesz pobrać strony błędu konfiguracji.
 
-Projekt **właściwości** systemu windows zawiera listy rozwijanej docelowej framework, ale nie może rozwiązać ten problem, tak zmieniając z **.NET Framework 4.5** do **.NET Framework 4**. Zmiana platformy docelowej na starszą wersję framework, projekt nadal będzie zawierał odwołania do zestawów w nowszej wersji framework i nie będzie działać. Należy ręcznie zmienić te odwołania lub Utwórz nowy projekt, przeznaczonego dla platformy .NET Framework 4 lub starszym. Aby uzyskać więcej informacji, zobacz [.NET Framework elementów docelowych dla witryn sieci Web](https://msdn.microsoft.com/en-us/library/bb398791(v=vs.100).aspx).
+Projekt **właściwości** systemu windows zawiera listy rozwijanej docelowej framework, ale nie może rozwiązać ten problem, tak zmieniając z **.NET Framework 4.5** do **.NET Framework 4**. Zmiana platformy docelowej na starszą wersję framework, projekt nadal będzie zawierał odwołania do zestawów w nowszej wersji framework i nie będzie działać. Należy ręcznie zmienić te odwołania lub Utwórz nowy projekt, przeznaczonego dla platformy .NET Framework 4 lub starszym. Aby uzyskać więcej informacji, zobacz [.NET Framework elementów docelowych dla witryn sieci Web](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
 
 ## <a name="medium-trust-errors"></a>Błędy w trybie średniego zaufania
 

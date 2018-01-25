@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 505cca303b5569b2f676adab767d742cb5cd21a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de31a9dffb95b863a4ec38b74fd2c6e03f287a7f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Konfigurowanie serwera kompilacji TFS do wdrożenia sieci Web
 ====================
@@ -58,13 +58,13 @@ Po skonfigurowaniu serwera kompilacji, najpierw jest aby zainstalować i skonfig
 - Utwórz *kontroler kompilacji* i co najmniej jeden *agentów kompilacji*. Każdy kontroler kompilacji zarządza zestawem agentów kompilacji. Gdy kolejka kompilacji, kontroler kompilacji przypisuje zadania kompilacji do agenta kompilacji dostępne. Każdej kolekcji projektów zespołowych w programie TFS jest mapowana na kontrolerze jednej kompilacji.
 - Skonfiguruj folderu docelowego dla danych wyjściowych z kompilacji. Jest to w udziale sieciowym. Wszelkie wyniki, takie jak pakiety wdrażania web kompilacji, są wysyłane do folderu docelowego.
 
-[Administrowanie Team Foundation Build](https://msdn.microsoft.com/en-us/library/ms252495.aspx) rozdziału w witrynie MSDN zawiera wszystkie zasoby potrzebne do wykonywania następujących zadań:
+[Administrowanie Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx) rozdziału w witrynie MSDN zawiera wszystkie zasoby potrzebne do wykonywania następujących zadań:
 
-- Omówienie pojęć dotyczących Team Foundation Build, w tym usługi kompilacji, kontrolerów kompilacji i agentów kompilacji, zobacz [opis System kompilacji Team Foundation](https://msdn.microsoft.com/en-us/library/dd793166.aspx).
-- Aby uzyskać informacje na temat instalowania i konfigurowania usługi kompilacji, zobacz [skonfigurować maszynę kompilacji](https://msdn.microsoft.com/en-us/library/ms181712.aspx).
-- Aby uzyskać informacje dotyczące tworzenia kontrolerów kompilacji, zobacz [tworzenie i Praca z kontrolera kompilacji](https://msdn.microsoft.com/en-us/library/ee330987.aspx).
-- Aby uzyskać informacje dotyczące tworzenia agentów kompilacji, zobacz [tworzenie i Praca z agentami kompilacji](https://msdn.microsoft.com/en-us/library/bb399135.aspx).
-- Aby uzyskać informacje na temat tworzenia i konfigurowania folderach do wrzucania, zobacz [ustawić zapasową folderów porzucić](https://msdn.microsoft.com/en-us/library/bb778394.aspx).
+- Omówienie pojęć dotyczących Team Foundation Build, w tym usługi kompilacji, kontrolerów kompilacji i agentów kompilacji, zobacz [opis System kompilacji Team Foundation](https://msdn.microsoft.com/library/dd793166.aspx).
+- Aby uzyskać informacje na temat instalowania i konfigurowania usługi kompilacji, zobacz [skonfigurować maszynę kompilacji](https://msdn.microsoft.com/library/ms181712.aspx).
+- Aby uzyskać informacje dotyczące tworzenia kontrolerów kompilacji, zobacz [tworzenie i Praca z kontrolera kompilacji](https://msdn.microsoft.com/library/ee330987.aspx).
+- Aby uzyskać informacje dotyczące tworzenia agentów kompilacji, zobacz [tworzenie i Praca z agentami kompilacji](https://msdn.microsoft.com/library/bb399135.aspx).
+- Aby uzyskać informacje na temat tworzenia i konfigurowania folderach do wrzucania, zobacz [ustawić zapasową folderów porzucić](https://msdn.microsoft.com/library/bb778394.aspx).
 
 ## <a name="install-required-products-and-components"></a>Instalowanie wymaganych produktów i składników
 
@@ -74,7 +74,7 @@ Najlepszym sposobem instalowania wspólnych składników platformy sieci web jes
 
 - **.NET framework 4.0**. Jest to wymagane do uruchamiania aplikacji, które zostały utworzone w tej wersji programu .NET Framework.
 - **Narzędzia Deployment Tool w wersji 2.1 lub nowszej w sieci Web**. Spowoduje to zainstalowanie narzędzia Web Deploy (i jego podstawowy plik wykonywalny MSDeploy.exe) na serwerze. W ramach tego procesu instaluje i uruchamia usługę sieci Web wdrażania agenta. Usługa ta umożliwia wdrażanie pakietów sieci web z komputera zdalnego.
-- **PROGRAM ASP.NET MVC 3**. Spowoduje to zainstalowanie zestawów potrzebne do uruchamiania aplikacji ASP.NET MVC 3.
+- **ASP.NET MVC 3**. Spowoduje to zainstalowanie zestawów potrzebne do uruchamiania aplikacji ASP.NET MVC 3.
 
 **Aby zainstalować wymagane produkty i składniki**
 
@@ -114,7 +114,7 @@ W tym momencie serwer kompilacji jest gotowy do rozpoczęcia tworzenia i wdraża
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać bardziej ogólne wskazówki dotyczące pracy z Team Build, zobacz [administrowanie Team Foundation Build](https://msdn.microsoft.com/en-us/library/ms252495.aspx).
+Aby uzyskać bardziej ogólne wskazówki dotyczące pracy z Team Build, zobacz [administrowanie Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx).
 
 >[!div class="step-by-step"]
 [Poprzednie](adding-content-to-source-control.md)

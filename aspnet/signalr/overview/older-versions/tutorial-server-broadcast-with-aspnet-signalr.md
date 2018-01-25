@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: afb2fa9b3dfd80a2aa49fffae71965fc2098442f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3f641b53a9ed568132909114c6cceaa957064fa2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Samouczek: Serwer emisji z ASP.NET SignalR 1.x
 ====================
@@ -118,12 +118,12 @@ Mają tylko jedno wystąpienie klasy StockTicker, aby uruchomić na serwerze, wi
 2. Jeśli masz program Visual Studio 2012 z [platformy ASP.NET i zaktualizuj 2012.2 narzędzia sieci Web](https://go.microsoft.com/fwlink/?LinkId=279941), kliknij przycisk **Web** w obszarze **Visual C#** i wybierz **klasy koncentratora SignalR** szablon elementu. W przeciwnym razie wybierz **klasy** szablonu.
 3. Nazwa nowej klasy *StockTickerHub.cs*, a następnie kliknij przycisk **Dodaj**.
 
-    ![Dodaj StockTickerHub.cs](tutorial-server-broadcast-with-aspnet-signalr/_static/image5.png)
+    ![Add StockTickerHub.cs](tutorial-server-broadcast-with-aspnet-signalr/_static/image5.png)
 4. Zastąp kod szablonu z następującym kodem:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample3.cs)]
 
-    [Centrum](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx) klasa jest używana do definiowania metod klientów można wywołać na serwerze. Definiujesz jednej metody: `GetAllStocks()`. Gdy klient początkowo łączy się z serwerem, wywoła tę metodę, aby uzyskać listę wszystkich zasobów z ich bieżącej ceny. Metody można synchronicznie wykonać i zwracać `IEnumerable<Stock>` ponieważ zwraca dane z pamięci. Jeśli metoda musiały uzyskać danych przy wykonywaniu czegoś, co wymagałoby oczekiwania, takich jak wyszukiwania w bazie danych lub wywołania usługi sieci web, należy określić `Task<IEnumerable<Stock>>` jako wartości zwracane, aby włączyć przetwarzanie asynchroniczne. Aby uzyskać więcej informacji, zobacz [ASP.NET SignalR koncentratory interfejsu API przewodnik - Server - kiedy asynchroniczne](index.md).
+    [Centrum](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx) klasa jest używana do definiowania metod klientów można wywołać na serwerze. Definiujesz jednej metody: `GetAllStocks()`. Gdy klient początkowo łączy się z serwerem, wywoła tę metodę, aby uzyskać listę wszystkich zasobów z ich bieżącej ceny. Metody można synchronicznie wykonać i zwracać `IEnumerable<Stock>` ponieważ zwraca dane z pamięci. Jeśli metoda musiały uzyskać danych przy wykonywaniu czegoś, co wymagałoby oczekiwania, takich jak wyszukiwania w bazie danych lub wywołania usługi sieci web, należy określić `Task<IEnumerable<Stock>>` jako wartości zwracane, aby włączyć przetwarzanie asynchroniczne. Aby uzyskać więcej informacji, zobacz [ASP.NET SignalR koncentratory interfejsu API przewodnik - Server - kiedy asynchroniczne](index.md).
 
     Atrybut HubName Określa, jak koncentratora zostanie dodane odwołanie w kodzie JavaScript na kliencie. Domyślna nazwa na kliencie, jeśli nie możesz użyć tego atrybutu to wersja formatu — z uwzględnieniem wielkości liter nazwy klasy, która w tym przypadku będzie stockTickerHub.
 
@@ -136,7 +136,7 @@ Mają tylko jedno wystąpienie klasy StockTicker, aby uruchomić na serwerze, wi
 
     ### <a name="storing-the-singleton-instance-in-a-static-field"></a>Przechowywanie pojedyncze wystąpienie w polu statycznym
 
-    Kod inicjuje statycznych \_pole wystąpienia, aby utworzyć kopię zapasową właściwości wystąpienia przy użyciu wystąpienia klasy, a to jest tylko wystąpienia klasy, które można utworzyć, ponieważ Konstruktor jest oznaczony jako prywatny. [Inicjalizacja z opóźnieniem](https://msdn.microsoft.com/en-us/library/dd997286.aspx) służy do \_pola wystąpienia nie ze względu na wydajność, ale aby upewnić się, że tworzenie wystąpienia jest threadsafe.
+    Kod inicjuje statycznych \_pole wystąpienia, aby utworzyć kopię zapasową właściwości wystąpienia przy użyciu wystąpienia klasy, a to jest tylko wystąpienia klasy, które można utworzyć, ponieważ Konstruktor jest oznaczony jako prywatny. [Inicjalizacja z opóźnieniem](https://msdn.microsoft.com/library/dd997286.aspx) służy do \_pola wystąpienia nie ze względu na wydajność, ale aby upewnić się, że tworzenie wystąpienia jest threadsafe.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample5.cs)]
 
@@ -150,7 +150,7 @@ Mają tylko jedno wystąpienie klasy StockTicker, aby uruchomić na serwerze, wi
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample7.cs)]
 
-    Kolekcja zasobów została zdefiniowana jako [obiekt ConcurrentDictionary](https://msdn.microsoft.com/en-us/library/dd287191.aspx) typu dla bezpieczeństwa wątków. Alternatywnie, można użyć [słownika](https://msdn.microsoft.com/en-us/library/xfhwa508.aspx) obiektu i jawnie zablokować słownik po wprowadzeniu zmian do niego.
+    Kolekcja zasobów została zdefiniowana jako [obiekt ConcurrentDictionary](https://msdn.microsoft.com/library/dd287191.aspx) typu dla bezpieczeństwa wątków. Alternatywnie, można użyć [słownika](https://msdn.microsoft.com/library/xfhwa508.aspx) obiektu i jawnie zablokować słownik po wprowadzeniu zmian do niego.
 
     Ta przykładowa aplikacja jest OK do przechowywania danych aplikacji w pamięci i utratę danych, jeśli wystąpienie StockTicker zostanie usunięty. W rzeczywistej aplikacji będzie działać z magazynem danych wewnętrznych, takich jak bazy danych.
 
@@ -162,7 +162,7 @@ Mają tylko jedno wystąpienie klasy StockTicker, aby uruchomić na serwerze, wi
 
     UpdateStockPrices jest wywoływana przez czasomierz, który przekazuje wartość null w parametrze state. Przed zaktualizowaniem ceny, blokada jest pobierany podczas \_updateStockPricesLock obiektu. Kod sprawdza, czy inny wątek już aktualizuje ceny, a następnie wywołuje TryUpdateStockPrice dla każdej akcji na liście. Metoda TryUpdateStockPrice decyduje o tym, czy chcesz zmienić giełdowy i ile je zmienić. Zmiana giełdowy BroadcastStockPrice jest wywoływana emisji zmiany giełdowy wszyscy połączeni klienci.
 
-    \_UpdatingStockPrices flaga jest oznaczony jako [volatile](https://msdn.microsoft.com/en-us/library/x13ttww7.aspx) w celu zapewnienia threadsafe do niego dostęp.
+    \_UpdatingStockPrices flaga jest oznaczony jako [volatile](https://msdn.microsoft.com/library/x13ttww7.aspx) w celu zapewnienia threadsafe do niego dostęp.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample9.cs)]
 
@@ -182,7 +182,7 @@ Mają tylko jedno wystąpienie klasy StockTicker, aby uruchomić na serwerze, wi
 
     Metoda updateStockPrice wywołujesz BroadcastStockPrice nie istnieje jeszcze; można będzie dodać później podczas pisania kodu, który działa na kliencie. Ponieważ Clients.All jest dynamiczny, co oznacza, że wyrażenie, które zostanie obliczone w czasie wykonywania mogą odwoływać się do updateStockPrice tutaj. Gdy wykonuje wywołanie tej metody, SignalR wysyła nazwę metody i wartość parametru do klienta, a jeśli klient ma metodę o nazwie updateStockPrice, zostanie wywołana metoda i wartość parametru zostaną przekazane do niej.
 
-    Clients.All oznacza wysłać do wszystkich klientów. SignalR udostępnia inne opcje, aby określić klientów lub grupy klientów do wysyłania do. Aby uzyskać więcej informacji, zobacz [HubConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx).
+    Clients.All oznacza wysłać do wszystkich klientów. SignalR udostępnia inne opcje, aby określić klientów lub grupy klientów do wysyłania do. Aby uzyskać więcej informacji, zobacz [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx).
 
 ### <a name="register-the-signalr-route"></a>Zarejestruj trasy SignalR
 
@@ -196,7 +196,7 @@ Serwer musi znać adres URL, który można przechwytywać i bezpośrednio do Sig
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample11.cs)]
 
-    Domyślnie jest podstawowy adres URL dla całego ruchu SignalR "/ signalr", a "/ signalr/hubs" służy do pobierania dynamicznie generowanym pliku JavaScript, który definiuje serwery proxy dla wszystkich koncentratorów w aplikacji. Metoda MapHubs zawiera przeciążeń, które pozwalają określić innego podstawowego adresu URL i niektóre opcje SignalR w wystąpieniu [HubConfiguration](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubconfiguration(v=vs.111).aspx) klasy.
+    Domyślnie jest podstawowy adres URL dla całego ruchu SignalR "/ signalr", a "/ signalr/hubs" służy do pobierania dynamicznie generowanym pliku JavaScript, który definiuje serwery proxy dla wszystkich koncentratorów w aplikacji. Metoda MapHubs zawiera przeciążeń, które pozwalają określić innego podstawowego adresu URL i niektóre opcje SignalR w wystąpieniu [HubConfiguration](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubconfiguration(v=vs.111).aspx) klasy.
 4. Dodawanie przy użyciu instrukcji w górnej części pliku:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample12.cs)]
@@ -294,11 +294,11 @@ Dla danego połączenia SignalR wybiera najlepszą metodę transportu, który ob
 
     Jeśli korzystasz z programu Internet Explorer 10 w systemie Windows 8 (IIS 8), Metoda transportu jest Websocket.
 
-    ![Konsola programu IE 10 IIS 8](tutorial-server-broadcast-with-aspnet-signalr/_static/image10.png)
+    ![IE 10 IIS 8 Console](tutorial-server-broadcast-with-aspnet-signalr/_static/image10.png)
 
     Jeśli korzystasz z programu Internet Explorer 10 w systemie Windows 7 (usług IIS 7.5), Metoda transportu jest iframe.
 
-    ![IE 10 konsoli, IIS 7.5](tutorial-server-broadcast-with-aspnet-signalr/_static/image11.png)
+    ![IE 10 Console, IIS 7.5](tutorial-server-broadcast-with-aspnet-signalr/_static/image11.png)
 
     W programie Firefox Zainstaluj dodatek Firebug można pobrać okna konsoli. Jeśli używasz przeglądarki Firefox 19 w systemie Windows 8 (IIS 8), Metoda transportu jest Websocket.
 

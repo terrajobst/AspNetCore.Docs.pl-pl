@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: ebace10dc8a861ab38bd5c834c2225e3373f13fe
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 809609155b06c4632bd4f450082d84c432c7a46f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-the-data-access-layer"></a>Utwórz Warstwa dostępu do danych
 ====================
@@ -43,7 +43,7 @@ Ten samouczek zawiera opis sposobu tworzenia, dostępu i przejrzyj dane z bazy d
 
 ## <a name="creating-the-data-models"></a>Tworzenie modeli danych
 
-[Entity Framework](https://msdn.microsoft.com/en-us/data/aa937723) to struktura mapowania obiektów relacyjnych (ORM). Umożliwia pracę z danych relacyjnych jako obiekty, eliminując większość kodu dostępu do danych, który zazwyczaj będzie potrzebny do zapisania. Przy użyciu programu Entity Framework, można wystawiać zapytań za pomocą [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx), następnie pobrać i manipulowanie danymi jako silnie typizowanych obiektów. LINQ zawiera wzorce wykonywania kwerend i aktualizowanie danych. Przy użyciu programu Entity Framework pozwala skupić się na tworzenie pozostała część aplikacji, a nie koncentrujących się na dane podstawowe informacje na temat dostępu. W dalszej części tego samouczka serii pokażemy ci sposobu używania danych do wypełnienia zapytań nawigacji i produktu.
+[Entity Framework](https://msdn.microsoft.com/data/aa937723) to struktura mapowania obiektów relacyjnych (ORM). Umożliwia pracę z danych relacyjnych jako obiekty, eliminując większość kodu dostępu do danych, który zazwyczaj będzie potrzebny do zapisania. Przy użyciu programu Entity Framework, można wystawiać zapytań za pomocą [LINQ](https://msdn.microsoft.com/library/bb397926.aspx), następnie pobrać i manipulowanie danymi jako silnie typizowanych obiektów. LINQ zawiera wzorce wykonywania kwerend i aktualizowanie danych. Przy użyciu programu Entity Framework pozwala skupić się na tworzenie pozostała część aplikacji, a nie koncentrujących się na dane podstawowe informacje na temat dostępu. W dalszej części tego samouczka serii pokażemy ci sposobu używania danych do wypełnienia zapytań nawigacji i produktu.
 
 Model programowania, o nazwie obsługuje programu Entity Framework *Code First*. Kod pozwala najpierw zdefiniować modeli danych przy użyciu klasy. Klasa jest konstrukcję, która umożliwia tworzenie własnych niestandardowych typów grupując zmienne innych typów, metod i zdarzeń. Można mapowania klas istniejącą bazę danych lub użyj ich, aby wygenerować bazę danych. W tym samouczku utworzysz modeli danych pisząc klasy modelu danych. Następnie otrzymasz stosowne utworzyć bazę danych na bieżąco z tych nowych klas programu Entity Framework.
 
@@ -181,11 +181,11 @@ W następnym samouczku będzie aktualizacji interfejsu użytkownika, Dodaj nawig
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-[Omówienie struktury jednostek](https://msdn.microsoft.com/en-us/library/bb399567.aspx)   
-[Przewodnik dla początkujących do programu ADO.NET Entity Framework](https://msdn.microsoft.com/en-us/data/ee712907)   
+[Omówienie struktury jednostek](https://msdn.microsoft.com/library/bb399567.aspx)   
+[Przewodnik dla początkujących do programu ADO.NET Entity Framework](https://msdn.microsoft.com/data/ee712907)   
 [Programowanie pierwszej aplikacji za pomocą programu Entity Framework Code](http://www.msteched.com/2010/Europe/DEV212) (klip wideo)   
-[Kod pierwszego relacje interfejsu API Fluent](https://msdn.microsoft.com/en-us/data/hh134698)   
-[Kod pierwszego adnotacji danych](https://msdn.microsoft.com/en-us/data/gg193958)  
+[Kod pierwszego relacje interfejsu API Fluent](https://msdn.microsoft.com/data/hh134698)   
+[Kod pierwszego adnotacji danych](https://msdn.microsoft.com/data/gg193958)  
 [Ulepszenia wydajności programu Entity Framework](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
 
 >[!div class="step-by-step"]

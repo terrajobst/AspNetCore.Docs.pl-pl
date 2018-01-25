@@ -1,6 +1,6 @@
 ---
 uid: whitepapers/mvc4-release-notes
-title: PLATFORMA ASP.NET MVC 4 | Dokumentacja firmy Microsoft
+title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
 description: Ten dokument zawiera opis wersji platformy ASP.NET MVC 4.
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: fb9d2eaa83fe7486279815c21aec204bdfdf122d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 399fbe3fa1e71a9ffa7c5e6dfeca7ccab7294d1b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/10/2017
 - [Wymagania dotyczące oprogramowania](#_Toc303253805)
 - [Nowe funkcje w programie ASP.NET MVC 4](#_Toc303253807)
 
-    - [Interfejs API sieci Web ASP.NET](#_Toc317096197)
+    - [ASP.NET Web API](#_Toc317096197)
     - [Ulepszenia domyślnych szablonów projektu](#_Toc303253808)
     - [Szablon projektu przenośnych](#_Toc303253809)
     - [Wyświetlanie trybów](#_Toc303253810)
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/10/2017
     - [Migracja bazy danych](#_Toc303253818)
     - [Pusty szablon projektu](#_Toc303253819)
     - [Dodawanie kontrolera do dowolnego folderu projektu](#_Toc303253820)
-    - [Tworzenie pakietów i minimalizowanie](#_Toc303253821)
+    - [Tworzenie pakietów i minifikacja](#_Toc303253821)
     - [Włączanie logowania z usługi Facebook i innych lokacji za pomocą protokołu OAuth i OpenID](#_Toc303253822)
 - [Uaktualnianie projektów programu ASP.NET MVC 3 do platformy ASP.NET MVC 4](#_Toc303253806)
 - [Zmiany z platformy ASP.NET MVC 4 Release Candidate](#_Toc303253817)
@@ -61,7 +61,7 @@ ASP.NET MVC 4 może być zainstalowany i uruchom side-by-side ASP.NET MVC 3 z.
 
 Dokumentacja dla platformy ASP.NET MVC jest dostępna w witrynie MSDN pod adresem URL:
 
-[https://go.microsoft.com/fwlink/?LinkId=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
+[https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
 Samouczki i inne informacje o platformie ASP.NET MVC są dostępne na stronie witryny sieci Web platformy ASP.NET MVC 4 ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
@@ -158,7 +158,7 @@ Możesz teraz zapisać metod asynchronicznych akcji w jednej metody, które zwra
  Aby uzyskać więcej informacji, zobacz [przy użyciu metod asynchronicznych w technologii ASP.NET MVC 4](../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md).
 
 <a id="_Toc303253814"></a>
-### <a name="azure-sdk"></a>Zestaw Azure SDK
+### <a name="azure-sdk"></a>Azure SDK
 
 ASP.NET MVC 4 obsługuje 1,6 i w nowszych wersjach zestawu SDK platformy Windows Azure.
 
@@ -271,7 +271,7 @@ Poniżej przedstawiono istotne zmiany z platformy ASP.NET MVC 4 Release Candidat
     [!code-xml[Main](mvc4-release-notes/samples/sample6.xml)]
 - **Menedżer pakietów NuGet nie zostanie zainstalowany podczas próby zainstalowania programu ASP.NET MVC 4 dla siebie instalacji programu Visual Studio 2010 oraz Visual Web Developer 2010.** Do uruchomienia programu Visual Studio 2010 i Visual Web Developer 2010 równolegle z platformy ASP.NET MVC 4 należy zainstalować program ASP.NET MVC 4 po obie wersje programu Visual Studio zostały już zainstalowane.
 - **Odinstalowywanie platformy ASP.NET MVC 4 kończy się niepowodzeniem, jeśli wymagania wstępne zostały już odinstalowane.** Aby odinstalować prawidłowo ASP.NET MVC 4you odinstalować ASP.NET MVC 4 przed odinstalowaniem programu Visual Studio.
-- **Instalowanie platformy ASP.NET MVC 4 dzieli RTM programu ASP.NET MVC 3 aplikacji.** Wersji aplikacji ASP.NET MVC 3, które zostały utworzone za pomocą RTM (nie z [aktualizacji narzędzi programu ASP.NET MVC 3](https://www.microsoft.com/en-us/download/details.aspx?id=1491) release) wymagają następujących zmian do side-by-side z platformy ASP.NET MVC 4. Tworzenie projektu bez wprowadzania tych wyników aktualizacje w błędy kompilacji. 
+- **Instalowanie platformy ASP.NET MVC 4 dzieli RTM programu ASP.NET MVC 3 aplikacji.** Wersji aplikacji ASP.NET MVC 3, które zostały utworzone za pomocą RTM (nie z [aktualizacji narzędzi programu ASP.NET MVC 3](https://www.microsoft.com/download/details.aspx?id=1491) release) wymagają następujących zmian do side-by-side z platformy ASP.NET MVC 4. Tworzenie projektu bez wprowadzania tych wyników aktualizacje w błędy kompilacji. 
 
     **Wymagane aktualizacje**
 

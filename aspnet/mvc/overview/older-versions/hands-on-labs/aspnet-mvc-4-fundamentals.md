@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 086084b63cceca1c2d4e0bd4e5b654aaad6637a9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 468f6d5dabb645b1c005680dc5a1ffc4debd63b6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET MVC 4
 ====================
@@ -32,7 +32,7 @@ przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > > W tym laboratorium Hands-On przyjęto założenie, że deweloper ma doświadczenie w sieci Web development technologii, takich jak HTML i JavaScript.
 > 
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 <a id="The_Music_Store_application"></a>
@@ -319,7 +319,7 @@ W tym zadaniu użyjesz **querystring** wysłać parametry **Przeglądaj** metody
     > [!NOTE]
     > Używasz **HttpUtility.HtmlEncode** metodę narzędzie uniemożliwia użytkownikom wstrzykiwania Javascript do widoku z łączem, takich jak   **/magazynu/Przeglądaj? Genre =&lt;skryptu&gt;window.location= "[http://hackersite.com](http://hackersite.com)"&lt;/script&gt;**.
     > 
-    > Aby uzyskać dokładniejsze objaśnienie, odwiedź stronę [ten artykuł w witrynie msdn](https://msdn.microsoft.com/en-us/library/a2a4yykt(v=VS.80).aspx).
+    > Aby uzyskać dokładniejsze objaśnienie, odwiedź stronę [ten artykuł w witrynie msdn](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
 
 <a id="Ex3Task2"></a>
 
@@ -964,7 +964,7 @@ W tym ćwiczeniu zostanie Poznaj ulepszenia w szablonach projektu programu ASP.N
         *SimpleMembership zawarty w rozwiązaniu*
 
         > [!NOTE]
-        > Aby uzyskać więcej informacji o [OAuthWebSecurity](https://msdn.microsoft.com/en-us/library/jj158393(v=vs.111).aspx) w witrynie MSDN.
+        > Aby uzyskać więcej informacji o [OAuthWebSecurity](https://msdn.microsoft.com/library/jj158393(v=vs.111).aspx) w witrynie MSDN.
 
 > [!NOTE]
 > Ponadto można wdrożyć tę aplikację systemu Windows Azure Web Sites następujących [dodatek B: publikowania aplikacji ASP.NET MVC 4 przy użyciu narzędzia Web Deploy](#AppendixB).

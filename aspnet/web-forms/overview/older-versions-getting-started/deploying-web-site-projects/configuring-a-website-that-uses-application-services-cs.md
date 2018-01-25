@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 030b0bb218ca05ec270b8fb0a9321e31d9ab5180
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3f2b8e395505c1d13b914399b8de2196f0ba230a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-website-that-uses-application-services-c"></a>Konfigurowanie witryny sieci Web, która korzysta z usługi aplikacji (C#)
 ====================
@@ -35,7 +35,7 @@ ASP.NET w wersji 2.0 wprowadzono szereg *usług aplikacji*, które są części�
 - **Role** — interfejs API do klasyfikacji użytkowników w grupach.
 - **Profil** — interfejs API do przechowywania zawartości niestandardowych, specyficzne dla użytkownika.
 - **Mapa witryny** — interfejs API do definiowania struktury logicznej lokacji s w postaci hierarchii, które można wyświetlić za pomocą kontrolki, takich jak menu i nawigacji.
-- **Personalizacja** — interfejs API do obsługi preferencje, najczęściej używana z [ *składników Web Part*](https://msdn.microsoft.com/en-us/library/e0s9t4ck.aspx).
+- **Personalizacja** — interfejs API do obsługi preferencje, najczęściej używana z [ *składników Web Part*](https://msdn.microsoft.com/library/e0s9t4ck.aspx).
 - **Monitorowanie kondycji** — interfejs API do monitorowania wydajności, zabezpieczeń, błędy i innych metryk kondycji systemu dla działającej aplikacji sieci web.
   
 
@@ -71,7 +71,7 @@ Do korzystania z usługi aplikacji z bazą danych programu SQL Server, należy n
 
 Możliwe jest, i zazwyczaj jest to idealne utworzyć aplikację usługi obiektów bazy danych w tej samej bazy danych, których są przechowywane dane specyficzne dla aplikacji s witryny sieci Web. .NET Framework jest dostarczany z narzędziem o nazwie `aspnet_regsql.exe` instalujące obiektów bazy danych określonej bazy danych. Mam usunięty z wyprzedzeniem i użyć tego narzędzia, aby dodać te obiekty do `Reviews.mdf` bazy danych w `App_Data` folder (projektowej bazie danych). Firma Microsoft będzie Zobacz, jak to narzędzie później w tym samouczku przy wdrażaniu tych obiektów w produkcyjnej bazie danych.
 
-Jeśli dodasz usługami obiektów bazy danych do bazy danych innej niż `ASPNETDB` trzeba będzie dostosować `SqlMembershipProvider` i `SqlRoleProvider` dostawcy klas konfiguracji, tak aby używały odpowiednią bazę danych. Aby dostosować dodać dostawcę członkostwa [  *&lt;członkostwa&gt; elementu* ](https://msdn.microsoft.com/en-us/library/1b9hw62f.aspx) w `<system.web>` sekcji `Web.config`; użyj [  *&lt;roleManager&gt; elementu* ](https://msdn.microsoft.com/en-us/library/ms164660.aspx) do skonfigurowania dostawcy ról. Poniższy fragment jest pobierana z s aplikacji przeglądami książki `Web.config` oraz konfigurowanie ustawień członkostwa i ról interfejsów API. Należy pamiętać, że oba zarejestrować nowego dostawcę - `ReviewMembership` i `ReviewRole` -używające `SqlMembershipProvider` i `SqlRoleProvider` dostawców, odpowiednio.
+Jeśli dodasz usługami obiektów bazy danych do bazy danych innej niż `ASPNETDB` trzeba będzie dostosować `SqlMembershipProvider` i `SqlRoleProvider` dostawcy klas konfiguracji, tak aby używały odpowiednią bazę danych. Aby dostosować dodać dostawcę członkostwa [  *&lt;członkostwa&gt; elementu* ](https://msdn.microsoft.com/library/1b9hw62f.aspx) w `<system.web>` sekcji `Web.config`; użyj [  *&lt;roleManager&gt; elementu* ](https://msdn.microsoft.com/library/ms164660.aspx) do skonfigurowania dostawcy ról. Poniższy fragment jest pobierana z s aplikacji przeglądami książki `Web.config` oraz konfigurowanie ustawień członkostwa i ról interfejsów API. Należy pamiętać, że oba zarejestrować nowego dostawcę - `ReviewMembership` i `ReviewRole` -używające `SqlMembershipProvider` i `SqlRoleProvider` dostawców, odpowiednio.
 
 [!code-xml[Main](configuring-a-website-that-uses-application-services-cs/samples/sample1.xml)]
 
@@ -94,7 +94,7 @@ W przypadku wdrażania witryny sieci Web, który korzysta z usługi aplikacji i 
 
 Inne wyzwanie mogą wystąpić podczas wdrażania witryny sieci Web, który korzysta z usług aplikacji, jeśli chcesz replikować kont użytkowników utworzonych w środowisku programistycznym do środowiska produkcyjnego. W zależności od konfiguracji członkostwo i role istnieje możliwość, że nawet jeśli kopiujesz pomyślnie kont użytkowników, które zostały utworzone w środowisku programistycznym w produkcyjnej bazie danych, ci użytkownicy nie może zalogować się do aplikacji sieci web w środowisku produkcyjnym. Firma Microsoft będzie Spójrz na przyczyny tego problemu i omówiono sposób zapobiec go.
 
-Program ASP.NET jest dostarczany z nieuprzywilejowany [ *narzędzie do administrowania witryny sieci Web (WSAT)* ](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx) który można uruchomić z programu Visual Studio i umożliwia użytkownikowi konta, ról i autoryzacji reguł, które mają być zarządzane za pośrednictwem sieci web interfejs. Niestety WSAT działa tylko dla lokalnych witryn sieci Web, co oznacza, że nie może służyć do zdalnego zarządzania kontami użytkowników, ról i reguł autoryzacji dla aplikacji sieci web w środowisku produkcyjnym. Przyjrzymy implementuje zachowanie WSAT przypominającej z witryny sieci Web produkcji na różne sposoby.
+Program ASP.NET jest dostarczany z nieuprzywilejowany [ *narzędzie do administrowania witryny sieci Web (WSAT)* ](https://msdn.microsoft.com/library/yy40ytx0.aspx) który można uruchomić z programu Visual Studio i umożliwia użytkownikowi konta, ról i autoryzacji reguł, które mają być zarządzane za pośrednictwem sieci web interfejs. Niestety WSAT działa tylko dla lokalnych witryn sieci Web, co oznacza, że nie może służyć do zdalnego zarządzania kontami użytkowników, ról i reguł autoryzacji dla aplikacji sieci web w środowisku produkcyjnym. Przyjrzymy implementuje zachowanie WSAT przypominającej z witryny sieci Web produkcji na różne sposoby.
 
 ### <a name="adding-the-database-objects-using-aspnetregsqlexe"></a>Dodawanie przy użyciu obiektów bazy danych aspnet\_regsql.exe
 
@@ -192,13 +192,13 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [*Narzędzie rejestracji programu ASP.NET SQL Server (aspnet_regsql.exe)*](https://msdn.microsoft.com/en-us/library/ms229862.aspx)
-- [*Tworzenie bazy danych usług aplikacji dla programu SQL Server*](https://msdn.microsoft.com/en-us/library/x28wfk74.aspx)
+- [*ASP.NET SQL Server Registration Tool (aspnet_regsql.exe)*](https://msdn.microsoft.com/library/ms229862.aspx)
+- [*Tworzenie bazy danych usług aplikacji dla programu SQL Server*](https://msdn.microsoft.com/library/x28wfk74.aspx)
 - [*Tworzenie schematu członkostwa w programie SQL Server*](../../older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs.md)
 - [*Badanie członkostwa ASP.NET s, ról i profilu*](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [*Wycofanie własne narzędzia administrowania witryną sieci Web*](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 - [*Samouczki dotyczące zabezpieczeń witryny sieci Web*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
-- [*Omówienie narzędzia do administrowania witryny sieci Web*](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx)
+- [*Omówienie narzędzia do administrowania witryny sieci Web*](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 
 >[!div class="step-by-step"]
 [Poprzednie](configuring-the-production-web-application-to-use-the-production-database-cs.md)

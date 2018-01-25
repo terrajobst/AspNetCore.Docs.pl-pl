@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/mvc-learning-sequence
 msc.type: authoredcontent
-ms.openlocfilehash: b6cc785a5ddaf156f49b15897577e733fb67736a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 538eff2b2b2fdab5b0be879f0a5dfa5c9403b089
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="mvc-recommended-tutorials-and-articles"></a>Zalecane samouczki i artykuły MVC
 ====================
@@ -38,21 +38,21 @@ Przez [Rick Anderson](https://github.com/Rick-Anderson)
 <a id="wj"></a>
 ## <a name="security"></a>Zabezpieczenia
 
-- [Tworzenie aplikacji platformy ASP.NET MVC z uwierzytelniania i bazy danych SQL i wdrażanie na platformie Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) ten popularnych samouczek przedstawia sposób tworzenia prostej aplikacji i dodawanie członkostwa i ról.
+- [Tworzenie aplikacji platformy ASP.NET MVC z uwierzytelniania i bazy danych SQL i wdrażanie na platformie Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) ten popularnych samouczek przedstawia sposób tworzenia prostej aplikacji i dodawanie członkostwa i ról.
 - [Tworzenie aplikacji platformy ASP.NET MVC 5 z usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowania jednokrotnego](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) w tym samouczku przedstawiono sposób tworzenia aplikacji sieci web platformy ASP.NET MVC 5, która umożliwia użytkownikom logowanie przy użyciu protokołu OAuth 2.0 z poświadczeń uwierzytelniania zewnętrznego Dostawca, takich jak Facebook, Twitter, LinkedIn, Microsoft lub Google.
 - [Tworzenie bezpiecznego aplikacji sieci web platformy ASP.NET MVC 5 z dziennika w resetowania hasła i potwierdzania poczty e-mail](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) najpierw w serii na tożsamości, zawiera kod, aby [ponownie wysłać łącze potwierdzenia](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md#rsend).
 - [Aplikacja ASP.NET MVC 5 z programu SMS i adres e-mail uwierzytelniania dwuskładnikowego](../security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md) drugi w serii tożsamości.
-- [Najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure App Service](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
+- [Najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych na platformie ASP.NET i w usłudze Azure App Service](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
 - [Uwierzytelnianie dwuskładnikowe przy użyciu programu SMS i wiadomości e-mail z tożsamości ASP.NET](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) `isPersistent` i plik cookie zabezpieczeń kod, aby wymagać, aby użytkownik miał konto e-mail zweryfikowanych przed ich zalogowaniem się, jak SignInManager sprawdza, czy wymaganie 2FA i inne.
 - [Konta potwierdzenie i hasło odzyskiwania za pomocą ASP.NET Identity](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md) zawiera szczegóły dotyczące tożsamości nie znaleziono w [utworzenia bezpiecznego aplikacji sieci web platformy ASP.NET MVC 5 z dziennika w resetowania hasła i potwierdzania poczty e-mail](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) np. umożliwić Użytkownicy zresetować zapomniane hasło.
 
 <a id="da"></a>
 ## <a name="azure"></a>Azure
 
-- [Tworzenie aplikacji sieci web platformy ASP.NET na platformie Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/) samouczek krótka i prosta do wdrożenia na platformie Azure.
-- [Tworzenie aplikacji platformy ASP.NET MVC z uwierzytelniania i bazy danych SQL i wdrażanie na platformie Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
+- [Tworzenie aplikacji sieci web platformy ASP.NET na platformie Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/) samouczek krótka i prosta do wdrożenia na platformie Azure.
+- [Tworzenie aplikacji platformy ASP.NET MVC z uwierzytelniania i bazy danych SQL i wdrażanie na platformie Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
 
 <a id="perf"></a>
 ## <a name="performance-and-debugging"></a>Wydajność i debugowania
 
-- [Profile i debugowania aplikacji ASP.NET MVC za pomocą Glimpse](../performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)
+- [Profilowanie i debugowanie aplikacji ASP.NET MVC za pomocą pakietów Glimpse](../performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)

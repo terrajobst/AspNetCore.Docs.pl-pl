@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 7923876c792544ac4d559eb8de29475d8a4b37e0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 74609b515936ec7da8bfc133c27cb69f51311924
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="anchor-tag-helper"></a>Pomocnik Tag kotwicy
 
@@ -99,7 +99,7 @@ https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
 
 ### <a name="asp-route-value"></a>asp-route-{value}
 
-`asp-route-`jest symbol wieloznaczny prefiksu trasy. Wartość, umieszczone po kreska kończąca zostanie potraktowany jako potencjalne parametru trasy. Jeśli trasa domyślna nie zostanie znaleziony, prefiks trasy zostaną dodane do wygenerowanego href żądania parametr i wartość. W przeciwnym razie zostaną zastąpione w szablonie trasy.
+`asp-route-`jest symbol wieloznaczny prefiksu trasy. Wartość, umieszczone po kreska kończąca zostanie potraktowany jako potencjalne parametru trasy. Jeśli trasa domyślna nie zostanie odnaleziony, prefiks trasy zostaną dodane do wygenerowanego href żądania parametr i wartość. W przeciwnym razie zostaną zastąpione w szablonie trasy.
 
 Zakładając, że użytkownik ma metody kontrolera zdefiniowane w następujący sposób:
 
@@ -142,7 +142,7 @@ Wygenerowany kod HTML będzie następujący ponieważ **identyfikator** został 
 <a href='/Speaker/Detail/12'>SpeakerId: 12</a>
 ```
 
-Jeśli prefiks trasy nie jest częścią routingu znaleziono szablonu, który jest w przypadku następujących **cshtml** pliku:
+Jeśli prefiks trasy nie znaleziono szablonu routingu, która jest w przypadku następujących **cshtml** pliku:
 
 ```cshtml
 @model SpeakerData
@@ -152,7 +152,7 @@ Jeśli prefiks trasy nie jest częścią routingu znaleziono szablonu, który je
 <body></html>
 ```
 
-Wygenerowany kod HTML będzie następujący ponieważ **speakerid** nie został znaleziony w trasie dopasowane:
+Wygenerowany kod HTML będzie następujący ponieważ **speakerid** nie został znaleziony w dopasowaniu trasy:
 
 ```html
 <a href='/Speaker/Detail?speakerid=12'>SpeakerId: 12</a>

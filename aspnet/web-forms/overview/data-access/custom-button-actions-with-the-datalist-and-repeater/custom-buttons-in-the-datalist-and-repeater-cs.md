@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fa4b3ea69999f0d97d20047663d302277ebdf433
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9a072ae18bbb19d086eb825c6e72b68d40b2e429
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-c"></a>Przyciski niestandardowe DataList i powtarzanego (C#)
 ====================
@@ -114,17 +114,17 @@ Na przykład ustawić LinkButton s `CommandName` właściwości ShowProducts i p
 
 Po kliknięciu przycisku, występuje odświeżania strony i s DataList lub elementu powtarzanego `ItemCommand` generowane zdarzenie. Program obsługi zdarzeń jest przekazywany przycisk s `CommandName` i `CommandArgument` wartości.
 
-Utwórz program obsługi zdarzeń dla elementu powtarzanego s `ItemCommand` zdarzeń i zanotuj drugi parametr przekazany do obsługi zdarzeń (nazwane `e`). Jest to drugi parametr typu [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) i ma cztery następujące właściwości:
+Utwórz program obsługi zdarzeń dla elementu powtarzanego s `ItemCommand` zdarzeń i zanotuj drugi parametr przekazany do obsługi zdarzeń (nazwane `e`). Jest to drugi parametr typu [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) i ma cztery następujące właściwości:
 
 - `CommandArgument`wartość kliknięty przycisk s `CommandArgument` właściwości
 - `CommandName`Wartość przycisku s `CommandName` właściwości
 - `CommandSource`Odwołanie do formantu przycisku, który został kliknięty
-- `Item`Odwołanie do [ `RepeaterItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeateritem.aspx) zawiera przycisk został kliknięty; każdy rekord powiązany powtarzanego jest dyskowe wyświetlane jako`RepeaterItem`
+- `Item`Odwołanie do [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) zawiera przycisk został kliknięty; każdy rekord powiązany powtarzanego jest dyskowe wyświetlane jako`RepeaterItem`
 
 Od wybranej kategorii s `CategoryID` przekazany za pośrednictwem `CommandArgument` właściwości, możemy Pobierz zestaw produktów skojarzonych z wybranej kategorii w `ItemCommand` obsługi zdarzeń. Następnie można powiązać te produkty formantu listy BulletedList w `ItemTemplate` (których firma Microsoft kolejnych jeszcze, aby dodać). Wszystkie, pozostaje, a następnie jest dodanie listy BulletedList, odwołania `ItemCommand` obsługi zdarzeń i powiązać zestawu produktów dla wybranej kategorii, firma Microsoft będzie rozwiązania w kroku 4.
 
 > [!NOTE]
-> DataList s `ItemCommand` program obsługi zdarzeń jest przekazywany obiekt typu [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), które oferuje te same właściwości cztery jako `RepeaterCommandEventArgs` klasy.
+> DataList s `ItemCommand` program obsługi zdarzeń jest przekazywany obiekt typu [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), które oferuje te same właściwości cztery jako `RepeaterCommandEventArgs` klasy.
 
 
 ## <a name="step-4-displaying-the-selected-category-s-products-in-a-bulleted-list"></a>Krok 4: Wyświetlanie wybranej kategorii produktów s na liście punktowanej
@@ -169,4 +169,4 @@ Programowanie przyjemność!
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został firmy Dennis Patterson. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Dalej](custom-buttons-in-the-datalist-and-repeater-vb.md)
+[Next](custom-buttons-in-the-datalist-and-repeater-vb.md)

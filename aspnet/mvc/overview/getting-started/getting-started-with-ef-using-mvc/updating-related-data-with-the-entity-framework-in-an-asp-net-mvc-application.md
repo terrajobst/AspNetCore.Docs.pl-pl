@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 348940748e3c33ace03d1b8f41615e9814cf6b40
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 205d5ddcd0c3240c87ec5705a6676215eb67942d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Aktualizowanie danych powiązanych z programu Entity Framework w aplikacji platformy ASP.NET MVC
 ====================
@@ -127,7 +127,7 @@ Kod wykonuje następujące czynności:
 
 - Zmienia nazwę metody, aby `EditPost` ponieważ podpis teraz jest taka sama jak `HttpGet` — metoda ( `ActionName` atrybut określa, czy adres URL /Edit/ jest nadal używane).
 - Pobiera bieżący `Instructor` jednostki z bazy danych przy użyciu wczesny ładowania dla `OfficeAssignment` właściwości nawigacji. To jest identyczny jak w `HttpGet` `Edit` metody.
-- Aktualizuje pobranej `Instructor` jednostki wartościami z integratora modelu. [TryUpdateModel](https://msdn.microsoft.com/en-us/library/dd470908(v=vs.108).aspx) przeciążenia używane umożliwia *dozwolonych* właściwości, które chcesz dołączyć. Pozwala to uniknąć nadmiernego publikowanie zgodnie z objaśnieniem w [drugi samouczek](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
+- Aktualizuje pobranej `Instructor` jednostki wartościami z integratora modelu. [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx) przeciążenia używane umożliwia *dozwolonych* właściwości, które chcesz dołączyć. Pozwala to uniknąć nadmiernego publikowanie zgodnie z objaśnieniem w [drugi samouczek](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
 
     [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 - Jeśli w lokalizacji biura jest puste, ustawia `Instructor.OfficeAssignment` właściwości na wartość null, aby powiązane wiersza w `OfficeAssignment` tabeli zostaną usunięte.
@@ -163,7 +163,7 @@ W *InstructorController.cs*, Zastąp `HttpGet` `Edit` metodę z następującym k
 
 Ten kod dodaje wczesny ładowania dla `Courses` właściwość nawigacji i wywołuje nowe `PopulateAssignedCourseData` metody, aby podać informacje dotyczące używania tablicy pole wyboru `AssignedCourseData` wyświetlić klasy modelu.
 
-Kod w `PopulateAssignedCourseData` metoda odczytuje przez wszystkie `Course` klasa modelu jednostki, aby załadować listę kursów przy użyciu widoku. Dla każdego kursu kodu sprawdza, czy porach występuje w instruktora `Courses` właściwości nawigacji. Aby utworzyć wydajne wyszukiwanie podczas sprawdzania, czy kursu jest przypisany do instruktora, kursy przypisane do instruktora są umieszczane w [zestaw HashSet](https://msdn.microsoft.com/en-us/library/bb359438.aspx) kolekcji. `Assigned` Właściwość jest ustawiona na `true` kursów instruktora jest przypisany. Widok użyje tej właściwości w celu określenia, które wyboru pola musi być wyświetlane jako wybrane. Na koniec listy jest przekazywany do widoku w `ViewBag` właściwości.
+Kod w `PopulateAssignedCourseData` metoda odczytuje przez wszystkie `Course` klasa modelu jednostki, aby załadować listę kursów przy użyciu widoku. Dla każdego kursu kodu sprawdza, czy porach występuje w instruktora `Courses` właściwości nawigacji. Aby utworzyć wydajne wyszukiwanie podczas sprawdzania, czy kursu jest przypisany do instruktora, kursy przypisane do instruktora są umieszczane w [zestaw HashSet](https://msdn.microsoft.com/library/bb359438.aspx) kolekcji. `Assigned` Właściwość jest ustawiona na `true` kursów instruktora jest przypisany. Widok użyje tej właściwości w celu określenia, które wyboru pola musi być wyświetlane jako wybrane. Na koniec listy jest przekazywany do widoku w `ViewBag` właściwości.
 
 Następnie dodaj kod, który jest wykonywany, gdy użytkownik kliknie **zapisać**. Zastąp `EditPost` metodę z następującym kodem, który wywołuje nowej metody, która aktualizuje `Courses` właściwość nawigacji `Instructor` jednostki. Zmiany zostały wyróżnione.
 
@@ -171,7 +171,7 @@ Następnie dodaj kod, który jest wykonywany, gdy użytkownik kliknie **zapisać
 
 Podpis metody teraz różni się od `HttpGet` `Edit` metody, więc zmienia nazwę metody z `EditPost` do `Edit`.
 
-Ponieważ w widoku nie ma kolekcję `Course` jednostek, integratora modelu nie można automatycznie zaktualizować `Courses` właściwości nawigacji. Zamiast integratora modelu do zaktualizowania `Courses` właściwość nawigacji, należy to zrobić w nowym `UpdateInstructorCourses` metody. Dlatego należy wyłączyć `Courses` właściwości z powiązania modelu. To nie wymaga żadnych zmian do kodu, który wywołuje [TryUpdateModel](https://msdn.microsoft.com/en-us/library/dd470908(v=vs.98).aspx) ponieważ używasz *listę dozwolonych podobnej* przeciążenia i `Courses` nie ma na liście include.
+Ponieważ w widoku nie ma kolekcję `Course` jednostek, integratora modelu nie można automatycznie zaktualizować `Courses` właściwości nawigacji. Zamiast integratora modelu do zaktualizowania `Courses` właściwość nawigacji, należy to zrobić w nowym `UpdateInstructorCourses` metody. Dlatego należy wyłączyć `Courses` właściwości z powiązania modelu. To nie wymaga żadnych zmian do kodu, który wywołuje [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.98).aspx) ponieważ używasz *listę dozwolonych podobnej* przeciążenia i `Courses` nie ma na liście include.
 
 Jeśli nie zostały zaznaczone pola wyboru kod w `UpdateInstructorCourses` inicjuje `Courses` właściwości nawigacji o pustej kolekcji:
 
@@ -266,7 +266,7 @@ Uruchom tworzenia strony, a następnie dodaj instruktora.
 <a id="transactions"></a>
 ## <a name="handling-transactions"></a>Obsługa transakcji
 
-Zgodnie z objaśnieniem w [samouczek podstawowe funkcje CRUD](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md), domyślnie programu Entity Framework niejawnie implementuje transakcji. Scenariusze, w którym należy więcej kontrolujesz — na przykład, jeśli chcesz dołączyć operacje wykonywane poza Entity Framework w transakcji — można znaleźć [Praca z transakcji](https://msdn.microsoft.com/en-US/data/dn456843) w witrynie MSDN.
+Zgodnie z objaśnieniem w [samouczek podstawowe funkcje CRUD](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md), domyślnie programu Entity Framework niejawnie implementuje transakcji. Scenariusze, w którym należy więcej kontrolujesz — na przykład, jeśli chcesz dołączyć operacje wykonywane poza Entity Framework w transakcji — można znaleźć [Praca z transakcji](https://msdn.microsoft.com/data/dn456843) w witrynie MSDN.
 
 ## <a name="summary"></a>Podsumowanie
 

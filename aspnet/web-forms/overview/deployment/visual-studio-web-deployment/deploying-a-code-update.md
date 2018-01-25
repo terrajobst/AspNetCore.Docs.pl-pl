@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: 10da2b5013ae1348b69ea4f456d81bb4c4b73df6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f6861c702c1ccb19e5a4eee484a622079e205f86
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji kodu
 ====================
@@ -79,7 +79,7 @@ Wdrażanie w środowisku testowym jest teraz polegać na jednym kliknięciem uru
 
 Normalny również wykonać testów regresyjnych (to znaczy test reszty lokacji, aby upewnić się, że nowe zmiany nie Przerwij wszystkie istniejące funkcje). Jednak w tym samouczku będzie pominąć ten krok i przejdź do wdrożenia aktualizacji tymczasowych i produkcyjnych.
 
-Podczas ponownego wdrażania, narzędzie Web Deploy automatycznie określa, które pliki zostały zmienione i kopie tylko zmienione pliki na serwerze. Domyślnie narzędzie Web Deploy korzysta z ostatniej zmiany daty na plikach do określenia, które zostały zmienione. Niektórych systemów kontroli źródła zmiany pliku dat, nawet jeśli nie zmienisz zawartość pliku. W takim przypadku można skonfigurować narzędzie Web Deploy używać sum kontrolnych plików w celu określenia, które pliki zostały zmienione. Aby uzyskać więcej informacji, zobacz [Dlaczego wszystkie pliki uzyskać wdrożone mimo że nie je zmienić?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#use_checksum) w często zadawane pytania dotyczące wdrożenia programu ASP.NET.
+Podczas ponownego wdrażania, narzędzie Web Deploy automatycznie określa, które pliki zostały zmienione i kopie tylko zmienione pliki na serwerze. Domyślnie narzędzie Web Deploy korzysta z ostatniej zmiany daty na plikach do określenia, które zostały zmienione. Niektórych systemów kontroli źródła zmiany pliku dat, nawet jeśli nie zmienisz zawartość pliku. W takim przypadku można skonfigurować narzędzie Web Deploy używać sum kontrolnych plików w celu określenia, które pliki zostały zmienione. Aby uzyskać więcej informacji, zobacz [Dlaczego wszystkie pliki uzyskać wdrożone mimo że nie je zmienić?](https://msdn.microsoft.com/library/ee942158.aspx#use_checksum) w często zadawane pytania dotyczące wdrożenia programu ASP.NET.
 
 ## <a name="take-the-application-offline-during-deployment"></a>Przejdź do trybu offline podczas wdrażania
 

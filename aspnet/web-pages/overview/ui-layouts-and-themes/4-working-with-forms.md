@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: fcdded3a7e80ee797eae445f347735f0f7b3d7ad
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8579c444fd19d1a366349cc09f9f768de23055f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Praca z formularzy HTML w lokacjach (Razor) stron sieci Web ASP.NET
 ====================
@@ -41,7 +41,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 >   
 > 
 > W tym samouczku współdziała również z programu ASP.NET Web Pages 2.
@@ -134,12 +134,12 @@ Można to naprawić, jednak. Masz dostęp do wartości, które zostały przesła
     `value` Atrybutu `<input>` elementy została ustawiona jako dynamicznie odczytać wartości pola z `Request.Form` obiektu. Po raz pierwszy żąda strony, wartości `Request.Form` obiektu są puste. Jest poprawnie, ponieważ w ten sposób formularz jest pusty.
 2. Uruchom stronę w przeglądarce, wypełnij pola formularza lub pozostaw je puste i kliknij przycisk **przesyłania**. Zostanie wyświetlona strona, pokazujący przesyłane wartości.
 
-    ![Formularze 5](4-working-with-forms/_static/image5.jpg)
+    ![forms-5](4-working-with-forms/_static/image5.jpg)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [1,001 sposobów uzyskania danych wejściowych od użytkowników sieci Web](https://msdn.microsoft.com/en-us/library/ms971057.aspx)
-- [Za pomocą formularzy i przetwarzania danych wejściowych użytkownika](https://msdn.microsoft.com/en-us/library/ms525182(VS.90).aspx)
-- [Walidacja danych wejściowych użytkownika w lokacjach stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=253002)
-- [Przy użyciu funkcji AutoComplete w formularzach HTML](https://msdn.microsoft.com/en-us/library/ms533032(VS.85).aspx)
+- [1,001 sposobów uzyskania danych wejściowych od użytkowników sieci Web](https://msdn.microsoft.com/library/ms971057.aspx)
+- [Za pomocą formularzy i przetwarzania danych wejściowych użytkownika](https://msdn.microsoft.com/library/ms525182(VS.90).aspx)
+- [Weryfikacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=253002)
+- [Przy użyciu funkcji AutoComplete w formularzach HTML](https://msdn.microsoft.com/library/ms533032(VS.85).aspx)

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers
 msc.type: content
-ms.openlocfilehash: 260d9af87b7518131abb885ce2526b1aa7971bea
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ba9fda509605025754dc9753266f86585f38b089
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whitepapers"></a>Dodatkowe informacje
 ====================
@@ -63,81 +63,81 @@ ASP.NET MVC 2 można zainstalować równolegle program ASP.NET MVC w wersji 1.0 
 
 Zabezpieczenia są istotnym elementem aplikacji internetowych, a te dokumenty zawierają opis projektować i implementować zabezpieczenia aplikacji ASP.NET.
 
-[Instrumentacja ASP.NET 2.0 aplikacji dla zabezpieczeń](https://msdn.microsoft.com/en-us/library/ms998325.aspx)
+[Instrumentacja ASP.NET 2.0 aplikacji dla zabezpieczeń](https://msdn.microsoft.com/library/ms998325.aspx)
 
 Ten sposób można przedstawiono sposób umożliwia Instrumentacja aplikacji ASP.NET do śledzenia zdarzeń związanych z zabezpieczeniami i operacje zdarzenia monitorowania kondycji niestandardowych. ASP.NET w wersji 2.0 zapewnia monitorowanie kondycji zawiera Instrumentacja dla wiele standardowych...
 
-[Wykonywanie przeglądu wdrożenia zabezpieczeń dla programu ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998367.aspx)
+[Wykonywanie przeglądu wdrożenia zabezpieczeń dla programu ASP.NET 2.0](https://msdn.microsoft.com/library/ms998367.aspx)
 
 Ten sposób można pokazano, jak przeprowadzić przegląd zabezpieczeń wdrożenia dla aplikacji programu ASP.NET 2.0 do identyfikowania potencjalnych luk w zabezpieczeniach wprowadzone ustawienia konfiguracji nieodpowiednie. Większość procesu przeglądu wymaga wprowadzania...
 
-[Na użytek ADAM ról w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998331.aspx)
+[Na użytek ADAM ról w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998331.aspx)
 
 Ten sposób można pokazano, jak w przypadku tworzenia witryny sieci Web ASP.NET, która przechowuje ról ASP.NET przy użyciu trybu aplikacji usługi Active Directory (ADAM). Pokazuje sposób konfigurowania programu ADAM i magazynu zasad Menedżera autoryzacji (AzMan), jak utworzyć nowe role i...
 
-[Menedżer autoryzacji (AzMan) za pomocą programu ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998336.aspx)
+[Menedżer autoryzacji (AzMan) za pomocą programu ASP.NET 2.0](https://msdn.microsoft.com/library/ms998336.aspx)
 
 Ten sposób można przedstawiono sposób korzystać z Menedżera autoryzacji (AzMan) w połączeniu z Menedżer ról ASP.NET interfejsu API do zarządzania ról, sprawdź członkostwo w roli użytkownika i zezwolić ról do wykonywania określonych operacji przed AzMan magazynu zasad. Jak...
 
-[Użyj członkostwa w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998347.aspx)
+[Użyj członkostwa w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998347.aspx)
 
 Ten sposób można pokazuje, jak używać funkcji członkostwa w aplikacji ASP.NET w wersji 2.0. Przedstawia sposób użycia dwóch dostawców członkostwa różnych: ActiveDirectoryMembershipProvider i SqlMembershipProvider. Funkcja członkostwa...
 
-[Za pomocą menedżera ról w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998314.aspx)
+[Za pomocą menedżera ról w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998314.aspx)
 
 Ten sposób można przedstawiono sposób za pomocą menedżera ról ASP.NET 2.0. Menedżer ról ułatwia zadanie zarządzania rolami i wykonywania autoryzacji opartej na rolach w aplikacji. Widoczny jest sposób konfigurowania różnych dostawców roli do użycia z Twojej...
 
-[Uwierzytelnianie systemu Windows w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998358.aspx)
+[Uwierzytelnianie systemu Windows w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998358.aspx)
 
 Ten sposób można przedstawiono sposób konfigurowania i korzystania z uwierzytelniania systemu Windows w aplikacji sieci Web ASP.NET. Uwierzytelnianie systemu Windows jest to preferowane rozwiązanie, gdy użytkownicy należą do domeny systemu Windows. Takie podejście umożliwia użycie istniejącego magazynu tożsamości...
 
-[Wykonywanie przeglądu zabezpieczeń kodu dla kodu zarządzanego (linii bazowej działania)](https://msdn.microsoft.com/en-us/library/ms998364.aspx)
+[Wykonywanie przeglądu zabezpieczeń kodu dla kodu zarządzanego (linii bazowej działania)](https://msdn.microsoft.com/library/ms998364.aspx)
 
 Ten sposób można pokazano, jak przeprowadzić przeglądy kodu zabezpieczeń. Ten moduł przedstawia kroki do wykonania w działanie i techniki do analizowania wyników. Użyj tego jak z "listą pytanie zabezpieczeń: zarządzanego kodu (.NET Framework 2.0)"...
 
-[Wykonywanie przeglądu wdrożenia zabezpieczeń dla programu ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998367.aspx)
+[Wykonywanie przeglądu wdrożenia zabezpieczeń dla programu ASP.NET 2.0](https://msdn.microsoft.com/library/ms998367.aspx)
 
 Ten sposób można pokazano, jak przeprowadzić przegląd zabezpieczeń wdrożenia dla aplikacji programu ASP.NET 2.0 do identyfikowania potencjalnych luk w zabezpieczeniach wprowadzone ustawienia konfiguracji nieodpowiednie. Większość procesu przeglądu wymaga wprowadzania...
 
-[Implementowanie delegowanie protokołu Kerberos w systemie Windows 2000](https://msdn.microsoft.com/en-us/library/aa302400.aspx)
+[Implementowanie delegowanie protokołu Kerberos w systemie Windows 2000](https://msdn.microsoft.com/library/aa302400.aspx)
 
 Delegowanie protokołu Kerberos umożliwia przepływ uwierzytelniona tożsamość w wielu warstw fizycznych aplikacji do obsługi podrzędne uwierzytelniania i autoryzacji. Ten sposób przedstawiono kroki konfiguracji konieczne działało.
 
-[Użyj personifikacji i delegowanie w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998351.aspx)
+[Użyj personifikacji i delegowanie w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998351.aspx)
 
 Ten sposób aby pokazuje, kiedy należy używać personifikacji w aplikacjach ASP.NET 2.0. Domyślnie personifikacja jest wyłączona, a dostęp do zasobów przy użyciu tożsamości procesu aplikacji sieci Web ASP.NET. Można jednak użyć...
 
-[Tworzenie modelu zagrożeń dla aplikacji sieci Web w czasie projektowania](https://msdn.microsoft.com/en-us/library/ms978527.aspx)
+[Tworzenie modelu zagrożeń dla aplikacji sieci Web w czasie projektowania](https://msdn.microsoft.com/library/ms978527.aspx)
 
 Ten sposób aby opisano podejście do tworzenia modelu zagrożeń dla aplikacji sieci Web. To zagrożenie modelowanie aktywności pomaga modelu projektu zabezpieczeń, dzięki czemu mogą uwidaczniać potencjalnych luk w zabezpieczeniach projektu i luk w zabezpieczeniach zanim poświęcić...
 
 ### <a name="forms-authentication"></a>Uwierzytelnianie formularzy
 
-[Ochrona uwierzytelniania formularzy w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998310.aspx)
+[Ochrona uwierzytelniania formularzy w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998310.aspx)
 
 Ten sposób można przedstawiono sposób bezpiecznie Konfigurowanie i używanie uwierzytelniania formularzy aplikacji ASP.NET 2.0. Kluczowych czynników, które należy uwzględnić obejmują poprawnie zabezpieczanie biletu uwierzytelniania i zabezpieczania dostępu do tego magazynu i magazynu tożsamości użytkownika. ...
 
-[Uwierzytelnianie formularzy w usłudze Active Directory w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998360.aspx)
+[Uwierzytelnianie formularzy w usłudze Active Directory w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998360.aspx)
 
 Ten sposób można przedstawiono sposób używać uwierzytelniania formularzy z usługi katalogowej Active Directory® Microsoft przy użyciu ActiveDirectoryMembershipProvider. Instruktaży przedstawiono sposób skonfigurowania dostawcy i utworzyć i uwierzytelnianie użytkowników...
 
-[Uwierzytelnianie formularzy w usłudze Active Directory w wielu domenach w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998345.aspx)
+[Uwierzytelnianie formularzy w usłudze Active Directory w wielu domenach w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998345.aspx)
 
 Ten sposób można przedstawiono sposób używać uwierzytelniania formularzy z usługi katalogowej Active Directory® Microsoft przy użyciu ActiveDirectoryMembershipProvider. Instruktaży przedstawiono sposób skonfigurowania dostawcy i utworzyć i uwierzytelnianie użytkowników...
 
-[Uwierzytelnianie formularzy z programem SQL Server w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998317.aspx)
+[Uwierzytelnianie formularzy z programem SQL Server w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998317.aspx)
 
 Ten sposób aby pokazuje sposób można używać uwierzytelniania formularzy z dostawcy członkostwa programu SQL Server. Uwierzytelnianie formularzy z programem SQL Server jest najbardziej odpowiednie w sytuacjach, gdy użytkownicy aplikacji nie są częścią domeny systemu Windows, i w związku z tym...
 
-[Tworzenie obiektów GenericPrincipal z uwierzytelniania formularzy w programie ASP.NET 1.1](https://msdn.microsoft.com/en-us/library/aa302399.aspx)
+[Tworzenie obiektów GenericPrincipal z uwierzytelniania formularzy w programie ASP.NET 1.1](https://msdn.microsoft.com/library/aa302399.aspx)
 
 Ten sposób można przedstawiono sposób tworzenia i obsługi obiektów GenericPrincipal i FormsIdentity, korzystając z uwierzytelniania formularzy.
 
-[Uwierzytelnianie formularzy w usłudze Active Directory w programie ASP.NET 1.1](https://msdn.microsoft.com/en-us/library/aa302397.aspx)
+[Uwierzytelnianie formularzy w usłudze Active Directory w programie ASP.NET 1.1](https://msdn.microsoft.com/library/aa302397.aspx)
 
 Jak w tym artykule przedstawiono sposób wykonania uwierzytelniania formularzy w magazynie poświadczeń usługi Active Directory.
 
-[Uwierzytelnianie formularzy z programem SQL Server w programie ASP.NET 1.1](https://msdn.microsoft.com/en-us/library/aa302398.aspx)
+[Uwierzytelnianie formularzy z programem SQL Server w programie ASP.NET 1.1](https://msdn.microsoft.com/library/aa302398.aspx)
 
 Ten sposób można przedstawiono sposób wykonania uwierzytelniania formularzy w magazynie poświadczeń programu SQL Server. On również przedstawiono sposób przechowywania roztwór hasła w bazie danych.
 
@@ -147,81 +147,81 @@ Ten sposób można przedstawiono sposób wykonania uwierzytelniania formularzy w
 
 W tym dokumencie opisano funkcję sprawdzania poprawności żądania programu ASP.NET, w którym, domyślnie aplikacji nie będzie mógł przetwarzania niekodowany zawartość HTML przesłane do serwera. Jeśli aplikacja została można wyłączyć tej funkcji sprawdzania poprawności żądań...
 
-[Zapobiegaj skryptów krzyżowych w programie ASP.NET](https://msdn.microsoft.com/en-us/library/ms998274.aspx)
+[Zapobiegaj skryptów krzyżowych w programie ASP.NET](https://msdn.microsoft.com/library/ms998274.aspx)
 
 Ten sposób można pokazuje, jak może pomóc chronić aplikacje ASP.NET przed atakami skryptów między witrynami, przy użyciu techniki prawidłowego sprawdzania poprawności danych wejściowych i kodowanie danych wyjściowych. Opisano również kilka innych mechanizmów ochrony, których można używać w...
 
-[Ochrona przed iniekcja kodu SQL w programie ASP.NET](https://msdn.microsoft.com/en-us/library/ms998271.aspx)
+[Ochrona przed iniekcja kodu SQL w programie ASP.NET](https://msdn.microsoft.com/library/ms998271.aspx)
 
 Ten sposób można zawiera kilka różnych sposobów w celu ochrony przed atakami iniekcji kodu SQL aplikacji ASP.NET. Iniekcja kodu SQL może wystąpić, gdy aplikacja używa danych wejściowych do konstruowania dynamicznych instrukcji SQL lub jeśli używa procedur składowanych do nawiązania połączenia...
 
-[Używanie wyrażeń regularnych w celu ograniczenia danych wejściowych w programie ASP.NET](https://msdn.microsoft.com/en-us/library/ms998267.aspx)
+[Używanie wyrażeń regularnych w celu ograniczenia danych wejściowych w programie ASP.NET](https://msdn.microsoft.com/library/ms998267.aspx)
 
 Ten sposób można pokazuje, jak za pomocą wyrażeń regularnych w aplikacjach ASP.NET ograniczyć niezaufanych danych wejściowych. Wyrażenia regularne są dobrym sposobem weryfikacji pól tekstowych, takich jak nazwy, adresy, numery telefonów i innych informacji o użytkowniku. Można użyć...
 
 ### <a name="code-access-security"></a>Zabezpieczenia dostępu kodu
 
-[Użyj zabezpieczeń dostępu kodu w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998326.aspx)
+[Użyj zabezpieczeń dostępu kodu w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998326.aspx)
 
 Ta how pokazuje, jak wybierz poziom zaufania odpowiednie dla aplikacji oraz w razie potrzeby, jak utworzyć niestandardowe ASP.NET kod dostępu plik zasad zabezpieczeń do definiowania niestandardowego zaufania poziomu. Można użyć zaufania zabezpieczeń dostępu kodu różnych...
 
-[Tworzenie uprawnień niestandardowych szyfrowania](https://msdn.microsoft.com/en-us/library/aa302362.aspx)
+[Tworzenie uprawnień niestandardowych szyfrowania](https://msdn.microsoft.com/library/aa302362.aspx)
 
 Ten sposób można opisuje sposób tworzenia uprawnienia zabezpieczeń dostępu kodu niestandardowego do kontrolowania programowy dostęp do interfejsu API ochrony danych (DPAPI) Win32® udostępnia możliwości szyfrowania niezarządzane. To uprawnienie niestandardowych za pomocą zarządzany otok DPAPI...
 
-[Umożliwia ograniczenie zestawu zasad zabezpieczenia dostępu kodu](https://msdn.microsoft.com/en-us/library/aa302361.aspx)
+[Umożliwia ograniczenie zestawu zasad zabezpieczenia dostępu kodu](https://msdn.microsoft.com/library/aa302361.aspx)
 
 Administrator może skonfigurować zasady zabezpieczeń dostępu kodu, aby ograniczyć operacje kodu .NET Framework (zestawy). W ten sposób możesz skonfigurować zasady zabezpieczeń dostępu kodu, aby ograniczyć możliwość zestawu do wykonywania operacji We/Wy pliku i ograniczyć...
 
 ### <a name="communications-security"></a>Zabezpieczenia komunikacji
 
-[Konfigurowanie protokołu SSL na serwerze sieci Web](https://msdn.microsoft.com/en-us/library/aa302411.aspx)
+[Konfigurowanie protokołu SSL na serwerze sieci Web](https://msdn.microsoft.com/library/aa302411.aspx)
 
 Aby można było obsługiwać połączenia https z aplikacji klienta, serwera sieci Web musi być skonfigurowany do używania protokołu SSL. Ten sposób można pokazano, jak skonfigurować protokół SSL na serwerze sieci Web.
 
-[Konfigurowanie certyfikatów klienta](https://msdn.microsoft.com/en-us/library/aa302412.aspx)
+[Konfigurowanie certyfikatów klienta](https://msdn.microsoft.com/library/aa302412.aspx)
 
 Usługi IIS obsługują uwierzytelnianie certyfikatu klienta. Ten sposób można przedstawiono sposób konfigurowania aplikacji sieci Web, aby wymagać certyfikaty klienta. On również przedstawiono sposób zainstalować certyfikat na komputerze klienckim i korzystać z niego podczas wywoływania aplikacji sieci Web.
 
-[Użyj protokołu IPSec do filtrowania portów i uwierzytelniania](https://msdn.microsoft.com/en-us/library/aa302366.aspx)
+[Użyj protokołu IPSec do filtrowania portów i uwierzytelniania](https://msdn.microsoft.com/library/aa302366.aspx)
 
 Zabezpieczenia protokołu internetowego (IPSec) to protokół, nie usługa, która zapewnia szyfrowania, integralności i usługi uwierzytelniania opartego na protokole IP ruchu sieciowego. Ponieważ protokół IPSec zapewnia ochronę do serwera, można użyć protokołu IPSec na zagrożenia wewnętrznego licznika...
 
-[Użyj protokołu IPSec w celu zapewnienia bezpiecznej komunikacji między dwoma serwerami](https://msdn.microsoft.com/en-us/library/aa302413.aspx)
+[Użyj protokołu IPSec w celu zapewnienia bezpiecznej komunikacji między dwoma serwerami](https://msdn.microsoft.com/library/aa302413.aspx)
 
 IPSec to technologia systemu Windows 2000, który służy do tworzenia zaszyfrowanego kanały między dwoma serwerami. Protokół IPSec może służyć do filtrowania ruchu IP i do uwierzytelniania serwerów. Ten sposób można przedstawiono sposób konfigurowania protokołu IPSec w celu zapewnienia bezpiecznego (zaszyfrowane)...
 
-[Użyj protokołu SSL do zabezpieczania komunikacji z programem SQL Server](https://msdn.microsoft.com/en-us/library/aa302414.aspx)
+[Użyj protokołu SSL do zabezpieczania komunikacji z programem SQL Server](https://msdn.microsoft.com/library/aa302414.aspx)
 
 Często jest to istotne w przypadku aplikacji można było zabezpieczyć dane przekazane do i z serwera bazy danych programu SQL Server. Z programem SQL Server protokół SSL służy do tworzenia szyfrowanego kanału. Ten sposób można pokazuje, jak zainstalować certyfikat na serwerze bazy danych...
 
-[Wywoływanie usługi sieci Web przy użyciu certyfikatów klienta z programu ASP.NET 1.1](https://msdn.microsoft.com/en-us/library/aa302408.aspx)
+[Wywoływanie usługi sieci Web przy użyciu certyfikatów klienta z programu ASP.NET 1.1](https://msdn.microsoft.com/library/aa302408.aspx)
 
 Ten sposób można w tym artykule opisano sposób można przekazać certyfikat klienta do usługi sieci Web na potrzeby uwierzytelniania z aplikacji sieci Web ASP.NET lub aplikacji formularzy systemu Windows. Certyfikat klienta można zainstalować w magazynie komputera lokalnego lub w magazynie użytkownika. IF...
 
-[Wywoływanie usługi sieci Web przy użyciu protokołu SSL z platformy ASP.NET 1.1](https://msdn.microsoft.com/en-us/library/aa302409.aspx)
+[Wywoływanie usługi sieci Web przy użyciu protokołu SSL z platformy ASP.NET 1.1](https://msdn.microsoft.com/library/aa302409.aspx)
 
 Szyfrowanie Secure Sockets Layer (SSL) może służyć do zapewnienia integralności i poufności komunikaty przesyłane do i z usługi sieci Web. Ten sposób można przedstawiono sposób użycia protokołu SSL z usługami sieci Web.
 
 ### <a name="cryptography"></a>Kryptografia
 
-[Utwórz bibliotekę DPAPI w .NET 1.1](https://msdn.microsoft.com/en-us/library/aa302402.aspx)
+[Utwórz bibliotekę DPAPI w .NET 1.1](https://msdn.microsoft.com/library/aa302402.aspx)
 
 Ten sposób można przedstawiono sposób tworzenia biblioteki zarządzanej klasy, która udostępnia funkcje DPAPI dla aplikacji, które chcesz szyfrować dane, na przykład parametry połączenia bazy danych oraz poświadczenia konta.
 
-[Utwórz bibliotekę szyfrowania w .NET 1.1](https://msdn.microsoft.com/en-us/library/aa302405.aspx)
+[Utwórz bibliotekę szyfrowania w .NET 1.1](https://msdn.microsoft.com/library/aa302405.aspx)
 
 Ten sposób można przedstawiono sposób tworzenia zarządzanej biblioteki klas umożliwiają korzystanie z funkcji szyfrowania dla aplikacji. Umożliwia aplikacji wybrać algorytm szyfrowania. Obsługiwane algorytmy obejmują DES, Triple DES, RC2 i Rijndael.
 
-[Przechowywanie parametrów połączenia szyfrowanego w rejestrze w programie ASP.NET 1.1](https://msdn.microsoft.com/en-us/library/aa302406.aspx)
+[Przechowywanie parametrów połączenia szyfrowanego w rejestrze w programie ASP.NET 1.1](https://msdn.microsoft.com/library/aa302406.aspx)
 
 Aplikacje mogą wybrać opcję zapisywania zaszyfrowane dane, takie jak parametry połączenia oraz poświadczenia konta w rejestrze systemu Windows. Ten sposób można przedstawiono sposób przechowywania i pobierania zaszyfrowane ciągi w rejestrze.
 
-[Użyj DPAPI (magazyn Machine) z platformy ASP.NET 1.1](https://msdn.microsoft.com/en-us/library/aa302403.aspx)
+[Użyj DPAPI (magazyn Machine) z platformy ASP.NET 1.1](https://msdn.microsoft.com/library/aa302403.aspx)
 
 Ten sposób można przedstawiono sposób użycia DPAPI z aplikacji sieci Web ASP.NET lub usługi sieci Web do szyfrowania poufnych danych.
 
-[Użyj DPAPI (magazynu użytkowników) z platformy ASP.NET 1.1 z usług dla przedsiębiorstw](https://msdn.microsoft.com/en-us/library/aa302404.aspx)
+[Użyj DPAPI (magazynu użytkowników) z platformy ASP.NET 1.1 z usług dla przedsiębiorstw](https://msdn.microsoft.com/library/aa302404.aspx)
 
 Ten sposób można przedstawiono sposób użycia DPAPI z aplikacji sieci Web ASP.NET lub usługi, do szyfrowania poufnych danych. Ten sposób można używa DPAPI o magazynie użytkownika, który wymaga użycia poza proces składnika usługi dla przedsiębiorstw.
 
@@ -230,23 +230,23 @@ Ten sposób można przedstawiono sposób użycia DPAPI z aplikacji sieci Web ASP
 
 Te oficjalne dokumenty zawierają instrukcje krok po kroku dotyczące instalowania i konfigurowania programu ASP.NET na serwerze.
 
-[Tworzenie konta usługi dla platformy ASP.NET 2.0 aplikacji](https://msdn.microsoft.com/en-us/library/ms998297.aspx)
+[Tworzenie konta usługi dla platformy ASP.NET 2.0 aplikacji](https://msdn.microsoft.com/library/ms998297.aspx)
 
 Ten sposób można przedstawiono sposób utworzyć i skonfigurować konto niestandardowe usługi najmniej uprzywilejowane, aby uruchomić aplikację sieci Web programu ASP.NET. Domyślnie aplikacji ASP.NET w systemie Microsoft Windows Server 2003 i usług IIS 6.0 jest uruchamiana za pomocą wbudowanej usługi sieciowej...
 
-[Zwiększyć bezpieczeństwo, gdy obsługujące wiele aplikacji w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/aa480478.aspx)
+[Zwiększyć bezpieczeństwo, gdy obsługujące wiele aplikacji w programie ASP.NET 2.0](https://msdn.microsoft.com/library/aa480478.aspx)
 
 Ten sposób można pokazuje sposób można odizolować wiele aplikacji z sobą oraz z zasobów systemowych udostępnionych w sieci Web środowiska macierzystego. Środowisko macierzyste może być udostępniane przez (usługodawcy) obsługujący wiele serwera sieci Web...
 
-[Użyj trybie średniego zaufania w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998341.aspx)
+[Użyj trybie średniego zaufania w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998341.aspx)
 
 Ten sposób można przedstawiono sposób konfigurowania aplikacji sieci Web ASP.NET do uruchamiania w trybie średniego zaufania. W przypadku obsługi wielu aplikacji na tym samym serwerze, można użyć zabezpieczeń dostępu kodu i średniego poziomu zaufania do zapewnienia izolacji aplikacji. Ustawiając...
 
-[Użyj konta usługi sieciowej, dostęp do zasobów w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998320.aspx)
+[Użyj konta usługi sieciowej, dostęp do zasobów w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998320.aspx)
 
 Ten sposób można pokazano, jak można użyć konta komputera NT AUTHORITY\Network Service dostępu lokalnego do i zasobów sieciowych. Domyślnie w systemie Windows Server 2003 uruchom aplikacji ASP.NET przy użyciu tożsamości tego konta. Jest co najmniej uprzywilejowane...
 
-[Użyj przejścia i ograniczone delegowanie protokołu w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998355.aspx)
+[Użyj przejścia i ograniczone delegowanie protokołu w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998355.aspx)
 
 Ten sposób aby pokazuje sposób konfigurowania i użyć przejścia i ograniczone delegowanie protokołu, aby umożliwić aplikacji ASP.NET do dostępu do zasobów sieciowych podczas personifikowania oryginalny obiekt wywołujący. System operacyjny Microsoft® Windows® 2000...
 
@@ -266,25 +266,25 @@ Gdy system Windows Server 2003 obejmuje zarówno usług IIS 6.0 i ASP.NET 1.1, s
 
 W tym dokumencie opisano poprawkę, która rozwiązuje problem MS03 32 Aktualizacja zabezpieczeń dla programu Internet Explorer, która wpływa na aplikacje ASP.NET 1.0 w systemie Windows XP Professional.
 
-[Utwórz konto niestandardowe do uruchamiania aplikacji ASP.NET 1.1](https://msdn.microsoft.com/en-us/library/aa302396.aspx)
+[Utwórz konto niestandardowe do uruchamiania aplikacji ASP.NET 1.1](https://msdn.microsoft.com/library/aa302396.aspx)
 
 Aplikacje sieci Web ASP.NET najczęściej uruchamiane przy użyciu wbudowanego konta ASPNET. Czasem można użyć konta niestandardowego. W tym artykule How pokazuje, jak utworzyć konto lokalne najniższych uprawnieniach do uruchamiania aplikacji sieci Web ASP.NET. ...
 
 ### <a name="configuration"></a>Konfiguracja
 
-[Skonfiguruj klucz komputera w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998288.aspx)
+[Skonfiguruj klucz komputera w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998288.aspx)
 
 Wyjaśniono w ten sposób można &lt;machineKey&gt; elementu w pliku Web.config i przedstawiono sposób konfigurowania &lt;machineKey&gt; element sprawdzające odporne na próby kontroli i szyfrowania stanu widoku, uwierzytelnianie formularzy bilety i plików cookie roli. Stan widoku jest podpisany...
 
-[Szyfrowanie sekcji konfiguracyjnych w programie ASP.NET 2.0 przy użyciu DPAPI](https://msdn.microsoft.com/en-us/library/ms998280.aspx)
+[Szyfrowanie sekcji konfiguracyjnych w programie ASP.NET 2.0 przy użyciu DPAPI](https://msdn.microsoft.com/library/ms998280.aspx)
 
 Tego jaki sposób przedstawia sposób użycia aplikacji ochrony danych systemu Windows dostawca chronionych konfiguracji interfejsu (DPAPI) oraz Aspnet\_regiis.exe tool można zaszyfrować sekcjami plików konfiguracji. Można użyć Aspnet\_narzędzia regiis.exe...
 
-[Szyfrowanie sekcji konfiguracyjnych w programie ASP.NET 2.0 przy użyciu RSA](https://msdn.microsoft.com/en-us/library/ms998283.aspx)
+[Szyfrowanie sekcji konfiguracyjnych w programie ASP.NET 2.0 przy użyciu RSA](https://msdn.microsoft.com/library/ms998283.aspx)
 
 Ten sposób można przedstawia sposób użycia dostawcę konfiguracji chronione RSA i Aspnet\_regiis.exe tool można zaszyfrować sekcjami plików konfiguracji. Można użyć Aspnet\_regiis.exe tool można zaszyfrować poufnych danych, takich jak parametry połączenia, przechowywać w formacie...
 
-[Użyj personifikacji i delegowanie w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998351.aspx)
+[Użyj personifikacji i delegowanie w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998351.aspx)
 
 Ten sposób aby pokazuje, kiedy należy używać personifikacji w aplikacjach ASP.NET 2.0. Domyślnie personifikacja jest wyłączona, a dostęp do zasobów przy użyciu tożsamości procesu aplikacji sieci Web ASP.NET. Można jednak użyć...
 
@@ -293,15 +293,15 @@ Ten sposób aby pokazuje, kiedy należy używać personifikacji w aplikacjach AS
 
 Gdy ASP.NET działa z różnymi bazami danych, te oficjalne dokumenty przyjrzeć się w szczególności łączenie aplikacji ASP.NET do programu SQL Server.
 
-[Połączenia z serwerem SQL przy użyciu uwierzytelniania programu SQL w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998300.aspx)
+[Połączenia z serwerem SQL przy użyciu uwierzytelniania programu SQL w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx)
 
 Ten sposób można przedstawiono sposób łączenia aplikacji ASP.NET do programu Microsoft® SQL Server™, podczas uwierzytelniania dostępu do bazy danych używa uwierzytelniania programu SQL native. Uwierzytelnianie systemu Windows jest zalecanym sposobem połączenia z serwerem SQL, ponieważ użytkownik...
 
-[Połączenia z serwerem SQL przy użyciu uwierzytelniania systemu Windows w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998292.aspx)
+[Połączenia z serwerem SQL przy użyciu uwierzytelniania systemu Windows w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998292.aspx)
 
 Ten sposób aby pokazuje sposób nawiązywania połączenia z programem SQL Server 2000 przy użyciu konta usługi systemu Windows z aplikacji ASP.NET w wersji 2.0. Należy używać uwierzytelniania systemu Windows zamiast uwierzytelniania SQL, jeśli to możliwe, ponieważ można uniknąć przechowywania poświadczeń w...
 
-[Użyj protokołu SSL do zabezpieczania komunikacji z programem SQL Server 2000](https://msdn.microsoft.com/en-us/library/aa302414.aspx)
+[Użyj protokołu SSL do zabezpieczania komunikacji z programem SQL Server 2000](https://msdn.microsoft.com/library/aa302414.aspx)
 
 Często jest to istotne w przypadku aplikacji można było zabezpieczyć dane przekazane do i z serwera bazy danych programu SQL Server. Z programem SQL Server protokół SSL służy do tworzenia szyfrowanego kanału. Ten sposób można pokazuje, jak zainstalować certyfikat na serwerze bazy danych...
 
@@ -314,11 +314,11 @@ Następujące analizie przypadku opisano proces, który został użyty do migrac
 
 Te oficjalne dokumenty obejmuje różne tematy dotyczące platformy ASP.NET.
 
-[Użyj monitorowanie kondycji w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998306.aspx)
+[Użyj monitorowanie kondycji w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998306.aspx)
 
 Ten sposób można przedstawiono sposób użycia monitorowania do Instrumentacja aplikacji niestandardowe zdarzenie kondycji. Aby utworzyć niestandardowe kondycji, monitorowanie zdarzeń, Utwórz klasę pochodną System.Web.Management.WebBaseEvent, skonfigurować &lt;healthMonitoring&gt; ...
 
-[Zarządzanie poprawkami wdrożenie](https://msdn.microsoft.com/en-us/library/aa302364.aspx)
+[Zarządzanie poprawkami wdrożenie](https://msdn.microsoft.com/library/aa302364.aspx)
 
 Ten sposób można opisano zarządzanie poprawkami, w tym sposobu na utrzymanie jednego lub wiele serwerów na bieżąco. Dodatkowe oprogramowanie nie jest wymagane, z wyjątkiem narzędzi dostępny do pobrania firmy Microsoft. Operacje i zasady zabezpieczeń powinna przyjąć Zarządzanie poprawkami...
 

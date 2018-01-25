@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: db24fbf4a3486a1349ac47e55cfa495fdf1a166c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cd2bfa07262155b68ac4605fc7e9748d276d3193
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-web-packages"></a>Wdrażanie pakietów sieci Web
 ====================
@@ -64,19 +64,19 @@ Należy określić **/T** flagi lub **/Y** flagę, aby wskazać, czy chcesz wyko
 | Flaga | Opis |
 | --- | --- |
 | **/T** | Wywołuje MSDeploy.exe z **-whatif** flagę wskazującą, próbnej. Zamiast wdrażania pakietu, tworzy raport na temat tego, co się stanie, jeśli pakiet został wdrożony. |
-| **/ Y** | Wywołuje MSDeploy.exe bez **-whatif** flagi. To wdrożenie pakietu na komputerze lokalnym lub wybrany serwer docelowy. |
+| **/Y** | Wywołuje MSDeploy.exe bez **-whatif** flagi. To wdrożenie pakietu na komputerze lokalnym lub wybrany serwer docelowy. |
 | **/M** | Wskazuje serwer docelowy nazwa lub adres URL usługi. Aby uzyskać więcej informacji o wartościach podanych tutaj zobacz **zagadnienia dotyczące punktu końcowego** w tym temacie. W przypadku pominięcia **/M** flagi, pakiet zostanie wdrożony na komputerze lokalnym. |
 | **/A** | Określa typ uwierzytelniania, która powinna być używana do wykonywania wdrożenia MSDeploy.exe. Możliwe wartości to **NTLM** i **podstawowe**. W przypadku pominięcia **/A** flagę domyślnie typ uwierzytelniania **NTLM** wdrożenia do usługi sieci Web wdrażanie agenta zdalnego oraz na **podstawowe** wdrożenia do narzędzia Web Deploy Program obsługi. |
 | **/U** | Określa nazwę użytkownika. Dotyczy to tylko wtedy, gdy używasz uwierzytelniania podstawowego. |
 | **/P** | Określa hasło. Dotyczy to tylko wtedy, gdy używasz uwierzytelniania podstawowego. |
 | **/L** | Wskazuje, czy powinny zostać wdrożone pakiet do lokalnego wystąpienia usług IIS Express. |
-| **/G** | Określa, że pakiet jest wdrażany przy użyciu [ustawienie dostawcy tempAgent](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx). W przypadku pominięcia **/G** flagi, domyślnie przyjmowana jest wartość **false**. |
+| **/G** | Określa, że pakiet jest wdrażany przy użyciu [ustawienie dostawcy tempAgent](https://technet.microsoft.com/library/ee517345(WS.10).aspx). W przypadku pominięcia **/G** flagi, domyślnie przyjmowana jest wartość **false**. |
 
 > [!NOTE]
 > Za każdym razem, gdy proces kompilacji tworzy pakiet sieci web, również tworzy plik o nazwie *[Nazwa projektu] .deploy-readme.txt* objaśniający te opcje wdrażania.
 
 
-Oprócz tych flag, można określić ustawienia działania narzędzia Web Deploy jako dodatkowe *. pliku deploy.cmd* parametrów. Dodatkowe ustawienia, które określisz po prostu są przekazywane do podstawowej polecenie MSDeploy.exe. Aby uzyskać więcej informacji na temat tych ustawień, zobacz [ustawienia operację wdrażania w sieci Web](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx).
+Oprócz tych flag, można określić ustawienia działania narzędzia Web Deploy jako dodatkowe *. pliku deploy.cmd* parametrów. Dodatkowe ustawienia, które określisz po prostu są przekazywane do podstawowej polecenie MSDeploy.exe. Aby uzyskać więcej informacji na temat tych ustawień, zobacz [ustawienia operację wdrażania w sieci Web](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
 Załóżmy, że chcesz wdrożyć projekt aplikacji sieci web ContactManager.Mvc do środowiska testowego, uruchamiając *. pliku deploy.cmd* pliku. Środowiska testowego jest skonfigurowany do korzystania z usługi sieci Web wdrażanie agenta zdalnego, zgodnie z opisem w [Konfiguracja serwera sieci Web dla wdrożenia publikowania w sieci Web (agenta zdalnego)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md). Aby wdrożyć aplikację sieci web, należy wykonać poniższe czynności.
 
@@ -101,7 +101,7 @@ Aby zilustrować jak polecenie *. pliku deploy.cmd* pliku upraszcza proces wdra�
 [!code-console[Main](deploying-web-packages/samples/sample3.cmd)]
 
 
-Aby uzyskać więcej informacji na temat używania *. pliku deploy.cmd* plik, aby wdrożyć pakiet sieci web, zobacz [porady: Zainstaluj wdrażania pakietu przy użyciu pliku deploy.cmd pliku](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+Aby uzyskać więcej informacji na temat używania *. pliku deploy.cmd* plik, aby wdrożyć pakiet sieci web, zobacz [porady: Zainstaluj wdrażania pakietu przy użyciu pliku deploy.cmd pliku](https://msdn.microsoft.com/library/ff356104.aspx).
 
 ## <a name="using-msdeployexe"></a>Przy użyciu MSDeploy.exe
 
@@ -115,21 +115,21 @@ Gdy używasz MSDeploy.exe, należy podać trzy kluczowe informacje:
 
 - A **— źródło** parametrem, który wskazuje, gdzie pochodzi z danych.
 - A **— dest** parametrem, który wskazuje, gdzie ma danych.
-- A **— zlecenie** parametrem, który wskazuje [operacji](https://technet.microsoft.com/en-us/library/dd568989(WS.10).aspx) chcesz wykonać.
+- A **— zlecenie** parametrem, który wskazuje [operacji](https://technet.microsoft.com/library/dd568989(WS.10).aspx) chcesz wykonać.
 
-Zależy od MSDeploy.exe [narzędzia Web Deploy dostawców](https://technet.microsoft.com/en-us/library/dd569040(WS.10).aspx) do przetwarzania danych źródłowych i docelowych. Narzędzie Web Deploy obejmuje wiele dostawców reprezentujących zakres źródeł danych i aplikacji może współpracować z & #x 2014; na przykład istnieją dostawców dla baz danych programu SQL Server, serwery sieci web usług IIS, certyfikaty, zestawów (GAC) w pamięci podręcznej GAC, różnych pliki konfiguracji różnych i wiele innych typów danych. Zarówno **— źródło** parametru i **— dest** parametr musi określać dostawcy, w formularzu **— źródło**: [*providerName*] = [*lokalizacji*]. Podczas wdrażania pakietu sieci web do witryny sieci Web usług IIS, należy użyć tych wartości:
+Zależy od MSDeploy.exe [narzędzia Web Deploy dostawców](https://technet.microsoft.com/library/dd569040(WS.10).aspx) do przetwarzania danych źródłowych i docelowych. Narzędzie Web Deploy obejmuje wiele dostawców reprezentujących zakres źródeł danych i aplikacji może współpracować z & #x 2014; na przykład istnieją dostawców dla baz danych programu SQL Server, serwery sieci web usług IIS, certyfikaty, zestawów (GAC) w pamięci podręcznej GAC, różnych pliki konfiguracji różnych i wiele innych typów danych. Zarówno **— źródło** parametru i **— dest** parametr musi określać dostawcy, w formularzu **— źródło**: [*providerName*] = [*lokalizacji*]. Podczas wdrażania pakietu sieci web do witryny sieci Web usług IIS, należy użyć tych wartości:
 
-- **— Źródło** dostawcy jest zawsze [pakietu](https://technet.microsoft.com/en-us/library/dd569019(WS.10).aspx). Na przykład:
+- **— Źródło** dostawcy jest zawsze [pakietu](https://technet.microsoft.com/library/dd569019(WS.10).aspx). Na przykład:
 
     [!code-console[Main](deploying-web-packages/samples/sample4.cmd)]
-- **— Dest** dostawcy jest zawsze [automatycznie](https://technet.microsoft.com/en-us/library/dd569016(WS.10).aspx). Na przykład:
+- **— Dest** dostawcy jest zawsze [automatycznie](https://technet.microsoft.com/library/dd569016(WS.10).aspx). Na przykład:
 
     [!code-console[Main](deploying-web-packages/samples/sample5.cmd)]
 - **— Zlecenie** jest zawsze **synchronizacji**.
 
     [!code-console[Main](deploying-web-packages/samples/sample6.cmd)]
 
-Ponadto należy określić różne inne [ustawień specyficznych dla dostawcy](https://technet.microsoft.com/en-us/library/dd569001(WS.10).aspx) i ogólne [ustawienia działania](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx). Na przykład załóżmy, że chcesz wdrożyć aplikację sieci web ContactManager.Mvc w środowisku przemieszczania. Wdrożenia będzie obowiązywać obsługi wdrażania sieci Web i użyć uwierzytelniania podstawowego. Aby wdrożyć aplikację sieci web, należy wykonać poniższe czynności.
+Ponadto należy określić różne inne [ustawień specyficznych dla dostawcy](https://technet.microsoft.com/library/dd569001(WS.10).aspx) i ogólne [ustawienia działania](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Na przykład załóżmy, że chcesz wdrożyć aplikację sieci web ContactManager.Mvc w środowisku przemieszczania. Wdrożenia będzie obowiązywać obsługi wdrażania sieci Web i użyć uwierzytelniania podstawowego. Aby wdrożyć aplikację sieci web, należy wykonać poniższe czynności.
 
 **Aby wdrożyć aplikację sieci web przy użyciu MSDeploy.exe**
 
@@ -145,7 +145,7 @@ W tym przykładzie:
 - **— Źródło** określa parametr **pakietu** dostawcy i wskazuje lokalizację pakietu sieci web.
 - **— Dest** określa parametr **automatycznie** dostawcy. **ComputerName** ustawienie zawiera adres URL usługi sieci Web obsługi wdrażania na serwerze docelowym. **Typ** ustawienie wskazuje, że chcesz użyć uwierzytelniania podstawowego i jako taki musisz podać **username** i **hasło**. Na koniec **includeAcls = "False"** ustawienie wskazuje, że nie chcesz kopiować listy kontroli dostępu (ACL) plików w aplikacji sieci web źródłowego na serwer docelowy.
 - **— Zlecenie: synchronizacja** argument wskazuje, że chcesz replikować zawartość źródłową na serwerze docelowym.
-- **— DisableLink** argumenty wskazują, że nie chcesz replikować pule aplikacji, katalogu wirtualnego konfiguracji lub certyfikatów Secure Sockets Layer (SSL) na serwerze docelowym. Aby uzyskać więcej informacji, zobacz [rozszerzeń łączy wdrażania w sieci Web](https://technet.microsoft.com/en-us/library/dd569028(WS.10).aspx).
+- **— DisableLink** argumenty wskazują, że nie chcesz replikować pule aplikacji, katalogu wirtualnego konfiguracji lub certyfikatów Secure Sockets Layer (SSL) na serwerze docelowym. Aby uzyskać więcej informacji, zobacz [rozszerzeń łączy wdrażania w sieci Web](https://technet.microsoft.com/library/dd569028(WS.10).aspx).
 - **— SetParamFile** parametru zapewnia lokalizację *SetParameters.xml* pliku.
 - **— AllowUntrusted** przełącznika wskazuje, że narzędzia Web Deploy należy zaakceptować certyfikatów SSL, które nie zostały wystawione przez zaufany urząd certyfikacji. Jeśli wdrażasz do obsługi wdrażania sieci Web i certyfikatu z podpisem własnym był używany do zabezpieczania adres URL usługi, należy dołączyć ten przełącznik.
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
-ms.openlocfilehash: e7f92dd7a09d1986ad775203effcbce76fb0e6f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29692b380f0ad1673459681042610876d152a76f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a>Co to jest nowe w programie ASP.NET MVC 2
 ====================
@@ -88,7 +88,7 @@ Jeśli nie określisz przestrzeni nazw w metodzie RegisterArea przez wywołanie 
 
 ### <a id="_TOC3_3"></a>Obsługa kontrolerów asynchroniczne
 
-ASP.NET MVC 2 umożliwia teraz kontrolery do asynchronicznego przetwarzania żądań. Może to prowadzić do wzrost wydajności dzięki serwerów, które często wywołania operacji blokowania (takie jak żądania sieci) zamiast tego wywołać nieblokujące odpowiedniki. Aby uzyskać więcej informacji, zobacz [na platformie ASP.NET MVC przy użyciu kontrolera asynchronicznego](https://msdn.microsoft.com/en-us/library/ee728598(v=VS.100).aspx) temacie w witrynie MSDN.
+ASP.NET MVC 2 umożliwia teraz kontrolery do asynchronicznego przetwarzania żądań. Może to prowadzić do wzrost wydajności dzięki serwerów, które często wywołania operacji blokowania (takie jak żądania sieci) zamiast tego wywołać nieblokujące odpowiedniki. Aby uzyskać więcej informacji, zobacz [na platformie ASP.NET MVC przy użyciu kontrolera asynchronicznego](https://msdn.microsoft.com/library/ee728598(v=VS.100).aspx) temacie w witrynie MSDN.
 
 ### <a id="_TOC3_4"></a>Obsługa DefaultValueAttribute parametrów metody akcji
 
@@ -142,7 +142,7 @@ Klasa ModelMetadataProvider udostępnia abstrakcję do uzyskania metadanych dla 
 
 Klasa ViewDataDictionary udostępnia obiekt ModelMetadata zawierający metadane, który został wyodrębniony z modelu przez klasę ModelMetadataProvider. Dzięki temu pomocników szablonu w celu używania tych metadanych i odpowiednio zmienić ich dane wyjściowe.
 
-Aby uzyskać więcej informacji, zobacz dokumentację [ModelMetadata](https://msdn.microsoft.com/en-us/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) i [ModelMetadataProvider](https://msdn.microsoft.com/en-us/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) klasy.
+Aby uzyskać więcej informacji, zobacz dokumentację [ModelMetadata](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) i [ModelMetadataProvider](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) klasy.
 
 ### <a id="_TOC3_7"></a>Obsługa DataAnnotations atrybutów
 
@@ -152,7 +152,7 @@ Aby uzyskać więcej informacji, zobacz [porady: Sprawdzanie poprawności atrybu
 
 ### <a id="_TOC3_8"></a>Dostawcy modułów weryfikacji modelu
 
-Klasa dostawcy weryfikacji modelu reprezentuje abstrakcji, która udostępnia logikę weryfikacji dla modelu. Platforma ASP.NET MVC zawiera domyślnego dostawcę na podstawie atrybutów sprawdzania poprawności, które znajdują się w przestrzeni nazw System.ComponentModel.DataAnnotations. Istnieje również możliwość utworzenia własnych dostawców weryfikacji, definiujące niestandardowych reguł walidacji i niestandardowe mapowanie reguł sprawdzania poprawności do modelu. Aby uzyskać więcej informacji, zobacz dokumentację [ModelValidatorProvider](https://msdn.microsoft.com/en-us/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx) klasy.
+Klasa dostawcy weryfikacji modelu reprezentuje abstrakcji, która udostępnia logikę weryfikacji dla modelu. Platforma ASP.NET MVC zawiera domyślnego dostawcę na podstawie atrybutów sprawdzania poprawności, które znajdują się w przestrzeni nazw System.ComponentModel.DataAnnotations. Istnieje również możliwość utworzenia własnych dostawców weryfikacji, definiujące niestandardowych reguł walidacji i niestandardowe mapowanie reguł sprawdzania poprawności do modelu. Aby uzyskać więcej informacji, zobacz dokumentację [ModelValidatorProvider](https://msdn.microsoft.com/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx) klasy.
 
 ### <a id="_TOC3_9"></a>Weryfikacja po stronie klienta
 

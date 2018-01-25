@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 4e2a3176aaedccd40ef6b619efa3c4052dd8470b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a549bd62bd78573c368784fd1529a830e009b0d4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i formularzy sieci Web 4 ASP.NET — część 2
 ====================
@@ -35,7 +35,7 @@ W poprzednich instrukcji utworzono witrynę sieci web, bazy danych i modelu dany
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image5.png)
 
-Należy pamiętać, że w tej aplikacji nie można dodać sprawdzania poprawności danych wejściowych do stron, które aktualizują bazę danych, a niektóre obsługi błędów nie są równie niezawodny, będą wymagane w aplikacji produkcyjnej. Który temu samouczek koncentruje się na platformie Entity Framework i przechowuje ją przed pobraniem zbyt długa. Aby uzyskać więcej informacji o sposobie dodawania tych funkcji do aplikacji, zobacz [sprawdzanie poprawności danych wejściowych użytkownika w programie ASP.NET Web Pages](https://msdn.microsoft.com/en-us/library/7kh55542.aspx) i [obsługi błędu w stron ASP.NET i aplikacji](https://msdn.microsoft.com/en-us/library/w16865z6.aspx).
+Należy pamiętać, że w tej aplikacji nie można dodać sprawdzania poprawności danych wejściowych do stron, które aktualizują bazę danych, a niektóre obsługi błędów nie są równie niezawodny, będą wymagane w aplikacji produkcyjnej. Który temu samouczek koncentruje się na platformie Entity Framework i przechowuje ją przed pobraniem zbyt długa. Aby uzyskać więcej informacji o sposobie dodawania tych funkcji do aplikacji, zobacz [sprawdzanie poprawności danych wejściowych użytkownika w programie ASP.NET Web Pages](https://msdn.microsoft.com/library/7kh55542.aspx) i [obsługi błędu w stron ASP.NET i aplikacji](https://msdn.microsoft.com/library/w16865z6.aspx).
 
 ## <a name="adding-and-configuring-the-entitydatasource-control"></a>Dodawanie i konfigurowanie sterowania obiektu EntityDataSource
 
@@ -157,13 +157,13 @@ W znaczniku dla `EntityDataSource` kontrolować, Usuń `ConnectionString` i `Def
 
 - Lepszą wydajność. Gdy `EntityDataSource` formant inicjuje model danych przy użyciu `ConnectionString` i `DefaultContainerName` atrybuty, wykonuje dodatkowej pracy można załadować metadanych na każde żądanie. Nie jest to konieczne, jeśli określono `ContextTypeName` atrybutu.
 - Opóźnionego ładowania jest włączona domyślnie w wygenerowanym obiektu kontekstu klasy (takich jak `SchoolEntities` w tym samouczku) w programie Entity Framework 4.0. Oznacza to, że właściwości nawigacji są załadowane dane dotyczące automatycznie po prawej, jeśli zajdzie taka potrzeba. Powolne ładowanie jest szczegółowo w dalszej części tego samouczka.
-- Wszystkie dostosowania, które zostały zastosowane do obiektu kontekstu klasy (w tym przypadku `SchoolEntities` klasy) będzie miał dostęp do formantów, które używają `EntityDataSource` formantu. Dostosowywanie klasę obiektu kontekstu jest temat zaawansowany, które nie są ujęte w tym samouczku. Aby uzyskać więcej informacji, zobacz [rozszerzanie typy generowane Framework jednostek](https://msdn.microsoft.com/en-us/library/dd456844.aspx).
+- Wszystkie dostosowania, które zostały zastosowane do obiektu kontekstu klasy (w tym przypadku `SchoolEntities` klasy) będzie miał dostęp do formantów, które używają `EntityDataSource` formantu. Dostosowywanie klasę obiektu kontekstu jest temat zaawansowany, które nie są ujęte w tym samouczku. Aby uzyskać więcej informacji, zobacz [rozszerzanie typy generowane Framework jednostek](https://msdn.microsoft.com/library/dd456844.aspx).
 
 Kod znaczników będzie teraz wyglądać poniższy przykład (kolejność właściwości mogą być różne):
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample6.aspx)]
 
-`EnableFlattening` Odnosi się do funkcji, który był konieczny we wcześniejszych wersjach programu Entity Framework, ponieważ kolumny klucza obcego nie były widoczne jako właściwości jednostki. Bieżąca wersja sprawia, że można użyć *skojarzenia klucza obcego*, co oznacza, że właściwości klucza obcego są widoczne wszystkie elementy oprócz wiele do wielu skojarzeń. Jeśli obiekty mają właściwości klucza obcego i nie [typów złożonych](https://msdn.microsoft.com/en-us/library/bb738472.aspx), może narazić ten atrybut na wartość `False`. Nie usunąć atrybut znaczników, ponieważ wartość domyślna to `True`. Aby uzyskać więcej informacji, zobacz [spłaszczanie obiektów (obiektu EntityDataSource)](https://msdn.microsoft.com/en-us/library/ee404746.aspx).
+`EnableFlattening` Odnosi się do funkcji, który był konieczny we wcześniejszych wersjach programu Entity Framework, ponieważ kolumny klucza obcego nie były widoczne jako właściwości jednostki. Bieżąca wersja sprawia, że można użyć *skojarzenia klucza obcego*, co oznacza, że właściwości klucza obcego są widoczne wszystkie elementy oprócz wiele do wielu skojarzeń. Jeśli obiekty mają właściwości klucza obcego i nie [typów złożonych](https://msdn.microsoft.com/library/bb738472.aspx), może narazić ten atrybut na wartość `False`. Nie usunąć atrybut znaczników, ponieważ wartość domyślna to `True`. Aby uzyskać więcej informacji, zobacz [spłaszczanie obiektów (obiektu EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx).
 
 Uruchom strony i wyświetlić listę studentów i pracowników (będzie filtrować dla uczniów lub studentów tylko w następnym samouczku). Imię i nazwisko są wyświetlane razem.
 

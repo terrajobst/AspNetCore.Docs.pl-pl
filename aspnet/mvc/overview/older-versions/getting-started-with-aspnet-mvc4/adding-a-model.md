@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 1d066e4bab866a2195647f43aa886279fee941db
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 304c428b0d787e902f30c1989471c476f54d3b39
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-model"></a>Dodawanie modelu
 ====================
@@ -28,7 +28,7 @@ Przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 W tej sekcji dodasz niektóre klasy zarządzania filmów w bazie danych. Te klasy będzie &quot;modelu&quot; częścią aplikacji ASP.NET MVC.
 
-Użyjesz technologii dostępu do danych .NET Framework, znany jako [Entity Framework](https://msdn.microsoft.com/en-us/library/bb399572(VS.110).aspx) do definiowania i pracy z tych klas modelu. Obsługuje programu Entity Framework (nazywanej często EF) o nazwie modelu programowania *Code First*. Kod umożliwia najpierw utworzyć obiekty modelu pisząc proste klasy. (Te są nazywane także klasy POCO z &quot;obiektów CLR starego zwykłego.&quot;) Następnie możesz wybrać bazy danych na bieżąco z klas, dzięki czemu bardzo czyste i szybkie programowanie przepływu pracy.
+Użyjesz technologii dostępu do danych .NET Framework, znany jako [Entity Framework](https://msdn.microsoft.com/library/bb399572(VS.110).aspx) do definiowania i pracy z tych klas modelu. Obsługuje programu Entity Framework (nazywanej często EF) o nazwie modelu programowania *Code First*. Kod umożliwia najpierw utworzyć obiekty modelu pisząc proste klasy. (Te są nazywane także klasy POCO z &quot;obiektów CLR starego zwykłego.&quot;) Następnie możesz wybrać bazy danych na bieżąco z klas, dzięki czemu bardzo czyste i szybkie programowanie przepływu pracy.
 
 ## <a name="adding-model-classes"></a>Dodawanie klas modelu
 

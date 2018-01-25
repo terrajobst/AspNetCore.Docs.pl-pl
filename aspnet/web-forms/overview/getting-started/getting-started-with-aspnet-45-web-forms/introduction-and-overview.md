@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 6ee3e244c4ed29384d11c7acc1440692d3f9b23e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6ae398f94c0ac3872601bdc8fd935f6d285793db
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Wprowadzenie do formularzy sieci Web 4.5 ASP.NET i Visual Studio 2013
 ====================
@@ -71,7 +71,7 @@ Funkcje formularza sieci Web ASP.NET przedstawionych w tej serii obejmują:
 - Projekt aplikacji sieci Web (nie projekt witryny sieci Web)
 - Formularze sieci Web
 - Strony wzorcowe, konfiguracji
-- Ładowania początkowego
+- Bootstrap
 - Entity Framework Code najpierw LocalDB
 - Sprawdzanie poprawności żądań
 - Silnie Typizowane formantów danych wiązań adnotacji danych modelu i dostawców wartości
@@ -150,7 +150,7 @@ Po powrocie z PayPal, możesz sprawdzić i ukończyć zamówienia.
 
 Przed rozpoczęciem upewnij się, że masz następujące oprogramowanie zainstalowane na komputerze:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) lub [programu Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework jest instalowana automatycznie.
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) lub [programu Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework jest instalowana automatycznie.
 
 Ten samouczek serii używa programu Microsoft Visual Studio Express 2013 for Web. Do ukończenia tego samouczka serii można użyć programu Microsoft Visual Studio Express 2013 for Web albo Microsoft Visual Studio 2013.
 
@@ -163,7 +163,7 @@ Jeśli masz już zainstalowany wersji programu Visual Studio, proces instalacji 
 
 > [!NOTE] 
 > 
-> W tym przewodniku przyjęto założenie, że wybrano *projektowanie witryn sieci Web* kolekcję ustawień przy pierwszym uruchomieniu programu Visual Studio. Aby uzyskać więcej informacji, zobacz [porady: Wybierz ustawienia środowiska sieci Web Development](https://msdn.microsoft.com/en-us/library/ff521558.aspx).
+> W tym przewodniku przyjęto założenie, że wybrano *projektowanie witryn sieci Web* kolekcję ustawień przy pierwszym uruchomieniu programu Visual Studio. Aby uzyskać więcej informacji, zobacz [porady: Wybierz ustawienia środowiska sieci Web Development](https://msdn.microsoft.com/library/ff521558.aspx).
 
 
 ## <a name="download-the-sample-application"></a>Pobierz aplikację przykładową
@@ -179,7 +179,7 @@ Po zainstalowaniu wymagań wstępnych, można przystąpić do rozpoczęcia tworz
 
 Pobieranie jest *.zip* pliku. Aby wyświetlić ukończone projektu, który tworzy tę serię samouczek, Znajdź i wybierz *C#*folderu w *.zip* pliku. Zapisz *C#* folderto folderu używać do pracy z projektów Visual Studio 2013. Domyślnie folderu projektów programu Visual Studio 2013 jest następujący:
 
-**C:\Users\*****&lt;username&gt;*** \Documents\Visual 2013\Projects w Studio**
+**C:\Users\*****&lt;username&gt;*****\Documents\Visual Studio 2013\Projects**
 
 Zmień nazwę ***C#*** folder ***WingtipToys***.
 
@@ -198,4 +198,4 @@ Komentarze dotyczące tego samouczka serii są powitalną, a po zaktualizowaniu 
 Po wystąpieniu błędu podczas tworzenia lub witryny sieci Web nie działa poprawnie, komunikaty o błędach mogą spowodować wskazówek złożone źródło problemu lub nie może wyjaśnić, jak to naprawić. Pomóc w niektórych typowych scenariuszy problem, można również użyć [fora ASP.NET](https://forums.asp.net/) lub sekcji pytania dołączonego [wprowadzenie do formularzy sieci Web programu ASP.NET 4.5 i programu Visual Studio 2013 — Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) () C#) próbki. Jeśli coś nie działa podczas wykonywania kroków samouczków wyświetlony komunikat o błędzie, należy sprawdzić w powyższych lokalizacjach.
 
 >[!div class="step-by-step"]
-[Dalej](create-the-project.md)
+[Next](create-the-project.md)

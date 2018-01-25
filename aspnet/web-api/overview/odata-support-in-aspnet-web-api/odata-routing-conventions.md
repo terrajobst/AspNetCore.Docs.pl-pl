@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
-ms.openlocfilehash: cd24a85a05e427f83d28cae876431d04cc295f17
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0ab99dd443040b90ffefd2f5b9261a63b91e9463
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>Konwencje tras w składniku ASP.NET Web API 2 Odata
 ====================
@@ -67,7 +67,7 @@ Dlatego tej ścieżki wybiera się dostawcę produktu 1.
 | --- | --- | --- | --- |
 | Pobierz /entityset | / Produktów | GetEntitySet lub Get | GetProducts |
 | Pobierz /entityset(key) | /Products(1) | GetEntityType lub Get | GetProduct |
-| Pobierz /entityset (klucz) / rzutowania | / /Models.Book produktów (1) | GetEntityType lub Get | GetBook |
+| Pobierz /entityset (klucz) / rzutowania | /Products(1)/Models.Book | GetEntityType lub Get | GetBook |
 
 Aby uzyskać więcej informacji, zobacz [Tworzenie punktu końcowego OData tylko do odczytu](odata-v3/creating-an-odata-endpoint.md).
 
@@ -77,18 +77,18 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie punktu końcowego OData tylko
 | --- | --- | --- | --- |
 | POST /entityset | / Produktów | PostEntityType lub Post | PostProduct |
 | Umieść /entityset(key) | /Products(1) | PutEntityType lub Put | PutProduct |
-| Umieść /entityset (klucz) / rzutowania | / /Models.Book produktów (1) | PutEntityType lub Put | PutBook |
+| Umieść /entityset (klucz) / rzutowania | /Products(1)/Models.Book | PutEntityType lub Put | PutBook |
 | POPRAWKA /entityset(key) | /Products(1) | PatchEntityType lub poprawki | PatchProduct |
-| POPRAWKA /entityset (klucz) / rzutowania | / /Models.Book produktów (1) | PatchEntityType lub poprawki | PatchBook |
+| POPRAWKA /entityset (klucz) / rzutowania | /Products(1)/Models.Book | PatchEntityType lub poprawki | PatchBook |
 | Usuń /entityset(key) | /Products(1) | DeleteEntityType lub Delete | DeleteProduct |
-| Usuń /entityset (klucz) / rzutowania | / /Models.Book produktów (1) | DeleteEntityType lub Delete | DeleteBook |
+| Usuń /entityset (klucz) / rzutowania | /Products(1)/Models.Book | DeleteEntityType lub Delete | DeleteBook |
 
 **Wykonanie zapytania dotyczącego właściwości nawigacji**
 
 | Żądanie | Przykład identyfikatora URI | Nazwa akcji | Przykład działania |
 | --- | --- | --- | --- |
 | /Entityset GET (klucz) / nawigacji | / (1) lub dostawcy produktów | GetNavigationFromEntityType lub GetNavigation | GetSupplierFromProduct |
-| Pobierz /entityset (klucz) / rzutowania/nawigacji | / /Models.Book/Author produktów (1) | GetNavigationFromEntityType lub GetNavigation | GetAuthorFromBook |
+| Pobierz /entityset (klucz) / rzutowania/nawigacji | /Products(1)/Models.Book/Author | GetNavigationFromEntityType lub GetNavigation | GetAuthorFromBook |
 
 Aby uzyskać więcej informacji, zobacz [Praca z relacjami jednostek](odata-v3/working-with-entity-relations.md).
 
@@ -96,9 +96,9 @@ Aby uzyskać więcej informacji, zobacz [Praca z relacjami jednostek](odata-v3/w
 
 | Żądanie | Przykład identyfikatora URI | Nazwa akcji |
 | --- | --- | --- |
-| /Entityset POST (klucz) / $links/nawigacji | / (1) / $produktów łącza lub dostawcy | CreateLink |
-| Umieść /entityset (klucz) / $links/nawigacji | / (1) / $produktów łącza lub dostawcy | CreateLink |
-| Usuń /entityset (klucz) / $links/nawigacji | / (1) / $produktów łącza lub dostawcy | DeleteLink |
+| /Entityset POST (klucz) / $links/nawigacji | /Products(1)/$links/Supplier | CreateLink |
+| Umieść /entityset (klucz) / $links/nawigacji | /Products(1)/$links/Supplier | CreateLink |
+| Usuń /entityset (klucz) / $links/nawigacji | /Products(1)/$links/Supplier | DeleteLink |
 | Usuń /entityset(key)/$links/navigation(relatedKey) | /Products/(1)/$Links/Suppliers(1) | DeleteLink |
 
 Aby uzyskać więcej informacji, zobacz [Praca z relacjami jednostek](odata-v3/working-with-entity-relations.md).
@@ -109,15 +109,15 @@ Aby uzyskać więcej informacji, zobacz [Praca z relacjami jednostek](odata-v3/w
 
 | Żądanie | Przykład identyfikatora URI | Nazwa akcji | Przykład działania |
 | --- | --- | --- | --- |
-| /Entityset GET (klucz) / właściwości | / (1) / Nazwa produktów | GetPropertyFromEntityType lub GetProperty | GetNameFromProduct |
-| Pobierz /entityset (klucz) / rzutowania lub właściwości | / /Models.Book/Author produktów (1) | GetPropertyFromEntityType lub GetProperty | GetTitleFromBook |
+| /Entityset GET (klucz) / właściwości | /Products(1)/Name | GetPropertyFromEntityType lub GetProperty | GetNameFromProduct |
+| Pobierz /entityset (klucz) / rzutowania lub właściwości | /Products(1)/Models.Book/Author | GetPropertyFromEntityType lub GetProperty | GetTitleFromBook |
 
 **Akcje**
 
 | Żądanie | Przykład identyfikatora URI | Nazwa akcji | Przykład działania |
 | --- | --- | --- | --- |
 | /Entityset POST (klucz) / działania | / (1) / szybkość produktów | ActionNameOnEntityType lub nazwa akcji | RateOnProduct |
-| OPUBLIKUJ /entityset (klucz) / rzutowania/działania | / /Models.Book/CheckOut produktów (1) | ActionNameOnEntityType lub nazwa akcji | CheckOutOnBook |
+| OPUBLIKUJ /entityset (klucz) / rzutowania/działania | /Products(1)/Models.Book/CheckOut | ActionNameOnEntityType lub nazwa akcji | CheckOutOnBook |
 
 Aby uzyskać więcej informacji, zobacz [akcji OData](odata-v3/odata-actions.md).
 
@@ -147,7 +147,7 @@ Obecnie wbudowane konwencje nie obejmują wszystkich możliwych identyfikatorów
 
 Dla obu metod Jeśli Konwencji nie ma zastosowania do tego żądania, metoda powinna zwrócić wartość null.
 
-**Element ODataPath** parametr reprezentuje przeanalizowany ścieżka zasobu OData. Zawiera listę  **[ODataPathSegment](https://msdn.microsoft.com/en-us/library/system.web.http.odata.routing.odatapathsegment.aspx)**  wystąpienia, po jednej dla każdego segmentu ścieżki zasobu. **ODataPathSegment** jest klasą abstrakcyjną; każdy typ segmentu jest reprezentowany przez klasę pochodną **ODataPathSegment**.
+**Element ODataPath** parametr reprezentuje przeanalizowany ścieżka zasobu OData. Zawiera listę  **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)**  wystąpienia, po jednej dla każdego segmentu ścieżki zasobu. **ODataPathSegment** jest klasą abstrakcyjną; każdy typ segmentu jest reprezentowany przez klasę pochodną **ODataPathSegment**.
 
 **ODataPath.TemplatePath** właściwość jest ciągiem, który reprezentuje połączenie wszystkich segmentów ścieżki. Na przykład, jeśli identyfikator URI jest `/Products(1)/Supplier`, jest szablon ścieżki &quot;~/entityset/key/navigation&quot;. Zwróć uwagę, że segmenty nie odnoszą się bezpośrednio do segmentów identyfikatora URI. Na przykład klucz jednostki (1) jest reprezentowany jako własnego **ODataPathSegment**.
 
@@ -170,7 +170,7 @@ Uwagi:
 1. I pochodzi od **EntitySetRoutingConvention**, ponieważ **SelectController** metody klasy jest odpowiedni dla tego nowego Konwencji routingu. Oznacza to, że nie należy ponownie wdrożyć **SelectController**.
 2. Konwencja dotyczy tylko żądania GET, i tylko wtedy, gdy szablon ścieżki &quot;~/entityset/key/navigation/key&quot;.
 3. Nazwa akcji jest &quot;uzyskać {EntityType}&quot;, gdzie *{EntityType}* jest typ kolekcji nawigacji. Na przykład &quot;GetSupplier&quot;. Korzystając z konwencją nazewnictwa, który chcesz &#8212; tylko upewnić, że odpowiada akcji kontrolera.
-4. Akcja przyjmuje dwa parametry o nazwie *klucza* i *relatedKey*. (Aby uzyskać listę niektóre nazwy wstępnie zdefiniowanych parametrów, zobacz [ODataRouteConstants](https://msdn.microsoft.com/en-us/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
+4. Akcja przyjmuje dwa parametry o nazwie *klucza* i *relatedKey*. (Aby uzyskać listę niektóre nazwy wstępnie zdefiniowanych parametrów, zobacz [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
 
 Następny krok polega na dodaniu nowej Konwencji do listy Konwencji tras. Dzieje się to podczas konfiguracji, jak pokazano w poniższym kodzie:
 

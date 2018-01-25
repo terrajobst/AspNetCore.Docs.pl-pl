@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 0af5f7e841bb43fa41fa0daa4ad8d59ee0596404
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4a5433a7dd70e27b59163822ba427b026c3f4ce0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Ciągłej integracji i ciągłego dostarczania (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -37,7 +37,7 @@ Ogólnie zaleca się wykonanie ciągłego dostarczania danych do programowania i
 
 Na poniższym diagramie z [Microsoft Patterns and Practices Książka elektroniczna o ciągłego dostarczania](http://aka.ms/ReleasePipeline) przedstawiono typowy przepływ pracy. Kliknij obraz, aby zobaczyć jego pełnym rozmiarze w jego oryginalnej kontekstu.
 
-[![Ciągłego dostarczania przepływu pracy](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/en-us/library/dn449955.aspx)
+[![Ciągłego dostarczania przepływu pracy](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
 ## <a name="how-the-cloud-enables-cost-effective-ci-and-cd"></a>Jak chmury umożliwia tworzenie ekonomicznych CI i dysku CD
 
@@ -65,13 +65,13 @@ Pierwszy wzorce programowania trzy chmury zostały temat należy wdrożyć proce
 
 ## <a name="resources"></a>Resources
 
-Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji sieci web w usłudze Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/).
+Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji sieci web w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-deploy/).
 
 Zobacz też następujące zasoby:
 
 - [Tworzenie potoku wersji z Team Foundation Server 2012](http://aka.ms/ReleasePipeline). Książka elektroniczna, materiały laboratoriów i przykładowy kod przez Microsoft Patterns and Practices, szczegółowe wprowadzenie do ciągłego dostarczania. Obejmuje korzystanie z programu Visual Studio Lab Management i Visual Studio Release Management.
 - [DevOps Rangers ALM narzędzi i wskazówek](https://aka.ms/vsarsolutions/). ALM Rangers wprowadzone DevOps Workbench przykładowe pomocnika rozwiązanie i praktyczne wskazówki we współpracy z wzorców &amp; Podręcznik rozwiązań *tworzenie potoku wersji z programem TFS 2012*, jako doskonały sposób na rozpoczęcie Learning pojęcia DevOps &amp; Release Management do TFS 2012 i rozpocząć testowany. Wskazówki pokazano, jak utworzyć aplikację raz i wdrożyć w wielu środowiskach.
-- [Testowanie pod kątem ciągłego dostarczania w programie Visual Studio 2012](https://msdn.microsoft.com/en-us/library/jj159345.aspx). Książka elektroniczna przez Microsoft Patterns and Practices, wyjaśniono, jak zintegrować testów automatycznych z ciągłego dostarczania.
+- [Testowanie pod kątem ciągłego dostarczania w programie Visual Studio 2012](https://msdn.microsoft.com/library/jj159345.aspx). Książka elektroniczna przez Microsoft Patterns and Practices, wyjaśniono, jak zintegrować testów automatycznych z ciągłego dostarczania.
 - [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker). Kod źródłowy narzędzie przeznaczone do przechwytywania kompilacji z TFS (oparte na etykiecie), jego tworzenia, pakiet go umożliwić innym osobom w roli DevOps, aby skonfigurować określone aspekty go i wypchnąć go na platformie Azure. Narzędzie do śledzenia procesu wdrażania w celu umożliwienia operacji "Przywracanie" do wersji wdrożonej wcześniej. To narzędzie nie ma zależności zewnętrznych i mogą działać z autonomicznej przy użyciu interfejsów API TFS i zestawu Azure SDK.
 - [Ciągłego dostarczania: Niezawodnej oprogramowania wydawanych przez proces kompilacji, testów i automatyzacji wdrażania](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361). Podręcznik przez Jez skromny.
 - [Zwolnij go! Projektowanie i wdrażanie oprogramowania gotowe do produkcji](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Podręcznik przez Michael T. Nygard.

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 245e381eca2aca61be5f860d1ec9994b482a9863
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2bd2ccb13c44d104e8945840705a21738d8abd5c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-vb"></a>Obsługa wyjątków na poziomie logiki warstwy Biznesowej i warstwy DAL (VB)
 ====================
@@ -101,7 +101,7 @@ Gdy wystąpi błąd, chcemy tylko etykiety, które mają być wyświetlane raz. 
 
 Zgłoszony wyjątek, firma Microsoft będzie przypisać szczegóły wyjątku do `ExceptionDetails` etykiety formantu s `Text` właściwości. Ponieważ swój stan widoku jest wyłączone, kolejne ogłaszania zwrotnego `Text` właściwości s programowe zmiany zostaną utracone, przywrócenie domyślny tekst (ciąg pusty), a tym samym ukrywanie komunikat ostrzegawczy.
 
-Aby określić, kiedy został zgłoszony błąd w celu wyświetlania przydatne wiadomości na stronie, musimy dodać `Try ... Catch` za pomocą bloku `UpdateCommand` obsługi zdarzeń. `Try` Części zawiera kod, który może prowadzić do wyjątku podczas `Catch` blok zawiera kod, który jest wykonywany w wypadku wyjątków. Zapoznaj się z [podstawowe informacje dotyczące obsługi wyjątków](https://msdn.microsoft.com/en-us/library/2w8f0bss.aspx) sekcji w dokumentacji programu .NET Framework, aby uzyskać więcej informacji na `Try ... Catch` bloku.
+Aby określić, kiedy został zgłoszony błąd w celu wyświetlania przydatne wiadomości na stronie, musimy dodać `Try ... Catch` za pomocą bloku `UpdateCommand` obsługi zdarzeń. `Try` Części zawiera kod, który może prowadzić do wyjątku podczas `Catch` blok zawiera kod, który jest wykonywany w wypadku wyjątków. Zapoznaj się z [podstawowe informacje dotyczące obsługi wyjątków](https://msdn.microsoft.com/library/2w8f0bss.aspx) sekcji w dokumentacji programu .NET Framework, aby uzyskać więcej informacji na `Try ... Catch` bloku.
 
 
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-vb/samples/sample5.vb)]
@@ -142,7 +142,7 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Wskazówek dotyczących wyjątków](https://msdn.microsoft.com/en-us/library/ms298399.aspx)
+- [Wyjątki — zalecenia dotyczące projektowania](https://msdn.microsoft.com/library/ms298399.aspx)
 - [Moduły rejestrowania błędów i obsługi (ELMAH)](http://workspaces.gotdotnet.com/elmah) (Biblioteka open source rejestrowania błędów)
 - [Biblioteka przedsiębiorstwa dla programu .NET Framework 2.0](https://www.microsoft.com/downloads/details.aspx?familyid=5A14E870-406B-4F2A-B723-97BA84AE80B5&amp;displaylang=en) (w tym bloku aplikacji zarządzania wyjątków)
 

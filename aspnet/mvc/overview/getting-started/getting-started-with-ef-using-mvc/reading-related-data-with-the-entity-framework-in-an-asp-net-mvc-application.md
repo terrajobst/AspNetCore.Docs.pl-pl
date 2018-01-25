@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 title: "Odczytywanie danych powiązanych z programu Entity Framework w aplikacji platformy ASP.NET MVC | Dokumentacja firmy Microsoft"
 author: tdykstra
-description: /AJAX/Tutorials/Using-AJAX-Control-Toolkit-Controls-and-Control-Extenders-VB
+description: /ajax/tutorials/using-ajax-control-toolkit-controls-and-control-extenders-vb
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 1f4912bb3113a8f9cdae4211e055a7e317ab2aff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7a74d01f306abeeac5ac28c942f03001e0fe00f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Odczytywanie powiązane dane z programu Entity Framework w aplikacji platformy ASP.NET MVC
 ====================
@@ -45,7 +45,7 @@ Istnieje kilka sposobów programu Entity Framework może ładować powiązanych 
 - *Ładowanie wczesny*. Podczas odczytywania jednostki powiązane dane są pobierane wraz z jej. Powoduje to zwykle w zapytaniu sprzężenia jednej, która pobiera wszystkie dane potrzebne. Określ wczesny ładowania przy użyciu `Include` metody.
 
     ![Eager_loading_example](https://asp.net/media/2577856/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Eager_loading_example_33f907ff-f0b0-4057-8e75-05a8cacac807.png)
-- *Jawne ładowania*. Jest to podobne do opóźnionego ładowania, z wyjątkiem tego, że jawnie pobrać powiązanych danych w kodzie; go nie jest realizowane automatycznie podczas dostępu do właściwości nawigacji. Ręcznie załadować dane dotyczące pobierając wpis Menedżera stanu obiektu dla jednostki i wywoływania [Collection.Load](https://msdn.microsoft.com/en-us/library/gg696220(v=vs.103).aspx) metody dla kolekcji lub [Reference.Load](https://msdn.microsoft.com/en-us/library/gg679166(v=vs.103).aspx) metodę dla właściwości, które zawierają pojedynczy element. (W poniższym przykładzie, aby załadować właściwość nawigacji administratora, należy zastąpić `Collection(x => x.Courses)` z `Reference(x => x.Administrator)`.) Zazwyczaj można użyć tylko wtedy, gdy została włączona ładowania poza opóźnionego jawnego ładowania.
+- *Jawne ładowania*. Jest to podobne do opóźnionego ładowania, z wyjątkiem tego, że jawnie pobrać powiązanych danych w kodzie; go nie jest realizowane automatycznie podczas dostępu do właściwości nawigacji. Ręcznie załadować dane dotyczące pobierając wpis Menedżera stanu obiektu dla jednostki i wywoływania [Collection.Load](https://msdn.microsoft.com/library/gg696220(v=vs.103).aspx) metody dla kolekcji lub [Reference.Load](https://msdn.microsoft.com/library/gg679166(v=vs.103).aspx) metodę dla właściwości, które zawierają pojedynczy element. (W poniższym przykładzie, aby załadować właściwość nawigacji administratora, należy zastąpić `Collection(x => x.Courses)` z `Reference(x => x.Administrator)`.) Zazwyczaj można użyć tylko wtedy, gdy została włączona ładowania poza opóźnionego jawnego ładowania.
 
     ![Explicit_loading_example](https://asp.net/media/2577862/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Explicit_loading_example_79d8c368-6d82-426f-be9a-2b443644ab15.png)
 
@@ -57,7 +57,7 @@ Jeśli znasz potrzebne dane dotyczące dla każdej jednostki pobrać wczesny ła
 
 Z drugiej strony w niektórych scenariuszach opóźnionego ładowania jest bardziej wydajny. Ładowanie wczesny może spowodować sprzężenia bardzo skomplikowane, zostanie wygenerowany, której program SQL Server nie może przetworzyć wydajnie. Lub jeśli chcesz uzyskać dostęp do właściwości nawigacji jednostki tylko przez podzbiór zestawu jednostek w przypadku przetwarzania, opóźnionego ładowania mogą działać lepiej, ponieważ ładowanie wczesny czy pobrać więcej danych niż trzeba. Jeśli wydajność jest szczególnie ważne, najlepiej testowanie wydajności w obu kierunkach, aby ustawić najlepszym rozwiązaniem.
 
-Powolne ładowanie można zamaskować kodu, która powoduje występowanie problemów z wydajnością. Na przykład kodu, który nie określa wczesny lub jawnego ładowania, ale przetwarza dużą liczbę jednostek i używa kilku właściwości nawigacji w każdej iteracji może być bardzo mało wydajne (ze względu na wiele rund do bazy danych). Aplikacja, która wykonuje również Programowanie przy użyciu na lokalnym programem SQL server mogą wystąpić problemy z wydajnością po przeniesieniu do bazy danych SQL Azure z powodu większe opóźnienia i opóźnionego ładowania. Profilowanie zapytania bazy danych z realistyczne testu obciążenia pomoże określić, czy ładowanie opóźnieniem jest odpowiednia. Aby uzyskać więcej informacji, zobacz [Demystifying Entity Framework strategii: ładowanie powiązanych danych](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx) i [przy użyciu programu Entity Framework w celu zmniejszenia opóźnienia sieci SQL Azure](https://msdn.microsoft.com/en-us/magazine/gg309181.aspx).
+Powolne ładowanie można zamaskować kodu, która powoduje występowanie problemów z wydajnością. Na przykład kodu, który nie określa wczesny lub jawnego ładowania, ale przetwarza dużą liczbę jednostek i używa kilku właściwości nawigacji w każdej iteracji może być bardzo mało wydajne (ze względu na wiele rund do bazy danych). Aplikacja, która wykonuje również Programowanie przy użyciu na lokalnym programem SQL server mogą wystąpić problemy z wydajnością po przeniesieniu do bazy danych SQL Azure z powodu większe opóźnienia i opóźnionego ładowania. Profilowanie zapytania bazy danych z realistyczne testu obciążenia pomoże określić, czy ładowanie opóźnieniem jest odpowiednia. Aby uzyskać więcej informacji, zobacz [Demystifying Entity Framework strategii: ładowanie powiązanych danych](https://msdn.microsoft.com/magazine/hh205756.aspx) i [przy użyciu programu Entity Framework w celu zmniejszenia opóźnienia sieci SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
 ### <a name="disable-lazy-loading-before-serialization"></a>Wyłączenie ładowania opóźnionego przed serializacji
 
@@ -67,9 +67,9 @@ Serializacja może również być skomplikowany klasy serwera proxy, które korz
 
 Jeden sposób na uniknięcie problemów serializacji jest do serializacji obiektów transfer danych (DTOs) zamiast obiektów jednostek, jak pokazano w [przy użyciu interfejsu API sieci Web z programu Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-5.md) samouczka.
 
-Jeśli nie używasz DTOs, można wyłączyć ładowania opóźnionego i uniknąć problemów z serwera proxy przez [wyłączenie serwera proxy tworzenia](https://msdn.microsoft.com/en-US/data/jj592886.aspx).
+Jeśli nie używasz DTOs, można wyłączyć ładowania opóźnionego i uniknąć problemów z serwera proxy przez [wyłączenie serwera proxy tworzenia](https://msdn.microsoft.com/data/jj592886.aspx).
 
-Poniżej przedstawiono niektóre inne [sposoby wyłączenia opóźnionego ładowania](https://msdn.microsoft.com/en-US/data/jj574232):
+Poniżej przedstawiono niektóre inne [sposoby wyłączenia opóźnionego ładowania](https://msdn.microsoft.com/data/jj574232):
 
 - Dla właściwości nawigacji określonych, Pomiń `virtual` — słowo kluczowe w deklaracji właściwości.
 - Dla wszystkich właściwości nawigacji, ustaw `LazyLoadingEnabled` do `false`, umieść następujący kod w konstruktorze klasy kontekstu: 
@@ -164,7 +164,7 @@ Jeśli wybrano Identyfikator instruktora, wybranym instruktorze są pobierane z 
 
 `Where` Metoda zwraca kolekcję, ale w takim przypadku kryteria przekazany do tej metody powodują tylko jeden `Instructor` są zwracane jednostki. `Single` Metoda konwertuje kolekcję do postaci jednej `Instructor` jednostki, która umożliwia dostęp do tej jednostki `Courses` właściwości.
 
-Możesz użyć [pojedynczego](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.single.aspx) metoda w kolekcji, gdy wiesz, Kolekcja będzie mieć tylko jeden element. `Single` Metoda zgłasza wyjątek, jeśli kolekcja przekazywania jest pusta lub jeśli istnieje więcej niż jeden element. Alternatywą jest [SingleOrDefault](https://msdn.microsoft.com/en-us/library/bb342451.aspx), która zwraca wartość domyślną (`null` w takim przypadku), jeśli kolekcja jest pusta. Jednak w takim przypadku który nadal spowoduje powstanie wyjątku (z próby znalezienia `Courses` właściwość `null` odwołania), oraz komunikat o wyjątku mniej wyraźnie wskazuje przyczynę problemu. Podczas wywoływania `Single` metody, można również przekazać `Where` warunku zamiast wywoływać metodę `Where` metody oddzielnie:
+Możesz użyć [pojedynczego](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) metoda w kolekcji, gdy wiesz, Kolekcja będzie mieć tylko jeden element. `Single` Metoda zgłasza wyjątek, jeśli kolekcja przekazywania jest pusta lub jeśli istnieje więcej niż jeden element. Alternatywą jest [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), która zwraca wartość domyślną (`null` w takim przypadku), jeśli kolekcja jest pusta. Jednak w takim przypadku który nadal spowoduje powstanie wyjątku (z próby znalezienia `Courses` właściwość `null` odwołania), oraz komunikat o wyjątku mniej wyraźnie wskazuje przyczynę problemu. Podczas wywoływania `Single` metody, można również przekazać `Where` warunku zamiast wywoływać metodę `Where` metody oddzielnie:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 

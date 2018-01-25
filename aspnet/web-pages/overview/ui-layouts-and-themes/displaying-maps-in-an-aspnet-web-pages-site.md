@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: a802e4fed81fadca195c8aa83c37c7100ac5cbec
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6f3e6a0cfb8c08cd971e88986d0f059dd8237aab
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>Wyświetlanie mapy witryny (Razor) stron sieci Web ASP.NET
 ====================
@@ -38,8 +38,8 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 2
-> - Program WebMatrix 2
+> - ASP.NET Web Pages (Razor) 2
+> - WebMatrix 2
 >   
 > 
 > W tym samouczku współdziała również z 3 programu WebMatrix.
@@ -101,17 +101,17 @@ W tym przykładzie pokazano, jak utworzyć na podstawie współrzędnych mapy. T
 
     [!code-cshtml[Main](displaying-maps-in-an-aspnet-web-pages-site/samples/sample2.cshtml)]
 2. Zastąp `your-key-here` z kluczem usługi mapy Bing, wcześniej wygenerowany.
-3. Uruchom *MapCoordinates.cshtml* wprowadź współrzędne geograficzne, a następnie kliknij pozycję **mapy go!** przycisk. (Jeśli nie znasz wszystkie współrzędne, wykonaj następujące czynności. Jest to lokalizacja w firmy Microsoft Redmond).
+3. Uruchom *MapCoordinates.cshtml* wprowadź współrzędne geograficzne, a następnie kliknij pozycję **mapy go!** button. (Jeśli nie znasz wszystkie współrzędne, wykonaj następujące czynności. Jest to lokalizacja w firmy Microsoft Redmond).
 
     - Szerokość: 47.6781005859375
-    - Długość geograficzna:-122.158317565918
+    - Longitude: -122.158317565918
 
     Ta strona jest wyświetlana, przy użyciu współrzędnych, określone przez użytkownika.
 
-    ![Mapowanie 3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
+    ![mapping-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 
-[Dokumentacja interfejsu API Microsoft.Maps](https://msdn.microsoft.com/en-us/library/gg427611.aspx)
+[Dokumentacja interfejsu API Microsoft.Maps](https://msdn.microsoft.com/library/gg427611.aspx)

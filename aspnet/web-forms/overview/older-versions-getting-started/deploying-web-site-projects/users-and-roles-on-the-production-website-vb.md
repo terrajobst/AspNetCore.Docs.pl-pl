@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ced68b633eb34d1ea75671ac4ffe7f512e911a0d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3bfaa0e14e3e04a7faae1a78b566d7c2067785a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="users-and-roles-on-the-production-website-vb"></a>Użytkownicy i role w środowisku produkcyjnym w sieci Web (VB)
 ====================
@@ -37,7 +37,7 @@ Zarządza wspólnym wyzwaniem dla deweloperów korzystających z usług członko
 
 ## <a name="using-the-aspnet-web-site-administration-tool"></a>Za pomocą narzędzia administrowania witryną sieci Web ASP.NET
 
-Program ASP.NET zawiera [narzędzie do administrowania witryną sieci Web](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx) (WSAT) ułatwia tworzenie i zarządzanie nimi kont użytkowników i ról i umożliwia określenie reguł autoryzacji na podstawie użytkowników i ról. Aby używać WSAT, kliknij ikonę konfiguracja platformy ASP.NET w Eksploratorze rozwiązań lub przejdź do menu witryny sieci Web lub projektu i wybierz opcję Konfiguracja programu ASP.NET. Albo podejście spowoduje uruchomienie przeglądarki sieci web i wskazaniu WSAT pod adresem, takich jak:`http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
+Program ASP.NET zawiera [narzędzie do administrowania witryną sieci Web](https://msdn.microsoft.com/library/yy40ytx0.aspx) (WSAT) ułatwia tworzenie i zarządzanie nimi kont użytkowników i ról i umożliwia określenie reguł autoryzacji na podstawie użytkowników i ról. Aby używać WSAT, kliknij ikonę konfiguracja platformy ASP.NET w Eksploratorze rozwiązań lub przejdź do menu witryny sieci Web lub projektu i wybierz opcję Konfiguracja programu ASP.NET. Albo podejście spowoduje uruchomienie przeglądarki sieci web i wskazaniu WSAT pod adresem, takich jak:`http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
 
 WSAT jest podzielone na trzy części:
 
@@ -116,7 +116,7 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 - [Badanie ASP. Członkostwo w sieci, ról i profilu](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [Wycofanie własne narzędzia administrowania witryną sieci Web](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
-- [Omówienie narzędzia do administrowania witryny sieci Web](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx)
+- [Omówienie narzędzia do administrowania witryny sieci Web](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 - [Samouczki dotyczące zabezpieczeń witryny sieci Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 >[!div class="step-by-step"]

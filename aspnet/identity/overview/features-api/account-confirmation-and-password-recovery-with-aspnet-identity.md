@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 5fa7b6227eb88aa6766ab8776bc8a3cc1111b942
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 548baaaa06980fb793c079b66b6edc34422eb579
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Potwierdzenie konta i hasło odzyskiwania za pomocą tożsamości platformy ASP.NET (C#)
 ====================
@@ -78,7 +78,7 @@ Rozpocznij od instalowania i uruchamiania [programu Visual Studio Express 2013 f
 
 1. Utwórz nowy projekt sieci Web ASP.NET i wybierz szablon MVC. Formularze sieci Web obsługuje również tożsamości platformy ASP.NET, można wykonać podobne kroki w aplikacji formularzy sieci web.
 2. Pozostaw domyślne uwierzytelnianie jako **indywidualnych kont użytkowników**.
-3. Uruchom aplikację, kliknij przycisk **zarejestrować** i łącza do zarejestrowania użytkownika. W tym momencie jest tylko sprawdzanie poprawności w wiadomości e-mail z [[EmailAddress]](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) atrybutu.
+3. Uruchom aplikację, kliknij przycisk **zarejestrować** i łącza do zarejestrowania użytkownika. W tym momencie jest tylko sprawdzanie poprawności w wiadomości e-mail z [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) atrybutu.
 4. W Eksploratorze serwera, przejdź do **Connections\DefaultConnection\Tables\AspNetUsers danych**, kliknij prawym przyciskiem myszy i wybierz **Otwórz definicję tabeli**.
 
     Poniższy obraz przedstawia `AspNetUsers` schematu:
@@ -94,7 +94,7 @@ Domyślny magazyn danych dla tożsamości ASP.NET jest Entity Framework, ale mo�
 
 [Klasy początkowej OWIN](../../../aspnet/overview/owin-and-katana/owin-startup-class-detection.md) ( *Startup.cs* ) jest wywoływane, gdy rozpoczyna się i wywołuje aplikacji `ConfigureAuth` metody w *aplikacji\_Start\Startup.Auth.cs*, które Konfiguruje potok OWIN i inicjuje tożsamości ASP.NET. Sprawdź `ConfigureAuth` metody. Każdy `CreatePerOwinContext` wywołania rejestruje wywołanie zwrotne (zapisane w `OwinContext`) która będzie wywoływana raz na żądanie utworzenia wystąpienia określonego typu. Można ustawić punktu przerwania w Konstruktorze i `Create` metody każdego typu (`ApplicationDbContext, ApplicationUserManager`) i sprawdź, są one nazywane na każdym żądaniu. Wystąpienie elementu `ApplicationDbContext` i `ApplicationUserManager` jest przechowywana w kontekście OWIN, który jest dostępny w całej aplikacji. Przechwytuje tożsamości ASP.NET do potoku OWIN za pomocą oprogramowania pośredniczącego plików cookie. Aby uzyskać więcej informacji, zobacz [na żądanie Zarządzanie okresem istnienia klasy interfejs UserManager w produkcie ASP.NET Identity](https://blogs.msdn.com/b/webdev/archive/2014/02/12/per-request-lifetime-management-for-usermanager-class-in-asp-net-identity.aspx).
 
-Jeśli zmienisz profil zabezpieczeń nową sygnaturę bezpieczeństwa są generowane i przechowywane w `SecurityStamp` pole *AspNetUsers* tabeli. Uwaga: `SecurityStamp` pola różni się od pliku cookie zabezpieczeń. Plik cookie zabezpieczeń nie są przechowywane w `AspNetUsers` tabeli (lub dowolnego miejsca w bazie danych tożsamości). Token pliku cookie zabezpieczeń jest podpisany przy użyciu [DPAPI](https://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata.aspx) i zostanie utworzony z `UserId, SecurityStamp` i informacje dotyczące czasu wygaśnięcia.
+Jeśli zmienisz profil zabezpieczeń nową sygnaturę bezpieczeństwa są generowane i przechowywane w `SecurityStamp` pole *AspNetUsers* tabeli. Uwaga: `SecurityStamp` pola różni się od pliku cookie zabezpieczeń. Plik cookie zabezpieczeń nie są przechowywane w `AspNetUsers` tabeli (lub dowolnego miejsca w bazie danych tożsamości). Token pliku cookie zabezpieczeń jest podpisany przy użyciu [DPAPI](https://msdn.microsoft.com/library/system.security.cryptography.protecteddata.aspx) i zostanie utworzony z `UserId, SecurityStamp` i informacje dotyczące czasu wygaśnięcia.
 
 Oprogramowanie pośredniczące plików cookie sprawdza, czy plik cookie na każde żądanie. `SecurityStampValidator` Metody w `Startup` klasy trafienia bazę danych i okresowo sprawdza sygnaturę bezpieczeństwa z określonej `validateInterval`. Tylko dzieje co 30 minut (w naszym przykładzie), chyba że zostanie zmienione profil zabezpieczeń. Aby zminimalizować rund do bazy danych wybrano 30 minut. Zobacz Moje [samouczek uwierzytelniania dwuskładnikowego](index.md) więcej szczegółów.
 
@@ -117,7 +117,7 @@ Sprawdź `ApplicationUserManager` klasy, która zawiera informacje o tożsamośc
 - Uwierzytelnianie dwuskładnikowe (2FA). W samouczku innego będzie obejmować 2FA i programu SMS.
 - Podłączanie poczty e-mail i usług programu SMS. (I będzie obejmować programu SMS w samouczku innego).
 
-`ApplicationUserManager` Klasa pochodzi od ogólnych `UserManager<ApplicationUser>` klasy. `ApplicationUser`pochodną [IdentityUser](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework.identityuser.aspx). `IdentityUser`pochodzi z ogólnego `IdentityUser` klasy:
+`ApplicationUserManager` Klasa pochodzi od ogólnych `UserManager<ApplicationUser>` klasy. `ApplicationUser`pochodną [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser.aspx). `IdentityUser`pochodzi z ogólnego `IdentityUser` klasy:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample1.cs)]
 
@@ -131,7 +131,7 @@ Argumenty rodzajowe w `IUser` umożliwiającą klasy przy użyciu różnych typ�
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample2.cs?highlight=8-9)]
 
-Generuje wyróżniony kod powyżej [ClaimsIdentity](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsidentity.aspx). ASP.NET Identity i uwierzytelniania plików Cookie OWIN są oparte na oświadczeniach, w związku z tym framework wymaga aplikacji do wygenerowania `ClaimsIdentity` dla użytkownika. `ClaimsIdentity`zawiera informacje o wszystkich oświadczenia dla użytkownika, takie jak nazwa użytkownika, wieku i jakie role użytkownika należy do. Na tym etapie można również dodać więcej oświadczenia dla użytkownika.
+Generuje wyróżniony kod powyżej [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). ASP.NET Identity i uwierzytelniania plików Cookie OWIN są oparte na oświadczeniach, w związku z tym framework wymaga aplikacji do wygenerowania `ClaimsIdentity` dla użytkownika. `ClaimsIdentity`zawiera informacje o wszystkich oświadczenia dla użytkownika, takie jak nazwa użytkownika, wieku i jakie role użytkownika należy do. Na tym etapie można również dodać więcej oświadczenia dla użytkownika.
 
 OWIN `AuthenticationManager.SignIn` metoda przekazuje w `ClaimsIdentity` i loguje się użytkownik:
 
@@ -179,13 +179,13 @@ Gdy użytkownik rejestruje konta lokalnego, `HTTP Post Register` metoda jest wyw
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample6.cs)]
 
-Powyższy kod używa danych modelu, aby utworzyć nowe konto użytkownika przy użyciu poczty e-mail i hasło. Jeśli alias e-mail znajduje się w magazynie danych, tworzenie konta usługi nie powiedzie się i ponownie wyświetlić formularza. `GenerateEmailConfirmationTokenAsync` Metoda tworzy token potwierdzenia bezpiecznego i zapisuje je w magazynie danych tożsamości ASP.NET. [Url.Action](https://msdn.microsoft.com/en-us/library/dd505232(v=vs.118).aspx) metoda tworzy łącze zawierające `UserId` i tokenu potwierdzenia. Ten link jest następnie pocztą e-mail do użytkownika, użytkownik może kliknąć łącze w swoich aplikacji poczty e-mail, aby potwierdzić swoje konto.
+Powyższy kod używa danych modelu, aby utworzyć nowe konto użytkownika przy użyciu poczty e-mail i hasło. Jeśli alias e-mail znajduje się w magazynie danych, tworzenie konta usługi nie powiedzie się i ponownie wyświetlić formularza. `GenerateEmailConfirmationTokenAsync` Metoda tworzy token potwierdzenia bezpiecznego i zapisuje je w magazynie danych tożsamości ASP.NET. [Url.Action](https://msdn.microsoft.com/library/dd505232(v=vs.118).aspx) metoda tworzy łącze zawierające `UserId` i tokenu potwierdzenia. Ten link jest następnie pocztą e-mail do użytkownika, użytkownik może kliknąć łącze w swoich aplikacji poczty e-mail, aby potwierdzić swoje konto.
 
 <a id="email"></a>
 
 ## <a name="set-up-email-confirmation"></a>Konfigurowanie wiadomości e-mail z potwierdzeniem
 
-Przejdź do [stronę Tworzenie konta Azure SendGrid](https://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/) i zarejestrować bezpłatne konto. Dodaj kod podobne do następujących czynności, aby skonfigurować SendGrid:
+Przejdź do [stronę Tworzenie konta Azure SendGrid](https://azure.microsoft.com/gallery/store/sendgrid/sendgrid-azure/) i zarejestrować bezpłatne konto. Dodaj kod podobne do następujących czynności, aby skonfigurować SendGrid:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample7.cs?highlight=5)]
 
@@ -193,7 +193,7 @@ Przejdź do [stronę Tworzenie konta Azure SendGrid](https://azure.microsoft.com
 > Klienci poczty e-mail często akceptuje tylko wiadomości tekstowych (nie HTML). Należy podać komunikat w tekst i HTML. W powyższym przykładzie SendGrid jest to zrobić za pomocą `myMessage.Text` i `myMessage.Html` kodzie pokazanym powyżej.
 
 
-Poniższy kod przedstawia sposób wysłania wiadomości e-mail przy użyciu [MailMessage](https://msdn.microsoft.com/en-us/library/system.net.mail.mailmessage.aspx) klasy where `message.Body` zwraca tylko łącze.
+Poniższy kod przedstawia sposób wysłania wiadomości e-mail przy użyciu [MailMessage](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx) klasy where `message.Body` zwraca tylko łącze.
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample8.cs)]
 
@@ -238,8 +238,8 @@ Poniższy kod przedstawia metody potwierdzenia poczty e-mail:
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Przegląd dostawców magazynu niestandardowego dla tożsamości ASP.NET](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
+- [Omówienie niestandardowych dostawców magazynu dla produktu ASP.NET Identity](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
 - [Aplikacji MVC 5 za pomocą usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowania jednokrotnego](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) także przedstawiono sposób dodawania informacji o profilu do tabeli użytkowników.
 - [ASP.NET MVC i tożsamość 2.0: opis podstawowych funkcji](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) przez Atten Jan.
-- [Wprowadzenie do tożsamości platformy ASP.NET](../getting-started/introduction-to-aspnet-identity.md)
+- [Wprowadzenie do produktu ASP.NET Identity](../getting-started/introduction-to-aspnet-identity.md)
 - [Anonsowanie RTM programu ASP.NET Identity 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) przez Pranav Rastogi.

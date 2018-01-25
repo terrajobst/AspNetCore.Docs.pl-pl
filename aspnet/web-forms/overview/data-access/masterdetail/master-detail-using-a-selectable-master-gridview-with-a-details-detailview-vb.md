@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0db9bf25ce61c31dd8258aaebadf42e7738473ab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eae9c07eff7780aab18346815ca410d687789d17
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-vb"></a>Wzorzec/szczegół za pomocą wybieranych GridView wzorca z DetailView szczegóły (VB)
 ====================
@@ -39,7 +39,7 @@ W [poprzedniego samouczek](master-detail-filtering-across-two-pages-vb.md) widzi
 
 ## <a name="step-1-creating-a-selectable-gridview"></a>Krok 1: Tworzenie wybieranych widoku GridView
 
-Odwołania, który dwustronicowy główny/szczegółowy raport, że każdy rekord główny się hiperłącze, po kliknięciu wysyłane użytkownika do strony szczegółów przekazywanie klikniętej wiersza `SupplierID` wartość w zmiennej querystring. Takie hiperłącze został dodany do każdego wiersza w widoku GridView przy użyciu pole hiperłącza HyperLinkField. Dla jednej strony raportu głównych/szczegółów, Wkrótce skontaktujemy przycisk dla każdego widoku GridView wiersz, który, po kliknięciu przedstawia szczegóły. Kontrolki widoku siatki można skonfigurować do uwzględnienia przycisk Wybierz widoczny dla każdego wiersza, który powoduje odświeżenie strony i oznacza tego wiersza jako w widoku GridView [SelectedRow](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedrow.aspx).
+Odwołania, który dwustronicowy główny/szczegółowy raport, że każdy rekord główny się hiperłącze, po kliknięciu wysyłane użytkownika do strony szczegółów przekazywanie klikniętej wiersza `SupplierID` wartość w zmiennej querystring. Takie hiperłącze został dodany do każdego wiersza w widoku GridView przy użyciu pole hiperłącza HyperLinkField. Dla jednej strony raportu głównych/szczegółów, Wkrótce skontaktujemy przycisk dla każdego widoku GridView wiersz, który, po kliknięciu przedstawia szczegóły. Kontrolki widoku siatki można skonfigurować do uwzględnienia przycisk Wybierz widoczny dla każdego wiersza, który powoduje odświeżenie strony i oznacza tego wiersza jako w widoku GridView [SelectedRow](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedrow.aspx).
 
 Rozpocznij od dodania formantu widoku GridView `DetailsBySelecting.aspx` strony `Filtering` folderu ustawienie jej `ID` właściwości `ProductsGrid`. Następnie dodaj nowy element ObjectDataSource o nazwie `AllProductsDataSource` który wywołuje `ProductsBLL` klasy `GetProducts()` metody.
 
@@ -85,7 +85,7 @@ Opcje wyboru włączenie sprawdzania dodaje CommandField do `ProductsGrid` GridV
 
 [!code-aspx[Main](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/samples/sample2.aspx)]
 
-Po kliknięciu przycisku Wybierz wierszu elementu GridView odświeżania strony ensues i w widoku GridView `SelectedRow` właściwość jest aktualizowana. Oprócz `SelectedRow` właściwość, zapewnia widoku GridView [SelectedIndex](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedindex%28VS.80%29.aspx), [SelectedValue](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedvalue%28VS.80%29.aspx), i [SelectedDataKey](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selecteddatakey%28VS.80%29.aspx) właściwości. `SelectedIndex` Właściwość zwraca indeks wybranego wiersza, podczas gdy `SelectedValue` i `SelectedDataKey` właściwości zwracają wartości oparte na w widoku GridView [właściwości DataKeyNames](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.datakeynames%28VS.80%29.aspx).
+Po kliknięciu przycisku Wybierz wierszu elementu GridView odświeżania strony ensues i w widoku GridView `SelectedRow` właściwość jest aktualizowana. Oprócz `SelectedRow` właściwość, zapewnia widoku GridView [SelectedIndex](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex%28VS.80%29.aspx), [SelectedValue](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue%28VS.80%29.aspx), i [SelectedDataKey](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selecteddatakey%28VS.80%29.aspx) właściwości. `SelectedIndex` Właściwość zwraca indeks wybranego wiersza, podczas gdy `SelectedValue` i `SelectedDataKey` właściwości zwracają wartości oparte na w widoku GridView [właściwości DataKeyNames](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames%28VS.80%29.aspx).
 
 `DataKeyNames` Właściwość jest używana do skojarzenia z jedną lub więcej wartości w każdym wierszu i jest najczęściej używany do jednoznacznego identyfikowania informacji z danych z każdego wiersza w widoku GridView atrybutu. `SelectedValue` Właściwość zwraca wartość pierwszego `DataKeyNames` pola danych dla wybranego wiersza w przypadku gdy `SelectedDataKey` właściwość zwraca wybranego wiersza `DataKey` obiekt, który zawiera wszystkie wartości dla określonego klucza pól danych tego wiersza.
 

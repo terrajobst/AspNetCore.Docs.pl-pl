@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 6a5feb9039c5b0e9823e5f22f4d55a70830dd3e6
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f0953ad5d9f1bfa92ecc5169d9a211ce6b8cda8f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Dostawcy magazynu niestandardowego dla ASP.NET Core Identity
 
@@ -62,7 +62,7 @@ Podczas tworzenia nowego wystąpienia klasy `UserManager` lub `RoleManager` udos
 
 ### <a name="users"></a>Użytkownicy
 
-Zarejestrowani użytkownicy witryny sieci web. [IdentityUser](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser) typu może być rozszerzony lub jako przykład wykorzystano typu niestandardowego. Nie trzeba przeprowadzać dziedziczyć po typie konkretnej implementacji własne rozwiązania magazynu tożsamości niestandardowej.
+Zarejestrowani użytkownicy witryny sieci web. [IdentityUser](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser) typu może być rozszerzony lub jako przykład wykorzystano typu niestandardowego. Nie trzeba dziedziczyć po typie konkretnej implementacji własne rozwiązania magazynu tożsamości niestandardowej.
 
 ### <a name="user-claims"></a>Oświadczenia użytkowników
 
@@ -78,9 +78,9 @@ Grup autoryzacji dla witryny. Zawiera nazwę roli identyfikator i roli (na przyk
 
 ## <a name="the-data-access-layer"></a>Warstwa dostępu do danych
 
-W tym temacie założono, że znasz mechanizm trwałości, który ma być oraz sposobu tworzenia jednostek dla tego mechanizmu. Ten temat nie zawiera szczegółowe informacje o sposobie tworzenia repozytoria lub klas dostępu do danych; Podczas pracy z ASP.NET Core Identity zapewnia sugestie dotyczące decyzji projektowych.
+W tym temacie założono, że znasz mechanizm trwałości, który ma być oraz sposobu tworzenia jednostek dla tego mechanizmu. W tym temacie nie zawierają szczegółowe informacje o sposobie tworzenia repozytoria lub klas dostępu do danych; Podczas pracy z ASP.NET Core Identity zapewnia sugestie dotyczące decyzji projektowych.
 
-Masz dużą swobodę podczas projektowania dla dostawcy magazynu dostosowanych Warstwa dostępu do danych. Należy utworzyć mechanizmy trwałości dla funkcji, które mają być używane w aplikacji. Na przykład jeśli nie używasz role w aplikacji, nie należy utworzyć magazyn dla ról lub skojarzenia roli użytkownika. Używanych technologii i istniejącej infrastruktury może wymagać struktura, która różni się bardzo od Domyślna implementacja ASP.NET Core Identity. W Twojej Warstwa dostępu do danych można zapewnić logikę do pracy ze strukturą implementacji magazynu.
+Masz dużą swobodę podczas projektowania dla dostawcy magazynu dostosowanych Warstwa dostępu do danych. Należy utworzyć mechanizmy trwałości dla funkcji, które mają być używane w aplikacji. Na przykład jeśli nie używasz role w aplikacji, nie trzeba utworzyć magazynu dla ról lub skojarzenia roli użytkownika. Używanych technologii i istniejącej infrastruktury może wymagać struktura, która różni się bardzo od Domyślna implementacja ASP.NET Core Identity. W Twojej Warstwa dostępu do danych można zapewnić logikę do pracy ze strukturą implementacji magazynu.
 
 Warstwa dostępu do danych zawiera logikę do zapisywania danych z ASP.NET Core Identity ze źródłem danych. Warstwa dostępu do danych dla dostawcy magazynu dostosowanych może obejmować następujące klasy do przechowywania informacji o użytkownika i roli.
 

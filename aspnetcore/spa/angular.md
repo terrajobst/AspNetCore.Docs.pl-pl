@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: b54798a43f6a448c2e2aad0613ee60805a61f303
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 4162b1c26e9d278c811f691c4277d4de25adb204
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-angular-project-template-release-candidate"></a>Należy użyć szablonu projektu kątowego (w wersji release candidate)
 
@@ -137,7 +137,7 @@ W *uruchamiania* klasy *po* wiersza, który konfiguruje `spa.Options.SourcePath`
 
 [!code-csharp[](sample/AngularServerSideRendering/Startup.cs?name=snippet_Call_UseSpa&highlight=5-12)]
 
-W trybie projektowania, ten kod próbuje kompilacji pakietu SSR przez uruchomienie skryptu `build:ssr`, która jest zdefiniowana w *ClientApp\package.json*. Powoduje to skompilowanie kątowego aplikacji o nazwie `ssr`, która nie została jeszcze zdefiniowana. 
+W trybie projektowania, ten kod próbuje kompilacji pakietu SSR przez uruchomienie skryptu `build:ssr`, która jest zdefiniowana w *ClientApp\package.json*. Powoduje to skompilowanie kątowego aplikacji o nazwie `ssr`, która nie jest jeszcze zdefiniowana. 
 
 Na koniec `apps` tablicy w *ClientApp/.angular-cli.json*, zdefiniuj dodatkowy aplikacji o nazwie `ssr`. Użyj następujących opcji:
 
@@ -176,7 +176,7 @@ Podczas SSR możesz przekazać dane na żądanie z aplikacji platformy ASP.NET C
 ```csharp
 options.SupplyData = (context, data) =>
 {
-    // Creates a new value called isHttpsRequest that is passed to TypeScript code
+    // Creates a new value called isHttpsRequest that's passed to TypeScript code
     data["isHttpsRequest"] = context.Request.IsHttps;
 };
 ```

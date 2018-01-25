@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/individual-accounts-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 8207df79c1e915b33a0ba095d917a6dc69550173
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2056e769edf972cba830b31cf37f6418148ca73
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>Zabezpieczanie interfejsu API sieci Web z indywidualnych kont i logowania lokalnego w składniku ASP.NET Web API 2.2
 ====================
@@ -204,8 +204,8 @@ Poniżej przedstawiono klasy głównym aplikacji, które implementują tych funk
 
 - `AccountController`. Udostępnia punkt końcowy interfejsu API sieci Web do zarządzania kontami użytkowników. `Register` Akcja jest jedyną, które zostały użyte w tym samouczku. Inne metody w klasie obsługuje resetowania hasła, logowania społecznościowych i innych funkcji.
 - `ApplicationUser`, zdefiniowane w /Models/IdentityModels.cs. Ta klasa jest model EF dla kont użytkowników w bazie danych członkostwa.
-- `ApplicationUserManager`, zdefiniowane w App\_Start/IdentityConfig.cs ta klasa pochodzi od [interfejs UserManager](https://msdn.microsoft.com/en-us/library/dn613290.aspx) i wykonuje operacje na kontach użytkowników, takich jak tworzenie nowego użytkownika, weryfikowanie hasła i tak dalej i automatycznie będzie się powtarzać zmiany w bazie danych.
-- `ApplicationOAuthProvider`. Ten obiekt podłącza się do oprogramowania pośredniczącego OWIN i przetwarzania zdarzeń zgłaszanych przez oprogramowanie pośredniczące. Dziedziczy [OAuthAuthorizationServerProvider](https://msdn.microsoft.com/en-us/library/microsoft.owin.security.oauth.oauthauthorizationserverprovider.aspx).
+- `ApplicationUserManager`, zdefiniowane w App\_Start/IdentityConfig.cs ta klasa pochodzi od [interfejs UserManager](https://msdn.microsoft.com/library/dn613290.aspx) i wykonuje operacje na kontach użytkowników, takich jak tworzenie nowego użytkownika, weryfikowanie hasła i tak dalej i automatycznie będzie się powtarzać zmiany w bazie danych.
+- `ApplicationOAuthProvider`. Ten obiekt podłącza się do oprogramowania pośredniczącego OWIN i przetwarzania zdarzeń zgłaszanych przez oprogramowanie pośredniczące. Dziedziczy [OAuthAuthorizationServerProvider](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserverprovider.aspx).
 
 ![](individual-accounts-in-web-api/_static/image14.png)
 
@@ -256,7 +256,7 @@ Gdy klient żąda zasobu chronionego, Oto co się stanie w potoku interfejsu API
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Tożsamość platformy ASP.NET](../../../identity/index.md)
+- [ASP.NET Identity](../../../identity/index.md)
 - [Opis funkcji zabezpieczeń w szablonie SPA dla VS2013 RC](https://blogs.msdn.com/b/webdev/archive/2013/09/20/understanding-security-features-in-spa-template.aspx). MSDN w blogu przez Hongye Sun.
 - [Pincety poszczególne interfejsu API sieci Web kont szablonu — część 2: kont lokalnych](http://leastprivilege.com/2013/11/26/dissecting-the-web-api-individual-accounts-templatepart-2-local-accounts/). Wpis w blogu przez Dominick Baier.
 - [Host uwierzytelniania i interfejsu API sieci Web z oprogramowaniem OWIN](http://brockallen.com/2013/10/27/host-authentication-and-web-api-with-owin-and-active-vs-passive-authentication-middleware/). Dobrym wyjaśnienie `SuppressDefaultHostAuthentication` i `HostAuthenticationFilter` przez firmy Brock Allen.

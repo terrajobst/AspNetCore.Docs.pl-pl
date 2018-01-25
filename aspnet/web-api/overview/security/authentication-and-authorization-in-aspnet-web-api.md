@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 137ac45166be03ae3c4864f41666d2acd1a37dc2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2a4b5ed8a712b061b4afdf5a3adc9378dd72b37f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Uwierzytelnianie i autoryzacja w składniku ASP.NET Web API
 ====================
@@ -37,7 +37,7 @@ Pierwszy artykuł z serii zawiera ogólne omówienie uwierzytelniania i autoryza
 
 Interfejs API sieci Web zakłada, że tego uwierzytelnianie odbywa się na hoście. Dla hostingu sieci web hosta jest usług IIS do uwierzytelniania używa moduły HTTP. Można skonfigurować pod kątem używania dowolnych moduły uwierzytelniania wbudowanej w usługi IIS lub ASP.NET projekt lub napisać własny moduł HTTP, aby wykonać niestandardowe uwierzytelnianie.
 
-Gdy host uwierzytelnia użytkownika, tworzy *główna*, która jest [IPrincipal](https://msdn.microsoft.com/en-us/library/System.Security.Principal.IPrincipal.aspx) obiekt, który reprezentuje kontekstu zabezpieczeń, w którym wykonywany jest kod. Host dołącza podmiotu zabezpieczeń bieżącego wątku przez ustawienie **Thread.CurrentPrincipal**. Podmiot zabezpieczeń zawiera skojarzone **tożsamości** obiekt, który zawiera informacje o użytkowniku. Jeśli użytkownik jest uwierzytelniony, **Identity.IsAuthenticated** zwraca **true**. W przypadku żądań anonimowych **IsAuthenticated** zwraca **false**. Aby uzyskać więcej informacji na temat podmiotów zabezpieczeń, zobacz [opartej na rolach zabezpieczeń](https://msdn.microsoft.com/en-us/library/shz8h065.aspx).
+Gdy host uwierzytelnia użytkownika, tworzy *główna*, która jest [IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx) obiekt, który reprezentuje kontekstu zabezpieczeń, w którym wykonywany jest kod. Host dołącza podmiotu zabezpieczeń bieżącego wątku przez ustawienie **Thread.CurrentPrincipal**. Podmiot zabezpieczeń zawiera skojarzone **tożsamości** obiekt, który zawiera informacje o użytkowniku. Jeśli użytkownik jest uwierzytelniony, **Identity.IsAuthenticated** zwraca **true**. W przypadku żądań anonimowych **IsAuthenticated** zwraca **false**. Aby uzyskać więcej informacji na temat podmiotów zabezpieczeń, zobacz [opartej na rolach zabezpieczeń](https://msdn.microsoft.com/library/shz8h065.aspx).
 
 ### <a name="http-message-handlers-for-authentication"></a>Programy obsługi komunikatów HTTP do uwierzytelniania
 
@@ -78,7 +78,7 @@ Autoryzacja odbywa się później w potoku, zbliżonej do kontrolera. Gwarantowa
 <a id="auth3"></a>
 ### <a name="using-the-authorize-attribute"></a>Przy użyciu [autoryzować] atrybutu
 
-Interfejs API sieci Web udostępnia filtr autoryzacji wbudowanych [klasy AuthorizeAttribute](https://msdn.microsoft.com/en-us/library/system.web.http.authorizeattribute.aspx). Ten filtr sprawdza, czy użytkownik jest uwierzytelniony. W przeciwnym razie zwraca kod stanu HTTP 401 (bez autoryzacji), bez wywoływania akcji.
+Interfejs API sieci Web udostępnia filtr autoryzacji wbudowanych [klasy AuthorizeAttribute](https://msdn.microsoft.com/library/system.web.http.authorizeattribute.aspx). Ten filtr sprawdza, czy użytkownik jest uwierzytelniony. W przeciwnym razie zwraca kod stanu HTTP 401 (bez autoryzacji), bez wywoływania akcji.
 
 Można zastosować filtr globalny, na poziomie kontrolera lub na poziomie akcji inidivual.
 

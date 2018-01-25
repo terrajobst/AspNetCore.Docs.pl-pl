@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 449c448d1be237f3f95a437bb2c0415bd8ed0d99
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3ca344c2466d9d538f55cd8ff0a5bf5b7bac808
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="customizing-database-deployments-for-multiple-environments"></a>Dostosowywanie wdrożenia bazy danych w wielu środowiskach
 ====================
@@ -69,20 +69,20 @@ Domyślnie projekt bazy danych zawiera plik konfiguracji wdrożenia jednego o na
 
 W poniższej tabeli zamieszczono Ustawienia typowe wdrożenie w środowiskach różnych miejsc docelowych. Jednak ustawienia mogą być różne w zależności od wymagań dokładne.
 
-|  | Deweloperów i testowanie | Przemieszczania/integracji | Produkcji |
+|  | Deweloperów i testowanie | Staging/Integration | Produkcji |
 | --- | --- | --- | --- |
 | **Sortowanie porównania wdrożenia** | Źródło | docelowy | docelowy |
-| **Wdrażanie właściwości bazy danych** | Wartość true | Tylko po raz pierwszy | Tylko po raz pierwszy |
-| **Zawsze ponownie utworzyć bazę danych** | Wartość true | False | False |
-| **Blokować przyrostowe wdrożenia, jeśli może wystąpić utrata danych** | False | Być może | Wartość true |
-| **Uruchom skrypt wdrażania w trybie jednego użytkownika** | False | Wartość true | Wartość true |
-| **Wykonaj kopię zapasową bazy danych przed wdrożeniem** | False | Być może | Wartość true |
-| **Generuj instrukcje UPUSZCZANIA obiektów, które znajdują się w docelowej bazie danych, ale nie znajdują się w bazie danych projektu** | False | Wartość true | Wartość true |
+| **Wdrażanie właściwości bazy danych** | True | Tylko po raz pierwszy | Tylko po raz pierwszy |
+| **Zawsze ponownie utworzyć bazę danych** | True | False | False |
+| **Blokować przyrostowe wdrożenia, jeśli może wystąpić utrata danych** | False | Być może | True |
+| **Uruchom skrypt wdrażania w trybie jednego użytkownika** | False | True | True |
+| **Wykonaj kopię zapasową bazy danych przed wdrożeniem** | False | Być może | True |
+| **Generuj instrukcje UPUSZCZANIA obiektów, które znajdują się w docelowej bazie danych, ale nie znajdują się w bazie danych projektu** | False | True | True |
 | **Nie należy używać instrukcji instrukcja ALTER ASSEMBLY można zaktualizować typów CLR** | False | False | False |
   
 
 > [!NOTE]
-> Aby uzyskać więcej informacji o właściwościach wdrożenia bazy danych i zagadnienia dotyczące środowiska, zobacz [omówienie z ustawień bazy danych projektu](https://msdn.microsoft.com/en-us/library/aa833291(v=VS.100).aspx), [jak: Konfigurowanie właściwości szczegóły wdrożenia](https://msdn.microsoft.com/en-us/library/dd172125.aspx), [ Tworzenie i wdrażanie bazy danych do środowiska projektowego izolowanego](https://msdn.microsoft.com/en-us/library/dd193409.aspx), i [tworzenie i wdrażanie baz danych do środowiska produkcyjnego lub przemieszczania](https://msdn.microsoft.com/en-us/library/dd193413.aspx).
+> Aby uzyskać więcej informacji o właściwościach wdrożenia bazy danych i zagadnienia dotyczące środowiska, zobacz [omówienie z ustawień bazy danych projektu](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx), [jak: Konfigurowanie właściwości szczegóły wdrożenia](https://msdn.microsoft.com/library/dd172125.aspx), [ Tworzenie i wdrażanie bazy danych do środowiska projektowego izolowanego](https://msdn.microsoft.com/library/dd193409.aspx), i [tworzenie i wdrażanie baz danych do środowiska produkcyjnego lub przemieszczania](https://msdn.microsoft.com/library/dd193413.aspx).
 
 
 Aby obsłużyć wdrożenie projektu bazy danych do wielu miejsc docelowych, należy utworzyć plik konfiguracji wdrożenia dla każdego środowiska docelowego.
@@ -94,7 +94,7 @@ Aby obsłużyć wdrożenie projektu bazy danych do wielu miejsc docelowych, nale
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image1.png)
 3. W **nowy plik konfiguracji wdrożenia** okno dialogowe pola, nadaj plikowi nazwę opisową (na przykład **TestEnvironment.sqldeployment**), a następnie kliknij przycisk **zapisać**.
-4. Na *[nazwapliku]***.sqldeployment** strony, ustaw właściwości wdrożenia, aby można było zgodne z wymaganiami środowiska docelowego, a następnie zapisz plik.
+4. Na *[nazwapliku] *** .sqldeployment** strony, ustaw właściwości wdrożenia, aby można było zgodne z wymaganiami środowiska docelowego, a następnie zapisz plik.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image2.png)
 5. Zwróć uwagę, że nowy plik został dodany do właściwości folderu projektu bazy danych.
@@ -141,10 +141,10 @@ Aby uzyskać więcej informacji na temat wdrażania projektów bazy danych przy 
 
 Te artykuły w witrynie MSDN zawierają bardziej ogólne wskazówki dotyczące wdrażania bazy danych:
 
-- [Omówienie ustawienia projektu bazy danych](https://msdn.microsoft.com/en-us/library/aa833291(v=VS.100).aspx)
-- [Porady: Konfigurowanie właściwości szczegółów wdrożenia](https://msdn.microsoft.com/en-us/library/dd172125.aspx)
-- [Tworzenie i wdrażanie baz danych do środowiska projektowego izolowanym](https://msdn.microsoft.com/en-us/library/dd193409.aspx)
-- [Tworzenie i wdrażanie baz danych do środowiska produkcyjnego lub przemieszczania](https://msdn.microsoft.com/en-us/library/dd193413.aspx)
+- [Omówienie ustawienia projektu bazy danych](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx)
+- [Porady: Konfigurowanie właściwości szczegółów wdrożenia](https://msdn.microsoft.com/library/dd172125.aspx)
+- [Tworzenie i wdrażanie baz danych do środowiska projektowego izolowanym](https://msdn.microsoft.com/library/dd193409.aspx)
+- [Tworzenie i wdrażanie baz danych do środowiska produkcyjnego lub przemieszczania](https://msdn.microsoft.com/library/dd193413.aspx)
 
 >[!div class="step-by-step"]
 [Poprzednie](performing-a-what-if-deployment.md)

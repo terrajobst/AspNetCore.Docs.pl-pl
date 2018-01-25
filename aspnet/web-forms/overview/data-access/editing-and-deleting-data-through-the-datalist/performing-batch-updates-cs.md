@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 989bd80bf2d8b6548fd8e4abd492408a72104070
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46db3c5d733b9c8b6e749a9b8ff1aa9a061c36df
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="performing-batch-updates-c"></a>Wykonywanie wsadowe aktualizacji (C#)
 ====================
@@ -116,7 +116,7 @@ Rysunek 6 przedstawia strony po dodaniu wszystkich aktualizacji przycisków.
 
 Z wszystkich elementów s DataList wyświetlania interfejsu edycji i dodając przyciski Aktualizuj wszystkie całkowicie pozostaje zapisywanie kod, aby wykonać aktualizację partii. W szczególności należy pętli elementy DataList s i wywołanie `SuppliersBLL` klasy s `UpdateSupplierAddress` metody dla każdej z nich.
 
-Kolekcja `DataListItem` wystąpień tego w skład elementu DataList jest możliwy za pośrednictwem DataList s [ `Items` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.items.aspx). Z odwołaniem do `DataListItem`, możemy chwycić odpowiadającego `SupplierID` z `DataKeys` kolekcji i programowo odwołania sieci Web pola tekstowego kontrolki w `ItemTemplate` jak pokazano w następującym kodem:
+Kolekcja `DataListItem` wystąpień tego w skład elementu DataList jest możliwy za pośrednictwem DataList s [ `Items` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.items.aspx). Z odwołaniem do `DataListItem`, możemy chwycić odpowiadającego `SupplierID` z `DataKeys` kolekcji i programowo odwołania sieci Web pola tekstowego kontrolki w `ItemTemplate` jak pokazano w następującym kodem:
 
 
 [!code-csharp[Main](performing-batch-updates-cs/samples/sample4.cs)]
@@ -131,7 +131,7 @@ Gdy użytkownik kliknie jeden z przycisków Aktualizuj wszystkie `UpdateAllSuppl
 
 Algorytm aktualizacji wsadowych używany dla tego samouczka wywołań `UpdateSupplierAddress` metodę *co* dostawcą DataList, niezależnie od tego, czy informacje o ich adresów został zmieniony. Gdy blind takie aktualizacje nie są zazwyczaj problem z wydajnością, może prowadzić do rekordów zbędny w przypadku której inspekcja zmiany do tabeli bazy danych. Na przykład, jeśli używasz wyzwalaczy do rejestrowania wszystkich `UPDATE` s, aby `Suppliers` do tabeli inspekcji, za każdym razem, gdy użytkownik kliknie przycisk Aktualizuj wszystkie zostanie utworzony nowy rekord inspekcji dla każdego dostawcy systemu, niezależnie od tego, czy użytkownik wszelkie wprowadzone zmiany.
 
-Klasy ADO.NET DataTable i element DataAdapter zostały zaprojektowane do obsługi aktualizacje wsadowe, gdy tylko zmodyfikowanych, usuniętych i nowych rekordów powoduje każdy komunikat bazy danych. Każdy wiersz w tabeli DataTable ma [ `RowState` właściwości](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx) wskazuje, czy wiersz został dodany do elementu DataTable, usunąć z niego zmodyfikowane, czy pozostaje niezmieniona. Gdy element DataTable jest wstępnie wypełniony, wszystkie wiersze zostały oznaczone bez zmian. Zmiana wartości kolumny wiersza s oznacza wiersza, jako zmodyfikowane.
+Klasy ADO.NET DataTable i element DataAdapter zostały zaprojektowane do obsługi aktualizacje wsadowe, gdy tylko zmodyfikowanych, usuniętych i nowych rekordów powoduje każdy komunikat bazy danych. Każdy wiersz w tabeli DataTable ma [ `RowState` właściwości](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) wskazuje, czy wiersz został dodany do elementu DataTable, usunąć z niego zmodyfikowane, czy pozostaje niezmieniona. Gdy element DataTable jest wstępnie wypełniony, wszystkie wiersze zostały oznaczone bez zmian. Zmiana wartości kolumny wiersza s oznacza wiersza, jako zmodyfikowane.
 
 W `SuppliersBLL` modyfikacjom danych adresu określonego dostawcy s przez pierwszy Odczyt w rekordzie jednego dostawcy do klasy `SuppliersDataTable` , a następnie ustaw `Address`, `City`, i `Country` wartości kolumn, używając następującego kodu:
 

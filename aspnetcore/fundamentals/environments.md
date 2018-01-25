@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 83d1593d46761b1c00aa431cfdcde59cb3b28b65
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 60a1543ce11d08490e6df0eb84f980672ecfe672
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-multiple-environments"></a>Praca w środowiskach wielu
 
@@ -46,7 +46,7 @@ Uwaga: W systemach Windows i macOS zmienne środowiskowe i wartości nie są z u
 
 ### <a name="development"></a>Tworzenie
 
-Środowisko projektowe można włączyć funkcje, które nie powinny być widoczne w środowisku produkcyjnym. Na przykład włączyć szablonów platformy ASP.NET Core [developer wyjątku strony](xref:fundamentals/error-handling#the-developer-exception-page) w środowisku programistycznym.
+Środowisko projektowe można włączyć funkcje, które nie powinny być dostępne w środowisku produkcyjnym. Na przykład włączyć szablonów platformy ASP.NET Core [developer wyjątku strony](xref:fundamentals/error-handling#the-developer-exception-page) w środowisku programistycznym.
 
 Środowisko rozwoju lokalnych komputera można skonfigurować *Properties\launchSettings.json* pliku projektu. Ustaw wartości środowiska *launchSettings.json* przesłaniają wartości w środowisku systemu.
 

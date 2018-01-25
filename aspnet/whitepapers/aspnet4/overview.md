@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 226ef83f289b8fbe9a68f0d0741c7eca0d96ba94
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0224bcd2badc423ba5146feacccc44b8f33a608
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Program ASP.NET 4 i omówienie tworzenia sieci Web programu Visual Studio 2010
 ====================
@@ -199,7 +199,7 @@ ASP.NET 4 wprowadza nowe opcje dotyczące rozszerzania rozmiaru adresu URL aplik
 
 [!code-xml[Main](overview/samples/sample10.xml)]
 
-Aby umożliwić dłuższy lub krótszy ścieżki (część adresu URL, który nie obejmuje protokołu, nazwy serwera i ciągu zapytania), zmodyfikuj  *[maxUrlLength](https://msdn.microsoft.com/en-us/library/system.web.configuration.httpruntimesection.maxurllength.aspx)*  atrybutu. Aby umożliwić ciągi zapytań dłuższy lub krótszy, zmodyfikuj wartość  *[maxQueryStringLength](https://msdn.microsoft.com/en-us/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)*  atrybutu.
+Aby umożliwić dłuższy lub krótszy ścieżki (część adresu URL, który nie obejmuje protokołu, nazwy serwera i ciągu zapytania), zmodyfikuj  *[maxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)*  atrybutu. Aby umożliwić ciągi zapytań dłuższy lub krótszy, zmodyfikuj wartość  *[maxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)*  atrybutu.
 
 ASP.NET 4 umożliwia również skonfigurowanie znaki, które są używane przez wyboru znak adresu URL. Jeśli program ASP.NET znajdzie nieprawidłowy znak w części ścieżki adresu URL, odrzuca żądanie i generuje błąd HTTP 400. W poprzednich wersjach programu ASP.NET sprawdza znak adresu URL były ograniczone do stałego zestawu znaków. W przypadku programu ASP.NET 4, można dostosować zbiór prawidłowych znaków przy użyciu nowego *requestPathInvalidChars* atrybutu *httpRuntime* element konfiguracji, jak pokazano w poniższym przykładzie:
 
@@ -296,7 +296,7 @@ Należy pamiętać, że o przeznaczonych dla określonej wersji programu .NET Fr
 
 <a id="0.2__Toc224729023"></a><a id="0.2__Toc253429250"></a><a id="0.2__Toc243304624"></a>
 
-## <a name="ajax"></a>AJAX
+## <a name="ajax"></a>Ajax
 
 <a id="0.2__Toc253429251"></a><a id="0.2__Toc243304625"></a>
 
@@ -561,7 +561,7 @@ Routing została dostępnych w programie ASP.NET 3.5 z dodatkiem SP1. (Na przyk�
 - Następujące konstruktorów wyrażeń nowe, które są zdefiniowane w *System.Web.Compilation.RouteUrlExpressionBuilder* i *System.Web.Compilation.RouteValueExpressionBuilder*:
 - *RouteUrl*, który zapewnia prosty sposób tworzenia adresu URL, który odpowiada adresowi URL trasy w formancie serwera ASP.NET.
 - *RouteValue*, która umożliwia w prosty sposób wyodrębnić informacji z *RouteContext* obiektu.
-- *RouteParameter* klasy, która ułatwia przekazywania danych zawartych w *RouteContext* obiektu do zapytania do kontroli źródła danych (podobnie jak [ *FormParameter* ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.formparameter.aspx)).
+- *RouteParameter* klasy, która ułatwia przekazywania danych zawartych w *RouteContext* obiektu do zapytania do kontroli źródła danych (podobnie jak [ *FormParameter* ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formparameter.aspx)).
 
 #### <a name="routing-for-web-forms-pages"></a>Routing dla stron formularzy sieci Web
 
@@ -625,7 +625,7 @@ Po uruchomieniu na stronie, zawierający ten formant, wartość "scott" jest wy�
 
 #### <a name="using-route-data-for-data-source-control-parameters"></a>Przy użyciu danych trasy dla parametrów kontroli źródła danych
 
-*RouteParameter* klasy pozwala określić dane trasy jako wartość parametru zapytania w kontroli źródła danych. On [działa podobnie jak](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.formparameter.aspx) klasy, jak pokazano w poniższym przykładzie:
+*RouteParameter* klasy pozwala określić dane trasy jako wartość parametru zapytania w kontroli źródła danych. On [działa podobnie jak](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formparameter.aspx) klasy, jak pokazano w poniższym przykładzie:
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
@@ -985,7 +985,7 @@ Domyślnie następujące kontrolki serwera sieci Web ASP.NET, które obsługują
 - *FormView*
 - *Logowanie*
 - *PasswordRecovery*
-- *Element ChangePassword*
+- *ChangePassword*
 - *Kreator*
 - *CreateUserWizard*
 
@@ -1146,7 +1146,7 @@ Danych dynamicznych została wprowadzona w wersji programu .NET Framework 3.5 z 
 - Możliwość łatwo zmienić kod znaczników, który zostanie wygenerowany dla pola w *GridView* i *widoku DetailsView* formantów przy użyciu szablonów pól, które są częścią projektu danych dynamicznych.
 
 > [!NOTE]
-> Należy pamiętać, aby uzyskać więcej informacji, zobacz [dokumentacji danych dynamicznych](https://msdn.microsoft.com/en-us/library/cc488545.aspx) w bibliotece MSDN.
+> Należy pamiętać, aby uzyskać więcej informacji, zobacz [dokumentacji danych dynamicznych](https://msdn.microsoft.com/library/cc488545.aspx) w bibliotece MSDN.
 
 
 Dla programu ASP.NET 4 danych dynamicznych została rozszerzona umożliwiają deweloperom nawet więcej możliwości szybkiego tworzenia witryn sieci Web opartych na danych.
@@ -1325,7 +1325,7 @@ Program Visual Studio 2010 korzysta z narzędzia MSDeploy utworzyć plik skompre
 
 Pakiet sieci Web można kopiować do dowolnego serwera i następnie instalowane ręcznie przy użyciu Menedżera usług IIS. Alternatywnie dla automatycznego wdrażania pakietu można zainstalować przy użyciu poleceń wiersza polecenia lub przy użyciu wdrażania interfejsów API.
 
-Program Visual Studio 2010 udostępnia wbudowane zadania programu MSBuild i obiekty docelowe do tworzenia pakietów w sieci Web. Aby uzyskać więcej informacji, zobacz [omówienie wdrażania projektu aplikacji sieci Web ASP.NET](https://msdn.microsoft.com/en-us/library/dd394698%28VS.100%29.aspx) w witrynie MSDN w sieci Web i [10 + 20 powodów, dlaczego należy utworzyć pakiet sieci Web](http://vishaljoshi.blogspot.com/2009/07/10-20-reasons-why-you-should-create-web.html) na blogu Vishal Joshi.
+Program Visual Studio 2010 udostępnia wbudowane zadania programu MSBuild i obiekty docelowe do tworzenia pakietów w sieci Web. Aby uzyskać więcej informacji, zobacz [omówienie wdrażania projektu aplikacji sieci Web ASP.NET](https://msdn.microsoft.com/library/dd394698%28VS.100%29.aspx) w witrynie MSDN w sieci Web i [10 + 20 powodów, dlaczego należy utworzyć pakiet sieci Web](http://vishaljoshi.blogspot.com/2009/07/10-20-reasons-why-you-should-create-web.html) na blogu Vishal Joshi.
 
 <a id="0.2__Toc224729057"></a><a id="0.2__Toc253429294"></a><a id="0.2__Toc243304665"></a>
 
@@ -1337,7 +1337,7 @@ W poniższym przykładzie przedstawiono część `web.release.config` pliku, kt�
 
 [!code-xml[Main](overview/samples/sample102.xml)]
 
-Aby uzyskać więcej informacji, zobacz [składni transformacji pliku Web.config dla wdrożenia projektu aplikacji sieci Web](https://msdn.microsoft.com/en-us/library/dd465326%28VS.100%29.aspx) w witrynie MSDN <a id="0.2_a"> </a> witryny sieci Web i[Web Deployment: transformacji pliku Web.Config](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html)na blogu Vishal Joshi.
+Aby uzyskać więcej informacji, zobacz [składni transformacji pliku Web.config dla wdrożenia projektu aplikacji sieci Web](https://msdn.microsoft.com/library/dd465326%28VS.100%29.aspx) w witrynie MSDN <a id="0.2_a"> </a> witryny sieci Web i[Web Deployment: transformacji pliku Web.Config](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html)na blogu Vishal Joshi.
 
 <a id="0.2__Toc224729058"></a><a id="0.2__Toc253429295"></a><a id="0.2__Toc243304666"></a>
 
@@ -1345,7 +1345,7 @@ Aby uzyskać więcej informacji, zobacz [składni transformacji pliku Web.config
 
 Pakiet wdrożeniowy programu Visual Studio 2010 mogą zawierać zależności od bazy danych programu SQL Server. W ramach definicji pakietu należy podać parametry połączenia dla źródłowej bazy danych. Podczas tworzenia pakietu sieci Web programu Visual Studio 2010 tworzy skrypty SQL dla schematu bazy danych i opcjonalnie danych, a następnie dodaje je do pakietu. Może również udostępniać niestandardowe skrypty SQL i Określ sekwencję, w którym powinno być ono uruchomione na serwerze. W czasie wdrażania Podaj parametry połączenia, które jest odpowiednie dla serwera docelowego; proces wdrażania następnie używa tego ciągu połączenia na uruchamianie skryptów, które tworzą schemat bazy danych i dodać dane.
 
-Ponadto, za pomocą jednego kliknięcia publikowania, można skonfigurować wdrożenie w celu publikowania bazy danych bezpośrednio po opublikowaniu aplikacji z lokacją zdalną hostingu udostępnionego. Aby uzyskać więcej informacji, zobacz [porady: Wdróż projekt bazy danych z sieci Web aplikacji](https://msdn.microsoft.com/en-us/library/dd465343%28VS.100%29.aspx) w witrynie MSDN w sieci Web i [wdrożenie bazy danych z VS 2010](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html) na blogu Vishal Joshi.
+Ponadto, za pomocą jednego kliknięcia publikowania, można skonfigurować wdrożenie w celu publikowania bazy danych bezpośrednio po opublikowaniu aplikacji z lokacją zdalną hostingu udostępnionego. Aby uzyskać więcej informacji, zobacz [porady: Wdróż projekt bazy danych z sieci Web aplikacji](https://msdn.microsoft.com/library/dd465343%28VS.100%29.aspx) w witrynie MSDN w sieci Web i [wdrożenie bazy danych z VS 2010](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html) na blogu Vishal Joshi.
 
 <a id="0.2__Toc224729059"></a><a id="0.2__Toc253429296"></a><a id="0.2__Toc243304667"></a>
 
@@ -1353,7 +1353,7 @@ Ponadto, za pomocą jednego kliknięcia publikowania, można skonfigurować wdro
 
 Visual Studio 2010 umożliwia także publikowanie aplikacji sieci Web na serwerze zdalnym za pomocą usługi zdalnego zarządzania usługami IIS. Można utworzyć profil publikowania, konta usług hosta lub do testowania serwerów lub serwerów na potrzeby przemieszczania. Każdy profil można bezpiecznie zapisać odpowiednie poświadczenia. Następnie można wdrożyć dla każdego obiektu docelowego pasek narzędzi publikacja serwerów jednym kliknięciem, przy użyciu sieci Web jednym kliknięciem. Z programu Visual Studio 2010 można również opublikować przy użyciu wiersza polecenia programu MSBuild. Dzięki temu można skonfigurować środowisko kompilacji team uwzględnienie publikowanie w modelu ciągłej integracji.
 
-Aby uzyskać więcej informacji, zobacz [porady: Wdrażanie aplikacji publikowania projektu sieci Web za pomocą jednego kliknięcia i Web Deploy](https://msdn.microsoft.com/en-us/library/dd465337%28VS.100%29.aspx) w witrynie MSDN w sieci Web i [sieci Web publikowanie kliknij 1 z VS 2010](http://vishaljoshi.blogspot.com/2009/05/web-1-click-publish-with-vs-2010.html) na blogu Vishal Joshi. Aby wyświetlić wideo prezentacji na temat wdrażania aplikacji sieci Web w programie Visual Studio 2010, zobacz [VS 2010 dotyczącym wersji zapoznawczych platformy sieci Web Developer](http://vishaljoshi.blogspot.com/2008/12/vs-2010-for-web-developer-previews.html) na blogu Vishal Joshi.
+Aby uzyskać więcej informacji, zobacz [porady: Wdrażanie aplikacji publikowania projektu sieci Web za pomocą jednego kliknięcia i Web Deploy](https://msdn.microsoft.com/library/dd465337%28VS.100%29.aspx) w witrynie MSDN w sieci Web i [sieci Web publikowanie kliknij 1 z VS 2010](http://vishaljoshi.blogspot.com/2009/05/web-1-click-publish-with-vs-2010.html) na blogu Vishal Joshi. Aby wyświetlić wideo prezentacji na temat wdrażania aplikacji sieci Web w programie Visual Studio 2010, zobacz [VS 2010 dotyczącym wersji zapoznawczych platformy sieci Web Developer](http://vishaljoshi.blogspot.com/2008/12/vs-2010-for-web-developer-previews.html) na blogu Vishal Joshi.
 
 <a id="0.2__Toc224729060"></a><a id="0.2__Toc253429297"></a><a id="0.2__Toc243304668"></a>
 
@@ -1361,9 +1361,9 @@ Aby uzyskać więcej informacji, zobacz [porady: Wdrażanie aplikacji publikowan
 
 Następujące witryny sieci Web zawierają dodatkowe informacje dotyczące programu ASP.NET 4 i programu Visual Studio 2010.
 
-- [ASP.NET 4](https://msdn.microsoft.com/en-us/library/ee532866%28VS.100%29.aspx) — oficjalnej dokumentacji dla programu ASP.NET 4 w witrynie MSDN.
+- [ASP.NET 4](https://msdn.microsoft.com/library/ee532866%28VS.100%29.aspx) — oficjalnej dokumentacji dla programu ASP.NET 4 w witrynie MSDN.
 - [https://www.asp.NET/](https://www.asp.net/) — programu ASP.NET witryny sieci Web przez zespół.
-- [https://www.asp.NET/dynamicdata/](https://msdn.microsoft.com/en-us/library/cc488545.aspx) i [dynamiczna Mapa zawartości platformy ASP.NET danych](https://msdn.microsoft.com/en-us/library/cc488545%28VS.100%29.aspx) — Online zasobów w witrynie zespołu programu ASP.NET w oficjalnej dokumentacji dla danych dynamicznych ASP.NET.
+- [https://www.asp.NET/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx) i [dynamiczna Mapa zawartości platformy ASP.NET danych](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) — Online zasobów w witrynie zespołu programu ASP.NET w oficjalnej dokumentacji dla danych dynamicznych ASP.NET.
 - [https://www.asp.NET/AJAX/](../../ajax/index.md) — główny zasobu sieci Web do tworzenia aplikacji ASP.NET Ajax.
 - [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/) — Visual Web Developer Team blog, który zawiera informacje o funkcji w programie Visual Studio 2010.
 - [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack) — główny zasobu sieci Web dla wersji preview programu ASP.NET.

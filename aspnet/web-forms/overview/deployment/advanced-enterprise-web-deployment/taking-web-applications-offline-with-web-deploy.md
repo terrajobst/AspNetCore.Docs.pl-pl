@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: a0c59245eedbf53f367949e12dd83e2611f44fc4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1c262ec7b834107524a18c6552b171f731452c91
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Wdrażanie pobierania aplikacji sieci Web w trybie Offline z sieci Web
 ====================
@@ -74,7 +74,7 @@ Następnym krokiem jest do modyfikowania logiki wdrożenia, aby skopiować plik 
 > Następna procedura przyjęto założenie, że używasz niestandardowego pliku projektu MSBuild do kontrolowania procesu wdrażania zgodnie z opisem w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Jeśli wdrażasz bezpośrednio z programu Visual Studio, należy użyć innej metody. Sayed Ibrahim Hashimi opisuje jedno takie podejście w [jak wykonać Twojej aplikacji w tryb Offline podczas publikowania w sieci Web](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx).
 
 
-Aby wdrożyć *aplikacji\_w trybie offline* pliku do docelowej witryny usług IIS, należy wywołać przy użyciu MSDeploy.exe [narzędzia Web Deploy **contentPath** dostawcy](https://technet.microsoft.com/en-us/library/dd569034(WS.10).aspx). **ContentPath** dostawca obsługuje zarówno ścieżki katalogu fizycznego i ścieżki witryny sieci Web lub aplikacji usług IIS, co staje się on idealnym wyborem w przypadku synchronizacji plików między folderu projektu programu Visual Studio i aplikacji sieci web usług IIS. Do wdrożenia pliku, polecenia MSDeploy powinien wyglądać następująco:
+Aby wdrożyć *aplikacji\_w trybie offline* pliku do docelowej witryny usług IIS, należy wywołać przy użyciu MSDeploy.exe [narzędzia Web Deploy **contentPath** dostawcy](https://technet.microsoft.com/library/dd569034(WS.10).aspx). **ContentPath** dostawca obsługuje zarówno ścieżki katalogu fizycznego i ścieżki witryny sieci Web lub aplikacji usług IIS, co staje się on idealnym wyborem w przypadku synchronizacji plików między folderu projektu programu Visual Studio i aplikacji sieci web usług IIS. Do wdrożenia pliku, polecenia MSDeploy powinien wyglądać następująco:
 
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample1.cmd)]
@@ -95,7 +95,7 @@ Aby zautomatyzować tych poleceń jako część procesu kompilacji i wdrożenia,
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
 3. **SourceRoot** właściwość jest zdefiniowana w innym miejscu w *Publish.proj* pliku. Wskazuje on lokalizację folderu głównego dla zawartości źródłowej względem bieżącej ścieżki & #x 2014; innymi słowy, względną wobec lokalizacji *Publish.proj* pliku.
-4. **ContentPath** dostawcy nie akceptuje względne ścieżki do pliku, więc należy uzyskać ścieżka bezwzględna do pliku źródłowego, zanim będzie można go wdrożyć. Można użyć [converttoabsolutepath —](https://msdn.microsoft.com/en-us/library/bb882668.aspx) zadań w tym celu.
+4. **ContentPath** dostawcy nie akceptuje względne ścieżki do pliku, więc należy uzyskać ścieżka bezwzględna do pliku źródłowego, zanim będzie można go wdrożyć. Można użyć [converttoabsolutepath —](https://msdn.microsoft.com/library/bb882668.aspx) zadań w tym celu.
 5. Dodaj nową **docelowej** elementu o nazwie **GetAppOfflineAbsolutePath**. W obrębie tego celu użyć **converttoabsolutepath —** zadanie w celu uzyskania ścieżki bezwzględnej do *aplikacji\_w trybie offline szablonu* pliku w folderze projektu.
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample4.xml)]
@@ -148,7 +148,7 @@ Następnej procedury przedstawiono sposób dodawania to *. wpp.targets* plik do 
 1. Otwórz rozwiązanie w Visual Studio 2010.
 2. W **Eksploratora rozwiązań** okna, kliknij prawym przyciskiem myszy węzeł projektu aplikacji sieci web (na przykład **ContactManager.Mvc**), wskaż polecenie **Dodaj**, a następnie kliknij przycisk **Nowy element**.
 3. W **Dodaj nowy element** okno dialogowe, wybierz opcję **pliku XML** szablonu.
-4. W **nazwa** wpisz *[Nazwa projektu]***. wpp.targets** (na przykład **ContactManager.Mvc.wpp.targets**), a następnie kliknij przycisk  **Dodaj**.
+4. W **nazwa** wpisz *[Nazwa projektu] ***.wpp.targets** (na przykład **ContactManager.Mvc.wpp.targets**), a następnie kliknij przycisk **Dodaj**.
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image4.png)
 

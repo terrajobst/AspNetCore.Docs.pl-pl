@@ -1,6 +1,6 @@
 ---
 uid: whitepapers/mvc4-beta-release-notes
-title: PLATFORMA ASP.NET MVC 4 | Dokumentacja firmy Microsoft
+title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
 description: Ten dokument zawiera opis wersji platformy ASP.NET MVC 4 w wersji Beta programu Visual Studio 2010.
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: 4af2df61ab4507b1f100d6bb75777da1168c5a75
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 58ae178a0e6578d8353e1a4e9d67fc1026e99f55
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 - [Uaktualnianie projektów programu ASP.NET MVC 3 do platformy ASP.NET MVC 4](#_Toc303253806)
 - [Nowe funkcje w wersji Beta programu ASP.NET MVC 4](#_Toc303253807)
 
-    - [Interfejs API sieci Web ASP.NET](#_Toc317096197)
+    - [ASP.NET Web API](#_Toc317096197)
     - [ASP.NET pojedynczej strony aplikacji](#_Toc317096198)
     - [Ulepszenia domyślnych szablonów projektu](#_Toc303253808)
     - [Szablon projektu przenośnych](#_Toc303253809)
@@ -60,7 +60,7 @@ ASP.NET MVC 4 można zainstalować i uruchomić side-by-side z platformy ASP.NET
 
 Dokumentacja dla platformy ASP.NET MVC jest dostępna w witrynie MSDN pod adresem URL:
 
-[https://go.microsoft.com/fwlink/?LinkId=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
+[https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
 Samouczki i inne informacje o platformie ASP.NET MVC są dostępne na stronie witryny sieci Web platformy ASP.NET MVC 4 ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
@@ -245,7 +245,7 @@ Nowa funkcja przepisami umożliwia Visual Studio do generowania kodu określoneg
 
 Możesz teraz zapisać metod asynchronicznych akcji w jednej metody, które zwracają obiekt typu *zadań* lub *zadań&lt;ActionResult&gt;*.
 
-Na przykład, jeśli używasz programu Visual C# 5 (lub przy użyciu [Async CTP](https://msdn.microsoft.com/en-us/vstudio/async.aspx)), można utworzyć asynchronicznej metody akcji, która wygląda podobnie do następującej:
+Na przykład, jeśli używasz programu Visual C# 5 (lub przy użyciu [Async CTP](https://msdn.microsoft.com/vstudio/async.aspx)), można utworzyć asynchronicznej metody akcji, która wygląda podobnie do następującej:
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample8.cs)]
 
@@ -256,7 +256,7 @@ Metody asynchroniczne akcji, które zwracają *zadań* wystąpień może równie
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample9.cs)]
 
 <a id="_Toc303253814"></a>
-### <a name="azure-sdk"></a>Zestaw Azure SDK
+### <a name="azure-sdk"></a>Azure SDK
 
 ASP.NET MVC 4 w wersji Beta obsługuje wrzesień 2011 1.5 wersji zestawu SDK platformy Windows Azure.
 

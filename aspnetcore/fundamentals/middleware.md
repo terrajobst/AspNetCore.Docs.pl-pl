@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: ef130e736e2f32fa134156d979ce5bfbedcae828
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: 84f386db4ab96a82011ee2fc0b6c20a1a05b5e4b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET Core oprogramowania pośredniczącego
 
@@ -63,7 +63,7 @@ Tworzenia łańcucha wielu delegatów żądania razem z [aplikacji. Użyj](https
 
 ## <a name="ordering"></a>Szeregowanie
 
-Dodano składników oprogramowania pośredniczącego w kolejności `Configure` metoda definiuje kolejności, w którym są wywoływane w odpowiedzi na żądania i odwrotna kolejność dla odpowiedzi. Ta kolejność jest krytyczny dla zabezpieczeń, wydajności i funkcji.
+Dodano składników oprogramowania pośredniczącego w kolejności `Configure` metoda definiuje kolejność, w którym jest wywoływana w odpowiedzi na żądania i odwrotna kolejność dla odpowiedzi. Ta kolejność jest krytyczny dla zabezpieczeń, wydajności i funkcji.
 
 Konfigurowanie metody (pokazana poniżej) dodaje następujące składniki oprogramowania pośredniczącego:
 
@@ -116,11 +116,11 @@ Oprogramowanie pośredniczące plików statycznych jest wywoływana wcześnie w 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 
-Jeśli żądanie nie jest obsługiwany przez oprogramowanie pośredniczące plików statycznych, będzie przekazany z oprogramowaniem pośredniczącym tożsamości (`app.UseAuthentication`), który przeprowadza uwierzytelnianie. Tożsamość nie zwarcia nieuwierzytelnione żądania. Mimo że tożsamości uwierzytelniania żądań autoryzacji (i odrzucenia) występuje tylko po MVC wybierze określonych Razor strony lub kontrolera i akcji.
+Jeśli żądanie nie jest obsługiwane przez oprogramowanie pośredniczące plików statycznych, będzie przekazany z oprogramowaniem pośredniczącym tożsamości (`app.UseAuthentication`), który przeprowadza uwierzytelnianie. Tożsamość nie zwarcia nieuwierzytelnione żądania. Mimo że tożsamości uwierzytelniania żądań autoryzacji (i odrzucenia) występuje tylko po MVC wybierze określonych Razor strony lub kontrolera i akcji.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Jeśli żądanie nie jest obsługiwany przez oprogramowanie pośredniczące plików statycznych, będzie przekazany z oprogramowaniem pośredniczącym tożsamości (`app.UseIdentity`), który przeprowadza uwierzytelnianie. Tożsamość nie zwarcia nieuwierzytelnione żądania. Mimo że tożsamości uwierzytelnia żądania, autoryzacji (i odrzucenia) występuje tylko wtedy, gdy wybiera MVC określonego kontrolera i akcji.
+Jeśli żądanie nie jest obsługiwane przez oprogramowanie pośredniczące plików statycznych, będzie przekazany z oprogramowaniem pośredniczącym tożsamości (`app.UseIdentity`), który przeprowadza uwierzytelnianie. Tożsamość nie zwarcia nieuwierzytelnione żądania. Mimo że tożsamości uwierzytelnia żądania, autoryzacji (i odrzucenia) występuje tylko wtedy, gdy wybiera MVC określonego kontrolera i akcji.
 
 -----------
 
@@ -140,7 +140,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="use-run-and-map"></a>Użyj, uruchamiania i mapowanie
 
-Można skonfigurować za pomocą potoku HTTP `Use`, `Run`, i `Map`. `Use` Metody może zwarcia potoku (to znaczy, jeśli nie wywołuje `next` delegata żądania). `Run`jest to Konwencja i niektórych składników oprogramowania pośredniczącego może narazić `Run[Middleware]` metod, które są uruchamiane na końcu potoku.
+Można skonfigurować za pomocą potoku HTTP `Use`, `Run`, i `Map`. `Use` Metody może zwarcia potoku (to znaczy, jeśli go nie wywołać `next` delegata żądania). `Run`jest to Konwencja i niektórych składników oprogramowania pośredniczącego może narazić `Run[Middleware]` metod, które są uruchamiane na końcu potoku.
 
 `Map*`rozszerzenia są używane jako Konwencji Rozgałęzienie potoku. [Mapa](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) odgałęzień potoku żądania na podstawie dopasowań z podanej ścieżki żądania. Jeśli ścieżka żądania rozpoczyna się od podanej ścieżce, gałęzi jest wykonywana.
 

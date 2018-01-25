@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: 8050d37cfea91701e1cae0413feb41ca9a68baff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb6e378d6b1de7d43bbc4272b64f9029f4e92924
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity zalecane zasobów
 ====================
@@ -27,7 +27,7 @@ Przez [Rick Anderson](https://github.com/Rick-Anderson)
 > Jeśli znasz dużą blogu, [stackoverflow](http://stackoverflow.com) wątku lub innych łącza, które będą przydatne [Wyślij do nas wiadomość e-mail](mailto:aspnetue@microsoft.com?subject=Identity recommended resources) z łączem lub po prostu pozostać wiadomości w dolnej części strony.
 
 
-- [Wprowadzenie do korzystania z tożsamości platformy ASP.NET](#gettingstarted)
+- [Wprowadzenie do korzystania z produktu ASP.NET Identity](#gettingstarted)
 - [Nowe artykuły polecanych musi odczytu](#feat)
 - [Pośredni tożsamości platformy ASP.NET](#adv)
 - [Filmy wideo](#video)
@@ -42,9 +42,9 @@ Przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 - [Aplikacji MVC 5 za pomocą usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowania jednokrotnego](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) w tym samouczku przedstawiono sposób pisania aplikacji platformy ASP.NET MVC 5 z usługi Facebook i Google OAuth 2 autoryzacji. Ponadto jak dodać dodatkowe dane do bazy danych tożsamości.
 - [Wdrażanie aplikacji bezpiecznego platformy ASP.NET MVC z członkostwa, OAuth i bazy danych SQL Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). W tym samouczku dodaje wdrożenia usługi Azure zabezpieczania aplikacji za pomocą ról, jak używać interfejs API członkostwa można dodać użytkowników i role oraz dodatkowe funkcje zabezpieczeń.
-- [Wprowadzenie do tożsamości platformy ASP.NET](introduction-to-aspnet-identity.md)
+- [Wprowadzenie do produktu ASP.NET Identity](introduction-to-aspnet-identity.md)
 - [Tworzenie bezpiecznego aplikacji sieci web platformy ASP.NET MVC 5 z dziennika w resetowania hasła i potwierdzania poczty e-mail](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
-- [Aplikacja ASP.NET MVC 5 z programu SMS i adres e-mail uwierzytelniania dwuskładnikowego](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
+- [Aplikacja ASP.NET MVC 5 z uwierzytelnianiem dwuskładnikowym za pomocą wiadomości SMS i wiadomości e-mail](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
 
 <a id="feat"></a>
 ## <a name="new-featured-must-read-articles"></a>Nowe artykuły polecanych musi odczytu
@@ -59,11 +59,11 @@ Przez [Rick Anderson](https://github.com/Rick-Anderson)
 ## <a name="intermediate-aspnet-identity"></a>Pośredni tożsamości platformy ASP.NET
 
 - [Potwierdzenie konta i hasło odzyskiwania za pomocą tożsamości platformy ASP.NET](../features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [Uwierzytelnianie dwuskładnikowe przy użyciu programu SMS i wiadomości e-mail z tożsamości platformy ASP.NET](../features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
-- [Migrowanie istniejącej witryny sieci Web z członkostwa SQL do tożsamości platformy ASP.NET](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [Dodawanie ASP.NET Identity pusta lub istniejącej sieci Web Forms projektu](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
-- MSDN Magazine [zewnętrznego uwierzytelniania za pomocą tożsamości ASP.NET](https://msdn.microsoft.com/en-us/magazine/dn745860.aspx) przez Dino Esposito
-- MSDN Magazine[pierwszy wyglądu w produkcie ASP.NET Identity](https://msdn.microsoft.com/en-us/magazine/dn605872.aspx) przez Dino Esposito
+- [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity](../features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
+- [Migrowanie istniejącej witryny internetowej z członkostwa SQL do produktu ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [Dodawanie produktu ASP.NET Identity do pustego lub istniejącego projektu Web Forms](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
+- MSDN Magazine [zewnętrznego uwierzytelniania za pomocą tożsamości ASP.NET](https://msdn.microsoft.com/magazine/dn745860.aspx) przez Dino Esposito
+- MSDN Magazine[pierwszy wyglądu w produkcie ASP.NET Identity](https://msdn.microsoft.com/magazine/dn605872.aspx) przez Dino Esposito
 - [Tożsamość platformy ASP.NET — funkcja blokady użytkownika](http://tech.trailmax.info/2014/06/asp-net-identity-user-lockout/)
 
 <a id="samp"></a>
@@ -149,7 +149,7 @@ Jeśli chcesz zapisać własnego dostawcę, przeczytaj [omówienie z niestandard
 - [CouchDB / Cloudant przez Wertheim Danielowi.](https://github.com/danielwertheim/mycouch.aspnet.identity)
 - Ciąg elastycznej[h: elastycznej tożsamości](https://github.com/bmbsqd/elastic-identity) przez Bombsquad AB.
 - [Bazy danych MongoDB](http://www.nuget.org/packages/MongoDB.AspNet.Identity/) przez Sheely Jonathanowi Sheely Jonathanowi.
-- [NHibernate.AspNet.Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) przez Antônio Milesi Bastos.
+- [NHibernate.AspNet.Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) by Antônio Milesi Bastos.
 - [RavenDB](http://www.nuget.org/packages/AspNet.Identity.RavenDB/1.0.0) przez [ @tourismgeek ](https://twitter.com/tourismgeek).
 - [RavenDB.AspNet.Identity](https://github.com/ILMServices/RavenDB.AspNet.Identity) przez [ILMServices](http://www.ilmservice.com/).
 - Redis: [Redis.AspNet.Identity](https://github.com/aminjam/Redis.AspNet.Identity)

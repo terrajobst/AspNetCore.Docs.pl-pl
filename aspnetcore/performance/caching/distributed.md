@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/distributed
-ms.openlocfilehash: a00937e8c47e73fa8e29af883f44f6e1f4d4b1b4
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: a0af4887143f6ed37a1af982ec21a2ad5eae9515
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Praca z rozproszonej pamięci podręcznej w ASP.NET Core
 
@@ -25,7 +25,7 @@ Rozproszonej pamięci podręcznej może zwiększyć wydajność i skalowalność
 
 ## <a name="what-is-a-distributed-cache"></a>Co to jest rozproszonej pamięci podręcznej
 
-Rozproszonej pamięci podręcznej jest współużytkowany przez wiele serwerów aplikacji (zobacz [buforowanie podstawy](memory.md#caching-basics)). Informacje w pamięci podręcznej nie są przechowywane w pamięci poszczególnych sieci web, serwerów i buforowane dane są dostępne dla wszystkich serwerów aplikacji. To zapewnia kilka korzyści:
+Rozproszonej pamięci podręcznej jest współużytkowany przez wiele serwerów aplikacji (zobacz [buforowanie podstawy](memory.md#caching-basics)). Informacje w pamięci podręcznej nie jest przechowywany w pamięci poszczególnych sieci web, serwerów i buforowane dane są dostępne dla wszystkich serwerów aplikacji. To zapewnia kilka korzyści:
 
 1. Buforowane dane są spójne na wszystkich serwerach sieci web. Użytkownicy nie będą widzieli różne wyniki, w zależności od tego, które sieci web serwer obsługuje żądania
 
@@ -44,7 +44,7 @@ Konfigurację pamięci podręcznej zależy od implementacji. W tym artykule opis
 
 `IDistributedCache` Interfejs zawiera metody synchroniczne i asynchroniczne. Interfejs umożliwia elementów do dodania, pobrać i usunięcia z implementacja rozproszonej pamięci podręcznej. `IDistributedCache` Interfejs zawiera następujące metody:
 
-**GET, GetAsync**
+**Get, GetAsync**
 
 Pobiera klucz ciągu i pobiera buforowany element jako `byte[]` Jeśli znaleziono w pamięci podręcznej.
 
@@ -142,5 +142,5 @@ Podczas podejmowania decyzji o życie `IDistributedCache` jest prawa dla aplikac
 * [Wykrywanie zmian z tokenami zmiany](xref:fundamentals/primitives/change-tokens)
 * [Buforowanie odpowiedzi](xref:performance/caching/response)
 * [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
-* [Pamięć podręczna pomocnika tagów](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Pomocnik Tag rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

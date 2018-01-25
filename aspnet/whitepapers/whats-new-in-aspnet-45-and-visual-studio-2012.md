@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 msc.type: content
-ms.openlocfilehash: 93fdc7ca241198dc1d7c4c1f6be0a61b15790039
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4487eb7436c0b6241505f41621a7f31b89c38b28
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>What's New in ASP.NET 4.5 i programu Visual Studio 2012
 ====================
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
     - [Obsługa niezweryfikowanych żądań](#_Toc318097381)
     - [Biblioteka elementu AntiXSS](#_Toc318097382)
     - [Obsługę protokołu WebSockets](#_Toc318097383)
-    - [Tworzenie pakietów i minimalizowanie](#_Toc318097384)
+    - [Tworzenie pakietów i minifikacja](#_Toc318097384)
     - [Ulepszenia wydajności usługi hostingu sieci Web](#_Toc_perf)
 
         - [Czynniki wydajności](#_Toc_perf_1)
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/10/2017
         - [Odczyt z wyprzedzeniem dla aplikacji sieci web](#_Toc_perf_6)
 - [Formularze sieci Web ASP.NET](#_Toc318097385)
 
-    - [Formanty danych silnie Typizowanego](#_Toc318097386)
+    - [Silnie typizowane kontrolki danych](#_Toc318097386)
     - [Wiązanie modelu](#_Toc318097387)
 
         - [Wybór danych](#_Toc318097388)
@@ -56,14 +56,14 @@ ms.lasthandoff: 11/10/2017
     - [Wyrażenia wiązania danych kodowania HTML](#_Toc318097391)
     - [Sprawdzania poprawności dyskretnego kodu](#_Toc318097392)
     - [Aktualizacje HTML5](#_Toc318097393)
-- [PLATFORMA ASP.NET MVC 4](#_Toc318097394)
+- [ASP.NET MVC 4](#_Toc318097394)
 - [Strony ASP.NET Web Pages 2](#_Toc318097395)
 - [Visual Studio 2012 Release Candidate](#_Toc318097396)
 
     - [Projekt udostępnianie między Visual Studio 2010 i Visual Studio 2012 Release Candidate (zgodność z projektu)](#project-compatibility)
     - [Zmiany konfiguracji w szablonach 4.5 witryny sieci Web ASP.NET](#Configuration_Changes_In_ASPNET45_Website_Templates)
     - [Macierzysty mechanizm obsługi w usługach IIS 7 routingu platformy ASP.NET](#Native_Support_In_IIS7_For_ASPNET_Routine)
-    - [Edytor HTML](#_Toc318097397)
+    - [HTML Editor](#_Toc318097397)
 
         - [Inteligentne zadań](#_Toc318097398)
         - [Obsługa programu ARIA WAI](#_Toc318097399)
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/10/2017
         - [Generowanie obsługi zdarzeń](#_Toc318097404)
         - [Inteligentne wcięcie](#_Toc318097405)
         - [Zmniejsz automatyczne uzupełnianie](#_Toc318097406)
-    - [Edytor kodu JavaScript](#_Toc318097407)
+    - [JavaScript Editor](#_Toc318097407)
 
         - [Zwijanie kodu](#_Toc318097408)
         - [Parowanie nawiasów klamrowych](#_Toc318097409)
@@ -266,17 +266,17 @@ Ponadto Włączanie lub wyłączanie optymalizacji można ustawić bezpośrednio
 
 Gdy pliki są powiązane, są one najpierw sortowane alfabetycznie (są one wyświetlane w sposób **Eksploratora rozwiązań**). Następnie są zorganizowane tak, aby znane bibliotek i ich rozszerzenia niestandardowe (np. jQuery, MooTools i Dojo) są ładowane najpierw. Na przykład będzie końcowego kolejność paczki folderze skryptów, jak pokazano powyżej:
 
-1. jquery 1.6.2.js
-2. jquery ui.js
-3. jquery.Tools.js
+1. jquery-1.6.2.js
+2. jquery-ui.js
+3. jquery.tools.js
 4. a.js
 
 Pliki CSS również sortowana alfabetycznie i następnie zreorganizować tak, aby reset.css i normalize.css występować przed dowolnego innego pliku. Końcowe sortowania paczki folderu stylów pokazanym powyżej będzie to:
 
 1. Reset.css
-2. Content.css
+2. content.css
 3. Forms.css
-4. Globals.css
+4. globals.css
 5. menu.css
 6. styles.css
 
@@ -330,7 +330,7 @@ Aby wyświetlić wszystkie opcje, uruchom narzędzie bez argumentów.
 
 **Wymaganie**: program .NET Framework 4.5
 
-Do uruchomienia zimnych lokacji nie tylko zestawy muszą być odczytane z dysku, ale lokacji musi być skompilowany JIT. W przypadku złożonych witryny to dodanie znaczne opóźnienia. Nowe techniki ogólnego przeznaczenia w programie .NET Framework 4.5 zmniejsza te opóźnienia przez rozłożenie dostępne rdzenie kompilacji JIT. Dzieje się tak dużo i jak to możliwe, korzystając z informacji zebranych podczas poprzedniego uruchamia witryny. Ta funkcja implementowane przez [System.Runtime.ProfileOptimization.StartProfile](https://msdn.microsoft.com/en-us/library/system.runtime.profileoptimization.startprofile(VS.110).aspx) metody.
+Do uruchomienia zimnych lokacji nie tylko zestawy muszą być odczytane z dysku, ale lokacji musi być skompilowany JIT. W przypadku złożonych witryny to dodanie znaczne opóźnienia. Nowe techniki ogólnego przeznaczenia w programie .NET Framework 4.5 zmniejsza te opóźnienia przez rozłożenie dostępne rdzenie kompilacji JIT. Dzieje się tak dużo i jak to możliwe, korzystając z informacji zebranych podczas poprzedniego uruchamia witryny. Ta funkcja implementowane przez [System.Runtime.ProfileOptimization.StartProfile](https://msdn.microsoft.com/library/system.runtime.profileoptimization.startprofile(VS.110).aspx) metody.
 
 JIT — kompilowanie przy użyciu wiele rdzeni jest domyślnie włączona w programie ASP.NET, dzięki czemu nie trzeba wykonywać żadnych czynności, aby móc korzystać z tej funkcji. Jeśli chcesz wyłączyć tę funkcję, należy wprowadzić następujące ustawienie w pliku Web.config:
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8d11bf47f8c43040ef30d7132f0bb756748dbacd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d54c0e133bc2f6f2021821dc16cdf86cc23a5667
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Sortowanie, filtrowanie i stronicowania Entity Framework w aplikacji platformy ASP.NET MVC
 ====================
@@ -60,7 +60,7 @@ Są to trójargumentowy instrukcje. Pierwsza z nich Określa, że jeśli `sortOr
 | Data w kolejności rosnącej | ascending | descending |
 | Data, malejąco | ascending | ascending |
 
-W metodzie [LINQ to Entities](https://msdn.microsoft.com/en-us/library/bb386964.aspx) określić kolumnę sortowania. Kod tworzy [IQueryable](https://msdn.microsoft.com/en-us/library/bb351562.aspx) zmiennej przed `switch` instrukcji, modyfikuje go w `switch` instrukcji i wywołania `ToList` metody po `switch` instrukcji. Podczas tworzenia i modyfikowania `IQueryable` zmiennych, nie zapytanie jest wysyłane do bazy danych. Kwerenda nie została wykonana, do momentu konwersji `IQueryable` obiektu do kolekcji, wywołując metodę, takich jak `ToList`. W związku z tym powoduje ten kod w jednym zapytaniu, która nie jest wykonywana do czasu `return View` instrukcji.
+W metodzie [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) określić kolumnę sortowania. Kod tworzy [IQueryable](https://msdn.microsoft.com/library/bb351562.aspx) zmiennej przed `switch` instrukcji, modyfikuje go w `switch` instrukcji i wywołania `ToList` metody po `switch` instrukcji. Podczas tworzenia i modyfikowania `IQueryable` zmiennych, nie zapytanie jest wysyłane do bazy danych. Kwerenda nie została wykonana, do momentu konwersji `IQueryable` obiektu do kolekcji, wywołując metodę, takich jak `ToList`. W związku z tym powoduje ten kod w jednym zapytaniu, która nie jest wykonywana do czasu `return View` instrukcji.
 
 Jako alternatywę do zapisywania różnych instrukcje LINQ dla każdego porządek sortowania można dynamicznie utworzyć instrukcję LINQ. Uzyskać informacji o dynamicznych LINQ, zobacz [dynamiczne LINQ](https://go.microsoft.com/fwlink/?LinkID=323957).
 
@@ -90,7 +90,7 @@ W *Controllers\StudentController.cs*, Zastąp `Index` metodę z następującym k
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-Dodano `searchString` parametr `Index` metody. Wartość ciągu wyszukiwania są odebrane z pola tekstowego, która zostanie dodana do widoku indeksu. Również dodane do instrukcji LINQ `where` klauzuli, który wybiera tylko studentów, w których imię lub nazwisko zawiera ciąg wyszukiwania. Instrukcja, która dodaje [gdzie](https://msdn.microsoft.com/en-us/library/bb535040.aspx) klauzuli jest wykonywane tylko wtedy, gdy wartość do wyszukania.
+Dodano `searchString` parametr `Index` metody. Wartość ciągu wyszukiwania są odebrane z pola tekstowego, która zostanie dodana do widoku indeksu. Również dodane do instrukcji LINQ `where` klauzuli, który wybiera tylko studentów, w których imię lub nazwisko zawiera ciąg wyszukiwania. Instrukcja, która dodaje [gdzie](https://msdn.microsoft.com/library/bb535040.aspx) klauzuli jest wykonywane tylko wtedy, gdy wartość do wyszukania.
 
 > [!NOTE]
 > W wielu przypadkach można wywołać tej samej metody zestaw jednostek Entity Framework lub jako metodę rozszerzenie w kolekcji w pamięci. Wyniki są zazwyczaj takie same, ale w niektórych przypadkach może się różnić.
@@ -160,7 +160,7 @@ Na końcu metody `ToPagedList` metody rozszerzenia dla uczniów lub studentów `
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-`ToPagedList` Metoda przyjmuje numer strony. Reprezentuje dwa znaki zapytania [łączenie null operator](https://msdn.microsoft.com/en-us/library/ms173224.aspx). Wartość domyślna dla typu dopuszczającego wartość null; definiuje operator łączenia wartości null wyrażenie `(page ?? 1)` oznacza zwrócić wartość `page` jeśli jego wartość, lub zwraca 1, jeśli `page` ma wartość null.
+`ToPagedList` Metoda przyjmuje numer strony. Reprezentuje dwa znaki zapytania [łączenie null operator](https://msdn.microsoft.com/library/ms173224.aspx). Wartość domyślna dla typu dopuszczającego wartość null; definiuje operator łączenia wartości null wyrażenie `(page ?? 1)` oznacza zwrócić wartość `page` jeśli jego wartość, lub zwraca 1, jeśli `page` ma wartość null.
 
 ### <a name="add-paging-links-to-the-student-index-view"></a>Dodawania łączy stronicowania w widoku indeksu dla użytkowników domowych
 
@@ -172,11 +172,11 @@ W *Views\Student\Index.cshtml*, Zastąp istniejący kod następującym kodem. Zm
 
 `using` Instrukcji dla `PagedList.Mvc` zapewnia dostęp do pomocniczego MVC przycisków stronicowania.
 
-Kod używane jest przeciążenie [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) umożliwiająca, aby określić [FormMethod.Get](https://msdn.microsoft.com/en-us/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
+Kod używane jest przeciążenie [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) umożliwiająca, aby określić [FormMethod.Get](https://msdn.microsoft.com/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cshtml?highlight=1)]
 
-Wartość domyślna [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) przesyła dane formularza przy użyciu metody POST, co oznacza, że parametry są przekazywane w treści wiadomości HTTP, a nie w adresie URL jako ciągi zapytań. Po określeniu HTTP GET, formularza dane są przekazywane w adresie URL jako ciągi zapytania, który umożliwia użytkownikom zakładki adres URL. [W3C wytyczne dotyczące stosowania HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) zaleca, aby powinny używać GET, gdy akcja nie powoduje aktualizacji.
+Wartość domyślna [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) przesyła dane formularza przy użyciu metody POST, co oznacza, że parametry są przekazywane w treści wiadomości HTTP, a nie w adresie URL jako ciągi zapytań. Po określeniu HTTP GET, formularza dane są przekazywane w adresie URL jako ciągi zapytania, który umożliwia użytkownikom zakładki adres URL. [W3C wytyczne dotyczące stosowania HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) zaleca, aby powinny używać GET, gdy akcja nie powoduje aktualizacji.
 
 Pole tekstowe jest inicjowany z aktualnie wyszukiwanego ciągu, więc po kliknięciu nowej strony można zobaczyć aktualnie wyszukiwanego ciągu.
 

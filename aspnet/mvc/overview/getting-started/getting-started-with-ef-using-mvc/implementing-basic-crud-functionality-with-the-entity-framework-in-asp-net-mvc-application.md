@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c63b8f591023b68720c523d1c9184a527a34e9cc
-ms.sourcegitcommit: e4fb6b13be56a0fb2f2778623740a047d6489227
+ms.openlocfilehash: e3dbea51199722bfe50f201c4ddcc90aa081927d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application"></a>Implementowanie funkcji Basic CRUD z programu Entity Framework w aplikacji ASP.NET MVC
 ====================
@@ -45,7 +45,7 @@ W tym samouczku utworzysz następujących stron sieci web:
 
 Kod z utworzonym szkieletem dla uczniów lub studentów `Index` po lewej stronie `Enrollments` właściwości, ponieważ kolekcja zawiera tej właściwości. W `Details` strony będzie wyświetlać zawartość kolekcji, w tabeli HTML.
 
- W *Controllers\StudentController.cs*, metoda akcji `Details` wyświetlić używa [znaleźć](https://msdn.microsoft.com/en-us/library/gg696418(v=VS.103).aspx) metoda pobierania pojedynczy `Student` jednostki. 
+ W *Controllers\StudentController.cs*, metoda akcji `Details` wyświetlić używa [znaleźć](https://msdn.microsoft.com/library/gg696418(v=VS.103).aspx) metoda pobierania pojedynczy `Student` jednostki. 
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample1.cs)]
 
@@ -92,7 +92,7 @@ W poniższym kodzie `courseID` nie jest zgodny z parametrem w trasy domyślnej, 
 
 ## <a name="update-the-create-page"></a>Utwórz stronę aktualizacji
 
-1. W *Controllers\StudentController.cs*, Zastąp `HttpPost``Create` metodę akcji za pomocą następujący kod, aby dodać `try-catch` blokować i Usuń `ID` z [atrybutu Bind](https://msdn.microsoft.com/en-us/library/system.web.mvc.bindattribute(v=vs.108).aspx) dla Metoda szkieletu:
+1. W *Controllers\StudentController.cs*, Zastąp `HttpPost``Create` metodę akcji za pomocą następujący kod, aby dodać `try-catch` blokować i Usuń `ID` z [atrybutu Bind](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) dla Metoda szkieletu:
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample7.cs?highlight=3,5-6,13-18)]
 
@@ -108,7 +108,7 @@ W poniższym kodzie `courseID` nie jest zgodny z parametrem w trasy domyślnej, 
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample8.cs?highlight=7)]
 
-    Nawet jeśli nie masz `Secret` pola na stronie sieci web, haker można za pomocą narzędzia, takie jak [fiddler](http://fiddler2.com/home), lub zapisu fragmentów kodu JavaScript można opublikować `Secret` tworzą wartość. Bez [powiązać](https://msdn.microsoft.com/en-us/library/system.web.mvc.bindattribute(v=vs.108).aspx) ograniczanie pól używanych przez integrator modelu podczas tworzenia atrybutu `Student` wystąpienia*,* integratora modelu czy odebrania który `Secret` stanowią wartość i użyć go do Utwórz `Student` wystąpienia jednostki. Następnie niezależnie od wartości haker określony dla `Secret` pola formularza, czy zaktualizowane w bazie danych. Na poniższej ilustracji przedstawiono fiddler Dodawanie narzędzia `Secret` pola (o wartości "OverPost") do wartości przesłanego formularza.
+    Nawet jeśli nie masz `Secret` pola na stronie sieci web, haker można za pomocą narzędzia, takie jak [fiddler](http://fiddler2.com/home), lub zapisu fragmentów kodu JavaScript można opublikować `Secret` tworzą wartość. Bez [powiązać](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) ograniczanie pól używanych przez integrator modelu podczas tworzenia atrybutu `Student` wystąpienia*,* integratora modelu czy odebrania który `Secret` stanowią wartość i użyć go do Utwórz `Student` wystąpienia jednostki. Następnie niezależnie od wartości haker określony dla `Secret` pola formularza, czy zaktualizowane w bazie danych. Na poniższej ilustracji przedstawiono fiddler Dodawanie narzędzia `Secret` pola (o wartości "OverPost") do wartości przesłanego formularza.
 
     ![](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image5.png)  
 
@@ -120,7 +120,7 @@ W poniższym kodzie `courseID` nie jest zgodny z parametrem w trasy domyślnej, 
 
     Alternatywny sposób, aby zapobiec overposting, który jest wybierany przez wielu deweloperów jest użycie modeli widoku zamiast klas jednostek dla wiązania modelu. Zawierać tylko właściwości, które chcesz zaktualizować w modelu widoku. Po zakończeniu integratora modelu MVC, skopiuj Wyświetl właściwości modelu do wystąpienia jednostki, opcjonalnie przy użyciu narzędzia takie jak [AutoMapper](http://automapper.org/). Użyj bazy danych. Wpis na wystąpienie jednostki do zestawu stanie Unchanged, a następnie ustaw Property("PropertyName"). IsModified na wartość true dla każdej właściwości jednostki, który znajduje się w modelu widoku. Ta metoda działa zarówno w edytować i tworzyć scenariuszy.
 
-    Inne niż `Bind` atrybutu `try-catch` blok jest tylko zmiany wprowadzone do szkieletu kodu. Jeśli wyjątek, która jest pochodną [DataException](https://msdn.microsoft.com/en-us/library/system.data.dataexception.aspx) jest zgłoszony, gdy trwa zapisywanie zmian, zostanie wyświetlony komunikat ogólny błąd. [DataException](https://msdn.microsoft.com/en-us/library/system.data.dataexception.aspx) wyjątki są czasami przerwany zewnętrzne do aplikacji, a nie błąd programistyczny, dlatego zalecane jest użytkownik, aby spróbować ponownie. Chociaż nie jest zaimplementowana w tym przykładzie, jakości aplikacji produkcyjnej może zarejestruje wyjątek. Aby uzyskać więcej informacji, zobacz **dziennik, aby uzyskać szczegółowe informacje o** sekcji [monitorowanie i dane telemetryczne (tworzenia rzeczywistych aplikacji w chmurze platformy Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log).
+    Inne niż `Bind` atrybutu `try-catch` blok jest tylko zmiany wprowadzone do szkieletu kodu. Jeśli wyjątek, która jest pochodną [DataException](https://msdn.microsoft.com/library/system.data.dataexception.aspx) jest zgłoszony, gdy trwa zapisywanie zmian, zostanie wyświetlony komunikat ogólny błąd. [DataException](https://msdn.microsoft.com/library/system.data.dataexception.aspx) wyjątki są czasami przerwany zewnętrzne do aplikacji, a nie błąd programistyczny, dlatego zalecane jest użytkownik, aby spróbować ponownie. Chociaż nie jest zaimplementowana w tym przykładzie, jakości aplikacji produkcyjnej może zarejestruje wyjątek. Aby uzyskać więcej informacji, zobacz **dziennik, aby uzyskać szczegółowe informacje o** sekcji [monitorowanie i dane telemetryczne (tworzenia rzeczywistych aplikacji w chmurze platformy Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log).
 
     Kod w *Views\Student\Create.cshtml* jest podobny do opisany w *Details.cshtml*, ale `EditorFor` i `ValidationMessageFor` pomocników są używane dla każdego pola zamiast `DisplayFor`. W tym miejscu jest odpowiedni kod:
 
@@ -151,7 +151,7 @@ Jednak zastąpić `HttpPost` `Edit` metody akcji z następującym kodem:
 
 Ze względów bezpieczeństwa zapobiegające zaimplementować te zmiany [overposting](#overpost), tworzenia szkieletu, generowane `Bind` atrybutu i dodać obiekt utworzony przez obiekt wiążący modelu do zestawu z flagą zmodyfikowane jednostek. Czy kod nie jest zalecane, ponieważ `Bind` atrybutu usuwa wszystkie istniejące dane w polach niewymienionych w `Include` parametru. W przyszłości zostaną zaktualizowane tworzenia szkieletu kontrolera MVC, aby go nie generuje `Bind` atrybuty dla metod edycji.
 
-Nowy kod odczytuje istniejącej jednostki i wywołania [TryUpdateModel](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller.tryupdatemodel(v=vs.118).aspx) można zaktualizować pola z danych wejściowych użytkownika w danych przesłanego formularza. Automatyczna zmiana Entity Framework śledzenia zestawy [zmodyfikowane](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx) flagi jednostki. Gdy [SaveChanges](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) metoda jest wywoływana, `Modified` flaga powoduje, że programu Entity Framework w celu tworzenia instrukcji SQL, aby zaktualizować wiersza bazy danych. [Konfliktom współbieżności](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md) są ignorowane, a wszystkie kolumny wiersza bazy danych są aktualizowane, w tym te, które nie zmienił się użytkownika. (Nowsze samouczek pokazuje, jak obsługiwać konfliktom współbieżności, a jeśli chcesz tylko poszczególnych pól zostać zaktualizowane w bazie danych, możesz ustawić jednostki Unchanged i ustawić poszczególnych pól do zmodyfikowane.)
+Nowy kod odczytuje istniejącej jednostki i wywołania [TryUpdateModel](https://msdn.microsoft.com/library/system.web.mvc.controller.tryupdatemodel(v=vs.118).aspx) można zaktualizować pola z danych wejściowych użytkownika w danych przesłanego formularza. Automatyczna zmiana Entity Framework śledzenia zestawy [zmodyfikowane](https://msdn.microsoft.com/library/system.data.entitystate.aspx) flagi jednostki. Gdy [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) metoda jest wywoływana, `Modified` flaga powoduje, że programu Entity Framework w celu tworzenia instrukcji SQL, aby zaktualizować wiersza bazy danych. [Konfliktom współbieżności](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md) są ignorowane, a wszystkie kolumny wiersza bazy danych są aktualizowane, w tym te, które nie zmienił się użytkownika. (Nowsze samouczek pokazuje, jak obsługiwać konfliktom współbieżności, a jeśli chcesz tylko poszczególnych pól zostać zaktualizowane w bazie danych, możesz ustawić jednostki Unchanged i ustawić poszczególnych pól do zmodyfikowane.)
 
 Najlepszym rozwiązaniem zapobiegające overposting pola, które mają być aktualizuje edycji strony są białej w `TryUpdateModel` parametrów. Obecnie nie ma żadnych dodatkowych pól, które chronisz, ale lista pól, które mają integratora modelu do powiązania gwarantuje, że jeśli dodajesz pola do modelu danych w przyszłości, są one automatycznie chronione aż dodasz je tutaj.
 
@@ -161,9 +161,9 @@ W wyniku tych zmian podpis metody metody HttpPost edycji jest taka sama jak meto
 > 
 > **Stany jednostki i przełącznikami Attach i metody SaveChanges**
 > 
-> Przechowuje informacje o kontekście bazy danych, czy jednostki w pamięci są zsynchronizowane z ich odpowiednich wierszy w bazie danych, a te informacje określa, co się stanie w przypadku wywołania `SaveChanges` metody. Na przykład podczas przekazywania nową jednostkę do [Dodaj](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset.add(v=vs.103).aspx) — metoda, która stanu jednostki jest ustawiona na `Added`. Następnie podczas wywoływania [SaveChanges](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) metody wystawia kontekst bazy danych SQL `INSERT` polecenia.
+> Przechowuje informacje o kontekście bazy danych, czy jednostki w pamięci są zsynchronizowane z ich odpowiednich wierszy w bazie danych, a te informacje określa, co się stanie w przypadku wywołania `SaveChanges` metody. Na przykład podczas przekazywania nową jednostkę do [Dodaj](https://msdn.microsoft.com/library/system.data.entity.dbset.add(v=vs.103).aspx) — metoda, która stanu jednostki jest ustawiona na `Added`. Następnie podczas wywoływania [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) metody wystawia kontekst bazy danych SQL `INSERT` polecenia.
 > 
-> Jednostka może działać w jednym z[następujące stany](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx):
+> Jednostka może działać w jednym z[następujące stany](https://msdn.microsoft.com/library/system.data.entitystate.aspx):
 > 
 > - `Added`. Jednostka nie istnieje jeszcze w bazie danych. `SaveChanges` Metody należy wygenerować `INSERT` instrukcji.
 > - `Unchanged`. Nie trzeba żadnego ustawienia można zrobić za pomocą tej jednostki przez `SaveChanges` metody. Podczas odczytu jednostki bazy danych, jednostka rozpoczyna się od tego stanu.
@@ -173,9 +173,9 @@ W wyniku tych zmian podpis metody metody HttpPost edycji jest taka sama jak meto
 > 
 > W aplikacji pulpitu zmian stanu zwykle są ustawiane automatycznie. Pulpitu typu aplikacji służy do odczytu jednostki i wprowadzić zmiany w niektóre z jej wartości właściwości. Powoduje to, że jego stan jednostki automatycznie zmieniona na `Modified`. Następnie podczas wywoływania `SaveChanges`, Entity Framework generuje SQL `UPDATE` instrukcji, która aktualizuje tylko rzeczywiste właściwości, które można zmienić.
 > 
-> Dla tej ciągłej sekwencji nie zezwala na odłączonego rodzaju aplikacje sieci web. [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) które odczytuje jednostki zostanie usunięty po renderowania strony. Gdy `HttpPost` `Edit` metoda akcji jest wywoływana, nowych żądań i masz nowe wystąpienie klasy [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx), dlatego należy ręcznie ustawić stan jednostki `Modified.` , a następnie podczas wywoływania `SaveChanges`, Entity Framework aktualizuje wszystkie kolumny wiersza bazy danych, ponieważ kontekst nie ma możliwości wiedzieć, właściwości, które można zmienić.
+> Dla tej ciągłej sekwencji nie zezwala na odłączonego rodzaju aplikacje sieci web. [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) które odczytuje jednostki zostanie usunięty po renderowania strony. Gdy `HttpPost` `Edit` metoda akcji jest wywoływana, nowych żądań i masz nowe wystąpienie klasy [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx), dlatego należy ręcznie ustawić stan jednostki `Modified.` , a następnie podczas wywoływania `SaveChanges`, Entity Framework aktualizuje wszystkie kolumny wiersza bazy danych, ponieważ kontekst nie ma możliwości wiedzieć, właściwości, które można zmienić.
 > 
-> Jeśli chcesz, aby SQL `Update` instrukcji można zaktualizować tylko pola, które użytkownik faktycznie zmienił, oryginalne wartości można zapisać w jakiś sposób (np. pola ukryte), aby były dostępne podczas `HttpPost` `Edit` metoda jest wywoływana. Następnie można utworzyć `Student` jednostką przy użyciu oryginalnych wartości, wywołanie `Attach` metody z tej wersji oryginalnej jednostki, zaktualizuj wartości jednostki do nowych wartości, a następnie wywołać `SaveChanges.` uzyskać więcej informacji, zobacz [ Stany jednostki i metody SaveChanges](https://msdn.microsoft.com/en-us/data/jj592676) i [dane lokalne](https://msdn.microsoft.com/en-us/data/jj592872) w Centrum deweloperów MSDN danych.
+> Jeśli chcesz, aby SQL `Update` instrukcji można zaktualizować tylko pola, które użytkownik faktycznie zmienił, oryginalne wartości można zapisać w jakiś sposób (np. pola ukryte), aby były dostępne podczas `HttpPost` `Edit` metoda jest wywoływana. Następnie można utworzyć `Student` jednostką przy użyciu oryginalnych wartości, wywołanie `Attach` metody z tej wersji oryginalnej jednostki, zaktualizuj wartości jednostki do nowych wartości, a następnie wywołać `SaveChanges.` uzyskać więcej informacji, zobacz [ Stany jednostki i metody SaveChanges](https://msdn.microsoft.com/data/jj592676) i [dane lokalne](https://msdn.microsoft.com/data/jj592872) w Centrum deweloperów MSDN danych.
 
 
 Kod HTML i Razor w *Views\Student\Edit.cshtml* jest podobny do opisany w *Create.cshtml*, a zmiany nie są wymagane.
@@ -200,12 +200,12 @@ Należy dodać `try-catch` za pomocą bloku `HttpPost` `Delete` można obsłuży
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample12.cs?highlight=1,7-10)]
 
-    Ten kod akceptuje [opcjonalny parametr](https://msdn.microsoft.com/en-us/library/dd264739.aspx) wskazująca, czy metoda została wywołana po awarii, aby zapisać zmiany. Ten parametr jest `false` podczas `HttpGet` `Delete` metoda jest wywoływana bez poprzednim błędzie. Gdy jest wywoływana `HttpPost` `Delete` parametr metody w odpowiedzi na błąd aktualizacji bazy danych, jest `true` , a komunikat o błędzie jest przekazywana do widoku.
+    Ten kod akceptuje [opcjonalny parametr](https://msdn.microsoft.com/library/dd264739.aspx) wskazująca, czy metoda została wywołana po awarii, aby zapisać zmiany. Ten parametr jest `false` podczas `HttpGet` `Delete` metoda jest wywoływana bez poprzednim błędzie. Gdy jest wywoływana `HttpPost` `Delete` parametr metody w odpowiedzi na błąd aktualizacji bazy danych, jest `true` , a komunikat o błędzie jest przekazywana do widoku.
 - Zastąp `HttpPost` `Delete` metody akcji (o nazwie `DeleteConfirmed`) z następującym kodem, wykonuje operację usuwania rzeczywistego oraz przechwytującą wszystkie błędy aktualizacji bazy danych.
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample13.cs)]
 
-    Ten kod pobiera wybranej jednostki, następnie wywołuje [Usuń](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset.remove(v=vs.103).aspx) metody w celu ustawienia stanu jednostki `Deleted`. Gdy `SaveChanges` jest nazywany SQL `DELETE` wygenerowaniu polecenia. Również zmieniono nazwę metody akcji `DeleteConfirmed` do `Delete`. Kod z utworzonym szkieletem o nazwie `HttpPost` `Delete` metody `DeleteConfirmed` umożliwiają `HttpPost` metody unikatowego podpisu. (CLR wymaga przeciążonej metody mają parametry innej metody). Teraz, czy podpisy są unikatowe, możesz przestrzegaj Konwencji MVC i użyć takiej samej nazwy `HttpPost` i `HttpGet` metody zostaną usunięte.
+    Ten kod pobiera wybranej jednostki, następnie wywołuje [Usuń](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx) metody w celu ustawienia stanu jednostki `Deleted`. Gdy `SaveChanges` jest nazywany SQL `DELETE` wygenerowaniu polecenia. Również zmieniono nazwę metody akcji `DeleteConfirmed` do `Delete`. Kod z utworzonym szkieletem o nazwie `HttpPost` `Delete` metody `DeleteConfirmed` umożliwiają `HttpPost` metody unikatowego podpisu. (CLR wymaga przeciążonej metody mają parametry innej metody). Teraz, czy podpisy są unikatowe, możesz przestrzegaj Konwencji MVC i użyć takiej samej nazwy `HttpPost` i `HttpGet` metody zostaną usunięte.
 
     W przypadku zwiększania wydajności aplikacji dużych priorytet, można uniknąć niepotrzebnych zapytanie SQL, który można pobrać wiersza, zastępując wierszy kodu, które wywołują `Find` i `Remove` metody z następującym kodem:
 
@@ -225,7 +225,7 @@ Należy dodać `try-catch` za pomocą bloku `HttpPost` `Delete` można obsłuży
 
 ## <a name="closing-database-connections"></a>Zamykanie połączenia bazy danych
 
-Aby zamknąć połączenia bazy danych i zwolnić zasoby, które posiadają tak szybko, jak to możliwe, należy dysponować wystąpienia kontekstu po zakończeniu z nim. Oznacza to, dlaczego szkieletu kodu zawiera [Dispose](https://msdn.microsoft.com/en-us/library/system.idisposable.dispose(v=vs.110).aspx) metody na końcu `StudentController` klasy w *StudentController.cs*, jak pokazano w poniższym przykładzie:
+Aby zamknąć połączenia bazy danych i zwolnić zasoby, które posiadają tak szybko, jak to możliwe, należy dysponować wystąpienia kontekstu po zakończeniu z nim. Oznacza to, dlaczego szkieletu kodu zawiera [Dispose](https://msdn.microsoft.com/library/system.idisposable.dispose(v=vs.110).aspx) metody na końcu `StudentController` klasy w *StudentController.cs*, jak pokazano w poniższym przykładzie:
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample16.cs)]
 
@@ -234,11 +234,11 @@ Podstawowym `Controller` klasy już implementuje `IDisposable` interfejsu, dlate
 <a id="transactions"></a>
 ## <a name="handling-transactions"></a>Obsługa transakcji
 
-Domyślnie programu Entity Framework niejawnie implementuje transakcji. W scenariuszach, gdzie zmianę wielu wierszy lub tabel, a następnie wywołać `SaveChanges`, Entity Framework automatycznie upewnia się, że wszystkie zmiany powiedzie się lub nie powiedzie się. Jeśli niektóre zmiany są najpierw wykonywane, a następnie błąd wystąpi, zmiany te są automatycznie wycofana. Scenariusze, w którym należy więcej kontrolujesz — na przykład, jeśli chcesz dołączyć operacje wykonywane poza Entity Framework w transakcji — można znaleźć [Praca z transakcji](https://msdn.microsoft.com/en-US/data/dn456843) w witrynie MSDN.
+Domyślnie programu Entity Framework niejawnie implementuje transakcji. W scenariuszach, gdzie zmianę wielu wierszy lub tabel, a następnie wywołać `SaveChanges`, Entity Framework automatycznie upewnia się, że wszystkie zmiany powiedzie się lub nie powiedzie się. Jeśli niektóre zmiany są najpierw wykonywane, a następnie błąd wystąpi, zmiany te są automatycznie wycofana. Scenariusze, w którym należy więcej kontrolujesz — na przykład, jeśli chcesz dołączyć operacje wykonywane poza Entity Framework w transakcji — można znaleźć [Praca z transakcji](https://msdn.microsoft.com/data/dn456843) w witrynie MSDN.
 
 ## <a name="summary"></a>Podsumowanie
 
-Masz teraz kompletny zestaw stron, które wykonywać proste operacje CRUD na `Student` jednostek. Pomocnicy MVC jest używany do generowania elementy interfejsu użytkownika dla pola danych. Aby uzyskać więcej informacji na temat pomocników MVC, zobacz [renderowania pomocników HTML za pomocą formularza](https://msdn.microsoft.com/en-us/library/dd410596(v=VS.98).aspx) (strona jest dla platformy MVC 3, ale jest nadal istotne dla MVC 5).
+Masz teraz kompletny zestaw stron, które wykonywać proste operacje CRUD na `Student` jednostek. Pomocnicy MVC jest używany do generowania elementy interfejsu użytkownika dla pola danych. Aby uzyskać więcej informacji na temat pomocników MVC, zobacz [renderowania pomocników HTML za pomocą formularza](https://msdn.microsoft.com/library/dd410596(v=VS.98).aspx) (strona jest dla platformy MVC 3, ale jest nadal istotne dla MVC 5).
 
 W następnym samouczku będzie rozwiń funkcji strony indeksu, dodając sortowania i stronicowania.
 

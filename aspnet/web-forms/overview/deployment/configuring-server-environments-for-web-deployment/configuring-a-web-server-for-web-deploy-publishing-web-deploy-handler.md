@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: 2127a98a0abf2c94e32b907d945c9b4d36fb2360
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 81848c683fb9ddaa8942f030a520847a3c89fde0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Konfigurowanie serwera sieci Web dla sieci Web wdrażanie, publikowanie (Web Deploy obsługi)
 ====================
@@ -67,7 +67,7 @@ W tym temacie opisano sposób wykonywania każdego z tych procedur. Zadania i ws
 - Serwer ma statyczny adres IP.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji dotyczących dołączania komputerów do domeny, zobacz [przyłączania komputerów do domeny i rejestrowanie na](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Aby uzyskać więcej informacji na temat konfigurowania statycznych adresów IP, zobacz [skonfigurować statyczny adres IP](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx).
+> Aby uzyskać więcej informacji dotyczących dołączania komputerów do domeny, zobacz [przyłączania komputerów do domeny i rejestrowanie na](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Aby uzyskać więcej informacji na temat konfigurowania statycznych adresów IP, zobacz [skonfigurować statyczny adres IP](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
 
 ## <a name="install-products-and-components"></a>Instalowanie produktów i składników
@@ -81,7 +81,7 @@ W takim przypadku należy zainstalować następujące elementy:
 - **Usługi IIS: Uwierzytelnianie podstawowe**. Spowoduje to zainstalowanie modułu uwierzytelnianie podstawowe usług IIS. Ta usługa zarządzania siecią Web (WMSvc) umożliwia uwierzytelnianie poświadczenia podane przez użytkownika.
 - **Narzędzia Deployment Tool w wersji 2.1 lub nowszej w sieci Web**. Spowoduje to zainstalowanie narzędzia Web Deploy (i jego podstawowy plik wykonywalny MSDeploy.exe) na serwerze. W ramach tego procesu instaluje program obsługi wdrażania sieci Web i integruje ją przy użyciu usługi zarządzania w sieci Web.
 - **.NET framework 4.0**. Jest to wymagane do uruchamiania aplikacji, które zostały utworzone w tej wersji programu .NET Framework.
-- **PROGRAM ASP.NET MVC 3**. Spowoduje to zainstalowanie zestawów, należy uruchomić aplikacji MVC 3.
+- **ASP.NET MVC 3**. Spowoduje to zainstalowanie zestawów, należy uruchomić aplikacji MVC 3.
 
 > [!NOTE]
 > W tym przewodniku opisano użycie Instalatora platformy sieci Web, aby zainstalować i skonfigurować różne składniki. Chociaż nie trzeba użyć Instalatora platformy sieci Web, upraszcza proces instalacji automatycznie wykrywanie zależności i zapewnienia zawsze uzyskać najnowsze wersje produktu. Aby uzyskać więcej informacji, zobacz [3.0 Instalatora platformy sieci Web Microsoft](https://go.microsoft.com/?linkid=9805118).
@@ -114,7 +114,7 @@ W takim przypadku należy zainstalować następujące elementy:
 13. Przejrzyj postanowienia licencyjne, a użytkownik wyraża zgodę na warunki, kliknij przycisk **akceptuję**.
 14. Po zakończeniu instalacji kliknij przycisk **Zakończ**, a następnie Zamknij **3.0 Instalatora platformy sieci Web** okna.
 
-Jeśli zainstalowano program .NET Framework 4.0 przed zainstalowaniem usług IIS, musisz uruchomić [narzędzie rejestracji programu ASP.NET usług IIS](https://msdn.microsoft.com/en-us/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) do rejestrowania najnowszą wersję platformy ASP.NET z programem IIS. Jeśli nie zrobisz, można znaleźć usługi IIS będą udostępniać zawartość statyczną (takich jak pliki HTML) bez problemów, ale zwróci **HTTP 404.0: błąd — nie można odnaleźć** podczas próby przeglądanie zawartości ASP.NET. Następna procedura służy do upewnij się, że program ASP.NET 4.0 jest zarejestrowany.
+Jeśli zainstalowano program .NET Framework 4.0 przed zainstalowaniem usług IIS, musisz uruchomić [narzędzie rejestracji programu ASP.NET usług IIS](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) do rejestrowania najnowszą wersję platformy ASP.NET z programem IIS. Jeśli nie zrobisz, można znaleźć usługi IIS będą udostępniać zawartość statyczną (takich jak pliki HTML) bez problemów, ale zwróci **HTTP 404.0: błąd — nie można odnaleźć** podczas próby przeglądanie zawartości ASP.NET. Następna procedura służy do upewnij się, że program ASP.NET 4.0 jest zarejestrowany.
 
 **Aby zarejestrować program ASP.NET 4.0 z usługami IIS**
 
@@ -210,7 +210,7 @@ Nie ma nic zatrzymywanie możesz z wdrażanie zawartości do domyślnej witryny 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image11.png)
 
     > [!NOTE]
-    > W środowisku produkcyjnym należy do hostowania witryny sieci Web na porcie 80 i konfigurowanie nagłówka hosta, wraz z pasujących rekordów DNS. Aby uzyskać więcej informacji na temat konfigurowania nagłówków hosta w usługach IIS 7, zobacz [skonfigurować nagłówek hosta dla witryny sieci Web (IIS 7)](https://technet.microsoft.com/en-us/library/cc753195(WS.10).aspx). Aby uzyskać więcej informacji o roli serwera DNS w systemie Windows Server 2008 R2, zobacz [Omówienie serwera DNS](https://technet.microsoft.com/en-gb/library/cc770392.aspx) i [serwera DNS](https://technet.microsoft.com/en-us/windowsserver/dd448607).
+    > W środowisku produkcyjnym należy do hostowania witryny sieci Web na porcie 80 i konfigurowanie nagłówka hosta, wraz z pasujących rekordów DNS. Aby uzyskać więcej informacji na temat konfigurowania nagłówków hosta w usługach IIS 7, zobacz [skonfigurować nagłówek hosta dla witryny sieci Web (IIS 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Aby uzyskać więcej informacji o roli serwera DNS w systemie Windows Server 2008 R2, zobacz [Omówienie serwera DNS](https://technet.microsoft.com/en-gb/library/cc770392.aspx) i [serwera DNS](https://technet.microsoft.com/windowsserver/dd448607).
 9. W **akcje** okienku w obszarze **edytowanie witryny**, kliknij przycisk **powiązania**.
 10. W **powiązania witryny** okno dialogowe, kliknij przycisk **Dodaj**.
 
@@ -254,8 +254,8 @@ Najbardziej typowym podejściem jest przypisywanie uprawnień do lokalnej **IIS\
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image15.png)
 5. W **Wybieranie użytkowników lub grup** okno dialogowe, typ **IIS\_IUSRS**, kliknij przycisk **Sprawdź nazwy**, a następnie kliknij przycisk **OK**.
-6. W **uprawnienia dla***[nazwa folderu]* okno dialogowe, zwróć uwagę, że nowa grupa zostanie przypisana **odczytu &amp; wykonania**, **listy folderów zawartość**, i **odczytu** uprawnienia domyślne. Pozostaw to bez zmian i kliknij przycisk **OK**.
-7. Kliknij przycisk **OK** zamknąć *[nazwa folderu]***właściwości** okno dialogowe.
+6. W **uprawnienia *** [nazwa folderu]* okno dialogowe, zwróć uwagę, że nowa grupa zostanie przypisana **odczytu &amp; wykonania**, **wyświetlanie zawartości folderu**, i **Odczytu** uprawnienia domyślne. Pozostaw to bez zmian i kliknij przycisk **OK**.
+7. Kliknij przycisk **OK** zamknąć *[nazwa folderu] *** właściwości** okno dialogowe.
 
 Jako ostatnim zadaniem można przyznać odpowiednie uprawnienia do użytkownika bez uprawnień administratora poświadczeń, którego będziesz używać do wdrażania zawartości. Ten użytkownik musi mieć uprawnienia do zdalnego wdrożenia zawartości witryny sieci Web.
 
@@ -288,7 +288,7 @@ Domyślnie usługa zarządzania usługami IIS sieci Web nasłuchuje na porcie TC
 | Wychodzące | 8172 | wszystkie | TCP |
   
 
-Aby uzyskać więcej informacji na temat konfigurowania reguł zapory systemu Windows, zobacz [Konfigurowanie reguł zapory](https://technet.microsoft.com/en-us/library/dd448559(WS.10).aspx). Zapory innych firm należy zapoznać się z dokumentacją produktu.
+Aby uzyskać więcej informacji na temat konfigurowania reguł zapory systemu Windows, zobacz [Konfigurowanie reguł zapory](https://technet.microsoft.com/library/dd448559(WS.10).aspx). Zapory innych firm należy zapoznać się z dokumentacją produktu.
 
 ## <a name="conclusion"></a>Wniosek
 

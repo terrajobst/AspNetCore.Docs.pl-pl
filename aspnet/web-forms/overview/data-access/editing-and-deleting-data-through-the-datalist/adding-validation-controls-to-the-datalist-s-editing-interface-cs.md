@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 06f3e59d0e6fd59a83934084422816360e915bd7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b80b25933679d5c5b465af24cf6ff5d3b824b401
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-c"></a>Dodawanie formantów weryfikacji DataList edycji interfejsu (C#)
 ====================
@@ -71,11 +71,11 @@ Po przeniesieniu za pośrednictwem zawartość i kod z `ErrorHandling.aspx` do `
 
 Podczas tworzenia formularzy wprowadzania danych, ważne jest wprowadzania wszystkich wymaganych pól i że wszystkie ich podane dane wejściowe są wartości prawnych, niepoprawnie sformatowany. Aby upewnić się, że s danych wprowadzonych przez użytkownika są prawidłowe, program ASP.NET zapewnia pięć wbudowanych sprawdzania kontroluje, opracowane w celu sprawdzenia wartości pojedynczego kontrolki wprowadzania w formie sieci Web:
 
-- [RequiredFieldValidator](https://msdn.microsoft.com/en-us/library/5hbw267h(VS.80).aspx) gwarantuje, że wartość została podana
-- [CompareValidator](https://msdn.microsoft.com/en-us/library/db330ayw(VS.80).aspx) sprawdza poprawność wartości z inną wartością formantu sieci Web lub wartość stałą lub zapewnia, że format wartości s jest niedozwolona dla określonego typu danych
-- [RangeValidator](https://msdn.microsoft.com/en-us/library/f70d09xt.aspx) gwarantuje, że wartość znajduje się w zakresie wartości
-- [RegularExpressionValidator](https://msdn.microsoft.com/en-US/library/eahwtc9e.aspx) weryfikuje wartość względem [wyrażeń regularnych](http://en.wikipedia.org/wiki/Regular_expression)
-- [CustomValidator](https://msdn.microsoft.com/en-us/library/9eee01cx(VS.80).aspx) weryfikuje wartość z niestandardowych, definiowanych przez użytkownika — metoda
+- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx) gwarantuje, że wartość została podana
+- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) sprawdza poprawność wartości z inną wartością formantu sieci Web lub wartość stałą lub zapewnia, że format wartości s jest niedozwolona dla określonego typu danych
+- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx) gwarantuje, że wartość znajduje się w zakresie wartości
+- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) weryfikuje wartość względem [wyrażeń regularnych](http://en.wikipedia.org/wiki/Regular_expression)
+- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) weryfikuje wartość z niestandardowych, definiowanych przez użytkownika — metoda
 
 Więcej informacji o tych kontrolek pięć odwołują się do [dodawanie formantów weryfikacji do edycji i wstawianie interfejsy](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md) samouczek lub wyewidencjonowanie [sekcji Formanty walidacji](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/validation/default.aspx) z [Samouczków szybkiego startu ASP.NET](https://quickstarts.asp.net).
 
@@ -93,7 +93,7 @@ Let s, najpierw dodaj formanty walidacji niezbędne do DataList s `EditItemTempl
 **Rysunek 3**: Dodaj RequiredFieldValidator do `EditItemTemplate After` `ProductName` pola tekstowego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image9.png))
 
 
-Wszystkie formanty walidacji pracę sprawdzanie poprawności danych wejściowych jeden formant sieci Web ASP.NET. W związku z tym należy wskazać, że RequiredFieldValidator właśnie dodaliśmy powinien sprawdzania poprawności `ProductName` pole tekstowe; odbywa się przez ustawienie weryfikacji s [ `ControlToValidate` właściwości](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) do `ID` z odpowiednie kontrolka sieci Web (`ProductName`, w tym wystąpieniu). Następnie należy ustawić [ `ErrorMessage` właściwości](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) do należy podać nazwę produktu s i [ `Text` właściwości](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) do \*. `Text` Wartość właściwości, jeśli zostanie podana, jest tekst, który jest wyświetlany przez formant weryfikacji w przypadku niepowodzenia weryfikacji. `ErrorMessage` Wartość właściwości, która jest wymagana, jest używany przez formant ValidationSummary; Jeśli `Text` pominięcia będzie używana wartość właściwości `ErrorMessage` wartość właściwości jest wyświetlany przez formant sprawdzania poprawności na nieprawidłowe dane wejściowe.
+Wszystkie formanty walidacji pracę sprawdzanie poprawności danych wejściowych jeden formant sieci Web ASP.NET. W związku z tym należy wskazać, że RequiredFieldValidator właśnie dodaliśmy powinien sprawdzania poprawności `ProductName` pole tekstowe; odbywa się przez ustawienie weryfikacji s [ `ControlToValidate` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) do `ID` z odpowiednie kontrolka sieci Web (`ProductName`, w tym wystąpieniu). Następnie należy ustawić [ `ErrorMessage` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) do należy podać nazwę produktu s i [ `Text` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) do \*. `Text` Wartość właściwości, jeśli zostanie podana, jest tekst, który jest wyświetlany przez formant weryfikacji w przypadku niepowodzenia weryfikacji. `ErrorMessage` Wartość właściwości, która jest wymagana, jest używany przez formant ValidationSummary; Jeśli `Text` pominięcia będzie używana wartość właściwości `ErrorMessage` wartość właściwości jest wyświetlany przez formant sprawdzania poprawności na nieprawidłowe dane wejściowe.
 
 Ustawienie tych trzech właściwości RequiredFieldValidator, po ekranie powinien wyglądać podobnie do rysunek 4.
 
@@ -105,7 +105,7 @@ Ustawienie tych trzech właściwości RequiredFieldValidator, po ekranie powinie
 
 Z RequiredFieldValidator dodane do `EditItemTemplate`, wszystkie, czy pozostaje jest dodanie niezbędne weryfikacji w cenie produktu s pola tekstowego. Ponieważ `UnitPrice` jest opcjonalny podczas edytowania rekordu, możemy ADAM trzeba dodać RequiredFieldValidator t. Jednak należy dodać CompareValidator, aby upewnić się, że `UnitPrice`, jeśli podany, jest poprawnie sformatowana jako walutę i jest większa lub równa 0.
 
-Dodaj CompareValidator do `EditItemTemplate` i ustaw jej `ControlToValidate` właściwości `UnitPrice`, jego `ErrorMessage` właściwości ceny musi być większa lub równa zero i nie może zawierać symbol waluty i jego `Text` właściwości \*. Aby wskazać, że `UnitPrice` wartość musi być większa lub równa 0, ustaw CompareValidator s [ `Operator` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx) do `GreaterThanEqual`, jego [ `ValueToCompare` właściwości](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx) 0 i jego [ `Type` właściwości](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx) do `Currency`.
+Dodaj CompareValidator do `EditItemTemplate` i ustaw jej `ControlToValidate` właściwości `UnitPrice`, jego `ErrorMessage` właściwości ceny musi być większa lub równa zero i nie może zawierać symbol waluty i jego `Text` właściwości \*. Aby wskazać, że `UnitPrice` wartość musi być większa lub równa 0, ustaw CompareValidator s [ `Operator` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx) do `GreaterThanEqual`, jego [ `ValueToCompare` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx) 0 i jego [ `Type` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx) do `Currency`.
 
 Po dodaniu tych dwóch weryfikacji zabezpieczeń DataList s `EditItemTemplate` składni deklaratywnej s powinien wyglądać podobnie do następującego:
 
@@ -144,13 +144,13 @@ Domyślnie formantów sieci Web weryfikacji Emituj obsługę języka JavaScript 
 
 Takie przykładem jest przycisk Anuluj. Załóżmy, że użytkownik wprowadzi nieprawidłowe dane, takie jak nazwa produktu s, pomijając decyduje o tych t chcesz zapisać produkt po wszystkich i trafienia przycisku Anuluj. Obecnie przycisku Anuluj wyzwala formanty walidacji na stronie, których raport, czy nazwa produktu Brak i zapobiec ogłaszania zwrotnego. Naszych użytkownik będzie musiał wpisać tekst do `ProductName` pole tekstowe tylko do anulujesz procesu edycji.
 
-Na szczęście przycisku, LinkButton i ImageButton mają [ `CausesValidation` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.button.causesvalidation.aspx) który można wskazać, czy kliknięcie przycisku należy zainicjować logikę weryfikacji (domyślnie `True`). Ustaw s przycisku Anuluj `CausesValidation` właściwości `False`.
+Na szczęście przycisku, LinkButton i ImageButton mają [ `CausesValidation` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.causesvalidation.aspx) który można wskazać, czy kliknięcie przycisku należy zainicjować logikę weryfikacji (domyślnie `True`). Ustaw s przycisku Anuluj `CausesValidation` właściwości `False`.
 
 ## <a name="ensuring-the-inputs-are-valid-in-the-updatecommand-event-handler"></a>Zapewnienie dane wejściowe są prawidłowe w obsłudze zdarzeń UpdateCommand
 
 Z powodu emitowane przez formanty walidacji skryptu po stronie klienta, jeśli użytkownik wprowadzi nieprawidłowe dane wejściowe formanty walidacji anulować wszelkie ogłaszania zwrotnego inicjowane przez przycisk, LinkButton, lub ImageButton kontrolki, których `CausesValidation` właściwości są `True` ( ustawienie domyślne). Jednak jeśli użytkownik odwiedzający jest za antiquated przeglądarki lub jednej obsługi języka JavaScript została wyłączona, sprawdzanie poprawności po stronie klienta nie zostanie wykonany.
 
-Wszystkie formanty weryfikacji platformy ASP.NET Powtórz ich logikę weryfikacji natychmiast po ogłaszania zwrotnego i zgłoś ogólną ważności wejść strony s za pośrednictwem [ `Page.IsValid` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.page.isvalid.aspx). Jednak przepływ strony nie zostanie przerwana lub zatrzymać w dowolnym sposób na podstawie wartości z `Page.IsValid`. Jako deweloperów odpowiada naszych upewnij się, że `Page.IsValid` właściwość ma wartość `True` przed kontynuowaniem kodu, który przyjmuje prawidłowe dane wejściowe.
+Wszystkie formanty weryfikacji platformy ASP.NET Powtórz ich logikę weryfikacji natychmiast po ogłaszania zwrotnego i zgłoś ogólną ważności wejść strony s za pośrednictwem [ `Page.IsValid` właściwości](https://msdn.microsoft.com/library/system.web.ui.page.isvalid.aspx). Jednak przepływ strony nie zostanie przerwana lub zatrzymać w dowolnym sposób na podstawie wartości z `Page.IsValid`. Jako deweloperów odpowiada naszych upewnij się, że `Page.IsValid` właściwość ma wartość `True` przed kontynuowaniem kodu, który przyjmuje prawidłowe dane wejściowe.
 
 Jeśli użytkownik ma wyłączone JavaScript, odwiedza naszą stronę, edytuje produktu, wprowadza wartość ceny za kosztowne i kliknięciu przycisku Aktualizuj weryfikacji po stronie klienta będzie pomijana i nastąpi odświeżenie strony. Strony, strony ASP.NET `UpdateCommand` wykonuje program obsługi zdarzeń i wystąpił wyjątek podczas próby przeprowadzenia analizy zbyt drogie w `Decimal`. Ponieważ mamy obsługi wyjątków, bezpiecznie obsługi takiego wyjątku, ale firma Microsoft może uniemożliwić nieprawidłowe dane poślizgiem za pośrednictwem w pierwszej kolejności przez tylko kontynuowanie `UpdateCommand` obsługi zdarzeń Jeśli `Page.IsValid` ma wartość `True`.
 
@@ -167,9 +167,9 @@ Z tym dodatkiem produktu będzie podejmować próby można zaktualizować tylko 
 
 ## <a name="step-3-summarizing-data-entry-problems"></a>Krok 3: Podsumowanie problemów zapis danych
 
-Oprócz formantów pięć weryfikacji platformy ASP.NET zawiera [formant ValidationSummary](https://msdn.microsoft.com/en-US/library/f9h59855(VS.80).aspx), który wyświetla `ErrorMessage` s tych kontrolek sprawdzania poprawności, które wykryto nieprawidłowe dane. To podsumowanie danych mogą być wyświetlane jako tekstu na stronie sieci web lub za pośrednictwem messagebox modalne, po stronie klienta. Let s zwiększenia tego samouczka do dołączenia po stronie klienta element messagebox podsumowania sprawdzania poprawności problemów.
+Oprócz formantów pięć weryfikacji platformy ASP.NET zawiera [formant ValidationSummary](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx), który wyświetla `ErrorMessage` s tych kontrolek sprawdzania poprawności, które wykryto nieprawidłowe dane. To podsumowanie danych mogą być wyświetlane jako tekstu na stronie sieci web lub za pośrednictwem messagebox modalne, po stronie klienta. Let s zwiększenia tego samouczka do dołączenia po stronie klienta element messagebox podsumowania sprawdzania poprawności problemów.
 
-Aby to zrobić, przeciągnij formant ValidationSummary z przybornika do projektanta. Lokalizacja t formant ValidationSummary naprawdę znaczenia, ponieważ firma Microsoft re w celu skonfigurowania go, aby wyświetlić podsumowanie tylko jako element messagebox. Po dodaniu formantu, ustaw jej [ `ShowSummary` właściwości](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) do `False` i jego [ `ShowMessageBox` właściwości](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) do `True`. Z tym dodatkiem jakieś błędy sprawdzania poprawności zostały podsumowane w messagebox po stronie klienta (patrz rysunek 6).
+Aby to zrobić, przeciągnij formant ValidationSummary z przybornika do projektanta. Lokalizacja t formant ValidationSummary naprawdę znaczenia, ponieważ firma Microsoft re w celu skonfigurowania go, aby wyświetlić podsumowanie tylko jako element messagebox. Po dodaniu formantu, ustaw jej [ `ShowSummary` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) do `False` i jego [ `ShowMessageBox` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) do `True`. Z tym dodatkiem jakieś błędy sprawdzania poprawności zostały podsumowane w messagebox po stronie klienta (patrz rysunek 6).
 
 
 [![Błędy sprawdzania poprawności zostały podsumowane w Messagebox po stronie klienta](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image16.png)

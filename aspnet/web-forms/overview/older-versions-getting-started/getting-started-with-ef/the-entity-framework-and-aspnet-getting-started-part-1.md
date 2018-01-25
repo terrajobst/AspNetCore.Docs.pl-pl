@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 5a852ec2301e63bde9a5ce99db80224dad7fb258
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ae2fddc81f6f4da866ec0719a0e74516bdd2a4d1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i platformy ASP.NET 4 formularzy sieci Web
 ====================
@@ -28,7 +28,7 @@ przez [Dykstra niestandardowy](https://github.com/tdykstra)
 > 
 > ## <a name="database-first"></a>Najpierw bazy danych
 > 
-> Istnieją trzy sposoby pracy z danymi programu Entity Framework: *Database First*, *Model First*, i *Code First*. Ten samouczek jest przeznaczony dla pierwszej bazy danych. Aby uzyskać informacji o różnicach między te przepływy pracy i wskazówki na temat wybierania najlepszy dla danego scenariusza, zobacz [przepływów pracy programu Entity Framework programowanie](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+> Istnieją trzy sposoby pracy z danymi programu Entity Framework: *Database First*, *Model First*, i *Code First*. Ten samouczek jest przeznaczony dla pierwszej bazy danych. Aby uzyskać informacji o różnicach między te przepływy pracy i wskazówki na temat wybierania najlepszy dla danego scenariusza, zobacz [przepływów pracy programu Entity Framework programowanie](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > ## <a name="web-forms"></a>Formularze sieci Web
 > 
@@ -45,7 +45,7 @@ przez [Dykstra niestandardowy](https://github.com/tdykstra)
 > 
 > ## <a name="questions"></a>Pytania
 > 
-> Jeśli masz pytania, które nie są bezpośrednio związane z tego samouczka możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework i składnika LINQ to Entities forum](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/), lub [ StackOverflow.com](http://stackoverflow.com/).
+> Jeśli masz pytania, które nie są bezpośrednio związane z tego samouczka możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx), [Entity Framework i składnika LINQ to Entities forum](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), lub [ StackOverflow.com](http://stackoverflow.com/).
 
 
 ## <a name="overview"></a>Omówienie
@@ -96,7 +96,7 @@ Te samouczki użyjesz Projektant modelu danych programu Entity Framework do auto
 
 W przypadku metody pierwszej bazy danych używanych w tym samouczku następnym krokiem jest dodawanie bazy danych do lokacji. Najprostszym sposobem jest najpierw pobrać projekt, który łączy się z tego samouczka. Kliknij prawym przyciskiem myszy *aplikacji\_danych* folderu, wybierz opcję **Dodaj istniejący element**i wybierz *School.mdf* pliku bazy danych z pobranego projektu.
 
-Alternatywą jest postępuj zgodnie z instrukcjami w [tworzenie przykładowej bazy danych służbowych](https://msdn.microsoft.com/en-us/library/bb399731.aspx). Czy pobrać bazy danych lub utwórz go, skopiować *School.mdf* plik z folderu do aplikacji *aplikacji\_danych* folderu:
+Alternatywą jest postępuj zgodnie z instrukcjami w [tworzenie przykładowej bazy danych służbowych](https://msdn.microsoft.com/library/bb399731.aspx). Czy pobrać bazy danych lub utwórz go, skopiować *School.mdf* plik z folderu do aplikacji *aplikacji\_danych* folderu:
 
 `%PROGRAMFILES%\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA`
 
@@ -215,4 +215,4 @@ Entity Framework jest używany plik XML do przechowywania informacji o bazie dan
 Witryny sieci Web, bazy danych i model danych został już utworzony. W następnym wskazówki będzie rozpocząć pracę z danymi przy użyciu modelu danych i ASP.NET `EntityDataSource` formantu.
 
 >[!div class="step-by-step"]
-[Dalej](the-entity-framework-and-aspnet-getting-started-part-2.md)
+[Next](the-entity-framework-and-aspnet-getting-started-part-2.md)

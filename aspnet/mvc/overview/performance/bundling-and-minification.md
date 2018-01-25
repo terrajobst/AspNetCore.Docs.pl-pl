@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: e83be2446ef1e3ff1275d06d5b743fb5b9444a6a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7192481de46c36f7de71164766e68afdbba74f6d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="bundling-and-minification"></a>Tworzenie pakietów i minimalizowanie
 ====================
@@ -55,7 +55,7 @@ Po minimalizowanie funkcji, zostanie zmniejszona do następującego:
 
 Oprócz usuwanie komentarzy i niepotrzebne odstępu, następujących parametrów i nazwy zmiennych zmieniono (skrócony) w następujący sposób:
 
-| **Oryginał** | **Zmieniono jego nazwę** |
+| **Original** | **Zmieniono jego nazwę** |
 | --- | --- |
 | imageTagAndImageID | n |
 | imageContext | t |
@@ -65,10 +65,10 @@ Oprócz usuwanie komentarzy i niepotrzebne odstępu, następujących parametrów
 
 W poniższej tabeli przedstawiono kilka istotnych różnic między listę wszystkich zasobów pojedynczo i tworzenie pakietów i minimalizowanie (B/M) w programie próbki.
 
-|  | **Przy użyciu B/M** | **Bez B/M** | **Zmiany** |
+|  | **Przy użyciu B/M** | **Bez B/M** | **Change** |
 | --- | --- | --- | --- |
 | **Żądań plików** | 9 | 34 | 256% |
-| **Wysyłane KB** | 3.26 | 11.92 | 266% |
+| **KB Sent** | 3.26 | 11.92 | 266% |
 | **Odebrano KB** | 388.51 | 530 | 36% |
 | **Czas ładowania** | 510 MS | 780 MS | 53% |
 
@@ -76,7 +76,7 @@ Wysłane bajty miał znaczne obniżenie zużycia z udane przeglądarki są doś�
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>Debugowanie powiązane i zminimalizowane JavaScript
 
-Łatwo można debugować skrypt JavaScript w środowisku projektowym (gdzie [compilation Element](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) w *Web.config* plik ma ustawioną wartość `debug="true"` ), ponieważ nie są powiązane pliki JavaScript lub zminimalizowany. Można również debugowanie kompilacji wydania którym powiązane pliki JavaScript i zminimalizowany. Korzystając z narzędzi deweloperskich programu Internet Explorer F12, debugowania funkcji JavaScript, zawartych w pakiecie zminimalizowany, w następujący sposób:
+Łatwo można debugować skrypt JavaScript w środowisku projektowym (gdzie [compilation Element](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* plik ma ustawioną wartość `debug="true"` ), ponieważ nie są powiązane pliki JavaScript lub zminimalizowany. Można również debugowanie kompilacji wydania którym powiązane pliki JavaScript i zminimalizowany. Korzystając z narzędzi deweloperskich programu Internet Explorer F12, debugowania funkcji JavaScript, zawartych w pakiecie zminimalizowany, w następujący sposób:
 
 1. Wybierz **skryptu** karcie, a następnie wybierz **Rozpocznij debugowanie** przycisku.
 2. Wybierz pakiet zawierający funkcji JavaScript, do której chcesz debugować przy użyciu przycisku zasoby.  
@@ -85,11 +85,11 @@ Wysłane bajty miał znaczne obniżenie zużycia z udane przeglądarki są doś�
 4. W **skrypt służy wyszukiwania** t pole wejściowe, wybierz nazwę funkcji chcesz debugować. Na poniższej ilustracji **AddAltToImg** została wprowadzona w **skrypt służy wyszukiwania** pole wprowadzania t.  
     ![](bundling-and-minification/_static/image6.png)
 
-Aby uzyskać więcej informacji dotyczących debugowania za pomocą narzędzi deweloperskich F12, zobacz artykuł w witrynie MSDN [korzystania z narzędzi deweloperskich F12, aby debugować JavaScript — błędy](https://msdn.microsoft.com/en-us/library/ie/gg699336(v=vs.85).aspx).
+Aby uzyskać więcej informacji dotyczących debugowania za pomocą narzędzi deweloperskich F12, zobacz artykuł w witrynie MSDN [korzystania z narzędzi deweloperskich F12, aby debugować JavaScript — błędy](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx).
 
 ## <a name="controlling-bundling-and-minification"></a>Kontrolowanie tworzenie pakietów i minimalizowanie
 
-Tworzenie pakietów i minimalizowanie włączyć lub wyłączyć, ustawiając wartość atrybutu debugowania w [compilation Element](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) w *Web.config* pliku. W poniższych XML `debug` jest ustawiona na wartość true, dlatego tworzenie pakietów i minimalizowanie jest wyłączona.
+Tworzenie pakietów i minimalizowanie włączyć lub wyłączyć, ustawiając wartość atrybutu debugowania w [compilation Element](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* pliku. W poniższych XML `debug` jest ustawiona na wartość true, dlatego tworzenie pakietów i minimalizowanie jest wyłączona.
 
 [!code-xml[Main](bundling-and-minification/samples/sample3.xml?highlight=2)]
 
@@ -98,7 +98,7 @@ Aby włączyć tworzenie pakietów i minimalizowanie, ustaw `debug` wartość "f
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> O ile `EnableOptimizations` jest `true` lub atrybutu debugowania w [compilation Element](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) w *Web.config* plik ma ustawioną wartość `false`, pliki nie zostaną powiązane lub zminimalizowany. Ponadto wersji .min plików nie będą używane, zostanie wybrany debugowania pełnej wersji. `EnableOptimizations`zastępuje atrybut debugowania w [compilation Element](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) w *Web.config* pliku
+> O ile `EnableOptimizations` jest `true` lub atrybutu debugowania w [compilation Element](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* plik ma ustawioną wartość `false`, pliki nie zostaną powiązane lub zminimalizowany. Ponadto wersji .min plików nie będą używane, zostanie wybrany debugowania pełnej wersji. `EnableOptimizations`zastępuje atrybut debugowania w [compilation Element](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* pliku
 
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Przy użyciu tworzenie pakietów i minimalizowanie z formularzami sieci Web ASP.NET i stron sieci Web
@@ -137,11 +137,11 @@ W powyższym kodzie jQuery będzie wymagane z sieci CDN, podczas gdy w wersji tr
 
 ## <a name="creating-a-bundle"></a>Tworzenie pakietu
 
-[Pakietu](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx) klasy `Include` — metoda pobiera tablicę ciągów, których każdy ciąg jest ścieżką wirtualną do zasobu. Następujący kod w metodzie RegisterBundles w *aplikacji\_Start\BundleConfig.cs* pliku pokazuje, jak pliki zostaną dodane do pakietu:
+[Pakietu](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) klasy `Include` — metoda pobiera tablicę ciągów, których każdy ciąg jest ścieżką wirtualną do zasobu. Następujący kod w metodzie RegisterBundles w *aplikacji\_Start\BundleConfig.cs* pliku pokazuje, jak pliki zostaną dodane do pakietu:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
-[Pakietu](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx) klasy `IncludeDirectory` — metoda jest dostępne, aby dodać wszystkie pliki w katalogu (i opcjonalnie wszystkie podkatalogi), które pasują do wzorca wyszukiwania. [Pakietu](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx) klasy `IncludeDirectory` interfejsu API jest pokazany poniżej:
+[Pakietu](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) klasy `IncludeDirectory` — metoda jest dostępne, aby dodać wszystkie pliki w katalogu (i opcjonalnie wszystkie podkatalogi), które pasują do wzorca wyszukiwania. [Pakietu](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) klasy `IncludeDirectory` interfejsu API jest pokazany poniżej:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
@@ -170,17 +170,17 @@ W poniższej tabeli przedstawiono pliki dodane do pakietu przy użyciu symbolu w
 
 | **Wywołania** | **Pliki dodane lub wystąpił wyjątek** |
 | --- | --- |
-| Obejmują ("~/Scripts/Common/\*.js") | *ToggleImg.js AddAltToImg.js, ToggleDiv.js,* |
-| Obejmują ("~/Scripts/Common/T\*.js") | Nieprawidłowy wzorzec wyjątek. Symbol wieloznaczny jest dozwolona tylko w prefiksu lub sufiksu. |
+| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
+| Include("~/Scripts/Common/T\*.js") | Nieprawidłowy wzorzec wyjątek. Symbol wieloznaczny jest dozwolona tylko w prefiksu lub sufiksu. |
 | Obejmują ("~/Scripts/Common/\*og.\*") | Nieprawidłowy wzorzec wyjątek. Dozwolone jest tylko jeden symbol wieloznaczny. |
-| "Obejmują (" ~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
-| "Obejmują (" ~/Scripts/Common/\*") | Nieprawidłowy wzorzec wyjątek. Segment wieloznaczny czysty jest nieprawidłowy. |
+| "Include("~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
+| "Include("~/Scripts/Common/\*") | Nieprawidłowy wzorzec wyjątek. Segment wieloznaczny czysty jest nieprawidłowy. |
 | IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
-| IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleLinks.js ToggleDiv.js, ToggleImg.js,* |
+| IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleDiv.js, ToggleImg.js, ToggleLinks.js* |
 
 Jawne Dodawanie każdego pliku do pakietu jest zwykle preferowany nad ładowania symboli wieloznacznych plików z następujących powodów:
 
-- Dodawanie skryptów przez domyślne symboli wieloznacznych do ładowania je w porządku alfabetycznym, która zazwyczaj nie chcesz. Pliki CSS i JavaScript często muszą zostać dodane, w określonej kolejności (inne niż alfanumeryczne). Można zmniejszyć to zagrożenie, dodając niestandardowe [IBundleOrderer](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementacji, ale jawnie Dodawanie każdego pliku jest mniej podatne błędu. Na przykład można dodać nowe zasoby do folderu w przyszłości, które mogą wymagać zmodyfikowania Twojej [IBundleOrderer](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementacji.
+- Dodawanie skryptów przez domyślne symboli wieloznacznych do ładowania je w porządku alfabetycznym, która zazwyczaj nie chcesz. Pliki CSS i JavaScript często muszą zostać dodane, w określonej kolejności (inne niż alfanumeryczne). Można zmniejszyć to zagrożenie, dodając niestandardowe [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementacji, ale jawnie Dodawanie każdego pliku jest mniej podatne błędu. Na przykład można dodać nowe zasoby do folderu w przyszłości, które mogą wymagać zmodyfikowania Twojej [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementacji.
 - Wyświetlanie określonych plików dodawane do katalogu przy użyciu ładowania symbol wieloznaczny może obejmować we wszystkich widokach odwołuje się do tego pakietu. Jeśli określonego skryptu w widoku jest dodawany do pakietu, może wystąpić błąd kodu JavaScript w innych widoków, które odwołują się do pakietu.
 - Pliki CSS, które importują innych plików powoduje w importowanych plikach załadować dwa razy. Na przykład poniższy kod tworzy pakiet z większość plików CSS motywu interfejsu użytkownika jQuery załadować dwa razy. 
 
@@ -209,10 +209,10 @@ Tworzenie pakietów i minimalizowanie framework zapewnia mechanizm do przetwarza
 1. Utwórz folder mniej zawartości. W poniższym przykładzie użyto *Content\MyLess* folderu.
 2. Dodaj [.less](http://www.dotlesscss.org/) pakietu NuGet **bez kropki** do projektu.  
     ![Bez kropki install NuGet](bundling-and-minification/_static/image9.png)
-3. Dodaj klasę, która implementuje [IBundleTransform](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundletransform(VS.110).aspx) interfejsu. Przekształcenia .less Dodaj następujący kod do projektu.
+3. Dodaj klasę, która implementuje [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx) interfejsu. Przekształcenia .less Dodaj następujący kod do projektu.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. Utwórz pakiet zawierający mniej plików z `LessTransform` i [CssMinify](https://msdn.microsoft.com/en-us/library/system.web.optimization.cssminify(VS.110).aspx) transformacji. Dodaj następujący kod do `RegisterBundles` metody w *aplikacji\_Start\BundleConfig.cs* pliku.
+4. Utwórz pakiet zawierający mniej plików z `LessTransform` i [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) transformacji. Dodaj następujący kod do `RegisterBundles` metody w *aplikacji\_Start\BundleConfig.cs* pliku.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
 5. Dodaj następujący kod, do których odwołuje się do mniej pakietu widoków.

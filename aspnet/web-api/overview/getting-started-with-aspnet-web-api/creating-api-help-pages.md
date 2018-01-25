@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 18d04492529e96b6c0e14f1d7a30378b4832f4c8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 37fd26ebaea192cb540c443eff8a07343ab8c15b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-help-pages-for-aspnet-web-api"></a>Tworzenie stron pomocy dla interfejsu API sieci Web ASP.NET
 ====================
@@ -76,7 +76,7 @@ Upewnij się również zarejestrować obszarów. W pliku Global.asax, Dodaj nast
 
 ## <a name="adding-api-documentation"></a>Dodawanie dokumentacji interfejsu API
 
-Domyślnie pomocy strony mają ciągów symbolu zastępczego dla dokumentacji. Można użyć [komentarze dokumentacji XML](https://msdn.microsoft.com/en-us/library/b2s063f7.aspx) można utworzyć w dokumentacji. Aby włączyć tę funkcję, otwórz plik obszarów/HelpPage/aplikacji\_Start/HelpPageConfig.cs i Usuń komentarz następujący wiersz:
+Domyślnie pomocy strony mają ciągów symbolu zastępczego dla dokumentacji. Można użyć [komentarze dokumentacji XML](https://msdn.microsoft.com/library/b2s063f7.aspx) można utworzyć w dokumentacji. Aby włączyć tę funkcję, otwórz plik obszarów/HelpPage/aplikacji\_Start/HelpPageConfig.cs i Usuń komentarz następujący wiersz:
 
 [!code-csharp[Main](creating-api-help-pages/samples/sample3.cs)]
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
 msc.type: authoredcontent
-ms.openlocfilehash: b5210f9a29f82fbadd0e6dd2d81bd85e7f23ae7e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 737773ab424b3ec3b6139b8c238a60ca23de2e69
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>Badanie sposobu ASP.NET MVC scaffolds pomocnika DropDownList
 ====================
@@ -60,7 +60,7 @@ Naciśnij klawisze CTRL + F5, aby uruchomić aplikację. Zaznacz, aby **Admin** 
 
 ### <a name="the-html-select-tag"></a>Wybierz HTML Tag
 
-Kod HTML `<select>` elementu (utworzony przez HTML [DropDownList](https://msdn.microsoft.com/en-us/library/dd492948.aspx) pomocnika) służy do wyświetlania pełną listę wartości (takie jak lista gatunkami muzyki). Dla formularzy edycji gdy bieżąca wartość jest znana, lista wyboru można wyświetlić bieżącą wartość. Widzieliśmy tym wcześniej podczas umieszczania wybranej wartości **komedii**. Lista wyboru jest idealny dla wyświetlanie kategorii lub dane klucza obcego. `<select>` Element klucza obcego Genre Wyświetla listę nazw możliwe genre, ale po zapisaniu formularza właściwość Genre został zaktualizowany o rodzaju wartości klucza obcego, nie nazwy wyświetlane rodzaju. Na poniższej ilustracji jest genre wybrane **Disco** i wykonawcy **lato Donna**.
+Kod HTML `<select>` elementu (utworzony przez HTML [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) pomocnika) służy do wyświetlania pełną listę wartości (takie jak lista gatunkami muzyki). Dla formularzy edycji gdy bieżąca wartość jest znana, lista wyboru można wyświetlić bieżącą wartość. Widzieliśmy tym wcześniej podczas umieszczania wybranej wartości **komedii**. Lista wyboru jest idealny dla wyświetlanie kategorii lub dane klucza obcego. `<select>` Element klucza obcego Genre Wyświetla listę nazw możliwe genre, ale po zapisaniu formularza właściwość Genre został zaktualizowany o rodzaju wartości klucza obcego, nie nazwy wyświetlane rodzaju. Na poniższej ilustracji jest genre wybrane **Disco** i wykonawcy **lato Donna**.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image4.png)
 
@@ -70,11 +70,11 @@ Otwórz *Controllers\StoreManagerController.cs* plików i Znajdź `HTTP GET Crea
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample5.cs)]
 
-`Create` Metoda dodaje dwa [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist.aspx) obiekty do `ViewBag`, co ma zawierać informacje o rodzaju, a drugi zawiera informacje o wykonawcy. [SelectList](https://msdn.microsoft.com/en-us/library/dd505286.aspx) przeładowania konstruktora użyta powyżej przyjmuje trzy argumenty:
+`Create` Metoda dodaje dwa [SelectList](https://msdn.microsoft.com/library/system.web.mvc.selectlist.aspx) obiekty do `ViewBag`, co ma zawierać informacje o rodzaju, a drugi zawiera informacje o wykonawcy. [SelectList](https://msdn.microsoft.com/library/dd505286.aspx) przeładowania konstruktora użyta powyżej przyjmuje trzy argumenty:
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample6.cs)]
 
-1. *elementy*: [IEnumerable](https://msdn.microsoft.com/en-us/library/system.collections.ienumerable.aspx) zawierających elementy na liście. W powyższym przykładzie listy gatunkami muzyki zwrócone przez `db.Genres`.
+1. *elementy*: [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx) zawierających elementy na liście. W powyższym przykładzie listy gatunkami muzyki zwrócone przez `db.Genres`.
 2. *dataValueField*: Nazwa właściwości w **IEnumerable** listę zawierającą wartości klucza. W powyższym przykładzie `GenreId` i `ArtistId`.
 3. *dataTextField*: Nazwa właściwości w **IEnumerable** listy, który zawiera informacje do wyświetlania. W artystów i tabeli genre `name` pole jest używane.
 
@@ -84,7 +84,7 @@ Otwórz *Views\StoreManager\Create.cshtml* pliku i sprawdź, czy `Html.DropDownL
 
 Pierwszy wiersz pokazuje, że trwa tworzenie widoku `Album` modelu. W `Create` metody powyższym, żaden model został przekazany, więc pobiera widoku **null** `Album` modelu. W tym momencie Tworzenie nowego albumu, firma Microsoft nie ma żadnych `Album` danych dla niego.
 
-[Html.DropDownList](https://msdn.microsoft.com/en-us/library/dd492948.aspx) przeciążenia pokazano powyżej przyjmuje nazwę pola, które można powiązać z modelem. Również używa tej nazwy do wyszukania **obiekt ViewBag** obiekt zawierający [SelectList](https://msdn.microsoft.com/en-us/library/dd505286.aspx) obiektu. Za pomocą tego przeciążenia, konieczne jest nazwa **SelectList obiekt ViewBag** obiektu `GenreId`. Drugi parametr (`String.Empty`) jest wyświetlany tekst wyświetlany, gdy nie wybrano elementu. Jest to dokładnie, co chcemy podczas tworzenia nowego albumu. Jeśli drugi parametr usunięte i użyć poniższego kodu:
+[Html.DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) przeciążenia pokazano powyżej przyjmuje nazwę pola, które można powiązać z modelem. Również używa tej nazwy do wyszukania **obiekt ViewBag** obiekt zawierający [SelectList](https://msdn.microsoft.com/library/dd505286.aspx) obiektu. Za pomocą tego przeciążenia, konieczne jest nazwa **SelectList obiekt ViewBag** obiektu `GenreId`. Drugi parametr (`String.Empty`) jest wyświetlany tekst wyświetlany, gdy nie wybrano elementu. Jest to dokładnie, co chcemy podczas tworzenia nowego albumu. Jeśli drugi parametr usunięte i użyć poniższego kodu:
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample8.cshtml)]
 

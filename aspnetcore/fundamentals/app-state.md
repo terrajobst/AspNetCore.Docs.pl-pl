@@ -10,17 +10,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 13b4d759ae574cdf9899ca148f0ffd3d9df6f9ae
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: e00960370fbe87ac0f81f8455526221fa992decd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Wprowadzenie do stanu sesji oraz aplikacji platformy ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), i [Diana LaRose](https://github.com/DianaLaRose)
 
-HTTP jest protokołem bezstanowe. Serwer sieci web traktuje każde żądanie HTTP jako żądanie niezależne i nie zachowuje wartości użytkownika z poprzedniego żądania. W tym artykule opisano różne sposoby, aby zachować aplikacji i stanu sesji między żądaniami. 
+HTTP jest protokołem bezstanowe. Serwer sieci web traktuje każde żądanie HTTP jako żądanie niezależne i nie zachowują wartości użytkownika z poprzedniego żądania. W tym artykule opisano różne sposoby, aby zachować aplikacji i stanu sesji między żądaniami. 
 
 ## <a name="session-state"></a>Stan sesji
 
@@ -28,7 +28,7 @@ Stan sesji jest funkcją platformy ASP.NET Core, który służy do zapisywania i
 
 Platformy ASP.NET Core zachowuje swój stan sesji, zapewniając klienta pliku cookie, który zawiera identyfikator sesji, który jest wysyłany na serwer z każdym żądaniem. Identyfikator sesji są używane do pobierania danych sesji. Ponieważ plik cookie sesji jest specyficzna dla przeglądarki, nie mogą współużytkować sesji w różnych przeglądarkach. Pliki cookie dotyczące sesji są usuwane tylko wtedy, gdy kończy się sesji przeglądarki. Jeśli plik cookie zostanie odebrana dla wygasłych sesji, utworzeniu nowej sesji, która używa tego samego pliku cookie sesji. 
 
-Serwer zachowuje sesję przez ograniczony czas, po zgłoszeniu ostatniego żądania. Można ustawić limitu czasu sesji lub użyj wartości domyślnej 20 minut. Stan sesji jest idealny dla przechowywania danych użytkownika, która jest specyficzna dla konkretnej sesji, ale nie musi zostać utrwalony trwale. Dane są usuwane z magazynu zapasowego albo po wywołaniu `Session.Clear` lub utraty ważności sesji w magazynie danych. Serwer nie ma zamknięcia przeglądarki lub usunięcia pliku cookie sesji.
+Serwer zachowuje sesję przez ograniczony czas, po zgłoszeniu ostatniego żądania. Można ustawić limitu czasu sesji lub użyj wartości domyślnej 20 minut. Stan sesji jest idealny dla przechowywania danych użytkownika, która jest specyficzna dla konkretnej sesji, ale nie musi zostać utrwalony trwale. Dane są usuwane z magazynu zapasowego albo po wywołaniu `Session.Clear` lub utraty ważności sesji w magazynie danych. Serwer nie może ustalić zamknięcia przeglądarki lub usunięcia pliku cookie sesji.
 
 > [!WARNING]
 > Nie należy przechowywać poufnych danych w sesji. Klient nie może być Zamknij przeglądarkę i wyczyść pliku cookie sesji (i w niektórych przeglądarkach podtrzymywania plików cookie sesji w systemie windows). Ponadto sesji nie może być ograniczony do jednego użytkownika; Następny użytkownik może kontynuować tej samej sesji.
@@ -47,7 +47,7 @@ Przedstawia platformy ASP.NET Core MVC [TempData](https://docs.microsoft.com/dot
 
 W programie ASP.NET Core 2.0 lub nowszego oraz dostawcy TempData na podstawie plików cookie jest używany domyślnie do przechowywania TempData w plikach cookie.
 
-Dane pliku cookie jest zakodowane za pomocą [Base64UrlTextEncoder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0). Ponieważ plik cookie jest zaszyfrowany i fragmentaryczne, pojedynczy plik cookie rozmiar limit w ASP.NET Core 1.x nie ma zastosowania. Ponieważ kompresja zaszyfrowanych danych może prowadzić do problemów z bezpieczeństwem takich jak dane pliku cookie nie jest skompresowany [ataki CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) i [naruszenia](https://wikipedia.org/wiki/BREACH_(security_exploit)) ataków. Aby uzyskać więcej informacji o dostawcy TempData na podstawie plików cookie, zobacz [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs).
+Dane pliku cookie jest zakodowane za pomocą [Base64UrlTextEncoder](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0). Ponieważ plik cookie jest zaszyfrowany i fragmentaryczne, pojedynczy plik cookie rozmiar limit w ASP.NET Core 1.x nie ma zastosowania. Ponieważ kompresja zaszyfrowanych danych może prowadzić do problemów z bezpieczeństwem takich jak dane pliku cookie nie jest skompresowany [ataki CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) i [naruszenia](https://wikipedia.org/wiki/BREACH_(security_exploit)) ataków. Aby uzyskać więcej informacji o dostawcy TempData na podstawie plików cookie, zobacz [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -101,13 +101,13 @@ Dane można zapisane w ukrytym pól i opublikować ponownie przy kolejnym żąda
 
 Pliki cookie umożliwiają przechowywanie danych użytkownika w aplikacji sieci web. Ponieważ pliki cookie są wysyłane z każdym żądaniem, ich rozmiar powinny być ograniczone do minimum. Najlepiej, jeśli tylko identyfikator powinny być przechowywane w pliku cookie z rzeczywistymi danymi przechowywanymi na serwerze. W większości przeglądarek ograniczyć plików cookie do 4096 bajtów. Ponadto ograniczonej liczby plików cookie, są dostępne dla każdej domeny.  
 
-Ponieważ pliki cookie podlegają naruszeniu, musi zostać zweryfikowany na serwerze. Trwałości pliku cookie na komputerze klienckim podlega interwencji użytkownika i wygaśnięcia, ale zazwyczaj są one najbardziej niezawodna formę trwałości danych na kliencie.
+Ponieważ pliki cookie podlegają naruszeniu, musi zostać zweryfikowany na serwerze. Trwałość pliku cookie na komputerze klienckim podlega interwencji użytkownika i wygaśnięcia, ale zazwyczaj są one najbardziej niezawodna formę trwałości danych na kliencie.
 
 Pliki cookie są często używane na potrzeby personalizacji, gdy zawartość jest dostosowany do znanego użytkownika. Ponieważ użytkownik tylko zidentyfikowane i nie jest uwierzytelniony w większości przypadków, zwykle można zabezpieczyć plik cookie przez zapisanie nazwę użytkownika, nazwę konta lub unikatowe Identyfikatory (na przykład identyfikator GUID) w pliku cookie. Plik cookie można następnie użyć uzyskiwać dostęp do infrastruktury personalizacji użytkownika witryny.
 
 ## <a name="httpcontextitems"></a>HttpContext.Items
 
-`Items` Kolekcja jest dobrym miejscem do przechowywania danych, która jest wymagane tylko podczas przetwarzania jednego określonego żądania. Zawartość kolekcji zostaną odrzucone po każdym żądaniu. `Items` Kolekcja najlepiej jest używana jako sposób składniki lub oprogramowanie pośredniczące do komunikacji, gdy działają w różnych punktach w czasie żądania i nie może bezpośrednio do przekazania parametrów. Aby uzyskać więcej informacji, zobacz [Praca z HttpContext.Items](#working-with-httpcontextitems)w dalszej części tego artykułu.
+`Items` Kolekcja jest dobrym miejscem do przechowywania danych, które ma potrzebne tylko podczas przetwarzania jednego określonego żądania. Zawartość kolekcji zostaną odrzucone po każdym żądaniu. `Items` Kolekcja najlepiej jest używana jako sposób składniki lub oprogramowanie pośredniczące do komunikacji, gdy działają w różnych punktach w czasie żądania i nie może bezpośrednio do przekazania parametrów. Aby uzyskać więcej informacji, zobacz [Praca z HttpContext.Items](#working-with-httpcontextitems)w dalszej części tego artykułu.
 
 ## <a name="cache"></a>Pamięć podręczna
 
@@ -136,7 +136,7 @@ Poniższy kod przedstawia, jak skonfigurować dostawcę sesji w pamięci.
 
 ---
 
-Możesz odwoływać się do sesji z `HttpContext` po zainstalowaniu i skonfigurowaniu.
+Możesz odwoływać się do sesji z `HttpContext` po zostanie on zainstalowany i skonfigurowany.
 
 Jeśli użytkownik próbuje uzyskać dostęp `Session` przed `UseSession` została wywołana, wyjątek `InvalidOperationException: Session has not been configured for this application or request` jest generowany.
 
@@ -144,9 +144,9 @@ Jeśli próbujesz utworzyć nowy `Session` (to znaczy, że pliki cookie sesji ni
 
 ### <a name="loading-session-asynchronously"></a>Ładowany asynchronicznie sesji 
 
-Domyślny dostawca sesji w ASP.NET Core ładuje rekordu sesji z podstawową [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) magazynu asynchronicznie tylko wtedy, gdy [ISession.LoadAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession#Microsoft_AspNetCore_Http_ISession_LoadAsync) metoda jawnie jest wywoływana przed  `TryGetValue`, `Set`, lub `Remove` metody. Jeśli `LoadAsync` nie jest wywoływana po pierwsze, odpowiadającego rekordu sesji jest ładowany synchronicznie, które mogą potencjalnie wpłynąć na możliwość skalowania aplikacji.
+Domyślny dostawca sesji w ASP.NET Core ładuje rekordu sesji z podstawową [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) magazynu asynchronicznie tylko wtedy, gdy [ISession.LoadAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession#Microsoft_AspNetCore_Http_ISession_LoadAsync) metoda jawnie jest wywoływana przed  `TryGetValue`, `Set`, lub `Remove` metody. Jeśli `LoadAsync` nie jest wywoływany jako pierwszy, odpowiadającego rekordu sesji jest ładowany synchronicznie, które mogą potencjalnie wpłynąć na możliwość skalowania aplikacji.
 
-Aby wymusić ten wzorzec aplikacji, zawijać [DistributedSessionStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsessionstore) i [DistributedSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsession) implementacje wersje zgłosić wyjątek, jeśli `LoadAsync` metoda nie jest wywoływana przed `TryGetValue`, `Set`, lub `Remove`. Zarejestruj opakowana wersje w kontenerze usług.
+Aby wymusić ten wzorzec aplikacji, zawijać [DistributedSessionStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsessionstore) i [DistributedSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsession) implementacje wersje zgłosić wyjątek, jeśli `LoadAsync` — metoda nie jest wywoływana przed `TryGetValue`, `Set`, lub `Remove`. Zarejestruj opakowana wersje w kontenerze usług.
 
 ### <a name="implementation-details"></a>Szczegóły implementacji
 

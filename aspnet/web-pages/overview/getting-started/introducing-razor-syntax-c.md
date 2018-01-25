@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: f054d574026ab6444cc59a126ef9dcdc323f7bff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 32cdd8d524d783d7ccc3ab076de636ce4a868132
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor (C#)
 ====================
@@ -34,7 +34,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions"></a>Wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 >   
 > 
 > W tym samouczku współdziała również z programu ASP.NET Web Pages 2.
@@ -58,7 +58,7 @@ W dalszej części tego artykułu można znaleźć więcej szczegółów na tema
 
 Jest to, jak te instrukcje wyglądać po uruchomieniu na stronie w przeglądarce:
 
-![Razor Img1](introducing-razor-syntax-c/_static/image1.jpg)
+![Razor-Img1](introducing-razor-syntax-c/_static/image1.jpg)
 
 > [!TIP] 
 > 
@@ -79,7 +79,7 @@ A *blok kodu* zawiera jedną lub więcej instrukcji kodu i jest ujęta w nawiasy
 
 Wynik wyświetlony w przeglądarce:
 
-![Razor Img2](introducing-razor-syntax-c/_static/image2.jpg)
+![Razor-Img2](introducing-razor-syntax-c/_static/image2.jpg)
 
 ### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3. W bloku kończyć każda instrukcja kodu średnikami
 
@@ -95,7 +95,7 @@ Można zapisać wartości w *zmiennej*, w tym ciągów, liczb i daty, itp. Możn
 
 Wynik wyświetlony w przeglądarce:
 
-![Razor Img3](introducing-razor-syntax-c/_static/image3.jpg)
+![Razor-Img3](introducing-razor-syntax-c/_static/image3.jpg)
 
 <a id="ID_StringLiterals"></a>
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. To ująć w podwójny cudzysłów wartości literału ciągu
@@ -114,7 +114,7 @@ Aby osadzić znaki cudzysłowu, użyj literał ciągu dosłownego wyrażenia i p
 
 W tym miejscu jest wynikiem za pomocą obu tych przykładach na stronie:
 
-![Razor Img4](introducing-razor-syntax-c/_static/image4.jpg)
+![Razor-Img4](introducing-razor-syntax-c/_static/image4.jpg)
 
 > [!NOTE]
 > Zwróć uwagę, że `@` znak jest używany do oznaczyć literał ciągu dosłownego wyrażenia w C# i oznacz kodu w stron ASP.NET.
@@ -142,7 +142,7 @@ Często będzie współpracować `Request` obiektów, które zapewnia informacje
 
 Wynik wyświetlony w przeglądarce:
 
-![Razor Img5](introducing-razor-syntax-c/_static/image5.jpg)
+![Razor-Img5](introducing-razor-syntax-c/_static/image5.jpg)
 
 ### <a name="8-you-can-write-code-that-makes-decisions"></a>8. Można napisać kod, który podejmowania decyzji w procesie
 
@@ -154,7 +154,7 @@ Instrukcja `if(IsPost)` jest skrócona sposobem zapisu `if(IsPost == true)`. Wra
 
 Wynik wyświetlony w przeglądarce (po kliknięciu przycisku **przesyłania**):
 
-![Razor Img6](introducing-razor-syntax-c/_static/image6.jpg)
+![Razor-Img6](introducing-razor-syntax-c/_static/image6.jpg)
 
 > [!TIP] 
 > 
@@ -187,7 +187,7 @@ Tej procedury przedstawiono sposób tworzenia strony, która ilustruje podstawow
     - `<form>` Zawiera tag `method="post"` atrybutu. Oznacza to, że gdy użytkownik kliknie **Dodaj**, strony zostaną wysłane do serwera przy użyciu metody POST protokołu HTTP. Po przesłaniu strony `if(IsPost)` testu daje w wyniku wartość true i warunkowe kod działa wyświetlania wyniku dodawania liczb.
 3. Strony i uruchom go w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszar roboczy przed jej uruchomieniem.) Wprowadź dwie liczb całkowitych, a następnie kliknij przycisk **Dodaj** przycisku. 
 
-    ![Razor Img7](introducing-razor-syntax-c/_static/image7.jpg)
+    ![Razor-Img7](introducing-razor-syntax-c/_static/image7.jpg)
 
 ## <a name="basic-programming-concepts"></a>Podstawowe koncepcje programowania
 
@@ -209,7 +209,7 @@ Składnia razor jest oparta na technologii firmy Microsoft o nazwie platformę A
 
 Składnia Razor umożliwia wszystkie możliwości platformy ASP.NET, ale przy użyciu składni uproszczoną ułatwiający dowiedzieć się użytkownik początkujący i dzięki temu można efektywniej, jeśli jesteś eksperta. Mimo że ta składnia jest łatwy w użyciu, jej rodziny relacji z platformy ASP.NET i .NET Framework oznacza, że jako witryny sieci Web staną się bardziej zaawansowanych, być zasilania większych struktur, dostępne dla Ciebie.
 
-![Razor Img8](introducing-razor-syntax-c/_static/image8.jpg)
+![Razor-Img8](introducing-razor-syntax-c/_static/image8.jpg)
 
 > [!TIP] 
 > 
@@ -325,7 +325,7 @@ W poniższym przykładzie przedstawiono niektóre typowe zastosowania zmienne na
 
 Jeśli znajdzie się na stronie poprzednich przykładach, widzisz taki komunikat wyświetlany w przeglądarce:
 
-![Razor Img9](introducing-razor-syntax-c/_static/image9.jpg)
+![Razor-Img9](introducing-razor-syntax-c/_static/image9.jpg)
 
 ### <a name="converting-and-testing-data-types"></a>Konwertowanie i testowania typy danych
 
@@ -358,7 +358,7 @@ Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaj
 
 | **Operator** | **Opis** | **Przykłady** |
 | --- | --- | --- |
-| `+``-``*``/` | Operatory matematyczne używać w wyrażeniach numerycznych. | [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)] |
+| `+` `-` `*` `/` | Operatory matematyczne używać w wyrażeniach numerycznych. | [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)] |
 | `=` | Przypisanie. Przypisuje wartości po prawej stronie instrukcji obiektu po lewej stronie. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)] |
 | `==` | Równości. Zwraca `true` Jeśli wartości są równe. (Zwróć uwagę, że `=` operatora i `==` operatora.) | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)] |
 | `!=` | Nierówności. Zwraca `true` wartości nie są równe. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)] |
@@ -389,7 +389,7 @@ Oto przykład, aby ułatwić zrozumienie różnic:
 | Pełny adres URL | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
 | --- | --- |
 | Nazwa serwera | *mycompanyserver* |
-| Ścieżka wirtualna | */HumanResources/CompanyPolicy.htm* |
+| Ścieżka wirtualna | */humanresources/CompanyPolicy.htm* |
 | Ścieżka fizyczna | *C:\mywebsites\humanresources\CompanyPolicy.htm* |
 
 Wirtualnego katalogu głównego jest /, podobnie jak w folderze głównym dysku c dysku \. (Folder wirtualny ścieżek zawsze używać ukośniki). Ścieżka wirtualna folderu nie musi mieć taką samą nazwę jak folder fizycznych; może to być alias. (Na serwerach produkcyjnych, ścieżka wirtualna rzadko zgodna dokładnej ścieżki fizycznej.)
@@ -451,7 +451,7 @@ Wartość do sprawdzenia jest w nawiasach (w tym przykładzie `weekday` zmiennej
 
 Wynik ostatnich dwóch bloków warunkowych wyświetlany w przeglądarce:
 
-![Razor Img10](introducing-razor-syntax-c/_static/image10.jpg)
+![Razor-Img10](introducing-razor-syntax-c/_static/image10.jpg)
 
 ### <a name="looping-code"></a>Kod pętli
 
@@ -467,7 +467,7 @@ Rozpoczyna się od pętli `for` — słowo kluczowe następują trzy instrukcje 
 
 W nawiasach klamrowych jest kod, który będzie wykonywany dla każdej iteracji pętli. Kod znaczników, tworzy nowy akapit (`<p>` element) każdego czasu i dodaje wiersz danych wyjściowych, wyświetlanie wartość `i` (licznik). Po uruchomieniu tej strony w przykładzie jest tworzony 11 wiersza wyświetlania danych wyjściowych, z tekstem w każdym wierszu wskazującą liczbę elementów.
 
-![Razor Img11](introducing-razor-syntax-c/_static/image11.jpg)
+![Razor-Img11](introducing-razor-syntax-c/_static/image11.jpg)
 
 Jeśli pracujesz z kolekcji lub tablicy, często używasz `foreach` pętli. Kolekcja jest grupą podobne obiekty i `foreach` pętli pozwala przeprowadzić zadanie dla każdego elementu w kolekcji. Ten typ pętli jest wygodne dla kolekcji, ponieważ w odróżnieniu od `for` pętli, nie trzeba zwiększyć licznik lub ustawienie limitu. Zamiast tego `foreach` pętli kod wykonywany po prostu za pomocą kolekcji dopiero po jej zakończeniu.
 
@@ -477,7 +477,7 @@ Na przykład następujący kod zwraca elementy `Request.ServerVariables` kolekcj
 
 `foreach` Słowie kluczowym występuje w nawiasach, gdzie zadeklarować zmiennej, która reprezentuje jeden element w kolekcji (w tym przykładzie `var item`), a następnie `in` — słowo kluczowe, a następnie według kolekcji ma pętli. W treści `foreach` pętli, są dostępne bieżącego elementu przy użyciu zgłoszonego wcześniej zmiennej.
 
-![Razor Img12](introducing-razor-syntax-c/_static/image12.jpg)
+![Razor-Img12](introducing-razor-syntax-c/_static/image12.jpg)
 
 Aby utworzyć bardziej ogólnego przeznaczenia pętli, użyj `while` instrukcji:
 
@@ -523,7 +523,7 @@ Można określić liczbę elementów w tablicy, pobierając jego `Length` właś
 
 Dane wyjściowe kod tablicy ciąg wyświetlany w przeglądarce:
 
-![Razor Img13](introducing-razor-syntax-c/_static/image13.jpg)
+![Razor-Img13](introducing-razor-syntax-c/_static/image13.jpg)
 
 Słownik jest kolekcją par klucz/wartość, gdzie Podaj klucz (lub nazwę) można ustawić lub pobrać odpowiadającej jej wartości:
 
@@ -575,7 +575,7 @@ Konieczne będzie często instrukcje w kodzie, który może zakończyć się nie
 
 W terminologii programistycznej tych sytuacji są nazywane *wyjątki*. Jeśli kod napotkał wyjątek, generuje (zgłasza) komunikat o błędzie to jest w najlepszym irytujących dla użytkowników:
 
-![Razor Img14](introducing-razor-syntax-c/_static/image14.jpg)
+![Razor-Img14](introducing-razor-syntax-c/_static/image14.jpg)
 
 W sytuacjach, gdy kod może wystąpić wyjątki, a w celu uniknięcia komunikaty o błędach tego typu, można użyć `try/catch` instrukcje. W `try` instrukcji, uruchom kod, który jest sprawdzanie. W co najmniej jednej `catch` instrukcji, można wyszukać określonych błędów (określonych typów wyjątków), które mogły wystąpić. Może zawierać tyle `catch` instrukcje jako użytkownik musiał błędów, które są przewidywania.
 
@@ -600,6 +600,6 @@ Jeśli kod nie obsłużyć wyjątek, zobaczysz stronę błędu, takie jak poprze
 **Dokumentacji**
 
 
-[ASP.NET](https://msdn.microsoft.com/en-us/library/ee532866.aspx)
+[ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 
-[C# — język](https://msdn.microsoft.com/en-us/library/kx37x362.aspx)
+[C# — język](https://msdn.microsoft.com/library/kx37x362.aspx)

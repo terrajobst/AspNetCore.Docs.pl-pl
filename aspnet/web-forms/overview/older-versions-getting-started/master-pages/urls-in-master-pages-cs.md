@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 243bd8a30a84d3a57d418da7b2b55cfe132bf0e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b01f0ac780121c4e0941df6016220a1cb1ed2d1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="urls-in-master-pages-c"></a>Adresy URL w stron wzorcowych (C#)
 ====================
@@ -108,7 +108,7 @@ Dobre wieści jest, że program ASP.NET ma metodę generowania prawidłowy wzgl�
 
 Zamiast niż twardego kod bezwzględny adres URL, ASP.NET umożliwia deweloperom strony użyj tylda (`~`) wskazująca, katalog główny aplikacji sieci web. Na przykład we wcześniejszej części tego samouczka, można użyć notacji `~/Admin/Default.aspx` w tekście do odwoływania się do `Default.aspx` strony `Admin` folderu. `~` Oznacza to, że `Admin` folder jest podfolderem katalog główny aplikacji sieci web.
 
-`Control` Klasy [ `ResolveClientUrl` metoda](https://msdn.microsoft.com/en-us/library/system.web.ui.control.resolveclienturl.aspx) pobiera adres URL i modyfikuje je do odpowiednich dla strony sieci web, na którym znajduje się kontrolka względnym adresem URL. Na przykład wywołanie elementu `ResolveClientUrl("~/Images/PoweredByASPNET.gif")` z `About.aspx` zwraca `Images/PoweredByASPNET.gif`. Wywoływanie z `~/Admin/Default.aspx`, jednak zwraca `../Images/PoweredByASPNET.gif`.
+`Control` Klasy [ `ResolveClientUrl` metoda](https://msdn.microsoft.com/library/system.web.ui.control.resolveclienturl.aspx) pobiera adres URL i modyfikuje je do odpowiednich dla strony sieci web, na którym znajduje się kontrolka względnym adresem URL. Na przykład wywołanie elementu `ResolveClientUrl("~/Images/PoweredByASPNET.gif")` z `About.aspx` zwraca `Images/PoweredByASPNET.gif`. Wywoływanie z `~/Admin/Default.aspx`, jednak zwraca `../Images/PoweredByASPNET.gif`.
 
 > [!NOTE]
 > Ponieważ wszystkich kontrolek serwera ASP.NET, pochodzi z `Control` klasy, wszystkie formanty serwera ma dostęp do `ResolveClientUrl` metody. Nawet `Page` pochodną klasy `Control` klasy, co oznacza, że można użyć tej metody bezpośrednio z klasy związane z kodem stron ASP.NET.

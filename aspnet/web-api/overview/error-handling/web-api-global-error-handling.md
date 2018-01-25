@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: d2bdf04b4da2a099f3a2af100b16682c68f946f2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c593c56ba3d0ee8ebf6dc425408d2c3b91c83f93
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="global-error-handling-in-aspnet-web-api-2"></a>Globalne obsługi błędów w ASP.NET Web API 2
 ====================
@@ -46,7 +46,7 @@ Oprócz [filtry wyjątków](exception-handling.md), [programy obsługi komunikat
 1. Firma Microsoft obsługuje rejestracji wielu rejestratorów wyjątek, ale tylko jeden wyjątek obsługi.
 2. Wyjątek rejestratorów zawsze uzyskać wywołana, nawet jeśli firma Microsoft zamierzasz przerwać połączenie. Tylko programy obsługi wyjątków uzyskać wywoływana, gdy będziemy mogli nadal wybierz które komunikat odpowiedzi do odesłania.
 
-Obie te usługi zapewniają dostęp do kontekstu wyjątku zawierający informacje z punktu, w których wykryto wyjątek, szczególnie [HttpRequestMessage](https://msdn.microsoft.com/en-us/library/system.net.http.httprequestmessage(v=vs.110).aspx), [HttpRequestContext](https://msdn.microsoft.com/en-us/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx), zgłoszony wyjątek i wyjątek źródła (szczegóły poniżej).
+Obie te usługi zapewniają dostęp do kontekstu wyjątku zawierający informacje z punktu, w których wykryto wyjątek, szczególnie [HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage(v=vs.110).aspx), [HttpRequestContext](https://msdn.microsoft.com/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx), zgłoszony wyjątek i wyjątek źródła (szczegóły poniżej).
 
 ### <a name="design-principles"></a>Zasady projektowania
 
@@ -97,7 +97,7 @@ W dodatkowej `ExceptionContext`, program obsługi pobiera jeden więcej właści
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample5.cs)]
 
-Program obsługi wyjątku wskazuje, czy wyjątek jest obsługiwany dzięki ustawieniu `Result` wynik akcji dla właściwości (na przykład [ExceptionResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.exceptionresult(v=vs.118).aspx), [InternalServerErrorResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx), [ StatusCodeResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.statuscoderesult(v=vs.118).aspx), lub niestandardowy wyników). Jeśli `Result` właściwość ma wartość null, jest nieobsługiwany wyjątek i pierwotny wyjątek zostanie zgłoszony ponownie.
+Program obsługi wyjątku wskazuje, czy wyjątek jest obsługiwany dzięki ustawieniu `Result` wynik akcji dla właściwości (na przykład [ExceptionResult](https://msdn.microsoft.com/library/system.web.http.results.exceptionresult(v=vs.118).aspx), [InternalServerErrorResult](https://msdn.microsoft.com/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx), [ StatusCodeResult](https://msdn.microsoft.com/library/system.web.http.results.statuscoderesult(v=vs.118).aspx), lub niestandardowy wyników). Jeśli `Result` właściwość ma wartość null, jest nieobsługiwany wyjątek i pierwotny wyjątek zostanie zgłoszony ponownie.
 
 Wyjątki w górnej części stosu wywołań Wybraliśmy dodatkowy krok, aby upewnić się, że odpowiedź jest odpowiedni dla wywołań interfejsu API. Jeśli wyjątek propaguje do hosta, wywołujący zobaczy żółty ekran lub niektórych innych hostów podane odpowiedzi, który jest zwykle HTML i zazwyczaj nie właściwą odpowiedź błąd interfejsu API. W takich przypadkach uruchamia wynik inną niż null i tylko wtedy, gdy jawnie Ustawia program obsługi wyjątku niestandardowych z powrotem do `null` (nieobsługiwany) zostanie wyjątek propagowane do hosta. Ustawienie `Result` do `null` w takich przypadkach może być przydatne w przypadku dwóch scenariuszy:
 

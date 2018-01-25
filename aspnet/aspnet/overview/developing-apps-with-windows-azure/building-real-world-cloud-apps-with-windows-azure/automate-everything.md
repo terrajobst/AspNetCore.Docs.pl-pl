@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: cf1cb7b07ffe8750724e58e4fb66854c9a033a54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aa8bb895ed6eaa0ef4c5752f475ea7c911544ef2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatyzowanie wszystko (Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure)
 ====================
@@ -45,7 +45,7 @@ Innymi słowy musi być możliwie krótki czas między Jeśli masz pomysł dla f
 
 W [wprowadzenie do Książka elektroniczna](introduction.md), widać konsoli sieci web portalu zarządzania Azure. Portal zarządzania umożliwia monitorowanie i zarządzanie nimi, wszystkie zasoby, które zostały wdrożone na platformie Azure. Jest to prosty sposób tworzenia i usuwania usług, takich jak aplikacje sieci web i maszyn wirtualnych, konfiguracji tych usług, monitorowania operacji usługi i tak dalej. Jest to doskonałe narzędzie, ale za jego pomocą jest proces ręczny. Jeśli zamierzasz opracowywania aplikacji produkcyjnych o dowolnej wielkości, a szczególnie w środowisku zespołu zalecamy, aby go za pośrednictwem portalu interfejsu użytkownika, aby dowiedzieć się i eksplorowanie usługi Azure, a następnie automatyzować procesy, które będzie można kilkukrotnie realizacji.
 
-Prawie wszystko, co można zrobić ręcznie w portalu zarządzania lub z programu Visual Studio można zrobić również przez wywołanie interfejsu API zarządzania REST. Napisać skrypty przy użyciu [programu Windows PowerShell](https://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx), lub można użyć framework typu open source, takie jak [Chef](http://www.opscode.com/chef/) lub [Puppet](http://puppetlabs.com/puppet/what-is-puppet). Umożliwia także narzędzia wiersza polecenia Bash w środowisku Mac lub Linux. Platforma Azure ma skryptów interfejsów API dla tych różnych środowisk i ma [interfejsu API zarządzania .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) w przypadku, gdy chcesz napisać kod zamiast skryptu.
+Prawie wszystko, co można zrobić ręcznie w portalu zarządzania lub z programu Visual Studio można zrobić również przez wywołanie interfejsu API zarządzania REST. Napisać skrypty przy użyciu [programu Windows PowerShell](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx), lub można użyć framework typu open source, takie jak [Chef](http://www.opscode.com/chef/) lub [Puppet](http://puppetlabs.com/puppet/what-is-puppet). Umożliwia także narzędzia wiersza polecenia Bash w środowisku Mac lub Linux. Platforma Azure ma skryptów interfejsów API dla tych różnych środowisk i ma [interfejsu API zarządzania .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) w przypadku, gdy chcesz napisać kod zamiast skryptu.
 
 Dla aplikacji Usuń utworzyliśmy niektóre skrypty programu Windows PowerShell, które automatyzują procesy tworzenia środowiska testowego i wdrażania projektu do tego środowiska i firma Microsoft można przejrzeć części zawartości tych skryptów.
 

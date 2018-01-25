@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: d5d89a6a82c91b915d61ddc3c350ea0935511c07
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c5ec43ac78be4a9452ebaa6495a6883506ac162f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-error-handling"></a>Obsługa błędów ASP.NET
 ====================
@@ -313,7 +313,7 @@ W tym samouczku uzyskanych o obsługi błędów na poziomie aplikacji, na poziom
 
 ## <a name="tutorial-series-conclusion"></a>Samouczek serii zawierania
 
-*Dziękujemy za następujące wzdłuż. Mam nadzieję, że ten zestaw samouczki pomogła możesz zapoznanie się ze składnika ASP.NET Web Forms. Aby uzyskać więcej informacji na temat funkcji formularzy sieci Web dostępnych w programie ASP.NET 4.5 i programu Visual Studio 2013, zobacz* [ *ASP.NET i narzędzia sieci Web dla programu Visual Studio 2013 informacje o wersji* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Należy także Spójrz na samouczek wspomnianego*   ***następne kroki *** sekcji i defintely wypróbowanie* [ *bezpłatnej wersji próbnej Azure* ](https://azure.microsoft.com/pricing/free-trial/)*.*
+*Dziękujemy za następujące wzdłuż. Mam nadzieję, że ten zestaw samouczki pomogła możesz zapoznanie się ze składnika ASP.NET Web Forms. Aby uzyskać więcej informacji na temat funkcji formularzy sieci Web dostępnych w programie ASP.NET 4.5 i programu Visual Studio 2013, zobacz* [ *ASP.NET i narzędzia sieci Web dla programu Visual Studio 2013 informacje o wersji* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Należy także Spójrz na samouczek wspomnianego* ***następne kroki *** sekcji i defintely wypróbowanie* [ *bezpłatnej wersji próbnej Azure* ](https://azure.microsoft.com/pricing/free-trial/)*.*
 
 ![Dziękujemy - Erik](aspnet-error-handling/_static/image10.png)  
 
@@ -335,11 +335,11 @@ Dowiedz się więcej o wdrażaniu aplikacji sieci web do systemu Microsoft Azure
 
 Chcę Dziękujemy następujących osób istotny wkład do zawartości z tego samouczka serii:
 
-- [Alberto Poblacion, MVP &amp; MCT, (Hiszpania)](https://mvp.microsoft.com/en-us/mvp/Alberto%20Poblacion%20Bolano-36772)
+- [Alberto Poblacion, MVP &amp; MCT, (Hiszpania)](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
 - [Alexowi Thissen, Holandia](http://blog.alexthissen.nl/) (twitter: [ @alexthissen ](http://twitter.com/alexthissen))
 - [Andre Tournier, USA](http://andret503.wordpress.com/)
 - Apurva Joshi, Microsoft
-- [Bojan Vrhovnik, Słowenii](http://twitter.com/bvrhovnik)
+- [Bojan Vrhovnik, Slovenia](http://twitter.com/bvrhovnik)
 - [Bruno Sonnino, Brazylia](http://msmvps.com/blogs/bsonnino) (twitter: [ @bsonnino ](http://twitter.com/bsonnino))
 - [Artur dos Santos, Brazylia](http://www.carloscds.net/)
 - [Dave Campbell, USA](http://www.wynapse.com/) (twitter: [ @windowsdevnews ](http://twitter.com/windowsdevnews))
@@ -347,10 +347,10 @@ Chcę Dziękujemy następujących osób istotny wkład do zawartości z tego sam
 - [Jan krzyżyki, USA](http://www.930solutions.com/) (twitter: [ @mrsharps ](http://twitter.com/mrsharps))
 - Jan Pope
 - [Mitchel sprzedawców, USA](http://www.mitchelsellers.com/) (twitter: [ @MitchelSellers ](http://twitter.com/MitchelSellers))
-- [Cociuba Pawła, Microsoft](http://linqto.me/Links/pcociuba)
-- [Paulo Morgado, Portugalia](http://paulomorgado.net/)
+- [Paul Cociuba, Microsoft](http://linqto.me/Links/pcociuba)
+- [Paulo Morgado, Portugal](http://paulomorgado.net/)
 - [Pranav Rastogi, Microsoft](https://blogs.msdn.com/b/pranav_rastogi)
-- [Timowi Ammann, Microsoft](https://blogs.iis.net/timamm/default.aspx)
+- [Tim Ammann, Microsoft](https://blogs.iis.net/timamm/default.aspx)
 - [Tomasz Dykstra, Microsoft](https://blogs.msdn.com/aspnetue)
 
 ## <a name="community-contributions"></a>Społeczność

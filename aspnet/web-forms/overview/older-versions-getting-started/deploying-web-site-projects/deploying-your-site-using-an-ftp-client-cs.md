@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4e4af20fa1fecd1f363e979023b41203096d64ef
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1edd53b1005449c060ff92fc7ebd02dbe7fa6ac2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-c"></a>Wdrażanie witryny przy użyciu klienta FTP (C#)
 ====================
@@ -144,7 +144,7 @@ Jak może oczekujesz, podczas ponownego wdrażania aplikacji sieci web, należy 
 > Jedyną operacją, należy wziąć pod uwagę, gdy przy użyciu kompilację typu explicit jest, że w dowolnym momencie dodać nową stronę ASP.NET do projektu lub wprowadzić zmiany dotyczące kodu, trzeba ponownie skompiluj projekt, który aktualizuje zestawu w `Bin` folderu. W związku z tym należy skopiować ten zaktualizowany zestaw do produkcji, podczas aktualizacji aplikacji sieci web w środowisku produkcyjnym (wraz z innych nowych i zaktualizowanych zawartości).
 
 
-Należy również zapoznać się wszelkich zmian do `Web.config` lub pliki w `Bin` directory zatrzymuje i uruchamia ponownie puli aplikacji witryny sieci Web. Jeśli nazwa stanu sesji jest przechowywany przy użyciu `InProc` trybu (ustawienie domyślne), a następnie odwiedzających witryny sieci spowoduje utratę ich stanu sesji modyfikacjach te pliki klucza. Aby uniknąć tej niedogodności, należy wziąć pod uwagę przechowywanie sesji przy użyciu `StateServer` lub `SQLServer` trybów. Aby uzyskać więcej informacji na ten temat odczytu [tryby stanu sesji](https://msdn.microsoft.com/en-us/library/ms178586.aspx).
+Należy również zapoznać się wszelkich zmian do `Web.config` lub pliki w `Bin` directory zatrzymuje i uruchamia ponownie puli aplikacji witryny sieci Web. Jeśli nazwa stanu sesji jest przechowywany przy użyciu `InProc` trybu (ustawienie domyślne), a następnie odwiedzających witryny sieci spowoduje utratę ich stanu sesji modyfikacjach te pliki klucza. Aby uniknąć tej niedogodności, należy wziąć pod uwagę przechowywanie sesji przy użyciu `StateServer` lub `SQLServer` trybów. Aby uzyskać więcej informacji na ten temat odczytu [tryby stanu sesji](https://msdn.microsoft.com/library/ms178586.aspx).
 
 Na koniec należy pamiętać, że ponownego wdrażania aplikacji może potrwać od kilku sekund do kilku minut w zależności od liczby i rozmiaru plików, które mają zostać skopiowane do środowiska produkcyjnego. W tym czasie użytkowników odwiedzających witrynę, mogą wystąpić błędy lub nietypowego zachowania. Można "wyłączyć" całej aplikacji przez dodanie stronę o nazwie `App_Offline.htm` do katalogu głównego aplikacji, który objaśnia, aby użytkownicy czy lokacja nie działa z powodu konserwacji (lub niezależnie od) i będzie można wykonać kopię zapasową wkrótce. Gdy `App_Offline.htm` plik jest obecny, środowiska uruchomieniowego ASP.NET przekierowuje wszystkie żądania przychodzące do tej strony.
 
@@ -159,7 +159,7 @@ Programowanie przyjemność!
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
 - [Aplikacja\_Offline.htm i obchodzić funkcji "Przyjazny dla programu Internet Explorer błędy"](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
-- [Tryb stanu sesji](https://msdn.microsoft.com/en-us/library/ms178586.aspx)
+- [Tryb stanu sesji](https://msdn.microsoft.com/library/ms178586.aspx)
 
 >[!div class="step-by-step"]
 [Poprzednie](determining-what-files-need-to-be-deployed-cs.md)

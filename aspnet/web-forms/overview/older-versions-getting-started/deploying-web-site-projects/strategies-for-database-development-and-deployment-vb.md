@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8632ed2fe5c1a296747a0206de1c6f5c5bb59dd1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 877056dc74e0b5a64d6e0f11d63ed9f642b0a2cd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="strategies-for-database-development-and-deployment-vb"></a>Strategie programowania baz danych i wdrażania (VB)
 ====================
@@ -79,7 +79,7 @@ Obsługa dziennika zmian w prozie, niewątpliwie, nie jest bardzo zaawansowane i
 
 Wadą podstawowej obsługi dziennik zmian w prozie jest brak automatyzacji. W idealnym przypadku implementowania zmian w bazie danych w produkcyjnej bazie danych w czasie wdrażania będzie tak proste, jak kliknięcie przycisku do uruchomienia skryptu zamiast ręcznie wykonać listę instrukcji. Takie automatyzacji jest możliwe dzięki utrzymywaniu dziennik zmian, zawierające te polecenia SQL służy do zastępowania modelu danych.
 
-Składnia SQL zawiera wiele instrukcji do tworzenia i modyfikowania różnych obiektów bazy danych. Na przykład [ *instrukcji CREATE TABLE*](https://msdn.microsoft.com/en-us/library/ms174979.aspx), gdy wykonywana, tworzy nową tabelę przy użyciu określonych kolumn i ograniczeń. [ *Instrukcji ALTER TABLE* ](https://msdn.microsoft.com/en-us/library/ms190273.aspx) modyfikuje istniejącej tabeli, dodawania, usuwania lub modyfikowania jej kolumny lub ograniczenia. Dostępne są także instrukcje do tworzenia, modyfikowania i Porzuć indeksy, widoki, funkcje zdefiniowane przez użytkownika, procedur składowanych, wyzwalaczy i innych obiektów bazy danych.
+Składnia SQL zawiera wiele instrukcji do tworzenia i modyfikowania różnych obiektów bazy danych. Na przykład [ *instrukcji CREATE TABLE*](https://msdn.microsoft.com/library/ms174979.aspx), gdy wykonywana, tworzy nową tabelę przy użyciu określonych kolumn i ograniczeń. [ *Instrukcji ALTER TABLE* ](https://msdn.microsoft.com/library/ms190273.aspx) modyfikuje istniejącej tabeli, dodawania, usuwania lub modyfikowania jej kolumny lub ograniczenia. Dostępne są także instrukcje do tworzenia, modyfikowania i Porzuć indeksy, widoki, funkcje zdefiniowane przez użytkownika, procedur składowanych, wyzwalaczy i innych obiektów bazy danych.
 
 Wracając do naszych wcześniejszego przykładu obrazu podczas tworzenia aplikacji już wdrożona, Dodaj nową kolumnę do `Employees` tabeli, należy usunąć kolumny z `Orders` tabeli, a następnie dodaj nową tabelę (`ProductCategories`). Takie działania spowoduje w pliku dziennika zmian za pomocą następujących poleceń SQL:
 

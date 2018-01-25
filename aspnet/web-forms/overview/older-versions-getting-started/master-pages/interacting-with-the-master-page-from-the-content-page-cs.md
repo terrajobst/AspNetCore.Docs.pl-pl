@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 054c67ec7d7eec38d46933417930161a0edd5a60
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 977cdea38d240bcae284968de7d780ec59ab6dfd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="interacting-with-the-master-page-from-the-content-page-c"></a>Interakcja z strony wzorcowej ze strony zawartość (C#)
 ====================
@@ -192,9 +192,9 @@ Przeanalizujmy obu podejść.
 
 ### <a name="using-the-loosely-typedpagemasterproperty"></a>Korzystanie z typowaniem luźnym`Page.Master`właściwości
 
-Wszystkie strony sieci web platformy ASP.NET musi pochodzić od `Page` klasy, która znajduje się w `System.Web.UI` przestrzeni nazw. `Page` Klasa zawiera [ `Master` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.page.master.aspx) która zwraca odwołanie do strony głównej. Jeśli strona nie ma strony wzorcowej `Master` zwraca `null`.
+Wszystkie strony sieci web platformy ASP.NET musi pochodzić od `Page` klasy, która znajduje się w `System.Web.UI` przestrzeni nazw. `Page` Klasa zawiera [ `Master` właściwości](https://msdn.microsoft.com/library/system.web.ui.page.master.aspx) która zwraca odwołanie do strony głównej. Jeśli strona nie ma strony wzorcowej `Master` zwraca `null`.
 
-`Master` Właściwość zwraca obiekt typu [ `MasterPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.masterpage.aspx) (również znajduje się w `System.Web.UI` przestrzeni nazw) czyli typu podstawowego, w którym wszystkie strony wzorcowe pochodzi od. W związku z tym celu użyj właściwości publicznej lub metody zdefiniowane w naszej witrynie internetowej strony wzorcowej możemy rzutować `MasterPage` obiektu zwróconego z `Master` właściwości do odpowiedniego typu. Ponieważ firma Microsoft o nazwie naszych plik strony głównej `Site.master`, miał nazwę klasy związane z kodem `Site`. W związku z tym poniższy kod rzutowania `Page.Master` właściwości do wystąpienia klasy lokacji.
+`Master` Właściwość zwraca obiekt typu [ `MasterPage` ](https://msdn.microsoft.com/library/system.web.ui.masterpage.aspx) (również znajduje się w `System.Web.UI` przestrzeni nazw) czyli typu podstawowego, w którym wszystkie strony wzorcowe pochodzi od. W związku z tym celu użyj właściwości publicznej lub metody zdefiniowane w naszej witrynie internetowej strony wzorcowej możemy rzutować `MasterPage` obiektu zwróconego z `Master` właściwości do odpowiedniego typu. Ponieważ firma Microsoft o nazwie naszych plik strony głównej `Site.master`, miał nazwę klasy związane z kodem `Site`. W związku z tym poniższy kod rzutowania `Page.Master` właściwości do wystąpienia klasy lokacji.
 
 
 [!code-csharp[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample8.cs)]
@@ -217,7 +217,7 @@ Podczas przeglądania ściśle widać, że strony ASP.NET klasę kodu jest czę�
 
 Automatyczne generowanie kodu, który występuje zawsze, gdy jest odwiedzoną stronę ASP.NET paves sposób dla niektórych możliwości raczej interesujące i przydatne. W przypadku stron wzorcowych przypadku możemy powiedzieć aparatu ASP.NET, jakie strony wzorcowej jest używany przez naszą stronę zawartości generuje silnie typizowanego `Master` właściwości firmie Microsoft.
 
-Użyj [ `@MasterType` dyrektywy](https://msdn.microsoft.com/en-us/library/ms228274.aspx) poinformowanie aparatu ASP.NET typu strony zawartości strony wzorcowej. `@MasterType` Dyrektywy może zaakceptować nazwy typu strony wzorcowej lub ścieżki pliku. Aby określić, że `AddProduct.aspx` strona używa `Site.master` jako jego strony wzorcowej, Dodaj następujące dyrektywy na początku `AddProduct.aspx`:
+Użyj [ `@MasterType` dyrektywy](https://msdn.microsoft.com/library/ms228274.aspx) poinformowanie aparatu ASP.NET typu strony zawartości strony wzorcowej. `@MasterType` Dyrektywy może zaakceptować nazwy typu strony wzorcowej lub ścieżki pliku. Aby określić, że `AddProduct.aspx` strona używa `Site.master` jako jego strony wzorcowej, Dodaj następujące dyrektywy na początku `AddProduct.aspx`:
 
 
 [!code-aspx[Main](interacting-with-the-master-page-from-the-content-page-cs/samples/sample9.aspx)]
@@ -261,7 +261,7 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 - [Uzyskiwanie dostępu i aktualizowanie danych w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
 - [Stron wzorcowych ASP.NET: Porady, wskazówki i pułapek](http://www.odetocode.com/articles/450.aspx)
-- [`@MasterType`w programie ASP.NET 2.0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx)
+- [`@MasterType` in ASP.NET 2.0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx)
 - [Przekazywanie informacji między zawartości i stron wzorcowych](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
 - [Praca z danymi w samouczkach ASP.NET](../../data-access/index.md)
 

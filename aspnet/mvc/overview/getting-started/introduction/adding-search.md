@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: 10457d154f5fda875f7d1054d48daeeba3a50b7c
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 116f681e14af0a09a4eb1502ef9f057c5db2f97d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="search"></a>Wyszukaj
 ====================
@@ -34,7 +34,7 @@ Uruchom aktualizując `Index` metody akcji do istniejącej `MoviesController` kl
 
 [!code-csharp[Main](adding-search/samples/sample1.cs?highlight=1,6-9)]
 
-W pierwszym wierszu `Index` metoda tworzy następujące [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) zapytanie, aby wybrać filmy:
+W pierwszym wierszu `Index` metoda tworzy następujące [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) zapytanie, aby wybrać filmy:
 
 [!code-csharp[Main](adding-search/samples/sample2.cs)]
 
@@ -44,10 +44,10 @@ Jeśli `searchString` parametru zawiera ciąg, filmy zapytania są modyfikowane 
 
 [!code-csharp[Main](adding-search/samples/sample3.cs)]
 
-`s => s.Title` Kod powyżej [wyrażenia Lambda](https://msdn.microsoft.com/en-us/library/bb397687.aspx). Wyrażenia lambda są używane w oparte na metodzie [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) wysyła zapytanie jako argumenty do metod operator standardowej kwerendy, takich jak [gdzie](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.where.aspx) metodę używaną w powyższym kodzie. Zapytania LINQ nie są wykonywane, gdy są one zdefiniowane lub modyfikacji przez wywołanie metody, takie jak `Where` lub `OrderBy`. Zamiast tego wykonywania zapytania jest opóźnione, co oznacza, że obliczania wyrażenia jest opóźnione aż do jej wartość rzeczywista jest rzeczywiście iterowane za pośrednictwem lub [ `ToList` ](https://msdn.microsoft.com/en-us/library/bb342261.aspx) metoda jest wywoływana. W `Search` przykładzie zapytanie jest wykonywane w *Index.cshtml* widoku. Aby uzyskać więcej informacji na temat wykonywania zapytań odroczonych, zobacz [wykonywania zapytania](https://msdn.microsoft.com/en-us/library/bb738633.aspx).
+`s => s.Title` Kod powyżej [wyrażenia Lambda](https://msdn.microsoft.com/library/bb397687.aspx). Wyrażenia lambda są używane w oparte na metodzie [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) wysyła zapytanie jako argumenty do metod operator standardowej kwerendy, takich jak [gdzie](https://msdn.microsoft.com/library/system.linq.enumerable.where.aspx) metodę używaną w powyższym kodzie. Zapytania LINQ nie są wykonywane, gdy są one zdefiniowane lub modyfikacji przez wywołanie metody, takie jak `Where` lub `OrderBy`. Zamiast tego wykonywania zapytania jest opóźnione, co oznacza, że obliczania wyrażenia jest opóźnione aż do jej wartość rzeczywista jest rzeczywiście iterowane za pośrednictwem lub [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx) metoda jest wywoływana. W `Search` przykładzie zapytanie jest wykonywane w *Index.cshtml* widoku. Aby uzyskać więcej informacji na temat wykonywania zapytań odroczonych, zobacz [wykonywania zapytania](https://msdn.microsoft.com/library/bb738633.aspx).
 
 > [!NOTE]
-> [Zawiera](https://msdn.microsoft.com/en-us/library/bb155125.aspx) metody jest uruchamiany w bazie danych, a nie kodu c# powyżej. W bazie danych [zawiera](https://msdn.microsoft.com/en-us/library/bb155125.aspx) mapuje [SQL LIKE](https://msdn.microsoft.com/en-us/library/ms179859.aspx), która jest uwzględniana wielkość liter.
+> [Zawiera](https://msdn.microsoft.com/library/bb155125.aspx) metody jest uruchamiany w bazie danych, a nie kodu c# powyżej. W bazie danych [zawiera](https://msdn.microsoft.com/library/bb155125.aspx) mapuje [SQL LIKE](https://msdn.microsoft.com/library/ms179859.aspx), która jest uwzględniana wielkość liter.
 
 Teraz możesz zaktualizować `Index` widok, który będzie wyświetlany formularz dla użytkownika.
 
@@ -123,7 +123,7 @@ Następujący kod jest zapytania LINQ, która pobiera wszystkie genres z bazy da
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-W kodzie użyto `AddRange` metody ogólnej `List` kolekcji można dodać do listy wszystkich unikatowych genres. (Bez `Distinct` modyfikator, zostanie dodany genres zduplikowane — na przykład zostanie dodany Komedia dwa razy w naszym przykładzie). Kod następnie przechowuje listę gatunkami muzyki w `ViewBag.MovieGenre` obiektu. Przechowywanie danych kategorii (takie określonego filmu rodzaju firmy) jako [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx) obiektu w `ViewBag`, a następnie uzyskiwanie dostępu do danych kategorii w polu listy rozwijanej jest podejście typowej aplikacji MVC.
+W kodzie użyto `AddRange` metody ogólnej `List` kolekcji można dodać do listy wszystkich unikatowych genres. (Bez `Distinct` modyfikator, zostanie dodany genres zduplikowane — na przykład zostanie dodany Komedia dwa razy w naszym przykładzie). Kod następnie przechowuje listę gatunkami muzyki w `ViewBag.MovieGenre` obiektu. Przechowywanie danych kategorii (takie określonego filmu rodzaju firmy) jako [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx) obiektu w `ViewBag`, a następnie uzyskiwanie dostępu do danych kategorii w polu listy rozwijanej jest podejście typowej aplikacji MVC.
 
 Poniższy kod przedstawia sposób sprawdzania `movieGenre` parametru. Jeśli nie jest pusta, kodu ogranicza kwerendę filmy i ograniczyć wybranego filmów do określonego rodzaju.
 

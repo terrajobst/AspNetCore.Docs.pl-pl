@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: 02c2a01ef8ec2b5a49f2c303ee61f02702a3ba54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 997582263bd48590b74434ee0ffc6be928fa1e08
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a>Wybieranie routingu i akcji w składniku ASP.NET Web API
 ====================
@@ -121,7 +121,7 @@ Domyślna implementacja jest zapewniana przez **ApiControllerActionSelector** kl
 
 Przed patrzeć algorytm zaznaczenia, należy poznać kilka rzeczy, o akcji kontrolera.
 
-**Które metody na kontrolerze są traktowane jako "Akcje"?** Po wybraniu akcji, platformę przegląda tylko metody wystąpienia publicznego na kontrolerze. Ponadto wyklucza ["specjalną nazwą"](https://msdn.microsoft.com/en-us/library/system.reflection.methodbase.isspecialname) metod (konstruktorów, zdarzenia przeciążenia operatora i tak dalej) i dziedziczone z metody **klasy ApiController** klasy.
+**Które metody na kontrolerze są traktowane jako "Akcje"?** Po wybraniu akcji, platformę przegląda tylko metody wystąpienia publicznego na kontrolerze. Ponadto wyklucza ["specjalną nazwą"](https://msdn.microsoft.com/library/system.reflection.methodbase.isspecialname) metod (konstruktorów, zdarzenia przeciążenia operatora i tak dalej) i dziedziczone z metody **klasy ApiController** klasy.
 
 **Metody HTTP.** Platformę wybiera tylko akcje, które odpowiada metoda HTTP żądania określane w następujący sposób:
 
@@ -134,7 +134,7 @@ Przed patrzeć algorytm zaznaczenia, należy poznać kilka rzeczy, o akcji kontr
 - Proste typy są pobierane z identyfikatora URI.
 - Typy złożone są pobierane z treści żądania.
 
-Proste typy obejmują wszystkie [typów pierwotnych .NET Framework](https://msdn.microsoft.com/en-us/library/system.type.isprimitive), plus **DateTime**, **dziesiętną**, **identyfikatora Guid**, **ciągu** , i **TimeSpan**. Dla każdej akcji co najwyżej jeden parametr można odczytać treści żądania.
+Proste typy obejmują wszystkie [typów pierwotnych .NET Framework](https://msdn.microsoft.com/library/system.type.isprimitive), plus **DateTime**, **dziesiętną**, **identyfikatora Guid**, **ciągu** , i **TimeSpan**. Dla każdej akcji co najwyżej jeden parametr można odczytać treści żądania.
 
 > [!NOTE]
 > Istnieje możliwość zastąpienia domyślnych reguł powiązania. Zobacz [wiązanie parametru WebAPI kulisy](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx).
@@ -218,7 +218,7 @@ Zwróć uwagę, że *wersji* parametr `GetById` jest uważana za, ponieważ jest
 
 `GetById` Metody wins, ponieważ jest on zgodny jeden parametr, a żadne parametry dla `GetAll`. Metoda jest wywoływana z następujących wartości parametrów:
 
-- *Identyfikator* = 1
+- *id* = 1
 - *Wersja* = 1.5
 
 Należy zauważyć, że nawet jeśli *wersji* nie były używane w algorytmie zaznaczenia, wartość parametru pochodzi z ciągu zapytania identyfikatora URI.

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: d58a745896b29317c1d1049e3bf1a5ec2e628820
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 148a1aa33f6f713ae471ab14c7180f6c08a8679a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Zaawansowane Entity Framework scenariusze dla aplikacji sieci Web MVC (10 10)
 ====================
@@ -55,7 +55,7 @@ Interfejsu API z pierwszego kodu Entity Framework zawiera metody, które umożli
 
 - Użyj `DbSet.SqlQuery` metodę dla zapytań zwracających typów jednostek. Zwracane obiekty muszą mieć typ oczekiwany przez `DbSet` obiektów i ich automatycznie są śledzone przez kontekst bazy danych, chyba że wyłączyć śledzenie. (Zobacz następującą sekcję `AsNoTracking` metody.)
 - Użyj `Database.SqlQuery` metodę dla zapytań zwracających typy, które nie są jednostek. Zwrócone dane nie jest śledzony przez kontekst bazy danych, nawet w przypadku użycia tej metody można pobrać typów jednostek.
-- Użyj [Database.ExecuteSqlCommand](https://msdn.microsoft.com/en-us/library/gg679456(v=vs.103).aspx) -query poleceń.
+- Użyj [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456(v=vs.103).aspx) -query poleceń.
 
 Jedną z zalet funkcji programu Entity Framework jest, że unika wiązanie kodu zbytnio do określonej metody przechowywania danych. Robi to przez generowanie zapytań SQL i poleceń, które zwalnia z konieczności pisania samodzielnie. Ale są wyjątkowych scenariusze, w należy uruchomić określonego zapytania SQL, które zostały utworzone ręcznie, a te metody umożliwiają obsługę tych wyjątków.
 
@@ -255,17 +255,17 @@ Entity Framework określa zmian jednostki (i w związku z tym aktualizacje, któ
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-Jeśli podczas śledzenia dużą liczbę jednostek i wywołania jednej z tych metod wiele razy w pętlę, można otrzymać znaczną poprawę wydajności wyłączając tymczasowo zmień automatycznego wykrywania przy użyciu [AutoDetectChangesEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled(VS.103).aspx) właściwości. Aby uzyskać więcej informacji, zobacz [automatyczne wykrywanie zmian](https://blogs.msdn.com/b/adonet/archive/2011/02/06/using-dbcontext-in-ef-feature-ctp5-part-12-automatically-detecting-changes.aspx).
+Jeśli podczas śledzenia dużą liczbę jednostek i wywołania jednej z tych metod wiele razy w pętlę, można otrzymać znaczną poprawę wydajności wyłączając tymczasowo zmień automatycznego wykrywania przy użyciu [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled(VS.103).aspx) właściwości. Aby uzyskać więcej informacji, zobacz [automatyczne wykrywanie zmian](https://blogs.msdn.com/b/adonet/archive/2011/02/06/using-dbcontext-in-ef-feature-ctp5-part-12-automatically-detecting-changes.aspx).
 
 ## <a name="disabling-validation-when-saving-changes"></a>Wyłączenie sprawdzania poprawności podczas zapisywania zmian
 
-Podczas wywoływania `SaveChanges` metody, domyślnie programu Entity Framework sprawdza poprawność danych we właściwościach wszystkich wszystkich jednostek zmienione przed zaktualizowaniem bazy danych. Jeśli użytkownik zaktualizował dużą liczbę jednostek i możesz już upewnieniu się, dane, tej pracy jest niepotrzebne można utworzyć procesu zapisywania zmian zająć mniej czasu tymczasowe wyłączenie sprawdzania poprawności. Możesz zrobić tego za pomocą [ValidateOnSaveEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled(VS.103).aspx) właściwości. Aby uzyskać więcej informacji, zobacz [weryfikacji](https://blogs.msdn.com/b/adonet/archive/2010/12/15/ef-feature-ctp5-validation.aspx).
+Podczas wywoływania `SaveChanges` metody, domyślnie programu Entity Framework sprawdza poprawność danych we właściwościach wszystkich wszystkich jednostek zmienione przed zaktualizowaniem bazy danych. Jeśli użytkownik zaktualizował dużą liczbę jednostek i możesz już upewnieniu się, dane, tej pracy jest niepotrzebne można utworzyć procesu zapisywania zmian zająć mniej czasu tymczasowe wyłączenie sprawdzania poprawności. Możesz zrobić tego za pomocą [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled(VS.103).aspx) właściwości. Aby uzyskać więcej informacji, zobacz [weryfikacji](https://blogs.msdn.com/b/adonet/archive/2010/12/15/ef-feature-ctp5-validation.aspx).
 
 ## <a name="summary"></a>Podsumowanie
 
 Na tym kończy się tej serii samouczków przy użyciu programu Entity Framework w aplikacji platformy ASP.NET MVC. Linki do innych zasobów programu Entity Framework, można znaleźć w [Mapa zawartości dostępu do danych programu ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-Aby uzyskać więcej informacji na temat wdrażania aplikacji sieci web po jego powstanie zobacz [Mapa zawartości platformy ASP.NET wdrożenia](https://msdn.microsoft.com/en-us/library/bb386521.aspx) w bibliotece MSDN.
+Aby uzyskać więcej informacji na temat wdrażania aplikacji sieci web po jego powstanie zobacz [Mapa zawartości platformy ASP.NET wdrożenia](https://msdn.microsoft.com/library/bb386521.aspx) w bibliotece MSDN.
 
 Informacje o innych tematów dotyczących MVC, takie jak uwierzytelniania i autoryzacji, zobacz [zasoby programu MVC zalecane](../../getting-started/recommended-resources-for-mvc.md).
 

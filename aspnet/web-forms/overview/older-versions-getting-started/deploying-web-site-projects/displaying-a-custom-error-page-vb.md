@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e6931f9d14461456cc8461b0a6b194079b7654c6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 28f4c95e1578c5c91cfa1a21af2b4720ba7b286c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-a-custom-error-page-vb"></a>Wyświetlanie niestandardowej strony błędu (VB)
 ====================
@@ -31,7 +31,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 W idealnych nie byłoby bez błędów czasu wykonywania. Programiści zapisać kod z n-argumentowości usterki i z sprawdzania poprawności danych wejściowych użytkownika niezawodne i zewnętrznych zasobów, takich jak serwery baz danych i serwerów poczty e-mail nigdy nie przejdzie w tryb offline. Oczywiście w rzeczywistości błędy są nieuniknione. Klasy w programie .NET Framework sygnał błąd przez Zgłaszanie wyjątku. Na przykład SqlConnection podczas wywoływania metody Open obiektu ustanawia połączenie określona przez ciąg połączenia bazy danych. Jednak jeśli bazy danych jest wyłączony lub poświadczenia w parametrach połączenia są nieprawidłowe następnie otwórz metoda zgłasza `SqlException`. Wyjątki mogą być obsługiwane za pomocą `Try/Catch/Finally` bloków. Jeśli kod w `Try` bloku zgłasza wyjątek, sterowanie jest przekazywane do bloku catch odpowiednie gdzie deweloper może próbować odzyskać sprawność po błędzie. Jeśli nie istnieje żadne odpowiadający mu blok catch, lub jeśli kod, który zgłosił wyjątek nie jest w bloku try, wyjątek percolates górę stosu wywołań search z `Try/Catch/Finally` bloków.
 
-Jeśli wyjątek propaguje do środowiska uruchomieniowego ASP.NET nie jest obsługiwane, [ `HttpApplication` klasy](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.aspx)w [ `Error` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.error.aspx) jest wywoływane i skonfigurowanego *strony błędu*  jest wyświetlany. Domyślnie platforma ASP.NET wyświetla stronę błędu, który affectionately nazywa się [żółty ekranu śmierci](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). Dostępne są dwie wersje YSOD: jeden przedstawia szczegóły wyjątku, ślad stosu i inne informacje przydatne deweloperom debugowanie aplikacji (zobacz **rysunek 1**); Stany innych po prostu, że wystąpił błąd czasu wykonywania (zobacz  **Rysunek 2**).
+Jeśli wyjątek propaguje do środowiska uruchomieniowego ASP.NET nie jest obsługiwane, [ `HttpApplication` klasy](https://msdn.microsoft.com/library/system.web.httpapplication.aspx)w [ `Error` zdarzeń](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx) jest wywoływane i skonfigurowanego *strony błędu*  jest wyświetlany. Domyślnie platforma ASP.NET wyświetla stronę błędu, który affectionately nazywa się [żółty ekranu śmierci](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). Dostępne są dwie wersje YSOD: jeden przedstawia szczegóły wyjątku, ślad stosu i inne informacje przydatne deweloperom debugowanie aplikacji (zobacz **rysunek 1**); Stany innych po prostu, że wystąpił błąd czasu wykonywania (zobacz  **Rysunek 2**).
 
 Szczegóły wyjątku YSOD jest bardzo przydatne deweloperom debugowanie aplikacji, ale wyświetlanie YSOD użytkownikom końcowym jest tacky i szkodzi. Zamiast tego użytkownicy końcowi należy podjąć w celu przechowującą witryny wyglądu i działania z użytkownikom większy komfort prozie opisujące sytuacji stronę błędu. Dobre wieści jest to utworzenie strony błędu niestandardowego prostą. W tym samouczku rozpoczyna się od przyjrzeć się ASP. Strony błędów różnych w sieci. Następnie pokaże konfigurowania aplikacji sieci web do wyświetlenia użytkownikom niestandardowej strony błędu w wypadku wystąpił błąd.
 
@@ -87,7 +87,7 @@ Które trzy strony może zawierać błąd jest wyświetlany jest oparty na dwóc
 - Informacje o konfiguracji w `<customErrors>` sekcji i
 - Określa, czy użytkownik jest tej witrynie lokalnie lub zdalnie.
 
-[ `<customErrors>` Sekcji](https://msdn.microsoft.com/en-us/library/h0hfz6fc.aspx) w `Web.config` ma dwa atrybuty, które mają wpływ na jakie strony błędu jest wyświetlany: `defaultRedirect` i `mode`. `defaultRedirect` Atrybutu jest opcjonalny. Jeśli zostanie podana, określa adres URL strony błędu niestandardowego i wskazuje, że zamiast YSOD błąd środowiska uruchomieniowego powinna być wyświetlana strona błędu niestandardowego. `mode` Atrybut jest wymagany i przyjmuje jeden z trzech wartości: `On`, `Off`, lub `RemoteOnly`. Te wartości są następujące działania:
+[ `<customErrors>` Sekcji](https://msdn.microsoft.com/library/h0hfz6fc.aspx) w `Web.config` ma dwa atrybuty, które mają wpływ na jakie strony błędu jest wyświetlany: `defaultRedirect` i `mode`. `defaultRedirect` Atrybutu jest opcjonalny. Jeśli zostanie podana, określa adres URL strony błędu niestandardowego i wskazuje, że zamiast YSOD błąd środowiska uruchomieniowego powinna być wyświetlana strona błędu niestandardowego. `mode` Atrybut jest wymagany i przyjmuje jeden z trzech wartości: `On`, `Off`, lub `RemoteOnly`. Te wartości są następujące działania:
 
 - `On`— Wskazuje, że strony błędów niestandardowych lub YSOD błąd czasu wykonywania jest pokazywane do wszystkich odwiedzających, niezależnie od tego, czy są one lokalnym lub zdalnym.
 - `Off`— Określa, czy YSOD szczegóły wyjątku jest wyświetlana dla wszystkich odwiedzających, niezależnie od tego, czy są one lokalnym lub zdalnym.
@@ -167,9 +167,9 @@ Programowanie przyjemność!
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
 - [Strony błędów, jeszcze raz](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)
-- [Wskazówek dotyczących wyjątków](https://msdn.microsoft.com/en-us/library/ms229014.aspx)
+- [Wyjątki — zalecenia dotyczące projektowania](https://msdn.microsoft.com/library/ms229014.aspx)
 - [Strony błędów przyjazną dla użytkownika](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
-- [Obsługa i zgłaszanie wyjątków](https://msdn.microsoft.com/en-us/library/5b2yeyab.aspx)
+- [Obsługa i zgłaszanie wyjątków](https://msdn.microsoft.com/library/5b2yeyab.aspx)
 - [Prawidłowo przy użyciu strony błędów niestandardowych w programie ASP.NET](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
 >[!div class="step-by-step"]

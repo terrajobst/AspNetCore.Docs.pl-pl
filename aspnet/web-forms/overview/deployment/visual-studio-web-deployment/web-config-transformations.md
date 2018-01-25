@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: a88d8f35c770b362b74f787fee2c60a7577bccb2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a526275d76618c325a6b00f33cc550f28ab0cc00
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: przekształcenia pliku Web.config
 ====================
@@ -35,7 +35,7 @@ Przypomnienie: Jeśli coś nie działa podczas wykonywania kroków samouczka wy�
 
 ## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Przekształcenia pliku Web.config i parametrów narzędzia Web Deploy
 
-Istnieją dwa sposoby automatyzacji procesu zmiany *Web.config* ustawienia plików: [przekształcenia pliku Web.config](https://msdn.microsoft.com/en-us/library/dd465326.aspx) i [parametrów narzędzia Web Deploy](https://msdn.microsoft.com/en-us/library/ff398068.aspx). A *Web.config* plik przekształcenia zawiera kod znaczników XML, który określa, jak zmienić *Web.config* pliku podczas jego wdrażania. Można określić różne zmiany określonych konfiguracje kompilacji i dla określonych profilów publikowania. Domyślne konfiguracje kompilacji są Debug i Release i można tworzyć konfiguracje kompilacji niestandardowej. Profil publikowania zazwyczaj odpowiada środowisku docelowym. (Dowiesz się więcej na temat profilów w publikowania [wdrażania usług IIS jako środowisko testowe](deploying-to-iis.md) samouczek.)
+Istnieją dwa sposoby automatyzacji procesu zmiany *Web.config* ustawienia plików: [przekształcenia pliku Web.config](https://msdn.microsoft.com/library/dd465326.aspx) i [parametrów narzędzia Web Deploy](https://msdn.microsoft.com/library/ff398068.aspx). A *Web.config* plik przekształcenia zawiera kod znaczników XML, który określa, jak zmienić *Web.config* pliku podczas jego wdrażania. Można określić różne zmiany określonych konfiguracje kompilacji i dla określonych profilów publikowania. Domyślne konfiguracje kompilacji są Debug i Release i można tworzyć konfiguracje kompilacji niestandardowej. Profil publikowania zazwyczaj odpowiada środowisku docelowym. (Dowiesz się więcej na temat profilów w publikowania [wdrażania usług IIS jako środowisko testowe](deploying-to-iis.md) samouczek.)
 
 Parametry wdrażania w sieci Web można określić wiele różnych ustawień, które muszą być skonfigurowane podczas wdrażania ustawień, które znajdują się w tym *Web.config* plików. Gdy jest używany do określenia *Web.config* plik ulegnie zmianie, narzędzie Web Deploy parametry są bardziej złożone, aby skonfigurować, ale są przydatne, gdy nie znasz wartość do ustawienia, dopóki nie zostanie wdrożony. Na przykład w środowisku przedsiębiorstwa może utworzyć *pakietu wdrożeniowego* i nadaj mu do osoby w dziale IT, aby zainstalować w środowisku produkcyjnym, a ma mieć możliwość wprowadź parametry połączenia lub hasła, które nie są znać.
 

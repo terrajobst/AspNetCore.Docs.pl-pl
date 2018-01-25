@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: a5538744dfaff76f28c5f17d8f5d782ef3f6c118
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a7995844ee6ed19efa130c4f6c019214d6652ea7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: Wdrażanie usług IIS jako środowisko testowe - 5 12
 ====================
@@ -83,7 +83,7 @@ W **połączeń** okienku rozwiń węzeł serwera i wybierz **pul aplikacji**. W
 
 Jeśli zostanie wyświetlony tylko dwa pul aplikacji i z nich są ustawione na .NET Framework 2.0, należy zainstalować ASP.NET 4 w usługach IIS:
 
-- Otwórz okno wiersza polecenia, klikając prawym przyciskiem myszy **wiersza polecenia** w oknach **Start** menu i wybierając **Uruchom jako Administrator**. Następnie uruchom [aspnet\_regiis.exe](https://msdn.microsoft.com/en-us/library/k6h9cz8h.aspx) do zainstalowania programu ASP.NET 4 w usługach IIS, za pomocą następujących poleceń. (W systemach 64-bitowych, zastąp "Framework" z "Framework64").
+- Otwórz okno wiersza polecenia, klikając prawym przyciskiem myszy **wiersza polecenia** w oknach **Start** menu i wybierając **Uruchom jako Administrator**. Następnie uruchom [aspnet\_regiis.exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx) do zainstalowania programu ASP.NET 4 w usługach IIS, za pomocą następujących poleceń. (W systemach 64-bitowych, zastąp "Framework" z "Framework64").
 
     [!code-console[Main](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/samples/sample2.cmd)]
 
@@ -111,7 +111,7 @@ Istnieje kilka metod, które można wdrożyć przy użyciu programu Visual Studi
 - Utwórz *pakietu wdrożeniowego* i zainstalować go za pomocą interfejsu użytkownika Menedżera usług IIS. Pakiet wdrożeniowy, który składa się z *zip* plik, który zawiera wszystkie pliki i metadane wymagane do zainstalowania lokacji w usługach IIS.
 - Utwórz pakiet wdrożeniowy i zainstalować go za pomocą wiersza polecenia.
 
-Proces, który prowadzący w poprzednim samouczkach do instalacji programu Visual Studio do automatyzowania zadań wdrażania stosuje się do wszystkich tych trzech metod. W tych samouczkach użyjesz pierwsza z tych metod. Informacji o użyciu pakiety wdrażania znajduje się w temacie [Mapa zawartości platformy ASP.NET wdrożenia](https://msdn.microsoft.com/en-us/library/bb386521.aspx).
+Proces, który prowadzący w poprzednim samouczkach do instalacji programu Visual Studio do automatyzowania zadań wdrażania stosuje się do wszystkich tych trzech metod. W tych samouczkach użyjesz pierwsza z tych metod. Informacji o użyciu pakiety wdrażania znajduje się w temacie [Mapa zawartości platformy ASP.NET wdrożenia](https://msdn.microsoft.com/library/bb386521.aspx).
 
 Przed opublikowaniem, upewnij się, że używasz programu Visual Studio w trybie administratora. (W systemie Windows 7 **Start** menu, kliknij prawym przyciskiem myszy ikonę dla używanej wersji programu Visual Studio używasz i wybierz **Uruchom jako Administrator**.) Tryb administratora jest wymagana do publikowania, tylko jeśli jest publikowany w usługach IIS na komputerze lokalnym.
 
@@ -244,7 +244,7 @@ Aby uzyskać informacje dotyczące uruchamiania usług IIS lub usług IIS Expres
 
 - [Omówienie usługi IIS Express](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) w witrynie IIS.net.
 - [Wprowadzenie do usług IIS Express](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) na blogu Scott Guthrie.
-- [Porady: Określanie serwera sieci Web dla projektów sieci Web w programie Visual Studio](https://msdn.microsoft.com/en-us/library/ms178108.aspx).
+- [Porady: Określanie serwera sieci Web dla projektów sieci Web w programie Visual Studio](https://msdn.microsoft.com/library/ms178108.aspx).
 - [Podstawowe różnice między usług IIS i ASP.NET Development Server](../deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) w witrynie platformy ASP.NET.
 - [Test z platformy ASP.NET MVC lub w aplikacji formularzy sieci Web w usługach IIS 7 w ciągu 30 sekund](https://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx) na blogu Ricka Andersona. Ten wpis zawiera przykłady Dlaczego testowanie za pomocą serwera programu Visual Studio Programowanie (Cassini) nie jest tak niezawodna jak testowania w usługach IIS Express i dlaczego testowania w usługach IIS Express nie jest tak niezawodna jak testowania w programie IIS.
 

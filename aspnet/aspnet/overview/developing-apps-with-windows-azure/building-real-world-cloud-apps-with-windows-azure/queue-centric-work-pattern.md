@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: 125d555a9e170ef35dd99e0409a2442d5f9ae34a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ccfbaa26cbf610f847811e6f3c612458277046ed
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Wzorzec skoncentrowane kolejki pracy (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -91,7 +91,7 @@ Aby zaimplementować wzorzec kolejki, musimy upewnić dwie zmiany do aplikacji r
 - Gdy użytkownik prześle nowego poprawka zadania, należy umieścić zadania w kolejce, zamiast zapisywanie w bazie danych.
 - Tworzenie usługi zaplecza, który przetwarza wiadomości w kolejce.
 
-Kolejki, użyjemy [usługi magazynu kolejek Azure](https://www.windowsazure.com/en-us/develop/net/how-to-guides/queue-service/). Inną opcją jest użycie [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+Kolejki, użyjemy [usługi magazynu kolejek Azure](https://www.windowsazure.com/develop/net/how-to-guides/queue-service/). Inną opcją jest użycie [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
 Podjęcie decyzji, które usługi kolejki, do korzystania, należy wziąć pod uwagę sposób Twoja aplikacja powinna do wysyłania i odbierania wiadomości w kolejce:
 
@@ -106,10 +106,10 @@ Kolejnym zagadnieniem są dostępności aplikacji. Usługa kolejki magazynu jest
 
 Aby umieścić poprawka zadań w kolejce, frontonu sieci web wykonuje następujące czynności:
 
-1. Utwórz [CloudQueueClient](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) wystąpienia. `CloudQueueClient` Wystąpienia służy do wykonywania żądania do usługi kolejki.
+1. Utwórz [CloudQueueClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) wystąpienia. `CloudQueueClient` Wystąpienia służy do wykonywania żądania do usługi kolejki.
 2. Utwórz kolejkę, jeśli go jeszcze nie istnieje.
 3. Serializować zadań rozwiązać.
-4. Wywołanie [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) umieścić wiadomości do kolejki.
+4. Wywołanie [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) umieścić wiadomości do kolejki.
 
 Robimy tej pracy w Konstruktorze i `SendMessageAsync` nową metodę `FixItQueueManager` klasy.
 
@@ -117,7 +117,7 @@ Robimy tej pracy w Konstruktorze i `SendMessageAsync` nową metodę `FixItQueueM
 
 W tym miejscu używamy [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) biblioteki do serializacji automatyczne do formatu JSON. Można użyć dowolnej metody serializacji preferowane. Format JSON ma prowadzoną zrozumiałą dla użytkownika, przy jednoczesnym zachowaniu mniej szczegółowe niż XML.
 
-Wysokiej jakości kodu czy dodać logikę obsługi błędów, zatrzymać, gdy baza danych stała się niedostępna ulepszono możliwości obsługi odzyskiwania, Utwórz kolejkę przy uruchamianiu aplikacji i zarządzanie "[skażone" wiadomości](https://msdn.microsoft.com/en-us/library/ms789028(v=vs.110).aspx). (Trująca wiadomość jest komunikatu, którego nie można przetworzyć jakiegoś powodu. Nie chcesz skażone wiadomości do znajdują się w kolejce, gdzie roli procesu roboczego stale spróbuje ich przetwarzania, się nie powieść, spróbuj ponownie, zakończyć się niepowodzeniem i itd.)
+Wysokiej jakości kodu czy dodać logikę obsługi błędów, zatrzymać, gdy baza danych stała się niedostępna ulepszono możliwości obsługi odzyskiwania, Utwórz kolejkę przy uruchamianiu aplikacji i zarządzanie "[skażone" wiadomości](https://msdn.microsoft.com/library/ms789028(v=vs.110).aspx). (Trująca wiadomość jest komunikatu, którego nie można przetworzyć jakiegoś powodu. Nie chcesz skażone wiadomości do znajdują się w kolejce, gdzie roli procesu roboczego stale spróbuje ich przetwarzania, się nie powieść, spróbuj ponownie, zakończyć się niepowodzeniem i itd.)
 
 W aplikacji MVC frontonu należy zaktualizować kod, który jest utworzenie nowego zadania. Zamiast wprowadzania zadania do repozytorium, wywołaj `SendMessageAsync` metod przedstawionych powyżej.
 
@@ -156,7 +156,7 @@ Kliknij przycisk **OK** przeprowadzenie okna dialogowego. Spowoduje to dodanie d
 
 ![](queue-centric-work-pattern/_static/image8.png)
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie projektu platformy Azure z programem Visual Studio.](https://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx)
+Aby uzyskać więcej informacji, zobacz [Tworzenie projektu platformy Azure z programem Visual Studio.](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
 
 W roli procesu roboczego, możemy sondować wiadomości przez wywołanie metody `ProcessMessageAsync` metody `FixItQueueManager` klasy, którą widzieliśmy wcześniej.
 
@@ -168,7 +168,7 @@ W roli procesu roboczego, możemy sondować wiadomości przez wywołanie metody 
 
 Sondowanie dla wiadomości w kolejce wiąże się z małych transakcji naliczają opłaty, dlatego jeśli nie ma oczekujących na przetworzenie, roli procesu roboczego `RunAsync` metoda oczekuje sekundę przed sondowania ponownie przez wywołanie metody `Task.Delay(1000)`.
 
-W projekcie sieci web Dodawanie asynchroniczne kodu może automatycznie poprawić wydajność ponieważ usługi IIS zarządza puli wątków ograniczone. To nie jest w przypadku projektu roli proces roboczy. W celu poprawy skalowalności roli procesu roboczego, można zapisać wielowątkowych kodu lub użycie asynchronicznego kodu do zaimplementowania [Programowanie równoległe](https://msdn.microsoft.com/en-us/library/ff963553.aspx). Próbki nie implementuje Programowanie równoległe, ale pokazano, jak wprowadzić kod asynchroniczne, można zaimplementować Programowanie równoległe.
+W projekcie sieci web Dodawanie asynchroniczne kodu może automatycznie poprawić wydajność ponieważ usługi IIS zarządza puli wątków ograniczone. To nie jest w przypadku projektu roli proces roboczy. W celu poprawy skalowalności roli procesu roboczego, można zapisać wielowątkowych kodu lub użycie asynchronicznego kodu do zaimplementowania [Programowanie równoległe](https://msdn.microsoft.com/library/ff963553.aspx). Próbki nie implementuje Programowanie równoległe, ale pokazano, jak wprowadzić kod asynchroniczne, można zaimplementować Programowanie równoległe.
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -184,11 +184,11 @@ Aby uzyskać więcej informacji na temat kolejek zobacz następujące zasoby.
 Dokumentacja:
 
 - [Microsoft Azure magazynu kolejek część 1: Wprowadzenie](http://justazure.com/microsoft-azure-storage-queues-part-1-getting-started/). Artykuł przez Schacherl łaciński.
-- [Wykonywanie zadania w tle](https://msdn.microsoft.com/en-us/library/ff803365.aspx), rozdział 5 [przenoszenie aplikacji w chmurze, w wersji 3](https://msdn.microsoft.com/en-us/library/ff728592.aspx) z Microsoft Patterns and Practices. (W szczególności sekcji ["Przy użyciu usługi Azure magazynu kolejek"](https://msdn.microsoft.com/en-us/library/ff803365.aspx#sec7).)
-- [Najlepsze rozwiązania dotyczące maksymalizacja Ekonomiczność na podstawie kolejki komunikatów rozwiązań na platformie Azure i skalowalność](https://msdn.microsoft.com/en-us/library/windowsazure/hh697709.aspx). Oficjalny dokument przez Valery Mizonov.
-- [Porównanie kolejek platformy Azure i kolejek usługi Service Bus](https://msdn.microsoft.com/en-us/magazine/jj159884.aspx). Artykuł MSDN Magazine zawiera dodatkowe informacje, które mogą pomóc Ci wybrać usługi kolejki, która umożliwia. Artykuł uwagi, że magistrali usług jest zależna od ACS do uwierzytelniania, co oznacza, że z kolejki SB byłyby niedostępne, gdy usługi ACS jest niedostępny. Jednak ponieważ artykuł dotyczy, SB został zmieniony w celu umożliwienia używania [tokeny sygnatury dostępu Współdzielonego](https://msdn.microsoft.com/en-us/library/windowsazure/dn170477.aspx) zamiast ACS.
-- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Zobacz Elementarz asynchroniczną obsługę wiadomości, wzorzec potoków i filtry, wzorzec kompensowanie transakcji, wzorzec konkurujących konsumentów, CQRS wzorca.
-- [Przebieg CQRS](https://msdn.microsoft.com/en-us/library/jj554200). E-book o CQRS przez Microsoft Patterns and Practices.
+- [Wykonywanie zadania w tle](https://msdn.microsoft.com/library/ff803365.aspx), rozdział 5 [przenoszenie aplikacji w chmurze, w wersji 3](https://msdn.microsoft.com/library/ff728592.aspx) z Microsoft Patterns and Practices. (W szczególności sekcji ["Przy użyciu usługi Azure magazynu kolejek"](https://msdn.microsoft.com/library/ff803365.aspx#sec7).)
+- [Najlepsze rozwiązania dotyczące maksymalizacja Ekonomiczność na podstawie kolejki komunikatów rozwiązań na platformie Azure i skalowalność](https://msdn.microsoft.com/library/windowsazure/hh697709.aspx). Oficjalny dokument przez Valery Mizonov.
+- [Porównanie kolejek platformy Azure i kolejek usługi Service Bus](https://msdn.microsoft.com/magazine/jj159884.aspx). Artykuł MSDN Magazine zawiera dodatkowe informacje, które mogą pomóc Ci wybrać usługi kolejki, która umożliwia. Artykuł uwagi, że magistrali usług jest zależna od ACS do uwierzytelniania, co oznacza, że z kolejki SB byłyby niedostępne, gdy usługi ACS jest niedostępny. Jednak ponieważ artykuł dotyczy, SB został zmieniony w celu umożliwienia używania [tokeny sygnatury dostępu Współdzielonego](https://msdn.microsoft.com/library/windowsazure/dn170477.aspx) zamiast ACS.
+- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz Elementarz asynchroniczną obsługę wiadomości, wzorzec potoków i filtry, wzorzec kompensowanie transakcji, wzorzec konkurujących konsumentów, CQRS wzorca.
+- [Przebieg CQRS](https://msdn.microsoft.com/library/jj554200). E-book o CQRS przez Microsoft Patterns and Practices.
 
 Wideo:
 

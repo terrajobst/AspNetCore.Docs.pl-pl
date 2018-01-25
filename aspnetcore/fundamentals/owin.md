@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e819037e2ebd1566c778879516e20de8dc7603ea
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 42ffa01745b7a492b3b8cb2778805f254863b890
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>Wprowadzenie do otworzyć Interfejs sieci Web dla platformy .NET (OWIN)
 
@@ -28,7 +28,7 @@ OWIN zawiera odsprzęgania warstwy, która umożliwia dwóch platform z modeli o
 
 Dzięki temu platformy ASP.NET Core ma być obsługiwana na górze OWIN zgodne/hosta serwera lub dla innych składników zgodne OWIN do uruchomienia na górze platformy ASP.NET Core.
 
-Uwaga: Korzystanie z tych kart jest dostarczany z na wydajność. Aplikacje przy użyciu tylko składniki platformy ASP.NET Core nie należy używać pakietu Owin lub kart.
+Uwaga: Korzystanie z tych kart jest dostarczany z na wydajność. Aplikacji przy użyciu tylko składniki platformy ASP.NET Core nie należy używać pakietu Owin lub kart.
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 

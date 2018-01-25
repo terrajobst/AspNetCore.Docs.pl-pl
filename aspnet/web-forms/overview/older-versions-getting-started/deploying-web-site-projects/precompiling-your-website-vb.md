@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e9f2e2d71815a2e8f17d3c505b48b69a23bceb1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7cc487aa5276c601fed632e82d7b6d32d1b53b58
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="precompiling-your-website-vb"></a>Prekompilowanie witryny sieci Web (VB)
 ====================
@@ -66,12 +66,12 @@ Istnieje możliwość użycia z modelem WSP kompilację typu explicit. Fragment 
 
 ## <a name="precompilation-options"></a>Opcje wstępnej kompilacji
 
-.NET Framework jest dostarczany z [narzędzia kompilacji platformy ASP.NET (`aspnet_compiler.exe`)](https://msdn.microsoft.com/en-us/library/ms229863.aspx) , umożliwia kompilowanie kodu źródłowego (i nawet zawartości) aplikacja ASP.NET, utworzony za pomocą modelu WSP. To narzędzie został zwolniony z .NET Framework w wersji 2.0 i znajduje się w `%WINDIR%\Microsoft.NET\Framework\v2.0.50727` folder; można użyć w wierszu polecenia lub uruchamiany z poziomu programu Visual Studio za pomocą opcji publikowania witryny sieci Web menu Kompiluj.
+.NET Framework jest dostarczany z [narzędzia kompilacji platformy ASP.NET (`aspnet_compiler.exe`)](https://msdn.microsoft.com/library/ms229863.aspx) , umożliwia kompilowanie kodu źródłowego (i nawet zawartości) aplikacja ASP.NET, utworzony za pomocą modelu WSP. To narzędzie został zwolniony z .NET Framework w wersji 2.0 i znajduje się w `%WINDIR%\Microsoft.NET\Framework\v2.0.50727` folder; można użyć w wierszu polecenia lub uruchamiany z poziomu programu Visual Studio za pomocą opcji publikowania witryny sieci Web menu Kompiluj.
 
 To narzędzie kompilacji zawiera dwie różne formy kompilacji: w miejscu wstępnej kompilacji i wstępnej kompilacji dla wdrożenia. Za pomocą wstępnej kompilacji w miejscu będzie uruchomić `aspnet_compiler.exe` narzędzie z wiersza polecenia i określ ścieżkę do katalogu wirtualnego lub ścieżka fizyczna witryny sieci Web, która znajduje się na komputerze. Narzędzia kompilacji następnie kompiluje każdej strony ASP.NET w projekcie, przechowywanie wersji skompilowanej `%WINDIR%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files` folderu tak, jeśli strony ma każdego odwiedzone po raz pierwszy w przeglądarce. W miejscu wstępnej kompilacji można przyspieszyć pierwsze żądanie, wprowadzone do nowo wdrożonym stron ASP.NET w witrynie, ponieważ jego eliminuje środowiska uruchomieniowego musi wykonać ten krok. Jednak w miejscu wstępnej kompilacji nie jest przydatne w przypadku większości witryn sieci Web hostowanej, ponieważ wymaga ona, że jesteś w stanie uruchamianie programów z serwera sieci web wiersza polecenia. Ten poziom dostępu nie jest dozwolona w udostępnionych środowiskach hostingu.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji o wstępnej kompilacji w miejscu, zapoznaj się z [jak: wstępnej kompilacji witryny sieci Web ASP.NET](https://msdn.microsoft.com/en-us/library/ms227972.aspx) i [wstępnej kompilacji w programie ASP.NET 2.0](http://www.odetocode.com/Articles/417.aspx).
+> Aby uzyskać więcej informacji o wstępnej kompilacji w miejscu, zapoznaj się z [jak: wstępnej kompilacji witryny sieci Web ASP.NET](https://msdn.microsoft.com/library/ms227972.aspx) i [wstępnej kompilacji w programie ASP.NET 2.0](http://www.odetocode.com/Articles/417.aspx).
 
 
 Zamiast kompilowania stron w witrynie sieci Web do `Temporary ASP.NET Files` folderu, kompiluje wstępnej kompilacji dla wdrożenia stron do katalogu wybrane i w formacie, który można wdrożyć w środowisku produkcyjnym.
@@ -107,10 +107,10 @@ Po wstępnej kompilacji witryny sieci Web, przejdź do lokalizacji docelowej, wp
 **Rysunek 3**: Folder lokalizacji docelowych zawiera pliki do wdrożenia  
  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](precompiling-your-website-vb/_static/image9.png))
 
-W odróżnieniu od kompilację typu explicit w WAPs wstępnej kompilacji dla procesu wdrożenia nie powoduje utworzenia jednego zestawu dla całej lokacji. Zamiast tego należy go partii ze sobą kilka stron do każdego zestawu. Kompiluje również `Global.asax` plik (jeśli istnieje) do własnego zestawu, a także wszystkie klasy w `App_Code` folderu. Plików zawierających deklaratywne znaczników dla platformy ASP.NET sieci web stron, kontrolek użytkownika i stron wzorcowych (`.aspx`, `.ascx`, i `.master` pliki odpowiednio) są kopiowane jako-polega na lokalizację katalogu docelowego. Podobnie `Web.config` skopiować pliku nad, wraz z plików statycznych, takich jak obrazy, klas CSS i plików PDF. Opis bardziej formalnych jak narzędzia kompilacji obsługuje różne typy plików, zapoznaj się [plików obsługi podczas ASP.NET wstępnej kompilacji](https://msdn.microsoft.com/en-us/library/e22s60h9.aspx).
+W odróżnieniu od kompilację typu explicit w WAPs wstępnej kompilacji dla procesu wdrożenia nie powoduje utworzenia jednego zestawu dla całej lokacji. Zamiast tego należy go partii ze sobą kilka stron do każdego zestawu. Kompiluje również `Global.asax` plik (jeśli istnieje) do własnego zestawu, a także wszystkie klasy w `App_Code` folderu. Plików zawierających deklaratywne znaczników dla platformy ASP.NET sieci web stron, kontrolek użytkownika i stron wzorcowych (`.aspx`, `.ascx`, i `.master` pliki odpowiednio) są kopiowane jako-polega na lokalizację katalogu docelowego. Podobnie `Web.config` skopiować pliku nad, wraz z plików statycznych, takich jak obrazy, klas CSS i plików PDF. Opis bardziej formalnych jak narzędzia kompilacji obsługuje różne typy plików, zapoznaj się [plików obsługi podczas ASP.NET wstępnej kompilacji](https://msdn.microsoft.com/library/e22s60h9.aspx).
 
 > [!NOTE]
-> Możesz wydać narzędzie kompilacji, aby utworzyć jednego zestawu, na stronie platformy ASP.NET, kontrolki użytkownika lub strony wzorcowej, zaznaczając pole wyboru "Używane stałej nazewnictwa i zestawów jednej strony" w oknie dialogowym Publikowanie witryny sieci Web. Po każdej stronie ASP.NET skompilowany do własnych zestawach umożliwia bardziej precyzyjną kontrolę nad wdrożenia. Na przykład, jeśli zaktualizowane z pojedynczą stroną sieci web ASP.NET i potrzebne do wdrożenia tej zmiany, należy tylko wdrażania tej strony `.aspx` plików i skojarzony zestaw do środowiska produkcyjnego. Zapoznaj się [jak: generowanie stałe nazwy za pomocą narzędzia kompilacji ASP.NET](https://msdn.microsoft.com/en-us/library/ms228040.aspx) Aby uzyskać więcej informacji.
+> Możesz wydać narzędzie kompilacji, aby utworzyć jednego zestawu, na stronie platformy ASP.NET, kontrolki użytkownika lub strony wzorcowej, zaznaczając pole wyboru "Używane stałej nazewnictwa i zestawów jednej strony" w oknie dialogowym Publikowanie witryny sieci Web. Po każdej stronie ASP.NET skompilowany do własnych zestawach umożliwia bardziej precyzyjną kontrolę nad wdrożenia. Na przykład, jeśli zaktualizowane z pojedynczą stroną sieci web ASP.NET i potrzebne do wdrożenia tej zmiany, należy tylko wdrażania tej strony `.aspx` plików i skojarzony zestaw do środowiska produkcyjnego. Zapoznaj się [jak: generowanie stałe nazwy za pomocą narzędzia kompilacji ASP.NET](https://msdn.microsoft.com/library/ms228040.aspx) Aby uzyskać więcej informacji.
 
 
 Katalog docelowy lokalizacji zawiera także plik, który nie jest częścią projektu sieci web wstępnie skompilowanym, czyli `PrecompiledApp.config`. Ten plik poinformuje środowiska uruchomieniowego ASP.NET, że aplikacja została wstępnie skompilowana i czy została ona wstępnie skompilowana z nadaje się do aktualizacji lub południe aktualizowalnych interfejsu użytkownika.
@@ -185,8 +185,8 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Wstępnej kompilacji witryny sieci Web ASP.NET](https://msdn.microsoft.com/en-us/library/ms228015.aspx)
-- [Plik CodeBehind i kompilacji w programie ASP.NET 2.0](https://msdn.microsoft.com/en-us/magazine/cc163675.aspx)
+- [Wstępnej kompilacji witryny sieci Web ASP.NET](https://msdn.microsoft.com/library/ms228015.aspx)
+- [Plik CodeBehind i kompilacji w programie ASP.NET 2.0](https://msdn.microsoft.com/magazine/cc163675.aspx)
 - [Wstępnej kompilacji w programie ASP.NET](http://www.odetocode.com/Articles/417.aspx)
 - [Opcje wstępnie skompilowanej witryny w programie ASP.NET](http://www.dotnetperls.com/precompiled)
 

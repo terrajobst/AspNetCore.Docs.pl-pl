@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: 3f0f1c402aeac388c2fcabb509aa8aa3a46e95f5
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: a4558162158ddb6746aa45a29310b42224d6e7fe
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-core-security-overview"></a>Przegląd zabezpieczeń platformy ASP.NET Core
 
@@ -25,7 +25,7 @@ Platformy ASP.NET Core udostępnia wiele narzędzi i biblioteki w celu zabezpiec
 
 ## <a name="authentication-vs-authorization"></a>Uwierzytelnianie programu vs. Autoryzacja
 
-Uwierzytelnianie to proces, w którym użytkownik udostępnia poświadczenia, które następnie są porównywane te są przechowywane w systemie operacyjnym, bazy danych, aplikacji lub zasobów. Jeśli są zgodne, użytkownicy pomyślnie uwierzytelnił i można następnie wykonać akcje, które użytkownik jest uprawniony, podczas procesu autoryzacji. Autoryzacja odwołuje się do proces, który określa, jakie użytkownik może wykonywać. 
+Uwierzytelnianie to proces, w którym użytkownik udostępnia poświadczenia, które następnie są porównywane te są przechowywane w systemie operacyjnym, bazy danych, aplikacji lub zasobów. Jeśli są zgodne, użytkownicy pomyślnie uwierzytelnił i można następnie wykonać akcje, które są uprawnieni, podczas procesu autoryzacji. Autoryzacja odwołuje się do proces, który określa, jakie użytkownik może wykonywać. 
 
 Innym sposobem uwierzytelniania należy traktować jest należy wziąć pod uwagę sposób wprowadź spację, np. serwera, bazy danych, aplikacji lub zasobów, gdy autoryzacja jest akcje, które użytkownik może wykonywać na obiekty, które wewnątrz tego miejsca (serwer bazy danych i aplikacji).
 

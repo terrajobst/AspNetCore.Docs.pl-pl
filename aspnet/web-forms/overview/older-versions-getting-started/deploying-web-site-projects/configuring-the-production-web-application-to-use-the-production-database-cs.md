@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e99b74030104bf17d4d79cd7670cf903270fa51f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 21eac6a4d829795f02eeeca5f9870b1ab8132d08
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Konfigurowanie aplikacji sieci Web produkcji do użycia w produkcyjnej bazie danych (C#)
 ====================
@@ -37,7 +37,7 @@ Nie jest rzadko informacje dotyczące konfiguracji mogą się różnić między 
 
 ## <a name="examining-the-connection-string-information"></a>Badanie informacji o ciągu połączenia
 
-Ciąg połączenia używany przez aplikację sieci web przeglądami książki są przechowywane w pliku konfiguracyjnym aplikacji s `Web.config`. `Web.config`zawiera sekcja specjalne przechowywanie parametrów połączenia, aptly o nazwie [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx). `Web.config` Plik przeglądami książki witryny sieci Web ma jeden ciąg połączenia zdefiniowane w tej sekcji o nazwie `ReviewsConnectionString`:
+Ciąg połączenia używany przez aplikację sieci web przeglądami książki są przechowywane w pliku konfiguracyjnym aplikacji s `Web.config`. `Web.config`zawiera sekcja specjalne przechowywanie parametrów połączenia, aptly o nazwie [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). `Web.config` Plik przeglądami książki witryny sieci Web ma jeden ciąg połączenia zdefiniowane w tej sekcji o nazwie `ReviewsConnectionString`:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-cs/samples/sample1.xml)]
 
@@ -46,7 +46,7 @@ Parametry połączenia — źródło danych =. \SQLEXPRESS; AttachDbFilename = |
 - `Data Source`-Określa lokalizację serwera bazy danych i nazwa wystąpienia serwera bazy danych (jeżeli istniał). Wartość, `.\SQLEXPRESS`, jest na przykład w przypadku, gdy istnieje serwer bazy danych i nazwę wystąpienia. Okres określa, że serwer bazy danych na tym samym komputerze jako aplikacji; Nazwa wystąpienia jest `SQLEXPRESS`.
 - `AttachDbFilename`-Określa lokalizację plików bazy danych. Wartość zawiera symbol zastępczy `|DataDirectory|`, który został rozwiązany na pełną ścieżkę aplikacji s `App_Data` folderu w czasie wykonywania.
 - `Integrated Security`— wartość logiczna, która wskazuje, czy należy użyć określonej nazwy użytkownika i hasła podczas nawiązywania połączenia bazy danych (FAŁSZ) lub Windows bieżące poświadczenia konta (PRAWDA).
-- `User Instance`-Opcja konfiguracji specyficznych dla wersji SQL Server Express Edition, która wskazuje, czy zezwolić na użytkowników innych niż administracyjne na komputerze lokalnym podłączyć a bazą danych programu SQL Server Express Edition. Zobacz [wystąpienia programu SQL Server Express użytkownika](https://msdn.microsoft.com/en-us/library/ms254504.aspx) Aby uzyskać więcej informacji na temat tego ustawienia.
+- `User Instance`-Opcja konfiguracji specyficznych dla wersji SQL Server Express Edition, która wskazuje, czy zezwolić na użytkowników innych niż administracyjne na komputerze lokalnym podłączyć a bazą danych programu SQL Server Express Edition. Zobacz [wystąpienia programu SQL Server Express użytkownika](https://msdn.microsoft.com/library/ms254504.aspx) Aby uzyskać więcej informacji na temat tego ustawienia.
   
 
 Opcje ciąg połączenia dopuszczalny zależą od bazy danych, z którym nawiązujesz połączenie, aby i używany dostawca bazy danych programu ADO.NET. Na przykład parametry połączenia do nawiązywania połączenia z programu Microsoft SQL Server bazy danych jest inny niż używany do nawiązania połączenia z bazą danych Oracle. Podobnie nawiązywanie połączenia z bazą danych programu Microsoft SQL Server przy użyciu dostawcy SqlClient używa parametrów połączenia innego niż przy użyciu dostawcy OLE DB.
@@ -71,7 +71,7 @@ Następnie określ różne bazy danych informacji o połączeniu (patrz rysunek 
 
 Środowisko produkcyjną bazę danych powinien być teraz wyświetlany w Eksploratorze serwera. Wybierz bazę danych z poziomu Eksploratora serwera, a następnie przejdź do okna właściwości. Można znaleźć właściwości o nazwie parametrów połączenia parametrami połączenia s bazy danych. Przy założeniu, że używasz bazy danych programu Microsoft SQL Server w środowisku produkcyjnym i dostawca SqlClient parametrów połączenia powinien wyglądać podobnie do następującego:
 
-**Źródło danych =*serverName*; Wykaz początkowy =*databaseName*; Utrzymuj informacje o zabezpieczeniach = True; Nazwa użytkownika =*username*; Hasło =*hasła***
+**Źródło danych =*serverName*; Wykaz początkowy =*databaseName*; Utrzymuj informacje o zabezpieczeniach = True; Nazwa użytkownika =*username*; Hasło = * hasła***
 
 Gdzie *serverName*, *databaseName*, *username*, i *hasło* są wartościami dla nazwy serwera bazy danych, bazy danych Nazwa, nazwę użytkownika i hasło dostarczonych przez firmę hosta sieci web.
 
@@ -147,10 +147,10 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Parametry połączenia i pliki konfiguracji](https://msdn.microsoft.com/en-us/library/ms254494.aspx)
+- [Parametry połączenia i pliki konfiguracji](https://msdn.microsoft.com/library/ms254494.aspx)
 - [Informacje o @ ConnectionStrings.com ciągi konfiguracji bazy danych](http://www.connectionstrings.com/)
 - [Przenoszenie ustawień z pliku Web.config](http://www.asp101.com/tips/index.asp?id=154)
-- [Dokumentacja techniczna dotycząca &lt;connectionStrings&gt; — Element](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx)
+- [Dokumentacja techniczna dotycząca &lt;connectionStrings&gt; — Element](https://msdn.microsoft.com/library/bf7sd233.aspx)
 
 >[!div class="step-by-step"]
 [Poprzednie](deploying-a-database-cs.md)

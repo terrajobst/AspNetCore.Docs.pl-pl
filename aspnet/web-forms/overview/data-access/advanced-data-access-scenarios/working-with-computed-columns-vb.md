@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a6ff0df27e19d6feecde27a77d4b212d1e9bc45e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 52fc0b89343236b70f8a2e013ad8a33431ae3d2d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-computed-columns-vb"></a>Praca z kolumnami obliczanymi (VB)
 ====================
@@ -29,7 +29,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Microsoft SQL Server umożliwia  *[kolumny obliczane](https://msdn.microsoft.com/en-us/library/ms191250.aspx)*, które są kolumny, których wartości są obliczane na podstawie wyrażenie, które zazwyczaj odwołuje się do wartości z innych kolumn w tej samej tabeli. Na przykład czasu, śledzenie modelu danych może być tabela o nazwie `ServiceLog` z kolumnami tym `ServicePerformed`, `EmployeeID`, `Rate`, i `Duration`, między innymi. Podczas należności na usługę elementu (szybkość pomnożona przez czas trwania) może być obliczenie za pośrednictwem strony sieci web lub inny interfejs programistyczny, może być przydatne, aby zawierała kolumnę w `ServiceLog` tabeli o nazwie `AmountDue` który zgłosił to informacje. Mógł zostać utworzony w tej kolumnie jako normalne kolumny, ale musi on zostać zaktualizowany w dowolnym momencie `Rate` lub `Duration` zmienione wartości w kolumnie. Lepszym rozwiązaniem byłoby dokonanie `AmountDue` przy użyciu wyrażenia kolumny obliczanej kolumny `Rate * Duration`. To spowodowałoby wystąpienie programu SQL Server, można automatycznie obliczyć `AmountDue` wartość kolumny zawsze, gdy został do niego odwołania w zapytaniu.
+Microsoft SQL Server umożliwia  *[kolumny obliczane](https://msdn.microsoft.com/library/ms191250.aspx)*, które są kolumny, których wartości są obliczane na podstawie wyrażenie, które zazwyczaj odwołuje się do wartości z innych kolumn w tej samej tabeli. Na przykład czasu, śledzenie modelu danych może być tabela o nazwie `ServiceLog` z kolumnami tym `ServicePerformed`, `EmployeeID`, `Rate`, i `Duration`, między innymi. Podczas należności na usługę elementu (szybkość pomnożona przez czas trwania) może być obliczenie za pośrednictwem strony sieci web lub inny interfejs programistyczny, może być przydatne, aby zawierała kolumnę w `ServiceLog` tabeli o nazwie `AmountDue` który zgłosił to informacje. Mógł zostać utworzony w tej kolumnie jako normalne kolumny, ale musi on zostać zaktualizowany w dowolnym momencie `Rate` lub `Duration` zmienione wartości w kolumnie. Lepszym rozwiązaniem byłoby dokonanie `AmountDue` przy użyciu wyrażenia kolumny obliczanej kolumny `Rate * Duration`. To spowodowałoby wystąpienie programu SQL Server, można automatycznie obliczyć `AmountDue` wartość kolumny zawsze, gdy został do niego odwołania w zapytaniu.
 
 Ponieważ wartość kolumny obliczanej s jest określany przez wyrażenie, takich kolumn są tylko do odczytu i dlatego nie można przypisać wartość je w `INSERT` lub `UPDATE` instrukcje. Jednak gdy kolumny obliczane są częścią główne zapytanie dla Obiekt TableAdapter, która używa instrukcji SQL ad-hoc, zostaną one automatycznie uwzględnione w generowanych automatycznie `INSERT` i `UPDATE` instrukcje. W rezultacie s TableAdapter `INSERT` i `UPDATE` zapytania i `InsertCommand` i `UpdateCommand` można zaktualizować właściwości, aby usunąć odwołania do kolumn obliczanych.
 
@@ -51,7 +51,7 @@ Uruchamianie przez otwarcie `Suppliers` definicja tabeli, klikając prawym przyc
 Należy pamiętać, że może zostać dołączona ciągów w programie SQL przy użyciu `+` operatora. `CASE` Instrukcji można użyć takich jak warunkowego tradycyjnego języka programowania. W wyrażeniu powyżej `CASE` instrukcja może zostać odczytany jako: Jeśli `ContactTitle` nie jest `NULL` następnie output `ContactTitle` połączony z przecinkami, w przeciwnym razie wartość Emituj nothing. Aby uzyskać więcej informacji na temat przydatność `CASE` instrukcji, zobacz [Power SQL `CASE` instrukcje](http://www.4guysfromrolla.com/webtech/102704-1.shtml).
 
 > [!NOTE]
-> Zamiast `CASE` instrukcji w tym miejscu, można też użyliśmy `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/en-us/library/ms184325.aspx)Zwraca *checkExpression* przypadku jest inne niż NULL, w przeciwnym razie zwraca *replacementValue*. Podczas albo `ISNULL` lub `CASE` będzie działać w tym wystąpieniu są bardziej skomplikowanych scenariusze której elastyczność `CASE` instrukcji nie można dopasować przez `ISNULL`.
+> Zamiast `CASE` instrukcji w tym miejscu, można też użyliśmy `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx)Zwraca *checkExpression* przypadku jest inne niż NULL, w przeciwnym razie zwraca *replacementValue*. Podczas albo `ISNULL` lub `CASE` będzie działać w tym wystąpieniu są bardziej skomplikowanych scenariusze której elastyczność `CASE` instrukcji nie można dopasować przez `ISNULL`.
 
 
 Po dodaniu tę kolumnę obliczaną na ekranie powinna wyglądać ekranu zrzut na rysunku 1.
@@ -69,10 +69,10 @@ Zapisywanie tabeli należy odświeżyć Eksploratora serwera, po prostu dodane k
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample2.sql)]
 
-Aby uzyskać więcej informacji o kolumnach obliczanych w programie Microsoft SQL Server, zapoznaj się [dokumentacji technicznej](https://msdn.microsoft.com/en-us/library/ms191250.aspx). Sprawdź również [porady: Określ kolumny obliczanej](https://msdn.microsoft.com/en-us/library/ms188300.aspx) przewodnik krok po kroku tworzenia kolumn obliczanych.
+Aby uzyskać więcej informacji o kolumnach obliczanych w programie Microsoft SQL Server, zapoznaj się [dokumentacji technicznej](https://msdn.microsoft.com/library/ms191250.aspx). Sprawdź również [porady: Określ kolumny obliczanej](https://msdn.microsoft.com/library/ms188300.aspx) przewodnik krok po kroku tworzenia kolumn obliczanych.
 
 > [!NOTE]
-> Domyślnie kolumnach obliczanych fizycznie nie są przechowywane w tabeli, ale zamiast tego są obliczenia zawsze, gdy odwołuje się do zapytania. Jednak, zaznaczając pole wyboru jest trwały, można nakazać SQL Server, aby fizycznie przechowywania kolumny obliczanej w tabeli. Dzięki temu indeks ma zostać utworzony w kolumnie obliczanej, co może poprawić wydajność zapytań, które należy użyć wartości kolumny obliczanej w ich `WHERE` klauzul. Zobacz [tworzenie indeksów dla kolumny obliczanej](https://msdn.microsoft.com/en-us/library/ms189292.aspx) Aby uzyskać więcej informacji.
+> Domyślnie kolumnach obliczanych fizycznie nie są przechowywane w tabeli, ale zamiast tego są obliczenia zawsze, gdy odwołuje się do zapytania. Jednak, zaznaczając pole wyboru jest trwały, można nakazać SQL Server, aby fizycznie przechowywania kolumny obliczanej w tabeli. Dzięki temu indeks ma zostać utworzony w kolumnie obliczanej, co może poprawić wydajność zapytań, które należy użyć wartości kolumny obliczanej w ich `WHERE` klauzul. Zobacz [tworzenie indeksów dla kolumny obliczanej](https://msdn.microsoft.com/library/ms189292.aspx) Aby uzyskać więcej informacji.
 
 
 ## <a name="step-2-viewing-the-computed-column-s-values"></a>Krok 2: Przeglądanie kolumny obliczanej wartości s

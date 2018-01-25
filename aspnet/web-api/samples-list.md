@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/samples-list
 msc.type: content
-ms.openlocfilehash: 2f40cd4bebdd64c3a4b94cfc1e717fa4b304e57e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1e1f43bbeedfc052f0b3a3924f51b544a5a79dca
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-api-samples-list"></a>Lista przykładów interfejsu API sieci Web
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 
 **Przykładowe tłumaczenie Bing** | [źródła VS 2012](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fBingTranslateSample%2fReadMe.txt)
 
-Pokazuje sposób wywoływania [usługi Microsoft Translator](https://msdn.microsoft.com/en-us/library/ff512419.aspx) przy użyciu **HttpClient** klasy. Interfejs API usługi Microsoft Translator wymaga token OAuth, aplikacja uzyskuje się poprzez wysłanie żądania tokenu serwer platformy Azure dla każdego żądania do usługi translatora. Wynik z tokenu serwera są przekazywane do żądania wysyłane do usługi tłumaczenia. Przed uruchomieniem tej próbki, należy uzyskać [klucz aplikacji z portalu Azure Marketplace](https://msdn.microsoft.com/en-us/library/hh454950.aspx) i podać informacje w klasie AccessTokenMessageHandler próbki.
+Pokazuje sposób wywoływania [usługi Microsoft Translator](https://msdn.microsoft.com/library/ff512419.aspx) przy użyciu **HttpClient** klasy. Interfejs API usługi Microsoft Translator wymaga token OAuth, aplikacja uzyskuje się poprzez wysłanie żądania tokenu serwer platformy Azure dla każdego żądania do usługi translatora. Wynik z tokenu serwera są przekazywane do żądania wysyłane do usługi tłumaczenia. Przed uruchomieniem tej próbki, należy uzyskać [klucz aplikacji z portalu Azure Marketplace](https://msdn.microsoft.com/library/hh454950.aspx) i podać informacje w klasie AccessTokenMessageHandler próbki.
 
 **Przykładowe map Google** | [szczegółowy opis](https://blogs.msdn.com/b/henrikn/archive/2012/02/17/downloading-a-google-map-to-local-file.aspx) | [źródła VS 2012](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fGoogleMapsSample%2fReadMe.txt)
 
@@ -83,7 +83,7 @@ Pokazuje, jak przekazać pliki do **klasy ApiController** przy użyciu przekazyw
 
 **Przekazywanie do próbki magazynu obiektów Blob Azure pliku** | [szczegółowy opis](https://blogs.msdn.com/b/yaohuang1/archive/2012/07/02/asp-net-web-api-and-azure-blob-storage.aspx) | [źródła VS 2012](http://aspnet.codeplex.com/SourceControl/changeset/view/61dfed023e50#Samples%2fNet45%2fCS%2fWebApi%2fAzureBlobsFileUploadSample%2fReadMe.txt)
 
-Ten przykład jest podobne do przykładowych przekazać pliku, ale zamiast zapisywać do przekazywania plików na dysku lokalnym, asynchronicznie się do przekazywania plików do [magazynu obiektów Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs) przy użyciu [systemu Windows Azure SDK dla platformy .NET](https://www.windowsazure.com/en-us/develop/net/). Zapewnia także mechanizm listę obiektów blob aktualnie obecna w [kontenera magazynu obiektów Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Można wypróbować próbki uruchamiania **emulatora magazynu Azure** powróci ona do pracy z zestawem Azure SDK. Jeśli masz [konta magazynu Azure](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs), można uruchomić z usługą magazynu prawdziwe.
+Ten przykład jest podobne do przykładowych przekazać pliku, ale zamiast zapisywać do przekazywania plików na dysku lokalnym, asynchronicznie się do przekazywania plików do [magazynu obiektów Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs) przy użyciu [systemu Windows Azure SDK dla platformy .NET](https://www.windowsazure.com/develop/net/). Zapewnia także mechanizm listę obiektów blob aktualnie obecna w [kontenera magazynu obiektów Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Można wypróbować próbki uruchamiania **emulatora magazynu Azure** powróci ona do pracy z zestawem Azure SDK. Jeśli masz [konta magazynu Azure](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs), można uruchomić z usługą magazynu prawdziwe.
 
 **Przykładowe potoku obsługi komunikatów HTTP** | [szczegółowy opis](https://blogs.msdn.com/b/henrikn/archive/2012/08/07/httpclient-httpclienthandler-and-httpwebrequesthandler.aspx) | [źródła VS 2010](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fHttpMessageHandlerPipelineSample%2fReadMe.txt)
 
@@ -141,7 +141,7 @@ SupplierController przedstawia podzbiór funkcji, łącznie z zapytania, uzyska�
 
 - Pobierz /Suppliers
 - Pobierz /Suppliers(key)
-- GET /Suppliers? $filter =... &amp;$orderby =... &amp;$top =... &amp;$skip =...
+- GET /Suppliers?$filter=..&amp;$orderby=..&amp;$top=..&amp;$skip=..
 - POST /Suppliers
 
 Ujawnia ProductsController GET PUT, POST, usuwanie i poprawka zaimplementowanie akcję dla każdego z tych operacji bezpośrednio.

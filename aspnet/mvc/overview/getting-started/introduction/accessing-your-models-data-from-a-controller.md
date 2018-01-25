@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: b60913cef4b62745cf167e6074834bf7d0c228d1
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 91bfa5fe3c5bd3029b7d7c12c8831e1653fb1d2b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do modelu danych z kontrolera
 ====================
@@ -87,7 +87,7 @@ Otwórz *Controllers\MoviesController.cs* pliku i sprawdź, czy wygenerowany `In
 
 Wcześniej w tym samouczku widać, jak kontroler może przekazać dane i obiekty do szablonu widoku przy użyciu `ViewBag` obiektu. `ViewBag` Jest to obiekt dynamiczny, które oferują wygodny sposób późnym wiązaniem do przekazywania informacji do widoku.
 
-MVC udostępnia również możliwość przekazywania *silnie* typizowanych obiektów szablonu widoku. Takie rozwiązanie jednoznacznie zapewnia lepszą kompilacji kontroli kodu i zaawansowaną [IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b(v=vs.120).aspx) w edytorze programu Visual Studio. Takie podejście używany mechanizm szkieletów w programie Visual Studio (czyli przekazywanie *silnie* modelu typu) z `MoviesController` szablonów klasy i widoku podczas jego tworzenia widoków i metod.
+MVC udostępnia również możliwość przekazywania *silnie* typizowanych obiektów szablonu widoku. Takie rozwiązanie jednoznacznie zapewnia lepszą kompilacji kontroli kodu i zaawansowaną [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b(v=vs.120).aspx) w edytorze programu Visual Studio. Takie podejście używany mechanizm szkieletów w programie Visual Studio (czyli przekazywanie *silnie* modelu typu) z `MoviesController` szablonów klasy i widoku podczas jego tworzenia widoków i metod.
 
 W *Controllers\MoviesController.cs* zbadać wygenerowany plik `Details` metody. `Details` Metody są wyświetlane poniżej.
 
@@ -109,9 +109,9 @@ W tym `@model` instrukcji w górnej części pliku szablonu widoku, można okre�
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample6.cshtml)]
 
-To `@model` dyrektywy umożliwia dostęp do filmów, który kontroler przekazywane do widoku przy użyciu `Model` obiekt, który jest silnie typizowane. Na przykład w *Details.cshtml* szablonu, kod przekazuje każde pole film, aby `DisplayNameFor` i [DisplayFor](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx) pomocników HTML z silnie typizowaną `Model` obiektu. `Create` i `Edit` metody i Wyświetl szablony również przekazać film obiekt modelu.
+To `@model` dyrektywy umożliwia dostęp do filmów, który kontroler przekazywane do widoku przy użyciu `Model` obiekt, który jest silnie typizowane. Na przykład w *Details.cshtml* szablonu, kod przekazuje każde pole film, aby `DisplayNameFor` i [DisplayFor](https://msdn.microsoft.com/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx) pomocników HTML z silnie typizowaną `Model` obiektu. `Create` i `Edit` metody i Wyświetl szablony również przekazać film obiekt modelu.
 
-Sprawdź *Index.cshtml* Wyświetl szablon i `Index` metody w *MoviesController.cs* pliku. Zwróć uwagę, jak kod tworzy [ `List` ](https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx) obiektu, gdy wywołuje `View` metody pomocnika w `Index` metody akcji. Kod następnie przekazuje to `Movies` z listy `Index` metody akcji w widoku:
+Sprawdź *Index.cshtml* Wyświetl szablon i `Index` metody w *MoviesController.cs* pliku. Zwróć uwagę, jak kod tworzy [ `List` ](https://msdn.microsoft.com/library/6sh2ey19.aspx) obiektu, gdy wywołuje `View` metody pomocnika w `Index` metody akcji. Kod następnie przekazuje to `Movies` z listy `Index` metody akcji w widoku:
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample7.cs?highlight=3)]
 
@@ -153,7 +153,7 @@ Powiadomienie jak schemat `Movies` mapy do tabel `Movie` klasy utworzony wcześn
 
 Po zakończeniu zamknij połączenie przez kliknięcie prawym przyciskiem myszy *MovieDBContext* i wybierając **zamknąć połączenia**. (Jeśli nie zamkniesz połączenie, może być błąd pojawia się przy następnym uruchomieniu projektu).
 
-![](accessing-your-models-data-from-a-controller/_static/image15.png "Metody")
+![](accessing-your-models-data-from-a-controller/_static/image15.png "CloseConnection")
 
 Masz teraz bazę danych i stron do wyświetlania, edytowania, aktualizacji i usuwania danych. W następnym samouczku będzie firma Microsoft bada reszty szkieletu kodu i dodać `SearchIndex` — metoda i `SearchIndex` widoku, który umożliwia wyszukiwanie filmów w tej bazie danych. Aby uzyskać więcej informacji o korzystaniu z programu Entity Framework z MVC, zobacz [tworzenia modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 

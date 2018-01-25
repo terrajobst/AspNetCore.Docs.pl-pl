@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e14b19f99e9f41c5a296d73ba689095a686794db
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8baf187d484424aeaee57f8c57ac391a0ae9e946
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-and-deleting-existing-binary-data-vb"></a>Aktualizowanie i usuwanie istniejących danych binarnych (VB)
 ====================
@@ -150,7 +150,7 @@ Podczas usuwania przepływu pracy pomyślnie usunął rekord kategorii testu z `
 
 Jednym z downsides przechowywania danych binarnych zewnętrznych do bazy danych jest musi podjęcia dodatkowych czynności aby wyczyścić te pliki po usunięciu rekordu skojarzonej bazie danych. GridView i ObjectDataSource Podaj zdarzenia, które wyzwalać przed i po wykonaniu polecenia delete. Musimy faktycznie tworzenie obsługi zdarzeń dla zdarzenia przed i po akcji. Przed `Categories` jest usuwany należy określić ścieżki pliku s PDF, ale możemy ADAM t chcesz usunąć plik PDF, przed usunięciem tej kategorii w przypadku, gdy występuje wyjątek i kategoria nie została usunięta.
 
-GridView s [ `RowDeleting` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx) uruchamiany przed polecenia delete s ObjectDataSource została wywołana, podczas jej [ `RowDeleted` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx) generowane po. Tworzenie obsługi zdarzeń dla tych dwóch zdarzeń, używając następującego kodu:
+GridView s [ `RowDeleting` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx) uruchamiany przed polecenia delete s ObjectDataSource została wywołana, podczas jej [ `RowDeleted` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx) generowane po. Tworzenie obsługi zdarzeń dla tych dwóch zdarzeń, używając następującego kodu:
 
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample5.vb)]

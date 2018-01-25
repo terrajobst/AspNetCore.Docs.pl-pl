@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: d273eb5e99da6c6b7678e03b1a8973041113744c
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 86887f0dafa31ff3eb6597284c469c4b3053b6b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-view"></a>Dodawanie widoku
 ====================
@@ -29,7 +29,7 @@ Obecnie `Index` metoda zwraca ciąg zawierający komunikat, który jest ustalony
 
 [!code-csharp[Main](adding-a-view/samples/sample1.cs?highlight=1,3)]
 
-`Index` Metod powyżej szablonu widok używane do generowania odpowiedzi HTML do przeglądarki. Metody kontrolera (znanej także jako [metod akcji](http://rachelappel.com/asp.net-mvc-actionresults-explained)), takich jak `Index` zazwyczaj zwracany przez metodę powyżej [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (lub klasą pochodną [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx)), typy pierwotne nie, takich jak ciąg.
+`Index` Metod powyżej szablonu widok używane do generowania odpowiedzi HTML do przeglądarki. Metody kontrolera (znanej także jako [metod akcji](http://rachelappel.com/asp.net-mvc-actionresults-explained)), takich jak `Index` zazwyczaj zwracany przez metodę powyżej [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx) (lub klasą pochodną [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx)), typy pierwotne nie, takich jak ciąg.
 
 Kliknij prawym przyciskiem myszy *Views\HelloWorld* folder i kliknij przycisk **Dodaj**, następnie kliknij przycisk **strona widoku MVC 5 z układem (Razor)**.
   
@@ -73,7 +73,7 @@ Najpierw należy zmienić &quot;Nazwa aplikacji&quot; łącze w górnej części
 
 Szablony układu umożliwiają określ układ kontenera HTML witryny w jednym miejscu, a następnie zastosować je na wielu stronach w witrynie sieci. Znajdź `@RenderBody()` wiersza. `RenderBody`jest symbol zastępczy, gdzie wszystkie widoku specyficzne dla stron, możesz utworzyć pokaz, &quot;opakowana&quot; na stronie układu. Na przykład w przypadku wybrania **o** łącza, *Views\Home\About.cshtml* renderowania widoku wewnątrz `RenderBody` metody.
 
-Zmienić zawartość elementu tytułu. Zmień [ActionLink](https://msdn.microsoft.com/en-us/library/dd504972(v=vs.108).aspx) w szablonie układu z &quot;Nazwa aplikacji&quot; do &quot;MVC Movie&quot; i kontroler z `Home` do `Movies`. Plik układu pełną przedstawiono poniżej:
+Zmienić zawartość elementu tytułu. Zmień [ActionLink](https://msdn.microsoft.com/library/dd504972(v=vs.108).aspx) w szablonie układu z &quot;Nazwa aplikacji&quot; do &quot;MVC Movie&quot; i kontroler z `Home` do `Movies`. Plik układu pełną przedstawiono poniżej:
 
 [!code-cshtml[Main](adding-a-view/samples/sample3.cshtml?highlight=6,20)]
 
@@ -85,7 +85,7 @@ Po pierwsze utworzyliśmy *Views\HelloWorld\Index.cshtml* pliku zawiera następu
 
 [!code-cshtml[Main](adding-a-view/samples/sample4.cshtml)]
 
-Powyższy kod Razor jawnie ustawia strony układu. Sprawdź *widoków\\_ViewStart.cshtml* pliku zawiera dokładnie tego samego znaczników Razor.  *[Widoków\\_ViewStart.cshtml](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)*  pliku definiuje typowe układu, która będzie używana we wszystkich widokach, dlatego można komentarz out lub Usuń ten kod z *Views\HelloWorld\ Index.cshtml* pliku.
+Powyższy kod Razor jawnie ustawia strony układu. Sprawdź *widoków\\_ViewStart.cshtml* pliku zawiera dokładnie tego samego znaczników Razor. *[Widoków\\_ViewStart.cshtml](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)*  pliku definiuje typowe układu, która będzie używana we wszystkich widokach, dlatego można komentarz out lub Usuń ten kod z *Views\HelloWorld\ Index.cshtml* pliku.
 
 [!code-cshtml[Main](adding-a-view/samples/sample5.cshtml?highlight=1-3)]
 

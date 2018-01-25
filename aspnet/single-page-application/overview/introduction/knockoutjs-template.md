@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 6e84dcc16345e33fcd3a3f83c4b35bc993c03ca6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e6c0c45bed098a8a1160ff11e4f77244bf55ffd3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="single-page-application-knockoutjs-template"></a>Jednej strony aplikacji: Szablon elementami KnockoutJS
 ====================
@@ -117,7 +117,7 @@ Ten plik zawiera modele przynależność do lokacji. `UserProfile` Klasa definiu
 
 ## <a name="entity-framework"></a>Entity Framework
 
-Szablon SPA używa EF Code First. W rozwoju Code First najpierw zdefiniować modele do uwzględnienia w kodzie, a następnie EF używa modelu do utworzenia bazy danych. Można również użyć EF z istniejącej bazy danych ([Database First](https://msdn.microsoft.com/en-us/data/jj206878.aspx)).
+Szablon SPA używa EF Code First. W rozwoju Code First najpierw zdefiniować modele do uwzględnienia w kodzie, a następnie EF używa modelu do utworzenia bazy danych. Można również użyć EF z istniejącej bazy danych ([Database First](https://msdn.microsoft.com/data/jj206878.aspx)).
 
 `TodoItemContext` Pochodną klasy w folderze modele **DbContext**. Ta klasa udostępnia "sklejki" między modelami i EF. `TodoItemContext` Przechowuje `ToDoItem` kolekcji i `TodoList` kolekcji. Aby w bazie danych, po prostu zapisu kwerenda LINQ na kolekcjach. Na przykład Oto jak można wybrać wszystkie listy zadań do wykonania dla użytkownika "Alicja":
 
@@ -229,7 +229,7 @@ Sfałszowaniem żądania między witrynami (CSRF) jest atak, gdzie niebezpieczne
 
 Tokenów zabezpieczających przed sfałszowaniem działać, ponieważ złośliwy strony nie może odczytać tokenów użytkownika, z powodu zasad tego samego źródła. (Tego samego źródła zasady uniemożliwiają dokumenty hostowanej w dwóch różnych witrynach dostęp do siebie nawzajem zawartości).
 
-ASP.NET MVC udostępnia wbudowaną obsługę tokenów zabezpieczających przed sfałszowaniem za pośrednictwem [AntiForgery](https://msdn.microsoft.com/en-us/library/system.web.helpers.antiforgery.aspx) klasy i [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute.aspx) atrybutu. Ta funkcja nie jest obecnie wbudowane w interfejsu API sieci Web. Jednak szablon SPA zawiera niestandardowej implementacji interfejsu API sieci Web. Ten kod jest zdefiniowany w `ValidateHttpAntiForgeryTokenAttribute` klasy, która znajduje się w folderze filtry rozwiązania. Aby dowiedzieć się więcej na temat anti-CSRF w składniku Web API, zobacz [ataków interfejsu uniemożliwia Cross-Site żądania Międzywitrynowego (CSRF)](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
+ASP.NET MVC udostępnia wbudowaną obsługę tokenów zabezpieczających przed sfałszowaniem za pośrednictwem [AntiForgery](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx) klasy i [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx) atrybutu. Ta funkcja nie jest obecnie wbudowane w interfejsu API sieci Web. Jednak szablon SPA zawiera niestandardowej implementacji interfejsu API sieci Web. Ten kod jest zdefiniowany w `ValidateHttpAntiForgeryTokenAttribute` klasy, która znajduje się w folderze filtry rozwiązania. Aby dowiedzieć się więcej na temat anti-CSRF w składniku Web API, zobacz [ataków interfejsu uniemożliwia Cross-Site żądania Międzywitrynowego (CSRF)](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
 
 ## <a name="conclusion"></a>Wniosek
 

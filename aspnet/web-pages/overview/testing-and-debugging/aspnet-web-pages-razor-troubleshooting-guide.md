@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: e507d97903583c7233456e9139e1a869f8bf75bd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72c49ed8b76b5fb5eb15bf01f57980b382607496
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>Strony sieci Web platformy ASP.NET (Razor) przewodnik rozwiązywania problemów
 ====================
@@ -27,7 +27,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions"></a>Wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 >   
 > 
 > W tym samouczku współdziała również z ASP.NET Web Pages 2 i stron sieci Web ASP.NET w wersji 1.0.
@@ -60,7 +60,7 @@ Upewnij się, że w katalogu głównym witryny sieci Web ma co najmniej jedną *
 
 Jeśli zostanie wyświetlony ten błąd, gdy serwer sieci web znajduje się na serwerze zdalnym, skontaktuj się z administratorem serwera. Upewnij się, że serwer ma programu .NET Framework 4 lub nowszej. Upewnij się, że aplikacja działa w puli aplikacji jest skonfigurowana do używania tej wersji środowiska.NET Framework również.
 
-Jeśli masz kontrolę nad serwer, upewnij się, że działa ona poprawna wersja programu .NET Framework. Możesz również spróbować naprawić instalację, uruchamiając `aspnet_regiis -iru` polecenia. (Na przykład po zainstalowaniu programu IIS po zainstalowaniu programu .NET Framework, usługi IIS będzie nie być poprawnie skonfigurowany do uruchamiania stron ASP.NET.) Aby uzyskać więcej informacji, zobacz [narzędzie rejestracji programu ASP.NET usług IIS (Aspnet\_regiis.exe)](https://msdn.microsoft.com/en-US/library/k6h9cz8h(v=vs.100).aspx).
+Jeśli masz kontrolę nad serwer, upewnij się, że działa ona poprawna wersja programu .NET Framework. Możesz również spróbować naprawić instalację, uruchamiając `aspnet_regiis -iru` polecenia. (Na przykład po zainstalowaniu programu IIS po zainstalowaniu programu .NET Framework, usługi IIS będzie nie być poprawnie skonfigurowany do uruchamiania stron ASP.NET.) Aby uzyskać więcej informacji, zobacz [narzędzie rejestracji programu ASP.NET usług IIS (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx).
 
 ### <a name="http-error-40314---forbidden"></a>403.14 — dostęp zabroniony. Błąd HTTP
 
@@ -158,6 +158,6 @@ Zastąp odpowiednimi wartościami dla `your-SMTP-server-name`i tak dalej. Komuni
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-[Strony sieci Web platformy ASP.NET (Razor) — często zadawane pytania](https://go.microsoft.com/fwlink/?LinkId=253000)
+[ASP.NET Web Pages (Razor) — często zadawane pytania](https://go.microsoft.com/fwlink/?LinkId=253000)
 
 [Program WebMatrix i stron ASP.NET Web Pages](https://forums.asp.net/1224.aspx/1?WebMatrix) forum w witrynie sieci Web ASP.NET

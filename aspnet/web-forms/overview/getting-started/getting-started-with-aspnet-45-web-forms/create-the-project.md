@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 2678342891a87d591476a07e418c118b2ae94d4d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 094733dcbe31486385dda2f8b44ba77a17486c82
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-the-project"></a>Tworzenie projektu
 ====================
@@ -74,7 +74,7 @@ Można przełączać się między **projekt** widoku i **źródła** widoku, zaz
 >  Framework formularzy sieci Web jest przeznaczony dla deweloperów, którzy preferowane jest systemem kontroli i deklaratywne programowania, takich jak Microsoft Windows Forms (WinForms) i Silverlight-WPF/XAML. Zapewnia model projektanta driven development, WYSIWYG, tak aby zawierała popularnych z deweloperami wyszukiwanie Środowisko deweloperskie (RAD) szybkie aplikacji do tworzenia aplikacji sieci web. Jeśli dopiero zaczynasz korzystać z sieci web programowania i zapoznaniu się z tradycyjnego narzędzia programistyczne klienta RAD firmy Microsoft (na przykład dla programu Visual Basic i Visual C#), można szybko tworzyć aplikacji sieci web bez konieczności obsługi w kodzie HTML i JavaScript.
 > - [ASP.NET MVC](../../../../mvc/index.md)  
 >  ASP.NET MVC jest przeznaczony dla deweloperów, którzy interesujących wzorców i zasady, takie jak test-driven development, separacji, Inwersja kontroli (IoC) i iniekcji zależności (Podpisane). Ta struktura zachęca oddzielanie warstwy logiki biznesowej aplikacji sieci web z jej warstwy prezentacji.
-> - [Strony sieci Web ASP.NET](../../../../web-pages/index.md)  
+> - [ASP.NET Web Pages](../../../../web-pages/index.md)  
 >  Strony sieci Web ASP.NET jest przeznaczony dla deweloperów, którzy chcą wątku programowanie prostego, wzdłuż linii PHP. W modelu stron sieci Web można tworzyć strony HTML, a następnie dodaj kod na serwerze do strony aby dynamicznie kontrolować sposób renderowania tego kodu znaczników. Strony sieci Web jest specjalnie przeznaczona do jest lekki struktura i jest najprostszym punktem wejścia do platformy ASP.NET dla osób, które znasz HTML, ale może nie mieć szerokie środowisko programowania — na przykład, studentów lub hobbystów. Jest również dobrym sposobem dla deweloperów sieci web, którzy wiedzą, PHP lub podobne struktury, aby rozpocząć korzystanie z platformy ASP.NET.
 > - [ASP.NET pojedynczej strony aplikacji](../../../../single-page-application/index.md)  
 >  ASP.NET pojedynczej strony aplikacji JEDNOSTRONICOWEJ pomaga tworzyć aplikacje, które zawierają istotne interakcji po stronie klienta, za pomocą HTML 5, CSS 3 i JavaScript. ASP.NET i zaktualizować 2012.2 narzędzia sieci Web jest dostarczany nowego szablonu do tworzenia aplikacji jednej strony przy użyciu knockout.js i interfejsu API sieci Web platformy ASP.NET. Oprócz nowy szablon SPA nowe szablony utworzone społeczności SPA są również dostępne do pobrania.
@@ -97,8 +97,8 @@ Program Visual Studio tworzy niektórych początkowej folderów i plików dla pr
 | --- | --- |
 | *Default.aspx* | Zwykle pierwszej strony wyświetlany, gdy aplikacja jest uruchamiana w przeglądarce. |
 | *Site.Master* | Strona, która pozwala utworzyć spójne zachowanie standardowe układ i użyj stron w aplikacji. |
-| *Plik Global.asax* | Opcjonalny plik zawierający kod reagowanie na poziomie aplikacji i poziomu sesji zdarzenia wywoływane przez platformę ASP.NET lub przez moduły HTTP. |
-| *Plik Web.config* | Dane konfiguracji dla aplikacji. |
+| *Global.asax* | Opcjonalny plik zawierający kod reagowanie na poziomie aplikacji i poziomu sesji zdarzenia wywoływane przez platformę ASP.NET lub przez moduły HTTP. |
+| *Web.config* | Dane konfiguracji dla aplikacji. |
 
 ### <a name="running-the-default-web-application"></a>Uruchomiona domyślnej aplikacji sieci Web
 
@@ -114,7 +114,7 @@ Istnieją trzy główne strony w tej domyślnej aplikacji sieci Web: *Default.as
 
 ## <a name="aspnet-web-forms-background"></a>Tło formularzy sieci Web ASP.NET
 
-Formularze sieci Web ASP.NET są stron, które są oparte na technologii Microsoft ASP.NET, w którym kod, który działa na serwerze dynamicznie generuje dane wyjściowe strony sieci Web na urządzeniu klienta lub dotyczących przeglądarki. Strony formularzy sieci Web ASP.NET jest automatycznie renderuje poprawne zgodny z przeglądarki HTML dla funkcji, takich jak style, układu i tak dalej. Formularze sieci Web są zgodne z dowolnego języka, obsługiwane przez .NET środowisko uruchomieniowe języka wspólnego, takich jak Microsoft Visual Basic i Microsoft Visual C#. Ponadto formularzy sieci Web są tworzone [programu Microsoft .NET Framework](https://msdn.microsoft.com/en-US/vstudio/aa496123), która zapewnia korzyści, takich jak zarządzanego środowiska, zabezpieczeń i dziedziczenia.
+Formularze sieci Web ASP.NET są stron, które są oparte na technologii Microsoft ASP.NET, w którym kod, który działa na serwerze dynamicznie generuje dane wyjściowe strony sieci Web na urządzeniu klienta lub dotyczących przeglądarki. Strony formularzy sieci Web ASP.NET jest automatycznie renderuje poprawne zgodny z przeglądarki HTML dla funkcji, takich jak style, układu i tak dalej. Formularze sieci Web są zgodne z dowolnego języka, obsługiwane przez .NET środowisko uruchomieniowe języka wspólnego, takich jak Microsoft Visual Basic i Microsoft Visual C#. Ponadto formularzy sieci Web są tworzone [programu Microsoft .NET Framework](https://msdn.microsoft.com/vstudio/aa496123), która zapewnia korzyści, takich jak zarządzanego środowiska, zabezpieczeń i dziedziczenia.
 
 Po uruchomieniu strony formularzy sieci Web ASP.NET, strona przechodzi przez cyklu życia, w której wykonuje serię kroków przetwarzania. Kroki te obejmują inicjowania uruchamianiu formantów, przywracania i zachowanie stanu, uruchomiony kod obsługi zdarzenia i renderowania. W bardziej zapoznanie się z możliwości formularzy sieci Web ASP.NET jest ważne zrozumieć [cyklu życia strony ASP.NET](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx) , dzięki czemu można napisać kod na etapie cyklu życia odpowiednie mają wpływ.
 
@@ -128,7 +128,7 @@ Gdy serwer sieci Web otrzymuje żądanie strony, jego znajduje stronę, procesy 
 > 
 > **Członkostwo**
 > 
-> [ASP.NET](https://msdn.microsoft.com/en-us/library/yh26yfzy.aspx) tożsamości przechowuje poświadczenia użytkownika w bazie danych utworzonego przez aplikację. Gdy użytkownicy zalogują się, aplikacji sprawdza poprawność poświadczeń za Odczytywanie bazy danych. Projektu *konta* folder zawiera pliki, które implementuje różne części członkostwa: rejestracji, logowania, zmiana haseł i autoryzowania dostępu. Ponadto formularzy sieci Web ASP.NET obsługuje OAuth i OpenID. Te ulepszenia uwierzytelniania zezwolić użytkownikom na logowanie się do witryny przy użyciu istniejących poświadczeń z konta, takich jak Facebook, Twitter, Windows Live i Google.
+> [ASP.NET](https://msdn.microsoft.com/library/yh26yfzy.aspx) tożsamości przechowuje poświadczenia użytkownika w bazie danych utworzonego przez aplikację. Gdy użytkownicy zalogują się, aplikacji sprawdza poprawność poświadczeń za Odczytywanie bazy danych. Projektu *konta* folder zawiera pliki, które implementuje różne części członkostwa: rejestracji, logowania, zmiana haseł i autoryzowania dostępu. Ponadto formularzy sieci Web ASP.NET obsługuje OAuth i OpenID. Te ulepszenia uwierzytelniania zezwolić użytkownikom na logowanie się do witryny przy użyciu istniejących poświadczeń z konta, takich jak Facebook, Twitter, Windows Live i Google.
 > 
 > ![Tworzenie projektu - Eksploratorze rozwiązań (ASP.NET Identity)](create-the-project/_static/image7.png)
 > 
@@ -138,9 +138,9 @@ Gdy serwer sieci Web otrzymuje żądanie strony, jego znajduje stronę, procesy 
 > 
 > [SQL Server Express LocalDB](https://technet.microsoft.com/library/hh510202.aspx) jest to Uproszczona wersja programu SQL Server, który ma wiele funkcje programowania bazy danych programu SQL Server. SQL Server Express LocalDB zostanie uruchomiony w trybie użytkownika i ma szybką, niewymagającą konfiguracji instalacji, który ma krótką listę wymagań wstępnych instalacji. W programie Microsoft SQL Server, bazy danych lub kodu języka Transact-SQL można przenieść z programu SQL Server Express LocalDB programu SQL Server i SQL Azure bez wszystkie kroki uaktualniania. Tak SQL Server Express LocalDB może służyć jako Środowisko deweloperskie dla aplikacji przeznaczonych dla wszystkich wersji programu SQL Server. SQL Server Express LocalDB włącza funkcje takie jak procedur składowanych, funkcje zdefiniowane przez użytkownika i agregacji, integracja .NET Framework, typy przestrzenne i inne osoby, które nie są dostępne w programie SQL Server Compact.
 > 
-> **Strony wzorcowej**
+> **Strony wzorcowe**
 > 
-> [Strony wzorcowej ASP.NET](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx) definiuje spójny wygląd i zachowanie dla wszystkich stron w aplikacji. Układ strony wzorcowej łączy się z zawartości z jednej strony zawartości do produkcji na ostatniej stronie, które użytkownik widzi. W aplikacji Wingtip Toys zmodyfikować *Site.master* strony wzorcowej, dzięki czemu wszystkich stron w witrynie sieci Web Wingtip Toys udostępnianie tego samego charakterystyczne paska logo i nawigacji.
+> [Strony wzorcowej ASP.NET](https://msdn.microsoft.com/library/wtxbf3hh.aspx) definiuje spójny wygląd i zachowanie dla wszystkich stron w aplikacji. Układ strony wzorcowej łączy się z zawartości z jednej strony zawartości do produkcji na ostatniej stronie, które użytkownik widzi. W aplikacji Wingtip Toys zmodyfikować *Site.master* strony wzorcowej, dzięki czemu wszystkich stron w witrynie sieci Web Wingtip Toys udostępnianie tego samego charakterystyczne paska logo i nawigacji.
 > 
 > **HTML5**
 > 
@@ -150,11 +150,11 @@ Gdy serwer sieci Web otrzymuje żądanie strony, jego znajduje stronę, procesy 
 > 
 > W przypadku przeglądarek, które nie obsługują HTML5, można użyć [Modernizr](http://www.modernizr.com/). Modernizr jest biblioteka języka JavaScript open source, który może wykryć, czy przeglądarka obsługuje funkcje HTML5 i je włączyć, jeśli nie. W szablonie aplikacji formularzy sieci Web ASP.NET Modernizr jest instalowany jako pakietu NuGet.
 > 
-> **Ładowania początkowego**
+> **Bootstrap**
 > 
 > Szablony projektu Visual Studio 2013 użyj [Bootstrap](http://getbootstrap.com/), ramy układ i motywów utworzonych przez usługi Twitter. Bootstrap używa CSS3, aby zapewnić elastyczny projekt, co oznacza, że układów dynamicznie można dostosować do rozmiarów okna innej przeglądarki. Funkcja tworzenia motywów ładowania początkowego na umożliwia również łatwe wpływ zmian w aplikacji wyglądu i działania. Domyślnie szablonu aplikacji sieci Web ASP.NET w programie Visual Studio 2013 obejmują Bootstrap jako pakietu NuGet.
 > 
-> **Pakiety NuGet**
+> **NuGet Packages**
 > 
 > Szablon aplikacji formularzy sieci Web platformy ASP.NET zawiera zbiór [NuGet](http://www.nuget.org/) pakietów. Te pakiety udostępnia składnikowa funkcji w formie typu open source, biblioteki i narzędzia. Istnieje szereg pakiety, które ułatwiają tworzenie i testowanie aplikacji. Visual Studio ułatwia dodawanie, usuwanie i aktualizację pakietów NuGet. Deweloperzy mogą utworzyć i również dodawać pakiety NuGet.
 > 
@@ -192,8 +192,8 @@ W tym samouczku utworzeniu, przejrzeć i uruchom domyślnej aplikacji formularzy
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 [Wybieranie odpowiedniej Model programowania](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
-[Projekty aplikacji sieci Web i projektów witryny sieci Web](https://msdn.microsoft.com/en-us/library/dd547590.aspx)   
-[Omówienie stron formularzy sieci Web ASP.NET](https://msdn.microsoft.com/en-us/library/428509ah.aspx)
+[Projekty aplikacji sieci Web i projektów witryny sieci Web](https://msdn.microsoft.com/library/dd547590.aspx)   
+[Omówienie stron formularzy sieci Web ASP.NET](https://msdn.microsoft.com/library/428509ah.aspx)
 
 >[!div class="step-by-step"]
 [Poprzednie](introduction-and-overview.md)

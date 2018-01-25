@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: 9ecde847841eb727a0440f0483c69d1df6757815
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb979333131cc6ac87fd640bf7c96931054a1814
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Wprowadzenie do programu Entity Framework 6 Database First przy użyciu MVC 5
 ====================
@@ -37,7 +37,7 @@ Ten temat dotyczy sytuacji, w których bazy danych i generowanie kodu dla aplika
 
 Przykład wprowadzające programowanie Code First, zobacz [wprowadzenie do platformy ASP.NET MVC 5](../introduction/getting-started.md). Na przykład bardziej zaawansowanych, zobacz [tworzenia modelu danych struktury jednostek dla aplikacji ASP.NET MVC 4](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
-Aby uzyskać wskazówki dotyczące wybierania rozwiązaniem Entity Framework, zobacz [Entity Framework programowanie podejścia](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+Aby uzyskać wskazówki dotyczące wybierania rozwiązaniem Entity Framework, zobacz [Entity Framework programowanie podejścia](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -49,7 +49,7 @@ Aby używane środowisko przypominało środowisko o istniejącej bazy danych, z
 
 W tym samouczku został opracowany przy użyciu bazy danych LocalDB programu Visual Studio 2013 lub Visual Studio Express 2013 for Web. Można użyć istniejącego serwera baz danych, zamiast LocalDB, ale w zależności od używanej wersji programu Visual Studio i typ bazy danych, wszystkie narzędzia danych w programie Visual Studio może nie być obsługiwany. Jeśli narzędzia nie są dostępne dla Twojej bazy danych, może być konieczne do wykonania niektórych kroków specyficzny dla bazy danych w ramach pakietu administracyjnego dla Twojej bazy danych.
 
-Jeśli masz problem z narzędzia bazy danych w wersji programu Visual Studio, upewnij się, że zainstalowano najnowszą wersję narzędzia bazy danych. Informacje o aktualizacji lub instalowanie narzędzi bazy danych, zobacz [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/en-us/data/hh297027).
+Jeśli masz problem z narzędzia bazy danych w wersji programu Visual Studio, upewnij się, że zainstalowano najnowszą wersję narzędzia bazy danych. Informacje o aktualizacji lub instalowanie narzędzi bazy danych, zobacz [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027).
 
 Uruchom program Visual Studio i utworzyć **projekt bazy danych programu SQL Server**. Nazwij projekt **ContosoUniversityData**.
 
@@ -112,4 +112,4 @@ Zostanie wyświetlony widok można edytować danych tabeli.
 Baza danych jest teraz i wypełniane przy użyciu danych. W następnym samouczku utworzysz aplikację sieci web dla bazy danych.
 
 >[!div class="step-by-step"]
-[Dalej](creating-the-web-application.md)
+[Next](creating-the-web-application.md)

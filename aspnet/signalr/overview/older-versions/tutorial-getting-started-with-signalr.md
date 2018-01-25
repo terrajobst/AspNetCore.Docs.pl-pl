@@ -12,17 +12,17 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: c61be6f7a64c000c8d9489f35eea520fd0bb32dd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ce4953a0abf64af28ef4dbc5a62bb2d989343d99
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-getting-started-with-signalr-1x"></a>Samouczek: Wprowadzenie do korzystania z SignalR 1.x
 ====================
 przez [Patrick Fletcher](https://github.com/pfletcher), [Teebken Timowi](https://github.com/timlt)
 
-> Ten samouczek pokazuje, jak używać SignalR do tworzenia aplikacji rozmów w czasie rzeczywistym. Spowoduje dodanie SignalR do pustą aplikację sieci web ASP.NET i Utwórz stronę HTML do wysyłania i wyświetlenie komunikatów.
+> Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Spowoduje dodanie SignalR do pustą aplikację sieci web ASP.NET i Utwórz stronę HTML do wysyłania i wyświetlenie komunikatów.
 
 
 ## <a name="overview"></a>Omówienie
@@ -168,7 +168,7 @@ Poniższy kod przedstawia sposób nawiązać połączenie z koncentratorem. Kod 
 
 Wiesz, że SignalR to struktura służąca do tworzenia aplikacji sieci web w czasie rzeczywistym. Przedstawiono również kilka zadań związanych z projektowaniem SignalR: jak dodać do aplikacji ASP.NET SignalR, Tworzenie klasy koncentratora oraz sposobu wysyłania i odbierania wiadomości z koncentratora.
 
-Można udostępnić przykładowej aplikacji w tym samouczku lub innych aplikacji SignalR za pośrednictwem Internetu przez wdrożenie ich do dostawcy hostingu. Firma Microsoft oferuje usługi hostingu sieci web wolnego maksymalnie 10 witryn sieci web w bezpłatny [systemu Windows Azure, konto próbne](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604). Aby uzyskać wskazówki dotyczące sposobu wdrażania przykładowej aplikacji SignalR, zobacz [publikowania SignalR pobieranie rozpoczęto próbki jako witryny sieci Web systemu Windows Azure](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx). Aby uzyskać szczegółowe informacje o sposobie wdrażania projektu sieci web programu Visual Studio do witryny sieci Web systemu Windows Azure, zobacz [wdrażanie aplikacji ASP.NET do witryny sieci Web systemu Windows Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet). (Uwaga: transportu protokołu WebSocket nie jest obecnie obsługiwana dla witryn sieci Web systemu Windows Azure. Protokół WebSocket podczas transportu nie jest dostępna, SignalR używa innych dostępnych transportów zgodnie z opisem w sekcji transportów [wprowadzenie do tematu SignalR](index.md).)
+Można udostępnić przykładowej aplikacji w tym samouczku lub innych aplikacji SignalR za pośrednictwem Internetu przez wdrożenie ich do dostawcy hostingu. Firma Microsoft oferuje usługi hostingu sieci web wolnego maksymalnie 10 witryn sieci web w bezpłatny [systemu Windows Azure, konto próbne](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Aby uzyskać wskazówki dotyczące sposobu wdrażania przykładowej aplikacji SignalR, zobacz [publikowania SignalR pobieranie rozpoczęto próbki jako witryny sieci Web systemu Windows Azure](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx). Aby uzyskać szczegółowe informacje o sposobie wdrażania projektu sieci web programu Visual Studio do witryny sieci Web systemu Windows Azure, zobacz [wdrażanie aplikacji ASP.NET do witryny sieci Web systemu Windows Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet). (Uwaga: transportu protokołu WebSocket nie jest obecnie obsługiwana dla witryn sieci Web systemu Windows Azure. Protokół WebSocket podczas transportu nie jest dostępna, SignalR używa innych dostępnych transportów zgodnie z opisem w sekcji transportów [wprowadzenie do tematu SignalR](index.md).)
 
 Aby uzyskać bardziej zaawansowane pojęcia rozwój SignalR, odwiedź następującą witrynę SignalR kod źródłowy i zasobów:
 

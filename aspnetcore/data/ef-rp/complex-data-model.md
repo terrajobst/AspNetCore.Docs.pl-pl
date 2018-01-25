@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: c375fe6ea98c621012eb55589c8b174c2a95b697
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2446f4734e9bb1ab6829001f6e7888c4c14ee1b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-razor-pages-tutorial-5-of-8"></a>Tworzenie modelu danych złożonych - Core EF z samouczka stron Razor (5 8)
 
@@ -49,9 +49,9 @@ Aktualizacja *Models/Student.cs* z następującymi wyróżniony kod:
 * `mailto:` Link jest tworzony automatycznie dla `DataType.EmailAddress`.
 * Selektor Data jest dostępne w celu `DataType.Date` w większości przeglądarek.
 
-`DataType` HTML 5 emituje atrybut `data-` atrybutów (dash wyraźnym danych), które korzystać z przeglądarki HTML 5. `DataType` Atrybutów nie zapewniają weryfikacji.
+`DataType` HTML 5 emituje atrybut `data-` atrybutów (dash wyraźnym danych), które korzystać z przeglądarki HTML 5. `DataType` Atrybutów nie mają funkcje sprawdzania poprawności.
 
-`DataType.Date`Określa format daty, która jest wyświetlana. Domyślnie pole daty są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
+`DataType.Date`nie określono format daty, która jest wyświetlana. Domyślnie pole daty są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
 
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 
@@ -59,7 +59,7 @@ Aktualizacja *Models/Student.cs* z następującymi wyróżniony kod:
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-`ApplyFormatInEditMode` Ustawienie określa, że formatowanie powinny również będą stosowane do edycji interfejsu użytkownika. Niektóre pola nie należy używać `ApplyFormatInEditMode`. Na przykład symbol waluty zazwyczaj nie powinny być wyświetlane w polu edycji.
+`ApplyFormatInEditMode` Ustawienie określa, że formatowanie powinny również będą stosowane do edycji interfejsu użytkownika. Niektóre pola nie powinny używać `ApplyFormatInEditMode`. Na przykład symbol waluty zazwyczaj nie powinny być wyświetlane w polu edycji.
 
 `DisplayFormat` Atrybut może być używany przez samego siebie. Zazwyczaj jest warto użyć `DataType` atrybutem `DisplayFormat` atrybutu. `DataType` Atrybut przekazuje semantykę danych zamiast sposób renderowania jej na ekranie. `DataType` Atrybut zapewnia następujące korzyści, które nie są dostępne w `DisplayFormat`:
 
@@ -159,7 +159,7 @@ Aktualizacja *Models/Student.cs* następującym kodem:
 
 ### <a name="the-required-attribute"></a>Wymagany atrybut
 
-`Required` Atrybut powoduje, że nazwa właściwości wymaganych pól. `Required` Atrybut nie jest wymagany dla typów wartości null, takich jak typy wartości (`DateTime`, `int`, `double`itp.). Typy, które nie może mieć wartości null są automatycznie traktowane jako wymagane pola.
+`Required` Atrybut powoduje, że nazwa właściwości wymaganych pól. `Required` Atrybut nie jest wymagane dla typów wartości null, takich jak typy wartości (`DateTime`, `int`, `double`itp.). Typy, które nie może mieć wartości null są automatycznie traktowane jako wymagane pola.
 
 `Required` Atrybutu mogły zostać zastąpione z minimalną długość parametru w `StringLength` atrybutu:
 
@@ -284,7 +284,7 @@ Aktualizacja *Models/Course.cs* następującym kodem:
 
 Podstawowe EF nie wymaga właściwości klucza Obcego dla modelu danych, jeśli model ma właściwości nawigacji dla obiekt pokrewny.
 
-Wszędzie tam, gdzie są one potrzebne EF Core automatycznie tworzy FKs w bazie danych. Tworzy EF Core [w tle właściwości](https://docs.microsoft.com/ef/core/modeling/shadow-properties) dla FKs automatycznie utworzone. Po klucz OBCY w modelu danych można uaktualniać prostszy i efektywniejszy. Rozważmy na przykład model którym właściwości klucza Obcego `DepartmentID` jest *nie* uwzględnione. Gdy jednostki ciągu jest pobierana do edycji:
+Wszędzie tam, gdzie są potrzebne, EF Core automatycznie tworzy FKs w bazie danych. Tworzy EF Core [w tle właściwości](https://docs.microsoft.com/ef/core/modeling/shadow-properties) dla FKs automatycznie utworzone. Po klucz OBCY w modelu danych można uaktualniać prostszy i efektywniejszy. Rozważmy na przykład model którym właściwości klucza Obcego `DepartmentID` jest *nie* uwzględnione. Gdy jednostki ciągu jest pobierana do edycji:
 
 * `Department` Jednostki ma wartość null, jeśli nie są jawnie został załadowany.
 * Do zaktualizowania jednostki kursu `Department` jednostki najpierw musi zostać pobrana.
@@ -376,7 +376,7 @@ Uwaga: W Konwencji, EF Core umożliwia usuwanie kaskadowe FKs wartości null i r
 Na przykład jeśli `Department.InstructorID` właściwości nie został zdefiniowany jako dopuszczający wartość null:
 
 * Podstawowe EF konfiguruje reguły usuwania kaskadowego można usunąć instruktora po usunięciu działu.
-* Usunięcie instruktora po usunięciu działu nie jest to oczekiwane zachowanie.
+* Usuwanie instruktora po usunięciu działu nie jest to oczekiwane zachowanie.
 
 W razie potrzeby reguły biznesowe `InstructorID` właściwości dopuszczać wartości null, użyj następujących instrukcji interfejsu API fluent:
 
@@ -431,7 +431,7 @@ Jeśli `Enrollment` tabeli nie włączono informacji o kategorii, go tylko musi 
 
 `Instructor` i `Course` jednostek ma relację wiele do wielu, przy użyciu tabeli czysty sprzężenia.
 
-Uwaga: Tabele niejawne sprzężenia dla relacji wiele do wielu, ale podstawowe EF nie obsługuje 6.x EF. Aby uzyskać więcej informacji, zobacz [wiele do wielu relacji w programie EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).
+Uwaga: Niejawna sprzężenia tabel dla relacji wiele do wielu, ale podstawowe EF nie obsługuje 6.x EF. Aby uzyskać więcej informacji, zobacz [wiele do wielu relacji w programie EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).
 
 ## <a name="the-courseassignment-entity"></a>Jednostka CourseAssignment
 
@@ -462,7 +462,7 @@ Klucz złożony zapewnia:
 
 * Wiele wierszy są dozwolone dla porach jeden.
 * Wiele wierszy są dozwolone dla jednego instruktora.
-* Wiele wierszy dla tego samego instruktora i kursu jest niedozwolone.
+* Wiele wierszy dla tego samego instruktora i kursu nie jest dozwolona.
 
 `Enrollment` Jednostki sprzężenia definiuje własny klucz podstawowy, więc możliwe są duplikatami tego sortowania. Aby uniknąć tych duplikaty:
 
@@ -638,7 +638,7 @@ Z poprzednim zmiany, istniejące `Course` wiersze zostaną powiązane do działu
 Czy aplikacji produkcyjnej:
 
 * Zawiera kod lub skryptów służących do dodawania `Department` wierszy i powiązanych `Course` wierszy do nowego `Department` wierszy.
-* Nie użyje dział "Temp" lub wartość domyślną dla `Course.DepartmentID `.
+* Używaj dział "Temp" lub wartość domyślną dla `Course.DepartmentID`.
 
 Następny samouczek obejmuje dane dotyczące.
 

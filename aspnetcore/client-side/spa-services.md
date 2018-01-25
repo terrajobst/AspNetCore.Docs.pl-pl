@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d84659c8c65bebb46551eb38bd52e405ff56016
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 514efcdd78957f999e46c521d0266f092f742538
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Do tworzenia aplikacji jednej strony z platformy ASP.NET Core za pomocą JavaScriptServices
 
@@ -46,7 +46,7 @@ Większość fokus w tym artykule jest umieszczona na przy użyciu pakietu SpaSe
 
 ## <a name="what-is-spaservices"></a>Co to jest SpaServices?
 
-SpaServices utworzono pozwala platformy ASP.NET Core jako deweloperów preferowaną platformę po stronie serwera do tworzenia źródła. SpaServices nie jest wymagane do opracowywania źródła z platformy ASP.NET Core, a nie blokuje w ramach określonego klienta.
+SpaServices utworzono pozwala platformy ASP.NET Core jako deweloperów preferowaną platformę po stronie serwera do tworzenia źródła. SpaServices nie jest wymagane, aby opracować źródła z platformy ASP.NET Core, a nie blokuje w ramach określonego klienta.
 
 SpaServices zapewnia przydatne infrastruktury, takich jak:
 * [Prerendering po stronie serwera](#server-prerendering)
@@ -200,7 +200,7 @@ Po załadowaniu aplikacji w przeglądarce, karta konsoli narzędzi deweloperskic
 
 ## <a name="routing-helpers"></a>Pomocnicy routingu
 
-W większości na podstawie platformy ASP.NET Core źródła należy po stronie klienta routingu oprócz routingu po stronie serwera. Systemy routingu SPA i MVC może pracować wielel osób bez zakłóceń. Jest jednak jeden przypadek krawędzi stwarza problemy: Identyfikowanie odpowiedzi HTTP 404.
+W większości na podstawie platformy ASP.NET Core źródła należy po stronie klienta routingu oprócz routingu po stronie serwera. Systemy routingu SPA i MVC może pracować wielel osób bez zakłóceń. Brak, jednak jeden krawędzi wielkość stwarza żąda: Identyfikowanie odpowiedzi HTTP 404.
 
 Rozważmy scenariusz, w którym bez rozszerzenia trasa `/some/page` jest używany. Załóżmy, żądanie nie-dopasowania wzorca trasy po stronie serwera, ale jego wzorzec pasuje do trasy po stronie klienta. Teraz Rozważmy przychodzącego żądania dla `/images/user-512.png`, która oczekuje zwykle można znaleźć pliku obrazu na serwerze. Jeśli trasie po stronie serwera lub pliku statycznego że ścieżka do żądanego zasobu nie jest zgodny, jest mało prawdopodobne, czy aplikacja kliencka będzie jego obsługa — zwykle chcesz zwracać kod stanu HTTP 404.
 

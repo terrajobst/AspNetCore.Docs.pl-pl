@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: dec2602e47fbcb838643a506a7e3feebda9d9c81
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4468ee8031afccca847db67bd4b5b263f0a2c5ac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-performance"></a>SignalR wydajności
 ====================
@@ -87,7 +87,7 @@ Ponieważ komunikaty są przechowywane w magistrali komunikatów w pamięci serw
 
 ### <a name="tuning-your-signalr-server-for-performance"></a>Dostrajanie wydajności serwera SignalR
 
-Następujące ustawienia konfiguracji może służyć do dostrojenia serwera w celu poprawy wydajności w aplikacji SignalR. Aby uzyskać ogólne informacje na temat sposobu zwiększenia wydajności w aplikacji ASP.NET, zobacz [poprawę wydajności ASP.NET](https://msdn.microsoft.com/en-us/library/ff647787.aspx).
+Następujące ustawienia konfiguracji może służyć do dostrojenia serwera w celu poprawy wydajności w aplikacji SignalR. Aby uzyskać ogólne informacje na temat sposobu zwiększenia wydajności w aplikacji ASP.NET, zobacz [poprawę wydajności ASP.NET](https://msdn.microsoft.com/library/ff647787.aspx).
 
 **Ustawienia konfiguracji SignalR**
 
@@ -104,7 +104,7 @@ Następujące ustawienia konfiguracji może służyć do dostrojenia serwera w c
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
 - **ApplicationPool QueueLength**: jest to maksymalna liczba żądań, że sterownik Http.sys umieszcza w kolejce dla puli aplikacji. Gdy kolejka jest zapełniona, nowe żądania otrzymują odpowiedź 503 "Usługa niedostępna". Wartość domyślna to 1000.
 
-    Skrócić długość kolejki dla procesu roboczego w puli aplikacji będą zaoszczędzenia zasobów pamięci. Aby uzyskać więcej informacji, zobacz [dostrajania, konfigurowanie pul aplikacji i zarządzanie nimi](https://technet.microsoft.com/en-us/library/cc745955.aspx).
+    Skrócić długość kolejki dla procesu roboczego w puli aplikacji będą zaoszczędzenia zasobów pamięci. Aby uzyskać więcej informacji, zobacz [dostrajania, konfigurowanie pul aplikacji i zarządzanie nimi](https://technet.microsoft.com/library/cc745955.aspx).
 
 **Ustawienia konfiguracji programu ASP.NET**
 
@@ -215,7 +215,7 @@ Następujące metryki pomiaru błędy generowane przez ruch komunikatów SignalR
 
 Następujące metryki pomiaru ruchu i błędów wygenerowanych przez dostawcę skalowania w poziomie. A **strumienia** w tym kontekście jest jednostką skalowania jest używany przez dostawcę skalowania, co jest tabeli, jeśli jest używany program SQL Server, tematu, jeśli jest używana usługa Service Bus i subskrypcji, użycie pamięci podręcznej Redis. Zapewnia każdego strumienia uporządkowanej odczytu i zapisu; jednego strumienia jest potencjalne wąskie gardło skali, tak aby pomóc w zmniejszeniu tego "wąskie gardło" można zwiększyć liczbę strumieni. Użycie wielu strumieni SignalR automatycznej dystrybucji między tych strumieni w sposób, który gwarantuje, że wiadomości wysłane z dowolnego danego połączenia są w kolejności wiadomości (niezależnego fragmentu).
 
-[MaxQueueLength](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx) kontroluje długość kolejki wysyłania skalowania obsługiwanego przez SignalR. Zostanie ustawiona na wartość większą niż 0 zostaną umieszczone wszystkie wiadomości w kolejce wysyłania do wysłania pojedynczo skonfigurowanych płyty montażowej obsługi komunikatów. Rozmiar kolejki przekracza skonfigurowany limit, wezwań do wysyłania będzie działać natychmiast z [InvalidOperationException](https://msdn.microsoft.com/en-us/library/system.invalidoperationexception(v=vs.118).aspx) dopóki liczba wiadomości w kolejce jest mniejsza niż wartość ustawienia ponownie. Kolejkowanie jest domyślnie wyłączona, ponieważ implementowane montażowych mają zwykle własne usługi kolejkowania wiadomości lub Sterowanie przepływem w miejscu. W przypadku programu SQL Server efektywnie puli połączeń ogranicza liczbę wysyła przejściem w dowolnym momencie.
+[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx) kontroluje długość kolejki wysyłania skalowania obsługiwanego przez SignalR. Zostanie ustawiona na wartość większą niż 0 zostaną umieszczone wszystkie wiadomości w kolejce wysyłania do wysłania pojedynczo skonfigurowanych płyty montażowej obsługi komunikatów. Rozmiar kolejki przekracza skonfigurowany limit, wezwań do wysyłania będzie działać natychmiast z [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception(v=vs.118).aspx) dopóki liczba wiadomości w kolejce jest mniejsza niż wartość ustawienia ponownie. Kolejkowanie jest domyślnie wyłączona, ponieważ implementowane montażowych mają zwykle własne usługi kolejkowania wiadomości lub Sterowanie przepływem w miejscu. W przypadku programu SQL Server efektywnie puli połączeń ogranicza liczbę wysyła przejściem w dowolnym momencie.
 
 Domyślnie tylko jeden strumień jest używany do programu SQL Server i pamięci podręcznej Redis, pięć strumienie są używane dla usługi Service Bus i Kolejkowanie jest wyłączona, ale te ustawienia można zmienić za pomocą konfiguracji na serwerze SQL i usługi Service Bus:
 
@@ -255,11 +255,11 @@ Następujące liczniki wydajności mogą być również przydatne w ramach monit
 - ASP.NET\Queued
 - ASP.NET\Rejected
 
-**PROCESOR CPU**
+**CPU**
 
 - Czas procesora Information\Processor
 
-**PROTOKÓŁ TCP/IP**
+**TCP/IP**
 
 - TCPv6/połączeń
 - TCPv4/połączeń
@@ -280,6 +280,6 @@ Następujące liczniki wydajności mogą być również przydatne w ramach monit
 
 Aby uzyskać więcej informacji na temat wydajności programu ASP.NET, monitorowania i dostrajania, zobacz następujące tematy:
 
-- [Omówienie wydajności programu ASP.NET](https://msdn.microsoft.com/en-us/library/cc668225(v=vs.100).aspx)
+- [Omówienie wydajności programu ASP.NET](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
 - [Użycie wątku ASP.NET usług IIS 7.5, usługi IIS 7.0 i IIS 6.0](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
-- [&lt;applicationPool&gt; elementu (ustawienia sieci Web)](https://msdn.microsoft.com/en-us/library/dd560842.aspx)
+- [&lt;applicationPool&gt; elementu (ustawienia sieci Web)](https://msdn.microsoft.com/library/dd560842.aspx)

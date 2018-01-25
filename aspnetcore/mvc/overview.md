@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: ad8a1dfae89a7ecd5573c16ba70d7d12216b4c57
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3c3279e7d25704f5e70bbd83cf9feebda8319203
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
@@ -50,7 +50,7 @@ Widoki są zobowiązani do prezentowania zawartości za pomocą interfejsu użyt
 Kontrolery są składnikami, które obsługują interakcję z użytkownikiem, pracy z modelem i ostatecznie wybierają widok do renderowania. W aplikacji MVC widoku wyświetlane są tylko informacje; Kontroler obsługuje i ma odpowiadać na dane wejściowe użytkownika i interakcja. We wzorcu MVC kontroler jest punkt wejścia początkowej i jest odpowiedzialny za wybierania który model typy do pracy z i do renderowania widoku (stąd jego nazwa - kontroluje sposób odpowiadania przez aplikację do danego żądania).
 
 > [!NOTE]
-> Kontrolerów powinny nie zbyt skomplikowane przez zbyt wiele obowiązki. Aby zachować logiką kontrolera staje się zbyt skomplikowane, użyj [jednej zasady odpowiedzialności](http://deviq.com/single-responsibility-principle/) do wypychania logiki biznesowej z kontrolerem z do modelu domeny.
+> Kontrolery nie powinien zbyt skomplikowany zbyt wiele obowiązki. Aby zachować logiką kontrolera staje się zbyt skomplikowane, użyj [jednej zasady odpowiedzialności](http://deviq.com/single-responsibility-principle/) do wypychania logiki biznesowej z kontrolerem z do modelu domeny.
 
 >[!TIP]
 > Jeśli okaże się, że Twoje akcji kontrolera często wykonują te same czynności, można wykonać [nie powtarzaj samodzielnie zasady](http://deviq.com/don-t-repeat-yourself/) przez przeniesienie tych typowych akcji do [filtry](#filters).

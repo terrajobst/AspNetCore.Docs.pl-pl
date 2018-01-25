@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: dc81961094928025e25cf62ce4d51d12bc67b80c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7d4ed67254c2b0fc2aef748cfab1c8f628b25641
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-3"></a>Używanie kalendarza podręcznego selektora daty interfejsu użytkownika jQuery i HTML5 platformie ASP.NET MVC — część 3
 ====================
@@ -86,14 +86,14 @@ W tym samouczku można określić formatu lub szablon dla właściwości modelu 
 - Stosowanie `DisplayFormat` atrybutu właściwości w modelu. Na przykład następujący kod powoduje, że data będzie wyświetlana bez czasu:
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample8.cs)]
-- Stosowanie [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) atrybutu właściwości w modelu i określenie typu danych. Na przykład następujący kod powoduje, że data będzie wyświetlana bez czasu.
+- Stosowanie [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) atrybutu właściwości w modelu i określenie typu danych. Na przykład następujący kod powoduje, że data będzie wyświetlana bez czasu.
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample9.cs)]
 
     Jeśli aplikacja zawiera *date.cshtml* szablonu w *Views\Shared\DisplayTemplates* folderu lub *Views\Movies\DisplayTemplates* folder, w tym szablonie będzie używany do renderowania `DateTime` właściwości. W przeciwnym razie wbudowanych systemu tworzenia szablonów ASP.NET Wyświetla właściwość jako data.
 - Tworzenie szablonu ekranu w *Views\Shared\DisplayTemplates* folderu lub *Views\Movies\DisplayTemplates* folder o nazwie zgodny z typem danych, które chcesz sformatować. Na przykład, które widać *Views\Shared\DisplayTemplates\DateTime.cshtml* został użyty do renderowania `DateTime` właściwości w modelu, bez dodawania atrybutu w modelu i bez dodawania żadnych znaczników do widoków.
-- Przy użyciu [UIHint](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) atrybutu w modelu, aby określić szablonu, aby wyświetlić właściwości modelu.
-- Jawne Dodawanie nazwę wyświetlaną szablonu do [Html.DisplayFor](https://msdn.microsoft.com/en-us/library/ee407420.aspx) wywołań w widoku.
+- Przy użyciu [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) atrybutu w modelu, aby określić szablonu, aby wyświetlić właściwości modelu.
+- Jawne Dodawanie nazwę wyświetlaną szablonu do [Html.DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx) wywołań w widoku.
 
 Podejście, którego używasz, zależy od tego, co należy zrobić w aplikacji. Nie jest rzadko kombinację obu rozwiązań można pobrać dokładnie rodzaj formatowania potrzebne.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4c7f15053ca035a1df1222f88752b8243808bef0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 95102e5e6b3e8b78e2757a2bdee39976003011e3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="processing-unhandled-exceptions-c"></a>Przetwarzania nieobsługiwanych wyjątków (C#)
 ====================
@@ -41,9 +41,9 @@ Ten samouczek pokazuje, jak dostęp do szczegółów nieobsługiwany wyjątek, d
 
 ## <a name="executing-code-when-theerrorevent-is-raised"></a>Wykonywanie kodu, gdy`Error`zdarzenia
 
-Zdarzenia mechanizm obiektu sygnalizowania, że coś interesującego wystąpił, a innym obiektem, aby wykonać kod w odpowiedzi. Deweloper ASP.NET użytkownik jest przyzwyczajony do planowania pod względem zdarzenia. Jeśli chcesz uruchomić kod po kliknięciu określonego przycisku Utwórz program obsługi zdarzeń dla tego przycisku `Click` zdarzeń i umieszczono kodu. Biorąc pod uwagę, że moduł wykonawczy platformy ASP.NET zgłasza jego [ `Error` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.error.aspx) zawsze, gdy wystąpi nieobsługiwany wyjątek, wynika, że kod rejestrowania szczegóły błędu przejdzie w obsłudze zdarzeń. Jak utworzyć programu obsługi zdarzeń dla, ale `Error` zdarzenia?
+Zdarzenia mechanizm obiektu sygnalizowania, że coś interesującego wystąpił, a innym obiektem, aby wykonać kod w odpowiedzi. Deweloper ASP.NET użytkownik jest przyzwyczajony do planowania pod względem zdarzenia. Jeśli chcesz uruchomić kod po kliknięciu określonego przycisku Utwórz program obsługi zdarzeń dla tego przycisku `Click` zdarzeń i umieszczono kodu. Biorąc pod uwagę, że moduł wykonawczy platformy ASP.NET zgłasza jego [ `Error` zdarzeń](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx) zawsze, gdy wystąpi nieobsługiwany wyjątek, wynika, że kod rejestrowania szczegóły błędu przejdzie w obsłudze zdarzeń. Jak utworzyć programu obsługi zdarzeń dla, ale `Error` zdarzenia?
 
-`Error` Zdarzeń jest jedną z wielu zdarzeń w [ `HttpApplication` klasy](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.aspx) który pojawienia się na określonym etapie w potoku HTTP przez cały okres istnienia żądania. Na przykład `HttpApplication` klasy [ `BeginRequest` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.beginrequest.aspx) jest wywoływane na początku każdego żądania; jego [ `AuthenticateRequest` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx) jest wywoływane, gdy moduł zabezpieczeń zidentyfikował żądającego. Te `HttpApplication` zdarzenia zapewniają developer strony sposób wykonania niestandardowej logiki w różnych punktach w okresie istnienia żądanie.
+`Error` Zdarzeń jest jedną z wielu zdarzeń w [ `HttpApplication` klasy](https://msdn.microsoft.com/library/system.web.httpapplication.aspx) który pojawienia się na określonym etapie w potoku HTTP przez cały okres istnienia żądania. Na przykład `HttpApplication` klasy [ `BeginRequest` zdarzeń](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx) jest wywoływane na początku każdego żądania; jego [ `AuthenticateRequest` zdarzeń](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx) jest wywoływane, gdy moduł zabezpieczeń zidentyfikował żądającego. Te `HttpApplication` zdarzenia zapewniają developer strony sposób wykonania niestandardowej logiki w różnych punktach w okresie istnienia żądanie.
 
 Programy obsługi zdarzeń dla `HttpApplication` zdarzeń można umieścić w specjalnym pliku o nazwie `Global.asax`. Aby utworzyć ten plik w witrynie sieci Web, Dodaj nowy element do katalogu głównego witryny sieci Web przy użyciu szablonu globalnej klasy aplikacji o nazwie `Global.asax`.
 
@@ -60,19 +60,19 @@ Zawartość i struktura `Global.asax` plik utworzony przez program Visual Studio
 > W przypadku wdrażania aplikacji ASP.NET należy skopiować `Global.asax` pliku do środowiska produkcyjnego. `Global.asax.cs` Pliku, który jest tworzony w WAP, nie trzeba można skopiować do środowiska produkcyjnego, ponieważ ten kod jest kompilowany do zestawu projektu.
 
 
-Programy obsługi zdarzeń utworzony przez szablon globalnej klasy aplikacji Visual Studio nie są wyczerpujące. Można dodać obsługi zdarzeń dla każdego `HttpApplication` zdarzeń za pomocą nazw programu obsługi zdarzeń `Application_EventName`. Można na przykład, Dodaj następujący kod, aby `Global.asax` pliku w celu utworzenia programu obsługi zdarzeń dla [ `AuthorizeRequest` zdarzeń](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx):
+Programy obsługi zdarzeń utworzony przez szablon globalnej klasy aplikacji Visual Studio nie są wyczerpujące. Można dodać obsługi zdarzeń dla każdego `HttpApplication` zdarzeń za pomocą nazw programu obsługi zdarzeń `Application_EventName`. Można na przykład, Dodaj następujący kod, aby `Global.asax` pliku w celu utworzenia programu obsługi zdarzeń dla [ `AuthorizeRequest` zdarzeń](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx):
 
 [!code-vb[Main](processing-unhandled-exceptions-cs/samples/sample1.vb)]
 
 Podobnie należy usunąć wszystkie obsługi zdarzeń utworzony przez szablon globalnej klasy aplikacji, które nie są wymagane. W tym samouczku wymagamy tylko program obsługi zdarzeń dla `Error` zdarzeń; działanie do usunięcia innych programów obsługi zdarzeń z `Global.asax` pliku.
 
 > [!NOTE]
-> *Moduły HTTP* oferują inny sposób definiowania obsługi zdarzeń `HttpApplication` zdarzenia. Moduły HTTP są tworzone jako plik klasy, które mogą być umieszczane bezpośrednio w ramach projektu aplikacji sieci web lub oddzielone do biblioteki osobnej klasy. Ponieważ one być oddzielone w bibliotece klas, moduły HTTP oferować bardziej elastyczne i wielokrotnego użytku modelu do tworzenia `HttpApplication` procedury obsługi zdarzeń. Podczas gdy `Global.asax` dotyczy pliku do aplikacji sieci web, w której znajduje się, moduły HTTP mogą być kompilowane do zestawów w takim przypadku Dodawanie moduł HTTP do witryny sieci Web jest tak proste, jak usunięcie zestawu `Bin` folderu i rejestrowanie Moduł w `Web.config`. W tym samouczku nie wygląda na tworzenie i używanie modułów HTTP, ale bibliotek dwóch rejestrowania błędów używane w następujących dwóch samouczki są zaimplementowane jako moduły HTTP. Tło więcej o zaletach moduły HTTP można znaleźć w temacie [modułów przy użyciu protokołu HTTP i dojścia do tworzenia składników ASP.NET podłączany](https://msdn.microsoft.com/en-us/library/aa479332.aspx).
+> *Moduły HTTP* oferują inny sposób definiowania obsługi zdarzeń `HttpApplication` zdarzenia. Moduły HTTP są tworzone jako plik klasy, które mogą być umieszczane bezpośrednio w ramach projektu aplikacji sieci web lub oddzielone do biblioteki osobnej klasy. Ponieważ one być oddzielone w bibliotece klas, moduły HTTP oferować bardziej elastyczne i wielokrotnego użytku modelu do tworzenia `HttpApplication` procedury obsługi zdarzeń. Podczas gdy `Global.asax` dotyczy pliku do aplikacji sieci web, w której znajduje się, moduły HTTP mogą być kompilowane do zestawów w takim przypadku Dodawanie moduł HTTP do witryny sieci Web jest tak proste, jak usunięcie zestawu `Bin` folderu i rejestrowanie Moduł w `Web.config`. W tym samouczku nie wygląda na tworzenie i używanie modułów HTTP, ale bibliotek dwóch rejestrowania błędów używane w następujących dwóch samouczki są zaimplementowane jako moduły HTTP. Tło więcej o zaletach moduły HTTP można znaleźć w temacie [modułów przy użyciu protokołu HTTP i dojścia do tworzenia składników ASP.NET podłączany](https://msdn.microsoft.com/library/aa479332.aspx).
 
 
 ## <a name="retrieving-information-about-the-unhandled-exception"></a>Trwa pobieranie informacji na temat nieobsługiwany wyjątek
 
-W tym momencie mamy pliku Global.asax z `Application_Error` obsługi zdarzeń. Gdy wykonuje ten program obsługi zdarzeń musimy powiadomić dewelopera błędu i dziennika jego szczegóły. Aby wykonać te zadania, najpierw należy określić szczegóły wyjątku, który został zgłoszony. Obiekt serwera [ `GetLastError` metody](https://msdn.microsoft.com/en-us/library/system.web.httpserverutility.getlasterror.aspx) można pobrać szczegółów nieobsługiwany wyjątek, który spowodował `Error` zdarzenia.
+W tym momencie mamy pliku Global.asax z `Application_Error` obsługi zdarzeń. Gdy wykonuje ten program obsługi zdarzeń musimy powiadomić dewelopera błędu i dziennika jego szczegóły. Aby wykonać te zadania, najpierw należy określić szczegóły wyjątku, który został zgłoszony. Obiekt serwera [ `GetLastError` metody](https://msdn.microsoft.com/library/system.web.httpserverutility.getlasterror.aspx) można pobrać szczegółów nieobsługiwany wyjątek, który spowodował `Error` zdarzenia.
 
 [!code-csharp[Main](processing-unhandled-exceptions-cs/samples/sample2.cs)]
 
@@ -90,7 +90,7 @@ Biblioteki rejestrowania błędów w dwóch następnych samouczki Podaj takich f
 
 Gdy wystąpi nieobsługiwany wyjątek w środowisku produkcyjnym należy alertów zespół deweloperów, dzięki czemu mogą ocenić błąd i ustalić, jakie działania należy podjąć. Na przykład w przypadku wystąpił błąd podczas łączenia z bazą danych, konieczne będzie dwa razy, a następnie sprawdź ciąg połączenia i, prawdopodobnie, otwórz bilet pomocy technicznej z hostingu firmy w sieci web. Jeśli wyjątek wystąpił z powodu błędu programowania, dodatkowy kod lub logikę weryfikacji może być konieczne można dodać, aby zapobiec takie błędy w przyszłości.
 
-Klasy programu .NET Framework w [ `System.Net.Mail` przestrzeni nazw](https://msdn.microsoft.com/en-us/library/system.net.mail.aspx) ułatwiają wysyłanie wiadomości e-mail. [ `MailMessage` Klasy](https://msdn.microsoft.com/en-us/library/system.net.mail.mailmessage.aspx) reprezentuje wiadomości e-mail i ma właściwości, takie jak `To`, `From`, `Subject`, `Body`, i `Attachments`. `SmtpClass` Służy do wysyłania `MailMessage` przy użyciu określonego serwera SMTP; ustawienia serwera SMTP można określić programowo i deklaratywnie w [ `<system.net>` elementu](https://msdn.microsoft.com/en-us/library/6484zdc1.aspx) w `Web.config file`. Aby uzyskać więcej informacji na wysyłanie wiadomości e-mail wiadomości w aplikacji ASP.NET, zapoznaj się z mojej artykułu [wysyłania poczty E-mail w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)i [System.Net.Mail — często zadawane pytania](http://systemnetmail.com/).
+Klasy programu .NET Framework w [ `System.Net.Mail` przestrzeni nazw](https://msdn.microsoft.com/library/system.net.mail.aspx) ułatwiają wysyłanie wiadomości e-mail. [ `MailMessage` Klasy](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx) reprezentuje wiadomości e-mail i ma właściwości, takie jak `To`, `From`, `Subject`, `Body`, i `Attachments`. `SmtpClass` Służy do wysyłania `MailMessage` przy użyciu określonego serwera SMTP; ustawienia serwera SMTP można określić programowo i deklaratywnie w [ `<system.net>` elementu](https://msdn.microsoft.com/library/6484zdc1.aspx) w `Web.config file`. Aby uzyskać więcej informacji na wysyłanie wiadomości e-mail wiadomości w aplikacji ASP.NET, zapoznaj się z mojej artykułu [wysyłania poczty E-mail w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)i [System.Net.Mail — często zadawane pytania](http://systemnetmail.com/).
 
 > [!NOTE]
 > `<system.net>` Element zawiera ustawienia serwera SMTP używany przez `SmtpClient` klasy podczas wysyłania wiadomości e-mail. Firmy prawdopodobną hostingu w sieci web ma serwer SMTP, który służy do wysyłania wiadomości e-mail z aplikacji. Informacje na temat ustawień serwera SMTP, które powinny być używane w aplikacji sieci web na ten temat można znaleźć w sekcji Obsługa hosta sieci web.
@@ -102,7 +102,7 @@ Dodaj następujący kod do `Application_Error` obsługi zdarzeń, aby wysłać w
 
 Gdy powyższy kod jest bardzo długi, zbiorczego jego tworzy kod HTML, który pojawi się w wiadomości e-mail wysyłane do projektanta. Uruchamia kod za pomocą odwołań do `HttpException` zwrócony przez `GetLastError` — metoda (`lastErrorWrapper`). Faktyczny wyjątek, który został zgłoszony przez żądanie jest pobierana za pośrednictwem `lastErrorWrapper.InnerException` i jest przypisany do zmiennej `lastError`. Typ komunikatu i stosu informacje śledzenia są pobierane z `lastError` i przechowywane w trzech zmiennych ciągu.
 
-Następnie `MailMessage` obiektu o nazwie `mm` jest tworzony. Treść wiadomości e-mail jest w formacie HTML i wyświetla adres URL żądanej strony, nazwę aktualnie zalogowanego użytkownika oraz informacje o wyjątku (typ, wiadomości i ślad stosu). Jednym z elementów chłodnych o `HttpException` jest klasa istnieje możliwość wygenerowania HTML używany do tworzenia wyjątek szczegóły żółty ekranu z śmierci (YSOD) przez wywołanie metody [GetHtmlErrorMessage — metoda](https://msdn.microsoft.com/en-us/library/system.web.httpexception.gethtmlerrormessage.aspx). Ta metoda służy tutaj, aby pobrać znaczników YSOD szczegóły wyjątku i dodaj go jako załącznik wiadomości e-mail. Ostrzeżenie o jedno słowo: Jeśli wyjątek który wyzwolone `Error` zdarzeń wyjątek oparte na protokole HTTP (np. żądań dotyczących strony nieistniejącą), a następnie `GetHtmlErrorMessage` metoda zwróci `null`.
+Następnie `MailMessage` obiektu o nazwie `mm` jest tworzony. Treść wiadomości e-mail jest w formacie HTML i wyświetla adres URL żądanej strony, nazwę aktualnie zalogowanego użytkownika oraz informacje o wyjątku (typ, wiadomości i ślad stosu). Jednym z elementów chłodnych o `HttpException` jest klasa istnieje możliwość wygenerowania HTML używany do tworzenia wyjątek szczegóły żółty ekranu z śmierci (YSOD) przez wywołanie metody [GetHtmlErrorMessage — metoda](https://msdn.microsoft.com/library/system.web.httpexception.gethtmlerrormessage.aspx). Ta metoda służy tutaj, aby pobrać znaczników YSOD szczegóły wyjątku i dodaj go jako załącznik wiadomości e-mail. Ostrzeżenie o jedno słowo: Jeśli wyjątek który wyzwolone `Error` zdarzeń wyjątek oparte na protokole HTTP (np. żądań dotyczących strony nieistniejącą), a następnie `GetHtmlErrorMessage` metoda zwróci `null`.
 
 Ostatnim krokiem jest wysłanie `MailMessage`. Odbywa się przez utworzenie nowej `SmtpClient` — metoda i wywoływanie jej `Send` metody.
 
@@ -139,7 +139,7 @@ Przyczyna to zachowanie jest ponieważ osiągnięto za pomocą przekierowania st
 
 Net powoduje, że serwer odpowiadający przy użyciu przekierowania HTTP 302 kończy się żądanie, w którym wystąpił nieobsługiwany wyjątek. Kolejne żądania do strony błędu niestandardowego jest całkowicie nowe żądanie; w tym punkcie ASP.NET aparat odrzucił informacje o błędzie, a ponadto nie ma możliwości skojarzenia nieobsługiwany wyjątek w wcześniejsze żądanie z nowego żądania strony błędu niestandardowego. Jest to dlaczego `GetLastError` zwraca `null` wywołanego ze strony błędu niestandardowego.
 
-Jednak jest możliwe wykonywanego w jednym żądaniu powodujący błąd strony błędu niestandardowego. [ `Server.Transfer(url)` ](https://msdn.microsoft.com/en-us/library/system.web.httpserverutility.transfer.aspx) Metody przenosi wykonanie do określonego adresu URL i przetwarza je w jednym żądaniu. Można przenieść kod w `Application_Error` obsługi zdarzeń do klasy związane z kodem strony błędu niestandardowego, zastępując je w `Global.asax` następującym kodem:
+Jednak jest możliwe wykonywanego w jednym żądaniu powodujący błąd strony błędu niestandardowego. [ `Server.Transfer(url)` ](https://msdn.microsoft.com/library/system.web.httpserverutility.transfer.aspx) Metody przenosi wykonanie do określonego adresu URL i przetwarza je w jednym żądaniu. Można przenieść kod w `Application_Error` obsługi zdarzeń do klasy związane z kodem strony błędu niestandardowego, zastępując je w `Global.asax` następującym kodem:
 
 [!code-csharp[Main](processing-unhandled-exceptions-cs/samples/sample5.cs)]
 
@@ -163,9 +163,9 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Programy obsługi HTTP i modułów HTTP w programie ASP.NET](http://www.15seconds.com/Issue/020417.htm)
 - [Wysyłanie wiadomości E-mail w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
 - [Opis `Global.asax` pliku](http://aspalliance.com/1114_Understanding_the_Globalasax_file.all)
-- [Tworzenie składników ASP.NET podłączany przy użyciu moduły HTTP i obsługi](https://msdn.microsoft.com/en-us/library/aa479332.aspx)
+- [Tworzenie składników ASP.NET podłączany przy użyciu moduły HTTP i obsługi](https://msdn.microsoft.com/library/aa479332.aspx)
 - [Praca z platformy ASP.NET `Global.asax` pliku](http://articles.techrepublic.com.com/5100-10878_11-5771721.html)
-- [Praca z `HttpApplication` wystąpień](https://msdn.microsoft.com/en-us/library/a0xez8f2.aspx)
+- [Praca z `HttpApplication` wystąpień](https://msdn.microsoft.com/library/a0xez8f2.aspx)
 
 >[!div class="step-by-step"]
 [Poprzednie](displaying-a-custom-error-page-cs.md)

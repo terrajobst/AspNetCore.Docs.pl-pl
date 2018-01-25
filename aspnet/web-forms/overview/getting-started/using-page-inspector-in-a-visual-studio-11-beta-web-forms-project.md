@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: a2ac8334e62e6ab7af7042572cfd5950c687001b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ca8a3c194577766e56d0604323fef567d539316c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>Za pomocą narzędzia Page Inspector dla programu Visual Studio 2012 w formularzach sieci Web ASP.NET
 ====================
@@ -51,7 +51,7 @@ przez Ammann Timowi
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Program Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us) lub [programu Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web).
+- [Program Visual Studio 2012](https://www.microsoft.com/visualstudio/11) lub [programu Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
 > Aby uzyskać najnowszą wersję narzędzia Page Inspector, należy użyć [Instalatora platformy sieci Web](https://go.microsoft.com/fwlink/?LinkId=255386) zainstalować zestaw Azure SDK dla .NET 2.0.
@@ -91,7 +91,7 @@ Jeśli Oddokuj okna narzędzia Page Inspector, możesz go umieścić poza progra
 
 ![Wyczyść pole wyboru przestawne windows narzędzia do ALT + TAB między Visual Studio i niezadokowane okna narzędzia Page Inspector](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image5.png)
 
-Górne okienko okna narzędzia Page Inspector pokazuje bieżącą stronę w przeglądarce. Dolne okienko zawiera strony w kod znaczników HTML po lewej stronie, a niektóre karty po prawej stronie, które pozwalają sprawdzić różnych aspektów strony. Dolne okienko jest podobny do [F12 Developer Tools](https://msdn.microsoft.com/en-us/ie/aa740478) w programie Internet Explorer. (Jednak w przeciwieństwie do narzędzia developer służy narzędzie Page Inspector bezpośrednio w programie Visual Studio.)
+Górne okienko okna narzędzia Page Inspector pokazuje bieżącą stronę w przeglądarce. Dolne okienko zawiera strony w kod znaczników HTML po lewej stronie, a niektóre karty po prawej stronie, które pozwalają sprawdzić różnych aspektów strony. Dolne okienko jest podobny do [F12 Developer Tools](https://msdn.microsoft.com/ie/aa740478) w programie Internet Explorer. (Jednak w przeciwieństwie do narzędzia developer służy narzędzie Page Inspector bezpośrednio w programie Visual Studio.)
 
 ![Inspektor strony](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image6.png)
 
@@ -189,7 +189,7 @@ Zaznacz pole wyboru ponownie, kliknij dwukrotnie wartość właściwości i zmie
 **Style** sprawia, że okno łatwe do testowania i Podgląd CSS zmienia przed dokonaniem zmiany stylu arkusza samej siebie.
 
 <a id="css_auto_sync"></a>
-## <a name="css-auto-sync"></a>Automatyczna synchronizacja z CSS
+## <a name="css-auto-sync"></a>CSS Auto Sync
 
 > [!NOTE]
 > Ta funkcja wymaga wersji 1.3 narzędzie Page Inspector.

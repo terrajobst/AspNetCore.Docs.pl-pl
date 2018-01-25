@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49507e90cd659be5da08df17e175297adad0fea1
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 019e31fa749a950db48575e1f4e8d4d26d1cde75
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Wprowadzenie do obsługi błędów w platformy ASP.NET Core
 
@@ -49,7 +49,7 @@ To żądanie nie ma żadnych plików cookie, ale jeśli jak, będą widoczne w *
 
 ## <a name="configuring-a-custom-exception-handling-page"></a>Konfigurowanie niestandardowych wyjątków, Obsługa strony
 
-Jest dobrym rozwiązaniem, aby skonfigurować stronę obsługi wyjątków do użycia, gdy aplikacja nie jest uruchomiona `Development` środowiska.
+Należy dobrze, aby skonfigurować stronę programu obsługi wyjątków do użycia, gdy aplikacja nie jest uruchomiona `Development` środowiska.
 
 [!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
@@ -65,7 +65,7 @@ public IActionResult Index()
 
 ## <a name="configuring-status-code-pages"></a>Konfigurowanie stanu strony kodowe
 
-Domyślnie aplikacja nie zapewnia strona kodowa sformatowanego stan kodów stanu HTTP, takich jak 500 (wewnętrzny błąd serwera) lub 404 (nie znaleziono). Można skonfigurować `StatusCodePagesMiddleware` przez dodanie wiersza do `Configure` metody:
+Domyślnie aplikacji nie będzie zapewniać strona kodowa sformatowanego stan kodów stanu HTTP, takich jak 500 (wewnętrzny błąd serwera) lub 404 (nie znaleziono). Można skonfigurować `StatusCodePagesMiddleware` przez dodanie wiersza do `Configure` metody:
 
 ```csharp
 app.UseStatusCodePages();

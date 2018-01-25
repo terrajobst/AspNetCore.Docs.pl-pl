@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1edeaa392abea96a0f5085539cd8ab7810d59e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42a8fb48b8c8cfb653ac4d64f6efe011f92b966b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-c"></a>Tworzenie interfejsu, aby wybrać jedno konto użytkownika z wielu (C#)
 ====================
@@ -134,13 +134,13 @@ Rysunek 5. pokazuje `ManageUsers.aspx` strony podczas wyświetlania za pośredni
 > Nazwy użytkowników mogą rozpoczynać się od znaków, łącznie z cyfr i znaków interpunkcyjnych. Aby wyświetlić te konta, administrator będzie musiał użyć opcji wszystkie LinkButton. Alternatywnie można dodać LinkButton do zwrócenia wszystkich kont użytkowników rozpoczynających się od numeru. I pozostaw to wykonywania dla czytnika.
 
 
-Kliknięcie dowolnej z filtrowania LinkButtons powoduje odświeżenie strony i zgłasza elemencie powtarzanym `ItemCommand` zdarzenia, ale nie ma żadnej zmiany w siatce, ponieważ jeszcze mamy do pisania kodu do filtrowania wyników. `Membership` Klasa zawiera [ `FindUsersByName` metody](https://technet.microsoft.com/en-us/library/system.web.security.membership.findusersbyname.aspx) zwracającą kont użytkowników, których nazwa użytkownika jest zgodna z wzorcem wyszukiwania. Możemy użyć tej metody do pobrania tylko tych kont użytkowników, których nazwy użytkowników rozpoczynać się od litery, określony przez `CommandName` z filtrowanych LinkButton, który został kliknięty.
+Kliknięcie dowolnej z filtrowania LinkButtons powoduje odświeżenie strony i zgłasza elemencie powtarzanym `ItemCommand` zdarzenia, ale nie ma żadnej zmiany w siatce, ponieważ jeszcze mamy do pisania kodu do filtrowania wyników. `Membership` Klasa zawiera [ `FindUsersByName` metody](https://technet.microsoft.com/library/system.web.security.membership.findusersbyname.aspx) zwracającą kont użytkowników, których nazwa użytkownika jest zgodna z wzorcem wyszukiwania. Możemy użyć tej metody do pobrania tylko tych kont użytkowników, których nazwy użytkowników rozpoczynać się od litery, określony przez `CommandName` z filtrowanych LinkButton, który został kliknięty.
 
 Uruchom aktualizując `ManageUser.aspx` kodem strony klasy co zawierają one właściwość o nazwie `UsernameToMatch`. Ta właściwość będzie się powtarzał username — ciąg filtru między ogłaszania zwrotnego:
 
 [!code-csharp[Main](building-an-interface-to-select-one-user-account-from-many-cs/samples/sample8.cs)]
 
-`UsernameToMatch` Właściwość przechowuje wartość jest przypisany do `ViewState` kolekcji przy użyciu klucza UsernameToMatch. Jeśli wartość tej właściwości jest do odczytu, sprawdza, czy wartość istnieje w `ViewState` kolekcji; w przeciwnym razie go zwraca wartość domyślna to ciąg pusty. `UsernameToMatch` Właściwość wykazuje wspólnego wzorca, czyli utrwalanie wartość, aby wyświetlić stan, tak aby zmiany właściwości są zachowywane między ogłaszania zwrotnego. Aby uzyskać więcej informacji na ten wzorzec odczytu [stan widoku ASP.NET opis](https://msdn.microsoft.com/en-us/library/ms972976.aspx).
+`UsernameToMatch` Właściwość przechowuje wartość jest przypisany do `ViewState` kolekcji przy użyciu klucza UsernameToMatch. Jeśli wartość tej właściwości jest do odczytu, sprawdza, czy wartość istnieje w `ViewState` kolekcji; w przeciwnym razie go zwraca wartość domyślna to ciąg pusty. `UsernameToMatch` Właściwość wykazuje wspólnego wzorca, czyli utrwalanie wartość, aby wyświetlić stan, tak aby zmiany właściwości są zachowywane między ogłaszania zwrotnego. Aby uzyskać więcej informacji na ten wzorzec odczytu [stan widoku ASP.NET opis](https://msdn.microsoft.com/library/ms972976.aspx).
 
 Następnie zaktualizuj `BindUserAccounts` tak to zamiast metod wywoływania `Membership.GetAllUsers`, wywołuje `Membership.FindUsersByName`, przekazując wartość `UsernameToMatch` właściwość dołączona z symbolem wieloznacznym SQL %.
 
@@ -177,7 +177,7 @@ Różnica w wydajności domyślne i niestandardowe stronicowania może być bard
 
 Aby zaimplementować stronicowania niestandardowego, najpierw musimy mechanizmu za pomocą którego można pobrać dokładne podzestaw będzie wyświetlany w widoku GridView. Dobre wieści jest to, że `Membership` klasy `FindUsersByName` metody przeciążenia, które pozwala określić indeks strony i rozmiar strony i zwraca tylko tych kont użytkowników, które wchodzi w zakres rekordów.
 
-W szczególności tego przeciążenia ma następującą sygnaturą: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/en-us/library/fa5st8b2.aspx).
+W szczególności tego przeciążenia ma następującą sygnaturą: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/library/fa5st8b2.aspx).
 
 *PageIndex* parametr określa strony kont użytkowników ma być zwrócona. *pageSize* wskazuje liczbę rekordów do wyświetlenia na jednej stronie. *TotalRecords* parametr jest `out` parametr, który zwraca liczbę całkowitą konta w magazynie użytkownika.
 
@@ -265,4 +265,4 @@ Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Alicja Maziarz. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Dalej](recovering-and-changing-passwords-cs.md)
+[Next](recovering-and-changing-passwords-cs.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: ad052570fb2f168da657cd1263d8342a59d4cab0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5aa532137436922519c86246ebfa834910ac0d86
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="parameter-binding-in-aspnet-web-api"></a>Parametr wiązania w składniku ASP.NET Web API
 ====================
@@ -26,7 +26,7 @@ Gdy interfejs API sieci Web wywołuje metodę dla kontrolera, należy ustawić w
 
 Domyślnie interfejsu API sieci Web używa następujące reguły można powiązać parametry:
 
-- Jeśli parametr jest typu "prosty", interfejsu API sieci Web próbuje pobrać wartość z identyfikatora URI. Proste typy .NET [typów pierwotnych](https://msdn.microsoft.com/en-us/library/system.type.isprimitive.aspx) (**int**, **bool**, **podwójne**itd), oraz **TimeSpan**, **DateTime**, **Guid**, **dziesiętną**, i **ciąg**, *plus* żadnych Typ konwertera typów, który można przekonwertować ciągu. (Więcej informacji na temat typów konwerterów później.)
+- Jeśli parametr jest typu "prosty", interfejsu API sieci Web próbuje pobrać wartość z identyfikatora URI. Proste typy .NET [typów pierwotnych](https://msdn.microsoft.com/library/system.type.isprimitive.aspx) (**int**, **bool**, **podwójne**itd), oraz **TimeSpan**, **DateTime**, **Guid**, **dziesiętną**, i **ciąg**, *plus* żadnych Typ konwertera typów, który można przekonwertować ciągu. (Więcej informacji na temat typów konwerterów później.)
 - Dla typów złożonych, interfejs API sieci Web próbuje odczytać wartości z treści wiadomości, przy użyciu [program formatujący typ nośnika](media-formatters.md).
 
 Na przykład poniżej przedstawiono typowe metody kontrolera interfejsu API sieci Web:
@@ -102,7 +102,7 @@ Integrator modelu pobiera nieprzetworzone wartości wejściowych z *dostawcy war
 
 Domyślny dostawca wartości w interfejsie API sieci Web pobiera wartości z danych trasy i ciągu zapytania. Na przykład, jeśli identyfikator URI jest `http://localhost/api/values/1?location=48,-122`, dostawca wartości tworzy następujące pary klucz wartość:
 
-- Identyfikator = &quot;1&quot;
+- id = &quot;1&quot;
 - Lokalizacja = &quot;48,122&quot;
 
 (I używam zakładając, że szablon trasy domyślne, czyli &quot;interfejsu api / {controller} / {id}&quot;.)
@@ -121,7 +121,7 @@ Można również dodać **[ModelBinder]** atrybutu typu. Interfejs API sieci Web
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample11.cs)]
 
-Na koniec można dodać dostawcę integratora modelu do **HttpConfiguration**. Dostawca integratora modelu to po prostu klasę fabryki, która tworzy integratora modelu. Można utworzyć dostawcę pochodny [ModelBinderProvider](https://msdn.microsoft.com/en-us/library/system.web.http.modelbinding.modelbinderprovider.aspx) klasy. Jednak jeśli Twoje integratora modelu obsługuje jednego typu, łatwiej jest użyć wbudowanych **SimpleModelBinderProvider**, które jest przeznaczone do tego celu. Poniższy kod przedstawia, jak to zrobić.
+Na koniec można dodać dostawcę integratora modelu do **HttpConfiguration**. Dostawca integratora modelu to po prostu klasę fabryki, która tworzy integratora modelu. Można utworzyć dostawcę pochodny [ModelBinderProvider](https://msdn.microsoft.com/library/system.web.http.modelbinding.modelbinderprovider.aspx) klasy. Jednak jeśli Twoje integratora modelu obsługuje jednego typu, łatwiej jest użyć wbudowanych **SimpleModelBinderProvider**, które jest przeznaczone do tego celu. Poniższy kod przedstawia, jak to zrobić.
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample12.cs)]
 

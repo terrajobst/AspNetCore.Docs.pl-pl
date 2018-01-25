@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/application-model
-ms.openlocfilehash: c69dd1cfae713036ce0ee95f70acc162b1e82cb0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a0913edaab723656c9be484332e02c551a5c88e1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-the-application-model"></a>Praca z modelem aplikacji
 
@@ -53,7 +53,7 @@ Następnie (`Order=-990`):
 * [`CorsApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
 
 > [!NOTE]
-> Kolejność, w których dwóch dostawców z taką samą wartość `Order` są nazywane jest niezdefiniowana i dlatego nie powinno być stosowane.
+> Kolejność, w których dwóch dostawców z taką samą wartość `Order` są nazywane jest niezdefiniowana i dlatego nie powinny być stosowane.
 
 > [!NOTE]
 > `IApplicationModelProvider`to zaawansowane pojęcia dla autorów framework rozszerzenie. Ogólnie rzecz biorąc aplikacje powinny używać konwencji i platform, należy użyć dostawcy. Klucza różnica polega na tym, że dostawcy są zawsze uruchamiane przed Konwencji.
@@ -185,7 +185,7 @@ Konwencje pochodzącymi z podkładką są stosowane tylko do elementów aplikacj
 
 ### <a name="action-conventions"></a>Konwencje akcji
 
-`UseWebApiActionConventionsAttribute` Jest używany do mapowania akcji na podstawie ich nazwy metody HTTP (na przykład `Get` czy mapowania `HttpGet`). Dotyczy tylko akcje, które nie korzystają z atrybutu routingu.
+`UseWebApiActionConventionsAttribute` Jest używany do mapowania akcji na podstawie ich nazwy metody HTTP (na przykład `Get` czy mapowania `HttpGet`). Dotyczy tylko akcje, które nie używają atrybutu routingu.
 
 ### <a name="overloading"></a>Przeciążenie
 

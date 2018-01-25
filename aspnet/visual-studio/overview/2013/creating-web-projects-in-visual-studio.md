@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 96960ef56b1206374458dbbba4befffaa83c1624
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aacae7a9ccf483b21d3c6796c0411d558fa3c75b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Tworzenie projektów sieci Web ASP.NET w programie Visual Studio 2013
 ====================
@@ -31,7 +31,7 @@ przez [Dykstra niestandardowy](https://github.com/tdykstra)
 > - Korzystanie z [Bootstrap](#bootstrap) aby zapewnić dynamiczne możliwości projektowania i tworzenia motywów.
 > - Nowe funkcje w formularzach sieci Web, który używany przeznaczonej tylko dla platformy MVC, takie jak [Tworzenie projektu testu automatycznego](#testproj) i [szablonu witryny intranetowej](#winauth).
 > 
-> Aby uzyskać informacje o sposobie tworzenia projektów sieci web dla usługi w chmurze Azure lub usługi Azure Mobile Services, zobacz [wprowadzenie do usług Azure Cloud Services i platformy ASP.NET](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-get-started/) i [tworzenie aplikacji Liderzy za pomocą usługi Azure Mobile Services na platformie .NET Zaplecza](https://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/).
+> Aby uzyskać informacje o sposobie tworzenia projektów sieci web dla usługi w chmurze Azure lub usługi Azure Mobile Services, zobacz [wprowadzenie do usług Azure Cloud Services i platformy ASP.NET](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-get-started/) i [tworzenie aplikacji Liderzy za pomocą usługi Azure Mobile Services na platformie .NET Zaplecza](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/).
 
 
 <a id="prerequisites"></a>
@@ -42,7 +42,7 @@ Ten artykuł dotyczy [programu Visual Studio 2013](https://go.microsoft.com/fwli
 <a id="wap"></a>
 ## <a name="web-application-projects-versus-web-site-projects"></a>Projekty aplikacji sieci Web i projektów witryny sieci web
 
-ASP.NET umożliwia wybór między dwa rodzaje projektów sieci web: *sieci web projektów aplikacji* i *projektów witryny sieci web*. Firma Microsoft zaleca projekty aplikacji sieci web dla nowych aplikacji, a ten artykuł dotyczy tylko projektów aplikacji sieci web. Aby uzyskać więcej informacji, zobacz [projekty aplikacji sieci Web i projektów witryny sieci Web w programie Visual Studio](https://msdn.microsoft.com/en-us/library/dd547590(v=vs.120).aspx) w witrynie MSDN.
+ASP.NET umożliwia wybór między dwa rodzaje projektów sieci web: *sieci web projektów aplikacji* i *projektów witryny sieci web*. Firma Microsoft zaleca projekty aplikacji sieci web dla nowych aplikacji, a ten artykuł dotyczy tylko projektów aplikacji sieci web. Aby uzyskać więcej informacji, zobacz [projekty aplikacji sieci Web i projektów witryny sieci Web w programie Visual Studio](https://msdn.microsoft.com/library/dd547590(v=vs.120).aspx) w witrynie MSDN.
 
 <a id="overview"></a>
 ## <a name="overview-of-web-application-project-creation"></a>Omówienie tworzenia projektu aplikacji sieci web
@@ -54,8 +54,8 @@ W poniższej procedurze pokazano, jak utworzyć projekt sieci web:
 
     ![Okno dialogowe nowego projektu](creating-web-projects-in-visual-studio/_static/image1.png)
 
-    Możesz wybrać **chmury** w okienku po lewej stronie, aby utworzyć [usługi w chmurze Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy), [usługi mobilnej Azure](https://msdn.microsoft.com/en-us/library/windows/apps/dn629482.aspx), lub [zadań WebJob Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-webjobs). W tym temacie nie opisano te szablony.
-3. W okienku po prawej stronie kliknij **Dodaj usługę Application Insights do projektu** pole wyboru, jeśli chcesz kondycji i monitorowania użycia aplikacji. Aby uzyskać więcej informacji, zobacz [monitorować wydajność w aplikacji sieci web](https://azure.microsoft.com/en-us/documentation/articles/app-insights-web-monitor-performance/).
+    Możesz wybrać **chmury** w okienku po lewej stronie, aby utworzyć [usługi w chmurze Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy), [usługi mobilnej Azure](https://msdn.microsoft.com/library/windows/apps/dn629482.aspx), lub [zadań WebJob Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-webjobs). W tym temacie nie opisano te szablony.
+3. W okienku po prawej stronie kliknij **Dodaj usługę Application Insights do projektu** pole wyboru, jeśli chcesz kondycji i monitorowania użycia aplikacji. Aby uzyskać więcej informacji, zobacz [monitorować wydajność w aplikacji sieci web](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/).
 4. Określ projektu **nazwa**, **lokalizacji**i inne opcje, a następnie kliknij przycisk **OK**.
 
     **Nowy projekt ASP.NET** zostanie wyświetlone okno dialogowe.
@@ -86,7 +86,7 @@ Visual Studio zawiera funkcje, które ułatwiają pracę z usługami Azure do ho
 - Uruchom w trybie debugowania zdalnego podczas uruchamiania aplikacji w chmurze.
 - Viiew i zarządzać innymi usługami Azure, takich jak bazy danych SQL.
 
-Możesz [tworzenia konta platformy Azure](https://www.windowsazure.com/en-us/pricing/free-trial/) bezpłatnie zawierającej podstawowe usługi, takich jak aplikacje sieci web, a jeśli jesteś subskrybentem MSDN możesz [aktywować korzyści dla](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) który umożliwiają miesięcznych środków na rzecz Microsoft Azure dodatkowe usługi. 
+Możesz [tworzenia konta platformy Azure](https://www.windowsazure.com/pricing/free-trial/) bezpłatnie zawierającej podstawowe usługi, takich jak aplikacje sieci web, a jeśli jesteś subskrybentem MSDN możesz [aktywować korzyści dla](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) który umożliwiają miesięcznych środków na rzecz Microsoft Azure dodatkowe usługi. 
 
 Domyślnie **nowy projekt ASP.NET** okno dialogowe umożliwia tworzenie aplikacji sieci web lub maszyny wirtualnej do nowego projektu sieci web. Jeśli nie chcesz utworzyć nową aplikację sieci web lub maszyny wirtualnej, wyczyść **Hostuj w chmurze** pole wyboru.
 
@@ -96,12 +96,12 @@ Podpis pola wyboru może być **Hostuj w chmurze** lub **Utwórz zasoby zdalne**
 
 ![Konfiguruj ustawienia aplikacji Azure](creating-web-projects-in-visual-studio/_static/image9.png)
 
-Aby uzyskać więcej informacji na temat używania tego procesu tworzenia zasobów platformy Azure, zobacz [wprowadzenie do platformy Azure i ASP.NET](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet) i [tworzenia maszyny wirtualnej dla witryny sieci web z programem Visual Studio](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-dotnet-create-visual-studio-powershell/).
+Aby uzyskać więcej informacji na temat używania tego procesu tworzenia zasobów platformy Azure, zobacz [wprowadzenie do platformy Azure i ASP.NET](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet) i [tworzenia maszyny wirtualnej dla witryny sieci web z programem Visual Studio](https://azure.microsoft.com/documentation/articles/virtual-machines-dotnet-create-visual-studio-powershell/).
 
 W dalszej części tego artykułu zawiera więcej informacji na temat dostępnych szablonów i ich opcji. Artykuł wprowadza również Bootstrap, układu i motywów framework używane w szablonach.
 
 <a id="vs2013"></a>
-## <a name="visual-studio-2013-web-project-templates"></a>Szablony projektów sieci Web programu Visual Studio 2013
+## <a name="visual-studio-2013-web-project-templates"></a>Visual Studio 2013 Web Project Templates
 
 Szablony Visual Studio będzie korzystać do tworzenia projektów sieci web. Szablon projektu może tworzyć pliki i foldery w nowym projekcie, zainstalować pakietów NuGet i udostępnia kodu do podstawowe działającą aplikację. Szablony implementuje najnowszych standardów sieci web i służą jedynie do zademonstrowania, że najlepsze rozwiązania dotyczące jak używać technologii ASP.NET, jak również zapewniają szybki start dotyczące tworzenia własnych aplikacji.
 
@@ -112,7 +112,7 @@ Szablony projektów sieci web dla projektów przeznaczonych dla platformy .NET 4
 - [Szablon MVC](#mvc)
 - [Szablon interfejsu API sieci Web](#webapi)
 - [Jeden szablon strony aplikacji](#spa)
-- [Szablon usługi mobilnej Azure](https://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)
+- [Szablon usługi mobilnej Azure](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)
 - [Visual Studio 2012 szablonów](#vs2012)
 
 Można także zainstalować rozszerzenie programu Visual Studio, która zapewnia [szablonu usługi Facebook](#facebook).
@@ -198,7 +198,7 @@ Aby uzyskać więcej informacji o aplikacji jednej strony ASP.NET i dodatkowe sz
 
 - [ASP.NET pojedynczej strony aplikacji](../../../single-page-application/index.md).
 - [Opis funkcji zabezpieczeń w szablonie SPA dla VS2013 RC](https://blogs.msdn.com/b/webdev/archive/2013/09/20/understanding-security-features-in-spa-template.aspx)
-- [Aplikacje jednej strony: Tworzenie aplikacji Modern i sprawnie działających w sieci Web za pomocą programu ASP.NET](https://msdn.microsoft.com/en-us/magazine/dn463786.aspx)
+- [Aplikacje jednej strony: Tworzenie aplikacji Modern i sprawnie działających w sieci Web za pomocą programu ASP.NET](https://msdn.microsoft.com/magazine/dn463786.aspx)
 
 <a id="facebook"></a>
 ### <a name="facebook-template"></a>Szablon usługi Facebook
@@ -321,7 +321,7 @@ ASP.NET Identity jest dobrym rozwiązaniem w przypadku tworzenia witryny sieci w
 
 Aby uzyskać więcej informacji na temat opcji indywidualnych kont użytkowników zobacz następujące zasoby:
 
-- [www.asp.NET/Identity](../../../identity/index.md). Dokumentacja dotyczących tożsamości platformy ASP.NET w witrynie sieci web programu ASP.NET.
+- [www.asp.net/identity](../../../identity/index.md). Dokumentacja dotyczących tożsamości platformy ASP.NET w witrynie sieci web programu ASP.NET.
 - [Tworzenie aplikacji platformy ASP.NET MVC 5 z usługi Facebook i Google OAuth2 i OpenID logowania jednokrotnego](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md). Przedstawiono również sposób dostosowywania dane profilu użytkownika.
 - [Interfejs API sieci Web - zewnętrznych usług uwierzytelniania](../../../web-api/overview/security/external-authentication-services.md)
 - [Dodawanie do aplikacji ASP.NET w programie Visual Studio 2013 logowań zewnętrznych](https://blogs.msdn.com/b/webdev/archive/2013/06/27/adding-external-logins-to-your-asp-net-application-in-visual-studio-2013.aspx)
@@ -360,7 +360,7 @@ Jeśli chcesz wypróbować jedną z opcji usługi Azure AD, ale nie masz jeszcze
 
 ![Uwierzytelnianie jednej organizacji](creating-web-projects-in-visual-studio/_static/image24.png)
 
-Wybierz tę opcję, jeśli chcesz włączyć uwierzytelnianie dla kont użytkowników, które są zdefiniowane w jednej usłudze Azure AD [dzierżawy](https://technet.microsoft.com/en-us/library/jj573650.aspx). Na przykład witryna jest contoso.com i będzie on dostępny do pracowników firmy Contoso, którzy są w dzierżawie contoso.onmicrosoft.com. Nie można skonfigurować usługi Azure AD, aby umożliwić użytkownikom z innych dzierżawców do dostępu do aplikacji.
+Wybierz tę opcję, jeśli chcesz włączyć uwierzytelnianie dla kont użytkowników, które są zdefiniowane w jednej usłudze Azure AD [dzierżawy](https://technet.microsoft.com/library/jj573650.aspx). Na przykład witryna jest contoso.com i będzie on dostępny do pracowników firmy Contoso, którzy są w dzierżawie contoso.onmicrosoft.com. Nie można skonfigurować usługi Azure AD, aby umożliwić użytkownikom z innych dzierżawców do dostępu do aplikacji.
 
 #### <a name="domain"></a>Domain
 
@@ -368,7 +368,7 @@ Wprowadź domenę usługi Azure AD, który chcesz skonfigurować aplikację, na 
 
 #### <a name="access-level"></a>Poziom dostępu
 
-Jeśli aplikacja musi zapytania lub zaktualizować informacje o katalogu przy użyciu interfejsu API programu Graph, wybierz **logowanie jednokrotne, Czytaj dane katalogu** lub **logowanie jednokrotne, Odczyt i zapis danych katalogu**. W przeciwnym razie wybierz **rejestracji jednokrotnej**. Aby uzyskać więcej informacji, zobacz [poziomy dostępu aplikacji](https://msdn.microsoft.com/en-us/library/windowsazure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels) i [przy użyciu interfejsu API programu Graph do zapytań usługi Azure AD](https://msdn.microsoft.com/en-US/library/windowsazure/dn151791.aspx).
+Jeśli aplikacja musi zapytania lub zaktualizować informacje o katalogu przy użyciu interfejsu API programu Graph, wybierz **logowanie jednokrotne, Czytaj dane katalogu** lub **logowanie jednokrotne, Odczyt i zapis danych katalogu**. W przeciwnym razie wybierz **rejestracji jednokrotnej**. Aby uzyskać więcej informacji, zobacz [poziomy dostępu aplikacji](https://msdn.microsoft.com/library/windowsazure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels) i [przy użyciu interfejsu API programu Graph do zapytań usługi Azure AD](https://msdn.microsoft.com/library/windowsazure/dn151791.aspx).
 
 #### <a name="application-id-uri"></a>Identyfikator URI Identyfikatora aplikacji
 
@@ -384,10 +384,10 @@ W celu udostępnienia aplikacji w usłudze Azure AD lub połączyć projekt z is
 
 Aby uzyskać informacje o sposobie tworzenia aplikacji, które używają **Cloud - jednej organizacji** uwierzytelniania, zobacz następujące zasoby:
 
-- [Uwierzytelniania systemu Azure](../2012/windows-azure-authentication.md)
+- [Azure Authentication](../2012/windows-azure-authentication.md)
 - [Dodawanie logowania jednokrotnego do aplikacji sieci Web przy użyciu usługi Azure AD](https://msdn.microsoft.com/library/windowsazure/dn151790.aspx)
-- [Tworzenie aplikacji ASP.NET w usłudze Azure Active Directory](../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-- [Zabezpieczenia programu ASP.NET Web API z usługi Azure AD i składniki Microsoft OWIN](https://msdn.microsoft.com/en-us/magazine/dn463788.aspx)
+- [Tworzenie aplikacji ASP.NET z wykorzystaniem usługi Azure Active Directory](../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
+- [Zabezpieczenia programu ASP.NET Web API z usługi Azure AD i składniki Microsoft OWIN](https://msdn.microsoft.com/magazine/dn463788.aspx)
 
 Samouczków jeszcze nie zostały zaktualizowane dla programu Visual Studio 2013; Niektóre z jakiego samouczków kierujące wykonać ręcznie jest zautomatyzowany w programie Visual Studio 2013.
 
@@ -396,14 +396,14 @@ Samouczków jeszcze nie zostały zaktualizowane dla programu Visual Studio 2013;
 
 ![Wiele organizacji uwierzytelniania](creating-web-projects-in-visual-studio/_static/image25.png)
 
-Wybierz tę opcję, jeśli chcesz włączyć uwierzytelnianie dla kont użytkowników, które są zdefiniowane w wielu usługi Azure AD [dzierżawców](https://technet.microsoft.com/en-us/library/jj573650.aspx). Na przykład witryna jest contoso.com i jego będą dostępne do pracowników firmy Contoso, którzy są w dzierżawie contoso.onmicrosoft.com i pracowników firmy Fabrikam, którzy są w dzierżawie fabrikam.onmicrosoft.com.
+Wybierz tę opcję, jeśli chcesz włączyć uwierzytelnianie dla kont użytkowników, które są zdefiniowane w wielu usługi Azure AD [dzierżawców](https://technet.microsoft.com/library/jj573650.aspx). Na przykład witryna jest contoso.com i jego będą dostępne do pracowników firmy Contoso, którzy są w dzierżawie contoso.onmicrosoft.com i pracowników firmy Fabrikam, którzy są w dzierżawie fabrikam.onmicrosoft.com.
 
 Ustawienia, które należy wprowadzić i inicjowania obsługi administracyjnej krok aplikacji są podobne do [uwierzytelniania jednej organizacji](#orgauthsingle).
 
 Informacje o sposobie tworzenia aplikacji, które używają **Cloud - wielu organizacji** uwierzytelniania, zobacz następujące zasoby:
 
 - [Łatwa integracja aplikacji sieci Web w usłudze Azure Active Directory, ASP.NET &amp; programu Visual Studio](https://blogs.msdn.com/b/active_directory_team_blog/archive/2013/06/26/improved-windows-azure-active-directory-integration-with-asp-net-amp-visual-studio.aspx) na blogu zespołu usługi Active Directory.
-- [Tworzenie wielodostępnych aplikacji sieci Web z usługą Azure AD](https://msdn.microsoft.com/en-us/library/windowsazure/dn151789.aspx) samouczka. Samouczek jeszcze zostało zaktualizowane dla programu Visual Studio 2013; Niektóre co samouczka przekierowuje ręcznego wykonywania jest zautomatyzowany w programie Visual Studio 2013.
+- [Tworzenie wielodostępnych aplikacji sieci Web z usługą Azure AD](https://msdn.microsoft.com/library/windowsazure/dn151789.aspx) samouczka. Samouczek jeszcze zostało zaktualizowane dla programu Visual Studio 2013; Niektóre co samouczka przekierowuje ręcznego wykonywania jest zautomatyzowany w programie Visual Studio 2013.
 - [Musisz zalogować się pracy z własnych wiele aplikacji programu ASP.NET organizacji przed zarejestrowaniem się](http://www.cloudidentity.com/blog/2013/10/26/you-have-to-sign-up-with-your-own-multiple-organizations-asp-net-app-before-you-can-sign-in/). Blog przez Vittorio Bertocci, który objaśnia, jak rozwiązać typowe osób problem napotkać podczas tworzenia projektu, który korzysta z uwierzytelniania wielu organizacji.
 
 <a id="orgauthonprem"></a>

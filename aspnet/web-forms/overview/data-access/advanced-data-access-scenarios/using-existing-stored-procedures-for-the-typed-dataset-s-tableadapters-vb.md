@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 15de0ca9bcceb7f745fa311b18d2c095f1dafcb1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5d1be6c30cda5a06087516210a77f48b6a3fe45b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>Za pomocą istniejących procedur składowanych do TableAdapters Typizowanego obiektu DataSet (VB)
 ====================
@@ -200,7 +200,7 @@ Ten wzorzec może być wdrożonych w składni T-SQL przy użyciu następującego
 
 Szablon, który rozpoczyna się przez zdefiniowanie `TRY...CATCH` zablokować konstrukcję jesteś nowym użytkownikiem programu SQL Server 2005. Jak `Try...Catch` bloki w języku Visual Basic SQL `TRY...CATCH` bloku wykonuje instrukcje w `TRY` bloku. Jeśli każda instrukcja zgłasza błąd, sterowanie natychmiast jest przekazywane na `CATCH` bloku.
 
-Jeśli nie ma żadnych błędów wykonywania instrukcji SQL, że w skład transakcji, `COMMIT TRANSACTION` instrukcji zatwierdza zmiany i wykonuje transakcję. Jeśli jednak jeden z oświadczeń powoduje wystąpienie błędu `ROLLBACK TRANSACTION` w `CATCH` bloku przywraca bazę danych do stanu przed rozpoczęciem transakcji. Procedura składowana również zgłasza błąd przy użyciu [polecenie RAISERROR](https://msdn.microsoft.com/en-us/library/ms178592.aspx), co powoduje, że `SqlException` się w aplikacji.
+Jeśli nie ma żadnych błędów wykonywania instrukcji SQL, że w skład transakcji, `COMMIT TRANSACTION` instrukcji zatwierdza zmiany i wykonuje transakcję. Jeśli jednak jeden z oświadczeń powoduje wystąpienie błędu `ROLLBACK TRANSACTION` w `CATCH` bloku przywraca bazę danych do stanu przed rozpoczęciem transakcji. Procedura składowana również zgłasza błąd przy użyciu [polecenie RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx), co powoduje, że `SqlException` się w aplikacji.
 
 > [!NOTE]
 > Ponieważ `TRY...CATCH` bloku jest nowym składnikiem programu SQL Server 2005, powyższego szablonu nie będzie działać, jeśli używasz starszej wersji programu Microsoft SQL Server. Jeśli nie używasz programu SQL Server 2005, należy skontaktować się [Zarządzanie transakcji w procedur składowanych serwera SQL](http://www.4guysfromrolla.com/webtech/080305-1.shtml) dla szablonu, który będzie działać w innych wersjach programu SQL Server.

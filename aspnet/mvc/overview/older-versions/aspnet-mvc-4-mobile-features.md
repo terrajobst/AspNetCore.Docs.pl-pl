@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: e660595d66d81069fa47b77387509e73b1ec834e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d47d8f61dc7af6e1dc5887338be862ea81d7bb17
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>Funkcje mobilne platformy ASP.NET MVC 4
 ====================
 Przez [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Teraz jest wersja MVC 5 tego samouczka z przykładów kodu w [wdrażania platformy ASP.NET MVC 5 mobilnych aplikacji sieci Web w witrynach sieci Web Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
+> Teraz jest wersja MVC 5 tego samouczka z przykładów kodu w [wdrażania platformy ASP.NET MVC 5 mobilnych aplikacji sieci Web w witrynach sieci Web Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
 
 
-W tym samouczku uczy podstaw dotyczących pracy z Funkcje mobilne w aplikacji sieci Web programu ASP.NET MVC 4. W tym samouczku, można użyć [programu Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express) lub Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer lub VWD&quot;). Jeśli masz już który umożliwia professional wersji programu Visual Studio.
+W tym samouczku uczy podstaw dotyczących pracy z Funkcje mobilne w aplikacji sieci Web programu ASP.NET MVC 4. W tym samouczku, można użyć [programu Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) lub Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer lub VWD&quot;). Jeśli masz już który umożliwia professional wersji programu Visual Studio.
 
 Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagania wstępne wymienione poniżej.
 
-- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express) (zalecane) lub programu Visual Studio Web Developer Express z dodatkiem SP1. Program Visual Studio 2012 zawiera ASP.NET MVC 4. Jeśli używasz programu Visual Web Developer 2010, należy zainstalować [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
+- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (zalecane) lub programu Visual Studio Web Developer Express z dodatkiem SP1. Visual Studio 2012 contains ASP.NET MVC 4. Jeśli używasz programu Visual Web Developer 2010, należy zainstalować [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
 
 Należy również emulatora przeglądarkę dla telefonów. Działa jedną z następujących czynności:
 
-- [Emulator systemu Windows 7 Phone](https://msdn.microsoft.com/en-us/library/ff402563(VS.92).aspx). (Jest to emulator, który jest używany w większości zrzutów ekranu, w tym samouczku).
+- [Emulator systemu Windows 7 Phone](https://msdn.microsoft.com/library/ff402563(VS.92).aspx). (Jest to emulator, który jest używany w większości zrzutów ekranu, w tym samouczku).
 - Zmień ciąg agenta użytkownika, co pozwoliłoby na emulowanie iPhone. Zobacz [to](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) wpis w blogu.
 - [Opera emulatorze przenośnym](http://www.opera.com/developer/tools/mobile/)
 - [Apple Safari](http://www.apple.com/safari/download/) z ustawioną iPhone agenta użytkownika. Aby uzyskać instrukcje na temat sposobu ustawiania agenta użytkownika w programie Safari na "iPhone", zobacz [jak umożliwić Safari podawać jest IE](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) na blogu Dominik Alison.
@@ -45,7 +45,7 @@ Powiązany z tym tematem dostępnych projektów programu Visual Studio z kodu ź
 
 ### <a name="what-youll-build"></a>Jakie będzie kompilacji
 
-W tym samouczku, warto Funkcje mobilne prostą aplikację konferencji listę, która znajduje się w [projektu starter](https://go.microsoft.com/fwlink/?LinkId=228307). Poniższy zrzut ekranu przedstawia strony tagi ukończona aplikacja, jak pokazano w [Emulator systemu Windows Phone 7](https://msdn.microsoft.com/en-us/library/ff402563(VS.92).aspx). Zobacz [klawiatury mapowania dla Windows Phone Emulator](https://msdn.microsoft.com/en-us/library/ff754352(v=vs.92).aspx) uprościć wprowadzanie z klawiatury.
+W tym samouczku, warto Funkcje mobilne prostą aplikację konferencji listę, która znajduje się w [projektu starter](https://go.microsoft.com/fwlink/?LinkId=228307). Poniższy zrzut ekranu przedstawia strony tagi ukończona aplikacja, jak pokazano w [Emulator systemu Windows Phone 7](https://msdn.microsoft.com/library/ff402563(VS.92).aspx). Zobacz [klawiatury mapowania dla Windows Phone Emulator](https://msdn.microsoft.com/library/ff754352(v=vs.92).aspx) uprościć wprowadzanie z klawiatury.
 
 [![p1_Tags_CompletedProj](aspnet-mvc-4-mobile-features/_static/image2.png)](aspnet-mvc-4-mobile-features/_static/image1.png)
 
@@ -137,7 +137,7 @@ Kopiuj *Views\Home\AllTags.cshtml* pliku *Views\Home\AllTags.Mobile.cshtml*. Otw
 
 Przejdź do strony tagów za pomocą przeglądarki pulpitu i przy użyciu emulatora przeglądarkę dla telefonów. Emulator przeglądarkę dla telefonów zawiera dwa wprowadzone zmiany.
 
-[![p2m_layoutTags.Mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
+[![p2m_layoutTags.mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
 
 Z kolei Monitor nie zmienił się.
 
@@ -215,7 +215,7 @@ Poniższy kod przedstawia pełną *Global.asax* pliku.
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample11.cs?highlight=26)]
 
 > [!NOTE]
-> Jeśli korzystasz z programu Internet Explorer 9, a nie ma `BundleMobileConfig` wiersz powyżej w Wyróżnij żółty, kliknij przycisk [przycisk Widok zgodności](https://windows.microsoft.com/en-US/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![obraz przycisku widoku zgodności (wyłączone)] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Obraz przycisku widoku zgodności (wyłączone)") w programie Internet Explorer, aby ikona zmiany z konspektu ![obraz przycisku widoku zgodności (wyłączone)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "obraz przycisku widoku zgodności (wyłączone) ") pełny kolor ![obraz przycisku widoku zgodności (na)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "obraz przycisku widoku zgodności (na)"). Alternatywnie można wyświetlić w tym samouczku w przeglądarki FireFox lub Chrome.
+> Jeśli korzystasz z programu Internet Explorer 9, a nie ma `BundleMobileConfig` wiersz powyżej w Wyróżnij żółty, kliknij przycisk [przycisk Widok zgodności](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![obraz przycisku widoku zgodności (wyłączone)] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Obraz przycisku widoku zgodności (wyłączone)") w programie Internet Explorer, aby ikona zmiany z konspektu ![obraz przycisku widoku zgodności (wyłączone)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "obraz przycisku widoku zgodności (wyłączone) ") pełny kolor ![obraz przycisku widoku zgodności (na)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "obraz przycisku widoku zgodności (na)"). Alternatywnie można wyświetlić w tym samouczku w przeglądarki FireFox lub Chrome.
 
 
 Otwórz *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* i Dodaj następujący kod bezpośrednio po `Html.Partial` wywołania:
@@ -270,7 +270,7 @@ Widok domyślny (nieprzenośnych) z renderowania w układzie przenośnych global
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample17.cshtml)]
 
-Gdy `RequireConsistentDisplayMode` ma ustawioną wartość `true`, przenośne układu (*\_Layout.Mobile.cshtml*) jest używany tylko dla widoków przenośnych. (Plik widoku jest w formie  ***ViewName**. Mobile.cshtml*.) Należy ustawić `RequireConsistentDisplayMode` do `true` Jeśli przenośnych układu nie działa prawidłowo w przypadku widoków przeznaczone dla urządzeń przenośnych. Zrzut ekranu poniżej przedstawiono sposób *głośniki* renderowania strony, gdy `RequireConsistentDisplayMode` ma ustawioną wartość `true`.
+Gdy `RequireConsistentDisplayMode` ma ustawioną wartość `true`, przenośne układu (*\_Layout.Mobile.cshtml*) jest używany tylko dla widoków przenośnych. (Plik widoku jest w formie ***ViewName**. Mobile.cshtml*). Należy ustawić `RequireConsistentDisplayMode` do `true` Jeśli przenośnych układu nie działa prawidłowo w przypadku widoków przeznaczone dla urządzeń przenośnych. Zrzut ekranu poniżej przedstawiono sposób *głośniki* renderowania strony, gdy `RequireConsistentDisplayMode` ma ustawioną wartość `true`.
 
 [![p3_speakersConsistent](aspnet-mvc-4-mobile-features/_static/image33.png)](aspnet-mvc-4-mobile-features/_static/image32.png)
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: af73a86aa6bcde084ecbe1a3fb5711c7da55871c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3aaab9d4fecd3f0d0da6a0df4d83bee090b329ea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-cross-site-scripting"></a>Zapobieganie skryptów krzyżowych
 
@@ -56,7 +56,7 @@ Ten widok wyświetla zawartość *untrustedInput* zmiennej. Ta zmienna zawiera n
    ```
 
 >[!WARNING]
-> Program ASP.NET Core MVC udostępnia `HtmlString` klasy, która nie jest zakodowany automatycznie po danych wyjściowych. Tej opcji należy nigdy używać w połączeniu z niezaufanych danych wejściowych, ponieważ spowoduje to ujawnienie luki w zabezpieczeniach XSS.
+> Program ASP.NET Core MVC udostępnia `HtmlString` klasy, które nie jest automatycznie kodowane po danych wyjściowych. Tej opcji należy nigdy używać w połączeniu z niezaufanych danych wejściowych, ponieważ spowoduje to ujawnienie luki w zabezpieczeniach XSS.
 
 ## <a name="javascript-encoding-using-razor"></a>Kodowanie JavaScript za pomocą Razor
 
@@ -141,11 +141,11 @@ To spowoduje, że w przeglądarce
    ```
 
 >[!WARNING]
-> Nie łącz niezaufanych danych wejściowych w języku JavaScript do tworzenia modelu DOM elementów. Należy używać `createElement()` i odpowiednio takich jak przypisywanie wartości właściwości `node.TextContent=`, lub użyj `element.SetAttribute()` / `element[attribute]=` w przeciwnym razie ujawnia siebie na podstawie DOM XSS.
+> Nie należy łączyć niezaufanych danych wejściowych w języku JavaScript do tworzenia elementów modelu DOM. Należy używać `createElement()` i odpowiednio takich jak przypisywanie wartości właściwości `node.TextContent=`, lub użyj `element.SetAttribute()` / `element[attribute]=` w przeciwnym razie ujawnia siebie na podstawie DOM XSS.
 
 ## <a name="accessing-encoders-in-code"></a>Uzyskiwanie dostępu do koderów w kodzie
 
-Kodery HTML, JavaScript i adres URL są dostępne do kodu na dwa sposoby, można wprowadzić je przy użyciu [iniekcji zależności](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) lub skorzystać z koderów domyślne zawarte w `System.Text.Encodings.Web` przestrzeni nazw. Jeśli używasz koderów domyślne wszelkie zastosowane do zakresów znaków, a następnie należy traktować jako bezpieczne nie zacznie obowiązywać — koderów domyślne Użyj najbezpieczniejszy reguł kodowania możliwe.
+Kodery HTML, JavaScript i adres URL są dostępne do kodu na dwa sposoby, można wprowadzić je przy użyciu [iniekcji zależności](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) lub skorzystać z koderów domyślne zawarte w `System.Text.Encodings.Web` przestrzeni nazw. Jeśli używasz koderów domyślne, a następnie żadnego stosowane do zakres znaków należy traktować jako bezpieczne nie odniesie żadnego skutku — koderów domyślne Użyj najbezpieczniejszy reguł kodowania możliwe.
 
 Do użycia można konfigurować koderów za pośrednictwem Podpisane z konstruktorów powinno zająć *HtmlEncoder*, *JavaScriptEncoder* i *UrlEncoder* parametru zależnie od potrzeb. Na przykład;
 
@@ -228,4 +228,4 @@ Ogólne zaakceptowane rozwiązaniem jest, że kodowanie odbywa się w punkcie da
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Sprawdzanie poprawności jako technikę zapobiegania XSS
 
-Sprawdzanie poprawności mogą być przydatne narzędzie ograniczanie atakom XSS. Na przykład prostego ciągu numerycznego zawierającą tylko znaki 0-9, nie powoduje wyzwolenia atak XSS. Sprawdzanie poprawności staje się bardziej skomplikowany, powinien chcesz zaakceptować HTML w danych wejściowych użytkownika - analiza input języka HTML jest trudne lub niemożliwe. Składni języka markDown i innych formatach tekstowych będą bezpieczniejsze dla zaawansowanych danych wejściowych. Nigdy nie należy polegać na samych sprawdzania poprawności. Zawsze kodowania niezaufanych dane wejściowe przed danych wyjściowych, niezależnie od tego, jakie walidacji mogły być wykonane.
+Sprawdzanie poprawności mogą być przydatne narzędzie ograniczanie atakom XSS. Na przykład prostego ciągu numerycznego zawierającą tylko znaki 0-9, nie spowoduje wyzwolenia atak XSS. Sprawdzanie poprawności staje się bardziej skomplikowany, powinien chcesz zaakceptować HTML w danych wejściowych użytkownika - analiza input języka HTML jest trudne lub niemożliwe. Składni języka markDown i innych formatach tekstowych będą bezpieczniejsze dla zaawansowanych danych wejściowych. Nigdy nie należy polegać na samych sprawdzania poprawności. Zawsze kodowania niezaufanych dane wejściowe przed danych wyjściowych, niezależnie od tego, jakie walidacji mogły być wykonane.

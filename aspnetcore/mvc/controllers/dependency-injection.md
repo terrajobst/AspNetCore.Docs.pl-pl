@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 21cffcd285879fdca81cb7d92d0f079d4bf7756c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 946d695c572379c3ebc2eda1569f186f25ab9bfc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="dependency-injection-into-controllers"></a>Iniekcji zależności do kontrolerów
 
@@ -87,7 +87,7 @@ Czasami niepotrzebne usługi dla więcej niż jednej akcji w kontrolerze. W taki
 
 ## <a name="accessing-settings-from-a-controller"></a>Uzyskiwanie dostępu do ustawień z kontrolera
 
-Uzyskiwanie dostępu do aplikacji lub Konfiguracja ustawień z poziomu kontrolera jest wspólnym wzorcem. Tego dostępu należy używać wzorzec opcje opisane w [konfiguracji](xref:fundamentals/configuration/index). Należy zwykle nie zażądać ustawienia bezpośrednio w kontrolerze przy użyciu iniekcji zależności. Lepszym rozwiązaniem jest żądanie `IOptions<T>` wystąpienia, gdzie `T` jest klasa konfiguracji potrzebne.
+Uzyskiwanie dostępu do aplikacji lub Konfiguracja ustawień z poziomu kontrolera jest wspólnym wzorcem. Tego dostępu należy używać wzorzec opcje opisane w [konfiguracji](xref:fundamentals/configuration/index). Zazwyczaj nie powinny żądania ustawienia bezpośrednio w kontrolerze przy użyciu iniekcji zależności. Lepszym rozwiązaniem jest żądanie `IOptions<T>` wystąpienia, gdzie `T` jest klasa konfiguracji potrzebne.
 
 Aby pracować z wzorcem opcji, należy utworzyć klasę, która reprezentuje opcje, takie jak ta:
 

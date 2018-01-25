@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: d5574ee353ff41205e9029e4aa5d139a5aa0e959
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cdd13f96ddf08ff86b01ef9de17ea82cf038ab28
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-production-environment-for-web-deployment"></a>Scenariusz: Konfigurowanie środowiska produkcyjnego wdrożenia sieci Web
 ====================
@@ -35,7 +35,7 @@ W środowisku produkcyjnym jest ostatecznym miejscem docelowym dla aplikacji sie
 - Zmiany do aplikacji są wdrażane na podstawie rzadziej niż testu lub przemieszczania wdrożeń.
 
 > [!NOTE]
-> Skalowanie w poziomie wdrożenie bazy danych na wielu serwerach wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji na ten obszar, zapoznaj się [programu SQL Server — książki Online](https://technet.microsoft.com/en-us/library/ms130214.aspx).
+> Skalowanie w poziomie wdrożenie bazy danych na wielu serwerach wykracza poza zakres tego samouczka. Aby uzyskać więcej informacji na ten obszar, zapoznaj się [programu SQL Server — książki Online](https://technet.microsoft.com/library/ms130214.aspx).
 
 
 Na przykład w naszym [samouczka scenariusza](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), serwerem Team Build zawiera definicje kompilacji, które pozwalają zbudować rozwiązanie do kontaktów Menedżerze i wdrożyć ją w środowisku przemieszczania w jednym kroku. Gdy aplikacja jest gotowa do wdrożenia w środowisku produkcyjnym ze względu na ograniczenia narzucone przez wymagania dotyczące zabezpieczeń i infrastruktury sieci administratora środowiska produkcyjnego należy ręcznie skopiować pakiet sieci web na serwerze sieci web w środowisku produkcyjnym i zaimportować go za pośrednictwem Menedżera usług Internet Information Services (IIS).

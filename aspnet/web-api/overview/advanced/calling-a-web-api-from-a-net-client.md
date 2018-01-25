@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 41f014e1d23d46ed28c8c1be5ee92f1a6d878ad9
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 8156bd1c7cfc111a6a121a89d845ca284ee1b7af
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Wywoływanie interfejsu API sieci Web z klienta programu .NET (C#)
 ====================
@@ -23,13 +23,13 @@ przez [Wasson Jan](https://github.com/MikeWasson) i [Rick Anderson](https://twit
 
 [Pobieranie ukończone projektu](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)
 
-W tym samouczku przedstawiono sposób wywołania interfejsu API sieci web z poziomu aplikacji .NET przy użyciu [System.Net.Http.HttpClient.](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(v=vs.110).aspx)
+W tym samouczku przedstawiono sposób wywołania interfejsu API sieci web z poziomu aplikacji .NET przy użyciu [System.Net.Http.HttpClient.](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
 
 W tym samouczku aplikacji klienta są zapisywane, który wykorzystuje następujące interfejsu API sieci web:
 
 | Akcja | Metoda HTTP | Względny identyfikator URI |
 | --- | --- | --- |
-| Uzyskiwanie produktu według Identyfikatora | POBIERZ | /API/produkty/*id* |
+| Uzyskiwanie produktu według Identyfikatora | GET | /API/produkty/*id* |
 | Tworzenie nowego produktu | POST | / api/produktów |
 | Aktualizacji produktu | UMIEŚĆ | /API/produkty/*id* |
 | Usuwanie produktu | DELETE | /API/produkty/*id* |
@@ -109,7 +109,7 @@ Poniższy kod wysyła żądanie pobrania produktu:
 
 **GetAsync** metoda wysyła żądanie HTTP GET. Po ukończeniu metody, zwraca **HttpResponseMessage** zawierający odpowiedzi HTTP. Jeśli kod stanu w odpowiedzi kod sukces, treść odpowiedzi zawiera reprezentacja JSON produktu. Wywołanie **ReadAsAsync** do ładunek JSON do zdeserializowania `Product` wystąpienia. **ReadAsAsync** metoda jest asynchroniczne, ponieważ treść odpowiedzi może być dowolnie dużą.
 
-**HttpClient** nie zgłosić wyjątek, jeśli odpowiedź HTTP zawiera kod błędu. Zamiast tego **IsSuccessStatusCode** właściwość jest **false** Jeśli stan to kod błędu. Jeśli wolisz Traktuj kody błędów HTTP jako wyjątki, wywołanie [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/en-us/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) w obiekt odpowiedzi. `EnsureSuccessStatusCode`zgłasza wyjątek, jeśli kod stanu znajduje się poza zakresem 200&ndash;299. Należy pamiętać, że **HttpClient** można zgłaszanie wyjątków z innych powodów &mdash; na przykład, jeśli upłynie limit czasu żądania.
+**HttpClient** nie zgłosić wyjątek, jeśli odpowiedź HTTP zawiera kod błędu. Zamiast tego **IsSuccessStatusCode** właściwość jest **false** Jeśli stan to kod błędu. Jeśli wolisz Traktuj kody błędów HTTP jako wyjątki, wywołanie [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) w obiekt odpowiedzi. `EnsureSuccessStatusCode`zgłasza wyjątek, jeśli kod stanu znajduje się poza zakresem 200&ndash;299. Należy pamiętać, że **HttpClient** można zgłaszanie wyjątków z innych powodów &mdash; na przykład, jeśli upłynie limit czasu żądania.
 
 <a id="MediaTypeFormatters"></a>
 ### <a name="media-type-formatters-to-deserialize"></a>Programy formatujące typy nośnika do deserializacji
@@ -167,7 +167,7 @@ Poniższy kod wysyła żądanie usunięcia, aby usunąć produkt:
 
 Aby przetestować aplikację klienta:
 
-1. [Pobierz](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) i uruchamianie aplikacji serwera. [Instrukcje pobierania](https://docs.microsoft.com/en-us/aspnet/core/tutorials/#how-to-download-a-sample). Sprawdź, czy serwer aplikacji działa. Dla exaxmple `http://localhost:64195/api/products` powinien zwrócić listę produktów.
+1. [Pobierz](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) i uruchamianie aplikacji serwera. [Instrukcje pobierania](https://docs.microsoft.com/aspnet/core/tutorials/#how-to-download-a-sample). Sprawdź, czy serwer aplikacji działa. Dla exaxmple `http://localhost:64195/api/products` powinien zwrócić listę produktów.
 2. Ustaw podstawowy identyfikator URI dla żądań HTTP. Zmień numer portu na port używany w aplikacji serwera.
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

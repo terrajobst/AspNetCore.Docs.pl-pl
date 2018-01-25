@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: 5fad4b659dafe5470aeb84d320ff711b8840d1e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: def2f4b3e54c8de539e10c1b526a1dababeca8fb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Macierzy sieci Web i plik Readme sieci Web ASP.NET w wersji Beta 3 stron (Razor)
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/10/2017
 - [Nowe funkcje, zmiany i znane problemy w wersji Beta 3](#Known_Issues)
 
     - [Problemy z instalacją programu WebMatrix](#Known_Issues_Installation)
-    - [Strony sieci Web ASP.NET](#Known_Issues_ASPNET)
+    - [ASP.NET Web Pages](#Known_Issues_ASPNET)
     - [SQL Server Compact](#Known_Issues_SQL_Server_Compact)
     - [Instalowanie aplikacji](#Known_Issues_Installing_Applications)
     - [Publikowanie aplikacji](#Known_Issues_Publishing_Applications)
@@ -94,8 +94,8 @@ ms.lasthandoff: 11/10/2017
 
 > Podczas instalowania programu SQL Server Compact 4.0 na komputerze 64-bitowy komputer ma tylko .NET Framework 3.5 SP1 Client Profile zainstalowany zarządzanych zestawów dla programu SQL Server Compact 4.0 nie są umieszczane w globalnej pamięci podręcznej zestawów (GAC). Zarządzanych zestawów, które nie są zainstalowane w GAC są:
 > 
-> - *System.Data.SqlServerCe.dll* (dostawcy ADO.NET)
-> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework)
+> - *System.Data.SqlServerCe.dll* (ADO.NET provider)
+> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
 > 
 > **Obejście problemu**  
 > Odinstaluj program SQL Server Compact 4.0. Pobierz i zainstaluj pełną wersję programu .NET Framework 3.5 z dodatkiem SP1 z następującej lokalizacji:  
@@ -115,7 +115,7 @@ ms.lasthandoff: 11/10/2017
 
 <a id="Known_Issues_ASPNET"></a>
 
-### <a name="aspnet-web-pages"></a>Strony sieci Web ASP.NET
+### <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 
 W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji Beta 3 programu ASP.NET Web Pages o składni Razor.
 
@@ -162,7 +162,7 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji Be
 > Zwróć uwagę, że `@{ }` znaków wokół początkowej kodu pomocnika nie jest już używana. Jest to spowodowane zawartość pomocników są traktowane jako blok kodu domyślnie. Pomocnik renderuje kod znaczników, który rozpoczyna się od otwarcia `<a>` tagu. Jeśli pomocnika musi renderowania zwykłego tekstu lub tagi, które nie ma tagu zamykającego (na przykład `<meta>` tagów), musi należeć do renderowania zawartości `<text></text>` tagów.
 
 
-#### <a name="change-webpagecontexthttpcontext-removed"></a>Zmiany: Usunięte "WebPageContext.HttpContext"
+#### <a name="change-webpagecontexthttpcontext-removed"></a>Change: "WebPageContext.HttpContext" removed
 
 > `WebPageContext.HttpContext` Właściwość została usunięta. Zamiast nich należy używać słów kluczowych `HttpContext.Current`. ( `WebPageContext.HttpContext` Właściwości po prostu to opakowana.)
 
@@ -265,7 +265,7 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji Be
 > 
 > [!code-xml[Main](beta3/samples/sample5.xml)]
 > 
-> Aby uzyskać więcej informacji na temat konfigurowania serwera proxy, zobacz [ &lt;proxy&gt; elementu (ustawienia sieciowe)](https://msdn.microsoft.com/en-us/library/sa91de1e.aspx) w witrynie MSDN.
+> Aby uzyskać więcej informacji na temat konfigurowania serwera proxy, zobacz [ &lt;proxy&gt; elementu (ustawienia sieciowe)](https://msdn.microsoft.com/library/sa91de1e.aspx) w witrynie MSDN.
 
 
 #### <a name="issue-microsoftwebinfrastructuredll-cannot-be-loaded-error"></a>Problemu: Błąd "Nie można załadować Microsoft.Web.Infrastructure.dll"
@@ -340,7 +340,7 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji Be
 > 
 > 1. Kopiowanie zestawów aparatu bazy danych do *Bin* folderze (i jego podfolderach) aplikacji na komputerze docelowym: 
 > 
->     - Kopiuj *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Desktop\System.Data.SqlServerCe.dll* **do** *\Bin*
+>     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Desktop\System.Data.SqlServerCe.dll* **to** *\Bin*
 >     - Kopiuj *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\** **do** *\Bin\x86*
 >     - Kopiuj *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **do** *\Bin\amd64*
 > 2. W folderze głównym witryny sieci Web, należy utworzyć lub otworzyć *Web.config* pliku. (W programie WebMatrix w wersji Beta 3, ten typ pliku jest dostępna po kliknięciu **wszystkie** w **wybierz typ pliku** okno dialogowe.)
@@ -547,10 +547,10 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji Be
 
 Aby uzyskać więcej informacji na temat programu WebMatrix w wersji Beta 3 zobacz następujące witryny sieci Web:
 
-- [Program IIS.net](http://iis.net/)
+- [IIS.net](http://iis.net/)
 - [ASP.NET](https://asp.net/webmatrix)
-- [Microsoft.com/Web](https://www.microsoft.com/web)
+- [Microsoft.com/web](https://www.microsoft.com/web)
 
 * * *
 
-© 2010 Microsoft Corporation. Wszelkie prawa zastrzeżone. [Warunki użytkowania](https://msdn.microsoft.com/en-us/cc300389.aspx).
+© 2010 Microsoft Corporation. Wszelkie prawa zastrzeżone. [Warunki użytkowania](https://msdn.microsoft.cos/cc300389.aspx).

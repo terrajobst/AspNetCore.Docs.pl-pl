@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: f6266045ebf55fb7ae691bfb55e9c90cd4edcc96
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 497102cfa98680f2156a56ff9e36d84b7c820020
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="calling-an-odata-service-from-a-net-client-c"></a>Wywoływanie usługi OData z klienta programu .NET (C#)
 ====================
@@ -30,7 +30,7 @@ przez [Wasson Jan](https://github.com/MikeWasson)
 > 
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) (współpracuje z programu Visual Studio 2012)
-> - [Biblioteka klienta usługi danych WCF](https://msdn.microsoft.com/en-us/library/cc668772.aspx)
+> - [Biblioteka klienta usług danych WCF](https://msdn.microsoft.com/library/cc668772.aspx)
 > - Składnik Web API 2. (Przykład usługi OData jest utworzony przy użyciu 2 interfejsu API sieci Web, ale aplikacja kliencka nie zależy od interfejsu API sieci Web).
 
 
@@ -46,7 +46,7 @@ Następujące artykuły opisano sposób wdrażania usługi OData w składniku We
 
 - [Tworzenie punktu końcowego OData w składniku Web API 2](creating-an-odata-endpoint.md)
 - [Relacji z jednostką OData w składniku Web API 2](working-with-entity-relations.md)
-- [Akcji OData w składniku Web API 2](odata-actions.md)
+- [Akcje protokołu OData w interfejsie Web API 2](odata-actions.md)
 
 ## <a name="generate-the-service-proxy"></a>Generowanie serwera Proxy usługi
 
@@ -118,7 +118,7 @@ W pozostałej części tego tematu, I nie będzie zawierać całą `Main` dział
 
 Definiuje OData [opcje kwerendy](../supporting-odata-query-options.md) który może służyć do filtrowania, sortowania, dane strony i tak dalej. Na serwerze proxy usług można stosować te opcje przy użyciu różnych wyrażenia LINQ.
 
-W tej sekcji opisano I krótki przykłady. Aby uzyskać więcej informacji, zobacz temat [zagadnienia dotyczące LINQ (usługi danych WCF)](https://msdn.microsoft.com/en-us/library/ee622463.aspx) w witrynie MSDN.
+W tej sekcji opisano I krótki przykłady. Aby uzyskać więcej informacji, zobacz temat [zagadnienia dotyczące LINQ (usługi danych WCF)](https://msdn.microsoft.com/library/ee622463.aspx) w witrynie MSDN.
 
 ### <a name="filtering-filter"></a>Filtrowania ($filter)
 
@@ -226,7 +226,7 @@ Na przykład `RateProduct` akcja ma parametr o nazwie "Klasyfikacji" typu `Int32
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample24.cs)]
 
-Aby uzyskać więcej informacji, zobacz[wywoływanie operacji usługi i działania](https://msdn.microsoft.com/en-us/library/hh230677.aspx).
+Aby uzyskać więcej informacji, zobacz[wywoływanie operacji usługi i działania](https://msdn.microsoft.com/library/hh230677.aspx).
 
 Jedną z opcji jest rozszerzenie **kontenera** klasy zapewnienie silnie typizowane metody, która wywołuje akcję:
 

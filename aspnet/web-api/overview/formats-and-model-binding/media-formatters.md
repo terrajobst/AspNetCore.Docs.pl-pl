@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 7d85b995cd577d0ff90fe96bce508c7fbdc6ebbb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9103574597df126a22e21a2f51815f608e46f47f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>Programy formatujące multimedia w składniku ASP.NET Web API 2
 ====================
@@ -29,7 +29,7 @@ Ten samouczek przedstawia sposób obsługuje dodatkowe formaty w interfejsie API
 Typ nośnika, nazywany również typ MIME, określa format elementu danych. W protokole HTTP typów nośników opisywania formatu treści wiadomości. Typ nośnika składa się z dwóch ciągów, typu i podtypu. Na przykład:
 
 - tekst i html
-- Obraz/png
+- image/png
 - Application/json
 
 Jeśli wiadomość HTTP zawiera treść jednostki, nagłówka Content-Type określa format treści wiadomości. Ta wartość informuje odbiornika jak przeanalizować zawartość treści wiadomości.
@@ -48,8 +48,8 @@ Typ nośnika określa sposób interfejsu API sieci Web serializuje i deserializu
 
 Aby utworzyć element formatujący nośnik, pochodzi z jednego z tych klas:
 
-- [Klasa MediaTypeFormatter](https://msdn.microsoft.com/en-us/library/system.net.http.formatting.mediatypeformatter.aspx). Odczyt asynchroniczny używa klasy i metody zapisu.
-- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/en-us/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Ta klasa pochodzi od **MediaTypeFormatter** , ale sychronous metody odczytu/zapisu.
+- [MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx). Odczyt asynchroniczny używa klasy i metody zapisu.
+- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Ta klasa pochodzi od **MediaTypeFormatter** , ale sychronous metody odczytu/zapisu.
 
 Wyprowadzanie z **BufferedMediaTypeFormatter** jest łatwiejsze, ponieważ nie jest wykonywany kod asynchroniczne, ale oznacza to również wątek wywołujący może zablokować podczas operacji We/Wy.
 
@@ -91,10 +91,10 @@ Aby dodać typ nośnika elementu formatującego do potoku interfejsu API sieci W
 
 Opcjonalnie element formatujący nośnik może obsługiwać wiele kodowanie znaków, takich jak UTF-8 lub ISO 8859-1.
 
-W konstruktorze, należy dodać co najmniej jeden [System.Text.Encoding](https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx) typów, aby **SupportedEncodings** kolekcji. Umieść domyślne kodowanie pierwszej.
+W konstruktorze, należy dodać co najmniej jeden [System.Text.Encoding](https://msdn.microsoft.com/library/system.text.encoding.aspx) typów, aby **SupportedEncodings** kolekcji. Umieść domyślne kodowanie pierwszej.
 
 [!code-csharp[Main](media-formatters/samples/sample10.cs?highlight=6-7)]
 
-W **WriteToStream** i **ReadFromStream** wywołania metody, [MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/en-us/library/hh969054.aspx) Wybierz kodowanie znaków preferowany. Tej metody jest zgodny z listą obsługiwanych kodowań nagłówki żądania. Użyj zwróconego **kodowanie** podczas odczytu lub zapisu strumienia:
+W **WriteToStream** i **ReadFromStream** wywołania metody, [MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/library/hh969054.aspx) Wybierz kodowanie znaków preferowany. Tej metody jest zgodny z listą obsługiwanych kodowań nagłówki żądania. Użyj zwróconego **kodowanie** podczas odczytu lub zapisu strumienia:
 
 [!code-csharp[Main](media-formatters/samples/sample11.cs?highlight=3,5)]

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: ffa3178dc4e3aac3ba51c29b7efa3f71eb56bcfe
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8f6f4fac89afe14d83d629128fc3e4632ae95510
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w platformy ASP.NET Core
 
@@ -98,9 +98,9 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{id?}");
 ```
 
-Ten szablon jest zgodny Ścieżka adresu URL, takie jak `/Products/Details/17` i Wyodrębnij wartości trasy `{ controller = Products, action = Details, id = 17 }`. Wartości trasy są określane przez dzielenia na segmenty ścieżki adresu URL i dopasowywanie każdy z segmentów z *trasy parametru* nazwie w szablonie trasy. Noszą nazwy parametrów trasy. Umieszczając nazwę parametru w nawiasy klamrowe są zdefiniowane `{ }`.
+Ten szablon jest zgodny Ścieżka adresu URL, takie jak `/Products/Details/17` i Wyodrębnij wartości trasy `{ controller = Products, action = Details, id = 17 }`. Wartości trasy są określane przez dzielenia na segmenty ścieżki adresu URL i dopasowywanie każdy z segmentów z *trasy parametru* nazwie w szablonie trasy. Noszą nazwy parametrów trasy. Definiowania umieszczając nazwę parametru w nawiasach klamrowych `{ }`.
 
-Powyżej szablonu można także dopasować ścieżkę adresu URL `/` i zwróci wartości `{ controller = Home, action = Index }`. Zdarza się to `{controller}` i `{action}` parametrów trasy mają przypisane wartości domyślne, a `id` parametr trasy jest opcjonalny. Equals `=` znak następuje wartość po Nazwa parametru trasy definiuje wartości domyślnej dla parametru. Znak zapytania `?` po Nazwa parametru trasy definiuje parametr jako opcjonalną. Parametry o wartości domyślne trasy *zawsze* tworzy wartości trasy, jeśli trasa odpowiada — następujące parametry opcjonalne nie przyniesie wartości trasy, jeśli nie było żadnych odpowiadającym segmencie ścieżki adresu URL.
+Powyżej szablonu można także dopasować ścieżkę adresu URL `/` i zwróci wartości `{ controller = Home, action = Index }`. Zdarza się to `{controller}` i `{action}` parametrów trasy mają przypisane wartości domyślne, a `id` parametr trasy jest opcjonalny. Equals `=` znak następuje wartość po Nazwa parametru trasy definiuje wartości domyślnej dla parametru. Znak zapytania `?` po Nazwa parametru trasy definiuje parametr jako opcjonalną. Parametry o wartości domyślne trasy *zawsze* tworzy wartości trasy, jeśli trasa odpowiada — następujące parametry opcjonalne nie tworzy wartości trasy, jeśli nie było żadnych odpowiadającym segmencie ścieżki adresu URL.
 
 Zobacz [trasy szablonu odwołanie](#route-template-reference) dokładnego opis funkcji szablon trasy i składni.
 
@@ -255,7 +255,7 @@ Niektóre z tych metod, takich jak `MapGet` wymagają `RequestDelegate` mają zo
 
 ## <a name="route-template-reference"></a>Odwołanie do szablonu trasy
 
-Tokeny w nawiasy klamrowe (`{ }`) zdefiniowanie *parametry trasy* która powiązana, jeśli trasa jest zgodny. Można zdefiniować więcej niż jeden parametr trasy w segmencie trasy, ale muszą one być oddzielone wartość literału. Na przykład `{controller=Home}{action=Index}` nie jest prawidłową trasę, ponieważ nie istnieje wartość literału między `{controller}` i `{action}`. Te parametry trasy musi mieć nazwę i może określić dodatkowe atrybuty.
+Tokeny w nawiasy klamrowe (`{ }`) zdefiniowanie *parametry trasy* która powiązana, jeśli trasa jest zgodny. Można zdefiniować więcej niż jeden parametr trasy w segmencie trasy, ale muszą one być oddzielone wartość literału. Na przykład `{controller=Home}{action=Index}` byłoby prawidłowej trasy, ponieważ nie istnieje wartość literału między `{controller}` i `{action}`. Te parametry trasy musi mieć nazwę i może określić dodatkowe atrybuty.
 
 Literały tekstowe niż parametrów trasy (na przykład `{id}`) i separatora ścieżki `/` musi być zgodna z tekstem w adresie URL. Dopasowywanie tekstu odbywa się bez uwzględniania wielkości liter i jest oparta na dekodowane reprezentacja ścieżki adresów URL. Aby dopasować Ogranicznik parametru trasy literału `{` lub `}`, sekwencji ucieczki powtarzając znak (`{{` lub `}}`).
 

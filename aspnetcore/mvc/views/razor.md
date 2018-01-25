@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: d932e28246998c60e2b3f9c77a2521fe55991e85
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: abdbb8112533d42f81180abad52f5ee86e3b280f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Składnia razor dla platformy ASP.NET Core
 
@@ -73,7 +73,7 @@ Wyrażenia niejawnego **nie** zawiera typami ogólnymi C#, jako znak wewnątrz n
 Poprzedni kod generowany jest błąd kompilatora podobny do jednego z następujących czynności:
 
  * Element "int" nie został zamknięty. Wszystkie elementy muszą być albo samodzielnie zamknięcie lub ma zgodnego tagu końcowego.
- * Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzasz wywołać metodę? " 
+ *  Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzasz wywołać metodę? " 
  
 Wywołania metody rodzajowe muszą być ujęte w [jawne wyrażenie Razor](#explicit-razor-expressions) lub [blok kodu Razor](#razor-code-blocks).
 
@@ -119,7 +119,7 @@ Jawne wyrażenia może zostać użyty do renderowania dane wyjściowe metody rod
 Poprzedni kod generowany jest błąd kompilatora podobny do jednego z następujących czynności:
 
  * Element "int" nie został zamknięty. Wszystkie elementy muszą być albo samodzielnie zamknięcie lub ma zgodnego tagu końcowego.
- * Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzasz wywołać metodę? " 
+ *  Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzasz wywołać metodę? " 
  
  Następujący kod przedstawia sposób poprawne zapisu tego kodu. Kod jest zapisywany jako jawne wyrażenie:
 

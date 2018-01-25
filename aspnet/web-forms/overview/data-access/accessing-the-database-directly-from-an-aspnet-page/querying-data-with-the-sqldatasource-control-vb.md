@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 84d2b9b5379475c4f8f2208a49b4f9e07b242a51
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a3832bd9847ec8e789b71d13b30a673c8779f4ac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="querying-data-with-the-sqldatasource-control-vb"></a>Wykonywanie zapytania na danych z formantem SqlDataSource (VB)
 ====================
@@ -33,10 +33,10 @@ Wszystkie samouczków możemy stawienia zbadać wykonanej do tej pory zostały u
 
 Podczas wszystkich samouczków wykonanej do tej pory używano architektury do pracy z danymi, istnieje również możliwość dostępu, wstawiania, aktualizowania i usuwania bazy danych bezpośrednio ze strony programu ASP.NET, pomijanie architektury. Dzięki temu umieszczenie zapytań określonej bazy danych i logiki biznesowej bezpośrednio na stronie sieci web. Wystarczająco dużych lub złożonych aplikacji projektowanie, wdrażanie i przy użyciu architektury warstwowych ma zasadnicze znaczenie dla sukcesu, aktualizacji i łatwości konserwacji aplikacji. Tworzenie niezawodna architektura, jednak może być konieczne podczas tworzenia niezwykle proste, jednorazowe aplikacji.
 
-ASP.NET 2.0 zapewnia pięć wbudowanych danych źródłowych kontrolek [SqlDataSource](https://msdn.microsoft.com/en-us/library/dz12d98w%28vs.80%29.aspx), [AccessDataSource](https://msdn.microsoft.com/en-us/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/en-us/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/en-us/library/e8d8587a%28en-US,VS.80%29.aspx), i [SiteMapDataSource](https://msdn.microsoft.com/en-us/library/5ex9t96x%28en-US,VS.80%29.aspx). SqlDataSource może służyć do dostępu i modyfikowania dane bezpośrednio z relacyjnej bazy danych, w tym programu Microsoft SQL Server, programu Microsoft Access, Oracle, MySQL i inne. W tym samouczku i dalej trzech zajmiemy się, jak pracować z formantem SqlDataSource, eksploracji, jak wykonać zapytanie i filtrowanie danych bazy danych, a także sposób użycia SqlDataSource do wstawiania, aktualizowania i usuwania danych.
+ASP.NET 2.0 zapewnia pięć wbudowanych danych źródłowych kontrolek [SqlDataSource](https://msdn.microsoft.com/library/dz12d98w%28vs.80%29.aspx), [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx), [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx), [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a%28en-US,VS.80%29.aspx), i [SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x%28en-US,VS.80%29.aspx). SqlDataSource może służyć do dostępu i modyfikowania dane bezpośrednio z relacyjnej bazy danych, w tym programu Microsoft SQL Server, programu Microsoft Access, Oracle, MySQL i inne. W tym samouczku i dalej trzech zajmiemy się, jak pracować z formantem SqlDataSource, eksploracji, jak wykonać zapytanie i filtrowanie danych bazy danych, a także sposób użycia SqlDataSource do wstawiania, aktualizowania i usuwania danych.
 
 
-![Program ASP.NET 2.0 zawiera pięć kontrolki źródła danych wbudowane](querying-data-with-the-sqldatasource-control-vb/_static/image1.gif)
+![ASP.NET 2.0 Includes Five Built-In Data Source Controls](querying-data-with-the-sqldatasource-control-vb/_static/image1.gif)
 
 **Rysunek 1**: program ASP.NET 2.0 zawiera pięć kontrolki źródła danych wbudowane
 
@@ -144,12 +144,12 @@ Po skonfigurowaniu kreatora, aby zwrócić `ProductID`, `ProductName`, i `UnitPr
 
 Aby zakończyć pracę kreatora, kliknij przycisk Zakończ.
 
-Jak z elementu ObjectDataSource, Kreator s SqlDataSource jedynie przypisuje wartości do właściwości formantu s, czyli [ `ConnectionString` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.connectionstring.aspx) i [ `SelectCommand` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.selectcommand.aspx) właściwości. Po zakończeniu pracy kreatora, Twoje SqlDataSource kontroli s deklaratywne znaczników powinien wyglądać podobny do następującego:
+Jak z elementu ObjectDataSource, Kreator s SqlDataSource jedynie przypisuje wartości do właściwości formantu s, czyli [ `ConnectionString` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.connectionstring.aspx) i [ `SelectCommand` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommand.aspx) właściwości. Po zakończeniu pracy kreatora, Twoje SqlDataSource kontroli s deklaratywne znaczników powinien wyglądać podobny do następującego:
 
 
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-vb/samples/sample2.aspx)]
 
-`ConnectionString` Właściwość zawiera informacje na temat połączenia z bazą danych. Tej właściwości można przypisać wartość ciągu pełnej, stałe połączenie lub może wskazywać na parametry połączenia w `Web.config`. Aby odwołać się do wartości ciągu połączenia w pliku Web.config, należy użyć składni `<%$ expressionPrefix:expressionValue %>`. Zazwyczaj *expressionPrefix* jest ConnectionStrings i *expressionValue* jest nazwą ciągu połączenia w `Web.config` [ `<connectionStrings>` sekcji](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx). Jednak składnia może służyć do odwołania `<appSettings>` elementy lub zawartość z plików zasobów. Zobacz [omówienie wyrażenia ASP.NET](https://msdn.microsoft.com/en-us/library/d5bd1tad.aspx) Aby uzyskać więcej informacji na temat tej składni.
+`ConnectionString` Właściwość zawiera informacje na temat połączenia z bazą danych. Tej właściwości można przypisać wartość ciągu pełnej, stałe połączenie lub może wskazywać na parametry połączenia w `Web.config`. Aby odwołać się do wartości ciągu połączenia w pliku Web.config, należy użyć składni `<%$ expressionPrefix:expressionValue %>`. Zazwyczaj *expressionPrefix* jest ConnectionStrings i *expressionValue* jest nazwą ciągu połączenia w `Web.config` [ `<connectionStrings>` sekcji](https://msdn.microsoft.com/library/bf7sd233.aspx). Jednak składnia może służyć do odwołania `<appSettings>` elementy lub zawartość z plików zasobów. Zobacz [omówienie wyrażenia ASP.NET](https://msdn.microsoft.com/library/d5bd1tad.aspx) Aby uzyskać więcej informacji na temat tej składni.
 
 `SelectCommand` Właściwość określa ad hoc instrukcji SQL lub procedurę składowaną można wykonać, aby zwrócić dane.
 
@@ -190,7 +190,7 @@ Inny subtlety stronicowania i sortowania wynika z SqlDataSource. Domyślnie dane
 
 Sortowanie i stronicowanie działa, ponieważ SqlDataSource pobiera danych w bazie danych do typowaniem luźnym zestawu danych. Całkowita liczba rekordów zwróconych przez kwerendę ważnym aspektem do implementowania stronicowania można ustalić z zestawu danych. Ponadto można sortować wyniki s zestawu danych za pośrednictwem widoku danych. Te możliwości są automatycznie używane przez SqlDataSource podczas żądania GridView stronicowanej lub posortowane dane.
 
-SqlDataSource można skonfigurować do zwracania DataReader zamiast zestawu danych, zmieniając jej [ `DataSourceMode` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx) z `DataSet` (ustawienie domyślne) do `DataReader`. Może być preferowane przy użyciu elementu DataReader w sytuacjach podczas przekazywania wyników s SqlDataSource do istniejącego kodu, która oczekuje elementu DataReader. Ponadto ponieważ DataReaders obiektów znacznie prostsze niż zestawów danych, oferują lepszą wydajność. Jeśli wprowadzisz tej zmiany, jednak kontroli danych w sieci Web nie można sortować ani strony, ponieważ SqlDataSource nie można ustalić liczbę rekordów są zwracane przez zapytanie, ani nie elementu DataReader oferuje wszystkie techniki sortowanie zwróconych danych.
+SqlDataSource można skonfigurować do zwracania DataReader zamiast zestawu danych, zmieniając jej [ `DataSourceMode` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx) z `DataSet` (ustawienie domyślne) do `DataReader`. Może być preferowane przy użyciu elementu DataReader w sytuacjach podczas przekazywania wyników s SqlDataSource do istniejącego kodu, która oczekuje elementu DataReader. Ponadto ponieważ DataReaders obiektów znacznie prostsze niż zestawów danych, oferują lepszą wydajność. Jeśli wprowadzisz tej zmiany, jednak kontroli danych w sieci Web nie można sortować ani strony, ponieważ SqlDataSource nie można ustalić liczbę rekordów są zwracane przez zapytanie, ani nie elementu DataReader oferuje wszystkie techniki sortowanie zwróconych danych.
 
 ## <a name="step-4-using-a-custom-sql-statement-or-stored-procedure"></a>Krok 4: Używanie instrukcji SQL niestandardowe lub procedury składowanej
 
@@ -249,9 +249,9 @@ Programowanie przyjemność!
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
 - [Uzyskiwanie dostępu do danych relacyjnych baz danych](http://aspnet.4guysfromrolla.com/articles/022206-1.aspx)
-- [Informacje o formancie SqlDataSource](https://msdn.microsoft.com/en-us/library/dz12d98w.aspx)
+- [Informacje o formancie SqlDataSource](https://msdn.microsoft.com/library/dz12d98w.aspx)
 - [Samouczki platformy ASP.NET — Szybki Start: SqlDataSource formantu](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/data/sqldatasource.aspx)
-- [Pliku Web.config `<connectionStrings>` — Element](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx)
+- [Pliku Web.config `<connectionStrings>` — Element](https://msdn.microsoft.com/library/bf7sd233.aspx)
 - [Odwołanie do ciągu połączenia bazy danych](http://www.connectionstrings.com/)
 
 ## <a name="about-the-author"></a>Informacje o autorze

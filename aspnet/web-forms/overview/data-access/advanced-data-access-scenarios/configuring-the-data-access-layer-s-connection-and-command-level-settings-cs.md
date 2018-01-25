@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5675c1c2a1c8987412ae79707e4c20e29e0e0df6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: be81bde63d66c3a7070f31be830f7d10ba3a5f8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Konfigurowanie ustawień połączenia i polecenia poziom Warstwa dostępu do danych (C#)
 ====================
@@ -37,7 +37,7 @@ W tym samouczku omówione jak uzyskać dostęp do ustawień połączenia i polec
 
 ## <a name="working-with-data-using-adonet"></a>Praca z danymi za pomocą ADO.NET
 
-Microsoft .NET Framework zawiera nadmiar klasy zaprojektowany specjalnie w celu pracy z danymi. Te klasy w [ `System.Data` przestrzeni nazw](https://msdn.microsoft.com/en-us/library/system.data.aspx), są określane jako *ADO.NET* klasy. Niektóre z klas w obszarze parasola ADO.NET są powiązane z określonego *dostawcy danych*. Dostawca danych można traktować jako kanał komunikacyjny, który umożliwia informacji między klasami ADO.NET i magazyn danych. Brak dostawców ogólnych, takich jak OLE DB i ODBC, a także dostawców przeznaczone specjalnie dla określonej bazy danych systemu. Na przykład gdy istnieje możliwość połączenia z bazą danych programu Microsoft SQL Server przy użyciu dostawcy OleDb, dostawca SqlClient jest bardziej efektywnego został zaprojektowany i zoptymalizowany specjalnie dla programu SQL Server.
+Microsoft .NET Framework zawiera nadmiar klasy zaprojektowany specjalnie w celu pracy z danymi. Te klasy w [ `System.Data` przestrzeni nazw](https://msdn.microsoft.com/library/system.data.aspx), są określane jako *ADO.NET* klasy. Niektóre z klas w obszarze parasola ADO.NET są powiązane z określonego *dostawcy danych*. Dostawca danych można traktować jako kanał komunikacyjny, który umożliwia informacji między klasami ADO.NET i magazyn danych. Brak dostawców ogólnych, takich jak OLE DB i ODBC, a także dostawców przeznaczone specjalnie dla określonej bazy danych systemu. Na przykład gdy istnieje możliwość połączenia z bazą danych programu Microsoft SQL Server przy użyciu dostawcy OleDb, dostawca SqlClient jest bardziej efektywnego został zaprojektowany i zoptymalizowany specjalnie dla programu SQL Server.
 
 Gdy programowane uzyskiwanie dostępu do danych, często służy następującego wzorca:
 
@@ -45,7 +45,7 @@ Gdy programowane uzyskiwanie dostępu do danych, często służy następującego
 - Wydać polecenie.
 - Aby uzyskać `SELECT` zapytania, pracować z wynikowe rekordy.
 
-Brak osobnych klas ADO.NET do wykonywania każdego z tych kroków. Aby połączyć się z bazą danych przy użyciu dostawcy SqlClient, na przykład użyć [ `SqlConnection` klasy](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection(VS.80).aspx). Do wystawienia `INSERT`, `UPDATE`, `DELETE`, lub `SELECT` do bazy danych, użyj polecenia [ `SqlCommand` klasy](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.aspx).
+Brak osobnych klas ADO.NET do wykonywania każdego z tych kroków. Aby połączyć się z bazą danych przy użyciu dostawcy SqlClient, na przykład użyć [ `SqlConnection` klasy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(VS.80).aspx). Do wystawienia `INSERT`, `UPDATE`, `DELETE`, lub `SELECT` do bazy danych, użyj polecenia [ `SqlCommand` klasy](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx).
 
 Z wyjątkiem [zawijania modyfikacje bazy danych w ramach transakcji](../working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs.md) samouczek, nie mamy pisać ADO.NET niskiego poziomu nad kodu, ponieważ TableAdapters automatycznie wygenerowany kod zawiera funkcje niezbędne do połączenie z bazą danych, wydawać polecenia pobierania danych i wypełnić tych danych do DataTables. Jednak może być razy podczas musimy dostosować te ustawienia niskiego poziomu. W następnych kilku krokach omówione jak dostęp do obiektów ADO.NET używana wewnętrznie przez TableAdapters.
 
@@ -121,7 +121,7 @@ Zapisywanie zestawu danych, a następnie wróć do `ProductsBLL` klasy. Zanim, p
 
 ## <a name="step-3-examining-the-command-related-properties"></a>Krok 3: Sprawdzenie właściwości powiązane polecenia
 
-TableAdapter składa się z główne zapytanie, które domyślnie został wygenerowany automatycznie `INSERT`, `UPDATE`, i `DELETE` instrukcje. To zapytanie głównego s `INSERT`, `UPDATE`, i `DELETE` instrukcje zaimplementowano w kodzie s TableAdapter jako obiekt karty danych ADO.NET za pośrednictwem `Adapter` właściwości. Jak jego `Connection` właściwość `Adapter` typ danych właściwości s jest określany przez dostawcę danych używane. Ponieważ te samouczki użyć dostawca SqlClient `Adapter` właściwość jest typu [ `SqlDataAdapter` ](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqldataadapter(VS.80).aspx).
+TableAdapter składa się z główne zapytanie, które domyślnie został wygenerowany automatycznie `INSERT`, `UPDATE`, i `DELETE` instrukcje. To zapytanie głównego s `INSERT`, `UPDATE`, i `DELETE` instrukcje zaimplementowano w kodzie s TableAdapter jako obiekt karty danych ADO.NET za pośrednictwem `Adapter` właściwości. Jak jego `Connection` właściwość `Adapter` typ danych właściwości s jest określany przez dostawcę danych używane. Ponieważ te samouczki użyć dostawca SqlClient `Adapter` właściwość jest typu [ `SqlDataAdapter` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqldataadapter(VS.80).aspx).
 
 TableAdapter s `Adapter` właściwość ma trzy właściwości typu `SqlCommand` używaną do problem `INSERT`, `UPDATE`, i `DELETE` instrukcji:
 
@@ -129,7 +129,7 @@ TableAdapter s `Adapter` właściwość ma trzy właściwości typu `SqlCommand`
 - `UpdateCommand`
 - `DeleteCommand`
 
-A `SqlCommand` obiektu jest odpowiedzialny za wysyłanie określonej kwerendy w bazie danych i ma właściwości, takie jak: [ `CommandText` ](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.commandtext.aspx), który zawiera ad hoc instrukcji SQL lub procedurę składowaną można wykonać; i [ `Parameters` ](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.parameters.aspx), która jest kolekcją `SqlParameter` obiektów. Jak widzieliśmy w [tworzenie Warstwa dostępu do danych](../introduction/creating-a-data-access-layer-cs.md) samouczek, te polecenia obiekty można dostosować za pomocą okna właściwości.
+A `SqlCommand` obiektu jest odpowiedzialny za wysyłanie określonej kwerendy w bazie danych i ma właściwości, takie jak: [ `CommandText` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.commandtext.aspx), który zawiera ad hoc instrukcji SQL lub procedurę składowaną można wykonać; i [ `Parameters` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.parameters.aspx), która jest kolekcją `SqlParameter` obiektów. Jak widzieliśmy w [tworzenie Warstwa dostępu do danych](../introduction/creating-a-data-access-layer-cs.md) samouczek, te polecenia obiekty można dostosować za pomocą okna właściwości.
 
 Oprócz jej główne zapytanie TableAdapter mogą obejmować zmienną liczbę metod, gdy została wywołana, wysyłania określonego polecenia w bazie danych. Obiekt polecenia główne zapytanie s i obiekty poleceń dla wszystkich dodatkowych metod są przechowywane w TableAdapter s `CommandCollection` właściwości.
 
@@ -146,7 +146,7 @@ Najlepiej, jeśli informacje o poziomie polecenia powinny pozostać hermetyzowan
 
 Ponieważ TableAdapter ma tylko jedną `Connection` właściwość Kod udostępnianie ustawień poziom połączeń jest bardzo prosta. Elementy są nieco bardziej skomplikowane podczas modyfikowania ustawień na poziomie polecenia, ponieważ TableAdapter może mieć wielu obiektów polecenia - `InsertCommand`, `UpdateCommand`, i `DeleteCommand`, wraz ze zmienną liczbą obiektów polecenia w `CommandCollection` Właściwość. Podczas aktualizowania ustawień na poziomie polecenia, te ustawienia należy propagowane do wszystkich obiektów polecenia.
 
-Na przykład załóżmy, że wystąpiły niektórych zapytań w TableAdapter, który miał nadzwyczajne dużo czasu na wykonanie. Wykonaj jedną z tych zapytań za pomocą TableAdapter, chcemy może zwiększyć obiektu polecenia s [ `CommandTimeout` właściwości](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.commandtimeout.aspx). Ta właściwość określa liczbę sekund oczekiwania na wykonanie polecenia i domyślnie ustawiany na 30.
+Na przykład załóżmy, że wystąpiły niektórych zapytań w TableAdapter, który miał nadzwyczajne dużo czasu na wykonanie. Wykonaj jedną z tych zapytań za pomocą TableAdapter, chcemy może zwiększyć obiektu polecenia s [ `CommandTimeout` właściwości](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.commandtimeout.aspx). Ta właściwość określa liczbę sekund oczekiwania na wykonanie polecenia i domyślnie ustawiany na 30.
 
 Aby umożliwić `CommandTimeout` właściwość zostanie skorygowany logiki warstwy Biznesowej, Dodaj następujący `public` metodę `ProductsDataTable` przy użyciu pliku klasy częściowej utworzony w kroku 2 (`ProductsTableAdapter.ConnectionAndCommandSettings.cs`):
 

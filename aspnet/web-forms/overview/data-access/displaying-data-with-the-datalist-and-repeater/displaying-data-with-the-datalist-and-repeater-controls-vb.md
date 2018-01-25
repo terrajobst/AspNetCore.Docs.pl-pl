@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b6e71470ae2888ac4332f896c34f666618a425e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20a092ee2886932664705c22c3aa88d8a2f7f0ef
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-vb"></a>Wyświetlanie danych z DataList i kontrolki elementu powtarzanego (VB)
 ====================
@@ -163,7 +163,7 @@ Oprócz `ItemTemplate`, DataList obsługuje sześciu szablony opcjonalne:
 
 - `HeaderTemplate`Jeśli zostanie podana, dodaje wiersz nagłówka do danych wyjściowych i jest używany do renderowania tego wiersza
 - `AlternatingItemTemplate`używany do renderowania elementów przemiennych
-- `SelectedItemTemplate`używany do renderowania wybranego elementu; wybrany element to element, którego indeks odpowiada DataList s [ `SelectedIndex` właściwości](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
+- `SelectedItemTemplate`używany do renderowania wybranego elementu; wybrany element to element, którego indeks odpowiada DataList s [ `SelectedIndex` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
 - `EditItemTemplate`używany do renderowania elementu edytowany
 - `SeparatorTemplate`Jeśli zostanie podana, dodaje separatora między każdym z elementów i jest używany do renderowania tego separatora
 - `FooterTemplate`— w przypadku dodaje wiersz stopki dane wyjściowe i jest używany do renderowania tego wiersza
@@ -222,7 +222,7 @@ W programie ASP.NET 1.x, powtarzanego kontrolę został najczęściej używanych
 - W `SectionLevelTutorialListing.ascx`, powtarzanego był używany do wyświetlania listy punktowanej sekcji dzieci w bieżącej sekcji mapy witryny
 
 > [!NOTE]
-> ASP.NET 2.0 wprowadzono nowe [formantu listy BulletedList](https://msdn.microsoft.com/en-us/library/ms228101.aspx), która może być powiązana z kontroli źródła danych w celu wyświetlenia listy punktowanej proste. Za pomocą formantu listy BulletedList nie należy określić dowolne HTML związanych z listy; Zamiast tego możemy wskazują po prostu pola danych, który będzie wyświetlany jako tekst dla każdego elementu listy.
+> ASP.NET 2.0 wprowadzono nowe [formantu listy BulletedList](https://msdn.microsoft.com/library/ms228101.aspx), która może być powiązana z kontroli źródła danych w celu wyświetlenia listy punktowanej proste. Za pomocą formantu listy BulletedList nie należy określić dowolne HTML związanych z listy; Zamiast tego możemy wskazują po prostu pola danych, który będzie wyświetlany jako tekst dla każdego elementu listy.
 
 
 Powtarzanego służy jako instrukcji catch wszystkich danych formantu sieci Web. Jeśli nie jest formant generujący znaczników potrzebne, można w kontrolce elementu powtarzanego. Aby zilustrować, przy użyciu powtarzanego, umożliwiają s listy Kategorie wyświetlane powyżej elementu DataList informacji produktu, które zostały utworzone w kroku 2. W szczególności let s ma kategorie wyświetlane w HTML pojedynczy wiersz `<table>` z każdej kategorii wyświetlane jako kolumny w tabeli.

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: 6790cd0deb36c9fb297ccd4df371f763dba17844
-ms.sourcegitcommit: 17b025bd33f4474f0deaafc6d0447a4e72bcad87
+ms.openlocfilehash: 829f3a024bc15bec8b60b91193ba9bca37b78009
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/27/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>Co nie zrobić w programie ASP.NET i co zrobić, zamiast niego
 ====================
@@ -51,7 +51,7 @@ Ten temat zawiera następujące sekcje:
 
     - [PreSendRequestHeaders i PreSendRequestContent](#presend)
     - [Zdarzenia asynchroniczne strony formularzy sieci Web](#asyncevents)
-    - [Fire i zapomnij pracy](#fire)
+    - [Fire-and-Forget Work](#fire)
     - [Treści jednostki żądania](#requestentity)
     - [Response.Redirect i Response.End](#redirect)
     - [EnableViewState i ViewStateMode](#viewstatemode)
@@ -94,7 +94,7 @@ Kolejnym przykładzie pokazano, jak dynamicznie zastosować klasę CSS.
 
 Zalecenie: Zatrzymaj przy użyciu wywołania zwrotne strony i kontrolki, a zamiast tego użyć dowolnego z następujących: AJAX, element UpdatePanel, metod akcji MVC, interfejsu API sieci Web lub SignalR.
 
-We wcześniejszych wersjach programu ASP.NET metody wywołania zwrotnego strony i kontrolki włączone zaktualizować część strony sieci web bez odświeżania całej strony. Można teraz wykonać aktualizacje stron częściowych za pośrednictwem [AJAX](../../../ajax/index.md), [UpdatePanel](https://msdn.microsoft.com/en-US/library/bb386454.aspx), [MVC](../../../mvc/index.md), [interfejsu API sieci Web](../../../web-api/index.md) lub [SignalR](../../../signalr/index.md). Należy zatrzymać za pomocą metody wywołania zwrotnego, ponieważ mogą one powodować problemy przyjazne adresy URL i routing. Domyślnie przez formanty nie należy włączać metody wywołania zwrotnego, ale włączenie tej funkcji w formancie, należy wyłączyć je.
+We wcześniejszych wersjach programu ASP.NET metody wywołania zwrotnego strony i kontrolki włączone zaktualizować część strony sieci web bez odświeżania całej strony. Można teraz wykonać aktualizacje stron częściowych za pośrednictwem [AJAX](../../../ajax/index.md), [UpdatePanel](https://msdn.microsoft.com/library/bb386454.aspx), [MVC](../../../mvc/index.md), [interfejsu API sieci Web](../../../web-api/index.md) lub [SignalR](../../../signalr/index.md). Należy zatrzymać za pomocą metody wywołania zwrotnego, ponieważ mogą one powodować problemy przyjazne adresy URL i routing. Domyślnie przez formanty nie należy włączać metody wywołania zwrotnego, ale włączenie tej funkcji w formancie, należy wyłączyć je.
 
 <a id="browsercap"></a>
 
@@ -138,7 +138,7 @@ W następnym przykładzie pokazano sposób do formatu HTML kodowania wartości z
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample7.cs)]
 
-Aby bezpiecznie Koduj wartość poleceń SQL, użyj parametrów polecenia takiego jak [SqlParameter](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlparameter.aspx). <a id="cookieless"></a>
+Aby bezpiecznie Koduj wartość poleceń SQL, użyj parametrów polecenia takiego jak [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx). <a id="cookieless"></a>
 
 ### <a name="cookieless-forms-authentication-and-session"></a>Uwierzytelnianie formularzy bez plików cookie i sesji
 
@@ -180,15 +180,15 @@ Zalecenie: Nie należy wyłączać ustawienia zabezpieczeń w &lt;appSettings&gt
 
 AppSettings element zawierającej wiele wartości, które są wymagane dla aktualizacji zabezpieczeń. Nie należy zmieniać ani wyłączyć te wartości. Jeśli podczas wdrażania aktualizacji, należy wyłączyć te wartości, natychmiast ponownie włączyć po zakończeniu wdrożenia.
 
-Aby uzyskać więcej informacji, zobacz [ASP.NET appSettings elementu](https://msdn.microsoft.com/en-us/library/hh975440.aspx).
+Aby uzyskać więcej informacji, zobacz [ASP.NET appSettings elementu](https://msdn.microsoft.com/library/hh975440.aspx).
 
 <a id="urlpathencode"></a>
 
 ### <a name="urlpathencode"></a>UrlPathEncode
 
-Zalecenie: Użyj [UrlEncode](https://msdn.microsoft.com/en-us/library/zttxte6w.aspx) zamiast tego.
+Zalecenie: Użyj [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx) zamiast tego.
 
-Metoda UrlPathEncode został dodany do programu .NET Framework, aby rozwiązać problem ze zgodnością bardzo konkretnej przeglądarki. Nie można ją było właściwie przeprowadza kodowania adresu URL, a nie chroni aplikację przed skryptów między witrynami. Należy nigdy używać w aplikacji. Zamiast tego należy użyć [UrlEncode](https://msdn.microsoft.com/en-us/library/zttxte6w.aspx).
+Metoda UrlPathEncode został dodany do programu .NET Framework, aby rozwiązać problem ze zgodnością bardzo konkretnej przeglądarki. Nie można ją było właściwie przeprowadza kodowania adresu URL, a nie chroni aplikację przed skryptów między witrynami. Należy nigdy używać w aplikacji. Zamiast tego należy użyć [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx).
 
 Poniższy przykład przedstawia sposób przekazywania adresu URL zakodowanym jako parametr ciągu zapytania kontrolki hiperlinku.
 
@@ -202,9 +202,9 @@ Poniższy przykład przedstawia sposób przekazywania adresu URL zakodowanym jak
 
 ### <a name="presendrequestheaders-and-presendrequestcontent"></a>PreSendRequestHeaders i PreSendRequestContent
 
-Zalecenie: Nie należy używać tych zdarzeń z modułów zarządzanych. Zamiast tego należy zapisać moduł macierzysty usług IIS w celu wykonania wymaganych zadań. Zobacz [tworzenie moduły HTTP kodu natywnego](https://msdn.microsoft.com/en-us/library/ms693629.aspx).
+Zalecenie: Nie należy używać tych zdarzeń z modułów zarządzanych. Zamiast tego należy zapisać moduł macierzysty usług IIS w celu wykonania wymaganych zadań. Zobacz [tworzenie moduły HTTP kodu natywnego](https://msdn.microsoft.com/library/ms693629.aspx).
 
-Można użyć [PreSendRequestHeaders](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestheaders.aspx) i [PreSendRequestContent](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestcontent.aspx) zdarzenia z modułami macierzystymi programu IIS.
+Można użyć [PreSendRequestHeaders](https://msdn.microsoft.com/library/system.web.httpapplication.presendrequestheaders.aspx) i [PreSendRequestContent](https://msdn.microsoft.com/library/system.web.httpapplication.presendrequestcontent.aspx) zdarzenia z modułami macierzystymi programu IIS.
 > [!WARNING]
 > Nie używaj `PreSendRequestHeaders` i `PreSendRequestContent` z modułów zarządzanych, które implementują `IHttpModule`. Ustawienie tych właściwości mogą powodować problemy z żądań asynchronicznych. Kombinacja zażądał Routing aplikacji (ARR) i technologia websockets może prowadzić do wyjątków naruszenie dostępu, które mogą powodować w3wp awarię. Na przykład iiscore! W3_CONTEXT_BASE::GetIsLastNotification + 68 w iiscore.dll spowodowała wyjątek naruszenie zasad dostępu (0xC0000005).
 
@@ -212,7 +212,7 @@ Można użyć [PreSendRequestHeaders](https://msdn.microsoft.com/en-us/library/s
 
 ### <a name="asynchronous-page-events-with-web-forms"></a>Zdarzenia asynchroniczne strony formularzy sieci Web
 
-Zalecenie: W formularzach sieci Web unikać pisania async void metody zdarzenia cyklu życia strony, a zamiast tego użyć [Page.RegisterAsyncTask](https://msdn.microsoft.com/en-us/library/system.web.ui.page.registerasynctask.aspx) dla asynchronicznego kodu.
+Zalecenie: W formularzach sieci Web unikać pisania async void metody zdarzenia cyklu życia strony, a zamiast tego użyć [Page.RegisterAsyncTask](https://msdn.microsoft.com/library/system.web.ui.page.registerasynctask.aspx) dla asynchronicznego kodu.
 
 Po zaznaczeniu zdarzeniem strony z **async** i **void**, nie można określić podczas asynchronicznego kodu zostało zakończone. W zamian użyj Page.RegisterAsyncTask, aby uruchomić kod asynchronicznych w taki sposób, który umożliwia śledzenie jego zakończenia.
 
@@ -244,15 +244,15 @@ Zalecenie: Unikaj odczytu Request.Form lub Request.InputStream przed programu ob
 
 Najwcześniejsza którymi należy zapoznać się z kolekcji Request.Form lub Request.InputStream jest podczas obsługi wykonać zdarzeń. W nazwie wzorca MVC program obsługi jest kontrolerem i zdarzenie execute jest uruchomienie metody akcji. W formularzach sieci Web strona jest programem obsługi i zdarzenie execute jest po zdarzeniu Page.Init. Jeśli wcześniej niż zdarzeń execute przeczytanie treści jednostki żądania, zakłócać jest przetwarzania żądania.
 
-Jeśli zachodzi potrzeba odczytania treści jednostki żądania przed zdarzeniem execute, użyj jednej [Request.GetBufferlessInputStream](https://msdn.microsoft.com/en-us/library/ff406798.aspx) lub [Request.GetBufferedInputStream](https://msdn.microsoft.com/en-us/library/system.web.httprequest.getbufferedinputstream.aspx). Używasz GetBufferlessInputStream uzyskać raw strumienia z żądania, a na siebie odpowiedzialność za przetwarzanie całego żądania. Po wywołaniu metody GetBufferlessInputStream, Request.Form i Request.InputStream są niedostępne, ponieważ nie zostały one wypełnione przez platformę ASP.NET. Gdy używasz GetBufferedInputStream otrzymasz kopiowania strumienia z żądania. Request.Form i Request.InputStream są nadal dostępne w dalszej części żądania, ponieważ ASP.NET wypełnia pozostałe kopie.
+Jeśli zachodzi potrzeba odczytania treści jednostki żądania przed zdarzeniem execute, użyj jednej [Request.GetBufferlessInputStream](https://msdn.microsoft.com/library/ff406798.aspx) lub [Request.GetBufferedInputStream](https://msdn.microsoft.com/library/system.web.httprequest.getbufferedinputstream.aspx). Używasz GetBufferlessInputStream uzyskać raw strumienia z żądania, a na siebie odpowiedzialność za przetwarzanie całego żądania. Po wywołaniu metody GetBufferlessInputStream, Request.Form i Request.InputStream są niedostępne, ponieważ nie zostały one wypełnione przez platformę ASP.NET. Gdy używasz GetBufferedInputStream otrzymasz kopiowania strumienia z żądania. Request.Form i Request.InputStream są nadal dostępne w dalszej części żądania, ponieważ ASP.NET wypełnia pozostałe kopie.
 
 <a id="redirect"></a>
 
 ### <a name="responseredirect-and-responseend"></a>Response.Redirect i Response.End
 
-Zalecenie: Należy pamiętać o różnice w sposób obsługi wątku po wywołaniu [Response.Redirect(String)](https://msdn.microsoft.com/en-us/library/t9dwyts4.aspx).
+Zalecenie: Należy pamiętać o różnice w sposób obsługi wątku po wywołaniu [Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx).
 
-[Response.Redirect(String)](https://msdn.microsoft.com/en-us/library/t9dwyts4.aspx) metoda wywołuje metodę Response.End. Podczas synchronicznego wywoływania Request.Redirect powoduje, że bieżący wątek natychmiast przerwania. Jednak w proces asynchroniczny, wywoływanie metody Response.Redirect nie przerwać bieżącego wątku, więc kontynuuje wykonywanie kodu dla żądania. W procesie asynchroniczne musi zwracać zadanie z metody, aby zatrzymać wykonanie kodu.
+[Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx) metoda wywołuje metodę Response.End. Podczas synchronicznego wywoływania Request.Redirect powoduje, że bieżący wątek natychmiast przerwania. Jednak w proces asynchroniczny, wywoływanie metody Response.Redirect nie przerwać bieżącego wątku, więc kontynuuje wykonywanie kodu dla żądania. W procesie asynchroniczne musi zwracać zadanie z metody, aby zatrzymać wykonanie kodu.
 
 W projekcie MVC nie powinny wywoływać Response.Redirect. Zamiast tego należy zwracać RedirectResult.
 
@@ -286,7 +286,7 @@ Aby uzyskać więcej informacji, zobacz [wprowadzenie dostawców uniwersalnych A
 
 ### <a name="long-running-requests-110-seconds"></a>Długotrwałe żądania (> 110 w sekundach)
 
-Zalecenie: Użyj [Websocket](https://msdn.microsoft.com/en-us/library/system.net.websockets.websocket.aspx) lub [SignalR](../../../signalr/index.md) dla połączonych klientów i użyj asynchronicznej operacji We/Wy.
+Zalecenie: Użyj [Websocket](https://msdn.microsoft.com/library/system.net.websockets.websocket.aspx) lub [SignalR](../../../signalr/index.md) dla połączonych klientów i użyj asynchronicznej operacji We/Wy.
 
 Długotrwałe żądania może spowodować nieprzewidywalne skutki i pogorszenie wydajności w aplikacji sieci web. Domyślne ustawienie limitu czasu dla żądania jest 110 sekund. Jeśli używasz stanu sesji z żądaniem długotrwałe, ASP.NET spowoduje zwolnienie blokady obiektu Session 110 sekund. Jednak aplikacja może znajdować się w środku operację na obiekcie sesji po zwolnieniu blokady, a operacja nie może zakończyć się pomyślnie. Drugie żądanie od użytkownika zostało zablokowane podczas pierwszego żądania, drugie żądanie mogą uzyskiwać dostęp do obiektu Session w niespójnym stanie.
 

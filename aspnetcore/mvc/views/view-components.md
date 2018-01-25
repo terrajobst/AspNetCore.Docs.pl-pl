@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 2d93dcee102009661af708b9a9066e8af0bdbb17
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 65074ca02a1365db278d348d4e024121a6eb4634
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="view-components"></a>Składniki w widoku
 
@@ -69,7 +69,7 @@ Składnik widoku definiuje swojej logiki w `InvokeAsync` metodę zwracającą `I
 * Zdefiniuj `InvokeAsync` metodę zwracającą`IViewComponentResult`
 * Zazwyczaj inicjuje modelu i przekazuje je do widoku, wywołując `ViewComponent` `View` — metoda
 * Parametry pochodzą z wywołania metody HTTP nie znajduje się nie wiązanie modelu
-* To nie jest dostępny bezpośrednio jako punkt końcowy HTTP, ich wywołania w kodzie (zazwyczaj w widoku). Składnik widoku nigdy nie obsługuje żądania
+* To nie jest dostępny bezpośrednio jako punkt końcowy HTTP, ich jest wywoływany z kodu (zazwyczaj w widoku). Składnik widoku nigdy nie obsługuje żądania
 * Są przeciążone w sygnaturze, a nie wszystkie szczegóły z bieżącego żądania HTTP
 
 ### <a name="view-search-path"></a>Ścieżki wyszukiwania widoku
@@ -130,7 +130,7 @@ W powyższym przykładowym `PriorityList` staje się widok składnika `priority-
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>Wywoływanie składnika widoku bezpośrednio z kontrolerem
 
-Widok składniki zwykle są wywoływane z widoku, ale można ich wywoływać bezpośrednio z metody kontrolera. Podczas wyświetlania składników nie definiują punktów końcowych, takie jak kontrolerów, można łatwo zaimplementować akcji kontrolera, która zwraca zawartość `ViewComponentResult`.
+Widok składniki zwykle są wywoływane z widoku, ale można ich wywoływać bezpośrednio z metody kontrolera. Podczas wyświetlania składników nie punkty końcowe, takich jak kontrolerów, można łatwo zaimplementować akcji kontrolera, która zwraca zawartość `ViewComponentResult`.
 
 W tym przykładzie składnik widoku jest wywoływany bezpośrednio z kontrolerem:
 
@@ -152,7 +152,7 @@ Uwagi o kodzie:
 
 * Widok klas składników mogą być zawarte w **żadnych** folderu w projekcie.
 * Klasa name PriorityList**ViewComponent** kończy się sufiksem **ViewComponent**, środowisko wykonawcze będzie używać ciągu "PriorityList" podczas odwoływania się do składnika klasy z widoku. I będzie wyjaśnić, że bardziej szczegółowo później.
-* `[ViewComponent]` Atrybutu można zmienić nazwę używaną do odwołania składnika widoku. Na przykład firma Microsoft może mieć o nazwie klasy `XYZ` i stosowane `ViewComponent` atrybutu:
+* `[ViewComponent]` Atrybutu można zmienić nazwę używaną do odwołania składnika widoku. Na przykład firma Microsoft może już o nazwie klasy `XYZ` i stosowane `ViewComponent` atrybutu:
 
   ```csharp
   [ViewComponent(Name = "PriorityList")]
@@ -212,17 +212,17 @@ Uruchom aplikację i zweryfikować PVC widoku.
 
 ![Priorytet widoku składnika](view-components/_static/pvc.png)
 
-Jeśli widok PVC nie są odtwarzane, sprawdź, czy są wywoływanie składnika widoku priorytet wynosi 4 lub nowszej.
+Jeśli nie jest renderowany widok PVC, sprawdź, czy są wywoływanie składnika widoku priorytet wynosi 4 lub nowszej.
 
 ### <a name="examine-the-view-path"></a>Sprawdź ścieżkę widoku
 
-* Zmień parametr priorytet do trzech lub mniej, aby widok priorytet nie są zwracane.
+* Zmień parametr priorytet do trzech lub mniej, aby nie jest zwracana w widoku priorytet.
 * Tymczasowo zmień nazwę *Views/Todo/Components/PriorityList/Default.cshtml* do *1Default.cshtml*.
 * Testowanie aplikacji, zostanie wyświetlony następujący błąd:
 
    ```
    An unhandled exception occurred while processing the request.
-   InvalidOperationException: The view 'Components/PriorityList/Default' was not found. The following locations were searched:
+   InvalidOperationException: The view 'Components/PriorityList/Default' wasn't found. The following locations were searched:
    /Views/ToDo/Components/PriorityList/Default.cshtml
    /Views/Shared/Components/PriorityList/Default.cshtml
    EnsureSuccessful

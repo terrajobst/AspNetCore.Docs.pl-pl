@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3e66f581d0ea07831ea6356a9c13d26ed6a19b81
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69586ade54a40aabb55dd507731a6c2820774c04
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="uploading-files-vb"></a>Przekazywanie plików (VB)
 ====================
@@ -99,7 +99,7 @@ Alternatywnie dane binarne mogą być przechowywane bezpośrednio w bazie danych
 Główną zaletą przechowywania danych binarnych bezpośrednio w bazie danych jest ścisłej sprzężenie dane binarne rekordów bazy danych. To znacznie upraszcza zadania administracyjne bazy danych, takich jak tworzenie kopii zapasowych lub przenoszenie bazy danych do innej lokacji lub serwera. Ponadto usunięcie rekordu automatycznie usuwa odpowiednie dane binarne. Istnieje więcej niewielkie zalet przechowywania danych binarnych w bazie danych. Zobacz [przechowywania binarne pliki bezpośrednio w bazie danych przy użyciu składnika ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/120606-1.aspx) dla bardziej szczegółowym omówieniem.
 
 > [!NOTE]
-> W programie Microsoft SQL Server 2000 i wcześniejszych wersjach `varbinary` maksymalny limit 8000 bajtów ma typ danych. Aby przechowywać maksymalnie 2 GB danych binarnych [ `image` — typ danych](https://msdn.microsoft.com/en-us/library/ms187993.aspx) należy zamiast tego należy użyć. Z dodatkiem `MAX` w programie SQL Server 2005, jednak `image` — typ danych jest przestarzała. Go s nadal obsługiwane dla zapewnienia zgodności, ale firma Microsoft poinformowała, który `image` — typ danych zostanie usunięta w przyszłych wersjach programu SQL Server.
+> W programie Microsoft SQL Server 2000 i wcześniejszych wersjach `varbinary` maksymalny limit 8000 bajtów ma typ danych. Aby przechowywać maksymalnie 2 GB danych binarnych [ `image` — typ danych](https://msdn.microsoft.com/library/ms187993.aspx) należy zamiast tego należy użyć. Z dodatkiem `MAX` w programie SQL Server 2005, jednak `image` — typ danych jest przestarzała. Go s nadal obsługiwane dla zapewnienia zgodności, ale firma Microsoft poinformowała, który `image` — typ danych zostanie usunięta w przyszłych wersjach programu SQL Server.
 
 
 Jeśli pracujesz z starsze modelu danych może zostać wyświetlony `image` — typ danych. Bazy danych Northwind s `Categories` tabela ma `Picture` kolumny, która może służyć do przechowywania danych binarnych z pliku obrazu dla kategorii. Ponieważ bazy danych Northwind ma jego katalogów głównych programu Microsoft Access i wcześniejszych wersjach programu SQL Server, ta kolumna jest typu `image`.
@@ -210,7 +210,7 @@ W przypadku DAL zaktualizowane, wszystkie te pozostaje jest rozszerzyć firm log
 
 Podczas zbierania danych binarnych, często to dane są dostarczane przez użytkownika końcowego. Do przechwytywania te informacje, użytkownik musi mieć możliwość przekazywania plików z komputera z serwerem sieci web. Następnie dane przekazane musi można zintegrować z modelu danych, co może oznaczać zapisać plik w systemie plików s serwera sieci web i dodanie ścieżki do pliku w bazie danych lub zapisywanie zawartości binarnej bezpośrednio do bazy danych. W tym kroku wyjaśniono, jak zezwolić użytkownikowi na przekazywanie plików z komputera z serwerem. W następnym samouczku firma Microsoft będzie Włącz wymagające uwagi do integracji przekazanego pliku modelu danych.
 
-Platforma ASP.NET 2.0 nowego [kontrolka sieci Web z przekazywaniem plików](https://msdn.microsoft.com/en-us/library/ms227677(VS.80).aspx) udostępnia mechanizm dla użytkowników wysłać plik z komputera z serwerem sieci web. Renderuje kontroli przekazywaniem plików jako `<input>` element którego `type` atrybut jest ustawiony w pliku, który przeglądarki wyświetlane jako pole tekstowe z przycisku Przeglądaj. Kliknięcie przycisku Przeglądaj wywołuje okno dialogowe, z którego użytkownik może wybrać plik. Gdy formularz jest przesyłana z powrotem, zawartość wybranego pliku s są wysyłane wraz z ogłaszania zwrotnego. Po stronie serwera informacje o przekazanego pliku jest dostępna za pośrednictwem właściwości s przekazywaniem plików.
+Platforma ASP.NET 2.0 nowego [kontrolka sieci Web z przekazywaniem plików](https://msdn.microsoft.com/library/ms227677(VS.80).aspx) udostępnia mechanizm dla użytkowników wysłać plik z komputera z serwerem sieci web. Renderuje kontroli przekazywaniem plików jako `<input>` element którego `type` atrybut jest ustawiony w pliku, który przeglądarki wyświetlane jako pole tekstowe z przycisku Przeglądaj. Kliknięcie przycisku Przeglądaj wywołuje okno dialogowe, z którego użytkownik może wybrać plik. Gdy formularz jest przesyłana z powrotem, zawartość wybranego pliku s są wysyłane wraz z ogłaszania zwrotnego. Po stronie serwera informacje o przekazanego pliku jest dostępna za pośrednictwem właściwości s przekazywaniem plików.
 
 Aby zademonstrować przekazywania plików, otwórz `FileUpload.aspx` strony `BinaryData` , przeciągnij formant przekazywaniem plików z przybornika do projektanta i ustaw kontrolę s `ID` właściwości `UploadTest`. Następnie dodaj kontrolkę przycisku Web ustawienie jej `ID` i `Text` właściwości, aby `UploadButton` i przekazywanie pliku wybrane, odpowiednio. Na koniec umieścić formantu etykiety Web poniżej przycisk Wyczyść jego `Text` właściwości i zestaw jej `ID` właściwości `UploadDetails`.
 
@@ -233,13 +233,13 @@ Strony przekazany plik można zapisać w systemie plików lub jego dane binarne 
 
 [!code-vb[Main](uploading-files-vb/samples/sample5.vb)]
 
-Kontrola przekazywaniem plików zapewnia szereg właściwości przekazywane dane. Na przykład [ `HasFile` właściwości](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.fileupload.hasfile.aspx) wskazuje, czy plik został przekazany przez użytkownika, gdy [ `FileBytes` właściwość](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.fileupload.filebytes.aspx) zapewnia dostęp do danych binarnych przekazane jako tablicę bajtów. `Click` Uruchamia program obsługi zdarzeń przez zapewnienie, że plik został przekazany. Jeśli plik został przekazany, etykieta zawiera nazwę przekazanego pliku, jego rozmiar w bajtach i jej typ zawartości.
+Kontrola przekazywaniem plików zapewnia szereg właściwości przekazywane dane. Na przykład [ `HasFile` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.hasfile.aspx) wskazuje, czy plik został przekazany przez użytkownika, gdy [ `FileBytes` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.filebytes.aspx) zapewnia dostęp do danych binarnych przekazane jako tablicę bajtów. `Click` Uruchamia program obsługi zdarzeń przez zapewnienie, że plik został przekazany. Jeśli plik został przekazany, etykieta zawiera nazwę przekazanego pliku, jego rozmiar w bajtach i jej typ zawartości.
 
 > [!NOTE]
 > Aby upewnić się, że użytkownik przekazuje plik można sprawdzić `HasFile` właściwości i wyświetlić ostrzeżenie, jeśli jego s `False`, lub może używać [kontroli RequiredFieldValidator](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/validation/default.aspx) zamiast tego.
 
 
-Przekazywaniem plików s `SaveAs(filePath)` zapisuje przekazanego pliku do określonego *filePath*. *filePath* musi być *ścieżka fizyczna* (`C:\Websites\Brochures\SomeFile.pdf`) zamiast *wirtualnego* *ścieżki* (`/Brochures/SomeFile.pdf`). [ `Server.MapPath(virtPath)` Metody](https://msdn.microsoft.com/en-us/library/system.web.httpserverutility.mappath.aspx) przyjmuje ścieżkę wirtualną i zwraca jego odpowiedniego ścieżkę fizyczną. Ścieżka wirtualna jest w tym miejscu `~/Brochures/fileName`, gdzie *fileName* jest nazwą przekazanego pliku. Zobacz [przy użyciu Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml) Aby uzyskać więcej informacji na temat ścieżek wirtualnych i fizycznych `Server.MapPath`.
+Przekazywaniem plików s `SaveAs(filePath)` zapisuje przekazanego pliku do określonego *filePath*. *filePath* musi być *ścieżka fizyczna* (`C:\Websites\Brochures\SomeFile.pdf`) zamiast *wirtualnego* *ścieżki* (`/Brochures/SomeFile.pdf`). [ `Server.MapPath(virtPath)` Metody](https://msdn.microsoft.com/library/system.web.httpserverutility.mappath.aspx) przyjmuje ścieżkę wirtualną i zwraca jego odpowiedniego ścieżkę fizyczną. Ścieżka wirtualna jest w tym miejscu `~/Brochures/fileName`, gdzie *fileName* jest nazwą przekazanego pliku. Zobacz [przy użyciu Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml) Aby uzyskać więcej informacji na temat ścieżek wirtualnych i fizycznych `Server.MapPath`.
 
 Po zakończeniu `Click` program obsługi zdarzeń, Poświęć chwilę, aby przetestować strony w przeglądarce. Kliknij przycisk Przeglądaj i wybierz plik z dysku twardego, a następnie kliknij przycisk Przekaż plik zaznaczony. Wysyła zawartość wybranego pliku ogłaszania zwrotnego do serwera sieci web, który następnie spowoduje wyświetlenie informacji o pliku przed zapisaniem do `~/Brochures` folderu. Po przekazaniu pliku, wróć do programu Visual Studio i kliknij przycisk Odśwież w Eksploratorze rozwiązań. Plik, który właśnie został przekazany w folderze ~/Brochures powinien być widoczny!
 
@@ -264,7 +264,7 @@ Istnieje szereg technik rozwiązywania konfliktów nazw plików. Jedną z opcji 
 
 ## <a name="challenges-involved-with-very-large-amounts-of-binary-data"></a>Wyzwania związane z bardzo dużych ilości danych binarnych
 
-Te samouczki zakładać, że dane binarne przechwycone jest niewielkie rozmiar. Praca z dużymi ilościami danych binarnych plików, które są kilka MB lub większy wprowadza wyzwania, które wykraczają poza zakres tego samouczka. Na przykład domyślnie ASP.NET odrzuci przekazywania więcej niż 4 MB, mimo że można również skonfigurować za pomocą [ `<httpRuntime>` elementu](https://msdn.microsoft.com/en-us/library/e1f13641.aspx) w `Web.config`. IIS nakłada za własną ograniczenia rozmiaru przekazywania plików. Zobacz [rozmiar pliku Przekaż IIS](http://vandamme.typepad.com/development/2005/09/iis_upload_file.html) Aby uzyskać więcej informacji. Ponadto czas potrzebny na przekazanie dużych plików może przekroczyć domyślny 110 sekund, przez program ASP.NET będzie czekać na żądanie. Istnieją problemy z pamięcią i wydajnością nasuwające się podczas pracy z dużymi plikami.
+Te samouczki zakładać, że dane binarne przechwycone jest niewielkie rozmiar. Praca z dużymi ilościami danych binarnych plików, które są kilka MB lub większy wprowadza wyzwania, które wykraczają poza zakres tego samouczka. Na przykład domyślnie ASP.NET odrzuci przekazywania więcej niż 4 MB, mimo że można również skonfigurować za pomocą [ `<httpRuntime>` elementu](https://msdn.microsoft.com/library/e1f13641.aspx) w `Web.config`. IIS nakłada za własną ograniczenia rozmiaru przekazywania plików. Zobacz [rozmiar pliku Przekaż IIS](http://vandamme.typepad.com/development/2005/09/iis_upload_file.html) Aby uzyskać więcej informacji. Ponadto czas potrzebny na przekazanie dużych plików może przekroczyć domyślny 110 sekund, przez program ASP.NET będzie czekać na żądanie. Istnieją problemy z pamięcią i wydajnością nasuwające się podczas pracy z dużymi plikami.
 
 Formant przekazywaniem plików jest niepraktyczne przekazywania dużych plików. Jak zawartość pliku s są ogłaszany z serwerem, użytkownik końcowy patiently oczekiwania bez żadnych potwierdzenia postępuje ich przekazywania. Nie jest zbyt duża, wystąpił problem podczas pracy nad mniejsze pliki, które mogą być przekazywane w ciągu kilku sekund, ale może być przyczyną problemów podczas pracy nad większych plików, które może potrwać do przekazania. Istnieje wiele innych firm pliku przekazywania formantów, które są lepiej dostosowane do obsługi dużych przekazywania i wiele z tych dostawców zapewniają wskaźniki postępu i ActiveX Przekaż menedżerów istnieje profesjonalny bardziej środowisko użytkownika.
 
@@ -280,7 +280,7 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Używanie typów danych dużych wartości](https://msdn.microsoft.com/en-us/library/ms178158.aspx)
+- [Używanie typów danych dużych wartości](https://msdn.microsoft.com/library/ms178158.aspx)
 - [Przewodniki Szybki Start przekazywaniem plików sterowania](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/standard/fileupload.aspx)
 - [Kontrolka serwerowa ASP.NET 2.0 przekazywaniem plików](http://www.wrox.com/WileyCDA/Section/id-292158.html)
 - [Ciemny stronie przekazywania plików](http://www.aspnetresources.com/articles/dark_side_of_file_uploads.aspx)

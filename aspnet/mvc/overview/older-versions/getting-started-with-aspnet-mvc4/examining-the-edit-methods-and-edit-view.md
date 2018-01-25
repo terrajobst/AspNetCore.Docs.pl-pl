@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: fb20c98283bfd46e62d56252bbec4f4b4b08b1c3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a20693f3e83053dd99499d486412b66777189f1d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Badanie metody edycji i widoku edycji
 ====================
@@ -38,7 +38,7 @@ Uruchom aplikację i przejdź do `Movies` kontrolera, dodając */Movies* do adre
 
 ![Html.ActionLink](examining-the-edit-methods-and-edit-view/_static/image2.png)
 
-`Html` Obiekt jest pomocnika uwidocznionego za pomocą właściwości na [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/en-us/library/gg402107(VS.98).aspx) klasy podstawowej. `ActionLink` Metody pomocnika ułatwia dynamicznego generowania hiperłącza HTML, które łącze do metody akcji na kontrolerach. Pierwszy argument `ActionLink` metoda jest tekst łącza do renderowania (na przykład `<a>Edit Me</a>`). Drugi argument jest nazwą metody akcji do wywołania. Ostatni argument jest [obiekt anonimowy](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx) generujący danych trasy (w tym przypadku identyfikator 4).
+`Html` Obiekt jest pomocnika uwidocznionego za pomocą właściwości na [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/library/gg402107(VS.98).aspx) klasy podstawowej. `ActionLink` Metody pomocnika ułatwia dynamicznego generowania hiperłącza HTML, które łącze do metody akcji na kontrolerach. Pierwszy argument `ActionLink` metoda jest tekst łącza do renderowania (na przykład `<a>Edit Me</a>`). Drugi argument jest nazwą metody akcji do wywołania. Ostatni argument jest [obiekt anonimowy](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx) generujący danych trasy (w tym przypadku identyfikator 4).
 
 Wygenerowane łącze pokazano na poprzedniej ilustracji jest `http://localhost:xxxxx/Movies/Edit/4`. Trasa domyślna (w *aplikacji\_Start\RouteConfig.cs*) trwa wzorzec URL `{controller}/{action}/{id}`. W związku z tym tłumaczy ASP.NET `http://localhost:xxxxx/Movies/Edit/4` na żądanie, aby `Edit` metody akcji `Movies` kontrolera z parametrem `ID` równa 4. Przejrzyj następujący kod z *aplikacji\_Start\RouteConfig.cs* pliku.
 
@@ -54,13 +54,13 @@ Otwórz `Movies` kontrolera. Dwa `Edit` poniżej przedstawiono metody akcji.
 
 Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `HttpPost` atrybutu. Ten atrybut określa, że który przeciążenia z `Edit` metoda może być wywoływana tylko dla żądań POST. Można zastosować `HttpGet` pierwszy dla atrybutu Edytuj metodę, ale który nie jest konieczne, ponieważ jest to wartość domyślna. (Firma Microsoft będzie odwoływać się do metod akcji, które są przypisane niejawnie `HttpGet` atrybutu jako `HttpGet` metody.)
 
-`HttpGet` `Edit` Metoda przyjmuje parametr ID film, wyszukuje filmu przy użyciu programu Entity Framework `Find` metody i zwraca wybrany film do widoku edycji. Określa parametr ID [wartość domyślna](https://msdn.microsoft.com/en-us/library/dd264739.aspx) zero, jeśli `Edit` metoda jest wywoływana bez parametrów. Jeśli nie można odnaleźć film, [HttpNotFound](https://msdn.microsoft.com/en-us/library/gg453938(VS.98).aspx) jest zwracany. Podczas tworzenia widoku edycji systemu szkieletów zbadane `Movie` klasy i kodu do renderowania `<label>` i `<input>` elementy dla każdej właściwości klasy. W poniższym przykładzie pokazano widok edycji został wygenerowany:
+`HttpGet` `Edit` Metoda przyjmuje parametr ID film, wyszukuje filmu przy użyciu programu Entity Framework `Find` metody i zwraca wybrany film do widoku edycji. Określa parametr ID [wartość domyślna](https://msdn.microsoft.com/library/dd264739.aspx) zero, jeśli `Edit` metoda jest wywoływana bez parametrów. Jeśli nie można odnaleźć film, [HttpNotFound](https://msdn.microsoft.com/library/gg453938(VS.98).aspx) jest zwracany. Podczas tworzenia widoku edycji systemu szkieletów zbadane `Movie` klasy i kodu do renderowania `<label>` i `<input>` elementy dla każdej właściwości klasy. W poniższym przykładzie pokazano widok edycji został wygenerowany:
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample4.cshtml)]
 
 Zwróć uwagę, jak szablon widoku ma `@model MvcMovie.Models.Movie` instrukcji w górnej części pliku — to ustawienie określa, czy widok oczekuje modelu widoku szablonu typu `Movie`.
 
-Kod z utworzonym szkieletem używa kilku *metody pomocnicze* uprościć kod znaczników HTML. [ `Html.LabelFor` ](https://msdn.microsoft.com/en-us/library/gg401864(VS.98).aspx) Pomocnika Wyświetla nazwę pola (&quot;tytuł&quot;, &quot;ReleaseDate&quot;, &quot;Genre&quot;, lub &quot;cen &quot;). [ `Html.EditorFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) Pomocnika renderowania kodu HTML `<input>` elementu. [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) Pomocnik wyświetli żadnych komunikatów dotyczących sprawdzania poprawności skojarzone z tą właściwością.
+Kod z utworzonym szkieletem używa kilku *metody pomocnicze* uprościć kod znaczników HTML. [ `Html.LabelFor` ](https://msdn.microsoft.com/library/gg401864(VS.98).aspx) Pomocnika Wyświetla nazwę pola (&quot;tytuł&quot;, &quot;ReleaseDate&quot;, &quot;Genre&quot;, lub &quot;cen &quot;). [ `Html.EditorFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) Pomocnika renderowania kodu HTML `<input>` elementu. [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) Pomocnik wyświetli żadnych komunikatów dotyczących sprawdzania poprawności skojarzone z tą właściwością.
 
 Uruchom aplikację i przejdź do */Movies* adresu URL. Kliknij przycisk **Edytuj** łącza. W przeglądarce Wyświetl źródło strony. Poniżej przedstawiono kod HTML dla elementu form.
 
@@ -74,7 +74,7 @@ Poniżej przedstawiono listę `HttpPost` wersji `Edit` metody akcji.
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample6.cs)]
 
-[Integratora modelu platformy ASP.NET MVC](https://msdn.microsoft.com/en-us/magazine/hh781022.aspx) przyjmuje wartości przesłanego formularza i tworzy `Movie` obiekt, który jest przekazywany jako `movie` parametru. `ModelState.IsValid` Metoda sprawdza, czy dane dostarczone w formie może służyć do modyfikowania (edycji lub aktualizacji) `Movie` obiektu. Jeśli dane są prawidłowe, są zapisywane dane filmu `Movies` Kolekcja `db(MovieDBContext` wystąpienie). Nowe dane film jest zapisywana w bazie danych przez wywołanie metody `SaveChanges` metody `MovieDBContext`. Po zapisaniu danych, kod przekierowuje użytkownika do `Index` metody akcji `MoviesController` klasy, w którym są wyświetlane z kolekcji, filmów, w tym tylko zmiany.
+[Integratora modelu platformy ASP.NET MVC](https://msdn.microsoft.com/magazine/hh781022.aspx) przyjmuje wartości przesłanego formularza i tworzy `Movie` obiekt, który jest przekazywany jako `movie` parametru. `ModelState.IsValid` Metoda sprawdza, czy dane dostarczone w formie może służyć do modyfikowania (edycji lub aktualizacji) `Movie` obiektu. Jeśli dane są prawidłowe, są zapisywane dane filmu `Movies` Kolekcja `db(MovieDBContext` wystąpienie). Nowe dane film jest zapisywana w bazie danych przez wywołanie metody `SaveChanges` metody `MovieDBContext`. Po zapisaniu danych, kod przekierowuje użytkownika do `Index` metody akcji `MoviesController` klasy, w którym są wyświetlane z kolekcji, filmów, w tym tylko zmiany.
 
 Jeśli przesłanych wartości nie są prawidłowe, są wyświetlane ponownie w formularzu. `Html.ValidationMessageFor` Pomocników w *Edit.cshtml* widok szablonu zajmie się wyświetlanie odpowiednie komunikaty o błędach.
 
@@ -102,7 +102,7 @@ Rozpocznij od dodania `SearchIndex` metody akcji do istniejącej `MoviesControll
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample9.cs)]
 
-W pierwszym wierszu `SearchIndex` metoda tworzy następujące [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) zapytanie, aby wybrać filmy:
+W pierwszym wierszu `SearchIndex` metoda tworzy następujące [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) zapytanie, aby wybrać filmy:
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample10.cs)]
 
@@ -112,7 +112,7 @@ Jeśli `searchString` parametru zawiera ciąg, filmy zapytania są modyfikowane 
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample11.cs)]
 
-`s => s.Title` Kod powyżej [wyrażenia Lambda](https://msdn.microsoft.com/en-us/library/bb397687.aspx). Wyrażenia lambda są używane w oparte na metodzie [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) wysyła zapytanie jako argumenty do metod operator standardowej kwerendy, takich jak [gdzie](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.where.aspx) metodę używaną w powyższym kodzie. Zapytania LINQ nie są wykonywane, gdy są one zdefiniowane lub modyfikacji przez wywołanie metody, takie jak `Where` lub `OrderBy`. Zamiast tego wykonywania zapytania jest opóźnione, co oznacza, że obliczania wyrażenia jest opóźnione aż do jej wartość rzeczywista jest rzeczywiście iterowane za pośrednictwem lub [ `ToList` ](https://msdn.microsoft.com/en-us/library/bb342261.aspx) metoda jest wywoływana. W `SearchIndex` przykładowe zapytanie jest wykonywane w widoku SearchIndex. Aby uzyskać więcej informacji na temat wykonywania zapytań odroczonych, zobacz [wykonywania zapytania](https://msdn.microsoft.com/en-us/library/bb738633.aspx).
+`s => s.Title` Kod powyżej [wyrażenia Lambda](https://msdn.microsoft.com/library/bb397687.aspx). Wyrażenia lambda są używane w oparte na metodzie [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) wysyła zapytanie jako argumenty do metod operator standardowej kwerendy, takich jak [gdzie](https://msdn.microsoft.com/library/system.linq.enumerable.where.aspx) metodę używaną w powyższym kodzie. Zapytania LINQ nie są wykonywane, gdy są one zdefiniowane lub modyfikacji przez wywołanie metody, takie jak `Where` lub `OrderBy`. Zamiast tego wykonywania zapytania jest opóźnione, co oznacza, że obliczania wyrażenia jest opóźnione aż do jej wartość rzeczywista jest rzeczywiście iterowane za pośrednictwem lub [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx) metoda jest wywoływana. W `SearchIndex` przykładowe zapytanie jest wykonywane w widoku SearchIndex. Aby uzyskać więcej informacji na temat wykonywania zapytań odroczonych, zobacz [wykonywania zapytania](https://msdn.microsoft.com/library/bb738633.aspx).
 
 Teraz można wdrożyć `SearchIndex` widok, który będzie wyświetlany formularz dla użytkownika. Kliknij prawym przyciskiem myszy wewnątrz `SearchIndex` metody, a następnie kliknij przycisk **Dodaj widok**. W **Dodaj widok** oknie dialogowym Określ, że zamierzasz przekazać `Movie` obiekt w szablonie widoku, jak jego klasa modelu. W **szablonu szkieletu** wybierz **listy**, następnie kliknij przycisk **Dodaj**.
 

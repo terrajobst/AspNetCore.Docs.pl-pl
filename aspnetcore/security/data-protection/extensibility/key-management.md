@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: 2bd0f945306a7acd6252c2a00aafb648cf722616
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d748ee9d3edf9eed4285fab447d5b379dfcd937c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="key-management-extensibility"></a>Rozszerzalność zarządzania kluczami
 
@@ -59,7 +59,7 @@ Ponadto `IKey` przedstawia `CreateEncryptorInstance` metodę, która może słu�
 * Odwołaj klucze co najmniej jednego i zachować informacje o odwołaniu do magazynu.
 
 >[!WARNING]
-> Zapisywanie `IKeyManager` jest bardzo zaawansowane zadania, a większość deweloperów nie powinny podejmować. Zamiast tego większość deweloperów należy wykorzystać możliwości oferowane przez [XmlKeyManager](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-xmlkeymanager) klasy.
+> Zapisywanie `IKeyManager` jest bardzo zaawansowane zadania, a większość deweloperów nie powinny podejmować go. Zamiast tego większość deweloperów należy wykorzystać możliwości oferowane przez [XmlKeyManager](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-xmlkeymanager) klasy.
 
 <a name="data-protection-extensibility-key-management-xmlkeymanager"></a>
 

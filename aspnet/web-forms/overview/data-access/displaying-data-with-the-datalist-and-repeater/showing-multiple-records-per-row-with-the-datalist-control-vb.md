@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d6a9c6aef42d1f165567d1a1802bffa853a320e1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 416178533f022f2a262799e6f042d6009bb9d999
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>Wyświetlanie wielu rekordów w wierszu o formant DataList (VB)
 ====================
@@ -67,7 +67,7 @@ Poświęć chwilę, aby odwiedzić stronę w przeglądarce. Jak pokazano na rysu
 
 ## <a name="step-2-changing-the-datalist-s-layout-direction"></a>Krok 2: Zmiana kierunku układu DataList s
 
-Podczas domyślne zachowanie dla elementu DataList jest układ jego elementy w pionie w tabeli pojedynczej kolumny, wielowierszowych to zachowanie można łatwo zmienić za pośrednictwem DataList s [ `RepeatDirection` właściwości](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalist.repeatdirection.aspx). `RepeatDirection` Właściwości może zaakceptować jedną z dwóch wartości: `Horizontal` lub `Vertical` (ustawienie domyślne).
+Podczas domyślne zachowanie dla elementu DataList jest układ jego elementy w pionie w tabeli pojedynczej kolumny, wielowierszowych to zachowanie można łatwo zmienić za pośrednictwem DataList s [ `RepeatDirection` właściwości](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatdirection.aspx). `RepeatDirection` Właściwości może zaakceptować jedną z dwóch wartości: `Horizontal` lub `Vertical` (ustawienie domyślne).
 
 Zmieniając `RepeatDirection` właściwość z `Vertical` do `Horizontal`, DataList renderuje jego rekordów w jednym wierszu, tworzenie jedną kolumnę na element źródła danych. Aby zilustrować ten efekt, kliknij na liście DataList w projektancie, a następnie w oknie Właściwości zmień `RepeatDirection` właściwość z `Vertical` do `Horiztonal`. Natychmiast po zrobieniu tego, Projektant dostosowuje układ DataList s Tworzenie interfejsu w jednym wierszu, wielokolumnowego (patrz rysunek 3).
 
@@ -87,7 +87,7 @@ Podczas wyświetlania małe ilości danych w jednym wierszu tabeli wielokolumnow
 
 ## <a name="step-3-displaying-data-in-a-multi-column-multi-row-table"></a>Krok 3: Wyświetlanie danych w tabeli wielokolumnowego, wielowierszowych
 
-Aby utworzyć DataList wielokolumnowego, wielowierszowych, musimy ustawić [ `RepeatColumns` właściwości](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalist.repeatcolumns.aspx) do liczby kolumn do wyświetlenia. Domyślnie `RepeatColumns` właściwość jest ustawiona na 0, co spowoduje, że DataList wyświetlić wszystkie jego elementy w jeden wiersz lub kolumnę (w zależności od wartości `RepeatDirection` właściwości).
+Aby utworzyć DataList wielokolumnowego, wielowierszowych, musimy ustawić [ `RepeatColumns` właściwości](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatcolumns.aspx) do liczby kolumn do wyświetlenia. Domyślnie `RepeatColumns` właściwość jest ustawiona na 0, co spowoduje, że DataList wyświetlić wszystkie jego elementy w jeden wiersz lub kolumnę (w zależności od wartości `RepeatDirection` właściwości).
 
 W naszym przykładzie umożliwiają s wyświetlane trzy produktów dla każdego wiersza tabeli. W związku z tym ustawić `RepeatColumns` właściwości do 3. Po wprowadzeniu tej zmiany należy Poświęć chwilę, aby wyświetlić wyniki w przeglądarce. Jak pokazano na rysunku nr 5, produkty są teraz wymienione w tabeli trzy kolumny, wielu wierszy.
 

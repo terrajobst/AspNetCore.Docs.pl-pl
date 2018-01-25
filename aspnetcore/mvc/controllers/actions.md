@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: cef493fc2010d1c82e5c1dfec85864539252b817
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 99dcf1bd4f0dc4fcb6169f48bd398c9e40c21a35
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Żądania obsługi z kontrolerami w programie ASP.NET MVC Core
 
@@ -42,7 +42,7 @@ W ramach **M**odelu -**V**rzeglądaj -**C**wzorzec ontroller kontrolera jest odp
 
 Kontroler ma wynik przetwarzania modelu (jeśli istnieje) i zwraca prawidłowego widoku i jego skojarzony widok danych lub wynik wywołania interfejsu API. Dowiedz się więcej o [Przegląd platformy ASP.NET Core MVC](xref:mvc/overview) i [wprowadzenie do platformy ASP.NET Core MVC i Visual Studio](xref:tutorials/first-mvc-app/start-mvc).
 
-Jest to kontroler *interfejsu użytkownika na poziomie* abstrakcji. Jego obowiązki jest zapewnienie dane żądania są prawidłowe oraz wybrać, które widoku (lub wynik dla interfejsu API) ma zostać zwrócony. W aplikacjach dobrze factored nie bezpośrednio zawiera dane dostępu lub logikę biznesową. Zamiast tego kontrolera deleguje do obsługi obowiązki tych usług.
+Jest to kontroler *interfejsu użytkownika na poziomie* abstrakcji. Jego obowiązki jest zapewnienie dane żądania są prawidłowe oraz wybrać, które widoku (lub wynik dla interfejsu API) ma zostać zwrócony. W aplikacjach dobrze factored bezpośrednio nie zawiera danych dostępu lub logikę biznesową. Zamiast tego kontrolera deleguje do obsługi obowiązki tych usług.
 
 ## <a name="defining-actions"></a>Definiowanie akcji
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 msc.type: authoredcontent
-ms.openlocfilehash: 08b714eb2ffaefc7c7e2e5c9a7428106b231e5b7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 899bbdef82d689be81cd77ea6805e0484fb614aa
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>Renderowanie witryny sieci Web ASP.NET (Razor) stron dla urządzeń przenośnych
 ====================
@@ -32,7 +32,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 >   
 > 
 > W tym samouczku współdziała również z programu ASP.NET Web Pages 2.
@@ -40,7 +40,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 
 Strony ASP.NET Web Pages umożliwia tworzenie niestandardowych służy do renderowania zawartości na telefon komórkowy lub innych urządzeń.
 
-Najprostszym sposobem tworzenia urządzenia strony w witrynie stron ASP.NET Web Pages jest przy użyciu wzorca nazewnictwa plików następująco: *FileName.* *Mobile**.cshtml*. Można utworzyć dwie wersje strony (na przykład jedną o nazwie *MyFile.cshtml* i jedną o nazwie *MyFile.Mobile.cshtml*). W czasie, gdy urządzenie przenośne żąda wykonywania *MyFile.cshtml*, platforma ASP.NET renderuje zawartość z *MyFile.Mobile.cshtml*. W przeciwnym razie *MyFile.cshtml* jest renderowany.
+Najprostszym sposobem tworzenia urządzenia strony w witrynie stron ASP.NET Web Pages jest przy użyciu wzorca nazewnictwa plików następująco: *FileName. **Mobile**.cshtml*. Można utworzyć dwie wersje strony (na przykład jedną o nazwie *MyFile.cshtml* i jedną o nazwie *MyFile.Mobile.cshtml*). W czasie, gdy urządzenie przenośne żąda wykonywania *MyFile.cshtml*, platforma ASP.NET renderuje zawartość z *MyFile.Mobile.cshtml*. W przeciwnym razie *MyFile.cshtml* jest renderowany.
 
 Poniższy przykład pokazuje, jak umożliwiające renderowanie przenośnych przez dodanie strony zawartości dla urządzeń przenośnych. *Page1.cshtml* zawiera zawartości oraz pasek boczny nawigacji. *Page1.Mobile.cshtml* zawiera tę samą zawartość, ale pominięto paska bocznego.
 
@@ -56,11 +56,11 @@ Poniższy przykład pokazuje, jak umożliwiające renderowanie przenośnych prze
     ![mobilesites-2](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image2.png)
 
 > [!NOTE]
-> Aby przetestować stron dla urządzeń przenośnych, można użyć symulator urządzeń przenośnych, uruchomioną na komputerze stacjonarnym. To narzędzie umożliwia testowanie stron sieci web, jak wyglądają na urządzeniach przenośnych (oznacza to zwykle z dużo mniejszym wyświetlenie obszaru). Przykład symulatora [przełącznik agenta użytkownika dodatku](http://addons.mozilla.org/en-us/firefox/addon/user-agent-switcher/) programie Mozilla Firefox, co umożliwia emulować różnych przeglądarkach dla urządzeń przenośnych z wersji pulpitu Firefox.
+> Aby przetestować stron dla urządzeń przenośnych, można użyć symulator urządzeń przenośnych, uruchomioną na komputerze stacjonarnym. To narzędzie umożliwia testowanie stron sieci web, jak wyglądają na urządzeniach przenośnych (oznacza to zwykle z dużo mniejszym wyświetlenie obszaru). Przykład symulatora [przełącznik agenta użytkownika dodatku](http://addons.mozilla.org/firefox/addon/user-agent-switcher/) programie Mozilla Firefox, co umożliwia emulować różnych przeglądarkach dla urządzeń przenośnych z wersji pulpitu Firefox.
 
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 
-[Emulator Windows Phone](https://msdn.microsoft.com/en-us/library/ff402563(v=VS.92).aspx)
+[Emulator Windows Phone](https://msdn.microsoft.com/library/ff402563(v=VS.92).aspx)

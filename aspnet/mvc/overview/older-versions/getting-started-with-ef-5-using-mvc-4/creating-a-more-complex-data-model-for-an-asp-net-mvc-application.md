@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5283da2786d41c0ae06607185dd416aeb7d2b62a
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: accb5ddab8df67dfa29038541dc0cd72eaac173c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application-4-of-10"></a>Tworzenie bardziej złożonych modelu danych dla aplikacji platformy ASP.NET MVC (4 10)
 ====================
@@ -49,9 +49,9 @@ W *Models\Student.cs*, Dodaj `using` instrukcji dla `System.ComponentModel.DataA
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample1.cs?highlight=3,13-14)]
 
-[DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych. W takim przypadku tylko chcemy śledzić data nie Data i godzina. [Wyliczenie DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) zawiera wiele typów danych, takich jak *dat, czasu, numer telefonu, waluty, EmailAddress* i inne. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza [DataType.EmailAddress](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx), i może zostać dostarczony selektora daty [DataType.Date](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) w przeglądarkach obsługujących [HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybuty emituje HTML 5 [danych -](http://ejohn.org/blog/html-5-data-attributes/) (Wymowa *kreska danych*) atrybutów, które byłyby zrozumiałe dla przeglądarki HTML 5. [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybutów nie dostarcza żadnych sprawdzania poprawności.
+[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych. W takim przypadku tylko chcemy śledzić data nie Data i godzina. [Wyliczenie DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) zawiera wiele typów danych, takich jak *dat, czasu, numer telefonu, waluty, EmailAddress* i inne. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), i może zostać dostarczony selektora daty [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) w przeglądarkach obsługujących [HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybuty emituje HTML 5 [danych -](http://ejohn.org/blog/html-5-data-attributes/) (Wymowa *kreska danych*) atrybutów, które byłyby zrozumiałe dla przeglądarki HTML 5. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybutów nie dostarcza żadnych sprawdzania poprawności.
 
-`DataType.Date`Określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](https://msdn.microsoft.com/en-us/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
+`DataType.Date`Określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
 
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 
@@ -61,11 +61,11 @@ W *Models\Student.cs*, Dodaj `using` instrukcji dla `System.ComponentModel.DataA
 
 `ApplyFormatInEditMode` Ustawienie określa, czy określony sposób formatowania powinny również będą stosowane, gdy wartość jest wyświetlana w polu tekstowym do edycji. (Nie może być który dla niektórych pól — na przykład dla wartości waluty, może nie ma symbolu waluty w polu tekstowym do edycji.)
 
-Można użyć [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybutu przez sam, ale jest zwykle warto użyć [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx) również atrybutu. `DataType` Przekazuje atrybutu *semantyki* danych w przeciwieństwie do jak renderować ją na ekranie i zapewnia następujące korzyści, które nie można uzyskać z `DisplayFormat`:
+Można użyć [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybutu przez sam, ale jest zwykle warto użyć [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) również atrybutu. `DataType` Przekazuje atrybutu *semantyki* danych w przeciwieństwie do jak renderować ją na ekranie i zapewnia następujące korzyści, które nie można uzyskać z `DisplayFormat`:
 
 - Przeglądarki, można włączyć funkcje HTML5 (na przykład pokazać formant kalendarza, symbol waluty odpowiednie ustawienia regionalne, przesyłanie pocztą e-mail łączy, itp.).
-- Domyślnie, przeglądarka wyświetli danych przy użyciu właściwego formatu na podstawie Twojej [ustawień regionalnych](https://msdn.microsoft.com/en-us/library/vstudio/wyzd2bce.aspx).
-- [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybut można włączyć MVC wybrać szablon pola prawo do renderowania danych ( [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) Jeśli używany przez samego używa szablonu ciągu). Aby uzyskać więcej informacji, zobacz Brad Wilson [ASP.NET MVC 2 szablony](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (Chociaż przeznaczone dla platformy MVC 2, w tym artykule nadal dotyczy bieżącej wersji programu ASP.NET MVC.)
+- Domyślnie, przeglądarka wyświetli danych przy użyciu właściwego formatu na podstawie Twojej [ustawień regionalnych](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
+- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybut można włączyć MVC wybrać szablon pola prawo do renderowania danych ( [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) Jeśli używany przez samego używa szablonu ciągu). Aby uzyskać więcej informacji, zobacz Brad Wilson [ASP.NET MVC 2 szablony](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (Chociaż przeznaczone dla platformy MVC 2, w tym artykule nadal dotyczy bieżącej wersji programu ASP.NET MVC.)
 
 Jeśli używasz `DataType` atrybutu z polem daty należy określić `DisplayFormat` atrybutu również w celu zapewnienia, że pole poprawnie renderuje przeglądarki Chrome. Aby uzyskać więcej informacji, zobacz [tego wątku StackOverflow](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie).
 
@@ -75,21 +75,21 @@ Ponownie uruchom strony indeksu dla użytkowników domowych i zwróć uwagę, ni
 
 ### <a name="the-stringlengthattribute"></a>Element StringLengthAttribute
 
-Można również określić reguły sprawdzania poprawności danych i komunikatów za pomocą atrybutów. Załóżmy, że chcesz upewnić się, że użytkownicy nie wprowadzić więcej niż 50 znaków dla nazwy. Aby dodać to ograniczenie, Dodaj [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybuty do `LastName` i `FirstMidName` właściwości, jak pokazano w poniższym przykładzie:
+Można również określić reguły sprawdzania poprawności danych i komunikatów za pomocą atrybutów. Załóżmy, że chcesz upewnić się, że użytkownicy nie wprowadzić więcej niż 50 znaków dla nazwy. Aby dodać to ograniczenie, Dodaj [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybuty do `LastName` i `FirstMidName` właściwości, jak pokazano w poniższym przykładzie:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample3.cs?highlight=10,12)]
 
-[StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybutu nie uniemożliwić wprowadzanie biały znak dla nazwy użytkownika. Można użyć [wyrażenia regularnego](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atrybutu, aby zastosować ograniczenia do danych wejściowych. Na przykład następujący kod wymaga pierwszego znaku się wielkie litery i pozostałych znaków jako alfabetycznej:
+[StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybutu nie uniemożliwić wprowadzanie biały znak dla nazwy użytkownika. Można użyć [wyrażenia regularnego](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atrybutu, aby zastosować ograniczenia do danych wejściowych. Na przykład następujący kod wymaga pierwszego znaku się wielkie litery i pozostałych znaków jako alfabetycznej:
 
 `[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]`
 
-[MaxLength](https://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.MaxLengthAttribute.aspx) atrybutu zapewnia funkcje podobne do [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybutu, ale nie zapewnia po stronie klienta sprawdzania poprawności.
+[MaxLength](https://msdn.microsoft.com/library/System.ComponentModel.DataAnnotations.MaxLengthAttribute.aspx) atrybutu zapewnia funkcje podobne do [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atrybutu, ale nie zapewnia po stronie klienta sprawdzania poprawności.
 
 Uruchom aplikację, a następnie kliknij przycisk **studentów** kartę. Otrzymasz następujący błąd:
 
 *Model kopii kontekstu "SchoolContext" została zmieniona od czasu utworzenia bazy danych. Należy rozważyć użycie migracje Code First aktualizacji bazy danych ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269)).*
 
-Model bazy danych został zmieniony w taki sposób, który wymaga zmiany w schemacie bazy danych, a Entity Framework wykrył, że. Użyjesz migracji do aktualizacji schematu bez utraty danych, które są dodawane do bazy danych przy użyciu interfejsu użytkownika. Zmiana danych, która została utworzona przez `Seed` — metoda, która ma zostać zmieniona wstecz do oryginalnego stanu z powodu [AddOrUpdate](https://msdn.microsoft.com/en-us/library/hh846520(v=vs.103).aspx) metody, której używasz w `Seed` metody. ([AddOrUpdate](https://msdn.microsoft.com/en-us/library/hh846520(v=vs.103).aspx) jest odpowiednikiem operacji "upsert" z bazy danych terminologii.)
+Model bazy danych został zmieniony w taki sposób, który wymaga zmiany w schemacie bazy danych, a Entity Framework wykrył, że. Użyjesz migracji do aktualizacji schematu bez utraty danych, które są dodawane do bazy danych przy użyciu interfejsu użytkownika. Zmiana danych, która została utworzona przez `Seed` — metoda, która ma zostać zmieniona wstecz do oryginalnego stanu z powodu [AddOrUpdate](https://msdn.microsoft.com/library/hh846520(v=vs.103).aspx) metody, której używasz w `Seed` metody. ([AddOrUpdate](https://msdn.microsoft.com/library/hh846520(v=vs.103).aspx) jest odpowiednikiem operacji "upsert" z bazy danych terminologii.)
 
 W konsoli Menedżera pakietów (PMC) wprowadź następujące polecenia:
 
@@ -107,11 +107,11 @@ Atrybuty umożliwia także kontrolować sposób z klas i właściwości są mapo
 
 `Column` Atrybut określa, że po utworzeniu bazy danych, w kolumnie `Student` tabeli, który jest mapowany na `FirstMidName` właściwość o nazwie `FirstName`. Innymi słowy, gdy kod odwołuje się do `Student.FirstMidName`, dane będą pobierane z lub zaktualizowane w `FirstName` kolumny `Student` tabeli. Jeśli nie określisz nazwy kolumn mających taką samą nazwę jak nazwa właściwości.
 
-Dodaj using instrukcji dla [System.ComponentModel.DataAnnotations.Schema](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.aspx) i atrybut nazwy kolumny do `FirstMidName` właściwości, jak pokazano w poniższym kodzie wyróżnione:
+Dodaj using instrukcji dla [System.ComponentModel.DataAnnotations.Schema](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.aspx) i atrybut nazwy kolumny do `FirstMidName` właściwości, jak pokazano w poniższym kodzie wyróżnione:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample5.cs?highlight=4,14)]
 
-Dodanie [atrybut kolumny](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.columnattribute.aspx) zmiany modelu tworzenia kopii SchoolContext, więc nie będzie zgodny z bazą danych. Wpisz następujące polecenia w PMC, aby utworzyć inną migracji:
+Dodanie [atrybut kolumny](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.columnattribute.aspx) zmiany modelu tworzenia kopii SchoolContext, więc nie będzie zgodny z bazą danych. Wpisz następujące polecenia w PMC, aby utworzyć inną migracji:
 
 [!code-console[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample6.cmd)]
 
@@ -123,7 +123,7 @@ Na poniższej ilustracji przedstawiono oryginalna nazwa kolumny, jak przed zasto
 
 ![](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image5.png)
 
-Można również zmienić bazy danych mapowania za pomocą [interfejsu API Fluent](https://msdn.microsoft.com/en-us/data/jj591617), jak można zauważyć w dalszej części tego samouczka.
+Można również zmienić bazy danych mapowania za pomocą [interfejsu API Fluent](https://msdn.microsoft.com/data/jj591617), jak można zauważyć w dalszej części tego samouczka.
 
 > [!NOTE]
 > Jeśli spróbujesz skompilować przed zakończeniem Tworzenie wszystkich tych klas jednostek, może wystąpić błędy kompilatora.
@@ -145,7 +145,7 @@ Atrybuty w `LastName` właściwości określić, że jest polem wymaganym podpis
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample8.cs)]
 
-[Atrybutu StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) Ustawia maksymalną długość w bazie danych i zapewnia po stronie klienta i po stronie serwera weryfikacji dla platformy ASP.NET MVC. Minimalna długość ciągu można również określić, w tym atrybucie, ale wartość minimalna nie ma wpływu na schemat bazy danych. [Wymaganego atrybutu](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx) jest zbędny dla typów wartości, takie jak DateTime, int, double i float. Typy wartości nie można przypisać wartość null, dzięki czemu są one z założenia wymagane. Można usunąć [wymaganego atrybutu](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx) i zamień ją na minimalną długość parametru `StringLength` atrybutu:
+[Atrybutu StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) Ustawia maksymalną długość w bazie danych i zapewnia po stronie klienta i po stronie serwera weryfikacji dla platformy ASP.NET MVC. Minimalna długość ciągu można również określić, w tym atrybucie, ale wartość minimalna nie ma wpływu na schemat bazy danych. [Wymaganego atrybutu](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) jest zbędny dla typów wartości, takie jak DateTime, int, double i float. Typy wartości nie można przypisać wartość null, dzięki czemu są one z założenia wymagane. Można usunąć [wymaganego atrybutu](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) i zamień ją na minimalną długość parametru `StringLength` atrybutu:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample9.cs?highlight=2)]
 
@@ -161,7 +161,7 @@ Wiele atrybutów można umieścić w jednym wierszu, więc można także zapisa�
 
 ### <a name="the-courses-and-officeassignment-navigation-properties"></a>Właściwości nawigacji OfficeAssignment i szkolenia
 
-`Courses` i `OfficeAssignment` właściwości są właściwości nawigacji. Jak wyjaśniono wcześniej, są zazwyczaj definiowane jako [wirtualnego](https://msdn.microsoft.com/en-us/library/9fkccyh4(v=vs.110).aspx) tak, aby można było korzystać funkcję programu Entity Framework [opóźnionego ładowania](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx). Ponadto, jeśli właściwość nawigacji może zawierać wiele jednostek, jego typ musi implementować [ICollection&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/92t2ye13.aspx) interfejsu. (Na przykład [IList&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/5y536ey6.aspx) nie kwalifikuje się [IEnumerable&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/9eekhta0.aspx) ponieważ `IEnumerable<T>` nie implementuje [Dodaj ](https://msdn.microsoft.com/en-us/library/63ywd54z.aspx).
+`Courses` i `OfficeAssignment` właściwości są właściwości nawigacji. Jak wyjaśniono wcześniej, są zazwyczaj definiowane jako [wirtualnego](https://msdn.microsoft.com/library/9fkccyh4(v=vs.110).aspx) tak, aby można było korzystać funkcję programu Entity Framework [opóźnionego ładowania](https://msdn.microsoft.com/magazine/hh205756.aspx). Ponadto, jeśli właściwość nawigacji może zawierać wiele jednostek, jego typ musi implementować [ICollection&lt;T&gt; ](https://msdn.microsoft.com/library/92t2ye13.aspx) interfejsu. (Na przykład [IList&lt;T&gt; ](https://msdn.microsoft.com/library/5y536ey6.aspx) nie kwalifikuje się [IEnumerable&lt;T&gt; ](https://msdn.microsoft.com/library/9eekhta0.aspx) ponieważ `IEnumerable<T>` nie implementuje [Dodaj ](https://msdn.microsoft.com/library/63ywd54z.aspx).
 
 Instruktora nauczyć dowolną liczbę kursów, więc `Courses` jest zdefiniowany jako kolekcja `Course` jednostek. Stan naszej reguły biznesowe instruktora tylko może mieć co najwyżej jeden pakiet office, tak `OfficeAssignment` jest zdefiniowany jako pojedynczy `OfficeAssignment` jednostki (które mogą być `null` , jeśli nie przypisano żadnych pakietu office).
 
@@ -187,7 +187,7 @@ Można również użyć `Key` atrybut, jeśli jednostka ma własny klucz podstaw
 
 ### <a name="the-foreignkey-attribute"></a>Atrybut klucza obcego
 
-Po relacji jeden do zero lub jeden lub relacją między dwoma obiektami (takich jak między `OfficeAssignment` i `Instructor`), nie może działać EF, które punkt końcowy relacji jest podmiot zabezpieczeń i zakończenia, która jest zależna. Relacje jeden do jednego ma właściwości nawigacji odwołania w każdej klasie do innej klasy. [Atrybutu klucza obcego](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.foreignkeyattribute.aspx) może odnosić się do klasy zależne ustanowienie relacji. W przypadku pominięcia [atrybutu klucza obcego](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.foreignkeyattribute.aspx), otrzymasz następujący błąd podczas próby utworzenia migracji:
+Po relacji jeden do zero lub jeden lub relacją między dwoma obiektami (takich jak między `OfficeAssignment` i `Instructor`), nie może działać EF, które punkt końcowy relacji jest podmiot zabezpieczeń i zakończenia, która jest zależna. Relacje jeden do jednego ma właściwości nawigacji odwołania w każdej klasie do innej klasy. [Atrybutu klucza obcego](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.foreignkeyattribute.aspx) może odnosić się do klasy zależne ustanowienie relacji. W przypadku pominięcia [atrybutu klucza obcego](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.foreignkeyattribute.aspx), otrzymasz następujący błąd podczas próby utworzenia migracji:
 
 Nie można ustalić głównego końca skojarzenia między typami "ContosoUniversity.Models.OfficeAssignment" i "ContosoUniversity.Models.Instructor". Główny koniec skojarzenia należy jawnie skonfigurować przy użyciu interfejsu API fluent relacji lub adnotacji danych.
 
@@ -211,7 +211,7 @@ Jednostka kursu ma właściwości klucza obcego `DepartmentID` wskazujących pok
 
 ### <a name="the-databasegenerated-attribute"></a>Atrybut DatabaseGenerated
 
-[Atrybutu DatabaseGenerated](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute.aspx) z [Brak](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.110).aspx) parametru `CourseID` właściwość określa, że wartości klucza podstawowego są dostarczane przez użytkownika zamiast wygenerowanych przez bazę danych.
+[Atrybutu DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute.aspx) z [Brak](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.110).aspx) parametru `CourseID` właściwość określa, że wartości klucza podstawowego są dostarczane przez użytkownika zamiast wygenerowanych przez bazę danych.
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
 
@@ -241,11 +241,11 @@ Utwórz *Models\Department.cs* następującym kodem:
 
 ### <a name="the-column-attribute"></a>Atrybut kolumny
 
-Wcześniej używane [atrybut kolumny](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.columnattribute.aspx) zmienić mapowanie nazwy kolumny. W kodzie `Department` jednostki, `Column` atrybutów jest używane do zmienić mapowanie typu danych SQL, tak aby kolumna zostanie zdefiniowana przy użyciu programu SQL Server [pieniędzy](https://msdn.microsoft.com/en-us/library/ms179882.aspx) typu w bazie danych:
+Wcześniej używane [atrybut kolumny](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.columnattribute.aspx) zmienić mapowanie nazwy kolumny. W kodzie `Department` jednostki, `Column` atrybutów jest używane do zmienić mapowanie typu danych SQL, tak aby kolumna zostanie zdefiniowana przy użyciu programu SQL Server [pieniędzy](https://msdn.microsoft.com/library/ms179882.aspx) typu w bazie danych:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample21.cs)]
 
-Mapowanie kolumny zwykle nie jest wymagane, ponieważ programu Entity Framework zazwyczaj wybiera odpowiedni typ danych programu SQL Server, na podstawie typu CLR dla właściwości. Środowisko CLR `decimal` typu map do programu SQL Server `decimal` typu. Ale w takim przypadku wiesz, że kolumna zostanie zawierający kwot i [pieniędzy](https://msdn.microsoft.com/en-us/library/ms179882.aspx) jest bardziej odpowiednie dla danego typu danych.
+Mapowanie kolumny zwykle nie jest wymagane, ponieważ programu Entity Framework zazwyczaj wybiera odpowiedni typ danych programu SQL Server, na podstawie typu CLR dla właściwości. Środowisko CLR `decimal` typu map do programu SQL Server `decimal` typu. Ale w takim przypadku wiesz, że kolumna zostanie zawierający kwot i [pieniędzy](https://msdn.microsoft.com/library/ms179882.aspx) jest bardziej odpowiednie dla danego typu danych.
 
 ### <a name="foreign-key-and-navigation-properties"></a>Klucz obcy i właściwości nawigacji
 
@@ -319,7 +319,7 @@ Oprócz linii relacji wiele do wielu (\* do \*) i linii relacji jeden do wielu (
 
 ## <a name="customize-the-data-model-by-adding-code-to-the-database-context"></a>Dostosowywanie modelu danych przez dodanie kodu do kontekstu bazy danych
 
-Następnie należy dodać nowe jednostki do `SchoolContext` klasy i dostosowywać niektóre mapowania za pomocą [interfejsu API fluent](https://msdn.microsoft.com/en-us/data/jj591617) wywołania. (Interfejs API jest "fluent", ponieważ jest często używany przez instalowanie szereg wywołania metody w jednej instrukcji).
+Następnie należy dodać nowe jednostki do `SchoolContext` klasy i dostosowywać niektóre mapowania za pomocą [interfejsu API fluent](https://msdn.microsoft.com/data/jj591617) wywołania. (Interfejs API jest "fluent", ponieważ jest często używany przez instalowanie szereg wywołania metody w jednej instrukcji).
 
 W tym samouczku użyjesz interfejsu API fluent tylko w przypadku mapowanie bazy danych, które nie są z atrybutami. Jednak umożliwia także interfejsu API fluent określić większość formatowania, sprawdzanie poprawności i reguły mapowania, które możesz wykonać za pomocą atrybutów. Niektóre atrybuty, takie jak `MinimumLength` nie można zastosować z interfejsu API fluent. Jak wspomniano wcześniej, `MinimumLength` nie powoduje zmiany schematu, ma zastosowanie tylko reguły sprawdzania poprawności po stronie klienta i serwera
 
@@ -329,7 +329,7 @@ Aby dodać nowe jednostki w danym modelu i wykonać mapowanie bazy danych, któr
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample29.cs)]
 
-Nowy raport w [OnModelCreating](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) sprzężenia wiele do wielu tabela konfiguruje metody:
+Nowy raport w [OnModelCreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) sprzężenia wiele do wielu tabela konfiguruje metody:
 
 - Dla relacji wiele do wielu między `Instructor` i `Course` jednostek, kod określa nazwy tabel i kolumn dla tabeli sprzężenia. Kod najpierw skonfigurować relacji wiele do wielu można bez tego kodu, ale nie można wywołać, otrzymasz domyślnych nazw takich jak `InstructorInstructorID` dla `InstructorID` kolumny.
 

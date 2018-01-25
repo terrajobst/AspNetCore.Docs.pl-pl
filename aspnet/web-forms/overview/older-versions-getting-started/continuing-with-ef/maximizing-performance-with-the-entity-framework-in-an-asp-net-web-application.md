@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9e257f5061f6bdf14ad0776ff6385fb526d6dcb1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 40a53a110115e5f6342d2a97d21b64470450fd3c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Maksymalizacja wydajności przy użyciu programu Entity Framework 4.0 w aplikacji ASP.NET 4 sieci Web
 ====================
@@ -251,17 +251,17 @@ Można teraz uruchomić aplikację i sprawdzić, czy działa tak jak poprzednio.
 
 Aby uzyskać więcej informacji na temat wstępnie wygenerowanych widoków zobacz następujące zasoby:
 
-- [Porady: wstępnego wygenerowania widoków, aby poprawić wydajność kwerend](https://msdn.microsoft.com/en-us/library/bb896240.aspx) w witrynie MSDN. Wyjaśniono, jak używać `EdmGen.exe` narzędzia wiersza polecenia do wstępnego wygenerowania widoków.
+- [Porady: wstępnego wygenerowania widoków, aby poprawić wydajność kwerend](https://msdn.microsoft.com/library/bb896240.aspx) w witrynie MSDN. Wyjaśniono, jak używać `EdmGen.exe` narzędzia wiersza polecenia do wstępnego wygenerowania widoków.
 - [Izolowanie wydajności przy użyciu Prekompilowanego/wstępnie przygotowany-generated widoki programu Entity Framework 4](https://blogs.msdn.com/b/appfabriccat/archive/2010/08/06/isolating-performance-with-precompiled-pre-generated-views-in-the-entity-framework-4.aspx) na blogu zespół doradczy klientów systemu Windows Server AppFabric.
 
 Na tym kończy się wprowadzenie do poprawy wydajności w aplikacji sieci web ASP.NET, która korzysta z programu Entity Framework. Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
-- [Zagadnienia dotyczące wydajności (Entity Framework)](https://msdn.microsoft.com/en-us/library/cc853327.aspx) w witrynie MSDN.
+- [Zagadnienia dotyczące wydajności (Entity Framework)](https://msdn.microsoft.com/library/cc853327.aspx) w witrynie MSDN.
 - [Związane z wydajnością wpisach w blogu zespołu Framework jednostki](https://blogs.msdn.com/b/adonet/archive/tags/performance/).
 - [Scal EF opcje i skompilowane zapytania](https://blogs.msdn.com/b/dsimmons/archive/2010/01/12/ef-merge-options-and-compiled-queries.aspx). Wyjaśniający nieoczekiwane zachowania skompilowane zapytania i merge w blogu opcje, takie jak `NoTracking`. Jeśli planujesz użyć skompilowane zapytania lub modyfikowania ustawień opcji scalania w aplikacji, tym najpierw odczytu.
 - [Zapisuje Entity Framework związane z na blogu dane i modelowanie zespół doradczy klientów](https://blogs.msdn.com/b/dmcat/archive/tags/entity+framework/). Zawiera wpisy na skompilowane zapytania i przy użyciu programu Visual Studio 2010 profilującego do wykrywania problemów z wydajnością.
-- [Entity Framework forum wątku z porady na temat zwiększania wydajności bardzo złożonych zapytań](https://social.msdn.microsoft.com/Forums/en-US/adodotnetentityframework/thread/ffe8b2ab-c5b5-4331-8988-33a872d0b5f6).
-- [Zalecenia dotyczące zarządzania stanu ASP.NET](https://msdn.microsoft.com/en-us/library/z1hkazw7.aspx).
+- [Entity Framework forum wątku z porady na temat zwiększania wydajności bardzo złożonych zapytań](https://social.msdn.microsoft.com/Forums/adodotnetentityframework/thread/ffe8b2ab-c5b5-4331-8988-33a872d0b5f6).
+- [Zalecenia dotyczące zarządzania stanu ASP.NET](https://msdn.microsoft.com/library/z1hkazw7.aspx).
 - [Przy użyciu programu Entity Framework i ObjectDataSource: stronicowania niestandardowego](http://geekswithblogs.net/Frez/articles/using-the-entity-framework-and-the-objectdatasource-custom-paging.aspx). Wpis w blogu bazującą na aplikacji ContosoUniversity utworzone w tych samouczkach wyjaśnić sposób zaimplementowania stronicowania w *Departments.aspx* strony.
 
 Następny samouczek przegląda niektóre istotne ulepszenia do narzędzia Entity Framework, które stanowią nowość w wersji 4.

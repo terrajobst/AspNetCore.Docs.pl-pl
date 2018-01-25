@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 8842f57df84d841df77b34e9645dbf4909f82d85
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e5968f8d19191c3f44e9bd58f8e22a39d8d8faff
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-oauth-20-authorization-server"></a>Serwera autoryzacji OAuth 2.0 OWIN
 ====================
@@ -57,12 +57,12 @@ W tym samouczku omówiono:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-editions) lub wolnych [Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-express), jak określono w **wersje oprogramowania** w górnej części strony.
-- Znajomość OWIN. Zobacz [wprowadzenie projektu Katana](https://msdn.microsoft.com/en-us/magazine/dn451439.aspx) i [What's new in OWIN i Katana](index.md).
+- Znajomość OWIN. Zobacz [wprowadzenie projektu Katana](https://msdn.microsoft.com/magazine/dn451439.aspx) i [What's new in OWIN i Katana](index.md).
 - Znajomość [OAuth](http://tools.ietf.org/html/rfc6749) terminologii, łącznie z [ról](http://tools.ietf.org/html/rfc6749#section-1.1), [przepływ protokołu](http://tools.ietf.org/html/rfc6749#section-1.2), i [udzielania autoryzacji](http://tools.ietf.org/html/rfc6749#section-1.3). [Wprowadzenie protokołu OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-1) stanowi dobry wprowadzenie.
 
 ## <a name="create-an-authorization-server"></a>Tworzenie serwera autoryzacji
 
-W tym samouczku zostanie możemy około szkic się, jak używać [OWIN](https://msdn.microsoft.com/en-us/magazine/dn451439.aspx) i ASP.NET MVC do utworzenia serwera autoryzacji. Mamy nadzieję wkrótce zapewnienie pobieranie przykładowej ukończone, zgodnie z tego samouczka nie ma każdego kroku. Najpierw utwórz pustą aplikację sieci web o nazwie *AuthorizationServer* i zainstaluj następujące pakiety:
+W tym samouczku zostanie możemy około szkic się, jak używać [OWIN](https://msdn.microsoft.com/magazine/dn451439.aspx) i ASP.NET MVC do utworzenia serwera autoryzacji. Mamy nadzieję wkrótce zapewnienie pobieranie przykładowej ukończone, zgodnie z tego samouczka nie ma każdego kroku. Najpierw utwórz pustą aplikację sieci web o nazwie *AuthorizationServer* i zainstaluj następujące pakiety:
 
 - Microsoft.AspNet.Mvc
 - Microsoft.Owin.Host.SystemWeb
@@ -112,7 +112,7 @@ Poniżej przedstawiono strony logowania:
 
 Przejrzyj IETF OAuth 2 [udzielania kodu autoryzacji](http://tools.ietf.org/html/rfc6749#section-4.1) sekcji teraz. 
 
-**Dostawca** (w poniższej tabeli) jest [OAuthAuthorizationServerOptions](https://msdn.microsoft.com/en-us/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Dostawcy, który jest typu `OAuthAuthorizationServerProvider`, który zawiera wszystkie zdarzenia serwera OAuth. 
+**Dostawca** (w poniższej tabeli) jest [OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Dostawcy, który jest typu `OAuthAuthorizationServerProvider`, który zawiera wszystkie zdarzenia serwera OAuth. 
 
 | Przepływ czynności z sekcji udzielania kodu autoryzacji | Pobieranie próbki wykonuje te kroki: |
 | --- | --- |

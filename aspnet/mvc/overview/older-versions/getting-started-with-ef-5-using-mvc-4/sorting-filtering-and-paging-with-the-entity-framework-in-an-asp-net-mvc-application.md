@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 18c3825c58e7cfe0a73817a8431593c661c5fa4f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f9b68abeba19561a327bad5ee4be80d79af1a550
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Sortowanie, filtrowanie i stronicowania Entity Framework w aplikacji platformy ASP.NET MVC (3 10)
 ====================
@@ -64,7 +64,7 @@ Są to trójargumentowy instrukcje. Pierwsza z nich Określa, że jeśli `sortOr
 | Data w kolejności rosnącej | ascending | descending |
 | Data, malejąco | ascending | ascending |
 
-W metodzie [LINQ to Entities](https://msdn.microsoft.com/en-us/library/bb386964.aspx) określić kolumnę sortowania. Kod tworzy [IQueryable](https://msdn.microsoft.com/en-us/library/bb351562.aspx) zmiennej przed `switch` instrukcji, modyfikuje go w `switch` instrukcji i wywołania `ToList` metody po `switch` instrukcji. Podczas tworzenia i modyfikowania `IQueryable` zmiennych, nie zapytanie jest wysyłane do bazy danych. Kwerenda nie została wykonana, do momentu konwersji `IQueryable` obiektu do kolekcji, wywołując metodę, takich jak `ToList`. W związku z tym powoduje ten kod w jednym zapytaniu, która nie jest wykonywana do czasu `return View` instrukcji.
+W metodzie [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) określić kolumnę sortowania. Kod tworzy [IQueryable](https://msdn.microsoft.com/library/bb351562.aspx) zmiennej przed `switch` instrukcji, modyfikuje go w `switch` instrukcji i wywołania `ToList` metody po `switch` instrukcji. Podczas tworzenia i modyfikowania `IQueryable` zmiennych, nie zapytanie jest wysyłane do bazy danych. Kwerenda nie została wykonana, do momentu konwersji `IQueryable` obiektu do kolekcji, wywołując metodę, takich jak `ToList`. W związku z tym powoduje ten kod w jednym zapytaniu, która nie jest wykonywana do czasu `return View` instrukcji.
 
 ### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Dodawanie hiperłącza do widoku indeksu uczniów nagłówek kolumny
 
@@ -92,7 +92,7 @@ W *Controllers\StudentController.cs*, Zastąp `Index` metodę z następującym k
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-Dodano `searchString` parametr `Index` metody. Również dodane do instrukcji LINQ `where` clausethat wybiera tylko studentów, w których imię lub nazwisko zawiera ciąg wyszukiwania. Wartość ciągu wyszukiwania są odebrane z pola tekstowego, która zostanie dodana do widoku indeksu. Instrukcja, która dodaje [gdzie](https://msdn.microsoft.com/en-us/library/bb535040.aspx) klauzuli jest wykonywane tylko wtedy, gdy wartość do wyszukania.
+Dodano `searchString` parametr `Index` metody. Również dodane do instrukcji LINQ `where` clausethat wybiera tylko studentów, w których imię lub nazwisko zawiera ciąg wyszukiwania. Wartość ciągu wyszukiwania są odebrane z pola tekstowego, która zostanie dodana do widoku indeksu. Instrukcja, która dodaje [gdzie](https://msdn.microsoft.com/library/bb535040.aspx) klauzuli jest wykonywane tylko wtedy, gdy wartość do wyszukania.
 
 > [!NOTE]
 > W wielu przypadkach można wywołać tej samej metody zestaw jednostek Entity Framework lub jako metodę rozszerzenie w kolekcji w pamięci. Wyniki są zazwyczaj takie same, ale w niektórych przypadkach może się różnić. Na przykład, .NET Framework wykonania `Contains` metoda zwraca wszystkie wiersze, gdy przekazać pusty ciąg do niego, ale dostawcy programu Entity Framework dla programu SQL Server Compact 4.0 nie zwraca żadnych wierszy obecność pustych ciągów. W związku z tym kod w przykładzie (umieszczanie `Where` instrukcja wewnątrz `if` instrukcji) zapewnia uzyskać ten sam rezultat dla wszystkich wersji programu SQL Server. Ponadto wdrożenia programu .NET Framework z `Contains` metoda wykonuje porównania z uwzględnieniem wielkości liter domyślnie, ale dostawcy programu Entity Framework SQL Server wykonania porównania bez uwzględniania wielkości liter, domyślnie. W związku z tym wywołaniem `ToUpper` metody, aby jawnie bez uwzględniania wielkości liter testu zapewnia wyników nie należy zmieniać po zmianie kod później do korzystania z repozytorium, która będzie zwracać `IEnumerable` kolekcji zamiast `IQueryable` obiektu. (Podczas wywoływania `Contains` metoda `IEnumerable` kolekcji, możesz pobrać wdrożenia programu .NET Framework; podczas wywoływania go na `IQueryable` obiektu, możesz uzyskać implementacji dostawcy bazy danych.)
@@ -158,7 +158,7 @@ Na końcu metody `ToPagedList` metody rozszerzenia dla uczniów lub studentów `
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-`ToPagedList` Metoda przyjmuje numer strony. Reprezentuje dwa znaki zapytania [łączenie null operator](https://msdn.microsoft.com/en-us/library/ms173224.aspx). Wartość domyślna dla typu dopuszczającego wartość null; definiuje operator łączenia wartości null wyrażenie `(page ?? 1)` oznacza zwrócić wartość `page` jeśli jego wartość, lub zwraca 1, jeśli `page` ma wartość null.
+`ToPagedList` Metoda przyjmuje numer strony. Reprezentuje dwa znaki zapytania [łączenie null operator](https://msdn.microsoft.com/library/ms173224.aspx). Wartość domyślna dla typu dopuszczającego wartość null; definiuje operator łączenia wartości null wyrażenie `(page ?? 1)` oznacza zwrócić wartość `page` jeśli jego wartość, lub zwraca 1, jeśli `page` ma wartość null.
 
 ### <a name="add-paging-links-to-the-student-index-view"></a>Dodawania łączy stronicowania w widoku indeksu dla użytkowników domowych
 
@@ -170,11 +170,11 @@ W *Views\Student\Index.cshtml*, Zastąp istniejący kod następującym kodem:
 
 `using` Instrukcji dla `PagedList.Mvc` zapewnia dostęp do pomocniczego MVC przycisków stronicowania.
 
-Kod używane jest przeciążenie [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) umożliwiająca, aby określić [FormMethod.Get](https://msdn.microsoft.com/en-us/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
+Kod używane jest przeciążenie [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) umożliwiająca, aby określić [FormMethod.Get](https://msdn.microsoft.com/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cshtml?highlight=1)]
 
-Wartość domyślna [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) przesyła dane formularza przy użyciu metody POST, co oznacza, że parametry są przekazywane w treści wiadomości HTTP, a nie w adresie URL jako ciągi zapytań. Po określeniu HTTP GET, formularza dane są przekazywane w adresie URL jako ciągi zapytania, który umożliwia użytkownikom zakładki adres URL. [W3C wytyczne dotyczące stosowania HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) określić, że GET należy używać w przypadku akcji nie powoduje aktualizacji.
+Wartość domyślna [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) przesyła dane formularza przy użyciu metody POST, co oznacza, że parametry są przekazywane w treści wiadomości HTTP, a nie w adresie URL jako ciągi zapytań. Po określeniu HTTP GET, formularza dane są przekazywane w adresie URL jako ciągi zapytania, który umożliwia użytkownikom zakładki adres URL. [W3C wytyczne dotyczące stosowania HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) określić, że GET należy używać w przypadku akcji nie powoduje aktualizacji.
 
 Pole tekstowe jest inicjowany z aktualnie wyszukiwanego ciągu, więc po kliknięciu nowej strony można zobaczyć aktualnie wyszukiwanego ciągu.
 
@@ -291,7 +291,7 @@ Baza danych SQL Azure z systemem Windows jest oparta na chmurze usługą relacyj
 7. Kliknij przycisk Strzałka w prawo w dolnej części pola. Kreator przechodzi do **ustawienia bazy danych** kroku.
 8. W **nazwa** wprowadź *ContosoUniversityDB*.
 9. W **serwera** wybierz opcję **nowej bazy danych SQL server**. Alternatywnie wcześniej utworzonego serwera, można wybrać tego serwera z listy rozwijanej.
-10. Wprowadź administrator **nazwa logowania** i **hasło**. W przypadku wybrania **nowej bazy danych SQL server** nie wprowadzasz istniejącej nazwy i hasła w tym miejscu, podajesz nową nazwę i hasło definiowane w tej chwili do użycia w przyszłości podczas dostępu do bazy danych. W przypadku wybrania wcześniej utworzonego serwera zostanie wprowadź poświadczenia dla tego serwera. W tym samouczku nie wybierz ***zaawansowane*** pole wyboru. ***Zaawansowane*** opcje umożliwiają skonfigurowanie bazy danych [sortowania](https://msdn.microsoft.com/en-us/library/aa174903(v=SQL.80).aspx).
+10. Wprowadź administrator **nazwa logowania** i **hasło**. W przypadku wybrania **nowej bazy danych SQL server** nie wprowadzasz istniejącej nazwy i hasła w tym miejscu, podajesz nową nazwę i hasło definiowane w tej chwili do użycia w przyszłości podczas dostępu do bazy danych. W przypadku wybrania wcześniej utworzonego serwera zostanie wprowadź poświadczenia dla tego serwera. W tym samouczku nie wybierz ***zaawansowane*** pole wyboru. ***Zaawansowane*** opcje umożliwiają skonfigurowanie bazy danych [sortowania](https://msdn.microsoft.com/library/aa174903(v=SQL.80).aspx).
 11. Wybierz taki sam **Region** wybranej witryny sieci web.
 12. Kliknij znacznik wyboru w prawej dolnej części pola, aby wskazać, że wszystko jest gotowe.   
   
@@ -367,7 +367,7 @@ Baza danych SQL Azure z systemem Windows jest oparta na chmurze usługą relacyj
   
     ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image32.png)
 
-W tym momencie z *SchoolContext* utworzono bazę danych w bazie danych SQL Azure z systemem Windows, ponieważ wybrano **wykonaj migracje Code First (wywoływane po uruchomieniu aplikacji)**. *Web.config* plik wdrożonej witryny sieci web został zmieniony, aby [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/en-us/library/hh829476(v=vs.103).aspx) inicjatora może działać po raz pierwszy kod odczytuje i zapisuje dane w bazie danych (który się to zdarzyć w przypadku wybrania **studentów** kartę):
+W tym momencie z *SchoolContext* utworzono bazę danych w bazie danych SQL Azure z systemem Windows, ponieważ wybrano **wykonaj migracje Code First (wywoływane po uruchomieniu aplikacji)**. *Web.config* plik wdrożonej witryny sieci web został zmieniony, aby [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) inicjatora może działać po raz pierwszy kod odczytuje i zapisuje dane w bazie danych (który się to zdarzyć w przypadku wybrania **studentów** kartę):
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image33.png)
 
@@ -387,7 +387,7 @@ Można znaleźć wdrożoną wersję pliku Web.config na komputerze w *ContosoUni
 
 ## <a name="code-first-initializers"></a>Inicjatory pierwszy kodu
 
-W sekcji wdrożenia widać [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/en-us/library/hh829476(v=vs.103).aspx) inicjatora używane. Kod najpierw zawiera również inne inicjatory, które są dostępne, w tym [CreateDatabaseIfNotExists](https://msdn.microsoft.com/en-us/library/gg679221(v=vs.103).aspx) (ustawienie domyślne), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/en-us/library/gg679604(v=VS.103).aspx) i [ DropCreateDatabaseAlways](https://msdn.microsoft.com/en-us/library/gg679506(v=VS.103).aspx). `DropCreateAlways` Inicjatora może być przydatne w przypadku konfigurowania warunki dla testów jednostkowych. Można również napisać własny inicjatory i można wywołać inicjatora jawnie, jeśli nie chcesz czekać, aż do aplikacji odczytuje z lub zapisuje w bazie danych. Opis kompleksowe inicjatorów, zobacz rozdział 6 książki [programowania Entity Framework: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman i Tomaszewski Rowan.
+W sekcji wdrożenia widać [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) inicjatora używane. Kod najpierw zawiera również inne inicjatory, które są dostępne, w tym [CreateDatabaseIfNotExists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (ustawienie domyślne), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) i [ DropCreateDatabaseAlways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx). `DropCreateAlways` Inicjatora może być przydatne w przypadku konfigurowania warunki dla testów jednostkowych. Można również napisać własny inicjatory i można wywołać inicjatora jawnie, jeśli nie chcesz czekać, aż do aplikacji odczytuje z lub zapisuje w bazie danych. Opis kompleksowe inicjatorów, zobacz rozdział 6 książki [programowania Entity Framework: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman i Tomaszewski Rowan.
 
 ## <a name="summary"></a>Podsumowanie
 

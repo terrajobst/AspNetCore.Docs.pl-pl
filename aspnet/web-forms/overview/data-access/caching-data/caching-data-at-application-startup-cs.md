@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ccf22f9e72777242ca0239aee69045ab03d56960
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3a618ad702763a59b87336784afd1cb74de06d4c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-at-application-startup-c"></a>Buforowanie danych przy uruchamianiu aplikacji (C#)
 ====================
@@ -36,7 +36,7 @@ Dwa poprzednie samouczki przeglądał buforowania danych w prezentacji i buforow
 Inną wersję aktywne ładowanie i typ, który firma Microsoft będzie Eksplorowanie w tym samouczku ładuje dane w pamięci podręcznej podczas uruchamiania aplikacji. Ta metoda jest szczególnie przydatna w przypadku buforowania danych statycznych, takich jak rekordy z bazy danych wyszukiwania tabel.
 
 > [!NOTE]
-> Więcej informacji na temat przyjrzeć różnice między proaktywne i reaktywne ładowania, a także listę zalet, wad i zalecenia dotyczące wdrażania, można znaleźć w temacie [Zarządzanie zawartość pamięci podręcznej](https://msdn.microsoft.com/en-us/library/ms978503.aspx) części [ Buforowanie w aplikacjach .NET Framework w Przewodniku dotyczącym architektury](https://msdn.microsoft.com/en-us/library/ms978498.aspx).
+> Więcej informacji na temat przyjrzeć różnice między proaktywne i reaktywne ładowania, a także listę zalet, wad i zalecenia dotyczące wdrażania, można znaleźć w temacie [Zarządzanie zawartość pamięci podręcznej](https://msdn.microsoft.com/library/ms978503.aspx) części [ Buforowanie w aplikacjach .NET Framework w Przewodniku dotyczącym architektury](https://msdn.microsoft.com/library/ms978498.aspx).
 
 
 ## <a name="step-1-determining-what-data-to-cache-at-application-startup"></a>Krok 1: Określanie danych do pamięci podręcznej przy uruchamianiu aplikacji
@@ -68,7 +68,7 @@ Podczas pracy z klasy, zwykle należy najpierw można utworzyć wystąpienia kla
 
 Zanim firma Microsoft może wywołać *SomeMethod* i pracować z *SomeProperty*, firma Microsoft musi najpierw utworzyć wystąpienia klasy przy użyciu `new` — słowo kluczowe. *SomeMethod* i *SomeProperty* są skojarzone z konkretnym wystąpieniem. Okres istnienia tych elementów członkowskich jest powiązany okres istnienia ich skojarzonego obiektu. *Statyczne elementy członkowskie*, z drugiej strony są zmiennych, właściwości i metody, które są współużytkowane przez *wszystkie* wystąpień klasy, i w związku z tym, okres istnienia tak długo, jak klasa. Statyczne elementy członkowskie są wskazywane przez słowo kluczowe `static`.
 
-Oprócz elementy członkowskie static mogą być buforowane dane przy użyciu stanu aplikacji. Każda aplikacja ASP.NET przechowuje kolekcji nazwa/wartość tego s współużytkowane przez wszystkich użytkowników i strony aplikacji. Ta kolekcja jest możliwy za pomocą [ `HttpContext` klasy](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx) s [ `Application` właściwości](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.application.aspx)i użycia w klasie związanej z kodem strony ASP.NET w następujący sposób:
+Oprócz elementy członkowskie static mogą być buforowane dane przy użyciu stanu aplikacji. Każda aplikacja ASP.NET przechowuje kolekcji nazwa/wartość tego s współużytkowane przez wszystkich użytkowników i strony aplikacji. Ta kolekcja jest możliwy za pomocą [ `HttpContext` klasy](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) s [ `Application` właściwości](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)i użycia w klasie związanej z kodem strony ASP.NET w następujący sposób:
 
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample2.cs)]
@@ -135,7 +135,7 @@ Wartość domyślna `Global.asax` plik szablonu zawiera pięć metod w ciągu po
 - **`Session_Start`**wykonuje podczas tworzenia nowej sesji
 - **`Session_End`**jest uruchamiany, gdy sesja jest wygasła lub porzucone
 
-`Application_Start` Program obsługi zdarzeń zostanie wywołana tylko raz w cyklu życia aplikacji s. Aplikacja rozpoczyna się po raz pierwszy zasobu ASP.NET zażąda aplikacji i będzie kontynuował działanie aż do ponownego uruchomienia aplikacji, która może się zdarzyć, modyfikując zawartość `/Bin` folderu, modyfikując `Global.asax`, modyfikowanie zawartość w `App_Code` folderu lub modyfikowanie `Web.config` pliku wśród innych przyczyn. Zapoznaj się [Przegląd cyklu życia aplikacji ASP.NET](https://msdn.microsoft.com/en-us/library/ms178473.aspx) bardziej szczegółowe omówienie w cyklu życia aplikacji.
+`Application_Start` Program obsługi zdarzeń zostanie wywołana tylko raz w cyklu życia aplikacji s. Aplikacja rozpoczyna się po raz pierwszy zasobu ASP.NET zażąda aplikacji i będzie kontynuował działanie aż do ponownego uruchomienia aplikacji, która może się zdarzyć, modyfikując zawartość `/Bin` folderu, modyfikując `Global.asax`, modyfikowanie zawartość w `App_Code` folderu lub modyfikowanie `Web.config` pliku wśród innych przyczyn. Zapoznaj się [Przegląd cyklu życia aplikacji ASP.NET](https://msdn.microsoft.com/library/ms178473.aspx) bardziej szczegółowe omówienie w cyklu życia aplikacji.
 
 Te samouczki tylko musimy Dodaj kod, aby `Application_Start` metodę, tak usunąć pozostałe wolne działanie. W `Application_Start`, po prostu Wywołaj `StaticCache` klasy s `LoadStaticCache()` metody, co spowoduje załadowanie i pamięci podręcznej informacji o dostawcy:
 

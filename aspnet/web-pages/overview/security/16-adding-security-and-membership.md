@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: f0cee96005416bd9ef8befaf34890f415cf5ff3c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af2eeb128cff554e7ae3d903e2117861087344e9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Dodawanie zabezpieczeń i członkostwo w witrynie sieci Web ASP.NET stron (Razor)
 ====================
@@ -42,7 +42,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 2
+> - ASP.NET Web Pages (Razor) 2
 > - Program WebMatrix 3
 > - Biblioteka pomocników sieci Web ASP.NET
 
@@ -115,16 +115,16 @@ W poniższej procedurze opisano sposób tworzenia lokacji i skonfigurować go.
 
     Podczas tworzenia witryny sieci Web z **witryny początkowej** szablonu, bazy danych o nazwie *StarterSite.sdf* został utworzony w tej witrynie *aplikacji\_danych* folderu. Podczas rejestracji informacje o użytkowniku jest dodane do bazy danych. Po ustawieniu wartości SMTP jest wysyłany komunikat na adres e-mail podany, możesz ukończyć rejestracji.
 
-    ![4-Security członkostwa](16-adding-security-and-membership/_static/image3.png)
+    ![security-membership-4](16-adding-security-and-membership/_static/image3.png)
 11. Przejdź do programu poczty e-mail i Znajdź komunikat, który ma Twój kod potwierdzenia i hiperłącza do lokacji.
 12. Kliknij hiperłącze, aby aktywować konto. Hyperlink potwierdzenie otwiera stronę potwierdzenia rejestracji.
 
-    ![zabezpieczenia — członkostwa-5](16-adding-security-and-membership/_static/image4.png)
+    ![security-membership-5](16-adding-security-and-membership/_static/image4.png)
 - Kliknij przycisk **logowania** połączyć, a następnie zaloguj się za pomocą konta, który został zarejestrowany.
 
     Po zalogowaniu, **logowania** i **zarejestrować** łącza są zastępowane przez **wylogowania** łącza. Nazwy logowania jest wyświetlany jako łącze. (Ten link pozwala przejść do strony, w którym można zmienić swoje hasło.)
 
-    ![6-Security członkostwa](16-adding-security-and-membership/_static/image5.png)
+    ![security-membership-6](16-adding-security-and-membership/_static/image5.png)
 
     > [!NOTE]
     > Domyślnie strony sieci web ASP.NET wysłać poświadczeń do serwera w postaci zwykłego tekstu (jako tekst zrozumiałą dla użytkownika). Witryny produkcyjnym należy używać bezpiecznego protokołu HTTP (https://, nazywany również *protokołu secure sockets layer* lub SSL) do szyfrowania poufnych informacji, które są wymieniane z serwerem. Można wymagane e-mail komunikatów do wysłania przy użyciu protokołu SSL, ustawiając `WebMail.EnableSsl=true` co w poprzednim przykładzie. Aby uzyskać więcej informacji na temat protokołu SSL, zobacz [zabezpieczania komunikacji w sieci Web: certyfikatów SSL i https://](https://go.microsoft.com/fwlink/?LinkId=208660).
@@ -170,7 +170,7 @@ W tej procedurze utworzysz folder, który będzie zawierać stron, które są do
 Aby zabezpieczyć dostęp do wielu stron, można to zrobić:
 
 - Kontrola zabezpieczeń można dodać do każdej strony.
-- Utwórz  *\_PageStart.cshtml* strony w folderze, w której Zachowaj chronione stron, a następnie dodaj podczas sprawdzania zabezpieczeń.  *\_PageStart.cshtml* strony pełni rolę rodzaju strony globalne dla wszystkich stron w folderze. Ta technika jest co omówiono bardziej szczegółowo w [Dostosowywanie zachowanie całej witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
+- Utwórz  *\_PageStart.cshtml* strony w folderze, w której Zachowaj chronione stron, a następnie dodaj podczas sprawdzania zabezpieczeń. *\_PageStart.cshtml* strony pełni rolę rodzaju strony globalne dla wszystkich stron w folderze. Ta technika jest co omówiono bardziej szczegółowo w [Dostosowywanie zachowanie całej witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
 
 ## <a name="creating-security-for-groups-of-users-roles"></a>Tworzenie zabezpieczeń dla grup użytkowników (role)
 
@@ -181,17 +181,17 @@ System członkostwa ASP.NET jest skonfigurowany do obsługi ról. Jednak w przec
 1. W programie WebMatrix, kliknij przycisk **baz danych** selektora obszaru roboczego.
 2. W okienku po lewej stronie, otwórz *StarterSite.sdf* otworzyć węzła **tabel** węzeł, a następnie kliknij dwukrotnie plik *stron sieci Web\_ról* tabeli.
 
-    ![7-Security członkostwa](16-adding-security-and-membership/_static/image6.png)
+    ![security-membership-7](16-adding-security-and-membership/_static/image6.png)
 3. Dodaj rolę o nazwie &quot;admin&quot;. *RoleId* pole jest wypełniane automatycznie. (Jest to klucz podstawowy i została ustawiona jako pola określ zgodnie z objaśnieniem w [wprowadzenie do pracy z bazą danych w witrynach stron sieci Web platformy ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202893).)
 4. Zanotuj wartość jest za *RoleId* pola. (Jeśli jest to pierwszy rolę, którą definiujesz, zostanie 1.)
 
-    ![zabezpieczenia — członkostwa-8](16-adding-security-and-membership/_static/image7.png)
+    ![security-membership-8](16-adding-security-and-membership/_static/image7.png)
 5. Zamknij *stron sieci Web\_ról* tabeli.
 6. Otwórz *UserProfile* tabeli.
 7. Zanotuj *UserId* wartość jednego lub więcej użytkowników w tabeli, a następnie zamknij tabelę.
 8. Otwórz *stron sieci Web\_UserInRoles* tabeli, a następnie wprowadź *UserID* i *RoleID* wartości do tabeli. Na przykład, aby umieścić użytkownika 2 do &quot;admin&quot; roli, należy wprowadzić następujące wartości:
 
-    ![zabezpieczenia — członkostwa-9](16-adding-security-and-membership/_static/image8.png)
+    ![security-membership-9](16-adding-security-and-membership/_static/image8.png)
 9. Zamknij *stron sieci Web\_UsersInRoles* tabeli.
 
     Teraz, gdy masz zdefiniowanych ról można skonfigurować strony, który jest dostępny dla użytkowników, którzy są w tej roli.
@@ -212,7 +212,7 @@ System członkostwa ASP.NET jest skonfigurowany do obsługi ról. Jednak w przec
 
 Strona logowania nie spowoduje zatrzymania automatycznych programów (czasami określane jako *sieci web robotów* lub *robotów*) z rejestrowania za pomocą witryny sieci Web. Ta procedura opisuje sposób włączania ReCaptcha testu dla strony rejestracji.
 
-![/Media/38777/ch16securitymembership-18.jpg](16-adding-security-and-membership/_static/image1.jpg)
+![/media/38777/ch16securitymembership-18.jpg](16-adding-security-and-membership/_static/image1.jpg)
 
 1. Zarejestruj witryny sieci Web w ReCaptcha.Net ([http://recaptcha.net](http://recaptcha.net)). Po zakończeniu rejestracji zostanie wyświetlony klucz publiczny i klucz prywatny.
 2. Dodaj bibliotekę pomocników platformy ASP.NET sieci Web do witryny sieci Web, zgodnie z opisem w [pomocników instalowania w lokacji stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=252372), jeśli nie jest jeszcze.
@@ -230,7 +230,7 @@ Strona logowania nie spowoduje zatrzymania automatycznych programów (czasami ok
 1. Uruchom *Default.cshtml* w przeglądarce. Jeśli logujesz się do witryny, kliknij przycisk **wylogowania** łącza.
 2. Kliknij przycisk **zarejestrować** test rejestracji za pomocą testu CAPTCHA i łącza.
 
-    ![zabezpieczenia członkostwa 10](16-adding-security-and-membership/_static/image9.png)
+    ![security-membership-10](16-adding-security-and-membership/_static/image9.png)
 
 Aby uzyskać więcej informacji na temat `ReCaptcha` pomocnika, zobacz [za pomocą CATPCHA uniemożliwiają automatyczne programy (robotów) z przy użyciu Your witryna sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251967).
 
@@ -254,20 +254,20 @@ Procedury w tym artykule zależy od tego, za pomocą **witryny początkowej** sz
 
 Podstawowy proces jest opisane w blogu [najbardziej podstawową metodą implementacji zabezpieczeń ASP.NET Razor](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240). Większość pracy odbywa się przy użyciu następujących metod i właściwości `WebSecurity` pomocy:
 
-- [WebSecurty.UserExists](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). Te metody pozwalają ustalić, czy ktoś jest już zarejestrowany i można je zarejestrować.
-- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). Ta właściwość umożliwia określenie, czy bieżący użytkownik jest zalogowany. Jest to przydatne przekierować użytkowników do strony logowania, jeśli ich nie ma już zarejestrowane.
-- [WebSecurity.Login](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx), [WebSecurity.Logout](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx). Te metody logowania użytkownika przychodzący lub wychodzący.
-- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). Ta właściwość jest przydatna do wyświetlania nazwy zalogowany bieżący użytkownik (Jeśli użytkownik jest zalogowany).
-- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/en-us/library/gg569286(v=vs.99).aspx). Ta metoda jest przydatna, jeśli skonfigurowano wiadomości e-mail z potwierdzeniem rejestracji. (Szczegóły są opisane w blogu [za pomocą funkcji potwierdzenia zabezpieczeń stron ASP.NET Web Pages](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267).)
+- [WebSecurty.UserExists](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). Te metody pozwalają ustalić, czy ktoś jest już zarejestrowany i można je zarejestrować.
+- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). Ta właściwość umożliwia określenie, czy bieżący użytkownik jest zalogowany. Jest to przydatne przekierować użytkowników do strony logowania, jeśli ich nie ma już zarejestrowane.
+- [WebSecurity.Login](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx), [WebSecurity.Logout](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx). Te metody logowania użytkownika przychodzący lub wychodzący.
+- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). Ta właściwość jest przydatna do wyświetlania nazwy zalogowany bieżący użytkownik (Jeśli użytkownik jest zalogowany).
+- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/library/gg569286(v=vs.99).aspx). Ta metoda jest przydatna, jeśli skonfigurowano wiadomości e-mail z potwierdzeniem rejestracji. (Szczegóły są opisane w blogu [za pomocą funkcji potwierdzenia zabezpieczeń stron ASP.NET Web Pages](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267).)
 
-Aby zarządzać rolami, można użyć [ról](https://msdn.microsoft.com/en-us/library/gg538398(v=vs.99).aspx) i [członkostwa](https://msdn.microsoft.com/en-us/library/gg569035(v=vs.99).aspx) klas, zgodnie z opisem w wpis w blogu.
+Aby zarządzać rolami, można użyć [ról](https://msdn.microsoft.com/library/gg538398(v=vs.99).aspx) i [członkostwa](https://msdn.microsoft.com/library/gg569035(v=vs.99).aspx) klas, zgodnie z opisem w wpis w blogu.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Dostosowywanie zachowania całej lokacji](https://go.microsoft.com/fwlink/?LinkId=202906)
+- [Dostosowywanie zachowania dla całej witryny](https://go.microsoft.com/fwlink/?LinkId=202906)
 - [Zabezpieczanie komunikacji w sieci Web: Certyfikatów SSL i https://](https://go.microsoft.com/fwlink/?LinkId=208660)
 - [Najprostszym sposobem implementacji zabezpieczeń ASP.NET Razor](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240) i [za pomocą funkcji potwierdzenia zabezpieczeń stron ASP.NET Web Pages](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267). Są to wpisy na blogu dotyczące sposobu implementowania funkcji członkostwa ASP.NET bez używania **witryny początkowej** szablonu.
-- [Włączanie logowania z zewnętrznych witryn w witrynie stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251969)
-- [Dokumentacja interfejsu API klasy WebSecurity](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity(v=vs.99)) (MSDN)
-- [Dokumentacja interfejsu API klasy SimpleRoleProvider](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.simpleroleprovider(v=vs.99)) (MSDN)
-- [Dokumentacja interfejsu API klasy SimpleMembershipProvider](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.simplemembershipprovider(v=vs.99)) (MSDN)
+- [Włączanie logowania z zewnętrznych witryn w witrynie ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251969)
+- [Dokumentacja interfejsu API klasy WebSecurity](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity(v=vs.99)) (MSDN)
+- [Dokumentacja interfejsu API klasy SimpleRoleProvider](https://msdn.microsoft.com/library/webmatrix.webdata.simpleroleprovider(v=vs.99)) (MSDN)
+- [Dokumentacja interfejsu API klasy SimpleMembershipProvider](https://msdn.microsoft.com/library/webmatrix.webdata.simplemembershipprovider(v=vs.99)) (MSDN)

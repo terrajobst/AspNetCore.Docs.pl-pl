@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 25299d1f047542ac4f2d61f9d5fe55813517f76b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 725812c64667488b9a06c065c7100d0536c2e3e2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="common-configuration-differences-between-development-and-production-c"></a>Typowych konfiguracji różnice między rozwoju i produkcji (C#)
 ====================
@@ -38,7 +38,7 @@ W przypadku wdrażania aplikacji sieci web jest ważne, czy informacje o prawid�
 
 `Web.config` Plik zawiera pewną liczbę informacji o konfiguracji dla aplikacji ASP.NET. Niektóre z tych informacji o konfiguracji jest taki sam, niezależnie od tego środowiska. Na przykład ustawienia uwierzytelniania i reguł autoryzacji adresów URL zapisane w `Web.config` pliku `<authentication>` i `<authorization>` elementy zazwyczaj są takie same, niezależnie od tego środowiska. Jednak inne informacje o konfiguracji — takie jak informacje dotyczące zasobów zewnętrznych — zwykle zależy od tego środowiska.
 
-Parametry połączenia bazy danych są podstawowym przykład informacje o konfiguracji, która różni się na podstawie środowiska. Gdy aplikacji sieci web komunikuje się z serwerem bazy danych musi nawiązania połączenia i który odbywa się za pośrednictwem [ciąg połączenia](http://www.connectionstrings.com/Articles/Show/what-is-a-connection-string). Mimo że jest możliwe kodowane parametry połączenia bazy danych bezpośrednio w stron sieci web lub kod, który nawiązuje połączenie z bazą danych, najlepiej umieścić `Web.config`w [ `<connectionStrings>` elementu](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx) , aby parametry połączenia informacje są w jednej, scentralizowanej lokalizacji. Często innej bazy danych jest używany podczas tworzenia nie jest używany w środowisku produkcyjnym; w związku z tym informacje o parametrach połączenia musi być unikatowa dla każdego środowiska.
+Parametry połączenia bazy danych są podstawowym przykład informacje o konfiguracji, która różni się na podstawie środowiska. Gdy aplikacji sieci web komunikuje się z serwerem bazy danych musi nawiązania połączenia i który odbywa się za pośrednictwem [ciąg połączenia](http://www.connectionstrings.com/Articles/Show/what-is-a-connection-string). Mimo że jest możliwe kodowane parametry połączenia bazy danych bezpośrednio w stron sieci web lub kod, który nawiązuje połączenie z bazą danych, najlepiej umieścić `Web.config`w [ `<connectionStrings>` elementu](https://msdn.microsoft.com/library/bf7sd233.aspx) , aby parametry połączenia informacje są w jednej, scentralizowanej lokalizacji. Często innej bazy danych jest używany podczas tworzenia nie jest używany w środowisku produkcyjnym; w związku z tym informacje o parametrach połączenia musi być unikatowa dla każdego środowiska.
 
 > [!NOTE]
 > Samouczki przyszłych Poznaj wdrażanie aplikacji opartych na danych, w którym firma Microsoft będzie Poznaj specyfice jak parametry połączenia bazy danych są przechowywane w pliku konfiguracji.
@@ -48,7 +48,7 @@ Znacznie różni się to oczekiwane zachowanie środowiska projektowania i produ
 
 ### <a name="configuration-settings-that-impact-performance"></a>Ustawienia konfiguracji, które mają wpływ na wydajność
 
-W przypadku odwiedzenia strony ASP.NET po raz pierwszy (lub po raz pierwszy po zmianie jego), jego deklaratywne znaczników muszą zostać przekonwertowane na klasę i muszą być skompilowane tej klasy. Jeśli aplikacja sieci web używa automatyczne kompilowanie klasie związanej z kodem strony musi można skompilować za. Można skonfigurować różne opcje kompilacji za pomocą `Web.config` pliku [ `<compilation>` elementu](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx).
+W przypadku odwiedzenia strony ASP.NET po raz pierwszy (lub po raz pierwszy po zmianie jego), jego deklaratywne znaczników muszą zostać przekonwertowane na klasę i muszą być skompilowane tej klasy. Jeśli aplikacja sieci web używa automatyczne kompilowanie klasie związanej z kodem strony musi można skompilować za. Można skonfigurować różne opcje kompilacji za pomocą `Web.config` pliku [ `<compilation>` elementu](https://msdn.microsoft.com/library/s10awwz0.aspx).
 
 Atrybut debugowania jest jednym z najważniejszych atrybutów w `<compilation>` elementu. Jeśli `debug` atrybut ma wartość "true", a następnie skompilowane zestawy dołączać symbole debugowania, które są potrzebne podczas debugowania aplikacji w programie Visual Studio. Jednak symboli debugowania zwiększyć rozmiar zestawu i nałożyć wymagań dodatkowej pamięci podczas uruchamiania kodu. Ponadto, jeśli `debug` atrybut ma wartość "true" żadnej zawartości zwrócony przez `WebResource.axd` nie są buforowane, co oznacza zawsze odwiedzać strony, będzie musiał ponownie pobrać zawartość statyczną zwrócony przez `WebResource.axd`.
 
@@ -68,7 +68,7 @@ Gdy wystąpi nieobsługiwany wyjątek w aplikacji ASP.NET propaguje go do środo
 - Zostanie wyświetlony komunikat szczegóły wyjątek, który zawiera informacje o wyjątku, który właśnie został zgłoszony.
 - Zostanie wyświetlona strona błędu niestandardowego, który jest strony ASP.NET utworzonego wyświetlający wszystkie wiadomości, którą chcesz.
 
-Co się stanie w wypadku nieobsługiwany wyjątek zależy od `Web.config` pliku [ `<customErrors>` sekcji](https://msdn.microsoft.com/en-us/library/h0hfz6fc.aspx).
+Co się stanie w wypadku nieobsługiwany wyjątek zależy od `Web.config` pliku [ `<customErrors>` sekcji](https://msdn.microsoft.com/library/h0hfz6fc.aspx).
 
 Podczas tworzenia i testowania aplikacji pozwala wyświetlić szczegóły wyjątku w przeglądarce. Jednak wyświetlanie szczegółów wyjątku w aplikacji produkcyjnych jest potencjalne zagrożenie dla bezpieczeństwa. Ponadto jest unflattering i sprawia, że wygląd szkodzi witryny sieci Web. Najlepiej, jeśli w przypadku nieobsługiwany wyjątek aplikacji sieci web w środowisku programistycznym zostaną wyświetlone szczegóły wyjątku podczas tej samej aplikacji w środowisku produkcyjnym wyświetli stronę błędu niestandardowego.
 
@@ -76,7 +76,7 @@ Podczas tworzenia i testowania aplikacji pozwala wyświetlić szczegóły wyjąt
 > Wartość domyślna `<customErrors>` ustawienie sekcji przedstawiono szczegóły wyjątku wiadomości tylko wtedy, gdy strona jest odwiedzana za pośrednictwem hosta lokalnego i pokazuje stronę błędu ogólnego środowiska uruchomieniowego w przeciwnym razie wartość. To nie jest najlepszym rozwiązaniem, ale jest zapewniając, aby dowiedzieć się, że domyślne zachowanie nie zawiera szczegóły wyjątku do innego niż lokalne odwiedzający. Samouczek przyszłych sprawdza `<customErrors>` sekcji bardziej szczegółowo i pokazuje, jak strona błędów niestandardowych wyświetlane, gdy wystąpi błąd w środowisku produkcyjnym.
 
 
-Śledzenie jest inna funkcja ASP.NET, które są przydatne podczas programowania. Śledzenie, jeśli włączone, rejestruje informacje o poszczególnych żądań przychodzących i zapewnia specjalną stroną sieci web, `Trace.axd`, podczas wyświetlania szczegółów ostatniego żądania. Można włączyć i skonfigurować śledzenie za pośrednictwem [ `<trace>` elementu](https://msdn.microsoft.com/en-us/library/6915t83k.aspx) w `Web.config`.
+Śledzenie jest inna funkcja ASP.NET, które są przydatne podczas programowania. Śledzenie, jeśli włączone, rejestruje informacje o poszczególnych żądań przychodzących i zapewnia specjalną stroną sieci web, `Trace.axd`, podczas wyświetlania szczegółów ostatniego żądania. Można włączyć i skonfigurować śledzenie za pośrednictwem [ `<trace>` elementu](https://msdn.microsoft.com/library/6915t83k.aspx) w `Web.config`.
 
 Jeśli zostanie włączone śledzenie upewnij się, że jego jest wyłączona w środowisku produkcyjnym. Ponieważ informacje o śledzeniu obejmuje plików cookie, dane sesji i inne potencjalnie wrażliwe informacje, należy wyłączyć śledzenie w środowisku produkcyjnym. Dobre wieści jest, że domyślnie śledzenie jest wyłączone i `Trace.axd` plik tylko jest dostępny za pośrednictwem hosta lokalnego. Jeśli zmienisz te ustawienia domyślne w rozwoju upewnij się, że są wyłączone ponownie w środowisku produkcyjnym.
 
@@ -110,7 +110,7 @@ informacje o konfiguracji, które są kopiowane do tego katalogu, w następując
 
 Aby wdrożyć kompilację aplikacji sieci web wdrażanie projektu sieci Web, a następnie skopiuj pliki z folderu wyjściowego projektu do środowiska produkcyjnego.
 
-Aby dowiedzieć się więcej o korzystaniu z sieci Web projektu wdrożenia wyewidencjonować [w tym artykule projekty wdrażania Web](https://msdn.microsoft.com/en-us/magazine/cc163448.aspx) z kwietnia 2007 emisji [MSDN Magazine](https://msdn.microsoft.com/en-us/magazine/default.aspx), lub skontaktuj się z łączy w sekcji dalsze informacje na zakończenie tego samouczka.
+Aby dowiedzieć się więcej o korzystaniu z sieci Web projektu wdrożenia wyewidencjonować [w tym artykule projekty wdrażania Web](https://msdn.microsoft.com/magazine/cc163448.aspx) z kwietnia 2007 emisji [MSDN Magazine](https://msdn.microsoft.com/magazine/default.aspx), lub skontaktuj się z łączy w sekcji dalsze informacje na zakończenie tego samouczka.
 
 > [!NOTE]
 > Wdrażanie projektu sieci Web nie można użyć z programu Visual Web Developer, ponieważ projekt wdrożenia sieci Web jest zaimplementowany jako Visual Studio Add-In i wersje Visual Studio Express (w tym Visual Web Developer) nie obsługują Add-Ins.
@@ -134,7 +134,7 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Ustawienia konfiguracji klucza podczas wdrażania bazy danych](http://aspnet.4guysfromrolla.com/articles/121008-1.aspx)
 - [Visual Studio 2008 Web wdrażania projektów pobierania](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) | [programu Visual Studio 2005 wdrażania projektów pobieranie z sieci Web](https://download.microsoft.com/download/9/4/9/9496adc4-574e-4043-bb70-bc841e27f13c/WebDeploymentSetup.msi)
 - [Projekty wdrażania Web 2008 VS](https://weblogs.asp.net/scottgu/archive/2005/11/06/429723.aspx) | [wydane VS 2008 Web wdrażania projektu obsługi](https://weblogs.asp.net/scottgu/archive/2008/01/28/vs-2008-web-deployment-project-support-released.aspx)
-- [Projekty wdrażania w sieci Web](https://msdn.microsoft.com/en-us/magazine/cc163448.aspx)
+- [Projekty wdrażania w Internecie](https://msdn.microsoft.com/magazine/cc163448.aspx)
 
 >[!div class="step-by-step"]
 [Poprzednie](deploying-your-site-using-visual-studio-cs.md)

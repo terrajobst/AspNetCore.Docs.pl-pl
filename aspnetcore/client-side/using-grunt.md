@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: 959a3e61af9834b9364e9fe4bf65a04962e28969
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 527373829754757e52ab84b64e04702d649e9062
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Przy użyciu Grunt w platformy ASP.NET Core 
 
@@ -94,14 +94,14 @@ Skonfiguruj NPM, aby pobrać grunt i grunt zadania.
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj > Nowy element** z menu kontekstowego. Wybierz **plik konfiguracji NPM** element, pozostaw nazwę domyślną *package.json*i kliknij przycisk **Dodaj** przycisku.
 
-2. W *package.json* pliku wewnątrz `devDependencies` obiektu nawiasów klamrowych, wprowadź "grunt". Wybierz `grunt` z funkcji Intellisense listy, a następnie naciśnij klawisz Enter. Visual Studio oferta grunt nazwę pakietu i dodać dwukropkiem. Po prawej stronie dwukropek, wybierz najnowsza stabilna wersja pakietu z początku listy Intellisense (naciśnij klawisz `Ctrl-Space` Jeżeli nie ma Intellisense).
+2. W *package.json* pliku wewnątrz `devDependencies` obiektu nawiasów klamrowych, wprowadź "grunt". Wybierz `grunt` z funkcji Intellisense listy, a następnie naciśnij klawisz Enter. Visual Studio oferta grunt nazwę pakietu i dodać dwukropkiem. Po prawej stronie dwukropek, wybierz najnowsza stabilna wersja pakietu z początku listy Intellisense (naciśnij klawisz `Ctrl-Space` Intellisense, nie pojawia się).
 
     ![grun Intellisense](using-grunt/_static/devdependencies-grunt.png)
     
     > [!NOTE]
     > Używa NPM [wersjonowania semantycznego](http://semver.org/) do organizowania zależności. Wersjonowania semantycznego, znanej także jako programu SemVer identyfikuje pakiety ze schematu numerowania <major>.<minor>. <patch>. Przedstawiający kilka typowe opcje IntelliSense upraszcza wersjonowania semantycznego. Pierwszy element na liście Intellisense (0.4.5 w powyższym przykładzie) jest uznawany za najnowsza stabilna wersja pakietu. Symbol daszek (^) najnowszą wersją główną i tyldy (~) najnowszą wersją pomocniczą. Zobacz [odwołanie analizatora wersji programu semver NPM](https://www.npmjs.com/package/semver) jako przewodnik dotyczący expressivity pełnego, który zapewnia programu SemVer.
 
-3. Dodaj więcej zależności, aby załadować grunt-contrib -\* pakietami *czystą*, *jshint*, *concat*, *uglify*i *czujki* jak pokazano w poniższym przykładzie. Wersje musi być zgodny z przykładu.
+3. Dodaj więcej zależności, aby załadować grunt-contrib -\* pakietami *czystą*, *jshint*, *concat*, *uglify*i *czujki* jak pokazano w poniższym przykładzie. Wersje nie muszą być identyczne w przykładzie.
 
     ```json
     "devDependencies": {

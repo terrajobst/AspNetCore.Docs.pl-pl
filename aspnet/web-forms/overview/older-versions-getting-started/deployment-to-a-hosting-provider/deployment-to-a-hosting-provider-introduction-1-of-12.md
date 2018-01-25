@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 7c03453e64cfc065d9f424702cc5af373e9bf536
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9c0edb301de85d15b9a3527382b72211f6f3d3ec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio programu SQL Server Compact: wprowadzenie - 1 do 12
 ====================
@@ -63,7 +63,7 @@ Dostawca hostingu używane w tym samouczku Cytanium.com, jest jednym z wielu, kt
 
 ## <a name="deploying-web-site-projects"></a>Wdrażanie projektu witryny sieci Web
 
-Contoso University jest projektu aplikacji sieci web programu Visual Studio. Większość metody wdrażania i narzędzia przedstawiona w tym samouczku nie dotyczą [projektów witryny sieci Web](https://msdn.microsoft.com/en-us/library/dd547590.aspx). Aby uzyskać informacje o sposobie wdrażania projektów witryny sieci web, zobacz [Mapa zawartości platformy ASP.NET wdrożenia](https://msdn.microsoft.com/en-us/library/bb386521.aspx#deployment_for_web_site_projects).
+Contoso University jest projektu aplikacji sieci web programu Visual Studio. Większość metody wdrażania i narzędzia przedstawiona w tym samouczku nie dotyczą [projektów witryny sieci Web](https://msdn.microsoft.com/library/dd547590.aspx). Aby uzyskać informacje o sposobie wdrażania projektów witryny sieci web, zobacz [Mapa zawartości platformy ASP.NET wdrożenia](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects).
 
 ## <a name="deploying-aspnet-mvc-projects"></a>Wdrażanie projekty składnika ASP.NET MVC
 
@@ -85,7 +85,7 @@ Komentarze dotyczące samouczków są-Zapraszamy!, a po zaktualizowaniu samouczk
 
 Przed rozpoczęciem upewnij się, że masz system Windows 7 lub nowszy, a jeden z następujących produktów zainstalowanych na komputerze:
 
-- [Visual Studio 2010 z dodatkiem SP1](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)
+- [Visual Studio 2010 SP1](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)
 - [Visual Web Developer Express 2010 z dodatkiem SP1](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VWD2010SP1Pack)
 - [Visual Studio 2012 RC i Visual Studio Express 2012 RC for Web](https://go.microsoft.com/fwlink/?LinkId=240162)
 
@@ -110,7 +110,7 @@ Aby przygotować się do kroków samouczka, należy zapisać ContosoUniversity B
 
 Uruchom program Visual Studio, otwórz projekt, a następnie naciśnij klawisz CTRL-F5, aby uruchomić go.
 
-[![Home_Page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
+[![Home_page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
 
 Strony sieci Web są dostępne z paska menu i umożliwiają wykonywanie następujących funkcji:
 
@@ -143,4 +143,4 @@ Poniższe funkcje aplikacji wpływa na sposób wdrażania lub masz celu jej wdro
 W tym samouczku pierwszy z serii pobraniu przykładowy projekt programu Visual Studio i przejrzeć funkcji witryny, które mają wpływ na sposób wdrażania aplikacji. W następujących samouczkach przygotować się do wdrożenia, konfigurując niektóre z nich mają zostać obsłużone automatycznie. Inne rozwiązywane ręcznie.
 
 >[!div class="step-by-step"]
-[Dalej](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+[Next](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

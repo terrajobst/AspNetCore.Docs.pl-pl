@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 msc.type: authoredcontent
-ms.openlocfilehash: f4d898b6e09b5b9df44b62f9cb4b9d367f288efb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 27fade9fc5cae917579d4963da7bca12f6a5cda1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-membership-databases-to-enterprise-environments"></a>Wdrożenie bazy danych członkostwa w środowiskach przedsiębiorstw
 ====================
@@ -44,8 +44,8 @@ Niestety bazy danych członkostwa ASP.NET wprowadzić niektóre określonych wyz
 
 Po wybraniu udostępnianie bazy danych członkostwa w środowisku przedsiębiorstwa serwera, użyj poniższych wskazówek:
 
-- Gdy jest to możliwe, nie należy wdrażać bazy danych członkostwa. Zamiast tego należy utworzyć bazy danych członkostwa ręcznie na docelowym serwerze bazy danych. Jeśli nie zostały dostosowane schemat bazy danych członkostwa, możesz po prostu utworzyć nowy na miejscu docelowym za pomocą [ASP.NET SQL Server Registration Tool (aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx).
-- Jeśli nie jest dostępna opcja, ale aby wdrożyć bazy danych członkostwa & #x 2014; na przykład, jeśli dokonano rozległych modyfikacji schematu bazy danych & #x 2014; należy wykonać wdrożenie tylko do schematu bazy danych członkostwa, aby wykluczyć danych konta użytkownika, a następnie należy uruchomić skrypt po wdrożeniu można dodać żadnych danych konfiguracji. Szerokie wskazówki można znaleźć w tych metod w [porady: Wdrażanie ASP.NET członkostwa bazy danych bez tym kont użytkowników](https://msdn.microsoft.com/en-us/library/ff361972(v=vs.100).aspx).
+- Gdy jest to możliwe, nie należy wdrażać bazy danych członkostwa. Zamiast tego należy utworzyć bazy danych członkostwa ręcznie na docelowym serwerze bazy danych. Jeśli nie zostały dostosowane schemat bazy danych członkostwa, możesz po prostu utworzyć nowy na miejscu docelowym za pomocą [ASP.NET SQL Server Registration Tool (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx).
+- Jeśli nie jest dostępna opcja, ale aby wdrożyć bazy danych członkostwa & #x 2014; na przykład, jeśli dokonano rozległych modyfikacji schematu bazy danych & #x 2014; należy wykonać wdrożenie tylko do schematu bazy danych członkostwa, aby wykluczyć danych konta użytkownika, a następnie należy uruchomić skrypt po wdrożeniu można dodać żadnych danych konfiguracji. Szerokie wskazówki można znaleźć w tych metod w [porady: Wdrażanie ASP.NET członkostwa bazy danych bez tym kont użytkowników](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
 Należy pamiętać, że *schemat bazy danych członkostwa jest może być dość statycznych*. Nawet wtedy, gdy został dostosowany bazie danych członkostwa, jest mało prawdopodobne, że konieczne będzie zaktualizowanie schematu w regularnych odstępach czasu & #x 2014; nie będzie można zmienić z taką samą częstotliwością jako kod w aplikacji sieci web lub projektu bazy danych. Tak nie należy dołączyć wszystkie procesy wdrażania automatycznego lub pojedynczy krok bazie danych członkostwa.
 
@@ -57,8 +57,8 @@ Alternatywą jest użycie narzędzia VSDBCMD do aktualizacji schematu docelowej 
 
 Następujące ogólne kroki służy do aktualizacji schematu bazy danych członkostwa:
 
-1. Użyj VSDBCMD **importu** akcji, aby wygenerować plik .dbschema dla źródłowej bazy danych członkostwa. Ta procedura jest opisana w [porady: Importowanie schematu z wiersza polecenia](https://msdn.microsoft.com/en-us/library/dd172135.aspx).
-2. Użyj VSDBCMD **Wdróż** akcji można wdrożyć pliku .dbschema do docelowej bazy danych członkostwa. Ta procedura jest opisana w [dotyczące wiersza polecenia dla VSDBCMD. EXE (wdrożenia i importowania schematu)](https://msdn.microsoft.com/en-us/library/dd193283.aspx).
+1. Użyj VSDBCMD **importu** akcji, aby wygenerować plik .dbschema dla źródłowej bazy danych członkostwa. Ta procedura jest opisana w [porady: Importowanie schematu z wiersza polecenia](https://msdn.microsoft.com/library/dd172135.aspx).
+2. Użyj VSDBCMD **Wdróż** akcji można wdrożyć pliku .dbschema do docelowej bazy danych członkostwa. Ta procedura jest opisana w [dotyczące wiersza polecenia dla VSDBCMD. EXE (wdrożenia i importowania schematu)](https://msdn.microsoft.com/library/dd193283.aspx).
 
 ## <a name="conclusion"></a>Wniosek
 
@@ -66,7 +66,7 @@ W tym temacie opisano niektóre wyzwania, które mogą się spodziewać po aprow
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Aby uzyskać więcej wskazówki i przykłady dotyczące używania VSDBCMD, zobacz [dotyczące wiersza polecenia dla VSDBCMD. EXE (wdrożenia i importowania schematu)](https://msdn.microsoft.com/en-us/library/dd193283.aspx) i [porady: Importowanie schematu z wiersza polecenia](https://msdn.microsoft.com/en-us/library/dd172135.aspx). Aby uzyskać więcej informacji na temat używania aspnet\_regsql.exe do tworzenia baz danych członkostwa, zobacz [ASP.NET SQL Server Registration Tool (aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx). Zawiera ogólne wskazówki dotyczące wdrażania bazy danych członkostwa, zobacz [porady: Wdrażanie ASP.NET członkostwa bazy danych bez tym kont użytkowników](https://msdn.microsoft.com/en-us/library/ff361972(v=vs.100).aspx).
+Aby uzyskać więcej wskazówki i przykłady dotyczące używania VSDBCMD, zobacz [dotyczące wiersza polecenia dla VSDBCMD. EXE (wdrożenia i importowania schematu)](https://msdn.microsoft.com/library/dd193283.aspx) i [porady: Importowanie schematu z wiersza polecenia](https://msdn.microsoft.com/library/dd172135.aspx). Aby uzyskać więcej informacji na temat używania aspnet\_regsql.exe do tworzenia baz danych członkostwa, zobacz [ASP.NET SQL Server Registration Tool (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx). Zawiera ogólne wskazówki dotyczące wdrażania bazy danych członkostwa, zobacz [porady: Wdrażanie ASP.NET członkostwa bazy danych bez tym kont użytkowników](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
 >[!div class="step-by-step"]
 [Poprzednie](deploying-database-role-memberships-to-test-environments.md)

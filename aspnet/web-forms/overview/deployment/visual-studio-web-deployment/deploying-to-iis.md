@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: 97910940f9de26ca71b111b945581d2de6650b02
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 01f72e0240e84944f8ffece9a2dbc5802be4646b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie do testu
 ====================
@@ -40,7 +40,7 @@ Bardziej niezawodnie przetestować aplikację w następujący sposób:
 
 Opcja 2 jest najbardziej niezawodnym sposobem sprawdzenia, a jeśli to zrobisz, który, nie zawsze trzeba opcja 1. Jednak jeśli wdrażasz opcja dostawcy hostingu innych firm 2 może nie być możliwe lub może być kosztowne, więc ta seria samouczek pokazuje obie metody. Wskazówki dotyczące opcja 2 znajduje się w [wdrażania w środowisku produkcyjnym](deploying-to-production.md) samouczka.
 
-Aby uzyskać więcej informacji o korzystaniu z serwerów sieci web w programie Visual Studio, zobacz [serwerów sieci Web w programie Visual Studio dla projektów sieci Web ASP.NET](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx).
+Aby uzyskać więcej informacji o korzystaniu z serwerów sieci web w programie Visual Studio, zobacz [serwerów sieci Web w programie Visual Studio dla projektów sieci Web ASP.NET](https://msdn.microsoft.com/library/58wxa9w5.aspx).
 
 Przypomnienie: Jeśli coś nie działa podczas wykonywania kroków samouczka wyświetlony komunikat o błędzie, należy sprawdzić [Rozwiązywanie problemów z strony](troubleshooting.md).
 
@@ -73,7 +73,7 @@ Po zainstalowaniu usług IIS, należy uruchomić **Menedżera usług IIS** aby u
     [![Inetmgr_showing_4.0_app_pools](deploying-to-iis/_static/image3.png)](deploying-to-iis/_static/image2.png)
 4. Jeśli zostanie wyświetlony tylko dwa pul aplikacji i z nich są ustawione na .NET Framework 2.0, należy zainstalować ASP.NET 4 w usługach IIS.
 
-    Dla systemu Windows 8, należy zapoznać się z instrukcjami w poprzedniej sekcji, upewniając się, że program ASP.NET 4.5 jest zainstalowane, lub zobacz [w tym artykule KB](https://support.microsoft.com/kb/2736284). Dla systemu Windows 7, Otwórz okno wiersza polecenia, klikając prawym przyciskiem myszy **wiersza polecenia** w oknach **Start** menu i wybierając **Uruchom jako Administrator**. Następnie uruchom [aspnet\_regiis.exe](https://msdn.microsoft.com/en-us/library/k6h9cz8h.aspx) do zainstalowania programu ASP.NET 4 w usługach IIS, za pomocą następujących poleceń. (W 32-bitowym, zastąp "Framework64" z "Framework").
+    Dla systemu Windows 8, należy zapoznać się z instrukcjami w poprzedniej sekcji, upewniając się, że program ASP.NET 4.5 jest zainstalowane, lub zobacz [w tym artykule KB](https://support.microsoft.com/kb/2736284). Dla systemu Windows 7, Otwórz okno wiersza polecenia, klikając prawym przyciskiem myszy **wiersza polecenia** w oknach **Start** menu i wybierając **Uruchom jako Administrator**. Następnie uruchom [aspnet\_regiis.exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx) do zainstalowania programu ASP.NET 4 w usługach IIS, za pomocą następujących poleceń. (W 32-bitowym, zastąp "Framework64" z "Framework").
 
     [!code-console[Main](deploying-to-iis/samples/sample1.cmd)]
 
@@ -94,9 +94,9 @@ Usługi IIS jest teraz gotowe do publikowania aplikacji sieci web do niego, ale 
 
 LocalDB nie jest przeznaczony do pracy w usługach IIS, więc dla danego środowiska testowego należy zainstalować programu SQL Server Express. Jeśli używasz programu Visual Studio 2010 programu SQL Server Express jest już zainstalowana domyślnie. Jeśli używasz programu Visual Studio 2012, należy go zainstalować.
 
-Aby zainstalować program SQL Server Express, zainstaluj ją z [Centrum pobierania: Microsoft SQL Server 2012 Express](https://www.microsoft.com/en-us/download/details.aspx?id=29062) klikając [ENU\x64\SQLEXPR\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLEXPR_x64_ENU.exe) lub [ ENU\x86\SQLEXPR\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLEXPR_x86_ENU.exe). Po wybraniu niewłaściwy systemu nie będzie można go zainstalować i spróbować jeden z nich.
+Aby zainstalować program SQL Server Express, zainstaluj ją z [Centrum pobierania: Microsoft SQL Server 2012 Express](https://www.microsoft.com/download/details.aspx?id=29062) klikając [ENU\x64\SQLEXPR\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLEXPR_x64_ENU.exe) lub [ ENU\x86\SQLEXPR\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLEXPR_x86_ENU.exe). Po wybraniu niewłaściwy systemu nie będzie można go zainstalować i spróbować jeden z nich.
 
-Na pierwszej stronie Centrum instalacji programu SQL Server, kliknij przycisk **nowy serwer SQL instalacji autonomicznej lub Dodaj funkcje do istniejącej instalacji**i postępuj zgodnie z instrukcjami, akceptując ustawień domyślnych. W Kreatorze instalacji Zaakceptuj ustawienia domyślne. Aby uzyskać więcej informacji na temat opcji instalacji, zobacz [Instalowanie programu SQL Server 2012 z poziomu Kreatora instalacji (Instalator)](https://msdn.microsoft.com/en-us/library/ms143219.aspx).
+Na pierwszej stronie Centrum instalacji programu SQL Server, kliknij przycisk **nowy serwer SQL instalacji autonomicznej lub Dodaj funkcje do istniejącej instalacji**i postępuj zgodnie z instrukcjami, akceptując ustawień domyślnych. W Kreatorze instalacji Zaakceptuj ustawienia domyślne. Aby uzyskać więcej informacji na temat opcji instalacji, zobacz [Instalowanie programu SQL Server 2012 z poziomu Kreatora instalacji (Instalator)](https://msdn.microsoft.com/library/ms143219.aspx).
 
 ## <a name="create-sql-server-express-databases-for-the-test-environment"></a>Tworzenie programu SQL Server Express baz danych dla środowiska testowego
 
@@ -233,7 +233,7 @@ Poniższa procedura dotyczy **połączenia DefaultConnection** bazy danych w **b
 
 Jeśli program Visual Studio wykryje Entity Framework `DbContext` klasy, tworzy wpis w **baz danych** sekcja, która ma **wykonaj migracje Code First** pole wyboru, a nie  **Aktualizacja bazy danych** pole wyboru. W tym samouczku będziesz Użyj tego pola wyboru, aby określić wdrożenia migracje Code First.
 
-W niektórych scenariuszach może być używany `DbContext` bazy danych, ale chcesz użyć dostawcy dbDacFx zamiast migracji w celu wdrażania bazy danych. W takim przypadku zobacz [sposób wdrażania Code First bazy danych bez migracje?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#deploy_code_first_without_migrations) w FAQ wdrożenia sieci Web ASP.NET w witrynie MSDN.
+W niektórych scenariuszach może być używany `DbContext` bazy danych, ale chcesz użyć dostawcy dbDacFx zamiast migracji w celu wdrażania bazy danych. W takim przypadku zobacz [sposób wdrażania Code First bazy danych bez migracje?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) w FAQ wdrożenia sieci Web ASP.NET w witrynie MSDN.
 
 Poniższa procedura dotyczy **SchoolContext** bazy danych w **baz danych** części okna dialogowego.
 
@@ -332,7 +332,7 @@ Aby uzyskać informacje dotyczące uruchamiania usług IIS lub usług IIS Expres
 
 - [Omówienie usługi IIS Express](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) w witrynie IIS.net.
 - [Wprowadzenie do usług IIS Express](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) na blogu Scott Guthrie.
-- [Serwery w sieci Web w programie Visual Studio dla projektów sieci Web ASP.NET](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx).
+- [Serwery w sieci Web w programie Visual Studio dla projektów sieci Web ASP.NET](https://msdn.microsoft.com/library/58wxa9w5.aspx).
 - [Podstawowe różnice między usług IIS i ASP.NET Development Server](../../older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) w witrynie platformy ASP.NET.
 
 Aby uzyskać informacje na temat problemów, jakie mogą wystąpić, gdy aplikacja działa w trybie średniego zaufania, zobacz [Hosting aplikacji ASP.NET w relacji zaufania średni](http://www.4guysfromrolla.com/articles/100307-1.aspx) na 4 Guys z Rolla lokacji.

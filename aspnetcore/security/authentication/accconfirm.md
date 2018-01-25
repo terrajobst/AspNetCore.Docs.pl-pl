@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: b004a8e7680b203416552e5a7a2809799e657759
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bc9febc41d0637be9f83a02799d360489f257849
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Potwierdzenie konta i hasła odzyskiwania w ASP.NET Core
 
@@ -89,7 +89,7 @@ Zobacz [wymuszania SSL](xref:security/enforcing-ssl).
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>Wymagaj wiadomości e-mail z potwierdzeniem
 
-Jest najlepszym rozwiązaniem, aby potwierdzić nowej rejestracji użytkownika, aby sprawdzić ich są nie przeprowadza personifikacji ktoś inny adres e-mail (to znaczy one nie został zarejestrowany przy do kogoś innego adresu e-mail). Załóżmy, że masz forum dyskusyjne i chcesz zapobiec "yli@example.com"z rejestracją jako"nolivetto@contoso.com." Bez wiadomości e-mail z potwierdzeniem "nolivetto@contoso.com" można uzyskać niechcianych wiadomości e-mail z aplikacji. Załóżmy, że użytkownik przypadkowo zarejestrowany jako "ylo@example.com", a nie wystąpieniem słowa z "yli", nie można używać hasła odzyskiwania, ponieważ aplikacja nie ma ich prawidłowy adres e-mail. Wiadomości e-mail z potwierdzeniem chroni tylko ograniczone z robotów i nie zapewnia ochrony z określone nadawcy, którzy mają wiele aliasów e-mail pracy służące do rejestrowania.
+Jest najlepszym rozwiązaniem, aby potwierdzić nowej rejestracji użytkownika, aby sprawdzić ich jest nie przeprowadza personifikacji ktoś inny adres e-mail (to znaczy one nie został zarejestrowany przy do kogoś innego adresu e-mail). Załóżmy, że masz forum dyskusyjne i chcesz zapobiec "yli@example.com"z rejestracją jako"nolivetto@contoso.com." Bez wiadomości e-mail z potwierdzeniem "nolivetto@contoso.com" można uzyskać niechcianych wiadomości e-mail z aplikacji. Załóżmy, że użytkownik przypadkowo zarejestrowany jako "ylo@example.com", a nie wystąpieniem słowa z "yli", nie można używać hasła odzyskiwania, ponieważ aplikacja nie ma ich prawidłowy adres e-mail. Wiadomości e-mail z potwierdzeniem chroni tylko ograniczone z robotów i nie zapewnia ochrony z określone nadawcy, którzy mają wiele aliasów e-mail pracy służące do rejestrowania.
 
 Zazwyczaj chcesz uniemożliwić użytkownikom nowe przesyłanie danych do witryny sieci web, zanim potwierdzony adres e-mail. 
 
@@ -110,7 +110,7 @@ Aktualizacja `ConfigureServices` aby wymagać potwierdzenia poczty e-mail:
 ```csharp
 config.SignIn.RequireConfirmedEmail = true;
 ```
-Poprzedni wiersz zapobiega zarejestrowanych użytkowników są rejestrowane, do momentu swój adres e-mail został potwierdzony. Jednak tego wiersza nie zapobiega nowi użytkownicy są rejestrowane po zarejestrowaniu się. Domyślny kod loguje użytkownika, po zarejestrowaniu się. Po zalogowaniu będą mogli się zalogować ponownie do czasu ich zarejestrować. Później w samouczku zmienimy użytkownika kodu, więc nowo zarejestrowane są **nie** zalogowany.
+Poprzedni wiersz zapobiega zarejestrowanych użytkowników są rejestrowane, do momentu swój adres e-mail został potwierdzony. Jednak tego wiersza nie uniemożliwić nowych użytkowników po zarejestrowaniu się. Domyślny kod loguje użytkownika, po zarejestrowaniu się. Po zalogowaniu będą mogli się zalogować ponownie do czasu ich zarejestrować. Później w samouczku zmienimy użytkownika kodu, więc nowo zarejestrowane są **nie** zalogowany.
 
 ### <a name="configure-email-provider"></a>Skonfiguruj dostawcę poczty e-mail
 
@@ -302,4 +302,4 @@ Kliknij łącze do innej usługi logowania i akceptowania żądań aplikacji. Na
 
 ![Zarządzanie wyświetlania serwisu Facebook widoku logowań zewnętrznych](accconfirm/_static/fb.png)
 
-Dwa konta zostały połączone. Będzie można logować się na każdym koncie. Możesz użytkownikom dodawanie kont lokalnych, w przypadku ich społecznościowych dziennika w usłudze uwierzytelniania jest wyłączony lub najprawdopodobniej po utracie dostępu do swojego konta społecznościowych.
+Dwa konta zostały połączone. Będzie można logować się na każdym koncie. Możesz użytkowników, aby dodać konta lokalnego, w przypadku ich społecznościowych dziennika w usłudze uwierzytelniania jest wyłączony lub najprawdopodobniej one utraty dostępu do swojego konta społecznościowych.

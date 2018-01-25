@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: df13726689c430ab19786e104ea7404051107aa9
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: c30556368ba24fb38cf3347dd49f171b5246514c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Wprowadzenie do platformy ASP.NET Core MVC i Entity Framework Core za pomocą programu Visual Studio (od 1 do 10)
 
@@ -27,7 +27,7 @@ Przykładowa aplikacja jest witryną sieci web dla fikcyjnej uniwersytetu Contos
 
 [Pobrania lub wyświetlenia ukończona aplikacja.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-Podstawowe EF 2.0 jest najnowsza wersja EF, ale nie ma jeszcze wszystkich funkcji EF 6.x. Informacje o tym, jak wybrać EF 6.x i podstawowe EF, zobacz [EF podstawowe programu vs. EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Jeśli wybierzesz EF 6.x, zobacz [we wcześniejszej wersji tego samouczka serii](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+Podstawowe EF 2.0 jest najnowsza wersja EF jeszcze nie wszystkich funkcji EF 6.x. Informacje o tym, jak wybrać EF 6.x i podstawowe EF, zobacz [EF podstawowe programu vs. EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Jeśli wybierzesz EF 6.x, zobacz [we wcześniejszej wersji tego samouczka serii](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 > [!NOTE]
 > * Wersja platformy ASP.NET Core 1.1 tego samouczka, dla [wersji programu VS 2017 Update 2 tego samouczka w formacie PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf).
@@ -178,7 +178,7 @@ W *danych* folderze utwórz plik klasy o nazwie *SchoolContext.cs*i Zastąp kod 
 
 Ten kod tworzy `DbSet` właściwości dla każdego zestawu jednostek. W terminologii programu Entity Framework zwykle zestawu jednostek odnosi się do tabeli bazy danych, a jednostka odpowiada wiersza w tabeli.
 
-Można mieć pominięto `DbSet<Enrollment>` i `DbSet<Course>` instrukcje i będzie działać w identyczny sposób. Entity Framework to ich niejawnie ponieważ `Student` odwołań do jednostek `Enrollment` jednostki i `Enrollment` odwołań do jednostek `Course` jednostki.
+Można już pominięto `DbSet<Enrollment>` i `DbSet<Course>` instrukcje i będzie działać w identyczny sposób. Entity Framework to ich niejawnie ponieważ `Student` odwołań do jednostek `Enrollment` jednostki i `Enrollment` odwołań do jednostek `Course` jednostki.
 
 Po utworzeniu bazy danych EF tworzy tabel, które mają taki sam, jak nazwy `DbSet` nazwy właściwości. Zazwyczaj są to nazwy właściwości dla kolekcji (studentów zamiast uczniów) w liczbie mnogiej, ale deweloperzy nie zgadzają się o tego, czy należy pluralized nazwy tabeli lub nie. Te samouczki będzie zastąpienie zachowania domyślnego za pośrednictwem pojedynczej tabeli nazwy kontekstu DbContext. Aby to zrobić, Dodaj następujący kod wyróżnione po ostatnim właściwości DbSet.
 
@@ -351,7 +351,7 @@ W poniższym kodzie `async` — słowo kluczowe, `Task<T>` zwrócić wartość, 
 
 Należy pamiętać o podczas pisania kodu asynchroniczne, który korzysta z programu Entity Framework w kilku kwestiach:
 
-* Tylko instrukcji, które powodują zapytań i poleceń do wysłania do bazy danych są wykonywane asynchronicznie. Zawierającej, na przykład `ToListAsync`, `SingleOrDefaultAsync`, i `SaveChangesAsync`. Nie obejmuje, na przykład instrukcji, które można zmienić `IQueryable`, takich jak `var students = context.Students.Where(s => s.LastName == "Davolio")`.
+* Tylko instrukcji, które powodują zapytań i poleceń do wysłania do bazy danych są wykonywane asynchronicznie. Zawierającej, na przykład `ToListAsync`, `SingleOrDefaultAsync`, i `SaveChangesAsync`. Nie ma wśród nich, na przykład instrukcji, które można zmienić `IQueryable`, takich jak `var students = context.Students.Where(s => s.LastName == "Davolio")`.
 
 * Kontekst EF nie jest bezpieczne dla wątków: nie należy próbować wykonać kilka operacji wykonywane równolegle. Po wywołaniu dowolnej metody EF async zawsze używaj `await` — słowo kluczowe.
 

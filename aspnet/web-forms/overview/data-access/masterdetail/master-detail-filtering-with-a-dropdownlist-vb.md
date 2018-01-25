@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 88e5c65c100bea3cc39b1e08b1aa8a622b4ce7a6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3f66e133b2bc8cdececf55b4d92508e6ff157d95
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>Wzorzec/szczegół filtrowanie z DropDownList (VB)
 ====================
@@ -31,7 +31,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 Spotykanym typem raportu jest *główny/szczegółowy raport*, w poprzez wyświetlenie niektórych zestawu rekordów "główny" zaczynający raportu. Użytkownik może następnie przejść do jednego z głównym rekordów ten sposób wyświetlania tego rekordu głównego "szczegółowych informacji." Wzorzec/szczegół raporty są idealnym wyborem w przypadku wizualizacja relacje jeden do wielu, takich jak raportu wyświetlane są wszystkie kategorie i następnie Umożliwianie użytkownikowi wybierz określonej kategorii i wyświetlić związane z nimi produkty. Ponadto raporty wzorzec/szczegół są przydatne w przypadku wyświetlania szczegółowych informacji z szczególnie "szerokie" tabele (te, które zawiera wiele kolumn). Na przykład poziom "główny" raport wzorzec/szczegół mogą być wyświetlane tylko produktu nazwy i Jednostka ceny produktów w bazie danych i przechodzenie od określonego produktu czy Pokaż pola dodatkowe produktu (kategorii, dostawca, ilość na jednostkę, i tak dalej).
 
-Istnieje wiele sposobów, które można zaimplementować wzorzec/szczegół raportu. Przez to i trzech kolejnych samouczkach przyjrzymy szerokiej gamy raportów wzorzec/szczegół. W tym samouczku zajmiemy się tym sposób wyświetlania rekordów wzorca [kontroli DropDownList](https://msdn.microsoft.com/en-us/library/dtx91y0z.aspx) i szczegóły wybranego elementu listy w widoku GridView. W szczególności w tym samouczku wzorzec/szczegół raportu spowoduje wyświetlenie listy kategorii i informacje o produkcie.
+Istnieje wiele sposobów, które można zaimplementować wzorzec/szczegół raportu. Przez to i trzech kolejnych samouczkach przyjrzymy szerokiej gamy raportów wzorzec/szczegół. W tym samouczku zajmiemy się tym sposób wyświetlania rekordów wzorca [kontroli DropDownList](https://msdn.microsoft.com/library/dtx91y0z.aspx) i szczegóły wybranego elementu listy w widoku GridView. W szczególności w tym samouczku wzorzec/szczegół raportu spowoduje wyświetlenie listy kategorii i informacje o produkcie.
 
 ## <a name="step-1-displaying-the-categories-in-a-dropdownlist"></a>Krok 1: Wyświetlanie kategorii w DropDownList
 
@@ -97,7 +97,7 @@ Po wybraniu tej metody, Kreator ObjectDataSource nam monituje o podanie wartośc
 
 Poświęć chwilę, aby zapoznaj się z naszym postęp w przeglądarce. Podczas odwiedzania najpierw strony, tych produktów należy do wybranej kategorii (napoje) są wyświetlane (jak pokazano na rysunku nr 9), ale zmiana DropDownList nie powoduje aktualizacji danych. Jest to spowodowane odświeżania strony musi nastąpić można zaktualizować widoku GridView. W tym celu mamy dwie opcje (które wymaga pisania żadnego kodu):
 
-- **Ustaw kategorie lista DropDownList na**[właściwości AutoPostBack](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**na wartość True.** (Można to zrobić, zaznaczając opcję Włącz AutoPostBack w tagu DropDownList.) To wyzwoli odświeżania strony zawsze, gdy lista DropDownList wybrany element zostanie zmieniona przez użytkownika. W związku z tym gdy użytkownik wybierze nową kategorię z DropDownList nastąpi odświeżenie strony i widoku GridView zostanie zaktualizowany z produktami nowo wybranej kategorii. (Jest to podejście, które wcześniej używanych w ramach tego samouczka).
+- **Ustaw kategorie lista DropDownList na**[właściwości AutoPostBack](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**na wartość True.** (Można to zrobić, zaznaczając opcję Włącz AutoPostBack w tagu DropDownList.) To wyzwoli odświeżania strony zawsze, gdy lista DropDownList wybrany element zostanie zmieniona przez użytkownika. W związku z tym gdy użytkownik wybierze nową kategorię z DropDownList nastąpi odświeżenie strony i widoku GridView zostanie zaktualizowany z produktami nowo wybranej kategorii. (Jest to podejście, które wcześniej używanych w ramach tego samouczka).
 - **Dodawanie formantu przycisku Web obok DropDownList.** Ustaw jego `Text` właściwości odświeżania lub podobny. Z tej metody użytkownik będzie musiał wybierz nową kategorię, a następnie kliknij przycisk. Kliknięcie przycisku powoduje odświeżenie strony i zaktualizować widoku GridView, aby wyświetlić listę tych produktów wybranej kategorii.
 
 Rysunki 9 i 10 ilustrują raportu wzorzec/szczegół w akcji.

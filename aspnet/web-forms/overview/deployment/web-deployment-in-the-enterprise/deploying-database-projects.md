@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: aef8229f2920bd026e3dbf063afb57cffb9b21d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9b1f9a19c76e33b5d996cb4d562cf0c1a3e2f83b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-database-projects"></a>Wdrażanie projektów bazy danych
 ====================
@@ -65,7 +65,7 @@ Istnieją różne różne podejścia do wdrażania projektów bazy danych. Jedna
 Istnieją trzy główne metody można użyć do wdrożenia projektu bazy danych:
 
 - Funkcja wdrożenia z typem projektu bazy danych w Visual Studio 2010. Podczas tworzenia i wdrażania bazy danych projektu w programie Visual Studio 2010, proces wdrażania używa manifest wdrażania Generowanie pliku wdrożenia na podstawie SQL specyficzne dla konfiguracji kompilacji. Spowoduje to utworzenie bazy danych, jeśli plik już nie istnieje lub wprowadź niezbędne zmiany w bazie danych, jeśli już istnieje. SQLCMD.exe umożliwia uruchamianie tego pliku na serwer docelowy, lub możesz ustawić Visual Studio, aby utworzyć i uruchomić plik. Wadą tego podejścia jest ma tylko ograniczoną kontrolę nad ustawienia wdrażania. Może być konieczne często również zmodyfikować plik wdrożenia SQL, aby podać wartości zmiennej określonego środowiska. Takie podejście z komputera można używać tylko z programu Visual Studio 2010, a deweloper musi wiedzieć i Podaj parametry połączenia i poświadczenia do wszystkich środowisk docelowego.
-- Narzędzie Internet Information Services (IIS) Web Deployment (Web Deploy) służy do [wdrożyć bazę danych w ramach projektu aplikacji sieci web](https://msdn.microsoft.com/en-us/library/dd465343.aspx). Jednak ta metoda jest znacznie bardziej skomplikowane, aby wdrożyć projekt bazy danych, a nie po prostu zreplikować istniejącej lokalnej bazy danych na serwerze docelowym. Można skonfigurować narzędzie Web Deploy, aby uruchomić skrypt wdrożenia programu SQL, który generuje projekt bazy danych, ale w tym celu, należy utworzyć niestandardowy plik elementów docelowych WPP dla projektu aplikacji sieci web. Spowoduje to dodanie znacznej ilości złożoności procesu wdrażania. Ponadto narzędzia Web Deploy nie obsługuje bezpośrednio aktualizacje przyrostowe istniejących baz danych. Aby uzyskać więcej informacji dotyczących tej metody, zobacz [rozszerzanie potoku publikowania w sieci Web, do projektu bazy danych pakietu wdrożonym pliku SQL](https://go.microsoft.com/?linkid=9805121).
+- Narzędzie Internet Information Services (IIS) Web Deployment (Web Deploy) służy do [wdrożyć bazę danych w ramach projektu aplikacji sieci web](https://msdn.microsoft.com/library/dd465343.aspx). Jednak ta metoda jest znacznie bardziej skomplikowane, aby wdrożyć projekt bazy danych, a nie po prostu zreplikować istniejącej lokalnej bazy danych na serwerze docelowym. Można skonfigurować narzędzie Web Deploy, aby uruchomić skrypt wdrożenia programu SQL, który generuje projekt bazy danych, ale w tym celu, należy utworzyć niestandardowy plik elementów docelowych WPP dla projektu aplikacji sieci web. Spowoduje to dodanie znacznej ilości złożoności procesu wdrażania. Ponadto narzędzia Web Deploy nie obsługuje bezpośrednio aktualizacje przyrostowe istniejących baz danych. Aby uzyskać więcej informacji dotyczących tej metody, zobacz [rozszerzanie potoku publikowania w sieci Web, do projektu bazy danych pakietu wdrożonym pliku SQL](https://go.microsoft.com/?linkid=9805121).
 - Narzędzie VSDBCMD wdrażania bazy danych, za pomocą schematu bazy danych lub manifest wdrażania. VSDBCMD.exe można wywołać z obiektu docelowego MSBuild, co umożliwia publikowanie baz danych w ramach procesu wdrażania większych i obsługę skryptów. Można zastąpić zmiennych w pliku .sqlcmdvars i wiele innych właściwości bazy danych z polecenia VSDBCMD, co pozwala na dostosowywanie wdrożenia w różnych środowiskach bez tworzenia wielu konfiguracji kompilacji. VSDBCMD udostępnia funkcję zróżnicowanie, co oznacza, że szablon wprowadzi tylko niezbędne zmiany, aby były wyrównane z schemat bazy danych w docelowej bazie danych. VSDBCMD oferuje szeroką gamę opcji wiersza polecenia, które zapewniają precyzyjną kontrolę nad procesem wdrażania.
 
 Z tego przeglądu możesz sprawdzić, czy przy użyciu programu MSBuild przy użyciu VSDBCMD jest najbardziej odpowiednie do scenariusza wdrażania typowego przedsiębiorstwa podejście:
@@ -97,7 +97,7 @@ W takim przypadku:
 - **/Dd+** (lub **/DeployToDatabase+**) przełącznika wskazuje, że chcesz utworzyć wdrożenie, a następnie wdrożyć ją w środowisku docelowym. Jeśli określisz **/dd-**, lub pominięta, VSDBCMD wygeneruje skryptu wdrażania, ale nie zostaną wdrożone w środowisku docelowym. Ten przełącznik jest często źródło pomyłek i jest co omówiono bardziej szczegółowo w następnej sekcji.
 - **/Script** (lub **/DeploymentScriptFile**) przełącznik określa, gdzie chcesz wygenerować skrypt wdrożenia. Ta wartość nie wpływa na proces wdrażania.
 
-Aby uzyskać więcej informacji o VSDBCMD, zobacz [dotyczące wiersza polecenia dla VSDBCMD. EXE (wdrożenia i importowania schematu)](https://msdn.microsoft.com/en-us/library/dd193283.aspx) i [porady: Przygotowanie bazy danych do wdrożenia z wiersza polecenia przy użyciu VSDBCMD. EXE](https://msdn.microsoft.com/en-us/library/dd193258.aspx).
+Aby uzyskać więcej informacji o VSDBCMD, zobacz [dotyczące wiersza polecenia dla VSDBCMD. EXE (wdrożenia i importowania schematu)](https://msdn.microsoft.com/library/dd193283.aspx) i [porady: Przygotowanie bazy danych do wdrożenia z wiersza polecenia przy użyciu VSDBCMD. EXE](https://msdn.microsoft.com/library/dd193258.aspx).
 
 Na przykład stosowania VSDBCMD w pliku projektu MSBuild zobacz [opis procesu kompilacji](understanding-the-build-process.md). Przykłady sposobu konfigurowania ustawień wdrażania bazy danych w wielu środowiskach, zobacz [Dostosowywanie wdrożenia bazy danych w wielu środowiskach](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md).
 
@@ -145,10 +145,10 @@ Aby uzyskać informacje na temat sposobu dostosowywania wdrożenia bazy danych, 
 
 Te tematy w witrynie MSDN zawierają szerszych wskazówki i informacje dla projektów bazy danych programu Visual Studio i procesu wdrażania bazy danych:
 
-- [Projektów dodatku programu SQL Server bazy danych dla programu Visual Studio 2010](https://msdn.microsoft.com/en-us/library/ff678491.aspx)
-- [Zarządzanie zmianą bazy danych](https://msdn.microsoft.com/en-us/library/aa833404.aspx)
-- [Porady: Przygotowanie bazy danych do wdrożenia z wiersza polecenia przy użyciu VSDBCMD. WYWOŁANIE PLIKU EXE](https://msdn.microsoft.com/en-us/library/dd193258.aspx)
-- [Omówienie bazy danych kompilacji i wdrożenia](https://msdn.microsoft.com/en-us/library/aa833165.aspx)
+- [Visual Studio 2010 SQL Server Database Projects](https://msdn.microsoft.com/library/ff678491.aspx)
+- [Zarządzanie zmianą bazy danych](https://msdn.microsoft.com/library/aa833404.aspx)
+- [Porady: Przygotowanie bazy danych do wdrożenia z wiersza polecenia przy użyciu VSDBCMD. WYWOŁANIE PLIKU EXE](https://msdn.microsoft.com/library/dd193258.aspx)
+- [Omówienie bazy danych kompilacji i wdrożenia](https://msdn.microsoft.com/library/aa833165.aspx)
 
 >[!div class="step-by-step"]
 [Poprzednie](deploying-web-packages.md)

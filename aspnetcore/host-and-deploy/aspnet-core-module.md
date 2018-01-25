@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 874b8b32c5a7cfd19156f276bd5367ef9412aa9b
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 7bb7e5b9c821f87e73763f5f5c4f9fbcd751235f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Konfiguracja modułu Core programu ASP.NET
 
@@ -60,12 +60,12 @@ Moduł platformy ASP.NET Core jest skonfigurowana za pośrednictwem witryny lub 
 
 | Atrybut | Opis |
 | --- | --- |
-| processPath | <p>Atrybut wymaganych parametrów.</p><p>Ścieżka do pliku wykonywalnego, który uruchamia proces nasłuchiwanie żądań HTTP. Ścieżki względne są obsługiwane. Jeśli ścieżka zaczyna się od '.', ścieżka jest traktowany jako względem katalogu głównego witryny.</p><p>Nie ma żadnej wartości domyślnej.</p> |
+| processPath | <p>Atrybut wymaganych parametrów.</p><p>Ścieżka do pliku wykonywalnego, który uruchamia proces nasłuchiwanie żądań HTTP. Ścieżki względne są obsługiwane. Jeśli ścieżka zaczyna się od '.', ścieżka jest traktowany jako względem katalogu głównego witryny.</p><p>Brak wartości domyślnej.</p> |
 | argumenty | <p>Opcjonalny atrybut ciągu.</p><p>Argumenty plik wykonywalny określony w **processPath**.</p><p>Wartością domyślną jest ciąg pusty.</p> |
 | startupTimeLimit | <p>Opcjonalny atrybut całkowity.</p><p>Czas w sekundach, oczekiwania modułu dla pliku wykonywalnego do uruchomienia procesu nasłuchiwanie na porcie. Po przekroczeniu tego limitu czasu, moduł będzie kasowanie procesu. Moduł spróbuje ponownie uruchomić proces, kiedy odbierze żądanie nowej i będzie podejmować próby ponownego uruchomienia procesu dla kolejnych żądań przychodzących, chyba że aplikacja nie może uruchomić **rapidFailsPerMinute** numer razy w ciągu ostatniej minuty stopniowego.</p><p>Wartość domyślna to 120.</p> |
 | shutdownTimeLimit | <p>Opcjonalny atrybut całkowity.</p><p>Czas w sekundach, dla których moduł będzie oczekiwał na plik wykonywalny jest bezpiecznie zamknąć po *app_offline.htm* Wykryto plik.</p><p>Wartość domyślna to 10.</p> |
 | rapidFailsPerMinute | <p>Opcjonalny atrybut całkowity.</p><p>Określa liczbę powtórzeń procesu w **processPath** może awarii na minutę. Po przekroczeniu tego limitu modułu przestanie uruchamiania procesu w pozostałej części minutę.</p><p>Wartość domyślna to 10.</p> |
-| RequestTimeout | <p>Atrybut opcjonalny timespan.</p><p>Określa okres czasu, dla którego moduł platformy ASP.NET Core będzie oczekiwał na odpowiedź z procesu nasłuchiwanie ASPNETCORE_PORT %.</p><p>Wartość domyślna to "00: 02:00".</p><p>`requestTimeout` Muszą być określone w pełnych minutach, w przeciwnym razie domyślne 2 minuty.</p> |
+| requestTimeout | <p>Atrybut opcjonalny timespan.</p><p>Określa okres czasu, dla którego moduł platformy ASP.NET Core będzie oczekiwał na odpowiedź z procesu nasłuchiwanie ASPNETCORE_PORT %.</p><p>Wartość domyślna to "00: 02:00".</p><p>`requestTimeout` Muszą być określone w pełnych minutach, w przeciwnym razie domyślne 2 minuty.</p> |
 | stdoutLogEnabled | <p>Opcjonalny logiczny atrybut.</p><p>Jeśli PRAWDA, **stdout** i **stderr** dla określonym w procesie **processPath** nastąpi przekierowanie do określonego w pliku **stdoutLogFile**.</p><p>Wartość domyślna to false.</p> |
 | stdoutLogFile | <p>Opcjonalny atrybut ciągu.</p><p>Określa ścieżkę względną lub bezwzględną, dla którego **stdout** i **stderr** z określonym w procesie **processPath** będą rejestrowane. Ścieżki względne są względem katalogu głównego witryny. Dowolną ścieżkę, rozpoczynając od '.' będzie względem katalogu głównego witryny i innych ścieżek będą traktowane jako ścieżki bezwzględne. Wszystkie foldery w ścieżce musi istnieć w kolejności dla modułu utworzyć plik dziennika. Identyfikator procesu sygnatury czasowej (*yyyyMdhms*) i rozszerzenie pliku (*log*) podkreślenia ograniczniki są dodawane do ostatniego segment **stdoutLogFile** podane.</p><p>Wartość domyślna to `aspnetcore-stdout`.</p> |
 | forwardWindowsAuthToken | prawda lub fałsz.</p><p>Jeśli PRAWDA, token będą przekazywane do procesu podrzędnego nasłuchiwanie ASPNETCORE_PORT % jako nagłówek "MS-ASPNETCORE-WINAUTHTOKEN" na żądanie. Jest odpowiedzialny za ten proces może wywołać funkcji CloseHandle: ten token na żądanie.</p><p>Wartość domyślna to true.</p> |
@@ -120,7 +120,7 @@ Zobacz [konfiguracji za pomocą pliku web.config](#configuration-via-webconfig) 
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>Moduł platformy ASP.NET Core z programem IIS konfiguracji udostępnionej
 
-Instalator platformy ASP.NET Core modułu jest uruchamiany z uprawnieniami **systemu** konta. Ponieważ lokalne konto systemowe ma uprawnienia do modyfikowania dla ścieżki udziału, który jest używany przez konfiguracji udostępnionej usług IIS, Instalator nastąpi trafienie dostępu błąd podczas próby skonfigurowania ustawienia modułu w  *applicationHost.config* w udziale.
+Instalator platformy ASP.NET Core modułu jest uruchamiany z uprawnieniami **systemu** konta. Ponieważ lokalne konto systemowe nie ma uprawnienia do modyfikowania dla ścieżki udziału, który jest używany przez konfiguracji udostępnionej usług IIS, Instalator nastąpi trafienie dostępu błąd podczas próby skonfigurowania ustawienia modułu w  *applicationHost.config* w udziale.
 
 Nieobsługiwany obejściem jest wyłączenie konfiguracji udostępnionej usług IIS, uruchom Instalatora, eksportowanie zaktualizowanego *applicationHost.config* plików do udziału, a następnie ponownie włącz konfiguracji udostępnionej usług IIS.
 
@@ -130,31 +130,31 @@ Nieobsługiwany obejściem jest wyłączenie konfiguracji udostępnionej usług 
 
 **Usługi IIS (x86/amd64):**
 
-   * %Windir%\System32\inetsrv\aspnetcore.dll
+   * %windir%\System32\inetsrv\aspnetcore.dll
 
-   * %Windir%\SysWOW64\inetsrv\aspnetcore.dll
+   * %windir%\SysWOW64\inetsrv\aspnetcore.dll
 
 **Usługi IIS Express (x86/amd64):**
 
-   * %ProgramFiles%\iis Express\aspnetcore.dll
+   * %ProgramFiles%\IIS Express\aspnetcore.dll
 
-   * % ProgramFiles (x86) %\IIS Express\aspnetcore.dll
+   * %ProgramFiles(x86)%\IIS Express\aspnetcore.dll
 
 ### <a name="schema"></a>Schemat
 
-**USŁUGI IIS**
+**IIS**
 
-   * %Windir%\System32\inetsrv\config\schema\aspnetcore_schema.XML
+   * %windir%\System32\inetsrv\config\schema\aspnetcore_schema.xml
 
 **Usługi IIS Express**
 
-   * %ProgramFiles%\iis Express\config\schema\aspnetcore_schema.xml
+   * %ProgramFiles%\IIS Express\config\schema\aspnetcore_schema.xml
 
 ### <a name="configuration"></a>Konfiguracja
 
-**USŁUGI IIS**
+**IIS**
 
-   * %Windir%\System32\inetsrv\config\applicationHost.config
+   * %windir%\System32\inetsrv\config\applicationHost.config
 
 **Usługi IIS Express**
 

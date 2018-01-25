@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.topic: article
 ms.prod: asp.net-core
 uid: performance/caching/response
-ms.openlocfilehash: 104cfb2eab706a2ec6278b4d1c461f70b0af5df1
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: d7726443dbcc34c21fd6cf0f56c4412863617b9f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w ASP.NET Core
 
@@ -32,10 +32,10 @@ Typowe `Cache-Control` dyrektywy przedstawiono w poniższej tabeli.
 
 | Dyrektywy                                                       | Akcja |
 | --------------------------------------------------------------- | ------ |
-| [publiczny](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Odpowiedzi mogą być przechowywane w pamięci podręcznej. |
-| [prywatne](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | Odpowiedź nie mogą być przechowywane przez współużytkowanej pamięci podręcznej. Prywatne pamięć podręczna może przechowywać i ponowne użycie odpowiedzi. |
-| [Maksymalny wiek](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Klient nie będzie akceptować odpowiedzi, którego okres ważności jest większa niż określoną liczbę sekund. Przykłady: `max-age=60` (60 sekund), `max-age=2592000` (miesiąc) |
-| [nie pamięci podręcznej](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **W odpowiedzi na żądania**: pamięci podręcznej nie może używać odpowiedzi przechowywane do spełnienia żądania. Uwaga: Serwer pochodzenia ponownie generuje odpowiedzi do klienta, a oprogramowanie pośredniczące aktualizuje odpowiedzi przechowywane w pamięci podręcznej.<br><br>**W odpowiedzi**: odpowiedź nie mogą być używane dla kolejnych żądań bez sprawdzania poprawności na serwerze źródłowym. |
+| [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Odpowiedzi mogą być przechowywane w pamięci podręcznej. |
+| [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | Odpowiedź nie mogą być przechowywane przez współużytkowanej pamięci podręcznej. Prywatne pamięć podręczna może przechowywać i ponowne użycie odpowiedzi. |
+| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Klient nie będzie akceptować odpowiedzi, którego okres ważności jest większa niż określoną liczbę sekund. Przykłady: `max-age=60` (60 sekund), `max-age=2592000` (miesiąc) |
+| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **W odpowiedzi na żądania**: pamięci podręcznej nie może używać odpowiedzi przechowywane do spełnienia żądania. Uwaga: Serwer pochodzenia ponownie generuje odpowiedzi do klienta, a oprogramowanie pośredniczące aktualizuje odpowiedzi przechowywane w pamięci podręcznej.<br><br>**W odpowiedzi**: odpowiedź nie mogą być używane dla kolejnych żądań bez sprawdzania poprawności na serwerze źródłowym. |
 | [nie magazynu](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **W odpowiedzi na żądania**: pamięć podręczna nie mogą przechowywać żądania.<br><br>**W odpowiedzi**: pamięć podręczna nie mogą przechowywać dowolną część odpowiedzi. |
 
 W poniższej tabeli przedstawiono innych nagłówków pamięci podręcznej, które uczestniczy w pamięci podręcznej.
@@ -44,7 +44,7 @@ W poniższej tabeli przedstawiono innych nagłówków pamięci podręcznej, któ
 | ---------------------------------------------------------- | -------- |
 | [Okres ważności](https://tools.ietf.org/html/rfc7234#section-5.1)     | Szacowana ilość czasu w sekundach od czasu odpowiedzi został wygenerowany lub pomyślnie zweryfikowane na serwerze źródłowym. |
 | [Wygasa](https://tools.ietf.org/html/rfc7234#section-5.3) | Data/Godzina po upływie którego odpowiedź jest uznawane za przestarzałe. |
-| [Wartość dyrektywy pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Istnieje dla zapewnienia zgodności z protokołu HTTP/1.0 buforuje ustawienia `no-cache` zachowanie. Jeśli `Cache-Control` występuje nagłówek `Pragma` nagłówka zostanie zignorowany. |
+| [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Istnieje dla zapewnienia zgodności z protokołu HTTP/1.0 buforuje ustawienia `no-cache` zachowanie. Jeśli `Cache-Control` występuje nagłówek `Pragma` nagłówka zostanie zignorowany. |
 | [Różnią się](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Określa, że buforowanej odpowiedzi może nie zostać wysłane dopóki wszystkie z `Vary` pola nagłówka są takie same w nowe żądanie i odpowiedź buforowana oryginalne żądanie. |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>Oparte na protokole HTTP względem buforowania żądań dyrektywy Cache-Control
@@ -65,7 +65,7 @@ Aby uzyskać więcej informacji, zobacz [wprowadzenie do buforowania w pamięci 
 
 ### <a name="distributed-cache"></a>Rozproszonej pamięci podręcznej
 
-Rozproszonej pamięci podręcznej umożliwia przechowywanie danych w pamięci, gdy aplikacja jest hostowana na farmie sieci chmury lub serwera. Pamięć podręczna jest współużytkowana przez serwery, które przetwarzają żądania. Klienci mogą przesyłać żądania, który jest obsługiwany przez dowolny serwer w grupie i buforowane na kliencie jest dostępny. Platformy ASP.NET Core oferuje programu SQL Server i pamięci podręczne Redis rozproszonych.
+Rozproszonej pamięci podręcznej umożliwia przechowywanie danych w pamięci, gdy aplikacja jest hostowana na farmie sieci chmury lub serwera. Pamięć podręczna jest współużytkowana przez serwery, które przetwarzają żądania. Klient może przesłać żądania, które zostały obsłużone przez dowolny serwer w grupie dane z pamięci podręcznej klienta jest dostępny. Platformy ASP.NET Core oferuje programu SQL Server i pamięci podręczne Redis rozproszonych.
 
 Aby uzyskać więcej informacji, zobacz [Praca z rozproszonej pamięci podręcznej](xref:performance/caching/distributed).
 
@@ -81,7 +81,7 @@ Zawartość z widoku MVC lub Razor strony w chmurze rozproszonej lub scenariusze
 
 Aby uzyskać więcej informacji, zobacz [rozproszonej pamięci podręcznej pomocnika tagów](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper).
 
-## <a name="responsecache-attribute"></a>Atrybut ResponseCache
+## <a name="responsecache-attribute"></a>ResponseCache attribute
 
 `ResponseCacheAttribute` Określa parametry, które są niezbędne do ustawiania odpowiednich nagłówków w ramach buforowania odpowiedzi. Zobacz [ResponseCacheAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.responsecacheattribute) opis parametrów.
 
@@ -96,7 +96,7 @@ Aby uzyskać więcej informacji, zobacz [rozproszonej pamięci podręcznej pomoc
 | `http://example.com?key1=value1` | Zwrócone przez oprogramowanie pośredniczące |
 | `http://example.com?key1=value2` | Zwrócony z serwera     |
 
-Pierwsze żądanie jest zwrócony przez serwer i w pamięci podręcznej w oprogramowaniu pośredniczącym. Drugie żądanie jest zwracana przez oprogramowanie pośredniczące, ponieważ ciąg zapytania jest zgodna z poprzedniego żądania. Trzeci żądanie nie jest w pamięci podręcznej oprogramowania pośredniczącego, ponieważ wartość ciągu kwerendy nie pasuje do poprzedniego żądania. 
+Pierwsze żądanie jest zwrócony przez serwer i w pamięci podręcznej w oprogramowaniu pośredniczącym. Drugie żądanie jest zwracana przez oprogramowanie pośredniczące, ponieważ ciąg zapytania jest zgodna z poprzedniego żądania. W pamięci podręcznej oprogramowania pośredniczącego nie trzeci żądania, ponieważ wartość ciągu kwerendy nie pasuje do poprzedniego żądania. 
 
 `ResponseCacheAttribute` Służy do konfigurowania i utworzyć (za pośrednictwem `IFilterFactory`) `ResponseCacheFilter`. `ResponseCacheFilter` Wykonuje pracę aktualizacji odpowiednich nagłówków HTTP i funkcje odpowiedzi. Filtr:
 
@@ -181,5 +181,5 @@ Cache-Control: public,max-age=60
 * [Praca z rozproszonej pamięci podręcznej](xref:performance/caching/distributed)
 * [Wykrywanie zmian z tokenami zmiany](xref:fundamentals/primitives/change-tokens)
 * [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
-* [Pamięć podręczna pomocnika tagów](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Pomocnik Tag rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

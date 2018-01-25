@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57a6941155c60e2769636fd4abc98531266c206c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7e3e936c81126b7ed01332565f997910a2886993
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Zarządzaj pakietami po stronie klienta z Bower w ASP.NET Core
 
@@ -45,7 +45,7 @@ W tym samouczku dodamy obsługę [czcionki świetny](http://fontawesome.io). Mo�
 
 ### <a name="manual-installation-in-bowerjson"></a>Ręczna instalacja w pliku bower.json
 
-Otwórz *bower.json* pliku, a następnie dodaj "font świetny" do zależności. IntelliSense zawiera dostępnych pakietów. Po wybraniu pakietu dostępne wersje są wyświetlane. Poniżej obrazy są starsze i nie będą zgodne, zostanie wyświetlony.
+Otwórz *bower.json* pliku, a następnie dodaj "font świetny" do zależności. IntelliSense zawiera dostępnych pakietów. Po wybraniu pakietu dostępne wersje są wyświetlane. Poniżej obrazy są starsze i nie będzie zgodne, zostanie wyświetlony.
 
 ![IntelliSense bower Eksploratora pakietów](bower/_static/add-package.png)
 

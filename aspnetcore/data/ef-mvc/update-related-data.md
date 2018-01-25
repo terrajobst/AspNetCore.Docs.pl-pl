@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 0e4df407a1ca15aa5baa2b7226be1cf91902a583
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3cdd36ae03824645e09f97cae85cc55956679390
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>Aktualizowanie danych powiązanych - Core EF z samouczek platformy ASP.NET Core MVC (7 10)
 
@@ -49,7 +49,7 @@ Po `Edit` metody HttpPost utworzenie nowej metody, który ładuje informacji dzi
 
 `PopulateDepartmentsDropDownList` Metoda pobiera listę wszystkich działach sortowane według nazwy, tworzy `SelectList` kolekcji do listy rozwijanej i przekazuje do widoku w kolekcji `ViewBag`. Metoda przyjmuje opcjonalny `selectedDepartment` parametr, który umożliwia kod wywołujący określić elementu, który będzie wybierany Po wyrenderowaniu listy rozwijanej. Widok przekazuje do nazwy "DepartmentID" `<select>` pomocnika tagów i pomocnika następnie traktował Szukaj w `ViewBag` obiekt do `SelectList` o nazwie "DepartmentID".
 
-HttpGet `Create` wywołania metody `PopulateDepartmentsDropDownList` metody bez ustawienie wybranego elementu, ponieważ dla nowego kursu działu nie zostanie nawiązane jeszcze:
+HttpGet `Create` wywołania metody `PopulateDepartmentsDropDownList` metody bez ustawienie wybranego elementu, ponieważ dla nowego kursu działu nie jest jeszcze ustalony:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=3&name=snippet_CreateGet)]
 
@@ -129,7 +129,7 @@ Kod wykonuje następujące czynności:
 
 -  Aktualizuje pobraną jednostkę instruktora wartościami z integratora modelu. `TryUpdateModel` Przeciążenie umożliwia utworzenie listy dozwolonych właściwości, które chcesz dołączyć. Pozwala to uniknąć nadmiernego publikowanie zgodnie z objaśnieniem w [drugi samouczek](crud.md).
 
-    <!-- Snippets do not play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
+    <!-- Snippets don't play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
     ```csharp
     if (await TryUpdateModelAsync<Instructor>(
@@ -140,7 +140,7 @@ Kod wykonuje następujące czynności:
     
 -   Jeśli w lokalizacji biura jest puste, ustawia właściwość Instructor.OfficeAssignment równej null, dzięki czemu powiązanego wiersza w tabeli OfficeAssignment zostaną usunięte.
 
-    <!-- Snippets do not play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
+    <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
 
     ```csharp
     if (String.IsNullOrWhiteSpace(instructorToUpdate.OfficeAssignment?.Location))
@@ -221,7 +221,7 @@ W *Views/Instructors/Edit.cshtml*, Dodaj **kursy** pole z tablicą pola wyboru p
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
-Ten kod tworzy tabelę HTML, który zawiera trzy kolumny. W każdej kolumnie ma postać pola wyboru, a po nim tekstem, który składa się z kursu numer i tytuł. Wszystkie pola wyboru mają taką samą nazwę ("selectedCourses"), które informuje o tym integratora modelu, które mają być traktowane jako grupa. Atrybut wartość każdego pola wyboru jest ustawiony na wartość `CourseID`. Gdy strona jest przesyłana, integratora modelu przekazuje tablicy do kontrolera, który składa się z `CourseID` wartości dla pola wyboru, które zostały wybrane.
+Ten kod tworzy tabelę HTML, który zawiera trzy kolumny. W każdej kolumnie ma postać pola wyboru, a po nim tekstem, który składa się z kursu numer i tytuł. Wszystkie pola wyboru mają taką samą nazwę ("selectedCourses"), które informuje integrator modelu o tym, że są one traktowane jako grupa. Atrybut wartość każdego pola wyboru jest ustawiony na wartość `CourseID`. Gdy strona jest przesyłana, integratora modelu przekazuje tablicy do kontrolera, który składa się z `CourseID` wartości dla pola wyboru, które zostały wybrane.
 
 Początkowo renderowany na pola wyboru, te, które są przypisane do instruktora kursów zaznaczono atrybuty, które wybiera je (wyświetlanych jest zaewidencjonowania je).
 

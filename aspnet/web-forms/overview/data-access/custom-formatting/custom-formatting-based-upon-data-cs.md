@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7c44327e1196a9e7cb9f9d12c963fb5f9b6b1b41
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 606721b01fae34a7bce85d497a442cb110f1b51e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-formatting-based-upon-data-c"></a>Niestandardowe formatowanie na podstawie danych (C#)
 ====================
@@ -93,7 +93,7 @@ Poniższy kod ilustruje sposób określić, czy `UnitPrice` wartość powiązane
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample3.cs)]
 
 > [!NOTE]
-> Ponieważ `UnitPrice` może mieć `NULL` wartość w bazie danych, najpierw musimy sprawdzić upewnij się, że firma Microsoft nie jest pracy nad `NULL` wartość przed uzyskaniem dostępu do `ProductsRow`w `UnitPrice` właściwości. To sprawdzenie ważne jest, ponieważ firma Microsoft podejmie próbę uzyskania dostępu `UnitPrice` właściwości, gdy ma `NULL` wartość `ProductsRow` zgłosi obiektu [strongtypingexception — wyjątek](https://msdn.microsoft.com/en-us/library/system.data.strongtypingexception.aspx).
+> Ponieważ `UnitPrice` może mieć `NULL` wartość w bazie danych, najpierw musimy sprawdzić upewnij się, że firma Microsoft nie jest pracy nad `NULL` wartość przed uzyskaniem dostępu do `ProductsRow`w `UnitPrice` właściwości. To sprawdzenie ważne jest, ponieważ firma Microsoft podejmie próbę uzyskania dostępu `UnitPrice` właściwości, gdy ma `NULL` wartość `ProductsRow` zgłosi obiektu [strongtypingexception — wyjątek](https://msdn.microsoft.com/library/system.data.strongtypingexception.aspx).
 
 
 ## <a name="step-3-formatting-the-unitprice-value-in-the-detailsview"></a>Krok 3: Formatowania wartości UnitPrice w widoku DetailsView
@@ -189,7 +189,7 @@ Po mamy programowe odwołanie do formantu sieci Web, firma Microsoft odpowiednio
 [!code-csharp[Main](custom-formatting-based-upon-data-cs/samples/sample12.cs)]
 
 > [!NOTE]
-> Składnia formatowanie szablonu programowane uzyskiwanie dostępu za pomocą formantu sieci Web `FindControl("controlID")` , a następnie ustawienie właściwości związanych z styl można również przy użyciu [TemplateFields](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.templatefield(VS.80).aspx) w widoku DetailsView lub widoku GridView formanty. W naszym samouczku dalej zajmiemy się TemplateFields.
+> Składnia formatowanie szablonu programowane uzyskiwanie dostępu za pomocą formantu sieci Web `FindControl("controlID")` , a następnie ustawienie właściwości związanych z styl można również przy użyciu [TemplateFields](https://msdn.microsoft.com/library/system.web.ui.webcontrols.templatefield(VS.80).aspx) w widoku DetailsView lub widoku GridView formanty. W naszym samouczku dalej zajmiemy się TemplateFields.
 
 
 7 ilustracji przedstawiono FormView podczas wyświetlania produktu którego `UnitsInStock` wartość jest większa niż 10, a jego wartość mniejsza niż 10 produktu na rysunku 8.
@@ -326,4 +326,4 @@ Programowanie przyjemność!
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały E.R. Gilmore, firmy Dennis Patterson i Dan Jagers. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Dalej](using-templatefields-in-the-gridview-control-cs.md)
+[Next](using-templatefields-in-the-gridview-control-cs.md)

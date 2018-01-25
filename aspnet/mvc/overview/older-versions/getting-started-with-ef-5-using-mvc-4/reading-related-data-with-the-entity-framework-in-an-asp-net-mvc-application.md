@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f455c3656c9120f4d7e6fccdba8f705e0a1c7d35
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9093fb90a52b297f173c5cddb6f332d2d1a25135
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Odczytywanie powiązane dane z programu Entity Framework w aplikacji platformy ASP.NET MVC (5, 10)
 ====================
@@ -68,7 +68,7 @@ Klasy kontekstu bazy danych wykonuje opóźnionego ładowania domyślnie. Istnie
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-Powolne ładowanie można zamaskować kodu, która powoduje występowanie problemów z wydajnością. Na przykład kodu, który nie określa wczesny lub jawnego ładowania, ale przetwarza dużą liczbę jednostek i używa kilku właściwości nawigacji w każdej iteracji może być bardzo mało wydajne (ze względu na wiele rund do bazy danych). Aplikacja, która wykonuje również Programowanie przy użyciu na lokalnym programem SQL server mogą wystąpić problemy z wydajnością po przeniesieniu do bazy danych SQL Azure z powodu większe opóźnienia i opóźnionego ładowania. Profilowanie zapytania bazy danych z realistyczne testu obciążenia pomoże określić, czy ładowanie opóźnieniem jest odpowiednia. Aby uzyskać więcej informacji, zobacz [Demystifying Entity Framework strategii: ładowanie powiązanych danych](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx) i [przy użyciu programu Entity Framework w celu zmniejszenia opóźnienia sieci SQL Azure](https://msdn.microsoft.com/en-us/magazine/gg309181.aspx).
+Powolne ładowanie można zamaskować kodu, która powoduje występowanie problemów z wydajnością. Na przykład kodu, który nie określa wczesny lub jawnego ładowania, ale przetwarza dużą liczbę jednostek i używa kilku właściwości nawigacji w każdej iteracji może być bardzo mało wydajne (ze względu na wiele rund do bazy danych). Aplikacja, która wykonuje również Programowanie przy użyciu na lokalnym programem SQL server mogą wystąpić problemy z wydajnością po przeniesieniu do bazy danych SQL Azure z powodu większe opóźnienia i opóźnionego ładowania. Profilowanie zapytania bazy danych z realistyczne testu obciążenia pomoże określić, czy ładowanie opóźnieniem jest odpowiednia. Aby uzyskać więcej informacji, zobacz [Demystifying Entity Framework strategii: ładowanie powiązanych danych](https://msdn.microsoft.com/magazine/hh205756.aspx) i [przy użyciu programu Entity Framework w celu zmniejszenia opóźnienia sieci SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
 ## <a name="create-a-courses-index-page-that-displays-department-name"></a>Utwórz stronę indeksu kursy tego działu Wyświetla nazwę
 
@@ -155,7 +155,7 @@ Metoda akceptuje dane trasy opcjonalne (`id`) i parametr ciągu zapytania (`cour
 > 
 > Dane trasy to dane integratora modelu znaleziono w segment adresu URL określonego w tabeli routingu. Na przykład określa domyślną trasę `controller`, `action`, i `id` segmentów:
 > 
-> trasy. MapRoute)  
+> routes.MapRoute(  
 >  Nazwa: "Default",  
 >  adres URL: "{controller} / {action} / {id}",  
 >  wartości domyślne: new {kontrolera = "Home", Akcja = "Index", id = UrlParameter.Optional}  
@@ -194,7 +194,7 @@ Jeśli wybrano Identyfikator instruktora, wybranym instruktorze są pobierane z 
 
 `Where` Metoda zwraca kolekcję, ale w takim przypadku kryteria przekazany do tej metody powodują tylko jeden `Instructor` są zwracane jednostki. `Single` Metoda konwertuje kolekcję do postaci jednej `Instructor` jednostki, która umożliwia dostęp do tej jednostki `Courses` właściwości.
 
-Możesz użyć [pojedynczego](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.single.aspx) metoda w kolekcji, gdy wiesz, Kolekcja będzie mieć tylko jeden element. `Single` Metoda zgłasza wyjątek, jeśli kolekcja przekazywania jest pusta lub jeśli istnieje więcej niż jeden element. Alternatywą jest [SingleOrDefault](https://msdn.microsoft.com/en-us/library/bb342451.aspx), która zwraca wartość domyślną (`null` w takim przypadku), jeśli kolekcja jest pusta. Jednak w takim przypadku który nadal spowoduje powstanie wyjątku (z próby znalezienia `Courses` właściwość `null` odwołania), oraz komunikat o wyjątku mniej wyraźnie wskazuje przyczynę problemu. Podczas wywoływania `Single` metody, można również przekazać `Where` warunku zamiast wywoływać metodę `Where` metody oddzielnie:
+Możesz użyć [pojedynczego](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) metoda w kolekcji, gdy wiesz, Kolekcja będzie mieć tylko jeden element. `Single` Metoda zgłasza wyjątek, jeśli kolekcja przekazywania jest pusta lub jeśli istnieje więcej niż jeden element. Alternatywą jest [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), która zwraca wartość domyślną (`null` w takim przypadku), jeśli kolekcja jest pusta. Jednak w takim przypadku który nadal spowoduje powstanie wyjątku (z próby znalezienia `Courses` właściwość `null` odwołania), oraz komunikat o wyjątku mniej wyraźnie wskazuje przyczynę problemu. Podczas wywoływania `Single` metody, można również przekazać `Where` warunku zamiast wywoływać metodę `Where` metody oddzielnie:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cs)]
 

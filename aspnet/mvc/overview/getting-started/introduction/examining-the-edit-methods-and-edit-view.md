@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 84aadccc18e7fa0fb56c7a78e144a1bf1038aac5
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: d7e1ba503b8aa815cebf431d2f5ffc9436b3575b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Badanie metody edycji i widoku edycji
 ====================
@@ -32,7 +32,7 @@ Można również ustawić jako kultury Data określonych w następujący sposób
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample2.cs?highlight=3)]
 
-Omówione zostaną następujące czynności [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) w następnym samouczku. [Wyświetlić](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayattribute.aspx) Określa atrybut, co ma być wyświetlany dla nazwy pola (w tym przypadku "Data wydania" zamiast "ReleaseDate"). [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybut określa typ danych, w tym przypadku jest data, więc nie jest wyświetlany w polu informacje o godzinie. [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybut jest wymagany dla usterki w przeglądarce Chrome, która renderuje formaty daty niepoprawnie.
+Omówione zostaną następujące czynności [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) w następnym samouczku. [Wyświetlić](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayattribute.aspx) Określa atrybut, co ma być wyświetlany dla nazwy pola (w tym przypadku "Data wydania" zamiast "ReleaseDate"). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybut określa typ danych, w tym przypadku jest data, więc nie jest wyświetlany w polu informacje o godzinie. [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybut jest wymagany dla usterki w przeglądarce Chrome, która renderuje formaty daty niepoprawnie.
 
 Uruchom aplikację i przejdź do `Movies` kontrolera. Umieść kursor **Edytuj** łącze, aby wyświetlić adres URL, który jest połączona.
 
@@ -44,9 +44,9 @@ Uruchom aplikację i przejdź do `Movies` kontrolera. Umieść kursor **Edytuj**
 
 ![Html.ActionLink](examining-the-edit-methods-and-edit-view/_static/image2.png)
 
-`Html` Obiekt jest pomocnika uwidocznionego za pomocą właściwości na [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/en-us/library/gg402107(VS.98).aspx) klasy podstawowej. `ActionLink` Metody pomocnika ułatwia dynamicznego generowania hiperłącza HTML, które łącze do metody akcji na kontrolerach. Pierwszy argument `ActionLink` metoda jest tekst łącza do renderowania (na przykład `<a>Edit Me</a>`). Drugi argument jest nazwą metody akcji (w tym przypadku `Edit` akcji). Ostatni argument jest [obiekt anonimowy](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx) generujący danych trasy (w tym przypadku identyfikator 4).
+`Html` Obiekt jest pomocnika uwidocznionego za pomocą właściwości na [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/library/gg402107(VS.98).aspx) klasy podstawowej. `ActionLink` Metody pomocnika ułatwia dynamicznego generowania hiperłącza HTML, które łącze do metody akcji na kontrolerach. Pierwszy argument `ActionLink` metoda jest tekst łącza do renderowania (na przykład `<a>Edit Me</a>`). Drugi argument jest nazwą metody akcji (w tym przypadku `Edit` akcji). Ostatni argument jest [obiekt anonimowy](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx) generujący danych trasy (w tym przypadku identyfikator 4).
 
-Wygenerowane łącze pokazano na poprzedniej ilustracji jest `http://localhost:1234/Movies/Edit/4`. Trasa domyślna (w *aplikacji\_Start\RouteConfig.cs*) trwa wzorzec URL `{controller}/{action}/{id}`. W związku z tym tłumaczy ASP.NET `http://localhost:1234/Movies/Edit/4` na żądanie, aby `Edit` metody akcji `Movies` kontrolera z parametrem `ID` równa 4. Przejrzyj następujący kod z *aplikacji\_Start\RouteConfig.cs* pliku. [MapRoute](../../older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs.md) metoda jest używana do routingu żądań HTTP właściwą metodę akcji i kontrolerów i podać parametr opcjonalny identyfikator. [MapRoute](../../older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs.md) metoda jest już używana przez [HtmlHelpers](https://msdn.microsoft.com/en-us/library/system.web.mvc.htmlhelper(v=vs.108).aspx) takich jak `ActionLink` do generowania adresów URL podany kontrolera, metody akcji i dane trasy.
+Wygenerowane łącze pokazano na poprzedniej ilustracji jest `http://localhost:1234/Movies/Edit/4`. Trasa domyślna (w *aplikacji\_Start\RouteConfig.cs*) trwa wzorzec URL `{controller}/{action}/{id}`. W związku z tym tłumaczy ASP.NET `http://localhost:1234/Movies/Edit/4` na żądanie, aby `Edit` metody akcji `Movies` kontrolera z parametrem `ID` równa 4. Przejrzyj następujący kod z *aplikacji\_Start\RouteConfig.cs* pliku. [MapRoute](../../older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs.md) metoda jest używana do routingu żądań HTTP właściwą metodę akcji i kontrolerów i podać parametr opcjonalny identyfikator. [MapRoute](../../older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs.md) metoda jest już używana przez [HtmlHelpers](https://msdn.microsoft.com/library/system.web.mvc.htmlhelper(v=vs.108).aspx) takich jak `ActionLink` do generowania adresów URL podany kontrolera, metody akcji i dane trasy.
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample4.cs?highlight=7)]
 
@@ -58,19 +58,19 @@ Otwórz `Movies` kontrolera. Dwa `Edit` poniżej przedstawiono metody akcji.
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample5.cs?highlight=19-21)]
 
-Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `HttpPost` atrybutu. Ten atrybut określa, że przeciążenia `Edit` metoda może być wywoływana tylko dla żądań POST. Można zastosować `HttpGet` pierwszy dla atrybutu Edytuj metodę, ale który nie jest konieczne, ponieważ jest to wartość domyślna. (Firma Microsoft będzie odwoływać się do metod akcji, które są przypisane niejawnie `HttpGet` atrybutu jako `HttpGet` metody.) [Powiązać](https://msdn.microsoft.com/en-us/library/system.web.mvc.bindattribute(v=vs.108).aspx) atrybut jest inny ważne mechanizm chroniąca przed hakerami z nadmiernie wysyłania danych do modelu. W atrybucie powiązania, które chcesz zmienić powinna zawierać tylko właściwości. Informacje o overposting i atrybut wiązania w mojej [overposting Uwaga dotycząca zabezpieczeń](https://go.microsoft.com/fwlink/?LinkId=317598). W modelu prostego używane w tym samouczku firma Microsoft będzie wiążące wszystkich danych w modelu. [ValidateAntiForgeryToken](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.108).aspx) atrybut jest używany w celu zapobiegania fałszowaniu żądania i wraz z `@Html.AntiForgeryToken()` w pliku widok edycji (*Views\Movies\Edit.cshtml*), fragment jest pokazany poniżej:
+Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `HttpPost` atrybutu. Ten atrybut określa, że przeciążenia `Edit` metoda może być wywoływana tylko dla żądań POST. Można zastosować `HttpGet` pierwszy dla atrybutu Edytuj metodę, ale który nie jest konieczne, ponieważ jest to wartość domyślna. (Firma Microsoft będzie odwoływać się do metod akcji, które są przypisane niejawnie `HttpGet` atrybutu jako `HttpGet` metody.) [Powiązać](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) atrybut jest inny ważne mechanizm chroniąca przed hakerami z nadmiernie wysyłania danych do modelu. W atrybucie powiązania, które chcesz zmienić powinna zawierać tylko właściwości. Informacje o overposting i atrybut wiązania w mojej [overposting Uwaga dotycząca zabezpieczeń](https://go.microsoft.com/fwlink/?LinkId=317598). W modelu prostego używane w tym samouczku firma Microsoft będzie wiążące wszystkich danych w modelu. [ValidateAntiForgeryToken](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.108).aspx) atrybut jest używany w celu zapobiegania fałszowaniu żądania i wraz z `@Html.AntiForgeryToken()` w pliku widok edycji (*Views\Movies\Edit.cshtml*), fragment jest pokazany poniżej:
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample6.cshtml?highlight=9)]
 
 `@Html.AntiForgeryToken()`generuje token zabezpieczający przed sfałszowaniem ukrytym, które muszą być zgodne `Edit` metody `Movies` kontrolera. Więcej o Cross-site żądania sfałszowaniem (znanej także jako XSRF lub CSRF) w samouczku Mój [zapobiegania XSRF/CSRF w nazwie wzorca MVC](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md).
 
-`HttpGet` `Edit` Metoda przyjmuje parametr ID film, wyszukuje filmu przy użyciu programu Entity Framework `Find` metody i zwraca wybrany film do widoku edycji. Jeśli nie można odnaleźć film, [HttpNotFound](https://msdn.microsoft.com/en-us/library/gg453938(VS.98).aspx) jest zwracany. Podczas tworzenia widoku edycji systemu szkieletów zbadane `Movie` klasy i kodu do renderowania `<label>` i `<input>` elementy dla każdej właściwości klasy. W poniższym przykładzie pokazano widok edycji został wygenerowany przez system szkieletów programu visual studio:
+`HttpGet` `Edit` Metoda przyjmuje parametr ID film, wyszukuje filmu przy użyciu programu Entity Framework `Find` metody i zwraca wybrany film do widoku edycji. Jeśli nie można odnaleźć film, [HttpNotFound](https://msdn.microsoft.com/library/gg453938(VS.98).aspx) jest zwracany. Podczas tworzenia widoku edycji systemu szkieletów zbadane `Movie` klasy i kodu do renderowania `<label>` i `<input>` elementy dla każdej właściwości klasy. W poniższym przykładzie pokazano widok edycji został wygenerowany przez system szkieletów programu visual studio:
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample7.cshtml)]
 
 Zwróć uwagę, jak szablon widoku ma `@model MvcMovie.Models.Movie` instrukcji w górnej części pliku — to ustawienie określa, czy widok oczekuje modelu widoku szablonu typu `Movie`.
 
-Kod z utworzonym szkieletem używa kilku *metody pomocnicze* uprościć kod znaczników HTML. [ `Html.LabelFor` ](https://msdn.microsoft.com/en-us/library/gg401864(VS.98).aspx) Pomocnika Wyświetla nazwę pola (&quot;tytuł&quot;, &quot;ReleaseDate&quot;, &quot;Genre&quot;, lub &quot;cen &quot;). [ `Html.EditorFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) Pomocnika renderowania kodu HTML `<input>` elementu. [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) Pomocnik wyświetli żadnych komunikatów dotyczących sprawdzania poprawności skojarzone z tą właściwością.
+Kod z utworzonym szkieletem używa kilku *metody pomocnicze* uprościć kod znaczników HTML. [ `Html.LabelFor` ](https://msdn.microsoft.com/library/gg401864(VS.98).aspx) Pomocnika Wyświetla nazwę pola (&quot;tytuł&quot;, &quot;ReleaseDate&quot;, &quot;Genre&quot;, lub &quot;cen &quot;). [ `Html.EditorFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) Pomocnika renderowania kodu HTML `<input>` elementu. [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) Pomocnik wyświetli żadnych komunikatów dotyczących sprawdzania poprawności skojarzone z tą właściwością.
 
 Uruchom aplikację i przejdź do */Movies* adresu URL. Kliknij przycisk **Edytuj** łącza. W przeglądarce Wyświetl źródło strony. Poniżej przedstawiono kod HTML dla elementu form.
 
@@ -84,9 +84,9 @@ Poniżej przedstawiono listę `HttpPost` wersji `Edit` metody akcji.
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample9.cs)]
 
-[ValidateAntiForgeryToken](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.108).aspx) sprawdza poprawność atrybutu [XSRF](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md) token generowane przez `@Html.AntiForgeryToken()` wywołań w widoku.
+[ValidateAntiForgeryToken](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.108).aspx) sprawdza poprawność atrybutu [XSRF](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md) token generowane przez `@Html.AntiForgeryToken()` wywołań w widoku.
 
-[Integratora modelu platformy ASP.NET MVC](https://msdn.microsoft.com/en-us/library/dd410405.aspx) przyjmuje wartości przesłanego formularza i tworzy `Movie` obiekt, który jest przekazywany jako `movie` parametru. `ModelState.IsValid` Metoda sprawdza, czy dane dostarczone w formie może służyć do modyfikowania (edycji lub aktualizacji) `Movie` obiektu. Jeśli dane są prawidłowe, są zapisywane dane filmu `Movies` Kolekcja `db(MovieDBContext` wystąpienie). Nowe dane film jest zapisywana w bazie danych przez wywołanie metody `SaveChanges` metody `MovieDBContext`. Po zapisaniu danych, kod przekierowuje użytkownika do `Index` metody akcji `MoviesController` klasy, która wyświetla kolekcję film, w tym tylko zmiany.
+[Integratora modelu platformy ASP.NET MVC](https://msdn.microsoft.com/library/dd410405.aspx) przyjmuje wartości przesłanego formularza i tworzy `Movie` obiekt, który jest przekazywany jako `movie` parametru. `ModelState.IsValid` Metoda sprawdza, czy dane dostarczone w formie może służyć do modyfikowania (edycji lub aktualizacji) `Movie` obiektu. Jeśli dane są prawidłowe, są zapisywane dane filmu `Movies` Kolekcja `db(MovieDBContext` wystąpienie). Nowe dane film jest zapisywana w bazie danych przez wywołanie metody `SaveChanges` metody `MovieDBContext`. Po zapisaniu danych, kod przekierowuje użytkownika do `Index` metody akcji `MoviesController` klasy, która wyświetla kolekcję film, w tym tylko zmiany.
 
 Jak weryfikacji po stronie klienta określa, czy wartości pola nie są prawidłowe, wyświetlany jest komunikat o błędzie. Jeśli wyłączysz JavaScript, nie będziesz mieć weryfikacji po stronie klienta, ale serwer wykryje przesłanych wartości nie są prawidłowe, a wartości formularza zostanie wyświetlony ponownie, z komunikatów o błędach. Sprawdzanie poprawności bardziej szczegółowo omówione w dalszej części tego samouczka.
 
@@ -106,8 +106,8 @@ Jeśli używasz komputera angielski, można pominąć tę sekcję i przejdź do 
 1. Z **narzędzia** kliknij menu **Menedżera pakietów NuGetLibrary**, a następnie kliknij przycisk **Zarządzaj pakietami NuGet dla rozwiązania**.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image5.png)
-2. W lewym okienku wybierz  **Przeglądaj*.* ** (Zobacz obraz poniżej).
-3. W polu wejściowym wpisz *Globalize**.  
+2. W lewym okienku wybierz **Przeglądaj*. *** (zobacz obraz poniżej).
+3. W polu wejściowym, wprowadź * Globalize **.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image6.png)Wybierz `jQuery.Validation.Globalize`, wybierz `MvcMovie` i kliknij przycisk **zainstalować**. *Scripts\jquery.globalize\globalize.js* plik zostanie dodany do projektu. *Scripts\jquery.globalize\cultures\* folder będzie zawierać wiele plików JavaScript kultury. Uwaga: może zająć 5 minut, aby zainstalować ten pakiet.
 

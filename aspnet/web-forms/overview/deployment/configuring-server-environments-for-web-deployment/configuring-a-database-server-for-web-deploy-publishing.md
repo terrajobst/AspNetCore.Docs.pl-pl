@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: b225d9911246b3e2be1679b73a9f31d9f8577ba5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98fd728f48f6fb64a61686bc58824b9fb3a28b13
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Konfigurowanie serwera bazy danych dla publikowania narzędzia Web Deploy
 ====================
@@ -48,7 +48,7 @@ W tym temacie opisano sposób wykonywania każdego z tych procedur. Zadania i ws
 Wystąpienie programu SQL Server musi jedynie zawierać **usługi aparatu bazy danych** roli, która jest automatycznie uwzględnione w żadnej instalacji programu SQL Server. W celu ułatwienia konfiguracji i konserwacji, firma Microsoft zaleca jednak możesz uwzględnić **narzędzia do zarządzania — podstawowe** i **narzędzia do zarządzania — Complete** ról serwera.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji dotyczących dołączania komputerów do domeny, zobacz [przyłączania komputerów do domeny i rejestrowanie na](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Aby uzyskać więcej informacji na temat konfigurowania statycznych adresów IP, zobacz [skonfigurować statyczny adres IP](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx). Aby uzyskać więcej informacji na temat instalowania programu SQL Server, zobacz [Instalowanie programu SQL Server 2008 R2](https://technet.microsoft.com/en-us/library/bb500395.aspx).
+> Aby uzyskać więcej informacji dotyczących dołączania komputerów do domeny, zobacz [przyłączania komputerów do domeny i rejestrowanie na](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Aby uzyskać więcej informacji na temat konfigurowania statycznych adresów IP, zobacz [skonfigurować statyczny adres IP](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). Aby uzyskać więcej informacji na temat instalowania programu SQL Server, zobacz [Instalowanie programu SQL Server 2008 R2](https://technet.microsoft.com/library/bb500395.aspx).
 
 
 ## <a name="enable-remote-access-to-sql-server"></a>Włączenie dostępu zdalnego do programu SQL Server
@@ -66,7 +66,7 @@ Aby włączyć program SQL Server do komunikowania się za pośrednictwem protok
 2. W okienku widoku drzewa rozwiń **konfigurację sieci programu SQL Server**, a następnie kliknij przycisk **protokoły dla elementu MSSQLSERVER**.
 
     > [!NOTE]
-    > Jeśli zainstalowano wiele wystąpień programu SQL Server, zostanie wyświetlone **protokoły dla***[nazwa wystąpienia]* elementu dla każdego wystąpienia. Należy skonfigurować ustawienia sieci na podstawie wystąpienia przez wystąpienie.
+    > Jeśli zainstalowano wiele wystąpień programu SQL Server, zostanie wyświetlone **protokoły dla *** [nazwa wystąpienia]* elementu dla każdego wystąpienia. Należy skonfigurować ustawienia sieci na podstawie wystąpienia przez wystąpienie.
 3. W okienku szczegółów kliknij prawym przyciskiem myszy **TCP/IP** wiersza, a następnie kliknij przycisk **włączyć**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
@@ -102,7 +102,7 @@ Przy założeniu, że używasz domyślnego wystąpienia programu SQL Server, nal
   
 
 > [!NOTE]
-> Z technicznego punktu widzenia komputer kliencki użyje jeden losowo przypisany port TCP od 1024 do 5000 do komunikowania się z programem SQL Server i odpowiednio ograniczyć reguł zapory. Aby uzyskać więcej informacji na porty serwera SQL, a zaporach, zobacz [numery portów TCP/IP wymagane do komunikacji za pośrednictwem zapory SQL](https://go.microsoft.com/?linkid=9805125) i [porady: Konfigurowanie serwera do nasłuchiwania na konkretnym porcie TCP (SQL Server Configuration Menedżer)](https://msdn.microsoft.com/en-us/library/ms177440.aspx).
+> Z technicznego punktu widzenia komputer kliencki użyje jeden losowo przypisany port TCP od 1024 do 5000 do komunikowania się z programem SQL Server i odpowiednio ograniczyć reguł zapory. Aby uzyskać więcej informacji na porty serwera SQL, a zaporach, zobacz [numery portów TCP/IP wymagane do komunikacji za pośrednictwem zapory SQL](https://go.microsoft.com/?linkid=9805125) i [porady: Konfigurowanie serwera do nasłuchiwania na konkretnym porcie TCP (SQL Server Configuration Menedżer)](https://msdn.microsoft.com/library/ms177440.aspx).
 
 
 W większości środowisk systemu Windows Server prawdopodobnie musisz skonfigurować Zaporę systemu Windows na serwerze bazy danych. Domyślnie Zapora systemu Windows umożliwia ruch wychodzący, chyba że reguły. Aby włączyć serwer sieci web do bazy danych, musisz skonfigurować regułę ruchu przychodzącego, który umożliwia ruch TCP na numer portu, który korzysta z wystąpienia programu SQL Server. Jeśli używasz domyślnego wystąpienia programu SQL Server dalej procedura służy do konfigurowania tej reguły.
@@ -126,11 +126,11 @@ W większości środowisk systemu Windows Server prawdopodobnie musisz skonfigur
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image9.png)
 8. Na **nazwa** strony, Nadaj regule nazwę opisową odpowiednio (na przykład **wystąpienia domyślnego programu SQL Server — dostępu do sieci**), a następnie kliknij przycisk **Zakończ**.
 
-Aby uzyskać więcej informacji na temat konfigurowania Zapory systemu Windows dla programu SQL Server, zwłaszcza w przypadku, gdy potrzebne do komunikowania się z programem SQL Server za pośrednictwem portów niestandardowych lub dynamicznej, zobacz [porady: Konfigurowanie Zapory systemu Windows dla dostępu aparatu bazy danych](https://technet.microsoft.com/en-us/library/ms175043.aspx).
+Aby uzyskać więcej informacji na temat konfigurowania Zapory systemu Windows dla programu SQL Server, zwłaszcza w przypadku, gdy potrzebne do komunikowania się z programem SQL Server za pośrednictwem portów niestandardowych lub dynamicznej, zobacz [porady: Konfigurowanie Zapory systemu Windows dla dostępu aparatu bazy danych](https://technet.microsoft.com/library/ms175043.aspx).
 
 ## <a name="configure-logins-and-database-permissions"></a>Konfigurowanie logowania i bazy danych uprawnienia
 
-Podczas wdrażania aplikacji sieci web do programu Internet Information Services (IIS), aplikacja zostanie uruchomiona przy użyciu tożsamości puli aplikacji. W środowisku domeny tożsamości puli aplikacji, użyj konta komputera serwera, na którym uruchomiony do dostępu do zasobów sieciowych. Konta komputera formę *[nazwa domeny]***\***[nazwa komputera] ***$**& #x 2014, na przykład **FABRIKAM\ TESTWEB1$**. Aby zezwolić na dostęp do bazy danych w sieci przez aplikację sieci web, musisz:
+Podczas wdrażania aplikacji sieci web do programu Internet Information Services (IIS), aplikacja zostanie uruchomiona przy użyciu tożsamości puli aplikacji. W środowisku domeny tożsamości puli aplikacji, użyj konta komputera serwera, na którym uruchomiony do dostępu do zasobów sieciowych. Konta komputera formę * [nazwa domeny]***\*** [nazwa komputera]***$** & #x 2014; na przykład **FABRIKAM\TESTWEB1$**. Aby zezwolić na dostęp do bazy danych w sieci przez aplikację sieci web, musisz:
 
 - Dodaj dane logowania dla konta komputera serwera sieci web do wystąpienia programu SQL Server.
 - Mapowanie logowania konta komputera do żadnej roli wymaganej bazy danych (zazwyczaj **db\_datareader** i **db\_datawriter**).
@@ -183,7 +183,7 @@ Aby uzyskać więcej informacji na temat automatyzacji tworzenia logowania i map
 Ręcznie mapowania ról bazy danych często jest większe niż odpowiednie dla środowisk testowych, jest mniej pożądana wdrożeń automatyczna lub z jednym kliknięciem w środowiskach, w tymczasowym czy produkcyjnym. Można znaleźć więcej informacji na temat automatyzacji tego rodzaju zadań za pomocą skryptów po wdrożeniu w [wdrażanie członkostwo roli bazy danych do środowisk testowych](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md).
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na serwer i projektów bazy danych, zobacz [projektów dodatku programu SQL Server bazy danych dla programu Visual Studio 2010](https://msdn.microsoft.com/en-us/library/ff678491.aspx).
+> Aby uzyskać więcej informacji na serwer i projektów bazy danych, zobacz [projektów dodatku programu SQL Server bazy danych dla programu Visual Studio 2010](https://msdn.microsoft.com/library/ff678491.aspx).
 
 
 ## <a name="configure-permissions-for-the-deployment-account"></a>Skonfiguruj uprawnienia dla konta wdrożenia

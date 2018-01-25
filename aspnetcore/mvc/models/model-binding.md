@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 uid: mvc/models/model-binding
-ms.openlocfilehash: 8fc6ff66d05164c1040f8cc77886357a633a0472
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: 26c4c016548cc3e465991c5ebf16893d4022145d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="model-binding"></a>Wiązanie modelu
 
@@ -56,7 +56,7 @@ Uwaga: Formularza, wartości, dane trasy i zapytania się, że parametry są prz
 
 Ponieważ wiązania modelu wyświetlony monit o podanie klucz o nazwie `id` i nie ma niczego o nazwie `id` w wartości formularza on przeniesiony wartości trasy wyszukiwania dla tego klucza. W naszym przykładzie jest dopasowanie. Powiązaniem, a wartość jest konwertowana na liczbę całkowitą 2. Tym samym żądanie za pomocą edycji (identyfikator ciągu) czy przekonwertować na ciąg "2".
 
-W przykładzie użyto do tej pory typów prostych. W nazwie wzorca MVC proste typy są dowolnego typu pierwotnego .NET lub typu dla konwertera typu ciąg. Jeśli parametr metody akcji takich jak zostały klasy `Movie` typu, który zawiera zarówno proste i złożone typy właściwości, nadal będą powiązanie modelu MVC jego obsługa dobrze. Przechodzenie właściwości typów złożonych wyszukiwanie dopasowań używa odbicia i rekursji. Wiązanie modelu szuka wzorzec *parameter_name.property_name* powiązać wartości właściwości. Jeśli nie znajdzie pasujących wartości formularza, podejmie można powiązać, przy użyciu po prostu nazwę właściwości. Dla tych typów, takie jak `Collection` typów wiązania modelu szuka dopasowań, który ma *nazwa_parametru [Indeks]* lub po prostu *[Indeks]*. Traktuje powiązanie modelu `Dictionary` podobnie typy pytania o *nazwa_parametru [klucz]* lub po prostu *[klucz]*, tak długo, jak klucze są typów prostych. Klucze, które są obsługiwane zgodne, nazwy pola HTML i pomocników tagów wygenerowany dla tego samego typu modelu. Dzięki temu wartości dwustronną komunikację tak, aby pola formularza pozostają wypełniony przy użyciu danych wejściowych użytkownika udogodnienie, na przykład, gdy dane powiązane z Tworzenie lub edytowanie nie przeszedł sprawdzania poprawności.
+W przykładzie użyto do tej pory typów prostych. W nazwie wzorca MVC proste typy są dowolnego typu pierwotnego .NET lub typu dla konwertera typu ciąg. Jeśli parametr metody akcji takich jak zostały klasy `Movie` typu, który zawiera zarówno proste i złożone typy właściwości, nadal będą powiązanie modelu MVC jego obsługa dobrze. Przechodzenie właściwości typów złożonych wyszukiwanie dopasowań używa odbicia i rekursji. Wiązanie modelu szuka wzorzec *parameter_name.property_name* powiązać wartości właściwości. Jeśli nie znajdzie pasujących wartości formularza, podejmie można powiązać, przy użyciu po prostu nazwę właściwości. Dla tych typów, takie jak `Collection` typów wiązania modelu szuka dopasowań, który ma *nazwa_parametru [Indeks]* lub po prostu *[Indeks]*. Traktuje powiązanie modelu `Dictionary` podobnie typy pytania o *nazwa_parametru [klucz]* lub po prostu *[klucz]*, tak długo, jak klucze są typów prostych. Klucze, które są obsługiwane zgodne, nazwy pola HTML i pomocników tagów wygenerowany dla tego samego typu modelu. Dzięki temu wartości dwustronną komunikację tak, aby pola formularza pozostają wypełniony przy użyciu danych wejściowych użytkownika udogodnienie, na przykład, gdy dane powiązane z Tworzenie lub edytowanie nie przeszedł pomyślnie weryfikacji.
 
 Aby powiązanie nastąpić klasy musi mieć publicznego konstruktora domyślnego i element członkowski może być powiązane musi być zapisywalny właściwości publiczne. W przypadku wiązania modelu się, że klasa będzie można wdrożyć tylko, przy użyciu domyślnego publicznego konstruktora właściwości można ustawić.
 
@@ -70,7 +70,7 @@ Wiązania parametru wiązania modelu zatrzyma się wyszukiwanie wartości o taki
 
 * Typy wartości: Wartości null typów wartości typu `T` są ustawione na `default(T)`. Na przykład powiązanie modelu spowoduje ustawienie parametru `int id` na 0. Należy wziąć pod uwagę przy użyciu weryfikacji modelu lub typ zerowalny zamiast polegania na wartości domyślne.
 
-Powiązanie kończy się niepowodzeniem, MVC nie zgłasza błąd. Należy sprawdzić wszystkie akcje, które akceptuje dane wejściowe użytkownika `ModelState.IsValid` właściwości.
+Jeśli powiązanie kończy się niepowodzeniem, MVC nie Zgłoś błąd. Należy sprawdzić wszystkie akcje, które akceptuje dane wejściowe użytkownika `ModelState.IsValid` właściwości.
 
 Uwaga: Każdy wpis na kontrolerze `ModelState` właściwość jest `ModelStateEntry` zawierający `Errors` właściwości. Rzadko należy samodzielnie zapytania tej kolekcji. Zamiast nich należy używać słów kluczowych `ModelState.IsValid`.
 
