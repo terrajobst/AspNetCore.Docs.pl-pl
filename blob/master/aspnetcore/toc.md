@@ -27,6 +27,43 @@
 ### [Dodawanie walidacji](tutorials/first-mvc-app/validation.md)
 ### [Badanie metod Details i Delete](tutorials/first-mvc-app/details.md)
 
+## [Samouczki dotyczące wielu platform](xref:tutorials/xplat)
+
+### [Aplikacja internetowa MVC z programem Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/index)
+#### [Wprowadzenie](xref:tutorials/first-mvc-app-mac/start-mvc)
+#### [Dodawanie kontrolera](xref:tutorials/first-mvc-app-mac/adding-controller)
+#### [Dodawanie widoku](xref:tutorials/first-mvc-app-mac/adding-view)
+#### [Dodawanie modelu](xref:tutorials/first-mvc-app-mac/adding-model)
+#### [Praca z SQLite](xref:tutorials/first-mvc-app-mac/working-with-sql)
+#### [Metody kontrolera i widoki](xref:tutorials/first-mvc-app-mac/controller-methods-views)
+#### [Dodawanie wyszukiwania](xref:tutorials/first-mvc-app-mac/search)
+#### [Dodanie nowego pola](xref:tutorials/first-mvc-app-mac/new-field)
+#### [Dodawanie weryfikacji](xref:tutorials/first-mvc-app-mac/validation)
+#### [Badanie metod Details i Delete](xref:tutorials/first-mvc-app/details)
+
+### [Aplikacja internetowa z programem Visual Studio Code na komputerze Mac lub w systemie Linux](xref:tutorials/first-mvc-app-xplat/index)
+#### [Wprowadzenie](tutorials/first-mvc-app-xplat/start-mvc.md)
+#### [Dodawanie kontrolera](tutorials/first-mvc-app-xplat/adding-controller.md)
+#### [Dodawanie widoku](tutorials/first-mvc-app-xplat/adding-view.md)
+#### [Dodawanie modelu](tutorials/first-mvc-app-xplat/adding-model.md)
+#### [Praca z SQLite](tutorials/first-mvc-app-xplat/working-with-sql.md)
+#### [Metody kontrolera i widoki](tutorials/first-mvc-app-xplat/controller-methods-views.md)
+#### [Dodawanie wyszukiwania](tutorials/first-mvc-app-xplat/search.md)
+#### [Dodanie nowego pola](tutorials/first-mvc-app-xplat/new-field.md)
+#### [Dodawanie weryfikacji](tutorials/first-mvc-app-xplat/validation.md)
+#### [Badanie metod Details i Delete](tutorials/first-mvc-app/details.md)
+
+
+### [Aplikacja internetowa ze stronami Razor na komputerze Mac](xref:tutorials/razor-pages-mac/index)
+#### [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages-mac/razor-pages-start)
+#### [Dodawanie modelu](xref:tutorials/razor-pages-mac/model)
+### [Aplikacja internetowa ze stronami Razor z programem VS Code](xref:tutorials/razor-pages-vsc/index)
+#### [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages-vsc/razor-pages-start)
+#### [Dodawanie modelu](xref:tutorials/razor-pages-vsc/model)
+
+### [Interfejs API sieci Web z programem Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
+### [Interfejs API sieci Web z programem Visual Studio Code](xref:tutorials/web-api-vsc)
+
 ## [Dostęp do danych — strony Razor z programem EF Core](xref:data/index)
 ### [Wprowadzenie](xref:data/ef-rp/intro)
 ### [Operacje tworzenia, odczytu, aktualizowania i usuwania](xref:data/ef-rp/crud)
