@@ -3,11 +3,11 @@ uid: index
 layout: HubPage
 title: Dokumentacja platformy ASP.NET | Microsoft Docs
 description: 
-ms.openlocfilehash: 832fc9a26d60dd5e194b931d19ecc7621f7ce365
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9f86b67f7b904d8243e9a88f50ffb985ffc969f1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/en-us/dotnet/api/?view=aspnetcore-2.0">
+                                <a href="https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -142,7 +142,7 @@ ms.lasthandoff: 11/10/2017
                             <li class="fullSpan">
                                 <div class="container footer">
                                     <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET Core</a></p>
-                                    <p><a href="https://docs.microsoft.com/en-us/dotnet/articles/project-json">Znajdź wersję programu Visual Studio 2015/pliku project.json dokumentacji</a></p>
+                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję programu Visual Studio 2015/pliku project.json dokumentacji</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -274,7 +274,7 @@ ms.lasthandoff: 11/10/2017
                             <li class="fullSpan">
                                 <div class="container footer">
                                     <p><a href="https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md">Współtwórz dokumentację i przykłady dotyczące platformy ASP.NET Core</a></p>
-                                    <p><a href="https://docs.microsoft.com/en-us/dotnet/articles/project-json">Znajdź wersję programu Visual Studio 2015/pliku project.json dokumentacji</a></p>
+                                    <p><a href="https://docs.microsoft.com/dotnet/articles/project-json">Znajdź wersję programu Visual Studio 2015/pliku project.json dokumentacji</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -509,7 +509,7 @@ ms.lasthandoff: 11/10/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Interfejs Web API</h3>
+                                                    <h3>Interfejs API sieci Web</h3>
                                                     <p>Łatwa kompilacja usług HTTP, które docierają do szerokiej gamy klientów, w tym przeglądarek i urządzeń przenośnych.</p>
                                                 </div>
                                             </div>

@@ -9,61 +9,61 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: c2cd3cc81221c146dec70e487a17b33360eb6112
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bc7f016b734d42a59342cc9896b502624526359a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
-<span data-ttu-id="a1b1e-103">Uwaga: Szablony ASP.NET Core 2.0 zawierają *modele* folderu.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-103">Note: The ASP.NET Core 2.0 templates contain the *Models* folder.</span></span>
+<span data-ttu-id="f69a0-103">Uwaga: Szablony ASP.NET Core 2.0 zawierają *modele* folderu.</span><span class="sxs-lookup"><span data-stu-id="f69a0-103">Note: The ASP.NET Core 2.0 templates contain the *Models* folder.</span></span>
 
-<span data-ttu-id="a1b1e-104">Kliknij prawym przyciskiem myszy *modele* folder > **Dodaj** > **klasy**.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-104">Right-click the *Models* folder > **Add** > **Class**.</span></span> <span data-ttu-id="a1b1e-105">Nazwa klasy **film** i dodaj następujące właściwości:</span><span class="sxs-lookup"><span data-stu-id="a1b1e-105">Name the class **Movie** and add the following properties:</span></span>
+<span data-ttu-id="f69a0-104">Kliknij prawym przyciskiem myszy *modele* folder > **Dodaj** > **klasy**.</span><span class="sxs-lookup"><span data-stu-id="f69a0-104">Right-click the *Models* folder > **Add** > **Class**.</span></span> <span data-ttu-id="f69a0-105">Nazwa klasy **film** i dodaj następujące właściwości:</span><span class="sxs-lookup"><span data-stu-id="f69a0-105">Name the class **Movie** and add the following properties:</span></span>
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
 
-<span data-ttu-id="a1b1e-106">`ID` Pole jest wymagane przez bazę danych dla klucza podstawowego.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-106">The `ID` field is required by the database for the primary key.</span></span> 
+<span data-ttu-id="f69a0-106">`ID` Pole jest wymagane przez bazę danych dla klucza podstawowego.</span><span class="sxs-lookup"><span data-stu-id="f69a0-106">The `ID` field is required by the database for the primary key.</span></span> 
 
-<span data-ttu-id="a1b1e-107">Skompiluj projekt, aby sprawdzić, czy nie zawiera błędów.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-107">Build the project to verify you don't have any errors.</span></span> <span data-ttu-id="a1b1e-108">Masz teraz **M**odelu w Twojej **M**VC aplikacji.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-108">You now have a **M**odel in your **M**VC app.</span></span>
+<span data-ttu-id="f69a0-107">Skompiluj projekt, aby sprawdzić, czy nie zawiera błędów.</span><span class="sxs-lookup"><span data-stu-id="f69a0-107">Build the project to verify you don't have any errors.</span></span> <span data-ttu-id="f69a0-108">Masz teraz **M**odelu w Twojej **M**VC aplikacji.</span><span class="sxs-lookup"><span data-stu-id="f69a0-108">You now have a **M**odel in your **M**VC app.</span></span>
 
-## <a name="scaffolding-a-controller"></a><span data-ttu-id="a1b1e-109">Tworzenia szkieletu kontrolera</span><span class="sxs-lookup"><span data-stu-id="a1b1e-109">Scaffolding a controller</span></span>
+## <a name="scaffolding-a-controller"></a><span data-ttu-id="f69a0-109">Tworzenia szkieletu kontrolera</span><span class="sxs-lookup"><span data-stu-id="f69a0-109">Scaffolding a controller</span></span>
 
-<span data-ttu-id="a1b1e-110">W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *kontrolerów* folderu **> Dodaj > kontrolera**.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-110">In **Solution Explorer**, right-click the *Controllers* folder **> Add > Controller**.</span></span>
+<span data-ttu-id="f69a0-110">W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *kontrolerów* folderu **> Dodaj > kontrolera**.</span><span class="sxs-lookup"><span data-stu-id="f69a0-110">In **Solution Explorer**, right-click the *Controllers* folder **> Add > Controller**.</span></span>
 
 ![Widok powyżej kroku](adding-model/_static/add_controller.png)
 
-<span data-ttu-id="a1b1e-112">Jeśli **Dodaj zależności MVC** zostanie wyświetlone okno dialogowe:</span><span class="sxs-lookup"><span data-stu-id="a1b1e-112">If the **Add MVC Dependencies** dialog appears:</span></span>
+<span data-ttu-id="f69a0-112">Jeśli **Dodaj zależności MVC** zostanie wyświetlone okno dialogowe:</span><span class="sxs-lookup"><span data-stu-id="f69a0-112">If the **Add MVC Dependencies** dialog appears:</span></span>
 
-* <span data-ttu-id="a1b1e-113">[Aktualizowanie do najnowszej wersji programu Visual Studio](https://www.visualstudio.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="a1b1e-113">[Update Visual Studio to the latest version](https://www.visualstudio.com/downloads/).</span></span> <span data-ttu-id="a1b1e-114">Visual Studio wersje poprzedzające 15,5 cala pokazuj tego okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-114">Visual Studio versions prior to 15.5 show this dialog.</span></span>
-* <span data-ttu-id="a1b1e-115">Jeśli nie można zaktualizować, wybierz **Dodaj**, a następnie ponownie wykonaj kroki kontrolera Dodaj.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-115">If you can't update, select **ADD**, and then follow the add controller steps again.</span></span>
+* <span data-ttu-id="f69a0-113">[Aktualizowanie do najnowszej wersji programu Visual Studio](https://www.visualstudio.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="f69a0-113">[Update Visual Studio to the latest version](https://www.visualstudio.com/downloads/).</span></span> <span data-ttu-id="f69a0-114">Visual Studio wersje poprzedzające 15,5 cala pokazuj tego okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="f69a0-114">Visual Studio versions prior to 15.5 show this dialog.</span></span>
+* <span data-ttu-id="f69a0-115">Jeśli nie można zaktualizować, wybierz **Dodaj**, a następnie ponownie wykonaj kroki kontrolera Dodaj.</span><span class="sxs-lookup"><span data-stu-id="f69a0-115">If you can't update, select **ADD**, and then follow the add controller steps again.</span></span>
 
-<span data-ttu-id="a1b1e-116">W **Dodawanie szkieletu** okno dialogowe, naciśnij **kontroler MVC z widokami używający narzędzia Entity Framework > Dodaj**.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-116">In the **Add Scaffold** dialog, tap **MVC Controller with views, using Entity Framework > Add**.</span></span>
+<span data-ttu-id="f69a0-116">W **Dodawanie szkieletu** okno dialogowe, naciśnij **kontroler MVC z widokami używający narzędzia Entity Framework > Dodaj**.</span><span class="sxs-lookup"><span data-stu-id="f69a0-116">In the **Add Scaffold** dialog, tap **MVC Controller with views, using Entity Framework > Add**.</span></span>
 
 ![Dodawanie szkieletu okna dialogowego](adding-model/_static/add_scaffold2.png)
 
-<span data-ttu-id="a1b1e-118">Zakończenie **Dodaj kontroler** okna dialogowego:</span><span class="sxs-lookup"><span data-stu-id="a1b1e-118">Complete the **Add Controller** dialog:</span></span>
+<span data-ttu-id="f69a0-118">Zakończenie **Dodaj kontroler** okna dialogowego:</span><span class="sxs-lookup"><span data-stu-id="f69a0-118">Complete the **Add Controller** dialog:</span></span>
 
-* <span data-ttu-id="a1b1e-119">**Klasa modelu:** *Movie (MvcMovie.Models)*</span><span class="sxs-lookup"><span data-stu-id="a1b1e-119">**Model class:** *Movie (MvcMovie.Models)*</span></span>
-* <span data-ttu-id="a1b1e-120">**Klasa kontekstu danych:** wybierz  **+**  ikonę i Dodaj domyślny **MvcMovie.Models.MvcMovieContext**</span><span class="sxs-lookup"><span data-stu-id="a1b1e-120">**Data context class:** Select the **+** icon and add the default **MvcMovie.Models.MvcMovieContext**</span></span>
+* <span data-ttu-id="f69a0-119">**Klasa modelu:** *Movie (MvcMovie.Models)*</span><span class="sxs-lookup"><span data-stu-id="f69a0-119">**Model class:** *Movie (MvcMovie.Models)*</span></span>
+* <span data-ttu-id="f69a0-120">**Klasa kontekstu danych:** wybierz  **+**  ikonę i Dodaj domyślny **MvcMovie.Models.MvcMovieContext**</span><span class="sxs-lookup"><span data-stu-id="f69a0-120">**Data context class:** Select the **+** icon and add the default **MvcMovie.Models.MvcMovieContext**</span></span>
 
 ![Dodaj kontekst danych](adding-model/_static/dc.png)
 
-* <span data-ttu-id="a1b1e-122">**Widoki:** zachować zaznaczone domyślne każdej z nich</span><span class="sxs-lookup"><span data-stu-id="a1b1e-122">**Views:** Keep the default of each option checked</span></span>
-* <span data-ttu-id="a1b1e-123">**Nazwa kontrolera:** Zachowaj ustawienie domyślne *MoviesController*</span><span class="sxs-lookup"><span data-stu-id="a1b1e-123">**Controller name:** Keep the default *MoviesController*</span></span>
-* <span data-ttu-id="a1b1e-124">Wybierz **Dodaj**</span><span class="sxs-lookup"><span data-stu-id="a1b1e-124">Tap **Add**</span></span>
+* <span data-ttu-id="f69a0-122">**Widoki:** zachować zaznaczone domyślne każdej z nich</span><span class="sxs-lookup"><span data-stu-id="f69a0-122">**Views:** Keep the default of each option checked</span></span>
+* <span data-ttu-id="f69a0-123">**Nazwa kontrolera:** Zachowaj ustawienie domyślne *MoviesController*</span><span class="sxs-lookup"><span data-stu-id="f69a0-123">**Controller name:** Keep the default *MoviesController*</span></span>
+* <span data-ttu-id="f69a0-124">Wybierz **Dodaj**</span><span class="sxs-lookup"><span data-stu-id="f69a0-124">Tap **Add**</span></span>
 
 ![Dodawanie kontrolera okna dialogowego](adding-model/_static/add_controller2.png)
 
-<span data-ttu-id="a1b1e-126">Program Visual Studio tworzy:</span><span class="sxs-lookup"><span data-stu-id="a1b1e-126">Visual Studio creates:</span></span>
+<span data-ttu-id="f69a0-126">Program Visual Studio tworzy:</span><span class="sxs-lookup"><span data-stu-id="f69a0-126">Visual Studio creates:</span></span>
 
-* <span data-ttu-id="a1b1e-127">Entity Framework Core [bazy danych klasy kontekstu](xref:data/ef-mvc/intro#create-the-database-context) (*Data/MvcMovieContext.cs*)</span><span class="sxs-lookup"><span data-stu-id="a1b1e-127">An Entity Framework Core [database context class](xref:data/ef-mvc/intro#create-the-database-context) (*Data/MvcMovieContext.cs*)</span></span>
-* <span data-ttu-id="a1b1e-128">Kontroler filmów (*Controllers/MoviesController.cs*)</span><span class="sxs-lookup"><span data-stu-id="a1b1e-128">A movies controller (*Controllers/MoviesController.cs*)</span></span>
-* <span data-ttu-id="a1b1e-129">Pliki widoku razor dla stron Create, Delete, szczegóły, edycji i indeksu (*widoków/filmów/&ast;.cshtml*)</span><span class="sxs-lookup"><span data-stu-id="a1b1e-129">Razor view files for Create, Delete, Details, Edit, and Index pages (*Views/Movies/&ast;.cshtml*)</span></span>
+* <span data-ttu-id="f69a0-127">Entity Framework Core [bazy danych klasy kontekstu](xref:data/ef-mvc/intro#create-the-database-context) (*Data/MvcMovieContext.cs*)</span><span class="sxs-lookup"><span data-stu-id="f69a0-127">An Entity Framework Core [database context class](xref:data/ef-mvc/intro#create-the-database-context) (*Data/MvcMovieContext.cs*)</span></span>
+* <span data-ttu-id="f69a0-128">Kontroler filmów (*Controllers/MoviesController.cs*)</span><span class="sxs-lookup"><span data-stu-id="f69a0-128">A movies controller (*Controllers/MoviesController.cs*)</span></span>
+* <span data-ttu-id="f69a0-129">Pliki widoku razor dla stron Create, Delete, szczegóły, edycji i indeksu (*widoków/filmów/&ast;.cshtml*)</span><span class="sxs-lookup"><span data-stu-id="f69a0-129">Razor view files for Create, Delete, Details, Edit, and Index pages (*Views/Movies/&ast;.cshtml*)</span></span>
 
-<span data-ttu-id="a1b1e-130">Automatyczne tworzenie kontekstu bazy danych i [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (tworzenia, odczytu, aktualizacji i usuwania) metody akcji i widoki nosi nazwę *szkieletów*.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-130">The automatic creation of the database context and [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, and delete) action methods and views is known as *scaffolding*.</span></span> <span data-ttu-id="a1b1e-131">Konieczne będzie wkrótce aplikacji funkcjonalnej sieci web, która umożliwia zarządzanie filmu bazy danych.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-131">You'll soon have a fully functional web application that lets you manage a movie database.</span></span>
+<span data-ttu-id="f69a0-130">Automatyczne tworzenie kontekstu bazy danych i [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (tworzenia, odczytu, aktualizacji i usuwania) metody akcji i widoki nosi nazwę *szkieletów*.</span><span class="sxs-lookup"><span data-stu-id="f69a0-130">The automatic creation of the database context and [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, and delete) action methods and views is known as *scaffolding*.</span></span> <span data-ttu-id="f69a0-131">Konieczne będzie wkrótce aplikacji funkcjonalnej sieci web, która umożliwia zarządzanie filmu bazy danych.</span><span class="sxs-lookup"><span data-stu-id="f69a0-131">You'll soon have a fully functional web application that lets you manage a movie database.</span></span>
 
-<span data-ttu-id="a1b1e-132">Uruchom aplikację i kliknięcie na **Mvc Movie** łącza, wystąpi błąd podobny do następującego:</span><span class="sxs-lookup"><span data-stu-id="a1b1e-132">If you run the app and click on the **Mvc Movie** link, you get an error similar to the following:</span></span>
+<span data-ttu-id="f69a0-132">Uruchom aplikację i kliknięcie na **Mvc Movie** łącza, wystąpi błąd podobny do następującego:</span><span class="sxs-lookup"><span data-stu-id="f69a0-132">If you run the app and click on the **Mvc Movie** link, you get an error similar to the following:</span></span>
 
 ```
 An unhandled exception occurred while processing the request.
@@ -74,22 +74,22 @@ Login failed for user 'Rick'.
 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString 
 ```
 
-<span data-ttu-id="a1b1e-133">Należy utworzyć bazę danych i użyjesz EF Core [migracje](xref:data/ef-mvc/migrations) funkcji w tym celu.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-133">You need to create the database, and you'll use the EF Core [Migrations](xref:data/ef-mvc/migrations) feature to do that.</span></span> <span data-ttu-id="a1b1e-134">Migracje umożliwia tworzenie bazy danych, która jest zgodna z modelem danych i zaktualizować schemat bazy danych, gdy model danych, zmiany.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-134">Migrations lets you create a database that matches your data model and update the database schema when your data model changes.</span></span>
+<span data-ttu-id="f69a0-133">Należy utworzyć bazę danych i użyjesz EF Core [migracje](xref:data/ef-mvc/migrations) funkcji w tym celu.</span><span class="sxs-lookup"><span data-stu-id="f69a0-133">You need to create the database, and you'll use the EF Core [Migrations](xref:data/ef-mvc/migrations) feature to do that.</span></span> <span data-ttu-id="f69a0-134">Migracje umożliwia tworzenie bazy danych, która jest zgodna z modelem danych i zaktualizować schemat bazy danych, gdy model danych, zmiany.</span><span class="sxs-lookup"><span data-stu-id="f69a0-134">Migrations lets you create a database that matches your data model and update the database schema when your data model changes.</span></span>
 
-## <a name="add-ef-tooling-and-perform-initial-migration"></a><span data-ttu-id="a1b1e-135">Dodaj EF narzędzi i przeprowadzić migrację początkowej</span><span class="sxs-lookup"><span data-stu-id="a1b1e-135">Add EF tooling and perform initial migration</span></span>
+## <a name="add-ef-tooling-and-perform-initial-migration"></a><span data-ttu-id="f69a0-135">Dodaj EF narzędzi i przeprowadzić migrację początkowej</span><span class="sxs-lookup"><span data-stu-id="f69a0-135">Add EF tooling and perform initial migration</span></span>
 
-<span data-ttu-id="a1b1e-136">W tej sekcji służą do konsoli Menedżera pakietów (PMC):</span><span class="sxs-lookup"><span data-stu-id="a1b1e-136">In this section you'll use the Package Manager Console (PMC) to:</span></span>
+<span data-ttu-id="f69a0-136">W tej sekcji służą do konsoli Menedżera pakietów (PMC):</span><span class="sxs-lookup"><span data-stu-id="f69a0-136">In this section you'll use the Package Manager Console (PMC) to:</span></span>
 
-* <span data-ttu-id="a1b1e-137">Dodaj pakiet Entity Framework podstawowe narzędzia.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-137">Add the Entity Framework Core Tools package.</span></span> <span data-ttu-id="a1b1e-138">Ten pakiet jest wymagany do dodawania migracji i aktualizacji bazy danych.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-138">This package is required to add migrations and update the database.</span></span>
-* <span data-ttu-id="a1b1e-139">Dodaj początkowej migracji.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-139">Add an initial migration.</span></span>
-* <span data-ttu-id="a1b1e-140">Aktualizacji bazy danych z początkowej migracji.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-140">Update the database with the initial migration.</span></span>
+* <span data-ttu-id="f69a0-137">Dodaj pakiet Entity Framework podstawowe narzędzia.</span><span class="sxs-lookup"><span data-stu-id="f69a0-137">Add the Entity Framework Core Tools package.</span></span> <span data-ttu-id="f69a0-138">Ten pakiet jest wymagany do dodawania migracji i aktualizacji bazy danych.</span><span class="sxs-lookup"><span data-stu-id="f69a0-138">This package is required to add migrations and update the database.</span></span>
+* <span data-ttu-id="f69a0-139">Dodaj początkowej migracji.</span><span class="sxs-lookup"><span data-stu-id="f69a0-139">Add an initial migration.</span></span>
+* <span data-ttu-id="f69a0-140">Aktualizacji bazy danych z początkowej migracji.</span><span class="sxs-lookup"><span data-stu-id="f69a0-140">Update the database with the initial migration.</span></span>
 
-<span data-ttu-id="a1b1e-141">Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet > konsoli Menedżera pakietów**.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-141">From the **Tools** menu, select **NuGet Package Manager > Package Manager Console**.</span></span>
+<span data-ttu-id="f69a0-141">Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet > konsoli Menedżera pakietów**.</span><span class="sxs-lookup"><span data-stu-id="f69a0-141">From the **Tools** menu, select **NuGet Package Manager > Package Manager Console**.</span></span>
 
 <!-- following image shared with uid: tutorials/razor-pages/model -->
   ![PMC menu](adding-model/_static/pmc.png)
 
-<span data-ttu-id="a1b1e-143">W kryterium wprowadź następujące polecenia:</span><span class="sxs-lookup"><span data-stu-id="a1b1e-143">In the PMC, enter the following commands:</span></span>
+<span data-ttu-id="f69a0-143">W kryterium wprowadź następujące polecenia:</span><span class="sxs-lookup"><span data-stu-id="f69a0-143">In the PMC, enter the following commands:</span></span>
 
 ``` PMC
 Install-Package Microsoft.EntityFrameworkCore.Tools
@@ -97,16 +97,16 @@ Add-Migration Initial
 Update-Database
 ```
 
-<span data-ttu-id="a1b1e-144">**Uwaga:** Jeśli wystąpi błąd z `Install-Package` polecenia, otwórz Menedżera pakietów NuGet i wyszukaj `Microsoft.EntityFrameworkCore.Tools` pakietu.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-144">**Note:** If you receive an error with the `Install-Package` command, open NuGet Package Manager and search for the `Microsoft.EntityFrameworkCore.Tools` package.</span></span> <span data-ttu-id="a1b1e-145">Dzięki temu można zainstalować pakiet lub sprawdź, czy jest on już zainstalowany.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-145">This allows you to install the package or check if it is already installed.</span></span> <span data-ttu-id="a1b1e-146">Zobacz też [podejście CLI](#cli) Jeśli masz problemy z kryterium.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-146">Alternatively, see the [CLI approach](#cli) if you have problems with the PMC.</span></span>
+<span data-ttu-id="f69a0-144">**Uwaga:** Jeśli wystąpi błąd z `Install-Package` polecenia, otwórz Menedżera pakietów NuGet i wyszukaj `Microsoft.EntityFrameworkCore.Tools` pakietu.</span><span class="sxs-lookup"><span data-stu-id="f69a0-144">**Note:** If you receive an error with the `Install-Package` command, open NuGet Package Manager and search for the `Microsoft.EntityFrameworkCore.Tools` package.</span></span> <span data-ttu-id="f69a0-145">Dzięki temu można zainstalować pakiet lub sprawdź, czy jest on już zainstalowany.</span><span class="sxs-lookup"><span data-stu-id="f69a0-145">This allows you to install the package or check if it's already installed.</span></span> <span data-ttu-id="f69a0-146">Zobacz też [podejście CLI](#cli) Jeśli masz problemy z kryterium.</span><span class="sxs-lookup"><span data-stu-id="f69a0-146">Alternatively, see the [CLI approach](#cli) if you have problems with the PMC.</span></span>
 
-<span data-ttu-id="a1b1e-147">`Add-Migration` Polecenie tworzy kod w celu utworzenia schematu początkowej bazy danych.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-147">The `Add-Migration` command creates code to create the initial database schema.</span></span> <span data-ttu-id="a1b1e-148">Schemat jest oparta na modelu określone w `DbContext`(w *Data/MvcMovieContext.cs* pliku).</span><span class="sxs-lookup"><span data-stu-id="a1b1e-148">The schema is based on the model specified in the `DbContext`(In the *Data/MvcMovieContext.cs* file).</span></span> <span data-ttu-id="a1b1e-149">`Initial` Argument jest używany do nazywania migracji.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-149">The `Initial` argument is used to name the migrations.</span></span> <span data-ttu-id="a1b1e-150">Można użyć dowolnej nazwy, ale Konwencja wybierz nazwę, która opisuje migracji.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-150">You can use any name, but by convention you choose a name that describes the migration.</span></span> <span data-ttu-id="a1b1e-151">Zobacz [wprowadzenie do migracji](xref:data/ef-mvc/migrations#introduction-to-migrations) Aby uzyskać więcej informacji.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-151">See [Introduction to migrations](xref:data/ef-mvc/migrations#introduction-to-migrations) for more information.</span></span>
+<span data-ttu-id="f69a0-147">`Add-Migration` Polecenie tworzy kod w celu utworzenia schematu początkowej bazy danych.</span><span class="sxs-lookup"><span data-stu-id="f69a0-147">The `Add-Migration` command creates code to create the initial database schema.</span></span> <span data-ttu-id="f69a0-148">Schemat jest oparta na modelu określone w `DbContext`(w *Data/MvcMovieContext.cs* pliku).</span><span class="sxs-lookup"><span data-stu-id="f69a0-148">The schema is based on the model specified in the `DbContext`(In the *Data/MvcMovieContext.cs* file).</span></span> <span data-ttu-id="f69a0-149">`Initial` Argument jest używany do nazywania migracji.</span><span class="sxs-lookup"><span data-stu-id="f69a0-149">The `Initial` argument is used to name the migrations.</span></span> <span data-ttu-id="f69a0-150">Można użyć dowolnej nazwy, ale Konwencja wybierz nazwę, która opisuje migracji.</span><span class="sxs-lookup"><span data-stu-id="f69a0-150">You can use any name, but by convention you choose a name that describes the migration.</span></span> <span data-ttu-id="f69a0-151">Zobacz [wprowadzenie do migracji](xref:data/ef-mvc/migrations#introduction-to-migrations) Aby uzyskać więcej informacji.</span><span class="sxs-lookup"><span data-stu-id="f69a0-151">See [Introduction to migrations](xref:data/ef-mvc/migrations#introduction-to-migrations) for more information.</span></span>
 
-<span data-ttu-id="a1b1e-152">`Update-Database` Polecenia `Up` metody w *migracje /\<sygnatury czasowej > _Initial.cs* pliku, który utworzy bazę danych.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-152">The `Update-Database` command runs the `Up` method in the *Migrations/\<time-stamp>_Initial.cs* file, which creates the database.</span></span>
+<span data-ttu-id="f69a0-152">`Update-Database` Polecenia `Up` metody w *migracje /\<sygnatury czasowej > _Initial.cs* pliku, który utworzy bazę danych.</span><span class="sxs-lookup"><span data-stu-id="f69a0-152">The `Update-Database` command runs the `Up` method in the *Migrations/\<time-stamp>_Initial.cs* file, which creates the database.</span></span>
 
-<a name="cli"></a><span data-ttu-id="a1b1e-153">Należy wykonać czynności poprzedzających przy użyciu interfejsu wiersza polecenia (CLI) zamiast PMC:</span><span class="sxs-lookup"><span data-stu-id="a1b1e-153">You can perform the preceeding steps using the command-line interface (CLI) rather than the PMC:</span></span>
+<a name="cli"></a><span data-ttu-id="f69a0-153">Należy wykonać czynności poprzedzających przy użyciu interfejsu wiersza polecenia (CLI) zamiast PMC:</span><span class="sxs-lookup"><span data-stu-id="f69a0-153">You can perform the preceeding steps using the command-line interface (CLI) rather than the PMC:</span></span>
 
-* <span data-ttu-id="a1b1e-154">Dodaj [EF podstawowych narzędzi](xref:data/ef-mvc/migrations#entity-framework-core-nuget-packages-for-migrations) do *.csproj* pliku.</span><span class="sxs-lookup"><span data-stu-id="a1b1e-154">Add [EF Core tooling](xref:data/ef-mvc/migrations#entity-framework-core-nuget-packages-for-migrations) to the *.csproj* file.</span></span>
-* <span data-ttu-id="a1b1e-155">Uruchom następujące polecenia z poziomu konsoli (w katalogu projektu):</span><span class="sxs-lookup"><span data-stu-id="a1b1e-155">Run the following commands from the console (in the project directory):</span></span>
+* <span data-ttu-id="f69a0-154">Dodaj [EF podstawowych narzędzi](xref:data/ef-mvc/migrations#entity-framework-core-nuget-packages-for-migrations) do *.csproj* pliku.</span><span class="sxs-lookup"><span data-stu-id="f69a0-154">Add [EF Core tooling](xref:data/ef-mvc/migrations#entity-framework-core-nuget-packages-for-migrations) to the *.csproj* file.</span></span>
+* <span data-ttu-id="f69a0-155">Uruchom następujące polecenia z poziomu konsoli (w katalogu projektu):</span><span class="sxs-lookup"><span data-stu-id="f69a0-155">Run the following commands from the console (in the project directory):</span></span>
 
   ```console
   dotnet ef migrations add Initial
@@ -122,12 +122,12 @@ Update-Database
 
 ![Menu kontekstowe IntelliSense w elemencie modelu listę dostępnych właściwości dla Identyfikatora, Price Data wydania i tytuł](adding-model/_static/ints.png)
 
-## <a name="additional-resources"></a><span data-ttu-id="a1b1e-157">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="a1b1e-157">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="f69a0-157">Dodatkowe zasoby</span><span class="sxs-lookup"><span data-stu-id="f69a0-157">Additional resources</span></span>
 
-* [<span data-ttu-id="a1b1e-158">Pomocnicy tagów</span><span class="sxs-lookup"><span data-stu-id="a1b1e-158">Tag Helpers</span></span>](xref:mvc/views/tag-helpers/intro)
-* [<span data-ttu-id="a1b1e-159">Globalizacja i lokalizacja</span><span class="sxs-lookup"><span data-stu-id="a1b1e-159">Globalization and localization</span></span>](xref:fundamentals/localization)
+* [<span data-ttu-id="f69a0-158">Pomocnicy tagów</span><span class="sxs-lookup"><span data-stu-id="f69a0-158">Tag Helpers</span></span>](xref:mvc/views/tag-helpers/intro)
+* [<span data-ttu-id="f69a0-159">Globalizacja i lokalizacja</span><span class="sxs-lookup"><span data-stu-id="f69a0-159">Globalization and localization</span></span>](xref:fundamentals/localization)
 
 >[!div class="step-by-step"]
-<span data-ttu-id="a1b1e-160">[Dodawanie widoku poprzedniej](adding-view.md)
-[obok Praca z SQL](working-with-sql.md)</span><span class="sxs-lookup"><span data-stu-id="a1b1e-160">[Previous Adding a View](adding-view.md)
+<span data-ttu-id="f69a0-160">[Dodawanie widoku poprzedniej](adding-view.md)
+[obok Praca z SQL](working-with-sql.md)</span><span class="sxs-lookup"><span data-stu-id="f69a0-160">[Previous Adding a View](adding-view.md)
 [Next Working with SQL](working-with-sql.md)</span></span>  
