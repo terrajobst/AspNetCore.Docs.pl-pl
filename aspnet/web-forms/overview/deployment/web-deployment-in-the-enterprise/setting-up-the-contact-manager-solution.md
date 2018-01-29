@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: 85468949ee61504d6076a191b70a96e8018c67aa
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b8176b3b8622e21187a91647323322e55582373c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="setting-up-the-contact-manager-solution"></a>Trwa konfigurowanie rozwiązania z menedżerem kontaktu
 ====================
@@ -33,10 +33,10 @@ Aby uruchomić rozwiązanie kontaktów Menedżerze lokalnie i wykonywać inne za
 
 - Visual Studio 2010 Service Pack 1, Premium lub Ultimate
 - Internetowe usługi informacyjne (IIS) 7.5 Express
-- Program SQL Server Express 2008 R2
+- SQL Server Express 2008 R2
 - Usługi IIS narzędzie Web Deployment (Web Deploy) 2.1 lub nowszej
-- PROGRAM ASP.NET 4.0
-- PROGRAM ASP.NET MVC 3
+- ASP.NET 4.0
+- ASP.NET MVC 3
 - Program .NET Framework 4
 - .NET Framework 3.5 SP1
 
@@ -71,7 +71,7 @@ W pozostałej części tej sekcji znajdują się wskazówki więcej na temat spo
     ![](setting-up-the-contact-manager-solution/_static/image1.png)
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat aspnet\_regsql narzędzie, zobacz [ASP.NET SQL Server Registration Tool (Aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx).
+> Aby uzyskać więcej informacji na temat aspnet\_regsql narzędzie, zobacz [ASP.NET SQL Server Registration Tool (Aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx).
 
 
 Następnym krokiem jest, aby upewnić się, że parametry połączenia w rozwiązaniu kontaktów Menedżerze odwołują się do lokalnego wystąpienia programu SQL Server Express.
@@ -104,7 +104,7 @@ Teraz powinno być gotowy do uruchomienia rozwiązania Contact Manager na komput
 
 **Aby uruchomić rozwiązanie Contact Manager**
 
-1. W programie Visual Studio 2010 naciśnij klawisz F5.
+1. In Visual Studio 2010, press F5.
 2. Program Internet Explorer jest uruchamiany i żąda adres URL aplikacji, skontaktuj się z Menedżera ASP.NET MVC 3. Domyślnie są wyświetlane w aplikacji **wszystkie kontakty** strony.
 
     ![](setting-up-the-contact-manager-solution/_static/image4.png)

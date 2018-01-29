@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 3de952224e23eed29f90ed0e8c662e4ee3f531ce
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b1bdae048afc78399ccc7b0eac7125d9b983c13
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-mvc-4"></a>Co to jest nowe w programie ASP.NET MVC 4
 ====================
 przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
-[Pobierz obozów sieci Web uczenie Kit](http://www.microsoft.com/en-us/download/29843)
+[Pobierz obozów sieci Web uczenie Kit](http://www.microsoft.com/download/29843)
 
 > ASP.NET MVC 4 to struktura służąca do tworzenia aplikacji sieci web skalowalnych, opartych na standardach za pomocą często używanych wzorów projektów oraz funkcji platform ASP.NET i .NET framework. Nowy, czwarty wersji platformy koncentruje się na ułatwiając tworzenie aplikacji sieci web urządzeń przenośnych.
 > 
@@ -30,7 +30,7 @@ przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > 
 > W tym laboratorium praktycznego rozpocznie z platformy ASP.NET MVC 4 &quot;aplikacji internetowej&quot; szablon projektu do tworzenia aplikacji galerii fotografii. Stopniowo umożliwiających ulepszenie aplikacji przy użyciu technologii jQuery Mobile i nowe funkcje platformy ASP.NET MVC 4, aby był zgodny z różnych urządzeń przenośnych i przeglądarki sieci web. Możesz także informacje dotyczące nowych przepisami kodu dla generowania kodu i jak ASP.NET MVC 4 pozwala na łatwiejsze do pisania metod asynchronicznych akcji przez zadanie obsługi&lt;ActionResult&gt; zwracanych typów.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 <a id="Objectives"></a>
@@ -56,7 +56,7 @@ Musi mieć następujące elementy do przygotowania tego laboratorium:
 
 - [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) lub wyższego poziomu (odczytu [dodatek B](#AppendixB) instrukcje dotyczące sposobu jego instalacji).
 - [ASP.NET MVC 4](../../../mvc4.md) (dołączone do instalacji programu Microsoft Visual Studio 2012)
-- Emulator Windows Phone (objęte [Windows Phone 7.1.1 SDK](https://www.microsoft.com/en-us/download/details.aspx?id=29233))
+- Emulator Windows Phone (objęte [Windows Phone 7.1.1 SDK](https://www.microsoft.com/download/details.aspx?id=29233))
 - Opcjonalne - [programu WebMatrix 2](https://www.microsoft.com/web/webmatrix/) z **iPhone Electric Plum symulatora** (tylko w przypadku wykonywania 3 używane do przeglądania aplikacji sieci web przy użyciu symulatora telefonu iPhone)
 
 <a id="Setup"></a>
@@ -206,7 +206,7 @@ ASP.NET MVC 4 ułatwia projektowanie witryn sieci Web dla urządzeń przenośnyc
     *Tworzenie nowej aplikacji mobilnej 4 ASP.NET MVC*
 3. Teraz masz możliwość Eksploruj rozwiązania i zapoznaj się z nowych funkcji wprowadzonych w szablonie rozwiązania ASP.NET MVC 4 dla urządzeń przenośnych:
 
-    - **jQuery Mobile biblioteki**
+    - **jQuery Mobile Library**
 
         Szablon projektu aplikacji mobilnych zawiera przenośnych biblioteki jQuery, która jest biblioteki typu open source dla przenośnych przeglądarkami. jQuery Mobile dotyczy stopniowym rozszerzaniu przeglądarek urządzeń przenośnych, które obsługują CSS i JavaScript. Stopniowym rozszerzaniu włącza wszystkie przeglądarki wyświetlić podstawowe elementy strony sieci web podczas tylko umożliwia korzystanie z najbardziej zaawansowanych przeglądarki do wyświetlania zawartości sformatowanego. Pliki obsługi języka JavaScript i CSS, uwzględnione w jQuery przenośnych styl pomocy przeglądarek urządzeń przenośnych w celu dopasowania do zawartości na ekranie bez wprowadzania żadnych zmian w znaczniku strony.
 
@@ -611,7 +611,7 @@ W ramach tego zadania spowoduje utworzenie układu dostosowanego dla urządzenia
 7. Naciśnij klawisz **F5** uruchomić aplikację, a następnie przejdź do lokacji w **Emulator Windows Phone**.
 8. Otwórz **symulatora telefonu iPhone** (zobacz [dodatku C](#AppendixC) instrukcje na temat instalowania i konfigurowania symulatora telefonu iPhone) i przejdź do witryny za. Zwróć uwagę, że każdy telefon przy użyciu określonego szablonu.
 
-    ![Using-different-views-for-each-Mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
+    ![Using-different-views-for-each-mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
 
     *Przy użyciu różnych widoków dla każdego urządzenia przenośnego*
 
@@ -622,7 +622,7 @@ W ramach tego zadania spowoduje utworzenie układu dostosowanego dla urządzenia
 
 Microsoft .NET Framework 4.5 wprowadza nowe funkcje języka C# i Visual Basic zapewnia nowy podstawę dla asynchrony w programowaniu .NET. Ten nowy foundation sprawia, że programowanie asynchroniczne podobne do - i około równie proste jak - synchroniczne programowania. Jesteś teraz możliwość zapisywania akcji asynchronicznej metody w technologii ASP.NET MVC 4 przy użyciu **AsyncController** klasy. Za pomocą metod asynchronicznych akcji dla długotrwałe, niezwiązane z procesorem powiązany żądania. Dzięki temu można uniknąć blokowanie serwera sieci Web z wykonywania pracy podczas przetwarzania żądania. Klasa AsyncController zazwyczaj jest używany dla wywołań usług sieci Web długotrwałe.
 
-Tego ćwiczenia przedstawiono podstawowe operację asynchroniczną na platformie ASP.NET MVC 4. Jeśli chcesz bardziej zgłębić temat, można wyewidencjonować artykule: [ [https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx)
+Tego ćwiczenia przedstawiono podstawowe operację asynchroniczną na platformie ASP.NET MVC 4. Jeśli chcesz bardziej zgłębić temat, można wyewidencjonować artykule: [ [https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)
 
 <a id="Task_1_-_Implementing_an_Asynchronous_Controller"></a>
 #### <a name="task-1---implementing-an-asynchronous-controller"></a>Zadanie 1 - wdrażanie kontrolera asynchronicznego
