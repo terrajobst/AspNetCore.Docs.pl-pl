@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: c7d893fb9633aaa8628f2f46a8db7f2c09f81830
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aac359b26c508784793a67260dc2e65c30db687a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Porady: Dodawanie stron dla urządzeń przenośnych do formularzy sieci Web ASP.NET / aplikacji MVC
 ====================
@@ -104,7 +104,7 @@ Klucza wstępnym dla wszystkich metod po stronie serwera do obsługi urządzeń 
 - Metoda wejściowa (myszy/klawiatury, touch, klawiaturę, joystick,...)
 - Rozmiar ekranu (fizycznie lub w pikselach)
 - Obsługiwane formaty nośników i danych
-- itp.
+- Etc.
 
 Zaleca się podjęcie decyzji, na podstawie charakterystyk niż numer modelu, ponieważ, a następnie będzie lepiej przystosowany do obsługi urządzeń w przyszłości.
 
@@ -118,7 +118,7 @@ Deweloperzy i formularzy sieci Web platformy ASP.NET MVC można natychmiast odna
 - Request.Browser.SupportsXmlHttp
 - .. .a wielu innych
 
-W tle, platforma ASP.NET jest zgodna z przychodzącego *agenta użytkownika* nagłówka HTTP (UC) przed wyrażeń regularnych w zestawie plików XML definicji przeglądarki. Domyślnie platforma zawiera definicje dla wielu typowych urządzeń przenośnych, a można dodać niestandardowe pliki definicji przeglądarki dla innych osób, które chcesz rozpoznać. Aby uzyskać więcej informacji, zobacz stronę MSDN [kontrolki serwera sieci Web ASP.NET i możliwości przeglądarki](https://msdn.microsoft.com/en-us/library/x3k2ssx2.aspx).
+W tle, platforma ASP.NET jest zgodna z przychodzącego *agenta użytkownika* nagłówka HTTP (UC) przed wyrażeń regularnych w zestawie plików XML definicji przeglądarki. Domyślnie platforma zawiera definicje dla wielu typowych urządzeń przenośnych, a można dodać niestandardowe pliki definicji przeglądarki dla innych osób, które chcesz rozpoznać. Aby uzyskać więcej informacji, zobacz stronę MSDN [kontrolki serwera sieci Web ASP.NET i możliwości przeglądarki](https://msdn.microsoft.com/library/x3k2ssx2.aspx).
 
 ### <a name="using-the-wurfl-device-database-via-51degreesmobi-foundation"></a>Korzystanie z bazy danych urządzenia WURFL za pośrednictwem 51Degrees.mobi Foundation
 
@@ -213,9 +213,9 @@ Aby uzyskać więcej porad dotyczących optymalizacji sieci znaczników i CSS dl
 
 Ponieważ wzorca Model-View-Controller zapewnia oddzielenie logiki aplikacji (w kontrolerach) z logiki prezentacji (w widokach), można za pomocą dowolnego z poniższych metod przenośnych obsługi w kodzie po stronie serwera:
 
-1. ***Użyj tego samego kontrolery i widoki dla przeglądarek, które komputery i przenośnych, ale renderowania widoków z różnymi układami Razor, w zależności od typu urządzenia*.** Ta opcja działa najlepiej, jeśli można wyświetlić identyczne dane na wszystkich urządzeniach, ale po prostu chcesz podać inną arkusze stylów CSS lub zmienić kilka elementów HTML najwyższego poziomu dla przenośne.
+1. ***Użyj tego samego kontrolery i widoki dla przeglądarek, które komputery i przenośnych, ale renderowania widoków z różnymi układami Razor, w zależności od typu urządzenia *.** Ta opcja działa najlepiej, jeśli można wyświetlić identyczne dane na wszystkich urządzeniach, ale po prostu chcesz podać inną arkusze stylów CSS lub zmienić kilka elementów HTML najwyższego poziomu dla przenośne.
 2. ***Użyj tego samego kontrolerów w przypadku przeglądarek zarówno wersje desktop i mobile, ale renderowania różne widoki w zależności od typu urządzenia***. Ta opcja działa najlepiej, jeśli jest około wyświetlanie tych samych danych i zapewnienie tego samego przepływy pracy dla użytkowników końcowych, ale aby renderować bardzo różny kod znaczników HTML do własnych urządzenie używane.
-3. ***Utwórz oddzielne obszary dla komputerów stacjonarnych i przenośnych przeglądarek, implementacja niezależne kontrolery i widoki dla każdego*.** Ta opcja działa najlepiej, gdy są wyświetlane ekrany bardzo różnych, zawierających różne informacje i początkowe użytkownika za pomocą różnych przepływów pracy, zoptymalizowana pod kątem ich typ urządzenia. Może to oznaczać niektórych powtarzania kodu, ale który można zminimalizować przez factoring limitu wspólnej logiki do warstwy podstawowej lub usługi.
+3. ***Utwórz oddzielne obszary dla komputerów stacjonarnych i przenośnych przeglądarek, implementacja niezależne kontrolery i widoki dla każdego *.** Ta opcja działa najlepiej, gdy są wyświetlane ekrany bardzo różnych, zawierających różne informacje i początkowe użytkownika za pomocą różnych przepływów pracy, zoptymalizowana pod kątem ich typ urządzenia. Może to oznaczać niektórych powtarzania kodu, ale który można zminimalizować przez factoring limitu wspólnej logiki do warstwy podstawowej lub usługi.
 
 Jeśli chcesz wykonać **pierwszy** opcji i różnią się jedynie układu Razor według typu urządzenia, jest bardzo proste. Po prostu zmodyfikuj Twojej \_ViewStart.cshtml plików w następujący sposób:
 

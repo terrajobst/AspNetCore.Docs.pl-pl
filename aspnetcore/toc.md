@@ -57,6 +57,7 @@
 ### [Aplikacja internetowa ze stronami Razor na komputerze Mac](xref:tutorials/razor-pages-mac/index)
 #### [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages-mac/razor-pages-start)
 #### [Dodawanie modelu](xref:tutorials/razor-pages-mac/model)
+#### [Strony Razor ze szkieletami](xref:tutorials/razor-pages-mac/page)
 ### [Aplikacja internetowa ze stronami Razor z programem VS Code](xref:tutorials/razor-pages-vsc/index)
 #### [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages-vsc/razor-pages-start)
 #### [Dodawanie modelu](xref:tutorials/razor-pages-vsc/model)
