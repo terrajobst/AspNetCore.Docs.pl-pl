@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 653c8303691de28b7619c30e773473ffb37f2a61
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: be3e3d61a6567da3c2cd696c01661146f2da7131
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>Tworzenie procedury składowane i funkcje zdefiniowane przez użytkownika za pomocą kodu zarządzanego (C#)
 ====================
@@ -33,12 +33,12 @@ Użyj bazy danych, takich jak Microsoft SQL Server 2005-s [Transact-Structured Q
 
 Zasadniczo SQL jest przeznaczony do pracy z zestawów danych. `SELECT`, `UPDATE`, I `DELETE` instrukcje dotyczą wszystkich rekordów w tej tabeli z założenia i tylko są ograniczone przez ich `WHERE` klauzul. Brak jeszcze wiele funkcji języka zaprojektowane do pracy z jeden rekord w czasie i manipulowania danymi skalarne. [`CURSOR`s](http://www.sqlteam.com/item.asp?ItemID=553) umożliwiają dla zestawu rekordów można zapętlonego za pomocą jednego naraz. Ciąg manipulowania funkcji, takich jak `LEFT`, `CHARINDEX`, i `PATINDEX` pracować z danymi skalarne. SQL zawiera również instrukcje przepływu sterowania, takie jak `IF` i `WHILE`.
 
-Przed Microsoft SQL Server 2005 procedury składowane i funkcje UDF tylko można zdefiniować jako kolekcja instrukcje T-SQL. SQL Server 2005, jednak zaprojektowano tak, aby zapewnić integrację z [środowiska uruchomieniowego języka wspólnego (CLR)](https://msdn.microsoft.com/en-us/netframework/aa497266.aspx), który jest używany przez wszystkie zestawy .NET środowiska uruchomieniowego. W związku z tym procedury składowane i funkcje UDF w bazie danych programu SQL Server 2005 mogą być tworzone za pomocą kodu zarządzanego. Oznacza to można utworzyć procedury składowanej lub funkcji zdefiniowanej przez użytkownika jako metodę w klasie C#. Dzięki temu te procedury składowane i funkcje UDF mogą korzystać z funkcji w programie .NET Framework i z klas niestandardowych.
+Przed Microsoft SQL Server 2005 procedury składowane i funkcje UDF tylko można zdefiniować jako kolekcja instrukcje T-SQL. SQL Server 2005, jednak zaprojektowano tak, aby zapewnić integrację z [środowiska uruchomieniowego języka wspólnego (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), który jest używany przez wszystkie zestawy .NET środowiska uruchomieniowego. W związku z tym procedury składowane i funkcje UDF w bazie danych programu SQL Server 2005 mogą być tworzone za pomocą kodu zarządzanego. Oznacza to można utworzyć procedury składowanej lub funkcji zdefiniowanej przez użytkownika jako metodę w klasie C#. Dzięki temu te procedury składowane i funkcje UDF mogą korzystać z funkcji w programie .NET Framework i z klas niestandardowych.
 
 W tym samouczku, który zostanie tworzenie zarządzanych procedury składowane i funkcje zdefiniowane przez użytkownika i sposobu integracji je w naszej bazie danych Northwind. Rozpoczynanie pracy dzięki s!
 
 > [!NOTE]
-> Obiekty zarządzane bazy danych oferuje kilka zalet w porównaniu z ich odpowiedniki SQL. Siłę języka i znajomości i możliwość ponownego używania istniejącego kodu i logikę są główne zalety. Ale obiekty zarządzane bazy danych może być mniej wydajne, podczas pracy z zestawami danych, które nie obejmują wiele procedur logiki. Aby uzyskać dokładniejsze omówienie o zaletach korzystania z kodu zarządzanego lub T-SQL, zapoznaj się [korzyści z za pomocą kodu zarządzanego do tworzenia obiektów bazy danych](https://msdn.microsoft.com/en-us/library/k2e1fb36(VS.80).aspx).
+> Obiekty zarządzane bazy danych oferuje kilka zalet w porównaniu z ich odpowiedniki SQL. Siłę języka i znajomości i możliwość ponownego używania istniejącego kodu i logikę są główne zalety. Ale obiekty zarządzane bazy danych może być mniej wydajne, podczas pracy z zestawami danych, które nie obejmują wiele procedur logiki. Aby uzyskać dokładniejsze omówienie o zaletach korzystania z kodu zarządzanego lub T-SQL, zapoznaj się [korzyści z za pomocą kodu zarządzanego do tworzenia obiektów bazy danych](https://msdn.microsoft.com/library/k2e1fb36(VS.80).aspx).
 
 
 ## <a name="step-1-moving-the-northwind-database-out-ofappdata"></a>Krok 1: Przenoszenie bazy danych Northwind poza`App_Data`
@@ -81,7 +81,7 @@ Kliknij przycisk OK, aby dołączyć bazę danych. Eksplorator obiektów powinny
 
 ## <a name="step-2-creating-a-new-solution-and-sql-server-project-in-visual-studio"></a>Krok 2: Tworzenie nowego rozwiązania i projektu serwera SQL w programie Visual Studio
 
-Do tworzenia zarządzanego procedury składowanej lub funkcji UDF w programie SQL Server 2005 firma Microsoft będzie zapisywać procedur składowanych i logiki funkcji zdefiniowanej przez użytkownika jako kod języka C# w klasie. Po zapisaniu kodu są wymagane do kompilacji tej klasy w zestawie ( `.dll` pliku), zarejestruj zestawu z bazą danych programu SQL Server, a następnie utworzyć procedury składowanej lub funkcji zdefiniowanej przez użytkownika w bazie danych, który wskazuje odpowiedniej metody w zestaw. Te czynności wszystkie można wykonać ręcznie. Firma Microsoft można utworzyć kod w dowolny tekst, edytor, skompiluj go z poziomu wiersza polecenia za pomocą kompilatora C# ([`csc.exe`](https://msdn.microsoft.com/en-us/library/ms379563(vs.80).aspx)), zarejestruj go w bazie danych przy użyciu [ `CREATE ASSEMBLY` ](https://msdn.microsoft.com/en-us/library/ms189524.aspx) polecenia lub z zarządzania Studio i Dodaj procedura składowana lub obiekt UDF w podobny sposób. Na szczęście wersje Professional i systemy zespołu programu Visual Studio obejmują typ Projekt serwera SQL, który zautomatyzuje tych zadań. W tym samouczku opisano tworzenie zarządzanej procedury składowanej i funkcji zdefiniowanej przez użytkownika za pomocą typu Projekt serwera SQL.
+Do tworzenia zarządzanego procedury składowanej lub funkcji UDF w programie SQL Server 2005 firma Microsoft będzie zapisywać procedur składowanych i logiki funkcji zdefiniowanej przez użytkownika jako kod języka C# w klasie. Po zapisaniu kodu są wymagane do kompilacji tej klasy w zestawie ( `.dll` pliku), zarejestruj zestawu z bazą danych programu SQL Server, a następnie utworzyć procedury składowanej lub funkcji zdefiniowanej przez użytkownika w bazie danych, który wskazuje odpowiedniej metody w zestaw. Te czynności wszystkie można wykonać ręcznie. Firma Microsoft można utworzyć kod w dowolny tekst, edytor, skompiluj go z poziomu wiersza polecenia za pomocą kompilatora C# ([`csc.exe`](https://msdn.microsoft.com/library/ms379563(vs.80).aspx)), zarejestruj go w bazie danych przy użyciu [ `CREATE ASSEMBLY` ](https://msdn.microsoft.com/library/ms189524.aspx) polecenia lub z zarządzania Studio i Dodaj procedura składowana lub obiekt UDF w podobny sposób. Na szczęście wersje Professional i systemy zespołu programu Visual Studio obejmują typ Projekt serwera SQL, który zautomatyzuje tych zadań. W tym samouczku opisano tworzenie zarządzanej procedury składowanej i funkcji zdefiniowanej przez użytkownika za pomocą typu Projekt serwera SQL.
 
 > [!NOTE]
 > Jeśli używasz programu Visual Web Developer lub wersja Standard programu Visual Studio, następnie należy zamiast tego użyj metody ręcznego. Krok 13 zawiera szczegółowe instrukcje dotyczące wykonywania tych kroków ręcznie. I zachęca przed odczytaniem krok 13, ponieważ te kroki obejmują ważne instrukcje konfiguracji programu SQL Server, które muszą być stosowane niezależnie od tego, jakie wersja programu Visual Studio jest używana do odczytu kroki 2 do 12.
@@ -156,7 +156,7 @@ Poniższy kod tworzy `SqlCommand` obiekt i ustawia jej `CommandText` do `SELECT`
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample3.cs)]
 
-Wszystkie obiekty zarządzane bazy danych mają dostęp do [ `SqlContext` obiektu](https://msdn.microsoft.com/en-us/library/ms131108.aspx) reprezentujący kontekst obiektu wywołującego. `SqlContext` Zapewnia dostęp do [ `SqlPipe` obiektu](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlpipe.aspx) za pośrednictwem jego [ `Pipe` właściwości](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlcontext.pipe.aspx). To `SqlPipe` obiekt jest używany do prom informacji między bazą danych programu SQL Server i aplikacja wywołująca. Jak jego nazwa wskazuje, [ `ExecuteAndSend` metody](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlpipe.executeandsend.aspx) wykonuje przekazany programu `SqlCommand` obiektów i wysyła wyniki z powrotem do aplikacji klienckiej.
+Wszystkie obiekty zarządzane bazy danych mają dostęp do [ `SqlContext` obiektu](https://msdn.microsoft.com/library/ms131108.aspx) reprezentujący kontekst obiektu wywołującego. `SqlContext` Zapewnia dostęp do [ `SqlPipe` obiektu](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.aspx) za pośrednictwem jego [ `Pipe` właściwości](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlcontext.pipe.aspx). To `SqlPipe` obiekt jest używany do prom informacji między bazą danych programu SQL Server i aplikacja wywołująca. Jak jego nazwa wskazuje, [ `ExecuteAndSend` metody](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.executeandsend.aspx) wykonuje przekazany programu `SqlCommand` obiektów i wysyła wyniki z powrotem do aplikacji klienckiej.
 
 > [!NOTE]
 > Zarządzane obiekty są najbardziej odpowiednie dla procedury składowane i funkcje UDF, korzystających z procedurach logiki, a nie na podstawie zestawu logiki. Logika proceduralna obejmuje Praca z zestawami danych na podstawie wiersz po wierszu lub Praca z danymi skalarne. `GetDiscontinuedProducts` Metoda właśnie utworzyliśmy, jednak obejmuje nie procedurach logiki. W związku z tym go będzie najlepiej można zaimplementować jako procedury składowane T-SQL. Zaimplementowano jako procedury składowane zarządzany zarządzanej procedury składowanej, aby zademonstrować kroki niezbędne do tworzenia i wdrażania.
@@ -214,7 +214,7 @@ Należy zauważyć, że każdego ustawienia konfiguracji w rysunek 12 ma cztery 
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample5.sql)]
 
-Jeśli zostanie uruchomiony ponownie `exec sp_configure` zobaczysz, że powyższe stwierdzenie zaktualizowany wartość konfiguracyjna clr włączone ustawienie s, 1, ale wartość wykonywania nadal jest ustawione na 0. Zmiany konfiguracji zostały wprowadzone musimy wykonać [ `RECONFIGURE` polecenia](https://msdn.microsoft.com/en-us/library/ms176069.aspx), który ustawia wartość wykonywania do bieżącej wartości konfiguracji. Wystarczy wprowadzić `RECONFIGURE` w oknie zapytania i kliknij ikonę Execute na pasku narzędzi. Po uruchomieniu `exec sp_configure` teraz powinni widzieć wartość 1 dla clr włączone ustawienie s config i uruchom wartości.
+Jeśli zostanie uruchomiony ponownie `exec sp_configure` zobaczysz, że powyższe stwierdzenie zaktualizowany wartość konfiguracyjna clr włączone ustawienie s, 1, ale wartość wykonywania nadal jest ustawione na 0. Zmiany konfiguracji zostały wprowadzone musimy wykonać [ `RECONFIGURE` polecenia](https://msdn.microsoft.com/library/ms176069.aspx), który ustawia wartość wykonywania do bieżącej wartości konfiguracji. Wystarczy wprowadzić `RECONFIGURE` w oknie zapytania i kliknij ikonę Execute na pasku narzędzi. Po uruchomieniu `exec sp_configure` teraz powinni widzieć wartość 1 dla clr włączone ustawienie s config i uruchom wartości.
 
 Kończenie konfiguracji clr włączone możemy przystąpić do uruchamiania zarządzanego `GetDiscontinuedProducts` procedury składowanej. W oknie zapytania wprowadź i wykonaj polecenie `exec` `GetDiscontinuedProducts`. Wywoływanie procedury składowanej powoduje, że odpowiedni kod zarządzany w `GetDiscontinuedProducts` metody do wykonania. Ten kod wystawia `SELECT` zapytania do zwrócenia wszystkich produktów, które są przerywane i zwraca dane do aplikacji wywołującej jest w tym wystąpieniu programu SQL Server Management Studio. Management Studio te wyniki odbiera i wyświetla je w oknie wyników.
 
@@ -232,7 +232,7 @@ Do utworzenia zarządzanej procedury składowanej, który akceptuje parametr wej
 
 Aby dodać nową procedurę składowaną do projektu, kliknij prawym przyciskiem myszy `ManagedDatabaseConstructs` Nazwa projektu i wybierz opcję Dodaj nową procedurę składowaną. Nadaj nazwę plikowi `GetProductsWithPriceLessThan.cs`. Jak widzieliśmy w kroku 3, spowoduje to utworzenie nowego pliku klasy C# za pomocą metody o nazwie `GetProductsWithPriceLessThan` umieszczony `partial` klasy `StoredProcedures`.
 
-Aktualizacja `GetProductsWithPriceLessThan` definicję metody s, tak aby akceptowała [ `SqlMoney` ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlmoney.aspx) parametru wejściowego o nazwie `price` i napisać kod do wykonania, a następnie zwracają wyniki zapytania:
+Aktualizacja `GetProductsWithPriceLessThan` definicję metody s, tak aby akceptowała [ `SqlMoney` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.aspx) parametru wejściowego o nazwie `price` i napisać kod do wykonania, a następnie zwracają wyniki zapytania:
 
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample6.cs)]
@@ -400,19 +400,19 @@ Aby dodać zarządzane UDF do `ManagedDatabaseConstructs` projektu, kliknij praw
 **Rysunek 25**: dodawanie nowych UDF zarządzanych do `ManagedDatabaseConstructs` projektu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/_static/image61.png))
 
 
-Tworzy szablon funkcji zdefiniowanych przez użytkownika `partial` klasy o nazwie `UserDefinedFunctions` za pomocą metody, której nazwa jest taka sama jak nazwa pliku s klasy (`udf_ComputeInventoryValue_Managed`, w tym wystąpieniu). Ta metoda jest dekorowane za pomocą [ `SqlFunction` atrybut](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx), który flagi metodę jako zarządzane UDF.
+Tworzy szablon funkcji zdefiniowanych przez użytkownika `partial` klasy o nazwie `UserDefinedFunctions` za pomocą metody, której nazwa jest taka sama jak nazwa pliku s klasy (`udf_ComputeInventoryValue_Managed`, w tym wystąpieniu). Ta metoda jest dekorowane za pomocą [ `SqlFunction` atrybut](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx), który flagi metodę jako zarządzane UDF.
 
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample13.cs)]
 
-`udf_ComputeInventoryValue` Metoda obecnie zwraca [ `SqlString` obiektu](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlstring.aspx) i nie akceptuje parametrów wejściowych. Należy zaktualizować definicję metody, aby przyjmuje trzy parametry - wejściowe `UnitPrice`, `UnitsInStock`, i `Discontinued` - i zwraca `SqlMoney` obiektu. Logika do obliczania wartości magazynu jest identyczna jak T-SQL `udf_ComputeInventoryValue` funkcji zdefiniowanej przez użytkownika.
+`udf_ComputeInventoryValue` Metoda obecnie zwraca [ `SqlString` obiektu](https://msdn.microsoft.com/library/system.data.sqltypes.sqlstring.aspx) i nie akceptuje parametrów wejściowych. Należy zaktualizować definicję metody, aby przyjmuje trzy parametry - wejściowe `UnitPrice`, `UnitsInStock`, i `Discontinued` - i zwraca `SqlMoney` obiektu. Logika do obliczania wartości magazynu jest identyczna jak T-SQL `udf_ComputeInventoryValue` funkcji zdefiniowanej przez użytkownika.
 
 
 [!code-csharp[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs/samples/sample14.cs)]
 
-Należy pamiętać, że parametry wejściowe metody s UDF są jako odpowiednie typy SQL: `SqlMoney` dla `UnitPrice` pola [ `SqlInt16` ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlint16.aspx) dla `UnitsInStock`, i [ `SqlBoolean` ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlboolean.aspx) Aby uzyskać `Discontinued`. Te typy danych odzwierciedlają typów zdefiniowanych w `Products` tabeli: `UnitPrice` kolumny jest typu `money`, `UnitsInStock` kolumny typu `smallint`i `Discontinued` kolumny typu `bit`.
+Należy pamiętać, że parametry wejściowe metody s UDF są jako odpowiednie typy SQL: `SqlMoney` dla `UnitPrice` pola [ `SqlInt16` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlint16.aspx) dla `UnitsInStock`, i [ `SqlBoolean` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlboolean.aspx) Aby uzyskać `Discontinued`. Te typy danych odzwierciedlają typów zdefiniowanych w `Products` tabeli: `UnitPrice` kolumny jest typu `money`, `UnitsInStock` kolumny typu `smallint`i `Discontinued` kolumny typu `bit`.
 
-Kod uruchamiany przez utworzenie `SqlMoney` wystąpienia o nazwie `inventoryValue` przypisany wartość 0. `Products` Umożliwia tabeli bazy danych `NULL` wartości w `UnitsInPrice` i `UnitsInStock` kolumn. W związku z tym musimy pierwszy wyboru, aby sprawdzić, czy te wartości zawiera `NULL` s, który przejdziemy przez `SqlMoney` obiektu s [ `IsNull` właściwości](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlmoney.isnull.aspx). Jeśli oba `UnitPrice` i `UnitsInStock` zawiera inną niż`NULL` wartości, a następnie możemy obliczeniowe `inventoryValue` jako iloczyn dwóch. Następnie, jeśli `Discontinued` ma wartość true, a następnie możemy połowę wartość.
+Kod uruchamiany przez utworzenie `SqlMoney` wystąpienia o nazwie `inventoryValue` przypisany wartość 0. `Products` Umożliwia tabeli bazy danych `NULL` wartości w `UnitsInPrice` i `UnitsInStock` kolumn. W związku z tym musimy pierwszy wyboru, aby sprawdzić, czy te wartości zawiera `NULL` s, który przejdziemy przez `SqlMoney` obiektu s [ `IsNull` właściwości](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.isnull.aspx). Jeśli oba `UnitPrice` i `UnitsInStock` zawiera inną niż`NULL` wartości, a następnie możemy obliczeniowe `inventoryValue` jako iloczyn dwóch. Następnie, jeśli `Discontinued` ma wartość true, a następnie możemy połowę wartość.
 
 > [!NOTE]
 > `SqlMoney` Obiekt tylko dwa umożliwia `SqlMoney` wystąpień mnoży się ze sobą. Nie zezwalaj `SqlMoney` wystąpienia pomnożona przez wartość zmiennoprzecinkowa literału. W związku z tym o połowę `inventoryValue` możemy on mnożony nowy `SqlMoney` wystąpienia, który ma wartość 0,5.
@@ -559,13 +559,13 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Zalety i wady funkcji zdefiniowanych przez użytkownika](http://www.samspublishing.com/articles/article.asp?p=31724&amp;rl=1)
 - [Tworzenie obiekty programu SQL Server 2005 w kodzie zarządzanym](https://channel9.msdn.com/Showpost.aspx?postid=142413)
 - [Tworzenie Wyzwalacze w programie SQL Server 2005 za pomocą kodu zarządzanego](http://www.15seconds.com/issue/041006.htm)
-- [Porady: Tworzenie i uruchamianie CLR SQL Server procedury składowanej](https://msdn.microsoft.com/en-us/library/5czye81z(VS.80).aspx)
-- [Porady: Tworzenie i uruchamianie funkcji zdefiniowanej przez użytkownika serwera CLR SQL](https://msdn.microsoft.com/en-us/library/w2kae45k(VS.80).aspx)
-- [Porady: Edytowanie `Test.sql` skryptu obiekty SQL](https://msdn.microsoft.com/en-us/library/ms233682(VS.80).aspx)
+- [Porady: Tworzenie i uruchamianie CLR SQL Server procedury składowanej](https://msdn.microsoft.com/library/5czye81z(VS.80).aspx)
+- [Porady: Tworzenie i uruchamianie funkcji zdefiniowanej przez użytkownika serwera CLR SQL](https://msdn.microsoft.com/library/w2kae45k(VS.80).aspx)
+- [Porady: Edytowanie `Test.sql` skryptu obiekty SQL](https://msdn.microsoft.com/library/ms233682(VS.80).aspx)
 - [Funkcje zdefiniowane przez wprowadzenie do użytkownika](http://www.sqlteam.com/item.asp?ItemID=1955)
 - [Zarządzany kod i SQL Server 2005 (klip wideo)](https://channel9.msdn.com/Showpost.aspx?postid=142413)
-- [Dokumentacja języka Transact-SQL](https://msdn.microsoft.com/en-us/library/aa299742(SQL.80).aspx)
-- [Wskazówki: Tworzenie procedury składowanej w kodzie zarządzanym](https://msdn.microsoft.com/en-us/library/zxsa8hkf(VS.80).aspx)
+- [Dokumentacja języka Transact-SQL](https://msdn.microsoft.com/library/aa299742(SQL.80).aspx)
+- [Wskazówki: Tworzenie procedury składowanej w kodzie zarządzanym](https://msdn.microsoft.com/library/zxsa8hkf(VS.80).aspx)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6ddce74be81cb3ea33df9f7a6b91eae604b83025
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3411272896dee0da4d5f89aa2bdda0999d660423
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-c"></a>Wzorzec/szczegół filtrowania przez dwie strony (C#)
 ====================
@@ -71,7 +71,7 @@ Z `SupplierListMaster.aspx` i `ProductsForSupplierDetails.aspx` strony utworzone
 
 Należy uwzględnić łącze do zatytułowany Wyświetl produkty każdego wiersza w widoku GridView, po kliknięciu przyjmuje użytkownikowi `ProductsForSupplierDetails.aspx` przekazując wybranego wiersza `SupplierID` wartość za pośrednictwem ciąg zapytania. Na przykład, jeśli użytkownik kliknie łącze Wyświetl produkty dostawcy Traders Tokio (która zawiera `SupplierID` wartość 4), powinny być przesyłane do `ProductsForSupplierDetails.aspx?SupplierID=4`.
 
-W tym celu należy dodać [pole hiperłącza HyperLinkField](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.hyperlinkfield.aspx) do widoku GridView, która dodaje hiperłącza do każdego wiersza w widoku GridView. Uruchomić, klikając łącza Edytuj kolumny w widoku GridView tagów inteligentnych. Następnie wybierz pole hiperłącza HyperLinkField z listy w lewym górnym rogu i kliknij przycisk Dodaj, aby dołączyć pole hiperłącza HyperLinkField w oknie Lista pól w widoku GridView.
+W tym celu należy dodać [pole hiperłącza HyperLinkField](https://msdn.microsoft.com/library/system.web.ui.webcontrols.hyperlinkfield.aspx) do widoku GridView, która dodaje hiperłącza do każdego wiersza w widoku GridView. Uruchomić, klikając łącza Edytuj kolumny w widoku GridView tagów inteligentnych. Następnie wybierz pole hiperłącza HyperLinkField z listy w lewym górnym rogu i kliknij przycisk Dodaj, aby dołączyć pole hiperłącza HyperLinkField w oknie Lista pól w widoku GridView.
 
 
 [![Dodaj pole hiperłącza HyperLinkField do widoku GridView](master-detail-filtering-across-two-pages-cs/_static/image9.png)](master-detail-filtering-across-two-pages-cs/_static/image8.png)
@@ -212,7 +212,7 @@ Domyślnie wszystkich dostawców w bazie danych Northwinds Podaj co najmniej jed
 
 Gdy wzorzec/szczegół raporty można wyświetlić głównego i szczegółów rekordy na jednej stronie, w wiele witryn sieci Web one są rozdzielone przez dwie strony sieci web. W tym samouczku analizujemy sposobu wdrażania raportu wzorzec/szczegół za dostawców wymienionych w widoku GridView "główny" strony sieci web i skojarzone wymienionego na stronie "szczegóły". Każdy wiersz dostawcy na głównej stronie sieci web zawiera łącze do strony szczegółów, który przekazał wzdłuż wiersza `SupplierID` wartość. Takie łącza określonego wiersza można łatwo dodać przy użyciu pole hiperłącza HyperLinkField w widoku GridView.
 
-Na stronie szczegółów pobierania tych produktów dla określonego dostawcy osiągnąć wywoływania `ProductsBLL` klasy `GetProductsBySupplierID(supplierID)` metody.  *`supplierID`*  Określono wartość parametru deklaratywnie przy użyciu ciąg zapytania jako źródło parametru. Analizujemy również sposób wyświetlania szczegółów dostawcy na stronie szczegółów za pomocą FormView.
+Na stronie szczegółów pobierania tych produktów dla określonego dostawcy osiągnąć wywoływania `ProductsBLL` klasy `GetProductsBySupplierID(supplierID)` metody. *`supplierID`*  Określono wartość parametru deklaratywnie przy użyciu ciąg zapytania jako źródło parametru. Analizujemy również sposób wyświetlania szczegółów dostawcy na stronie szczegółów za pomocą FormView.
 
 Nasze [następny samouczek](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) jest ostatnim w raportach wzorzec/szczegół. Wyjaśniono, jak wyświetlić listę produktów w widoku GridView, gdzie każdy wiersz zawiera przycisk Wybierz. Kliknięcie przycisku Wybierz są wyświetlane takie szczegóły tego produktu w kontrolce widoku DetailsView na tej samej stronie.
 

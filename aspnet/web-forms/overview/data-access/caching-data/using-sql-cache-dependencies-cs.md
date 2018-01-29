@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a6089b847dfd662e9b32128036170322823aac97
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a29c77688b0179730ccb1b48e62ae28a0148f94d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-sql-cache-dependencies-c"></a>Przy użyciu zależności buforu SQL (C#)
 ====================
@@ -33,7 +33,7 @@ Zbadać buforowania techniki [buforowanie danych z elementu ObjectDataSource](ca
 
 Podczas buforowania danych w bazie danych, na podstawie czasu wygaśnięcia często jest wybrany dla jego łatwość użycia, ale często jest nieodpowiedni rozwiązania. W idealnym przypadku danych w bazie danych pozostanie buforowanego dopóki danych został zmodyfikowany w bazie danych. następnie będzie można wykluczyć pamięci podręcznej. Takie podejście maksymalizuje buforowanie zwiększenia wydajności i minimalizuje czas trwania starych danych. Jednak aby można było korzystać z tych zalet musi być niektóre systemu w miejscu, które wie, kiedy danych bazy danych została zmodyfikowana i wyklucza mogą odpowiednich elementów z pamięci podręcznej. Przed składnika ASP.NET 2.0 deweloperzy strony zostały odpowiedzialnych za wdrażanie tego systemu.
 
-Program ASP.NET 2.0 zapewnia [ `SqlCacheDependency` klasy](https://msdn.microsoft.com/en-us/library/system.web.caching.sqlcachedependency.aspx) i infrastruktury wymaganej do ustalenia, kiedy nastąpiła zmiana w bazie danych, aby odpowiednie elementy w pamięci podręcznej może zostać wykluczony. Istnieją dwie metody ustalania zmiany danych podstawowych: powiadomień i sondowania. Po omówieniu różnice między powiadomień i sondowania, utworzymy infrastruktury niezbędnych do obsługi sondowania i następnie eksplorować sposób użycia `SqlCacheDependency` klasy w deklaratywnej i programowo scenariuszy.
+Program ASP.NET 2.0 zapewnia [ `SqlCacheDependency` klasy](https://msdn.microsoft.com/library/system.web.caching.sqlcachedependency.aspx) i infrastruktury wymaganej do ustalenia, kiedy nastąpiła zmiana w bazie danych, aby odpowiednie elementy w pamięci podręcznej może zostać wykluczony. Istnieją dwie metody ustalania zmiany danych podstawowych: powiadomień i sondowania. Po omówieniu różnice między powiadomień i sondowania, utworzymy infrastruktury niezbędnych do obsługi sondowania i następnie eksplorować sposób użycia `SqlCacheDependency` klasy w deklaratywnej i programowo scenariuszy.
 
 ## <a name="understanding-notification-and-polling"></a>Opis powiadomień i sondowania
 
@@ -55,7 +55,7 @@ Z podejścia sondowania bazy danych należy skonfigurować zawiera infrastruktur
 [!code-console[Main](using-sql-cache-dependencies-cs/samples/sample1.cmd)]
 
 > [!NOTE]
-> Do wykonania tych poleceń logowania określona baza danych musi być w [ `db_securityadmin` ](https://msdn.microsoft.com/en-us/library/ms188685.aspx) i [ `db_ddladmin` ](https://msdn.microsoft.com/en-us/library/ms190667.aspx) ról. Aby sprawdzić T-SQL wysyłane do bazy danych przez `aspnet_regsql.exe` wiersza polecenia, zapoznaj się [ten wpis w blogu](http://scottonwriting.net/sowblog/posts/10709.aspx).
+> Do wykonania tych poleceń logowania określona baza danych musi być w [ `db_securityadmin` ](https://msdn.microsoft.com/library/ms188685.aspx) i [ `db_ddladmin` ](https://msdn.microsoft.com/library/ms190667.aspx) ról. Aby sprawdzić T-SQL wysyłane do bazy danych przez `aspnet_regsql.exe` wiersza polecenia, zapoznaj się [ten wpis w blogu](http://scottonwriting.net/sowblog/posts/10709.aspx).
 
 
 Na przykład, aby dodać infrastruktury do sondowania bazą danych programu Microsoft SQL Server o nazwie `pubs` na serwerze bazy danych o nazwie `ScottsServer` przy użyciu uwierzytelniania systemu Windows, przejdź do odpowiedniego katalogu i, w wierszu polecenia wpisz:
@@ -77,7 +77,7 @@ W tym samouczku dodać wyzwalaczy do `Products`, `Categories`, i `Suppliers` tab
 
 ## <a name="step-2-referencing-a-microsoft-sql-server-2005-express-edition-database-inappdata"></a>Krok 2: Odwołuje się do programu Microsoft SQL Server 2005 Express Edition bazy danych w`App_Data`
 
-`aspnet_regsql.exe` Wiersza polecenia programu wymaga nazwy bazy danych i serwera, aby można było dodać infrastruktury niezbędnych sondowania. Ale co to jest nazwa bazy danych i serwera dla programu Microsoft SQL Server 2005 Express bazy danych, która znajduje się w `App_Data` folderu? Zamiast odnajdywanie, jakie są nazwy bazy danych i serwera, I Zapisz odnaleźć najprostsza metoda można dołączyć bazy danych do `localhost\SQLExpress` bazy danych, wystąpienia i Zmień nazwę danych przy użyciu [programu SQL Server Management Studio](https://msdn.microsoft.com/en-us/library/ms174173.aspx). Jeśli masz pełnej wersji programu SQL Server 2005 na komputerze jest zainstalowany, następnie prawdopodobnie masz już zainstalowany na tym komputerze program SQL Server Management Studio. Jeśli masz tylko wersji Express edition, możesz pobrać bezpłatną [Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796).
+`aspnet_regsql.exe` Wiersza polecenia programu wymaga nazwy bazy danych i serwera, aby można było dodać infrastruktury niezbędnych sondowania. Ale co to jest nazwa bazy danych i serwera dla programu Microsoft SQL Server 2005 Express bazy danych, która znajduje się w `App_Data` folderu? Zamiast odnajdywanie, jakie są nazwy bazy danych i serwera, I Zapisz odnaleźć najprostsza metoda można dołączyć bazy danych do `localhost\SQLExpress` bazy danych, wystąpienia i Zmień nazwę danych przy użyciu [programu SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Jeśli masz pełnej wersji programu SQL Server 2005 na komputerze jest zainstalowany, następnie prawdopodobnie masz już zainstalowany na tym komputerze program SQL Server Management Studio. Jeśli masz tylko wersji Express edition, możesz pobrać bezpłatną [Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796).
 
 Rozpocznij od zamknięcia programu Visual Studio. Następnie otwórz program SQL Server Management Studio i wybrać połączenie `localhost\SQLExpress` serwera przy użyciu uwierzytelniania systemu Windows.
 
@@ -186,7 +186,7 @@ Teraz odwiedź stronę tej strony za pośrednictwem przeglądarki. Ponieważ fir
 **Rysunek 8**: s ObjectDataSource `Selecting` uruchamiany każdy czas trwania zdarzenia widoku GridView jest stronicowanej, zmieniona lub Sorted ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-sql-cache-dependencies-cs/_static/image10.png))
 
 
-Jak widzieliśmy w [buforowanie danych z elementu ObjectDataSource](caching-data-with-the-objectdatasource-cs.md) samouczek, ustawienie `EnableCaching` właściwości `true` powoduje, że element ObjectDataSource do buforowania danych w czasie trwania określony przez jego `CacheDuration` właściwości. Ma również element ObjectDataSource [ `SqlCacheDependency` właściwość](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx), która dodaje co najmniej jeden zależności buforu SQL w pamięci podręcznej danych przy użyciu wzorca:
+Jak widzieliśmy w [buforowanie danych z elementu ObjectDataSource](caching-data-with-the-objectdatasource-cs.md) samouczek, ustawienie `EnableCaching` właściwości `true` powoduje, że element ObjectDataSource do buforowania danych w czasie trwania określony przez jego `CacheDuration` właściwości. Ma również element ObjectDataSource [ `SqlCacheDependency` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx), która dodaje co najmniej jeden zależności buforu SQL w pamięci podręcznej danych przy użyciu wzorca:
 
 
 [!code-css[Main](using-sql-cache-dependencies-cs/samples/sample9.css)]
@@ -282,7 +282,7 @@ Odwołania, który `MasterCacheKeyArray` zależności bufora służy do zapewnie
 
 Ponadto podczas pracy z zależności buforu SQL może należy skojarzyć wiele tabel bazy danych jako zależności. Na przykład `ProductsDataTable` pamięci podręcznej w `ProductsCL` klasa zawiera nazwy kategorii i dostawcy dla każdego produktu, ale `AddCacheItem` metoda używa tylko zależności w `Products`. W takiej sytuacji jeśli użytkownik aktualizuje nazwę kategorii lub dostawcy, dane buforowane produktu będzie pozostawać w pamięci podręcznej i być nieaktualne. W związku z tym chcemy udostępnić dane buforowane produktu zależy nie tylko `Products` tabeli, ale na `Categories` i `Suppliers` również tabel.
 
-[ `AggregateCacheDependency` Klasy](https://msdn.microsoft.com/en-us/library/system.web.caching.aggregatecachedependency.aspx) umożliwia kojarzenie wiele zależności z elementu pamięci podręcznej. Rozpocznij od utworzenia `AggregateCacheDependency` wystąpienia. Następnie dodaj zestaw zależności za pomocą `AggregateCacheDependency` s `Add` metody. Po późniejszym Wstawianie elementu do pamięci podręcznej danych, Przekaż `AggregateCacheDependency` wystąpienia. Gdy *żadnych* z `AggregateCacheDependency` zmienić zależności wystąpienia s, element pamięci podręcznej zostanie usunięty.
+[ `AggregateCacheDependency` Klasy](https://msdn.microsoft.com/library/system.web.caching.aggregatecachedependency.aspx) umożliwia kojarzenie wiele zależności z elementu pamięci podręcznej. Rozpocznij od utworzenia `AggregateCacheDependency` wystąpienia. Następnie dodaj zestaw zależności za pomocą `AggregateCacheDependency` s `Add` metody. Po późniejszym Wstawianie elementu do pamięci podręcznej danych, Przekaż `AggregateCacheDependency` wystąpienia. Gdy *żadnych* z `AggregateCacheDependency` zmienić zależności wystąpienia s, element pamięci podręcznej zostanie usunięty.
 
 Poniżej pokazano zaktualizowany kod `ProductsCL` klasy s `AddCacheItem` metody. Ta metoda tworzy `MasterCacheKeyArray` pamięci podręcznej zależności wraz z `SqlCacheDependency` obiektów na `Products`, `Categories`, i `Suppliers` tabel. Te są wszystkie połączone w jedną `AggregateCacheDependency` obiektu o nazwie `aggregateDependencies`, które są następnie przekazywane do `Insert` metody.
 
@@ -292,7 +292,7 @@ Poniżej pokazano zaktualizowany kod `ProductsCL` klasy s `AddCacheItem` metody.
 Testowania nowego kodu wychodzących. Teraz zmienia się na `Products`, `Categories`, lub `Suppliers` tabel spowodować wykluczenie w pamięci podręcznej danych. Ponadto `ProductsCL` klasy s `UpdateProduct` metodę, która jest wywoływana podczas edytowania produktu za pośrednictwem widoku GridView, wyklucza mogą `MasterCacheKeyArray` pamięci podręcznej zależności, co powoduje, że zapisane w pamięci podręcznej `ProductsDataTable` wykluczenie i ponowne pobranie przy następnym danych żądanie.
 
 > [!NOTE]
-> Zależności buforu SQL można również używać razem [buforowanie danych wyjściowych](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx). Aby demonstracyjne tej funkcji, zobacz: [przy użyciu buforowanie danych wyjściowych programu ASP.NET z programem SQL Server](https://msdn.microsoft.com/en-us/library/e3w8402y(VS.80).aspx).
+> Zależności buforu SQL można również używać razem [buforowanie danych wyjściowych](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx). Aby demonstracyjne tej funkcji, zobacz: [przy użyciu buforowanie danych wyjściowych programu ASP.NET z programem SQL Server](https://msdn.microsoft.com/library/e3w8402y(VS.80).aspx).
 
 
 ## <a name="summary"></a>Podsumowanie
@@ -305,10 +305,10 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Za pomocą powiadomień o zapytaniach w programie Microsoft SQL Server 2005](https://msdn.microsoft.com/en-us/library/ms175110.aspx)
-- [Tworzenie powiadomienia kwerendy](https://msdn.microsoft.com/en-us/library/ms188669.aspx)
-- [Buforowanie w programie ASP.NET z `SqlCacheDependency` — klasa](https://msdn.microsoft.com/en-us/library/ms178604(VS.80).aspx)
-- [Narzędzie rejestracji programu ASP.NET SQL Server (`aspnet_regsql.exe`)](https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx)
+- [Za pomocą powiadomień o zapytaniach w programie Microsoft SQL Server 2005](https://msdn.microsoft.com/library/ms175110.aspx)
+- [Tworzenie powiadomienia kwerendy](https://msdn.microsoft.com/library/ms188669.aspx)
+- [Buforowanie w programie ASP.NET z `SqlCacheDependency` — klasa](https://msdn.microsoft.com/library/ms178604(VS.80).aspx)
+- [Narzędzie rejestracji programu ASP.NET SQL Server (`aspnet_regsql.exe`)](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)
 - [Omówienie`SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
 
 ## <a name="about-the-author"></a>Informacje o autorze

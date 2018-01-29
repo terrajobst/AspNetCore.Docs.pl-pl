@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 181741dc7e0fb7e1073f3783d96f59ac905f5e63
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2dadf091c6ae77fdfaf76f4e1bda92fd3e949678
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-the-membership-schema-in-sql-server-vb"></a>Tworzenie schematu członkostwa w programie SQL Server (VB)
 ====================
@@ -33,7 +33,7 @@ Poprzednich dwóch samouczki zbadane, aby zidentyfikować osoby odwiedzające wi
 
 Przed składnika ASP.NET 2.0 deweloperzy były na haku wykonywania wszystkich zadań związanych z kontem użytkownika. Na szczęście zespołu ASP.NET rozpoznaje tego braku i wprowadzone w ramach członkostwa programu ASP.NET 2.0. W ramach członkostwa to zestaw klas w programie .NET Framework, które udostępniają interfejs programowych dotyczących wykonywanie zadań związanych z kontem użytkownika core. Ta struktura została stworzona [modelu dostawcy](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), który umożliwia deweloperom Podłącz implementacji dostosowane do standardowych interfejsu API.
 
-Zgodnie z opisem w <a id="Tutorial1"> </a> [ *podstawowe informacje o zabezpieczeniach i obsługę ASP.NET* ](../introduction/security-basics-and-asp-net-support-vb.md) samouczek, .NET Framework jest dostarczany z dwóch wbudowanych dostawców członkostwa: [ `ActiveDirectoryMembershipProvider` ](https://msdn.microsoft.com/en-us/library/system.web.security.activedirectorymembershipprovider.aspx) i [ `SqlMembershipProvider` ](https://msdn.microsoft.com/en-us/library/system.web.security.sqlmembershipprovider.aspx). Jak jego nazwa wskazuje, `SqlMembershipProvider` korzysta z bazy danych programu Microsoft SQL Server do przechowywania użytkownika. Aby można było używać tego dostawcę w aplikacji, należy sprawdzić, jakie bazy danych do użycia jako magazynu dostawcy. Oczywiście, `SqlMembershipProvider` oczekuje bazy danych magazynu użytkownika do określonych tabel bazy danych, widoków i procedur składowanych. Musimy dodać tego Oczekiwano schematu w wybranej bazie danych.
+Zgodnie z opisem w <a id="Tutorial1"> </a> [ *podstawowe informacje o zabezpieczeniach i obsługę ASP.NET* ](../introduction/security-basics-and-asp-net-support-vb.md) samouczek, .NET Framework jest dostarczany z dwóch wbudowanych dostawców członkostwa: [ `ActiveDirectoryMembershipProvider` ](https://msdn.microsoft.com/library/system.web.security.activedirectorymembershipprovider.aspx) i [ `SqlMembershipProvider` ](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx). Jak jego nazwa wskazuje, `SqlMembershipProvider` korzysta z bazy danych programu Microsoft SQL Server do przechowywania użytkownika. Aby można było używać tego dostawcę w aplikacji, należy sprawdzić, jakie bazy danych do użycia jako magazynu dostawcy. Oczywiście, `SqlMembershipProvider` oczekuje bazy danych magazynu użytkownika do określonych tabel bazy danych, widoków i procedur składowanych. Musimy dodać tego Oczekiwano schematu w wybranej bazie danych.
 
 W tym samouczku rozpoczyna się znaleźć, sprawdzając techniki dodawania schematu niezbędne do bazy danych, aby można było używać `SqlMembershipProvider`. Po tym, że firma Microsoft zbada klucza tabel w schemacie i omówienia ich przeznaczenia i znaczenie. W tym samouczku kończy przyjrzeć się jak stwierdzić, który dostawca należy używać w ramach członkostwa aplikacji ASP.NET.
 
@@ -55,7 +55,7 @@ Rozdzielenie użytkownika aplikacji i magazynu danych do oddzielnego baz danych 
 Aplikację, która ma możemy tworzenia od drugiego samouczka nie ma jeszcze potrzebne bazy danych. Potrzebujemy, jednak magazynu użytkowników. Umożliwia utworzenie, a następnie dodaj do niej schematu wymagane przez `SqlMembershipProvider` dostawcy (zobacz krok 2).
 
 > [!NOTE]
-> W tej serii samouczek użyjemy [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/en-us/sql/Aa336346.aspx) bazy danych do przechowywania tabel naszej aplikacji i `SqlMembershipProvider` schematu. Ta decyzja została wprowadzona w dwóch powodów: najpierw, ze względu na jego koszt — darmowa - Express Edition jest najbardziej readably dostępna wersja programu SQL Server 2005; Po drugie, baz danych programu SQL Server 2005 Express Edition można umieścić bezpośrednio w aplikacji sieci web `App_Data` folderu, dzięki czemu można z łatwością pakietu bazy danych i aplikacji sieci web razem w jednym pliku ZIP oraz należy ponownie wdrożyć bez żadnych instrukcji ustawienia specjalne lub opcji konfiguracji. Jeśli wolisz odbiorze przy użyciu programu SQL Server w wersji z systemem innym niż Express Edition, możesz. Te kroki są niemal identyczne. `SqlMembershipProvider` Schematu zostanie współdziała z żadną wersją programu Microsoft SQL Server 2000 lub nowsze.
+> W tej serii samouczek użyjemy [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/sql/Aa336346.aspx) bazy danych do przechowywania tabel naszej aplikacji i `SqlMembershipProvider` schematu. Ta decyzja została wprowadzona w dwóch powodów: najpierw, ze względu na jego koszt — darmowa - Express Edition jest najbardziej readably dostępna wersja programu SQL Server 2005; Po drugie, baz danych programu SQL Server 2005 Express Edition można umieścić bezpośrednio w aplikacji sieci web `App_Data` folderu, dzięki czemu można z łatwością pakietu bazy danych i aplikacji sieci web razem w jednym pliku ZIP oraz należy ponownie wdrożyć bez żadnych instrukcji ustawienia specjalne lub opcji konfiguracji. Jeśli wolisz odbiorze przy użyciu programu SQL Server w wersji z systemem innym niż Express Edition, możesz. Te kroki są niemal identyczne. `SqlMembershipProvider` Schematu zostanie współdziała z żadną wersją programu Microsoft SQL Server 2000 lub nowsze.
 
 W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy `App_Data` folderu i wybierz opcję Dodaj nowy element. (Jeśli nie widzisz `App_Data` folder w projekcie, kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań, wybierz opcję Dodaj Folder ASP.NET i wybierz `App_Data`.) W oknie dialogowym Dodawanie nowego elementu możliwość dodania nowej bazy danych SQL o nazwie `SecurityTutorials.mdf`. W tym samouczku dodamy `SqlMembershipProvider` schematu do tej bazy danych, w kolejnych samouczkach utworzymy dodatkowe tabele do przechwytywania danych aplikacji.
 
@@ -75,7 +75,7 @@ Dodawanie bazy danych do `App_Data` folderu automatycznie uwzględnia ona w wido
 
 ## <a name="step-2-adding-thesqlmembershipproviderschema-to-the-database"></a>Krok 2: Dodawanie`SqlMembershipProvider`schematu do bazy danych
 
-`SqlMembershipProvider` Wymaga określony zestaw tabel, widoków i procedur składowanych do zainstalowania w bazie danych magazynu użytkownika. Te obiekty wymagania bazy danych można dodać za pomocą [ `aspnet_regsql.exe` narzędzia](https://msdn.microsoft.com/en-us/library/ms229862.aspx). Ten plik znajduje się w `%WINDIR%\Microsoft.Net\Framework\v2.0.50727\` folderu.
+`SqlMembershipProvider` Wymaga określony zestaw tabel, widoków i procedur składowanych do zainstalowania w bazie danych magazynu użytkownika. Te obiekty wymagania bazy danych można dodać za pomocą [ `aspnet_regsql.exe` narzędzia](https://msdn.microsoft.com/library/ms229862.aspx). Ten plik znajduje się w `%WINDIR%\Microsoft.Net\Framework\v2.0.50727\` folderu.
 
 > [!NOTE]
 > `aspnet_regsql.exe` Narzędzie udostępnia zarówno funkcje wiersza polecenia i graficzny interfejs użytkownika. Interfejs graficzny jest bardziej przyjazny dla użytkownika i jakie zostaną omówione w tym samouczku. Interfejs wiersza polecenia jest przydatne, gdy dodanie `SqlMembershipProvider` schemat musi zostać zautomatyzowane, taki jak kompilacji skrypty lub automatyczne scenariuszy testowych.
@@ -199,7 +199,7 @@ Struktury członkostwo i role są zaprojektowane tak, aby ma jeden magazyn użyt
 **Rysunek 11**: użytkownika konta może być podzielona na partycje w wielu aplikacjach ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-the-membership-schema-in-sql-server-vb/_static/image33.png))
 
 
-`aspnet_Applications` Tabela jest definiuje co tych partycji. Każda aplikacja, która przechowuje informacje o koncie użytkownika przy użyciu bazy danych jest reprezentowana przez wiersza w tej tabeli. `aspnet_Applications` Ma cztery kolumny: `ApplicationId`, `ApplicationName`, `LoweredApplicationName`, i `Description`.`ApplicationId` Typ jest [ `uniqueidentifier` ](https://msdn.microsoft.com/en-us/library/ms187942.aspx) i klucz podstawowy tabeli; `ApplicationName` zapewnia unikatową nazwę przyjaznych dla człowieka dla każdej aplikacji.
+`aspnet_Applications` Tabela jest definiuje co tych partycji. Każda aplikacja, która przechowuje informacje o koncie użytkownika przy użyciu bazy danych jest reprezentowana przez wiersza w tej tabeli. `aspnet_Applications` Ma cztery kolumny: `ApplicationId`, `ApplicationName`, `LoweredApplicationName`, i `Description`.`ApplicationId` Typ jest [ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx) i klucz podstawowy tabeli; `ApplicationName` zapewnia unikatową nazwę przyjaznych dla człowieka dla każdej aplikacji.
 
 Inne powiązane członkostwa i ról tabele link do `ApplicationId` w `aspnet_Applications`. Na przykład `aspnet_Users` tabeli, która zawiera rekord dla każdego konta użytkownika, ma `ApplicationId` pola klucza obcego; jw. dla `aspnet_Roles` tabeli. `ApplicationId` Pola w tych tabelach określa partycji aplikacji konto użytkownika lub rola.
 
@@ -211,7 +211,7 @@ Informacje o koncie użytkownika są przechowywane w dwóch tabelach: `aspnet_Us
 - `UserName`
 - `ApplicationId`
 
-`UserId`jest to klucz podstawowy (i typu `uniqueidentifier`). `UserName`Typ jest `nvarchar(256)` i wraz z hasłem, stanowi poświadczenia użytkownika. (Hasło użytkownika są przechowywane w `aspnet_Membership` tabeli.) `ApplicationId` łączy konta użytkownika do konkretnej aplikacji w `aspnet_Applications`. Brak złożonym [ `UNIQUE` ograniczenia](https://msdn.microsoft.com/en-us/library/ms191166.aspx) na `UserName` i `ApplicationId` kolumn. Dzięki temu, że w danej aplikacji jest unikatowe nazwy użytkownika, ale umożliwia dla tego samego `UserName` do użycia w innych aplikacjach.
+`UserId`jest to klucz podstawowy (i typu `uniqueidentifier`). `UserName`Typ jest `nvarchar(256)` i wraz z hasłem, stanowi poświadczenia użytkownika. (Hasło użytkownika są przechowywane w `aspnet_Membership` tabeli.) `ApplicationId` łączy konta użytkownika do konkretnej aplikacji w `aspnet_Applications`. Brak złożonym [ `UNIQUE` ograniczenia](https://msdn.microsoft.com/library/ms191166.aspx) na `UserName` i `ApplicationId` kolumn. Dzięki temu, że w danej aplikacji jest unikatowe nazwy użytkownika, ale umożliwia dla tego samego `UserName` do użycia w innych aplikacjach.
 
 `aspnet_Membership` Tabela zawiera dodatkowe informacje, takie jak hasło użytkownika, adres e-mail, ostatniego logowania daty i godziny oraz itd. Brak odpowiednika między rekordów w `aspnet_Users` i `aspnet_Membership` tabel. Ta relacja jest zapewniana przez `UserId` w `aspnet_Membership`, która służy jako klucz podstawowy tabeli. Podobnie jak `aspnet_Users` tabeli `aspnet_Membership` obejmuje `ApplicationId` pola, które wiąże te informacje do określonej partycji aplikacji.
 
@@ -231,9 +231,9 @@ Tabela 1 przedstawiono te trzy kolumny przykładową różnych technik magazynu 
 
 | **Techniki magazynu&lt;\_o3a\_p /&gt;** | **Hasło&lt;\_o3a\_p /&gt;** | **PasswordFormat&lt;\_o3a\_p /&gt;** | **PasswordSalt&lt;\_o3a\_p /&gt;** |
 | --- | --- | --- | --- |
-| Wyczyść | MySecret! | 0 | tTnkPlesqissc2y2SMEygA == |
-| Wartość skrótu | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM = | 1 | wFgjUfhdUFOCKQiI61vtiQ == |
-| Szyfrowane | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/aa/oqAXGLHJNBw == |
+| Wyczyść | MySecret! | 0 | tTnkPlesqissc2y2SMEygA== |
+| Wartość skrótu | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM= | 1 | wFgjUfhdUFOCKQiI61vtiQ== |
+| Szyfrowane | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/aa/oqAXGLHJNBw== |
 
 **Tabela 1**: Przykładowe wartości w polach powiązane hasło podczas zapisywania MySecret hasło!
 
@@ -256,13 +256,13 @@ W ramach ról umożliwia deweloperom zdefiniować zestaw ról i określ, jakie u
 
 Struktury obsługujących modelu dostawcy — takich jak członkostwo i role struktury — Brak szczegóły implementacji, same i zamiast tego przekazać to zadanie do klasy dostawcy. W przypadku framework członkostwa `Membership` klasa definiuje interfejs API do zarządzania kontami użytkowników, ale nie nawiązuje interakcji bezpośrednio z dowolnego magazynu użytkownika. Zamiast `Membership` żądanie skonfigurowanego dostawcy - Dostarcz metody klasy użyjemy `SqlMembershipProvider`. Gdy firma Microsoft wywołania jednej z metod w `Membership` klasy, jak będzie framework członkostwa wiadomo, aby delegować wywołanie `SqlMembershipProvider`?
 
-`Membership` Klasa ma [ `Providers` właściwości](https://msdn.microsoft.com/en-us/library/system.web.security.membership.providers.aspx) zawiera odwołania do wszystkich klas zarejestrowanych dostawców dostępne do użycia przez platformę członkostwa. Każdy zarejestrowany dostawca ma skojarzonej z nazwy i typu. Nazwa daje możliwość przyjaznych dla człowieka odwołania określonego dostawcy w `Providers` kolekcji, gdy typ identyfikuje klasy dostawcy. Ponadto każdy zarejestrowany dostawca może uwzględniają ustawienia konfiguracji. Ustawienia konfiguracji dla framework członkostwa obejmują `PasswordFormat` i `requiresUniqueEmail`, wśród wielu innych. Zobacz pełną listę ustawień konfiguracyjnych używanych przez Tabela 2 `SqlMembershipProvider`.
+`Membership` Klasa ma [ `Providers` właściwości](https://msdn.microsoft.com/library/system.web.security.membership.providers.aspx) zawiera odwołania do wszystkich klas zarejestrowanych dostawców dostępne do użycia przez platformę członkostwa. Każdy zarejestrowany dostawca ma skojarzonej z nazwy i typu. Nazwa daje możliwość przyjaznych dla człowieka odwołania określonego dostawcy w `Providers` kolekcji, gdy typ identyfikuje klasy dostawcy. Ponadto każdy zarejestrowany dostawca może uwzględniają ustawienia konfiguracji. Ustawienia konfiguracji dla framework członkostwa obejmują `PasswordFormat` i `requiresUniqueEmail`, wśród wielu innych. Zobacz pełną listę ustawień konfiguracyjnych używanych przez Tabela 2 `SqlMembershipProvider`.
 
 `Providers` Zawartość właściwości są określone w ustawieniach konfiguracji aplikacji sieci web. Domyślnie wszystkie aplikacje sieci web ma dostawcy o nazwie `AspNetSqlMembershipProvider` typu `SqlMembershipProvider`. Domyślny dostawca członkostwa jest zarejestrowany w `machine.config` (znajdujący się w `%WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG`):
 
 [!code-xml[Main](creating-the-membership-schema-in-sql-server-vb/samples/sample1.xml)]
 
-Jako kod znaczników powyżej przedstawiono [ `<membership>` elementu](https://msdn.microsoft.com/en-us/library/1b9hw62f.aspx) definiuje ustawienia konfiguracji dla framework członkostwa podczas [ `<providers>` element podrzędny](https://msdn.microsoft.com/en-us/library/6d4936ht.aspx) Określa zarejestrowaną dostawcy. Dostawcy mogą być dodane lub usunięte za pomocą [ `<add>` ](https://msdn.microsoft.com/en-us/library/whae3t94.aspx) lub [ `<remove>` ](https://msdn.microsoft.com/en-us/library/aykw9a6d.aspx) elementy; użyj [ `<clear>` ](https://msdn.microsoft.com/en-us/library/t062y6yc.aspx) elementu do usunięcia wszystkich obecnie zarejestrowanych dostawców. Jako kod znaczników powyżej przedstawiono `machine.config` Dodaje dostawcę o nazwie `AspNetSqlMembershipProvider` typu `SqlMembershipProvider`.
+Jako kod znaczników powyżej przedstawiono [ `<membership>` elementu](https://msdn.microsoft.com/library/1b9hw62f.aspx) definiuje ustawienia konfiguracji dla framework członkostwa podczas [ `<providers>` element podrzędny](https://msdn.microsoft.com/library/6d4936ht.aspx) Określa zarejestrowaną dostawcy. Dostawcy mogą być dodane lub usunięte za pomocą [ `<add>` ](https://msdn.microsoft.com/library/whae3t94.aspx) lub [ `<remove>` ](https://msdn.microsoft.com/library/aykw9a6d.aspx) elementy; użyj [ `<clear>` ](https://msdn.microsoft.com/library/t062y6yc.aspx) elementu do usunięcia wszystkich obecnie zarejestrowanych dostawców. Jako kod znaczników powyżej przedstawiono `machine.config` Dodaje dostawcę o nazwie `AspNetSqlMembershipProvider` typu `SqlMembershipProvider`.
 
 Oprócz `name` i `type` atrybuty, `<add>` element zawiera atrybuty definiujące wartości dla różnych konfigurowania ustawień. Tabela 2 zawiera listę dostępnych `SqlMembershipProvider`-określonych ustawień konfiguracyjnych, wraz z opisem.
 
@@ -321,7 +321,7 @@ Następnie dodaj następujący kod konfiguracji członkostwa do `Web.config` pli
 
 Oprócz rejestrowania `SecurityTutorialsSqlMembershipProvider` definiuje powyżej znaczników dostawcy, `SecurityTutorialsSqlMembershipProvider` jako domyślny dostawca (za pośrednictwem `defaultProvider` atrybutu w `<membership>` elementu). Odwołania, że w ramach członkostwa może mieć wiele zarejestrowanych dostawców. Ponieważ `AspNetSqlMembershipProvider` jest zarejestrowany jako pierwszy dostawca w `machine.config`, chyba że firma Microsoft nie wskazują inaczej służy jako domyślny dostawca.
 
-Obecnie naszej aplikacji ma dwóch dostawców zarejestrowanych: `AspNetSqlMembershipProvider` i `SecurityTutorialsSqlMembershipProvider`. Jednak przed zarejestrowaniem `SecurityTutorialsSqlMembershipProvider` dostawcy firma Microsoft może wyczyszczony całe wcześniej zarejestrowanego dostawcę przez dodanie [ `<clear />` elementu](https://msdn.microsoft.com/en-us/library/t062y6yc.aspx) bezpośrednio przed naszych `<add>` elementu. Spowoduje to wyczyszczenie `AspNetSqlMembershipProvider` na liście zarejestrowanych dostawców, co oznacza, że `SecurityTutorialsSqlMembershipProvider` będzie to jedyny Dostawca członkostwa w zarejestrowany. Jeśli użyliśmy takie podejście, firma Microsoft może okazać się oznaczyć `SecurityTutorialsSqlMembershipProvider` jako domyślnego dostawcę, ponieważ będzie to jedyny Dostawca członkostwa w zarejestrowany. Aby uzyskać więcej informacji na temat używania `<clear />`, zobacz [Using `<clear />` podczas dodawania dostawcy](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx).
+Obecnie naszej aplikacji ma dwóch dostawców zarejestrowanych: `AspNetSqlMembershipProvider` i `SecurityTutorialsSqlMembershipProvider`. Jednak przed zarejestrowaniem `SecurityTutorialsSqlMembershipProvider` dostawcy firma Microsoft może wyczyszczony całe wcześniej zarejestrowanego dostawcę przez dodanie [ `<clear />` elementu](https://msdn.microsoft.com/library/t062y6yc.aspx) bezpośrednio przed naszych `<add>` elementu. Spowoduje to wyczyszczenie `AspNetSqlMembershipProvider` na liście zarejestrowanych dostawców, co oznacza, że `SecurityTutorialsSqlMembershipProvider` będzie to jedyny Dostawca członkostwa w zarejestrowany. Jeśli użyliśmy takie podejście, firma Microsoft może okazać się oznaczyć `SecurityTutorialsSqlMembershipProvider` jako domyślnego dostawcę, ponieważ będzie to jedyny Dostawca członkostwa w zarejestrowany. Aby uzyskać więcej informacji na temat używania `<clear />`, zobacz [Using `<clear />` podczas dodawania dostawcy](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx).
 
 Należy pamiętać, że `SecurityTutorialsSqlMembershipProvider`w `connectionStringName` ustawienie odwołania, po prostu dodane `SecurityTutorialsConnectionString` Nazwa ciągu połączenia, a jego `applicationName` ustawienie ustawiono wartość SecurityTutorials. Ponadto `requiresUniqueEmail` ustawienie została ustawiona jako `true`. Inne opcje konfiguracji są takie same jak wartości w `AspNetSqlMembershipProvider`. Możesz także zmienić wszelkie zmiany konfiguracji, w tym miejscu, w razie potrzeby. Na przykład można zwiększyć siły hasła, wymagając od dwóch znaków innych niż alfanumeryczne zamiast jedną lub przez odpowiednie zwiększenie długości hasła do ośmiu znaków zamiast 7.
 
@@ -344,17 +344,17 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Konfigurowanie programu ASP.NET 2.0 usług aplikacji, użyj programu SQL Server 2000 lub SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)
 - [Pobierz program SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)
 - [Badanie ASP.NET 2.0 członkostwa s, ról i profilu](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [`<add>` Elementu dla dostawców do członkostwa](https://msdn.microsoft.com/en-us/library/whae3t94.aspx)
-- [`<membership>` — Element](https://msdn.microsoft.com/en-us/library/1b9hw62f.aspx)
-- [`<providers>` Element członkostwa](https://msdn.microsoft.com/en-us/library/6d4936ht.aspx)
+- [`<add>` Elementu dla dostawców do członkostwa](https://msdn.microsoft.com/library/whae3t94.aspx)
+- [`<membership>` — Element](https://msdn.microsoft.com/library/1b9hw62f.aspx)
+- [`<providers>` Element członkostwa](https://msdn.microsoft.com/library/6d4936ht.aspx)
 - [Przy użyciu `<clear />` podczas dodawania dostawcy](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx)
 - [Praca bezpośrednio z`SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Szkolenie wideo na tematy zawarte w tym samouczku
 
-- [Opis członkostwa programu ASP.NET](../../../videos/authentication/understanding-aspnet-memberships.md)
-- [Konfigurowanie SQL do pracy ze schematami członkostwa](../../../videos/authentication/configuring-sql-to-work-with-membership-schemas.md)
-- [Zmiana ustawienia członkostwa w domyślny schemat członkostwa](../../../videos/authentication/changing-membership-settings-in-the-default-membership-schema.md)
+- [Objaśnienie członkostwa platformy ASP.NET](../../../videos/authentication/understanding-aspnet-memberships.md)
+- [Konfigurowanie programu SQL do pracy ze schematami członkostwa](../../../videos/authentication/configuring-sql-to-work-with-membership-schemas.md)
+- [Modyfikowanie ustawień członkostwa w domyślnym schemacie członkostwa](../../../videos/authentication/changing-membership-settings-in-the-default-membership-schema.md)
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
