@@ -2,107 +2,107 @@
 title: Dodanie nowego pola do strony Razor
 author: rick-anderson
 description: "Pokazuje, jak dodać nowe pole do stron Razor z programu Entity Framework Core"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 08/07/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 54ba77cfc3ce87566db14509805a2809d3e460e6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 36412e9d1f3143f0d1999d0e754e6627f0984ad5
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="adding-a-new-field-to-a-razor-page"></a><span data-ttu-id="fd153-103">Dodanie nowego pola do strony Razor</span><span class="sxs-lookup"><span data-stu-id="fd153-103">Adding a new field to a Razor Page</span></span>
+# <a name="adding-a-new-field-to-a-razor-page"></a><span data-ttu-id="0037b-103">Dodanie nowego pola do strony Razor</span><span class="sxs-lookup"><span data-stu-id="0037b-103">Adding a new field to a Razor Page</span></span>
 
-<span data-ttu-id="fd153-104">Przez [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="fd153-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="0037b-104">Przez [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="0037b-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="fd153-105">W tej sekcji użyjesz [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) migracje Code First, aby dodać nowe pole do modelu i migracji, które zmiany w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="fd153-105">In this section you'll use [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) Code First Migrations to add a new field to the model and migrate that change to the database.</span></span>
+<span data-ttu-id="0037b-105">W tej sekcji użyjesz [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) migracje Code First, aby dodać nowe pole do modelu i migracji, które zmiany w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="0037b-105">In this section you'll use [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) Code First Migrations to add a new field to the model and migrate that change to the database.</span></span>
 
-<span data-ttu-id="fd153-106">Gdy używasz EF Code First automatycznie utworzyć bazę danych, Code First dodaje tabeli do bazy danych, aby sprawdzić, czy schemat bazy danych jest zsynchronizowana z klasy modelu, który został wygenerowany.</span><span class="sxs-lookup"><span data-stu-id="fd153-106">When you use EF Code First to automatically create a database, Code First adds a table to the database to help track whether the schema of the database is in sync with the model classes it was generated from.</span></span> <span data-ttu-id="fd153-107">Jeśli nie są zsynchronizowane, EF zgłasza wyjątek.</span><span class="sxs-lookup"><span data-stu-id="fd153-107">If they aren't in sync, EF throws an exception.</span></span> <span data-ttu-id="fd153-108">Dzięki temu można łatwiej znaleźć problemy niespójne bazy danych/kod.</span><span class="sxs-lookup"><span data-stu-id="fd153-108">This makes it easier to find inconsistent database/code issues.</span></span>
+<span data-ttu-id="0037b-106">Gdy używasz EF Code First automatycznie utworzyć bazę danych, Code First dodaje tabeli do bazy danych, aby sprawdzić, czy schemat bazy danych jest zsynchronizowana z klasy modelu, który został wygenerowany.</span><span class="sxs-lookup"><span data-stu-id="0037b-106">When you use EF Code First to automatically create a database, Code First adds a table to the database to help track whether the schema of the database is in sync with the model classes it was generated from.</span></span> <span data-ttu-id="0037b-107">Jeśli nie są zsynchronizowane, EF zgłasza wyjątek.</span><span class="sxs-lookup"><span data-stu-id="0037b-107">If they aren't in sync, EF throws an exception.</span></span> <span data-ttu-id="0037b-108">Dzięki temu można łatwiej znaleźć problemy niespójne bazy danych/kod.</span><span class="sxs-lookup"><span data-stu-id="0037b-108">This makes it easier to find inconsistent database/code issues.</span></span>
 
-## <a name="adding-a-rating-property-to-the-movie-model"></a><span data-ttu-id="fd153-109">Dodawanie właściwości klasyfikacji do modelu film</span><span class="sxs-lookup"><span data-stu-id="fd153-109">Adding a Rating Property to the Movie Model</span></span>
+## <a name="adding-a-rating-property-to-the-movie-model"></a><span data-ttu-id="0037b-109">Dodawanie właściwości klasyfikacji do modelu film</span><span class="sxs-lookup"><span data-stu-id="0037b-109">Adding a Rating Property to the Movie Model</span></span>
 
-<span data-ttu-id="fd153-110">Otwórz *Models/Movie.cs* plik i dodać `Rating` właściwości:</span><span class="sxs-lookup"><span data-stu-id="fd153-110">Open the *Models/Movie.cs* file and add a `Rating` property:</span></span>
+<span data-ttu-id="0037b-110">Otwórz *Models/Movie.cs* plik i dodać `Rating` właściwości:</span><span class="sxs-lookup"><span data-stu-id="0037b-110">Open the *Models/Movie.cs* file and add a `Rating` property:</span></span>
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
 
-<span data-ttu-id="fd153-111">Tworzenie aplikacji (Ctrl + Shift + B).</span><span class="sxs-lookup"><span data-stu-id="fd153-111">Build the app (Ctrl+Shift+B).</span></span>
+<span data-ttu-id="0037b-111">Tworzenie aplikacji (Ctrl + Shift + B).</span><span class="sxs-lookup"><span data-stu-id="0037b-111">Build the app (Ctrl+Shift+B).</span></span>
 
-<span data-ttu-id="fd153-112">Edytuj *Pages/Movies/Index.cshtml*i Dodaj `Rating` pola:</span><span class="sxs-lookup"><span data-stu-id="fd153-112">Edit *Pages/Movies/Index.cshtml*, and add a `Rating` field:</span></span>
+<span data-ttu-id="0037b-112">Edytuj *Pages/Movies/Index.cshtml*i Dodaj `Rating` pola:</span><span class="sxs-lookup"><span data-stu-id="0037b-112">Edit *Pages/Movies/Index.cshtml*, and add a `Rating` field:</span></span>
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=40-42,61-63)]
 
-<span data-ttu-id="fd153-113">Dodaj `Rating` pola do usunięcia i szczegóły stron.</span><span class="sxs-lookup"><span data-stu-id="fd153-113">Add the `Rating` field to the Delete and Details pages.</span></span>
+<span data-ttu-id="0037b-113">Dodaj `Rating` pola do usunięcia i szczegóły stron.</span><span class="sxs-lookup"><span data-stu-id="0037b-113">Add the `Rating` field to the Delete and Details pages.</span></span>
 
-<span data-ttu-id="fd153-114">Aktualizacja *Create.cshtml* z `Rating` pola.</span><span class="sxs-lookup"><span data-stu-id="fd153-114">Update *Create.cshtml* with a `Rating` field.</span></span> <span data-ttu-id="fd153-115">Użytkownik może kopiowania/wklejania poprzedniej `<div>` element i umożliwiają pomoc intelliSense, zaktualizuj pola.</span><span class="sxs-lookup"><span data-stu-id="fd153-115">You can copy/paste the previous `<div>` element and let intelliSense help you update the fields.</span></span> <span data-ttu-id="fd153-116">IntelliSense współpracuje z [pomocników tagów](xref:mvc/views/tag-helpers/intro).</span><span class="sxs-lookup"><span data-stu-id="fd153-116">IntelliSense works with [Tag Helpers](xref:mvc/views/tag-helpers/intro).</span></span>
+<span data-ttu-id="0037b-114">Aktualizacja *Create.cshtml* z `Rating` pola.</span><span class="sxs-lookup"><span data-stu-id="0037b-114">Update *Create.cshtml* with a `Rating` field.</span></span> <span data-ttu-id="0037b-115">Użytkownik może kopiowania/wklejania poprzedniej `<div>` element i umożliwiają pomoc intelliSense, zaktualizuj pola.</span><span class="sxs-lookup"><span data-stu-id="0037b-115">You can copy/paste the previous `<div>` element and let intelliSense help you update the fields.</span></span> <span data-ttu-id="0037b-116">IntelliSense współpracuje z [pomocników tagów](xref:mvc/views/tag-helpers/intro).</span><span class="sxs-lookup"><span data-stu-id="0037b-116">IntelliSense works with [Tag Helpers](xref:mvc/views/tag-helpers/intro).</span></span>
 
 ![Deweloper wpisał litera R dla wartości atrybutu asp — dla w drugi element label w widoku.](new-field/_static/cr.png)
 
-<span data-ttu-id="fd153-120">Poniższy kod przedstawia *Create.cshtml* z `Rating` pola:</span><span class="sxs-lookup"><span data-stu-id="fd153-120">The following code shows *Create.cshtml* with a `Rating` field:</span></span>
+<span data-ttu-id="0037b-120">Poniższy kod przedstawia *Create.cshtml* z `Rating` pola:</span><span class="sxs-lookup"><span data-stu-id="0037b-120">The following code shows *Create.cshtml* with a `Rating` field:</span></span>
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?highlight=36-40)]
 
-<span data-ttu-id="fd153-121">Dodaj `Rating` pole do edycji strony.</span><span class="sxs-lookup"><span data-stu-id="fd153-121">Add the `Rating` field to the Edit Page.</span></span>
+<span data-ttu-id="0037b-121">Dodaj `Rating` pole do edycji strony.</span><span class="sxs-lookup"><span data-stu-id="0037b-121">Add the `Rating` field to the Edit Page.</span></span>
 
-<span data-ttu-id="fd153-122">Aplikacja nie będzie działać, dopóki bazy danych zostanie zaktualizowana, aby uwzględnić nowe pole.</span><span class="sxs-lookup"><span data-stu-id="fd153-122">The app won't work until the DB is updated to include the new field.</span></span> <span data-ttu-id="fd153-123">Jeśli teraz uruchomić zgłasza aplikacji `SqlException`:</span><span class="sxs-lookup"><span data-stu-id="fd153-123">If run now, the app throws a `SqlException`:</span></span>
+<span data-ttu-id="0037b-122">Aplikacja nie będzie działać, dopóki bazy danych zostanie zaktualizowana, aby uwzględnić nowe pole.</span><span class="sxs-lookup"><span data-stu-id="0037b-122">The app won't work until the DB is updated to include the new field.</span></span> <span data-ttu-id="0037b-123">Jeśli teraz uruchomić zgłasza aplikacji `SqlException`:</span><span class="sxs-lookup"><span data-stu-id="0037b-123">If run now, the app throws a `SqlException`:</span></span>
 
 ```
 SqlException: Invalid column name 'Rating'.
 ```
 
-<span data-ttu-id="fd153-124">Ten błąd jest spowodowany przez zaktualizowane klasy modelu film jest inny niż schemat tabeli filmu bazy danych.</span><span class="sxs-lookup"><span data-stu-id="fd153-124">This error is caused by the updated Movie model class being different than the schema of the Movie table of the database.</span></span> <span data-ttu-id="fd153-125">(Brak nie `Rating` kolumny w tabeli bazy danych.)</span><span class="sxs-lookup"><span data-stu-id="fd153-125">(There's no `Rating` column in the database table.)</span></span>
+<span data-ttu-id="0037b-124">Ten błąd jest spowodowany przez zaktualizowane klasy modelu film jest inny niż schemat tabeli filmu bazy danych.</span><span class="sxs-lookup"><span data-stu-id="0037b-124">This error is caused by the updated Movie model class being different than the schema of the Movie table of the database.</span></span> <span data-ttu-id="0037b-125">(Brak nie `Rating` kolumny w tabeli bazy danych.)</span><span class="sxs-lookup"><span data-stu-id="0037b-125">(There's no `Rating` column in the database table.)</span></span>
 
-<span data-ttu-id="fd153-126">Istnieje kilka sposobów rozwiązania problemu:</span><span class="sxs-lookup"><span data-stu-id="fd153-126">There are a few approaches to resolving the error:</span></span>
+<span data-ttu-id="0037b-126">Istnieje kilka sposobów rozwiązania problemu:</span><span class="sxs-lookup"><span data-stu-id="0037b-126">There are a few approaches to resolving the error:</span></span>
 
-1. <span data-ttu-id="fd153-127">Ma automatycznie Porzuć i ponownie utworzyć bazę danych przy użyciu nowego schematu klasy modelu Entity Framework.</span><span class="sxs-lookup"><span data-stu-id="fd153-127">Have the Entity Framework automatically drop and re-create the database using  the new model class schema.</span></span> <span data-ttu-id="fd153-128">Ta metoda jest wygodne wczesnym etapie cyklu programowanie; pozwala na szybkie razem rozwijać schematu modelu i bazy danych.</span><span class="sxs-lookup"><span data-stu-id="fd153-128">This approach is convenient early in the development cycle; it allows you to quickly evolve the model and database schema together.</span></span> <span data-ttu-id="fd153-129">Wadą podwyższonego jest, że utracić istniejące dane w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="fd153-129">The downside is that you lose existing data in the database.</span></span> <span data-ttu-id="fd153-130">Nie chcesz użyć tej metody w produkcyjnej bazie danych!</span><span class="sxs-lookup"><span data-stu-id="fd153-130">You don't want to use this approach on a production database!</span></span> <span data-ttu-id="fd153-131">Usunięcie bazy danych na zmiany schematu i automatycznie inicjatora bazy danych z danych testowych za pomocą inicjatora jest często produktywności możliwości opracowywania aplikacji.</span><span class="sxs-lookup"><span data-stu-id="fd153-131">Dropping the DB on schema changes and using an initializer to automatically seed the database with test data is often a productive way to develop an app.</span></span>
+1. <span data-ttu-id="0037b-127">Ma automatycznie Porzuć i ponownie utworzyć bazę danych przy użyciu nowego schematu klasy modelu Entity Framework.</span><span class="sxs-lookup"><span data-stu-id="0037b-127">Have the Entity Framework automatically drop and re-create the database using  the new model class schema.</span></span> <span data-ttu-id="0037b-128">Ta metoda jest wygodne wczesnym etapie cyklu programowanie; pozwala na szybkie razem rozwijać schematu modelu i bazy danych.</span><span class="sxs-lookup"><span data-stu-id="0037b-128">This approach is convenient early in the development cycle; it allows you to quickly evolve the model and database schema together.</span></span> <span data-ttu-id="0037b-129">Wadą podwyższonego jest, że utracić istniejące dane w bazie danych.</span><span class="sxs-lookup"><span data-stu-id="0037b-129">The downside is that you lose existing data in the database.</span></span> <span data-ttu-id="0037b-130">Nie chcesz użyć tej metody w produkcyjnej bazie danych!</span><span class="sxs-lookup"><span data-stu-id="0037b-130">You don't want to use this approach on a production database!</span></span> <span data-ttu-id="0037b-131">Usunięcie bazy danych na zmiany schematu i automatycznie inicjatora bazy danych z danych testowych za pomocą inicjatora jest często produktywności możliwości opracowywania aplikacji.</span><span class="sxs-lookup"><span data-stu-id="0037b-131">Dropping the DB on schema changes and using an initializer to automatically seed the database with test data is often a productive way to develop an app.</span></span>
 
-2. <span data-ttu-id="fd153-132">Jawnie modyfikować schemat z istniejącej bazy danych, tak aby był zgodny z klasy modelu.</span><span class="sxs-lookup"><span data-stu-id="fd153-132">Explicitly modify the schema of the existing database so that it matches the model classes.</span></span> <span data-ttu-id="fd153-133">Zaletą tej metody jest, aby zachować dane.</span><span class="sxs-lookup"><span data-stu-id="fd153-133">The advantage of this approach is that you keep your data.</span></span> <span data-ttu-id="fd153-134">Można to zrobić to ręcznie lub przez tworzenie bazy danych należy zmienić skryptu.</span><span class="sxs-lookup"><span data-stu-id="fd153-134">You can make this change either manually or by creating a database change script.</span></span>
+2. <span data-ttu-id="0037b-132">Jawnie modyfikować schemat z istniejącej bazy danych, tak aby był zgodny z klasy modelu.</span><span class="sxs-lookup"><span data-stu-id="0037b-132">Explicitly modify the schema of the existing database so that it matches the model classes.</span></span> <span data-ttu-id="0037b-133">Zaletą tej metody jest, aby zachować dane.</span><span class="sxs-lookup"><span data-stu-id="0037b-133">The advantage of this approach is that you keep your data.</span></span> <span data-ttu-id="0037b-134">Można to zrobić to ręcznie lub przez tworzenie bazy danych należy zmienić skryptu.</span><span class="sxs-lookup"><span data-stu-id="0037b-134">You can make this change either manually or by creating a database change script.</span></span>
 
-3. <span data-ttu-id="fd153-135">Użyj migracje Code First, aby zaktualizować schemat bazy danych.</span><span class="sxs-lookup"><span data-stu-id="fd153-135">Use Code First Migrations to update the database schema.</span></span>
+3. <span data-ttu-id="0037b-135">Użyj migracje Code First, aby zaktualizować schemat bazy danych.</span><span class="sxs-lookup"><span data-stu-id="0037b-135">Use Code First Migrations to update the database schema.</span></span>
 
-<span data-ttu-id="fd153-136">W tym samouczku Użyj migracje Code First.</span><span class="sxs-lookup"><span data-stu-id="fd153-136">For this tutorial, use Code First Migrations.</span></span>
+<span data-ttu-id="0037b-136">W tym samouczku Użyj migracje Code First.</span><span class="sxs-lookup"><span data-stu-id="0037b-136">For this tutorial, use Code First Migrations.</span></span>
 
-<span data-ttu-id="fd153-137">Aktualizacja `SeedData` klasy, dzięki czemu zapewnia wartość dla nowej kolumny.</span><span class="sxs-lookup"><span data-stu-id="fd153-137">Update the `SeedData` class so that it provides a value for the new column.</span></span> <span data-ttu-id="fd153-138">Poniżej przedstawiono przykładowe zmiany, ale należy to zrobić dla każdego `new Movie` bloku.</span><span class="sxs-lookup"><span data-stu-id="fd153-138">A sample change is shown below, but you'll want to make this change for each `new Movie` block.</span></span>
+<span data-ttu-id="0037b-137">Aktualizacja `SeedData` klasy, dzięki czemu zapewnia wartość dla nowej kolumny.</span><span class="sxs-lookup"><span data-stu-id="0037b-137">Update the `SeedData` class so that it provides a value for the new column.</span></span> <span data-ttu-id="0037b-138">Poniżej przedstawiono przykładowe zmiany, ale należy to zrobić dla każdego `new Movie` bloku.</span><span class="sxs-lookup"><span data-stu-id="0037b-138">A sample change is shown below, but you'll want to make this change for each `new Movie` block.</span></span>
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
-<span data-ttu-id="fd153-139">Zobacz [ukończone pliku SeedData.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs).</span><span class="sxs-lookup"><span data-stu-id="fd153-139">See the [completed SeedData.cs file](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs).</span></span>
+<span data-ttu-id="0037b-139">Zobacz [ukończone pliku SeedData.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs).</span><span class="sxs-lookup"><span data-stu-id="0037b-139">See the [completed SeedData.cs file](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs).</span></span>
 
-<span data-ttu-id="fd153-140">Skompiluj rozwiązanie.</span><span class="sxs-lookup"><span data-stu-id="fd153-140">Build the solution.</span></span>
+<span data-ttu-id="0037b-140">Skompiluj rozwiązanie.</span><span class="sxs-lookup"><span data-stu-id="0037b-140">Build the solution.</span></span>
 
-<a name="pmc"></a><span data-ttu-id="fd153-141">Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet > konsoli Menedżera pakietów**.</span><span class="sxs-lookup"><span data-stu-id="fd153-141">From the **Tools** menu, select **NuGet Package Manager > Package Manager Console**.</span></span>
-<span data-ttu-id="fd153-142">W kryterium wprowadź następujące polecenia:</span><span class="sxs-lookup"><span data-stu-id="fd153-142">In the PMC, enter the following commands:</span></span>
+<a name="pmc"></a><span data-ttu-id="0037b-141">Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet > konsoli Menedżera pakietów**.</span><span class="sxs-lookup"><span data-stu-id="0037b-141">From the **Tools** menu, select **NuGet Package Manager > Package Manager Console**.</span></span>
+<span data-ttu-id="0037b-142">W kryterium wprowadź następujące polecenia:</span><span class="sxs-lookup"><span data-stu-id="0037b-142">In the PMC, enter the following commands:</span></span>
 
 ```powershell
 Add-Migration Rating
 Update-Database
 ```
 
-<span data-ttu-id="fd153-143">`Add-Migration` Polecenie informuje platformę, by:</span><span class="sxs-lookup"><span data-stu-id="fd153-143">The `Add-Migration` command tells the framework to:</span></span>
+<span data-ttu-id="0037b-143">`Add-Migration` Polecenie informuje platformę, by:</span><span class="sxs-lookup"><span data-stu-id="0037b-143">The `Add-Migration` command tells the framework to:</span></span>
 
-* <span data-ttu-id="fd153-144">Porównaj `Movie` modelu z `Movie` schemat bazy danych.</span><span class="sxs-lookup"><span data-stu-id="fd153-144">Compare the `Movie` model with the `Movie` DB schema.</span></span>
-* <span data-ttu-id="fd153-145">Utwórz kod, aby przeprowadzić migrację schemat bazy danych do nowego modelu.</span><span class="sxs-lookup"><span data-stu-id="fd153-145">Create code to migrate the DB schema to the new model.</span></span>
+* <span data-ttu-id="0037b-144">Porównaj `Movie` modelu z `Movie` schemat bazy danych.</span><span class="sxs-lookup"><span data-stu-id="0037b-144">Compare the `Movie` model with the `Movie` DB schema.</span></span>
+* <span data-ttu-id="0037b-145">Utwórz kod, aby przeprowadzić migrację schemat bazy danych do nowego modelu.</span><span class="sxs-lookup"><span data-stu-id="0037b-145">Create code to migrate the DB schema to the new model.</span></span>
 
-<span data-ttu-id="fd153-146">Nazwa "Klasyfikacja" jest dowolnego i jest używany do nazywania plików migracji.</span><span class="sxs-lookup"><span data-stu-id="fd153-146">The name "Rating" is arbitrary and is used to name the migration file.</span></span> <span data-ttu-id="fd153-147">Warto użyć opisową nazwę pliku migracji.</span><span class="sxs-lookup"><span data-stu-id="fd153-147">It's helpful to use a meaningful name for the migration file.</span></span>
+<span data-ttu-id="0037b-146">Nazwa "Klasyfikacja" jest dowolnego i jest używany do nazywania plików migracji.</span><span class="sxs-lookup"><span data-stu-id="0037b-146">The name "Rating" is arbitrary and is used to name the migration file.</span></span> <span data-ttu-id="0037b-147">Warto użyć opisową nazwę pliku migracji.</span><span class="sxs-lookup"><span data-stu-id="0037b-147">It's helpful to use a meaningful name for the migration file.</span></span>
 
-<a name="ssox"></a><span data-ttu-id="fd153-148">Jeśli usuniesz wszystkie rekordy w bazie danych, inicjator będzie inicjatora bazy danych i obejmują `Rating` pola.</span><span class="sxs-lookup"><span data-stu-id="fd153-148">If you delete all the records in the DB, the initializer will seed the DB and include the `Rating` field.</span></span> <span data-ttu-id="fd153-149">Można to zrobić z łączami Usuń w przeglądarce lub z [Eksplorator obiektów Sql Server](xref:tutorials/razor-pages/sql#ssox) (SSOX).</span><span class="sxs-lookup"><span data-stu-id="fd153-149">You can do this with the delete links in the browser or from [Sql Server Object Explorer](xref:tutorials/razor-pages/sql#ssox) (SSOX).</span></span> <span data-ttu-id="fd153-150">Aby usunąć bazę danych z SSOX:</span><span class="sxs-lookup"><span data-stu-id="fd153-150">To delete the database from SSOX:</span></span>
+<a name="ssox"></a><span data-ttu-id="0037b-148">Jeśli usuniesz wszystkie rekordy w bazie danych, inicjator będzie inicjatora bazy danych i obejmują `Rating` pola.</span><span class="sxs-lookup"><span data-stu-id="0037b-148">If you delete all the records in the DB, the initializer will seed the DB and include the `Rating` field.</span></span> <span data-ttu-id="0037b-149">Można to zrobić z łączami Usuń w przeglądarce lub z [Eksplorator obiektów Sql Server](xref:tutorials/razor-pages/sql#ssox) (SSOX).</span><span class="sxs-lookup"><span data-stu-id="0037b-149">You can do this with the delete links in the browser or from [Sql Server Object Explorer](xref:tutorials/razor-pages/sql#ssox) (SSOX).</span></span> <span data-ttu-id="0037b-150">Aby usunąć bazę danych z SSOX:</span><span class="sxs-lookup"><span data-stu-id="0037b-150">To delete the database from SSOX:</span></span>
 
-* <span data-ttu-id="fd153-151">Wybierz bazę danych w SSOX.</span><span class="sxs-lookup"><span data-stu-id="fd153-151">Select the database in SSOX.</span></span>
-* <span data-ttu-id="fd153-152">Kliknij prawym przyciskiem myszy w bazie danych, a następnie wybierz *usunąć*.</span><span class="sxs-lookup"><span data-stu-id="fd153-152">Right click on the database, and select *Delete*.</span></span>
-* <span data-ttu-id="fd153-153">Sprawdź **Zamknij istniejące połączenia**.</span><span class="sxs-lookup"><span data-stu-id="fd153-153">Check **Close existing connections**.</span></span>
-* <span data-ttu-id="fd153-154">Wybierz **OK**.</span><span class="sxs-lookup"><span data-stu-id="fd153-154">Select **OK**.</span></span>
-* <span data-ttu-id="fd153-155">W [PMC](xref:tutorials/razor-pages/new-field#pmc), aktualizacji bazy danych:</span><span class="sxs-lookup"><span data-stu-id="fd153-155">In the [PMC](xref:tutorials/razor-pages/new-field#pmc), update the database:</span></span>
+* <span data-ttu-id="0037b-151">Wybierz bazę danych w SSOX.</span><span class="sxs-lookup"><span data-stu-id="0037b-151">Select the database in SSOX.</span></span>
+* <span data-ttu-id="0037b-152">Kliknij prawym przyciskiem myszy w bazie danych, a następnie wybierz *usunąć*.</span><span class="sxs-lookup"><span data-stu-id="0037b-152">Right click on the database, and select *Delete*.</span></span>
+* <span data-ttu-id="0037b-153">Sprawdź **Zamknij istniejące połączenia**.</span><span class="sxs-lookup"><span data-stu-id="0037b-153">Check **Close existing connections**.</span></span>
+* <span data-ttu-id="0037b-154">Wybierz **OK**.</span><span class="sxs-lookup"><span data-stu-id="0037b-154">Select **OK**.</span></span>
+* <span data-ttu-id="0037b-155">W [PMC](xref:tutorials/razor-pages/new-field#pmc), aktualizacji bazy danych:</span><span class="sxs-lookup"><span data-stu-id="0037b-155">In the [PMC](xref:tutorials/razor-pages/new-field#pmc), update the database:</span></span>
 
   ```powershell
   Update-Database
   ```
 
-<span data-ttu-id="fd153-156">Uruchom aplikację i sprawdzić, można utworzyć/edycji/wyświetlania filmów `Rating` pola.</span><span class="sxs-lookup"><span data-stu-id="fd153-156">Run the app and verify you can create/edit/display movies with a `Rating` field.</span></span> <span data-ttu-id="fd153-157">Jeśli bazy danych nie jest obsługiwany, Zatrzymaj usługi IIS Express, a następnie uruchom aplikację.</span><span class="sxs-lookup"><span data-stu-id="fd153-157">If the database isn't seeded, stop IIS Express, and then run the app.</span></span>
+<span data-ttu-id="0037b-156">Uruchom aplikację i sprawdzić, można utworzyć/edycji/wyświetlania filmów `Rating` pola.</span><span class="sxs-lookup"><span data-stu-id="0037b-156">Run the app and verify you can create/edit/display movies with a `Rating` field.</span></span> <span data-ttu-id="0037b-157">Jeśli bazy danych nie jest obsługiwany, Zatrzymaj usługi IIS Express, a następnie uruchom aplikację.</span><span class="sxs-lookup"><span data-stu-id="0037b-157">If the database isn't seeded, stop IIS Express, and then run the app.</span></span>
 
 >[!div class="step-by-step"]
-<span data-ttu-id="fd153-158">[Poprzedni: Dodawanie wyszukiwania](xref:tutorials/razor-pages/search)
-[dalej: Dodawanie walidacji](xref:tutorials/razor-pages/validation)</span><span class="sxs-lookup"><span data-stu-id="fd153-158">[Previous: Adding Search](xref:tutorials/razor-pages/search)
+<span data-ttu-id="0037b-158">[Poprzedni: Dodawanie wyszukiwania](xref:tutorials/razor-pages/search)
+[dalej: Dodawanie walidacji](xref:tutorials/razor-pages/validation)</span><span class="sxs-lookup"><span data-stu-id="0037b-158">[Previous: Adding Search](xref:tutorials/razor-pages/search)
 [Next: Adding Validation](xref:tutorials/razor-pages/validation)</span></span>

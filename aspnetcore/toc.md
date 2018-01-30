@@ -28,6 +28,21 @@
 ### [Badanie metod Details i Delete](tutorials/first-mvc-app/details.md)
 
 ## [Samouczki dotyczące wielu platform](xref:tutorials/xplat)
+### [Aplikacja internetowa ze stronami Razor na komputerze Mac](xref:tutorials/razor-pages-mac/index)
+#### [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages-mac/razor-pages-start)
+#### [Dodawanie modelu](xref:tutorials/razor-pages-mac/model)
+#### [Strony Razor ze szkieletami](xref:tutorials/razor-pages-mac/page)
+#### [Praca z SQLite](xref:tutorials/razor-pages-mac/sql)
+#### [Aktualizowanie stron](xref:tutorials/razor-pages-mac/da1)
+#### [Dodawanie wyszukiwania](xref:tutorials/razor-pages-mac/search)
+
+
+### [Aplikacja internetowa ze stronami Razor z programem VS Code](xref:tutorials/razor-pages-vsc/index)
+#### [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages-vsc/razor-pages-start)
+#### [Dodawanie modelu](xref:tutorials/razor-pages-vsc/model)
+#### [Strony Razor ze szkieletami](xref:tutorials/razor-pages-vsc/page)
+#### [Praca z SQLite](xref:tutorials/razor-pages-vsc/sql)
+#### [Aktualizowanie stron](xref:tutorials/razor-pages-vsc/da1)
 
 ### [Aplikacja internetowa MVC z programem Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/index)
 #### [Wprowadzenie](xref:tutorials/first-mvc-app-mac/start-mvc)
@@ -41,7 +56,7 @@
 #### [Dodawanie weryfikacji](xref:tutorials/first-mvc-app-mac/validation)
 #### [Badanie metod Details i Delete](xref:tutorials/first-mvc-app/details)
 
-### [Aplikacja internetowa z programem Visual Studio Code na komputerze Mac lub w systemie Linux](xref:tutorials/first-mvc-app-xplat/index)
+### [Aplikacji sieci web MVC za pomocą programu Visual Studio Code, Mac lub Linux](xref:tutorials/first-mvc-app-xplat/index)
 #### [Wprowadzenie](tutorials/first-mvc-app-xplat/start-mvc.md)
 #### [Dodawanie kontrolera](tutorials/first-mvc-app-xplat/adding-controller.md)
 #### [Dodawanie widoku](tutorials/first-mvc-app-xplat/adding-view.md)
@@ -52,15 +67,6 @@
 #### [Dodanie nowego pola](tutorials/first-mvc-app-xplat/new-field.md)
 #### [Dodawanie weryfikacji](tutorials/first-mvc-app-xplat/validation.md)
 #### [Badanie metod Details i Delete](tutorials/first-mvc-app/details.md)
-
-
-### [Aplikacja internetowa ze stronami Razor na komputerze Mac](xref:tutorials/razor-pages-mac/index)
-#### [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages-mac/razor-pages-start)
-#### [Dodawanie modelu](xref:tutorials/razor-pages-mac/model)
-#### [Strony Razor ze szkieletami](xref:tutorials/razor-pages-mac/page)
-### [Aplikacja internetowa ze stronami Razor z programem VS Code](xref:tutorials/razor-pages-vsc/index)
-#### [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages-vsc/razor-pages-start)
-#### [Dodawanie modelu](xref:tutorials/razor-pages-vsc/model)
 
 ### [Interfejs API sieci Web z programem Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
 ### [Interfejs API sieci Web z programem Visual Studio Code](xref:tutorials/web-api-vsc)
@@ -244,6 +250,7 @@
 ### [Azure Active Directory](xref:security/authentication/azure-active-directory/index)
 #### [Integrowanie usługi Azure AD z aplikacją internetową platformy ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
 #### [Integrowanie usługi Azure AD B2C z aplikacją internetową platformy ASP.NET Core dostępną dla klientów](xref:security/authentication/azure-ad-b2c)
+#### [Integrowanie usługi Azure AD B2C platformy ASP.NET Core interfejsu API sieci web](xref:security/authentication/azure-ad-b2c-webapi)
 #### [Wywoływanie interfejsu Web API platformy ASP.NET Core z aplikacji WPF przy użyciu usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 #### [Wywoływanie interfejsu Web API z aplikacji internetowej platformy ASP.NET Core przy użyciu usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
 ### [Zabezpieczanie aplikacji platformy ASP.NET Core za pomocą usługi IdentityServer4](https://identityserver4.readthedocs.io/)
