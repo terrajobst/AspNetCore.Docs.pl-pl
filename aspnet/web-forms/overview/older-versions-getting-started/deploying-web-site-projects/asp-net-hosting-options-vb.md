@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6ca92737b506265d5dda66243fe684d2e57833fc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 54bac82a96a35d871d764849856c8e31f6570666
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="aspnet-hosting-options-vb"></a>ASP.NET (VB) opcje hostingu
 ====================
@@ -33,7 +33,7 @@ Aplikacje sieci Web zwykle są zaprojektowane, tworzone i testowane w środowisk
 
 - Do środowiska produkcyjnego musi istnieć i należy prawidłowo skonfigurować przed wdrożeniem aplikacji ASP.NET; Ponadto środowisko produkcji muszą być przechowywane na bieżąco najnowsze poprawki zabezpieczeń.
 - Poprawny zestaw plików znaczników, pliki kodu i pliki obsługi musi być kopiowane z Środowisko deweloperskie do środowiska produkcyjnego. W przypadku aplikacji opartej na danych może to wymagać kopiowanie schematu bazy danych i/lub danych, jak również.
-- Może to być konfiguracji różnice między dwoma środowiskami. Serwer ciągu lub e-mail połączenia bazy danych używane w środowisku programistycznym będzie prawdopodobnie inny niż w środowisku produkcyjnym. Co więcej zachowanie aplikacji może zależeć od środowiska. Na przykład po wystąpieniu błędu w rozwoju szczegóły błędu mogą być wyświetlane na ekranie, ale po wystąpieniu błędu w środowisku produkcyjnym, zamiast tego powinna być wyświetlana strona błędu przyjazną dla użytkownika, a szczegóły błędu pocztą e-mail do deweloperów.
+- Może to być konfiguracji różnice między dwoma środowiskami. Serwer ciąg lub wiadomości e-mail połączenie bazy danych używane w środowisku programistycznym będzie prawdopodobnie inny niż w środowisku produkcyjnym. Co więcej zachowanie aplikacji może zależeć od środowiska. Na przykład po wystąpieniu błędu w rozwoju szczegóły błędu mogą być wyświetlane na ekranie, ale po wystąpieniu błędu w środowisku produkcyjnym, zamiast tego powinna być wyświetlana strona błędu przyjazną dla użytkownika, a szczegóły błędu pocztą e-mail do deweloperów.
 
 W celu uniknięcia pierwszego wyzwania - konfigurowania i konserwacji do środowiska produkcyjnego — wiele osób i firm zewnętrzny środowisk produkcyjnych do *dostawców hostingu w sieci web*. Dostawcy usług hosta sieci web to firma, która zarządza środowiska produkcyjnego w Twoim imieniu. Brak niezliczonych sieci web dostawców hosta z różnymi ceny i poziomów usługi; w sekcji "Wyszukiwanie w sieci Web hosta dostawcy" porady na temat lokalizowania dostawcy usług.
 
@@ -56,7 +56,7 @@ Mówiąc wdrażanie aplikacji ASP.NET obejmuje następujące trzy kroki:
 2. Synchronizuj stron ASP.NET, kod plików zestawów w `Bin` folder i pliki pomocnicze związane z HTML, takich jak pliki CSS i JavaScript.
 3. Synchronizuj schematu bazy danych i/lub danych.
 
-Informacje o konfiguracji dla aplikacji sieci web znajduje się w `Web.config` pliku i zawiera parametry połączenia bazy danych, Obsługa kryteriów, reguły ponowne zapisywanie adresów URL, błędów i informacji o serwerze poczty e-mail. Te informacje są często różnych aplikacji do rozwoju i tej samej aplikacji w środowisku produkcyjnym. Na przykład przy tworzeniu aplikacji jest najlepiej użyć projektowej bazie danych, dzięki czemu nie testujesz przed produkcyjną bazę danych. W związku z tym parametry połączenia bazy danych różnią się zazwyczaj między aplikacjami rozwoju i produkcji. Z powodu różnic część wdrożenia konieczne jest wprowadzenie zmian do informacji o konfiguracji aplikacji sieci web.
+Informacje o konfiguracji dla aplikacji sieci web znajduje się w `Web.config` pliku i zawiera parametry połączenia bazy danych, obsługa błędów kryteriów, adres URL ponowne zapisywanie reguł i informacji o serwerze poczty e-mail. Te informacje są często różnych aplikacji do rozwoju i tej samej aplikacji w środowisku produkcyjnym. Na przykład przy tworzeniu aplikacji jest najlepiej użyć projektowej bazie danych, dzięki czemu nie testujesz przed produkcyjną bazę danych. W związku z tym parametry połączenia bazy danych różnią się zazwyczaj między aplikacjami rozwoju i produkcji. Z powodu różnic część wdrożenia konieczne jest wprowadzenie zmian do informacji o konfiguracji aplikacji sieci web.
 
 Oprócz zmian w konfiguracji aplikacji sieci web krok 1 również może pociągać za sobą konfiguracji serwera sieci web i bazy danych. Na przykład jeśli strony ASP.NET umożliwia tworzenie lub usuwanie plików z katalogu na serwerze sieci web serwera sieci web trzeba skonfigurować tak, aby umożliwić modyfikacje systemu plików. Podobnie może być uprawnienia lub uwierzytelniania ustawień, które muszą zostać wprowadzone w bazie danych.
 
@@ -77,7 +77,7 @@ Przed wdrożeniem witryny dostawcy hosta sieci web należy najpierw wybrać jaki
 
 Firm świadczących usługi hostingu sieci Web zwykle oferować udostępnionego plany obsługi i plany obsługi w wersji dedykowanej. Udostępniane hosting jednej sieci hostów serwerów dziesiątek, jeśli nie setki różnych witryn sieci Web. Z dedykowanym hosting dzierżawy jest komputer z firmy, która obsługuje witryny i witryny sieci Web. Plan hostingu udostępnionego mogą obejmować obsługi stron ASP.NET, możliwość korzystania z bazy danych programu Microsoft Access, 5 GB miejsca na dysku i 100 GB, przepustowości ruchu dla $9,95 miesięcznie. Innego udostępnionego plan hostingu może obejmować obsługi stron ASP.NET, dostęp do serwera bazy danych programu Microsoft SQL Server 2008, 10 GB miejsca na dysku i 250 GB, przepustowości ruchu cenie od 19,95 USD miesięcznie. Plany obsługi w wersji dedykowanej są zwykle znacznie droższe, kosztów kilka kwoty kilkuset na miesiąc, ale także zapewniają lepszą wydajność i lepszą kontrolę niż udostępnionego hosting opcje. Jakie planu, możesz wybrać zależy budżetu, ilość ruchu odbiera witryny sieci Web, i potrzebne funkcje, należy przewidzieć.
 
-Dwa istotne zagadnienia dotyczące wybierania dostawcy hosta sieci web są obsługi klienta i jakości usług. Jeśli masz pytania lub problem z konfiguracją, jak długo trwa przesyłanie problem do działu pomocy technicznej hosta sieci web, do momentu uzyskania odpowiedzi? Jak niezawodnej są usługami firmy? Czy często mają awarie bazy danych? Jak często serwer e-mail Przejdź w trybie offline? Należy zawsze Pytaj firmy zawierają szczegółowe informacje o ich czas pracy i uzyskiwanie informacji o zasadach usługi ich klienta, ale jest bardziej surefire sposób w celu uzyskania informacji zwrotnych dotyczących bieżących i starszych klientów, można to zrobić za pomocą online fora, grupy dyskusyjne i poczty e-mail listservs.
+Dwa istotne zagadnienia dotyczące wybierania dostawcy hosta sieci web są obsługi klienta i jakości usług. Jeśli masz pytania lub problem z konfiguracją, jak długo trwa przesyłanie problem do działu pomocy technicznej hosta sieci web, do momentu uzyskania odpowiedzi? Jak niezawodnej są usługami firmy? Czy często mają awarie bazy danych? Jak często ich serwer poczty e-mail Przejdź w trybie offline? Należy zawsze Pytaj firmy zawierają szczegółowe informacje o ich czas pracy i uzyskiwanie informacji o zasadach usługi ich klienta, ale jest bardziej surefire sposób w celu uzyskania informacji zwrotnych dotyczących bieżących i starszych klientów, można to zrobić za pomocą online fora, grupy dyskusyjne i listservs poczty e-mail .
 
 > [!NOTE]
 > Niektóre firm świadczących usługi hostingu sieci web firmy skupić się na stosie określonej technologii, takich jak .NET lub [światła](http://en.wikipedia.org/wiki/LAMP_stack) (**L** inux, **A** pache, **M** ySQL, i **P** HP), dlatego należy upewnić się, że firmy, należy wybrać obsługuje aplikacje ASP.NET. Ponadto sprawdź obsługuje wersję programu ASP.NET, które są używane do tworzenia aplikacji. A jeśli tworzysz aplikację opartych na danych, upewnij się, że host sieci web oferuje ten sam serwer bazy danych i wersji, którego używasz.

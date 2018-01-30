@@ -2,18 +2,18 @@
 title: "Obsługę protokołu WebSockets w ASP.NET Core"
 author: tdykstra
 description: "Dowiedz się, jak rozpocząć pracę z Websocket w ASP.NET Core."
-ms.author: tdykstra
 manager: wpickett
+ms.author: tdykstra
 ms.date: 03/25/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/websockets
-ms.openlocfilehash: 6f335376c72cd0c68f4667cf0e661a25bf448980
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 306eca28b9f1f66e1ccaf185ccae87db8dea1b01
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-websockets-in-aspnet-core"></a>Wprowadzenie do protokołu WebSockets w platformy ASP.NET Core
 

@@ -2,18 +2,18 @@
 title: "W przypadku platformy ASP.NET Core przekazywania plików"
 author: ardalis
 description: "Jak używać wiązania modelu i przesyłania strumieniowego przekazywania plików w programie ASP.NET MVC Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 07/05/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/models/file-uploads
-ms.openlocfilehash: bc1cfe0d6ee88a0af49cdff9ce77ad42f57b95f7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 314d585c7bf7f8c95f763babe6cdf93e514ff656
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>W przypadku platformy ASP.NET Core przekazywania plików
 

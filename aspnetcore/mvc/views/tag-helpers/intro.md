@@ -2,19 +2,19 @@
 title: "Pomocników tagów w platformy ASP.NET Core"
 author: rick-anderson
 description: "Poznaj pomocników tagów są i sposobu ich używania w ASP.NET Core."
-ms.author: riande
 manager: wpickett
-ms.date: 7/14/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/views/tag-helpers/intro
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c198ccc3e3e2c11f3e2b9379bc63bd6428dbf69
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 7/14/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/views/tag-helpers/intro
+ms.openlocfilehash: 939eccd45ec437f379fb9349c24246cc0683528b
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Wprowadzenie do pomocników tagów w platformy ASP.NET Core 
 
@@ -252,10 +252,7 @@ Możesz dostosować czcionki i kolorowania z **narzędzia** > **opcje** > **śro
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Tworzenie pomocników tagów](authoring.md)
-* [Praca z formularzy](../working-with-forms.md)
+* [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
+* [Praca z formularzy](xref:mvc/views/working-with-forms)
 * [TagHelperSamples w serwisie GitHub](https://github.com/dpaquette/TagHelperSamples) zawiera przykłady pomocnika tagów do pracy z [Bootstrap](http://getbootstrap.com/).
-
-<!--
-* [Working with Forms ](xref:mvc/views/working-with-forms)
--->
+* [Praca z formularzy](xref:mvc/views/working-with-forms)

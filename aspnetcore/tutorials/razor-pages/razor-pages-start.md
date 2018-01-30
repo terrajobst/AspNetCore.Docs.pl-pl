@@ -2,18 +2,18 @@
 title: Wprowadzenie do platformy ASP.NET Core stron Razor
 author: rick-anderson
 description: Wprowadzenie do platformy ASP.NET Core stron Razor
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 12/22/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 69a5bc439130ffacf2d267c79b1a6b0347171e49
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 54fa970d136de3903ae08b710b55f15f96f9a012
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>Rozpoczynanie pracy z Razor strony platformy ASP.NET Core
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 09f1a2e4de024e5778e69fdd691d9cb0040459f3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72e9cac7cf9a01791c30783fa56ad7ea205a5a11
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="server-controls"></a>Formanty serwera
 ====================
@@ -271,7 +271,7 @@ Formantu XmlDataSource służy do tworzenia powiązań danych źródła danych X
 
 Kontrola SiteMapDataSource zapewnia powiązania danych dla lokacji kontrolki oparte na mapy witryny sieci Web. Będzie można omówiono bardziej szczegółowo w późniejszym modułu.
 
-## <a name="sitemappath-control"></a>Kontrolki ścieżki mapy witryny
+## <a name="sitemappath-control"></a>SiteMapPath Control
 
 Kontrolki ścieżki mapy witryny prezentuje serię zwanymi powszechnie nawigacyjnej łączy nawigacji. Jest on opisane bardziej szczegółowo w późniejszym modułu.
 
@@ -295,11 +295,11 @@ Formantu LoginView umożliwia wyświetlanie różnych szablonów ustalane na pod
 
 Formant PasswordRecovery służy do pobierania zapomniane hasła przez użytkowników aplikacji ASP.NET. Jest on opisane bardziej szczegółowo w późniejszym modułu.
 
-## <a name="loginstatus"></a>stanu logowania
+## <a name="loginstatus"></a>LoginStatus
 
 Kontrolki stanu logowania Wyświetla stan logowania użytkownika. Jest on opisane bardziej szczegółowo w późniejszym modułu.
 
-## <a name="loginname"></a>Nazwy logowania
+## <a name="loginname"></a>LoginName
 
 Kontrolki nazwy logowania Wyświetla nazwy użytkownika, po którego jest się zalogowanym aplikacji ASP.NET. Jest on opisane bardziej szczegółowo w późniejszym modułu.
 
@@ -307,7 +307,7 @@ Kontrolki nazwy logowania Wyświetla nazwy użytkownika, po którego jest się z
 
 CreateUserWizard jest można skonfigurować kreatora, który daje użytkownikom możliwość tworzenia konta członkostwa ASP.NET do użycia w aplikacji ASP.NET. Jest on opisane bardziej szczegółowo w późniejszym modułu.
 
-## <a name="changepassword"></a>Element ChangePassword
+## <a name="changepassword"></a>ChangePassword
 
 Element ChangePassword formantu umożliwia użytkownikom zmianę hasła dla aplikacji ASP.NET. Jest on opisane bardziej szczegółowo w późniejszym modułu.
 

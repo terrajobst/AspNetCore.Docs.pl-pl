@@ -2,18 +2,18 @@
 title: Globalizacja i lokalizacja w ASP.NET Core
 author: rick-anderson
 description: "Dowiedz się, jak platformy ASP.NET Core udostępnia usługi i oprogramowanie pośredniczące dla lokalizacji zawartości do innych języków i kultur."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 01/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: 5f1579b5682b2f0b3f8227f0cf6b4c0361eb1e67
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 794abf628beff7e5c78f9ca04309694d46910373
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w ASP.NET Core
 
@@ -224,7 +224,7 @@ Jeśli możesz przekazać tylko w jednym z dwóch (`culture` lub `ui-culture`), 
 
 Aplikacje w środowisku produkcyjnym zostanie często udostępniają mechanizm można ustawić kultury z plikiem cookie kultury platformy ASP.NET Core. Użyj `MakeCookieValue` metodę w celu utworzenia pliku cookie.
 
-`CookieRequestCultureProvider` `DefaultCookieName` Informacji kultury zwraca preferowana przez domyślnej nazwy pliku cookie używane w celu śledzenia użytkowników. Domyślna nazwa pliku cookie to ". AspNetCore.Culture".
+`CookieRequestCultureProvider` `DefaultCookieName` Informacji kultury zwraca preferowana przez domyślnej nazwy pliku cookie używane w celu śledzenia użytkowników. Domyślna nazwa pliku cookie jest `.AspNetCore.Culture`.
 
 Format pliku cookie jest `c=%LANGCODE%|uic=%LANGCODE%`, gdzie `c` jest `Culture` i `uic` jest `UICulture`, na przykład:
 

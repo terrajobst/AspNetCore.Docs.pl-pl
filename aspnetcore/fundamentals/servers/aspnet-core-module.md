@@ -2,19 +2,19 @@
 title: "Moduł platformy ASP.NET Core"
 author: tdykstra
 description: "Wprowadza platformy ASP.NET Core modułu (ANCM), moduł usług IIS, który umożliwia Kestrel serwera sieci web usług IIS lub usług IIS Express jest używany jako serwer zwrotnego serwera proxy."
-ms.author: tdykstra
 manager: wpickett
-ms.date: 08/03/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/servers/aspnet-core-module
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9dc2183ebbdf8b74106fe57a1dd191a57ba5d1bc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 08/03/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/servers/aspnet-core-module
+ms.openlocfilehash: 4337bc42c5454d6a9634a396d9c89f3518af148b
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Wprowadzenie do platformy ASP.NET Core modułu
 

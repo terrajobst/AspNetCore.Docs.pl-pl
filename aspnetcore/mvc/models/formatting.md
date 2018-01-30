@@ -2,19 +2,19 @@
 title: Formatowanie danych odpowiedzi na platformie ASP.NET Core MVC
 author: ardalis
 description: "Dowiedz się, jak sformatować dane odpowiedzi na platformie ASP.NET Core MVC."
-ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/models/formatting
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddda494e0db22031af9d20325e14e8458756cbfd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 10/14/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/models/formatting
+ms.openlocfilehash: 36231cd2bf59408e9c858ea99355c1e8dd859e6e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-formatting-response-data-in-aspnet-core-mvc"></a>Wprowadzenie do formatowania danych odpowiedzi na platformie ASP.NET Core MVC
 

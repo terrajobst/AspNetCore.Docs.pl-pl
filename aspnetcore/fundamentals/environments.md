@@ -2,18 +2,18 @@
 title: "Praca z wieloma środowiska w programie ASP.NET Core"
 author: rick-anderson
 description: "Dowiedz się, jak platformy ASP.NET Core umożliwia kontrolowanie zachowania aplikacji w wielu środowiskach."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 12/25/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/environments
-ms.openlocfilehash: 60a1543ce11d08490e6df0eb84f980672ecfe672
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b40ee9b1c6feae4942f05d22dab776d3cf6c26a0
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="working-with-multiple-environments"></a>Praca w środowiskach wielu
 
@@ -50,9 +50,9 @@ Uwaga: W systemach Windows i macOS zmienne środowiskowe i wartości nie są z u
 
 Środowisko rozwoju lokalnych komputera można skonfigurować *Properties\launchSettings.json* pliku projektu. Ustaw wartości środowiska *launchSettings.json* przesłaniają wartości w środowisku systemu.
 
-Następujący kod XML zawiera trzy profile z *launchSettings.json* pliku:
+Następujące JSON zawiera trzy profile z *launchSettings.json* pliku:
 
-[!code-xml[Main](environments/sample/WebApp1/Properties/launchSettings.json?highlight=10,11,18,26)]
+[!code-json[Main](environments/sample/WebApp1/Properties/launchSettings.json?highlight=10,11,18,26)]
 
 Gdy aplikacja jest uruchamiana z `dotnet run`, pierwszy profil z `"commandName": "Project"` będą używane. Wartość `commandName` Określa serwer sieci web do uruchomienia. `commandName`może to być jedna z:
 
@@ -93,7 +93,7 @@ Aby zmaksymalizować zabezpieczeń, wydajności i niezawodności aplikacji nale�
 * Zasoby po stronie klienta są powiązane, zminimalizowane i potencjalnie pochodzący z sieci CDN.
 * Strony błędów diagnostycznych wyłączone.
 * Strony błędów przyjazną włączone.
-* Rejestrowanie produkcyjnych i włączone monitorowanie. Na przykład [usługi Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-asp-net-five/).
+* Rejestrowanie produkcyjnych i włączone monitorowanie. Na przykład [usługi Application Insights](/azure/application-insights/app-insights-asp-net-core).
 
 ## <a name="setting-the-environment"></a>Ustawienia środowiska
 
@@ -149,7 +149,7 @@ export ASPNETCORE_ENVIRONMENT=Development
 ```
 Zmienne środowiskowe poziomu są ustawiane w *.bashrc* lub *.bash_profile* pliku. Przeprowadź edycję pliku za pomocą dowolnego edytora tekstu, a następnie dodaj następującą instrukcję.
 
-```
+```bash
 export ASPNETCORE_ENVIRONMENT=Development
 ```
 

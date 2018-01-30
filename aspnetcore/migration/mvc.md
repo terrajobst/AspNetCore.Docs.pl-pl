@@ -1,19 +1,19 @@
 ---
 title: Migrowanie z programu ASP.NET MVC do podstawowej platformy ASP.NET MVC
 author: ardalis
-description: 
-ms.author: riande
+description: "Dowiedz się, jak rozpocząć Migrowanie projektu programu ASP.NET MVC do platformy ASP.NET Core MVC."
 manager: wpickett
+ms.author: riande
 ms.date: 03/07/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: e3220fb32900aac42cf96497964936ad5b375a86
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 447b13eccf523cab81590405740bb194112b0dad
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrowanie z programu ASP.NET MVC do podstawowej platformy ASP.NET MVC
 
@@ -94,7 +94,7 @@ Uruchom aplikację.
 
 ![Otwórz w programie Microsoft Edge aplikacji sieci Web](mvc/_static/hello-world.png)
 
-Zobacz [kontrolerów](../mvc/controllers/index.md) i [widoków](../mvc/views/index.md) Aby uzyskać więcej informacji.
+Zobacz [kontrolerów](xref:mvc/controllers/actions) i [widoków](xref:mvc/views/overview) Aby uzyskać więcej informacji.
 
 Teraz, gdy mamy minimalnego projektu platformy ASP.NET Core pracy, możemy rozpocząć Migrowanie funkcja z projektu programu ASP.NET MVC. Będzie trzeba przenieść następujące czynności:
 
@@ -156,7 +156,7 @@ Zobacz [Zarządzaj pakietami po stronie klienta z Bower](../client-side/bower.md
 
 * Utwórz *widoków/Shared* folderu.
 
-* *Opcjonalnie:* kopiowania *_ViewImports.cshtml* z *FullAspNetCore* projektu MVC *widoków* folderu do projektu platformy ASP.NET Core *Widoków* folderu. Usuń wszelkie deklaracji przestrzeni nazw w *_ViewImports.cshtml* pliku. *_ViewImports.cshtml* plików zawiera przestrzenie nazw dla wszystkich plików widoku i w przypadku [pomocników tagów](../mvc/views/tag-helpers/index.md). Pomocników tagów są używane w nowym pliku układu. *_ViewImports.cshtml* pliku jest nowa dla platformy ASP.NET Core.
+* *Opcjonalnie:* kopiowania *_ViewImports.cshtml* z *FullAspNetCore* projektu MVC *widoków* folderu do projektu platformy ASP.NET Core *Widoków* folderu. Usuń wszelkie deklaracji przestrzeni nazw w *_ViewImports.cshtml* pliku. *_ViewImports.cshtml* plików zawiera przestrzenie nazw dla wszystkich plików widoku i w przypadku [pomocników tagów](xref:mvc/views/tag-helpers/intro). Pomocników tagów są używane w nowym pliku układu. *_ViewImports.cshtml* pliku jest nowa dla platformy ASP.NET Core.
 
 * Kopia *_Layout.cshtml* pliku starego projektu programu ASP.NET MVC *widoków/Shared* folderu do projektu platformy ASP.NET Core *widoków/Shared* folderu.
 
@@ -191,9 +191,9 @@ Zaktualizowany interfejs *_Layout.cshtml* pliku przedstawiono poniżej:
 
 Wyświetlać witrynę w przeglądarce. Teraz powinien on załadowany poprawnie, z oczekiwanym style w miejscu.
 
-* *Opcjonalnie:* możesz chcieć użyć nowego pliku układu. Dla tego projektu można skopiować pliku układu z *FullAspNetCore* projektu. Używa nowego pliku układu [pomocników tagów](../mvc/views/tag-helpers/index.md) i ma inne ulepszenia.
+* *Opcjonalnie:* możesz chcieć użyć nowego pliku układu. Dla tego projektu można skopiować pliku układu z *FullAspNetCore* projektu. Używa nowego pliku układu [pomocników tagów](xref:mvc/views/tag-helpers/intro) i ma inne ulepszenia.
 
-## <a name="configure-bundling--minification"></a>Konfigurowanie, tworzenie pakietów & minimalizowanie
+## <a name="configure-bundling-and-minification"></a>Konfigurowanie, tworzenie pakietów i minimalizowanie
 
 Aby uzyskać informacje o sposobie konfigurowania tworzenie pakietów i minimalizowanie, zobacz [tworzenie pakietów i minimalizowanie](../client-side/bundling-and-minification.md).
 
@@ -224,6 +224,5 @@ Zobacz **za pomocą strony wyjątek Developer** w [obsługi błędu](../fundamen
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Programowanie po stronie klienta](../client-side/index.md)
-
-* [Pomocnicy tagów](../mvc/views/tag-helpers/index.md)
+* [Programowanie po stronie klienta](xref:client-side/index)
+* [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro)

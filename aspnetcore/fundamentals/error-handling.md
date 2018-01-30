@@ -2,19 +2,19 @@
 title: "Obsługa błędów w ASP.NET Core"
 author: ardalis
 description: "Wykryj sposób obsługi błędów w aplikacji platformy ASP.NET Core."
-ms.author: tdykstra
 manager: wpickett
-ms.date: 11/30/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/error-handling
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 019e31fa749a950db48575e1f4e8d4d26d1cde75
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 11/30/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/error-handling
+ms.openlocfilehash: 5b0cda7b79b8a9523d1ba6a9b321d22d3ccc753a
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Wprowadzenie do obsługi błędów w platformy ASP.NET Core
 
@@ -119,7 +119,7 @@ Jeśli błąd pojawia się po adres/port hosta powiązanie hosting można wyświ
 
 ## <a name="aspnet-mvc-error-handling"></a>Obsługa błędów platformy ASP.NET MVC
 
-[MVC](../mvc/index.md) aplikacje mają pewne dodatkowe opcje obsługi błędów, takich jak konfigurowanie filtry wyjątków i sprawdzaniu poprawności modelu.
+[MVC](xref:mvc/overview) aplikacje mają pewne dodatkowe opcje obsługi błędów, takich jak konfigurowanie filtry wyjątków i sprawdzaniu poprawności modelu.
 
 ### <a name="exception-filters"></a>Filtry wyjątków
 
@@ -130,7 +130,7 @@ Filtry wyjątków można skonfigurować globalnie lub na podstawie-controller lu
 
 ### <a name="handling-model-state-errors"></a>Stan modelu obsługi błędów
 
-[Sprawdzanie poprawności modelu](../mvc/models/validation.md) występuje przed każdego wywoływana Akcja kontrolera i odpowiada metoda akcji sprawdzić `ModelState.IsValid` i odpowiednio zareagować.
+[Sprawdzanie poprawności modelu](../mvc/models/validation.md) występuje przed wywołaniem akcji każdego kontrolera i odpowiada metoda akcji sprawdzić `ModelState.IsValid` i odpowiednio zareagować.
 
 Niektóre aplikacje wybierze wykonać standardowej konwencji zajmujących się błędy sprawdzania poprawności modelu, w którym to przypadku [filtru](../mvc/controllers/filters.md) może być odpowiednie miejsce do wdrożenia tych zasad. Należy przetestować zachowanie akcji stanów nieprawidłowy model. Dowiedz się więcej w [testowania logiką kontrolera](../mvc/controllers/testing.md).
 

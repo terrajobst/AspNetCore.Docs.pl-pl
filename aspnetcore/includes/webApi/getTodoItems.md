@@ -39,7 +39,7 @@ W dalszej części tego samouczka I opisano sposób można wyświetlić odpowied
 
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=TodoController&highlight=3)]
 
-* Zastąp `[controller]` nazwę kontrolera, który jest nazwa klasy kontrolera minus sufiks "Controller". Ten przykład jest nazwa klasy kontrolera **Todo**kontrolera, a nazwa katalogu głównego to "todo". Platformy ASP.NET Core [routingu](xref:mvc/controllers/routing) nie jest uwzględniana wielkość liter.
+* Zastępuje `[controller]` nazwę kontrolera, który jest nazwa klasy kontrolera minus sufiks "Controller". Ten przykład jest nazwa klasy kontrolera **Todo**kontrolera, a nazwa katalogu głównego to "todo". Platformy ASP.NET Core [routingu](xref:mvc/controllers/routing) nie jest uwzględniana wielkość liter.
 * Jeśli `[HttpGet]` atrybut ma szablon trasy (takich jak `[HttpGet("/products")]`, które dołącza do ścieżki. W tym przykładzie nie używać szablonu. Zobacz [atrybutu routingu z atrybutami Http [zlecenie]](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes) Aby uzyskać więcej informacji.
 
 W `GetById` metody:

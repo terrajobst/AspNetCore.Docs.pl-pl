@@ -2,18 +2,18 @@
 title: "Omówienie platformy ASP.NET Core MVC"
 author: ardalis
 description: "Dowiedz się, jak platformy ASP.NET Core MVC jest sformatowany framework do tworzenia aplikacji sieci web i interfejsów API przy użyciu Model-View-Controller projektowanie wzorca."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 01/08/2018
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 3c3279e7d25704f5e70bbd83cf9feebda8319203
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16fd1b5e71cde4364f02640f504d42218ed680df
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
@@ -29,7 +29,7 @@ Na poniższym diagramie przedstawiono trzy główne składniki i te, które odwo
 
 ![Wzorzec MVC](overview/_static/mvc.png)
 
-Ta nakreślenia obowiązki pomaga skalowanie aplikacji pod względem stopnia złożoności, ponieważ ułatwia kodu, debugowania i testowania coś (model, widok lub kontrolera) z jednym zadaniu (i jest zgodna z [jednej zasady odpowiedzialności ](http://deviq.com/single-responsibility-principle/)). Jest trudne do aktualizacji, badanie i debugowania kodu, który ma zależności rozłożyć na co najmniej dwa z tych trzech obszarach. Na przykład logika interfejsu użytkownika zwykle zmieniać częściej niż logiki biznesowej. Prezentacja kodu i logiki biznesowej są łączone w pojedynczy obiekt, należy zmodyfikować obiekt zawierający logikę biznesową, przy każdej zmianie interfejsu użytkownika. To może powodować błędy i wymagają ponowne wszystkich logiki biznesowej po zmianie co minimalnym interfejsem użytkownika.
+Ta nakreślenia obowiązki pomaga skalowanie aplikacji pod względem stopnia złożoności, ponieważ ułatwia kodu, debugowania i testowania coś (model, widok lub kontrolera) z jednym zadaniu (i jest zgodna z [jednej zasady odpowiedzialności ](http://deviq.com/single-responsibility-principle/)). Jest trudne do aktualizacji, badanie i debugowania kodu, który ma zależności rozłożyć na co najmniej dwa z tych trzech obszarach. Na przykład logika interfejsu użytkownika zwykle zmieniać częściej niż logiki biznesowej. Jeśli prezentacji kodu i logiki biznesowej są łączone w pojedynczy obiekt, należy zmodyfikować obiekt zawierający logiki biznesowej każdej zmianie interfejsu użytkownika. To często wprowadza błędy i wymaga ponowne logiki biznesowej po każdej zmianie interfejsu użytkownika minimalnej.
 
 > [!NOTE]
 > Zarówno widok i kontroler zależą od modelu. Jednak model zależy od widoku ani kontrolera. To jest jednym z kluczowych zalet separacji. Ta separacja umożliwia niezależne od wizualną prezentację modelu, który ma zostać utworzony i przetestowane.

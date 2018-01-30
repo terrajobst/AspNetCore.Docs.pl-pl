@@ -2,18 +2,18 @@
 title: "Migrowanie programów obsługi HTTP i modułów platformy ASP.NET Core oprogramowania pośredniczącego"
 author: rick-anderson
 description: 
-ms.author: tdykstra
 manager: wpickett
+ms.author: tdykstra
 ms.date: 12/07/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: a38ddc64583de05b4088cd31d48fbd7ee949d4e5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f104c9116cfaa4a82ac88e4a83b4b6f172eb2aa1
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrowanie programów obsługi HTTP i modułów platformy ASP.NET Core oprogramowania pośredniczącego 
 
@@ -380,10 +380,7 @@ public async Task Invoke(HttpContext httpContext)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Omówienie moduły HTTP i programów obsługi HTTP](https://docs.microsoft.com/iis/configuration/system.webserver/)
-
+* [Omówienie moduły HTTP i programów obsługi HTTP](/iis/configuration/system.webserver/)
 * [Konfiguracja](xref:fundamentals/configuration/index)
-
-* [Uruchamianie aplikacji](../fundamentals/startup.md)
-
-* [Oprogramowanie pośredniczące](../fundamentals/middleware.md)
+* [Uruchamianie aplikacji](xref:fundamentals/startup)
+* [Oprogramowanie pośredniczące](xref:fundamentals/middleware)

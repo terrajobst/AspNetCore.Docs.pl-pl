@@ -1,19 +1,19 @@
 ---
-title: "Rozproszonej pamięci podręcznej pomocnika tagów | Dokumentacja firmy Microsoft"
+title: "Rozproszonej pamięci podręcznej pomocnika tagów w platformy ASP.NET Core"
 author: pkellner
 description: "Pokazuje, jak pracować z pamięci podręcznej pomocnika tagów"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: f5844dade218fdba1169a55fe3ce251a9cc03db2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 710477732b865e2e3821102d34545bbd4e0a5919
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="distributed-cache-tag-helper"></a>Pomocnik Tag rozproszonej pamięci podręcznej
 

@@ -2,18 +2,18 @@
 title: "Przekazywanie plików do Razor strony platformy ASP.NET Core"
 author: guardrex
 description: "Dowiedz się, jak przekazać pliki do strony Razor."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/12/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: a29043ac5d28ae8efcbbd6919e73e3774ba22699
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 24eaa0dd9293cc932c51d280300308e835a0840e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików do Razor strony platformy ASP.NET Core
 
@@ -76,9 +76,9 @@ Każda grupa formularz zawiera  **\<Etykieta >** który wyświetla nazwę każda
 
 Każda grupa formularz zawiera weryfikacji  **\<span >**. Jeśli użytkownik wejściowych nie spełniają atrybuty właściwości ustawione `FileUpload` klasy lub jeśli któryś z `ProcessFormFile` sprawdzanie poprawności pliku metody kończyć się niepowodzeniem, model kończy się niepowodzeniem do sprawdzania poprawności. Podczas sprawdzania poprawności modelu nie powiedzie się, komunikat dotyczący sprawdzania poprawności pomocne jest renderowany do użytkownika. Na przykład `Title` właściwość jest oznaczona przy `[Required]` i `[StringLength(60, MinimumLength = 3)]`. Jeśli użytkownik nie może podać tytuł, otrzymają komunikat informujący, że wymagana jest wartość. Jeśli użytkownik wprowadzi wartość mniej niż 3 znaków ani więcej niż 60 znaków, otrzymają komunikat informujący, że wartość ma nieprawidłową długość. Jeśli plik jest pod warunkiem, że nie ma zawartości, zostanie wyświetlony komunikat, że plik jest pusty.
 
-## <a name="add-the-code-behind-file"></a>Dodaj plik CodeBehind
+## <a name="add-the-page-model"></a>Dodawanie modelu strony
 
-Dodaj plik CodeBehind (*Index.cshtml.cs*) do *harmonogramy* folderu:
+Dodawanie modelu strony (*Index.cshtml.cs*) do *harmonogramy* folderu:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs)]
 
@@ -110,7 +110,7 @@ Gdy użytkownik kliknie przycisk, aby usunąć harmonogram, mają mieć możliwo
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
-Plik CodeBehind (*Delete.cshtml.cs*) ładuje jeden harmonogram identyfikowane przez `id` w danych trasy żądania. Dodaj *Delete.cshtml.cs* pliku *harmonogramy* folderu:
+Model strony (*Delete.cshtml.cs*) ładuje jeden harmonogram identyfikowane przez `id` w danych trasy żądania. Dodaj *Delete.cshtml.cs* pliku *harmonogramy* folderu:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs)]
 

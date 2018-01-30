@@ -2,18 +2,18 @@
 title: Co to jest nowe w programie ASP.NET 2.0 Core
 author: rick-anderson
 description: Co to jest nowe w programie ASP.NET 2.0 Core
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 07/10/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: ca02de7954002dcbc125898c9f570438f88db818
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 35d57abd07e83cd5b190572962fbf43aef03a534
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Co to jest nowe w programie ASP.NET 2.0 Core
 
@@ -82,7 +82,7 @@ Jednej strony aplikacji JEDNOSTRONICOWEJ szablonów projektu dla kątową, Aurel
 
 ## <a name="kestrel-improvements"></a>Ulepszenia kestrel
 
-Serwer sieci web Kestrel ma nowe funkcje ułatwiające odpowiedniejsze jako serwer internetowy. Dodano wiele opcji konfiguracji serwera ograniczenia w `KestrelServerOptions` na nowe klasy `Limits` właściwości. Można teraz dodawać limity dla następujących elementów:
+Serwer sieci web Kestrel ma nowe funkcje ułatwiające odpowiedniejsze jako serwer internetowy. Dodano wiele opcji konfiguracji serwera ograniczenia w `KestrelServerOptions` na nowe klasy `Limits` właściwości. Dodaj następujące limity:
 
 - Maksymalna liczba połączeń klientów
 - Żądanie maksymalny rozmiar treści
@@ -120,7 +120,7 @@ Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem GitHub
 
 ## <a name="automatic-use-of-anti-forgery-tokens"></a>Automatyczne stosowanie tokenów zabezpieczających przed sfałszowaniem
 
-Platformy ASP.NET Core zawsze pomogła kodowanie HTML zawartości domyślnie, ale z nową wersją Przenosimy dodatkowy krok, aby zapobiec fałszerstwie żądania międzywitrynowego (XSRF). Platformy ASP.NET Core teraz Emituj tokenów zabezpieczających przed sfałszowaniem domyślnie i weryfikacji ich na stronach bez dodatkowej konfiguracji i akcji POST formularza.
+Platformy ASP.NET Core zawsze pomogła kodowanie HTML zawartości domyślnie, ale z nową wersją dodatkowego kroku jest podjęte w celu zapobieżenia fałszerstwie żądania międzywitrynowego (XSRF). Platformy ASP.NET Core teraz Emituj tokenów zabezpieczających przed sfałszowaniem domyślnie i weryfikacji ich na stronach bez dodatkowej konfiguracji i akcji POST formularza.
 
 Aby uzyskać więcej informacji, zobacz [zapobieganie Cross-Site żądania (XSRF/CSRF) Fałszerstwie w ASP.NET Core](xref:security/anti-request-forgery).
 
@@ -158,4 +158,4 @@ Aby uzyskać wskazówki dotyczące sposobu przeprowadzenia migracji platformy AS
 
 Aby uzyskać pełną listę zmian, zobacz [2.0 informacje o wersji platformy ASP.NET Core](https://github.com/aspnet/Home/releases/tag/2.0.0).
 
-Jeśli chcesz się połączyć z postęp i plany zespół deweloperów platformy ASP.NET Core, dostroić tygodniowych [Standup społeczności ASP.NET](https://live.asp.net/).
+Aby połączyć się z postęp i plany zespół deweloperów platformy ASP.NET Core, dostroić [Standup społeczności ASP.NET](https://live.asp.net/).

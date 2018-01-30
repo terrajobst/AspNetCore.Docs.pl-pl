@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f2c7b1324e75584a80530620eea94d4ecd7a7044
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5a4d2e3468c9b7db5d3acf9f59fc13a6b791497
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="processing-unhandled-exceptions-vb"></a>Przetwarzania nieobsługiwanych wyjątków (VB)
 ====================
@@ -90,7 +90,7 @@ Biblioteki rejestrowania błędów w dwóch następnych samouczki Podaj takich f
 
 Gdy wystąpi nieobsługiwany wyjątek w środowisku produkcyjnym należy alertów zespół deweloperów, dzięki czemu mogą ocenić błąd i ustalić, jakie działania należy podjąć. Na przykład w przypadku wystąpił błąd podczas łączenia z bazą danych, konieczne będzie dwa razy, a następnie sprawdź ciąg połączenia i, prawdopodobnie, otwórz bilet pomocy technicznej z hostingu firmy w sieci web. Jeśli wyjątek wystąpił z powodu błędu programowania, dodatkowy kod lub logikę weryfikacji może być konieczne można dodać, aby zapobiec takie błędy w przyszłości.
 
-Klasy programu .NET Framework w [ `System.Net.Mail` przestrzeni nazw](https://msdn.microsoft.com/library/system.net.mail.aspx) ułatwiają wysyłanie wiadomości e-mail. [ `MailMessage` Klasy](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx) reprezentuje wiadomości e-mail i ma właściwości, takie jak `To`, `From`, `Subject`, `Body`, i `Attachments`. `SmtpClass` Służy do wysyłania `MailMessage` przy użyciu określonego serwera SMTP; ustawienia serwera SMTP można określić programowo i deklaratywnie w [ `<system.net>` elementu](https://msdn.microsoft.com/library/6484zdc1.aspx) w `Web.config file`. Aby uzyskać więcej informacji na wysyłanie wiadomości e-mail wiadomości w aplikacji ASP.NET, zapoznaj się z mojej artykułu [wysyłania poczty E-mail w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)i [System.Net.Mail — często zadawane pytania](http://systemnetmail.com/).
+Klasy programu .NET Framework w [ `System.Net.Mail` przestrzeni nazw](https://msdn.microsoft.com/library/system.net.mail.aspx) ułatwiają wysyłanie wiadomości e-mail. [ `MailMessage` Klasy](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx) reprezentuje wiadomości e-mail i ma właściwości, takie jak `To`, `From`, `Subject`, `Body`, i `Attachments`. `SmtpClass` Służy do wysyłania `MailMessage` przy użyciu określonego serwera SMTP; ustawienia serwera SMTP można określić programowo i deklaratywnie w [ `<system.net>` elementu](https://msdn.microsoft.com/library/6484zdc1.aspx) w `Web.config file`. Aby uzyskać więcej informacji na temat wysyłania wiadomości e-mail wiadomości w aplikacji ASP.NET, zapoznaj się z mojej artykułu [wysyłania poczty E-mail w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)i [System.Net.Mail — często zadawane pytania](http://systemnetmail.com/).
 
 > [!NOTE]
 > `<system.net>` Element zawiera ustawienia serwera SMTP używany przez `SmtpClient` klasy podczas wysyłania wiadomości e-mail. Firmy prawdopodobną hostingu w sieci web ma serwer SMTP, który służy do wysyłania wiadomości e-mail z aplikacji. Informacje na temat ustawień serwera SMTP, które powinny być używane w aplikacji sieci web na ten temat można znaleźć w sekcji Obsługa hosta sieci web.
@@ -107,21 +107,21 @@ Następnie `MailMessage` obiektu o nazwie `mm` jest tworzony. Treść wiadomośc
 Ostatnim krokiem jest wysłanie `MailMessage`. Odbywa się przez utworzenie nowej `SmtpClient` — metoda i wywoływanie jej `Send` metody.
 
 > [!NOTE]
-> Przed użyciem tego kodu w aplikacji sieci web można zmienić wartości w `ToAddress` i `FromAddress` stałe z support@example.com do dowolnego adresu e-mail wiadomości e-mail z powiadomieniem o mają być wysyłane do i pochodzą z. Należy również określić ustawienia serwera SMTP w `<system.net>` sekcji `Web.config`. Zapoznaj się z dostawcą hosta sieci web, aby określić ustawienia serwera SMTP do użycia.
+> Przed użyciem tego kodu w aplikacji sieci web można zmienić wartości w `ToAddress` i `FromAddress` stałe z support@example.com niezależnie od wiadomości e-mail adres błąd powiadomienia e-mail mają być wysyłane do i pochodzi z. Należy również określić ustawienia serwera SMTP w `<system.net>` sekcji `Web.config`. Zapoznaj się z dostawcą hosta sieci web, aby określić ustawienia serwera SMTP do użycia.
 
 
-Kod w miejscu przy każdym wystąpieniu błędu dewelopera jest wysyłana wiadomość e-mail, znajduje się podsumowanie błąd, który obejmuje YSOD. W poprzednim samouczka przedstawiono firma Microsoft błąd w czasie wykonywania odwiedzając Genre.aspx i przekazując nieprawidłowy `ID` wartości za pośrednictwem ciąg zapytania, takie jak `Genre.aspx?ID=foo`. Odwiedzania strony z `Global.asax` miejscowej pliku tworzy tego samego środowiska użytkownika, jak w poprzednim samouczek — w środowisku programistycznym nastąpi przejście do zobacz wyjątek szczegóły żółty ekranem śmierci, podczas gdy w środowisku produkcyjnym należy odwiedź stronę błędu niestandardowego. Oprócz tego zachowanie istniejącej dewelopera jest wysyłana wiadomość e-mail.
+Kod w miejscu przy każdym wystąpieniu błędu dewelopera są wysyłane wiadomości e-mail znajduje się podsumowanie błąd, który obejmuje YSOD. W poprzednim samouczka przedstawiono firma Microsoft błąd w czasie wykonywania odwiedzając Genre.aspx i przekazując nieprawidłowy `ID` wartości za pośrednictwem ciąg zapytania, takie jak `Genre.aspx?ID=foo`. Odwiedzania strony z `Global.asax` miejscowej pliku tworzy tego samego środowiska użytkownika, jak w poprzednim samouczek — w środowisku programistycznym nastąpi przejście do zobacz wyjątek szczegóły żółty ekranem śmierci, podczas gdy w środowisku produkcyjnym należy odwiedź stronę błędu niestandardowego. Oprócz tego zachowanie istniejącej dewelopera jest wysyłana wiadomość e-mail.
 
 **Rysunek 2** pokazuje wiadomości e-mail podczas odwiedzania `Genre.aspx?ID=foo`. Treść wiadomości e-mail zawiera podsumowanie informacji o wyjątkach, podczas gdy `YSOD.htm` załącznika wyświetla zawartość, która jest wyświetlana w YSOD szczegóły wyjątku (zobacz **rysunek 3**).
 
 [![](processing-unhandled-exceptions-vb/_static/image5.png)](processing-unhandled-exceptions-vb/_static/image4.png)
 
-**Rysunek 2**: dewelopera jest wysyłana wiadomość E-Mail z powiadomieniem, zawsze, gdy jest nieobsługiwany wyjątek  
+**Rysunek 2**: dewelopera jest wysyłana wiadomość E-mail z powiadomieniem, zawsze, gdy jest nieobsługiwany wyjątek  
  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](processing-unhandled-exceptions-vb/_static/image6.png))
 
 [![](processing-unhandled-exceptions-vb/_static/image8.png)](processing-unhandled-exceptions-vb/_static/image7.png)
 
-**Rysunek 3**: powiadomienie E-Mail zawiera szczegóły wyjątku YSOD jako załącznik  
+**Rysunek 3**: powiadomienie E-mail zawiera szczegóły wyjątku YSOD jako załącznik  
  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](processing-unhandled-exceptions-vb/_static/image9.png))
 
 ## <a name="what-about-using-the-custom-error-page"></a>Co zrobić za pomocą strony błędu niestandardowego?

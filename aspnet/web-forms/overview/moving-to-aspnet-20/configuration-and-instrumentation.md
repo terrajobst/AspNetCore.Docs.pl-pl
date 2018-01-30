@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: 5780bfde928011f46c3f504aec927f2127f10d0d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16dfe3c899dfa028d8a52b4b5f9c2868887e8fa9
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="configuration-and-instrumentation"></a>Konfiguracja i Instrumentacji
 ====================
@@ -134,11 +134,11 @@ Rejestrowanie odbywa się przez zdefiniowanie regułę, która kojarzy zdarzenia
 | **WebRequestEvent** | Klasa podstawowa dla wszystkich zdarzenia informacyjną żądania. |
 | **WebBaseErrorEvent** | Klasa podstawowa dla wszystkich zdarzeń wskazujących warunki błędów. |
 
-Typy dostawców, które są dostępne umożliwiają Wyślij dane wyjściowe zdarzenia do podglądu zdarzeń, SQL Server, Instrumentacja zarządzania Windows (WMI) i wiadomości e-mail. Wstępnie skonfigurowanych dostawców i mapowania zdarzeń zmniejszyć ilość pracy niezbędne, aby uzyskać dane wyjściowe zdarzenia rejestrowane.
+Typy dostawców, które są dostępne umożliwia wysyłanie danych wyjściowych zdarzeń do podglądu zdarzeń, SQL Server, Instrumentacja zarządzania Windows (WMI) i wiadomości e-mail. Wstępnie skonfigurowanych dostawców i mapowania zdarzeń zmniejszyć ilość pracy niezbędne, aby uzyskać dane wyjściowe zdarzenia rejestrowane.
 
 Platforma ASP.NET 2.0 używa dziennika zdarzeń dostawcy out-of--box mają być rejestrowane zdarzenia na podstawie domen aplikacji, uruchamianie i zatrzymywanie, a także rejestrowanie wszelkich nieobsługiwanych wyjątków. Pozwala to obejmować niektórych scenariuszy podstawowych. Załóżmy na przykład, że aplikacja zgłasza wyjątek, ale użytkownik nie zostanie zapisany błąd i nie można go odtworzyć. Domyślna reguła dziennika zdarzeń będzie mógł zbierać informacje wyjątek i stos, aby lepiej zrozumieć, z jakiego rodzaju błąd wystąpił. Innym przykładem ma zastosowanie, gdy aplikacja jest utraty stanu sesji. W takim przypadku można sprawdzić w dzienniku zdarzeń, aby określić, czy domena aplikacji jest odtwarzanie i przyczyny zatrzymania domeny aplikacji w pierwszej kolejności.
 
-Ponadto system monitorowania kondycji jest otwarty. Można na przykład definiowanie zdarzeń niestandardowych w sieci Web, wyzwalać je w aplikacji, a następnie zdefiniuj zasadę, aby wysyłać informacje dotyczące zdarzeń do dostawcy, takie jak wiadomości e-mail. Dzięki temu można łatwo powiązanie z Instrumentacji do monitorowania dostawców kondycji. Inny przykład może wyzwalać zdarzeń zawsze kolejności jest przetwarzany i skonfigurować regułę, która wysyła każdego zdarzenia do bazy danych programu SQL Server. Można również uruchomić zdarzenie, gdy użytkownik nie może zalogować się wiele razy pod rząd i skonfigurować zdarzenia do używania dostawcy opartych na wiadomościach e-mail.
+Ponadto system monitorowania kondycji jest otwarty. Można na przykład definiowanie zdarzeń niestandardowych w sieci Web, wyzwalać je w aplikacji, a następnie zdefiniuj zasadę, aby wysyłać informacje dotyczące zdarzeń do dostawcy, takie jak adres e-mail. Dzięki temu można łatwo powiązanie z Instrumentacji do monitorowania dostawców kondycji. Inny przykład może wyzwalać zdarzeń zawsze kolejności jest przetwarzany i skonfigurować regułę, która wysyła każdego zdarzenia do bazy danych programu SQL Server. Można również uruchomić zdarzenie, gdy użytkownik zakończy się niepowodzeniem, zaloguj się na kilka razy pod rząd i skonfigurować zdarzenia do używania dostawcy pocztą e-mail.
 
 Konfiguracja domyślnych dostawców i zdarzenia znajduje się w pliku Web.config globalnego. Globalne pliku Web.config są przechowywane wszystkie opartych na sieci Web ustawienia, które były przechowywane w pliku Machine.config w programie ASP.NET 1 x. Globalne plik Web.config znajduje się w następującym katalogu:
 
@@ -150,7 +150,7 @@ Konfiguracja domyślnych dostawców i zdarzenia znajduje się w pliku Web.config
 
 | **dostawców** | Zawiera dostawców dla podglądu zdarzeń, usługi WMI i SQL Server. |
 | --- | --- |
-| **eventMappings** | Zawiera mapowania dla różnych klas WebBase. Można rozszerzyć tę listę, jeśli Generowanie klasy zdarzeń. Generowanie klasy zdarzeń zapewnia bardziej szczegółowy za pośrednictwem dostawcy, możesz wysłać informacje. Na przykład można skonfigurować nieobsługiwanych wyjątków, które mają być wysyłane do programu SQL Server podczas wysyłania zdarzeń niestandardowych do wiadomości e-mail. |
+| **eventMappings** | Zawiera mapowania dla różnych klas WebBase. Można rozszerzyć tę listę, jeśli Generowanie klasy zdarzeń. Generowanie klasy zdarzeń zapewnia bardziej szczegółowy za pośrednictwem dostawcy, możesz wysłać informacje. Na przykład można skonfigurować nieobsługiwanych wyjątków, które mają być wysyłane do programu SQL Server podczas wysyłania zdarzeń niestandardowych do poczty e-mail. |
 | **reguły** | Łącza eventMappings dla dostawcy. |
 | **buforowanie** | Używane z dostawcami programu SQL Server i wiadomości e-mail do określania, jak często opróżnić zdarzenia dla dostawcy. |
 
@@ -196,15 +196,15 @@ Musisz dodać zasadę, aby skojarzyć eventMapping dostawcy i aplikacją odbiorn
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample10.xml)]
 
-## <a name="how-to-forward-events-to-e-mail"></a>Jak przesłać zdarzenia do wiadomości e-mail
+## <a name="how-to-forward-events-to-email"></a>Jak przesłać zdarzenia do poczty e-mail
 
-Można również przekazywania zdarzeń do wiadomości e-mail. Należy rozważnie reguły zdarzeń należy mapować dostawcy poczty e-mail, jak można przypadkowo wysłać samodzielnie wiele informacji, który może być lepiej nadaje się do programu SQL Server i dzienniku zdarzeń. Dwóch dostawców poczty e-mail; SimpleMailWebEventProvider i TemplatedMailWebEventProvider. Każdy ma takie same atrybuty konfiguracji, z wyjątkiem "szablon" i "detailedTemplateErrors" atrybuty, które są dostępne tylko na TemplatedMailWebEventProvider.
+Można również przekazywania zdarzeń do poczty e-mail. Należy rozważnie reguły zdarzeń należy mapować dostawcę poczty e-mail mogą przypadkowo wysłania samodzielnie wiele informacji które mogą być lepiej nadaje się do programu SQL Server i dzienniku zdarzeń. Dwóch dostawców poczty e-mail; SimpleMailWebEventProvider i TemplatedMailWebEventProvider. Każdy ma takie same atrybuty konfiguracji, z wyjątkiem "szablon" i "detailedTemplateErrors" atrybuty, które są dostępne tylko na TemplatedMailWebEventProvider.
 
 > [!NOTE]
 > Żadna z tych dostawców poczty e-mail nie jest skonfigurowana za użytkownika. Należy dodać je do pliku Web.config.
 
 
-Główną różnicą między tych dostawców dwóch e-mail jest SimpleMailWebEventProvider i wysyła wiadomości e-mail w ogólnym szablonie, który nie może być modyfikowany. Przykładowy plik Web.config dodaje ten dostawca wiadomości e-mail do listy dostawców skonfigurowany za pomocą następujących reguł:
+Główną różnicą między tych dwóch dostawcy jest SimpleMailWebEventProvider i wysyła wiadomości e-mail w ogólnym szablonie, który nie może być modyfikowany. Przykładowy plik Web.config dodaje ten dostawca poczty e-mail do listy dostawców skonfigurowany za pomocą następujących reguł:
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample11.xml)]
 

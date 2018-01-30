@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 title: Wprowadzenie do platformy ASP.NET MVC | Dokumentacja firmy Microsoft
 author: shanselman
-description: "Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utworzysz prostą aplikację sieci web odczytuje i zapisuje z bazy danych."
+description: "Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 msc.type: authoredcontent
-ms.openlocfilehash: b884c3c535929038f047e2c4ceedf9e7ca543292
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 08c30f4aab77bff64ed3ab874d13cc5dc863fc99
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="intro-to-aspnet-mvc"></a>Wprowadzenie do platformy ASP.NET MVC
 ====================
@@ -85,4 +85,4 @@ Spowoduje to Visual Web Developer uruchomić serwer sieci web development i uruc
 Poza pole ten szablon domyślny zawiera dwie strony do odwiedzenia i strony logowania podstawowe. Teraz zmienić sposób działania tej aplikacji i uzyskiwanie nieco ASP.NET MVC w procesie. Zamknij przeglądarkę i pozwala zmienić kodu.
 
 >[!div class="step-by-step"]
-[Dalej](getting-started-with-mvc-part2.md)
+[Next](getting-started-with-mvc-part2.md)

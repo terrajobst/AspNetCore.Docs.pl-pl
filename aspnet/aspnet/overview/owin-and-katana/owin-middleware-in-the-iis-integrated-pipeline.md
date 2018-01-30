@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 4e1270f9fb58032d22380117f4ec18b00bd725fc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5f6ed1ae0309e9bdd3ca4ae229195835f20bc729
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>Oprogramowanie pośredniczące OWIN w zintegrowanym potoku usług IIS
 ====================
@@ -78,7 +78,7 @@ Składniki oprogramowania pośredniczącego Owin (OMC) można skonfigurować do 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample8.cs)]
 
 1. Domyślnie OMCs jednocześnie ostatniego zdarzenia (`PreHandlerExecute`). Dlatego naszym pierwszym przykładowy kod wyświetlany "PreExecuteRequestHandler".
-2. Można użyć `pp.UseStageMarker` metodę, aby zarejestrować OMC, aby uruchomić wcześniej, na każdym etapie potoku OWIN na liście `PipelineStage` wyliczenia.
+2. Można użyć `app.UseStageMarker` metodę, aby zarejestrować OMC, aby uruchomić wcześniej, na każdym etapie potoku OWIN na liście `PipelineStage` wyliczenia.
 3. Potok OWIN i potoku usług IIS jest określona, w związku z tym wywołania `app.UseStageMarker` musi być w kolejności. Nie można ustawić programu obsługi zdarzeń zdarzenie poprzedza ostatnie zdarzenie zarejestrowany z `app.UseStageMarker`. Na przykład *po* wywołanie:
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample9.cmd)]

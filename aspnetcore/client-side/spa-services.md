@@ -2,19 +2,19 @@
 title: "Przy użyciu JavaScriptServices do tworzenia aplikacji jednej strony"
 author: scottaddie
 description: "Poznaj korzyści wynikające ze stosowania JavaScriptServices do utworzenia jednej strony aplikacji JEDNOSTRONICOWEJ obsługiwana przez platformy ASP.NET Core."
-ms.author: scaddie
 manager: wpickett
-ms.date: 08/02/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: client-side/spa-services
+ms.author: scaddie
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 514efcdd78957f999e46c521d0266f092f742538
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 08/02/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: client-side/spa-services
+ms.openlocfilehash: bd18d342de7c147e3588bd6daa3aebd68aa81c36
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Do tworzenia aplikacji jednej strony z platformy ASP.NET Core za pomocą JavaScriptServices
 
@@ -288,7 +288,7 @@ Otwórz *.csproj* plik utworzony przez `dotnet new` polecenia. Wymagane pakiety 
 
 ## <a name="testing-the-app"></a>Testowanie aplikacji
 
-Jest wstępnie skonfigurowana do uruchamiania testów po stronie klienta przy użyciu szablonów SpaServices [Karma](https://karma-runner.github.io/1.0/index.html) i [jaśmin](https://jasmine.github.io/). Jaśmin jest jednostka popularnych testowania framework dla języka JavaScript, Karma jest test runner do tych testów. Karma jest skonfigurowana do pracy z [oprogramowanie pośredniczące deweloperów Webpack](#webpack-dev-middleware) tak, aby nie trzeba zatrzymać i uruchomić test za każdym razem, gdy zostaną wprowadzone zmiany. Czy jest ono kodu uruchamianego przypadek testowy lub samego przypadek testowy, test jest uruchamiany automatycznie.
+Jest wstępnie skonfigurowana do uruchamiania testów po stronie klienta przy użyciu szablonów SpaServices [Karma](https://karma-runner.github.io/1.0/index.html) i [jaśmin](https://jasmine.github.io/). Jaśmin jest jednostka popularnych testowania framework dla języka JavaScript, Karma jest test runner do tych testów. Karma jest skonfigurowana do pracy z [oprogramowanie pośredniczące deweloperów Webpack](#webpack-dev-middleware) tak, aby projektanta nie jest wymagane, aby zatrzymać i uruchomić test za każdym razem, gdy zostaną wprowadzone zmiany. Czy jest ono kodu uruchamianego przypadek testowy lub samego przypadek testowy, test jest uruchamiany automatycznie.
 
 Korzystanie z aplikacji kątowego jako przykład dwóch przypadków testowych jaśmin są już udostępniane dla `CounterComponent` w *counter.component.spec.ts* pliku:
 

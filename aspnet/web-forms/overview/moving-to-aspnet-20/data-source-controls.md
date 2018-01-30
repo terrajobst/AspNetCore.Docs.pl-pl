@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-source-controls
 msc.type: authoredcontent
-ms.openlocfilehash: f40189796d3e25e9c337768cf04fdbfa293cdc2f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b1ac7fb62767d61c97fe00338bc0f5087f4863b5
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="data-source-controls"></a>Kontrolki źródła danych
 ====================
@@ -65,7 +65,7 @@ EnableCaching jest właściwości typu Boolean określającą czy buforowanie je
 
 Właściwość CacheDuration Ustawia liczbę sekund, które pamięci podręcznej pozostaje ważny. Ustawienie tej właściwości na **0** powoduje, że pamięci podręcznej, aby nadal obowiązują do momentu jawnie unieważnione.
 
-## <a name="cacheexpirationpolicy-property"></a>Właściwość CacheExpirationPolicy
+## <a name="cacheexpirationpolicy-property"></a>CacheExpirationPolicy Property
 
 Właściwość CacheExpirationPolicy może być ustawiona jako **bezwzględną** lub **ruchomej**. Ustawienie bezwzględnego oznacza, że liczby sekund określonej przez właściwość CacheDuration jest maksymalną ilość czasu, który dane będą buforowane. Przez ustawienie jej na ruchomej, czas wygaśnięcia zostaje zresetowany podczas każdej operacji.
 

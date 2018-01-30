@@ -1479,7 +1479,7 @@
 #### [Buforowanie w celu poprawienia wydajności witryny](web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website.md)
 #### [Analizowanie ruchu](web-pages/overview/performance-and-traffic/14-analyzing-traffic.md)
 #### [Tworzenie pakietów i minifikacja zasobów w witrynie ASP.NET Web Pages (Razor)](web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site.md)
-### [Odwołanie do biblioteki API](web-pages/overview/api-reference/index.md)
+### [Dokumentacja interfejsu API](web-pages/overview/api-reference/index.md)
 #### [Interfejs API platformy ASP.NET — krótki przewodnik](web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 ### [Wydania](web-pages/overview/releases/index.md)
 #### [Co nowego we wzorcu ASP.NET Web Pages 3.2](web-pages/overview/releases/whats-new-in-aspnet-web-pages-32.md)

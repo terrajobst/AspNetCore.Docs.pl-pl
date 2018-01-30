@@ -2,18 +2,18 @@
 title: "Składniki w widoku"
 author: rick-anderson
 description: "Składniki w widoku mają gdziekolwiek się, że logika renderowania wielokrotnego użytku."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: 65074ca02a1365db278d348d4e024121a6eb4634
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 27e77b8fa032c2b5be753a27db748b7499e27105
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="view-components"></a>Składniki w widoku
 
@@ -23,12 +23,12 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="introducing-view-components"></a>Wprowadzenie do składników widoku
 
-Nowy do platformy ASP.NET Core MVC, widok składniki są podobne do widoków częściowych, ale są one bardziej wydajne. Składniki w widoku nie używaj wiązania modelu i tylko zależą od podane podczas wywoływania w nim danych. Składnik widoku:
+Nowy do platformy ASP.NET Core MVC, widok składniki są podobne do widoków częściowych, ale są one bardziej wydajne. Składniki w widoku nie używaj wiązania modelu i tylko zależą od dostarczonych podczas wywoływania metody w nim danych. Składnik widoku:
 
-* Renderuje fragmentu, a nie całej odpowiedzi
-* Obejmuje takie same separacji z uwagi i korzyści z testowania znaleziono między kontrolerem a widokiem
-* Może mieć parametrów i logika biznesowa
-* Zazwyczaj jest wywoływany z stronę układu
+* Renderuje fragmentu, a nie całej odpowiedzi.
+* Obejmuje takie same separacji z uwagi i korzyści z testowania znaleziono między kontrolerem a widokiem.
+* Może mieć parametrów i logiki biznesowej.
+* Zazwyczaj jest wywoływane ze strony układu.
 
 Składniki w widoku mają gdziekolwiek się, że masz logiki renderowania wielokrotnego użytku, które jest zbyt złożony widoku częściowego, takich jak:
 
@@ -246,4 +246,4 @@ Dodaj `using` oświadczenie do użytkownika Razor wyświetlanie plików i używa
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Wstrzykiwanie zależności do widoków](dependency-injection.md)
+* [Wstrzykiwanie zależności do widoków](xref:mvc/views/dependency-injection)

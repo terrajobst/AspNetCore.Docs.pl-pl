@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: 7e6bff33e9ec1de03c591de6eee2e632c7b7509d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a5a495845b60f9aac51c9776311af67f5dc8767
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="membership"></a>Członkostwo
 ====================
@@ -120,7 +120,7 @@ Kontrolki widoku logowania jest szablonem formant, który udostępnia dwa szablo
 
 ## <a name="passwordrecovery-control"></a>Formant PasswordRecovery
 
-Formant PasswordRecovery umożliwia użytkownikom odbieranie wiadomości e-mail z bieżącego hasła lub zresetować swoje hasło. Zwykły tekst i hasła szyfrowane można odzyskać, a pocztą e-mail do użytkowników. Jeśli hasło jest wartość skrótu, nie można odzyskać. Zamiast tego użytkownik będzie musiał przeprowadzić resetowanie hasła.
+Formant PasswordRecovery umożliwia użytkownikom otrzymasz wiadomość e-mail z bieżącego hasła lub zresetować swoje hasło. Zwykły tekst i hasła szyfrowane można odzyskać, a pocztą e-mail do użytkowników. Jeśli hasło jest wartość skrótu, nie można odzyskać. Zamiast tego użytkownik będzie musiał przeprowadzić resetowanie hasła.
 
 ## <a name="loginstatus-control"></a>Kontrolki stanu logowania
 

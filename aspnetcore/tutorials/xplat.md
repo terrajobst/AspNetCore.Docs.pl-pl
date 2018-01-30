@@ -2,18 +2,18 @@
 title: Samouczki platformy ASP.NET Core
 author: rick-anderson
 description: "Lista przewodniki krok po kroku dotyczące poznanie metod tworzenia aplikacji platformy ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/xplat
-ms.openlocfilehash: d0cceb9779837d59695ddddb0d33d6b73dc5a9bc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: edec4d95715ae0965a80a656e16178db0b1874cd
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="aspnet-core-cross-platform-tutorials"></a>Platformy ASP.NET Core cross platform samouczki
 

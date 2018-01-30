@@ -2,18 +2,18 @@
 title: "Rejestrowanie wysokiej wydajności z LoggerMessage w ASP.NET Core"
 author: guardrex
 description: "Dowiedz się, jak utworzyć buforowalnej obiektów delegowanych, które wymagają mniej alokacji obiektu od metod rozszerzenia rejestratora w scenariuszach wysokiej wydajności logowania przy użyciu funkcji LoggerMessage."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 11/03/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: defba75c6c9ea13d24af4cd8515d82d9e7cf9853
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b155826b5047e88a79d9e339d7bca8885a79006d
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Rejestrowanie wysokiej wydajności z LoggerMessage w ASP.NET Core
 
@@ -92,7 +92,7 @@ Metody rozszerzenia statycznych dodawania oferty, `QuoteAdded`, otrzymuje warto�
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet10)]
 
-W pliku związanym z kodem strony indeksu (*Pages/Index.cshtml.cs*), `QuoteAdded` nosi nazwę logowania komunikat:
+W modelu strony strony indeksu (*Pages/Index.cshtml.cs*), `QuoteAdded` nosi nazwę logowania komunikat:
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
 
@@ -114,7 +114,7 @@ Należy zwrócić uwagę, jak wyjątek jest przekazywana do delegata `QuoteDelet
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet11)]
 
-W indeksu strony CodeBehind, usuwanie oferty pomyślne wywołanie `QuoteDeleted` metoda rejestratora. Gdy oferta nie zostanie odnaleziony do usunięcia, `ArgumentNullException` jest generowany. Wyjątkiem jest to spowodowane `try` &ndash; `catch` instrukcji i rejestrowane przez wywołanie metody `QuoteDeleteFailed` metoda rejestratora w `catch` bloku (*Pages/Index.cshtml.cs*):
+W modelu strony dla strony indeksu, usuwanie oferty pomyślne wywołanie `QuoteDeleted` metoda rejestratora. Gdy oferta nie zostanie odnaleziony do usunięcia, `ArgumentNullException` jest generowany. Wyjątkiem jest to spowodowane `try` &ndash; `catch` instrukcji i rejestrowane przez wywołanie metody `QuoteDeleteFailed` metoda rejestratora w `catch` bloku (*Pages/Index.cshtml.cs*):
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
 
@@ -141,7 +141,7 @@ Parameter name: entity
       <PATH>\sample\Pages\Index.cshtml.cs:line 87
 ```
 
-## <a name="implementing-loggermessagedefinescope"></a>Implementowanie LoggerMessage.DefineScope
+## <a name="implementing-loggermessagedefinescope"></a>Implementing LoggerMessage.DefineScope
 
 Zdefiniuj [dziennika zakres](xref:fundamentals/logging/index#log-scopes) do zastosowania do serii komunikaty dziennika przy użyciu [DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) metody.
 

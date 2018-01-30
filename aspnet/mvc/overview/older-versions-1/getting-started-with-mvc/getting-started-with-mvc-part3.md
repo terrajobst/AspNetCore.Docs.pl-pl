@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 title: Dodawanie widoku | Dokumentacja firmy Microsoft
 author: shanselman
-description: "Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utworzysz prostą aplikację sieci web odczytuje i zapisuje z bazy danych."
+description: "Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
-ms.openlocfilehash: 509dd301eef7c00431eae194a0df69d70e6d80f8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8725d054861c857ceac10a42b0cc3f2afe056aea
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="adding-a-view"></a>Dodawanie widoku
 ====================
@@ -112,7 +112,7 @@ Dodaj ten kod w obszarze &lt;h2&gt; w Twoje nowe Welcome.aspx. Firma Microsoft b
 
 Należy również zwrócić uwagę podczas pisania który ponieważ informację firma Microsoft, to widok o WelcomeViewModel (są one traktowaniem, pamiętaj?) czy uzyskujemy przydatne Intellisense zawsze możemy odwołuje się do naszej modelu obiektu wyświetlanego na zrzucie ekranu poniżej:
 
-[![Kod źródłowy NumTime](getting-started-with-mvc-part3/_static/image12.png)](getting-started-with-mvc-part3/_static/image11.png)
+[![NumTime Source Code](getting-started-with-mvc-part3/_static/image12.png)](getting-started-with-mvc-part3/_static/image11.png)
 
 Uruchom aplikację, a następnie odwiedź `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` ponownie. Teraz Przenosimy dane z adresu URL, jest on automatycznie przekazywane do kontrolera, kontrolera pakietów zapasową danych do ViewModel i przekazuje ten obiekt na naszych widoku. Widok nie wyświetla dane w postaci kodu HTML dla użytkownika.
 

@@ -2,19 +2,19 @@
 title: "Tworzenie pomocników tagów w platformy ASP.NET Core"
 author: rick-anderson
 description: "Dowiedz się, jak tworzyć pomocników tagów w ASP.NET Core."
-ms.author: riande
 manager: wpickett
-ms.date: 01/19/2018
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/views/tag-helpers/authoring
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1f1b2c2e60a1337c15f019185c764d0a9ada1b5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 01/19/2018
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/views/tag-helpers/authoring
+ms.openlocfilehash: 040c26bfccb8f258b0941bed4bc936cf7a16324a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Autor pomocników tagów w ASP.NET Core wskazówki próbki
 

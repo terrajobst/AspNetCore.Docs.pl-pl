@@ -2,18 +2,18 @@
 title: WebListener implementacja serwera sieci web platformy ASP.NET Core
 author: rick-anderson
 description: "Wprowadza WebListener, serwer sieci web platformy ASP.NET Core w systemie Windows. W oparciu sterownik trybu jądra Http.Sys, WebListener stanowi alternatywę dla Kestrel, który może służyć do bezpośredniego połączenia z Internetem bez usług IIS."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 08/07/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 5073a1663ec99a1b161092d74ab035ee9782becd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: fb2e0621645a48f4e603d754d8babbc07a78cae4
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>WebListener implementacja serwera sieci web platformy ASP.NET Core
 

@@ -2,18 +2,18 @@
 title: "Tworzenie aplikacji platformy ASP.NET Core za pomocą czujki dotnet"
 author: rick-anderson
 description: "Ten samouczek pokazuje, jak zainstalować i używać narzędzia obserwatora (dotnet czujki) pliku .NET Core CLI w aplikacji platformy ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/05/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: cadd4a6a78c29e2213c39a02729b5c32a2b93ebd
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: cb15e28cb98ea82091cf5ddeed12df8926079e52
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>Tworzenie aplikacji platformy ASP.NET Core za pomocą czujki dotnet
 

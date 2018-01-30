@@ -6,7 +6,7 @@ Podczas uruchamiania próbki, odpowiedź zostanie obsłużona pokazujący nowych
 
 ## <a name="examples-in-this-sample"></a>Przykłady w tym przykładzie
 
-* `AddRedirect("redirect-rule/(.*)", "$1")`
+* `AddRedirect("redirect-rule/(.*)", "redirected/$1")`
   - Kod stanu powodzenia: 302 (Found)
   - Przykład (przekierowanie): **/redirect-rule / {capture_group}** do **/redirected/ {capture_group}**
 * `AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", skipRemainingRules: true)`

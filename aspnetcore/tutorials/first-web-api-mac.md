@@ -1,26 +1,26 @@
 ---
 title: "Tworzenie składnika Web API platformy ASP.NET Core i programu Visual Studio dla komputerów Mac"
-description: "Tworzenie składnika Web API platformy ASP.NET Core MVC i programu Visual Studio dla komputerów Mac"
 author: rick-anderson
+description: "Tworzenie składnika Web API platformy ASP.NET Core MVC i programu Visual Studio dla komputerów Mac"
+helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
+manager: wpickett
 ms.author: riande
 ms.date: 09/15/2017
-ms.topic: get-started-article
 ms.prod: asp.net-core
-uid: tutorials/first-web-api-mac
-helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
 ms.technology: aspnet
-manager: wpickett
-ms.openlocfilehash: 4f2643a91e1523008b68df670a9734e3d4dea5a8
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.topic: get-started-article
+uid: tutorials/first-web-api-mac
+ms.openlocfilehash: b0e1a331fe3229119f4669fa336b6af4822785bf
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Tworzenie składnika Web API platformy ASP.NET Core MVC i programu Visual Studio dla komputerów Mac
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Wasson Jan](https://github.com/mikewasson)
 
-W tym samouczku będziesz kompilacji interfejsu API sieci web do zarządzania listę elementów "do wykonania". Nie Konstruuj interfejsu użytkownika.
+W tym samouczku kompilacji interfejsu API sieci web do zarządzania listę elementów "do wykonania". Nie jest zbudowana w Interfejsie użytkownika.
 
 Istnieją 3 wersje tego samouczka:
 

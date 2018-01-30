@@ -2,18 +2,18 @@
 title: Routing do akcji kontrolera
 author: rick-anderson
 description: 
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 03/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/controllers/routing
-ms.openlocfilehash: 497ce47fa567f163cb7b1eb891408f0100d15b8a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ca4f40766b4ec3d59587109ec9d5a412e834e3ce
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="routing-to-controller-actions"></a>Routing do akcji kontrolera
 

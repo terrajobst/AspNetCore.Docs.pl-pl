@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: f0224bcd2badc423ba5146feacccc44b8f33a608
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 29d5b2f4c04b899b900427ac202c0a4f57f8076f
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Program ASP.NET 4 i omówienie tworzenia sieci Web programu Visual Studio 2010
 ====================
@@ -1218,7 +1218,7 @@ Nowe szablony jednostki są wyświetlane na stronie przy użyciu nowej *Dynamicc
 
 <a id="0.2__Toc224729045"></a><a id="0.2__Toc253429282"></a><a id="0.2__Toc243304653"></a>
 
-### <a name="new-field-templates-for-urls-and-e-mail-addresses"></a>Nowe szablony pola adresy URL i adresów E-mail
+### <a name="new-field-templates-for-urls-and-email-addresses"></a>Nowe szablony pola adresy URL i adresów E-mail
 
 ASP.NET 4 wprowadza dwa nowe szablony wbudowane pole `EmailAddress.ascx` i `Url.ascx`. Te szablony służą do pola, które są oznaczone jako *EmailAddress* lub *adres Url* z *DataType* atrybutu. Aby uzyskać *EmailAddress* obiekty, w polu jest wyświetlana jako hiperłącze, która jest tworzona przy użyciu *mailto:* protokołu. Gdy użytkownik kliknie łącze, otwiera klienta poczty e-mail użytkownika i tworzy komunikat szkielet. Obiekty typu *adres Url* są wyświetlane jako zwykłej hiperłącza.
 

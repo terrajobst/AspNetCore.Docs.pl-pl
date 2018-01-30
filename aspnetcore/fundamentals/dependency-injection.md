@@ -1,22 +1,22 @@
 ---
-title: "Iniekcji zależności w platformy ASP.NET Core"
+title: "Iniekcji zależności w ASP.NET Core"
 author: ardalis
 description: "Dowiedz się, jak platformy ASP.NET Core implementuje iniekcji zależności i jak z niego korzystać."
-ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/dependency-injection
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a5a0991694b2c7caa79dbc09f6471d614f67dac
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 10/14/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/dependency-injection
+ms.openlocfilehash: acbce5d139da0acc0870a9cf23a779bf27699a61
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="introduction-to-dependency-injection-in-aspnet-core"></a>Wprowadzenie do iniekcji zależności w platformy ASP.NET Core
+# <a name="dependency-injection-in-aspnet-core"></a>Iniekcji zależności w ASP.NET Core
 
 <a name="fundamentals-dependency-injection"></a>
 
@@ -71,7 +71,7 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 }
 ```
 
-## <a name="using-framework-provided-services"></a>Za pomocą usług dostarczonych Framework
+## <a name="using-framework-provided-services"></a>Za pomocą usług dostarczonych framework
 
 `ConfigureServices` Metoda `Startup` klasy jest odpowiedzialny za definiowanie usługi aplikacja będzie korzystać, w tym funkcji platformy Entity Framework Core i ASP.NET Core MVC. Początkowo `IServiceCollection` do `ConfigureServices` ma następujące usługi zdefiniowane (w zależności od [konfiguracji hosta](xref:fundamentals/hosting)):
 
@@ -101,7 +101,7 @@ Funkcje i oprogramowanie pośredniczące dostarczane przez platformę ASP.NET, t
 >[!TIP]
 > Możesz poprosić o pewnych usług dostarczonych framework w `Startup` Zobacz metody za pomocą ich listy parametrów - [uruchamiania aplikacji](startup.md) więcej szczegółów.
 
-## <a name="registering-your-own-services"></a>Rejestrowanie własnych usług
+## <a name="registering-services"></a>Rejestrowanie usługi
 
 Usługi aplikacji można zarejestrować w następujący sposób. Pierwszy ogólny typ reprezentuje typ (zazwyczaj interfejs) żądany z kontenera. Drugi typ ogólny reprezentuje typu konkretnego, który zostanie uruchomiony przez kontener i będzie używana do spełnienia takich żądań.
 
@@ -206,7 +206,7 @@ Ogólnie rzecz biorąc nie można używać tych właściwości bezpośrednio, za
 > [!NOTE]
 > Preferowane jest żądaniem zależności jako parametry konstruktora do uzyskiwania dostępu do `RequestServices` kolekcji.
 
-## <a name="designing-your-services-for-dependency-injection"></a>Projektowanie usług iniekcji zależności
+## <a name="designing-services-for-dependency-injection"></a>Projektowanie usług iniekcji zależności
 
 Zalecane jest zaprojektowanie usług na iniekcji zależności swoich współpracowników. Oznacza to, unikając stosowania wywołania metody statycznej stanowe (co spowodować zapachu kodu, znany jako [statycznych przylepna](http://deviq.com/static-cling/)) i bezpośrednie tworzenie wystąpień klas zależnych w ramach usługi. Pomocne może zapamiętać hasło, [nowych jest sklejki](https://ardalis.com/new-is-glue), w przypadku wybrania, czy można utworzyć wystąpienia typu lub żądania za pomocą iniekcji zależności. Wykonując [stałych zasad z zorientowane na projekt obiektu](http://deviq.com/solid/), klas naturalnie będzie często za mały, dobrze factored i łatwo przetestowane.
 
@@ -314,14 +314,9 @@ Należy pamiętać, że iniekcji zależności *alternatywnych* do wzorce dostęp
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Uruchamianie aplikacji](startup.md)
-
-* [Testowanie](../testing/index.md)
-
+* [Uruchamianie aplikacji](xref:fundamentals/startup)
+* [Testowanie](xref:testing/index)
 * [Czysty kod platformy ASP.NET Core z iniekcji zależności (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
-
 * [Projekt aplikacji zarządzanych przez kontener, Prelude: Gdzie jest kontener należeć?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
-
 * [Zasada jawne zależności](http://deviq.com/explicit-dependencies-principle/)
-
 * [Inwersja kontroli kontenerów i wzorzec iniekcji zależności](https://www.martinfowler.com/articles/injection.html) (Fowler)

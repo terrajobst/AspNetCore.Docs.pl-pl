@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 862f07defafb2d2613fef9f76f13aab0b11c5440
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7792891aed6f0c5e952018dacb36a1d267cb6ae0
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-vb"></a>Wdrażanie witryny przy użyciu klienta FTP (VB)
 ====================
@@ -48,7 +48,7 @@ Odwołaj, że istnieją dwie wersje aplikacji sieci web Przejrzyj książki: jed
 
 Uruchom projekt BookReviewsWAP, przechodząc do `BookReviewsWAP` folder i dwukrotnie `BookReviewsWAP.sln` pliku. Przed wdrożeniem projekt należy do kompilacji, aby upewnić się, że wszystkie zmiany do kodu źródłowego są uwzględniane w skompilowanym zestawie. Aby skompilować projekt przejdź do menu Kompiluj i wybierz opcję menu BookReviewsWAP kompilacji. To kompiluje kod źródłowy w projekcie w ramach jednego zestawu `BookReviewsWAP.dll`, który znajduje się w `Bin` folderu.
 
-Firma Microsoft są teraz gotowe do wdrożenia wymaganych plików! Uruchom klienta FTP i połączyć się z serwerem sieci web u dostawcy usługi hosta sieci web. (Po utworzeniu konta z hostingu firmy będą one e-mail informacji na temat łączenia się z serwerem FTP; dotyczy to również adres serwera FTP oraz nazwę użytkownika i hasło).
+Firma Microsoft są teraz gotowe do wdrożenia wymaganych plików! Uruchom klienta FTP i połączyć się z serwerem sieci web u dostawcy usługi hosta sieci web. (Po utworzeniu konta z hostingu firmy one otrzymasz wiadomość e-mail informacji na temat łączenia się z serwerem FTP; dotyczy to również adres serwera FTP oraz nazwę użytkownika i hasło).
 
 Skopiuj następujące pliki z pulpitu w folderze głównym witryny sieci Web u dostawcy usługi hosta sieci web. Jeśli FTP do serwera sieci web w sieci web dostawcy najprawdopodobniej w katalogu głównym witryny sieci Web. Jednak niektóre dostawców usług hosta sieci web ma podfolder o nazwie `www` lub `wwwroot` służy jako folder główny dla plików witryny sieci Web. Na koniec po FTPing plików może być konieczne utworzenie odpowiednich struktury folderów w środowisku produkcyjnym — `Bin` folderu, `Fiction` folderu `Images` folder i tak dalej.
 

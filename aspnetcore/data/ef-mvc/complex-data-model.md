@@ -2,18 +2,18 @@
 title: "Platformy ASP.NET Core MVC podstawowych EF — Model danych — 5 10"
 author: tdykstra
 description: "W tym samouczku można dodać więcej jednostki i relacje i dostosować modelu danych, określając formatowania, sprawdzanie poprawności i reguły mapowania bazy danych."
-ms.author: tdykstra
 manager: wpickett
+ms.author: tdykstra
 ms.date: 03/15/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: d844e2a69e4bbfdf3942f2666ead0047bdf83b7a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ac30d9ae5531934ba5163a8d9114b11ac54af8d2
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Tworzenie modelu danych złożonych - Core EF z samouczek platformy ASP.NET Core MVC (5, 10)
 

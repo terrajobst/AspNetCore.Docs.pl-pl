@@ -2,19 +2,19 @@
 title: "Pomocników tagów w formularzy w programie ASP.NET Core"
 author: rick-anderson
 description: "W tym artykule opisano wbudowane pomocników tagów używane w formularzach."
-ms.author: riande
 manager: wpickett
-ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/views/working-with-forms
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fd51755e1dc9a1dfb9ab5cc4558f7da9475ce32
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 02/14/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/views/working-with-forms
+ms.openlocfilehash: 805c2ba5b3a9669d5547e1c595883436eea0d11a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Wprowadzenie do korzystania z pomocników tagów w formularzy w programie ASP.NET Core
 
@@ -143,7 +143,7 @@ Powyższy kod generuje poniższy kod HTML:
   <form method="post" action="/Demo/RegisterInput">
        Email:
        <input type="email" data-val="true"
-              data-val-email="The Email Address field is not a valid e-mail address."
+              data-val-email="The Email Address field is not a valid email address."
               data-val-required="The Email Address field is required."
               id="Email" name="Email" value="" /> <br>
        Password:
@@ -382,7 +382,7 @@ Wygenerowany kod HTML, (Jeśli model jest nieprawidłowy):
   <ul><li style="display:none"></li></ul></div>
   Email:  <input name="Email" id="Email" type="email" value=""
    data-val-required="The Email field is required."
-   data-val-email="The Email field is not a valid e-mail address."
+   data-val-email="The Email field is not a valid email address."
    data-val="true"> <br>
   <span class="field-validation-valid" data-valmsg-replace="true"
    data-valmsg-for="Email"></span><br>
@@ -572,16 +572,10 @@ Poprawny `<option>` będzie można wybrać elementu (zawierać `selected="select
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Pomocnicy tagów](tag-helpers/intro.md)
-
+* [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro)
 * [Element formularza HTML](https://www.w3.org/TR/html401/interact/forms.html)
-
-* [Token weryfikacji żądania](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
-
-* [Wiązanie modelu](../models/model-binding.md)
-
-* [Weryfikacja modelu](../models/validation.md)
-
-* [adnotacji danych](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)
-
-* [Kod fragmenty kodu dla tego dokumentu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample).
+* [Token weryfikacji żądania](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
+* [Wiązanie modelu](xref:mvc/models/model-binding)
+* [Weryfikacja modelu](xref:mvc/models/validation)
+* [Interfejs IAttributeAdapter](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
+* [Wstawki kodu dla tego dokumentu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample)

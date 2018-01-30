@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: ac8e7fee7600dabb8f4970b5bf87ad7a57ebf17f
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 6c233d0957ce9974adbc6112e6194c072aab0b41
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="bundling-and-minification"></a>Tworzenie pakietów i minimalizowanie
 
@@ -27,7 +27,7 @@ W tym artykule opisano zalety stosowania tworzenie pakietów i minimalizowanie, 
 
 Tworzenie pakietów i minimalizowanie są dwa optymalizacji wydajności distinct, które można zastosować w aplikacji sieci web. Używane razem, tworzenie pakietów i minimalizowanie zwiększyć wydajność przez zmniejszenie liczby żądań serwera oraz redukcję rozmiaru żądanych zasobów statycznych.
 
-Tworzenie pakietów i minimalizowanie głównie zwiększyć czas ładowania pierwsze żądanie strony. Gdy zażądano strony sieci web, przeglądarka buforuje zasoby statyczne (JavaScript, CSS i obrazy). W związku z tym tworzenie pakietów i minimalizowanie nie zwiększyć wydajność podczas żądania tej samej stronie lub strony w tej samej witrynie żąda tego samego zasoby. Jeśli nie ustawisz wygasa nagłówka poprawnie na zasobów, a jeśli nie używasz tworzenie pakietów i minimalizowanie heurystyki świeżości przeglądarki oznaczyć zasoby starych po upływie kilku dni. Ponadto przeglądarka wymaga żądanie sprawdzania poprawności dla każdego zasobu. W takim przypadku tworzenie pakietów i minimalizowanie zapewnić lepszą wydajność, nawet po pierwszym żądaniu strony.
+Tworzenie pakietów i minimalizowanie głównie zwiększyć czas ładowania pierwsze żądanie strony. Gdy zażądano strony sieci web, przeglądarka buforuje zasoby statyczne (JavaScript, CSS i obrazy). W związku z tym tworzenie pakietów i minimalizowanie nie zwiększyć wydajność podczas żądania tej samej stronie lub strony w tej samej witrynie żąda tego samego zasoby. Jeśli wygasa nagłówka nie jest poprawnie ustawiona na zasoby i tworzenie pakietów i minimalizowanie nie jest używany algorytm heurystyczny świeżości przeglądarki oznaczyć zasoby starych po upływie kilku dni. Ponadto przeglądarka wymaga żądanie sprawdzania poprawności dla każdego zasobu. W takim przypadku tworzenie pakietów i minimalizowanie zapewnić lepszą wydajność, nawet po pierwszym żądaniu strony.
 
 ### <a name="bundling"></a>Tworzenie pakietów
 
@@ -220,11 +220,11 @@ Określ pliki, których ma obejmować na swoich stronach za pomocą [pomocnika T
 
 Następujące `environment` tag renderuje nieprzetworzone pliki CSS w `Development` środowiska:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
@@ -232,11 +232,11 @@ Następujące `environment` tag renderuje nieprzetworzone pliki CSS w `Developme
 
 Następujące `environment` tag renderuje pliki CSS powiązane i zminimalizowany podczas uruchamiania w środowisku innym niż `Development`. Na przykład uruchomiona `Production` lub `Staging` wyzwala renderowania tych arkuszy stylów:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[Program ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[Program ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
@@ -320,4 +320,4 @@ Alternatywnie Eksploratora modułu uruchamiającego zadania programu Visual Stud
 * [Korzystanie z Gulp](xref:client-side/using-gulp)
 * [Korzystanie z Grunt](xref:client-side/using-grunt)
 * [Praca w środowiskach wielu](xref:fundamentals/environments)
-* [Pomocników tagów](xref:mvc/views/tag-helpers/intro)
+* [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro)

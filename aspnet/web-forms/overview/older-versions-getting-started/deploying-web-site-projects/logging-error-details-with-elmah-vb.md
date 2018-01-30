@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 41e1f8673b42571a9dcbdae668a30426fe90f42f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b4bba02449debff17422f6b7008247fdf61856c8
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="logging-error-details-with-elmah-vb"></a>Szczegóły rejestrowania błędów ELMAH (VB)
 ====================
@@ -29,7 +29,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Wprowadzenie
 
-[Poprzedniego samouczek](logging-error-details-with-asp-net-health-monitoring-vb.md) zbadane ASP. Monitorowania systemu, które oferuje poza biblioteki pole dla rejestrowanych zdarzeń sieci Web szerokiej gamy kondycji w sieci. Deweloperzy wiele za pomocą monitorowania do logowania i wiadomości e-mail szczegółowe informacje o nieobsługiwanych wyjątków kondycji. Istnieje jednak kilka słabe punkty z tym systemem. Najpierw jest brak dowolny rodzaj interfejs użytkownika służący do wyświetlania informacji o zarejestrowane zdarzenia. Jeśli chcesz wyświetlić podsumowanie 10 ostatnich błędów lub wyświetlić szczegóły błędu, które wystąpiły w ostatnim tygodniu, musi albo umieszczanie za pośrednictwem bazy danych, skanowania za pośrednictwem skrzynki odbiorczej poczty e-mail lub tworzenia strony sieci web, który wyświetla informacje z `aspnet_WebEvent_Events` tabeli.
+[Poprzedniego samouczek](logging-error-details-with-asp-net-health-monitoring-vb.md) zbadane ASP. Monitorowania systemu, które oferuje poza biblioteki pole dla rejestrowanych zdarzeń sieci Web szerokiej gamy kondycji w sieci. Deweloperzy wiele za pomocą monitorowania do logowania i wysłanie szczegółów nieobsługiwanych wyjątków kondycji. Istnieje jednak kilka słabe punkty z tym systemem. Najpierw jest brak dowolny rodzaj interfejs użytkownika służący do wyświetlania informacji o zarejestrowane zdarzenia. Jeśli chcesz wyświetlić podsumowanie 10 ostatnich błędów lub wyświetlić szczegóły błędu, które wystąpiły w ostatnim tygodniu, musi albo umieszczanie za pośrednictwem bazy danych, skanowania za pośrednictwem skrzynki odbiorczej poczty e-mail lub tworzenia strony sieci web, który wyświetla informacje z `aspnet_WebEvent_Events` tabeli.
 
 Inny punkt słabe koncentruje się wokół monitorowanie kondycji złożoności. Ponieważ monitorowanie kondycji służy do rejestrowania nadmiar różnych zdarzeń, a istnieją różne opcje poinstruowanie, jak i kiedy zdarzenia są rejestrowane, poprawne skonfigurowanie kondycji systemu monitorowania może być uciążliwe zadań. Na koniec występują problemy ze zgodnością. Ponieważ monitorowanie kondycji najpierw został dodany do programu .NET Framework w wersji 2.0, nie jest dostępny dla starszych aplikacji sieci web utworzony za pomocą wersji platformy ASP.NET 1.x. Ponadto `SqlWebEventProvider` klasy, które zostały użyte podczas poprzedniego w samouczku szczegóły błędu dzienniki do bazy danych, działa tylko w przypadku baz danych programu Microsoft SQL Server. Należy utworzyć klasę dostawcy dziennik niestandardowy potrzebujesz rejestrować błędy do magazynu danych, takich jak plik XML lub z bazą danych Oracle.
 
@@ -199,27 +199,27 @@ Teraz można wyświetlić dziennik błędów w środowisku produkcyjnym przez u�
 
 W ELMAH `ErrorLogModule` źródło określony dziennik moduł HTTP automatycznie rejestruje nieobsługiwanych wyjątków. Alternatywnie można rejestrować błąd bez konieczności podniesienia nieobsługiwany wyjątek przy użyciu `ErrorSignal` klasy i jej `Raise` metody. `Raise` Metody jest przekazywany `Exception` obiektu i rejestruje go tak, jakby ten wyjątek ma zostać zgłoszony i osiągnął środowiska uruchomieniowego ASP.NET nie jest obsługiwane. Różnica, jest jednak, że żądanie nadal wykonywane zwykle po `Raise` metoda została wywołana, element zgłaszany, nieobsługiwany wyjątek przerwania normalne wykonywanie żądania i powoduje, że moduł wykonawczy platformy ASP.NET można wyświetlić skonfigurowanych Strona błędu.
 
-`ErrorSignal` Klasy jest przydatne w sytuacjach, gdy istnieje niektóre akcje, które może zakończyć się niepowodzeniem, ale jego uszkodzenia nie jest krytycznego do ogólnej wykonywanej operacji. Na przykład witryna sieci Web może zawierać formularz, który przyjmuje danych wejściowych użytkownika, jest on przechowywany w bazie danych, a następnie wysyła użytkownika wiadomość e-mail informująca że przetworzono informacji. Co powinno się zdarzyć, jeśli informacje są zapisywane w bazie danych pomyślnie, ale występuje błąd podczas wysyłania wiadomości e-mail? Jedną z opcji będzie Zgłoś wyjątek i wysłać do użytkownika do strony błędu. Jednak może to mylić użytkownika do planowania, który nie został zapisany wprowadzone informacje. Innym rozwiązaniem jest błąd związany z wiadomościami e-mail, ale nie mogą zmieniać środowisko użytkownika w dowolny sposób. Jest to, gdy `ErrorSignal` przydaje się klasy.
+`ErrorSignal` Klasy jest przydatne w sytuacjach, gdy istnieje niektóre akcje, które może zakończyć się niepowodzeniem, ale jego uszkodzenia nie jest krytycznego do ogólnej wykonywanej operacji. Na przykład witryna sieci Web może zawierać formularz, który przyjmuje danych wejściowych użytkownika, jest on przechowywany w bazie danych, a następnie wysyła użytkownika wiadomość e-mail informująca że przetworzono informacji. Co powinno się zdarzyć, jeśli informacje są zapisywane w bazie danych pomyślnie, ale występuje błąd podczas wysyłania wiadomości e-mail? Jedną z opcji będzie Zgłoś wyjątek i wysłać do użytkownika do strony błędu. Jednak może to mylić użytkownika do planowania, który nie został zapisany wprowadzone informacje. Innym rozwiązaniem byłoby dziennika błędów związanych z pocztą e-mail, ale nie mogą zmieniać środowisko użytkownika w dowolny sposób. Jest to, gdy `ErrorSignal` przydaje się klasy.
 
 [!code-vb[Main](logging-error-details-with-elmah-vb/samples/sample6.vb)]
 
-## <a name="error-notification-via-e-mail"></a>Błąd powiadomienia pocztą E-Mail
+## <a name="error-notification-via-email"></a>Powiadomienie o błędzie za pośrednictwem poczty E-mail
 
-Wraz z rejestrowania błędów do bazy danych można również skonfigurować do wiadomości e-mail szczegółów błędów do określonego adresata ELMAH. Ta funkcja jest zapewniana przez `ErrorMailModule` modułu HTTP; w związku z tym należy zarejestrować ten moduł HTTP w `Web.config` Aby wysyłać szczegóły błędu za pośrednictwem poczty e-mail.
+Wraz z rejestrowania błędów do bazy danych można również skonfigurować do określonego adresata poczty e-mail szczegóły błędów ELMAH. Ta funkcja jest zapewniana przez `ErrorMailModule` modułu HTTP; w związku z tym należy zarejestrować ten moduł HTTP w `Web.config` Aby wysyłać szczegóły błędu za pośrednictwem poczty e-mail.
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample7.xml)]
 
-Następnie określ informacje o błąd wiadomości e-mail w `<elmah>` elementu `<errorMail>` sekcji i wskazujący e-mail. nadawca i odbiorca, temat, i czy adres e-mail są wysyłane asynchronicznie.
+Następnie określ informacje dotyczące wiadomości e-mail błąd w `<elmah>` elementu `<errorMail>` sekcji i wskazujący nadawca i odbiorca, temat, adresu e-mail i określa, czy wiadomości e-mail są wysyłane asynchronicznie.
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample8.xml)]
 
 Z powyższymi ustawieniami w miejscu, gdy błąd środowiska uruchomieniowego występuje ELMAH wysyła wiadomość e-mail do support@example.com szczegóły błędu. ELMAH na błąd w wiadomości e-mail zawiera te same informacje wyświetlany błąd szczegóły stronie sieci web, czyli komunikat o błędzie, ślad stosu i zmiennych serwera (odwołują się do **rysunki 4** i **5**). Błąd wiadomości e-mail zawiera również zawartości wyjątku szczegóły żółty ekranem śmierci jako załącznik (`YSOD.html`).
 
-**Rysunek 8** przedstawiono w ELMAH błąd e-mail jest generowana odwiedzając `Genre.aspx?ID=foo`. Gdy **rysunek 8** pokazuje tylko błąd komunikat i stos śledzenia, zmiennych serwera uwzględniono dodatkowe w dół w treści wiadomości e-mail.
+**Rysunek 8** pokazuje ELMAH przez błąd e-mail generowane po przejściu na stronę `Genre.aspx?ID=foo`. Gdy **rysunek 8** pokazuje tylko błąd komunikat i stos śledzenia, zmiennych serwera są dołączone dodatkowe w dół w treści wiadomości e-mail.
 
 [![](logging-error-details-with-elmah-vb/_static/image21.png)](logging-error-details-with-elmah-vb/_static/image20.png)
 
-**Rysunek 8**: można skonfigurować ELMAH wysłać informacje o błędzie za pośrednictwem poczty E-Mail  
+**Rysunek 8**: można skonfigurować ELMAH wysłać informacje o błędzie za pośrednictwem poczty E-mail  
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](logging-error-details-with-elmah-vb/_static/image22.png))
 
 ## <a name="only-logging-errors-of-interest"></a>Tylko rejestrowania błędów zainteresowań

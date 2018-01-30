@@ -2,18 +2,18 @@
 title: Stron razor podstawowych EF - CRUD - 2 8
 author: rick-anderson
 description: "Przedstawia sposób tworzenia, odczytu, aktualizowanie i usuwanie EF podstawowych"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/15/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: d9b34c141401fbeaafe439fae1a7a75f2fe7b4ae
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 757aeb713b645cea0fe633b150784184d2d3571e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Tworzenia, odczytu, aktualizacji i usuwania - Core EF Razor strony (2 8)
 
@@ -23,7 +23,7 @@ Przez [Dykstra Tomasz](https://github.com/tdykstra), [Jan Kowalski P](https://tw
 
 W tym samouczku CRUD szkieletu (tworzenia, odczytu, aktualizowanie i usuwanie) kodu jest przejrzeć i dostosować.
 
-Uwaga: Aby zminimalizować złożoność i zachować te samouczki koncentruje się na podstawowych EF, EF Core kod jest używany w plikach Razor strony związane z kodem. Niektórzy deweloperzy Użyj wzorca usługi warstwy lub repozytorium w, aby utworzyć warstwę abstrakcji między interfejsu użytkownika (Razor strony) i warstwa dostępu do danych.
+Uwaga: Aby zminimalizować złożoność i zachować te samouczki koncentruje się na podstawowych EF, EF Core kod jest używany w modelach strony stron Razor. Niektórzy deweloperzy Użyj wzorca usługi warstwy lub repozytorium w, aby utworzyć warstwę abstrakcji między interfejsu użytkownika (Razor strony) i warstwa dostępu do danych.
 
 W w tym samouczku, tworzenia, edycji, usuwania i szczegóły stron Razor w *uczniowie* folderu zostaną zmodyfikowane.
 
@@ -147,7 +147,7 @@ Wartość "OverPost" został pomyślnie dodany do `Secret` właściwości wstawi
 <a name="vm"></a>
 ### <a name="view-model"></a>Model widoku
 
-Model widoku zwykle zawiera podzbiór właściwości zawarte w modelu używanego przez aplikację. Model aplikacji jest często nazywana modelu domeny. Model domeny zwykle zawiera wszystkie właściwości wymagane przez odpowiednie jednostkę w bazie danych. Model widoku zawiera tylko właściwości, które są potrzebne dla warstwy interfejsu użytkownika (na przykład tworzenia strony). Oprócz modelu widoku niektóre aplikacje za pomocą powiązania modelu lub modelu wejściowych przekazywania danych między klasę CodeBehind stron Razor i przeglądarki. Należy rozważyć `Student` model widoku:
+Model widoku zwykle zawiera podzbiór właściwości zawarte w modelu używanego przez aplikację. Model aplikacji jest często nazywana modelu domeny. Model domeny zwykle zawiera wszystkie właściwości wymagane przez odpowiednie jednostkę w bazie danych. Model widoku zawiera tylko właściwości, które są potrzebne dla warstwy interfejsu użytkownika (na przykład tworzenia strony). Oprócz modelu widoku niektóre aplikacje za pomocą powiązania modelu lub modelu wejściowych przekazywania danych między klasy modelu stron Razor strony i przeglądarki. Należy rozważyć `Student` model widoku:
 
 [!code-csharp[Main](intro/samples/cu/Models/StudentVM.cs)]
 
@@ -165,7 +165,7 @@ Na stronach Razor `PageModel` klasy pochodnej jest model widoku.
 
 ## <a name="update-the-edit-page"></a>Aktualizacja edycji strony
 
-Zaktualizuj plik CodeBehind edycji strony:
+Aktualizacja modelu strony dla strony edycji:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
 

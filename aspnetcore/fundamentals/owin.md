@@ -2,19 +2,19 @@
 title: "Otwórz interfejs sieci Web dla platformy .NET (OWIN)"
 author: ardalis
 description: "Odkryj, jak platformy ASP.NET Core obsługuje interfejsu Open Web dla platformy .NET (OWIN), który umożliwia aplikacjom sieci web jest całkowicie niezależna od serwerów sieci web."
-ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/owin
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42ffa01745b7a492b3b8cb2778805f254863b890
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 10/14/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/owin
+ms.openlocfilehash: 91e59d8568434867e10869b4db22bce9935ce573
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>Wprowadzenie do otworzyć Interfejs sieci Web dla platformy .NET (OWIN)
 
@@ -318,9 +318,7 @@ Zależy od OWIN `IDictionary<string,object>` obiektu do przekazywania informacji
 | websocket.ClientCloseStatus | `int` | Optional |
 | websocket.ClientCloseDescription | `String` | Optional |
 
-
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Oprogramowanie pośredniczące](middleware.md)
-
-* [Serwery](servers/index.md)
+* [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
+* [Serwery](xref:fundamentals/servers/index)

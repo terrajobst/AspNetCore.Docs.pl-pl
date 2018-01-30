@@ -2,18 +2,18 @@
 title: "Funkcje platformy ASP.NET Core żądania"
 author: ardalis
 description: "Więcej informacji na temat szczegóły implementacji serwera sieci web związanych z żądaniami HTTP i odpowiedzi, które są zdefiniowane w interfejsach dla platformy ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/request-features
-ms.openlocfilehash: f0e371f5ea6c6688ef32adcacf667a412e4625e5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 11644dc646f2c0e749f0f64e80ee00ea8b671302
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="request-features-in-aspnet-core"></a>Funkcje platformy ASP.NET Core żądania
 
@@ -72,8 +72,6 @@ Funkcja interfejsy zdefiniuj określonych funkcji HTTP, które mogą obsługiwa�
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Serwery](servers/index.md)
-
-* [Oprogramowanie pośredniczące](middleware.md)
-
-* [Otwarty interfejs internetowy dla platformy .NET (OWIN)](owin.md)
+* [Serwery](xref:fundamentals/servers/index)
+* [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
+* [Otwarty interfejs internetowy dla platformy .NET (OWIN)](xref:fundamentals/owin)

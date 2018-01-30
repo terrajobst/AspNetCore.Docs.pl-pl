@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 85a8615bf71f58c58b9565da14bc3b3fbef9d264
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5bbba0e4e8660dbc60b9f9ad220c923274144b89
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>Rejestrowanie szczegóły błędu z kondycji ASP.NET monitorowania (C#)
 ====================
@@ -39,7 +39,7 @@ System monitorowania kondycji została wprowadzona w programie ASP.NET 2.0 i sł
 
 Gdy kondycję monitorowania zdarzenia mogą być rejestrowane do dowolnej liczby określonego *dziennika źródeł*. System monitorowania kondycji jest dostarczany z dziennika źródeł, które rejestrowania zdarzeń sieci Web do bazy danych programu Microsoft SQL Server, w dzienniku zdarzeń systemu Windows lub za pośrednictwem wiadomości e-mail, między innymi. Istnieje również możliwość utworzenia własnych źródeł dziennika.
 
-Zdarzenia monitorowania systemu kondycji dzienniki, wraz z dziennika źródła danych, są zdefiniowane w `Web.config`. Przy użyciu kilku wierszy kodu znaczników konfiguracji można użyć kondycji monitorowania logowania wszystkie nieobsługiwane wyjątki bazy danych i powiadamia użytkownika o wyjątek za pośrednictwem poczty e-mail.
+Zdarzenia monitorowania systemu kondycji dzienniki, wraz z dziennika źródła danych, są zdefiniowane w `Web.config`. Przy użyciu kilku wierszy kodu znaczników konfiguracji służy do rejestrowania wszystkich nieobsługiwanych wyjątków do bazy danych i aby powiadamiać wyjątek za pośrednictwem poczty e-mail monitorowania kondycji.
 
 ## <a name="exploring-the-health-monitoring-systems-configuration"></a>Eksploracja monitorowania konfiguracji systemu kondycji
 
@@ -104,17 +104,17 @@ Jeśli tworzysz takiej strony, upewnij się, że należy wykonać kroki, aby zez
 > Samouczek kolejnych Eksploruje alternatywnych Błąd rejestrowania i powiadomień systemu o nazwie ELMAH. ELMAH zawiera wbudowany mechanizm Wyświetl dziennik błędów z obu stron sieci web, a jako źródła danych RSS.
 
 
-## <a name="logging-events-to-e-mail"></a>Rejestrowanie zdarzeń w wiadomości E-Mail
+## <a name="logging-events-to-email"></a>Rejestrowanie zdarzeń do poczty E-mail
 
 System monitorowania kondycji zawiera dostawcy źródła dziennika "dzienniki" zdarzenia do wiadomości e-mail. Źródło dziennika zawiera te same informacje, które są rejestrowane w bazie danych w treści wiadomości e-mail. To źródło dziennika umożliwia Powiadamiaj dewelopera, gdy wystąpi określone zdarzenie monitorowania kondycji.
 
-Teraz zaktualizuj przeglądy książki konfiguracji witryny sieci Web, aby firma Microsoft odbierać wiadomości e-mail, gdy wyjątek występuje. W tym celu należy wykonać trzy zadania:
+Teraz zaktualizuj przeglądy książki konfiguracji witryny sieci Web, dzięki czemu możemy otrzymasz wiadomość e-mail, gdy wyjątek występuje. W tym celu należy wykonać trzy zadania:
 
-1. Konfigurowanie aplikacji sieci web ASP.NET do wysyłania wiadomości e-mail. Jest to osiągane przez określenie sposobu wysyłania wiadomości e-mail za pośrednictwem `<system.net>` element konfiguracji. Więcej informacji na temat wiadomości e-mail do wysyłania wiadomości w aplikacji ASP.NET można znaleźć w [wysyłania poczty E-mail w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx) i [System.Net.Mail — często zadawane pytania](http://systemnetmail.com/).
-2. Zarejestruj dostawcę w wiadomości e-mail dziennika źródła w `<providers>` elementu, a
+1. Konfigurowanie aplikacji sieci web ASP.NET do wysyłania wiadomości e-mail. Jest to osiągane przez określenie sposobu wysyłania wiadomości e-mail za pośrednictwem `<system.net>` element konfiguracji. Więcej informacji na temat wysyłania wiadomości w aplikacji ASP.NET można znaleźć [wysyłania poczty E-mail w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx) i [System.Net.Mail — często zadawane pytania](http://systemnetmail.com/).
+2. Zarejestruj dostawcę poczty e-mail dziennika źródła w `<providers>` elementu, a
 3. Dodawanie wpisu do `<rules>` element, który mapuje zdarzeń "Wszystkie błędy" dostawca źródło dziennika dodanej w kroku (2).
 
-System monitorowania kondycji zawiera dwie klasy dostawcy źródła dziennika poczty e-mail: `SimpleMailWebEventProvider` i `TemplatedMailWebEventProvider`. [ `SimpleMailWebEventProvider` Klasy](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) wysyła wiadomości e-mail w formacie zwykłego tekstu, która zawiera zdarzenia szczegółowe informacje i zapewnia małego dostosowania treści wiadomości e-mail. Z [ `TemplatedMailWebEventProvider` klasy](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) Określ strony platformy ASP.NET, w których renderowanego kodu znaczników jest używana jako treść wiadomości e-mail. [ `TemplatedMailWebEventProvider` Klasy](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) zapewnia znacznie większą kontrolę nad zawartość i format wiadomości e-mail, ale wymaga nieco więcej wysiłku góry jako trzeba tworzyć strony ASP.NET, który generuje treść wiadomości e-mail. Ten samouczek koncentruje się na temat używania `SimpleMailWebEventProvider` klasy.
+System monitorowania kondycji zawiera dwie klasy dostawcy źródła dziennika poczty e-mail: `SimpleMailWebEventProvider` i `TemplatedMailWebEventProvider`. [ `SimpleMailWebEventProvider` Klasy](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) wysyła wiadomości e-mail w formacie zwykłego tekstu, która zawiera zdarzenia szczegółowe informacje i zapewnia małego dostosowania treść wiadomości e-mail. Z [ `TemplatedMailWebEventProvider` klasy](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) Określ strony platformy ASP.NET, w których renderowanego kodu znaczników jest używana jako treść wiadomości e-mail. [ `TemplatedMailWebEventProvider` Klasy](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) zapewnia znacznie większą kontrolę nad zawartość i format wiadomości e-mail, ale wymaga nieco więcej wysiłku góry jako trzeba tworzyć strony ASP.NET, który generuje treść wiadomości e-mail. Ten samouczek koncentruje się na temat używania `SimpleMailWebEventProvider` klasy.
 
 Zaktualizuj monitorowania systemu kondycji `<providers>` element `Web.config` pliku, aby uwzględnić źródło dziennika `SimpleMailWebEventProvider` klasy:
 
@@ -122,17 +122,17 @@ Zaktualizuj monitorowania systemu kondycji `<providers>` element `Web.config` pl
 
 Używa znacznika powyżej `SimpleMailWebEventProvider` klasy jako dostawcę dziennika źródła i przypisuje go przyjazna nazwa "EmailWebEventProvider". Ponadto `<add>` atrybutu zawiera dodatkowe opcje konfiguracji, takie jak do i z adresów wiadomości e-mail.
 
-Źródło dziennika e-mail zdefiniowane liście nie zostanie nakazać programowi monitorowania systemu, aby używać tego źródła "rejestrowania" nieobsługiwanych wyjątków kondycji. Jest to osiągane przez dodanie nowej reguły w `<rules>` sekcji:
+Z źródło dziennika wiadomości e-mail zdefiniowanych liście nie zostanie nakazać programowi monitorowania systemu, aby używać tego źródła "rejestrowania" nieobsługiwanych wyjątków kondycji. Jest to osiągane przez dodanie nowej reguły w `<rules>` sekcji:
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-cs/samples/sample4.xml)]
 
-`<rules>` Sekcja zawiera teraz dwie reguły. Pierwsza z nich, o nazwie "Wszystkie błędy do wiadomości E-Mail", wysyła wszystkie nieobsługiwane wyjątki źródło dziennika "EmailWebEventProvider". Ta zasada powoduje wysyłanie informacji o błędach w witrynie sieci Web do określonego adres. Reguła "Wszystkie błędy w bazie danych" rejestruje szczegóły błędu bazy danych lokacji. W związku z tym po zmianie nieobsługiwany wyjątek w witrynie jego szczegóły są oba rejestrowane w bazie danych i wysyłane do określony adres e-mail.
+`<rules>` Sekcja zawiera teraz dwie reguły. Pierwsza z nich, o nazwie "Wszystkie błędy do wiadomości E-mail", wysyła wszystkie nieobsługiwane wyjątki źródło dziennika "EmailWebEventProvider". Ta zasada powoduje wysyłanie informacji o błędach w witrynie sieci Web do określonego adres. Reguła "Wszystkie błędy w bazie danych" rejestruje szczegóły błędu bazy danych lokacji. W związku z tym po zmianie nieobsługiwany wyjątek w witrynie jego szczegóły są oba rejestrowane w bazie danych i wysyłane do określony adres e-mail.
 
-**Rysunek 2** pokazuje e-mail jest generowana przez `SimpleMailWebEventProvider` klasy podczas odwiedzania `Genre.aspx?ID=foo`.
+**Rysunek 2** pokazuje wiadomości e-mail generowanych przez `SimpleMailWebEventProvider` klasy podczas odwiedzania `Genre.aspx?ID=foo`.
 
 [![](logging-error-details-with-asp-net-health-monitoring-cs/_static/image5.png)](logging-error-details-with-asp-net-health-monitoring-cs/_static/image4.png)
 
-**Rysunek 2**: szczegóły błędu są wysyłane pocztą E-Mail  
+**Rysunek 2**: szczegóły błędu są wysyłane w wiadomości E-mail  
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](logging-error-details-with-asp-net-health-monitoring-cs/_static/image6.png))
 
 ## <a name="summary"></a>Podsumowanie

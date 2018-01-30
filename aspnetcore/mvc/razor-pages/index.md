@@ -2,18 +2,18 @@
 title: Wprowadzenie do platformy ASP.NET Core stron Razor
 author: Rick-Anderson
 description: "Samouczek platformy ASP.NET Core na stronach Razor. Zawiera podstawowe MVC, ASP.NET Core 2.x, wprowadzenie do aplikacji sieci web i Visual Studio 2017 r. Ten dokument zawiera omówienie używanie stron Razor w platformy ASP.NET Core, aby ułatwić projektowanie strony scenariuszy."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/12/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: a08c1b59c7be3a27fc11e6737a1cb4b4208f2901
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c16959189448337b12dc4902300516b25c200eee
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
@@ -76,7 +76,7 @@ Podobne strony przy użyciu `PageModel` klasa, jest wyświetlany w obszarze nast
 
 [!code-cshtml[main](index/sample/RazorPagesIntro/Pages/Index2.cshtml)]
 
-*Pages/Index2.cshtml.cs* "kodem" pliku:
+*Pages/Index2.cshtml.cs* modelu strony:
 
 [!code-cs[main](index/sample/RazorPagesIntro/Pages/Index2.cshtml.cs)]
 
@@ -116,7 +116,7 @@ Kontekst bazy danych:
 
 [!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Create.cshtml)]
 
-*Pages/Create.cshtml.cs* pliku CodeBehind dla widoku:
+*Pages/Create.cshtml.cs* modelu strony:
 
 [!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_ALL)]
 
@@ -332,7 +332,7 @@ Następujący kod w *Pages/Customers/Index.cshtml* plik zawiera wartość `Messa
 <h3>Msg: @Model.Message</h3>
 ```
 
-*Pages/Customers/Index.cshtml.cs* dotyczy pliku CodeBehind `[TempData]` atrybutu `Message` właściwości.
+*Pages/Customers/Index.cshtml.cs* stosuje modelu strony `[TempData]` atrybutu `Message` właściwości.
 
 ```cs
 [TempData]
@@ -352,7 +352,7 @@ Następująca strona generuje kod znaczników dla dwie strony przy użyciu progr
 
 Formularz w poprzednim przykładzie ma dwa przesłać przyciski, za pomocą każdej `FormActionTagHelper` do przesłania do innego adresu URL. `asp-page-handler` Atrybut jest dodatek do `asp-page`. `asp-page-handler`generuje adresów URL, które przesłania do każdej z metod obsługi zdefiniowane przez stronę. `asp-page`nie jest określony, ponieważ próbki jest konsolidacja do bieżącej strony.
 
-Plik CodeBehind:
+Model strony:
 
 [!code-cs[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml.cs?highlight=20,32)]
 

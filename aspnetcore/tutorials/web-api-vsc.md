@@ -1,25 +1,25 @@
 ---
 title: Tworzenie interfejsu API sieci Web platformy ASP.NET Core i kodzie VS
-description: Tworzenie interfejsu API sieci web na macOS, Linux lub Windows z platformy ASP.NET Core MVC i Visual Studio Code
 author: rick-anderson
+description: Tworzenie interfejsu API sieci web na macOS, Linux lub Windows z platformy ASP.NET Core MVC i Visual Studio Code
+manager: wpickett
 ms.author: riande
 ms.date: 09/22/2017
-ms.topic: get-started-article
 ms.prod: asp.net-core
 ms.technology: aspnet
-manager: wpickett
+ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 9fec8904cf05fc486160c0641731c6336fe2766a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 44566c4014400aa2ca3d512eeaa226637b5f0b97
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Utwórz interfejs API sieci Web platformy ASP.NET Core MVC i Visual Studio Code w systemie Linux, macOS i systemu Windows
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Wasson Jan](https://github.com/mikewasson)
 
-W tym samouczku będziesz kompilacji interfejsu API sieci web do zarządzania listę elementów "do wykonania". Nie Konstruuj interfejsu użytkownika.
+W tym samouczku kompilacji interfejsu API sieci web do zarządzania listę elementów "do wykonania". Interfejs użytkownika nie jest tworzony.
 
 Istnieją 3 wersje tego samouczka:
 

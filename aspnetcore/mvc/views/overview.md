@@ -2,18 +2,18 @@
 title: Widoki w podstawowej platformy ASP.NET MVC
 author: ardalis
 description: "Dowiedz się, jak widoki obsługi aplikacji prezentacji danych i interakcji z użytkownikiem w nazwie wzorca MVC ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 12/12/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: b88c3ea05e37a82c7bcbde953c10a04ce1943dc5
-ms.sourcegitcommit: 09b342b45e7372ba9ebf17f35eee331e5a08fb26
+ms.openlocfilehash: bab08e75652c75b371438581d6e9f56541844a61
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Widoki w podstawowej platformy ASP.NET MVC
 

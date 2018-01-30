@@ -2,19 +2,19 @@
 title: "Wiązanie modelu"
 author: rachelappel
 description: "Informacje o wiązaniu modelu w programie ASP.NET MVC Core"
-ms.author: rachelap
 manager: wpickett
-ms.date: 01/22/2018
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
+ms.author: rachelap
+ms.date: 01/22/2018
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/models/model-binding
-ms.openlocfilehash: 26c4c016548cc3e465991c5ebf16893d4022145d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d64d2792d7c682f9112133be1b9d129b2fc8a048
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="model-binding"></a>Wiązanie modelu
 

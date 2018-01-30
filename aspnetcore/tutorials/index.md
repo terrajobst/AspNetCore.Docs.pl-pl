@@ -2,18 +2,18 @@
 title: Samouczki platformy ASP.NET Core
 author: rick-anderson
 description: "Lista przewodniki krok po kroku dotyczące poznanie metod tworzenia aplikacji platformy ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: dc81edce2b54683b20520babeed8ddb78073e709
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 01a804151ad813dbf47ab4b2415076a4e01bf1d9
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="aspnet-core-tutorials"></a>Samouczki platformy ASP.NET Core
 
@@ -34,7 +34,7 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
 
    * [Aplikacja sieci Web z programem Visual Studio dla systemu Windows](first-mvc-app/index.md)
    * [Aplikacja sieci Web z programem Visual Studio dla komputerów Mac](first-mvc-app-mac/index.md)
-   * [Aplikacja sieci Web programu Visual Studio kodu Mac lub Linux](first-mvc-app-xplat/index.md)
+   * [Aplikacja internetowa z programem Visual Studio Code na komputerze Mac lub w systemie Linux](first-mvc-app-xplat/index.md)
 
 * [Rozpoczynanie pracy z platformą ASP.NET Core i programem Entity Framework Core przy użyciu programu Visual Studio](../data/ef-mvc/index.md)
 * [Tworzenie pomocników tagów](../mvc/views/tag-helpers/authoring.md)
@@ -45,8 +45,8 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
 * Tworzenie składnika Web API z platformy ASP.NET Core
 
   * [Składnik Web API z programem Visual Studio dla systemu Windows](first-web-api.md)
-  * [Składnik Web API z programem Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
-  * [Składnik Web API z kodem Visual Studio](web-api-vsc.md)
+  * [Interfejs API sieci Web z programem Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
+  * [Interfejs API sieci Web z programem Visual Studio Code](web-api-vsc.md)
   
 * [Strony pomocy dla interfejsu Web API platformy ASP.NET Core korzystające z programu Swagger](web-api-help-pages-using-swagger.md)
 * [Tworzenie zaplecza usługi sieci web do natywnej aplikacji mobilnych](../mobile/native-mobile-backend.md)

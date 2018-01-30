@@ -2,18 +2,18 @@
 title: Test i debugowania w ASP.NET Core
 author: ardalis
 description: "Linki do zasobów, testowanie i debugowanie aplikacji platformy ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 11/20/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: testing/index
-ms.openlocfilehash: 800f8bff83d8c76e20666e16d82e6f2c52a7ed4c
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 5cf482941e0a45c349d21b27a8cdcc2068e45056
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="test-and-debug-in-aspnet-core"></a>Test i debugowania w ASP.NET Core
 
@@ -21,6 +21,6 @@ ms.lasthandoff: 01/11/2018
 * [Testowanie integracji](xref:testing/integration-testing)
 * [Jednostka stron razor i integracji testowania](xref:testing/razor-pages-testing)
 * [Kontrolery testów](xref:mvc/controllers/testing)
-* [Debugowanie ASP.NET Core 2.x źródła](https://github.com/aspnet/Docs/issues/4155)
+* [Debug ASP.NET Core 2.x source](https://github.com/aspnet/Docs/issues/4155)
 * [Debugowanie zdalne](/visualstudio/debugger/remote-debugging-azure)
 * [Debugowanie migawek](/azure/application-insights/app-insights-snapshot-debugger)

@@ -1,19 +1,19 @@
 ---
 title: "Zapobieganie atakom sfałszowaniem (XSRF/CSRF) żądania Międzywitrynowego na platformie ASP.NET Core"
 author: steve-smith
-ms.author: riande
 description: "Zapobieganie atakom sfałszowaniem (XSRF/CSRF) żądania Międzywitrynowego na platformie ASP.NET Core"
 manager: wpickett
+ms.author: riande
 ms.date: 7/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: 3831bf737186d10eb1b298f5ec2da1fd33ebedd9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e076e301004c04b5c516d775353a4b6e50a3f36e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Zapobieganie atakom sfałszowaniem (XSRF/CSRF) żądania Międzywitrynowego na platformie ASP.NET Core
 
@@ -43,7 +43,7 @@ Przykład atak CSRF:
 Należy zauważyć, że akcja formularza zapisuje do lokacji narażony, nie niebezpiecznej witryny. Jest to część CSRF "cross-site".
 
 4. Użytkownik klika przycisk Prześlij. Przeglądarka automatycznie uwzględnia pliku cookie uwierzytelniania dla żądanej domeny (narażone lokacji w tym przypadku) z żądaniem.
-5. Żądanie jest uruchomiony na serwerze z kontekstem uwierzytelniania użytkownika i mogą wykonywać wszystkie uwierzytelniony użytkownik może wykonywać.
+5. Żądanie działa na serwerze z kontekstem uwierzytelniania użytkownika i mogą wykonywać żadnych czynności, że uwierzytelniony użytkownik może wykonywać.
 
 W tym przykładzie wymaga od użytkownika kliknij przycisk formularza. Strony złośliwych można:
 
@@ -353,12 +353,11 @@ Gdy użytkownik jest zalogowany do systemu, sesja użytkownika jest tworzony po 
 
 ### <a name="user-tokens"></a>Tokeny użytkownika
 
-Uwierzytelnianie na podstawie tokenu nie przechowuje sesji na serwerze. Zamiast tego gdy użytkownik jest zalogowany jest wystawiony token (nie antiforgery token). Token ten zawiera wszystkie dane, które są wymagane do weryfikacji tokenu. Zawiera także informacje o użytkowniku w formie [oświadczeń](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Gdy użytkownik chce, aby uzyskać dostęp do zasobów serwera wymaga uwierzytelnienia, token jest wysyłany na serwer z nagłówkiem dodatkowe autoryzacji w formie {tokenu} elementu nośnego. Dzięki temu aplikacji bezstanowych, ponieważ w kolejnych żądań token jest przekazywany w żądania do weryfikacji po stronie serwera. Ten token nie jest *zaszyfrowanych*; jest raczej *zakodowane*. Po stronie serwera token może zostać odczytany na dostęp do nieprzetworzonej informacji w tokenie. Aby wysłać token w kolejnych żądań, można przechowywać go w magazynie lokalnym w przeglądarce lub w pliku cookie. Nie trzeba martwić XSRF luki w zabezpieczeniach, jeśli token jest przechowywany w magazynie lokalnym, ale jest to problem, jeśli token jest przechowywany w pliku cookie.
+Uwierzytelnianie na podstawie tokenu nie przechowuje sesji na serwerze. Gdy użytkownik jest zalogowany, są one wystawiony token (nie antiforgery token). Token ten zawiera dane, które są wymagane do weryfikacji tokenu. Zawiera także informacje o użytkowniku w formie [oświadczeń](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Gdy użytkownik chce, aby uzyskać dostęp do zasobów serwera wymaga uwierzytelnienia, token jest wysyłany na serwer z nagłówkiem dodatkowe autoryzacji w formie {tokenu} elementu nośnego. Dzięki temu aplikacji bezstanowych, ponieważ w kolejnych żądań token jest przekazywany w żądania do weryfikacji po stronie serwera. Ten token nie jest *zaszyfrowanych*; jest raczej *zakodowane*. Po stronie serwera token może zostać odczytany na dostęp do nieprzetworzonej informacji w tokenie. Aby wysłać token w kolejnych żądań, albo zapisz go w magazynie lokalnym w przeglądarce lub w pliku cookie. Nie martw się o XSRF luki w zabezpieczeniach, jeśli token jest przechowywany w magazynie lokalnym, ale jest to problem, jeśli token jest przechowywany w pliku cookie.
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>Wiele aplikacji znajdują się w jednej domenie
 
-Mimo że `example1.cloudapp.net` i `example2.cloudapp.net` są różnych hostach, istnieje relacja zaufania niejawne między wszystkie hosty w `*.cloudapp.net` domeny. Ta relacja zaufania niejawne umożliwia potencjalnie niezaufane hosty wpływa na siebie nawzajem pliki cookie (zasad tego samego źródła, które będą zarządzały sposobem żądania AJAX nie zawsze dotyczą plików cookie protokołu HTTP). Środowisko uruchomieniowe platformy ASP.NET Core zawiera pewne środki zaradcze, nazwa użytkownika jest osadzony w token pola, tak więc nawet, jeśli złośliwe poddomeny jest w stanie zastąpić tokenu sesji będzie nie można wygenerować pola prawidłowy token dla użytkownika. Jednak w przypadku hostowania w takim środowisku procedury wbudowanych anti-XSRF nadal nie obrony przed przejęcie kontroli sesji lub logowania CSRF ataków. Udostępnionych środowiskach macierzystych są vunerable przejęcie kontroli sesji logowania CSRF i inne ataki.
-
+Mimo że `example1.cloudapp.net` i `example2.cloudapp.net` są różnych hostach, ma zależności nawiązywanie niejawnych relacji zaufania między hostami w obszarze `*.cloudapp.net` domeny. Ta relacja zaufania niejawne umożliwia potencjalnie niezaufane hosty wpływa na siebie nawzajem pliki cookie (zasad tego samego źródła, które będą zarządzały sposobem żądania AJAX nie zawsze dotyczą plików cookie protokołu HTTP). Środowisko uruchomieniowe platformy ASP.NET Core zawiera pewne środki zaradcze, nazwa użytkownika jest osadzony w tokenie pola. Nawet jeśli poddomeny złośliwego może zastąpić tokenu sesji, nie może generować prawidłowe pole token dla użytkownika. W przypadku hostowania w takim środowisku, procedury wbudowanych anti-XSRF nadal nie obrony przed przejęcie kontroli sesji lub logowania CSRF ataków. Udostępnionych środowiskach macierzystych są vunerable przejęcie kontroli sesji logowania CSRF i inne ataki.
 
 ### <a name="additional-resources"></a>Dodatkowe zasoby
 

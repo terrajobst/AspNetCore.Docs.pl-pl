@@ -2,19 +2,19 @@
 title: Wzorzec opcje dla platformy ASP.NET Core
 author: guardrex
 description: "Wykryj sposób użycia wzorca opcje do reprezentowania grupy powiązanych ustawień w aplikacji platformy ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/configuration/options
-ms.openlocfilehash: aab96b5313a8632950e51f5586612c1d0d3d176e
-ms.sourcegitcommit: 83b5a4715fd25e4eb6f7c8427c0ef03850a7fa07
+ms.openlocfilehash: abb3b92af07a7b3b199712fcfdc459ca283d0017
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcje dla platformy ASP.NET Core
 

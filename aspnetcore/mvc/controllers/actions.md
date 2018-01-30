@@ -2,18 +2,18 @@
 title: "Żądania obsługi z kontrolerami w programie ASP.NET MVC Core"
 author: ardalis
 description: 
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 07/03/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 99dcf1bd4f0dc4fcb6169f48bd398c9e40c21a35
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1c6bf5ad92a43274af351652d240e2fa8873a956
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Żądania obsługi z kontrolerami w programie ASP.NET MVC Core
 

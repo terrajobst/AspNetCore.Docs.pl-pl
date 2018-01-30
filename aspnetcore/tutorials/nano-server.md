@@ -2,18 +2,18 @@
 title: Platformy ASP.NET Core na serwerze Nano
 author: shirhatti
 description: "Dowiedz się, jak wykonać istniejącej aplikacji platformy ASP.NET Core, a następnie wdrożyć go do wystąpienia Nano Server korzysta z usług IIS."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 11/04/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: tutorials/nano-server
-ms.openlocfilehash: d9b55fb42088b447451326b7ee573d9bfa5f5941
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 4fc5f6874f86130da9f66d13778516d984ff8b46
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="aspnet-core-with-iis-on-nano-server"></a>Platformy ASP.NET Core z usługami IIS na serwerze Nano
 
@@ -31,7 +31,7 @@ Istnieją trzy sposoby łatwo można wypróbować Nano Server. Zarejestrowanie s
 
 2. Pobierz Nano Server wirtualnego dysku twardego.
 
-3. Utwórz maszynę Wirtualną na platformie Azure przy użyciu obrazu Nano Server w galerii Azure. Jeśli nie masz konta platformy Azure, możesz uzyskać bezpłatną 30-dniową wersję próbną.
+3. Utwórz maszynę Wirtualną na platformie Azure przy użyciu obrazu Nano Server w galerii Azure. Bezpłatna wersja próbna systemu Azure jest niedostępny.
 
 W tym samouczku firma Microsoft będzie używać opcji 2 wbudowanych Nano Server wirtualny dysk twardy z systemem Windows Server 2016.
 

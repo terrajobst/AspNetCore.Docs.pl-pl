@@ -2,19 +2,19 @@
 title: Stan sesji i aplikacji w ASP.NET Core
 author: rick-anderson
 description: "Podejścia do zachowania aplikacji i stanu użytkowników (sesja) między żądaniami."
-ms.author: riande
 manager: wpickett
-ms.date: 11/27/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/app-state
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e00960370fbe87ac0f81f8455526221fa992decd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 11/27/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/app-state
+ms.openlocfilehash: 7aa200d3612f766ab633ccab807421b9c5393975
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Wprowadzenie do stanu sesji oraz aplikacji platformy ASP.NET Core
 
@@ -28,7 +28,7 @@ Stan sesji jest funkcją platformy ASP.NET Core, który służy do zapisywania i
 
 Platformy ASP.NET Core zachowuje swój stan sesji, zapewniając klienta pliku cookie, który zawiera identyfikator sesji, który jest wysyłany na serwer z każdym żądaniem. Identyfikator sesji są używane do pobierania danych sesji. Ponieważ plik cookie sesji jest specyficzna dla przeglądarki, nie mogą współużytkować sesji w różnych przeglądarkach. Pliki cookie dotyczące sesji są usuwane tylko wtedy, gdy kończy się sesji przeglądarki. Jeśli plik cookie zostanie odebrana dla wygasłych sesji, utworzeniu nowej sesji, która używa tego samego pliku cookie sesji. 
 
-Serwer zachowuje sesję przez ograniczony czas, po zgłoszeniu ostatniego żądania. Można ustawić limitu czasu sesji lub użyj wartości domyślnej 20 minut. Stan sesji jest idealny dla przechowywania danych użytkownika, która jest specyficzna dla konkretnej sesji, ale nie musi zostać utrwalony trwale. Dane są usuwane z magazynu zapasowego albo po wywołaniu `Session.Clear` lub utraty ważności sesji w magazynie danych. Serwer nie może ustalić zamknięcia przeglądarki lub usunięcia pliku cookie sesji.
+Serwer zachowuje sesję przez ograniczony czas, po zgłoszeniu ostatniego żądania. Ustaw limit czasu sesji lub użyj wartości domyślnej 20 minut. Stan sesji jest idealny dla przechowywania danych użytkownika, która jest specyficzna dla konkretnej sesji, ale nie musi zostać utrwalony trwale. Dane są usuwane z magazynu zapasowego albo podczas wywoływania metody `Session.Clear` lub utraty ważności sesji w magazynie danych. Serwer nie może ustalić zamknięcia przeglądarki lub usunięcia pliku cookie sesji.
 
 > [!WARNING]
 > Nie należy przechowywać poufnych danych w sesji. Klient nie może być Zamknij przeglądarkę i wyczyść pliku cookie sesji (i w niektórych przeglądarkach podtrzymywania plików cookie sesji w systemie windows). Ponadto sesji nie może być ograniczony do jednego użytkownika; Następny użytkownik może kontynuować tej samej sesji.
@@ -281,9 +281,7 @@ Ktoś przechowuje koszyka zakupów w sesji. Użytkownik dodaje elementu, ale zat
 
 Zalecanym sposobem Sprawdź, czy błędy takie jest wywołać `await feature.Session.CommitAsync();` z kodu aplikacji, gdy wszystko będzie gotowe zapisywania do sesji. Następnie możesz zrobić, takich jak z powodu błędu. Działa tak samo, podczas wywoływania metody `LoadAsync`.
 
-
 ### <a name="additional-resources"></a>Dodatkowe zasoby
-
 
 * [Platformy ASP.NET Core 1.x: Przykładowy kod używany w tym dokumencie](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSession)
 * [Platformy ASP.NET Core 2.x: Przykładowy kod używany w tym dokumencie](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSessionDotNetCore2.0App)

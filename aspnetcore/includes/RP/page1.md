@@ -105,9 +105,9 @@ Poprzedni element zakotwiczenia jest [pomocnika tagów](xref:mvc/views/tag-helpe
 
 Zapisz zmiany i przetestować aplikację, klikając **RpMovie** łącza. Zobacz [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) pliku w witrynie GitHub.
 
-### <a name="the-create-code-behind-page"></a>Utwórz stronę związane z kodem
+### <a name="the-create-page-model"></a>Utwórz model strony
 
-Sprawdź *Pages/Movies/Create.cshtml.cs* pliku CodeBehind:
+Sprawdź *Pages/Movies/Create.cshtml.cs* modelu strony:
 
 [!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
 

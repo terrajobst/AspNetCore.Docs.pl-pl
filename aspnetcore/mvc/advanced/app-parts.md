@@ -2,18 +2,18 @@
 title: "Części aplikacji platformy ASP.NET Core"
 author: ardalis
 description: "Dowiedz się, jak używać części aplikacji, które są abstrations nad zasobami aplikacji, aby skonfigurować aplikację do odnajdowania lub uniknąć obciążania funkcji z zestawu."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 01/04/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 702d7773374f331b25489060b18f752186d7acea
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6b855f8725dacc89a7e0607224ef3c19ab9f5676
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>Części aplikacji platformy ASP.NET Core
 

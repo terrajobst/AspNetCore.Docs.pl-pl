@@ -2,18 +2,18 @@
 title: "Buforuj pomocnika tagów w podstawowej platformy ASP.NET MVC"
 author: pkellner
 description: "Pokazuje, jak pracować z pamięci podręcznej pomocnika tagów"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 10aa1b493dbd0672cac789f6e48ddf2f14ba35dc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 51811ee1669a24a0fc4ce9bc67e782b61bff655c
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Buforuj pomocnika tagów w podstawowej platformy ASP.NET MVC
 
@@ -283,5 +283,5 @@ Pomocnik Tag pamięci podręcznej jest zależna od [pamięci podręcznej usługi
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* <xref:performance/caching/memory>
-* <xref:security/authentication/identity>
+* [Buforowanie w pamięci](xref:performance/caching/memory)
+* [Wprowadzenie do tożsamości](xref:security/authentication/identity)

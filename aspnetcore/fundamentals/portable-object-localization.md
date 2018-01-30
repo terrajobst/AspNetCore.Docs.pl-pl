@@ -2,18 +2,18 @@
 title: "Konfigurowanie lokalizacji obiektu przenośne"
 author: sebastienros
 description: "W tym artykule przedstawiono pliki Portable obiektów oraz opisano kroki dotyczące korzystania z nich w aplikacji platformy ASP.NET Core Framework Orchard Core."
-ms.author: scaddie
 manager: wpickett
+ms.author: scaddie
 ms.date: 09/26/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: ad68c8a7df5a8ea0f7ef42137c29cd3b37657052
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6fefbd9b28d481184e358e7d66af68d112c63696
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="configure-portable-object-localization-with-orchard-core"></a>Konfigurowanie lokalizacji obiektu przenośne Orchard podstawowych
 

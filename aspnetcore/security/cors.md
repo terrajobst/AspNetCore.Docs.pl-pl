@@ -2,18 +2,18 @@
 title: "Włączanie żądań Cross-Origin (CORS)"
 author: rick-anderson
 description: "Ten dokument wprowadza CORS jako standard zezwalających lub odrzucanie żądań cross-origin w aplikacji platformy ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 05/17/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/cors
-ms.openlocfilehash: 9f53ce11f1659aa3416fe4fbb94183c64ab0dab5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1c0d87b61882f69dbf2aeb0a896d9294bd029374
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Włączanie żądań Cross-Origin (CORS)
 
@@ -209,7 +209,7 @@ Teraz odpowiedzi HTTP będzie zawierać nagłówka dostępu-formant-Allow-Creden
 
 Jeśli przeglądarka wysyła poświadczenia, ale odpowiedź nie zawiera prawidłowego nagłówka dostępu-formant-Allow-Credentials, przeglądarka nie uwidacznia odpowiedzi do aplikacji i żądanie AJAX nie powiedzie się.
 
-Należy zachować ostrożność bardzo stosowanie cross-origin poświadczeń, ponieważ oznacza to, że witryna sieci Web w innej domenie można wysłać poświadczeń zalogowanego użytkownika do aplikacji w imieniu użytkownika bez wiedzy użytkownika. CORS spec również stanów tego ustawienia źródeł do "*" (wszystkie pochodzenia) jest nieprawidłowy, jeśli jest obecny nagłówek dostępu-formant-Allow-Credentials.
+Należy zachować ostrożność w przypadku zezwalania poświadczenia cross-origin. Witryny sieci Web w innej domenie można wysłać poświadczeń zalogowanego użytkownika do aplikacji w imieniu użytkownika bez wiedzy użytkownika. Specyfikacja CORS stany również ustawienie źródeł do "*" (wszystkie pochodzenia) jest nieprawidłowa Jeśli `Access-Control-Allow-Credentials` nagłówka jest obecny.
 
 ### <a name="set-the-preflight-expiration-time"></a>Ustawianie czasu wygaśnięcia wstępnego
 
@@ -221,11 +221,11 @@ Nagłówka Access-formant-Max-Age Określa, jak długo mogą być buforowane odp
 
 ## <a name="how-cors-works"></a>Jak działa CORS
 
-W tej sekcji opisano, co się stanie w żądanie CORS na poziomie wiadomości HTTP. Należy zrozumieć sposób działania CORS, tak aby poprawnie skonfigurować zasady CORS i rozwiązywanie problemów, jeśli elementy nie działają zgodnie z oczekiwaniami.
+W tej sekcji opisano, co się stanie w żądaniu CORS na poziomie wiadomości HTTP. Należy zrozumieć działanie CORS, dzięki czemu można poprawnie skonfigurować zasady CORS i troubleshooted, gdy występują nieoczekiwane wyniki.
 
-Specyfikacja CORS wprowadzono kilka nowych nagłówków HTTP, które Włączanie żądań cross-origin. Jeśli przeglądarka obsługuje mechanizm CORS, ustawia automatycznie tych nagłówków żądań cross-origin; nie trzeba wykonywać żadnych czynności specjalne w kodzie JavaScript.
+Specyfikacja CORS wprowadzono kilka nowych nagłówków HTTP, które Włączanie żądań cross-origin. Jeśli przeglądarka obsługuje mechanizm CORS, ustawia automatycznie tych nagłówków żądań cross-origin. Niestandardowy kod JavaScript nie jest wymagane do włączenia CORS.
 
-Oto przykład żądań cross-origin. Nagłówek "Origin" daje domeny witryny, do której wysłano żądanie:
+Oto przykład żądań cross-origin. `Origin` Domeny witryny, do której wysłano żądanie zawiera nagłówek:
 
 ```
 GET http://myservice.azurewebsites.net/api/test HTTP/1.1

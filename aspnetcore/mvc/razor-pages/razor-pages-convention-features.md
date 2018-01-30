@@ -2,18 +2,18 @@
 title: Razor strony trasy i aplikacji Konwencji funkcji programu ASP.NET Core
 author: guardrex
 description: "Odkryj, jak trasy i aplikacjami modelu dostawcy Konwencji funkcje pomagają formantu strony routingu, odnajdywania i przetwarzania."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/23/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: 69475ca9abd4e732dc704ad6a8a2fffe219984f7
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bf1c895fc972310d5541d0098226d58b8183e320
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Razor strony trasy i aplikacji Konwencji funkcji programu ASP.NET Core
 
@@ -262,7 +262,7 @@ Zarejestruj `CustomPageApplicationModelProvider` w `Startup` klasy:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet10)]
 
-Plik CodeBehind *Index.cshtml.cs* pokazuje zmian konwencji nazewnictwa metody zwykłej obsługi dla stron w aplikacji. Zwykły "On" nazewnictwa prefiks używany ze stronami Razor zostaną usunięte. Teraz nosi nazwę metody, która inicjuje stanu strony `Get`. Widać tę Konwencję używane w całej aplikacji po otwarciu dowolnego pliku CodeBehind dla dowolnej strony.
+Model strony w *Index.cshtml.cs* pokazuje zmian konwencji nazewnictwa metody zwykłej obsługi dla stron w aplikacji. Zwykły "On" nazewnictwa prefiks używany ze stronami Razor zostaną usunięte. Teraz nosi nazwę metody, która inicjuje stanu strony `Get`. Widać tę Konwencję używane w całej aplikacji po otwarciu dowolnego modelu strony dla dowolnej strony.
 
 Każda z innych metod zaczynać się zlecenie HTTP opisujące jego przetwarzanie. Te dwie metody, które zaczynają się `Delete` zazwyczaj będzie traktowane jako zleceń HTTP, usuwanie, ale logikę `TryParseHandlerMethod` jawnie ustawia zlecenie POST dla obu programów obsługi.
 
@@ -286,7 +286,7 @@ Filtr strony ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefi
 
 Sprawdza, czy ten filtr `globalTemplate` trasy w "ReplacementValue" wartość "TriggerValue" i zamiany.
 
-`ReplaceRouteValueFilter` Atrybut można stosować bezpośrednio do `PageModel` w związane z kodem:
+`ReplaceRouteValueFilter` Atrybut można stosować bezpośrednio do `PageModel`:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Pages/OtherPages/Page3.cshtml.cs?range=10-12&highlight=1)]
 

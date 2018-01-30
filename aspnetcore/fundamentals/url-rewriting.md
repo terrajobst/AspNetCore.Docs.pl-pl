@@ -2,18 +2,18 @@
 title: "Adres URL ponowne zapisanie oprogramowania pośredniczącego w platformy ASP.NET Core"
 author: guardrex
 description: "Więcej informacji na temat adresu URL ponowne zapisywanie i przekierowywania z pośredniczącym ponowne zapisywanie adresów URL w aplikacji platformy ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 08/17/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 99f8d1cc73fdcbd99cffe595ae89f3c61a6f9a53
-ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
+ms.openlocfilehash: ba4a360f2c8d6dfa45a4a7980d719b2b2cf3547a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Adres URL ponowne zapisanie oprogramowania pośredniczącego w platformy ASP.NET Core
 

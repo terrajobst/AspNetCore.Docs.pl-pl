@@ -2,18 +2,18 @@
 title: Hosting w platformy ASP.NET Core
 author: guardrex
 description: "Więcej informacji na temat hosta sieci web w ASP.NET Core, która jest odpowiedzialna za uruchamianie i okresem istnienia zarządzania aplikacjami."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/21/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/hosting
-ms.openlocfilehash: 7f6712073002b73ca4ddd7586718c81e62cacbc2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 78209c8d34fa1a2a164ae333d625feca1e145e89
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>Hosting w platformy ASP.NET Core
 

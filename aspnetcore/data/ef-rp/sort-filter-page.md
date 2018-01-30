@@ -4,15 +4,15 @@ author: rick-anderson
 description: "W tym samouczku zostanie dodana sortowanie, filtrowanie i stronicowania funkcji na stronę przy użyciu programu Entity Framework Core i ASP.NET Core."
 ms.author: riande
 ms.date: 10/22/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 24649374b71da39d638d943617a219d45f064846
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9c1ee6f8c00f3cd501ea86fbf73f51ae540a010a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sortowanie, filtrowanie, stronicowania i grupowanie — podstawowe EF Razor strony (3 8)
 
@@ -107,7 +107,7 @@ Kroków opisanych w debugerze.
 Aby dodać filtrowanie do strony indeksu studentów:
 
 * Pole tekstowe i przycisk Prześlij jest dodawany do strony Razor. Pole tekstowe dostarcza wyszukiwany ciąg na imię lub nazwisko.
-* Plik CodeBehind został zaktualizowany do użycia wartość pola tekstowego.
+* Aby użyć wartości pole tekstowe zaktualizowania modelu strony.
 
 ### <a name="add-filtering-functionality-to-the-index-method"></a>Dodawanie funkcji filtrowania do Index — metoda
 
@@ -245,7 +245,7 @@ Kroków opisanych w debugerze.
 W tym kroku *Pages/About.cshtml* jest aktualizowana w celu wyświetlenia liczby studentów zostały zarejestrowane dla każdego dnia rejestracji. Aktualizacja używa grupowania i obejmuje następujące kroki:
 
 * Utwórz klasę modelu widoku dla danych używanych przez **o** strony.
-* Należy zmodyfikować plik o stronę Razor i związane z kodem.
+* Modyfikowanie modelu o Razor i strony.
 
 ### <a name="create-the-view-model"></a>Tworzenie modelu widoku
 
@@ -255,7 +255,7 @@ W *SchoolViewModels* folderu, Dodaj *EnrollmentDateGroup.cs* następującym kode
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
-### <a name="update-the-about-code-behind-page"></a>Zaktualizuj informacje związane z kodem strony
+### <a name="update-the-about-page-model"></a>Aktualizacja modelu strony informacje
 
 Aktualizacja *Pages/About.cshtml.cs* pliku następującym kodem:
 

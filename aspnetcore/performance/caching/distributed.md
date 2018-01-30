@@ -2,18 +2,18 @@
 title: "Praca z rozproszonej pamięci podręcznej w ASP.NET Core"
 author: ardalis
 description: "Dowiedz się, jak za pomocą systemy buforowania rozproszonego zwiększyć wydajność i skalowalność aplikacji platformy ASP.NET Core, szczególnie w przypadku hostowanych w środowisku farmy chmury lub serwera."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: a0af4887143f6ed37a1af982ec21a2ad5eae9515
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 86fd40863f6eeef3c129335141d704769d36b4c1
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Praca z rozproszonej pamięci podręcznej w ASP.NET Core
 

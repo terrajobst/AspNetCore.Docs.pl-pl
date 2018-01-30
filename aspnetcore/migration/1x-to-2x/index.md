@@ -2,18 +2,18 @@
 title: Migrowanie z platformy ASP.NET Core 1.x 2.0
 author: scottaddie
 description: "W tym artykule opisano wymagania wstępne i najbardziej typowe kroki dotyczące migrowania projekt platformy ASP.NET Core 1.x ASP.NET Core 2.0."
-ms.author: scaddie
 manager: wpickett
+ms.author: scaddie
 ms.date: 10/03/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 2ab6d72ca57332eb25435a144d77ea43203a7b4c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a88d22c88689d20376fec748b05fc4b5ecca3510
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>Migrowanie z platformy ASP.NET Core 1.x do platformy ASP.NET Core 2.0
 
@@ -146,7 +146,7 @@ Począwszy od 2.0, wykonywać żadnych czynności zły rozwiązaniem jest `Build
 
 <a name="view-compilation"></a>
 
-## <a name="review-your-razor-view-compilation-setting"></a>Przejrzyj ustawienia kompilacji widoku Razor
+## <a name="review-razor-view-compilation-setting"></a>Przejrzyj ustawienia kompilacji widoku Razor
 Skrócić czas uruchamiania aplikacji i mniejszych opublikowane pakiety są największe znaczenie dla Ciebie. Z tego względu [kompilacji widoku Razor](xref:mvc/views/view-compilation) jest domyślnie włączone w programie ASP.NET 2.0 Core.
 
 Ustawienie `MvcRazorCompileOnPublish` właściwości na wartość true nie jest już wymagane. O ile nie jest wyłączenie widoku kompilacji, właściwość może zostać usunięte z *.csproj* pliku.
@@ -157,7 +157,7 @@ Jeśli celem .NET Framework, nadal należy jawnie odwoływać się do [Microsoft
 
 <a name="app-insights"></a>
 
-## <a name="rely-on-application-insights-light-up-features"></a>Funkcje usługi Application Insights "Światła w górę"
+## <a name="rely-on-application-insights-light-up-features"></a>Funkcje "w górę jasny" usługi Application Insights
 Ważne jest łatwe ustawień Instrumentacji wydajność aplikacji. Teraz polega na nowym [usługi Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) "światła w górę" Funkcje dostępne w narzędzi Visual Studio 2017 r.
 
 Domyślnie projektów platformy ASP.NET Core 1.1 utworzonych w programie Visual Studio 2017 dodany usługi Application Insights. Jeśli nie używasz zestawu SDK usługi Application Insights bezpośrednio, poza *Program.cs* i *Startup.cs*, wykonaj następujące kroki:
@@ -178,8 +178,9 @@ Jeśli korzystasz z zestawu SDK usługi Application Insights bezpośrednio, nada
 
 <a name="auth-and-identity"></a>
 
-## <a name="adopt-authentication--identity-improvements"></a>Przyjmuje uwierzytelnianie / ulepszenia tożsamości
+## <a name="adopt-authenticationidentity-improvements"></a>Przyjąć tożsamość/uwierzytelniania ulepszenia
 Platformy ASP.NET Core 2.0 ma nowy model uwierzytelniania i Liczba znaczących zmian dotyczących tożsamości platformy ASP.NET Core. Jeśli utworzony projekt z włączoną indywidualnych kont użytkowników, lub jeśli ręcznie dodano uwierzytelniania lub tożsamości, zobacz [Migrowanie uwierzytelnianie i tożsamość platformy ASP.NET Core 2.0](xref:migration/1x-to-2x/identity-2x).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-- [Fundamentalne zmiany w podstawowej platformy ASP.NET 2.0](https://github.com/aspnet/announcements/issues?page=1&q=is%3Aissue+is%3Aopen+label%3A2.0.0+label%3A%22Breaking+change%22&utf8=%E2%9C%93)
+
+* [Fundamentalne zmiany w podstawowej platformy ASP.NET 2.0](https://github.com/aspnet/announcements/issues?page=1&q=is%3Aissue+is%3Aopen+label%3A2.0.0+label%3A%22Breaking+change%22&utf8=%E2%9C%93)

@@ -2,19 +2,19 @@
 title: "Przy użyciu Gulp w platformy ASP.NET Core"
 author: rick-anderson
 description: "Dowiedz się, jak używać Gulp w ASP.NET Core."
-ms.author: riande
 manager: wpickett
-ms.date: 02/28/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: client-side/using-gulp
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ccfed42d66ea49c5f2745bc8653d8fb12bf707a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 02/28/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: client-side/using-gulp
+ms.openlocfilehash: f091370bc85a37eeaac1291a2fdc6ea85164f148
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Wprowadzenie do korzystania z Gulp w ASP.NET Core 
 
@@ -59,13 +59,13 @@ paths.concatCssDest = paths.webroot + "css/site.min.css";
 
 Powyższy kod określa, które moduły węzła są wymagane. `require` Funkcja importuje poszczególnych modułów, aby zadania zależne mogą wykorzystywać swoje funkcje. Każdego z zaimportowanych modułów jest przypisany do zmiennej. Moduły można odnaleźć, albo według nazwy lub ścieżki. W tym przykładzie modułów o nazwie `gulp`, `rimraf`, `gulp-concat`, `gulp-cssmin`, i `gulp-uglify` są pobierane przez nazwę. Ponadto szereg ścieżki są tworzone, dzięki czemu lokalizacje plików CSS i JavaScript można użyć ponownie i odwołuje zadań. Poniższa tabela zawiera opisy modułów objęte *gulpfile.js*.
 
-|Nazwa modułu|Opis|
-|---|---|
-|gulp|Gulp przesyłania strumieniowego system kompilacji. Aby uzyskać więcej informacji, zobacz [system gulp](https://www.npmjs.com/package/gulp).|
-|rimraf|Moduł usuwania węzła. Aby uzyskać więcej informacji, zobacz [rimraf](https://www.npmjs.com/package/rimraf).|
-|gulp concat|Moduł, który łączy pliki oparte na znak nowego wiersza systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [gulp concat](https://www.npmjs.com/package/gulp-concat).|
-|gulp-cssmin|Moduł, który minimalizuje pliki CSS. Aby uzyskać więcej informacji, zobacz [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin).|
-|gulp uglify|Moduł, który minimalizuje *js* plików. Aby uzyskać więcej informacji, zobacz [gulp uglify](https://www.npmjs.com/package/gulp-uglify).|
+| Nazwa modułu | Opis |
+| ----------- | ----------- |
+| gulp        | Gulp przesyłania strumieniowego system kompilacji. Aby uzyskać więcej informacji, zobacz [system gulp](https://www.npmjs.com/package/gulp). |
+| rimraf      | Moduł usuwania węzła. Aby uzyskać więcej informacji, zobacz [rimraf](https://www.npmjs.com/package/rimraf). |
+| gulp concat | Moduł, który łączy pliki oparte na znak nowego wiersza systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [gulp concat](https://www.npmjs.com/package/gulp-concat). |
+| gulp-cssmin | Moduł, który minimalizuje pliki CSS. Aby uzyskać więcej informacji, zobacz [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
+| gulp uglify | Moduł, który minimalizuje *js* plików. Aby uzyskać więcej informacji, zobacz [gulp uglify](https://www.npmjs.com/package/gulp-uglify). |
 
 Gdy wymagane moduły są importowane, można określić zadania. W tym miejscu jest sześć zadań zarejestrowany, reprezentowany przez następujący kod:
 

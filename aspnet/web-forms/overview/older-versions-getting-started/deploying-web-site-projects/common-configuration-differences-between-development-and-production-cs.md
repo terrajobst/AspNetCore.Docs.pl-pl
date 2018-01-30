@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 725812c64667488b9a06c065c7100d0536c2e3e2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 092362e3811213047820dab08efc16e1a1e75020
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="common-configuration-differences-between-development-and-production-c"></a>Typowych konfiguracji różnice między rozwoju i produkcji (C#)
 ====================
@@ -30,7 +30,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 ## <a name="introduction"></a>Wprowadzenie
 
 
-Ostatnie dwa samouczki udał kroków wdrażania prostą aplikację sieci web. [ *Wdrażanie witryny przy użyciu klienta FTP* ](deploying-your-site-using-an-ftp-client-cs.md) samouczku przedstawiono sposób użycia autonomicznego klient FTP do skopiowania niezbędne pliki środowiska programistycznego do produkcji. Samouczek poprzedniego [ *wdrażanie Your lokacji za pomocą programu Visual Studio*](deploying-your-site-using-visual-studio-cs.md), przeglądał wdrożenia przy użyciu narzędzia kopiowanie witryny sieci Web i Publikuj Visual Studio. W obu samouczki wszystkich plików w środowisku produkcyjnym było kopię pliku na środowisko deweloperskie. Jednak nie jest nietypowe dla plików konfiguracyjnych w środowisku produkcyjnym w celu różnią się od tych w środowisku programistycznym. Konfiguracja aplikacji sieci web jest przechowywana w `Web.config` pliku i zwykle zawiera informacje na temat zasobów zewnętrznych, takich jak bazy danych, sieci web i serwerów poczty e-mail. Wyszczególnia ona również zachowanie aplikacji, w niektórych sytuacjach, takich jak sposób postępowania w sytuacji, gdy wystąpi nieobsługiwany wyjątek.
+Ostatnie dwa samouczki udał kroków wdrażania prostą aplikację sieci web. [ *Wdrażanie witryny przy użyciu klienta FTP* ](deploying-your-site-using-an-ftp-client-cs.md) samouczku przedstawiono sposób użycia autonomicznego klient FTP do skopiowania niezbędne pliki środowiska programistycznego do produkcji. Samouczek poprzedniego [ *wdrażanie Your lokacji za pomocą programu Visual Studio*](deploying-your-site-using-visual-studio-cs.md), przeglądał wdrożenia przy użyciu narzędzia kopiowanie witryny sieci Web i Publikuj Visual Studio. W obu samouczki wszystkich plików w środowisku produkcyjnym było kopię pliku na środowisko deweloperskie. Jednak nie jest nietypowe dla plików konfiguracyjnych w środowisku produkcyjnym w celu różnią się od tych w środowisku programistycznym. Konfiguracja aplikacji sieci web jest przechowywana w `Web.config` pliku i zwykle zawiera informacje na temat zasobów zewnętrznych, takich jak bazy danych, sieci web i serwerach poczty e-mail. Wyszczególnia ona również zachowanie aplikacji, w niektórych sytuacjach, takich jak sposób postępowania w sytuacji, gdy wystąpi nieobsługiwany wyjątek.
 
 W przypadku wdrażania aplikacji sieci web jest ważne, czy informacje o prawidłowej konfiguracji end w środowisku produkcyjnym. W większości przypadków `Web.config` nie można skopiować pliku w środowisku programistycznym do środowiska produkcyjnego jako — jest. Zamiast tego dostosowaną wersję `Web.config` musi zostać przekazana do produkcji. W tym samouczku krótko przegląda niektóre z najczęściej różnice konfiguracji; także podsumowanie niektóre techniki do przechowywania informacji o różnych konfiguracji między środowiskami.
 
