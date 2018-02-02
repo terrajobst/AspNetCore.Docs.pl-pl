@@ -36,13 +36,13 @@
 #### [Aktualizowanie stron](xref:tutorials/razor-pages-mac/da1)
 #### [Dodawanie wyszukiwania](xref:tutorials/razor-pages-mac/search)
 
-
 ### [Aplikacja internetowa ze stronami Razor z programem VS Code](xref:tutorials/razor-pages-vsc/index)
 #### [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages-vsc/razor-pages-start)
 #### [Dodawanie modelu](xref:tutorials/razor-pages-vsc/model)
 #### [Strony Razor ze szkieletami](xref:tutorials/razor-pages-vsc/page)
 #### [Praca z SQLite](xref:tutorials/razor-pages-vsc/sql)
 #### [Aktualizowanie stron](xref:tutorials/razor-pages-vsc/da1)
+#### [Dodawanie wyszukiwania](xref:tutorials/razor-pages-vsc/search)
 
 ### [Aplikacja internetowa MVC z programem Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/index)
 #### [Wprowadzenie](xref:tutorials/first-mvc-app-mac/start-mvc)
@@ -102,7 +102,9 @@
 # [Podstawowe założenia](fundamentals/index.md)
 ## [Uruchamianie aplikacji](fundamentals/startup.md)
 ## [Wstrzykiwanie zależności (usługi)](fundamentals/dependency-injection.md)
-## [Oprogramowanie pośredniczące](fundamentals/middleware.md)
+## [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
+### [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
+### [Na podstawie fabryki oprogramowania pośredniczącego](xref:fundamentals/middleware/extensibility)
 ## [Praca z plikami statycznymi](fundamentals/static-files.md)
 ## [Routing](fundamentals/routing.md)
 ## [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](fundamentals/url-rewriting.md)
