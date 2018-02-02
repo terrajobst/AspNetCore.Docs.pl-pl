@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 2897eb3a756654c61e38e847f5a8e1f8ca4f0b7c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d35c24347e8e06ed85e2af8addcc1f8cf28dc47a
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w platformy ASP.NET Core
 
@@ -36,7 +36,7 @@ Używa routingu *tras* (implementacje [IRouter](https://docs.microsoft.com/aspne
 
 Ogólnie rzecz biorąc aplikacja ma jednej kolekcji tras. Gdy żądanie dociera, kolekcji tras są przetwarzane w kolejności. Przychodzące żądanie wyszukują trasę, która odpowiada adresowi URL żądania przez wywołanie metody `RouteAsync` metody dla każdej trasy dostępne w kolekcji tras. Z kolei odpowiedzi można korzystać z routingu do generowania adresów URL (na przykład dla przekierowania lub łącza) na podstawie informacji trasy i w związku z tym uniknąć kodowane adresów URL, co ułatwia utrzymanie.
 
-Routing jest podłączony do [oprogramowanie pośredniczące](middleware.md) potoku przez `RouterMiddleware` klasy. [ASP.NET MVC](../mvc/overview.md) dodaje routingu do potoku oprogramowania pośredniczącego w ramach jego konfiguracji. Aby dowiedzieć się więcej o użyciu routingu jako składnik autonomicznych, zobacz [przy użyciu routingu — oprogramowanie pośredniczące](#using-routing-middleware).
+Routing jest podłączony do [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) potoku przez `RouterMiddleware` klasy. [Platformy ASP.NET Core MVC](xref:mvc/overview) dodaje routingu do potoku oprogramowania pośredniczącego w ramach jego konfiguracji. Aby dowiedzieć się więcej o użyciu routingu jako składnik autonomicznych, zobacz [za pomocą oprogramowania pośredniczącego routingu](#using-routing-middleware).
 
 <a name="url-matching-ref"></a>
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: cf9e6a25f5b9cc8395c803a11c15622349620a07
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c324918b33af82b619bb2251f32308e4a57c27e5
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
 
@@ -70,7 +70,7 @@ Host sieci web zawiera niektóre usługi, które są dostępne dla `Startup` kon
 
 ## <a name="the-configure-method"></a>Konfiguruj — metoda
 
-[Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) metoda jest używana do określania, jak aplikacji odpowiada na żądania HTTP. Potok żądań jest skonfigurowana przez dodanie [oprogramowanie pośredniczące](xref:fundamentals/middleware) składników [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) wystąpienia. `IApplicationBuilder`jest dostępny dla `Configure` metody, ale nie jest zarejestrowany w kontenerze usług. Hosting tworzy `IApplicationBuilder` i przekazuje je bezpośrednio do `Configure` ([źródło odwołania](https://github.com/aspnet/Hosting/blob/release/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/WebHost.cs#L179-L192)).
+[Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) metoda jest używana do określania, jak aplikacji odpowiada na żądania HTTP. Potok żądań jest skonfigurowana przez dodanie [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) składników [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) wystąpienia. `IApplicationBuilder`jest dostępny dla `Configure` metody, ale nie jest zarejestrowany w kontenerze usług. Hosting tworzy `IApplicationBuilder` i przekazuje je bezpośrednio do `Configure` ([źródło odwołania](https://github.com/aspnet/Hosting/blob/release/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/WebHost.cs#L179-L192)).
 
 [Szablonów platformy ASP.NET Core](/dotnet/core/tools/dotnet-new) Konfiguruje potok o obsługę stronę dewelopera wyjątek [BrowserLink](http://vswebessentials.com/features/browserlink), stron błędów, pliki statyczne i ASP.NET MVC:
 
@@ -80,7 +80,7 @@ Każdy `Use` — metoda rozszerzenia dodaje składnik oprogramowania pośrednicz
 
 Dodatkowe usługi, takie jak `IHostingEnvironment` i `ILoggerFactory`, można także określić w podpisie metody. W przypadku wstrzykuje się dodatkowe usługi, jeśli są one dostępne.
 
-Aby uzyskać więcej informacji na temat sposobu użycia `IApplicationBuilder`, zobacz [oprogramowanie pośredniczące](xref:fundamentals/middleware).
+Aby uzyskać więcej informacji na temat sposobu użycia `IApplicationBuilder`, zobacz [oprogramowanie pośredniczące](xref:fundamentals/middleware/index).
 
 ## <a name="convenience-methods"></a>Podręczne metody
 
@@ -92,7 +92,7 @@ Aby uzyskać więcej informacji na temat sposobu użycia `IApplicationBuilder`, 
 
 Użyj [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) do konfiguracji oprogramowania pośredniczącego na początku lub na końcu aplikacji [Konfiguruj](#the-configure-method) potoku oprogramowania pośredniczącego. `IStartupFilter`jest przydatne upewnić się, że oprogramowanie pośredniczące jest uruchamiany przed lub po dodanych przez bibliotek na początku lub na końcu potoku przetwarzania żądań aplikacji oprogramowania pośredniczącego.
 
-`IStartupFilter`implementuje jednej metody [Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter.configure), która odbiera i zwraca `Action<IApplicationBuilder>`. [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) definiuje klasę do konfigurowania potoku żądania aplikacji. Aby uzyskać więcej informacji, zobacz [tworzenie potoku oprogramowania pośredniczącego z IApplicationBuilder](xref:fundamentals/middleware#creating-a-middleware-pipeline-with-iapplicationbuilder).
+`IStartupFilter`implementuje jednej metody [Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter.configure), która odbiera i zwraca `Action<IApplicationBuilder>`. [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) definiuje klasę do konfigurowania potoku żądania aplikacji. Aby uzyskać więcej informacji, zobacz [tworzenie potoku oprogramowania pośredniczącego z IApplicationBuilder](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder).
 
 Każdy `IStartupFilter` implementuje middlewares co najmniej jeden z potokiem żądań. Filtry są wywoływane w kolejności, które zostały dodane do kontenera usług. Filtry mogą dodawać oprogramowanie pośredniczące przed lub po przekazanie sterowania do następnego filtru, w związku z tym ich dołączania na początku lub na końcu potoku aplikacji.
 
@@ -121,7 +121,7 @@ Kolejność wykonywania oprogramowanie pośredniczące zestaw jest w celu `IStar
 
 * [Hosting](xref:fundamentals/hosting)
 * [Praca w środowiskach wielu](xref:fundamentals/environments)
-* [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
+* [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
 * [Rejestrowanie](xref:fundamentals/logging/index)
 * [Konfiguracja](xref:fundamentals/configuration/index)
 * [Klasa StartupLoader: FindStartupType — metoda (odwołanie do źródła)](https://github.com/aspnet/Hosting/blob/rel/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs#L66-L116)

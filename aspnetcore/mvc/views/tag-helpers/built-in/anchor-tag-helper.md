@@ -1,252 +1,274 @@
 ---
-title: Pomocnik Tag kotwicy w platformy ASP.NET Core
+title: Pomocnik Tag kotwicy
 author: pkellner
-description: "Pokazuje, jak pracować z Pomocnika Tag kotwicy"
+description: "Odnalezienie atrybuty platformy ASP.NET Core zakotwiczenia Tag pomocnika i rolę, jaką odgrywa każdego atrybutu w rozszerzanie zachowanie tag kotwicy HTML."
 manager: wpickett
-ms.author: riande
-ms.date: 12/20/2017
+ms.author: scaddie
+ms.custom: mvc
+ms.date: 01/31/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 404fc7bc3b35114066f035e1ac28d10a8279ccbc
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f3b704174c3287edda12725b7973a2464e485bac
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="anchor-tag-helper"></a>Pomocnik Tag kotwicy
 
-Przez [Kellner Peterowi](http://peterkellner.net) 
+Przez [Kellner Peterowi](http://peterkellner.net) i [Scott Addie](https://github.com/scottaddie)
 
-Pomocnik Tag kotwicy zwiększa kotwicy HTML (`<a ... ></a>`) tag przez dodanie nowych atrybutów. Link wygenerowany (na `href` tagu) jest tworzony przy użyciu nowych atrybutów. Ten adres URL może zawierać protokół opcjonalne, na przykład protokołu https.
+[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tag-helpers/built-in/samples/TagHelpersBuiltInAspNetCore) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-Poniżej kontrolera prelegenta jest używany w przykłady w tym dokumencie.
+[Pomocnika Tag kotwicy](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper) zwiększa standardowe kotwicy HTML (`<a ... ></a>`) tag przez dodanie nowych atrybutów. Konwencja, nazw atrybutów są poprzedzane prefiksem `asp-`. Element zakotwiczenia renderowanych `href` wartość atrybutu jest określany przez wartości `asp-` atrybutów.
 
-**SpeakerController.cs** 
+*SpeakerController* jest używany w przykłady w tym dokumencie:
 
-[!code-csharp[SpeakerController](sample/TagHelpersBuiltInAspNetCore/src/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs)]
+[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs?name=snippet_SpeakerController)]
 
+Spis `asp-` następujące atrybuty.
 
-## <a name="anchor-tag-helper-attributes"></a>Atrybuty pomocnika Tag kotwicy
+## <a name="asp-controller"></a>Kontroler ASP
 
-### <a name="asp-controller"></a>Kontroler ASP
+[Kontrolera asp](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.controller) atrybut przypisuje kontroler, używany do generowania adresu URL. Następujący kod zawiera listę wszystkich głośników:
 
-`asp-controller`Służy do skojarzenia kontrolera, który będzie służyć do generowania adresu URL. Kontrolerów określonych musi istnieć w bieżącym projekcie. Poniższy kod wyświetla listę wszystkich głośników: 
+[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspController)]
 
-```cshtml
-<a asp-controller="Speaker" asp-action="Index">All Speakers</a>
-```
-
-Zostanie wygenerowany kod znaczników:
+Wygenerowany kod HTML:
 
 ```html
 <a href="/Speaker">All Speakers</a>
 ```
 
-Jeśli `asp-controller` określono i `asp-action` nie jest domyślnie `asp-action` jest domyślną metodą kontrolera widoku aktualnie wykonywane. Czy jest w powyższym przykładzie, jeśli `asp-action` pozostało, i jest generowany tego pomocnika Tag kotwicy na podstawie *HomeController*w `Index` widoku (**/Home**), zostanie wygenerowany kod znaczników:
+Jeśli `asp-controller` atrybut został określony i `asp-action` nie jest domyślnie `asp-action` wartość jest skojarzony z widokiem aktualnie wykonywane akcji kontrolera. Jeśli `asp-action` pominięto w poprzednim znaczników, i pomocnika Tag kotwicy jest używany w *HomeController*w *indeksu* widoku (*/Home*), jest wygenerowanego kodu HTML:
 
 ```html
 <a href="/Home">All Speakers</a>
 ```
 
-### <a name="asp-action"></a>Akcja ASP
+## <a name="asp-action"></a>Akcja ASP
 
-`asp-action`Nazwa metody akcji w kontrolerze, który zostanie uwzględniony w wygenerowanym `href`. Na przykład następujący kod ustawić wygenerowany `href` wskaż prelegenta strony szczegółów:
+[Akcji asp](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.action) wartość atrybutu reprezentuje nazwę akcji kontrolera, które są uwzględnione w wygenerowanym `href` atrybutu. Następujący kod ustawia wygenerowany `href` wartość atrybutu do strony ocen prelegenta:
 
-```html
-<a asp-controller="Speaker" asp-action="Detail">Speaker Detail</a>
-```
+[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspAction)]
 
-Zostanie wygenerowany kod znaczników:
+Wygenerowany kod HTML:
 
 ```html
-<a href="/Speaker/Detail">Speaker Detail</a>
+<a href="/Speaker/Evaluations">Speaker Evaluations</a>
 ```
 
-Jeśli nie `asp-controller` atrybut został określony, zostanie użyty domyślny kontroler wywoływania widok wykonywania bieżącego widoku.  
- 
-Jeśli atrybut `asp-action` jest `Index`, a następnie żadna akcja ze strony jest dołączany do adresu URL, co prowadzi do domyślnej `Index` wywołania metody. Akcja określony (lub ustawiana domyślnie), musi istnieć w kontrolerze, do którego odwołuje się `asp-controller`.
+Jeśli nie `asp-controller` atrybut został określony, używany jest kontroler domyślne wywoływania widok wykonywania bieżącego widoku.
 
-### <a name="asp-page"></a>Strona ASP
+Jeśli `asp-action` wartość atrybutu jest `Index`, a następnie żadna akcja ze strony jest dołączany do adresu URL, co może prowadzić do wywołania domyślnych `Index` akcji. Akcja określony (lub ustawiana domyślnie), musi istnieć w kontrolerze, do którego odwołuje się `asp-controller`.
 
-Użyj `asp-page` atrybut w tagu zakotwiczenia, aby ustawić adres URL, aby wskazywał określonej strony. Prefiksu nazwy strony, od ukośnika "/" tworzy adres URL. W poniższym przykładzie adres URL wskazuje na stronie "Prelegenta" w bieżącym katalogu.
+## <a name="asp-route-value"></a>asp-route-{value}
+
+[Asp - route - {wartość value}](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.routevalues) atrybut umożliwia prefiks trasy symboli wieloznacznych. Wszystkie wartości zajmujące `{value}` symbol zastępczy jest interpretowana jako potencjalne parametru trasy. Jeśli trasa domyślna nie zostanie odnaleziony, prefiks trasy jest dołączany do wygenerowanej `href` atrybutu żądania parametr i wartość. W przeciwnym razie zostanie zastąpiony w szablonie trasy.
+
+Należy wziąć pod uwagę następujące akcji kontrolera:
+
+[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Controllers/BuiltInTagController.cs?name=snippet_AnchorTagHelperAction)]
+
+Z domyślnego szablonu trasy zdefiniowanej w *Startup.Configure*:
+
+[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Startup.cs?name=snippet_UseMvc&highlight=8-10)]
+
+Widok MVC korzysta z modelu, pochodzącymi z działania, w następujący sposób:
 
 ```cshtml
-<a asp-page="/Speakers">All Speakers</a>
-```
-
-`asp-page` Atrybutu w poprzednim przykładzie kodu renderuje danych wyjściowych HTML w widoku, który jest podobny do następującego fragmentu kodu:
-
-```html
-<a href="/items?page=%2FSpeakers">Speakers</a>
-```
-
-`asp-page` Jest wykluczają się wzajemnie z atrybutem `asp-route`, `asp-controller`, i `asp-action` atrybutów. Jednak `asp-page` mogą być używane z `asp-route-id` do kontrolowania routingu, jak pokazano w poniższym przykładzie kodu:
-
-```cshtml
-<a asp-page="/Speaker" asp-route-id="@speaker.Id">View Speaker</a>
-```
-
-`asp-route-id` Następujących danych wyjściowych:
-
-```html
-https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
-```
-
-> [!NOTE]
-> Aby użyć `asp-page` atrybutu w stron Razor, adresy URL musi być ścieżką względną, na przykład `"./Speaker"`. Ścieżki względne w `asp-page` atrybutów nie są dostępne w widokach MVC. Zamiast tego użyj składni "/" dla widoków MVC.
-
-### <a name="asp-route-value"></a>asp-route-{value}
-
-`asp-route-`jest symbol wieloznaczny prefiksu trasy. Wartość, umieszczone po kreska kończąca zostanie potraktowany jako potencjalne parametru trasy. Jeśli trasa domyślna nie zostanie odnaleziony, prefiks trasy zostaną dodane do wygenerowanego href żądania parametr i wartość. W przeciwnym razie zostaną zastąpione w szablonie trasy.
-
-Zakładając, że użytkownik ma metody kontrolera zdefiniowane w następujący sposób:
-
-```csharp
-public IActionResult AnchorTagHelper(string id)
-{
-    var speaker = new SpeakerData()
-    {
-        SpeakerId = 12
-    };
-    return View(viewName, speaker);
-}
-```
-
-I mieć domyślnego szablonu trasy zdefiniowanej w Twojej *Startup.cs* w następujący sposób:
-
-```csharp
-app.UseMvc(routes =>
-{
-   routes.MapRoute(
-    name: "default",
-    template: "{controller=Home}/{action=Index}/{id?}");
-});
-
-```
-
-**Cshtml** pliku, który zawiera pomocnika Tag kotwicy koniecznych do używania **prelegenta** przekazany z kontrolera widoku modelu parametr wygląda następująco:
-
-```cshtml
-@model SpeakerData
+@model Speaker
 <!DOCTYPE html>
-<html><body>
-<a asp-controller='Speaker' asp-action='Detail' asp-route-id=@Model.SpeakerId>SpeakerId: @Model.SpeakerId</a>
-<body></html>
+<html>
+<body>
+    <a asp-controller="Speaker"
+       asp-action="Detail" 
+       asp-route-id="@Model.SpeakerId">SpeakerId: @Model.SpeakerId</a>
+</body>
+</html>
 ```
 
-Wygenerowany kod HTML będzie następujący ponieważ **identyfikator** został znaleziony w trasy domyślnej.
+Trasa domyślna `{id?}` symbol zastępczy został uzyskany. Wygenerowany kod HTML:
 
 ```html
-<a href='/Speaker/Detail/12'>SpeakerId: 12</a>
+<a href="/Speaker/Detail/12">SpeakerId: 12</a>
 ```
 
-Jeśli prefiks trasy nie znaleziono szablonu routingu, która jest w przypadku następujących **cshtml** pliku:
+Przyjęto założenie, że prefiks trasy nie jest częścią zgodnego szablonu routingu, podobnie jak w przypadku następujących widoku MVC:
 
 ```cshtml
-@model SpeakerData
+@model Speaker
 <!DOCTYPE html>
-<html><body>
-<a asp-controller='Speaker' asp-action='Detail' asp-route-speakerid=@Model.SpeakerId>SpeakerId: @Model.SpeakerId</a>
-<body></html>
+<html>
+<body>
+    <a asp-controller="Speaker" 
+       asp-action="Detail" 
+       asp-route-speakerid="@Model.SpeakerId">SpeakerId: @Model.SpeakerId</a>
+<body>
+</html>
 ```
 
-Wygenerowany kod HTML będzie następujący ponieważ **speakerid** nie został znaleziony w dopasowaniu trasy:
+Poniższy kod HTML jest generowany `speakerid` nie został znaleziony w pasującej trasy:
 
 ```html
-<a href='/Speaker/Detail?speakerid=12'>SpeakerId: 12</a>
+<a href="/Speaker/Detail?speakerid=12">SpeakerId: 12</a>
 ```
 
 Jeśli dowolny `asp-controller` lub `asp-action` nie są określone, następnie tego samego przetwarzania domyślny jest kontynuowane, jak jest `asp-route` atrybutu.
 
-### <a name="asp-route"></a>trasy ASP
+## <a name="asp-route"></a>trasy ASP
 
-`asp-route`zapewnia sposób utworzyć adres URL prowadzący bezpośrednio do nazwanej trasy. Przy użyciu atrybutów routingu, trasy nazwą może być pokazane na `SpeakerController` i używany w jego `Evaluations` metody.
+[Trasy asp](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.route) atrybut służy do tworzenia adresu URL łączenie bezpośrednio do nazwanej trasy. Przy użyciu [atrybuty routingu](xref:mvc/controllers/routing#attribute-routing), może mieć nazwę trasy, jak pokazano w `SpeakerController` i używany w jego `Evaluations` akcji:
 
-`Name = "speakerevals"`Określa, że Generowanie trasę bezpośrednio do tej metody za pomocą adresu URL pomocnika Tag kotwicy `/Speaker/Evaluations`. Jeśli `asp-controller` lub `asp-action` określono oprócz `asp-route`, generowane trasy nie może być oczekiwań. `asp-route`nie należy używać przy użyciu jednej z wartości atrybutów `asp-controller` lub `asp-action` Aby uniknąć konfliktu trasy.
+[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs?range=22-24)]
 
-### <a name="asp-all-route-data"></a>asp-all-route-data
+W następujących znaczników `asp-route` nazwanej trasy odwołuje się do atrybutu:
 
-`asp-all-route-data`Umożliwia tworzenie słownik par kluczy i wartości gdzie klucz to nazwa parametru, a wartość jest wartością skojarzonego z tym kluczem.
+[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspRoute)]
 
-Co w przykładzie poniżej przedstawiono Słownik wbudowany jest tworzony, i dane są przekazywane do widoku razor. Alternatywnie dane można również przekazywane za pomocą modelu.
-
-```cshtml
-@{
-    var dict =
-        new Dictionary<string, string>
-        {
-            {"speakerId", "11"},
-            {"currentYear", "true"}
-        };
-}
-<a asp-route="speakerevalscurrent"
-asp-all-route-data="dict">SpeakerEvals</a>
-```
-
-Powyższy kod generuje następujący adres URL: http://localhost/Speaker/EvaluationsCurrent?speakerId=11&currentYear=true
-
-Po kliknięciu łącza, metoda kontrolera `EvaluationsCurrent` jest wywoływana. Jest to, ponieważ ten kontroler ma dwa parametry ciągu, które utworzył z `asp-all-route-data` słownika.
-
-Jeśli parametry trasy klucze w słowniku dopasowania, te wartości zostaną zastąpione w trasie zgodnie z potrzebami i inne niepasujące wartości zostaną wygenerowane jako parametry żądania.
-
-### <a name="asp-fragment"></a>asp-fragment
-
-`asp-fragment`Definiuje fragmentu adresu URL, aby dołączyć do adresu URL. Pomocnik Tag kotwicy spowoduje dodanie znaku numeru (#). Jeśli utworzysz tag:
-
-```cshtml
-<a asp-action="Evaluations" asp-controller="Speaker"  
-   asp-fragment="SpeakerEvaluations">About Speaker Evals</a>
-```
-
-Zostanie wygenerowany adres URL: http://localhost/Speaker/Evaluations#SpeakerEvaluations
-
-Skrót tagi są przydatne podczas tworzenia aplikacji po stronie klienta. Służy do łatwego oznaczenie i wyszukiwanie w języku JavaScript, na przykład.
-
-### <a name="asp-area"></a>asp-area
-
-`asp-area`Ustawia nazwę obszaru, która korzysta z platformy ASP.NET Core można ustawić odpowiednie trasy. Poniżej przedstawiono przykłady sposobu atrybut obszaru powoduje zmianę mapowania tras. Ustawienie `asp-area` blogach prefiksy katalogu `Areas/Blogs` do tras skojarzone kontrolery i widoki dla ten tag kotwicy.
-
-* Nazwa projektu
-  * wwwroot
-  * Obszary
-    * Blogi
-      * Kontrolery
-        * HomeController.cs
-      * Widoki
-        * Home
-          * Index.cshtml
-          * AboutBlog.cshtml
-  * Kontrolery
-
-Określenie obszaru tag, który jest prawidłowy, takich jak ```area="Blogs"``` podczas odwoływania się do ```AboutBlog.cshtml``` pliku będzie wyglądać podobnie do następującej przy użyciu Pomocnika Tag kotwicy.
-
-```cshtml
-<a asp-action="AboutBlog" asp-controller="Home" asp-area="Blogs">Blogs About</a>
-```
-
-Wygenerowany kod HTML będzie zawierać segmentu obszarów i będzie wyglądać następująco:
+Pomocnik Tag kotwicy generuje trasę bezpośrednio do tej akcji kontrolera, używając adresu URL */prelegenta/oceny*. Wygenerowany kod HTML:
 
 ```html
-<a href="/Blogs/Home/AboutBlog">Blogs About</a>
+<a href="/Speaker/Evaluations">Speaker Evaluations</a>
+```
+
+Jeśli `asp-controller` lub `asp-action` określono oprócz `asp-route`, generowane trasy nie może być oczekiwań. Aby uniknąć konfliktu trasy, `asp-route` nie powinny być używane z `asp-controller` i `asp-action` atrybutów.
+
+## <a name="asp-all-route-data"></a>asp-all-route-data
+
+[Asp-all danych trasy](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.routevalues) atrybutu obsługuje tworzenie słownik par klucz wartość. Nazwa parametru jest klucz i wartość jest wartością parametru.
+
+W poniższym przykładzie słownik jest zainicjowany i przekazywane do widoku Razor. Alternatywnie dane można otrzymać za pomocą modelu.
+
+[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspAllRouteData)]
+
+Poprzedni kod generuje poniższy kod HTML:
+
+```html
+<a href="/Speaker/EvaluationsCurrent?speakerId=11&currentYear=true">Speaker Evaluations</a>
+```
+
+`asp-all-route-data` Słownika właściwości jest spłaszczona wygenerowało ciąg kwerendy spełniających wymagania przeciążone `Evaluations` akcji:
+
+[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs?range=26-30)]
+
+Jeśli klucze w słowniku zgodne parametrów trasy, te wartości są zastępowane w trasie zależnie od potrzeb. Inne niepasujące wartości są generowane jako parametry żądania.
+
+## <a name="asp-fragment"></a>asp-fragment
+
+[Fragmentu asp](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.fragment) atrybut definiuje fragmentu adresu URL, aby dołączyć do adresu URL. Pomocnika Tag kotwicy dodaje znaku numeru (#). Rozważmy następujący kod:
+
+[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspFragment)]
+
+Wygenerowany kod HTML:
+
+```html
+<a href="/Speaker/Evaluations#SpeakerEvaluations">Speaker Evaluations</a>
+```
+
+Skrót tagi są przydatne podczas kompilowania aplikacji po stronie klienta. Służy do łatwego oznaczenie i wyszukiwanie w języku JavaScript, na przykład.
+
+## <a name="asp-area"></a>asp-area
+
+[Obszaru asp](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.area) atrybut ustawia nazwę obszaru służy do określania odpowiednich trasy. Poniższy przykład przedstawia, jak atrybut obszaru powoduje zmianę mapowania tras. Ustawienie `asp-area` "Blogach" prefiksy katalogu *obszarów/blogi* do tras skojarzone kontrolery i widoki dla ten tag kotwicy.
+
+* **< Nazwa projektu\>**
+  * **wwwroot**
+  * **Obszary**
+    * **Blogi**
+      * **Kontrolery**
+        * *HomeController.cs*
+      * **Widoki**
+        * **Strona główna**
+          * *AboutBlog.cshtml*
+          * *Index.cshtml*
+        * *_ViewStart.cshtml*
+  * **Kontrolery**
+
+Podane poprzedniego hierarchii katalogów znaczników, aby odwołać *AboutBlog.cshtml* plik jest:
+
+[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspArea)]
+
+Wygenerowany kod HTML:
+
+```html
+<a href="/Blogs/Home/AboutBlog">About Blog</a>
 ```
 
 > [!TIP]
-> Obszarów MVC do pracy w aplikacji sieci web szablon trasy musi zawierać odwołanie do obszaru, jeśli istnieje. Szablonu, który jest drugi parametr z `routes.MapRoute` wywołania metody, będą wyświetlane jako:`template: '"{area:exists}/{controller=Home}/{action=Index}"'`
+> Obszarów do pracy w aplikacji MVC szablon trasy musi zawierać odwołanie do obszaru, jeśli istnieje. Ten szablon jest reprezentowana przez drugi parametr funkcji `routes.MapRoute` wywołanie metody *Startup.Configure*:[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Startup.cs?name=snippet_UseMvc&highlight=5)]
 
-### <a name="asp-protocol"></a>asp-protocol
+## <a name="asp-protocol"></a>asp-protocol
 
-`asp-protocol` Służy do określania protokół (takie jak `https`) w adresie URL. Przykład pomocnika Tag kotwicy, zawierającym nazwę protokołu będzie wyglądać w następujący sposób:
+[Protokołu asp](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.protocol) atrybut służy do określania protokół (takie jak `https`) w adresie URL. Na przykład:
 
-```<a asp-protocol="https" asp-action="About" asp-controller="Home">About</a>```
+[!code-cshtml[samples/TagHelpersBuiltInAspNetCore/Views/Index.cshtml?name=snippet_AspProtocol]]
 
-i wygeneruje HTML w następujący sposób:
+Wygenerowany kod HTML:
 
-```<a href="https://localhost/Home/About">About</a>```
+```html
+<a href="https://localhost/Home/About">About</a>
+```
 
-Domena, w tym przykładzie jest localhost, ale pomocnika Tag kotwicy używa domeny publicznej witryny sieci Web podczas generowania adresu URL.
+Nazwa hosta, w tym przykładzie jest localhost, ale pomocnika Tag kotwicy używa domeny publicznej witryny sieci Web podczas generowania adresu URL.
+
+## <a name="asp-host"></a>ASP host
+
+[Hosta asp](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.host) atrybut służy do określania nazwy hosta w adresie URL. Na przykład:
+
+[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspHost)]
+
+Wygenerowany kod HTML:
+
+```html
+<a href="https://microsoft.com/Home/About">About</a>
+```
+
+## <a name="asp-page"></a>Strona ASP
+
+[Strona asp](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.page) atrybut jest używany w przypadku stron Razor. Użyj jej do ustawienia tag kotwicy `href` wartość atrybutu do określonej strony. Prefiksu nazwy strony się ukośnikiem ("/") tworzy adres URL.
+
+Poniższy przykład punkty do uczestnika Razor strony:
+
+[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspPage)]
+
+Wygenerowany kod HTML:
+
+```html
+<a href="/Attendee">All Attendees</a>
+```
+
+`asp-page` Jest wykluczają się wzajemnie z atrybutem `asp-route`, `asp-controller`, i `asp-action` atrybutów. Jednak `asp-page` mogą być używane z `asp-route-{value}` do kontrolowania routingu, jak pokazano następujący kod:
+
+[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspPageAspRouteId)]
+
+Wygenerowany kod HTML:
+
+```html
+<a href="/Attendee?attendeeid=10">View Attendee</a>
+```
+
+## <a name="asp-page-handler"></a>asp-page-handler
+
+[Program obsługi stron asp](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.pagehandler) atrybut jest używany w przypadku stron Razor. Przewodnik jest przeznaczony dla połączeń do określonej strony programów obsługi.
+
+Należy wziąć pod uwagę następujące obsługi strony:
+
+[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Pages/Attendee.cshtml.cs?name=snippet_OnGetProfileHandler)]
+
+Znaczników linki do powiązanych modelu strony `OnGetProfile` obsługi strony. Należy pamiętać, że `On<Verb>` prefiks nazwy metody obsługi strona zostanie pominięty w `asp-page-handler` wartość atrybutu. Jeżeli metodę asynchroniczną `Async` zbyt zostaną pominięte sufiks.
+
+[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspPageHandler)]
+
+Wygenerowany kod HTML:
+
+```html
+<a href="/Attendee?attendeeid=12&handler=Profile">Attendee Profile</a>
+```
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Obszary](xref:mvc/controllers/areas)
+* [Wprowadzenie do stron Razor](xref:mvc/razor-pages/index)

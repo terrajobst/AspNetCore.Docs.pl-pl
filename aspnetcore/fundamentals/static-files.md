@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
 ms.openlocfilehash: 60b205bf0a45e2965f9dab46f46956947ae513fd
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="work-with-static-files-in-aspnet-core"></a>Praca z plikami statycznych w ASP.NET Core
 

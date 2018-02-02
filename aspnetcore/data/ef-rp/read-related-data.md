@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
 ms.openlocfilehash: ccb1e95ae2b43fd0a4c4b1ac9ed58a4d474ab3b6
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Odczytywanie powiązane dane - Core EF Razor strony (6 8)
 

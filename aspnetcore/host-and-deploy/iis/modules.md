@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 1b5391c113ca0b980eb3c47bcce0717d4a4739ed
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b7c81f2851a932cd12553af4a2655eb9f1f7bc64
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>Używanie modułów usług IIS z platformy ASP.NET Core
 
@@ -44,8 +44,8 @@ Moduł | .NET core aktywny | Opcja platformy ASP.NET Core
 **Przekierowywanie HTTP**<br>`HttpRedirectionModule` | Tak | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting)
 **Uwierzytelnianie mapowań certyfikatów klientów usług IIS**<br>`IISCertificateMappingAuthenticationModule` | Tak | 
 **Ograniczenia adresów IP i domen**<br>`IpRestrictionModule` | Tak | 
-**Filtry ISAPI**<br>`IsapiFilterModule` | Tak | [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
-**ISAPI**<br>`IsapiModule` | Tak | [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
+**Filtry ISAPI**<br>`IsapiFilterModule` | Tak | [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
+**ISAPI**<br>`IsapiModule` | Tak | [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
 **Obsługa protokołu**<br>`ProtocolSupportModule` | Tak | 
 **Filtrowanie żądań**<br>`RequestFilteringModule` | Tak | [Ponowne zapisywanie adresów URL w oprogramowania pośredniczącego`IRule`](xref:fundamentals/url-rewriting#irule-based-rule)
 **Monitor żądań**<br>`RequestMonitorModule` | Tak | 

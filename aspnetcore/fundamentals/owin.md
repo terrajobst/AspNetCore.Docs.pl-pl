@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/owin
-ms.openlocfilehash: 91e59d8568434867e10869b4db22bce9935ce573
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1a6a49715840d66dc37465758d3a896af96e2976
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>Wprowadzenie do otworzyć Interfejs sieci Web dla platformy .NET (OWIN)
 
@@ -320,5 +320,5 @@ Zależy od OWIN `IDictionary<string,object>` obiektu do przekazywania informacji
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
+* [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
 * [Serwery](xref:fundamentals/servers/index)

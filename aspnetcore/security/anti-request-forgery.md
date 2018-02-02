@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: e076e301004c04b5c516d775353a4b6e50a3f36e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 079c36535b8c9e7229952a2f7bcd53174effa6af
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Zapobieganie atakom sfałszowaniem (XSRF/CSRF) żądania Międzywitrynowego na platformie ASP.NET Core
 
@@ -345,7 +345,7 @@ CSRF ataki polegają na domyślne zachowanie przeglądarki przesyłać pliki coo
 
 ### <a name="cookie-based-authentication"></a>Uwierzytelnianie na podstawie plików cookie
 
-Gdy użytkownik został uwierzytelniony przy użyciu nazwy użytkownika i hasła, ich jest wystawiony token, który może służyć do ich identyfikacji i weryfikacji, czy zostały uwierzytelnione. Token jest przechowywany jako sprawia, że plik cookie dołączona każde żądanie klienta. Generowanie i sprawdzanie poprawności ten plik cookie odbywa się przez oprogramowanie pośredniczące uwierzytelniania plików cookie. Platformy ASP.NET Core zawiera plik cookie [oprogramowanie pośredniczące](../fundamentals/middleware.md) co serializuje głównej nazwy użytkownika do zaszyfrowanego pliku cookie i kolejne żądania sprawdza poprawność pliku cookie, odtwarza podmiot zabezpieczeń i przypisuje go do `User` właściwości `HttpContext`.
+Gdy użytkownik został uwierzytelniony przy użyciu nazwy użytkownika i hasła, ich jest wystawiony token, który może służyć do ich identyfikacji i weryfikacji, czy zostały uwierzytelnione. Token jest przechowywany jako sprawia, że plik cookie dołączona każde żądanie klienta. Generowanie i sprawdzanie poprawności ten plik cookie odbywa się przez oprogramowanie pośredniczące uwierzytelniania plików cookie. Platformy ASP.NET Core zawiera plik cookie [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) co serializuje głównej nazwy użytkownika do zaszyfrowanego pliku cookie i kolejne żądania sprawdza poprawność pliku cookie, odtwarza podmiot zabezpieczeń i przypisuje go do `User` właściwości `HttpContext`.
 
 Gdy używany jest plik cookie, plik cookie uwierzytelniania jest tylko kontenerem dla biletu uwierzytelniania formularzy. Bilet jest przekazywany jako wartość pliku cookie uwierzytelniania formularzy z każdym żądaniem i jest używany przez uwierzytelnianie formularzy, na serwerze, aby zidentyfikować uwierzytelnionego użytkownika.
 

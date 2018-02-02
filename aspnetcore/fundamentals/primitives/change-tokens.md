@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
 ms.openlocfilehash: 94bf356fcbfab3930804485c1b65e4a0f4c52b8e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Wykrywanie zmian z tokenami zmiany w ASP.NET Core
 

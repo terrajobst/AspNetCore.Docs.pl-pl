@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/routing
-ms.openlocfilehash: ca4f40766b4ec3d59587109ec9d5a412e834e3ce
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d87cb50871b956c51045558d2e4f076de4211f81
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="routing-to-controller-actions"></a>Routing do akcji kontrolera
 
 Przez [Ryan Nowak](https://github.com/rynowak) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Routing korzysta z platformy ASP.NET Core MVC [oprogramowanie pośredniczące](../../fundamentals/middleware.md) zgodne adresy URL żądań przychodzących i zamapowania ich do akcji. Trasy są definiowane w kod uruchomienia lub atrybutów. Trasy opisano, jak powinny być zgodne ścieżki adresu URL do akcji. Trasy są również używane do generowania adresów URL (w przypadku połączeń) wysłała w odpowiedzi. 
+Routing korzysta z platformy ASP.NET Core MVC [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) zgodne adresy URL żądań przychodzących i zamapowania ich do akcji. Trasy są definiowane w kod uruchomienia lub atrybutów. Trasy opisano, jak powinny być zgodne ścieżki adresu URL do akcji. Trasy są również używane do generowania adresów URL (w przypadku połączeń) wysłała w odpowiedzi. 
 
 Akcje albo są kierowane tradycyjnie ani trasowane atrybutu. Umożliwia wprowadzania trasę do kontrolera lub akcji atrybutu routingu. Zobacz [mieszanym routingu](#routing-mixed-ref-label) Aby uzyskać więcej informacji.
 

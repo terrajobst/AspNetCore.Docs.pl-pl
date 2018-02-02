@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 1c6bf5ad92a43274af351652d240e2fa8873a956
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0f04891aaeec026120e2afff3ff24fb89f649c8d
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Żądania obsługi z kontrolerami w programie ASP.NET MVC Core
 
@@ -104,4 +104,4 @@ Obsługa błędów i buforowanie odpowiedzi są często dotyczy kompleksowymi:
    * [Obsługa błędów](xref:mvc/controllers/filters#exception-filters)
    * [Buforowanie odpowiedzi](xref:performance/caching/response)
 
-Wiele problemów kompleksowymi można obsługiwać przy użyciu filtrów lub niestandardowe [oprogramowanie pośredniczące](xref:fundamentals/middleware).
+Wiele problemów kompleksowymi można obsługiwać przy użyciu filtrów lub niestandardowe [oprogramowanie pośredniczące](xref:fundamentals/middleware/index).

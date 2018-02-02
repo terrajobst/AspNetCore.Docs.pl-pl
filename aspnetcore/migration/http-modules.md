@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: f104c9116cfaa4a82ac88e4a83b4b6f172eb2aa1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8aac6c649b22dc8f6cfc916aa78d56efad7821a0
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrowanie programów obsługi HTTP i modułów platformy ASP.NET Core oprogramowania pośredniczącego 
 
 Przez [Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
-W tym artykule pokazano, jak przeprowadzić migrację istniejących ASP.NET [moduły HTTP i programów obsługi system.webserver](https://docs.microsoft.com/iis/configuration/system.webserver/) do platformy ASP.NET Core [oprogramowanie pośredniczące](../fundamentals/middleware.md).
+W tym artykule pokazano, jak przeprowadzić migrację istniejących ASP.NET [moduły HTTP i programów obsługi system.webserver](https://docs.microsoft.com/iis/configuration/system.webserver/) do platformy ASP.NET Core [oprogramowanie pośredniczące](xref:fundamentals/middleware/index).
 
 ## <a name="modules-and-handlers-revisited"></a>Moduły i uruchomić ponownie programów obsługi
 
@@ -65,7 +65,7 @@ Oprócz modułów, można dodać obsługi zdarzeń cyklu życia z *Global.asax.c
 
    * Oprogramowanie pośredniczące są skonfigurowane przy użyciu kodu, a nie w *pliku Web.config*
 
-   * [Rozgałęzienie potoku](../fundamentals/middleware.md#middleware-run-map-use) umożliwia wysyłanie żądań do określonego oprogramowania pośredniczącego, oparte na nie tylko adres URL, ale także na nagłówków żądań, ciągi zapytań, itp.
+   * [Rozgałęzienie potoku](xref:fundamentals/middleware/index#middleware-run-map-use) umożliwia wysyłanie żądań do określonego oprogramowania pośredniczącego, oparte na nie tylko adres URL, ale także na nagłówków żądań, ciągi zapytań, itp.
 
 **Oprogramowanie pośredniczące są bardzo podobne do modułów:**
 
@@ -81,7 +81,7 @@ Oprócz modułów, można dodać obsługi zdarzeń cyklu życia z *Global.asax.c
 
    * Kolejność oprogramowania pośredniczącego odpowiedzi jest odwrotnie niż dla żądania, podczas kolejność modułów jest taki sam dla żądań i odpowiedzi
 
-   * Zobacz [tworzenie potoku oprogramowania pośredniczącego z IApplicationBuilder](../fundamentals/middleware.md#creating-a-middleware-pipeline-with-iapplicationbuilder)
+   * Zobacz [tworzenie potoku oprogramowania pośredniczącego z IApplicationBuilder](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder)
 
 ![Oprogramowanie pośredniczące](http-modules/_static/middleware.png)
 
@@ -93,13 +93,13 @@ Istniejący moduł HTTP będzie wyglądać podobnie do poniższego:
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyModule.cs?highlight=6,8,24,31)]
 
-Jak pokazano w [oprogramowanie pośredniczące](../fundamentals/middleware.md) strony, oprogramowanie pośredniczące platformy ASP.NET Core jest klasa, która przedstawia `Invoke` metody z argumentami `HttpContext` i zwracanie `Task`. Nowego oprogramowania pośredniczącego będzie wyglądać następująco:
+Jak pokazano w [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) strony, oprogramowanie pośredniczące platformy ASP.NET Core jest klasa, która przedstawia `Invoke` metody z argumentami `HttpContext` i zwracanie `Task`. Nowego oprogramowania pośredniczącego będzie wyglądać następująco:
 
 <a name="http-modules-usemiddleware"></a>
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
-Powyższego szablonu oprogramowanie pośredniczące została pobrana z sekcji [zapisywania oprogramowanie pośredniczące](../fundamentals/middleware.md#middleware-writing-middleware).
+Powyższy szablon oprogramowanie pośredniczące została pobrana z sekcji [zapisywania oprogramowanie pośredniczące](xref:fundamentals/middleware/index#middleware-writing-middleware).
 
 *MyMiddlewareExtensions* Klasa pomocy ułatwia konfigurowanie oprogramowania pośredniczącego w Twojej `Startup` klasy. `UseMyMiddleware` Metody dodaje klasy oprogramowania pośredniczącego do potoku żądania. Usług wymaganych przez oprogramowanie pośredniczące uzyskać wprowadzonym w Konstruktorze przez oprogramowanie pośredniczące.
 
@@ -121,7 +121,7 @@ Moduły HTTP zazwyczaj są dodawane do potoku żądania przy użyciu *Web.config
 
 [!code-xml[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Web.config?highlight=6&range=1-3,32-33,36,43,50,101)]
 
-Konwertuj to przez [Dodawanie nowego oprogramowania pośredniczącego](../fundamentals/middleware.md#creating-a-middleware-pipeline-with-iapplicationbuilder) do potoku żądania w Twojej `Startup` klasy:
+Konwertuj to przez [Dodawanie nowego oprogramowania pośredniczącego](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder) do potoku żądania w Twojej `Startup` klasy:
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=16)]
 
@@ -383,4 +383,4 @@ public async Task Invoke(HttpContext httpContext)
 * [Omówienie moduły HTTP i programów obsługi HTTP](/iis/configuration/system.webserver/)
 * [Konfiguracja](xref:fundamentals/configuration/index)
 * [Uruchamianie aplikacji](xref:fundamentals/startup)
-* [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
+* [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)

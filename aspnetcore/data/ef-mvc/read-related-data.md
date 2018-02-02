@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/read-related-data
 ms.openlocfilehash: 58b05587458aacad1a633a04f0359a4d2a3605a3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Odczytywanie powiązane dane - Core EF z samouczek platformy ASP.NET Core MVC (6 10)
 

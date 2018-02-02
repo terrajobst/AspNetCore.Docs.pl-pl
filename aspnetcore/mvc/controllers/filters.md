@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: 8549083ad42f3b81f850c0572b36dd99c4f50350
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2ba3c226cc57f8a3fb26b4119ae9e575eff522f9
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="filters"></a>Filtry
 
@@ -307,7 +307,7 @@ Abstrakcyjnego zapewnia platformę `ResultFilterAttribute` mogących podklasy. [
 
 ## <a name="using-middleware-in-the-filter-pipeline"></a>Za pomocą oprogramowania pośredniczącego w potoku filtru
 
-Filtry zasobów działają podobnie jak [oprogramowanie pośredniczące](../../fundamentals/middleware.md) w tym ujęty wykonanie wszystkich elementów, które później w potoku. Jednak filtry różnią się od oprogramowania pośredniczącego, są one częścią MVC, co oznacza, że mają dostęp do kontekstu MVC i konstrukcji.
+Filtry zasobów działają podobnie jak [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) w tym ujęty wykonanie wszystkich elementów, które później w potoku. Jednak filtry różnią się od oprogramowania pośredniczącego, są one częścią MVC, co oznacza, że mają dostęp do kontekstu MVC i konstrukcji.
 
 W ASP.NET Core 1.1 można użyć oprogramowania pośredniczącego w potoku filtru. Można to zrobić, jeśli składnik oprogramowania pośredniczącego, które wymagają dostępu do danych trasy MVC lub taki, który należy uruchamiać tylko dla niektórych kontrolerach ani akcji.
 

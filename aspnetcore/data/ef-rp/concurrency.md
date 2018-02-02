@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/concurrency
 ms.openlocfilehash: 1c6cdefa1410839606711d7460a8f4d0f1d6c72b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
 en-us /
 

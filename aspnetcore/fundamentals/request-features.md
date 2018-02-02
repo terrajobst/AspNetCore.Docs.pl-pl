@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/request-features
-ms.openlocfilehash: 11644dc646f2c0e749f0f64e80ee00ea8b671302
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c79ad6001e106a3e3104b0f804a386fe8b0ee30a
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="request-features-in-aspnet-core"></a>Funkcje platformy ASP.NET Core żądania
 
@@ -73,5 +73,5 @@ Funkcja interfejsy zdefiniuj określonych funkcji HTTP, które mogą obsługiwa�
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Serwery](xref:fundamentals/servers/index)
-* [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
+* [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
 * [Otwarty interfejs internetowy dla platformy .NET (OWIN)](xref:fundamentals/owin)

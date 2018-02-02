@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: 946ccc80915c5de60976a98cbbb253cb8dfacaca
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7f0e30b3ac7f9cc3a32bd96f45d83ba13505a475
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET Core
 
@@ -71,7 +71,7 @@ public class Startup
 }
 ```
 
-`ConfigureServices`definiuje [usług](#dependency-injection-services) używany przez aplikację (na przykład ASP.NET Core MVC, Entity Framework Core, tożsamość). `Configure`definiuje [oprogramowanie pośredniczące](xref:fundamentals/middleware) dla żądania potoku.
+`ConfigureServices`definiuje [usług](#dependency-injection-services) używany przez aplikację (na przykład ASP.NET Core MVC, Entity Framework Core, tożsamość). `Configure`definiuje [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) dla żądania potoku.
 
 Aby uzyskać więcej informacji, zobacz [uruchamiania aplikacji](xref:fundamentals/startup).
 
@@ -91,7 +91,7 @@ Aby uzyskać więcej informacji, zobacz [iniekcji zależności](xref:fundamental
 
 ## <a name="middleware"></a>Oprogramowanie pośredniczące
 
-W ASP.NET Core redagowania Twojego żądania potoku przy użyciu [oprogramowanie pośredniczące](xref:fundamentals/middleware). Oprogramowanie pośredniczące platformy ASP.NET Core wykonuje asynchroniczne logiki na `HttpContext` , a następnie wywołuje następne oprogramowanie pośredniczące w sekwencji lub bezpośrednio kończy żądanie. Składnik oprogramowania pośredniczącego o nazwie "XYZ" jest dodawany przez wywołanie `UseXYZ` — metoda rozszerzenia w `Configure` metody.
+W ASP.NET Core redagowania Twojego żądania potoku przy użyciu [oprogramowanie pośredniczące](xref:fundamentals/middleware/index). Oprogramowanie pośredniczące platformy ASP.NET Core wykonuje asynchroniczne logiki na `HttpContext` , a następnie wywołuje następne oprogramowanie pośredniczące w sekwencji lub bezpośrednio kończy żądanie. Składnik oprogramowania pośredniczącego o nazwie "XYZ" jest dodawany przez wywołanie `UseXYZ` — metoda rozszerzenia w `Configure` metody.
 
 Platformy ASP.NET Core zawiera bogaty zestaw wbudowanych oprogramowania pośredniczącego:
 
@@ -103,7 +103,7 @@ Platformy ASP.NET Core zawiera bogaty zestaw wbudowanych oprogramowania pośredn
 
 [OWIN](http://owin.org)— oparte na oprogramowaniu pośredniczącym jest dostępne dla aplikacji platformy ASP.NET Core, a można pisać własne niestandardowe oprogramowania pośredniczącego.
 
-Aby uzyskać więcej informacji, zobacz [oprogramowanie pośredniczące](xref:fundamentals/middleware) i [interfejsu Open Web dla platformy .NET (OWIN)](xref:fundamentals/owin).
+Aby uzyskać więcej informacji, zobacz [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) i [interfejsu Open Web dla platformy .NET (OWIN)](xref:fundamentals/owin).
 
 ## <a name="environments"></a>Środowisk
 

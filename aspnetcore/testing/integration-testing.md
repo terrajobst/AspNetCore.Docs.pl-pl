@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: ebae76da01e1b24466174179a9d4bbe826202cc3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a5f14e11de6ed91f67808c3ea8c78a7b1d43b03
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Testowanie w ASP.NET Core integracji
 
@@ -127,7 +127,7 @@ Ten kod działa, ale jest daleko od sposób wykonania tego rodzaju funkcji w apl
 
 Co należy rozważyć możliwość polega na dodaniu [MVC](xref:mvc/overview) do aplikacji i Tworzenie kontrolera w celu obsługi podstawowe sprawdzanie. Jednak przy założeniu, że nie zostanie muszą inne funkcje MVC, które są nieco overkill.
 
-Możesz można jednak korzystać z platformy ASP.NET Core [oprogramowanie pośredniczące](xref:fundamentals/middleware), która pomoże nam Hermetyzowanie pierwsze sprawdzanie logikę w jej własnej klasy i osiągnięcia lepszego [separacji](http://deviq.com/separation-of-concerns/) w `Configure` Metoda.
+Możesz można jednak korzystać z platformy ASP.NET Core [oprogramowanie pośredniczące](xref:fundamentals/middleware/index), która pomoże nam Hermetyzowanie pierwsze sprawdzanie logikę w jej własnej klasy i osiągnięcia lepszego [separacji](http://deviq.com/separation-of-concerns/) w `Configure` Metoda.
 
 Chcesz zezwolić na ścieżce używa oprogramowania pośredniczącego należy określić jako parametru, więc oczekuje klasy oprogramowanie pośredniczące `RequestDelegate` i `PrimeCheckerOptions` wystąpienie w jego konstruktora. Jeśli ścieżka żądania nie pasuje to oprogramowanie pośredniczące jest skonfigurowany, można oczekiwać, wystarczy wywołać następne oprogramowanie pośredniczące w łańcuchu i nic nie rób dalszych. Pozostała część kod implementacji, który znajdował się w `Configure` znajduje się teraz w `Invoke` metody.
 
@@ -150,5 +150,5 @@ Po tym refaktoryzacji masz pewność, że aplikacja sieci web wciąż działa ja
 ## <a name="resources"></a>Resources
 
 * [Testowanie jednostek](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
+* [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
 * [Kontrolery testów](xref:mvc/controllers/testing)

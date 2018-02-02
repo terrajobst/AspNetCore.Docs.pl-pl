@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: acbce5d139da0acc0870a9cf23a779bf27699a61
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 43c937ff9631be3edc1f95b3689650e4574abfbd
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Iniekcji zależności w ASP.NET Core
 
@@ -316,6 +316,7 @@ Należy pamiętać, że iniekcji zależności *alternatywnych* do wzorce dostęp
 
 * [Uruchamianie aplikacji](xref:fundamentals/startup)
 * [Testowanie](xref:testing/index)
+* [Aktywacji opartej na fabryki oprogramowania pośredniczącego](xref:fundamentals/middleware/extensibility)
 * [Czysty kod platformy ASP.NET Core z iniekcji zależności (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Projekt aplikacji zarządzanych przez kontener, Prelude: Gdzie jest kontener należeć?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
 * [Zasada jawne zależności](http://deviq.com/explicit-dependencies-principle/)

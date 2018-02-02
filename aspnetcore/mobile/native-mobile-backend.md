@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: mobile/native-mobile-backend
 ms.openlocfilehash: ff09f331cff5cca7b42fa89bff55c0ed5c7d82f4
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="creating-backend-services-for-native-mobile-applications"></a>Tworzenie usługi wewnętrznej bazy danych dla natywnych aplikacji dla urządzeń przenośnych
 

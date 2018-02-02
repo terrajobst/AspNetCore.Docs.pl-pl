@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
 ms.openlocfilehash: c271488d4da72ba340f3617ac20c7b6da2574c69
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Obsługa konfliktom współbieżności - Core EF z samouczek platformy ASP.NET Core MVC (8, 10)
 

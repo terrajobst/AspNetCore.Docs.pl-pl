@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: data/entity-framework-6
 ms.openlocfilehash: 7407fe8a976978d7d5077d5e5ac6cc264565621d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="getting-started-with-aspnet-core-and-entity-framework-6"></a>Wprowadzenie do platformy ASP.NET Core oraz Entity Framework 6
 

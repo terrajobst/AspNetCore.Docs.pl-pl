@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/cookie
-ms.openlocfilehash: 5b2f70b1f1fc9805025d6fa2256fcfcecf808b9a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1f20a2f7cab123e5a41ee1d232271da9de4c9058
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>Przy użyciu uwierzytelniania plików Cookie bez tożsamości platformy ASP.NET Core
 
@@ -80,7 +80,7 @@ services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Plik cookie używa 1.x platformy ASP.NET Core [oprogramowanie pośredniczące](xref:fundamentals/middleware) serializujący głównej nazwy użytkownika do zaszyfrowanego pliku cookie. Kolejne żądania plik cookie jest weryfikowana i ponownie utworzyć podmiot zabezpieczeń i ma przypisaną do `HttpContext.User` właściwości.
+Plik cookie używa 1.x platformy ASP.NET Core [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) serializujący głównej nazwy użytkownika do zaszyfrowanego pliku cookie. Kolejne żądania plik cookie jest weryfikowana i ponownie utworzyć podmiot zabezpieczeń i ma przypisaną do `HttpContext.User` właściwości.
 
 Zainstaluj [Microsoft.AspNetCore.Authentication.Cookies](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Cookies/) pakietu NuGet w projekcie. Ten pakiet zawiera oprogramowaniu pośredniczącym pliku cookie.
 
@@ -169,13 +169,9 @@ Aby utworzyć plik cookie zawierający informacje o użytkownikach, należy twor
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Wywołanie [SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signinasync?view=aspnetcore-2.0) do logowania użytkownika:
+Utwórz [ClaimsIdentity](/dotnet/api/system.security.claims.claimsidentity) z każdego wymaganego [oświadczeń](/dotnet/api/system.security.claims.claim)s i wywołanie [SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signinasync?view=aspnetcore-2.0) do logowania użytkownika:
 
-```csharp
-await HttpContext.SignInAsync(
-    CookieAuthenticationDefaults.AuthenticationScheme, 
-    new ClaimsPrincipal(claimsIdentity));
-```
+[!code-csharp[Main](cookie/sample/Pages/Account/Login.cshtml.cs?name=snippet1)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -199,10 +195,7 @@ W obszarze obejmuje szyfrowania używany jest platformy ASP.NET Core [ochrony da
 
 Wyloguj z bieżącego użytkownika i usuń ich pliku cookie, wywołaj [SignOutAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signoutasync?view=aspnetcore-2.0):
 
-```csharp
-await HttpContext.SignOutAsync(
-    CookieAuthenticationDefaults.AuthenticationScheme);
-```
+[!code-csharp[Main](cookie/sample/Pages/Account/Login.cshtml.cs?name=snippet2)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

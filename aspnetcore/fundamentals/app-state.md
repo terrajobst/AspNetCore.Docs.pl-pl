@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/app-state
-ms.openlocfilehash: 7aa200d3612f766ab633ccab807421b9c5393975
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f4ed38f7395e3f4fe939584c1f3f5b0dba93724c
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Wprowadzenie do stanu sesji oraz aplikacji platformy ASP.NET Core
 
@@ -84,7 +84,7 @@ Następujące `Startup` kod klasy konfiguruje dostawcy TempData opartymi na sesj
 
 ---
 
-Kolejność jest kluczowa dla składników oprogramowania pośredniczącego. W powyższym przykładzie wyjątek typu `InvalidOperationException` występuje, gdy `UseSession` jest wywoływana po `UseMvcWithDefaultRoute`. Zobacz [kolejność oprogramowania pośredniczącego](xref:fundamentals/middleware#ordering) uzyskać więcej szczegółowych informacji.
+Kolejność jest kluczowa dla składników oprogramowania pośredniczącego. W powyższym przykładzie wyjątek typu `InvalidOperationException` występuje, gdy `UseSession` jest wywoływana po `UseMvcWithDefaultRoute`. Zobacz [kolejność oprogramowania pośredniczącego](xref:fundamentals/middleware/index#ordering) uzyskać więcej szczegółowych informacji.
 
 > [!IMPORTANT]
 > Jeśli przeznaczonych dla platformy .NET Framework i przy użyciu dostawcy opartymi na sesji, Dodaj [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session) pakiet NuGet do projektu.
@@ -189,7 +189,7 @@ Poniższy przykład przedstawia sposób Ustawianie i pobieranie obiektu podlegaj
 
 `HttpContext` Abstrakcji zapewnia obsługę kolekcji słownika typu `IDictionary<object, object>`o nazwie `Items`. Ta kolekcja jest dostępny od początku *HttpRequest* i zostaną odrzucone pod koniec każdego żądania. Można do niego dostęp, przypisując wartość wpisu kluczem lub przez zażądanie wartość dla określonego klucza.
 
-W przykładzie poniżej [oprogramowanie pośredniczące](middleware.md) dodaje `isVerified` do `Items` kolekcji.
+W poniższym przykładzie [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) dodaje `isVerified` do `Items` kolekcji.
 
 ```csharp
 app.Use(async (context, next) =>

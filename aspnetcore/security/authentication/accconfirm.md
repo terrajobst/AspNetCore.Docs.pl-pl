@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 459f1793b1f1f73792bb6537856cb739774c6261
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8aeb04f772fa687706bd8080b4306ff0040a159f
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Potwierdzenie konta i hasła odzyskiwania w ASP.NET Core
 
@@ -114,7 +114,7 @@ Poprzedni wiersz zapobiega zarejestrowanych użytkowników są rejestrowane, do 
 
 ### <a name="configure-email-provider"></a>Skonfiguruj dostawcę poczty e-mail
 
-W tym samouczku SendGrid służy do wysyłania wiadomości e-mail. Konieczne jest włączenie konta i klucz do wysyłania wiadomości e-mail. Można użyć innych dostawców poczty e-mail. Platformy ASP.NET Core zawiera 2.x `System.Net.Mail`, co pozwala na wysyłanie wiadomości e-mail z aplikacji. Firma Microsoft zaleca się, że używasz SendGrid lub inna usługa poczty e-mail do wysyłania wiadomości e-mail.
+W tym samouczku SendGrid służy do wysyłania wiadomości e-mail. Konieczne jest włączenie konta i klucz do wysyłania wiadomości e-mail. Można użyć innych dostawców poczty e-mail. Platformy ASP.NET Core zawiera 2.x `System.Net.Mail`, co pozwala na wysyłanie wiadomości e-mail z aplikacji. Firma Microsoft zaleca się, że używasz SendGrid lub inna usługa poczty e-mail do wysyłania wiadomości e-mail. SMTP jest trudne do zabezpieczania i poprawnie skonfigurowane.
 
 [Wzorzec opcje](xref:fundamentals/configuration/options) umożliwia dostęp do konta i klucz Ustawienia użytkownika. Aby uzyskać więcej informacji, zobacz [konfiguracji](xref:fundamentals/configuration/index).
 

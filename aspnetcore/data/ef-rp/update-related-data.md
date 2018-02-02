@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
 ms.openlocfilehash: 5c91c91ab938f3aa4abc55049c54f399469f6163
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>Aktualizowanie danych powiązanych - stron Razor EF Core (7, 8)
 

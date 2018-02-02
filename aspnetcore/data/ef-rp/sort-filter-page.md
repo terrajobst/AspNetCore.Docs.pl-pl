@@ -9,10 +9,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
 ms.openlocfilehash: 9c1ee6f8c00f3cd501ea86fbf73f51ae540a010a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sortowanie, filtrowanie, stronicowania i grupowanie — podstawowe EF Razor strony (3 8)
 

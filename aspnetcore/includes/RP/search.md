@@ -90,7 +90,3 @@ Aktualizacja *Index.cshtml* w następujący sposób:
 [!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Movies/IndexFormGenreNoRating.cshtml?highlight=16-18&range=1-26)]
 
 Aby przetestować aplikację, wyszukiwanie według rodzaju, tytuł filmu i obu.
-
->[!div class="step-by-step"]
-[Poprzedni: Aktualizowanie stron](xref:tutorials/razor-pages/da1)
-[dalej: dodanie nowego pola](xref:tutorials/razor-pages/new-field)

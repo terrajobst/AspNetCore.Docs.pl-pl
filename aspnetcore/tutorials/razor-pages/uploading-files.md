@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 24eaa0dd9293cc932c51d280300308e835a0840e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a2c6da6ed698d1a65ee51bd00a557e607f012da
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików do Razor strony platformy ASP.NET Core
 
@@ -23,11 +23,29 @@ W tej sekcji przedstawiono przekazywania plików ze stroną Razor.
 
 [Filmu stron Razor Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) w ten samouczek używa modelu prostego powiązania Aby przekazać pliki, które działa dobrze w przypadku przekazywania małych plików. Aby uzyskać informacje na przesyłanie strumieniowe dużych plików, zobacz [przekazywania dużych plików z przesyłania strumieniowego](xref:mvc/models/file-uploads#uploading-large-files-with-streaming).
 
-W poniższych krokach należy dodać do przykładowej aplikacji funkcji przekazywania pliku filmu harmonogramu. Harmonogram film jest reprezentowana przez `Schedule` klasy. Klasa zawiera dwie wersje harmonogramu. Jednej wersji są przekazywane klientom, `PublicSchedule`. Druga wersja jest używana dla pracowników firmy `PrivateSchedule`. Każda wersja jest przekazany jako oddzielny plik. Samouczek pokazuje, jak wykonać dwa przekazywania plików ze strony z jednego wpisu na serwerze.
+W poniższych krokach funkcji przekazywania pliku harmonogramu film jest dodawany do przykładowej aplikacji. Harmonogram film jest reprezentowana przez `Schedule` klasy. Klasa zawiera dwie wersje harmonogramu. Jednej wersji są przekazywane klientom, `PublicSchedule`. Druga wersja jest używana dla pracowników firmy `PrivateSchedule`. Każda wersja jest przekazany jako oddzielny plik. Samouczek pokazuje, jak wykonać dwa przekazywania plików ze strony z jednego wpisu na serwerze.
+
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+
+Należy zachować ostrożność podczas zapewniając użytkownikom możliwość przekazywania plików do serwera. Osoby atakujące mogą wykonywać ["odmowa usługi"](/windows-hardware/drivers/ifs/denial-of-service) i inne ataki w systemie. Niektóre kroki zabezpieczeń, które zmniejszyć prawdopodobieństwo udanego ataku są:
+
+* Przekazywanie plików do obszaru przekazywania dedykowanych plików w systemie, co ułatwia nałożyć środków bezpieczeństwa w przekazanym zawartości. Podczas umożliwiający przekazywania plików, upewnij się, że uprawnienia do wykonywania są wyłączone w lokalizacji przekazywania.
+* Użyj nazwy plików bezpieczne określane przez aplikację, a nie z danych wejściowych użytkownika lub nazwę pliku przekazanego pliku.
+* Zezwalaj tylko na określonych rozszerzeń plików zatwierdzone.
+* Sprawdź, czy po stronie klienta są sprawdzane na serwerze. Testy po stronie klienta są łatwe do obejścia.
+* Sprawdź rozmiar przekazywania i uniemożliwić przekazywanie większych niż oczekiwano.
+* Uruchom skanera przed wirusami i złośliwym oprogramowaniem w przekazanym zawartości.
+
+> [!WARNING]
+> Przekazywanie złośliwego kodu do systemu jest często pierwszy krok w celu wykonywania kodu, który można:
+> * Całkowicie przejęcia pamięci.
+> * Przeciążenia systemu, w wyniku czego system całkowicie zakończy się niepowodzeniem.
+> * Naruszenia danych użytkownika lub systemu.
+> * Zastosowanie graffiti do interfejsu publicznego.
 
 ## <a name="add-a-fileupload-class"></a>Dodaj klasę przekazywaniem plików
 
-Poniżej utworzysz stronę Razor do obsługi parę przekazywania plików. Dodaj `FileUpload` klasy, która jest powiązana ze stroną uzyskać dane harmonogramu. Kliknij prawym przyciskiem myszy *modele* folderu. Wybierz **dodać** > **klasy**. Nazwa klasy **przekazywaniem plików** i dodaj następujące właściwości:
+Utwórz stronę Razor do obsługi parę przekazywania plików. Dodaj `FileUpload` klasy, która jest powiązana ze stroną uzyskać dane harmonogramu. Kliknij prawym przyciskiem myszy *modele* folderu. Wybierz **dodać** > **klasy**. Nazwa klasy **przekazywaniem plików** i dodaj następujące właściwości:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
 
@@ -38,6 +56,23 @@ Klasa ma właściwość tytułu harmonogramu i właściwości dla każdego z dw�
 Aby uniknąć zduplikowania kodu do przetwarzania plików przekazane harmonogramu, najpierw Dodaj metodę pomocnika statycznych. Utwórz *narzędzia* folderu w aplikacji i Dodaj *FileHelpers.cs* pliku o następującej zawartości. Metoda pomocnika `ProcessFormFile`, przyjmuje [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) i [ModelStateDictionary](/api/microsoft.aspnetcore.mvc.modelbinding.modelstatedictionary) i zwraca ciąg zawierający rozmiar pliku i jego zawartości. Typ zawartości i długości są sprawdzane. Jeśli plik nie przeszły sprawdzanie poprawności, błąd jest dodawany do `ModelState`.
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Utilities/FileHelpers.cs)]
+
+### <a name="save-the-file-to-disk"></a>Zapisz plik na dysku
+
+Przykładowa aplikacja zapisuje zawartość pliku w polu bazy danych. Zapisanie zawartości pliku na dysku, użyj [FileStream](/dotnet/api/system.io.filestream):
+
+```csharp
+using (var fileStream = new FileStream(filePath, FileMode.Create))
+{
+    await formFile.CopyToAsync(fileStream);
+}
+```
+
+Proces roboczy musi mieć uprawnienia do zapisu w lokalizacji określonej przez `filePath`.
+
+### <a name="save-the-file-to-azure-blob-storage"></a>Zapisz plik do magazynu obiektów Blob Azure
+
+Aby przekazać zawartość pliku do magazynu obiektów Blob Azure, zobacz [Rozpoczynanie pracy z magazynem obiektów Blob Azure przy użyciu platformy .NET](/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Temacie przedstawiono sposób użycia [UploadFromStream](/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromstreamasync) zapisać [FileStream](/dotnet/api/system.io.filestream) do magazynu obiektów blob.
 
 ## <a name="add-the-schedule-class"></a>Dodaj klasę harmonogramu
 
@@ -106,7 +141,7 @@ Otwórz *_Layout.cshtml* i dodać łącze do paska nawigacyjnego, aby przejść 
 
 ## <a name="add-a-page-to-confirm-schedule-deletion"></a>Dodaj stronę, aby potwierdzić usunięcie harmonogramu
 
-Gdy użytkownik kliknie przycisk, aby usunąć harmonogram, mają mieć możliwość anulowania operacji. Dodaj stronę potwierdzenia usunięcia (*Delete.cshtml*) do *harmonogramy* folderu:
+Gdy użytkownik kliknie przycisk, aby usunąć harmonogram, znajduje się możliwość anulowania operacji. Dodaj stronę potwierdzenia usunięcia (*Delete.cshtml*) do *harmonogramy* folderu:
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
@@ -144,7 +179,7 @@ Użytkownik może kliknąć **usunąć** łącza z tego miejsca do widoku potwie
 
 Aby uzyskać informacje o rozwiązywaniu problemów z `IFormFile` przekazywania, zobacz [przekazywania plików w ASP.NET Core: Rozwiązywanie problemów z](xref:mvc/models/file-uploads#troubleshooting).
 
-Dziękujemy za korzystanie z wprowadzenia do stron Razor. Dziękujemy za wszelkie komentarze, które pozostaną. [Wprowadzenie do programu MVC i podstawowe EF](xref:data/ef-mvc/intro) jest doskonałym uzupełnianie w tym samouczku.
+Dziękujemy za korzystanie z wprowadzenia do stron Razor. Dziękujemy za opinię. [Wprowadzenie do programu MVC i podstawowe EF](xref:data/ef-mvc/intro) jest doskonałym uzupełnianie w tym samouczku.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
