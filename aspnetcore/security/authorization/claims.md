@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/claims
-ms.openlocfilehash: 76b6566df4a427836eb5060f7d80e1039e479884
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 608aaa469c5ca20fab8250025804e28e7808122d
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="claims-based-authorization"></a>Autoryzacji opartej na oświadczeniach
 
 <a name="security-authorization-claims-based"></a>
 
-Po utworzeniu tożsamości może być przypisana co najmniej jednego oświadczenia wystawione przez zaufany. Oświadczenie para reprezentujący jakie podmiot jest wartość nazwy, nie jakie tematu może. Na przykład masz prawa jazdy, wystawiony przez urząd lokalny licencji jazdy. W sterowniku licencji znajdują się datę urodzenia. W takim przypadku nazwa oświadczenia jest `DateOfBirth`, wartość oświadczenia będą datę urodzenia, na przykład `8th June 1970` i Wystawca byłaby pobudzenie urzędu licencji. Autoryzacji oświadczeń, w najprostszym sprawdza wartość oświadczenia i zezwala na dostęp do zasobu na podstawie tej wartości. Na przykład, jeśli chcesz uzyskać dostęp do klub nocy proces autoryzacji. może to być:
+Po utworzeniu tożsamości może być przypisana co najmniej jednego oświadczenia wystawione przez zaufany. Oświadczenie to pary nazwa-wartość reprezentującą jakie podmiot, nie jakie tematu może. Na przykład masz prawa jazdy, wystawiony przez urząd lokalny licencji jazdy. W sterowniku licencji znajdują się datę urodzenia. W takim przypadku nazwa oświadczenia jest `DateOfBirth`, wartość oświadczenia będą datę urodzenia, na przykład `8th June 1970` i Wystawca byłaby pobudzenie urzędu licencji. Autoryzacji oświadczeń, w najprostszym sprawdza wartość oświadczenia i zezwala na dostęp do zasobu na podstawie tej wartości. Na przykład, jeśli chcesz uzyskać dostęp do klub nocy proces autoryzacji. może to być:
 
 Drzwi urzędnika oceni wartość daty urodzenia oświadczeń i określa, czy ufają wystawcy (pobudzenie urzędu licencji) zanim zostanie przyznany dostęp.
 

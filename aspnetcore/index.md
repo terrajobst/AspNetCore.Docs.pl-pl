@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: index
-ms.openlocfilehash: d7957bdc6fa982790141bac9b73ad7d3b1dd3d8a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 42bf005a29a8723233a0d9e5532827f7522f0e75
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="introduction-to-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
+# <a name="aspnet-core"></a>ASP.NET Core
 
 [Daniel Roth](https://github.com/danroth27), [Rick Anderson](https://twitter.com/RickAndMSFT) i [Shaun Luttin](https://twitter.com/dicshaunary)
 
@@ -65,6 +65,7 @@ Platforma ASP.NET Core bezproblemowo integruje się z popularnymi strukturami i 
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
+* [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Samouczki platformy ASP.NET Core](xref:tutorials/index)
 * [Platforma ASP.NET Core — podstawy](xref:fundamentals/index)
 * [Cotygodniowe podsumowanie ASP.NET Community Standup](https://live.asp.net/) zawiera aktualności o postępach i planach zespołu. Zawiera też informacje o polecanych blogach i oprogramowaniu innych firm.

@@ -66,13 +66,13 @@ Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
 
 Rozważmy następujący kod:
 
-[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-6&highlight=4-)]
+[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-6&highlight=4-999)]
 
 Poprzedni wyróżniony kod jest przykładem Razor przechodzi do języka C#. `{` i `}` znaków ujmij bloku kodu C#.
 
 `PageModel` Ma klasy podstawowej `ViewData` właściwości słownik, który może służyć do dodania danych, które mają być przekazywane do widoku. Dodawanie obiektów do `ViewData` słownika przy użyciu wzorca klucza i wartości. W poprzednim przykładzie właściwość "Title" została dodana do `ViewData` słownika. Właściwość "Title" jest używana w *Pages/_Layout.cshtml* pliku. Następujący kod przedstawia pierwsze kilka wierszy *Pages/_Layout.cshtml* pliku.
 
-[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-)]
+[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-999)]
 
 Wiersz `@*Markup removed for brevity.*@` komentarza Razor. W przeciwieństwie do komentarzy HTML (`<!-- -->`), Razor komentarze nie są wysyłane do klienta.
 

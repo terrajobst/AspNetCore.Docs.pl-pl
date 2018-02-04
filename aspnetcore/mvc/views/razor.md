@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: 98021cc76555f0c1402764c845471a4730b01b20
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ef3bf31da76df47312f98f494973295f29e18743
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Składnia razor dla platformy ASP.NET Core
 
@@ -471,7 +471,7 @@ Przedstawia razor `Model` właściwości do uzyskiwania dostępu do modelu przek
 <div>The Login Email: @Model.Email</div>
 ```
 
-`@model` Dyrektywa określa typ tej właściwości. Określa dyrektywy `T` w `RazorPage<T>` czy wygenerowanej klasy który widok jest pochodną. Jeśli `@model` dyrektywy jest określony, `Model` właściwość jest typu `dynamic`. Wartość modelu jest przekazywany z kontrolera do widoku. Aby uzyskać więcej informacji, zobacz [silnie typizowane modeli i @model — słowo kluczowe.
+`@model` Dyrektywa określa typ tej właściwości. Określa dyrektywy `T` w `RazorPage<T>` czy wygenerowanej klasy który widok jest pochodną. Jeśli `@model` dyrektywa nie zostanie określona, `Model` właściwość jest typu `dynamic`. Wartość modelu jest przekazywany z kontrolera do widoku. Aby uzyskać więcej informacji, zobacz [silnie typizowane modeli i @model — słowo kluczowe.
 
 ### <a name="inherits"></a>@inherits
 

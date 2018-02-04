@@ -55,7 +55,7 @@ Kod HTML `<form>` tagów używa [pomocnika Tag formularza](xref:mvc/views/workin
 
 Dodaj następujące wyróżnione właściwości *Pages/Movies/Index.cshtml.cs*:
 
-[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-)]
+[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
 `SelectList Genres` Zawiera listę gatunkami muzyki. Dzięki temu użytkownikowi na wybranie określonego rodzaju z listy.
 

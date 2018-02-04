@@ -1,23 +1,21 @@
 ---
-title: "ASP.NET Core stron sieci Web interfejsu API pomocy przy użyciu programu Swagger"
+title: "Platformy ASP.NET Core interfejsu API sieci Web pomocy strony za pomocą programu Swagger"
 author: spboyer
 description: "Ten samouczek zawiera wskazówki dodawania programu Swagger do generowania dokumentacji i strony dla aplikacji interfejsu API sieci Web pomocy."
 manager: wpickett
 ms.author: spboyer
-ms.date: 09/01/2017
+ms.date: 02/02/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 911504d9472ae78a0d1d002f1feb57f3a160d5bf
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 95dc89fbd9aa3038b7ec500121db4345de9765c6
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="aspnet-core-web-api-help-pages-using-swagger"></a>ASP.NET Core stron sieci Web interfejsu API pomocy przy użyciu programu Swagger
-
-<a name="web-api-help-pages-using-swagger"></a>
+# <a name="aspnet-core-web-api-help-pages-using-swagger"></a>Platformy ASP.NET Core interfejsu API sieci Web pomocy strony za pomocą programu Swagger
 
 Przez [Shayne Boyer](https://twitter.com/spboyer) i [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -31,7 +29,7 @@ Generowanie dobrej stron pomocy i dokumentacja dla interfejsu API sieci Web, prz
 
 W tym samouczku opiera się na przykład [budynku swój pierwszy interfejsu API sieci Web platformy ASP.NET Core MVC i Visual Studio](xref:tutorials/first-web-api). Jeśli chcesz z niego skorzystać, Pobierz przykład na [https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample).
 
-## <a name="getting-started"></a>Wprowadzenie
+## <a name="get-started"></a>Wprowadzenie
 
 Istnieją trzy główne składniki do Swashbuckle:
 
@@ -89,7 +87,7 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 
 Dodaj Swagger generator kolekcji usług w `ConfigureServices` metody *Startup.cs*:
 
-[!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Startup2.cs?name=snippet_ConfigureServices&highlight=7-10)]
+[!code-csharp[](web-api-help-pages-using-swagger/sample/TodoApi/Startup2.cs?name=snippet_ConfigureServices&highlight=7-10)]
 
 Dodaj następujący kod za pomocą instrukcji dla `Info` klasy:
 
@@ -99,11 +97,12 @@ using Swashbuckle.AspNetCore.Swagger;
 
 W `Configure` metody *Startup.cs*, włącza oprogramowanie pośredniczące dla obsługująca wygenerowanego dokument JSON i SwaggerUI:
 
-[!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Startup2.cs?name=snippet_Configure&highlight=4,7-10)]
+[!code-csharp[](web-api-help-pages-using-swagger/sample/TodoApi/Startup2.cs?name=snippet_Configure&highlight=4,7-10)]
 
 Uruchom aplikację i przejdź do `http://localhost:<random_port>/swagger/v1/swagger.json`. Pojawi się wygenerowanym opisujący punktów końcowych.
 
-**Uwaga:** Microsoft Edge, Google Chrome i Firefox wyświetlanie dokumentów JSON natywnie. Brak rozszerzenia dla programu Chrome, które formatowania dokumentu, aby ułatwić czytanie. *Poniższy przykład, zostanie zmniejszona do skrócenia.*
+> [!NOTE]
+> Microsoft Edge, Google Chrome i Firefox natywnie wyświetlanie dokumentów JSON. Brak rozszerzenia dla programu Chrome, które formatowania dokumentu, aby ułatwić czytanie. *Poniższy przykład, zostanie zmniejszona do skrócenia.*
 
 ```json
 {
@@ -182,7 +181,7 @@ Każda metoda akcji publicznego w `TodoController` można przetestować w interf
 
 ![Przykład struktury Swagger UZYSKAĆ testu](web-api-help-pages-using-swagger/_static/get-try-it-out.png)
 
-## <a name="customization--extensibility"></a>Dostosowywanie & rozszerzalności
+## <a name="customize--extend"></a>Dostosowywanie i rozszerzanie
 
 Struktury swagger zawiera opcje dokumentowanie model obiektów i dostosowywanie interfejsu użytkownika do dopasowania motywu.
 
@@ -190,13 +189,13 @@ Struktury swagger zawiera opcje dokumentowanie model obiektów i dostosowywanie 
 
 Akcja konfiguracji przekazany do `AddSwaggerGen` metody można użyć do dodawania informacje, takie jak autor, licencji i opis:
 
-[!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Startup.cs?range=20-30,36)]
+[!code-csharp[](web-api-help-pages-using-swagger/sample/TodoApi/Startup.cs?range=20-30,36)]
 
 Poniższa ilustracja przedstawia interfejsu użytkownika programu Swagger, wyświetlane informacje o wersji:
 
 ![Interfejs użytkownika struktury swagger z informacjami o wersji: opis, autora i użyj łącza więcej](web-api-help-pages-using-swagger/_static/custom-info.png)
 
-### <a name="xml-comments"></a>Komentarze XML
+### <a name="xml-comments"></a>komentarze XML
 
 Komentarze XML można włączyć z następujących metod:
 
@@ -218,7 +217,7 @@ Komentarze XML można włączyć z następujących metod:
 
 Ręcznie dodaj poniższy fragment do *.csproj* pliku:
 
-[!code-xml[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/TodoApi.csproj?range=7-9)]
+[!code-xml[](web-api-help-pages-using-swagger/sample/TodoApi/TodoApi.csproj?range=8-9,11)]
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -226,17 +225,25 @@ Zobacz kod programu Visual Studio.
 
 ---
 
-Włączanie komentarze XML zawiera informacje o debugowaniu nieudokumentowanej typy publiczne i elementów członkowskich. Nieudokumentowanej typy i składniki są oznaczone komunikat ostrzegawczy: *komentarz Brak XML dla widocznego publicznie typu lub elementu członkowskiego*.
+Włączanie komentarze XML zawiera informacje o debugowaniu nieudokumentowanej typy publiczne i elementów członkowskich. Nieudokumentowanej typy i składniki są oznaczone komunikat ostrzegawczy. Na przykład następujący komunikat wskazuje naruszenie kod ostrzeżenia 1591:
+
+```
+warning CS1591: Missing XML comment for publicly visible type or member 'TodoController.GetAll()'
+```
+
+Pomijanie ostrzeżeń, definiując rozdzielaną średnikami listę kodów Ostrzeżenie można zignorować w *.csproj* pliku:
+
+[!code-xml[](web-api-help-pages-using-swagger/sample/TodoApi/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=3)]
 
 Konfigurowanie programu Swagger, aby użyć wygenerowanego pliku XML. Dla systemu Linux lub systemów operacyjnych z systemem innym niż Windows może być uwzględniana wielkość liter nazwy pliku i ścieżki. Na przykład *ToDoApi.XML* będzie można znaleźć pliku w systemie Windows, ale nie CentOS.
 
-[!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Startup.cs?name=snippet_ConfigureServices&highlight=20-22)]
+[!code-csharp[](web-api-help-pages-using-swagger/sample/TodoApi/Startup.cs?name=snippet_ConfigureServices&highlight=20-22)]
 
 W powyższym kodzie `ApplicationBasePath` pobiera podstawowa ścieżka aplikacji. Podstawowa ścieżka jest używana do lokalizowania komentarze pliku XML. *TodoApi.xml* działa tylko w tym przykładzie, ponieważ nazwa wygenerowanego kodu XML komentarze pliku opiera się na nazwę aplikacji.
 
 Dodawanie komentarzy potrójnym ukośnikiem do metody podnosi poziom interfejsu użytkownika programu Swagger, dodawanie opisu do Nagłówek sekcji:
 
-[!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Delete&highlight=2)]
+[!code-csharp[](web-api-help-pages-using-swagger/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Delete&highlight=2)]
 
 ![Wyświetlanie komentarza XML "Usuwa określonych TodoItem". interfejs użytkownika struktury swagger dla metody DELETE](web-api-help-pages-using-swagger/_static/triple-slash-comments.png)
 
@@ -271,19 +278,19 @@ Interfejs użytkownika jest wymuszany przez wygenerowanego pliku JSON, który za
 
 Dodaj [ <remarks> ](https://docs.microsoft.com/dotnet/csharp/programming-guide/xmldoc/remarks) znacznika `Create` dokumentacji metody akcji. Uzupełnia on informacje określone w `<summary>` tagu i zapewnia bardziej niezawodne interfejsu użytkownika programu Swagger. `<remarks>` Zawartości tagu może składać się tekst JSON i XML.
 
-[!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create&highlight=4-14)]
+[!code-csharp[](web-api-help-pages-using-swagger/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create&highlight=4-14)]
 
 Zwróć uwagę, rozszerzenia interfejsu użytkownika z te dodatkowe komentarze.
 
 ![Interfejs użytkownika struktury swagger z pokazane dodatkowe komentarze](web-api-help-pages-using-swagger/_static/xml-comments-extended.png)
 
-### <a name="data-annotations"></a>Adnotacji danych
+### <a name="data-annotations"></a>Adnotacje danych
 
 Dekoracji modelu z atrybutami, znalezione w `System.ComponentModel.DataAnnotations`, aby pomóc dysków składniki interfejs użytkownika programu Swagger.
 
 Dodaj `[Required]` atrybutu `Name` właściwość `TodoItem` klasy:
 
-[!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Models/TodoItem.cs?highlight=10)]
+[!code-csharp[](web-api-help-pages-using-swagger/sample/TodoApi/Models/TodoItem.cs?highlight=10)]
 
 Obecność tego atrybutu zmiany zachowania interfejsu użytkownika i zmienia podstawowej schematu JSON:
 
@@ -313,7 +320,7 @@ Obecność tego atrybutu zmiany zachowania interfejsu użytkownika i zmienia pod
 
 Dodaj `[Produces("application/json")]` atrybutu Kontroler interfejsu API. Jej celem jest, aby zadeklarować, że akcje kontrolera obsługuje typ zwracany typ zawartości *application/json*:
 
-[!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Controllers/TodoController.cs?name=snippet_TodoController&highlight=3)]
+[!code-csharp[](web-api-help-pages-using-swagger/sample/TodoApi/Controllers/TodoController.cs?name=snippet_TodoController&highlight=3)]
 
 **Typ zawartości odpowiedzi** listy rozwijanej wybiera tego typu zawartości jako domyślny dla akcji Pobierz kontrolera:
 
@@ -321,19 +328,19 @@ Dodaj `[Produces("application/json")]` atrybutu Kontroler interfejsu API. Jej ce
 
 Jak zwiększa użycie adnotacji danych w interfejsie API sieci Web, strony staną się bardziej opisowe i przydatne pomocy interfejsu użytkownika i interfejsu API.
 
-### <a name="describing-response-types"></a>Opisujący typy odpowiedzi
+### <a name="describe-response-types"></a>Opis typów odpowiedzi
 
 Deweloperzy odbierająca komunikaty są najbardziej związane z wartością zwróconą &mdash; w szczególności typy odpowiedzi i kody błędów (o ile nie standard). Te są obsługiwane w adnotacjach komentarzy i danych XML.
 
 `Create` Akcji zwraca `201 Created` w przypadku powodzenia lub `400 Bad Request` gdy treść żądania przesłanego ma wartość null. Bez prawidłowego dokumentacji w Interfejsie użytkownika programu Swagger użytkownik nie ma wiedzy na temat tych oczekiwanych wyników. Ten problem został rozwiązany przez dodanie wyróżnione wiersze w następującym przykładzie:
 
-[!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create&highlight=17,18,20,21)]
+[!code-csharp[](web-api-help-pages-using-swagger/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create&highlight=17,18,20,21)]
 
 Interfejs użytkownika programu Swagger teraz dokumentów wyraźnie oczekiwanego kody odpowiedzi HTTP:
 
 ![Swagger interfejsu użytkownika przedstawiający opis klasy odpowiedź POST "Zwraca nowo utworzony element Todo" i "400 — Jeśli element ma wartość null" dla kodu stanu i przyczyna w obszarze wiadomości odpowiedzi](web-api-help-pages-using-swagger/_static/data-annotations-response-types.png)
 
-### <a name="customizing-the-ui"></a>Dostosowywanie interfejsu użytkownika
+### <a name="customize-the-ui"></a>Dostosowywanie interfejsu użytkownika
 
 Zasoby interfejsu użytkownika jest funkcjonalności i presentable; Jednak podczas kompilowania stron z dokumentacją do interfejsu API, ma się reprezentować motywu lub marki, na których. Wykonywanie zadań tego zadania ze składnikami Swashbuckle wymaga Dodawanie zasobów do obsługi plików statycznych, a następnie tworzenie struktury folderów do obsługi tych plików.
 
@@ -345,7 +352,7 @@ Jeśli przeznaczonych dla platformy .NET Framework, Dodaj `Microsoft.AspNetCore.
 
 Włącza oprogramowanie pośredniczące plików statycznych:
 
-[!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Startup.cs?name=snippet_Configure&highlight=3)]
+[!code-csharp[](web-api-help-pages-using-swagger/sample/TodoApi/Startup.cs?name=snippet_Configure&highlight=3)]
 
 Uzyskać zawartość *dist* z folderu [repozytorium GitHub interfejsu użytkownika programu Swagger](https://github.com/swagger-api/swagger-ui/tree/2.x/dist). Ten folder zawiera zasoby niezbędne dla strony interfejs użytkownika programu Swagger.
 
@@ -353,11 +360,11 @@ Utwórz *wwwroot/swagger/interfejsu użytkownika* folderu i skopiuj do niego zaw
 
 Utwórz *wwwroot/swagger/ui/css/custom.css* pliku z następujących CSS, aby dostosować nagłówka strony:
 
-[!code-css[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/wwwroot/swagger/ui/css/custom.css)]
+[!code-css[](web-api-help-pages-using-swagger/sample/TodoApi/wwwroot/swagger/ui/css/custom.css)]
 
 Odwołanie *custome.CSS* w *index.html* pliku:
 
-[!code-html[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/wwwroot/swagger/ui/index.html?range=14)]
+[!code-html[](web-api-help-pages-using-swagger/sample/TodoApi/wwwroot/swagger/ui/index.html?range=14)]
 
 Przejdź do *index.html* pod `http://localhost:<random_port>/swagger/ui/index.html`. Wprowadź `http://localhost:<random_port>/swagger/v1/swagger.json` w nagłówku pola tekstowego i kliknij **Eksploruj** przycisku. Wynikowa strona wygląda następująco:
 

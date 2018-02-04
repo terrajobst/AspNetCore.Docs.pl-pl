@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 01a804151ad813dbf47ab4b2415076a4e01bf1d9
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: bcfd20fcea1e683bcbef00a9e67bb28add4f23be
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="aspnet-core-tutorials"></a>Samouczki platformy ASP.NET Core
 
@@ -52,9 +52,10 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
 * [Tworzenie zaplecza usługi sieci web do natywnej aplikacji mobilnych](../mobile/native-mobile-backend.md)
 
 ## <a name="data-access-and-storage"></a>Dostęp do danych i magazynu
-* [Rozpoczynanie pracy z platformą ASP.NET Core i programem Entity Framework Core przy użyciu programu Visual Studio](../data/ef-mvc/index.md)
-* [Platforma ASP.NET Core z programem EF Core — nowa baza danych](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
-* [Platforma ASP.NET Core z programem EF Core — istniejąca baza danych](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
+* [Wprowadzenie do stron Razor i podstawowe EF przy użyciu programu Visual Studio](xref:data/ef-rp/intro)
+* [Wprowadzenie do platformy ASP.NET MVC Core i Core EF przy użyciu programu Visual Studio](../data/ef-mvc/index.md)
+* [Platformy ASP.NET Core MVC podstawowych EF - nowej bazy danych](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
+* [Platformy ASP.NET Core MVC podstawowych EF - istniejącej bazy danych](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
 
 ## <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
 * [Włączanie uwierzytelniania za pomocą usługi Facebook, Google i innych dostawców zewnętrznych](../security/authentication/social/index.md)

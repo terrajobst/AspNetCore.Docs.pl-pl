@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 040c26bfccb8f258b0941bed4bc936cf7a16324a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 80426d7825ab9d4f64c12a2feee97b89b5375045
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Autor pomocników tagów w ASP.NET Core wskazówki próbki
 
@@ -224,7 +224,7 @@ Można również użyć `[HtmlTargetElement]` Aby zmienić nazwę elementu docel
 
 4.  Dodaj następujący kod do *About.cshtml* widoku. Wyróżnione znaczników zawiera informacje dotyczące witryny sieci web.
     
-    [!code-html[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?highlight=1,12-)]
+    [!code-html[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?highlight=1,12-999)]
     
     >[!NOTE]
     > W znaczniku Razor, pokazano poniżej:

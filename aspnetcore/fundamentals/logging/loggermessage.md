@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: b155826b5047e88a79d9e339d7bca8885a79006d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: bae970c916518070faea8a06a7bccc3da20cfeff
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Rejestrowanie wysokiej wydajności z LoggerMessage w ASP.NET Core
 
@@ -34,15 +34,7 @@ Przedstawiono przykładową aplikację `LoggerMessage` funkcje podstawowe oferty
 
 [Zdefiniuj (LogLevel, identyfikator zdarzenia, ciąg)](/dotnet/api/microsoft.extensions.logging.loggermessage.define) tworzy `Action` delegować do rejestrowania wiadomości. `Define`przeciążenia zezwala na przekazywanie maksymalnie sześć parametrów typu do ciągu formatu o nazwie (szablonu).
 
-## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
-
-[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) tworzy `Func` delegować do definiowania [dziennika zakresu](xref:fundamentals/logging/index#log-scopes). `DefineScope`przeciążenia zezwala na przekazywanie maksymalnie trzech parametrów typu do ciągu formatu o nazwie (szablonu).
-
-## <a name="message-template-named-format-string"></a>Szablon wiadomości (ciąg formatu o nazwie)
-
-Podany ciąg `Define` i `DefineScope` metod to szablon, a nie ciągu interpolowanym. Symbole zastępcze są wypełnione w kolejności określono typów. Przez Szablony nazwy symbolu zastępczego w szablonie powinny być opisowe i spójne. Służą one jako nazwy właściwości w strukturze danych dziennika. Firma Microsoft zaleca [Pascal wielkości liter](/dotnet/standard/design-guidelines/capitalization-conventions) dla nazwy symbolu zastępczego. Na przykład `{Count}`, `{FirstName}`.
-
-## <a name="implementing-loggermessagedefine"></a>Implementowanie LoggerMessage.Define
+Podany ciąg `Define` metoda jest szablon i nie ciągu interpolowanym. Symbole zastępcze są wypełnione w kolejności określono typów. Przez Szablony nazwy symbolu zastępczego w szablonie powinny być opisowe i spójne. Służą one jako nazwy właściwości w strukturze danych dziennika. Firma Microsoft zaleca [Pascal wielkości liter](/dotnet/standard/design-guidelines/capitalization-conventions) dla nazwy symbolu zastępczego. Na przykład `{Count}`, `{FirstName}`.
 
 Każdy komunikat dziennika jest `Action` przechowywany w polu statycznym utworzone przez `LoggerMessage.Define`. Na przykład przykładowa aplikacja tworzy pole do opisu komunikatu dziennika dla żądania GET strony indeksu (*Internal/LoggerExtensions.cs*):
 
@@ -141,7 +133,11 @@ Parameter name: entity
       <PATH>\sample\Pages\Index.cshtml.cs:line 87
 ```
 
-## <a name="implementing-loggermessagedefinescope"></a>Implementing LoggerMessage.DefineScope
+## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
+
+[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) tworzy `Func` delegować do definiowania [dziennika zakresu](xref:fundamentals/logging/index#log-scopes). `DefineScope`przeciążenia zezwala na przekazywanie maksymalnie trzech parametrów typu do ciągu formatu o nazwie (szablonu).
+
+Jak w przypadku `Define` metoda, do podanego ciągu `DefineScope` metoda jest szablon i nie ciągu interpolowanym. Symbole zastępcze są wypełnione w kolejności określono typów. Przez Szablony nazwy symbolu zastępczego w szablonie powinny być opisowe i spójne. Służą one jako nazwy właściwości w strukturze danych dziennika. Firma Microsoft zaleca [Pascal wielkości liter](/dotnet/standard/design-guidelines/capitalization-conventions) dla nazwy symbolu zastępczego. Na przykład `{Count}`, `{FirstName}`.
 
 Zdefiniuj [dziennika zakres](xref:fundamentals/logging/index#log-scopes) do zastosowania do serii komunikaty dziennika przy użyciu [DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) metody.
 

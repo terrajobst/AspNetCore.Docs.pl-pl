@@ -8,11 +8,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 9c1ee6f8c00f3cd501ea86fbf73f51ae540a010a
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 271bae2c3aeac61f0542570d4c0289ba539091cc
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sortowanie, filtrowanie, stronicowania i grupowanie — podstawowe EF Razor strony (3 8)
 
@@ -69,7 +69,7 @@ Te dwie instrukcje włączyć widok, aby ustawić hiperłącza nagłówek kolumn
 
 Metoda używa do składnika LINQ to Entities Określ kolumny, aby posortować według. Inicjuje kod `IQueryable<Student> ` przed instrukcją switch i modyfikuje je w instrukcji switch:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-)]
+[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-999)]
 
  Gdy`IQueryable` tworzenia lub modyfikowania, nie zapytanie jest wysyłane do bazy danych. Zapytanie nie jest wykonywane przed `IQueryable` obiektu jest konwertowany na kolekcję. `IQueryable`są konwertowane na kolekcję przez wywołanie metody, takie jak `ToListAsync`. W związku z tym `IQueryable` kodu wyników w ramach jednego zapytania, który nie jest wykonywany do momentu następująca instrukcja:
 
@@ -178,7 +178,7 @@ W *Students/Index.cshtml.cs*, zaktualizować typu `Student` z `IList<Student>` d
 
 Aktualizacja *Students/Index.cshtml.cs* `OnGetAsync` następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-)]
+[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-999)]
 
 Poprzedni kod dodaje bieżącego indeksu strony `sortOrder`i `currentFilter` w podpisie metody.
 
@@ -215,7 +215,7 @@ Dwa znaki zapytania w `PaginatedList.CreateAsync` reprezentują [łączenie null
 
 Aktualizowanie kodu znaczników w *Students/Index.cshtml*. Zmiany są wyróżnione:
 
-[!code-html[](intro/samples/cu/Pages/Students/Index.cshtml?highlight=28-31,37-40,68-)]
+[!code-html[](intro/samples/cu/Pages/Students/Index.cshtml?highlight=28-31,37-40,68-999)]
 
 Łącza nagłówka kolumny Użyj ciągu zapytania do przekazania aktualnie wyszukiwanego ciągu do `OnGetAsync` metody, dzięki czemu użytkownik może sortować w wynikach filtrowania:
 

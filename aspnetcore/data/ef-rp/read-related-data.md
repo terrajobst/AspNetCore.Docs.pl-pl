@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: ccb1e95ae2b43fd0a4c4b1ac9ed58a4d474ab3b6
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 8c69a355e6281cb7abf03b05eb2f59262cc5d4e1
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Odczytywanie powiązane dane - Core EF Razor strony (6 8)
 
@@ -179,7 +179,7 @@ Uruchom aplikację i przejdź do strony instruktorów.
 
 Zastąp *Pages/Instructors/Index.cshtml.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-)]
+[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-99)]
 
 `OnGetAsync` — Metoda akceptuje dane trasy opcjonalny identyfikator wybranego instruktora.
 
@@ -248,7 +248,7 @@ Polecenie **wybierz** łącza. Zmiany stylu wiersza.
 
 Aktualizacja `OnGetAsync` metody w *Pages/Instructors/Index.cshtml.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-)]
+[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
 
 Sprawdź zaktualizowane zapytania:
 
@@ -275,7 +275,7 @@ Poniższy kod umożliwia wypełnienie modelu widoku `Enrollments` właściwości
 
 Dodaj następujący kod na końcu *Pages/Courses/Index.cshtml* Razor strony:
 
-[!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-)]
+[!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-999)]
 
 Poprzedni kod znaczników zostanie wyświetlona lista kursów związane z instruktora po wybraniu instruktora.
 

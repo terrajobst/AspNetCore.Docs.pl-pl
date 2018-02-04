@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 7de43a390ee0e11f6eda811b0774343ab330c53b
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: dedb675ec0ec930bc917651e4865e742b62ad250
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Wprowadzenie do platformy ASP.NET Core MVC i Entity Framework Core za pomocą programu Visual Studio (od 1 do 10)
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Dostępna jest wersja stron Razor w tym samouczku [tutaj](xref:data/ef-rp/intro). Wersja stron Razor ułatwia wykonaj i obejmuje więcej funkcji EF. Zaleca się wykonanie [wersję stron Razor tego samouczka](xref:data/ef-rp/intro).
+[!INCLUDE[RP better than MVC](../../includes/RP-EF/rp-over-mvc.md)]
 
 Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji sieci web platformy ASP.NET Core 2.0 MVC za pomocą Core Entity Framework (EF) 2.0 i programu Visual Studio 2017 r.
 

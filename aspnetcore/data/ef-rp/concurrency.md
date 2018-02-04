@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 1c6cdefa1410839606711d7460a8f4d0f1d6c72b
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 673d86c2a1d0db232aca224aba60e5e1cf3c7a31
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/03/2018
 ---
 en-us /
 
@@ -195,7 +195,7 @@ Aktualizacja *pages\departments\edit.cshtml.cs* następującym kodem:
 
 Aby wykryć problem współbieżności, [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) został zaktualizowany o `rowVersion` wartości z obiektu jego pobrania. EF Core generuje polecenia aktualizacji SQL z klauzula WHERE zawiera oryginał `RowVersion` wartość. Jeśli żadne wiersze nie dotyczy polecenia aktualizacji (żadnych wierszy ma oryginalną `RowVersion` wartość), `DbUpdateConcurrencyException` wyjątku.
 
-[!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-)]
+[!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-999)]
 
 W powyższym kodzie `Department.RowVersion` jest to wartość, jeśli jednostka została pobrana. `OriginalValue`jest to wartość w bazie danych podczas `FirstOrDefaultAsync` została wywołana w ramach tej metody.
 

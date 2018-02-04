@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 9b0ddb630589374549934a1f0462f54e62af1772
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 440635219bae666e968c14280a3cace4596aa973
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="adding-search-to-a-razor-pages-app"></a>Dodawanie do aplikacji stron Razor wyszukiwania
 
@@ -70,7 +70,7 @@ Kod HTML `<form>` tagów używa [pomocnika Tag formularza](xref:mvc/views/workin
 
 Dodaj następujące wyróżnione właściwości *Pages/Movies/Index.cshtml.cs*:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
 `SelectList Genres` Zawiera listę gatunkami muzyki. Dzięki temu użytkownikowi na wybranie określonego rodzaju z listy.
 

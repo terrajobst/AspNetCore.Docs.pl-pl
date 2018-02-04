@@ -10,17 +10,25 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 214f8c616aa65077690757e7805983a77ec4249e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 53b59045751153cd858e13769b5b42d5700e26d4
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Typowe błędy odwołania dla usługi Azure App Service i IIS z platformy ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
 Następujące nie znajduje się pełna lista błędów. Jeśli wystąpi błąd niewymienione w tym [Otwórz nowy problem](https://github.com/aspnet/Docs/issues/new) z szczegółowe instrukcje dotyczące odtwarzania błędu.
+
+Zbierz wymienione poniżej informacje.
+
+* Zachowanie przeglądarki
+* Wpisy w dzienniku zdarzeń aplikacji
+* Wpisy dziennika stdout Module głównym programu ASP.NET
+
+Porównywanie informacji do poniższych typowych błędów. Jeśli zostanie znaleziony dopasowanie, wykonaj porady dotyczące rozwiązywania problemów.
 
 ## <a name="installer-unable-to-obtain-vc-redistributable"></a>Nie można uzyskać VC ++ pakiet redystrybucyjny Instalatora
 
