@@ -11,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 60b205bf0a45e2965f9dab46f46956947ae513fd
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
-ms.translationtype: HT
+ms.openlocfilehash: 7b156830ab59db3c08fbff6b2c4180d8765a113b
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="work-with-static-files-in-aspnet-core"></a>Praca z plikami statycznych w ASP.NET Core
 
@@ -64,7 +64,7 @@ Dodaj [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsof
 
 ---
 
-Skonfiguruj [oprogramowanie pośredniczące](xref:fundamentals/middleware) co pozwala obsługi plików statycznych.
+Skonfiguruj [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) co pozwala obsługi plików statycznych.
 
 ### <a name="serve-files-inside-of-web-root"></a>Udostępniać pliki wewnątrz głównego sieci web
 
@@ -252,6 +252,5 @@ Z poprzednim kodzie żądanie dla pliku z nieznanego typu zawartości jest zwrac
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Oprogramowanie pośredniczące](xref:fundamentals/middleware)
-
+* [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
 * [Wprowadzenie do platformy ASP.NET Core](xref:index)
