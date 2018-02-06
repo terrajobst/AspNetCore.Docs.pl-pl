@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: 8256240b46873d53bf1a6f6616ea5b520cfadf2e
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 7c6d629ea94dd7c79a2f4e24fd4d0ff797f7e516
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/05/2018
 ---
 # <a name="in-memory-caching-in-aspnet-core"></a>Buforowanie w pamięci w ASP.NET Core
 
@@ -30,7 +30,7 @@ Platformy ASP.NET Core obsługuje kilka różnych pamięci podręcznych. Najpros
 
 Inne niż trwałe sesje w kolektywie serwerów sieci web wymagają [rozproszonej pamięci podręcznej](distributed.md) Aby uniknąć problemów spójności pamięci podręcznej. W przypadku niektórych aplikacji rozproszonej pamięci podręcznej może obsługiwać wyższe skalowania w poziomie niż w pamięci podręcznej. Przy użyciu rozproszonej pamięci podręcznej odciąża pamięci podręcznej procesu zewnętrznego. 
 
-`IMemoryCache` Pamięci podręcznej Wyklucz wpisy w pamięci podręcznej wykorzystanie pamięci, chyba że [pamięci podręcznej priorytet](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheitempriority) ma ustawioną wartość `CacheItemPriority.NeverRemove`. Można ustawić `CacheItemPriority` aby dopasować priorytet pamięci podręcznej wyklucza mogą elementów wykorzystanie pamięci.
+`IMemoryCache` Pamięci podręcznej Wyklucz wpisy w pamięci podręcznej wykorzystanie pamięci, chyba że [pamięci podręcznej priorytet](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheitempriority) ma ustawioną wartość `CacheItemPriority.NeverRemove`. Można ustawić `CacheItemPriority` aby dopasować priorytet, z którym pamięci podręcznej wyklucza mogą elementów wykorzystanie pamięci.
 
 Dowolny obiekt; mogą być przechowywane w pamięci podręcznej Interfejs rozproszonej pamięci podręcznej jest ograniczona do `byte[]`.
 

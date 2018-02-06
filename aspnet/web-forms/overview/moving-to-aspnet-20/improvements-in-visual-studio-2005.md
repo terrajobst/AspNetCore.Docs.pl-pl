@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
 msc.type: authoredcontent
-ms.openlocfilehash: 2c1f9a7291d8eab675bac3e1c37d6922131e3761
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aafc59980e807677d6023110d324365ce92bb5fc
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/05/2018
 ---
 <a name="improvements-in-visual-studio-2005"></a>Ulepszenia w programie Visual Studio 2005
 ====================
@@ -79,10 +79,10 @@ Kliknij tutaj, aby wyświetlić Przewodnik wideo dotyczący tworzenia projektów
 Jak przedstawiono w przewodnik wideo, można tworzyć witryny sieci Web w systemie plików na komputerze lokalnym lub w zdalnej lokalizacji za pośrednictwem udziału plików. Witryn sieci Web, które są tworzone w systemie plików jest przeglądany i debugować za pomocą programu ASP.NET Development Server.
 
 > [!NOTE]
-> ASP.NET Development Server mogą powodować dezorientację dla klientów. Jeśli projekt sieci Web jest tworzona w systemie plików w strukturze katalogów IISs (tj. c:\inetpub\wwwroot), nadal można przeglądać witryny sieci Web za pomocą programu ASP.NET Development Server, gdy jest uruchamiany z poziomu programu Visual Studio 2005. W związku z tym konfigurowania usług IIS (tj. metody uwierzytelniania) nie ma zastosowania.
+> ASP.NET Development Server mogą powodować dezorientację dla klientów. Jeśli projekt sieci Web jest tworzona w systemie plików w strukturze katalogów IISs (tj. c:/inetpub/wwwroot), nadal można przeglądać witryny sieci Web za pomocą programu ASP.NET Development Server, gdy jest uruchamiany z poziomu programu Visual Studio 2005. W związku z tym konfigurowania usług IIS (tj. metody uwierzytelniania) nie ma zastosowania.
 
 
-Domyślny projekt sieci web spowoduje również usunięcie znacznie narzutów przez zawiera tylko stronę Default.aspx, default.cs plików i aplikacji\_folderem danych. Plik web.config i foldery specjalne (np. aplikacji\_kodu) są dodawane, gdy są potrzebne. Projekt sieci web zawiera tylko pliki i foldery, które są potrzebne.
+Domyślny projekt sieci web spowoduje również usunięcie znacznie narzutów przez zawiera tylko stronę Default.aspx, default.cs plików i folderów aplikacji/_Data. Plik web.config i foldery specjalne (np. aplikacji/_code) są dodawane, gdy są potrzebne. Projekt sieci web zawiera tylko pliki i foldery, które są potrzebne.
 
 ### <a name="http-projects"></a>Projekty HTTP
 
@@ -91,7 +91,7 @@ Projekty HTTP może być projektów, które są tworzone w lokalnej witrynie sie
 Opcja lokalne usługi IIS odczytuje informacje o lokacji w metabazie na komputerze lokalnym i pliki są kopiowane przy użyciu systemu plików. Opcja lokacji zdalnej używa rozszerzeń serwera FrontPage i informacje o lokacji i pliki są kopiowane przy użyciu protokołu HTTP i wywołania RPC rozszerzenia serwera FrontPage.
 
 > [!NOTE]
-> Vs ###\_tmp.htm plików i get\_aspx\_ver.aspx nie są używane do określania informacji o wersji.
+> Plik vs###/_tmp.htm i get/_aspx/_ver.aspx nie są już używane ustalenie, informacje o wersji.
 
 
 Domyślna opcja HTTP jest lokalne usługi IIS. Ta opcja odczytuje metabazy usług IIS, aby określić, które witryny są dostępne i lokalizację, w której do tworzenia zawartości. Można wybrać inny folder lub katalogu wirtualnego, wybierając go w widoku drzewa. Użytkownik może również Utwórz nowy katalog wirtualny, oznaczyć foldery jako aplikacje, a także usunąć istniejące katalogi wirtualne w tym oknie dialogowym.
@@ -137,7 +137,7 @@ Podczas tworzenia aplikacji w witrynie zdalnej za pośrednictwem protokołu SSL,
 Visual Studio 2005 wprowadza opcję tworzenia witryn sieci Web za pośrednictwem protokołu FTP. Tej opcji IDE lokalnie tworzy pliki w folderze tymczasowym użytkowników, a następnie używa FTP do przenoszenia plików do lokalizacji FTP.
 
 > [!NOTE]
-> Lokalizacja folderu tymczasowego znajduje się c:\Documents and Settings\&lt; Użytkownik&gt;\Local Settings\Temp\VWDWebCache\&lt; Serwer&gt;\_&lt;Nazwa aplikacji&gt;
+> Lokalizacja folderu tymczasowego znajduje się c:/Documents and Settings /&lt;użytkownika&gt;/Local ustawienia/Temp/VWDWebCache/&lt;serwera&gt;/_&lt;Nazwa aplikacji&gt;
 
 
 Korzystając z opcji FTP, zostanie wyświetlone okno dialogowe Wybieranie lokalizacji. Wprowadzeniu wymaganych informacji o połączeniu FTP do tego okna dialogowego, jak pokazano poniżej.
@@ -161,7 +161,7 @@ Poniższe kroki konfigurowania witryny FTP tak, aby użytkownik miał lokalizacj
 
 ### <a name="create-a-new-folder-for-content"></a>Utwórz nowy Folder zawartości
 
-1. W Eksploratorze Windows, Utwórz nowy folder o nazwie **Użytkownik1** wewnątrz c:\inetpub\wwwroot.
+1. W Eksploratorze Windows, Utwórz nowy folder o nazwie **Użytkownik1** wewnątrz c:/inetpub/wwwroot.
 
 #### <a name="configure-folders-and-permissions-on-folders"></a>Konfigurowanie uprawnień i foldery w folderach.
 
@@ -169,7 +169,7 @@ Poniższe kroki konfigurowania witryny FTP tak, aby użytkownik miał lokalizacj
 2. Rozwiń węzeł **witryn FTP**.
 3. Kliknij prawym przyciskiem myszy **domyślne witryny FTP**, wybierz pozycję **nowy**, następnie **katalogu wirtualnego**, następnie kliknij przycisk **dalej**.
 4. Wprowadź **Użytkownik1** nazwę katalogu wirtualnego i kliknij **dalej**.
-5. Wprowadź **c:\inetpub\wwwroot\User1** ścieżkę i kliknij **dalej**.
+5. Wprowadź **c:/inetpub/wwwroot/Użytkownik1** ścieżkę i kliknij **dalej**.
 6. Kliknij przycisk **dalej** , a następnie **Zakończ** aby zakończyć pracę kreatora.
 7. Kliknij prawym przyciskiem myszy **Użytkownik1** do katalogu wirtualnego domyślne witryny FTP i wybierz **właściwości**.
 8. Sprawdź **zapisu** wyboru i kliknij przycisk **OK** aby zamknąć okno dialogowe.
@@ -185,7 +185,7 @@ Poniższe kroki konfigurowania witryny FTP tak, aby użytkownik miał lokalizacj
 
 ### <a name="create-web-project"></a>Tworzenie projektu sieci web
 
-1. Otwórz program Visual Studio 2005.
+1. Open Visual Studio 2005.
 2. Z **pliku** menu, wybierz opcję **nowej witryny sieci Web**.
 3. W **lokalizacji** listy rozwijanej wybierz **FTP**.
 4. Kliknij przycisk **Przeglądaj**.
@@ -200,7 +200,7 @@ Poniższe kroki konfigurowania witryny FTP tak, aby użytkownik miał lokalizacj
 13. W oknie dialogowym wymagany adres URL witryny sieci Web wprowadź `http://localhost/user1` adresu URL i kliknij **OK**.
 
 > [!NOTE]
-> Jeśli błąd wskazujący brak możliwości można załadować typu \_Default, upewnij się, że są uruchomione ASP.NET 2.0 na witrynie sieci Web i nie starszej wersji. Możesz to zrobić na karcie ASP.NET w usługach IIS.
+> Jeśli błąd wskazujący brakiem możliwości załadowania /_Default typu, upewnij się, czy korzystasz z programu ASP.NET 2.0 na witrynie sieci Web i nie starszej wersji. Możesz to zrobić na karcie ASP.NET w usługach IIS.
 
 
 ## <a name="opening-web-projects"></a>Otwierania projektów sieci Web
@@ -223,11 +223,11 @@ Jak wspomniano wcześniej, w tym module, Visual Studio nie jest już używany je
 
 Ponieważ program Visual Studio tworzy tylko dodatkowe pliki i foldery, gdy jest to konieczne, nie dodatkowe pliki i foldery są dodawane do lokalizacji, które będą otwierane. Efektem ubocznym takiej architektury jest to, że uniemożliwia zagnieżdżania witryn sieci Web w systemie plików. Rozważmy na przykład następującą strukturę katalogów.
 
-Projekt sieci Web w C:\MyWebSite
+C:/MojaWitrynaSieciWeb projektu sieci Web
 
-Inny projekt sieci web w C:\MyWebSite\Nested
+Inny projekt sieci web na C:/MojaWitrynaSieciWeb/zagnieżdżone
 
-Po otwarciu witrynę sieci Web pod c:\MyWebSite folderu zagnieżdżone pojawi się podfolder tej aplikacji.
+Po otwarciu witrynę sieci Web pod c:/MojaWitrynaSieciWeb folderu zagnieżdżone pojawi się podfolder tej aplikacji.
 
 <a id="_Toc116100246"></a>
 
@@ -249,7 +249,7 @@ Mimo że Wyświetla ikonę dla aplikacji, które zagnieżdżonych aplikacji, kt�
 
 Po otwarciu lokacji za pośrednictwem protokołu FTP są wszystkie skopiować plików lokalnie do folderu tymczasowego. Pełna ścieżka do lokalizacji magazynu lokalnego jest wyświetlany w okienku właściwości dla projektu i jest tworzony w następującym formacie.
 
-C:\Documents and Settings\&lt; Użytkownik&gt;\Local Settings\Temp\VWDWebCache\&lt; Serwer&gt;\_&lt;Nazwa aplikacji&gt;
+C:/Documents and Settings /&lt;użytkownika&gt;/Local ustawienia/Temp/VWDWebCache/&lt;serwera&gt;/_&lt;Nazwa aplikacji&gt;
 
 W przypadku używania FTP programu Visual Studio musi określić podstawowy adres URL dla projektu, w którym można go przejść, jak pokazano poniżej. Jeśli nie określisz podstawowy adres URL, Visual Studio zapyta dla niego przeglądania strony w witrynie sieci Web po raz pierwszy.
 
@@ -263,7 +263,7 @@ W przypadku używania FTP programu Visual Studio musi określić podstawowy adre
 
 Praca z aplikacji sieci Web programu Visual Studio 2005 jest znacznie szybsze niż w poprzednich wersjach. Jest to wymagane na zmiany w architekturze kompilacji bez małe części.
 
-W programie Visual Studio 2002 i 2003 aplikacji sieci Web zostały skompilowane w jeden podstawowy zestaw znajdującej się w folderze/bin. W programie Visual Studio 2005, aplikację\_folder kod został dodany. Klasy i innego kodu bez interfejsu użytkownika są dodawane do aplikacji\_katalogu z kodem. Podczas kompilacji projektu, wszystkie pliki w aplikacji w Visual Studio\_katalogu z kodem są skompilowane w jednej aplikacji\_Code.dll pliku. W wyniku tej zmiany jest znacznie szybsze niż w poprzednich wersjach kolejnych kompilacjach.
+W programie Visual Studio 2002 i 2003 aplikacji sieci Web zostały skompilowane w jeden podstawowy zestaw znajdującej się w folderze/bin. W programie Visual Studio 2005 folder aplikacji/_Code został dodany. Klasy i innego kodu bez interfejsu użytkownika są dodawane do folderu aplikacji/_Code. Gdy program Visual Studio tworzy projekt, wszystkie pliki w folderze aplikacji/_Code są kompilowane w jednym pliku App/_Code.dll. W wyniku tej zmiany jest znacznie szybsze niż w poprzednich wersjach kolejnych kompilacjach.
 
 > [!NOTE]
 > Narzędzia wiersza polecenia programu MSBuild mogą służyć do tworzenia aplikacji sieci Web ASP.NET. Tego narzędzia zostanie omówiona w module 9.
@@ -307,7 +307,7 @@ Kliknij tutaj, aby zobaczyć przewodnik wideo projektanta obsługi w przypadku k
 > Gdy kontrola użytkownika zostanie usunięta ze strony @Register dyrektywy pozostaje w znaczniku i powinna zostać usunięta ręcznie, aby uniknąć błędów analizatora, jeśli formant użytkownika zostanie usunięty z witryny sieci Web.
 
 
-Inny poprawy modelu kompilacji programu Visual Studio jest funkcji publikowania witryny sieci Web. Ponieważ funkcja publikowania precompiles witryny sieci Web, deweloperzy mogą korzystać dodano wydajność nie ma potrzeby skompilować niczego na żądanie. Również precompiles całego kodu źródłowego w aplikacji\_kodu folder do biblioteki DLL, aby żaden kod źródłowy ma zostać wdrożony.
+Inny poprawy modelu kompilacji programu Visual Studio jest funkcji publikowania witryny sieci Web. Ponieważ funkcja publikowania precompiles witryny sieci Web, deweloperzy mogą korzystać dodano wydajność nie ma potrzeby skompilować niczego na żądanie. Wszystkie kodu źródłowego w folderze aplikacji/_Code on również precompiles do biblioteki DLL, aby żaden kod źródłowy ma zostać wdrożony.
 
 
 ![Okno dialogowe publikowania witryny sieci Web](improvements-in-visual-studio-2005/_static/image7.jpg)
@@ -316,10 +316,10 @@ Inny poprawy modelu kompilacji programu Visual Studio jest funkcji publikowania 
 
 
 > [!NOTE]
-> Aspnet\_compile.exe narzędzia można również wstępnie skompilować aplikację sieci Web programu ASP.NET. Tego narzędzia zostanie omówiona w module 9.
+> Narzędzie aspnet/_compile.exe mogą służyć do wstępnego kompilowania aplikacji sieci Web ASP.NET. Tego narzędzia zostanie omówiona w module 9.
 
 
-Po opublikowaniu witryny sieci Web, wstępnie skompilowanych plików są przechowywane w folderze Temporary ASP.NET Files jak pokazano poniżej. Pliki z *.compiled* rozszerzenie pliku to pliki XML, które Definiowanie zależności dla określonej biblioteki dll. Wszystkie formanty formularza sieci Web lub użytkownika są skompilowane w losowej bibliotek DLL, które zaczynają się od *aplikacji\_Web\_*.
+Po opublikowaniu witryny sieci Web, wstępnie skompilowanych plików są przechowywane w folderze Temporary ASP.NET Files jak pokazano poniżej. Pliki z *.compiled* rozszerzenie pliku to pliki XML, które Definiowanie zależności dla określonej biblioteki dll. Wszystkie formanty formularza sieci Web lub użytkownika są skompilowane w losowej bibliotek DLL, które zaczynają się od *aplikacji /_sieci Web /_*.
 
 Jeśli opuścisz *zezwolić tej witryny wstępnie skompilowanej aktualizacja była możliwa* zaznaczone pole wyboru, znaczników wewnątrz formantów formularzy sieci Web i użytkownik nie będzie wstępnie skompilowanym do biblioteki DLL, dzięki czemu można wprowadzać zmiany po wdrożeniu. Jeśli chcesz użyć do blokowania kod znaczników, aby zmiany do wdrożonej zawartości nie są dozwolone, usuń zaznaczenie tego pola.
 
@@ -432,9 +432,9 @@ W tym laboratorium wymaga dwóch maszyn jednej uruchomionej Visual Studio 2005 i
 
 
 1. Zdalny serwer sieci Web zlokalizuj msvsmon.exe na komputerze deweloperskim przy użyciu ścieżki UNC i wykonaj go.  
- Domyślna lokalizacja dla msvsmon.exe \\server\c$ \Program Files\Microsoft Debugger\x86 8\Common7\IDE\Remote programu Visual Studio.
+ Domyślna lokalizacja msvsmon.exe jest //server/c$/Program plików/programu Microsoft Visual Studio 8/Common7/IDE/zdalnego debugera/x86.
 2. Jeśli zostanie wyświetlony monit, aby odblokować portów do zdalnego debugowania, należy to zrobić.
-3. Na komputerze deweloperskim Otwórz kodem Default.aspx i ustaw punkt przerwania na stronie\_załadować metody.
+3. Z na komputerze deweloperskim kodem Default.aspx i ustaw punkt przerwania w metodzie _usługa/strony.
 4. Uruchom profilowanie z na komputerze deweloperskim.
 
 Powinien trafienie punktu przerwania, zgodnie z oczekiwaniami.
@@ -445,7 +445,7 @@ Jako weve już omówione Visual Studio 2005 jest dostarczany z serwera sieci Web
 
 ASP.NET Development Server jest ograniczony serwera sieci Web. Zezwala na połączenia zdalne, nie zezwala żądań z dowolnego konta użytkownika niż użytkownika, który uruchomił serwera sieci Web. Ponadto nie ma możliwości obsługę stron ASP. Obsługiwane są tylko ASP.NET zasobów i HTML (w tym obrazów, plików CSS itp.).
 
-ASP.NET Development Server można uruchomić z wiersza polecenia, uruchamiając plik WebDev.WebServer.exe znajdujący się w c:\Windows\Microsoft.NET\Framework\v2.0. \*\*\*\*\*. To okno dialogowe wyświetla parametry, które są dostępne.
+ASP.NET Development Server można uruchomić z wiersza polecenia, uruchamiając plik WebDev.WebServer.exe znajdujący się w c:/Windows/Microsoft.NET/Framework/v2.0./ */*  /  */*/*. To okno dialogowe wyświetla parametry, które są dostępne.
 
 
 ![](improvements-in-visual-studio-2005/_static/image11.jpg)

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: dfb24a4c72b15737295b7aea406be24160fc6674
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a0c7de12e0d9abbe5d1706cf775dfeb2c067c760
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/05/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Wprowadzenie do sprawdzania poprawności modelu w programie ASP.NET MVC Core
 
@@ -144,7 +144,7 @@ Powyżej pomocników tagów renderowania elementów HTML poniżej. Zwróć uwag�
 
 Weryfikacji po stronie klienta uniemożliwia przesyłanie, dopóki formularza jest nieprawidłowy. Przycisk Prześlij uruchamia JavaScript, która wyśle formularz lub wyświetlane komunikaty o błędach.
 
-MVC określa na podstawie typu danych .NET właściwości, prawdopodobnie przesłonić przy użyciu wartości atrybutu typu `[DataType]` atrybutów. Podstawowym `[DataType]` atrybut zapewnia Weryfikacja nie rzeczywistym po stronie serwera. Przeglądarki wybrać własne komunikaty o błędach i wyświetlić te błędy, jednak życzą, jednak pakiet sprawdzania poprawności dyskretnego kodu jQuery można zastąpić wiadomości i ich konsekwentnie wyświetlić z innymi osobami. Dzieje się tak najczęściej oczywiście, gdy użytkownicy zastosują `[DataType]` podklasy, takich jak `[EmailAddress]`.
+MVC określa na podstawie typu danych .NET właściwości, prawdopodobnie przesłonić przy użyciu wartości atrybutu typu `[DataType]` atrybutów. Podstawowym `[DataType]` atrybut zapewnia Weryfikacja nie rzeczywistym po stronie serwera. Przeglądarki wybrać własne komunikaty o błędach i wyświetlić te błędy, jak życzą, jednak pakiet sprawdzania poprawności dyskretnego kodu jQuery można zastąpić wiadomości i ich konsekwentnie wyświetlić z innymi osobami. Dzieje się tak najczęściej oczywiście, gdy użytkownicy zastosują `[DataType]` podklasy, takich jak `[EmailAddress]`.
 
 ### <a name="add-validation-to-dynamic-forms"></a>Dodawanie walidacji do dynamicznego formularzy
 
