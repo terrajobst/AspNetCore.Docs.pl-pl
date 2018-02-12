@@ -8,11 +8,11 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 1318ae855154dd8fc91ff0c19b0ab111d86c71e6
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1a91a87fb90d4d4651e07f32415e4364c8e2d993
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Dostawca konfiguracji usługi Azure Key Vault
 
@@ -77,7 +77,7 @@ Po uruchomieniu aplikacji załadowanych tajny wartości wyświetlane strony siec
 `AddAzureKeyVault`dostępne są także przeciążenia, które akceptuje implementacja `IKeyVaultSecretManager`, co umożliwia kontrolowanie sposobu klucza magazynu kluczy tajnych są konwertowane na klucze konfiguracji. Na przykład można zaimplementować interfejsu załadować tajny wartości na podstawie wartości prefiksu podane podczas uruchamiania aplikacji. Dzięki temu można na przykład można załadować kluczy tajnych na podstawie wersji aplikacji.
 
 > [!WARNING]
-> Nie używaj prefiksy na kluczy tajnych w magazynie kluczy, umieść klucze tajne dla wielu aplikacji w tym samym magazynie kluczy lub umieść środowiska klucze tajne (na przykład *programowanie* verus *produkcji* kluczy tajnych) w taki sam Magazyn. Zalecane jest różnych aplikacji i środowisk produkcyjnych/programowanie użycie oddzielnych magazynów kluczy do izolowania aplikacji środowisk najwyższego poziomu zabezpieczeń.
+> Nie używaj prefiksy na kluczy tajnych w magazynie kluczy, umieść klucze tajne dla wielu aplikacji w tym samym magazynie kluczy lub umieść środowiska klucze tajne (na przykład *programowanie* i *produkcji* kluczy tajnych) w taki sam Magazyn. Zalecane jest różnych aplikacji i środowisk produkcyjnych/programowanie użycie oddzielnych magazynów kluczy do izolowania aplikacji środowisk najwyższego poziomu zabezpieczeń.
 
 Za pomocą drugiego przykładowej aplikacji, Utwórz klucz tajny w magazynie kluczy dla `5000-AppSecret` (kropki nie są dozwolone w nazwach tajny magazynu kluczy) reprezentujący klucz tajny aplikacji dla wersji 5.0.0.0 aplikacji. Inna wersja 5.1.0.0, można utworzyć klucz tajny dla `5100-AppSecret`. Każda wersja aplikacji ładuje poufną wartość do jego konfigurację jako `AppSecret`, oddzielającego poza wersji, ładuje klucz tajny. Poniżej przedstawiono przykładowe zastosowanie:
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: 757aeb713b645cea0fe633b150784184d2d3571e
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 76ee951f62eff43ee1dd5316baf63f1ccd1de35e
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Tworzenia, odczytu, aktualizacji i usuwania - Core EF Razor strony (2 8)
 
@@ -92,7 +92,7 @@ Nie zawiera utworzony szkielet kodu strony indeksu studentów `Enrollments` wła
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Details.cshtml.cs?name=snippet_Details&highlight=8-12)]
 
-`Include` i `ThenInclude` metody powodują kontekstu ładowania `Student.Enrollments` właściwość nawigacji i w obrębie każdej rejestracji `Enrollment.Course` właściwości nawigacji. Te metody są examinied szczegółowo w samouczku dane dotyczące odczytu.
+`Include` i `ThenInclude` metody powodują kontekstu ładowania `Student.Enrollments` właściwość nawigacji i w obrębie każdej rejestracji `Enrollment.Course` właściwości nawigacji. Te metody są sprawdzane szczegółowo w samouczku dane dotyczące odczytu.
 
 `AsNoTracking` — Metoda zwiększa wydajność w scenariuszach, gdy zwracany jednostek nie są aktualizowane w bieżącym kontekście. `AsNoTracking`omówione w dalszej części tego samouczka.
 
@@ -197,7 +197,7 @@ Jednostka może być w jednym z następujących stanów:
 
 W aplikacji komputerowej zmian stanu zwykle są ustawiane automatycznie. Jednostka jest do odczytu, wprowadzono zmiany i stan jednostki automatycznie zmieniona na `Modified`. Wywoływanie `SaveChanges` generuje instrukcję aktualizacji programu SQL, która aktualizuje tylko zmienionych właściwości.
 
-W aplikacji sieci web `DbContext` które odczytuje jednostki i wyświetla dane zostanie usunięty po renderowania strony. Gdy stron `OnPostAsync` metoda jest wywoływana, nowych żądań sieci web oraz nowe wystąpienie klasy `DbContext`. Ponowne czytanie jednostki, w tym kontekście nowe symuluje przetwarzania pulpitu.
+W aplikacji sieci web `DbContext` które odczytuje jednostki i wyświetla dane zostanie usunięty po renderowania strony. Jeśli na stronie `OnPostAsync` metoda jest wywoływana, nowych żądań sieci web oraz nowe wystąpienie klasy `DbContext`. Ponowne czytanie jednostki, w tym kontekście nowe symuluje przetwarzania pulpitu.
 
 ## <a name="update-the-delete-page"></a>Zaktualizuj strony usuwania
 

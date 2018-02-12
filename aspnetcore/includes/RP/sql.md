@@ -20,7 +20,7 @@ Istnieje wiele narzędzi innych firm, które można pobrać do zarządzania i wy
 
 Utwórz nową klasę o nazwie `SeedData` w *modele* folderu. Zastąp wygenerowany kod poniżej:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[Main](code\Models\SeedData.cs)]
 
 Jeśli w bazie danych są wszystkie filmy, zwraca inicjatora inicjatora.
 
@@ -36,10 +36,10 @@ if (context.Movie.Any())
 
 Inicjator inicjatora, aby dodać `Main` metody w *Program.cs* pliku:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Program.cs?highlight=6,16-32)]
+[!code-csharp[Main](../../tutorials/razor-pages\razor-pages-start\sample\RazorPagesMovie\Program.cs)]
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
 
 Usuń wszystkie rekordy w bazie danych (co seed — metoda będzie uruchamiane). Zatrzymać i uruchomić aplikację w celu umieszczenia bazy danych.
-   
+
 Aplikacja zawiera wprowadzonych danych.

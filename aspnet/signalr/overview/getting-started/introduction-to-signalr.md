@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 27150d314b6861f1098e6ef4a7de94e7b371a78e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 64ac4e3575f69c164ba053943984ef25f906d7f4
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="introduction-to-signalr"></a>Wprowadzenie do SignalR
 ====================
@@ -35,7 +35,7 @@ Biblioteka SignalR platformy ASP.NET to biblioteka dla deweloperów platformy AS
 
 SignalR można dodać dowolny rodzaj funkcji "w czasie rzeczywistym" sieci web do aplikacji ASP.NET. Podczas rozmowy jest często używana jako przykład, możesz zrobić wiele więcej. Wszystkie razem, kiedy użytkownik odświeża strony sieci web, aby zobaczyć nowe dane, lub implementuje stronę [długiego sondowania](http://en.wikipedia.org/wiki/Push_technology#Long_polling) można pobrać nowe dane, jest kandydatem do przy użyciu SignalR. Przykłady obejmują pulpitów nawigacyjnych i monitorowania aplikacji, współpracy aplikacji (takich jak jednoczesne edytowanie dokumentów), zadań, aktualizacje postępu i formularzy w czasie rzeczywistym.
 
-SignalR umożliwia również całkowicie nowych typów aplikacji sieci web, które wymagają wysokiej częstotliwości aktualizacji z serwera, na przykład w czasie rzeczywistym gier. Na dużą przykład tego, zobacz [ShootR gier.](http://shootr.signalr.net/)
+SignalR umożliwia również całkowicie nowych typów aplikacji sieci web, które wymagają wysokiej częstotliwości aktualizacji z serwera, na przykład w czasie rzeczywistym gier.
 
 Biblioteka SignalR udostępnia prosty interfejs API do tworzenia klienta serwera zdalnych wywołań procedur (RPC) które wywołują funkcje JavaScript w kliencie w przeglądarkach (i innych platform klienta), z kodu .NET po stronie serwera. Biblioteka SignalR zawiera też interfejs API umożliwiający zarządzanie połączeniami (na przykład nawiązywanie i zakańczanie zdarzeń) i grupowanie połączeń.
 

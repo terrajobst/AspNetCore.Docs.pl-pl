@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/environments
-ms.openlocfilehash: b40ee9b1c6feae4942f05d22dab776d3cf6c26a0
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: ec58b287dfb2b5a3ca4de6e67c20c8d0eb708fa4
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="working-with-multiple-environments"></a>Praca w środowiskach wielu
 
@@ -87,7 +87,7 @@ Zmiany wprowadzone do profilów projektu mogą nie zostać zastosowane do czasu 
 
 ### <a name="production"></a>Produkcji
 
-Aby zmaksymalizować zabezpieczeń, wydajności i niezawodności aplikacji należy skonfigurować środowiska produkcyjnego. Niektóre typowe ustawienia, które mogą mieć w środowisku produkcyjnym różniących od projektowania obejmują:
+Aby zmaksymalizować zabezpieczeń, wydajności i niezawodności aplikacji należy skonfigurować środowiska produkcyjnego. Niektóre typowe ustawienia, które różnią się od rozwoju obejmują:
 
 * Buforowanie.
 * Zasoby po stronie klienta są powiązane, zminimalizowane i potencjalnie pochodzący z sieci CDN.

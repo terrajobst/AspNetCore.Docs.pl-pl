@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f469894022e39048154ec1915237e448104b4b6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 86d5d429d9900d4c04391804598626705e6c88b4
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="understanding-action-filters-c"></a>Opis filtry akcji (C#)
 ====================
@@ -82,7 +82,7 @@ Filtry wyjątków są ostatniego typu filtru. Do obsługi błędów zgłaszane p
 
 Każdy typ filtru jest wykonywany w określonej kolejności. Jeśli chcesz kontrolować kolejność wykonywania filtrów tego samego typu można ustawić właściwości kolejności filtrów.
 
-Klasa podstawowa dla wszystkich filtrów akcji jest `System.Web.Mvc.FilterAttribute` klasy. Jeśli chcesz zaimplementować określonego typu filtru, a następnie należy utworzyć klasę, która dziedziczy po klasie podstawowej filtru i implementuje co najmniej jeden `IAuthorizationFilter`, `IActionFilter`, `IResultFilter`, lub `ExceptionFilter` interfejsów.
+Klasa podstawowa dla wszystkich filtrów akcji jest `System.Web.Mvc.FilterAttribute` klasy. Jeśli chcesz zaimplementować określonego typu filtru, a następnie należy utworzyć klasę, która dziedziczy po klasie podstawowej filtru i implementuje co najmniej jeden `IAuthorizationFilter`, `IActionFilter`, `IResultFilter`, lub `IExceptionFilter` interfejsów.
 
 ### <a name="the-base-actionfilterattribute-class"></a>Klasa podstawowa ActionFilterAttribute
 

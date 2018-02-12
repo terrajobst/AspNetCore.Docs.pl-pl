@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: e89d95702cb94556bc6e5dc73253c51acaa11578
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 32716ddcf7c2a7b11000c333453a0fde3030ae34
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Migracje - Core EF z samouczka stron Razor (4 8)
 
@@ -181,7 +181,7 @@ info: Microsoft.EntityFrameworkCore.Database.Command[200101]
 Done.
 ```
 
-Aby zmniejszyć poziom szczegółów komunikatów dziennika, można zmienić poziom dziennika w *appsettings. Development.JSON* pliku. Aby uzyskać więcej informacji, zobacz [wprowadzenie do rejestrowania](xref:fundamentals/logging/index).
+Aby zmniejszyć poziom szczegółów komunikatów dziennika, zmienić poziom dziennika, w *appsettings. Development.JSON* pliku. Aby uzyskać więcej informacji, zobacz [wprowadzenie do rejestrowania](xref:fundamentals/logging/index).
 
 Użyj **Eksplorator obiektów SQL Server** przeprowadzać inspekcję bazy danych. Zwróć uwagę, dodanie `__EFMigrationsHistory` tabeli. `__EFMigrationsHistory` Tabeli przechowuje informacje o migracji, które zostały zastosowane do bazy danych. Wyświetlanie danych w `__EFMigrationsHistory` tabeli, zawiera jeden wiersz dla pierwszej migracji. Ostatni dziennika w poprzednim przykładzie danych wyjściowych interfejsu wiersza polecenia zawiera instrukcji INSERT, która tworzy tego wiersza.
 

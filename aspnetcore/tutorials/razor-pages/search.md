@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 440635219bae666e968c14280a3cace4596aa973
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 24a55b4e51628e23da08e76e493053f7f77538eb
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="adding-search-to-a-razor-pages-app"></a>Dodawanie do aplikacji stron Razor wyszukiwania
 
@@ -68,7 +68,7 @@ Kod HTML `<form>` tagów używa [pomocnika Tag formularza](xref:mvc/views/workin
 
 ## <a name="search-by-genre"></a>Wyszukiwanie według rodzaju
 
-Dodaj następujące wyróżnione właściwości *Pages/Movies/Index.cshtml.cs*:
+Dodaj następujące właściwości wyróżnione *Pages/Movies/Index.cshtml.cs*:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 

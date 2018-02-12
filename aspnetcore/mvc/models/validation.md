@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: a0c7de12e0d9abbe5d1706cf775dfeb2c067c760
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: e2911adcfa3a203a06bdae106499994671a055c4
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Wprowadzenie do sprawdzania poprawności modelu w programie ASP.NET MVC Core
 
@@ -178,13 +178,13 @@ $.get({
     url: "https://url/that/returns/a/control",
     dataType: "html",
     error: function(jqXHR, textStatus, errorThrown) {
-        alert(textStatus + ": Couldn't add form. " + errorThrown);
+        alert(textStatus + ": Couldn't add control. " + errorThrown);
     },
     success: function(newInputHTML) {
         var form = document.getElementById("my-form");
         form.insertAdjacentHTML("beforeend", newInputHTML);
-        form.removeData("validator")    // Added by the raw jQuery Validate
-            .removeData("unobtrusiveValidation");   // Added by jQuery Unobtrusive Validation
+        $(form).removeData("validator")    // Added by jQuery Validate
+               .removeData("unobtrusiveValidation");   // Added by jQuery Unobtrusive Validation
         $.validator.unobtrusive.parse(form);
     }
 })

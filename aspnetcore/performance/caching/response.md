@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: c38f9b9a1bf1c523951e2cf1f3070858fe5daf04
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 37592c3b2099c2cb74dc42ad4a7937b32c281f65
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w ASP.NET Core
 
@@ -68,7 +68,7 @@ Aby uzyskać więcej informacji, zobacz [wprowadzenie do buforowania w pamięci 
 
 ### <a name="distributed-cache"></a>Rozproszonej pamięci podręcznej
 
-Rozproszonej pamięci podręcznej umożliwia przechowywanie danych w pamięci, gdy aplikacja jest hostowana na farmie sieci chmury lub serwera. Pamięć podręczna jest współużytkowana przez serwery, które przetwarzają żądania. Klient może przesłać żądania, które zostały obsłużone przez dowolny serwer w grupie dane z pamięci podręcznej klienta jest dostępny. Platformy ASP.NET Core oferuje programu SQL Server i pamięci podręczne Redis rozproszonych.
+Rozproszonej pamięci podręcznej umożliwia przechowywanie danych w pamięci, gdy aplikacja jest hostowana na farmie sieci chmury lub serwera. Pamięć podręczna jest współużytkowana przez serwery, które przetwarzają żądania. Klienci mogą przesyłać żądania, który jest obsługiwany przez dowolnego serwera w grupie, jeśli są dostępne dane pamięci podręcznej klienta. Platformy ASP.NET Core oferuje programu SQL Server i pamięci podręczne Redis rozproszonych.
 
 Aby uzyskać więcej informacji, zobacz [Praca z rozproszonej pamięci podręcznej](xref:performance/caching/distributed).
 
@@ -86,12 +86,14 @@ Aby uzyskać więcej informacji, zobacz [rozproszonej pamięci podręcznej pomoc
 
 ## <a name="responsecache-attribute"></a>ResponseCache attribute
 
-`ResponseCacheAttribute` Określa parametry, które są niezbędne do ustawiania odpowiednich nagłówków w ramach buforowania odpowiedzi. Zobacz [ResponseCacheAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.responsecacheattribute) opis parametrów.
+[ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) określa parametry, które są niezbędne do ustawiania odpowiednich nagłówków w ramach buforowania odpowiedzi.
 
 > [!WARNING]
 > Wyłącz buforowanie zawartości, który zawiera informacje dotyczące klientów, uwierzytelnionym. Buforowanie powinna być włączona tylko dla zawartości, która nie zmienia się na podstawie tożsamości użytkownika lub określa, czy użytkownik jest zalogowany.
 
-`VaryByQueryKeys string[]`(wymaga platformy ASP.NET Core 1.1 i nowsze): gdy są ustawione, oprogramowanie pośredniczące buforowanie odpowiedzi zależy od odpowiedzi przechowywane wartości danej listy kluczy zapytania. Oprogramowanie pośredniczące buforowanie odpowiedzi musi być włączona, aby ustawić `VaryByQueryKeys` właściwość; w przeciwnym razie jest zgłaszany wyjątek czasu wykonywania. Nagłówek HTTP nie odpowiednie dla występuje `VaryByQueryKeys` właściwości. Ta właściwość jest funkcją HTTP obsługiwane przez oprogramowanie pośredniczące buforowanie odpowiedzi. Oprogramowanie pośredniczące do obsługi buforowaną odpowiedź ciąg zapytania i wartość ciągu zapytania musi odpowiadać poprzedniego żądania. Rozważmy na przykład sekwencji żądań i wyniki będą wyświetlane w poniższej tabeli.
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) odpowiedzi przechowywane zależy od wartości danej listy kluczy zapytania. Gdy do pojedynczej wartości `*` została podana, oprogramowanie pośredniczące zmienia się odpowiedzi dla wszystkich żądań parametrów ciągu zapytania. `VaryByQueryKeys`wymaga platformy ASP.NET Core 1.1 lub nowszej.
+
+Oprogramowanie pośredniczące buforowanie odpowiedzi musi być włączona, aby ustawić `VaryByQueryKeys` właściwość; w przeciwnym razie jest zgłaszany wyjątek czasu wykonywania. Nie ma odpowiedniego nagłówek HTTP dla `VaryByQueryKeys` właściwości. Właściwość jest funkcją HTTP obsługiwane przez oprogramowanie pośredniczące buforowanie odpowiedzi. Oprogramowanie pośredniczące do obsługi buforowaną odpowiedź ciąg zapytania i wartość ciągu zapytania musi odpowiadać poprzedniego żądania. Rozważmy na przykład sekwencji żądań i wyniki będą wyświetlane w poniższej tabeli.
 
 | Żądanie                          | Wynik                   |
 | -------------------------------- | ------------------------ |
@@ -101,7 +103,7 @@ Aby uzyskać więcej informacji, zobacz [rozproszonej pamięci podręcznej pomoc
 
 Pierwsze żądanie jest zwrócony przez serwer i w pamięci podręcznej w oprogramowaniu pośredniczącym. Drugie żądanie jest zwracana przez oprogramowanie pośredniczące, ponieważ ciąg zapytania jest zgodna z poprzedniego żądania. W pamięci podręcznej oprogramowania pośredniczącego nie trzeci żądania, ponieważ wartość ciągu kwerendy nie pasuje do poprzedniego żądania. 
 
-`ResponseCacheAttribute` Służy do konfigurowania i utworzyć (za pośrednictwem `IFilterFactory`) `ResponseCacheFilter`. `ResponseCacheFilter` Wykonuje pracę aktualizacji odpowiednich nagłówków HTTP i funkcje odpowiedzi. Filtr:
+`ResponseCacheAttribute` Służy do konfigurowania i utworzyć (za pośrednictwem `IFilterFactory`) [ResponseCacheFilter](/dotnet/api/microsoft.aspnetcore.mvc.internal.responsecachefilter). `ResponseCacheFilter` Wykonuje pracę aktualizacji odpowiednich nagłówków HTTP i funkcje odpowiedzi. Filtr:
 
 * Usuwa wszystkie istniejące nagłówki dla `Vary`, `Cache-Control`, i `Pragma`. 
 * Zapisuje się odpowiednie nagłówki na podstawie właściwości w `ResponseCacheAttribute`. 

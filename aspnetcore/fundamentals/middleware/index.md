@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 887ba1a4742821226a7ebecfd238c97627d6c5f7
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 158f11875f22f8f9dba6f7f109123717b9da8d18
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="aspnet-core-middleware"></a>Oprogramowanie pośredniczące platformy ASP.NET Core
 
@@ -262,3 +262,4 @@ public class MyMiddleware
 * [Uruchamianie aplikacji](xref:fundamentals/startup)
 * [Funkcje na żądanie](xref:fundamentals/request-features)
 * [Aktywacji opartej na fabryki oprogramowania pośredniczącego](xref:fundamentals/middleware/extensibility)
+* [Aktywacji opartej na fabryki oprogramowania pośredniczącego z kontenerem innych firm](xref:fundamentals/middleware/extensibility-third-party-container)
