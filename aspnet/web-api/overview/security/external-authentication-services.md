@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 5d6e6727f387d047e7b41a6efa0d2dadf467558e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 744396cb0c95d1887f259b1e2e890bd06ef7d049
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>Zewnętrznych usług uwierzytelniania z interfejsu API sieci Web platformy ASP.NET (C#)
 ====================
@@ -49,7 +49,7 @@ Aby użyć przykłady w tym przewodniku, należy dysponować następującymi ele
     - Konto użytkownika usługi Google
     - Konto dewelopera z aplikacji identyfikator i klucz tajny dla jednej z następujących usług uwierzytelniania mediów społecznościowych:
 
-        - Konta Microsoft ([https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070))
+        - Microsoft Accounts ([https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070))
         - W usłudze Twitter ([https://dev.twitter.com/](https://dev.twitter.com/))
         - Facebook ([https://developers.facebook.com/](https://developers.facebook.com/))
 
@@ -70,10 +70,10 @@ W drugim przykładzie negocjuje agenta użytkownika z serwera zewnętrznego auto
 
 Visual Studio 2013 i programu ASP.NET 4.5.1 ułatwienia integracji z zewnętrznych usług uwierzytelniania dla deweloperów zapewniając wbudowanej integracji dla następujących usług uwierzytelniania:
 
-- Usługi Facebook
+- Facebook
 - Google
 - Accounts Microsoft (konta usługi Windows Live ID)
-- W usłudze Twitter
+- Twitter
 
 Przykłady w tym przewodniku przedstawiono sposób konfigurowania każdej z obsługiwanych zewnętrznych usług uwierzytelniania przy użyciu nowego szablonu aplikacji sieci Web ASP.NET, który jest dostarczany z programu Visual Studio 2013.
 
@@ -243,8 +243,8 @@ Po uzyskaniu Twoje klucz klienta i klucz tajny klienta, wykonaj następujące kr
 
 Aby uzyskać dodatkowe informacje na temat tworzenia aplikacji, które używają protokołu OAuth i OpenID zobacz następujące adresy URL:
 
-- [https://go.microsoft.com/fwlink/?LinkId=252166](https://go.microsoft.com/fwlink/?LinkID=252166)
-- [https://go.microsoft.com/fwlink/?LinkId=243995](https://go.microsoft.com/fwlink/?LinkID=243995)
+- [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)
+- [https://go.microsoft.com/fwlink/?LinkID=243995](https://go.microsoft.com/fwlink/?LinkID=243995)
 
 <a id="COMBINE"></a>
 ### <a name="combining-external-authentication-services"></a>Łączenie zewnętrznych usług uwierzytelniania
@@ -278,7 +278,7 @@ Niektórzy dostawcy uwierzytelniania zewnętrznego nie obsługują testowania ap
     1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień w systemie Windows.
     2. Wpisz następujące polecenie, aby zmienić do folderu usług IIS Express:
 
-        <kbd>CD /d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
+        <kbd>cd /d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
     3. Wpisz następujące polecenie, aby dodać nazwę FQDN do aplikacji:
 
         <kbd>appcmd.exe set config-section:system.applicationHost/sites / +&quot;[name = "WebApplication1"] .bindings. [ Protokół = 'http', bindingInformation = "*:80:www.wingtiptoys.com"]&quot; /commit:apphost</kbd>
@@ -303,7 +303,7 @@ Niektórzy dostawcy uwierzytelniania zewnętrznego nie obsługują testowania ap
 <a id="DISABLE"></a>
 ### <a name="optional-disable-local-registration"></a>Opcjonalnie: Wyłącz lokalnej rejestracji
 
-Bieżącą funkcjonalność lokalnego rejestracji programu ASP.NET nie uniemożliwia tworzenie kont; element członkowski automatycznych programów (robotów) na przykład, korzystając z technologii zapobiegania bot i sprawdzania poprawności, takich jak [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). W związku z tym należy usunąć link do logowania lokalnego formularza i rejestracji na stronie logowania. Aby to zrobić, otwórz  *\_Login.cshtml* w projekcie, a następnie komentarz wierszy panel logowania lokalnego i łącze. Wynikowa strony powinny, takich jak podobnie jak w poniższym przykładzie kodu:
+Bieżącą funkcjonalność lokalnego rejestracji programu ASP.NET nie uniemożliwia tworzenie kont; element członkowski automatycznych programów (robotów) na przykład, korzystając z technologii zapobiegania bot i sprawdzania poprawności, takich jak [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). W związku z tym należy usunąć link do logowania lokalnego formularza i rejestracji na stronie logowania. Aby to zrobić, otwórz  *\_Login.cshtml* w projekcie, a następnie komentarz wierszy panel logowania lokalnego i łącze. Wynikowej strony powinien wyglądać podobnie jak w poniższym przykładzie kodu:
 
 [!code-html[Main](external-authentication-services/samples/sample10.html)]
 

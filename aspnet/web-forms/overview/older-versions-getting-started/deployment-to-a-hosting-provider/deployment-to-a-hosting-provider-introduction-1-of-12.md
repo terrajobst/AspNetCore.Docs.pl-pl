@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 9c0edb301de85d15b9a3527382b72211f6f3d3ec
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a0f38c83bd9231dbd37d3d505c90316af521b336
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio programu SQL Server Compact: wprowadzenie - 1 do 12
 ====================
@@ -137,7 +137,7 @@ Poniższe funkcje aplikacji wpływa na sposób wdrażania lub masz celu jej wdro
 - Aplikacja używa Entity Framework w wersji 5.0 dostępu do danych w bazie danych aplikacji. Zestaw zawierający Entity Framework w wersji 5.0 należy wdrożyć w aplikacji.
 - Błąd innej firmy, rejestrowania i raportowania narzędzie używane przez aplikację. To narzędzie jest dostępne w zestawie, do którego należy wdrożyć w aplikacji.
 - Narzędzia rejestrowania błędów zapisuje informacje o błędzie w plikach XML do folderu plików. Należy upewnić się, czy konto, które program ASP.NET jest uruchamiana w witrynie wdrożonej ma uprawnienie zapisu do tego folderu, i czy masz do wykluczenia z wdrożenia tego folderu. (W przeciwnym razie błąd dane dzienników ze środowiska testowego mógł zostać wdrożony w środowisku produkcyjnym i/lub plików dziennika błędów produkcji może zostać usunięty.)
-- Aplikacja zawiera pewne ustawienia, które można zmienić w programie w wdrożone *Web.config* pliku, w zależności od środowiska docelowego (testowym lub produkcyjnym) i inne ustawienia, które musi zostać zmienione w zależności od kompilacji Konfiguracja (debugowanie czy wydanie).
+- Aplikacja zawiera pewne ustawienia, które musi zostać zmienione w wdrożone *Web.config* pliku, w zależności od środowiska docelowego (testowym lub produkcyjnym) i inne ustawienia, które musi zostać zmienione w zależności od kompilacji Konfiguracja (debugowanie czy wydanie).
 - Rozwiązanie programu Visual Studio zawiera projektu biblioteki klas. Powinny być wdrażane tylko zestaw, który generuje ten projekt, nie projektu.
 
 W tym samouczku pierwszy z serii pobraniu przykładowy projekt programu Visual Studio i przejrzeć funkcji witryny, które mają wpływ na sposób wdrażania aplikacji. W następujących samouczkach przygotować się do wdrożenia, konfigurując niektóre z nich mają zostać obsłużone automatycznie. Inne rozwiązywane ręcznie.

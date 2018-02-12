@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 7200899d54585cd09e0a648e3aaaf839db2649e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5efc5ff367d5da5df060eba0028399af898a69fa
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i formularzy sieci Web 4 ASP.NET — część 5
 ====================
@@ -77,7 +77,7 @@ Uruchom *Courses.aspx* strony, a następnie wybierz tego samego działu, aby wy�
 
 ## <a name="working-with-many-to-many-relationships"></a>Praca z relacji wiele do wielu
 
-Relacja między `Courses` zestaw jednostek oraz `People` zestaw jednostek znajduje relacji wiele do wielu. A `Course` jednostki ma właściwości nawigacji o nazwie `People` zawierających zero, co najmniej jeden powiązane `Person` jednostek (reprezentujący instruktorów przypisane do tego kursu nauki). I `Person` jednostki ma właściwości nawigacji o nazwie `Courses` zawierających zero, co najmniej jeden powiązane `Course` jednostek (reprezentujący kursy przypisane nauczysz się tym instruktora). Jeden instruktora może nauczyć szkoleń w wielu i jednego kursu może organizowane jednocześnie przez wiele instruktorów. W tej sekcji tego przewodnika, będzie dodawanie i usuwanie relacji między `Person` i `Course` jednostek, aktualizując właściwości nawigacji z powiązanych jednostek.
+Relacja między `Courses` zestaw jednostek oraz `People` zestaw jednostek znajduje relacji wiele do wielu. A `Course` jednostki ma właściwości nawigacji o nazwie `People` zawierających zero, co najmniej jeden powiązane `Person` jednostek (reprezentujący instruktorów przypisane do tego kursu nauki). I `Person` jednostki ma właściwości nawigacji o nazwie `Courses` zawierających zero, co najmniej jeden powiązane `Course` jednostek (reprezentujący kursy tego instruktora jest przypisany do nauki). Jeden instruktora może nauczyć szkoleń w wielu i jednego kursu może organizowane jednocześnie przez wiele instruktorów. W tej sekcji tego przewodnika, będzie dodawanie i usuwanie relacji między `Person` i `Course` jednostek, aktualizując właściwości nawigacji z powiązanych jednostek.
 
 Tworzenie nowej strony sieci web o nazwie *InstructorsCourses.aspx* używającą *Site.Master* strony wzorcowej i Dodaj następujący kod do `Content` formantu o nazwie `Content2`:
 
@@ -123,7 +123,7 @@ Uruchom strony.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Wybierz instruktora. **Przypisać kursu** listy rozwijanej wyświetla kursów, które nie uczy instruktora, i **Usuń kursu** kursów, które instruktora jest już przypisany do wyświetla listy rozwijanej. W **przypisać kursu** sekcji wybierz kursu, a następnie kliknij przycisk **przypisać**. Przenosi kursu **Usuń kursu** listy rozwijanej. Wybierz kursów **Usuń kursu** sekcji, a następnie kliknij przycisk **Usuń***.* Przenosi kursu **przypisać kursu** listy rozwijanej.
+Wybierz instruktora. **Przypisać kursu** listy rozwijanej wyświetla kursów, które nie uczy instruktora, i **Usuń kursu** kursów, które instruktora jest już przypisany do wyświetla listy rozwijanej. W **przypisać kursu** sekcji wybierz kursu, a następnie kliknij przycisk **przypisać**. Przenosi kursu **Usuń kursu** listy rozwijanej. Wybierz kursów **Usuń kursu** sekcji, a następnie kliknij przycisk **Usuń ***.* Przenosi kursu **przypisać kursu** listy rozwijanej.
 
 Niektóre inne sposoby pracy z powiązanych danych ma teraz widoczna. Poniższe kroki samouczka dowiesz się, jak użycia dziedziczenia w modelu danych do poprawy łatwości konserwacji aplikacji.
 

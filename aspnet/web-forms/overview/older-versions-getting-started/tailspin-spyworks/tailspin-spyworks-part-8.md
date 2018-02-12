@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 0dd1717ff1051f18a78fe77402c7603008b9b486
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fce1a20f9d1093b6c60542d8a786ddf54fdc922c
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="part-8-final-pages-exception-handling-and-conclusion"></a>Część 8: Końcowe strony, obsługa wyjątków i zawarcia
 ====================
@@ -77,7 +77,7 @@ Teraz na stronie\_załadować wyodrębniania programu obsługi zdarzeń komunika
 
 ## <a id="_Toc260221683"></a>Zawierania
 
-Firma Microsoft w tym samouczku czy tego ASP.NET WebForms można łatwo utworzyć zaawansowane witryny sieci Web z dostępem do bazy danych, członkostwa, AJAX, itp. bardzo szybko.
+Firma Microsoft w tym samouczku czy ASP.NET WebForms można łatwo utworzyć zaawansowane witryny sieci Web z dostępem do bazy danych, członkostwa, AJAX, itp. bardzo szybko.
 
 Miejmy nadzieję, że w tym samouczku przyznał Ci narzędzia, które należy rozpocząć tworzenie własnych formularzy sieci Web ASP.NET aplikacji!
 

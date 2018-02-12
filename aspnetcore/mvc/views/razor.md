@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: ef3bf31da76df47312f98f494973295f29e18743
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 68fa29b909ebea57e6a3986fca7b88c5a5cf579c
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Składnia razor dla platformy ASP.NET Core
 
@@ -231,7 +231,7 @@ Aby renderować rest całego wiersza jako HTML w bloku kodu, należy użyć `@:`
 
 Bez `@:` w kodzie, generowany jest błąd w czasie wykonywania Razor.
 
-Ostrzeżenie: Dodatkowy `@` znaki w pliku Razor może spowodować błędy kompilatora Przyczyna w instrukcji w dalszej części tego bloku. Te błędy kompilatora może być trudne do zrozumienia, ponieważ błędu występuje przed zgłoszonego błędu. Ten błąd jest typowe po łączenie wielu niejawnej/jawnej wyrażenia w bloku kodu pojedynczego.
+Ostrzeżenie: Dodatkowy `@` znaki w pliku Razor może spowodować błędy kompilatora w instrukcji w dalszej części tego bloku. Te błędy kompilatora może być trudne do zrozumienia, ponieważ błędu występuje przed zgłoszonego błędu. Ten błąd jest typowe po łączenie wielu niejawnej/jawnej wyrażenia w bloku kodu pojedynczego.
 
 ## <a name="control-structures"></a>Struktury sterujące
 

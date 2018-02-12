@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3f78da3898d44cc2cf1db6623ebcaf6a73ebbf3e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0d98177561b72ffbe05455f785e156f91e450d36
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>Przy użyciu DynamicPopulate z formantu użytkownika i kodu JavaScript (C#)
 ====================
@@ -67,7 +67,7 @@ Na koniec Dodaj kontrolkę użytkownika do strony. Należy ustawić jego `ID` at
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample8.aspx)]
 
-I to już wszystko! Strona działa zgodnie z oczekiwaniami: użytkownik kliknie na przyciski radiowe, formantu w zestawie narzędzi programu wywołania usługi sieci web i wyświetla bieżącą datę w wybranym formacie.
+I to już wszystko! Strona działa zgodnie z oczekiwaniami: użytkownik kliknie jeden z przycisków radiowych, formantu w zestawie narzędzi programu wywołania usługi sieci web i wyświetla bieżącą datę w wybranym formacie.
 
 
 [![Przyciski radiowe znajdują się w formancie użytkownika](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)

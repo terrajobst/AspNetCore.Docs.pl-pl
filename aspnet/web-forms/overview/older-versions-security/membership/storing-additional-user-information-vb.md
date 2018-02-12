@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7b9acc02a1280446b9826c3f8f0022b4726139c7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a40238605e8fb3e26d80264af9156eec634affbe
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="storing-additional-user-information-vb"></a>Przechowywanie dodatkowe informacje dotyczące użytkownika (VB)
 ====================
@@ -353,7 +353,7 @@ I zakończył z następującym `LayoutTemplate`, `ItemTemplate`, i `ItemSeparato
 
 `LayoutTemplate` Definiuje znaczników emitowane przez formant, podczas gdy `ItemTemplate` renderuje każdego elementu zwrócony przez SqlDataSource. `ItemTemplate`Dla znaczników wynikowy jest umieszczany w `LayoutTemplate`w `itemPlaceholder` formantu. Oprócz `itemPlaceholder`, `LayoutTemplate` zawiera formant DataPager, co ogranicza element ListView do wyświetlania tylko 10 komentarze księgi gości na stronie (ustawienie domyślne) i renderuje interfejsu stronicowania.
 
-Moje `ItemTemplate` temat każdy komentarz księgi gości w `<h4>` element z treści znajdujących się poniżej podmiotu. Tej składni służący do wyświetlania treści ma danych zwróconych przez `Eval("Body")` instrukcji wiązania danych konwertuje go na ciąg i zamienia podziały wierszy z `<br />` elementu. Ta konwersja wymaga Pokaż podziały wprowadzana w trakcie przesyłania komentarza, ponieważ odstęp jest ignorowana przez HTML. Podpis użytkownika jest wyświetlana poniżej treści kursywą, po którym następuje przez użytkownika miejscowość macierzystego, link do jego głównej, daty i godziny wprowadzone komentarz oraz nazwy użytkownika osoby, która pozostanie komentarz.
+Moje `ItemTemplate` temat każdy komentarz księgi gości w `<h4>` element z treści znajdujących się poniżej podmiotu. Składnia służąca do wyświetlania treści ma danych zwróconych przez `Eval("Body")` instrukcji wiązania danych konwertuje go na ciąg i zamienia podziały wierszy z `<br />` elementu. Ta konwersja wymaga Pokaż podziały wprowadzana w trakcie przesyłania komentarza, ponieważ odstęp jest ignorowana przez HTML. Podpis użytkownika jest wyświetlana poniżej treści kursywą, po którym następuje przez użytkownika miejscowość macierzystego, link do jego głównej, daty i godziny wprowadzone komentarz oraz nazwy użytkownika osoby, która pozostanie komentarz.
 
 Poświęć chwilę, aby wyświetlić stronę za pośrednictwem przeglądarki. Powinny pojawić się komentarze, dodawane do księgi gości w kroku 5 tutaj wyświetlane.
 

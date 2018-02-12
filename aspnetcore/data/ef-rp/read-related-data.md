@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 8c69a355e6281cb7abf03b05eb2f59262cc5d4e1
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 39e655ffcb01fb21c79cd2564862f49a86e9e9d4
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Odczytywanie powiązane dane - Core EF Razor strony (6 8)
 
@@ -126,7 +126,7 @@ Uruchom aplikację i wybierz **kursów** kartę, aby wyświetlić listę z nazwa
 
 [!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
-`Select` Operator ładuje tylko powiązane dane potrzebne. Dla pojedynczego elementów takich jak `Department.Name` używa SQL INNER JOIN. Dla kolekcji używa innego dostęp do bazy danych, lecz to samo.`Include` operator w kolekcjach.
+`Select` Operator ładuje tylko powiązane dane potrzebne. Dla pojedynczego elementów takich jak `Department.Name` używa SQL INNER JOIN. Dla kolekcji, używa innego dostęp do bazy danych, lecz to samo `Include` operatora w kolekcjach.
 
 Poniższy kod ładuje dane powiązane z `Select` metody:
 
@@ -148,7 +148,7 @@ W tej sekcji strony instruktorów jest tworzony.
 Ta strona odczytuje i wyświetla powiązanych danych w następujący sposób:
 
 * Lista instruktorów powiązane dane z `OfficeAssignment` jednostki (Office powyższej ilustracji). `Instructor` i `OfficeAssignment` jednostki są w relacji jeden do zero lub jeden. Ładowanie wczesny służy do `OfficeAssignment` jednostek. Ładowanie wczesny jest zazwyczaj bardziej wydajne, gdy powiązane dane powinny być wyświetlane. W takim przypadku office przydziałów Instruktorzy są wyświetlane.
-* Gdy użytkownik wybierze instruktora (Harui powyższej ilustracji) powiązane `Course` wyświetlania obiektów. `Instructor` i `Course` jednostki są w relacji wiele do wielu. Eager ładowania dla `Course` jednostek i ich pokrewnych `Department` jednostek jest używany. W takim przypadku oddzielne zapytania może być bardziej wydajne, ponieważ wymagane są tylko szkoleń dla wybranego instruktora. Ten przykład przedstawia sposób użycia wczesny ładowania dla właściwości nawigacji w obiektach, które znajdują się w właściwości nawigacji.
+* Gdy użytkownik wybierze instruktora (Harui powyższej ilustracji) powiązane `Course` wyświetlania obiektów. `Instructor` i `Course` jednostki są w relacji wiele do wielu. Ładowanie wczesny służy do `Course` jednostek i ich pokrewnych `Department` jednostek. W takim przypadku oddzielne zapytania może być bardziej wydajne, ponieważ wymagane są tylko szkoleń dla wybranego instruktora. Ten przykład przedstawia sposób użycia wczesny ładowania dla właściwości nawigacji w obiektach, które znajdują się w właściwości nawigacji.
 * Gdy użytkownik wybierze kursu (chemia powyższej ilustracji), dane z dotyczące `Enrollments` wyświetlania obiektu. Na poprzedniej ilustracji są wyświetlane nazwy dla użytkowników domowych i klasy. `Course` i `Enrollment` jednostki są w relacji jeden do wielu.
 
 ### <a name="create-a-view-model-for-the-instructor-index-view"></a>Utwórz model widoku dla widoku indeksu instruktora
@@ -201,7 +201,7 @@ Aktualizacja *Pages/Instructors/Index.cshtml* z następujący kod:
 
 Poprzedni kod znaczników wprowadza następujące zmiany:
 
-* Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int?}"`. `"{id:int?}"`to jest szablon trasy. Szablon trasy zmiany liczby całkowitej ciągów zapytania w adresie URL w danych trasy. Na przykład kliknięcie **wybierz** łącze instruktora po dyrektywie page tworzy adres URL podobnie do następującej:
+* Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int?}"`. `"{id:int?}"`to jest szablon trasy. Szablon trasy zmiany liczby całkowitej ciągów zapytania w adresie URL w danych trasy. Na przykład kliknięcie **wybierz** łącze instruktora tylko z `@page` dyrektywy tworzy adres URL podobnie do następującej:
 
     `http://localhost:1234/Instructors?id=2`
 

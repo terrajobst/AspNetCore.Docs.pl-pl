@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: d588ff6ed03178ac8dc6934162252c1749cc9124
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 137254be69344f31e65e1b4d1318a107ff9d6d47
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view-c"></a>Badanie metody edycji i widoku edycji (C#)
 ====================
@@ -61,7 +61,7 @@ Otwórz `Movies` kontrolera. Dwa `Edit` poniżej przedstawiono metody akcji.
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample2.cs)]
 
-Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `HttpPost` atrybutu. Ten atrybut określa, że który przeciążenia z `Edit` metoda może być wywoływana tylko dla żądań POST. Można zastosować `HttpGet` pierwszy dla atrybutu Edytuj metodę, ale który nie jest konieczne, ponieważ jest to wartość domyślna. (Firma Microsoft będzie odwoływać się do metod akcji, które są przypisane niejawnie `HttpGet` atrybutu jako `HttpGet` metody.)
+Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `HttpPost` atrybutu. Ten atrybut określa, że przeciążenia `Edit` metoda może być wywoływana tylko dla żądań POST. Można zastosować `HttpGet` pierwszy dla atrybutu Edytuj metodę, ale który nie jest konieczne, ponieważ jest to wartość domyślna. (Firma Microsoft będzie odwoływać się do metod akcji, które są przypisane niejawnie `HttpGet` atrybutu jako `HttpGet` metody.)
 
 `HttpGet` `Edit` Metoda przyjmuje parametr ID film, wyszukuje filmu przy użyciu programu Entity Framework `Find` metody i zwraca wybrany film do widoku edycji. Podczas tworzenia widoku edycji systemu szkieletów zbadane `Movie` klasy i kodu do renderowania `<label>` i `<input>` elementy dla każdej właściwości klasy. W poniższym przykładzie pokazano widok edycji został wygenerowany:
 

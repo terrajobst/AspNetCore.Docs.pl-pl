@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: 399fbe3fa1e71a9ffa7c5e6dfeca7ccab7294d1b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: bea6f6112388290a2c6b5ed267626ba28fc36671
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -266,7 +266,7 @@ Poniżej przedstawiono istotne zmiany z platformy ASP.NET MVC 4 Release Candidat
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
     - *MvcVBRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-- **Gdy WebMatrix.WebData.dll jest uwzględniony w w katalogu/bin aplikacji ASP.NET MVC 4, przejmuje adres URL uwierzytelniania formularzy.** Dodawanie zestawu WebMatrix.WebData.dll do swojej aplikacji (na przykład, wybierając "ASP.NET Web Pages o składni Razor" przy użyciu okna dialogowego Dodaj zależności do wdrożenia) zastąpią przekierowania logowania uwierzytelniania do logowania/account/zamiast / / logowanie się na koncie zgodnie z oczekiwaniami domyślnie ASP.NET MVC konta kontrolera. Aby temu zapobiec i użyć adres URL już określony w sekcji uwierzytelniania w pliku Web.config, możesz dodać appSetting o nazwie PreserveLoginUrl i ustaw ją na wartość true: 
+- **Gdy WebMatrix.WebData.dll znajduje się w katalogu/bin aplikacji ASP.NET MVC 4, przejmuje adres URL uwierzytelniania formularzy.** Dodawanie zestawu WebMatrix.WebData.dll do swojej aplikacji (na przykład, wybierając "ASP.NET Web Pages o składni Razor" przy użyciu okna dialogowego Dodaj zależności do wdrożenia) zastąpią przekierowania logowania uwierzytelniania do logowania/account/zamiast / / logowanie się na koncie zgodnie z oczekiwaniami domyślnie ASP.NET MVC konta kontrolera. Aby temu zapobiec i użyć adres URL już określony w sekcji uwierzytelniania w pliku Web.config, możesz dodać appSetting o nazwie PreserveLoginUrl i ustaw ją na wartość true: 
 
     [!code-xml[Main](mvc4-release-notes/samples/sample6.xml)]
 - **Menedżer pakietów NuGet nie zostanie zainstalowany podczas próby zainstalowania programu ASP.NET MVC 4 dla siebie instalacji programu Visual Studio 2010 oraz Visual Web Developer 2010.** Do uruchomienia programu Visual Studio 2010 i Visual Web Developer 2010 równolegle z platformy ASP.NET MVC 4 należy zainstalować program ASP.NET MVC 4 po obie wersje programu Visual Studio zostały już zainstalowane.

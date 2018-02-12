@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: c2d7454534ff0e9e0a80365793800ab7c45d3b6e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fe67b9a11a82b55d5f3e0e5f1b0cee10a58833d2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>Otwórz typy w protokołu OData v4 z interfejsu API sieci Web ASP.NET
 ====================
@@ -100,11 +100,11 @@ Z dokumentu metadanych można stwierdzić, że:
 
 - Aby uzyskać `Book` i `Press` typów wartości `OpenType` atrybut ma wartość true. `Customer` i `Address` typów nie ma tego atrybutu.
 - `Book` Typ jednostki ma trzy zadeklarowane właściwości: ISBN, tytuł i naciśnij klawisz. Nie ma metadanych OData `Book.Properties` właściwość z klasy CLR.
-- Podobnie `Press` typu złożonego ma tylko dwie właściwości zadeklarowane: nazwą i kategorią. Metadane nie obejmuje `Press.DynamicProperties` właściwość z klasy CLR.
+- Podobnie `Press` typu złożonego ma tylko dwie właściwości zadeklarowane: nazwą i kategorią. Nie ma metadanych `Press.DynamicProperties` właściwość z klasy CLR.
 
 ## <a name="query-an-entity"></a>Zapytanie jednostki
 
-Aby uzyskać książkę o ISBN równa "978-0-7356-7942-9", wysyłania Wyślij żądanie GET `~/Books('978-0-7356-7942-9')`. Treść odpowiedzi powinien wyglądać podobnie do następującego. (Wcięty, aby był bardziej czytelny.)
+Aby uzyskać książkę o ISBN równa "978-0-7356-7942-9", Wyślij żądanie GET `~/Books('978-0-7356-7942-9')`. Treść odpowiedzi powinien wyglądać podobnie do następującego. (Wcięty, aby był bardziej czytelny.)
 
 [!code-console[Main](use-open-types-in-odata-v4/samples/sample7.cmd?highlight=8-13,15-23)]
 

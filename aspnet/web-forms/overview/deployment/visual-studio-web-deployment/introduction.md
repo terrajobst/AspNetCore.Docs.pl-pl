@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 51344535e7ff42f1bd6641aeaaf043be6423f1b7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a7c5b348e44a88a56680237b0cac75c999901ec3
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: wprowadzenie
 ====================
@@ -195,7 +195,7 @@ Poniższe funkcje aplikacji wpływa na sposób wdrażania lub masz celu jej wdro
 - Aplikacja używa systemu członkostwa programu ASP.NET, w której są przechowywane informacje o koncie użytkownika w bazie danych programu SQL Server. Aplikacja definiuje użytkownika administracyjnego, który ma dostęp do niektórych chronionych informacji. Należy wdrożyć w bazie danych członkostwa bez testowe konta, ale przy użyciu konta administratora.
 - Błąd innej firmy, rejestrowania i raportowania narzędzie używane przez aplikację. To narzędzie jest dostępne w zestawie, do którego należy wdrożyć w aplikacji.
 - Narzędzia rejestrowania błędów zapisuje informacje o błędzie w plikach XML do folderu plików. Należy upewnić się, czy konto, które program ASP.NET jest uruchamiana w witrynie wdrożonej ma uprawnienie zapisu do tego folderu, i czy masz do wykluczenia z wdrożenia tego folderu. (W przeciwnym razie błąd dane dzienników ze środowiska testowego mógł zostać wdrożony w środowisku produkcyjnym i/lub plików dziennika błędów produkcji może zostać usunięty.)
-- Aplikacja zawiera pewne ustawienia, które można zmienić w programie w wdrożone *Web.config* pliku, w zależności od środowiska docelowego (test przemieszczania i produkcji) i inne ustawienia, które musi zostać zmienione w zależności od kompilacji Konfiguracja (debugowanie czy wydanie).
+- Aplikacja zawiera pewne ustawienia, które musi zostać zmienione w wdrożone *Web.config* pliku, w zależności od środowiska docelowego (test przemieszczania i produkcji) i inne ustawienia, które musi zostać zmienione w zależności od kompilacji Konfiguracja (debugowanie czy wydanie).
 - Rozwiązanie programu Visual Studio zawiera projektu biblioteki klas. Powinny być wdrażane tylko zestaw, który generuje ten projekt, nie projektu.
 
 ## <a name="summary"></a>Podsumowanie

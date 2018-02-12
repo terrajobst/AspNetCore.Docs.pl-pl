@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
 msc.type: authoredcontent
-ms.openlocfilehash: 737773ab424b3ec3b6139b8c238a60ca23de2e69
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: abd9b5c09e942b966eb3eaaebe1b315c30b8e0c0
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>Badanie sposobu ASP.NET MVC scaffolds pomocnika DropDownList
 ====================
@@ -202,7 +202,7 @@ Uruchom aplikację i edytowanie albumu. Zmień adres URL do użycia `EditVM`. Zm
 
 Wszystkie trzy podejścia, wyświetlane są acceptible. Wielu deweloperów wolą przebiegu explictily `SelectList` do `DropDownList` przy użyciu `ViewBag`. Takie podejście charakteryzuje się dodatkową zaletę, zapewniając elastyczność przy użyciu nazwy bardziej odpowiednie dla kolekcji. Jest jedno zastrzeżenie: nie można nazwać `ViewBag SelectList` obiekt o takiej samej nazwie jak właściwość modelu.
 
-Niektórzy deweloperzy preferowane podejście ViewModel. Należy rozważyć inne pełniejsze znaczników i wygenerowanego kodu HTML elementu ViewModel osiągają uprzywilejowanych.
+Niektórzy deweloperzy preferowane podejście ViewModel. Inne osoby należy wziąć pod uwagę na pełniejsze znaczników i generowane HTML podejścia ViewModel uprzywilejowanych.
 
 W tej sekcji możemy uzyskanych przy użyciu na trzy sposoby **DropDownList** z danymi kategorii. W następnej sekcji pokażemy jak dodać nową kategorię.
 

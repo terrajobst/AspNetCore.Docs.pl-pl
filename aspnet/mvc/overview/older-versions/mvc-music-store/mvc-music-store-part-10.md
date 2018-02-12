@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: af08039de2d810948b9ab64974111b0346c7fa0f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2a65e4b793b615c45cdf31166e0a000ae72ee534
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Część 10: Końcowe aktualizacje nawigacji i lokacja, zawarcia
 ====================
@@ -135,7 +135,7 @@ Uruchamianych aplikacji, firma Microsoft będzie widoczny naszych zaktualizowane
 
 ## <a name="conclusion"></a>Wniosek
 
-Firma Microsoft w tym samouczku czy tej platformy ASP.NET MVC ułatwia można tworzyć zaawansowane witryny sieci Web z dostępem do bazy danych, członkostwa, AJAX, itp. bardzo szybko. Miejmy nadzieję, że w tym samouczku przyznał Ci narzędzia, które należy rozpocząć tworzenie własnych ASP.NET MVC aplikacji!
+Firma Microsoft w tym samouczku czy ASP.NET MVC ułatwia można tworzyć zaawansowane witryny sieci Web z dostępem do bazy danych, członkostwa, AJAX, itp. bardzo szybko. Miejmy nadzieję, że w tym samouczku przyznał Ci narzędzia, które należy rozpocząć tworzenie własnych ASP.NET MVC aplikacji!
 
 
 >[!div class="step-by-step"]

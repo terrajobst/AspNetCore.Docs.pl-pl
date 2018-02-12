@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: a20693f3e83053dd99499d486412b66777189f1d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 315914056c0a666fdf23cf82a314a999e03114b6
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Badanie metody edycji i widoku edycji
 ====================
@@ -52,7 +52,7 @@ Otwórz `Movies` kontrolera. Dwa `Edit` poniżej przedstawiono metody akcji.
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample3.cs)]
 
-Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `HttpPost` atrybutu. Ten atrybut określa, że który przeciążenia z `Edit` metoda może być wywoływana tylko dla żądań POST. Można zastosować `HttpGet` pierwszy dla atrybutu Edytuj metodę, ale który nie jest konieczne, ponieważ jest to wartość domyślna. (Firma Microsoft będzie odwoływać się do metod akcji, które są przypisane niejawnie `HttpGet` atrybutu jako `HttpGet` metody.)
+Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `HttpPost` atrybutu. Ten atrybut określa, że przeciążenia `Edit` metoda może być wywoływana tylko dla żądań POST. Można zastosować `HttpGet` pierwszy dla atrybutu Edytuj metodę, ale który nie jest konieczne, ponieważ jest to wartość domyślna. (Firma Microsoft będzie odwoływać się do metod akcji, które są przypisane niejawnie `HttpGet` atrybutu jako `HttpGet` metody.)
 
 `HttpGet` `Edit` Metoda przyjmuje parametr ID film, wyszukuje filmu przy użyciu programu Entity Framework `Find` metody i zwraca wybrany film do widoku edycji. Określa parametr ID [wartość domyślna](https://msdn.microsoft.com/library/dd264739.aspx) zero, jeśli `Edit` metoda jest wywoływana bez parametrów. Jeśli nie można odnaleźć film, [HttpNotFound](https://msdn.microsoft.com/library/gg453938(VS.98).aspx) jest zwracany. Podczas tworzenia widoku edycji systemu szkieletów zbadane `Movie` klasy i kodu do renderowania `<label>` i `<input>` elementy dla każdej właściwości klasy. W poniższym przykładzie pokazano widok edycji został wygenerowany:
 

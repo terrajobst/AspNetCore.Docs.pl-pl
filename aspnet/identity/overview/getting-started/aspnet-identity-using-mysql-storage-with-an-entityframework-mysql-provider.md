@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
 msc.type: authoredcontent
-ms.openlocfilehash: ac254abcb756d048d159a9b67967a581f35ac871
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 82341724286a53f7883df324a391beeae3a9e2bd
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>Tożsamość platformy ASP.NET: Przy użyciu magazynu MySQL przy użyciu dostawcy EntityFramework MySQL (C#)
 ====================
@@ -83,7 +83,7 @@ Aby wykonać kroki opisane w tej części samouczka, najpierw należy zainstalow
 
 ### <a name="update-the-entity-framework-assembly-for-your-project"></a>Aktualizacja zestawu programu Entity Framework dla projektu
 
-Aplikacji MVC, który został utworzony na podstawie szablonu Visual Studio 2013 zawiera odwołanie do [EntityFramework 6.0.0](http://www.nuget.org/packages/EntityFramework) pakietu, ale ma zostały znaczące aktualizacje do tego zestawu, ponieważ jego wersja zawierających ulepszenia wydajności. Aby można było używać tych najnowsze aktualizacje w aplikacji, wykonaj następujące kroki.
+Aplikacji MVC, który został utworzony na podstawie szablonu Visual Studio 2013 zawiera odwołanie do [EntityFramework 6.0.0](http://www.nuget.org/packages/EntityFramework) pakietu, ale ma zostały do tego zestawu, ponieważ jego wersja aktualizacji, które zawierają istotne ulepszenia wydajności. Aby można było używać tych najnowsze aktualizacje w aplikacji, wykonaj następujące kroki.
 
 1. Otwórz projekt MVC programu Visual Studio 2013.
 2. Kliknij przycisk **narzędzia**, następnie kliknij przycisk **Menedżer pakietów biblioteki**, a następnie kliknij przycisk **Konsola Menedżera pakietów**:  
@@ -139,7 +139,7 @@ Korzysta z programu Entity Framework Code First **MigrationHistory** tabeli, aby
 
 ### <a name="creating-a-custom-entityframework-initializer-for-applicationdbcontext"></a>Tworzenie niestandardowych inicjator EntityFramework ApplicationDbContext
 
-Dostawca MySQL, która jest dostępna w tym samouczku nie obsługuje obecnie w przypadku migracji z programu Entity Framework, musisz użyć inicjatory modelu w celu połączenia z bazą danych. Ponieważ w tym samouczku korzysta z wystąpienia programu MySQL na platformie Azure, będzie konieczne należy utworzyć niestandardowe inicjatora programu Entity Framework.
+Dostawca MySQL, która jest dostępna w tym samouczku nie obsługuje obecnie w przypadku migracji z programu Entity Framework, musisz użyć inicjatory modelu w celu połączenia z bazą danych. Ponieważ w tym samouczku korzysta z wystąpienia programu MySQL na platformie Azure, należy utworzyć niestandardowe inicjatora programu Entity Framework.
 
 > [!NOTE]
 > Ten krok nie jest wymagane, jeśli łączysz się z wystąpieniem programu SQL Server na platformie Azure lub jeśli używasz bazy danych, która jest hostowana na lokalnym.

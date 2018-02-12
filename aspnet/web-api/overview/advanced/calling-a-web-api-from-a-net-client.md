@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 8156bd1c7cfc111a6a121a89d845ca284ee1b7af
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 44e02888b53ee372ab93db5f90acb691f26b7519
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Wywoływanie interfejsu API sieci Web z klienta programu .NET (C#)
 ====================
@@ -116,7 +116,7 @@ Poniższy kod wysyła żądanie pobrania produktu:
 
 Gdy **ReadAsAsync** jest wywoływana bez parametrów, używa domyślnego zestawu *programy formatujące multimedia* do odczytu treści odpowiedzi. Domyślne elementy formatujące obsługuje JSON, XML i danych zakodowanych jako adres url formularza.
 
-Zamiast domyślnego elementy formatujące, możesz podać listę programów formatujących do **ReadAsAsync** metody.  Przy użyciu listę programów formatujących jest przydatna, jeśli element formatujący typu nośnika niestandardowego:
+Zamiast domyślnego elementy formatujące, możesz podać listę programów formatujących do **ReadAsAsync** metody.  Używanie listę programów formatujących jest przydatna, jeśli element formatujący typu nośnika niestandardowego:
 
 ```csharp
 var formatters = new List<MediaTypeFormatter>() {

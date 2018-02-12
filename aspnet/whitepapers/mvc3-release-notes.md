@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 92a6dee24b8942d721e3537a712be141155e61df
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: 058b7c6fe6eeeea4403e7e5fdc05bb44d2ba1300
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -255,7 +255,7 @@ Lista szablon projektu zawiera nowy szablon aplikacji w sieci Intranet. Ten szab
 
 #### <a name="project-templates-are-now-html5-enabled"></a>Szablony projektu są teraz włączone HTML5
 
-Okno dialogowe Nowy projekt zawiera teraz opcję, aby dodać funkcje specyficzne dla HTML5 szablonów projektu. Wybranie opcji powoduje, że widoki ma zostać wygenerowane, które zawierają nowe HTML5 `<header>`, `<footer>`, i `<navigation>` elementy. elementy.
+Okno dialogowe Nowy projekt zawiera teraz opcję, aby dodać funkcje specyficzne dla HTML5 szablonów projektu. Wybranie opcji powoduje, że widoki ma zostać wygenerowane, które zawierają nowe HTML5 `<header>`, `<footer>`, i `<navigation>` elementy.
 
 Pamiętaj, że starsze wersje przeglądarek nie obsługują tagów specyficznych dla HTML5. Aby rozwiązać ten limit, szablony projektu HTML5 zawierają odwołanie do biblioteki Modernizr. (Zobacz następną sekcję).
 
@@ -608,7 +608,7 @@ Można również wyłączyć weryfikację żądań dla każdej właściwości w 
 ## <a name="breaking-changes"></a>Fundamentalne zmiany
 
 - Kolejność wykonywania filtrów wyjątków została zmieniona dla filtry wyjątków, które mają taki sam *kolejności* wartość. W programie ASP.NET MVC 2 i starszych wyjątek filtry na kontrolerze, który ma takie same *kolejności* zgodnie z tymi w metody akcji zostały wykonane przed filtrami wyjątek w metodzie akcji. Zwykle można sytuacji, gdy zostały zastosowane filtry wyjątków bez określonej *kolejności* wartość. W programie ASP.NET MVC 3 ta kolejność została wycofana tak, aby najpierw wykonana specyficzny obsługi wyjątków. Jak w starszych wersjach Jeśli *kolejności* jawnie określono właściwość, filtry są uruchamiane w określonej kolejności.
-- Dodaje nową właściwość o nazwie *FileExtensions* do *VirtualPathProviderViewEngine* klasy podstawowej. Podczas wyszukiwania widoku przez ścieżki (a nie przez nazwę), tylko widoków z rozszerzeniem zawartych w określonej przez tę właściwość nowej listy jest traktowany jako. Jest to istotne zmiany dla tych, którzy zarejestrować niestandardowej kompilacji dostawcy, aby włączyć rozszerzenie pliku niestandardowych widoków formularza sieci web i i odwołują się do tych widoków przy użyciu pełnej ścieżki, a nie nazwę. Należy zmodyfikować wartość *FileExtensions* właściwości do niestandardowego pliku rozszerzenia.
+- Dodaje nową właściwość o nazwie *FileExtensions* do *VirtualPathProviderViewEngine* klasy podstawowej. Podczas wyszukiwania widoku przez ścieżki (a nie przez nazwę), tylko widoków z rozszerzeniem zawartych w określonej przez tę właściwość nowej listy jest traktowany jako. Jest to istotne zmiany osób zarejestrować dostawcę niestandardowej kompilacji, aby włączyć rozszerzenie pliku niestandardowych widoków formularza sieci web i odwołują się do tych widoków przy użyciu pełnej ścieżki, a nie nazwę. Należy zmodyfikować wartość *FileExtensions* właściwości do niestandardowego pliku rozszerzenia.
 
 <a id="_Toc276711795"></a>
 ## <a name="known-issues"></a>Znane problemy

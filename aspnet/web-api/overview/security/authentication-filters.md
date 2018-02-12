@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 7c704cc351876b49ec143a49b25cc0ca83876e06
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16e451f52799625983368bc938091eff47019b52
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="authentication-filters-in-aspnet-web-api-2"></a>Filtry uwierzytelniania w składniku ASP.NET Web API 2
 ====================
@@ -160,7 +160,7 @@ Uwaga: Przykład uwierzytelnianie podstawowe abstracts tę logikę nieco, umiesz
 
 "Uwierzytelnianie na poziomie hosta" jest uwierzytelnianie przeprowadzane przez hosta (np. usługi IIS), przed framework osiągnie interfejsu API sieci Web żądania.
 
-Często możesz włączyć uwierzytelnianie na poziomie hosta w pozostałej części aplikacji, jednak ją wyłączyć dla kontrolerów interfejsu API sieci Web. Na przykład typowy scenariusz jest, aby włączyć uwierzytelnianie formularzy na poziomie hosta, ale używa uwierzytelniania opartego na tokenach do interfejsu API sieci Web.
+Często można włączyć uwierzytelnianie na poziomie hosta w pozostałej części aplikacji, ale ją wyłączyć dla kontrolerów interfejsu API sieci Web. Na przykład typowy scenariusz jest, aby włączyć uwierzytelnianie formularzy na poziomie hosta, ale używa uwierzytelniania opartego na tokenach do interfejsu API sieci Web.
 
 Aby wyłączyć uwierzytelnianie na poziomie hosta wewnątrz potok składnika Web API, należy wywołać `config.SuppressHostPrincipal()` w konfiguracji. Powoduje to interfejs API sieci Web usunąć **IPrincipal** z żadnym żądaniem wprowadzanych potok składnika Web API. W rezultacie jego &quot;un-uwierzytelnia&quot; żądania.
 

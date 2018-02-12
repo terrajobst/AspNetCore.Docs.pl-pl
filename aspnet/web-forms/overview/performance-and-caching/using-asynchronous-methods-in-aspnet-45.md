@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 73e46134cfafb9edc4c1888211eab44b8f2bf828
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d3eb588aad592605a8e368d1af6e62ece34b79d0
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>Używanie metod asynchronicznych w języku ASP.NET 4.5
 ====================
@@ -123,7 +123,7 @@ Wersja asynchroniczna:
 - `RegisterAsyncTask` Metoda służy do rejestrowania zadania asynchronicznego zawierającego kod, który uruchamia asynchronicznie.
 - Nowy `GetGizmosSvcAsync` metoda jest oznaczona atrybutem [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) — słowo kluczowe, które informuje kompilator, aby wygenerować wywołań zwrotnych dla części treści i automatycznie utworzyć `Task` który jest zwracany.
 - &quot;Asynchroniczne&quot; został dołączony do nazwy metody asynchronicznej. Dołączanie "Async" nie jest wymagana, ale jest Konwencji podczas zapisywania metod asynchronicznych.
-- Zwracany typ nowej nowe `GetGizmosSvcAsync` jest metoda `Task`. Zwracany typ `Task` reprezentuje pracy w toku i dostarcza wywołań metody z dojściem za pośrednictwem której czekać na zakończenie operacji asynchronicznej.
+- Zwracany typ nowej `GetGizmosSvcAsync` jest metoda `Task`. Zwracany typ `Task` reprezentuje pracy w toku i dostarcza wywołań metody z dojściem za pośrednictwem której czekać na zakończenie operacji asynchronicznej.
 - [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) — słowo kluczowe została zastosowana do wywołania usługi sieci web.
 - Interfejs API usługi sieci web asynchroniczne została wywołana (`GetGizmosAsync`).
 

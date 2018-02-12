@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: a91bf065c9ce0fc5bd9b7115340edabea975a7e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69b7d5453b6ff36d6e28a69428b016cb8cfd06e9
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>Włączanie operacji CRUD w składniku ASP.NET Web API 1
 ====================
@@ -41,9 +41,9 @@ Powoduje to udostępnienie następujących metod produktów interfejsu API.
 
 | Akcja | Metoda HTTP | Względny identyfikator URI |
 | --- | --- | --- |
-| Pobranie listy wszystkich produktów | POBIERZ | / api/produktów |
-| Uzyskiwanie produktu według Identyfikatora | POBIERZ | /API/produkty/*id* |
-| Uzyskiwanie produktu według kategorii | POBIERZ | produkty/api /? kategorii =*kategorii* |
+| Pobranie listy wszystkich produktów | GET | / api/produktów |
+| Uzyskiwanie produktu według Identyfikatora | GET | /API/produkty/*id* |
+| Uzyskiwanie produktu według kategorii | GET | produkty/api /? kategorii =*kategorii* |
 | Tworzenie nowego produktu | POST | / api/produktów |
 | Aktualizacji produktu | UMIEŚĆ | /API/produkty/*id* |
 | Usuwanie produktu | DELETE | /API/produkty/*id* |
@@ -157,9 +157,9 @@ Interfejs API ProductStore uwidoczni kilka &quot;odczytu&quot; akcje jako metody
 
 | Akcja | Metoda HTTP | Względny identyfikator URI |
 | --- | --- | --- |
-| Pobranie listy wszystkich produktów | POBIERZ | / api/produktów |
-| Uzyskiwanie produktu według Identyfikatora | POBIERZ | /API/produkty/*id* |
-| Uzyskiwanie produktu według kategorii | POBIERZ | produkty/api /? kategorii =*kategorii* |
+| Pobranie listy wszystkich produktów | GET | / api/produktów |
+| Uzyskiwanie produktu według Identyfikatora | GET | /API/produkty/*id* |
+| Uzyskiwanie produktu według kategorii | GET | produkty/api /? kategorii =*kategorii* |
 
 Aby uzyskać listę wszystkich produktów, Dodaj tę metodę w celu `ProductsController` klasy:
 

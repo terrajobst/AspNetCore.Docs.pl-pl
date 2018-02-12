@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: f43f0a2dd80e26ecff15e5742e18264ddb5b26aa
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: bbc1f6ef291eddd7488531943b146bb67ae7ee02
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Przegląd dostawców magazynu niestandardowego dla tożsamości ASP.NET
 ====================
@@ -128,7 +128,7 @@ Klasa IdentityUser implementuje IUser i zawiera wszelkie dodatkowe właściwośc
 <a id="userstore"></a>
 ## <a name="customize-the-user-store"></a>Dostosowywanie magazynu użytkowników
 
-Również utworzyć klasę magazynie UserStore, która udostępnia metody dla wszystkich operacji danych użytkownika. Ta klasa jest odpowiednikiem [magazynie UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx) klasy w [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) przestrzeni nazw. W klasie magazynie UserStore zaimplementowaniem [elementy IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) i wszystkie interfejsy opcjonalne. Możesz wybrać które opcjonalne interfejsy do implementacji, na podstawie funkcję, którą chcesz zapewnić w aplikacji.
+Również utworzyć klasę magazynie UserStore, która udostępnia metody dla wszystkich operacji danych użytkownika. Ta klasa jest odpowiednikiem [magazynie UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx) klasy w [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) przestrzeni nazw. W klasie magazynie UserStore zaimplementowaniem [elementy IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) i wszystkie interfejsy opcjonalne. Możesz wybrać które opcjonalne interfejsy do implementacji, oparta na funkcjach, które możesz podać w aplikacji.
 
 Na poniższej ilustracji przedstawiono klasy magazynie UserStore, którą należy utworzyć i odpowiednich interfejsów.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 3fd29a5b26c564d88e4128d1904fab00b57a3b7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8e875a4282df78ec647579e74c3fbeabd2495fc2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji bazy danych
 ====================
@@ -90,7 +90,7 @@ W tej sekcji, Dodaj kolumnę daty urodzenia `Person` klasę podstawową dla `Stu
 6. W **jeden kliknij publikowania w sieci Web** narzędzi, kliknij przycisk **produkcji** profil publikowania, a następnie kliknij przycisk **publikowanie w sieci Web**.
 7. Uruchom **instruktorów** strony w środowisku produkcyjnym, aby zweryfikować, że aktualizacja została pomyślnie wdrożona.
 
-    Dla rzeczywistej produkcji aktualizacji aplikacji, która obejmuje zmianę w bazie danych także zazwyczaj wykonywane w aplikacji w tryb offline podczas wdrażania przy użyciu *aplikacji\_offline.htm*, jak opisany w poprzednim samouczka.
+    Rzeczywistej produkcji aktualizacji aplikacji, która obejmuje zmianę w bazie danych przy użyciu również zwykle zajmie aplikacji w tryb offline podczas wdrażania *aplikacji\_offline.htm*, jak opisany w poprzednim samouczka.
 
 ## <a name="deploy-a-database-update-by-using-the-dbdacfx-provider"></a>Wdrażanie aktualizacji bazy danych przy użyciu dostawcy dbDacFx narzędzia
 

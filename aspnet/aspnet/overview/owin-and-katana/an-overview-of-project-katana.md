@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 8f28116f88f3cf5143d3d5c9821519d62c4e5452
-ms.sourcegitcommit: 6541c8b11001dd617adf5eb04c814cda165070b9
+ms.openlocfilehash: ceb7d3a7d1cb1685c0f1e62698f508c9a73e77c2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="an-overview-of-project-katana"></a>Przegląd projektu Katana
 ====================
@@ -29,7 +29,7 @@ przez [Howard Dierking](https://github.com/howarddierking)
 
  Niezależnie od tego, czy zawiera jeden Deweloper framework lub przez użytkownika końcowego produktu, ważne jest zrozumienie podstawowej motywacji tworzenia produktu —, który jest częścią obejmuje znajomość produktu został utworzony. ASP.NET został utworzony z dwóch klientów pod uwagę.   
   
-**Pierwsza grupa odbiorców został classic ASP deweloperów.** W tym czasie ASP była jednym technologii podstawowy służący do tworzenia dynamicznych, opartych na danych witryn sieci Web i aplikacji przez łącząc znaczniki i skrypt po stronie serwera. Środowisko uruchomieniowe ASP dostarczona skryptu po stronie serwera przy użyciu zestawu obiektów, które pobieranej podstawowych aspektów podstawowy protokół HTTP i serwer sieci Web i pod warunkiem dostęp do dodatkowych usług takich sesji i aplikacji Zarządzanie stanem, pamięci podręcznej itp. Gdy wydajne, klasyczne aplikacje ASP stał się żądanie Zarządzanie zwiększył się rozmiar i złożoność. To przede wszystkim ze względu na brak znaleziono w skrypty środowiska, w połączeniu z duplikatów kod wyniku naprzemiennego wykonywania kodu i znaczników struktury. Aby wielką literą sile klasyczne środowisko ASP podczas adresowania niektóre z jego wyzwania, ASP.NET trwało zaletą organizacji kodu pochodzącymi zorientowane obiektowo języków platformy .NET przy zachowaniu również model programowania po stronie serwera do których klasyczne środowisko ASP miał rozszerzony przyzwyczajony deweloperów.
+**Pierwsza grupa odbiorców został classic ASP deweloperów.** W tym czasie ASP była jednym technologii podstawowy służący do tworzenia dynamicznych, opartych na danych witryn sieci Web i aplikacji przez łącząc znaczniki i skrypt po stronie serwera. Środowisko uruchomieniowe ASP dostarczona skryptu po stronie serwera przy użyciu zestawu obiektów, które pobieranej podstawowych aspektów podstawowy protokół HTTP i serwer sieci Web i pod warunkiem dostęp do dodatkowych usług takich sesji i aplikacji Zarządzanie stanem, pamięci podręcznej itp. Gdy wydajne, klasyczne aplikacje ASP stał się żądanie Zarządzanie zwiększył się rozmiar i złożoność. To przede wszystkim ze względu na brak znaleziono skrypty środowiska, w połączeniu z duplikatów kod wyniku naprzemiennego wykonywania kodu i znaczników struktury. Aby wielką literą sile klasyczne środowisko ASP podczas adresowania niektóre z jego wyzwania, ASP.NET trwało zaletą organizacji kodu pochodzącymi zorientowane obiektowo języków platformy .NET przy zachowaniu również model programowania po stronie serwera do których klasyczne środowisko ASP miał rozszerzony przyzwyczajony deweloperów.
 
 **Drugiej grupy klientów docelowych dla platformy ASP.NET został deweloperzy aplikacji biznesowych systemu Windows.** W odróżnieniu od klasycznego ASP deweloperzy, którzy przyzwyczajony do pisania kodu znaczników HTML i kod, aby wygenerować kod znaczników HTML więcej deweloperzy WinForms (podobnie jak deweloperzy VB6 poprzedzających) są przystosowane do obsługi czasu projektowania, zawierającego obszaru roboczego i bogaty zestaw użytkownika Formanty interfejsu. Pierwszą wersję platformy ASP.NET — znanej także jako "Formularzy sieci Web" podany podobne możliwości czasu projektowania oraz model zdarzeń po stronie serwera dla składników interfejsu użytkownika i zestaw funkcji infrastruktury (na przykład stan wyświetlania) można utworzyć środowisko bezproblemowe developer między klientem a programowanie po stronie serwera. Formularze sieci Web skutecznie hid charakter bezstanowych sieci Web w modelu stanowe zdarzeń, które były znane deweloperom WinForms.
 
