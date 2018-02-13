@@ -53,7 +53,7 @@ Kod HTML `<form>` tagów używa [pomocnika Tag formularza](xref:mvc/views/workin
 
 ## <a name="search-by-genre"></a>Wyszukiwanie według rodzaju
 
-Dodaj następujące wyróżnione właściwości *Pages/Movies/Index.cshtml.cs*:
+Dodaj następujące właściwości wyróżnione *Pages/Movies/Index.cshtml.cs*:
 
 [!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
