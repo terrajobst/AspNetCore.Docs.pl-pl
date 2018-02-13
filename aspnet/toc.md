@@ -1289,7 +1289,7 @@
 ##### [ASP.NET MVC Storefront — część 16: ponowne wprowadzenie członkostwa z użyciem OpenID](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
 ##### [ASP.NET MVC Storefront — część 17: finalizacja zakupu z Jeffem Atwoodem](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
 ##### [ASP.NET MVC Storefront — część 18: tworzenie środowiska](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience.md)
-##### [ASP.NET MVC Storefront — część 19: przetwarzanie zamówień za pomocą programu Windows Workflow](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+##### [ASP.NET MVC Storefront — część 19: przetwarzanie zamówień za pomocą programu Windows Workflow](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
 ##### [ASP.NET MVC Storefront — część 19a: dalsze czynności w programie Windows Workflow](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
 ##### [ASP.NET MVC Storefront — część 20: rejestrowanie](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md)
 ##### [ASP.NET MVC Storefront — część 21: menedżer zamówień i personalizacja](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)
