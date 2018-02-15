@@ -26,7 +26,7 @@ Podczas uruchamiania próbki, odpowiedź zostanie obsłużona pokazujący nowych
   - Przykład (przekierowanie): **/image.png** do **/png-images/image.png**
   - Przykład (przekierowanie): **/image.jpg** do **/jpg-images/image.jpg**
 
-## <a name="using-a-physicalfileprovider"></a>Za pomocą`PhysicalFileProvider`
+## <a name="using-a-physicalfileprovider"></a>Za pomocą `PhysicalFileProvider`
 Możesz również uzyskać `IFileProvider` tworząc `PhysicalFileProvider` do przekazania do `AddApacheModRewrite()` i `AddIISUrlRewrite()` metod:
 ```csharp
 using Microsoft.Extensions.FileProviders;

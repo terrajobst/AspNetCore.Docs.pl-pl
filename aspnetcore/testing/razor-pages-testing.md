@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 5891b236306cd3790cbba14919796d6aa894ad53
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f9e986c34f41fe96beb492680106f725bc1e2f9
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Jednostka stron razor i integracji testowania w ASP.NET Core
 
@@ -71,7 +71,7 @@ Test jest to aplikacja konsoli wewnątrz *tests/RazorPagesTestingSample.Tests* f
 | ------------------ | ----------- |
 | *IntegrationTests* | <ul><li>*IndexPageTest.cs* zawiera testy integracji strony indeksu.</li><li>*TestFixture.cs* tworzy hosta testów, aby przetestować aplikację wiadomości.</li></ul> |
 | *UnitTests*        | <ul><li>*DataAccessLayerTest.cs* zawiera testy jednostkowe dla warstwy DAL.</li><li>*IndexPageTest.cs* zawiera testy jednostkowe dla modelu strony indeksu.</li></ul> |
-| *Narzędzia*        | *Utilities.cs* zawiera:<ul><li>`TestingDbContextOptions`metodę używaną do tworzenia nowej bazy danych opcji kontekstu dla każdego testu jednostkowego DAL, dzięki czemu bazy danych zostanie zresetowana do stanu linii bazowej dla każdego z testów.</li><li>`GetRequestContentAsync`Metoda używana do przygotowania `HttpClient` i zawartości dla żądań wysyłanych do aplikacji komunikat podczas testowania integracji.</li></ul>
+| Narzędzia        | *Utilities.cs* zawiera:<ul><li>`TestingDbContextOptions` metodę używaną do tworzenia nowej bazy danych opcji kontekstu dla każdego testu jednostkowego DAL, dzięki czemu bazy danych zostanie zresetowana do stanu linii bazowej dla każdego z testów.</li><li>`GetRequestContentAsync` Metoda używana do przygotowania `HttpClient` i zawartości dla żądań wysyłanych do aplikacji komunikat podczas testowania integracji.</li></ul>
 
 Struktury testowej jest [xUnit](https://xunit.github.io/). Obiekt mocking framework [Moq](https://github.com/moq/moq4). Integracja testów przy użyciu [hosta testów platformy ASP.NET Core](xref:testing/integration-testing#the-test-host).
 
@@ -102,7 +102,7 @@ Problem z tym podejściem jest, że każdy test odbiera bazy danych w dowolnie w
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
-Przy użyciu `DbContextOptions` w jednostce DAL testy umożliwia każdy test automatycznie uruchomić z wystąpienia Nowa baza danych:
+Przy użyciu `DbContextOptions` w jednostce DAL testy umożliwia każdego z testów do uruchomienia automatycznie przy użyciu wystąpienia Nowa baza danych:
 
 ```csharp
 using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
@@ -176,7 +176,7 @@ Działanie krok testu jednostkowego (*tests/RazorPagesTestingSample.Tests/UnitTe
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
 
-`IndexPage`Strona modelu `OnGetAsync` — metoda (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*):
+`IndexPage` Strona modelu `OnGetAsync` — metoda (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*):
 
 [!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
 

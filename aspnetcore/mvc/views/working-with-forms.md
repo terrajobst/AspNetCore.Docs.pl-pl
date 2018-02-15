@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 805c2ba5b3a9669d5547e1c595883436eea0d11a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 752fa03b0cfc85fee2d945e5f65d94c01119d32e
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Wprowadzenie do korzystania z pomocników tagów w formularzy w programie ASP.NET Core
 
@@ -36,7 +36,7 @@ W wielu przypadkach pomocników HTML Podaj informacje o innym podejściu do okre
 
 * Udostępnia `asp-route-<Parameter Name>` atrybutu, gdzie `<Parameter Name>` jest dodawany do wartości trasy. `routeValues` Parametry `Html.BeginForm` i `Html.BeginRouteForm` zapewniają podobne funkcje.
 
-* Jest to alternatywa pomocnika kodu HTML `Html.BeginForm` i`Html.BeginRouteForm`
+* Jest to alternatywa pomocnika kodu HTML `Html.BeginForm` i `Html.BeginRouteForm`
 
 Przykład:
 
@@ -82,7 +82,7 @@ Składnia:
 
 Pomocnik tagu wejściowego:
 
-* Generuje `id` i `name` atrybutów HTML dla podanej nazwy wyrażenia w `asp-for` atrybutu. `asp-for="Property1.Property2"`jest odpowiednikiem `m => m.Property1.Property2`. Nazwa wyrażenia jest, do czego służy `asp-for` wartość atrybutu. Zobacz [nazwy wyrażeń](#expression-names) sekcji, aby uzyskać dodatkowe informacje.
+* Generuje `id` i `name` atrybutów HTML dla podanej nazwy wyrażenia w `asp-for` atrybutu. `asp-for="Property1.Property2"` jest odpowiednikiem `m => m.Property1.Property2`. Nazwa wyrażenia jest, do czego służy `asp-for` wartość atrybutu. Zobacz [nazwy wyrażeń](#expression-names) sekcji, aby uzyskać dodatkowe informacje.
 
 * Ustawia kod HTML `type` atrybutu wartości na podstawie typu modelu i [adnotacji danych elementu](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybuty zastosowane do właściwości modelu
 
@@ -159,11 +159,11 @@ Adnotacje danych dotyczy `Email` i `Password` właściwości Generowanie metadan
 
 ### <a name="html-helper-alternatives-to-input-tag-helper"></a>Alternatywy pomocnika kodu HTML dla danych wejściowych pomocnika tagów
 
-`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` i `Html.EditorFor` mają pokrywające się funkcji przy użyciu Pomocnika Tag danych wejściowych. Automatycznie ustawi pomocnika Tag danych wejściowych `type` atrybutu; `Html.TextBox` i `Html.TextBoxFor` nie. `Html.Editor`i `Html.EditorFor` obsługiwać kolekcje obiektów złożonych i szablonów; nie pomocnika Tag danych wejściowych. Pomocnik Tag danych wejściowych, `Html.EditorFor` i `Html.TextBoxFor` są silnie typizowane (one użycie wyrażeń lambda); `Html.TextBox` i `Html.Editor` nie są (używają nazwy wyrażeń).
+`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` i `Html.EditorFor` mają pokrywające się funkcji przy użyciu Pomocnika Tag danych wejściowych. Automatycznie ustawi pomocnika Tag danych wejściowych `type` atrybutu; `Html.TextBox` i `Html.TextBoxFor` nie. `Html.Editor` i `Html.EditorFor` obsługiwać kolekcje obiektów złożonych i szablonów; nie pomocnika Tag danych wejściowych. Pomocnik Tag danych wejściowych, `Html.EditorFor` i `Html.TextBoxFor` są silnie typizowane (one użycie wyrażeń lambda); `Html.TextBox` i `Html.Editor` nie są (używają nazwy wyrażeń).
 
 ### <a name="htmlattributes"></a>HtmlAttributes
 
-`@Html.Editor()`i `@Html.EditorFor()` użycia specjalnego `ViewDataDictionary` wpis o nazwie `htmlAttributes` podczas wykonywania ich domyślnych szablonów. To zachowanie jest opcjonalnie rozszerzone przy użyciu `additionalViewData` parametrów. Klucz "htmlAttributes" jest rozróżniana wielkość liter. Klucz "htmlAttributes" odbywa się podobnie do `htmlAttributes` obiekt przekazany do danych wejściowych pomocników, takich jak `@Html.TextBox()`.
+`@Html.Editor()` i `@Html.EditorFor()` użycia specjalnego `ViewDataDictionary` wpis o nazwie `htmlAttributes` podczas wykonywania ich domyślnych szablonów. To zachowanie jest opcjonalnie rozszerzone przy użyciu `additionalViewData` parametrów. Klucz "htmlAttributes" jest rozróżniana wielkość liter. Klucz "htmlAttributes" odbywa się podobnie do `htmlAttributes` obiekt przekazany do danych wejściowych pomocników, takich jak `@Html.TextBox()`.
 
 ```HTML
 @Html.EditorFor(model => model.YourProperty, 
@@ -188,6 +188,13 @@ Generuje następujące czynności:
 ```
 
 Z właściwościami kolekcji `asp-for="CollectionProperty[23].Member"` generuje taką samą nazwę jak `asp-for="CollectionProperty[i].Member"` podczas `i` ma wartość `23`.
+
+
+Gdy platformy ASP.NET Core MVC oblicza wartość `ModelExpression`, sprawdza on kilka źródeł, takich jak `ModelState` i `ViewData`. Należy wziąć pod uwagę `<input type="text" asp-for="@Name" />`. Obliczona wartość `asp-for` jest to pierwszy z nich nie ma wartości null:
+
+* `ModelState` wpis z kluczem "Name".
+* `ViewData` wpis z kluczem "Name".
+* Wynik wyrażenia `Model.Name`.
 
 ### <a name="navigating-child-properties"></a>Nawigowanie po właściwości podrzędnej
 
@@ -260,7 +267,7 @@ Następujące Razor pokazano, jak Iterowanie przez kolekcję:
 
 * Umożliwia wpisanie silne.
 
-* Alternatywa pomocnika kodu HTML:`Html.TextAreaFor`
+* Alternatywa pomocnika kodu HTML: `Html.TextAreaFor`
 
 Przykład:
 
@@ -322,7 +329,7 @@ Istnieją dwa pomocników tagów sprawdzania poprawności. `Validation Message T
 
 * Sprawdzanie poprawności również odbywa się na serwerze. Klienci mogą mieć JavaScript wyłączona i niektóre sprawdzania poprawności jest możliwe tylko po stronie serwera.
 
-* Alternatywa pomocnika kodu HTML:`Html.ValidationMessageFor`
+* Alternatywa pomocnika kodu HTML: `Html.ValidationMessageFor`
 
 `Validation Message Tag Helper` Jest używany z `asp-validation-for` atrybutu HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) elementu.
 
@@ -356,7 +363,7 @@ W przypadku wystąpienia błędu weryfikacji po stronie serwera (na przykład po
 
 * Obiekty docelowe `<div>` elementy z `asp-validation-summary` atrybutu
 
-* Alternatywa pomocnika kodu HTML:`@Html.ValidationSummary`
+* Alternatywa pomocnika kodu HTML: `@Html.ValidationSummary`
 
 `Validation Summary Tag Helper` Służy do wyświetlania podsumowania komunikatów dotyczących sprawdzania poprawności. `asp-validation-summary` Wartość atrybutu może być dowolną z następujących czynności:
 
@@ -399,7 +406,7 @@ Wygenerowany kod HTML, (Jeśli model jest nieprawidłowy):
 
 * Generuje [wybierz](https://www.w3.org/wiki/HTML/Elements/select) i skojarzone [opcji](https://www.w3.org/wiki/HTML/Elements/option) elementy dla właściwości modelu.
 
-* Jest to alternatywa pomocnika kodu HTML `Html.DropDownListFor` i`Html.ListBoxFor`
+* Jest to alternatywa pomocnika kodu HTML `Html.DropDownListFor` i `Html.ListBoxFor`
 
 `Select Tag Helper` `asp-for` Określa nazwę właściwości modelu [wybierz](https://www.w3.org/wiki/HTML/Elements/select) elementu i `asp-items` Określa [opcji](https://www.w3.org/wiki/HTML/Elements/option) elementów.  Na przykład:
 

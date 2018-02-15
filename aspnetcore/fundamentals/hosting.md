@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/hosting
-ms.openlocfilehash: 004487aebe5262a515e2375c30ccd2a84844dff6
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 7e5832f43155aa8aac07a4c8534700aed48fe57d
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>Hosting w platformy ASP.NET Core
 
@@ -29,7 +29,7 @@ Utwórz hosta za pomocą wystąpienia [WebHostBuilder](/dotnet/api/microsoft.asp
 
 [!code-csharp[Main](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main)]
 
-`CreateDefaultBuilder`wykonuje następujące zadania:
+`CreateDefaultBuilder` wykonuje następujące zadania:
 
 * Konfiguruje [Kestrel](servers/kestrel.md) jako serwera sieci web. Aby Kestrel domyślnych opcji, zobacz [Kestrel opcje sekcji Kestrel implementacja serwera sieci web platformy ASP.NET Core](xref:fundamentals/servers/kestrel#kestrel-options).
 * Ustawia głównego zawartości w ścieżce zwracanej przez [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
@@ -55,11 +55,11 @@ Utwórz hosta za pomocą wystąpienia [WebHostBuilder](/dotnet/api/microsoft.asp
 
 [!code-csharp[Main](../common/samples/WebApplication1/Program.cs)]
 
-`WebHostBuilder`wymaga [serwera, który implementuje IServer](servers/index.md). Wbudowane serwery są [Kestrel](servers/kestrel.md) i [HTTP.sys](servers/httpsys.md) (przed wydaniem programu ASP.NET 2.0 Core została wywołana HTTP.sys [WebListener](xref:fundamentals/servers/weblistener)). W tym przykładzie [— metoda rozszerzenia UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) Określa serwer Kestrel.
+`WebHostBuilder` wymaga [serwera, który implementuje IServer](servers/index.md). Wbudowane serwery są [Kestrel](servers/kestrel.md) i [HTTP.sys](servers/httpsys.md) (przed wydaniem programu ASP.NET 2.0 Core została wywołana HTTP.sys [WebListener](xref:fundamentals/servers/weblistener)). W tym przykładzie [— metoda rozszerzenia UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) Określa serwer Kestrel.
 
 *Zawartości głównego* Określa, gdzie hosta wyszukuje pliki zawartości, takich jak pliki widoku MVC. Domyślny element zawartości są uzyskiwane dla `UseContentRoot` przez [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory?view=netcore-1.1). Po uruchomieniu aplikacji w folderze głównym projektu folderu głównego projektu jest używany jako główny zawartości. Jest to wartość domyślna używana w [programu Visual Studio](https://www.visualstudio.com/) i [dotnet nowe szablony](/dotnet/core/tools/dotnet-new).
 
-Do używania serwera IIS jako zwrotny serwer proxy, należy wywołać [UseIISIntegration](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions) w ramach tworzenia hosta. `UseIISIntegration`nie Konfiguruj *serwera*, takiej jak [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) jest. `UseIISIntegration`Konfiguruje serwer nasłuchuje na przy użyciu portu i ścieżki bazowej [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) utworzyć zwrotnego serwera proxy między Kestrel i IIS. Aby używać usług IIS z platformy ASP.NET Core `UseKestrel` i `UseIISIntegration` musi być określona. `UseIISIntegration`aktywuje tylko podczas uruchamiania usług IIS lub usług IIS Express. Aby uzyskać więcej informacji, zobacz [wprowadzenie do platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module) i [odwołania konfiguracji platformy ASP.NET Core modułu](xref:host-and-deploy/aspnet-core-module).
+Do używania serwera IIS jako zwrotny serwer proxy, należy wywołać [UseIISIntegration](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions) w ramach tworzenia hosta. `UseIISIntegration` nie Konfiguruj *serwera*, takiej jak [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) jest. `UseIISIntegration` Konfiguruje serwer nasłuchuje na przy użyciu portu i ścieżki bazowej [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) utworzyć zwrotnego serwera proxy między Kestrel i IIS. Aby używać usług IIS z platformy ASP.NET Core `UseKestrel` i `UseIISIntegration` musi być określona. `UseIISIntegration` aktywuje tylko podczas uruchamiania usług IIS lub usług IIS Express. Aby uzyskać więcej informacji, zobacz [wprowadzenie do platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module) i [odwołania konfiguracji platformy ASP.NET Core modułu](xref:host-and-deploy/aspnet-core-module).
 
 Minimalny wdrożenia, który konfiguruje hosta (a aplikacji platformy ASP.NET Core) obejmuje określenie serwera i konfiguracji Potok żądań aplikacji:
 
@@ -96,8 +96,8 @@ To ustawienie określa przechwytywania błędy uruchamiania.
 **Klucz**: captureStartupErrors  
 **Typ**: *bool* (`true` lub `1`)  
 **Domyślne**: Domyślnie `false` chyba, że aplikacja jest uruchamiana z Kestrel za usług IIS, gdzie wartość domyślna to `true`.  
-**Ustawić za pomocą**:`CaptureStartupErrors`  
-**Zmienna środowiskowa**:`ASPNETCORE_CAPTURESTARTUPERRORS`
+**Ustawić za pomocą**: `CaptureStartupErrors`  
+**Zmienna środowiskowa**: `ASPNETCORE_CAPTURESTARTUPERRORS`
 
 Gdy `false`, błędy podczas wynik uruchomienia na hoście został zakończony. Gdy `true`, host przechwytuje wyjątków podczas uruchamiania i podejmie próbę uruchomienia serwera.
 
@@ -126,8 +126,8 @@ To ustawienie określa, gdzie platformy ASP.NET Core rozpocznie się wyszukiwani
 **Klucz**: contentRoot  
 **Typ**: *ciągu*  
 **Domyślna**: domyślne do folderu, w którym znajduje się zestaw aplikacji.  
-**Ustawić za pomocą**:`UseContentRoot`  
-**Zmienna środowiskowa**:`ASPNETCORE_CONTENTROOT`
+**Ustawić za pomocą**: `UseContentRoot`  
+**Zmienna środowiskowa**: `ASPNETCORE_CONTENTROOT`
 
 Główny zawartości jest również używany jako podstawowa ścieżka dla [ustawienia sieci Web głównego](#web-root). Jeśli ścieżka nie istnieje, host nie powiedzie się.
 
@@ -156,8 +156,8 @@ Określa, czy szczegółowe błędy, które mają być przechwytywane.
 **Klucz**: detailedErrors  
 **Typ**: *bool* (`true` lub `1`)  
 **Domyślna**: false  
-**Ustawić za pomocą**:`UseSetting`  
-**Zmienna środowiskowa**:`ASPNETCORE_DETAILEDERRORS`
+**Ustawić za pomocą**: `UseSetting`  
+**Zmienna środowiskowa**: `ASPNETCORE_DETAILEDERRORS`
 
 Po włączeniu (lub gdy <a href="#environment">środowiska</a> ma ustawioną wartość `Development`), aplikacji znajdują się szczegółowe wyjątki.
 
@@ -186,8 +186,8 @@ Ustawia środowisko aplikacji.
 **Klucz**: środowiska  
 **Typ**: *ciągu*  
 **Domyślna**: produkcji  
-**Ustawić za pomocą**:`UseEnvironment`  
-**Zmienna środowiskowa**:`ASPNETCORE_ENVIRONMENT`
+**Ustawić za pomocą**: `UseEnvironment`  
+**Zmienna środowiskowa**: `ASPNETCORE_ENVIRONMENT`
 
 Środowisko można ustawić dowolną wartość. Wartości zdefiniowane w ramach obejmują `Development`, `Staging`, i `Production`. Wartości nie jest uwzględniana wielkość liter. Domyślnie *środowiska* są odczytywane z `ASPNETCORE_ENVIRONMENT` zmiennej środowiskowej. Korzystając z [programu Visual Studio](https://www.visualstudio.com/), zmienne środowiskowe może być ustawiona w *launchSettings.json* pliku. Aby uzyskać więcej informacji, zobacz [Praca w środowiskach wielu](xref:fundamentals/environments).
 
@@ -216,8 +216,8 @@ Ustawia hostingu zestawy uruchomienia aplikacji.
 **Klucz**: hostingStartupAssemblies  
 **Typ**: *ciągu*  
 **Domyślna**: pusty ciąg  
-**Ustawić za pomocą**:`UseSetting`  
-**Zmienna środowiskowa**:`ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`
+**Ustawić za pomocą**: `UseSetting`  
+**Zmienna środowiskowa**: `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`
 
 Ciąg rozdzielany średnikami obsługi zestawów uruchamiania załadować podczas uruchamiania. Ta funkcja jest nowa w programie ASP.NET 2.0 Core.
 
@@ -244,8 +244,8 @@ Wskazuje, czy host powinien nasłuchiwać adresy URL skonfigurowano `WebHostBuil
 **Klucz**: preferHostingUrls  
 **Typ**: *bool* (`true` lub `1`)  
 **Domyślna**: true  
-**Ustawić za pomocą**:`PreferHostingUrls`  
-**Zmienna środowiskowa**:`ASPNETCORE_PREFERHOSTINGURLS`
+**Ustawić za pomocą**: `PreferHostingUrls`  
+**Zmienna środowiskowa**: `ASPNETCORE_PREFERHOSTINGURLS`
 
 Ta funkcja jest nowa w programie ASP.NET 2.0 Core.
 
@@ -265,13 +265,13 @@ Ta funkcja jest niedostępna w ASP.NET Core 1.x.
 
 ### <a name="prevent-hosting-startup"></a>Zapobiegaj Hosting uruchamiania
 
-Uniemożliwia automatyczne ładowanie hosting zestawy uruchamiania, tym hosting zestawy uruchamiania konfigurowane za pomocą zestawu aplikacji. Zobacz [dodać aplikacji funkcje z zewnętrznych zestawu za pomocą IHostingStartup](xref:host-and-deploy/ihostingstartup) Aby uzyskać więcej informacji.
+Uniemożliwia automatyczne ładowanie hosting zestawy uruchamiania, tym hosting zestawy uruchamiania konfigurowane za pomocą zestawu aplikacji. Zobacz [Dodawanie funkcji aplikacji za pomocą konfiguracji specyficzne dla platformy](xref:host-and-deploy/platform-specific-configuration) Aby uzyskać więcej informacji.
 
 **Klucz**: preventHostingStartup  
 **Typ**: *bool* (`true` lub `1`)  
 **Domyślna**: false  
-**Ustawić za pomocą**:`UseSetting`  
-**Zmienna środowiskowa**:`ASPNETCORE_PREVENTHOSTINGSTARTUP`
+**Ustawić za pomocą**: `UseSetting`  
+**Zmienna środowiskowa**: `ASPNETCORE_PREVENTHOSTINGSTARTUP`
 
 Ta funkcja jest nowa w programie ASP.NET 2.0 Core.
 
@@ -296,8 +296,8 @@ Wskazuje adresy IP lub adresy hostów, porty i protokoły, które serwer powinie
 **Klucz**: adresy URL  
 **Typ**: *ciągu*  
 **Domyślna**: http://localhost: 5000  
-**Ustawić za pomocą**:`UseUrls`  
-**Zmienna środowiskowa**:`ASPNETCORE_URLS`
+**Ustawić za pomocą**: `UseUrls`  
+**Zmienna środowiskowa**: `ASPNETCORE_URLS`
 
 Ustaw rozdzielonych średnikami (;) lista adresów URL prefiksy powinny odpowiadać serwera. Na przykład `http://localhost:123`. Użyj "\*" Aby wskazać, że serwer powinien nasłuchiwać żądań adresy IP lub nazwa hosta przy użyciu określonego portu i protokołu (na przykład `http://*:5000`). Protokół (`http://` lub `https://`) musi być dołączony do każdego adresu URL. Obsługiwane formaty różnią się między serwerami.
 
@@ -328,8 +328,8 @@ Określa czas oczekiwania na zamknięcie hosta sieci web.
 **Klucz**: shutdownTimeoutSeconds  
 **Typ**: *int*  
 **Domyślna**: 5  
-**Ustawić za pomocą**:`UseShutdownTimeout`  
-**Zmienna środowiskowa**:`ASPNETCORE_SHUTDOWNTIMEOUTSECONDS`
+**Ustawić za pomocą**: `UseShutdownTimeout`  
+**Zmienna środowiskowa**: `ASPNETCORE_SHUTDOWNTIMEOUTSECONDS`
 
 Mimo że akceptuje klucz *int* z `UseSetting` (na przykład `.UseSetting(WebHostDefaults.ShutdownTimeoutKey, "10")`), `UseShutdownTimeout` przyjmuje — metoda rozszerzenia `TimeSpan`. Ta funkcja jest nowa w programie ASP.NET 2.0 Core.
 
@@ -354,8 +354,8 @@ Określa zestaw do wyszukania `Startup` klasy.
 **Klucz**: startupAssembly  
 **Typ**: *ciągu*  
 **Domyślna**: zestaw aplikacji  
-**Ustawić za pomocą**:`UseStartup`  
-**Zmienna środowiskowa**:`ASPNETCORE_STARTUPASSEMBLY`
+**Ustawić za pomocą**: `UseStartup`  
+**Zmienna środowiskowa**: `ASPNETCORE_STARTUPASSEMBLY`
 
 Zestaw o nazwie (`string`) lub typu (`TStartup`) można odwoływać się. Jeśli wiele `UseStartup` metody są nazywane, pierwszeństwo ma ostatnią.
 
@@ -396,8 +396,8 @@ Ustawia ścieżkę względną do statycznego zasobów aplikacji.
 **Klucz**: webroot  
 **Typ**: *ciągu*  
 **Domyślne**: Jeśli nie jest określony, wartością domyślną jest "(Content Root)/wwwroot", jeśli ścieżka istnieje. Jeśli ścieżka nie istnieje, jest używany dostawca pliku zerowa.  
-**Ustawić za pomocą**:`UseWebRoot`  
-**Zmienna środowiskowa**:`ASPNETCORE_WEBROOT`
+**Ustawić za pomocą**: `UseWebRoot`  
+**Zmienna środowiskowa**: `ASPNETCORE_WEBROOT`
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -570,7 +570,7 @@ using (var host = WebHost.Start(app => app.Response.WriteAsync("Hello, World!"))
 }
 ```
 
-Tworzenie żądania w przeglądarce, aby `http://localhost:5000` odpowiedź "Hello World!" `WaitForShutdown`bloki aż do wystawienia podział (Ctrl-C/sigint — lub sigterm —). Aplikacja jest wyświetlana `Console.WriteLine` komunikat i czeka na keypress zakończyć.
+Tworzenie żądania w przeglądarce, aby `http://localhost:5000` odpowiedź "Hello World!" `WaitForShutdown` bloki aż do wystawienia podział (Ctrl-C/sigint — lub sigterm —). Aplikacja jest wyświetlana `Console.WriteLine` komunikat i czeka na keypress zakończyć.
 
 **Start (ciąg adresu url, RequestDelegate aplikacji)**
 
@@ -618,7 +618,7 @@ Użyj następujących żądań przeglądarki z przykładem:
 | `http://localhost:5000/Sante/Kevin`        | Sante, Jan!                            |
 | `http://localhost:5000`                    | Cześć ludzie!                             |
 
-`WaitForShutdown`bloki aż do wystawienia podział (Ctrl-C/sigint — lub sigterm —). Aplikacja jest wyświetlana `Console.WriteLine` komunikat i czeka na keypress zakończyć.
+`WaitForShutdown` bloki aż do wystawienia podział (Ctrl-C/sigint — lub sigterm —). Aplikacja jest wyświetlana `Console.WriteLine` komunikat i czeka na keypress zakończyć.
 
 **Start (ciągu adresu url, Akcja<IRouteBuilder> routeBuilder)**
 
@@ -662,7 +662,7 @@ using (var host = WebHost.StartWith(app =>
 }
 ```
 
-Tworzenie żądania w przeglądarce, aby `http://localhost:5000` odpowiedź "Hello World!" `WaitForShutdown`bloki aż do wystawienia podział (Ctrl-C/sigint — lub sigterm —). Aplikacja jest wyświetlana `Console.WriteLine` komunikat i czeka na keypress zakończyć.
+Tworzenie żądania w przeglądarce, aby `http://localhost:5000` odpowiedź "Hello World!" `WaitForShutdown` bloki aż do wystawienia podział (Ctrl-C/sigint — lub sigterm —). Aplikacja jest wyświetlana `Console.WriteLine` komunikat i czeka na keypress zakończyć.
 
 **StartWith (ciągu adresu url, Akcja<IApplicationBuilder> aplikacji)**
 
@@ -803,7 +803,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-`IHostingEnvironment`mogą zostać dodane do `Invoke` metody podczas tworzenia niestandardowego [oprogramowanie pośredniczące](xref:fundamentals/middleware/index#writing-middleware):
+`IHostingEnvironment` mogą zostać dodane do `Invoke` metody podczas tworzenia niestandardowego [oprogramowanie pośredniczące](xref:fundamentals/middleware/index#writing-middleware):
 
 ```csharp
 public async Task Invoke(HttpContext context, IHostingEnvironment env)
@@ -823,17 +823,13 @@ public async Task Invoke(HttpContext context, IHostingEnvironment env)
 
 ## <a name="iapplicationlifetime-interface"></a>Interfejs IApplicationLifetime
 
-[IApplicationLifetime](/aspnet/core/api/microsoft.aspnetcore.hosting.iapplicationlifetime) umożliwia działań po uruchamiania i wyłączania. Anulowanie tokenów używany do rejestrowania są trzy właściwości w interfejsie `Action` metod, które definiują zdarzenia uruchamiania i wyłączania. Istnieje również `StopApplication` metody.
+[IApplicationLifetime](/aspnet/core/api/microsoft.aspnetcore.hosting.iapplicationlifetime) umożliwia działań po uruchamiania i wyłączania. Anulowanie tokenów używany do rejestrowania są trzy właściwości w interfejsie `Action` metod, które definiują zdarzenia uruchamiania i wyłączania.
 
 | Token anulowania    | Wyzwalane podczas &#8230; |
 | --------------------- | --------------------- |
 | `ApplicationStarted`  | Host pełni została uruchomiona. |
 | `ApplicationStopping` | Host wykonuje łagodne zamykanie. Żądania mogą nadal być przetwarzane. Bloki zamknięcia aż do zakończenia tego zdarzenia. |
 | `ApplicationStopped`  | Host jest kończonych łagodne zamykanie. Wszystkie żądania powinna zostać przetworzona. Bloki zamknięcia aż do zakończenia tego zdarzenia. |
-
-| Metoda            | Akcja                                           |
-| ----------------- | ------------------------------------------------ |
-| `StopApplication` | Zakończenie żądania bieżącej aplikacji. |
 
 ```csharp
 public class Startup 
@@ -865,6 +861,34 @@ public class Startup
     private void OnStopped()
     {
         // Perform post-stopped activities here
+    }
+}
+```
+
+[StopApplication](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime.stopapplication) żąda zakończenia aplikacji. Następujące [stron Razor](xref:mvc/razor-pages/index) strona używa klasy modelu `StopApplication` bezpiecznie zamknięcie aplikacji. `OnPostShutdown` Po wykonaniu metody **zamknięcia** w interfejsie użytkownika zaznaczona jest:
+
+```cshtml
+<button type="submit" asp-page-handler="Shutdown" class="btn btn-default">Shutdown</button>
+```
+
+```csharp
+public class IndexModel : PageModel
+{
+    private readonly IApplicationLifetime _appLifetime;
+
+    public IndexModel(IApplicationLifetime appLifetime)
+    {
+        _appLifetime = appLifetime;
+    }
+
+    public void OnGet()
+    {
+        ...
+    }
+
+    public void OnPostShutdown()
+    {
+        _appLifetime.StopApplication();
     }
 }
 ```
