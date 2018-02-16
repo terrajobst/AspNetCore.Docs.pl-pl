@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 34b009d3a298803256c9a06debe6e5026418429a
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: fe44581829d53b1633347762df0a72f62e6e5760
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Host platformy ASP.NET Core w usłudze aplikacji Azure
 
@@ -48,7 +48,7 @@ Konfigurowanie kompilacji elementu konfiguracji dla aplikacji platformy ASP.NET 
 
 Z platformy ASP.NET Core 2.0 lub nowszego oraz trzy pakiety w programie [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage) udostępnia funkcje automatycznego rejestrowania w przypadku aplikacji wdrożonych w usłudze Azure App Service:
 
-* [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) używa [IHostingStartup](xref:host-and-deploy/ihostingstartup) do zapewniania platformy ASP.NET Core lightup integracji z usługi aplikacji Azure. Funkcje rejestrowania dodano są dostarczane przez `Microsoft.AspNetCore.AzureAppServicesIntegration` pakietu.
+* [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) używa [IHostingStartup](xref:host-and-deploy/platform-specific-configuration) do zapewniania platformy ASP.NET Core lightup integracji z usługi aplikacji Azure. Funkcje rejestrowania dodano są dostarczane przez `Microsoft.AspNetCore.AzureAppServicesIntegration` pakietu.
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) wykonuje [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) dodawać dostawców rejestrowania diagnostyki Azure App Service w `Microsoft.Extensions.Logging.AzureAppServices` pakietu.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) zawiera implementacje rejestratora do obsługi dzienników diagnostyki Azure App Service i przesyłania strumieniowego funkcje dziennika.
 
