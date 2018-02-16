@@ -1,7 +1,7 @@
 ---
-title: Autoryzacja niestandardowa oparte na zasadach w ASP.NET Core
+title: Na podstawie zasad autoryzacji w ASP.NET Core
 author: rick-anderson
-description: "Informacje o sposobie tworzenia i używania programów obsługi zasad autoryzacji niestandardowej dla wymuszania wymagań autoryzacji w aplikacji platformy ASP.NET Core."
+description: "Informacje o sposobie tworzenia i używania programów obsługi zasady autoryzacji dotyczące wymuszania wymagań autoryzacji w aplikacji platformy ASP.NET Core."
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,21 +10,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/policies
-ms.openlocfilehash: 0eb5451828a51771d9388c2db610ede6231ced51
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a9ee7e6fd06fa88485d7f578a9df74cbf87d9540
+ms.sourcegitcommit: 7ee6e7582421195cbd675355c970d3d292ee668d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="custom-policy-based-authorization"></a>Niestandardowe autoryzacji opartych na zasadach
+# <a name="policy-based-authorization"></a>Na podstawie zasad autoryzacji
 
 Poniżej obejmuje [autoryzacji opartej na rolach](xref:security/authorization/roles) i [autoryzacji opartej na oświadczeniach](xref:security/authorization/claims) użyć wymaganie, obsługi wymagania i wstępnie skonfigurowanych zasad. Te bloki konstrukcyjne obsługi wyrażenie ocen autoryzacji w kodzie. Wynik jest strukturą bardziej rozbudowane, wielokrotnego użytku, testować autoryzacji.
 
-Zasady autoryzacji składa się z co najmniej jednego wymagania. Jest on zarejestrowany w ramach konfiguracji usługi autoryzacji, w `ConfigureServices` metody `Startup` klasy:
+Zasady autoryzacji składa się z co najmniej jednego wymagania. Jest on zarejestrowany w ramach konfiguracji usługi autoryzacji, w `Startup.ConfigureServices` metody:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63,72)]
 
-W powyższym przykładzie tworzona jest zasada "AtLeast21". Ma on jeden wymaganie, że o minimalnym wieku, które są udostępniane jako parametr wymogiem.
+W powyższym przykładzie tworzona jest zasada "AtLeast21". Składa się z jednego wymaganie&mdash;z minimalnym wieku jest ona podawana jako parametr do wymagań.
 
 Zasady są stosowane przy użyciu `[Authorize]` atrybutu o nazwie zasad. Na przykład:
 
@@ -32,7 +32,7 @@ Zasady są stosowane przy użyciu `[Authorize]` atrybutu o nazwie zasad. Na przy
 
 ## <a name="requirements"></a>Wymagania
 
-Wymaganie autoryzacji to zbiór parametrów danych, które zasady można użyć do oceny, bieżący podmiot zabezpieczeń użytkownika. W zasadach "AtLeast21" to wymaganie jest pojedynczy parametr&mdash;minimalnym wieku. Implementuje wymagane `IAuthorizationRequirement`, która jest interfejsem znacznika puste. Sparametryzowane minimalny wymagany wiek można realizowane w następujący sposób:
+Wymaganie autoryzacji to zbiór parametrów danych, które zasady można użyć do oceny, bieżący podmiot zabezpieczeń użytkownika. W zasadach "AtLeast21" to wymaganie jest pojedynczy parametr&mdash;minimalnym wieku. Implementuje wymagane [IAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement), która jest interfejsem znacznika puste. Sparametryzowane minimalny wymagany wiek można realizowane w następujący sposób:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Requirements/MinimumAgeRequirement.cs?name=snippet_MinimumAgeRequirementClass)]
 
@@ -43,15 +43,27 @@ Wymaganie autoryzacji to zbiór parametrów danych, które zasady można użyć 
 
 ## <a name="authorization-handlers"></a>Programy obsługi autoryzacji
 
-Program obsługi autoryzacji jest odpowiedzialny za obliczania właściwości zapotrzebowania. Program obsługi autoryzacji ocenia wymagania względem podanego `AuthorizationHandlerContext` ustalenie, czy dostęp jest dozwolony. Wymóg może mieć [wielu obsług](#security-authorization-policies-based-multiple-handlers). Programy obsługi dziedziczą `AuthorizationHandler<T>`, gdzie `T` jest wymagane do obsługi.
+Program obsługi autoryzacji jest odpowiedzialny za obliczania właściwości zapotrzebowania. Program obsługi autoryzacji ocenia wymagania względem podanego [AuthorizationHandlerContext](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext) ustalenie, czy dostęp jest dozwolony.
+
+Wymóg może mieć [wielu obsług](#security-authorization-policies-based-multiple-handlers). Program obsługi może dziedziczyć [AuthorizationHandler\<TRequirement >](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandler-1), gdzie `TRequirement` jest wymagane do obsługi. Alternatywnie program obsługi może wdrożyć [IAuthorizationHandler](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationhandler) obsłużyć więcej niż jeden typ wymaganie.
+
+### <a name="use-a-handler-for-one-requirement"></a>Użyj programu obsługi dla jednego wymagania
 
 <a name="security-authorization-handler-example"></a>
 
-Program obsługi minimalnego wieku może wyglądać następująco:
+Poniżej przedstawiono przykład relacją, w którym program obsługi minimalnego wieku korzysta z jednego wymaganie:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/MinimumAgeHandler.cs?name=snippet_MinimumAgeHandlerClass)]
 
-Poprzedni kod określa, czy bieżący użytkownik główna ma datę urodzenia oświadczenia, które zostały wystawione przez znanego i zaufanego wystawcy. Autoryzacji nie może wystąpić w przypadku braku oświadczenia, w którym to przypadku jest zwracany o zakończeniu zadania. Gdy występuje oświadczenia są obliczane wieku użytkownika. Jeśli użytkownika spełnia minimalnego wieku zdefiniowane przez wymaganie, autoryzacji uważa się pomyślnie. Po pomyślnym zakończeniu operacji, autoryzacji `context.Succeed` została wywołana z spełnione wymaganie jako parametr.
+Poprzedni kod określa, czy bieżący użytkownik główna ma datę urodzenia oświadczenia, które zostały wystawione przez znanego i zaufanego wystawcy. Autoryzacji nie może wystąpić w przypadku braku oświadczenia, w którym to przypadku jest zwracany o zakończeniu zadania. Gdy występuje oświadczenia są obliczane wieku użytkownika. Jeśli użytkownika spełnia minimalnego wieku zdefiniowane przez wymaganie, autoryzacji uważa się pomyślnie. Po pomyślnym zakończeniu operacji, autoryzacji `context.Succeed` została wywołana z spełnione wymaganie jako jedyny parametr.
+
+### <a name="use-a-handler-for-multiple-requirements"></a>Użyj wiele wymagań dotyczących obsługi
+
+Poniżej przedstawiono przykład relacji jeden do wielu, w którym program obsługi uprawnienia wykorzystuje trzy wymagania:
+
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/PermissionHandler.cs?name=snippet_PermissionHandlerClass)]
+
+Poprzedni kod przechodzi przez [PendingRequirements](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.pendingrequirements#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_PendingRequirements)&mdash;nie zawiera wymagania właściwość oznaczona jako powiodło się. Jeśli użytkownik ma uprawnienie do odczytu, użytkownik musi być właścicielem lub sponsor, dostępu do żądanego zasobu. Jeśli użytkownik ma Edytuj lub usuń uprawnienie, musi być właścicielem dostępu do żądanego zasobu. Po pomyślnym zakończeniu operacji, autoryzacji `context.Succeed` została wywołana z spełnione wymaganie jako jedyny parametr.
 
 <a name="security-authorization-policies-based-handler-registration"></a>
 
@@ -73,7 +85,7 @@ Należy pamiętać, że `Handle` metody w [przykład obsługi](#security-authori
 
 * Aby zagwarantować awarii, nawet w przypadku innych programów obsługi wymagań powiedzie się, należy wywołać `context.Fail`.
 
-Niezależnie od wywołana wewnątrz obsługi sieci obsługi wszystkie wymagane będzie wywoływany, gdy zasady wymaga to wymaganie. Dzięki temu wymagania dotyczące efekty uboczne, takich jak rejestrowanie, które będą zawsze miały miejsce nawet wtedy, gdy `context.Fail()` została wywołana w innego programu obsługi.
+Wartość `false`, [InvokeHandlersAfterFailure](/dotnet/api/microsoft.aspnetcore.authorization.authorizationoptions.invokehandlersafterfailure#Microsoft_AspNetCore_Authorization_AuthorizationOptions_InvokeHandlersAfterFailure) właściwości (dostępne w ASP.NET Core 1.1 lub nowszej) short-circuits wykonywania programów obsługi, gdy `context.Fail` jest wywoływana. `InvokeHandlersAfterFailure` Domyślnie `true`, w którym to przypadku wszystkie wywołania. Dzięki temu wymagania powodować efekty uboczne, takich jak rejestrowanie, które zawsze mają miejsce nawet wtedy, gdy `context.Fail` została wywołana w innego programu obsługi.
 
 <a name="security-authorization-policies-based-multiple-handlers"></a>
 

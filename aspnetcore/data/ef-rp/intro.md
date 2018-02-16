@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: e3a0a692f91c36ef1db2957b67c084e46ff358ef
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: f53697fc005352da781e88fce7ebfbe4cc93d3f6
+ms.sourcegitcommit: 725cb18ad23013e15d3dbb527958481dee79f9f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Wprowadzenie do stron Razor i Entity Framework Core za pomocą programu Visual Studio (1 8)
 
@@ -33,7 +33,7 @@ Znajomość [stron Razor](xref:mvc/razor-pages/index). Nowe programistów powinn
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli napotkasz problem, nie można rozpoznać zwykle można znaleźć rozwiązania na podstawie porównania ilości kodu do [ukończone etap](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots) lub [projektu zakończone](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu-final). Aby uzyskać listę typowych błędów i sposobów ich rozwiązania, zobacz [sekcji rozwiązywania problemów ostatniego samouczek z tej serii](xref:data/ef-mvc/advanced#common-errors). Jeśli nie możesz znaleźć, muszą, możesz wysłać zapytanie do [StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) dla [platformy ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) lub [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
+Jeśli napotkasz problem, nie można rozpoznać zwykle można znaleźć rozwiązania na podstawie porównania ilości kodu do [ukończone etap](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots). Aby uzyskać listę typowych błędów i sposobów ich rozwiązania, zobacz [sekcji rozwiązywania problemów ostatniego samouczek z tej serii](xref:data/ef-mvc/advanced#common-errors). Jeśli nie możesz znaleźć, muszą, możesz wysłać zapytanie do [StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) dla [platformy ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) lub [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP]
 > Tej serii samouczków opiera się na czynności wykonane w starszych samouczki. Warto zapisać kopię projektu po każdym pomyślnym ukończeniu samouczka. Jeśli wystąpiły problemy, możesz zacząć od nowa z poprzednich samouczek zamiast po powrocie do początku. Alternatywnie możesz pobrać [ukończone etap](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots) i zacząć od nowa przy użyciu etap ukończone.
@@ -102,9 +102,9 @@ Utwórz *modele* folderu. W *modele* folderu, Utwórz plik klasy o nazwie *Stude
 
 `ID` Właściwości staje się kolumna klucza podstawowego tabeli bazy danych (bazy danych), która odnosi się do tej klasy. Domyślnie EF rdzenie będą interpretowane przez właściwość o nazwie `ID` lub `classnameID` jako klucz podstawowy.
 
-`Enrollments` Właściwość jest właściwością nawigacji. Właściwości nawigacji, połącz się z innymi obiektami, które są powiązane z tą jednostką. W takim przypadku `Enrollments` właściwość `Student entity` przechowuje wszystkie `Enrollment` jednostek, które są powiązane z których `Student`. Na przykład, jeśli wiersz uczniów w bazie danych ma dwa powiązane wiersze rejestracji `Enrollments` właściwość nawigacji zawiera tych dwóch `Enrollment` jednostek. Powiązane `Enrollment` wiersz jest wierszem zawiera Studenta dla tej wartości klucza podstawowego w `StudentID` kolumny. Na przykład, załóżmy, że uczniów o identyfikatorze = 1 ma dwa wiersze `Enrollment` tabeli. `Enrollment` Tabela zawiera dwa wiersze z `StudentID` = 1. `StudentID`jest to kolumna klucza obcego w `Enrollment` tabeli określający student w `Student` tabeli.
+`Enrollments` Właściwość jest właściwością nawigacji. Właściwości nawigacji, połącz się z innymi obiektami, które są powiązane z tą jednostką. W takim przypadku `Enrollments` właściwość `Student entity` przechowuje wszystkie `Enrollment` jednostek, które są powiązane z których `Student`. Na przykład, jeśli wiersz uczniów w bazie danych ma dwa powiązane wiersze rejestracji `Enrollments` właściwość nawigacji zawiera tych dwóch `Enrollment` jednostek. Powiązane `Enrollment` wiersz jest wierszem zawiera Studenta dla tej wartości klucza podstawowego w `StudentID` kolumny. Na przykład, załóżmy, że uczniów o identyfikatorze = 1 ma dwa wiersze `Enrollment` tabeli. `Enrollment` Tabela zawiera dwa wiersze z `StudentID` = 1. `StudentID` jest to kolumna klucza obcego w `Enrollment` tabeli określający student w `Student` tabeli.
 
-Jeśli właściwość nawigacji może zawierać wiele jednostek, właściwość nawigacji musi być typem listy, takich jak `ICollection<T>`. `ICollection<T>`można określić, takie jak typ lub `List<T>` lub `HashSet<T>`. Gdy `ICollection<T>` jest używana, tworzy EF Core `HashSet<T>` kolekcji domyślnie. Właściwości nawigacji, które zawierają wiele jednostek pochodzą z relacji wiele do wielu oraz jeden do wielu.
+Jeśli właściwość nawigacji może zawierać wiele jednostek, właściwość nawigacji musi być typem listy, takich jak `ICollection<T>`. `ICollection<T>` można określić, takie jak typ lub `List<T>` lub `HashSet<T>`. Gdy `ICollection<T>` jest używana, tworzy EF Core `HashSet<T>` kolekcji domyślnie. Właściwości nawigacji, które zawierają wiele jednostek pochodzą z relacji wiele do wielu oraz jeden do wielu.
 
 ### <a name="the-enrollment-entity"></a>Jednostka rejestracji
 
@@ -151,7 +151,7 @@ Ten kod tworzy `DbSet` właściwości dla każdego zestawu jednostek. W terminol
 * Zwykle zestawu jednostek odnosi się do tabeli bazy danych.
 * Jednostka odpowiada wiersza w tabeli.
 
-`DbSet<Enrollment>`i `DbSet<Course>` można pominąć. Podstawowe EF są uwzględniane niejawnie ponieważ `Student` odwołań do jednostek `Enrollment` jednostki i `Enrollment` odwołań do jednostek `Course` jednostki. W tym samouczku, Zachowaj `DbSet<Enrollment>` i `DbSet<Course>` w `SchoolContext`.
+`DbSet<Enrollment>` i `DbSet<Course>` można pominąć. Podstawowe EF są uwzględniane niejawnie ponieważ `Student` odwołań do jednostek `Enrollment` jednostki i `Enrollment` odwołań do jednostek `Course` jednostki. W tym samouczku, Zachowaj `DbSet<Enrollment>` i `DbSet<Course>` w `SchoolContext`.
 
 Po utworzeniu bazy danych EF Core tworzy tabele, które mają taki sam, jak nazwy `DbSet` nazwy właściwości. Nazwy właściwości w kolekcji są zwykle w liczbie mnogiej (studentów zamiast uczniów). Deweloperzy nie zgadzają się o czy nazwy tabeli powinien być w liczbie mnogiej. Te samouczki domyślne zachowanie jest zastępowany przez określenie nazw pojedynczej tabeli w DbContext. Do określenia nazwy w liczbie pojedynczej tabeli, Dodaj następujący wyróżniony kod:
 
@@ -267,7 +267,7 @@ Test **Utwórz**, **Edytuj**, i **szczegóły** łącza.
 
 ## <a name="view-the-db"></a>Widok bazy danych
 
-Po uruchomieniu aplikacji `DbInitializer.Initialize` wywołania `EnsureCreated`. `EnsureCreated`wykrywa, czy istnieje bazę danych i tworzy jeden, jeśli to konieczne. Jeśli w bazie danych, nie nie studentów `Initialize` studentów dodaje metody.
+Po uruchomieniu aplikacji `DbInitializer.Initialize` wywołania `EnsureCreated`. `EnsureCreated` wykrywa, czy istnieje bazę danych i tworzy jeden, jeśli to konieczne. Jeśli w bazie danych, nie nie studentów `Initialize` studentów dodaje metody.
 
 Otwórz **Eksplorator obiektów SQL Server** (SSOX) z **widoku** menu w programie Visual Studio.
 W SSOX, kliknij przycisk **(localdb) \MSSQLLocalDB > baz danych > ContosoUniversity1**.
@@ -278,13 +278,13 @@ Kliknij prawym przyciskiem myszy **uczniowie** tabeli, a następnie kliknij przy
 
 *.Mdf* i *ldf* pliki bazy danych znajdują się w *C:\Users\\ <yourusername>*  folderu.
 
-`EnsureCreated`jest wywoływana po uruchomieniu aplikacji, dzięki czemu następującego przepływu pracy:
+`EnsureCreated` jest wywoływana po uruchomieniu aplikacji, dzięki czemu następującego przepływu pracy:
 
 * Usuń bazę danych.
 * Zmień schemat bazy danych (na przykład dodać `EmailAddress` pól).
 * Uruchom aplikację.
 
-`EnsureCreated`Tworzy baza danych o`EmailAddress` kolumny.
+`EnsureCreated` Tworzy baza danych o`EmailAddress` kolumny.
 
 ## <a name="conventions"></a>Konwencje
 
@@ -321,7 +321,7 @@ W poniższym kodzie `async` — słowo kluczowe, `Task<T>` zwrócić wartość, 
 
 * `await` — Słowo kluczowe powoduje, że kompilator podzielić na dwie części metodę. Pierwsza część kończy operację, który jest uruchamiany asynchronicznie. Druga część są umieszczane w metodę wywołania zwrotnego, która jest wywoływana po zakończeniu operacji.
 
-* `ToListAsync`jest to wersja asynchroniczna elementu `ToList` — metoda rozszerzenia.
+* `ToListAsync` jest to wersja asynchroniczna elementu `ToList` — metoda rozszerzenia.
 
 Należy pamiętać o podczas pisania kodu asynchroniczne EF Core używa w kilku kwestiach:
 

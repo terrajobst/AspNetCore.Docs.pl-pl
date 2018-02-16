@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/options
-ms.openlocfilehash: abb3b92af07a7b3b199712fcfdc459ca283d0017
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7b8a1698e1e711c9d61a5b474276c99de2831a7f
+ms.sourcegitcommit: 7ee6e7582421195cbd675355c970d3d292ee668d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcje dla platformy ASP.NET Core
 
@@ -31,7 +31,7 @@ Wzorzec opcje używa klas opcji do reprezentowania grupy ustawień. Ustawienia k
 
 Podstawowe opcje konfiguracji przedstawiono przykład &num;1 w [Przykładowa aplikacja](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
-Klasa opcji musi być typem abstrakcyjnym z publicznym konstruktorem bez parametrów. Następujące klasy `MyOptions`, ma dwie właściwości `Option1` i `Option2`. Ustawianie wartości domyślnych jest opcjonalne, ale konstruktora klasy w poniższym przykładzie ustawia domyślną wartość `Option1`. `Option2`ma wartość domyślną, ustawione przez inicjowanie właściwość bezpośrednio (*Models/MyOptions.cs*):
+Klasa opcji musi być typem abstrakcyjnym z publicznym konstruktorem bez parametrów. Następujące klasy `MyOptions`, ma dwie właściwości `Option1` i `Option2`. Ustawianie wartości domyślnych jest opcjonalne, ale konstruktora klasy w poniższym przykładzie ustawia domyślną wartość `Option1`. `Option2` ma wartość domyślną, ustawione przez inicjowanie właściwość bezpośrednio (*Models/MyOptions.cs*):
 
 [!code-csharp[Main](options/sample/Models/MyOptions.cs?name=snippet1)]
 
@@ -196,7 +196,7 @@ named_options_1: option1 = value1_from_json, option2 = -1
 named_options_2: option1 = named_options_2_value1_from_action, option2 = 5
 ```
 
-`named_options_1`wartości są dostarczane z konfiguracji, które są ładowane z *appsettings.json* pliku. `named_options_2`wartości są dostarczane przez:
+`named_options_1` wartości są dostarczane z konfiguracji, które są ładowane z *appsettings.json* pliku. `named_options_2` wartości są dostarczane przez:
 
 * `named_options_2` Delegowanie w `ConfigureServices` dla `Option1`.
 * Wartość domyślna dla `Option2` podał `MyOptions` klasy.
@@ -218,7 +218,7 @@ named_options_2: option1 = ConfigureAll replacement value, option2 = 5
 ```
 
 > [!NOTE]
-> W programie ASP.NET Core 2.0 lub nowszy wszystkie opcje są nazwane wystąpienia. Istniejące `IConfigureOption` wystąpienia są traktowane jak `Options.DefaultName` wystąpienia, która jest `string.Empty`. `IConfigureNamedOptions`implementuje również `IConfigureOptions`. Domyślna implementacja [IOptionsFactory&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) ([źródło odwołania](https://github.com/aspnet/Options/blob/release/2.0.0/src/Microsoft.Extensions.Options/OptionsFactory.cs)) zawiera logikę używania każdego odpowiednio. `null` Nazwanego opcja jest używana do wszystkich wystąpień nazwanych zamiast określonego nazwanego wystąpienia docelowego ([ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall) i [PostConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) Użyj tę Konwencję).
+> W programie ASP.NET Core 2.0 lub nowszy wszystkie opcje są nazwane wystąpienia. Istniejące `IConfigureOption` wystąpienia są traktowane jak `Options.DefaultName` wystąpienia, która jest `string.Empty`. `IConfigureNamedOptions` implementuje również `IConfigureOptions`. Domyślna implementacja [IOptionsFactory&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) ([źródło odwołania](https://github.com/aspnet/Options/blob/release/2.0/src/Microsoft.Extensions.Options/IOptionsFactory.cs) ma logiki używania każdego odpowiednio. `null` Nazwanego opcja jest używana do wszystkich wystąpień nazwanych zamiast określonego nazwanego wystąpienia docelowego ([ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall) i [PostConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) Użyj tę Konwencję).
 
 ## <a name="ipostconfigureoptions"></a>IPostConfigureOptions
 
@@ -253,7 +253,7 @@ services.PostConfigureAll<MyOptions>("named_options_1", myOptions =>
 
 ## <a name="options-factory-monitoring-and-cache"></a>Opcje fabryki, monitorowania i pamięci podręcznej
 
-[IOptionsMonitor](/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1) jest używany dla powiadomienia po `TOptions` wystąpienia zmiany. `IOptionsMonitor`obsługuje opcje instrument, zmień powiadomienia, a `IPostConfigureOptions`.
+[IOptionsMonitor](/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1) jest używany dla powiadomienia po `TOptions` wystąpienia zmiany. `IOptionsMonitor` obsługuje opcje instrument, zmień powiadomienia, a `IPostConfigureOptions`.
 
 [IOptionsFactory&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) (platformy ASP.NET Core w wersji 2.0 lub nowszej) jest odpowiedzialny za tworzenie nowych opcji wystąpień. Ma on jeden [Utwórz](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1.create) metody. Domyślna implementacja pobiera wszystkich zarejestrowanych `IConfigureOptions` i `IPostConfigureOptions` i uruchamia wszystkie konfiguruje się najpierw, a następnie po konfiguruje. Go rozróżnia `IConfigureNamedOptions` i `IConfigureOptions` i tylko wywołuje odpowiedniego interfejsu.
 
@@ -261,7 +261,7 @@ services.PostConfigureAll<MyOptions>("named_options_1", myOptions =>
 
 ## <a name="accessing-options-during-startup"></a>Dostęp do opcji podczas uruchamiania
 
-`IOptions`mogą być używane w `Configure`, ponieważ usługi są wbudowane przed `Configure` metoda jest wykonywana. Jeśli usługodawca korzysta z wbudowanej w `ConfigureServices` uzyskać dostęp do opcji, ona nie zawierać opcje konfiguracji po utworzeniu dostawcy usług. W związku z tym stanie niespójne opcje mogą występować z powodu zamawiania rejestracji usługi.
+`IOptions` mogą być używane w `Configure`, ponieważ usługi są wbudowane przed `Configure` metoda jest wykonywana. Jeśli usługodawca korzysta z wbudowanej w `ConfigureServices` uzyskać dostęp do opcji, ona nie zawierać opcje konfiguracji po utworzeniu dostawcy usług. W związku z tym stanie niespójne opcje mogą występować z powodu zamawiania rejestracji usługi.
 
 Ponieważ opcje zwykle są ładowane z konfiguracji, konfiguracji mogą być używane w uruchomienia zarówno `Configure` i `ConfigureServices`. Przykłady za pomocą konfiguracji podczas uruchamiania, zobacz [uruchamiania aplikacji](xref:fundamentals/startup) tematu.
 
