@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 144af8e93bb935d07fd064d5f45b40faea4a2664
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 150603d17f3bed983f9871fe7665748a70177f89
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Rozwiązywanie problemów z platformy ASP.NET Core w usłudze aplikacji Azure
 
@@ -37,6 +37,14 @@ Proces roboczy kończy się niepowodzeniem. Nie uruchamia aplikację.
 Uruchamia aplikację, ale wystąpił błąd uniemożliwia spełnienie żądania przez serwer.
 
 Ten błąd występuje w ciągu kodu aplikacji, podczas uruchamiania lub podczas tworzenia odpowiedzi. Odpowiedź nie może zawierać żadnej zawartości lub odpowiedzi może być wyświetlana jako *500 Wewnętrzny błąd serwera* w przeglądarce. Dziennik zdarzeń aplikacji określają, zwykle uruchomić aplikacji. Z perspektywy serwera, który jest poprawna. Aplikacja została uruchomiona, ale nie można wygenerować poprawnej odpowiedzi. [Uruchamianie aplikacji w konsoli Kudu](#run-the-app-in-the-kudu-console) lub [Włącz dziennik stdout moduł platformy ASP.NET Core](#aspnet-core-module-stdout-log) do rozwiązania problemu.
+
+**Resetowania połączenia**
+
+Jeśli błąd wystąpi po wysłaniu nagłówków, jest za późno na serwerze wysłać **500 Wewnętrzny błąd serwera** po wystąpieniu błędu. Dzieje się tak często, gdy wystąpi błąd podczas serializacji obiektów złożonych na odpowiedź. Tego typu błędu jest wyświetlany jako *resetowania połączenia* błąd na komputerze klienckim. [Rejestrowanie aplikacji](xref:fundamentals/logging/index) ułatwiają rozwiązywanie problemów z tych typów błędów.
+
+## <a name="default-startup-limits"></a>Domyślne limity uruchamiania
+
+Moduł platformy ASP.NET Core jest skonfigurowany z domyślną *startupTimeLimit* 120 sekund. Po lewej, wartość domyślną, aplikacja może zająć do dwóch minut przed modułu dzienniki awarii procesu. Aby uzyskać informacje na temat konfigurowania modułu, zobacz [atrybuty elementu aspNetCore](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
 
 ## <a name="troubleshoot-app-startup-errors"></a>Rozwiązywanie problemów z uruchamianiem aplikacji
 
@@ -65,10 +73,9 @@ Wiele błędów uruchamiania nie dają przydatnych informacji w dzienniku zdarze
 1. Wybierz **zaawansowane narzędzia** bloku w **narzędzi PROGRAMISTYCZNYCH** obszaru. Wybierz **Przejdź&rarr;**  przycisku. W nowej karty przeglądarki lub w oknie zostanie otwarta konsola Kudu.
 1. Za pomocą paska nawigacji w górnej części strony, otwórz **konsoli debugowania** i wybierz **CMD**.
 1. Otwórz foldery do ścieżki **lokacji** > **wwwroot**.
-1. W konsoli, uruchom aplikację, wykonując zestaw aplikacji z *dotnet.exe*. W poniższym poleceniu zastąp nazwę zestawu aplikacji dla `<assembly_name>`:
-   ```console
-   dotnet .\<assembly_name>.dll
-   ```
+1. W konsoli Uruchom aplikację, wykonując zestawu aplikacji.
+   * Jeśli aplikacja jest [wdrożenia zależne od framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd), uruchom zestaw aplikacji z *dotnet.exe*. W poniższym poleceniu zastąp nazwę zestawu aplikacji dla `<assembly_name>`: `dotnet .\<assembly_name>.dll`
+   * Jeśli aplikacja jest [niezależne wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd)Uruchom aplikację do pliku wykonywalnego. W poniższym poleceniu zastąp nazwę zestawu aplikacji dla `<assembly_name>`: `<assembly_name>.exe`
 1. Dane wyjściowe z aplikacji, przedstawiający wszelkie błędy z konsoli jest przekazywany w potoku do konsoli Kudu.
 
 ### <a name="aspnet-core-module-stdout-log"></a>Program ASP.NET Core modułu stdout dziennika
@@ -104,13 +111,16 @@ Moduł platformy ASP.NET Core dziennika stdout rejestruje często przydatne komu
 
 Zobacz [częsta błędów platformy ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference). Większość typowych problemów, które uniemożliwiają uruchamianie aplikacji znajdują się w temacie.
 
-## <a name="process-dump-for-a-slow-or-hanging-app"></a>Zrzut procesu powolnym działaniem lub zwisa aplikacji
+## <a name="slow-or-hanging-app"></a>Wolne lub zwisa aplikacji
 
 Gdy aplikacja reaguje powoli lub zawiesza się na żądanie, zobacz [rozwiązywanie powolne web app problemy z wydajnością w usłudze Azure App Service](/azure/app-service/app-service-web-troubleshoot-performance-degradation) do debugowania wskazówki.
 
 ## <a name="remote-debugging"></a>Debugowanie zdalne
 
-Zobacz [zdalne debugowanie aplikacji sieci web części Rozwiązywanie problemów aplikacji sieci web w usłudze Azure App Service przy użyciu programu Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) w dokumentacji platformy Azure.
+Zobacz następujące tematy:
+
+* [Zdalne debugowanie aplikacji sieci web części Rozwiązywanie problemów aplikacji sieci web w usłudze Azure App Service przy użyciu programu Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) (dokumentacji platformy Azure)
+* [Zdalne debugowanie platformy ASP.NET Core w usługach IIS na platformie Azure w programie Visual Studio 2017](/visualstudio/debugger/remote-debugging-azure) (Dokumentacja programu Visual Studio)
 
 ## <a name="application-insights"></a>Application Insights
 

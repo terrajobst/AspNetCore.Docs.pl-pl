@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: 4337bc42c5454d6a9634a396d9c89f3518af148b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cf02604f2a2f0eba496d0df5c4662f169d044c74
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Wprowadzenie do platformy ASP.NET Core modułu
 
@@ -56,8 +56,12 @@ Ta sekcja zawiera omówienie procesu konfigurowania aplikacji platformy ASP.NET 
 
 ### <a name="install-ancm"></a>Zainstaluj ANCM
 
+ANCM jest zainstalowana w usługach IIS w systemie Windows Server i w usługach IIS Express w systemach operacyjnych komputerów z systemem Windows. Dla serwerów i rozwoju maszyny objęte ANCM [pakietu .NET Core systemu Windows serwer obsługujący](https://aka.ms/dotnetcore-2-windowshosting). Jeśli instalacja programu Visual Studio, ANCM jest automatycznie instalowany w usługach IIS Express (i w usługach IIS, jeśli jest obecna na maszynie).
 
-Moduł platformy ASP.NET Core musi być zainstalowany w usługach IIS na serwerach i w usługach IIS Express na maszynach w rozwoju. W przypadku serwerów ANCM znajduje się w [pakietu .NET Core systemu Windows serwer obsługujący](https://aka.ms/dotnetcore-2-windowshosting). Programowanie maszyn Visual Studio automatycznie instaluje ANCM w usługach IIS Express i w usługach IIS, jeśli jest już zainstalowany na tym komputerze.
+### <a name="net-core-windows-server-hosting-bundle"></a>Pakiet hostingu .NET core systemu Windows Server
+
+[Pakietu .NET Core systemu Windows serwer obsługujący](https://aka.ms/dotnetcore-2-windowshosting) instaluje podstawowego środowiska wykonawczego platformy .NET, biblioteka programu .NET Core i ANCM. Aby uzyskać więcej informacji, zobacz [instalacji pakietu .NET Core systemu Windows serwer obsługujący](
+xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle).
 
 ### <a name="install-the-iisintegration-nuget-package"></a>Zainstaluj pakiet IISIntegration NuGet
 

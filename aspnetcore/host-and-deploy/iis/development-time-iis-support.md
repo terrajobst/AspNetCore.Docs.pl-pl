@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: a5f727dd21ac0c6702691df2215c42f4adc0ec27
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a8bdf4c0c0399c62666e6e61e70c0298a42c2c12
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Usługi IIS w czasie opracowywania obsługi w programie Visual Studio dla platformy ASP.NET Core
 
@@ -33,11 +33,11 @@ Włącz usługi IIS. Przejdź do **Panelu sterowania** > **programy** > **progra
 
 ![Wyświetlanie wyboru Internetowe usługi informacyjne zaznaczone jako czarny kwadrat (nie zaznaczone) wskazujący, że niektóre funkcje usług IIS są włączone funkcje systemu Windows](development-time-iis-support/_static/enable_iis.png)
 
-Instalacja usług IIS wymaga ponownego uruchomienia systemu, należy ponownie uruchomić system.
+Jeśli instalacja usług IIS wymaga ponownego uruchomienia komputera, należy ponownie uruchomić system.
 
 ## <a name="enable-development-time-iis-support"></a>Włącz obsługę usług IIS w czasie opracowywania
 
-Po zainstalowaniu usług IIS, należy uruchomić Instalator programu Visual Studio, aby zmodyfikować istniejącą instalację programu Visual Studio. W Instalatorze, wybierz **czasie opracowywania usługi IIS obsługują** składnika. Składnik jest wymieniony jako opcjonalny składnik **Podsumowanie** panelu dla **ASP.NET i sieć web development** obciążenia. Spowoduje to zainstalowanie [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), która jest moduł macierzysty usług IIS wymagane do uruchamiania aplikacji platformy ASP.NET Core.
+Uruchom Instalator programu Visual Studio. Wybierz **czasie opracowywania usługi IIS obsługują** składnika. Składnik jest wymieniony jako opcjonalne w **Podsumowanie** panelu dla **ASP.NET i sieć web development** obciążenia. Spowoduje to zainstalowanie [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), która jest moduł macierzysty usług IIS wymagane do uruchomienia aplikacji platformy ASP.NET Core.
 
 ![Modyfikowanie funkcje programu Visual Studio: wybrana jest karta obciążeń. W sekcji sieci Web i w chmurze wybrano panelu programowanie ASP.NET i sieć web. Po prawej stronie w obszarze opcjonalne panel Podsumowanie jest to pole wyboru dla rozwoju razem, gdy usługi IIS obsługują.](development-time-iis-support/_static/development_time_support.png)
 
@@ -73,8 +73,6 @@ Możesz też ręcznie dodać profil uruchamiania do [launchSettings.json](http:/
 ```
 
 Visual Studio może monit o ponowne uruchomienie, gdy nie jest uruchomiona jako administrator. Jeśli zostanie wyświetlony monit, uruchom ponownie program Visual Studio.
-
-Gratulacje! W tym momencie projekt jest skonfigurowany do obsługi usług IIS w czasie opracowywania. 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

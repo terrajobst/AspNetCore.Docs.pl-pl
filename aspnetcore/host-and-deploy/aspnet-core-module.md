@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c1a05c3e40e6aab0f2e4a97c0b3bb9eca8a08a41
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5addaada33364d044d89359196bd1d316590c517
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Konfiguracja modułu Core programu ASP.NET
 
@@ -41,7 +41,7 @@ Moduł platformy ASP.NET Core jest skonfigurowana za pośrednictwem witryny lub 
 </configuration>
 ```
 
-*Web.config* w poniższym przykładzie jest przeznaczony dla [niezależne wdrożenia](https://docs.microsoft.com/dotnet/articles/core/deploying/#self-contained-deployments-scd) do [usłudze Azure App Service](https://azure.microsoft.com/services/app-service/). Aby uzyskać więcej informacji, zobacz [hosta w systemie Windows z programem IIS](xref:host-and-deploy/iis/index). Zobacz [konfiguracji aplikacji podrzędne](xref:host-and-deploy/iis/index#configuration-of-sub-applications) ważne uwagi dotyczące konfiguracji *web.config* plików w aplikacjach podrzędnych.
+*Web.config* w poniższym przykładzie jest przeznaczony dla [niezależne wdrożenia](https://docs.microsoft.com/dotnet/articles/core/deploying/#self-contained-deployments-scd) do [usłudze Azure App Service](https://azure.microsoft.com/services/app-service/). Aby uzyskać więcej informacji, zobacz [hosta w systemie Windows z programem IIS](xref:host-and-deploy/iis/index). Zobacz [konfiguracji aplikacji podrzędne](xref:host-and-deploy/iis/index#sub-application-configuration) ważne uwagi dotyczące konfiguracji *web.config* plików w aplikacjach podrzędnych.
 
 ```xml
 <configuration>
@@ -75,7 +75,7 @@ Moduł platformy ASP.NET Core jest skonfigurowana za pośrednictwem witryny lub 
 
 Moduł platformy ASP.NET Core pozwala określić zmiennych środowiskowych dla procesu, który został określony w `processPath` atrybutu, określając je w co najmniej jednej `environmentVariable` elementy podrzędne `environmentVariables` elementu kolekcji, w obszarze `aspNetCore` elementu. Zmienne środowiskowe w tej sekcji mają pierwszeństwo względem systemu zmiennych środowiskowych dla procesu.
 
-W poniższym przykładzie ustawia dwie zmienne środowiskowe. `ASPNETCORE_ENVIRONMENT`konfiguruje środowisko aplikacji `Development`. Deweloper może tymczasowo Ustaw tę wartość *web.config* pliku, aby wymusić [strona wyjątek dewelopera](xref:fundamentals/error-handling) załadować podczas debugowania aplikacji wyjątek. `CONFIG_DIR`jest przykład zmiennej środowiska użytkownika, gdy projektanta został zapisany kod, który odczyta wartość przy uruchamianiu do utworzenia ścieżkę, aby można było załadować pliku konfiguracyjnego aplikacji.
+W poniższym przykładzie ustawia dwie zmienne środowiskowe. `ASPNETCORE_ENVIRONMENT` konfiguruje środowisko aplikacji `Development`. Deweloper może tymczasowo Ustaw tę wartość *web.config* pliku, aby wymusić [strona wyjątek dewelopera](xref:fundamentals/error-handling) załadować podczas debugowania aplikacji wyjątek. `CONFIG_DIR` jest przykład zmiennej środowiska użytkownika, gdy projektanta został zapisany kod, który odczyta wartość przy uruchamianiu do utworzenia ścieżkę, aby można było załadować pliku konfiguracyjnego aplikacji.
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -146,7 +146,7 @@ Nieobsługiwany obejściem jest wyłączenie konfiguracji udostępnionej usług 
 
    * %windir%\System32\inetsrv\config\schema\aspnetcore_schema.xml
 
-**Usługi IIS Express**
+Usługi IIS Express
 
    * %ProgramFiles%\IIS Express\config\schema\aspnetcore_schema.xml
 
@@ -156,7 +156,7 @@ Nieobsługiwany obejściem jest wyłączenie konfiguracji udostępnionej usług 
 
    * %windir%\System32\inetsrv\config\applicationHost.config
 
-**Usługi IIS Express**
+Usługi IIS Express
 
    * .vs\config\applicationHost.config
 

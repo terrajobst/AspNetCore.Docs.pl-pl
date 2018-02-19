@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: bae970c916518070faea8a06a7bccc3da20cfeff
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: a67e610150e36165a72a2e8957b33ce7d5741936
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Rejestrowanie wysokiej wydajności z LoggerMessage w ASP.NET Core
 
@@ -21,10 +21,10 @@ Przez [Luke Latham](https://github.com/guardrex)
 
 [LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage) funkcje tworzenia buforowalnej delegatów, które wymagają mniej obiekt alokacji i zmniejszyć obciążenie obliczeniowe niż [metody rozszerzenia rejestratora](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions), takich jak `LogInformation`, `LogDebug`i `LogError`. W scenariuszach logowania wysokiej wydajności, należy użyć `LoggerMessage` wzorca.
 
-`LoggerMessage`zapewnia następujące korzyści wydajności za pośrednictwem metody rozszerzenia rejestratora:
+`LoggerMessage` zapewnia następujące korzyści wydajności za pośrednictwem metody rozszerzenia rejestratora:
 
 * Metody rozszerzenia rejestratora wymagane typy wartości "boxing" (konwertowanie), takich jak `int`, do `object`. `LoggerMessage` Wzorzec pozwala uniknąć opakowanie przy użyciu statycznego `Action` pól i metod rozszerzenia z silną kontrolą typów parametrów.
-* Metody rozszerzenia rejestratora należy przeanalizować szablon wiadomości (ciąg formatu o nazwie) zawsze komunikatu dziennika są zapisywane. `LoggerMessage`wymaga tylko raz podczas analizowania szablonu, jeśli komunikat jest zdefiniowana.
+* Metody rozszerzenia rejestratora należy przeanalizować szablon wiadomości (ciąg formatu o nazwie) zawsze komunikatu dziennika są zapisywane. `LoggerMessage` wymaga tylko raz podczas analizowania szablonu, jeśli komunikat jest zdefiniowana.
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
@@ -32,7 +32,7 @@ Przedstawiono przykładową aplikację `LoggerMessage` funkcje podstawowe oferty
 
 ## <a name="loggermessagedefine"></a>LoggerMessage.Define
 
-[Zdefiniuj (LogLevel, identyfikator zdarzenia, ciąg)](/dotnet/api/microsoft.extensions.logging.loggermessage.define) tworzy `Action` delegować do rejestrowania wiadomości. `Define`przeciążenia zezwala na przekazywanie maksymalnie sześć parametrów typu do ciągu formatu o nazwie (szablonu).
+[Zdefiniuj (LogLevel, identyfikator zdarzenia, ciąg)](/dotnet/api/microsoft.extensions.logging.loggermessage.define) tworzy `Action` delegować do rejestrowania wiadomości. `Define` przeciążenia zezwala na przekazywanie maksymalnie sześć parametrów typu do ciągu formatu o nazwie (szablonu).
 
 Podany ciąg `Define` metoda jest szablon i nie ciągu interpolowanym. Symbole zastępcze są wypełnione w kolejności określono typów. Przez Szablony nazwy symbolu zastępczego w szablonie powinny być opisowe i spójne. Służą one jako nazwy właściwości w strukturze danych dziennika. Firma Microsoft zaleca [Pascal wielkości liter](/dotnet/standard/design-guidelines/capitalization-conventions) dla nazwy symbolu zastępczego. Na przykład `{Count}`, `{FirstName}`.
 
@@ -60,7 +60,7 @@ Rejestrowanie strukturalne magazyny może używać nazwy zdarzenia, gdy są dost
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet9)]
 
-`IndexPageRequested`wywoływana jest rejestratora w `OnGetAsync` metody w *Pages/Index.cshtml.cs*:
+`IndexPageRequested` wywoływana jest rejestratora w `OnGetAsync` metody w *Pages/Index.cshtml.cs*:
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
 
@@ -135,7 +135,7 @@ Parameter name: entity
 
 ## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
 
-[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) tworzy `Func` delegować do definiowania [dziennika zakresu](xref:fundamentals/logging/index#log-scopes). `DefineScope`przeciążenia zezwala na przekazywanie maksymalnie trzech parametrów typu do ciągu formatu o nazwie (szablonu).
+[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) tworzy `Func` delegować do definiowania [dziennika zakresu](xref:fundamentals/logging/index#log-scopes). `DefineScope` przeciążenia zezwala na przekazywanie maksymalnie trzech parametrów typu do ciągu formatu o nazwie (szablonu).
 
 Jak w przypadku `Define` metoda, do podanego ciągu `DefineScope` metoda jest szablon i nie ciągu interpolowanym. Symbole zastępcze są wypełnione w kolejności określono typów. Przez Szablony nazwy symbolu zastępczego w szablonie powinny być opisowe i spójne. Służą one jako nazwy właściwości w strukturze danych dziennika. Firma Microsoft zaleca [Pascal wielkości liter](/dotnet/standard/design-guidelines/capitalization-conventions) dla nazwy symbolu zastępczego. Na przykład `{Count}`, `{FirstName}`.
 
@@ -145,7 +145,7 @@ Przykładowa aplikacja ma **Wyczyść wszystko** przycisk usuwania wszystkich zn
 
 Włącz `IncludeScopes` w opcjach rejestratora konsoli:
 
-[!code-csharp[Main](loggermessage/sample/Program.cs?name=snippet1&highlight=22)]
+[!code-csharp[Main](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
 
 Ustawienie `IncludeScopes` wymaganego do włączenia dziennika zakresów w aplikacjach ASP.NET Core 2.0. Ustawienie `IncludeScopes` za pośrednictwem *appsettings* plików konfiguracyjnych jest funkcją, która ma zaplanowane dla wersji platformy ASP.NET Core 2.1.
 
