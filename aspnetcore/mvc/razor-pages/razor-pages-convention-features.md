@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: bf1c895fc972310d5541d0098226d58b8183e320
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b34fd9ad8ae895087dba13f5ebcdcfd3fbb74667
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Razor strony trasy i aplikacji Konwencji funkcji programu ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Dowiedz się, jak za pomocą strony trasy i aplikacjami modelu dostawcy Konwencji funkcji kontroli strony routingu, odnajdywania i przetwarzania w aplikacjach stron Razor. Gdy trzeba skonfigurować niestandardową stronę tras dla poszczególnych stron, Konfigurowanie routingu do stron z [Konwencji AddPageRoute](#configure-a-page-route) opisane w dalszej części tego tematu.
+Dowiedz się, jak używać strony [trasy i aplikacjami modelu Konwencji dostawcy](xref:mvc/controllers/application-model#conventions) funkcji do kontroli strony routingu, odnajdywania i przetwarzania w aplikacjach stron Razor. Gdy trzeba skonfigurować niestandardową stronę tras dla poszczególnych stron, Konfigurowanie routingu do stron z [Konwencji AddPageRoute](#configure-a-page-route) opisane w dalszej części tego tematu.
 
-Użyj [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)) aby poznać funkcje opisane w tym temacie.
+[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 | Funkcje | W przykładzie pokazano... |
 | -------- | --------------------------- |
@@ -32,7 +32,7 @@ Użyj [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnet
 
 ## <a name="add-route-and-app-model-conventions"></a>Dodaj konwencje modelu trasy i aplikacji
 
-Dodaj obiekt delegowany dla [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) można dodać trasy i aplikacji konwencje modelu, które są stosowane do stron Razor.
+Dodaj obiekt delegowany dla [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) można dodać [konwencje modelu trasy i aplikacji](xref:mvc/controllers/application-model#conventions) przeznaczonych do stron Razor.
 
 **Dodawanie Konwencji modelu trasy do wszystkich stron**
 
@@ -45,7 +45,7 @@ Przykładowa aplikacja dodaje `{globalTemplate?}` szablon trasy do wszystkich st
 > [!NOTE]
 > `Order` Właściwość `AttributeRouteModel` ma ustawioną wartość `0` (zero). Dzięki temu, ten szablon jest nadawana priorytet pierwszą pozycję wartości danych trasy, jeśli podano wartość jedną trasę. Na przykład dodaje próbki `{aboutTemplate?}` szablon trasy w dalszej części tematu. `{aboutTemplate?}` Podano szablon `Order` z `1`. Po zażądaniu strony informacje w `/About/RouteDataValue`, "RouteDataValue" zostanie załadowana do `RouteData.Values["globalTemplate"]` (`Order = 0`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 1`) z powodu ustawienia `Order` właściwości.
 
-*Startup.cs*:
+Opcje stron razor, takie jak dodawanie [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions), zostaną dodane, gdy MVC zostanie dodany do kolekcji usługi w `Startup.ConfigureServices`. Na przykład zobacz [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample/).
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet1)]
 
@@ -107,7 +107,7 @@ Przykładowe zastosowania aplikacji `AddPageRouteModelConvention` można dodać 
 
 ## <a name="configure-a-page-route"></a>Konfiguruj trasy strony
 
-Użyj [AddPageRoute](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.addpageroute) do konfigurowania trasy do strony w ścieżce określonej strony. Wygenerowany łącza do strony korzystać z określoną trasę. `AddPageRoute`używa `AddPageRouteModelConvention` ustanowienie trasy.
+Użyj [AddPageRoute](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.addpageroute) do konfigurowania trasy do strony w ścieżce określonej strony. Wygenerowany łącza do strony korzystać z określoną trasę. `AddPageRoute` używa `AddPageRouteModelConvention` ustanowienie trasy.
 
 Przykładowa aplikacja tworzy trasę do `/TheContactPage` dla *Contact.cshtml*:
 
@@ -171,7 +171,7 @@ W przykładzie pokazano użycie `AddPageApplicationModelConvention` przez dodani
 
 Model aplikacji strony służy do sprawdzania ścieżki względnej segmentów, które mogą prowadzić do strony Strona2 *OtherPages* folderu. Jeśli warunek zakończy się pomyślnie, jest dodawana nagłówka. Jeśli nie, `EmptyFilter` została zastosowana.
 
-`EmptyFilter`jest [filtr akcji](xref:mvc/controllers/filters#action-filters). Ponieważ filtry akcji są ignorowane przez stron Razor `EmptyFilter` ops nie zgodnie z oczekiwaniami, jeśli ścieżka nie zawiera `OtherPages/Page2`.
+`EmptyFilter` jest [filtr akcji](xref:mvc/controllers/filters#action-filters). Ponieważ filtry akcji są ignorowane przez stron Razor `EmptyFilter` ops nie zgodnie z oczekiwaniami, jeśli ścieżka nie zawiera `OtherPages/Page2`.
 
 Przykładowe strony Strona2 w `localhost:5000/OtherPages/Page2` i sprawdzić nagłówków, aby wyświetlić wyniki:
 
@@ -266,7 +266,7 @@ Model strony w *Index.cshtml.cs* pokazuje zmian konwencji nazewnictwa metody zwy
 
 Każda z innych metod zaczynać się zlecenie HTTP opisujące jego przetwarzanie. Te dwie metody, które zaczynają się `Delete` zazwyczaj będzie traktowane jako zleceń HTTP, usuwanie, ale logikę `TryParseHandlerMethod` jawnie ustawia zlecenie POST dla obu programów obsługi.
 
-Należy pamiętać, że `Async` jest opcjonalny między `DeleteAllMessages` i `DeleteMessageAsync`. Są one obu metod asynchronicznych, ale mogą być używane `Async` przyrostka lub nie; zaleca się wykonanie. `DeleteAllMessages`jest tu używany do celów demonstracyjnych, ale zaleca się, że nazwa taka metoda `DeleteAllMessagesAsync`. Nie ma wpływu na przetwarzanie próbki implementacji, ale przy użyciu `Async` przyrostka wywołania na fakt, że jest metody asynchronicznej.
+Należy pamiętać, że `Async` jest opcjonalny między `DeleteAllMessages` i `DeleteMessageAsync`. Są one obu metod asynchronicznych, ale mogą być używane `Async` przyrostka lub nie; zaleca się wykonanie. `DeleteAllMessages` jest tu używany do celów demonstracyjnych, ale zaleca się, że nazwa taka metoda `DeleteAllMessagesAsync`. Nie ma wpływu na przetwarzanie próbki implementacji, ale przy użyciu `Async` przyrostka wywołania na fakt, że jest metody asynchronicznej.
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Pages/Index.cshtml.cs?name=snippet1&highlight=1,6,16,29)]
 
@@ -274,7 +274,7 @@ Zanotuj nazwy obsługi w *Index.cshtml* odpowiada `DeleteAllMessages` i `DeleteM
 
 [!code-cshtml[Main](razor-pages-convention-features/sample/Pages/Index.cshtml?range=29-60&highlight=7-8,24-25)]
 
-`Async`w nazwie metody obsługi `DeleteMessageAsync` jest brana pod uwagę limit przez `TryParseHandlerMethod` do obsługi dopasowania żądania POST do metody. `asp-page-handler` Nazwa `DeleteMessage` jest dopasowywany do metody obsługi `DeleteMessageAsync`.
+`Async` w nazwie metody obsługi `DeleteMessageAsync` jest brana pod uwagę limit przez `TryParseHandlerMethod` do obsługi dopasowania żądania POST do metody. `asp-page-handler` Nazwa `DeleteMessage` jest dopasowywany do metody obsługi `DeleteMessageAsync`.
 
 ## <a name="mvc-filters-and-the-page-filter-ipagefilter"></a>Filtry MVC i filtr strony (IPageFilter)
 

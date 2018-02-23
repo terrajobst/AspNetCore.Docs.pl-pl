@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 646793337037db25a321d273e10565770d76f202
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: d1c06e850d1a05e393a423c43cdfd368baca0cfe
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Wprowadzenie do korzystania z pomocników tagów w formularzy w programie ASP.NET Core
 
@@ -583,4 +583,4 @@ Poprawny `<option>` będzie można wybrać elementu (zawierać `selected="select
 * [Wiązanie modelu](xref:mvc/models/model-binding)
 * [Weryfikacja modelu](xref:mvc/models/validation)
 * [Interfejs IAttributeAdapter](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
-* [Wstawki kodu dla tego dokumentu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample)
+* [Wstawki kodu dla tego dokumentu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: 766cec5dd00b7b464eef31a3bc1721f522697608
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 139f6dc53b171c19a9fff67b9aba9cf90e188f62
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w ASP.NET Core
 
@@ -35,13 +35,13 @@ Lokalizacja aplikacji obejmuje następujące czynności:
 
 ## <a name="make-the-apps-content-localizable"></a>Wprowadź zlokalizowania zawartości aplikacji
 
-Wprowadzone w ASP.NET Core `IStringLocalizer` i `IStringLocalizer<T>` zostały zaprojektowane pod poprawia wydajność podczas opracowywania zlokalizowane aplikacji. `IStringLocalizer`używa [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager) i [ResourceReader](https://docs.microsoft.com/dotnet/api/system.resources.resourcereader) zapewnienie zasobów określonej kultury w czasie wykonywania. Indeksator ma prosty interfejs i `IEnumerable` dla zwracania zlokalizowanych ciągów. `IStringLocalizer`nie wymaga przechowywania ciągów języka domyślnego pliku zasobu. Mogą tworzyć aplikacji przeznaczony dla lokalizacji i nie trzeba tworzyć pliki zasobów na początku programowanie. Poniższy kod przedstawia sposób zawijania ciąg "Title o" do lokalizacji.
+Wprowadzone w ASP.NET Core `IStringLocalizer` i `IStringLocalizer<T>` zostały zaprojektowane pod poprawia wydajność podczas opracowywania zlokalizowane aplikacji. `IStringLocalizer` używa [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager) i [ResourceReader](https://docs.microsoft.com/dotnet/api/system.resources.resourcereader) zapewnienie zasobów określonej kultury w czasie wykonywania. Indeksator ma prosty interfejs i `IEnumerable` dla zwracania zlokalizowanych ciągów. `IStringLocalizer` nie wymaga przechowywania ciągów języka domyślnego pliku zasobu. Mogą tworzyć aplikacji przeznaczony dla lokalizacji i nie trzeba tworzyć pliki zasobów na początku programowanie. Poniższy kod przedstawia sposób zawijania ciąg "Title o" do lokalizacji.
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/AboutController.cs)]
 
 W powyższym kodzie `IStringLocalizer<T>` implementacji pochodzi z [iniekcji zależności](dependency-injection.md). Jeśli nie zostanie odnaleziony zlokalizowaną wartość tytułu"temat", a następnie z kluczem indeksatora, jest zwracany, czyli ciąg "Title o". Możesz pozostaw wartość domyślną literału ciągi języka w aplikacji i zawijanie je w lokalizatora, dzięki czemu można skupić się na temat tworzenia aplikacji. Opracuj swoją aplikację z językiem domyślnym i przygotowania kroku lokalizacji bez tworzenia domyślnego pliku zasobów. Alternatywnie można użyć tradycyjne podejście i podaj klucz, aby pobrać domyślny ciąg języka. Dla wielu deweloperów nowy przepływ pracy nie ma domyślny język *.resx* plików i po prostu zawijania Literały ciągu można zmniejszyć koszty lokalizowanie aplikacji. Inni deweloperzy preferowane przepływu pracy tradycyjnych zgodnie z jego może ułatwić pracę z dłużej literały ciągów i ułatwić aktualizowanie zlokalizowanych ciągów.
 
-Użyj `IHtmlLocalizer<T>` implementacji dla zasobów, które zawierają HTML. `IHtmlLocalizer`Argumenty, które są sformatowane w ciągu zasobu koduje HTML, ale nie sam ciąg zasobu kodowanie HTML. W przykładzie wyróżnione poniżej tylko wartości `name` parametr ma kodowania HTML.
+Użyj `IHtmlLocalizer<T>` implementacji dla zasobów, które zawierają HTML. `IHtmlLocalizer` Argumenty, które są sformatowane w ciągu zasobu koduje HTML, ale nie sam ciąg zasobu kodowanie HTML. W przykładzie wyróżnione poniżej tylko wartości `name` parametr ma kodowania HTML.
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
@@ -67,7 +67,7 @@ Niektórzy deweloperzy wykorzystują `Startup` klasa może zawierać ciągów gl
 
 [!code-cshtml[Main](localization/sample/Localization/Views/Home/About.cshtml)]
 
-Domyślna implementacja `IViewLocalizer` umożliwia znalezienie pliku zasobów na podstawie nazwy pliku dla widoku. Nie jest dostępna opcja używania pliku globalnego zasobu udostępnionego. `ViewLocalizer`implementuje za pomocą lokalizatora `IHtmlLocalizer`, więc Razor nie HTML zlokalizowany ciąg do zakodowania. Można parametryzacja ciągów zasobów i `IViewLocalizer` będzie kodowanie HTML parametrów, ale nie do ciągu zasobu. Należy wziąć pod uwagę następujące znaczników Razor:
+Domyślna implementacja `IViewLocalizer` umożliwia znalezienie pliku zasobów na podstawie nazwy pliku dla widoku. Nie jest dostępna opcja używania pliku globalnego zasobu udostępnionego. `ViewLocalizer` implementuje za pomocą lokalizatora `IHtmlLocalizer`, więc Razor nie HTML zlokalizowany ciąg do zakodowania. Można parametryzacja ciągów zasobów i `IViewLocalizer` będzie kodowanie HTML parametrów, ale nie do ciągu zasobu. Należy wziąć pod uwagę następujące znaczników Razor:
 
 ```cshtml
 @Localizer["<i>Hello</i> <b>{0}!</b>", UserManager.GetUserName(User)]
@@ -120,7 +120,7 @@ W kodzie poprzedzających `SharedResource` jest klasa odpowiadający resx przech
 
 ### <a name="supportedcultures-and-supporteduicultures"></a>SupportedCultures i SupportedUICultures
 
-Platformy ASP.NET Core służy do określania dwóch wartości kultury, `SupportedCultures` i `SupportedUICultures`. [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo) obiekt do `SupportedCultures` określa wyniki funkcje zależne od kultury, takie jak data, czas, numer i formatowanie waluty. `SupportedCultures`Określa również kolejność sortowania tekstu, konwencje wielkość liter i porównywania ciągów. Zobacz [wartość CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture) uzyskać więcej informacji dotyczących sposobu serwera pobiera kultury. `SupportedUICultures` Określa, który tłumaczy ciągi (z *.resx* pliki) są wyszukiwane przez [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager). `ResourceManager` Po prostu wyszukuje specyficzne dla kultury ciągów, które jest określane przez `CurrentUICulture`. Każdy wątek .NET ma `CurrentCulture` i `CurrentUICulture` obiektów. Platformy ASP.NET Core sprawdzi te wartości podczas renderowania funkcje zależne od kultury. Na przykład, jeśli kultury bieżącej wątku ma ustawioną wartość "en US" (angielski, Stany Zjednoczone) `DateTime.Now.ToLongDateString()` Wyświetla "Czwartek, 18 luty 2016 r.", ale jeśli `CurrentCulture` jest ustawiona na "es-ES" (wersja hiszpańska, Hiszpania) dane wyjściowe będą "jueves, de febrero 18 de 2016".
+Platformy ASP.NET Core służy do określania dwóch wartości kultury, `SupportedCultures` i `SupportedUICultures`. [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo) obiekt do `SupportedCultures` określa wyniki funkcje zależne od kultury, takie jak data, czas, numer i formatowanie waluty. `SupportedCultures` Określa również kolejność sortowania tekstu, konwencje wielkość liter i porównywania ciągów. Zobacz [wartość CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture) uzyskać więcej informacji dotyczących sposobu serwera pobiera kultury. `SupportedUICultures` Określa, który tłumaczy ciągi (z *.resx* pliki) są wyszukiwane przez [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager). `ResourceManager` Po prostu wyszukuje specyficzne dla kultury ciągów, które jest określane przez `CurrentUICulture`. Każdy wątek .NET ma `CurrentCulture` i `CurrentUICulture` obiektów. Platformy ASP.NET Core sprawdzi te wartości podczas renderowania funkcje zależne od kultury. Na przykład, jeśli kultury bieżącej wątku ma ustawioną wartość "en US" (angielski, Stany Zjednoczone) `DateTime.Now.ToLongDateString()` Wyświetla "Czwartek, 18 luty 2016 r.", ale jeśli `CurrentCulture` jest ustawiona na "es-ES" (wersja hiszpańska, Hiszpania) dane wyjściowe będą "jueves, de febrero 18 de 2016".
 
 ## <a name="resource-files"></a>Pliki zasobów
 
@@ -190,11 +190,11 @@ Lokalizacja jest skonfigurowana w `ConfigureServices` metody:
 
 [!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet1)]
 
-* `AddLocalization`Dodaje usługi lokalizacji do kontenera usług. Powyższy kod także ustawia ścieżkę zasobów do "Zasoby".
+* `AddLocalization` Dodaje usługi lokalizacji do kontenera usług. Powyższy kod także ustawia ścieżkę zasobów do "Zasoby".
 
-* `AddViewLocalization`Dodaje obsługę wyświetlanie zlokalizowanych plików. W tym widoku próbki lokalizacja jest oparta na sufiks widoku pliku. Na przykład "fr" w *Index.fr.cshtml* pliku.
+* `AddViewLocalization` Dodaje obsługę wyświetlanie zlokalizowanych plików. W tym widoku próbki lokalizacja jest oparta na sufiks widoku pliku. Na przykład "fr" w *Index.fr.cshtml* pliku.
 
-* `AddDataAnnotationsLocalization`Dodaje wsparcie dla zlokalizowane `DataAnnotations` weryfikacji komunikaty za pośrednictwem `IStringLocalizer` obiektów abstrakcyjnych.
+* `AddDataAnnotationsLocalization` Dodaje wsparcie dla zlokalizowane `DataAnnotations` weryfikacji komunikaty za pośrednictwem `IStringLocalizer` obiektów abstrakcyjnych.
 
 ### <a name="localization-middleware"></a>Lokalizacja oprogramowania pośredniczącego
 
@@ -202,7 +202,7 @@ Bieżąca kultura na żądanie znajduje się w lokalizacji [oprogramowanie pośr
 
 [!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet2)]
 
-`UseRequestLocalization`Inicjuje `RequestLocalizationOptions` obiektu. Na każde żądanie listy z `RequestCultureProvider` w `RequestLocalizationOptions` wyliczeniu i pierwszy dostawca, który pomyślnie można określić kulturę żądania jest używany. Domyślnych dostawców pochodzą z `RequestLocalizationOptions` klasy:
+`UseRequestLocalization` Inicjuje `RequestLocalizationOptions` obiektu. Na każde żądanie listy z `RequestCultureProvider` w `RequestLocalizationOptions` wyliczeniu i pierwszy dostawca, który pomyślnie można określić kulturę żądania jest używany. Domyślnych dostawców pochodzą z `RequestLocalizationOptions` klasy:
 
 1. `QueryStringRequestCultureProvider`
 2. `CookieRequestCultureProvider`
@@ -285,6 +285,7 @@ Użyj `RequestLocalizationOptions` Aby dodać lub usunąć lokalizacji dostawcy.
 
 W tym przykładzie **Localization.StarterWeb** projektu na [GitHub](https://github.com/aspnet/entropy) zawiera interfejsu użytkownika można ustawić `Culture`. *Views/Shared/_SelectLanguagePartial.cshtml* pliku można wybrać z listy obsługiwanych kultur kultura:
 
+
 [!code-cshtml[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 
 *Views/Shared/_SelectLanguagePartial.cshtml* plik zostanie dodany do `footer` sekcji pliku układu, będą dostępne dla wszystkich widoków:
@@ -323,3 +324,4 @@ Warunki:
 * [Projekt Localization.StarterWeb](https://github.com/aspnet/entropy) używane w artykule.
 * [Pliki zasobów w programie Visual Studio](https://docs.microsoft.com/cpp/windows/resource-files-visual-studio)
 * [Zasoby w pliki .resx](https://docs.microsoft.com/dotnet/framework/resources/working-with-resx-files-programmatically)
+* [Zestaw narzędzi firmy Microsoft wielojęzyczny aplikacji](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)

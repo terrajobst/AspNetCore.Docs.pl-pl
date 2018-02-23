@@ -14,11 +14,11 @@ Jeśli okno przeglądarki jest mały (na przykład na urządzeniu przenośnym), 
 
 Wybierz z menu łączy (**MvcMovie**, **Home**, **o**). Każda strona zawiera ten sam układ menu. Układ menu jest zaimplementowana w *Views/Shared/_Layout.cshtml* pliku. Otwórz *Views/Shared/_Layout.cshtml* pliku.
 
-[Układ](xref:mvc/views/layout) Szablony umożliwiają określ układ kontenera HTML witryny w jednym miejscu, a następnie zastosować je na wielu stronach w witrynie sieci. Znajdź `@RenderBody()` wiersza. `RenderBody`jest symbol zastępczy, gdzie wszystkie widoku specyficzne dla stron, możesz utworzyć pokaz, *opakowana* na stronie układu. Na przykład w przypadku wybrania **o** łącza, **Views/Home/About.cshtml** renderowania widoku wewnątrz `RenderBody` metody.
+[Układ](xref:mvc/views/layout) Szablony umożliwiają określ układ kontenera HTML witryny w jednym miejscu, a następnie zastosować je na wielu stronach w witrynie sieci. Znajdź `@RenderBody()` wiersza. `RenderBody` jest symbol zastępczy, gdzie wszystkie widoku specyficzne dla stron, możesz utworzyć pokaz, *opakowana* na stronie układu. Na przykład w przypadku wybrania **o** łącza, **Views/Home/About.cshtml** renderowania widoku wewnątrz `RenderBody` metody.
 
 ## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Zmień łącza tytuł i menu w pliku układu
 
-W elemencie tytuł zmienić `MvcMovie` do `Movie App`. Zmień tekst zakotwiczenia w szablon układu z `MvcMovie` do `Mvc Movie` i kontroler z `Home` do `Movies` jak wyróżniono poniżej:
+W elemencie tytuł zmienić `MvcMovie` do `Movie App`. Zmień tekst zakotwiczenia w szablon układu z `MvcMovie` do `Movie App` i kontroler z `Home` do `Movies` jak wyróżniono poniżej:
 
 Uwaga: Wersja platformy ASP.NET Core 2.0 jest nieco inne. Nie zawiera on `@inject ApplicationInsights` i `@Html.Raw(JavaScriptSnippet.FullScript)`.
 
@@ -64,7 +64,7 @@ Należy podjąć ich nieco inne pozwala zobaczyć, które fragmentem kodu zmieni
 <p>Hello from our View Template!</p>
 ```
 
-`ViewData["Title"] = "Movie List";`w kodzie powyżej zestawy `Title` właściwość `ViewData` słownik "Listy filmów". `Title` Właściwość jest używana w `<title>` elementu HTML na stronie układu:
+`ViewData["Title"] = "Movie List";` w kodzie powyżej zestawy `Title` właściwość `ViewData` słownik "Listy filmów". `Title` Właściwość jest używana w `<title>` elementu HTML na stronie układu:
 
 
 ```HTML

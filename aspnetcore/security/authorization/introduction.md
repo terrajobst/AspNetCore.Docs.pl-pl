@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/introduction
-ms.openlocfilehash: a6bd81a4e5796c1d0a0033c2b8d5a6ba9282564c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3fef6d38672af8871c04b65834789a39a7df8487
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="introduction"></a>Wprowadzenie
 
@@ -25,8 +25,10 @@ Autoryzacja jest prostopadły i niezależnie od uwierzytelniania, które polega 
 
 ## <a name="authorization-types"></a>Typy autoryzacji
 
-Platformy ASP.NET Core autoryzacji udostępnia prostą deklaratywne [roli](roles.md) i [sformatowanego opartej na zasadach](policies.md) modelu. Autoryzacji jest wyrażona w wymagania i procedury obsługi ocenić oświadczenia użytkownika względem wymagań. Kontrole konieczne może bazować na prostego lub zasady, których ocena tożsamości użytkownika i właściwości zasobu, do którego użytkownik próbuje uzyskać dostęp.
+Platformy ASP.NET Core autoryzacji udostępnia prostą, deklaratywne [roli](roles.md) i wzbogaconej [opartych na zasadach](policies.md) modelu. Autoryzacji jest wyrażona w wymagania i procedury obsługi ocenić oświadczenia użytkownika względem wymagań. Kontrole konieczne może bazować na prostego lub zasady, których ocena tożsamości użytkownika i właściwości zasobu, do którego użytkownik próbuje uzyskać dostęp.
 
 ## <a name="namespaces"></a>Namespaces
 
-Składniki autoryzacji, w tym `AuthorizeAttribute` i `AllowAnonymousAttribute` atrybutów znajdują się w `Microsoft.AspNetCore.Authorization` przestrzeni nazw.
+Składniki autoryzacji, w tym `AuthorizeAttribute` i `AllowAnonymousAttribute` atrybuty, znajdują się w `Microsoft.AspNetCore.Authorization` przestrzeni nazw.
+
+Zapoznaj się z dokumentacją na [proste autoryzacji](xref:security/authorization/simple).

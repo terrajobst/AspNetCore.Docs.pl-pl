@@ -1,38 +1,41 @@
 ---
 title: Autoryzacja w platformy ASP.NET Core
 author: rick-anderson
-description: "Ten dokument służy jako spisu treści dla różnych tematów autoryzacji platformy ASP.NET Core."
+description: "Wykryj platformy ASP.NET Core autoryzacji tematów, w których wyjaśniono, jak zapewnić prawa i uprawnienia dla użytkowników aplikacji."
 manager: wpickett
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 02/19/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/index
-ms.openlocfilehash: ee408afab55a80d28291a3a44e0fd1513ff34e45
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 652a01d58f7a7d19faa8531b61ea780bc379c428
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/20/2018
 ---
-# <a name="authorization-in-aspnet-core-simple-role-claims-based-and-custom"></a>Autoryzacja w ASP.NET Core: prosty, rolę, opartej na oświadczeniach, a niestandardowe
+# <a name="authorization-in-aspnet-core"></a>Autoryzacja w platformy ASP.NET Core
 
-* [Wprowadzenie](introduction.md)
+* [Wprowadzenie](xref:security/authorization/introduction)
+
+* [Tworzenie aplikacji przy użyciu danych użytkownika chronionych przez autoryzację](xref:security/authorization/secure-data)
 
 * [Autoryzacja stron Razor](xref:security/authorization/razor-pages-authorization)
 
-* [Autoryzacja prosta](simple.md)
+* [Autoryzacja prosta](xref:security/authorization/simple)
 
-* [Autoryzacja oparta na rolach](roles.md)
+* [Autoryzacja oparta na rolach](xref:security/authorization/roles)
 
-* [Autoryzacja oparta na oświadczeniach](claims.md)
+* [Autoryzacja oparta na oświadczeniach](xref:security/authorization/claims)
 
-* [Autoryzacja oparta na zasadach](policies.md)
+* [Autoryzacja oparta na zasadach](xref:security/authorization/policies)
 
-* [Wstrzykiwanie zależności w programach obsługi wymagań](dependencyinjection.md)
+* [Wstrzykiwanie zależności w programach obsługi wymagań](xref:security/authorization/dependencyinjection)
 
-* [Autoryzacja na podstawie zasobów](resourcebased.md)
+* [Autoryzacja na podstawie zasobów](xref:security/authorization/resourcebased)
 
-* [Autoryzacja na podstawie widoku](views.md)
+* [Autoryzacja na podstawie widoku](xref:security/authorization/views)
 
-* [Ograniczanie tożsamości według schematu](limitingidentitybyscheme.md)
+* [Autoryzowanie z określonego systemu](xref:security/authorization/limitingidentitybyscheme)
