@@ -5,20 +5,20 @@ description: "Poznaj pomocników tagów są i sposobu ich używania w ASP.NET Co
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 7/14/2017
+ms.date: 2/14/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 939eccd45ec437f379fb9349c24246cc0683528b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 669fb9b22d070a75d891e875156d62590c40fc5a
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Wprowadzenie do pomocników tagów w platformy ASP.NET Core 
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-are-tag-helpers"></a>Co to są pomocników tagów?
 
@@ -32,19 +32,32 @@ Pomocników tagów włączyć kod po stronie serwera do tworzenia i renderowania
 
 **Można dokonać bardziej wydajną i może wygenerować bardziej niezawodne, niezawodne i kodu za pomocą informacje są dostępne tylko na serwerze** na przykład w przeszłości mantra na aktualizowanie obrazów była zmiana nazwy obrazu po zmianie obraz. Obrazy mają być buforowane agresywnie ze względu na wydajność, a jeśli nie zmienisz nazwę obrazu ryzyka klientom pobieranie starych kopii. W przeszłości po obraz był edytowany, nazwa ma zostać zmienione, a każde odwołanie do obrazu w aplikacji sieci web nie trzeba aktualizować. Nie tylko jest to bardzo pracę znacznym, jest również podatna (można pominąć odwołanie, przypadkowo wprowadź nieprawidłowy ciąg znaków, itp.) Wbudowane `ImageTagHelper` można wykonać tej operacji automatycznie. `ImageTagHelper` Dołączyć wersję numer do nazwy obrazu, więc przy każdej zmianie obrazu serwera automatycznie generuje nową wersję unikatowy dla obrazu. Klienci dotrą do pobrania bieżącego obrazu. Ten oszczędności niezawodności i instalacyjne pochodzą zasadniczo wolnego przy użyciu `ImageTagHelper`.
 
-Większość wbudowanych pomocników tagów target istniejących elementów HTML i udostępniania atrybutów po stronie serwera dla elementu. Na przykład `<input>` element używany w wielu widoków *widoków/konta* folder zawiera `asp-for` atrybut, który wyodrębnia nazwa właściwości określonego modelu do renderowanego kodu HTML. Następujący kod Razor:
+Największą liczbą wbudowanych pomocników tagów docelową standardowych elementów HTML i udostępniania atrybutów po stronie serwera dla elementu. Na przykład `<input>` element używany w wielu widokach w *widoków/konta* folder zawiera `asp-for` atrybutu. Ten atrybut wyodrębnia nazwa właściwości określonego modelu do renderowany kod HTML. Należy wziąć pod uwagę widoku Razor z następującego modelu:
+
+```csharp
+public class Movie
+{
+    public int ID { get; set; }
+    public string Title { get; set; }
+    public DateTime ReleaseDate { get; set; }
+    public string Genre { get; set; }
+    public decimal Price { get; set; }
+}
+```
+
+Następujący kod Razor:
 
 ```cshtml
-<label asp-for="Email"></label>
+<label asp-for="Movie.Title"></label>
 ```
 
 Generuje poniższy kod HTML:
 
-```cshtml
-<label for="Email">Email</label>
+```html
+ <label for="Movie_Title">Title</label>
 ```
 
-`asp-for` Atrybutu jest udostępniana przez `For` właściwości w `LabelTagHelper`. Zobacz [tworzenia pomocników tagów](authoring.md) Aby uzyskać więcej informacji.
+`asp-for` Atrybutu jest udostępniana przez `For` właściwości w [LabelTagHelper](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.labeltaghelper?view=aspnetcore-2.0). Zobacz [tworzenia pomocników tagów](xref:mvc/views/tag-helpers/authoring) Aby uzyskać więcej informacji.
 
 ## <a name="managing-tag-helper-scope"></a>Zarządzanie zakresem pomocnika tagów
 
@@ -52,7 +65,7 @@ Zakres pomocników tagów jest kontrolowany przy użyciu kombinacji `@addTagHelp
 
 <a name="add-helper-label"></a>
 
-### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper`udostępnia pomocników tagów
+### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper` udostępnia pomocników tagów
 
 Jeśli tworzenie nowej aplikacji sieci web platformy ASP.NET Core o nazwie *AuthoringTagHelpers* (z bez uwierzytelniania), następujące *Views/_ViewImports.cshtml* plik zostanie dodany do projektu:
 
@@ -83,7 +96,7 @@ Jak wspomniano wcześniej, dodawanie `@addTagHelper` dyrektywy do *Views/_ViewIm
 
 <a name="remove-razor-directives-label"></a>
 
-### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper`Usuwa pomocników tagów
+### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper` Usuwa pomocników tagów
 
 `@removeTagHelper` Ma takie same parametry dwóch jako `@addTagHelper`, i usuwa pomocnika Tag, które zostały wcześniej dodane. Na przykład `@removeTagHelper` stosowane do określonego widoku powoduje usunięcie określonego pomocnika tagów z widoku. Przy użyciu `@removeTagHelper` w *Views/Folder/_ViewImports.cshtml* pliku usuwa określonego pomocnika Tag ze wszystkich widoków *folderu*.
 
@@ -242,7 +255,7 @@ Edytor programu Visual Studio ułatwia pisanie **wszystkie** z kodu znaczników 
 
 * Formanty serwera sieci Web umożliwia konwertowanie ciągów na obiekty konwertery typu. Z pomocników tagów pracy natywnie w języku C#, dzięki czemu nie trzeba konwersja typu.
 
-* Serwer sieci Web steruje użyciem [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) do zaimplementowania zachowania czasu wykonywania i czasu projektowania, składników i kontrolek. `System.ComponentModel`zawiera klasy podstawowe i interfejsy dla wykonania atrybutów i typy konwerterów, powiązanie z danymi źródeł i licencjonowania składników. Natomiast który do pomocników tagów, które zwykle pochodzi od `TagHelper`i `TagHelper` klasy podstawowej przedstawia tylko dwie metody `Process` i `ProcessAsync`.
+* Serwer sieci Web steruje użyciem [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) do zaimplementowania zachowania czasu wykonywania i czasu projektowania, składników i kontrolek. `System.ComponentModel` zawiera klasy podstawowe i interfejsy dla wykonania atrybutów i typy konwerterów, powiązanie z danymi źródeł i licencjonowania składników. Natomiast który do pomocników tagów, które zwykle pochodzi od `TagHelper`i `TagHelper` klasy podstawowej przedstawia tylko dwie metody `Process` i `ProcessAsync`.
 
 ## <a name="customizing-the-tag-helper-element-font"></a>Dostosowywanie czcionki element pomocnika tagów
 
@@ -253,6 +266,6 @@ Możesz dostosować czcionki i kolorowania z **narzędzia** > **opcje** > **śro
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
-* [Praca z formularzy](xref:mvc/views/working-with-forms)
+* [Praca z formularzy ](xref:mvc/views/working-with-forms)
 * [TagHelperSamples w serwisie GitHub](https://github.com/dpaquette/TagHelperSamples) zawiera przykłady pomocnika tagów do pracy z [Bootstrap](http://getbootstrap.com/).
-* [Praca z formularzy](xref:mvc/views/working-with-forms)
+* [Praca z formularzy ](xref:mvc/views/working-with-forms)

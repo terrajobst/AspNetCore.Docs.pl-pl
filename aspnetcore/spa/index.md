@@ -1,26 +1,26 @@
 ---
-title: "Za pomocą szablonów aplikacji jednostronicowej"
+title: "Za pomocą szablonów jednej strony aplikacji"
 author: SteveSandersonMS
-description: "Dowiedz się, jak zainstalować i rozpocząć pracę z szablonami projektu platformy ASP.NET Core jednostronicowej aplikacji JEDNOSTRONICOWEJ release candidate."
+description: "Dowiedz się, jak zainstalować i rozpoczynanie pracy z szablonami projektu platformy ASP.NET Core jednej strony aplikacji JEDNOSTRONICOWEJ."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/index
-ms.openlocfilehash: 2017c2ada835eb7206dcfd195f6e2c032909f9ef
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 63b56de101199e9ea0d66d89d2dd7288e47902f6
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-single-page-application-templates-release-candidate"></a>Za pomocą szablonów aplikacji jednej strony (w wersji release candidate)
+# <a name="use-the-single-page-application-templates"></a>Za pomocą szablonów jednej strony aplikacji
 
 > [!NOTE]
-> Wydane oprogramowanie .NET Core 2.0.x zestaw SDK zawiera szablony projektów dla kątową, platformy React i reagować z Redux. **Ta dokumentacja nie te szablony wydaną projektu — informacje.** W tej dokumentacji do następnej wersji kątową, platformy React i reagują z Redux szablonów, które mamy nadzieję, że do wysłania w wczesne 2018.
+> Wydane oprogramowanie .NET Core 2.0.x zestaw SDK zawiera szablony projektów starsze dla kątową, platformy React i reagować z Redux. W tej dokumentacji nie ma tych starszych szablony projektu — informacje. W tej dokumentacji do najnowszej kątową, platformy React i reagują z Redux szablonów, które można zainstalować ręcznie do składnika ASP.NET 2.0 Core. Szablony znajdują się domyślnie z platformy ASP.NET Core 2.1.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,10 +29,10 @@ ms.lasthandoff: 02/11/2018
 
 ## <a name="installation"></a>Instalacja
 
-Uruchom następujące polecenie, aby zainstalować **wersji release candidate** szablonów platformy ASP.NET Core dla kątową, reagować i reagować z Redux:
+Jeśli masz składnika ASP.NET 2.0 Core, uruchom następujące polecenie, aby zainstalować zaktualizowanych szablonów platformy ASP.NET Core dla kątową reagować i reagować z Redux:
 
 ```console
-dotnet new --install Microsoft.DotNet.Web.Spa.ProjectTemplates::2.0.0-rc2-final
+dotnet new --install Microsoft.DotNet.Web.Spa.ProjectTemplates::2.0.0
 ```
 
 ## <a name="use-the-templates"></a>Za pomocą szablonów

@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility-third-party-container
-ms.openlocfilehash: bbfd9d748df59418345ddd3eacd6f44b75f6e851
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: bb318747e254ac244facc1fe1ff08a1f5c4727f2
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="factory-based-middleware-activation-with-a-third-party-container-in-aspnet-core"></a>Aktywacji opartej na fabryki oprogramowania pośredniczącego z kontenerem innych firm w ASP.NET Core
 
@@ -24,7 +24,7 @@ W tym artykule przedstawiono sposób użycia [IMiddlewareFactory](/dotnet/api/mi
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility-third-party-container/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-Oprogramowanie pośredniczące aktywacji przez przedstawiono przykładową aplikację `IMiddlewareFactory` implementacji `SimpleInjectorMiddlewareFactory`. W przykładzie użyto [proste iniektor](https://github.com/simpleinjector/SimpleInjector) kontenera (Podpisane) iniekcji zależności.
+Oprogramowanie pośredniczące aktywacji przez przedstawiono przykładową aplikację `IMiddlewareFactory` implementacji `SimpleInjectorMiddlewareFactory`. W przykładzie użyto [proste iniektor](https://simpleinjector.org) kontenera (Podpisane) iniekcji zależności.
 
 Podana wartość parametru ciągu zapytania rejestruje implementacji oprogramowania pośredniczącego w próbce (`key`). Oprogramowanie pośredniczące używa kontekstu wprowadzony bazy danych (usługa zakresie) do rejestrowania wartość ciągu kwerendy w bazie danych w pamięci.
 
@@ -51,7 +51,7 @@ Rozszerzenie jest tworzona dla oprogramowania pośredniczącego (*Middleware/Mid
 
 [!code-csharp[](extensibility-third-party-container/sample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
 
-`Startup.ConfigureServices`trzeba wykonać kilka zadań:
+`Startup.ConfigureServices` trzeba wykonać kilka zadań:
 
 * Skonfiguruj kontener iniektor proste.
 * Zarejestruj fabrykę i oprogramowania pośredniczącego.

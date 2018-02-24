@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/partial
-ms.openlocfilehash: 169948e5d7dc8068463ed61114666148b785b217
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a92466e7e8b12586efb502676cb92c1420d80453
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="partial-views"></a>Widoki częściowe
 
@@ -43,15 +43,15 @@ Widoki częściowe są tworzone, podobnie jak inne widoki: tworzenia *.cshtml* p
 
 Na stronie widoku istnieją z kilka sposobów, w których można renderowania widoku częściowego. Najprostszą jest użycie `Html.Partial`, która zwraca `IHtmlString` i może odwoływać się prefiksu to wywołanie `@`:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=9)]
+[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=9)]
 
 `PartialAsync` Metoda jest dostępna dla częściowego widoków zawierających kod asynchroniczne (chociaż zazwyczaj nie zaleca się kodu w widokach):
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
+[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
 
 Można renderowania widoku częściowego z `RenderPartial`. Ta metoda nie zwraca wyniku; jego strumieni przetworzonych wyników bezpośrednio do odpowiedzi. Ponieważ nie zwraca wyników, musi być wywoływana w bloku kodu Razor (można również wywołać `RenderPartialAsync` w razie potrzeby):
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=10-12)]
+[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=10-12)]
 
 Ponieważ strumieni wynik bezpośrednio, `RenderPartial` i `RenderPartialAsync` może działać lepiej w niektórych scenariuszach. Jednak w większości przypadków zaleca możesz użyć `Partial` i `PartialAsync`.
 
@@ -62,7 +62,7 @@ Ponieważ strumieni wynik bezpośrednio, `RenderPartial` i `RenderPartialAsync` 
 
 Podczas odwoływania się do widoku częściowego, mogą odwoływać się do lokalizacji na kilka sposobów:
 
-```text
+```cshtml
 // Uses a view in current folder with this name
 // If none is found, searches the Shared folder
 @Html.Partial("ViewName")
@@ -88,35 +88,35 @@ Widoki częściowe mogą być *łańcuchowej*. Oznacza to widok częściowy moż
 
 ## <a name="accessing-data-from-partial-views"></a>Uzyskiwanie dostępu do danych z częściowa widoków
 
-W przypadku wystąpienia widoku częściowego, pobiera on kopię widoku nadrzędnego `ViewData` słownika. Aktualizacje wprowadzone do danych w widoku częściowego nie są zachowywane dla widoku nadrzędnego. `ViewData`zmieniony w częściowym widoku zostaną utracone po powrocie z widoku częściowego.
+W przypadku wystąpienia widoku częściowego, pobiera on kopię widoku nadrzędnego `ViewData` słownika. Aktualizacje wprowadzone do danych w widoku częściowego nie są zachowywane dla widoku nadrzędnego. `ViewData` zmieniony w częściowym widoku zostaną utracone po powrocie z widoku częściowego.
 
 Można przekazać wystąpienia `ViewDataDictionary` widoku częściowego:
 
-```csharp
+```cshtml
 @Html.Partial("PartialName", customViewData)
-   ```
+```
 
 Można również przekazać model do widoku częściowego. Może to być modelu widoku strony, lub niektórych części lub niestandardowy obiekt. Można przekazać przy użyciu modelu `Partial`,`PartialAsync`, `RenderPartial`, lub `RenderPartialAsync`:
 
-```csharp
+```cshtml
 @Html.Partial("PartialName", viewModel)
-   ```
+```
 
 Można przekazać wystąpienia `ViewDataDictionary` i widok częściowy przy użyciu modelu widoku:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
+[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
 
 Kod znaczników, poniżej przedstawiono *Views/Articles/Read.cshtml* widoku, który zawiera dwa widoki częściowe. Przekazuje drugiego widoku częściowego w modelu i `ViewData` do widoku częściowego. Można przekazać nowy `ViewData` słownika przy zachowaniu istniejących `ViewData` użycie przeładowania konstruktora z `ViewDataDictionary` wyróżniono poniżej:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
+[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
 
 *Widoki/udostępnione/AuthorPartial*:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
+[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
 
 *ArticleSection* częściowe:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
+[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
 
 W czasie wykonywania, częściowe są renderowane w widoku nadrzędnym, które jest renderowany w ramach udostępnionego *_Layout.cshtml*
 

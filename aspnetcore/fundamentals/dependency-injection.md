@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 43c937ff9631be3edc1f95b3689650e4574abfbd
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 85e25b92b01d84279752deb7865987746c181c72
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Iniekcji zależności w ASP.NET Core
 
@@ -132,7 +132,7 @@ Należy pamiętać, że `CharacterRepository` żądań `ApplicationDbContext` w 
 > [!NOTE]
 > Tworzenie żądanego obiektu i wszystkich obiektów wymaga i wszystkie obiekty te wymagają, jest czasami nazywany *wykres obiektu*. Podobnie, zbiorczy zestaw zależności, które muszą zostać rozstrzygnięte jest zwykle nazywany *drzewo zależności* lub *wykresu zależności*.
 
-W takim przypadku zarówno `ICharacterRepository` i z kolei `ApplicationDbContext` musi być zarejestrowana w kontenerze usług w `ConfigureServices` w `Startup`. `ApplicationDbContext`skonfigurowano wywołanie metody rozszerzenia `AddDbContext<T>`. Poniższy kod przedstawia rejestracji `CharacterRepository` typu.
+W takim przypadku zarówno `ICharacterRepository` i z kolei `ApplicationDbContext` musi być zarejestrowana w kontenerze usług w `ConfigureServices` w `Startup`. `ApplicationDbContext` skonfigurowano wywołanie metody rozszerzenia `AddDbContext<T>`. Poniższy kod przedstawia rejestracji `CharacterRepository` typu.
 
 [!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
 
@@ -147,7 +147,7 @@ Usługi z zależnościami, należy zarejestrować je w kontenerze. Jeśli usług
 
 Usługi ASP.NET można skonfigurować za pomocą następujących okresów:
 
-**Przejściowy**
+Przejściowy
 
 Przejściowa istnienia usług są tworzone zawsze, gdy są one wymagane. Ten okres istnienia jest najlepsza dla lekkich usług bezstanowych.
 
@@ -155,7 +155,7 @@ Przejściowa istnienia usług są tworzone zawsze, gdy są one wymagane. Ten okr
 
 Okres istnienia w zakresie usług są tworzone raz na każde żądanie.
 
-**Pojedyncze**
+pojedyncze
 
 Pojedyncze okres istnienia usług są tworzone po raz pierwszy jest żądanej (lub gdy `ConfigureServices` jest uruchamiany, jeśli określone wystąpienie) i wszystkie kolejne żądania będą następnie używa tego samego wystąpienia. Jeśli aplikacja wymaga zachowania singleton, umożliwiając kontener usług do zarządzania istnienia usługi jest zalecane zamiast wzorca projektowego singleton wdrażanie i zarządzanie nim okres istnienia z obiektów w klasie samodzielnie.
 
@@ -192,6 +192,19 @@ Sprawdź, które z `OperationId` wartości różnią się w obrębie żądanie i
 * *Zakres* obiekty są takie same, w ramach żądania, ale różne na różnych żądań
 
 * *Pojedyncze* obiekty są takie same dla każdego obiektu i każde żądanie (niezależnie od tego, czy wystąpienie znajduje się w `ConfigureServices`)
+
+## <a name="scope-validation"></a>Weryfikacja zakresu
+
+Gdy aplikacja jest uruchomiona w środowisku programistycznym na platformie ASP.NET Core 2.0 lub nowszej, domyślny dostawca usług sprawdza do sprawdzenia, czy:
+
+* Usługi w zakresie nie są bezpośrednio lub pośrednio rozwiązane od dostawcy usług głównego.
+* Usługi w zakresie nie są bezpośrednio lub pośrednio wprowadzić do pojedynczych wystąpień.
+
+Dostawcy usług głównego jest tworzone, gdy [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) jest wywoływana. Okres istnienia dostawcy usług głównego odpowiada istnienia aplikacji/serwer. Jeśli dostawca rozpoczyna się od aplikacji i został usunięty podczas zamykania aplikacji.
+
+Usługi w zakresie są usuwane przez kontener, który je utworzył. Zakresami usługi jest tworzony w kontenerze katalogu głównego, okres istnienia usługi jest skutecznie podwyższany do pojedynczego wystąpienia ponieważ tylko są usuwane przez nadrzędny kontener, gdy serwera aplikacji zostanie zamknięta. Walidacja zakresów usługi przechwytuje tych sytuacji gdy `BuildServiceProvider` jest wywoływana.
+
+Aby uzyskać więcej informacji, zobacz [zakres sprawdzania poprawności w temacie hostingu](xref:fundamentals/hosting#scope-validation).
 
 ## <a name="request-services"></a>Żądanie usługi
 

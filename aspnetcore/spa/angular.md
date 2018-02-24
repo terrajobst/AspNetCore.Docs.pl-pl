@@ -1,34 +1,34 @@
 ---
 title: "Należy użyć szablonu projektu dyrektywy Angular"
 author: SteveSandersonMS
-description: "Dowiedz się, jak rozpocząć pracę z szablonu projektu platformy ASP.NET Core jednostronicowej aplikacji JEDNOSTRONICOWEJ release candidate dla kątową i kątowego interfejsu wiersza polecenia."
+description: "Dowiedz się, jak rozpocząć pracę z szablonem projektu platformy ASP.NET Core jednej strony aplikacji JEDNOSTRONICOWEJ kątową i kątowego interfejsu wiersza polecenia."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: 4162b1c26e9d278c811f691c4277d4de25adb204
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f81130b67d61ee063b697f19862449c3054d547d
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-angular-project-template-release-candidate"></a>Należy użyć szablonu projektu kątowego (w wersji release candidate)
+# <a name="use-the-angular-project-template"></a>Należy użyć szablonu projektu dyrektywy Angular
 
 > [!NOTE]
-> Ta dokumentacja nie jest o szablonie wydanych kątowego projektu. **Ta dokumentacja dotyczy wersji release candidate kątowego szablonu.** Mamy nadzieję, należy wysłać wersji wydanej w wczesne 2018.
+> O szablonie projektu kątowego tej dokumentacji nie jest zawarty w programie ASP.NET 2.0 Core. Chodzi o nowszej kątowego szablonu, do której można zaktualizować ręcznie. Domyślnie znajduje szablonu platformy ASP.NET Core 2.1.
 
-Szablon zaktualizowany projekt kątowego udostępnia dogodny punkt początkowy dla platformy ASP.NET Core aplikacji przy użyciu dyrektywy Angular 5 i kątowego interfejsu wiersza polecenia do zaimplementowania rozbudowanego klienta interfejsu użytkownika (UI).
+Szablon zaktualizowany projekt kątowego udostępnia dogodny punkt początkowy dla platformy ASP.NET Core aplikacji przy użyciu kątową i kątowego interfejsu wiersza polecenia, aby zaimplementować rozbudowanego klienta interfejsu użytkownika (UI).
 
 Szablon jest odpowiednikiem Tworzenie projektu platformy ASP.NET Core do działania jako zaplecza interfejsu API i projektu kątowego interfejsu wiersza polecenia do działania jako interfejsu użytkownika. Szablon oferuje wygodne hosting obu typów projektów w projekcie jednej aplikacji. W rezultacie projektu aplikacji można wbudowane i opublikowane jako pojedyncza jednostka.
 
 ## <a name="create-a-new-app"></a>Tworzenie nowej aplikacji
 
-Aby rozpocząć, upewnij się, które zostały [zainstalowane szablonu zaktualizowany projekt kątowego](xref:spa/index#installation). Te instrukcje nie dotyczą poprzedniego szablonu projektu kątowego objęte .NET Core 2.0.x zestawu SDK.
+Jeśli za pomocą platformy ASP.NET Core 2.0, upewnij się, które zostały [zainstalowane szablonu zaktualizowany projekt kątowego](xref:spa/index#installation). Jeśli masz program ASP.NET Core 2.1 jest niepotrzebna go zainstalować.
 
 Utwórz nowy projekt z wiersza polecenia przy użyciu polecenia `dotnet new angular` w pustych katalogów. Na przykład poniższe polecenia Utwórz aplikację w *— nowy — aplikacji my* katalogu i przełącznika do tego katalogu:
 

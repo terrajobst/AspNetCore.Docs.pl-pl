@@ -1,26 +1,26 @@
 ---
 title: "Należy użyć szablonu projektu w bibliotece React."
 author: SteveSandersonMS
-description: "Dowiedz się, jak rozpocząć pracę z szablonu projektu platformy ASP.NET Core jednostronicowej aplikacji JEDNOSTRONICOWEJ release candidate dla platformy React i utworzyć platformy react aplikacji."
+description: "Dowiedz się, jak rozpocząć pracę z szablonem projektu platformy ASP.NET Core jednej strony aplikacji JEDNOSTRONICOWEJ platformy React i utworzyć platformy react aplikacji."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: 5978094083a098a771f5dca103434ea8fcce7777
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e093a47159fd8278ff3705bb2c53571a8e27fab8
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-react-project-template-release-candidate"></a>Należy użyć szablonu projektu platformy React (w wersji release candidate)
+# <a name="use-the-react-project-template"></a>Należy użyć szablonu projektu w bibliotece React.
 
 > [!NOTE]
-> Ta dokumentacja nie jest o wydanych szablonu projektu platformy React. **Ta dokumentacja dotyczy wersji release candidate szablonu platformy React.** Mamy nadzieję, należy wysłać wersji wydanej w wczesne 2018.
+> O szablonie projektu platformy React niniejszej dokumentacji nie jest zawarty w programie ASP.NET 2.0 Core. Chodzi o nowszej szablonu platformy React, do której można zaktualizować ręcznie. Domyślnie znajduje szablonu platformy ASP.NET Core 2.1.
 
 Zaktualizowany szablon projektu platformy React udostępnia dogodny punkt początkowy dla platformy ASP.NET Core aplikacji przy użyciu platformy React i [utworzyć platformy react aplikacji](https://github.com/facebookincubator/create-react-app) konwencje (CRA) do zaimplementowania rozbudowanego klienta interfejsu użytkownika (UI).
 
@@ -28,7 +28,7 @@ Szablon jest odpowiednikiem Tworzenie projektu platformy ASP.NET Core do działa
 
 ## <a name="create-a-new-app"></a>Tworzenie nowej aplikacji
 
-Aby rozpocząć, upewnij się, które zostały [zainstalowany zaktualizowany szablon projektu platformy React](xref:spa/index#installation). Te instrukcje nie dotyczą poprzedniego szablonu projektu platformy React objęte .NET Core 2.0.x zestawu SDK.
+Jeśli za pomocą platformy ASP.NET Core 2.0, upewnij się, które zostały [zainstalowany zaktualizowany szablon projektu platformy React](xref:spa/index#installation). Jeśli masz program ASP.NET Core 2.1 jest niepotrzebna go zainstalować.
 
 Utwórz nowy projekt z wiersza polecenia przy użyciu polecenia `dotnet new react` w pustych katalogów. Na przykład poniższe polecenia Utwórz aplikację w *— nowy — aplikacji my* katalogu i przełącznika do tego katalogu:
 

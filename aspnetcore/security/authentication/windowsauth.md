@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: aaa14e2f2704a7cfa836c5524642d2138a3ae7c8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c229537e7f533eea2173dbc51b8d0d0e097d434a
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Skonfiguruj uwierzytelnianie systemu Windows w aplikacji platformy ASP.NET Core
 
@@ -111,6 +111,9 @@ Jeśli jest włączone uwierzytelnianie systemu Windows i dostęp anonimowy jest
 Gdy zarówno uwierzytelnianie systemu Windows i dostęp anonimowy jest włączona, należy użyć `[Authorize]` i `[AllowAnonymous]` atrybutów. `[Authorize]` Atrybutu umożliwia zabezpieczenie częściach aplikacji, które są rzeczywiście wymagają uwierzytelniania systemu Windows. `[AllowAnonymous]` Atrybutu zastąpienia `[Authorize]` atrybutu użycia w aplikacjach, które zezwala na dostęp anonimowy. Zobacz [proste autoryzacji](xref:security/authorization/simple) szczegóły użycia atrybutu.
 
 W przypadku platformy ASP.NET Core 2.x, `[Authorize]` atrybut wymaga dodatkowych czynności konfiguracyjnych *Startup.cs* zażąda anonimowe żądania uwierzytelniania systemu Windows. Zalecana konfiguracja zależy od nieco używany serwer sieci web.
+
+> [!NOTE]
+> Domyślnie użytkownicy, którzy nie mają zezwolenia na dostęp do strony są prezentowane pustego dokumentu. [Oprogramowanie pośredniczące StatusCodePages](xref:fundamentals/error-handling#configuring-status-code-pages) można skonfigurować, aby zapewnić użytkownikom lepsze środowisko "Odmowa dostępu".
 
 #### <a name="iis"></a>IIS
 

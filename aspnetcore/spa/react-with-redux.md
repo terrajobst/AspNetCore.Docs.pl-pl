@@ -1,26 +1,26 @@
 ---
 title: "Należy użyć szablonu projektu platformy React z Redux"
 author: SteveSandersonMS
-description: "Dowiedz się, jak rozpocząć pracę z szablonu projektu platformy ASP.NET Core jednostronicowej aplikacji JEDNOSTRONICOWEJ release candidate dla platformy React z Redux i utworzyć platformy react aplikacji."
+description: "Dowiedz się, jak rozpocząć pracę z szablonu projektu platformy ASP.NET Core jednej strony aplikacji JEDNOSTRONICOWEJ dla platformy React z Redux i utworzyć platformy react aplikacji."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react-with-redux
-ms.openlocfilehash: 71a8702b9f6e9a2b40f150026f1955450e0fa7a3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f52f4a866b8bb2adeee19548df32f3e7a91761d1
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-react-with-redux-project-template-release-candidate"></a>Należy użyć szablonu projektu platformy React z Redux (w wersji release candidate)
+# <a name="use-the-react-with-redux-project-template"></a>Należy użyć szablonu projektu platformy React z Redux
 
 > [!NOTE]
-> Ta dokumentacja nie jest o wydanych platformy React z Redux szablonu projektu. **Ta dokumentacja dotyczy wersji release candidate platformy React z Redux szablonu.** Mamy nadzieję, należy wysłać wersji wydanej w wczesne 2018.
+> O bibliotece React z Redux szablonu projektu tej dokumentacji nie jest zawarty w programie ASP.NET 2.0 Core. Chodzi o nowszej platformy React z Redux szablonu, do której można zaktualizować ręcznie. Domyślnie znajduje szablonu platformy ASP.NET Core 2.1.
 
 Zaktualizowany szablon projektu platformy React z Redux udostępnia dogodny punkt początkowy dla aplikacji platformy ASP.NET Core za pomocą zareagować Redux, i [utworzyć platformy react aplikacji](https://github.com/facebookincubator/create-react-app) konwencje (CRA) do zaimplementowania rozbudowanego klienta interfejsu użytkownika (UI).
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/hosting
-ms.openlocfilehash: 7e5832f43155aa8aac07a4c8534700aed48fe57d
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: 8a22e97a518e2e5b11ddf0894f209ccc0a8990be
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>Hosting w platformy ASP.NET Core
 
@@ -41,6 +41,7 @@ Utwórz hosta za pomocą wystąpienia [WebHostBuilder](/dotnet/api/microsoft.asp
   * Argumenty wiersza polecenia.
 * Konfiguruje [rejestrowanie](xref:fundamentals/logging/index) dla danych wyjściowych konsoli i debugowania. Dostęp do rejestrów uwzględniających [filtrowania dziennika](xref:fundamentals/logging/index#log-filtering) reguły określone w sekcji konfiguracji rejestrowania *appsettings.json* lub *appsettings. { Środowisko} JSON* pliku.
 * Podczas uruchamiania za usług IIS, umożliwia [integracji usług IIS](xref:host-and-deploy/iis/index). Konfiguruje serwer nasłuchuje na przy użyciu portu i ścieżki bazowej [platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module). Moduł tworzy zwrotny serwer proxy między usługami IIS a Kestrel. Konfiguruje również aplikacji na [przechwytywania błędy uruchamiania](#capture-startup-errors). Dla opcji domyślnych usług IIS, zobacz [IIS opcje sekcji hosta platformy ASP.NET Core w systemie Windows z programem IIS](xref:host-and-deploy/iis/index#iis-options).
+* Ustawia [ServiceProviderOptions.ValidateScopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) do `true` Jeśli programowanie jest środowiska aplikacji. Aby uzyskać więcej informacji, zobacz [zakres weryfikacji](#scope-validation).
 
 *Zawartości głównego* Określa, gdzie hosta wyszukuje pliki zawartości, takich jak pliki widoku MVC. Po uruchomieniu aplikacji w folderze głównym projektu folderu głównego projektu jest używany jako główny zawartości. Jest to wartość domyślna używana w [programu Visual Studio](https://www.visualstudio.com/) i [dotnet nowe szablony](/dotnet/core/tools/dotnet-new).
 
@@ -865,32 +866,45 @@ public class Startup
 }
 ```
 
-[StopApplication](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime.stopapplication) żąda zakończenia aplikacji. Następujące [stron Razor](xref:mvc/razor-pages/index) strona używa klasy modelu `StopApplication` bezpiecznie zamknięcie aplikacji. `OnPostShutdown` Po wykonaniu metody **zamknięcia** w interfejsie użytkownika zaznaczona jest:
-
-```cshtml
-<button type="submit" asp-page-handler="Shutdown" class="btn btn-default">Shutdown</button>
-```
+[StopApplication](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime.stopapplication) żąda zakończenia aplikacji. Następujące klasy używa `StopApplication` jest bezpiecznie zamknąć aplikację po klasy `Shutdown` metoda jest wywoływana:
 
 ```csharp
-public class IndexModel : PageModel
+public class MyClass
 {
     private readonly IApplicationLifetime _appLifetime;
 
-    public IndexModel(IApplicationLifetime appLifetime)
+    public MyClass(IApplicationLifetime appLifetime)
     {
         _appLifetime = appLifetime;
     }
 
-    public void OnGet()
-    {
-        ...
-    }
-
-    public void OnPostShutdown()
+    public void Shutdown()
     {
         _appLifetime.StopApplication();
     }
 }
+```
+
+## <a name="scope-validation"></a>Weryfikacja zakresu
+
+W programie ASP.NET Core 2.0 lub nowszej [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) ustawia [ServiceProviderOptions.ValidateScopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) do `true` Jeśli programowanie jest środowiska aplikacji.
+
+Gdy `ValidateScopes` ma ustawioną wartość `true`, domyślny dostawca usług sprawdza upewnij się, że:
+
+* Usługi w zakresie nie są bezpośrednio lub pośrednio rozwiązane od dostawcy usług głównego.
+* Usługi w zakresie nie są bezpośrednio lub pośrednio wprowadzić do pojedynczych wystąpień.
+
+Dostawcy usług głównego jest tworzone, gdy [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) jest wywoływana. Okres istnienia dostawcy usług głównego odpowiada istnienia aplikacji/serwer. Jeśli dostawca rozpoczyna się od aplikacji i został usunięty podczas zamykania aplikacji.
+
+Usługi w zakresie są usuwane przez kontener, który je utworzył. Zakresami usługi jest tworzony w kontenerze katalogu głównego, okres istnienia usługi jest skutecznie podwyższany do pojedynczego wystąpienia ponieważ tylko są usuwane przez nadrzędny kontener, gdy serwera aplikacji zostanie zamknięta. Walidacja zakresów usługi przechwytuje tych sytuacji gdy `BuildServiceProvider` jest wywoływana.
+
+Sprawdzanie poprawności zakresy, w tym w środowisku produkcyjnym, należy skonfigurować [ServiceProviderOptions](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions) z [UseDefaultServiceProvider](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.usedefaultserviceprovider) w Konstruktorze hosta:
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseDefaultServiceProvider((context, options) => {
+        options.ValidateScopes = true;
+    })
 ```
 
 ## <a name="troubleshooting-systemargumentexception"></a>Rozwiązywanie problemów z System.ArgumentException
