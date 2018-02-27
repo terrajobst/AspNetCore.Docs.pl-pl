@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: bab08e75652c75b371438581d6e9f56541844a61
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4f55b3b439d268c371ce40a298b0f63dad9eef69
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Widoki w podstawowej platformy ASP.NET MVC
 
@@ -92,7 +92,7 @@ Domyślne zachowanie `View` — metoda (`return View();`) jest do zwrócenia wid
 
 Nie ma znaczenia, gdy zwracają niejawnie `ViewResult` z `return View();` lub jawnego przesłania nazwy widoku, aby `View` metody z `return View("<ViewName>");`. W obu przypadkach widok odnajdywania wyszukuje odpowiedniego pliku widoku w następującej kolejności:
 
-   1. *Views/\[ControllerName]\[ViewName].cshtml*
+   1. *Views/\[ControllerName]/\[ViewName].cshtml*
    1. *Widoki/udostępnione/\[ViewName] .cshtml*
 
 Ścieżka pliku widoku można podać zamiast nazwy widoku. Jeśli przy użyciu ścieżką bezwzględną, zaczynając od katalogu głównego aplikacji (opcjonalnie rozpoczynających się od "/" lub "~ /"), *.cshtml* rozszerzenia musi być określona:
@@ -198,14 +198,14 @@ Oprócz widoków z silnie typizowanych widoki mają dostęp do *słabą kontrol�
 
 Ta kolekcja można odwoływać się przy użyciu jednej `ViewData` lub `ViewBag` właściwości kontrolery i widoki. `ViewData` Właściwości jest słownikiem słabą kontrolą obiektów. `ViewBag` Właściwość jest otokę `ViewData` zapewnia właściwości dynamicznych odpowiadającego `ViewData` kolekcji.
 
-`ViewData`i `ViewBag` są dynamicznie rozwiązane w czasie wykonywania. Ponieważ nie oferują sprawdzanie typów w czasie kompilacji, są zazwyczaj bardziej podatnych niż przy użyciu viewmodel. Z tego powodu niektórzy deweloperzy wolą minimalny zestaw lub nigdy nie należy używać `ViewData` i `ViewBag`.
+`ViewData` i `ViewBag` są dynamicznie rozwiązane w czasie wykonywania. Ponieważ nie oferują sprawdzanie typów w czasie kompilacji, są zazwyczaj bardziej podatnych niż przy użyciu viewmodel. Z tego powodu niektórzy deweloperzy wolą minimalny zestaw lub nigdy nie należy używać `ViewData` i `ViewBag`.
 
 
 <a name="VD"></a>
 
 **ViewData**
 
-`ViewData`jest [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) dostępne za pośrednictwem obiektu `string` kluczy. Danych dotyczących ciągu mogą być przechowywane i używane bezpośrednio, bez konieczności rzutowanie, ale należy rzutować innych `ViewData` obiektu wartości do określonych typów, po ich wyodrębnieniu. Można użyć `ViewData` do przekazywania danych z kontrolerów, widoków i w obrębie widoków, w tym [widoki częściowe](xref:mvc/views/partial) i [układów](xref:mvc/views/layout).
+`ViewData` jest [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) dostępne za pośrednictwem obiektu `string` kluczy. Danych dotyczących ciągu mogą być przechowywane i używane bezpośrednio, bez konieczności rzutowanie, ale należy rzutować innych `ViewData` obiektu wartości do określonych typów, po ich wyodrębnieniu. Można użyć `ViewData` do przekazywania danych z kontrolerów, widoków i w obrębie widoków, w tym [widoki częściowe](xref:mvc/views/partial) i [układów](xref:mvc/views/layout).
 
 Poniżej przedstawiono przykład, która ustawia wartości pozdrowienia i przy użyciu adresu `ViewData` w akcji:
 
@@ -247,7 +247,7 @@ Praca z danymi w widoku:
 
 Uwaga: `ViewBag` nie jest dostępna na stronach Razor.
 
-`ViewBag`jest [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) obiekt, który umożliwia dynamiczne dostęp do obiektów przechowywanych w `ViewData`. `ViewBag`może być bardziej wygodne do pracy, ponieważ nie wymaga rzutowania. Poniższy przykład przedstawia użycie `ViewBag` z takiego samego wyniku jako przy użyciu `ViewData` powyżej:
+`ViewBag` jest [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) obiekt, który umożliwia dynamiczne dostęp do obiektów przechowywanych w `ViewData`. `ViewBag` może być bardziej wygodne do pracy, ponieważ nie wymaga rzutowania. Poniższy przykład przedstawia użycie `ViewBag` z takiego samego wyniku jako przy użyciu `ViewData` powyżej:
 
 ```csharp
 public IActionResult SomeAction()
@@ -318,15 +318,15 @@ Za pomocą obu `ViewData` i `ViewBag` w tej samej pracy czas, jak mieszania i do
 
 **Podsumowanie różnic między ViewData i obiekt ViewBag**
 
- `ViewBag`nie jest dostępna na stronach Razor.
+ `ViewBag` nie jest dostępna na stronach Razor.
 
 * `ViewData`
   * Pochodną [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary), co powoduje słownika właściwości, które mogą być przydatne, takich jak `ContainsKey`, `Add`, `Remove`, i `Clear`.
-  * Klucze w słowniku są ciągi, więc spacji jest dozwolony. Przykład:`ViewData["Some Key With Whitespace"]`
+  * Klucze w słowniku są ciągi, więc spacji jest dozwolony. Przykład: `ViewData["Some Key With Whitespace"]`
   * Dowolny typ innych niż `string` musi być rzutowane w widoku, aby użyć `ViewData`.
 * `ViewBag`
   * Pochodną [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata), więc umożliwia tworzenie dynamicznych właściwości, używając zapisu kropkowego (`@ViewBag.SomeKey = <value or object>`), a Rzutowanie nie jest wymagana. Składnia `ViewBag` umożliwia szybsze do dodania do widoków i kontrolerów.
-  * Łatwiejsze do sprawdzenia wartości null. Przykład:`@ViewBag.Person?.Name`
+  * Łatwiejsze do sprawdzenia wartości null. Przykład: `@ViewBag.Person?.Name`
 
 **Kiedy należy używać ViewData lub obiekt ViewBag**
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 6b9dcfcc2fa380b601eee56095f2e6a6dbe07732
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 12635c66bacdeed7360a9d6c689212bba81439e3
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Konfigurowanie aplikacji platformy ASP.NET Core
 
@@ -63,6 +63,25 @@ Pary nazwa wartość zapisywane do wbudowanej [konfiguracji](/dotnet/api/microso
 
 Powyższego przykładu używa indeksatora konfiguracji można odczytać wartości. Do konfiguracji dostępu poza `Startup`, użyj *wzorzec opcje*. Aby uzyskać więcej informacji, zobacz [opcje](xref:fundamentals/configuration/options) tematu.
 
+## <a name="xml-configuration"></a>Konfiguracja XML
+
+Aby pracować z tablic w formacie XML konfiguracji źródła, należy podać `name` indeksu do każdego elementu. Użyj indeksu, aby uzyskać dostęp do wartości:
+
+```xml
+<wizards>
+  <wizard name="Gandalf">
+    <age>1000</age>
+  </wizard>
+  <wizard name="Harry">
+    <age>17</age>
+  </wizard>
+</wizards>
+```
+
+```csharp
+Console.Write($"{Configuration["wizard:Harry:age"]}");
+// Output: 17
+```
 
 ## <a name="configuration-by-environment"></a>Konfiguracja przez środowisko
 
@@ -74,7 +93,7 @@ Jest to typowe do innej konfiguracji ustawień dla różnych środowisk, na przy
 
 Aplikacje 1.x platformy ASP.NET Core musi wywołać `AddJsonFile` i [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables#Microsoft_Extensions_Configuration_EnvironmentVariablesExtensions_AddEnvironmentVariables_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_).
 
-Zobacz [AddJsonFile](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions) dla objaśnienie parametrów. `reloadOnChange`jest obsługiwana tylko w ASP.NET Core 1.1 lub nowszej.
+Zobacz [AddJsonFile](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions) dla objaśnienie parametrów. `reloadOnChange` jest obsługiwana tylko w ASP.NET Core 1.1 lub nowszej.
 
 Konfiguracja źródła są do odczytu w kolejności, że jest określona. W powyższym kodzie zmienne środowiskowe są odczytywane ostatnio. Wartości konfiguracji ustawiana za pośrednictwem Zamień środowiska określone w poprzednich dwóch dostawców.
 
@@ -91,7 +110,7 @@ Jeśli środowisko jest równa `Staging`, następujące `Configure` metoda odczy
 
 Zagadnienia dotyczące konfiguracji:
 
-* `IOptionsSnapshot`można ponownie załadować dane konfiguracji, gdy zmienia. Aby uzyskać więcej informacji, zobacz [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot).,
+* `IOptionsSnapshot` można ponownie załadować dane konfiguracji, gdy zmienia. Aby uzyskać więcej informacji, zobacz [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot).,
 * Klucze konfiguracji **nie** z uwzględnieniem wielkości liter.
 * **Nigdy nie** przechowywania haseł i innych poufnych danych w konfiguracji dostawcy kodu lub pliki konfiguracyjne w formacie zwykłego tekstu. Nie używasz produkcji kluczy tajnych w rozwoju lub testowania środowisk. Określ klucze tajne poza projektem, aby nie może być przypadkowo przekazane do repozytorium kodu źródłowego. Dowiedz się więcej o [Praca w środowiskach wielu](xref:fundamentals/environments) i zarządzanie [bezpiecznego magazynu kluczy tajnych aplikacji podczas tworzenia](xref:security/app-secrets).
 * Jeśli dwukropkiem (`:`) nie może być używany w zmiennych środowiskowych w systemie, Zastąp dwukropkiem (`:`) o podwójnej precyzji znak podkreślenia (`__`).
@@ -110,7 +129,7 @@ W poniższym przykładzie pokazano [GetValue&lt;T&gt; ](/dotnet/api/microsoft.ex
 
 [!code-csharp[Main](index/sample/InMemoryGetValue/Program.cs?highlight=31)]
 
-ConfigurationBinder `GetValue<T>` metody umożliwia określenie wartości domyślnej (80 w próbce). `GetValue<T>`Służy do scenariuszy proste i nie należy powiązać całą sekcję. `GetValue<T>`pobiera wartości skalarnych z `GetSection(key).Value` przekonwertować dla określonego typu.
+ConfigurationBinder `GetValue<T>` metody umożliwia określenie wartości domyślnej (80 w próbce). `GetValue<T>` Służy do scenariuszy proste i nie należy powiązać całą sekcję. `GetValue<T>` pobiera wartości skalarnych z `GetSection(key).Value` przekonwertować dla określonego typu.
 
 ## <a name="bind-to-an-object-graph"></a>Powiązanie do obiektu wykresu.
 
@@ -122,7 +141,7 @@ Poniższy przykład tworzy powiązanie z `AppSettings` klasy:
 
 [!code-csharp[Main](index/sample/ObjectGraph/Program.cs?highlight=15-16)]
 
-**Platformy ASP.NET Core 1.1** i wyższe służy `Get<T>`, który współpracuje z całą sekcję. `Get<T>`może być wygodniejsze niż przy użyciu `Bind`. Poniższy kod przedstawia sposób użycia `Get<T>` z powyższego przykładu:
+**Platformy ASP.NET Core 1.1** i wyższe służy `Get<T>`, który współpracuje z całą sekcję. `Get<T>` może być wygodniejsze niż przy użyciu `Bind`. Poniższy kod przedstawia sposób użycia `Get<T>` z powyższego przykładu:
 
 ```csharp
 var appConfig = config.GetSection("App").Get<AppSettings>();
@@ -251,11 +270,11 @@ Typowe aplikacje 2.x platformy ASP.NET Core należy użyć metody statycznej wyg
 
 [!code-csharp[Main](index/sample_snapshot//Program.cs?highlight=12)]
 
-`CreateDefaultBuilder`ładuje konfiguracji opcjonalnej z *appsettings.json*, *appsettings. { Środowisko} JSON*, [kluczy tajnych użytkownika](xref:security/app-secrets) (w `Development` środowiska), zmienne środowiskowe i argumenty wiersza polecenia. Dostawca konfiguracji wiersza polecenia nazywa się ostatnio. Ostatnio wywoływania dostawcy umożliwia wcześniej o nazwie argumenty wiersza polecenia przekazywane w czasie wykonywania, aby zastąpić konfiguracji ustawione przez innych dostawców konfiguracji.
+`CreateDefaultBuilder` ładuje konfiguracji opcjonalnej z *appsettings.json*, *appsettings. { Środowisko} JSON*, [kluczy tajnych użytkownika](xref:security/app-secrets) (w `Development` środowiska), zmienne środowiskowe i argumenty wiersza polecenia. Dostawca konfiguracji wiersza polecenia nazywa się ostatnio. Ostatnio wywoływania dostawcy umożliwia wcześniej o nazwie argumenty wiersza polecenia przekazywane w czasie wykonywania, aby zastąpić konfiguracji ustawione przez innych dostawców konfiguracji.
 
 Aby uzyskać *appsettings* pliki gdzie:
 
-* `reloadOnChange`jest włączone.
+* `reloadOnChange` jest włączone.
 * Zawiera tego samego ustawienia w argumentach wiersza polecenia i *appsettings* pliku.
 * *Appsettings* plik zawierający pasujący argument wiersza polecenia zostaną zmienione po uruchomieniu aplikacji.
 
@@ -390,9 +409,9 @@ MachineName: ChadPC
 Left: 1988
 ```
 
-## <a name="the-webconfig-file"></a>Plik web.config
+## <a name="webconfig-file"></a>plik Web.config
 
-A *web.config* hosting aplikacji w usługach IIS lub usług IIS Express jest wymagany plik. Ustawienia w *web.config* włączyć [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) do uruchomienia aplikacji i skonfigurować inne ustawienia usług IIS i modułów. Jeśli *web.config* plik nie jest obecny i plik projektu zawiera `<Project Sdk="Microsoft.NET.Sdk.Web">`, publikowania projektu tworzy *web.config* plików publikowanych danych wyjściowych ( *publikowania* folderu). Aby uzyskać więcej informacji, zobacz [hosta platformy ASP.NET Core w systemie Windows z programem IIS](xref:host-and-deploy/iis/index#webconfig).
+A *web.config* hosting aplikacji w usługach IIS lub usług IIS Express jest wymagany plik. Ustawienia w *web.config* włączyć [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) do uruchomienia aplikacji i skonfigurować inne ustawienia usług IIS i modułów. Jeśli *web.config* plik nie jest obecny i plik projektu zawiera `<Project Sdk="Microsoft.NET.Sdk.Web">`, publikowania projektu tworzy *web.config* plików publikowanych danych wyjściowych ( *publikowania* folderu). Aby uzyskać więcej informacji, zobacz [hosta platformy ASP.NET Core w systemie Windows z programem IIS](xref:host-and-deploy/iis/index#webconfig-file).
 
 ## <a name="accessing-configuration-during-startup"></a>Uzyskiwanie dostępu do konfiguracji podczas uruchamiania
 
@@ -402,9 +421,9 @@ Do konfiguracji dostępu w ramach `ConfigureServices` lub `Configure` podczas ur
 
 * Zależności Iniekcja nie został skonfigurowany do po `ConfigureServices` jest wywoływana.
 * System konfiguracji nie jest świadome Podpisane.
-* `IConfiguration`ma dwa specjalizacje:
-  * `IConfigurationRoot`Użyty dla węzła głównego. Może spowodować ponowne załadowanie.
-  * `IConfigurationSection`Reprezentuje sekcję konfiguracji wartości. `GetSection` i `GetChildren` metody zwracają `IConfigurationSection`.
+* `IConfiguration` ma dwa specjalizacje:
+  * `IConfigurationRoot` Użyty dla węzła głównego. Może spowodować ponowne załadowanie.
+  * `IConfigurationSection` Reprezentuje sekcję konfiguracji wartości. `GetSection` i `GetChildren` metody zwracają `IConfigurationSection`.
   * Użyj [IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot) podczas ponownego ładowania konfiguracji lub dostęp do każdego dostawcy. Żadna z tych sytuacji są często używane.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
