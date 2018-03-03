@@ -1,10 +1,10 @@
 # <a name="working-with-sqlite-in-and-razor-pages"></a>Praca z bazy danych SQLite w i stron Razor
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `MovieContext` Obiektu obsługuje zadanie łączenia z bazą danych i mapowanie `Movie` obiektów do rekordów bazy danych. Kontekst bazy danych został zarejestrowany za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` metody w *Startup.cs* pliku:
 
-[!code-csharp[Main](code/Startup.cs?name=snippet2&highlight=6-8)]
+[!code-csharp[](code/Startup.cs?name=snippet2&highlight=6-8)]
 
 ## <a name="sqlite"></a>SQLite
 
@@ -20,7 +20,7 @@ Istnieje wiele narzędzi innych firm, które można pobrać do zarządzania i wy
 
 Utwórz nową klasę o nazwie `SeedData` w *modele* folderu. Zastąp wygenerowany kod poniżej:
 
-[!code-csharp[Main](code\Models\SeedData.cs)]
+[!code-csharp[](code\Models\SeedData.cs)]
 
 Jeśli w bazie danych są wszystkie filmy, zwraca inicjatora inicjatora.
 
@@ -36,7 +36,7 @@ if (context.Movie.Any())
 
 Inicjator inicjatora, aby dodać `Main` metody w *Program.cs* pliku:
 
-[!code-csharp[Main](../../tutorials/razor-pages\razor-pages-start\sample\RazorPagesMovie\Program.cs)]
+[!code-csharp[](../../tutorials/razor-pages\razor-pages-start\sample\RazorPagesMovie\Program.cs)]
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
 

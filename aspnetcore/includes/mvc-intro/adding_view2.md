@@ -1,6 +1,6 @@
 Zastąp zawartość *Views/HelloWorld/Index.cshtml* pliku widoku Razor z następujących czynności:
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
 
 Przejdź do `http://localhost:xxxx/HelloWorld`. `Index` Metody w `HelloWorldController` nie zrobić wiele; napotkał instrukcji `return View();`, który określony metody należy użyć pliku szablonu widoku do renderowania odpowiedzi do przeglądarki. Ponieważ nie został jawnie określić nazwę pliku szablonu widoku, MVC używa domyślnie *Index.cshtml* pliku widoku w */widoków/HelloWorld* folderu. Na poniższym obrazie pokazano ciąg "Hello z naszych szablonu widoku!" ustalony w widoku.
 
@@ -22,7 +22,7 @@ W elemencie tytuł zmienić `MvcMovie` do `Movie App`. Zmień tekst zakotwiczeni
 
 Uwaga: Wersja platformy ASP.NET Core 2.0 jest nieco inne. Nie zawiera on `@inject ApplicationInsights` i `@Html.Raw(JavaScriptSnippet.FullScript)`.
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
 >[!WARNING]
 > Firma Microsoft nie zaimplementował `Movies` jeszcze kontrolera, dlatego możesz kliknąć łącze, zostanie wyświetlony błąd 404 (nie znaleziono).
@@ -89,7 +89,7 @@ Obecnie `Welcome` metody w `HelloWorldController` klasy przyjmuje `name` i `ID` 
 
 Wróć do *HelloWorldController.cs* plików i zmień `Welcome` metody w celu dodania `Message` i `NumTimes` do wartości `ViewData` słownika. `ViewData` Słownik jest obiekt dynamiczny, co oznacza, które można wprowadzić dowolne; `ViewData` obiekt nie ma zdefiniowanej właściwości dopóki coś wewnątrz put. [System powiązanie modelu MVC](xref:mvc/models/model-binding) automatycznie mapuje nazwane parametry (`name` i `numTimes`) z ciągu zapytania w pasku adresu w parametrach w metodę. Pełną *HelloWorldController.cs* pliku wygląda następująco:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
 `ViewData` Obiekt słownika zawiera dane, które zostaną przekazane do widoku. 
 
@@ -97,7 +97,7 @@ Tworzenie szablonu powitalnej widok o nazwie *Views/HelloWorld/Welcome.cshtml*.
 
 Utworzysz pętli w *Welcome.cshtml* szablon widoku, który zawiera "tekst Hello" `NumTimes`. Zastąp zawartość *Views/HelloWorld/Welcome.cshtml* następującym kodem:
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
 
 Zapisz zmiany i przejdź do następującego adresu URL:
 

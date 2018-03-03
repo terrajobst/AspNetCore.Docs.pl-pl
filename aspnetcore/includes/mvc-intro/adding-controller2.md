@@ -1,6 +1,6 @@
 Zastąp zawartość *Controllers/HelloWorldController.cs* następującym kodem:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
 
 Każdy `public` można wywołać jako punkt końcowy HTTP jest metoda w kontrolerze. W powyższym przykładzie obie metody zwracają ciąg.  Należy pamiętać, komentarze przed każdą z tych metod.
 
@@ -18,7 +18,7 @@ MVC wywołuje klasy kontrolera (i metod akcji w nich), w zależności od przycho
 
 Określanie formatu routingu w `Configure` metody w *Startup.cs* pliku.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 Po uruchomieniu aplikacji i nie podawaj wszystkie segmenty adresu URL, domyślnie kontroler "Home" i metoda "Index" określona w wierszu szablonu wyróżnione powyżej.
 
@@ -30,7 +30,7 @@ Przejdź do `http://localhost:xxxx/HelloWorld/Welcome`. `Welcome` Metoda urucham
 
 Zmodyfikuj kod do przekazywania informacji niektórych parametrów z adresu URL do kontrolera. Na przykład `/HelloWorld/Welcome?name=Rick&numtimes=4`. Zmień `Welcome` metodę w celu uwzględnienia dwóch parametrów, jak pokazano w poniższym kodzie. 
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
 Poprzedni kod:
 
@@ -50,14 +50,14 @@ Na ilustracji powyżej segment adresu URL (`Parameters`) nie jest używany, `nam
 
 Zastąp `Welcome` metodę z następującym kodem:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-Uruchom aplikację i wprowadź następujący adres URL:`http://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+Uruchom aplikację i wprowadź następujący adres URL:  `http://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
 
 ![Okno przeglądarki, przedstawiające odpowiedzi aplikacji Hello Rick, identyfikator: 3](../../tutorials/first-mvc-app/adding-controller/_static/rick_routedata.png)
 
 Teraz trzeci segment adresu URL dopasowane parametru trasy `id`. `Welcome` Metoda zawiera parametr `id` pasujących szablon adresu URL w `MapRoute` metody. Końcowe `?` (w `id?`) wskazuje `id` parametr jest opcjonalny.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 W tych przykładach kontroler został czynności "VC" część MVC — widok i kontroler pracy. Kontroler bezpośrednio zwraca HTML. Zwykle nie mają kontrolerów bezpośrednio, zwracając HTML, ponieważ staje się bardzo trudne kodu i obsługa. Zamiast tego zazwyczaj pozwala oddzielny plik szablonu widoku Razor łatwiej Generowanie odpowiedzi HTML. Można to zrobić w następnym samouczku.

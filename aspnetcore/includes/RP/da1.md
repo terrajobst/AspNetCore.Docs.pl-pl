@@ -1,6 +1,6 @@
 # <a name="update-the-generated-pages"></a>Aktualizowanie wygenerowanego stron
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Mamy dobry początek aplikacji film, ale prezentacji nie jest najlepszym rozwiązaniem. Nie chcemy zobaczyć czas (00:00:00: 00 w obrazie poniżej) i **ReleaseDate** powinien być **Data wydania** (dwa wyrazy).
 
@@ -10,4 +10,4 @@ Mamy dobry początek aplikacji film, ale prezentacji nie jest najlepszym rozwią
 
 Otwórz *Models/Movie.cs* i Dodaj wyróżnione wiersze poniższym kodem:
 
-[!code-csharp[Main](code/Models/Movie.cs?highlight=2,11-12)]
+[!code-csharp[](code/Models/Movie.cs?highlight=2,11-12)]
