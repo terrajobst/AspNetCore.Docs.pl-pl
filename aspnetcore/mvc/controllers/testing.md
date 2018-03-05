@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: cabb1d2498e6c993b327c2fb9719525ec2181f9e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c72a5adc848cad62c7c20ff7e17469476aefaf53
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>Testowanie logiką kontrolera w ASP.NET Core
 
@@ -49,21 +49,21 @@ Jeśli piszesz filtry niestandardowe, tras, itp., należy testu jednostkowego ic
 
 Aby zademonstrować testy jednostkowe, przejrzyj następujący kontroler. Wyświetla listę Burza sesji, a zezwala na nowe Burza sesji ma zostać utworzony wpis:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
 
 Oto kontrolera [zasady jawne zależności](http://deviq.com/explicit-dependencies-principle/), oczekiwano iniekcji zależności do tego celu z wystąpieniem `IBrainstormSessionRepository`. Ułatwia to dość łatwe do testowania przy użyciu platformy zasymulować obiektu, takie jak [Moq](https://www.nuget.org/packages/Moq/). `HTTP GET Index` — Metoda nie ma pętli lub gałęzi i tylko wywołania jednej metody. Aby to sprawdzić `Index` metody, należy sprawdzić, czy `ViewResult` jest zwracany, z `ViewModel` w repozytorium `List` metody.
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
 
 `HomeController` `HTTP POST Index` Sprawdzić — metoda (pokazanym powyżej):
 
-* Metoda akcji zwraca nieprawidłowe żądanie `ViewResult` odpowiednimi danymi podczas `ModelState.IsValid` jest`false`
+* Metoda akcji zwraca nieprawidłowe żądanie `ViewResult` odpowiednimi danymi podczas `ModelState.IsValid` jest `false`
 
 * `Add` Wywoływana jest metoda repozytorium i `RedirectToActionResult` jest zwracany za poprawne argumenty podczas `ModelState.IsValid` ma wartość true.
 
 Nieprawidłowy stan modelu można sprawdzić przez dodanie błędów za pomocą `AddModelError` jak pokazano poniżej pierwszego testu.
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
 Potwierdza pierwszego testu, gdy `ModelState` nie jest prawidłowa, taka sama `ViewResult` jest zwracane jako `GET` żądania. Należy pamiętać, że test nie próba przekazania w nieprawidłowy model. To zadziała nie mimo to ponieważ wiązania modelu nie jest uruchomiony (chociaż [testu integracji](xref:mvc/controllers/testing#integration-testing) użyje wiązania modelu wykonywania). W takim przypadku nie jest poddawana testom wiązania modelu. Te testy jednostkowe tylko testowania jest kod w metodzie akcji.
 
@@ -74,23 +74,23 @@ Drugi test sprawdza, że w przypadku `ModelState` jest prawidłowy, nowy `Brains
 
 Inny kontroler w aplikacji Wyświetla informacje związane z sesją określonego Diagram burzy. Zawiera logikę radzenia sobie z wartości nieprawidłowy identyfikator:
 
-[!code-csharp[Main](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
+[!code-csharp[](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
 Akcja kontrolera ma trzech przypadkach do testowania, po jednej dla każdego `return` instrukcji:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
 
 Aplikacja udostępnia funkcje jako składnika web API (Lista koncepcji związanych z sesji Diagram burzy i metody do dodawania nowych pomysłów do sesji):
 
 <a name="ideas-controller"></a>
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 
 `ForSession` Metoda zwraca listę `IdeaDTO` typów. Należy unikać zwracania jednostek biznesowych domeny bezpośrednio za pomocą interfejsu API, ponieważ często zawierają więcej danych niż wymaga klienta interfejsu API, a ich połączenie niepotrzebnie modelu domeny wewnętrznej aplikacji przy użyciu interfejsu API można ujawnić zewnętrznie. Mapowanie między domeny jednostek i typy zwróci się przez sieć można przeprowadzić ręcznie (za pomocą LINQ `Select` w sposób pokazany poniżej) lub za pomocą biblioteki, takich jak [AutoMapper](https://github.com/AutoMapper/AutoMapper)
 
 Testów jednostkowych dla `Create` i `ForSession` metody interfejsu API:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
 
 Jak wspomniano wcześniej, aby przetestować działanie metody podczas `ModelState` jest nieprawidłowy, Dodaj błąd modelu do kontrolera jako część testu. Nie należy próbować testów sprawdzania poprawności lub modelu wiązania modelu w testy jednostkowe — po prostu przetestować zachowania metodzie akcji, gdy do czynienia z określonego `ModelState` wartość.
 
@@ -112,7 +112,7 @@ W tej przykładowej aplikacji używam programu Entity Framework Core InMemoryDat
 
 `Startup` Klasy:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
 
 Zobaczysz `GetTestSession` metody często używane w testach integracji poniżej.
 
@@ -127,11 +127,11 @@ The view 'Index' wasn't found. The following locations were searched:
 
 Aby rozwiązać ten problem, należy skonfigurować serwer zawartości głównego, aby mogły zlokalizować widoki dla projektu testowane. Jest to realizowane przez wywołanie `UseContentRoot` w `TestFixture` klasy, pokazano poniżej:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
 
 `TestFixture` Klasy jest odpowiedzialny za konfigurowanie i tworzenie `TestServer`, ustawieniu `HttpClient` do komunikowania się z `TestServer`. Każdy integrację testów używa `Client` właściwość, aby połączyć się z serwerem testu i wysłać żądanie.
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
 
 W pierwszym badaniu powyżej `responseString` przechowuje rzeczywiste renderowania kodu HTML z widoku, który można przeprowadzić inspekcji, aby potwierdzić zawiera oczekiwanych rezultatów.
 
@@ -143,7 +143,7 @@ Jeśli aplikacja udostępnia web API, jego warto mieć testów automatycznych up
 
 Następujący zestaw docelowy testy `Create` metody w [IdeasController](xref:mvc/controllers/testing#ideas-controller) klasy pokazanym powyżej:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
 
 W przeciwieństwie do integracji testy akcji, które zwraca widoków HTML metody interfejsu API sieci web, które zwracają wyniki zwykle można zdeserializowany jako silnie typizowanych obiektów, jak pokazano powyżej ostatniego testu. W takim przypadku testu deserializuje wynik, który ma `BrainstormSession` wystąpienia i potwierdza, że pomysł poprawnie została dodana do jego kolekcja pomysłów.
 

@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: ccf4329e6684d07570bfaabfaa1a570664fb2ca3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8dc2221ea19a33f1d34ba3aae8c60e365423e140
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Tworzenie aplikacji platformy ASP.NET MVC 5 z usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowania jednokrotnego (C#)
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web platformy ASP.NET MVC 5, która umożliwia użytkownikom logowanie użyciu [OAuth 2.0](http://oauth.net/2/) przy użyciu poświadczeń z zewnętrznego dostawcę uwierzytelniania, takich jak Facebook, Twitter, LinkedIn, Microsoft lub Google. Dla uproszczenia ten samouczek koncentruje się na temat pracy z poświadczeń z usługi Facebook i Google.
 > 
@@ -114,6 +114,9 @@ Aby połączyć dostawców uwierzytelniania, takich jak Google i Facebook, nale�
 <a id="goog"></a>
 ## <a name="creating-a-google-app-for-oauth-2-and-connecting-the-app-to-the-project"></a>Tworzenie aplikacji Google OAuth 2 i łączenie aplikacji z projektu
 
+> [!WARNING]
+> Bieżący protokołu Google OAuth instrukcje można znaleźć [Konfigurowanie uwierzytelniania serwisu Google w ASP.NET Core](/aspnet/core/security/authentication/social/google-logins).
+
 1. Przejdź do [konsoli deweloperów Google](https://console.developers.google.com/).
 1. Jeśli nie utworzono projekt przed, wybierz **poświadczenia** w karcie po lewej stronie, a następnie wybierz **Utwórz**.
 1. Na karcie po lewej stronie kliknij **poświadczenia**.
@@ -158,6 +161,9 @@ Aby połączyć dostawców uwierzytelniania, takich jak Google i Facebook, nale�
 
 <a id="fb"></a>
 ## <a name="creating-the-app-in-facebook-and-connecting-the-app-to-the-project"></a>Tworzenie aplikacji w serwisie Facebook i łączenie aplikacji z projektu
+
+> [!WARNING]
+> Bieżący Facebook OAuth2 uwierzytelniania instrukcje można znaleźć [uwierzytelniania Konfigurowanie usługi Facebook](/aspnet/core/security/authentication/social/facebook-logins)
 
 Dla uwierzytelniania serwisu Facebook OAuth2 należy skopiować do projektu niektórych ustawień z aplikacji, która tworzenia w serwisie Facebook.
 

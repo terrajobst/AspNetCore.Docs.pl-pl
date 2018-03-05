@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: e093a47159fd8278ff3705bb2c53571a8e27fab8
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: cda9f52d1f5fa1d240e210488bf1bd5c76e49be7
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-react-project-template"></a>Należy użyć szablonu projektu w bibliotece React.
 
@@ -49,9 +49,9 @@ Proces kompilacji przywraca npm zależności przy pierwszym uruchomieniu, co mo�
 
 Upewnij się, masz zmienną środowiskową o nazwie `ASPNETCORE_Environment` o wartości `Development`. W systemie Windows (w monity-PowerShell), uruchom `SET ASPNETCORE_Environment=Development`. W systemie Linux lub macOS Uruchom `export ASPNETCORE_Environment=Development`.
 
-Uruchom `dotnet build` można zweryfikować aplikacji kompilacje poprawnie. Przy pierwszym uruchomieniu procesu kompilacji przywraca npm zależności, co może potrwać kilka minut. Kolejne kompilacje są znacznie szybsze.
+Uruchom [kompilacji dotnet](/dotnet/core/tools/dotnet-build) można zweryfikować aplikacji kompilacje poprawnie. Przy pierwszym uruchomieniu procesu kompilacji przywraca npm zależności, co może potrwać kilka minut. Kolejne kompilacje są znacznie szybsze.
 
-Uruchom `dotnet run` do uruchomienia aplikacji.
+Uruchom [dotnet Uruchom](/dotnet/core/tools/dotnet-run) do uruchomienia aplikacji.
 
 ---
 

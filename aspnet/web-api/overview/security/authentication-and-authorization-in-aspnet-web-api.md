@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 2a4b5ed8a712b061b4afdf5a3adc9378dd72b37f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9d7cbb9505afb6461ba4c2087d57e9ea0da38ede
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Uwierzytelnianie i autoryzacja w składniku ASP.NET Web API
 ====================
@@ -80,7 +80,7 @@ Autoryzacja odbywa się później w potoku, zbliżonej do kontrolera. Gwarantowa
 
 Interfejs API sieci Web udostępnia filtr autoryzacji wbudowanych [klasy AuthorizeAttribute](https://msdn.microsoft.com/library/system.web.http.authorizeattribute.aspx). Ten filtr sprawdza, czy użytkownik jest uwierzytelniony. W przeciwnym razie zwraca kod stanu HTTP 401 (bez autoryzacji), bez wywoływania akcji.
 
-Można zastosować filtr globalny, na poziomie kontrolera lub na poziomie akcji inidivual.
+Można zastosować filtr globalny, na poziomie kontrolera lub na poziomie poszczególnych działań.
 
 **Globalny**: Aby ograniczyć dostęp dla każdego kontrolera interfejsu API sieci Web, Dodaj **klasy AuthorizeAttribute** filtr do listy filtrów globalnych:
 

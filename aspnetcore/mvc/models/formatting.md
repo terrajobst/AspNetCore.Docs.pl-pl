@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/formatting
-ms.openlocfilehash: 36231cd2bf59408e9c858ea99355c1e8dd859e6e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 704ca4f1ea6e0acd14dfa4175b61d8e2acf8f3c7
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-formatting-response-data-in-aspnet-core-mvc"></a>Wprowadzenie do formatowania danych odpowiedzi na platformie ASP.NET Core MVC
 
@@ -35,7 +35,7 @@ Aby zwrócić dane w określonym formacie z kontrolerem, która dziedziczy `Cont
 
 Zwraca dane w formacie JSON:
 
-[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=21-26)]
+[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=21-26)]
 
 Przykładowa odpowiedź z tej akcji:
 
@@ -45,7 +45,7 @@ Należy pamiętać, że typ zawartości odpowiedzi jest `application/json`, poka
 
 Aby zwrócić dane w formacie zwykłego tekstu, należy użyć `ContentResult` i `Content` pomocy:
 
-[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=47-52)]
+[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=47-52)]
 
 Odpowiedź z tej akcji:
 
@@ -53,7 +53,7 @@ Odpowiedź z tej akcji:
 
 W takim przypadku należy zwrócić uwagę `Content-Type` zwracane jest `text/plain`. Można również uzyskać to samo przy użyciu tylko ciąg typu odpowiedzi:
 
-[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=54-59)]
+[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=54-59)]
 
 >[!TIP]
 > Dla nietrywialnej akcji z wieloma zwracać typów lub opcji (na przykład różnych kodów stanu HTTP na podstawie wyniku operacji wykonywanych) tak, `IActionResult` jako typ zwracany.
@@ -64,7 +64,7 @@ Negocjowanie zawartości (*conneg* skrócie) występuje, gdy klient określa [na
 
 Używa następującej metody akcji `Ok` i `NotFound` metody pomocnicze:
 
-[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=8,10&range=28-38)]
+[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=8,10&range=28-38)]
 
 Odpowiedź w formacie JSON zostaną zwrócone, chyba że zażądano innego formatu i serwer może zwrócić żądany format. Można użyć narzędzia, takiego jak [Fiddler](http://www.telerik.com/fiddler) Aby utworzyć żądanie zawiera nagłówek Accept i określić innego formatu. W takim przypadku, jeśli serwer ma *program formatujący* które powodują uzyskanie odpowiedzi w formacie żądanego, wynik zostanie zwrócony w formacie preferowanego klienta.
 
@@ -76,7 +76,7 @@ Akcji kontrolera może zwrócić POCOs (zwykły stare obiekty CLR), w którym to
 
 Zwraca typ obiektu:
 
-[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3&range=40-45)]
+[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3&range=40-45)]
 
 W przykładzie żądania dla aliasu autora otrzyma odpowiedź 200 OK z danymi autora. Żądanie nieprawidłowy alias otrzyma 204 odpowiedzi bez zawartości. Poniżej przedstawiono zrzuty ekranu przedstawiający odpowiedzi w formacie XML i JSON.
 
@@ -110,7 +110,7 @@ Aby dodać obsługę formatowania XML, zainstaluj `Microsoft.AspNetCore.Mvc.Form
 
 Dodaj XmlSerializerFormatters do konfiguracji MVC w *Startup.cs*:
 
-[!code-csharp[Main](./formatting/sample/Startup.cs?name=snippet1&highlight=2)]
+[!code-csharp[](./formatting/sample/Startup.cs?name=snippet1&highlight=2)]
 
 Alternatywnie można dodać tylko element formatujący danych wyjściowych:
 

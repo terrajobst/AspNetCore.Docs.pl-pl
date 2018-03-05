@@ -8,11 +8,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: feb4a50c9e5602064e7d493b6991485949903f47
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: d5a9ac83b30a8173f9229e512bf843d93c11baea
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sortowanie, filtrowanie, stronicowania i grupowanie — podstawowe EF z samouczek platformy ASP.NET Core MVC (3 10)
 
@@ -34,7 +34,7 @@ Aby dodać sortowanie do strony indeksu dla użytkowników domowych, zostanie zm
 
 W *StudentsController.cs*, Zastąp `Index` metodę z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
 
 Ten kod odbiera `sortOrder` parametr ciągu zapytania w adresie URL. Wartość ciągu kwerendy są udostępniane przez program ASP.NET Core MVC jako parametr do metody akcji. Parametr będzie ciąg, który jest "Name" lub "Date", opcjonalnie, podkreślenia, a ciąg "desc", aby określić w kolejności malejącej. Domyślna kolejność sortowania jest rosnąca.
 
@@ -42,7 +42,7 @@ Ten kod odbiera `sortOrder` parametr ciągu zapytania w adresie URL. Wartość c
 
 Dwa `ViewData` elementów (NameSortParm i DateSortParm) są używane przez widok skonfigurowanie hiperłącza nagłówek kolumny z wartości typu QueryString odpowiednie.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
 
 Są to trójargumentowy instrukcje. Pierwsza z nich Określa, że jeśli `sortOrder` parametr ma wartość null lub pusty, NameSortParm powinien być ustawiony na "name_desc"; w przeciwnym razie powinien być ustawiony na pusty ciąg. Te dwie instrukcje włączyć widok, aby ustawić hiperłącza nagłówek kolumny w następujący sposób:
 
@@ -77,7 +77,7 @@ Aby dodać filtrowanie do strony indeksu studentów, będzie Dodaj pole tekstowe
 
 W *StudentsController.cs*, Zastąp `Index` metodę z następującym kodem (zmiany zostały wyróżnione).
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
 Dodano `searchString` parametr `Index` metody. Wartość ciągu wyszukiwania są odebrane z pola tekstowego, która zostanie dodana do widoku indeksu. Również dodane do instrukcji LINQ where klauzuli, który wybiera tylko studentów, w których imię lub nazwisko zawiera ciąg wyszukiwania. Instrukcja, która dodaje where klauzuli jest wykonywane tylko wtedy, gdy wartość do wyszukania.
 
@@ -116,7 +116,7 @@ Aby dodać stronicowania do strony indeksu studentów, należy utworzyć `Pagina
 
 W folderze projektu Utwórz `PaginatedList.cs`, a następnie Zastąp kod szablonu z następującym kodem.
 
-[!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
+[!code-csharp[](intro/samples/cu/PaginatedList.cs)]
 
 `CreateAsync` Metoda ten kod pobiera rozmiar strony i numer strony i zastosowanie odpowiednich `Skip` i `Take` instrukcje `IQueryable`. Gdy `ToListAsync` jest wywoływana na `IQueryable`, to zostanie zwrócona lista zawierająca żądanej strony. Właściwości `HasPreviousPage` i `HasNextPage` pozwala włączyć lub wyłączyć **Wstecz** i **dalej** stronicowania przycisków.
 
@@ -126,7 +126,7 @@ A `CreateAsync` zamiast konstruktora metodę, aby utworzyć `PaginatedList<T>` o
 
 W *StudentsController.cs*, Zastąp `Index` metodę z następującym kodem.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
 
 Ten kod dodaje parametr numer strony, bieżącego parametru kolejność sortowania i bieżącego parametru filtru w podpisie metody.
 
@@ -213,21 +213,21 @@ Utwórz *SchoolViewModels* folderu w *modele* folderu.
 
 W nowym folderze, Dodaj plik klasy *EnrollmentDateGroup.cs* i Zastąp kod szablonu z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="modify-the-home-controller"></a>Modyfikowanie macierzystego kontrolera
 
 W *HomeController.cs*, Dodaj następujące instrukcje using na początku pliku:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
 
 Dodaj zmienną klasy kontekstu bazy danych bezpośrednio po otwierającym nawiasie klamrowym klasy i pobrać wystąpienia kontekstu z platformy ASP.NET Core Podpisane.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
 Zastąp `About` metodę z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 Instrukcja LINQ grupy jednostek uczniowie według daty rejestracji oblicza liczbę jednostek w każdej grupie i przechowuje wyniki w kolekcji z `EnrollmentDateGroup` wyświetlić obiekty modelu.
 > [!NOTE] 

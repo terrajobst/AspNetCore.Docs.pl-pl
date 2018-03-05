@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/limited-lifetime-payloads
-ms.openlocfilehash: 812d0373d24c8578bae83db4876549246f189be3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d631851b5b933d75c37a308f492840e3442e6f1a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limiting-the-lifetime-of-protected-payloads"></a>Ograniczanie okresu istnienia ładunków chronionych
 
@@ -25,7 +25,7 @@ Aby ułatwić naszym odbiorców developer, pakiet dla [Microsoft.AspNetCore.Data
 
 `ITimeLimitedDataProtector` Interfejs jest interfejsem core do ochrony i wyłączenie ograniczone czasowo / własnym wygasające ładunków. Aby utworzyć wystąpienie `ITimeLimitedDataProtector`, musisz najpierw wystąpienia zwykły [interfejsu IDataProtector](overview.md) wykonane z określonym przeznaczeniem. Raz `IDataProtector` wystąpienia jest dostępna, należy wywołać `IDataProtector.ToTimeLimitedDataProtector` — metoda rozszerzenia odzyskać z funkcji ochrony z możliwości wbudowanego wygaśnięcia.
 
-`ITimeLimitedDataProtector`udostępnia następujące metody powierzchni i rozszerzenia interfejsu API:
+`ITimeLimitedDataProtector` udostępnia następujące metody powierzchni i rozszerzenia interfejsu API:
 
 * CreateProtector (ciąg cel): ITimeLimitedDataProtector — ten interfejs API jest podobne do istniejących `IDataProtectionProvider.CreateProtector` w tym może służyć do tworzenia [cel łańcuchów](purpose-strings.md) z funkcji ochrony kluczem głównym ograniczone czasowo.
 
@@ -58,4 +58,4 @@ Oprócz podstawowe `Protect` metod, które biorą tylko zwykły tekst, istnieją
 
 Przykładowe poniżej używa [ścieżki kodu nie są Podpisane](../configuration/non-di-scenarios.md) dla wystąpienia systemu ochrony danych. Do uruchomienia tego przykładu, upewnij się, że najpierw zostały dodane odwołanie do pakietu Microsoft.AspNetCore.DataProtection.Extensions.
 
-[!code-csharp[Main](limited-lifetime-payloads/samples/limitedlifetimepayloads.cs)]
+[!code-csharp[](limited-lifetime-payloads/samples/limitedlifetimepayloads.cs)]

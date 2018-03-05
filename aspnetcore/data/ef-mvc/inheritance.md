@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 985cc38b10ef830b8274e40ad5f7050157fd4d86
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 55221846422def25452bc148b68573a02299bbfe
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>Dziedziczenie - Core EF z samouczek platformy ASP.NET Core MVC (9, 10)
 
@@ -60,23 +60,23 @@ Ten samouczek pokazuje, jak zaimplementować dziedziczenia TPH. TPH to wzorzec t
 
 W folderze modeli Utwórz Person.cs i Zastąp kod szablonu z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/Person.cs)]
+[!code-csharp[](intro/samples/cu/Models/Person.cs)]
 
 ## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Utworzyć klasy dla użytkowników domowych i instruktora dziedziczyć osoby
 
 W *Instructor.cs*, pochodzi z klasy instruktora od klasy osoby i usuń pola klucza i nazwę. Ten kod będzie wyglądać następująco:
 
-[!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_AfterInheritance&highlight=8)]
+[!code-csharp[](intro/samples/cu/Models/Instructor.cs?name=snippet_AfterInheritance&highlight=8)]
 
 Wprowadzenie identycznych zmian w *Student.cs*.
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
 
 ## <a name="add-the-person-entity-type-to-the-data-model"></a>Dodaj typ jednostki osoby do modelu danych
 
 Dodaj typ jednostki osoby do *SchoolContext.cs*. Nowe wiersze są wyróżnione.
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_AfterInheritance&highlight=19,30)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_AfterInheritance&highlight=19,30)]
 
 To wszystko, który programu Entity Framework wymaga, aby skonfigurować tabelę dla hierarchii dziedziczenia. Jak można zauważyć, gdy baza danych jest aktualizowana, ma zamiast tabel dla użytkowników domowych i instruktora tabeli osoby.
 
@@ -92,7 +92,7 @@ Nie uruchamiaj `database update` jeszcze polecenia. Tego polecenia zostanie spow
 
 Otwórz *migracje /\<sygnatury czasowej > _Inheritance.cs* i Zastąp `Up` metodę z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
+[!code-csharp[](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
 
 Ten kod zajmuje się następujące zadania aktualizacji bazy danych:
 

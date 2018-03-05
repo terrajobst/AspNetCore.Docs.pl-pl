@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 85e25b92b01d84279752deb7865987746c181c72
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: df9ae2b784e8b7b21a471f465998f09bbacbef75
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Iniekcji zależności w ASP.NET Core
 
@@ -94,7 +94,7 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 
 Poniżej znajduje się przykład sposobu dodawania dodatkowych usług do kontenera przy użyciu metod rozszerzenia takich jak `AddDbContext`, `AddIdentity`, i `AddMvc`.
 
-[!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=5-6,8-10,12&range=39-56)]
+[!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=5-6,8-10,12&range=39-56)]
 
 Funkcje i oprogramowanie pośredniczące dostarczane przez platformę ASP.NET, takich jak MVC, wykonaj Konwencji przy użyciu pojedynczego Dodaj*ServiceName* — metoda rozszerzenia zarejestrować wszystkich usług wymaganych przez tej funkcji.
 
@@ -105,7 +105,7 @@ Funkcje i oprogramowanie pośredniczące dostarczane przez platformę ASP.NET, t
 
 Usługi aplikacji można zarejestrować w następujący sposób. Pierwszy ogólny typ reprezentuje typ (zazwyczaj interfejs) żądany z kontenera. Drugi typ ogólny reprezentuje typu konkretnego, który zostanie uruchomiony przez kontener i będzie używana do spełnienia takich żądań.
 
-[!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?range=53-54)]
+[!code-csharp[](../common/samples/WebApplication1/Startup.cs?range=53-54)]
 
 > [!NOTE]
 > Każdy `services.Add<ServiceName>` — metoda rozszerzenia dodaje (i potencjalnie konfiguruje) usługi. Na przykład `services.AddMvc()` dodaje usług wymaga MVC. Zalecane jest, wykonaj tę Konwencję, umieszczenia metod rozszerzenia w `Microsoft.Extensions.DependencyInjection` przestrzeni nazw w celu hermetyzacji grup rejestracji usługi.
@@ -114,18 +114,18 @@ Usługi aplikacji można zarejestrować w następujący sposób. Pierwszy ogóln
 
 W przykładowym tego artykułu jest proste kontroler, który wyświetla znak nazwy, o nazwie `CharactersController`. Jego `Index` metoda Wyświetla bieżącą listę znaków, które były przechowywane w aplikacji i inicjuje połączenie z kilku znaków, jeśli nie ma żadnego. Należy pamiętać, że chociaż Entity Framework Core korzysta z tej aplikacji i `ApplicationDbContext` klasy jego trwałości, żaden z jest widoczna w kontrolerze. Zamiast tego mechanizmu dostępu określonych danych ma zostały usunięte za interfejsu `ICharacterRepository`, który następuje [wzorca repozytorium](http://deviq.com/repository-pattern/). Wystąpienie `ICharacterRepository` za pośrednictwem konstruktora i ma przypisaną do prywatnego pola, które są następnie używane do dostęp do znaków w razie potrzeby.
 
-[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
+[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
 
 `ICharacterRepository` Definiuje dwie metody kontrolera musi pracować `Character` wystąpień.
 
-[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
+[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
 
 Ten interfejs z kolei jest implementowany przez typem konkretnym `CharacterRepository`, który jest używany w czasie wykonywania.
 
 > [!NOTE]
 > Sposób Podpisane jest używany z `CharacterRepository` klasy jest ogólny model można wykonać dla wszystkich usług aplikacji, nie tylko w "repozytoria" lub klas dostępu do danych.
 
-[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Models/CharacterRepository.cs?highlight=9,11,12,13,14)]
+[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Models/CharacterRepository.cs?highlight=9,11,12,13,14)]
 
 Należy pamiętać, że `CharacterRepository` żądań `ApplicationDbContext` w jego konstruktora. Nie jest rzadko iniekcji zależności do użycia w sposób łańcuchowa podobny do tego, z każdej żądanej zależności z kolei żąda własnych zależności. Kontener jest odpowiedzialny za rozwiązywanie wszystkich zależności na wykresie i zwracanie całkowicie rozwiązany usługi.
 
@@ -134,7 +134,7 @@ Należy pamiętać, że `CharacterRepository` żądań `ApplicationDbContext` w 
 
 W takim przypadku zarówno `ICharacterRepository` i z kolei `ApplicationDbContext` musi być zarejestrowana w kontenerze usług w `ConfigureServices` w `Startup`. `ApplicationDbContext` skonfigurowano wywołanie metody rozszerzenia `AddDbContext<T>`. Poniższy kod przedstawia rejestracji `CharacterRepository` typu.
 
-[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
+[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
 
 Entity Framework kontekstów należy dodać do kontenera usług przy użyciu `Scoped` okres istnienia. To jest poświęcony na obsługę automatycznie Jeśli używasz metody pomocnicze, jak pokazano powyżej. Repozytoria, które korzystają z programu Entity Framework należy używać tego samego okresu istnienia.
 
@@ -163,21 +163,21 @@ Usługi mogą być rejestrowane w kontenerze na kilka sposobów. Już widzieliś
 
 Aby zademonstrować różnica między te opcje okres istnienia i rejestracji, należy wziąć pod uwagę prosty interfejs, który reprezentuje jeden lub więcej zadań jako *operacji* z unikatowym identyfikatorem `OperationId`. W zależności od tego, w jaki sposób skonfigurować okres istnienia dla tej usługi kontener zawierają tych samych lub różnych wystąpień usługi do klasy wysyłającego żądanie. Aby umożliwić Wyczyść, którego okres istnienia jest wymagany, utworzymy jednego typu na opcja okresu istnienia:
 
-[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/IOperation.cs?highlight=5-8)]
+[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/IOperation.cs?highlight=5-8)]
 
 Wprowadzania tych interfejsów przy użyciu jednej klasy, `Operation`, która akceptuje `Guid` w konstruktorze lub używa nowego `Guid` Jeśli nie zostanie podana.
 
 Następnie w `ConfigureServices`, każdy typ jest dodawany do kontenera zgodnie z jego istnienia o nazwie:
 
-[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Startup.cs?range=26-32)]
+[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Startup.cs?range=26-32)]
 
 Należy pamiętać, że `IOperationSingletonInstance` usługa używa określonego wystąpienia o identyfikatorze znane `Guid.Empty` , będzie on wyczyść podczas tego typu jest używana (jego identyfikator Guid będą same zera). Możemy także zarejestrowane `OperationService` to zależy od wszystkich innych `Operation` typy, dzięki czemu będzie wyczyść w ramach żądania określa, czy ta usługa jest wprowadzenie tego samego wystąpienia co kontroler, lub do nowego, dla każdego typu operacji. Ta usługa nie będzie prezentować zależnościami jako właściwości, co mogą być wyświetlane w widoku.
 
-[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Services/OperationService.cs)]
+[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Services/OperationService.cs)]
 
 Aby zademonstrować okresy istnienia obiektu, w ramach i między oddzielne poszczególnych żądań do aplikacji, obejmuje próbki `OperationsController` który żąda każdego rodzaju `IOperation` typu, a także `OperationService`. `Index` Akcji następnie wyświetla wszystkie usługi i kontrolera `OperationId` wartości.
 
-[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Controllers/OperationsController.cs)]
+[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Controllers/OperationsController.cs)]
 
 Teraz dwa oddzielne żądania zostały wprowadzone do tej akcji kontrolera:
 

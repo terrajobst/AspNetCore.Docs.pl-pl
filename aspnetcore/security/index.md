@@ -9,23 +9,23 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/index
-ms.openlocfilehash: e1aaae09fe69e6b65a917785b436f927fac5345d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7e5f6bc44241dc6fc11569a145a04340f1b3ee7f
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="aspnet-core-security-overview"></a>Przegląd zabezpieczeń platformy ASP.NET Core
 
-Platformy ASP.NET Core umożliwia deweloperom łatwe konfigurowanie i zarządzanie zabezpieczeniami dla aplikacji. Platformy ASP.NET Core zawiera funkcje związane z zarządzaniem uwierzytelniania, autoryzacji, ochrony danych, Wymuszanie protokołu SSL, klucze tajne aplikacji, ochrony sfałszowaniem żądań oprogramowania i zarządzania CORS. Te funkcje zabezpieczeń umożliwiają tworzenie niezawodnych jeszcze secure aplikacji platformy ASP.NET Core. 
+Platformy ASP.NET Core umożliwia deweloperom łatwe konfigurowanie i zarządzanie zabezpieczeniami dla aplikacji. Platformy ASP.NET Core zawiera funkcje związane z zarządzaniem uwierzytelniania, autoryzacji, ochrony danych, Wymuszanie protokołu SSL, klucze tajne aplikacji, ochrony sfałszowaniem żądań oprogramowania i zarządzania CORS. Te funkcje zabezpieczeń umożliwiają tworzenie niezawodnych jeszcze secure aplikacji platformy ASP.NET Core.
 
 ## <a name="aspnet-core-security-features"></a>Funkcje zabezpieczeń platformy ASP.NET Core
 
-Platformy ASP.NET Core udostępnia wiele narzędzi i biblioteki w celu zabezpieczenia aplikacji w tym wbudowanych dostawców tożsamości, ale można użyć 3 usług tożsamości firm, takich jak Facebook, Twitter i LinkedIn. Platformy ASP.NET Core aby łatwo zarządzać klucze tajne aplikacji, które służą do przechowywania i używać informacji poufnych, bez konieczności je ujawnić w kodzie. 
+Platformy ASP.NET Core udostępnia wiele narzędzi i biblioteki w celu zabezpieczenia aplikacji w tym wbudowanych dostawców tożsamości, ale można użyć 3 usług tożsamości firm, takich jak Facebook, Twitter i LinkedIn. Platformy ASP.NET Core aby łatwo zarządzać klucze tajne aplikacji, które służą do przechowywania i używać informacji poufnych, bez konieczności je ujawnić w kodzie.
 
 ## <a name="authentication-vs-authorization"></a>Uwierzytelnianie programu vs. Autoryzacja
 
-Uwierzytelnianie to proces, w którym użytkownik udostępnia poświadczenia, które następnie są porównywane te są przechowywane w systemie operacyjnym, bazy danych, aplikacji lub zasobów. Jeśli są zgodne, użytkownicy pomyślnie uwierzytelnił i można następnie wykonać akcje, które są uprawnieni, podczas procesu autoryzacji. Autoryzacja odwołuje się do proces, który określa, jakie użytkownik może wykonywać. 
+Uwierzytelnianie to proces, w którym użytkownik udostępnia poświadczenia, które następnie są porównywane te są przechowywane w systemie operacyjnym, bazy danych, aplikacji lub zasobów. Jeśli są zgodne, użytkownicy pomyślnie uwierzytelnił i można następnie wykonać akcje, które są uprawnieni, podczas procesu autoryzacji. Autoryzacja odwołuje się do proces, który określa, jakie użytkownik może wykonywać.
 
 Innym sposobem uwierzytelniania należy traktować jest należy wziąć pod uwagę sposób wprowadź spację, np. serwera, bazy danych, aplikacji lub zasobów, gdy autoryzacja jest akcje, które użytkownik może wykonywać na obiekty, które wewnątrz tego miejsca (serwer bazy danych i aplikacji).
 
@@ -38,16 +38,17 @@ Platformy ASP.NET Core i EF zawiera funkcje, które ułatwiają zabezpieczenia a
 * [Fałszowanie żądań między witrynami (CSRF)](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery)
 * [Otwórz przekierowania ataków](https://docs.microsoft.com/aspnet/core/security/preventing-open-redirects)
 
-Istnieje więcej usterek, które należy zwrócić uwagę. Aby uzyskać więcej informacji, zobacz sekcję w tym dokumencie na *dokumentacji zabezpieczeń ASP.NET*. 
+Istnieje więcej usterek, które należy zwrócić uwagę. Aby uzyskać więcej informacji, zobacz sekcję w tym dokumencie na *dokumentacji zabezpieczeń ASP.NET*.
 
 ## <a name="aspnet-security-documentation"></a>Dokumentacja zabezpieczeń platformy ASP.NET
 
 *   [Uwierzytelnianie](authentication/index.md)
     *   [Wprowadzenie do tożsamości](authentication/identity.md)
     *   [Włączanie uwierzytelniania za pomocą usługi Facebook, Google i innych dostawców zewnętrznych](authentication/social/index.md)
+    *   [Włącz uwierzytelnianie za pomocą protokołu WS-Federation](authentication/ws-federation.md)
     * [Konfigurowanie uwierzytelniania systemu Windows](authentication/windowsauth.md)
     *   [Potwierdzenie konta i odzyskiwanie hasła](authentication/accconfirm.md)
-    *   [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS](authentication/2fa.md) 
+    *   [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS](authentication/2fa.md)
     *   [Użyj plików cookie uwierzytelniania bez tożsamości](authentication/cookie.md)
     *   [Azure Active Directory](authentication/azure-active-directory/index.md)
         *   [Integrowanie usługi Azure AD do aplikacji sieci web platformy ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)

@@ -12,25 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 103cd68c576463d87d0077cc149f9b89c6e028e8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 639815cc92b7cb5f3dfb4e1a198f6b4c2476dc90
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-custom-action-filters"></a>Filtry akcji niestandardowych platformy ASP.NET MVC 4
-====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-custom-action-filters"></a>Filtry akcji niestandardowych platformy ASP.NET MVC 4
 
-> ASP.NET MVC udostępnia filtry akcji wykonywania logiki filtrowania przed lub po nosi nazwę metody akcji. Filtry akcji są atrybutów niestandardowych, zawierających deklaratywne oznacza dodanie akcji przed i po zachowania do metod akcji kontrolera.
-> 
-> W tym laboratorium Hands-on spowoduje utworzenie atrybutu filtru akcji niestandardowej do rozwiązania MvcMusicStore catch kontrolera żądań i rejestrowanie aktywności lokacji do tabeli bazy danych. Będzie można dodać filtr rejestrowania przez uruchomienie kontrolera lub akcji. Na koniec zostanie wyświetlony widok dziennika z listą użytkowników.
-> 
-> > [!NOTE]
-> > W tym laboratorium Hands-on zakłada mieć podstawową wiedzę na temat **ASP.NET MVC**. Jeśli nie używasz **ASP.NET MVC** przed, zalecamy zapoznać się z **podstawowe informacje na temat platformy ASP.NET MVC 4** Hands-on laboratorium.
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
+[Pobierz obozów sieci Web uczenie Kit](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+ASP.NET MVC udostępnia filtry akcji wykonywania logiki filtrowania przed lub po nosi nazwę metody akcji. Filtry akcji są atrybutów niestandardowych, zawierających deklaratywne oznacza dodanie akcji przed i po zachowania do metod akcji kontrolera.
+
+W tym laboratorium Hands-on spowoduje utworzenie atrybutu filtru akcji niestandardowej do rozwiązania MvcMusicStore catch kontrolera żądań i rejestrowanie aktywności lokacji do tabeli bazy danych. Będzie można dodać filtr rejestrowania przez uruchomienie kontrolera lub akcji. Na koniec zostanie wyświetlony widok dziennika z listą użytkowników.
+
+W tym laboratorium Hands-on zakłada mieć podstawową wiedzę na temat **ASP.NET MVC**. Jeśli nie używasz **ASP.NET MVC** przed, zalecamy zapoznać się z **podstawowe informacje na temat platformy ASP.NET MVC 4** Hands-on laboratorium.
+
+> [!NOTE]
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, pod [wersje Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Specyficzne dla tego laboratorium projektu jest dostępna na [filtry akcji niestandardowych platformy ASP.NET MVC 4](https://github.com/Microsoft-Web/HOL-MVC4CustomActionFilters).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Cele
@@ -332,7 +333,7 @@ To zadanie zaktualizuje rozwiązanie, aby zarejestrować nowego filtru (**MyNewC
 1. W **StoreController** klasy, Usuń **[MyNewCustomActionFilter]** atrybutu, a właściwość kolejności z **[CustomActionFilter]**. Jego wygląd powinien być podobne do poniższych:
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample13.cs)]
-2. Otwórz **Global.asax** plików i Znajdź **aplikacji\_Start** metody. Powiadomienie, że każdy thime aplikacji uruchamia go rejestruje filtry globalne wywołując **RegisterGlobalFilters** metodę **FilterConfig** klasy.
+2. Otwórz **Global.asax** plików i Znajdź **aplikacji\_Start** metody. Powiadomienie, że każdy czas uruchamiania aplikacji go rejestruje filtry globalne wywołując **RegisterGlobalFilters** metodę **FilterConfig** klasy.
 
     ![Rejestrowanie w pliku Global.asax filtry globalne](aspnet-mvc-4-custom-action-filters/_static/image10.png "rejestrowanie filtry globalne w pliku Global.asax")
 
@@ -484,12 +485,12 @@ Jeśli aplikacja korzysta z programu SQL Server baz danych, należy utworzyć se
 
     ![Dodawanie adresu IP klienta](aspnet-mvc-4-custom-action-filters/_static/image27.png)
 
-    *Dodawanie adresu IP klienta*
+    Dodawanie adresu IP klienta
 3. Raz **adres IP klienta** jest dodawany do dozwolonych adresów IP kliknij na **zapisać** o potwierdzenie zmian.
 
     ![Potwierdzenie zmian](aspnet-mvc-4-custom-action-filters/_static/image28.png)
 
-    *Potwierdzenie zmian*
+    Potwierdzenie zmian
 
 <a id="ApxBTask3"></a>
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 314d585c7bf7f8c95f763babe6cdf93e514ff656
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: bfcbddb208fedaa4de46df782336176d97ea5bdc
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>W przypadku platformy ASP.NET Core przekazywania plików
 
@@ -47,7 +47,7 @@ Aby zapewnić obsługę przekazywania plików, należy określić formularzy HTM
 
 ![Formularz przekazywania pliku](file-uploads/_static/upload-form.png)
 
-Poszczególnych przekazany na serwer plików jest możliwy za pośrednictwem [powiązanie modelu](xref:mvc/models/model-binding) przy użyciu [IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile) interfejsu. `IFormFile`ma następującą strukturę:
+Poszczególnych przekazany na serwer plików jest możliwy za pośrednictwem [powiązanie modelu](xref:mvc/models/model-binding) przy użyciu [IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile) interfejsu. `IFormFile` ma następującą strukturę:
 
 ```csharp
 public interface IFormFile
@@ -71,7 +71,7 @@ Podczas przekazywania plików przy użyciu wiązania modelu i `IFormFile` interf
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
 Pliki przesłane za pomocą `IFormFile` technika są buforowane w pamięci lub na dysku na serwerze sieci web przed przetworzeniem. Wewnątrz metody akcji `IFormFile` zawartość jest dostępna jako strumień. Oprócz lokalnego systemu plików, pliki mogą być przesyłane strumieniowo do [magazynu obiektów Blob Azure](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) lub [Entity Framework](https://docs.microsoft.com/ef/core/index).
 
@@ -96,7 +96,7 @@ public class RegisterViewModel
 ```
 
 > [!NOTE]
-> `IFormFile`można bezpośrednio jako parametr metody akcji lub właściwością viewmodel, jak pokazano powyżej.
+> `IFormFile` można bezpośrednio jako parametr metody akcji lub właściwością viewmodel, jak pokazano powyżej.
 
 Kopiuj `IFormFile` do strumienia i zapisać go do tablicy typu byte:
 
@@ -151,15 +151,15 @@ public IActionResult Index()
 
 Atrybut korzysta z wbudowanej platformy ASP.NET Core [Antiforgery](xref:security/anti-request-forgery) pomocy technicznej, aby ustawić pliku cookie z żądania tokenu:
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
 
 Kątową automatycznie przekazuje antiforgery tokenu w nagłówku żądania o nazwie `X-XSRF-TOKEN`. Aplikacji platformy ASP.NET Core MVC jest skonfigurowany do odwoływania się do tego nagłówka w jej konfiguracji w *Startup.cs*:
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
 
 `DisableFormValueModelBinding` Atrybutu, pokazano poniżej, jest używana do wyłączenia wiązania modelu dla `Upload` metody akcji.
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
 
 Wiązanie modelu jest wyłączona, `Upload` metody akcji nie akceptuje parametrów. Działa on bezpośrednio z `Request` właściwość `ControllerBase`. A `MultipartReader` jest używany do odczytu każdej sekcji. Plik zostanie zapisany pod nazwą identyfikator GUID i dane klucza i wartości są przechowywane w `KeyValueAccumulator`. Po przeczytaniu wszystkie sekcje zawartości `KeyValueAccumulator` są używane dla wiązania danych formularza typu modelu.
 
@@ -167,7 +167,7 @@ Pełną `Upload` metody jest pokazany poniżej:
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs?name=snippet1)]
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: 9600392b47fb8b1dded06faefaff1bf87d67af4e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2e20e660bfa4aa335b951e2dc770e3671f99d2a8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-code"></a>Dodawanie modelu do aplikacji stron Razor w ASP.NET Core z kodem Visual Studio
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/30/2018
 [!INCLUDE[model 2](../../includes/RP/model2.md)]
 [!INCLUDE[model 2a](../../includes/RP/model2a.md)]
 
-[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-6)]
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-6)]
 
 Skompiluj projekt, aby sprawdzić, czy nie zawiera błędów.
 
@@ -41,7 +41,7 @@ Edytuj *RazorPagesMovie.csproj* pliku:
 * Wybierz **pliku** > **Otwórz plik**, a następnie wybierz *RazorPagesMovie.csproj* pliku.
 * Dodaj odwołanie do narzędzia dla `Microsoft.EntityFrameworkCore.Tools.DotNet` drugiej  **\<ItemGroup >**:
 
-[!code-xml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj)]
+[!code-xml[](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj)]
 
 [!INCLUDE[model 3](../../includes/RP/model3.md)]
 
@@ -72,7 +72,8 @@ Jeśli zostanie wyświetlony błąd:
 
 Zamknij program Visual Studio i ponownie uruchom polecenie.
 
-[!INCLUDE[model 4](../../includes/RP/model4.md)]Następny samouczek wyjaśnia plików utworzonych przez funkcję szkieletów.
+[!INCLUDE[model 4](../../includes/RP/model4.md)]
+Następny samouczek wyjaśnia plików utworzonych przez funkcję szkieletów.
 
 >[!div class="step-by-step"]
 [Poprzedni: Wprowadzenie](xref:tutorials/razor-pages-vsc/razor-pages-start)

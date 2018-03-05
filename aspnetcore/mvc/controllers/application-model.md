@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 6e5f290c48cfe58ae3efe5ce0208c72e8ffb1daf
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 89a7af0ff95754f036b027aeafb8e25e49f397e2
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="working-with-the-application-model"></a>Praca z modelem aplikacji
 
@@ -56,7 +56,7 @@ Następnie (`Order=-990`):
 > Kolejność, w których dwóch dostawców z taką samą wartość `Order` są nazywane jest niezdefiniowana i dlatego nie powinny być stosowane.
 
 > [!NOTE]
-> `IApplicationModelProvider`to zaawansowane pojęcia dla autorów framework rozszerzenie. Ogólnie rzecz biorąc aplikacje powinny używać konwencji i platform, należy użyć dostawcy. Klucza różnica polega na tym, że dostawcy są zawsze uruchamiane przed Konwencji.
+> `IApplicationModelProvider` to zaawansowane pojęcia dla autorów framework rozszerzenie. Ogólnie rzecz biorąc aplikacje powinny używać konwencji i platform, należy użyć dostawcy. Klucza różnica polega na tym, że dostawcy są zawsze uruchamiane przed Konwencji.
 
 `DefaultApplicationModelProvider` Ustanawia wiele zachowania domyślne używane przez program ASP.NET Core MVC. Jego obowiązki obejmują:
 
@@ -89,25 +89,25 @@ Konwencje są stosowane przez dodanie ich do opcji MVC lub implementując `Attri
 
 Następującej konwencji umożliwia dodawanie właściwości do modelu aplikacji. 
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/ApplicationDescription.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/ApplicationDescription.cs)]
 
 Konwencje modelu aplikacji są stosowane jako opcje woluminowi MVC `ConfigureServices` w `Startup`.
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=5)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=5)]
 
 Właściwości są dostępne z `ActionDescriptor` kolekcji właściwości w akcji kontrolera:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/AppModelController.cs?name=AppModelController)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/AppModelController.cs?name=AppModelController)]
 
 ### <a name="sample-modifying-the-controllermodel-description"></a>Przykład: Modyfikacja opis ControllerModel
 
 Tak jak w poprzednim przykładzie modelu kontrolera może być modyfikowany aby uwzględnić właściwości niestandardowe. To spowoduje zastąpienie istniejącej właściwości o takiej samej nazwie, jak określono w modelu aplikacji. Następujący atrybut Konwencji dodano opis na poziomie kontrolera:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/ControllerDescriptionAttribute.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/ControllerDescriptionAttribute.cs)]
 
 Konwencja jest stosowany jako atrybut na kontrolerze.
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=ControllerDescription&highlight=1)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=ControllerDescription&highlight=1)]
 
 Właściwość "opis" jest dostępny w taki sam sposób jak w poprzednich przykładach.
 
@@ -115,31 +115,31 @@ Właściwość "opis" jest dostępny w taki sam sposób jak w poprzednich przyk�
 
 Konwencja oddzielne atrybut można zastosować do poszczególnych działań, zastępowanie zachowania już stosowane na poziomie aplikacji lub kontrolera.
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/ActionDescriptionAttribute.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/ActionDescriptionAttribute.cs)]
 
 Stosowania tego działania w ramach kontrolera w poprzednim przykładzie pokazano, jak zastępuje on Konwencji poziomie kontrolera:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=DescriptionAttributesController&highlight=9)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=DescriptionAttributesController&highlight=9)]
 
 ### <a name="sample-modifying-the-parametermodel"></a>Przykład: Modyfikacja ParameterModel
 
 Można zastosować następującą konwencją do parametrów akcji, aby zmodyfikować ich `BindingInfo`. Następującej konwencji wymaga parametru parametru trasy; inne potencjalne źródła powiązanie (na przykład wartości ciągu zapytania) są ignorowane.
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/MustBeInRouteParameterModelConvention.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/MustBeInRouteParameterModelConvention.cs)]
 
 Ten atrybut można stosować do żadnego parametru akcji:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/ParameterModelController.cs?name=ParameterModelController&highlight=5)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/ParameterModelController.cs?name=ParameterModelController&highlight=5)]
 
 ### <a name="sample-modifying-the-actionmodel-name"></a>Przykład: Modyfikowanie nazwy ActionModel
 
 Modyfikuje następującej konwencji `ActionModel` zaktualizować *nazwa* akcji, do którego jest stosowana. Nowa nazwa jest podać jako parametr do atrybutu. Ta nowa nazwa jest używany przez routingu, więc będzie miało wpływ na trasy do parametru tej metody akcji.
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/CustomActionNameAttribute.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/CustomActionNameAttribute.cs)]
 
 Ten atrybut jest stosowany do metody akcji w `HomeController`:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/HomeController.cs?name=ActionModelConvention&highlight=2)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/HomeController.cs?name=ActionModelConvention&highlight=2)]
 
 Mimo że nazwa metody jest `SomeName`, atrybut zastępuje przy użyciu nazwy metody z Konwencją MVC i zastępuje nazwę akcji z `MyCoolAction`. W związku z tym trasy używany w celu osiągnięcia tej akcji jest `/Home/MyCoolAction`.
 
@@ -150,18 +150,18 @@ Mimo że nazwa metody jest `SomeName`, atrybut zastępuje przy użyciu nazwy met
 
 Można użyć `IApplicationModelConvention` dostosować działa jak routingu. Na przykład następującej konwencji dołączyć przestrzeni nazw kontrolerów do ich trasy, zastępując `.` w przestrzeni nazw z `/` w trasie:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/NamespaceRoutingConvention.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/NamespaceRoutingConvention.cs)]
 
 Konwencji jest dodawana jako opcję uruchamiania.
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=6)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=6)]
 
 > [!TIP]
-> Można dodać Konwencji do Twojej [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) uzyskując dostęp do `MvcOptions` przy użyciu`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
+> Można dodać Konwencji do Twojej [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) uzyskując dostęp do `MvcOptions` przy użyciu `services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
 
 Ten przykład dotyczy tę Konwencję tras, które nie używają atrybutu routingu, gdy kontroler ma "Namespace" w nazwie. Następujący kontroler ilustruje tę Konwencję:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/NamespaceRoutingController.cs?highlight=7-8)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/NamespaceRoutingController.cs?highlight=7-8)]
 
 ## <a name="application-model-usage-in-webapicompatshim"></a>Użycie modelu aplikacji w WebApiCompatShim
 
@@ -205,6 +205,6 @@ Oprócz zestawie Konwencji, pakiet zgodności zawiera `System.Web.Http.ApiContro
 
 Udostępnia model aplikacji [ `ApiExplorer` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.apiexplorermodel) właściwości na każdym poziomie, który może służyć do przechodzenia struktury aplikacji. Może to być używane do [generowania strony pomocy dla interfejsów API sieci Web za pomocą takich narzędzi jak Swagger](https://docs.microsoft.com/aspnet/core/tutorials/web-api-help-pages-using-swagger). `ApiExplorer` Ujawnia właściwości `IsVisible` właściwości, który można ustawić, aby określić części modelu aplikacji, które powinny zostać ujawnione. Można skonfigurować to ustawienie za pomocą Konwencji:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/EnableApiExplorerApplicationConvention.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/EnableApiExplorerApplicationConvention.cs)]
 
 Przy użyciu tej metody (i konwencje dodatkowe, jeśli jest to wymagane), można włączyć lub wyłączyć widoczność interfejsu API na dowolnym poziomie w Twojej aplikacji. 

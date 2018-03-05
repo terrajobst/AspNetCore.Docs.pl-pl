@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 29ef3cf3d8bcd6b4ebbf08d831dc146e830fa1ac
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e9a74d8f6c3945b1bc8c62d0ab21145a7c5717fb
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Oprogramowanie pośredniczące w platformy ASP.NET Core buforowania odpowiedzi
 
@@ -31,11 +31,11 @@ Aby dołączyć oprogramowanie pośredniczące w projekcie, należy dodać odwo�
 
 W `ConfigureServices`, Dodaj oprogramowanie pośredniczące do kolekcji usługi.
 
-[!code-csharp[Main](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
 
 Skonfiguruj aplikację do używania oprogramowania pośredniczącego z `UseResponseCaching` metodę rozszerzenia, która dodaje oprogramowanie pośredniczące w potoku przetwarzania żądań. Przykładowa aplikacja dodaje [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) nagłówka odpowiedzi, który buforuje buforowalnej odpowiedzi do 10 sekund. Wysyła próbki [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) nagłówka do konfiguracji oprogramowania pośredniczącego do obsługi tylko wtedy, gdy odpowiedź buforowana [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) nagłówka kolejne żądania jest zgodna z wersją z oryginalnego żądania.
 
-[!code-csharp[Main](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
+[!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
 
 Oprogramowanie pośredniczące odpowiedzi buforowanie tylko buforuje odpowiedzi serwera, które powodują powstanie kod stanu 200 (OK). Inne odpowiedzi, w tym [stron błędów](xref:fundamentals/error-handling), są ignorowane przez oprogramowanie pośredniczące.
 
@@ -125,10 +125,10 @@ Podczas testowania i rozwiązywania problemów zachowanie buforowania, przegląd
 * Metoda żądania musi być GET lub HEAD.
 * Oprogramowanie pośredniczące terminali, takich jak [oprogramowanie pośredniczące plików statycznych](xref:fundamentals/static-files), nie może przetwarzać odpowiedzi przed oprogramowanie pośredniczące buforowanie odpowiedzi.
 * `Authorization` Nagłówka nie może być obecny.
-* `Cache-Control`Parametry nagłówka musi być prawidłowy, a odpowiedzi muszą być oznaczone jako `public` i nie oznaczone `private`.
+* `Cache-Control` Parametry nagłówka musi być prawidłowy, a odpowiedzi muszą być oznaczone jako `public` i nie oznaczone `private`.
 * `Pragma: no-cache` Nagłówek nie musi występować Jeśli `Cache-Control` nagłówka nie jest obecny jako `Cache-Control` zastępuje nagłówka `Pragma` nagłówka, jeśli jest obecny.
 * `Set-Cookie` Nagłówka nie może być obecny.
-* `Vary`Nagłówek parametry muszą być prawidłowe i nie jest równa `*`.
+* `Vary` Nagłówek parametry muszą być prawidłowe i nie jest równa `*`.
 * `Content-Length` Wartość nagłówka (Jeśli ustawiona) muszą być zgodne rozmiar treść odpowiedzi.
 * [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) nie jest używany.
 * Odpowiedź nie może być starych określony przez `Expires` nagłówka i `max-age` i `s-maxage` pamięci podręcznej dyrektywy.

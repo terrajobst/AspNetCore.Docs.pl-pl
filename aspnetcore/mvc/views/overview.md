@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: 4f55b3b439d268c371ce40a298b0f63dad9eef69
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Widoki w podstawowej platformy ASP.NET MVC
 
@@ -48,7 +48,7 @@ Widoki pomóc w ustaleniu [ **S**eparation **o**f **C**oncerns (SoC) projektu](h
 
 Widoki, które są specyficzne dla kontrolera są tworzone w *widoków / [ControllerName]* folderu. Widoki, które są współużytkowane przez kontrolery są umieszczane w *widoków/Shared* folderu. Aby utworzyć widok, Dodaj nowy plik i nadaj mu taką samą nazwę jak jego akcji kontrolera skojarzone z *.cshtml* rozszerzenia pliku. Aby utworzyć widok, który odpowiada *o* akcji w *Home* kontroler, tworzyć *About.cshtml* w pliku *widoków domowych*folderu:
 
-[!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
 *Razor* znaczników rozpoczyna się od `@` symbolu. Kod C# instrukcje uruchamiania przez umieszczenie C# w [bloki kodu Razor](xref:mvc/views/razor#razor-code-blocks) przez nawiasy klamrowe (`{ ... }`). Na przykład znajdują się w sekcji przypisania "Informacje o" `ViewData["Title"]` przedstawionych powyżej. Możesz wyświetlić wartości w pliku HTML po prostu odwołuje się do wartości o `@` symbolu. Wyświetlanie zawartości `<h2>` i `<h3>` elementów wymienionych powyżej.
 
@@ -60,7 +60,7 @@ Widoki są zazwyczaj zwracane z akcji jako [ViewResult](/aspnet/core/api/microso
 
 *HomeController.cs*
 
-[!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
+[!code-csharp[](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
 
 Po powrocie z tej akcji *About.cshtml* renderowania widoku w ostatniej sekcji jako następujące strony sieci Web:
 

@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 468f6d5dabb645b1c005680dc5a1ffc4debd63b6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f93f51219403cd5aeca2dd3648444a84690c3d25
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET MVC 4
-====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET MVC 4
 
-> W tym laboratorium Hands-On jest oparta na sklep muzyczny MVC (Model View Controller), samouczek aplikacji, które wprowadzono i opisano krok po kroku, jak używać programu ASP.NET MVC i Visual Studio. W laboratorium dowiesz się prostotę, jeszcze mocy przy użyciu tych technologii jednocześnie. Rozpoczyna się od prostej aplikacji i zostanie on skompilowany, aż do uzyskania funkcjonalnej ASP.NET MVC 4 aplikacji sieci Web.
-> 
-> W tym laboratorium współpracuje z platformy ASP.NET MVC 4.
-> 
-> Jeśli chcesz zapoznać się z wersji platformy ASP.NET MVC 3 samouczka aplikacji, można znaleźć w [MVC utworów muzycznych magazynu](https://github.com/evilDave/MVC-Music-Store).
-> 
-> > [!NOTE]
-> > W tym laboratorium Hands-On przyjęto założenie, że deweloper ma doświadczenie w sieci Web development technologii, takich jak HTML i JavaScript.
-> 
-> 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
+[Pobierz obozów sieci Web uczenie Kit](https://aka.ms/webcamps-training-kit)
+
+W tym laboratorium Hands-On jest oparta na sklep muzyczny MVC (Model View Controller), samouczek aplikacji, które wprowadzono i opisano krok po kroku, jak używać programu ASP.NET MVC i Visual Studio. W laboratorium dowiesz się prostotę, jeszcze mocy przy użyciu tych technologii jednocześnie. Rozpoczyna się od prostej aplikacji i zostanie on skompilowany, aż do uzyskania funkcjonalnej ASP.NET MVC 4 aplikacji sieci Web.
+
+W tym laboratorium współpracuje z platformy ASP.NET MVC 4.
+
+Jeśli chcesz zapoznać się z wersji platformy ASP.NET MVC 3 samouczka aplikacji, można znaleźć w [MVC utworów muzycznych magazynu](https://github.com/evilDave/MVC-Music-Store).
+
+W tym laboratorium Hands-On przyjęto założenie, że deweloper ma doświadczenie w sieci Web development technologii, takich jak HTML i JavaScript.
+
+> [!NOTE]
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [wersje Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Specyficzne dla tego laboratorium projektu jest dostępna na [podstawowe informacje na temat platformy ASP.NET MVC 4](https://github.com/Microsoft-Web/HOL-MVC4Fundamentals).
 
 <a id="The_Music_Store_application"></a>
 ### <a name="the-music-store-application"></a>Aplikacji magazynu utworów muzycznych
@@ -45,7 +45,7 @@ Muzyka Magazyn aplikacji sieci web, który zostanie skompilowany w tym laborator
 *Ekrany magazynu utworów muzycznych*
 
 <a id="ASPNET_MVC_4_Essentials"></a>
-### <a name="aspnet-mvc-4-essentials"></a>Podstawowe informacje dotyczące platformy ASP.NET MVC 4
+### <a name="aspnet-mvc-4-essentials"></a>ASP.NET MVC 4 Essentials
 
 Aplikację ze sklepu utworów muzycznych zostaną skompilowane z użyciem **kontrolera MVC (Model View)**, wzorzec architektury, która dzieli aplikację na trzy główne składniki:
 
@@ -895,7 +895,7 @@ W tym ćwiczeniu zostanie Poznaj ulepszenia w szablonach projektu programu ASP.N
 #### <a name="task-1-exploring-the-aspnet-mvc-4-internet-application-template"></a>Zadanie 1: Eksploracji szablon aplikacji internetowych platformy ASP.NET MVC 4
 
 1. Jeśli nie już otwarty, uruchom **VS Express for Web**
-2. Wybierz **pliku | Nowy | Projekt** polecenia menu. W **nowy projekt** okno dialogowe, wybierz opcję **Visual C# | Web** szablonu w lewym okienku drzewa, a następnie wybierz pozycję **aplikacji sieci Web programu ASP.NET MVC 4**. **Nazwa** projektu *MusicStore* i zaktualizuj **Nazwa rozwiązania** do *rozpocząć*, następnie wybierz lokalizację (lub pozostaw wartość domyślną) i kliknij przycisk **OK**.
+2. Wybierz **pliku | Nowy | Projekt** polecenia menu. W **nowy projekt** okno dialogowe, wybierz opcję **Visual C# | Web** szablonu w lewym okienku drzewa, a następnie wybierz pozycję **aplikacji sieci Web programu ASP.NET MVC 4**. **Nazwa** projektu *MusicStore* i zaktualizuj **Nazwa rozwiązania** do *rozpocząć*, następnie wybierz lokalizację (lub pozostaw wartość domyślną) i kliknij przycisk **OK** .
 
     ![Tworzenie nowego projektu platformy ASP.NET MVC 4](aspnet-mvc-4-fundamentals/_static/image36.png "tworzenia nowego projektu platformy ASP.NET MVC 4")
 

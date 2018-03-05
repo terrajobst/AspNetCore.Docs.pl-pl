@@ -1,7 +1,7 @@
 ---
 title: "Stron razor podstawowych EF — Model danych — 5 8"
 author: rick-anderson
-description: "W tym samouczku można dodać więcej jednostki i relacje i dostosować modelu danych, określając formatowania, sprawdzanie poprawności i reguły mapowania bazy danych."
+description: "W tym samouczku Dodaj więcej jednostki i relacje i dostosować modelu danych, określając formatowania, sprawdzanie poprawności i mapowanie reguły."
 manager: wpickett
 ms.author: riande
 ms.date: 10/25/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 58bb773ba16314827da84909def05a8ef370479b
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 91dc53162c1dd99c4cdd6fb971a4ecc04dd071de
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-razor-pages-tutorial-5-of-8"></a>Tworzenie modelu danych złożonych - Core EF z samouczka stron Razor (5 8)
 
@@ -42,7 +42,7 @@ Na stronach uczniów obecnie Wyświetla czas Data rejestracji. Zazwyczaj Data za
 
 Aktualizacja *Models/Student.cs* z następującymi wyróżniony kod:
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
 [DataType](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) atrybut określa typ danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych. W tym przypadku powinien zostać wyświetlony tylko data nie daty i godziny. [Wyliczenie DataType](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takie jak data, czas, numer telefonu, waluty, EmailAddress itp. `DataType` Atrybut można również włączyć automatycznie udostępnić funkcji specyficznych dla typu aplikacji. Na przykład:
 
@@ -51,7 +51,7 @@ Aktualizacja *Models/Student.cs* z następującymi wyróżniony kod:
 
 `DataType` HTML 5 emituje atrybut `data-` atrybutów (dash wyraźnym danych), które korzystać z przeglądarki HTML 5. `DataType` Atrybutów nie mają funkcje sprawdzania poprawności.
 
-`DataType.Date`nie określono format daty, która jest wyświetlana. Domyślnie pole daty są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
+`DataType.Date` nie określono format daty, która jest wyświetlana. Domyślnie pole daty są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
 
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 
@@ -78,7 +78,7 @@ Atrybuty można określić reguły sprawdzania poprawności danych i komunikató
 
 Aktualizacja `Student` modelu z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
 Poprzedni kod ogranicza nazwy do nie więcej niż 50 znaków. `StringLength` Atrybutu nie uniemożliwić wprowadzanie biały znak dla nazwy użytkownika. [Wyrażenia regularnego](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) atrybut jest używany, aby zastosować ograniczenia do danych wejściowych. Na przykład następujący kod wymaga pierwszego znaku się wielkie litery i pozostałych znaków jako alfabetycznej:
 
@@ -110,7 +110,7 @@ Po utworzeniu bazy danych, nazwy właściwości w modelu są używane dla nazw k
 
 Aktualizacja *Student.cs* pliku następującym kodem wyróżnione:
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
 
 Z tej zmiany `Student.FirstMidName` w aplikacji mapowana `FirstName` kolumny `Student` tabeli.
 
@@ -155,7 +155,7 @@ Przed zastosowaniem migracji, nazwa kolumny zostały typu [nvarchar(MAX)](https:
 
 Aktualizacja *Models/Student.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
 
 ### <a name="the-required-attribute"></a>Wymagany atrybut
 
@@ -175,7 +175,7 @@ public string LastName { get; set; }
 
 ### <a name="the-fullname-calculated-property"></a>Właściwość obliczona imię i nazwisko
 
-`FullName`jest obliczonej właściwości, która zwraca wartość, która jest tworzona przez łączenie dwóch innych właściwości. `FullName`Nie można ustawiać, ma akcesora get. Nie `FullName` kolumny jest tworzony w bazie danych.
+`FullName` jest obliczonej właściwości, która zwraca wartość, która jest tworzona przez łączenie dwóch innych właściwości. `FullName` Nie można ustawiać, ma akcesora get. Nie `FullName` kolumny jest tworzony w bazie danych.
 
 ## <a name="create-the-instructor-entity"></a>Utwórz jednostkę instruktora
 
@@ -183,7 +183,7 @@ public string LastName { get; set; }
 
 Utwórz *Models/Instructor.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
+[!code-csharp[](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
 
 Zwróć uwagę, że kilka właściwości są takie same, w `Student` i `Instructor` jednostek. W samouczku wdrażanie dziedziczenia w dalszej części tej serii ten kod został zrefaktoryzowany wyeliminować nadmiarowości.
 
@@ -217,7 +217,7 @@ Jeśli `ICollection<T>` określono tworzy EF Core `HashSet<T>` kolekcji domyśln
 
 `CourseAssignment` Jednostki znajduje się w sekcji w relacji wiele do wielu.
 
-Firm Contoso University zasady stanu, że instruktora może mieć co najwyżej jednego pakietu office. `OfficeAssignment` Właściwość przechowuje pojedynczy `OfficeAssignment` jednostki. `OfficeAssignment`ma wartość null, jeśli nie przypisano żadnych pakietu office.
+Firm Contoso University zasady stanu, że instruktora może mieć co najwyżej jednego pakietu office. `OfficeAssignment` Właściwość przechowuje pojedynczy `OfficeAssignment` jednostki. `OfficeAssignment` ma wartość null, jeśli nie przypisano żadnych pakietu office.
 
 ```csharp
 public OfficeAssignment OfficeAssignment { get; set; }
@@ -229,7 +229,7 @@ public OfficeAssignment OfficeAssignment { get; set; }
 
 Utwórz *Models/OfficeAssignment.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/OfficeAssignment.cs)]
+[!code-csharp[](intro/samples/cu/Models/OfficeAssignment.cs)]
 
 ### <a name="the-key-attribute"></a>Atrybut klucza
 
@@ -237,7 +237,7 @@ Utwórz *Models/OfficeAssignment.cs* następującym kodem:
 
 Brak relacji jeden do zero lub jeden między `Instructor` i `OfficeAssignment` jednostek. Przypisania office występuje tylko w odniesieniu do instruktora, który jest przypisany do. `OfficeAssignment` Klucz prywatny jest również jego klucz obcy (klucz OBCY) `Instructor` jednostki. Podstawowy EF nie może automatycznie rozpoznaje `InstructorID` jako klucz podstawowy z `OfficeAssignment` ponieważ:
 
-* `InstructorID`nie będzie zgodna z konwencją nazewnictwa Identyfikatora lub classnameID.
+* `InstructorID` nie będzie zgodna z konwencją nazewnictwa Identyfikatora lub classnameID.
 
 W związku z tym `Key` atrybut służy do identyfikowania `InstructorID` jako klucz podstawowy:
 
@@ -258,7 +258,7 @@ Domyślnie EF Core traktuje klucz jako z systemem innym niż baza danych wygener
 
 `OfficeAssignment` Jednostka ma niedopuszczającą `Instructor` właściwość nawigacji ponieważ:
 
-* `InstructorID`jest wartości null.
+* `InstructorID` jest wartości null.
 * Przypisania pakietu office nie może istnieć bez instruktora.
 
 Gdy `Instructor` jednostka ma powiązanego `OfficeAssignment` jednostki, każdy obiekt ma odwołanie do jeden z nich w jej właściwości nawigacji.
@@ -278,9 +278,9 @@ Poprzedni kod określa, że muszą być powiązane instruktora. Poprzedni kod ni
 
 Aktualizacja *Models/Course.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
+[!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
-`Course` Jednostka ma właściwość klucza obcego (klucz OBCY) `DepartmentID`. `DepartmentID`Wskazuje pokrewny `Department` jednostki. `Course` Jednostka ma `Department` właściwości nawigacji.
+`Course` Jednostka ma właściwość klucza obcego (klucz OBCY) `DepartmentID`. `DepartmentID` Wskazuje pokrewny `Department` jednostki. `Course` Jednostka ma `Department` właściwości nawigacji.
 
 Podstawowe EF nie wymaga właściwości klucza Obcego dla modelu danych, jeśli model ma właściwości nawigacji dla obiekt pokrewny.
 
@@ -328,7 +328,7 @@ Kursu może organizowane jednocześnie przez wiele instruktorów, więc `CourseA
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-`CourseAssignment`objaśniono [później](#many-to-many-relationships).
+`CourseAssignment` objaśniono [później](#many-to-many-relationships).
 
 ## <a name="create-the-department-entity"></a>Utwórz jednostkę działu
 
@@ -336,7 +336,7 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 Utwórz *Models/Department.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
 
 ### <a name="the-column-attribute"></a>Atrybut kolumny
 
@@ -347,7 +347,7 @@ Wcześniej `Column` użyto atrybutu można zmienić mapowania nazw kolumn. W kod
 public decimal Budget { get; set; }
 ```
 
-Mapowanie kolumny zwykle nie jest wymagane. Podstawowe EF zazwyczaj wybiera odpowiedni typ danych programu SQL Server, na podstawie typu CLR dla właściwości. Środowisko CLR `decimal` typu map do programu SQL Server `decimal` typu. `Budget`jest waluty, a typ danych money jest bardziej odpowiednie dla waluty.
+Mapowanie kolumny zwykle nie jest wymagane. Podstawowe EF zazwyczaj wybiera odpowiedni typ danych programu SQL Server, na podstawie typu CLR dla właściwości. Środowisko CLR `decimal` typu map do programu SQL Server `decimal` typu. `Budget` jest waluty, a typ danych money jest bardziej odpowiednie dla waluty.
 
 ### <a name="foreign-key-and-navigation-properties"></a>Właściwości obcego klucza i nawigacji
 
@@ -397,7 +397,7 @@ Rekord rejestracji jest jeden kursu wykonywaną przez jeden uczniów.
 
 Aktualizacja *Models/Enrollment.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
+[!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
 
 ### <a name="foreign-key-and-navigation-properties"></a>Właściwości obcego klucza i nawigacji
 
@@ -439,7 +439,7 @@ Uwaga: Niejawna sprzężenia tabel dla relacji wiele do wielu, ale podstawowe EF
 
 Utwórz *Models/CourseAssignment.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/CourseAssignment.cs)]
+[!code-csharp[](intro/samples/cu/Models/CourseAssignment.cs)]
 
 ### <a name="instructor-to-courses"></a>Instruktora do szkolenia
 
@@ -456,7 +456,7 @@ Modele danych uruchamiane prosty i powiększania. Sprzężenia nie ładunku (PJT
 
 ### <a name="composite-key"></a>Klucz złożony
 
-FKs nie są wartości null. Dwa FKs w `CourseAssignment` (`InstructorID` i `CourseID`) ze sobą jednoznacznie zidentyfikować każdy wiersz `CourseAssignment` tabeli. `CourseAssignment`nie wymaga dedykowanego PK. `InstructorID` i `CourseID` właściwości działać jako PK. złożone Jedynym sposobem Określ złożonego PKs na rdzeń EF jest z *interfejsu API fluent*. W następnej części pokazano sposób konfigurowania PK. złożone
+FKs nie są wartości null. Dwa FKs w `CourseAssignment` (`InstructorID` i `CourseID`) ze sobą jednoznacznie zidentyfikować każdy wiersz `CourseAssignment` tabeli. `CourseAssignment` nie wymaga dedykowanego PK. `InstructorID` i `CourseID` właściwości działać jako PK. złożone Jedynym sposobem Określ złożonego PKs na rdzeń EF jest z *interfejsu API fluent*. W następnej części pokazano sposób konfigurowania PK. złożone
 
 Klucz złożony zapewnia:
 
@@ -473,7 +473,7 @@ Klucz złożony zapewnia:
 
 Dodaj następujący wyróżniony kod, aby *Data/SchoolContext.cs*:
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
 
 Poprzedni kod dodaje nowe jednostki i konfiguruje `CourseAssignment` PK. złożonego jednostki
 
@@ -492,7 +492,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 W tym samouczku interfejsu API fluent jest używany tylko w przypadku mapowania bazy danych, które nie może zostać wykonane z atrybutami. Jednak interfejsu API fluent można określić większość formatowania, sprawdzanie poprawności i reguły mapowania, które można wykonać za pomocą atrybutów.
 
-Niektóre atrybuty, takie jak `MinimumLength` nie można zastosować z interfejsu API fluent. `MinimumLength`nie powoduje zmiany schematu, ma zastosowanie tylko reguły weryfikacji minimalnej długości.
+Niektóre atrybuty, takie jak `MinimumLength` nie można zastosować z interfejsu API fluent. `MinimumLength` nie powoduje zmiany schematu, ma zastosowanie tylko reguły weryfikacji minimalnej długości.
 
 Niektórzy deweloperzy wolą Użyj interfejsu API fluent wyłącznie tak, aby ich zachowanie ich klasami jednostki "Wyczyść". Atrybuty i wygodnego interfejsu API można łączyć. Istnieją pewne konfiguracje, które jest możliwe tylko z interfejsu API fluent (Określanie złożonego klucza podstawowego). Istnieją pewne konfiguracje, które można wykonać tylko z atrybutami (`MinimumLength`). Zalecana praktyka dla przy użyciu fluent API lub atrybuty:
 
@@ -523,7 +523,7 @@ Na powyższym diagramie przedstawiono:
 
 Zaktualizuj kod w *Data/DbInitializer.cs*:
 
-[!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
+[!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
 
 Poprzedni kod zawiera dane dla nowych jednostek. Większość ten kod tworzy nowe obiekty jednostki i ładuje przykładowych danych. Dane przykładowe są używane do testowania. Poprzedni kod tworzy następujące relacje wiele do wielu:
 
@@ -613,7 +613,7 @@ Podczas migracji są uruchamiane z istniejącymi danymi, może to być ogranicze
 
 *{Timestamp}_ComplexDataModel.cs* plik zawiera następujący kod:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_DepartmentID)]
+[!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_DepartmentID)]
 
 Poprzedni kod dodaje niedopuszczającą `DepartmentID` klucza Obcego do `Course` tabeli. Bazy danych z poprzedniej samouczek zawiera wiersze w `Course`, więc nie można zaktualizować tabeli przez migracje.
 
@@ -629,9 +629,9 @@ Aktualizacja `ComplexDataModel` klasy `Up` metody:
 * Otwórz *{timestamp}_ComplexDataModel.cs* pliku.
 * Komentarz wiersz kodu, który dodaje `DepartmentID` kolumnę `Course` tabeli.
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
+[!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
 
-Dodaj następujący wyróżniony kod. Nowy kod przechodzi po `.CreateTable( name: "Department"` bloku:[!code-csharp[Main](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
+Dodaj następujący wyróżniony kod. Nowy kod przechodzi po `.CreateTable( name: "Department"` bloku: [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
 Z poprzednim zmiany, istniejące `Course` wiersze zostaną powiązane do działu "Temp" po `ComplexDataModel` `Up` uruchamia metody.
 

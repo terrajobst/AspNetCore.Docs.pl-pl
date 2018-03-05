@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 32716ddcf7c2a7b11000c333453a0fde3030ae34
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 2c7994bf41dbc0832cff25a47607ab0bada8f93b
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Migracje - Core EF z samouczka stron Razor (4 8)
 
@@ -52,7 +52,7 @@ Numery wersji w poprzednim przykładzie zostały bieżącej, gdy samouczka zosta
 
 W *appsettings.json* pliku, Zmień nazwę bazy danych w parametrach połączenia ContosoUniversity2.
 
-[!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
+[!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
 Zmiana nazwy bazy danych w parametrach połączenia powoduje, że pierwszy migracji do utworzenia nowej bazy danych. Nowe bazy danych jest tworzony, ponieważ o tej nazwie nie istnieje. Zmiana parametrów połączenia nie jest wymagane wprowadzenie do migracji.
 
@@ -100,7 +100,7 @@ Jeśli komunikat o błędzie "kompilacja nie powiodła się." zostanie wyświetl
 
 Polecenie EF Core `migrations add` wygenerowany kod w celu utworzenia bazy danych z. Ten kod migracji znajduje się w *migracje\<sygnatury czasowej > _InitialCreate.cs* pliku. `Up` Metody `InitialCreate` klasy tworzy tabele bazy danych, które odpowiadają zestawów jednostek modelu danych. `Down` Metoda usuwa je, jak pokazano w poniższym przykładzie:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20171026010210_InitialCreate.cs?range=8-24,77-)]
+[!code-csharp[](intro/samples/cu/Migrations/20171026010210_InitialCreate.cs?range=8-24,77-)]
 
 Migracje wywołania `Up` metody implementacji zmian modelu danych do migracji. Po wprowadzeniu polecenia, aby wycofać aktualizacji, migracje wywołania `Down` metody.
 
@@ -119,7 +119,7 @@ Wcześniej parametry połączenia została zmieniona na nową nazwę dla bazy da
 
 Tworzy migracje *migawki* bieżącego schematu baz danych w *Migrations/SchoolContextModelSnapshot.cs*:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
 
 Ponieważ bieżący schemat bazy danych jest reprezentowana w kodzie, EF Core nie ma na interakcję z bazy danych, aby utworzyć migracji. Po dodaniu migracji EF Core określa co zmienione przez porównanie modelu danych do pliku migawki. Podstawowe EF współdziała z bazy danych tylko wtedy, gdy musi zaktualizować bazę danych.
 
@@ -127,7 +127,7 @@ Plik migawki musi być zsynchronizowane z migracji, które go utworzył. Nie mo�
 
 ## <a name="remove-ensurecreated"></a>Remove EnsureCreated
 
-Wczesne rozwoju `EnsureCreated` użyto polecenia. W tym samouczku jest używany migracji. `EnsureCreated`ma następujące ograniczenia:
+Wczesne rozwoju `EnsureCreated` użyto polecenia. W tym samouczku jest używany migracji. `EnsureCreated` ma następujące ograniczenia:
 
 * Pomija migracji i tworzy bazę danych i schematu.
 * Nie tworzy tabelę migracji.
@@ -189,7 +189,7 @@ Uruchom aplikację i sprawdź, czy wszystko działa.
 
 ## <a name="appling-migrations-in-production"></a>Appling migracji w środowisku produkcyjnym
 
-Firma Microsoft zaleca aplikacji w środowisku produkcyjnym należy **nie** wywołać [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) podczas uruchamiania aplikacji. `Migrate`Nie można wywołać z aplikacji w farmie serwerów. Na przykład, jeśli aplikacja została chmury z skalowalnego w poziomie (uruchomionych wiele wystąpień aplikacji).
+Firma Microsoft zaleca aplikacji w środowisku produkcyjnym należy **nie** wywołać [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) podczas uruchamiania aplikacji. `Migrate` Nie można wywołać z aplikacji w farmie serwerów. Na przykład, jeśli aplikacja została chmury z skalowalnego w poziomie (uruchomionych wiele wystąpień aplikacji).
 
 Migracja bazy danych powinno być wykonywane w ramach wdrożenia, a następnie w kontrolowany sposób. Podejścia do produkcyjnej bazy danych migracji obejmują:
 
@@ -229,7 +229,7 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-Rozwiązanie: Uruchom`dotnet ef database update`
+Rozwiązanie: Uruchom `dotnet ef database update`
 
 Jeśli `update` polecenie zwraca błąd "Kompilacji nie powiodło się.":
 

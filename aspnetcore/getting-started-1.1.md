@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started-1.1
-ms.openlocfilehash: 895e91efbba931923540e4cd182862cbc1851585
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 51a345cbe77166d1b673c124571301528f8667ee
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="getting-started-with-aspnet-core-11"></a>Wprowadzenie do platformy ASP.NET Core 1.1
 
@@ -53,13 +53,13 @@ ms.lasthandoff: 01/30/2018
 
 4. Uruchom aplikację.
 
-   `dotnet run` Polecenie tworzy najpierw aplikacji, jeśli to konieczne.
+   [Dotnet Uruchom](/dotnet/core/tools/dotnet-run) polecenie tworzy najpierw aplikacji, jeśli to konieczne.
 
    ```terminal
    dotnet run
    ```
 
-5. Przejdź do`http://localhost:5000`
+5. Przejdź do `http://localhost:5000`
 
 <!-- H3 to avoid a single-entry internal TOC -->
 ### <a name="next-steps"></a>Następne kroki

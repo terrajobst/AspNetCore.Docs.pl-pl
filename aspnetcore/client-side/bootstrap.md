@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: dfed5c7a8e103973048295b7607008ecc7e90eeb
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e2ade6223cdc56a4f0f00ff0b985ceda4ab5484a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Tworzenie doskonałych, dynamiczne witryny z ładowania początkowego
 
@@ -31,7 +31,7 @@ Istnieje kilka sposobów, aby rozpocząć korzystanie z ładowania początkowego
 
 Dodawanie Bootstrap do platformy ASP.NET Core projektu jest po prostu dodanie go do *bower.json* jako zależność:
 
-[!code-json[Main](../common/samples/WebApplication1/bower.json?highlight=5)]
+[!code-json[](../common/samples/WebApplication1/bower.json?highlight=5)]
 
 Jest to zalecany sposób dodać Bootstrap do projektu platformy ASP.NET Core.
 
@@ -60,7 +60,7 @@ Install-Package bootstrap
 
 W przypadku odwołania do własnych lokalnych wersji Bootstrap, należy odwoływać wszystkich stron, które będą używać go. W środowisku produkcyjnym należy odwoływać się przy użyciu CDN ładowania początkowego. W szablonie witryny ASP.NET domyślne *_Layout.cshtml* plik tak jak to:
 
-[!code-html[Main](../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=9,13,51,59)]
+[!code-html[](../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=9,13,51,59)]
 
 > [!NOTE]
 > Jeśli użytkownik chce się przy użyciu dowolnego ładowania początkowego na jQuery wtyczki, należy również odwołanie jQuery.

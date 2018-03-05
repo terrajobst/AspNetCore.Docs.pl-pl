@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: b34fd9ad8ae895087dba13f5ebcdcfd3fbb74667
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: 54834727db70668552b2a1007c8a9be3cfe2e6b7
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Razor strony trasy i aplikacji Konwencji funkcji programu ASP.NET Core
 
@@ -40,14 +40,14 @@ Użyj [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesopti
 
 Przykładowa aplikacja dodaje `{globalTemplate?}` szablon trasy do wszystkich stron w aplikacji:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
+[!code-csharp[](razor-pages-convention-features/sample/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
 
 > [!NOTE]
 > `Order` Właściwość `AttributeRouteModel` ma ustawioną wartość `0` (zero). Dzięki temu, ten szablon jest nadawana priorytet pierwszą pozycję wartości danych trasy, jeśli podano wartość jedną trasę. Na przykład dodaje próbki `{aboutTemplate?}` szablon trasy w dalszej części tematu. `{aboutTemplate?}` Podano szablon `Order` z `1`. Po zażądaniu strony informacje w `/About/RouteDataValue`, "RouteDataValue" zostanie załadowana do `RouteData.Values["globalTemplate"]` (`Order = 0`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 1`) z powodu ustawienia `Order` właściwości.
 
 Opcje stron razor, takie jak dodawanie [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions), zostaną dodane, gdy MVC zostanie dodany do kolekcji usługi w `Startup.ConfigureServices`. Na przykład zobacz [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample/).
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet1)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet1)]
 
 Żądanie przykładową stronę o w `localhost:5000/About/GlobalRouteValue` i sprawdzić wynik:
 
@@ -61,11 +61,11 @@ Aby zademonstrować to i inne konwencje w dalszej części tematu, zawiera przyk
 
 Przykładowe zastosowania aplikacji `AddHeaderAttribute` klasy można dodać nagłówka `GlobalHeader`, do wszystkich stron w aplikacji:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Conventions/GlobalHeaderPageApplicationModelConvention.cs?name=snippet1)]
+[!code-csharp[](razor-pages-convention-features/sample/Conventions/GlobalHeaderPageApplicationModelConvention.cs?name=snippet1)]
 
 *Startup.cs*:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet2)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet2)]
 
 Żądanie przykładową stronę o w `localhost:5000/About` i sprawdzić nagłówków, aby wyświetlić wyniki:
 
@@ -81,7 +81,7 @@ Użyj [AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.appli
 
 Przykładowe zastosowania aplikacji `AddFolderRouteModelConvention` można dodać `{otherPagesTemplate?}` szablon trasy do stron w *OtherPages* folderu:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet3)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet3)]
 
 > [!NOTE]
 > `Order` Właściwość `AttributeRouteModel` ma ustawioną wartość `1`. Gwarantuje to, że szablon `{globalTemplate?}` (zestaw we wcześniejszej części tematu) jest priorytet dla pierwsze dane trasy wartości pozycji, gdy została podana wartość jedną trasę. Jeśli żądanie strony Strona 1 na `/OtherPages/Page1/RouteDataValue`, "RouteDataValue" zostanie załadowana do `RouteData.Values["globalTemplate"]` (`Order = 0`) i nie `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) z powodu ustawienia `Order` właściwości.
@@ -96,7 +96,7 @@ Użyj [AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applica
 
 Przykładowe zastosowania aplikacji `AddPageRouteModelConvention` można dodać `{aboutTemplate?}` szablon trasy do strony informacje:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet4)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet4)]
 
 > [!NOTE]
 > `Order` Właściwość `AttributeRouteModel` ma ustawioną wartość `1`. Gwarantuje to, że szablon `{globalTemplate?}` (zestaw we wcześniejszej części tematu) jest priorytet dla pierwsze dane trasy wartości pozycji, gdy została podana wartość jedną trasę. Jeśli żądanie na stronie informacje `/About/RouteDataValue`, "RouteDataValue" zostanie załadowana do `RouteData.Values["globalTemplate"]` (`Order = 0`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 1`) z powodu ustawienia `Order` właściwości.
@@ -111,13 +111,13 @@ Użyj [AddPageRoute](/dotnet/api/microsoft.extensions.dependencyinjection.pageco
 
 Przykładowa aplikacja tworzy trasę do `/TheContactPage` dla *Contact.cshtml*:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet5)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet5)]
 
 Strony kontaktu można również można uzyskać pod adresem `/Contact` za pomocą tej trasy domyślnej.
 
 Przykładowa aplikacja tras niestandardowych na stronie kontakt umożliwia opcjonalny `text` trasy segmentu (`{text?}`). Strona zawiera również ten segment opcjonalne w jego `@page` dyrektywy w przypadku, gdy użytkownik uzyskuje dostęp do strony o jego `/Contact` trasy:
 
-[!code-cshtml[Main](razor-pages-convention-features/sample/Pages/Contact.cshtml?highlight=1)]
+[!code-cshtml[](razor-pages-convention-features/sample/Pages/Contact.cshtml?highlight=1)]
 
 Należy pamiętać, że wygenerowany adres URL dla **skontaktuj się z** łącza na renderowanej stronie odzwierciedla zaktualizowane trasy:
 
@@ -135,7 +135,7 @@ Domyślny dostawca modelu strony implementujący [IPageApplicationModelProvider]
 
 Przykłady w tej sekcji, przykładowa aplikacja używa `AddHeaderAttribute` klasy, która jest [ResultFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.resultfilterattribute), który dotyczy nagłówek odpowiedzi:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Filters/AddHeader.cs?name=snippet1)]
+[!code-csharp[](razor-pages-convention-features/sample/Filters/AddHeader.cs?name=snippet1)]
 
 Za pomocą Konwencji, przykładzie pokazano, jak do zastosowania atrybutu do wszystkich stron w folderze i do jednej strony.
 
@@ -145,7 +145,7 @@ Użyj [AddFolderApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc
 
 W przykładzie pokazano użycie `AddFolderApplicationModelConvention` przez dodanie nagłówka `OtherPagesHeader`, do stron wewnątrz *OtherPages* folderu aplikacji:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet6)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet6)]
 
 Przykładowe strony Strona 1 na `localhost:5000/OtherPages/Page1` i sprawdzić nagłówków, aby wyświetlić wyniki:
 
@@ -157,7 +157,7 @@ Użyj [AddPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.a
 
 W przykładzie pokazano użycie `AddPageApplicationModelConvention` przez dodanie nagłówka `AboutHeader`, do strony informacje:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet7)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet7)]
 
 Żądanie przykładową stronę o w `localhost:5000/About` i sprawdzić nagłówków, aby wyświetlić wyniki:
 
@@ -167,7 +167,7 @@ W przykładzie pokazano użycie `AddPageApplicationModelConvention` przez dodani
 
 [ConfigureFilter](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.configurefilter) konfiguruje określony filtr do zastosowania. Można zaimplementować klasy filtru, ale Przykładowa aplikacja pokazano, jak implementuje filtr w wyrażeniu lambda, które zostało zaimplementowane jako fabryka, która zwraca filtr wewnętrznych:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet8)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet8)]
 
 Model aplikacji strony służy do sprawdzania ścieżki względnej segmentów, które mogą prowadzić do strony Strona2 *OtherPages* folderu. Jeśli warunek zakończy się pomyślnie, jest dodawana nagłówka. Jeśli nie, `EmptyFilter` została zastosowana.
 
@@ -183,11 +183,11 @@ Przykładowe strony Strona2 w `localhost:5000/OtherPages/Page2` i sprawdzić nag
 
 Przykładowa aplikacja zawiera przykład za pomocą [filtra](xref:mvc/controllers/filters#ifilterfactory) przez dodanie nagłówka `FilterFactoryHeader`, z dwóch wartości do stron aplikacji:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet9)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet9)]
 
 *AddHeaderWithFactory.cs*:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Factories/AddHeaderWithFactory.cs?name=snippet1)]
+[!code-csharp[](razor-pages-convention-features/sample/Factories/AddHeaderWithFactory.cs?name=snippet1)]
 
 Żądanie przykładową stronę o w `localhost:5000/About` i sprawdzić nagłówków, aby wyświetlić wyniki:
 
@@ -246,7 +246,7 @@ Przykładowa wolisz zmienić sposób metody nazwane i nienazwane procedury obsł
 
 Ustanowienie ten schemat dziedziczyć `DefaultPageApplicationModelProvider` klasy i zastąpienia [CreateHandlerModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.internal.defaultpageapplicationmodelprovider.createhandlermodel) metodę, aby podać niestandardową logikę na potrzeby rozpoznawania [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) nazwy programu obsługi. Przykładowa aplikacja pokazuje, jak to zrobić jego `CustomPageApplicationModelProvider` klasy:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/CustomPageApplicationModelProvider.cs?name=snippet1&highlight=1-2,45-46,64-68,78-85,87,92,106)]
+[!code-csharp[](razor-pages-convention-features/sample/CustomPageApplicationModelProvider.cs?name=snippet1&highlight=1-2,45-46,64-68,78-85,87,92,106)]
 
 Najważniejsze funkcje klasy obejmują:
 
@@ -260,7 +260,7 @@ Najważniejsze funkcje klasy obejmują:
 
 Zarejestruj `CustomPageApplicationModelProvider` w `Startup` klasy:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet10)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet10)]
 
 Model strony w *Index.cshtml.cs* pokazuje zmian konwencji nazewnictwa metody zwykłej obsługi dla stron w aplikacji. Zwykły "On" nazewnictwa prefiks używany ze stronami Razor zostaną usunięte. Teraz nosi nazwę metody, która inicjuje stanu strony `Get`. Widać tę Konwencję używane w całej aplikacji po otwarciu dowolnego modelu strony dla dowolnej strony.
 
@@ -268,11 +268,11 @@ Każda z innych metod zaczynać się zlecenie HTTP opisujące jego przetwarzanie
 
 Należy pamiętać, że `Async` jest opcjonalny między `DeleteAllMessages` i `DeleteMessageAsync`. Są one obu metod asynchronicznych, ale mogą być używane `Async` przyrostka lub nie; zaleca się wykonanie. `DeleteAllMessages` jest tu używany do celów demonstracyjnych, ale zaleca się, że nazwa taka metoda `DeleteAllMessagesAsync`. Nie ma wpływu na przetwarzanie próbki implementacji, ale przy użyciu `Async` przyrostka wywołania na fakt, że jest metody asynchronicznej.
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Pages/Index.cshtml.cs?name=snippet1&highlight=1,6,16,29)]
+[!code-csharp[](razor-pages-convention-features/sample/Pages/Index.cshtml.cs?name=snippet1&highlight=1,6,16,29)]
 
 Zanotuj nazwy obsługi w *Index.cshtml* odpowiada `DeleteAllMessages` i `DeleteMessageAsync` metod obsługi:
 
-[!code-cshtml[Main](razor-pages-convention-features/sample/Pages/Index.cshtml?range=29-60&highlight=7-8,24-25)]
+[!code-cshtml[](razor-pages-convention-features/sample/Pages/Index.cshtml?range=29-60&highlight=7-8,24-25)]
 
 `Async` w nazwie metody obsługi `DeleteMessageAsync` jest brana pod uwagę limit przez `TryParseHandlerMethod` do obsługi dopasowania żądania POST do metody. `asp-page-handler` Nazwa `DeleteMessage` jest dopasowywany do metody obsługi `DeleteMessageAsync`.
 
@@ -282,13 +282,13 @@ MVC [filtry akcji](xref:mvc/controllers/filters#action-filters) są ignorowane p
 
 Filtr strony ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)) jest filtr, który ma zastosowanie do stron Razor. Otacza jej wykonanie metody obsługi strony. Umożliwia przetwarzanie niestandardowego kodu na etapach wykonywania metody obsługi strony. Oto przykład z przykładową aplikację:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Filters/ReplaceRouteValueFilterAttribute.cs?name=snippet1)]
+[!code-csharp[](razor-pages-convention-features/sample/Filters/ReplaceRouteValueFilterAttribute.cs?name=snippet1)]
 
 Sprawdza, czy ten filtr `globalTemplate` trasy w "ReplacementValue" wartość "TriggerValue" i zamiany.
 
 `ReplaceRouteValueFilter` Atrybut można stosować bezpośrednio do `PageModel`:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Pages/OtherPages/Page3.cshtml.cs?range=10-12&highlight=1)]
+[!code-csharp[](razor-pages-convention-features/sample/Pages/OtherPages/Page3.cshtml.cs?range=10-12&highlight=1)]
 
 Żądanie strony Page3 z przykładową aplikację z na `localhost:5000/OtherPages/Page3/TriggerValue`. Zwróć uwagę, jak filtr zastępuje wartość trasy:
 

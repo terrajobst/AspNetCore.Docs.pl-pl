@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: c271488d4da72ba340f3617ac20c7b6da2574c69
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 056d3ffe3f27c45f4da9504dd00afa5e450a86b5
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Obsługa konfliktom współbieżności - Core EF z samouczek platformy ASP.NET Core MVC (8, 10)
 
@@ -89,7 +89,7 @@ W pozostałej części tego samouczka zostanie dodana `rowversion` śledzenia w�
 
 W *Models/Department.cs*, Dodaj właściwość śledzenia o nazwie RowVersion:
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
 `Timestamp` Atrybut określa, że w tej kolumnie będą uwzględniane w Where klauzuli Update i Delete polecenia wysyłane do bazy danych. Ten atrybut jest nazywany `Timestamp` ponieważ poprzednie wersje programu SQL Server SQL `timestamp` — typ danych przed SQL `rowversion` on zastąpiony. Typ architektury .NET dla `rowversion` jest tablicą bajtów.
 
@@ -120,7 +120,7 @@ Tak jak wcześniej dla uczniów lub studentów, szkoleń i instruktorów szkiele
 
 W *DepartmentsController.cs* pliku, zmienić wszystkie cztery wystąpienia "FirstMidName" na "Pełna nazwa", tak aby list rozwijanych administratora działu będzie zawierać pełną nazwę instruktora, a nie tylko nazwisko.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
 ## <a name="update-the-departments-index-view"></a>Aktualizowanie widoku indeksu działów
 
@@ -128,7 +128,7 @@ Aparat szkieletów utworzył RowVersion kolumny w widoku indeksu, ale nie powinn
 
 Zastąp kod w *Views/Departments/Index.cshtml* następującym kodem.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
+[!code-html[](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
 
 Zmiany pozycji do "Działów", usuwa kolumnę RowVersion i zawiera pełną nazwę zamiast imię dla administratora.
 
@@ -136,11 +136,11 @@ Zmiany pozycji do "Działów", usuwa kolumnę RowVersion i zawiera pełną nazw�
 
 W obu HttpGet `Edit` — metoda i `Details` metody, Dodaj `AsNoTracking`. W HttpGet `Edit` metody, Dodaj wczesny ładowania dla administratora.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
 
 Zastąp istniejący kod httppost `Edit` metodę z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
 Na początku kodu próby odczytu z działu do zaktualizowania. Jeśli `SingleOrDefaultAsync` metoda zwraca wartość null, dział został usunięty przez innego użytkownika. W takim przypadku ten kod używa wartości przesłanego formularza utworzyć jednostki działu, tak aby edycji strony mogą być wyświetlane ponownie z komunikatem o błędzie. Alternatywnie nie trzeba ponownie utworzyć jednostki działu, jeśli wyświetla komunikat o błędzie bez ponowne wyświetlanie pola działu.
 
@@ -154,19 +154,19 @@ Następnie podczas programu Entity Framework utworzy polecenia aktualizacji SQL,
 
 Kod w bloku catch dla tego wyjątku pobiera dotyczy jednostki działu, która ma zaktualizowanej wartości z `Entries` właściwości w obiekcie wyjątku.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
 
 `Entries` Kolekcja będzie mieć tylko jedno `EntityEntry` obiektu.  Ten obiekt służy do nowych wartości wprowadzonej przez użytkownika i wartości bieżącej bazy danych.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
 
 Ten kod dodaje niestandardowy komunikat o błędzie dla każdej kolumny, która ma różne wartości bazy danych z wprowadzoną na edycję użytkownika strony (tylko jedno pole znajduje się tutaj w celu jego skrócenia).
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
 
 Na koniec kod ustawia `RowVersion` wartość `departmentToUpdate` do nowej wartości pobrane z bazy danych. Nowy `RowVersion` wartości będą przechowywane w ukrytym polu podczas edycji strony zostanie wyświetlony ponownie, a następne czasu użytkownik klika polecenie **zapisać**, tylko błędy współbieżności, które się zdarzyć, ponieważ ponowne wyświetlanie edycji strony zostanie przechwycony.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
 
 `ModelState.Remove` Instrukcja jest wymagane, ponieważ `ModelState` ma stary `RowVersion` wartość. W widoku `ModelState` wartość dla pola ma pierwszeństwo przed wartości właściwości w modelu, gdy istnieją obie.
 
@@ -178,7 +178,7 @@ W *Views/Departments/Edit.cshtml*, wprowadź następujące zmiany:
 
 * Dodaj opcję "Wybierz administratora" do listy rozwijanej.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
+[!code-html[](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
 ## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Testowanie konfliktom współbieżności na stronie edycji
 
@@ -208,13 +208,13 @@ Na stronie usuwania programu Entity Framework wykrywa konfliktom współbieżno�
 
 W *DepartmentsController.cs*, Zastąp HttpGet `Delete` metodę z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
 
 Metoda przyjmuje opcjonalny parametr, który wskazuje, czy strona jest są wyświetlane ponownie po błędzie współbieżności. Jeśli ta flaga ma wartość true, a dział określono już nie istnieje, został usunięty przez innego użytkownika. W takim przypadku kod przekierowuje do strony indeksu.  Jeśli ta flaga ma wartość true, a dział istnieje, został zmieniony przez innego użytkownika. W takim przypadku kod wysyła komunikat o błędzie do widoku przy użyciu `ViewData`.  
 
 Zastąp kod w HttpPost `Delete` — metoda (o nazwie `DeleteConfirmed`) z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
 
 W kodzie szkieletu po prostu zastąpić ta metoda zaakceptowane identyfikator rekordu:
 
@@ -239,7 +239,7 @@ Jeśli zostanie przechwycony błąd współbieżności, kod zostanie ponownie st
 
 W *Views/Departments/Delete.cshtml*, Zastąp następujący kod, który dodaje błąd pola wiadomości i ukryte pola dla właściwości DepartmentID i RowVersion szkieletu kodu. Zmiany zostały wyróżnione.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
+[!code-html[](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
 
 Dzięki temu następujące zmiany:
 
@@ -269,11 +269,11 @@ Opcjonalnie można wyczyścić szkieletu kodu w szczegółach i tworzyć widoki.
 
 Zastąp kod w *Views/Departments/Details.cshtml* Aby usunąć kolumnę RowVersion i wyświetlić pełną nazwę administratora.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
+[!code-html[](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
 
 Zastąp kod w *Views/Departments/Create.cshtml* do dodania do listy rozwijanej wybierz opcję.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
+[!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
 ## <a name="summary"></a>Podsumowanie
 

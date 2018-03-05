@@ -10,15 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 78f4eed188323f2f43fafbb69d3fca9b59129ad2
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ea4788b5daead9e355e13b963c025dd110eb2bff
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Ciągłe wdrażanie na platformie Azure dla platformy ASP.NET Core z programu Visual Studio i Git
 
 Przez [Erik Reitan](https://github.com/Erikre)
+
+[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web platformy ASP.NET Core za pomocą programu Visual Studio i wdrożyć ją w programie Visual Studio w usłudze Azure App Service przy użyciu ciągłego wdrażania.
 
@@ -194,7 +196,7 @@ Teraz, gdy aplikacja sieci web jest wdrażana na platformie Azure, uruchom aplik
 Można to zrobić na dwa sposoby:
 
 * W portalu Azure Znajdź bloku aplikacja sieci web dla aplikacji sieci web. Wybierz **Przeglądaj** do wyświetlania aplikacji w domyślnej przeglądarce.
-* Otwórz przeglądarkę i wprowadź adres URL aplikacji sieci web. Przykład:`http://SampleWebAppDemo.azurewebsites.net`
+* Otwórz przeglądarkę i wprowadź adres URL aplikacji sieci web. Przykład: `http://SampleWebAppDemo.azurewebsites.net`
 
 ## <a name="update-the-web-app-and-republish"></a>Aktualizowanie aplikacji sieci web i opublikować
 
@@ -225,7 +227,7 @@ Po wprowadzeniu zmian w kodzie lokalnego, należy opublikować:
 
 ## <a name="view-the-updated-web-app-in-azure"></a>Widok zaktualizowano aplikację sieci web na platformie Azure
 
-Zaktualizowano aplikację sieci web wyświetlić, wybierając **Przeglądaj** z bloku aplikacja sieci web w portalu Azure lub przez otwarcie przeglądarki i wprowadzić adres URL aplikacji sieci web. Przykład:`http://SampleWebAppDemo.azurewebsites.net`
+Zaktualizowano aplikację sieci web wyświetlić, wybierając **Przeglądaj** z bloku aplikacja sieci web w portalu Azure lub przez otwarcie przeglądarki i wprowadzić adres URL aplikacji sieci web. Przykład: `http://SampleWebAppDemo.azurewebsites.net`
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

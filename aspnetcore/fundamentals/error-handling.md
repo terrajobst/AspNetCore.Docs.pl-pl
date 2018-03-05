@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/error-handling
-ms.openlocfilehash: 1504e49d97c4e72a34597360ad05bd9116188b33
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: cab395645d46c56a1a89464a8e8e716a296a9637
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Wprowadzenie do obsługi błędów w platformy ASP.NET Core
 
@@ -28,7 +28,7 @@ W tym artykule omówiono typowe appoaches do obsługi błędów w aplikacji plat
 
 Aby skonfigurować aplikację do wyświetlenia strony, który zawiera szczegółowe informacje dotyczące wyjątków, zainstaluj `Microsoft.AspNetCore.Diagnostics` NuGet pakiet, a następnie dodaj wiersz do [skonfigurować metodę w klasie uruchamiania](startup.md):
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
 
 Umieść `UseDeveloperExceptionPage` przed wszystkich programów pośredniczących chcesz przechwytywać wyjątki, takich jak `app.UseMvc`.
 
@@ -51,7 +51,7 @@ To żądanie nie ma żadnych plików cookie, ale jeśli jak, będą widoczne w *
 
 Należy dobrze, aby skonfigurować stronę programu obsługi wyjątków do użycia, gdy aplikacja nie jest uruchomiona `Development` środowiska.
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
 W aplikacji MVC nie jawnie dekoracji metody akcji programu obsługi błędu z atrybutami metody HTTP, takie jak `HttpGet`. Za pomocą jawnego zlecenia może uniemożliwić osiągnięcia metody niektórych żądań.
 
@@ -77,7 +77,7 @@ Domyślnie to oprogramowanie pośredniczące dodaje prosty, tekstowy obsługi ws
 
 Oprogramowanie pośredniczące obsługuje kilka metod inne rozszerzenie. Wyższy wyrażenia lambda, ma inny ciąg zawartości typu i formatu.
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
@@ -85,7 +85,7 @@ app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 
 Brak metody rozszerzenia przekierowania. Kod stanu 302 jedną wysyła do klienta, a jeden zwraca oryginalnego kodu stanu do klienta, ale również wykonuje program obsługi dla adresu URL przekierowania.
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 4a5f14e11de6ed91f67808c3ea8c78a7b1d43b03
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 8c28f1b4f66433eaebd9e474e784ecf3f1ac271b
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Testowanie w ASP.NET Core integracji
 
@@ -47,7 +47,7 @@ Platformy ASP.NET Core obejmuje hosta testów, który można dodać do integracj
 
 Raz `Microsoft.AspNetCore.TestHost` pakietu jest dołączony do projektu, można tworzyć i konfigurować `TestServer` w testach. Następującego testu przedstawiono sposób sprawdzania, czy żądania skierowane do katalogu głównego witryny zwraca "Witaj świecie!" i uruchamiać pomyślnie przed domyślnie sieci Web platformy ASP.NET Core pusty szablon utworzony przez program Visual Studio.
 
-[!code-csharp[Main](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebDefaultRequestShould.cs?name=snippet_WebDefault&highlight=7,16,22)]
+[!code-csharp[](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebDefaultRequestShould.cs?name=snippet_WebDefault&highlight=7,16,22)]
 
 Ten test jest przy użyciu wzorca Assert Act Rozmieść. Krok Rozmieść odbywa się w konstruktorze, która tworzy wystąpienie `TestServer`. Skonfigurowany `WebHostBuilder` będzie używane do tworzenia `TestHost`; w tym przykładzie `Configure` metody z systemu w ramach testu (SUT) `Startup` klasy jest przekazywana do `WebHostBuilder`. Ta metoda będzie służyć do konfigurowania potoku żądania z `TestServer` do tak samo jak serwer SUT może być skonfigurowany.
 
@@ -55,7 +55,7 @@ W części Act testu, żądań do `TestServer` wystąpienia dla ścieżki "/" i 
 
 Teraz można dodać kilka testy dodatkowe integracji, aby upewnić się, że pierwsze sprawdzanie funkcji działa za pośrednictwem aplikacji sieci web:
 
-[!code-csharp[Main](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebCheckPrimeShould.cs?name=snippet_CheckPrime)]
+[!code-csharp[](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebCheckPrimeShould.cs?name=snippet_CheckPrime)]
 
 Należy pamiętać, że nie naprawdę próbujesz testu poprawności sprawdzania liczba pierwsza z tych testów, ale zamiast aplikacji sieci web wykonuje oczekiwań. Masz już pokrycie testu jednostki, który daje pewność działania w `PrimeService`, jak pokazano poniżej:
 
@@ -134,13 +134,13 @@ Chcesz zezwolić na ścieżce używa oprogramowania pośredniczącego należy ok
 > [!NOTE]
 > Ponieważ zależy od oprogramowania pośredniczącego `PrimeService` usługi, jest również żąda wystąpienie tej usługi z konstruktora. Platformę zapewni tej usługi za pośrednictwem [iniekcji zależności](xref:fundamentals/dependency-injection), zakładając, że został on skonfigurowany, na przykład w `ConfigureServices`.
 
-[!code-csharp[Main](../testing/integration-testing/sample/src/PrimeWeb/Middleware/PrimeCheckerMiddleware.cs?highlight=39-63)]
+[!code-csharp[](../testing/integration-testing/sample/src/PrimeWeb/Middleware/PrimeCheckerMiddleware.cs?highlight=39-63)]
 
 Ponieważ to oprogramowanie pośredniczące działa jako punkt końcowy w łańcuchu delegata żądania, gdy jest zgodna z jego ścieżki, nie jest Brak wywołania `_next.Invoke` podczas tego oprogramowania pośredniczącego obsługuje żądanie.
 
 Z tego oprogramowania pośredniczącego w miejscu i niektóre przydatne metody rozszerzenia utworzone, aby ułatwić jego konfigurowania, refactored `Configure` metody wygląda następująco:
 
-[!code-csharp[Main](../testing/integration-testing/sample/src/PrimeWeb/Startup.cs?highlight=9&range=19-33)]
+[!code-csharp[](../testing/integration-testing/sample/src/PrimeWeb/Startup.cs?highlight=9&range=19-33)]
 
 Po tym refaktoryzacji masz pewność, że aplikacja sieci web wciąż działa jak poprzednio, ponieważ testy integracji wszystkich przekazywanie.
 

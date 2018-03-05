@@ -1,7 +1,7 @@
 ---
 title: "Praca z rozproszonej pamięci podręcznej w ASP.NET Core"
 author: ardalis
-description: "Dowiedz się, jak za pomocą systemy buforowania rozproszonego zwiększyć wydajność i skalowalność aplikacji platformy ASP.NET Core, szczególnie w przypadku hostowanych w środowisku farmy chmury lub serwera."
+description: "Dowiedz się, jak używać platformy ASP.NET Core rozproszonych buforowanie, aby zwiększyć wydajność aplikacji i skalowalność, szczególnie w środowisku farmy chmury lub serwera."
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: 877a3e1f8c3282fdd67a389ddf5b4ff49dea3b42
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 635c61cbb72a6a9eb822307bbc80936ee73bedc8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Praca z rozproszonej pamięci podręcznej w ASP.NET Core
 
@@ -73,13 +73,13 @@ Aby użyć `IDistributedCache` interfejsu:
 
 Poniższy przykład przedstawia użycie wystąpienia `IDistributedCache` w składniku proste oprogramowania pośredniczącego:
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/StartTimeHeader.cs?highlight=15,18,21,27,28,29,30,31)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/StartTimeHeader.cs?highlight=15,18,21,27,28,29,30,31)]
 
 W powyższym kodzie wartość w pamięci podręcznej jest do odczytu, ale nigdy nie są zapisywane. W tym przykładzie wartość jest ustawiona tylko, gdy serwer jest uruchamiany i nie ulega zmianie. W scenariuszu z wieloma serwerami najnowszych serwera w celu uruchomienia zostaną zastąpione poprzednie wartości, które zostały określone przez inne serwery. `Get` i `Set` metody `byte[]` typu. W związku z tym wartość ciągu musi zostać przekonwertowany za pomocą `Encoding.UTF8.GetString` (dla `Get`) i `Encoding.UTF8.GetBytes` (dla `Set`).
 
 Poniższy kod z *Startup.cs* pokazuje ustawienie wartości:
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=2,4,5,6&range=58-66)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=2,4,5,6&range=58-66)]
 
 > [!NOTE]
 > Ponieważ `IDistributedCache` jest skonfigurowany w `ConfigureServices` metody, jest ona dostępna do `Configure` metody jako parametr. Dodanie go jako parametru umożliwi skonfigurowanego wystąpienia być dostarczane za pośrednictwem Podpisane.
@@ -92,7 +92,7 @@ Konfigurowanie wdrożenia Redis w `ConfigureServices` i dostęp do niego w kodzi
 
 W przykładowym kodzie `RedisCache` implementacji jest używany, gdy serwer jest skonfigurowany dla `Staging` środowiska. W związku z tym `ConfigureStagingServices` konfiguruje metody `RedisCache`:
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
 
 > [!NOTE]
 > Aby zainstalować Redis na komputerze lokalnym, należy zainstalować pakiet chocolatey [https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/) i uruchom `redis-server` z wiersza polecenia.
@@ -103,7 +103,7 @@ Implementacja SqlServerCache umożliwia rozproszonej pamięci podręcznej do uż
 
 Aby korzystać z narzędzia pamięci podręcznej sql, należy dodać `SqlConfig.Tools` do `<ItemGroup>` elementu *.csproj* pliku i uruchom dotnet przywracania.
 
-[!code-xml[Main](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
+[!code-xml[](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
 
 Przetestuj SqlConfig.Tools, uruchamiając następujące polecenie
 
@@ -125,7 +125,7 @@ Utworzona tabela ma następującego schematu:
 
 Podobnie jak wszystkie implementacje pamięci podręcznej, aplikacja powinna pobieranie i ustawianie wartości pamięci podręcznej za pomocą wystąpienia `IDistributedCache`, a nie `SqlServerCache`. Implementuje próbki `SqlServerCache` w `Production` środowiska (tak jest skonfigurowany w `ConfigureProductionServices`).
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=7,8,9,10,11,12&range=42-56)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=7,8,9,10,11,12&range=42-56)]
 
 > [!NOTE]
 > `ConnectionString` (I opcjonalnie `SchemaName` i `TableName`) zwykle powinny być przechowywane poza kontroli źródła (na przykład UserSecrets), ponieważ mogą one zawierać poświadczeń.

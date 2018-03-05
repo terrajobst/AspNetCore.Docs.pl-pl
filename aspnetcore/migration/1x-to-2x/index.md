@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: a88d22c88689d20376fec748b05fc4b5ecca3510
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 42906e95d17f76f69dddc40f351b41e6cbdd087c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>Migrowanie z platformy ASP.NET Core 1.x do platformy ASP.NET Core 2.0
 
@@ -33,11 +33,11 @@ Zobacz [wprowadzenie do platformy ASP.NET Core](xref:getting-started).
 ## <a name="update-target-framework-moniker-tfm"></a>Zaktualizuj Moniker platformy docelowej (TFM)
 Należy używać w projektach przeznaczonych dla platformy .NET Core [TFM](/dotnet/standard/frameworks#referring-to-frameworks) wersji większa lub równa .NET Core 2.0. Wyszukaj `<TargetFramework>` w węźle *.csproj* plików i zastąp jego tekst wewnętrzny z `netcoreapp2.0`:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=3)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=3)]
 
 Projektów przeznaczanie platformy .NET należy używać TFM wersji większa lub równa .NET Framework 4.6.1. Wyszukaj `<TargetFramework>` w węźle *.csproj* plików i zastąp jego tekst wewnętrzny z `net461`:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App.csproj?range=4)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App.csproj?range=4)]
 
 > [!NOTE]
 > .NET core 2.0 oferuje znacznie większą powierzchni niż .NET Core 1.x. Jeśli aplikacja jest przeznaczona dla .NET Framework wyłącznie z powodu brakującego interfejs API programu .NET Core 1.x przeznaczonych dla platformy .NET Core 2.0 jest zwykle działa.
@@ -47,7 +47,7 @@ Projektów przeznaczanie platformy .NET należy używać TFM wersji większa lub
 ## <a name="update-net-core-sdk-version-in-globaljson"></a>Zaktualizuj wersję zestawu SDK programu .NET Core w global.json
 Jeśli rozwiązanie opiera się na [ *global.json* ](https://docs.microsoft.com/dotnet/core/tools/global-json) plik, aby zastosować określoną wersję zestawu SDK programu .NET Core, zaktualizuj jego `version` właściwości korzysta z wersji 2.0 na komputerze jest zainstalowany:
 
-[!code-json[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/global.json?highlight=3)]
+[!code-json[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/global.json?highlight=3)]
 
 <a name="package-reference"></a>
 
@@ -56,7 +56,7 @@ Jeśli rozwiązanie opiera się na [ *global.json* ](https://docs.microsoft.com/
 
 W projekcie platformy ASP.NET Core 2.0 przeznaczonych dla platformy .NET Core 2.0, jeden [metapackage](xref:fundamentals/metapackage) odwołania w *.csproj* plik zastępuje kolekcję pakietów:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=8-10)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=8-10)]
 
 Wszystkie funkcje platformy ASP.NET Core 2.0 oraz Entity Framework Core 2.0 znajdują się w metapackage.
 
@@ -64,7 +64,7 @@ Platformy ASP.NET Core 2.0 projektów przeznaczanie platformy .NET ma przejść 
 
 Na przykład poniżej przedstawiono listę `<PackageReference />` węzłów używany w projekcie platformy ASP.NET Core 2.0 typowe przeznaczonych dla platformy .NET Framework:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App.csproj?range=9-22)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App.csproj?range=9-22)]
 
 <a name="dot-net-cli-tool-reference"></a>
 
@@ -73,29 +73,29 @@ W *.csproj* plików, zaktualizuj `Version` atrybut każdego `<DotNetCliToolRefer
 
 Na przykład poniżej przedstawiono listę narzędzi interfejsu wiersza polecenia używane w typowych projektu programu ASP.NET 2.0 Core przeznaczonych dla platformy .NET Core 2.0:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=12-16)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=12-16)]
 
 <a name="package-target-fallback"></a>
 
 ## <a name="rename-package-target-fallback-property"></a>Zmień nazwę właściwości pakietu docelowy powrotu
 *.Csproj* pliku projektu 1.x używane `PackageTargetFallback` węzeł i zmienną:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App.csproj?range=5)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App.csproj?range=5)]
 
 Zmień nazwę węzeł i zmienna `AssetTargetFallback`:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=4)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=4)]
 
 <a name="program-cs"></a>
 
 ## <a name="update-main-method-in-programcs"></a>Metoda Main w pliku Program.cs aktualizacji
 W projektach 1.x `Main` metody *Program.cs* po zapoznaniu się następująco:
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Program.cs?name=snippet_ProgramCs&highlight=8-19)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Program.cs?name=snippet_ProgramCs&highlight=8-19)]
 
 W projektach 2.0 `Main` metody *Program.cs* uproszczono:
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Program.cs?highlight=8-11)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Program.cs?highlight=8-11)]
 
 Zastosowanie tego wzorca nowych 2.0 zdecydowanie zaleca się i jest wymagane dla produktu funkcji, takich jak [migracje Core Entity Framework (EF)](xref:data/ef-mvc/migrations) do pracy. Na przykład uruchomiona `Update-Database` z okna konsoli Menedżera pakietów lub `dotnet ef database update` polecenia wiersza (w przypadku projektów przekonwertować ASP.NET Core 2.0) generuje następujący błąd:
 
@@ -108,17 +108,17 @@ Unable to create an object of type '<Context>'. Add an implementation of 'IDesig
 ## <a name="add-configuration-providers"></a>Dodawanie dostawcy konfiguracji
 W projektach 1.x wielkoskalowych został Dodawanie dostawcy konfiguracji do uruchamianych aplikacji `Startup` konstruktora. Kroki związane z tworzenia wystąpienia `ConfigurationBuilder`, ładowanie odpowiednich dostawców (zmienne środowiskowe, ustawienia aplikacji, itp.) i Inicjowanie członkiem `IConfigurationRoot`.
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Startup.cs?name=snippet_1xStartup)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Startup.cs?name=snippet_1xStartup)]
 
 Ładuje w poprzednim przykładzie `Configuration` elementu członkowskiego przy użyciu ustawień konfiguracyjnych z *appsettings.json* oraz wszelkie *appsettings.\< EnvironmentName\>JSON* Dopasowywanie plików `IHostingEnvironment.EnvironmentName` właściwości. Lokalizacja tych plików jest w tej samej ścieżce jako *Startup.cs*.
 
 W projektach 2.0 schematyczny kod konfiguracji związane z projektami 1.x uruchamia wewnętrznych. Na przykład zmienne środowiskowe i ustawienia aplikacji są ładowane podczas uruchamiania. Odpowiednik *Startup.cs* kodu zostanie zmniejszona do `IConfiguration` inicjowania z wprowadzonym wystąpieniem:
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Startup.cs?name=snippet_2xStartup)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Startup.cs?name=snippet_2xStartup)]
 
 Aby usunąć domyślnych dodane przez dostawców `WebHostBuilder.CreateDefaultBuilder`, wywołania `Clear` metoda `IConfigurationBuilder.Sources` właściwości wewnątrz `ConfigureAppConfiguration`. Dodaj ponownie dostawców, należy skorzystać `ConfigureAppConfiguration` metody w *Program.cs*:
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Program.cs?name=snippet_ProgramMainConfigProviders&highlight=9-14)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Program.cs?name=snippet_ProgramMainConfigProviders&highlight=9-14)]
 
 Konfiguracja używana przez `CreateDefaultBuilder` są widoczne w poprzednim fragment kodu metody [tutaj](https://github.com/aspnet/MetaPackages/blob/rel/2.0.0/src/Microsoft.AspNetCore/WebHost.cs#L152).
 
@@ -136,11 +136,11 @@ W projektach 2.0 za pomocą EF Core 2.0 `Program.BuildWebHost` jest wywoływane 
 
 Należy wziąć pod uwagę następujące kod inicjujący inicjatora 1.x w `Configure` metody *Startup.cs*:
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Startup.cs?name=snippet_ConfigureSeedData&highlight=8)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Startup.cs?name=snippet_ConfigureSeedData&highlight=8)]
 
 W projektach 2.0, należy przenieść `SeedData.Initialize` wywołanie `Main` metody *Program.cs*:
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Program2.cs?name=snippet_Main2Code&highlight=10)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Program2.cs?name=snippet_Main2Code&highlight=10)]
 
 Począwszy od 2.0, wykonywać żadnych czynności zły rozwiązaniem jest `BuildWebHost` z wyjątkiem kompilacji i skonfigurować hosta sieci web. Wszystko, co jest o uruchamianiu aplikacji powinno zostać obsłużone poza `BuildWebHost` &mdash; zwykle w `Main` metody *Program.cs*.
 
@@ -153,7 +153,7 @@ Ustawienie `MvcRazorCompileOnPublish` właściwości na wartość true nie jest 
 
 Jeśli celem .NET Framework, nadal należy jawnie odwoływać się do [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation) pakietu NuGet w Twojej *.csproj* pliku:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App.csproj?range=15)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App.csproj?range=15)]
 
 <a name="app-insights"></a>
 
@@ -164,15 +164,15 @@ Domyślnie projektów platformy ASP.NET Core 1.1 utworzonych w programie Visual 
 
 1. Jeśli przeznaczonych dla platformy .NET Core, Usuń następujące `<PackageReference />` węzła z *.csproj* pliku:
     
-    [!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App.csproj?range=10)]
+    [!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App.csproj?range=10)]
 
 2. Jeśli przeznaczonych dla platformy .NET Core, Usuń `UseApplicationInsights` wywołanie metody rozszerzenia z *Program.cs*:
 
-    [!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Program.cs?name=snippet_ProgramCsMain&highlight=8)]
+    [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Program.cs?name=snippet_ProgramCsMain&highlight=8)]
 
 3. Usuń wywołanie interfejsu API klienta usługi Application Insights z *_Layout.cshtml*. Obejmuje on następujące dwa wiersze kodu:
 
-    [!code-cshtml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Shared/_Layout.cshtml?range=1,19&dedent=4)]
+    [!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Shared/_Layout.cshtml?range=1,19&dedent=4)]
 
 Jeśli korzystasz z zestawu SDK usługi Application Insights bezpośrednio, nadal można to zrobić. 2.0 [metapackage](xref:fundamentals/metapackage) zawiera najnowszą wersję usługi Application Insights, więc błąd starszą wersję pakietu jest dostępna w przypadku odwołujesz starszej wersji.
 

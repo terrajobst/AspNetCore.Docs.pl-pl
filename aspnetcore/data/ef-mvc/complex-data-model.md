@@ -1,7 +1,7 @@
 ---
 title: "Platformy ASP.NET Core MVC podstawowych EF — Model danych — 5 10"
 author: tdykstra
-description: "W tym samouczku można dodać więcej jednostki i relacje i dostosować modelu danych, określając formatowania, sprawdzanie poprawności i reguły mapowania bazy danych."
+description: "W tym samouczku Dodaj więcej jednostki i relacje i dostosować modelu danych, określając formatowania, sprawdzanie poprawności i mapowanie reguły."
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: ac30d9ae5531934ba5163a8d9114b11ac54af8d2
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 9f5354837672920158232b301cfe7be358dbc0f3
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Tworzenie modelu danych złożonych - Core EF z samouczek platformy ASP.NET Core MVC (5, 10)
 
@@ -37,11 +37,11 @@ Dat rejestracji dla użytkowników domowych wszystkie strony sieci web obecnie W
 
 W *Models/Student.cs*, Dodaj `using` instrukcji dla `System.ComponentModel.DataAnnotations` przestrzeni nazw i Dodaj `DataType` i `DisplayFormat` atrybuty do `EnrollmentDate` właściwości, jak pokazano w poniższym przykładzie:
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
 `DataType` Atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych. W takim przypadku tylko chcemy śledzić data nie Data i godzina. `DataType` Wyliczenie zawiera wiele typów danych, takich jak daty, godziny, numer telefonu, waluty, EmailAddress i więcej. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza `DataType.EmailAddress`, i może zostać dostarczony selektora daty `DataType.Date` w przeglądarkach obsługujących HTML5. `DataType` HTML 5 emituje atrybut `data-` atrybutów (wyraźnym danych dash), które byłyby zrozumiałe dla przeglądarki HTML 5. `DataType` Atrybutów nie oferują żadnych sprawdzania poprawności.
 
-`DataType.Date`nie określono format daty, która jest wyświetlana. Domyślnie są wyświetlane w polu danych domyślny format oparte na obiekt CultureInfo serwera.
+`DataType.Date` nie określono format daty, która jest wyświetlana. Domyślnie są wyświetlane w polu danych domyślny format oparte na obiekt CultureInfo serwera.
 
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 
@@ -69,7 +69,7 @@ Można również określić reguły sprawdzania poprawności danych i komunikat�
 
 Załóżmy, że chcesz upewnić się, że użytkownicy nie wprowadzić więcej niż 50 znaków dla nazwy. Aby dodać to ograniczenie, Dodaj `StringLength` atrybuty do `LastName` i `FirstMidName` właściwości, jak pokazano w poniższym przykładzie:
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
 `StringLength` Atrybutu nie uniemożliwić wprowadzanie biały znak dla nazwy użytkownika. Można użyć `RegularExpression` atrybutu, aby zastosować ograniczenia do danych wejściowych. Na przykład następujący kod wymaga pierwszego znaku się wielkie litery i pozostałych znaków jako alfabetycznej:
 
@@ -107,7 +107,7 @@ Atrybuty umożliwia także kontrolować sposób z klas i właściwości są mapo
 
 W *Student.cs* plików, dodawanie `using` instrukcji dla `System.ComponentModel.DataAnnotations.Schema` i dodać atrybut nazwy kolumny do `FirstMidName` właściwości, jak pokazano w poniższym kodzie wyróżnione:
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
 
 Dodanie `Column` atrybutu zmieni model obsługujący `SchoolContext`, więc nie będzie zgodny z bazą danych.
 
@@ -136,7 +136,7 @@ Przed zastosowaniem dwóch pierwszych migracji, nazwa kolumny były typu nvarcha
 
 W *Models/Student.cs*, Zastąp kod dodane wcześniej następujący kod. Zmiany zostały wyróżnione.
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
 
 ### <a name="the-required-attribute"></a>Wymagany atrybut
 
@@ -156,7 +156,7 @@ public string LastName { get; set; }
 
 ### <a name="the-fullname-calculated-property"></a>Właściwość obliczona imię i nazwisko
 
-`FullName`jest obliczonej właściwości, która zwraca wartość, która jest tworzona przez łączenie dwóch innych właściwości. W związku z tym ma metodę dostępu get i nie `FullName` kolumny zostanie wygenerowany w bazie danych.
+`FullName` jest obliczonej właściwości, która zwraca wartość, która jest tworzona przez łączenie dwóch innych właściwości. W związku z tym ma metodę dostępu get i nie `FullName` kolumny zostanie wygenerowany w bazie danych.
 
 ## <a name="create-the-instructor-entity"></a>Utwórz jednostkę instruktora
 
@@ -164,7 +164,7 @@ public string LastName { get; set; }
 
 Utwórz *Models/Instructor.cs*, zastępując kod szablonu z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
+[!code-csharp[](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
 
 Zwróć uwagę, że kilka właściwości są takie same, w jednostkach dla użytkowników domowych i instruktora. W [wdrażanie dziedziczenia](inheritance.md) później w tym samouczku będziesz Refaktoryzuj ten kod, aby wyeliminować nadmiarowości.
 
@@ -200,7 +200,7 @@ public OfficeAssignment OfficeAssignment { get; set; }
 
 Utwórz *Models/OfficeAssignment.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/OfficeAssignment.cs)]
+[!code-csharp[](intro/samples/cu/Models/OfficeAssignment.cs)]
 
 ### <a name="the-key-attribute"></a>Atrybut klucza
 
@@ -227,7 +227,7 @@ Można umieścić `[Required]` atrybutu we właściwości nawigacji instruktora,
 
 W *Models/Course.cs*, Zastąp kod dodane wcześniej następujący kod. Zmiany zostały wyróżnione.
 
-[!code-csharp[Main](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
+[!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
 Jednostka kursu ma właściwości klucza obcego `DepartmentID` wskazujących powiązanej jednostki działu i ma `Department` właściwości nawigacji.
 
@@ -277,7 +277,7 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 Utwórz *Models/Department.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
 
 ### <a name="the-column-attribute"></a>Atrybut kolumny
 
@@ -322,7 +322,7 @@ public ICollection<Course> Courses { get; set; }
 
 W *Models/Enrollment.cs*, Zastąp kod dodane wcześniej następujący kod:
 
-[!code-csharp[Main](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
+[!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
 
 ### <a name="foreign-key-and-navigation-properties"></a>Właściwości obcego klucza i nawigacji
 
@@ -362,7 +362,7 @@ Jeśli w tabeli rejestracji nie włączono informacji o kategorii, tylko będzie
 
 Utwórz *Models/CourseAssignment.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/CourseAssignment.cs)]
+[!code-csharp[](intro/samples/cu/Models/CourseAssignment.cs)]
 
 ### <a name="join-entity-names"></a>Dołącz do nazwy podmiotu
 
@@ -378,7 +378,7 @@ Klucz złożony gwarantuje, że natomiast może mieć wiele wierszy dla przebieg
 
 Dodaj następujący wyróżniony kod, aby *Data/SchoolContext.cs* pliku:
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
 
 Ten kod dodaje nowe jednostki i konfiguruje jednostki CourseAssignment złożonego klucza podstawowego.
 
@@ -413,7 +413,7 @@ Oprócz linii relacji jeden do wielu (od 1 do \*), można widoczną w tym miejsc
 
 Zastąp kod w *Data/DbInitializer.cs* pliku następującym kodem w celu zapewnienia danych inicjatora nowe jednostki po utworzeniu.
 
-[!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
+[!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
 
 Jak przedstawiono w pierwszym samouczku większość ten kod po prostu tworzy nowe obiekty jednostki i ładuje przykładowych danych do właściwości wymaganych do testowania. Zwróć uwagę, jak relacje wiele do wielu są obsługiwane: kod tworzy relacje przez tworzenie jednostek w `Enrollments` i `CourseAssignment` join zestawów jednostek.
 
@@ -444,11 +444,11 @@ Aby migracja pracy z istniejącymi danymi, trzeba zmienić kod, aby podać nową
 
 * Komentarz wiersz kodu, który dodaje kolumnę DepartmentID tabeli kursu.
 
-  [!code-csharp[Main](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
+  [!code-csharp[](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
 
 * Dodaj następujący wyróżniony kod po kod, który tworzy tabelę działu:
 
-  [!code-csharp[Main](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
+  [!code-csharp[](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
 W aplikacji produkcyjnej możesz zapisać kodu lub skryptów służących do dodawania wierszy działu i dotyczą wierszy kursu nowych wierszy działu. Następnie już nie musisz dział "Temp" lub wartość domyślną w kolumnie Course.DepartmentID.
 

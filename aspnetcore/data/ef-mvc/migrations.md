@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: fd466af8a73bf4c568fafe7e7fdcaa82021624da
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 058c7e8821f0ccc4e0be844a7f8dd0fab9942028
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Migracje - Core EF z samouczek platformy ASP.NET Core MVC (4 10)
 
@@ -43,7 +43,7 @@ Narzędzia EF dla interfejsu wiersza polecenia (CLI) są dostępne w [Microsoft.
 
 W *appsettings.json* pliku, Zmień nazwę bazy danych w parametrach połączenia ContosoUniversity2 lub inna nazwa, który nie był używany na komputerze korzystasz.
 
-[!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
+[!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
 Ta zmiana skonfigurowanie projektu, aby pierwszy migracji spowoduje utworzenie nowej bazy danych. To nie jest wymagane wprowadzenie do migracji, ale pojawi się później dlaczego jest dobrym rozwiązaniem.
 
@@ -91,7 +91,7 @@ Jeśli zostanie wyświetlony komunikat o błędzie "*nie może uzyskać dostępu
 
 Kiedy wykonać `migrations add` polecenia EF wygenerowanego kodu, który spowoduje utworzenie bazy danych od podstaw. Ten kod jest *migracje* folder, w pliku o nazwie  *\<sygnatury czasowej > _InitialCreate.cs*. `Up` Metody `InitialCreate` klasy tworzy tabele bazy danych, które odpowiadają zestawów jednostek modelu danych, i `Down` metoda usuwa je, jak pokazano w poniższym przykładzie.
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
+[!code-csharp[](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
 Migracje wywołania `Up` metody implementacji zmian modelu danych do migracji. Po wprowadzeniu polecenia, aby wycofać aktualizacji, migracje wywołania `Down` metody.
 
@@ -103,7 +103,7 @@ Jeśli utworzono początkowej migracji, gdy baza danych już istnieje, jest gene
 
 Tworzy także migracji *migawki* bieżącego schematu bazy danych w *Migrations/SchoolContextModelSnapshot.cs*. Oto, jak wygląda ten kod:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
 
 Ponieważ bieżący schemat bazy danych jest reprezentowana w kodzie, EF Core nie ma na interakcję z bazy danych do utworzenia migracji. Po dodaniu migracji EF określa co zmienione przez porównanie modelu danych do pliku migawki. EF współdziała z bazy danych tylko wtedy, gdy musi zaktualizować bazę danych. 
 

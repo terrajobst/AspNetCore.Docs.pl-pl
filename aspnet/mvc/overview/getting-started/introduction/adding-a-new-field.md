@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 7339f6658ede16e79d19762bd6636917fe4de85f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 453fbf68aa2f3a1d9ea708355c06c53d4f1eabd0
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 <a name="adding-a-new-field"></a>Dodanie nowego pola
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE[Tutorial Note](sample/code-location.md)]
 
@@ -76,7 +76,7 @@ Dzięki temu dodaje następujące instrukcję using:
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
-> Ten kod przyjęto założenie, że titiles są unikatowe. Jeśli ręcznie dodać zduplikowany tytuł, zostanie wyświetlony następujący wyjątek podczas następnego przeprowadzić migrację.   
+> Ten kod przyjęto założenie, że tytuły są unikatowe. Jeśli ręcznie dodać zduplikowany tytuł, zostanie wyświetlony następujący wyjątek podczas następnego przeprowadzić migrację.   
 >   
 >  *Sekwencja zawiera więcej niż jeden element*  
 >   

@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: 37592c3b2099c2cb74dc42ad4a7937b32c281f65
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: c654cfd7c2d291849067bfd3297f940018ccb3d8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w ASP.NET Core
 
@@ -45,10 +45,10 @@ W poniższej tabeli przedstawiono innych nagłówków pamięci podręcznej, któ
 
 | nagłówek                                                     | Funkcja |
 | ---------------------------------------------------------- | -------- |
-| [Okres ważności](https://tools.ietf.org/html/rfc7234#section-5.1)     | Szacowana ilość czasu w sekundach od czasu odpowiedzi został wygenerowany lub pomyślnie zweryfikowane na serwerze źródłowym. |
+| [okres ważności](https://tools.ietf.org/html/rfc7234#section-5.1)     | Szacowana ilość czasu w sekundach od czasu odpowiedzi został wygenerowany lub pomyślnie zweryfikowane na serwerze źródłowym. |
 | [Wygasa](https://tools.ietf.org/html/rfc7234#section-5.3) | Data/Godzina po upływie którego odpowiedź jest uznawane za przestarzałe. |
 | [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Istnieje dla zapewnienia zgodności z protokołu HTTP/1.0 buforuje ustawienia `no-cache` zachowanie. Jeśli `Cache-Control` występuje nagłówek `Pragma` nagłówka zostanie zignorowany. |
-| [Różnią się](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Określa, że buforowanej odpowiedzi może nie zostać wysłane dopóki wszystkie z `Vary` pola nagłówka są takie same w nowe żądanie i odpowiedź buforowana oryginalne żądanie. |
+| [różnią się](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Określa, że buforowanej odpowiedzi może nie zostać wysłane dopóki wszystkie z `Vary` pola nagłówka są takie same w nowe żądanie i odpowiedź buforowana oryginalne żądanie. |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>Oparte na protokole HTTP względem buforowania żądań dyrektywy Cache-Control
 
@@ -91,7 +91,7 @@ Aby uzyskać więcej informacji, zobacz [rozproszonej pamięci podręcznej pomoc
 > [!WARNING]
 > Wyłącz buforowanie zawartości, który zawiera informacje dotyczące klientów, uwierzytelnionym. Buforowanie powinna być włączona tylko dla zawartości, która nie zmienia się na podstawie tożsamości użytkownika lub określa, czy użytkownik jest zalogowany.
 
-[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) odpowiedzi przechowywane zależy od wartości danej listy kluczy zapytania. Gdy do pojedynczej wartości `*` została podana, oprogramowanie pośredniczące zmienia się odpowiedzi dla wszystkich żądań parametrów ciągu zapytania. `VaryByQueryKeys`wymaga platformy ASP.NET Core 1.1 lub nowszej.
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) odpowiedzi przechowywane zależy od wartości danej listy kluczy zapytania. Gdy do pojedynczej wartości `*` została podana, oprogramowanie pośredniczące zmienia się odpowiedzi dla wszystkich żądań parametrów ciągu zapytania. `VaryByQueryKeys` Wymaga platformy ASP.NET Core 1.1 lub nowszej.
 
 Oprogramowanie pośredniczące buforowanie odpowiedzi musi być włączona, aby ustawić `VaryByQueryKeys` właściwość; w przeciwnym razie jest zgłaszany wyjątek czasu wykonywania. Nie ma odpowiedniego nagłówek HTTP dla `VaryByQueryKeys` właściwości. Właściwość jest funkcją HTTP obsługiwane przez oprogramowanie pośredniczące buforowanie odpowiedzi. Oprogramowanie pośredniczące do obsługi buforowaną odpowiedź ciąg zapytania i wartość ciągu zapytania musi odpowiadać poprzedniego żądania. Rozważmy na przykład sekwencji żądań i wyniki będą wyświetlane w poniższej tabeli.
 
@@ -113,7 +113,7 @@ Pierwsze żądanie jest zwrócony przez serwer i w pamięci podręcznej w oprogr
 
 Ten nagłówek są zapisywane tylko, gdy `VaryByHeader` właściwość jest ustawiona. Ma ustawioną wartość `Vary` wartość właściwości. Następujące przykładowe używa `VaryByHeader` właściwości:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
 
 Można wyświetlić nagłówki odpowiedzi z narzędziami sieci w przeglądarce. Na poniższej ilustracji przedstawiono krawędzi naciśnięcia klawisza F12, dane wyjściowe na **sieci** karcie kiedy `About2` odświeżeniu metody akcji:
 
@@ -121,16 +121,16 @@ Można wyświetlić nagłówki odpowiedzi z narzędziami sieci w przeglądarce. 
 
 ### <a name="nostore-and-locationnone"></a>NoStore i Location.None
 
-`NoStore`zastępuje większości innych właściwości. Jeśli ta właściwość jest skonfigurowana `true`, `Cache-Control` ma ustawioną wartość nagłówka `no-store`. Jeśli `Location` ma ustawioną wartość `None`:
+`NoStore` zastępuje większości innych właściwości. Jeśli ta właściwość jest skonfigurowana `true`, `Cache-Control` ma ustawioną wartość nagłówka `no-store`. Jeśli `Location` ma ustawioną wartość `None`:
 
-* `Cache-Control`ustawiono `no-store,no-cache`.
-* `Pragma`ustawiono `no-cache`.
+* `Cache-Control` ustawiono `no-store,no-cache`.
+* `Pragma` ustawiono `no-cache`.
 
 Jeśli `NoStore` jest `false` i `Location` jest `None`, `Cache-Control` i `Pragma` są ustawione na `no-cache`.
 
 Zwykle ustawiana `NoStore` do `true` na stron błędów. Na przykład:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
 
 Powoduje to następujące nagłówki:
 
@@ -148,7 +148,7 @@ Aby włączyć buforowanie, `Duration` musi mieć ustawioną wartość dodatnią
 
 Poniżej przedstawiono przykładowy nagłówki powstaje przez ustawienie `Duration` i pozostawienie domyślnej `Location` wartość:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
 
 Spowoduje to utworzenie następujący nagłówek:
 
@@ -162,11 +162,11 @@ Zamiast duplikowania `ResponseCache` ustawienia na wiele atrybutów akcji kontro
 
 Konfigurowanie profilu pamięci podręcznej:
 
-[!code-csharp[Main](response/sample/Startup.cs?name=snippet1)] 
+[!code-csharp[](response/sample/Startup.cs?name=snippet1)] 
 
 Odwołanie do profilu pamięci podręcznej:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
 
 `ResponseCache` Atrybut może odnosić się zarówno do działania (metody) i kontrolery (klasy). Atrybuty na poziomie metody zastępują ustawienia określone w poziomie klasy atrybutów.
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c01abed767a226eae68725c1c53d922eac2f705e
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 5aac5cf2b8fd4bc53ba7201645b9bb02a5d1ecae
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Konfiguracja modułu Core programu ASP.NET
 
@@ -128,6 +128,12 @@ Poniższy przykład `aspNetCore` konfiguruje element `stdout` rejestrowania dla 
 ```
 
 Zobacz [konfiguracji z pliku web.config](#configuration-with-webconfig) przykład `aspNetCore` element *web.config* pliku.
+
+## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>Konfiguracja serwera proxy używa protokołu HTTP i token parowania
+
+Serwer proxy między moduł platformy ASP.NET Core i Kestrel używa protokołu HTTP. Przy użyciu protokołu HTTP jest zoptymalizować wydajność, których ruch między moduł i Kestrel odbywa się na adres sprzężenia zwrotnego wylogowuje interfejsu sieciowego. Nie istnieje ryzyko z podsłuchiwaniu ruch między moduł i Kestrel z lokalizacji wylogowuje na serwerze.
+
+Token parowania służy do zagwarantowania, że żądań odebranych przez Kestrel były przekazywane przez serwer proxy przez usługi IIS i nie pochodzą z innego źródła. Token parowania zostanie utworzona i ustawiona w zmiennej środowiskowej (`ASPNETCORE_TOKEN`) przez moduł. Token parowania zostanie również ustawiona w nagłówku (`MSAspNetCoreToken`) na każde żądanie przekazywane przez serwer proxy. Oprogramowanie pośredniczące IIS sprawdzanie żądań odbierze upewnij się, że parowania wartość tokenu nagłówka odpowiada wartości zmiennej środowiskowej. Jeśli wartości tokenów są niezgodne, żądanie jest rejestrowane i odrzucone. Parowania zmiennej środowiskowej tokenu i komunikacji między modułu i Kestrel nie są dostępne z lokalizacji wylogowuje na serwerze. Bez wiedzy o parowania wartość tokenu, osoba atakująca nie może przesłać żądania, które pomijają wyboru w oprogramowaniu pośredniczącym usługi IIS.
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>Moduł platformy ASP.NET Core z programem IIS konfiguracji udostępnionej
 

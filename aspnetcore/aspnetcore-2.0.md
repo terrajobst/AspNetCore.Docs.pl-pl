@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: 35d57abd07e83cd5b190572962fbf43aef03a534
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 22494027657aa481790c3d6e78a0b51df301616e
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Co to jest nowe w programie ASP.NET 2.0 Core
 
@@ -48,7 +48,7 @@ Pakiety programu ASP.NET 2.0 Core docelowe .NET 2.0 standardowa. Pakiety mogą o
 
 ## <a name="configuration-update"></a>Aktualizacja konfiguracji
 
-`IConfiguration` Wystąpienia jest domyślnie w programie ASP.NET 2.0 Core dodawany do kontenera usług. `IConfiguration`w usługach kontenera ułatwia tworzenie aplikacji można pobrać wartości konfiguracji z kontenera.
+`IConfiguration` Wystąpienia jest domyślnie w programie ASP.NET 2.0 Core dodawany do kontenera usług. `IConfiguration` w usługach kontenera ułatwia tworzenie aplikacji można pobrać wartości konfiguracji z kontenera.
 
 Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem GitHub](https://github.com/aspnet/Docs/issues/3387).
 
@@ -122,7 +122,7 @@ Aby uzyskać informacje o stanie planowanej dokumentacji, zobacz [problem GitHub
 
 Platformy ASP.NET Core zawsze pomogła kodowanie HTML zawartości domyślnie, ale z nową wersją dodatkowego kroku jest podjęte w celu zapobieżenia fałszerstwie żądania międzywitrynowego (XSRF). Platformy ASP.NET Core teraz Emituj tokenów zabezpieczających przed sfałszowaniem domyślnie i weryfikacji ich na stronach bez dodatkowej konfiguracji i akcji POST formularza.
 
-Aby uzyskać więcej informacji, zobacz [zapobieganie Cross-Site żądania (XSRF/CSRF) Fałszerstwie w ASP.NET Core](xref:security/anti-request-forgery).
+Aby uzyskać więcej informacji, zobacz [zapobiec Cross-Site żądania Międzywitrynowego (XSRF/CSRF) przed atakami opartymi na](xref:security/anti-request-forgery).
 
 ## <a name="automatic-precompilation"></a>Automatyczne wstępnej kompilacji
 

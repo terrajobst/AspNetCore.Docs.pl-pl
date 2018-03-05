@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 313bc586a1c313f0bf5d8f413a4b082ffc2b7f0c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4b59a70c488c08f7d3ebf0ea2344107cf3fe6eff
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="custom-model-binding"></a>Wiązania niestandardowe modelu
 
@@ -68,7 +68,7 @@ Podczas tworzenia własnego niestandardowego integratora modelu, można zaimplem
 
 Poniższy przykład przedstawia użycie `ByteArrayModelBinder` do przekonwertowania ciągu zakodowanego algorytmem base64 `byte[]` i zapisać wynik w pliku:
 
-[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post1&highlight=3)]
+[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post1&highlight=3)]
 
 Możesz zamieścić ciąg kodowany w formacie base64 dla tej metody interfejsu api przy użyciu narzędzia, takiego jak [Postman](https://www.getpostman.com/):
 
@@ -76,7 +76,7 @@ Możesz zamieścić ciąg kodowany w formacie base64 dla tej metody interfejsu a
 
 Tak długo, jak obiekt wiążący można powiązać dane żądania odpowiednio nazwane właściwości lub argumentów, powiedzie się wiązania modelu. Poniższy przykład przedstawia użycie `ByteArrayModelBinder` z modelu widoku:
 
-[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post2&highlight=2)]
+[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post2&highlight=2)]
 
 ## <a name="custom-model-binder-sample"></a>Przykładowe integratora modelu niestandardowych
 
@@ -88,21 +88,21 @@ W tej sekcji możemy implementacji niestandardowego integratora modelu który:
 
 Następujące przykładowe używa `ModelBinder` atrybutu `Author` modelu:
 
-[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
+[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
 
 W powyższym kodzie `ModelBinder` atrybut określa typ `IModelBinder` która powinna być używana do powiązania `Author` parametry akcji. 
 
 `AuthorEntityBinder` Jest używana do powiązania `Author` parametru przez pobieranie jednostkę ze źródła danych przy użyciu programu Entity Framework Core i `authorId`:
 
-[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
+[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
 
 Poniższy kod przedstawia sposób użycia `AuthorEntityBinder` w metodzie akcji:
 
-[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo2&highlight=2)]
+[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo2&highlight=2)]
 
 `ModelBinder` Atrybut może służyć do zastosowania `AuthorEntityBinder` parametrów, które nie używają domyślnych Konwencji:
 
-[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
+[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
 W tym przykładzie, ponieważ nazwa argumentu nie jest domyślnie `authorId`, został określony przy użyciu parametru `ModelBinder` atrybutu. Należy pamiętać, uproszczone metody akcji i kontrolerów w porównaniu do wyszukiwania jednostki w metodzie akcji. Logika pobrać autor przy użyciu programu Entity Framework Core została przeniesiona do integratora modelu. Może to być znacznego uproszczenia, jeśli istnieje kilka metod powiązać modelu autora, które mogą pomóc w wykonaj [suchej zasady](http://deviq.com/don-t-repeat-yourself/).
 
@@ -112,13 +112,13 @@ Możesz zastosować `ModelBinder` atrybutu poszczególnych właściwości (takie
 
 Zamiast stosowania atrybutu, można zaimplementować `IModelBinderProvider`. Jest to implementowania integratorów wbudowana Struktura. Po określeniu typu integratora sieci działa na, określ typ argumentu generuje, **nie** akceptuje integratora Twoje dane wejściowe. Następujących dostawców integratora współpracuje z `AuthorEntityBinder`. Gdy jest ona dodawana do kolekcji dostawców MVC, nie trzeba używać `ModelBinder` atrybutu `Author` lub `Author` wpisane parametrów.
 
-[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
+[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
 
-> Uwaga: Zwraca poprzedni kod `BinderTypeModelBinder`. `BinderTypeModelBinder`działa jako fabryka integratorów modeli i zapewnia iniekcji zależności (Podpisane). `AuthorEntityBinder` Wymaga Podpisane EF Core dostępu do. Użyj `BinderTypeModelBinder` Jeśli Twoje integratora modelu wymaga usług z Podpisane.
+> Uwaga: Zwraca poprzedni kod `BinderTypeModelBinder`. `BinderTypeModelBinder` działa jako fabryka integratorów modeli i zapewnia iniekcji zależności (Podpisane). `AuthorEntityBinder` Wymaga Podpisane EF Core dostępu do. Użyj `BinderTypeModelBinder` Jeśli Twoje integratora modelu wymaga usług z Podpisane.
 
 Aby użyć dostawcę integratora modelu niestandardowe, dodaj ją w `ConfigureServices`:
 
-[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
+[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
 
 Podczas obliczania integratorów modeli, Kolekcja dostawców jest badana w kolejności. Pierwszy dostawcy, który zwraca obiekt wiążący jest używany.
 
@@ -128,7 +128,7 @@ Na poniższej ilustracji przedstawiono domyślne integratorów modeli z debugera
 
 Dodawanie dostawcy do końca kolekcji może spowodować integratora modelu wbudowanych, wywoływana przed użytkownika niestandardowego integratora jest stosowany. W tym przykładzie dodaniu dostawcy niestandardowego na początku kolekcji, aby upewnić się, jest on używany do `Author` argumentów akcji.
 
-[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
+[!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
 
 ## <a name="recommendations-and-best-practices"></a>Zalecenia i najlepsze rozwiązania
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: c229537e7f533eea2173dbc51b8d0d0e097d434a
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: f6efd838d7b6c837c75f36591a49eab812f9d54c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Skonfiguruj uwierzytelnianie systemu Windows w aplikacji platformy ASP.NET Core
 
@@ -56,7 +56,7 @@ Alternatywnie można skonfigurować te dwie właściwości w *launchSettings.jso
 
 ## <a name="enable-windows-authentication-with-iis"></a>Włącz uwierzytelnianie systemu Windows z programem IIS
 
-Usługi IIS używają [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) (ANCM) na potrzeby hostowania aplikacji platformy ASP.NET Core. ANCM przepływów uwierzytelniania systemu Windows do usług IIS domyślnie. Konfiguracja uwierzytelniania systemu Windows jest wykonywana w ramach usług IIS, a nie projekt aplikacji. Poniższe sekcje pokazują, jak skonfigurować aplikację ASP.NET Core uwierzytelniania systemu Windows za pomocą Menedżera usług IIS.
+Usługi IIS używają [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) do aplikacji platformy ASP.NET Core hosta. Moduł przepływów uwierzytelniania systemu Windows do usług IIS domyślnie. Uwierzytelnianie systemu Windows jest skonfigurowany w usługach IIS, a nie aplikacji. Poniższe sekcje pokazują, jak skonfigurować aplikację ASP.NET Core uwierzytelniania systemu Windows za pomocą Menedżera usług IIS.
 
 ### <a name="create-a-new-iis-site"></a>Utwórz nową witrynę IIS
 
@@ -113,7 +113,7 @@ Gdy zarówno uwierzytelnianie systemu Windows i dostęp anonimowy jest włączon
 W przypadku platformy ASP.NET Core 2.x, `[Authorize]` atrybut wymaga dodatkowych czynności konfiguracyjnych *Startup.cs* zażąda anonimowe żądania uwierzytelniania systemu Windows. Zalecana konfiguracja zależy od nieco używany serwer sieci web.
 
 > [!NOTE]
-> Domyślnie użytkownicy, którzy nie mają zezwolenia na dostęp do strony są prezentowane pustego dokumentu. [Oprogramowanie pośredniczące StatusCodePages](xref:fundamentals/error-handling#configuring-status-code-pages) można skonfigurować, aby zapewnić użytkownikom lepsze środowisko "Odmowa dostępu".
+> Domyślnie użytkownicy, którzy nie mają zezwolenia na dostęp do strony są prezentowane z pustą odpowiedź HTTP 403. [Oprogramowanie pośredniczące StatusCodePages](xref:fundamentals/error-handling#configuring-status-code-pages) można skonfigurować, aby zapewnić użytkownikom lepsze środowisko "Odmowa dostępu".
 
 #### <a name="iis"></a>IIS
 

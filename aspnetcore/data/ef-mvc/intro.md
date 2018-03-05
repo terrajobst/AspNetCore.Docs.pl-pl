@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/intro
-ms.openlocfilehash: dedb675ec0ec930bc917651e4865e742b62ad250
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 6170ee9f3e8bf1657fdea155c19356b6d5749f2d
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Wprowadzenie do platformy ASP.NET Core MVC i Entity Framework Core za pomocą programu Visual Studio (od 1 do 10)
 
@@ -128,7 +128,7 @@ W poniższych sekcjach zostaną utworzone klasy dla każdego z tych obiektów.
 
 W *modele* folderu, Utwórz plik klasy o nazwie *Student.cs* i Zastąp kod szablonu z następującym kodem.
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
 
 `ID` Właściwość staną się kolumna klucza podstawowego tabeli bazy danych, która odnosi się do tej klasy. Domyślnie program Entity Framework interpretuje właściwość o nazwie `ID` lub `classnameID` jako klucz podstawowy.
 
@@ -142,7 +142,7 @@ Jeśli właściwość nawigacji może zawierać wiele jednostek (jak relacje wie
 
 W *modele* folderu, Utwórz *Enrollment.cs* i Zastąp istniejący kod następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
 
 `EnrollmentID` Właściwość będzie klucza podstawowego; używa tej jednostki `classnameID` wzorca zamiast `ID` sam jak opisany w `Student` jednostki. Zwykle będzie wybierz jeden wzorzec i używać go w modelu danych. W tym miejscu odmiany przedstawiono służy albo wzorzec. W [nowsze samouczek](inheritance.md), zobaczysz, jak za pomocą Identyfikatora bez classname ułatwia wdrażanie dziedziczenia w modelu danych.
 
@@ -160,7 +160,7 @@ Entity Framework interpretuje właściwości jako właściwość klucza obcego, 
 
 W *modele* folderu, Utwórz *Course.cs* i Zastąp istniejący kod następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
 
 `Enrollments` Właściwość jest właściwością nawigacji. A `Course` jednostka może być powiązane z dowolną liczbę `Enrollment` jednostek.
 
@@ -174,7 +174,7 @@ W folderze projektu Utwórz folder o nazwie *danych*.
 
 W *danych* folderze utwórz plik klasy o nazwie *SchoolContext.cs*i Zastąp kod szablonu z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
 
 Ten kod tworzy `DbSet` właściwości dla każdego zestawu jednostek. W terminologii programu Entity Framework zwykle zestawu jednostek odnosi się do tabeli bazy danych, a jednostka odpowiada wiersza w tabeli.
 
@@ -182,7 +182,7 @@ Można już pominięto `DbSet<Enrollment>` i `DbSet<Course>` instrukcje i będzi
 
 Po utworzeniu bazy danych EF tworzy tabel, które mają taki sam, jak nazwy `DbSet` nazwy właściwości. Zazwyczaj są to nazwy właściwości dla kolekcji (studentów zamiast uczniów) w liczbie mnogiej, ale deweloperzy nie zgadzają się o tego, czy należy pluralized nazwy tabeli lub nie. Te samouczki będzie zastąpienie zachowania domyślnego za pośrednictwem pojedynczej tabeli nazwy kontekstu DbContext. Aby to zrobić, Dodaj następujący kod wyróżnione po ostatnim właściwości DbSet.
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
 
 ## <a name="register-the-context-with-dependency-injection"></a>Zarejestruj kontekście iniekcji zależności
 
@@ -190,13 +190,13 @@ Implementuje platformy ASP.NET Core [iniekcji zależności](../../fundamentals/d
 
 Aby zarejestrować `SchoolContext` jako usługa, otwórz *Startup.cs*i Dodaj wyróżnione wiersze do `ConfigureServices` metody.
 
-[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
 
 Nazwa ciągu połączenia jest przekazywany do kontekstu przez wywołanie metody `DbContextOptionsBuilder` obiektu. Dla wdrożenia lokalnego [systemu konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index) odczytuje parametry połączenia z *appsettings.json* pliku.
 
 Dodaj `using` instrukcje dla `ContosoUniversity.Data` i `Microsoft.EntityFrameworkCore` przestrzeni nazw, a następnie skompilować projekt.
 
-[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_Usings)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_Usings)]
 
 Otwórz *appsettings.json* i dodaj ciąg połączenia, jak pokazano w poniższym przykładzie.
 
@@ -214,7 +214,7 @@ W tym miejscu użyjesz `EnsureCreated` metodę, aby automatycznie utworzyć baz�
 
 W *danych* folderu, Utwórz nowy plik klasy o nazwie *DbInitializer.cs* i Zastąp kod szablonu następujący kod, który powoduje, że bazy danych ma zostać utworzony, w razie potrzeby i danych do nowego testu obciążenia Baza danych.
 
-[!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
 Kod sprawdza, czy istnieją wszystkie studentów w bazie danych jeśli nie, przyjęto założenie, baza danych jest nowa i musi zostać rozpoczęta z danych testowych. Ładuje dane testowe do tablic zamiast `List<T>` kolekcje w celu optymalizacji wydajności.
 
@@ -224,11 +224,11 @@ W *Program.cs*, zmodyfikuj `Main` metody wykonać następujące czynności podcz
 * Wywołaj metodę inicjatora, przekazanie jej w kontekście.
 * Po zakończeniu metody inicjatora, należy dysponować kontekstu.
 
-[!code-csharp[Main](intro/samples/cu/Program.cs?name=snippet_Seed&highlight=3-20)]
+[!code-csharp[](intro/samples/cu/Program.cs?name=snippet_Seed&highlight=3-20)]
 
 Dodaj `using` instrukcji:
 
-[!code-csharp[Main](intro/samples/cu/Program.cs?name=snippet_Usings)]
+[!code-csharp[](intro/samples/cu/Program.cs?name=snippet_Usings)]
 
 W starszych samouczki, może wystąpić podobny kod w `Configure` metody w *Startup.cs*. Firma Microsoft zaleca użycie `Configure` metody tylko do konfigurowania potoku żądania. Kod uruchomienia aplikacji, należy w `Main` metody.
 
@@ -271,13 +271,13 @@ Jeśli **Dodaj zależności MVC** zostanie wyświetlone okno dialogowe:
 
 Można zauważyć, że kontroler ma `SchoolContext` jako parametru konstruktora.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Context&highlight=5,7,9)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Context&highlight=5,7,9)]
 
 Iniekcji zależności ASP.NET zajmie się przekazanie wystąpienia `SchoolContext` z kontrolerem. Skonfigurowane w *Startup.cs* wcześniej.
 
 Zawiera kontroler `Index` metody akcji, która wyświetla wszystkie studentów w bazie danych. Metoda pobiera listę studentów z zestawu odczytując jednostek studentów `Students` właściwości wystąpienia kontekstu bazy danych:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex&highlight=3)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex&highlight=3)]
 
 Dowiesz się o elementach programowania asynchronicznego w tym kodzie później w samouczku.
 
@@ -339,7 +339,7 @@ Asynchroniczne kodu wprowadzenie niewielkiej liczby dodatkowych czynności w cza
 
 W poniższym kodzie `async` — słowo kluczowe, `Task<T>` zwrócić wartość, `await` — słowo kluczowe, i `ToListAsync` metoda powoduje, że kod asynchroniczne.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex)]
 
 * `async` — Słowo kluczowe informuje kompilator, aby wygenerować wywołań zwrotnych dla części treści metody i do automatycznego tworzenia `Task<IActionResult>` obiekt, który jest zwracany.
 
@@ -347,7 +347,7 @@ W poniższym kodzie `async` — słowo kluczowe, `Task<T>` zwrócić wartość, 
 
 * `await` — Słowo kluczowe powoduje, że kompilator podzielić na dwie części metodę. Pierwsza część kończy operację, który jest uruchamiany asynchronicznie. Druga część są umieszczane w metodę wywołania zwrotnego, która jest wywoływana po zakończeniu operacji.
 
-* `ToListAsync`jest to wersja asynchroniczna elementu `ToList` — metoda rozszerzenia.
+* `ToListAsync` jest to wersja asynchroniczna elementu `ToList` — metoda rozszerzenia.
 
 Należy pamiętać o podczas pisania kodu asynchroniczne, który korzysta z programu Entity Framework w kilku kwestiach:
 

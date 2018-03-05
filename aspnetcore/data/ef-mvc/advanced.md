@@ -1,7 +1,7 @@
 ---
 title: Zaawansowane platformy ASP.NET Core MVC podstawowych EF - - 10, 10
 author: tdykstra
-description: "W tym samouczku przedstawiono kilka tematów, które są przydatne pod uwagę przed przejściem do innych niż podstawowe informacje dotyczące projektowania aplikacji sieci web programu ASP.NET korzystających z programu Entity Framework Core."
+description: "Ten samouczek przedstawia przydatne tematy dotyczące wykraczających poza podstawy tworzenia aplikacji sieci web platformy ASP.NET Core, które używają programu Entity Framework Core."
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 458f2dc8a67f8c706d043f0d9d7cb7ce962e52ce
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: d4631765b3742a076f6d7f0dbf72770a9dbf5a09
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Tematy zaawansowane - Core EF z samouczek platformy ASP.NET Core MVC (10 10)
 
@@ -41,7 +41,7 @@ Podobnie jak zawsze podczas wykonywania polecenia SQL w aplikacji sieci web, nal
 
 W *DepartmentsController.cs*w `Details` metody, Zastąp kod, który pobiera działu z `FromSql` wywołania metody, jak pokazano w poniższym kodzie wyróżnione:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
 
 Aby sprawdzić, czy nowy kod działa poprawnie, wybierz **działów** kartę, a następnie **szczegóły** dla jednego z działów.
 
@@ -53,11 +53,11 @@ Wcześniej utworzono siatka uczniów statystyki dla strony informacje wskazując
 
 W *HomeController.cs*, Zastąp `About` metodę z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
 
 Dodaj using instrukcji:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
 Uruchom aplikację i przejdź do strony informacje. Wyświetla dane, które jak poprzednio.
 
@@ -71,9 +71,9 @@ Załóżmy, że chcesz wykonać globalnych zmian w bazie danych, takich jak zmia
 
 W *CoursesContoller.cs*, Dodaj metody UpdateCourseCredits HttpGet i HttpPost:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
 
 Gdy kontroler przetworzy żądanie HttpGet, nic nie zostanie zwrócone w `ViewData["RowsAffected"]`, i wyświetla widok puste pole tekstowe i przycisk Prześlij, jak pokazano na powyższej ilustracji.
 
@@ -85,7 +85,7 @@ W **Dodaj nowy element** okna dialogowego, kliknij przycisk **ASP.NET** w obszar
 
 W *Views/Courses/UpdateCourseCredits.cshtml*, Zastąp kod szablonu z następującym kodem:
 
-[!code-html[Main](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
+[!code-html[](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
 
 Uruchom `UpdateCourseCredits` metody wybierając **kursów** kartę, następnie dodając "/ UpdateCourseCredits" na końcu adresu URL na pasku adresu przeglądarki (na przykład: `http://localhost:5813/Courses/UpdateCourseCredits`). Wprowadź liczbę w polu tekstowym:
 
@@ -182,7 +182,7 @@ Aby odtworzyć modelu danych, w tym klas jednostek z istniejącej bazy danych, n
 
 [Trzeci samouczku tej serii](sort-filter-page.md) pokazano, jak napisać kod LINQ przez kodować nazwy kolumn w `switch` instrukcji. Dwie kolumny do wyboru to działa prawidłowo, ale jeśli masz wiele kolumn kodu można pobrać informacji pełnej. Aby rozwiązać ten problem, można użyć `EF.Property` metodę, aby określić nazwę właściwości jako ciąg. Aby wypróbować takie podejście, należy zastąpić `Index` metoda `StudentsController` następującym kodem.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
 ## <a name="next-steps"></a>Następne kroki
 

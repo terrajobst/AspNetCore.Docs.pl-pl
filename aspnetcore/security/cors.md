@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cors
-ms.openlocfilehash: 1c0d87b61882f69dbf2aeb0a896d9294bd029374
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ee61798fc1bde89ca3712eae9b7c4413e58cf70d
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Włączanie żądań Cross-Origin (CORS)
 
@@ -35,13 +35,13 @@ Te dwa adresy URL są tego samego źródła:
 
 Tych adresów URL mają różne źródła niż poprzedniej dwóch:
 
-* `http://example.net`-Innej domeny
+* `http://example.net` -Innej domeny
 
-* `http://www.example.com/foo.html`-Różnych poddomeny
+* `http://www.example.com/foo.html` -Różnych poddomeny
 
-* `https://example.com/foo.html`-Inny schemat
+* `https://example.com/foo.html` -Inny schemat
 
-* `http://example.com:9000/foo.html`-Różnych portów:
+* `http://example.com:9000/foo.html` -Różnych portów:
 
 > [!NOTE]
 > Program Internet Explorer nie należy wziąć pod uwagę portu podczas porównywania źródeł.
@@ -52,7 +52,7 @@ Aby skonfigurować dodać CORS dla aplikacji `Microsoft.AspNetCore.Cors` pakietu
 
 Dodaj usługi CORS w pliku Startup.cs:
 
-[!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
+[!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
 
 ## <a name="enabling-cors-with-middleware"></a>Włączanie mechanizmu CORS z oprogramowania pośredniczącego
 
@@ -60,7 +60,7 @@ Aby włączyć mechanizm CORS dla całej aplikacji Dodaj oprogramowanie pośredn
 
 Podczas dodawania przy użyciu oprogramowanie pośredniczące CORS, można określić zasady cross-origin `CorsPolicyBuilder` klasy. Istnieją dwa sposoby, w tym celu. Pierwsza to wywołanie UseCors z wyrażenia lambda:
 
-[!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
+[!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
 **Uwaga:** musi być określony adres URL bez ukośnika (`/`). Jeśli adres URL kończy z `/`, zwróci porównanie `false` i zostanie zwrócony bez nagłówka.
 
@@ -68,11 +68,11 @@ Wyrażenie lambda ma `CorsPolicyBuilder` obiektu. Listę można znaleźć [opcje
 
 Należy pamiętać, że CorsPolicyBuilder ma fluent API, więc tworzenia łańcucha wywołań metody:
 
-[!code-csharp[Main](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
+[!code-csharp[](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
 
 Drugi podejściem jest zdefiniować co najmniej jedne zasady CORS nazwanego, a następnie wybierz zasady według nazwy w czasie wykonywania.
 
-[!code-csharp[Main](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
+[!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
 
 W tym przykładzie dodaje zasady CORS o nazwie "AllowSpecificOrigin". Aby wybrać zasady, przekaż nazwę `UseCors`.
 
@@ -84,19 +84,19 @@ MVC służy również do zastosowania określonego CORS każdej akcji, każdy ko
 
 Aby określić Dodaj zasad CORS dla danego działania `[EnableCors]` atrybutu w celu wykonania akcji. Określ nazwę zasady.
 
-[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
 
 ### <a name="per-controller"></a>Każdy kontroler
 
 Aby określić zasady CORS dla określonego kontrolera Dodaj `[EnableCors]` atrybutu do klasy kontrolera. Określ nazwę zasady.
 
-[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
 
 ### <a name="globally"></a>Globalny
 
 Można włączyć mechanizm CORS globalnie do wszystkich kontrolerów przez dodanie `CorsAuthorizationFilterFactory` filtr do kolekcji filtrów globalnych:
 
-[!code-csharp[Main](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
+[!code-csharp[](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
 
 Kolejność jest: działania, kontrolera, globalnych. Zasad na poziomie akcji mają pierwszeństwo przed zasad na poziomie kontrolera, a zasad na poziomie kontrolera mają pierwszeństwo przed zasadami globalnego.
 
@@ -104,7 +104,7 @@ Kolejność jest: działania, kontrolera, globalnych. Zasad na poziomie akcji ma
 
 Aby wyłączyć CORS dla kontrolera lub akcji, należy użyć `[DisableCors]` atrybutu.
 
-[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
 
 ## <a name="cors-policy-options"></a>Opcje zasad CORS
 
@@ -128,11 +128,11 @@ Dla niektórych opcji może być przydatne do odczytu [działa jak CORS](#how-co
 
 Aby zezwolić na co najmniej jeden z określonych źródeł:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=19-23)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=19-23)]
 
 Aby zezwolić na wszystkie pochodzenia:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs??range=27-31)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs??range=27-31)]
 
 Starannie rozważ, przed zezwoleniem na żądania z dowolnego źródła. Oznacza to, że dosłownie w dowolnej witrynie sieci Web można wykonywać wywołania AJAX do interfejsu API.
 
@@ -140,7 +140,7 @@ Starannie rozważ, przed zezwoleniem na żądania z dowolnego źródła. Oznacza
 
 Aby zezwolić na wszystkie metody HTTP:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=44-49)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=44-49)]
 
 Ma to wpływ na żądania wstępnego transmitowane i nagłówek dostępu-formant-Allow-Methods.
 
@@ -150,11 +150,11 @@ Ma to wpływ na żądania wstępnego transmitowane i nagłówek dostępu-formant
 
 Do listy dozwolonych adresów IP określonych nagłówków:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=53-58)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=53-58)]
 
 Aby umożliwić tworzenie wszystkie nagłówki żądania:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=62-67)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=62-67)]
 
 Przeglądarki nie są całkowicie zgodne, w konfiguracji do programu Access-Control-Request-Headers. Po ustawieniu nagłówki na niczego innych niż "*", użytkownik powinien zawierać co najmniej "Zaakceptuj", "content-type", "origin", a także niestandardowe nagłówki, które mają być obsługiwane.
 
@@ -176,7 +176,7 @@ Domyślnie przeglądarka nie pokazuje wszystkie nagłówki odpowiedzi do aplikac
 
 Specyfikacja CORS wywołuje te *nagłówki odpowiedzi proste*. Aby udostępnić nagłówki innych aplikacji:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=71-76)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=71-76)]
 
 ### <a name="credentials-in-cross-origin-requests"></a>Poświadczenia w żądań cross-origin
 
@@ -203,7 +203,7 @@ $.ajax({
 
 Ponadto poświadczenia muszą zezwalać na serwerze. Aby umożliwić cross-origin poświadczeń:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=80-85)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=80-85)]
 
 Teraz odpowiedzi HTTP będzie zawierać nagłówka dostępu-formant-Allow-Credentials, który informuje przeglądarkę, że serwer umożliwia poświadczenia dla żądań cross-origin.
 
@@ -215,7 +215,7 @@ Należy zachować ostrożność w przypadku zezwalania poświadczenia cross-orig
 
 Nagłówka Access-formant-Max-Age Określa, jak długo mogą być buforowane odpowiedzi na żądania wstępnego. Aby ustawić ten nagłówek:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=89-94)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=89-94)]
 
 <a name="cors-how-cors-works"></a>
 

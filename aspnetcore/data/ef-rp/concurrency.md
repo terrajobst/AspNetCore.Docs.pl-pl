@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 673d86c2a1d0db232aca224aba60e5e1cf3c7a31
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 79f59e62483534623c5f17f3b2716da6ae6d179e
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/02/2018
 ---
 en-us /
 
@@ -95,7 +95,7 @@ Aby wykryć konfliktom współbieżności [rowversion](https://docs.microsoft.co
 
 Bazy danych generuje kolejna `rowversion` numer jest zwiększany po każdej wiersz jest aktualizowany. W `Update` lub `Delete` polecenia `Where` klauzuli obejmuje pobranych wartość `rowversion`. Zmiana aktualizacji wiersza:
 
- * `rowversion`nie pasuje do wartości pobranych.
+ * `rowversion` nie pasuje do wartości pobranych.
  * `Update` Lub `Delete` poleceń nie odnaleźć wiersza, ponieważ `Where` klauzula zawiera pobranych `rowversion`.
  * A `DbUpdateConcurrencyException` jest generowany.
 
@@ -105,7 +105,7 @@ W podstawowej EF, gdy żadne wiersze nie zostały zaktualizowane przez `Update` 
 
 W *Models/Department.cs*, Dodaj właściwość śledzenia o nazwie RowVersion:
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
 [Sygnatury czasowej](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.timestampattribute) atrybut określa, czy ta kolumna jest uwzględniona w `Where` klauzuli `Update` i `Delete` poleceń. Ten atrybut jest nazywany `Timestamp` ponieważ poprzednie wersje programu SQL Server używany SQL `timestamp` — typ danych przed SQL `rowversion` zamieniony typu.
 
@@ -147,7 +147,7 @@ Poprzednie polecenia:
 * Dodaje *migracje / {stamp}_RowVersion.cs czasu* pliku migracji.
 * Aktualizacje *Migrations/SchoolContextModelSnapshot.cs* pliku. Aktualizacja dodaje następujące wyróżniony kod do `BuildModel` metody:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
+[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
 
 * Uruchamia migracji, aby zaktualizować bazę danych.
 
@@ -197,7 +197,7 @@ Aby wykryć problem współbieżności, [OriginalValue](https://docs.microsoft.c
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-999)]
 
-W powyższym kodzie `Department.RowVersion` jest to wartość, jeśli jednostka została pobrana. `OriginalValue`jest to wartość w bazie danych podczas `FirstOrDefaultAsync` została wywołana w ramach tej metody.
+W powyższym kodzie `Department.RowVersion` jest to wartość, jeśli jednostka została pobrana. `OriginalValue` jest to wartość w bazie danych podczas `FirstOrDefaultAsync` została wywołana w ramach tej metody.
 
 Poniższy kod pobiera wartości klienta (wartości do tej metody) i wartości bazy danych:
 
@@ -222,7 +222,7 @@ Aktualizacja *Pages/Departments/Edit.cshtml* z następujący kod:
 Poprzedni kod znaczników:
 
 * Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int}"`.
-* Dodaje wersji ukrytego wiersza. `RowVersion`musi zostać dodany, ogłaszanie zwrotne wiąże wartość.
+* Dodaje wersji ukrytego wiersza. `RowVersion` musi zostać dodany, ogłaszanie zwrotne wiąże wartość.
 * Wyświetla ostatniego bajtu `RowVersion` na potrzeby debugowania.
 * Zastępuje `ViewData` z jednoznacznie `InstructorNameSL`.
 
@@ -262,11 +262,11 @@ Aktualizacja modelu strony Usuń z następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Delete.cshtml.cs)]
 
-Strona usuwania wykrywa konfliktom współbieżności jednostka została zmieniona po jego pobrania. `Department.RowVersion`jest wersja wiersza, jeśli jednostka została pobrana. Podstawowe EF tworzy polecenia SQL DELETE, zawiera klauzulę WHERE z `RowVersion`. Jeśli wpływ na wyniki polecenia SQL DELETE żadnych wierszy:
+Strona usuwania wykrywa konfliktom współbieżności jednostka została zmieniona po jego pobrania. `Department.RowVersion` jest wersja wiersza, jeśli jednostka została pobrana. Podstawowe EF tworzy polecenia SQL DELETE, zawiera klauzulę WHERE z `RowVersion`. Jeśli wpływ na wyniki polecenia SQL DELETE żadnych wierszy:
 
 * `RowVersion` W SQL DELETE nie odpowiada polecenia `RowVersion` w bazie danych.
 * DbUpdateConcurrencyException wyjątku.
-* `OnGetAsync`jest wywoływana z `concurrencyError`.
+* `OnGetAsync` jest wywoływana z `concurrencyError`.
 
 ### <a name="update-the-delete-page"></a>Zaktualizuj strony usuwania
 
@@ -281,7 +281,7 @@ Poprzedni kod znaczników wprowadza następujące zmiany:
 * Dodaje komunikat o błędzie.
 * Zamienia FirstMidName imię i nazwisko w **administratora** pola.
 * Zmiany `RowVersion` do wyświetlenia ostatniego bajtu.
-* Dodaje wersji ukrytego wiersza. `RowVersion`musi zostać dodany, ogłaszanie zwrotne wiąże wartość.
+* Dodaje wersji ukrytego wiersza. `RowVersion` musi zostać dodany, ogłaszanie zwrotne wiąże wartość.
 
 ### <a name="test-concurrency-conflicts-with-the-delete-page"></a>Testowanie konfliktom współbieżności na stronie Delete
 

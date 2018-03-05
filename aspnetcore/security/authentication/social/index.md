@@ -1,5 +1,5 @@
 ---
-title: "Włączanie uwierzytelniania za pomocą usługi Facebook, Google i innych dostawców zewnętrznych"
+title: "Facebook, Google i zewnętrznego dostawcy uwierzytelniania w ASP.NET Core"
 author: rick-anderson
 description: "W tym samouczku pokazano, jak kompilacji platformy ASP.NET Core 2.x aplikacji przy użyciu protokołu OAuth 2.0 przy pomocy dostawcy uwierzytelniania zewnętrznego."
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/social/index
-ms.openlocfilehash: 475656b03b0d1a3e79e78e6cf3816f091ccd640b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 76433f814d6850a449434c29eb0bd27570ce193a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="enabling-authentication-using-facebook-google-and-other-external-providers"></a>Włączanie uwierzytelniania za pomocą usługi Facebook, Google i innych dostawców zewnętrznych
+# <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google i zewnętrznego dostawcy uwierzytelniania w ASP.NET Core
 
 <a name="security-authentication-social-logins"></a>
 

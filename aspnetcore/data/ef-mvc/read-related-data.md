@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 58b05587458aacad1a633a04f0359a4d2a3605a3
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: f8454ee7d74b8f563fad8dab6fb2d478d4e119f0
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Odczytywanie powiązane dane - Core EF z samouczek platformy ASP.NET Core MVC (6 10)
 
@@ -65,7 +65,7 @@ Otwórz *CoursesController.cs* i sprawdź, czy `Index` metody. Automatyczne szki
 
 Zastąp `Index` metodę z następującym kodem, który używa bardziej odpowiednie nazwy dla `IQueryable` zwracającą kursu jednostek (`courses` zamiast `schoolContext`):
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
 
 Otwórz *Views/Courses/Index.cshtml* i Zastąp kod szablonu z następującym kodem. Zmiany są wyróżnione:
 
@@ -107,7 +107,7 @@ Na stronie instruktorów znajdują się dane z trzech różnych tabel. W związk
 
 W *SchoolViewModels* folderu, Utwórz *InstructorIndexData.cs* i Zastąp istniejący kod następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="create-the-instructor-controller-and-views"></a>Tworzenie kontrolera instruktora i widoków
 
@@ -117,31 +117,31 @@ Tworzenie kontrolera instruktorów z akcjami odczytu/zapisu EF, jak pokazano na 
 
 Otwórz *InstructorsController.cs* i dodać za pomocą instrukcji dla przestrzeni nazw ViewModels:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
 
 Zastąp następujący kod do czy ładowanie wczesny powiązanych danych i umieść go w modelu widoku metody indeksu.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
 
 Metoda akceptuje dane trasy opcjonalne (`id`) i parametr ciągu zapytania (`courseID`) umożliwiające wartości Identyfikatora wybranym instruktorze i wybranego kursu. Parametry są dostarczane przez **wybierz** hiperłącza, na stronie.
 
 Kod rozpoczyna się przez utworzenie wystąpienia modelu widoku i umieszczenie w nim listy instruktorów. Kod określa wczesny ładowania dla `Instructor.OfficeAssignment` i `Instructor.CourseAssignments` właściwości nawigacji. W ramach `CourseAssignments` właściwość `Course` właściwość jest załadowany oraz w ramach, `Enrollments` i `Department` właściwości są załadowane, a w ramach każdej `Enrollment` jednostki `Student` właściwości jest załadowany.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
 
 Ponieważ widok wymaga zawsze OfficeAssignment jednostki, jest bardziej wydajne, można pobrać który w jednym zapytaniu. Jednostek kursu są wymagane w przypadku instruktora jest zaznaczona na stronie sieci web, więc pojedynczego zapytania jest lepszym rozwiązaniem niż wielu zapytań tylko wtedy, gdy strona jest wyświetlana częściej z kursu wybrane niż bez.
 
 Kod jest powtarzany `CourseAssignments` i `Course` ponieważ potrzebne dwie właściwości z `Course`. Pierwszy ciąg `ThenInclude` wywołuje pobiera `CourseAssignment.Course`, `Course.Enrollments`, i `Enrollment.Student`.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
 
 W tym momencie w kodzie innego `ThenInclude` do właściwości nawigacji `Student`, który nie jest potrzebny. Ale wywoływania `Include` rozpoczyna się od za pośrednictwem `Instructor` właściwości, więc musisz przejść przez łańcuch ponownie, ten czas, określając `Course.Department` zamiast `Course.Enrollments`.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
 
 Poniższy kod wykonuje się, gdy wybrano instruktora. Wybranym instruktorze są pobierane z listy instruktorów w modelu widoku. Model widoku `Courses` właściwości jest następnie ładowany z kursu jednostek z tego instruktora `CourseAssignments` właściwości nawigacji.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
 
 `Where` Metoda zwraca kolekcję, ale w takim przypadku kryteria przekazany do tej metody powodują tylko do jednej instruktora jednostki zostały zwrócone. `Single` Metoda konwertuje kolekcję do pojedynczej jednostki instruktora, która umożliwia dostęp do tej jednostki `CourseAssignments` właściwości. `CourseAssignments` Właściwość zawiera `CourseAssignment` jednostek, z których chcesz tylko powiązane `Course` jednostek.
 
@@ -159,7 +159,7 @@ Zamiast:
 
 Obok Jeśli wybrano kursu, wybranego kursu są pobierane z listy kursy w modelu widoku. Następnie widok modelu `Enrollments` właściwości jest załadowana rejestracji jednostek z tego kursu `Enrollments` właściwości nawigacji.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
 
 ### <a name="modify-the-instructor-index-view"></a>Zmodyfikuj widok indeksu instruktora
 
@@ -231,7 +231,7 @@ Po pobraniu listy w instruktorów *InstructorsController.cs*, określony wczesny
 
 Załóżmy, że oczekiwany użytkownikom rzadko mają być wyświetlane rejestracji w wybranym instruktorze oraz przebiegu. W takim przypadku można załadować danych rejestrowania, tylko wtedy, gdy żądanie. Aby wyświetlić przykład sposobu wykonania jawnego ładowania, Zastąp `Index` metodę z następującym kodem, który usuwa wczesny ładowania dla rejestracji i ładuje jawnie tej właściwości. Zmiany kodu zostały wyróżnione.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
 
 Nowy kod porzuca *ThenInclude* metoda wywołuje danych rejestracji z kod, który pobiera instruktora jednostki. Jeśli nie wybrano instruktora oraz przebiegu, wyróżniony kod pobiera jednostek rejestracji dla porach wybranych i uczniów jednostki dla każdej rejestracji.
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/index
-ms.openlocfilehash: 7d8ba912da4c0e543bd4dd56632cdc41706814d1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: baa77eba837ff8b86ad543a74ebeee51ace4c25d
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Host i wdrażania platformy ASP.NET Core
 
@@ -26,7 +26,7 @@ W ogólności, aby wdrożyć aplikację ASP.NET Core do środowiska macierzysteg
 
 ## <a name="publish-to-a-folder"></a>Publikowanie w folderze 
 
-[Publikowania dotnet](/dotnet/articles/core/tools/dotnet-publish) interfejsu wiersza polecenia polecenie kompiluje kod aplikacji i kopiuje pliki potrzebne do uruchomienia aplikacji w *publikowania* folderu. W przypadku wdrażania w programie Visual Studio `dotnet publish` krok odbywa się automatycznie, zanim pliki są kopiowane do lokalizacji docelowej wdrożenia.
+[Publikowania dotnet](/dotnet/articles/core/tools/dotnet-publish) interfejsu wiersza polecenia polecenie kompiluje kod aplikacji i kopiuje pliki potrzebne do uruchomienia aplikacji w *publikowania* folderu. W przypadku wdrażania w programie Visual Studio, [publikowania dotnet](/dotnet/core/tools/dotnet-publish) krok odbywa się automatycznie, zanim pliki są kopiowane do lokalizacji docelowej wdrożenia.
 
 ### <a name="folder-contents"></a>Zawartości folderu
 
@@ -61,7 +61,7 @@ Jeśli aplikacja korzysta z [Kestrel](xref:fundamentals/servers/kestrel) serwer 
 
 ## <a name="using-visual-studio-and-msbuild-to-automate-deployment"></a>Przy użyciu programu Visual Studio i MSBuild do automatyzowania wdrażania
 
-Często wdrożenie wymaga dodatkowych zadań poza kopiowanie dane wyjściowe z `dotnet publish` na serwerze. Na przykład może być wymagane lub wykluczone z dodatkowych plików *publikowania* folderu. Visual Studio będzie korzystać program MSBuild wdrożenia sieci web i MSBuild można dostosować do wykonywania wielu innych zadań podczas wdrażania. Aby uzyskać więcej informacji, zobacz [profilów publikowania w programie Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles) i [przy użyciu programu MSBuild i Team Foundation Build](http://msbuildbook.com/) książki.
+Często wdrożenie wymaga dodatkowych zadań poza kopiowanie dane wyjściowe z [publikowania dotnet](/dotnet/core/tools/dotnet-publish) na serwerze. Na przykład może być wymagane lub wykluczone z dodatkowych plików *publikowania* folderu. Visual Studio będzie korzystać program MSBuild wdrożenia sieci web i MSBuild można dostosować do wykonywania wielu innych zadań podczas wdrażania. Aby uzyskać więcej informacji, zobacz [profilów publikowania w programie Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles) i [przy użyciu programu MSBuild i Team Foundation Build](http://msbuildbook.com/) książki.
 
 Za pomocą [funkcja Publikowanie w sieci Web](xref:tutorials/publish-to-azure-webapp-using-vs) lub [wbudowana obsługa Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment), aplikacje można wdrożyć bezpośrednio z programu Visual Studio w usłudze Azure App Service. Visual Studio Team Services obsługuje [ciągłe wdrażanie w usłudze Azure App Service](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?tabs=vsts).
 

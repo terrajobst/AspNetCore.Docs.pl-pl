@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 39e655ffcb01fb21c79cd2564862f49a86e9e9d4
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 6e71e9c01a58c3f60dacce8959ac4502a3690690
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Odczytywanie powiązane dane - Core EF Razor strony (6 8)
 
@@ -97,9 +97,9 @@ Uruchom aplikację i wybierz **kursów** łącza. Przedstawia kolumnę Dział `D
 
 Aktualizacja `OnGetAsync` metodę z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
 
-Poprzedni kod dodaje `AsNoTracking`. `AsNoTracking`zwiększa wydajność, ponieważ zwróconych nie są śledzone. Jednostek nie są śledzone, ponieważ nie są one aktualizowane w bieżącym kontekście.
+Poprzedni kod dodaje `AsNoTracking`. `AsNoTracking` zwiększa wydajność, ponieważ zwróconych nie są śledzone. Jednostek nie są śledzone, ponieważ nie są one aktualizowane w bieżącym kontekście.
 
 Aktualizacja *Views/Courses/Index.cshtml* z następujący wyróżniony kod znaczników:
 
@@ -124,17 +124,17 @@ Uruchom aplikację i wybierz **kursów** kartę, aby wyświetlić listę z nazwa
 
 `OnGetAsync` Metody ładuje dane powiązane z `Include` metody:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
 `Select` Operator ładuje tylko powiązane dane potrzebne. Dla pojedynczego elementów takich jak `Department.Name` używa SQL INNER JOIN. Dla kolekcji, używa innego dostęp do bazy danych, lecz to samo `Include` operatora w kolekcjach.
 
 Poniższy kod ładuje dane powiązane z `Select` metody:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
 `CourseViewModel`:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
 Zobacz [IndexSelect.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) i [IndexSelect.cshtml.cs](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) pełny przykład.
 
@@ -157,7 +157,7 @@ Na stronie instruktorów znajdują się dane z trzech różnych tabel. Model wid
 
 W *SchoolViewModels* folderu, Utwórz *InstructorIndexData.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="scaffold-the-instructor-model"></a>Tworzenie szkieletu modelu instruktora
 
@@ -179,13 +179,13 @@ Uruchom aplikację i przejdź do strony instruktorów.
 
 Zastąp *Pages/Instructors/Index.cshtml.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-99)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-99)]
 
 `OnGetAsync` — Metoda akceptuje dane trasy opcjonalny identyfikator wybranego instruktora.
 
 Sprawdź zapytania na *Pages/Instructors/Index.cshtml* strony:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
 
 Zapytanie zawiera dwa obejmuje:
 
@@ -201,7 +201,7 @@ Aktualizacja *Pages/Instructors/Index.cshtml* z następujący kod:
 
 Poprzedni kod znaczników wprowadza następujące zmiany:
 
-* Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int?}"`. `"{id:int?}"`to jest szablon trasy. Szablon trasy zmiany liczby całkowitej ciągów zapytania w adresie URL w danych trasy. Na przykład kliknięcie **wybierz** łącze instruktora tylko z `@page` dyrektywy tworzy adres URL podobnie do następującej:
+* Aktualizacje `page` dyrektywy z `@page` do `@page "{id:int?}"`. `"{id:int?}"` to jest szablon trasy. Szablon trasy zmiany liczby całkowitej ciągów zapytania w adresie URL w danych trasy. Na przykład kliknięcie **wybierz** łącze instruktora tylko z `@page` dyrektywy tworzy adres URL podobnie do następującej:
 
     `http://localhost:1234/Instructors?id=2`
 
@@ -248,19 +248,19 @@ Polecenie **wybierz** łącza. Zmiany stylu wiersza.
 
 Aktualizacja `OnGetAsync` metody w *Pages/Instructors/Index.cshtml.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
 
 Sprawdź zaktualizowane zapytania:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
 
 Dodaje poprzedniego zapytania `Department` jednostek.
 
 Poniższy kod wykonywany po wybraniu instruktora (`id != null`). Wybranym instruktorze są pobierane z listy instruktorów w modelu widoku. Model widoku `Courses` właściwości jest ładowany z `Course` jednostek z tego instruktora `CourseAssignments` właściwości nawigacji.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
 
-`Where` Metoda zwraca kolekcję. W poprzednim `Where` metody, tylko jeden `Instructor` jest zwracana jednostka. `Single` Metoda konwertuje kolekcję do postaci jednej `Instructor` jednostki. `Instructor` Jednostki zapewnia dostęp do `CourseAssignments` właściwości. `CourseAssignments`zapewnia dostęp do pokrewnych `Course` jednostek.
+`Where` Metoda zwraca kolekcję. W poprzednim `Where` metody, tylko jeden `Instructor` jest zwracana jednostka. `Single` Metoda konwertuje kolekcję do postaci jednej `Instructor` jednostki. `Instructor` Jednostki zapewnia dostęp do `CourseAssignments` właściwości. `CourseAssignments` zapewnia dostęp do pokrewnych `Course` jednostek.
 
 ![M:M instruktora do szkolenia](complex-data-model/_static/courseassignment.png)
 
@@ -271,7 +271,7 @@ Poniższy kod wykonywany po wybraniu instruktora (`id != null`). Wybranym instru
 
 Poniższy kod umożliwia wypełnienie modelu widoku `Enrollments` właściwości po wybraniu kursu:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
 
 Dodaj następujący kod na końcu *Pages/Courses/Index.cshtml* Razor strony:
 
@@ -289,7 +289,7 @@ W tej części aplikacji jest aktualizowana w celu wyświetlenia danych uczniów
 
 Zaktualizuj zapytanie w `OnGetAsync` metody w *Pages/Instructors/Index.cshtml.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
 Aktualizacja *Pages/Instructors/Index.cshtml*. Dodaj następujący kod na końcu pliku:
 
@@ -305,7 +305,7 @@ Odśwież stronę i wybierz instruktora. Wybierz plan, aby wyświetlić listę z
 
 `Single` Metody można przekazać `Where` warunku zamiast wywoływać metodę `Where` metody oddzielnie:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
 
 Poprzedni `Single` podejście zapewnia nie korzyści w przypadku `Where`. Niektórzy deweloperzy preferowane `Single` podejścia stylu.
 
@@ -313,13 +313,13 @@ Poprzedni `Single` podejście zapewnia nie korzyści w przypadku `Where`. Niekt�
 
 Bieżący kod określa wczesny ładowania dla `Enrollments` i `Students`:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
 Załóżmy, że użytkownik chce rzadko Zobacz rejestracji w toku. W takim przypadku optymalizacji byłoby tylko, jeśli wymagane jest, ładowanie danych rejestracji. W tej sekcji `OnGetAsync` jest aktualizowana w celu użyj jawnego ładowania `Enrollments` i `Students`.
 
 Aktualizacja `OnGetAsync` następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
 
 Poprzedni kod porzuca *ThenInclude* metoda wymaga rejestracji i uczniów danych. Jeśli wybrano kursu, pobiera wyróżniony kod:
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/layout
-ms.openlocfilehash: 3e9e5949d8940a33508e24f0da015b49b7ba468c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 140ee5a9b43ee952e46795e433ceb1553a6da906
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="layout"></a>Układ
 
@@ -37,13 +37,13 @@ Definiuje szablon najwyższego poziomu do widoków w aplikacji. Aplikacje nie wy
 
 Przykład `_Layout.cshtml`:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
+[!code-html[](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
 
 ## <a name="specifying-a-layout"></a>Określanie układu
 
 Widoki razor oferują `Layout` właściwości. Poszczególnych widoków określ układ przez ustawienie dla tej właściwości:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
 Określony układ, można użyć pełną ścieżkę (przykład: `/Views/Shared/_Layout.cshtml`) lub część nazwy (przykład: `_Layout`). Gdy częściowa nazwa została podana, aparat widoku Razor wyszuka plik układu przy użyciu procesu odnajdywania standardowego. Folder skojarzonego kontrolera przeszukiwany jest najpierw, a następnie `Shared` folderu. Ten proces odnajdywania jest taki sam jak używaną do wykrywania [widoki częściowe](partial.md).
 
@@ -99,9 +99,9 @@ Plik nie obsługuje inne funkcje Razor, takich jak funkcje i definicje sekcji.
 
 Przykładowe `_ViewImports.cshtml` pliku:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
-`_ViewImports.cshtml` Pliku dla aplikacji ASP.NET Core MVC zazwyczaj znajduje się w `Views` folderu. A `_ViewImports.cshtml` pliku można umieścić w dowolnym folderze, w którym zostaną one zastosowane tylko do sprawę widoków w tym folderze i jego podfolderach. `_ViewImports`pliki są przetwarzane uruchamiania na poziomie głównym, a następnie dla każdego folderu, co prowadzi do lokalizacji widoku, aby określić ustawienia na poziomie głównym może być zastąpiona na poziomie folderu.
+`_ViewImports.cshtml` Pliku dla aplikacji ASP.NET Core MVC zazwyczaj znajduje się w `Views` folderu. A `_ViewImports.cshtml` pliku można umieścić w dowolnym folderze, w którym zostaną one zastosowane tylko do sprawę widoków w tym folderze i jego podfolderach. `_ViewImports` pliki są przetwarzane uruchamiania na poziomie głównym, a następnie dla każdego folderu, co prowadzi do lokalizacji widoku, aby określić ustawienia na poziomie głównym może być zastąpiona na poziomie folderu.
 
 Na przykład, jeśli poziom główny `_ViewImports.cshtml` plik Określa `@model` i `@addTagHelper`i innym `_ViewImports.cshtml` plik w folderze skojarzonego kontrolera widoku Określa inną `@model` i dodaje innego `@addTagHelper`, widok będą mieć dostęp do obu pomocników tagów i korzysta z jego `@model`.
 
@@ -127,7 +127,7 @@ Jeśli masz kod, należy uruchomić przed każdym widoku, to powinna zostać umi
 
 Przykładowe `_ViewStart.cshtml` pliku:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
 Plik powyżej Określa, które będą używane przez wszystkie widoki `_Layout.cshtml` układu.
 

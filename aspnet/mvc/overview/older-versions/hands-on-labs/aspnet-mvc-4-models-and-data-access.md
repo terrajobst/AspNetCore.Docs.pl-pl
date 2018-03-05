@@ -12,23 +12,24 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 076fa87eff140a3e7ff6855e4876abac40419c57
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 353419077422516761df56f730352b19b5db5ff2
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-models-and-data-access"></a>Modele platformy ASP.NET MVC 4 oraz dostęp do danych
-====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-models-and-data-access"></a>Modele platformy ASP.NET MVC 4 oraz dostęp do danych
+
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
+
+[Pobierz obozów sieci Web uczenie Kit](https://aka.ms/webcamps-training-kit)
+
+W tym laboratorium Hands-on zakłada mieć podstawową wiedzę na temat **ASP.NET MVC**. Jeśli nie używasz **ASP.NET MVC** przed, zalecamy zapoznać się z **podstawowe informacje na temat platformy ASP.NET MVC 4** Hands-on laboratorium.
+
+W tym laboratorium przeprowadzi Cię przez rozszerzenia oraz nowe funkcje opisane wcześniej przez zastosowanie drobne zmiany do przykładowej aplikacji sieci Web w folderze źródłowym.
 
 > [!NOTE]
-> W tym laboratorium Hands-on zakłada mieć podstawową wiedzę na temat **ASP.NET MVC**. Jeśli nie używasz **ASP.NET MVC** przed, zalecamy zapoznać się z **podstawowe informacje na temat platformy ASP.NET MVC 4** Hands-on laboratorium.
-> 
-> W tym laboratorium przeprowadzi Cię przez rozszerzenia oraz nowe funkcje opisane wcześniej przez zastosowanie drobne zmiany do przykładowej aplikacji sieci Web w folderze źródłowym.
-> 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
-
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [wersje Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Specyficzne dla tego laboratorium projektu jest dostępna na [ASP.NET MVC 4 modeli i dostęp do danych](https://github.com/Microsoft-Web/HOL-MVC4ModelsAndDataAccess).
 
 W **podstawowe informacje na temat platformy ASP.NET MVC** laboratorium Hands-on można mieć zostały przekazywanie ustalony danych z kontrolerów do widoku szablonów. Jednak aby można było tworzyć rzeczywista aplikacji sieci Web, możesz chcieć użyć rzeczywistych bazy danych.
 
@@ -38,7 +39,7 @@ Jednak umożliwia także **Model First** podejścia, utwórz ten sam model przy 
 
 ![Pierwszy vs bazy danych. Model pierwszy](aspnet-mvc-4-models-and-data-access/_static/image1.png "bazy danych pierwszej wersji programu vs. Najpierw modelu")
 
-*Pierwszy vs bazy danych. Najpierw modelu*
+*Pierwszy vs bazy danych. Najpierw modelu
 
 Po wygenerowaniu modelu, można utworzyć odpowiednie korekty w StoreController dostarczanie widoków magazynu danych pobranych z bazy danych, zamiast ustalony danych. Nie należy wprowadzać żadnych zmian widoku szablonów ponieważ StoreController będzie zwracać tego samego ViewModels szablony widoku, mimo że teraz dane będą pobierane z bazy danych.
 

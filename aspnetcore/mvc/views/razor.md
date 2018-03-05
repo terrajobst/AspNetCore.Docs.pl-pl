@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: 68fa29b909ebea57e6a3986fca7b88c5a5cf579c
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3528965cc65d2d5ec21df40cbeb71d1333839e1a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Składnia razor dla platformy ASP.NET Core
 
@@ -89,7 +89,7 @@ Zawartość w `@()` nawias jest obliczany i renderowania danych wyjściowych.
 
 Ogólnie wyrażenia niejawnego, opisane w poprzedniej sekcji, nie może zawierać spacji. W poniższym kodzie tydzień nie jest odejmowany od bieżącego czasu:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact.cshtml?range=17)]
+[!code-cshtml[](razor/sample/Views/Home/Contact.cshtml?range=17)]
 
 Kod Renderuje poniższy kod HTML:
 
@@ -147,7 +147,7 @@ Kod HTML jest wyświetlany w przeglądarce jako:
 <span>Hello World</span>
 ```
 
-`HtmlHelper.Raw`dane wyjściowe nie jest zakodowany, ale renderowany jako kod znaczników HTML.
+`HtmlHelper.Raw` dane wyjściowe nie jest zakodowany, ale renderowany jako kod znaczników HTML.
 
 > [!WARNING]
 > Przy użyciu `HtmlHelper.Raw` unsanitized użytkownika dane wejściowe stanowi zagrożenie bezpieczeństwa. Dane wejściowe użytkownika może zawierać złośliwego kodu JavaScript lub inne luki w zabezpieczeniach. Trudno jest oczyszczania danych wejściowych użytkownika. Unikaj używania `HtmlHelper.Raw` z danych wejściowych użytkownika.
@@ -212,7 +212,7 @@ Aby zdefiniować podsekcji bloku kodu, które mają renderować kod HTML, Otocz 
 
 Tej metody można użyć do renderowania kodu HTML, który nie jest ujęta w tagu HTML. Bez tagu HTML lub Razor występuje błąd w czasie wykonywania Razor.
 
-**\<Tekst >** tag jest przydatne do kontroli odstępu podczas renderowania zawartości:
+ **\<Tekst >** tag jest przydatne do kontroli odstępu podczas renderowania zawartości:
 
 * Tylko zawartość między  **\<tekst >** renderowania tagu. 
 * Nie spacji przed lub po  **\<tekst >** tag jest wyświetlany w danych wyjściowych HTML.
@@ -237,9 +237,9 @@ Ostrzeżenie: Dodatkowy `@` znaki w pliku Razor może spowodować błędy kompil
 
 Struktury sterujące stanowią rozszerzenie bloków kodu. Wszystkie aspekty bloki kodu (przechodzenia do znaczników, wbudowane C#) również dotyczą następujące struktury:
 
-### <a name="conditionals-if-else-if-else-and-switch"></a>Warunkowe instrukcje @if, else if, #else i@switch
+### <a name="conditionals-if-else-if-else-and-switch"></a>Warunkowe instrukcje @if, else if, #else i @switch
 
-`@if`Formanty po uruchomieniu kodu:
+`@if` Formanty po uruchomieniu kodu:
 
 ```cshtml
 @if (value % 2 == 0)
@@ -248,7 +248,7 @@ Struktury sterujące stanowią rozszerzenie bloków kodu. Wszystkie aspekty blok
 }
 ```
 
-`else`i `else if` nie wymagają `@` symboli:
+`else` i `else if` nie wymagają `@` symboli:
 
 ```cshtml
 @if (value % 2 == 0)
@@ -348,7 +348,7 @@ Obsługiwane są następujące instrukcje pętli:
 } while (i < people.Length);
 ```
 
-### <a name="compound-using"></a>Złożone@using
+### <a name="compound-using"></a>Złożone @using
 
 W języku C# `using` instrukcji służy do zapewnienia obiekt jest usunięty. W elemencie Razor ten sam mechanizm służy do tworzenia pomocników HTML, która zawiera dodatkową zawartość. W poniższym kodzie pomocników HTML renderowania tagu form z `@using` instrukcji:
 
@@ -370,7 +370,7 @@ Można wykonywać działania na poziomie zakresu za pomocą [pomocników tagów]
 
 Obsługa wyjątków jest podobny do języka C#:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact7.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact7.cshtml)]
 
 ### <a name="lock"></a>@lock
 
@@ -419,7 +419,7 @@ Dyrektywy razor są reprezentowane przez niejawnego wyrażenia następujące zas
 
 Opis sposobu Razor generuje kod dla widoku ułatwia zrozumienie, jak działają dyrektywy.
 
-[!code-html[Main](razor/sample/Views/Home/Contact8.cshtml)]
+[!code-html[](razor/sample/Views/Home/Contact8.cshtml)]
 
 Kod generuje klasę podobny do następującego:
 
@@ -443,7 +443,7 @@ Dalszej części tego artykułu, w sekcji [wyświetlanie klasy Razor C# wygenero
 
 `@using` Dodaje dyrektywy języka C# `using` dyrektywy do wygenerowanego widoku:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact9.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact9.cshtml)]
 
 ### <a name="model"></a>@model
 
@@ -483,11 +483,11 @@ Przedstawia razor `Model` właściwości do uzyskiwania dostępu do modelu przek
 
 Następujący kod jest typu niestandardowego Razor strony:
 
-[!code-csharp[Main](razor/sample/Classes/CustomRazorPage.cs)]
+[!code-csharp[](razor/sample/Classes/CustomRazorPage.cs)]
 
 `CustomText` Jest wyświetlany w widoku:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact10.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact10.cshtml)]
 
 Kod Renderuje poniższy kod HTML:
 
@@ -495,13 +495,13 @@ Kod Renderuje poniższy kod HTML:
 <div>Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping a slop bucket on the street below.</div>
 ```
 
- `@model`i `@inherits` mogą być używane w jednym widoku. `@inherits`mogą znajdować się w *_ViewImports.cshtml* pliku, który importuje widoku:
+ `@model` i `@inherits` mogą być używane w jednym widoku. `@inherits` mogą znajdować się w *_ViewImports.cshtml* pliku, który importuje widoku:
 
-[!code-cshtml[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
+[!code-cshtml[](razor/sample/Views/_ViewImportsModel.cshtml)]
 
 Następujący kod jest przykładem silnie typizowanego widoku:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Login1.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Login1.cshtml)]
 
 Jeśli "rick@contoso.com" jest przekazywany w modelu widoku generuje następujący kod znaczników HTML:
 
@@ -525,7 +525,7 @@ Jeśli "rick@contoso.com" jest przekazywany w modelu widoku generuje następują
 
 Na przykład:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact6.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact6.cshtml)]
 
 Kod generuje następujący kod znaczników HTML:
 
@@ -535,7 +535,7 @@ Kod generuje następujący kod znaczników HTML:
 
 Następujący kod jest wygenerowana klasa Razor C#:
 
-[!code-csharp[Main](razor/sample/Classes/Views_Home_Test_cshtml.cs?range=1-19)]
+[!code-csharp[](razor/sample/Classes/Views_Home_Test_cshtml.cs?range=1-19)]
 
 ### <a name="section"></a>@section
 
@@ -592,11 +592,11 @@ Słowa kluczowe języka C# Razor musi być podwójne anulowanie z `@(@C# Razor K
 
 Dodaj następujące klasy do projektu programu ASP.NET MVC rdzeni:
 
-[!code-csharp[Main](razor/sample/Utilities/CustomTemplateEngine.cs)]
+[!code-csharp[](razor/sample/Utilities/CustomTemplateEngine.cs)]
 
 Zastąpienie `RazorTemplateEngine` dodane przez MVC z `CustomTemplateEngine` klasy:
 
-[!code-csharp[Main](razor/sample/Startup.cs?highlight=4&range=10-14)]
+[!code-csharp[](razor/sample/Startup.cs?highlight=4&range=10-14)]
 
 Ustaw punkt przerwania na `return csharpDocument` instrukcja `CustomTemplateEngine`. Po przerwaniu wykonywania programu w punkcie przerwania, Wyświetl wartość `generatedCode`.
 

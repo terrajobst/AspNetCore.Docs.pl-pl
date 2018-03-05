@@ -1,131 +1,64 @@
 ---
 title: "Moduł platformy ASP.NET Core"
 author: tdykstra
-description: "Wprowadza platformy ASP.NET Core modułu (ANCM), moduł usług IIS, który umożliwia Kestrel serwera sieci web usług IIS lub usług IIS Express jest używany jako serwer zwrotnego serwera proxy."
+description: "Dowiedz się, jak moduł platformy ASP.NET Core umożliwia Kestrel serwer sieci web dla usług IIS lub usług IIS Express jako serwera zwrotnego serwera proxy."
 manager: wpickett
 ms.author: tdykstra
-ms.custom: H1Hack27Feb2017
-ms.date: 08/03/2017
+ms.custom: mvc
+ms.date: 02/23/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: cf02604f2a2f0eba496d0df5c4662f169d044c74
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: e2170014f1a8fc89ec7e0a02d19c943b88e005fb
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="introduction-to-aspnet-core-module"></a>Wprowadzenie do platformy ASP.NET Core modułu
+# <a name="aspnet-core-module"></a>Moduł platformy ASP.NET Core
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), i [Roaming Krzysztof](https://github.com/Tratcher) 
 
-Program ASP.NET Core modułu (ANCM) umożliwia uruchamianie platformy ASP.NET Core aplikacje za usług IIS, przy użyciu usług IIS dla co to jest dobrze sobie radzi (zabezpieczeń, możliwości zarządzania i wiele więcej) i [Kestrel](kestrel.md) dla co to jest dobrze sobie radzi (co naprawdę fast) i pobierania korzyści z obu tych technologii jednocześnie. **ANCM działa tylko w przypadku Kestrel; nie jest zgodna z WebListener (w ASP.NET Core 1.x) lub sterownik HTTP.sys (w 2.x).** 
+Moduł platformy ASP.NET Core umożliwia platformy ASP.NET Core uruchamiania za usług IIS w konfiguracji zwrotny serwer proxy aplikacji. Usługi IIS oferują aplikacji web zaawansowane funkcje zabezpieczeń i możliwości zarządzania.
 
 Obsługiwane wersje systemu Windows:
 
-* Windows 7 i Windows Server 2008 R2 lub nowszy
+* Windows 7 lub nowszy
+* Windows Server 2008 R2 lub nowszym &#8224;
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+&#8224; Koncepcyjnie modułu Core ASP.NET z programem IIS, w tym dokumencie opisano dotyczą również hosting aplikacji platformy ASP.NET Core w Nano Server w usługach IIS. Aby uzyskać instrukcje dotyczące Nano Server, zobacz [platformy ASP.NET Core z usługami IIS na serwerze Nano](xref:tutorials/nano-server) samouczka.
 
-## <a name="what-aspnet-core-module-does"></a>Jak działa moduł platformy ASP.NET Core
+Moduł platformy ASP.NET Core działa tylko z Kestrel. Moduł nie jest zgodna z [HTTP.sys](xref:fundamentals/servers/httpsys) (wcześniej nazywanych [WebListener](xref:fundamentals/servers/weblistener)).
 
-ANCM jest macierzysty moduł usług IIS, który przechwytuje do potoku usług IIS i przekierowuje ruch z zapleczem aplikacji platformy ASP.NET Core. Większość innych modułów, takich jak uwierzytelnianie systemu windows, nadal otrzymywać możliwość uruchamiania. Podczas obsługi został wybrany do żądania i mapowanie obsługi jest zdefiniowany w aplikacji ANCM tylko przejmuje kontrolę *web.config* pliku.
+## <a name="aspnet-core-module-description"></a>Opis podstawowych modułu ASP.NET
 
-Ponieważ aplikacje platformy ASP.NET Core w procesie oddzielić od proces roboczy usług IIS, ANCM także przetwarzać zarządzania. ANCM uruchamia proces dla aplikacji platformy ASP.NET Core podczas pierwszego żądania jest dostępna i ponownie go uruchamia uległa awarii. Jest to zasadniczo takie samo zachowanie jako klasycznych aplikacji programu ASP.NET uruchomienia procesu w usługach IIS i są zarządzane przez usługę WAS (Windows Activation Service).
+Moduł platformy ASP.NET Core jest macierzysty moduł usług IIS, które podłącza się do potoku usług IIS do przekierowywania żądań sieci web do zaplecza aplikacji platformy ASP.NET Core. Wiele modułów macierzystych, takich jak uwierzytelnianie systemu Windows, pozostają aktywne. Aby dowiedzieć się, jak aktywne moduły usług IIS w module, zobacz [moduły IIS przy użyciu](xref:host-and-deploy/iis/modules).
 
-Oto diagramie przedstawiono relację między aplikacjami usług IIS, ANCM i ASP.NET Core.
+Ponieważ aplikacje platformy ASP.NET Core, uruchom w procesie oddzielić od proces roboczy usług IIS, moduł obsługuje także zarządzanie procesem. Moduł uruchamia proces dla aplikacji platformy ASP.NET Core po pierwsze żądanie dociera i ponowne uruchomienie aplikacji, jeśli uległa awarii. Jest to zasadniczo takie samo zachowanie jako ASP.NET 4.x aplikacje, które są uruchamiane w procesie w usługach IIS, które są zarządzane przez [usługi aktywacji procesów systemu Windows (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
+
+Na poniższym diagramie przedstawiono relację między usługami IIS, platformy ASP.NET Core modułu a aplikacje platformy ASP.NET Core:
 
 ![Moduł platformy ASP.NET Core](aspnet-core-module/_static/ancm.png)
 
-Żądania pochodzą sieci Web i trafień sterownik Http.Sys trybu jądra, który kieruje je do usług IIS na głównej portu (80) lub portu protokołu SSL (port 443). ANCM przekazuje żądanie do aplikacji platformy ASP.NET Core na port protokołu HTTP skonfigurowany dla aplikacji, która nie jest port 80/443.
+Żądania odbierania z sieci web do sterownik HTTP.sys trybu jądra. Sterownik kieruje żądania do usług IIS na skonfigurowanym porcie witryny sieci Web, zwykle 80 (HTTP) lub 443 (HTTPS). Moduł przekazuje żądania do Kestrel na losowy port dla aplikacji, która nie jest port 80/443.
 
-Kestrel nasłuchuje ruchu przychodzącego z ANCM.  ANCM Określa port, za pomocą zmiennej środowiskowej podczas uruchamiania i [UseIISIntegration](#call-useiisintegration) metody konfiguruje serwer do nasłuchiwania `http://localhost:{port}`. Istnieją dodatkowe kontrole do odrzucania żądań nie z ANCM. (ANCM nie obsługuje przekazywanie protokołu HTTPS, więc żądania są przekazywane za pośrednictwem protokołu HTTP, nawet jeśli odebranych przez usługi IIS przy użyciu protokołu HTTPS.)
+Moduł Określa port, za pomocą zmiennej środowiskowej podczas uruchamiania i oprogramowanie pośredniczące integracji usług IIS umożliwia skonfigurowanie serwera do nasłuchiwania `http://localhost:{port}`. Dodatkowe testy są wykonywane, i zostały odrzucone żądania, które nie pochodzą z modułu. Moduł nie obsługuje przekazywanie protokołu HTTPS, więc żądania są przekazywane za pośrednictwem protokołu HTTP, nawet jeśli odebranych przez usługi IIS przy użyciu protokołu HTTPS.
 
-Kestrel przejmuje żądań z ANCM i umieszcza je w potoku oprogramowania pośredniczącego platformy ASP.NET Core, który następnie je obsługuje i przekazuje je na jako `HttpContext` wystąpienia logiki aplikacji. Odpowiedzi aplikacji są następnie przekazywane z powrotem do usług IIS, które umieszcza je z powrotem do klienta HTTP, który zainicjował żądania.
+Po Kestrel przejmuje żądania z modułu, żądanie zostanie przypisany do potoku oprogramowanie pośredniczące platformy ASP.NET Core. Potoku oprogramowania pośredniczącego obsługuje żądanie i przekazuje ją jako `HttpContext` wystąpienie aplikacji logiki. Odpowiedzi aplikacji jest przekazywane z powrotem do usług IIS, które umieszcza on Wycofaj do klienta HTTP, który zainicjował żądanie.
 
-ANCM ma kilka innych funkcji, jak również:
+Moduł platformy ASP.NET Core ma kilka innych funkcji. Moduł może:
 
-* Ustawia zmienne środowiskowe.
-* Dzienniki `stdout` dane wyjściowe do pliku magazynu.
-* Przekazuje tokeny uwierzytelniania systemu Windows.
+* Ustawianie zmiennych środowiskowych dla procesu roboczego.
+* Dziennik `stdout` dane wyjściowe do przechowywania plików podczas rozwiązywania problemów uruchamiania.
+* Tokeny uwierzytelniania systemu Windows do przodu.
 
-## <a name="how-to-use-ancm-in-aspnet-core-apps"></a>Jak używać ANCM w aplikacji platformy ASP.NET Core
+## <a name="how-to-install-and-use-the-aspnet-core-module"></a>Jak zainstalować i używać modułu platformy ASP.NET Core
 
-Ta sekcja zawiera omówienie procesu konfigurowania aplikacji platformy ASP.NET Core i serwera usług IIS. Aby uzyskać szczegółowe instrukcje, zobacz [hosta w systemie Windows z programem IIS](xref:host-and-deploy/iis/index).
+Aby uzyskać szczegółowe instrukcje na temat instalowania i używania moduł platformy ASP.NET Core, zobacz [hosta w systemie Windows z programem IIS](xref:host-and-deploy/iis/index). Aby uzyskać informacje na temat konfigurowania modułu, zobacz [odwołania konfiguracji platformy ASP.NET Core modułu](xref:host-and-deploy/aspnet-core-module).
 
-### <a name="install-ancm"></a>Zainstaluj ANCM
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-ANCM jest zainstalowana w usługach IIS w systemie Windows Server i w usługach IIS Express w systemach operacyjnych komputerów z systemem Windows. Dla serwerów i rozwoju maszyny objęte ANCM [pakietu .NET Core systemu Windows serwer obsługujący](https://aka.ms/dotnetcore-2-windowshosting). Jeśli instalacja programu Visual Studio, ANCM jest automatycznie instalowany w usługach IIS Express (i w usługach IIS, jeśli jest obecna na maszynie).
-
-### <a name="net-core-windows-server-hosting-bundle"></a>Pakiet hostingu .NET core systemu Windows Server
-
-[Pakietu .NET Core systemu Windows serwer obsługujący](https://aka.ms/dotnetcore-2-windowshosting) instaluje podstawowego środowiska wykonawczego platformy .NET, biblioteka programu .NET Core i ANCM. Aby uzyskać więcej informacji, zobacz [instalacji pakietu .NET Core systemu Windows serwer obsługujący](
-xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle).
-
-### <a name="install-the-iisintegration-nuget-package"></a>Zainstaluj pakiet IISIntegration NuGet
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-[Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) pakietu znajduje się w metapackages platformy ASP.NET Core ([Microsoft.AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore/) i [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) ). Jeśli nie używasz jednego z metapackages, zainstaluj `Microsoft.AspNetCore.Server.IISIntegration` oddzielnie. `IISIntegration` Pakiet jest pakiet współdziałanie odczytujący zmiennych środowiskowych emitowane przez ANCM do skonfigurowania aplikacji. Zmienne środowiskowe, podaj informacje o konfiguracji, takie jak port do nasłuchiwania. 
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-W aplikacji, należy zainstalować [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/). `IISIntegration` Pakiet jest pakiet współdziałanie odczytujący zmiennych środowiskowych emitowane przez ANCM do skonfigurowania aplikacji. Zmienne środowiskowe, podaj informacje o konfiguracji, takie jak port do nasłuchiwania. 
-
----
-
-### <a name="call-useiisintegration"></a>Wywołanie UseIISIntegration
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-`UseIISIntegration` — Metoda rozszerzenia na [ `WebHostBuilder` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) jest wywoływana automatycznie po uruchomieniu z programu IIS.
-
-Jeśli nie są przy użyciu jednej z platformy ASP.NET Core metapackages i nie zostały zainstalowane `Microsoft.AspNetCore.Server.IISIntegration` pakietów, Pobierz błąd w czasie wykonywania. Jeśli należy wywołać `UseIISIntegration` jawnie, Pobierz błąd w czasie kompilacji Jeśli pakiet nie jest zainstalowany.
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-W aplikacji `Main` metody, wywołaj `UseIISIntegration` — metoda rozszerzenia na [ `WebHostBuilder` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder). 
-
-[!code-csharp[](aspnet-core-module/sample/Program.cs?name=snippet_Main&highlight=12)]
-
----
-
-`UseIISIntegration` Metoda szuka zmiennych środowiskowych, które ustawia ANCM i nie ops, jeśli nie można odnaleźć. To zachowanie ułatwia scenariuszy, takich jak tworzenie i testowanie na macOS lub Linux i wdrażanie na serwer z uruchomionymi usługami IIS. Podczas uruchamiania na macOS lub Linux, Kestrel działa jako serwer sieci web; Jednak gdy aplikacja jest wdrażana w środowisku usług IIS, automatycznie używa ANCM i usług IIS.
-
-### <a name="ancm-port-binding-overrides-other-port-bindings"></a>Powiązanie portu ANCM przesłania pozostałych powiązaniach portu
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-ANCM generuje portów dynamicznych do przypisania do procesu zaplecza. `UseIISIntegration` Metoda przejmuje ten port dynamiczny i konfiguruje Kestrel do nasłuchiwania `http://locahost:{dynamicPort}/`. Przesłania inne konfiguracje adresu URL, takie jak wywołania `UseUrls` lub [API nasłuchiwania na Kestrel](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#endpoint-configuration). W związku z tym nie należy wywołać `UseUrls` lub jego Kestrel `Listen` interfejsu API, korzystając z ANCM. Jeśli zostanie wywołana `UseUrls` lub `Listen`, Kestrel nasłuchuje na porcie określić podczas uruchamiania aplikacji bez usług IIS.
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-ANCM generuje portów dynamicznych do przypisania do procesu zaplecza. `UseIISIntegration` Metoda przejmuje ten port dynamiczny i konfiguruje Kestrel do nasłuchiwania `http://locahost:{dynamicPort}/`. Przesłania inne konfiguracje adresu URL, takie jak wywołania `UseUrls`. W związku z tym nie należy wywołać `UseUrls` korzystając ANCM. Jeśli zostanie wywołana `UseUrls`, Kestrel nasłuchuje na porcie określić podczas uruchamiania aplikacji bez usług IIS.
-
-W ASP.NET Core 1.0, jeśli wywołujesz `UseUrls`, wywołać ją **przed** należy wywołać `UseIISIntegration` tak, aby port skonfigurowany ANCM nie zostać zastąpione. To zamówienie wywołania nie jest wymagane w ASP.NET Core 1.1, ponieważ ustawienie ANCM zastępuje `UseUrls`.
-
----
-
-### <a name="configure-ancm-options-in-webconfig"></a>Skonfiguruj opcje ANCM w pliku Web.config
-
-Konfiguracja modułu platformy ASP.NET Core są przechowywane w *web.config* pliku, który znajduje się w folderze głównym. Ustawienia w tym pliku punktu do uruchamiania polecenia i argumentów, które uruchomiona aplikacja platformy ASP.NET Core. Dla przykładu *web.config* wskazówki na temat opcji konfiguracji i kod zobacz [odwołania do platformy ASP.NET Core modułu konfiguracji](xref:host-and-deploy/aspnet-core-module).
-
-### <a name="run-with-iis-express-in-development"></a>Uruchom z programem IIS Express do rozwoju
-
-Usługi IIS Express można uruchomić programu Visual Studio przy użyciu domyślnego profilu zdefiniowany za pomocą szablonów ASP.NET Core.
-
-## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>Konfiguracja serwera proxy używa protokołu HTTP i token parowania
-
-Serwer proxy między ANCM i Kestrel używa protokołu HTTP. Przy użyciu protokołu HTTP jest optymalizacji wydajności których ruch między ANCM i Kestrel odbywa się na adres sprzężenia zwrotnego wylogowuje interfejsu sieciowego. Nie istnieje ryzyko z podsłuchiwaniu ruch między ANCM i Kestrel z lokalizacji wylogowuje na serwerze.
-
-Token parowania służy do zagwarantowania, że żądań odebranych przez Kestrel były przekazywane przez serwer proxy przez usługi IIS i nie pochodzą z innego źródła. Token parowania zostanie utworzona i ustawiona w zmiennej środowiskowej (`ASPNETCORE_TOKEN`) przez ANCM. Token parowania zostanie również ustawiona w nagłówku (`MSAspNetCoreToken`) na każde żądanie przekazywane przez serwer proxy. Oprogramowanie pośredniczące IIS sprawdzanie żądań odbierze upewnij się, że parowania wartość tokenu nagłówka odpowiada wartości zmiennej środowiskowej. Jeśli wartości tokenów są niezgodne, żądanie jest rejestrowane i odrzucone. Parowania zmiennej środowiskowej tokenu i komunikacji między ANCM i Kestrel nie są dostępne z lokalizacji wylogowuje na serwerze. Bez wiedzy o parowania wartość tokenu, osoba atakująca nie może przesłać żądania, które pomijają wyboru w oprogramowaniu pośredniczącym usługi IIS.
-
-## <a name="next-steps"></a>Następne kroki
-
-Aby uzyskać więcej informacji, zobacz następujące zasoby:
-
-* [Przykładowa aplikacja dla tego artykułu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)
-* [Kod źródłowy platformy ASP.NET Core modułu](https://github.com/aspnet/AspNetCoreModule)
-* [Odwołania do konfiguracji modułu platformy ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
 * [Hosting w systemie Windows z usługami IIS](xref:host-and-deploy/iis/index)
+* [Odwołania do konfiguracji modułu platformy ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
+* [Repozytorium GitHub modułu podstawowej platformy ASP.NET (kodu źródłowego)](https://github.com/aspnet/AspNetCoreModule)

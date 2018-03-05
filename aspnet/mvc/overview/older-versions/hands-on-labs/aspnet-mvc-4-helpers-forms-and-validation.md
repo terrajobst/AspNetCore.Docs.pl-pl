@@ -12,34 +12,32 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 925d659f42496045089ba056e194ac977c37a8de
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 243db3708ac4311d423c4c137f503f072f5553e6
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Pomocników platformy ASP.NET MVC 4, formularzy i sprawdzania poprawności
-====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Pomocników platformy ASP.NET MVC 4, formularzy i sprawdzania poprawności
 
-> W **ASP.NET MVC 4 modeli i dostęp do danych** laboratorium Hands-on nastąpiło ładowanie i wyświetlanie danych z bazy danych. W tym laboratorium Hands-on doda do **sklep muzyczny** aplikacji możliwość edytowania tych danych.
-> 
-> Tego celu pamiętać najpierw utworzysz kontroler, który będzie obsługiwać albumy akcje tworzenia, odczytu, aktualizacji i usuwania (CRUD). Wygeneruje szablonu widoku indeksu, korzystając z funkcji szkieletów ASP.NET MVC do wyświetlania właściwości albumów w tabeli HTML. Aby zwiększyć ten widok, zostaną dodane niestandardowe pomocnika kodu HTML, który obetnie długie opisy.
-> 
-> Następnie możesz spowoduje to dodanie edycji i Utwórz widoki, które pozwoli instrukcja alter albumów w bazie danych za pomocą formularza elementy, takie jak listę rozwijaną.
-> 
-> Ponadto umożliwi użytkownikowi usunięcie albumu i również uniemożliwi ich wprowadzania danych niewłaściwy przez sprawdzanie poprawności danych wejściowych.
-> 
-> > [!NOTE]
-> > W tym laboratorium Hands-on zakłada mieć podstawową wiedzę na temat **ASP.NET MVC**. Jeśli nie używasz **ASP.NET MVC** przed, zalecamy zapoznać się z **podstawowe informacje na temat platformy ASP.NET MVC** Hands-on laboratorium.
-> 
-> 
-> W tym laboratorium przeprowadzi Cię przez rozszerzenia oraz nowe funkcje opisane wcześniej przez zastosowanie drobne zmiany do przykładowej aplikacji sieci Web w folderze źródłowym.
-> 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
+[Pobierz obozów sieci Web uczenie Kit](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+W **ASP.NET MVC 4 modeli i dostęp do danych** laboratorium Hands-on nastąpiło ładowanie i wyświetlanie danych z bazy danych. W tym laboratorium Hands-on doda do **sklep muzyczny** aplikacji możliwość edytowania tych danych.
+
+Tego celu pamiętać najpierw utworzysz kontroler, który będzie obsługiwać albumy akcje tworzenia, odczytu, aktualizacji i usuwania (CRUD). Wygeneruje szablonu widoku indeksu, korzystając z funkcji szkieletów ASP.NET MVC do wyświetlania właściwości albumów w tabeli HTML. Aby zwiększyć ten widok, zostaną dodane niestandardowe pomocnika kodu HTML, który obetnie długie opisy.
+
+Następnie możesz spowoduje to dodanie edycji i Utwórz widoki, które pozwoli instrukcja alter albumów w bazie danych za pomocą formularza elementy, takie jak listę rozwijaną.
+
+Ponadto umożliwi użytkownikowi usunięcie albumu i również uniemożliwi ich wprowadzania danych niewłaściwy przez sprawdzanie poprawności danych wejściowych.
+
+W tym laboratorium Hands-on zakłada mieć podstawową wiedzę na temat **ASP.NET MVC**. Jeśli nie używasz **ASP.NET MVC** przed, zalecamy zapoznać się z **podstawowe informacje na temat platformy ASP.NET MVC** Hands-on laboratorium.
+
+W tym laboratorium przeprowadzi Cię przez rozszerzenia oraz nowe funkcje opisane wcześniej przez zastosowanie drobne zmiany do przykładowej aplikacji sieci Web w folderze źródłowym.
+
+> [!NOTE]
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [wersje Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Specyficzne dla tego laboratorium projektu jest dostępna na [pomocników programu ASP.NET MVC 4, formularzy i sprawdzania poprawności](https://github.com/Microsoft-Web/HOL-MVC4HelpersFormsAndValidation).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Cele
@@ -659,7 +657,7 @@ To zadanie będzie testowane czy tworzenie i edytowanie strony weryfikacji pól,
 
     ![Sprawdzone pola na stronie edycji](aspnet-mvc-4-helpers-forms-and-validation/_static/image19.png)
 
-    *Sprawdzone pola na stronie edycji*
+    Sprawdzone pola na stronie edycji
 
 <a id="Exercise7"></a>
 

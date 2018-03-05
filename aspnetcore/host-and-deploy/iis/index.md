@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 620bfefa625f4b39cb2731b4f553caaa4526c71b
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: b1ca9303c620597f7844c401048129044e99d7be
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core w systemie Windows z programem IIS
 
@@ -45,6 +45,8 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
+Moduł platformy ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `UseIISIntegration` Metoda przejmuje portów dynamicznych i konfiguruje Kestrel do nasłuchiwania `http://locahost:{dynamicPort}/`. Przesłania inne konfiguracje adresu URL, takie jak wywołania `UseUrls` lub [API nasłuchiwania na Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration). W związku z tym wywołań `UseUrls` lub jego Kestrel `Listen` interfejsu API nie są wymagane, gdy za pomocą modułu. Jeśli `UseUrls` lub `Listen` jest nazywany wykrywa Kestrel na port określony podczas uruchamiania aplikacji bez usług IIS.
+
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Obejmują zależności na [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) pakietu w zależnościach aplikacji. Używanie oprogramowania pośredniczącego integracji usług IIS przez dodanie [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) metodę rozszerzenie [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder):
@@ -57,6 +59,10 @@ var host = new WebHostBuilder()
 ```
 
 Zarówno [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) i [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) są wymagane. Wywoływanie kodu `UseIISIntegration` nie ma wpływu na przenośność kodu. Jeśli aplikacja nie jest uruchamiana za usług IIS (na przykład aplikacja jest uruchamiana bezpośrednio na Kestrel), `UseIISIntegration` nie działa.
+
+Moduł platformy ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `UseIISIntegration` Metoda przejmuje portów dynamicznych i konfiguruje Kestrel do nasłuchiwania `http://locahost:{dynamicPort}/`. Przesłania inne konfiguracje adresu URL, takie jak wywołania `UseUrls`. W związku z tym wywołaniu `UseUrls` nie jest wymagane, gdy za pomocą modułu. Jeśli `UseUrls` jest nazywany wykrywa Kestrel na port określony podczas uruchamiania aplikacji bez usług IIS.
+
+Jeśli `UseUrls` jest wywoływana w aplikacji platformy ASP.NET Core 1.0, wywołać ją **przed** wywoływania `UseIISIntegration` tak, aby nie jest zastąpione przez moduł skonfigurowany port. To zamówienie wywołujący nie jest wymagane w przypadku platformy ASP.NET Core 1.1, ponieważ zastępuje ustawienia modułu `UseUrls`.
 
 ---
 
@@ -164,6 +170,8 @@ Włącz **Konsola zarządzania usługami IIS** i **usługi sieci World Wide Web*
 1. Zainstaluj [pakietu .NET Core systemu Windows serwer obsługujący](https://aka.ms/dotnetcore-2-windowshosting) przez system operacyjny. Pakiet instaluje wykonawczym .NET Core .NET Core biblioteki, a [platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module). Moduł tworzy zwrotny serwer proxy między usługami IIS a Kestrel serwera. Jeśli system nie ma połączenia internetowego, Uzyskaj i zainstaluj [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) przed zainstalowaniem pakietu Hosting .NET Core systemu Windows Server.
 
    **Ważne!** Jeśli pakiet hostingu jest zainstalowany przed zainstalowaniem usług IIS, instalacja pakietu musi zostać naprawiony. Uruchom hostingu Instalatora pakietu ponownie po zainstalowaniu usług IIS.
+   
+   Aby zapobiec zainstalowaniu x86 Instalator pakietów na x64 systemu operacyjnego, uruchom Instalatora z wiersza polecenia administratora z przełącznikiem `OPT_NO_X86=1`.
 
 1. Ponowne uruchamianie systemu lub wykonać **net stop została /y** następuje **net start w3svc** z wiersza polecenia. Ponowne uruchomienie usług IIS przejmuje zmianę systemowej PATH wprowadzone przez Instalator.
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/crud
-ms.openlocfilehash: a7e0d4ff3d57e42dd7e33ffb5f26f2143520be87
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: a586fdde07ecf349d7523d43a623501af62257a2
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Tworzenia, odczytu, aktualizacji i usuwania - Core EF z samouczek platformy ASP.NET Core MVC (2 10)
 
@@ -42,7 +42,7 @@ Szkieletu kodu strony indeksu studentów pozostać poza `Enrollments` właściwo
 
 W *Controllers/StudentsController.cs*, metody akcji, aby uzyskać więcej informacji, Wyświetl używa `SingleOrDefaultAsync` metoda pobierania pojedynczy `Student` jednostki. Dodaj kod, który wywołuje `Include`. `ThenInclude`, a `AsNoTracking` metod, jak pokazano w poniższym kodzie zaznaczony.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Details&highlight=8-12)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Details&highlight=8-12)]
 
 `Include` i `ThenInclude` metody powodują kontekstu ładowania `Student.Enrollments` właściwość nawigacji i w obrębie każdej rejestracji `Enrollment.Course` właściwości nawigacji.  Dowiesz się więcej na temat tych metod w [odczytywanie danych powiązanych](read-related-data.md) samouczka.
 
@@ -52,7 +52,7 @@ W *Controllers/StudentsController.cs*, metody akcji, aby uzyskać więcej inform
 
 Wartość klucza, który jest przekazywany do `Details` metody pochodzi z *przekazywanie danych*. Dane trasy to dane integratora modelu znaleziono w segmencie adresu URL. Na przykład trasy domyślnej określa kontroler, akcję i identyfikator segmentów:
 
-[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_Route&highlight=5)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_Route&highlight=5)]
 
 Następujący adres URL trasy domyślnej mapuje instruktora co kontroler, indeks jako akcja i 1 jako identyfikatora; są to wartości danych trasy.
 
@@ -114,13 +114,13 @@ Uruchom aplikację, wybierz **studentów** , a następnie kliknij pozycję **szc
 
 W *StudentsController.cs*, zmodyfikuj HttpPost `Create` metody bloku try-catch Dodawanie i usuwanie identyfikator z `Bind` atrybutu.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
 
 Ten kod dodaje jednostki uczniów utworzony przez obiekt wiążący modelu platformy ASP.NET MVC do jednostki studentów ustawić, a następnie zapisuje zmiany w bazie danych. Integrator modelu odwołuje się do funkcji ASP.NET MVC, który ułatwi pracę z danych przesyłanych przez formularz, (integratora modelu konwertuje wartości przesłanego formularza na typy CLR i przekazuje je do metody akcji w parametrach. W tym przypadku integratora modelu tworzy wystąpienie jednostki uczniów przy użyciu wartości właściwości z kolekcji formularza.)
 
 Możesz usunąć `ID` z `Bind` atrybutu, ponieważ identyfikator ma wartość klucza podstawowego, której program SQL Server ustawi automatycznie, gdy zostanie wstawiona. Dane wejściowe użytkownika nie zmienia wartości Identyfikatora.
 
-Inne niż `Bind` atrybutu, blok try-catch jest tylko zmiany wprowadzone do szkieletu kodu. Jeśli wyjątek, która jest pochodną `DbUpdateException` jest zgłoszony, gdy trwa zapisywanie zmian, zostanie wyświetlony komunikat ogólny błąd. `DbUpdateException`wyjątki są czasami spowodowane coś zewnętrzne do aplikacji, a nie błąd programistyczny, dlatego zalecane jest użytkownik, aby spróbować ponownie. Chociaż nie jest zaimplementowana w tym przykładzie, jakości aplikacji produkcyjnej może zarejestruje wyjątek. Aby uzyskać więcej informacji, zobacz **dziennik, aby uzyskać szczegółowe informacje o** sekcji [monitorowanie i dane telemetryczne (tworzenia rzeczywistych aplikacji w chmurze platformy Azure)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
+Inne niż `Bind` atrybutu, blok try-catch jest tylko zmiany wprowadzone do szkieletu kodu. Jeśli wyjątek, która jest pochodną `DbUpdateException` jest zgłoszony, gdy trwa zapisywanie zmian, zostanie wyświetlony komunikat ogólny błąd. `DbUpdateException` wyjątki są czasami spowodowane coś zewnętrzne do aplikacji, a nie błąd programistyczny, dlatego zalecane jest użytkownik, aby spróbować ponownie. Chociaż nie jest zaimplementowana w tym przykładzie, jakości aplikacji produkcyjnej może zarejestruje wyjątek. Aby uzyskać więcej informacji, zobacz **dziennik, aby uzyskać szczegółowe informacje o** sekcji [monitorowanie i dane telemetryczne (tworzenia rzeczywistych aplikacji w chmurze platformy Azure)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
 
 `ValidateAntiForgeryToken` Atrybut zapobiega fałszerstwie żądania międzywitrynowego (CSRF). Token jest automatycznie wprowadzić do widoku przez [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) i jest dostępne po przesłaniu formularza przez użytkownika. Token jest zweryfikowany przez `ValidateAntiForgeryToken` atrybutu. Aby uzyskać więcej informacji o CSRF, zobacz [żądania przed sfałszowaniem](../../security/anti-request-forgery.md).
 
@@ -162,7 +162,7 @@ Wprowadź nazwy i daty. Spróbuj wprowadzić nieprawidłową datę, jeśli przeg
 
 Jest to weryfikacji po stronie serwera, który można pobrać domyślnie; w samouczku nowsze zobaczysz jak dodać atrybuty, które również wygeneruje kod weryfikacji po stronie klienta. Następujący wyróżniony kod pokazuje sprawdzenie poprawności modelu w `Create` metody.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=8)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=8)]
 
 Zmień wartość na prawidłową datę, a następnie kliknij przycisk **Utwórz** aby zobaczyć nowe student są wyświetlane w **indeksu** strony.
 
@@ -174,7 +174,7 @@ W *StudentController.cs*, HttpGet `Edit` — metoda (jeden bez `HttpPost` atrybu
 
 Zastąp następujący kod metody HttpPost edycji akcji.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ReadFirst)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ReadFirst)]
 
 Te zmiany implementuje zaleceniami dotyczącymi zabezpieczeń, aby zapobiec overposting. Tworzenia szkieletu, generowane `Bind` atrybutu i dodać obiekt utworzony przez obiekt wiążący modelu do zestawu z jednostek `Modified` flagi. Czy kod nie jest zalecane w różnych scenariuszach, ponieważ `Bind` atrybutu usuwa wszystkie istniejące dane w polach niewymienionych w `Include` parametru.
 
@@ -188,7 +188,7 @@ W wyniku tych zmian podpis metody HttpPost `Edit` metody jest taka sama jak Http
 
 Zalecane kodu edycji HttpPost gwarantuje, że tylko zmienione kolumny pobierania aktualizacji i zachowuje dane w właściwości, które nie mają być dołączane do wiązania modelu. Jednak odczytu pierwszego podejścia wymaga dodatkowych bazy danych do odczytu i może spowodować bardziej złożonego kodu do obsługi konfliktom współbieżności. Alternatywą jest dołączyć jednostki utworzone przez integratora modelu dla kontekstu EF i oznacz ją jako zmodyfikowane. (Nie Aktualizuj projektu o tym kodzie tylko wykazał ilustrujący opcjonalne podejście.) 
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
 
 Tej metody można użyć po stronie interfejsu użytkownika sieci web obejmuje wszystkie pola w jednostce i można ich zaktualizować.
 
@@ -236,7 +236,7 @@ Blok try-catch zostanie dodana do HttpPost `Delete` można obsłużyć wszystkie
 
 Zastąp HttpGet `Delete` metodę akcji za pomocą następujący kod, który zarządza raportowanie błędów.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteGet&highlight=1,9,16-21)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteGet&highlight=1,9,16-21)]
 
 Ten kod przyjmuje opcjonalny parametr, który wskazuje, czy metoda została wywołana po awarii, aby zapisać zmiany. Ten parametr ma wartość false, gdy HttpGet `Delete` metoda jest wywoływana bez poprzednim błędzie. Gdy jest wywoływana przez HttpPost `Delete` metody w odpowiedzi na błąd aktualizacji bazy danych, parametr ma wartość true, komunikat o błędzie jest przekazywane do widoku.
 
@@ -244,7 +244,7 @@ Ten kod przyjmuje opcjonalny parametr, który wskazuje, czy metoda została wywo
 
 Zastąp HttpPost `Delete` metody akcji (o nazwie `DeleteConfirmed`) z następującym kodem, wykonuje operację usuwania rzeczywistego oraz przechwytującą wszystkie błędy aktualizacji bazy danych.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
 
 Ten kod pobiera wybranej jednostki, następnie wywołuje `Remove` metody w celu ustawienia stanu jednostki `Deleted`. Gdy `SaveChanges` jest nazywany SQL DELETE wygenerowaniu polecenia.
 
@@ -252,7 +252,7 @@ Ten kod pobiera wybranej jednostki, następnie wywołuje `Remove` metody w celu 
 
 W przypadku zwiększania wydajności aplikacji dużych priorytet, można uniknąć niepotrzebnych kwerend SQL przez utworzenie wystąpienia jednostki dla użytkowników domowych, przy użyciu tylko podstawowy klucz wartość, a następnie ustawienie stanu jednostki `Deleted`. To wszystko, który programu Entity Framework wymaga, aby usunąć jednostkę. (Nie należy umieszczać tego kodu w projekcie; tutaj jest tylko w celu zilustrowania zamiast).
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithoutReadFirst&highlight=7-8)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithoutReadFirst&highlight=7-8)]
 
 Jeśli jednostka ma powiązane dane, które również zostaną usunięte, upewnij się, że usuwanie kaskadowe jest skonfigurowany w bazie danych. Takie podejście do usuwania jednostki EF może mieli się, że istnieją powiązanych jednostek do usunięcia.
 
@@ -272,7 +272,7 @@ Kliknij przycisk **usunąć**. Bez uczniów usuniętych zostanie wyświetlona st
 
 Aby zwolnić zasoby, które przechowuje połączenia z bazą danych, wystąpienia kontekstu musi zostać usunięty tak szybko, jak to możliwe po zakończeniu z nim. Wbudowane platformy ASP.NET Core [iniekcji zależności](../../fundamentals/dependency-injection.md) zajmuje to zadanie za użytkownika.
 
-W *Startup.cs*, należy wywołać [— metoda rozszerzenia AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) umożliwia kontrolerowi wyznaczenie `DbContext` klasy w kontenerze Podpisane ASP.NET. Czy metoda Ustawia okres istnienia usługi `Scoped` domyślnie. `Scoped`oznacza, że okres istnienia obiektu kontekstu pokrywa się z czasem życia żądania sieci web, i `Dispose` metoda zostanie wywołana automatycznie na końcu żądania sieci web.
+W *Startup.cs*, należy wywołać [— metoda rozszerzenia AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) umożliwia kontrolerowi wyznaczenie `DbContext` klasy w kontenerze Podpisane ASP.NET. Czy metoda Ustawia okres istnienia usługi `Scoped` domyślnie. `Scoped` oznacza, że okres istnienia obiektu kontekstu pokrywa się z czasem życia żądania sieci web, i `Dispose` metoda zostanie wywołana automatycznie na końcu żądania sieci web.
 
 ## <a name="handling-transactions"></a>Obsługa transakcji
 

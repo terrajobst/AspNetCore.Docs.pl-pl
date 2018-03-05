@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: cb15e28cb98ea82091cf5ddeed12df8926079e52
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 766913594fa57b14d4dd3b2f1ab02e9714f8ad47
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>Tworzenie aplikacji platformy ASP.NET Core za pomocą czujki dotnet
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Hurdugaci zwycięzcę](https://twitter.com/victorhurdugaci)
 
-`dotnet watch`to narzędzie, które uruchamia [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools) poleceń podczas zmiany plików źródłowych. Na przykład zmianę pliku może wyzwolić kompilację, wykonywania testów lub wdrożenia.
+`dotnet watch` to narzędzie, które uruchamia [interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools) poleceń podczas zmiany plików źródłowych. Na przykład zmianę pliku może wyzwolić kompilację, wykonywania testów lub wdrożenia.
 
 W tym samouczku używamy istniejącej aplikacji interfejsu API sieci Web z dwa punkty końcowe:, który zwraca sumę i zwracające produktu. Metoda produktu zawiera usterkę, która będzie możemy naprawić w ramach tego samouczka.
 
@@ -61,7 +61,7 @@ Przejdź do produktu interfejsu API (`http://localhost:<port number>/api/math/pr
     dotnet restore
     ```
 
-## <a name="running-net-core-cli-commands-using-dotnet-watch"></a>Za pomocą polecenia interfejsu wiersza polecenia platformy .NET Core.`dotnet watch`
+## <a name="running-net-core-cli-commands-using-dotnet-watch"></a>Za pomocą polecenia interfejsu wiersza polecenia platformy .NET Core. `dotnet watch`
 
 Wszelkie [polecenia interfejsu wiersza polecenia platformy .NET Core](/dotnet/core/tools#cli-commands) może być uruchamiane przy `dotnet watch`. Na przykład:
 
@@ -74,7 +74,7 @@ Wszelkie [polecenia interfejsu wiersza polecenia platformy .NET Core](/dotnet/co
 
 Uruchom `dotnet watch run` w *aplikacji sieci Web* folderu. Dane wyjściowe konsoli wskazuje `watch` została uruchomiona.
 
-## <a name="making-changes-with-dotnet-watch"></a>Wprowadzanie zmian z`dotnet watch`
+## <a name="making-changes-with-dotnet-watch"></a>Wprowadzanie zmian z `dotnet watch`
 
 Upewnij się, że `dotnet watch` jest uruchomiona.
 
@@ -91,11 +91,11 @@ Zapisz plik. Dane wyjściowe konsoli wskazuje, że `dotnet watch` Wykryto zmian�
 
 Sprawdź `http://localhost:<port number>/api/math/product?a=4&b=5` zwraca prawidłowego wyniku.
 
-## <a name="running-tests-using-dotnet-watch"></a>Uruchamianie testów za pomocą`dotnet watch`
+## <a name="running-tests-using-dotnet-watch"></a>Uruchamianie testów za pomocą `dotnet watch`
 
 1. Zmień `Product` metody *MathController.cs* z powrotem do zwracania Suma i Zapisz plik.
 1. W powłoce poleceń, przejdź do *WebAppTests* folderu.
-1. Run `dotnet restore`.
+1. Uruchom [przywracania dotnet](/dotnet/core/tools/dotnet-restore).
 1. Run `dotnet watch test`. Dane wyjściowe wskazuje, że testowanie nie powiodło się i tym obserwatora oczekuje na zmiany w pliku:
 
      ```console
@@ -105,7 +105,7 @@ Sprawdź `http://localhost:<port number>/api/math/product?a=4&b=5` zwraca prawid
 
 1. Usuń `Product` metody kod, tak aby zwracało produktu. Zapisz plik.
 
-`dotnet watch`wykrywa zmiany pliku i zwracające testy. Dane wyjściowe konsoli wskazuje testy zostały zakończone pomyślnie.
+`dotnet watch` wykrywa zmiany pliku i zwracające testy. Dane wyjściowe konsoli wskazuje testy zostały zakończone pomyślnie.
 
 ## <a name="dotnet-watch-in-github"></a>dotnet-watch in GitHub
 

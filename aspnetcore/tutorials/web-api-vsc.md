@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 44566c4014400aa2ca3d512eeaa226637b5f0b97
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: adb8fde6e6cb38a1c991b9a43fd1e649380d7c0c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Utwórz interfejs API sieci Web platformy ASP.NET Core MVC i Visual Studio Code w systemie Linux, macOS i systemu Windows
 
@@ -67,7 +67,7 @@ Zobacz [pomocy programu Visual Studio Code](#visual-studio-code-help) porady na 
 
 Tworzenie nowego projektu w programie .NET Core 2.0 dodaje dostawcę "Microsoft.AspNetCore.All" w *TodoApi.csproj* pliku. Nie istnieje potrzeba do zainstalowania [Entity Framework Core InMemory](https://docs.microsoft.com/ef/core/providers/in-memory/) bazy danych dostawcy osobno. Ten dostawca bazy danych umożliwia Entity Framework Core ma być używany z bazy danych w pamięci.
 
-[!code-xml[Main](web-api-vsc/sample/TodoApi/TodoApi.csproj?highlight=12)]
+[!code-xml[](web-api-vsc/sample/TodoApi/TodoApi.csproj?highlight=12)]
 
 ## <a name="add-a-model-class"></a>Dodaj klasę modelu
 
@@ -77,7 +77,7 @@ Dodaj folder o nazwie *modele*. Klasy modeli można umieścić dowolne miejsce w
 
 Dodaj `TodoItem` klasy następującym kodem:
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
+[!code-csharp[](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
 Generuje bazy danych `Id` podczas `TodoItem` jest tworzony.
 
@@ -87,7 +87,7 @@ Generuje bazy danych `Id` podczas `TodoItem` jest tworzony.
 
 Dodaj `TodoContext` klasy w *modele* folderu:
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
+[!code-csharp[](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
 [!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/file-providers
-ms.openlocfilehash: 06197f967e111d75531e9c3bcbcbdb971cb9f99b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cdbffdadd9616fe941809d67dc2c0bbd52149561
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="file-providers-in-aspnet-core"></a>Plik dostawców w platformy ASP.NET Core
 
@@ -25,9 +25,9 @@ Platformy ASP.NET Core abstracts dostępu do systemu plików przy użyciu dostaw
 
 ## <a name="file-provider-abstractions"></a>Plik abstrakcje dostawcy
 
-Dostawców w pliku są abstrakcję przez systemy plików. Interfejs głównego jest `IFileProvider`. `IFileProvider`udostępnia metody, aby uzyskać informacje o pliku (`IFileInfo`), informacji katalogowych (`IDirectoryContents`) i aby skonfigurować powiadomienia o zmianie (przy użyciu `IChangeToken`).
+Dostawców w pliku są abstrakcję przez systemy plików. Interfejs głównego jest `IFileProvider`. `IFileProvider` udostępnia metody, aby uzyskać informacje o pliku (`IFileInfo`), informacji katalogowych (`IDirectoryContents`) i aby skonfigurować powiadomienia o zmianie (przy użyciu `IChangeToken`).
 
-`IFileInfo`udostępnia metody i właściwości o poszczególnych plików lub katalogów. Ma dwie właściwości boolean, `Exists` i `IsDirectory`, a także właściwości, które opisują pliku `Name`, `Length` (w bajtach) i `LastModified` daty. Można odczytać z pliku przy użyciu jego `CreateReadStream` metody.
+`IFileInfo` udostępnia metody i właściwości o poszczególnych plików lub katalogów. Ma dwie właściwości boolean, `Exists` i `IsDirectory`, a także właściwości, które opisują pliku `Name`, `Length` (w bajtach) i `LastModified` daty. Można odczytać z pliku przy użyciu jego `CreateReadStream` metody.
 
 ## <a name="file-provider-implementations"></a>Plik implementacji dostawcy
 
@@ -50,15 +50,15 @@ Możesz iterację jego zawartość katalogu lub pobrać informacji o określoneg
 
 Aby poprosić dostawcę z kontrolera, określ go w Konstruktorze kontrolera i przypisz je do lokalnego pola. Należy użyć lokalnego wystąpienia z metody akcji:
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
 
 Następnie utwórz w aplikacji dostawcy `Startup` klasy:
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
 
 W *Index.cshtml* wyświetlić, iterację `IDirectoryContents` podane:
 
-[!code-html[Main](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
+[!code-html[](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
 
 Wynik:
 
@@ -68,7 +68,7 @@ Wynik:
 
 `EmbeddedFileProvider` Umożliwia dostęp do plików osadzonych w zestawach. W .NET Core osadzanie plików w zestawie z `<EmbeddedResource>` element *.csproj* pliku:
 
-[!code-json[Main](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
+[!code-json[](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
 
 Można użyć [wzorce globbing](#globbing-patterns) podczas określania plików do osadzenia w zestawie. Te wzorce może służyć do dopasowania jeden lub więcej plików.
 
@@ -97,7 +97,7 @@ Aktualizowanie przykładową aplikację do używania `EmbeddedFileProvider` powo
 
 `CompositeFileProvider` Łączy `IFileProvider` wystąpień udostępnia jeden interfejs do pracy z plikami z wielu dostawców. Podczas tworzenia `CompositeFileProvider`, należy przekazać co najmniej jeden `IFileProvider` wystąpień dla jego konstruktora:
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
 
 Aktualizowanie przykładową aplikację do używania `CompositeFileProvider` który obejmuje zarówno fizyczne i osadzone dostawców został wcześniej skonfigurowany, wynikiem następujące dane wyjściowe:
 
@@ -109,7 +109,7 @@ Aktualizowanie przykładową aplikację do używania `CompositeFileProvider` kt�
 
 W tym artykule przykładowym aplikacji konsoli jest skonfigurowany do wyświetla komunikat, gdy zostanie zmodyfikowany plik tekstowy:
 
-[!code-csharp[Main](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
+[!code-csharp[](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
 Wynik po zapisaniu pliku kilka razy:
 
@@ -150,7 +150,7 @@ Wynik po zapisaniu pliku kilka razy:
 
 ## <a name="file-provider-usage-in-aspnet-core"></a>Użycie dostawcy File w ASP.NET Core
 
-Kilka części platformy ASP.NET Core korzystać z dostawcy plików. `IHostingEnvironment`przedstawia zawartość katalogu głównego aplikacji i głównego sieci web jako `IFileProvider` typów. Oprogramowanie pośredniczące plików statycznych korzysta z dostawców plików do lokalizacji plików statycznych. Razor sprawia, że intensywnie korzysta z `IFileProvider` lokalizowanie widoków. Dla platformy DotNet publikowania funkcji używa pliku dostawców i wzorce globbing, aby określić pliki, które powinny zostać opublikowane.
+Kilka części platformy ASP.NET Core korzystać z dostawcy plików. `IHostingEnvironment` przedstawia zawartość katalogu głównego aplikacji i głównego sieci web jako `IFileProvider` typów. Oprogramowanie pośredniczące plików statycznych korzysta z dostawców plików do lokalizacji plików statycznych. Razor sprawia, że intensywnie korzysta z `IFileProvider` lokalizowanie widoków. Dla platformy DotNet publikowania funkcji używa pliku dostawców i wzorce globbing, aby określić pliki, które powinny zostać opublikowane.
 
 ## <a name="recommendations-for-use-in-apps"></a>Zalecenia dotyczące użycia w aplikacji
 

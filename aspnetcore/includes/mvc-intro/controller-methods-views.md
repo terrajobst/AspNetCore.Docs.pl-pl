@@ -7,7 +7,7 @@ Przejdź do `Movies` kontrolera i umieść wskaźnik myszy nad **Edytuj** łącz
 
 **Edytuj**, **szczegóły**, i **usunąć** łącza są generowane przez pomocnika Tag kotwicy MVC Core w *Views/Movies/Index.cshtml* pliku.
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
 
 [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro) umożliwiają uczestniczenie kodu po stronie serwera w tworzeniu i renderowaniu elementów HTML w plikach Razor. W powyższym kodzie `AnchorTagHelper` dynamicznie generuje kod HTML `href` wartość atrybutu z identyfikator metody i tras akcji kontrolera. Możesz użyć **Wyświetl źródło** z ulubionych przeglądarki lub użyj narzędzia dla deweloperów do sprawdzenia wygenerowanego kodu znaczników. Poniżej przedstawiono fragment wygenerowanego kodu HTML:
 
@@ -21,7 +21,7 @@ Przejdź do `Movies` kontrolera i umieść wskaźnik myszy nad **Edytuj** łącz
 
 Odwołaj format [routingu](xref:mvc/controllers/routing) w *Startup.cs* pliku:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 Tłumaczy platformy ASP.NET Core `http://localhost:1234/Movies/Edit/4` na żądanie, aby `Edit` metody akcji `Movies` kontrolera z parametrem `Id` 4. (Metod kontrolera są również znane jako metody akcji).
 
@@ -29,41 +29,41 @@ Tłumaczy platformy ASP.NET Core `http://localhost:1234/Movies/Edit/4` na żąda
 
 Otwórz `Movies` kontrolera i sprawdź, czy dwa `Edit` metody akcji. Poniższy kod przedstawia `HTTP GET Edit` metodę, która pobiera filmu i wypełnienie formularza edycji generowane przez *Edit.cshtml* pliku Razor.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
 
 Poniższy kod przedstawia `HTTP POST Edit` metodę, która przetwarza wartości oczekujących na opublikowanie film:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
 `[Bind]` Atrybut jest jednym ze sposobów ochrony przed [zbyt księgowej](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Powinna zawierać tylko właściwości w `[Bind]` atrybut, który chcesz zmienić. Zobacz [chronić kontroler z nadmiernego publikowanie](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) Aby uzyskać więcej informacji. [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) zapewnić alternatywne podejście, aby uniknąć nadmiernego publikowanie.
 
 Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `[HttpPost]` atrybutu.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2&highlight=4)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2&highlight=4)]
 
 `HttpPost` Atrybut określa, że to `Edit` można wywołać metody *tylko* dla `POST` żądań. Można zastosować `[HttpGet]` pierwszy dla atrybutu Edytuj metodę, ale nie jest to niezbędne ponieważ `[HttpGet]` jest ustawieniem domyślnym.
 
 `ValidateAntiForgeryToken` Atrybutów jest używane do [zapobiegania fałszowaniu żądania](xref:security/anti-request-forgery) i wraz z tokenu zabezpieczającego przed sfałszowaniem wygenerowany w pliku widok edycji (*Views/Movies/Edit.cshtml*). Edytuj plik widoku generuje token zabezpieczający przed sfałszowaniem z [pomocnika Tag formularza](xref:mvc/views/working-with-forms).
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/Edit.cshtml?range=9)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/Edit.cshtml?range=9)]
 
 [Pomocnika Tag formularza](xref:mvc/views/working-with-forms) generuje token zabezpieczający przed sfałszowaniem ukryte, który musi być zgodna `[ValidateAntiForgeryToken]` wygenerowany token zabezpieczający przed sfałszowaniem w `Edit` filmy kontrolera. Aby uzyskać więcej informacji, zobacz [żądania przed sfałszowaniem](xref:security/anti-request-forgery).
 
 `HttpGet Edit` Metoda przyjmuje filmu `ID` parametru wyszukuje filmu przy użyciu programu Entity Framework `SingleOrDefaultAsync` metody i zwraca wybrany film do widoku edycji. Jeśli nie można odnaleźć film, `NotFound` (HTTP 404) jest zwracany.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
 
 Podczas tworzenia widoku edycji systemu szkieletów zbadane `Movie` klasy i kodu do renderowania `<label>` i `<input>` elementy dla każdej właściwości klasy. W poniższym przykładzie pokazano widok edycji został wygenerowany przez system szkieletów Visual Studio:
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/EditCopy.cshtml?highlight=1)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/EditCopy.cshtml?highlight=1)]
 
-Zwróć uwagę, jak szablon widoku ma `@model MvcMovie.Models.Movie` instrukcji w górnej części pliku. `@model MvcMovie.Models.Movie`Określa, czy widok oczekuje modelu widoku szablonu typu `Movie`.
+Zwróć uwagę, jak szablon widoku ma `@model MvcMovie.Models.Movie` instrukcji w górnej części pliku. `@model MvcMovie.Models.Movie` Określa, czy widok oczekuje modelu widoku szablonu typu `Movie`.
 
 Kod z utworzonym szkieletem korzysta kilka metod pomocnika tagów usprawnić kod znaczników HTML. [Pomocnika tagów etykiety](xref:mvc/views/working-with-forms) Wyświetla nazwę pola ("Title", "ReleaseDate", "Rodzaju" lub "Price"). [Pomocnika Tag danych wejściowych](xref:mvc/views/working-with-forms) renderowania kodu HTML `<input>` elementu. [Pomocnika tagów weryfikacji](xref:mvc/views/working-with-forms) wyświetla komunikaty weryfikacji skojarzony z tą właściwością.
 
 Uruchom aplikację i przejdź do `/Movies` adresu URL. Kliknij przycisk **Edytuj** łącza. W przeglądarce Wyświetl źródło strony. Wygenerowany kod HTML pod kątem `<form>` elementu są wyświetlane poniżej.
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/edit_view_source.html?highlight=1,6,10,17,24,28)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/edit_view_source.html?highlight=1,6,10,17,24,28)]
 
 `<input>` Elementy znajdują się w `HTML <form>` element których `action` ustawiono atrybut do wysłania do `/Movies/Edit/id` adresu URL. Dane formularza zostaną opublikowane na serwerze po `Save` kliknięciu przycisku. Ostatni wiersz przed tagiem zamykającym `</form>` element zawiera ukrytego [XSRF](xref:security/anti-request-forgery) token generowane przez [pomocnika Tag formularza](xref:mvc/views/working-with-forms).
 
@@ -71,7 +71,7 @@ Uruchom aplikację i przejdź do `/Movies` adresu URL. Kliknij przycisk **Edytuj
 
 Poniżej przedstawiono listę `[HttpPost]` wersji `Edit` metody akcji.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
 `[ValidateAntiForgeryToken]` Weryfikuje ukrytego atrybutu [XSRF](xref:security/anti-request-forgery) token wygenerowana przez generator token zabezpieczający przed sfałszowaniem w [pomocnika Tag formularza](xref:mvc/views/working-with-forms)
 

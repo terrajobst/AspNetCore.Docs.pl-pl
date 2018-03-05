@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: 6fefbd9b28d481184e358e7d66af68d112c63696
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a8e19d096fb66b23920ca012cc96e05b4bdfc000
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-portable-object-localization-with-orchard-core"></a>Konfigurowanie lokalizacji obiektu przenośne Orchard podstawowych
 
@@ -74,21 +74,21 @@ Dodaj odwołanie do `OrchardCore.Localization.Core` pakietu NuGet. Jest ona dost
 
 *.Csproj* plik zawiera teraz wiersz podobny do następującego (numer wersji może się różnić):
 
-[!code-xml[Main](localization/sample/POLocalization/POLocalization.csproj?range=9)]
+[!code-xml[](localization/sample/POLocalization/POLocalization.csproj?range=9)]
 
 ### <a name="registering-the-service"></a>Rejestrowanie usługi
 
 Dodaj wymagane usługi, aby `ConfigureServices` metody *Startup.cs*:
 
-[!code-csharp[Main](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
+[!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
 
 Dodaj wymagane oprogramowanie pośredniczące o konieczności `Configure` metody *Startup.cs*:
 
-[!code-csharp[Main](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
+[!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
 
 Dodaj następujący kod do wyboru widoku Razor. *About.cshtml* jest używany w tym przykładzie.
 
-[!code-cshtml[Main](localization/sample/POLocalization/Views/Home/About.cshtml)]
+[!code-cshtml[](localization/sample/POLocalization/Views/Home/About.cshtml)]
 
 `IViewLocalizer` Wystąpienia jest wprowadzonym i umożliwia tłumaczenie tekstu "Hello world!".
 
@@ -96,7 +96,7 @@ Dodaj następujący kod do wyboru widoku Razor. *About.cshtml* jest używany w t
 
 Utwórz plik o nazwie  *<culture code>po oraz pakiety* w folderze głównym aplikacji. W tym przykładzie nazwa pliku jest *fr.po* ponieważ jest używana w języku francuskim:
 
-[!code-text[Main](localization/sample/POLocalization/fr.po)]
+[!code-text[](localization/sample/POLocalization/fr.po)]
 
 Ten plik z rozszerzeniem zarówno ciąg do tłumaczenia ciąg translacji francuski. Tłumaczeń przywrócić ich Kultura nadrzędna, jeśli to konieczne. W tym przykładzie *fr.po* plik jest używany, jeśli jest żądaną kulturę `fr-FR` lub `fr-CA`.
 
@@ -133,7 +133,7 @@ Nie wszystkie języki mają te same zasady stosowania. Jest to zilustrowane z cz
 
 Utwórz `cs.po` plików w następujący sposób, zwracając uwagę, jak określania liczby mnogiej wymaga trzech różnych tłumaczenia:
 
-[!code-text[Main](localization/sample/POLocalization/cs.po)]
+[!code-text[](localization/sample/POLocalization/cs.po)]
 
 Aby zaakceptować lokalizacje czeski, Dodaj `"cs"` do listy obsługiwanych kultur w `ConfigureServices` metody:
 
@@ -206,7 +206,7 @@ Z `msgctxt` tak ustawiona, tłumaczenie tekstu występuje podczas nawigowania do
 
 Nie określonego wpisu nie odpowiada z kontekstem danego pliku, mechanizm rezerwowy Orchard Core szuka odpowiedniego pliku PO bez kontekstu. Zakładając, że nie jest zdefiniowany dla kontekstu określonego pliku *Views/Home/Contact.cshtml*, nawigacyjnego do `/Home/Contact?culture=fr-FR` ładuje plik PO, takich jak:
 
-[!code-text[Main](localization/sample/POLocalization/fr.po)]
+[!code-text[](localization/sample/POLocalization/fr.po)]
 
 ### <a name="changing-the-location-of-po-files"></a>Zmiana lokalizacji plików PO
 

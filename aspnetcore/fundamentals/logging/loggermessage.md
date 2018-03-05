@@ -1,7 +1,7 @@
 ---
 title: "Rejestrowanie wysokiej wydajności z LoggerMessage w ASP.NET Core"
 author: guardrex
-description: "Dowiedz się, jak utworzyć buforowalnej obiektów delegowanych, które wymagają mniej alokacji obiektu od metod rozszerzenia rejestratora w scenariuszach wysokiej wydajności logowania przy użyciu funkcji LoggerMessage."
+description: "Dowiedz się, jak używać LoggerMessage do tworzenia buforowalnej obiektów delegowanych, które wymagają mniej alokacji obiektu w scenariuszach logowania wysokiej wydajności."
 manager: wpickett
 ms.author: riande
 ms.date: 11/03/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: a67e610150e36165a72a2e8957b33ce7d5741936
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 24a75cfacfa61ca66e78deeb743baa75718dfb76
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Rejestrowanie wysokiej wydajności z LoggerMessage w ASP.NET Core
 
@@ -38,7 +38,7 @@ Podany ciąg `Define` metoda jest szablon i nie ciągu interpolowanym. Symbole z
 
 Każdy komunikat dziennika jest `Action` przechowywany w polu statycznym utworzone przez `LoggerMessage.Define`. Na przykład przykładowa aplikacja tworzy pole do opisu komunikatu dziennika dla żądania GET strony indeksu (*Internal/LoggerExtensions.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet1)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet1)]
 
 Aby uzyskać `Action`, określ:
 
@@ -52,17 +52,17 @@ Aby uzyskać `Action`, określ:
 * Identyfikator zdarzenia do `1` o nazwie `IndexPageRequested` metody.
 * Szablon wiadomości (ciąg formatu o nazwie) na ciąg.
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet5)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet5)]
 
 Rejestrowanie strukturalne magazyny może używać nazwy zdarzenia, gdy są dostarczane z identyfikatorem zdarzenia wzbogacić rejestrowania. Na przykład [Serilog](https://github.com/serilog/serilog-extensions-logging) , użyta zostanie nazwa zdarzenia.
 
 `Action` Jest wywoływana przez metodę rozszerzenie jednoznacznie. `IndexPageRequested` — Metoda rejestruje komunikat dla żądania GET strony indeksu w przykładowej aplikacji:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet9)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet9)]
 
 `IndexPageRequested` wywoływana jest rejestratora w `OnGetAsync` metody w *Pages/Index.cshtml.cs*:
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
 
 Sprawdź dane wyjściowe konsoli aplikacji:
 
@@ -74,19 +74,19 @@ info: LoggerMessageSample.Pages.IndexModel[1]
 
 Do przekazania parametrów do komunikatu dziennika, należy zdefiniować typy sześciu podczas tworzenia pola statycznego. Przykładowa aplikacja rejestruje ciąg podczas dodawania oferty, definiując `string` wpisz `Action` pola:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet2)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet2)]
 
 Szablon wiadomości dziennika delegata odbiera jego symbole zastępcze z udostępnione typy. Przykładowa aplikacja definiuje delegata dodawania oferty, w którym parametr oferty jest `string`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet6)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet6)]
 
 Metody rozszerzenia statycznych dodawania oferty, `QuoteAdded`, otrzymuje wartość argumentu oferty i przekazuje je do `Action` delegować:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet10)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet10)]
 
 W modelu strony strony indeksu (*Pages/Index.cshtml.cs*), `QuoteAdded` nosi nazwę logowania komunikat:
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
 
 Sprawdź dane wyjściowe konsoli aplikacji:
 
@@ -98,17 +98,17 @@ info: LoggerMessageSample.Pages.IndexModel[2]
 
 Implementuje aplikacji przykładowej `try` &ndash; `catch` wzorzec do usunięcia oferty. Komunikat informacyjny jest rejestrowany przez operację usuwania powiodło się. Komunikat o błędzie jest rejestrowane dla operacji delete, gdy jest zgłaszany wyjątek. Komunikat dziennika powiodła się operacja usuwania obejmuje ślad stosu wyjątku (*Internal/LoggerExtensions.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet3)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet3)]
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet7)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet7)]
 
 Należy zwrócić uwagę, jak wyjątek jest przekazywana do delegata `QuoteDeleteFailed`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet11)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet11)]
 
 W modelu strony dla strony indeksu, usuwanie oferty pomyślne wywołanie `QuoteDeleted` metoda rejestratora. Gdy oferta nie zostanie odnaleziony do usunięcia, `ArgumentNullException` jest generowany. Wyjątkiem jest to spowodowane `try` &ndash; `catch` instrukcji i rejestrowane przez wywołanie metody `QuoteDeleteFailed` metoda rejestratora w `catch` bloku (*Pages/Index.cshtml.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
 
 Po pomyślnym usunięciu oferty Sprawdź dane wyjściowe konsoli aplikacji:
 
@@ -145,7 +145,7 @@ Przykładowa aplikacja ma **Wyczyść wszystko** przycisk usuwania wszystkich zn
 
 Włącz `IncludeScopes` w opcjach rejestratora konsoli:
 
-[!code-csharp[Main](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
+[!code-csharp[](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
 
 Ustawienie `IncludeScopes` wymaganego do włączenia dziennika zakresów w aplikacjach ASP.NET Core 2.0. Ustawienie `IncludeScopes` za pośrednictwem *appsettings* plików konfiguracyjnych jest funkcją, która ma zaplanowane dla wersji platformy ASP.NET Core 2.1.
 
@@ -153,19 +153,19 @@ Przykładowa aplikacja czyści innych dostawców i dodaje filtry, aby zmniejszy�
 
 Aby utworzyć zakres dziennika, Dodaj pole do przechowywania `Func` delegowanie dla zakresu. Przykładowa aplikacja tworzy pole o nazwie `_allQuotesDeletedScope` (*Internal/LoggerExtensions.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet4)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet4)]
 
 Użyj `DefineScope` można utworzyć obiektu delegowanego. Maksymalnie trzy typy można określić do użycia jako argumenty szablonu po wywołaniu obiektu delegowanego. Przykładowa aplikacja korzysta z szablonu wiadomości, który zawiera liczby cudzysłowów usunięto ( `int` typu):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet8)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet8)]
 
 Udostępnia metody statyczne rozszerzenie wiadomości dziennika. Uwzględnij wszystkie parametry typu dla nazwanych właściwości, które pojawiają się w szablon wiadomości. Przykładowa aplikacja przyjmuje `count` cudzysłowy do usunięcia i zwraca `_allQuotesDeletedScope`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet12)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet12)]
 
 Zawija zakres odwołuje się do rozszerzenia rejestrowania `using` bloku:
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
 
 Sprawdź, czy w komunikatach w dzienniku aplikacji konsoli w danych wyjściowych. Następujące wyniki przedstawiono trzy cudzysłowy usunięte z komunikatem zakresu dziennika uwzględnione:
 

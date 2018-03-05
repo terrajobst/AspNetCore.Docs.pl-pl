@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: ee628ee14aa38969cdb4443718c378fd36192596
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 67695843846cfaf1619db11a7bffcc65802e0f69
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Zarządzaj pakietami po stronie klienta z Bower w ASP.NET Core
 
@@ -67,13 +67,13 @@ Pole wyszukiwania w Eksploratorze rozwiązań umożliwia znaleźć i wyświetli�
 
 Otwórz *Views\Shared\_Layout.cshtml* plik i dodać świetny czcionki pliku CSS do środowiska [pomocnika tagów](xref:mvc/views/tag-helpers/intro) dla `Development`. W Eksploratorze rozwiązań, przeciągnij i upuść *awesome.css czcionki* wewnątrz `<environment names="Development">` elementu.
 
-[!code-html[Main](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
+[!code-html[](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
 
 W aplikacji produkcyjnej należy dodać *awesome.min.css czcionki* do pomocniczego znacznika środowiska dla `Staging,Production`.
 
 Zastąp zawartość *Views\Home\About.cshtml* pliku Razor z następujący kod:
 
-[!code-html[Main](bower/sample/About.cshtml)]
+[!code-html[](bower/sample/About.cshtml)]
 
 Uruchom aplikację i przejdź do widoku informacje weryfikowanie działania pakietu świetny czcionki.
 
@@ -96,7 +96,7 @@ Po listy pakietów *bower.json* pliku, Visual Studio będzie je pobrać. W poni�
 
 * Otwórz *bower.json*, Dodaj jquery i bootstrap do `dependencies` sekcji. Powstałe w ten sposób *bower.json* pliku będzie wyglądać jak w następującym przykładzie. Wersje zmieni się wraz z upływem czasu i może nie odpowiadać na poniższym obrazie.
 
-[!code-json[Main](bower/sample/bower.json?highlight=5,6)]
+[!code-json[](bower/sample/bower.json?highlight=5,6)]
 
 * Zapisz *bower.json* pliku.
 
@@ -109,7 +109,7 @@ Po listy pakietów *bower.json* pliku, Visual Studio będzie je pobrać. W poni�
 * Dodaj `Microsoft.AspNetCore.StaticFiles` pakiet NuGet do projektu.
 * Włącz pliki statyczne z [oprogramowanie pośredniczące plików statycznych](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.staticfileextensions). Dodaj wywołanie do [UseStaticFiles](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.staticfileextensions) do `Configure` metody `Startup`.
 
-[!code-csharp[Main](bower/sample/Startup.cs?highlight=9)]
+[!code-csharp[](bower/sample/Startup.cs?highlight=9)]
 
 ### <a name="reference-packages"></a>Pakietów odniesienia
 
@@ -119,7 +119,7 @@ W tej sekcji utworzysz stronę HTML, aby sprawdzić, czy można uzyskać dostęp
 
  Zastąp zawartość *Index.html* z następujący kod:
 
-[!code-html[Main](bower/sample/Index.html)]
+[!code-html[](bower/sample/Index.html)]
 
 * Uruchom aplikację i przejdź do `http://localhost:<port>/Index.html`. Alternatywnie z *Index.html* otwarty, naciśnij klawisz `Ctrl+Shift+W`. Sprawdź stosowanie stylów jumbotron, kodu jQuery odpowiada po kliknięciu przycisku i że Bootstrap przycisku zmienia stan.
 

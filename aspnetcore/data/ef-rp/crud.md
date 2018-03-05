@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: 76ee951f62eff43ee1dd5316baf63f1ccd1de35e
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: ba342f21350ce880485519e4e174770814a99d45
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Tworzenia, odczytu, aktualizacji i usuwania - Core EF Razor strony (2 8)
 
@@ -32,21 +32,21 @@ Kod z utworzonym szkieletem korzysta ze wzorca następujące tworzenie, edytowan
 * Pobierz i Wyświetl żądanych danych z metodą HTTP GET `OnGetAsync`.
 * Zapisz zmiany w danych z metodą HTTP POST `OnPostAsync`.
 
-Strony indeksu i szczegóły Pobierz i Wyświetl żądanych danych z metodą HTTP GET`OnGetAsync`
+Strony indeksu i szczegóły Pobierz i Wyświetl żądanych danych z metodą HTTP GET `OnGetAsync`
 
 ## <a name="replace-singleordefaultasync-with-firstordefaultasync"></a>Zamień SingleOrDefaultAsync FirstOrDefaultAsync
 
 Wygenerowany kod używa [SingleOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) można pobrać żądanej jednostki. [FirstOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_) jest bardziej wydajny w pobieranie jedną jednostkę:
 
 * Jeśli kod należy sprawdzić, czy nie ma więcej niż jednej jednostki zwróconych przez kwerendę. 
-* `SingleOrDefaultAsync`pobiera dane i niepotrzebne działa.
-* `SingleOrDefaultAsync`zgłasza wyjątek, jeśli istnieje więcej niż jednej jednostki, która pasuje do części filtru.
-*  `FirstOrDefaultAsync`nie zgłoszenia, jeśli istnieje więcej niż jednej jednostki, która pasuje do części filtru.
+* `SingleOrDefaultAsync` pobiera dane i niepotrzebne działa.
+* `SingleOrDefaultAsync` zgłasza wyjątek, jeśli istnieje więcej niż jednej jednostki, która pasuje do części filtru.
+*  `FirstOrDefaultAsync` nie zgłoszenia, jeśli istnieje więcej niż jednej jednostki, która pasuje do części filtru.
 
-Zastąp globalnie `SingleOrDefaultAsync` z `FirstOrDefaultAsync`. `SingleOrDefaultAsync`jest używany w miejscach 5:
+Zastąp globalnie `SingleOrDefaultAsync` z `FirstOrDefaultAsync`. `SingleOrDefaultAsync` jest używany w miejscach 5:
 
-* `OnGetAsync`na stronie szczegółów.
-* `OnGetAsync`i `OnPostAsync` na edytowanie i usuwanie stron.
+* `OnGetAsync` na stronie szczegółów.
+* `OnGetAsync` i `OnPostAsync` na edytowanie i usuwanie stron.
 
 <a name="FindAsync"></a>
 ### <a name="findasync"></a>FindAsync
@@ -66,7 +66,7 @@ Ale jeśli chcesz dołączyć inne jednostki, a następnie znajdź nie jest już
 
 Przejdź do `Pages/Students` strony. **Edytuj**, **szczegóły**, i **usunąć** łącza są generowane przez [pomocnika Tag kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) w *stron/uczniów lub studentów / Index.cshtml* pliku.
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Index1.cshtml?range=40-44)]
+[!code-cshtml[](intro/samples/cu/Pages/Students/Index1.cshtml?range=40-44)]
 
 Wybierz łącze Szczegóły. Adres URL ma postać `http://localhost:5000/Students/Details?id=2`. Identyfikator uczniów jest przekazywany za pomocą ciągu zapytania (`?id=2`).
 
@@ -90,18 +90,18 @@ Nie zawiera utworzony szkielet kodu strony indeksu studentów `Enrollments` wła
 
 `OnGetAsync` Metody *Pages/Students/Details.cshtml.cs* używa `FirstOrDefaultAsync` metoda pobierania pojedynczy `Student` jednostki. Dodaj następujący wyróżniony kod:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Details.cshtml.cs?name=snippet_Details&highlight=8-12)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Details.cshtml.cs?name=snippet_Details&highlight=8-12)]
 
 `Include` i `ThenInclude` metody powodują kontekstu ładowania `Student.Enrollments` właściwość nawigacji i w obrębie każdej rejestracji `Enrollment.Course` właściwości nawigacji. Te metody są sprawdzane szczegółowo w samouczku dane dotyczące odczytu.
 
-`AsNoTracking` — Metoda zwiększa wydajność w scenariuszach, gdy zwracany jednostek nie są aktualizowane w bieżącym kontekście. `AsNoTracking`omówione w dalszej części tego samouczka.
+`AsNoTracking` — Metoda zwiększa wydajność w scenariuszach, gdy zwracany jednostek nie są aktualizowane w bieżącym kontekście. `AsNoTracking` omówione w dalszej części tego samouczka.
 
 ### <a name="display-related-enrollments-on-the-details-page"></a>Na stronie Szczegóły są wyświetlane powiązane rejestracji
 
 Otwórz *Pages/Students/Details.cshtml*. Dodaj następujący wyróżniony kod, aby wyświetlić listę rejestracji:
 
  <!--2do ricka. if doesn't change, remove dup -->
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
+[!code-cshtml[](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
 
 Jeśli po wklejeniu kod wcięcia kodu o nieprawidłowej naciśnij kombinację klawiszy CTRL-K-D, aby naprawić błąd.
 
@@ -113,16 +113,16 @@ Uruchom aplikację, wybierz **studentów** , a następnie kliknij pozycję **szc
 
 Aktualizacja `OnPostAsync` metody w *Pages/Students/Create.cshtml.cs* następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_OnPostAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_OnPostAsync)]
 
 <a name="TryUpdateModelAsync"></a>
 ### <a name="tryupdatemodelasync"></a>TryUpdateModelAsync
 
 Sprawdź [TryUpdateModelAsync](https://docs.microsoft.com/ dotnet/api/microsoft.aspnetcore.mvc.controllerbase.tryupdatemodelasync?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_ControllerBase_TryUpdateModelAsync_System_Object_System_Type_System_String_) kodu:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_TryUpdateModelAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_TryUpdateModelAsync)]
 
-W powyższym kodzie `TryUpdateModelAsync<Student>` próbuje zaktualizować `emptyStudent` przy użyciu wartości przesłanego formularza z [PageContext](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) właściwości w [PageModel](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel?view=aspnetcore-2.0). `TryUpdateModelAsync`tylko aktualizuje właściwości wymienionych (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`).
+W powyższym kodzie `TryUpdateModelAsync<Student>` próbuje zaktualizować `emptyStudent` przy użyciu wartości przesłanego formularza z [PageContext](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) właściwości w [PageModel](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel?view=aspnetcore-2.0). `TryUpdateModelAsync` tylko aktualizuje właściwości wymienionych (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`).
 
 W poprzednim przykładzie:
 
@@ -134,7 +134,7 @@ W poprzednim przykładzie:
 
 Przy użyciu `TryUpdateModel` można zaktualizować pola z wartościami oczekujących na opublikowanie jest ze względów bezpieczeństwa, ponieważ nie dopuszcza overposting. Na przykład, załóżmy, że zawiera jednostki uczniów `Secret` właściwości, które ta strona sieci web nie należy zaktualizować lub dodać:
 
-[!code-csharp[Main](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
+[!code-csharp[](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
 
 Nawet jeśli aplikacja nie ma `Secret` można ustawić za pomocą pola Utwórz/Aktualizuj Razor strony, haker `Secret` przez overposting wartość. Haker można użyć narzędzia, takiego jak Fiddler lub zapisu fragmentów kodu JavaScript można opublikować `Secret` tworzą wartość. Oryginalny kod nie ograniczają pola, które podczas tworzenia wystąpienia uczniów używa integratora modelu.
 
@@ -149,15 +149,15 @@ Wartość "OverPost" został pomyślnie dodany do `Secret` właściwości wstawi
 
 Model widoku zwykle zawiera podzbiór właściwości zawarte w modelu używanego przez aplikację. Model aplikacji jest często nazywana modelu domeny. Model domeny zwykle zawiera wszystkie właściwości wymagane przez odpowiednie jednostkę w bazie danych. Model widoku zawiera tylko właściwości, które są potrzebne dla warstwy interfejsu użytkownika (na przykład tworzenia strony). Oprócz modelu widoku niektóre aplikacje za pomocą powiązania modelu lub modelu wejściowych przekazywania danych między klasy modelu stron Razor strony i przeglądarki. Należy rozważyć `Student` model widoku:
 
-[!code-csharp[Main](intro/samples/cu/Models/StudentVM.cs)]
+[!code-csharp[](intro/samples/cu/Models/StudentVM.cs)]
 
 Wyświetl modele umożliwiają alternatywny sposób, aby zapobiec overposting. Model widoku zawiera tylko właściwości, aby wyświetlić (wyświetlanie) lub zaktualizować.
 
 Poniższy kod używa `StudentVM` modelu widoku, aby utworzyć nowy uczniów:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/CreateVM.cshtml.cs?name=snippet_OnPostAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/CreateVM.cshtml.cs?name=snippet_OnPostAsync)]
 
-[SetValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) metody ustawia wartości tego obiektu, odczytując wartości z innej [PropertyValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) obiektu. `SetValues`używa dopasowania nazwy właściwości. Typ modelu widoku nie musi być powiązany typ modelu, po prostu musi mieć właściwości, które pasują.
+[SetValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) metody ustawia wartości tego obiektu, odczytując wartości z innej [PropertyValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) obiektu. `SetValues` używa dopasowania nazwy właściwości. Typ modelu widoku nie musi być powiązany typ modelu, po prostu musi mieć właściwości, które pasują.
 
 Przy użyciu `StudentVM` wymaga [CreateVM.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Students/CreateVM.cshtml) zaktualizować w celu zastosowania `StudentVM` zamiast `Student`.
 
@@ -165,15 +165,15 @@ Na stronach Razor `PageModel` klasy pochodnej jest model widoku.
 
 ## <a name="update-the-edit-page"></a>Aktualizacja edycji strony
 
-Aktualizacja modelu strony dla strony edycji:
+Aktualizuj model strony dla strony edycji. Istotne zmiany są wyróżnione:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
 
 Zmiany kodu są podobne do tworzenia strony kilka wyjątków:
 
-* `OnPostAsync`ma opcjonalny `id` parametru.
+* `OnPostAsync` ma opcjonalny `id` parametru.
 * Bieżący uczniów jest pobierana z bazy danych, zamiast tworzenia uczniów puste.
-* `FirstOrDefaultAsync`zostało zastąpione [metoda FindAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1.findasync?view=efcore-2.0). `FindAsync`jest to dobry wybór, wybierając jednostkę z klucza podstawowego. Zobacz [metoda FindAsync](#FindAsync) Aby uzyskać więcej informacji.
+* `FirstOrDefaultAsync` zostało zastąpione [metoda FindAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1.findasync?view=efcore-2.0). `FindAsync` jest to dobry wybór, wybierając jednostkę z klucza podstawowego. Zobacz [metoda FindAsync](#FindAsync) Aby uzyskać więcej informacji.
 
 ### <a name="test-the-edit-and-create-pages"></a>Testowanie edytować i tworzyć strony
 
@@ -203,19 +203,19 @@ W aplikacji sieci web `DbContext` które odczytuje jednostki i wyświetla dane z
 
 W tej sekcji kod zostanie dodany do wdrożenia błędu niestandardowego komunikatu, gdy wywołanie `SaveChanges` zakończy się niepowodzeniem. Dodaj ciąg zawierający komunikatów o błędach:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
 
 Zastąp `OnGetAsync` metodę z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnGetAsync&highlight=1,9,17-20)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnGetAsync&highlight=1,9,17-20)]
 
-Poprzedni kod zawiera parametr opcjonalny `saveChangesError`. `saveChangesError`Wskazuje, czy metoda została wywołana po awarii można usunąć obiektu studenta. Operacja usuwania może zakończyć się niepowodzeniem z powodu przejściowych problemów z siecią. Błędy sieci są bardziej prawdopodobne w chmurze. `saveChangesError`ma wartość false, gdy strona usuwania `OnGetAsync` jest wywoływana z interfejsu użytkownika. Gdy `OnGetAsync` jest wywoływana przez `OnPostAsync` (ponieważ operacja usunięcia nie powiodła się), `saveChangesError` parametr ma wartość true.
+Poprzedni kod zawiera parametr opcjonalny `saveChangesError`. `saveChangesError` Wskazuje, czy metoda została wywołana po awarii można usunąć obiektu studenta. Operacja usuwania może zakończyć się niepowodzeniem z powodu przejściowych problemów z siecią. Błędy sieci są bardziej prawdopodobne w chmurze. `saveChangesError`ma wartość false, gdy strona usuwania `OnGetAsync` jest wywoływana z interfejsu użytkownika. Gdy `OnGetAsync` jest wywoływana przez `OnPostAsync` (ponieważ operacja usunięcia nie powiodła się), `saveChangesError` parametr ma wartość true.
 
 ### <a name="the-delete-pages-onpostasync-method"></a>Metody Delete OnPostAsync stron
 
 Zastąp `OnPostAsync` następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnPostAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnPostAsync)]
 
 Poprzedni kod pobiera wybranej jednostki, następnie wywołuje `Remove` metody w celu ustawienia stanu jednostki `Deleted`. Gdy `SaveChanges` jest nazywany SQL DELETE wygenerowaniu polecenia. Jeśli `Remove` nie powiedzie się:
 
@@ -226,7 +226,7 @@ Poprzedni kod pobiera wybranej jednostki, następnie wywołuje `Remove` metody w
 
 Dodaj komunikat o błędzie wyróżnione do strony Usuń Razor.
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Delete.cshtml?range=1-13&highlight=10)]
+[!code-cshtml[](intro/samples/cu/Pages/Students/Delete.cshtml?range=1-13&highlight=10)]
 
 Przetestuj Delete.
 

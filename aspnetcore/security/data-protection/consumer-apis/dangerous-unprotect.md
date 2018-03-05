@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/dangerous-unprotect
-ms.openlocfilehash: 584dbb545c15add4401086b9160d4bf30caf41b5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 37332dda794f898fb866424b38394f5d4441e166
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="unprotecting-payloads-whose-keys-have-been-revoked"></a>Wyłączanie ochrony ładunków, której klucze zostały odwołane.
 
@@ -30,7 +30,7 @@ Na potrzeby scenariusza umożliwienia ładunków do usunięcia ochrony nawet w w
 > [!NOTE]
 > Nie wszystkie `IDataProtector` wystąpienia mogą być rzutowane na `IPersistedDataProtector`. Programiści powinni używać języka C# jako operator lub podobne, aby uniknąć wyjątki środowiska uruchomieniowego spowodowane przez nieprawidłowy rzutowania i powinny być przygotowane do odpowiednią obsługę w przypadku awarii.
 
-`IPersistedDataProtector`udostępnia następujące powierzchni interfejsu API:
+`IPersistedDataProtector` udostępnia następujące powierzchni interfejsu API:
 
 ```csharp
 DangerousUnprotect(byte[] protectedData, bool ignoreRevocationErrors,
@@ -46,4 +46,4 @@ Ten interfejs API przyjmuje chronione obciążenie (w postaci tablicy bajtów) i
 >[!WARNING]
 > Zachować wyjątkową ostrożność podczas przekazywania `ignoreRevocationErrors: true` do `DangerousUnprotect` metody. Jeśli po wywołaniu tej metody `wasRevoked` ma wartość true, a następnie klucz używany do ochrony tego ładunku został odwołany i autentyczności ładunku powinny być traktowane jako podejrzana. W takim przypadku tylko nadal działających na niechronione ładunku, jeśli masz niektórych oddzielne gwarancji jest autentyczna, np. czy jest pochodzi z bezpiecznej bazie danych nie są wysyłane przez klienta niezaufanych sieci web.
 
-[!code-csharp[Main](dangerous-unprotect/samples/dangerous-unprotect.cs)]
+[!code-csharp[](dangerous-unprotect/samples/dangerous-unprotect.cs)]

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 337782a0530a37916b04aa562174b5921ddbc46b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 489c53c066af87e02e43ab0b42b0712d80d5ee5a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Bezpieczne przechowywanie kluczy tajnych aplikacji w czasie opracowywania w ASP.NET Core
 
@@ -45,11 +45,11 @@ Narzędzie Menedżer klucz tajny są przechowywane poufne dane w projektach poza
 
 Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **Edytuj \<project_name\>.csproj** z menu kontekstowego. Dodaj wybrany element do *.csproj* pliku, a następnie zapisz do przywrócenia skojarzonego pakietu NuGet:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 Ponownie kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **Zarządzanie kluczy tajnych użytkownika** z menu kontekstowego. Ten gest dodaje nowy `UserSecretsId` węzła w ramach `PropertyGroup` z *.csproj* plików, jak w poniższym przykładzie wyróżniono:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 Zapisywanie zmodyfikowanych *.csproj* również plik zostanie otwarta `secrets.json` plik w edytorze tekstu. Zastąp zawartość `secrets.json` pliku następującym kodem:
 
@@ -61,9 +61,9 @@ Zapisywanie zmodyfikowanych *.csproj* również plik zostanie otwarta `secrets.j
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Dodaj `Microsoft.Extensions.SecretManager.Tools` do *.csproj* pliku i uruchom `dotnet restore`. Te same kroki można użyć do zainstalowania narzędzia menedżera klucz tajny przy użyciu wiersza polecenia.
+Dodaj `Microsoft.Extensions.SecretManager.Tools` do *.csproj* pliku i uruchom [przywracania dotnet](/dotnet/core/tools/dotnet-restore). Te same kroki można użyć do zainstalowania narzędzia menedżera klucz tajny przy użyciu wiersza polecenia.
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 Przetestuj narzędzie Menedżer klucz tajny, uruchamiając następujące polecenie:
 
@@ -80,7 +80,7 @@ Narzędzie Menedżer klucz tajny działa na ustawienia konfiguracji określonego
 
 Dodaj `UserSecretsId` projektu w *.csproj* pliku:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 Ustaw klucz tajny narzędzie Menedżer klucz tajny. Na przykład w oknie polecenia w katalogu projektu, wprowadź następujące polecenie:
 
@@ -100,25 +100,25 @@ Narzędzie Menedżer klucz tajny służy również do, Usuń, a następnie wyczy
 
 ## <a name="accessing-user-secrets-via-configuration"></a>Uzyskiwanie dostępu do kluczy tajnych użytkownika za pomocą konfiguracji
 
-Klucz tajny Menedżera kluczy tajnych dostępu za pomocą systemu konfiguracji. Dodaj `Microsoft.Extensions.Configuration.UserSecrets` pakiet, a następnie uruchom `dotnet restore`.
+Klucz tajny Menedżera kluczy tajnych dostępu za pomocą systemu konfiguracji. Dodaj `Microsoft.Extensions.Configuration.UserSecrets` pakiet, a następnie uruchom [przywracania dotnet](/dotnet/core/tools/dotnet-restore).
 
 Dodaj użytkownika kluczy tajnych konfiguracji źródła `Startup` metody:
 
-[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
+[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
 
 Aby dostęp do kluczy tajnych użytkownika przez interfejs API konfiguracji:
 
-[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
+[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
 
 ## <a name="how-the-secret-manager-tool-works"></a>Jak działa narzędzie Menedżer klucz tajny
 
 Narzędzie Menedżer klucz tajny optymalizacji abstracts szczegóły implementacji, takich jak jak i gdzie są przechowywane wartości. Można użyć narzędzia bez uprzedniego uzyskania informacji o tych szczegóły implementacji. W bieżącej wersji wartości są przechowywane w [JSON](http://json.org/) pliku konfiguracji w katalogu profilu użytkownika:
 
-* System Windows:`%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`
+* System Windows: `%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`
 
 * Linux: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
-* Mac:`~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+* Mac: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
 Wartość `userSecretsId` pochodzi z wartością określoną w *.csproj* pliku.
 

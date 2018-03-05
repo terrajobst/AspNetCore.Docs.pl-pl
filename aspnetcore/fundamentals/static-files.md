@@ -11,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 7b156830ab59db3c08fbff6b2c4180d8765a113b
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 9614d8b744776ee318e9d385b9ef40e90c0c16c1
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="work-with-static-files-in-aspnet-core"></a>Praca z plikami statycznych w ASP.NET Core
 
@@ -146,7 +146,7 @@ Ustawianie domyślnej strony głównej stanowi odwiedzających logicznej punkt p
 [!code-csharp[](static-files/samples/1x/StartupEmpty.cs?name=snippet_ConfigureMethod&highlight=3)]
 
 > [!IMPORTANT]
-> `UseDefaultFiles`musi zostać wywołana przed `UseStaticFiles` do obsługi domyślnego pliku. `UseDefaultFiles`jest funkcji ponownego zapisu adresu URL, który faktycznie nie mógł być pliku. Włącz oprogramowanie pośredniczące plików statycznych przy użyciu `UseStaticFiles` do obsługi pliku.
+> `UseDefaultFiles` musi zostać wywołana przed `UseStaticFiles` do obsługi domyślnego pliku. `UseDefaultFiles` jest funkcji ponownego zapisu adresu URL, który faktycznie nie mógł być pliku. Włącz oprogramowanie pośredniczące plików statycznych przy użyciu `UseStaticFiles` do obsługi pliku.
 
 Z `UseDefaultFiles`, żądania do folderu wyszukiwania:
 
@@ -192,7 +192,7 @@ Poniższy kod umożliwia pliki statyczne, domyślne pliki i przeglądanie katalo
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureMethod&highlight=5-11)]
 
-`AddDirectoryBrowser`musi być wywoływane, gdy `EnableDirectoryBrowsing` wartość właściwości jest `true`:
+`AddDirectoryBrowser` musi być wywoływane, gdy `EnableDirectoryBrowsing` wartość właściwości jest `true`:
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureServicesMethod)]
 
@@ -208,7 +208,7 @@ Jeśli nie o nazwie domyślnej istnieje plik w *MyStaticFiles* katalogu, *http:/
 ![Lista plików statycznych](static-files/_static/db2.png)
 
 > [!NOTE]
-> `UseDefaultFiles`i `UseDirectoryBrowser` Użyj adresu URL *http://\<server_address > / StaticFiles* bez ukośników do wyzwolenia klienta przekierowania do *http://\<server_address > / StaticFiles /*. Zwróć uwagę, dodanie wiodący ukośnik. Względnych adresów URL w dokumentach jest uznany za nieprawidłowy bez ukośnika.
+> `UseDefaultFiles` i `UseDirectoryBrowser` Użyj adresu URL *http://\<server_address > / StaticFiles* bez ukośników do wyzwolenia klienta przekierowania do *http://\<server_address > / StaticFiles /*. Zwróć uwagę, dodanie wiodący ukośnik. Względnych adresów URL w dokumentach jest uznany za nieprawidłowy bez ukośnika.
 
 ## <a name="fileextensioncontenttypeprovider"></a>FileExtensionContentTypeProvider
 
@@ -234,11 +234,11 @@ Z poprzednim kodzie żądanie dla pliku z nieznanego typu zawartości jest zwrac
 ### <a name="considerations"></a>Uwagi
 
 > [!WARNING]
-> `UseDirectoryBrowser`i `UseStaticFiles` można wyciek kluczy tajnych. Zdecydowanie zaleca się wyłączenie przeglądanie katalogów w środowisku produkcyjnym. Uważnie przejrzyj katalogi, które są włączone za pośrednictwem `UseStaticFiles` lub `UseDirectoryBrowser`. Całego katalogu i jego podkatalogów stać się publicznie. Magazyn plików odpowiednie do użycia w publicznie dedykowanej katalog, takich jak  *\<content_root > / wwwroot*. Te pliki należy oddzielić od widoków MVC, stron Razor (tylko 2.x), pliki konfiguracji itp.
+> `UseDirectoryBrowser` i `UseStaticFiles` można wyciek kluczy tajnych. Zdecydowanie zaleca się wyłączenie przeglądanie katalogów w środowisku produkcyjnym. Uważnie przejrzyj katalogi, które są włączone za pośrednictwem `UseStaticFiles` lub `UseDirectoryBrowser`. Całego katalogu i jego podkatalogów stać się publicznie. Magazyn plików odpowiednie do użycia w publicznie dedykowanej katalog, takich jak  *\<content_root > / wwwroot*. Te pliki należy oddzielić od widoków MVC, stron Razor (tylko 2.x), pliki konfiguracji itp.
 
 * Adresy URL zawartość jest uwidaczniana z `UseDirectoryBrowser` i `UseStaticFiles` uwzględniana wielkość liter i znaków ograniczenia źródłowy system plików. Na przykład systemu Windows nie uwzględnia wielkości liter&mdash;nie Mac i Linux.
 
-* Aplikacji platformy ASP.NET Core hostowanych w użyciu IIS [platformy ASP.NET Core modułu (ANCM)](xref:fundamentals/servers/aspnet-core-module) do przekazywania wszystkich żądań do aplikacji, włącznie z żądaniami plików statycznych. Obsługa plików statycznych usług IIS nie jest używany. Nie ma możliwość obsługi żądań przed są one obsługiwane przez ANCM.
+* Aplikacji platformy ASP.NET Core hostowanych w użyciu IIS [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) do przekazywania wszystkich żądań do aplikacji, włącznie z żądaniami plików statycznych. Obsługa plików statycznych usług IIS nie jest używany. Nie ma możliwość obsługi żądań przed są one obsługiwane przez moduł.
 
 * Wykonaj następujące kroki w Menedżerze usług IIS do obsługi plików statycznych usług IIS na poziomie serwera lub witryny sieci Web do usunięcia:
     1. Przejdź do **modułów** funkcji.
@@ -246,7 +246,7 @@ Z poprzednim kodzie żądanie dla pliku z nieznanego typu zawartości jest zwrac
     1. Kliknij przycisk **Usuń** w **akcje** paska bocznego.
 
 > [!WARNING]
-> Jeśli jest włączona obsługa plików statycznych IIS **i** ANCM jest niepoprawnie skonfigurowana, pliki statyczne są obsługiwane. Dzieje się tak, na przykład, jeśli *web.config* plik nie jest wdrożony.
+> Jeśli jest włączona obsługa plików statycznych IIS **i** moduł platformy ASP.NET Core jest niepoprawnie skonfigurowana, pliki statyczne są obsługiwane. Dzieje się tak, na przykład, jeśli *web.config* plik nie jest wdrożony.
 
 * Umieść kod plików (w tym *.cs* i *.cshtml*) poza katalogiem głównym projektu aplikacji sieci web. W związku z tym utworzeniu separacji logicznej między zawartości po stronie klienta i kodu na serwerze aplikacji. Zapobiega to wycieku kod po stronie serwera.
 

@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: 27e77b8fa032c2b5be753a27db748b7499e27105
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2db6c22c27bad5a242771a6e44ef5e0fa8f77395
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="view-components"></a>Składniki w widoku
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
@@ -66,7 +66,7 @@ Widok klasy składnika:
 
 Składnik widoku definiuje swojej logiki w `InvokeAsync` metodę zwracającą `IViewComponentResult`. Parametry pochodzi bezpośrednio z wywołania składnika widoku, nie z wiązania modelu. Składnik widoku nigdy nie obsługuje bezpośrednio żądanie. Zazwyczaj składnikiem widoku inicjuje modelu i przekazuje je do widoku, wywołując `View` metody. Podsumowując Wyświetl metody składników:
 
-* Zdefiniuj `InvokeAsync` metodę zwracającą`IViewComponentResult`
+* Zdefiniuj `InvokeAsync` metodę zwracającą `IViewComponentResult`
 * Zazwyczaj inicjuje modelu i przekazuje je do widoku, wywołując `ViewComponent` `View` — metoda
 * Parametry pochodzą z wywołania metody HTTP nie znajduje się nie wiązanie modelu
 * To nie jest dostępny bezpośrednio jako punkt końcowy HTTP, ich jest wywoływany z kodu (zazwyczaj w widoku). Składnik widoku nigdy nie obsługuje żądania
@@ -93,13 +93,13 @@ Aby użyć widoku składnika, wywołaj następujące wewnątrz widoku:
 
 Parametry zostaną przekazane do `InvokeAsync` metody. `PriorityList` Składnika widoku opracowane w artykule jest wywoływany z *Views/Todo/Index.cshtml* widoku pliku. Poniższa `InvokeAsync` metoda jest wywoływana z dwoma parametrami:
 
-[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 ## <a name="invoking-a-view-component-as-a-tag-helper"></a>Wywoływanie składnika widoku jako pomocnika tagów
 
 Dla platformy ASP.NET Core 1.1 i wyższych, można wywołać składnika widoku jako [pomocnika tagów](xref:mvc/views/tag-helpers/intro):
 
-[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 Pascal — z uwzględnieniem wielkości liter klasy i metody parametrów dla pomocników tagów są przekształcane na ich [obniżyć przypadku kebab](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Używa pomocnika tagów do wywołania składnika widoku `<vc></vc>` elementu. Składnik widoku określono w następujący sposób:
 
@@ -120,11 +120,11 @@ Można zarejestrować składnika widoku jako pomocnika tagów do każdego pliku,
 
 `InvokeAsync` Metodę używaną w tym samouczku:
 
-[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 W znaczniku pomocnika tagów:
 
-[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 W powyższym przykładowym `PriorityList` staje się widok składnika `priority-list`. Parametry do składnika widoku są przekazywane jako atrybuty w przypadku kebab niższa.
 
@@ -134,7 +134,7 @@ Widok składniki zwykle są wywoływane z widoku, ale można ich wywoływać bez
 
 W tym przykładzie składnik widoku jest wywoływany bezpośrednio z kontrolerem:
 
-[!code-csharp[Main](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
+[!code-csharp[](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
 ## <a name="walkthrough-creating-a-simple-view-component"></a>Wskazówki: Tworzenie składnika prosty widok
 
@@ -146,7 +146,7 @@ W tym przykładzie składnik widoku jest wywoływany bezpośrednio z kontrolerem
 
 Utwórz *ViewComponents* folderu i dodaj następującą `PriorityListViewComponent` klasy:
 
-[!code-csharp[Main](view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponent1.cs?name=snippet1)]
+[!code-csharp[](view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponent1.cs?name=snippet1)]
 
 Uwagi o kodzie:
 
@@ -161,7 +161,7 @@ Uwagi o kodzie:
 
 * `[ViewComponent]` Atrybut powyżej informuje selektor składnika Widok, aby użyć nazwy `PriorityList` podczas wyszukiwania dla widoków skojarzone ze składnikiem i aby użyć ciągu "PriorityList" podczas odwoływania się do składnika klasy z widoku. I będzie wyjaśnić, że bardziej szczegółowo później.
 * Używany przez składnik [iniekcji zależności](../../fundamentals/dependency-injection.md) udostępnić kontekstu danych.
-* `InvokeAsync`udostępnia metodę, która może zostać wywołana z widoku, a może zająć dowolnej liczby argumentów.
+* `InvokeAsync` udostępnia metodę, która może zostać wywołana z widoku, a może zająć dowolnej liczby argumentów.
 * `InvokeAsync` Metoda zwraca zbiór `ToDo` elementów, które spełniają `isDone` i `maxPriority` parametrów.
 
 ### <a name="create-the-view-component-razor-view"></a>Tworzenie widoku Razor składnika widoku
@@ -170,7 +170,7 @@ Uwagi o kodzie:
 
 * Utwórz *widoków/Shared/składniki/PriorityList* folderu. Nazwa tego folderu muszą być zgodne, nazwa klasy części widoku lub nazwę klasy minus sufiks (jeśli mamy po Konwencji i używana *ViewComponent* sufiksu w nazwie klasy). Jeśli używasz `ViewComponent` atrybutu, nazwa klasy musi do dopasowania nazwy atrybutu.
 
-* Utwórz *Views/Shared/Components/PriorityList/Default.cshtml* widoku Razor:[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* Utwórz *Views/Shared/Components/PriorityList/Default.cshtml* widoku Razor: [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
     
    W widoku Razor przyjmuje listę `TodoItem` i wyświetla je. Jeśli składnik widoku `InvokeAsync` — metoda nie przeszło nazwę widoku (w naszym przykładzie) *domyślne* jest używany dla nazwy widoku przez Konwencję. W dalszej części samouczka I opisano sposób przekazywania nazwy widoku. Aby zastąpić stylem domyślnym dla określonego kontrolera, Dodaj widok do folderu określonego kontrolera widoku (na przykład *Views/Todo/Components/PriorityList/Default.cshtml)*.
     
@@ -178,9 +178,9 @@ Uwagi o kodzie:
 
 * Dodaj `div` zawierającym wywołanie składnika listy Priorytet do dołu *Views/Todo/index.cshtml* pliku:
 
-    [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
+    [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
 
-Kod znaczników `@await Component.InvokeAsync` przedstawiono składnię wywoływania wyświetlania składników. Pierwszy argument jest nazwa składnika, którą chcemy udostępnić wywołania lub zadzwoń. Kolejne parametry są przekazywane do składnika. `InvokeAsync`może być dowolną liczbę argumentów.
+Kod znaczników `@await Component.InvokeAsync` przedstawiono składnię wywoływania wyświetlania składników. Pierwszy argument jest nazwa składnika, którą chcemy udostępnić wywołania lub zadzwoń. Kolejne parametry są przekazywane do składnika. `InvokeAsync` może być dowolną liczbę argumentów.
 
 Testowanie aplikacji. Na poniższej ilustracji przedstawiono listy rzeczy do zrobienia, a elementy o priorytecie:
 
@@ -188,7 +188,7 @@ Testowanie aplikacji. Na poniższej ilustracji przedstawiono listy rzeczy do zro
 
 Możesz także wywołać bezpośrednio z kontrolera składnika widoku:
 
-[!code-csharp[Main](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
+[!code-csharp[](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
 ![priorytet elementy z IndexVC akcji](view-components/_static/indexvc.png)
 
@@ -196,17 +196,17 @@ Możesz także wywołać bezpośrednio z kontrolera składnika widoku:
 
 Składnik złożonego widoku może należy określić widok z systemem innym niż domyślny, w niektórych warunkach. Poniższy kod przedstawia sposób określania widoku "PVC" z `InvokeAsync` metody. Aktualizacja `InvokeAsync` metoda `PriorityListViewComponent` klasy.
 
-[!code-csharp[Main](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponentFinal.cs?highlight=4,5,6,7,8,9&range=28-39)]
+[!code-csharp[](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponentFinal.cs?highlight=4,5,6,7,8,9&range=28-39)]
 
 Kopiuj *Views/Shared/Components/PriorityList/Default.cshtml* pliku do widoku o nazwie *Views/Shared/Components/PriorityList/PVC.cshtml*. Dodaj nagłówek wskazuje, że widok PVC jest używany.
 
-[!code-cshtml[Main](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
+[!code-cshtml[](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
 
 Aktualizacja *Views/TodoList/Index.cshtml*:
 
 <!-- Views/TodoList/Index.cshtml is never imported, so change to test tutorial -->
 
-[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 Uruchom aplikację i zweryfikować PVC widoku.
 
@@ -238,11 +238,11 @@ Jeśli nie jest renderowany widok PVC, sprawdź, czy są wywoływanie składnika
 
 Jeśli chcesz skompilować bezpieczeństwa czasu, nazwy składnika ustalony widoku można zastąpić nazwę klasy. Utwórz widok składnika sufiksu "ViewComponent":
 
-[!code-csharp[Main](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityList.cs?highlight=10&range=5-35)]
+[!code-csharp[](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityList.cs?highlight=10&range=5-35)]
 
 Dodaj `using` oświadczenie do użytkownika Razor wyświetlanie plików i używanie `nameof` operator:
 
-[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: 7c6d629ea94dd7c79a2f4e24fd4d0ff797f7e516
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: ef5dba655a8b6332bf0b6f21c678481a1c55aecf
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="in-memory-caching-in-aspnet-core"></a>Buforowanie w pamięci w ASP.NET Core
 
@@ -38,21 +38,21 @@ Dowolny obiekt; mogą być przechowywane w pamięci podręcznej Interfejs rozpro
 
 Buforowanie w pamięci jest *usługi* który jest wywoływany przez przy użyciu aplikacji [iniekcji zależności](../../fundamentals/dependency-injection.md). Wywołanie `AddMemoryCache` w `ConfigureServices`:
 
-[!code-csharp[Main](memory/sample/WebCache/Startup.cs?highlight=8)] 
+[!code-csharp[](memory/sample/WebCache/Startup.cs?highlight=8)] 
 
 Żądanie `IMemoryCache` wystąpienia w Konstruktorze:
 
-[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ctor&highlight=3,5-999)] 
+[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ctor&highlight=3,5-999)] 
 
-`IMemoryCache`wymaga pakietu NuGet "Microsoft.Extensions.Caching.Memory".
+`IMemoryCache` wymaga pakietu NuGet "Microsoft.Extensions.Caching.Memory".
 
 Poniższy kod używa [TryGetValue](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) do Sprawdź, czy bieżący czas jest w pamięci podręcznej. Jeśli element nie są buforowane, nowy wpis jest tworzony i dodawany do pamięci podręcznej z [ustawić](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_).
 
-[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet1)]
+[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet1)]
 
 Wyświetlany jest bieżący czas i czas pamięci podręcznej:
 
-[!code-html[Main](memory/sample/WebCache/Views/Home/Cache.cshtml)]
+[!code-html[](memory/sample/WebCache/Views/Home/Cache.cshtml)]
 
 Zapisane w pamięci podręcznej `DateTime` wartość zostanie umieszczony w pamięci podręcznej podczas żądania znajduje się w przedziale czasu (i nie wykluczenia z powodu braku pamięci). Na poniższym obrazie przedstawiono bieżący czas i czas starsze pobrać z pamięci podręcznej:
 
@@ -60,11 +60,11 @@ Zapisane w pamięci podręcznej `DateTime` wartość zostanie umieszczony w pami
 
 Poniższy kod używa [GetOrCreate](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreate__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry___0__) i [GetOrCreateAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreateAsync__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry_System_Threading_Tasks_Task___0___) do pamięci podręcznej danych. 
 
-[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet2&highlight=3-7,14-19)]
+[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet2&highlight=3-7,14-19)]
 
 Poniższy kod wywołania [uzyskać](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Get__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_) można pobrać czasu pamięci podręcznej:
 
-[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_gct)]
+[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_gct)]
 
 Zobacz [metody IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache) i [metody CacheExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions) opis metody pamięci podręcznej.
 
@@ -77,13 +77,13 @@ Poniższy przykład:
 - Ustawia priorytet pamięci podręcznej na `CacheItemPriority.NeverRemove`. 
 - Ustawia [PostEvictionDelegate](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.postevictiondelegate) która będzie wywoływana po wykonaniu wpis zostanie usunięty z pamięci podręcznej. Wywołanie zwrotne jest uruchamiane w innym wątku z kodu, który usuwa element z pamięci podręcznej.
 
-[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-20)]
+[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-20)]
 
 ## <a name="cache-dependencies"></a>Zależności pamięci podręcznej
 
 Poniższy przykład przedstawia sposób wygaśnięcia wpisu pamięci podręcznej po przekroczeniu pozycji zależności. A `CancellationChangeToken` zostanie dodany do elementu pamięci podręcznej. Gdy `Cancel` jest wywoływana na `CancellationTokenSource`, zarówno wpisy w pamięci podręcznej jest wykluczony. 
 
-[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ed)]
+[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ed)]
 
 Przy użyciu `CancellationTokenSource` zezwala na wiele wpisów pamięci podręcznej wykluczenie jako grupa. Z `using` wzorca w powyższym kodzie, tworzyć wpisy w pamięci podręcznej `using` bloku odziedziczy ustawienia wygaśnięcia i wyzwalaczy.
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 4085ca9340291f6ab594285360f3b65738699098
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: ac9dc6f08bbcd890c5848e7cc5cb4ee93713a559
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>Aktualizowanie danych powiązanych - Core EF z samouczek platformy ASP.NET Core MVC (7 10)
 
@@ -35,27 +35,27 @@ Po utworzeniu nowego obiektu kursu musi mieć relacji z istniejących działu. A
 
 W *CoursesController.cs*, usunąć czterech metod tworzenia i edycji i zastąpić je z następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreateGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreateGet)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreatePost)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreatePost)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditGet)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditPost)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditPost)]
 
 Po `Edit` metody HttpPost utworzenie nowej metody, który ładuje informacji działu dla listy rozwijanej.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_Departments)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_Departments)]
 
 `PopulateDepartmentsDropDownList` Metoda pobiera listę wszystkich działach sortowane według nazwy, tworzy `SelectList` kolekcji do listy rozwijanej i przekazuje do widoku w kolekcji `ViewBag`. Metoda przyjmuje opcjonalny `selectedDepartment` parametr, który umożliwia kod wywołujący określić elementu, który będzie wybierany Po wyrenderowaniu listy rozwijanej. Widok przekazuje do nazwy "DepartmentID" `<select>` pomocnika tagów i pomocnika następnie traktował Szukaj w `ViewBag` obiekt do `SelectList` o nazwie "DepartmentID".
 
 HttpGet `Create` wywołania metody `PopulateDepartmentsDropDownList` metody bez ustawienie wybranego elementu, ponieważ dla nowego kursu działu nie jest jeszcze ustalony:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=3&name=snippet_CreateGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?highlight=3&name=snippet_CreateGet)]
 
 HttpGet `Edit` metoda ustawia wybrany element na podstawie Identyfikatora działu, który jest już przypisany do kursu edytowany:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=15&name=snippet_EditGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?highlight=15&name=snippet_EditGet)]
 
 Obie metody HttpPost `Create` i `Edit` również obejmować kod, który ustawia wybranego elementu, gdy ich ponownie wyświetlić stronę po wystąpieniu błędu. Dzięki temu, że po stronie zostanie wyświetlony ponownie, aby wyświetlić komunikat o błędzie, niezależnie od działu wybrano jest wybrane.
 
@@ -63,27 +63,27 @@ Obie metody HttpPost `Create` i `Edit` również obejmować kod, który ustawia 
 
 Aby zoptymalizować wydajność, szczegóły dotyczące kursu i usuwanie stron, Dodaj `AsNoTracking` odwołuje się `Details` i HttpGet `Delete` metody.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_Details)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_Details)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_DeleteGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_DeleteGet)]
 
 ### <a name="modify-the-course-views"></a>Modyfikowanie widoków kursu
 
 W *Views/Courses/Create.cshtml*, dodaj opcję "Wybierz dział" **działu** listy rozwijanej pozycję Zmienianie podpisu z **DepartmentID** do  **Dział**i Dodaj komunikat dotyczący sprawdzania poprawności.
 
-[!code-html[Main](intro/samples/cu/Views/Courses/Create.cshtml?highlight=2-6&range=29-34)]
+[!code-html[](intro/samples/cu/Views/Courses/Create.cshtml?highlight=2-6&range=29-34)]
 
 W *Views/Courses/Edit.cshtml*, wprowadzić w polu działu, jak w *Create.cshtml*.
 
 Również w *Views/Courses/Edit.cshtml*, Dodaj pole Liczba kursu przed **tytuł** pola. Ponieważ numer kursu jest to klucz podstawowy, jest on wyświetlany, ale nie można zmienić.
 
-[!code-html[Main](intro/samples/cu/Views/Courses/Edit.cshtml?range=15-18)]
+[!code-html[](intro/samples/cu/Views/Courses/Edit.cshtml?range=15-18)]
 
 Istnieje już ukryte pole (`<input type="hidden">`) numeru kursu w widoku edycji. Dodawanie `<label>` pomocnika tagów nie eliminuje potrzebę stosowania ukryte pola, ponieważ nie powoduje numer kursu mają zostać uwzględnione w przesłane dane, gdy użytkownik kliknie **zapisać** na **Edytuj** strony.
 
 W *Views/Courses/Delete.cshtml*, Dodaj pole Liczba kursu u góry i Zmień nazwę Dział dział identyfikator.
 
-[!code-html[Main](intro/samples/cu/Views/Courses/Delete.cshtml?highlight=14-19,36)]
+[!code-html[](intro/samples/cu/Views/Courses/Delete.cshtml?highlight=14-19,36)]
 
 W *Views/Courses/Details.cshtml*, wprowadzić zmiany sam, jak w *Delete.cshtml*.
 
@@ -115,11 +115,11 @@ Podczas edytowania rekordu instruktora chcesz była możliwa aktualizacja instru
 
 W *InstructorsController.cs*, Zmień kod w HttpGet `Edit` metodę, tak aby ładuje Jednostka Instructor `OfficeAssignment` właściwość nawigacji i wywołania `AsNoTracking`:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=9,10&name=snippet_EditGetOA)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=9,10&name=snippet_EditGetOA)]
 
 Zastąp HttpPost `Edit` metody z następujący kod, aby obsługiwać aktualizacje przypisania pakietu office:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EditPostOA)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EditPostOA)]
 
 Kod wykonuje następujące czynności:
 
@@ -129,7 +129,7 @@ Kod wykonuje następujące czynności:
 
 -  Aktualizuje pobraną jednostkę instruktora wartościami z integratora modelu. `TryUpdateModel` Przeciążenie umożliwia utworzenie listy dozwolonych właściwości, które chcesz dołączyć. Pozwala to uniknąć nadmiernego publikowanie zgodnie z objaśnieniem w [drugi samouczek](crud.md).
 
-    <!-- Snippets don't play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
+    <!-- Snippets don't play well with <ul> [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
     ```csharp
     if (await TryUpdateModelAsync<Instructor>(
@@ -155,7 +155,7 @@ Kod wykonuje następujące czynności:
 
 W *Views/Instructors/Edit.cshtml*, Dodaj nowe pole do edycji lokalizacji biura, przed upływem **zapisać** przycisk:
 
-[!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=30-34)]
+[!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=30-34)]
 
 Uruchom aplikację, wybierz **instruktorów** , a następnie kliknij pozycję **Edytuj** na instruktora. Zmień **oddział** i kliknij przycisk **zapisać**.
 
@@ -177,11 +177,11 @@ Aby zapewnić dane do widoku listy pól wyboru, użyjesz klasy modelu widoku.
 
 Utwórz *AssignedCourseData.cs* w *SchoolViewModels* folderu i Zamień istniejący kod następującym kodem:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
 
 W *InstructorsController.cs*, Zastąp HttpGet `Edit` metodę z następującym kodem. Zmiany zostały wyróżnione.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=10,17,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36&name=snippet_EditGetCourses)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=10,17,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36&name=snippet_EditGetCourses)]
 
 Ten kod dodaje wczesny ładowania dla `Courses` właściwość nawigacji i wywołuje nowe `PopulateAssignedCourseData` metody, aby podać informacje dotyczące używania tablicy pole wyboru `AssignedCourseData` wyświetlić klasy modelu.
 
@@ -189,9 +189,9 @@ Kod w `PopulateAssignedCourseData` — metoda odczytuje za pośrednictwem wszyst
 
 Następnie dodaj kod, który jest wykonywany, gdy użytkownik kliknie **zapisać**. Zastąp `EditPost` metodę z następującym kodem, a następnie dodaj nową metodę, która aktualizuje `Courses` właściwości nawigacji jednostki instruktora.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=1,3,12,13,25,39-40&name=snippet_EditPostCourses)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=1,3,12,13,25,39-40&name=snippet_EditPostCourses)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=1-31)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=1-31)]
 
 Podpis metody teraz różni się od HttpGet `Edit` metody, więc zmienia nazwę metody z `EditPost` do `Edit`.
 
@@ -199,17 +199,17 @@ Ponieważ widok nie zawiera kolekcji jednostek kursu, integratora modelu nie mo�
 
 Jeśli nie zostały zaznaczone pola wyboru kod w `UpdateInstructorCourses` inicjuje `CourseAssignments` właściwości nawigacji o pustej kolekcji i zwraca:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=3-7)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=3-7)]
 
 Kod, a następnie przetwarza w pętli wszystkich kursów w bazie danych i sprawdza każdego kursu względem nich aktualnie przypisane do instruktora od komputerów, które wybrano w widoku. W celu ułatwienia wyszukiwania wydajne, ostatnie dwie kolekcje są przechowywane w `HashSet` obiektów.
 
 Jeśli zaznaczono pole wyboru dla porach, ale kursu nie znajduje się w `Instructor.CourseAssignments` właściwości nawigacji kursu zostanie dodany do kolekcji we właściwości nawigacji.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=14-20&name=snippet_UpdateCourses)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=14-20&name=snippet_UpdateCourses)]
 
 Jeśli nie zostało zaznaczone pole wyboru dla porach, ale znajduje się w trakcie `Instructor.CourseAssignments` właściwość nawigacji, kursu zostanie usunięta z właściwości nawigacji.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=21-29&name=snippet_UpdateCourses)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=21-29&name=snippet_UpdateCourses)]
 
 ### <a name="update-the-instructor-views"></a>Aktualizowanie widoków instruktora
 
@@ -219,7 +219,7 @@ W *Views/Instructors/Edit.cshtml*, Dodaj **kursy** pole z tablicą pola wyboru p
 > [!NOTE] 
 > Po wklejeniu kodu w programie Visual Studio, podziały wiersza zostanie zmieniony w taki sposób, który dzieli kod.  Naciśnij klawisze Ctrl + Z jeden raz, aby cofnąć automatycznego formatowania.  Naprawi podziały wiersza, aby wyglądają tu wyświetlić. Wcięcie nie musi być idealne, ale `@</tr><tr>`, `@:<td>`, `@:</td>`, i `@:</tr>` linie muszą być w jednym wierszu pokazany lub zostanie wyświetlony błąd w czasie wykonywania. Z bloku nowy kod zaznaczone naciśnij klawisz Tab trzykrotnie Aby wyrównać nowy kod z istniejącym kodem. Stan tego problemu można sprawdzić [tutaj](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
 
-[!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
+[!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
 Ten kod tworzy tabelę HTML, który zawiera trzy kolumny. W każdej kolumnie ma postać pola wyboru, a po nim tekstem, który składa się z kursu numer i tytuł. Wszystkie pola wyboru mają taką samą nazwę ("selectedCourses"), które informuje integrator modelu o tym, że są one traktowane jako grupa. Atrybut wartość każdego pola wyboru jest ustawiony na wartość `CourseID`. Gdy strona jest przesyłana, integratora modelu przekazuje tablicy do kontrolera, który składa się z `CourseID` wartości dla pola wyboru, które zostały wybrane.
 
@@ -238,7 +238,7 @@ Zmień przypisania pewnych porach i kliknij przycisk Zapisz. Wprowadzone zmiany 
 
 W *InstructorsController.cs*, Usuń `DeleteConfirmed` — metoda i wstaw poniższy kod w jego miejscu.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=5-7,9-12&name=snippet_DeleteConfirmed)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=5-7,9-12&name=snippet_DeleteConfirmed)]
 
 Ten kod wprowadza następujące zmiany:
 
@@ -250,7 +250,7 @@ Ten kod wprowadza następujące zmiany:
 
 W *InstructorsController.cs*, Usuń HttpGet i HttpPost `Create` metod, a następnie dodaj następujący kod w ich miejscu:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Create&highlight=3-5,12,14-22,29)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Create&highlight=3-5,12,14-22,29)]
 
 Ten kod jest podobna do instrukcji dotyczących `Edit` metody z wyjątkiem to początkowo nie kursy są wybrane. HttpGet `Create` wywołania metody `PopulateAssignedCourseData` — metoda nie może być kursy wybrane, ale w celu Podaj pustą kolekcję dla `foreach` pętli w widoku (w przeciwnym razie kod widoku spowoduje zgłoszenie wyjątku odwołanie o wartości null).
 
@@ -283,7 +283,7 @@ Jeśli zmodyfikujesz `CourseAssignments` właściwości w ten sposób można usu
 
 W *Views/Instructor/Create.cshtml*, Dodaj pole tekstowe lokalizacji pakietu office i sprawdź pola kursów przed przycisku Prześlij. Jak w przypadku edycji strony [Popraw formatowanie, jeśli program Visual Studio formatuje kod po wklejeniu go](#notepad).
 
-[!code-html[Main](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
+[!code-html[](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
 
 Przetestuj aplikację i tworzenie instruktora. 
 

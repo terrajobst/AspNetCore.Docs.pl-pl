@@ -9,15 +9,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 770b930373888c8b4bd578ba6d2524546549800e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3632b40abb4a3c2343a17a9f3e08bd28fdcf7174
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Dodawanie walidacji do strony Razor
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tej sekcji weryfikacji logiki jest dodawany do `Movie` modelu. Reguł sprawdzania poprawności są wymuszane w dowolnym momencie użytkownik tworzy lub edytuje filmu.
 
@@ -33,7 +33,7 @@ Otwórz *Movie.cs* pliku. [DataAnnotations](https://docs.microsoft.com/aspnet/mv
 
 Aktualizacja `Movie` klasy, aby móc korzystać z `Required`, `StringLength`, `RegularExpression`, i `Range` atrybutów sprawdzania poprawności.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 Atrybuty weryfikacji Określ zachowanie, który jest wymuszany dla właściwości modelu:
 
@@ -85,7 +85,7 @@ Opcjonalne, testów weryfikacji po stronie serwera:
 
 Poniższy kod przedstawia część *Create.cshtml* strona, która szkieletu wcześniej w samouczku. Jest on używany przez tworzenie i edytowanie strony do wyświetlania formularza początkowego i ponownie wyświetlić formularza w przypadku wystąpienia błędu.
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
 [Pomocnika Tag danych wejściowych](xref:mvc/views/working-with-forms) używa [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) atrybutów i tworzy wymagane dla technologii jQuery weryfikacji po stronie klienta atrybutów HTML. [Pomocnika tagów weryfikacji](xref:mvc/views/working-with-forms#the-validation-tag-helpers) przedstawia błędy sprawdzania poprawności. Zobacz [weryfikacji](xref:mvc/models/validation) Aby uzyskać więcej informacji.
 
@@ -97,13 +97,13 @@ Gdy logikę weryfikacji musi zmienić, odbywa się tylko w modelu. Sprawdzanie p
 
 Sprawdź `Movie` klasy. `System.ComponentModel.DataAnnotations` Przestrzeń nazw zawiera atrybuty formatowania oprócz wbudowanych zestaw atrybutów weryfikacji. `DataType` Atrybut jest stosowany do `ReleaseDate` i `Price` właściwości.
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
-`DataType` Atrybuty zapewniają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i dostarcza atrybutów, takich jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` do obsługi poczty e-mail). Użyj `RegularExpression` atrybut do zweryfikowania formatu danych. `DataType` Atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych. `DataType`atrybuty nie są atrybutów sprawdzania poprawności. W przykładowej aplikacji wyświetlane jest tylko data, bez czasu.
+`DataType` Atrybuty zapewniają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i dostarcza atrybutów, takich jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` do obsługi poczty e-mail). Użyj `RegularExpression` atrybut do zweryfikowania formatu danych. `DataType` Atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych. `DataType` atrybuty nie są atrybutów sprawdzania poprawności. W przykładowej aplikacji wyświetlane jest tylko data, bez czasu.
 
 `DataType` Wyliczenie zawiera wiele typów danych, takich jak daty, godziny, numer telefonu, waluty, EmailAddress i więcej. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza `DataType.EmailAddress`. Można podać selektora daty `DataType.Date` w przeglądarkach obsługujących HTML5. `DataType` Atrybuty emituje HTML 5 `data-` atrybutów (dash wyraźnym danych), które korzystać z przeglądarki HTML 5. `DataType` Czy atrybuty **nie** Podaj wszystkich sprawdzania poprawności.
 
-`DataType.Date`nie określono format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze `CultureInfo`.
+`DataType.Date` nie określono format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze `CultureInfo`.
 
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 
@@ -130,7 +130,7 @@ Zazwyczaj nie jest dobrym rozwiązaniem do skompilowania w modelach przy użyciu
 
 Poniższy kod przedstawia łączenie atrybutów w jednym wierszu:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 [Wprowadzenie do stron Razor i podstawowe EF](xref:data/ef-rp/intro) przedstawiono bardziej zaawansowane EF podstawowych operacji ze stronami Razor.
 

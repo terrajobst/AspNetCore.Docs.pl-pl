@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: d35c24347e8e06ed85e2af8addcc1f8cf28dc47a
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 1ff08ee6389ce7b12d74b162b990ddaaadc05ea8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w platformy ASP.NET Core
 
@@ -50,11 +50,11 @@ Podstawowe dane wejściowe `RouteAsync` jest `RouteContext.HttpContext` skojarzo
 
 Dopasowanie podczas `RouteAsync` będzie także ustawić właściwości `RouteContext.RouteData` odpowiednie wartości oparte na przetwarzanie żądań gotowe do tej pory. Jeśli trasa pasuje do żądania `RouteContext.RouteData` będzie zawierać informacje o stanie ważne informacje *wynik*.
 
-`RouteData.Values`jest słownikiem *wartości trasy* utworzone na podstawie trasy. Wartości te zwykle są określane przez tokenizing adres URL i może służyć do przyjmowania danych wejściowych użytkownika lub do podejmowania dalszych wysyłania decyzji wewnątrz aplikacji.
+`RouteData.Values` jest słownikiem *wartości trasy* utworzone na podstawie trasy. Wartości te zwykle są określane przez tokenizing adres URL i może służyć do przyjmowania danych wejściowych użytkownika lub do podejmowania dalszych wysyłania decyzji wewnątrz aplikacji.
 
-`RouteData.DataTokens`jest zbiorem właściwości dodatkowych danych dotyczących dopasowanej trasy. `DataTokens`są przekazywane do obsługi kojarzenia stanu, który danych z każdej trasy tak aplikacji podjęcie decyzji dotyczących później oparte na która trasa pasuje. Te wartości są definiowane przez deweloperów i wykonaj **nie** wpływają na zachowanie routingu w dowolny sposób. Ponadto wartości zwiniętych w tokeny danych mogą być dowolnego typu, w przeciwieństwie do wartości trasy, które muszą być łatwe do przekonwertowania do i z ciągów.
+`RouteData.DataTokens`  jest zbiorem właściwości dodatkowych danych dotyczących dopasowanej trasy. `DataTokens` są przekazywane do obsługi kojarzenia stanu, który danych z każdej trasy tak aplikacji podjęcie decyzji dotyczących później oparte na która trasa pasuje. Te wartości są definiowane przez deweloperów i wykonaj **nie** wpływają na zachowanie routingu w dowolny sposób. Ponadto wartości zwiniętych w tokeny danych mogą być dowolnego typu, w przeciwieństwie do wartości trasy, które muszą być łatwe do przekonwertowania do i z ciągów.
 
-`RouteData.Routers`znajduje się lista tras, na których uczestniczyła w pomyślnie dopasowywania żądania. Trasy mogą być zagnieżdżone wewnątrz, a `Routers` właściwość odzwierciedla ścieżkę za pośrednictwem drzewa logicznego tras, które spowodowało dopasowanie. Zazwyczaj pierwszy element `Routers` jest kolekcji tras i powinna być używana do generowania adresu URL. Ostatni element `Routers` jest programu obsługi trasy, który jest zgodny.
+`RouteData.Routers` znajduje się lista tras, na których uczestniczyła w pomyślnie dopasowywania żądania. Trasy mogą być zagnieżdżone wewnątrz, a `Routers` właściwość odzwierciedla ścieżkę za pośrednictwem drzewa logicznego tras, które spowodowało dopasowanie. Zazwyczaj pierwszy element `Routers` jest kolekcji tras i powinna być używana do generowania adresu URL. Ostatni element `Routers` jest programu obsługi trasy, który jest zgodny.
 
 ### <a name="url-generation"></a>Generowania adresu URL
 
@@ -74,7 +74,7 @@ Trasy przede wszystkim użyj wartości trasy udostępniane przez `Values` i `Amb
 
 Porada: Należy traktować `Values` jako zbiór zastąpienia `AmbientValues`. Generowania adresu URL spróbuje ponownie użyć wartości tras z bieżącego żądania umożliwia łatwe do generowania adresów URL dla łącza za pomocą tego samego trasy i wartości trasy.
 
-Dane wyjściowe `GetVirtualPath` jest `VirtualPathData`. `VirtualPathData`jest równolegle z `RouteData`; zawiera `VirtualPath` dla adresu URL danych wyjściowych, a także pewne dodatkowe właściwości, które powinien być ustawiony przez trasę.
+Dane wyjściowe `GetVirtualPath` jest `VirtualPathData`. `VirtualPathData` jest równolegle z `RouteData`; zawiera `VirtualPath` dla adresu URL danych wyjściowych, a także pewne dodatkowe właściwości, które powinien być ustawiony przez trasę.
 
 `VirtualPathData.VirtualPath` Właściwość zawiera *ścieżki wirtualnej* utworzonego przez trasy. W zależności od potrzeb konieczne może przetwarzać dalszych ścieżki. Na przykład jeśli ma być renderowany wygenerowany adres URL w formacie HTML konieczne dołączenie wartości podstawowa ścieżka aplikacji.
 
@@ -84,7 +84,7 @@ Dane wyjściowe `GetVirtualPath` jest `VirtualPathData`. `VirtualPathData`jest r
 
 ### <a name="creating-routes"></a>Tworzenie trasy
 
-Routing zapewnia `Route` klasy jako standardowa implementacja elementu `IRouter`. `Route`używa *szablon trasy* składni wzorce, które zostanie dopasowany ścieżkę adresu URL po `RouteAsync` jest wywoływana. `Route`będzie używał tego samego szablonu trasy do generowania adresu URL po `GetVirtualPath` jest wywoływana.
+Routing zapewnia `Route` klasy jako standardowa implementacja elementu `IRouter`. `Route` używa *szablon trasy* składni wzorce, które zostanie dopasowany ścieżkę adresu URL po `RouteAsync` jest wywoływana. `Route` będzie używał tego samego szablonu trasy do generowania adresu URL po `GetVirtualPath` jest wywoływana.
 
 Większość aplikacji spowoduje utworzenie trasy przez wywołanie metody `MapRoute` lub jednej z metod rozszerzenia podobne zdefiniowane na `IRouteBuilder`. Wszystkie te metody spowoduje utworzenie wystąpienia `Route` i dodaj go do kolekcji tras.
 
@@ -187,13 +187,13 @@ Dodaj pakiet NuGet "Microsoft.AspNetCore.Routing".
 
 Dodaj routingu do kontenera usług w *Startup.cs*:
 
-[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
+[!code-csharp[](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
 
 Trasy muszą być skonfigurowane w `Configure` metoda `Startup` klasy. Poniższy przykład korzysta z poniższych interfejsów API:
 
 * `RouteBuilder`
 * `Build`
-* `MapGet`Jest zgodna tylko żądania HTTP GET
+* `MapGet`  Jest zgodna tylko żądania HTTP GET
 * `UseRouter`
 
 ```csharp
@@ -275,11 +275,11 @@ Poniższa tabela przedstawia niektóre szablony trasy i ich zachowanie.
 
 | Szablon trasy | Przykładowy adres URL dopasowania | Uwagi |
 | -------- | -------- | ------- |
-| Cześć  | /hello  | Zgodny tylko pojedynczą ścieżkę`/hello` |
-| {Page=Home} | / | Dopasowuje i ustawia `Page` do`Home` |
-| {Page=Home}  | / Skontaktuj się z  | Dopasowuje i ustawia `Page` do`Contact` |
+| Cześć  | /hello  | Zgodny tylko pojedynczą ścieżkę `/hello` |
+| {Page=Home} | / | Dopasowuje i ustawia `Page` do `Home` |
+| {Page=Home}  | / Skontaktuj się z  | Dopasowuje i ustawia `Page` do `Contact` |
 | {controller} / {action} / {id}? | / / Listy produktów | Mapuje `Products` kontrolera i `List` akcji |
-| {controller} / {action} / {id}? | / Produkty/szczegóły/123  |  Mapuje `Products` kontrolera i `Details` akcji.  `id`Ustaw 123 |
+| {controller} / {action} / {id}? | / Produkty/szczegóły/123  |  Mapuje `Products` kontrolera i `Details` akcji.  `id` Ustaw 123 |
 | {controller=Home}/{action=Index}/{id?} | /  |  Mapuje `Home` kontrolera i `Index` metody; `id` jest ignorowana. |
 
 Przy użyciu szablonu zwykle jest najprostsza metoda routingu. Ograniczenia i ustawienia domyślne można również określić poza szablon trasy.
@@ -351,7 +351,7 @@ Aby ograniczyć parametr znane zestaw możliwych wartości, należy użyć wyra�
 
 W poniższym przykładzie pokazano, jak wygenerować łącze do trasy podane słownika wartości trasy i `RouteCollection`.
 
-[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
+[!code-csharp[](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
 
 `VirtualPath` Jest generowany na końcu powyższego przykładu `/package/create/123`.
 

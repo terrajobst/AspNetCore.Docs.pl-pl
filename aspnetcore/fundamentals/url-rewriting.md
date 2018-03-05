@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: ea697e4b1d3c16dbf3ff5703000d16b93da6c582
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: 70a4fd1c370b8fa6462f3958be5ce3eb76414a34
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Adres URL ponowne zapisanie oprogramowania pośredniczącego w platformy ASP.NET Core
 
@@ -64,7 +64,7 @@ Ustanowić Twojej ponowne zapisywanie adresów URL i Przekierowanie reguł przez
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -92,7 +92,7 @@ Użyj `AddRedirect` Przekierowywanie żądań. Pierwszy parametr zawiera z wyra�
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1&highlight=9)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=9)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -162,7 +162,7 @@ Użyj `AddRewrite` Aby utworzyć regułę dla ponowne zapisywanie adresów URL. 
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1&highlight=10-11)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=10-11)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -217,7 +217,7 @@ Zastosuj reguły mod_rewrite Apache z `AddApacheModRewrite`. Upewnij się, że p
 
 A `StreamReader` jest używany do odczytu reguły z *ApacheModRewrite.txt* pliku reguł.
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1&highlight=3-4,12)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=3-4,12)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -237,7 +237,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 Przykładowa aplikacja przekierowuje żądania z `/apache-mod-rules-redirect/(.\*)` do `/redirected?id=$1`. Kod stanu odpowiedzi jest 302 (Found).
 
-[!code[Main](url-rewriting/sample/ApacheModRewrite.txt)]
+[!code[](url-rewriting/sample/ApacheModRewrite.txt)]
 
 Oryginalne żądanie: `/apache-mod-rules-redirect/1234`
 
@@ -282,7 +282,7 @@ Aby użyć reguł, które dotyczą moduł ponowne zapisywanie adresów URL usłu
 
 A `StreamReader` jest używany do odczytu reguły z *IISUrlRewrite.xml* pliku reguł.
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1&highlight=5-6,13)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=5-6,13)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -302,7 +302,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 Przykładowa aplikacja ponownie zapisuje żądań z `/iis-rules-rewrite/(.*)` do `/rewritten?id=$1`. Odpowiedź jest wysyłana do klienta z kodem stanu 200 (OK).
 
-[!code-xml[Main](url-rewriting/sample/IISUrlRewrite.xml)]
+[!code-xml[](url-rewriting/sample/IISUrlRewrite.xml)]
 
 Oryginalne żądanie: `/iis-rules-rewrite/1234`
 
@@ -370,7 +370,7 @@ Użyj `Add(Action<RewriteContext> applyRule)` implementacji logiki reguły w met
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1&highlight=14)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=14)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -388,7 +388,7 @@ public void Configure(IApplicationBuilder app)
 
 Przykładowa aplikacja przedstawiono metodę, która przekierowuje żądania dla ścieżek czy kończą się *.xml*. Jeśli żądanie `/file.xml`, nastąpi przekierowanie do `/xmlfiles/file.xml`. Kod stanu jest ustawiona na 301 (trwale przeniesiona). Dla przekierowania Musisz jawnie ustawić kod stanu odpowiedzi; w przeciwnym razie zwracany jest kod stanu 200 (OK) i Przekierowanie nie występują na komputerze klienckim.
 
-[!code-csharp[Main](url-rewriting/sample/RewriteRules.cs?name=snippet1)]
+[!code-csharp[](url-rewriting/sample/RewriteRules.cs?name=snippet1)]
 
 Oryginalne żądanie: `/file.xml`
 
@@ -399,7 +399,7 @@ Użyj `Add(IRule)` implementacji logiki reguły w klasie, która jest pochodną 
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1&highlight=15-16)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=15-16)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -418,7 +418,7 @@ public void Configure(IApplicationBuilder app)
 
 Wartości parametrów w Przykładowa aplikacja dla `extension` i `newPath` są sprawdzane w celu spełnienia kilku warunków. `extension` Musi zawierać wartość, a wartość musi być *.png*, *.jpg*, lub *.gif*. Jeśli `newPath` nie jest prawidłowy, `ArgumentException` jest generowany. Jeśli żądanie *image.png*, nastąpi przekierowanie do `/png-images/image.png`. Jeśli żądanie *image.jpg*, nastąpi przekierowanie do `/jpg-images/image.jpg`. Kod stanu ma ustawioną wartość 301 (przenieść trwale) i `context.Result` ustawiono Zatrzymaj przetwarzanie reguł i wysyłania odpowiedzi.
 
-[!code-csharp[Main](url-rewriting/sample/RewriteRules.cs?name=snippet2)]
+[!code-csharp[](url-rewriting/sample/RewriteRules.cs?name=snippet2)]
 
 Oryginalne żądanie: `/image.png`
 

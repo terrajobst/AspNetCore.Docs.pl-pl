@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 118f504311b58258b5a0510477280505135dd2d9
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d8253858864efa85f0d2a2175669dc27b879b175
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-injection-into-controllers"></a>Iniekcji zależności do kontrolerów
 
@@ -33,17 +33,17 @@ Iniekcji zależności to technika, który następuje [zasady odwracanie zależno
 
 Rozszerzenie platformy ASP.NET Core wbudowaną obsługę iniekcji zależności na podstawie konstruktora do kontrolerów MVC. Po prostu dodając typ usługi do kontrolera jako parametru konstruktora, platformy ASP.NET Core podejmie próbę rozpoznania tego typu za pomocą swojej wbudowanej w kontenerze usług. Usługi są zwykle, ale nie zawsze zdefiniowane, za pomocą interfejsów. Na przykład jeśli aplikacja ma logiki biznesowej, które jest zależny od bieżącego czasu, można wstrzyknąć to usługa, która pobiera czas (zamiast kodować je), co pozwoliłoby testów do przekazania w implementacjach korzystających z określonym czasie.
 
-[!code-csharp[Main](dependency-injection/sample/src/ControllerDI/Interfaces/IDateTime.cs)]
+[!code-csharp[](dependency-injection/sample/src/ControllerDI/Interfaces/IDateTime.cs)]
 
 
 Implementowanie interfejsu podobny do tego, tak aby były używane w czasie wykonywania zegar systemowy jest prosta:
 
-[!code-csharp[Main](dependency-injection/sample/src/ControllerDI/Services/SystemDateTime.cs)]
+[!code-csharp[](dependency-injection/sample/src/ControllerDI/Services/SystemDateTime.cs)]
 
 
 Dzięki temu w miejscu możemy korzystać z usługi w kontrolera. W takim przypadku dodano logikę do `HomeController` `Index` metodę w celu wyświetlenia pozdrowienia użytkownikowi na podstawie czasu dnia.
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=8,10,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30&range=1-31,51-52)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=8,10,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30&range=1-31,51-52)]
 
 Czy możemy uruchomić aplikację teraz, firma Microsoft najprawdopodobniej wystąpi błąd:
 
@@ -56,7 +56,7 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceP
 
 Ten błąd występuje, gdy firma Microsoft nie zostały skonfigurowane w usługach `ConfigureServices` metody w naszym `Startup` klasy. Aby określić, która zażąda `IDateTime` mają zostać rozwiązane, za pomocą wystąpienia `SystemDateTime`, Dodaj wiersz wyróżnione na liście poniżej, aby Twoje `ConfigureServices` — metoda:
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=4&range=26-27,42-44)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=4&range=26-27,42-44)]
 
 > [!NOTE]
 > Tej konkretnej usługi można zaimplementować za pomocą dowolnej z kilku opcji istnienia różnych (`Transient`, `Scoped`, lub `Singleton`). Zobacz [iniekcji zależności](../../fundamentals/dependency-injection.md) zrozumieć, jak każdej z tych opcji zakresu wpływają na zachowanie usługi.
@@ -83,7 +83,7 @@ Jak Stany komunikat o błędzie, należy rozwiązać ten problem, w posiadanie j
 
 Czasami niepotrzebne usługi dla więcej niż jednej akcji w kontrolerze. W takim przypadku rozsądne może okazać się do dodania usługi jako parametr do metody akcji. Jest to zrobić przez oznaczenie parametr z atrybutem `[FromServices]` w sposób pokazany poniżej:
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=1&range=33-38)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=1&range=33-38)]
 
 ## <a name="accessing-settings-from-a-controller"></a>Uzyskiwanie dostępu do ustawień z kontrolera
 
@@ -91,17 +91,17 @@ Uzyskiwanie dostępu do aplikacji lub Konfiguracja ustawień z poziomu kontroler
 
 Aby pracować z wzorcem opcji, należy utworzyć klasę, która reprezentuje opcje, takie jak ta:
 
-[!code-csharp[Main](dependency-injection/sample/src/ControllerDI/Model/SampleWebSettings.cs)]
+[!code-csharp[](dependency-injection/sample/src/ControllerDI/Model/SampleWebSettings.cs)]
 
 Następnie należy skonfigurować aplikację do korzystania z modelu opcje i dodać do kolekcji usług w klasie konfiguracji `ConfigureServices`:
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
 
 > [!NOTE]
 > Na liście powyżej, możemy konfigurowania aplikacji na odczytywanie ustawień z pliku w formacie JSON. Można również skonfigurować ustawienia całkowicie w kodzie, jak w powyższym kodzie komentarze. Zobacz [konfiguracji](xref:fundamentals/configuration/index) dla dalszego opcji konfiguracji.
 
 Po określeniu obiekt jednoznacznie konfiguracji (w tym przypadku `SampleWebSettings`) i dodaniu go do kolekcji usług, możesz poprosić go z dowolnego kontrolera lub metody akcji przez zażądanie wystąpienia `IOptions<T>` (w tym przypadku `IOptions<SampleWebSettings>`) . Poniższy kod przedstawia, jak jeden z monitem ustawień z kontrolera:
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
 
 Następujące opcje wzorzec umożliwia ustawienia i konfigurację być odłączona od siebie i zapewnia następujące jest kontrolerem [separacji](http://deviq.com/separation-of-concerns/), ponieważ nie musi wiedzieć, jak i gdzie można znaleźć ustawienia informacje. On również ułatwia kontrolera testu jednostkowego [logiką kontrolera testów](testing.md), ponieważ istnieje nie [statycznych przylepna](http://deviq.com/static-cling/) lub bezpośrednie tworzenie wystąpień klas ustawienia należące do klasy kontrolera.

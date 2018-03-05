@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/app-state
-ms.openlocfilehash: f4ed38f7395e3f4fe939584c1f3f5b0dba93724c
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 6b81cadf39c0db373f82b8de7d8d3901d51ea088
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Wprowadzenie do stanu sesji oraz aplikacji platformy ASP.NET Core
 
@@ -38,7 +38,7 @@ Dostawca sesji w pamięci są przechowywane dane sesji na serwerze lokalnym. Je�
 <a name="temp"></a>
 ## <a name="tempdata"></a>TempData
 
-Przedstawia platformy ASP.NET Core MVC [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) właściwość [kontrolera](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Ta właściwość przechowuje dane, dopóki nie jest do odczytu. `Keep` i `Peek` metod można użyć do sprawdzenia danych bez usuwania. `TempData`jest szczególnie przydatne podczas przekierowania, gdy dane są potrzebne dla więcej niż jednego żądania. `TempData`jest implementowany przez dostawców TempData, na przykład za pomocą plików cookie lub stanu sesji.
+Przedstawia platformy ASP.NET Core MVC [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) właściwość [kontrolera](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Ta właściwość przechowuje dane, dopóki nie jest do odczytu. `Keep` i `Peek` metod można użyć do sprawdzenia danych bez usuwania. `TempData` jest szczególnie przydatne podczas przekierowania, gdy dane są potrzebne dla więcej niż jednego żądania. `TempData` jest implementowany przez dostawców TempData, na przykład za pomocą plików cookie lub stanu sesji.
 
 <a name="tempdata-providers"></a>
 ### <a name="tempdata-providers"></a>TempData dostawców
@@ -91,7 +91,7 @@ Kolejność jest kluczowa dla składników oprogramowania pośredniczącego. W p
 
 ## <a name="query-strings"></a>Ciągi zapytań
 
-Można przekazać ograniczoną ilość danych z jednego żądania do innego przez dodanie go do nowego żądania ciągu zapytania. Jest to przydatne w przypadku przechwytywania stanu w sposób ciągły, umożliwiający łącza osadzonego stanu do udostępnienia za pośrednictwem poczty e-mail lub sieci społecznościowych. Jednak z tego powodu należy nigdy używać ciągów zapytania dla danych poufnych. Oprócz łatwo udostępnianiem, włącznie z danymi w ciągów zapytania można tworzyć możliwości [sfałszowaniem żądań Cross-Site (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) ataków, których można wymuszać użytkowników do odwiedzenia złośliwych witryn podczas uwierzytelnienia. Osoby atakujące można następnie kradzieży danych użytkownika z aplikacji lub podjąć złośliwe akcje w imieniu użytkownika. Każdy zachowanego stan application lub session należy chronić przed atakami CSRF. Aby uzyskać więcej informacji dotyczących ataków CSRF, zobacz [zapobieganie Cross-Site żądania (XSRF/CSRF) Fałszerstwie w ASP.NET Core](../security/anti-request-forgery.md).
+Można przekazać ograniczoną ilość danych z jednego żądania do innego przez dodanie go do nowego żądania ciągu zapytania. Jest to przydatne w przypadku przechwytywania stanu w sposób ciągły, umożliwiający łącza osadzonego stanu do udostępnienia za pośrednictwem poczty e-mail lub sieci społecznościowych. Jednak z tego powodu należy nigdy używać ciągów zapytania dla danych poufnych. Oprócz łatwo udostępnianiem, włącznie z danymi w ciągów zapytania można tworzyć możliwości [sfałszowaniem żądań Cross-Site (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) ataków, których można wymuszać użytkowników do odwiedzenia złośliwych witryn podczas uwierzytelnienia. Osoby atakujące można następnie kradzieży danych użytkownika z aplikacji lub podjąć złośliwe akcje w imieniu użytkownika. Każdy zachowanego stan application lub session należy chronić przed atakami CSRF. Aby uzyskać więcej informacji dotyczących ataków CSRF, zobacz [zapobiec Cross-Site żądania Międzywitrynowego (XSRF/CSRF) przed atakami opartymi na](xref:security/anti-request-forgery).
 
 ## <a name="post-data-and-hidden-fields"></a>Dane POST i ukryte pola
 
@@ -128,11 +128,11 @@ Poniższy kod przedstawia, jak skonfigurować dostawcę sesji w pamięci.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](app-state/sample/src/WebAppSessionDotNetCore2.0App/Startup.cs?highlight=11-19,24)]
+[!code-csharp[](app-state/sample/src/WebAppSessionDotNetCore2.0App/Startup.cs?highlight=11-19,24)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/Startup.cs?highlight=11-19,24)]
+[!code-csharp[](app-state/sample/src/WebAppSession/Startup.cs?highlight=11-19,24)]
 
 ---
 
@@ -156,17 +156,17 @@ Aby zastąpić wartości domyślne sesji, użyj `SessionOptions`:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupCopy.cs?name=snippet1&highlight=8-12)]
+[!code-csharp[](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupCopy.cs?name=snippet1&highlight=8-12)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/StartupCopy.cs?name=snippet1&highlight=8-12)]
+[!code-csharp[](app-state/sample/src/WebAppSession/StartupCopy.cs?name=snippet1&highlight=8-12)]
 
 ---
 
 Serwer używa `IdleTimeout` właściwości w celu określenia, jak długo sesji może być bezczynne, zanim zostały porzucone jego zawartość. Ta właściwość jest niezależna od datę ważności pliku cookie. Każde żądanie, który przechodzi przez oprogramowanie pośredniczące sesji (odczytywane lub zapisywane) resetuje limit czasu.
 
-Ponieważ `Session` jest *— blokowanie*, jeśli dwa żądania zarówno próbę zmodyfikowania zawartości sesji, ostatnią przesłania pierwszego. `Session`jest zaimplementowany jako *spójnego sesji*, co oznacza, że cała zawartość są przechowywane razem. Dwa żądania, które modyfikowania różnych części sesji (różne klucze) nadal może mieć wpływ na siebie.
+Ponieważ `Session` jest *— blokowanie*, jeśli dwa żądania zarówno próbę zmodyfikowania zawartości sesji, ostatnią przesłania pierwszego. `Session` jest zaimplementowany jako *spójnego sesji*, co oznacza, że cała zawartość są przechowywane razem. Dwa żądania, które modyfikowania różnych części sesji (różne klucze) nadal może mieć wpływ na siebie.
 
 ### <a name="setting-and-getting-session-values"></a>Ustawianie i pobieranie wartości sesji
 
@@ -174,15 +174,15 @@ Sesja jest dostępny za pośrednictwem `Session` właściwość `HttpContext`. T
 
 W poniższym przykładzie pokazano, ustawiania i pobierania int i ciąg:
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?range=8-27,49)]
+[!code-csharp[](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?range=8-27,49)]
 
 Jeśli dodasz następujące metody rozszerzenia, należy Ustawianie i pobieranie obiekty możliwe do serializacji do sesji:
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/Extensions/SessionExtensions.cs)]
+[!code-csharp[](app-state/sample/src/WebAppSession/Extensions/SessionExtensions.cs)]
 
 Poniższy przykład przedstawia sposób Ustawianie i pobieranie obiektu podlegającego serializacji:
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet2)]
+[!code-csharp[](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet2)]
 
 
 ## <a name="working-with-httpcontextitems"></a>Praca z HttpContext.Items

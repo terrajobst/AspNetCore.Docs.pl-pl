@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: 447b13eccf523cab81590405740bb194112b0dad
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: c9c9f63cd635f364d9b2e081dc051a46a44d3e4f
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrowanie z programu ASP.NET MVC do podstawowej platformy ASP.NET MVC
 
@@ -48,17 +48,17 @@ Utwórz nową *pusty* aplikacji sieci web platformy ASP.NET Core z taką samą n
 
 * Zainstaluj `Microsoft.AspNetCore.Mvc` i `Microsoft.AspNetCore.StaticFiles` pakietów NuGet.
 
-  `Microsoft.AspNetCore.Mvc`to platforma ASP.NET Core MVC. `Microsoft.AspNetCore.StaticFiles`Umożliwia to obsługę plików statycznych. Środowiska uruchomieniowego ASP.NET jest moduły i musi jawnie zgłosić się do obsługi plików statycznych (zobacz [Praca z pliki statyczne](../fundamentals/static-files.md)).
+  `Microsoft.AspNetCore.Mvc` to platforma ASP.NET Core MVC. `Microsoft.AspNetCore.StaticFiles` Umożliwia to obsługę plików statycznych. Środowiska uruchomieniowego ASP.NET jest moduły i musi jawnie zgłosić się do obsługi plików statycznych (zobacz [Praca z pliki statyczne](../fundamentals/static-files.md)).
 
 * Otwórz *.csproj* pliku (kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i wybierz **Edytuj WebApp1.csproj**) i Dodaj `PrepareForPublish` docelowych:
 
-  [!code-xml[Main](mvc/sample/WebApp1.csproj?range=21-23)]
+  [!code-xml[](mvc/sample/WebApp1.csproj?range=21-23)]
 
   `PrepareForPublish` Docelowy jest wymagany dla pobierania biblioteki po stronie klienta za pomocą rozwiązania Bower. Będzie omawianiu który później.
 
 * Otwórz *Startup.cs* plików i zmień kod zgodnie z poniższym:
 
-  [!code-csharp[Main](mvc/sample/Startup.cs?highlight=14,27-34)]
+  [!code-csharp[](mvc/sample/Startup.cs?highlight=14,27-34)]
 
   `UseStaticFiles` — Metoda rozszerzenia dodaje obsługę plików statycznych. Jak wspomniano wcześniej, środowiska uruchomieniowego ASP.NET jest moduły i musi jawnie zgłosić się do obsługi plików statycznych. `UseMvc` — Metoda rozszerzenia dodaje routingu. Aby uzyskać więcej informacji, zobacz [uruchamiania aplikacji](../fundamentals/startup.md) i [Routing](../fundamentals/routing.md).
 
@@ -114,7 +114,7 @@ Teraz, gdy mamy minimalnego projektu platformy ASP.NET Core pracy, możemy rozpo
 
 ## <a name="controllers-and-views"></a>Kontrolery i widoki
 
-* Skopiuj każdej z metod z platformy ASP.NET MVC `HomeController` do nowego `HomeController`. Należy pamiętać, że w programie ASP.NET MVC, typ zwracany metody akcji kontrolera wbudowanych szablonów [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult(v=vs.118).aspx); na platformie ASP.NET MVC Core, zwracany metody akcji `IActionResult` zamiast tego. `ActionResult`implementuje `IActionResult`, więc nie trzeba zmienić zwracany typ metody akcji.
+* Skopiuj każdej z metod z platformy ASP.NET MVC `HomeController` do nowego `HomeController`. Należy pamiętać, że w programie ASP.NET MVC, typ zwracany metody akcji kontrolera wbudowanych szablonów [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult(v=vs.118).aspx); na platformie ASP.NET MVC Core, zwracany metody akcji `IActionResult` zamiast tego. `ActionResult` implementuje `IActionResult`, więc nie trzeba zmienić zwracany typ metody akcji.
 
 * Kopiuj *About.cshtml*, *Contact.cshtml*, i *Index.cshtml* pliki widoku Razor z projektu programu ASP.NET MVC do projektu platformy ASP.NET Core.
 
@@ -140,7 +140,7 @@ W nowym projekcie dodamy obsługę ładowania początkowego (i innych bibliotek 
 
 * Dodaj [Bower](https://bower.io/) pliku konfiguracji o nazwie *bower.json* do katalogu głównego projektu (kliknij prawym przyciskiem myszy na projekt, a następnie **Dodaj > Nowy element > pliku konfiguracji Bower**). Dodaj [Bootstrap](http://getbootstrap.com/) i [jQuery](https://jquery.com/) do pliku (zobacz wyróżnione wiersze poniżej).
 
-  [!code-json[Main](mvc/sample/bower.json?highlight=5-6)]
+  [!code-json[](mvc/sample/bower.json?highlight=5-6)]
 
 Podczas zapisywania pliku, Bower będzie automatycznie pobierał zależności, aby *wwwroot/lib* folderu. Można użyć **Eksploratora rozwiązań wyszukiwania** pole można znaleźć ścieżki zasoby:
 
@@ -156,7 +156,7 @@ Zobacz [Zarządzaj pakietami po stronie klienta z Bower](../client-side/bower.md
 
 * Utwórz *widoków/Shared* folderu.
 
-* *Opcjonalnie:* kopiowania *_ViewImports.cshtml* z *FullAspNetCore* projektu MVC *widoków* folderu do projektu platformy ASP.NET Core *Widoków* folderu. Usuń wszelkie deklaracji przestrzeni nazw w *_ViewImports.cshtml* pliku. *_ViewImports.cshtml* plików zawiera przestrzenie nazw dla wszystkich plików widoku i w przypadku [pomocników tagów](xref:mvc/views/tag-helpers/intro). Pomocników tagów są używane w nowym pliku układu. *_ViewImports.cshtml* pliku jest nowa dla platformy ASP.NET Core.
+* *Opcjonalnie:* kopiowania *_ViewImports.cshtml* z *FullAspNetCore* projektu MVC *widoków* folderu do projektu platformy ASP.NET Core  *Widoki* folderu. Usuń wszelkie deklaracji przestrzeni nazw w *_ViewImports.cshtml* pliku. *_ViewImports.cshtml* plików zawiera przestrzenie nazw dla wszystkich plików widoku i w przypadku [pomocników tagów](xref:mvc/views/tag-helpers/intro). Pomocników tagów są używane w nowym pliku układu. *_ViewImports.cshtml* pliku jest nowa dla platformy ASP.NET Core.
 
 * Kopia *_Layout.cshtml* pliku starego projektu programu ASP.NET MVC *widoków/Shared* folderu do projektu platformy ASP.NET Core *widoków/Shared* folderu.
 
@@ -187,7 +187,7 @@ Zastąpienie tagów skryptu:
 
 Zaktualizowany interfejs *_Layout.cshtml* pliku przedstawiono poniżej:
 
-[!code-html[Main](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7,27,39-40)]
+[!code-html[](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7,27,39-40)]
 
 Wyświetlać witrynę w przeglądarce. Teraz powinien on załadowany poprawnie, z oczekiwanym style w miejscu.
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: f091370bc85a37eeaac1291a2fdc6ea85164f148
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0a3443e8187d46992f55dc537d0f400c6771c50c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Wprowadzenie do korzystania z Gulp w ASP.NET Core 
 
@@ -204,7 +204,7 @@ Powiązania można skonfigurować przy użyciu **Eksploratora modułu uruchamiaj
 </Target>
 ```
 
-Teraz czystą zadanie jest wykonywane po uruchomieniu projektu programu Visual Studio lub z wiersza polecenia przy użyciu `dotnet run` polecenia (Uruchom `npm install` pierwszy).
+Teraz czystą zadanie jest wykonywane po uruchomieniu projektu programu Visual Studio lub z wiersza polecenia przy użyciu [dotnet Uruchom](/dotnet/core/tools/dotnet-run) polecenia (Uruchom `npm install` pierwszy).
 
 ## <a name="defining-and-running-a-new-task"></a>Definiowanie i uruchamiania nowego zadania
 

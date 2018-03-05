@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 8cadb550eaa2dbc4541f945dc8d8d49fa757d4d3
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 559c5c58b416912b1caef1964ff8d7532bd98439
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Dostawcy magazynu niestandardowego dla ASP.NET Core Identity
 
@@ -112,7 +112,7 @@ Przechowuje i pobiera role, które są przypisane do użytkowników, którzy. [P
 
 W klasach dostępu do danych należy podać kod do wykonania operacji danych dla Twojego mechanizmu stanu trwałego. Na przykład w ramach dostawcy niestandardowego, może mieć następujący kod, aby utworzyć nowego użytkownika w *przechowywania* klasy:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
 
 Logika implementacji tworzenia użytkownika znajduje się w ``_usersTable.CreateAsync`` metody, pokazano poniżej.
 
@@ -133,7 +133,7 @@ Utwórz `UserStore` klasy, która udostępnia metody dla wszystkich operacji dan
 - IUserRoleStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1
 - IUserClaimStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserclaimstore-1
 - IUserPasswordStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1
-- Elementu IUserSecurityStampStore<!-- make these all links and remove / -->
+- Elementu IUserSecurityStampStore <!-- make these all links and remove / -->
 - IUserEmailStore
 - IPhoneNumberStore
 - IQueryableUserStore
@@ -145,7 +145,7 @@ Opcjonalne interfejsy dziedziczyć `IUserStore`. Można wyświetlić użytkownik
 
 W ramach `UserStore` klasy, użyj klasy dostępu do danych, które zostały utworzone w celu wykonania operacji. Te są przekazywane za pomocą iniekcji zależności. Na przykład w programie SQL Server z implementacją Dapper `UserStore` klasa ma `CreateAsync` metodę, która używa wystąpienia `DapperUsersTable` Aby wstawić nowy rekord:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>Interfejsy do implementacji w przypadku dostosowywania magazynu użytkowników
 
@@ -165,9 +165,9 @@ W ramach `UserStore` klasy, użyj klasy dostępu do danych, które zostały utwo
  [IUserTwoFactorStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) interfejs definiuje metody wdrożenia do obsługi uwierzytelniania dwuskładnikowego. Zawiera metody służące do pobierania i ustawiania czy uwierzytelnianie dwuskładnikowe jest włączone dla użytkownika.
 - **IUserPhoneNumberStore**  
  [IUserPhoneNumberStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) interfejs definiuje metody zaimplementowaniem do przechowywania numeru telefonu użytkownika. Zawiera metody służące do pobierania i ustawiania numeru telefonu i określa, czy numer telefonu został potwierdzony.
-- **IUserEmailStore**  
+- IUserEmailStore  
  [IUserEmailStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuseremailstore-1) interfejs definiuje metody implementacji przechowywania adresów e-mail użytkownika. Zawiera metody służące do pobierania i ustawiania adres e-mail i czy adres e-mail został potwierdzony.
-- **IUserLockoutStore**  
+- IUserLockoutStore  
  [IUserLockoutStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) interfejs definiuje metody implementacji przechowywania informacji na temat blokowania konta. Zawiera metody do śledzenia nieudanych prób dostępu i blokady.
 - **IQueryableUserStore**  
  [IQueryableUserStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) interfejs definiuje wdrożenie elementy członkowskie w celu zapewnienia magazynu użytkowników z obsługą zapytań.
@@ -196,7 +196,7 @@ Podczas implementowania dostawcy magazynu ról, można utworzyć typu niestandar
 
 Poniżej przedstawiono przykład klasy roli:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
 
 ## <a name="customize-the-role-store"></a>Dostosowywanie magazynu ról
 

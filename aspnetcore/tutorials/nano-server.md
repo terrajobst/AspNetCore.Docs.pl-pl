@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/nano-server
-ms.openlocfilehash: 4fc5f6874f86130da9f66d13778516d984ff8b46
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3f234c84d2354a312ad6136b43d8c29aa346ae10
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="aspnet-core-with-iis-on-nano-server"></a>Platformy ASP.NET Core z usługami IIS na serwerze Nano
 
@@ -65,7 +65,7 @@ $nanoServerSession = New-PSSession -ComputerName $nanoServerIpAddress -Credentia
 Enter-PSSession $nanoServerSession
 ```
 
-Udane połączenie wyniki wiersza o formacie wyszukiwania takich jak:`[192.168.1.10]: PS C:\Users\Administrator\Documents>`
+Udane połączenie wyniki wiersza o formacie wyszukiwania takich jak: `[192.168.1.10]: PS C:\Users\Administrator\Documents>`
 
 ## <a name="creating-a-file-share"></a>Tworzenie udziału plików
 
@@ -102,9 +102,9 @@ Install-NanoServerPackage -Name Microsoft-NanoServer-IIS-Package
 
 Aby szybko sprawdzić usług IIS jest prawidłowo skonfigurowany, możesz odwiedzić adres URL `http://192.168.1.10/` i powinna zostać wyświetlona strona powitalna. Po zainstalowaniu usług IIS witryna sieci Web o nazwie `Default Web Site` domyślnie zostanie utworzona nasłuchiwanie na porcie 80.
 
-## <a name="installing-the-aspnet-core-module-ancm"></a>Instalowanie modułu platformy ASP.NET Core (ANCM)
+## <a name="install-the-aspnet-core-module"></a>Zainstaluj moduł platformy ASP.NET Core
 
-Moduł platformy ASP.NET Core jest IIS 7.5 + moduł, który jest odpowiedzialny za zarządzanie procesem odbiorników platformy ASP.NET Core HTTP i żądania serwera proxy do procesów, którymi zarządza. W tej chwili procesu, aby zainstalować moduł platformy ASP.NET Core dla usług IIS jest wykonywana ręcznie. Musisz zainstalować [pakietu .NET Core systemu Windows serwer obsługujący](https://download.microsoft.com/download/B/1/D/B1D7D5BF-3920-47AA-94BD-7A6E48822F18/DotNetCore.2.0.0-WindowsHosting.exe) na regularne (nie Nano) komputera. Po zainstalowaniu pakietu na komputerze regularne, należy skopiuj następujące pliki do udziału plików, który utworzony wcześniej.
+Moduł platformy ASP.NET Core jest IIS 7.5 + moduł, który jest odpowiedzialny za zarządzanie procesem odbiorników platformy ASP.NET Core HTTP i żądania serwera proxy do procesów, którymi zarządza. W tej chwili procesu, aby zainstalować moduł platformy ASP.NET Core dla usług IIS jest wykonywana ręcznie. Zainstaluj [pakietu .NET Core systemu Windows serwer obsługujący](https://aka.ms/dotnetcore-2-windowshosting) na regularne (nie Nano) komputera. Po zainstalowaniu pakietu na regularne maszyny, skopiuj następujące pliki do udziału plików, który utworzony wcześniej.
 
 Na serwerze regularne (nie Nano) z programem IIS uruchom następujące polecenia kopiowania:
 
@@ -124,39 +124,7 @@ Copy-Item -Path C:\PublishedApps\AspNetCoreSampleForNano\aspnetcore_schema.xml -
 
 W sesji zdalnej, uruchom następujący skrypt:
 
-```PowerShell
-# Backup existing applicationHost.config
-Copy-Item -Path C:\Windows\System32\inetsrv\config\applicationHost.config -Destination  C:\Windows\System32\inetsrv\config\applicationHost_BeforeInstallingANCM.config
-
-Import-Module IISAdministration
-
-# Initialize variables
-$aspNetCoreHandlerFilePath="C:\windows\system32\inetsrv\aspnetcore.dll"
-Reset-IISServerManager -confirm:$false
-$sm = Get-IISServerManager
-
-# Add AppSettings section 
-$sm.GetApplicationHostConfiguration().RootSectionGroup.Sections.Add("appSettings")
-
-# Set Allow for handlers section
-$appHostconfig = $sm.GetApplicationHostConfiguration()
-$section = $appHostconfig.GetSection("system.webServer/handlers")
-$section.OverrideMode="Allow"
-
-# Add aspNetCore section to system.webServer
-$sectionaspNetCore = $appHostConfig.RootSectionGroup.SectionGroups["system.webServer"].Sections.Add("aspNetCore")
-$sectionaspNetCore.OverrideModeDefault = "Allow"
-$sm.CommitChanges()
-
-# Configure globalModule
-Reset-IISServerManager -confirm:$false
-$globalModules = Get-IISConfigSection "system.webServer/globalModules" | Get-IISConfigCollection
-New-IISConfigCollectionElement $globalModules -ConfigAttribute @{"name"="AspNetCoreModule";"image"=$aspNetCoreHandlerFilePath}
-
-# Configure module
-$modules = Get-IISConfigSection "system.webServer/modules" | Get-IISConfigCollection
-New-IISConfigCollectionElement $modules -ConfigAttribute @{"name"="AspNetCoreModule"}
-```
+[!code-powershell[](nano-server/enable-aspnetcoremodule.ps1)]
 
 > [!NOTE]
 > Usuń pliki *aspnetcore.dll* i *aspnetcore_schema.xml* z udziału po kroku powyżej.
