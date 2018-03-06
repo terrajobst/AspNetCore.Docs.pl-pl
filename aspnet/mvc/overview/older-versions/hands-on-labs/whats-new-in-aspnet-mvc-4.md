@@ -12,28 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 8b1bdae048afc78399ccc7b0eac7125d9b983c13
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 35f9402ad6090c0441425a23b2b8063350892210
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="whats-new-in-aspnet-mvc-4"></a>Co to jest nowe w programie ASP.NET MVC 4
-====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+# <a name="whats-new-in-aspnet-mvc-4"></a>Co to jest nowe w programie ASP.NET MVC 4
 
-[Pobierz obozów sieci Web uczenie Kit](http://www.microsoft.com/download/29843)
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
-> ASP.NET MVC 4 to struktura służąca do tworzenia aplikacji sieci web skalowalnych, opartych na standardach za pomocą często używanych wzorów projektów oraz funkcji platform ASP.NET i .NET framework. Nowy, czwarty wersji platformy koncentruje się na ułatwiając tworzenie aplikacji sieci web urządzeń przenośnych.
-> 
-> Najpierw utwórz nowy projekt ASP.NET MVC 4 ma teraz szablon projektu aplikacji mobilnej, który umożliwia tworzenie aplikacji autonomicznej specjalnie dla urządzeń przenośnych. Ponadto program ASP.NET MVC 4 integruje się z jQuery Mobile za pośrednictwem pakietu NuGet jQuery.Mobile.MVC. jQuery Mobile to struktura na podstawie HTML5 umożliwiający projektowanie aplikacji sieci web, które są zgodne z wszystkich platform popularnym urządzeniu przenośnym, w tym Windows Phone, iPhone, Android i tak dalej. Jednak specjalizacji, należy ASP.NET MVC 4 umożliwia również obsługiwać różne widoki dla różnych urządzeń i podaj optymalizacje specyficzne dla urządzenia.
-> 
-> W tym laboratorium praktycznego rozpocznie z platformy ASP.NET MVC 4 &quot;aplikacji internetowej&quot; szablon projektu do tworzenia aplikacji galerii fotografii. Stopniowo umożliwiających ulepszenie aplikacji przy użyciu technologii jQuery Mobile i nowe funkcje platformy ASP.NET MVC 4, aby był zgodny z różnych urządzeń przenośnych i przeglądarki sieci web. Możesz także informacje dotyczące nowych przepisami kodu dla generowania kodu i jak ASP.NET MVC 4 pozwala na łatwiejsze do pisania metod asynchronicznych akcji przez zadanie obsługi&lt;ActionResult&gt; zwracanych typów.
-> 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
+[Pobierz obozów sieci Web uczenie Kit](https://aka.ms/webcamps-training-kit)
 
+ASP.NET MVC 4 to struktura służąca do tworzenia aplikacji sieci web skalowalnych, opartych na standardach za pomocą często używanych wzorów projektów oraz funkcji platform ASP.NET i .NET framework. Nowy, czwarty wersji platformy koncentruje się na ułatwiając tworzenie aplikacji sieci web urządzeń przenośnych.
 
-<a id="Objectives"></a>
+Najpierw utwórz nowy projekt ASP.NET MVC 4 ma teraz szablon projektu aplikacji mobilnej, który umożliwia tworzenie aplikacji autonomicznej specjalnie dla urządzeń przenośnych. Ponadto program ASP.NET MVC 4 integruje się z jQuery Mobile za pośrednictwem pakietu NuGet jQuery.Mobile.MVC. jQuery Mobile to struktura na podstawie HTML5 umożliwiający projektowanie aplikacji sieci web, które są zgodne z wszystkich platform popularnym urządzeniu przenośnym, w tym Windows Phone, iPhone, Android i tak dalej. Jednak specjalizacji, należy ASP.NET MVC 4 umożliwia również obsługiwać różne widoki dla różnych urządzeń i podaj optymalizacje specyficzne dla urządzenia.
+
+W tym laboratorium praktycznego rozpocznie z platformy ASP.NET MVC 4 &quot;aplikacji internetowej&quot; szablon projektu do tworzenia aplikacji galerii fotografii. Stopniowo umożliwiających ulepszenie aplikacji przy użyciu technologii jQuery Mobile i nowe funkcje platformy ASP.NET MVC 4, aby był zgodny z różnych urządzeń przenośnych i przeglądarki sieci web. Możesz także informacje dotyczące nowych przepisami kodu dla generowania kodu i jak ASP.NET MVC 4 pozwala na łatwiejsze do pisania metod asynchronicznych akcji przez zadanie obsługi&lt;ActionResult&gt; zwracanych typów.
+
+> [!NOTE]
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [wersje Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Specyficzne dla tego laboratorium projektu jest dostępna na [What's New in formularzy sieci Web w programie ASP.NET 4.5](https://github.com/Microsoft-Web/HOL-ASPNETWebForms).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Cele
@@ -258,9 +256,9 @@ Przy użyciu techniki adaptacyjną renderowania, zostanie wyświetlona witryna *
 
 Przykłady z zapytaniami multimediów: &gt;  **@media wszystkich i (szerokość maksymalna: 1000px) i (szerokość minimalna: 700px) {}:** dla wszystkich rozdzielczości między 700px i 1000px.
 
-> **@mediaekran i (szerokość minimalna: 400 piks.) i (szerokość maksymalna: 700px) {...}:** tylko na ekranach. Rozdzielczość musi wynosić od 400 do 700px.
+> **@media ekran i (szerokość minimalna: 400 piks.) i (szerokość maksymalna: 700px) {...}:** tylko na ekranach. Rozdzielczość musi wynosić od 400 do 700px.
 > 
-> **@mediaurządzenia przenośnego i (minimalną szerokość: 20em), ekranu i (szerokość minimalna: 20em) {...}:** urządzenia podręczne (przenośne i urządzenia) i ekranów. Minimalna szerokość musi być większa niż 20em.
+> **@media urządzenia przenośnego i (minimalną szerokość: 20em), ekranu i (szerokość minimalna: 20em) {...}:** urządzenia podręczne (przenośne i urządzenia) i ekranów. Minimalna szerokość musi być większa niż 20em.
 > 
 > Więcej informacji na ten temat można znaleźć na [lokacji W3C](http://www.w3.org/TR/css3-mediaqueries/).
 
@@ -598,7 +596,7 @@ W ramach tego zadania spowoduje utworzenie układu dostosowanego dla urządzenia
     > Dzięki temu testowania żądania dla telefonów iPhone, zostały uproszczone dla celów demonstracyjnych i może nie działać zgodnie z oczekiwaniami dotyczącymi każdego iPhone ciąg agenta użytkownika (na przykład testu jest uwzględniana wielkość liter).
 4. Utwórz kopię  **\_Layout.Mobile.cshtml** w pliku **Views\Shared** folder i Zmień nazwę kopii do &quot;  **\_Layout.iPhone.csthml** &quot;.
 5. Otwórz  **\_Layout.iPhone.csthml** utworzony w poprzednim kroku.
-6. Znajdź div element, używając atrybutu data-role ustawioną **strony** i zmienić **data-theme** atrybutu &quot; **a**&quot;.
+6. Znajdź div element, używając atrybutu data-role ustawioną **strony** i zmienić **data-theme** atrybutu &quot;**a**&quot;.
 
 
     [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample17.cshtml)]
