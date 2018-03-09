@@ -213,6 +213,9 @@
 # [Urządzenia przenośne](xref:mobile/index)
 ## [Tworzenie usług zaplecza dla natywnych aplikacji mobilnych](xref:mobile/native-mobile-backend)
 
+# [SignalR](xref:signalr/index)
+## [Wprowadzenie](xref:signalr/get-started-signalr-core)
+
 # [Hostowanie i wdrażanie](xref:host-and-deploy/index)
 ## [Hostowanie w usłudze Azure App Service](xref:host-and-deploy/azure-apps/index)
 ### [Publikowanie na platformie Azure przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)

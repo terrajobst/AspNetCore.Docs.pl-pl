@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 6170ee9f3e8bf1657fdea155c19356b6d5749f2d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 2dced015759eebea01f0174a21819499374ccf7c
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Wprowadzenie do platformy ASP.NET Core MVC i Entity Framework Core za pomocą programu Visual Studio (od 1 do 10)
 
@@ -311,7 +311,7 @@ Kliknij prawym przyciskiem myszy **uczniowie** tabeli, a następnie kliknij przy
 
 ![Tabela uczniów w SSOX](intro/_static/ssox-student-table.png)
 
-*.Mdf* i *ldf* pliki bazy danych znajdują się w *C:\Users\<nazwa_użytkownika >* folderu.
+*.Mdf* i *ldf* pliki bazy danych znajdują się w *C:\Users\\ <yourusername>*  folderu.
 
 Ponieważ w przypadku wywoływania `EnsureCreated` w metodzie inicjatora uruchamiany podczas uruchamiania aplikacji, można teraz wprowadzić zmianę do `Student` klasy, Usuń bazę danych, uruchom ponownie aplikację i bazy danych będzie automatycznie utworzona ponownie, aby dopasować zmiany. Na przykład, jeśli dodasz `EmailAddress` właściwości `Student` klasy, zostanie wyświetlony nowy `EmailAddress` kolumny w tabeli odtworzony.
 
