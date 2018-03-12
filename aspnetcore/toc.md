@@ -210,6 +210,9 @@
 ### [Szablon projektu biblioteki React](xref:spa/react)
 ### [Szablon projektu biblioteki React z implementacją Redux](xref:spa/react-with-redux)
 
+# [SignalR](xref:signalr/introduction-signalr-core)
+## [Wprowadzenie](xref:signalr/introduction-signalr-core)
+
 # [Urządzenia przenośne](xref:mobile/index)
 ## [Tworzenie usług zaplecza dla natywnych aplikacji mobilnych](xref:mobile/native-mobile-backend)
 
