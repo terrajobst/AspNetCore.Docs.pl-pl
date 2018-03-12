@@ -4,16 +4,16 @@ author: rick-anderson
 description: Wprowadzenie do platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
-ms.date: 12/12/2017
+ms.date: 02/28/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: index
-ms.openlocfilehash: 42bf005a29a8723233a0d9e5532827f7522f0e75
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 112e1e4dc4eed2cf0ee94741a52ce6625e1f42a6
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="aspnet-core"></a>ASP.NET Core
 
@@ -43,7 +43,7 @@ Platforma ASP. NET Core oferuje następujące zalety:
 * Możliwość kompilowania i uruchamiania w systemach Windows, macOS i Linux.
 * Open source i [koncentracja na społeczności](https://live.asp.net/).
 
-Platforma ASP.NET Core jest dostarczana w całości w postaci pakietów [NuGet](https://www.nuget.org/). Dzięki temu można zoptymalizować aplikację, uwzględniając w niej tylko niezbędne pakiety NuGet. Aplikacje ASP.NET Core 2.x, których platformą docelową jest platforma .NET Core, wymagają tak naprawdę tylko [jednego pakietu NuGet](xref:fundamentals/metapackage). Korzyści z mniejszego obszaru powierzchni aplikacji obejmują: większe bezpieczeństwo, ograniczenie obsługi i lepszą wydajność.
+Platforma ASP.NET Core jest dostarczana w całości w postaci pakietów [NuGet](https://www.nuget.org/). Używając pakietów NuGet, można zoptymalizować aplikację, uwzględniając w niej tylko niezbędne zależności. Aplikacje ASP.NET Core 2.x, których platformą docelową jest platforma .NET Core, wymagają tak naprawdę tylko [jednego pakietu NuGet](xref:fundamentals/metapackage). Korzyści z mniejszego obszaru powierzchni aplikacji obejmują: większe bezpieczeństwo, ograniczenie obsługi i lepszą wydajność.
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>Tworzenie internetowego interfejsu użytkownika i internetowych interfejsów API przy użyciu wzorca MVC platformy ASP.NET Core
 
@@ -59,7 +59,21 @@ Platforma ASP.NET Core MVC udostępnia funkcje, które umożliwiają tworzenie [
 
 ## <a name="client-side-development"></a>Programowanie po stronie klienta
 
-Platforma ASP.NET Core bezproblemowo integruje się z popularnymi strukturami i bibliotekami po stronie klienta, takimi jak [Angular](xref:spa/angular), [React](xref:spa/react) czy [Bootstrap](xref:client-side/bootstrap). Zobacz [Programowanie po stronie klienta](xref:client-side/index), aby uzyskać więcej informacji.
+Platforma ASP.NET Core bezproblemowo integruje się z popularnymi strukturami i bibliotekami po stronie klienta, takimi jak [Angular](xref:spa/angular), [React](xref:spa/react) czy [Bootstrap](xref:client-side/bootstrap). Aby uzyskać więcej informacji, zobacz [Programowanie po stronie klienta](xref:client-side/index).
+
+## <a name="aspnet-core-targeting-net-framework"></a>Platforma ASP.NET Core ukierunkowana na platformę .NET Framework
+
+Platforma ASP.NET Core może jako cel mieć platformę .NET Core lub .NET Framework. Aplikacje platformy ASP.NET Core ukierunkowane na platformę .NET Framework nie są wieloplatformowe &mdash; działają tylko w systemie Windows. Nie planuje się usunięcia z platformy ASP.NET Core obsługi przyjmowania jako celu platformy .NET Framework. Ogólnie rzecz biorąc, platforma ASP.NET Core zbudowana jest z bibliotek [.NET Standard](/dotnet/standard/net-standard). Aplikacje napisane przy użyciu platformy .NET Standard 2.0 działają wszędzie tam, gdzie obsługiwana jest platforma .NET Standard 2.0.
+
+Jest kilka zalet przyjmowania platformy .NET Core jako docelowej, a ich liczba rośnie z każdym wydaniem. Niektóre z zalet platformy .NET Core nad platformą .NET Framework to:
+
+* Wieloplatformowość. Działa w systemach macOS, Linux i Windows.
+* Większa wydajność
+* Przechowywanie wersji obok siebie
+* Nowe interfejsy API
+* Kod open source
+
+Ciężko pracujemy nad zlikwidowaniem rozbieżności między interfejsami API platform .NET Framework i .NET Core. Pakiet [Windows Compatibility Pack](/dotnet/core/porting/windows-compat-pack) udostępnił tysiące interfejsów API specyficznych dla systemu Windows na platformie .NET Core. Te interfejsy API nie były dostępne na platformie .NET Core 1.x.
 
 ## <a name="next-steps"></a>Następne kroki
 
