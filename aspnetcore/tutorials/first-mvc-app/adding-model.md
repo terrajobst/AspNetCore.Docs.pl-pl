@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 368b1e50242dedfd3a4128324934e483e6b4eb30
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 171b2a03378c14e956ab4ee7395d481e0ff89236
+ms.sourcegitcommit: 6fa546140575b3eb279eabae12d9acad966f70e0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
@@ -113,7 +113,16 @@ Update-Database
   dotnet ef database update
   ```     
   
+  Jeżeli możesz uruchomić aplikację i komunikat o błędzie:
+  
+  ```text
+SqlException: Cannot open database "Movie" requested by the login.
+The login failed.
+Login failed for user 'user name'.
+```
 
+Prawdopodobnie nie uruchomiono ` dotnet ef database update`.
+  
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
