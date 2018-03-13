@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: 54834727db70668552b2a1007c8a9be3cfe2e6b7
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 5105935a8f5b9e9f258fe84f839d17f6948bab1d
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Razor strony trasy i aplikacji Konwencji funkcji programu ASP.NET Core
 
@@ -43,7 +43,7 @@ Przykładowa aplikacja dodaje `{globalTemplate?}` szablon trasy do wszystkich st
 [!code-csharp[](razor-pages-convention-features/sample/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
 
 > [!NOTE]
-> `Order` Właściwość `AttributeRouteModel` ma ustawioną wartość `0` (zero). Dzięki temu, ten szablon jest nadawana priorytet pierwszą pozycję wartości danych trasy, jeśli podano wartość jedną trasę. Na przykład dodaje próbki `{aboutTemplate?}` szablon trasy w dalszej części tematu. `{aboutTemplate?}` Podano szablon `Order` z `1`. Po zażądaniu strony informacje w `/About/RouteDataValue`, "RouteDataValue" zostanie załadowana do `RouteData.Values["globalTemplate"]` (`Order = 0`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 1`) z powodu ustawienia `Order` właściwości.
+> `Order` Właściwość `AttributeRouteModel` ma ustawioną wartość `-1`. Dzięki temu, ten szablon jest nadawana priorytet pierwszą pozycję wartości danych trasy, jeśli podano wartość trasa, a także że będzie mają pierwszeństwo przed automatycznie generowanych trasy stron Razor. Na przykład dodaje próbki `{aboutTemplate?}` szablon trasy w dalszej części tematu. `{aboutTemplate?}` Podano szablon `Order` z `1`. Po zażądaniu strony informacje w `/About/RouteDataValue`, "RouteDataValue" zostanie załadowana do `RouteData.Values["globalTemplate"]` (`Order = -1`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 1`) z powodu ustawienia `Order` właściwości.
 
 Opcje stron razor, takie jak dodawanie [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions), zostaną dodane, gdy MVC zostanie dodany do kolekcji usługi w `Startup.ConfigureServices`. Na przykład zobacz [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample/).
 
@@ -84,7 +84,7 @@ Przykładowe zastosowania aplikacji `AddFolderRouteModelConvention` można doda�
 [!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet3)]
 
 > [!NOTE]
-> `Order` Właściwość `AttributeRouteModel` ma ustawioną wartość `1`. Gwarantuje to, że szablon `{globalTemplate?}` (zestaw we wcześniejszej części tematu) jest priorytet dla pierwsze dane trasy wartości pozycji, gdy została podana wartość jedną trasę. Jeśli żądanie strony Strona 1 na `/OtherPages/Page1/RouteDataValue`, "RouteDataValue" zostanie załadowana do `RouteData.Values["globalTemplate"]` (`Order = 0`) i nie `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) z powodu ustawienia `Order` właściwości.
+> `Order` Właściwość `AttributeRouteModel` ma ustawioną wartość `1`. Gwarantuje to, że szablon `{globalTemplate?}` (zestaw we wcześniejszej części tematu) jest priorytet dla pierwsze dane trasy wartości pozycji, gdy została podana wartość jedną trasę. Jeśli żądanie strony Strona 1 na `/OtherPages/Page1/RouteDataValue`, "RouteDataValue" zostanie załadowana do `RouteData.Values["globalTemplate"]` (`Order = -1`) i nie `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) z powodu ustawienia `Order` właściwości.
 
 Przykładowe strony Strona 1 na `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` i sprawdzić wynik:
 
@@ -99,7 +99,7 @@ Przykładowe zastosowania aplikacji `AddPageRouteModelConvention` można dodać 
 [!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet4)]
 
 > [!NOTE]
-> `Order` Właściwość `AttributeRouteModel` ma ustawioną wartość `1`. Gwarantuje to, że szablon `{globalTemplate?}` (zestaw we wcześniejszej części tematu) jest priorytet dla pierwsze dane trasy wartości pozycji, gdy została podana wartość jedną trasę. Jeśli żądanie na stronie informacje `/About/RouteDataValue`, "RouteDataValue" zostanie załadowana do `RouteData.Values["globalTemplate"]` (`Order = 0`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 1`) z powodu ustawienia `Order` właściwości.
+> `Order` Właściwość `AttributeRouteModel` ma ustawioną wartość `1`. Gwarantuje to, że szablon `{globalTemplate?}` (zestaw we wcześniejszej części tematu) jest priorytet dla pierwsze dane trasy wartości pozycji, gdy została podana wartość jedną trasę. Jeśli żądanie na stronie informacje `/About/RouteDataValue`, "RouteDataValue" zostanie załadowana do `RouteData.Values["globalTemplate"]` (`Order = -1`) i nie `RouteData.Values["aboutTemplate"]` (`Order = 1`) z powodu ustawienia `Order` właściwości.
 
 Żądanie przykładową stronę o w `localhost:5000/About/GlobalRouteValue/AboutRouteValue` i sprawdzić wynik:
 
@@ -205,11 +205,11 @@ Metody obsługi zleceń HTTP ("bez nazwy" obsługi metody) wykonaj Konwencji: `O
 | -------------------------- | ------------------------------ |
 | `OnGet`/`OnGetAsync`       | Inicjowanie stan strony.     |
 | `OnPost`/`OnPostAsync`     | Obsługuje żądania POST.          |
-| `OnDelete`/`OnDeleteAsync` | Obsługi żądań DELETE &#8224;. |
-| `OnPut`/`OnPutAsync`       | Obsługuje żądania PUT &#8224;.    |
-| `OnPatch`/`OnPatchAsync`   | Obsługuje żądania PATCH &#8224;.  |
+| `OnDelete`/`OnDeleteAsync` | Obsługi żądań DELETE&#8224;. |
+| `OnPut`/`OnPutAsync`       | Obsługuje żądania PUT&#8224;.    |
+| `OnPatch`/`OnPatchAsync`   | Obsługuje żądania PATCH&#8224;.  |
 
-&#8224; Używany dla wywołań interfejsu API do strony.
+&#8224;Używany dla wywołań interfejsu API do strony.
 
 **Domyślną nazwę metody procedury obsługi**
 
@@ -219,11 +219,11 @@ Metody obsługi udostępniane przez deweloperów ("o nazwie" metod obsługi) wyk
 | ---------------------------------------- | ------------------------ |
 | `OnGetMessage`/`OnGetMessageAsync`       | Uzyskiwania wiadomości.        |
 | `OnPostMessage`/`OnPostMessageAsync`     | OPUBLIKOWANIE wiadomości.          |
-| `OnDeleteMessage`/`OnDeleteMessageAsync` | Usuń wiadomości &#8224;. |
-| `OnPutMessage`/`OnPutMessageAsync`       | Umieść wiadomości &#8224;.    |
-| `OnPatchMessage`/`OnPatchMessageAsync`   | POPRAWKA wiadomości &#8224;.  |
+| `OnDeleteMessage`/`OnDeleteMessageAsync` | Usuwanie wiadomości&#8224;. |
+| `OnPutMessage`/`OnPutMessageAsync`       | Umieść komunikat&#8224;.    |
+| `OnPatchMessage`/`OnPatchMessageAsync`   | POPRAWKA komunikat&#8224;.  |
 
-&#8224; Używany dla wywołań interfejsu API do strony.
+&#8224;Używany dla wywołań interfejsu API do strony.
 
 **Dostosowywanie obsługi nazw — metoda**
 
@@ -233,16 +233,16 @@ Przykładowa wolisz zmienić sposób metody nazwane i nienazwane procedury obsł
 | ------------------------------------ | ------------------------------ |
 | `Get`                                | Inicjowanie stan strony.     |
 | `Post`/`PostAsync`                   | Obsługuje żądania POST.          |
-| `Delete`/`DeleteAsync`               | Obsługi żądań DELETE &#8224;. |
-| `Put`/`PutAsync`                     | Obsługuje żądania PUT &#8224;.    |
-| `Patch`/`PatchAsync`                 | Obsługuje żądania PATCH &#8224;.  |
+| `Delete`/`DeleteAsync`               | Obsługi żądań DELETE&#8224;. |
+| `Put`/`PutAsync`                     | Obsługuje żądania PUT&#8224;.    |
+| `Patch`/`PatchAsync`                 | Obsługuje żądania PATCH&#8224;.  |
 | `GetMessage`                         | Uzyskiwania wiadomości.              |
 | `PostMessage`/`PostMessageAsync`     | OPUBLIKOWANIE wiadomości.                |
 | `DeleteMessage`/`DeleteMessageAsync` | OPUBLIKOWANIE wiadomości do usunięcia.      |
 | `PutMessage`/`PutMessageAsync`       | Komunikat, aby umieścić POST.         |
 | `PatchMessage`/`PatchMessageAsync`   | OPUBLIKOWANIE wiadomości do poprawki.       |
 
-&#8224; Używany dla wywołań interfejsu API do strony.
+&#8224;Używany dla wywołań interfejsu API do strony.
 
 Ustanowienie ten schemat dziedziczyć `DefaultPageApplicationModelProvider` klasy i zastąpienia [CreateHandlerModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.internal.defaultpageapplicationmodelprovider.createhandlermodel) metodę, aby podać niestandardową logikę na potrzeby rozpoznawania [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) nazwy programu obsługi. Przykładowa aplikacja pokazuje, jak to zrobić jego `CustomPageApplicationModelProvider` klasy:
 

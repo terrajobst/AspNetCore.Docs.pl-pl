@@ -29,7 +29,9 @@
 
 ## [Tworzenie interfejsów API sieci Web](mvc/web-api/index.md)
 ### [Tworzenie interfejsu API sieci Web dla komputerów Mac](xref:tutorials/first-web-api-mac)
-### [Strony pomocy dla interfejsu Web API platformy ASP.NET Core korzystające z programu Swagger](tutorials/web-api-help-pages-using-swagger.md)
+### [Strony pomocy dla interfejsu Web API platformy ASP.NET Core korzystające z programu Swagger](xref:tutorials/web-api-help-pages-using-swagger)
+#### [Rozpoczynanie pracy z NSwag](xref:tutorials/get-started-with-nswag)
+#### [Rozpoczynanie pracy z Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
 ### [Tworzenie usług zaplecza dla natywnych aplikacji mobilnych](mobile/native-mobile-backend.md)
 
 ## [Dostęp do danych - EF podstawowych](xref:data/index)
@@ -212,12 +214,10 @@
 
 # [SignalR](xref:signalr/introduction-signalr-core)
 ## [Wprowadzenie](xref:signalr/introduction-signalr-core)
+## [Wprowadzenie](xref:signalr/get-started-signalr-core)
 
 # [Urządzenia przenośne](xref:mobile/index)
 ## [Tworzenie usług zaplecza dla natywnych aplikacji mobilnych](xref:mobile/native-mobile-backend)
-
-# [SignalR](xref:signalr/index)
-## [Wprowadzenie](xref:signalr/get-started-signalr-core)
 
 # [Hostowanie i wdrażanie](xref:host-and-deploy/index)
 ## [Hostowanie w usłudze Azure App Service](xref:host-and-deploy/azure-apps/index)

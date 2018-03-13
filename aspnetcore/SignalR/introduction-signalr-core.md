@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/introduction-signalr-core
-ms.openlocfilehash: 0e26ecf913bbe6d24da96c1ece8b13aa5240818f
-ms.sourcegitcommit: 6fa546140575b3eb279eabae12d9acad966f70e0
+ms.openlocfilehash: d4ad9bb1910a3339ac8d0d8ff740417f4e7262b7
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="introduction-to-signalr"></a>Wprowadzenie do SignalR
 
@@ -38,7 +38,7 @@ Biblioteka SignalR dla platformy ASP.NET Core:
 * Obsługuje zarządzanie połączeniami automatycznie.
 * Umożliwia emituje wiadomości jednocześnie do wszystkich połączonych klientów. Na przykład pokoju rozmów.
 * Umożliwia wysyłanie komunikatów do określonych klientów lub grupy klientów.
-* Jest open-powierzając jej ich konserwację na [GitHub](https://github.com/aspnet/SignalR).
+* Jest open-powierzając jej ich konserwację na [GitHub](https://github.com/aspnet/signalr).
 * Skaluje dobrze.
 
 Połączenie między klientem a serwerem jest trwała, w przeciwieństwie do połączenia HTTP.
@@ -63,4 +63,4 @@ Na poniższym diagramie przedstawiono relację między koncentratorów, punktów
 
 ## <a name="related-resources"></a>Zasoby pokrewne
 
-[Rozpoczynanie pracy z SignalR dla platformy ASP.NET Core](get-started-signalr-core)
+[Rozpoczynanie pracy z SignalR dla platformy ASP.NET Core](xref:signalr/get-started-signalr-core)

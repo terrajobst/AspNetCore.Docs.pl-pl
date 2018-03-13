@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: 7c91866de60988ebfeafea6e026a3dcec25d7c3d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 6ce18cfd488d89a633bca6c02f9391c1dcca9c08
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Tworzenie składnika web API platformy ASP.NET Core i Visual Studio dla systemu Windows
 
@@ -41,11 +41,11 @@ Zobacz [ten plik PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tuto
 
 W programie Visual Studio, wybierz **pliku** menu > **nowy** > **projektu**.
 
-Wybierz **aplikacji sieci Web platformy ASP.NET Core (.NET Core)** szablonu projektu. Nazwij projekt `TodoApi` i wybierz **OK**.
+Wybierz **.NET Core** >  **aplikacji sieci Web platformy ASP.NET Core** szablonu projektu. Nazwij projekt `TodoApi` i wybierz **OK**.
 
 ![Okno dialogowe nowego projektu](first-web-api/_static/new-project.png)
 
-W **nowe podstawowe aplikacji sieci Web ASP.NET - TodoApi** okno dialogowe, wybierz opcję **interfejsu API sieci Web** szablonu. Wybierz **OK**. Czy **nie** wybierz **Włącz obsługę Docker**.
+W **nowe podstawowe aplikacji sieci Web ASP.NET - TodoApi** okno dialogowe, wybierz opcję **interfejsu API** szablonu. Wybierz **OK**. Czy **nie** wybierz **Włącz obsługę Docker**.
 
 ![Okno dialogowe nowego aplikacji sieci Web platformy ASP.NET z szablonem projektu interfejsu API sieci Web z platformy ASP.NET Core szablonów](first-web-api/_static/web-api-project.png)
 
