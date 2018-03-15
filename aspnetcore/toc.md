@@ -216,7 +216,7 @@
 ## [Wprowadzenie](xref:signalr/introduction-signalr-core)
 ## [Wprowadzenie](xref:signalr/get-started-signalr-core)
 
-# [Urządzenia przenośne](xref:mobile/index)
+# [Mobile](xref:mobile/index)
 ## [Tworzenie usług zaplecza dla natywnych aplikacji mobilnych](xref:mobile/native-mobile-backend)
 
 # [Hostowanie i wdrażanie](xref:host-and-deploy/index)
@@ -313,7 +313,6 @@
 #### [Format magazynu kluczy](xref:security/data-protection/implementation/key-storage-format)
 #### [Dostawcy efemerycznej ochrony danych](xref:security/data-protection/implementation/key-storage-ephemeral)
 ### [Zgodność](xref:security/data-protection/compatibility/index)
-#### [Udostępnianie plików cookie między aplikacjami](xref:security/data-protection/compatibility/cookie-sharing)
 #### [Zamienianie elementu <machineKey> na platformie ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
 ## [Enforce HTTPS](xref:security/enforcing-ssl)
 ## [Bezpieczne przechowywanie kluczy tajnych aplikacji w czasie projektowania](xref:security/app-secrets)
@@ -322,6 +321,7 @@
 ## [Zapobieganie atakom na otwarte przekierowywanie](xref:security/preventing-open-redirects)
 ## [Zapobieganie atakom z użyciem skryptów między witrynami](xref:security/cross-site-scripting)
 ## [Włączanie żądań Cross-Origin (CORS)](xref:security/cors)
+## [Udostępnianie plików cookie między aplikacjami](xref:security/cookie-sharing)
 
 # [Wydajność](xref:performance/index)
 ## [Buforowanie](xref:performance/caching/index)
