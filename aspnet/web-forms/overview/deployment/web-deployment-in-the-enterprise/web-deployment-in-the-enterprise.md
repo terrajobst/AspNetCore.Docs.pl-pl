@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
 ms.openlocfilehash: 6210d01f65bcadf8ae4209e372d5aac68861bd7a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="web-deployment-in-the-enterprise"></a>Wdrażanie sieci Web w przedsiębiorstwie
 ====================
@@ -26,7 +26,7 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 
 > W tym samouczku opisano sposób spełniają partii wyzwania, które będą występować w przypadku zarządzać wdrażaniem aplikacji sieci web w skali przedsiębiorstwa do środowiska deweloperskie, testu, przemieszczania i produkcji. Samouczek zawiera odwołanie do rozwiązania wraz z kombinacją koncepcyjne i zadań zawartości do przeprowadzenia różnych typowych zadań i procedur.
 > 
-> Włoska translacji tego samouczka, odwiedź stronę [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Włoska translacji tego samouczka, odwiedź stronę [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 ## <a name="enterprise-deployment-challenges"></a>Związane z wdrożeniem Enterprise
@@ -68,19 +68,19 @@ Ten samouczek zawiera tematy, które można podzielić na cztery główne obszar
 
 Te tematy wprowadzić rozwiązanie odwołania & #x 2014; rozwiązania z menedżerem skontaktuj się z & #x 2014; i opisano, jak pobrać i skonfigurować go na komputerze lokalnym:
 
-- [Rozwiązania z menedżerem kontaktu](the-contact-manager-solution.md)
-- [Trwa konfigurowanie rozwiązania z menedżerem kontaktu](setting-up-the-contact-manager-solution.md)
+- [Rozwiązanie Contact Manager](the-contact-manager-solution.md)
+- [Konfigurowanie rozwiązania Contact Manager](setting-up-the-contact-manager-solution.md)
 
 Te tematy wprowadzenie pliki projektu programu MSBuild, opisano, jak można tworzyć i pliki projektu niestandardowe i przeprowadź przez proces wdrażania rozwiązania Menedżera skontaktuj się z:
 
-- [Opis pliku projektu](understanding-the-project-file.md)
-- [Opis procesu kompilacji](understanding-the-build-process.md)
+- [Objaśnienie pliku projektu](understanding-the-project-file.md)
+- [Objaśnienie procesu kompilacji](understanding-the-build-process.md)
 
 Te tematy opisują wdrażanie aplikacji sieci web, w tym sposobu działania procesu kompilacji i tworzenia pakietów, jak proces kompilacji integruje się z potoku publikowania w sieci Web, jak zmodyfikować parametrów wdrożenia i sposobu wdrażania pakietów sieci web do miejsca docelowego środowiskach:
 
-- [Skompilowanie i utworzenie pakietu projekty aplikacji sieci Web](building-and-packaging-web-application-projects.md)
-- [Konfigurowanie parametrów na potrzeby wdrażania pakietu sieci Web](configuring-parameters-for-web-package-deployment.md)
-- [Wdrażanie pakietów sieci Web](deploying-web-packages.md)
+- [Kompilowanie i tworzenie pakietów projektów aplikacji internetowych](building-and-packaging-web-application-projects.md)
+- [Konfigurowanie parametrów na potrzeby wdrożenia pakietu internetowego](configuring-parameters-for-web-package-deployment.md)
+- [Wdrażanie pakietów internetowych](deploying-web-packages.md)
 
 - [Wdrażanie projektów bazy danych](deploying-database-projects.md) zawiera opis różnych technik, można użyć do wdrożenia projektów bazy danych programu Visual Studio, oraz zalety i wady każdego z podejść. [Tworzenie i uruchamianie pliku poleceń wdrażania](creating-and-running-a-deployment-command-file.md) zawiera opis sposobu tworzenia pliku prostego polecenia, który hermetyzuje logiki wdrożenia i umożliwia wdrażanie złożonych rozwiązań jako proces pojedynczy krok.
 - Na koniec [ręczne instalowanie pakietów sieci Web](manually-installing-web-packages.md) poprzez wyświetlenie do importowania pakietów sieci web do usług IIS jest zakończenie samouczka.
@@ -91,7 +91,7 @@ Tematy w tym samouczku głównie używać tych technologii do zarządzania kompi
 
 - Visual Studio 2010
 - MSBuild
-- USŁUGI IIS 7.5
+- IIS 7.5
 - Web Deploy 2.0
 - Narzędzie wdrażania VSDBCMD.exe baz danych
 
@@ -105,4 +105,4 @@ To jest częścią serii samouczków pięć w skali przedsiębiorstwa wdrożenia
 - [Zaawansowane wdrażanie w przedsiębiorstwie sieci Web](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Ten przewodnik opisuje sposób wykonywania różnych bardziej zaawansowanych zadań wdrażania, jak dostosowywanie wdrożenia bazy danych w wielu środowiskach, z wyjątkiem plików i folderów z wdrożenia i pobieranie aplikacji sieci web w trybie offline podczas procesu wdrażania .
 
 >[!div class="step-by-step"]
-[Dalej](the-contact-manager-solution.md)
+[Next](the-contact-manager-solution.md)

@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/7-displaying-data-in-a-chart
 msc.type: authoredcontent
 ms.openlocfilehash: f252b74bc42d0ea65b8b1150973c4f3c50cc9cf4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>Wyświetlanie danych na wykresie ze stronami sieci Web platformy ASP.NET (Razor)
 ====================
@@ -41,7 +41,7 @@ przez [firmy Microsoft](https://github.com/microsoft)
 <a id="The_Chart_Helper"></a>
 ## <a name="the-chart-helper"></a>Pomocnik wykresu
 
-Jeśli chcesz wyświetlać dane w formie graficznej, możesz użyć `Chart` pomocnika. `Chart` Pomocnika może renderować obraz, który wyświetla dane w różnych typów wykresów. Obsługuje wiele opcji formatowania i etykietowania. `Chart` Pomocnika umożliwiający renderowanie ponad 30 typów wykresów, w tym wszystkie typy wykresów, które mogą być znasz z programu Microsoft Excel lub innych narzędzi &#8212; wykresy, pasek wykresy, wykresy kolumnowe wiersz wykresów i wykresy kołowe wraz z więcej Wykresy specjalnych, takich jak wykresy standardowych.
+Jeśli chcesz wyświetlać dane w formie graficznej, możesz użyć `Chart` pomocnika. `Chart` Pomocnika może renderować obraz, który wyświetla dane w różnych typów wykresów. Obsługuje wiele opcji formatowania i etykietowania. `Chart` Pomocnika umożliwiający renderowanie ponad 30 typów wykresów, w tym wszystkie typy wykresów, które mogą być znane z programu Microsoft Excel lub innych narzędzi &#8212; wykresy, wykresy słupkowe, wykresy kolumnowe, wykresy liniowe i wykresy kołowe wraz z więcej Wykresy specjalnych, takich jak wykresy standardowych.
 
 | **Wykres warstwowy** ![opis: obraz typu obszaru wykresu](7-displaying-data-in-a-chart/_static/image1.jpg) | **Wykres słupkowy** ![opis: obraz wykresu słupkowego](7-displaying-data-in-a-chart/_static/image2.jpg) |
 | --- | --- |
@@ -122,7 +122,7 @@ Trzecia opcja dla wykresów jest użyć pliku XML jako danych wykresu. Plik XML 
 
     Najpierw tworzy kod `DataSet` obiektu. Ten obiekt jest używany do zarządzania danymi, które zostanie odczytany z pliku XML i organizowanie go zgodnie z informacjami w pliku schematu. (Powiadomienie, że na początku kodu zawiera instrukcję `using SystemData`. Jest to wymagane, aby można było pracować z `DataSet` obiektu. Aby uzyskać więcej informacji, zobacz [ &quot;Using&quot; instrukcje i w pełni kwalifikowane nazwy](#SB_UsingStatements) dalszej części tego artykułu.)
 
-    Następnie kod tworzy `DataView` obiektu oparte na zestawie danych. Widok danych zawiera obiekt, który można powiązać wykres &#8212; oznacza to, że do odczytu i kreślenia. Wiąże wykres danych przy użyciu `AddSeries` metody, jako użytkownik był wyświetlany podczas wykresów tablicy danych, z wyjątkiem teraz `xValue` i `yValues` parametry są ustawione na `DataView` obiektu.
+    Następnie kod tworzy `DataView` obiektu oparte na zestawie danych. Widok danych zawiera obiekt, który można powiązać z wykresu &#8212; oznacza to, Odczyt i kreślenia. Wiąże wykres danych przy użyciu `AddSeries` metody, jako użytkownik był wyświetlany podczas wykresów tablicy danych, z wyjątkiem teraz `xValue` i `yValues` parametry są ustawione na `DataView` obiektu.
 
     Ten przykład przedstawia również sposób określania typu konkretnego. Gdy dane są dodawane w `AddSeries` metody `chartType` również ustawiona jest wyświetlania wykresu kołowego.
 7. Uruchom strony w przeglądarce. 
@@ -136,7 +136,7 @@ Trzecia opcja dla wykresów jest użyć pliku XML jako danych wykresu. Plik XML 
 > 
 > .NET Framework, na podstawie stron ASP.NET Web Pages o składni Razor składa się z wielu tysięcy składników (klasy). Aby umożliwić łatwe w zarządzaniu do pracy z tych klas, są podzielone na *przestrzeni nazw*, które przypominają do biblioteki. Na przykład `System.Web` przestrzeń nazw zawiera klasy obsługujące komunikacji z serwerem przeglądarki `System.Xml` przestrzeń nazw zawiera klasy służące do tworzenia i odczytywać pliki XML i `System.Data` przestrzeń nazw zawiera klasy, które pozwalają pracować z danymi.
 > 
-> Aby uzyskać dostęp do danej klasy w programie .NET Framework, kod musi wiedzieć, nie tylko nazwę klasy, ale klasa znajduje się w obszarze nazw. Na przykład, aby można było używać `Chart` pomocnika, kod musi znaleźć `System.Web.Helpers.Chart` klasy, która łączy obszaru nazw (`System.Web.Helpers`) z nazwą klasy (`Chart`). Jest to nazywane klasy *pełną* nazwy &#8212; pełna, jednoznacznej lokalizacji w ramach vastness programu .NET Framework. W kodzie to będzie wyglądać następująco:
+> Aby uzyskać dostęp do danej klasy w programie .NET Framework, kod musi wiedzieć, nie tylko nazwę klasy, ale klasa znajduje się w obszarze nazw. Na przykład, aby można było używać `Chart` pomocnika, kod musi znaleźć `System.Web.Helpers.Chart` klasy, która łączy obszaru nazw (`System.Web.Helpers`) z nazwą klasy (`Chart`). Jest to nazywane klasy *pełną* nazwa &#8212; pełną, jednoznacznej lokalizacji w ramach vastness programu .NET Framework. W kodzie to będzie wyglądać następująco:
 > 
 > `var myChart = new System.Web.Helpers.Chart(width: 600, height: 400) // etc.`
 > 
@@ -235,11 +235,11 @@ Wykresy zapisane w pamięci podręcznej mogą zostać usunięte, jeśli serwer m
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample13.cshtml)]
 
-    Ten kod najpierw sprawdza, czy przekazano niczego jako wartość klucza w ciągu zapytania. Jeśli tak, kod próbuje odczytać wykres z pamięci podręcznej przez wywołanie metody `GetFromCache` — metoda i przekazanie jej klucza. Jeśli okaże się, że nie ma w pamięci podręcznej, w tym kluczu (co się stanie po raz pierwszy zażądano wykresu), kod tworzy wykres w zwykły sposób. Po zakończeniu operacji wykresu kod zapisuje go w pamięci podręcznej przez wywołanie metody `SaveToCache`. Ta metoda wymaga klucza (Aby później można żądać wykresu) i ilość czasu, który ma zostać zapisany wykresu w pamięci podręcznej. (Czas będzie pamięci podręcznej wykresu będzie zależeć od częstotliwość traktować danych, który reprezentuje może zmienić). `SaveToCache` Wymaga również metody `slidingExpiration` parametru &#8212; jeśli ta opcja jest ustawiona na wartość true, limit czasu licznik jest resetowany zawsze uzyskać dostępu do wykresu. W takim przypadku obowiązują oznacza to, że wpis pamięci podręcznej wykresu wygaśnie 2 minut od czasu ostatniego ktoś uzyskać dostęp do wykresu. (Zamiast przedłużanie ważności jest wygaśnięcia bezwzględne, co oznacza, że wpis pamięci podręcznej upływa dokładnie 2 minuty po został umieszczony w pamięci podręcznej, niezależnie od tego, jak często ma uzyskano).
+    Ten kod najpierw sprawdza, czy przekazano niczego jako wartość klucza w ciągu zapytania. Jeśli tak, kod próbuje odczytać wykres z pamięci podręcznej przez wywołanie metody `GetFromCache` — metoda i przekazanie jej klucza. Jeśli okaże się, że nie ma w pamięci podręcznej, w tym kluczu (co się stanie po raz pierwszy zażądano wykresu), kod tworzy wykres w zwykły sposób. Po zakończeniu operacji wykresu kod zapisuje go w pamięci podręcznej przez wywołanie metody `SaveToCache`. Ta metoda wymaga klucza (Aby później można żądać wykresu) i ilość czasu, który ma zostać zapisany wykresu w pamięci podręcznej. (Czas będzie pamięci podręcznej wykresu będzie zależeć od częstotliwość traktować danych, który reprezentuje może zmienić). `SaveToCache` Wymaga również metody `slidingExpiration` parametru &#8212; Jeśli ta opcja jest ustawiona na wartość true, limit czasu licznik jest resetowany zawsze wykresu jest dostępny. W takim przypadku obowiązują oznacza to, że wpis pamięci podręcznej wykresu wygaśnie 2 minut od czasu ostatniego ktoś uzyskać dostęp do wykresu. (Zamiast przedłużanie ważności jest wygaśnięcia bezwzględne, co oznacza, że wpis pamięci podręcznej upływa dokładnie 2 minuty po został umieszczony w pamięci podręcznej, niezależnie od tego, jak często ma uzyskano).
 
     Ponadto w kodzie użyto `WriteFromCache` metodę, aby pobrać i renderować wykres z pamięci podręcznej. Należy pamiętać, że ta metoda jest poza `if` bloku, który sprawdza pamięci podręcznej, ponieważ pobierze wykres z pamięci podręcznej wykresu były rozpoczynać się od znaku lub były generowane i zapisać w pamięci podręcznej.
 
-    Zwróć uwagę, że w tym przykładzie `AddTitle` metoda zawiera sygnaturę czasową. (Dodaje bieżąca data i godzina &#8212; `DateTime.Now` &#8212; do tytułu.)
+    Zwróć uwagę, że w tym przykładzie `AddTitle` metoda zawiera sygnaturę czasową. (Dodaje bieżącą datę i godzinę &#8212; `DateTime.Now` &#8212; do tytułu.)
 5. Utwórz nową stronę o nazwie *ClearCache.cshtml* i zastąp jego zawartość następującym kodem:
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample14.cshtml)]

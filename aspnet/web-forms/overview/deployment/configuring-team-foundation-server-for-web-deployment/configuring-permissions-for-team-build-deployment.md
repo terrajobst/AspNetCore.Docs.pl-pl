@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: cb3d013d69e36f97335ea31dd6e4997772ba2d8e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Konfigurowanie uprawnień dla zespołu wdrożenie kompilacji
 ====================
@@ -38,7 +38,7 @@ Podczas instalowania usługi kompilacji 2010 Team Foundation Server (TFS), możn
 Wszystkie zadania wdrażania, które wymagają uwierzytelniania systemu Windows i planujesz zautomatyzować za pomocą Team Build, zostanie uruchomiony przy użyciu tożsamości usługi kompilacji. Tak należy udzielić tożsamości usługi kompilacji wszelkich wymaganych uprawnień na serwerach bazy danych i serwerów sieci web.
 
 > [!NOTE]
-> Konto Usługa sieciowa używa konta komputera do uwierzytelniania na inne komputery. Konta komputera formę *[nazwa domeny]\[nazwa komputera]***$**& #x 2014, na przykład **FABRIKAM\TFSBUILD$**. Tak usługa kompilacji jest uruchomiona przy użyciu tożsamości Network Service, należy udzielić uprawnień wymaganych do tożsamość konta komputera dla serwera kompilacji.
+> Konto Usługa sieciowa używa konta komputera do uwierzytelniania na inne komputery. Konta komputera formę * [nazwa domeny]\[nazwa komputera] ***$**& #x 2014, na przykład **FABRIKAM\TFSBUILD$**. Tak usługa kompilacji jest uruchomiona przy użyciu tożsamości Network Service, należy udzielić uprawnień wymaganych do tożsamość konta komputera dla serwera kompilacji.
 
 
 ## <a name="configuring-web-server-permissions"></a>Konfigurowanie uprawnień serwera sieci Web

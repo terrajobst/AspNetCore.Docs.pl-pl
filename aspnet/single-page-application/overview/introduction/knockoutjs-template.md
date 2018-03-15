@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: e6c0c45bed098a8a1160ff11e4f77244bf55ffd3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="single-page-application-knockoutjs-template"></a>Jednej strony aplikacji: Szablon elementami KnockoutJS
 ====================
@@ -94,7 +94,7 @@ W projekcie programu Visual Studio folderu modeli zawiera modeli, które są uż
 
 **TodoItem, listy zadań**
 
-Są to bazy danych modeli Entity Framework Code First. Zwróć uwagę, że te modele mają właściwości, odnoszące się do siebie. `ToDoList`zawiera kolekcję ToDoItems i każde `ToDoItem` zawiera odwołanie do nadrzędnej listy zadań. Te właściwości są nazywane właściwości nawigacji, i reprezentują relacji jeden do wielu, listy zadań do wykonania i jego elementów do wykonania.
+Są to bazy danych modeli Entity Framework Code First. Zwróć uwagę, że te modele mają właściwości, odnoszące się do siebie. `ToDoList` zawiera kolekcję ToDoItems i każde `ToDoItem` zawiera odwołanie do nadrzędnej listy zadań. Te właściwości są nazywane właściwości nawigacji, i reprezentują relacji jeden do wielu, listy zadań do wykonania i jego elementów do wykonania.
 
 `ToDoItem` Klasy również używa **[ForeignKey]** atrybutu, aby określić, że `ToDoListId` jest kluczem obcym do `ToDoList` tabeli. Ta wartość informuje EF można dodać ograniczenia klucza obcego do bazy danych.
 
@@ -162,7 +162,7 @@ Aby dowiedzieć się więcej o korzystaniu z interfejsu API sieci Web dla operac
 
 ## <a name="mvc-controllers-and-views"></a>Widoków i kontrolerów MVC
 
-Kontrolerów MVC również znajdują się w folderze kontrolery rozwiązania. `HomeController`renderuje głównego HTML dla aplikacji. Widok dla głównej kontroler jest zdefiniowany w Views/Home/Index.cshtml. Widok głównej renderuje zawartość różne w zależności od tego, czy użytkownik jest zalogowany:
+Kontrolerów MVC również znajdują się w folderze kontrolery rozwiązania. `HomeController` renderuje głównego HTML dla aplikacji. Widok dla głównej kontroler jest zdefiniowany w Views/Home/Index.cshtml. Widok głównej renderuje zawartość różne w zależności od tego, czy użytkownik jest zalogowany:
 
 [!code-cshtml[Main](knockoutjs-template/samples/sample4.cshtml)]
 

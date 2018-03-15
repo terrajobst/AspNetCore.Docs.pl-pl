@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/advanced-enterprise-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: c3cb7f63cf7c0246a0c4da6038a65a6ac43a7b59
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="advanced-enterprise-web-deployment"></a>Wdrażanie sieci Web Zaawansowane Enterprise
 ====================
@@ -26,7 +26,7 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 
 > Ten samouczek przedstawia sposób wykonywania różnych zadań, które są wymagane lub pożądane wiele scenariuszy wdrażania w przedsiębiorstwie.
 > 
-> Włoska translacji tego samouczka, odwiedź stronę [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Włoska translacji tego samouczka, odwiedź stronę [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 To jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie & #x 2014; korzysta z tego samouczka serii [kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) #x 2014; & rozwiązania do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
@@ -70,4 +70,4 @@ To jest częścią serii samouczków pięć w skali przedsiębiorstwa wdrożenia
 - [Konfigurowanie serwera Team Foundation Server Web Deployment](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). W tym samouczku opisano sposób konfigurowania TFS w celu obsługi różnych scenariuszy wdrażania, łącznie z automatycznego wdrażania w trakcie procesu konfiguracji i ręcznie wyzwalane wdrożeń określonej kompilacji.
 
 >[!div class="step-by-step"]
-[Dalej](performing-a-what-if-deployment.md)
+[Next](performing-a-what-if-deployment.md)

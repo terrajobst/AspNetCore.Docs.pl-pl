@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
 ms.openlocfilehash: 460af471a1b0650f8d782d582ce6cd9a06664d5c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Wprowadzenie do pracy z bazą danych w sieci Web ASP.NET stron witryny (Razor)
 ====================
@@ -41,8 +41,8 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 2
-> - Program WebMatrix 2
+> - ASP.NET Web Pages (Razor) 2
+> - WebMatrix 2
 >   
 > 
 > W tym samouczku współdziała również z 3 programu WebMatrix. Możesz użyć 3 stron sieci Web ASP.NET i Visual Studio 2013 (lub programu Visual Studio Express 2013 for Web); jednak interfejsu użytkownika będą inne.
@@ -54,10 +54,10 @@ Wyobraź sobie książki adresowej typowych. Dla każdego wpisu w książce adre
 
 Typowy sposób dane obrazu takie jest jako tabelę z wierszy i kolumn. Każdy wiersz w terminologii baz danych jest często określany jako rekord. Każda kolumna (czasem określana jako pola) zawiera wartość dla każdego typu danych: imię, nazwa ostatniego i tak dalej.
 
-| **IDENTYFIKATOR** | **Imię** | **Nazwisko** | **Adres** | **Poczta e-mail** | **Telefon** |
+| **ID** | **Imię** | **Nazwisko** | **Adres** | **Poczta e-mail** | **Telefon** |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Jim | Abrus | 210 100th St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
-| 2 | Jakub | Zawadzki | 1234 Main St. Seattle WA 99011 | terry@cohowinery.com | 555 0101 |
+| 2 | Jakub | Adams | 1234 Main St. Seattle WA 99011 | terry@cohowinery.com | 555 0101 |
 
 Dla większości tabel bazy danych Tabela musi mieć kolumnę, która zawiera unikatowy identyfikator, takich jak numer klienta, numer konta itp. Jest to nazywane tabeli *klucz podstawowy*, i używa ich do identyfikacji każdego wiersza w tabeli. W tym przykładzie w kolumnie identyfikator jest kluczem podstawowym w książce adresowej.
 
@@ -91,7 +91,7 @@ Ta procedura przedstawia sposób tworzenia bazy danych o nazwie SmallBakery za p
     Jak wynika z nazwy, **jest kluczem podstawowym** bazy danych informuje, że są to klucz podstawowy tabeli. **Tożsamość jest** informuje bazy danych, aby automatycznie utworzyć identyfikator dla każdego nowego rekordu i przypisać kolejny numer sekwencyjny (rozpoczyna się od 1).
 10. Kliknij w następnym wierszu. Edytor nowych definicji kolumny.
 11. Wprowadź wartość nazwy &quot;nazwa&quot;.
-12. Aby uzyskać **— typ danych**, wybierz &quot;nvarchar&quot; i ustawianie długości do 50. *Var* częścią `nvarchar` bazy danych informuje, że dane dla tej kolumny zostaną ciąg, którego rozmiar może się różnić od rekordu do rekordu. (  *n*  Prefiksu reprezentuje *national*, wskazującą, czy pole może przechowywać dane znakowe reprezentujący wszystkie alfabetu lub zapisywanie systemu &#8212; która jest, że pole posiada Unicode danych).
+12. Aby uzyskać **— typ danych**, wybierz &quot;nvarchar&quot; i ustawianie długości do 50. *Var* częścią `nvarchar` bazy danych informuje, że dane dla tej kolumny zostaną ciąg, którego rozmiar może się różnić od rekordu do rekordu. ( *n* prefiksu reprezentuje *national*, wskazującą, czy pole może zawierać dane znaków reprezentuje wszystkie litery lub zapisywanie systemu &#8212; oznacza to, że pole zawiera dane Unicode.)
 13. Ustaw **Zezwalaj na wartości null** opcji w celu **nr**. To będzie wymuszać, który *nazwa* kolumna nie jest puste.
 14. Za pomocą tego samego procesu, Utwórz kolumnę o nazwie *opis*. Ustaw **— typ danych** "nvarchar" i 50 długość oraz zestaw **Zezwalaj na wartości null** o wartości false.
 15. Utwórz kolumnę o nazwie *cen*. Ustaw **typu danych "pieniędzy"** i ustaw **Zezwalaj na wartości null** o wartości false.
@@ -258,7 +258,7 @@ Po wprowadzeniu danych do tabeli, należy go zaktualizować. Ta procedura pokazu
 
     [!code-html[Main](5-working-with-data/samples/sample12.html)]
 
-    Zwróć uwagę, że `href` atrybut ma ustawioną `UpdateProducts/n`, gdzie  *n*  jest liczbą produktu. Po kliknięciu jednego z nich, wynikowy adres URL będzie wyglądać następująco:
+    Zwróć uwagę, że `href` atrybut ma ustawioną `UpdateProducts/n`, gdzie *n* jest liczbą produktu. Po kliknięciu jednego z nich, wynikowy adres URL będzie wyglądać następująco:
 
     `http://localhost:18816/UpdateProducts/6`
 
@@ -384,7 +384,7 @@ W tej sekcji przedstawiono sposób zezwolić użytkownikom na usuwanie produktu 
 > 
 > [!code-cshtml[Main](5-working-with-data/samples/sample28.cshtml)]
 > 
-> Jak wspomniano, `Database.Open` metoda pozwala przekazać nazwę bazy danych lub ciąg połączenia i jego określenie, który ma zostać użyty. Jest to bardzo przydatne podczas wdrażania (publikowanie) witryny sieci Web. Można użyć *sdf* w pliku *aplikacji\_danych* folderu, gdy w przypadku tworzenia i testowania witryny. Po przeniesieniu witryny na serwerze produkcyjnym, możesz użyć ciągu połączenia w *Web.config* pliku, który ma taką samą nazwę jak Twoje *sdf* plik, ale się do bazy danych dostawcy hostingu & # 8212; wszystko to bez konieczności zmiany kodu.
+> Jak wspomniano, `Database.Open` metoda pozwala przekazać nazwę bazy danych lub ciąg połączenia i jego określenie, który ma zostać użyty. Jest to bardzo przydatne podczas wdrażania (publikowanie) witryny sieci Web. Można użyć *sdf* w pliku *aplikacji\_danych* folderu, gdy w przypadku tworzenia i testowania witryny. Po przeniesieniu witryny na serwerze produkcyjnym, możesz użyć ciągu połączenia w *Web.config* pliku, który ma taką samą nazwę jak Twoje *sdf* plików, ale &#8212;wszystko to bez konieczności zmiany kodu.
 > 
 > Ponadto jeśli chcesz pracować bezpośrednio z ciągu połączenia, można wywołać `Database.OpenConnectionString` — metoda i przekazać go parametrów zamiast nazwy tylko w rzeczywistych połączenia *Web.config* pliku. Może to być przydatne w sytuacjach, w którym jakiegoś powodu nie mają dostępu do ciągu połączenia (lub wartości, takich jak *sdf* nazwa pliku) do momentu strony jest uruchomiona. Jednak w przypadku większości scenariuszy należy użyć `Database.Open` zgodnie z opisem w tym artykule.
 
@@ -393,4 +393,4 @@ W tej sekcji przedstawiono sposób zezwolić użytkownikom na usuwanie produktu 
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/2008/en/us/compact.aspx)
 - [Łączenie z serwerem SQL lub bazy danych MySQL w programie WebMatrix](https://go.microsoft.com/fwlink/?LinkId=208661)
-- [Walidacja danych wejściowych użytkownika w lokacjach stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=253002)
+- [Weryfikacja danych wejściowych użytkownika w witrynach ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=253002)

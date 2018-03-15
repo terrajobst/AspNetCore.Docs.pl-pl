@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
 ms.openlocfilehash: 3efcefc40dc135ff42f55911036f8b38b5aa13b1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="understanding-the-build-process"></a>Opis procesu kompilacji
 ====================
@@ -86,7 +86,7 @@ W tym momencie MSBuild zacznie działać, ładuje *Publish.proj* plików i rozpo
 [!code-xml[Main](understanding-the-build-process/samples/sample2.xml)]
 
 
-**TargetEnvPropsFile** określa parametr *Env Dev.proj* pliku, więc MSBuild Scala zawartość *Env Dev.proj* pliku do  *Publish.Proj* pliku.
+**TargetEnvPropsFile** określa parametr *Env Dev.proj* pliku, więc MSBuild Scala zawartość *Env Dev.proj* pliku do * Publish.Proj* pliku.
 
 Dalej elementy, które MSBuild napotka w pliku projektu scalony to grupy właściwości. Właściwości są przetwarzane w kolejności, w jakiej występują w pliku. MSBuild tworzy parę klucz wartość dla każdej właściwości, zapewniając, że wszystkie określone warunki są spełnione. Wszystkie właściwości o tej samej nazwie wcześniej zdefiniowane w pliku zostaną zastąpione właściwości później zdefiniowane w pliku. Rozważmy na przykład **OutputRoot** właściwości.
 
@@ -132,7 +132,7 @@ Ta zależność informuje program MSBuild tego w celu wykonania **FullPublish** 
 [!code-xml[Main](understanding-the-build-process/samples/sample7.xml)]
 
 
-Należy zauważyć, że zawiera element docelowy **ItemGroup** elementu. Podczas definiowania właściwości lub elementów w obrębie **docelowej** elementu, tworzysz *dynamiczne* właściwości i elementów. Innymi słowy właściwości lub elementy nie są przetwarzane, aż obiekt docelowy jest wykonywana. Katalog wyjściowy nie istnieje lub ma żadnych plików do momentu rozpoczęcia procesu kompilacji, więc nie można utworzyć  **\_FilesToDelete** listy jako element statyczny; należy poczekać do czasu wykonywania jest przetwarzane. Tak należy utworzyć listę jako elementów dynamicznych w docelowym.
+Należy zauważyć, że zawiera element docelowy **ItemGroup** elementu. Podczas definiowania właściwości lub elementów w obrębie **docelowej** elementu, tworzysz *dynamiczne* właściwości i elementów. Innymi słowy właściwości lub elementy nie są przetwarzane, aż obiekt docelowy jest wykonywana. Katalog wyjściowy nie istnieje lub ma żadnych plików do momentu rozpoczęcia procesu kompilacji, więc nie można utworzyć ** \_FilesToDelete** listy jako element statyczny; należy poczekać do czasu wykonywania jest przetwarzane. Tak należy utworzyć listę jako elementów dynamicznych w docelowym.
 
 > [!NOTE]
 > W takim przypadku ponieważ **wyczyść** docelowy jest pierwszą osobą, która można wykonać, nie istnieje potrzeba rzeczywistych używanie grupy elementów dynamicznych. Jednak dobrym rozwiązaniem jest użycie właściwości dynamicznych i elementów w tym typie scenariusza, jak należy wykonać elementy docelowe w innej kolejności w pewnym momencie.  
@@ -173,7 +173,7 @@ Jeśli Przestudiowanie **GatherPackagesForPublishing** docelowej, można zauważ
 
 Te elementy można znaleźć pakiety wdrożeniowe, które zostały utworzone podczas obliczania **BuildProjects** docelowej zostało wykonane. Nie zdefiniujesz te elementy statycznie w pliku projektu, ponieważ nie istnieją pliki, do których odwołuje się elementy, aż do **BuildProjects** docelowy jest wykonywana. Zamiast tego elementów muszą być zdefiniowane dynamicznie w elemencie docelowym, który nie jest wywoływany do momentu po **BuildProjects** docelowy jest wykonywana.
 
-Elementy nie są używane w ramach tego docelowego & #x 2014; ten element docelowy po prostu tworzy elementy i metadane skojarzone z każdej wartości elementu. Po przetworzeniu tych elementów są **PublishPackages** element będzie zawierać dwie wartości, ścieżka do *ContactManager.Mvc.deploy.cmd* pliku i ścieżkę do  *ContactManager.Service.deploy.cmd* pliku. Narzędzie Web Deploy tworzy te pliki jako część pakietu sieci web dla każdego projektu, i są to pliki, które należy wywołać na serwerze docelowym w celu wdrożenia pakietów. Jeśli otworzysz jednego z tych plików zasadniczo zobaczysz polecenie MSDeploy.exe z różnych wartości parametru specyficzne dla kompilacji.
+Elementy nie są używane w ramach tego docelowego & #x 2014; ten element docelowy po prostu tworzy elementy i metadane skojarzone z każdej wartości elementu. Po przetworzeniu tych elementów są **PublishPackages** element będzie zawierać dwie wartości, ścieżka do *ContactManager.Mvc.deploy.cmd* pliku i ścieżkę do * ContactManager.Service.deploy.cmd* pliku. Narzędzie Web Deploy tworzy te pliki jako część pakietu sieci web dla każdego projektu, i są to pliki, które należy wywołać na serwerze docelowym w celu wdrożenia pakietów. Jeśli otworzysz jednego z tych plików zasadniczo zobaczysz polecenie MSDeploy.exe z różnych wartości parametru specyficzne dla kompilacji.
 
 **DbPublishPackages** element będzie zawierać pojedynczą wartość, ścieżka do *ContactManager.Database.deploymanifest* pliku.
 
@@ -193,7 +193,7 @@ Po pierwsze, zwróć uwagę, że otwierający tag zawiera **dane wyjściowe** at
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
 
 
-To jest przykład *przetwarzaniu wsadowym obiektów docelowych*. W plikach projektu MSBuild przetwarzanie wsadowe to technika potrzeby iteracji w kolekcji. Wartość **dane wyjściowe** atrybutu **"% (DbPublishPackages.Identity)"**, odwołuje się do **tożsamości** właściwości metadanych **DbPublishPackages**  listy elementów. Ten element notation, **Outputs=%***(ItemList.ItemMetadataName)*, jest translacja jako:
+To jest przykład *przetwarzaniu wsadowym obiektów docelowych*. W plikach projektu MSBuild przetwarzanie wsadowe to technika potrzeby iteracji w kolekcji. Wartość **dane wyjściowe** atrybutu **"% (DbPublishPackages.Identity)"**, odwołuje się do **tożsamości** właściwości metadanych **DbPublishPackages ** listy elementów. Ten element notation, **Outputs=%***(ItemList.ItemMetadataName)*, jest translacja jako:
 
 - Podziel elementy w **DbPublishPackages** w partie elementów, które zawierają takie same **tożsamości** wartości metadanych.
 - Wykonanie docelowego raz w każdej partii.
@@ -204,13 +204,13 @@ To jest przykład *przetwarzaniu wsadowym obiektów docelowych*. W plikach proje
 
 W takim przypadku ponieważ nigdy nie może mieć więcej niż jeden element o tej samej ścieżki i nazwy pliku, zasadniczo pracujemy o rozmiarze partii jednego. Element docelowy jest wykonywana raz dla każdego pakietu bazy danych.
 
-Zostanie wyświetlony podobne Notacja w  **\_Cmd** właściwość, która tworzy polecenie VSDBCMD z odpowiednich przełączników.
+Zostanie wyświetlony podobne Notacja w ** \_Cmd** właściwość, która tworzy polecenie VSDBCMD z odpowiednich przełączników.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
 
 
-W takim przypadku **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, i **%(DbPublishPackages.FullPath)** wszystkie odnoszą się do wartości metadanych **DbPublishPackages** Kolekcja elementów. **\_Cmd** jest używana przez **Exec** zadania, które wywołuje polecenie.
+W takim przypadku **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, i **%(DbPublishPackages.FullPath)** wszystkie odnoszą się do wartości metadanych **DbPublishPackages** Kolekcja elementów. ** \_Cmd** jest używana przez **Exec** zadania, które wywołuje polecenie.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]

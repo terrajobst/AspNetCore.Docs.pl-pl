@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 72f60841a1381380c0ea6167077420f960180dc7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-team-foundation-server-for-web-deployment"></a>Konfigurowanie serwera Team Foundation Server Web Deployment
 ====================
@@ -32,7 +32,7 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > - Jak utworzyć definicję kompilacji, która zawiera logikę wdrożenia.
 > - Jak skonfigurować uprawnienia dla automatycznego wdrażania.
 > 
-> Włoska translacji tego samouczka, odwiedź stronę [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Włoska translacji tego samouczka, odwiedź stronę [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 Ten samouczek zakłada, że zainstalowano TFS 2010 i utworzyć kolekcję projektów zespołowych w trakcie procesu konfiguracji początkowej. [Team Foundation podręczniku instalacji programu Visual Studio 2010](https://go.microsoft.com/?linkid=9805132) zawiera kompleksowe wskazówki na temat tych zadań.
@@ -78,4 +78,4 @@ To jest częścią serii samouczków pięć w skali przedsiębiorstwa wdrożenia
 - [Zaawansowane wdrażanie w przedsiębiorstwie sieci Web](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Ten przewodnik opisuje sposób wykonywania różnych bardziej zaawansowanych zadań wdrażania, jak dostosowywanie wdrożenia bazy danych w wielu środowiskach, z wyjątkiem plików i folderów z wdrożenia i pobieranie aplikacji sieci web w trybie offline podczas procesu wdrażania .
 
 >[!div class="step-by-step"]
-[Dalej](creating-a-team-project-in-tfs.md)
+[Next](creating-a-team-project-in-tfs.md)
