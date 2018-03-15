@@ -1,7 +1,7 @@
 ---
-title: "Zapobieganie skryptów krzyżowych"
+title: "Zapobieganie krzyżowe skryptów (XSS) w platformy ASP.NET Core"
 author: rick-anderson
-description: "Tym dokumencie przedstawiono skryptów między witrynami (XSS) i techniki adresowania tę lukę w zabezpieczeniach w aplikacji platformy ASP.NET Core."
+description: "Więcej informacji na temat skryptów między witrynami (XSS) i techniki adresowania tę lukę w zabezpieczeniach w aplikacji platformy ASP.NET Core."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: 679d9689fbc2679d9ba20bf9c6dba5c95d76dbce
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9e54ee0b1169c01629c3cd91a378509a73c53904
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="preventing-cross-site-scripting"></a>Zapobieganie skryptów krzyżowych
+# <a name="preventing-cross-site-scripting-xss-in-aspnet-core"></a>Zapobieganie krzyżowe skryptów (XSS) w platformy ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Wykonywanie skryptów między witrynami (XSS) jest luki w zabezpieczeniach, która umożliwia osobie atakującej umieść skrypty po stronie klienta (zazwyczaj JavaScript) na stronach sieci web. Gdy inni użytkownicy załadować dotyczy stron, które zostaną uruchomione skrypty osoby atakujące, włączanie atakującemu wykradać pliki cookie i tokenów sesji zmiany zawartości strony sieci web za pośrednictwem manipulowania modelu DOM lub przekierowania przeglądarki do innej strony. Luki w zabezpieczeniach XSS ogólnie występują, jeśli aplikacja ma danych wprowadzonych przez użytkownika i zapisuje go na stronie bez konieczności sprawdzania poprawności, kodowanie i anulowanie go.
 

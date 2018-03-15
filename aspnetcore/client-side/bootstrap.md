@@ -1,7 +1,7 @@
 ---
-title: "Tworzenie doskonałych, dynamiczne witryny z ładowania początkowego"
+title: "Tworzenie doskonałych, reakcji witryn przy użyciu ładowania początkowego i ASP.NET Core"
 author: ardalis
-description: 
+description: "Dowiedz się, jak używać Bootstrap umożliwiający projektowanie aplikacji sieci web odpowiada za pomocą platformy ASP.NET Core."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: e2ade6223cdc56a4f0f00ff0b985ceda4ab5484a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: c3dfaa53e9e3277d025d014f65004e4c24a5acc4
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Tworzenie doskonałych, dynamiczne witryny z ładowania początkowego
+# <a name="building-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Tworzenie doskonałych, reakcji witryn przy użyciu ładowania początkowego i ASP.NET Core
 
 <a name="bootstrap-index"></a>
 
@@ -23,7 +23,7 @@ Przez [Steve Smith](https://ardalis.com/)
 
 Ładowania początkowego jest obecnie najpopularniejsze struktura sieci web do tworzenia aplikacji sieci web odpowiada. Czy jesteś Początkujący frontonu projektu i rozwoju lub eksperta oferuje funkcje i korzyści, które może poprawić środowisko użytkowników z witryny sieci web. Ładowania początkowego jest wdrożona jako zestawu plików CSS i JavaScript i ma na celu skali z witryny sieci Web lub aplikacji z telefonów do tabletów do pulpitów wydajnie.
 
-## <a name="getting-started"></a>Wprowadzenie
+## <a name="get-started"></a>Wprowadzenie
 
 Istnieje kilka sposobów, aby rozpocząć korzystanie z ładowania początkowego. Jeśli zaczynasz nowej aplikacji sieci web w programie Visual Studio, można wybrać domyślne początkowy szablon dla platformy ASP.NET Core, w których wielkość Bootstrap są zainstalowane:
 
@@ -170,7 +170,7 @@ Navbars są wbudowane w podobny sposób, ale nieco bardziej skomplikowane. Zaczy
 
 Motyw domyślny mogą służyć do prezentowania tabel HTML w stylu dobrze sformatowana, w tym obsługi widoków rozłożone. Brak etykiety style, które są podobne do tych przycisków. Można tworzyć niestandardowe menu rozwijanych obsługujących opcje dodatkowymi stylami poza standardowe HTML `<select>` element wraz z Navbars jak już używa naszego domyślnej witryny początkowej. Jeśli potrzebujesz pasek postępu, istnieje kilka stylów do wyboru, a także wyświetlanie listy grup i panele, które obejmują tytuł i zawartości. Poznaj dodatkowe opcje w standardowe motywu Bootstrap tutaj:
 
-[http://getbootstrap.com/Examples/theme/](http://getbootstrap.com/examples/theme/)
+[http://getbootstrap.com/examples/theme/](http://getbootstrap.com/examples/theme/)
 
 ## <a name="more-themes"></a>Więcej kompozycji
 
@@ -190,7 +190,7 @@ Jeśli chcesz zmienić kompozycję ładowania początkowego *bootstrap.css* plik
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
 ```
 
-Jeśli chcesz utworzyć własne pulpitu nawigacyjnego, można uruchomić z wolne przykładzie dostępna tutaj: [http://getbootstrap.com/examples/dashboard/](http://getbootstrap.com/examples/dashboard/).
+Jeśli chcesz utworzyć własne pulpitu nawigacyjnego, można uruchomić z wolne przykładzie dostępna tutaj: [ http://getbootstrap.com/examples/dashboard/ ](http://getbootstrap.com/examples/dashboard/).
 
 ## <a name="components"></a>Składniki
 
@@ -214,7 +214,7 @@ Obszar nawigacji są typowe składnik interfejsu użytkownika używane do wyświ
 
 ## <a name="javascript-support"></a>Obsługa języka JavaScript
 
-Biblioteka języka JavaScript dla początkowego obsługuje API dołączone składniki, dzięki czemu można kontrolować działanie programowo w aplikacji. Ponadto *bootstrap.js* zawiera ponad dwanaście wtyczek niestandardowe jQuery, zapewniając dodatkowe funkcje, takie jak przejścia, modalne okna dialogowe, przewiń wykrywania (Aktualizowanie style, na którym użytkownik jest przewijane w dokumencie podstawie), Zwiń zachowanie, carousels i umieszczanie menu do okna, więc nie przewinięcie ekranu. Nie jest wystarczające miejsca, aby zaspokajać wszystkie dodatki JavaScript wbudowane ładowania początkowego — Aby dowiedzieć się więcej, odwiedź [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
+Biblioteka języka JavaScript dla początkowego obsługuje API dołączone składniki, dzięki czemu można kontrolować działanie programowo w aplikacji. Ponadto *bootstrap.js* zawiera ponad dwanaście wtyczek niestandardowe jQuery, zapewniając dodatkowe funkcje, takie jak przejścia, modalne okna dialogowe, przewiń wykrywania (Aktualizowanie style, na którym użytkownik jest przewijane w dokumencie podstawie), Zwiń zachowanie, carousels i umieszczanie menu do okna, więc nie przewinięcie ekranu. Nie jest wystarczające miejsca, aby zaspokajać wszystkie dodatki JavaScript wbudowane ładowania początkowego — Aby dowiedzieć się więcej, odwiedź [ http://getbootstrap.com/javascript/ ](http://getbootstrap.com/javascript/).
 
 ## <a name="summary"></a>Podsumowanie
 

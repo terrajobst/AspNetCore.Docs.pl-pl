@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 2bd593b77c10b1b3ab0b73551d01abd0b4187b8d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 184a42b3b6a458a6fbe23c4d54e03abc228b6efa
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików do Razor strony platformy ASP.NET Core
 
@@ -179,7 +179,7 @@ Użytkownik może kliknąć **usunąć** łącza z tego miejsca do widoku potwie
 
 Aby uzyskać informacje o rozwiązywaniu problemów z `IFormFile` przekazywania, zobacz [przekazywania plików w ASP.NET Core: Rozwiązywanie problemów z](xref:mvc/models/file-uploads#troubleshooting).
 
-Dziękujemy za korzystanie z wprowadzenia do stron Razor. Dziękujemy za opinię. [Wprowadzenie do programu MVC i podstawowe EF](xref:data/ef-mvc/intro) jest doskonałym uzupełnianie w tym samouczku.
+Dziękujemy za korzystanie z wprowadzenia do stron Razor. Dziękujemy za opinię. [Rozpoczynanie pracy z MVC i podstawowe EF](xref:data/ef-mvc/intro) jest doskonałym uzupełnianie w tym samouczku.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

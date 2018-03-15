@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/index
-ms.openlocfilehash: ea3a8d88a202028890cdf6ffbbd0151fba7e0a65
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8ea847c760d2b09210ffc209b5331c6153f0a512
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio"></a>Wprowadzenie do stron Razor i Entity Framework Core za pomocą programu Visual Studio
+# <a name="get-started-with-razor-pages-and-entity-framework-core-using-visual-studio"></a>Wprowadzenie do stron Razor i Entity Framework Core za pomocą programu Visual Studio
 
 Tej serii samouczków jest przedstawienie sposobu tworzenia aplikacji sieci web platformy ASP.NET Core Razor strony, które używają Core Entity Framework (EF) dla dostępu do danych. Samouczków wymagają programu Visual Studio 2017 r.
 

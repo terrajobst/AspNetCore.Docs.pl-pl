@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 3f53924e0b36b7924d82f97a8702aa461d9ebd78
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e4f87a8151e378717aa9198e4629711c4ea6ef77
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Jednostka stron razor i integracji testowania w ASP.NET Core
 
@@ -59,7 +59,7 @@ Aplikacja wiadomości jest prosty system komunikatów stron Razor o następując
 * Ta aplikacja zawiera Warstwa dostępu do danych (DAL) w swojej klasie kontekst bazy danych `AppDbContext` (*Data/AppDbContext.cs*). Metody DAL są oznaczone `virtual`, dzięki czemu mocking metod do użycia w testach.
 * Jeśli baza danych jest pusta podczas uruchamiania aplikacji, Magazyn komunikatu jest inicjowany z trzech wiadomości. Te *rozpoczęta wiadomości* są również używane do testowania.
 
-&#8224; Temat EF [testowanie za pomocą InMemory](/ef/core/miscellaneous/testing/in-memory), opisano sposób korzystania z bazy danych w pamięci testowania za pomocą przełącznika MSTest. W tym temacie używa [xUnit](https://xunit.github.io/) testowania framework. Pojęcia dotyczące testowania i implementacje testu na różnych platformach testowych są podobne, lecz nie są identyczne.
+&#8224;Temat EF [testowanie za pomocą InMemory](/ef/core/miscellaneous/testing/in-memory), opisano sposób korzystania z bazy danych w pamięci testowania za pomocą przełącznika MSTest. W tym temacie używa [xUnit](https://xunit.github.io/) testowania framework. Pojęcia dotyczące testowania i implementacje testu na różnych platformach testowych są podobne, lecz nie są identyczne.
 
 Mimo że nie korzysta z aplikacji [wzorca repozytorium](http://martinfowler.com/eaaCatalog/repository.html) i nie jest skuteczne przykład [wzorzec jednostki pracy (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), stron Razor obsługuje te wzorce programowania. Aby uzyskać więcej informacji, zobacz [projektowania infrastruktury warstwę trwałości](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [wdrażanie repozytorium i jednostki pracy wzorce w aplikacji platformy ASP.NET MVC](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), i [testowanie logiką kontrolera](/aspnet/core/mvc/controllers/testing) (próbki implementuje wzorca repozytorium).
 

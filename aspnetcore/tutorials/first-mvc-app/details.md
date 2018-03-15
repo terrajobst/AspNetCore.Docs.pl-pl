@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: d70d9d06299e8ee1eaa64da2bd65eb15ffa16553
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 4bb2489def9eb8fb3f0fd16814803877489899ed
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="examining-the-details-and-delete-methods"></a>Badanie szczegóły i metody zostaną usunięte
 
@@ -58,7 +58,7 @@ public async Task<IActionResult> Delete(int id, bool notUsed)
 
 Zobacz [publikowania aplikacji sieci web platformy ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs) instrukcje dotyczące sposobu publikowania tej aplikacji na platformie Azure przy użyciu programu Visual Studio.  Aplikacja może również być publikowane z [wiersza polecenia](xref:tutorials/publish-to-azure-webapp-using-cli).
 
-Dziękujemy za korzystanie to wprowadzenie do platformy ASP.NET Core MVC. Dziękujemy za wszelkie komentarze, które pozostaną. [Wprowadzenie do programu MVC i podstawowe EF](xref:data/ef-mvc/intro) jest doskonałym uzupełnianie w tym samouczku.
+Dziękujemy za korzystanie to wprowadzenie do platformy ASP.NET Core MVC. Dziękujemy za wszelkie komentarze, które pozostaną. [Rozpoczynanie pracy z MVC i podstawowe EF](xref:data/ef-mvc/intro) jest doskonałym uzupełnianie w tym samouczku.
 
 >[!div class="step-by-step"]
 [Poprzednie](validation.md)

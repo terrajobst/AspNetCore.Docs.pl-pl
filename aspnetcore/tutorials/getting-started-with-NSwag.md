@@ -11,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 70923210ef8f5b23ddd3cc74efceb05cbd90a179
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: ce30ad3538c6294003a4f38ca80ebd73c0f52542
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="get-started-with-nswag"></a>Rozpoczynanie pracy z NSwag
 
@@ -77,7 +77,7 @@ dotnet add TodoApi.NSwag.csproj package NSwag.AspNetCore
 
 ---
 
-# <a name="add-and-configure-swagger-middleware"></a>Dodawanie i konfigurowanie oprogramowania pośredniczącego struktury Swagger
+## <a name="add-and-configure-swagger-middleware"></a>Dodawanie i konfigurowanie oprogramowania pośredniczącego struktury Swagger
 
 Importowanie następujących przestrzeni nazw w `Info` klasy:
 
@@ -111,7 +111,7 @@ Uruchom aplikację. Przejdź do `/swagger` do wyświetlania interfejsu użytkown
 
 ![NSwagStudio-Output](web-api-help-pages-using-swagger/_static/NSwagStudio-Output.png)
 
-* Umieść plik do projektu klienta (na przykład [platformy Xamarin.Forms](https://developer.xamarin.com/guides/xamarin-forms/) aplikacji). Rozpocznij korzystanie z interfejsu API:
+* Umieść plik do projektu klienta (na przykład [platformy Xamarin.Forms](/xamarin/xamarin-forms/) aplikacji). Rozpocznij korzystanie z interfejsu API:
 
 ```csharp
 var todoClient = new TodoClient();

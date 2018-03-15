@@ -1,7 +1,7 @@
 ---
 title: "Włączenie generowania kodu QR uwierzytelniania aplikacji w ASP.NET Core"
 author: rick-anderson
-description: "Włączenie generowania kodu QR uwierzytelniania aplikacji w ASP.NET Core"
+description: "Wykryj jak włączyć generowanie kodu QR dla aplikacji uwierzytelniania, które współpracują z uwierzytelniania dwuskładnikowego platformy ASP.NET Core."
 manager: wpickett
 ms.author: riande
 ms.date: 09/24/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: cf941314d54aa4a7bd1724805dc62c763ca71dfb
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: dd326bb32565b743d21e196bcb616a716d7994bf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>Włączenie generowania kodu QR uwierzytelniania aplikacji w ASP.NET Core
 
@@ -25,7 +25,7 @@ Szablony aplikacji sieci web platformy ASP.NET Core obsługuje wystawców uwierz
 
 ## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>Dodawanie kodów QR do strony Konfiguracja 2FA
 
-Użyj tych instrukcji *qrcode.js* z repozytorium https://davidshimjs.github.io/qrcodejs/.
+Użyj tych instrukcji *qrcode.js* z https://davidshimjs.github.io/qrcodejs/ repozytorium.
 
 * Pobierz [biblioteka języka javascript qrcode.js](https://davidshimjs.github.io/qrcodejs/) do `wwwroot\lib` folder w projekcie.
 
@@ -84,8 +84,8 @@ Biblioteka kodów QR można zastąpić preferowane biblioteki. Zawiera kod HTML 
 
 Adres URL poprawnie sformatowany kod QR jest dostępna w:
 
-* `AuthenticatorUri`właściwości modelu.
-* `data-url`Właściwość `qrCodeData` elementu. 
+* `AuthenticatorUri` właściwości modelu.
+* `data-url` Właściwość `qrCodeData` elementu. 
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP pochylenia czasu klienta i serwera
 

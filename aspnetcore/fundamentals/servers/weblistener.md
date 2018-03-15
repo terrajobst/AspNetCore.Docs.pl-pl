@@ -4,16 +4,16 @@ author: rick-anderson
 description: "Więcej informacji na temat WebListener, serwer sieci web platformy ASP.NET Core w systemie Windows, który może służyć do bezpośredniego połączenia z Internetem bez usług IIS."
 manager: wpickett
 ms.author: riande
-ms.date: 08/07/2017
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 5df5a0402a6852a40ab46657ac910f60e3f733d9
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 13555becb76b9df37728f78a7a8bc112d8de682f
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>WebListener implementacja serwera sieci web platformy ASP.NET Core
 
@@ -87,6 +87,9 @@ Dostępne są także [ustawienia rejestru Http.Sys](https://support.microsoft.co
   Domyślnie wiąże platformy ASP.NET Core `http://localhost:5000`. Aby skonfigurować prefiksy URL i portów, można użyć `UseURLs` — metoda rozszerzenia, `urls` argumentu wiersza polecenia lub systemu konfiguracji platformy ASP.NET Core. Aby uzyskać więcej informacji, zobacz [hostingu](../../fundamentals/hosting.md).
 
   Sieci Web używa odbiornika [formaty ciągu prefiksu Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). Nie ma żadnych wymagań formatu ciągu prefiksu, które są specyficzne dla WebListener.
+
+  > [!WARNING]
+  > Powiązania najwyższego poziomu symbolu wieloznacznego (`http://*:80/` i `http://+:80`) powinien **nie** można użyć. Powiązania wieloznaczny najwyższego poziomu można otwarcie luk w zabezpieczeniach aplikacji. Dotyczy to zarówno silne i słabe symboli wieloznacznych. Użyj nazwy hostów jawne zamiast symboli wieloznacznych. Powiązanie symbolu wieloznacznego domeny podrzędnej (na przykład `*.mysub.com`) nie ma to zagrożenie bezpieczeństwa, jeśli kontrolować domeny nadrzędnej całego (w przeciwieństwie do `*.com`, której występuje). Zobacz [rfc7230 sekcji-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) Aby uzyskać więcej informacji.
 
   > [!NOTE]
   > Upewnij się, że określono tego samego prefiksu ciągi w `UseUrls` który preregister na serwerze. 

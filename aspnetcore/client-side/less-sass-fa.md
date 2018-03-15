@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 7ef82d15de64ef62b952b6c757cb9c35fd40e788
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e00a0929db9dff6c97c4b22468156f621a1a3820
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Wprowadzenie do aplikacji stylów jest mniejsza, Sass i czcionki świetny w ASP.NET Core
 
@@ -97,9 +97,9 @@ body {
 .bgDark2    {color:@darker2}
 ```
 
-`@base`a druga @-prefixed zmienne są elementy. Każdy z nich reprezentuje kolor. Z wyjątkiem `@base`, są ustawione przy użyciu funkcji kolorów: rozjaśnić Ciemniej i pokrętła. Rozjaśnić i przyciemnić oczekiwaniami pomogą czy; SPIN dopasowuje odcień koloru liczba stopni (około koło kolorów). Inteligentne zignorować zmiennych, które nie są używane, tak aby zademonstrować, jak działają te zmienne, należy użyć je gdzieś jest mniej procesora. Klasy `.baseColor`, itp. zostaną przedstawione obliczone wartości poszczególnych zmiennych w utworzonym pliku CSS.
+`@base` a druga @-prefixed zmienne są elementy. Każdy z nich reprezentuje kolor. Z wyjątkiem `@base`, są ustawione przy użyciu funkcji kolorów: rozjaśnić Ciemniej i pokrętła. Rozjaśnić i przyciemnić oczekiwaniami pomogą czy; SPIN dopasowuje odcień koloru liczba stopni (około koło kolorów). Inteligentne zignorować zmiennych, które nie są używane, tak aby zademonstrować, jak działają te zmienne, należy użyć je gdzieś jest mniej procesora. Klasy `.baseColor`, itp. zostaną przedstawione obliczone wartości poszczególnych zmiennych w utworzonym pliku CSS.
 
-### <a name="getting-started"></a>Wprowadzenie
+### <a name="get-started"></a>Wprowadzenie
 
 Utwórz **plik konfiguracji programu npm** (*package.json*) w folderze projektu i edytować go, aby odwołać `gulp` i `gulp-less`:
 

@@ -1,7 +1,7 @@
 ---
-title: Migrowanie z interfejsu API sieci Web ASP.NET
+title: Migrowanie z interfejsu API sieci Web ASP.NET do platformy ASP.NET Core
 author: ardalis
-description: 
+description: "Dowiedz się, jak przeprowadzić migrację implementacji interfejsu API sieci Web z interfejsu API sieci Web platformy ASP.NET do platformy ASP.NET Core MVC."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 9eb5f4dfec82ec1c60d33bff94d35857a4c0cfd6
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 929fab90aa88745807761e824a2cf614f078ea36
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="migrating-from-aspnet-web-api"></a>Migrowanie z interfejsu API sieci Web ASP.NET
+# <a name="migrating-from-aspnet-web-api-to-aspnet-core"></a>Migrowanie z interfejsu API sieci Web ASP.NET do platformy ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/) i [Scott Addie](https://scottaddie.com)
 
@@ -25,7 +25,7 @@ Interfejsy API sieci Web są usług HTTP, które są używane przez szeroki wach
 
 ## <a name="review-aspnet-web-api-project"></a>Projekt interfejsu API sieci Web ASP.NET przeglądu
 
-W tym artykule wykorzystano przykładowy projekt *ProductsApp*, utworzonych w artykule [wprowadzenie do składnika ASP.NET Web API](https://docs.microsoft.com/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) jako punktu początkowego. W tym projekcie prostego projektu interfejsu API sieci Web platformy ASP.NET jest skonfigurowane w następujący sposób.
+W tym artykule wykorzystano przykładowy projekt *ProductsApp*, utworzonych w artykule [wprowadzenie do korzystania z programu ASP.NET Web API 2](/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) jako punktu początkowego. W tym projekcie prostego projektu interfejsu API sieci Web platformy ASP.NET jest skonfigurowane w następujący sposób.
 
 W *Global.asax.cs*, połączenie jest nawiązywane w przypadku `WebApiConfig.Register`:
 

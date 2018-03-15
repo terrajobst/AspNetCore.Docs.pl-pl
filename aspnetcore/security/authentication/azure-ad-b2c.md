@@ -1,5 +1,5 @@
 ---
-title: "Uwierzytelnianie w chmurze z usługi Azure Active Directory B2C"
+title: "Uwierzytelnianie w chmurze z usługi Azure Active Directory B2C w ASP.NET Core"
 author: camsoper
 description: "Wykryj sposobu konfigurowania uwierzytelniania usługi Azure Active Directory B2C za pomocą platformy ASP.NET Core."
 manager: wpickett
@@ -9,13 +9,13 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 65372020ef6554476fb95549f13d110a748b5863
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: a7bad452a68cf7fe7aa81645d79a0ee9e7719fe7
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="cloud-authentication-with-azure-active-directory-b2c"></a>Uwierzytelnianie w chmurze z usługi Azure Active Directory B2C
+# <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Uwierzytelnianie w chmurze z usługi Azure Active Directory B2C w ASP.NET Core
 
 Przez [Soper kamery](https://twitter.com/camsoper)
 

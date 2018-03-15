@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/index
-ms.openlocfilehash: 7e5f6bc44241dc6fc11569a145a04340f1b3ee7f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e03256d7b8b442569b0b0126983732c10817e20f
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="aspnet-core-security-overview"></a>Przegląd zabezpieczeń platformy ASP.NET Core
 
@@ -97,7 +97,6 @@ Istnieje więcej usterek, które należy zwrócić uwagę. Aby uzyskać więcej 
         *   [Format magazynu kluczy](data-protection/implementation/key-storage-format.md)
         *   [Dostawcy efemerycznej ochrony danych](data-protection/implementation/key-storage-ephemeral.md)
     *   [Zgodność](data-protection/compatibility/index.md)
-        *   [Udostępnianie plików cookie między aplikacjami](data-protection/compatibility/cookie-sharing.md)
         *   [Zamienianie elementu <machineKey> na platformie ASP.NET](data-protection/compatibility/replacing-machinekey.md)
 *   [Tworzenie aplikacji przy użyciu danych użytkownika chronionych przez autoryzację](xref:security/authorization/secure-data)
 *   [Bezpieczne przechowywanie kluczy tajnych aplikacji w czasie projektowania](app-secrets.md)
@@ -107,3 +106,4 @@ Istnieje więcej usterek, które należy zwrócić uwagę. Aby uzyskać więcej 
 *   [Zapobieganie atakom na otwarte przekierowywanie](preventing-open-redirects.md)
 *   [Zapobieganie atakom z użyciem skryptów między witrynami](cross-site-scripting.md)
 *   [Włączanie żądań Cross-Origin (CORS)](cors.md)
+*   [Udostępnianie plików cookie między aplikacjami](cookie-sharing.md)

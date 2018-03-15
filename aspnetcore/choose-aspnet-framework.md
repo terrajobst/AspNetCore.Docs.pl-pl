@@ -4,54 +4,55 @@ author: rick-anderson
 description: "Dowiedz się, jak wybrać ASP.NET i ASP.NET Core."
 manager: wpickett
 ms.author: riande
-ms.date: 09/30/2017
+ms.date: 03/14/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 232e82ed66ff2363230ff09d435db1074c02b53b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3986e904d6670c451edc5c9338dc07e18d3c207d
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="choose-between-aspnet-and-aspnet-core"></a>Wybór między ASP.NET i ASP.NET Core 
+# <a name="choose-between-aspnet-and-aspnet-core"></a>Wybór między ASP.NET i ASP.NET Core
 
-Niezależnie od tego, jakiego typu aplikację tworzysz, platforma ASP.NET ma dla Ciebie rozwiązanie: od aplikacji internetowych przeznaczonych dla systemu Windows Server do małych mikrousług przeznaczonych dla kontenerów systemu Linux i wiele innych.
+Niezależnie od tego, w przypadku tworzenia aplikacji sieci web platformy ASP.NET zawiera rozwiązanie dla Ciebie: z przedsiębiorstwa aplikacji sieci web przeznaczonych dla systemu Windows Server, do małych mikrousług przeznaczonych dla kontenery systemu Linux i wszystko między nimi.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-ASP.NET Core to międzyplatformowa struktura open-source do tworzenia nowoczesnych, opartych na chmurze aplikacji internetowych dla systemu Windows, macOS lub Linux.
+Platformy ASP.NET Core to open source, międzyplatformowa struktura do tworzenia aplikacji sieci web nowoczesny, oparte na chmurze systemu Windows, system macOS lub Linux.
 
 ## <a name="aspnet"></a>ASP.NET
 
-ASP.NET to dojrzała platforma, która zawiera wszystkie usługi niezbędne do tworzenia serwerowych aplikacji internetowych klasy korporacyjnej w systemie Windows.
+ASP.NET to dojrzały platforma, która zawiera wszystkich usług niezbędnych do tworzenia klasy korporacyjnej, aplikacje oparte na serwerze sieci web w systemie Windows.
 
-## <a name="which-one-is-right-for-me"></a>Która z nich jest dla mnie odpowiednia?
+## <a name="which-one-is-right-for-me"></a>Które z nich jest dla mnie odpowiednia?
 
 | ASP.NET Core | ASP.NET |
 |---|---|
-|Tworzenie dla systemu Windows, macOS lub Linux|Tworzenie dla systemu Windows|
-|[Strony Razor](xref:mvc/razor-pages/index) są zalecanym podejściem do tworzenia interfejsu użytkownika sieci Web platformy ASP.NET Core 2.0. Zobacz też [MVC](xref:mvc/overview) i [interfejs API sieci Web](xref:tutorials/first-web-api)|Używa [sieci Web Forms](https://docs.microsoft.com/aspnet/web-forms), [SignalR](https://docs.microsoft.com/aspnet/signalr), [MVC](https://docs.microsoft.com/aspnet/mvc), [interfejs API sieci Web](https://docs.microsoft.com/aspnet/web-api/), lub [stron sieci Web](https://docs.microsoft.com/aspnet/web-pages)|
-|Wiele wersji na maszynie|Jedna wersja na maszynie|
+|Tworzenie dla systemu Windows, system macOS lub Linux|Kompilacji dla systemu Windows|
+|[Stron razor](xref:mvc/razor-pages/index) jest zalecane podejście do tworzenia interfejsu użytkownika sieci Web począwszy od platformy ASP.NET Core 2.x. Zobacz też [MVC](xref:mvc/overview), [interfejs API sieci Web](xref:tutorials/first-web-api), i [SignalR](xref:signalr/introduction-signalr-core).|Użyj [sieci Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [interfejs API sieci Web](/aspnet/web-api/), lub [stron sieci Web](/aspnet/web-pages)|
+|Wiele wersji na maszynie|Jednej wersji na maszynie|
 |Tworzenie za pomocą programu Visual Studio, [programu Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/), lub [Visual Studio Code](https://code.visualstudio.com/) przy użyciu języka C# lub języka F #|Tworzenie z programem Visual Studio za pomocą C#, VB i F #|
-|Większa wydajność niż ASP.NET|Dobra wydajność|
-|[Wybierz środowisko uruchomieniowe .NET Framework lub .NET Core](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server)|Używasz środowiska uruchomieniowego .NET Framework|
+|Większą wydajność niż ASP.NET|Dobrą wydajność|
+|[Wybierz środowisko uruchomieniowe .NET Framework lub .NET Core](/dotnet/articles/standard/choosing-core-framework-server)|Użyj środowiska uruchomieniowego .NET Framework|
 
 ## <a name="aspnet-core-scenarios"></a>Scenariusze platformy ASP.NET Core
 
 <!-- update link to Razor Pages mvc movie series when done -->
-* [Strony Razor](xref:mvc/razor-pages/index) są zalecanym podejściem do tworzenia internetowego interfejsu użytkownika platformy ASP.NET Core 2.0.
+* [Stron razor](xref:mvc/razor-pages/index) jest zalecane podejście do tworzenia interfejsu użytkownika sieci Web począwszy od platformy ASP.NET Core 2.x.
 * [Witryny sieci Web](xref:tutorials/first-mvc-app/index)
 * [Interfejsy API](xref:tutorials/first-web-api)
+* [W czasie rzeczywistym](xref:signalr/index)
 
 ## <a name="aspnet-scenarios"></a>Scenariusze programu ASP.NET
 
-* [Witryny sieci Web](https://docs.microsoft.com/aspnet/mvc)
-* [Interfejsy API](https://docs.microsoft.com/aspnet/web-api)
-* [W czasie rzeczywistym](https://docs.microsoft.com/aspnet/signalr)
+* [Witryny sieci Web](/aspnet/mvc)
+* [Interfejsy API](/aspnet/web-api)
+* [W czasie rzeczywistym](/aspnet/signalr)
 
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
-* [Wprowadzenie do programu ASP.NET](https://docs.microsoft.com/aspnet/overview)
+* [Wprowadzenie do programu ASP.NET](/aspnet/overview)
 * [Wprowadzenie do platformy ASP.NET Core](xref:index)

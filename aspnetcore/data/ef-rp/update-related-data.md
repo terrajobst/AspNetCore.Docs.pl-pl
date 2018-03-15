@@ -1,5 +1,5 @@
 ---
-title: "Stron razor podstawowych EF - aktualizacji powiązanych danych - 7, 8"
+title: "Stron razor podstawowych EF w platformy ASP.NET Core - aktualizacji powiązanych danych - 7, 8"
 author: rick-anderson
 description: "W tym samouczku będziesz aktualizacji powiązanych danych, aktualizując pól klucza obcego i właściwości nawigacji."
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: a7a21aca4d822daad7a6a13f0feec5139bf6e1a5
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fe76405c67297891351aba2495a4d7ce22c6195b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>Aktualizowanie danych powiązanych - stron Razor EF Core (7, 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - aktualizacji powiązanych danych - 7, 8
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra), i [Rick Anderson](https://twitter.com/RickAndMSFT)
 

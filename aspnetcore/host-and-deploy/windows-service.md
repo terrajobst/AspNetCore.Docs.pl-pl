@@ -1,5 +1,5 @@
 ---
-title: "Host usługi systemu Windows"
+title: "Host platformy ASP.NET Core w usłudze systemu Windows"
 author: tdykstra
 description: "Dowiedz się, jak udostępniać aplikacji platformy ASP.NET Core w usłudze systemu Windows."
 manager: wpickett
@@ -10,15 +10,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: c14a1f62bce4d06be3b8e6356f45cd5e330a0751
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: f3455e47cfc06a4492dc4e34871b348184c6ecfb
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="host-an-aspnet-core-app-in-a-windows-service"></a>Host aplikacji platformy ASP.NET Core w usłudze systemu Windows
+# <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze systemu Windows
 
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 Zalecanym sposobem hostowania aplikacji platformy ASP.NET Core w systemie Windows bez za pomocą usług IIS jest uruchomienie go w [usługi systemu Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications). Gdy hostowany jako usługa systemu Windows, aplikacja może automatycznie uruchamiania po ponownym uruchomieniu i awarii bez udziału człowieka.
 
@@ -34,7 +34,7 @@ Zalecanym sposobem hostowania aplikacji platformy ASP.NET Core w systemie Window
 
 * Jeśli aplikacja odbiera żądania z Internetu (nie tylko z sieci wewnętrznej), należy użyć [HTTP.sys](xref:fundamentals/servers/httpsys) serwera sieci web (wcześniej znane jako [WebListener](xref:fundamentals/servers/weblistener) dla platformy ASP.NET Core 1.x aplikacji) zamiast [Kestrel](xref:fundamentals/servers/kestrel). Usługi IIS jest zalecane używanie jako zwrotny serwer proxy serwera z Kestrel wdrożeń krawędzi. Aby uzyskać więcej informacji, zobacz [użycie Kestrel z zwrotny serwer proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
-## <a name="getting-started"></a>Wprowadzenie
+## <a name="get-started"></a>Wprowadzenie
 
 W tej sekcji opisano minimalną zmiany wymagane do skonfigurowania istniejącego projektu platformy ASP.NET Core do uruchamiania w usłudze.
 

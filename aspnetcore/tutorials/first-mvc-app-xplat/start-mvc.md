@@ -1,7 +1,7 @@
 ---
 title: Wprowadzenie do platformy ASP.NET Core MVC Mac, Linux lub Windows
 author: rick-anderson
-description: Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio Code, Mac, Linux i Windows
+description: "Dowiedz się, jak rozpocząć pracę z platformy ASP.NET Core MVC i Visual Studio Code, Mac, Linux i Windows"
 manager: wpickett
 ms.author: riande
 ms.date: 07/07/2017
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: 4771555b66f328a819f17a32eb3959f9ecf33d44
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4960f5b2a82d20b9325f870296f4385e14e15b37
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc--on-mac-linux-or-windows"></a>Wprowadzenie do platformy ASP.NET MVC rdzeni na Mac, Linux lub Windows
+# <a name="introduction-to-aspnet-core-mvc-on-mac-linux-or-windows"></a>Wprowadzenie do platformy ASP.NET Core MVC Mac, Linux lub Windows
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym samouczku udzieli Ci podstawy platformy ASP.NET Core MVC sieci web aplikacji za pomocą [Visual Studio Code](https://code.visualstudio.com) (VS kodu). Samouczek jest przeznaczony dla familarity z kodem VS. Zobacz [wprowadzenie kodu VS](https://code.visualstudio.com/docs) i [pomocy programu Visual Studio Code](#visual-studio-code-help) Aby uzyskać więcej informacji. 
 

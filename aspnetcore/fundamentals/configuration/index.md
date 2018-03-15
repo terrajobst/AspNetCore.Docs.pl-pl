@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 8f52f2dc9515761510de870f10ad0975401db74a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7c41621db835b452c9aad9463a9ffccdf0c06484
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Konfigurowanie aplikacji platformy ASP.NET Core
 
@@ -24,13 +24,13 @@ Interfejs API konfiguracji umożliwia konfigurowanie platformy ASP.NET Core apli
 
 Brak dostawcy konfiguracji:
 
-* Format pliku (INI, JSON i XML)
-* Argumenty wiersza polecenia
-* Zmienne środowiskowe
-* Obiekty .NET w pamięci
-* Magazyn zaszyfrowanych użytkownika
-* [Usługi Azure Key Vault](xref:security/key-vault-configuration)
-* Dostawców niestandardowych (zainstalowane lub utworzone)
+* Format pliku (INI, JSON i XML).
+* Argumenty wiersza polecenia.
+* Zmienne środowiskowe.
+* Obiekty .NET w pamięci.
+* Niezaszyfrowane [Manager klucz tajny](xref:security/app-secrets) magazynu.
+* Przechowywać zaszyfrowane użytkownika, takich jak [usługi Azure Key Vault](xref:security/key-vault-configuration).
+* Dostawców niestandardowych (zainstalowane lub utworzone).
 
 Każda wartość konfiguracji jest mapowany na klucz ciągu. Brak obsługi wbudowanych powiązanie zdeserializować ustawień do niestandardowego [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) obiektu (.NET klasą prostą z właściwościami).
 
@@ -308,11 +308,11 @@ Klucz może mieć prefiksu.
 | Prefiks klucza               | Przykład         |
 | ------------------------ | :-------------: |
 | Bez prefiksu                | `key1=value1`   |
-| Pojedynczy dash (`-`) &#8224; | `-key2=value2`  |
+| Pojedynczy dash (`-`)&#8224; | `-key2=value2`  |
 | Dwa łączniki (`--`)        | `--key3=value3` |
 | Ukośnika (`/`)      | `/key4=value4`  |
 
-&#8224; Klucz z prefiksem pojedynczego dash (`-`) musi być wprowadzona w [przełącznika mapowania](#switch-mappings), które zostały opisane poniżej.
+&#8224;Klucz z prefiksem pojedynczego dash (`-`) musi być wprowadzona w [przełącznika mapowania](#switch-mappings), które zostały opisane poniżej.
 
 Przykładowe polecenie:
 
@@ -330,11 +330,11 @@ Klucz musi mieć prefiks.
 
 | Prefiks klucza               | Przykład         |
 | ------------------------ | :-------------: |
-| Pojedynczy dash (`-`) &#8224; | `-key1 value1`  |
+| Pojedynczy dash (`-`)&#8224; | `-key1 value1`  |
 | Dwa łączniki (`--`)        | `--key2 value2` |
 | Ukośnika (`/`)      | `/key3 value3`  |
 
-&#8224; Klucz z prefiksem pojedynczego dash (`-`) musi być wprowadzona w [przełącznika mapowania](#switch-mappings), które zostały opisane poniżej.
+&#8224;Klucz z prefiksem pojedynczego dash (`-`) musi być wprowadzona w [przełącznika mapowania](#switch-mappings), które zostały opisane poniżej.
 
 Przykładowe polecenie:
 

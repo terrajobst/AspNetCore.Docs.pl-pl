@@ -1,7 +1,7 @@
 ---
-title: "Wprowadzenie do korzystania z elementu Razor strony platformy ASP.NET Core dla komputerów Mac"
+title: "Rozpoczynanie pracy z Razor strony platformy ASP.NET Core dla komputerów Mac"
 author: rick-anderson
-description: "Wprowadzenie do korzystania z Razor strony platformy ASP.NET Core za pomocą programu Visual Studio dla komputerów Mac"
+description: "Dowiedzieć się, jak rozpocząć pracę z Razor strony platformy ASP.NET Core za pomocą programu Visual Studio dla komputerów Mac."
 manager: wpickett
 ms.author: riande
 ms.date: 07/27/2017
@@ -9,15 +9,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/razor-pages-start
-ms.openlocfilehash: 9e7d1db47e4cc9d753b1629e20345ca1f4403b2f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e56799d321cc84c60188a72def9448a0b339d568
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-for-mac"></a>Wprowadzenie do korzystania z Razor strony platformy ASP.NET Core za pomocą programu Visual Studio dla komputerów Mac
+# <a name="get-started-with-razor-pages-in-aspnet-core-with-visual-studio-for-mac"></a>Rozpoczynanie pracy z Razor strony platformy ASP.NET Core za pomocą programu Visual Studio dla komputerów Mac
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Ten samouczek zawiera podstawowe informacje dotyczące tworzenia aplikacji sieci web platformy ASP.NET Core Razor strony. Firma Microsoft zaleca przejrzenie [wprowadzenie do stron Razor](xref:mvc/razor-pages/index) przed rozpoczęciem tego samouczka. Stron razor jest zalecanym sposobem tworzenia interfejsu użytkownika dla aplikacji sieci web w ASP.NET Core.
 
@@ -52,7 +52,7 @@ W programie Visual Studio, wybierz **Plik > Otwórz**, a następnie wybierz *Raz
 
 ### <a name="launch-the-app"></a>Uruchom aplikację
 
-W programie Visual Studio, wybierz **Uruchom > Uruchom bez debugowania** do uruchomienia aplikacji. Uruchamia program Visual Studio [usług IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview)spowoduje uruchomienie przeglądarki i przechodzi do `http://localhost:5000`.
+W programie Visual Studio, wybierz **Uruchom > Uruchom bez debugowania** do uruchomienia aplikacji. Uruchamia program Visual Studio [Kestrel](xref:fundamentals/servers/kestrel)spowoduje uruchomienie przeglądarki i przechodzi do `http://localhost:5000`.
 
 W następnym samouczku modelu dodania do projektu.
 

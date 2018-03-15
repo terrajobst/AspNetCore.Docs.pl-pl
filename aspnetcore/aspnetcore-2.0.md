@@ -1,7 +1,7 @@
 ---
 title: Co to jest nowe w programie ASP.NET 2.0 Core
 author: rick-anderson
-description: Co to jest nowe w programie ASP.NET 2.0 Core
+description: "Więcej informacji na temat nowych funkcji w programie ASP.NET 2.0 Core."
 manager: wpickett
 ms.author: riande
 ms.date: 07/10/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: 81d24088d53a7e37d17bb7c57892c98efb06ca6f
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: cfeff3abafb310c15d6623dcfbb9e1857640c79b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Co to jest nowe w programie ASP.NET 2.0 Core
 

@@ -1,5 +1,5 @@
 ---
-title: Stron razor podstawowych EF - Migrations - 4, 8
+title: Stron razor podstawowych EF w platformy ASP.NET Core - Migrations - 4, 8
 author: rick-anderson
 description: "W tym samouczku możesz uruchomić przy użyciu funkcji migracji EF Core zarządzania zmianami modelu danych w aplikacji ASP.NET Core MVC."
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: e26ad6751fc8e349d8a87bd1a430114dc197ec64
-ms.sourcegitcommit: 6fa546140575b3eb279eabae12d9acad966f70e0
+ms.openlocfilehash: 4aafb52be611d4088e47f64f83d25cf85dc5ca08
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Migracje - Core EF z samouczka stron Razor (4 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - Migrations - 4, 8
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra), [Jan Kowalski P](https://twitter.com/thereformedprog), i [Rick Anderson](https://twitter.com/RickAndMSFT)
 

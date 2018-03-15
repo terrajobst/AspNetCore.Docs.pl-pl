@@ -1,7 +1,7 @@
 ---
-title: "Wiązania niestandardowe modelu"
+title: "Powiązanie niestandardowe modelu w platformy ASP.NET Core"
 author: ardalis
-description: "Dostosowywanie wiązania modelu w programie ASP.NET MVC Core."
+description: "Dowiedz się, jak wiązanie modelu umożliwia akcji kontrolera pracować bezpośrednio z modelu typów w ASP.NET Core."
 manager: wpickett
 ms.author: riande
 ms.date: 04/10/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 4b59a70c488c08f7d3ebf0ea2344107cf3fe6eff
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 941aa9e3ff4e4a75714e11b79d913418d0514d1e
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="custom-model-binding"></a>Wiązania niestandardowe modelu
+# <a name="custom-model-binding-in-aspnet-core"></a>Powiązanie niestandardowe modelu w platformy ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/)
 

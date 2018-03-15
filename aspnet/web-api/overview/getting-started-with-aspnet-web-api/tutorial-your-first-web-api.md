@@ -11,13 +11,13 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 6ff9fd279a03197f761454bba3f180d7428b1b1f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d881563cdb6449aada444ef0528061581113a925
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
-<a name="getting-started-with-aspnet-web-api-2-c"></a>Wprowadzenie do składnika ASP.NET Web API 2 (C#)
+<a name="get-started-with-aspnet-web-api-2-c"></a>Wprowadzenie do składnika ASP.NET Web API 2 (C#)
 ====================
 przez [Wasson Jan](https://github.com/MikeWasson)
 
@@ -134,7 +134,7 @@ Zastąp wszystkie elementy w tym pliku następujące czynności:
 
 [!code-html[Main](tutorial-your-first-web-api/samples/sample3.html)]
 
-Istnieje kilka sposobów, aby uzyskać jQuery. W tym przykładzie używany [Microsoft Ajax CDN](../../../ajax/cdn/overview.md). Można również pobrać ją z [http://jquery.com/](http://jquery.com/)i ASP.NET "Interfejsu API sieci Web" szablon projektu zawiera również jQuery.
+Istnieje kilka sposobów, aby uzyskać jQuery. W tym przykładzie używany [Microsoft Ajax CDN](../../../ajax/cdn/overview.md). Można również pobrać ją z [ http://jquery.com/ ](http://jquery.com/)i ASP.NET "Interfejsu API sieci Web" szablon projektu zawiera również jQuery.
 
 ### <a name="getting-a-list-of-products"></a>Pobieranie listy produktów
 

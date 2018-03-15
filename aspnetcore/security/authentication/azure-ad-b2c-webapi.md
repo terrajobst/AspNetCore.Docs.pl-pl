@@ -1,5 +1,5 @@
 ---
-title: "Uwierzytelnianie w chmurze w składniku web API z usługi Azure Active Directory B2C"
+title: "W składniku web API z usługi Azure Active Directory B2C w ASP.NET Core uwierzytelniania w chmurze"
 author: camsoper
 description: "Wykryj sposobu konfigurowania uwierzytelniania usługi Azure Active Directory B2C za pomocą interfejsu API platformy ASP.NET Core sieci Web. Przetestuj uwierzytelnionego składnika web API z Postman."
 ms.author: casoper
@@ -10,13 +10,13 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: d768e2daf2464b282b097e935ef6c5f85e8705f5
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 1213f7eb25fb6525f98d83dff0956a841ae686a7
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c"></a>Uwierzytelnianie w chmurze w składniku web API z usługi Azure Active Directory B2C
+# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>W składniku web API z usługi Azure Active Directory B2C w ASP.NET Core uwierzytelniania w chmurze
 
 Przez [Soper kamery](https://twitter.com/camsoper)
 

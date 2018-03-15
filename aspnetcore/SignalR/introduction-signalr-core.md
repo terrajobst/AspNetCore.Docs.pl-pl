@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/introduction-signalr-core
-ms.openlocfilehash: d4ad9bb1910a3339ac8d0d8ff740417f4e7262b7
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: 3fa70c957b246787d4e457c74f90ad797b3af766
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-signalr"></a>Wprowadzenie do SignalR
 
@@ -39,7 +39,7 @@ Biblioteka SignalR dla platformy ASP.NET Core:
 * Umożliwia emituje wiadomości jednocześnie do wszystkich połączonych klientów. Na przykład pokoju rozmów.
 * Umożliwia wysyłanie komunikatów do określonych klientów lub grupy klientów.
 * Jest open-powierzając jej ich konserwację na [GitHub](https://github.com/aspnet/signalr).
-* Skaluje dobrze.
+* Skalowalne.
 
 Połączenie między klientem a serwerem jest trwała, w przeciwieństwie do połączenia HTTP.
 

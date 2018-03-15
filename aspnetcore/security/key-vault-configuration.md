@@ -1,5 +1,5 @@
 ---
-title: "Dostawca konfiguracji usługi Azure Key Vault"
+title: "Dostawca konfiguracji usługi Azure Key Vault w ASP.NET Core"
 author: guardrex
 description: "Dowiedz się, jak skonfigurować aplikację przy użyciu pary nazwa wartość załadowane w czasie wykonywania przy użyciu dostawcy konfiguracji magazynu kluczy Azure."
 manager: wpickett
@@ -8,13 +8,13 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 1a91a87fb90d4d4651e07f32415e4364c8e2d993
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e1a4be77417f0a74182f1b123bfba429737d4330
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="azure-key-vault-configuration-provider"></a>Dostawca konfiguracji usługi Azure Key Vault
+# <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Dostawca konfiguracji usługi Azure Key Vault w ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex) i [Andrew Stanton pielęgniarki](https://github.com/anurse)
 
@@ -74,7 +74,7 @@ Po uruchomieniu aplikacji załadowanych tajny wartości wyświetlane strony siec
 ![Okno przeglądarki zawierające poufne wartości załadowanego za pomocą dostawcy konfiguracji magazynu kluczy Azure](key-vault-configuration/_static/sample1.png)
 
 ## <a name="creating-prefixed-key-vault-secrets-and-loading-configuration-values-key-name-prefix-sample"></a>Tworzenie kluczy tajnych prefiksem magazynu kluczy i ładowanie wartości konfiguracji (klucz name prefiks sample)
-`AddAzureKeyVault`dostępne są także przeciążenia, które akceptuje implementacja `IKeyVaultSecretManager`, co umożliwia kontrolowanie sposobu klucza magazynu kluczy tajnych są konwertowane na klucze konfiguracji. Na przykład można zaimplementować interfejsu załadować tajny wartości na podstawie wartości prefiksu podane podczas uruchamiania aplikacji. Dzięki temu można na przykład można załadować kluczy tajnych na podstawie wersji aplikacji.
+`AddAzureKeyVault` dostępne są także przeciążenia, które akceptuje implementacja `IKeyVaultSecretManager`, co umożliwia kontrolowanie sposobu klucza magazynu kluczy tajnych są konwertowane na klucze konfiguracji. Na przykład można zaimplementować interfejsu załadować tajny wartości na podstawie wartości prefiksu podane podczas uruchamiania aplikacji. Dzięki temu można na przykład można załadować kluczy tajnych na podstawie wersji aplikacji.
 
 > [!WARNING]
 > Nie używaj prefiksy na kluczy tajnych w magazynie kluczy, umieść klucze tajne dla wielu aplikacji w tym samym magazynie kluczy lub umieść środowiska klucze tajne (na przykład *programowanie* i *produkcji* kluczy tajnych) w taki sam Magazyn. Zalecane jest różnych aplikacji i środowisk produkcyjnych/programowanie użycie oddzielnych magazynów kluczy do izolowania aplikacji środowisk najwyższego poziomu zabezpieczeń.

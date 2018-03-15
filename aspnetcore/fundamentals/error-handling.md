@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/error-handling
-ms.openlocfilehash: cab395645d46c56a1a89464a8e8e716a296a9637
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 53f0f362f38252b86f9afd8416543ce3d515e7c4
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Wprowadzenie do obsługi błędów w platformy ASP.NET Core
 
@@ -65,39 +65,44 @@ public IActionResult Index()
 
 ## <a name="configuring-status-code-pages"></a>Konfigurowanie stanu strony kodowe
 
-Domyślnie aplikacji nie będzie zapewniać strona kodowa sformatowanego stan kodów stanu HTTP, takich jak 500 (wewnętrzny błąd serwera) lub 404 (nie znaleziono). Można skonfigurować `StatusCodePagesMiddleware` przez dodanie wiersza do `Configure` metody:
+Domyślnie aplikacja nie zapewnia strona kodowa sformatowanego stan kodów stanu HTTP, takich jak *404 — Nie znaleziono*. Aby zapewnić stan stron kodowych, należy skonfigurować oprogramowanie pośredniczące strony kod stanu przez dodanie wiersza do `Startup.Configure` metody:
 
 ```csharp
 app.UseStatusCodePages();
 ```
 
-Domyślnie to oprogramowanie pośredniczące dodaje prosty, tekstowy obsługi wspólnej kodów stanu, na przykład 404:
+Domyślnie oprogramowanie pośredniczące strony kod stanu dodaje prosty, tekstowy obsługi wspólnej kodów stanu, na przykład 404:
 
 ![strona 404](error-handling/_static/default-404-status-code.png)
 
-Oprogramowanie pośredniczące obsługuje kilka metod inne rozszerzenie. Wyższy wyrażenia lambda, ma inny ciąg zawartości typu i formatu.
+Oprogramowanie pośredniczące obsługuje kilka metod rozszerzenia. Jedna metoda przyjmuje wyrażenia lambda:
 
 [!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
+
+Inna metoda przyjmuje ciąg zawartości typu i formatu:
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-Brak metody rozszerzenia przekierowania. Kod stanu 302 jedną wysyła do klienta, a jeden zwraca oryginalnego kodu stanu do klienta, ale również wykonuje program obsługi dla adresu URL przekierowania.
+Istnieją również przekierować, a następnie wykonaj ponownie metody rozszerzenia. Metoda przekierowania wysyła kod stanu 302 do klienta:
 
 [!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
+
+Wykonaj ponownie metoda zwraca oryginalnego kodu stanu do klienta, ale również wykonuje program obsługi dla adresu URL przekierowania:
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
 ```
 
-Jeśli trzeba wyłączyć stan strony kodowe dla niektórych żądań, możesz to zrobić:
+Strony kodowe stanu można wyłączyć dla określonych żądań w metoda obsługi stron Razor lub kontroler MVC. Aby wyłączyć stron kodowych stanu, próba pobrania [IStatusCodePagesFeature](/dotnet/api/microsoft.aspnetcore.diagnostics.istatuscodepagesfeature) w żądaniu [HttpContext.Features](/dotnet/api/microsoft.aspnetcore.http.httpcontext.features) kolekcji i wyłączanie funkcji, jeśli jest dostępna:
 
 ```csharp
-var statusCodePagesFeature = context.Features.Get<IStatusCodePagesFeature>();
+var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();
+
 if (statusCodePagesFeature != null)
 {
-  statusCodePagesFeature.Enabled = false;
+    statusCodePagesFeature.Enabled = false;
 }
 ```
 
@@ -109,7 +114,7 @@ Ponadto należy pamiętać, że po wysłaniu nagłówków odpowiedzi kod stanu o
 
 ## <a name="server-exception-handling"></a>Obsługa wyjątków serwera
 
-Oprócz obsługi logikę w aplikacji, wyjątków [serwera](servers/index.md) hosting aplikacji wykonuje niektóre obsługi wyjątków. Jeśli serwer przechwytuje wyjątek przed wysłaniem nagłówki, serwer wysyła 500 Wewnętrzny błąd serwera odpowiedzi z nie treści. Jeśli serwer przechwytuje wyjątek po wysłaniu nagłówków, serwer zamyka połączenie. Żądania, które nie są obsługiwane przez aplikację są obsługiwane przez serwer. Wszystkie wyjątki, która występuje jest obsługiwany przez wyjątek serwera obsługi. Wszelkie skonfigurowane niestandardowe strony błędów lub oprogramowanie pośredniczące obsługi wyjątków lub filtrów nie mają wpływu na tego zachowania.
+Oprócz obsługi logikę w aplikacji, wyjątków [serwera](servers/index.md) hosting aplikacji wykonuje niektóre obsługi wyjątków. Jeśli serwer przechwytuje wyjątek przed wysłaniem nagłówki, serwer wysyła *500 Wewnętrzny błąd serwera* odpowiedzi nie jednostki. Jeśli serwer przechwytuje wyjątek po wysłaniu nagłówków, serwer zamyka połączenie. Żądania, które nie są obsługiwane przez aplikację są obsługiwane przez serwer. Wszystkie wyjątki, która występuje jest obsługiwany przez wyjątek serwera obsługi. Wszelkie skonfigurowane niestandardowe strony błędów lub oprogramowanie pośredniczące obsługi wyjątków lub filtrów nie mają wpływu na tego zachowania.
 
 ## <a name="startup-exception-handling"></a>Obsługa wyjątków uruchamiania
 

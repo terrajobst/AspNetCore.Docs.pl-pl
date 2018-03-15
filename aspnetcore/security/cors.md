@@ -1,7 +1,7 @@
 ---
-title: "Włączanie żądań Cross-Origin (CORS)"
+title: "Włączanie żądań między źródłami (CORS) w platformy ASP.NET Core"
 author: rick-anderson
-description: "Ten dokument wprowadza CORS jako standard zezwalających lub odrzucanie żądań cross-origin w aplikacji platformy ASP.NET Core."
+description: "Dowiedz się, jak CORS jako standard zezwalających lub odrzucanie żądań cross-origin w aplikacji platformy ASP.NET Core."
 manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cors
-ms.openlocfilehash: ee61798fc1bde89ca3712eae9b7c4413e58cf70d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 64d939033fee14fad37a08c60da608898e20c01b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="enabling-cross-origin-requests-cors"></a>Włączanie żądań Cross-Origin (CORS)
+# <a name="enabling-cross-origin-requests-cors-in-aspnet-core"></a>Włączanie żądań między źródłami (CORS) w platformy ASP.NET Core
 
 Przez [Wasson Jan](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), i [Dykstra niestandardowy](https://github.com/tdykstra)
 
@@ -160,7 +160,7 @@ Przeglądarki nie są całkowicie zgodne, w konfiguracji do programu Access-Cont
 
 ### <a name="set-the-exposed-response-headers"></a>Ustawianie nagłówków odpowiedzi narażonych
 
-Domyślnie przeglądarka nie pokazuje wszystkie nagłówki odpowiedzi do aplikacji. (See [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Nagłówki odpowiedzi, które są domyślnie dostępne są następujące:
+Domyślnie przeglądarka nie pokazuje wszystkie nagłówki odpowiedzi do aplikacji. (Zobacz [ http://www.w3.org/TR/cors/#simple-response-header ](http://www.w3.org/TR/cors/#simple-response-header).) Nagłówki odpowiedzi, które są domyślnie dostępne są następujące:
 
 * Cache-Control
 

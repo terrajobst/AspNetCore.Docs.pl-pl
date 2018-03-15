@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>Tworzenie Warstwa dostępu do danych (C#)
 ====================
@@ -233,7 +233,7 @@ Firma Microsoft są najpierw pojawi się monit dotyczący czy chcemy dostęp do 
 **Rysunek 15**: Wybierz utworzyć **wybierz** instrukcji która zwraca wiersze ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image41.png))
 
 
-Następnym krokiem jest określenie zapytania SQL używane do uzyskiwania dostępu do danych. Ponieważ chcemy zwracać tylko te produkty, które należą do określonej kategorii I używać tego samego **wybierz** instrukcji z **GetProducts()**, ale Dodaj następujące **gdzie** Klauzula: **gdzie CategoryID = @CategoryID** . **@CategoryID**  Parametr wskazuje TableAdapter Kreator metody tworzymy wymaga parametru wejściowego typu odpowiadającego (to znaczy, integer wartości null).
+Następnym krokiem jest określenie zapytania SQL używane do uzyskiwania dostępu do danych. Ponieważ chcemy zwracać tylko te produkty, które należą do określonej kategorii I używać tego samego **wybierz** instrukcji z **GetProducts()**, ale Dodaj następujące **gdzie** Klauzula: **gdzie CategoryID = @CategoryID** .  **@CategoryID**  Parametr wskazuje TableAdapter Kreator metody tworzymy wymaga parametru wejściowego typu odpowiadającego (to znaczy, integer wartości null).
 
 
 [![Wprowadź kwerendę, aby zwracał tylko produktów w określonej kategorii](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
@@ -308,7 +308,7 @@ Oba wzorce modyfikacji danych użyj TableAdapter **InsertCommand**, **UpdateComm
 
 [![TableAdapter ma InsertCommand UpdateCommand i właściwości elementu DeleteCommand](creating-a-data-access-layer-cs/_static/image62.png)](creating-a-data-access-layer-cs/_static/image61.png)
 
-**Rysunek 23**: TableAdapter ma **InsertCommand**, **UpdateCommand**, i **elementu DeleteCommand** właściwości ([kliknij, aby wyświetlić obrazu w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image63.png))
+**Rysunek 23**: TableAdapter ma **InsertCommand**, **UpdateCommand**, i **elementu DeleteCommand** właściwości ([kliknij widok w pełnym rozmiarze obraz](creating-a-data-access-layer-cs/_static/image63.png))
 
 
 Aby sprawdzić lub zmodyfikuj dowolny z tych właściwości polecenia bazy danych, kliknięcie **CommandText** podwłaściwości, który pojawi się konstruktora zapytań.
@@ -316,7 +316,7 @@ Aby sprawdzić lub zmodyfikuj dowolny z tych właściwości polecenia bazy danyc
 
 [![Skonfiguruj INSERT, UPDATE i DELETE instrukcje w konstruktora zapytań](creating-a-data-access-layer-cs/_static/image65.png)](creating-a-data-access-layer-cs/_static/image64.png)
 
-**Rysunek 24**: Konfigurowanie **Wstaw**, **aktualizacji**, i **usunąć** instrukcje w konstruktora zapytań ([kliknij, aby wyświetlić obraz w pełnym rozmiarze ](creating-a-data-access-layer-cs/_static/image66.png))
+**Rysunek 24**: Konfigurowanie **Wstaw**, **aktualizacji**, i **usunąć** instrukcje w konstruktora zapytań ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image66.png))
 
 
 Poniższy przykład kodu pokazuje, jak na potrzeby dwukrotnie cena wszystkich produktów, które nie są przerywane, które mają 25 jednostki w magazynie lub mniej wzorzec aktualizacji partii:
@@ -537,7 +537,7 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 

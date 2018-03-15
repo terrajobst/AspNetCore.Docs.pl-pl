@@ -1,7 +1,7 @@
 ---
-title: Obszary
+title: Obszary platformy ASP.NET Core
 author: rick-anderson
-description: "Pokazuje, jak pracować z obszarów."
+description: "Dowiedz się, jak kwestie funkcji ASP.NET MVC, używane do organizowania funkcje w grupie jako osobne w obszarze nazw (routing) i struktury folderów (dla widoków)."
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/areas
-ms.openlocfilehash: 1ade49de3f6c58edc4ea7b06bc593b3db797081c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cf31c10e7d4d9229a32aa06903a0ff0ed6fb0599
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="areas"></a>Obszary
+# <a name="areas-in-aspnet-core"></a>Obszary platformy ASP.NET Core
 
 Przez [Dhananjay Kumar](https://twitter.com/debug_mode) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -147,39 +147,39 @@ Przeglądanie do `http://<yourApp>/products`, `Index` metody akcji `HomeControll
 
 * Generowania łączy z akcji wewnątrz obszaru na podstawie kontrolera innego działania w ramach tego samego kontrolera.
 
-  Załóżmy, że ścieżka bieżącego żądania przypomina`/Products/Home/Create`
+  Załóżmy, że ścieżka bieżącego żądania przypomina `/Products/Home/Create`
 
-  Składnia HtmlHelper:`@Html.ActionLink("Go to Product's Home Page", "Index")`
+  Składnia HtmlHelper: `@Html.ActionLink("Go to Product's Home Page", "Index")`
 
-  Składnia pomocnika tagów:`<a asp-action="Index">Go to Product's Home Page</a>`
+  Składnia pomocnika tagów: `<a asp-action="Index">Go to Product's Home Page</a>`
 
   Należy pamiętać, że, firma Microsoft nie musi dostarczać wartości "obszar" i "controller" poniżej, ponieważ są one już dostępne w kontekście bieżącego żądania. Tymi rodzaj wartości są nazywane `ambient` wartości.
 
 * Generowania łączy z akcji wewnątrz obszaru na podstawie kontrolera do innej akcji na innym kontrolerze
 
-  Załóżmy, że ścieżka bieżącego żądania przypomina`/Products/Home/Create`
+  Załóżmy, że ścieżka bieżącego żądania przypomina `/Products/Home/Create`
 
-  Składnia HtmlHelper:`@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`
+  Składnia HtmlHelper: `@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`
 
-  Składnia pomocnika tagów:`<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
+  Składnia pomocnika tagów: `<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
 
   Pamiętaj, że w tym miejscu zostanie użyta wartość otoczenia obszaru, ale jawnie określona wartość "Administrator" powyżej.
 
 * Generowania łączy z akcji w obrębie kontrolera do innej akcji na podstawie innego kontrolera i inny obszar.
 
-  Załóżmy, że ścieżka bieżącego żądania przypomina`/Products/Home/Create`
+  Załóżmy, że ścieżka bieżącego żądania przypomina `/Products/Home/Create`
 
-  Składnia HtmlHelper:`@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`
+  Składnia HtmlHelper: `@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`
 
-  Składnia pomocnika tagów:`<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`
+  Składnia pomocnika tagów: `<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`
 
   Należy pamiętać, że w tym miejscu są używane nie wartości otoczenia.
 
 * Generowanie łącza akcji w obrębie kontrolera obszaru na podstawie innej akcji na innym kontrolerze i **nie** w obszarze.
 
-  Składnia HtmlHelper:`@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`
+  Składnia HtmlHelper: `@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`
 
-  Składnia pomocnika tagów:`<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
+  Składnia pomocnika tagów: `<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
 
   Ponieważ chcemy, aby wygenerować łączy do innych niż obszaru na podstawie akcji kontrolera, możemy pusty otoczenia wartość "obszar" w tym miejscu.
 

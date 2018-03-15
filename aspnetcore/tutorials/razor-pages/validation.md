@@ -1,7 +1,7 @@
 ---
-title: Dodawanie walidacji
+title: Dodawanie walidacji do strony platformy ASP.NET Core Razor
 author: rick-anderson
-description: "Wyjaśniono, jak dodawanie walidacji do strony Razor."
+description: "Dowiedzieć się, jak dodać weryfikacji do elementu Razor strony platformy ASP.NET Core."
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,17 +9,17 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 3632b40abb4a3c2343a17a9f3e08bd28fdcf7174
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: b07aa55d37b2d8ae65ec60f52142a8491dc46b59
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="adding-validation-to-a-razor-page"></a>Dodawanie walidacji do strony Razor
+# <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do strony platformy ASP.NET Core Razor
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-W tej sekcji weryfikacji logiki jest dodawany do `Movie` modelu. Reguł sprawdzania poprawności są wymuszane w dowolnym momencie użytkownik tworzy lub edytuje filmu.
+W tej sekcji logikę weryfikacji jest dodawany do `Movie` modelu. Reguł sprawdzania poprawności są wymuszane w dowolnym momencie użytkownik tworzy lub edytuje filmu.
 
 ## <a name="validation"></a>Walidacja
 

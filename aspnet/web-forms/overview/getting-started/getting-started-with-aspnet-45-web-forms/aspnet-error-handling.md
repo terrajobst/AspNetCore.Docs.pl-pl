@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
 ms.openlocfilehash: 3f732ae6f1b7845bcae88912b4a4fe26574c10de
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="aspnet-error-handling"></a>Obsługa błędów ASP.NET
 ====================
@@ -301,7 +301,7 @@ Wyświetlanie dziennika ELMAH jest proste, ale najpierw należy utworzyć Wystą
 
 1. Naciśnij klawisz **CTRL + F5** do uruchomienia aplikacji przykładowej Wingtip Toys.
 2. Aby napisać nieobsługiwany wyjątek w dzienniku ELMAH, przejdź w przeglądarce pod następujący adres URL (przy użyciu numeru portu):  
-    `https://localhost:44300/NoPage.aspx`Wyświetli się Strona błędu.
+    `https://localhost:44300/NoPage.aspx` Wyświetli się Strona błędu.
 3. Aby wyświetlić dziennik ELMAH, przejdź w przeglądarce pod następujący adres URL (przy użyciu numeru portu):  
     `https://localhost:44300/elmah.axd`
 

@@ -1,5 +1,5 @@
 ---
-title: "Ciągłe wdrażanie na platformie Azure za pomocą programu Visual Studio i Git"
+title: "Ciągłe wdrażanie na platformie Azure z programem Visual Studio oraz Git z platformy ASP.NET Core"
 author: rick-anderson
 description: "Informacje o sposobie tworzenia aplikacji sieci web platformy ASP.NET Core za pomocą programu Visual Studio i wdrożyć ją w usłudze Azure App Service przy użyciu usługi Git do ciągłego wdrażania."
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: ea4788b5daead9e355e13b963c025dd110eb2bff
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7302de1ace62dba53b317039aac7f4763314aa19
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Ciągłe wdrażanie na platformie Azure dla platformy ASP.NET Core z programu Visual Studio i Git
+# <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Ciągłe wdrażanie na platformie Azure z programem Visual Studio oraz Git z platformy ASP.NET Core
 
 Przez [Erik Reitan](https://github.com/Erikre)
 
@@ -43,7 +43,7 @@ W tym samouczku przyjęto założenie, że zainstalowano następujące oprogramo
 
 1. Z **pliku** menu, wybierz opcję **nowy** > **projektu**.
 
-1. Wybierz **aplikacji sieci Web platformy ASP.NET Core** szablonu projektu. Wygląda na to, w obszarze **zainstalowana** > **szablony** > **Visual C#** > **.NET Core**. Nazwij projekt `SampleWebAppDemo`. Wybierz **utworzyć nowe repozytorium Git** opcję i kliknij przycisk **OK**.
+1. Wybierz **aplikacji sieci Web platformy ASP.NET Core** szablonu projektu. Wygląda na to, w obszarze **zainstalowana** > **szablony** > **Visual C#** > **.NET Core**. Nazwij projekt `SampleWebAppDemo`. Wybierz **Tworzenie nowego repozytorium Git** opcję i kliknij przycisk **OK**.
 
    ![Okno dialogowe nowego projektu](azure-continuous-deployment/_static/01-new-project.png)
 

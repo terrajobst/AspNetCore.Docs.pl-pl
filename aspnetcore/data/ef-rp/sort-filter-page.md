@@ -1,5 +1,5 @@
 ---
-title: "Stron razor podstawowych EF — sortowanie, filtrowanie, stronicowania - 3 8"
+title: Stron razor podstawowych EF w platformy ASP.NET Core - sortowanie, filtrowanie, stronicowania - 3 8
 author: rick-anderson
 description: "W tym samouczku zostanie dodana sortowanie, filtrowanie i stronicowania funkcji na stronę przy użyciu programu Entity Framework Core i ASP.NET Core."
 ms.author: riande
@@ -8,13 +8,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 6fc25df7eab3ab6e44d99ec687bc0ba738d9cfb8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 851391c5d00f9204ee4237d4869859cfeee5a9b4
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sortowanie, filtrowanie, stronicowania i grupowanie — podstawowe EF Razor strony (3 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - sortowanie, filtrowanie, stronicowania - 3 8
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra), [Rick Anderson](https://twitter.com/RickAndMSFT), i [Jan Kowalski P](https://twitter.com/thereformedprog)
 

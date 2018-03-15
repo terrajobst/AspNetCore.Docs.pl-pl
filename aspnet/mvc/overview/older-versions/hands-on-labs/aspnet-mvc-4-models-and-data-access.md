@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
 ms.openlocfilehash: 353419077422516761df56f730352b19b5db5ff2
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>Modele platformy ASP.NET MVC 4 oraz dostęp do danych
 
@@ -39,7 +39,7 @@ Jednak umożliwia także **Model First** podejścia, utwórz ten sam model przy 
 
 ![Pierwszy vs bazy danych. Model pierwszy](aspnet-mvc-4-models-and-data-access/_static/image1.png "bazy danych pierwszej wersji programu vs. Najpierw modelu")
 
-*Pierwszy vs bazy danych. Najpierw modelu
+*Pierwszy vs bazy danych. Najpierw modelu*
 
 Po wygenerowaniu modelu, można utworzyć odpowiednie korekty w StoreController dostarczanie widoków magazynu danych pobranych z bazy danych, zamiast ustalony danych. Nie należy wprowadzać żadnych zmian widoku szablonów ponieważ StoreController będzie zwracać tego samego ViewModels szablony widoku, mimo że teraz dane będą pobierane z bazy danych.
 
@@ -560,7 +560,7 @@ Poprzez wykonanie tego laboratorium Hands-on, kiedy znasz już podstawy ASP.NET 
 
 Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji  **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
 
-1. Przejdź do [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; *programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK*&quot;.
+1. Przejdź do [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; *programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK*&quot;.
 2. Polecenie **teraz zainstalować**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 

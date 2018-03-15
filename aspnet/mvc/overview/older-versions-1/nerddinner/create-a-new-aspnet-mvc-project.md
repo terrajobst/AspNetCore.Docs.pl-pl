@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
 msc.type: authoredcontent
 ms.openlocfilehash: 4d30a6803b1478014a2afb814ac317df27394446
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="create-a-new-aspnet-mvc-project"></a>Utwórz nowy projekt ASP.NET MVC
 ====================
@@ -69,7 +69,7 @@ Projekty składnika ASP.NET MVC domyślnie ma sześć katalogów najwyższego po
 | **/ Modeli** | Gdzie umieścić klasy, które reprezentują i manipulowanie danymi |
 | **/ Widoków** | Gdzie umieścić plików szablonów interfejsu użytkownika, które są zobowiązani do renderowania danych wyjściowych |
 | **/ Skryptów** | Gdzie umieścić pliki bibliotek JavaScript i skrypty (js) |
-| **/ Zawartości** | Gdzie umieścić CSS i pliki obrazów i innej zawartości z systemem innym niż dynamic/z systemem innym niż — JavaScript |
+| **/Content** | Gdzie umieścić CSS i pliki obrazów i innej zawartości z systemem innym niż dynamic/z systemem innym niż — JavaScript |
 | **/ Aplikacji\_danych** | Gdzie można przechowywać pliki danych chcesz odczytu/zapisu. |
 
 ASP.NET MVC nie wymaga tej struktury. W rzeczywistości deweloperów pracujących w dużych aplikacji będzie zazwyczaj partycji aplikacji się w wielu projektach, aby była łatwiejsza w zarządzaniu (na przykład: klasy modelu danych często Przejdź w osobnej klasy biblioteki projektu z aplikacji sieci web). Jednak domyślnej struktury projektu, podaj nieuprzywilejowany domyślnej konwencji katalogu, które pomagają zachować wyczyść zastrzeżenia co do naszej aplikacji.

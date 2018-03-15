@@ -1,7 +1,7 @@
 ---
 title: Dodawanie do aplikacji stron Razor w ASP.NET Core modelu
 author: rick-anderson
-description: Dodawanie do aplikacji stron Razor w ASP.NET Core modelu
+description: "Dowiedzieć się, jak można dodać klasy do zrządzania filmów w bazie danych przy użyciu Entity Framework Core (EF Core)."
 manager: wpickett
 ms.author: riande
 ms.date: 07/27/2017
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 234af466979c8d8b14990da4d4a07e6e54649bbe
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e2014ec20d5bed742c7e3398bd3a9255146ab4eb
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="adding-a-model-to-a-razor-pages-app"></a>Dodawanie modelu do aplikacji stron Razor
+# <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie do aplikacji stron Razor w ASP.NET Core modelu
 
 [!INCLUDE[model1](../../includes/RP/model1.md)]
 
@@ -91,5 +91,5 @@ Jeśli otrzymasz wyjątek SQL, sprawdź zostało uruchomione migracji i aktualiz
 Następny samouczek wyjaśnia plików utworzonych przez funkcję szkieletów.
 
 >[!div class="step-by-step"]
-[Poprzedni: Wprowadzenie](xref:tutorials/razor-pages/razor-pages-start)
+[Poprzedni: Rozpoczynanie pracy](xref:tutorials/razor-pages/razor-pages-start)
 [dalej: szkieletu stron Razor](xref:tutorials/razor-pages/page)    

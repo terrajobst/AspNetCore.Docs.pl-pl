@@ -5,16 +5,16 @@ description: "Dowiedz się, jak udostępniać aplikacje platformy ASP.NET Core n
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: b1ca9303c620597f7844c401048129044e99d7be
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fa9e60c52f143b20dbf179679fc4932e838a9137
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core w systemie Windows z programem IIS
 
@@ -25,9 +25,9 @@ Przez [Luke Latham](https://github.com/guardrex) i [Rick Anderson](https://twitt
 Obsługiwane są następujące systemy operacyjne:
 
 * Windows 7 lub nowszy
-* Windows Server 2008 R2 lub nowszym &#8224;
+* Windows Server 2008 R2 lub nowszy&#8224;
 
-&#8224; Koncepcyjnie konfiguracji usług IIS, w tym dokumencie opisano dotyczą również hosting aplikacji platformy ASP.NET Core w Nano Server w usługach IIS. Aby uzyskać instrukcje dotyczące Nano Server, zobacz [platformy ASP.NET Core z usługami IIS na serwerze Nano](xref:tutorials/nano-server) samouczka.
+&#8224;Koncepcyjnie konfiguracji usług IIS, w tym dokumencie opisano dotyczą również hosting aplikacji platformy ASP.NET Core w Nano Server w usługach IIS. Aby uzyskać instrukcje dotyczące Nano Server, zobacz [platformy ASP.NET Core z usługami IIS na serwerze Nano](xref:tutorials/nano-server) samouczka.
 
 [Serwer HTTP.sys](xref:fundamentals/servers/httpsys) (wcześniej nazywanych [WebListener](xref:fundamentals/servers/weblistener)) nie działa w konfiguracji zwrotny serwer proxy z usługami IIS. Użyj [serwera Kestrel](xref:fundamentals/servers/kestrel).
 
@@ -195,6 +195,9 @@ W przypadku wdrażania aplikacji na serwerach z [narzędzia Web Deploy](/iis/pub
 1. Podaj **nazwa witryny** i ustaw **ścieżka fizyczna** do folderu wdrożenia aplikacji. Podaj **powiązanie** konfiguracji i tworzyć witryny sieci Web, wybierając **OK**:
 
    ![Podaj nazwę lokacji, ścieżka fizyczna i nazwy hosta w kroku Dodawanie witryny sieci Web.](index/_static/add-website-ws2016.png)
+
+   > [!WARNING]
+   > Powiązania najwyższego poziomu symbolu wieloznacznego (`http://*:80/` i `http://+:80`) powinien **nie** można użyć. Powiązania wieloznaczny najwyższego poziomu można otwarcie luk w zabezpieczeniach aplikacji. Dotyczy to zarówno silne i słabe symboli wieloznacznych. Użyj nazwy hostów jawne zamiast symboli wieloznacznych. Powiązanie symbolu wieloznacznego domeny podrzędnej (na przykład `*.mysub.com`) nie ma to zagrożenie bezpieczeństwa, jeśli kontrolować domeny nadrzędnej całego (w przeciwieństwie do `*.com`, której występuje). Zobacz [rfc7230 sekcji-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) Aby uzyskać więcej informacji.
 
 1. W węźle serwera, wybierz **pul aplikacji**.
 

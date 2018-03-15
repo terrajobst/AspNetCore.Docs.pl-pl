@@ -1,7 +1,7 @@
 ---
-title: "Iniekcji zależności do kontrolerów"
+title: "Iniekcji zależności do kontrolerów w ASP.NET Core"
 author: ardalis
-description: 
+description: "Odkryj, jak kontrolery ASP.NET Core MVC zażądać ich zależności jawnie za pośrednictwem ich konstruktorów z iniekcji zależności w ASP.NET Core."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: d8253858864efa85f0d2a2175669dc27b879b175
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 75b3da9805539ee04944231ed2ff0158fad451e4
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="dependency-injection-into-controllers"></a>Iniekcji zależności do kontrolerów
+# <a name="dependency-injection-into-controllers-in-aspnet-core"></a>Iniekcji zależności do kontrolerów w ASP.NET Core
 
 <a name="dependency-injection-controllers"></a>
 
@@ -66,7 +66,7 @@ Po skonfigurowaniu usługi uruchamiania aplikacji i przechodząc na stronę gł�
 ![Serwer pozdrowienia](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> Zobacz [logiką kontrolera testów](testing.md) informacje na temat jawne żądanie zależności [http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/) kontrolery ułatwia kod do testowania.
+> Zobacz [logiką kontrolera testów](testing.md) informacje na temat jawne żądanie zależności [ http://deviq.com/explicit-dependencies-principle/ ](http://deviq.com/explicit-dependencies-principle/) kontrolery ułatwia kod do testowania.
 
 Iniekcji zależności wbudowanych platformy ASP.NET Core obsługuje posiadanie tylko jednego konstruktora dla klasy żądanie usługi. Jeśli masz więcej niż jeden konstruktor może wystąpić wyjątek z informacją:
 

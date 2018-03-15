@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 0f04891aaeec026120e2afff3ff24fb89f649c8d
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 1223eacfb88e1e6adb6edaf5ea4ba2b653292850
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Żądania obsługi z kontrolerami w programie ASP.NET MVC Core
 
@@ -27,7 +27,7 @@ Kontroler służy do definiowania i grupy działań. Akcja (lub *metody akcji*) 
 
 Według Konwencji klasy kontrolera:
 * Znajdują się w katalogu głównego projektu na poziomie *kontrolerów* folderu
-* Dziedzicz`Microsoft.AspNetCore.Mvc.Controller`
+* Dziedzicz `Microsoft.AspNetCore.Mvc.Controller`
 
 Kontroler jest tworzone jako wystąpienia klasy co najmniej jeden z następujących warunków jest spełniony:
 * Nazwa klasy jest kończyły się słowem "Controller"
@@ -66,7 +66,7 @@ Istnieją dwa typy wyników w ramach tej kategorii: Przekierowanie i kod stanu H
 
     Ten typ zwraca kod stanu HTTP. Kilka metody pomocnika tego typu są `BadRequest`, `NotFound`, i `Ok`. Na przykład `return BadRequest();` generuje kod stanu 400 podczas wykonywania. Gdy metod, takich jak `BadRequest`, `NotFound`, i `Ok` są przeciążone, już nie kwalifikują się jako obiekty kod stanu HTTP odpowiadające, ponieważ negocjacje zawartości ma miejsce.
 
-* **Przekierowania**
+* **przekierowania**
 
     Ten typ zwraca przekierowanie do akcji lub docelowym (przy użyciu `Redirect`, `LocalRedirect`, `RedirectToAction`, lub `RedirectToRoute`). Na przykład `return RedirectToAction("Complete", new {id = 123});` przekierowuje do `Complete`, przekazywanie obiektu anonimowego.
 

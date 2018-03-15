@@ -1,7 +1,7 @@
 ---
-title: "Wprowadzenie do korzystania z platformy ASP.NET Core MVC i Visual Studio dla komputerów Mac"
+title: "Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio dla komputerów Mac"
 author: rick-anderson
-description: Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
+description: "Dowiedz się, jak rozpocząć pracę z platformy ASP.NET Core MVC i Visual Studio"
 manager: wpickett
 ms.author: riande
 ms.date: 8/23/2017
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: 05a2323851c58c95667066a74c11f1d015405e6f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7d2729969a65cf2050d0eac390169898a4102de1
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Wprowadzenie do korzystania z platformy ASP.NET Core MVC i Visual Studio dla komputerów Mac
+# <a name="get-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio dla komputerów Mac
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym samouczku uczy podstaw konstruowania platformy ASP.NET Core MVC aplikację sieciową przy użyciu [programu Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/). 
 

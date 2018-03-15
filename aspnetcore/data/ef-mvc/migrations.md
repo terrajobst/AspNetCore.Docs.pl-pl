@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 058c7e8821f0ccc4e0be844a7f8dd0fab9942028
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 0959ebc0f566540ea8a43d4889bb0e4fa041bfd6
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Migracje - Core EF z samouczek platformy ASP.NET Core MVC (4 10)
 
@@ -45,7 +45,7 @@ W *appsettings.json* pliku, Zmień nazwę bazy danych w parametrach połączenia
 
 [!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
-Ta zmiana skonfigurowanie projektu, aby pierwszy migracji spowoduje utworzenie nowej bazy danych. To nie jest wymagane wprowadzenie do migracji, ale pojawi się później dlaczego jest dobrym rozwiązaniem.
+Ta zmiana skonfigurowanie projektu, aby pierwszy migracji spowoduje utworzenie nowej bazy danych. Nie jest to wymagane, aby rozpocząć korzystanie z migracji, ale pojawi się później dlaczego jest dobrym rozwiązaniem.
 
 > [!NOTE]
 > Alternatywą wobec zmiana nazwy bazy danych można usunąć bazy danych. Użyj **Eksplorator obiektów SQL Server** (SSOX) lub `database drop` polecenia interfejsu wiersza polecenia:

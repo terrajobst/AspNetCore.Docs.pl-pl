@@ -1,7 +1,7 @@
 ---
 title: Wprowadzenie do platformy ASP.NET Core 1.1
 author: rick-anderson
-description: "Samouczek szybki, które tworzy i uruchamia prostej aplikacji Hello World przy użyciu platformy ASP.NET Core 1.1."
+description: "Postępuj zgodnie z tego samouczka szybkiego do tworzenia i uruchamiania prostej aplikacji Hello World przy użyciu platformy ASP.NET Core 1.1."
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started-1.1
-ms.openlocfilehash: 51a345cbe77166d1b673c124571301528f8667ee
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: df34c93de265c3e69877c9f68dd69126bb1b850d
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="getting-started-with-aspnet-core-11"></a>Wprowadzenie do platformy ASP.NET Core 1.1
+# <a name="get-started-with-aspnet-core-11"></a>Wprowadzenie do platformy ASP.NET Core 1.1
 
 > [!NOTE]
 > Te instrukcje dotyczą ASP.NET Core 1.1. Szukasz do najnowszej wersji? Zobacz [bieżącej wersji tego samouczka](xref:getting-started).

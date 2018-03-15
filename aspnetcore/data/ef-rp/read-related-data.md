@@ -1,5 +1,5 @@
 ---
-title: "Stron razor podstawowych EF - odczytanie danych powiązanych — 6, 8"
+title: "Stron razor podstawowych EF w platformy ASP.NET Core - odczytanie danych powiązanych — 6, 8"
 author: rick-anderson
 description: "W tym samouczku odczytu i wyświetlanie powiązanych danych — to znaczy dane programu Entity Framework wczytywane właściwości nawigacji."
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 6e71e9c01a58c3f60dacce8959ac4502a3690690
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 44db7b49aef6bff1e57d10d569ffa9c73930b774
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Odczytywanie powiązane dane - Core EF Razor strony (6 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - odczytanie danych powiązanych — 6, 8
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra), [Jan Kowalski P](https://twitter.com/thereformedprog), i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -39,7 +39,7 @@ Istnieje kilka sposobów EF Core może ładować powiązanych danych do właści
 
  ![Przykład wczesny ładowania](read-related-data/_static/eager-loading.png)
  
- Ładowanie wczesny wysyła wielu zapytań wchodzi nvavigation kolekcji:
+ Ładowanie wczesny wysyła wielu zapytań podczas nawigacji kolekcji znajduje się:
 
  * Jedno zapytanie dla głównego zapytania 
  * Jednej kwerendzie dla każdej kolekcji "krawędzi" w drzewie obciążenia.

@@ -1,5 +1,5 @@
 ---
-title: "Konfigurowanie lokalizacji obiektu przenośne"
+title: "Skonfiguruj przenośne obiektu lokalizacji w ASP.NET Core"
 author: sebastienros
 description: "W tym artykule przedstawiono pliki Portable obiektów oraz opisano kroki dotyczące korzystania z nich w aplikacji platformy ASP.NET Core Framework Orchard Core."
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: a8e19d096fb66b23920ca012cc96e05b4bdfc000
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fbf2afd6fbc07c8068a21be15816aa45618f28d6
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="configure-portable-object-localization-with-orchard-core"></a>Konfigurowanie lokalizacji obiektu przenośne Orchard podstawowych
+# <a name="configure-portable-object-localization-in-aspnet-core"></a>Skonfiguruj przenośne obiektu lokalizacji w ASP.NET Core
 
 Przez [OK Sébastien](https://github.com/sebastienros) i [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -70,7 +70,7 @@ Ten przykład jest oparty na aplikacji ASP.NET Core MVC wygenerowany na podstawi
 
 ### <a name="referencing-the-package"></a>Odwołanie do pakietu
 
-Dodaj odwołanie do `OrchardCore.Localization.Core` pakietu NuGet. Jest ona dostępna na [MyGet](https://www.myget.org/) na następujące źródło pakietu: https://www.myget.org/F/orchardcore-preview/api/v3/index.json
+Dodaj odwołanie do `OrchardCore.Localization.Core` pakietu NuGet. Jest ona dostępna na [MyGet](https://www.myget.org/) w źródle następujących pakietów: https://www.myget.org/F/orchardcore-preview/api/v3/index.json
 
 *.Csproj* plik zawiera teraz wiersz podobny do następującego (numer wersji może się różnić):
 

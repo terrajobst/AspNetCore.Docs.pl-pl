@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: 2e20e660bfa4aa335b951e2dc770e3671f99d2a8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 8d88fdaeca6f02be677b2a5bc162535df0f0977c
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-code"></a>Dodawanie modelu do aplikacji stron Razor w ASP.NET Core z kodem Visual Studio
 
@@ -76,5 +76,5 @@ Zamknij program Visual Studio i ponownie uruchom polecenie.
 Następny samouczek wyjaśnia plików utworzonych przez funkcję szkieletów.
 
 >[!div class="step-by-step"]
-[Poprzedni: Wprowadzenie](xref:tutorials/razor-pages-vsc/razor-pages-start)
+[Poprzedni: Rozpoczynanie pracy](xref:tutorials/razor-pages-vsc/razor-pages-start)
 [dalej: szkieletu stron Razor](xref:tutorials/razor-pages-vsc/page)

@@ -1,5 +1,5 @@
 ---
-title: "Stron razor podstawowych EF — Model danych — 5 8"
+title: "Stron razor podstawowych EF w platformy ASP.NET Core - Model danych — 5 8"
 author: rick-anderson
 description: "W tym samouczku Dodaj więcej jednostki i relacje i dostosować modelu danych, określając formatowania, sprawdzanie poprawności i mapowanie reguły."
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 91dc53162c1dd99c4cdd6fb971a4ecc04dd071de
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 12c863c6eb4b4774853a94cf3001870b0d22e936
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="creating-a-complex-data-model---ef-core-with-razor-pages-tutorial-5-of-8"></a>Tworzenie modelu danych złożonych - Core EF z samouczka stron Razor (5 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - Model danych — 5 8
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: f24de7ab12a3bbd7915ce6c3c93a107eb47fe864
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cb80c38fd0284d5153aebfe7bb515722623a4a34
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
@@ -21,9 +21,9 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Ryan Nowak](https://gi
 
 Stron razor to nowa funkcja platformy ASP.NET Core MVC umożliwia kodowanie strony scenariusze łatwiejsze i bardziej wydajnej pracy.
 
-Jeśli szukasz samouczka, który korzysta z podejścia Model-View-Controller, zobacz [wprowadzenie do platformy ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc).
+Jeśli szukasz samouczka, który korzysta z podejścia Model-View-Controller, zobacz [Rozpoczynanie pracy z platformą ASP.NET MVC Core](xref:tutorials/first-mvc-app/start-mvc).
 
-Ten dokument zawiera wprowadzenie do stron Razor. Nie jest samouczek krok po kroku. Jeśli niektóre sekcje trudne do wykonania, zobacz [wprowadzenie stron Razor](xref:tutorials/razor-pages/razor-pages-start).
+Ten dokument zawiera wprowadzenie do stron Razor. Nie jest samouczek krok po kroku. Jeśli możesz znaleźć sekcje zbyt zaawansowanych, zobacz [wprowadzenie stron Razor](xref:tutorials/razor-pages/razor-pages-start). Omówienie platformy ASP.NET Core, zobacz [wprowadzenie do platformy ASP.NET Core](xref:index).
 
 <a name="prerequisites"></a>
 
@@ -151,6 +151,11 @@ Jeśli przesłanego formularza zawiera błędy sprawdzania poprawności (które 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_PageModel&highlight=10-11)]
 
 Stron razor domyślnie powiązania właściwości tylko z innych niż GET zleceń. Powiązanie właściwości może zmniejszyć ilość kodu, które trzeba zapisać. Powiązanie zmniejsza kodu przy użyciu tej samej właściwości do renderowania pól formularza (`<input asp-for="Customer.Name" />`) i akceptuje dane wejściowe.
+
+> [!NOTE]
+> Ze względów bezpieczeństwa należy zgadzaj się na wiązanie danych żądania GET do strony właściwości modelu. Sprawdź dane wejściowe użytkownika przed zamapowaniem ją do właściwości. Zgody na korzystanie z to zachowanie jest przydatne podczas kompilowania funkcji, które zależą od wartości ciągu lub trasy kwerendy.
+>
+> Aby powiązać właściwość na żądania GET, ustaw `[BindProperty]` atrybutu `SupportsGet` właściwości `true`: `[BindProperty(SupportsGet = true)]`
 
 Strona główna (*Index.cshtml*):
 
@@ -384,7 +389,7 @@ Wstępnej kompilacji widoków, zobacz [kompilacji widoku Razor](xref:mvc/views/v
 
 [Pobrania lub wyświetlenia przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/index/sample).
 
-Zobacz [wprowadzenie Razor strony platformy ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start), która opiera się na to wprowadzenie.
+Zobacz [wprowadzenie stron Razor](xref:tutorials/razor-pages/razor-pages-start), która opiera się na to wprowadzenie.
 
 ### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Określ, czy stron Razor zawartości katalogu głównego
 
@@ -414,6 +419,7 @@ services.AddMvc()
 
 ## <a name="see-also"></a>Zobacz także
 
+* [Wprowadzenie do platformy ASP.NET Core](xref:index)
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Konwencje autoryzacji stron razor](xref:security/authorization/razor-pages-authorization)
 * [Razor strony trasy i strony modelu dostawców niestandardowych](xref:mvc/razor-pages/razor-pages-convention-features)

@@ -1,7 +1,7 @@
 ---
 title: Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
 author: rick-anderson
-description: Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
+description: "Dowiedz się, jak rozpocząć pracę z platformy ASP.NET Core MVC i Visual Studio."
 manager: wpickett
 ms.author: riande
 ms.date: 10/07/2017
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: d07d133aa0ed83962b6dc60b9fa0c42993f87843
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 609cd25a3e249bb6e2498325ef286c937c64a206
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
+# <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE[consider RP](../../includes/razor.md)]
 

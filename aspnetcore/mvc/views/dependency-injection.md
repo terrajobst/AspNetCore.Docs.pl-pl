@@ -1,7 +1,7 @@
 ---
-title: "Iniekcji zależności do widoków"
+title: "Iniekcji zależności do widoków w ASP.NET Core"
 author: ardalis
-description: 
+description: "Dowiedz się, jak platformy ASP.NET Core obsługuje iniekcji zależności do widoków MVC."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: e5703bd5b3b2340b4ef170a81550237ffe2c3e3d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cde30322450529f5b3b58f9ee54c22b4cbda65c8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="dependency-injection-into-views"></a>Iniekcji zależności do widoków
+# <a name="dependency-injection-into-views-in-aspnet-core"></a>Iniekcji zależności do widoków w ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/)
 

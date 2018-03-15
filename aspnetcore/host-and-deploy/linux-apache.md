@@ -5,16 +5,16 @@ author: spboyer
 manager: wpickett
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 10/19/2016
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: b11bc811b6aefce22b60a28afd72c2a2d0b26955
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 033adddc586b60c9f7453df5434617aa838737f8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Host platformy ASP.NET Core w systemie Linux z Apache
 
@@ -112,27 +112,32 @@ Complete!
 ```
 
 > [!NOTE]
-> W tym przykładzie danych wyjściowych odzwierciedla httpd.86_64, ponieważ wersja CentOS 7 jest 64-bitowym. Aby sprawdzić, w którym zainstalowano Apache, uruchom `whereis httpd` z wiersza polecenia. 
+> W tym przykładzie danych wyjściowych odzwierciedla httpd.86_64, ponieważ wersja CentOS 7 jest 64-bitowym. Aby sprawdzić, w którym zainstalowano Apache, uruchom `whereis httpd` z wiersza polecenia.
 
 ### <a name="configure-apache-for-reverse-proxy"></a>Konfigurowanie Apache dla zwrotnego serwera proxy
 
 Pliki konfiguracji Apache znajdują się w `/etc/httpd/conf.d/` katalogu. Dowolne pliki z *.conf* rozszerzenia są przetwarzane w kolejności alfabetycznej oprócz plików konfiguracji modułu w `/etc/httpd/conf.modules.d/`, który zawiera żadnej konfiguracji pliki niezbędne do ładowania modułów.
 
-Utwórz plik konfiguracji dla aplikacji o nazwie `hellomvc.conf`:
+Utwórz plik konfiguracji o nazwie *hellomvc.conf*, dla aplikacji:
 
 ```
 <VirtualHost *:80>
     ProxyPreserveHost On
     ProxyPass / http://127.0.0.1:5000/
     ProxyPassReverse / http://127.0.0.1:5000/
-    ErrorLog /var/log/httpd/hellomvc-error.log
-    CustomLog /var/log/httpd/hellomvc-access.log common
+    ServerName www.example.com
+    ServerAlias *.example.com
+    ErrorLog ${APACHE_LOG_DIR}hellomvc-error.log
+    CustomLog ${APACHE_LOG_DIR}hellomvc-access.log common
 </VirtualHost>
 ```
 
-**VirtualHost** węzeł może pojawić się wiele razy w jeden lub więcej plików na serwerze. **VirtualHost** ustawiono do nasłuchiwania na dowolny adres IP przy użyciu portu 80. Następne dwa wiersze są ustawiane na żądania serwera proxy w katalogu głównym na serwerze w 127.0.0.1 na porcie 5000. Dla komunikacja dwukierunkowa *ProxyPass* i *ProxyPassReverse* są wymagane.
+`VirtualHost` Bloku może pojawić się wiele razy w jeden lub więcej plików na serwerze. W pliku konfiguracyjnym poprzedniego Apache akceptuje publicznego ruch na porcie 80. Domena `www.example.com` obsługiwanej jest i `*.example.com` Usuwa alias do tej samej witryny sieci Web. Zobacz [obsługi na podstawie nazwy hostów wirtualnych](https://httpd.apache.org/docs/current/vhosts/name-based.html) Aby uzyskać więcej informacji. Żądania są przekazywane przez serwer proxy w katalogu głównym, aby port 5000 serwera na 127.0.0.1. Dla komunikacja dwukierunkowa `ProxyPass` i `ProxyPassReverse` są wymagane.
 
-Można skonfigurować rejestrowania **VirtualHost** przy użyciu **ErrorLog** i **CustomLog** dyrektywy. **Dziennik błędów** to lokalizacja, w którym serwer rejestruje błędy, i **CustomLog** ustawia nazwę pliku i format pliku dziennika. W tym przypadku jest to, gdzie jest rejestrowane informacje o żądaniu. Istnieje jeden wiersz dla każdego żądania.
+> [!WARNING]
+> Błąd w celu określenia odpowiedniego [dyrektywy ServerName](https://httpd.apache.org/docs/current/mod/core.html#servername) w **VirtualHost** blokowy przedstawia aplikacji luk w zabezpieczeniach. Powiązanie symbolu wieloznacznego domeny podrzędnej (na przykład `*.example.com`) nie stanowić to zagrożenie bezpieczeństwa, jeśli kontrolować domeny nadrzędnej cały (w przeciwieństwie do `*.com`, której występuje). Zobacz [rfc7230 sekcji-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) Aby uzyskać więcej informacji.
+
+Można skonfigurować rejestrowania `VirtualHost` przy użyciu `ErrorLog` i `CustomLog` dyrektywy. `ErrorLog` Lokalizacja, w którym serwer rejestruje błędy, i `CustomLog` ustawia nazwę pliku i format pliku dziennika. W tym przypadku jest to, gdzie jest rejestrowane informacje o żądaniu. Istnieje jeden wiersz dla każdego żądania.
 
 Zapisz plik i Przetestuj konfigurację. Jeśli wszystko przebiegnie pomyślnie, powinien być odpowiedzi `Syntax [OK]`.
 

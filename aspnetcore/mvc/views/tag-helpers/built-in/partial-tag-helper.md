@@ -1,5 +1,5 @@
 ---
-title: "Pomocnik Tag częściowe"
+title: "Pomocnik częściowe tagu w platformy ASP.NET Core"
 author: scottaddie
 description: "Dostęp do platformy ASP.NET Core częściowe Tag pomocnika i roli każdego z jego atrybuty odtwarzana renderowania widoku częściowego."
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: e5c71ccb7a355ffe1c24f389ab490d614d333589
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: a9848539206892579501a39a9fce3044c6753948
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="partial-tag-helper"></a>Pomocnik Tag częściowe
+# <a name="partial-tag-helper-in-aspnet-core"></a>Pomocnik częściowe tagu w platformy ASP.NET Core
 
 Przez [Scott Addie](https://github.com/scottaddie)
 
@@ -77,4 +77,4 @@ W tym przykładzie wartość `ViewData["IsNumberReadOnly"]` Określa, czy *numer
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Widoki częściowe](xref:mvc/views/partial)
-* [Słabą danych (ViewData i obiekt ViewBag)](xref:mvc/views/overview#weakly-typed-data-viewdata-and-viewbag)
+* [Lekko wprowadzonych danych (ViewData i obiekt ViewBag)](xref:mvc/views/overview#weakly-typed-data-viewdata-and-viewbag)

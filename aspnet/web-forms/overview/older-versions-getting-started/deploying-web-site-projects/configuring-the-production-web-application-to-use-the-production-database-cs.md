@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 21eac6a4d829795f02eeeca5f9870b1ab8132d08
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Konfigurowanie aplikacji sieci Web produkcji do użycia w produkcyjnej bazie danych (C#)
 ====================
@@ -37,16 +37,16 @@ Nie jest rzadko informacje dotyczące konfiguracji mogą się różnić między 
 
 ## <a name="examining-the-connection-string-information"></a>Badanie informacji o ciągu połączenia
 
-Ciąg połączenia używany przez aplikację sieci web przeglądami książki są przechowywane w pliku konfiguracyjnym aplikacji s `Web.config`. `Web.config`zawiera sekcja specjalne przechowywanie parametrów połączenia, aptly o nazwie [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). `Web.config` Plik przeglądami książki witryny sieci Web ma jeden ciąg połączenia zdefiniowane w tej sekcji o nazwie `ReviewsConnectionString`:
+Ciąg połączenia używany przez aplikację sieci web przeglądami książki są przechowywane w pliku konfiguracyjnym aplikacji s `Web.config`. `Web.config` zawiera sekcja specjalne przechowywanie parametrów połączenia, aptly o nazwie [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). `Web.config` Plik przeglądami książki witryny sieci Web ma jeden ciąg połączenia zdefiniowane w tej sekcji o nazwie `ReviewsConnectionString`:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-cs/samples/sample1.xml)]
 
 Parametry połączenia — źródło danych =. \SQLEXPRESS; AttachDbFilename = | Zabezpieczenia DataDirectory|\Reviews.mdf;Integrated = True; Wystąpienia użytkownika = True — składa się z wielu opcji i wartości, z par opcji i wartości rozdzielane średnikami i każdej opcji i wartość ograniczonej przez znak równości. Są cztery opcje używane w tym ciągu połączenia:
 
-- `Data Source`-Określa lokalizację serwera bazy danych i nazwa wystąpienia serwera bazy danych (jeżeli istniał). Wartość, `.\SQLEXPRESS`, jest na przykład w przypadku, gdy istnieje serwer bazy danych i nazwę wystąpienia. Okres określa, że serwer bazy danych na tym samym komputerze jako aplikacji; Nazwa wystąpienia jest `SQLEXPRESS`.
-- `AttachDbFilename`-Określa lokalizację plików bazy danych. Wartość zawiera symbol zastępczy `|DataDirectory|`, który został rozwiązany na pełną ścieżkę aplikacji s `App_Data` folderu w czasie wykonywania.
-- `Integrated Security`— wartość logiczna, która wskazuje, czy należy użyć określonej nazwy użytkownika i hasła podczas nawiązywania połączenia bazy danych (FAŁSZ) lub Windows bieżące poświadczenia konta (PRAWDA).
-- `User Instance`-Opcja konfiguracji specyficznych dla wersji SQL Server Express Edition, która wskazuje, czy zezwolić na użytkowników innych niż administracyjne na komputerze lokalnym podłączyć a bazą danych programu SQL Server Express Edition. Zobacz [wystąpienia programu SQL Server Express użytkownika](https://msdn.microsoft.com/library/ms254504.aspx) Aby uzyskać więcej informacji na temat tego ustawienia.
+- `Data Source` -Określa lokalizację serwera bazy danych i nazwa wystąpienia serwera bazy danych (jeżeli istniał). Wartość, `.\SQLEXPRESS`, jest na przykład w przypadku, gdy istnieje serwer bazy danych i nazwę wystąpienia. Okres określa, że serwer bazy danych na tym samym komputerze jako aplikacji; Nazwa wystąpienia jest `SQLEXPRESS`.
+- `AttachDbFilename` -Określa lokalizację plików bazy danych. Wartość zawiera symbol zastępczy `|DataDirectory|`, który został rozwiązany na pełną ścieżkę aplikacji s `App_Data` folderu w czasie wykonywania.
+- `Integrated Security` — wartość logiczna, która wskazuje, czy należy użyć określonej nazwy użytkownika i hasła podczas nawiązywania połączenia bazy danych (FAŁSZ) lub Windows bieżące poświadczenia konta (PRAWDA).
+- `User Instance` -Opcja konfiguracji specyficznych dla wersji SQL Server Express Edition, która wskazuje, czy zezwolić na użytkowników innych niż administracyjne na komputerze lokalnym podłączyć a bazą danych programu SQL Server Express Edition. Zobacz [wystąpienia programu SQL Server Express użytkownika](https://msdn.microsoft.com/library/ms254504.aspx) Aby uzyskać więcej informacji na temat tego ustawienia.
   
 
 Opcje ciąg połączenia dopuszczalny zależą od bazy danych, z którym nawiązujesz połączenie, aby i używany dostawca bazy danych programu ADO.NET. Na przykład parametry połączenia do nawiązywania połączenia z programu Microsoft SQL Server bazy danych jest inny niż używany do nawiązania połączenia z bazą danych Oracle. Podobnie nawiązywanie połączenia z bazą danych programu Microsoft SQL Server przy użyciu dostawcy SqlClient używa parametrów połączenia innego niż przy użyciu dostawcy OLE DB.

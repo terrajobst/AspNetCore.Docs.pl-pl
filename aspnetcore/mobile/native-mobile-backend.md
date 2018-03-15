@@ -1,7 +1,7 @@
 ---
-title: "Tworzenie usługi wewnętrznej bazy danych dla natywnych aplikacji dla urządzeń przenośnych"
+title: "Tworzenie usługi wewnętrznej bazy danych dla natywnych aplikacji dla urządzeń przenośnych za pomocą platformy ASP.NET Core"
 author: ardalis
-description: 
+description: "Dowiedz się, jak tworzyć przy użyciu platformy ASP.NET Core MVC do obsługi natywnych aplikacji mobilnych usługi wewnętrznej bazy danych."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: f5c0e5832b43f365c11a785af37b32e381624420
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 3902cf728ab6ba776674382361ebb1b28e765711
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="creating-backend-services-for-native-mobile-applications"></a>Tworzenie usługi wewnętrznej bazy danych dla natywnych aplikacji dla urządzeń przenośnych
+# <a name="creating-backend-services-for-native-mobile-applications-with-aspnet-core"></a>Tworzenie usługi wewnętrznej bazy danych dla natywnych aplikacji dla urządzeń przenośnych za pomocą platformy ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/)
 
@@ -25,7 +25,7 @@ Aplikacje mobilne łatwo mogą komunikować się z usługami zaplecza ASP.NET Co
 
 ## <a name="the-sample-native-mobile-app"></a>Przykładowe natywnych aplikacji mobilnej
 
-Ten samouczek przedstawia sposób tworzenia usługi wewnętrznej bazy danych przy użyciu platformy ASP.NET Core MVC do obsługi natywnych aplikacji mobilnych. Używa [aplikacji platformy Xamarin Forms ToDoRest](https://developer.xamarin.com/guides/xamarin-forms/web-services/consuming/rest/) jako jego klientami, która obejmuje oddzielne klientach natywnych dla urządzeń systemu Android, iOS, uniwersalnych systemu Windows i Windows Phone. Można wykonaj połączonego samouczek do tworzenia aplikacji natywnej (i zainstalować niezbędne bezpłatnych narzędzi Xamarin), a także Pobierz przykładowe rozwiązanie Xamarin. Przykładowe Xamarin zawiera projekt usługi ASP.NET Web API 2 aplikacji platformy ASP.NET Core w tym artykule zastępuje (bez zmian wymaganych przez klienta).
+Ten samouczek przedstawia sposób tworzenia usługi wewnętrznej bazy danych przy użyciu platformy ASP.NET Core MVC do obsługi natywnych aplikacji mobilnych. Używa [aplikacji platformy Xamarin Forms ToDoRest](/xamarin/xamarin-forms/data-cloud/consuming/rest) jako jego klientami, która obejmuje oddzielne klientach natywnych dla urządzeń systemu Android, iOS, uniwersalnych systemu Windows i Windows Phone. Można wykonaj połączonego samouczek do tworzenia aplikacji natywnej (i zainstalować niezbędne bezpłatnych narzędzi Xamarin), a także Pobierz przykładowe rozwiązanie Xamarin. Przykładowe Xamarin zawiera projekt usługi ASP.NET Web API 2 aplikacji platformy ASP.NET Core w tym artykule zastępuje (bez zmian wymaganych przez klienta).
 
 ![Wykonaj pozostałe aplikacji uruchomionych na smartfonie systemu Android](native-mobile-backend/_static/todo-android.png)
 

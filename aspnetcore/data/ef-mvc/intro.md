@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 2dced015759eebea01f0174a21819499374ccf7c
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: 68b38df790689acefce983e65ad2adb64f67d62d
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Wprowadzenie do platformy ASP.NET Core MVC i Entity Framework Core za pomocą programu Visual Studio (od 1 do 10)
+# <a name="get-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Wprowadzenie do platformy ASP.NET Core MVC i Entity Framework Core za pomocą programu Visual Studio (od 1 do 10)
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 

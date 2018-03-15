@@ -5,16 +5,16 @@ description: Wprowadza Kestrel, serwer sieci web i platform dla platformy ASP.NE
 manager: wpickett
 ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.date: 08/02/2017
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: f52f8ae40bc4d135d87efc6e11917d53fdca0df5
-ms.sourcegitcommit: c5ecda3c5b1674b62294cfddcb104e7f0b9ce465
+ms.openlocfilehash: be465c9e8803e4d348cdd14181b4ea147f75e1a0
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Kestrel implementacja serwera sieci web platformy ASP.NET Core
 
@@ -74,6 +74,9 @@ Nawet jeśli zwrotnego serwera proxy nie jest wymagane, przy użyciu jednej moż
 * Zapewnia dodatkową warstwę opcjonalne konfiguracji i obrony.
 * Może ją zintegrować lepiej z istniejącej infrastruktury.
 * Takie rozwiązanie upraszcza równoważenia obciążenia i Konfiguracja protokołu SSL. Tylko zwrotnego serwera proxy wymaga certyfikatu SSL i że serwer może komunikować się z serwerami aplikacji w sieci wewnętrznej przy użyciu zwykłego protokołu HTTP.
+
+> [!WARNING]
+> Jeśli nie używasz zwrotny serwer proxy z hostem filtrowania, należy włączyć [filtrowania host](#host-filtering).
 
 ## <a name="how-to-use-kestrel-in-aspnet-core-apps"></a>Jak używać Kestrel w aplikacji platformy ASP.NET Core
 
@@ -252,6 +255,9 @@ Tylko prefiksy HTTP URL są ważne. Kestrel nie obsługuje protokołu SSL podcza
 
   Host nazwy, *, a + nie są specjalne. Wszystko, co nie jest rozpoznany adres IP lub "localhost" będzie powiązać wszystkich protokołów IPv4 i IPv6, adresy IP. Aby powiązać różne nazwy hostów z różnych aplikacji platformy ASP.NET Core w tym samym porcie, należy użyć [HTTP.sys](httpsys.md) lub zwrotnego serwera proxy usług IIS, Nginx lub Apache.
 
+  > [!WARNING]
+  > Jeśli nie używasz zwrotny serwer proxy z hostem filtrowania, należy włączyć [filtrowania host](#host-filtering).
+
 * Nazwa "Localhost" port numer lub sprzężenia zwrotnego protokołu IP z numerem portu
 
   ```
@@ -341,6 +347,166 @@ var host = new WebHostBuilder()
 [!INCLUDE[How to make an X.509 cert](../../includes/make-x509-cert.md)]
 
 ---
+
+## <a name="host-filtering"></a>Filtrowanie hosta
+
+Gdy Kestrel obsługuje konfigurację oparte na prefiksy, takich jak `http://example.com:5000`, przede wszystkim ignoruje nazwy hosta. LocalHost jest szczególnych przypadkach używane do wiązania na adresy sprzężenia zwrotnego. Host żadnego, innych niż jawny adres IP jest powiązany z wszystkich publicznych adresów IP. Żadne z tych informacji jest używany do sprawdzania poprawności żądań nagłówków hosta.
+
+Istnieją dwa możliwe obejścia:
+
+* Host pod zwrotny serwer proxy z filtrowania nagłówka hosta. To jedyny obsługiwany scenariusz Kestrel w ASP.NET Core 1.x.
+* Oprogramowanie pośredniczące umożliwia filtrowanie żądań w nagłówku hosta. Oprogramowanie pośredniczące próbki są następujące:
+
+```csharp
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Primitives;
+using Microsoft.Net.Http.Headers;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+// A normal middleware would provide an options type, config binding, extension methods, etc..
+// This intentionally does all of the work inside of the middleware so it can be
+// easily copy-pasted into docs and other projects.
+public class HostFilteringMiddleware
+{
+    private readonly RequestDelegate _next;
+    private readonly IList<string> _hosts;
+    private readonly ILogger<HostFilteringMiddleware> _logger;
+
+    public HostFilteringMiddleware(RequestDelegate next, IConfiguration config, ILogger<HostFilteringMiddleware> logger)
+    {
+        if (config == null)
+        {
+            throw new ArgumentNullException(nameof(config));
+        }
+
+        _next = next ?? throw new ArgumentNullException(nameof(next));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+
+        // A semicolon separated list of host names without the port numbers.
+        // IPv6 addresses must use the bounding brackets and be in their normalized form.
+        _hosts = config["AllowedHosts"]?.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+        if (_hosts == null || _hosts.Count == 0)
+        {
+            throw new InvalidOperationException("No configuration entry found for AllowedHosts.");
+        }
+    }
+
+    public Task Invoke(HttpContext context)
+    {
+        if (!ValidateHost(context))
+        {
+            context.Response.StatusCode = 400;
+            _logger.LogDebug("Request rejected due to incorrect host header.");
+            return Task.CompletedTask;
+        }
+
+        return _next(context);
+    }
+
+    // This does not duplicate format validations that are expected to be performed by the host.
+    private bool ValidateHost(HttpContext context)
+    {
+        StringSegment host = context.Request.Headers[HeaderNames.Host].ToString().Trim();
+
+        if (StringSegment.IsNullOrEmpty(host))
+        {
+            // Http/1.0 does not require the host header.
+            // Http/1.1 requires the header but the value may be empty.
+            return true;
+        }
+
+        // Drop the port
+
+        var colonIndex = host.LastIndexOf(':');
+
+        // IPv6 special case
+        if (host.StartsWith("[", StringComparison.Ordinal))
+        {
+            var endBracketIndex = host.IndexOf(']');
+            if (endBracketIndex < 0)
+            {
+                // Invalid format
+                return false;
+            }
+            if (colonIndex < endBracketIndex)
+            {
+                // No port, just the IPv6 Host
+                colonIndex = -1;
+            }
+        }
+
+        if (colonIndex > 0)
+        {
+            host = host.Subsegment(0, colonIndex);
+        }
+
+        foreach (var allowedHost in _hosts)
+        {
+            if (StringSegment.Equals(allowedHost, host, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+
+            // Sub-domain wildcards: *.example.com
+            if (allowedHost.StartsWith("*.", StringComparison.Ordinal) && host.Length >= allowedHost.Length)
+            {
+                // .example.com
+                var allowedRoot = new StringSegment(allowedHost, 1, allowedHost.Length - 1);
+
+                var hostRoot = host.Subsegment(host.Length - allowedRoot.Length, allowedRoot.Length);
+                if (hostRoot.Equals(allowedRoot, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+}
+```
+
+Zarejestruj poprzedniego `HostFilteringMiddleware` w `Startup.Configure`. Należy pamiętać, że [szeregowanie rejestracji oprogramowania pośredniczącego](xref:fundamentals/middleware/index#ordering) jest ważna. Rejestracja powinna wystąpić natychmiast po diagnostycznych oprogramowanie pośredniczące (na przykład `app.UseExceptionHandler`).
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+        app.UseBrowserLink();
+    }
+    else
+    {
+        app.UseExceptionHandler("/Home/Error");
+    }
+
+    app.UseMiddleware<HostFilteringMiddleware>();
+
+    app.UseMvcWithDefaultRoute();
+}
+```
+
+Poprzednie oprogramowanie pośredniczące oczekuje `AllowedHosts` klucza w *appsettings.\< EnvironmentName > JSON*. Wartość tego klucza jest rozdzielaną średnikami listę nazw hostów bez numery portów. Obejmują `AllowedHosts` pary klucz wartość w *appsettings. Production.JSON*:
+
+```json
+{
+  "AllowedHosts": "example.com"
+}
+```
+
+Plik konfiguracji hosta lokalnego *appsettings. Development.JSON*, wygląda podobnie do następującej:
+
+```json
+{
+  "AllowedHosts": "localhost"
+}
+```
+
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby:
