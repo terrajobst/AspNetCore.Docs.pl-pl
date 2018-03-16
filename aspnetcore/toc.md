@@ -28,7 +28,7 @@
 ### [Badanie metod Details i Delete](tutorials/first-mvc-app/details.md)
 
 ## [Tworzenie interfejsów API sieci Web](mvc/web-api/index.md)
-### [Tworzenie interfejsu API sieci Web dla komputerów Mac](xref:tutorials/first-web-api-mac)
+### [Utwórz interfejs API sieci Web na macOS](xref:tutorials/first-web-api-mac)
 ### [Strony pomocy dla interfejsu Web API platformy ASP.NET Core korzystające z programu Swagger](xref:tutorials/web-api-help-pages-using-swagger)
 #### [Rozpoczynanie pracy z NSwag](xref:tutorials/get-started-with-nswag)
 #### [Rozpoczynanie pracy z Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
@@ -59,7 +59,7 @@
 #### [Tematy zaawansowane](data/ef-mvc/advanced.md)
 
 ## [Samouczki dotyczące wielu platform](xref:tutorials/xplat)
-### [Aplikacja internetowa ze stronami Razor na komputerze Mac](xref:tutorials/razor-pages-mac/index)
+### [Razor strony sieci web aplikacji na macOS](xref:tutorials/razor-pages-mac/index)
 #### [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages-mac/razor-pages-start)
 #### [Dodawanie modelu](xref:tutorials/razor-pages-mac/model)
 #### [Strony Razor ze szkieletami](xref:tutorials/razor-pages-mac/page)
@@ -87,7 +87,7 @@
 #### [Dodawanie weryfikacji](xref:tutorials/first-mvc-app-mac/validation)
 #### [Badanie metod Details i Delete](xref:tutorials/first-mvc-app/details)
 
-### [Aplikacji sieci web MVC za pomocą programu Visual Studio Code, Mac lub Linux](xref:tutorials/first-mvc-app-xplat/index)
+### [Aplikacja sieci web MVC z kodem Visual Studio na macOS lub Linux](xref:tutorials/first-mvc-app-xplat/index)
 #### [Wprowadzenie](tutorials/first-mvc-app-xplat/start-mvc.md)
 #### [Dodawanie kontrolera](tutorials/first-mvc-app-xplat/adding-controller.md)
 #### [Dodawanie widoku](tutorials/first-mvc-app-xplat/adding-view.md)
@@ -216,7 +216,7 @@
 ## [Wprowadzenie](xref:signalr/introduction-signalr-core)
 ## [Wprowadzenie](xref:signalr/get-started-signalr-core)
 
-# [Mobile](xref:mobile/index)
+# [Urządzenia przenośne](xref:mobile/index)
 ## [Tworzenie usług zaplecza dla natywnych aplikacji mobilnych](xref:mobile/native-mobile-backend)
 
 # [Hostowanie i wdrażanie](xref:host-and-deploy/index)
