@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
 ms.openlocfilehash: 98fd728f48f6fb64a61686bc58824b9fb3a28b13
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Konfigurowanie serwera bazy danych dla publikowania narzędzia Web Deploy
 ====================
@@ -121,7 +121,7 @@ W większości środowisk systemu Windows Server prawdopodobnie musisz skonfigur
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image8.png)
 6. Na **akcji** zostaw **zezwalały na połączenie** zaznaczone, a następnie kliknij przycisk **dalej**.
-7. Na **profilu** zostaw **domeny** zaznaczone, wyczyść **prywatnej** i **publicznego** pola wyboru, a następnie kliknij przycisk  **Następny**.
+7. Na **profilu** zostaw **domeny** zaznaczone, wyczyść **prywatnej** i **publicznego** pola wyboru, a następnie kliknij przycisk **Następny**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image9.png)
 8. Na **nazwa** strony, Nadaj regule nazwę opisową odpowiednio (na przykład **wystąpienia domyślnego programu SQL Server — dostępu do sieci**), a następnie kliknij przycisk **Zakończ**.
@@ -170,7 +170,7 @@ Aby uzyskać więcej informacji na temat automatyzacji tworzenia logowania i map
 **Aby mapować ról bazy danych do logowania konta komputera serwera sieci web**
 
 1. Otwórz program SQL Server Management Studio jak poprzednio.
-2. W **Eksplorator obiektów** okienku rozwiń **zabezpieczeń** węzła, rozwiń węzeł **logowania** węzeł, a następnie kliknij dwukrotnie ikonę logowania konta komputera (na przykład  **FABRIKAM\TESTWEB1$**).
+2. W **Eksplorator obiektów** okienku rozwiń **zabezpieczeń** węzła, rozwiń węzeł **logowania** węzeł, a następnie kliknij dwukrotnie ikonę logowania konta komputera (na przykład **FABRIKAM\TESTWEB1$**).
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image12.png)
 3. W **właściwości logowania** okno dialogowe, kliknij przycisk **mapowania użytkowników**.
@@ -209,7 +209,7 @@ Do obsługi kolejnych wdrożeń, również należy dodać konto wdrażanie **db\
 **Do mapowania nazwy logowania konta wdrażania bazy danych\_właściciela roli bazy danych**
 
 1. Otwórz program SQL Server Management Studio jak poprzednio.
-2. W **Eksplorator obiektów** okna, rozwiń węzeł **zabezpieczeń** węzła, rozwiń węzeł **logowania** węzeł, a następnie kliknij dwukrotnie ikonę logowania konta komputera (na przykład  **FABRIKAM\matt**).
+2. W **Eksplorator obiektów** okna, rozwiń węzeł **zabezpieczeń** węzła, rozwiń węzeł **logowania** węzeł, a następnie kliknij dwukrotnie ikonę logowania konta komputera (na przykład **FABRIKAM\matt**).
 3. W **właściwości logowania** okno dialogowe, kliknij przycisk **mapowania użytkowników**.
 4. W **użytkownicy zamapowani do tego logowania** tabeli, wybierz nazwę bazy danych (na przykład **ContactManager**).
 5. W **członkostwo roli dla bazy danych:** *[Nazwa bazy danych]* listy, wybierz **db\_właściciela** roli.
