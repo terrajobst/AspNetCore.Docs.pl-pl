@@ -1,7 +1,7 @@
 ---
-title: Wprowadzenie do platformy ASP.NET Core MVC Mac, Linux lub Windows
+title: Wprowadzenie do platformy ASP.NET Core MVC macOS, Linux lub Windows
 author: rick-anderson
-description: "Dowiedz się, jak rozpocząć pracę z platformy ASP.NET Core MVC i Visual Studio Code, Mac, Linux i Windows"
+description: "Dowiedz się, jak rozpocząć pracę z platformy ASP.NET Core MVC i Visual Studio Code na macOS, Linux i Windows"
 manager: wpickett
 ms.author: riande
 ms.date: 07/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: 4960f5b2a82d20b9325f870296f4385e14e15b37
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a612d9b09e58fdc8071378ade15f1bdcafc9c9a6
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="introduction-to-aspnet-core-mvc-on-mac-linux-or-windows"></a>Wprowadzenie do platformy ASP.NET Core MVC Mac, Linux lub Windows
+# <a name="introduction-to-aspnet-core-mvc-on-macos-linux-or-windows"></a>Wprowadzenie do platformy ASP.NET Core MVC macOS, Linux lub Windows
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -75,7 +75,7 @@ W następnej części tego samouczka możemy Dowiedz się więcej o MVC i rozpoc
 - [Zintegrowane terminali](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [Skróty klawiaturowe](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Skróty klawiaturowe Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  - [System macOS skróty klawiaturowe](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
   - [Skróty klawiaturowe systemu Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
   - [Skróty klawiaturowe systemu Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 

@@ -2,20 +2,19 @@
 title: Rozpoczynanie pracy z NSwag
 author: zuckerthoben
 description: "Ten samouczek zawiera wskazówki dodawania NSwag do generowania dokumentacji i strony dla aplikacji interfejsu API sieci Web pomocy."
-keywords: Platformy ASP.NET Core, programu Swagger, NSwag, strony, interfejsu API sieci Web pomocy
-ms.author: scaddie
 manager: wpickett
+ms.author: scaddie
 ms.custom: mvc
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: ce30ad3538c6294003a4f38ca80ebd73c0f52542
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 62b729feabf12e3428e58ed3cb6ed1864bd6171c
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-nswag"></a>Rozpoczynanie pracy z NSwag
 

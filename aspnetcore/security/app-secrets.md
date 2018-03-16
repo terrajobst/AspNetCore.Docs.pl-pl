@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 489c53c066af87e02e43ab0b42b0712d80d5ee5a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: a23c9dc9ee1e20c0e0551a372e1cd706bb82070e
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Bezpieczne przechowywanie kluczy tajnych aplikacji w czasie opracowywania w ASP.NET Core
 
@@ -118,7 +118,7 @@ Narzędzie Menedżer klucz tajny optymalizacji abstracts szczegóły implementac
 
 * Linux: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
-* Mac: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+* macOS: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
 Wartość `userSecretsId` pochodzi z wartością określoną w *.csproj* pliku.
 

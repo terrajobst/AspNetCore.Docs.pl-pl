@@ -11,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 9614d8b744776ee318e9d385b9ef40e90c0c16c1
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 677cd746215b6b2cfb3a0e1d768f5f0da65cefd8
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-static-files-in-aspnet-core"></a>Praca z plikami statycznych w ASP.NET Core
 
@@ -236,7 +236,7 @@ Z poprzednim kodzie żądanie dla pliku z nieznanego typu zawartości jest zwrac
 > [!WARNING]
 > `UseDirectoryBrowser` i `UseStaticFiles` można wyciek kluczy tajnych. Zdecydowanie zaleca się wyłączenie przeglądanie katalogów w środowisku produkcyjnym. Uważnie przejrzyj katalogi, które są włączone za pośrednictwem `UseStaticFiles` lub `UseDirectoryBrowser`. Całego katalogu i jego podkatalogów stać się publicznie. Magazyn plików odpowiednie do użycia w publicznie dedykowanej katalog, takich jak  *\<content_root > / wwwroot*. Te pliki należy oddzielić od widoków MVC, stron Razor (tylko 2.x), pliki konfiguracji itp.
 
-* Adresy URL zawartość jest uwidaczniana z `UseDirectoryBrowser` i `UseStaticFiles` uwzględniana wielkość liter i znaków ograniczenia źródłowy system plików. Na przykład systemu Windows nie uwzględnia wielkości liter&mdash;nie Mac i Linux.
+* Adresy URL zawartość jest uwidaczniana z `UseDirectoryBrowser` i `UseStaticFiles` uwzględniana wielkość liter i znaków ograniczenia źródłowy system plików. Na przykład systemu Windows nie uwzględnia wielkości liter&mdash;nie macOS i Linux.
 
 * Aplikacji platformy ASP.NET Core hostowanych w użyciu IIS [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) do przekazywania wszystkich żądań do aplikacji, włącznie z żądaniami plików statycznych. Obsługa plików statycznych usług IIS nie jest używany. Nie ma możliwość obsługi żądań przed są one obsługiwane przez moduł.
 

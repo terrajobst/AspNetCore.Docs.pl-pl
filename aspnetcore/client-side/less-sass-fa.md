@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/less-sass-fa
-ms.openlocfilehash: e00a0929db9dff6c97c4b22468156f621a1a3820
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 979f5639e382560d952df45ba6e0b8af3b132c2d
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Wprowadzenie do aplikacji stylów jest mniejsza, Sass i czcionki świetny w ASP.NET Core
 
@@ -323,7 +323,7 @@ Mniejsze udostępnia szereg dodatkowych funkcji, ale to należy przedstawić moc
 
 Sass jest podobny do mniej, zapewniając obsługę wielu te same funkcje, ale ze składnią nieco inne. Jest zbudowany przy użyciu Ruby zamiast JavaScript, a więc ma wymagania dotyczące różnych konfiguracji. Język Sass oryginalny nie użyto nawiasów klamrowych lub średników, ale zamiast tego zdefiniowanego zakresu przy użyciu biały znak i wcięcia. W wersji 3 Sass wprowadzono nowej składni, **SCSS** ("Sassy CSS"). SCSS jest podobny do CSS, ponieważ ignoruje poziomów wcięć i spacja i użyje średnikami i nawiasów klamrowych.
 
-Aby zainstalować Sass, zwykle można będzie najpierw zainstalować Ruby (wstępnie zainstalowane w systemie Mac), a następnie uruchom:
+Aby zainstalować Sass, zwykle można będzie najpierw zainstalować Ruby (wstępnie zainstalowanych na macOS), a następnie uruchom:
 
 ```console
 gem install sass

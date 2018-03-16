@@ -17,7 +17,7 @@ ms.lasthandoff: 03/15/2018
 ---
 # <a name="choose-between-aspnet-and-aspnet-core"></a>Wybór między ASP.NET i ASP.NET Core
 
-Niezależnie od tego, w przypadku tworzenia aplikacji sieci web platformy ASP.NET zawiera rozwiązanie dla Ciebie: z przedsiębiorstwa aplikacji sieci web przeznaczonych dla systemu Windows Server, do małych mikrousług przeznaczonych dla kontenery systemu Linux i wszystko między nimi.
+Niezależnie od tego, jakiego typu aplikację tworzysz ASP.NET ma dla Ciebie rozwiązanie: od aplikacji sieci web przeznaczonych dla systemu Windows Server, do małych mikrousług przeznaczonych dla kontenerów systemu Linux i wiele innych.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
@@ -27,11 +27,11 @@ Platformy ASP.NET Core to open source, międzyplatformowa struktura do tworzenia
 
 ASP.NET to dojrzały platforma, która zawiera wszystkich usług niezbędnych do tworzenia klasy korporacyjnej, aplikacje oparte na serwerze sieci web w systemie Windows.
 
-## <a name="which-one-is-right-for-me"></a>Które z nich jest dla mnie odpowiednia?
+## <a name="which-one-is-right-for-me"></a>Która z nich jest dla mnie odpowiednia?
 
 | ASP.NET Core | ASP.NET |
 |---|---|
-|Tworzenie dla systemu Windows, system macOS lub Linux|Kompilacji dla systemu Windows|
+|Tworzenie dla systemu Windows, system macOS lub Linux|Tworzenie dla systemu Windows|
 |[Stron razor](xref:mvc/razor-pages/index) jest zalecane podejście do tworzenia interfejsu użytkownika sieci Web począwszy od platformy ASP.NET Core 2.x. Zobacz też [MVC](xref:mvc/overview), [interfejs API sieci Web](xref:tutorials/first-web-api), i [SignalR](xref:signalr/introduction-signalr-core).|Użyj [sieci Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [interfejs API sieci Web](/aspnet/web-api/), lub [stron sieci Web](/aspnet/web-pages)|
 |Wiele wersji na maszynie|Jednej wersji na maszynie|
 |Tworzenie za pomocą programu Visual Studio, [programu Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/), lub [Visual Studio Code](https://code.visualstudio.com/) przy użyciu języka C# lub języka F #|Tworzenie z programem Visual Studio za pomocą C#, VB i F #|

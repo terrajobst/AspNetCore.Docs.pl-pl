@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/xplat
-ms.openlocfilehash: 1b1a20eea88d4a90696deadaab340dcfb2b85b86
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: b8b10b9aaf1ef68f42fbf61982b8b2f21ab1183a
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="aspnet-core-cross-platform-tutorials"></a>Samouczki i platform ASP.NET Core
 
@@ -26,13 +26,13 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
 * [Wprowadzenie do platformy ASP.NET Core stron Razor](xref:mvc/razor-pages/index)
 * Tworzenie aplikacji sieci web Razor strony z platformy ASP.NET Core
 
-   * [Stron razor dla komputerów Mac](xref:tutorials/razor-pages-mac/index)
+   * [System macOS razor strony](xref:tutorials/razor-pages-mac/index)
    * [Razor strony z kodu VS](xref:tutorials/razor-pages-vsc/index)  
 
 * Tworzenie aplikacji sieci web platformy ASP.NET Core MVC
 
    * [Aplikacja sieci Web z programem Visual Studio dla komputerów Mac](first-mvc-app-mac/index.md)
-   * [Aplikacja internetowa z programem Visual Studio Code na komputerze Mac lub w systemie Linux](first-mvc-app-xplat/index.md)
+   * [Aplikacja sieci Web z kodem Visual Studio na macOS lub Linux](first-mvc-app-xplat/index.md)
 
 ## <a name="build-web-apis"></a>Tworzenie interfejsów API sieci Web
 * Tworzenie składnika Web API z platformy ASP.NET Core

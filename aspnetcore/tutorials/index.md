@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 45b00fbc15740fad60202bb7e5ab14beb9ebe495
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: fd58a6a3e35a706d503603790fa1c726e6c865d6
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="aspnet-core-tutorials"></a>Samouczki platformy ASP.NET Core
 
@@ -27,14 +27,14 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
 * Tworzenie aplikacji sieci web Razor strony z platformy ASP.NET Core
 
    * [Stron razor w systemie Windows](xref:tutorials/razor-pages/index)
-   * [Stron razor dla komputerów Mac](xref:tutorials/razor-pages-mac/index)
+   * [System macOS razor strony](xref:tutorials/razor-pages-mac/index)
    * [Razor strony z kodu VS](xref:tutorials/razor-pages-vsc/index)  
 
 * Tworzenie aplikacji sieci web platformy ASP.NET Core MVC
 
    * [Aplikacja sieci Web z programem Visual Studio dla systemu Windows](first-mvc-app/index.md)
    * [Aplikacja sieci Web z programem Visual Studio dla komputerów Mac](first-mvc-app-mac/index.md)
-   * [Aplikacja internetowa z programem Visual Studio Code na komputerze Mac lub w systemie Linux](first-mvc-app-xplat/index.md)
+   * [Aplikacja sieci Web z kodem Visual Studio na macOS lub Linux](first-mvc-app-xplat/index.md)
 
 * [Rozpoczynanie pracy z platformą ASP.NET Core i programem Entity Framework Core przy użyciu programu Visual Studio](../data/ef-mvc/index.md)
 * [Tworzenie pomocników tagów](../mvc/views/tag-helpers/authoring.md)
