@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
-title: "Iteracja #2 — zastosować Szukaj nieuprzywilejowany (VB) | Dokumentacja firmy Microsoft"
+title: 'Iteracja #2 — zastosować Szukaj nieuprzywilejowany (VB) | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "W tym iteracji możemy ulepszyć wyglądu aplikacji przez zmodyfikowanie domyślnych strony wzorcowej widoku programu ASP.NET MVC i kaskadowych arkuszy stylów."
+description: W tym iteracji możemy ulepszyć wyglądu aplikacji przez zmodyfikowanie domyślnych strony wzorcowej widoku programu ASP.NET MVC i kaskadowych arkuszy stylów.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 07c4eaaf9ae5a389605a98951e970d410ca23122
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8545351b099e52533789b372903cd493f533f834
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a>Iteracja #2 — zastosować Szukaj nieuprzywilejowany (VB)
 ====================
@@ -66,7 +66,7 @@ I zdecydowała się bez użycia szablonu z Galerii projektów MVC ASP.NET dla ap
 
 Galeria projektów programu ASP.NET MVC jest bezpłatnym zasobem obsługiwane przez firmę Microsoft. ASP.NET MVC galerii znajduje się pod następującym adresem:
 
-[https://www.asp.NET/MVC/Gallery](https://www.asp.net/mvc/gallery)
+[https://www.asp.net/mvc/gallery](https://www.asp.net/mvc/gallery)
 
 Galeria projektów programu ASP.NET MVC obsługuje kolekcji projektów bezpłatne witryny sieci Web, które zostały utworzone specjalnie z myślą o użyciu w projekcie platformy ASP.NET MVC. Projekty są wysyłane przez członków społeczności. Osoby odwiedzające galerii głosować ich ulubionych wzorów (patrz rysunek 2).
 
@@ -115,7 +115,7 @@ Galeria projektów programu ASP.NET MVC ma dobry wybór style innego projektu. G
 
 Jednak może być konieczne utworzenie całkowicie unikatowy projekt witryny sieci Web. W takim przypadku warto do pracy z firmowymi projekt witryny sieci Web. I decyzję o zastosowaniu takiego podejścia do projektowania dla aplikacji, skontaktuj się z Menedżera.
 
-I Konfigurowanie Menedżera skontaktuj się z od &#1; iteracji i przesłania projektu do firmie projektowej. Ich nie jest właścicielem Visual Studio (shame na nich!), ale ten t powodują problemu. Udało bezpłatnie pobrać z Microsoft Visual Web Developer [https://www.asp.net](https://www.asp.net) witryny sieci Web i otwórz Menedżera skontaktuj się z aplikacji w Visual Web Developer. Kilka dni ich miał utworzonego projektu na rysunku 7.
+I Konfigurowanie Menedżera skontaktuj się z od 1 # iteracji i przesłania projektu do firmie projektowej. Ich nie jest właścicielem Visual Studio (shame na nich!), ale ten t powodują problemu. Udało bezpłatnie pobrać z Microsoft Visual Web Developer [ https://www.asp.net ](https://www.asp.net) witryny sieci Web i otwórz Menedżera skontaktuj się z aplikacji w Visual Web Developer. Kilka dni ich miał utworzonego projektu na rysunku 7.
 
 
 [![Okno dialogowe nowego projektu](iteration-2-make-the-application-look-nice-vb/_static/image7.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image13.png)
@@ -163,6 +163,6 @@ Następnie omówiono sposób tworzenia niestandardowych, modyfikując domyślneg
 
 W następnej iteracji możemy rozwiązania bardzo ważne przedmiotem weryfikacji. Dodamy kodu walidacji do naszej aplikacji, dzięki czemu użytkownik nie można utworzyć nowego kontaktu bez podawania wymagane wartości, takie jak osoby s najpierw i nazwiska.
 
->[!div class="step-by-step"]
-[Poprzednie](iteration-1-create-the-application-vb.md)
-[dalej](iteration-3-add-form-validation-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](iteration-1-create-the-application-vb.md)
+> [dalej](iteration-3-add-form-validation-vb.md)

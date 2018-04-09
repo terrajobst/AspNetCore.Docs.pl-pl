@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
-title: "Uwierzytelniania użytkowników przy użyciu formularzy uwierzytelniania (C#) | Dokumentacja firmy Microsoft"
+title: Uwierzytelniania użytkowników przy użyciu formularzy uwierzytelniania (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Dowiedz się, jak za pomocą atrybutu [Authorize] hasło ochrony określonej strony w aplikacji MVC. Możesz dowiedzieć się, jak Administracja witryny sieci Web za pomocą..."
+description: Dowiedz się, jak za pomocą atrybutu [Authorize] hasło ochrony określonej strony w aplikacji MVC. Możesz dowiedzieć się, jak Administracja witryny sieci Web za pomocą...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17bcf02e1351587d64b72ee2b40393e0f748f23e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e1def84bbf48847339e89b239b026d053640b935
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-forms-authentication-c"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania formularzy (C#)
 ====================
@@ -107,7 +107,7 @@ Przy użyciu bazy danych SQL Express domyślny jest poprawnie przy tworzeniu apl
 
 Pierwszym krokiem jest dodanie wszystkie niezbędne obiekty bazy danych (tabele i procedury składowane) do produkcyjnej bazy danych. Najprostszym sposobem, aby dodać te obiekty do nowej bazy danych jest wykorzystać Kreator konfiguracji ASP.NET SQL Server (patrz rysunek 8). To narzędzie można uruchomić, należy otworzyć wiersz polecenia 2008 programu Visual Studio z grupy programu Microsoft Visual Studio 2008 i wykonywania w wierszu polecenia następujące polecenie:
 
-ASPNET\_regsql
+aspnet\_regsql
 
 **Rysunek 8 — Kreator konfiguracji ASP.NET SQL Server**
 
@@ -119,7 +119,7 @@ Kreator konfiguracji ASP.NET SQL Server umożliwia wybierz bazę danych programu
 > 
 > Jeśli nie chcesz używać Kreator konfiguracji ASP.NET SQL Server można znaleźć skrypty SQL dodawania obiektów bazy danych usług aplikacji w następującym folderze:
 > 
-> > C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727
+> > C:\Windows\Microsoft.NET\Framework\v2.0.50727
 
 
 Po utworzeniu niezbędne obiekty bazy danych, należy zmodyfikować połączenie z bazą danych używanych przez aplikację MVC. Zmodyfikuj ApplicationServices parametry połączenia w pliku konfiguracyjnym (web.config) w sieci web tak, aby wskazywało w produkcyjnej bazie danych. Na przykład modyfikacji połączenia do wyświetlania 3 wskazuje na bazie danych o nazwie MyProductionDB (oryginalny ciąg połączenia ApplicationServices ma zostały oznaczone komentarzami).
@@ -152,5 +152,5 @@ Po utworzeniu wymagane logowania, należy do mapowania nazwy logowania użytkown
 
 W tym samouczku przedstawiono sposób użycia uwierzytelniania formularzy, podczas tworzenia aplikacji platformy ASP.NET MVC. Po pierwsze przedstawiono sposób tworzenia nowych użytkowników i role, korzystając z narzędzia administrowania witryną sieci Web. Następnie przedstawiono sposób użycia atrybutu [Authorize], aby zapobiec nieautoryzowanemu wywoływania akcji kontrolera. Ponadto przedstawiono sposób konfigurowania aplikacji MVC do użytkownika oraz informacje o rolach są przechowywane w produkcyjnej bazie danych.
 
->[!div class="step-by-step"]
-[Dalej](authenticating-users-with-windows-authentication-cs.md)
+> [!div class="step-by-step"]
+> [Next](authenticating-users-with-windows-authentication-cs.md)

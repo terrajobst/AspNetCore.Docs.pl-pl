@@ -1,7 +1,7 @@
 ---
 title: Obszary platformy ASP.NET Core
 author: rick-anderson
-description: "Dowiedz się, jak kwestie funkcji ASP.NET MVC, używane do organizowania funkcje w grupie jako osobne w obszarze nazw (routing) i struktury folderów (dla widoków)."
+description: Dowiedz się, jak kwestie funkcji ASP.NET MVC, używane do organizowania funkcje w grupie jako osobne w obszarze nazw (routing) i struktury folderów (dla widoków).
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/areas
-ms.openlocfilehash: cf31c10e7d4d9229a32aa06903a0ff0ed6fb0599
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 61527eb350b5aba9cb37b1de5acdeae1287bf073
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="areas-in-aspnet-core"></a>Obszary platformy ASP.NET Core
 
@@ -125,7 +125,7 @@ Po zdefiniowaniu hierarchię folderów, należy sprawdzić MVC, że każdy kontr
    }
    ```
 
-Skonfiguruj definicję trasy, która współdziała z nowo utworzonego obszarach. [Routingu do akcji kontrolera](routing.md) artykułu przechodzi do szczegółów dotyczących sposobu tworzenia definicji trasy, w tym o korzystaniu z konwencjonalnej tras i tras atrybutów. W tym przykładzie użyjemy konwencjonalnej trasy. Aby to zrobić, otwórz *Startup.cs* pliku, a następnie zmodyfikować go przez dodanie `areaRoute` o nazwie poniżej definicji trasy.
+Skonfiguruj definicję trasy, która współdziała z nowo utworzonego obszarach. [Trasy do akcji kontrolera](routing.md) artykułu przechodzi do szczegółów dotyczących sposobu tworzenia definicji trasy, w tym o korzystaniu z konwencjonalnej tras i tras atrybutów. W tym przykładzie użyjemy konwencjonalnej trasy. Aby to zrobić, otwórz *Startup.cs* pliku, a następnie zmodyfikować go przez dodanie `areaRoute` o nazwie poniżej definicji trasy.
 
 ```csharp
 ...

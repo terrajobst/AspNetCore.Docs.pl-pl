@@ -1,7 +1,7 @@
 ---
-title: Rozpoczynanie pracy z interfejsami API ochrony danych
+title: Rozpoczynanie pracy z interfejsami API ochrony danych w podstawowej platformy ASP.NET
 author: rick-anderson
-description: "Tym dokumencie opisano sposób użycia interfejsy API ochrony danych platformy ASP.NET Core dla ochrony i wyłączenie ochrony danych w aplikacji."
+description: Dowiedz się, jak używać interfejsy API ochrony danych platformy ASP.NET Core dla ochrony i wyłączenie ochrony danych w aplikacji.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/using-data-protection
-ms.openlocfilehash: ff72773fce28ba75aa8777eea321ed2bfb8f7e54
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 3a69abd2b58e02f87ccaf2317b0a8a2a7e9d7b4a
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="get-started-with-the-data-protection-apis"></a>Rozpoczynanie pracy z interfejsami API ochrony danych
+# <a name="get-started-with-the-data-protection-apis-in-aspnet-core"></a>Rozpoczynanie pracy z interfejsami API ochrony danych w podstawowej platformy ASP.NET
 
 <a name="security-data-protection-getting-started"></a>
 
@@ -31,7 +31,7 @@ Większość platform i modeli aplikacji, takich jak ASP.NET lub SignalR, już k
 
 [!code-csharp[](../../security/data-protection/using-data-protection/samples/protectunprotect.cs?highlight=26,34,35,36,37,38,39,40)]
 
-Podczas tworzenia ochrony należy podać co najmniej jeden [ciągów w celu](consumer-apis/purpose-strings.md). Ciąg przeznaczenia zapewnia izolację między konsumentów. Na przykład utworzone za pomocą ciąg "green" cel ochrony nie będą mogli nie Chroń dane dostarczone przez funkcję ochrony z celem "purpurowy".
+Podczas tworzenia ochrony należy podać co najmniej jeden [ciągów w celu](xref:security/data-protection/consumer-apis/purpose-strings). Ciąg przeznaczenia zapewnia izolację między konsumentów. Na przykład utworzone za pomocą ciąg "green" cel ochrony nie będą mogli nie Chroń dane dostarczone przez funkcję ochrony z celem "purpurowy".
 
 >[!TIP]
 > Wystąpienia `IDataProtectionProvider` i `IDataProtector` są wątkowo dla wielu wywołań. Ma ona która po składnika pobiera odwołanie do `IDataProtector` za pośrednictwem wywołania do `CreateProtector`, będzie używać tego odwołania na wiele wywołań `Protect` i `Unprotect`.

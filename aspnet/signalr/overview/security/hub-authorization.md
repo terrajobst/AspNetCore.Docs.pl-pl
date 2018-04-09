@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/security/hub-authorization
-title: "Uwierzytelnianie i autoryzacja koncentratorów SignalR | Dokumentacja firmy Microsoft"
+title: Uwierzytelnianie i autoryzacja koncentratorów SignalR | Dokumentacja firmy Microsoft
 author: pfletcher
-description: "W tym temacie opisano, jak ograniczyć, których użytkowników lub ról można uzyskać dostępu do metody koncentratora. Wersje oprogramowania używane w tym temacie kolejnych Visual Studio 2013 .NET 4.5 SignalR..."
+description: W tym temacie opisano, jak ograniczyć, których użytkowników lub ról można uzyskać dostępu do metody koncentratora. Wersje oprogramowania używane w tym temacie kolejnych Visual Studio 2013 .NET 4.5 SignalR...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/05/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/security/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: cb0f06a3ca2b39a4a952c33cea70136c7c5af7a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8e3bc8889efb1be80c57084fb04dc8030b386601
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authentication-and-authorization-for-signalr-hubs"></a>Uwierzytelnianie i autoryzacja koncentratorów SignalR
 ====================
@@ -55,7 +55,7 @@ Ten temat zawiera następujące sekcje:
     - [Plik cookie uwierzytelniania formularzy](#cookie)
     - [Uwierzytelnianie systemu Windows](#windows)
     - [Nagłówek połączenia](#header)
-    - [Certyfikat](#certificate)
+    - [certyfikat](#certificate)
 
 <a id="authorizeattribute"></a>
 
@@ -73,10 +73,10 @@ Alternatywnie można określić, że koncentrator zawiera jedną metodę, która
 
 Poniższe przykłady dotyczą autoryzacji różnych scenariuszy:
 
-- `[Authorize]`— tylko do uwierzytelnionych użytkowników
-- `[Authorize(Roles = "Admin,Manager")]`— tylko do uwierzytelnionych użytkowników w określonych ról
-- `[Authorize(Users = "user1,user2")]`— tylko do uwierzytelnionych użytkowników z określone nazwy użytkownika
-- `[Authorize(RequireOutgoing=false)]`— tylko do uwierzytelnionych użytkowników może wywołać koncentratora, ale połączenia z serwera do klientów nie są ograniczone przez autoryzacji, takich jak podczas tylko określonym użytkownikom można wysłać komunikatu, ale wszystkie inne mogą odbierać wiadomości. Właściwość niej można stosować do całego elementu hub, nie na metod osób w ramach koncentratora. Po niej nie jest ustawiona na wartość false, tylko użytkownicy, którzy spełniają wymagania autoryzacji są nazywane z serwera.
+- `[Authorize]` — tylko do uwierzytelnionych użytkowników
+- `[Authorize(Roles = "Admin,Manager")]` — tylko do uwierzytelnionych użytkowników w określonych ról
+- `[Authorize(Users = "user1,user2")]` — tylko do uwierzytelnionych użytkowników z określone nazwy użytkownika
+- `[Authorize(RequireOutgoing=false)]` — tylko do uwierzytelnionych użytkowników może wywołać koncentratora, ale połączenia z serwera do klientów nie są ograniczone przez autoryzacji, takich jak podczas tylko określonym użytkownikom można wysłać komunikatu, ale wszystkie inne mogą odbierać wiadomości. Właściwość niej można stosować do całego elementu hub, nie na metod osób w ramach koncentratora. Po niej nie jest ustawiona na wartość false, tylko użytkownicy, którzy spełniają wymagania autoryzacji są nazywane z serwera.
 
 <a id="requireauth"></a>
 
@@ -126,7 +126,7 @@ Gdy klient .NET użyje koncentratora, który korzysta z uwierzytelniania formula
 
 [!code-csharp[Main](hub-authorization/samples/sample7.cs)]
 
-Aplikacji konsoli ogłoszeń poświadczenia **www.contoso.com/RemoteLogin** którego można odwoływać się do pustej strony, która zawiera następujący plik CodeBehind.
+Aplikacji konsoli ogłoszeń poświadczenia <strong>www.contoso.com/RemoteLogin</strong> którego można odwoływać się do pustej strony, która zawiera następujący plik CodeBehind.
 
 [!code-csharp[Main](hub-authorization/samples/sample8.cs)]
 

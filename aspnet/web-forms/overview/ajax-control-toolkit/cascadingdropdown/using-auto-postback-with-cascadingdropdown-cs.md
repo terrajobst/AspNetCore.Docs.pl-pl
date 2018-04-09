@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-cs
-title: "Przy użyciu automatycznego odświeżania z CascadingDropDown (C#) | Dokumentacja firmy Microsoft"
+title: Przy użyciu automatycznego odświeżania z CascadingDropDown (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formant CascadingDropDown w zestawie narzędzi kontroli AJAX rozszerza formantu DropDownList tak, aby zmiany w jednej obciążeń DropDownList skojarzone wartości w anoth..."
+description: Formant CascadingDropDown w zestawie narzędzi kontroli AJAX rozszerza formantu DropDownList tak, aby zmiany w jednej obciążeń DropDownList skojarzone wartości w anoth...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cd103283f46223d5158e58227bb53c00c74bc7d9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04e0914dd1057f9ce490f68ae3fa9c56766beafb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-auto-postback-with-cascadingdropdown-c"></a>Przy użyciu automatycznego odświeżania z CascadingDropDown (C#)
 ====================
@@ -64,6 +64,6 @@ W ten sposób odświeżania strony tylko zostanie wykonany po są faktycznie ele
 
 Wybieranie elementu listy powoduje odświeżenie strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-auto-postback-with-cascadingdropdown-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](presetting-list-entries-with-cascadingdropdown-cs.md)
-[dalej](filling-a-list-using-cascadingdropdown-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](presetting-list-entries-with-cascadingdropdown-cs.md)
+> [dalej](filling-a-list-using-cascadingdropdown-vb.md)

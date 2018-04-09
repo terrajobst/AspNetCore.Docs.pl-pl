@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs
-title: "Omówienie kontrolera ASP.NET MVC (C#) | Dokumentacja firmy Microsoft"
+title: Omówienie kontrolera ASP.NET MVC (C#) | Dokumentacja firmy Microsoft
 author: StephenWalther
-description: "W tym samouczku Stephen Walther przedstawiono kontrolery ASP.NET MVC. Jak utworzyć nowe kontrolery i zwracanie różnych typów akcji res..."
+description: W tym samouczku Stephen Walther przedstawiono kontrolery ASP.NET MVC. Jak utworzyć nowe kontrolery i zwracanie różnych typów akcji res...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9e4ca745fa068b1813e01b131d53a0199cc47d5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 95e7c555a52c8c3b765a6fffab15276491cf5714
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-controller-overview-c"></a>Omówienie kontrolera ASP.NET MVC (C#)
 ====================
@@ -118,6 +118,6 @@ W akcji indeks() listę 5 zwraca obiekt DateTime. Platforma ASP.NET MVC Konwertu
 
 Celem tego samouczka było przedstawiono podstawowe pojęcia kontrolery ASP.NET MVC, akcji kontrolera i wyniki akcji kontrolera. W pierwszej sekcji przedstawiono sposób dodawania nowych kontrolerów do projektu programu ASP.NET MVC. Następnie przedstawiono sposób publicznej metody kontrolera są widoczne dla całość jako akcji kontrolera. Ponadto omówiono różne typy wyników akcji, które mogą zostać zwrócone z akcji kontrolera. W szczególności omówiono sposób zwracania ViewResult, RedirectToActionResult i ContentResult z akcji kontrolera.
 
->[!div class="step-by-step"]
-[Poprzednie](creating-an-action-vb.md)
-[dalej](creating-custom-routes-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-an-action-vb.md)
+> [dalej](creating-custom-routes-cs.md)

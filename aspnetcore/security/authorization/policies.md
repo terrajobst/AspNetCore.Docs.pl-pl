@@ -1,7 +1,7 @@
 ---
 title: Na podstawie zasad autoryzacji w ASP.NET Core
 author: rick-anderson
-description: "Informacje o sposobie tworzenia i używania programów obsługi zasady autoryzacji dotyczące wymuszania wymagań autoryzacji w aplikacji platformy ASP.NET Core."
+description: Informacje o sposobie tworzenia i używania programów obsługi zasady autoryzacji dotyczące wymuszania wymagań autoryzacji w aplikacji platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/policies
-ms.openlocfilehash: a9ee7e6fd06fa88485d7f578a9df74cbf87d9540
-ms.sourcegitcommit: 7ee6e7582421195cbd675355c970d3d292ee668d
+ms.openlocfilehash: 411fee90bdccfb45c33f5d4ccd7864c83c614e70
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="policy-based-authorization"></a>Na podstawie zasad autoryzacji
+# <a name="policy-based-authorization-in-aspnet-core"></a>Na podstawie zasad autoryzacji w ASP.NET Core
 
 Poniżej obejmuje [autoryzacji opartej na rolach](xref:security/authorization/roles) i [autoryzacji opartej na oświadczeniach](xref:security/authorization/claims) użyć wymaganie, obsługi wymagania i wstępnie skonfigurowanych zasad. Te bloki konstrukcyjne obsługi wyrażenie ocen autoryzacji w kodzie. Wynik jest strukturą bardziej rozbudowane, wielokrotnego użytku, testować autoryzacji.
 

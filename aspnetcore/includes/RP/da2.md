@@ -53,7 +53,7 @@ Aby przetestować `catch` bloku:
 * W innym oknie przeglądarki, wybierz **usunąć** łączy dla tego samego film, a następnie usuń filmu.
 * W oknie przeglądarki poprzedniej Opublikuj zmiany do filmu.
 
-Kodzie produkcyjnym zwykle może wykryć konfliktom współbieżności, gdy dwie lub więcej klientów jednocześnie zaktualizować rekord. Zobacz [konfliktów współbieżności](xref:data/ef-rp/concurrency) Aby uzyskać więcej informacji.
+Kodzie produkcyjnym zwykle może wykryć konfliktom współbieżności, gdy dwie lub więcej klientów jednocześnie zaktualizować rekord. Zobacz [obsługi konfliktom współbieżności](xref:data/ef-rp/concurrency) Aby uzyskać więcej informacji.
 
 ### <a name="posting-and-binding-review"></a>Zamieszczając i powiązanie przeglądu
 

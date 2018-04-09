@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
-title: "Wyłączanie akcje podczas animacji (VB) | Dokumentacja firmy Microsoft"
+title: Wyłączanie akcje podczas animacji (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Obsługuje ona również akcji..."
+description: Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Obsługuje ona również akcji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0f68d27f60e9b224a7cc0d598962553afeb3f28f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9e2a0517800e90788bb67c1d75482a3d9340674b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="disabling-actions-during-animation-vb"></a>Wyłączanie działania podczas animacji (VB)
 ====================
@@ -62,6 +62,6 @@ Jednak w danym scenariuszu to bezużyteczne od przycisku znika i nie jest widocz
 
 Przycisk jest wyłączona, jak działa animacji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](disabling-actions-during-animation-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](animating-in-response-to-user-interaction-vb.md)
-[dalej](triggering-an-animation-in-another-control-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](animating-in-response-to-user-interaction-vb.md)
+> [dalej](triggering-an-animation-in-another-control-vb.md)

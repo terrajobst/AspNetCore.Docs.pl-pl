@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
-title: "Przegląd dostawców magazynu niestandardowego dla tożsamości ASP.NET | Dokumentacja firmy Microsoft"
+title: Przegląd dostawców magazynu niestandardowego dla tożsamości ASP.NET | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "ASP.NET Identity jest rozszerzalny system, co pozwala na tworzenie własnego dostawcę magazynu i podłącz go do aplikacji bez ponownego pracy nazwę..."
+description: ASP.NET Identity jest rozszerzalny system, co pozwala na tworzenie własnego dostawcę magazynu i podłącz go do aplikacji bez ponownego pracy nazwę...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2014
 ms.topic: article
 ms.assetid: 681a9204-462e-4260-9a0b-19f0644d6ad7
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: bbc1f6ef291eddd7488531943b146bb67ae7ee02
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 06e3ad3b74bf94806f56da9f579255bf2917bc48
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Przegląd dostawców magazynu niestandardowego dla tożsamości ASP.NET
 ====================
@@ -153,29 +153,29 @@ Następny obraz zawiera więcej informacji na temat funkcji zdefiniowanej w każ
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image4.png)
 
 - **Elementy IUserStore**  
- [Elementy IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) interfejs jest tylko interfejsem musi implementować w magazynie użytkownika. Definiuje metody tworzenia, aktualizowania, usuwania i pobierania użytkowników.
+  [Elementy IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) interfejs jest tylko interfejsem musi implementować w magazynie użytkownika. Definiuje metody tworzenia, aktualizowania, usuwania i pobierania użytkowników.
 - **IUserClaimStore**  
- [IUserClaimStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) interfejs definiuje metody musi implementować w magazynie użytkownika, aby włączyć oświadczenia użytkownika. Zawiera metody lub dodawanie, usuwanie i pobiera oświadczenia użytkownika.
+  [IUserClaimStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) interfejs definiuje metody musi implementować w magazynie użytkownika, aby włączyć oświadczenia użytkownika. Zawiera metody lub dodawanie, usuwanie i pobiera oświadczenia użytkownika.
 - **IUserLoginStore**  
- [IUserLoginStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) definiuje metody musi implementować w magazynie użytkownika, aby włączyć zewnętrzni dostawcy uwierzytelniania. Zawiera metody dodawania, usuwania i pobierania logowania użytkownika i metodę pobierania na podstawie informacji logowania użytkownika.
+  [IUserLoginStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) definiuje metody musi implementować w magazynie użytkownika, aby włączyć zewnętrzni dostawcy uwierzytelniania. Zawiera metody dodawania, usuwania i pobierania logowania użytkownika i metodę pobierania na podstawie informacji logowania użytkownika.
 - **IUserRoleStore**  
- [IUserRoleStore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) interfejs definiuje metody musi implementować w magazynie użytkownika do mapowania użytkownika do roli. Zawiera metody do dodawania, usuwania i pobierania ról użytkownika i metodę sprawdzania, czy użytkownik jest przypisany do roli.
+  [IUserRoleStore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) interfejs definiuje metody musi implementować w magazynie użytkownika do mapowania użytkownika do roli. Zawiera metody do dodawania, usuwania i pobierania ról użytkownika i metodę sprawdzania, czy użytkownik jest przypisany do roli.
 - **IUserPasswordStore**  
- [IUserPasswordStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) interfejs definiuje metody musi implementować w magazynie użytkownika, aby zachować wartość skrótu hasła. Zawiera metody służące do pobierania i ustawiania skrótem hasła i metody, która wskazuje, czy użytkownik ma ustawione hasło.
+  [IUserPasswordStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) interfejs definiuje metody musi implementować w magazynie użytkownika, aby zachować wartość skrótu hasła. Zawiera metody służące do pobierania i ustawiania skrótem hasła i metody, która wskazuje, czy użytkownik ma ustawione hasło.
 - **IUserSecurityStampStore**  
- [Elementu IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) interfejs definiuje metody musi implementować w magazynie użytkownika do używania sygnaturę bezpieczeństwa dla wskazującą, czy informacje o koncie użytkownika został zmieniony . Ta sygnatura jest aktualizowany, gdy użytkownik zmieni hasło, lub dodaje lub usuwa logowania. Zawiera metody służące do pobierania i ustawiania sygnatury bezpieczeństwa.
+  [Elementu IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) interfejs definiuje metody musi implementować w magazynie użytkownika do używania sygnaturę bezpieczeństwa dla wskazującą, czy informacje o koncie użytkownika został zmieniony . Ta sygnatura jest aktualizowany, gdy użytkownik zmieni hasło, lub dodaje lub usuwa logowania. Zawiera metody służące do pobierania i ustawiania sygnatury bezpieczeństwa.
 - **IUserTwoFactorStore**  
- [IUserTwoFactorStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) interfejs definiuje metody musi wdrożenie i implementowanie uwierzytelniania dwuskładnikowego. Zawiera metody służące do pobierania i ustawiania czy uwierzytelnianie dwuskładnikowe jest włączone dla użytkownika.
+  [IUserTwoFactorStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) interfejs definiuje metody musi wdrożenie i implementowanie uwierzytelniania dwuskładnikowego. Zawiera metody służące do pobierania i ustawiania czy uwierzytelnianie dwuskładnikowe jest włączone dla użytkownika.
 - **IUserPhoneNumberStore**  
- [IUserPhoneNumberStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) interfejs definiuje metody musi implementować do przechowywania numeru telefonu użytkownika. Zawiera metody służące do pobierania i ustawiania numeru telefonu i określa, czy numer telefonu został potwierdzony.
+  [IUserPhoneNumberStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) interfejs definiuje metody musi implementować do przechowywania numeru telefonu użytkownika. Zawiera metody służące do pobierania i ustawiania numeru telefonu i określa, czy numer telefonu został potwierdzony.
 - **IUserEmailStore**  
- [IUserEmailStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) interfejs definiuje metody musi implementować do przechowywania adresu e-mail użytkownika. Zawiera metody służące do pobierania i ustawiania adres e-mail i czy adres e-mail został potwierdzony.
+  [IUserEmailStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) interfejs definiuje metody musi implementować do przechowywania adresu e-mail użytkownika. Zawiera metody służące do pobierania i ustawiania adres e-mail i czy adres e-mail został potwierdzony.
 - **IUserLockoutStore**  
- [IUserLockoutStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) interfejs definiuje metody musi implementować do przechowywania informacji na temat blokowania konta. Zawiera metody służące do pobierania bieżącą liczbę nieudanych prób dostępu, pobieranie i czy można zablokować konto, pobierania i ustawiania datę zakończenia blokady, zwiększając liczbę nieudanych prób i zresetowanie liczby nieudanych prób.
+  [IUserLockoutStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) interfejs definiuje metody musi implementować do przechowywania informacji na temat blokowania konta. Zawiera metody służące do pobierania bieżącą liczbę nieudanych prób dostępu, pobieranie i czy można zablokować konto, pobierania i ustawiania datę zakończenia blokady, zwiększając liczbę nieudanych prób i zresetowanie liczby nieudanych prób.
 - **IQueryableUserStore**  
- [IQueryableUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) interfejs definiuje członków, należy zaimplementować w celu zapewnienia magazynu użytkowników z obsługą zapytań. Zawiera on właściwość, która zawiera użytkowników z obsługą zapytań.
+  [IQueryableUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) interfejs definiuje członków, należy zaimplementować w celu zapewnienia magazynu użytkowników z obsługą zapytań. Zawiera on właściwość, która zawiera użytkowników z obsługą zapytań.
 
- Implementowanie interfejsów, które są potrzebne w aplikacji; takie jak IUserClaimStore, IUserLoginStore, IUserRoleStore, IUserPasswordStore i elementu IUserSecurityStampStore interfejsów, jak pokazano poniżej. 
+  Implementowanie interfejsów, które są potrzebne w aplikacji; takie jak IUserClaimStore, IUserLoginStore, IUserRoleStore, IUserPasswordStore i elementu IUserSecurityStampStore interfejsów, jak pokazano poniżej. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample5.cs)]
 
@@ -218,11 +218,11 @@ W poniższym przykładzie przedstawiono klasę magazynu roli. Parametr ogólny T
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample8.cs)]
 
 - **IRoleStore&lt;TRole&gt;**  
- [Interfejs IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx) interfejs definiuje metody służące do implementacji w klasie magazynu roli. Zawiera metody do tworzenia, aktualizowania, usuwania i pobierania ról.
+  [Interfejs IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx) interfejs definiuje metody służące do implementacji w klasie magazynu roli. Zawiera metody do tworzenia, aktualizowania, usuwania i pobierania ról.
 - **RoleStore&lt;TRole&gt;**  
- Aby dostosować elemencie RoleStore, Utwórz klasę, która implementuje interfejs interfejs IRoleStore. Masz tylko do implementowania tej klasy, jeśli chcesz użyć ról w systemie. Konstruktor, który przyjmuje parametr o nazwie *bazy danych* typu ExampleDatabase jest ilustracja sposób przekazywania w klasie dostępu do danych. Na przykład w implementacji MySQL ten konstruktor ma parametr typu MySQLDatabase.  
+  Aby dostosować elemencie RoleStore, Utwórz klasę, która implementuje interfejs interfejs IRoleStore. Masz tylko do implementowania tej klasy, jeśli chcesz użyć ról w systemie. Konstruktor, który przyjmuje parametr o nazwie *bazy danych* typu ExampleDatabase jest ilustracja sposób przekazywania w klasie dostępu do danych. Na przykład w implementacji MySQL ten konstruktor ma parametr typu MySQLDatabase.  
   
- Do ukończenia wdrożenia, zobacz [(MySQL) w elemencie RoleStore](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleStore.cs) .
+  Do ukończenia wdrożenia, zobacz [(MySQL) w elemencie RoleStore](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleStore.cs) .
 
 <a id="reconfigure"></a>
 ## <a name="reconfigure-application-to-use-new-storage-provider"></a>Skonfiguruj ponownie aplikacji do korzystania z nowego dostawcy magazynu
@@ -232,7 +232,7 @@ Wdrożono nowego dostawcę magazynu. Teraz musisz skonfigurować aplikację do u
 ### <a name="replace-default-storage-provider-in-mvc-project"></a>Zastąp domyślnego dostawcę magazynu w projekcie MVC
 
 1. W **Zarządzaj pakietami NuGet** okna, odinstaluj **platformy Microsoft ASP.NET Identity EntityFramework** pakietu. Ten pakiet można znaleźć, wyszukując Identity.EntityFramework w pakiety zainstalowane.  
-    ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image7.png)Uzyskasz, jeśli chcesz również odinstalować Entity Framework. Jeśli użytkownik nie jest potrzebny w innych częściach aplikacji, należy ją odinstalować.
+    ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image7.png) Uzyskasz, jeśli chcesz również odinstalować Entity Framework. Jeśli użytkownik nie jest potrzebny w innych częściach aplikacji, należy ją odinstalować.
 2. W pliku IdentityModels.cs w folderze modeli, usuń lub komentarz **ApplicationUser** i **ApplicationDbContext** klasy. W aplikacji MVC można usunąć cały plik IdentityModels.cs. W aplikacji formularzy sieci Web należy usunąć dwie klasy, ale upewnij się, że zachowasz Klasa pomocy, która znajduje się również w pliku IdentityModels.cs.
 3. Jeśli Twój dostawca magazynu znajduje się w oddzielny projekt, Dodaj odwołanie do niej w aplikacji sieci web.
 4. Zamień wszystkie odwołania do `using Microsoft.AspNet.Identity.EntityFramework;` przy użyciu instrukcji dla przestrzeni nazw dostawcy magazynu.

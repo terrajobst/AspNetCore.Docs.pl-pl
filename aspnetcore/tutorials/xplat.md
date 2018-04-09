@@ -1,7 +1,7 @@
 ---
 title: Samouczki platformy ASP.NET Core
 author: rick-anderson
-description: "Lista przewodniki krok po kroku dotyczące poznanie metod tworzenia aplikacji platformy ASP.NET Core."
+description: Lista przewodniki krok po kroku dotyczące poznanie metod tworzenia aplikacji platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/xplat
-ms.openlocfilehash: b8b10b9aaf1ef68f42fbf61982b8b2f21ab1183a
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 097d63d5be5bd83c688a7f377d8ed45ffdd43ff8
+ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="aspnet-core-cross-platform-tutorials"></a>Samouczki i platform ASP.NET Core
+# <a name="aspnet-core-tutorials"></a>Samouczki platformy ASP.NET Core
 
 Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowanie aplikacji platformy ASP.NET Core:
 
 ## <a name="build-web-apps"></a>Tworzenie aplikacji sieci web
 
-[Stron razor](xref:mvc/razor-pages/index) jest zalecane podejście do utworzenia nowej aplikacji interfejsu użytkownika sieci Web platformy ASP.NET Core 2.0.
+[Stron razor](xref:mvc/razor-pages/index) jest zalecane podejście do utworzenia nowej aplikacji interfejsu użytkownika sieci Web platformy ASP.NET Core 2.0 lub nowszy.
 
 * [Wprowadzenie do platformy ASP.NET Core stron Razor](xref:mvc/razor-pages/index)
 * Tworzenie aplikacji sieci web Razor strony z platformy ASP.NET Core

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
-title: "Część 3: Tworzenie kontrolera Admin | Dokumentacja firmy Microsoft"
+title: 'Część 3: Tworzenie kontrolera Admin | Dokumentacja firmy Microsoft'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 6fadfb6e96ae287fc5f81516b7535e03853c7e6a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 588d9d1b5d27759692cd840faabf2c3549c309d6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-creating-an-admin-controller"></a>Część 3: Tworzenie kontrolera administratora
 ====================
@@ -70,8 +70,8 @@ A **DbSet** reprezentuje zestaw jednostek, które można wyszukiwać. Poniżej p
 
 | Kontroler — metoda | Opis | Identyfikator URI | Metoda HTTP |
 | --- | --- | --- | --- |
-| GetProducts | Pobiera wszystkie produkty. | Interfejs API/produktów | POBIERZ |
-| GetProduct | Wyszukuje produktu według identyfikatora. | produkty/API/*id* | POBIERZ |
+| GetProducts | Pobiera wszystkie produkty. | Interfejs API/produktów | GET |
+| GetProduct | Wyszukuje produktu według identyfikatora. | produkty/API/*id* | GET |
 | PutProduct | Aktualizacje produktu. | produkty/API/*id* | UMIEŚĆ |
 | PostProduct | Tworzy nowego produktu. | Interfejs API/produktów | POST |
 | DeleteProduct | Usuwa produktu. | produkty/API/*id* | DELETE |
@@ -102,6 +102,6 @@ Wyślij żądanie HTTP skierowane do "`http://localhost:*portnum*/api/admin`. Pi
 
 [!code-console[Main](using-web-api-with-entity-framework-part-3/samples/sample6.cmd)]
 
->[!div class="step-by-step"]
-[Poprzednie](using-web-api-with-entity-framework-part-2.md)
-[dalej](using-web-api-with-entity-framework-part-4.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-web-api-with-entity-framework-part-2.md)
+> [dalej](using-web-api-with-entity-framework-part-4.md)

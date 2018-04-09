@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 title: Monitorowanie i dane telemetryczne (tworzenia rzeczywistych aplikacji w chmurze platformy Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on..."
+description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2015
 ms.topic: article
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: 9baddd1836323385239206a3cf49e5938bbaff58
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d58c495b3888c146a2a9bc831865cf7cc0d94c7b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Monitorowanie i dane telemetryczne (tworzenia rzeczywistych aplikacji w chmurze platformy Azure)
 ====================
@@ -258,7 +258,7 @@ Jest naprawdę proste wdrożenie systemu poza pole telemetrii, Instrumentacja lo
 
 W [następnego rozdziału](transient-fault-handling.md) wyjaśniono sposób obsługi błędów przejściowych, więc nie staną się problemy produkcji, które należy zbadać.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji zobacz następujące zasoby.
 
@@ -292,6 +292,6 @@ Przykładowy kod:
 
 - [Podstawy usługi na platformie Azure w chmurze](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowa aplikacja utworzone przez zespół doradczy klientów firmy Microsoft Azure. Pokazuje zarówno dane telemetryczne, jak i rejestrowania rozwiązania, zgodnie z objaśnieniem w następujących artykułach. Przykład implementuje rejestrowanie aplikacji przy użyciu [NLog](http://nlog-project.org/). Dokumentacja pokrewna dla [serii cztery artykułach typu wiki w witrynie TechNet o telemetrii i rejestrowanie](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx#Telemetry_coming_soon).
 
->[!div class="step-by-step"]
-[Poprzednie](design-to-survive-failures.md)
-[dalej](transient-fault-handling.md)
+> [!div class="step-by-step"]
+> [Poprzednie](design-to-survive-failures.md)
+> [dalej](transient-fault-handling.md)

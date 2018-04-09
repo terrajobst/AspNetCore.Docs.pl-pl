@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
-title: "Iteracja #4 — zastosować luźno (C#) | Dokumentacja firmy Microsoft"
+title: 'Iteracja #4 — zastosować luźno (C#) | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "W tym trzeci iteracji możemy korzystać z kilku wzorce projektowe oprogramowania do ułatwiają obsługiwanie i modyfikowanie aplikacji Menedżera skontaktuj się z pomocą. Dla..."
+description: W tym trzeci iteracji możemy korzystać z kilku wzorce projektowe oprogramowania do ułatwiają obsługiwanie i modyfikowanie aplikacji Menedżera skontaktuj się z pomocą. Dla...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1b8df72f51b4730a1fa9178b51a3770ce9edf181
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 33221c6c3326c7034fe013f152579828e2fc8a3a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a>Iteracja #4 — zastosować luźno (C#)
 ====================
@@ -196,6 +196,6 @@ Tworząc warstwy usług, wybraliśmy zaletą wzorca Dekoratora odizolowanie Mode
 
 Na koniec Wybraliśmy zaletą wzorca projektowego oprogramowania o nazwie wzorca iniekcji zależności. Ten wzorzec umożliwia nam program względem interfejsów (abstrakcje) zamiast konkretnych klas. Implementowanie wzorca projektowego iniekcji zależności powoduje naszego kodu więcej testować. W następnej iteracji dodania do projektu naszych testów jednostkowych.
 
->[!div class="step-by-step"]
-[Poprzednie](iteration-3-add-form-validation-cs.md)
-[dalej](iteration-5-create-unit-tests-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](iteration-3-add-form-validation-cs.md)
+> [dalej](iteration-5-create-unit-tests-cs.md)

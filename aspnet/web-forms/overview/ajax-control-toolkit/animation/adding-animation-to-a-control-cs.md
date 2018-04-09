@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-cs
 title: Dodawanie animacji do formantu (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Ten samouczek pokazuje, jak..."
+description: Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Ten samouczek pokazuje, jak...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7016ae3c92c665136579a8588818e6e4179a102a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ba122660045c3f5dd4b11f118df174a79de814a1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-animation-to-a-control-c"></a>Dodawanie animacji do formantu (C#)
 ====================
@@ -51,22 +51,22 @@ Następnie up, potrzebujemy `AnimationExtender`. Po podaniu `ID` i zwykle `runat
 
 Całe zastosowania animacji deklaratywnie, używając składni XML, Niestety obecnie nie są w pełni obsługiwane przez funkcję IntelliSense programu Visual Studio. Węzeł główny jest `<Animations>;` w tym węźle kilka zdarzeń mogą ustalić, kiedy animacje zakończeniu miejscu:
 
-- `OnClick`(kliknij przycisk myszy)
-- `OnHoverOut`(gdy mysz opuści formantu)
-- `OnHoverOver`(gdy mysz znajduje się nad formantem, zatrzymywanie `OnHoverOut` animacji)
-- `OnLoad`(po załadowaniu strony)
-- `OnMouseOut`(gdy mysz opuści formantu)
-- `OnMouseOver`(gdy mysz znajduje się nad formantem, nie zatrzymuje `OnMouseOut` animacji)
+- `OnClick` (kliknij przycisk myszy)
+- `OnHoverOut` (gdy mysz opuści formantu)
+- `OnHoverOver` (gdy mysz znajduje się nad formantem, zatrzymywanie `OnHoverOut` animacji)
+- `OnLoad` (po załadowaniu strony)
+- `OnMouseOut` (gdy mysz opuści formantu)
+- `OnMouseOver` (gdy mysz znajduje się nad formantem, nie zatrzymuje `OnMouseOut` animacji)
 
 Platformę jest dostarczany z zestawem animacji, każdy z nich reprezentowany przez jego własnej — element XML. Oto zaznaczenia:
 
-- `<Color>`(zmiana koloru)
-- `<FadeIn>`(zanikania)
-- `<FadeOut>`(wygaszanie)
-- `<Property>`(zmiana właściwości formantu)
-- `<Pulse>`(pulsating)
-- `<Resize>`(zmiana rozmiaru)
-- `<Scale>`(proporcjonalnie zmiany rozmiaru)
+- `<Color>` (zmiana koloru)
+- `<FadeIn>` (zanikania)
+- `<FadeOut>` (wygaszanie)
+- `<Property>` (zmiana właściwości formantu)
+- `<Pulse>` (pulsating)
+- `<Resize>` (zmiana rozmiaru)
+- `<Scale>` (proporcjonalnie zmiany rozmiaru)
 
 W tym przykładzie panelu są zanikania. Animacja podejmują 1,5 s (`Duration` atrybut), wyświetlanie 24 ramki (procedura animacji) na sekundę (`Fps` attributs). W tym miejscu jest pełny kod znaczników dla `AnimationExtender` sterowania:
 
@@ -79,5 +79,5 @@ Po uruchomieniu tego skryptu, panel jest wyświetlany i stopniowo zmniejsza się
 
 Wygaszanie jest panelu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adding-animation-to-a-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Dalej](executing-several-animations-at-the-same-time-cs.md)
+> [!div class="step-by-step"]
+> [Next](executing-several-animations-at-the-same-time-cs.md)

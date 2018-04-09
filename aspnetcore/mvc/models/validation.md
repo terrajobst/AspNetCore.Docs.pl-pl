@@ -1,7 +1,7 @@
 ---
 title: Weryfikacja modelu w programie ASP.NET MVC Core
 author: rachelappel
-description: "Więcej informacji o weryfikacji modelu w programie ASP.NET MVC Core."
+description: Więcej informacji o weryfikacji modelu w programie ASP.NET MVC Core.
 manager: wpickett
 ms.author: riande
 ms.date: 12/18/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: 76e15cb1d07924389c66f1e4e7ae1e4b9a3a9cfc
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: befbec393c089ec1f4dfdac5dbbdc3bdc7ddbf69
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Wprowadzenie do sprawdzania poprawności modelu w programie ASP.NET MVC Core
+# <a name="model-validation-in-aspnet-core-mvc"></a>Weryfikacja modelu w programie ASP.NET MVC Core
 
 Przez [Rachel Appel](https://github.com/rachelappel)
 

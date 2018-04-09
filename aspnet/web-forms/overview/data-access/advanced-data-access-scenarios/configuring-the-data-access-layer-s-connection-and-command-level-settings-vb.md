@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-vb
-title: "Konfigurowanie ustawień połączenia i polecenia poziom Warstwa dostępu do danych (VB) | Dokumentacja firmy Microsoft"
+title: Konfigurowanie ustawień połączenia i polecenia poziom Warstwa dostępu do danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "TableAdapters w elemencie DataSet wpisany automatycznie zajmie się łączenie z bazą danych, wydawania polecenia i wypełniania elementu DataTable z wynikami..."
+description: TableAdapters w elemencie DataSet wpisany automatycznie zajmie się łączenie z bazą danych, wydawania polecenia i wypełniania elementu DataTable z wynikami...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ab392f2a7d9b6cf97da920f899aea23379209f96
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b73c6113e84e290025e5835781fa2f85587289b1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-vb"></a>Konfigurowanie ustawień połączenia i polecenia poziom Warstwa dostępu do danych (VB)
 ====================
@@ -93,7 +93,7 @@ Zgodnie z opisem w [tworzenie Warstwa dostępu do danych](../introduction/creati
 
 ![Dodaj podfolder o nazwie ConnectionAndCommandSettings](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image5.png)
 
-**Rysunek 3**: Dodaj podfolder o nazwie`ConnectionAndCommandSettings`
+**Rysunek 3**: Dodaj podfolder o nazwie `ConnectionAndCommandSettings`
 
 
 Dodaj nowy plik klasy o nazwie `ProductsTableAdapter.ConnectionAndCommandSettings.vb` , a następnie wprowadź poniższy kod:
@@ -169,12 +169,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Burnadette Leigh, ren S Lauritsen Jacoba Teresa Murphy i Hilton Geisenow. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](working-with-computed-columns-vb.md)
-[dalej](protecting-connection-strings-and-other-configuration-information-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](working-with-computed-columns-vb.md)
+> [dalej](protecting-connection-strings-and-other-configuration-information-vb.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/customizing-a-view
 title: 'Baza danych EF najpierw o platformie ASP.NET MVC: dostosowywanie widok | Dokumentacja firmy Microsoft'
 author: tfitzmac
-description: "Przy użyciu MVC, Entity Framework i szkieletów ASP.NET, można utworzyć aplikacji sieci web, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri..."
+description: Przy użyciu MVC, Entity Framework i szkieletów ASP.NET, można utworzyć aplikacji sieci web, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/customizing-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: af9609396cff18b08824732731ddb9c5cca578fa
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8338603e032329ad03d47c6392e508aa07c6858e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-customizing-a-view"></a>Baza danych EF najpierw o platformie ASP.NET MVC: Dostosowywanie widoku
 ====================
@@ -41,6 +41,6 @@ Przejdź do widoku studentów/indeksu ponownie, a następnie wybierz **szczegó�
 
 ![uczniów przy rejestracji.](customizing-a-view/_static/image1.png)
 
->[!div class="step-by-step"]
-[Poprzednie](changing-the-database.md)
-[dalej](enhancing-data-validation.md)
+> [!div class="step-by-step"]
+> [Poprzednie](changing-the-database.md)
+> [dalej](enhancing-data-validation.md)

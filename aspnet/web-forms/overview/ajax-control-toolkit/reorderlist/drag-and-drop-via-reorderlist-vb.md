@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-vb
-title: "Przeciągnij i upuść za pośrednictwem ReorderList (VB) | Dokumentacja firmy Microsoft"
+title: Przeciągnij i upuść za pośrednictwem ReorderList (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: /Data-Access/Tutorials/Master-detail-Using-a-bulleted-list-of-Master-Records-with-a-details-DataList-VB
+description: /data-access/tutorials/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e193a31fc86b7e8733d0b2fba371d99c62783d6c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 99f47b969dc75efeec8485254d311c93dc0b5d35
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="drag-and-drop-via-reorderlist-vb"></a>Przeciągnij i upuść za pośrednictwem ReorderList (VB)
 ====================
@@ -35,16 +35,16 @@ przez [Wenz Chrześcijańskie](https://github.com/wenz)
 
 `ReorderList` Sterowanie obsługuje powiązanie danych z bazy danych do listy. Najlepsze obsługuje ona również zapisywanie zmian w kolejności element listy do magazynu danych.
 
-W przykładzie użyto magazynu danych programu Microsoft SQL Server 2005 Express Edition. Baza danych jest opcjonalne (i wolne) część instalacji programu Visual Studio, w tym wersja express. Jest również dostępny jako osobny plik do pobrania w obszarze [https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064). Dla tego przykładu przyjęto założenie, że wystąpienie programu SQL Server 2005 Express Edition jest nazywany `SQLEXPRESS` i znajduje się na tym samym komputerze co serwer sieci web; to ustawienie domyślne. Jeśli różni się konfigurację, należy dostosować informacje o połączeniu dla bazy danych.
+W przykładzie użyto magazynu danych programu Microsoft SQL Server 2005 Express Edition. Baza danych jest opcjonalne (i wolne) część instalacji programu Visual Studio, w tym wersja express. Jest również dostępny jako osobny plik do pobrania w obszarze [ https://go.microsoft.com/fwlink/?LinkId=64064 ](https://go.microsoft.com/fwlink/?LinkId=64064). Dla tego przykładu przyjęto założenie, że wystąpienie programu SQL Server 2005 Express Edition jest nazywany `SQLEXPRESS` i znajduje się na tym samym komputerze co serwer sieci web; to ustawienie domyślne. Jeśli różni się konfigurację, należy dostosować informacje o połączeniu dla bazy danych.
 
 Najprostszym sposobem konfigurowania bazy danych jest użycie programu Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en) ). Nawiąż połączenie z serwerem, kliknij go dwukrotnie `Databases` i utworzyć nową bazę danych (kliknij prawym przyciskiem myszy i wybierz polecenie `New Database`) o nazwie `Tutorials`.
 
 W tej bazie danych, Utwórz nową tabelę o nazwie `AJAX` następujące cztery kolumny:
 
-- `id`(podstawowego klucza, liczbę całkowitą z zakresu tożsamości, not NULL)
-- `char`(char(1), NULL)
-- `description`(varchar(50), NULL)
-- `position`(int, NULL)
+- `id` (podstawowego klucza, liczbę całkowitą z zakresu tożsamości, not NULL)
+- `char` (char(1), NULL)
+- `description` (varchar(50), NULL)
+- `position` (int, NULL)
 
 
 [![Układ tabeli AJAX](drag-and-drop-via-reorderlist-vb/_static/image2.png)](drag-and-drop-via-reorderlist-vb/_static/image1.png)
@@ -90,5 +90,5 @@ Uruchom w tym przykładzie w przeglądarce i nieco rozmieszczanie elementów lis
 
 Kolejność elementów danych zgodnie z listą nowych zmian w bazie danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](drag-and-drop-via-reorderlist-vb/_static/image9.png))
 
->[!div class="step-by-step"]
-[Poprzednie](using-postbacks-with-reorderlist-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-postbacks-with-reorderlist-vb.md)

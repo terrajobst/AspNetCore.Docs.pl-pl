@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-cs
-title: "Przy użyciu rozszerzeń formantu ColorPicker (C#) | Dokumentacja firmy Microsoft"
+title: Przy użyciu rozszerzeń formantu ColorPicker (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "ColorPicker jest extender ASP.NET AJAX, która udostępnia funkcje pobrania kolor po stronie klienta przy użyciu interfejsu użytkownika w formancie menu podręczne. Będzie można dołączyć do dowolnego ASP.NET..."
+description: ColorPicker jest extender ASP.NET AJAX, która udostępnia funkcje pobrania kolor po stronie klienta przy użyciu interfejsu użytkownika w formancie menu podręczne. Będzie można dołączyć do dowolnego ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5b3cde9552e8aecd5e7e651a825902fb79ae108c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4d44fc81305e668b545246cf044dce275563d81a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-colorpicker-control-extender-c"></a>Przy użyciu rozszerzeń formantu ColorPicker (C#)
 ====================
@@ -58,7 +58,7 @@ Trzeba wykonać rozszerzeń formantu ColorPicker za pomocą formularza w 1 wyśw
 
 Przed użyciem ColorPicker, należy dodać element ScriptManager do strony. Dobrym miejscem, aby dodać element ScriptManager jest bezpośrednio pod serwerowe otwierania &lt;formularza&gt; tagu. Z przybornika (ScriptManager znajduje się na karcie rozszerzenia AJAX) można przeciągnąć element ScriptManager na stronę. Alternatywnie możesz wpisać następującego tagu w widoku źródła poniżej otwierający tag formularza po stronie serwera:
 
-&lt;ASP: ScriptManager ID = "ScriptManager1" runat = "server" /&gt;
+&lt;asp:ScriptManager ID="ScriptManager1" runat="server" /&gt;
 
 Najprostszym sposobem na stronie Dodaj ColorPicker rozszerzeń formantu jest w widoku Projekt. Jeśli umieść kursor nad txtCardColor pole tekstowe, opcja inteligentne zadań pojawi się zapewniającą można dodać moduł rozszerzający (patrz rysunek 3). W przypadku wybrania tej opcji, zostanie wyświetlony Kreator rozszerzeń, (patrz rysunek 4).
 
@@ -114,5 +114,5 @@ Właściwość SampleControlID jest używana do skojarzenia kontrolkę wyświetl
 
 W tym samouczku przedstawiono sposób rozszerzeń formantu ColorPicker umożliwia wyświetlanie podręcznego okna dialogowego selektora kolorów. Po pierwsze firma Microsoft zbadane, sposób wyświetlania okna dialogowego, gdy fokus zostanie przeniesiony do kontrolki pola tekstowego. Następnie przedstawiono sposób tworzenia przycisku, który powoduje wyświetlenie okna dialogowego selektora kolorów, po kliknięciu przycisku.
 
->[!div class="step-by-step"]
-[Dalej](using-the-colorpicker-control-extender-vb.md)
+> [!div class="step-by-step"]
+> [Next](using-the-colorpicker-control-extender-vb.md)

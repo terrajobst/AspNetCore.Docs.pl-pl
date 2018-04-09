@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
-title: "Wyświetlanie tabeli bazy danych (VB) | Dokumentacja firmy Microsoft"
+title: Wyświetlanie tabeli bazy danych (VB) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "W tym samouczku pokazują I wyświetlanie zestaw rekordów bazy danych na dwa sposoby. Wyświetlić dwóch metod formatowania zestaw rekordów bazy danych w formacie HTML ta..."
+description: W tym samouczku pokazują I wyświetlanie zestaw rekordów bazy danych na dwa sposoby. Wyświetlić dwóch metod formatowania zestaw rekordów bazy danych w formacie HTML ta...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6dc0aa91cfb68d308ed098f429d3251d424ab778
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dd871520f98aaae2d7b33d83b1646eb9eee88821
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-table-of-database-data-vb"></a>Wyświetlanie tabeli bazy danych (VB)
 ====================
@@ -38,7 +38,7 @@ Zamierzamy, aby wyświetlić zestaw rekordów z tabeli bazy danych filmów. W ta
 
 | **Nazwa kolumny** | **Typ danych** | **Dopuszcza wartości null** |
 | --- | --- | --- |
-| Identyfikator | int | False |
+| Id | int | False |
 | Tytuł | Nvarchar(200) | False |
 | Dyrektor | NVarchar(50) | False |
 | DateReleased | DataGodzina | False |
@@ -185,6 +185,6 @@ Metoda RenderPartial() jest inny niż w przypadku pozostałych metod pomocniczyc
 
 Celem tego samouczka jest wyjaśnienie, jak wyświetlić zestaw rekordów bazy danych w tabeli HTML. Najpierw przedstawiono sposób zwracania zestawu rekordów bazy danych z akcji kontrolera, korzystając z programu Entity Framework firmy Microsoft. Następnie przedstawiono sposób użycia szkieletów Visual Studio do generowania widoku, który automatycznie wyświetla kolekcję elementów. Ponadto przedstawiono sposób uproszczenia widoku dzięki wykorzystaniu częściowym. Przedstawiono sposób użycia częściowym jako szablon, dzięki czemu można sformatować każdego rekordu bazy danych.
 
->[!div class="step-by-step"]
-[Poprzednie](creating-model-classes-with-linq-to-sql-vb.md)
-[dalej](performing-simple-validation-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-model-classes-with-linq-to-sql-vb.md)
+> [dalej](performing-simple-validation-vb.md)

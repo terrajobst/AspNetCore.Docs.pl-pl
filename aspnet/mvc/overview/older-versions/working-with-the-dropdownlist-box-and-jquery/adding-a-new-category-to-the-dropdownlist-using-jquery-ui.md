@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
-title: "Dodawanie nowej kategorii do DropDownList przy użyciu interfejsu użytkownika jQuery | Dokumentacja firmy Microsoft"
+title: Dodawanie nowej kategorii do DropDownList przy użyciu interfejsu użytkownika jQuery | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: de661616ff3ca83052ae74d3ae6810d014aff764
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16f7af1d679aace24fff86abb19740beebafe785
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>Dodawanie nowej kategorii do DropDownList przy użyciu interfejsu użytkownika jQuery
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 Kod HTML `Select` tag jest idealny dla prezentowanie dane stałej kategorii, ale często konieczne jest dodanie nowej kategorii. Załóżmy, że chcemy, aby dodać genre "Opera" do kategorii w naszej bazie danych? W tej sekcji użyjemy jQuery interfejsu użytkownika można dodać okno dialogowe, które możemy użyć, aby dodać nową kategorię. Na poniższym obrazie pokazano, jak interfejsu użytkownika będą obecne w przeglądarce.
 
@@ -36,7 +36,7 @@ Po wprowadzeniu nową nazwę genre i **zapisać** przycisk jest naciśnięty, wy
 2. JavaScript dodaje nowe dane genre do listy wyboru.
 3. JavaScript sprawia, że nowe genre wybranego elementu.
 
- Na ilustracji poniżej **Opera** został dodany do bazy danych i wybrana w **Genre** listy rozwijanej. 
+   Na ilustracji poniżej **Opera** został dodany do bazy danych i wybrana w **Genre** listy rozwijanej. 
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image3.png)
 
@@ -102,7 +102,7 @@ JQuery `$.post` wiersza wykonuje wywołanie AJAX atrybut akcji (`/StoreManager/C
 3. W polu wyszukiwania wprowadź GenreID.
 4. Korzystając z ikony w dalej   
     ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image9.png)  
- Przejdź do następującego tagu wybierz:
+   Przejdź do następującego tagu wybierz:
 
     [!code-html[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample9.html)]
 5. Rozwiń ostatnią wartość opcji.
@@ -141,5 +141,5 @@ Rick.Anderson[at]Microsoft.com
 - Jan Pope
 - Tomasz Dykstra
 
->[!div class="step-by-step"]
-[Poprzednie](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+> [!div class="step-by-step"]
+> [Poprzednie](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)

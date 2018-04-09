@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4
-title: "Używanie kalendarza podręcznego selektora daty interfejsu użytkownika jQuery i HTML5 platformie ASP.NET MVC — część 4 | Dokumentacja firmy Microsoft"
+title: Używanie kalendarza podręcznego selektora daty interfejsu użytkownika jQuery i HTML5 platformie ASP.NET MVC — część 4 | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "W tym samouczku uczy podstaw sposób pracy z szablonami edytora, szablonów wyświetlania i kalendarza podręcznego selektora daty interfejsu użytkownika jQuery, w MV ASP.NET..."
+description: W tym samouczku uczy podstaw sposób pracy z szablonami edytora, szablonów wyświetlania i kalendarza podręcznego selektora daty interfejsu użytkownika jQuery, w MV ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/29/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 32211465adeb1353908daa1014d188b84389e1a7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c6df727107b0a045341badefbf99eec773cd4eff
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-4"></a>Używanie kalendarza podręcznego selektora daty interfejsu użytkownika jQuery i HTML5 platformie ASP.NET MVC — część 4
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > W tym samouczku uczy podstaw sposób pracy z szablonami edytora, szablonów wyświetlania i kalendarza podręcznego selektora daty interfejsu użytkownika jQuery, w aplikacji sieci Web programu ASP.NET MVC.
 
@@ -178,5 +178,5 @@ W tym samouczku pokrywającego podstawy pomocników szablonu platformy ASP.NET i
 - Aby uzyskać informacje na temat do zlokalizowania formant selektora daty, zobacz [interfejsu użytkownika/selektora daty/lokalizacja](http://docs.jquery.com/UI/Datepicker/Localization).
 - Aby uzyskać więcej informacji na temat szablonów ASP.NET MVC, zobacz serii blogu Brada Wilsona na [ASP.NET MVC 2 szablony](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). Mimo że serii dotyczy programu ASP.NET MVC 2, materiałów nadal ma zastosowanie do bieżącej wersji programu ASP.NET MVC.
 
->[!div class="step-by-step"]
-[Poprzednie](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)

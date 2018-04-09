@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
-title: "Źródła formantu (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft"
+title: Źródła formantu (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on..."
+description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2015
 ms.topic: article
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: e3ce68b949199db35c18a09771d99d38562b74e9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0022458fa89a3be7ee8303750ad0e072df3b1bab
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kontroli źródła (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -66,7 +66,7 @@ Gałęzi głównej zawsze zgodny kod, który znajduje się w środowisku produkc
 
 Dla zespołów duży może być oddzielne gałęzi dla każdej nowej funkcji; mniejsze zespół może być wszyscy sprawdzanie w gałęzi programowanie.
 
-Jeśli masz gałęzi dla każdej funkcji, gdy funkcja A jest gotowy możesz scalania jego zmiany kodu źródłowego się do rozwoju gałęzi i w dół na inne gałęzie funkcji. Ten kod źródłowy scalanie proces może zająć dużo czasu i aby uniknąć tej pracy, jednocześnie zachowując osobne funkcje, niektóre zespoły zaimplementować zamiast o nazwie  *[funkcji przełącza](http://en.wikipedia.org/wiki/Feature_toggle)*  (określane również jako *funkcji flagi*). Oznacza to, cały kod dla wszystkich funkcji znajduje się w tym samym oddziale, ale można włączyć lub wyłączyć poszczególne funkcje za pomocą przełączników w kodzie. Na przykład załóżmy, że funkcja A jest nowe pole poprawka aplikacji zadań, a funkcja B dodaje funkcjonalność buforowania. Kod obie funkcje mogą być w gałęzi programowanie, ale wyświetlanie tylko aplikacji będzie nowego pola, gdy zmienna ma ustawioną wartość true, a będzie używana tylko podczas różnych zmienna jest ustawiona na true. Jeśli funkcja A nie jest gotowa do można podwyższyć poziomu, ale funkcja B jest gotowy, możesz podwyższyć poziom cały kod do środowiska produkcyjnego w przełączniku funkcji A poza i przełączania B funkcji. Można następnie Zakończ A funkcji i Podwyższ go później, wszystkie nie scalanie kodu źródłowego.
+Jeśli masz gałęzi dla każdej funkcji, gdy funkcja A jest gotowy możesz scalania jego zmiany kodu źródłowego się do rozwoju gałęzi i w dół na inne gałęzie funkcji. Ten kod źródłowy scalanie proces może zająć dużo czasu i aby uniknąć tej pracy, jednocześnie zachowując osobne funkcje, niektóre zespoły zaimplementować zamiast o nazwie *[funkcji przełącza](http://en.wikipedia.org/wiki/Feature_toggle)* (określane również jako *funkcji flagi*). Oznacza to, cały kod dla wszystkich funkcji znajduje się w tym samym oddziale, ale można włączyć lub wyłączyć poszczególne funkcje za pomocą przełączników w kodzie. Na przykład załóżmy, że funkcja A jest nowe pole poprawka aplikacji zadań, a funkcja B dodaje funkcjonalność buforowania. Kod obie funkcje mogą być w gałęzi programowanie, ale wyświetlanie tylko aplikacji będzie nowego pola, gdy zmienna ma ustawioną wartość true, a będzie używana tylko podczas różnych zmienna jest ustawiona na true. Jeśli funkcja A nie jest gotowa do można podwyższyć poziomu, ale funkcja B jest gotowy, możesz podwyższyć poziom cały kod do środowiska produkcyjnego w przełączniku funkcji A poza i przełączania B funkcji. Można następnie Zakończ A funkcji i Podwyższ go później, wszystkie nie scalanie kodu źródłowego.
 
 Czy używać gałęzi lub przełącza dla funkcji, rozgałęziania strukturę to umożliwia przepływu kodu od projektowania do produkcji w sposób agile i repeatable.
 
@@ -196,7 +196,7 @@ Nie jest to jedyny sposób można zaimplementować strategię rozgałęziania ag
 Zmierzenie powodzenia system kontroli źródła na podstawie jak szybko zmiany i pobrać go na żywo w sposób bezpieczny i przewidywalne. Jeśli okaże się Przerażony próbę dokonania zmiany, ponieważ musisz wykonać dzień lub dwa testowania ręcznego w nim, użytkownik może poprosić samodzielnie szablonu należy process-wise lub test-wise, dzięki czemu można wprowadzić zmiany w ciągu minut lub o najgorszej nie dłużej niż godzinę. Jedną ze strategii dla operacją jest zaimplementowanie ciągłej integracji i ciągłego dostarczania, które omówione zostaną następujące czynności w [następny rozdział](continuous-integration-and-continuous-delivery.md).
 
 <a id="resources"></a>
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 [Visual Studio Online](https://www.visualstudio.com/) portal zawiera dokumentacja i usług pomocy technicznej i można założyć dla konta. Jeśli masz program Visual Studio 2012 i chcesz przy użyciu narzędzia Git, zobacz [Visual Studio Tools for Git](https://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c).
 
@@ -221,6 +221,6 @@ Aby uzyskać więcej informacji na temat obsługi poufne informacje, które nie 
 
 Aby uzyskać informacje o innych metodach porządkowania poufnych informacji poza kontrolą źródła, zobacz [ASP.NET MVC: Zachowaj prywatnej ustawienia z kontroli źródła](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
 
->[!div class="step-by-step"]
-[Poprzednie](automate-everything.md)
-[dalej](continuous-integration-and-continuous-delivery.md)
+> [!div class="step-by-step"]
+> [Poprzednie](automate-everything.md)
+> [dalej](continuous-integration-and-continuous-delivery.md)

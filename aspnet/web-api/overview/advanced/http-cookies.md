@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/http-cookies
-title: "Pliki cookie protokołu HTTP w składniku ASP.NET Web API | Dokumentacja firmy Microsoft"
+title: Pliki cookie protokołu HTTP w składniku ASP.NET Web API | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/17/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/http-cookies
 msc.type: authoredcontent
-ms.openlocfilehash: e17c51946a268aa13ec035d18dc516928c9f4419
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 363ca975cf75b635b766a53eeda87cf957eed60c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="http-cookies-in-aspnet-web-api"></a>Pliki cookie protokołu HTTP w składniku ASP.NET Web API
 ====================
@@ -36,7 +36,7 @@ Oto przykład z atrybutami:
 
 [!code-powershell[Main](http-cookies/samples/sample2.ps1)]
 
-Aby uzyskać informacje pliku cookie do serwera zawiera klienta nagłówek Cookie nowszych żądań.
+Aby przywrócić plik cookie do serwera, klienta zawiera nagłówek Cookie w nowszych żądań.
 
 [!code-console[Main](http-cookies/samples/sample3.cmd)]
 
@@ -79,7 +79,7 @@ A **CookieHeaderValue** zawiera kolekcję **CookieState** wystąpień. Każdy **
 
 ## <a name="structured-cookie-data"></a>Dane strukturalne pliku Cookie
 
-Wiele przeglądarek ograniczyć liczbę plików cookie, będą one przechowywane &#8212; zarówno całkowitą liczbę i numer w każdej domenie. W związku z tym może być przydatne do umieszczanie danych strukturalnych w pojedynczym pliku cookie, zamiast ustawienie wiele plików cookie.
+Wiele przeglądarek limit liczby plików cookie, będą one przechowywane&#8212;to całkowita liczba i numer w każdej domenie. W związku z tym może być przydatne do umieszczanie danych strukturalnych w pojedynczym pliku cookie, zamiast ustawienie wiele plików cookie.
 
 > [!NOTE]
 > RFC 6265 nie definiuje struktury danych pliku cookie.

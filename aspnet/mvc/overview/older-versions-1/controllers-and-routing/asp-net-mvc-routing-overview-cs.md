@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
-title: "Omówienie routingu platformy ASP.NET MVC (C#) | Dokumentacja firmy Microsoft"
+title: Omówienie routingu platformy ASP.NET MVC (C#) | Dokumentacja firmy Microsoft
 author: StephenWalther
-description: "W tym samouczku Stephen Walther pokazuje sposób platforma ASP.NET MVC mapowania żądania przeglądarki akcji kontrolera."
+description: W tym samouczku Stephen Walther pokazuje sposób platforma ASP.NET MVC mapowania żądania przeglądarki akcji kontrolera.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 714fd1939ffeba11b84a82e80193ecbbe4b12e09
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fa565d2ef253539844f5224df00bdcdc047bb3f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-routing-overview-c"></a>Omówienie routingu platformy ASP.NET MVC (C#)
 ====================
@@ -55,7 +55,7 @@ Trasa domyślna mapuje ten adres URL do następujących parametrów:
 
 - Akcja = indeks
 
-- Identyfikator = 3
+- id = 3
 
 Gdy użytkownik żąda adresu URL /Home/indeks/3, jest wykonywany następujący kod:
 
@@ -109,5 +109,5 @@ Adres URL /Home/indeks/3 z drugiej strony, działa bez problemu z akcji kontrole
 
 Celem tego samouczka został dostarczają krótkie wprowadzenie do routingu platformy ASP.NET. Firma Microsoft zbadać tabeli trasy domyślnej, której można korzystać z nowej aplikacji ASP.NET MVC. Przedstawiono sposób trasy domyślnej mapowania adresów URL akcji kontrolera.
 
->[!div class="step-by-step"]
-[Dalej](understanding-action-filters-cs.md)
+> [!div class="step-by-step"]
+> [Next](understanding-action-filters-cs.md)

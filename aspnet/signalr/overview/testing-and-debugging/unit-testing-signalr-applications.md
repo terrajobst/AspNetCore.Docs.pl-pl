@@ -2,7 +2,7 @@
 uid: signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 title: Testy jednostkowe aplikacji SignalR | Dokumentacja firmy Microsoft
 author: pfletcher
-description: "W tym artykule opisano sposób użycia funkcji testów jednostkowych 2.0 SignalR."
+description: W tym artykule opisano sposób użycia funkcji testów jednostkowych 2.0 SignalR.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: d767e1a9d27670387133e5a48a8f92f5bdd39d9e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cff866716cb1179e02b930f33cb0f8c33d4a6cf0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="unit-testing-signalr-applications"></a>Jednostka testowania aplikacji SignalR
 ====================
@@ -72,11 +72,11 @@ W tej sekcji dodasz testu jednostkowego dla aplikacji utworzonych w [Wprowadzeni
     ![Dodaj odwołanie do projektu](unit-testing-signalr-applications/_static/image3.png)
 6. Dodawanie pakietów SignalR, Moq i XUnit do **TestLibrary** projektu. W **Konsola Menedżera pakietów**ustaw **domyślny projekt** listy rozwijanej, aby **TestLibrary**. Uruchom następujące polecenia w oknie konsoli:
 
-    - `Install-Package Microsoft.AspNet.SignalR`
-    - `Install-Package Moq`
-    - `Install-Package XUnit`
+   - `Install-Package Microsoft.AspNet.SignalR`
+   - `Install-Package Moq`
+   - `Install-Package XUnit`
 
-    ![Instalowanie pakietów](unit-testing-signalr-applications/_static/image4.png)
+     ![Instalowanie pakietów](unit-testing-signalr-applications/_static/image4.png)
 7. Utwórz plik testu. Kliknij prawym przyciskiem myszy **TestLibrary** projekt i kliknij przycisk **Dodaj...** , **Klasy**. Nazwa nowej klasy **Tests.cs**.
 8. Zastąp zawartość Tests.cs z następującym kodem.
 

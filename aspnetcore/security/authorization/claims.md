@@ -1,7 +1,7 @@
 ---
-title: "Autoryzacji opartej na oświadczeniach"
+title: Autoryzacji opartej na oświadczeniach w ASP.NET Core
 author: rick-anderson
-description: "Tym dokumencie opisano sposób dodawania oświadczeń sprawdzeń autoryzacji w aplikacji platformy ASP.NET Core."
+description: Dowiedz się, jak dodać sprawdzeń autoryzacji oświadczeń w aplikacji platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/claims
-ms.openlocfilehash: 608aaa469c5ca20fab8250025804e28e7808122d
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: da308b67be046395bb1baa0f272e767cccbc99c8
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="claims-based-authorization"></a>Autoryzacji opartej na oświadczeniach
+# <a name="claims-based-authorization-in-aspnet-core"></a>Autoryzacji opartej na oświadczeniach w ASP.NET Core
 
 <a name="security-authorization-claims-based"></a>
 
@@ -122,4 +122,4 @@ public class SalaryController : Controller
 
 W powyższym przykładzie wszystkie tożsamości, która spełnia `EmployeeOnly` zasady mogą uzyskiwać dostęp do `Payslip` akcji, jak te zasady są wymuszane na kontrolerze. Jednak aby można było wywołać `UpdateSalary` akcji, które należy spełnić tożsamość *zarówno* `EmployeeOnly` zasad i `HumanResources` zasad.
 
-Jeśli chcesz bardziej złożone zasady, takie jak pobieranie daty urodzenia oświadczenia, obliczanie wieku z niego, a następnie sprawdzanie wiek to 21 lub starsze, a następnie należy napisać [zasady niestandardowe programy obsługi](policies.md).
+Jeśli chcesz bardziej złożone zasady, takie jak pobieranie daty urodzenia oświadczenia, obliczanie wieku z niego, a następnie sprawdzanie wiek to 21 lub starsze, a następnie należy napisać [zasady niestandardowe programy obsługi](xref:security/authorization/policies).

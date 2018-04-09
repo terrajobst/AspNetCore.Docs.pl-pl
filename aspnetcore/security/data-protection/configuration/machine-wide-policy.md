@@ -1,7 +1,7 @@
 ---
-title: "Obsługuje zasady komputera ochrony danych w ASP.NET Core"
+title: Obsługuje zasady komputera ochrony danych w ASP.NET Core
 author: rick-anderson
-description: "Więcej informacji na temat obsługują ustawiania domyślnych zasad komputera dla wszystkich aplikacji używających platformy ASP.NET Core do ochrony danych."
+description: Więcej informacji na temat obsługują ustawiania domyślnych zasad komputera dla wszystkich aplikacji używających platformy ASP.NET Core do ochrony danych.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 53ded37e9fd5f1a2eaa37935d1c52efb1e9231ac
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c2d5760cd18f4e3ecaf0261f36414c9298e3f4c5
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>Obsługuje zasady komputera ochrony danych w ASP.NET Core
 
-Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Podczas uruchamiania w systemie Windows, system ochrony danych ma ograniczoną obsługę ustawienie domyślne zasady komputera dla wszystkich aplikacji używających platformy ASP.NET Core Data Protection. Ogólne informacje o tym jest administrator może chcieć zmienić ustawienie domyślne, takie jak używane algorytmy lub okres istnienia klucza, bez konieczności ręcznej aktualizacji każdej aplikacji na maszynie.
 
@@ -71,4 +71,4 @@ Jeśli EncryptionType jest zarządzany, system jest skonfigurowany do używania 
 Jeśli EncryptionType ma inne wartości innych niż null lub jest pusty, system ochrony danych zgłasza wyjątek podczas uruchamiania.
 
 > [!WARNING]
-> Podczas konfigurowania domyślne ustawienie zasad, które wymaga nazwy typu (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks), typy muszą być dostępne dla aplikacji. Oznacza to, że dla aplikacji działających na Desktop CLR, zestawy, które zawierają te typy powinien znajdować się w globalnej pamięci podręcznej zestawów (GAC). Platformy ASP.NET Core aplikacji działających na [.NET Core](https://www.microsoft.com/net/core), należy zainstalować pakiety, które zawierają te typy.
+> Podczas konfigurowania domyślne ustawienie zasad, które wymaga nazwy typu (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks), typy muszą być dostępne dla aplikacji. Oznacza to, że dla aplikacji działających na Desktop CLR, zestawy, które zawierają te typy powinien znajdować się w globalnej pamięci podręcznej zestawów (GAC). Aplikacji platformy ASP.NET Core działających na .NET Core należy zainstalować pakiety, które zawierają te typy.

@@ -1,7 +1,7 @@
 ---
 title: Migracja do platformy ASP.NET Core
 author: rick-anderson
-description: "Opisano sposób przeprowadzenia migracji z programu ASP.NET do platformy ASP.NET Core, w tym aplikacji ASP.NET 4.x i ASP.NET Core 2"
+description: Opisano sposób przeprowadzenia migracji z programu ASP.NET do platformy ASP.NET Core, w tym aplikacji ASP.NET 4.x i ASP.NET Core 2
 manager: wpickett
 ms.author: riande
 ms.date: 07/27/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/index
-ms.openlocfilehash: 6350dc43a2b5e63083a9e707dff74bf6407a0c94
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9df5519dd8a48fcc246616afcdbf77ef5407616b
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migration-to-aspnet-core-including-aspnet-4x-aspnet-core-2"></a>Migracja do platformy ASP.NET Core, w tym aplikacji ASP.NET 4.x, platformy ASP.NET Core 2
+# <a name="migration-to-aspnet-core"></a>Migracja do platformy ASP.NET Core
 
 ### <a name="aspnet-to-aspnet-core-1x"></a>ASP.NET i ASP.NET Core 1.x
 *   [Migracja z programu ASP.NET MVC do podstawowej platformy ASP.NET MVC](xref:migration/mvc)

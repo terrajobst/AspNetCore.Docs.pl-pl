@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
 title: Tworzenie warstwy logiki biznesowej (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku zajmiemy się tym, jak centralizować reguł biznesowych do firm logiki warstwy (logiki warstwy Biznesowej) służący jako pośrednik wymiany danych między t..."
+description: W tym samouczku zajmiemy się tym, jak centralizować reguł biznesowych do firm logiki warstwy (logiki warstwy Biznesowej) służący jako pośrednik wymiany danych między t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 858383203ddbaa9cb895c3368705f90546c8c974
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 150862decbbb69747f3e957a941b71b118b7231c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-business-logic-layer-vb"></a>Tworzenie warstwy logiki biznesowej (VB)
 ====================
@@ -63,13 +63,13 @@ Następnie możemy dodać metody do każdej klasy, po prostu opakowywać metody 
 
 Aby uzyskać `ProductsBLL` musimy dodać łącznie siedem metod klasy:
 
-- `GetProducts()`Zwraca wszystkie produkty
-- `GetProductByProductID(productID)`Zwraca iloczyn z Identyfikatorem określonego produktu
-- `GetProductsByCategoryID(categoryID)`Zwraca wszystkie produkty z określonej kategorii
-- `GetProductsBySupplier(supplierID)`Zwraca wszystkie produkty od określonego dostawcy
-- `AddProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued)`Wstawia nowego produktu do bazy danych przy użyciu wartości przekazywane w; Zwraca `ProductID` wartości nowo wstawionej rekordu
-- `UpdateProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued, productID)`aktualizuje istniejącą produktu w bazie danych przy użyciu wartości przekazywane w; Zwraca `True` Jeśli dokładnie jeden wiersz został zaktualizowany, `False` inaczej
-- `DeleteProduct(productID)`Usuwa określony produkt z bazy danych
+- `GetProducts()` Zwraca wszystkie produkty
+- `GetProductByProductID(productID)` Zwraca iloczyn z Identyfikatorem określonego produktu
+- `GetProductsByCategoryID(categoryID)` Zwraca wszystkie produkty z określonej kategorii
+- `GetProductsBySupplier(supplierID)` Zwraca wszystkie produkty od określonego dostawcy
+- `AddProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued)` Wstawia nowego produktu do bazy danych przy użyciu wartości przekazywane w; Zwraca `ProductID` wartości nowo wstawionej rekordu
+- `UpdateProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued, productID)` aktualizuje istniejącą produktu w bazie danych przy użyciu wartości przekazywane w; Zwraca `True` Jeśli dokładnie jeden wiersz został zaktualizowany, `False` inaczej
+- `DeleteProduct(productID)` Usuwa określony produkt z bazy danych
 
 ProductsBLL.vb
 
@@ -207,12 +207,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Liz Shulok, firmy Dennis Patterson Santos Artur i Hilton Giesenow. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](creating-a-data-access-layer-vb.md)
-[dalej](master-pages-and-site-navigation-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-a-data-access-layer-vb.md)
+> [dalej](master-pages-and-site-navigation-vb.md)

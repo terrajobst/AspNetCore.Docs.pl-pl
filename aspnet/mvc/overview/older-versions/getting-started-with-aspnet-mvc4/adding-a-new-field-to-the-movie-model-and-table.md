@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 title: Dodanie nowego pola filmu modelu i tabeli | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Uwaga: Zaktualizowaną wersję tego samouczka jest dostępnych tutaj używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, znacznie prostsza do wykonania i demonstracją..."
+description: 'Uwaga: Zaktualizowaną wersję tego samouczka jest dostępnych tutaj używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, znacznie prostsza do wykonania i demonstracją...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 9965c8a755857a8e8cb8ecbc6c467a6c856aa83d
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: d8a42e9acdce687ab6e9742071dd2949f244622f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Dodanie nowego pola filmu modelu i tabeli
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Dostępna jest zaktualizowana wersja tego samouczka [tutaj](../../getting-started/introduction/getting-started.md) używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej wykonać i pokazuje więcej funkcji.
@@ -107,7 +107,7 @@ Tworzenie aplikacji przy użyciu **kompilacji** &gt; **kompilacji filmu** menu p
 
 Teraz, gdy użytkownik zaktualizował `Model` klasy, należy również zaktualizować *\Views\Movies\Index.cshtml* i *\Views\Movies\Create.cshtml* wyświetlania szablonów, aby wyświetlić nowy `Rating`właściwości w widoku przeglądarki.
 
-Otwórz*\Views\Movies\Index.cshtml* plik i dodać `<th>Rating</th>` tuż po nagłówek kolumny **cen** kolumny. Następnie dodaj `<td>` kolumny zbliża się koniec szablon do renderowania `@item.Rating` wartość. Poniżej znajduje się jakie zaktualizowane *Index.cshtml* Wyświetl szablon wygląda następująco:
+Otwórz<em>\Views\Movies\Index.cshtml</em> plik i dodać `<th>Rating</th>` tuż po nagłówek kolumny <strong>cen</strong> kolumny. Następnie dodaj `<td>` kolumny zbliża się koniec szablon do renderowania `@item.Rating` wartość. Poniżej znajduje się jakie zaktualizowane <em>Index.cshtml</em> Wyświetl szablon wygląda następująco:
 
 [!code-cshtml[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample5.cshtml?highlight=26-28,46-48)]
 
@@ -173,6 +173,6 @@ Można wprowadzić polecenie "update-database" w **Konsola Menedżera pakietów*
 
 W tej sekcji przedstawiono sposób modyfikowania modelu obiektów i zachować synchronizację ze zmianami bazy danych. Przedstawiono również sposób wypełnienia nowo utworzonej bazy danych z przykładowymi danymi, więc można wypróbować scenariuszy. Następnie Oto jak można dodać bardziej rozbudowane logikę weryfikacji dla klasy modelu i włączyć niektóre reguły biznesowe są wymuszane.
 
->[!div class="step-by-step"]
-[Poprzednie](examining-the-edit-methods-and-edit-view.md)
-[dalej](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [Poprzednie](examining-the-edit-methods-and-edit-view.md)
+> [dalej](adding-validation-to-the-model.md)

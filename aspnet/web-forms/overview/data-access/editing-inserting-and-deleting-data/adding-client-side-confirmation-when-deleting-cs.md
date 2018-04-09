@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
 title: Dodawanie potwierdzenie po stronie klienta podczas usuwania (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W interfejsach, którego dotychczasowy utworzyliśmy użytkownik może przypadkowo usunąć dane, klikając przycisk Usuń, gdy są one przeznaczone do kliknij przycisk Edytuj. W tym t..."
+description: W interfejsach, którego dotychczasowy utworzyliśmy użytkownik może przypadkowo usunąć dane, klikając przycisk Usuń, gdy są one przeznaczone do kliknij przycisk Edytuj. W tym t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c5e8ee76224a48d3132597016b81099bd70a1776
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72b15d498e45cc519a14ecfe39111b224db88c30
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-client-side-confirmation-when-deleting-c"></a>Dodawanie potwierdzenie po stronie klienta podczas usuwania (C#)
 ====================
@@ -75,7 +75,7 @@ Wprowadzone zmiany zostały funkcjonalnej strony sieci web, który umożliwia u�
 
 ## <a name="step-2-calling-the-confirmstring-function-from-the-delete-buttons-client-side-onclick-event"></a>Krok 2: Wywoływanie confirm(string) funkcji z onclick usuń przyciski klienta zdarzeń
 
-Z FormView utworzone, ostatnim krokiem jest skonfigurowanie przycisk Usuń takie że w przypadku jego s kliknięty przez obiekt odwiedzający JavaScript `confirm(string)` funkcja jest wywoływana. Dodawanie skryptu po stronie klienta do przycisku, LinkButton lub ImageButton s po stronie klienta `onclick` zdarzeń można osiągnąć za pośrednictwem `OnClientClick property`, który jest nowym składnikiem programu ASP.NET 2.0. Ponieważ chcemy mieć wartość `confirm(string)` zwrócona przez funkcję, wystarczy ustawić tę właściwość na:`return confirm('Are you certain that you want to delete this product?');`
+Z FormView utworzone, ostatnim krokiem jest skonfigurowanie przycisk Usuń takie że w przypadku jego s kliknięty przez obiekt odwiedzający JavaScript `confirm(string)` funkcja jest wywoływana. Dodawanie skryptu po stronie klienta do przycisku, LinkButton lub ImageButton s po stronie klienta `onclick` zdarzeń można osiągnąć za pośrednictwem `OnClientClick property`, który jest nowym składnikiem programu ASP.NET 2.0. Ponieważ chcemy mieć wartość `confirm(string)` zwrócona przez funkcję, wystarczy ustawić tę właściwość na: `return confirm('Are you certain that you want to delete this product?');`
 
 Po tej zmianie składni deklaratywnej s LinkButton usunąć powinien wyglądać jak:
 
@@ -156,8 +156,8 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Poprzednie](implementing-optimistic-concurrency-cs.md)
-[dalej](limiting-data-modification-functionality-based-on-the-user-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](implementing-optimistic-concurrency-cs.md)
+> [dalej](limiting-data-modification-functionality-based-on-the-user-cs.md)

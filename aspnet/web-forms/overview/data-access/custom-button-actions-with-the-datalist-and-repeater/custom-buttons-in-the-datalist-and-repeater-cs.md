@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
 title: Przyciski niestandardowe DataList i powtarzanego (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku będziesz budujemy interfejs, który używa elementu powtarzanego do listy kategorii w systemie, z każdej kategorii, zapewniając przycisk, aby wyświetlić jego associ..."
+description: W tym samouczku będziesz budujemy interfejs, który używa elementu powtarzanego do listy kategorii w systemie, z każdej kategorii, zapewniając przycisk, aby wyświetlić jego associ...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9a072ae18bbb19d086eb825c6e72b68d40b2e429
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d6d07f1dc3f97523da6d9ee1d45302cac06b45d2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-c"></a>Przyciski niestandardowe DataList i powtarzanego (C#)
 ====================
@@ -104,8 +104,8 @@ W dowolnym momencie po kliknięciu przycisku, LinkButton lub ImageButton w szabl
 
 Po kliknięciu przycisku wewnątrz elementu DataList lub elementu powtarzanego często musimy przekazują (takich jak który przycisk został kliknięty (w przypadku, może wystąpić wiele przycisków w formancie, takich jak zarówno edycji, a przycisk Usuń) i być może dodatkowe informacje wartość klucza podstawowego elementu, którego przycisk został kliknięty). Przycisk LinkButton i ImageButton Podaj dwie właściwości, których wartości są przekazywane do `ItemCommand` obsługi zdarzeń:
 
-- `CommandName`ciąg zazwyczaj używany do identyfikowania każdego przycisku w szablonie
-- `CommandArgument`często używane do przechowywania wartości niektóre pola danych, takie jak wartości klucza podstawowego
+- `CommandName` ciąg zazwyczaj używany do identyfikowania każdego przycisku w szablonie
+- `CommandArgument` często używane do przechowywania wartości niektóre pola danych, takie jak wartości klucza podstawowego
 
 Na przykład ustawić LinkButton s `CommandName` właściwości ShowProducts i powiązania bieżącej wartości klucza podstawowego rekordu s `CategoryID` do `CommandArgument` właściwości przy użyciu składni wiązania z danymi `CategoryArgument='<%# Eval("CategoryID") %>'`. Po określeniu te dwie właściwości, składni deklaratywnej s LinkButton powinna wyglądać następująco:
 
@@ -116,10 +116,10 @@ Po kliknięciu przycisku, występuje odświeżania strony i s DataList lub eleme
 
 Utwórz program obsługi zdarzeń dla elementu powtarzanego s `ItemCommand` zdarzeń i zanotuj drugi parametr przekazany do obsługi zdarzeń (nazwane `e`). Jest to drugi parametr typu [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) i ma cztery następujące właściwości:
 
-- `CommandArgument`wartość kliknięty przycisk s `CommandArgument` właściwości
-- `CommandName`Wartość przycisku s `CommandName` właściwości
-- `CommandSource`Odwołanie do formantu przycisku, który został kliknięty
-- `Item`Odwołanie do [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) zawiera przycisk został kliknięty; każdy rekord powiązany powtarzanego jest dyskowe wyświetlane jako`RepeaterItem`
+- `CommandArgument` wartość kliknięty przycisk s `CommandArgument` właściwości
+- `CommandName` Wartość przycisku s `CommandName` właściwości
+- `CommandSource` Odwołanie do formantu przycisku, który został kliknięty
+- `Item` Odwołanie do [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) zawiera przycisk został kliknięty; każdy rekord powiązany powtarzanego jest dyskowe wyświetlane jako `RepeaterItem`
 
 Od wybranej kategorii s `CategoryID` przekazany za pośrednictwem `CommandArgument` właściwości, możemy Pobierz zestaw produktów skojarzonych z wybranej kategorii w `ItemCommand` obsługi zdarzeń. Następnie można powiązać te produkty formantu listy BulletedList w `ItemTemplate` (których firma Microsoft kolejnych jeszcze, aby dodać). Wszystkie, pozostaje, a następnie jest dodanie listy BulletedList, odwołania `ItemCommand` obsługi zdarzeń i powiązać zestawu produktów dla wybranej kategorii, firma Microsoft będzie rozwiązania w kroku 4.
 
@@ -162,11 +162,11 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został firmy Dennis Patterson. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Next](custom-buttons-in-the-datalist-and-repeater-vb.md)
+> [!div class="step-by-step"]
+> [Next](custom-buttons-in-the-datalist-and-repeater-vb.md)

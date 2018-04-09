@@ -1,7 +1,7 @@
 ---
-title: Szyfrowanie klucza magazynowane
+title: Szyfrowanie kluczy przechowywanych w ASP.NET Core
 author: rick-anderson
-description: "W tym dokumencie przedstawiono szczegóły implementacji platformy ASP.NET Core ochrony klucza szyfrowanie danych przechowywanych."
+description: Szczegóły dotyczące wykonania szyfrowania kluczy platformy ASP.NET Core do ochrony danych magazynowanych.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,20 +9,20 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: c66430bfe547cf061e9e79a703ac665a968bbe0b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9247b141a44c958f34529e5a42a0ddc8c8893cb0
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-encryption-at-rest"></a>Szyfrowanie klucza magazynowane
+# <a name="key-encryption-at-rest-in-aspnet-core"></a>Szyfrowanie kluczy przechowywanych w ASP.NET Core
 
 <a name="data-protection-implementation-key-encryption-at-rest"></a>
 
 Domyślnie system ochrony danych [wykorzystuje heurystyki](xref:security/data-protection/configuration/default-settings) ustalenie, jak kryptograficznych materiału klucza powinny być szyfrowane, gdy. Deweloper może zastąpić heurystyki i ręcznie określić, jak klucze powinny być szyfrowane, gdy.
 
 > [!NOTE]
-> Jeśli określisz jawne klucza szyfrowania w mechanizmu reszta systemu ochrony danych będą wyrejestrowania domyślnego mechanizmu magazynu kluczy heurystyki podane. Należy [Określ mechanizmu magazynowania kluczy jawne](key-storage-providers.md#data-protection-implementation-key-storage-providers), w przeciwnym razie system ochrony danych nie powiedzie się.
+> Jeśli określisz jawne klucza szyfrowania w mechanizmu reszta systemu ochrony danych będą wyrejestrowania domyślnego mechanizmu magazynu kluczy heurystyki podane. Należy [Określ mechanizmu magazynowania kluczy jawne](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers), w przeciwnym razie system ochrony danych nie powiedzie się.
 
 <a name="data-protection-implementation-key-encryption-at-rest-providers"></a>
 
@@ -95,7 +95,7 @@ W tym scenariuszu kontroler domeny usługi AD jest odpowiedzialna za dystrybucj�
 
 ## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a>Na podstawie certyfikatu szyfrowania z DPAPI NG systemu Windows
 
-Jeśli pracujesz na Windows 8.1 / Windows Server 2012 R2 lub później, umożliwia Windows DPAPI-NG szyfrowanie oparte na certyfikatach, nawet wtedy, gdy aplikacja jest uruchomiona [.NET Core](https://www.microsoft.com/net/core). Aby skorzystać z tego, użyj ciągu deskryptora reguły "certyfikatu = HashId:thumbprint", gdzie odcisk palca jest kodowany w formacie hex SHA1 odcisk palca certyfikatu do użycia. Poniżej znajduje się przykład.
+Jeśli pracujesz na Windows 8.1 / Windows Server 2012 R2 lub później, umożliwia Windows DPAPI-NG szyfrowanie oparte na certyfikatach, nawet wtedy, gdy aplikacja jest uruchomiona na .NET Core. Aby skorzystać z tego, użyj ciągu deskryptora reguły "certyfikatu = HashId:thumbprint", gdzie odcisk palca jest kodowany w formacie hex SHA1 odcisk palca certyfikatu do użycia. Poniżej znajduje się przykład.
 
 ```csharp
 sc.AddDataProtection()

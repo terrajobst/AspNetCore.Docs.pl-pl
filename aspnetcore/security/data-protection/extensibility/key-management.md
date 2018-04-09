@@ -1,7 +1,7 @@
 ---
-title: "Rozszerzalność zarządzania kluczami"
+title: Zarządzanie kluczami rozszerzalność na platformie ASP.NET Core
 author: rick-anderson
-description: "W tym dokumencie przedstawiono rozszerzalności zarządzania kluczami ochrony danych platformy ASP.NET Core."
+description: Więcej informacji na temat ochrony danych platformy ASP.NET Core rozszerzalności zarządzania kluczami.
 manager: wpickett
 ms.author: riande
 ms.date: 11/22/2017
@@ -9,18 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: bcc4984efcee9a6ffd0f3b503a38089c78adf5e8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e3042b371cf7be8fa0218c1906042d2810b180e3
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-management-extensibility"></a>Rozszerzalność zarządzania kluczami
+# <a name="key-management-extensibility-in-aspnet-core"></a>Zarządzanie kluczami rozszerzalność na platformie ASP.NET Core
 
 <a name="data-protection-extensibility-key-management"></a>
 
 >[!TIP]
-> Odczyt [zarządzanie kluczami](../implementation/key-management.md#data-protection-implementation-key-management) sekcji przed przeczytaniem tej części, jak wyjaśniono niektóre podstawowe pojęcia dotyczące tych interfejsów API.
+> Odczyt [zarządzanie kluczami](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) sekcji przed przeczytaniem tej części, jak wyjaśniono niektóre podstawowe pojęcia dotyczące tych interfejsów API.
 
 >[!WARNING]
 > Typy implementujące żadnego z następujących interfejsów powinny być bezpieczne wątkowo dla wielu wywołań.
@@ -37,11 +37,11 @@ ms.lasthandoff: 03/02/2018
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Ponadto `IKey` przedstawia `CreateEncryptor` metodę, która może służyć do tworzenia [IAuthenticatedEncryptor](core-crypto.md#data-protection-extensibility-core-crypto-iauthenticatedencryptor) wystąpienia powiązane z danym kluczem.
+Ponadto `IKey` przedstawia `CreateEncryptor` metodę, która może służyć do tworzenia [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) wystąpienia powiązane z danym kluczem.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Ponadto `IKey` przedstawia `CreateEncryptorInstance` metodę, która może służyć do tworzenia [IAuthenticatedEncryptor](core-crypto.md#data-protection-extensibility-core-crypto-iauthenticatedencryptor) wystąpienia powiązane z danym kluczem.
+Ponadto `IKey` przedstawia `CreateEncryptorInstance` metodę, która może służyć do tworzenia [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) wystąpienia powiązane z danym kluczem.
 
 ---
 
@@ -123,7 +123,7 @@ W implementacji `CreateNewKey`, `IAuthenticatedEncryptorConfiguration` składnik
 
 W implementacji `GetAllKeys`, reprezentująca klucze dokumentów XML i odwołań są odczytywane z podstawową `IXmlRepository`. Jeśli te dokumenty są szyfrowane, system automatycznie odszyfrować je. `XmlKeyManager` tworzy odpowiednie `IAuthenticatedEncryptorDescriptorDeserializer` wystąpień do deserializacji dokumenty z powrotem do `IAuthenticatedEncryptorDescriptor` wystąpienia, które następnie są ujęte w poszczególnych `IKey` wystąpień. Ta kolekcja `IKey` wystąpień jest zwracany do obiektu wywołującego.
 
-Więcej informacji na temat konkretnego elementów XML znajduje się w [dokumentu w formacie magazynu kluczy](../implementation/key-storage-format.md#data-protection-implementation-key-storage-format).
+Więcej informacji na temat konkretnego elementów XML znajduje się w [dokumentu w formacie magazynu kluczy](xref:security/data-protection/implementation/key-storage-format#data-protection-implementation-key-storage-format).
 
 ## <a name="ixmlrepository"></a>IXmlRepository
 
@@ -135,7 +135,7 @@ Więcej informacji na temat konkretnego elementów XML znajduje się w [dokument
 
 Implementacje `IXmlRepository` nie ma potrzeby analizy kodu XML przechodzącej przez nich. Powinny traktować jako nieprzezroczyste dokumentów XML i umożliwić wyższych warstw martwić generowania i analizowania dokumentów.
 
-Istnieją dwa typy konkretnych wbudowanych implementujące `IXmlRepository`: `FileSystemXmlRepository` i `RegistryXmlRepository`. Zobacz [dokumentu dostawców magazynu kluczy](../implementation/key-storage-providers.md#data-protection-implementation-key-storage-providers) Aby uzyskać więcej informacji. Rejestrowanie niestandardowe `IXmlRepository` będzie odpowiedni sposób używania magazynu zapasowego różnych, np. magazyn obiektów Blob Azure.
+Istnieją dwa typy konkretnych wbudowanych implementujące `IXmlRepository`: `FileSystemXmlRepository` i `RegistryXmlRepository`. Zobacz [dokumentu dostawców magazynu kluczy](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers) Aby uzyskać więcej informacji. Rejestrowanie niestandardowe `IXmlRepository` będzie odpowiedni sposób używania magazynu zapasowego różnych, np. magazyn obiektów Blob Azure.
 
 Aby zmienić domyślne repozytorium całej aplikacji, rejestrowania niestandardowego `IXmlRepository` wystąpienie:
 
@@ -169,7 +169,7 @@ Istnieją cztery wbudowanych typów konkretnych implementujące `IXmlEncryptor`:
 * `DpapiXmlEncryptor`
 * `NullXmlEncryptor`
 
-Zobacz [klucza szyfrowania w dokumencie rest](../implementation/key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest) Aby uzyskać więcej informacji.
+Zobacz [klucza szyfrowania w dokumencie rest](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) Aby uzyskać więcej informacji.
 
 Aby zmienić domyślny mechanizm klucza szyfrowania w rest całej aplikacji, rejestrowania niestandardowego `IXmlEncryptor` wystąpienie:
 

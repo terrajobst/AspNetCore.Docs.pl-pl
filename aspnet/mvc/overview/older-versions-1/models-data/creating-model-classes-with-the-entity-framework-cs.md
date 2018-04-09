@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
 title: Tworzenie klasy modelu Entity Framework (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "W tym samouczku Dowiedz się jak używać programu ASP.NET MVC Microsoft Entity Framework. Jak utworzyć Da jednostki ADO.NET za pomocą kreatora jednostki..."
+description: W tym samouczku Dowiedz się jak używać programu ASP.NET MVC Microsoft Entity Framework. Jak utworzyć Da jednostki ADO.NET za pomocą kreatora jednostki...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8a897f671de73d9991189e32a5d86b513051ef05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b0a79da580f14d5ae6bcfaaa00d3900234dc662e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-the-entity-framework-c"></a>Tworzenie klasy modelu Entity Framework (C#)
 ====================
@@ -33,7 +33,7 @@ Aby zilustrować, jak za pomocą programu Entity Framework Microsoft ASP.NET MVC
 
 Ten samouczek zakłada, że masz program Visual Studio 2008 lub Visual Web Developer 2008 z dodatkiem Service Pack 1. Należy z dodatkiem Service Pack 1, aby można było używać programu Entity Framework. Visual Studio 2008 z dodatkiem Service Pack 1 lub Visual Web Developer z dodatkiem Service Pack 1 można pobrać z następującego adresu:
 
-> [https://www.asp.NET/downloads/](https://www.asp.net/downloads)
+> [https://www.asp.net/downloads/](https://www.asp.net/downloads)
 
 
 > [!NOTE] 
@@ -47,7 +47,7 @@ Aplikacja filmu bazy danych korzysta z tabeli bazy danych o nazwie filmów, któ
 
 | Nazwa kolumny | Typ danych | Dopuszcza wartości null? | To jest klucz podstawowy? |
 | --- | --- | --- | --- |
-| Identyfikator | int | False | Wartość true |
+| Id | int | False | True |
 | Tytuł | Nvarchar(100) | False | False |
 | Dyrektor | Nvarchar(100) | False | False |
 
@@ -221,5 +221,5 @@ Celem tego samouczka było pokazują, jak można tworzyć aplikacje opartej na b
 
 Po pierwsze omówiono, jak można użyć Kreatora modelu danych jednostki do wygenerowania modelu Entity Data Model z poziomu programu Visual Studio. Następnie zostanie przedstawiony sposób Pobierz zestaw rekordów bazy danych z tabeli bazy danych za pomocą LINQ to Entities. Na koniec użyliśmy programu Entity Framework do wstawiania, aktualizacji i usuwania rekordów bazy danych.
 
->[!div class="step-by-step"]
-[Dalej](creating-model-classes-with-linq-to-sql-cs.md)
+> [!div class="step-by-step"]
+> [Next](creating-model-classes-with-linq-to-sql-cs.md)

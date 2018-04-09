@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs
 title: Wykonywanie zapytania na danych z formantem SqlDataSource (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W poprzednim samouczki użyliśmy kontrolki ObjectDataSource pełni Rozdziel warstwę prezentacji z warstwy dostępu do danych. Począwszy od tej instruktora..."
+description: W poprzednim samouczki użyliśmy kontrolki ObjectDataSource pełni Rozdziel warstwę prezentacji z warstwy dostępu do danych. Począwszy od tej instruktora...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4652e5820e621a7b2ad3b03bb5a1d2cb4968fadd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3d6f681169267ad5c65486c1d1fac0a9396535d1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="querying-data-with-the-sqldatasource-control-c"></a>Wykonywanie zapytania na danych z formantem SqlDataSource (C#)
 ====================
@@ -201,7 +201,7 @@ Dodaj inny formant widoku GridView `Querying.aspx` strony i wybrać opcję utwor
 
 ![Tworzenie formantu SqlDataSource o nazwie ProductsWithCategoryInfoDataSource](querying-data-with-the-sqldatasource-control-cs/_static/image18.gif)
 
-**Rysunek 12**: Tworzenie formantu SqlDataSource o nazwie`ProductsWithCategoryInfoDataSource`
+**Rysunek 12**: Tworzenie formantu SqlDataSource o nazwie `ProductsWithCategoryInfoDataSource`
 
 
 Następnym ekranie zapyta firmie Microsoft w celu określenia bazy danych. Wybierz jak robiliśmy wstecz na rysunku 7 `NORTHWINDConnectionString` z listy rozwijanej liście i kliknij przycisk Dalej. W konfiguracji ekranu instrukcji Select wybierz Określ niestandardową instrukcję SQL lub procedurę składowaną przycisku radiowego, a następnie kliknij przycisk Dalej. Pojawi się ekran zdefiniować instrukcje niestandardowe lub procedury składowane, który oferuje zakładki SELECT, INSERT, UPDATE i DELETE. Na każdej karcie można wprowadzić niestandardową instrukcję SQL w pole tekstowe lub wybierz procedurę składowaną z listy rozwijanej. W tym samouczku przedstawiono wprowadzanie niestandardową instrukcję SQL; Następny samouczek zawiera przykład, w którym korzysta z procedury składowanej.
@@ -256,11 +256,11 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Susan Connery Bernadette Leigh i Suru Dominika. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Next](using-parameterized-queries-with-the-sqldatasource-cs.md)
+> [!div class="step-by-step"]
+> [Next](using-parameterized-queries-with-the-sqldatasource-cs.md)

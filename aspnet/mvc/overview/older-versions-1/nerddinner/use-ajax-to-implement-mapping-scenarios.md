@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
-title: "Użyj AJAX do implementacji mapowania scenariusze | Dokumentacja firmy Microsoft"
+title: Użyj AJAX do implementacji mapowania scenariusze | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Krok 11 pokazano, jak zintegrować AJAX mapowania obsługi aplikacji NerdDinner, umożliwiające użytkownikom tworzenie, edytowanie lub przeglądanie kolacji, aby zobaczyć l..."
+description: Krok 11 pokazano, jak zintegrować AJAX mapowania obsługi aplikacji NerdDinner, umożliwiające użytkownikom tworzenie, edytowanie lub przeglądanie kolacji, aby zobaczyć l...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: cc55560ce691826b6d52971b16d0515ed73d72a6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4b3f1e46886c4c1f054e43768b0a44695d71bf09
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-ajax-to-implement-mapping-scenarios"></a>Umożliwia Implementowanie scenariuszy mapowania AJAX
 ====================
@@ -115,7 +115,7 @@ Aby zakończyć poza naszych implementacji interfejsu AJAX, Dodajmy mapy do stro
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image7.png)
 
-Rozpocznie się zaimplementowanie pomocy technicznej w ramach naszych warstwy i bazy danych repozytorium Aby efektywnie kolacji wyszukiwanie na podstawie lokalizacji usługi radius. Firma Microsoft może korzystać z nowych [dane geograficzne funkcji programu SQL 2008](https://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx) implementacji, lub też używamy podejście funkcji SQL, które dzień Gary należy omówiony w artykule w tym miejscu: [http://www.codeproject.com/KB/cs/ distancebetweenlocations.aspx](http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx) i blogged Conery Tomasz dotyczące korzystania z LINQ do SQL tutaj: [http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/](http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/)
+Rozpocznie się zaimplementowanie pomocy technicznej w ramach naszych warstwy i bazy danych repozytorium Aby efektywnie kolacji wyszukiwanie na podstawie lokalizacji usługi radius. Firma Microsoft może korzystać z nowych [dane geograficzne funkcji programu SQL 2008](https://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx) implementacji, lub też używamy podejście funkcji SQL, które dzień Gary należy omówiony w artykule w tym miejscu: [ http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx ](http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx) i Conery Tomasz blogged dotyczące korzystania z LINQ do SQL tutaj: [http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/](http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/)
 
 Aby zaimplementować to technika, firma Microsoft będzie otworzyć "Eksploratora serwera" w programie Visual Studio, wybierz NerdDinner bazy danych i kliknij prawym przyciskiem myszy węzeł podrzędny "funkcji" w nim i chce utworzyć nowe "funkcji skalarnej":
 
@@ -193,6 +193,6 @@ Klikając tytuł obiad bąbelków lub po prawej stronie listy HTML przejdzie nam
 
 Teraz wdrożyliśmy wszystkie funkcje aplikacji naszej aplikacji NerdDinner. Umożliwia teraz znajduje się w jaki sposób można włączyć obsługę automatycznego jednostki testowania go.
 
->[!div class="step-by-step"]
-[Poprzednie](use-ajax-to-deliver-dynamic-updates.md)
-[dalej](enable-automated-unit-testing.md)
+> [!div class="step-by-step"]
+> [Poprzednie](use-ajax-to-deliver-dynamic-updates.md)
+> [dalej](enable-automated-unit-testing.md)

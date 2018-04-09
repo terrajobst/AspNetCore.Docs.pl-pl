@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 title: Logowanie jednokrotne (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on..."
+description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: b3640c94a8ae9ede330c0fe6a392acb5843cb65c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 82f2f99154d94074b03d580a0f491053d6f53bde
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Logowanie jednokrotne (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -130,7 +130,7 @@ I w ciągu kilku minut wszystko będzie gotowe.
 
 Trzeba uruchomić na jeden kontroler domeny w organizacji, w systemie Windows 2003 lub nowszy. I ponownego uruchamiania. Gdy wszystko będzie gotowe, wszyscy użytkownicy są w chmurze i mogą wykonywać rejestracji jednokrotnej z sieci web lub aplikacji mobilnej, przy użyciu SAML, OAuth lub WS Fed.
 
-Czasami uzyskać możemy zadawane, o jak bezpieczne jest — Microsoft używa go do ich własnych poufnych danych? I tak, nie. Na przykład, jeśli przejdziesz do wewnętrznej witryny Microsoft SharePoint na [https://microsoft.sharepoint.com/](https://microsoft.sharepoint.com/), zostanie wyświetlony monit, aby się zalogować.
+Czasami uzyskać możemy zadawane, o jak bezpieczne jest — Microsoft używa go do ich własnych poufnych danych? I tak, nie. Na przykład, jeśli przejdziesz do wewnętrznej witryny Microsoft SharePoint na [ https://microsoft.sharepoint.com/ ](https://microsoft.sharepoint.com/), zostanie wyświetlony monit, aby się zalogować.
 
 ![Logowania usługi Office 365](single-sign-on/_static/image20.png)
 
@@ -179,7 +179,7 @@ W tym rozdziale widać, że usługi Azure Active Directory, Visual Studio i ASP.
 [Następnego rozdziału](data-storage-options.md) analizuje opcje magazynowania danych dostępnych dla aplikacji w chmurze.
 
 <a id="resources"></a>
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
@@ -193,6 +193,6 @@ Aby uzyskać więcej informacji, zobacz następujące zasoby:
 - [Blog Azure Active Directory interfejsu API Graph](https://blogs.msdn.com/b/aadgraphteam/).
 - [Kontrola dostępu w modelu BYOD i integracji katalogu hybrydowej infrastruktury tożsamości](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/PCIT-B213#fbid=). Techniczna Ed 2014 sesji wideo przez Gayana Bagdasaryan.
 
->[!div class="step-by-step"]
-[Poprzednie](web-development-best-practices.md)
-[dalej](data-storage-options.md)
+> [!div class="step-by-step"]
+> [Poprzednie](web-development-best-practices.md)
+> [dalej](data-storage-options.md)

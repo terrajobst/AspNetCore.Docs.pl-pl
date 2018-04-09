@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb
 title: Tworzenie dostawcy mapy witryny niestandardowej opartej na bazie danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Domyślny dostawca mapy witryny w programie ASP.NET 2.0 pobiera dane ze statycznego pliku XML. Gdy dostawca opartych na języku XML nadaje się do wielu w małych i średnich rozmiar..."
+description: Domyślny dostawca mapy witryny w programie ASP.NET 2.0 pobiera dane ze statycznego pliku XML. Gdy dostawca opartych na języku XML nadaje się do wielu w małych i średnich rozmiar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e9b71ed89dce4e973a9096a9e2326d2c16c30673
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: df295f1b8bf0b83647ffb90501936181894634d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-a-custom-database-driven-site-map-provider-vb"></a>Tworzenie dostawcy mapy witryny niestandardowej opartej na bazie danych (VB)
 ====================
@@ -145,7 +145,7 @@ Następnie dodaj pole hiperłącza HyperLinkField i przenieś ją do lewej poło
 
 ![Dodaj widok szczegółów pole hiperłącza HyperLinkField wskazujące ProductDetails.aspx](building-a-custom-database-driven-site-map-provider-vb/_static/image10.gif)
 
-**Na rysunku nr 10**: Dodawanie widoku szczegółów pole hiperłącza HyperLinkField, który wskazuje`ProductDetails.aspx`
+**Na rysunku nr 10**: Dodawanie widoku szczegółów pole hiperłącza HyperLinkField, który wskazuje `ProductDetails.aspx`
 
 
 Po wykonaniu tych dostosowań, znaczników deklaratywne s GridView i ObjectDataSource powinna wyglądać w następujący sposób:
@@ -208,9 +208,9 @@ Mapy witryny jest dostępna za pośrednictwem [ `SiteMap` klasy](https://msdn.mi
 
 Gdy `SiteMap` właściwości klasy s są dostępne, musi on serializować struktury mapy witryny niektóre stałe nośnik do pamięci. Jednak logiki serializacji mapy witryny nie jest trudne w `SiteMap` klasy. Zamiast tego w czasie wykonywania `SiteMap` klasy określa, które mapy witryny *dostawcy* do użycia na potrzeby serializacji. Domyślnie [ `XmlSiteMapProvider` klasy](https://msdn.microsoft.com/library/system.web.xmlsitemapprovider.aspx) jest używana, która odczytuje struktura s mapy witryny z pliku XML niepoprawnie sformatowany. Jednak z niewielki pracy można utworzyć własną niestandardową witrynę dostawcy mapy.
 
-Wszystkich dostawców mapy witryny musi pochodzić od [ `SiteMapProvider` klasy](https://msdn.microsoft.com/library/system.web.sitemapprovider.aspx), w tym podstawowych metod i właściwości wymagane dla lokacji mapy dostawców, ale pominięto wiele szczegóły implementacji. W drugiej klasy [ `StaticSiteMapProvider` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.aspx), rozszerza `SiteMapProvider` klasy i zawiera bardziej niezawodne implementacja funkcje. Wewnętrznie `StaticSiteMapProvider` przechowuje `SiteMapNode` wystąpień witryny mapy w `Hashtable` i udostępnia metody, takich jak `AddNode(child, parent)`, `RemoveNode(siteMapNode),` i `Clear()` który Dodawanie i usuwanie `SiteMapNode` s do wewnętrznej `Hashtable`. `XmlSiteMapProvider`jest pochodną `StaticSiteMapProvider`.
+Wszystkich dostawców mapy witryny musi pochodzić od [ `SiteMapProvider` klasy](https://msdn.microsoft.com/library/system.web.sitemapprovider.aspx), w tym podstawowych metod i właściwości wymagane dla lokacji mapy dostawców, ale pominięto wiele szczegóły implementacji. W drugiej klasy [ `StaticSiteMapProvider` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.aspx), rozszerza `SiteMapProvider` klasy i zawiera bardziej niezawodne implementacja funkcje. Wewnętrznie `StaticSiteMapProvider` przechowuje `SiteMapNode` wystąpień witryny mapy w `Hashtable` i udostępnia metody, takich jak `AddNode(child, parent)`, `RemoveNode(siteMapNode),` i `Clear()` który Dodawanie i usuwanie `SiteMapNode` s do wewnętrznej `Hashtable`. `XmlSiteMapProvider` jest pochodną `StaticSiteMapProvider`.
 
-Jeśli tworzenie dostawcy mapy niestandardowej witryny, która rozszerza `StaticSiteMapProvider`, istnieją dwie metody abstrakcyjnej, które musi zostać zastąpiona: [ `BuildSiteMap` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.buildsitemap.aspx) i [ `GetRootNodeCore` ](https://msdn.microsoft.com/library/system.web.sitemapprovider.getrootnodecore.aspx). `BuildSiteMap`, jak jego nazwa wskazuje, jest odpowiedzialny za ładowanie struktury mapy witryny z magazynu trwałego i tworzenia go w pamięci. `GetRootNodeCore`Zwraca główny węzeł mapy witryny.
+Jeśli tworzenie dostawcy mapy niestandardowej witryny, która rozszerza `StaticSiteMapProvider`, istnieją dwie metody abstrakcyjnej, które musi zostać zastąpiona: [ `BuildSiteMap` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.buildsitemap.aspx) i [ `GetRootNodeCore` ](https://msdn.microsoft.com/library/system.web.sitemapprovider.getrootnodecore.aspx). `BuildSiteMap`, jak jego nazwa wskazuje, jest odpowiedzialny za ładowanie struktury mapy witryny z magazynu trwałego i tworzenia go w pamięci. `GetRootNodeCore` Zwraca główny węzeł mapy witryny.
 
 Przed sieci web aplikacji można użyć dostawcy mapy witryny, który musi być zarejestrowany w konfiguracji aplikacji s. Domyślnie `XmlSiteMapProvider` klasa jest zarejestrowana przy użyciu nazwy `AspNetXmlSiteMapProvider`. Aby zarejestrować lokacji dodatkowych dostawców mapy, Dodaj następujący kod do `Web.config`:
 
@@ -221,10 +221,10 @@ Przed sieci web aplikacji można użyć dostawcy mapy witryny, który musi być 
 
 Klasa dostawcy mapy witryny zostanie uruchomiony po raz pierwszy jest dostępny z `SiteMap` klasy i pozostaje w pamięci przez czas ich istnienia aplikacji sieci web. Ponieważ istnieje tylko jedno wystąpienie dostawcy mapy witryny, który może wywołać z wielu równoczesnych osoby odwiedzające, konieczne jest konieczności metod dostawcy s *wątkowo*.
 
-Wydajność i skalowalność powodów jego s ważne, możemy pamięci podręcznej w pamięci lokacji mapowania struktury i zwracać buforowane to struktura zamiast konieczności jej ponownego tworzenia zawsze `BuildSiteMap` wywołania metody. `BuildSiteMap`może zostać wywołana kilka razy na żądanie dostępu do strony dla poszczególnych użytkowników, w zależności od formantów nawigacji używany na stronie i głębokość struktury mapy witryny. W każdym przypadku, jeśli firma Microsoft nie buforują struktury mapy witryny w `BuildSiteMap` , a następnie zawsze jest wywoływana, czy należy ponownie pobrać produktu oraz informacje o kategorii z architektury (co spowoduje powstanie zapytania do bazy danych). Jak wspomniano w poprzedniej samouczki buforowania danych z pamięci podręcznej może stać się przestarzałe. To zwalczania, firma Microsoft może używać czas - lub expiries na podstawie zależności buforu SQL.
+Wydajność i skalowalność powodów jego s ważne, możemy pamięci podręcznej w pamięci lokacji mapowania struktury i zwracać buforowane to struktura zamiast konieczności jej ponownego tworzenia zawsze `BuildSiteMap` wywołania metody. `BuildSiteMap` może zostać wywołana kilka razy na żądanie dostępu do strony dla poszczególnych użytkowników, w zależności od formantów nawigacji używany na stronie i głębokość struktury mapy witryny. W każdym przypadku, jeśli firma Microsoft nie buforują struktury mapy witryny w `BuildSiteMap` , a następnie zawsze jest wywoływana, czy należy ponownie pobrać produktu oraz informacje o kategorii z architektury (co spowoduje powstanie zapytania do bazy danych). Jak wspomniano w poprzedniej samouczki buforowania danych z pamięci podręcznej może stać się przestarzałe. To zwalczania, firma Microsoft może używać czas - lub expiries na podstawie zależności buforu SQL.
 
 > [!NOTE]
-> Dostawcy mapy witryny może opcjonalnie zastąpić [ `Initialize` metody](https://msdn.microsoft.com/library/system.web.sitemapprovider.initialize.aspx). `Initialize`wywoływane, gdy dostawcy mapy witryny jest najpierw wystąpienie zostało utworzone i jest przekazywany dowolne atrybuty niestandardowe przypisane do dostawcy w `Web.config` w `<add>` elementów, takich jak: `<add name="name" type="type" customAttribute="value" />`. Jest przydatne, jeśli chcesz zezwolić dewelopera strony określić różne ustawienia mapy witryny związane z dostawcą bez konieczności modyfikowania kodu s dostawcy. Na przykład, jeśli firma Microsoft zostały odczytu kategorii i produktów danych bezpośrednio z bazy danych, w przeciwieństwie do za pomocą architektury, możemy d prawdopodobnie chcesz zezwolić developer strony, określ odpowiedni ciąg połączenia bazy danych za pośrednictwem `Web.config` zamiast przy użyciu zakodowanego wartość w kodzie dostawcy s. Firma Microsoft będzie kompilacji w kroku 6 dostawcy mapy niestandardowej witryny nie zastępuje to `Initialize` metody. Przykład za pomocą `Initialize` metody, zapoznaj się [Jeff Prosise](http://www.wintellect.com/Weblogs/CategoryView,category,Jeff%20Prosise.aspx) s [przechowywania map witryn w programie SQL Server](https://msdn.microsoft.com/msdnmag/issues/05/06/WickedCode/) artykułu.
+> Dostawcy mapy witryny może opcjonalnie zastąpić [ `Initialize` metody](https://msdn.microsoft.com/library/system.web.sitemapprovider.initialize.aspx). `Initialize` wywoływane, gdy dostawcy mapy witryny jest najpierw wystąpienie zostało utworzone i jest przekazywany dowolne atrybuty niestandardowe przypisane do dostawcy w `Web.config` w `<add>` elementów, takich jak: `<add name="name" type="type" customAttribute="value" />`. Jest przydatne, jeśli chcesz zezwolić dewelopera strony określić różne ustawienia mapy witryny związane z dostawcą bez konieczności modyfikowania kodu s dostawcy. Na przykład, jeśli firma Microsoft zostały odczytu kategorii i produktów danych bezpośrednio z bazy danych, w przeciwieństwie do za pomocą architektury, możemy d prawdopodobnie chcesz zezwolić developer strony, określ odpowiedni ciąg połączenia bazy danych za pośrednictwem `Web.config` zamiast przy użyciu zakodowanego wartość w kodzie dostawcy s. Firma Microsoft będzie kompilacji w kroku 6 dostawcy mapy niestandardowej witryny nie zastępuje to `Initialize` metody. Przykład za pomocą `Initialize` metody, zapoznaj się [Jeff Prosise](http://www.wintellect.com/Weblogs/CategoryView,category,Jeff%20Prosise.aspx) s [przechowywania map witryn w programie SQL Server](https://msdn.microsoft.com/msdnmag/issues/05/06/WickedCode/) artykułu.
 
 
 ## <a name="step-6-creating-the-custom-site-map-provider"></a>Krok 6: Tworzenie dostawcy mapy witryny niestandardowej
@@ -238,13 +238,13 @@ Let s rozpoczynać się od tej klasy s eksploracji `BuildSiteMap` metodę, któr
 
 Klasa poziomie `SiteMapNode` zmiennej `root` służy do buforowania struktury mapy witryny. Gdy mapy witryny jest tworzony po raz pierwszy lub po raz pierwszy po zmodyfikowaniu danych `root` będzie `Nothing` i będzie można utworzyć struktury mapy witryny. Węzeł główny mapy s witryny jest przypisany do `root` podczas konstruowania procesu, aby następnym razem ta metoda jest wywoływana, `root` nie będzie `Nothing`. W związku z tym tak długo, jak `root` nie jest `Nothing` struktury mapy witryny zostanie zwrócony do obiektu wywołującego bez konieczności ponownego tworzenia.
 
-Jeśli główny jest `Nothing`, struktura mapy witryny jest tworzona na podstawie informacji dotyczących produktu i kategorii. Mapy witryny jest konstruowany przez tworzenie `SiteMapNode` wystąpień i następnie tworząca hierarchii za pomocą wywołania `StaticSiteMapProvider` klasy s `AddNode` metody. `AddNode`wykonuje wewnętrznej księgowości, przechowywanie różne `SiteMapNode` wystąpień w `Hashtable`. Przed rozpoczęciem możemy tworzenia hierarchii, Rozpoczniemy przez wywołanie metody `Clear` metodę, która powoduje elementów wewnętrznych `Hashtable`. Następnie `ProductsBLL` klasy s `GetProducts` — metoda i powstałe w ten sposób `ProductsDataTable` są przechowywane w zmiennych lokalnych.
+Jeśli główny jest `Nothing`, struktura mapy witryny jest tworzona na podstawie informacji dotyczących produktu i kategorii. Mapy witryny jest konstruowany przez tworzenie `SiteMapNode` wystąpień i następnie tworząca hierarchii za pomocą wywołania `StaticSiteMapProvider` klasy s `AddNode` metody. `AddNode` wykonuje wewnętrznej księgowości, przechowywanie różne `SiteMapNode` wystąpień w `Hashtable`. Przed rozpoczęciem możemy tworzenia hierarchii, Rozpoczniemy przez wywołanie metody `Clear` metodę, która powoduje elementów wewnętrznych `Hashtable`. Następnie `ProductsBLL` klasy s `GetProducts` — metoda i powstałe w ten sposób `ProductsDataTable` są przechowywane w zmiennych lokalnych.
 
 Konstrukcja mapy s lokacji rozpoczyna się od tworzenia węzła głównego i przypisywania go do `root`. Przeciążenia [ `SiteMapNode` Konstruktor s](https://msdn.microsoft.com/library/system.web.sitemapnode.sitemapnode.aspx) używane w tym miejscu i przez to `BuildSiteMap` jest przekazywany następujące informacje:
 
 - Odwołanie do dostawcy mapy witryny (`Me`).
 - `SiteMapNode` s `Key`. To wymagane, wartość musi być unikatowa dla każdej `SiteMapNode`.
-- `SiteMapNode` s `Url`. `Url`jest opcjonalna, ale w przypadku każdego `SiteMapNode` s `Url` wartość musi być unikatowa.
+- `SiteMapNode` s `Url`. `Url` jest opcjonalna, ale w przypadku każdego `SiteMapNode` s `Url` wartość musi być unikatowa.
 - `SiteMapNode` s `Title`, co jest wymagane.
 
 `AddNode(root)` Dodaje wywołania metody `SiteMapNode` `root` do mapy witryny jako katalogu głównego. Następnie każdego `ProductRow` w `ProductsDataTable` wyliczeniu. Jeśli istnieje już `SiteMapNode` dla bieżącej kategorii produktów s odwołuje się do. W przeciwnym razie nowy `SiteMapNode` dla kategorii jest tworzony i dodawany jako element podrzędny `SiteMapNode``root` za pośrednictwem `AddNode(categoryNode, root)` wywołania metody. Po odpowiedniej kategorii `SiteMapNode` węzeł został znalezione lub utworzone, `SiteMapNode` jest tworzony dla bieżącego produktu i dodawany jako element podrzędny kategorii `SiteMapNode` za pośrednictwem `AddNode(productNode, categoryNode)`. Należy pamiętać, że kategoria `SiteMapNode` s `Url` wartość właściwości jest `~/SiteMapProvider/ProductsByCategory.aspx?CategoryID=categoryID` podczas produktu `SiteMapNode` s `Url` przypisano właściwości `~/SiteMapNode/ProductDetails.aspx?ProductID=productID`.
@@ -261,7 +261,7 @@ Po tworzenia mapy witryny, dowolny obiekt jest dodawany do pamięci podręcznej 
 
 `BuildSiteMap` Ukończeniu metody zwracając główny węzeł mapy witryny.
 
-Pozostałe metody są bardzo prosta. `GetRootNodeCore`jest odpowiedzialny za zwrócenie węzła głównego. Ponieważ `BuildSiteMap` zwraca główny `GetRootNodeCore` po prostu zwraca `BuildSiteMap` s zwracają wartość. `OnSiteMapChanged` Zestawy metody `root` do `Nothing` po usunięciu elementu pamięci podręcznej. Z certyfikatem głównym ustawiana dla `Nothing`, przy następnym `BuildSiteMap` jest wywołane, struktura mapy witryny zostanie odbudowany. Ponadto `CachedDate` właściwość zwraca wartość daty i godziny przechowywane w pamięci podręcznej danych, jeśli istnieje takich wartości. Ta właściwość umożliwia przez dewelopera strony podczas ostatniego został buforowane dane mapy witryny.
+Pozostałe metody są bardzo prosta. `GetRootNodeCore` jest odpowiedzialny za zwrócenie węzła głównego. Ponieważ `BuildSiteMap` zwraca główny `GetRootNodeCore` po prostu zwraca `BuildSiteMap` s zwracają wartość. `OnSiteMapChanged` Zestawy metody `root` do `Nothing` po usunięciu elementu pamięci podręcznej. Z certyfikatem głównym ustawiana dla `Nothing`, przy następnym `BuildSiteMap` jest wywołane, struktura mapy witryny zostanie odbudowany. Ponadto `CachedDate` właściwość zwraca wartość daty i godziny przechowywane w pamięci podręcznej danych, jeśli istnieje takich wartości. Ta właściwość umożliwia przez dewelopera strony podczas ostatniego został buforowane dane mapy witryny.
 
 ## <a name="step-7-registering-thenorthwindsitemapprovider"></a>Krok 7: Rejestrowanie`NorthwindSiteMapProvider`
 
@@ -362,11 +362,11 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Dave Gardner, Nowak Zack Teresa Murphy i Bernadette Leigh. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](building-a-custom-database-driven-site-map-provider-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](building-a-custom-database-driven-site-map-provider-cs.md)

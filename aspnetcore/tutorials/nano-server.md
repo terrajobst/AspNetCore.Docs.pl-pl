@@ -1,7 +1,7 @@
 ---
 title: Platformy ASP.NET Core na serwerze Nano
 author: shirhatti
-description: "Dowiedz się, jak wykonać istniejącej aplikacji platformy ASP.NET Core, a następnie wdrożyć go do wystąpienia Nano Server korzysta z usług IIS."
+description: Dowiedz się, jak wykonać istniejącej aplikacji platformy ASP.NET Core, a następnie wdrożyć go do wystąpienia Nano Server korzysta z usług IIS.
 manager: wpickett
 ms.author: riande
 ms.date: 11/04/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/nano-server
-ms.openlocfilehash: 3f234c84d2354a312ad6136b43d8c29aa346ae10
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: a5ea323b6f5e141143529e69e83abcc081a2337e
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="aspnet-core-with-iis-on-nano-server"></a>Platformy ASP.NET Core z usługami IIS na serwerze Nano
+# <a name="aspnet-core-on-nano-server"></a>Platformy ASP.NET Core na serwerze Nano
 
 Przez [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
@@ -104,7 +104,7 @@ Aby szybko sprawdzić usług IIS jest prawidłowo skonfigurowany, możesz odwied
 
 ## <a name="install-the-aspnet-core-module"></a>Zainstaluj moduł platformy ASP.NET Core
 
-Moduł platformy ASP.NET Core jest IIS 7.5 + moduł, który jest odpowiedzialny za zarządzanie procesem odbiorników platformy ASP.NET Core HTTP i żądania serwera proxy do procesów, którymi zarządza. W tej chwili procesu, aby zainstalować moduł platformy ASP.NET Core dla usług IIS jest wykonywana ręcznie. Zainstaluj [pakietu .NET Core systemu Windows serwer obsługujący](https://aka.ms/dotnetcore-2-windowshosting) na regularne (nie Nano) komputera. Po zainstalowaniu pakietu na regularne maszyny, skopiuj następujące pliki do udziału plików, który utworzony wcześniej.
+Moduł platformy ASP.NET Core jest IIS 7.5 + moduł, który jest odpowiedzialny za zarządzanie procesem odbiorników platformy ASP.NET Core HTTP i żądania serwera proxy do procesów, którymi zarządza. W tej chwili procesu, aby zainstalować moduł platformy ASP.NET Core dla usług IIS jest wykonywana ręcznie. Zainstaluj [pakietu .NET Core systemu Windows serwer obsługujący](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle) na regularne (nie Nano) komputera. Po zainstalowaniu pakietu na regularne maszyny, skopiuj następujące pliki do udziału plików, który utworzony wcześniej.
 
 Na serwerze regularne (nie Nano) z programem IIS uruchom następujące polecenia kopiowania:
 

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/building-the-ef5-mvc4-chapter-downloads
 title: Tworzenie rozdziale pliki do pobrania dla platformy MVC EF 5 samouczki 4 | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/building-the-ef5-mvc4-chapter-downloads
 msc.type: authoredcontent
-ms.openlocfilehash: 912a1383ed170b49782657372abc1801140df8dd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bda7effabd715e4658d2472e1f0a66d7bba18cab
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-the-chapter-downloads-for-the-ef-5-mvc-4-tutorials"></a>Tworzenie w rozdziale pliki do pobrania dla platformy MVC EF 5 samouczki 4
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -57,5 +57,5 @@ Przez [Rick Anderson](https://github.com/Rick-Anderson)
 
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image5.png)
 
->[!div class="step-by-step"]
-[Poprzednie](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+> [!div class="step-by-step"]
+> [Poprzednie](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

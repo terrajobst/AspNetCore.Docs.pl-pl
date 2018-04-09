@@ -1,7 +1,7 @@
 ---
 title: Praca z bazy danych LocalDB programu SQL Server i platformy ASP.NET Core
 author: rick-anderson
-description: "W tym artykule wyjaśniono pracy z bazy danych LocalDB programu SQL Server i ASP.NET Core."
+description: W tym artykule wyjaśniono pracy z bazy danych LocalDB programu SQL Server i ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 408072fbe83eadb0ae3c35c2789bda8ecaac58c0
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e5fa552f80f7ee0876fe31dd87a1ddbd5fe567dd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="working-with-sql-server-localdb-and-aspnet-core"></a>Praca z bazy danych LocalDB programu SQL Server i platformy ASP.NET Core
+# <a name="work-with-sql-server-localdb-and-aspnet-core"></a>Praca z bazy danych LocalDB programu SQL Server i platformy ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Audette Jan](https://twitter.com/joeaudette) 
 
@@ -82,8 +82,8 @@ Testowanie aplikacji
 
     ![Menu kontekstowe](sql/_static/stopIIS.png)
 
-   * Podczas uruchamiania programu VS w trybie bez debugowania, naciśnij klawisz F5, aby uruchomić w trybie debugowania.
-   * W przypadku korzystania z wersji programu VS w trybie debugowania, zatrzymaniu debugera i naciśnij klawisz F5.
+    * Podczas uruchamiania programu VS w trybie bez debugowania, naciśnij klawisz F5, aby uruchomić w trybie debugowania.
+    * W przypadku korzystania z wersji programu VS w trybie debugowania, zatrzymaniu debugera i naciśnij klawisz F5.
    
 Aplikacja zawiera wprowadzonych danych:
 
@@ -91,6 +91,6 @@ Aplikacja zawiera wprowadzonych danych:
 
 Następny samouczek spowoduje oczyszczenie prezentacji danych.
 
->[!div class="step-by-step"]
-[Poprzedni: Tworzenie szkieletu stron Razor](xref:tutorials/razor-pages/page)
-[dalej: aktualizowanie stron](xref:tutorials/razor-pages/da1)
+> [!div class="step-by-step"]
+> [Poprzedni: Tworzenie szkieletu stron Razor](xref:tutorials/razor-pages/page)
+> [dalej: aktualizowanie stron](xref:tutorials/razor-pages/da1)

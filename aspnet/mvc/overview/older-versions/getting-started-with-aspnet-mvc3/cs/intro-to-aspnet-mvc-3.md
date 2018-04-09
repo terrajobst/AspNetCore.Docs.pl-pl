@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3
 title: Wprowadzenie do platformy ASP.NET MVC 3 (C#) | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest..."
+description: Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3
 msc.type: authoredcontent
-ms.openlocfilehash: bbeaad9e52db1fd85ef166052a377e8b6732a90a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9b965df6175051a084de35627160161c116be42d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="intro-to-aspnet-mvc-3-c"></a>Wprowadzenie do platformy ASP.NET MVC 3 (C#)
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Dostępna jest zaktualizowana wersja tego samouczka [tutaj](../../../getting-started/introduction/getting-started.md) używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej wykonać i pokazuje więcej funkcji.
@@ -91,5 +91,5 @@ F5 powoduje, że Visual Web Developer uruchomić serwera wdrożeniowego sieci we
 
 Dodatkowych zabiegów ten szablon domyślny zapewnia dwie strony, aby odwiedzić i strony logowania podstawowe. Następnym krokiem jest zmienić sposób działania tej aplikacji i Poznaj nieco ASP.NET MVC w procesie. Zamknij przeglądarkę i Zmieńmy kodu.
 
->[!div class="step-by-step"]
-[Dalej](adding-a-controller.md)
+> [!div class="step-by-step"]
+> [Next](adding-a-controller.md)

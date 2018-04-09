@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 title: Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Książka elektroniczna przedstawiono podejście na podstawie wzorców do tworzenia rozwiązań chmur rzeczywistych. Wzorce dotyczą programowanie proces również jako..."
+description: Książka elektroniczna przedstawiono podejście na podstawie wzorców do tworzenia rozwiązań chmur rzeczywistych. Wzorce dotyczą programowanie proces również jako...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 4de0b52e0b4ae7ce00e7b07bce2decfc5068964a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5a62818a2dc21128bb0a42a8b296ade460e7b060
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure
 ====================
@@ -60,7 +60,7 @@ Książka elektroniczna objaśniono trzunastu zalecane wzorce dla rozwoju chmury
     - Zachowaj bezstanowych warstwa sieci web.
     - Pokaz: skalowanie i automatyczne skalowanie aplikacji sieci Web w usłudze Azure App Service.
     - Unikaj stanu sesji.
-    - Korzystanie z sieci CDN.
+    - Za pomocą CDN rezerwowe, gdy element CDN jest niedostępny.
     - Użyj modelu programowania asynchronicznego.
     - Pokaz: asynchronicznego w programie ASP.NET MVC i Entity Framework.
 - [Logowanie jednokrotne](single-sign-on.md). 
@@ -162,7 +162,7 @@ Szybkie i łatwe samouczek krok po kroku, który pokazuje, jak utworzyć aplikac
 
 To wprowadzenie udostępnił listę tematów, które będzie obejmować książce, zrzuty ekranu aplikacji przykładowej i krótkie omówienie aplikacji sieci Web w środowisku chmury Azure App Service. Jedną z zalet dużą rozwoju aplikacji w chmurze oraz jest łatwo automatyzować powtarzalne zadania, takie jak tworzenie środowiska testowego i wdrażanie kodu. Jak to zrobić będący przedmiotem [następny rozdział](automate-everything.md).
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji na temat tematy omówione w tym rozdziale zobacz następujące zasoby.
 
@@ -177,5 +177,5 @@ Filmy wideo:
 - [Architektura witryn sieci Web — z Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/).
 - [Ustawienia wewnętrzne witryny sieci Web platformy Azure z Nir Mashkowski](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski).
 
->[!div class="step-by-step"]
-[Next](automate-everything.md)
+> [!div class="step-by-step"]
+> [Next](automate-everything.md)

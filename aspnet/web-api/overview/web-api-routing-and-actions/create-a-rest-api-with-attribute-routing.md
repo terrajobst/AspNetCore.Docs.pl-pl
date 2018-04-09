@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
-title: "Tworzenie interfejsu API REST atrybutu routingu w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft"
+title: Tworzenie interfejsu API REST atrybutu routingu w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: c1d0b3e1644ef7f9ebb4be74c3fdf3df90cf3537
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f1e90544c9dd8439a522f2196d81d020ea2f4f2
+ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Tworzenie interfejsu API REST z atrybutem routingu w składniku ASP.NET Web API 2
 ====================
@@ -184,7 +184,7 @@ Jeśli żądanie zostało wysłane `/api/books/1/details`, odpowiedź wygląda n
 
 ## <a name="get-books-by-genre"></a>Pobierz książek według rodzaju
 
-Aby uzyskać listę książek określonego rodzaju, klient wyśle żądanie GET `/api/books/genre`, gdzie *genre* jest nazwą rodzaju. (Na przykład `/get/books/fantasy`.)
+Aby uzyskać listę książek określonego rodzaju, klient wyśle żądanie GET `/api/books/genre`, gdzie *genre* jest nazwą rodzaju. (Na przykład `/api/books/fantasy`.)
 
 Dodaj następującą metodę do `BooksController`.
 

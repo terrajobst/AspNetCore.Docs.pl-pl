@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-vb
-title: "Rozwijanie i zwijanie panelu z poziomu języka JavaScript (VB) | Dokumentacja firmy Microsoft"
+title: Rozwijanie i zwijanie panelu z poziomu języka JavaScript (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formant CollapsiblePanel w zestawie narzędzi programu ASP.NET AJAX kontroli rozszerza panelu i zapewnia możliwość zwijanie zawartością i rozwiń go..."
+description: Formant CollapsiblePanel w zestawie narzędzi programu ASP.NET AJAX kontroli rozszerza panelu i zapewnia możliwość zwijanie zawartością i rozwiń go...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6adca6771042cad71139977496f985cb8dac63aa
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5cf61cd0d8204a5405ba62cd3884d66ccb21968b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="collapsing-and-expanding-a-panel-from-javascript-vb"></a>Rozwijanie i zwijanie panelu z poziomu języka JavaScript (VB)
 ====================
@@ -53,7 +53,7 @@ Niestety extender aktualnie nie uwidacznia interfejsu API dla zwijanie lub rozwi
 
 [!code-aspx[Main](collapsing-and-expanding-a-panel-from-javascript-vb/samples/sample5.aspx)]
 
-W kodzie JavaScript po stronie klienta (wprowadzenie do `<script type="text/javascript">`), `$find()` metoda musi zostać użyte do dostępu `CollapsiblePanelExtender`. `$find("cpe")`Zwraca odwołanie do niej. Stamtąd na konkretnych metod rozwiąże wykonywanego zadania.
+W kodzie JavaScript po stronie klienta (wprowadzenie do `<script type="text/javascript">`), `$find()` metoda musi zostać użyte do dostępu `CollapsiblePanelExtender`. `$find("cpe")` Zwraca odwołanie do niej. Stamtąd na konkretnych metod rozwiąże wykonywanego zadania.
 
 Metoda otwierania (rozszerzenie) jest nazywany panelu `_doOpen()`; poniższy kod implementuje `doOpen()` funkcja wywoływana po kliknięciu przycisku pierwszej:
 
@@ -72,5 +72,5 @@ Trzeci przycisk Przełącza stan panelu: z zwinięte do rozwinięta i na odwrót
 
 Trzeci przycisk zmieni stan panelu: z zwinięte rozwinięte i zapasowego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](collapsing-and-expanding-a-panel-from-javascript-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](collapsing-and-expanding-a-panel-from-javascript-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](collapsing-and-expanding-a-panel-from-javascript-cs.md)

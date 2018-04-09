@@ -1,7 +1,7 @@
 ---
-title: "Facebook, Google i zewnętrznego dostawcy uwierzytelniania w ASP.NET Core"
+title: Facebook, Google i zewnętrznego dostawcy uwierzytelniania w ASP.NET Core
 author: rick-anderson
-description: "W tym samouczku pokazano, jak kompilacji platformy ASP.NET Core 2.x aplikacji przy użyciu protokołu OAuth 2.0 przy pomocy dostawcy uwierzytelniania zewnętrznego."
+description: W tym samouczku pokazano, jak kompilacji platformy ASP.NET Core 2.x aplikacji przy użyciu protokołu OAuth 2.0 przy pomocy dostawcy uwierzytelniania zewnętrznego.
 manager: wpickett
 ms.author: riande
 ms.date: 11/01/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/social/index
-ms.openlocfilehash: 76433f814d6850a449434c29eb0bd27570ce193a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 93fa42be9c551f5bbdf3851aec1d9e01139fdb76
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google i zewnętrznego dostawcy uwierzytelniania w ASP.NET Core
 
@@ -23,7 +23,7 @@ Przez [Valeriy Novytskyy](https://github.com/01binary) i [Rick Anderson](https:/
 
 W tym samouczku przedstawiono sposób kompilacji platformy ASP.NET Core 2.x aplikacji, która umożliwia użytkownikom zalogowanie się przy użyciu protokołu OAuth 2.0 z poświadczeń zewnętrzni dostawcy uwierzytelniania.
 
-[Facebook](facebook-logins.md), [Twitter](twitter-logins.md), [Google](google-logins.md), i [Microsoft](microsoft-logins.md) dostawców są przedstawione w poniższych sekcjach. Inni dostawcy są dostępne w pakiety innych firm takich jak [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) i [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
+[Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins), i [Microsoft](xref:security/authentication/microsoft-logins) dostawców są przedstawione w poniższych sekcjach. Inni dostawcy są dostępne w pakiety innych firm takich jak [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) i [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
 
 ![Ikony mediów społecznościowych dla usługi Facebook, Twitter, Google plus i systemu Windows](index/_static/social.png)
 
@@ -66,17 +66,17 @@ Przypisz dostawców logowania społecznościowych **identyfikator aplikacji** i 
 
 Te wartości są wydajnie *nazwy użytkownika* i *hasło* aplikacja korzysta z dostępu do interfejsu API i stanowią "kluczy tajnych" połączone za pomocą konfiguracji aplikacji **Manager klucz tajny** zamiast przechowywania ich w plikach konfiguracji bezpośrednio lub kodować je.
 
-Postępuj zgodnie z instrukcjami [bezpiecznego magazynu kluczy tajnych aplikacji w czasie opracowywania w ASP.NET Core](xref:security/app-secrets) tematu, dzięki czemu można przechowywać tokeny przypisany przez każdy dostawca logowania poniżej.
+Postępuj zgodnie z instrukcjami [bezpiecznego magazynu kluczy tajnych aplikacji w rozwoju platformy ASP.NET Core](xref:security/app-secrets) tematu, dzięki czemu można przechowywać tokeny przypisany przez każdy dostawca logowania poniżej.
 
 ## <a name="setup-login-providers-required-by-your-application"></a>Dostawców logowania Instalatora wymagane przez aplikację
 
 Aby skonfigurować aplikację do używania odpowiednich dostawców, należy użyć następujące tematy:
 
-* [Facebook](facebook-logins.md) instrukcje
-* [W usłudze Twitter](twitter-logins.md) instrukcje
-* [Google](google-logins.md) instrukcje
-* [Microsoft](microsoft-logins.md) instrukcje
-* [Inny dostawca](other-logins.md) instrukcje
+* [Facebook](xref:security/authentication/facebook-logins) instrukcje
+* [W usłudze Twitter](xref:security/authentication/twitter-logins) instrukcje
+* [Google](xref:security/authentication/google-logins) instrukcje
+* [Microsoft](xref:security/authentication/microsoft-logins) instrukcje
+* [Inny dostawca](xref:security/authentication/otherlogins) instrukcje
 
 ## <a name="optionally-set-password"></a>Opcjonalnie Ustaw hasło.
 

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 title: Filtry akcji niestandardowych platformy ASP.NET MVC 4 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "ASP.NET MVC udostępnia filtry akcji wykonywania logiki filtrowania przed lub po nosi nazwę metody akcji. Filtry akcji są określona atrybutów niestandardowych..."
+description: ASP.NET MVC udostępnia filtry akcji wykonywania logiki filtrowania przed lub po nosi nazwę metody akcji. Filtry akcji są określona atrybutów niestandardowych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 639815cc92b7cb5f3dfb4e1a198f6b4c2476dc90
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 8b135b23aea64b0c7c7d4368eef9ee80914159e4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>Filtry akcji niestandardowych platformy ASP.NET MVC 4
 
@@ -139,14 +139,14 @@ W ramach tego zadania spowoduje utworzenie klasy atrybutu niestandardowego filtr
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się na **\Source\Ex01-LoggingActions\Begin** folderu.
 
-    1. Należy pobrać niektórych brakujących pakietów NuGet, przed kontynuowaniem. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Należy pobrać niektórych brakujących pakietów NuGet, przed kontynuowaniem. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
-    > 
-    > Aby uzyskać więcej informacji, zobacz ten artykuł: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > 
+      > Aby uzyskać więcej informacji, zobacz ten artykuł: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages ](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
 2. Dodaj nową klasę C# do **filtry** folder i nadaj mu nazwę *CustomActionFilter.cs*. Ten folder będzie przechowywać wszystkie filtry niestandardowe.
 3. Otwórz **CustomActionFilter.cs** i Dodaj odwołanie do **System.Web.Mvc** i **MvcMusicStore.Models** przestrzeni nazw:
 
@@ -185,10 +185,10 @@ Istnieje również możliwość przechwycenia metody określonego kontrolera.
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample5.cs)]
 
-    > [!NOTE]
-    > Gdy filtr jest wstrzykiwane do klasy kontrolera, również są wprowadzić swoje działania. Jeśli chcesz zastosować filtr tylko dla działań, konieczne będzie przeprowadzenie wstrzyknąć **[CustomActionFilter]** do każdej z nich z nich:
-    > 
-    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample6.cs)]
+   > [!NOTE]
+   > Gdy filtr jest wstrzykiwane do klasy kontrolera, również są wprowadzić swoje działania. Jeśli chcesz zastosować filtr tylko dla działań, konieczne będzie przeprowadzenie wstrzyknąć **[CustomActionFilter]** do każdej z nich z nich:
+   > 
+   > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample6.cs)]
 
 <a id="Ex1Task3"></a>
 
@@ -204,14 +204,14 @@ W tym zadaniu zostanie testu działa filtr rejestrowania. Będzie uruchomić apl
 
     *Dziennik śledzenia stanu przed działania strony*
 
-    > [!NOTE]
-    > Domyślnie go będzie zawsze pokazuj elementu, który jest generowany podczas pobierania istniejących genres menu.
-    > 
-    > Dla uproszczenia możemy jest czyszczony **ActionLog** tabeli każdym uruchomieniu aplikacji, będzie wyświetlana tylko dzienniki weryfikacji każdego określonego zadania.
-    > 
-    > Konieczne może być usuń poniższy kod z **sesji\_Start** — metoda (w **Global.asax** klasy), aby zapisać dziennik historyczny dla wszystkich akcji, które są wykonywane w magazynie Kontroler.
-    > 
-    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample7.cs)]
+   > [!NOTE]
+   > Domyślnie go będzie zawsze pokazuj elementu, który jest generowany podczas pobierania istniejących genres menu.
+   > 
+   > Dla uproszczenia możemy jest czyszczony **ActionLog** tabeli każdym uruchomieniu aplikacji, będzie wyświetlana tylko dzienniki weryfikacji każdego określonego zadania.
+   > 
+   > Konieczne może być usuń poniższy kod z **sesji\_Start** — metoda (w **Global.asax** klasy), aby zapisać dziennik historyczny dla wszystkich akcji, które są wykonywane w magazynie Kontroler.
+   > 
+   > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample7.cs)]
 3. Kliknij jeden z **Genres** z menu i wykonywania pewnych działań, takich jak przeglądanie dostępnych albumu.
 4. Przejdź do **/ActionLog** i jeśli dziennik jest pusty naciśnij **F5** odświeżenie strony. Sprawdź, czy zostały śledzone wizyty:
 
@@ -250,7 +250,7 @@ W ramach tego zadania spowoduje utworzenie nowej niestandardowy filtr akcji do d
         > [!NOTE]
         > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
         > 
-        > Aby uzyskać więcej informacji, zobacz ten artykuł: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
+        > Aby uzyskać więcej informacji, zobacz ten artykuł: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages ](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
 2. Dodaj nową klasę C# do **filtry** folder i nadaj mu nazwę *MyNewCustomActionFilter.cs*
 3. Otwórz **MyNewCustomActionFilter.cs** i Dodaj odwołanie do **System.Web.Mvc** i **MvcMusicStore.Models** przestrzeni nazw:
 
@@ -264,7 +264,7 @@ W ramach tego zadania spowoduje utworzenie nowej niestandardowy filtr akcji do d
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample9.cs)]
 
     > [!NOTE]
-    > Ten niestandardowy filtr akcji jest niemal taki sam, niż ten, który został utworzony w poprzednim ćwiczeniu. Główną różnicą jest to, że ma  *&quot;rejestrowane przez&quot;*  zaktualizowany o nazwie ta nowa klasa, aby zidentyfikować filtru upubliczniona atrybut zarejestrowany dziennika.
+    > Ten niestandardowy filtr akcji jest niemal taki sam, niż ten, który został utworzony w poprzednim ćwiczeniu. Główną różnicą jest to, że ma *&quot;rejestrowane przez&quot;* zaktualizowany o nazwie ta nowa klasa, aby zidentyfikować filtru upubliczniona atrybut zarejestrowany dziennika.
 
 <a id="Ex2Task2"></a>
 
@@ -376,9 +376,9 @@ Wykonując tego laboratorium Hands-On uzyskanych jak rozszerzyć filtr akcji do 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Dodatek A: Instalowanie programu Visual Studio Express 2012 for Web
 
-Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji  **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
+Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
 
-1. Przejdź do [ [https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; *programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK*&quot;.
+1. Przejdź do [ [ https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; <em>programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK</em>&quot;.
 2. Polecenie **teraz zainstalować**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 
@@ -485,12 +485,12 @@ Jeśli aplikacja korzysta z programu SQL Server baz danych, należy utworzyć se
 
     ![Dodawanie adresu IP klienta](aspnet-mvc-4-custom-action-filters/_static/image27.png)
 
-    Dodawanie adresu IP klienta
+    *Dodawanie adresu IP klienta*
 3. Raz **adres IP klienta** jest dodawany do dozwolonych adresów IP kliknij na **zapisać** o potwierdzenie zmian.
 
     ![Potwierdzenie zmian](aspnet-mvc-4-custom-action-filters/_static/image28.png)
 
-    Potwierdzenie zmian
+    *Potwierdzenie zmian*
 
 <a id="ApxBTask3"></a>
 
@@ -522,14 +522,14 @@ Jeśli aplikacja korzysta z programu SQL Server baz danych, należy utworzyć se
     *Konfiguracja narzędzia Web deploy*
 5. Skonfiguruj połączenie z bazą danych w następujący sposób:
 
-    - W **nazwy serwera** wpisz swoją bazą danych SQL server adresu URL przy użyciu *tcp:* prefiks.
-    - W **nazwy użytkownika** wpisz nazwę logowania administratora serwera.
-    - W **hasło** wpisz hasło logowania administratora serwera.
-    - Wpisz nazwę nowej bazy danych.
+   - W **nazwy serwera** wpisz swoją bazą danych SQL server adresu URL przy użyciu *tcp:* prefiks.
+   - W **nazwy użytkownika** wpisz nazwę logowania administratora serwera.
+   - W **hasło** wpisz hasło logowania administratora serwera.
+   - Wpisz nazwę nowej bazy danych.
 
-    ![Konfigurowanie parametrów połączenia z lokalizacją docelową](aspnet-mvc-4-custom-action-filters/_static/image33.png "Konfigurowanie parametrów połączenia z lokalizacją docelową")
+     ![Konfigurowanie parametrów połączenia z lokalizacją docelową](aspnet-mvc-4-custom-action-filters/_static/image33.png "Konfigurowanie parametrów połączenia z lokalizacją docelową")
 
-    *Konfigurowanie parametrów połączenia z lokalizacją docelową*
+     *Konfigurowanie parametrów połączenia z lokalizacją docelową*
 6. Następnie kliknij przycisk **OK**. Po wyświetleniu monitu można utworzyć bazy danych kliknij **tak**.
 
     ![Tworzenie bazy danych](aspnet-mvc-4-custom-action-filters/_static/image34.png "tworzenie parametry bazy danych")

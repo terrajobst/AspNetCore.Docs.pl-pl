@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
-title: "Aplikacja ASP.NET MVC 5 z programu SMS i adres e-mail uwierzytelniania dwuskładnikowego | Dokumentacja firmy Microsoft"
+title: Aplikacja ASP.NET MVC 5 z programu SMS i adres e-mail uwierzytelniania dwuskładnikowego | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Ten samouczek przedstawia sposób tworzenia aplikacji sieci web platformy ASP.NET MVC 5 z uwierzytelniania dwuskładnikowego. Należy wykonać aplikację sieci web tworzenie bezpiecznej platformy ASP.NET MVC 5 z..."
+description: Ten samouczek przedstawia sposób tworzenia aplikacji sieci web platformy ASP.NET MVC 5 z uwierzytelniania dwuskładnikowego. Należy wykonać aplikację sieci web tworzenie bezpiecznej platformy ASP.NET MVC 5 z...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/20/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: d6bc92f3cbe6b61332e33e8a507b4516bf5c15a5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5e1c54b3901f2c8c85134445c1fa91ee9f2e0d59
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>Aplikacja ASP.NET MVC 5 z programu SMS i adres e-mail uwierzytelniania dwuskładnikowego
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Ten samouczek przedstawia sposób tworzenia aplikacji sieci web platformy ASP.NET MVC 5 z uwierzytelniania dwuskładnikowego. Należy wykonać [utworzenia bezpiecznego aplikacji sieci web platformy ASP.NET MVC 5 z dziennika w resetowania hasła i potwierdzania poczty e-mail](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) przed kontynuowaniem. Możesz pobrać ukończona aplikacja [tutaj](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952). Pobieranie zawiera debugowania wątków, które umożliwiają testowanie potwierdzenie adresu e-mail i SMS bez konfiguracji poczty e-mail lub dostawcy programu SMS.
 > 
@@ -53,44 +53,44 @@ Ten samouczek zawiera instrukcje dotyczące korzystania z usługi Twilio lub ASP
 
 1. **Tworzenie konta użytkownika z dostawcą programu SMS**  
   
- Utwórz [usługi Twilio](https://www.twilio.com/try-twilio) lub [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) konta.
+   Utwórz [usługi Twilio](https://www.twilio.com/try-twilio) lub [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) konta.
 2. **Instalowanie dodatkowych pakietów lub Dodawanie odwołań do usługi**  
   
- Usługi Twilio:  
- W konsoli Menedżera pakietów wprowadź następujące polecenie:  
+   Usługi Twilio:  
+   W konsoli Menedżera pakietów wprowadź następujące polecenie:  
     `Install-Package Twilio`  
   
- ASPSMS:  
- Następujące odwołanie do usługi musi zostać dodany:  
+   ASPSMS:  
+   Następujące odwołanie do usługi musi zostać dodany:  
   
     ![](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/_static/image2.png)  
   
- Adres:  
+   Adres:  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
- Przestrzeń nazw:  
+   Przestrzeń nazw:  
     `ASPSMSX2`
 3. **Ustaleniem, poświadczenia użytkownika dostawcy programu SMS**  
   
- Usługi Twilio:  
- Z **pulpitu nawigacyjnego** kartę konta usługi Twilio kopiowania **identyfikator SID konta** i **token uwierzytelniania**.  
+   Usługi Twilio:  
+   Z **pulpitu nawigacyjnego** kartę konta usługi Twilio kopiowania **identyfikator SID konta** i **token uwierzytelniania**.  
   
- ASPSMS:  
- W ustawieniach konta, przejdź do **Userkey** i skopiować go razem z własnym zdefiniowanych **hasło**.  
+   ASPSMS:  
+   W ustawieniach konta, przejdź do **Userkey** i skopiować go razem z własnym zdefiniowanych **hasło**.  
   
- Przechowujemy później tych wartości w *web.config* pliku w kluczach `"SMSAccountIdentification"` i `"SMSAccountPassword"` .
+   Przechowujemy później tych wartości w *web.config* pliku w kluczach `"SMSAccountIdentification"` i `"SMSAccountPassword"` .
 4. **Określanie SenderID / inicjator**  
   
- Usługi Twilio:  
- Z **numery** karcie, skopiuj numer telefonu usługi Twilio.  
+   Usługi Twilio:  
+   Z **numery** karcie, skopiuj numer telefonu usługi Twilio.  
   
- ASPSMS:  
- W ramach **odblokować nadawcy** Menu, odblokuj co najmniej jednego nadawcy, lub Wybierz zleceniodawcę alfanumeryczne (nieobsługiwane przez wszystkie sieci).  
+   ASPSMS:  
+   W ramach **odblokować nadawcy** Menu, odblokuj co najmniej jednego nadawcy, lub Wybierz zleceniodawcę alfanumeryczne (nieobsługiwane przez wszystkie sieci).  
   
- Przechowujemy później tę wartość w *web.config* pliku w kluczu `"SMSAccountFrom"` .
+   Przechowujemy później tę wartość w *web.config* pliku w kluczu `"SMSAccountFrom"` .
 5. **Transferowanie poświadczenia dostawcy programu SMS w aplikacji**  
   
- Udostępnij poświadczenia i numer telefonu nadawcy aplikacji. Aby zapewnić proste przechowujemy będzie tych wartości w *web.config* pliku. Gdy firma Microsoft wdrażanie na platformie Azure, firma Microsoft może przechowywać bezpiecznie w wartości **ustawień aplikacji** Karta Konfigurowanie sekcji w witrynie sieci web. 
+   Udostępnij poświadczenia i numer telefonu nadawcy aplikacji. Aby zapewnić proste przechowujemy będzie tych wartości w *web.config* pliku. Gdy firma Microsoft wdrażanie na platformie Azure, firma Microsoft może przechowywać bezpiecznie w wartości **ustawień aplikacji** Karta Konfigurowanie sekcji w witrynie sieci web. 
 
     [!code-xml[Main](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/samples/sample1.xml?highlight=8-10)]
 
@@ -98,9 +98,9 @@ Ten samouczek zawiera instrukcje dotyczące korzystania z usługi Twilio lub ASP
     > Zabezpieczenia — nigdy nie magazynu danych poufnych w kodzie źródłowym. Konta i poświadczenia zostaną dodane do powyżej, aby zachować prosty przykład kodu. Zobacz [najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
 6. **Implementacja transferu danych do dostawcy programu SMS**  
   
- Skonfiguruj `SmsService` klasy w *aplikacji\_Start\IdentityConfig.cs* pliku.  
+   Skonfiguruj `SmsService` klasy w *aplikacji\_Start\IdentityConfig.cs* pliku.  
   
- W zależności od dostawcy programu SMS używanego aktywować **usługi Twilio** lub **ASPSMS** sekcji: 
+   W zależności od dostawcy programu SMS używanego aktywować **usługi Twilio** lub **ASPSMS** sekcji: 
 
     [!code-csharp[Main](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/samples/sample2.cs)]
 7. Aktualizacja *Views\Manage\Index.cshtml* widoku Razor: (Uwaga: nie po prostu usuń komentarze w kodzie istniejących, użyj poniższy kod.)  

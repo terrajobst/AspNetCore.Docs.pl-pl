@@ -1,7 +1,7 @@
 ---
-title: "Żądania obsługi z kontrolerami w programie ASP.NET MVC Core"
+title: Dojście żądań z kontrolerami w programie ASP.NET MVC Core
 author: ardalis
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 07/03/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 1223eacfb88e1e6adb6edaf5ea4ba2b653292850
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c2f37bc7999b4c4ccc985d25d2ef009954d8f3f0
+ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Żądania obsługi z kontrolerami w programie ASP.NET MVC Core
+# <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Dojście żądań z kontrolerami w programie ASP.NET MVC Core
 
 Przez [Steve Smith](https://ardalis.com/) i [Scott Addie](https://github.com/scottaddie)
 
@@ -76,7 +76,7 @@ Istnieją dwa typy wyników w ramach tej kategorii: Przekierowanie i kod stanu H
 
 Większość metody pomocnika w tej kategorii obejmują `ContentType` właściwości, dzięki czemu można ustawić `Content-Type` nagłówek odpowiedzi do opisywania treść odpowiedzi.
 
-Istnieją dwa typy wyników w ramach tej kategorii: [widoku](xref:mvc/views/overview) i [sformatowany odpowiedzi](xref:mvc/models/formatting).
+Istnieją dwa typy wyników w ramach tej kategorii: [widoku](xref:mvc/views/overview) i [sformatowany odpowiedzi](xref:web-api/advanced/formatting).
 
 * **Widok**
 
@@ -90,7 +90,7 @@ Istnieją dwa typy wyników w ramach tej kategorii: [widoku](xref:mvc/views/over
 
 #### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. Metod co w treści odpowiedzi pusty sformatowane typu zawartości negocjowane z klienta
 
-Ta kategoria jest lepiej znane jako **negocjacje zawartości**. [Negocjowanie zawartości](xref:mvc/models/formatting#content-negotiation) ma zastosowanie, gdy akcja zwraca [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult) typu lub coś innego niż [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) implementacji. Akcja, która zwraca niż`IActionResult` implementacji (na przykład `object`) również zwraca odpowiedź sformatowany.
+Ta kategoria jest lepiej znane jako **negocjacje zawartości**. [Negocjowanie zawartości](xref:web-api/advanced/formatting#content-negotiation) ma zastosowanie, gdy akcja zwraca [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult) typu lub coś innego niż [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) implementacji. Akcja, która zwraca niż`IActionResult` implementacji (na przykład `object`) również zwraca odpowiedź sformatowany.
 
 Niektóre metody pomocnika tego typu obejmują `BadRequest`, `CreatedAtRoute`, i `Ok`. Przykłady te metody `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);`, i `return Ok(value);`odpowiednio. Należy pamiętać, że `BadRequest` i `Ok` przeprowadzania negocjacji zawartości tylko wtedy, gdy przekazana wartość; nie przekazano wartość, zamiast tego służą jako typy wyników kod stanu HTTP. `CreatedAtRoute` Metody z drugiej strony, zawsze przeprowadza negocjacje zawartości od momentu jego przeciążenia wszystkie wymagają, aby otrzymać wartość.
 

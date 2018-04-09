@@ -1,7 +1,7 @@
 ---
-title: "Omówienie platformy ASP.NET Core MVC"
+title: Omówienie platformy ASP.NET Core MVC
 author: ardalis
-description: "Dowiedz się, jak platformy ASP.NET Core MVC jest sformatowany framework do tworzenia aplikacji sieci web i interfejsów API przy użyciu Model-View-Controller projektowanie wzorca."
+description: Dowiedz się, jak platformy ASP.NET Core MVC jest sformatowany framework do tworzenia aplikacji sieci web i interfejsów API przy użyciu Model-View-Controller projektowanie wzorca.
 manager: wpickett
 ms.author: riande
 ms.date: 01/08/2018
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 16fd1b5e71cde4364f02640f504d42218ed680df
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1cf48499d3bc0ba63e2f0667740668fad0b13c28
+ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
@@ -185,13 +185,13 @@ Aplikację można również użyć [iniekcji zależności w widoku pliki](views/
 
 Oprócz stanowi doskonałe platformę do tworzenia witryn sieci web, ASP.NET Core MVC ma dużą obsługę tworzenia interfejsów API sieci Web. Można utworzyć usługi, które są używane przez szeroki wachlarz klientów, w tym przeglądarki i urządzenia przenośne.
 
-Platformę obsługuje negocjowanie zawartości HTTP z wbudowaną obsługę [formatowania danych](models/formatting.md) jako JSON i XML. Zapis [niestandardowe elementy formatujące](advanced/custom-formatters.md) Aby dodać obsługę własnych formatów.
+Struktura obejmuje obsługę negocjowanie zawartości HTTP z wbudowaną obsługą do [formatowanie danych](xref:web-api/advanced/formatting) jako JSON i XML. Zapis [niestandardowe elementy formatujące](xref:web-api/advanced/custom-formatters) Aby dodać obsługę własnych formatów.
 
 Użyj generowania łącze, aby włączyć obsługę hipermedialnych. Łatwo włączyć obsługę [współużytkowanie zasobów między źródłami (CORS) do udostępniania](http://www.w3.org/TR/cors/) tak, aby interfejsów API sieci Web może być współużytkowana przez wiele aplikacji sieci Web.
 
 ### <a name="testability"></a>Pola
 
-W ramach korzystanie z interfejsów i iniekcji zależności był dobrze nadaje się do przeprowadzania testów jednostkowych i ramach zawiera funkcje (na przykład TestHost i InMemory dostawcy programu Entity Framework) [testów integracji](../testing/integration-testing.md) szybki i łatwe również. Dowiedz się więcej o [testowania logiką kontrolera](controllers/testing.md).
+W ramach korzystanie z interfejsów i iniekcji zależności był dobrze nadaje się do przeprowadzania testów jednostkowych i ramach zawiera funkcje (na przykład TestHost i InMemory dostawcy programu Entity Framework) [testy integracji](../testing/integration-testing.md) szybki i łatwe również. Dowiedz się więcej o [jak logikę kontrolera testu](controllers/testing.md).
 
 ### <a name="razor-view-engine"></a>Aparat widoku razor
 

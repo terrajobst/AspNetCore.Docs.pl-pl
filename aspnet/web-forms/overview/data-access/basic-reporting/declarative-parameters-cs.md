@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
-title: "Deklaracyjne parametrów (C#) | Dokumentacja firmy Microsoft"
+title: Deklaracyjne parametrów (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku firma Microsoft będzie pokazano, jak użyć parametru ustawioną wartość wpisaną na stałe, aby wybrać dane do wyświetlenia w formancie widoku DetailsView."
+description: W tym samouczku firma Microsoft będzie pokazano, jak użyć parametru ustawioną wartość wpisaną na stałe, aby wybrać dane do wyświetlenia w formancie widoku DetailsView.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4bbe32ae65f71196fc1f939671b9d1a24bee8c34
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 840630852d28f49f4f4387f1d2cc6b275b468fc2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="declarative-parameters-c"></a>Deklaracyjne parametrów (C#)
 ====================
@@ -127,7 +127,7 @@ Po obiekt odwiedzający przechodzi w danym kraju, jednak i kliknie przycisk Poka
 
 ## <a name="showing-all-suppliers-by-default"></a>Wyświetlanie wszystkich dostawców domyślnie
 
-Zamiast niż w przypadku najpierw wyświetlania strony nie wykazuje żadnych dostawców może chęć pokazania *wszystkie* dostawców na początku, umożliwiając użytkownikowi nawiasu listę w dół, wprowadzając w polu tekstowym Nazwa kraju. Gdy pole tekstowe jest pusta, `SuppliersBLL` klasy `GetSuppliersByCountry(country)` metody jest przekazywany w `null` wartość jego  *`country`*  parametru wejściowego. To `null` wartości są następnie przekazywane w dół do warstwy DAL `GetSupplierByCountry(country)` metody, gdzie jest translacja do bazy danych `NULL` wartość `@Country` parametr w następującym zapytaniu:
+Zamiast niż w przypadku najpierw wyświetlania strony nie wykazuje żadnych dostawców może chęć pokazania *wszystkie* dostawców na początku, umożliwiając użytkownikowi nawiasu listę w dół, wprowadzając w polu tekstowym Nazwa kraju. Gdy pole tekstowe jest pusta, `SuppliersBLL` klasy `GetSuppliersByCountry(country)` metody jest przekazywany w `null` wartość jego *`country`* parametru wejściowego. To `null` wartości są następnie przekazywane w dół do warstwy DAL `GetSupplierByCountry(country)` metody, gdzie jest translacja do bazy danych `NULL` wartość `@Country` parametr w następującym zapytaniu:
 
 [!code-sql[Main](declarative-parameters-cs/samples/sample3.sql)]
 
@@ -157,12 +157,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Hilton Giesenow. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](displaying-data-with-the-objectdatasource-cs.md)
-[dalej](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](displaying-data-with-the-objectdatasource-cs.md)
+> [dalej](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)

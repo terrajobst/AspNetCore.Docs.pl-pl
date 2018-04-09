@@ -1,6 +1,6 @@
 ---
 uid: single-page-application/overview/templates/hottowel-template
-title: "Szablon ręczników gorących | Dokumentacja firmy Microsoft"
+title: Szablon ręczników gorących | Dokumentacja firmy Microsoft
 author: madskristensen
 description: Szablon HotTowel
 ms.author: aspnetcontent
@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 02/09/2013
 ms.topic: article
 ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
-ms.openlocfilehash: bfc6e2c884c422f44e8be5f4f29554ae86f7ecb6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dbd037c2469d326a3d3248ca07492ed9eb93e225
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hot-towel-template"></a>Hot ręczników szablonu
 ====================
@@ -29,8 +29,8 @@ przez [Mads Kristensen](https://github.com/madskristensen)
 > [Szablon MVC ręczników dostępu dla programu Visual Studio 2012](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
 > 
 > [Szablon MVC gorących ręczników dla programu Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
-
-
+> 
+> 
 > Gorących ręczników: Ponieważ nie chcesz przejść do SPA bez!
 
 
@@ -95,7 +95,7 @@ Wystarczy uruchomić Dodawanie kodu!
 2. Dodawanie widoków `App/views` folderu
 3. Dodaj viewmodels do `App/viewmodels` folderu
 4. Dodawanie nowych widoków HTML i odcinania powiązania danych
-5. Aktualizowanie tras nawigacji w`shell.js`
+5. Aktualizowanie tras nawigacji w `shell.js`
 
 ## <a name="walkthrough-of-the-htmljavascript"></a>Wskazówki HTML/JavaScript
 
@@ -117,7 +117,7 @@ index.cshtml jest początkowy trasy i widoku dla aplikacji MVC. Zawiera wszystki
 
 Widoki znajdują się w `App/views` folderu.
 
-### <a name="shellhtml"></a>Shell.HTML
+### <a name="shellhtml"></a>shell.html
 
 `shell.html` Zawiera głównego układu dla kodzie HTML. Wszystkie inne widoków będzie składać się gdzieś po stronie użytkownika `shell` widoku. Udostępnia ręczników gorących `shell` z trzech takich regionów: nagłówek, obszar zawartości i stopki. Każdy z tych obszarów z załadowanymi zawartość formularza innych widoków na żądanie.
 
@@ -125,7 +125,7 @@ Widoki znajdują się w `App/views` folderu.
 
 [!code-html[Main](hottowel-template/samples/sample4.html)]
 
-### <a name="navhtml"></a>NAV.HTML
+### <a name="navhtml"></a>nav.html
 
 `nav.html` Zawiera łącza nawigacji, aby aplikacja JEDNOSTRONICOWA. Jest to struktura menu rozmieszczenia, np. Często jest to danymi powiązanymi (przy użyciu odcinania) do `router` modułu, aby wyświetlić nawigacji zdefiniowane w `shell.js`. Odcinania szuka wiązania danych atrybutów i wiąże tych `shell` viewmodel w celu wyświetlenia trasy nawigacji i wyświetlania elementu progressbar (przy użyciu Twitter Bootstrap) Jeśli `router` modułu jest w trakcie przechodzenia z jednego widoku do innego (patrz `router.isNavigating`).
 
@@ -135,7 +135,7 @@ Widoki znajdują się w `App/views` folderu.
 
 Widoki te zawierają HTML, niestandardowe widoki. Gdy `home` łącze w `nav` kliknięciu menu widoku `home` widoku zostaną umieszczone w obszarze zawartości `shell` widoku. Widoki te można rozszerzony lub zastąpione własnych widoków niestandardowych.
 
-### <a name="footerhtml"></a>Footer.HTML
+### <a name="footerhtml"></a>footer.html
 
 `footer.html` Zawiera kod HTML, który jest wyświetlany w stopce strony, u dołu `shell` widoku.
 
@@ -143,7 +143,7 @@ Widoki te zawierają HTML, niestandardowe widoki. Gdy `home` łącze w `nav` kli
 
 Znaleziono ViewModels `App/viewmodels` folderu.
 
-### <a name="shelljs"></a>Shell.js
+### <a name="shelljs"></a>shell.js
 
 `shell` Viewmodel zawiera właściwości i funkcje, które są powiązane z `shell` widoku. Często jest to, gdzie znajdują się powiązania z menu nawigacji (zobacz `router.mapNav` logiki).
 
@@ -159,6 +159,6 @@ Te viewmodels zawierają właściwości i funkcje, które są powiązane z `home
 
 Usługi znajdują się w folderze aplikacji i usług. W idealnym przypadku przyszłych usług takich jak moduł dataservice, która jest odpowiedzialna za uzyskanie i przesyłanie danych zdalnych, może zostać umieszczona.
 
-### <a name="loggerjs"></a>Logger.js
+### <a name="loggerjs"></a>logger.js
 
 Udostępnia ręczników gorących `logger` modułu w folderze usługi. `logger` Modułu jest idealny dla rejestrowanie komunikatów do konsoli i użytkownikowi w wyświetlonym wyskakujące powiadomienia.

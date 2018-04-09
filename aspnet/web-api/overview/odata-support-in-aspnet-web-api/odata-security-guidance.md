@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
-title: "Wskazówki dotyczące zabezpieczeń dla składnika ASP.NET Web API 2 OData | Dokumentacja firmy Microsoft"
+title: Wskazówki dotyczące zabezpieczeń dla składnika ASP.NET Web API 2 OData | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/06/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 799e2a0c742b545acf3b5cd27531d734aa7def80
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 41b05f2a2f8247853d8358e6cc1246c8b438a6db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Wskazówki dotyczące zabezpieczeń dla składnika ASP.NET Web API 2 OData
 ====================
@@ -70,8 +70,8 @@ Jeśli wiesz, że wszyscy klienci są zaufane (na przykład w środowisku przeds
     [!code-csharp[Main](odata-security-guidance/samples/sample9.cs)]
 - Należy rozważyć ograniczenie zapytania $filter pisząc modułu sprawdzania poprawności, który jest dostosowany do bazy danych. Na przykład wziąć pod uwagę następujące dwa zapytania: 
 
-    - Wszystkie filmy z złośliwych użytkowników, których nazwisko zaczyna się od "A".
-    - Wszystkie filmy wydane w 1994 r.
+  - Wszystkie filmy z złośliwych użytkowników, których nazwisko zaczyna się od "A".
+  - Wszystkie filmy wydane w 1994 r.
 
     Chyba, że filmy są indeksowane przez złośliwych użytkowników, pierwszego zapytania mogą wymagać aparat bazy danych, aby przeprowadzić skanowanie całą listę filmów. Drugiego zapytania mogą być akceptowane, filmy przyjmuje są indeksowane według roku wydania.
 

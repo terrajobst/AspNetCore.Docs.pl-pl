@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
-title: "Tworzenie interfejsów API RESTful za pomocą interfejsu API sieci Web programu ASP.NET | Dokumentacja firmy Microsoft"
+title: Tworzenie interfejsów API RESTful za pomocą interfejsu API sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W ostatnich latach okazało HTTP jest nie tylko dla obsługująca stron HTML. Istnieje również zaawansowane platformę do tworzenia interfejsów API sieci Web, przy użyciu o kilku..."
+description: W ostatnich latach okazało HTTP jest nie tylko dla obsługująca stron HTML. Istnieje również zaawansowane platformę do tworzenia interfejsów API sieci Web, przy użyciu o kilku...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,25 +12,25 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 49dcd86649ceb77cd5a02ebeb5d9d7b11ff4f344
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 320409cd395384a608a07307a56d18105d45de14
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>Tworzenie interfejsów API RESTful za pomocą interfejsu API sieci Web ASP.NET
 ====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
 > W ostatnich latach okazało HTTP jest nie tylko dla obsługująca stron HTML. Jest również zaawansowane platformę do tworzenia interfejsów API sieci Web, przy użyciu kilku poleceń (GET, POST i tak dalej) oraz kilka pojęć proste takich jak *identyfikatorów URI* i *nagłówki*. Interfejs API sieci Web platformy ASP.NET to zestaw składników, które upraszczają Programowanie HTTP. Ponieważ jest on oparty na środowiska uruchomieniowego ASP.NET MVC, interfejsu API sieci Web obsługuje automatycznie szczegółów niskiego poziomu transportu HTTP. W tym samym czasie interfejsu API sieci Web udostępnia naturalnie modelu programowania protokołu HTTP. W rzeczywistości celem jednego interfejsu API sieci Web jest *nie* abstrakcyjnej optymalizacji stanu HTTP. W związku z tym interfejs API sieci Web jest zarówno elastyczne i łatwe do rozszerzenia. W tym laboratorium praktycznego użyjesz interfejsu API sieci Web do tworzenia prostego interfejsu API REST kontaktów Menedżerze aplikacji. Utworzysz także klientowi korzystanie z interfejsu API. Styl architektury REST okazał się efektywny sposób korzystać z protokołu HTTP -, chociaż na pewno nie jest ważny tylko metody HTTP. Powoduje to udostępnienie kontaktów Menedżerze RESTful do wyświetlania, dodawania i usuwania kontaktów, między innymi. W tym laboratorium wymaga podstawową wiedzę na temat protokołu HTTP, REST, przyjęto założenie, że masz podstawową wiedzę na temat pracy z kodu HTML, JavaScript i jQuery.
 > 
 > > [!NOTE]
-> > Witryny sieci Web ASP.NET jest przeznaczona do framework interfejsu API sieci Web platformy ASP.NET w [ [https://asp.net/web-api](https://asp.net/web-api)](https://asp.net/web-api). Ta lokacja będzie dostarczać, najnowsze informacje, przykłady i informacje związane z interfejsu API sieci Web, więc spróbuj on często Jeśli chcesz delve więcej danych w kompozycji tworzenia niestandardowych interfejsów API sieci Web dostępnych praktycznie dowolne urządzenie lub programowanie Framework.
+> > Witryny sieci Web ASP.NET jest przeznaczona do framework interfejsu API sieci Web platformy ASP.NET w [ [ https://asp.net/web-api ](https://asp.net/web-api) ](https://asp.net/web-api). Ta lokacja będzie dostarczać, najnowsze informacje, przykłady i informacje związane z interfejsu API sieci Web, więc spróbuj on często Jeśli chcesz delve więcej danych w kompozycji tworzenia niestandardowych interfejsów API sieci Web dostępnych praktycznie dowolne urządzenie lub programowanie Framework.
 > > 
 > > ASP.NET Web API, podobnie jak ASP.NET MVC 4 ma dużą elastyczność w zakresie oddzielanie warstwy usług z kontrolerów, co umożliwia używanie kilku dostępnych platform iniekcji zależności dość proste. W witrynie MSDN, która przedstawia sposób użycia Ninject iniekcji zależności w projekcie interfejsu API sieci Web platformy ASP.NET, który można pobrać z znajduje się przykład dobrej [tutaj](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7).
 > 
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -172,7 +172,9 @@ W ramach tego zadania spowoduje utworzenie klasy kontrolera, w których będą z
     (Fragment - kodu *sieci Web, skontaktuj się z pomocą klasy interfejsu API laboratorium - Ex01 -*)
 
 
-    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample2.cs)]
+~~~
+[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample2.cs)]
+~~~
 4. W **ContactController** klasy, zaznacz słowo **ciąg** w definicji metody **uzyskać** metody i typu wyrazu *skontaktuj się z*. Po słowie jest wpisany, wskaźnik będą wyświetlane na początku słowo **skontaktuj się z**. Albo przytrzymaj **Ctrl** klucza i naciśnij klawisz kropki (.) lub kliknij ikonę, aby otworzyć okno dialogowe Pomoc w edytorze kodu, aby automatycznie wypełnić przy użyciu myszy **przy użyciu** dyrektywy dla modeli przestrzeń nazw.
 
     ![Przy użyciu Pomocy Intellisense dla deklaracji przestrzeni nazw](build-restful-apis-with-aspnet-web-api/_static/image12.png)
@@ -185,16 +187,16 @@ W ramach tego zadania spowoduje utworzenie klasy kontrolera, w których będą z
     [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample3.cs)]
 6. Naciśnij klawisz **F5** do debugowania aplikacji sieci web w przeglądarce. Aby wyświetlić zmiany wprowadzone w danych wyjściowych odpowiedzi interfejsu API, wykonaj następujące kroki.
 
-    1. Po otwarciu w przeglądarce naciśnij **F12** Jeśli narzędzi deweloperskich nie są jeszcze dostępne.
-    2. Kliknij przycisk **sieci** kartę.
-    3. Naciśnij klawisz **Start Przechwytywanie** przycisku.
-    4. Dodaj sufiks adresu URL **/api/kontaktu** do adresu URL na pasku adresu i naciśnij klawisz **Enter** klucza.
-    5. Naciśnij klawisz **przejdź do widoku szczegółowe** przycisku.
-    6. Wybierz **treść odpowiedzi** kartę. Powinny pojawić się reprezentujący Zserializowany formę tablicę wystąpień skontaktuj się z ciągu JSON.
+   1. Po otwarciu w przeglądarce naciśnij **F12** Jeśli narzędzi deweloperskich nie są jeszcze dostępne.
+   2. Kliknij przycisk **sieci** kartę.
+   3. Naciśnij klawisz **Start Przechwytywanie** przycisku.
+   4. Dodaj sufiks adresu URL **/api/kontaktu** do adresu URL na pasku adresu i naciśnij klawisz **Enter** klucza.
+   5. Naciśnij klawisz **przejdź do widoku szczegółowe** przycisku.
+   6. Wybierz **treść odpowiedzi** kartę. Powinny pojawić się reprezentujący Zserializowany formę tablicę wystąpień skontaktuj się z ciągu JSON.
 
-    ![Dane wyjściowe złożonych wywołanie metody interfejsu API sieci Web serializacji JSON](build-restful-apis-with-aspnet-web-api/_static/image13.png "JSON serializowane dane wyjściowe złożonych wywołanie metody interfejsu API sieci Web")
+      ![Dane wyjściowe złożonych wywołanie metody interfejsu API sieci Web serializacji JSON](build-restful-apis-with-aspnet-web-api/_static/image13.png "JSON serializowane dane wyjściowe złożonych wywołanie metody interfejsu API sieci Web")
 
-    *Dane wyjściowe JSON serializować złożona wywołanie metody interfejsu API sieci Web*
+      *Dane wyjściowe JSON serializować złożona wywołanie metody interfejsu API sieci Web*
 
 <a id="Ex1Task4"></a>
 
@@ -221,7 +223,9 @@ To zadanie będzie pokazują, jak można wyodrębnić funkcji do warstwy usług,
 4. Dodaj using dyrektywy do **ContactRepository.cs** pliku, aby uwzględnić modeli przestrzeni nazw.
 
 
-    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample4.cs)]
+~~~
+[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample4.cs)]
+~~~
 5. Dodaj następujący wyróżniony kod, aby **ContactRepository.cs** plik, aby zaimplementować metodę GetAllContacts.
 
     (Fragment - kodu *sieci Web interfejsu API laboratorium - Ex01 - kontaktu repozytorium*)
@@ -231,7 +235,9 @@ To zadanie będzie pokazują, jak można wyodrębnić funkcji do warstwy usług,
 7. Dodaj następującą instrukcję using do sekcji deklaracji przestrzeni nazw w pliku.
 
 
-    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample6.cs)]
+~~~
+[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample6.cs)]
+~~~
 8. Dodaj następujący wyróżniony kod, aby **ContactController.cs** klasa do dodania pole prywatne reprezentujący wystąpienie repozytorium, dzięki czemu rest klasy członkowie mogą wprowadzać implementacji usługi.
 
     (Fragment - kodu *kontaktu Kontroler interfejsu API laboratorium - Ex01 - Web*)
@@ -244,9 +250,9 @@ To zadanie będzie pokazują, jak można wyodrębnić funkcji do warstwy usług,
     [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample8.cs)]
 10. Umieść punkt przerwania **ContactController**w **uzyskać** definicję metody.
 
-    ![Dodawanie punktów przerwania do kontaktów kontrolera](build-restful-apis-with-aspnet-web-api/_static/image17.png "Dodawanie punktów przerwania do kontrolera kontaktów")
+   ![Dodawanie punktów przerwania do kontaktów kontrolera](build-restful-apis-with-aspnet-web-api/_static/image17.png "Dodawanie punktów przerwania do kontrolera kontaktów")
 
-    *Dodawanie punktów przerwania do kontrolera kontaktów*
+   *Dodawanie punktów przerwania do kontrolera kontaktów*
 11. Naciśnij klawisz **F5** do uruchomienia aplikacji.
 12. Po otwarciu przeglądarki, naciśnij klawisz **F12** można otworzyć narzędzia deweloperskie.
 13. Kliknij przycisk **sieci** kartę.
@@ -254,9 +260,9 @@ To zadanie będzie pokazują, jak można wyodrębnić funkcji do warstwy usług,
 15. Dołącz adres URL na pasku adresu z sufiksem **/api/kontaktu** i naciśnij klawisz **Enter** załadować Kontroler interfejsu API.
 16. Program Visual Studio 2012 należy przerywaj raz **uzyskać** metody rozpoczyna się wykonanie.
 
-    ![Przerwanie w obrębie metody Get](build-restful-apis-with-aspnet-web-api/_static/image18.png "krytyczne w obrębie metody Get")
+   ![Przerwanie w obrębie metody Get](build-restful-apis-with-aspnet-web-api/_static/image18.png "krytyczne w obrębie metody Get")
 
-    *Podziału wewnątrz metody Get*
+   *Podziału wewnątrz metody Get*
 17. Naciśnij klawisz **F5** aby kontynuować.
 18. Wróć do programu Internet Explorer, jeśli nie jest już fokusu. Należy pamiętać, okno przechwytywania sieci.
 
@@ -287,12 +293,12 @@ W tym zadaniu przygotujesz się do zwiększenia projektu interfejsu API sieci We
 1. Uruchom **programu Visual Studio 2012 Express for Web**, aby zrobić to przejdź do **Start** i typ **VS Express for Web** naciśnij **Enter**.
 2. Otwórz **rozpocząć** rozwiązania, znajdujących się na **źródło/Ex02-ReadWriteWebAPI/Begin/** folderu. W przeciwnym razie możesz nadal korzystać **zakończenia** uzyskane rozwiązanie, wykonując poprzednim ćwiczeniu.
 
-    1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 3. Otwórz **Services/ContactRepository.cs** pliku.
 
 <a id="Ex2Task2"></a>
@@ -341,21 +347,25 @@ To zadanie należy zmodyfikować domyślny widok indeksu aplikacji sieci web do 
 1. Otwórz **programu Visual Studio 2012 Express for Web** Jeśli nie jest już otwarty.
 2. Otwórz **rozpocząć** rozwiązania, znajdujących się na **źródło/Ex03-ConsumingWebAPI/Begin/** folderu. W przeciwnym razie możesz nadal korzystać **zakończenia** uzyskane rozwiązanie, wykonując poprzednim ćwiczeniu.
 
-    1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 3. Otwórz **Index.cshtml** znajdującym się w **widoków domowych** folderu.
 4. Zastąp kod HTML w elemencie div o identyfikatorze **treści** tak, aby wygląda podobnie do następującego kodu.
 
 
-    [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample13.html)]
+~~~
+[!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample13.html)]
+~~~
 5. Dodaj następujący kod Javascript w dolnej części pliku do wykonania żądania HTTP do interfejsu API sieci Web.
 
 
-    [!code-cshtml[Main](build-restful-apis-with-aspnet-web-api/samples/sample14.cshtml)]
+~~~
+[!code-cshtml[Main](build-restful-apis-with-aspnet-web-api/samples/sample14.cshtml)]
+~~~
 6. Otwórz **ContactController.cs** plik, jeśli nie jest jeszcze otwarty.
 7. Umieść punkt przerwania na **uzyskać** metody **ContactController** klasy.
 
@@ -391,12 +401,16 @@ To zadanie będzie do modyfikowania widoku indeksu aplikacji MVC. Formularz zost
     (Fragment - kodu *sieci Web interfejsu API laboratorium - Ex03 - metody Post*)
 
 
-    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample15.cs)]
+~~~
+[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample15.cs)]
+~~~
 3. Otwórz **Index.cshtml** plik w programie Visual Studio, jeśli nie jest jeszcze otwarty.
 4. Dodaj poniższy kod HTML do pliku zaraz po nieuporządkowaną listę, dodanym w poprzednim zadaniu.
 
 
-    [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample16.html)]
+~~~
+[!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample16.html)]
+~~~
 5. W elemencie skryptu w dolnej części dokumentu Dodaj następujący kod wyróżnione do obsługi zdarzeń kliknięcia przycisków, których zostanie wysłany danych do interfejsu API sieci Web przy użyciu wywołania protokołu HTTP POST.
 
     [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample17.html)]
@@ -414,14 +428,14 @@ To zadanie będzie do modyfikowania widoku indeksu aplikacji MVC. Formularz zost
     *Skontaktuj się z obiektu są wysyłane do interfejsu API sieci Web z klienta*
 10. Krok za pomocą metody w debugerze do **odpowiedzi** zmiennej został utworzony. W trakcie kontroli w **zmiennych lokalnych** okna w debugerze, zobaczysz, że wszystkie właściwości ustawione.
 
-    ![Po utworzeniu w debugerze odpowiedzi](build-restful-apis-with-aspnet-web-api/_static/image26.png "odpowiedzi po utworzeniu w debugerze")
+   ![Po utworzeniu w debugerze odpowiedzi](build-restful-apis-with-aspnet-web-api/_static/image26.png "odpowiedzi po utworzeniu w debugerze")
 
-    *Odpowiedź po utworzeniu w debugerze*
+   *Odpowiedź po utworzeniu w debugerze*
 11. Jeśli naciśniesz **F5** lub kliknij przycisk **Kontynuuj** w debugerze żądanie zostanie ukończone. Po przełączeniu do przeglądarki, dodano nowy kontakt do listy kontaktów przechowywanych przez **ContactRepository** implementacji.
 
-    ![Przeglądarka odzwierciedla pomyślne utworzenie nowego wystąpienia skontaktuj się z pomocą](build-restful-apis-with-aspnet-web-api/_static/image27.png "przeglądarki odzwierciedla pomyślnym utworzeniu nowego wystąpienia kontaktów")
+   ![Przeglądarka odzwierciedla pomyślne utworzenie nowego wystąpienia skontaktuj się z pomocą](build-restful-apis-with-aspnet-web-api/_static/image27.png "przeglądarki odzwierciedla pomyślnym utworzeniu nowego wystąpienia kontaktów")
 
-    *Przeglądarka odzwierciedla pomyślnym utworzeniu nowego wystąpienia kontaktów*
+   *Przeglądarka odzwierciedla pomyślnym utworzeniu nowego wystąpienia kontaktów*
 
 > [!NOTE]
 > Ponadto można wdrożyć tę aplikację Azure następujących [dodatek C: publikowania aplikacji ASP.NET MVC 4 przy użyciu narzędzia Web Deploy](#AppendixC).
@@ -434,7 +448,7 @@ To zadanie będzie do modyfikowania widoku indeksu aplikacji MVC. Formularz zost
 
 To laboratorium ma wprowadzone do nowej struktury ASP.NET Web API i wykonania RESTful interfejsów API sieci Web za pomocą środowiska. W tym miejscu możesz utworzyć nowe repozytorium, który ułatwia trwałości danych przy użyciu dowolnej liczby mechanizmów i okablować usługi zapasową zamiast istnieje tylko jedna użyte jako przykłady w tym laboratorium. Interfejs API sieci Web obsługuje szereg dodatkowych funkcji, takich jak umożliwiające komunikację z klientami z systemem innym niż HTML zapisane w dowolnym języku obsługującego protokół HTTP i JSON lub XML. Może obsługiwać interfejs API sieci Web poza aplikacją sieci web typowe możliwe jest również, jak również jest możliwość tworzenia własnych formatów serializacji.
 
-Witryny sieci Web ASP.NET jest przeznaczona do framework interfejsu API sieci Web platformy ASP.NET w [ [https://asp.net/web-api](https://asp.net/web-api)](https://asp.net/web-api). Ta lokacja będzie dostarczać, najnowsze informacje, przykłady i informacje związane z interfejsu API sieci Web, więc spróbuj on często Jeśli chcesz delve więcej danych w kompozycji tworzenia niestandardowych interfejsów API sieci Web dostępnych praktycznie dowolne urządzenie lub programowanie Framework.
+Witryny sieci Web ASP.NET jest przeznaczona do framework interfejsu API sieci Web platformy ASP.NET w [ [ https://asp.net/web-api ](https://asp.net/web-api) ](https://asp.net/web-api). Ta lokacja będzie dostarczać, najnowsze informacje, przykłady i informacje związane z interfejsu API sieci Web, więc spróbuj on często Jeśli chcesz delve więcej danych w kompozycji tworzenia niestandardowych interfejsów API sieci Web dostępnych praktycznie dowolne urządzenie lub programowanie Framework.
 
 <a id="AppendixA"></a>
 
@@ -492,9 +506,9 @@ Wstawki kodu zapewniają całego kodu, które są potrzebne w zasięgu ręki. Do
 <a id="Appendix_B_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-b-installing-visual-studio-express-2012-for-web"></a>Dodatek B: Instalowanie programu Visual Studio Express 2012 for Web
 
-Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji  **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
+Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
 
-1. Przejdź do [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; *programu Visual Studio Express 2012 for Web z zestawem Azure SDK*&quot;.
+1. Przejdź do [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; <em>programu Visual Studio Express 2012 for Web z zestawem Azure SDK</em>&quot;.
 2. Polecenie **teraz zainstalować**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 
@@ -638,14 +652,14 @@ Jeśli aplikacja korzysta z programu SQL Server baz danych, należy utworzyć se
     *Konfiguracja narzędzia Web deploy*
 5. Skonfiguruj połączenie z bazą danych w następujący sposób:
 
-    - W **nazwy serwera** wpisz swoją bazą danych SQL server adresu URL przy użyciu *tcp:* prefiks.
-    - W **nazwy użytkownika** wpisz nazwę logowania administratora serwera.
-    - W **hasło** wpisz hasło logowania administratora serwera.
-    - Wpisz nazwę nowej bazy danych, na przykład: *MVC4SampleDB*.
+   - W **nazwy serwera** wpisz swoją bazą danych SQL server adresu URL przy użyciu *tcp:* prefiks.
+   - W **nazwy użytkownika** wpisz nazwę logowania administratora serwera.
+   - W **hasło** wpisz hasło logowania administratora serwera.
+   - Wpisz nazwę nowej bazy danych, na przykład: *MVC4SampleDB*.
 
-    ![Konfigurowanie parametrów połączenia z lokalizacją docelową](build-restful-apis-with-aspnet-web-api/_static/image55.png "Konfigurowanie parametrów połączenia z lokalizacją docelową")
+     ![Konfigurowanie parametrów połączenia z lokalizacją docelową](build-restful-apis-with-aspnet-web-api/_static/image55.png "Konfigurowanie parametrów połączenia z lokalizacją docelową")
 
-    *Konfigurowanie parametrów połączenia z lokalizacją docelową*
+     *Konfigurowanie parametrów połączenia z lokalizacją docelową*
 6. Następnie kliknij przycisk **OK**. Po wyświetleniu monitu można utworzyć bazy danych kliknij **tak**.
 
     ![Tworzenie bazy danych](build-restful-apis-with-aspnet-web-api/_static/image56.png "tworzenie parametry bazy danych")

@@ -1,7 +1,7 @@
 ---
-title: Migrowanie z platformy ASP.NET Core 1.x 2.0
+title: Migracja z platformy ASP.NET Core 1.x 2.0
 author: scottaddie
-description: "W tym artykule opisano wymagania wstępne i najbardziej typowe kroki dotyczące migrowania projekt platformy ASP.NET Core 1.x ASP.NET Core 2.0."
+description: W tym artykule opisano wymagania wstępne i najbardziej typowe kroki dotyczące migrowania projekt platformy ASP.NET Core 1.x ASP.NET Core 2.0.
 manager: wpickett
 ms.author: scaddie
 ms.date: 10/03/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: ebc4efdedd60c38280a0d37b20313e09671f7f9d
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4b7a13b31340f01c4f1527f602b925d3ac4e8241
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>Migrowanie z platformy ASP.NET Core 1.x do platformy ASP.NET Core 2.0
+# <a name="migrate-from-aspnet-core-1x-to-20"></a>Migracja z platformy ASP.NET Core 1.x 2.0
 
 Przez [Scott Addie](https://github.com/scottaddie)
 
@@ -179,7 +179,7 @@ Jeśli korzystasz z zestawu SDK usługi Application Insights bezpośrednio, nada
 <a name="auth-and-identity"></a>
 
 ## <a name="adopt-authenticationidentity-improvements"></a>Przyjąć tożsamość/uwierzytelniania ulepszenia
-Platformy ASP.NET Core 2.0 ma nowy model uwierzytelniania i Liczba znaczących zmian dotyczących tożsamości platformy ASP.NET Core. Jeśli utworzony projekt z włączoną indywidualnych kont użytkowników, lub jeśli ręcznie dodano uwierzytelniania lub tożsamości, zobacz [Migrowanie uwierzytelnianie i tożsamość platformy ASP.NET Core 2.0](xref:migration/1x-to-2x/identity-2x).
+Platformy ASP.NET Core 2.0 ma nowy model uwierzytelniania i Liczba znaczących zmian dotyczących tożsamości platformy ASP.NET Core. Jeśli utworzony projekt z włączoną indywidualnych kont użytkowników, lub jeśli ręcznie dodano uwierzytelniania lub tożsamości, zobacz [migracji uwierzytelnianie i tożsamość platformy ASP.NET Core 2.0](xref:migration/1x-to-2x/identity-2x).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

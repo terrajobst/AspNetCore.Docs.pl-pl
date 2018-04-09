@@ -1,7 +1,7 @@
 ---
 title: Host platformy ASP.NET Core w systemie Windows z programem IIS
 author: guardrex
-description: "Dowiedz się, jak udostępniać aplikacje platformy ASP.NET Core na systemu Windows Server Internet informacji usług (IIS)."
+description: Dowiedz się, jak udostępniać aplikacje platformy ASP.NET Core na systemu Windows Server Internet informacji usług (IIS).
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: fa9e60c52f143b20dbf179679fc4932e838a9137
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 64eb85f75a6c2e10bf8c39f32eeda5311744f2a2
+ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core w systemie Windows z programem IIS
 
@@ -85,6 +85,10 @@ services.Configure<IISOptions>(options =>
 | `AuthenticationDisplayName`    | `null`  | Ustawia nazwę wyświetlaną pokazywana użytkownikom na stronach logowania. |
 | `ForwardClientCertificate`     | `true`  | Jeśli `true` i `MS-ASPNETCORE-CLIENTCERT` nagłówek żądania jest obecny, `HttpContext.Connection.ClientCertificate` jest wypełnione. |
 
+### <a name="proxy-server-and-load-balancer-scenarios"></a>Serwer proxy i scenariuszy usługi równoważenia obciążenia
+
+IIS integracji oprogramowania pośredniczącego, który konfiguruje przekazywane oprogramowanie pośredniczące nagłówki i moduł platformy ASP.NET Core są skonfigurowane do przekazywania schemat (HTTP/HTTPS) oraz adres IP zdalnego, którego pochodzi żądanie. Dodatkowa konfiguracja może być wymagane dla aplikacji hostowanych serwerów proxy dodatkowe i moduły równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie platformy ASP.NET Core do pracy z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
+
 ### <a name="webconfig-file"></a>plik Web.config
 
 *Web.config* konfiguruje pliku [platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module). Tworzenie, przekształcanie i publikowanie *web.config* jest obsługiwany przez zestaw SDK programu .NET Core sieci Web (`Microsoft.NET.Sdk.Web`). Zestaw SDK jest ustawiona na początku pliku projektu:
@@ -97,7 +101,7 @@ Jeśli *web.config* bez pliku projektu, plik jest tworzony z prawidłowym *proce
 
 Jeśli *web.config* plik znajduje się w projekcie, plik jest przekształcana z prawidłowym *processPath* i *argumenty* Konfigurowanie modułu platformy ASP.NET Core i przeniesiony do opublikowane dane wyjściowe. Transformacja nie zmodyfikować ustawień konfiguracji usług IIS w pliku.
 
-*Web.config* pliku może zapewnić dodatkowe ustawienia konfiguracji usług IIS, które kontrolują active modułów usług IIS. Aby uzyskać informacje na modułów usług IIS, które są w stanie przetwarzania żądań w aplikacjach ASP.NET Core, zobacz [moduły IIS przy użyciu](xref:host-and-deploy/iis/modules) tematu.
+*Web.config* pliku może zapewnić dodatkowe ustawienia konfiguracji usług IIS, które kontrolują active modułów usług IIS. Aby uzyskać informacje na modułów usług IIS, które są w stanie przetwarzania żądań w aplikacjach ASP.NET Core, zobacz [moduły IIS](xref:host-and-deploy/iis/modules) tematu.
 
 Aby zapobiec przekształcania zestawu SDK sieci Web *web.config* plików, użyj  **\<IsTransformWebConfigDisabled >** właściwość w pliku projektu:
 
@@ -167,7 +171,11 @@ Włącz **Konsola zarządzania usługami IIS** i **usługi sieci World Wide Web*
 
 ## <a name="install-the-net-core-windows-server-hosting-bundle"></a>Instalacja pakietu Hosting .NET Core systemu Windows Server
 
-1. Zainstaluj [pakietu .NET Core systemu Windows serwer obsługujący](https://aka.ms/dotnetcore-2-windowshosting) przez system operacyjny. Pakiet instaluje wykonawczym .NET Core .NET Core biblioteki, a [platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module). Moduł tworzy zwrotny serwer proxy między usługami IIS a Kestrel serwera. Jeśli system nie ma połączenia internetowego, Uzyskaj i zainstaluj [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) przed zainstalowaniem pakietu Hosting .NET Core systemu Windows Server.
+1. Zainstaluj *pakietu .NET Core systemu Windows serwer obsługujący* przez system operacyjny. Pakiet instaluje wykonawczym .NET Core .NET Core biblioteki, a [platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module). Moduł tworzy zwrotny serwer proxy między usługami IIS a Kestrel serwera. Jeśli system nie ma połączenia internetowego, Uzyskaj i zainstaluj [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) przed zainstalowaniem pakietu Hosting .NET Core systemu Windows Server.
+
+   1. Przejdź do [.NET wszystkie pliki do pobrania strony](https://www.microsoft.com/net/download/all).
+   1. Wybierz z listy najnowsze środowisko uruchomieniowe .NET Core-preview (**.NET Core** > **środowiska uruchomieniowego** > **x.y.z środowisko uruchomieniowe platformy .NET Core**). Jeśli nie zamierzasz pracować z oprogramowaniem w wersji zapoznawczej, należy unikać środowisk uruchomieniowych, który program word "w wersji zapoznawczej" w ich tekst łącza.
+   1. Na środowiska uruchomieniowego .NET Core strony w obszarze pobierania **Windows**, wybierz pozycję **Instalator hostingu serwera** łącze, aby pobrać *pakietu .NET Core systemu Windows serwer obsługujący*.
 
    **Ważne!** Jeśli pakiet hostingu jest zainstalowany przed zainstalowaniem usług IIS, instalacja pakietu musi zostać naprawiony. Uruchom hostingu Instalatora pakietu ponownie po zainstalowaniu usług IIS.
    
@@ -278,7 +286,7 @@ Jeśli pierścień klucza jest przechowywana w pamięci po uruchomieniu aplikacj
 
 * Wszystkie tokeny na podstawie plików cookie uwierzytelniania są unieważniona. 
 * Użytkownicy muszą ponownie zaloguj się na ich następnego żądania. 
-* Wszystkie dane chronione za pomocą pierścień klucza nie mogły być odszyfrowane. Może to obejmować [tokenów CSRF](xref:security/anti-request-forgery#how-does-aspnet-core-mvc-address-csrf) i [plików cookie tempdata platformy ASP.NET Core MVC](xref:fundamentals/app-state#tempdata).
+* Wszystkie dane chronione za pomocą pierścień klucza nie mogły być odszyfrowane. Może to obejmować [tokenów CSRF](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) i [plików cookie platformy ASP.NET Core MVC TempData](xref:fundamentals/app-state#tempdata).
 
 Aby skonfigurować ochronę danych w środowisku usług IIS, aby utrwalić pierścień klucza, użyj **jeden** z następujących metod:
 
@@ -288,7 +296,7 @@ Aby skonfigurować ochronę danych w środowisku usług IIS, aby utrwalić pier�
 
   Dla autonomicznej, w przypadku instalacji usług IIS z systemem innym niż farma sieci Web [skrypt programu PowerShell należy AutoGenKeys.ps1 ochrony danych](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) można używać dla każdej puli aplikacji używane w aplikacji platformy ASP.NET Core. Ten skrypt tworzy klucz rejestru w rejestrze HKLM, który jest dostępny tylko dla konta procesu roboczego puli aplikacji w aplikacji. Klucze są szyfrowane, gdy przy użyciu DPAPI za pomocą klucza komputera.
 
-  W scenariuszach kolektywu serwerów sieci web aplikację można skonfigurować do użyć ścieżki UNC do przechowywania jego pierścień klucza ochrony danych. Domyślnie nie są szyfrowane klucze ochrony danych. Upewnij się, że uprawnienia do udziału sieciowego są ograniczone do konta systemu Windows jest uruchamiana aplikacja. Certyfikat może służyć do ochrony kluczy magazynowane X509. Należy wziąć pod uwagę mechanizm Zezwalaj użytkownikom na przekazywanie certyfikaty: miejsce certyfikatów do zaufanego certyfikatu użytkownika przechowywania i upewnij się, są one dostępne na wszystkich komputerach, którym jest uruchamiany aplikacji użytkownika. Zobacz [konfigurowania ochrony danych](xref:security/data-protection/configuration/overview) szczegółowe informacje.
+  W scenariuszach kolektywu serwerów sieci web aplikację można skonfigurować do użyć ścieżki UNC do przechowywania jego pierścień klucza ochrony danych. Domyślnie nie są szyfrowane klucze ochrony danych. Upewnij się, że uprawnienia do udziału sieciowego są ograniczone do konta systemu Windows jest uruchamiana aplikacja. Certyfikat może służyć do ochrony kluczy magazynowane X509. Należy wziąć pod uwagę mechanizm Zezwalaj użytkownikom na przekazywanie certyfikaty: miejsce certyfikatów do zaufanego certyfikatu użytkownika przechowywania i upewnij się, są one dostępne na wszystkich komputerach, którym jest uruchamiany aplikacji użytkownika. Zobacz [konfiguracji ochrony danych ASP.NET Core](xref:security/data-protection/configuration/overview) szczegółowe informacje.
 
 * **Konfigurowanie puli aplikacji usług IIS do załadowania profilu użytkownika**
 
@@ -348,7 +356,7 @@ Aby uzyskać więcej informacji na temat konfigurowania moduł platformy ASP.NET
 
 Konfiguracja usług IIS ma wpływ  **\<system.webServer >** sekcji *web.config* dla tych funkcji usług IIS, które mają zastosowanie do konfiguracji zwrotnego serwera proxy. Jeśli usługi IIS zostały skonfigurowane na poziomie serwera, aby użyć kompresji dynamicznej  **\<urlCompression >** element w aplikacji *web.config* pliku można go wyłączyć.
 
-Aby uzyskać więcej informacji, zobacz [konfiguracji odwołania dla \<system.webServer >](/iis/configuration/system.webServer/), [odwołania do konfiguracji modułu platformy ASP.NET Core](xref:host-and-deploy/aspnet-core-module), i [przy użyciu modułów usług IIS w aplikacji ASP. Podstawowe NET](xref:host-and-deploy/iis/modules). Ustawianie zmiennych środowiskowych dla poszczególnych aplikacji uruchomionych w pulach aplikacji izolowanych (obsługiwane dla programu IIS 10.0 lub nowszego), zobacz *polecenia AppCmd.exe* sekcji [zmiennych środowiskowych \< environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) dokumentacji odwołania tematu w usługach IIS.
+Aby uzyskać więcej informacji, zobacz [konfiguracji odwołania dla \<system.webServer >](/iis/configuration/system.webServer/), [odwołania do konfiguracji modułu platformy ASP.NET Core](xref:host-and-deploy/aspnet-core-module), i [modułów usług IIS z wykorzystaniem technologii ASP.NET Podstawowe](xref:host-and-deploy/iis/modules). Ustawianie zmiennych środowiskowych dla poszczególnych aplikacji uruchomionych w pulach aplikacji izolowanych (obsługiwane dla programu IIS 10.0 lub nowszego), zobacz *polecenia AppCmd.exe* sekcji [zmiennych środowiskowych \< environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) dokumentacji odwołania tematu w usługach IIS.
 
 ## <a name="configuration-sections-of-webconfig"></a>Sekcji konfiguracyjnych w pliku Web.config
 
@@ -407,7 +415,7 @@ Aby uzyskać więcej informacji, zobacz [icacls](/windows-server/administration/
 * [Typowe błędy odwołania dla usługi Azure App Service i IIS z platformy ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
 * [Wprowadzenie do platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module)
 * [Odwołania do konfiguracji modułu platformy ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Używanie modułów usług IIS z platformy ASP.NET Core](xref:host-and-deploy/iis/modules)
+* [Moduły usług IIS z platformą ASP.NET Core](xref:host-and-deploy/iis/modules)
 * [Wprowadzenie do platformy ASP.NET Core](../index.md)
 * [Witryna oficjalnego Microsoft IIS](https://www.iis.net/)
 * [Bibliotece Microsoft TechNet: Serwer systemu Windows](/windows-server/windows-server-versions)

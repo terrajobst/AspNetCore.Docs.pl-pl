@@ -1,7 +1,7 @@
 ---
-title: "Profilów dla wdrożenia aplikacji platformy ASP.NET Core publikowania programu Visual Studio"
+title: Profilów dla wdrożenia aplikacji platformy ASP.NET Core publikowania programu Visual Studio
 author: rick-anderson
-description: "Odnajdywanie sposobu tworzenia profilów dla aplikacji platformy ASP.NET Core publikowania w programie Visual Studio."
+description: Odnajdywanie sposobu tworzenia profilów dla aplikacji platformy ASP.NET Core publikowania w programie Visual Studio.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: d2c4ec317f235c6d042bd130dbf79f6cb5e2d47d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 64c96f572c42c56480cfe2bd58f926d54eddf35e
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Profilów dla wdrożenia aplikacji platformy ASP.NET Core publikowania programu Visual Studio
 
@@ -91,7 +91,7 @@ Podczas ładowania projektu programu MSBuild lub Visual Studio są wykonywane na
 * Obliczenia bazy danych plików do opublikowania
 * Publikowanie plików do lokalizacji docelowej
 
-### <a name="compute-project-items"></a>Obliczeniowe elementy projektu
+## <a name="compute-project-items"></a>Obliczeniowe elementy projektu
 
 Po załadowaniu projektu są obliczane elementy projektu (pliki). `item type` Atrybut określa sposób przetwarzania pliku. Domyślnie *.cs* pliki znajdują się w `Compile` listy elementów. Pliki w `Compile` są kompilowane listy elementów.
 
@@ -197,6 +197,7 @@ Kreator publikowania obsługuje następujące elementy docelowe publikowania:
 Zobacz [jakie opcje publikowania jest dla mnie odpowiednia?](https://docs.microsoft.com/visualstudio/ide/not-in-toc/web-publish-options) Aby uzyskać więcej informacji.
 
 Podczas tworzenia profilu publikowania przy użyciu programu Visual Studio, *właściwości/PublishProfiles/\<publikowania name > .pubxml* jest tworzony plik MSBuild. To *.pubxml* plik jest plikiem MSBuild i zawiera ustawienia konfiguracji publikowania. Można zmienić tego pliku dostosowania kompilacji i opublikować procesu. Ten plik jest odczytywany przez proces publikowania. `<LastUsedBuildConfiguration>` jest specjalne, ponieważ jest właściwością globalną i nie powinny należeć do każdego pliku, który jest importowany w kompilacji. Zobacz [MSBuild: sposób ustawiania właściwości konfiguracji](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) Aby uzyskać więcej informacji.
+
 *.Pubxml* plik nie powinien wyewidencjonowany do kontroli źródła, ponieważ zależy on od *.user* pliku. *.User* pliku nigdy nie powinna być sprawdzana do kontroli źródła, ponieważ mogą zawierać poufne informacje i jest tylko prawidłowy dla jednego użytkownika i komputera.
 
 Informacje poufne (na przykład hasła publikowania) są szyfrowane na na użytkownika/machine poziomu i przechowywane w *właściwości/PublishProfiles/\<publikowania name >. pubxml.user* pliku. Ten plik może zawierać informacje poufne, należy **nie** być wyewidencjonowany do kontroli źródła.
@@ -444,7 +445,7 @@ MSBuild file.
 
 Zobacz [WebSDK Readme](https://github.com/aspnet/websdk) dla większej liczby próbek wdrożenia.
 
-### <a name="run-a-target-before-or-after-publishing"></a>Uruchom element docelowy przed lub po opublikowaniu
+## <a name="run-a-target-before-or-after-publishing"></a>Uruchom element docelowy przed lub po opublikowaniu
 
 Wbudowane `BeforePublish` i `AfterPublish` elementy docelowe może służyć do wykonywania elementu docelowego przed lub po lokalizacja docelowa publikowania. Następujący kod, mogą być dodawane do profilu publikowania do logowania wiadomości dane wyjściowe konsoli przed i po opublikowaniu:
 
@@ -455,6 +456,16 @@ Wbudowane `BeforePublish` i `AfterPublish` elementy docelowe może służyć do 
   <Target Name="CustomActionsAfterPublish" AfterTargets="AfterPublish">
     <Message Text="Inside AfterPublish" Importance="high" />
 </Target>
+```
+
+## <a name="publish-to-a-server-using-an-untrusted-certificate"></a>Publikowanie na serwerze za pomocą niezaufanego certyfikatu
+
+Dodaj `<AllowUntrustedCertificate>` właściwość z wartością `True` do profilu publikowania:
+
+```xml
+<PropertyGroup>
+  <AllowUntrustedCertificate>True</AllowUntrustedCertificate>
+</PropertyGroup>
 ```
 
 ## <a name="the-kudu-service"></a>Usługa Kudu
@@ -471,4 +482,4 @@ Wybierz [konsoli debugowania](https://github.com/projectkudu/kudu/wiki/Kudu-cons
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Web Deploy](https://www.iis.net/downloads/microsoft/web-deploy) (MSDeploy) upraszcza wdrażanie aplikacji sieci web i witryn sieci Web na serwerach usług IIS.
-* [https://github.com/ASPNET/websdk](https://github.com/aspnet/websdk/issues): plik problemy i żądania funkcji dla wdrożenia.
+* [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): Plik problemy i żądania funkcji dla wdrożenia.

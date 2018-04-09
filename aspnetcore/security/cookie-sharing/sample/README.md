@@ -16,4 +16,4 @@ Instrukcje:
 1. Zaloguj użytkownika do żadnego z trzech aplikacji. Plik cookie uwierzytelniania jest współdzielona przez aplikacje. Należy pamiętać, że użytkownik jest automatycznie zalogowany do innych aplikacji.
 1. Wylogować użytkownika z dowolnej aplikacji. Należy pamiętać, że użytkownik jest automatycznie wylogowani z innych aplikacji.
 
-W tym przykładzie pokazano funkcje opisane w [udostępniania plików cookie między aplikacjami](https://docs.microsoft.com/aspnet/core/security/cookie-sharing) tematu.
+W tym przykładzie pokazano funkcje opisane w [udziału plików cookie między aplikacjami](https://docs.microsoft.com/aspnet/core/security/cookie-sharing) tematu.

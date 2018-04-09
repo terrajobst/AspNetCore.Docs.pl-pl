@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
-title: "Jak uaktualnić platformy ASP.NET MVC 4 oraz sieci Web projektu interfejsu API platformy ASP.NET MVC 5 i składnika Web API 2 | Dokumentacja firmy Microsoft"
+title: Jak uaktualnić platformy ASP.NET MVC 4 oraz sieci Web projektu interfejsu API platformy ASP.NET MVC 5 i składnika Web API 2 | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "ASP.NET MVC 5 i Web API 2 Przełącz hosta z nowych funkcji, łącznie z trasami atrybutów, filtry uwierzytelniania i o wiele więcej."
+description: ASP.NET MVC 5 i Web API 2 Przełącz hosta z nowych funkcji, łącznie z trasami atrybutów, filtry uwierzytelniania i o wiele więcej.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 05a3189cf105d1230b96e90b46ea5ab60fef1bf1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f61502933a5ba92896ee97cef9cff915fe23831d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a>Jak uaktualnić do programu ASP.NET MVC 5 i składnika Web API 2 platformy ASP.NET MVC 4 oraz projekt interfejsu API sieci Web
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
-> ASP.NET MVC 5 i Web API 2 Przełącz hosta z nowych funkcji, łącznie z trasami atrybutów, filtry uwierzytelniania i o wiele więcej. Zobacz [https://www.asp.net/vnext](https://www.asp.net/core) więcej szczegółów.
+> ASP.NET MVC 5 i Web API 2 Przełącz hosta z nowych funkcji, łącznie z trasami atrybutów, filtry uwierzytelniania i o wiele więcej. Zobacz [ https://www.asp.net/vnext ](https://www.asp.net/core) więcej szczegółów.
 > 
 > Ten przewodnik przeprowadzi Cię kroki wymagane do uaktualnienia do najnowszej wersji aplikacji.  
 > 
@@ -41,12 +41,12 @@ Przez [Rick Anderson](https://github.com/Rick-Anderson)
 
     [!code-csharp[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample1.cs)]
 
- na
+   na
 
     [!code-csharp[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample2.cs)]
 3. Upewnij się, że wszystkie pakiety używających swoje projekty są zgodne z MVC 5 i 2 interfejsu API sieci Web. Następujące tabelą MVC 4 i interfejsu API sieci Web związanych z pakietów niż muszą zostać zmienione. Jeśli pakiet, który jest zależny od jednego z wymienionych poniżej pakietów, skontaktuj się z wydawcy, aby uzyskać nowsze wersje, które są zgodne z MVC 5 i 2 interfejsu API sieci Web. Jeśli masz kod źródłowy dla tych pakietów, należy je skompiluj przy nowe zestawy MVC 5 i 2 interfejsu API sieci Web.   
 
-    | **Identyfikator pakietu** | **Stara wersja** | **Nowa wersja** |
+    | **Package Id** | **Stara wersja** | **Nowa wersja** |
     | --- | --- | --- |
     | Microsoft.AspNet.Razor | 2.0.x.x | 3.0.0 |
     | Microsoft.AspNet.WebPages | 2.0.x.x | 3.0.0 |
@@ -68,7 +68,7 @@ Przez [Rick Anderson](https://github.com/Rick-Anderson)
     | Microsoft.Data.Edm | 5.2.x | 5.6.x |
     | Microsoft.AspNet.Mvc.FixedDisplayModes | < o: p >< / o: p > | Usunięte |
     | Microsoft.AspNet.WebPages.Administration | < o: p >< / o: p > | Usunięte |
-    | Pomocnicy firmy Microsoft | < o: p >< / o: p > | Microsoft.AspNet.WebHelpers |
+    | Microsoft-Web-Helpers | < o: p >< / o: p > | Microsoft.AspNet.WebHelpers |
 
     > [!NOTE]
     > Pomocnicy Microsoft zostało zastąpione Microsoft.AspNet.WebHelpers. Należy najpierw usunięcie starego pakietu, a następnie zainstaluj nowszą pakietu.   
@@ -78,17 +78,17 @@ Przez [Rick Anderson](https://github.com/Rick-Anderson)
 5. Usuń wszystkie następujące pakiety ASP.NET NuGet, które są zainstalowane. Spowoduje usunięcie tych przy użyciu konsoli Menedżera pakietów (PMC). Aby otworzyć PMC, wybierz **narzędzia** menu, a następnie wybierz **Menedżer pakietów biblioteki,** następnie wybierz **Konsola Menedżera pakietów**. Projekt może nie zawierać wszystkich z nich.
 
     1. `Microsoft.AspNet.WebPages.Administration`  
- Ten pakiet jest zwykle dodane podczas uaktualniania MVC 3 MVC 4. Aby usunąć go, uruchom następujące polecenie w kryterium:  
+   Ten pakiet jest zwykle dodane podczas uaktualniania MVC 3 MVC 4. Aby usunąć go, uruchom następujące polecenie w kryterium:  
         `Uninstall-Package -Id Microsoft.AspNet.WebPages.Administration`
     2. `Microsoft-Web-Helpers`   
- Ten pakiet zawiera zostały rebranded jako `Microsoft.AspNet.WebHelpers`. Aby usunąć go, uruchom następujące polecenie w kryterium:  
+   Ten pakiet zawiera zostały rebranded jako `Microsoft.AspNet.WebHelpers`. Aby usunąć go, uruchom następujące polecenie w kryterium:  
         `Uninstall-Package -Id Microsoft-Web-Helpers`
     3. `Microsoft.AspNet.Mvc.FixedDisplayMode`  
- Ten pakiet zawiera obejść dla usterki w MVC 4, który został rozwiązany w MVC 5. Aby usunąć go, uruchom następujące polecenie w kryterium:  
+   Ten pakiet zawiera obejść dla usterki w MVC 4, który został rozwiązany w MVC 5. Aby usunąć go, uruchom następujące polecenie w kryterium:  
         `Uninstall-Package -Id Microsoft.AspNet.Mvc.FixedDisplayModes`
 6. Uaktualnij wszystkie pakiety ASP.NET NuGet przy użyciu kryterium. W kryterium uruchom następujące polecenie:  
     `Update-Package`  
- `Update-Package` Polecenia bez żadnych parametrów spowoduje zaktualizowanie każdy pakiet. Indywidualnie aktualizację pakietów za pomocą argumentu identyfikator. Aby uzyskać więcej informacji na temat polecenia aktualizacji, uruchom `get-help update-package` .
+   `Update-Package` Polecenia bez żadnych parametrów spowoduje zaktualizowanie każdy pakiet. Indywidualnie aktualizację pakietów za pomocą argumentu identyfikator. Aby uzyskać więcej informacji na temat polecenia aktualizacji, uruchom `get-help update-package` .
 
 ## <a name="update-the-application-webconfig-file"></a>Aktualizowanie aplikacji *web.config* pliku
 

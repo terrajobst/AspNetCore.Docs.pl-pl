@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 title: Dane partycjonowania strategie (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on..."
+description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 513837a7-cfea-4568-a4e9-1f5901245d24
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
-ms.openlocfilehash: dca016cb6293a346f5622cc272e510b182c86d58
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9ff7f37a03d8d3dfab50e8007a6645bb0d88f453
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>Dane partycjonowania strategie (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -95,7 +95,7 @@ Skuteczne schemat partycjonowania można włączyć aplikacji chmury można skal
 
 W [następnego rozdziału](unstructured-blob-storage.md) zajmiemy się tym, jak aplikacji Usuń implementuje partycjonowanie pionowe przez zapisanie obrazów w magazynie obiektów Blob.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji na temat strategii partycjonowania zobacz następujące zasoby.
 
@@ -113,6 +113,6 @@ Przykładowy kod:
 
 - [Podstawy usługi w systemie Windows Azure w chmurze](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowa aplikacja obsługująca oferuje podzielonej bazy danych. Opis schematu dzielenia na fragmenty zaimplementowana, zobacz [DAL — dzielenia na fragmenty RDBMS](https://blogs.msdn.com/b/windowsazure/archive/2013/09/05/dal-sharding-of-rdbms.aspx) na blogu systemu Windows Azure.
 
->[!div class="step-by-step"]
-[Poprzednie](data-storage-options.md)
-[dalej](unstructured-blob-storage.md)
+> [!div class="step-by-step"]
+> [Poprzednie](data-storage-options.md)
+> [dalej](unstructured-blob-storage.md)

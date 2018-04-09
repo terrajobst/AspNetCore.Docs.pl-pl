@@ -1,7 +1,7 @@
 ---
-title: "Pomocnik częściowe tagu w platformy ASP.NET Core"
+title: Pomocnik częściowe tagu w platformy ASP.NET Core
 author: scottaddie
-description: "Dostęp do platformy ASP.NET Core częściowe Tag pomocnika i roli każdego z jego atrybuty odtwarzana renderowania widoku częściowego."
+description: Dostęp do platformy ASP.NET Core częściowe Tag pomocnika i roli każdego z jego atrybuty odtwarzana renderowania widoku częściowego.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: a9848539206892579501a39a9fce3044c6753948
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4573409720ccba524c0d5d05696e0fb3468ff338
+ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Pomocnik częściowe tagu w platformy ASP.NET Core
 
@@ -28,8 +28,9 @@ Częściowe pomocnika Tag jest używany do renderowania [widoku częściowego](x
 
 * Wymaga platformy ASP.NET Core 2.1 lub nowszej.
 * Jest to alternatywa dla [składni pomocnika kodu HTML](xref:mvc/views/partial#referencing-a-partial-view).
+* Renderuje widok częściowy asynchronicznie.
 
-Aby recap, dostępne są następujące opcje pomocnika kodu HTML do renderowania widoku częściowego:
+Opcje pomocnika kodu HTML do renderowania widoku częściowego obejmują:
 
 * [@await Html.PartialAsync](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.partialasync)
 * [@await Html.RenderPartialAsync](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.renderpartialasync)
@@ -60,7 +61,7 @@ Następujący kod znaczników ładuje *_ProductPartial.cshtml*:
 
 Widok częściowy jest powiązana z modelem skojarzonej strony `Product` właściwości:
 
-[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml.cs?highlight=8)]
+[!code-csharp[](samples/TagHelpersBuiltIn/Pages/Product.cshtml.cs?highlight=8)]
 
 ## <a name="view-data"></a>Wyświetlanie danych
 

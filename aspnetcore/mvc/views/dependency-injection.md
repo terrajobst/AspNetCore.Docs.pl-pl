@@ -1,7 +1,7 @@
 ---
-title: "Iniekcji zależności do widoków w ASP.NET Core"
+title: Iniekcji zależności do widoków w ASP.NET Core
 author: ardalis
-description: "Dowiedz się, jak platformy ASP.NET Core obsługuje iniekcji zależności do widoków MVC."
+description: Dowiedz się, jak platformy ASP.NET Core obsługuje iniekcji zależności do widoków MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: cde30322450529f5b3b58f9ee54c22b4cbda65c8
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: cc34b9069ec062f08644c0026c1ccdcd00f667ac
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>Iniekcji zależności do widoków w ASP.NET Core
 
@@ -39,7 +39,7 @@ Ten widok przedstawia listę `ToDoItem` wystąpień, wraz z podsumowaniem przeds
 
 `StatisticsService` Wykonuje obliczenia na zbiór `ToDoItem` wystąpienia, które uzyskuje dostęp do za pośrednictwem repozytorium:
 
-[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/StatisticsService.cs?highlight=15,20,26)]
+[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/StatisticsService.cs?highlight=15,20,25)]
 
 Repozytorium przykładowej korzysta z kolekcji w pamięci. Implementacja pokazanym powyżej (który działa na wszystkich danych w pamięci) nie jest zalecane w przypadku dużych, zdalny dostęp do zestawów danych.
 

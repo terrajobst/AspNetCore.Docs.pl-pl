@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-controller
 title: Dodawanie kontrolera (C#) | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express Serivice dodatkiem Service Pack 1, które..."
+description: Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express Serivice dodatkiem Service Pack 1, które...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 77bfc8f3778dcf75453c216579e50a016b1ac971
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 963d3bbbadf408d7045c50bfd693069e4097d45d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller-c"></a>Dodawanie kontrolera (C#)
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Dostępna jest zaktualizowana wersja tego samouczka [tutaj](../../../getting-started/introduction/getting-started.md) używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej wykonać i pokazuje więcej funkcji.
@@ -85,6 +85,6 @@ Uruchom aplikację i przejdź do adresu URL przykład (`http://localhost:xxxx/He
 
 W obu tych przykładach kontroler ma zostały czynności "VC" część MVC — to znaczy pracy widok i kontroler. Kontroler bezpośrednio zwraca HTML. Zwykle nie mają kontrolerów bezpośrednio, zwracanie HTML, ponieważ staje się bardzo trudne kodu. Zamiast tego zazwyczaj użyjemy pliku szablonu osobny widok ułatwia generowanie odpowiedzi HTML. Oto dalej w sposób firma Microsoft można to zrobić.
 
->[!div class="step-by-step"]
-[Poprzednie](intro-to-aspnet-mvc-3.md)
-[dalej](adding-a-view.md)
+> [!div class="step-by-step"]
+> [Poprzednie](intro-to-aspnet-mvc-3.md)
+> [dalej](adding-a-view.md)

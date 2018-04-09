@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-cs
-title: "Używanie TemplateFields w kontrolce GridView (C#) | Dokumentacja firmy Microsoft"
+title: Używanie TemplateFields w kontrolce GridView (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Zapewnienie elastyczności widoku GridView oferuje TemplateField, która renderuje przy użyciu szablonu. Szablon może zawierać kombinację statycznego HTML, formantów sieci Web i..."
+description: Zapewnienie elastyczności widoku GridView oferuje TemplateField, która renderuje przy użyciu szablonu. Szablon może zawierać kombinację statycznego HTML, formantów sieci Web i...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 004f1450937cc6543cb728e01586e3c3529a57d0
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6485cbda50912920808fc0caf41c888493f210dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-templatefields-in-the-gridview-control-c"></a>Używanie TemplateFields w kontrolce GridView (C#)
 ====================
@@ -94,7 +94,7 @@ Przejdź dalej i przekonwertować `FirstName` elementu BoundField na pole Templa
 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample2.aspx)]
 
-Jak widać, TemplateField składa się z dwóch szablonów `ItemTemplate` mający etykietę których `Text` właściwości ustawiono wartość `FirstName` pola danych i `EditItemTemplate` z pola tekstowego kontroli, których `Text` także ustawienia właściwości Aby `FirstName` pola danych. Składnia wiązania z danymi - `<%# Bind("fieldName") %>` -oznacza to, że w polu danych  *`fieldName`*  jest powiązany z określonej właściwości formantu sieci Web.
+Jak widać, TemplateField składa się z dwóch szablonów `ItemTemplate` mający etykietę których `Text` właściwości ustawiono wartość `FirstName` pola danych i `EditItemTemplate` z pola tekstowego kontroli, których `Text` także ustawienia właściwości Aby `FirstName` pola danych. Składnia wiązania z danymi - `<%# Bind("fieldName") %>` -oznacza to, że w polu danych *`fieldName`* jest powiązany z określonej właściwości formantu sieci Web.
 
 Aby dodać `LastName` wartość do tego TemplateField, należy dodać inny formant etykiety w sieci Web w pola danych `ItemTemplate` i powiąż jego `Text` właściwości `LastName`. Można to zrobić ręcznie lub za pomocą projektanta. Aby wykonać to zadanie ręcznie, po prostu Dodaj odpowiedniej składni deklaratywnej do `ItemTemplate`:
 
@@ -239,7 +239,7 @@ Ustaw ten nowy TemplateField `HeaderText` dla właściwości "Dni na zadanie" i 
 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample6.aspx)]
 
-`Container.DataItem`Zwraca `DataRowView` obiekt odpowiadający `DataSource` rekord powiązany z `GridViewRow`. Jego `Row` właściwość zwraca jednoznacznie `Northwind.EmployeesRow`, który jest przekazywany do `DisplayDaysOnJob` metody. Ta składnia wiązania z danymi mogą występować bezpośrednio w `ItemTemplate` (jak pokazano w poniższej składni deklaratywnej) lub może zostać przypisane do `Text` właściwości formantu etykiety w sieci Web.
+`Container.DataItem` Zwraca `DataRowView` obiekt odpowiadający `DataSource` rekord powiązany z `GridViewRow`. Jego `Row` właściwość zwraca jednoznacznie `Northwind.EmployeesRow`, który jest przekazywany do `DisplayDaysOnJob` metody. Ta składnia wiązania z danymi mogą występować bezpośrednio w `ItemTemplate` (jak pokazano w poniższej składni deklaratywnej) lub może zostać przypisane do `Text` właściwości formantu etykiety w sieci Web.
 
 > [!NOTE]
 > Możesz też zamiast przekazywanie `EmployeesRow` wystąpienia, firma Microsoft może po prostu Przekaż w `HireDate` wartości przy użyciu `<%# DisplayDaysOnJob(Eval("HireDate")) %>`. Jednak `Eval` metoda zwraca `object`, więc mamy zmienić naszych `DisplayDaysOnJob` podpis metody, aby zaakceptować parametru wejściowego typu `object`, zamiast tego. Firma Microsoft nie można rzutować ślepo `Eval("HireDate")` wywołanie `DateTime` ponieważ `HireDate` kolumny w `Employees` tabela może zawierać `NULL` wartości. W związku z tym, czy należy zaakceptować `object` jako parametru wejściowego dla `DisplayDaysOnJob` metoda, sprawdź, czy miała bazy danych `NULL` wartość (co można wykonać przy użyciu `Convert.IsDBNull(objectToCheck)`), a następnie przejdź w związku z tym.
@@ -276,12 +276,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Dan Jagers. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](custom-formatting-based-upon-data-cs.md)
-[dalej](using-templatefields-in-the-detailsview-control-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](custom-formatting-based-upon-data-cs.md)
+> [dalej](using-templatefields-in-the-detailsview-control-cs.md)

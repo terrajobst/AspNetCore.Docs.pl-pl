@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 title: Zaawansowanych scenariuszy struktury jednostek dla aplikacji sieci Web MVC (10 10) | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 148a1aa33f6f713ae471ab14c7180f6c08a8679a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 277503b65d9b75a9d3cc05538d5327f9367f45e0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Zaawansowane Entity Framework scenariusze dla aplikacji sieci Web MVC (10 10)
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -107,7 +107,7 @@ W *DAL* folderu, Utwórz *CourseRepository.cs* i Zastąp istniejący kod następ
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample5.cs)]
 
-W *UnitOfWork.cs*, zmień `Course` typu repozytorium z `GenericRepository<Course>` do`CourseRepository:`
+W *UnitOfWork.cs*, zmień `Course` typu repozytorium z `GenericRepository<Course>` do `CourseRepository:`
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample6.cs)]
 
@@ -299,7 +299,7 @@ Poczekaj kilka sekund i Odśwież stronę.
 
 Komunikat o błędzie:
 
-*Termin "Update-Database" nie został rozpoznany jako nazwa polecenia cmdlet, funkcji, pliku skryptu lub program wykonywalny. Sprawdź pisownię nazwy lub jeśli ścieżki został uwzględniony, sprawdź, czy ścieżka jest poprawna i spróbuj ponownie.* (Z  *`Update-Database`*  w PMC.)
+*Termin "Update-Database" nie został rozpoznany jako nazwa polecenia cmdlet, funkcji, pliku skryptu lub program wykonywalny. Sprawdź pisownię nazwy lub jeśli ścieżki został uwzględniony, sprawdź, czy ścieżka jest poprawna i spróbuj ponownie.* (Z *`Update-Database`* w PMC.)
 
 Rozwiązanie:
 
@@ -309,7 +309,7 @@ Zamknij program Visual Studio. Ponownie otwórz projekt i spróbuj ponownie.
 
 Komunikat o błędzie:
 
-*Weryfikacja nie powiodła się dla co najmniej jedna jednostka. Zobacz właściwości "EntityValidationErrors", aby uzyskać więcej informacji.* (Z  *`Update-Database`*  w PMC.)
+*Weryfikacja nie powiodła się dla co najmniej jedna jednostka. Zobacz właściwości "EntityValidationErrors", aby uzyskać więcej informacji.* (Z *`Update-Database`* w PMC.)
 
 Rozwiązanie:
 
@@ -335,6 +335,6 @@ Rozwiązanie:
 
 Sprawdź parametry połączenia. Jeśli bazy danych został ręcznie usunięty, Zmień nazwę bazy danych w ciągu konstrukcji.
 
->[!div class="step-by-step"]
-[Poprzednie](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)
-[dalej](building-the-ef5-mvc4-chapter-downloads.md)
+> [!div class="step-by-step"]
+> [Poprzednie](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)
+> [dalej](building-the-ef5-mvc4-chapter-downloads.md)

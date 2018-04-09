@@ -1,7 +1,7 @@
 ---
-title: "Rozwiązywanie problemów z platformy ASP.NET Core w usługach IIS"
+title: Rozwiązywanie problemów z platformy ASP.NET Core w usługach IIS
 author: guardrex
-description: "Dowiedz się, jak diagnozować problemy z wdrożeniami usług Internet Information Services (IIS) w aplikacji platformy ASP.NET Core."
+description: Dowiedz się, jak diagnozować problemy z wdrożeniami usług Internet Information Services (IIS) w aplikacji platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 65173e0101a17c64f4cde583e5bbb9fb0a9c7718
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e44892d2022ca1a176cee9d027e220e196c6572d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Rozwiązywanie problemów z platformy ASP.NET Core w usługach IIS
 
@@ -96,7 +96,7 @@ Aby włączyć i sprawdź dzienniki stdout:
 
 1. Przejdź do folderu wdrożenia dla lokacji przez system operacyjny.
 1. Jeśli *dzienniki* folder nie istnieje, Utwórz folder. Aby uzyskać instrukcje dotyczące włączania MSBuild tworzenia *dzienniki* folderu we wdrożeniu automatycznie, zobacz [struktury katalogów](xref:host-and-deploy/directory-structure) tematu.
-1. Edytuj *web.config* pliku. Ustaw **stdoutLogEnabled** do `true` i zmienić **stdoutLogFile** ścieżkę, aby wskazywał *dzienniki* folder (na przykład `.\logs\stdout`). `stdout`w ścieżce jest prefiks nazwy pliku dziennika. Sygnatura czasowa, identyfikator procesu i rozszerzenie pliku są dodawane automatycznie podczas tworzenia dziennika. Przy użyciu `stdout` jako prefiksu nazwy pliku, nosi nazwę pliku dziennika typowe *stdout_20180205184032_5412.log*. 
+1. Edytuj *web.config* pliku. Ustaw **stdoutLogEnabled** do `true` i zmienić **stdoutLogFile** ścieżkę, aby wskazywał *dzienniki* folder (na przykład `.\logs\stdout`). `stdout` w ścieżce jest prefiks nazwy pliku dziennika. Sygnatura czasowa, identyfikator procesu i rozszerzenie pliku są dodawane automatycznie podczas tworzenia dziennika. Przy użyciu `stdout` jako prefiksu nazwy pliku, nosi nazwę pliku dziennika typowe *stdout_20180205184032_5412.log*. 
 1. Zapisz zaktualizowane *web.config* pliku.
 1. Wyślij żądanie do aplikacji.
 1. Przejdź do *dzienniki* folderu. Znajdowanie i otwieranie najnowszych dziennika stdout.

@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 title: Formatowanie DataList i powtarzanego na podstawie danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku będziemy czynności w przykłady jak możemy formatować wygląd formantów DataList i powtarzanego, przy użyciu formatowania funkcje za pomocą..."
+description: W tym samouczku będziemy czynności w przykłady jak możemy formatować wygląd formantów DataList i powtarzanego, przy użyciu formatowania funkcje za pomocą...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 460fc36062f3338ffd178aceda2b3b224752a089
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 174a68cf0785b33c85139d57ede9717ce7e135e0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>Formatowanie DataList i powtarzanego na podstawie danych (VB)
 ====================
@@ -42,19 +42,19 @@ Oba te techniki formatowania są dostępne z formantami DataList i elementu powt
 
 Gdy danych jest powiązany z DataList z kontroli źródła danych lub programowo przypisując danych do kontrolki s `DataSource` właściwości i wywołanie jego `DataBind()` metody DataList s `DataBinding` zdarzenia generowane wyliczone, źródła danych a każdy rekord danych jest powiązany z elementu DataList. Dla każdego rekordu w źródle danych, tworzy elementu DataList [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx) obiekt, a następnie powiązany z bieżącym rekordem. W trakcie tego procesu elementu DataList zgłasza dwa zdarzenia:
 
-- **`ItemCreated`**generowane po `DataListItem` został utworzony
-- **`ItemDataBound`**generowane po powiązany bieżącego rekordu`DataListItem`
+- **`ItemCreated`** generowane po `DataListItem` został utworzony
+- **`ItemDataBound`** generowane po powiązany bieżącego rekordu `DataListItem`
 
 Poniższe kroki wchodzą w skład procesu wiązania danych formant DataList.
 
 1. DataList s [ `DataBinding` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx) uruchamiany
 2. Do elementu DataList powiązania danych  
   
- Dla każdego rekordu w źródle danych 
+   Dla każdego rekordu w źródle danych 
 
     1. Utwórz `DataListItem` obiektu
     2. Fire [ `ItemCreated` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
-    3. Powiąż rekordu`DataListItem`
+    3. Powiąż rekordu `DataListItem`
     4. Fire [ `ItemDataBound` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
     5. Dodaj `DataListItem` do `Items` kolekcji
 
@@ -172,7 +172,7 @@ Formatowanie funkcje dodane do naszych klasie związanej z kodem strony ASP.NET 
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample5.aspx)]
 
-W DataList s `ItemTemplate` `ProductNameLabel` formantu etykiety Web obecnie Wyświetla nazwę produktu s, przypisując jego `Text` właściwości wynik z `<%# Eval("ProductName") %>`. W celu ich wyświetlania nazwę oraz tekstu [WYCOFANY], jeśli to konieczne, zaktualizuj składni deklaratywnej tak, aby zamiast tego przypisuje `Text` właściwości wartość elementu `DisplayProductNameAndDiscontinuedStatus` metody. Po tej czynności musi przekazywana nazwa produktu s i wycofane wartości przy użyciu `Eval("columnName")` składni. `Eval`Zwraca wartość typu `Object`, ale `DisplayProductNameAndDiscontinuedStatus` metoda oczekuje parametrów wejściowych typu `String` i `Boolean`; w związku z tym możemy rzutować wartości zwracanych przez `Eval` metody dla typów oczekiwanego parametru wejściowego, w następujący sposób:
+W DataList s `ItemTemplate` `ProductNameLabel` formantu etykiety Web obecnie Wyświetla nazwę produktu s, przypisując jego `Text` właściwości wynik z `<%# Eval("ProductName") %>`. W celu ich wyświetlania nazwę oraz tekstu [WYCOFANY], jeśli to konieczne, zaktualizuj składni deklaratywnej tak, aby zamiast tego przypisuje `Text` właściwości wartość elementu `DisplayProductNameAndDiscontinuedStatus` metody. Po tej czynności musi przekazywana nazwa produktu s i wycofane wartości przy użyciu `Eval("columnName")` składni. `Eval` Zwraca wartość typu `Object`, ale `DisplayProductNameAndDiscontinuedStatus` metoda oczekuje parametrów wejściowych typu `String` i `Boolean`; w związku z tym możemy rzutować wartości zwracanych przez `Eval` metody dla typów oczekiwanego parametru wejściowego, w następujący sposób:
 
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample6.aspx)]
@@ -200,12 +200,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Yaakov Ellis Randy Schmidt i Liz Shulok. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](displaying-data-with-the-datalist-and-repeater-controls-vb.md)
-[dalej](showing-multiple-records-per-row-with-the-datalist-control-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](displaying-data-with-the-datalist-and-repeater-controls-vb.md)
+> [dalej](showing-multiple-records-per-row-with-the-datalist-control-vb.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 title: Tworzenie modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC (od 1 do 10) | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Dostępne dla programu Visual Studio 2013, Entity Framework 6 i MVC 5 jest nowsza wersja tego samouczka serii. Niemcy aplikacji sieci web przykładowej Contoso University..."
+description: Dostępne dla programu Visual Studio 2013, Entity Framework 6 i MVC 5 jest nowsza wersja tego samouczka serii. Niemcy aplikacji sieci web przykładowej Contoso University...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8c9971ccc70cb4b966abb64086b1b5420fc6c72a
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: a963f26b408f2a54bd9cd3e852bc1e368f86c41f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>Tworzenie modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC (od 1 do 10)
 ====================
@@ -311,29 +311,29 @@ Następnym krokiem jest do tworzenia widoków i kontrolera ASP.NET MVC w aplikac
 
 1. Można utworzyć `Student` kontrolera, kliknij prawym przyciskiem myszy **kontrolerów** folderu w **Eksploratora rozwiązań**, wybierz pozycję **Dodaj**, a następnie kliknij przycisk **kontrolera** . W **Dodaj kontroler** okno dialogowe pola, wybierz następujące opcje, a następnie kliknij przycisk **Dodaj**: 
 
-    - Nazwa kontrolera: **StudentController**.
-    - Szablon: **kontroler MVC z akcjami odczytu/zapisu i widokami używający narzędzia Entity Framework**.
-    - Klasa modelu: **uczniów (ContosoUniversity.Models)**. (Jeśli nie widzisz tej opcji na liście rozwijanej skompilować projekt i spróbuj ponownie.)
-    - Klasa kontekstu danych: **SchoolContext (ContosoUniversity.Models)**.
-    - Widoki: **Razor (CSHTML)**. (Ustawienie domyślne).
+   - Nazwa kontrolera: **StudentController**.
+   - Szablon: **kontroler MVC z akcjami odczytu/zapisu i widokami używający narzędzia Entity Framework**.
+   - Klasa modelu: **uczniów (ContosoUniversity.Models)**. (Jeśli nie widzisz tej opcji na liście rozwijanej skompilować projekt i spróbuj ponownie.)
+   - Klasa kontekstu danych: **SchoolContext (ContosoUniversity.Models)**.
+   - Widoki: **Razor (CSHTML)**. (Ustawienie domyślne).
 
-    ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image20.png)
-- Visual Studio otworzy *Controllers\StudentController.cs* pliku. Zobaczysz, że zmienna klasy utworzono tworzącym wystąpienie obiektu kontekstu bazy danych:
+     ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image20.png)
+2. Visual Studio otworzy *Controllers\StudentController.cs* pliku. Zobaczysz, że zmienna klasy utworzono tworzącym wystąpienie obiektu kontekstu bazy danych:
 
-    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
+     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
 
-    `Index` Metody akcji pobiera listę studentów z *studentów* zestaw odczytując jednostek `Students` właściwości wystąpienia kontekstu bazy danych:
+     `Index` Metody akcji pobiera listę studentów z *studentów* zestaw odczytując jednostek `Students` właściwości wystąpienia kontekstu bazy danych:
 
-    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample17.cs)]
+     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample17.cs)]
 
-    *Student\Index.cshtml* widoku tej listy są wyświetlane w tabeli:
+     *Student\Index.cshtml* widoku tej listy są wyświetlane w tabeli:
 
-    [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample18.cshtml)]
-- Naciśnij klawisze CTRL + F5, aby uruchomić projekt.
+     [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample18.cshtml)]
+3. Naciśnij klawisze CTRL + F5, aby uruchomić projekt.
 
-    Kliknij przycisk **studentów** kartę, aby wyświetlić dane testowe który `Seed` dodaje metody.
+     Kliknij przycisk **studentów** kartę, aby wyświetlić dane testowe który `Seed` dodaje metody.
 
-    ![Strona indeksu dla użytkowników domowych](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image21.png)
+     ![Strona indeksu dla użytkowników domowych](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image21.png)
 
 ## <a name="conventions"></a>Konwencje
 
@@ -351,5 +351,5 @@ Teraz utworzyć prostą aplikację, która korzysta z programu Entity Framework 
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [Mapa zawartości dostępu do danych programu ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

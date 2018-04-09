@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-vb
-title: "Animacja w zależności od stanu (VB) | Dokumentacja firmy Microsoft"
+title: Animacja w zależności od stanu (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Określa, czy animacja jest..."
+description: Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Określa, czy animacja jest...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc8600f33f9c27e1045f5083a126b9d2d1e90303
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d3a648ff8299c9720e9f34522f271595ab1b9bc9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="animation-depending-on-a-condition-vb"></a>Animacja w zależności od stanu (VB)
 ====================
@@ -45,7 +45,7 @@ Skojarzone klasy CSS panelu Zdefiniuj kolor tła nieuprzywilejowany i również 
 
 [!code-css[Main](animation-depending-on-a-condition-vb/samples/sample3.css)]
 
-Następnie należy dodać `AnimationExtender` ze stroną, zapewniając `ID`, `TargetControlID` atrybut i obowiązkowe`runat="server":`
+Następnie należy dodać `AnimationExtender` ze stroną, zapewniając `ID`, `TargetControlID` atrybut i obowiązkowe `runat="server":`
 
 [!code-aspx[Main](animation-depending-on-a-condition-vb/samples/sample4.aspx)]
 
@@ -60,6 +60,6 @@ Należy pamiętać, że znak mniejszości (`<`) w `ConditionScript` atrybut musi
 
 Panel jest wygaszanie bez zmiany rozmiaru, więc drugi działa animacji, pierwsza z nich nie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](animation-depending-on-a-condition-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](executing-several-animations-after-each-other-vb.md)
-[dalej](picking-one-animation-out-of-a-list-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](executing-several-animations-after-each-other-vb.md)
+> [dalej](picking-one-animation-out-of-a-list-vb.md)

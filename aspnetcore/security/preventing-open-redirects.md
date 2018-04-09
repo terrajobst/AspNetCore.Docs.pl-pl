@@ -1,7 +1,7 @@
 ---
-title: Zapobieganie atakom przekierowania otwartych w aplikacji platformy ASP.NET Core
+title: Zapobieganie atakom Otwórz przekierowania w ASP.NET Core
 author: ardalis
-description: "Pokazuje, jak zapobiegać atakom Otwórz przekierowania dla aplikacji platformy ASP.NET Core"
+description: Pokazuje, jak zapobiegać atakom Otwórz przekierowania dla aplikacji platformy ASP.NET Core
 manager: wpickett
 ms.author: riande
 ms.date: 07/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/preventing-open-redirects
-ms.openlocfilehash: d6cd65a2516c4d5e41428f0c1f2dbbe913ac2123
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a210b8bb8091e7c036d4bc98306e3b3f90d7d46
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="preventing-open-redirect-attacks-in-an-aspnet-core-app"></a>Zapobieganie atakom przekierowania otwartych w aplikacji platformy ASP.NET Core
+# <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>Zapobieganie atakom Otwórz przekierowania w ASP.NET Core
 
 Aplikacja sieci web, który przekierowuje do adresu URL, który został określony przy użyciu żądania, takich jak dane formularza lub ciągu kwerendy może potencjalnie niepowołane przekierowuje użytkowników zewnętrznych, złośliwy adresu URL. Naruszeniu ten nosi nazwę atak przekierowania otwarte.
 
@@ -57,11 +57,11 @@ public IActionResult SomeAction(string redirectUrl)
 }
 ```
 
-``LocalRedirect``spowoduje zgłoszenie wyjątku, jeśli określono adres URL nie lokalnego. W przeciwnym razie wartość działa tak samo jak ``Redirect`` metody.
+``LocalRedirect`` spowoduje zgłoszenie wyjątku, jeśli określono adres URL nie lokalnego. W przeciwnym razie wartość działa tak samo jak ``Redirect`` metody.
 
 ### <a name="islocalurl"></a>IsLocalUrl
 
-Użyj [IsLocalUrl](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iurlhelper#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_) metody do testowania przekierowywał adresów URL:
+Użyj [IsLocalUrl](/dotnet/api/Microsoft.AspNetCore.Mvc.IUrlHelper?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_) metody do testowania przekierowywał adresów URL:
 
 Poniższy przykład przedstawia sposób sprawdzania, czy adres URL jest lokalny, przed przekierowaniem.
 

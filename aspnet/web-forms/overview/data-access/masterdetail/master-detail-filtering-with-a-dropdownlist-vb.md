@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-vb
-title: "Wzorzec/szczegół filtrowanie z DropDownList (VB) | Dokumentacja firmy Microsoft"
+title: Wzorzec/szczegół filtrowanie z DropDownList (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku będziesz przedstawiono sposób wyświetlania rekordy główne w formancie DropDownList i szczegóły wybranego elementu listy w widoku GridView."
+description: W tym samouczku będziesz przedstawiono sposób wyświetlania rekordy główne w formancie DropDownList i szczegóły wybranego elementu listy w widoku GridView.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3f66e133b2bc8cdececf55b4d92508e6ff157d95
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5d1ae660ddbc6c8e2874190ade6f3deddeebe820
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>Wzorzec/szczegół filtrowanie z DropDownList (VB)
 ====================
@@ -87,12 +87,12 @@ Ten ostatni krok w raporcie naszych wzorzec/szczegół jest na liście produktó
 **Rysunek 7**: Wybierz `GetProductsByCategoryID(categoryID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image21.png))
 
 
-Po wybraniu tej metody, Kreator ObjectDataSource nam monituje o podanie wartości dla metody  *`categoryID`*  parametru. Aby użyć wartości wybranych `categories` elementu DropDownList ustawiono parametr źródła kontroli i ControlID do `Categories`.
+Po wybraniu tej metody, Kreator ObjectDataSource nam monituje o podanie wartości dla metody *`categoryID`* parametru. Aby użyć wartości wybranych `categories` elementu DropDownList ustawiono parametr źródła kontroli i ControlID do `Categories`.
 
 
 [![Ustaw categoryID parametru wartość DropDownList kategorii](master-detail-filtering-with-a-dropdownlist-vb/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image22.png)
 
-**Rysunek 8**: Ustaw  *`categoryID`*  parametru z wartością `Categories` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image24.png))
+**Rysunek 8**: Ustaw *`categoryID`* parametru z wartością `Categories` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image24.png))
 
 
 Poświęć chwilę, aby zapoznaj się z naszym postęp w przeglądarce. Podczas odwiedzania najpierw strony, tych produktów należy do wybranej kategorii (napoje) są wyświetlane (jak pokazano na rysunku nr 9), ale zmiana DropDownList nie powoduje aktualizacji danych. Jest to spowodowane odświeżania strony musi nastąpić można zaktualizować widoku GridView. W tym celu mamy dwie opcje (które wymaga pisania żadnego kodu):
@@ -146,12 +146,12 @@ Po wprowadzeniu tych zmian podczas odwiedzania najpierw na stronie opcji "--Wybi
 **Rysunek 13**: na początkowej stronie obciążenia nr produkty są wyświetlane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-a-dropdownlist-vb/_static/image37.png))
 
 
-Jest przyczyna produkty nie są wyświetlane po, ponieważ wybrano element listy "--Wybierz kategorię--", ponieważ jego wartość wynosi `-1` i nie ma produktów w bazie danych o `CategoryID` z `-1`. Jeśli jest to zachowanie ma, a następnie gotowe na tym etapie! Jeśli jednak chcesz wyświetlić *wszystkie* kategorii po wybraniu elementu listy "--Wybierz kategorię--", wróć do `ProductsBLL` klasy i dostosować `GetProductsByCategoryID(categoryID)` metodę, tak że wywołuje `GetProducts()` — metoda Jeśli przekazany w  *`categoryID`*  parametru jest mniejszy od zera:
+Jest przyczyna produkty nie są wyświetlane po, ponieważ wybrano element listy "--Wybierz kategorię--", ponieważ jego wartość wynosi `-1` i nie ma produktów w bazie danych o `CategoryID` z `-1`. Jeśli jest to zachowanie ma, a następnie gotowe na tym etapie! Jeśli jednak chcesz wyświetlić *wszystkie* kategorii po wybraniu elementu listy "--Wybierz kategorię--", wróć do `ProductsBLL` klasy i dostosować `GetProductsByCategoryID(categoryID)` metodę, tak że wywołuje `GetProducts()` — metoda Jeśli przekazany w *`categoryID`* parametru jest mniejszy od zera:
 
 
 [!code-vb[Main](master-detail-filtering-with-a-dropdownlist-vb/samples/sample2.vb)]
 
-Zastosowanych w tym miejscu jest podobna do metody możemy używany do wyświetlania wszystkich dostawców w [deklaratywne parametry](../basic-reporting/declarative-parameters-cs.md) samouczek, mimo że w tym przykładzie używamy wartość `-1` wskazująca, że wszystkie rekordy powinny być pobrany w przeciwieństwie do `Nothing`. Jest to spowodowane  *`categoryID`*  parametr `GetProductsByCategoryID(categoryID)` metoda oczekuje jako przekazano wartość całkowitą, natomiast w samouczku deklaratywne parametry zostały możemy przekazując parametr wejściowy ciąg znaków.
+Zastosowanych w tym miejscu jest podobna do metody możemy używany do wyświetlania wszystkich dostawców w [deklaratywne parametry](../basic-reporting/declarative-parameters-cs.md) samouczek, mimo że w tym przykładzie używamy wartość `-1` wskazująca, że wszystkie rekordy powinny być pobrany w przeciwieństwie do `Nothing`. Jest to spowodowane *`categoryID`* parametr `GetProductsByCategoryID(categoryID)` metoda oczekuje jako przekazano wartość całkowitą, natomiast w samouczku deklaratywne parametry zostały możemy przekazując parametr wejściowy ciąg znaków.
 
 Zrzut ekranu przedstawia rysunek 14 `FilterByDropDownList.aspx` po wybraniu opcji "--Wybierz kategorię--". W tym miejscu domyślnie są wyświetlane wszystkie produkty, a użytkownik można ograniczyć wyświetlanie przez wybranie jednej konkretnej kategorii.
 
@@ -171,8 +171,8 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Poprzednie](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)
-[dalej](master-detail-filtering-with-two-dropdownlists-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)
+> [dalej](master-detail-filtering-with-two-dropdownlists-vb.md)

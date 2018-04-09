@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 title: Niestandardowe formatowanie na podstawie danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Dopasowywanie formatu widoku GridView, widoku DetailsView lub FormView w oparciu o dane powiązane z nim można wykonywać na wiele sposobów. W tym samouczku wyślemy wiadomość l..."
+description: Dopasowywanie formatu widoku GridView, widoku DetailsView lub FormView w oparciu o dane powiązane z nim można wykonywać na wiele sposobów. W tym samouczku wyślemy wiadomość l...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 43aed94fe5b1095af37abdae2cb4c9e67b7d7f6f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a5c7f99b863697cc49a5bc9831dae861f51e129d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="custom-formatting-based-upon-data-vb"></a>Niestandardowe formatowanie na podstawie danych (VB)
 ====================
@@ -221,19 +221,19 @@ Te trzy proste kroki są wystarczające dla widoku DetailsView i FormView, ponie
 
 W kroku 2 widoku GridView wylicza źródła danych i dla każdego rekordu, tworzy `GridViewRow` wystąpienia i wiąże bieżącego rekordu. Dla każdego `GridViewRow` wywoływane dodawane do widoku GridView, dwa zdarzenia:
 
-- **`RowCreated`**generowane po `GridViewRow` został utworzony
-- **`RowDataBound`**generowane po bieżącego rekordu została powiązana z `GridViewRow`.
+- **`RowCreated`** generowane po `GridViewRow` został utworzony
+- **`RowDataBound`** generowane po bieżącego rekordu została powiązana z `GridViewRow`.
 
 Dla widoku GridView następnie powiązanie danych jest dokładniej opisanego przez następująca sekwencja kroków:
 
 1. W widoku GridView `DataBinding` generowane zdarzenie.
 2. Dane widoku GridView jest powiązane.   
   
- Dla każdego rekordu w źródle danych 
+   Dla każdego rekordu w źródle danych 
 
     1. Utwórz `GridViewRow` obiektu
     2. Fire `RowCreated` zdarzeń
-    3. Powiąż rekordu`GridViewRow`
+    3. Powiąż rekordu `GridViewRow`
     4. Fire `RowDataBound` zdarzeń
     5. Dodaj `GridViewRow` do `Rows` kolekcji
 3. W widoku GridView `DataBound` generowane zdarzenie.
@@ -279,12 +279,12 @@ Gdy `RowDataBound` generowane zdarzenie programu obsługi zdarzeń jest przekazy
 
 Podczas pracy z `RowDataBound` należy pamiętać, że widoku GridView składa się z różnych typów wierszy oraz że to zdarzenie jest generowane dla programu obsługi zdarzeń *wszystkie* wiersz typów. A `GridViewRow`tego typu można ustalić przy jego `RowType` właściwości i może mieć jedną z możliwych wartości:
 
-- `DataRow`wiersz, który jest powiązany z rekordu w widoku GridView`DataSource`
-- `EmptyDataRow`wiersz wyświetlana, jeśli w widoku GridView `DataSource` jest pusty
-- `Footer`Wiersz stopki; Jeśli wyświetlane w widoku GridView `ShowFooter` ma ustawioną wartość właściwości`True`
-- `Header`wiersz nagłówka; wyświetlany, jeśli właściwość ShowHeader w widoku GridView jest ustawiona na `True` (ustawienie domyślne)
-- `Pager`w widoku GridView implementują stronicowanie, wiersza, który wyświetla interfejs stronicowania
-- `Separator`nie jest używana dla widoku GridView, ale używany przez `RowType` właściwości DataList i powtarzanego steruje dwóch danych omówiono w przyszłości samouczki formantów sieci Web
+- `DataRow` wiersz, który jest powiązany z rekordu w widoku GridView `DataSource`
+- `EmptyDataRow` wiersz wyświetlana, jeśli w widoku GridView `DataSource` jest pusty
+- `Footer` Wiersz stopki; Jeśli wyświetlane w widoku GridView `ShowFooter` ma ustawioną wartość właściwości `True`
+- `Header` wiersz nagłówka; wyświetlany, jeśli właściwość ShowHeader w widoku GridView jest ustawiona na `True` (ustawienie domyślne)
+- `Pager` w widoku GridView implementują stronicowanie, wiersza, który wyświetla interfejs stronicowania
+- `Separator` nie jest używana dla widoku GridView, ale używany przez `RowType` właściwości DataList i powtarzanego steruje dwóch danych omówiono w przyszłości samouczki formantów sieci Web
 
 Ponieważ `EmptyDataRow`, `Header`, `Footer`, i `Pager` wierszy nie są skojarzone z `DataSource` rekordów, będzie zawsze mają wartość `Nothing` dla ich `DataItem` właściwości. Z tego powodu przed przystąpieniem do pracy z bieżącym `GridViewRow`w `DataItem` właściwości, możemy najpierw należy się upewnić, że firma Microsoft jest zajmujących się `DataRow`. Można to osiągnąć poprzez sprawdzenie `GridViewRow`w `RowType` właściwości w następujący sposób:
 
@@ -323,12 +323,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały E.R. Gilmore, firmy Dennis Patterson i Dan Jagers. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](displaying-summary-information-in-the-gridview-s-footer-cs.md)
-[dalej](using-templatefields-in-the-gridview-control-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](displaying-summary-information-in-the-gridview-s-footer-cs.md)
+> [dalej](using-templatefields-in-the-gridview-control-vb.md)

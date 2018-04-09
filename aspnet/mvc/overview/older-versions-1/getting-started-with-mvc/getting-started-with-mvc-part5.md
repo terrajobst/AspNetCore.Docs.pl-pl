@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
-title: "Uzyskiwanie dostępu do modelu danych z kontrolera | Dokumentacja firmy Microsoft"
+title: Uzyskiwanie dostępu do modelu danych z kontrolera | Dokumentacja firmy Microsoft
 author: shanselman
-description: "Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych."
+description: Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 msc.type: authoredcontent
-ms.openlocfilehash: cf81d351aef45af3640f5d113eb3619911e03606
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2ba1b73f40a920e27e4a03d9f703e62054d3f25c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do modelu danych z kontrolera
 ====================
@@ -63,6 +63,6 @@ Tworzenia łącza, które nie będą potrzebne, a więc będzie usunąć je w ty
 
 Mamy teraz proste wykaz danych filmu. Jednak po kliknięciu pozycji "Utwórz nowy" łącza, firma Microsoft będzie wyświetlany komunikat o błędzie jako nie jest podłączonymi! Umożliwia implementuje metody tworzenia akcji i umożliwić użytkownikom wprowadzanie nowości w naszej bazie danych.
 
->[!div class="step-by-step"]
-[Poprzednie](getting-started-with-mvc-part4.md)
-[dalej](getting-started-with-mvc-part6.md)
+> [!div class="step-by-step"]
+> [Poprzednie](getting-started-with-mvc-part4.md)
+> [dalej](getting-started-with-mvc-part6.md)

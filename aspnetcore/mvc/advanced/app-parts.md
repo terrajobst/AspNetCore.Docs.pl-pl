@@ -1,7 +1,7 @@
 ---
-title: "Części aplikacji platformy ASP.NET Core"
+title: Części aplikacji platformy ASP.NET Core
 author: ardalis
-description: "Dowiedz się, jak używać części aplikacji, które są abstrakcje nad zasobami aplikacji, do odnajdowania lub uniknąć obciążania funkcji z zestawu."
+description: Dowiedz się, jak używać części aplikacji, które są abstrakcje nad zasobami aplikacji, do odnajdowania lub uniknąć obciążania funkcji z zestawu.
 manager: wpickett
 ms.author: riande
 ms.date: 01/04/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: a6391dcff2edc239f611be6bac60b40de292634e
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 31ab125462da032d30ef25b45cf81a0d18212bc1
+ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>Części aplikacji platformy ASP.NET Core
 
@@ -35,7 +35,7 @@ services.AddMvc()
 var assembly = typeof(Startup).GetTypeInfo().Assembly;
 var part = new AssemblyPart(assembly);
 services.AddMvc()
-    .ConfigureApplicationPartManager(apm => p.ApplicationParts.Add(part));
+    .ConfigureApplicationPartManager(apm => apm.ApplicationParts.Add(part));
 ```
 
 Domyślnie MVC przeszukać drzewo zależności i znaleźć kontrolery (nawet w innych zestawów). Aby załadować dowolnego zestawu (na przykład z wtyczkę, która nie jest przywoływany w czasie kompilacji), można użyć część aplikacji.
@@ -46,9 +46,9 @@ Jeśli masz zestaw, który zawiera kontrolery nie chcesz do użycia, usunąć go
 
 ```csharp
 services.AddMvc()
-    .ConfigureApplicationPartManager(p =>
+    .ConfigureApplicationPartManager(apm =>
     {
-        var dependentLibrary = p.ApplicationParts
+        var dependentLibrary = apm.ApplicationParts
             .FirstOrDefault(part => part.Name == "DependentLibrary");
 
         if (dependentLibrary != null)
@@ -85,8 +85,8 @@ Dostawca funkcji został dodany w `Startup`:
 
 ```csharp
 services.AddMvc()
-    .ConfigureApplicationPartManager(p => 
-        p.FeatureProviders.Add(new GenericControllerFeatureProvider()));
+    .ConfigureApplicationPartManager(apm => 
+        apm.FeatureProviders.Add(new GenericControllerFeatureProvider()));
 ```
 
 Domyślnie nazwy kontrolera ogólnego używane do przesyłania będzie mieć postać *GenericController'1 [Widget]* zamiast *elementu Widget*. Następującego atrybutu służy do modyfikowania nazwy odpowiadającej typu ogólnego używane przez kontrolera:

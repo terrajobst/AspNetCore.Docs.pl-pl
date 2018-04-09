@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
-title: "Uzyskiwanie dostępu do modelu danych z kontrolera | Dokumentacja firmy Microsoft"
+title: Uzyskiwanie dostępu do modelu danych z kontrolera | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 91bfa5fe3c5bd3029b7d7c12c8831e1653fb1d2b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d3dfa079c334e04f368531456ec2ec4e9728f893
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Uzyskiwanie dostępu do modelu danych z kontrolera
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 W tej sekcji utworzysz nową `MoviesController` klasy i pisania kodu, który pobiera dane filmu i wyświetla je w przeglądarce, za pomocą szablonu widoku.
 
@@ -40,7 +40,7 @@ W **Dodawanie szkieletu** okno dialogowe, kliknij przycisk **kontroler MVC 5 z w
 - Wybierz **MovieDBContext (MvcMovie.Models)** dla klasy kontekstu danych.
 - Wprowadź nazwę kontrolera **MoviesController**.
 
- Na poniższym obrazie pokazano ukończone okna dialogowego.  
+  Na poniższym obrazie pokazano ukończone okna dialogowego.  
   
 ![](accessing-your-models-data-from-a-controller/_static/image3.png)   
 
@@ -64,7 +64,7 @@ Wybierz **Utwórz nowy** łącza. Wprowadź niektóre szczegóły na temat film,
 ![](accessing-your-models-data-from-a-controller/_static/image5.png)
 
 > [!NOTE]
-> Nie można wprowadzić w polu Cena kropki i przecinki. W celu obsługi weryfikacji jQuery dla ustawień regionalnych innych niż angielskie, które użyj przecinka (&quot;,&quot;) dla punktu dziesiętnego i formaty daty z systemem innym niż angielski, należy wprowadzić *globalize.js* i konkretnej  *cultures/globalize.cultures.js* pliku (z [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) i JavaScript, aby użyć `Globalize.parseFloat`. I będzie pokazują, jak to zrobić w następnym samouczku. Teraz wprowadź tylko liczby całkowite, takie jak 10.
+> Nie można wprowadzić w polu Cena kropki i przecinki. w celu obsługi weryfikacji jQuery dla ustawień regionalnych innych niż angielskie, które użyj przecinka (&quot;,&quot;) dla punktu dziesiętnego i formaty daty z systemem innym niż angielski, należy wprowadzić *globalize.js* i konkretnej  *cultures/globalize.cultures.js* pliku (z [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) i JavaScript, aby użyć `Globalize.parseFloat`. I będzie pokazują, jak to zrobić w następnym samouczku. Teraz wprowadź tylko liczby całkowite, takie jak 10.
 
 
 Kliknięcie przycisku **Utwórz** kliknięcie przycisku powoduje formularza można opublikować na serwerze, gdzie informacje filmu są zapisywane w bazie danych. Użytkownik jest przekierowywane do */Movies* adres URL, w którym można obejrzeć film nowo utworzony na liście.
@@ -157,6 +157,6 @@ Po zakończeniu zamknij połączenie przez kliknięcie prawym przyciskiem myszy 
 
 Masz teraz bazę danych i stron do wyświetlania, edytowania, aktualizacji i usuwania danych. W następnym samouczku będzie firma Microsoft bada reszty szkieletu kodu i dodać `SearchIndex` — metoda i `SearchIndex` widoku, który umożliwia wyszukiwanie filmów w tej bazie danych. Aby uzyskać więcej informacji o korzystaniu z programu Entity Framework z MVC, zobacz [tworzenia modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
->[!div class="step-by-step"]
-[Poprzednie](creating-a-connection-string.md)
-[dalej](examining-the-edit-methods-and-edit-view.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-a-connection-string.md)
+> [dalej](examining-the-edit-methods-and-edit-view.md)

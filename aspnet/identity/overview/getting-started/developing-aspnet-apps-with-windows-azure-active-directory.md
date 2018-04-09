@@ -1,30 +1,30 @@
 ---
 uid: identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
-title: "Tworzenie aplikacji ASP.NET w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+title: Tworzenie aplikacji ASP.NET w usłudze Azure Active Directory | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Narzędzia Microsoft ASP.NET dla usługi Azure Active Directory upraszcza do włączenia uwierzytelniania dla aplikacji sieci web hostowanej na platformie Azure. Można użyć Azure Authenti..."
+description: Narzędzia Microsoft ASP.NET dla usługi Azure Active Directory upraszcza do włączenia uwierzytelniania dla aplikacji sieci web hostowanej na platformie Azure. Można użyć Azure Authenti...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2014
 ms.topic: article
 ms.assetid: 457d7eaf-ee76-4ceb-9082-c7c1721435ad
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 1ef0468d5f5c17480b23ac88983f30fe6f4979c0
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 44bf29e099583bf9d49f2715d3ff4f748728ad8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="developing-aspnet-apps-with-azure-active-directory"></a>Tworzenie aplikacji ASP.NET w usłudze Azure Active Directory
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Narzędzia Microsoft ASP.NET dla usługi Azure Active Directory upraszcza włączyć uwierzytelnianie dla aplikacji sieci web znajdującej się na [Azure](https://www.windowsazure.com/home/features/web-sites/). Azure Authentication służy do uwierzytelniania użytkowników usługi Office 365 z organizacji, użytkownicy utworzeni w własne niestandardowe domeny usługi Azure Active Directory lub kont firmowych synchronizowane z lokalnej usługi Active Directory. Włączenie uwierzytelniania systemu Windows Azure konfiguruje aplikację do uwierzytelniania użytkowników za pomocą pojedynczej [usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) dzierżawy.
 > 
->  W tym samouczku zapisał Rick Anderson[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
+>  W tym samouczku zapisał Rick Anderson [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 
 
 Ten samouczek przedstawia sposób tworzenia aplikacji ASP.NET, która jest skonfigurowana dla logowania z [usługi Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (Azure AD). Także przedstawiono sposób wywołania interfejsu API programu Graph, aby uzyskać informacje o aktualnie zalogowanego użytkownika oraz sposobu wdrażania aplikacji na platformie Azure.
@@ -52,7 +52,7 @@ Ten samouczek przedstawia sposób tworzenia aplikacji ASP.NET, która jest skonf
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image4.png)  
   
- Zapisz hasło konieczna będzie zmiana hasła po pierwszego logowania. Na poniższej ilustracji przedstawiono nowe konto administratora. Aby zalogować się do aplikacji, nie na koncie Microsoft, które są także wyświetlane na tej stronie, należy użyć usługi Azure Active Directory.  
+   Zapisz hasło konieczna będzie zmiana hasła po pierwszego logowania. Na poniższej ilustracji przedstawiono nowe konto administratora. Aby zalogować się do aplikacji, nie na koncie Microsoft, które są także wyświetlane na tej stronie, należy użyć usługi Azure Active Directory.  
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image5.png)
 
@@ -65,11 +65,11 @@ Następujące kroki użyj [programu Visual Studio Express 2013 for Web](https://
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image6.png)
 3. Na **Zmień uwierzytelnianie** okno dialogowe, wybierz opcję **konta organizacyjne**. Te opcje można automatycznie zarejestrować aplikację w usłudze Azure AD, a także automatycznie skonfigurować aplikację do integracji z usługą Azure AD. Nie trzeba używać **Zmień uwierzytelnianie** okna dialogowego do rejestracji i konfiguracji aplikacji, ale ułatwia. Jeśli na przykład używasz programu Visual Studio 2012, można nadal ręcznie zarejestrować aplikację w portalu zarządzania Azure i zaktualizuj jego konfigurację do integracji z usługą Azure AD.  
- W menu rozwijanego wybierz **Cloud - jednej organizacji** i **jednokrotne, Czytaj dane katalogu**. Wprowadź domenę katalogu usługi Azure AD, na przykład (w obrazach poniżej) *aricka0yahoo.onmicrosoft.com*, a następnie kliknij przycisk **OK**. Możesz też uzyskać nazwę domeny na karcie domen katalog domyślny, w portalu azure (zobacz następny obraz w dół).   
+   W menu rozwijanego wybierz **Cloud - jednej organizacji** i **jednokrotne, Czytaj dane katalogu**. Wprowadź domenę katalogu usługi Azure AD, na przykład (w obrazach poniżej) *aricka0yahoo.onmicrosoft.com*, a następnie kliknij przycisk **OK**. Możesz też uzyskać nazwę domeny na karcie domen katalog domyślny, w portalu azure (zobacz następny obraz w dół).   
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image7.png)  
   
- Na poniższej ilustracji przedstawiono nazwę domeny w portalu Azure.  
+   Na poniższej ilustracji przedstawiono nazwę domeny w portalu Azure.  
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image8.png)  
 
@@ -94,11 +94,11 @@ Następujące kroki użyj [programu Visual Studio Express 2013 for Web](https://
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image13.png)  
   
- Jeśli zostanie wyświetlony błąd:  
- Wartość nie może być zerowa ani pusta. Nazwa parametru: linkText   
+   Jeśli zostanie wyświetlony błąd:  
+   Wartość nie może być zerowa ani pusta. Nazwa parametru: linkText   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image14.png)  
   
- zobacz [debugowania](#dbg) sekcji na końcu samouczka.
+   zobacz [debugowania](#dbg) sekcji na końcu samouczka.
 
 ## <a name="basics-of-the-graph-api"></a>Podstawy interfejs API Graph
 

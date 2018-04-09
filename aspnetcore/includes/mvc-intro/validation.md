@@ -118,4 +118,4 @@ W następnej części serii, firma Microsoft będzie Przejrzyj aplikacji i popra
 * [Praca z formularzami](xref:mvc/views/working-with-forms)
 * [Globalizacja i lokalizacja](xref:fundamentals/localization)
 * [Wprowadzenie do pomocników tagów](xref:mvc/views/tag-helpers/intro)
-* [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
+* [Autor pomocników tagów](xref:mvc/views/tag-helpers/authoring)

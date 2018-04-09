@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/adding-a-new-field
 title: Dodanie nowego pola | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 453fbf68aa2f3a1d9ea708355c06c53d4f1eabd0
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 0dac798eba586cdcc232cedd262e610b954004df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field"></a>Dodanie nowego pola
 ====================
 przez [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 W tej sekcji użyjesz migracje Code First Framework jednostki migrację pewne zmiany do klasy modeli, aby zmiana została zastosowana do bazy danych.
 
@@ -62,7 +62,7 @@ Dzięki temu dodaje następujące instrukcję using:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample2.cs)]
 
-> [!NOTE] 
+> [!NOTE]
 > 
 > Kod wywoła pierwszy migracji `Seed` metody po każdym migracji (oznacza to, że wywołanie **update-database** w konsoli Menedżera pakietów), i ta metoda aktualizacji wierszy, które już zostały wstawione lub wstawia je, jeśli ich jeszcze nie istnieje.
 > 
@@ -71,15 +71,15 @@ Dzięki temu dodaje następujące instrukcję using:
 > [!code-csharp[Main](adding-a-new-field/samples/sample3.cs)]
 > 
 > Ponieważ [inicjatora](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) metody uruchamiany przy każdej migracji, po prostu nie można wstawić danych, ponieważ wierszy chcesz dodać już będą dostępne po pierwszej migracji, które utworzy bazę danych. "[Upsert](http://en.wikipedia.org/wiki/Upsert)" operację zapobiega błędom, które może się zdarzyć, jeśli podczas próby wstawienia wiersza, który już istnieje, ale zastępuje wszelkie zmiany danych, które mogły zostać wprowadzone podczas testowania aplikacji. Z danych testowych w niektórych tabel nie można się zdarzyć, że: w niektórych przypadkach po zmianie danych podczas testowania ma zmiany po aktualizacji bazy danych. W takim przypadku chcesz wykonać operację wstawiania warunkowe: Wstaw wiersz tylko wtedy, gdy jeszcze nie istnieje.   
->   
+> 
 > Pierwszy parametr przekazany do [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metody Określa właściwość, można użyć do sprawdzenia, czy wiersz już istnieje. Dla danych filmu testowych, które udostępniasz `Title` właściwość może być używana w tym celu, ponieważ jest unikatowa w ramach tytułów poszczególnych na liście:
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
 > Ten kod przyjęto założenie, że tytuły są unikatowe. Jeśli ręcznie dodać zduplikowany tytuł, zostanie wyświetlony następujący wyjątek podczas następnego przeprowadzić migrację.   
->   
+> 
 >  *Sekwencja zawiera więcej niż jeden element*  
->   
+> 
 > Aby uzyskać więcej informacji na temat [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) metody, zobacz [zajmie się za pomocą metody AddOrUpdate EF 4.3](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)...
 
 
@@ -135,7 +135,7 @@ Uruchom aplikację i przejdź do */Movies* adresu URL. Po wykonaniu tej czynnoś
 
 ![](adding-a-new-field/_static/image9.png)  
   
-Model kopii kontekstu "MovieDBContext" została zmieniona od czasu utworzenia bazy danych. Należy rozważyć użycie migracje Code First można zaktualizować bazy danych (https://go.microsoft.com/fwlink/?LinkId=238269).
+Model kopii kontekstu "MovieDBContext" została zmieniona od czasu utworzenia bazy danych. Należy rozważyć użycie migracje Code First aktualizacji bazy danych (https://go.microsoft.com/fwlink/?LinkId=238269).
 
 ![](adding-a-new-field/_static/image10.png)
 
@@ -191,6 +191,6 @@ Można wprowadzić polecenie "update-database" w **Konsola Menedżera pakietów*
 
 W tej sekcji przedstawiono sposób modyfikowania modelu obiektów i zachować synchronizację ze zmianami bazy danych. Przedstawiono również sposób wypełnienia nowo utworzonej bazy danych z przykładowymi danymi, więc można wypróbować scenariuszy. To właśnie szybkie wprowadzenie do Code First, zobacz [tworzenia modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) bardziej szczegółowy samouczek na temat. Następnie Oto jak można dodać bardziej rozbudowane logikę weryfikacji dla klasy modelu i włączyć niektóre reguły biznesowe są wymuszane.
 
->[!div class="step-by-step"]
-[Poprzednie](adding-search.md)
-[dalej](adding-validation.md)
+> [!div class="step-by-step"]
+> [Poprzednie](adding-search.md)
+> [dalej](adding-validation.md)

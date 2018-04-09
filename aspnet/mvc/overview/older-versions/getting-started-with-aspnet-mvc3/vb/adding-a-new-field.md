@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
 title: Dodanie nowego pola do filmu modelu i tabeli bazy danych (VB) | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest..."
+description: Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 377c667a56bb5c0d58ecef5c3550ca510ec52546
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5927b7d977e375881fe618b4b844cbd708023ba1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-database-table-vb"></a>Dodanie nowego pola do filmu modelu i tabeli bazy danych (VB)
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest bezpłatna wersja programu Microsoft Visual Studio. Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagania wstępne wymienione poniżej. Można zainstalować wszystkie z nich, klikając poniższe łącze: [Instalatora platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie można zainstalować oddzielnie wymagania wstępne, korzystając z następujących linków:
 > 
@@ -49,7 +49,7 @@ Ponowne skompilowanie aplikacji przy użyciu **debugowania** &gt; **kompilacji f
 
 Teraz, gdy użytkownik zaktualizował `Model` klasy, należy również zaktualizować *\Views\Movies\Index.vbhtml* i *\Views\Movies\Create.vbhtml* wyświetlania szablonów w celu zapewnienia obsługi nowych `Rating`właściwości.
 
-Otwórz*\Views\Movies\Index.vbhtml* plik i dodać `<th>Rating</th>` tuż po nagłówek kolumny **cen** kolumny. Następnie dodaj `<td>` kolumny zbliża się koniec szablon do renderowania `@item.Rating` wartość. Poniżej znajduje się jakie zaktualizowane *Index.vbhtml* Wyświetl szablon wygląda następująco:
+Otwórz<em>\Views\Movies\Index.vbhtml</em> plik i dodać `<th>Rating</th>` tuż po nagłówek kolumny <strong>cen</strong> kolumny. Następnie dodaj `<td>` kolumny zbliża się koniec szablon do renderowania `@item.Rating` wartość. Poniżej znajduje się jakie zaktualizowane <em>Index.vbhtml</em> Wyświetl szablon wygląda następująco:
 
 [!code-vbhtml[Main](adding-a-new-field/samples/sample3.vbhtml)]
 
@@ -123,6 +123,6 @@ Kliknij przycisk **Utwórz**. Nowe film, w tym ocenę, teraz wyświetlone w film
 
 W tej sekcji przedstawiono sposób modyfikowania modelu obiektów i zachować synchronizację ze zmianami bazy danych. Przedstawiono również sposób wypełnienia nowo utworzonej bazy danych z przykładowymi danymi, więc można wypróbować scenariuszy. Następnie Oto jak można dodać bardziej rozbudowane logikę weryfikacji dla klasy modelu i włączyć niektóre reguły biznesowe są wymuszane.
 
->[!div class="step-by-step"]
-[Poprzednie](examining-the-edit-methods-and-edit-view.md)
-[dalej](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [Poprzednie](examining-the-edit-methods-and-edit-view.md)
+> [dalej](adding-validation-to-the-model.md)

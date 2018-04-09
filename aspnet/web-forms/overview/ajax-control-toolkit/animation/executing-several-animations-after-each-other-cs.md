@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-cs
 title: Wykonywanie kilku animacji po sobie nawzajem (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Umożliwia uruchamianie severa..."
+description: Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Umożliwia uruchamianie severa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9d4322690132fe3829e3454f0aa7ff38acd8eb04
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 836f0bba890a03e74ae62c2df029b7525b34275c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="executing-several-animations-after-each-other-c"></a>Wykonywanie kilku animacji po sobie nawzajem (C#)
 ====================
@@ -43,7 +43,7 @@ Skojarzone klasy CSS panelu Zdefiniuj kolor tła nieuprzywilejowany i również 
 
 [!code-css[Main](executing-several-animations-after-each-other-cs/samples/sample3.css)]
 
-Następnie należy dodać `AnimationExtender` ze stroną, zapewniając `ID`, `TargetControlID` atrybut i obowiązkowe`runat="server":`
+Następnie należy dodać `AnimationExtender` ze stroną, zapewniając `ID`, `TargetControlID` atrybut i obowiązkowe `runat="server":`
 
 [!code-aspx[Main](executing-several-animations-after-each-other-cs/samples/sample4.aspx)]
 
@@ -63,6 +63,6 @@ Najpierw zwiększa się szerokość ([kliknij, aby wyświetlić obraz w pełnym 
 
 A następnie zostaje zmniejszona wysokość ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](executing-several-animations-after-each-other-cs/_static/image6.png))
 
->[!div class="step-by-step"]
-[Poprzednie](executing-several-animations-at-the-same-time-cs.md)
-[dalej](animation-depending-on-a-condition-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](executing-several-animations-at-the-same-time-cs.md)
+> [dalej](animation-depending-on-a-condition-cs.md)

@@ -1,7 +1,7 @@
 ---
 title: Filtry platformy ASP.NET Core
 author: ardalis
-description: "Dowiedz się, jak działają filtry i sposobu ich używania w programie ASP.NET MVC Core."
+description: Dowiedz się, jak działają filtry i sposobu ich używania w programie ASP.NET MVC Core.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 12/12/2016
@@ -9,17 +9,20 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: adb80c8161741506188c963d0a1cef721a21bd63
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7a857bc60500985c9b0547dc0d7e372e987a9099
+ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry platformy ASP.NET Core
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra/) i [Steve Smith](https://ardalis.com/)
 
 *Filtry* na platformie ASP.NET Core MVC pozwala na uruchamianie kodu przed lub po określonym etapie w potoku przetwarzania żądań.
+
+> [!IMPORTANT]
+> Ten temat jest **nie** dotyczą stron Razor. Podgląd platformy ASP.NET Core 2.1 i nowsze wersje obsługują `IPageFilter` i `IAsyncPageFilter` dla stron Razor.
 
  Filtry wbudowane dojścia zadań, takich jak Autoryzacja (uniemożliwienia dostępu do zasobów, które użytkownik nie jest autoryzowany dla), zapewnienie, że wszystkie żądania przy użyciu protokołu HTTPS i odpowiedzi buforowania (zwarcie Potok żądań do zwrócenia buforowanej odpowiedzi). 
 
@@ -57,7 +60,7 @@ Filtry obsługuje synchroniczne i asynchroniczne implementacje za pośrednictwem
 
 Synchroniczne filtry, które można uruchomić kod zarówno przed i po ich etap potoku zdefiniować*etap*Executing i na*etap*wykonywane metody. Na przykład `OnActionExecuting` jest wywoływana przed wywołaniem metody akcji i `OnActionExecuted` jest wywoływana po powrocie z metody akcji.
 
-[!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?highlight=6,8,13)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?&name=snippet1)]
 
 Asynchroniczne Filtry definiują jeden na*etap*ExecutionAsync metody. Ta metoda przyjmuje *FilterType*ExecutionDelegate delegata, który wykonuje etap potoku filtru. Na przykład `ActionExecutionDelegate` wywołania metody akcji i może zostać uruchomiony kod przed i po jej wywołaniu.
 
@@ -277,7 +280,7 @@ Filtry wyjątków obsługi nieobsługiwanych wyjątków, które występują w tw
 Do obsługi wyjątku, ustaw `ExceptionContext.ExceptionHandled` właściwości na wartość true lub zapisu odpowiedzi. Powoduje to zatrzymanie propagacji wyjątku. Należy pamiętać, że filtra wyjątku nie można włączyć wyjątek do "Powodzenie". Filtr akcji można to zrobić.
 
 > [!NOTE]
-> W ASP.NET 1.1 odpowiedzi nie jest wysyłane, jeśli ustawisz `ExceptionHandled` TRUE **i** zapisu odpowiedzi. W tym scenariuszu platformy ASP.NET Core 1.0 wysyłania odpowiedzi i platformy ASP.NET Core 1.1.2 powróci do zachowania 1.0. Aby uzyskać więcej informacji, zobacz [wystawiać #5594](https://github.com/aspnet/Mvc/issues/5594) w repozytorium GitHub. 
+> W ASP.NET Core 1.1, odpowiedź nie jest wysyłane, jeśli ustawisz `ExceptionHandled` TRUE **i** zapisu odpowiedzi. W tym scenariuszu platformy ASP.NET Core 1.0 wysyłania odpowiedzi i platformy ASP.NET Core 1.1.2 powróci do zachowania 1.0. Aby uzyskać więcej informacji, zobacz [wystawiać #5594](https://github.com/aspnet/Mvc/issues/5594) w repozytorium GitHub. 
 
 Filtry wyjątków są dobrym zalewania wyjątków, które występują w ramach działań MVC, ale nie są one tak elastyczne jako błąd obsługi oprogramowania pośredniczącego. Preferowane jest oprogramowanie pośredniczące w przypadku ogólnych i za pomocą filtrów, tylko gdy należy wykonywać obsługi błędów *inaczej* oparte na Akcja kontrolera MVC, który został wybrany. Na przykład aplikacja może mieć metody akcji dla obu punkty końcowe interfejsu API i widoki/HTML. Punkty końcowe interfejsu API może zwrócić informacji o błędach w formacie JSON, gdy czynności na podstawie widok może zwrócić strony błędu w formacie HTML.
 

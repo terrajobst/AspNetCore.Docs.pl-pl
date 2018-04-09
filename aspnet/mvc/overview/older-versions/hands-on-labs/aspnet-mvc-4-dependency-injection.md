@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
-title: "Iniekcji zależności platformy ASP.NET MVC 4 | Dokumentacja firmy Microsoft"
+title: Iniekcji zależności platformy ASP.NET MVC 4 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Uwaga: W tym laboratorium Hands-on przyjęto założenie, że masz podstawową wiedzę na temat filtrów platformy ASP.NET MVC i platformy ASP.NET MVC 4. Jeśli nie użyto filtrów platformy ASP.NET MVC 4 przed możemy rec..."
+description: 'Uwaga: W tym laboratorium Hands-on przyjęto założenie, że masz podstawową wiedzę na temat filtrów platformy ASP.NET MVC i platformy ASP.NET MVC 4. Jeśli nie użyto filtrów platformy ASP.NET MVC 4 przed możemy rec...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: c735bbdafe4b8f0423abb6bacd076f173a1be9d8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e6c24d03039f0e6005948a73348589627c9df2df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>Iniekcji zależności platformy ASP.NET MVC 4
 
@@ -158,12 +158,12 @@ Podczas uruchamiania aplikacji, jak usługa kontrolera nie zostanie przekazany j
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się w **wstrzyknięcie Source\Ex01 Controller\Begin**.
 
-    1. Należy pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Należy pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 2. Naciśnij klawisz **Ctrl + F5** do uruchomienia aplikacji bez debugowania. Otrzymasz komunikat o błędzie &quot; **nie konstruktora bez parametrów zdefiniowanych dla tego obiektu**&quot;:
 
     ![Błąd podczas uruchamiania rozpocząć aplikacji programu ASP.NET MVC](aspnet-mvc-4-dependency-injection/_static/image3.png "błąd podczas uruchamiania aplikacji rozpocząć MVC ASP.NET")
@@ -265,14 +265,14 @@ W ramach tego zadania spowoduje utworzenie widoku, który wykonuje wywołanie us
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się w **wstrzyknięcie Source\Ex02 View\Begin** folderu. W przeciwnym razie możesz nadal korzystać **zakończenia** uzyskane rozwiązanie, wykonując poprzednim ćwiczeniu.
 
-    1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
-    > 
-    > Aby uzyskać więcej informacji, zobacz ten artykuł: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > 
+      > Aby uzyskać więcej informacji, zobacz ten artykuł: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages ](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
 2. Obejmują **MessageService.cs** i **IMessageService.cs** klas znajdujących się w **źródła \Assets** folderu w **/usług**. Aby to zrobić, kliknij prawym przyciskiem myszy **usług** i wybierz polecenie **Dodaj istniejący element**. Przejdź do lokalizacji plików i włączyć je.
 
     ![Dodawanie usługi wiadomości i interfejs usługi](aspnet-mvc-4-dependency-injection/_static/image8.png "Dodawanie usługi wiadomości i interfejs usługi")
@@ -290,7 +290,7 @@ W ramach tego zadania spowoduje utworzenie widoku, który wykonuje wywołanie us
 
     [!code-cshtml[Main](aspnet-mvc-4-dependency-injection/samples/sample8.cshtml)]
 5. W **Przeglądaj** wyświetlić, dodaj wywołanie do **MessageService** do wyświetlania obrazu i wiadomości pobierane przez usługę.
-(C#)
+   (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-dependency-injection/samples/sample9.cshtml)]
 
@@ -305,7 +305,7 @@ W poprzednim zadaniu możesz wprowadzić nowe zależności w widoku do wykonywan
 > Od platformy ASP.NET MVC 3 implementacja iniekcji zależności miał uproszczone interfejsy rejestrowania usług. **Elementu IDependencyResolver** i **IViewPageActivator** są częścią funkcje platformy ASP.NET MVC 3 iniekcji zależności.
 > 
 > **-Elementu IDependencyResolver** poprzedniej IMvcServiceLocator zastępuje interfejs. Implementacje elementu IDependencyResolver musi zwrócić wystąpienie usługi lub kolekcji usługi.
->
+> 
 > 
 > [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample10.cs)]
 > 
@@ -404,14 +404,14 @@ W tym zadaniu będą zawarte w magazynie utworów muzycznych filtr akcji niestan
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się w **Source\Ex03 - wstrzyknięcie Filter\Begin akcji** folderu. W przeciwnym razie możesz nadal korzystać **zakończenia** uzyskane rozwiązanie, wykonując poprzednim ćwiczeniu.
 
-    1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
-    > 
-    > Aby uzyskać więcej informacji, zobacz ten artykuł: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > 
+      > Aby uzyskać więcej informacji, zobacz ten artykuł: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages ](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
 2. Obejmują **TraceActionFilter.cs** plik z **/źródeł/zasoby** do **/filtry** folderu.
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample18.cs)]
@@ -509,9 +509,9 @@ Zostały uwzględnione następujące kwestie:
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Dodatek A: Instalowanie programu Visual Studio Express 2012 for Web
 
-Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji  **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
+Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
 
-1. Przejdź do [ [https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; *programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK*&quot;.
+1. Przejdź do [ [ https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; <em>programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK</em>&quot;.
 2. Polecenie **teraz zainstalować**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/confirmbutton/using-a-confirmbutton-in-a-repeater-cs
-title: "Przy użyciu ConfirmButton w powtarzanym (C#) | Dokumentacja firmy Microsoft"
+title: Przy użyciu ConfirmButton w powtarzanym (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Rozszerzenie ConfirmButton w zestawie narzędzi kontroli AJAX tworzy tak/nie podręcznego, gdy użytkownik kliknie przycisk (w tym LinkButton kontroli). Jest tak tylko wtedy, gdy..."
+description: Rozszerzenie ConfirmButton w zestawie narzędzi kontroli AJAX tworzy tak/nie podręcznego, gdy użytkownik kliknie przycisk (w tym LinkButton kontroli). Jest tak tylko wtedy, gdy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/confirmbutton/using-a-confirmbutton-in-a-repeater-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 12fd3e4e58e6a73720ade38372caff496f7f2c97
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7a0717083a3c1e285f0c8c4cb8503d2bbe42153b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-a-confirmbutton-in-a-repeater-c"></a>Przy użyciu ConfirmButton w powtarzanym (C#)
 ====================
@@ -33,7 +33,7 @@ Rozszerzenie ConfirmButton w zestawie narzędzi kontroli AJAX tworzy tak/nie pod
 
 ## <a name="steps"></a>Kroki
 
-Po pierwsze źródła danych jest wymagana. W przykładzie użyto bazy danych AdventureWorks i Microsoft SQL Server 2005 Express Edition. Baza danych jest opcjonalnym składnikiem instalacji programu Visual Studio (w tym wersja express) i jest również dostępny jako osobny plik do pobrania w obszarze [https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064). Baza danych AdventureWorks jest częścią programu SQL Server 2005 przykłady i przykładowe bazy danych (pobieranie pod [https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang=en)). Najprostszym sposobem skonfigurowania bazy danych jest użycie programu Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx? FamilyID = c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en)) i dołączenie `AdventureWorks.mdf` pliku bazy danych.
+Po pierwsze źródła danych jest wymagana. W przykładzie użyto bazy danych AdventureWorks i Microsoft SQL Server 2005 Express Edition. Baza danych jest opcjonalnym składnikiem instalacji programu Visual Studio (w tym wersja express) i jest również dostępny jako osobny plik do pobrania w obszarze [ https://go.microsoft.com/fwlink/?LinkId=64064 ](https://go.microsoft.com/fwlink/?LinkId=64064). Baza danych AdventureWorks jest częścią programu SQL Server 2005 przykłady i przykładowe bazy danych (pobieranie pod [ https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e &amp;DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang=en)). Najprostszym sposobem skonfigurowania bazy danych jest użycie programu Microsoft SQL Server Management Studio Express ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en)) i dołączenie `AdventureWorks.mdf` pliku bazy danych.
 
 Dla tego przykładu przyjęto założenie, że wystąpienie programu SQL Server 2005 Express Edition jest nazywany `SQLEXPRESS` i znajduje się na tym samym komputerze co serwer sieci web; to ustawienie domyślne. Jeśli różni się konfigurację, należy dostosować informacje o połączeniu dla bazy danych.
 
@@ -54,5 +54,5 @@ Następnie można tego źródła danych w ramach elementu powtarzanego. Jak zwyk
 
 Przycisk Potwierdź widoczna obok każdego wpisu ze źródła danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-a-confirmbutton-in-a-repeater-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Dalej](using-a-confirmbutton-in-a-repeater-vb.md)
+> [!div class="step-by-step"]
+> [Next](using-a-confirmbutton-in-a-repeater-vb.md)

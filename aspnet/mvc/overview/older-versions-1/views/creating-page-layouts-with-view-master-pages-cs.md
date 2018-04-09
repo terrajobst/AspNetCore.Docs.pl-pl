@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-cs
-title: "Tworzenie układów stron z strony wzorcowej widoku (C#) | Dokumentacja firmy Microsoft"
+title: Tworzenie układów stron z strony wzorcowej widoku (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Z tego samouczka dowiesz się sposobu tworzenia typowych układ strony dla wielu stronach w aplikacji korzystając z widoku strony wzorcowe. Można użyć..."
+description: Z tego samouczka dowiesz się sposobu tworzenia typowych układ strony dla wielu stronach w aplikacji korzystając z widoku strony wzorcowe. Można użyć...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5d564b7e562435e8c6b1151287cbb1aec3d6bd10
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 82500a311e1110713a60604027d018ba16539b65
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-page-layouts-with-view-master-pages-c"></a>Tworzenie układów stron z strony wzorcowej widoku (C#)
 ====================
@@ -51,7 +51,7 @@ Widok strony wzorcowej wygląda bardzo podobnie standardowe widoku aplikacji ASP
 
 Na przykład strony wzorcowej widoku w wyświetlania 1 definiuje układ dwie kolumny. Zawiera dwa `<contentplaceholder>` tagów. Jeden `<ContentPlaceHolder>` dla każdej kolumny.
 
-**1 — Lista`Views\Shared\Site.master`**
+**1 — Lista `Views\Shared\Site.master`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample1.aspx)]
 
@@ -83,7 +83,7 @@ Po kliknięciu przycisku Dodaj nowe okno dialogowe wyświetlany jest umożliwia 
 
 Po utworzeniu nowej strony zawartości widoku oparte na stronie głównej Site.master otrzymasz plik wyświetlania 2.
 
-**2 — Lista`Views\Home\Index.aspx`**
+**2 — Lista `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample2.aspx)]
 
@@ -97,7 +97,7 @@ Nie trzeba zastąpić co `<asp:ContentPlaceHolder>` tag ze strony wzorcowej na s
 
 Na przykład zmodyfikowany widok indeksu w wyświetlania 3 zawiera tylko dwóch `<asp:Content>` tagów. Każdy z `<asp:Content>` tagi zawiera tekst.
 
-**3 — lista`Views\Home\Index.aspx (modified)`**
+**3 — lista `Views\Home\Index.aspx (modified)`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample3.aspx)]
 
@@ -127,7 +127,7 @@ Istnieje jedno wymaganie ważne, które muszą spełniać strony wzorcowej widok
 
 O innym podejściu do modyfikowania zawartości strony wzorcowej ze strony zawartości poszczególnych widoku jest opakowywać regionu, który chcesz zmodyfikować w `<asp:ContentPlaceHolder>` tagu. Załóżmy na przykład chcesz zmienić, nie tylko tytuł, ale również metatagów renderowana przez strony wzorcowej widoku. Strona widoku głównego, w przypadku wyświetlania 4 zawiera `<asp:ContentPlaceHolder>` tagów w jego `<head>` tagu.
 
-**Wyświetlanie listy 4.`Views\Shared\Site2.master`**
+**Wyświetlanie listy 4. `Views\Shared\Site2.master`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample5.aspx)]
 
@@ -135,7 +135,7 @@ Zwróć uwagę, że `<asp:ContentPlaceHolder>` znacznik na listę 4 zawiera zawa
 
 Strona Widok zawartości w listę 5 zastępuje `<asp:ContentPlaceHolder>` tag, aby wyświetlić niestandardowe tytuł i niestandardowe tagi meta.
 
-**Wyświetlanie listy 5 —`Views\Home\Index2.aspx`**
+**Wyświetlanie listy 5 — `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample6.aspx)]
 
@@ -143,6 +143,6 @@ Strona Widok zawartości w listę 5 zastępuje `<asp:ContentPlaceHolder>` tag, a
 
 W tym samouczku wyposażone podstawowe wprowadzenie można wyświetlić strony wzorcowej oraz strony z zawartością. Przedstawiono sposób tworzenia nowego widoku strony wzorcowe i utworzyć widok strony zawartości na ich podstawie. Również zbadane, jak możesz zmodyfikować zawartość strony wzorcowej widoku z konkretnym widoku strony zawartość.
 
->[!div class="step-by-step"]
-[Poprzednie](using-the-tagbuilder-class-to-build-html-helpers-cs.md)
-[dalej](passing-data-to-view-master-pages-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-the-tagbuilder-class-to-build-html-helpers-cs.md)
+> [dalej](passing-data-to-view-master-pages-cs.md)

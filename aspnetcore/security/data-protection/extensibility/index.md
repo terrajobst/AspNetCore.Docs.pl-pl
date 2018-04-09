@@ -1,7 +1,7 @@
 ---
-title: "Interfejsy API rozszerzalności"
+title: Program ASP.NET Core ochrony danych rozszerzalności interfejsów API
 author: rick-anderson
-description: "Ten dokument służy jako spisu treści dla różnych tematów rozszerzalności ochrony danych platformy ASP.NET Core."
+description: Poznaj różne tematy rozszerzalności ochrony danych platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,16 +9,16 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/extensibility/index
-ms.openlocfilehash: ca781bdecd258310e23ee78a1dcb37af012285e7
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 822f44b9aa2745278c3074f74f7f6f7972d5edd2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="extensibility-apis"></a>Interfejsy API rozszerzalności
+# <a name="aspnet-core-data-protection-extensibility-apis"></a>Program ASP.NET Core ochrony danych rozszerzalności interfejsów API
 
-* [Rozszerzalność kryptografii Core](core-crypto.md)
+* [Rozszerzalność kryptografii Core](xref:security/data-protection/extensibility/core-crypto)
 
-* [Rozszerzalność zarządzania kluczami](key-management.md)
+* [Rozszerzalność zarządzania kluczami](xref:security/data-protection/extensibility/key-management)
 
-* [Różne interfejsy API](misc-apis.md)
+* [Różne interfejsy API](xref:security/data-protection/extensibility/misc-apis)

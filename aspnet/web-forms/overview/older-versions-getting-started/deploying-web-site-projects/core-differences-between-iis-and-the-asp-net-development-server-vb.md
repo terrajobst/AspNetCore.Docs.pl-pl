@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-vb
-title: "Podstawowe różnice między usługami IIS a ASP.NET Development Server (VB) | Dokumentacja firmy Microsoft"
+title: Podstawowe różnice między usługami IIS a ASP.NET Development Server (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Podczas testowania aplikacji ASP.NET aplikację lokalnie, prawdopodobnie używasz sieci Web ASP.NET Development Server. Jednak produkcji witryny sieci Web jest najprawdopodobniej pow..."
+description: Podczas testowania aplikacji ASP.NET aplikację lokalnie, prawdopodobnie używasz sieci Web ASP.NET Development Server. Jednak produkcji witryny sieci Web jest najprawdopodobniej pow...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8e8ae3c0fd1d67fba6dff965704b550bdc919c6a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 47b1959f9b92d161da0476b274c8154333ad80dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-vb"></a>Podstawowe różnice między usługami IIS a ASP.NET Development Server (VB)
 ====================
@@ -94,7 +94,7 @@ Z:
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-vb/samples/sample4.xml)]
 
-Za pomocą programu ASP.NET Development Server, odwiedź witrynę i wprowadź bezpośrednio adres URL do jednego z plików PDF na pasku adresu przeglądarki. Jeśli pobrano witryny sieci Web skojarzony z tym samouczku adres URL powinien wyglądać jak:`http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
+Za pomocą programu ASP.NET Development Server, odwiedź witrynę i wprowadź bezpośrednio adres URL do jednego z plików PDF na pasku adresu przeglądarki. Jeśli pobrano witryny sieci Web skojarzony z tym samouczku adres URL powinien wyglądać jak: `http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
 
 Wprowadzanie ten adres URL na pasku adresu powoduje, że przeglądarka Wyślij żądanie do pliku ASP.NET Development Server. Ręce ASP.NET Development Server poza środowiskiem uruchomieniowym ASP.NET w celu przetworzenia żądania. Ponieważ firma Microsoft nie jeszcze zalogował się i `Web.config` w `PrivateDocs` jest skonfigurowany do odmowy dostępu anonimowego, środowiska uruchomieniowego ASP.NET automatyczne przekierowanie nam na stronę logowania `Login.aspx` (patrz rysunek 3). Jeśli przekierowanie użytkownika do strony logowania, program ASP.NET zawiera `ReturnUrl` parametr querystring, która wskazuje stronę użytkownik próbował wyświetlić. Po pomyślnym zalogowaniu użytkownika może być zwracany do tej strony.
 
@@ -140,6 +140,6 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Korzystanie z uwierzytelniania forach platformy ASP.NET z wszystkich typów zawartości w usługach IIS 7](https://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx) (klip wideo)
 - [Serwery sieci Web w programie Visual Web Developer](https://msdn.microsoft.com/library/58wxa9w5.aspx)
 
->[!div class="step-by-step"]
-[Poprzednie](common-configuration-differences-between-development-and-production-vb.md)
-[dalej](deploying-a-database-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](common-configuration-differences-between-development-and-production-vb.md)
+> [dalej](deploying-a-database-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
-title: "Zabezpieczanie aplikacji przy użyciu uwierzytelniania i autoryzacji | Dokumentacja firmy Microsoft"
+title: Zabezpieczanie aplikacji przy użyciu uwierzytelniania i autoryzacji | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Krok 9 przedstawiono sposób dodawania uwierzytelniania i autoryzacji, aby zabezpieczyć naszej aplikacji NerdDinner, dzięki czemu użytkownicy będą musieli zarejestrować i zaloguj się do witryny, aby utworzyć..."
+description: Krok 9 przedstawiono sposób dodawania uwierzytelniania i autoryzacji, aby zabezpieczyć naszej aplikacji NerdDinner, dzięki czemu użytkownicy będą musieli zarejestrować i zaloguj się do witryny, aby utworzyć...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: a23b2cf4d1728624698c0db49c25ea7efd3af67d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4a9b1e6d7d453bd8dc5a61b1f1cec4617af7d693
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="secure-applications-using-authentication-and-authorization"></a>Zabezpieczanie aplikacji przy użyciu uwierzytelniania i autoryzacji
 ====================
@@ -155,6 +155,6 @@ Aktualizujemy nasze szablon widoku warunkowo Pokaż/Ukryj łącza edytowanie i u
 
 Teraz Przyjrzyjmy się jak można włączyć uwierzytelnionym użytkownikom RSVP dla kolacji za pomocą interfejsu AJAX.
 
->[!div class="step-by-step"]
-[Poprzednie](implement-efficient-data-paging.md)
-[dalej](use-ajax-to-deliver-dynamic-updates.md)
+> [!div class="step-by-step"]
+> [Poprzednie](implement-efficient-data-paging.md)
+> [dalej](use-ajax-to-deliver-dynamic-updates.md)

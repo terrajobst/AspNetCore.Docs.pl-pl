@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Wdrażanie dziedziczenia z programu Entity Framework w aplikacji platformy ASP.NET MVC (8, 10) | Dokumentacja firmy Microsoft"
+title: Wdrażanie dziedziczenia z programu Entity Framework w aplikacji platformy ASP.NET MVC (8, 10) | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 54e46c6f996b6fe86a227c851562e61678b02780
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee088f841bdb68f4806b0b62be7d379b9eab9f8c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-inheritance-with-the-entity-framework-in-an-aspnet-mvc-application-8-of-10"></a>Wdrażanie dziedziczenia z programu Entity Framework w aplikacji platformy ASP.NET MVC (8, 10)
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -53,7 +53,7 @@ Ten wzorzec generowania strukturę jednostek dziedziczenia z tabeli pojedynczej 
 
 Alternatywą jest wyglądu struktury dziedziczenia bazę danych. Na przykład można mieć tylko pola nazwy `Person` tabeli i mieć osobne `Instructor` i `Student` tabele z polami daty.
 
-![Tabela na type_inheritance](https://asp.net/media/2578131/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-type_inheritance.png)
+![Table-per-type_inheritance](https://asp.net/media/2578131/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-type_inheritance.png)
 
 Ten wzorzec dokonywania tabeli bazy danych w każdej klasie jednostki jest nazywana *tabel na typ* dziedziczenia (TPT).
 
@@ -100,7 +100,7 @@ Ta zmiana nie jest wymagane; zmienia jedynie nazwę kolumny InstructorID w tabel
 Następnie należy zmienić `InstructorID` do `PersonID` i `StudentID` do `PersonID` w projekcie ***z wyjątkiem*** w plikach z sygnaturami czasowymi migracje *migracje* folder. W tym celu można będzie znaleźć otwierać tylko pliki, które muszą zostać zmienione, a następnie wykonać globalne zmiany w otwartych plików. To jedyny plik w *migracje* należy zmienić folder jest *Migrations\Configuration.cs.*
 
 1. > [!IMPORTANT]
- > Rozpocznij od zamknięcie wszystkich otwartych plików w programie Visual Studio.
+   > Rozpocznij od zamknięcie wszystkich otwartych plików w programie Visual Studio.
 2. Kliknij przycisk **Znajdź i Zamień — Znajdź wszystkie pliki** w **Edytuj** menu, a następnie wyszukaj wszystkie pliki w projekcie, które zawierają `InstructorID`.  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
@@ -108,7 +108,7 @@ Następnie należy zmienić `InstructorID` do `PersonID` i `StudentID` do `Perso
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 4. Otwórz **Zastąp w plikach** okno dialogowe i zmień **Szukaj w** do **wszystkie otwarte dokumenty**.
-5. Użyj **Zastąp w plikach** okna dialogowego, aby zmienić wszystkie `InstructorID` do`PersonID.`  
+5. Użyj **Zastąp w plikach** okna dialogowego, aby zmienić wszystkie `InstructorID` do `PersonID.`  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 6. Znajdź wszystkie pliki w projekcie, który zawiera `StudentID`.
@@ -169,6 +169,6 @@ Tabela na hierarchii dziedziczenia teraz została wdrożona w celu `Person`, `St
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [Mapa zawartości dostępu do danych programu ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Poprzednie](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[dalej](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Poprzednie](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [dalej](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)

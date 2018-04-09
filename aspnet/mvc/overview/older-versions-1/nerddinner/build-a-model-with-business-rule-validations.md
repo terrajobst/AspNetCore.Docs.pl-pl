@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
-title: "Tworzenie modelu sprawdzaniem poprawności reguły biznesowej | Dokumentacja firmy Microsoft"
+title: Tworzenie modelu sprawdzaniem poprawności reguły biznesowej | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Krok 3 przedstawiono sposób tworzenia modelu, że firma Microsoft umożliwia zarówno zapytania i aktualizowania bazy danych dla aplikacji NerdDinner."
+description: Krok 3 przedstawiono sposób tworzenia modelu, że firma Microsoft umożliwia zarówno zapytania i aktualizowania bazy danych dla aplikacji NerdDinner.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
 msc.type: authoredcontent
-ms.openlocfilehash: dbe6370979f218988c168df3e80314ef9b338fbd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c5a482474fd2f41836f70952306ada5cd9136455
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="build-a-model-with-business-rule-validations"></a>Tworzenie modelu sprawdzaniem poprawności reguły biznesowej
 ====================
@@ -228,6 +228,6 @@ Mamy teraz modelu, który możemy użyć zarówno zapytania i zaktualizować nas
 
 Teraz Dodajmy niektóre kontrolery i widoki do projektu, który firma Microsoft może wykorzystać do tworzenia obsługi interfejsu użytkownika HTML wokół niego.
 
->[!div class="step-by-step"]
-[Poprzednie](create-a-database.md)
-[dalej](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+> [!div class="step-by-step"]
+> [Poprzednie](create-a-database.md)
+> [dalej](use-controllers-and-views-to-implement-a-listingdetails-ui.md)

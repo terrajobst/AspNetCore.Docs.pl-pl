@@ -2,37 +2,37 @@
 uid: ajax/cdn/jquery-mobile/cdnjquerymobile111
 title: jQuery Mobile 1.1.1 w sieci Microsoft Ajax CDN | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/23/2014
 ms.topic: article
 ms.assetid: 1252d4fa-e900-45fe-bc32-87b0af33b51c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile111
 msc.type: content
-ms.openlocfilehash: 90c29f731b04ae552806579845a9da3986ffedac
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 38f40e30e74e2a5f7e640caf89b70764a747fd47
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="jquery-mobile-111-on-the-microsoft-ajax-cdn"></a>jQuery Mobile 1.1.1 w sieci Microsoft Ajax CDN
 ====================
 Bibliotece jQuery Mobile 1.1.1 zawiera następujące pliki:
 
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/jquery.Mobile.Structure-1.1.1.css
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/jquery.Mobile.Structure-1.1.1.min.css
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/jquery.Mobile.theme-1.1.1.css
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/jquery.Mobile.theme-1.1.1.min.css
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/jquery.Mobile-1.1.1.css
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/jquery.Mobile-1.1.1.js
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/jquery.Mobile-1.1.1.min.css
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/jquery.Mobile-1.1.1.min.js
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/images/AJAX-Loader.GIF
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/images/AJAX-Loader.PNG
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/images/icons-18-Black.PNG
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/images/icons-18-White.PNG
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/images/icons-36-Black.PNG
-- http://AJAX.aspnetcdn.com/AJAX/jquery.Mobile/1.1.1/images/icons-36-White.PNG
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile.structure-1.1.1.css
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile.structure-1.1.1.min.css
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile.theme-1.1.1.css
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile.theme-1.1.1.min.css
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.css
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.js
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/images/ajax-loader.gif
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/images/ajax-loader.png
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/images/icons-18-black.png
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/images/icons-18-white.png
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/images/icons-36-black.png
+- https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/images/icons-36-white.png

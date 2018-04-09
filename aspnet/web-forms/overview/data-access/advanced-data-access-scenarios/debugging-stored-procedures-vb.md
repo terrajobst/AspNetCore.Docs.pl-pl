@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
-title: "Debugowanie procedur składowanych (VB) | Dokumentacja firmy Microsoft"
+title: Debugowanie procedur składowanych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Wersje Visual Studio Professional i Team System umożliwiają Ustaw punkty przerwania i Wkrocz do procedury składowane w programie SQL Server, co debugowania przechowywane..."
+description: Wersje Visual Studio Professional i Team System umożliwiają Ustaw punkty przerwania i Wkrocz do procedury składowane w programie SQL Server, co debugowania przechowywane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ad09847d828d02019a72e3022d035a8fbe921568
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3391a78eaeb0add46e75048069a614ba00628f67
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="debugging-stored-procedures-vb"></a>Debugowanie procedur składowanych (VB)
 ====================
@@ -167,7 +167,7 @@ Pierwszym krokiem jest stosunkowo proste. Ustalenie konto użytkownika używane 
 
 Drugie zadanie wymaga, aby konto użytkownika systemu Windows, którego używasz do debugowania aplikacji prawidłową nazwą logowania na zdalnej bazy danych. Jednak prawdopodobnie po zalogowaniu do stacji roboczej z konta systemu Windows nie jest prawidłową nazwą logowania na serwerze SQL. Zamiast dodawać konta określonego logowania do programu SQL Server, lepszym rozwiązaniem byłoby wyznaczyć niektóre konta użytkownika systemu Windows jako konto debugowania programu SQL Server. Następnie Aby debugować obiektów bazy danych, zdalnego wystąpienia programu SQL Server, należy uruchomić program Visual Studio przy użyciu tego konta s poświadczenia logowania systemu Windows.
 
-Przykład powinny pomóc w wyjaśnienia rzeczy. Załóżmy, że istnieje konto systemu Windows o nazwie `SQLDebug` w domenie systemu Windows. To konto będzie należy dodać do zdalnego wystąpienia programu SQL Server jako prawidłową nazwą logowania i jako element członkowski `sysadmin` roli. Następnie do debugowania zdalnego wystąpienia programu SQL Server w programie Visual Studio, czy należy uruchomić program Visual Studio jako `SQLDebug` użytkownika. Można to zrobić przez wylogowanie naszych stacji roboczej, logować się ponownie jako `SQLDebug`, a następnie uruchamiania programu Visual Studio, ale prostsze będzie zalogować się do naszej stacji roboczej przy użyciu własnej poświadczeń, a następnie użyć `runas.exe` można uruchomić programu Visual Studio jako `SQLDebug` użytkownika. `runas.exe`Umożliwia określonej aplikacji ma być wykonywana w ramach podszywając innego konta użytkownika. Aby uruchomić program Visual Studio jako `SQLDebug`, można wprowadzić następującą instrukcję w wierszu polecenia:
+Przykład powinny pomóc w wyjaśnienia rzeczy. Załóżmy, że istnieje konto systemu Windows o nazwie `SQLDebug` w domenie systemu Windows. To konto będzie należy dodać do zdalnego wystąpienia programu SQL Server jako prawidłową nazwą logowania i jako element członkowski `sysadmin` roli. Następnie do debugowania zdalnego wystąpienia programu SQL Server w programie Visual Studio, czy należy uruchomić program Visual Studio jako `SQLDebug` użytkownika. Można to zrobić przez wylogowanie naszych stacji roboczej, logować się ponownie jako `SQLDebug`, a następnie uruchamiania programu Visual Studio, ale prostsze będzie zalogować się do naszej stacji roboczej przy użyciu własnej poświadczeń, a następnie użyć `runas.exe` można uruchomić programu Visual Studio jako `SQLDebug` użytkownika. `runas.exe` Umożliwia określonej aplikacji ma być wykonywana w ramach podszywając innego konta użytkownika. Aby uruchomić program Visual Studio jako `SQLDebug`, można wprowadzić następującą instrukcję w wierszu polecenia:
 
 
 [!code-console[Main](debugging-stored-procedures-vb/samples/sample2.cmd)]
@@ -190,8 +190,8 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Poprzednie](protecting-connection-strings-and-other-configuration-information-vb.md)
-[dalej](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](protecting-connection-strings-and-other-configuration-information-vb.md)
+> [dalej](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)

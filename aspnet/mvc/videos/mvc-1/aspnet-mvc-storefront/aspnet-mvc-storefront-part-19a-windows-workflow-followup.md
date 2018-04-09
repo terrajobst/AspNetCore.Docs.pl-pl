@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup
-title: "ASP.NET MVC częścią sklepu 19a: monitowania przepływu pracy systemu Windows | Dokumentacja firmy Microsoft"
+title: 'ASP.NET MVC częścią sklepu 19a: monitowania przepływu pracy systemu Windows | Dokumentacja firmy Microsoft'
 author: robconery
-description: "W tym epizodzie I monitowania o więcej informacji na temat za pomocą przepływu pracy systemu Windows, a touch I dla niektórych opinii I odebranych z epizodu 19."
+description: W tym epizodzie I monitowania o więcej informacji na temat za pomocą przepływu pracy systemu Windows, a touch I dla niektórych opinii I odebranych z epizodu 19.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup
 msc.type: video
-ms.openlocfilehash: d72f4af5ac0a55c43ccd6bfb7741484ee861fa53
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 8b5049e37417573059204f598ac04326c65ee11c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-storefront-part-19a-windows-workflow-followup"></a>ASP.NET MVC częścią sklepu 19a: monitowania przepływu pracy systemu Windows
 ====================
@@ -24,8 +24,8 @@ przez [Rob Conery](https://github.com/robconery)
 
 W tym epizodzie I monitowania o więcej informacji na temat za pomocą przepływu pracy systemu Windows, a touch I dla niektórych opinii I odebranych z epizodu 19.
 
-[&#9654; Obejrzyj klip wideo (minuty 13)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-19a-windows-workflow-followup)
+[&#9654;Obejrzyj klip wideo (minuty 13)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-19a-windows-workflow-followup)
 
->[!div class="step-by-step"]
-[Poprzednie](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
-[dalej](aspnet-mvc-storefront-part-20-logging.md)
+> [!div class="step-by-step"]
+> [Poprzednie](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+> [dalej](aspnet-mvc-storefront-part-20-logging.md)

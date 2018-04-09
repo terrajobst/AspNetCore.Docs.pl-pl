@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/adding-validation
 title: Dodawanie walidacji | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 8d768727772738264d088315e605cca72db8de0a
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: d084c5c7e232b92c8cfe2230e076752d42d8da5d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation"></a>Dodawanie walidacji
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 W tej sekcji dodasz logikę weryfikacji `Movie` modelu, a będzie wymusić reguł sprawdzania poprawności w dowolnym momencie, użytkownik próbuje do tworzenia lub edytowania filmu przy użyciu aplikacji.
 
@@ -134,7 +134,7 @@ Otwórz *Movie.cs* pliku i sprawdź, czy `Movie` klasy. [ `System.ComponentModel
 
 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybuty zapewniają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i podaj atrybutów, takich jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` do obsługi poczty e-mail. Można użyć [wyrażenia regularnego](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atrybut do zweryfikowania formatu danych. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych znajdują się one ***nie*** atrybutów sprawdzania poprawności. W takim przypadku tylko chcemy śledzić data nie Data i godzina. [Wyliczenie DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) zawiera wiele typów danych, takich jak *dat, czasu, numer telefonu, waluty, EmailAddress* i inne. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), i może zostać dostarczony selektora daty [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) w przeglądarkach obsługujących [HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybuty emituje HTML 5 [danych -](http://ejohn.org/blog/html-5-data-attributes/) (Wymowa *kreska danych*) atrybutów, które byłyby zrozumiałe dla przeglądarki HTML 5. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybutów nie dostarcza żadnych sprawdzania poprawności.
 
-`DataType.Date`Określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
+`DataType.Date` Określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
 
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 
@@ -166,6 +166,6 @@ Poniższy kod przedstawia łączenie atrybutów w jednym wierszu:
 
 W następnej części serii, firma Microsoft będzie Przejrzyj aplikacji i poprawiają do automatycznie generowanego `Details` i `Delete` metody.
 
->[!div class="step-by-step"]
-[Poprzednie](adding-a-new-field.md)
-[dalej](examining-the-details-and-delete-methods.md)
+> [!div class="step-by-step"]
+> [Poprzednie](adding-a-new-field.md)
+> [dalej](examining-the-details-and-delete-methods.md)

@@ -1,7 +1,7 @@
 ---
 title: Migrowanie ASP.NET ASP.NET Core 2.0
 author: isaac2004
-description: "Odbieranie wskazówki dotyczące migrowania istniejących aplikacji ASP.NET MVC lub Web API platformy ASP.NET Core 2.0."
+description: Odbieranie wskazówki dotyczące migrowania istniejących aplikacji ASP.NET MVC lub Web API platformy ASP.NET Core 2.0.
 manager: wpickett
 ms.author: scaddie
 ms.date: 08/27/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: 9424234011525afdba35824b6b324f5175ba023f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 58fac7642dbfdad58fef99f04d17de33e7218524
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migrating-from-aspnet-to-aspnet-core-20"></a>Migrowanie ASP.NET ASP.NET Core 2.0
+# <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Migrowanie ASP.NET ASP.NET Core 2.0
 
 Przez [Isaac Levin](https://isaaclevin.com)
 
@@ -23,7 +23,12 @@ W tym artykule służy jako przewodnik odwołania dla migrowanie aplikacji ASP.N
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Oprogramowanie .NET core 2.0.0 SDK](https://www.microsoft.com/net/core) lub nowszym.
+Zainstaluj **jeden** następującego z [pobiera .NET: Windows](https://www.microsoft.com/net/download/windows):
+
+* Oprogramowanie .NET core SDK
+* Visual Studio dla systemu Windows
+  * **ASP.NET i sieć web development** obciążenia
+  * **Programowanie wieloplatformowych .NET core** obciążenia
 
 ## <a name="target-frameworks"></a>Docelowych platform
 Projektów platformy ASP.NET Core 2.0 oferuje deweloperom elastyczność przeznaczonych dla platformy .NET Core i .NET Framework. Zobacz [wybór między .NET Core i .NET Framework dla aplikacji serwera](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) do określenia, które platforma docelowa jest najbardziej odpowiednia.
@@ -145,7 +150,7 @@ W ASP.NET Core pliki statyczne są przechowywane w katalogu"web" (*&lt;zawartoś
 
 Na przykład zasób obrazu w *wwwroot/obrazy* takie jak folder jest dostępny dla przeglądarki w lokalizacji `http://<app>/images/<imageFileName>`.
 
-**Uwaga:** na pełniejsze odwołanie do dostarczania plików statycznych w ASP.NET Core, zobacz [wprowadzenie do pracy z plików statycznych w ASP.NET Core](xref:fundamentals/static-files).
+**Uwaga:** na pełniejsze odwołanie do dostarczania plików statycznych w ASP.NET Core, zobacz [Praca z plikami statycznych w ASP.NET Core](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

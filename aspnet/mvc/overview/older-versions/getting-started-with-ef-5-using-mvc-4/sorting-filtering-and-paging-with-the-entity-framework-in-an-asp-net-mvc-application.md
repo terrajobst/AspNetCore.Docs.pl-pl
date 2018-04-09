@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 title: Sortowanie, filtrowanie i stronicowania Entity Framework w aplikacji platformy ASP.NET MVC (3 10) | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f9b68abeba19561a327bad5ee4be80d79af1a550
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 09327b760d9be38d7e004cbcef08cad4eab3a26c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Sortowanie, filtrowanie i stronicowania Entity Framework w aplikacji platformy ASP.NET MVC (3 10)
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -146,7 +146,7 @@ Ten kod dodaje `page` parametru bieżącego parametru kolejność sortowania i b
 
 Po raz pierwszy, ta strona jest wyświetlana, lub jeśli użytkownik nie kliknął stronicowania i sortowania łącza, wszystkie parametry będzie miała wartość null. Po kliknięciu łącza stronicowania `page` zmienna będzie zawierać numer strony do wyświetlenia.
 
-`A ViewBag`Właściwość zapewnia widok z bieżącej kolejności sortowania, ponieważ to musi być uwzględniona w łącza stronicowania aby zapewnić porządek sortowania, taka sama podczas stronicowania:
+`A ViewBag` Właściwość zapewnia widok z bieżącej kolejności sortowania, ponieważ to musi być uwzględniona w łącza stronicowania aby zapewnić porządek sortowania, taka sama podczas stronicowania:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
@@ -277,7 +277,7 @@ Baza danych SQL Azure z systemem Windows jest oparta na chmurze usługą relacyj
 
     ![Utwórz łącze bazy danych w portalu zarządzania](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image12.png)
 
- **Nowej witryny sieci Web — Utwórz niestandardowy** zostanie otwarty Kreator.
+   **Nowej witryny sieci Web — Utwórz niestandardowy** zostanie otwarty Kreator.
 3. W **nowej witryny sieci Web** kroku kreatora, wprowadź ciąg w **adres URL** pole ma być używana jako unikatowy adres URL aplikacji. Pełny adres URL będzie składać się z tutaj wprowadź oraz sufiks, który pojawi się obok pola tekstowego. Na ilustracji przedstawiono "ConU", ale prawdopodobnie pochodzi ten adres URL, dlatego trzeba wybrać inny.
 
     ![Utwórz łącze bazy danych w portalu zarządzania](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
@@ -297,11 +297,11 @@ Baza danych SQL Azure z systemem Windows jest oparta na chmurze usługą relacyj
   
     ![Krok ustawienia bazy danych dla nowej witryny sieci Web — tworzenie przy użyciu Kreatora bazy danych](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image16.png)  
 
- Na poniższej ilustracji przedstawiono przy użyciu istniejącego serwera SQL i logowania.   
+    Na poniższej ilustracji przedstawiono przy użyciu istniejącego serwera SQL i logowania.   
   
     ![Krok ustawienia bazy danych dla nowej witryny sieci Web — tworzenie przy użyciu Kreatora bazy danych](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image17.png)  
   
- Portal zarządzania zwróci do strony witryny sieci Web i **stan** kolumnie jest wyświetlana jest tworzony lokacji. Po chwili (zazwyczaj mniej niż minutę) **stan** kolumnie jest wyświetlana lokacja została pomyślnie utworzona. Na pasku nawigacyjnym po lewej stronie liczby witryn, które masz na koncie jest wyświetlany obok pozycji **witryn sieci Web** ikonę i baz danych jest wyświetlany obok pozycji **baz danych SQL** ikony.
+    Portal zarządzania zwróci do strony witryny sieci Web i **stan** kolumnie jest wyświetlana jest tworzony lokacji. Po chwili (zazwyczaj mniej niż minutę) **stan** kolumnie jest wyświetlana lokacja została pomyślnie utworzona. Na pasku nawigacyjnym po lewej stronie liczby witryn, które masz na koncie jest wyświetlany obok pozycji **witryn sieci Web** ikonę i baz danych jest wyświetlany obok pozycji **baz danych SQL** ikony.
 
 ## <a name="deploy-the-application-to-windows-azure"></a>Wdrażanie aplikacji w systemie Windows Azure
 
@@ -354,16 +354,16 @@ Baza danych SQL Azure z systemem Windows jest oparta na chmurze usługą relacyj
   
     ![Przycisk StartPreview w karcie podglądu](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image29.png)  
   
- Karcie zostanie wyświetlona lista plików, które zostaną skopiowane na serwer. Wyświetlanie podglądu nie jest wymagane, aby opublikować aplikację, ale jest to funkcja przydatna pod uwagę. W takim przypadku nie trzeba wykonywać żadnych czynności z listy plików, który jest wyświetlany. Przy następnym wdrażania tej aplikacji będzie tylko te pliki, które zostały zmienione na tej liście.  
+    Karcie zostanie wyświetlona lista plików, które zostaną skopiowane na serwer. Wyświetlanie podglądu nie jest wymagane, aby opublikować aplikację, ale jest to funkcja przydatna pod uwagę. W takim przypadku nie trzeba wykonywać żadnych czynności z listy plików, który jest wyświetlany. Przy następnym wdrażania tej aplikacji będzie tylko te pliki, które zostały zmienione na tej liście.  
   
     ![Dane wyjściowe pliku StartPreview](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image30.png)
 12. Kliknij przycisk **publikowania**.  
- Visual Studio rozpoczyna proces kopiowania plików na serwerze systemu Windows Azure.
+    Visual Studio rozpoczyna proces kopiowania plików na serwerze systemu Windows Azure.
 13. **Dane wyjściowe** okna pokazuje, jakie akcje wdrażania zostały pobrane i raporty pomyślnego wdrożenia.  
   
     ![Okno danych wyjściowych raportowania pomyślnego wdrożenia](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image31.png)
 14. Po pomyślnym wdrożeniu przeglądarka domyślna automatycznie otwiera adres URL wdrożonej witryny sieci web.  
- Utworzoną aplikację jest teraz uruchomiona w chmurze. Kliknij kartę studenta.  
+    Utworzoną aplikację jest teraz uruchomiona w chmurze. Kliknij kartę studenta.  
   
     ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image32.png)
 
@@ -395,6 +395,6 @@ W tym samouczku przedstawiono sposób tworzenia modelu danych i implementować b
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [Mapa zawartości dostępu do danych programu ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Poprzednie](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
-[dalej](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Poprzednie](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+> [dalej](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
-title: "Tworzenie farmy serwerów za pomocą struktury farmy sieci Web | Dokumentacja firmy Microsoft"
+title: Tworzenie farmy serwerów za pomocą struktury farmy sieci Web | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób użycia sieci Web farmy Framework (WFF) 2.0 do tworzenia i konfigurowania farmy serwerów sieci web z kolekcji serwerów."
+description: W tym temacie opisano sposób użycia sieci Web farmy Framework (WFF) 2.0 do tworzenia i konfigurowania farmy serwerów sieci web z kolekcji serwerów.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: c592ed78a7332834923ce2290af77919fb3c7576
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 53a91660953795f2c55edcd795b053641d308dfe
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Tworzenie farmy serwerów za pomocą struktury farmy sieci Web
 ====================
@@ -27,7 +27,7 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > W tym temacie opisano sposób użycia sieci Web farmy Framework (WFF) 2.0 do tworzenia i konfigurowania farmy serwerów sieci web z kolekcji serwerów.
 
 
-WFF umożliwia synchronizowanie produktów platformy sieci web i składników, aplikacji sieci web, witryn sieci Web i ustawień konfiguracji wielu serwerów z równoważeniem obciążenia sieci web. W scenariuszach, w którym ma być więcej niż jeden serwer sieci web, takich jak środowisk przemieszczania i produkcji to znacznie uprościć proces wdrażania i konfiguracji. Można wdrożyć aplikację sieci web na jednym serwerze & #x 2014; *serwera podstawowego*& #x 2014; i WFF spowoduje automatyczne replikowanie tej aplikacji sieci web na wszystkich innych serwerach sieci web w farmie serwerów.
+WFF umożliwia synchronizowanie produktów platformy sieci web i składników, aplikacji sieci web, witryn sieci Web i ustawień konfiguracji wielu serwerów z równoważeniem obciążenia sieci web. W scenariuszach, w którym ma być więcej niż jeden serwer sieci web, takich jak środowisk przemieszczania i produkcji to znacznie uprościć proces wdrażania i konfiguracji. Można wdrożyć aplikację sieci web na jednym serwerze&#x2014; *serwera podstawowego*&#x2014;i WFF automatycznie zreplikuje tej aplikacji sieci web na wszystkich innych serwerach sieci web w farmie serwerów.
 
 ## <a name="understanding-the-web-farm-framework"></a>Opis struktura farmy sieci Web
 
@@ -51,7 +51,7 @@ Przed rozpoczęciem konfigurowania środowiska przemieszczania i produkcji, zale
 
 ## <a name="task-overview"></a>Omówienie zadań
 
-Aby wykonać zadania i wskazówki, w tym temacie, będziesz potrzebować co najmniej trzy serwery i #x 2014; jeden kontroler WFF, jednego podstawowego serwera sieci web dla farmy serwerów i co najmniej jeden serwer pomocniczy sieci web dla farmy serwerów. Można dodać więcej serwerów pomocniczych do farmy serwerów WFF, w dowolnym momencie. Na wysokim poziomie, aby utworzyć i skonfigurować farmę serwerów WFF w danym środowisku tymczasowym czy produkcyjnym, które będą potrzebne do:
+Aby wykonać zadania i wskazówki, w tym temacie, będziesz potrzebować co najmniej trzech serwerów&#x2014;jeden kontroler WFF, jednego podstawowego serwera sieci web dla farmy serwerów i co najmniej jeden serwer pomocniczy sieci web dla farmy serwerów. Można dodać więcej serwerów pomocniczych do farmy serwerów WFF, w dowolnym momencie. Na wysokim poziomie, aby utworzyć i skonfigurować farmę serwerów WFF w danym środowisku tymczasowym czy produkcyjnym, które będą potrzebne do:
 
 - Tworzenie serwera kontrolera, instalując Internet informacji Services (IIS) 7.5 i WFF 2.0.
 - Przygotowywanie serwerów podstawowych i pomocniczych przy tworzeniu wspólnego konta administratora i konfigurowania wyjątków zapory.
@@ -78,7 +78,7 @@ Aby utworzyć serwer kontrolera WFF, potrzebne do zainstalowania usług IIS 7 lu
 2. W górnej części **3.0 Instalatora platformy sieci Web** okna, kliknij przycisk **produkty**.
 3. Po lewej stronie okna, w okienku nawigacji kliknij **serwera**.
 4. W **usług IIS 7 zalecana konfiguracja** wiersz, kliknij przycisk **Dodaj**.
-5. W **2 Framework kolektywu serwerów sieci Web. *** x* wiersz, kliknij przycisk **Dodaj**.
+5. W <strong>sieci Web farmy Framework 2.</strong> <em>x</em> wiersz, kliknij przycisk <strong>Dodaj</strong>.
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image2.png)
 6. Kliknij przycisk **zainstalować**. Zwróć uwagę, Instalator platformy sieci Web został dodany narzędzie Web Deployment, wraz z różnych innych zależności, do listy instalacji.
@@ -96,7 +96,7 @@ Przed utworzeniem WFF farmy serwerów, należy wykonać niektóre zadania przygo
 
 Aby uzyskać więcej informacji na temat konfigurowania tych wyjątków zapory w Zaporze systemu Windows, zobacz [systemu i wymagania dotyczące platformy Framework 2.0 kolektywu serwerów sieci Web usług IIS 7](https://go.microsoft.com/?linkid=9805128). Dla innych systemów zapory zapoznaj się z dokumentacją produktu.
 
-Następna procedura służy do dodawania konta domeny do grupy administratorów lokalnych w systemie Windows Server 2008 R2. Tę procedurę należy wykonać na każdym serwerze, który ma zostać dodany do farmy serwerów & #x 2014; innymi słowy, dodaj to samo konto domeny do lokalnej grupy administratorów na serwerze podstawowym, a na każdym serwerze pomocniczym.
+Następna procedura służy do dodawania konta domeny do grupy administratorów lokalnych w systemie Windows Server 2008 R2. Tę procedurę należy wykonać na każdym serwerze, który ma zostać dodany do farmy serwerów&#x2014;innymi słowy, dodaj to samo konto domeny do lokalnej grupy administratorów na serwerze podstawowym, a na każdym serwerze pomocniczym.
 
 **Aby dodać konto domeny do lokalnej grupy administratorów**
 
@@ -111,7 +111,7 @@ Następna procedura służy do dodawania konta domeny do grupy administratorów 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image5.png)
 6. W **właściwości Administratorzy** okno dialogowe, kliknij przycisk **OK**.
 
-Serwery są teraz gotowe do dodania do farmy serwerów. W przypadku podstawowego serwera, można skonfigurować serwera do potrzeb aplikacji przed lub po utworzeniu farmy serwerów & #x 2014; w obu przypadkach WFF zsynchronizuje serwery przez wdrożenie tych samych produktów, składników, lub Konfiguracja do serwerów pomocniczych. Dla uproszczenia w tym samouczku przyjęto założenie, że należy skonfigurować serwer podstawowy po zakończeniu tworzenia farmy serwerów.
+Serwery są teraz gotowe do dodania do farmy serwerów. W przypadku podstawowego serwera, można skonfigurować serwera do potrzeb aplikacji przed lub po utworzeniu farmy serwerów&#x2014;w obu przypadkach WFF zsynchronizuje serwery wdrażając produktów, składników i konfiguracji do serwerów pomocniczych. Dla uproszczenia w tym samouczku przyjęto założenie, że należy skonfigurować serwer podstawowy po zakończeniu tworzenia farmy serwerów.
 
 ## <a name="create-the-wff-server-farm"></a>Tworzenie farmy serwerów WFF
 
@@ -225,12 +225,12 @@ Można monitorować kondycję farmy serwerów w dowolnej chwili za pomocą Mened
 
 ## <a name="conclusion"></a>Wniosek
 
-Farmy serwerów WFF powinno być teraz uruchomiona. Można skonfigurować serwera podstawowego do obsługi niezależnie od metody wdrożenia wolisz & #x 2014; patrz sekcja dalsze informacje o szczegółach & #x 2014; i konfiguracji zostaną zreplikowane na każdym serwerze pomocniczym w farmie serwerów.
+Farmy serwerów WFF powinno być teraz uruchomiona. Można skonfigurować serwera podstawowego do obsługi sposób wdrażania wolisz&#x2014;dalsze informacje szczegółowe informacje zawiera sekcja&#x2014;i konfiguracji zostaną zreplikowane na każdym serwerze pomocniczym w farmie serwerów.
 
 ## <a name="further-reading"></a>Dalsze informacje
 
 Aby uzyskać więcej pomocy na temat wszystkich aspektów Konfigurowanie i używanie WFF, zobacz [firmy Microsoft w sieci Web farmy Framework 2.0 dla usług IIS 7](https://go.microsoft.com/?linkid=9805129) witryny sieci Web.
 
->[!div class="step-by-step"]
-[Poprzednie](configuring-a-database-server-for-web-deploy-publishing.md)
-[dalej](configuring-deployment-properties-for-a-target-environment.md)
+> [!div class="step-by-step"]
+> [Poprzednie](configuring-a-database-server-for-web-deploy-publishing.md)
+> [dalej](configuring-deployment-properties-for-a-target-environment.md)

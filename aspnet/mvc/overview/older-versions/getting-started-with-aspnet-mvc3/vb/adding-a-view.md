@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
 title: Dodawanie widoku (VB) | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest..."
+description: Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 7e8564c743510780b93d56bc1215f4c5b1faeb43
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c9675eb7776116ecbe910d5515abfe9b4391df22
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view-vb"></a>Dodawanie widoku (VB)
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest bezpłatna wersja programu Microsoft Visual Studio. Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagania wstępne wymienione poniżej. Można zainstalować wszystkie z nich, klikając poniższe łącze: [Instalatora platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie można zainstalować oddzielnie wymagania wstępne, korzystając z następujących linków:
 > 
@@ -65,7 +65,7 @@ Wygląda bardzo dobre. Jednak należy zauważyć, że pasek tytułu w przegląda
 
 Po pierwsze Zmieńmy tekst &quot;Moja aplikacja MVC.&quot; Ten tekst jest udostępniana i pojawia się na każdej stronie. Faktycznie pojawia się tylko w jednym miejscu w naszym projektu, mimo że znajduje się na każdej stronie w naszej aplikacji. Przejdź do */widoków/Shared* folderu w **Eksploratora rozwiązań** , a następnie otwórz  *\_Layout.vbhtml* pliku. Ten plik jest nazywany strony układu i jest udostępniony &quot;powłoki&quot; korzystające z innych stron.
 
-Uwaga `@RenderBody()` wiersza kodu w dolnej części pliku. `RenderBody`jest to symbol zastępczy, gdzie wszystkie strony tworzenia widoczne, &quot;opakowana&quot; na stronie układu. Zmień `<h1>` nagłówek z  **&quot;**  Moja aplikacja MVC&quot; do &quot;MVC Movie App&quot;.
+Uwaga `@RenderBody()` wiersza kodu w dolnej części pliku. `RenderBody` jest to symbol zastępczy, gdzie wszystkie strony tworzenia widoczne, &quot;opakowana&quot; na stronie układu. Zmień `<h1>` nagłówek z **&quot;** Moja aplikacja MVC&quot; do &quot;MVC Movie App&quot;.
 
 [!code-html[Main](adding-a-view/samples/sample3.html)]
 
@@ -111,11 +111,11 @@ Oto, co Twoje **Dodaj widok** wygląda okno dialogowe.
 
 [![3AddWelcomeView](adding-a-view/_static/image12.png "3AddWelcomeView")](adding-a-view/_static/image11.png)
 
-Dodaj następujący kod pod `<h2>` elementu w nowym *Zapraszamy.* Plik vbhtml. Firma Microsoft będzie pętlę wprowadzić i wypowiedz &quot;Hello&quot; tyle razy, ile użytkownik odpowie możemy powinien!
+Dodaj następujący kod pod `<h2>` elementu w nowym <em>Zapraszamy.</em> Plik vbhtml. Firma Microsoft będzie pętlę wprowadzić i wypowiedz &quot;Hello&quot; tyle razy, ile użytkownik odpowie możemy powinien!
 
 [!code-vbhtml[Main](adding-a-view/samples/sample8.vbhtml)]
 
-Uruchom aplikację i przejdź do`http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
+Uruchom aplikację i przejdź do `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
 
 Obecnie dane są pobierane z adresu URL i automatycznie przekazywane do kontrolera. Kontroler pakietów zapasową danych do `Model` obiekt i przekazuje, które obiekt do widoku. Widok nie wyświetla dane w postaci kodu HTML dla użytkownika.
 
@@ -123,6 +123,6 @@ Obecnie dane są pobierane z adresu URL i automatycznie przekazywane do kontrole
 
 Źródło, które były rodzaju z &quot;M&quot; dla modelu, ale nie rodzaj bazy danych. Przyjrzyjmy się, co możemy samouczka jest i utworzyć bazę danych filmów.
 
->[!div class="step-by-step"]
-[Poprzednie](adding-a-controller.md)
-[dalej](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Poprzednie](adding-a-controller.md)
+> [dalej](adding-a-model.md)

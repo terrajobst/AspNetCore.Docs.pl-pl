@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-cs
 title: Tworzenie kontrolera (C#) | Dokumentacja firmy Microsoft
 author: StephenWalther
-description: "W tym samouczku Stephen Walther pokazano, jak dodać kontrolera do aplikacji platformy ASP.NET MVC."
+description: W tym samouczku Stephen Walther pokazano, jak dodać kontrolera do aplikacji platformy ASP.NET MVC.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9faaff1e00998ef9a77c4928a9eb36fc93ab97f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 86966f1064d09419e2102542c6d14c4162d153e4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-controller-c"></a>Tworzenie kontrolera (C#)
 ====================
@@ -92,10 +92,10 @@ Kontroler w 3 lista przedstawia jedną akcję o nazwie indeks(), która zwraca c
 
 `http://localhost:40071/Person`
 
-> [!NOTE] 
+> [!NOTE]
 > 
 > ASP.NET Development Server używa numeru portu losowych (na przykład 40071). Wprowadzenie adresu URL do wywołania kontrolera, należy podać numer prawy port. Należy określić numer portu, ustawiając kursor myszy na ikonie serwera projektowego ASP.NET, w obszarze powiadomień systemu Windows (prawym dolnym rogu ekranu).
-
->[!div class="step-by-step"]
-[Poprzednie](adding-dynamic-content-to-a-cached-page-cs.md)
-[dalej](creating-an-action-cs.md)
+> 
+> [!div class="step-by-step"]
+> [Poprzednie](adding-dynamic-content-to-a-cached-page-cs.md)
+> [dalej](creating-an-action-cs.md)

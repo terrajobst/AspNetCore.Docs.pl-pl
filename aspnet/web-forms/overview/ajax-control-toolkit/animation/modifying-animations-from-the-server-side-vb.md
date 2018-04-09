@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-vb
 title: Modyfikowanie animacji po stronie serwera (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Może to również animacji..."
+description: Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Może to również animacji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c5b23cce529be24157a8a3f9136de7ad7bafc1ea
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2b9ce85fc5040b2318233b3c553c2cf53dd03555
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="modifying-animations-from-the-server-side-vb"></a>Modyfikowanie animacji po stronie serwera (VB)
 ====================
@@ -62,6 +62,6 @@ Na koniec należy dodać `AnimationExtender` sterowania do bieżącej strony w `
 
 Animacja jest tworzony przy użyciu po stronie serwera C# / VB. kodu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](modifying-animations-from-the-server-side-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](triggering-an-animation-in-another-control-vb.md)
-[dalej](executing-animations-using-client-side-code-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](triggering-an-animation-in-another-control-vb.md)
+> [dalej](executing-animations-using-client-side-code-vb.md)

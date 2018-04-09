@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
 title: Zapobieganie atakom iniekcji JavaScript (VB) | Dokumentacja firmy Microsoft
 author: StephenWalther
-description: "Zapobiec atakom iniekcji JavaScript i skryptów przed atakami opartymi na Cross-Site do Ciebie. W tym samouczku Stephen Walther wyjaśniono, jak łatwo można de..."
+description: Zapobiec atakom iniekcji JavaScript i skryptów przed atakami opartymi na Cross-Site do Ciebie. W tym samouczku Stephen Walther wyjaśniono, jak łatwo można de...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1d49d4d1afa30247d3452a96c8004441ba417ac8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb19236b22abd455472621ce74a8cddf9752d6c5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="preventing-javascript-injection-attacks-vb"></a>Zapobieganie atakom iniekcji JavaScript (VB)
 ====================
@@ -43,7 +43,7 @@ Załóżmy, że utworzono witrynę sieci Web opinie klientów (zobacz rysunek 1)
 
 Opinie klientów witryny sieci Web używa `controller` wyświetlania 1. To `controller` zawiera dwa działania o nazwie `Index()` i `Create()`.
 
-**1 — Lista`HomeController.vb`**
+**1 — Lista `HomeController.vb`**
 
 [!code-vb[Main](preventing-javascript-injection-attacks-vb/samples/sample1.vb)]
 
@@ -53,7 +53,7 @@ Opinie klientów witryny sieci Web używa `controller` wyświetlania 1. To `cont
 
 `Index` Widoku znajduje się lista 2.
 
-**2 — Lista`Index.aspx`**
+**2 — Lista `Index.aspx`**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-vb/samples/sample2.aspx)]
 
@@ -65,7 +65,7 @@ Wyobraź sobie wprowadzić następujący tekst w formularzu informacji zwrotnych
 
 [!code-html[Main](preventing-javascript-injection-attacks-vb/samples/sample3.html)]
 
-Ten tekst reprezentuje skryptu JavaScript, która wyświetla komunikat alertu. Po trafi tego skryptu do opinii formularzu komunikat *coś!* będą wyświetlane zawsze, gdy każdy użytkownik odwiedza witryny opinii klientów w przyszłości (patrz rysunek 2).
+Ten tekst reprezentuje skryptu JavaScript, która wyświetla komunikat alertu. Po trafi tego skryptu do opinii formularzu komunikat <em>coś!</em> będą wyświetlane zawsze, gdy każdy użytkownik odwiedza witryny opinii klientów w przyszłości (patrz rysunek 2).
 
 
 [![Iniekcji JavaScript](preventing-javascript-injection-attacks-vb/_static/image5.png)](preventing-javascript-injection-attacks-vb/_static/image4.png)
@@ -121,5 +121,5 @@ Dlaczego jest to nieodpowiedni? Jeśli trzeba do wyświetlania danych w bazie da
 
 Celem tego samouczka było przestraszyć możesz o Perspektywa ataku polegającego na iniekcji JavaScript. W tym samouczku opisano dwa podejścia do obrony przed atakami iniekcji JavaScript aplikacji ASP.NET MVC: można albo HTML kodowania użytkownika przesłane dane w widoku lub użytkownik może HTML kodowania użytkownika przesłane dane w kontrolerze.
 
->[!div class="step-by-step"]
-[Poprzednie](authenticating-users-with-windows-authentication-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](authenticating-users-with-windows-authentication-vb.md)

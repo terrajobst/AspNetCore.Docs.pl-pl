@@ -1,22 +1,22 @@
 ---
 uid: visual-studio/overview/2013/release-notes
-title: "ASP.NET i narzędzia sieci Web dla programu Visual Studio 2013 informacje o wersji | Dokumentacja firmy Microsoft"
+title: ASP.NET i narzędzia sieci Web dla programu Visual Studio 2013 informacje o wersji | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Ten dokument zawiera opis wersji platformy ASP.NET i narzędzia sieci Web dla programu Visual Studio 2013."
+description: Ten dokument zawiera opis wersji platformy ASP.NET i narzędzia sieci Web dla programu Visual Studio 2013.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 7f38a0f2693aeb2a4884b9c03719b583423957a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e9ddd96f186564834ff6bb2c30cf0ed5444cbf1b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET i narzędzia sieci Web dla programu Visual Studio 2013 informacje o wersji
 ====================
@@ -201,14 +201,14 @@ Teraz można zastąpić, które filtry mają zastosowanie do metody danej akcji 
 
 ### <a name="attribute-routing"></a>Atrybut routingu
 
-ASP.NET MVC obsługuje teraz atrybutu routingu, dzięki użyciu udział Timowi McCall, Autor [http://attributerouting.net](http://attributerouting.net). Atrybut routingu, można określić trasy przez dodawanie adnotacji do Twojej akcji i kontrolerów.
+ASP.NET MVC obsługuje teraz atrybutu routingu, dzięki użyciu udział Timowi McCall, Autor [ http://attributerouting.net ](http://attributerouting.net). Atrybut routingu, można określić trasy przez dodawanie adnotacji do Twojej akcji i kontrolerów.
 
 <a id="TOC11"></a>
 ## <a name="aspnet-web-api-2"></a>ASP.NET Web API 2
 
 ### <a name="attribute-routing"></a>Atrybut routingu
 
-Interfejs API sieci Web platformy ASP.NET obsługuje teraz atrybutu routingu, dzięki użyciu udział Timowi McCall, Autor [http://attributerouting.net](http://attributerouting.net). Atrybut routingu, można określić trasy interfejsu API sieci Web przez dodawanie adnotacji do Twojej akcji i kontrolerów w następujący sposób:
+Interfejs API sieci Web platformy ASP.NET obsługuje teraz atrybutu routingu, dzięki użyciu udział Timowi McCall, Autor [ http://attributerouting.net ](http://attributerouting.net). Atrybut routingu, można określić trasy interfejsu API sieci Web przez dodawanie adnotacji do Twojej akcji i kontrolerów w następujący sposób:
 
 [!code-csharp[Main](release-notes/samples/sample1.cs)]
 
@@ -332,7 +332,7 @@ SignalR 2.0 jest oparty na całkowicie [OWIN (interfejsu Open Web dla platformy 
 
 ### <a name="maphubs-and-mapconnection-are-now-mapsignalr"></a>MapHubs i MapConnection są teraz MapSignalR
 
-Zgodność ze standardami OWIN, te metody zmieniono `MapSignalR`. `MapSignalR`wywoływana bez parametrów przypisze wszystkie koncentratory (jako `MapHubs` w wersji 1.x); do mapowania poszczególnych **klasy PersistentConnection** obiektów, określ typ połączenia jako parametr typu i rozszerzenia adresu URL dla połączenia jako pierwszy argument.
+Zgodność ze standardami OWIN, te metody zmieniono `MapSignalR`. `MapSignalR` wywoływana bez parametrów przypisze wszystkie koncentratory (jako `MapHubs` w wersji 1.x); do mapowania poszczególnych **klasy PersistentConnection** obiektów, określ typ połączenia jako parametr typu i rozszerzenia adresu URL dla połączenia jako pierwszy argument.
 
 `MapSignalR` Metoda jest wywoływana w klasy początkowej Owin. Visual Studio 2013 zawiera nowy szablon dla klasy początkowej Owin; Aby użyć tego szablonu, wykonaj następujące czynności:
 
@@ -392,7 +392,7 @@ Poniższy kod przedstawia sposób włączania CORS lub JSONP w projekcie SignalR
 
 Dodano obsługę dla systemów iOS i Android będących klientami przy użyciu składników MonoTouch i MonoDroid z [Xamarin biblioteki](https://xamarin.com/). Aby uzyskać więcej informacji na temat sposobu korzystania z nich, zobacz [przy użyciu składników Xamarin](https://github.com/SignalR/SignalR/wiki/Building-Mono.Mobile.sln). Te składniki będzie dostępna w [sklepie Xamarin](https://store.xamarin.com/) Jeśli jest dostępny w wersji SignalR RTW.
 
-<a id="portable"></a>### Przenośny klient .NET
+<a id="portable"></a> ### Przenośny klient .NET
 
 Aby lepiej ułatwiają aplikacji dla wielu platform, Silverlight, WinRT i Windows Phone klientów zostały zastąpione pojedynczego przenośny klient .NET, który obsługuje następujące platformy:
 
@@ -580,8 +580,8 @@ ASP.NET Razor 3 obejmuje następujące nowe funkcje:
 - Obsługa kartę edycji. Preivously **dokumentu w formacie** polecenia, automatycznie wcięcia i automatycznego formatowania w programie Visual Studio nie działały prawidłowo po użyciu **zachować karty** opcji. Ta zmiana poprawia Visual Studio formatowanie kodu Razor dla karty formatowania.
 - Obsługa ponowne zapisywanie adresów URL reguł podczas generowania łączy.
 - Usunięcie atrybutu przezroczysty zabezpieczeń.
- > [!NOTE]
- > Jest to istotne zmiany i sprawia, że Razor 3 niezgodne z MVC4 i wcześniej, gdy Razor 2 jest niezgodna z MVC5 lub zestawy skompilowany MVC5.
+  > [!NOTE]
+  > Jest to istotne zmiany i sprawia, że Razor 3 niezgodne z MVC4 i wcześniej, gdy Razor 2 jest niezgodna z MVC5 lub zestawy skompilowany MVC5.
 
 Usunięto w programie Visual Studio 2013 z wersji wstępnych problemów razor 3 można znaleźć [tutaj](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Resolved%7cClosed&type=All&priority=All&release=All%7cv5.0%2bPreview%7cv5.0%2bRC%7cv5.0%2bRTM&assignedTo=All&component=Web%2bPages%252fRazor&reasonClosed=Fixed&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
@@ -603,7 +603,7 @@ W tej sekcji opisano znane problemy i fundamentalne zmiany w ASP.NET i narzędzi
 
 ### <a name="aspnet-web-api"></a>ASP.NET Web API
 
-1. `ODataQueryOptions<T>.ApplyTo(IQueryable)`nie zwraca `IQueryable<T>` zawsze, jak Dodaliśmy obsługę `$select` i `$expand`.
+1. `ODataQueryOptions<T>.ApplyTo(IQueryable)` nie zwraca `IQueryable<T>` zawsze, jak Dodaliśmy obsługę `$select` i `$expand`.
 
     Nasze przykłady wcześniej dla `ODataQueryOptions<T>` zawsze rzutować wartość zwrotu z `ApplyTo` do `IQueryable<T>`. To już wcześniej, ponieważ opcje zapytania, które firma Microsoft obsługiwane wcześniej (`$filter`, `$orderby`, `$skip`, `$top`) nie należy zmieniać kształtu zapytania. Teraz, gdy firma Microsoft obsługuje `$select` i `$expand` wartość zwrotną z elementu `ApplyTo` nie będzie `IQueryable<T>` zawsze.
 
@@ -632,7 +632,7 @@ W tej sekcji opisano znane problemy i fundamentalne zmiany w ASP.NET i narzędzi
 
     *Błąd serwera w "/" aplikacji.*
 
-    *Oświadczenie typu "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" lub "http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider" nie była obecna w podanych ClaimsIdentity. Aby włączyć obsługę token zabezpieczający przed sfałszowaniem przy użyciu uwierzytelniania opartego na oświadczeniach, sprawdź, czy dostawcy oświadczeń skonfigurowanych jest zapewnienie obu tych oświadczeń w wystąpieniach ClaimsIdentity, który generuje. Jeśli dostawcy oświadczeń skonfigurowanych użyje na inny typ oświadczenia jako unikatowy identyfikator, może być skonfigurowana przez ustawienie właściwości statycznej AntiForgeryConfig.UniqueClaimTypeIdentifier.*
+    <em>Oświadczenie typu "<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>"lub"<http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>" nie jest obecny na podanego elementu ClaimsIdentity. Aby włączyć obsługę token zabezpieczający przed sfałszowaniem przy użyciu uwierzytelniania opartego na oświadczeniach, sprawdź, czy dostawcy oświadczeń skonfigurowanych jest zapewnienie obu tych oświadczeń w wystąpieniach ClaimsIdentity, który generuje. Jeśli dostawcy oświadczeń skonfigurowanych użyje na inny typ oświadczenia jako unikatowy identyfikator, może być skonfigurowana przez ustawienie właściwości statycznej AntiForgeryConfig.UniqueClaimTypeIdentifier.</em>
 
     **Obejście**:
 
@@ -647,14 +647,14 @@ W tej sekcji opisano znane problemy i fundamentalne zmiany w ASP.NET i narzędzi
 
     Aby naprawić błąd powyżej, otwórz *wszystkich* plików Web.config (w tym te w folderze widoków) w projekcie i wykonaj następujące czynności:
 
-    1. Zaktualizuj wszystkie wystąpienia "System.Web.Mvc" wersja "4.0.0.0" do "5.0.0.0".
-    2. Zaktualizuj wszystkie wystąpienia "System.Web.Helpers", wersja "2.0.0.0" &quot;System.Web.WebPages&quot; i &quot;System.Web.WebPages.Razor&quot; do "3.0.0.0"
+   1. Zaktualizuj wszystkie wystąpienia "System.Web.Mvc" wersja "4.0.0.0" do "5.0.0.0".
+   2. Zaktualizuj wszystkie wystąpienia "System.Web.Helpers", wersja "2.0.0.0" &quot;System.Web.WebPages&quot; i &quot;System.Web.WebPages.Razor&quot; do "3.0.0.0"
 
-    Na przykład po wprowadzeniu zmiany powyżej powiązania zestawu powinna wyglądać następująco:
+      Na przykład po wprowadzeniu zmiany powyżej powiązania zestawu powinna wyglądać następująco:
 
-    [!code-xml[Main](release-notes/samples/sample24.xml)]
+      [!code-xml[Main](release-notes/samples/sample24.xml)]
 
-    Aby uzyskać informacje o uaktualnianiu projektów MVC 4 do MVC 5, zobacz [sposób uaktualnienia programu ASP.NET MVC 4 i projekt interfejsu API sieci Web platformy ASP.NET MVC 5 i Web API 2](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
+      Aby uzyskać informacje o uaktualnianiu projektów MVC 4 do MVC 5, zobacz [sposób uaktualnienia programu ASP.NET MVC 4 i projekt interfejsu API sieci Web platformy ASP.NET MVC 5 i Web API 2](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 3. Jeśli weryfikacja po stronie klienta z jQuery sprawdzania poprawności dyskretnego kodu, komunikatu weryfikacji czasami jest niepoprawny dla elementu input języka HTML, z typem = 'number'. Błąd sprawdzania poprawności dla wymaganej wartości ("wieku pole jest wymagane") jest wyświetlany po wprowadzeniu nieprawidłową liczbę zamiast poprawne komunikat, że wymagany jest prawidłowy numer.
 
     Ten problem zwykle jest związany z szkieletu kodu dla modelu z właściwością liczby całkowitej na tworzenie i edytowanie widoków.
@@ -697,13 +697,13 @@ Obejście problemu:
 - Aby naprawić ten błąd dla platformy MVC, Dodaj nowy element szkieletu i wybierz zależności MVC 5 (minimalnie lub pełna). Ten proces, zostaną dodane wszystkie wymagane zmiany do projektu.
 - Aby naprawić ten błąd interfejsu API sieci Web:
 
-    1. Klasa WebApiConfig należy dodać do projektu.
+  1. Klasa WebApiConfig należy dodać do projektu.
 
-        [!code-csharp[Main](release-notes/samples/sample25.cs)]
+      [!code-csharp[Main](release-notes/samples/sample25.cs)]
 
-        [!code-vb[Main](release-notes/samples/sample26.vb)]
-    2. Skonfiguruj WebApiConfig.Register w aplikacji\_Start — metoda w pliku Global.asax w następujący sposób:
+      [!code-vb[Main](release-notes/samples/sample26.vb)]
+  2. Skonfiguruj WebApiConfig.Register w aplikacji\_Start — metoda w pliku Global.asax w następujący sposób:
 
-        [!code-csharp[Main](release-notes/samples/sample27.cs)]
+      [!code-csharp[Main](release-notes/samples/sample27.cs)]
 
-        [!code-vb[Main](release-notes/samples/sample28.vb)]
+      [!code-vb[Main](release-notes/samples/sample28.vb)]

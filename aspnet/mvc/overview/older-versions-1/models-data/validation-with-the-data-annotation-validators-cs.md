@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-cs
-title: "Weryfikowanie przy użyciu adnotacji danych modułów sprawdzania poprawności (C#) | Dokumentacja firmy Microsoft"
+title: Weryfikowanie przy użyciu adnotacji danych modułów sprawdzania poprawności (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Skorzystaj z integratora modelu adnotacji danych do sprawdzania poprawności w aplikacji ASP.NET MVC. Dowiedz się, jak używać różnych typów modułu sprawdzania poprawności..."
+description: Skorzystaj z integratora modelu adnotacji danych do sprawdzania poprawności w aplikacji ASP.NET MVC. Dowiedz się, jak używać różnych typów modułu sprawdzania poprawności...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 306dcb0197dfc9317ea9665dd2b1c058ba8bd712
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0aca9472094e6a54c7b7cb4ad4f12df64fe12db2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validation-with-the-data-annotation-validators-c"></a>Weryfikowanie przy użyciu adnotacji danych modułów sprawdzania poprawności (C#)
 ====================
@@ -78,7 +78,7 @@ Klasa produktu ilustruje sposób używania jeden atrybut dodatkowe: atrybut Nazw
 
 > [!NOTE] 
 > 
-> Aby dostosować komunikat o błędzie wyświetlany przez moduł weryfikacji można przypisać niestandardowy komunikat o błędzie do modułu sprawdzania poprawności właściwości komunikat o błędzie podobny do tego:`<Required(ErrorMessage:="This field needs a value!")>`
+> Aby dostosować komunikat o błędzie wyświetlany przez moduł weryfikacji można przypisać niestandardowy komunikat o błędzie do modułu sprawdzania poprawności właściwości komunikat o błędzie podobny do tego: `<Required(ErrorMessage:="This field needs a value!")>`
 
 
 Można użyć klasy produktu w **wyświetlania 1** z akcji kontrolera Create() w **wyświetlania 2**. Ta akcja kontrolera zostanie ponownie Utwórz widok, gdy stanu modelu zawiera błędy.
@@ -153,6 +153,6 @@ Strona w **rysunek 6** przedstawiono zwrócony podczas wprowadzania nieprawidło
 
 W tym samouczku przedstawiono sposób wykorzystać integratora modelu adnotacji danych do sprawdzania poprawności w aplikacji ASP.NET MVC. Przedstawiono sposób użycia różnych typów atrybutów modułu sprawdzania poprawności, takich jak wymaganych i atrybuty StringLength. Przedstawiono również sposób używania tych atrybutów, podczas pracy z programu Entity Framework firmy Microsoft.
 
->[!div class="step-by-step"]
-[Poprzednie](validating-with-a-service-layer-cs.md)
-[dalej](creating-model-classes-with-the-entity-framework-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](validating-with-a-service-layer-cs.md)
+> [dalej](creating-model-classes-with-the-entity-framework-vb.md)

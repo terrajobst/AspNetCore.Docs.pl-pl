@@ -1,7 +1,7 @@
 ---
-title: "Rozproszonej pamięci podręcznej pomocnika tagów w platformy ASP.NET Core"
+title: Rozproszonej pamięci podręcznej pomocnika tagów w platformy ASP.NET Core
 author: pkellner
-description: "Pokazuje, jak pracować z pamięci podręcznej pomocnika tagów"
+description: Pokazuje, jak pracować z pamięci podręcznej pomocnika tagów
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 710477732b865e2e3821102d34545bbd4e0a5919
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 929156633048b8ee68a66290f44b12026a08c8c9
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="distributed-cache-tag-helper"></a>Pomocnik Tag rozproszonej pamięci podręcznej
+# <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Rozproszonej pamięci podręcznej pomocnika tagów w platformy ASP.NET Core
 
 Przez [Kellner Peterowi](http://peterkellner.net) 
 
@@ -43,7 +43,7 @@ Zobacz pomocnika tagów pamięci podręcznej dla definicji. Rozproszonej pamięc
 |----------------   |----------------   |
 | string    | "my-distributed-cache-unique-key-101"     |
 
-Wymagane `name` atrybut jest używany jako klucz tej pamięci podręcznej przechowywanych dla każdego wystąpienia pomocnika Tag rozproszonej pamięci podręcznej.  W przeciwieństwie do podstawowych pomocnika tagów pamięci podręcznej przypisującej klucza do każdego wystąpienia pomocnika tagów pamięci podręcznej na podstawie Razor strony nazwy i lokalizacji pomocnika tagów razor strony pomocnika Tag rozproszonej pamięci podręcznej tylko określa jego klucza na na podstawie atrybutu`name`
+Wymagane `name` atrybut jest używany jako klucz tej pamięci podręcznej przechowywanych dla każdego wystąpienia pomocnika Tag rozproszonej pamięci podręcznej.  W przeciwieństwie do podstawowych pomocnika tagów pamięci podręcznej przypisującej klucza do każdego wystąpienia pomocnika tagów pamięci podręcznej na podstawie Razor strony nazwy i lokalizacji pomocnika tagów razor strony pomocnika Tag rozproszonej pamięci podręcznej tylko określa jego klucza na na podstawie atrybutu `name`
 
 Przykład użycia:
 

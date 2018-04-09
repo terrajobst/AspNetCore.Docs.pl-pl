@@ -1,7 +1,7 @@
 ---
-title: Wprowadzenie do ochrony danych
+title: Ochrona danych platformy ASP.NET Core
 author: rick-anderson
-description: "Ten dokument pojęcia związane z ochroną danych i opisano zasady projektowania skojarzone podstawowych interfejsów API platformy ASP.NET."
+description: Więcej informacji na temat koncepcji ochrony danych i zasady projektowania interfejsów API platformy ASP.NET Core danych ochrony.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/introduction
-ms.openlocfilehash: acd38679390b92705703111b72816f1a5d3ba848
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5526b517ba9f1ac4b041576156b2964217460726
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-data-protection"></a>Wprowadzenie do ochrony danych
+# <a name="aspnet-core-data-protection"></a>Ochrona danych platformy ASP.NET Core
 
 Aplikacje sieci Web często muszą przechowywać dane dotyczące zabezpieczeń. System Windows udostępnia DPAPI aplikacji klasycznych, ale to nie nadaje się do aplikacji sieci web. Stos ochrony danych platformy ASP.NET Core zapewniają prosty i łatwy w użyciu API kryptograficznych deweloper może użyć do ochrony danych, w tym zarządzania kluczami i obrotu.
 
@@ -45,7 +45,7 @@ Firma Microsoft jest uruchomiony przez identyfikowania problemów z istniejąceg
 
 * Klucze powinny być chronione w stanie spoczynku, gdy jest to możliwe. System powinien ustalić odpowiedni mechanizm ochrony i zastosować je automatycznie.
 
-Z tych zasad, pamiętając opracowaliśmy prosty, [łatwy w użyciu](using-data-protection.md) stosu ochrony danych.
+Z tych zasad, pamiętając opracowaliśmy prosty, [łatwy w użyciu](xref:security/data-protection/using-data-protection) stosu ochrony danych.
 
 Interfejsy API ochrony danych platformy ASP.NET Core nie są głównie przeznaczone do nieograniczonego trwałość ładunki poufne. Innych technologii, takich jak [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) i [usługi Azure Rights Management](https://docs.microsoft.com/rights-management/) są bardziej odpowiednie do scenariusza nieograniczonego magazynu i mają możliwości odpowiednio silne zarządzania kluczami. Inaczej mówiąc, nic nie uniemożliwiają dewelopera przy użyciu interfejsy API ochrony danych platformy ASP.NET Core dla długoterminowej ochrony poufnych danych.
 
@@ -53,11 +53,11 @@ Interfejsy API ochrony danych platformy ASP.NET Core nie są głównie przeznacz
 
 System ochrony danych jest podzielona na pięć głównych pakietów. Różne aspekty te interfejsy API target trzy główne odbiorców;
 
-1. [Omówienie interfejsów API klienta](consumer-apis/overview.md) deweloperzy aplikacji i platforma docelowa.
+1. [Omówienie interfejsów API klienta](xref:security/data-protection/consumer-apis/overview) deweloperzy aplikacji i platforma docelowa.
 
    "Nie chcę dowiedzieć się więcej o sposób działania stosu lub jego konfiguracji. Po prostu chcę do wykonania niektórych operacji w jako prosty sposób możliwie z dużym prawdopodobieństwem z użyciem interfejsów API pomyślnie."
 
-2. [Interfejsy API konfiguracji](configuration/overview.md) docelowe deweloperzy aplikacji i administratorów systemu.
+2. [Interfejsy API konfiguracji](xref:security/data-protection/configuration/overview) docelowe deweloperzy aplikacji i administratorów systemu.
 
    "Potrzebuję systemu ochrony danych stwierdzić, że moje środowisko wymaga ustawienia lub innych niż domyślne ścieżki".
 
@@ -75,6 +75,6 @@ Stos ochrony danych składa się z pięciu pakietów.
 
 * Microsoft.AspNetCore.DataProtection.Extensions zawiera dodatkowe interfejsy API, które deweloperzy mogą być przydatne, ale które nie powinny znajdować się w pakiecie core. Na przykład ten pakiet zawiera proste "wystąpienia systemu, wskazując katalogu określonego klucza magazynu bez ustawień iniekcji zależności" API (więcej informacji). Zawiera również metody rozszerzenia dla ograniczanie okresu istnienia chronionych ładunków (więcej informacji).
 
-* Microsoft.AspNetCore.DataProtection.SystemWeb można zainstalować w istniejącej aplikacji ASP.NET 4.x przekierować jego <machineKey> operacje, aby zamiast tego użyć nowego stosu ochrony danych. Zobacz [zgodności](compatibility/replacing-machinekey.md#compatibility-replacing-machinekey) Aby uzyskać więcej informacji.
+* Microsoft.AspNetCore.DataProtection.SystemWeb można zainstalować w istniejącej aplikacji ASP.NET 4.x przekierować jego <machineKey> operacje, aby zamiast tego użyć nowego stosu ochrony danych. Zobacz [zgodności](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey) Aby uzyskać więcej informacji.
 
-* Microsoft.AspNetCore.Cryptography.KeyDerivation dostarcza implementację tego hasła PBKDF2 mieszania procedury i mogą być używane przez systemy, które musi obsłużyć bezpiecznego hasła użytkownika. Zobacz [tworzenia skrótu hasła](consumer-apis/password-hashing.md) Aby uzyskać więcej informacji.
+* Microsoft.AspNetCore.Cryptography.KeyDerivation dostarcza implementację tego hasła PBKDF2 mieszania procedury i mogą być używane przez systemy, które musi obsłużyć bezpiecznego hasła użytkownika. Zobacz [skrótów haseł](xref:security/data-protection/consumer-apis/password-hashing) Aby uzyskać więcej informacji.
