@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-cs
 title: Tworzenie formantu klasyfikacji (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Wiele witryn sieci Web z handlu elektronicznego do witryn społeczności oferuje użytkownikom artykuły szybkość lub elementów. Zazwyczaj wymaga niektórych kodowania wysiłku, ale mamy..."
+description: Wiele witryn sieci Web z handlu elektronicznego do witryn społeczności oferuje użytkownikom artykuły szybkość lub elementów. Zazwyczaj wymaga niektórych kodowania wysiłku, ale mamy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7c004522ac72b848e42320862d77bced0c11ca15
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a48cf0ed9402e2875e87ba7bdb76afc5f501a670
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-rating-control-c"></a>Tworzenie formantu klasyfikacji (C#)
 ====================
@@ -41,12 +41,12 @@ Następnie utwórz nowy plik programu ASP.NET i Rozpocznij od dodania `ScriptMan
 
 Następnie należy dodać `Rating` formantu w zestawie narzędzi programu ASP.NET AJAX formantu. Następujące atrybuty muszą zostać ustawione dla tego przykładu:
 
-- `CurrentRating`początkowa klasyfikacji do użycia
-- `MaxRating`Maksymalny dozwolony poziom klasyfikacji
-- `EmptyStarCssClass`Klasa CSS do użycia podczas elementu klasyfikacji (gwiazdkę) jest pusty
-- `FilledStarCssClass`Klasa CSS do użycia podczas wypełniania elementu klasyfikacji (gwiazdkę)
-- `StarCssClass`Klasa CSS do użycia na potrzeby stat widoczne
-- `WaitingStarCssClass`Klasa CSS do użycia podczas gwiazdki są wysyłane do serwera
+- `CurrentRating` początkowa klasyfikacji do użycia
+- `MaxRating` Maksymalny dozwolony poziom klasyfikacji
+- `EmptyStarCssClass` Klasa CSS do użycia podczas elementu klasyfikacji (gwiazdkę) jest pusty
+- `FilledStarCssClass` Klasa CSS do użycia podczas wypełniania elementu klasyfikacji (gwiazdkę)
+- `StarCssClass` Klasa CSS do użycia na potrzeby stat widoczne
+- `WaitingStarCssClass` Klasa CSS do użycia podczas gwiazdki są wysyłane do serwera
 
 A Oto kod znaczników, który tworzy kontrolkę klasyfikacji z pięciu elementów (smileys), których brak wypełniania początkowo:
 
@@ -73,5 +73,5 @@ Strony i załadować go w przeglądarce. Po umieszczeniu na elementy klasyfikacj
 
 Tworzenie system klasyfikacji z minimalnym kodu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-rating-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Dalej](creating-a-rating-control-vb.md)
+> [!div class="step-by-step"]
+> [Next](creating-a-rating-control-vb.md)

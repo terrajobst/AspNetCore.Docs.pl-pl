@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/installing-helpers
 title: Instalowanie pomocnika w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym artykule opisano sposób instalowania pomocnika w witrynie sieci Web platformy ASP.NET Web Pages (Razor). Pomocnik jest składnikiem wielokrotnego użytku, który zawiera kod i znaczników na..."
+description: W tym artykule opisano sposób instalowania pomocnika w witrynie sieci Web platformy ASP.NET Web Pages (Razor). Pomocnik jest składnikiem wielokrotnego użytku, który zawiera kod i znaczników na...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/installing-helpers
 msc.type: authoredcontent
-ms.openlocfilehash: 842c5a56d14314217c1e6ad6d48ded28d3cc5b4e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 766fbb87ae8bcb8917eb8fa7f552c00792242cf6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>Instalowanie pomocnika w lokacji (Razor) stron sieci Web ASP.NET
 ====================
@@ -49,10 +49,10 @@ Strony ASP.NET Web Pages ma kilka wątków wbudowane. Wiele wątków są jednak 
 2. To spowoduje uruchomienie Menedżera pakietów NuGet i wyświetlenie dostępnych pakietów. W polu wyszukiwania wprowadź słowo kluczowe pomocnika, którą chcesz zainstalować.
 
     ![Okno dialogowe galerii NuGet w programie WebMatrix](installing-helpers/_static/image2.png)
-- Wybierz pakiet, a następnie kliknij przycisk **zainstalować**. Kliknij przycisk **tak** po otrzymaniu monitu, jeśli chcesz zainstalować pakiet i zaakceptuj postanowienia.
+3. Wybierz pakiet, a następnie kliknij przycisk **zainstalować**. Kliknij przycisk **tak** po otrzymaniu monitu, jeśli chcesz zainstalować pakiet i zaakceptuj postanowienia.
 
-    Jeśli po raz pierwszy po zainstalowaniu pomocnika NuGet powoduje tworzenie folderów w witryny sieci Web kod, który stanowi pomocnika.
-- Aby odinstalować pomocnika, kliknij przycisk **galerii** , kliknij **zainstalowana** , a następnie wybierz pakiet, którego chcesz odinstalować.
+     Jeśli po raz pierwszy po zainstalowaniu pomocnika NuGet powoduje tworzenie folderów w witryny sieci Web kod, który stanowi pomocnika.
+4. Aby odinstalować pomocnika, kliknij przycisk **galerii** , kliknij **zainstalowana** , a następnie wybierz pakiet, którego chcesz odinstalować.
 
 ## <a name="installing-the-twitter-helper"></a>Instalowanie Pomocnik usługi Twitter
 

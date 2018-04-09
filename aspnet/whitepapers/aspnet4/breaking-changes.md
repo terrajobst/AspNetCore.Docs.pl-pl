@@ -2,21 +2,21 @@
 uid: whitepapers/aspnet4/breaking-changes
 title: ASP.NET 4 istotne zmiany | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym dokumencie opisano zmiany, które zostały wprowadzone dla programu .NET Framework w wersji 4 release, które mogą wpłynąć na aplikacje, które zostały utworzone przy użyciu..."
+description: W tym dokumencie opisano zmiany, które zostały wprowadzone dla programu .NET Framework w wersji 4 release, które mogą wpłynąć na aplikacje, które zostały utworzone przy użyciu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: d601c540-f86b-4feb-890c-20c806b3da6c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: d68723b52ae1ee80142fb1aca3b0b10de34332d1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7eea51add6b05684357314e3d6aa5087383c6408
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 najważniejszych zmian
 ====================
@@ -180,7 +180,7 @@ W tym scenariuszu systemu macierzystego konfiguracji usług IIS 7 i IIS 7.5 zwra
 
 Obejście dla pierwszego scenariusza jest zaktualizowanie na poziomie aplikacji `Web.config` pliku, umieszczając w niej tekstu Konfiguracja standardowego z `Web.config` pliku, który został wygenerowany automatycznie przez program Visual Studio 2008.
 
-Inne obejście dla pierwszego scenariusza jest zainstalowanie dodatku Service Pack 2 dla Vista lub Windows Server 2008 na tym komputerze lub zainstaluj poprawkę KB958854 ([https://support.microsoft.com/kb/958854](https://support.microsoft.com/kb/958854)) Aby rozwiązać nieprawidłowym zachowanie scalania konfiguracji systemu konfiguracyjnego usług IIS. Jednak po wykonaniu dowolnej z tych akcji aplikacji najprawdopodobniej wystąpi błąd konfiguracji z powodu problemu opisanego w scenariuszu drugiego.
+Inne obejście dla pierwszego scenariusza jest zainstalowanie dodatku Service Pack 2 dla Vista lub Windows Server 2008 na tym komputerze lub zainstaluj poprawkę KB958854 ([https://support.microsoft.com/kb/958854](https://support.microsoft.com/kb/958854)) ustalenie zachowanie niepoprawne scalania konfiguracji System konfiguracji usług IIS. Jednak po wykonaniu dowolnej z tych akcji aplikacji najprawdopodobniej wystąpi błąd konfiguracji z powodu problemu opisanego w scenariuszu drugiego.
 
 Obejście drugi scenariusz polega na usuwanie lub komentarz wszystkie **system.web.extensions** definicji sekcji konfiguracji oraz sekcji konfiguracji grupy definicji z poziomu aplikacji `Web.config` pliku. Te definicje są zwykle na początku na poziomie aplikacji `Web.config` plików i mogą zostać zidentyfikowane przez **configSections** elementu i jego elementów podrzędnych.
 
@@ -192,8 +192,8 @@ W obu przypadkach zaleca się, że możesz również ręcznie usunąć **system.
 
 ASP.NET 4 aplikacje, które są skonfigurowane jako elementy podrzędne aplikacji ze starszymi wersjami programu ASP.NET może się nie uruchomić z powodu błędów kompilacji lub konfiguracji. W poniższym przykładzie przedstawiono strukturę katalogów dla aplikacji.
 
-`/parentwebapp`(skonfigurowana do używania programu ASP.NET 2.0 lub ASP.NET 3.5)  
-`/childwebapp`(skonfigurowana do używania programu ASP.NET 4)
+`/parentwebapp` (skonfigurowana do używania programu ASP.NET 2.0 lub ASP.NET 3.5)  
+`/childwebapp` (skonfigurowana do używania programu ASP.NET 4)
 
 Stosowanie w `childwebapp` folderu nie będzie można uruchomić w usługach IIS 7 i IIS 7.5 i będzie raportu błąd konfiguracji. Tekst błędu będzie zawierał komunikat podobny do następującego:
 
@@ -280,7 +280,7 @@ W przypadku programu ASP.NET 4 **HttpRequest** właściwości zamiast mieć nast
 
 **HttpRequest.FilePath**: `/testapp/Action.mvc`
 
-**HttpRequest.PathInfo**:`SomeAction`
+**HttpRequest.PathInfo**: `SomeAction`
 
 <a id="0.1__Toc252995493"></a><a id="0.1__Toc255587642"></a><a id="0.1__Toc256770153"></a><a id="0.1__Toc245724861"></a>
 
@@ -323,13 +323,13 @@ Jeśli nie jest praktyczne, aby ponownie zamapować witryny sieci Web programu A
 
 ## <a name="event-handlers-might-not-be-not-raised-in-a-default-document-in-iis-7-or-iis-75-integrated-mode"></a>Programy obsługi zdarzeń nie może zostać nie wywołane w dokumentu domyślnego w usługach IIS 7 lub usług IIS 7.5 zintegrowane tryb
 
-Program ASP.NET 4 zawiera zmiany, które zmienić sposób **akcji** atrybutu HTML **formularza** element jest renderowany, gdy adres URL bez rozszerzeń jest rozpoznawana jako dokument domyślny. Oto przykład adres URL bez rozszerzeń rozpoznawania dokument domyślny [http://contoso.com/](http://contoso.com/), co w żądaniu skierowanym do [http://contoso.com/Default.aspx](http://contoso.com/Default.aspx).
+Program ASP.NET 4 zawiera zmiany, które zmienić sposób **akcji** atrybutu HTML **formularza** element jest renderowany, gdy adres URL bez rozszerzeń jest rozpoznawana jako dokument domyślny. Oto przykład adres URL bez rozszerzeń rozpoznawania dokument domyślny [ http://contoso.com/ ](http://contoso.com/), co w żądaniu skierowanym do [ http://contoso.com/Default.aspx ](http://contoso.com/Default.aspx).
 
-Platforma ASP.NET 4 teraz renderuje kod HTML **formularza** elementu **akcji** wartość atrybutu jako pustego ciągu, po wysłaniu żądania bez rozszerzenia adresu URL, który ma do niej przyporządkowany dokument domyślny. Na przykład we wcześniejszych wersjach programu ASP.NET, żądanie [http://contoso.com](http://contoso.com) spowodowałoby żądanie `Default.aspx`. W tym dokumencie, otwarcie **formularza** tag będzie renderowany jak w poniższym przykładzie:
+Platforma ASP.NET 4 teraz renderuje kod HTML **formularza** elementu **akcji** wartość atrybutu jako pustego ciągu, po wysłaniu żądania bez rozszerzenia adresu URL, który ma do niej przyporządkowany dokument domyślny. Na przykład we wcześniejszych wersjach programu ASP.NET, żądanie [ http://contoso.com ](http://contoso.com) spowodowałoby żądanie `Default.aspx`. W tym dokumencie, otwarcie **formularza** tag będzie renderowany jak w poniższym przykładzie:
 
 `<form action="Default.aspx" />`
 
-W ASP.NET 4 żądanie [http://contoso.com](http://contoso.com) także wyników w żądaniu skierowanym do `Default.aspx`. Jednak ASP.NET teraz powoduje otwarcie HTML **formularza** tag, jak w poniższym przykładzie:
+W ASP.NET 4 żądanie [ http://contoso.com ](http://contoso.com) także wyników w żądaniu skierowanym do `Default.aspx`. Jednak ASP.NET teraz powoduje otwarcie HTML **formularza** tag, jak w poniższym przykładzie:
 
 `<form action="" />`
 
@@ -370,7 +370,7 @@ Podczas przywracania starszej wersji modelu urzędów certyfikacji, są włączo
 - Wiele zestawów różne uprawnienia w domenie, w jednej aplikacji są dozwolone.
 - Potwierdzenia jawne uprawnienia nie są wymagane dla zestawów w pamięci podręcznej GAC, które są wywoływane, gdy tylko ASP.NET lub inny kod .NET Framework jest na stosie.
 
-Jednym ze scenariuszy nie można przywrócić w .NET Framework 4: aplikacje częściowo zaufane Web nie można wywołać niektórych interfejsów API w System.Web.dll i System.Web.Extensions.dll. W poprzednich wersjach programu .NET Framework został-Web częściowo zaufane aplikacje mogą być jawnie przyznane uprawnienia **AspNetHostingPermission** uprawnienia. Następnie można użyć tych aplikacji **System.Web.HttpUtility**, typy w **System.Web.ClientServices.\***  obszary nazw i typy związanych z członkostwo i role oraz profile. Wywoływanie tych typów z aplikacji sieci Web częściowej relacji zaufania nie jest już obsługiwana w .NET Framework 4.
+Jednym ze scenariuszy nie można przywrócić w .NET Framework 4: aplikacje częściowo zaufane Web nie można wywołać niektórych interfejsów API w System.Web.dll i System.Web.Extensions.dll. W poprzednich wersjach programu .NET Framework został-Web częściowo zaufane aplikacje mogą być jawnie przyznane uprawnienia <strong>AspNetHostingPermission</strong> uprawnienia. Następnie można użyć tych aplikacji <strong>System.Web.HttpUtility</strong>, typy w <strong>System.Web.ClientServices.\< / strong > * obszary nazw i typy związanych z członkostwo i role oraz profile. Wywoływanie tych typów z aplikacji sieci Web częściowej relacji zaufania nie jest już obsługiwana w .NET Framework 4.
 
 > [!NOTE]
 > **HtmlEncode** i **HtmlDecode** funkcjonalność **System.Web.HttpUtility** klasy została przeniesiona do nowego .NET Framework 4  **System.Net.WebUtility** klasy. Jeśli który jest używany tylko funkcje platformy ASP.NET, modyfikowania kodu aplikacji do używania nowych **WebUtility** zamiast klasy.

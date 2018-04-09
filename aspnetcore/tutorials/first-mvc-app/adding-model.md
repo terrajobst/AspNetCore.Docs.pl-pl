@@ -1,5 +1,5 @@
 ---
-title: Dodawanie modelu dla aplikacji platformy ASP.NET Core MVC
+title: Dodaj model do aplikacji platformy ASP.NET Core MVC
 author: rick-anderson
 description: Dodawanie modelu do prostej aplikacji platformy ASP.NET Core.
 manager: wpickett
@@ -9,13 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 171b2a03378c14e956ab4ee7395d481e0ff89236
-ms.sourcegitcommit: 6fa546140575b3eb279eabae12d9acad966f70e0
+ms.openlocfilehash: 4204d4e2d474db51692d42751a9f82373e9f0c0d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
+# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodaj model do aplikacji platformy ASP.NET Core MVC
+
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 Uwaga: Szablony ASP.NET Core 2.0 zawierają *modele* folderu.
 
@@ -45,7 +47,7 @@ W **Dodawanie szkieletu** okno dialogowe, naciśnij **kontroler MVC z widokami u
 Zakończenie **Dodaj kontroler** okna dialogowego:
 
 * **Klasa modelu:** *Movie (MvcMovie.Models)*
-* **Klasa kontekstu danych:** wybierz  **+**  ikonę i Dodaj domyślny **MvcMovie.Models.MvcMovieContext**
+* **Klasa kontekstu danych:** wybierz **+** ikonę i Dodaj domyślny **MvcMovie.Models.MvcMovieContext**
 
 ![Dodaj kontekst danych](adding-model/_static/dc.png)
 
@@ -59,7 +61,7 @@ Program Visual Studio tworzy:
 
 * Entity Framework Core [bazy danych klasy kontekstu](xref:data/ef-mvc/intro#create-the-database-context) (*Data/MvcMovieContext.cs*)
 * Kontroler filmów (*Controllers/MoviesController.cs*)
-* Pliki widoku razor dla stron Create, Delete, szczegóły, edycji i indeksu (*widoków/filmów/&ast;.cshtml*)
+* Pliki widoku razor dla stron Create, Delete, szczegóły, edycji i indeksu (<em>widoków/filmów/&ast;.cshtml</em>)
 
 Automatyczne tworzenie kontekstu bazy danych i [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (tworzenia, odczytu, aktualizacji i usuwania) metody akcji i widoki nosi nazwę *szkieletów*. Konieczne będzie wkrótce aplikacji funkcjonalnej sieci web, która umożliwia zarządzanie filmu bazy danych.
 
@@ -116,18 +118,18 @@ Update-Database
   Jeżeli możesz uruchomić aplikację i komunikat o błędzie:
   
   ```text
-SqlException: Cannot open database "Movie" requested by the login.
-The login failed.
-Login failed for user 'user name'.
-```
+  SqlException: Cannot open database "Movie" requested by the login.
+  The login failed.
+  Login failed for user 'user name'.
+  ```
 
 Prawdopodobnie nie uruchomiono ` dotnet ef database update`.
   
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model4.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model4.md)]
 
 ![Menu kontekstowe IntelliSense w elemencie modelu listę dostępnych właściwości dla Identyfikatora, Price Data wydania i tytuł](adding-model/_static/ints.png)
 
@@ -136,6 +138,6 @@ Prawdopodobnie nie uruchomiono ` dotnet ef database update`.
 * [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro)
 * [Globalizacja i lokalizacja](xref:fundamentals/localization)
 
->[!div class="step-by-step"]
-[Dodawanie widoku poprzedniej](adding-view.md)
-[obok Praca z SQL](working-with-sql.md)  
+> [!div class="step-by-step"]
+> [Dodawanie widoku poprzedniej](adding-view.md)
+> [obok Praca z SQL](working-with-sql.md)  

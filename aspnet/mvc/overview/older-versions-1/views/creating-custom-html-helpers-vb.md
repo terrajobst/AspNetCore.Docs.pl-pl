@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/creating-custom-html-helpers-vb
-title: "Tworzenie niestandardowych HTML pomocników (VB) | Dokumentacja firmy Microsoft"
+title: Tworzenie niestandardowych HTML pomocników (VB) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Celem tego samouczka jest aby zademonstrować, jak utworzyć niestandardowe pomocników HTML używanej w ramach widoków MVC. Dzięki wykorzystaniu pomocnika kodu HTML..."
+description: Celem tego samouczka jest aby zademonstrować, jak utworzyć niestandardowe pomocników HTML używanej w ramach widoków MVC. Dzięki wykorzystaniu pomocnika kodu HTML...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e389a03228995ce0a6926a53af38f26ad51372d5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6980026e2653eacb71697f9b34def9bc38638726
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-custom-html-helpers-vb"></a>Tworzenie niestandardowych HTML pomocników (VB)
 ====================
@@ -57,7 +57,7 @@ Rozważmy na przykład formularz wyświetlania 1. Ten formularz jest renderowany
 **Rysunek 01**: strona odwzorowywany z pomocników HTML ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-custom-html-helpers-vb/_static/image3.png))
 
 
-**1 — Lista`Views\Home\Index.aspx`**
+**1 — Lista `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-vb/samples/sample1.aspx)]
 
@@ -72,7 +72,7 @@ Jeśli wolisz, zamiast tworzyć przy użyciu bloku, należy wywołać metodę po
 
 Platforma ASP.NET MVC zawiera niewielki zestaw pomocników. Prawdopodobnie należy rozszerzyć struktura MVC z niestandardowych pomocników HTML. W pozostałej części tego samouczka dowiesz się dwie metody tworzenia niestandardowych pomocników HTML.
 
-**2 — Lista`Index.aspx Source`**
+**2 — Lista `Index.aspx Source`**
 
 [!code-aspx[Main](creating-custom-html-helpers-vb/samples/sample2.aspx)]
 
@@ -80,7 +80,7 @@ Platforma ASP.NET MVC zawiera niewielki zestaw pomocników. Prawdopodobnie nale�
 
 Najprostszym sposobem tworzenia nowego pomocnika kodu HTML jest tworzenie udostępnionego metody, która zwraca wartość typu ciąg. Załóżmy na przykład użytkownik chce utworzyć nowe pomocnika kodu HTML, który renderuje HTML `<label>` tagu. Klasa w 2 wyświetlania służy do renderowania `<label>`.
 
-**2 — Lista`Helpers\LabelHelper.vb`**
+**2 — Lista `Helpers\LabelHelper.vb`**
 
 [!code-vb[Main](creating-custom-html-helpers-vb/samples/sample3.vb)]
 
@@ -88,7 +88,7 @@ Nie ma nic specjalne informacje o klasie wyświetlania 2. `Label()` Metoda po pr
 
 Używa zmodyfikowany widok indeksu w 3 wyświetlania `LabelHelper` do renderowania elementów HTML `<label>` tagów. Należy zauważyć, że zawiera on `<%@ imports %>` dyrektywy, który importuje Application1.Helpers przestrzeni nazw.
 
-**2 — Lista`Views\Home\Index2.aspx`**
+**2 — Lista `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-vb/samples/sample4.aspx)]
 
@@ -100,7 +100,7 @@ W module języka Visual Basic w 3 wyświetlania dodaje metodę rozszerzenia o na
 
 Po drugie, zwróć uwagę, że pierwszy parametr `Label()` reprezentuje metody `HtmlHelper` klasy. Pierwszy parametr metody rozszerzenia wskazuje klasę, która rozszerza — metoda rozszerzenia.
 
-**3 — lista`Helpers\LabelExtensions.vb`**
+**3 — lista `Helpers\LabelExtensions.vb`**
 
 [!code-vb[Main](creating-custom-html-helpers-vb/samples/sample5.vb)]
 
@@ -114,7 +114,7 @@ Po utworzeniu metodę rozszerzenia i pomyślnie skompilować aplikację, metody 
 
 Zmodyfikowany widok indeksu listę 4 używa metody rozszerzenia Html.Label() do renderowania, wszystkie jego &lt;etykiety&gt; tagów.
 
-**Wyświetlanie listy 4.`Views\Home\Index3.aspx`**
+**Wyświetlanie listy 4. `Views\Home\Index3.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-vb/samples/sample6.aspx)]
 
@@ -124,6 +124,6 @@ W tym samouczku przedstawiono dwie metody tworzenia niestandardowych pomocników
 
 W tym samouczku I koncentruje się na tworzeniu bardzo prosta metoda pomocnika kodu HTML. Należy pamiętać, że pomocnika kodu HTML, może być jako skomplikowane, można dowolnie. Można tworzyć pomocników HTML, który renderowania zawartości zaawansowanych, takich jak widok drzewa, menu lub tabele bazy danych.
 
->[!div class="step-by-step"]
-[Poprzednie](asp-net-mvc-views-overview-vb.md)
-[dalej](using-the-tagbuilder-class-to-build-html-helpers-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](asp-net-mvc-views-overview-vb.md)
+> [dalej](using-the-tagbuilder-class-to-build-html-helpers-vb.md)

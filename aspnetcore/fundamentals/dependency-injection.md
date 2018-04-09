@@ -1,7 +1,7 @@
 ---
-title: "Iniekcji zależności w ASP.NET Core"
+title: Iniekcji zależności w ASP.NET Core
 author: ardalis
-description: "Dowiedz się, jak platformy ASP.NET Core implementuje iniekcji zależności i jak z niego korzystać."
+description: Dowiedz się, jak platformy ASP.NET Core implementuje iniekcji zależności i jak z niego korzystać.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: df9ae2b784e8b7b21a471f465998f09bbacbef75
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 0cab1f8b16979f55d550115920807b192d3a5c56
+ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Iniekcji zależności w ASP.NET Core
 
@@ -47,7 +47,6 @@ Platformy ASP.NET Core zawiera proste kontenera wbudowanych (reprezentowane prze
 Konstruktor iniekcji wymaga, aby w Konstruktorze *publicznego*. W przeciwnym razie zgłosi aplikacji `InvalidOperationException`:
 
 > Nie można odnaleźć odpowiedniego konstruktora dla typu "YourType". Upewnij się, typ jest konkretnych i usług są zarejestrowane dla wszystkich parametrów konstruktora publicznego.
-
 
 Konstruktor iniekcji wymaga tego tylko jeden konstruktor dotyczy istnieje. Przeciążenia konstruktora są obsługiwane, ale tylko jedno przeciążenie może istnieć, którego argumenty mogą wszystkie spełniać iniekcji zależności. Jeśli istnieje więcej niż jeden, aplikacja będzie zgłaszać wyjątek `InvalidOperationException`:
 
@@ -98,7 +97,7 @@ Poniżej znajduje się przykład sposobu dodawania dodatkowych usług do kontene
 
 Funkcje i oprogramowanie pośredniczące dostarczane przez platformę ASP.NET, takich jak MVC, wykonaj Konwencji przy użyciu pojedynczego Dodaj*ServiceName* — metoda rozszerzenia zarejestrować wszystkich usług wymaganych przez tej funkcji.
 
->[!TIP]
+> [!TIP]
 > Możesz poprosić o pewnych usług dostarczonych framework w `Startup` Zobacz metody za pomocą ich listy parametrów - [uruchamiania aplikacji](startup.md) więcej szczegółów.
 
 ## <a name="registering-services"></a>Rejestrowanie usługi
@@ -138,7 +137,7 @@ W takim przypadku zarówno `ICharacterRepository` i z kolei `ApplicationDbContex
 
 Entity Framework kontekstów należy dodać do kontenera usług przy użyciu `Scoped` okres istnienia. To jest poświęcony na obsługę automatycznie Jeśli używasz metody pomocnicze, jak pokazano powyżej. Repozytoria, które korzystają z programu Entity Framework należy używać tego samego okresu istnienia.
 
->[!WARNING]
+> [!WARNING]
 > Rozpoznaje główne zagrożenia dla Uważaj `Scoped` usługi z klasą pojedynczą. Prawdopodobnie w takim przypadku usługa ma niepoprawny stan podczas przetwarzania kolejnych żądań.
 
 Usługi z zależnościami, należy zarejestrować je w kontenerze. Jeśli usługa Konstruktor wymaga typu pierwotnego, takich jak `string`, to mogą zostać dodane za pomocą [konfiguracji](xref:fundamentals/configuration/index) i [wzorzec opcje](xref:fundamentals/configuration/options).
@@ -147,7 +146,7 @@ Usługi z zależnościami, należy zarejestrować je w kontenerze. Jeśli usług
 
 Usługi ASP.NET można skonfigurować za pomocą następujących okresów:
 
-Przejściowy
+**Przejściowy**
 
 Przejściowa istnienia usług są tworzone zawsze, gdy są one wymagane. Ten okres istnienia jest najlepsza dla lekkich usług bezstanowych.
 
@@ -155,7 +154,10 @@ Przejściowa istnienia usług są tworzone zawsze, gdy są one wymagane. Ten okr
 
 Okres istnienia w zakresie usług są tworzone raz na każde żądanie.
 
-pojedyncze
+> [!WARNING]
+> Jeśli używasz usługi zakresami oprogramowanie pośredniczące wstrzyknąć usługi do `Invoke` lub `InvokeAsync` metody. Nie wstrzyknąć za pomocą iniekcji konstruktora, ponieważ zmusza usługi zachowanie jako pojedyncza.
+
+**pojedyncze**
 
 Pojedyncze okres istnienia usług są tworzone po raz pierwszy jest żądanej (lub gdy `ConfigureServices` jest uruchamiany, jeśli określone wystąpienie) i wszystkie kolejne żądania będą następnie używa tego samego wystąpienia. Jeśli aplikacja wymaga zachowania singleton, umożliwiając kontener usług do zarządzania istnienia usługi jest zalecane zamiast wzorca projektowego singleton wdrażanie i zarządzanie nim okres istnienia z obiektów w klasie samodzielnie.
 
@@ -193,6 +195,35 @@ Sprawdź, które z `OperationId` wartości różnią się w obrębie żądanie i
 
 * *Pojedyncze* obiekty są takie same dla każdego obiektu i każde żądanie (niezależnie od tego, czy wystąpienie znajduje się w `ConfigureServices`)
 
+## <a name="resolve-a-scoped-service-within-the-application-scope"></a>Rozpoznawanie zakresami usługi w zakresie aplikacji
+
+Utwórz [IServiceScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) z [IServiceScopeFactory.CreateScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory.createscope) na rozpoznawanie zakresami usługi w zakresie aplikacji. Ta metoda jest przydatna do dostępu do usługi zakresami przy uruchamianiu do wykonywania zadań inicjowania. Poniższy przykład przedstawia sposób uzyskać kontekstu dla `MyScopedService` w `Program.Main`:
+
+```csharp
+public static void Main(string[] args)
+{
+    var host = BuildWebHost(args);
+
+    using (var serviceScope = host.Services.CreateScope())
+    {
+        var services = serviceScope.ServiceProvider;
+
+        try
+        {
+            var serviceContext = services.GetRequiredService<MyScopedService>();
+            // Use the context here
+        }
+        catch (Exception ex)
+        {
+            var logger = services.GetRequiredService<ILogger<Program>>();
+            logger.LogError(ex, "An error occurred.");
+        }
+    }
+
+    host.Run();
+}
+```
+
 ## <a name="scope-validation"></a>Weryfikacja zakresu
 
 Gdy aplikacja jest uruchomiona w środowisku programistycznym na platformie ASP.NET Core 2.0 lub nowszej, domyślny dostawca usług sprawdza do sprawdzenia, czy:
@@ -214,7 +245,7 @@ Dostępne w programie ASP.NET usługi, poproś `HttpContext` dostępnych za poś
 
 Żądanie usługi reprezentują usługi, konfigurowanie i żądania jako część aplikacji. Gdy obiektów Określ zależności, te są spełnione przez typy w `RequestServices`, a nie `ApplicationServices`.
 
-Ogólnie rzecz biorąc nie można używać tych właściwości bezpośrednio, zamiast tego preferowanie do żądania z klas, które wymagają za pośrednictwem swojej klasy Konstruktor typów i pozwolić framework wstrzyknięcia zależności. Daje to klasy, które są łatwiejsze do testowania (zobacz [testowanie](../testing/index.md)) i są bardziej luźno powiązane.
+Ogólnie rzecz biorąc nie można używać tych właściwości bezpośrednio, zamiast tego preferowanie do żądania z klas, które wymagają za pośrednictwem swojej klasy Konstruktor typów i pozwolić framework wstrzyknięcia zależności. Daje to klasy, które są łatwiejsze do testowania (zobacz [testu i debugowania](../testing/index.md)) i są bardziej luźno powiązane.
 
 > [!NOTE]
 > Preferowane jest żądaniem zależności jako parametry konstruktora do uzyskiwania dostępu do `RequestServices` kolekcji.
@@ -328,7 +359,7 @@ Należy pamiętać, że iniekcji zależności *alternatywnych* do wzorce dostęp
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Uruchamianie aplikacji](xref:fundamentals/startup)
-* [Testowanie](xref:testing/index)
+* [Testowanie i debugowanie](xref:testing/index)
 * [Aktywacji opartej na fabryki oprogramowania pośredniczącego](xref:fundamentals/middleware/extensibility)
 * [Czysty kod platformy ASP.NET Core z iniekcji zależności (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Projekt aplikacji zarządzanych przez kontener, Prelude: Gdzie jest kontener należeć?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
-title: "Określanie pliki muszą być wdrożone (VB) | Dokumentacja firmy Microsoft"
+title: Określanie pliki muszą być wdrożone (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Pliki potrzebne do wdrożenia środowiska programowania do środowiska produkcyjnego zależy od w części określa, czy aplikacja ASP.NET została skompilowana nam..."
+description: Pliki potrzebne do wdrożenia środowiska programowania do środowiska produkcyjnego zależy od w części określa, czy aplikacja ASP.NET została skompilowana nam...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: aad0d4d4f7db5942c51255c34f36be73ed0e1f2d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4b9fcdbaaa0c2a6d7610339ecb6018a0fe6895f4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-vb"></a>Określanie pliki muszą być wdrożone (VB)
 ====================
@@ -41,7 +41,7 @@ Należy wziąć pod uwagę strony ASP.NET o nazwie `Clock.aspx` zawierający for
 
 [!code-vb[Main](determining-what-files-need-to-be-deployed-vb/samples/sample1.vb)]
 
-Aby aparatu ASP.NET do obsługi żądania dla tej strony, strony fragment kodu (  *`WebPage`*  `.aspx.vb` pliku) musi najpierw zostać skompilowany. Ta kompilacja może się zdarzyć, jawnie lub automatycznie.
+Aby aparatu ASP.NET do obsługi żądania dla tej strony, strony fragment kodu ( *`WebPage`* `.aspx.vb` pliku) musi najpierw zostać skompilowany. Ta kompilacja może się zdarzyć, jawnie lub automatycznie.
 
 Jeśli kompilacja jawnie się stanie, a następnie całej aplikacji kod źródłowy jest kompilowany do jednego lub więcej zestawów (`.dll` pliki) znajduje się w aplikacji `Bin` katalogu. Jeśli kompilacja odbywa się automatycznie, a następnie powstałe w ten sposób automatycznego generowania zestaw jest domyślnie umieszczane w `Temporary ASP.NET Files` folderu, w którym można znaleźć w folderze `%WINDOWS%\Microsoft.NET\Framework\<version>`, mimo że można konfigurować za pomocą tej lokalizacji [ &lt; Kompilacja&gt; elementu](https://msdn.microsoft.com/library/s10awwz0.aspx) w `Web.config`. Kompilację typu explicit musi mieć niektóre akcje, aby skompilować kod aplikacji ASP.NET do zestawu, a ten krok występuje przed ich wdrożeniem. Z automatycznego tworzenia procesu kompilacji występuje na serwerze sieci web, gdy najpierw dostępu do zasobu.
 
@@ -79,15 +79,15 @@ Pobranie w tym samouczku obejmuje aplikacji programu ASP.NET o nazwie przegląda
 - Strony wzorcowej (`Site.master`).
 - Siedmiu różnych stron ASP.NET:
 
-    - ~/`Default.aspx`— Strona główna witryny.
-    - ~/`About.aspx`-"temat" strony.
-    - ~/`Fiction/Default.aspx`-stronę książek fikcja, które zostały sprawdzone.
+    - ~/`Default.aspx` — Strona główna witryny.
+    - ~/`About.aspx` -"temat" strony.
+    - ~/`Fiction/Default.aspx` -stronę książek fikcja, które zostały sprawdzone.
 
-        - ~/`Fiction/Blaze.aspx`-Przegląd powieść Richard Bachman *członkowie*.
-    - ~/`Tech/Default.aspx`-stronę książek technologii, które zostały sprawdzone.
+        - ~/`Fiction/Blaze.aspx` -Przegląd powieść Richard Bachman *członkowie*.
+    - ~/`Tech/Default.aspx` -stronę książek technologii, które zostały sprawdzone.
 
-        - ~/`Tech/CYOW.aspx`-Przegląd *Tworzenie własnej witryny internetowej*.
-        - ~/`Tech/TYASP35.aspx`-Przegląd *nauczyć się ASP.NET 3.5 w ciągu 24 godzin*.
+        - ~/`Tech/CYOW.aspx` -Przegląd *Tworzenie własnej witryny internetowej*.
+        - ~/`Tech/TYASP35.aspx` -Przegląd *nauczyć się ASP.NET 3.5 w ciągu 24 godzin*.
 - Trzy różne pliki CSS w `Styles` folderu.
 - Cztery obrazu — obsługiwane przez program ASP.NET logo i obrazy obejmuje trzy książek je przejrzeć — wszystkie pliki znajdujące się w `Images` folderu.
 - A `Web.sitemap` pliku, który definiuje mapy witryny i służy do wyświetlania menu w `Default.aspx` stron w katalogu głównym i `Fiction` i `Tech` folderów.
@@ -189,6 +189,6 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [System projektu witryny sieci Web w programie Visual Studio 2005: co to jest i dlaczego możemy to zrobić?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
 - [Wskazówki: Konwersji projektu witryny sieci Web do projektu aplikacji sieci Web w programie Visual Studio](https://msdn.microsoft.com/library/aa983476.aspx)
 
->[!div class="step-by-step"]
-[Poprzednie](asp-net-hosting-options-vb.md)
-[dalej](deploying-your-site-using-an-ftp-client-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](asp-net-hosting-options-vb.md)
+> [dalej](deploying-your-site-using-an-ftp-client-vb.md)

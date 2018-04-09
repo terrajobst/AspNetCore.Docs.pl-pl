@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-cs
-title: "Aktualizowanie TableAdapter w celu użycia sprzężenia (C#) | Dokumentacja firmy Microsoft"
+title: Aktualizowanie TableAdapter w celu użycia sprzężenia (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Podczas pracy z bazą danych jest często stosowanym rozwiązaniem jest ich rozmieszczenie do kilku tabel danych żądania. Pobieranie danych z różnych tabel możemy użyć albo..."
+description: Podczas pracy z bazą danych jest często stosowanym rozwiązaniem jest ich rozmieszczenie do kilku tabel danych żądania. Pobieranie danych z różnych tabel możemy użyć albo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1a24245a3c846d061a528d520f915b8eac3ff475
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: be74be8865b021be1f2e2d8181d2eb42cb74eb75
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-the-tableadapter-to-use-joins-c"></a>Aktualizowanie TableAdapter w celu użycia sprzężenia (C#)
 ====================
@@ -54,7 +54,7 @@ Alternatywnie `JOIN` służy do zwracania nazwy każdego produktu s dostawcy i k
 A `JOIN` scala rekordy z jednej tabeli z rekordów z innej tabeli na podstawie niektórych kryteriów. W powyższym zapytaniu, na przykład `LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID` powoduje, że program SQL Server do scalenia każdego rekordu produktu z kategorią rekordów, których `CategoryID` wartość odpowiada produktu s `CategoryID` wartość. Wynik scalonych pozwala pracować z odpowiednich pól kategorii dla każdego produktu (takie jak `CategoryName`).
 
 > [!NOTE]
-> `JOIN`s są często używane podczas wykonywania zapytań dotyczących danych relacyjnych baz danych. Jeśli jesteś nowym użytkownikiem `JOIN` składni lub konieczność lepiej poznać nieco jej użycie d najlepiej [samouczek SQL Join](http://www.w3schools.com/sql/sql_join.asp) w [szkoły W3](http://www.w3schools.com/). Warto odczytu są także [ `JOIN` podstawy](https://msdn.microsoft.com/library/ms191517.aspx) i [podstawy podzapytania](https://msdn.microsoft.com/library/ms189575.aspx) sekcje [SQL — książki Online](https://msdn.microsoft.com/library/ms130214.aspx).
+> `JOIN` s są często używane podczas wykonywania zapytań dotyczących danych relacyjnych baz danych. Jeśli jesteś nowym użytkownikiem `JOIN` składni lub konieczność lepiej poznać nieco jej użycie d najlepiej [samouczek SQL Join](http://www.w3schools.com/sql/sql_join.asp) w [szkoły W3](http://www.w3schools.com/). Warto odczytu są także [ `JOIN` podstawy](https://msdn.microsoft.com/library/ms191517.aspx) i [podstawy podzapytania](https://msdn.microsoft.com/library/ms189575.aspx) sekcje [SQL — książki Online](https://msdn.microsoft.com/library/ms130214.aspx).
 
 
 Ponieważ `JOIN` s i podzapytania skorelowane mogą posłużyć do pobierania danych powiązanych z innych tabel, wielu deweloperów pozostało drapanie ich głowic i zastanawiać, które rozwiązanie do użycia. Wszystkie SQL gurus I Zapisz zawsze mówię do dostęp około samo, że t naprawdę istotne performance-wise sposób planów około identyczne wykonania programu SQL Server. Następnie rad, jest użycie metody, która Ciebie i Twojego zespołu są najbardziej Ci. Uzasadnia, biorąc pod uwagę, że po nadając tej porady tych ekspertów od razu express swoje preferencje `JOIN` s za pośrednictwem skorelowane podzapytania.
@@ -260,12 +260,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Hilton Geisenow Suru Dominik i Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
-[dalej](adding-additional-datatable-columns-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
+> [dalej](adding-additional-datatable-columns-cs.md)

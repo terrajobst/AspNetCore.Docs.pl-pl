@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
-title: "Wyświetlanie tabeli bazy danych (C#) | Dokumentacja firmy Microsoft"
+title: Wyświetlanie tabeli bazy danych (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "W tym samouczku pokazują I wyświetlanie zestaw rekordów bazy danych na dwa sposoby. Wyświetlić dwóch metod formatowania zestaw rekordów bazy danych w formacie HTML ta..."
+description: W tym samouczku pokazują I wyświetlanie zestaw rekordów bazy danych na dwa sposoby. Wyświetlić dwóch metod formatowania zestaw rekordów bazy danych w formacie HTML ta...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 37ea081df2ee26e186669b815a4d769e1976ae9c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1d5dc9dd4a82e4577c6c1a3b124d45fef0b0f67c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-table-of-database-data-c"></a>Wyświetlanie tabeli bazy danych (C#)
 ====================
@@ -38,7 +38,7 @@ Zamierzamy, aby wyświetlić zestaw rekordów z tabeli bazy danych filmów. W ta
 
 | **Nazwa kolumny** | **Typ danych** | **Dopuszcza wartości null** |
 | --- | --- | --- |
-| Identyfikator | int | False |
+| Id | int | False |
 | Tytuł | Nvarchar(200) | False |
 | Dyrektor | NVarchar(50) | False |
 | DateReleased | DataGodzina | False |
@@ -107,7 +107,7 @@ Należy zmodyfikować akcję indeks() udostępnianych przez kontrolera film, tak
 
 Wyświetlanie listy 1 klasa MoviesDBEntities jest używana do reprezentowania MoviesDB bazy danych. Aby korzystać z tej klasy, należy zaimportować przestrzeni nazw MvcApplication1.Models następująco:
 
-przy użyciu MvcApplication1.Models;
+using MvcApplication1.Models;
 
 Wyrażenie *jednostek. MovieSet.ToList()* zwraca zestaw wszystkich filmów filmy tabeli bazy danych.
 
@@ -189,6 +189,6 @@ Metoda RenderPartial() jest inny niż w przypadku pozostałych metod pomocniczyc
 
 Celem tego samouczka jest wyjaśnienie, jak wyświetlić zestaw rekordów bazy danych w tabeli HTML. Najpierw przedstawiono sposób zwracania zestawu rekordów bazy danych z akcji kontrolera, korzystając z programu Entity Framework firmy Microsoft. Następnie przedstawiono sposób użycia szkieletów Visual Studio do generowania widoku, który automatycznie wyświetla kolekcję elementów. Ponadto przedstawiono sposób uproszczenia widoku dzięki wykorzystaniu częściowym. Przedstawiono sposób użycia częściowym jako szablon, dzięki czemu można sformatować każdego rekordu bazy danych.
 
->[!div class="step-by-step"]
-[Poprzednie](creating-model-classes-with-linq-to-sql-cs.md)
-[dalej](performing-simple-validation-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-model-classes-with-linq-to-sql-cs.md)
+> [dalej](performing-simple-validation-cs.md)

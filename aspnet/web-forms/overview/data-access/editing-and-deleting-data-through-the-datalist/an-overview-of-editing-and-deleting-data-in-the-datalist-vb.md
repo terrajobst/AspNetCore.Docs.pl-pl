@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
-title: "Omówienie edytowanie i usuwanie danych DataList (VB) | Dokumentacja firmy Microsoft"
+title: Omówienie edytowanie i usuwanie danych DataList (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Gdy elementu DataList nie ma wbudowanej edytowanie i usuwanie funkcji, w tym samouczku zajmiemy się tym, jak utworzyć DataList, który obsługuje edytowanie i usuwanie o..."
+description: Gdy elementu DataList nie ma wbudowanej edytowanie i usuwanie funkcji, w tym samouczku zajmiemy się tym, jak utworzyć DataList, który obsługuje edytowanie i usuwanie o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e08b55f763677a40a03503e54a23dc77a10a34f5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6956777e91184a92e189db7aa716a4bd7dbbfccd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a>Omówienie edytowanie i usuwanie danych DataList (VB)
 ====================
@@ -249,7 +249,7 @@ Kliknięcie przycisku s edytowanych produktu aktualizacji lub przyciski Anuluj n
 
 Aby DataList renderowania wszystkich jego elementów w trybie tylko do odczytu, musimy:
 
-1. Ustaw DataList s [ `EditItemIndex` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) do indeksu do nieistniejącej `DataListItem` indeksu. `-1`ponieważ jest bezpiecznym wyborem `DataListItem` indeksy liczone od `0`.
+1. Ustaw DataList s [ `EditItemIndex` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) do indeksu do nieistniejącej `DataListItem` indeksu. `-1` ponieważ jest bezpiecznym wyborem `DataListItem` indeksy liczone od `0`.
 2. Ponownie powiązać dane do elementu DataList. Ponieważ nie `DataListItem` `ItemIndex` es odpowiadają DataList s `EditItemIndex`, cała DataList będzie renderowany w trybie tylko do odczytu.
 
 Następującym kodem obsługi zdarzeń można wykonać następujące kroki:
@@ -263,7 +263,7 @@ Ostatnia procedura obsługi zdarzeń, musimy wykonać jest `UpdateCommand` obsł
 
 1. Uzyskania programowego dostępu do nazwy produktu wprowadzonych przez użytkownika i cen, a także edytowanych produktu s `ProductID`.
 2. Inicjuje proces aktualizacji, wywołując odpowiednie `UpdateProduct` przeciążenia w `ProductsBLL` klasy.
-3. Ustaw DataList s [ `EditItemIndex` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) do indeksu do nieistniejącej `DataListItem` indeksu. `-1`ponieważ jest bezpiecznym wyborem `DataListItem` indeksy liczone od `0`.
+3. Ustaw DataList s [ `EditItemIndex` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) do indeksu do nieistniejącej `DataListItem` indeksu. `-1` ponieważ jest bezpiecznym wyborem `DataListItem` indeksy liczone od `0`.
 4. Ponownie powiązać dane do elementu DataList. Ponieważ nie `DataListItem` `ItemIndex` es odpowiadają DataList s `EditItemIndex`, cała DataList będzie renderowany w trybie tylko do odczytu.
 
 Kroki 1 i 2 są odpowiedzialne za zapisywanie użytkownika zmian s; kroki 3 i 4 przywrócić elementu DataList wstępnie edycji stan po zmiany zostały zapisane i są takie same jak kroki wykonywane w `CancelCommand` obsługi zdarzeń.
@@ -339,12 +339,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Nowak Zack, Krzysztof Pespisa i Randy Schmidt. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](customizing-the-datalist-s-editing-interface-cs.md)
-[dalej](performing-batch-updates-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](customizing-the-datalist-s-editing-interface-cs.md)
+> [dalej](performing-batch-updates-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
-title: "Profile i debugowania aplikacji ASP.NET MVC za pomocą Glimpse | Dokumentacja firmy Microsoft"
+title: Profile i debugowania aplikacji ASP.NET MVC za pomocą Glimpse | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Glimpse jest thriving i powiększania rodziny pakietów NuGet typu open source, który zapewnia szczegółowe wydajność, debugowanie i informacji diagnostycznych dla platformy ASP.NET..."
+description: Glimpse jest thriving i powiększania rodziny pakietów NuGet typu open source, który zapewnia szczegółowe wydajność, debugowanie i informacji diagnostycznych dla platformy ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 9cfdced21251b482ca527dda9c3a698de77cc8ca
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6ac23256c57116de81c7bf690d5ce743301c75ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Profile i debugowania aplikacji ASP.NET MVC za pomocą Glimpse
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Glimpse jest thriving i powiększania rodziny pakietów NuGet typu open source, który zapewnia szczegółowe wydajność, debugowanie i informacje diagnostyczne dotyczące aplikacji ASP.NET. Jest prosta do zainstalowania, lekkie, niezwykle szybka i przedstawia kluczowe metryki wydajności u dołu każdej strony. Umożliwia przechodzenie w swojej aplikacji, gdy chcesz dowiedzieć się, co dzieje się na serwerze. Glimpse zapewnia dużo cenne informacje, które firma Microsoft zaleca się, że używasz przez cały cykl programowania, w tym środowiska testowego Azure. Podczas [Fiddler](http://www.telerik.com/fiddler) i [narzędzi programistycznych F-12](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) Podaj po stronie klienta widoku Glimpse zawiera widok szczegółowy z serwera. Ten samouczek koncentruje się na użyciu Glimpse ASP.NET MVC i EF pakietów, ale dostępnych jest wiele innych pakietów. W miarę możliwości I połączy się z odpowiednim [Glimpse docs](http://getglimpse.com/Docs/) którego pomoc I Obsługa. Glimpse jest projekt typu open source, zbyt można współtworzyć kod źródłowy i dokumentacja.
 
@@ -55,7 +55,7 @@ Następujące polecenia zainstalować moduły Glimpse MVC5 i EF6 z konsoli Mened
 <a id="eg"></a>
 ## <a name="enable-glimpse-for-localhost"></a>Włącz Glimpse hosta lokalnego
 
-Przejdź do http://localhost:&lt;portu #&gt;/glimpse.axd, a następnie kliknij przycisk **Włącz Glimpse** przycisku.
+Przejdź do http://localhost: &lt;portu #&gt;/glimpse.axd, a następnie kliknij przycisk <strong>Włącz Glimpse</strong> przycisku.
 
 ![Strona axd glimpse](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image4.png)
 

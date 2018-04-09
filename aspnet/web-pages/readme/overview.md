@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: b8402aa3db1b2566878c4d56212facbbb2925eec
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c65ee58b8c13b0b4acb6e7c9b631c8235e791506
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="webmatrix-readme"></a>Plik Readme programu WebMatrix
 ====================
@@ -126,7 +126,7 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji 1.
 - [Zmiany](#Changes)
 - [Problemy](#Issues)
 
-#### <a id="NewFeatures"></a>Nowe funkcje
+#### <a id="NewFeatures"></a>  Nowe funkcje
 
 #### <a name="new-configuration-setting-added-to-disable-the-package-manager"></a>Nowy: Ustawienie konfiguracji dodane do wyłączenia Menedżera pakietów
 
@@ -135,14 +135,14 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji 1.
 > [!code-xml[Main](overview/samples/sample1.xml)]
 
 
-#### <a id="Changes"></a>Zmiany
+#### <a id="Changes"></a>  Zmiany
 
 #### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>Zmień: klucz "webPages:AdminFolderVirtualPath" zmieniona na "asp: AdminFolderVirtualPath"
 
 > `webPages:AdminFolderVirtualPath` Klucz, który można dodać do *web.config* plik, aby określić lokalizację Menedżera pakietów została zmieniona na użyj `asp:` przestrzeni nazw zamiast `webPages` przestrzeni nazw. Jeśli używasz tego elementu, można zmienić jego nazwę w pliku konfiguracji.
 
 
-#### <a id="Issues"></a>Znane problemy
+#### <a id="Issues"></a>  Znane problemy
 
 #### <a name="issue-passwords-for-membership-users-no-longer-recognized"></a>Problem: Haseł użytkowników członkostwa nie został rozpoznany
 
@@ -226,7 +226,7 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji 1.
 > Po odinstalowaniu programu .NET Framework w wersji 4 i zainstaluj go ponownie, ASP.NET Web Pages o składni Razor jest wyłączona. Strony z *.cshtml* rozszerzenia nie działać prawidłowo. Strony ASP.NET Web Pages rejestruje zestawu w folderze głównym maszyny *web.config* plików i usunięcie programu .NET Framework spowoduje usunięcie tego pliku. Ponowna instalacja programu .NET Framework instaluje nową wersję pliku konfiguracji, ale nie dodać odwołanie do zestawu stron sieci Web programu ASP.NET.
 > 
 > **Obejście** po ponownym zainstalowaniu programu .NET Framework, zainstaluj ponownie stron ASP.NET Web Pages o składni Razor. Spowoduje to dodanie następujący element do *web.config* w katalogu głównym komputera, który zazwyczaj znajduje się w następującej lokalizacji:  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
@@ -236,9 +236,9 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji 1.
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Problem: Adresy URL bez rozszerzeń nie zostanie znaleziony.cshtml/.vbhtml pliki w usługach IIS 7 i IIS 7.5
 
 > W usługach IIS 7 lub usług IIS 7.5 żądania o adresie URL podobnie do następującej nie są w stanie odnaleźć strony, które mają *.cshtml* lub *.vbhtml* rozszerzenia:  
->   
+> 
 > `http://www.example.com/ExampleSite/ExampleFile`  
->   
+> 
 > Problem występuje, ponieważ ponowne zapisywanie adresów URL nie jest włączona domyślnie dla usług IIS 7 i IIS 7.5. Scenariusz likeliest jest, że nie ma problem podczas testowania, lokalnie za pomocą usług IIS Express, ale wystąpić podczas wdrażania witryny sieci Web do obsługi witryny sieci Web.
 > 
 > **Obejście problemu**
@@ -257,10 +257,11 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji 1.
 > 
 > 1. Kopiowanie zestawów aparatu bazy danych do *Bin* folderze (i jego podfolderach) aplikacji na komputerze docelowym:  
 > 
->     - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->         **Aby** *\Bin*
->     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\****to***\Bin\x86*
->     - Kopiuj *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\****do *** \Bin\amd64*
+>    - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
+>        **Aby** *\Bin*
+>    - Kopiuj <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>do</em></strong>\Bin\x86*
+>    - Kopiuj <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>do</strong><em>\Bin\amd64</em>
+> 
 > 2. W folderze głównym witryny sieci Web, należy utworzyć lub otworzyć *web.config* pliku. (W wersji 1.0 programu WebMatrix, ten typ pliku jest dostępna po kliknięciu **wszystkie** w **wybierz typ pliku** okno dialogowe.)
 > 3. Dodaj następujący element jako element podrzędny `<configuration>` elementu (nie znajduje się w `<system.web>` element):
 > 
@@ -412,7 +413,7 @@ SQL Server Compact ma własny plik readme, który jest dostępny pod adresem URL
 
 Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL Server Compact jako część programu WebMatrix, zobacz [problemy z instalacją programu WebMatrix](#Known_Issues_Installation) we wcześniejszej części tego dokumentu.
 
-### <a id="Known_Issues_Installing_Applications"></a>Instalowanie aplikacji
+### <a id="Known_Issues_Installing_Applications"></a>  Instalowanie aplikacji
 
 #### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Problem: Instalowanie aplikacji może długo trwać, jeśli folder Moje dokumenty użytkownika jest przekierowywany do udziału sieciowego
 
@@ -420,7 +421,7 @@ Aby uzyskać informacje o problemach, które dotyczą instalowania programu SQL 
 > Brak. Aplikacja może potrwać kilka minut, aby zainstalować, ale zostanie zainstalowany poprawnie.
 
 
-### <a id="Known_Issues_Publishing_Applications"></a>Publikowanie aplikacji
+### <a id="Known_Issues_Publishing_Applications"></a>  Publikowanie aplikacji
 
 #### <a name="issue-required-permissions-cannot-be-acquired-error-when-publishing-a-sql-compact-database"></a>Problem: "wymaga się, że nie można uzyskać uprawnienia" błąd podczas publikowania bazy danych SQL Compact
 

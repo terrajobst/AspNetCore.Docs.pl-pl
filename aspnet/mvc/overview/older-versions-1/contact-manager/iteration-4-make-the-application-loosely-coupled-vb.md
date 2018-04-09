@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
-title: "Iteracja #4 — złożyć wniosek luźno (VB) | Dokumentacja firmy Microsoft"
+title: 'Iteracja #4 — złożyć wniosek luźno (VB) | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "W tym trzeci iteracji możemy korzystać z kilku wzorce projektowe oprogramowania do ułatwiają obsługiwanie i modyfikowanie aplikacji Menedżera skontaktuj się z pomocą. Dla..."
+description: W tym trzeci iteracji możemy korzystać z kilku wzorce projektowe oprogramowania do ułatwiają obsługiwanie i modyfikowanie aplikacji Menedżera skontaktuj się z pomocą. Dla...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9c11c89710723c133a306aaf56cc8797cc036475
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d953a1b786c802c070619e553e27d88f2ded149c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-vb"></a>Iteracja #4 — złożyć wniosek luźno (VB)
 ====================
@@ -140,7 +140,7 @@ Aby rozwiązać ten problem, można utworzyć oddzielne [warstwy usług](http://
 
 ContactManagerService znajduje się w listę 4. Zawiera logikę weryfikacji z klasy controller kontaktu.
 
-**Wyświetlanie listy 4 - Models\ContactManagerService.vb**
+**Listing 4 - Models\ContactManagerService.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample4.vb)]
 
@@ -156,7 +156,7 @@ Interfejs IContactManagerService znajduje się w 5 wyświetlania.
 
 Zmodyfikowane klasy kontrolera kontaktu znajduje się w 6 wyświetlania. Należy zauważyć, że kontroler skontaktuj się z już współdziała z repozytorium ContactManager. Zamiast tego kontrolera skontaktuj się z wchodzi w interakcję z usługą ContactManager. Każda warstwa jest izolowana możliwie często z innych warstw.
 
-**Wyświetlanie listy 6 - Controllers\ContactController.vb**
+**Listing 6 - Controllers\ContactController.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample6.vb)]
 
@@ -196,6 +196,6 @@ Tworząc warstwy usług, wybraliśmy zaletą wzorca Dekoratora odizolowanie Mode
 
 Na koniec Wybraliśmy zaletą wzorca projektowego oprogramowania o nazwie wzorca iniekcji zależności. Ten wzorzec umożliwia nam program względem interfejsów (abstrakcje) zamiast konkretnych klas. Implementowanie wzorca projektowego iniekcji zależności powoduje naszego kodu więcej testować. W następnej iteracji dodania do projektu naszych testów jednostkowych.
 
->[!div class="step-by-step"]
-[Poprzednie](iteration-3-add-form-validation-vb.md)
-[dalej](iteration-5-create-unit-tests-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](iteration-3-add-form-validation-vb.md)
+> [dalej](iteration-5-create-unit-tests-vb.md)

@@ -2,7 +2,7 @@
 uid: web-pages/overview/testing-and-debugging/introduction-to-debugging
 title: Wprowadzenie do debugowania ASP.NET Web Pages witryny (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Debugowanie jest procesem znajdowania i naprawiania błędów na swoich stronach kodu. W tym rozdziale przedstawiono niektóre narzędzia i techniki, które można używać do debugowania i analyz..."
+description: Debugowanie jest procesem znajdowania i naprawiania błędów na swoich stronach kodu. W tym rozdziale przedstawiono niektóre narzędzia i techniki, które można używać do debugowania i analyz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: 0b6b5a886efe515b434948dade1ae840ddaecd42
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c28d63acda6e585f4aa64f294049c1790faac850
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Wprowadzenie do debugowania ASP.NET Web Pages witryny (Razor)
 ====================
@@ -33,7 +33,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > Poniżej przedstawiono funkcje platformy ASP.NET, wprowadzone w artykule:
 > 
 > - `ServerInfo` Pomocnika.
-> - `ObjectInfo`Pomocnik.
+> - `ObjectInfo` Pomocnik.
 >   
 > 
 > ## <a name="software-versions"></a>Wersje oprogramowania
@@ -66,12 +66,12 @@ W pierwszej kolejności ich uniknięcie jest ważnym aspektem rozwiązywania pro
 
     `ServerInfo` Pomocnik wyświetli cztery tabel zawierających informacje na stronie:
 
-    - Konfiguracja serwera. Ta sekcja zawiera informacje dotyczące hostingu serwera sieci web, w tym nazwę komputera, wersja ASP.NET używasz, nazwę domeny i czasu serwera.
-    - Zmienne serwera programu ASP.NET. Ta sekcja zawiera szczegółowe informacje o wielu szczegóły protokołu HTTP (zwane zmienne HTTP) i wartości, które są częścią każdym żądaniu strony sieci web.
-    - Informacje środowiska wykonawczego protokołu HTTP. Ta sekcja zawiera szczegółowe informacje o tym, że wersji programu Microsoft .NET Framework strony sieci web działa w ramach, ścieżka, szczegółowe informacje o pamięci podręcznej i tak dalej. (W wyniku uczenia się w [wprowadzenie do platformy ASP.NET Web programowania przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890), przy użyciu składni jest oparty na technologii serwera sieci web ASP.NET firmy Microsoft, która jest oparta na szeroką gamę oprogramowania elementu Razor strony sieci Web ASP.NET Biblioteka programowanie nazywana programu .NET Framework).
-    - Zmienne środowiskowe. Ta sekcja zawiera listę wszystkich zmiennych środowiska lokalnego i ich wartości, na serwerze sieci web.
+   - Konfiguracja serwera. Ta sekcja zawiera informacje dotyczące hostingu serwera sieci web, w tym nazwę komputera, wersja ASP.NET używasz, nazwę domeny i czasu serwera.
+   - Zmienne serwera programu ASP.NET. Ta sekcja zawiera szczegółowe informacje o wielu szczegóły protokołu HTTP (zwane zmienne HTTP) i wartości, które są częścią każdym żądaniu strony sieci web.
+   - Informacje środowiska wykonawczego protokołu HTTP. Ta sekcja zawiera szczegółowe informacje o tym, że wersji programu Microsoft .NET Framework strony sieci web działa w ramach, ścieżka, szczegółowe informacje o pamięci podręcznej i tak dalej. (W wyniku uczenia się w [wprowadzenie do platformy ASP.NET Web programowania przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890), przy użyciu składni jest oparty na technologii serwera sieci web ASP.NET firmy Microsoft, która jest oparta na szeroką gamę oprogramowania elementu Razor strony sieci Web ASP.NET Biblioteka programowanie nazywana programu .NET Framework).
+   - Zmienne środowiskowe. Ta sekcja zawiera listę wszystkich zmiennych środowiska lokalnego i ich wartości, na serwerze sieci web.
 
-    Pełny opis wszystkie dane serwera i żądania wykracza poza zakres tego artykułu, ale można stwierdzić, że `ServerInfo` pomocnika zwraca wiele informacji diagnostycznych. Aby uzyskać więcej informacji o wartościach który `ServerInfo` zwraca, zobacz [rozpoznany zmiennych środowiskowych](https://technet.microsoft.com/library/dd560744(WS.10).aspx) w witrynie Microsoft TechNet w sieci Web i [zmienne serwera usług IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) w witrynie MSDN.
+     Pełny opis wszystkie dane serwera i żądania wykracza poza zakres tego artykułu, ale można stwierdzić, że `ServerInfo` pomocnika zwraca wiele informacji diagnostycznych. Aby uzyskać więcej informacji o wartościach który `ServerInfo` zwraca, zobacz [rozpoznany zmiennych środowiskowych](https://technet.microsoft.com/library/dd560744(WS.10).aspx) w witrynie Microsoft TechNet w sieci Web i [zmienne serwera usług IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) w witrynie MSDN.
 
 ## <a name="embedding-output-expressions-to-display-page-values"></a>Osadzanie wyrażeń dane wyjściowe do wyświetlania wartości strony
 
@@ -115,10 +115,10 @@ Inny sposób, aby zobaczyć, co dzieje się w kodzie jest osadzanie wyrażeń w 
 
     W tym przykładzie `ObjectInfo` Pomocnik wyświetli dwóch elementów:
 
-    - Typ. Pierwszej zmiennej jest typ `DayOfWeek`. Druga zmienna jest typ `String`.
-    - Wartość. W takim przypadku, ponieważ wartość zmiennej pozdrowienia jest już wyświetlane na stronie, wartość jest wyświetlana ponownie, gdy zmienna do `ObjectInfo`.
+   - Typ. Pierwszej zmiennej jest typ `DayOfWeek`. Druga zmienna jest typ `String`.
+   - Wartość. W takim przypadku, ponieważ wartość zmiennej pozdrowienia jest już wyświetlane na stronie, wartość jest wyświetlana ponownie, gdy zmienna do `ObjectInfo`.
 
-    W przypadku bardziej złożonych obiektów `ObjectInfo` pomocnika można wyświetlić więcej informacji &#8212; zasadniczo, może on zawierać typy i wartości wszystkich właściwości obiektu.
+     W przypadku bardziej złożonych obiektów `ObjectInfo` pomocnika można wyświetlić więcej informacji &#8212; zasadniczo, może on zawierać typy i wartości wszystkich właściwości obiektu.
 
 ## <a name="using-debugging-tools-in-visual-studio"></a>Za pomocą narzędzi debugowania w programie Visual Studio
 

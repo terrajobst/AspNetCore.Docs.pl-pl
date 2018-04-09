@@ -1,7 +1,7 @@
 ---
-title: "Oprogramowanie pośredniczące platformy ASP.NET Core"
+title: Oprogramowanie pośredniczące platformy ASP.NET Core
 author: rick-anderson
-description: "Więcej informacji na temat oprogramowania pośredniczącego platformy ASP.NET Core i żądania potoku."
+description: Więcej informacji na temat oprogramowania pośredniczącego platformy ASP.NET Core i żądania potoku.
 manager: wpickett
 ms.author: riande
 ms.date: 01/22/2018
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 186faa4c02275ae1f4be53f4a2dd4f8325397bd2
-ms.sourcegitcommit: c5ecda3c5b1674b62294cfddcb104e7f0b9ce465
+ms.openlocfilehash: 3312b27f936340a73243224c1a716fe421f178bc
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="aspnet-core-middleware"></a>Oprogramowanie pośredniczące platformy ASP.NET Core
 
@@ -109,7 +109,7 @@ public void Configure(IApplicationBuilder app)
 
 W powyższym kodzie `UseExceptionHandler` jest pierwszy składnik oprogramowania pośredniczącego dodane do potoku — w związku z tym go przechwytuje żadnych wyjątków, które występują w późniejszym wywołania.
 
-Oprogramowanie pośredniczące plików statycznych jest wywoływana wcześnie w potoku, więc może obsługiwać żądania ani zwarcia bez pośrednictwa pozostałe składniki. Udostępnia oprogramowanie pośredniczące plików statycznych **nie** sprawdzeń autoryzacji. Wszystkie pliki obsługiwane przez, włącznie z zawartymi w obszarze *wwwroot*, są dostępne publicznie. Zobacz [Praca z pliki statyczne](xref:fundamentals/static-files) podejścia do zabezpieczania plików statycznych.
+Oprogramowanie pośredniczące plików statycznych jest wywoływana wcześnie w potoku, więc może obsługiwać żądania ani zwarcia bez pośrednictwa pozostałe składniki. Udostępnia oprogramowanie pośredniczące plików statycznych **nie** sprawdzeń autoryzacji. Wszystkie pliki obsługiwane przez, włącznie z zawartymi w obszarze *wwwroot*, są dostępne publicznie. Zobacz [pracować z plikami statycznych](xref:fundamentals/static-files) podejścia do zabezpieczania plików statycznych.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -261,7 +261,7 @@ public class MyMiddleware
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Migrowanie moduły HTTP oprogramowania pośredniczącego](xref:migration/http-modules)
+* [Migrowanie moduły HTTP do oprogramowania pośredniczącego](xref:migration/http-modules)
 * [Uruchamianie aplikacji](xref:fundamentals/startup)
 * [Funkcje na żądanie](xref:fundamentals/request-features)
 * [Aktywacji opartej na fabryki oprogramowania pośredniczącego](xref:fundamentals/middleware/extensibility)

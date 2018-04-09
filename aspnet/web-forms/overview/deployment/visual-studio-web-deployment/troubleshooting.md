@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
-title: "Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Rozwiązywanie problemów z | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Rozwiązywanie problemów z | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane..."
+description: Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/01/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: a7a66e7e67539e4b075da6fc054a7b53984b6ce1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 15bda09c59afaf9e5449c68c5206bb28de245541
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Rozwiązywanie problemów
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -292,8 +292,8 @@ Kod najpierw próbuje utworzyć bazy danych, jednak aplikacja\_danych folder nie
 
 Zostały pomyślnie za pomocą jednego kliknięcia publikowanie do wdrożenia aplikacji i zacznij pobierania ten błąd:
 
-Niepowodzenie zadania wdrażania w sieci Web. (Nie można ukończyć żądania do agenta zdalnego adresu URL "https://serverurl.com/msdeploy.axd?site=sitename").  
- Nie można ukończyć żądania do agenta zdalnego adresu URL "https://url/msdeploy.axd?site=sitename".  
+Niepowodzenie zadania wdrażania w sieci Web. (Nie można ukończyć żądania do agenta zdalnego adresu URL "<https://serverurl.com/msdeploy.axd?site=sitename>".)  
+ Nie można ukończyć żądania do agenta zdalnego adresu URL "<https://url/msdeploy.axd?site=sitename>".  
 Żądanie zostało przerwane: żądanie zostało anulowane.  
 Obiekt COM, który został oddzielony od swojej podstawowej otoki RCW, nie można użyć.
 
@@ -309,7 +309,7 @@ Publikowanie kończy się niepowodzeniem z powodu błędu z informacją nie maj�
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Domyślnie program Visual Studio zestawów uprawnień w folderze głównym lokacji Odczyt i zapis w aplikacji\_folderem danych. Jeśli wiesz, czy domyślne uprawnienia do folderów są prawidłowe i nie trzeba ustawić, dodając wyłączyć to zachowanie  **&lt;docelowego IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  pliku profilu publikowania (na jednym profilu) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o sposobie edytowania tych plików, zobacz [porady: edytowanie ustawień wdrażania plików profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
+Domyślnie program Visual Studio zestawów uprawnień w folderze głównym lokacji Odczyt i zapis w aplikacji\_folderem danych. Jeśli wiesz, czy domyślne uprawnienia do folderów są prawidłowe i nie trzeba ustawić, dodając wyłączyć to zachowanie **&lt;docelowego IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** pliku profilu publikowania (na jednym profilu) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o sposobie edytowania tych plików, zobacz [porady: edytowanie ustawień wdrażania plików profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Błędy odmowa dostępu, gdy aplikacja próbuje zapisać w folderze aplikacji
 
@@ -319,7 +319,7 @@ Błędy aplikacji podczas próby tworzenia lub edytowania pliku w jednym z folde
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Domyślnie program Visual Studio zestawów uprawnień w folderze głównym lokacji Odczyt i zapis w aplikacji\_folderem danych. Jeśli aplikacja wymaga dostępu do zapisu do podfolderu, należy ustawić uprawnienia do tego folderu, jak pokazano ustawiania uprawnień do folderu i wdrażanie w tej serii samouczków środowiska produkcyjnego. Jeśli aplikacja wymaga uprawnienia do zapisu w folderze głównym witryny, należy uniemożliwić ustawienie dostęp tylko do odczytu w folderze głównym, dodając  **&lt;docelowego IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  pliku profilu publikowania (na jednym profilu) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o sposobie edytowania tych plików, zobacz [porady: edytowanie ustawień wdrażania plików profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
+Domyślnie program Visual Studio zestawów uprawnień w folderze głównym lokacji Odczyt i zapis w aplikacji\_folderem danych. Jeśli aplikacja wymaga dostępu do zapisu do podfolderu, należy ustawić uprawnienia do tego folderu, jak pokazano ustawiania uprawnień do folderu i wdrażanie w tej serii samouczków środowiska produkcyjnego. Jeśli aplikacja wymaga uprawnienia do zapisu w folderze głównym witryny, należy uniemożliwić ustawienie dostęp tylko do odczytu w folderze głównym, dodając **&lt;docelowego IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** pliku profilu publikowania (na jednym profilu) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o sposobie edytowania tych plików, zobacz [porady: edytowanie ustawień wdrażania plików profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx).
 
 <a id="aspnet45error"></a>
 
@@ -377,5 +377,5 @@ Błąd HTTP 404.17 — nie znaleziono
 
 Program ASP.NET 4.5 nie może być zainstalowane na tym komputerze. Zobacz kroki opisane w sekcji Wdrażanie usług IIS jako samouczek środowiska testowego w tej serii, który objaśnia, jak zainstalować program ASP.NET 4.5.
 
->[!div class="step-by-step"]
-[Poprzednie](deploying-extra-files.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deploying-extra-files.md)

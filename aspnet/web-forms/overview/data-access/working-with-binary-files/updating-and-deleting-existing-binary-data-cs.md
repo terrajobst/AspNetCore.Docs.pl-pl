@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-cs
-title: "Aktualizowanie i usuwanie istniejących danych binarnych (C#) | Dokumentacja firmy Microsoft"
+title: Aktualizowanie i usuwanie istniejących danych binarnych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W samouczkach wcześniej widzieliśmy jak kontrolki widoku siatki ułatwia edytowania i usuwania danych tekstowych. W tym samouczku przedstawiono, jak również wprowadzić kontrolki widoku siatki..."
+description: W samouczkach wcześniej widzieliśmy jak kontrolki widoku siatki ułatwia edytowania i usuwania danych tekstowych. W tym samouczku przedstawiono, jak również wprowadzić kontrolki widoku siatki...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f2fca1e91720fba0215e12b1a1894a3a31e86b5c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 28d9d7a7e45eb4df9f61e3f587edfe2388583507
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-and-deleting-existing-binary-data-c"></a>Aktualizowanie i usuwanie istniejących danych binarnych (C#)
 ====================
@@ -264,8 +264,8 @@ Po kliknięciu przycisku Aktualizuj s GridView jego `RowUpdating` generowane zda
 
 Kroki niezbędne do można wykonać po RadioButtonList s `SelectedValue` jest 3 są niemal identyczne używanych przez s widoku DetailsView `ItemInserting` obsługi zdarzeń. Ten program obsługi zdarzeń jest wykonywany podczas dodawania nowego rekordu kategorii z formantu widoku DetailsView dodaliśmy w [samouczek poprzedniej](including-a-file-upload-option-when-adding-a-new-record-cs.md). W związku z tym go behooves nam Refaktoryzuj ta funkcja się w oddzielnych metodach. W szczególności została przeniesiona poza typowe funkcje do dwóch metod:
 
-- `ProcessBrochureUpload(FileUpload, out bool)`przyjmuje jako dane wejściowe wystąpienie kontrolki przekazywaniem plików i danych wyjściowych wartość logiczna, która określa, czy ma być kontynuowane operację usuwania lub edycji lub jeśli powinien zostać anulowany z powodu błędu sprawdzania poprawności. Ta metoda zwraca ścieżkę do pliku zapisanego lub `null` Jeśli plik nie został zapisany.
-- `DeleteRememberedBrochurePath`Usuwa plik określony przez ścieżkę w zmiennej strony `deletedCategorysPdfPath` Jeśli `deletedCategorysPdfPath` nie jest `null`.
+- `ProcessBrochureUpload(FileUpload, out bool)` przyjmuje jako dane wejściowe wystąpienie kontrolki przekazywaniem plików i danych wyjściowych wartość logiczna, która określa, czy ma być kontynuowane operację usuwania lub edycji lub jeśli powinien zostać anulowany z powodu błędu sprawdzania poprawności. Ta metoda zwraca ścieżkę do pliku zapisanego lub `null` Jeśli plik nie został zapisany.
+- `DeleteRememberedBrochurePath` Usuwa plik określony przez ścieżkę w zmiennej strony `deletedCategorysPdfPath` Jeśli `deletedCategorysPdfPath` nie jest `null`.
 
 Wykonuje kod dla tych dwóch metod. Należy zwrócić uwagę na podobieństwo `ProcessBrochureUpload` i s widoku DetailsView `ItemInserting` obsługi zdarzeń z poprzednich samouczka. W tym samouczku I zaktualizowano programów obsługi zdarzeń s widoku DetailsView tych nowych metod. Pobierz kod skojarzony z tym samouczkiem, aby zobaczyć zmiany do obsługi zdarzeń s widoku DetailsView.
 
@@ -362,12 +362,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](including-a-file-upload-option-when-adding-a-new-record-cs.md)
-[dalej](uploading-files-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](including-a-file-upload-option-when-adding-a-new-record-cs.md)
+> [dalej](uploading-files-vb.md)

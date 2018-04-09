@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs
-title: "Użycie zapytań sparametryzowanych z SqlDataSource (C#) | Dokumentacja firmy Microsoft"
+title: Użycie zapytań sparametryzowanych z SqlDataSource (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku możemy kontynuować naszych przyjrzeć kontroli SqlDataSource i Dowiedz się, jak zdefiniować sparametryzowanych zapytań. Parametry można określić zarówno decla..."
+description: W tym samouczku możemy kontynuować naszych przyjrzeć kontroli SqlDataSource i Dowiedz się, jak zdefiniować sparametryzowanych zapytań. Parametry można określić zarówno decla...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b66c68b8306b905a800465ab0ed720ae6f9d16b9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 87abf3029919eb9e3c2c931abfb4beb0b2f92fdb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-c"></a>Użycie zapytań sparametryzowanych z SqlDataSource (C#)
 ====================
@@ -235,7 +235,7 @@ Rozpocznij od dodania SqlDataSource do `ParameterizedQueries.aspx` i ustawić je
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample10.sql)]
 
-`ORDER BY NEWID()`Zwraca rekordy posortowane w kolejności losowej (zobacz [Using `NEWID()` losowo sortowanie rekordów](http://www.sqlteam.com/item.asp?ItemID=8747)). `SELECT TOP 1`Zwraca pierwszy rekord z zestawu wyników. Podsumowując, ta kwerenda zwraca `CategoryID` i `CategoryName` wartości kolumn z jednej, losowo wybranej kategorii.
+`ORDER BY NEWID()` Zwraca rekordy posortowane w kolejności losowej (zobacz [Using `NEWID()` losowo sortowanie rekordów](http://www.sqlteam.com/item.asp?ItemID=8747)). `SELECT TOP 1` Zwraca pierwszy rekord z zestawu wyników. Podsumowując, ta kwerenda zwraca `CategoryID` i `CategoryName` wartości kolumn z jednej, losowo wybranej kategorii.
 
 Aby wyświetlić kategorii s `CategoryName` wartości, Dodaj formant etykiety sieci Web ze stroną, ustaw jego `ID` właściwości `CategoryNameLabel`i wyczyszczenie jego `Text` właściwości. Aby programowo pobierają dane z kontrolką SqlDataSource, musimy wywołania jego `Select()` metody. [ `Select()` Metody](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.select.aspx) oczekuje jednego parametru wejściowego typu [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx), który określa, jak dane powinny być messaged przed zwróceniem. Mogą znajdować się instrukcje na sortowanie i filtrowanie danych i jest używany przez dane, które kontroluje sieci Web podczas sortowania i stronicowania za pomocą danych z formantu SqlDataSource. W naszym przykładzie, możemy ADAM t potrzebę danych można zmodyfikować przed zwróceniem i w związku z tym będzie podaj `DataSourceSelectArguments.Empty` obiektu.
 
@@ -246,7 +246,7 @@ Poniższy kod ilustruje sposób pobrać rekordy z `RandomCategoryDataSource` Sql
 
 [!code-csharp[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample11.cs)]
 
-`randomCategoryView[0]`Zwraca pierwszy `DataRowView` w widoku danych. `randomCategoryView[0]["CategoryName"]`Zwraca wartość `CategoryName` kolumny w tym pierwszego wiersza. Należy pamiętać, że element DataView typowaniem luźnym. Aby odwołać się do wartości określonej kolumny musimy przekazywać nazwy kolumny jako ciąg (w tym przypadku CategoryName). Rysunek 13 przedstawiono komunikat wyświetlany w `CategoryNameLabel` podczas wyświetlania strony. Oczywiście nazwa kategorii rzeczywiste wyświetlana jest wybierane losowo przez `RandomCategoryDataSource` SqlDataSource każdej wizyty na stronie (w tym ogłaszania zwrotnego).
+`randomCategoryView[0]` Zwraca pierwszy `DataRowView` w widoku danych. `randomCategoryView[0]["CategoryName"]` Zwraca wartość `CategoryName` kolumny w tym pierwszego wiersza. Należy pamiętać, że element DataView typowaniem luźnym. Aby odwołać się do wartości określonej kolumny musimy przekazywać nazwy kolumny jako ciąg (w tym przypadku CategoryName). Rysunek 13 przedstawiono komunikat wyświetlany w `CategoryNameLabel` podczas wyświetlania strony. Oczywiście nazwa kategorii rzeczywiste wyświetlana jest wybierane losowo przez `RandomCategoryDataSource` SqlDataSource każdej wizyty na stronie (w tym ogłaszania zwrotnego).
 
 
 [![S losowo wybranej kategorii, którego nazwa jest wyświetlana](using-parameterized-queries-with-the-sqldatasource-cs/_static/image13.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image25.png)
@@ -306,12 +306,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Scott Clyde, Randell Schmidt i Krzysztof Pespisa. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](querying-data-with-the-sqldatasource-control-cs.md)
-[dalej](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](querying-data-with-the-sqldatasource-control-cs.md)
+> [dalej](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
-title: "Część 1: Omówienie i plik -> Nowy projekt | Dokumentacja firmy Microsoft"
+title: 'Część 1: Omówienie i plik -> Nowy projekt | Dokumentacja firmy Microsoft'
 author: jongalloway
-description: "Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 1 obejmuje przegląd oraz plik -> Nowy projekt."
+description: Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 1 obejmuje przegląd oraz plik -> Nowy projekt.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 1e3373a21c7d1766cfad390a7ba68b1363d8d895
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2082927d18c95563893da199d60347fa15952446
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-1-overview-and-file-new-project"></a>Część 1: Omówienie i plik -> Nowy projekt
 ====================
@@ -120,10 +120,10 @@ ASP.NET MVC korzysta z niektóre podstawowe konwencje nazewnictwa dla nazwy fold
 | **/ Kontrolerów** | Kontrolery odpowiedzieć na dane wejściowe z przeglądarki, czynności, jakie należy wykonać, a odpowiedź zwrócona do użytkownika. |
 | **/ Widoków** | Widoki przechowywania naszym szablony interfejsu użytkownika |
 | **/ Modeli** | Modele przechowywania i manipulowanie danymi |
-| **/ Zawartości** | Ten folder przechowuje naszych obrazów, CSS i innej zawartości statycznej |
+| **/Content** | Ten folder przechowuje naszych obrazów, CSS i innej zawartości statycznej |
 | **/ Skryptów** | Ten folder przechowuje plików JavaScript |
 
 Te foldery są zawarte nawet w przypadku aplikacji pusty ASP.NET MVC, ponieważ platforma ASP.NET MVC domyślnie korzysta z podejścia "Konwencji za pośrednictwem konfiguracji" i sprawia, że niektóre założenia domyślne oparte na konwencji nazewnictwa folderu. Na przykład kontrolery szukają widoków w folderze Widoki domyślnie bez konieczności jawnego określania to w kodzie. Spełni domyślnych Konwencji zmniejsza ilość kodu, należy napisać, i może również ułatwić inni deweloperzy zrozumienie projektu. Wyjaśniamy tych konwencji więcej, jak mamy utworzyć w naszej aplikacji.
 
->[!div class="step-by-step"]
-[Dalej](mvc-music-store-part-2.md)
+> [!div class="step-by-step"]
+> [Next](mvc-music-store-part-2.md)

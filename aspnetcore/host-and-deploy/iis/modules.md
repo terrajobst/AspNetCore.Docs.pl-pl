@@ -1,7 +1,7 @@
 ---
-title: "Używanie modułów usług IIS z platformy ASP.NET Core"
+title: Moduły usług IIS z platformy ASP.NET Core
 author: guardrex
-description: "Wykryj aktywną i nieaktywną modułów usług IIS dla aplikacji platformy ASP.NET Core i zarządzanie modułów usług IIS."
+description: Wykryj aktywną i nieaktywną modułów usług IIS dla aplikacji platformy ASP.NET Core i zarządzanie modułów usług IIS.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: a6610e33abdc3eafb5908728b3299e95e6e7183f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d9b3de915df333153255f91649f9169f76ba2fe0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-iis-modules-with-aspnet-core"></a>Używanie modułów usług IIS z platformy ASP.NET Core
+# <a name="iis-modules-with-aspnet-core"></a>Moduły usług IIS z platformy ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
@@ -58,7 +58,7 @@ Aplikacje platformy ASP.NET Core są obsługiwane przez usługi IIS w konfigurac
 | **Autoryzacja adresów URL**<br>`UrlAuthorizationModule` | Tak | [ASP.NET Core Identity](xref:security/authentication/identity) |
 | **Uwierzytelnianie systemu Windows**<br>`WindowsAuthenticationModule` | Tak | |
 
-&#8224; Adres URL edycji modułu `isFile` i `isDirectory` zgodny z typami nie działają w aplikacjach ASP.NET Core z powodu zmian w [struktury katalogów](xref:host-and-deploy/directory-structure).
+&#8224;Adres URL edycji modułu `isFile` i `isDirectory` zgodny z typami nie działają w aplikacjach ASP.NET Core z powodu zmian w [struktury katalogów](xref:host-and-deploy/directory-structure).
 
 ## <a name="managed-modules"></a>Modułów zarządzanych
 
@@ -106,21 +106,21 @@ Jeśli Aby usunąć moduł z ustawieniem w *web.config*, odblokowanie modułem i
 
 1. Odblokowanie modułem na poziomie serwera. Wybierz serwer usług IIS w Menedżerze usług IIS **połączeń** paska bocznego. Otwórz **modułów** w **IIS** obszaru. Wybierz moduł z listy. W **akcje** po prawej, wybierz **Unlock**. Odblokowanie jak wiele modułów podczas planowania do usunięcia z *web.config* później.
 
-1. Wdrażanie aplikacji bez  **\<modułów >** sekcji *web.config*. Jeśli aplikacja została wdrożona z *web.config* zawierający  **\<modułów >** sekcji bez konieczności odblokowane sekcji najpierw w Menedżerze usług IIS, programu Configuration Manager zgłasza wyjątek Podczas próby odblokowania sekcji. W związku z tym wdrażania aplikacji bez  **\<modułów >** sekcji.
+2. Wdrażanie aplikacji bez  **\<modułów >** sekcji *web.config*. Jeśli aplikacja została wdrożona z *web.config* zawierający  **\<modułów >** sekcji bez konieczności odblokowane sekcji najpierw w Menedżerze usług IIS, programu Configuration Manager zgłasza wyjątek Podczas próby odblokowania sekcji. W związku z tym wdrażania aplikacji bez  **\<modułów >** sekcji.
 
-1. Odblokuj  **\<modułów >** sekcji *web.config*. W **połączeń** paska bocznego, wybierz witrynę sieci Web w **witryny**. W **zarządzania** obszaru, otwórz **edytora konfiguracji**. Użyj formantów nawigacji, aby wybrać `system.webServer/modules` sekcji. W **akcje** po prawej, wybierz, aby **Unlock** sekcji.
+3. Odblokuj  **\<modułów >** sekcji *web.config*. W **połączeń** paska bocznego, wybierz witrynę sieci Web w **witryny**. W **zarządzania** obszaru, otwórz **edytora konfiguracji**. Użyj formantów nawigacji, aby wybrać `system.webServer/modules` sekcji. W **akcje** po prawej, wybierz, aby **Unlock** sekcji.
 
-1. W tym momencie  **\<modułów >** sekcji można dodać do *web.config* pliku z  **\<Usuń >** elementu do usunięcia z modułu aplikacja. Wiele  **\<Usuń >** elementy mogą zostać dodane, aby usunąć wiele modułów. Jeśli *web.config* zmian na serwerze, natychmiast wprowadzenie identycznych zmian w projekcie *web.config* plików lokalnie. Usunięcie modułu w ten sposób nie mają wpływu na modułu z innych aplikacji na serwerze.
+4. W tym momencie  **\<modułów >** sekcji można dodać do *web.config* pliku z  **\<Usuń >** elementu do usunięcia z modułu aplikacja. Wiele  **\<Usuń >** elementy mogą zostać dodane, aby usunąć wiele modułów. Jeśli *web.config* zmian na serwerze, natychmiast wprowadzenie identycznych zmian w projekcie *web.config* plików lokalnie. Usunięcie modułu w ten sposób nie mają wpływu na modułu z innych aplikacji na serwerze.
 
-  ```xml
-  <configuration> 
+   ```xml
+   <configuration> 
     <system.webServer> 
       <modules> 
         <remove name="MODULE_NAME" /> 
       </modules> 
     </system.webServer> 
-  </configuration>
-  ```
+   </configuration>
+   ```
 
 Dla instalacji usług IIS z modułami domyślne zainstalowany, należy użyć następującego  **\<modułu >** sekcji, aby usunąć domyślne moduły.
 

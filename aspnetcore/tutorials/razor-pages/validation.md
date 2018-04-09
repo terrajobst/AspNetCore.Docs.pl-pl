@@ -1,7 +1,7 @@
 ---
 title: Dodawanie walidacji do strony platformy ASP.NET Core Razor
 author: rick-anderson
-description: "Dowiedzieć się, jak dodać weryfikacji do elementu Razor strony platformy ASP.NET Core."
+description: Dowiedzieć się, jak dodać weryfikacji do elementu Razor strony platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: b07aa55d37b2d8ae65ec60f52142a8491dc46b59
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 271a5ce517ae550845d96e3969b39b1eda6ae51b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do strony platformy ASP.NET Core Razor
 
@@ -143,8 +143,8 @@ Zobacz [publikowania aplikacji sieci web platformy ASP.NET Core w usłudze Azure
 * [Praca z formularzami](xref:mvc/views/working-with-forms)
 * [Globalizacja i lokalizacja](xref:fundamentals/localization)
 * [Wprowadzenie do pomocników tagów](xref:mvc/views/tag-helpers/intro)
-* [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
+* [Autor pomocników tagów](xref:mvc/views/tag-helpers/authoring)
 
->[!div class="step-by-step"]
-[Poprzedni: Dodanie nowego pola](xref:tutorials/razor-pages/new-field)
-[dalej: przekazywanie plików](xref:tutorials/razor-pages/uploading-files)
+> [!div class="step-by-step"]
+> [Poprzedni: Dodanie nowego pola](xref:tutorials/razor-pages/new-field)
+> [dalej: przekazywanie plików](xref:tutorials/razor-pages/uploading-files)

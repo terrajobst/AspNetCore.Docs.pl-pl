@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
-title: "Określanie pliki muszą być wdrożone (C#) | Dokumentacja firmy Microsoft"
+title: Określanie pliki muszą być wdrożone (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Pliki potrzebne do wdrożenia środowiska programowania do środowiska produkcyjnego zależy od w części określa, czy aplikacja ASP.NET została skompilowana nam..."
+description: Pliki potrzebne do wdrożenia środowiska programowania do środowiska produkcyjnego zależy od w części określa, czy aplikacja ASP.NET została skompilowana nam...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d58956323275a46b44b36d4f19db4d2f607e3916
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ff5f1d7d156efa12d97382db56211a07c43178fd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-c"></a>Określanie pliki muszą być wdrożone (C#)
 ====================
@@ -80,14 +80,14 @@ Pobranie w tym samouczku obejmuje aplikacji programu ASP.NET o nazwie przegląda
 - Siedmiu różnych stron ASP.NET: 
 
     - ~`/Default.aspx`— Strona główna witryny.
-    - ~`/About.aspx`-"temat" strony.
-    - ~`/Fiction/Default.aspx`-stronę książek fikcja, które zostały sprawdzone. 
+    - ~`/About.aspx` -"temat" strony.
+    - ~`/Fiction/Default.aspx` -stronę książek fikcja, które zostały sprawdzone. 
 
-        - ~`/Fiction/Blaze.aspx`-Przegląd powieść Richard Bachman *członkowie*.
-    - ~/`Tech/Default.aspx`-stronę książek technologii, które zostały sprawdzone. 
+        - ~`/Fiction/Blaze.aspx` -Przegląd powieść Richard Bachman *członkowie*.
+    - ~/`Tech/Default.aspx` -stronę książek technologii, które zostały sprawdzone. 
 
         - ~/`Tech/CYOW.aspx`-Przegląd *Tworzenie własnej witryny internetowej*.
-        - ~/`Tech/TYASP35.aspx`-Przegląd *nauczyć się ASP.NET 3.5 w ciągu 24 godzin*.
+        - ~/`Tech/TYASP35.aspx` -Przegląd *nauczyć się ASP.NET 3.5 w ciągu 24 godzin*.
 - Trzy różne pliki CSS w folderze style.
 - Cztery obrazu — obsługiwane przez program ASP.NET logo i obrazy obejmuje trzy książek je przejrzeć — wszystkie pliki znajdujące się w `Images` folderu.
 - A `Web.sitemap` pliku, który definiuje mapy witryny i służy do wyświetlania menu w `Default.aspx` stron w katalogu głównym i `Fiction` i `Tech` folderów.
@@ -110,7 +110,7 @@ Ta aplikacja nie używa bazy danych; każdego przeglądu jest implementowany jak
 W tym samouczku pobierania ma dwie kopie aplikacji sieci web, każdy zaimplementowane jako inny typ projektu programu Visual Studio: BookReviewsWAP, projekt aplikacji sieci Web i BookReviewsWSP, projekt witryny sieci Web. Oba projekty zostały utworzone za pomocą programu Visual Web Developer 2008 z dodatkiem SP1 i użyj ASP.NET 3.5 z dodatkiem SP1. Do pracy z tymi projektami uruchomić rozpakować zawartość na pulpicie. Aby otworzyć projekt aplikacji sieci Web (BookReviewsWAP), przejdź do folderu BookReviewsWAP i kliknij dwukrotnie plik rozwiązania `BookReviewsWAP.sln`. Aby otworzyć projekt witryny sieci Web (BookReviewsWSP), uruchom program Visual Studio, a następnie z menu Plik wybierz opcję Otwórz witrynę sieci Web, przejdź do `BookReviewsWSP` folder na pulpicie i kliknij przycisk OK.
 
 
-Pozostałe dwie sekcje tego samouczka wyglądają na jakie pliki należy skopiować do środowiska produkcyjnego, w przypadku wdrażania aplikacji. Następne dwa samouczki -  *[wdrażanie Your lokacji przy użyciu FTP](deploying-your-site-using-an-ftp-client-cs.md)*  i  *[wdrażanie Your lokacji za pomocą programu Visual Studio](deploying-your-site-using-visual-studio-cs.md)*  -przedstawiono różne sposoby Skopiuj te pliki do dostawcy hosta sieci web.
+Pozostałe dwie sekcje tego samouczka wyglądają na jakie pliki należy skopiować do środowiska produkcyjnego, w przypadku wdrażania aplikacji. Następne dwa samouczki - *[wdrażanie Your lokacji przy użyciu FTP](deploying-your-site-using-an-ftp-client-cs.md)* i *[wdrażanie Your lokacji za pomocą programu Visual Studio](deploying-your-site-using-visual-studio-cs.md)* -przedstawiono różne sposoby Skopiuj te pliki do dostawcy hosta sieci web.
 
 ## <a name="determining-the-files-to-deploy-for-the-web-application-project"></a>Określanie plików do wdrażania projektu aplikacji sieci Web
 
@@ -185,6 +185,6 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [System projektu witryny sieci Web w programie Visual Studio 2005: co to jest i dlaczego możemy to zrobić?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
 - [Wskazówki: Konwersji projektu witryny sieci Web do projektu aplikacji sieci Web w programie Visual Studio](https://msdn.microsoft.com/library/aa983476.aspx)
 
->[!div class="step-by-step"]
-[Poprzednie](asp-net-hosting-options-cs.md)
-[dalej](deploying-your-site-using-an-ftp-client-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](asp-net-hosting-options-cs.md)
+> [dalej](deploying-your-site-using-an-ftp-client-cs.md)

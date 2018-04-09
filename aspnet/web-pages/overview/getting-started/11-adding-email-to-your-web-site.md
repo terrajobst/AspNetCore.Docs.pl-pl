@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/11-adding-email-to-your-web-site
-title: "Wysyłanie wiadomości E-mail z sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft"
+title: Wysyłanie wiadomości E-mail z sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym rozdziale opisano sposób wysyłania wiadomości e-mail automatycznych z witryny sieci Web."
+description: W tym rozdziale opisano sposób wysyłania wiadomości e-mail automatycznych z witryny sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: c5878c3bc468daef050dcebee99f64441066409a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9be242d238c627a9557fe7ff7e596974e5b7d1c8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>Wysyłanie wiadomości E-mail z witryny sieci Web platformy ASP.NET (Razor) stron
 ====================
@@ -48,7 +48,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 
 Istnieją różne rodzaje powodów dlaczego może być konieczne do wysyłania wiadomości e-mail z witryny sieci Web. Potwierdzenie wiadomości mogą wysyłać do użytkowników lub może wysyłać powiadomienia do siebie (na przykład, który został zarejestrowany przez nowego użytkownika.) `WebMail` Pomocnika umożliwia łatwe wysyłanie wiadomości e-mail.
 
-Aby użyć `WebMail` pomocnika, musisz mieć dostęp do serwera SMTP. (Oznacza SMTP *Simple Mail Transfer Protocol*.) Serwer SMTP to serwer poczty e-mail, który tylko przesyła dalej wiadomości do serwera adresata &#8212; jest wychodzący po stronie wiadomości e-mail. Jeśli używasz dostawcy usług hosta dla witryny sieci Web, ich prawdopodobnie skonfiguruj można za pomocą poczty e-mail i ich pomagają stwierdzić, co to jest nazwa serwera SMTP. Podczas pracy w sieci firmowej, administratorem lub działem IT można zwykle można uzyskać informacje dotyczące serwera SMTP, który można użyć. Jeśli pracujesz w domu, nawet można przetestować go przy użyciu dostawcy zwykłej poczty e-mail, który można podać nazwę serwera SMTP. Zazwyczaj potrzebne są:
+Aby użyć `WebMail` pomocnika, musisz mieć dostęp do serwera SMTP. (Oznacza SMTP *Simple Mail Transfer Protocol*.) Serwer SMTP to serwer poczty e-mail, który tylko przesyła dalej wiadomości do serwera adresata &#8212; jest stronie wychodzących wiadomości e-mail. Jeśli używasz dostawcy usług hosta dla witryny sieci Web, ich prawdopodobnie skonfiguruj można za pomocą poczty e-mail i ich pomagają stwierdzić, co to jest nazwa serwera SMTP. Podczas pracy w sieci firmowej, administratorem lub działem IT można zwykle można uzyskać informacje dotyczące serwera SMTP, który można użyć. Jeśli pracujesz w domu, nawet można przetestować go przy użyciu dostawcy zwykłej poczty e-mail, który można podać nazwę serwera SMTP. Zazwyczaj potrzebne są:
 
 - Nazwa serwera SMTP.
 - Numer portu. To jest prawie zawsze 25. Usługodawcy mogą jednak wymagają użycia portu 587. Jeśli korzystasz z bezpiecznego secure sockets layer (SSL) do obsługi poczty e-mail, może być konieczne innego portu. Skontaktuj się z dostawcą poczty e-mail.
@@ -86,23 +86,23 @@ W tej procedurze utworzysz dwie strony. Pierwsza strona ma formularz, który umo
 
     Zmodyfikuj następujące e-mail powiązane ustawienia w kodzie:
 
-    - Ustaw `your-SMTP-host` na nazwę serwera SMTP, który ma dostęp do.
-    - Ustaw `your-user-name-here` do nazwy użytkownika dla konta serwera SMTP.
-    - Ustaw `your-account-password` hasło dla konta serwera SMTP.
-    - Ustaw `your-email-address-here` na adres e-mail. Jest to komunikat jest wysyłany z adres e-mail. (Niektóre dostawców poczty e-mail nie umożliwiają określenie innej `From` adresów, a następnie użyje swoją nazwę użytkownika jako `From` adresu.)
+   - Ustaw `your-SMTP-host` na nazwę serwera SMTP, który ma dostęp do.
+   - Ustaw `your-user-name-here` do nazwy użytkownika dla konta serwera SMTP.
+   - Ustaw `your-account-password` hasło dla konta serwera SMTP.
+   - Ustaw `your-email-address-here` na adres e-mail. Jest to komunikat jest wysyłany z adres e-mail. (Niektóre dostawców poczty e-mail nie umożliwiają określenie innej `From` adresów, a następnie użyje swoją nazwę użytkownika jako `From` adresu.)
 
-    > [!TIP] 
-    > 
-    > <a id="configuring_email_settings"></a>
-    > ### <a name="configuring-email-settings"></a>Konfigurowanie ustawień poczty E-mail
-    > 
-    > Może stanowić wyzwanie czasami, aby upewnić się, że masz prawa ustawienia serwera SMTP, numer portu i tak dalej. Poniżej przedstawiono kilka wskazówek:
-    > 
-    > - Nazwa serwera SMTP jest często przypominać `smtp.provider.com` lub `smtp.provider.net`. Jeśli jednak publikowania witryny dostawcy hostingu, nazwę serwera SMTP w tym momencie może być `localhost`. Jest to spowodowane po opublikowaniu, witryna jest hostowana na serwerze dostawcy, z serwerem poczty e-mail może być lokalny z punktu widzenia aplikacji. Ta zmiana nazwy serwera może oznaczać, że trzeba zmienić nazwę serwera SMTP w trakcie procesu publikowania.
-    > - Numer portu jest zwykle 25. Jednak niektóre dostawców wymagają użycia portu 587 lub pewne inne porty.
-    > - Upewnij się, że używasz prawidłowych poświadczeń. Po opublikowaniu lokacji do dostawcy hostingu, Użyj poświadczeń, które dostawcy specjalnie wskazuje, czy do obsługi poczty e-mail. Te mogą się różnić od poświadczeń używanych do opublikowania.
-    > - Czasami nie potrzebujesz poświadczeń w ogóle. Przy wysyłaniu wiadomości e-mail za pomocą osobistego usługodawca Internetowy dostawcę poczty e-mail może być już wiesz, swoje poświadczenia. Po opublikowaniu, może być konieczne przy użyciu innych poświadczeń niż podczas testowania na komputerze lokalnym.
-    > - Jeśli Twój dostawca e-mail używa szyfrowania, należy ustawić `WebMail.EnableSsl` do `true`.
+     > [!TIP] 
+     > 
+     > <a id="configuring_email_settings"></a>
+     > ### <a name="configuring-email-settings"></a>Konfigurowanie ustawień poczty E-mail
+     > 
+     > Może stanowić wyzwanie czasami, aby upewnić się, że masz prawa ustawienia serwera SMTP, numer portu i tak dalej. Poniżej przedstawiono kilka wskazówek:
+     > 
+     > - Nazwa serwera SMTP jest często przypominać `smtp.provider.com` lub `smtp.provider.net`. Jeśli jednak publikowania witryny dostawcy hostingu, nazwę serwera SMTP w tym momencie może być `localhost`. Jest to spowodowane po opublikowaniu, witryna jest hostowana na serwerze dostawcy, z serwerem poczty e-mail może być lokalny z punktu widzenia aplikacji. Ta zmiana nazwy serwera może oznaczać, że trzeba zmienić nazwę serwera SMTP w trakcie procesu publikowania.
+     > - Numer portu jest zwykle 25. Jednak niektóre dostawców wymagają użycia portu 587 lub pewne inne porty.
+     > - Upewnij się, że używasz prawidłowych poświadczeń. Po opublikowaniu lokacji do dostawcy hostingu, Użyj poświadczeń, które dostawcy specjalnie wskazuje, czy do obsługi poczty e-mail. Te mogą się różnić od poświadczeń używanych do opublikowania.
+     > - Czasami nie potrzebujesz poświadczeń w ogóle. Przy wysyłaniu wiadomości e-mail za pomocą osobistego usługodawca Internetowy dostawcę poczty e-mail może być już wiesz, swoje poświadczenia. Po opublikowaniu, może być konieczne przy użyciu innych poświadczeń niż podczas testowania na komputerze lokalnym.
+     > - Jeśli Twój dostawca e-mail używa szyfrowania, należy ustawić `WebMail.EnableSsl` do `true`.
 4. Uruchom *EmailRequest.cshtml* strony w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszar roboczy przed jej uruchomieniem.)
 5. Wprowadź nazwę i opis problemu, a następnie kliknij przycisk **przesyłania** przycisku. Są przekierowywane do *ProcessRequest.cshtml* strony, który potwierdza wiadomości i które wysyła do Ciebie wiadomość e-mail. 
 

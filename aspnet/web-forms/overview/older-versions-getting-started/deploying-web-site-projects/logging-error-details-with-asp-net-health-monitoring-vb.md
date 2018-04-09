@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
-title: "Rejestrowanie szczegóły błędu o kondycji programu ASP.NET (VB) monitorowania | Dokumentacja firmy Microsoft"
+title: Rejestrowanie szczegóły błędu o kondycji programu ASP.NET (VB) monitorowania | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "System monitorowania kondycji firmy Microsoft umożliwia łatwe i dostosowywanych do rejestrowania różnych zdarzeń sieci web, łącznie z nieobsługiwanych wyjątków. Ten samouczek przedstawia t..."
+description: System monitorowania kondycji firmy Microsoft umożliwia łatwe i dostosowywanych do rejestrowania różnych zdarzeń sieci web, łącznie z nieobsługiwanych wyjątków. Ten samouczek przedstawia t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 83f7504e3aeb02ed222712e7e51f612f7ffd5744
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0a457d4b8773f0f4ed343f5005c76f48a5cc178f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>Szczegóły błędu rejestrowania kondycji programu ASP.NET (VB) do monitorowania
 ====================
@@ -154,6 +154,6 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Porady: Użyj monitorowanie kondycji w programie ASP.NET](https://msdn.microsoft.com/library/ms998306.aspx)
 - [Kondycja monitorowania w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
 
->[!div class="step-by-step"]
-[Poprzednie](processing-unhandled-exceptions-vb.md)
-[dalej](logging-error-details-with-elmah-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](processing-unhandled-exceptions-vb.md)
+> [dalej](logging-error-details-with-elmah-vb.md)

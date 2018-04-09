@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-vb
-title: "Za pomocą suwaka z automatycznego odświeżania strony (VB) | Dokumentacja firmy Microsoft"
+title: Za pomocą suwaka z automatycznego odświeżania strony (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Kontrolka suwaka w zestawie narzędzi kontroli AJAX zapewnia graficznego suwaka, które można zmieniać za pomocą myszy. Istnieje możliwość automatycznie Księguj suwaka..."
+description: Kontrolka suwaka w zestawie narzędzi kontroli AJAX zapewnia graficznego suwaka, które można zmieniać za pomocą myszy. Istnieje możliwość automatycznie Księguj suwaka...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fedd3ff947c6f5d5d4d00791087e9fd825fdf9d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: edb8fa13716c3c0beb7cf86dd3843caaec939483
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-slider-control-with-auto-postback-vb"></a>Za pomocą suwaka z automatycznego odświeżania strony (VB)
 ====================
@@ -63,6 +63,6 @@ Przesunięcie suwaka wyzwala odświeżania strony ([kliknij, aby wyświetlić ob
 
 Później, Data zmiany są zapisywane w etykiecie ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-the-slider-control-with-auto-postback-vb/_static/image6.png))
 
->[!div class="step-by-step"]
-[Poprzednie](databinding-the-slider-control-cs.md)
-[dalej](databinding-the-slider-control-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](databinding-the-slider-control-cs.md)
+> [dalej](databinding-the-slider-control-vb.md)

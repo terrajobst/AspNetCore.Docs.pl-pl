@@ -1,5 +1,10 @@
 ## <a name="next-steps"></a>Następne kroki
 
+* Aby uzyskać informacji na temat używania trwałe bazy danych zobacz:
+
+  * [Tworzenie aplikacji sieci web Razor strony z platformy ASP.NET Core](xref:tutorials/index)
+  * [Praca z danymi w programie ASP.NET Core](xref:data/index)
+  
 * [Strony pomocy dla interfejsu Web API platformy ASP.NET Core korzystające z programu Swagger](xref:tutorials/web-api-help-pages-using-swagger)
 * [Routing do akcji kontrolera](xref:mvc/controllers/routing)
 * Aby uzyskać informacje na temat wdrażania interfejsu API, w tym w usłudze Azure App Service, zobacz [hosta i wdrażanie](xref:host-and-deploy/index).

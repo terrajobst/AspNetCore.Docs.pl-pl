@@ -1,7 +1,7 @@
 ---
-title: "Praca z wieloma środowiska w programie ASP.NET Core"
+title: Praca z wieloma środowiska w programie ASP.NET Core
 author: rick-anderson
-description: "Dowiedz się, jak platformy ASP.NET Core umożliwia kontrolowanie zachowania aplikacji w wielu środowiskach."
+description: Dowiedz się, jak platformy ASP.NET Core umożliwia kontrolowanie zachowania aplikacji w wielu środowiskach.
 manager: wpickett
 ms.author: riande
 ms.date: 12/25/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/environments
-ms.openlocfilehash: f2e074e1e19bb79453319c5b72e6c3872cd96ead
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 055647ab6f372b1753b1de549d04facaf247b92f
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="working-with-multiple-environments"></a>Praca w środowiskach wielu
+# <a name="work-with-multiple-environments-in-aspnet-core"></a>Praca z wieloma środowiska w programie ASP.NET Core
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 

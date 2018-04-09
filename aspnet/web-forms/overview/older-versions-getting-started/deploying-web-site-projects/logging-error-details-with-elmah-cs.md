@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
-title: "Rejestrowanie szczegóły błędu z ELMAH (C#) | Dokumentacja firmy Microsoft"
+title: Rejestrowanie szczegóły błędu z ELMAH (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Błąd rejestrowania modułów i obsługi (ELMAH) oferuje innego podejścia do rejestrowania błędów czasu wykonywania w środowisku produkcyjnym. ELMAH błędu wolnego typu open source..."
+description: Błąd rejestrowania modułów i obsługi (ELMAH) oferuje innego podejścia do rejestrowania błędów czasu wykonywania w środowisku produkcyjnym. ELMAH błędu wolnego typu open source...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 26d40d17447b3b03d17265f291b8ac246a449966
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cd91c745624f09d01a326a445bea2bb756576688
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="logging-error-details-with-elmah-c"></a>Szczegóły rejestrowania błędów ELMAH (C#)
 ====================
@@ -70,9 +70,9 @@ Następnie otwórz program Visual Studio i dodać zestaw do projektu, klikając 
 
 - **Moduły HTTP** — moduł protokołu HTTP jest klasa, która definiuje obsługi zdarzeń `HttpApplication` zdarzenia, takie jak `Error` zdarzeń. ELMAH zawiera wiele modułów HTTP, te trzy najbardziej istotnego znaczenia jest: 
 
-    - `ErrorLogModule`-Źródło dziennika rejestruje nieobsługiwanych wyjątków.
-    - `ErrorMailModule`-Wysyła szczegóły nieobsługiwany wyjątek w wiadomości e-mail.
-    - `ErrorFilterModule`-stosuje określony developer filtrów, aby ustalić, jakie wyjątków są rejestrowane i co te są ignorowane.
+    - `ErrorLogModule` -Źródło dziennika rejestruje nieobsługiwanych wyjątków.
+    - `ErrorMailModule` -Wysyła szczegóły nieobsługiwany wyjątek w wiadomości e-mail.
+    - `ErrorFilterModule` -stosuje określony developer filtrów, aby ustalić, jakie wyjątków są rejestrowane i co te są ignorowane.
 - **Programy obsługi HTTP** — program obsługi protokołu HTTP jest klasa, która jest odpowiedzialny za wygenerowanie kodu znaczników dla określonego typu żądania. ELMAH obejmuje programów obsługi HTTP, renderowanie szczegóły błędu, jako strony sieci web, źródła danych RSS lub jako pliku rozdzielanego przecinkami (CSV).
 - **Błąd dziennika źródeł** — fabrycznej ELMAH może rejestrować błędy pamięci, bazą danych programu Microsoft SQL Server, bazy danych programu Microsoft Access, do bazy danych programu Oracle do pliku XML, do bazy danych SQLite lub z bazą danych Vista DB. Jak kondycji systemu monitorowania architektura firmy ELMAH został zbudowany przy użyciu modelu dostawcy, co oznacza, można tworzyć i w razie potrzeby są bezproblemowo integrowane własnych dostawców źródło dziennika niestandardowego.
 
@@ -257,6 +257,6 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Tworzenie składników ASP.NET podłączany przy użyciu moduły HTTP i obsługi](https://msdn.microsoft.com/library/aa479332.aspx)
 - [Samouczki dotyczące zabezpieczeń witryny sieci Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
->[!div class="step-by-step"]
-[Poprzednie](logging-error-details-with-asp-net-health-monitoring-cs.md)
-[dalej](precompiling-your-website-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](logging-error-details-with-asp-net-health-monitoring-cs.md)
+> [dalej](precompiling-your-website-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
-title: "Dostosowywanie zachowania całej lokacji, dla strony sieci Web platformy ASP.NET (Razor) witryn | Dokumentacja firmy Microsoft"
+title: Dostosowywanie zachowania całej lokacji, dla strony sieci Web platformy ASP.NET (Razor) witryn | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym rozdziale opisano sposób wprowadzić ustawienia w całej witryny sieci Web lub cały folder, a nie tylko strony."
+description: W tym rozdziale opisano sposób wprowadzić ustawienia w całej witryny sieci Web lub cały folder, a nie tylko strony.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
 msc.type: authoredcontent
-ms.openlocfilehash: b1caa26a23517bd976addfefac89375ae965eb91
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4457318bcf1d2886eb8ed68fdd795eea7905368b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>Dostosowywanie zachowania całej witryny dla witryny sieci Web ASP.NET (Razor) stron
 ====================
@@ -36,7 +36,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 2
+> - ASP.NET Web Pages (Razor) 2
 > - Program WebMatrix 3
 > - Biblioteka pomocników sieci Web platformy ASP.NET (pakiet NuGet)
 >   
@@ -93,20 +93,20 @@ W tej procedurze przedstawiono sposób ustawiania `WebMail` ustawienia globalnie
 
     Zmodyfikuj następujące e-mail powiązane ustawienia w kodzie:
 
-    - Ustaw `your-SMTP-host` na nazwę serwera SMTP, który ma dostęp do.
-    - Ustaw `your-user-name-here` do nazwy użytkownika dla konta serwera SMTP.
-    - Ustaw `your-account-password` hasło dla konta serwera SMTP.
-    - Ustaw `your-email-address-here` na adres e-mail. Jest to komunikat jest wysyłany z adres e-mail. (Niektóre dostawców poczty e-mail nie umożliwiają określenie innej `From` adresów, a następnie użyje swoją nazwę użytkownika jako `From` adresu.)
+   - Ustaw `your-SMTP-host` na nazwę serwera SMTP, który ma dostęp do.
+   - Ustaw `your-user-name-here` do nazwy użytkownika dla konta serwera SMTP.
+   - Ustaw `your-account-password` hasło dla konta serwera SMTP.
+   - Ustaw `your-email-address-here` na adres e-mail. Jest to komunikat jest wysyłany z adres e-mail. (Niektóre dostawców poczty e-mail nie umożliwiają określenie innej `From` adresów, a następnie użyje swoją nazwę użytkownika jako `From` adresu.)
 
-    Aby uzyskać więcej informacji na temat ustawień SMTP, zobacz [Konfigurowanie ustawień poczty E-mail](https://go.microsoft.com/fwlink/?LinkID=202899#configuring_email_settings) w artykule [wysyłania wiadomości E-mail z witryn stron sieci Web platformy ASP.NET (Razor)](https://go.microsoft.com/fwlink/?LinkID=202899) i [problemy z wysłaniem wiadomości E-mail](https://go.microsoft.com/fwlink/?LinkId=253001#email)w [ASP.NET Web Pages przewodnik rozwiązywania problemów (Razor)](https://go.microsoft.com/fwlink/?LinkId=253001).
-- Zapisz  *\_AppStart.cshtml* plik i zamknij go.
-- W folderze głównym witryny sieci Web, Utwórz nową stronę o nazwie *TestEmail.cshtml*.
-- Zastąp istniejącą zawartość następujących czynności: 
+     Aby uzyskać więcej informacji na temat ustawień SMTP, zobacz [Konfigurowanie ustawień poczty E-mail](https://go.microsoft.com/fwlink/?LinkID=202899#configuring_email_settings) w artykule [wysyłania wiadomości E-mail z witryn stron sieci Web platformy ASP.NET (Razor)](https://go.microsoft.com/fwlink/?LinkID=202899) i [problemy z wysłaniem wiadomości E-mail](https://go.microsoft.com/fwlink/?LinkId=253001#email)w [ASP.NET Web Pages przewodnik rozwiązywania problemów (Razor)](https://go.microsoft.com/fwlink/?LinkId=253001).
+4. Zapisz  *\_AppStart.cshtml* plik i zamknij go.
+5. W folderze głównym witryny sieci Web, Utwórz nową stronę o nazwie *TestEmail.cshtml*.
+6. Zastąp istniejącą zawartość następujących czynności: 
 
-    [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample4.cshtml)]
-- Uruchom *TestEmail.cshtml* strony w przeglądarce.
-- Wypełnij pola, aby wysłać do siebie wiadomość e-mail, a następnie kliknij przycisk **wysyłania**.
-- Sprawdź, upewnij się, że zaakceptowania wiadomości e-mail.
+     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample4.cshtml)]
+7. Uruchom *TestEmail.cshtml* strony w przeglądarce.
+8. Wypełnij pola, aby wysłać do siebie wiadomość e-mail, a następnie kliknij przycisk **wysyłania**.
+9. Sprawdź, upewnij się, że zaakceptowania wiadomości e-mail.
 
 Ważnym elementem w tym przykładzie jest to, że ustawienia, które zwykle nie należy zmieniać — takie jak nazwa serwera SMTP i poświadczenia e-mail — są ustawiane w  *\_AppStart.cshtml* pliku. Dzięki temu nie trzeba ustawić je ponownie w każdej stronie gdzie wysłać wiadomości e-mail. (Mimo że, jeśli z jakiegoś powodu musisz zmienić te ustawienia, można ustawić je oddzielnie na stronie.) Na stronie można ustawić tylko wartości, które zwykle zmieniać zawsze, takich jak adresat i treść wiadomości e-mail.
 

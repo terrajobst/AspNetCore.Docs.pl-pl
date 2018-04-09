@@ -1,22 +1,22 @@
 ---
 uid: single-page-application/overview/introduction/other-libraries
-title: "Sprawdzić biblioteki innego niż odcinania? | Dokumentacja firmy Microsoft"
+title: Sprawdzić biblioteki innego niż odcinania? | Microsoft Docs
 author: madskristensen
-description: "Sprawdzić biblioteki innego niż odcinania?"
+description: Sprawdzić biblioteki innego niż odcinania?
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/05/2013
 ms.topic: article
 ms.assetid: a8367c6d-ef94-4dff-a010-5eff9e6eea96
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/other-libraries
 msc.type: authoredcontent
-ms.openlocfilehash: 5a863f50401a4e2bab3f772374b7fd178f6c6cdf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6ac260e88fd156bad4b414e93325d5a04c490c88
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="know-a-library-other-than-knockout"></a>Sprawdzić biblioteki innego niż odcinania?
 ====================
@@ -57,15 +57,17 @@ W porównaniu z innych szablonów wymienione w tym miejscu, teample gorących r�
 
 Poniżej przedstawiono funkcje oferowane przez każdego szablonu SPA:
 
-|  | ASP.NET SPA | Sieci szkieletowej | Błyskawicznie/kątowego | Błyskawicznie/KO | Członkowskimi | Ręczników dynamicznej |
-| --- | --- | --- | --- | --- | --- | --- |
-| Przykładowe ToDo | &#10003; |  | &#10003; | &#10003; | &#10003; |  |
-| Szablon systemu od zera. |  | &#10003; |  |  |  | &#10003; |
-| Nawigacji i Historia |  | &#10003; | &#10003; |  | &#10003; | &#10003; |
-| Bibliotekami |  |  |  |  |  |  |
-| dyrektywy angular |  |  | &#10003; |  |  |  |
-| &#8195; Sieci szkieletowej |  | &#10003; |  |  |  |  |
-| Błyskawicznie |  |  | &#10003; | &#10003; |  | &#10003; |
-| Durandal |  |  |  |  |  | &#10003; |
-| Członkowskimi |  |  |  |  | &#10003; |  |
-| Odcinania | &#10003; |  |  | &#10003; |  | &#10003; |
+
+|                        | ASP.NET SPA | Sieci szkieletowej | Breeze/Angular | Błyskawicznie/KO |  Członkowskimi   | Ręczników dynamicznej |
+|------------------------|-------------|----------|----------------|-----------|----------|-----------|
+|      Przykładowe ToDo       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
+|     Szablon systemu od zera.      |             | &#10003; |                |           |          | &#10003;  |
+| Nawigacji i Historia |             | &#10003; |    &#10003;    |           | &#10003; | &#10003;  |
+|        Bibliotekami        |             |          |                |           |          |           |
+|        dyrektywy angular         |             |          |    &#10003;    |           |          |           |
+|    &#8195;Backbone     |             | &#10003; |                |           |          |           |
+|         Błyskawicznie         |             |          |    &#10003;    | &#10003;  |          | &#10003;  |
+|        Durandal        |             |          |                |           |          | &#10003;  |
+|         Członkowskimi          |             |          |                |           | &#10003; |           |
+|        Knockout        |  &#10003;   |          |                | &#10003;  |          | &#10003;  |
+

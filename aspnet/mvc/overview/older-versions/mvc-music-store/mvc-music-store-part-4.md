@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4
-title: "Część 4: Modele i dostęp do danych | Dokumentacja firmy Microsoft"
+title: 'Część 4: Modele i dostęp do danych | Dokumentacja firmy Microsoft'
 author: jongalloway
-description: "Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 4 obejmuje modele i dostęp do danych."
+description: Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 4 obejmuje modele i dostęp do danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 727336344493b439130b2cf0ec6e7b5925dd5637
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 76671bbc7050d111b4d156c45584ba5aa4f1ea8f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-4-models-and-data-access"></a>Część 4: Modele i dostęp do danych
 ====================
@@ -155,6 +155,6 @@ Teraz możemy przejść z naszą stronę Sklepu do strony Genre, który znajduje
 
 ![](mvc-music-store-part-4/_static/image6.png)
 
->[!div class="step-by-step"]
-[Poprzednie](mvc-music-store-part-3.md)
-[dalej](mvc-music-store-part-5.md)
+> [!div class="step-by-step"]
+> [Poprzednie](mvc-music-store-part-3.md)
+> [dalej](mvc-music-store-part-5.md)

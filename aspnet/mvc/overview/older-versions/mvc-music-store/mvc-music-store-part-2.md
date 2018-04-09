@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
-title: "Część 2: Kontrolerów | Dokumentacja firmy Microsoft"
+title: 'Część 2: Kontrolerów | Dokumentacja firmy Microsoft'
 author: jongalloway
-description: "Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 2 obejmuje kontrolerów."
+description: Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 2 obejmuje kontrolerów.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: bdafd751e996e759d516d0fa25b09eff21241ed7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 680cdea388d9b01961bd626643c0fd91c9205ed7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-2-controllers"></a>Część 2: kontrolerów
 ====================
@@ -63,7 +63,7 @@ Metoda powinna wyglądać następująco:
 Teraz załóżmy uruchamiania witryny. Możemy uruchomić naszych serwera sieci web i wypróbować lokacji przy użyciu następujących::
 
 - Wybierz element menu Rozpocznij debugowanie ⇨ debugowania
-- Kliknij przycisk zieloną strzałkę na pasku narzędzi![](mvc-music-store-part-2/_static/image2.jpg)
+- Kliknij przycisk zieloną strzałkę na pasku narzędzi ![](mvc-music-store-part-2/_static/image2.jpg)
 - Użyj skrótu klawiaturowego, F5.
 
 Przy użyciu dowolnego z powyższych kroków będzie skompilować naszych projektu, a następnie spowodować ASP.NET Development Server jest wbudowane Visual Web Developer można uruchomić. Powiadomienia będą wyświetlane w dolnym rogu ekranu, aby wskazać, że ASP.NET Development Server rozpoczęła i będzie wyświetlany numer portu, czy działa w ramach.
@@ -141,6 +141,6 @@ Załóżmy recap, co możemy wykonane wykonanej do tej pory:
 - Dodaliśmy metod akcji do naszej kontrolerów, które odpowiadają na żądania adresu URL i zwrócić tekst do przeglądarki
 
 
->[!div class="step-by-step"]
-[Poprzednie](mvc-music-store-part-1.md)
-[dalej](mvc-music-store-part-3.md)
+> [!div class="step-by-step"]
+> [Poprzednie](mvc-music-store-part-1.md)
+> [dalej](mvc-music-store-part-3.md)

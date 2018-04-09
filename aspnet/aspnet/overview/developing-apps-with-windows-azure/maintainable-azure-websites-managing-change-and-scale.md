@@ -1,26 +1,26 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
-title: "Przekazuje w laboratorium: łatwy w obsłudze witryn sieci Web Azure: Zarządzanie zmianami i skali | Dokumentacja firmy Microsoft"
+title: 'Przekazuje w laboratorium: łatwy w obsłudze witryn sieci Web Azure: Zarządzanie zmianami i skali | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym laboratorium Dowiedz się, jak Microsoft Azure ułatwia tworzenie i wdrażanie witryn sieci Web w środowisku produkcyjnym."
+description: W tym laboratorium Dowiedz się, jak Microsoft Azure ułatwia tworzenie i wdrażanie witryn sieci Web w środowisku produkcyjnym.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 4bce02b2c592ff04e0dbce78d18004c69268e4fd
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a79921681b4e742b5cd23f7119d19f4dd74c3f83
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Przekazuje w laboratorium: łatwy w obsłudze witryn sieci Web Azure: Zarządzanie zmianami i skali
 ====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
 [Pobierz obozów sieci Web uczenie Kit](http://aka.ms/webcamps-training-kit)
 
@@ -34,7 +34,7 @@ przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > 
 > W przypadku baz danych SQL ważne jest zapewnić aktualność wydajność bazy danych w przypadku wdrażania nowych wersji aplikacji. Podziękowania dla **migracje Code First Framework jednostki**, projektowania i wdrażania modelu danych uproszczoną tak, aby zaktualizować środowiska w minutach. To laboratorium praktycznego Pokaż różne tematy, które może wystąpić podczas wdrażania aplikacji sieci web w środowisku produkcyjnym na platformie Microsoft Azure.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 > 
 > Aby uzyskać więcej szczegółowe informacje dotyczące tego tematu, zobacz [budynku praktyczne aplikacje w chmurze z Azure e-book](building-real-world-cloud-apps-with-windows-azure/introduction.md).
 
@@ -281,13 +281,13 @@ W ramach tego zadania spowoduje utworzenie aplikacji sieci web w **usłudze Azur
     *Dostosowywanie nowej aplikacji sieci web*
 5. Określ następujące informacje dotyczące ustawień bazy danych:
 
-    - W **nazwa** tekst Wprowadź nazwę bazy danych (np. *geekquiz\_db*)
-    - Na serwerze **listy rozwijanej** listy, wybierz **serwera bazy danych SQL nowych**. Alternatywnie można wybrać istniejący serwer.
-    - W **użytkownika bazy danych** i **hasła bazy danych** wprowadź nazwę administratora użytkownika i hasło dla serwera bazy danych SQL. Jeśli wybierzesz serwer zostały już utworzone, zostanie wyświetlony monit o hasło.
+   - W **nazwa** tekst Wprowadź nazwę bazy danych (np. *geekquiz\_db*)
+   - Na serwerze **listy rozwijanej** listy, wybierz **serwera bazy danych SQL nowych**. Alternatywnie można wybrać istniejący serwer.
+   - W **użytkownika bazy danych** i **hasła bazy danych** wprowadź nazwę administratora użytkownika i hasło dla serwera bazy danych SQL. Jeśli wybierzesz serwer zostały już utworzone, zostanie wyświetlony monit o hasło.
 
-    ![Określanie ustawień bazy danych](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
+     ![Określanie ustawień bazy danych](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
 
-    *Określanie ustawień bazy danych*
+     *Określanie ustawień bazy danych*
 6. Kliknij przycisk **Dalej** , aby kontynuować.
 7. Wybierz **repozytorium Git lokalnego** do kontroli źródła, a następnie kliknij przycisk **dalej**.
 
@@ -687,7 +687,7 @@ W tym zadaniu zostanie okno Eksploratora serwera z programu Visual Studio do ł�
 
 W tym zadaniu zostanie skonfigurowana **GeekQuiz** rozwiązanie, aby korzystać z obrazu przekazany do magazynu obiektów Blob Azure (zamiast obrazu, znajdującego się w aplikacji sieci web), dodając reguły ponowne zapisywanie adresów URL platformy ASP.NET w **web.config**pliku.
 
-1. W programie Visual Studio Otwórz **Web.config** pliku wewnątrz **GeekQuiz** projektu i Znajdź  **&lt;system.webServer&gt;**  elementu.
+1. W programie Visual Studio Otwórz **Web.config** pliku wewnątrz **GeekQuiz** projektu i Znajdź **&lt;system.webServer&gt;** elementu.
 2. Dodaj następujący kod, aby dodać ponowne zapisywanie adresów URL reguły, aktualizowanie symbol zastępczy nazwą konta magazynu.
 
     (Fragment - kodu *UrlRewriteRule WebSitesInProduction - Ex4 -*)
@@ -785,7 +785,7 @@ Teraz, gdy **skalowania automatycznego** została skonfigurowana, zostanie utwor
     ![Dodawanie żądanie do WebTest1](maintainable-azure-websites-managing-change-and-scale/_static/image81.png "Dodawanie żądanie do WebTest1")
 
     *Dodawanie żądanie do WebTest1*
-4. W **właściwości** okno nowego węzła żądanie aktualizacji **adres Url** właściwości, aby wskazywał adres URL aplikacji sieci web (np.  *[http://geek-quiz.azurewebsites.net/](http://geek-quiz.azurewebsites.net/)* ).
+4. W **właściwości** okno nowego węzła żądanie aktualizacji **adres Url** właściwości, aby wskazywał adres URL aplikacji sieci web (np. *[ http://geek-quiz.azurewebsites.net/ ](http://geek-quiz.azurewebsites.net/)*).
 
     ![Zmiana właściwości adresu Url](maintainable-azure-websites-managing-change-and-scale/_static/image82.png "zmianę właściwości adresu Url")
 
@@ -797,13 +797,13 @@ Teraz, gdy **skalowania automatycznego** została skonfigurowana, zostanie utwor
     *Dodawanie pętli do WebTest1*
 6. W **Dodaj regułę warunkową i elementy do pętli** okno dialogowe, wybierz opcję **pętli For** reguły i zmodyfikuj następujące właściwości.
 
-    1. **Przerywanie wartość:** 1000
-    2. **Nazwa parametru kontekstu:** iteratora
-    3. **Wartość przyrostu:** 1
+   1. **Przerywanie wartość:** 1000
+   2. **Nazwa parametru kontekstu:** iteratora
+   3. **Wartość przyrostu:** 1
 
-    ![Wybranie reguły dla pętli i aktualizowanie właściwości](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "zaznaczając regułę dla pętli i aktualizowanie właściwości")
+      ![Wybranie reguły dla pętli i aktualizowanie właściwości](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "zaznaczając regułę dla pętli i aktualizowanie właściwości")
 
-    *Wybranie reguły dla pętli i aktualizowanie właściwości*
+      *Wybranie reguły dla pętli i aktualizowanie właściwości*
 7. W obszarze **elementów w pętli** wybierz wcześniej utworzony jako pierwszy i ostatni element dla pętli żądania. Kliknij przycisk **OK** aby kontynuować.
 
     ![Wybieranie pierwszy i ostatni element dla pętli](maintainable-azure-websites-managing-change-and-scale/_static/image85.png "wybranie pierwszy i ostatni element dla pętli")

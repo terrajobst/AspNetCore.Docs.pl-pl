@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
-title: "Zarządzanie cyklem życia aplikacji: Od projektowania do produkcji | Dokumentacja firmy Microsoft"
+title: 'Zarządzanie cyklem życia aplikacji: Od projektowania do produkcji | Dokumentacja firmy Microsoft'
 author: jrjlee
-description: "W tym temacie przedstawiono, jak fikcyjnej firmy zarządza wdrożenia aplikacji sieci web ASP.NET za pośrednictwem środowiska testowego, tymczasowych i produkcyjnych jako par..."
+description: W tym temacie przedstawiono, jak fikcyjnej firmy zarządza wdrożenia aplikacji sieci web ASP.NET za pośrednictwem środowiska testowego, tymczasowych i produkcyjnych jako par...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: f7ffff1c3434ce98c70265e4bf64047fd44252d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8beeffb374df09c6695a1845199d30006ddcc1b7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="application-lifecycle-management-from-development-to-production"></a>Zarządzanie cyklem życia aplikacji: Od projektowania do produkcji
 ====================
@@ -26,7 +26,7 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 
 > W tym temacie przedstawiono, jak fikcyjnej firmy zarządza wdrożenia aplikacji sieci web ASP.NET za pośrednictwem środowiska testowego, tymczasowych i produkcyjnych w ramach procesu projektowania ciągłe. W temacie podano linki dodatkowe informacje i wskazówki dotyczące wykonywania określonych zadań.
 > 
-> Temat jest przeznaczony do stanowią ogólne omówienie dla [serii samouczków](deploying-web-applications-in-enterprise-scenarios.md) w sieci web wdrożenia w przedsiębiorstwie. Nie martw się, jeśli nie masz doświadczenia w obsłudze niektórych pojęcia opisane tutaj & #x 2014; samouczki, które należy wykonać zawierają szczegółowe informacje na wszystkich tych zadań i technik.
+> Temat jest przeznaczony do stanowią ogólne omówienie dla [serii samouczków](deploying-web-applications-in-enterprise-scenarios.md) w sieci web wdrożenia w przedsiębiorstwie. Nie martw się, jeśli nie masz doświadczenia w obsłudze niektórych pojęcia opisane tutaj&#x2014;samouczki, które należy wykonać zawierają szczegółowe informacje na wszystkich tych zadań i technik.
 > 
 > > [!NOTE]
 > > Zapewnienia Forthe prostotę, w tym temacie nie omówiono w nim aktualizowania bazy danych jako część procesu wdrażania. Jednak wprowadzanie aktualizacji przyrostowych funkcje bazy danych jest wymagany wiele scenariuszy wdrażania w przedsiębiorstwie i wskazówki można znaleźć w sposób, w tym celu w dalszej części tego samouczka serii. Aby uzyskać więcej informacji, zobacz [wdrażania projektów bazy danych](../web-deployment-in-the-enterprise/deploying-database-projects.md).
@@ -95,7 +95,7 @@ Aby uruchomić wdrożenie, użytkownik wykonuje *Publish.proj* plików przy uży
 
 > [!NOTE]
 > Sposób pracy te pliki projektu niestandardowy jest niezależna od mechanizmu używanego do wywoływania MSBuild. Na przykład można wiersza polecenia programu MSBuild bezpośrednio, zgodnie z opisem w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Możesz uruchamiać pliki projektu z pliku poleceń, zgodnie z opisem w [tworzenie i uruchamianie pliku poleceń wdrażania](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md). Alternatywnie można uruchomić pliki projektu z definicji kompilacji w programie TFS, zgodnie z opisem w [Tworzenie definicji kompilacji tego wdrożenia obsługuje](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).  
-> W każdym przypadku wynik końcowy jest samo & #x 2014; MSBuild wykonuje plik projektu scalone i wdraża rozwiązanie na środowisku docelowym. Zapewnia dużą elastyczność w sposób wyzwalania procesu publikowania.
+> W każdym przypadku wynik końcowy jest taki sam&#x2014;MSBuild wykonuje plik projektu scalone i wdraża rozwiązanie na środowisku docelowym. Zapewnia dużą elastyczność w sposób wyzwalania procesu publikowania.
 
 
 Po on utworzone pliki projektu niestandardowych, Matt dodaje je do folderu rozwiązania i sprawdza ich do kontroli źródła.
@@ -185,7 +185,7 @@ Oto ogólny proces wdrażania do środowiska pomostowego:
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample3.cmd)]
 
 
-W ramach *Publish.proj* pliku **WhatIf** właściwość wskazuje, że wszystkie zasoby wdrożenia powinien zostać opublikowany w trybie "co w przypadku". Innymi słowy pliki dziennika są generowane, tak jakby wdrożenie ma wyprzedzeniem usunięty, ale nic nie jest rzeczywiste zmiany w środowisku docelowym. Pozwala to ocenić wpływ wdrożenia proponowanych & #x 2014; w szczególności, co spowoduje zostaną dodane, co będzie aktualizowany, co zostanie usunięty i #x 2014; przed wprowadzeniem faktycznie żadnych zmian.
+W ramach *Publish.proj* pliku **WhatIf** właściwość wskazuje, że wszystkie zasoby wdrożenia powinien zostać opublikowany w trybie "co w przypadku". Innymi słowy pliki dziennika są generowane, tak jakby wdrożenie ma wyprzedzeniem usunięty, ale nic nie jest rzeczywiste zmiany w środowisku docelowym. Pozwala to ocenić wpływ wdrożenia proponowanych&#x2014;w szczególności, co spowoduje zostaną dodane, co będzie aktualizowany i co zostanie usunięty&#x2014;przed wprowadzeniem faktycznie żadnych zmian.
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat konfigurowania "co w przypadku" wdrożenia, zobacz [wykonywania wdrożenia "Co w przypadku"](../advanced-enterprise-web-deployment/performing-a-what-if-deployment.md).
@@ -227,5 +227,5 @@ Ten temat jest częścią serii samouczków, które zawierają wskazówki dotycz
 - [Konfigurowania serwera Team Foundation Server dla automatycznego wdrażania Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Ten samouczek zawiera wskazówki dotyczące sposobu integracji logiki wdrożenia do procesów kompilacji TFS.
 - [Zaawansowane wdrażanie w przedsiębiorstwie sieci Web](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Ten samouczek zawiera wskazówki dotyczące sposobu spełniają niektóre wyzwania bardziej złożone wdrożenia napotykane przez organizacje.
 
->[!div class="step-by-step"]
-[Poprzednie](enterprise-web-deployment-scenario-overview.md)
+> [!div class="step-by-step"]
+> [Poprzednie](enterprise-web-deployment-scenario-overview.md)

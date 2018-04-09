@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
-title: "Opis możliwości debugowania kodu ASP.NET AJAX | Dokumentacja firmy Microsoft"
+title: Opis możliwości debugowania kodu ASP.NET AJAX | Dokumentacja firmy Microsoft
 author: scottcate
-description: "Możliwość debugowania kodu jest umiejętności, w której każdy Deweloper powinien mieć w ich Arsenał niezależnie od technologii, które korzysta. Gdy są wielu deweloperów..."
+description: Możliwość debugowania kodu jest umiejętności, w której każdy Deweloper powinien mieć w ich Arsenał niezależnie od technologii, które korzysta. Gdy są wielu deweloperów...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
 msc.type: authoredcontent
-ms.openlocfilehash: 426d0182978faf7fc7516203fcc84ef0152790ba
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f082e2206f5e691579670e42634f30b57e3b3593
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-debugging-capabilities"></a>Opis możliwości debugowania kodu ASP.NET AJAX
 ====================
@@ -58,7 +58,7 @@ Rysunek 1 pokazuje jakie programu Internet Explorer okno dialogowe Zaawansowane 
 
 Gdy debugowanie zostało włączone, zostanie wyświetlony nowy element menu są wyświetlane w menu Widok o nazwie Script Debugger. Ma dwie opcje dostępne w tym otwarte i podziału na następnej instrukcji. W przypadku wybrania Otwórz zostanie wyświetlony monit debugowanie stron w programie Visual Studio 2008 (należy pamiętać, że Visual Web Developer Express może także służyć do debugowania). Visual Studio .NET jest obecnie uruchomiona można użyć tego wystąpienia lub Utwórz nowe wystąpienie. W przypadku wybrania podziału w następnej instrukcji zostanie wyświetlony monit do debugowania na stronie, gdy wykonywany jest kod JavaScript. Wykonuje kod JavaScript w zdarzeniu onLoad strony po odświeżeniu strony, aby wyzwolić sesji debugowania. Jeśli kod JavaScript jest uruchamiany po kliknięciu przycisku debugera zostanie uruchomiony, natychmiast po kliknięciu przycisku.
 
-> *>[!NOTE] jeśli są uruchomione w systemie Windows Vista z dostępu kontroli użytkownika (UAC) włączone, a masz program Visual Studio 2008 ustawiona do uruchamiania jako administrator, programu Visual Studio nie będzie można dołączyć do procesu po wyświetleniu monitu, aby dołączyć. Aby obejść ten problem, najpierw uruchom program Visual Studio i debugowanie przy użyciu tego wystąpienia.*
+> *> [!NOTE] Jeśli są uruchomione w systemie Windows Vista z dostępu kontroli użytkownika (UAC) włączone, a masz program Visual Studio 2008 ustawiona do uruchamiania jako administrator, programu Visual Studio nie będzie można dołączyć do procesu, gdy zostanie wyświetlony monit o dołączyć. Aby obejść ten problem, najpierw uruchom program Visual Studio i debugowanie przy użyciu tego wystąpienia.*
 
 
 Chociaż w następnej sekcji przedstawiono sposób debugowania strony ASP.NET AJAX bezpośrednio w programie Visual Studio 2008, przy użyciu opcji debugera skryptów programu Internet Explorer jest przydatne, gdy strona jest już otwarty i chcesz do dokładniejszego zbadania go.
@@ -101,7 +101,7 @@ Po uruchomieniu sesji debugowania i rozpoczęciem Instruktaż kodu za pomocą do
 
 To okno dialogowe jest wyświetlany, ponieważ program Visual Studio .NET nie ma pewności, jak uzyskać dostęp do kodu źródłowego niektórych skryptów odwołuje się na stronie. Mogą to być dość irytujące na początku, jest prosty poprawki. Po rozpoczął sesję debugowania i trafiony punkt przerwania, przejdź do okna debugowania Eksploratora skryptu w menu programu Visual Studio 2008, lub użyj skrótu Ctrl + Alt + N.
 
-> *>[!NOTE] Jeśli nie widać menu programu Script Explorer wymienione, przejdź do lokalizacji narzędzia* *Dostosuj* *polecenia menu programu Visual Studio .NET. Znajdź wpis debugowania w sekcji kategorie i kliknij go, aby wyświetlić wszystkie elementy menu dostępne. Na liście polecenia przewiń w dół do Eksploratora skryptu i przeciągnij go na debugowania* *menu systemu Windows w wymienionych poniżej. W ten sposób udostępni wpisu menu programu Script Explorer każdorazowo po uruchomieniu programu Visual Studio .NET.*
+> *> [!NOTE] Jeśli nie widać menu programu Script Explorer wymienione, przejdź do lokalizacji narzędzia* *Dostosuj* *polecenia menu programu Visual Studio .NET. Znajdź wpis debugowania w sekcji kategorie i kliknij go, aby wyświetlić wszystkie elementy menu dostępne. Na liście polecenia przewiń w dół do Eksploratora skryptu i przeciągnij go na debugowania* *menu systemu Windows w wymienionych poniżej. W ten sposób udostępni wpisu menu programu Script Explorer każdorazowo po uruchomieniu programu Visual Studio .NET.*
 
 
 W Eksploratorze skryptu może służyć do wyświetlania wszystkich skryptów na stronie i otworzyć je w edytorze kodu. Po otwarciu Eksploratora skrypt, kliknij dwukrotnie strony .aspx aktualnie debugowanych aby otworzyć go w oknie edytora kodu. Wykonaj tę samą akcję dla wszystkich innych skryptów wyświetlany w Eksploratorze skryptu. Gdy wszystkie skrypty są otwarte w oknie kodu można naciśnij F11 (i użycia innych klawisze dostępu debugowania) do wykonania kroków opisanych w kodzie. Rysunek 3 przedstawia przykład Eksploratora skryptu. Wyświetla listę bieżącego pliku debugowany (Demo.aspx) oraz dwa skrypty niestandardowe i dwa skrypty dynamicznie wstrzykiwane do strony przez element ScriptManager AJAX ASP.NET.
@@ -116,11 +116,11 @@ Kilka innych systemu windows mogą również służyć do dostarczające przydat
 
 Jak można wykonywać krokowo kodu za pomocą debugera można myszą zmiennych w kodzie do wyświetlania wartości, które są przypisane. Jednak debuger skryptu czasami nic nie wyświetla zgodnie z myszą danego zmiennej JavaScript. Aby wyświetlić wartość, zaznacz instrukcji lub zmiennej, którą próbujesz wyświetlić w oknie edytora kodu i następnie myszy nad nim. Mimo że ta metoda nie działa w każdej sytuacji, wiele razy będzie widoczna wartość bez konieczności wyszukiwania w oknie różnych debugowania, takich jak okno zmiennych lokalnych.
 
-Samouczek wideo pokazujące niektóre funkcje omówione w tym miejscu można wyświetlić w [http://www.xmlforasp.net](http://www.xmlforasp.net).
+Samouczek wideo pokazujące niektóre funkcje omówione w tym miejscu można wyświetlić w [ http://www.xmlforasp.net ](http://www.xmlforasp.net).
 
 ## <a name="debugging-with-web-development-helper"></a>Debugowanie za pomocą pomocnika Projektowanie sieci Web
 
-Mimo że program Visual Studio 2008 (i Visual Web Developer Express 2008) mogą bardzo narzędzia debugowania, istnieją dodatkowe opcje, które może służyć także, które są bardziej lekki. Jednym z najnowsze narzędzia umożliwiające zwalniane jest pomocnika Projektowanie sieci Web. Nikhil Kothari firmy Microsoft, (jeden z kluczy architektów środowiska ASP.NET AJAX w firmie Microsoft) zapisano to doskonałe narzędzie, które można wykonywać wiele różnych zadań z prostego debugowania do wyświetlania komunikatów żądań i odpowiedzi HTTP. Pomocnik tworzenia sieci Web można pobrać [http://projects.nikhilk.net/Projects/WebDevHelper.aspx](http://projects.nikhilk.net/Projects/WebDevHelper.aspx).
+Mimo że program Visual Studio 2008 (i Visual Web Developer Express 2008) mogą bardzo narzędzia debugowania, istnieją dodatkowe opcje, które może służyć także, które są bardziej lekki. Jednym z najnowsze narzędzia umożliwiające zwalniane jest pomocnika Projektowanie sieci Web. Nikhil Kothari firmy Microsoft, (jeden z kluczy architektów środowiska ASP.NET AJAX w firmie Microsoft) zapisano to doskonałe narzędzie, które można wykonywać wiele różnych zadań z prostego debugowania do wyświetlania komunikatów żądań i odpowiedzi HTTP. Pomocnik tworzenia sieci Web można pobrać [ http://projects.nikhilk.net/Projects/WebDevHelper.aspx ](http://projects.nikhilk.net/Projects/WebDevHelper.aspx).
 
 Pomocnik tworzenia sieci Web można bezpośrednio z programu Internet Explorer, co pozwala na łatwe w użyciu. Jest on uruchomiony przez wybranie narzędzi Web Development pomocnika z menu programu Internet Explorer. Zostanie otwarte narzędzie w dolnej części przeglądarki, która jest dobry, ponieważ nie masz pozostaw przeglądarkę, aby wykonać kilka zadań, takich jak rejestrowanie komunikatów żądań i odpowiedzi HTTP. Na rysunku 4 przedstawiono, jak wygląda pomocnika Projektowanie sieci Web w akcji.
 
@@ -201,11 +201,11 @@ Przeglądarka dzienników HTTP automatycznie analizuje obiektów JSON i wyświet
 **Rysunek 8**: komunikat odpowiedzi UpdatePanel wyświetlać za pomocą podglądu dziennika HTTP.  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-asp-net-ajax-debugging-capabilities/_static/image24.png))
 
 
-Istnieje kilka innych narzędzi, które mogą służyć do wyświetlania komunikatów żądań i odpowiedzi oprócz pomocnika Projektowanie sieci Web. Innym dobrym rozwiązaniem jest Fiddler, który jest dostępny bezpłatnie w [http://www.fiddlertool.com](http://www.fiddlertool.com). Mimo że Fiddler nie zostanie tutaj dokładnie omówione, jest również dobrym rozwiązaniem gdy należy dokładnie sprawdzić nagłówki wiadomości i danych.
+Istnieje kilka innych narzędzi, które mogą służyć do wyświetlania komunikatów żądań i odpowiedzi oprócz pomocnika Projektowanie sieci Web. Innym dobrym rozwiązaniem jest Fiddler, który jest dostępny bezpłatnie w [ http://www.fiddlertool.com ](http://www.fiddlertool.com). Mimo że Fiddler nie zostanie tutaj dokładnie omówione, jest również dobrym rozwiązaniem gdy należy dokładnie sprawdzić nagłówki wiadomości i danych.
 
 ## <a name="debugging-with-firefox-and-firebug"></a>Debugowanie za pomocą przeglądarki Firefox i Firebug
 
-Program Internet Explorer nadal jest najczęściej używana przeglądarka, inne przeglądarki, takich jak program Firefox stają się bardzo popularny i są bardziej używane. W związku z tym należy wyświetlić i debugowanie stron ASP.NET AJAX w Firefox, a także programu Internet Explorer, aby sprawdzić, czy aplikacje działają prawidłowo. Mimo że Firefox nie można powiązać bezpośrednio do programu Visual Studio 2008 debugowania, ma rozszerzenie o nazwie Firebug, który może służyć do debugowania stron. Firebug można bezpłatnie pobrać, przechodząc do [http://www.getfirebug.com](http://www.getfirebug.com).
+Program Internet Explorer nadal jest najczęściej używana przeglądarka, inne przeglądarki, takich jak program Firefox stają się bardzo popularny i są bardziej używane. W związku z tym należy wyświetlić i debugowanie stron ASP.NET AJAX w Firefox, a także programu Internet Explorer, aby sprawdzić, czy aplikacje działają prawidłowo. Mimo że Firefox nie można powiązać bezpośrednio do programu Visual Studio 2008 debugowania, ma rozszerzenie o nazwie Firebug, który może służyć do debugowania stron. Firebug można bezpłatnie pobrać, przechodząc do [ http://www.getfirebug.com ](http://www.getfirebug.com).
 
 Firebug udostępnia środowisko debugowania kompletne używany do krokowo kodu wiersz po wierszu, dostęp wszystkie skrypty używane na stronie, wyświetlanie struktury modelu DOM, wyświetlanie stylów CSS i nawet zdarzeń śledzenia w stronę. Po zakończeniu instalacji Firebug są dostępne, wybierając narzędzia Firebug Otwórz Firebug z Firefox menu. Jak pomocnika programowanie dla sieci Web Firebug jest używany bezpośrednio w przeglądarce, chociaż może również służyć jako aplikacja autonomiczna.
 
@@ -355,5 +355,5 @@ daN Wahlin (Microsoft najbardziej wartościowych Professional dla platformy ASP.
 
 Scott IE pracuje z technologii Microsoft Web od 1997 i jest Prezes myKB.com ([www.myKB.com](http://www.myKB.com)) gdzie specjalizuje się on w pisaniu ASP.NET aplikacje oparte na systemie koncentruje się na rozwiązania w zakresie oprogramowania bazy wiedzy Knowledge Base. Scott można nawiązać połączenie za pośrednictwem poczty e-mail na [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) lub jego blogu w [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Poprzednie](understanding-asp-net-ajax-web-services.md)
+> [!div class="step-by-step"]
+> [Poprzednie](understanding-asp-net-ajax-web-services.md)

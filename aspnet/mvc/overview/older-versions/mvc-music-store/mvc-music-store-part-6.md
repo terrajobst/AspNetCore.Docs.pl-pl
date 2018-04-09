@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
-title: "Część 6: Korzystanie z adnotacji danych do sprawdzania poprawności modelu | Dokumentacja firmy Microsoft"
+title: 'Część 6: Korzystanie z adnotacji danych do sprawdzania poprawności modelu | Dokumentacja firmy Microsoft'
 author: jongalloway
-description: "Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 6 obejmuje za pomocą adnotacji danych dla modelu V..."
+description: Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 6 obejmuje za pomocą adnotacji danych dla modelu V...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: b2083d5604741a0142f504f92779c9f931d0d6d9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 328eccb4324bb10a7e8dec819a70129fc14c42c4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-6-using-data-annotations-for-model-validation"></a>Część 6: Przy użyciu adnotacje danych na potrzeby sprawdzania poprawności modelu
 ====================
@@ -81,6 +81,6 @@ Wpisz pojedyncze litery w polu Tytuł spełnia wymagań sprawdzania poprawności
 ![](mvc-music-store-part-6/_static/image3.png)
 
 
->[!div class="step-by-step"]
-[Poprzednie](mvc-music-store-part-5.md)
-[dalej](mvc-music-store-part-7.md)
+> [!div class="step-by-step"]
+> [Poprzednie](mvc-music-store-part-5.md)
+> [dalej](mvc-music-store-part-7.md)

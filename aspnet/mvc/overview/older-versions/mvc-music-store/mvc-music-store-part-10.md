@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
-title: "Część 10: Końcowe aktualizacje do nawigacji i lokacja, zawarcia | Dokumentacja firmy Microsoft"
+title: 'Część 10: Końcowe aktualizacje do nawigacji i lokacja, zawarcia | Dokumentacja firmy Microsoft'
 author: jongalloway
-description: "Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 10 obejmuje końcowe aktualizacje do nawigacji i S..."
+description: Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 10 obejmuje końcowe aktualizacje do nawigacji i S...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: 2a65e4b793b615c45cdf31166e0a000ae72ee534
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: b40d194c4d08f3564da59bacde4b5d3d7663373a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Część 10: Końcowe aktualizacje nawigacji i lokacja, zawarcia
 ====================
@@ -138,5 +138,5 @@ Uruchamianych aplikacji, firma Microsoft będzie widoczny naszych zaktualizowane
 Firma Microsoft w tym samouczku czy ASP.NET MVC ułatwia można tworzyć zaawansowane witryny sieci Web z dostępem do bazy danych, członkostwa, AJAX, itp. bardzo szybko. Miejmy nadzieję, że w tym samouczku przyznał Ci narzędzia, które należy rozpocząć tworzenie własnych ASP.NET MVC aplikacji!
 
 
->[!div class="step-by-step"]
-[Poprzednie](mvc-music-store-part-9.md)
+> [!div class="step-by-step"]
+> [Poprzednie](mvc-music-store-part-9.md)

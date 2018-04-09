@@ -1,7 +1,7 @@
 ---
 title: Platformy ASP.NET Core MVC podstawowych EF - CRUD - 2 10
 author: tdykstra
-description: 
+description: ''
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/crud
-ms.openlocfilehash: a586fdde07ecf349d7523d43a623501af62257a2
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 54f25733126c6de5a3704664bda7c7942a3643a1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Tworzenia, odczytu, aktualizacji i usuwania - Core EF z samouczek platformy ASP.NET Core MVC (2 10)
+# <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF - CRUD - 2 10
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -44,7 +44,7 @@ W *Controllers/StudentsController.cs*, metody akcji, aby uzyskać więcej inform
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Details&highlight=8-12)]
 
-`Include` i `ThenInclude` metody powodują kontekstu ładowania `Student.Enrollments` właściwość nawigacji i w obrębie każdej rejestracji `Enrollment.Course` właściwości nawigacji.  Dowiesz się więcej na temat tych metod w [odczytywanie danych powiązanych](read-related-data.md) samouczka.
+`Include` i `ThenInclude` metody powodują kontekstu ładowania `Student.Enrollments` właściwość nawigacji i w obrębie każdej rejestracji `Enrollment.Course` właściwości nawigacji.  Dowiesz się więcej na temat tych metod w [odczytać dane dotyczące](read-related-data.md) samouczka.
 
 `AsNoTracking` Metody umożliwia zwiększenie wydajności w scenariuszach, w którym zwróconych nie zostaną zaktualizowane w okresie istnienia w bieżącym kontekście. Dowiesz się więcej na temat `AsNoTracking` na końcu tego samouczka.
 
@@ -296,6 +296,6 @@ Aby uzyskać więcej informacji, zobacz [śledzenia wersji programu vs. Śledzen
 
 Masz teraz kompletny zestaw stron, które wykonywać proste operacje CRUD dla uczniów jednostek. W następnym samouczku będzie rozszerzyć funkcjonalność **indeksu** dodając sortowanie, filtrowanie i stronicowania.
 
->[!div class="step-by-step"]
-[Poprzednie](intro.md)
-[dalej](sort-filter-page.md)  
+> [!div class="step-by-step"]
+> [Poprzednie](intro.md)
+> [dalej](sort-filter-page.md)  

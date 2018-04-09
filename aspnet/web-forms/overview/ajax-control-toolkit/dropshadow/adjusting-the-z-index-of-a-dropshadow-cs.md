@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs
-title: "Dopasowywanie indeks cień (C#) | Dokumentacja firmy Microsoft"
+title: Dopasowywanie indeks cień (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formant cień w zestawie narzędzi kontroli AJAX rozszerza panel z cień. Jednak ta tle czasami powoduje konflikt z inne formanty, zainstaluj..."
+description: Formant cień w zestawie narzędzi kontroli AJAX rozszerza panel z cień. Jednak ta tle czasami powoduje konflikt z inne formanty, zainstaluj...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 161f02daa5dd1f0e21853c1b7c1a65c1a9aa5d03
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 82add8427c8e574b213b67315e69bb4c28846095
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adjusting-the-z-index-of-a-dropshadow-c"></a>Dopasowywanie indeks cień (C#)
 ====================
@@ -68,5 +68,5 @@ Przed: Nie jest widoczna pozycja menu ([kliknij, aby wyświetlić obraz w pełny
 
 Po: Pojawi się wpis menu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](adjusting-the-z-index-of-a-dropshadow-cs/_static/image6.png))
 
->[!div class="step-by-step"]
-[Dalej](manipulating-dropshadow-properties-from-client-code-cs.md)
+> [!div class="step-by-step"]
+> [Next](manipulating-dropshadow-properties-from-client-code-cs.md)

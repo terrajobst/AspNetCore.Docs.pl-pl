@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb
-title: "Ochrona parametry połączenia i inne informacje o konfiguracji (VB) | Dokumentacja firmy Microsoft"
+title: Ochrona parametry połączenia i inne informacje o konfiguracji (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Aplikacja ASP.NET zwykle przechowuje informacje o konfiguracji w pliku Web.config. Niektóre z tych informacji jest poufne i gwarantuje ochrony. Przez domyślny."
+description: Aplikacja ASP.NET zwykle przechowuje informacje o konfiguracji w pliku Web.config. Niektóre z tych informacji jest poufne i gwarantuje ochrony. Przez domyślny.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f1514c4b6d041f6bbd83788e2110a95d3d831ff6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3372416dd9143afbfd442eaffb39cd807fae0de6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-vb"></a>Ochrona parametry połączenia i inne informacje o konfiguracji (VB)
 ====================
@@ -31,7 +31,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 Informacje o konfiguracji dla aplikacji ASP.NET jest często przechowywane w pliku XML o nazwie `Web.config`. W trakcie tego samouczka zostały zaktualizowane `Web.config` kilka razy. Podczas tworzenia `Northwind` wpisane zestaw danych z [pierwszy samouczek](../introduction/creating-a-data-access-layer-vb.md), na przykład informacje o parametrach połączenia została automatycznie dodana do `Web.config` w `<connectionStrings>` sekcji. W dalszej [stron wzorcowych i nawigacji w witrynie](../introduction/master-pages-and-site-navigation-vb.md) samouczek, ręcznie Zaktualizowaliśmy `Web.config`, dodając `<pages>` elementu oznacza, że wszystkie strony ASP.NET w naszym projektu należy użyć `DataWebControls` motywu.
 
-Ponieważ `Web.config` mogą zawierać poufne dane, takie jak parametry połączenia, ważne jest, że zawartość `Web.config` bezpieczne i ukrytych z nieautoryzowanym użytkownikom. Domyślnie wszystkie HTTP żądanie do pliku z `.config` rozszerzenia jest obsługiwany przez aparat programu ASP.NET, która zwraca *ten typ strony nie został obsłużony* komunikat pokazany na rysunku 1. Oznacza to, że osoby odwiedzające nie można wyświetlić z `Web.config` plików zawartości s, wprowadzając po prostu http://www.YourServer.com/Web.config do ich na pasku adresu przeglądarki s.
+Ponieważ `Web.config` mogą zawierać poufne dane, takie jak parametry połączenia, ważne jest, że zawartość `Web.config` bezpieczne i ukrytych z nieautoryzowanym użytkownikom. Domyślnie wszystkie HTTP żądanie do pliku z `.config` rozszerzenia jest obsługiwany przez aparat programu ASP.NET, która zwraca *ten typ strony nie został obsłużony* komunikat pokazany na rysunku 1. Oznacza to, że osoby odwiedzające nie można wyświetlić z `Web.config` plików zawartości s po prostu wprowadzając http://www.YourServer.com/Web.config do ich na pasku adresu przeglądarki s.
 
 
 [![Odwiedzający Web.config za pośrednictwem przeglądarki zwraca to typ strony nie został obsłużony wiadomości](protecting-connection-strings-and-other-configuration-information-vb/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image1.png)
@@ -60,8 +60,8 @@ Platforma ASP.NET 2.0 zawiera system konfiguracji chronionych do szyfrowania i o
 
 .NET Framework jest dostarczany z dwóch dostawców chronionych konfiguracji:
 
-- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx)-używa asymetrycznego [algorytmu RSA](http://en.wikipedia.org/wiki/Rsa) do szyfrowania i odszyfrowywania.
-- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx)-korzysta z systemu Windows [interfejsu API ochrony danych (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) do szyfrowania i odszyfrowywania.
+- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx) -używa asymetrycznego [algorytmu RSA](http://en.wikipedia.org/wiki/Rsa) do szyfrowania i odszyfrowywania.
+- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx) -korzysta z systemu Windows [interfejsu API ochrony danych (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) do szyfrowania i odszyfrowywania.
 
 Ponieważ system konfiguracji chronionych implementuje wzorzec projektowy dostawcy, jest możliwość tworzenia własnego dostawcę konfiguracji chronionych i podłącz go do aplikacji. Zobacz [implementacja dostawcę konfiguracji chronione](https://msdn.microsoft.com/library/wfc2t3az(VS.80).aspx) Aby uzyskać więcej informacji na temat tego procesu.
 
@@ -96,7 +96,7 @@ Następnie należy napisać kod, który ładuje i wyświetla zawartość `Web.co
 
 [!code-vb[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample1.vb)]
 
-`DisplayWebConfig` Używa metody [ `File` klasy](https://msdn.microsoft.com/library/system.io.file.aspx) otworzyć s aplikacji `Web.config` pliku [ `StreamReader` klasy](https://msdn.microsoft.com/library/system.io.streamreader.aspx) Aby przeczytać jego zawartość do ciągu i [ `Path` klasy](https://msdn.microsoft.com/library/system.io.path.aspx) do ścieżki fizycznej do generowania `Web.config` pliku. Te trzy klasy zostały znalezione w [ `System.IO` przestrzeni nazw](https://msdn.microsoft.com/library/system.io.aspx). W związku z tym, należy dodać `Imports``System.IO` instrukcji u góry klasy związane z kodem, lub te klasy nazw z prefiksem`System.IO.`
+`DisplayWebConfig` Używa metody [ `File` klasy](https://msdn.microsoft.com/library/system.io.file.aspx) otworzyć s aplikacji `Web.config` pliku [ `StreamReader` klasy](https://msdn.microsoft.com/library/system.io.streamreader.aspx) Aby przeczytać jego zawartość do ciągu i [ `Path` klasy](https://msdn.microsoft.com/library/system.io.path.aspx) do ścieżki fizycznej do generowania `Web.config` pliku. Te trzy klasy zostały znalezione w [ `System.IO` przestrzeni nazw](https://msdn.microsoft.com/library/system.io.aspx). W związku z tym, należy dodać `Imports``System.IO` instrukcji u góry klasy związane z kodem, lub te klasy nazw z prefiksem `System.IO.`
 
 Następnie należy dodać obsługę zdarzeń dla dwóch formantów przycisk `Click` zdarzeń i Dodaj kod niezbędne do szyfrowania i odszyfrowywania `<connectionStrings>` sekcji przy użyciu klucza na poziomie maszyny z dostawcą DPAPI. Przy użyciu projektanta, kliknij dwukrotnie przycisków, aby dodać `Click` obsługi zdarzeń w CodeBehind klasy, a następnie dodaj następujący kod:
 
@@ -228,12 +228,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Teresa Murphy i Randy Schmidt. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb.md)
-[dalej](debugging-stored-procedures-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb.md)
+> [dalej](debugging-stored-procedures-vb.md)

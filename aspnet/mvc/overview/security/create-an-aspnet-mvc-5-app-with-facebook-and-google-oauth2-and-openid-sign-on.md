@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
-title: "Utwórz MVC 5 aplikacji za pomocą usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowania jednokrotnego (C#) | Dokumentacja firmy Microsoft"
+title: Utwórz MVC 5 aplikacji za pomocą usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowania jednokrotnego (C#) | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Ten samouczek pokazuje, jak utworzyć aplikację sieci web platformy ASP.NET MVC 5 umożliwia użytkownikom zalogowanie się przy użyciu protokołu OAuth 2.0 z poświadczeń authenti zewnętrznych..."
+description: Ten samouczek pokazuje, jak utworzyć aplikację sieci web platformy ASP.NET MVC 5 umożliwia użytkownikom zalogowanie się przy użyciu protokołu OAuth 2.0 z poświadczeń authenti zewnętrznych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 8dc2221ea19a33f1d34ba3aae8c60e365423e140
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: c289c209b50f0c2c1f2d8b15a3aedeaebf671d0b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Tworzenie aplikacji platformy ASP.NET MVC 5 z usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowania jednokrotnego (C#)
 ====================
@@ -34,7 +34,7 @@ przez [Rick Anderson](https://github.com/Rick-Anderson)
 <a id="start"></a>
 ## <a name="getting-started"></a>Wprowadzenie
 
-Rozpocznij od instalowania i uruchamiania [programu Visual Studio Express 2013 for Web](https://go.microsoft.com/fwlink/?LinkId=299058) lub [programu Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566). Zainstaluj program Visual Studio [2013, aktualizacja 3](https://go.microsoft.com/fwlink/?LinkId=390521) lub nowszej. Aby uzyskać pomoc dotyczącą Dropbox, GitHub, Linkedin, Instagram, buforu, salesforce, pary, Exchange stosu, Tripit, twitch, Twitter, Yahoo i więcej, zobacz [przewodnik jeden stop](http://www.oauthforaspnet.com/).
+Rozpocznij od instalowania i uruchamiania [programu Visual Studio Express 2013 for Web](https://go.microsoft.com/fwlink/?LinkId=299058) lub [programu Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566). Zainstaluj program Visual Studio [2013, aktualizacja 3](https://go.microsoft.com/fwlink/?LinkId=390521) lub nowszej. Aby uzyskać pomoc dotyczącą Dropbox, GitHub, Linkedin, Instagram, buforu, Salesforce, pary, Exchange stosu, Tripit, Twitch, Twitter, Yahoo! i więcej, zobacz [przykładowy projekt](https://github.com/matthewdunsdon/oauthforaspnet).
 
 > [!NOTE]
 > Należy zainstalować program Visual Studio [2013, aktualizacja 3](https://go.microsoft.com/fwlink/?LinkId=390521) lub nowszej, do korzystania z usługi Google OAuth 2 i debugowania lokalnie bez ostrzeżeń protokołu SSL.
@@ -118,9 +118,9 @@ Aby połączyć dostawców uwierzytelniania, takich jak Google i Facebook, nale�
 > Bieżący protokołu Google OAuth instrukcje można znaleźć [Konfigurowanie uwierzytelniania serwisu Google w ASP.NET Core](/aspnet/core/security/authentication/social/google-logins).
 
 1. Przejdź do [konsoli deweloperów Google](https://console.developers.google.com/).
-1. Jeśli nie utworzono projekt przed, wybierz **poświadczenia** w karcie po lewej stronie, a następnie wybierz **Utwórz**.
-1. Na karcie po lewej stronie kliknij **poświadczenia**.
-1. Kliknij przycisk **Utwórz poświadczenia** następnie **identyfikator klienta OAuth**. 
+2. Jeśli nie utworzono projekt przed, wybierz **poświadczenia** w karcie po lewej stronie, a następnie wybierz **Utwórz**.
+3. Na karcie po lewej stronie kliknij **poświadczenia**.
+4. Kliknij przycisk **Utwórz poświadczenia** następnie **identyfikator klienta OAuth**. 
 
     1. W **utworzyć identyfikator klienta** okna dialogowego, zachowaj ustawienie domyślne **aplikacji sieci Web** typu aplikacja.
     2. Ustaw **autoryzowany JavaScript** źródła do adresu URL protokołu SSL używany powyżej (`https://localhost:44300/` chyba, że po utworzeniu innych projektów SSL)
@@ -131,7 +131,7 @@ Aby połączyć dostawców uwierzytelniania, takich jak Google i Facebook, nale�
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image15.png)  
   
- Na poniższym obrazie pokazano włączone interfejsy API.  
+   Na poniższym obrazie pokazano włączone interfejsy API.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image16.png)
 7. Odwiedź stronę z Google APIs interfejsu API menedżera, **poświadczenia** kartę, aby uzyskać **identyfikator klienta**. Pobierz, aby zapisać plik JSON z haseł aplikacji. Skopiuj i Wklej **ClientId** i **ClientSecret** do `UseGoogleAuthentication` znaleziono metody w *Startup.Auth.cs* w pliku *App_Start* folderu. **ClientId** i **ClientSecret** poniższe wartości są przykłady i nie działają.
@@ -148,8 +148,8 @@ Aby połączyć dostawców uwierzytelniania, takich jak Google i Facebook, nale�
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image18.png)
 
     > [!NOTE]
-    > Jeśli pominiesz dowolne z opisanych wyżej wystąpi błąd HTTP 401. Ponownie sprawdź powyższe kroki. Jeśli pominiesz wymaganego ustawienia (na przykład **nazwa produktu**), Dodaj brakujące elementu, a następnie Zapisz, może upłynąć kilka minut dla działania uwierzytelniania.
-10. Nastąpi przekierowanie do witryny google, w którym należy wprowadzić poświadczenia.   
+    > Jeśli pominiesz dowolne z opisanych wyżej wystąpi błąd HTTP 401. Ponownie sprawdź powyższe kroki. Jeśli pominiesz wymaganego ustawienia (na przykład **nazwa produktu**), Dodaj brakujący element i zapisać; może potrwać kilka minut dla działania uwierzytelniania.
+10. Nastąpi przekierowanie do witryny Google, w którym należy wprowadzić poświadczenia.   
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image19.png)
 11. Po wprowadź swoje poświadczenia, pojawi się monit, aby udzielić uprawnień do nowo utworzonej aplikacji sieci web:
@@ -167,14 +167,14 @@ Aby połączyć dostawców uwierzytelniania, takich jak Google i Facebook, nale�
 
 Dla uwierzytelniania serwisu Facebook OAuth2 należy skopiować do projektu niektórych ustawień z aplikacji, która tworzenia w serwisie Facebook.
 
-1. W przeglądarce przejdź do [https://developers.facebook.com/apps](https://developers.facebook.com/apps) i zaloguj ponownie wprowadzić swoje poświadczenia usługi Facebook.
+1. W przeglądarce przejdź do [ https://developers.facebook.com/apps ](https://developers.facebook.com/apps) i zaloguj ponownie wprowadzić swoje poświadczenia usługi Facebook.
 2. Jeśli nie są już zarejestrowane jako deweloper usługi Facebook, kliknij przycisk **Zarejestruj się jako deweloper** i postępuj zgodnie z instrukcjami, aby zarejestrować.
 3. Na **aplikacje** , kliknij pozycję **Utwórz nową aplikację**.
 
     ![Utwórz nową aplikację](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image22.png)
 4. Wprowadź **Nazwa aplikacji** i **kategorii**, następnie kliknij przycisk **tworzenie aplikacji**.
 
-    To musi być unikatowa w serwisie Facebook. **Namespace aplikacji** to część adresu URL, które Twoja aplikacja będzie używać do dostępu do aplikacji usługi Facebook dla uwierzytelniania (na przykład https://apps.facebook.com/ {aplikacji Namespace}). Jeśli nie określisz **Namespace aplikacji**, **identyfikator aplikacji** będą używane dla adresu URL. **Identyfikator aplikacji** jest liczbą długo generowanych przez system, która będzie widoczna w następnym kroku.
+    To musi być unikatowa w serwisie Facebook. <strong>Namespace aplikacji</strong> to część adresu URL, które Twoja aplikacja będzie używać do dostępu do aplikacji usługi Facebook dla uwierzytelniania (na przykład https://apps.facebook.com/{App Namespace}). Jeśli nie określisz <strong>Namespace aplikacji</strong>, <strong>identyfikator aplikacji</strong> będą używane dla adresu URL. <strong>Identyfikator aplikacji</strong> jest liczbą długo generowanych przez system, która będzie widoczna w następnym kroku.
 
     ![Utwórz nową aplikację w oknie dialogowym](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
 5. Przedstawia wyboru standardowych zabezpieczeń.

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
-title: "Wdrażanie projektów bazy danych | Dokumentacja firmy Microsoft"
+title: Wdrażanie projektów bazy danych | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "Uwaga: W wielu scenariuszach dla przedsiębiorstwa wdrożenia, potrzebna jest możliwość do publikowania aktualizacji przyrostowych wdrożonej bazy danych. Alternatywą jest odtworzenie..."
+description: 'Uwaga: W wielu scenariuszach dla przedsiębiorstwa wdrożenia, potrzebna jest możliwość do publikowania aktualizacji przyrostowych wdrożonej bazy danych. Alternatywą jest odtworzenie...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 9b1f9a19c76e33b5d996cb4d562cf0c1a3e2f83b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a0b3871ea098b549271bce2b9d5f0c24f9ca8a9c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-database-projects"></a>Wdrażanie projektów bazy danych
 ====================
@@ -92,8 +92,8 @@ W takim przypadku:
 
 - **/A** (lub **należy**) przełącznik określa, co ma VSDBCMD zrobić. Możesz ustawić **importu** lub **Wdróż**. **Importu** opcja jest używana do generowania pliku .dbschema z istniejącej bazy danych i **Wdróż** opcja jest używana do wdrażania pliku .dbschema do docelowej bazy danych.
 - **/Manifest** (lub **/ManifestFile**) przełącznik określa plik .deploymanifest, którą chcesz wdrożyć. Jeśli chcesz użyć pliku .dbschema zamiast tego należy użyć **/modelu** (lub **/ModelFile**) przełącznika.
-- **/Cs** (lub **/ConnectionString**) przełącznik udostępnia parametry połączenia dla bazy danych serwera docelowego. Należy pamiętać, że to nie zawiera nazwy #x 2014; & bazy danych VSDBCMD musi połączyć się z serwerem, można utworzyć bazy danych. nie trzeba nawiązać połączenia z bazą danych poszczególnych. Jeśli plik .deploymanifest zawiera parametry połączenia, można pominąć ten przełącznik. Jeśli mimo to należy użyć przełącznika, wartość przełącznika spowoduje zastąpienie wartości .deploymanifest.
-- **/P:TargetDatabase** właściwość zawiera nazwę chcesz przypisać do docelowej bazy danych podczas ich tworzenia. Zastępuje to wartość **TargetDatabase** właściwość w pliku .deploymanifest. Można użyć **/p:** *[nazwa właściwości]*składni do konfigurowania różnych typów właściwości wdrożenia oraz zastąpić wszystkie zmienne SQLCMD zadeklarowany w pliku .sqlcmdvars.
+- **/Cs** (lub **/ConnectionString**) przełącznik udostępnia parametry połączenia dla bazy danych serwera docelowego. Należy pamiętać, że to nazwa bazy danych nie zawiera&#x2014;VSDBCMD musi połączyć się z serwerem, można utworzyć bazy danych. nie trzeba nawiązać połączenia z bazą danych poszczególnych. Jeśli plik .deploymanifest zawiera parametry połączenia, można pominąć ten przełącznik. Jeśli mimo to należy użyć przełącznika, wartość przełącznika spowoduje zastąpienie wartości .deploymanifest.
+- <strong>/P:TargetDatabase</strong> właściwość zawiera nazwę chcesz przypisać do docelowej bazy danych podczas ich tworzenia. Zastępuje to wartość <strong>TargetDatabase</strong> właściwość w pliku .deploymanifest. Można użyć <strong>/p:</strong> <em>[nazwa właściwości]</em>składni do konfigurowania różnych typów właściwości wdrożenia oraz zastąpić wszystkie zmienne SQLCMD zadeklarowany w pliku .sqlcmdvars.
 - **/Dd+** (lub **/DeployToDatabase+**) przełącznika wskazuje, że chcesz utworzyć wdrożenie, a następnie wdrożyć ją w środowisku docelowym. Jeśli określisz **/dd-**, lub pominięta, VSDBCMD wygeneruje skryptu wdrażania, ale nie zostaną wdrożone w środowisku docelowym. Ten przełącznik jest często źródło pomyłek i jest co omówiono bardziej szczegółowo w następnej sekcji.
 - **/Script** (lub **/DeploymentScriptFile**) przełącznik określa, gdzie chcesz wygenerować skrypt wdrożenia. Ta wartość nie wpływa na proces wdrażania.
 
@@ -150,6 +150,6 @@ Te tematy w witrynie MSDN zawierają szerszych wskazówki i informacje dla proje
 - [Porady: Przygotowanie bazy danych do wdrożenia z wiersza polecenia przy użyciu VSDBCMD. WYWOŁANIE PLIKU EXE](https://msdn.microsoft.com/library/dd193258.aspx)
 - [Omówienie bazy danych kompilacji i wdrożenia](https://msdn.microsoft.com/library/aa833165.aspx)
 
->[!div class="step-by-step"]
-[Poprzednie](deploying-web-packages.md)
-[dalej](creating-and-running-a-deployment-command-file.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deploying-web-packages.md)
+> [dalej](creating-and-running-a-deployment-command-file.md)

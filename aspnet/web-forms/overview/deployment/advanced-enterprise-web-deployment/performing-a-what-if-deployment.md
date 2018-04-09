@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
-title: "Wykonywanie co, jeśli wdrożenie | Dokumentacja firmy Microsoft"
+title: Wykonywanie co, jeśli wdrożenie | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób wykonywania \"co w przypadku\" (lub symulowane) wdrożenia przy użyciu narzędzia do wdrażania sieci Web usług Internet Information Services (IIS) (Web Deploy) i V..."
+description: W tym temacie opisano sposób wykonywania "co w przypadku" (lub symulowane) wdrożenia przy użyciu narzędzia do wdrażania sieci Web usług Internet Information Services (IIS) (Web Deploy) i V...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cea805c86f0764c7443ccc5c9f89248860a6a842
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c1a13f38c8e629bcd615190b00104109e25fb289
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-a-what-if-deployment"></a>Wykonywanie wdrożenia "Co w przypadku"
 ====================
@@ -27,9 +27,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > W tym temacie opisano sposób wykonywania "co w przypadku" (lub symulowane) przy użyciu narzędzia do wdrażania sieci Web usług Internet Information Services (IIS) (Web Deploy) i VSDBCMD wdrożeń. Dzięki temu można określić skutków logiki wdrożenia w środowisku określonego elementu docelowego, przed wdrożeniem faktycznie aplikacji.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w które procesem kompilacji i wdrażania są kontrolowane przez dwa pliki projektu & #x 2014; IE ne instrukcjami kompilacji, które są stosowane do każdego środowiska docelowego i jeden zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji i wdrożenia dwa pliki projektu&#x2014;jeden zawierającego instrukcje kompilacji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
 
 ## <a name="performing-a-what-if-deployment-for-web-packages"></a>Wykonywanie wdrożenia "Co w przypadku" dla pakietów sieci Web
 
@@ -41,7 +41,7 @@ Narzędzie Web Deploy zawiera funkcje, które umożliwia wykonywanie wdrożeń w
 
 Ponieważ wdrożenia "co w przypadku" faktycznie nie zmienia sytuacji na serwerze docelowym, jakie zawsze nie jest prognozowania, czy wdrożenie powiedzie się.
 
-Zgodnie z opisem w [wdrażanie pakietów sieci Web](../web-deployment-in-the-enterprise/deploying-web-packages.md), można wdrożyć pakietów sieci web za pomocą narzędzia Web Deploy na dwa sposoby & #x 2014; za pomocą MSDeploy.exe narzędzia wiersza polecenia bezpośrednio lub przez uruchomienie *. pliku deploy.cmd* plik, który generuje procesu kompilacji.
+Zgodnie z opisem w [wdrażanie pakietów sieci Web](../web-deployment-in-the-enterprise/deploying-web-packages.md), można wdrożyć pakietów sieci web za pomocą narzędzia Web Deploy na dwa sposoby&#x2014;za pomocą narzędzia wiersza polecenia programu MSDeploy.exe bezpośrednio lub przez uruchomienie *. pliku deploy.cmd* pliku czy generuje procesu kompilacji.
 
 Jeśli używasz programu MSDeploy.exe bezpośrednio, dodając można uruchomić wdrożenia "co w przypadku" **-whatif** flagi do polecenia. Na przykład aby ocenić, co się stanie po wdrożeniu pakietu ContactManager.Mvc.zip w środowisku przemieszczania, polecenie MSDeploy powinien wyglądać następująco:
 
@@ -122,7 +122,7 @@ Kolejnego etapu ma parametryzacja dowolnego narzędzia Web Deploy i VSDBCMD pole
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample6.xml)]
 
 
-Podobnie element docelowy dalej używa narzędzia VSDBCMD do wdrażania bazy danych. Domyślnie **/dd** przełącznik nie jest dołączony. Oznacza to, że VSDBCMD wygeneruje skryptu wdrażania, ale nie wdroży #x 2014; & bazy danych innymi słowy, "co w przypadku" scenariusza. Jeśli **WhatIf** nie ustawiono właściwości **true**, **/dd** dodawanej przełącznik i VSDBCMD wdroży bazy danych.
+Podobnie element docelowy dalej używa narzędzia VSDBCMD do wdrażania bazy danych. Domyślnie **/dd** przełącznik nie jest dołączony. Oznacza to, że VSDBCMD wygeneruje skryptu wdrażania, ale nie spowoduje wdrożenia bazy danych&#x2014;innymi słowy, "co w przypadku" scenariusza. Jeśli **WhatIf** nie ustawiono właściwości **true**, **/dd** dodawanej przełącznik i VSDBCMD wdroży bazy danych.
 
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample7.xml)]
@@ -144,6 +144,6 @@ W tym temacie opisano sposób uruchamiania "co w przypadku" wdrożenia przy uży
 
 Aby uzyskać więcej informacji o składni wiersza polecenia narzędzia Web Deploy, zobacz [ustawienia operację wdrażania w sieci Web](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Wskazówki dotyczące opcji wiersza polecenia, korzystając z *. pliku deploy.cmd* plików, zobacz [porady: Zainstaluj wdrażania pakietu przy użyciu pliku deploy.cmd pliku](https://msdn.microsoft.com/library/ff356104.aspx). Aby uzyskać wskazówki dotyczące VSDBCMD składni wiersza polecenia, zobacz [dotyczące wiersza polecenia dla VSDBCMD. EXE (wdrożenia i importowania schematu)](https://msdn.microsoft.com/library/dd193283.aspx).
 
->[!div class="step-by-step"]
-[Poprzednie](advanced-enterprise-web-deployment.md)
-[dalej](customizing-database-deployments-for-multiple-environments.md)
+> [!div class="step-by-step"]
+> [Poprzednie](advanced-enterprise-web-deployment.md)
+> [dalej](customizing-database-deployments-for-multiple-environments.md)

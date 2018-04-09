@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs
 title: Zawijanie modyfikacje bazy danych w transakcji (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku jest pierwszy czterech, która wygląda na aktualizowanie, usuwanie i wstawianie partie danych. W tym samouczku będziemy Dowiedz się, jak umożliwić transakcji bazy danych..."
+description: W tym samouczku jest pierwszy czterech, która wygląda na aktualizowanie, usuwanie i wstawianie partie danych. W tym samouczku będziemy Dowiedz się, jak umożliwić transakcji bazy danych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e2dafdf9a9414bddfca37ef942856c94096f35b8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a3f8ec2de7b9259e4bb83f4346bde8abfd643fb4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="wrapping-database-modifications-within-a-transaction-c"></a>Zawijanie modyfikacje bazy danych w transakcji (C#)
 ====================
@@ -117,7 +117,7 @@ Zestaw danych typu `Northwind.xsd` znajduje się w `App_Code` folderu s `DAL` po
 
 ![Dodaj Folder o nazwie TransactionSupport i plik klasy o nazwie ProductsTableAdapter.TransactionSupport.cs](wrapping-database-modifications-within-a-transaction-cs/_static/image4.gif)
 
-**Rysunek 4**: Dodaj Folder o nazwie `TransactionSupport` i plik klasy o nazwie`ProductsTableAdapter.TransactionSupport.cs`
+**Rysunek 4**: Dodaj Folder o nazwie `TransactionSupport` i plik klasy o nazwie `ProductsTableAdapter.TransactionSupport.cs`
 
 
 Wprowadź następujący kod do `ProductsTableAdapter.TransactionSupport.cs` pliku:
@@ -127,7 +127,7 @@ Wprowadź następujący kod do `ProductsTableAdapter.TransactionSupport.cs` plik
 
 `partial` — Słowo kluczowe w deklaracji klasy, w tym miejscu wskazuje kompilatora, które są dodawani członkowie mają zostać dodane do `ProductsTableAdapter` klasy w `NorthwindTableAdapters` przestrzeni nazw. Uwaga `using System.Data.SqlClient` instrukcji w górnej części pliku. Ponieważ TableAdapter został skonfigurowany do używania dostawcy SqlClient, wewnętrznie używa [ `SqlDataAdapter` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqldataadapter.aspx) obiekt do wysyłania polecenia do bazy danych. W związku z tym, należy użyć `SqlTransaction` klasy, aby rozpocząć transakcji, a następnie przekazać go lub go wycofać. Jeśli korzystasz z magazynem danych innych niż Microsoft SQL Server, należy użyć odpowiedniego dostawcę.
 
-Te metody Podaj bloków konstrukcyjnych potrzebne do uruchomienia, wycofywania i przekazać transakcji. Są one oznaczone `public`, włączanie ich do użycia z poziomu `ProductsTableAdapter`z innej klasy w warstwy DAL i z innej warstwy architektury, takich jak logiki warstwy Biznesowej. `BeginTransaction`Otwiera wewnętrzny s TableAdapter `SqlConnection` (w razie potrzeby), rozpoczyna się transakcji i przypisuje go do `Transaction` właściwości oraz dołącza transakcji do wewnętrznej `SqlDataAdapter` s `SqlCommand` obiektów. `CommitTransaction`i `RollbackTransaction` wywołać `Transaction` obiektu s `Commit` i `Rollback` metod, odpowiednio, przed jego zamknięciem wewnętrznej `Connection` obiektu.
+Te metody Podaj bloków konstrukcyjnych potrzebne do uruchomienia, wycofywania i przekazać transakcji. Są one oznaczone `public`, włączanie ich do użycia z poziomu `ProductsTableAdapter`z innej klasy w warstwy DAL i z innej warstwy architektury, takich jak logiki warstwy Biznesowej. `BeginTransaction` Otwiera wewnętrzny s TableAdapter `SqlConnection` (w razie potrzeby), rozpoczyna się transakcji i przypisuje go do `Transaction` właściwości oraz dołącza transakcji do wewnętrznej `SqlDataAdapter` s `SqlCommand` obiektów. `CommitTransaction` i `RollbackTransaction` wywołać `Transaction` obiektu s `Commit` i `Rollback` metod, odpowiednio, przed jego zamknięciem wewnętrznej `Connection` obiektu.
 
 ## <a name="step-3-adding-methods-to-update-and-delete-data-under-the-umbrella-of-a-transaction"></a>Krok 3: Dodawanie metody do aktualizacji i usuwania danych w obszarze parasola transakcji
 
@@ -247,17 +247,17 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 - [Zachowaniu spójności bazy danych z transakcji](http://aspnet.4guysfromrolla.com/articles/072705-1.aspx)
 - [Zarządzanie transakcji w programie SQL Server procedury składowane](http://www.4guysfromrolla.com/webtech/080305-1.shtml)
-- [Transakcje prosty:`System.Transactions`](https://blogs.msdn.com/florinlazar/archive/2004/07/23/192239.aspx)
+- [Transakcje prosty: `System.Transactions`](https://blogs.msdn.com/florinlazar/archive/2004/07/23/192239.aspx)
 - [Element TransactionScope i obiektów DataAdapter](http://andyclymer.blogspot.com/2007/01/transactionscope-and-dataadapters.html)
 - [Używanie transakcji bazy danych Oracle w .NET](http://www.oracle.com/technology/pub/articles/price_dbtrans_dotnet.html)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Dave Gardner, Hilton Giesenow i Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Next](batch-updating-cs.md)
+> [!div class="step-by-step"]
+> [Next](batch-updating-cs.md)

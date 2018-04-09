@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 title: Sieci Web Development Best Practices (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on..."
+description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 52d6c941-2cd9-442f-9872-2c798d6d90cd
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: de536a0ca39cb752c0962f0c4ae36eb00b586bff
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4c43b256018d91e89b3427f90fc5c6cd018641f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Najlepsze rozwiązania Projektowanie sieci Web (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -136,7 +136,7 @@ Można zaimplementować web development najlepsze rozwiązania opisane w tym mie
 
 [Następnego rozdziału](single-sign-on.md) analizuje jak chmury włącza scenariusze rejestracji jednokrotnej.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby.
 
@@ -165,6 +165,6 @@ Dodatkowe sieci web development najlepsze rozwiązania można znaleźć w nastę
 - [Poprawka go Przykładowa aplikacja — najlepsze praktyki](the-fix-it-sample-application.md#bestpractices). Dodatek do Książka elektroniczna zamieszczono listę najlepszych rozwiązań, które zostały wdrożone w aplikacji rozwiązać.
 - [Lista kontrolna deweloperów sieci Web](http://webdevchecklist.com/asp.net)
 
->[!div class="step-by-step"]
-[Poprzednie](continuous-integration-and-continuous-delivery.md)
-[dalej](single-sign-on.md)
+> [!div class="step-by-step"]
+> [Poprzednie](continuous-integration-and-continuous-delivery.md)
+> [dalej](single-sign-on.md)

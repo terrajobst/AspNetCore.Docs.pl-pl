@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
-title: "Iteracja #5 – testów jednostkowych Utwórz (VB) | Dokumentacja firmy Microsoft"
+title: 'Iteracja #5 – testów jednostkowych Utwórz (VB) | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "W piątym iteracji możemy ułatwić naszej aplikacji obsługiwanie i modyfikowanie przez dodanie testów jednostkowych. Firma Microsoft mock naszej klasy modelu danych i tworzenie testów jednostkowych dla o..."
+description: W piątym iteracji możemy ułatwić naszej aplikacji obsługiwanie i modyfikowanie przez dodanie testów jednostkowych. Firma Microsoft mock naszej klasy modelu danych i tworzenie testów jednostkowych dla o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ab9ff5629cb468b785f5b82178f9f6247a55cacb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fe59792a1e1a7950a318e7e893b3da12d53a8efa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-5--create-unit-tests-vb"></a>Iteracja #5 — Tworzenie testów jednostkowych (VB)
 ====================
@@ -105,9 +105,9 @@ Na przykład można użyć framework Mock obiektu do generowania wersję makiety
 
 Program Visual Studio nie ma framework Mock obiektu. Istnieją jednak kilka struktur Mock obiektu źródłowego handlowych i otwórz dostępne dla programu .NET framework:
 
-1. Moq — ta struktura jest dostępna w ramach licencji BSD typu open source. Możesz pobrać Moq z [https://code.google.com/p/moq/](https://code.google.com/p/moq/).
-2. Rhino Mocks — ta struktura jest dostępny w ramach licencji BSD typu open source. Możesz pobrać Rhino Mocks z [http://ayende.com/projects/rhino-mocks.aspx](http://ayende.com/projects/rhino-mocks.aspx).
-3. Odłączenia Typemock — jest to komercyjnych framework. Możesz pobrać wersję próbną z [http://www.typemock.com/](http://www.typemock.com/).
+1. Moq — ta struktura jest dostępna w ramach licencji BSD typu open source. Możesz pobrać Moq z [ https://code.google.com/p/moq/ ](https://code.google.com/p/moq/).
+2. Rhino Mocks — ta struktura jest dostępny w ramach licencji BSD typu open source. Możesz pobrać Rhino Mocks z [ http://ayende.com/projects/rhino-mocks.aspx ](http://ayende.com/projects/rhino-mocks.aspx).
+3. Odłączenia Typemock — jest to komercyjnych framework. Możesz pobrać wersję próbną z [ http://www.typemock.com/ ](http://www.typemock.com/).
 
 W tym samouczku I chcę korzystać z Moq. Jednak może równie łatwo używać Rhino Mocks lub odłączenia Typemock makiety utworzyć obiektów dla aplikacji, skontaktuj się z Menedżera.
 
@@ -140,7 +140,7 @@ Utwórz nowy folder o nazwie modeli w projekcie ContactManager.Tests. Następnie
 > Ogólnie rzecz biorąc mają strukturę folderu projektu testu w taki sposób, aby dopasować struktury folderu projektu programu ASP.NET MVC. Na przykład umieścić kontrolera testów w folderze kontrolerów, testy modelu w folderze modeli i tak dalej.
 
 
-[![Models\ContactManagerServiceTest.CS](iteration-5-create-unit-tests-vb/_static/image3.jpg)](iteration-5-create-unit-tests-vb/_static/image5.png)
+[![Models\ContactManagerServiceTest.cs](iteration-5-create-unit-tests-vb/_static/image3.jpg)](iteration-5-create-unit-tests-vb/_static/image5.png)
 
 **Rysunek 03**: Models\ContactManagerServiceTest.cs ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-5-create-unit-tests-vb/_static/image6.png))
 
@@ -157,7 +157,7 @@ Pierwszego testu sprawdza prawidłowy kontakt nie generuje błąd sprawdzania po
 
 Kod dla tych testów znajduje się w 1 wyświetlania.
 
-**Wyświetlanie listy 1 - Models\ContactManagerServiceTest.vb**
+**Listing 1 - Models\ContactManagerServiceTest.vb**
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample1.vb)]
 
@@ -238,6 +238,6 @@ Utworzyliśmy dwa zestawy testów jednostkowych. Najpierw przetestowaliśmy logi
 
 W następnej iteracji firma Microsoft zmodyfikuj aplikacji skontaktuj się z Menedżera tak, aby obsługuje skontaktuj się z grupy. Ta nowa funkcja zostanie dodany do naszej aplikacji przy użyciu o nazwie test-driven development, proces projektowania oprogramowania.
 
->[!div class="step-by-step"]
-[Poprzednie](iteration-4-make-the-application-loosely-coupled-vb.md)
-[dalej](iteration-6-use-test-driven-development-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](iteration-4-make-the-application-loosely-coupled-vb.md)
+> [dalej](iteration-6-use-test-driven-development-vb.md)

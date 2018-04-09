@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 title: Praca z kolumnami obliczanymi (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Podczas tworzenia tabeli bazy danych programu Microsoft SQL Server można zdefiniować kolumną obliczaną, którego wartość jest obliczana na podstawie wyrażenia to zwykle referen..."
+description: Podczas tworzenia tabeli bazy danych programu Microsoft SQL Server można zdefiniować kolumną obliczaną, którego wartość jest obliczana na podstawie wyrażenia to zwykle referen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 41206f76f9d9ca68971a53d79e84d82349e92333
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7a67abd2a0c140c0503c07f764549a6d90ef7298
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="working-with-computed-columns-c"></a>Praca z kolumnami obliczanymi (C#)
 ====================
@@ -51,7 +51,7 @@ Uruchamianie przez otwarcie `Suppliers` definicja tabeli, klikając prawym przyc
 Należy pamiętać, że może zostać dołączona ciągów w programie SQL przy użyciu `+` operatora. `CASE` Instrukcji można użyć takich jak warunkowego tradycyjnego języka programowania. W wyrażeniu powyżej `CASE` instrukcja może zostać odczytany jako: Jeśli `ContactTitle` nie jest `NULL` następnie output `ContactTitle` połączony z przecinkami, w przeciwnym razie wartość Emituj nothing. Aby uzyskać więcej informacji na temat przydatność `CASE` instrukcji, zobacz [Power SQL `CASE` instrukcje](http://www.4guysfromrolla.com/webtech/102704-1.shtml).
 
 > [!NOTE]
-> Zamiast `CASE` instrukcji w tym miejscu, można też użyliśmy `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx)Zwraca *checkExpression* przypadku jest inne niż NULL, w przeciwnym razie zwraca *replacementValue*. Podczas albo `ISNULL` lub `CASE` będzie działać w tym wystąpieniu są bardziej skomplikowanych scenariusze której elastyczność `CASE` instrukcji nie można dopasować przez `ISNULL`.
+> Zamiast `CASE` instrukcji w tym miejscu, można też użyliśmy `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx) Zwraca *checkExpression* przypadku jest inne niż NULL, w przeciwnym razie zwraca *replacementValue*. Podczas albo `ISNULL` lub `CASE` będzie działać w tym wystąpieniu są bardziej skomplikowanych scenariusze której elastyczność `CASE` instrukcji nie można dopasować przez `ISNULL`.
 
 
 Po dodaniu tę kolumnę obliczaną na ekranie powinna wyglądać ekranu zrzut na rysunku 1.
@@ -261,12 +261,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Hilton Geisenow i Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](adding-additional-datatable-columns-cs.md)
-[dalej](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](adding-additional-datatable-columns-cs.md)
+> [dalej](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
-title: "Profile, kompozycje i części sieci Web | Dokumentacja firmy Microsoft"
+title: Profile, kompozycje i części sieci Web | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Są istotne zmiany w konfiguracji i instrumentacji w programie ASP.NET 2.0. Nowy interfejs API konfiguracji ASP.NET pozwala na pr wprowadzanie zmian w konfiguracji..."
+description: Są istotne zmiany w konfiguracji i instrumentacji w programie ASP.NET 2.0. Nowy interfejs API konfiguracji ASP.NET pozwala na pr wprowadzanie zmian w konfiguracji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 2c6ba11799a5a9be3d8c0037fad5d79d8177c0e8
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: b749ed093fbaacf45b60f2826a2c20bac219a5c7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="profiles-themes-and-web-parts"></a>Profile, kompozycje i części sieci Web
 ====================
@@ -341,19 +341,19 @@ W tej części przewodnika tworzenia strona używa kontrolki części sieci Web 
 4. Umieść punkt wstawiania przed `<div>` znaczniki na powierzchni projektu, a następnie naciśnij klawisz ENTER, aby dodać nowy wiersz. Umieść punkt wstawiania przed znaku nowego wiersza, kliknij przycisk **Block Format** kontroli w menu listy rozwijanej i wybierz **Nagłówek 1** opcji. W nagłówku, Dodaj tekst **strony pokaz części sieci Web**.
 5. Z **składników Web Part** karcie przybornika, przeciągnij **WebPartManager** sterowania na stronę, umieszczając ją zaraz po znaku nowego wiersza i przed `<div>`tagów.   
   
- **WebPartManager** formantu nie jest renderowana żadnych danych wyjściowych, jest on wyświetlany jako okno szare na powierzchnię projektanta.
+   **WebPartManager** formantu nie jest renderowana żadnych danych wyjściowych, jest on wyświetlany jako okno szare na powierzchnię projektanta.
 6. Umieść punkt wstawiania w ramach `<div>` tagów.
 7. W **układu** menu, kliknij przycisk **Wstaw tabelę**i Utwórz nową tabelę, która ma jeden wiersz i trzy kolumny. Kliknij przycisk **właściwości komórki** przycisku Wybierz **górnej** z **wyrównanie w pionie** listy rozwijanej, kliknij przycisk **OK**i kliknij przycisk **OK** ponownie w celu utworzenia tabeli.
 8. Przeciągnij formant WebPartZone do kolumny tabeli po lewej stronie. Kliknij prawym przyciskiem myszy **WebPartZone** sterowania, wybierz **właściwości**i ustaw następujące właściwości:   
   
- Identyfikator: SidebarZone   
+   Identyfikator: SidebarZone   
   
- Właściwość HeaderText: paska bocznego
+   Właściwość HeaderText: paska bocznego
 9. Przeciągnij drugi **WebPartZone** kontroli do kolumny tabeli Środkowej i ustaw następujące właściwości:   
   
- Identyfikator: MainZone   
+   Identyfikator: MainZone   
   
- Właściwość HeaderText: Main
+   Właściwość HeaderText: Main
 10. Zapisz plik.
 
 Strony zawiera teraz dwa różne stref, które można kontrolować osobno. Jednak strefa ani nie ma żadnej zawartości, następnym krokiem jest utworzenie zawartości. W ramach tego przewodnika, możesz pracować z formantami składników Web Part, które zawierają tylko zawartość statyczną.
@@ -462,10 +462,10 @@ Teraz możesz przetestować możliwość edytowania strony i zmienić układ.
 2. Aby zademonstrować, że personalizacja działa, zamknij przeglądarkę, a następnie ponownie załadować stronę. Wprowadzone zmiany są zapisywane w przeglądarce przyszłych sesji.
 3. Z **tryb wyświetlania** menu, wybierz opcję **Edytuj**.   
   
- Każdej kontrolce na stronie zostaną wyświetlone w dół strzałkę na pasku tytułu, który zawiera menu rozwijanego zleceń.
+   Każdej kontrolce na stronie zostaną wyświetlone w dół strzałkę na pasku tytułu, który zawiera menu rozwijanego zleceń.
 4. Kliknij strzałkę, aby wyświetlić menu zleceń na **Moje łącza** formantu. Kliknij przycisk **Edytuj** zlecenia.   
   
- **Edytora EditorZone** formant jest widoczny, wyświetlanie EditorPart można dodać kontrolki.
+   **Edytora EditorZone** formant jest widoczny, wyświetlanie EditorPart można dodać kontrolki.
 5. W **wygląd** części kontrolki edycji zmiany **tytuł** moich ulubionych, użyj **Typ Chrome** listy rozwijanej, aby wybrać **tytuł tylko**, a następnie kliknij przycisk **Zastosuj**. Poniższy zrzut ekranu przedstawia stronę w trybie edycji.
 
 ### <a name="web-parts-demo-page-in-edit-mode"></a>Strona pokaz części sieci Web w trybie edycji
@@ -496,7 +496,7 @@ Można również zezwolić użytkownikom na dodawanie formantów składników We
 1. Otwórz stronę WebPartsDemo.aspx i przejdź do **projekt** widoku.
 2. Z **składników Web Part** karcie przybornika, przeciągnij formant CatalogZone w prawej kolumnie tabeli, podrzędne **edytora EditorZone** formantu.   
   
- Oba formanty może być w tej samej komórce tabeli, ponieważ nie będą wyświetlane w tym samym czasie.
+   Oba formanty może być w tej samej komórce tabeli, ponieważ nie będą wyświetlane w tym samym czasie.
 3. W okienku właściwości przypisać ciąg **Dodawanie składników Web Part** z właściwością HeaderText **CatalogZone** formantu.
 4. Z **składników Web Part** sekcji przybornika, przeciągnij formant DeclarativeCatalogPart do obszaru zawartości **CatalogZone** formantu.
 5. Kliknij strzałkę w prawym górnym rogu **DeclarativeCatalogPart** sterowania do udostępnienia jej menu zadania, a następnie wybierz **Edytuj szablony**.
@@ -504,7 +504,7 @@ Można również zezwolić użytkownikom na dodawanie formantów składników We
 7. Przełącz się do **źródła** widoku. Sprawdź kod źródłowy &lt;asp: catalogzone&gt; elementu. Zwróć uwagę, że **DeclarativeCatalogPart** formant zawiera &lt;webpartstemplate&gt; element z dwóch formantów objętego serwera, które można dodać do strony z katalogu.
 8. Dodaj **tytuł** właściwości każdej z formanty dodane do katalogu, przy użyciu wartości ciąg wyświetlany dla każdego tytułu w poniższym przykładzie kodu. Mimo że tytuł nie jest właściwością zwykle można ustawić tych kontrolek serwerowe w czasie projektowania, gdy użytkownik dodaje te formanty **WebPartZone** strefy z katalogu w czasie wykonywania, ich są każde jest ujęte w  **Elementu GenericWebPart** formantu. Umożliwia pełnienie formantów składników Web Part, będą oni mogli do wyświetlenia tytułów.   
   
- Kod dwa formanty zawarte w **DeclarativeCatalogPart** formantu powinna wyglądać w następujący sposób. 
+   Kod dwa formanty zawarte w **DeclarativeCatalogPart** formantu powinna wyglądać w następujący sposób. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample26.aspx)]
 9. Zapisz stronę.
@@ -516,12 +516,12 @@ Teraz możesz przetestować katalogu.
 1. Ładowanie strony w przeglądarce.
 2. Kliknij przycisk **tryb wyświetlania** menu rozwijane i wybierz **katalogu**.   
   
- Wykaz zatytułowany **Dodawanie składników Web Part** jest wyświetlany.
+   Wykaz zatytułowany **Dodawanie składników Web Part** jest wyświetlany.
 3. Przeciągnij **moich ulubionych** kontroli ze strefy Main powrót do początku strefy paska bocznego i upuść go brak.
 4. W **Dodawanie składników Web Part** katalogu, zaznacz pola wyboru, a następnie wybierz **Main** z listy rozwijanej, która zawiera dostępne strefy.
 5. Kliknij przycisk **Dodaj** w katalogu. Formanty są dodawane do strefy Main. Jeśli chcesz, możesz dodać wiele wystąpień formantów z katalogu do strony.   
   
- Poniższy zrzut ekranu przedstawia strona zawierająca formant przekazywania plików i kalendarza w strefie Main. 
+   Poniższy zrzut ekranu przedstawia strona zawierająca formant przekazywania plików i kalendarza w strefie Main. 
 
 ![Formanty dodawane do strefy Main z katalogu](profiles-themes-and-web-parts/_static/image7.gif)
 

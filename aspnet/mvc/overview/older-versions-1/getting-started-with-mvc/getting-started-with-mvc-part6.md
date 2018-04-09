@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 title: Dodawanie metody i tworzenie widoku | Dokumentacja firmy Microsoft
 author: shanselman
-description: "Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych."
+description: Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 msc.type: authoredcontent
-ms.openlocfilehash: 36b3d6ef0432292f21ecd8f29ea2d88ee8867436
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 48e656a0c394b9db5baaec9c557ec38c4020d41b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-create-method-and-create-view"></a>Dodawanie metody i tworzenie widoku
 ====================
@@ -65,6 +65,6 @@ Ten obiekt filmu następnie został przekazany do wersji [HttpPost] naszych Utw�
 
 Firma Microsoft nie są sprawdzania, jeśli naszych filmów są poprawne, ale i bazy danych nie zezwalają na Zapisz film z bez tytułu. Byłoby nieuprzywilejowany możemy podać użytkownik, który wygenerował błąd przed bazy danych. Firma Microsoft zrobić dalej to przez dodanie obsługi sprawdzania poprawności do naszej aplikacji.
 
->[!div class="step-by-step"]
-[Poprzednie](getting-started-with-mvc-part5.md)
-[dalej](getting-started-with-mvc-part7.md)
+> [!div class="step-by-step"]
+> [Poprzednie](getting-started-with-mvc-part5.md)
+> [dalej](getting-started-with-mvc-part7.md)

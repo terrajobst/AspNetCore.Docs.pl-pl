@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
-title: "Tworzenie Warstwa dostępu do danych (C#) | Dokumentacja firmy Microsoft"
+title: Tworzenie Warstwa dostępu do danych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku możemy rozpocząć od początku i tworzenie danych warstwy dostępu (DAL), za pomocą typizowane zbiory danych, dostęp do informacji w bazie danych."
+description: W tym samouczku możemy rozpocząć od początku i tworzenie danych warstwy dostępu (DAL), za pomocą typizowane zbiory danych, dostęp do informacji w bazie danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/05/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7e1a457c23ef659bf7ee9c15b66dc5c2d8a31416
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>Tworzenie Warstwa dostępu do danych (C#)
 ====================
@@ -84,7 +84,7 @@ Całego kodu, która jest specyficzna dla źródła danych, takich jak tworzenie
 
 Te metody, gdy została wywołana, połączenia z bazą danych, odpowiednie zapytanie i zwracają wyniki. Ważne jest sposób zostanie zwrócona te wyniki. Te metody po prostu może zwrócić zestawu danych lub DataReader wypełnione przez zapytanie bazy danych, ale najlepiej te wyniki powinny być zwracane za pomocą *silnie typizowanych obiektów*. Obiekt jednoznacznie jest jednym którego schemat sztywno jest zdefiniowany w czasie kompilacji, i na odwrót obiektu typowaniem luźnym jest jedną którego schematu nie jest znany do środowiska wykonawczego.
 
-Na przykład elementu DataReader i zestawie danych (domyślnie) są typowaniem luźnym obiektów, ponieważ ich schematu jest definiowana za pomocą kolumny zwracane przez zapytanie bazy danych używanych do wypełniania je. Aby uzyskać dostęp do określonej kolumny z typowaniem luźnym DataTable, należy użyć składni, takich jak: ***DataTable*. Wiersze [*indeksu*] ["*columnName *"]**. Wystawiony tabeli DataTable utracić wpisywanie w tym przykładzie jest fakt, że musimy dostęp do nazwy kolumn za pomocą ciągu lub indeksem. Jednoznacznie elementu DataTable z drugiej strony, będzie miał każdego z jego kolumn zaimplementowane jako właściwości, co w kodzie, który wygląda jak: ***DataTable*. Wiersze [*indeksu*].* Element columnName***.
+Na przykład elementu DataReader i zestawie danych (domyślnie) są typowaniem luźnym obiektów, ponieważ ich schematu jest definiowana za pomocą kolumny zwracane przez zapytanie bazy danych używanych do wypełniania je. Aby uzyskać dostęp do określonej kolumny z typowaniem luźnym DataTable, należy użyć składni, takich jak:  <strong><em>DataTable</em>. Wiersze [<em>indeksu</em>] ["<em>columnName</em>"]</strong>. Wystawiony tabeli DataTable utracić wpisywanie w tym przykładzie jest fakt, że musimy dostęp do nazwy kolumn za pomocą ciągu lub indeksem. Jednoznacznie elementu DataTable z drugiej strony, będzie miał każdego z jego kolumn zaimplementowane jako właściwości, co w kodzie, który wygląda jak:  <strong><em>DataTable</em>. Wiersze [<em>indeksu</em>]. *Element columnName</strong>*.
 
 Aby przywrócić silnie typizowanych obiektów, deweloperzy można utworzyć własne obiektów niestandardowych biznesowych albo użyj wpisanych zestawów danych. Obiekt biznesowy jest implementowany przez dewelopera jako reprezentuje klasę, którego właściwości zazwyczaj odzwierciedla kolumny tabeli podstawowej bazy danych obiektu biznesowego. Zestaw danych wpisany jest klasą wygenerowane automatycznie przez program Visual Studio na podstawie schematu bazy danych i której członkami są jednoznacznie zgodnie z tym schemacie. Wpisane zestawu danych sam składa się z klasy, stanowiące rozszerzenie klasy zestawu danych ADO.NET, DataTable i DataRow. Oprócz jednoznacznie DataTables wpisanych zestawów danych teraz także TableAdapters, które są klas z metody wypełnianie zestawu danych DataTables i propagowanie zmian w DataTables w bazie danych.
 
@@ -124,7 +124,7 @@ TableAdapter Kreator konfiguracji rozpoczyna się od którym należy wybrać baz
 **Rysunek 5**: Wybierz z listy rozwijanej bazy danych Northwind ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image13.png))
 
 
-Po wybraniu bazy danych, a następnie klikając przycisk Dalej, użytkownik zostanie zapytany, czy chcesz zapisać parametry połączenia w **Web.config** pliku. Zapisz parametry połączenia można będzie uniknąć go twardych kodowanych w klasach TableAdapter, co upraszcza czynności, jeśli informacje o parametrach połączenia zmieni się w przyszłości. Jeśli wybierzesz opcję Zapisz parametry połączenia w pliku konfiguracji jest umieszczany w  **&lt;connectionStrings&gt;**  sekcję, co może być [opcjonalnie zaszyfrowanych](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx) na lepsze zabezpieczeń lub zmodyfikowane później za pomocą nowego ASP.NET 2.0 stronie właściwości w ramach narzędzia administracyjnego usług IIS graficznego interfejsu użytkownika, które jest bardziej odpowiedni dla administratorów.
+Po wybraniu bazy danych, a następnie klikając przycisk Dalej, użytkownik zostanie zapytany, czy chcesz zapisać parametry połączenia w **Web.config** pliku. Zapisz parametry połączenia można będzie uniknąć go twardych kodowanych w klasach TableAdapter, co upraszcza czynności, jeśli informacje o parametrach połączenia zmieni się w przyszłości. Jeśli wybierzesz opcję Zapisz parametry połączenia w pliku konfiguracji jest umieszczany w **&lt;connectionStrings&gt;** sekcję, co może być [opcjonalnie zaszyfrowanych](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx) na lepsze zabezpieczeń lub zmodyfikowane później za pomocą nowego ASP.NET 2.0 stronie właściwości w ramach narzędzia administracyjnego usług IIS graficznego interfejsu użytkownika, które jest bardziej odpowiedni dla administratorów.
 
 
 [![Zapisz parametry połączenia w pliku Web.config](creating-a-data-access-layer-cs/_static/image15.png)](creating-a-data-access-layer-cs/_static/image14.png)
@@ -233,7 +233,7 @@ Firma Microsoft są najpierw pojawi się monit dotyczący czy chcemy dostęp do 
 **Rysunek 15**: Wybierz utworzyć **wybierz** instrukcji która zwraca wiersze ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image41.png))
 
 
-Następnym krokiem jest określenie zapytania SQL używane do uzyskiwania dostępu do danych. Ponieważ chcemy zwracać tylko te produkty, które należą do określonej kategorii I używać tego samego **wybierz** instrukcji z **GetProducts()**, ale Dodaj następujące **gdzie** Klauzula: **gdzie CategoryID = @CategoryID** .  **@CategoryID**  Parametr wskazuje TableAdapter Kreator metody tworzymy wymaga parametru wejściowego typu odpowiadającego (to znaczy, integer wartości null).
+Następnym krokiem jest określenie zapytania SQL używane do uzyskiwania dostępu do danych. Ponieważ chcemy zwracać tylko te produkty, które należą do określonej kategorii I używać tego samego <strong>wybierz</strong> instrukcji z <strong>GetProducts()</strong>, ale Dodaj następujące <strong>gdzie</strong> Klauzula: <strong>gdzie CategoryID = @CategoryID</strong> . <strong>@CategoryID</strong> Parametr wskazuje TableAdapter Kreator metody tworzymy wymaga parametru wejściowego typu odpowiadającego (to znaczy, integer wartości null).
 
 
 [![Wprowadź kwerendę, aby zwracał tylko produktów w określonej kategorii](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
@@ -241,7 +241,7 @@ Następnym krokiem jest określenie zapytania SQL używane do uzyskiwania dostę
 **Rysunek 16**: Wprowadź kwerendę tylko zwrócić produktów w określonej kategorii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-data-access-layer-cs/_static/image44.png))
 
 
-W ostatnim kroku, firma Microsoft może wybrać którego wzorce do użycia, jak również dostosować nazwy metody wygenerowany dostępu do danych. Deseń wypełnienia teraz Zmień nazwę, aby **FillByCategoryID** i zwrotu DataTable zwracać wzorca ( **uzyskać * X*** metody), można użyć **GetProductsByCategoryID**.
+W ostatnim kroku, firma Microsoft może wybrać którego wzorce do użycia, jak również dostosować nazwy metody wygenerowany dostępu do danych. Deseń wypełnienia teraz Zmień nazwę, aby <strong>FillByCategoryID</strong> i zwrotu DataTable zwracać wzorca ( <strong>uzyskać*X</strong>*  metody), można użyć  <strong>GetProductsByCategoryID</strong>.
 
 
 [![Wybierz nazwy dla metody TableAdapter](creating-a-data-access-layer-cs/_static/image46.png)](creating-a-data-access-layer-cs/_static/image45.png)
@@ -403,48 +403,48 @@ Potrwać kilka minut, aby utworzyć następujące pliki TableAdapters i metody, 
 
 - **ProductsTableAdapter**
 
-    - **GetProducts**: 
+  - **GetProducts**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample10.sql)]
-    - **GetProductsByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample10.sql)]
+  - **GetProductsByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample11.sql)]
-    - **GetProductsBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample11.sql)]
+  - **GetProductsBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample12.sql)]
-    - **GetProductByProductID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample12.sql)]
+  - **GetProductByProductID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample13.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample13.sql)]
 - **CategoriesTableAdapter**
 
-    - **GetCategories**: 
+  - **GetCategories**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample14.sql)]
-    - **GetCategoryByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample14.sql)]
+  - **GetCategoryByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample15.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample15.sql)]
 - **SuppliersTableAdapter**
 
-    - **GetSuppliers**: 
+  - **GetSuppliers**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample16.sql)]
-    - **GetSuppliersByCountry**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample16.sql)]
+  - **GetSuppliersByCountry**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample17.sql)]
-    - **GetSupplierBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample17.sql)]
+  - **GetSupplierBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample18.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample18.sql)]
 - **EmployeesTableAdapter**
 
-    - **GetEmployees**: 
+  - **GetEmployees**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample19.sql)]
-    - **GetEmployeesByManager**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample19.sql)]
+  - **GetEmployeesByManager**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample20.sql)]
-    - **GetEmployeeByEmployeeID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample20.sql)]
+  - **GetEmployeeByEmployeeID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample21.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample21.sql)]
 
 
 [![Projektant obiektów DataSet, po dodaniu czterech TableAdapters](creating-a-data-access-layer-cs/_static/image84.png)](creating-a-data-access-layer-cs/_static/image83.png)
@@ -543,5 +543,5 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Piotr zielony, Hilton Giesenow firmy Dennis Patterson, Liz Shulok, Gomez abela i Santos Artur. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Next](creating-a-business-logic-layer-cs.md)
+> [!div class="step-by-step"]
+> [Next](creating-a-business-logic-layer-cs.md)

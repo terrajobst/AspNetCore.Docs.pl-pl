@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/aspnet4/overview
-title: "Program ASP.NET 4 i omówienie tworzenia sieci Web programu Visual Studio 2010 | Dokumentacja firmy Microsoft"
+title: Program ASP.NET 4 i omówienie tworzenia sieci Web programu Visual Studio 2010 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten dokument zawiera omówienie wiele nowych funkcji programu ASP.NET, które znajdują się w ramach platformy.NET Framework 4 i w programie Visual Studio 2010."
+description: Ten dokument zawiera omówienie wiele nowych funkcji programu ASP.NET, które znajdują się w ramach platformy.NET Framework 4 i w programie Visual Studio 2010.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 29d5b2f4c04b899b900427ac202c0a4f57f8076f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6ce52c387ff835eda46bc1882b8b974889e2d4af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Program ASP.NET 4 i omówienie tworzenia sieci Web programu Visual Studio 2010
 ====================
@@ -38,9 +38,9 @@ ms.lasthandoff: 01/30/2018
 [Obiekt buforowania i obiektu pamięci podręcznej rozszerzeń](#0.2__Toc253429246 "_Toc253429246")  
 [Rozszerzalne HTML, adres URL i kodowanie nagłówka HTTP](#0.2__Toc253429247 "_Toc253429247")  
 [Monitorowanie wydajności dla poszczególnych aplikacji w procesie roboczym pojedynczego](#0.2__Toc253429248 "_Toc253429248")  
-[Wielowersyjność kodu](#0.2__Toc253429249 "_Toc253429249")
+[Multi-Targeting](#0.2__Toc253429249 "_Toc253429249")
 
-**[AJAX](#0.2__Toc253429250 "_Toc253429250")**  
+**[Ajax](#0.2__Toc253429250 "_Toc253429250")**  
 [jQuery uwzględnione z MVC i formularzy sieci Web](#0.2__Toc253429251 "_Toc253429251")  
 [Obsługa sieci dostarczania zawartości](#0.2__Toc253429252 "_Toc253429252")  
 [Skrypty jawne ScriptManager](#0.2__Toc253429253 "_Toc253429253")
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/30/2018
 [Routing w programie ASP.NET 4](#0.2__Toc253429260 "_Toc253429260")  
 [Ustawienia klienta identyfikatorów](#0.2__Toc253429261 "_Toc253429261")  
 [Utrwalanie zaznaczenie wiersza w formantach danych](#0.2__Toc253429262 "_Toc253429262")  
-[Formant wykresu ASP.NET](#0.2__Toc253429263 "_Toc253429263")  
+[ASP.NET Chart Control](#0.2__Toc253429263 "_Toc253429263")  
 [Filtrowanie danych za pomocą formantu klasą QueryExtender](#0.2__Toc253429264 "_Toc253429264")  
 [Wyrażenia kodu kodowania HTML](#0.2__Toc253429265 "_Toc253429265")  
 [Zmiany szablonu projektu](#0.2__Toc253429266 "_Toc253429266")  
@@ -86,8 +86,8 @@ ms.lasthandoff: 01/30/2018
 [Ulepszenia IntelliSense dla JavaScript](#0.2__Toc253429291 "_Toc253429291")
 
 **[Wdrożenie aplikacji z programu Visual Studio 2010 w sieci Web](#0.2__Toc253429292 "_Toc253429292")**  
-[Tworzenie pakietów w sieci Web](#0.2__Toc253429293 "_Toc253429293")  
-[Transformacji pliku Web.config](#0.2__Toc253429294 "_Toc253429294")  
+[Web Packaging](#0.2__Toc253429293 "_Toc253429293")  
+[Web.config Transformation](#0.2__Toc253429294 "_Toc253429294")  
 [Wdrożenie bazy danych](#0.2__Toc253429295 "_Toc253429295")  
 [One-Click Publish dla aplikacji sieci Web](#0.2__Toc253429296 "_Toc253429296")  
 [Zasoby](#0.2__Toc253429297 "_Toc253429297")
@@ -199,13 +199,13 @@ ASP.NET 4 wprowadza nowe opcje dotyczące rozszerzania rozmiaru adresu URL aplik
 
 [!code-xml[Main](overview/samples/sample10.xml)]
 
-Aby umożliwić dłuższy lub krótszy ścieżki (część adresu URL, który nie obejmuje protokołu, nazwy serwera i ciągu zapytania), zmodyfikuj  *[maxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)*  atrybutu. Aby umożliwić ciągi zapytań dłuższy lub krótszy, zmodyfikuj wartość  *[maxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)*  atrybutu.
+Aby umożliwić dłuższy lub krótszy ścieżki (część adresu URL, który nie obejmuje protokołu, nazwy serwera i ciągu zapytania), zmodyfikuj *[maxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)* atrybutu. Aby umożliwić ciągi zapytań dłuższy lub krótszy, zmodyfikuj wartość *[maxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)* atrybutu.
 
 ASP.NET 4 umożliwia również skonfigurowanie znaki, które są używane przez wyboru znak adresu URL. Jeśli program ASP.NET znajdzie nieprawidłowy znak w części ścieżki adresu URL, odrzuca żądanie i generuje błąd HTTP 400. W poprzednich wersjach programu ASP.NET sprawdza znak adresu URL były ograniczone do stałego zestawu znaków. W przypadku programu ASP.NET 4, można dostosować zbiór prawidłowych znaków przy użyciu nowego *requestPathInvalidChars* atrybutu *httpRuntime* element konfiguracji, jak pokazano w poniższym przykładzie:
 
 [!code-xml[Main](overview/samples/sample11.xml)]
 
-Domyślnie *requestPathInvalidChars* atrybut definiuje osiem znaków jako nieprawidłowe. (W ciągu, który jest przypisany do *requestPathInvalidChars* domyślnie*,*mniej niż (&lt;), jest większa niż (&gt;) i handlowego "i" (&amp;) znaków zakodowany, ponieważ `Web.config` plik jest plikiem XML.) W razie potrzeby można dostosować zestaw nieprawidłowe znaki.
+Domyślnie <em>requestPathInvalidChars</em> atrybut definiuje osiem znaków jako nieprawidłowe. (W ciągu, który jest przypisany do <em>requestPathInvalidChars</em> domyślnie<em>,</em>mniej niż (&lt;), jest większa niż (&gt;) i handlowego "i" (&amp;) znaków zakodowany, ponieważ `Web.config` plik jest plikiem XML.) W razie potrzeby można dostosować zestaw nieprawidłowe znaki.
 
 > [!NOTE]
 > Uwaga programu ASP.NET 4 zawsze odrzuca ścieżki adresu URL, zawierających znaki w zakresie ASCII 0x00 do 0x1F, ponieważ są to nieprawidłowe znaki adres URL, zgodnie z definicją w dokumencie RFC 2396 IETF ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt)). W wersjach systemu Windows Server z systemem usług IIS 6 lub nowszego, sterownik http.sys protokołu urządzenia automatycznie odrzuca adresów URL z tych znaków.
@@ -326,9 +326,11 @@ Korzystając z usługi Microsoft Ajax CDN, może znacznie poprawić wydajność 
 
 Microsoft Ajax Content Delivery Network obsługuje protokół SSL (HTTPS), w razie potrzeby do obsługi strony sieci web przy użyciu protokołu SSL.
 
+Zaimplementuj rezerwowe, gdy element CDN jest niedostępny. Przetestuj powrotu.
+
 Aby dowiedzieć się więcej na temat usługi Microsoft Ajax CDN, odwiedź następującą witrynę sieci Web:
 
-[https://www.asp.NET/ajaxlibrary/CDN.ashx](../../ajax/cdn/overview.md)
+[https://www.asp.net/ajaxlibrary/CDN.ashx](../../ajax/cdn/overview.md)
 
 Element ScriptManager ASP.NET obsługuje Microsoft Ajax CDN. Po prostu przez ustawienie jedną właściwość właściwości EnableCdn można pobrać wszystkich plików JavaScript framework ASP.NET z sieci CDN:
 
@@ -412,13 +414,13 @@ Jak widać, kod powoduje wyłączenie stan widoku formantu PlaceHolder1. Formant
 
 Te ustawienia powoduje, że podczas ładowania strony po raz pierwszy, następujące dane wyjściowe są wyświetlane w przeglądarce:
 
-Wyłączone`: [DynamicValue]`
+wyłączone `: [DynamicValue]`
 
 Włączone:`[DynamicValue]`
 
 Po odświeżeniu strony jednak następujące dane wyjściowe są wyświetlane:
 
-Wyłączone`: [DeclaredValue]`
+wyłączone `: [DeclaredValue]`
 
 Włączone:`[DynamicValue]`
 
@@ -444,17 +446,17 @@ ASP.NET określa możliwości przeglądarki, używanym do przeglądania witryny 
 
 Na poniższej liście przedstawiono Nowa przeglądarka plików definicji:
 
-- *Blackberry.Browser*
-- *Chrome.Browser*
-- *Default.Browser*
-- *Firefox.Browser*
-- *Gateway.Browser*
-- *Generic.Browser*
-- *IE.Browser*
-- *iemobile.Browser*
-- *iPhone.Browser*
-- *Opera.Browser*
-- *Safari.Browser*
+- *blackberry.browser*
+- *chrome.browser*
+- *Default.browser*
+- *firefox.browser*
+- *gateway.browser*
+- *generic.browser*
+- *ie.browser*
+- *iemobile.browser*
+- *iphone.browser*
+- *opera.browser*
+- *safari.browser*
 
 #### <a name="using-browser-capabilities-providers"></a>Przy użyciu dostawców możliwości przeglądarki
 
@@ -629,7 +631,7 @@ Po uruchomieniu na stronie, zawierający ten formant, wartość "scott" jest wy�
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
-W takim przypadku zostanie użyta wartość searchterm parametru trasy dla @companyname parametru w *wybierz* instrukcji.
+W takim przypadku zostanie użyta wartość searchterm parametru trasy dla @companyname parametru w <em>wybierz</em> instrukcji.
 
 <a id="0.2__Toc224729037"></a><a id="0.2__Toc253429261"></a><a id="0.2__Toc243304635"></a>
 
@@ -1329,7 +1331,7 @@ Program Visual Studio 2010 udostępnia wbudowane zadania programu MSBuild i obie
 
 <a id="0.2__Toc224729057"></a><a id="0.2__Toc253429294"></a><a id="0.2__Toc243304665"></a>
 
-### <a name="webconfig-transformation"></a>Transformacji pliku Web.config
+### <a name="webconfig-transformation"></a>Web.config Transformation
 
 Wdrożenia aplikacji sieci Web programu Visual Studio 2010 wprowadza [transformacji dokumentów XML (XDT)](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html), która to funkcja, która pozwala na przekształcanie `Web.config` plik z ustawienia środowiska deweloperskiego do ustawienia w środowisku produkcyjnym. Ustawienia przekształcania są określone w pliki transformacji o nazwie `web.debug.config`, `web.release.config`i tak dalej. (Nazwy tych plików są zgodne z konfiguracji programu MSBuild.) Plik przekształcenia obejmuje tylko zmiany należy wprowadzić wdrożony `Web.config` pliku. Określasz zmiany przy użyciu prostego składni.
 
@@ -1357,14 +1359,14 @@ Aby uzyskać więcej informacji, zobacz [porady: Wdrażanie aplikacji publikowan
 
 <a id="0.2__Toc224729060"></a><a id="0.2__Toc253429297"></a><a id="0.2__Toc243304668"></a>
 
-### <a name="resources"></a>Resources
+### <a name="resources"></a>Zasoby
 
 Następujące witryny sieci Web zawierają dodatkowe informacje dotyczące programu ASP.NET 4 i programu Visual Studio 2010.
 
 - [ASP.NET 4](https://msdn.microsoft.com/library/ee532866%28VS.100%29.aspx) — oficjalnej dokumentacji dla programu ASP.NET 4 w witrynie MSDN.
-- [https://www.asp.NET/](https://www.asp.net/) — programu ASP.NET witryny sieci Web przez zespół.
-- [https://www.asp.NET/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx) i [dynamiczna Mapa zawartości platformy ASP.NET danych](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) — Online zasobów w witrynie zespołu programu ASP.NET w oficjalnej dokumentacji dla danych dynamicznych ASP.NET.
-- [https://www.asp.NET/AJAX/](../../ajax/index.md) — główny zasobu sieci Web do tworzenia aplikacji ASP.NET Ajax.
+- [https://www.asp.net/](https://www.asp.net/) — ASP.NET witryny sieci Web przez zespół.
+- [https://www.asp.net/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx) i [dynamiczna Mapa zawartości platformy ASP.NET danych](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) — Online zasobów w witrynie zespołu programu ASP.NET w oficjalnej dokumentacji dla danych dynamicznych ASP.NET.
+- [https://www.asp.net/ajax/](../../ajax/index.md) — Główny zasobu sieci Web do tworzenia aplikacji ASP.NET Ajax.
 - [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/) — Visual Web Developer Team blog, który zawiera informacje o funkcji w programie Visual Studio 2010.
 - [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack) — główny zasobu sieci Web dla wersji preview programu ASP.NET.
 

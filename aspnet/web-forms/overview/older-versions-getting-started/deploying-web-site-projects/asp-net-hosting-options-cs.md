@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-cs
 title: ASP.NET Hosting opcje (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Aplikacji sieci web ASP.NET zwykle są zaprojektowane, utworzony i przetestować w środowisku projektowym lokalnych i muszą zostać wdrożone do o środowisku produkcyjnym..."
+description: Aplikacji sieci web ASP.NET zwykle są zaprojektowane, utworzony i przetestować w środowisku projektowym lokalnych i muszą zostać wdrożone do o środowisku produkcyjnym...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 34e1f9c7ee1ae22bceb614eeeaa1ebe286c1ccad
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f8bb0e5a34d84d448af56285e8761c447229f7d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-hosting-options-c"></a>Opcje hostingu ASP.NET (C#)
 ====================
@@ -95,5 +95,5 @@ Programowanie przyjemność!
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Next](determining-what-files-need-to-be-deployed-cs.md)
+> [!div class="step-by-step"]
+> [Next](determining-what-files-need-to-be-deployed-cs.md)

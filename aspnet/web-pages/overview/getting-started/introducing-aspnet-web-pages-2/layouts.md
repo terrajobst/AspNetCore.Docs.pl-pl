@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
-title: "Wprowadzenie do składnika ASP.NET Web Pages — tworzenie spójnego układu | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do składnika ASP.NET Web Pages — tworzenie spójnego układu | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Ten samouczek pokazuje, jak używać układów do tworzenia spójny wygląd stron w lokacji, która używa strony sieci Web ASP.NET. Przyjęto założenie, że zostały wykonane..."
+description: Ten samouczek pokazuje, jak używać układów do tworzenia spójny wygląd stron w lokacji, która używa strony sieci Web ASP.NET. Przyjęto założenie, że zostały wykonane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: 692adc5a03892f27c91fe8868c8eab6ce08f49cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c2d5c4d8ed8a71979c16d484ab90d283a45de537
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>Wprowadzenie do stron sieci Web ASP.NET - tworzenie spójnego układu
 ====================
@@ -149,7 +149,7 @@ Otwórz *Movies.cshtml* strony ponownie. W kodzie u góry Dodaj następujący wi
 
 `Page` Obiekt jest dostępny na wszystkich *.cshtml* stron i jest do tego celu, to znaczy do udostępniania informacji między stroną i jego układu.
 
-Otwórz*\_Layout.cshtml* strony. Zmień `<title>` elementu, tak że wygląda ten kod znaczników:
+Otwórz<em>\_Layout.cshtml</em> strony. Zmień `<title>` elementu, tak że wygląda ten kod znaczników:
 
 [!code-html[Main](layouts/samples/sample9.html)]
 
@@ -237,6 +237,6 @@ W następnym samouczku nauczysz się, jak opublikować witryny z Internetem, wi�
 - [Tworzenie spójny wygląd](https://go.microsoft.com/fwlink/?LinkID=202891) — artykułu, który zawiera niektóre więcej szczegółów na temat pracy z układów. On również opis przekazać wartości do strony układu, który pokazuje lub ukrywa części zawartości.
 - [Zagnieżdżone strony układu ze składnią Razor](http://www.mikesdotnetting.com/Article/164/Nested-Layout-Pages-with-Razor) — blogi Jan Brind przykładem zagnieździć strony układu. (Dotyczy również pobierania strony).
 
->[!div class="step-by-step"]
-[Poprzednie](deleting-data.md)
-[dalej](publishing.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deleting-data.md)
+> [dalej](publishing.md)

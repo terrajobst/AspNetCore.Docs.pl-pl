@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/configuring-aspnet-web-api
-title: "Konfigurowanie składnika ASP.NET Web API 2 | Dokumentacja firmy Microsoft"
+title: Konfigurowanie składnika ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f9b471fe2afdce278869a2e4d9b693a78030324b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: de2396710fb9434c84bf14a2faa37b98154f34d8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-aspnet-web-api-2"></a>Konfigurowanie składnika ASP.NET Web API 2
 ====================
@@ -120,13 +120,13 @@ Usługi w jednym wystąpieniu
 Wiele wystąpień usług
 
 
-| Usługa | Opis |
-| --- | --- |
-| **IFilterProvider** | Zwraca listę filtrów dla akcji kontrolera. |
-| **ModelBinderProvider** | Zwraca integratora modelu dla danego typu. |
-| **ModelMetadataProvider** | Udostępnia metadane dla modelu. |
-| **ModelValidatorProvider** | Udostępnia moduł weryfikacji dla modelu. |
-| **ValueProviderFactory** | Tworzy dostawcę wartości. Aby uzyskać więcej informacji, zobacz wstrzymania Jan blogu [jak utworzyć dostawcę wartości niestandardowe w WebAPI](https://blogs.msdn.com/b/jmstall/archive/2012/04/23/how-to-create-a-custom-value-provider-in-webapi.aspx) |.
+|                 Usługa                 |                                                                                                              Opis                                                                                                               |
+|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    <strong>IFilterProvider</strong>     |                                                                                           Zwraca listę filtrów dla akcji kontrolera.                                                                                           |
+|  <strong>ModelBinderProvider</strong>   |                                                                                                Zwraca integratora modelu dla danego typu.                                                                                                |
+| <strong>ModelMetadataProvider</strong>  |                                                                                                     Udostępnia metadane dla modelu.                                                                                                     |
+| <strong>ModelValidatorProvider</strong> |                                                                                                   Udostępnia moduł weryfikacji dla modelu.                                                                                                    |
+|  <strong>ValueProviderFactory</strong>  | Tworzy dostawcę wartości. Aby uzyskać więcej informacji, zobacz wstrzymania Jan blogu [jak utworzyć dostawcę wartości niestandardowe w WebAPI](https://blogs.msdn.com/b/jmstall/archive/2012/04/23/how-to-create-a-custom-value-provider-in-webapi.aspx) |
 
 Aby dodać usługę wielowystąpieniowy implementacja niestandardowa, należy wywołać **Dodaj** lub **Wstaw** na **usług** kolekcji:
 

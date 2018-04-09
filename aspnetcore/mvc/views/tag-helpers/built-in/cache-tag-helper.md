@@ -1,7 +1,7 @@
 ---
-title: "Buforuj pomocnika tagów w podstawowej platformy ASP.NET MVC"
+title: Buforuj pomocnika tagów w podstawowej platformy ASP.NET MVC
 author: pkellner
-description: "Pokazuje, jak pracować z pamięci podręcznej pomocnika tagów"
+description: Pokazuje, jak pracować z pamięci podręcznej pomocnika tagów
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 51811ee1669a24a0fc4ce9bc67e782b61bff655c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f19a989c9bdfddea7609c5571cdd49de29e036b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Buforuj pomocnika tagów w podstawowej platformy ASP.NET MVC
 
@@ -60,10 +60,9 @@ Przykład:
 
 ### <a name="expires-on"></a>expires-on 
 
-| Typ atrybutu    | Przykładowa wartość     |
-|----------------   |----------------   |
-| DateTimeOffset    | "@new DateTime(2025,1,29,17,02,0)"    |
-
+| Typ atrybutu |           Przykładowa wartość            |
+|----------------|------------------------------------|
+| DateTimeOffset | "@new DateTime(2025,1,29,17,02,0)" |
 
 Ustawia datę wygaśnięcia bezwzględne. Poniższy przykład będą buforowane zawartość pamięci podręcznej pomocnika tagów do 5:02 PM 29 stycznia 2025.
 
@@ -79,10 +78,9 @@ Przykład:
 
 ### <a name="expires-after"></a>expires-after
 
-| Typ atrybutu    | Przykładowa wartość     |
-|----------------   |----------------   |
-| TimeSpan    | "@TimeSpan.FromSeconds(120)"    |
-
+| Typ atrybutu |        Przykładowa wartość         |
+|----------------|------------------------------|
+|    TimeSpan    | "@TimeSpan.FromSeconds(120)" |
 
 Ustawia czas od pierwszego żądania, aby buforować zawartość. 
 
@@ -98,10 +96,9 @@ Przykład:
 
 ### <a name="expires-sliding"></a>Przedłużanie wygasa
 
-| Typ atrybutu    | Przykładowa wartość     |
-|----------------   |----------------   |
-| TimeSpan    | "@TimeSpan.FromSeconds(60)"     |
-
+| Typ atrybutu |        Przykładowa wartość        |
+|----------------|-----------------------------|
+|    TimeSpan    | "@TimeSpan.FromSeconds(60)" |
 
 Ustawia czas, który wykluczyć wpisu pamięci podręcznej, jeśli nie uzyska dostępu.
 
@@ -169,7 +166,7 @@ routes.MapRoute(
     name: "default",
     template: "{controller=Home}/{action=Index}/{Make?}/{Model?}");
 ```
-  
+
 *Index.cshtml*
 
 ```cshtml
@@ -224,10 +221,9 @@ Za pomocą tego atrybutu przechowuje zawartość w pamięci podręcznej za pomoc
 
 ### <a name="vary-by"></a>różnią się przez
 
-| Typ atrybutu    | Przykładowe wartości                |
-|----------------   |----------------               |
-| String             | "@Model"                 |
-
+| Typ atrybutu | Przykładowe wartości |
+|----------------|----------------|
+|     String     |    "@Model"    |
 
 Umożliwia dostosowanie pobiera buforowane dane. Gdy obiekt odwołuje się zmian wartości atrybutu ciąg, zawartości pamięci podręcznej pomocnika tagów jest aktualizowana. Często ciągów wartości modelu są przypisane do tego atrybutu.  Efektywne oznacza to, że aktualizacja dowolną z wartości z połączonych unieważnia pamięci podręcznej.
 
@@ -277,11 +273,11 @@ Przykład:
 </cache>
 ```
 
-`priority` Atrybutu nie gwarantuje określony poziom przechowywania w pamięci podręcznej. `CacheItemPriority`jest tylko sugestię. Ustawienie tego atrybutu na `NeverRemove` nie gwarantuje, że zawsze zachowywania pamięci podręcznej. Zobacz [dodatkowe zasoby](#additional-resources) Aby uzyskać więcej informacji.
+`priority` Atrybutu nie gwarantuje określony poziom przechowywania w pamięci podręcznej. `CacheItemPriority` jest tylko sugestię. Ustawienie tego atrybutu na `NeverRemove` nie gwarantuje, że zawsze zachowywania pamięci podręcznej. Zobacz [dodatkowe zasoby](#additional-resources) Aby uzyskać więcej informacji.
 
 Pomocnik Tag pamięci podręcznej jest zależna od [pamięci podręcznej usługi](xref:performance/caching/memory). Pamięci podręcznej pomocnika tagów dodaje usługę, jeśli nie został dodany.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Buforowanie w pamięci](xref:performance/caching/memory)
+* [Pamięci podręcznej w pamięci](xref:performance/caching/memory)
 * [Wprowadzenie do tożsamości](xref:security/authentication/identity)

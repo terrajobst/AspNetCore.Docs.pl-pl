@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 title: Formularze konfiguracji uwierzytelniania oraz Tematy zaawansowane (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku będziemy zbadania różnych ustawień uwierzytelniania formularzy i sposobu ich modyfikacji przez element Form w temacie. Wiąże się to szczegółowe..."
+description: W tym samouczku będziemy zbadania różnych ustawień uwierzytelniania formularzy i sposobu ich modyfikacji przez element Form w temacie. Wiąże się to szczegółowe...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c57722965b510ac4f5cf0c06c7c01c8cea26384f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d6578737478fb86f64be261925becc3adec33247
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>Konfiguracja uwierzytelniania formularzy i Tematy zaawansowane (C#)
 ====================
@@ -41,19 +41,20 @@ System uwierzytelniania formularzy w programie ASP.NET oferuje wiele ustawień k
 
 Tabela 1 zawiera podsumowanie właściwości, które można dostosować za pomocą &lt;formularze&gt; elementu. Ponieważ plik Web.config jest plik XML, nazw atrybutów w kolumnie po lewej stronie jest rozróżniana wielkość liter.
 
-| **Atrybut** | **Opis** |
-| --- | --- |
-| cookieless | Ten atrybut określa pod jakimi warunkami biletu uwierzytelniania są przechowywane w pliku cookie i osadzona w adresie URL. Dopuszczalne wartości to: UseCookies; UseUri; Autowykrywanie; i UseDeviceProfile (ustawienie domyślne). Krok 2 sprawdza, czy to ustawienie bardziej szczegółowo. |
-| defaultUrl | Określa adres URL, który użytkownicy są przekierowywani do po zalogowaniu się na stronie logowania, jeśli nie ma żadnej wartości RedirectUrl określony w zmiennej querystring. Wartość domyślna to plik default.aspx. |
-| domena | Korzystając z bilety uwierzytelniania opartego na pliku cookie, to ustawienie określa wartość domeny pliku cookie. Wartość domyślna to pusty ciąg, który powoduje, że przeglądarka Użyj domeny, z którego zostało wydane (na przykład www.yourdomain.com). W takim przypadku plik cookie będzie **nie** wysłania w przypadku wprowadzania żądań poddomen, takich jak admin.yourdomain.com. Jeśli chcesz, aby plik cookie do przekazania do wszystkich domen podrzędnych, musisz dostosować atrybut domain ustawieniem dla niego twoja_domena.com. |
-| enableCrossAppRedirects | Wartość logiczna wskazująca, czy użytkownicy uwierzytelnieni są zapamiętywane, gdy przekierowywane do adresów URL w innych aplikacjach sieci web na tym samym serwerze. Wartością domyślną jest false. |
-| loginUrl | Adres URL strony logowania. Wartość domyślna to login.aspx. |
-| nazwa | Po użyciu uwierzytelniania opartego na pliku cookie biletów, nazwa pliku cookie. Wartość domyślna to. ASPXAUTH. |
-| ścieżka | Korzystając z bilety uwierzytelniania opartego na pliku cookie, to ustawienie określa atrybut ścieżki pliku cookie. Atrybut ścieżki umożliwia dewelopera ograniczyć zakres pliku cookie do hierarchii określonego katalogu. Wartością domyślną jest /, który informuje przeglądarkę przesyłają żądanie do domeny pliku cookie biletu uwierzytelniania. |
-| ochrona | Wskazuje, jaki techniki służą do ochrony biletu uwierzytelniania formularzy. Dopuszczalne wartości to: wszystkie (ustawienie domyślne); Szyfrowanie; Brak; i sprawdzania poprawności. Ustawienia te omówiono szczegółowo w kroku 3. |
-| parametru requireSSL | Wartość logiczna wskazująca, czy do przesyłania pliku cookie uwierzytelniania jest wymagane połączenie SSL. Wartość domyślna to false. |
-| slidingExpiration | Wartość logiczna wskazująca, czy limit czasu plików cookie uwierzytelniania jest resetowany zawsze użytkownik odwiedza witrynę podczas jednej sesji. Wartość domyślna to true. Omówiono bardziej szczegółowo w Określanie zasad limitu czasu biletu uwierzytelniania biletu sekcji wartość limitu czasu. |
-| Limit czasu | Określa czas w minutach, po którym wygasa plik cookie biletu uwierzytelniania. Wartość domyślna to 30. Omówiono bardziej szczegółowo w Określanie zasad limitu czasu biletu uwierzytelniania biletu sekcji wartość limitu czasu. |
+
+| <strong>Atrybut</strong> |                                                                                                                                                                                                                                     <strong>Opis</strong>                                                                                                                                                                                                                                      |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         cookieless         |                                                                                                                Ten atrybut określa pod jakimi warunkami biletu uwierzytelniania są przechowywane w pliku cookie i osadzona w adresie URL. Dopuszczalne wartości to: UseCookies; UseUri; Autowykrywanie; i UseDeviceProfile (ustawienie domyślne). Krok 2 sprawdza, czy to ustawienie bardziej szczegółowo.                                                                                                                |
+|         defaultUrl         |                                                                                                                                                         Określa adres URL, który użytkownicy są przekierowywani do po zalogowaniu się na stronie logowania, jeśli nie ma żadnej wartości RedirectUrl określony w zmiennej querystring. Wartość domyślna to plik default.aspx.                                                                                                                                                         |
+|           domena           | Korzystając z bilety uwierzytelniania opartego na pliku cookie, to ustawienie określa wartość domeny pliku cookie. Wartość domyślna to pusty ciąg, który powoduje, że przeglądarka Użyj domeny, z którego zostało wydane (na przykład www.yourdomain.com). W takim przypadku plik cookie będzie <strong>nie</strong> wysłania w przypadku wprowadzania żądań poddomen, takich jak admin.yourdomain.com. Jeśli chcesz, aby plik cookie do przekazania do wszystkich domen podrzędnych, musisz dostosować atrybut domain ustawieniem dla niego twoja_domena.com. |
+|  enableCrossAppRedirects   |                                                                                                                                                                   Wartość logiczna wskazująca, czy użytkownicy uwierzytelnieni są zapamiętywane, gdy przekierowywane do adresów URL w innych aplikacjach sieci web na tym samym serwerze. Wartością domyślną jest false.                                                                                                                                                                   |
+|          loginUrl          |                                                                                                                                                                                                                      Adres URL strony logowania. Wartość domyślna to login.aspx.                                                                                                                                                                                                                      |
+|            nazwa            |                                                                                                                                                                                                   Po użyciu uwierzytelniania opartego na pliku cookie biletów, nazwa pliku cookie. Wartość domyślna to. ASPXAUTH.                                                                                                                                                                                                   |
+|            ścieżka            |                                                                             Korzystając z bilety uwierzytelniania opartego na pliku cookie, to ustawienie określa atrybut ścieżki pliku cookie. Atrybut ścieżki umożliwia dewelopera ograniczyć zakres pliku cookie do hierarchii określonego katalogu. Wartością domyślną jest /, który informuje przeglądarkę przesyłają żądanie do domeny pliku cookie biletu uwierzytelniania.                                                                              |
+|         ochrona         |                                                                                                                                            Wskazuje, jaki techniki służą do ochrony biletu uwierzytelniania formularzy. Dopuszczalne wartości to: wszystkie (ustawienie domyślne); Szyfrowanie; Brak; i sprawdzania poprawności. Ustawienia te omówiono szczegółowo w kroku 3.                                                                                                                                            |
+|         parametru requireSSL         |                                                                                                                                                                                Wartość logiczna wskazująca, czy do przesyłania pliku cookie uwierzytelniania jest wymagane połączenie SSL. Wartość domyślna to false.                                                                                                                                                                                |
+|     slidingExpiration      |                                                                                                 Wartość logiczna wskazująca, czy limit czasu plików cookie uwierzytelniania jest resetowany zawsze użytkownik odwiedza witrynę podczas jednej sesji. Wartość domyślna to true. Omówiono bardziej szczegółowo w Określanie zasad limitu czasu biletu uwierzytelniania biletu sekcji wartość limitu czasu.                                                                                                 |
+|          Limit czasu           |                                                                                                                               Określa czas w minutach, po którym wygasa plik cookie biletu uwierzytelniania. Wartość domyślna to 30. Omówiono bardziej szczegółowo w Określanie zasad limitu czasu biletu uwierzytelniania biletu sekcji wartość limitu czasu.                                                                                                                               |
 
 **Tabela 1**: Podsumowanie A &lt;formularze&gt; atrybuty elementu
 
@@ -166,7 +167,7 @@ Zapisz zmiany Default.aspx, a następnie odwiedź go za pośrednictwem przegląd
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/SomePage.aspx`
 
-SomePage.aspx adres URL w łączu został automatycznie przekonwertowany do adresu URL, który się biletu uwierzytelniania — nie mamy zapisu lizawki kodu! Biletu uwierzytelniania formularzy automatycznie zostaną osadzone w adresie URL dla dowolnego hiperłącza, które nie rozpoczynają się od http:// lub /. Nie ma znaczenia, jeśli hiperłącze pojawi się w wywołaniu Response.Redirect, kontroli HyperLink lub element kotwicy HTML (tj. &lt;href = "..."&gt;... &lt;/a&gt;). Tak długo, jak adres URL nie jest element http://www.someserver.com/SomePage.aspx lub /SomePage.aspx, abyśmy zostanie osadzony biletu uwierzytelniania formularzy.
+SomePage.aspx adres URL w łączu został automatycznie przekonwertowany do adresu URL, który się biletu uwierzytelniania — nie mamy zapisu lizawki kodu! Biletu uwierzytelniania formularzy automatycznie zostaną osadzone w adresie URL dla dowolnego hiperłącza, które nie rozpoczynają się od http:// lub /. Nie ma znaczenia, jeśli hiperłącze pojawi się w wywołaniu Response.Redirect, kontroli HyperLink lub element kotwicy HTML (tj. &lt;href = "..."&gt;... &lt;/a&gt;). Tak długo, jak adres URL nie jest podobny do http://www.someserver.com/SomePage.aspx lub /SomePage.aspx, formularze bilet uwierzytelnienia zostanie osadzony w firmie Microsoft.
 
 > [!NOTE]
 > Biletów uwierzytelniania formularzy cookieless stosować się do tych samych zasad limitu czasu jako bilety uwierzytelniania opartego na pliku cookie. Jednak biletów bez plików cookie uwierzytelniania są bardziej podatne na ataki, ponieważ biletu uwierzytelniania jest osadzony bezpośrednio w adresie URL. Wyobraź sobie użytkownik odwiedza witrynę sieci Web, loguje, a następnie wkleja adres URL w wiadomości e-mail do współpracownika. Jeśli współpracownika kliknie łącze, przed wygaśnięciem, ich w będą rejestrowane jako użytkownik, który wysłał wiadomość e-mail!
@@ -432,12 +433,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Alicja Maziarz. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Poprzednie](an-overview-of-forms-authentication-cs.md)
-[dalej](security-basics-and-asp-net-support-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](an-overview-of-forms-authentication-cs.md)
+> [dalej](security-basics-and-asp-net-support-vb.md)

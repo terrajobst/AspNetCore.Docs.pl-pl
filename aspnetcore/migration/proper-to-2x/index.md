@@ -1,7 +1,7 @@
 ---
 title: Migrowanie ASP.NET ASP.NET Core 2.0
 author: isaac2004
-description: "Odbieranie wskazówki dotyczące migrowania istniejących aplikacji ASP.NET MVC lub Web API platformy ASP.NET Core 2.0."
+description: Odbieranie wskazówki dotyczące migrowania istniejących aplikacji ASP.NET MVC lub Web API platformy ASP.NET Core 2.0.
 manager: wpickett
 ms.author: scaddie
 ms.date: 08/27/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 877bcdbe5c5fb43e280800b2b843f2dfacb5bb45
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 86b4ee5f431d1e23ed3ad2be5740af34176de531
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="migrating-from-aspnet-to-aspnet-core-20"></a>Migrowanie ASP.NET ASP.NET Core 2.0
+# <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Migrowanie ASP.NET ASP.NET Core 2.0
 
 Przez [Isaac Levin](https://isaaclevin.com)
 
@@ -23,7 +23,7 @@ W tym artykule służy jako przewodnik odwołania dla migrowanie aplikacji ASP.N
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Oprogramowanie .NET core 2.0.0 SDK](https://dot.net/core) lub nowszym.
+[!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 
 ## <a name="target-frameworks"></a>Docelowych platform
 Projektów platformy ASP.NET Core 2.0 oferuje deweloperom elastyczność przeznaczonych dla platformy .NET Core i .NET Framework. Zobacz [wybór między .NET Core i .NET Framework dla aplikacji serwera](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) do określenia, które platforma docelowa jest najbardziej odpowiednia.
@@ -145,7 +145,7 @@ W ASP.NET Core pliki statyczne są przechowywane w katalogu"web" (*&lt;zawartoś
 
 Na przykład zasób obrazu w *wwwroot/obrazy* takie jak folder jest dostępny dla przeglądarki w lokalizacji `http://<app>/images/<imageFileName>`.
 
-**Uwaga:** na pełniejsze odwołanie do dostarczania plików statycznych w ASP.NET Core, zobacz [wprowadzenie do pracy z plików statycznych w ASP.NET Core](xref:fundamentals/static-files).
+**Uwaga:** na pełniejsze odwołanie do dostarczania plików statycznych w ASP.NET Core, zobacz [Praca z plikami statycznych w ASP.NET Core](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -2,7 +2,7 @@
 uid: web-pages/overview/releases/whats-new-in-aspnet-web-pages-32
 title: What's New in ASP.NET Web Pages 3.2 | Dokumentacja firmy Microsoft
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/30/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/whats-new-in-aspnet-web-pages-32
 msc.type: authoredcontent
-ms.openlocfilehash: cdb0e259bbf27d1d3dcf6ada11e6636c9cefcc9c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 80421018e0508d430b6142cd3cee1727d1d17b7e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-aspnet-web-pages-32"></a>Nowości w produkcie ASP.NET Web Pages 3.2
 ====================
@@ -40,7 +40,7 @@ Można zainstalować lub zaktualizować do pakietów NuGet wydanych przy użyciu
 
 Firma Microsoft stałej jeden błąd a co umożliwiło funkcji pomocniczych w tej wersji. Można znaleźć zapytania dla tego samego [tutaj](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&amp;status=Closed&amp;type=All&amp;priority=All&amp;release=v5.2%20RC|v5.2%20RTM&amp;assignedTo=All&amp;component=Web%20Pages%2FRazor&amp;sortField=Id&amp;sortDirection=Descending&amp;page=0&amp;reasonClosed=Fixed).
 
-## <a name="aspnet-web-pages-322"></a>3.2.2 strony sieci Web ASP.NET
+## <a name="aspnet-web-pages-322"></a>ASP.NET Web Pages 3.2.2
 
 Ta wersja przedstawia up zmiany [wydania Beta stron ASP.NET Web Pages 3.2.1](https://blogs.msdn.com/b/webdev/archive/2014/07/28/announcing-the-beta-release-of-web-pages-3-2-1.aspx) co umożliwia zwiększenie wydajności znaczących w renderowania stron razor dużych. Zobacz[problem witrynie Codeplex 585](https://aspnetwebstack.codeplex.com/workitem/585). Ta wersja wyrównana z MVC 5.2.2 pakiety, do których będzie teraz są zależne od tej wersji.
 
@@ -65,7 +65,8 @@ Poniżej znajduje się tabela prezentacja wyniki analizy [narzędzia perfview](h
 | Procesor CPU / żądań (przykłady/req) | 19.73 | 16.47 | -16.50% |
 
 | Kolor kodowanie: | <font style="background-color: #00ff00">Poprawa Core</font> | <font style="background-color: #4bacc6">Pozytywny wpływ na wydajność</font> |
-| --- | --- | --- |
+|---------------|-----------------------------------------------------------------|-------------------------------------------------------------------------------|
+|               |                                                                 |                                                                               |
 
 ## <a name="aspnet-web-pages-323-beta1"></a>ASP.NET Web Pages 3.2.3 beta1
 

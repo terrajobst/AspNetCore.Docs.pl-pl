@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 09/09/2011
 ms.topic: article
 ms.assetid: 666407bb-81de-4319-89ba-0302c382a208
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: d6797d1dbacff7503f74782d325ff5a9598970c0
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: d29f09d726e835c1eb1fc38e643a4bfe7f00f61c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -139,7 +139,7 @@ Interfejs API sieci Web platformy ASP.NET obsługuje następujące funkcje:
 - **Konfiguracja na podstawie kodu:** konfigurację składnika Web API odbywa się wyłącznie przy użyciu kodu, pozostawiając konfigurację czyszczenia plików.
 - **Host samodzielny:** interfejsów API sieci Web może być hostowana w procesie oprócz usług IIS podczas nadal przy użyciu pełną moc tras i inne funkcje interfejsu API sieci Web.
 
-Więcej informacji na temat interfejsu API sieci Web platformy ASP.NET można znaleźć pod adresem [https://www.asp.net/web-api](../web-api/index.md).
+Więcej informacji na temat interfejsu API sieci Web platformy ASP.NET można znaleźć pod adresem [ https://www.asp.net/web-api ](../web-api/index.md).
 
 <a id="_Toc317096198"></a>
 ### <a name="aspnet-single-page-application"></a>ASP.NET pojedynczej strony aplikacji
@@ -150,7 +150,7 @@ ASP.NET MVC 4 zawiera teraz wcześniejszy przegląd środowiska do tworzenia apl
 - Dodatkowe składniki interfejsu API sieci Web dla jednostki pracy i obsługa warstwy DAL
 - Szablon projektu MVC z rusztowania, aby szybko rozpocząć pracę
 
-Więcej informacji na temat aplikacji jednej strony obsługuje platformie ASP.NET MVC 4, odwiedź [https://www.asp.net/single-page-application](../single-page-application/index.md).
+Więcej informacji na temat aplikacji jednej strony obsługuje platformie ASP.NET MVC 4, odwiedź [ https://www.asp.net/single-page-application ](../single-page-application/index.md).
 
 <a id="_Toc303253808"></a>
 ### <a name="enhancements-to-default-project-templates"></a>Ulepszenia domyślnych szablonów projektu
@@ -219,7 +219,7 @@ Konwencja dla stron sieci web zoptymalizowanych pod kątem mobile jest dodać ł
 
 Jeśli odwiedzający kliknij łącze, jest zostały przełączone do wersji dla komputerów z tej samej stronie.
 
-Ponieważ układ pulpitu nie będzie zawierać przełącznik widoku domyślnie, gości nie będziesz mieć sposobem uzyskania przenośnych tryb. Aby włączyć tę opcję, należy dodać następujące odwołanie do  *\_ViewSwitcher* do układu pulpitu, po prostu wewnątrz  *&lt;treści&gt;*  elementu:
+Ponieważ układ pulpitu nie będzie zawierać przełącznik widoku domyślnie, gości nie będziesz mieć sposobem uzyskania przenośnych tryb. Aby włączyć tę opcję, należy dodać następujące odwołanie do  *\_ViewSwitcher* do układu pulpitu, po prostu wewnątrz *&lt;treści&gt;* elementu:
 
 [!code-cshtml[Main](mvc4-beta-release-notes/samples/sample7.cshtml)]
 
@@ -280,9 +280,9 @@ ASP.NET MVC 4 w wersji Beta obsługuje wrzesień 2011 1.5 wersji zestawu SDK pla
     Element powiązania zestawu w pliku web.config zmodyfikowane powinna wyglądać następująco:
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample12.xml)]
-- **Szablon elementu "Dodaj kontroler" w projektach Visual Basic generuje niepoprawne przestrzeni nazw, gdy została wywołana *** z wewnątrz obszaru.** Po dodaniu kontrolera do obszaru w projekcie platformy ASP.NET MVC, który używa języka Visual Basic szablon elementu wstawia nieprawidłowy obszar nazw do kontrolera. Wynikiem jest błąd "nie można odnaleźć pliku", po przejściu do dowolnych akcji w kontrolerze.  
+- <strong>Szablon elementu "Dodaj kontroler" w projektach Visual Basic generuje niepoprawne przestrzeni nazw, gdy została wywołana</strong><strong>z wewnątrz obszaru.</strong> Po dodaniu kontrolera do obszaru w projekcie platformy ASP.NET MVC, który używa języka Visual Basic szablon elementu wstawia nieprawidłowy obszar nazw do kontrolera. Wynikiem jest błąd "nie można odnaleźć pliku", po przejściu do dowolnych akcji w kontrolerze.  
   
- Wygenerowany obszar nazw pomija wszystkie elementy po głównej przestrzeni nazw. Na przykład, przestrzeń nazw, generowane jest *RootNamespace* , ale powinien być *RootNamespace.Areas.AreaName.Controllers* .
+  Wygenerowany obszar nazw pomija wszystkie elementy po głównej przestrzeni nazw. Na przykład, przestrzeń nazw, generowane jest *RootNamespace* , ale powinien być *RootNamespace.Areas.AreaName.Controllers* .
 - **Fundamentalne zmiany w aparatu widoku Razor.** W ramach poprawione analizator Razor, następujące typy zostały usunięte z *System.Web.Mvc.Razor*: 
 
     - *ModelSpan*
@@ -290,7 +290,7 @@ ASP.NET MVC 4 w wersji Beta obsługuje wrzesień 2011 1.5 wersji zestawu SDK pla
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
- Ponadto usunięto następujących metod: 
+  Ponadto usunięto następujących metod: 
 
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
@@ -305,15 +305,15 @@ ASP.NET MVC 4 w wersji Beta obsługuje wrzesień 2011 1.5 wersji zestawu SDK pla
 
     **Wymagane aktualizacje**
 
-    1. W głównym pliku Web.config, Dodaj nową  *&lt;appSettings&gt;*  wpisu z kluczem *webPages:Version* i wartość *1.0.0.0*.
+  1. W głównym pliku Web.config, Dodaj nową *&lt;appSettings&gt;* wpisu z kluczem *webPages:Version* i wartość *1.0.0.0*.
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
-    2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę i wybierz polecenie Edytuj *ProjectName*.csproj.
-    3. Znajdź następujące odwołania do zestawu: 
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
+  2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę i wybierz polecenie Edytuj *ProjectName*.csproj.
+  3. Znajdź następujące odwołania do zestawu: 
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
 
-        Zastąp je z następujących czynności:
+      Zastąp je z następujących czynności:
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
-    4. Zapisz zmiany, zamknij plik projektu (.csproj), edytowania, a następnie kliknij prawym przyciskiem myszy projekt i wybierz pozycję Załaduj ponownie.
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
+  4. Zapisz zmiany, zamknij plik projektu (.csproj), edytowania, a następnie kliknij prawym przyciskiem myszy projekt i wybierz pozycję Załaduj ponownie.

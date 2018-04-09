@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/data-bound-controls
-title: "Kontrolki powiązane dane | Dokumentacja firmy Microsoft"
+title: Kontrolki powiązane dane | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Większość aplikacji ASP.NET polegają na pewien stopień prezentację danych ze źródła danych zaplecza. Formanty powiązane z danymi zostały istotną częścią wchodzącymi w interakcje w..."
+description: Większość aplikacji ASP.NET polegają na pewien stopień prezentację danych ze źródła danych zaplecza. Formanty powiązane z danymi zostały istotną częścią wchodzącymi w interakcje w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-bound-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 3ebb0f9a7a2f071b7bf7aa3855920f1a5784a61f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5c3f6aad4b87450149189352e86106f46c765fb8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-bound-controls"></a>Kontrolki powiązane dane
 ====================
@@ -39,7 +39,7 @@ Również omówimy następujące klasy, które pochodzi z klasy element Hierarch
 
 - TreeView
 - Menu
-- Ścieżki mapy witryny
+- SiteMapPath
 
 ## <a name="databoundcontrol-class"></a>Obiekt DataBoundControl — klasa
 
@@ -60,7 +60,7 @@ Adres URL, który użytkownik należy podjąć w celu po kliknięciu ad. Powinno
 ### <a name="alternatetext"></a>AlternateText
 Tekst alternatywny wyświetlany w etykietce narzędzia i odczytywane przez czytników ekranu. Również wyświetlana, gdy nie jest określony przez ImageUrl obrazu.
 
-### <a name="keyword"></a>Słowo kluczowe
+### <a name="keyword"></a>Keyword
 Definiuje — słowo kluczowe, które mogą być używane podczas filtrowania — słowo kluczowe. Jeśli jest określony, będą wyświetlane tylko reklam ze słowem kluczowym zgodny z filtrem — słowo kluczowe.
 
 ### <a name="impressions"></a>Odciski
@@ -95,7 +95,7 @@ Jeśli chcesz użyć tabeli bazy danych jako źródło danych dla formantu AdRot
 | ImageUrl | nvarchar (*długość*) | Względny lub bezwzględny adres URL obrazu do wyświetlenia dla usługi ad. |
 | NavigateUrl | nvarchar (*długość*) | Docelowy adres URL dla usługi ad. Jeśli wartość nie zostanie określona, usługi ad nie jest hiperłącze. |
 | AlternateText | nvarchar (*długość*) | Tekst wyświetlany, jeśli nie można odnaleźć obrazu. W niektórych przeglądarkach tekst jest wyświetlany jako etykietka narzędzia. Tekst alternatywny służy także do ułatwień dostępu, aby użytkownicy, którzy nie widzi grafiki słyszalny opis Czytaj na głos. |
-| Słowo kluczowe | nvarchar (*długość*) | Kategoria usług AD, w którym można filtrować strony. |
+| Keyword | nvarchar (*długość*) | Kategoria usług AD, w którym można filtrować strony. |
 | Odciski | int(4) | Liczba, która określa prawdopodobieństwo częstotliwość ad jest wyświetlany. Im większa liczba, częściej ad będzie wyświetlany. Sumę wszystkich wartości wrażenia w pliku XML nie może przekraczać 2,048,000,000-1. |
 | Szerokość | int(4) | Szerokość obrazu w pikselach. |
 | Wysokość | int(4) | Wysokość obrazu w pikselach. |
@@ -112,14 +112,14 @@ Formanty listy obejmują ListBox, DropDownList, CheckBoxList, RadioButtonList i 
 
 Dane bind formant listy, na stronie Dodaj formant źródła danych. Określ polecenie SELECT do kontroli źródła danych, a następnie ustaw właściwości DataSourceID kontrolki listy identyfikator formantu źródła danych. Użyj **DataTextField** i **DataValueField** właściwości, aby zdefiniować wyświetlany tekst i wartość dla formantu. Ponadto można użyć **DataTextFormatString** właściwości, aby sterować wyglądem wyświetlania tekstu w następujący sposób:
 
-| **Wyrażenie** | **Opis** |
+| **Expression** | **Opis** |
 | --- | --- |
 | Cena: {0: c} | Aby uzyskać dane liczbowe/dziesiętnych. Wyświetla literału "Cena:" następuje liczb w formacie waluty. Formacie waluty zależy od ustawienia kultury określonej w atrybucie kultury na **strony** dyrektywy lub w pliku Web.config. |
 | {0:D4} | Dla danych liczb całkowitych. Nie można używać z liczb dziesiętnych. Liczby całkowite są wyświetlane w dopełniane zero pola, które jest cztery znaki dwubajtowe. |
-| {0:N2} % | Aby uzyskać dane liczbowe. Wyświetla liczbę o 2 dziesiętnego dokładności następuje literał "%". |
+| {0:N2}% | Aby uzyskać dane liczbowe. Wyświetla liczbę o 2 dziesiętnego dokładności następuje literał "%". |
 | {0:000.0} | Aby uzyskać dane liczbowe/dziesiętnych. Numery są zaokrąglane do jednego miejsca dziesiętnego. Liczby mniejsze niż trzech cyfr. dopełniane zero. |
-| {0: D} | Dla danych daty/godziny. Format daty długiej Wyświetla ("czwartek 06 sierpnia 1996"). Format daty zależy od ustawienia kulturowe strony lub pliku Web.config. |
-| {0: d} | Dla danych daty/godziny. Data krótka Wyświetla formatu ("12/31/99"). |
+| {0:D} | Dla danych daty/godziny. Format daty długiej Wyświetla ("czwartek 06 sierpnia 1996"). Format daty zależy od ustawienia kulturowe strony lub pliku Web.config. |
+| {0:d} | Dla danych daty/godziny. Data krótka Wyświetla formatu ("12/31/99"). |
 | {0:yy-MM-dd} | Dla danych daty/godziny. Wyświetla datę w formacie liczbowym rok, miesiąc, dzień (96-08-06) |
 
 ## <a name="gridview"></a>GridView
@@ -149,10 +149,10 @@ W poniższej tabeli wymieniono typy pól innej kolumny, które mogą być używa
 | Pole CheckBoxField | Wyświetla pole wyboru dla każdego elementu w kontrolce GridView. Ten typ pola kolumny często jest używany do wyświetlania pola z wartością logiczną. |
 | CommandField | Wyświetla wstępnie zdefiniowane przyciski poleceń do wykonania, wybierając, edytowanie lub usuwanie operacji. |
 | Pole hiperłącza HyperLinkField | Wyświetla wartość pola w źródle danych jako hiperłącze. Ten typ pola kolumny umożliwia tworzenie powiązań drugie pole do adresu URL hiperłącza. |
-| Element ImageField | Wyświetla obraz dla każdego elementu w kontrolce GridView. |
+| ImageField | Wyświetla obraz dla każdego elementu w kontrolce GridView. |
 | Pole TemplateField | Wyświetla zawartość zdefiniowane przez użytkownika dla każdego elementu w kontrolce GridView zgodnie z określonego szablonu. Ten typ pola kolumny służy do tworzenia pole niestandardowe kolumny. |
 
-Aby zdefiniować deklaratywnie kolekcji pól kolumn, najpierw dodać otwierające i zamykające  **&lt;kolumn&gt;**  tagi pomiędzy otwierającym, a zamykającym tagiem kontrolki widoku siatki. Następnie na liście pól kolumn, które chcesz uwzględnić między otwarcia i zamknięcia  **&lt;kolumn&gt;**  tagów. Kolumny określone są dodawane do kolekcji kolumn w podanej kolejności. **Kolumn** kolekcji przechowywane są wszystkie kolumny pola w formancie i można programowo zarządzać pola kolumn w kontrolce GridView.
+Aby zdefiniować deklaratywnie kolekcji pól kolumn, najpierw dodać otwierające i zamykające **&lt;kolumn&gt;** tagi pomiędzy otwierającym, a zamykającym tagiem kontrolki widoku siatki. Następnie na liście pól kolumn, które chcesz uwzględnić między otwarcia i zamknięcia **&lt;kolumn&gt;** tagów. Kolumny określone są dodawane do kolekcji kolumn w podanej kolejności. **Kolumn** kolekcji przechowywane są wszystkie kolumny pola w formancie i można programowo zarządzać pola kolumn w kontrolce GridView.
 
 Pola jawnie zadeklarowana kolumn mogą być wyświetlane w połączeniu z kolumny automatycznie wygenerowanego pola. Gdy są używane, jawnie zadeklarowane kolumny pola mają być renderowane najpierw następuje pola automatycznie generowanych kolumn.
 
@@ -243,7 +243,7 @@ Kontrolki widoku FormView do wyświetlania zawartości należy utworzyć szablon
 | **Typ szablonu** | **Opis** |
 | --- | --- |
 | EditItemTemplate | Definiuje zawartość wiersza danych, gdy formant FormView jest w trybie edycji. Ten szablon zawiera zwykle kontrolki wejściowe i przyciski poleceń, z którą użytkownik może edytować istniejącego rekordu. |
-| Elementu EmptyDataTemplate | Określa zawartość pustym wierszu danych wyświetlane, gdy kontrolka FormView jest powiązana ze źródłem danych, która nie zawiera żadnych rekordów. Ten szablon zawiera zwykle zawartości, aby ostrzec użytkownika, że źródło danych nie zawiera żadnych rekordów. |
+| EmptyDataTemplate | Określa zawartość pustym wierszu danych wyświetlane, gdy kontrolka FormView jest powiązana ze źródłem danych, która nie zawiera żadnych rekordów. Ten szablon zawiera zwykle zawartości, aby ostrzec użytkownika, że źródło danych nie zawiera żadnych rekordów. |
 | Elementu FooterTemplate | Określa zawartość wiersza stopki. Ten szablon zawiera zwykle dodatkowej zawartości, którą chcesz wyświetlić w wierszu stopki. Alternatywnie można po prostu określić tekst do wyświetlenia w wierszu stopki przez ustawienie właściwości FooterText. |
 | Właściwość HeaderTemplate | Określa zawartość nagłówka wiersza. Ten szablon zawiera zwykle dodatkowej zawartości, którą chcesz wyświetlić w wierszu nagłówka. Alternatywnie można po prostu określić tekst do wyświetlenia w wierszu nagłówka, ustawiając właściwość HeaderText. |
 | ItemTemplate | Definiuje zawartość wiersza danych, gdy formant FormView jest w trybie tylko do odczytu. Ten szablon zawiera zwykle zawartości do wyświetlania wartości istniejącego rekordu. |
@@ -267,7 +267,7 @@ Ponieważ w formancie FormView korzysta z szablonów, nie ma sposób automatyczn
 
 | **Przycisk** | **Wartość CommandName** | **Opis** |
 | --- | --- | --- |
-| Anuluj | "Anuluj" | Używane w aktualizacji lub operacji wstawiania, aby anulować operację i odrzucić wartości wprowadzonej przez użytkownika. Formant FormView następnie powraca do trybu określoną przez właściwość właściwości DefaultMode. |
+| Anuluj | "Cancel" | Używane w aktualizacji lub operacji wstawiania, aby anulować operację i odrzucić wartości wprowadzonej przez użytkownika. Formant FormView następnie powraca do trybu określoną przez właściwość właściwości DefaultMode. |
 | Usuwanie | "Delete" | Używane w operacji usuwania wyświetlanych usunięty ze źródła danych. Informuje o zdarzeniach ItemDeleting i ItemDeleted. |
 | Edytowanie | "Edit" | Używane w aktualizacji operacji put formancie FormView w trybie edycji. Zawartość określona w **EditItemTemplate** właściwość jest wyświetlana dla wiersza danych. |
 | Insert | "Insert" | Używane w operacji wstawiania, aby wstawić nowy rekord w źródle danych, używając wartości podanego przez użytkownika. Informuje o zdarzeniach ItemInserting i ItemInserted. |
@@ -336,12 +336,12 @@ Każdy wiersz danych w formancie widoku DetailsView jest tworzony przez zadeklar
 | Pole CheckBoxField | Wyświetla pole wyboru w formancie widoku DetailsView. Ten typ pola wiersza często służy do wyświetlania pola z wartością logiczną. |
 | CommandField | Wyświetla wbudowanego polecenia przycisków przeprowadzenie edycji, wstawiania lub usuwania operacji w kontrolce widoku DetailsView. |
 | Pole hiperłącza HyperLinkField | Wyświetla wartość pola w źródle danych jako hiperłącze. Ten typ pola wiersza, umożliwia tworzenie powiązań drugie pole do adresu URL hiperłącza. |
-| Element ImageField | Wyświetla obraz w formancie widoku DetailsView. |
+| ImageField | Wyświetla obraz w formancie widoku DetailsView. |
 | Pole TemplateField | Wyświetla zawartość zdefiniowane przez użytkownika dla wiersza w kontrolce widoku DetailsView zgodnie z określonego szablonu. Ten typ pola wiersza, umożliwia tworzenie pole niestandardowe wiersza. |
 
 Domyślnie ma ustawioną właściwość AutoGenerateRows **true**, który automatycznie generuje obiekt pola powiązanego wiersza dla każdego pola, które można powiązać typu źródła danych. Prawidłowe typy powiązania to ciąg, DateTime, Decimal, identyfikator Guid i zestawu typów pierwotnych. Każde pole jest następnie wyświetlane w wierszu jako tekst w kolejności, w której każde pole pojawia się w źródle danych.
 
-Automatyczne generowanie wiersze zapewnia szybki i łatwy sposób wyświetlania każdego pola w rekordzie. Aby użyć widoku DetailsView formantu zaawansowanych funkcji, musisz jawnie zadeklarować pól wierszy do uwzględnienia w kontrolce widoku DetailsView. Aby zadeklarować pól wierszy, najpierw ustaw **AutoGenerateRows** właściwości **false**. Następnie dodaj otwierające i zamykające  **&lt;pola&gt;**  tagi pomiędzy otwierającym, a zamykającym tagiem formantu widoku DetailsView. Na koniec listy pól wierszy, które chcesz uwzględnić między otwarcia i zamknięcia  **&lt;pola&gt;**  tagów. Określone pola wiersza są dodawane do kolekcji pól w podanej kolejności. **Pola** kolekcji umożliwia programowego zarządzania pola wiersza w kontrolce widoku DetailsView.
+Automatyczne generowanie wiersze zapewnia szybki i łatwy sposób wyświetlania każdego pola w rekordzie. Aby użyć widoku DetailsView formantu zaawansowanych funkcji, musisz jawnie zadeklarować pól wierszy do uwzględnienia w kontrolce widoku DetailsView. Aby zadeklarować pól wierszy, najpierw ustaw **AutoGenerateRows** właściwości **false**. Następnie dodaj otwierające i zamykające **&lt;pola&gt;** tagi pomiędzy otwierającym, a zamykającym tagiem formantu widoku DetailsView. Na koniec listy pól wierszy, które chcesz uwzględnić między otwarcia i zamknięcia **&lt;pola&gt;** tagów. Określone pola wiersza są dodawane do kolekcji pól w podanej kolejności. **Pola** kolekcji umożliwia programowego zarządzania pola wiersza w kontrolce widoku DetailsView.
 
 > [!NOTE]
 > Automatycznie generowane pola nie są dodawane do kolekcji pól wiersza.
@@ -511,7 +511,7 @@ TreeView — kontrolka ma kilka właściwości, które wpływają na działanie 
 
 **ShowCheckBoxes** właściwość ma wpływ na, czy węzły wyświetlane pole wyboru, gdy są renderowane. Prawidłowe wartości dla tej właściwości to **Brak**, **głównego**, **nadrzędnej**, **liścia**, i **wszystkich**. Wpływają one na formancie TreeView w następujący sposób:
 
-| **Wartość właściwości** | **Efekt** |
+| **Wartość właściwości** | **Effect** |
 | --- | --- |
 | Brak | Element CheckBoxes nie są wyświetlane na żadnych węzłów. To jest ustawienie domyślne. |
 | główny | Pole wyboru jest wyświetlane tylko dla węzła głównego. |
@@ -557,7 +557,7 @@ TreeView — kontrolka ma unikatowy następujące zdarzenia:
 
 TreeView — formant zawiera wiele właściwości sterujące wyglądu formantu przy użyciu stylów. Dostępne są następujące właściwości.
 
-| **Nazwa właściwości** | **Formanty** |
+| **Nazwa właściwości** | **Kontrolki** |
 | --- | --- |
 | HoverNodeStyle | Kontroluje styl węzłów, gdy wskaźnik myszy znajduje się myszy nad nimi. |
 | LeafNodeStyle | Określa styl węzłów liści. |
@@ -618,7 +618,7 @@ Kontrolki ścieżki mapy witryny ma dwa zdarzenia, które nie pochodzą z klasy 
 
 Następujące style są dostępne dla kontrolki ścieżki mapy witryny.
 
-| **Nazwa właściwości** | **Formanty** |
+| **Nazwa właściwości** | **Kontrolki** |
 | --- | --- |
 | CurrentNodeStyle | Określa styl tekstu dla bieżącego węzła. |
 | RootNodeStyle | Określa styl tekstu dla węzła głównego. |
@@ -701,16 +701,16 @@ Tym ćwiczeniu przyjęto założenie, że program SQL Server działa lokalnie i 
 16. Kliknij przycisk **Edytowanie kolumn** łącza i upewnij się, że **automatycznie wygenerować pola** jest zaznaczony.
 17. Kliknij przycisk **OK**.
 18. Za pomocą formantu widoku GridView zaznaczone, kliknij przycisk **DataKeyNames** właściwości w okienku właściwości.
-19. Wybierz **ProductID** z **dostępnych polach danych** listy i kliknij przycisk  **&gt;**  przycisk, aby dodać go.
+19. Wybierz **ProductID** z **dostępnych polach danych** listy i kliknij przycisk **&gt;** przycisk, aby dodać go.
 20. Kliknij przycisk OK.
 21. Dodaj nową kontrolkę SqlDataSource do strony.
 22. Zmień identyfikator formantu SqlDataSource **szczegóły**.
 23. Z menu zadania SqlDataSource wybierz **skonfiguruj źródło danych**.
 24. Wybierz **Northwind** z listy rozwijanej i kliknij przycisk **dalej**.
-25. Wybierz **produktów** z **nazwa** listy rozwijanej i sprawdź  **\***  checkbox w **kolumn** listbox.
+25. Wybierz <strong>produktów</strong> z <strong>nazwa</strong> listy rozwijanej i sprawdź <strong> \</ strong > * checkbox w <strong>kolumn</strong> listbox.
 26. Kliknij przycisk **gdzie** przycisku.
 27. Wybierz **ProductID** z **kolumny** listy rozwijanej.
-28. Wybierz  **=**  na liście rozwijanej operatora.
+28. Wybierz **=** na liście rozwijanej operatora.
 29. Wybierz **kontroli** z **źródła** listy rozwijanej.
 30. Wybierz **GridView1** z **Identyfikatora formantu** listy rozwijanej.
 31. Kliknij przycisk **Dodaj** przycisk, aby dodać klauzuli WHERE.

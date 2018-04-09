@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
-title: "Strona błędu niestandardowego (C#) | Dokumentacja firmy Microsoft"
+title: Strona błędu niestandardowego (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Co to widoczne dla użytkownika po wystąpił błąd środowiska uruchomieniowego w aplikacji sieci web ASP.NET? Odpowiedź zależy sposób witryny sieci Web &lt;customErrors&gt; konfiguracji..."
+description: Co to widoczne dla użytkownika po wystąpił błąd środowiska uruchomieniowego w aplikacji sieci web ASP.NET? Odpowiedź zależy sposób witryny sieci Web &lt;customErrors&gt; konfiguracji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8d68dedfc1f606cc6f0381bcbdb3f65c1ea3b2e5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f01a0f3af3680d53639512d7a86ac1a8645d00e2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-custom-error-page-c"></a>Strona błędu niestandardowego (C#)
 ====================
@@ -60,7 +60,7 @@ Należy zwrócić uwagę informacji przedstawionych w **rysunek 1**. Komunikat o
 
 Typ YSOD jest YSOD błąd środowiska uruchomieniowego i jest wyświetlany w **na rysunku 2**. YSOD błąd środowiska uruchomieniowego informuje obiekt odwiedzający, który wystąpił błąd w czasie wykonywania, ale nie zawiera żadnych informacji o wyjątku, który został zgłoszony. (Jednak zawierają instrukcje dotyczące sposobu wprowadzania szczegóły błędu można przeglądać, modyfikując `Web.config` pliku, który jest częścią co sprawia, że takie YSOD, Szukaj szkodzi.)
 
-Domyślnie YSOD błąd czasu wykonywania jest wyświetlana dla użytkowników odwiedzających zdalne (za pośrednictwem http://www.yoursite.com), o adres URL na pasku adresu przeglądarki w **na rysunku 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Dwóch różnych ekranach YSOD istnieje, ponieważ Deweloperzy są chciał wiedzieć, szczegóły błędu, ale informacje te nie mają być wyświetlane na działającą witrynę jako może ujawnić, potencjalnych luk w zabezpieczeniach lub inne poufne informacje dla wszystkich osób odwiedzających użytkownika lokacja.
+Domyślnie YSOD błąd czasu wykonywania jest wyświetlana dla użytkowników odwiedzających zdalne (za pośrednictwem http://www.yoursite.com), potwierdzonych przez adres URL na pasku adresu przeglądarki w **na rysunku 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Dwóch różnych ekranach YSOD istnieje, ponieważ Deweloperzy są chciał wiedzieć, szczegóły błędu, ale informacje te nie mają być wyświetlane na działającą witrynę jako może ujawnić, potencjalnych luk w zabezpieczeniach lub inne poufne informacje dla wszystkich osób odwiedzających użytkownika lokacja.
 
 > [!NOTE]
 > Jeśli po i przy użyciu DiscountASP.NET jako hosta sieci web, możesz zauważyć, że YSOD błąd środowiska uruchomieniowego nie są wyświetlane podczas przeglądania witryny na żywo. Jest to spowodowane DiscountASP.NET zawiera ich serwerów do wyświetlenia YSOD szczegóły wyjątku jest domyślnie konfigurowana. Dobre wieści jest, że można zastąpić to zachowanie domyślne, dodając `<customErrors>` sekcji do Twojej `Web.config` pliku. Sprawdza, czy w sekcji "Konfigurowanie którego strona zostanie wyświetlony błąd" `<customErrors>` sekcji szczegółowo.
@@ -89,11 +89,11 @@ Które trzy strony może zawierać błąd jest wyświetlany jest oparty na dwóc
 
 [ `<customErrors>` Sekcji](https://msdn.microsoft.com/library/h0hfz6fc.aspx) w `Web.config` ma dwa atrybuty, które mają wpływ na jakie strony błędu jest wyświetlany: `defaultRedirect` i `mode`. `defaultRedirect` Atrybutu jest opcjonalny. Jeśli zostanie podana, określa adres URL strony błędu niestandardowego i wskazuje, że zamiast YSOD błąd środowiska uruchomieniowego powinna być wyświetlana strona błędu niestandardowego. `mode` Atrybut jest wymagany i przyjmuje jeden z trzech wartości: `On`, `Off`, lub `RemoteOnly`. Te wartości są następujące działania:
 
-- `On`— Wskazuje, że strony błędów niestandardowych lub YSOD błąd czasu wykonywania jest pokazywane do wszystkich odwiedzających, niezależnie od tego, czy są one lokalnym lub zdalnym.
-- `Off`— Określa, czy YSOD szczegóły wyjątku jest wyświetlana dla wszystkich odwiedzających, niezależnie od tego, czy są one lokalnym lub zdalnym.
-- `RemoteOnly`— Wskazuje, że strony błędów niestandardowych lub YSOD błąd czasu wykonywania jest pokazywane zdalnego gościom podczas YSOD szczegóły wyjątku znajduje się do lokalnego odwiedzający.
+- `On` — Wskazuje, że strony błędów niestandardowych lub YSOD błąd czasu wykonywania jest pokazywane do wszystkich odwiedzających, niezależnie od tego, czy są one lokalnym lub zdalnym.
+- `Off` — Określa, czy YSOD szczegóły wyjątku jest wyświetlana dla wszystkich odwiedzających, niezależnie od tego, czy są one lokalnym lub zdalnym.
+- `RemoteOnly` — Wskazuje, że strony błędów niestandardowych lub YSOD błąd czasu wykonywania jest pokazywane zdalnego gościom podczas YSOD szczegóły wyjątku znajduje się do lokalnego odwiedzający.
 
-O ile nie określono inaczej, ASP.NET działa tak, jakby ma ustawiony atrybut tryb `RemoteOnly` i nie podał `defaultRedirect` wartość. Domyślnym zachowaniem jest innymi słowy, że podczas YSOD błąd środowiska uruchomieniowego znajduje się do zdalnego odwiedzających YSOD szczegóły wyjątku jest wyświetlany gościom lokalnego. To zachowanie domyślne można przesłonić przez dodanie `<customErrors>` sekcji do aplikacji sieci web`Web.config file.`
+O ile nie określono inaczej, ASP.NET działa tak, jakby ma ustawiony atrybut tryb `RemoteOnly` i nie podał `defaultRedirect` wartość. Domyślnym zachowaniem jest innymi słowy, że podczas YSOD błąd środowiska uruchomieniowego znajduje się do zdalnego odwiedzających YSOD szczegóły wyjątku jest wyświetlany gościom lokalnego. To zachowanie domyślne można przesłonić przez dodanie `<customErrors>` sekcji do aplikacji sieci web `Web.config file.`
 
 ## <a name="using-a-custom-error-page"></a>Za pomocą strony błędu niestandardowego
 
@@ -144,7 +144,7 @@ Dzięki tej zmianie w miejscu zawsze, gdy użytkownik odwiedzający zdalnie zaż
 > Zapoznaj się z [404 stron błędów, jeden raz więcej](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) wskazówki dotyczące tworzenia skuteczne stron błąd 404.
 
 
-[![](displaying-a-custom-error-page-cs/_static/image19.png)](displaying-a-custom-error-page-cs/_static/image18.png)**Rysunek 7**: strony błędu niestandardowego 404, zostanie wyświetlony komunikat bardziej precyzyjnie niż`Oops.aspx`  
+[![](displaying-a-custom-error-page-cs/_static/image19.png)](displaying-a-custom-error-page-cs/_static/image18.png)**Rysunek 7**: strony błędu niestandardowego 404, zostanie wyświetlony komunikat bardziej precyzyjnie niż `Oops.aspx`  
  ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-a-custom-error-page-cs/_static/image20.png)) 
 
 Ponieważ wiadomo, że `404.aspx` strony tylko jest osiągana, gdy użytkownik zażąda strony, który nie został znaleziony, można rozszerzyć tę stronę błędu niestandardowego, aby obejmuje funkcjonalności pomóc użytkownikowi adres tego typu określonego błędu. Na przykład można kompilacji mapy znane zły adresy URL do adresów URL dobrej tabeli bazy danych, a następnie `404.aspx` niestandardowej strony błędu Uruchom zapytania dotyczącego tabeli i sugeruje stron, które użytkownik może próba nawiązania połączenia.
@@ -173,6 +173,6 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Obsługa i zgłaszanie wyjątków](https://msdn.microsoft.com/library/5b2yeyab.aspx)
 - [Prawidłowo przy użyciu strony błędów niestandardowych w programie ASP.NET](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
->[!div class="step-by-step"]
-[Poprzednie](strategies-for-database-development-and-deployment-cs.md)
-[dalej](processing-unhandled-exceptions-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](strategies-for-database-development-and-deployment-cs.md)
+> [dalej](processing-unhandled-exceptions-cs.md)

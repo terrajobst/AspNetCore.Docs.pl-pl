@@ -1,7 +1,7 @@
 ---
-title: "Tworzenie interfejsu API sieci Web przy użyciu programu Visual Studio i ASP.NET Core dla systemu Windows"
+title: Tworzenie interfejsu API sieci Web przy użyciu programu Visual Studio i ASP.NET Core dla systemu Windows
 author: rick-anderson
-description: "Tworzenie składnika web API platformy ASP.NET Core MVC i Visual Studio dla systemu Windows"
+description: Tworzenie składnika web API platformy ASP.NET Core MVC i Visual Studio dla systemu Windows
 manager: wpickett
 ms.author: riande
 ms.date: 08/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: 6ce18cfd488d89a633bca6c02f9391c1dcca9c08
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: c264ae6a04e46d029f8c710af9cbce4f8437ba7c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
-#<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Tworzenie składnika web API platformy ASP.NET Core i Visual Studio dla systemu Windows
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Tworzenie interfejsu API sieci Web przy użyciu programu Visual Studio i ASP.NET Core dla systemu Windows
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Wasson Jan](https://github.com/mikewasson)
 
@@ -29,19 +29,17 @@ Istnieją 3 wersje tego samouczka:
 
 <!-- WARNING: The code AND images in this doc are used by uid: tutorials/web-api-vsc, tutorials/first-web-api-mac and tutorials/first-web-api. If you change any code/images in this tutorial, update uid: tutorials/web-api-vsc -->
 
-[!INCLUDE[intro to web API](../includes/webApi/intro.md)]
+[!INCLUDE [intro to web API](../includes/webApi/intro.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[!INCLUDE[install 2.0](../includes/install2.0.md)]
-
-Zobacz [ten plik PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-web-api/_static/_webAPI.pdf) dla wersji platformy ASP.NET Core 1.1.
+[!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="create-the-project"></a>Utwórz projekt
 
 W programie Visual Studio, wybierz **pliku** menu > **nowy** > **projektu**.
 
-Wybierz **.NET Core** >  **aplikacji sieci Web platformy ASP.NET Core** szablonu projektu. Nazwij projekt `TodoApi` i wybierz **OK**.
+Wybierz **.NET Core** > **aplikacji sieci Web platformy ASP.NET Core** szablonu projektu. Nazwij projekt `TodoApi` i wybierz **OK**.
 
 ![Okno dialogowe nowego projektu](first-web-api/_static/new-project.png)
 
@@ -83,7 +81,7 @@ Zastąp klasę z następującym kodem:
 
 [!code-csharp[](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
-[!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
+[!INCLUDE [Register the database context](../includes/webApi/register_dbContext.md)]
 
 ### <a name="add-a-controller"></a>Dodawanie kontrolera
 
@@ -93,13 +91,13 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy *kontrolerów* fold
 
 Zastąp klasę z następującym kodem:
 
-[!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
+[!INCLUDE [code and get todo items](../includes/webApi/getTodoItems.md)]
 
 ### <a name="launch-the-app"></a>Uruchom aplikację
 
 W programie Visual Studio naciśnij kombinację klawiszy CTRL + F5, aby uruchomić aplikację. Program Visual Studio spowoduje uruchomienie przeglądarki i przechodzi do `http://localhost:port/api/values`, gdzie *portu* jest liczbą losowo wybranego portu. Przejdź do `Todo` kontroler na `http://localhost:port/api/todo`.
 
-[!INCLUDE[last part of web API](../includes/webApi/end.md)]
+[!INCLUDE [last part of web API](../includes/webApi/end.md)]
 
-[!INCLUDE[next steps](../includes/webApi/next.md)]
+[!INCLUDE [next steps](../includes/webApi/next.md)]
 

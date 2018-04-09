@@ -1,7 +1,7 @@
 ---
-title: "Stron razor podstawowych EF w platformy ASP.NET Core - odczytanie danych powiązanych — 6, 8"
+title: Stron razor podstawowych EF w platformy ASP.NET Core - odczytanie danych powiązanych — 6, 8
 author: rick-anderson
-description: "W tym samouczku odczytu i wyświetlanie powiązanych danych — to znaczy dane programu Entity Framework wczytywane właściwości nawigacji."
+description: W tym samouczku odczytu i wyświetlanie powiązanych danych — to znaczy dane programu Entity Framework wczytywane właściwości nawigacji.
 manager: wpickett
 ms.author: riande
 ms.date: 11/05/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 44db7b49aef6bff1e57d10d569ffa9c73930b774
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 55d9b6743c7d97dc9a354bae218b1fac69d7b6bc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - odczytanie danych powiązanych — 6, 8
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra), [Jan Kowalski P](https://twitter.com/thereformedprog), i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 W tym samouczku powiązanych danych do odczytu i wyświetlić. Dane dotyczące to dane EF Core ładuje do właściwości nawigacji.
 
@@ -37,22 +37,22 @@ Istnieje kilka sposobów EF Core może ładować powiązanych danych do właści
 
 * [Ładowanie wczesny](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading). Ładowanie wczesny jest podczas zapytania dla jednego typu jednostki ładowania również powiązanych jednostek. Podczas odczytywania jednostki powiązane dane są pobierane. Powoduje to zwykle w zapytaniu sprzężenia jednej, która pobiera wszystkie dane potrzebne. Podstawowe EF będzie wystawiać wielu zapytań w przypadku niektórych typów wczesny ładowania. Wystawianie wielu zapytań może być bardziej efektywne niż w przypadku niektórych kwerend w EF6 było pojedynczego zapytania. Ładowanie wczesny zostanie określony z `Include` i `ThenInclude` metody.
 
- ![Przykład wczesny ładowania](read-related-data/_static/eager-loading.png)
+  ![Przykład wczesny ładowania](read-related-data/_static/eager-loading.png)
  
- Ładowanie wczesny wysyła wielu zapytań podczas nawigacji kolekcji znajduje się:
+  Ładowanie wczesny wysyła wielu zapytań podczas nawigacji kolekcji znajduje się:
 
- * Jedno zapytanie dla głównego zapytania 
- * Jednej kwerendzie dla każdej kolekcji "krawędzi" w drzewie obciążenia.
+  * Jedno zapytanie dla głównego zapytania 
+  * Jednej kwerendzie dla każdej kolekcji "krawędzi" w drzewie obciążenia.
 
 * Oddzielne zapytania z `Load`: w oddzielne zapytania można pobrać dane i EF Core "rozwiązuje" właściwości nawigacji. oznacza "poprawki w górę" EF Core będzie automatycznie wypełni właściwości nawigacji. Oddzielne zapytania z `Load` przypomina explict ładowania niż wczesny ładowania.
 
- ![Przykład oddzielne zapytania](read-related-data/_static/separate-queries.png)
+  ![Przykład oddzielne zapytania](read-related-data/_static/separate-queries.png)
 
- Uwaga: EF Core automatycznie naprawia właściwości nawigacji z innymi obiektami, które wcześniej zostały załadowane do wystąpienia kontekstu. Nawet jeśli dane dla właściwości nawigacji *nie* jawnie uwzględnione właściwość nadal może być wypełniana w przypadku niektórych lub wszystkich powiązanych jednostek wcześniej załadowane.
+  Uwaga: EF Core automatycznie naprawia właściwości nawigacji z innymi obiektami, które wcześniej zostały załadowane do wystąpienia kontekstu. Nawet jeśli dane dla właściwości nawigacji *nie* jawnie uwzględnione właściwość nadal może być wypełniana w przypadku niektórych lub wszystkich powiązanych jednostek wcześniej załadowane.
 
 * [Jawne ładowania](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading). Gdy obiekt jest najpierw przeczytać artykuł, pobrać nie jest powiązane dane. Kod musi być przystosowana do pobierania powiązanych danych, gdy jest to potrzebne. Jawne ładowanie z oddzielne zapytania powoduje wielu zapytań wysłanych do bazy danych. Z jawnego ładowania kodu określa właściwości nawigacji do załadowania. Użyj `Load` metody w celu jawnego ładowania. Na przykład:
 
- ![Przykład jawnego ładowania](read-related-data/_static/explicit-loading.png)
+  ![Przykład jawnego ładowania](read-related-data/_static/explicit-loading.png)
 
 * [Powolne ładowanie](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF Core aktualnie nie obsługuje ładowania opóźnionego](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Gdy obiekt jest najpierw przeczytać artykuł, pobrać nie jest powiązane dane. Właściwość nawigacji jest dostępny, po raz pierwszy jest automatycznie pobierany wymagane dane dla tej właściwości nawigacji. Zapytanie jest wysyłane do bazy danych zawsze właściwość nawigacji jest dostępny po raz pierwszy.
 
@@ -76,9 +76,9 @@ Aby wyświetlić listę kursów nazwa przypisanej działu:
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
 * Uruchom następujące polecenie:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
+  ```
 
 Poprzedni rusztowania polecenia `Course` modelu. Otwórz projekt w programie Visual Studio.
 
@@ -165,9 +165,9 @@ W *SchoolViewModels* folderu, Utwórz *InstructorIndexData.cs* następującym ko
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
 * Uruchom następujące polecenie:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
+  ```
 
 Poprzedni rusztowania polecenia `Instructor` modelu. Otwórz projekt w programie Visual Studio.
 

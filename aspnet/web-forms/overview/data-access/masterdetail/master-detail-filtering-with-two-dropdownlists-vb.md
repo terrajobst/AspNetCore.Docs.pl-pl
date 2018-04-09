@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-vb
-title: "Wzorzec/szczegół filtrowanie z dwóch DropDownLists (VB) | Dokumentacja firmy Microsoft"
+title: Wzorzec/szczegół filtrowanie z dwóch DropDownLists (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku rozszerza relacji wzorzec/szczegół, aby dodać warstwę trzeci, za pomocą dwóch formantów DropDownList, aby wybrać żądaną recor nadrzędne i ponadnadrzędny..."
+description: W tym samouczku rozszerza relacji wzorzec/szczegół, aby dodać warstwę trzeci, za pomocą dwóch formantów DropDownList, aby wybrać żądaną recor nadrzędne i ponadnadrzędny...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c345fbfe5df4d8ce06695c4dd4b88cc099ad7836
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee0232cf8f7c0533703a51a4629522fd887f216f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-with-two-dropdownlists-vb"></a>Wzorzec/szczegół filtrowanie z dwóch DropDownLists (VB)
 ====================
@@ -102,12 +102,12 @@ Ponieważ `ProductsByCategory` potrzeb DropDownList do wyświetlenia tylko te pr
 **Rysunek 9**: Konfigurowanie ObjectDataSource użyć `GetProductsByCategoryID(categoryID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-vb/_static/image27.png))
 
 
-W ostatnim kroku kreatora należy określić wartość  *`categoryID`*  parametru. Ten parametr należy przypisać wybrany element z `Categories` DropDownList.
+W ostatnim kroku kreatora należy określić wartość *`categoryID`* parametru. Ten parametr należy przypisać wybrany element z `Categories` DropDownList.
 
 
 [![Ściąganie categoryID wartość parametru z DropDownList kategorii](master-detail-filtering-with-two-dropdownlists-vb/_static/image29.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image28.png)
 
-**Na rysunku nr 10**: ściągnięcia  *`categoryID`*  wartości parametru z `Categories` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-vb/_static/image30.png))
+**Na rysunku nr 10**: ściągnięcia *`categoryID`* wartości parametru z `Categories` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-vb/_static/image30.png))
 
 
 Z elementu ObjectDataSource skonfigurowane wszystkie te pozostaje jest do określenia, jakie pola źródła danych służą do wyświetlania i wartość DropDownList elementów. Wyświetl `ProductName` pól i użyj `ProductID` pole jako wartość.
@@ -141,7 +141,7 @@ Obecnie `productsByCategory` jest lista DropDownList po zmianie *nie* powoduje o
 
 ## <a name="step-3-using-a-detailsview-to-display-details-for-the-selected-product"></a>Krok 3: Element DetailsView przy użyciu Aby wyświetlić szczegóły wybranego produktu
 
-Ostatnim krokiem jest można wyświetlić szczegółów wybranego produktu w widoku DetailsView. Aby to osiągnąć, należy dodać element DetailsView do strony, ustaw jej `ID` właściwości `ProductDetails`i Utwórz nowy element ObjectDataSource dla niego. Skonfiguruj ten element ObjectDataSource jego dane z `ProductsBLL` klasy `GetProductByProductID(productID)` metodę przy użyciu wybranej wartości `ProductsByCategory` DropDownList dla wartości  *`productID`*  parametru.
+Ostatnim krokiem jest można wyświetlić szczegółów wybranego produktu w widoku DetailsView. Aby to osiągnąć, należy dodać element DetailsView do strony, ustaw jej `ID` właściwości `ProductDetails`i Utwórz nowy element ObjectDataSource dla niego. Skonfiguruj ten element ObjectDataSource jego dane z `ProductsBLL` klasy `GetProductByProductID(productID)` metodę przy użyciu wybranej wartości `ProductsByCategory` DropDownList dla wartości *`productID`* parametru.
 
 
 [![Wybierz klasy ProductsBLL](master-detail-filtering-with-two-dropdownlists-vb/_static/image44.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image43.png)
@@ -156,7 +156,7 @@ Ostatnim krokiem jest można wyświetlić szczegółów wybranego produktu w wid
 
 [![Ściąganie danych z ProductsByCategory DropDownList productID wartość parametru](master-detail-filtering-with-two-dropdownlists-vb/_static/image50.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image49.png)
 
-**Rysunek 17**: ściągnięcia  *`productID`*  wartości parametru z `ProductsByCategory` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-vb/_static/image51.png))
+**Rysunek 17**: ściągnięcia *`productID`* wartości parametru z `ProductsByCategory` DropDownList ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-filtering-with-two-dropdownlists-vb/_static/image51.png))
 
 
 Istnieje możliwość wyświetlenia dostępnych polach w `ProductDetails` widoku DetailsView. I została wybrana opcja usunąć `ProductID`, `SupplierID`, i `CategoryID` pól i kolejności i sformatowany pozostałe pola. Ponadto wyczyścić limit DetailsView `Height` i `Width` właściwości, dzięki czemu do rozszerzenia szerokość niezbędne do wyświetlania najważniejsze dane zamiast go ograniczone do określonego rozmiaru widoku DetailsView. Pełny kod znaczników pojawia się poniżej:
@@ -215,12 +215,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Hilton Giesenow. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](master-detail-filtering-with-a-dropdownlist-vb.md)
-[dalej](master-detail-filtering-across-two-pages-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](master-detail-filtering-with-a-dropdownlist-vb.md)
+> [dalej](master-detail-filtering-across-two-pages-vb.md)

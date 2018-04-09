@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
-title: "Wyświetl dane elementów i szczegóły | Dokumentacja firmy Microsoft"
+title: Wyświetl dane elementów i szczegóły | Dokumentacja firmy Microsoft
 author: Erikre
-description: "Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy..."
+description: Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 msc.type: authoredcontent
-ms.openlocfilehash: 809d7a9c21a3ddf5dfd07d079eb8fe0d1d81712d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5fea654aa5116193cb7496c1b9020ed8e25fc06f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="display-data-items-and-details"></a>Wyświetl dane elementów i szczegóły
 ====================
@@ -131,7 +131,7 @@ Ten kod zawiera **FormView** formantu, aby wyświetlić szczegółowe informacje
 Aby połączyć powyżej znaczników do bazy danych, należy dodać dodatkowy kod w celu *ProductDetails.aspx* kodu.
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *ProductDetails.aspx* , a następnie kliknij przycisk **kod widoku**.  
- *ProductDetails.aspx.cs* plik zostanie wyświetlony.
+   *ProductDetails.aspx.cs* plik zostanie wyświetlony.
 2. Zastąp istniejący kod następujący kod:   
 
     [!code-csharp[Main](display_data_items_and_details/samples/sample6.cs)]
@@ -160,6 +160,6 @@ W tym samouczku serii mają Dodawanie znaczników i kodu, aby wyświetlić list�
 
 [Trwa pobieranie i wyświetlanie danych z wiązania modelu i formularzy sieci web](../../presenting-and-managing-data/model-binding/retrieving-data.md)
 
->[!div class="step-by-step"]
-[Poprzednie](ui_and_navigation.md)
-[dalej](shopping-cart.md)
+> [!div class="step-by-step"]
+> [Poprzednie](ui_and_navigation.md)
+> [dalej](shopping-cart.md)

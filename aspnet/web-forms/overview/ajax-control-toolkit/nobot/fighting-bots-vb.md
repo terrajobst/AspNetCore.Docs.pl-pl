@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-vb
-title: "Walka robotów (VB) | Dokumentacja firmy Microsoft"
+title: Walka robotów (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Zautomatyzowanych robotów Sztukateria dzienników sieci Web i innych witryn sieci Web ze spamem przesyłania formularzy komentarz bez interakcji użytkownika. Kontrolki na NoBot ASP.NET AJAX Con..."
+description: Zautomatyzowanych robotów Sztukateria dzienników sieci Web i innych witryn sieci Web ze spamem przesyłania formularzy komentarz bez interakcji użytkownika. Kontrolki na NoBot ASP.NET AJAX Con...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3b786fd8605c7521a4aae8e49ca236363a71b572
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 35d5984ac7ff3422bab07a759c93fef3914a22f7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="fighting-bots-vb"></a>Walczących robotów (VB)
 ====================
@@ -37,7 +37,7 @@ Jednym z podejść wspólnej pokonanie robotów jest za pomocą testu CAPTCHAs c
 
 Istnieje kilka wady i zalety tego podejścia, ale omówienie to wykracza poza zakres tego samouczka. Jednak występuje formantu w zestawie narzędzi w kontroli AJAX ASP.NET, oferujący podejście podobne: `NoBot`. Jest ona łatwiej rozwiązać niż CAPTCHA, ale jest bardzo łatwa w użyciu, a opłaty bardzo dobrze nadaje się do witryny sieci Web, takich jak blogi, gdy jest on uznawany za sukcesu, jeśli większość spamu prób są bezcelowe, który `NoBot` możliwość sterowania.
 
-`NoBot`Przechwytuje ogłaszania zwrotnego bieżącego formularza sieci web ASP.NET, jeśli co najmniej jeden z tych warunków jest spełniony:
+`NoBot` Przechwytuje ogłaszania zwrotnego bieżącego formularza sieci web ASP.NET, jeśli co najmniej jeden z tych warunków jest spełniony:
 
 - Przeglądarka nie może rozwiązać układanki JavaScript (na przykład gdy JavaScript jest dezaktywowana)
 - Użytkownik podał formularza do szybkiego
@@ -45,9 +45,9 @@ Istnieje kilka wady i zalety tego podejścia, ale omówienie to wykracza poza za
 
 Aby sprawdzić, czy te warunki `NoBot` formant wymaga tych atrybutów (wszystkie z nich opcjonalny):
 
-- `ResponseMinimumDelaySeconds`Minimalna ilość czasu w sekundach między odświeżeniami
-- `CutoffWindowSeconds`długość okresu, w którym ogłaszania zwrotnego z jednego adresu IP są środkami
-- `CutoffMaximumInstances`Maksymalna ilość sekund dla interwału czasu
+- `ResponseMinimumDelaySeconds` Minimalna ilość czasu w sekundach między odświeżeniami
+- `CutoffWindowSeconds` długość okresu, w którym ogłaszania zwrotnego z jednego adresu IP są środkami
+- `CutoffMaximumInstances` Maksymalna ilość sekund dla interwału czasu
 
 Następujące wymagania znaczników tego co najmniej dwie sekundy upłynąć między odświeżeniami i są tylko pięć ogłaszania zwrotnego lub mniej w interwale 30-sekundowym:
 
@@ -72,5 +72,5 @@ Uruchom ten skrypt, a dezaktywować JavaScript lub Prześlij formularz w pierwsz
 
 Ten komunikat o błędzie może być spowodowany robotów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](fighting-bots-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](fighting-bots-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](fighting-bots-cs.md)

@@ -1,7 +1,7 @@
 ---
 title: Stron razor podstawowych EF w platformy ASP.NET Core - CRUD - 2 8
 author: rick-anderson
-description: "Przedstawia sposób tworzenia, odczytu, aktualizowanie i usuwanie EF podstawowych"
+description: Przedstawia sposób tworzenia, odczytu, aktualizowanie i usuwanie EF podstawowych
 manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: d46292e07b65322d85f8f0fb43c8be4af4ccb47e
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 6c24eaae7073e479bbad3b670f22ace35ac787f6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - CRUD - 2 8
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra), [Jan Kowalski P](https://twitter.com/thereformedprog), i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 W tym samouczku CRUD szkieletu (tworzenia, odczytu, aktualizowanie i usuwanie) kodu jest przejrzeć i dostosować.
 
@@ -242,6 +242,6 @@ Sprawdź stronę Razor zawiera poprawny `@page` dyrektywy. Na przykład, należy
 
 Musi zawierać każdej stronie aparatu Razor `@page` dyrektywy.
 
->[!div class="step-by-step"]
-[Poprzednie](xref:data/ef-rp/intro)
-[dalej](xref:data/ef-rp/sort-filter-page)
+> [!div class="step-by-step"]
+> [Poprzednie](xref:data/ef-rp/intro)
+> [dalej](xref:data/ef-rp/sort-filter-page)

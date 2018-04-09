@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
-title: "Elastyczność połączenia formularzy sieci Web ASP.NET i przechwytywaniu polecenie | Dokumentacja firmy Microsoft"
+title: Elastyczność połączenia formularzy sieci Web ASP.NET i przechwytywaniu polecenie | Dokumentacja firmy Microsoft
 author: Erikre
-description: "Ten przewodnik opisuje sposób modyfikowania przykładowej aplikacji do obsługi opcji elastyczności połączenia i polecenia zatrzymania."
+description: Ten przewodnik opisuje sposób modyfikowania przykładowej aplikacji do obsługi opcji elastyczności połączenia i polecenia zatrzymania.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: e3347657fb5c7bf8c7bb4e51a2e810a1edde826a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d5c4e46209e1b21a303fdf1fb16c6c868b3ca923
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>Elastyczność połączenia formularzy sieci Web ASP.NET i polecenia zatrzymania
 ====================
@@ -102,9 +102,9 @@ Oparte na powyższą procedurę, zostały pobrane i otworzyć **WingtipToys** pr
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample4.cs)]
 
- Interfejs zawiera trzy poziomy śledzenia, aby wskazać względną wagę dzienników i jedną zapewniają informacje opóźnienia w wywołaniach zewnętrznych usług takich jak kwerend bazy danych. Metody rejestrowania mają przeciążeń, które umożliwiają przekazywanie wyjątku. Jest tak, aby informacje o wyjątku, w tym wyjątki wewnętrzne i śledzenia stosu niezawodnie jest rejestrowane przez klasę, która implementuje interfejs, zdejmując to zadanie, na którym wykonywana w każdym wywołaniu metody rejestrowania w całej aplikacji.  
+   Interfejs zawiera trzy poziomy śledzenia, aby wskazać względną wagę dzienników i jedną zapewniają informacje opóźnienia w wywołaniach zewnętrznych usług takich jak kwerend bazy danych. Metody rejestrowania mają przeciążeń, które umożliwiają przekazywanie wyjątku. Jest tak, aby informacje o wyjątku, w tym wyjątki wewnętrzne i śledzenia stosu niezawodnie jest rejestrowane przez klasę, która implementuje interfejs, zdejmując to zadanie, na którym wykonywana w każdym wywołaniu metody rejestrowania w całej aplikacji.  
   
- `TraceApi` Metody umożliwiają śledzenie opóźnień każde wywołanie zewnętrznej usługi takie jak bazy danych SQL.
+   `TraceApi` Metody umożliwiają śledzenie opóźnień każde wywołanie zewnętrznej usługi takie jak bazy danych SQL.
 3. W *rejestrowanie* folderu, Utwórz plik klasy o nazwie *Logger.cs* i zastąpić domyślny kod następującym kodem:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample5.cs)]
@@ -121,20 +121,20 @@ Następnie utworzysz klasy, które zostanie wywołany programu Entity Framework 
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample6.cs)]
 
- Pomyślne zapytania lub polecenia ten kod zapisuje informacje dziennika z informacjami o opóźnienia. Wyjątki tworzy dziennik błędów.
+   Pomyślne zapytania lub polecenia ten kod zapisuje informacje dziennika z informacjami o opóźnienia. Wyjątki tworzy dziennik błędów.
 2. Aby utworzyć klasę interceptora generowany fikcyjny błędów przejściowych po wprowadzeniu &quot;Throw&quot; w **nazwa** pole tekstowe na stronie o nazwie *AdminPage.aspx*, Utwórz klasę plik o nazwie *InterceptorTransientErrors.cs* w *logiki* folderu i Zamień domyślny kod następującym kodem:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample7.cs)]
 
     Ten kod tylko przesłonięcia `ReaderExecuting` metodę, która jest wywoływana dla zapytań zwracających wiele wierszy danych. Jeśli chcesz sprawdzić odporność połączenia dla innych typów kwerend, można także zastępować `NonQueryExecuting` i `ScalarExecuting` metod jako interceptora rejestrowania jest.  
   
- Później będzie zalogować się jako "Admin" i wybierz **Admin** łącze na górnym pasku nawigacyjnym. Następnie na *AdminPage.aspx* strony spowoduje dodanie produkt o nazwie &quot;Throw&quot;. Kod tworzy fikcyjny wyjątek bazy danych SQL dla numer błędu 20, typem wiadomo, że są zwykle charakter przejściowy. Inne liczby błędów rozpoznanych jako przejściowy są 64, 233 10053, 10054, 10060, 10928, 10929, 40197, 40501 i 40613, ale te mogą ulec zmianie w nowej wersji bazy danych SQL. Produkt zostanie zmieniona na "TransientErrorExample", który może wystąpić w kodzie *InterceptorTransientErrors.cs* pliku.  
+   Później będzie zalogować się jako "Admin" i wybierz **Admin** łącze na górnym pasku nawigacyjnym. Następnie na *AdminPage.aspx* strony spowoduje dodanie produkt o nazwie &quot;Throw&quot;. Kod tworzy fikcyjny wyjątek bazy danych SQL dla numer błędu 20, typem wiadomo, że są zwykle charakter przejściowy. Inne liczby błędów rozpoznanych jako przejściowy są 64, 233 10053, 10054, 10060, 10928, 10929, 40197, 40501 i 40613, ale te mogą ulec zmianie w nowej wersji bazy danych SQL. Produkt zostanie zmieniona na "TransientErrorExample", który może wystąpić w kodzie *InterceptorTransientErrors.cs* pliku.  
   
- Kod zwraca wyjątek do narzędzia Entity Framework zamiast uruchomienie zapytania i przekazywanie wyników wstecz. Zwracany jest wyjątek przejściowa *cztery* razy, a następnie kod wraca do normalnej procedury przekazywania zapytania do bazy danych.
+   Kod zwraca wyjątek do narzędzia Entity Framework zamiast uruchomienie zapytania i przekazywanie wyników wstecz. Zwracany jest wyjątek przejściowa *cztery* razy, a następnie kod wraca do normalnej procedury przekazywania zapytania do bazy danych.
 
     Ponieważ wszystko, co jest rejestrowane, będzie można zobaczyć, że próbuje wykonać cztery razy zapytania przed finally pomyślne Entity Framework, a jedyną różnicą w aplikacji jest, że trwa dłużej do renderowania strony z wynikami zapytania.  
   
- Ile razy ponowi programu Entity Framework jest konfigurowany; Kod określa cztery razy, ponieważ jest to wartość domyślna dla zasad wykonywania programu bazy danych SQL. W przypadku zmiany zasad wykonywania, trzeba było również zmiany tutaj kod, który określa, ile razy są generowane w przypadku błędów przejściowych. Można również zmienić kod można wygenerować więcej wyjątki, aby zgłosi Entity Framework `RetryLimitExceededException` wyjątku.
+   Ile razy ponowi programu Entity Framework jest konfigurowany; Kod określa cztery razy, ponieważ jest to wartość domyślna dla zasad wykonywania programu bazy danych SQL. W przypadku zmiany zasad wykonywania, trzeba było również zmiany tutaj kod, który określa, ile razy są generowane w przypadku błędów przejściowych. Można również zmienić kod można wygenerować więcej wyjątki, aby zgłosi Entity Framework `RetryLimitExceededException` wyjątku.
 3. W *Global.asax*, Dodaj następujące instrukcje using:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample8.cs)]
@@ -158,16 +158,16 @@ Kod symulacji błędu przejściowego napisanych w taki sposób, który umożliwi
 2. Wybierz **Admin** na pasku nawigacyjnym u góry.
 3. Wprowadź nowy produkt o nazwie "Throw" z odpowiedniego pliku opisu, ceny i obrazu.
 4. Naciśnij klawisz **Dodaj produkt** przycisku.  
- Można zauważyć przeglądarki jest prawdopodobnie zawieszenie przez kilka sekund, podczas Entity Framework ponawia zapytanie kilka razy. Pierwsza próba bardzo szybko się stanie, a następnie zwiększa czas oczekiwania przed ponowną próbą wykonania każdy dodatkowego. Ten proces już oczekiwania przed wywołaniem kolejnymi próbami *wykładniczego wycofywania* .
+   Można zauważyć przeglądarki jest prawdopodobnie zawieszenie przez kilka sekund, podczas Entity Framework ponawia zapytanie kilka razy. Pierwsza próba bardzo szybko się stanie, a następnie zwiększa czas oczekiwania przed ponowną próbą wykonania każdy dodatkowego. Ten proces już oczekiwania przed wywołaniem kolejnymi próbami *wykładniczego wycofywania* .
 5. Poczekaj, aż strona nie jest już atttempting do załadowania.
 6. Zatrzymaj projekt i przyjrzyj się programu Visual Studio **dane wyjściowe** okno, aby wyświetlić dane wyjściowe śledzenia. Można znaleźć **dane wyjściowe** okna, wybierając **debugowania**  - &gt; **Windows**  - &gt;  **Dane wyjściowe**. Może być konieczne przewinięcie poza kilka innych dzienników napisane przez użytkownika rejestratora.  
   
- Zwróć uwagę, można wyświetlić rzeczywiste zapytania SQL wysyłane do bazy danych. Zobaczysz niektórych początkowej zapytań i poleceń, które jest Entity Framework, aby rozpocząć, sprawdzania tabeli historii wersji i migracja bazy danych.   
+   Zwróć uwagę, można wyświetlić rzeczywiste zapytania SQL wysyłane do bazy danych. Zobaczysz niektórych początkowej zapytań i poleceń, które jest Entity Framework, aby rozpocząć, sprawdzania tabeli historii wersji i migracja bazy danych.   
     ![Okno Dane wyjściowe](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image1.png)   
- Należy pamiętać, że nie Powtórz ten test, chyba że Zatrzymaj aplikację i uruchom go ponownie. Jeśli chcesz mieć możliwość testowania połączenia odporności wiele razy w jednym przebiegu aplikacji, można napisać kod, aby zresetować licznik błędów w `InterceptorTransientErrors` .
+   Należy pamiętać, że nie Powtórz ten test, chyba że Zatrzymaj aplikację i uruchom go ponownie. Jeśli chcesz mieć możliwość testowania połączenia odporności wiele razy w jednym przebiegu aplikacji, można napisać kod, aby zresetować licznik błędów w `InterceptorTransientErrors` .
 7. Różnice strategia wykonywania (zasady ponawiania) wystawia, komentarz `SetExecutionStrategy` wiersz w *WingtipToysConfiguration.cs* w pliku *logiki* folderu Uruchom **administratora**  ponownie strony w trybie debugowania, a następnie dodaj produktu o nazwie &quot;Throw&quot; ponownie.  
   
- Teraz debuger zatrzymuje na pierwszy wygenerowany wyjątek od razu, podczas próby wykonania zapytania po raz pierwszy.  
+   Teraz debuger zatrzymuje na pierwszy wygenerowany wyjątek od razu, podczas próby wykonania zapytania po raz pierwszy.  
     ![Debugowanie — szczegóły](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image2.png)
 8. Usuń znaczniki komentarza `SetExecutionStrategy` wiersz w *WingtipToysConfiguration.cs* pliku.
 

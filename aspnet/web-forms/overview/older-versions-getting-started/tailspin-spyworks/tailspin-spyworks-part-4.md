@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
-title: "Część 4: Wyświetlanie listy produktów | Dokumentacja firmy Microsoft"
+title: 'Część 4: Wyświetlanie listy produktów | Dokumentacja firmy Microsoft'
 author: JoeStagner
-description: "Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Wyświetlanie listy produktów z widoku GridView zysk obejmuje część 4."
+description: Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Wyświetlanie listy produktów z widoku GridView zysk obejmuje część 4.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 420cdbcc002bcbfff619d399a7a374009999d754
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69b26344e6dcdbf27e94da90ad5d6cd79f27ccd3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-4-listing-products"></a>Część 4: Lista produktów
 ====================
@@ -27,7 +27,7 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 > Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 4 zawiera listę produktów za pomocą formantu widoku GridView.
 
 
-## <a id="_Toc260221670"></a>Wyświetlanie listy produktów z formantem widoku GridView
+## <a id="_Toc260221670"></a>  Wyświetlanie listy produktów z formantem widoku GridView
 
 Zacznijmy Implementowanie naszą stronę ProductsList.aspx "Kliknąć prawym przyciskiem myszy" na naszych rozwiązań i wybierając polecenie "Dodaj" i "Nowy element".
 
@@ -100,6 +100,6 @@ Nasze baza danych zawiera tabelę o nazwie "ShoppingCart". Gdy firma Microsoft w
 
 Warto również zauważyć, że firma Microsoft będzie Tworzenie prostego koszyk i osadzanie logiki koszyka zakupów z ekranem koszyka zakupów. Firma Microsoft może też do zaimplementowania naszego koszyka sklepowego całkowicie osobnej warstwie Business.
 
->[!div class="step-by-step"]
-[Poprzednie](tailspin-spyworks-part-3.md)
-[dalej](tailspin-spyworks-part-5.md)
+> [!div class="step-by-step"]
+> [Poprzednie](tailspin-spyworks-part-3.md)
+> [dalej](tailspin-spyworks-part-5.md)

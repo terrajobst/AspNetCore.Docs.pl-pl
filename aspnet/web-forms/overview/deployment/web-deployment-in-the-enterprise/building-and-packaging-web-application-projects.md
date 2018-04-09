@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 title: Skompilowanie i utworzenie pakietu projekty aplikacji sieci Web | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "Aby wdrożyć projekt aplikacji sieci web w środowisku serwera zdalnego, należy najpierw jest aby skompilować projekt i generowanie pakiety wdrażania sieci web..."
+description: Aby wdrożyć projekt aplikacji sieci web w środowisku serwera zdalnego, należy najpierw jest aby skompilować projekt i generowanie pakiety wdrażania sieci web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 msc.type: authoredcontent
-ms.openlocfilehash: c05f725c9e6b493a6af8f5b5d20dbc9ff73a1ef8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d630e1776607bd0bd7c61e1f0f7234ef58c7533b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-and-packaging-web-application-projects"></a>Skompilowanie i utworzenie pakietu projekty aplikacji sieci Web
 ====================
@@ -59,8 +59,8 @@ Ten element docelowy używa **MSBuild** zadań do tworzenia różnych projektów
 **Pakietu** docelowy jest zdefiniowany w *Microsoft.Web.Publishing.targets* pliku. Zasadniczo ten element docelowy pobiera dane wyjściowe kompilacji projektu aplikacji sieci web i konwertuje go na pakiet wdrożeniowy sieci web, który można opublikować na serwerze sieci web usług IIS.
 
 > [!NOTE]
-> Aby wyświetlić plik projektu (na przykład *ContactManager.Mvc.csproj*) w programie Visual Studio 2010, należy najpierw wyładować projektu z rozwiązania. W **Eksploratora rozwiązań** , kliknij prawym przyciskiem myszy węzeł projektu, a następnie kliknij przycisk **Zwolnij projekt**. Ponownie kliknij prawym przyciskiem myszy węzeł projektu, a następnie kliknij przycisk **Edytuj***[plik projektu]*). Plik projektu zostanie otwarty w postaci XML raw. Pamiętaj, aby ponownie załadować projekt, gdy wszystko będzie gotowe.  
-> Aby uzyskać więcej informacji na docelowych elementów MSBuild, zadania i **importu** instrukcje, zobacz [opis pliku projektu](understanding-the-project-file.md). Aby uzyskać więcej informacji na temat wprowadzenie do plików projektu i WPP, zobacz [wewnątrz kompilacji aparatu Microsoft: przy użyciu programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi i Bartholomew łączy, ISBN: 978-0-7356-4524-0.
+> Aby wyświetlić plik projektu (na przykład <em>ContactManager.Mvc.csproj</em>) w programie Visual Studio 2010, należy najpierw wyładować projektu z rozwiązania. W <strong>Eksploratora rozwiązań</strong> , kliknij prawym przyciskiem myszy węzeł projektu, a następnie kliknij przycisk <strong>Zwolnij projekt</strong>. Ponownie kliknij prawym przyciskiem myszy węzeł projektu, a następnie kliknij przycisk <strong>Edytuj</strong><em>[plik projektu]</em>). Plik projektu zostanie otwarty w postaci XML raw. Pamiętaj, aby ponownie załadować projekt, gdy wszystko będzie gotowe.  
+> Aby uzyskać więcej informacji na docelowych elementów MSBuild, zadania i <strong>importu</strong> instrukcje, zobacz [opis pliku projektu](understanding-the-project-file.md). Aby uzyskać więcej informacji na temat wprowadzenie do plików projektu i WPP, zobacz [wewnątrz kompilacji aparatu Microsoft: przy użyciu programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi i Bartholomew łączy, ISBN: 978-0-7356-4524-0.
 
 
 ## <a name="what-is-a-web-deployment-package"></a>Co to jest pakiet wdrożeniowy sieci Web?
@@ -104,6 +104,6 @@ Tematy dalej w tym samouczku [konfigurowania parametrów wdrażania pakietu siec
 
 Aby uzyskać więcej informacji na temat wprowadzenie do plików projektu i WPP, zobacz [wewnątrz kompilacji aparatu Microsoft: przy użyciu programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi i Bartholomew łączy, ISBN: 978-0-7356-4524-0.
 
->[!div class="step-by-step"]
-[Poprzednie](understanding-the-build-process.md)
-[dalej](configuring-parameters-for-web-package-deployment.md)
+> [!div class="step-by-step"]
+> [Poprzednie](understanding-the-build-process.md)
+> [dalej](configuring-parameters-for-web-package-deployment.md)

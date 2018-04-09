@@ -1,7 +1,7 @@
 ---
-title: "Stron razor podstawowych EF w platformy ASP.NET Core - Model danych — 5 8"
+title: Stron razor podstawowych EF w platformy ASP.NET Core - Model danych — 5 8
 author: rick-anderson
-description: "W tym samouczku Dodaj więcej jednostki i relacje i dostosować modelu danych, określając formatowania, sprawdzanie poprawności i mapowanie reguły."
+description: W tym samouczku Dodaj więcej jednostki i relacje i dostosować modelu danych, określając formatowania, sprawdzanie poprawności i mapowanie reguły.
 manager: wpickett
 ms.author: riande
 ms.date: 10/25/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 12c863c6eb4b4774853a94cf3001870b0d22e936
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: bf643cab3b82a9e2138403c6c61d1c15c85abfbd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - Model danych — 5 8
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 Samouczki poprzedniej pracy z modelem danych podstawowych składającą się z trzech jednostek. W tym samouczku:
 
@@ -572,12 +572,12 @@ Kod w zaktualizowanego `DbInitializer` dodaje dane nowych jednostek. Aby wymusi�
 
 * Można również usunąć przy użyciu bazy danych:
 
-    * **Eksplorator obiektów SQL Server** (SSOX).
-    * `database drop` Polecenia interfejsu wiersza polecenia:
+  * **Eksplorator obiektów SQL Server** (SSOX).
+  * `database drop` Polecenia interfejsu wiersza polecenia:
 
-   ```console
-   dotnet ef database drop
-   ```
+    ```console
+    dotnet ef database drop
+    ```
 
 Uruchom `database update` w oknie wiersza polecenia:
 
@@ -642,6 +642,6 @@ Czy aplikacji produkcyjnej:
 
 Następny samouczek obejmuje dane dotyczące.
 
->[!div class="step-by-step"]
-[Poprzednie](xref:data/ef-rp/migrations)
-[dalej](xref:data/ef-rp/read-related-data)
+> [!div class="step-by-step"]
+> [Poprzednie](xref:data/ef-rp/migrations)
+> [dalej](xref:data/ef-rp/read-related-data)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-vb
-title: "Za pomocą szablonów FormView (VB) | Dokumentacja firmy Microsoft"
+title: Za pomocą szablonów FormView (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W przeciwieństwie do widoku DetailsView FormView nie składa się z pola. Zamiast tego FormView jest renderowany przy użyciu szablonów. W tym samouczku zajmiemy się przy użyciu F...."
+description: W przeciwieństwie do widoku DetailsView FormView nie składa się z pola. Zamiast tego FormView jest renderowany przy użyciu szablonów. W tym samouczku zajmiemy się przy użyciu F....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 05e97ce5efeaf72192ed294b946e2249c60007d1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 16293960f5d8758c93646844bd159547f5e0f38c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-formviews-templates-vb"></a>Za pomocą szablonów FormView (VB)
 ====================
@@ -33,12 +33,12 @@ W samouczkach ostatnich dwóch widzieliśmy jak dostosować za pomocą TemplateF
 
 W przeciwieństwie do widoku DetailsView FormView nie składa się z pola. Nie można dodać elementu BoundField lub TemplateField FormView. Zamiast tego FormView jest renderowany przy użyciu szablonów. Traktować jako formant widoku DetailsView zawierający pojedynczy TemplateField FormView. FormView obsługuje następujące szablony:
 
-- `ItemTemplate`używany do renderowania określonego rekordu wyświetlane w widoku FormView
-- `HeaderTemplate`można określić opcjonalne nagłówki wierszy
-- `FooterTemplate`można określić opcjonalny stopki wiersza
-- `EmptyDataTemplate`gdy FormView `DataSource` nie ma żadnych rekordów `EmptyDataTemplate` jest używany zamiast `ItemTemplate` do renderowania kodu znaczników formantu
-- `PagerTemplate`można użyć do dostosowania interfejsu stronicowania dla FormViews, że włączono stronicowania
-- `EditItemTemplate` / `InsertItemTemplate`używane do dostosowania interfejsu edycji lub wstawianie interfejsu dla FormViews, które obsługują takie funkcje
+- `ItemTemplate` używany do renderowania określonego rekordu wyświetlane w widoku FormView
+- `HeaderTemplate` można określić opcjonalne nagłówki wierszy
+- `FooterTemplate` można określić opcjonalny stopki wiersza
+- `EmptyDataTemplate` gdy FormView `DataSource` nie ma żadnych rekordów `EmptyDataTemplate` jest używany zamiast `ItemTemplate` do renderowania kodu znaczników formantu
+- `PagerTemplate` można użyć do dostosowania interfejsu stronicowania dla FormViews, że włączono stronicowania
+- `EditItemTemplate` / `InsertItemTemplate` używane do dostosowania interfejsu edycji lub wstawianie interfejsu dla FormViews, które obsługują takie funkcje
 
 W tym samouczku zajmiemy się za pomocą formantu FormView do prezentowania mniej sztywne wyświetlania produktów. Zamiast pola nazwy, kategorii, dostawcy i tak dalej, FormView w `ItemTemplate` wyświetli te wartości przy użyciu kombinacji element nagłówka i `<table>` (zobacz rysunek 1).
 
@@ -111,12 +111,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został E.R. Gilmore. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](using-templatefields-in-the-detailsview-control-vb.md)
-[dalej](displaying-summary-information-in-the-gridview-s-footer-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-templatefields-in-the-detailsview-control-vb.md)
+> [dalej](displaying-summary-information-in-the-gridview-s-footer-vb.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 title: Co to jest nowe w programie ASP.NET MVC 4 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "ASP.NET MVC 4 to struktura służąca do tworzenia aplikacji sieci web skalowalnych, opartych na standardach za pomocą często używanych wzorów projektów oraz funkcji platform ASP.NET i..."
+description: ASP.NET MVC 4 to struktura służąca do tworzenia aplikacji sieci web skalowalnych, opartych na standardach za pomocą często używanych wzorów projektów oraz funkcji platform ASP.NET i...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 35f9402ad6090c0441425a23b2b8063350892210
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 977a6b5a84825ebd087752dcc2ebc0c5410e1657
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>Co to jest nowe w programie ASP.NET MVC 4
 
@@ -153,10 +153,12 @@ W tym ćwiczeniu zostanie Poznaj ulepszenia w szablonach projektu programu ASP.N
 7. Usuń komentarz z ostatniego wiersza, aby zarejestrować klienta Google *OAuth* uwierzytelniania.
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample1.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample1.cs)]
 
-    > [!NOTE]
-    > Należy zauważyć, że można łatwo włączyć uwierzytelnianie przy użyciu dowolnej usługi OpenID lub OAuth, takich jak Facebook, Twitter, Microsoft itd.
+> [!NOTE]
+> Notice you can easily enable authentication using any OpenID or OAuth service like Facebook, Twitter, Microsoft, etc.
+~~~
 8. Naciśnij klawisz **F5** Aby uruchomić rozwiązanie i przejdź do strony logowania.
 9. Wybierz **Google** usługi, aby się zalogować.
 
@@ -167,29 +169,29 @@ W tym ćwiczeniu zostanie Poznaj ulepszenia w szablonach projektu programu ASP.N
 11. Zezwalaj na lokacji (localhost) pobrać informacje z konta Google.
 12. Ponadto należy zarejestrować się w lokacji, aby skojarzyć konto Google.
 
-    ![Skojarz konto Google](whats-new-in-aspnet-mvc-4/_static/image8.png)
+   ![Skojarz konto Google](whats-new-in-aspnet-mvc-4/_static/image8.png)
 
-    *Kojarzenie konto Google*
+   *Kojarzenie konto Google*
 13. Zamknij przeglądarkę, aby zatrzymać debuger i powrócić do programu Visual Studio.
 14. Teraz Poznaj rozwiązania do wyewidencjonowania niektórych innych nowych funkcji wprowadzonych przez program ASP.NET MVC 4 w szablonie projektu.
 
-    ![Szablon projektu aplikacji internetowych platformy ASP.NET MVC 4](whats-new-in-aspnet-mvc-4/_static/image9.png "szablonu projektu aplikacji internetowych platformy ASP.NET MVC 4")
+   ![Szablon projektu aplikacji internetowych platformy ASP.NET MVC 4](whats-new-in-aspnet-mvc-4/_static/image9.png "szablonu projektu aplikacji internetowych platformy ASP.NET MVC 4")
 
-    *Szablon projektu aplikacji internetowych platformy ASP.NET MVC 4*
+   *Szablon projektu aplikacji internetowych platformy ASP.NET MVC 4*
 
-    - **HTML 5 znaczników**
+   - **HTML 5 znaczników**
 
-        Przeglądaj widoków szablonu, aby dowiedzieć się nowego znacznika motywu.
+       Przeglądaj widoków szablonu, aby dowiedzieć się nowego znacznika motywu.
 
-        ![Nowy szablon, za pomocą znacznika About.cshtml Razor i HTML5. ] (whats-new-in-aspnet-mvc-4/_static/image10.png "Nowego szablonu, za pomocą znacznika About.cshtml Razor i HTML5.")
+       ![Nowy szablon, za pomocą znacznika About.cshtml Razor i HTML5. ] (whats-new-in-aspnet-mvc-4/_static/image10.png "Nowego szablonu, za pomocą znacznika About.cshtml Razor i HTML5.")
 
-        *Nowy szablon, przy użyciu znaczników Razor i HTML5 (About.cshtml).*
-    - **Zaktualizowano biblioteki JavaScript**
+       *Nowy szablon, przy użyciu znaczników Razor i HTML5 (About.cshtml).*
+   - **Zaktualizowano biblioteki JavaScript**
 
-        Domyślny szablon platformy ASP.NET MVC 4 zawiera teraz elementami KnockoutJS i platforma JavaScript MVVM, która umożliwia tworzenie zaawansowanych aplikacji szybkiego sieci web przy użyciu języka JavaScript i HTML. Podobnie jak w MVC3, jQuery i jQuery biblioteki interfejsu użytkownika znajdują się również w technologii ASP.NET MVC 4.
+       Domyślny szablon platformy ASP.NET MVC 4 zawiera teraz elementami KnockoutJS i platforma JavaScript MVVM, która umożliwia tworzenie zaawansowanych aplikacji szybkiego sieci web przy użyciu języka JavaScript i HTML. Podobnie jak w MVC3, jQuery i jQuery biblioteki interfejsu użytkownika znajdują się również w technologii ASP.NET MVC 4.
 
-        > [!NOTE]
-        > Możesz uzyskać więcej informacji na temat biblioteki elementami KnockOutJS w to łącze: [ [http://learn.knockoutjs.com/](http://learn.knockoutjs.com/)](http://learn.knockoutjs.com/). Ponadto informacje na temat jQuery i jQuery interfejsu użytkownika w [ [http://docs.jquery.com/](http://docs.jquery.com/)](http://docs.jquery.com/).
+     > [!NOTE]
+     > Możesz uzyskać więcej informacji na temat biblioteki elementami KnockOutJS w to łącze: [ [ http://learn.knockoutjs.com/ ](http://learn.knockoutjs.com/) ](http://learn.knockoutjs.com/). Ponadto informacje na temat jQuery i jQuery interfejsu użytkownika w [ [ http://docs.jquery.com/ ](http://docs.jquery.com/) ](http://docs.jquery.com/).
 
 <a id="Task_2_-_Exploring_the_Mobile_Application_Template"></a>
 #### <a name="task-2---exploring-the-mobile-application-template"></a>Zadanie 2 — poznawanie szablonu aplikacji mobilnej
@@ -228,16 +230,20 @@ ASP.NET MVC 4 ułatwia projektowanie witryn sieci Web dla urządzeń przenośnyc
 9. Otwórz  **\_Layout.cshtml**, który znajduje się w **widoków | Udostępnione** folder i komentarza metatag okienka ekranu. Uruchom aplikację, jeśli nie już otwarty i zapoznaj się z różnic.
 
 
-    [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample2.cshtml)]
+~~~
+[!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample2.cshtml)]
 
-    ![Lokacji po komentowania metatag okienka ekranu](whats-new-in-aspnet-mvc-4/_static/image15.png "lokacji po komentowania metatag okienka ekranu")
+![The site after commenting the viewport meta tag](whats-new-in-aspnet-mvc-4/_static/image15.png "The site after commenting the viewport meta tag")
 
-    *Lokacji po komentowania metatag okienka ekranu*
+*The site after commenting the viewport meta tag*
+~~~
 10. W programie Visual Studio, naciśnij klawisz **SHIFT** + **F5** można zatrzymać debugowania aplikacji.
 11. Usuń znaczniki komentarza metatag okienka ekranu.
 
 
-    [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample3.cshtml)]
+~~~
+[!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample3.cshtml)]
+~~~
 
 <a id="Task_3_-_Using_Adaptive_Rendering"></a>
 #### <a name="task-3---using-adaptive-rendering"></a>Zadanie 3 - adaptacyjnych renderowaniem
@@ -254,11 +260,11 @@ Przy użyciu techniki adaptacyjną renderowania, zostanie wyświetlona witryna *
 > Jest podstawowy format zapytanie o multimedia: @media \[zakres: wszystkie | handheld | wydruku | projekcji | ekranu\] ([właściwość: wartość] i... [właściwość: wartość])
 
 
-Przykłady z zapytaniami multimediów: &gt;  **@media wszystkich i (szerokość maksymalna: 1000px) i (szerokość minimalna: 700px) {}:** dla wszystkich rozdzielczości między 700px i 1000px.
+Przykłady z zapytaniami multimediów: &gt;  <strong>@media wszystkich i (szerokość maksymalna: 1000px) i (szerokość minimalna: 700px) {}:</strong> dla wszystkich rozdzielczości między 700px i 1000px.
 
-> **@media ekran i (szerokość minimalna: 400 piks.) i (szerokość maksymalna: 700px) {...}:** tylko na ekranach. Rozdzielczość musi wynosić od 400 do 700px.
+> <strong>@media ekran i (szerokość minimalna: 400 piks.) i (szerokość maksymalna: 700px) {...}:</strong> tylko na ekranach. Rozdzielczość musi wynosić od 400 do 700px.
 > 
-> **@media urządzenia przenośnego i (minimalną szerokość: 20em), ekranu i (szerokość minimalna: 20em) {...}:** urządzenia podręczne (przenośne i urządzenia) i ekranów. Minimalna szerokość musi być większa niż 20em.
+> <strong>@media urządzenia przenośnego i (minimalną szerokość: 20em), ekranu i (szerokość minimalna: 20em) {...}:</strong> urządzenia podręczne (przenośne i urządzenia) i ekranów. Minimalna szerokość musi być większa niż 20em.
 > 
 > Więcej informacji na ten temat można znaleźć na [lokacji W3C](http://www.w3.org/TR/css3-mediaqueries/).
 
@@ -267,7 +273,7 @@ Może teraz zapoznać, jak działa adaptacyjną renderowania, poprawa czytelnoś
 
 1. Otwórz **PhotoGallery.sln** rozwiązania, które zostały utworzone w zadaniu 1 i wybierz **PhotoGallery** projektu. Naciśnij klawisz **F5** Aby uruchomić rozwiązanie.
 2. Zmienia szerokość w przeglądarce, ustawienia systemu windows do połowę lub mniej niż kwartału oryginalnego rozmiaru. Zwróć uwagę, co się dzieje z elementami w nagłówku: niektóre elementy nie będą widoczne w widocznym obszarze nagłówka.
-3. Otwórz **Site.css** plików w Eksploratorze rozwiązania Visual Studio, znajduje się w **zawartości** folderu projektu. Naciśnij klawisz **CTRL + F** Otwórz wyszukiwanie zintegrowane Visual Studio i zapisać  **@media**  zlokalizować **zapytanie o multimedia CSS**.
+3. Otwórz <strong>Site.css</strong> plików w Eksploratorze rozwiązania Visual Studio, znajduje się w <strong>zawartości</strong> folderu projektu. Naciśnij klawisz <strong>CTRL + F</strong> Otwórz wyszukiwanie zintegrowane Visual Studio i zapisać <strong>@media</strong> zlokalizować <strong>zapytanie o multimedia CSS</strong>.
 
     Warunek kwerendy nośnika zdefiniowane w tym szablonie działa w ten sposób: gdy rozmiar okna przeglądarki jest poniżej **850 pikseli**, reguły CSS, stosowane są tymi zdefiniowany w tym bloku nośnika.
 
@@ -278,13 +284,13 @@ Może teraz zapoznać, jak działa adaptacyjną renderowania, poprawa czytelnoś
 
     ![W lewej strony jest stosowania @media pominięcia stylu w prawo, styl](whats-new-in-aspnet-mvc-4/_static/image17.png "w lewej strony jest stosowania @media stylu w prawo, styl zostanie pominięty")
 
-    *W lewej strony jest stosowania @media stylu w prawo, styl zostanie pominięty.*
+    <em>W lewej strony jest stosowania @media stylu w prawo, styl zostanie pominięty.</em>
 
     Teraz załóżmy wyewidencjonować co się dzieje na urządzeniach przenośnych:
 
     ![W lewej strony jest stosowania @media pominięcia stylu w prawo, styl](whats-new-in-aspnet-mvc-4/_static/image18.png "w lewej strony jest stosowania @media stylu w prawo, styl zostanie pominięty")
 
-    *W lewej strony jest stosowania @media stylu w prawo, styl zostanie pominięty.*
+    <em>W lewej strony jest stosowania @media stylu w prawo, styl zostanie pominięty.</em>
 
     Mimo że można zauważyć, że zmiany podczas renderowania strony w przeglądarce sieci Web nie są bardzo istotne, gdy na urządzeniu przenośnym, różnice staną się bardziej oczywistymi. Po lewej stronie obrazu możemy stwierdzić, czy styl niestandardowy poprawia czytelność.
 
@@ -321,7 +327,9 @@ W ramach tego zadania spowoduje utworzenie makiety usługi fotografii można pob
     (Fragment - kodu *platformy ASP.NET MVC 4 - Ex02 - laboratorium galerii akcji*)
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample4.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample4.cs)]
+~~~
 7. Naciśnij klawisz **F5** Aby uruchomić rozwiązanie, a następnie przejdź do następującego adresu URL w celu przetestowania usługi mocked zdjęcie: `http://localhost:[port]/photo/gallery` (wartość [port] zależy od bieżącego portu, na którym aplikacja została uruchomiona). Żądanie do tego adresu URL powinien pobierać zawartość z **Photos.json** pliku.
 
     ![Testowanie usługi fotografii mocked](whats-new-in-aspnet-mvc-4/_static/image20.png "testowania usługi mocked zdjęcia")
@@ -342,20 +350,26 @@ To zadanie zaktualizuje strony głównej można wyświetlić za pomocą usługi 
     (Fragment - kodu *modelu fotografii ASP.NET MVC 4 laboratorium - Ex02 -*)
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample5.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample5.cs)]
+~~~
 4. Otwórz **HomeController.cs** plik z **kontrolerów** folderu.
 5. Dodaj następujące instrukcje using.
 
     (Fragment - kodu *deklaracje Using HomeController laboratorium - Ex02 - platformy ASP.NET MVC 4*)
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample6.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample6.cs)]
+~~~
 6. Aktualizacja **indeksu** akcję do użycia **HttpClient** pobierania danych galerii, a następnie użyć **JavaScriptSerializer** do deserializacji do modelu widoku.
 
     (Fragment - kodu *akcji indeksu laboratorium - Ex02 - platformy ASP.NET MVC 4*)
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample7.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample7.cs)]
+~~~
 7. Otwórz **Index.cshtml** plik znajdujący się w obszarze **Views\Home** folderu i Zastąp całą zawartość następującym kodem.
 
     Ten kod w pętli wszystkich zdjęć, które są pobierane z usługi i wyświetla je do listy nieuporządkowanej.
@@ -363,7 +377,9 @@ To zadanie zaktualizuje strony głównej można wyświetlić za pomocą usługi 
     (Fragment - kodu *listy fotografii laboratorium - Ex02 - platformy ASP.NET MVC 4*)
 
 
-    [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample8.cshtml)]
+~~~
+[!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample8.cshtml)]
+~~~
 8. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **zawartości** folderu projektu i wybierz **Dodaj | Istniejący element**. Przejdź do **Source\Assets\Content** folder tego laboratorium i Dodaj **Site.css** pliku. Należy potwierdzić jego zastąpienie. Jeśli masz **Site.css** plik otwarty, musisz potwierdzić również ponownie załadować plik.
 9. Otwórz Eksplorator plików i skopiować całą **zdjęć** folder znajduje się w obszarze **Source\Assets** folder tego laboratorium do folderu głównego projektu w Eksploratorze rozwiązań.
 10. Uruchom aplikację. Powinna zostać wyświetlona strona główna wyświetlanie zdjęć w galerii.
@@ -385,12 +401,12 @@ Jeden z kluczy aktualizacji w programie ASP.NET MVC 4 jest obsługiwane do tworz
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się na **źródło/Ex3-MobileSupport/Begin/** folderu. W przeciwnym razie możesz nadal korzystać **zakończenia** uzyskane rozwiązanie, wykonując poprzednim ćwiczeniu.
 
-    1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 2. Otwórz **Konsola Menedżera pakietów** klikając **narzędzia** &gt; **Menedżer pakietów biblioteki** &gt; **Menedżera pakietów Konsola** opcji menu.
 
     ![Otwieranie konsoli Menedżera pakietów NuGet](whats-new-in-aspnet-mvc-4/_static/image22.png "otwieranie konsoli Menedżera pakietów NuGet")
@@ -419,7 +435,9 @@ Jeden z kluczy aktualizacji w programie ASP.NET MVC 4 jest obsługiwane do tworz
     (Fragment - kodu *platformy ASP.NET MVC 4 - Ex03 - laboratorium rejestru przenośnych pakiety*)
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample10.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample10.cs)]
+~~~
 5. Uruchom aplikację za pomocą przeglądarki sieci web.
 6. Otwórz **Windows Phone 7 Emulator,** znajduje się w **Start Menu | Wszystkie programy | Windows Phone SDK 7.1 | Emulator Windows Phone.**
 7. Na ekranie startowym telefonu Otwórz program Internet Explorer. Zapoznaj się z adresu URL, w której aplikacja jest uruchomiona, a następnie przejdź do tego adresu URL za pośrednictwem przeglądarki telefonu (np. `http://localhost:[PortNumber]/`).
@@ -445,19 +463,21 @@ W ramach tego zadania spowoduje utworzenie mobilnej wersji widoku indeksu z zawa
 2. Otwórz utworzony nowy **Index.Mobile.cshtml** wyświetlanie i Zastąp istniejące &lt;ul&gt; tag o tym kodzie. Dzięki temu będzie aktualizowanie &lt;ul&gt; tag przy użyciu adnotacji danych mobilnych jQuery używać przenośnych motywów z jQuery.
 
 
-    [!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample11.html)]
+~~~
+[!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample11.html)]
 
-    > [!NOTE] 
-    > 
-    > Zwróć uwagę, że:
-    > 
-    > - **Danych roli** ustawić atrybutu **listview** spowoduje, że listy przy użyciu stylów elementu listview.
-    > 
-    > - **Danych wstawki** pokazuje listę zaokrąglony obramowania i margines atrybut ma wartość true.
-    > 
-    > - **Filtr danych** ustawić atrybutu **true** wygeneruje pola wyszukiwania.
-    > 
-    > Dowiedz się więcej o konwencje przenośnych dostępne w dokumentacji projektu: [ [http://jquerymobile.com/demos/1.1.1/](http://jquerymobile.com/demos/1.1.1/)](http://jquerymobile.com/demos/1.1.1/)
+> [!NOTE] 
+> 
+> Notice that:
+> 
+> - The **data-role** attribute set to **listview** will render the list using the listview styles.
+> 
+> - The **data-inset** attribute set to true will show the list with rounded border and margin.
+> 
+> - The **data-filter** attribute set to **true** will generate a search box.
+> 
+> You can learn more about jQuery Mobile conventions in the project documentation: [[http://jquerymobile.com/demos/1.1.1/](http://jquerymobile.com/demos/1.1.1/)](http://jquerymobile.com/demos/1.1.1/)
+~~~
 3. Naciśnij klawisz **CTRL + S** Aby zapisać zmiany.
 4. Przełącz się do **Emulator Windows Phone** i Odśwież lokacji. Zwróć uwagę, nowe wygląd listy galerii, a także pole wyszukiwania znajduje się na górze. Następnie wpisz wyraz w polu wyszukiwania (na przykład **Tulipany**), aby rozpocząć wyszukiwanie w Galerii fotografii.
 
@@ -493,7 +513,9 @@ To zadanie zaktualizuje przenośnych układ na kompozycję inną niż domyślna.
 3. Znajdź div element z rolą danych ustawioną &quot;strony&quot; i zaktualizuj **data-theme** do &quot; **e**&quot;.
 
 
-    [!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample13.html)]
+~~~
+[!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample13.html)]
+~~~
 4. Naciśnij klawisz **CTRL + S** Aby zapisać zmiany.
 5. Odśwież lokację w **Emulator Windows Phone** i zwróć uwagę, nowy schemat kolorów.
 
@@ -549,14 +571,16 @@ To zadanie zaktualizuje układ pulpitu do uwzględnienia w tym przełącznikiem 
 4. Znajdź sekcję logowania i wstawianie wywołania do renderowania  **\_ViewSwitcher** widoku częściowego poniżej  **\_LogOnPartial** widoku częściowego. Naciśnij klawisz **CTRL + S** Aby zapisać zmiany.
 
 
-    [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample14.cshtml)]
+~~~
+[!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample14.cshtml)]
+~~~
 5. Naciśnij klawisz **CTRL + S** Aby zapisać zmiany.
 6. Odśwież stronę w Emulator Windows Phone, a następnie kliknij dwukrotnie ikonę ekranu, aby powiększyć. Należy zauważyć, że strona główna zawiera obecnie **widokiem dla urządzeń przenośnych** łącze, które zmienia z przenośnymi na widok pulpitu.
 
     ![Wyświetl przełącznik renderowane w widoku pulpitu](whats-new-in-aspnet-mvc-4/_static/image32.png "przełącznik widok renderowany w widoku pulpitu")
 
     *Przełącznik widok renderowany w widoku pulpitu*
-7. Przełącz do widoku przenośnych ponownie, a następnie przejdź do **o** strony (http://localhost [portu] / Home/o). Należy zauważyć, że nawet jeśli nie utworzono widok About.Mobile.cshtml informacje strona jest wyświetlana w układzie przenośnych (\_Layout.Mobile.cshtml).
+7. Przełącz do widoku przenośnych ponownie, a następnie przejdź do <strong>o</strong> strony (http://localhost[portu] / Home/o). Należy zauważyć, że nawet jeśli nie utworzono widok About.Mobile.cshtml informacje strona jest wyświetlana w układzie przenośnych (\_Layout.Mobile.cshtml).
 
     ![Strona informacje](whats-new-in-aspnet-mvc-4/_static/image33.png "strona — informacje")
 
@@ -580,32 +604,38 @@ W ramach tego zadania spowoduje utworzenie układu dostosowanego dla urządzenia
 2. Otwórz **Global.asax.cs** i dodaj następującą instrukcję using.
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample15.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample15.cs)]
+~~~
 3. Dodaj następujący wyróżniony kod do aplikacji\_Start — metoda.
 
     (Fragment - kodu *ASP.NET MVC 4 laboratorium - Ex03 — iPhone DisplayMode*)
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample16.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample16.cs)]
 
-    Zarejestrowano nowe **DefaultDisplayMode o nazwie &quot;iPhone&quot;**, w ramach statycznych **DisplayModeProvider.Instance.Modes** listy statycznej pasujących przed każdego żądania przychodzącego. Jeśli żądania przychodzącego, jeśli zawiera ciąg &quot;iPhone&quot;, ASP.NET MVC zostanie ustalone, widoki, których nazwa zawiera &quot;iPhone&quot; sufiks. Parametr 0 wskazuje, jak określone jest nowy tryb; na przykład, w tym widoku jest bardziej szczegółowy niż ogólne &quot;.mobile&quot; regułę, która odpowiada na żądania z urządzeń przenośnych.
+You have registered a new **DefaultDisplayMode named &quot;iPhone&quot;**, within the static **DisplayModeProvider.Instance.Modes** static list, that will be matched against each incoming request. If the incoming request contains the string &quot;iPhone&quot;, ASP.NET MVC will find the views whose name contain the &quot;iPhone&quot; suffix. The 0 parameter indicates how specific is the new mode; for instance, this view is more specific than the general &quot;.mobile&quot; rule that matches requests from mobile devices.
 
-    Po uruchomieniu tego kodu, jeśli iPhone przeglądarka generuje żądanie, aplikacja będzie korzystać z **Views\Shared\\_Layout.iPhone.cshtml** układu utworzysz w następnych krokach.
+After this code runs, when an iPhone browser generates a request, your application will use the **Views\Shared\\_Layout.iPhone.cshtml** layout you will create in the next steps.
 
-    > [!NOTE]
-    > Dzięki temu testowania żądania dla telefonów iPhone, zostały uproszczone dla celów demonstracyjnych i może nie działać zgodnie z oczekiwaniami dotyczącymi każdego iPhone ciąg agenta użytkownika (na przykład testu jest uwzględniana wielkość liter).
-4. Utwórz kopię  **\_Layout.Mobile.cshtml** w pliku **Views\Shared** folder i Zmień nazwę kopii do &quot;  **\_Layout.iPhone.csthml** &quot;.
+> [!NOTE]
+> This way of testing the request for iPhone has been simplified for demo purposes and might not work as expected for every iPhone user agent string (for example test is case sensitive).
+~~~
+4. Utwórz kopię  **\_Layout.Mobile.cshtml** w pliku **Views\Shared** folder i Zmień nazwę kopii do &quot; **\_Layout.iPhone.csthml**&quot;.
 5. Otwórz  **\_Layout.iPhone.csthml** utworzony w poprzednim kroku.
-6. Znajdź div element, używając atrybutu data-role ustawioną **strony** i zmienić **data-theme** atrybutu &quot;**a**&quot;.
+6. Znajdź div element, używając atrybutu data-role ustawioną **strony** i zmienić **data-theme** atrybutu &quot; **a**&quot;.
 
 
-    [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample17.cshtml)]
+~~~
+[!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample17.cshtml)]
 
-    Teraz masz 3 układów w aplikacji ASP.NET MVC 4:
+Now you have 3 layouts in your ASP.NET MVC 4 application:
 
-    1. **\_Layout.cshtml**: układ domyślny używany w przypadku przeglądarek komputerowych.
-    2. **\_Layout.Mobile.cshtml**: układ domyślny używany dla urządzeń przenośnych.
-    3. **\_Layout.iPhone.cshtml**: układ określonych dla urządzenia iPhone, przy użyciu innego schematu kolorów do odróżnienia od \_Layout.mobile.cshtml.
+1. **\_Layout.cshtml**: default layout used for desktop browsers.
+2. **\_Layout.mobile.cshtml**: default layout used for mobile devices.
+3. **\_Layout.iPhone.cshtml**: specific layout for iPhone devices, using a different color scheme to differentiate from \_Layout.mobile.cshtml.
+~~~
 7. Naciśnij klawisz **F5** uruchomić aplikację, a następnie przejdź do lokacji w **Emulator Windows Phone**.
 8. Otwórz **symulatora telefonu iPhone** (zobacz [dodatku C](#AppendixC) instrukcje na temat instalowania i konfigurowania symulatora telefonu iPhone) i przejdź do witryny za. Zwróć uwagę, że każdy telefon przy użyciu określonego szablonu.
 
@@ -620,52 +650,62 @@ W ramach tego zadania spowoduje utworzenie układu dostosowanego dla urządzenia
 
 Microsoft .NET Framework 4.5 wprowadza nowe funkcje języka C# i Visual Basic zapewnia nowy podstawę dla asynchrony w programowaniu .NET. Ten nowy foundation sprawia, że programowanie asynchroniczne podobne do - i około równie proste jak - synchroniczne programowania. Jesteś teraz możliwość zapisywania akcji asynchronicznej metody w technologii ASP.NET MVC 4 przy użyciu **AsyncController** klasy. Za pomocą metod asynchronicznych akcji dla długotrwałe, niezwiązane z procesorem powiązany żądania. Dzięki temu można uniknąć blokowanie serwera sieci Web z wykonywania pracy podczas przetwarzania żądania. Klasa AsyncController zazwyczaj jest używany dla wywołań usług sieci Web długotrwałe.
 
-Tego ćwiczenia przedstawiono podstawowe operację asynchroniczną na platformie ASP.NET MVC 4. Jeśli chcesz bardziej zgłębić temat, można wyewidencjonować artykule: [ [https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)
+Tego ćwiczenia przedstawiono podstawowe operację asynchroniczną na platformie ASP.NET MVC 4. Jeśli chcesz bardziej zgłębić temat, można wyewidencjonować artykule: [[https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)
 
 <a id="Task_1_-_Implementing_an_Asynchronous_Controller"></a>
 #### <a name="task-1---implementing-an-asynchronous-controller"></a>Zadanie 1 - wdrażanie kontrolera asynchronicznego
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się na **źródło/Ex4-Async/Begin/** folderu. W przeciwnym razie możesz nadal korzystać **zakończenia** uzyskane rozwiązanie, wykonując poprzednim ćwiczeniu.
 
-    1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 2. Otwórz **HomeController.cs** klasę z **kontrolerów** folderu.
 3. Dodaj następującą instrukcję using.
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample18.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample18.cs)]
+~~~
 4. Aktualizacja **HomeController** klasa dziedziczy po **AsyncController**. Kontrolery, które pochodzą z AsyncController włączyć platformę ASP.NET do przetwarzania żądań asynchronicznych i może nadal metod synchronicznych akcji usługi.
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample19.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample19.cs)]
+~~~
 5. Dodaj **async** słowa kluczowego **indeksu** — metoda i przydzielić mu typ zwracany **zadań&lt;ActionResult&gt;**.
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample20.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample20.cs)]
 
-    > [!NOTE]
-    > **Async** — słowo kluczowe jest jedną z nowych słów kluczowych, .NET Framework 4.5 zapewnia; go informuje kompilator, że ta metoda zawiera kod asynchroniczny. A **zadań** obiekt reprezentuje operację asynchroniczną, która może zakończyć w pewnym momencie w przyszłości.
+> [!NOTE]
+> The **async** keyword is one of the new keywords the .NET Framework 4.5 provides; it tells the compiler that this method contains asynchronous code. A **Task** object represents an asynchronous operation that may complete at some point in the future.
+~~~
 6. Zastąp **klienta. GetAsync()** wywołanie za pomocą wersji pełnej async — słowo kluczowe await, jak pokazano poniżej.
 
     (Fragment - kodu *platformy ASP.NET MVC 4 laboratorium - Ex04 - GetAsync*)
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample21.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample21.cs)]
 
-    > [!NOTE]
-    > W poprzedniej wersji, były używane **wynik** właściwość z **zadań** obiekt, aby zablokować wątek, dopóki wynik zostanie zwrócony (wersję usługi synchronizacji).
-    > 
-    > Dodawanie **await** — słowo kluczowe informuje kompilator, aby asynchronicznie poczekaj, aż zadanie zwrócone przez wywołanie metody. Oznacza to, że dalszej części kodu zostanie wykonany jako wywołanie zwrotne dopiero po zakończeniu Oczekiwano metody. Jest innym czynnikiem, który należy zauważyć, że nie trzeba zmienić z bloku try-catch, aby umożliwić użycie tych wartości: wyjątki, które się tak zdarzyć w tle lub na pierwszym planie nadal zostanie przechwycony bez konieczności wykonywania dodatkowych działań za pomocą obsługi dostarczane przez platformę.
+> [!NOTE]
+> In the previous version, you were using the **Result** property from the **Task** object to block the thread until the result is returned (sync version).
+> 
+> Adding the **await** keyword tells the compiler to asynchronously wait for the task returned from the method call. This means that the rest of the code will be executed as a callback only after the awaited method completes. Another thing to notice is that you do not need to change your try-catch block in order to make this work: the exceptions that happen in background or in foreground will still be caught without any extra work using a handler provided by the framework.
+~~~
 7. Zmień kod, aby kontynuować z implementacją asynchroniczne przez zamianę wiersze nowy kod w sposób przedstawiony poniżej
 
     (Fragment - kodu *platformy ASP.NET MVC 4 laboratorium - Ex04 - ReadAsStringAsync*)
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample22.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample22.cs)]
+~~~
 8. Uruchom aplikację. Można zauważyć nie większych zmian, ale kodu nie powoduje blokowania wątków z puli wątków wprowadzania czy lepsze wykorzystanie zasobów serwera i poprawia wydajność.
 
     > [!NOTE]
@@ -680,31 +720,43 @@ Metody asynchroniczne akcji, które zwracają wystąpienia obiektów Task może 
 2. Dodaj następujący kod za pomocą instrukcji do **HomeController.cs** pliku.
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample23.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample23.cs)]
+~~~
 3. Akcja indeksu do otrzymywania aktualizacji **CancellationToken** argumentu.
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample24.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample24.cs)]
+~~~
 4. Aktualizacja **GetAsync** wywołania do przekazania token anulowania.
 
     (Fragment - kodu *SendAsync laboratorium - Ex04 - platformy ASP.NET MVC 4 z CancellationToken*)
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample25.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample25.cs)]
+~~~
 5. Dekoracji *indeksu* metody z **Wartość AsyncTimeout** atrybutu ustawić milisekund 500 i **HandleError** atrybutu skonfigurowane do obsługi  **TaskCanceledException** przez przekierowywanie do **upłynął limit czasu** widoku.
 
     (Fragment - kodu *atrybuty laboratorium - Ex04 - platformy ASP.NET MVC 4*)
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample26.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample26.cs)]
+~~~
 6. Otwórz **PhotoController** klasy i aktualizacji **galerii** metody opóźnienia miliseconds wykonywania 1000 (1 sekunda), aby symulować długotrwałych zadań.
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample27.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample27.cs)]
+~~~
 7. Otwórz **Web.config** plików i włączyć błędów niestandardowych, dodając następujący element.
 
 
-    [!code-xml[Main](whats-new-in-aspnet-mvc-4/samples/sample28.xml)]
+~~~
+[!code-xml[Main](whats-new-in-aspnet-mvc-4/samples/sample28.xml)]
+~~~
 8. Utwórz nowy widok w **Views\Shared** o nazwie **upłynął limit czasu** i używać domyślnego układu. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **Views\Shared** i wybierz polecenie **Dodaj | Widok**.
 
     ![Na każdym urządzeniu przenośnym, przy użyciu różnych widoków](whats-new-in-aspnet-mvc-4/_static/image36.png "przy użyciu różnych widoków dla każdego urządzenia przenośnego")
@@ -713,7 +765,9 @@ Metody asynchroniczne akcji, które zwracają wystąpienia obiektów Task może 
 9. Aktualizacja **upłynął limit czasu** wyświetlania zawartości, jak pokazano poniżej.
 
 
-    [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample29.cshtml)]
+~~~
+[!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample29.cshtml)]
+~~~
 10. Uruchom aplikację i przejdź do adresu URL katalogu głównego. Jak dodano **Thread.Sleep** 1000 milisekund, wystąpi błąd limitu czasu, generowane przez **Wartość AsyncTimeout** atrybutu i catch przez **HandleError** atrybut.
 
     ![Wyjątek limitu czasu obsługi](whats-new-in-aspnet-mvc-4/_static/image37.png "wyjątek limitu czasu obsługi")
@@ -788,9 +842,9 @@ Wstawki kodu zapewniają całego kodu, które są potrzebne w zasięgu ręki. Do
 <a id="Appendix_B_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-b-installing-visual-studio-express-2012-for-web"></a>Dodatek B: Instalowanie programu Visual Studio Express 2012 for Web
 
-Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji  **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
+Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
 
-1. Przejdź do [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; *programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK*&quot;.
+1. Przejdź do [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; <em>programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK</em>&quot;.
 2. Polecenie **teraz zainstalować**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 
@@ -831,7 +885,7 @@ Działanie witryny na urządzeniu iPhone symulowane można użyć rozszerzenia p
 <a id="Task_1_-_Installing_WebMatrix_2"></a>
 #### <a name="task-1---installing-webmatrix-2"></a>Zadanie 1 — Instalowanie programu WebMatrix 2
 
-1. Przejdź do [ [https://go.microsoft.com/?linkid=9809776](https://go.microsoft.com/?linkid=9809776)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; *programu WebMatrix 2*&quot;.
+1. Przejdź do [ [ https://go.microsoft.com/?linkid=9809776 ](https://go.microsoft.com/?linkid=9809776) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; <em>programu WebMatrix 2</em>&quot;.
 2. Polecenie **teraz zainstalować**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 
@@ -901,13 +955,13 @@ Działanie witryny na urządzeniu iPhone symulowane można użyć rozszerzenia p
 3. W &quot;przeglądanie za pomocą&quot; okna dialogowego, kliknij przycisk **Dodaj**.
 4. W &quot;Dodaj Program&quot; okna dialogowego, użyj następujących wartości:
 
-    - **Program**: C:\Users\*{CurrentUser}*\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe *(zaktualizować odpowiednio ścieżkę)*
-    - **Argumenty**: &quot;1&quot;
-    - **Przyjazna nazwa**: symulatora telefonu iPhone
+   - <strong>Program</strong>: C:\Users\*{CurrentUser}<em>\AppData\Local\Microsoft\WebMatrix\Extensions\20\iPhoneSimulator\ElectricMobileSim\ElectricMobileSim.exe * (zaktualizować odpowiednio ścieżkę)</em>
+   - **Argumenty**: &quot;1&quot;
+   - **Przyjazna nazwa**: symulatora telefonu iPhone
 
-    ![Dodaj program](whats-new-in-aspnet-mvc-4/_static/image59.png "Dodaj program")
+     ![Dodaj program](whats-new-in-aspnet-mvc-4/_static/image59.png "Dodaj program")
 
-    *Dodaj program do przeglądania przy użyciu*
+     *Dodaj program do przeglądania przy użyciu*
 5. Kliknij przycisk **OK** i zamknąć okna dialogowe.
 6. Jesteś teraz można uruchamiać aplikacje sieci Web w symulatorze iPhone z programu Visual Studio 2012.
 
@@ -1030,14 +1084,14 @@ Jeśli aplikacja korzysta z programu SQL Server baz danych, należy utworzyć se
     *Konfiguracja narzędzia Web deploy*
 5. Skonfiguruj połączenie z bazą danych w następujący sposób:
 
-    - W **nazwy serwera** wpisz swoją bazą danych SQL server adresu URL przy użyciu *tcp:* prefiks.
-    - W **nazwy użytkownika** wpisz nazwę logowania administratora serwera.
-    - W **hasło** wpisz hasło logowania administratora serwera.
-    - Wpisz nazwę nowej bazy danych, na przykład: *MVC4SampleDB*.
+   - W **nazwy serwera** wpisz swoją bazą danych SQL server adresu URL przy użyciu *tcp:* prefiks.
+   - W **nazwy użytkownika** wpisz nazwę logowania administratora serwera.
+   - W **hasło** wpisz hasło logowania administratora serwera.
+   - Wpisz nazwę nowej bazy danych, na przykład: *MVC4SampleDB*.
 
-    ![Konfigurowanie parametrów połączenia z lokalizacją docelową](whats-new-in-aspnet-mvc-4/_static/image77.png "Konfigurowanie parametrów połączenia z lokalizacją docelową")
+     ![Konfigurowanie parametrów połączenia z lokalizacją docelową](whats-new-in-aspnet-mvc-4/_static/image77.png "Konfigurowanie parametrów połączenia z lokalizacją docelową")
 
-    *Konfigurowanie parametrów połączenia z lokalizacją docelową*
+     *Konfigurowanie parametrów połączenia z lokalizacją docelową*
 6. Następnie kliknij przycisk **OK**. Po wyświetleniu monitu można utworzyć bazy danych kliknij **tak**.
 
     ![Tworzenie bazy danych](whats-new-in-aspnet-mvc-4/_static/image78.png "tworzenie parametry bazy danych")

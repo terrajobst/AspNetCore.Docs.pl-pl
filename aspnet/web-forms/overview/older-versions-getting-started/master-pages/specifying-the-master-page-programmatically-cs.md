@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
-title: "Określanie strony wzorcowej programowo (C#) | Dokumentacja firmy Microsoft"
+title: Określanie strony wzorcowej programowo (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Analizuje ustawienia strony zawartości strony wzorcowej programowo przy użyciu programu obsługi zdarzeń PreInit."
+description: Analizuje ustawienia strony zawartości strony wzorcowej programowo przy użyciu programu obsługi zdarzeń PreInit.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 15efb8e2f38b7a405da0c0e12e447e5c3146f025
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2294ee2e58e55901d77958e7cf45dd74fc2a1187
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="specifying-the-master-page-programmatically-c"></a>Określanie strony wzorcowej programowo (C#)
 ====================
@@ -139,7 +139,7 @@ Następnie dodaj następujący znacznik deklaratywne `Alternate.master`. Jak wid
 
 ### <a name="testing-the-new-master-page"></a>Testowanie nowej strony wzorcowej
 
-Do testowania tej nowej aktualizacji strony wzorcowej `BasePage` klasy `OnPreInit` metody, aby `MasterPageFile` przypisuje się wartość właściwości "~ / Alternate.maser", a następnie odwiedź witrynę sieci Web. Każdej strony powinny działać bez błędów, z wyjątkiem dwóch: `~/Admin/AddProduct.aspx` i `~/Admin/Products.aspx`. Dodawanie produktu do widoku DetailsView w `~/Admin/AddProduct.aspx` powoduje `NullReferenceException` z poziomu wiersza kodu, który podejmuje próbę ustawienia strony wzorcowej `GridMessageText` właściwości. Podczas odwiedzania `~/Admin/Products.aspx` `InvalidCastException` jest zgłaszany na załadowanie strony z komunikatem: "nie można rzutować obiektu typu" ASP.alternate\_wzorca "na typ" ASP.site\_master "."
+Do testowania tej nowej aktualizacji strony wzorcowej `BasePage` klasy `OnPreInit` metody, aby `MasterPageFile` przypisuje się wartość właściwości "~ / Alternate.master", a następnie odwiedź witrynę sieci Web. Każdej strony powinny działać bez błędów, z wyjątkiem dwóch: `~/Admin/AddProduct.aspx` i `~/Admin/Products.aspx`. Dodawanie produktu do widoku DetailsView w `~/Admin/AddProduct.aspx` powoduje `NullReferenceException` z poziomu wiersza kodu, który podejmuje próbę ustawienia strony wzorcowej `GridMessageText` właściwości. Podczas odwiedzania `~/Admin/Products.aspx` `InvalidCastException` jest zgłaszany na załadowanie strony z komunikatem: "nie można rzutować obiektu typu" ASP.alternate\_wzorca "na typ" ASP.site\_master "."
 
 Te błędy, ponieważ `Site.master` klasę kodu zawiera zdarzenia publiczne, właściwości i metody, które nie są zdefiniowane w `Alternate.master`. Część znacznika te dwie strony ma `@MasterType` dyrektywy, który odwołuje się do `Site.master` strony wzorcowej.
 
@@ -282,12 +282,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
-Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Suchi Banerjee. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Suchi Banerjee. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](master-pages-and-asp-net-ajax-cs.md)
-[dalej](nested-master-pages-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](master-pages-and-asp-net-ajax-cs.md)
+> [dalej](nested-master-pages-cs.md)

@@ -1,7 +1,7 @@
 ---
-title: "Nagłówki kontekstu"
+title: Nagłówki kontekstu w ASP.NET Core
 author: rick-anderson
-description: "W tym dokumencie przedstawiono szczegóły implementacji nagłówki kontekstu ochrony danych platformy ASP.NET Core."
+description: Dowiedz się szczegóły implementacji nagłówków kontekstu ASP.NET Core do ochrony danych.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: c047c54efdcdb6192e4d38d2822c1077ee0a73e1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5ba247a74e11408145e1f6e87c7cfa251c66707f
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="context-headers"></a>Nagłówki kontekstu
+# <a name="context-headers-in-aspnet-core"></a>Nagłówki kontekstu w ASP.NET Core
 
 <a name="data-protection-implementation-context-headers"></a>
 
@@ -27,7 +27,7 @@ Większość systemów, które obsługują zręczność kryptograficzna to zrobi
 
 Przechodzenie wstecz, zdecydowaliśmy się, że firma Microsoft zostały zbliża się problem z niewłaściwego kierunek. Identyfikator OID informuje, co jest algorytm, ale faktycznie nie Dbamy o to. Jeśli należy używać jednej wartości entropic w bezpieczny sposób w dwóch różnych algorytmów, nie jest niezbędna dla nam znać, co faktycznie są algorytmy. Co faktycznie Dbamy o to, ich zachowania. Dowolny algorytm szyfrowania zadowalający symetrycznego bloku jest również silne permutacji pseudolosowych (PRP): Usuń dane wejściowe (klucz łańcucha zwykłego tekstu w trybie IV) i dane wyjściowe tekstu szyfrowanego z przeciążając uda się rozpoznać prawdopodobieństwo będą różne od innych szyfrowania symetrycznego bloku Algorytm podane tych samych wejściach. Podobnie dowolnej funkcji zadowalający kluczem wyznaczania wartości skrótu jest również funkcja pseudolosowych silne (PRF), a podany stały zestaw wejściowy dane wyjściowe przeważnie będą różne od innych funkcji skrótu kluczem.
 
-Używamy koncepcji silne PRPs i PRFs do zbudowania nagłówka kontekstu. Ten nagłówek kontekstu zasadniczo działa jako stabilny odcisk palca za pośrednictwem algorytmy używane do żadnej operacji danego i zapewnia zręczność kryptograficzna wymaganych przez system ochrony danych. Ten nagłówek zostanie odtworzony i jest później używany w ramach [podkluczy procesu pochodnym](subkeyderivation.md#data-protection-implementation-subkey-derivation). Istnieją dwa różne sposoby tworzenia nagłówka kontekstu, w zależności od trybów operacji algorytmów podstawowej.
+Używamy koncepcji silne PRPs i PRFs do zbudowania nagłówka kontekstu. Ten nagłówek kontekstu zasadniczo działa jako stabilny odcisk palca za pośrednictwem algorytmy używane do żadnej operacji danego i zapewnia zręczność kryptograficzna wymaganych przez system ochrony danych. Ten nagłówek zostanie odtworzony i jest później używany w ramach [podkluczy procesu pochodnym](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). Istnieją dwa różne sposoby tworzenia nagłówka kontekstu, w zależności od trybów operacji algorytmów podstawowej.
 
 ## <a name="cbc-mode-encryption--hmac-authentication"></a>Szyfrowanie w trybie CBC + HMAC uwierzytelniania
 

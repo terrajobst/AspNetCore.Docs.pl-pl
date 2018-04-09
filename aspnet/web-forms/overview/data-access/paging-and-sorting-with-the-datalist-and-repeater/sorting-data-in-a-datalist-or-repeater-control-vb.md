@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-vb
 title: Sortowanie danych w kontrolce elementu powtarzanego (VB) lub DataList | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku zajmiemy się, jak dołączyć sortowanie Obsługa w DataList i powtarzanego, jak również sposób tworzenia DataList lub elementu powtarzanego, których dane mogą..."
+description: W tym samouczku zajmiemy się, jak dołączyć sortowanie Obsługa w DataList i powtarzanego, jak również sposób tworzenia DataList lub elementu powtarzanego, których dane mogą...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0133a74454a7754f4f7087e2121c7387a1aef8a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 66d6833e69a91aef39cc4a202ef662ecaeeee839
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a>Sortowanie danych w kontrolce elementu powtarzanego (VB) lub DataList
 ====================
@@ -231,9 +231,9 @@ Podczas odwiedzania najpierw strony, dane są sortowane według nazwy produktu a
 
 W przykładzie DataList zbadać w kroku 5 stron za pośrednictwem jego danych przy użyciu techniki stronicowania nieefektywne domyślne. Gdy stronicowanie za pośrednictwem wystarczająco duże ilości danych, konieczne jest stosowanie stronicowania niestandardowego. W [wydajnie stronicowania za pośrednictwem dużych ilości danych](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb.md) i [sortowanie danych niestandardowych stronicowanej](../paging-and-sorting/sorting-custom-paged-data-vb.md) samouczki, możemy zbadać różnice między domyślnymi i stronicowania niestandardowego i metod utworzony w logiki warstwy Biznesowej dla przy użyciu niestandardowych stronicowania i sortowania danych niestandardowych stronicowanej. W szczególności w tych samouczkach poprzednich dwóch dodaliśmy następujące trzy metody `ProductsBLL` klasy:
 
-- `GetProductsPaged(startRowIndex, maximumRows)`Zwraca określony podzbiór rekordów, zaczynając od *startRowIndex* i nie przekracza *maximumRows*.
-- `GetProductsPagedAndSorted(sortExpression, startRowIndex, maximumRows)`Zwraca określony podzbiór rekordów posortowane według określonego *sortExpression* parametru wejściowego.
-- `TotalNumberOfProducts()`Całkowita liczba rekordów w zawiera `Products` tabeli bazy danych.
+- `GetProductsPaged(startRowIndex, maximumRows)` Zwraca określony podzbiór rekordów, zaczynając od *startRowIndex* i nie przekracza *maximumRows*.
+- `GetProductsPagedAndSorted(sortExpression, startRowIndex, maximumRows)` Zwraca określony podzbiór rekordów posortowane według określonego *sortExpression* parametru wejściowego.
+- `TotalNumberOfProducts()` Całkowita liczba rekordów w zawiera `Products` tabeli bazy danych.
 
 Te metody mogą służyć do strony i przeszukiwaniem danych przy użyciu formant DataList lub elementu powtarzanego. Na przykład zezwolić s, Rozpocznij od utworzenia kontrolce elementu powtarzanego z obsługę stronicowania niestandardowego; następnie dodamy funkcje sortowania.
 
@@ -390,11 +390,11 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Suru Dominika. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](paging-report-data-in-a-datalist-or-repeater-control-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](paging-report-data-in-a-datalist-or-repeater-control-vb.md)

@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
-title: "Ciągłej integracji i ciągłego dostarczania (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft"
+title: Ciągłej integracji i ciągłego dostarczania (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on..."
+description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 4a5433a7dd70e27b59163822ba427b026c3f4ce0
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4d482aaa0d25d6e6baaf196df4b4bb9335408e46
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Ciągłej integracji i ciągłego dostarczania (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -63,7 +63,7 @@ Jeśli szukasz zarządzania projektu gotowe współpraca z zespołem i rozwiąza
 
 Pierwszy wzorce programowania trzy chmury zostały temat należy wdrożyć proces powtarzalne, niezawodnych, przewidywalnych programowanie z niskim cyklu. W [następnego rozdziału](web-development-best-practices.md) Rozpoczniemy przyjrzeć się wzorce architektury i kodowania.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji sieci web w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-deploy/).
 
@@ -76,6 +76,6 @@ Zobacz też następujące zasoby:
 - [Ciągłego dostarczania: Niezawodnej oprogramowania wydawanych przez proces kompilacji, testów i automatyzacji wdrażania](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361). Podręcznik przez Jez skromny.
 - [Zwolnij go! Projektowanie i wdrażanie oprogramowania gotowe do produkcji](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Podręcznik przez Michael T. Nygard.
 
->[!div class="step-by-step"]
-[Poprzednie](source-control.md)
-[dalej](web-development-best-practices.md)
+> [!div class="step-by-step"]
+> [Poprzednie](source-control.md)
+> [dalej](web-development-best-practices.md)

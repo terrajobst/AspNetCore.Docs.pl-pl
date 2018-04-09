@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
-title: "Wprowadzenie do składnika ASP.NET Web Pages — podstawowe informacje z formularza HTML | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do składnika ASP.NET Web Pages — podstawowe informacje z formularza HTML | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym samouczku przedstawiono podstawowe informacje dotyczące sposobu tworzenia formularza danych wejściowych i sposób obsługi danych wejściowych użytkownika, gdy używasz stron sieci Web platformy ASP.NET (Razor). I teraz..."
+description: W tym samouczku przedstawiono podstawowe informacje dotyczące sposobu tworzenia formularza danych wejściowych i sposób obsługi danych wejściowych użytkownika, gdy używasz stron sieci Web platformy ASP.NET (Razor). I teraz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: 68056759b2e80230e5fd2c0f9b2d2a89b549cf37
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6f44f74774c2fa6338524987779e15f3940d1830
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>Wprowadzenie do strony sieci Web ASP.NET - podstawy formularza HTML
 ====================
@@ -88,11 +88,11 @@ Po uruchomieniu tego znaczników na stronie tworzy prosty formularz, który wygl
 
 Większość elementów wejściowych użytkownika są HTML `<input>` elementów. Wyglądają `<input type="type" name="name">,` gdzie *typu* wskazuje typ kontrolki wejściowe użytkownika mają. Najczęściej spotykane są to następujące elementy:
 
-- Pole tekstowe:`<input type="text">`
-- Pole wyboru:`<input type="check">`
-- Przycisk radiowy:`<input type="radio">`
-- Przycisk:`<input type="button">`
-- Przycisk Prześlij:`<input type="submit">`
+- Pole tekstowe: `<input type="text">`
+- Pole wyboru: `<input type="check">`
+- Przycisk radiowy: `<input type="radio">`
+- przycisk: `<input type="button">`
+- Przycisk Prześlij: `<input type="submit">`
 
 Można również użyć `<textarea>` element, aby utworzyć wielowierszowego pola tekstowego i `<select>` elementu z listy rozwijanej lub przewijanej listy. (Aby uzyskać więcej informacji na temat HTML tworzą elementów, zobacz [formularzy HTML i dane wejściowe](http://www.w3schools.com/html/html_forms.asp) w witrynie W3Schools.)
 
@@ -169,9 +169,9 @@ Ten blok ustawia etap tworzenia kwerendy korzystającej z terminu wyszukiwania. 
 > 
 > `Request` Obiekt faktycznie udostępnia kilka podzestawy. Na przykład:
 > 
-> - `Request.Form`podaje wartości od elementów wewnątrz przesłanych `<form>` elementu, jeśli żądanie jest `POST` żądania.
-> - `Request.QueryString`podano tylko wartości w ciągu zapytania w adresie URL. (W adresie URL, takie jak `http://mysite/myapp/page?searchGenre=action&page=2`, `?searchGenre=action&page=2` sekcji adresu URL jest ciąg zapytania.)
-> - `Request.Cookies`Kolekcja umożliwia dostęp do plików cookie wysłanych przez przeglądarkę.
+> - `Request.Form` podaje wartości od elementów wewnątrz przesłanych `<form>` elementu, jeśli żądanie jest `POST` żądania.
+> - `Request.QueryString` podano tylko wartości w ciągu zapytania w adresie URL. (W adresie URL, takie jak `http://mysite/myapp/page?searchGenre=action&page=2`, `?searchGenre=action&page=2` sekcji adresu URL jest ciąg zapytania.)
+> - `Request.Cookies` Kolekcja umożliwia dostęp do plików cookie wysłanych przez przeglądarkę.
 > 
 > Aby pobrać wartości, który znajduje się w przesłanego formularza, możesz użyć `Request["name"]`. Alternatywnie, można zastosować bardziej szczegółowych wersji `Request.Form["name"]` (dla `POST` żądania) lub `Request.QueryString["name"]` (dla `GET` żądania). Oczywiście *nazwa* jest nazwą elementu do pobrania.
 > 
@@ -363,6 +363,6 @@ W następnym samouczku utworzysz stronę, która używa formularza, aby umożliw
 - [Klauzuli SQL WHERE](http://www.w3schools.com/sql/sql_where.asp) w witrynie W3Schools
 - [Metoda definicje](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) artykuł w witrynie W3C
 
->[!div class="step-by-step"]
-[Poprzednie](displaying-data.md)
-[dalej](entering-data.md)
+> [!div class="step-by-step"]
+> [Poprzednie](displaying-data.md)
+> [dalej](entering-data.md)

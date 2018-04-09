@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
-title: "Modele platformy ASP.NET MVC 4 oraz dostęp do danych | Dokumentacja firmy Microsoft"
+title: Modele platformy ASP.NET MVC 4 oraz dostęp do danych | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Uwaga: W tym laboratorium Hands-on przyjęto założenie, że masz podstawową wiedzę na temat platformy ASP.NET MVC. Jeśli nie użyto programu ASP.NET MVC przed, zalecamy zapoznać się z platformy ASP.NET MVC 4..."
+description: 'Uwaga: W tym laboratorium Hands-on przyjęto założenie, że masz podstawową wiedzę na temat platformy ASP.NET MVC. Jeśli nie użyto programu ASP.NET MVC przed, zalecamy zapoznać się z platformy ASP.NET MVC 4...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 353419077422516761df56f730352b19b5db5ff2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 081a71ef67a6eee6c84058c30f9e15301afbed23
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>Modele platformy ASP.NET MVC 4 oraz dostęp do danych
 
@@ -112,12 +112,12 @@ To zadanie spowoduje dodanie już utworzono bazę danych z głównych tabel apli
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się na **źródło/Ex1-AddingADatabaseDBFirst/Begin/** folderu.
 
-    1. Należy pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Należy pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 2. Dodaj **MvcMusicStore** pliku bazy danych. W tym laboratorium Hands-on użyje utworzone bazę danych o nazwie **MvcMusicStore.mdf**. W tym celu kliknij prawym przyciskiem myszy **aplikacji\_danych** folderu, wskaż **Dodaj** , a następnie kliknij przycisk **istniejący element**. Przejdź do **\Source\Assets** i wybierz **MvcMusicStore.mdf** pliku.
 
     ![Dodawanie istniejącego elementu](aspnet-mvc-4-models-and-data-access/_static/image2.png "Dodawanie istniejącego elementu")
@@ -186,8 +186,8 @@ W ramach tego zadania spowoduje utworzenie modelu danych do interakcji z dodanym
 
     *Diagram jednostek*
 
-> [!NOTE]
-> Szablony T4 (.TT —) uruchom kod można wygenerować klas jednostek i spowoduje zastąpienie istniejących klas o takiej samej nazwie. W tym przykładzie klasy &quot;albumu&quot;, &quot;Genre&quot; i &quot;wykonawcy&quot; zostały zastąpione wygenerowanego kodu.
+    > [!NOTE]
+    > Szablony T4 (.TT —) uruchom kod można wygenerować klas jednostek i spowoduje zastąpienie istniejących klas o takiej samej nazwie. W tym przykładzie klasy &quot;albumu&quot;, &quot;Genre&quot; i &quot;wykonawcy&quot; zostały zastąpione wygenerowanego kodu.
 
 
 <a id="Ex1Task3"></a>
@@ -225,30 +225,38 @@ To zadanie spowoduje zaktualizowanie klasy StoreController tak, aby zamiast dane
     (Fragment - kodu *modeli i dostęp do danych - Ex1 storeDB*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample1.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample1.cs)]
+~~~
 2. **MusicStoreEntities** klasy udostępnia właściwości kolekcji dla każdej tabeli w bazie danych. Aktualizacja **Przeglądaj** metody akcji można pobrać określonego rodzaju ze wszystkimi **albumów**.
 
     (Fragment - kodu *modeli i dostęp do danych - przeglądania magazynu Ex1*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
 
-    > [!NOTE]
-    > W przypadku korzystania z możliwości .NET o nazwie **LINQ** (zapytanie o języku zintegrowanym) do zapisania wyrażeń jednoznacznie zapytania względem tych kolekcje — co spowoduje wykonanie kodu w bazie danych i zwracać obiekty można umieszczonych przed.
-    > 
-    > Aby uzyskać więcej informacji na temat LINQ, odwiedź stronę [witrynę msdn](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
+> [!NOTE]
+> You are using a capability of .NET called **LINQ** (language-integrated query) to write strongly-typed query expressions against these collections - which will execute code against the database and return objects that you can program against.
+> 
+> For more information about LINQ, please visit the [msdn site](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
+~~~
 3. Aktualizacja **indeksu** metody akcji, aby pobrać wszystkie genres.
 
     (Fragment - kodu *modeli i Data Access — indeks magazynu Ex1*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample3.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample3.cs)]
+~~~
 4. Aktualizacja **indeksu** metody akcji, aby pobrać wszystkie genres i przekształcenie kolekcji na listę.
 
     (Fragment - kodu *modeli i dostęp do danych - GenreMenu magazynu Ex1*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample4.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample4.cs)]
+~~~
 
 <a id="Ex1Task5"></a>
 
@@ -291,12 +299,12 @@ W tym zadaniu zostanie Wypełnianie bazy danych z przykładowymi danymi tworzone
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się na **źródło/Ex2-CreatingADatabaseCodeFirst/Begin/** folderu. W przeciwnym razie możesz nadal korzystać **zakończenia** uzyskane rozwiązanie, wykonując poprzednim ćwiczeniu.
 
-    1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 2. Dodaj **SampleData.cs** pliku **modele** folderu. W tym celu kliknij prawym przyciskiem myszy **modele** folderu, wskaż **Dodaj** , a następnie kliknij przycisk **istniejący element**. Przejdź do **\Source\Assets** i wybierz **SampleData.cs** pliku.
 
     ![Przykładowe dane wypełnić kodu](aspnet-mvc-4-models-and-data-access/_static/image18.png "przykładowych danych wypełnić kodu")
@@ -307,13 +315,17 @@ W tym zadaniu zostanie Wypełnianie bazy danych z przykładowymi danymi tworzone
     (Fragment - kodu *modeli i Data Access — deklaracje Using Ex2 globalne Asax*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample5.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample5.cs)]
+~~~
 4. W **aplikacji\_Start()** metody Dodaj następujący wiersz do ustawienia inicjatora bazy danych.
 
     (Fragment - kodu *modeli i dostęp do danych - globalne Asax SetInitializer Ex2*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample6.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample6.cs)]
+~~~
 
 <a id="Ex2Task2"></a>
 
@@ -322,14 +334,16 @@ W tym zadaniu zostanie Wypełnianie bazy danych z przykładowymi danymi tworzone
 
 Teraz, gdy masz już dodany bazy danych do naszej projektu, będzie zapisywać **Web.config** pliku parametrów połączenia.
 
-1. Dodaj parametry połączenia w **Web.config**. Aby to zrobić, otwórz **Web.config** w głównym projektu i Zastąp ciąg połączenia o nazwie parametru DefaultConnection z tego wiersza w  **&lt;connectionStrings&gt;**  sekcji:
+1. Dodaj parametry połączenia w **Web.config**. Aby to zrobić, otwórz **Web.config** w głównym projektu i Zastąp ciąg połączenia o nazwie parametru DefaultConnection z tego wiersza w **&lt;connectionStrings&gt;** sekcji:
 
     ![Lokalizacja pliku Web.config](aspnet-mvc-4-models-and-data-access/_static/image19.png "lokalizację pliku Web.config")
 
     *Lokalizacja pliku Web.config*
 
 
-    [!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]
+~~~
+[!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]
+~~~
 
 <a id="Ex2Task3"></a>
 
@@ -338,7 +352,7 @@ Teraz, gdy masz już dodany bazy danych do naszej projektu, będzie zapisywać *
 
 Teraz, gdy skonfigurowano już połączenie z bazą danych, zostaną połączone modelu z tabel bazy danych. W ramach tego zadania spowoduje utworzenie klasy, który będzie połączony z bazą danych z Code First. Należy pamiętać, że istnieje istniejących klasy modelu POCO, które powinno zostać zmodyfikowane w.
 
-> [!NOTE]
+   > [!NOTE]
 > Jeśli ukończono ćwiczenie 1 można zauważyć, że ten krok został wykonany przez kreatora. Wykonując Code First, ręcznie utworzysz klasy, które zostaną połączone obiekty danych.
 
 
@@ -347,24 +361,30 @@ Teraz, gdy skonfigurowano już połączenie z bazą danych, zostaną połączone
     (Fragment - kodu *modeli i dostęp do danych - Genre pierwszy kod Ex2*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample8.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample8.cs)]
 
-    > [!NOTE]
-    > Aby pracować z konwencjami Code First, klasa Genre musi mieć właściwości klucza podstawowego, który będzie wykrywane automatycznie.
-    > 
-    > Możesz przeczytać więcej na temat Konwencji pierwszy kod w tym [artykuł w witrynie msdn](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
+> [!NOTE]
+> To work with Code First conventions, the class Genre must have a primary key property that will be automatically detected.
+> 
+> You can read more about Code First Conventions in this [msdn article](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
+~~~
 2. Teraz Otwórz klasy modelu POCO **albumu** z **modele** folderu projektu i zawierają kluczy obcych, Utwórz właściwości o nazwach **GenreId** i  **ArtistId**. Ta klasa już **GenreId** klucza podstawowego.
 
     (Fragment - kodu *modeli i dostęp do danych - Ex2 kod pierwszego albumu*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample9.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample9.cs)]
+~~~
 3. Otwórz klasy modelu POCO **wykonawcy** i obejmują **ArtistId** właściwości.
 
     (Fragment - kodu *modeli i dostęp do danych - wykonawcy pierwszy kod Ex2*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample10.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample10.cs)]
+~~~
 4. Kliknij prawym przyciskiem myszy **modele** folderu projektu i wybierz **Dodaj | Klasa**. Nadaj nazwę plikowi **MusicStoreEntities.cs**. Następnie kliknij przycisk **Dodaj.**
 
     ![Dodawanie klasy](aspnet-mvc-4-models-and-data-access/_static/image20.png "Dodawanie klasy")
@@ -377,16 +397,20 @@ Teraz, gdy skonfigurowano już połączenie z bazą danych, zostaną połączone
 5. Otwórz właśnie utworzony, klasa **MusicStoreEntities.cs**i uwzględnić przestrzenie nazw **System.Data.Entity** i **System.Data.Entity.Infrastructure**.
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample11.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample11.cs)]
+~~~
 6. Zastąp deklaracji klasy, aby rozszerzyć **DbContext** klasy: deklarowanie publiczny **DBSet** i zastąpienia **OnModelCreating** — metoda. Po wykonaniu tego kroku wystąpi klasy domeny, która połączy modelu za pomocą programu Entity Framework. Aby to zrobić, Zastąp kod klasy następujące czynności:
 
     (Fragment - kodu *modeli i dostęp do danych - MusicStoreEntities pierwszy kod Ex2*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
 
-    > [!NOTE]
-    > Z programu Entity Framework **DbContext** i **DBSet** można zbadać klasy POCO Genre. Rozszerzając **OnModelCreating** metody, określasz w **kod** jak Genre zostaną zmapowane do tabeli bazy danych. Więcej informacji na temat obiektu DBContext i DBSet można znaleźć w tym artykule w witrynie msdn: [łącza](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
+> [!NOTE]
+> With Entity Framework **DbContext** and **DBSet** you will be able to query the POCO class Genre. By extending **OnModelCreating** method, you are specifying in the **code** how Genre will be mapped to a database table. You can find more information about DBContext and DBSet in this msdn article: [link](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
+~~~
 
 <a id="Ex2Task4"></a>
 
@@ -406,30 +430,38 @@ To zadanie spowoduje zaktualizowanie klasy StoreController tak, aby zamiast dane
     (Fragment - kodu *modeli i dostęp do danych - Ex1 storeDB*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample13.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample13.cs)]
+~~~
 2. **MusicStoreEntities** klasy udostępnia właściwości kolekcji dla każdej tabeli w bazie danych. Aktualizacja **Przeglądaj** metody akcji można pobrać określonego rodzaju ze wszystkimi **albumów**.
 
     (Fragment - kodu *modeli i dostęp do danych - przeglądania magazynu Ex2*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample14.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample14.cs)]
 
-    > [!NOTE]
-    > W przypadku korzystania z możliwości .NET o nazwie **LINQ** (zapytanie o języku zintegrowanym) do zapisania wyrażeń jednoznacznie zapytania względem tych kolekcje — co spowoduje wykonanie kodu w bazie danych i zwracać obiekty można umieszczonych przed.
-    > 
-    > Aby uzyskać więcej informacji na temat LINQ, odwiedź stronę [witrynę msdn](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
+> [!NOTE]
+> You are using a capability of .NET called **LINQ** (language-integrated query) to write strongly-typed query expressions against these collections - which will execute code against the database and return objects that you can program against.
+> 
+> For more information about LINQ, please visit the [msdn site](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
+~~~
 3. Aktualizacja **indeksu** metody akcji, aby pobrać wszystkie genres.
 
     (Fragment - kodu *modeli i Data Access — indeks magazynu Ex2*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample15.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample15.cs)]
+~~~
 4. Aktualizacja **indeksu** metody akcji, aby pobrać wszystkie genres i przekształcenie kolekcji na listę.
 
     (Fragment - kodu *modeli i dostęp do danych - GenreMenu magazynu Ex2*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample16.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample16.cs)]
+~~~
 
 <a id="Ex2Task5"></a>
 
@@ -470,26 +502,28 @@ W tym zadaniu zostanie zmieniony **StoreController** klasy dostęp do bazy danyc
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się na **Source\Ex3 QueryingTheDatabaseWithParametersCodeFirst\Begin** folderu, jeśli chcesz użyć pierwszej kodu metody lub **Source\ Ex3 QueryingTheDatabaseWithParametersDBFirst\Begin** folderu, jeśli chcesz użyć metody pierwszej bazy danych. W przeciwnym razie możesz nadal korzystać **zakończenia** uzyskane rozwiązanie, wykonując poprzednim ćwiczeniu.
 
-    1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 2. Otwórz **StoreController** klasę, aby zmienić **Przeglądaj** metody akcji. Aby to zrobić, w **Eksploratora rozwiązań**, rozwiń węzeł **kontrolerów** folder i kliknij dwukrotnie **StoreController.cs**.
 3. Zmień **Przeglądaj** metody akcji można pobrać albumów dla określonego rodzaju. Aby to zrobić, Zastąp następujący kod:
 
     (Fragment - kodu *modeli i dostęp do danych - Ex3 StoreController BrowseMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample17.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample17.cs)]
 
-    > [!NOTE]
-    > Aby wypełnić kolekcji jednostki, należy użyć **Include** metodę, aby określić ma zostać pobrane za albumów. Można użyć. **Single()** rozszerzenia LINQ, ponieważ w takim przypadku oczekuje tylko jednego rodzaju albumu. **Single()** metoda przyjmuje jako parametr w takim przypadku określa pojedynczy obiekt Genre w taki sposób, że jego nazwa jest zgodna z wartością zdefiniowane wyrażenia Lambda.
-    > 
-    > Będzie korzystać z funkcji, które można określić innych powiązanych jednostek, który ma być również załadowany po pobraniu obiektu Genre. Ta funkcja jest nazywana **kształtowania wynik zapytania**i pozwala zmniejszyć liczbę potrzebnych do dostępu do bazy danych można pobrać informacji o. W tym scenariuszu można wstępnie pobrać albumów dla rodzaju pobierania.
-    > 
-    > Zapytanie zawiera **Genres.Include (&quot;albumów&quot;)** aby wskazać, że ma również albumów pokrewne. To spowoduje większą wydajność aplikacji, ponieważ będą pobierane dane zarówno Genre, jak i albumu w żądaniu pojedynczej bazy danych.
+> [!NOTE]
+> To populate a collection of the entity, you need to use the **Include** method to specify you want to retrieve the albums too. You can use the .**Single()** extension in LINQ because in this case only one genre is expected for an album. The **Single()** method takes a Lambda expression as a parameter, which in this case specifies a single Genre object such that its name matches the value defined.
+> 
+> You will take advantage of a feature that allows you to indicate other related entities you want loaded as well when the Genre object is retrieved. This feature is called **Query Result Shaping**, and enables you to reduce the number of times needed to access the database to retrieve information. In this scenario, you will want to pre-fetch the Albums for the Genre you retrieve.
+> 
+> The query includes **Genres.Include(&quot;Albums&quot;)** to indicate that you want related albums as well. This will result in a more efficient application, since it will retrieve both Genre and Album data in a single database request.
+~~~
 
 <a id="Ex3Task2"></a>
 
@@ -518,7 +552,9 @@ W tym zadaniu zostanie powtórzony poprzedniej procedury, aby uzyskać albumów 
     (Fragment - kodu *modeli i dostęp do danych - Ex3 StoreController DetailsMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample18.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample18.cs)]
+~~~
 
 <a id="Ex3Task4"></a>
 
@@ -558,9 +594,9 @@ Poprzez wykonanie tego laboratorium Hands-on, kiedy znasz już podstawy ASP.NET 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Dodatek A: Instalowanie programu Visual Studio Express 2012 for Web
 
-Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji  **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
+Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
 
-1. Przejdź do [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; *programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK*&quot;.
+1. Przejdź do [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; <em>programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK</em>&quot;.
 2. Polecenie **teraz zainstalować**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 
@@ -704,14 +740,14 @@ Jeśli aplikacja korzysta z programu SQL Server baz danych, należy utworzyć se
     *Konfiguracja narzędzia Web deploy*
 5. Skonfiguruj połączenie z bazą danych w następujący sposób:
 
-    - W **nazwy serwera** wpisz swoją bazą danych SQL server adresu URL przy użyciu *tcp:* prefiks.
-    - W **nazwy użytkownika** wpisz nazwę logowania administratora serwera.
-    - W **hasło** wpisz hasło logowania administratora serwera.
-    - Wpisz nazwę nowej bazy danych.
+   - W **nazwy serwera** wpisz swoją bazą danych SQL server adresu URL przy użyciu *tcp:* prefiks.
+   - W **nazwy użytkownika** wpisz nazwę logowania administratora serwera.
+   - W **hasło** wpisz hasło logowania administratora serwera.
+   - Wpisz nazwę nowej bazy danych.
 
-    ![Konfigurowanie parametrów połączenia z lokalizacją docelową](aspnet-mvc-4-models-and-data-access/_static/image47.png "Konfigurowanie parametrów połączenia z lokalizacją docelową")
+     ![Konfigurowanie parametrów połączenia z lokalizacją docelową](aspnet-mvc-4-models-and-data-access/_static/image47.png "Konfigurowanie parametrów połączenia z lokalizacją docelową")
 
-    *Konfigurowanie parametrów połączenia z lokalizacją docelową*
+     *Konfigurowanie parametrów połączenia z lokalizacją docelową*
 6. Następnie kliknij przycisk **OK**. Po wyświetleniu monitu można utworzyć bazy danych kliknij **tak**.
 
     ![Tworzenie bazy danych](aspnet-mvc-4-models-and-data-access/_static/image48.png "tworzenie parametry bazy danych")

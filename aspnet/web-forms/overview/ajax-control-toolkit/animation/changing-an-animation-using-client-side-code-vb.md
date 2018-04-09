@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-vb
-title: "Zmiana animacji przy użyciu kodu po stronie klienta (VB) | Dokumentacja firmy Microsoft"
+title: Zmiana animacji przy użyciu kodu po stronie klienta (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Animacji można również..."
+description: Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Animacji można również...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 83d1a21fba37d8807be467d02b5550dc7d096e6c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7f9b72576cc3a9e91827cfb40983821704621060
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="changing-an-animation-using-client-side-code-vb"></a>Zmiana animacji przy użyciu kodu po stronie klienta (VB)
 ====================
@@ -78,6 +78,6 @@ Następujący kod JavaScript przypisuje JSON descripting do `OnClick` animacji b
 
 Animacja zostanie uruchomiona natychmiast, bez kliknięcia myszą (i z bardzo mało znaczników) ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](changing-an-animation-using-client-side-code-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](executing-animations-using-client-side-code-vb.md)
-[dalej](animating-an-updatepanel-control-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](executing-animations-using-client-side-code-vb.md)
+> [dalej](animating-an-updatepanel-control-vb.md)

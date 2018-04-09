@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
-title: "Użycie kontrolery i widoki do zaimplementowania interfejsu użytkownika listę/szczegółów | Dokumentacja firmy Microsoft"
+title: Użycie kontrolery i widoki do zaimplementowania interfejsu użytkownika listę/szczegółów | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Krok 4 przedstawiono sposób dodawania kontrolera do aplikacji, która korzysta z naszego modelu, aby zapewnić użytkownikom przy użyciu środowiska nawigacji listę/szczegóły danych..."
+description: Krok 4 przedstawiono sposób dodawania kontrolera do aplikacji, która korzysta z naszego modelu, aby zapewnić użytkownikom przy użyciu środowiska nawigacji listę/szczegóły danych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 2f9148a2d419863229e2c5a2a0c98984001fcee5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac3568941eeef24bd9857c5787471aadea15fc7f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>W celu zaimplementowania interfejsu użytkownika listę/szczegóły użyć kontrolery i widoki
 ====================
@@ -92,16 +92,16 @@ Domyślne reguły routingu platformy ASP.NET MVC są rejestrowane w metodzie "Re
 
 "Trasy. MapRoute() "powyżej wywołanie metody rejestruje domyślna reguła routingu, która mapuje przychodzących adresów URL do klas kontrolera przy użyciu formatu adresu URL:" / {controller} / {action} / {id} "— w przypadku"controller"Nazwa klasy kontrolera, można utworzyć wystąpienia,"Akcja"jest nazwą publicznej metody do wywołania i "id" jest parametrem opcjonalnym osadzone w adresie URL zawierających mogą zostać przekazane jako argument do metody. Trzeci parametr przekazywany do wywołania metody "MapRoute()" to zestaw wartości domyślne dla wartości identyfikatora kontroler/akcji w przypadku, gdy nie są obecne w adresie URL (kontroler = "Home", Akcja = "Index", Id = "").
 
-Poniżej znajduje się tabela, która ilustruje sposób różnych adresów URL są zamapowane przy użyciu domyślnego "*/ {kontrolerów} / {action} / {id}"*trasy reguły:
+Poniżej znajduje się tabela, która ilustruje sposób różnych adresów URL są zamapowane przy użyciu domyślnego "<em>/ {kontrolerów} / {action} / {id}"</em>trasy reguły:
 
 | **ADRES URL** | **Klasa kontrolera** | **Metody akcji** | **Parametry przekazane** |
 | --- | --- | --- | --- |
-| */ Kolacji/szczegóły/2* | DinnersController | Details(ID) | Identyfikator = 2 |
-| */ Kolacji/Edit/5* | DinnersController | Edit(ID) | Identyfikator = 5 |
-| */ Kolacji/utworzyć* | DinnersController | Create() | Brak |
-| */ Kolacji* | DinnersController | Indeks() | Brak |
-| *Domowych* | HomeController | Indeks() | Brak |
-| */* | HomeController | Indeks() | Brak |
+| */ Kolacji/szczegóły/2* | DinnersController | Details(ID) | id=2 |
+| */Dinners/Edit/5* | DinnersController | Edit(ID) | id=5 |
+| */Dinners/Create* | DinnersController | Create() | Brak |
+| */ Kolacji* | DinnersController | Index() | Brak |
+| *Domowych* | HomeController | Index() | Brak |
+| */* | HomeController | Index() | Brak |
 
 Trzy ostatnie wiersze Pokaż wartości domyślne (kontrolera = Narzędzia główne, akcja = indeks, Id = "") używana. Ponieważ metoda "Index" jest zarejestrowany jako domyślna nazwa akcji, jeśli nie jest określony, "/ kolacji" i "/ Home" Przyczyna adresy URL indeks() metody akcji do wywołania w ich klasy kontrolera. Ponieważ kontroler "Home" jest zarejestrowany jako domyślnego kontrolera, jeśli nie jest określony, adres URL "/" powoduje HomeController do utworzenia i metody akcji indeks() go do wywołania.
 
@@ -301,6 +301,6 @@ Mamy teraz nieuprzywilejowany obiad, przeglądania Internetu skompilowany.
 
 Umożliwia teraz włączyć CRUD (tworzenia, odczytu, aktualizacji, usuwania) dane formularza edycji pomocy technicznej.
 
->[!div class="step-by-step"]
-[Poprzednie](build-a-model-with-business-rule-validations.md)
-[dalej](provide-crud-create-read-update-delete-data-form-entry-support.md)
+> [!div class="step-by-step"]
+> [Poprzednie](build-a-model-with-business-rule-validations.md)
+> [dalej](provide-crud-create-read-update-delete-data-form-entry-support.md)

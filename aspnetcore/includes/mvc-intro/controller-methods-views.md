@@ -87,7 +87,7 @@ Wszystkie `HttpGet` metod w kontrolerze filmu wykonaj podobnego wzorca. Otrzymuj
 
 * [Globalizacja i lokalizacja](xref:fundamentals/localization)
 * [Wprowadzenie do pomocników tagów](xref:mvc/views/tag-helpers/intro)
-* [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
+* [Autor pomocników tagów](xref:mvc/views/tag-helpers/authoring)
 * [Ochrona przed fałszerstwem żądań](xref:security/anti-request-forgery)
 * Ochrona kontroler z [zbyt księgowej](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
 * [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)

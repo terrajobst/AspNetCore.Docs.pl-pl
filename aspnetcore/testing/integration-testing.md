@@ -1,7 +1,7 @@
 ---
-title: Testowanie w ASP.NET Core integracji
+title: Integracja z testów w ASP.NET Core
 author: ardalis
-description: "Jak korzystać z integracji platformy ASP.NET Core testy w celu zapewnienia poprawnego działania składników aplikacji."
+description: Jak korzystać z integracji platformy ASP.NET Core testy w celu zapewnienia poprawnego działania składników aplikacji.
 manager: wpickett
 ms.author: riande
 ms.date: 09/25/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 8c28f1b4f66433eaebd9e474e784ecf3f1ac271b
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 3c618b2bd5919f6536601631eb4d21359a6bc03a
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="integration-testing-in-aspnet-core"></a>Testowanie w ASP.NET Core integracji
+# <a name="integration-tests-in-aspnet-core"></a>Integracja z testów w ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/)
 
@@ -147,7 +147,7 @@ Po tym refaktoryzacji masz pewność, że aplikacja sieci web wciąż działa ja
 > [!NOTE]
 > Jest dobrym pomysłem jest Zatwierdź zmiany do kontroli źródła, po zakończeniu refaktoryzacji i Twoje testy zostały zaliczone pomyślnie. Jeśli jest ćwiczenia testu Driven Development [należy rozważyć dodanie zatwierdzania do cykl czerwony-zielony-Zrefaktoryzuj](https://ardalis.com/rgrc-is-the-new-red-green-refactor-for-test-first-development).
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 * [Testowanie jednostek](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 * [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)

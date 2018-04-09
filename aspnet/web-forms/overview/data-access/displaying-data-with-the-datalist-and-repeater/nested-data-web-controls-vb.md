@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
-title: "Zagnieżdżone danych sieci Web formantów (VB) | Dokumentacja firmy Microsoft"
+title: Zagnieżdżone danych sieci Web formantów (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku przeanalizujemy sposób użycia elementu powtarzanego zagnieżdżone wewnątrz innego elementu powtarzanego. Przykłady przedstawiają jak wypełnić wewnętrzny elementu powtarzanego zarówno d..."
+description: W tym samouczku przeanalizujemy sposób użycia elementu powtarzanego zagnieżdżone wewnątrz innego elementu powtarzanego. Przykłady przedstawiają jak wypełnić wewnętrzny elementu powtarzanego zarówno d...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 944f208d6fe4f9fde13b530fb236ecc69ff5e9cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d8bb5eae2003273fa8d8a06cc4adaa959378f1e2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nested-data-web-controls-vb"></a>Zagnieżdżone dane formantów sieci Web (VB)
 ====================
@@ -93,14 +93,14 @@ Danych, aby powiązać wewnętrzny kontrolce elementu powtarzanego albo dostępn
 
 ## <a name="accessing-the-data-declaratively-with-an-objectdatasource-control-and-theitemdataboundevent-handler"></a>Uzyskiwanie dostępu do danych deklaratywnie z kontrolki ObjectDataSource i`ItemDataBound`obsługi zdarzeń
 
-Ponieważ firma Microsoft był używany element ObjectDataSource często w tej serii samouczek wybór najbardziej fizyczne do uzyskiwania dostępu do danych, w tym przykładzie zostaje przestrzegaj ObjectDataSource. `ProductsBLL` Klasa ma `GetProductsByCategoryID(categoryID)` metodę, która zwraca informacje na temat tych produktów, które należą do określonej  *`categoryID`* . W związku z tym można dodać elementu ObjectDataSource do `CategoryList` elementu powtarzanego s `ItemTemplate` i skonfigurowanie dostępu do danych z tej metody klasy s.
+Ponieważ firma Microsoft był używany element ObjectDataSource często w tej serii samouczek wybór najbardziej fizyczne do uzyskiwania dostępu do danych, w tym przykładzie zostaje przestrzegaj ObjectDataSource. `ProductsBLL` Klasa ma `GetProductsByCategoryID(categoryID)` metodę, która zwraca informacje na temat tych produktów, które należą do określonej *`categoryID`*. W związku z tym można dodać elementu ObjectDataSource do `CategoryList` elementu powtarzanego s `ItemTemplate` i skonfigurowanie dostępu do danych z tej metody klasy s.
 
 Niestety elementu powtarzanego zezwala na jego szablonów można edytować za pomocą widoku Projekt, należy ręcznie dodać składni deklaratywnej dla tej kontrolki ObjectDataSource. Poniżej przedstawiono składnię `CategoryList` elementu powtarzanego s `ItemTemplate` po dodaniu tego nowego elementu ObjectDataSource (`ProductsByCategoryDataSource`):
 
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample3.aspx)]
 
-Korzystając z metody ObjectDataSource musimy ustawić `ProductsByCategoryList` elementu powtarzanego s `DataSourceID` właściwości `ID` elementu ObjectDataSource (`ProductsByCategoryDataSource`). Ponadto powiadomienia z naszych ObjectDataSource `<asp:Parameter>` element, który określa  *`categoryID`*  wartości, które zostaną przekazane do `GetProductsByCategoryID(categoryID)` — metoda. Ale jak możemy podać tę wartość? Najlepiej, możemy d można ustawić tylko `DefaultValue` właściwość `<asp:Parameter>` elementu za pomocą składni wiązania z danymi w następujący sposób:
+Korzystając z metody ObjectDataSource musimy ustawić `ProductsByCategoryList` elementu powtarzanego s `DataSourceID` właściwości `ID` elementu ObjectDataSource (`ProductsByCategoryDataSource`). Ponadto powiadomienia z naszych ObjectDataSource `<asp:Parameter>` element, który określa *`categoryID`* wartości, które zostaną przekazane do `GetProductsByCategoryID(categoryID)` — metoda. Ale jak możemy podać tę wartość? Najlepiej, możemy d można ustawić tylko `DefaultValue` właściwość `<asp:Parameter>` elementu za pomocą składni wiązania z danymi w następujący sposób:
 
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample4.aspx)]
@@ -133,7 +133,7 @@ Zamiast elementu ObjectDataSource do pobrania dla bieżącej kategorii produktó
 
 Powtarzanego s `DataSource` właściwości używa składni wiązania z danymi, aby wskazać, że jego dane pochodzą z `GetProductsInCategory(categoryID)` metody. Ponieważ `Eval("CategoryID")` zwraca wartość typu `Object`, możemy rzutowanie tego obiektu na `Integer` przed przekazaniem go do `GetProductsInCategory(categoryID)` metody. Należy pamiętać, że `CategoryID` używanych w tym miejscu za pośrednictwem wiązania z danymi składnia jest `CategoryID` w *zewnętrzne* elementu powtarzanego (`CategoryList`), co tego s powiązane rekordy w `Categories` tabeli. W związku z tym wiemy, że `CategoryID` nie może być bazy danych `NULL` wartości, dlatego firma Microsoft może ślepo rzutowania `Eval` metody bez sprawdzania, czy możemy re zajmowanie `DBNull`.
 
-Z tej metody, należy utworzyć `GetProductsInCategory(categoryID)` — metoda i pobrać odpowiedni zestaw produktów, podana podane  *`categoryID`* . Firma Microsoft można to zrobić, po prostu zwracanie `ProductsDataTable` zwrócony przez `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` metody. Let s utworzyć `GetProductsInCategory(categoryID)` metody w klasie CodeBehind dla naszych `NestedControls.aspx` strony. To zrobić przy użyciu następującego kodu:
+Z tej metody, należy utworzyć `GetProductsInCategory(categoryID)` — metoda i pobrać odpowiedni zestaw produktów, podana podane *`categoryID`*. Firma Microsoft można to zrobić, po prostu zwracanie `ProductsDataTable` zwrócony przez `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` metody. Let s utworzyć `GetProductsInCategory(categoryID)` metody w klasie CodeBehind dla naszych `NestedControls.aspx` strony. To zrobić przy użyciu następującego kodu:
 
 
 [!code-vb[Main](nested-data-web-controls-vb/samples/sample7.vb)]
@@ -179,11 +179,11 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Kowalski Zack i Liz Shulok. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](showing-multiple-records-per-row-with-the-datalist-control-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](showing-multiple-records-per-row-with-the-datalist-control-vb.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 title: Dodawanie kolumny do modelu | Dokumentacja firmy Microsoft
 author: shanselman
-description: "Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych."
+description: Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
-ms.openlocfilehash: 17ee105f596319423ac83cf718683ed293f952f3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7a0b64ce00fc5ee6d49990f1d4d93a154c467bf5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-column-to-the-model"></a>Dodawanie kolumny do modelu
 ====================
@@ -77,11 +77,11 @@ Po kliknięciu przycisku Utwórz są wysyłane do strony indeksu w przypadku, gd
 
 W tym samouczku podstawowe otrzymano pracę wprowadzania kontrolerów, kojarzenie ich z widokami i przekazywanie wokół ustalony danych. Następnie możemy utworzyć i zaprojektowane bazy danych i umieść niektóre dane w. Możemy pobrać dane z bazy danych i on wyświetlany w tabeli HTML. Następnie dodano Tworzenie formularza, który zezwala użytkownikowi na dodanie danych do bazy danych się z aplikacji sieci Web. Możemy dodać sprawdzania poprawności, a następnie wprowadzone weryfikacji używany język JavaScript po stronie klienta. Na koniec możemy zmienić bazy danych w celu uwzględnienia nowej kolumny danych, a następnie zaktualizować naszych dwie strony, aby utworzyć i wyświetlić te nowe dane.
 
-Można teraz zachęca do przejść do poziomu pośredniego z naszym samouczkiem "[magazynu utworów muzycznych MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)" oraz wiele plików wideo i zasobów w [https://asp.net/mvc](https://asp.net/mvc) nawet więcej informacji o platformie ASP.NET MVC!
+Można teraz zachęca do przejść do poziomu pośredniego z naszym samouczkiem "[magazynu utworów muzycznych MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)" oraz wiele plików wideo i zasobów w [ https://asp.net/mvc ](https://asp.net/mvc) nawet więcej informacji o platformie ASP.NET MVC!
 
 Owocnej pracy.
 
-- Scott Hanselman - [http://hanselman.com](http://hanselman.com) i [ @shanselman ](http://twitter.com/shanselman) w serwisie Twitter.
+- Scott Hanselman - [ http://hanselman.com ](http://hanselman.com) i [ @shanselman ](http://twitter.com/shanselman) w serwisie Twitter.
 
->[!div class="step-by-step"]
-[Poprzednie](getting-started-with-mvc-part7.md)
+> [!div class="step-by-step"]
+> [Poprzednie](getting-started-with-mvc-part7.md)

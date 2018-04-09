@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
-title: "Tworzenie wykluczają się wzajemnie pola wyboru (VB) | Dokumentacja firmy Microsoft"
+title: Tworzenie wykluczają się wzajemnie pola wyboru (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Jeżeli można wybrać tylko jeden zestaw opcji, przycisków radiowych zwykle są używane. Brak zwrotnych, choć: po wybraniu jednego przycisku radiowego w grupie..."
+description: 'Jeżeli można wybrać tylko jeden zestaw opcji, przycisków radiowych zwykle są używane. Brak zwrotnych, choć: po wybraniu jednego przycisku radiowego w grupie...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 023ca0b145de8147a98e78f4dba20846dc344f06
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cdb93a080fb62cfdc7e3ff0604a1447e2bb99071
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-mutually-exclusive-checkboxes-vb"></a>Tworzenie wykluczają się wzajemnie pola wyboru (VB)
 ====================
@@ -54,5 +54,5 @@ Zapisz i uruchom strony: można sprawdzić i usuń zaznaczenie pola wyboru, ale 
 
 Jednocześnie można sprawdzić tylko jedno pole wyboru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-mutually-exclusive-checkboxes-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](creating-mutually-exclusive-checkboxes-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-mutually-exclusive-checkboxes-cs.md)

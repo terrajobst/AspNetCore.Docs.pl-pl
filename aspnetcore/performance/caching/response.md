@@ -1,18 +1,18 @@
 ---
 title: Buforowanie odpowiedzi w ASP.NET Core
 author: rick-anderson
-description: "Dowiedz się, jak używać odpowiedzi buforowanie, aby niższe wymagania dotyczące przepustowości i zwiększyć wydajność aplikacji platformy ASP.NET Core."
+description: Dowiedz się, jak używać odpowiedzi buforowanie, aby niższe wymagania dotyczące przepustowości i zwiększyć wydajność aplikacji platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: c654cfd7c2d291849067bfd3297f940018ccb3d8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cc1ec50155398ba4143a2bf697ca26435c228c49
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w ASP.NET Core
 
@@ -64,13 +64,13 @@ Istnieje nie bieżącego deweloperowi kontroli nad to zachowanie buforowania, gd
 
 Buforowanie w pamięci używa pamięci serwera do przechowywania danych z pamięci podręcznej. Tego rodzaju buforowanie jest odpowiedni dla pojedynczy serwer lub wiele serwerów przy użyciu *trwałe sesje*. Trwałe sesje oznacza, że żądania od klienta zawsze są kierowane do tego samego serwera przetwarzania.
 
-Aby uzyskać więcej informacji, zobacz [wprowadzenie do buforowania w pamięci w ASP.NET Core](xref:performance/caching/memory).
+Aby uzyskać więcej informacji, zobacz [pamięci podręcznej w pamięci](xref:performance/caching/memory).
 
 ### <a name="distributed-cache"></a>Rozproszonej pamięci podręcznej
 
 Rozproszonej pamięci podręcznej umożliwia przechowywanie danych w pamięci, gdy aplikacja jest hostowana na farmie sieci chmury lub serwera. Pamięć podręczna jest współużytkowana przez serwery, które przetwarzają żądania. Klienci mogą przesyłać żądania, który jest obsługiwany przez dowolnego serwera w grupie, jeśli są dostępne dane pamięci podręcznej klienta. Platformy ASP.NET Core oferuje programu SQL Server i pamięci podręczne Redis rozproszonych.
 
-Aby uzyskać więcej informacji, zobacz [Praca z rozproszonej pamięci podręcznej](xref:performance/caching/distributed).
+Aby uzyskać więcej informacji, zobacz [pracować z rozproszonej pamięci podręcznej](xref:performance/caching/distributed).
 
 ### <a name="cache-tag-helper"></a>Pamięć podręczna pomocnika tagów
 
@@ -180,10 +180,10 @@ Cache-Control: public,max-age=60
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Buforowanie w protokole HTTP z specyfikację](https://tools.ietf.org/html/rfc7234#section-3)
+* [Przechowywanie odpowiedzi w pamięci podręcznej](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Buforowanie w pamięci](xref:performance/caching/memory)
-* [Praca z rozproszonej pamięci podręcznej](xref:performance/caching/distributed)
+* [Pamięci podręcznej w pamięci](xref:performance/caching/memory)
+* [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)
 * [Wykrywanie zmian z tokenami zmiany](xref:fundamentals/primitives/change-tokens)
 * [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
 * [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

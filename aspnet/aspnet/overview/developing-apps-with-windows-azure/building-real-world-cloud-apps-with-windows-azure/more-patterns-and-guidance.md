@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
-title: "Więcej wzorców i wskazówki (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft"
+title: Więcej wzorców i wskazówki (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on..."
+description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: a388f2e0ca3e1f0ce24a6def2a2b91711a7bf5a7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5da5110afc50fa02fcfae551a18741821f18fcbb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>Więcej wzorców i wskazówki (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -45,7 +45,7 @@ Masz teraz widoczna 13 wzorców, które zawierają wskazówki dotyczące powodze
 Zobacz też dodatkowe chmury obliczeniowej wzorców i wskazówki na [Microsoft Patterns and Practices — wskazówki dotyczące usługi Azure](https://msdn.microsoft.com/library/dn568099.aspx).
 
 <a id="resources"></a>
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji na temat określonego tematu każdego rozdziały Książka elektroniczna zawiera linki do zasobów. Poniższa lista zawiera łącza do omówienia najlepsze rozwiązania i wzorce zalecane środowiska deweloperskiego pomyślne chmury przy użyciu usługi Azure.
 
@@ -132,6 +132,6 @@ O innych elementach członkowskich DGAC sprawdzone i na konspektu wstępnego:
 - Roger Whitehead
 - Pawel Wilkosz
 
->[!div class="step-by-step"]
-[Poprzednie](queue-centric-work-pattern.md)
-[dalej](the-fix-it-sample-application.md)
+> [!div class="step-by-step"]
+> [Poprzednie](queue-centric-work-pattern.md)
+> [dalej](the-fix-it-sample-application.md)

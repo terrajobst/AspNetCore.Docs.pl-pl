@@ -2,21 +2,21 @@
 uid: aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 title: Serwera autoryzacji OAuth 2.0 OWIN | Dokumentacja firmy Microsoft
 author: hongyes
-description: "Ten samouczek przeprowadzi Cię implementowania serwera autoryzacji OAuth 2.0 za pomocą oprogramowania pośredniczącego OWIN OAuth. To jest zaawansowane samouczek tego tylko outlin..."
+description: Ten samouczek przeprowadzi Cię implementowania serwera autoryzacji OAuth 2.0 za pomocą oprogramowania pośredniczącego OWIN OAuth. To jest zaawansowane samouczek tego tylko outlin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/20/2014
 ms.topic: article
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
 ms.openlocfilehash: e5968f8d19191c3f44e9bd58f8e22a39d8d8faff
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-oauth-20-authorization-server"></a>Serwera autoryzacji OAuth 2.0 OWIN
 ====================
@@ -104,7 +104,7 @@ OAuth nowe zależy, gdzie i jak zarządzać informacje o koncie użytkownika. Ma
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample4.cs?highlight=1)]
 
-`ValidateClientRedirectUri`Służy do sprawdzania klienta z jego adres URL przekierowania zarejestrowany. `ValidateClientAuthentication`sprawdza podstawowy schemat nagłówek i treść formularza, aby uzyskać poświadczenia klienta.
+`ValidateClientRedirectUri` Służy do sprawdzania klienta z jego adres URL przekierowania zarejestrowany. `ValidateClientAuthentication` sprawdza podstawowy schemat nagłówek i treść formularza, aby uzyskać poświadczenia klienta.
 
 Poniżej przedstawiono strony logowania:
 
@@ -241,10 +241,10 @@ Zobacz *AuthorizationServer\ResourceServer\App\_Start\Startup.WebApi.cs* w pobie
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample13.cs)]
 
-- `UseCors`Metoda pozwala CORS dla wszystkich domen.
-- `UseOAuthBearerAuthentication`Metoda umożliwia OAuth elementu nośnego tokenu pośredniczącego, które będą odbierać i sprawdzanie poprawności tokenu elementu nośnego z nagłówek autoryzacji w żądaniu.
-- `Config.SuppressDefaultHostAuthenticaiton`Pomija domyślne hosta uwierzytelniony podmiot zabezpieczeń za pomocą aplikacji, w związku z tym wszystkie żądania będą anonimowy po tym wywołaniu.
-- `HostAuthenticationFilter`Włącza uwierzytelnianie tylko dla określonego typu uwierzytelniania. W takim przypadku jest typ uwierzytelniania elementu nośnego.
+- `UseCors` Metoda pozwala CORS dla wszystkich domen.
+- `UseOAuthBearerAuthentication` Metoda umożliwia OAuth elementu nośnego tokenu pośredniczącego, które będą odbierać i sprawdzanie poprawności tokenu elementu nośnego z nagłówek autoryzacji w żądaniu.
+- `Config.SuppressDefaultHostAuthenticaiton` Pomija domyślne hosta uwierzytelniony podmiot zabezpieczeń za pomocą aplikacji, w związku z tym wszystkie żądania będą anonimowy po tym wywołaniu.
+- `HostAuthenticationFilter` Włącza uwierzytelnianie tylko dla określonego typu uwierzytelniania. W takim przypadku jest typ uwierzytelniania elementu nośnego.
 
 W celu zaprezentowania uwierzytelniona tożsamość, utworzymy klasy ApiController do wyjściowego oświadczeń bieżącego użytkownika.
 
@@ -272,7 +272,7 @@ Oto przykładowy kod z `HomeController` klienta.
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample16.cs)]
 
-`DotNetOpenAuth`wymaga protokołu SSL domyślnie. Ponieważ naszych pokaz jest przy użyciu protokołu HTTP, należy dodać następujące ustawienia w pliku konfiguracji:
+`DotNetOpenAuth` wymaga protokołu SSL domyślnie. Ponieważ naszych pokaz jest przy użyciu protokołu HTTP, należy dodać następujące ustawienia w pliku konfiguracji:
 
 [!code-xml[Main](owin-oauth-20-authorization-server/samples/sample17.xml?highlight=4-6)]
 

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
-title: "Tworzenie punktu końcowego OData v3 z składnika Web API 2 | Dokumentacja firmy Microsoft"
+title: Tworzenie punktu końcowego OData v3 z składnika Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Open Data Protocol (OData) to protokół dostępu do danych w sieci Web. OData zapewnia jednolity sposób struktury danych, wysyłać zapytania o dane i manipulowanie danymi..."
+description: Open Data Protocol (OData) to protokół dostępu do danych w sieci Web. OData zapewnia jednolity sposób struktury danych, wysyłać zapytania o dane i manipulowanie danymi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 33fe4d764bf9bf64c852f1269255925b5cc42536
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 227faacd3f42731e08a4cd2b71075776309961b6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Tworzenie punktu końcowego OData v3 z składnika Web API 2
 ====================
@@ -150,7 +150,7 @@ Ciąg "Produktów" Określa nazwę zestawu jednostek. Nazwa kontrolera musi odpo
 
 [!code-csharp[Main](creating-an-odata-endpoint/samples/sample4.cs)]
 
-Pierwszym parametrem jest przyjazną nazwę dla trasy. Klienci usługi nie ma tę nazwę. Drugi parametr jest prefiksem identyfikatora URI dla punktu końcowego. Biorąc pod uwagę ten kod, identyfikator URI dla zestawu jednostek produktów jest http://*hostname*  /odata/produktów. Aplikacja może mieć więcej niż jeden punkt końcowy OData. Dla każdego punktu końcowego, należy wywołać **MapODataRoute** i podaj nazwę unikatową trasę i unikatowy prefiks identyfikatora URI.
+Pierwszym parametrem jest przyjazną nazwę dla trasy. Klienci usługi nie ma tę nazwę. Drugi parametr jest prefiksem identyfikatora URI dla punktu końcowego. Biorąc pod uwagę ten kod, identyfikator URI dla zestawu jednostek produktów jest http://<em>hostname</em>  /odata/produktów. Aplikacja może mieć więcej niż jeden punkt końcowy OData. Dla każdego punktu końcowego, należy wywołać <strong>MapODataRoute</strong> i podaj nazwę unikatową trasę i unikatowy prefiks identyfikatora URI.
 
 <a id="seed-db"></a>
 ## <a name="seed-the-database-optional"></a>Inicjatora bazy danych (opcjonalnie)

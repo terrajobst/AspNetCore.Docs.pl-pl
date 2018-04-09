@@ -1,7 +1,7 @@
 ---
-title: "Tworzenie aplikacji sieci web z platformą ASP.NET MVC Core w systemie Windows"
+title: Tworzenie aplikacji sieci web z platformą ASP.NET MVC Core w systemie Windows z programem Visual Studio
 author: rick-anderson
-description: "Zobacz spisu treści, aby obejrzeć wprowadzenie do platformy ASP.NET Core MVC za pomocą programu Visual Studio w systemie Windows."
+description: Zobacz spisu treści, aby obejrzeć wprowadzenie do platformy ASP.NET Core MVC za pomocą programu Visual Studio w systemie Windows.
 manager: wpickett
 ms.author: riande
 ms.date: 10/26/2017
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/index
-ms.openlocfilehash: 4e7cf615746acf91ecc50ce3b0e7a5bb451dd65c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 46e98bc0de19ca09921c7505aa0a2f075887cd64
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio"></a>Tworzenie aplikacji sieci web z platformą ASP.NET MVC Core za pomocą programu Visual Studio
+# <a name="create-a-web-app-with-aspnet-core-mvc-on-windows-with-visual-studio"></a>Tworzenie aplikacji sieci web z platformą ASP.NET MVC Core w systemie Windows z programem Visual Studio
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 Istnieją 3 wersje tego samouczka:
 
@@ -32,6 +32,6 @@ Istnieją 3 wersje tego samouczka:
 1. [Praca z bazą danych LocalDB programu SQL Server](working-with-sql.md)
 1. [Metody kontrolera i widoki](controller-methods-views.md)
 1. [Dodawanie wyszukiwania](search.md)
-1. [Dodanie nowego pola](new-field.md)
-1. [Dodawanie weryfikacji](validation.md)
+1. [Dodawanie nowego pola](new-field.md)
+1. [Dodawanie walidacji](validation.md)
 1. [Badanie metod Details i Delete](details.md)

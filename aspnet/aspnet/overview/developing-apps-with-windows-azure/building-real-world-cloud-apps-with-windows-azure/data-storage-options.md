@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 title: Opcje magazynu danych (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on..."
+description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 88f57244bfbfdf33df3bb265d8aa2c93689b2f24
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d638dca331cb24c340a4471e5964a00b75bb608a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Opcje magazynu danych (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -250,7 +250,7 @@ Poniżej przedstawiono wskazówki dotyczące wyboru między dwa modele.
 | Baza danych Azure SQL (PaaS) | Program SQL Server w maszynie wirtualnej (IaaS) |
 | --- | --- |
 | **Specjaliści** — nie trzeba utworzyć zarządzenie maszynami wirtualnymi, aktualizacja lub poprawka systemu operacyjnego lub języka SQL; Azure nie. -Wbudowaną wysoką dostępność, z SLA poziom bazy danych. -Małe całkowity koszt posiadania (TCO), ponieważ płacisz tylko za służą (nie licencji). -Dobra do obsługi dużej liczby mniejszych baz danych (&lt;= 500 GB). -Łatwy do dynamicznego tworzenia nowych baz danych, aby włączyć skalowalnego w poziomie. | ***Specjaliści*** — funkcja zgodnego z lokalnym programem SQL Server. — Można wdrożyć program SQL Server [wysokiej dostępności za pośrednictwem funkcji AlwaysOn](https://www.microsoft.com/sqlserver/solutions-technologies/mission-critical-operations/high-availability.aspx) w 2 + maszyn wirtualnych z poziomu maszyny Wirtualnej SLA. -Masz pełną kontrolę nad sposób zarządzania SQL. — Można użyć ponownie licencji SQL już posiadanych, lub płacić za godzinę dla jednego. -Dobra do obsługi mniej, ale większych (1 TB +) bazy danych. |
-| **Cons** -niektórych funkcji luk w porównaniu do lokalnego programu SQL Server (braku [integrację środowiska CLR](https://technet.microsoft.com/library/ms131102.aspx), [funkcji TDE](https://technet.microsoft.com/library/bb934049.aspx), [obsługi kompresji](https://technet.microsoft.com/library/cc280449.aspx), [SQL Server Reporting Services](https://technet.microsoft.com/library/ms159106.aspx), itd.)-ograniczenie rozmiaru bazy danych do 500 GB. | ***Cons*** — aktualizacje/poprawki (systemu operacyjnego i SQL) jest odpowiedzialny za — tworzenie i zarządzanie bazami danych jest odpowiedzialny za — IOPS dysku (operacje wejścia/wyjścia na sekundę), maksymalnie 8000 (za pomocą dysków z danymi 16). |
+| **Cons** -niektórych funkcji luk w porównaniu do lokalnego programu SQL Server (braku [integrację środowiska CLR](https://technet.microsoft.com/library/ms131102.aspx), [funkcji TDE](https://technet.microsoft.com/library/bb934049.aspx), [obsługi kompresji](https://technet.microsoft.com/library/cc280449.aspx), [programu SQL Server Usługi Reporting Services](https://technet.microsoft.com/library/ms159106.aspx), itd.)-ograniczenie rozmiaru bazy danych do 500 GB. | ***Cons*** — aktualizacje/poprawki (systemu operacyjnego i SQL) jest odpowiedzialny za — tworzenie i zarządzanie bazami danych jest odpowiedzialny za — IOPS dysku (operacje wejścia/wyjścia na sekundę), maksymalnie 8000 (za pomocą dysków z danymi 16). |
 
 Jeśli chcesz użyć programu SQL Server na maszynie wirtualnej, można użyć własnej licencji programu SQL Server, lub możesz zapłacić za godzinę. Na przykład w portalu lub przy użyciu interfejsu API REST można utworzyć nowej maszyny Wirtualnej przy użyciu obrazu programu SQL Server.
 
@@ -264,7 +264,7 @@ Podczas tworzenia maszyny Wirtualnej z obrazu programu SQL Server, firma Microso
 
 Chmura obliczeniowa stwarza praktyczne mieszać i dopasowania danych magazynu podejścia, aby jak najlepiej do potrzeb aplikacji. Jeśli tworzysz nową aplikację, zastanów się uważnie pytania wymienione w tym miejscu w celu pobrania metod, które będą nadal działać w przypadku rozwoju aplikacji. [Następnego rozdziału](data-partitioning-strategies.md) objaśnia kilka strategii partycjonowania, które umożliwiają łączenie wielu metod magazynu danych.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji zobacz następujące zasoby.
 
@@ -301,6 +301,6 @@ HDInsight (Hadoop na platformie Azure):
 - [Hadoop oraz usługi HDInsight: danych Big Data na platformie Azure](https://msdn.microsoft.com/magazine/dn385705.aspx). Artykuł MSDN Magazine Bruno Terkaly i Villalobos Ricardo, wprowadzenie do platformy Hadoop w systemie Azure.
 - [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz MapReduce wzorca.
 
->[!div class="step-by-step"]
-[Poprzednie](single-sign-on.md)
-[dalej](data-partitioning-strategies.md)
+> [!div class="step-by-step"]
+> [Poprzednie](single-sign-on.md)
+> [dalej](data-partitioning-strategies.md)

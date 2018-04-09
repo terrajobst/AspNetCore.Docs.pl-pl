@@ -1,7 +1,7 @@
 ---
-title: "Tworzenie pakietów i minimalizowanie w ASP.NET Core"
+title: Pakiet i minifiy zasoby statyczne platformy ASP.NET Core
 author: scottaddie
-description: "Dowiedz się, jak zoptymalizować zasoby statyczne w aplikacji sieci web platformy ASP.NET Core za pomocą techniki tworzenie pakietów i minimalizowanie."
+description: Dowiedz się, jak zoptymalizować zasoby statyczne w aplikacji sieci web platformy ASP.NET Core za pomocą techniki tworzenie pakietów i minimalizowanie.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 6c233d0957ce9974adbc6112e6194c072aab0b41
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="bundling-and-minification"></a>Tworzenie pakietów i minimalizowanie
+# <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Pakiet i minifiy zasoby statyczne platformy ASP.NET Core
 
 Przez [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -79,7 +79,7 @@ Opcje konfiguracji obejmują:
 
 * `outputFileName`: Nazwa pliku pakietu do danych wyjściowych. Może zawierać ścieżki względnej z *bundleconfig.json* pliku. **Wymagane**
 * `inputFiles`: Tablica plików do łączenia się ze sobą. Są to względne ścieżki do pliku konfiguracji. **opcjonalne**, * pustą wartość wyniki w pliku wyjściowym puste. [Globbing](http://www.tldp.org/LDP/abs/html/globbingref.html) wzorce są obsługiwane.
-* `minify`: Minimalizację opcje dla typu danych wyjściowych. **opcjonalne**, *domyślnie —`minify: { enabled: true }`*
+* `minify`: Minimalizację opcje dla typu danych wyjściowych. **opcjonalne**, *domyślnie — `minify: { enabled: true }`*
   * Opcje konfiguracji są dostępne na typ pliku wyjściowego.
     * [Element minimalizujący CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [Element minimalizujący JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
@@ -220,28 +220,22 @@ Określ pliki, których ma obejmować na swoich stronach za pomocą [pomocnika T
 
 Następujące `environment` tag renderuje nieprzetworzone pliki CSS w `Development` środowiska:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
----
-
+* * *
 Następujące `environment` tag renderuje pliki CSS powiązane i zminimalizowany podczas uruchamiania w środowisku innym niż `Development`. Na przykład uruchomiona `Production` lub `Staging` wyzwala renderowania tych arkuszy stylów:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
----
-
+* * *
 ## <a name="consume-bundleconfigjson-from-gulp"></a>Korzystanie z bundleconfig.json z Gulp
 
 Istnieją przypadki, w których aplikacja tworzenie pakietów i minimalizowanie przepływ pracy wymaga dodatkowego przetwarzania. Przykładami Optymalizacja obrazu, rozrywające pamięci podręcznej i przetwarzania zasobów w sieci CDN. Aby spełnić te wymagania, można przekonwertować tworzenie pakietów i minimalizowanie przepływu pracy Użyj Gulp.

@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 title: Wzorzec skoncentrowane kolejki pracy (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on..."
+description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: cc1ad51b-40c3-4c68-8620-9aaa0fd1f6cf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: ccfbaa26cbf610f847811e6f3c612458277046ed
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 124e673206ecea2eac5efb8c2802a32a690fa104
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Wzorzec skoncentrowane kolejki pracy (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
 ====================
@@ -177,7 +177,7 @@ W tym rozdziale przedstawiono sposób poprawiania czas odpowiedzi aplikacji, nie
 Jest to ostatni 13 wzorce omówione w tym Książka elektroniczna, ale oczywiście istnieje wiele innych wzorcach i rozwiązania, które mogą pomóc Ci tworzenie aplikacji w chmurze powiodło się. [Końcowego rozdział](more-patterns-and-guidance.md) zawiera linki do zasobów tematy, które nie zostały omówione w tych wzorców 13.
 
 <a id="resources"></a>
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Aby uzyskać więcej informacji na temat kolejek zobacz następujące zasoby.
 
@@ -194,6 +194,6 @@ Wideo:
 
 - [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalności, odporności](https://channel9.msdn.com/Series/FailSafe). Seria filmów dziewięć części Ulrich Homann, Mercuri wytłoków i moduły SIMM znaku. Przedstawia informacje o szczegółowo pojęcia i architektury zasad w sposób bardzo dostępny i interesujące z wątków z doświadczenia zespół Advisory klienta firmy Microsoft (CAT) z konkretnymi klientami. Aby obejrzeć wprowadzenie do usługi Azure Storage i kolejek Zobacz epizodu 5, zaczynając od 35:13.
 
->[!div class="step-by-step"]
-[Poprzednie](distributed-caching.md)
-[dalej](more-patterns-and-guidance.md)
+> [!div class="step-by-step"]
+> [Poprzednie](distributed-caching.md)
+> [dalej](more-patterns-and-guidance.md)

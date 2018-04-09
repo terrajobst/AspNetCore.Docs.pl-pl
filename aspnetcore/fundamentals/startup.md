@@ -1,7 +1,7 @@
 ---
 title: Uruchamianie aplikacji w ASP.NET Core
 author: ardalis
-description: "Odkryj, jak klasa początkowa w ASP.NET Core umożliwia skonfigurowanie usług i aplikacji żądania potoku."
+description: Odkryj, jak klasa początkowa w ASP.NET Core umożliwia skonfigurowanie usług i aplikacji żądania potoku.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: 6526fe8d00aace19d1225e5dcb1ed1dc3b73b0eb
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: bad1bc986be3e8681dacdf48fe7d20ab660ebcb0
+ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
 
@@ -44,7 +44,7 @@ Określ `Startup` klasy z [WebHostBuilderExtensions](/dotnet/api/Microsoft.AspNe
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
-Zamiast wstrzyknięcie `IHostingEnvironment` jest użycie podejście oparte na Konwencji. Aplikacji można zdefiniować oddzielne `Startup` klasy dla różnych środowisk (na przykład `StartupDevelopment`), a klasa początkowa odpowiednie jest wybierana w czasie wykonywania. Priorytety jest klasa, którego sufiks nazwy zgodny z bieżącym środowisku. Jeśli aplikacja jest uruchamiana w środowisku programistycznym i zawiera zarówno `Startup` klasy i `StartupDevelopment` klasy `StartupDevelopment` klasa jest używana. Aby uzyskać więcej informacji, zobacz [Praca w środowiskach wielu](xref:fundamentals/environments#startup-conventions).
+Zamiast wstrzyknięcie `IHostingEnvironment` jest użycie podejście oparte na Konwencji. Aplikacji można zdefiniować oddzielne `Startup` klasy dla różnych środowisk (na przykład `StartupDevelopment`), a klasa początkowa odpowiednie jest wybierana w czasie wykonywania. Priorytety jest klasa, którego sufiks nazwy zgodny z bieżącym środowisku. Jeśli aplikacja jest uruchamiana w środowisku programistycznym i zawiera zarówno `Startup` klasy i `StartupDevelopment` klasy `StartupDevelopment` klasa jest używana. Aby uzyskać więcej informacji, zobacz [pracy w środowiskach wielu](xref:fundamentals/environments#startup-conventions).
 
 Aby dowiedzieć się więcej o `WebHostBuilder`, zobacz [hostingu](xref:fundamentals/hosting) tematu. Aby informacji na temat obsługi błędów podczas uruchamiania, zobacz [obsługi wyjątków uruchamiania](xref:fundamentals/error-handling#startup-exception-handling).
 
@@ -76,11 +76,13 @@ Host sieci web zawiera niektóre usługi, które są dostępne dla `Startup` kon
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Startup.cs?range=28-48&highlight=5,6,10,13,15)]
 
-Każdy `Use` — metoda rozszerzenia dodaje składnik oprogramowania pośredniczącego do potoku żądania. Na przykład `UseMvc` — metoda rozszerzenia dodaje [routingu oprogramowanie pośredniczące](xref:fundamentals/routing) do potoku żądania i konfiguruje [MVC](xref:mvc/overview) jako domyślny program obsługi.
+Każdy `Use` — metoda rozszerzenia dodaje składnik oprogramowania pośredniczącego do potoku żądania. Na przykład `UseMvc` — metoda rozszerzenia dodaje [routingu oprogramowanie pośredniczące](xref:fundamentals/routing) do potoku żądania i konfiguruje [MVC](xref:mvc/overview) jako domyślny program obsługi. 
+
+Każdy składnik oprogramowania pośredniczącego w potoku żądania jest odpowiedzialny za wywoływanie następny składnik w potoku lub zwarcie łańcucha, w razie potrzeby. Jeśli zwarcie nie występuje prowadzącą do pominięcia oprogramowanie pośredniczące, każdy oprogramowanie pośredniczące ma drugiej szansy przetwarzania żądania, przed ich wysłaniem do klienta.
 
 Dodatkowe usługi, takie jak `IHostingEnvironment` i `ILoggerFactory`, można także określić w podpisie metody. W przypadku wstrzykuje się dodatkowe usługi, jeśli są one dostępne.
 
-Aby uzyskać więcej informacji na temat sposobu użycia `IApplicationBuilder`, zobacz [oprogramowanie pośredniczące](xref:fundamentals/middleware/index).
+Aby uzyskać więcej informacji na temat sposobu użycia `IApplicationBuilder` i kolejność przetwarzania oprogramowanie pośredniczące, zobacz [oprogramowanie pośredniczące](xref:fundamentals/middleware/index).
 
 ## <a name="convenience-methods"></a>Podręczne metody
 
@@ -120,7 +122,7 @@ Kolejność wykonywania oprogramowanie pośredniczące zestaw jest w celu `IStar
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Hosting](xref:fundamentals/hosting)
-* [Praca w środowiskach wielu](xref:fundamentals/environments)
+* [Praca z wieloma środowiskami](xref:fundamentals/environments)
 * [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
 * [Rejestrowanie](xref:fundamentals/logging/index)
 * [Konfiguracja](xref:fundamentals/configuration/index)

@@ -1,7 +1,7 @@
 ---
 title: Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
 author: rick-anderson
-description: "Dowiedz się, jak rozpocząć pracę z platformy ASP.NET Core MVC i Visual Studio."
+description: Dowiedz się, jak rozpocząć pracę z platformy ASP.NET Core MVC i Visual Studio.
 manager: wpickett
 ms.author: riande
 ms.date: 10/07/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 609cd25a3e249bb6e2498325ef286c937c64a206
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 5302cd5e8eebb3601aa64ac946c356b54521b198
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 Istnieją 3 wersje tego samouczka:
 
@@ -29,12 +29,10 @@ Istnieją 3 wersje tego samouczka:
 
 ## <a name="install-visual-studio-and-net-core"></a>Zainstaluj oprogramowanie .NET Core i Visual Studio
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
-[!INCLUDE[install 2.0](../../includes/install2.0.md)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Install Visual Studio Community 2017. Wybierz pobieranie społeczności. Jeśli masz program Visual Studio 2017 r zainstalowany, Pomiń ten krok.
 
 * [Visual Studio 2017 głównej strony Instalatora](https://www.visualstudio.com/)
@@ -48,8 +46,7 @@ Uruchom Instalatora, a następnie wybierz następujące obciążenia:
 
 ![* *.NET core cross-cross-platfrom Programowanie ** (w obszarze ** inne procesami **)](start-mvc/_static/x_plat_wl.png)
 
----
-
+* * *
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci web
 
 W programie Visual Studio, wybierz **Plik > Nowy > Projekt**.
@@ -113,5 +110,5 @@ Podczas uruchamiania w trybie debugowania, naciśnij przycisk **Shift-F5** możn
 
 W następnej części tego samouczka możemy Dowiedz się więcej o MVC i rozpocząć pisanie kodu.
 
->[!div class="step-by-step"]
-[Next](adding-controller.md)  
+> [!div class="step-by-step"]
+> [Next](adding-controller.md)  

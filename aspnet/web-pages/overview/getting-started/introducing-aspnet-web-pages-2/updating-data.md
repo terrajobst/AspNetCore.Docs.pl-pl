@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
-title: "Wprowadzenie do składnika ASP.NET Web Pages — aktualizowanie bazy danych | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do składnika ASP.NET Web Pages — aktualizowanie bazy danych | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Ten samouczek pokazuje, jak zaktualizować wpis (Zmień) istniejącej bazy danych, korzystając z stron sieci Web platformy ASP.NET (Razor). Przyjęto założenie, że zostały wykonane serii th..."
+description: Ten samouczek pokazuje, jak zaktualizować wpis (Zmień) istniejącej bazy danych, korzystając z stron sieci Web platformy ASP.NET (Razor). Przyjęto założenie, że zostały wykonane serii th...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/02/2018
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: b016231975bf8d359f4c390b0b478edc383117d4
-ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
+ms.openlocfilehash: e889cd27e2267a08f7b6ea708c92e35edbdd7a1a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Wprowadzenie do strony sieci Web ASP.NET — aktualizowanie bazy danych
 ====================
@@ -108,7 +108,7 @@ Po wiedzieć o `format` właściwości, łatwiej zrozumieć, jak nowy **Edytuj**
 
 Kolumna zawiera *tylko* znaczników, który renderuje łącze, oraz niektóre informacje (ID) który został wyodrębniony rekordu bazy danych dla wiersza.
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Parametrów nazwanych i pozycyjnych parametrów metody**
 > 
@@ -173,7 +173,7 @@ W kodzie użyto `Request.QueryString["id"]` można uzyskać Identyfikatora, któ
 
 Ten kod zawiera inną metodę weryfikacji informacji. W samouczku poprzednie doświadczenie z `Validation` pomocnika. Rejestrowane pola do sprawdzania poprawności i ASP.NET została sprawdzania poprawności i automatycznie wyświetlone błędy przy użyciu `Html.ValidationMessage` i `Html.ValidationSummary`. W takim przypadku jednak możesz jest nie naprawdę sprawdzanie poprawności danych wejściowych użytkownika. Zamiast tego jest sprawdzanie poprawności wartość, która została przekazana do strony z innej lokalizacji. `Validation` Pomocnika nie pracę za użytkownika.
 
-Należy więc wybrać wartość samodzielnie, testując go przy użyciu `if(!Request.QueryString["ID"].IsEmpty()`). Jeśli występuje problem, można wyświetlić błąd, za pomocą `Html.ValidationSummary`, jak w przypadku `Validation` pomocnika. Aby to zrobić, należy wywołać `Validation.AddFormError` i przekaż go komunikat do wyświetlenia. `Validation.AddFormError`to wbudowana metoda, która pozwala zdefiniować niestandardowe wiadomości, które wiąże się przy użyciu systemu sprawdzania poprawności, które znasz już. (W dalszej części tego samouczka będziesz omawianiu jak ten proces sprawdzania poprawności nieco bardziej niezawodne.)
+Należy więc wybrać wartość samodzielnie, testując go przy użyciu `if(!Request.QueryString["ID"].IsEmpty()`). Jeśli występuje problem, można wyświetlić błąd, za pomocą `Html.ValidationSummary`, jak w przypadku `Validation` pomocnika. Aby to zrobić, należy wywołać `Validation.AddFormError` i przekaż go komunikat do wyświetlenia. `Validation.AddFormError` to wbudowana metoda, która pozwala zdefiniować niestandardowe wiadomości, które wiąże się przy użyciu systemu sprawdzania poprawności, które znasz już. (W dalszej części tego samouczka będziesz omawianiu jak ten proces sprawdzania poprawności nieco bardziej niezawodne.)
 
 Po upewnieniu się, że jest Identyfikatorem filmu, kod odczytuje bazę danych, Wyszukiwanie elementu pojedynczej bazy danych. (Prawdopodobnie zauważenia ogólne wzorca operacji bazy danych: otworzyć bazy danych, Zdefiniuj instrukcję SQL i uruchom instrukcję.) Teraz, SQL `Select` instrukcja zawiera `WHERE ID = @0`. Identyfikator jest unikatowy, mogą być zwracane tylko jeden rekord.
 
@@ -311,6 +311,6 @@ W następnym samouczku pojawi się, jak usunąć rekord filmu.
 - [Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor](../../getting-started/introducing-razor-syntax-c.md)
 - [Instrukcji SQL UPDATE](http://www.w3schools.com/sql/sql_update.asp) w witrynie W3Schools
 
->[!div class="step-by-step"]
-[Poprzednie](entering-data.md)
-[dalej](deleting-data.md)
+> [!div class="step-by-step"]
+> [Poprzednie](entering-data.md)
+> [dalej](deleting-data.md)

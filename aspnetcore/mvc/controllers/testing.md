@@ -1,7 +1,7 @@
 ---
-title: "Testowanie logiką kontrolera w ASP.NET Core"
+title: Logikę kontrolera testu w ASP.NET Core
 author: ardalis
-description: "Dowiedz się, jak logikę kontrolera testu w ASP.NET Core z Moq i xUnit."
+description: Dowiedz się, jak logikę kontrolera testu w ASP.NET Core z Moq i xUnit.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: c72a5adc848cad62c7c20ff7e17469476aefaf53
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: b80f92b815439796693528b314b521c1484ba661
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="testing-controller-logic-in-aspnet-core"></a>Testowanie logiką kontrolera w ASP.NET Core
+# <a name="test-controller-logic-in-aspnet-core"></a>Logikę kontrolera testu w ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/)
 
@@ -38,9 +38,9 @@ Typowy kontroler obowiązki:
 * Zapisz jednostki biznesowe trwałości.
 * Zwraca preferowany `IActionResult`.
 
-## <a name="unit-testing"></a>Testy jednostkowe
+## <a name="unit-testing"></a>Testowanie jednostek
 
-[Testy jednostkowe](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) obejmuje testowania części aplikacji w izolacji od jego infrastruktury i zależności. Podczas testowania logiką kontrolera, zawartości jednej akcji jednostek jest testowany, nie zachowanie z jego zależności lub struktury sam. Jako jednostki można przetestować akcji kontrolera, upewnij się, że można skupić się tylko na jego zachowania. Kontroler testu jednostkowego pozwala uniknąć elementów, jak [filtry](filters.md), [routingu](../../fundamentals/routing.md), lub [modelu powiązania](../models/model-binding.md). Istotą testowania tylko jeden element, testy jednostkowe są zwykle proste do zapisu i szybkie uruchamianie. Dobrze napisane zbiór testy jednostkowe mogą być uruchamiane często bez znacznie obciążenie. Jednak testów jednostkowych nie wykrywaj problemy w interakcji między składnikami, który jest celem [testów integracji](xref:mvc/controllers/testing#integration-testing).
+[Testy jednostkowe](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) obejmuje testowania części aplikacji w izolacji od jego infrastruktury i zależności. Podczas testowania logiką kontrolera, zawartości jednej akcji jednostek jest testowany, nie zachowanie z jego zależności lub struktury sam. Jako jednostki można przetestować akcji kontrolera, upewnij się, że można skupić się tylko na jego zachowania. Kontroler testu jednostkowego pozwala uniknąć elementów, jak [filtry](filters.md), [routingu](../../fundamentals/routing.md), lub [modelu powiązania](../models/model-binding.md). Istotą testowania tylko jeden element, testy jednostkowe są zwykle proste do zapisu i szybkie uruchamianie. Dobrze napisane zbiór testy jednostkowe mogą być uruchamiane często bez znacznie obciążenie. Jednak testów jednostkowych nie wykrywaj problemy w interakcji między składnikami, który jest celem [testy integracji](xref:mvc/controllers/testing#integration-testing).
 
 Jeśli piszesz filtry niestandardowe, tras, itp., należy testu jednostkowego ich, ale nie jako część testy na akcję określony kontroler. Powinny one być testowane w izolacji.
 
@@ -100,7 +100,7 @@ Ostatni test sprawdza, czy z repozytorium `Update` metoda jest wywoływana. Jak 
 
 ## <a name="integration-testing"></a>Testowanie integracji
 
-[Testowanie integracji](../../testing/integration-testing.md) poprawnie ze sobą zapewnia oddzielnych modułów w pracy aplikacji. Ogólnie rzecz biorąc coś, co można przetestować z testu jednostkowego, można również sprawdzić z testem integracji, ale odwrotnej nie jest spełniony. Jednak testy integracji zazwyczaj można znacznie mniejsza niż testy jednostkowe. W związku z tym najlepiej do testowania, niezależnie od można przy użyciu testów jednostkowych i użyć testów integracji dla scenariuszy obejmujących wiele współpracowników.
+[Testy integracji](../../testing/integration-testing.md) poprawnie ze sobą zapewnia oddzielnych modułów w pracy aplikacji. Ogólnie rzecz biorąc coś, co można przetestować z testu jednostkowego, można również sprawdzić z testem integracji, ale odwrotnej nie jest spełniony. Jednak testy integracji zazwyczaj można znacznie mniejsza niż testy jednostkowe. W związku z tym najlepiej do testowania, niezależnie od można przy użyciu testów jednostkowych i użyć testów integracji dla scenariuszy obejmujących wiele współpracowników.
 
 Mimo że nadal mogą być użyteczne, zasymulować obiekty są rzadko używane w testach integracji. W przypadku przeprowadzania testów jednostkowych zasymulować obiekty są efektywny sposób kontrolować sposób zachowania przypadku współpracownicy poza jednostki testowane na potrzeby testu. W teście integracji rzeczywistych współpracownicy są używane do upewnij się, że podsystem całego razem działa prawidłowo.
 

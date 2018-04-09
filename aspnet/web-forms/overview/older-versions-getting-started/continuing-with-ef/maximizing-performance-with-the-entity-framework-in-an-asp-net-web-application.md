@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
-title: "Maksymalizacja wydajności przy użyciu programu Entity Framework 4.0 w aplikacji ASP.NET 4 Web | Dokumentacja firmy Microsoft"
+title: Maksymalizacja wydajności przy użyciu programu Entity Framework 4.0 w aplikacji ASP.NET 4 Web | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Ten samouczek serii opiera się na aplikację sieci web Contoso University jest tworzony przez wprowadzenie do samouczka serii Entity Framework 4.0. I..."
+description: Ten samouczek serii opiera się na aplikację sieci web Contoso University jest tworzony przez wprowadzenie do samouczka serii Entity Framework 4.0. I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 40a53a110115e5f6342d2a97d21b64470450fd3c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b85645eebf2822b33df944692736ea9d9b69b9aa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Maksymalizacja wydajności przy użyciu programu Entity Framework 4.0 w aplikacji ASP.NET 4 sieci Web
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 > Ten samouczek serii opiera się na aplikację sieci web Contoso University jest tworzony przez [wprowadzenie do korzystania z programu Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) samouczka serii. Jeśli nie została ukończona wcześniejszych samouczki, jako punkt początkowy dla tego samouczka możesz [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) będzie utworzony. Możesz również [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tworzone przez zakończenie samouczka serii. Jeśli masz pytania dotyczące samouczków, możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
 
@@ -76,7 +76,7 @@ Ogólnie rzecz biorąc Jeśli znasz potrzebne dane dotyczące dla każdy obiekt,
 
 W aplikacji sieci web opóźnionego ładowania może być stosunkowo mały wartości mimo wszystko, ponieważ akcje użytkownika, które mają wpływ na potrzeby powiązanych danych została wykonana w przeglądarce, która nie jest połączona w kontekście obiektu, który renderowania strony. Z drugiej strony, gdy użytkownik databind formantu, zwykle wiesz, jakie dane należy i dlatego jest zazwyczaj najlepiej wybrać opcję ładowania wczesny czy ładowanie odłożone na podstawie co to jest właściwy dla każdego scenariusza.
 
-Ponadto formantu z danymi może używać do obiektu jednostki, po usunięciu kontekstu obiektów. W takim przypadku próba opóźnionego ładowania właściwości nawigacji nie powiedzie się. Zostanie wyświetlony komunikat o błędzie jest wyczyszczone:&quot;`The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.`&quot;
+Ponadto formantu z danymi może używać do obiektu jednostki, po usunięciu kontekstu obiektów. W takim przypadku próba opóźnionego ładowania właściwości nawigacji nie powiedzie się. Zostanie wyświetlony komunikat o błędzie jest wyczyszczone: &quot;`The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.`&quot;
 
 `EntityDataSource` Opóźnionego ładowania domyślnie wyłącza formant. Dla `ObjectDataSource` kontroli używasz bieżący samouczek (lub jeśli kontekst możesz uzyskać dostęp z kodu strony), istnieje kilka sposobów, możesz wprowadzić opóźnionego ładowania domyślnie wyłączone. Można ją wyłączyć, gdy wystąpienia kontekstu obiektów. Na przykład, Dodaj następujący wiersz do metody konstruktora `SchoolRepository` klasy:
 
@@ -266,6 +266,6 @@ Na tym kończy się wprowadzenie do poprawy wydajności w aplikacji sieci web AS
 
 Następny samouczek przegląda niektóre istotne ulepszenia do narzędzia Entity Framework, które stanowią nowość w wersji 4.
 
->[!div class="step-by-step"]
-[Poprzednie](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
-[dalej](what-s-new-in-the-entity-framework-4.md)
+> [!div class="step-by-step"]
+> [Poprzednie](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [dalej](what-s-new-in-the-entity-framework-4.md)

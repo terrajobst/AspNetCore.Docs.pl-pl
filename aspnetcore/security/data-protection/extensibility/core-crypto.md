@@ -1,7 +1,7 @@
 ---
-title: "Rozszerzalność kryptografii Core"
+title: Rozszerzalność kryptografii Core na platformie ASP.NET Core
 author: rick-anderson
-description: "Wyjaśniono IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor IAuthenticatedEncryptorDescriptorDeserializer i fabryki najwyższego poziomu."
+description: Więcej informacji na temat IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor IAuthenticatedEncryptorDescriptorDeserializer i fabryki najwyższego poziomu.
 manager: wpickett
 ms.author: riande
 ms.date: 8/11/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: ead4012236244d88cff0b0520d000d89f93f3355
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b5a0dbc9120a8032dbb8d8eee74684495a982ac1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="core-cryptography-extensibility"></a>Rozszerzalność kryptografii Core
+# <a name="core-cryptography-extensibility-in-aspnet-core"></a>Rozszerzalność kryptografii Core na platformie ASP.NET Core
 
 <a name="data-protection-extensibility-core-crypto"></a>
 
@@ -123,7 +123,7 @@ Główną różnicą między IAuthenticatedEncryptor i IAuthenticatedEncryptorDe
 
 Deskryptor może być Zserializowany za pośrednictwem jego ExportToXml procedury. Ta procedura zwraca XmlSerializedDescriptorInfo, który zawiera dwie właściwości: reprezentacja klasy XElement deskryptor i typ, który reprezentuje [IAuthenticatedEncryptorDescriptorDeserializer](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer) może to używane do przywracania aktywności ten deskryptor podane odpowiedniej klasy XElement.
 
-Deskryptor serializacji mogą zawierać poufne informacje, takie jak materiał kluczy kryptograficznych. System ochrony danych ma wbudowaną obsługę szyfrowania informacji przed zostało utrwalone w magazynie. Aby móc korzystać z tego, deskryptora należy zaznaczyć element, który zawiera poufne informacje o nazwie atrybutu "requiresEncryption" (xmlns "http://schemas.asp.net/2015/03/dataProtection"), wartość "true".
+Deskryptor serializacji mogą zawierać poufne informacje, takie jak materiał kluczy kryptograficznych. System ochrony danych ma wbudowaną obsługę szyfrowania informacji przed zostało utrwalone w magazynie. Aby móc korzystać z tego, deskryptora należy zaznaczyć element, który zawiera poufne informacje o nazwie atrybutu "requiresEncryption" (xmlns "<http://schemas.asp.net/2015/03/dataProtection>"), wartość "true".
 
 >[!TIP]
 > Brak pomocnik interfejsu API dla ustawienie tego atrybutu. Wywołanie metody rozszerzenia, które XElement.MarkAsRequiresEncryption() znajduje się w przestrzeni nazw Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.
@@ -161,7 +161,7 @@ AlgorithmConfiguration można traktować jako fabryka najwyższego poziomu. Konf
 
 Gdy CreateNewDescriptor jest wywoływana, świeże materiału klucza jest przeznaczone wyłącznie dla tego wywołania i jest generowany nowy IAuthenticatedEncryptorDescriptor który koduje tego materiału klucza i algorytmicznego informacje wymagane użycie materiałów. Materiału klucza można utworzyć w oprogramowaniu (i przechowywane w pamięci), można utworzyć i przechowywane w module HSM i tak dalej. Kluczowe punkt znajduje się wszelkie dwóch wywołania CreateNewDescriptor powinien nigdy tworzyć wystąpienia IAuthenticatedEncryptorDescriptor równoważne.
 
-Typ AlgorithmConfiguration służy jako punkt wejścia dla procedury tworzenia klucza, takich jak [automatyczne klucza stopniowych](../implementation/key-management.md#key-expiration-and-rolling). Aby zmienić wdrożenia dla wszystkich przyszłych kluczy, należy ustawić właściwość AuthenticatedEncryptorConfiguration w KeyManagementOptions.
+Typ AlgorithmConfiguration służy jako punkt wejścia dla procedury tworzenia klucza, takich jak [automatyczne klucza stopniowych](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling). Aby zmienić wdrożenia dla wszystkich przyszłych kluczy, należy ustawić właściwość AuthenticatedEncryptorConfiguration w KeyManagementOptions.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -173,6 +173,6 @@ IAuthenticatedEncryptorConfiguration można traktować jako fabryka najwyższego
 
 Gdy CreateNewDescriptor jest wywoływana, świeże materiału klucza jest przeznaczone wyłącznie dla tego wywołania i jest generowany nowy IAuthenticatedEncryptorDescriptor który koduje tego materiału klucza i algorytmicznego informacje wymagane użycie materiałów. Materiału klucza można utworzyć w oprogramowaniu (i przechowywane w pamięci), można utworzyć i przechowywane w module HSM i tak dalej. Kluczowe punkt znajduje się wszelkie dwóch wywołania CreateNewDescriptor powinien nigdy tworzyć wystąpienia IAuthenticatedEncryptorDescriptor równoważne.
 
-Typ IAuthenticatedEncryptorConfiguration służy jako punkt wejścia dla procedury tworzenia klucza, takich jak [automatyczne klucza stopniowych](../implementation/key-management.md#key-expiration-and-rolling). Aby zmienić wdrożenia dla wszystkich przyszłych kluczy, należy zarejestrować pojedynczą IAuthenticatedEncryptorConfiguration w kontenerze usług.
+Typ IAuthenticatedEncryptorConfiguration służy jako punkt wejścia dla procedury tworzenia klucza, takich jak [automatyczne klucza stopniowych](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling). Aby zmienić wdrożenia dla wszystkich przyszłych kluczy, należy zarejestrować pojedynczą IAuthenticatedEncryptorConfiguration w kontenerze usług.
 
 ---

@@ -2,21 +2,21 @@
 uid: aspnet/overview/owin-and-katana/owin-startup-class-detection
 title: Wykrywanie klasy uruchamiania OWIN | Dokumentacja firmy Microsoft
 author: Praburaj
-description: "Ten samouczek pokazuje, jak skonfigurować klasy początkowej OWIN, który jest ładowany. Aby uzyskać więcej informacji o OWIN Zobacz Omówienie Katana projektu. W tym samouczku został..."
+description: Ten samouczek pokazuje, jak skonfigurować klasy początkowej OWIN, który jest ładowany. Aby uzyskać więcej informacji o OWIN Zobacz Omówienie Katana projektu. W tym samouczku został...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: 618f8fa23630dcf9821a54415766dc015694e535
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 33d2745b24387419e5614c62c2d46948427b242a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-startup-class-detection"></a>Wykrywanie klasy uruchamiania OWIN
 ====================
@@ -38,20 +38,20 @@ przez [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson](https
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample1.cs)]
 
- `OwinStartup` Atrybut zastępuje konwencji nazewnictwa. Można również określić przyjazną nazwę z tego atrybutu, jednak przy użyciu przyjaznej nazwy wymaga również użycia `appSetting` w pliku konfiguracji.
+   `OwinStartup` Atrybut zastępuje konwencji nazewnictwa. Można również określić przyjazną nazwę z tego atrybutu, jednak przy użyciu przyjaznej nazwy wymaga również użycia `appSetting` w pliku konfiguracji.
 3. **Element appSetting w pliku konfiguracyjnym**: `appSetting` zastępuje element `OwinStartup` atrybut i konwencji nazewnictwa. Może mieć wielu klas uruchamiania (każdego przy użyciu `OwinStartup` atrybut) i skonfigurować, która klasa uruchomienia zostanie załadowany w pliku konfiguracji przy użyciu znaczników podobny do następującego:  
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample2.xml)]
 
- Następujący klucz jawnie określa Klasa początkowa i zestaw można również: 
+   Następujący klucz jawnie określa Klasa początkowa i zestaw można również: 
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample3.xml)]
 
- Następujący kod XML w pliku konfiguracyjnym określa uruchamiania przyjazną nazwę klasy `ProductionConfiguration`.  
+   Następujący kod XML w pliku konfiguracyjnym określa uruchamiania przyjazną nazwę klasy `ProductionConfiguration`.  
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample4.xml)]
 
- Powyżej znacznika musi być używany z następujących `OwinStartup` atrybut, który określa przyjazną nazwę i powoduje, że `ProductionStartup2` klasy do uruchomienia.
+   Powyżej znacznika musi być używany z następujących `OwinStartup` atrybut, który określa przyjazną nazwę i powoduje, że `ProductionStartup2` klasy do uruchomienia.
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample5.cs?highlight=1,16)]
 4. Aby wyłączyć wykrywanie uruchamiania środowiska OWIN Dodaj `appSetting owin:AutomaticAppStartup` o wartości `"false"` w pliku web.config.
@@ -63,29 +63,29 @@ przez [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson](https
 1. Utwórz pustą aplikację sieci web Asp.Net i nadaj mu nazwę **StartupDemo**. -Zainstaluj `Microsoft.Owin.Host.SystemWeb` za pomocą Menedżera pakietów NuGet. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie **Konsola Menedżera pakietów**. Wprowadź następujące polecenie:  
 
     [!code-powershell[Main](owin-startup-class-detection/samples/sample7.ps1)]
-- Dodaj klasę początkową OWIN. W programie Visual Studio 2013 kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj klasę**. — w **Dodaj nowy element** okna dialogowego wprowadź *OWIN* w polu wyszukiwania i Zmień nazwę pliku Startup.cs, a następnie kliknij przycisk **Dodaj**.  
+2. Dodaj klasę początkową OWIN. W programie Visual Studio 2013 kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj klasę**. — w **Dodaj nowy element** okna dialogowego wprowadź *OWIN* w polu wyszukiwania i Zmień nazwę pliku Startup.cs, a następnie kliknij przycisk **Dodaj**.  
   
-    ![](owin-startup-class-detection/_static/image1.png)   
+     ![](owin-startup-class-detection/_static/image1.png)   
   
- Przy następnym, które chcesz dodać *klasy początkowej Owin*, będzie on w dostępnym **Dodaj** menu.  
+   Przy następnym, które chcesz dodać *klasy początkowej Owin*, będzie on w dostępnym **Dodaj** menu.  
    
-    ![](owin-startup-class-detection/_static/image2.png)  
+     ![](owin-startup-class-detection/_static/image2.png)  
   
- Alternatywnie kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj**, a następnie wybierz pozycję **nowy element**, a następnie wybierz **klasy początkowej Owin**.  
+   Alternatywnie kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj**, a następnie wybierz pozycję **nowy element**, a następnie wybierz **klasy początkowej Owin**.  
   
-    ![](owin-startup-class-detection/_static/image3.png)  
+     ![](owin-startup-class-detection/_static/image3.png)  
   
 - Zastąp wygenerowany kod w *Startup.cs* pliku następującym kodem:  
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample8.cs?highlight=5,7,15-28,31-34)]
   
- `app.Use` Wyrażenie lambda jest używane do rejestrowania składnika określonego oprogramowania pośredniczącego do potoku OWIN. W takim przypadku konfigurujemy ustawienia rejestrowania żądań przychodzących przed odpowiada na żądania przychodzącego. `next` Parametr jest delegat ( [Func](https://msdn.microsoft.com/library/bb534960(v=vs.100).aspx) &lt; [zadań](https://msdn.microsoft.com/library/dd321424(v=vs.100).aspx) &gt; ) do następnego składnika w potoku. `app.Run` Wyrażenie lambda przechwytuje się potoku na przychodzące żądania i zapewnia mechanizm odpowiedzi.
+  `app.Use` Wyrażenie lambda jest używane do rejestrowania składnika określonego oprogramowania pośredniczącego do potoku OWIN. W takim przypadku konfigurujemy ustawienia rejestrowania żądań przychodzących przed odpowiada na żądania przychodzącego. `next` Parametr jest delegat ( [Func](https://msdn.microsoft.com/library/bb534960(v=vs.100).aspx) &lt; [zadań](https://msdn.microsoft.com/library/dd321424(v=vs.100).aspx) &gt; ) do następnego składnika w potoku. `app.Run` Wyrażenie lambda przechwytuje się potoku na przychodzące żądania i zapewnia mechanizm odpowiedzi.
      > [!NOTE]
      > W powyższym kodzie możemy zostały oznaczone jako komentarz `OwinStartup` atrybut i firma Microsoft jest oparte na Konwencji uruchomionych klasa o nazwie `Startup` .-Naciśnij ***F5*** do uruchomienia aplikacji. Kliknij przycisk Odśwież kilka razy.  
   
     ![](owin-startup-class-detection/_static/image4.png)  
-Uwaga: Liczby wyświetlanej w obrazach w tym samouczku nie będzie odpowiadała wyświetlona liczba. Ciąg milisekund jest używany do wyświetlenia nową odpowiedź po odświeżeniu strony.  
- Można wyświetlić informacje o śledzeniu w **dane wyjściowe** okna.  
+  Uwaga: Liczby wyświetlanej w obrazach w tym samouczku nie będzie odpowiadała wyświetlona liczba. Ciąg milisekund jest używany do wyświetlenia nową odpowiedź po odświeżeniu strony.  
+  Można wyświetlić informacje o śledzeniu w **dane wyjściowe** okna.  
   
     ![](owin-startup-class-detection/_static/image5.png)
 
@@ -105,7 +105,7 @@ W tej sekcji dodamy innej klasy uruchamiania. Można dodać wiele klasy początk
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample10.cs?highlight=6,14-18)]
 
- `OwinStartup` Określa atrybut przeciążenia powyżej `TestingConfiguration` jako *przyjazną* Nazwa klasy uruchamiania.
+   `OwinStartup` Określa atrybut przeciążenia powyżej `TestingConfiguration` jako *przyjazną* Nazwa klasy uruchamiania.
 6. Otwórz *web.config* pliku, a następnie dodaj klucz uruchomienia aplikacji OWIN, który określa przyjazną nazwę klasy uruchamiania:
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample11.xml?highlight=3-5)]
@@ -122,11 +122,11 @@ W tej sekcji dodamy innej klasy uruchamiania. Można dodać wiele klasy początk
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample14.cs)]
 
- Poniższych kluczy uruchomienia aplikacji OWIN spowoduje, że klasa produkcji do uruchomienia. 
+    Poniższych kluczy uruchomienia aplikacji OWIN spowoduje, że klasa produkcji do uruchomienia. 
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample15.xml)]
 
- Klucz uruchomienia ostatniego określa uruchamiania metody konfiguracji. Następujący klucz uruchomienia aplikacji OWIN pozwala zmienić nazwę klasy konfiguracji do `MyConfiguration` .
+    Klucz uruchomienia ostatniego określa uruchamiania metody konfiguracji. Następujący klucz uruchomienia aplikacji OWIN pozwala zmienić nazwę klasy konfiguracji do `MyConfiguration` .
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample16.xml)]
 
@@ -136,7 +136,7 @@ W tej sekcji dodamy innej klasy uruchamiania. Można dodać wiele klasy początk
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample17.xml?highlight=3-6)]
 
- Klucz ostatnio wins, dlatego w tym przypadku `TestStartup` jest określona.
+   Klucz ostatnio wins, dlatego w tym przypadku `TestStartup` jest określona.
 2. Zainstaluj Owinhost z PMC: 
 
     [!code-console[Main](owin-startup-class-detection/samples/sample18.cmd)]
@@ -144,14 +144,14 @@ W tej sekcji dodamy innej klasy uruchamiania. Można dodać wiele klasy początk
 
     [!code-console[Main](owin-startup-class-detection/samples/sample19.cmd)]
 
- Wyświetli się okno wiersza poleceń: 
+   Wyświetli się okno wiersza poleceń: 
 
     [!code-console[Main](owin-startup-class-detection/samples/sample20.cmd)]
 4. Uruchom przeglądarkę z adresem URL `http://localhost:5000/`.  
   
     ![](owin-startup-class-detection/_static/image8.png)  
   
- OwinHost honorowane konwencje uruchamiania wymienionych powyżej.
+   OwinHost honorowane konwencje uruchamiania wymienionych powyżej.
 5. W oknie wiersza polecenia naciśnij klawisz Enter, aby zakończyć OwinHost.
 6. W `ProductionStartup` klasy, Dodaj następujący atrybut OwinStartup, który określa przyjazną nazwę *ProductionConfiguration*.
 
@@ -160,9 +160,9 @@ W tej sekcji dodamy innej klasy uruchamiania. Można dodać wiele klasy początk
 
     [!code-console[Main](owin-startup-class-detection/samples/sample22.cmd)]
 
- Klasa początkowa produkcji została załadowana.  
+   Klasa początkowa produkcji została załadowana.  
     ![](owin-startup-class-detection/_static/image9.png)  
- Naszej aplikacji ma wiele klas uruchamiania, a w tym przykładzie mamy mają odłożone która klasa uruchamiania załadować do środowiska wykonawczego.
+   Naszej aplikacji ma wiele klas uruchamiania, a w tym przykładzie mamy mają odłożone która klasa uruchamiania załadować do środowiska wykonawczego.
 8. Należy przetestować następujące opcje uruchamiania środowiska uruchomieniowego:
 
     [!code-console[Main](owin-startup-class-detection/samples/sample23.cmd)]

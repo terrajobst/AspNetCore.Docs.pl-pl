@@ -1,7 +1,7 @@
 ---
-title: "Oprogramowanie pośredniczące w platformy ASP.NET Core buforowania odpowiedzi"
+title: Oprogramowanie pośredniczące w platformy ASP.NET Core buforowania odpowiedzi
 author: guardrex
-description: "Dowiedz się, jak konfigurowanie i używanie oprogramowania pośredniczącego odpowiedzi buforowanie w ASP.NET Core."
+description: Dowiedz się, jak konfigurowanie i używanie oprogramowania pośredniczącego odpowiedzi buforowanie w ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: e9a74d8f6c3945b1bc8c62d0ab21145a7c5717fb
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ff92b032fe8bbbcb7bc26a34fdfbc56a0fcc0e2c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Oprogramowanie pośredniczące w platformy ASP.NET Core buforowania odpowiedzi
 
@@ -88,7 +88,7 @@ Buforowanie odpowiedzi przez oprogramowanie pośredniczące jest konfigurowana p
 | nagłówek | Szczegóły |
 | ------ | ------- |
 | Autoryzacja | Jeśli istnieje nagłówek odpowiedzi nie są buforowane. |
-| Cache-Control | Oprogramowanie pośredniczące uwzględnia tylko buforowanie odpowiedzi oznaczonych `public` dyrektywy pamięci podręcznej. Sterowanie buforowaniem z następującymi parametrami:<ul><li>Maksymalny wiek</li><li>max-stale&#8224;</li><li>świeża min</li><li>must-revalidate</li><li>no-cache</li><li>nie magazynu</li><li>tylko w przypadku-zapisanych w pamięci podręcznej</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224; Jeśli nie limitu `max-stale`, oprogramowanie pośredniczące nie podejmuje żadnych akcji.<br>&#8225; `proxy-revalidate` ma ten sam efekt co `must-revalidate`.<br><br>Aby uzyskać więcej informacji, zobacz [RFC 7231: żądanie dyrektywy Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| Cache-Control | Oprogramowanie pośredniczące uwzględnia tylko buforowanie odpowiedzi oznaczonych `public` dyrektywy pamięci podręcznej. Sterowanie buforowaniem z następującymi parametrami:<ul><li>Maksymalny wiek</li><li>max-stale&#8224;</li><li>świeża min</li><li>must-revalidate</li><li>no-cache</li><li>nie magazynu</li><li>tylko w przypadku-zapisanych w pamięci podręcznej</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Jeśli nie limitu `max-stale`, oprogramowanie pośredniczące nie podejmuje żadnych akcji.<br>&#8225;`proxy-revalidate`ma ten sam efekt co `must-revalidate`.<br><br>Aby uzyskać więcej informacji, zobacz [RFC 7231: żądanie dyrektywy Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | Wartość dyrektywy pragma | A `Pragma: no-cache` nagłówka w żądaniu tworzy ten sam efekt co `Cache-Control: no-cache`. Ten nagłówek zostanie zastąpiona przez odpowiednie dyrektywy w `Cache-Control` nagłówka, jeśli jest obecny. Rozważyć zgodności z poprzednimi wersjami z protokołu HTTP/1.0. |
 | Set-Cookie | Jeśli istnieje nagłówek odpowiedzi nie są buforowane. |
 | różnią się | `Vary` Nagłówka jest używana będzie różnicować buforowane odpowiedzi przez inny nagłówek. Na przykład buforuje odpowiedzi przez kodowania, w tym `Vary: Accept-Encoding` nagłówek, który buforuje odpowiedzi dla żądań z nagłówkami `Accept-Encoding: gzip` i `Accept-Encoding: text/plain` osobno. Odpowiedzi o wartości nagłówka `*` nigdy nie są przechowywane. |
@@ -105,8 +105,8 @@ Oprogramowanie pośredniczące przestrzega zasad [specyfikacji protokołu HTTP 1
 
 Aby uzyskać większą kontrolę nad zachowanie buforowania eksplorowania innych funkcji buforowania platformy ASP.NET Core. Zobacz następujące tematy:
 
-* [Buforowanie w pamięci](xref:performance/caching/memory)
-* [Praca z rozproszonej pamięci podręcznej](xref:performance/caching/distributed)
+* [Pamięci podręcznej w pamięci](xref:performance/caching/memory)
+* [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)
 * [Buforuj pomocnika tagów w podstawowej platformy ASP.NET MVC](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Pomocnik tagu rozproszonej pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
@@ -142,8 +142,8 @@ Podczas testowania i rozwiązywania problemów zachowanie buforowania, przegląd
 
 * [Uruchamianie aplikacji](xref:fundamentals/startup)
 * [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
-* [Buforowanie w pamięci](xref:performance/caching/memory)
-* [Praca z rozproszonej pamięci podręcznej](xref:performance/caching/distributed)
+* [Pamięci podręcznej w pamięci](xref:performance/caching/memory)
+* [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)
 * [Wykrywanie zmian z tokenami zmiany](xref:fundamentals/primitives/change-tokens)
 * [Buforowanie odpowiedzi](xref:performance/caching/response)
 * [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

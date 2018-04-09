@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-cs
-title: "Iteracja #1 — Tworzenie aplikacji (C#) | Dokumentacja firmy Microsoft"
+title: 'Iteracja #1 — Tworzenie aplikacji (C#) | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "W pierwszej iteracji utworzymy menedżera kontaktu w najprostszym sposobem możliwe. Możemy dodać obsługę operacji podstawowej bazy danych: tworzenia, odczytu, aktualizacji i D..."
+description: 'W pierwszej iteracji utworzymy menedżera kontaktu w najprostszym sposobem możliwe. Możemy dodać obsługę operacji podstawowej bazy danych: tworzenia, odczytu, aktualizacji i D...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 12927250595a8f3130328d2fe219280a13349787
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 30f626511164363fea2195a05e73aeee5764933b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-1--create-the-application-c"></a>Iteracja #1 — Tworzenie aplikacji (C#)
 ====================
@@ -67,7 +67,7 @@ W tym iteracji możemy wykonaj następujące czynności:
 
 W aplikacjach ASP.NET MVC musi mieć programu Visual Studio 2008 lub Visual Web Developer 2008 zainstalowane na komputerze (Visual Web Developer jest bezpłatna wersja programu Visual Studio, która nie zawiera wszystkich zaawansowanych funkcji programu Visual Studio). Można pobrać wersję próbną programu Visual Studio 2008 albo Visual Web Developer z następującego adresu:
 
-[https://www.asp.NET/downloads/Essential/](https://www.asp.net/downloads/essential)
+[https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
 > [!NOTE] 
 > 
@@ -76,15 +76,15 @@ W aplikacjach ASP.NET MVC musi mieć programu Visual Studio 2008 lub Visual Web 
 
 Platforma ASP.NET MVC. Platforma ASP.NET MVC można pobrać z następującego adresu:
 
-[https://www.asp.NET/MVC](../../../index.md)
+[https://www.asp.net/mvc](../../../index.md)
 
 W tym samouczku używamy Microsoft Entity Framework dostępu do bazy danych. Entity Framework jest dołączony do programu .NET Framework 3.5 Service Pack 1. Ten dodatek service pack można pobrać z następującej lokalizacji:
 
-[https://www.microsoft.com/downloads/details.aspx?FamilyId=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang = en](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
 
 Jako alternatywę do wykonywania poszczególnych te pliki do pobrania pojedynczo można korzystać z Instalatora platformy sieci Web (Web PI). Możesz pobrać Instalator Web PI z następującego adresu:
 
-[https://www.asp.NET/downloads/Essential/](https://www.asp.net/downloads/essential)
+[https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
 ## <a name="aspnet-mvc-project"></a>Projektu programu ASP.NET MVC
 
@@ -125,7 +125,7 @@ Szablon projektu programu ASP.NET MVC zawiera pliki przykładowe dla widoków i 
 
 Należy usunąć następujące pliki z projektu programu ASP.NET MVC:
 
-- \Controllers\HomeController.CS
+- \Controllers\HomeController.cs
 
 - \Views\Home\About.aspx
 
@@ -133,7 +133,7 @@ Należy usunąć następujące pliki z projektu programu ASP.NET MVC:
 
 I należy usunąć następujący plik z projektu testowego:
 
-\Controllers\HomeControllerTest.CS
+\Controllers\HomeControllerTest.cs
 
 ## <a name="creating-the-database"></a>Tworzenie bazy danych
 
@@ -171,9 +171,9 @@ Należy utworzyć tabelę, która zawiera następujące kolumny:
 
 | **Nazwa kolumny** | **Typ danych** | **Dopuszcza wartości null** |
 | --- | --- | --- |
-| Identyfikator | int | false |
+| Id | int | false |
 | Imię | nvarchar(50) | false |
-| Nazwisko | nvarchar(50) | false |
+| LastName | nvarchar(50) | false |
 | Telefon | nvarchar(50) | false |
 | Adres e-mail | nvarchar(255) | false |
 
@@ -419,7 +419,7 @@ Pierwsza metoda Delete() zwraca formularza Potwierdzenie usuwania rekordu kontak
 
 Należy zmodyfikować widok indeksu, tak aby zawiera łącze do usuwania rekordów kontaktów (patrz rysunek 21). Należy dodać następujący kod do tej samej tabeli zawierającej łącze edycji:
 
-Html.ActionLink ({identyfikator elementu =. % Identyfikator})&gt;
+Html.ActionLink( { id=item.Id }) %&gt;
 
 
 [![Okno dialogowe nowego projektu](iteration-1-create-the-application-cs/_static/image21.jpg)](iteration-1-create-the-application-cs/_static/image41.png)
@@ -490,5 +490,5 @@ Po drugie nie wdrożyliśmy wszystkie walidacji formularza. Na przykład nie ma 
 
 Koniec i najważniejsze bieżącą iterację aplikacji Menedżera skontaktuj się z nie może być łatwo zmodyfikowane lub obsługiwane. Na przykład logika dostępu do bazy danych jest rozszerzania prawo do akcji kontrolera. Oznacza to, że firma Microsoft nie można zmodyfikować naszego kodu dostępu do danych, bez konieczności modyfikacji naszych kontrolerów. W późniejszym iteracji możemy Poznaj wzorce projektowe oprogramowania, które możemy wdrożyć dokonanie Menedżera skontaktuj się z bardziej odporne na zmiany.
 
->[!div class="step-by-step"]
-[Dalej](iteration-2-make-the-application-look-nice-cs.md)
+> [!div class="step-by-step"]
+> [Next](iteration-2-make-the-application-look-nice-cs.md)

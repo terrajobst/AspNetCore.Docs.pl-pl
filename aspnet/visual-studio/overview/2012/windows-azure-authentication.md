@@ -2,25 +2,25 @@
 uid: visual-studio/overview/2012/windows-azure-authentication
 title: Windows Azure Authentication | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Narzędzia Microsoft ASP.NET dla usługi Windows Azure Active Directory upraszcza do włączenia uwierzytelniania dla aplikacji sieci web hostowanych w systemie Windows Azure Web Sites..."
+description: Narzędzia Microsoft ASP.NET dla usługi Windows Azure Active Directory upraszcza do włączenia uwierzytelniania dla aplikacji sieci web hostowanych w systemie Windows Azure Web Sites...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2013
 ms.topic: article
 ms.assetid: a3cef801-a54b-4ebd-93c3-55764e2e14b1
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 4deb3536699f1ef3025f8858ee71a76a1c2def18
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 09cb37ceb0132958a48f5f3a5d52dc46c6f0a78d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="windows-azure-authentication"></a>Windows Azure Authentication
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Microsoft ASP.NET narzędzi dla systemu Windows Azure Active Directory upraszcza włączyć uwierzytelnianie dla aplikacji sieci web znajdującej się na [Windows Azure Web Sites](https://www.windowsazure.com/home/features/web-sites/). Uwierzytelnianie systemu Windows Azure można użyć do uwierzytelniania użytkowników usługi Office 365 z organizacji, użytkownicy utworzeni w własne niestandardowe domeny systemu Windows Azure Active Directory lub kont firmowych synchronizowane z lokalnej usługi Active Directory. Włączenie uwierzytelniania systemu Windows Azure konfiguruje aplikację do uwierzytelniania użytkowników za pomocą pojedynczej [Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) dzierżawy.
 > 
@@ -50,7 +50,7 @@ Jeśli nie masz istniejącej dzierżawy usługi Windows Azure Active Directory (
 
 1. Wybierz z menu Projekt **włączenia usługi Windows Azure Authentication**:  
   
- ![](windows-azure-authentication/_static/image2.png)
+   ![](windows-azure-authentication/_static/image2.png)
 
 2. Wprowadź domenę dla dzierżawy usługi Windows Azure Active Directory (np. contoso.onmicrosoft.com), a następnie kliknij przycisk **włączyć**:
 
@@ -58,7 +58,7 @@ Jeśli nie masz istniejącej dzierżawy usługi Windows Azure Active Directory (
 
 3. W sieci Web uwierzytelniania okna dialogowego Zaloguj się jako administrator dzierżawy usługi Windows Azure Active Directory:  
   
- ![](windows-azure-authentication/_static/image4.png)
+   ![](windows-azure-authentication/_static/image4.png)
 
 ![](windows-azure-authentication/_static/image5.png)
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services
-title: "Opis usługi sieci Web ASP.NET AJAX | Dokumentacja firmy Microsoft"
+title: Opis usługi sieci Web ASP.NET AJAX | Dokumentacja firmy Microsoft
 author: scottcate
-description: "Usługi sieci Web są integralną częścią programu .NET framework, które stanowią rozwiązanie i platform wymiany danych między systemów rozproszonych. Mimo że w sieci Web..."
+description: Usługi sieci Web są integralną częścią programu .NET framework, które stanowią rozwiązanie i platform wymiany danych między systemów rozproszonych. Mimo że w sieci Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services
 msc.type: authoredcontent
-ms.openlocfilehash: 8eb3486c9b3f4ddb6a8bc2c1cdcac774a6852574
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b9f61f895fea1960ebd25780454b86d5c3ba1bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-web-services"></a>Opis usługi sieci Web ASP.NET AJAX
 ====================
@@ -51,7 +51,7 @@ To zastąpienie HttpHandler następuje w celu zapewnienia obsługi wywołań Jav
 
 [!code-json[Main](understanding-asp-net-ajax-web-services/samples/sample2.json)]
 
-> *>[!NOTE] nazwy operacji jest zdefiniowany jako część adresu URL usługi sieci web; Ponadto komunikaty żądania nie są zawsze przesłane za pomocą formatu JSON. Usługi sieci Web może korzystać z atrybutu ScriptMethod z parametrem UseHttpGet wartość true, co powoduje, że parametry do przekazania za pomocą parametrów ciągu zapytania.*
+> *> [!NOTE] Nazwa operacji jest zdefiniowany jako część adresu URL usługi sieci web; Ponadto komunikaty żądania nie są zawsze przesłane za pomocą formatu JSON. Usługi sieci Web może korzystać z atrybutu ScriptMethod z parametrem UseHttpGet wartość true, co powoduje, że parametry do przekazania za pomocą parametrów ciągu zapytania.*
 
 
 **Wyświetlanie listy 3. Komunikat odpowiedzi usługi sieci Web serializować do notacji JSON**
@@ -160,7 +160,7 @@ Dodawanie odwołania do CustomersService.asmx za pomocą formantu ScriptManager 
 
 [!code-html[Main](understanding-asp-net-ajax-web-services/samples/sample14.html)]
 
-> *>[!NOTE] Jeśli chcesz zobaczyć rzeczywisty kod JavaScript proxy generowany jest można wpisz adres URL do żądanej usługi sieci Web .NET w polu adresu programu Internet Explorer i Dołącz /js na końcu.*
+> *> [!NOTE] Jeśli chcesz zobaczyć rzeczywisty kod JavaScript proxy generowany jest można wpisz adres URL do żądanej usługi sieci Web .NET w polu adresu programu Internet Explorer i Dołącz /js na końcu.*
 
 
 Jeśli w pliku web.config, który zostanie osadzony wersji serwera proxy JavaScript do debugowania na stronie jako włączone jest debugowanie wyświetlane dalej:
@@ -263,7 +263,7 @@ Przy użyciu obiektu PageMethods jest bardzo podobny do sposobu używania obiekt
 
 ## <a name="the-autocompleteextender-and-the-aspnet-ajax-toolkit"></a>AutoCompleteExtender i zestawie narzędzi programu ASP.NET AJAX
 
-Zestaw narzędzi platformy ASP.NET AJAX (dostępnej w sklepie [http://ajax.asp.net](http://ajax.asp.net)) oferuje kilka formantów, które mogą służyć do dostępu do usług sieci Web. W szczególności zestaw narzędzi zawiera przydatne formantu o nazwie `AutoCompleteExtender` który może służyć do wywołania usługi sieci Web w celu wyświetlenia danych na stronach bez pisania żadnego kodu JavaScript w ogóle.
+Zestaw narzędzi platformy ASP.NET AJAX (dostępnej w sklepie [ http://ajax.asp.net ](http://ajax.asp.net)) oferuje kilka formantów, które mogą służyć do dostępu do usług sieci Web. W szczególności zestaw narzędzi zawiera przydatne formantu o nazwie `AutoCompleteExtender` który może służyć do wywołania usługi sieci Web w celu wyświetlenia danych na stronach bez pisania żadnego kodu JavaScript w ogóle.
 
 Formant AutoCompleteExtender można rozszerzyć istniejące funkcje pole tekstowe i ułatwić użytkownikom łatwe Odszukiwanie danych, których szukają więcej. Wpisywania do pola tekstowego kontrolki może służyć do badania usługi sieci Web i dynamicznie pokazuje wyniki poniżej pola tekstowego. Na rysunku 4 przedstawiono przykład za pomocą kontroli AutoCompleteExtender do wyświetlenia identyfikatorów użytkowników dla aplikacji pomocy technicznej. Jako użytkownik wpisze różnych znaków w polu tekstowym, różne elementy będą wyświetlane poniżej ustalane na podstawie danych wejściowych. Użytkownicy mogą następnie wybrać identyfikator żądanego klienta.
 
@@ -309,6 +309,6 @@ daN Wahlin (Microsoft najbardziej wartościowych Professional dla platformy ASP.
 
 Scott IE pracuje z technologii Microsoft Web od 1997 i jest Prezes myKB.com ([www.myKB.com](http://www.myKB.com)) gdzie specjalizuje się on w pisaniu ASP.NET aplikacje oparte na systemie koncentruje się na rozwiązania w zakresie oprogramowania bazy wiedzy Knowledge Base. Scott można nawiązać połączenie za pośrednictwem poczty e-mail na [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) lub jego blogu w [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Poprzednie](understanding-asp-net-ajax-localization.md)
-[dalej](understanding-asp-net-ajax-debugging-capabilities.md)
+> [!div class="step-by-step"]
+> [Poprzednie](understanding-asp-net-ajax-localization.md)
+> [dalej](understanding-asp-net-ajax-debugging-capabilities.md)

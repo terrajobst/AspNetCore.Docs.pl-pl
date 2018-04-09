@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
-title: "Używanie metod asynchronicznych w języku ASP.NET 4.5 | Dokumentacja firmy Microsoft"
+title: Używanie metod asynchronicznych w języku ASP.NET 4.5 | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "W tym samouczku uczy podstaw konstruowania asynchroniczne aplikacji formularzy sieci Web ASP.NET przy użyciu programu Visual Studio Express 2012 for Web, który jest bezpłatny..."
+description: W tym samouczku uczy podstaw konstruowania asynchroniczne aplikacji formularzy sieci Web ASP.NET przy użyciu programu Visual Studio Express 2012 for Web, który jest bezpłatny...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/06/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: d3eb588aad592605a8e368d1af6e62ece34b79d0
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 839cfc39188a91b6674465b8ff8fe51804033295
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>Używanie metod asynchronicznych w języku ASP.NET 4.5
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > W tym samouczku udzieli Ci podstawy asynchroniczne formularzy sieci Web ASP.NET aplikacji za pomocą [programu Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11), który jest bezpłatną wersję programu Microsoft Visual Studio. Można również użyć [programu Visual Studio 2012](https://www.microsoft.com/visualstudio/11). Następujące sekcje są uwzględnione w tym samouczku.
 > 
@@ -45,7 +45,7 @@ Aby uzyskać więcej informacji na temat używania [await](https://msdn.microsof
 - [Async/Await — często zadawane pytania](https://blogs.msdn.com/b/pfxteam/archive/2012/04/12/10293335.aspx)
 - [Programowanie asynchroniczne programu Visual Studio](https://msdn.microsoft.com/vstudio/gg316360)
 
-## <a id="HowRequestsProcessedByTP"></a>Jak żądania są przetwarzane przez puli wątków
+## <a id="HowRequestsProcessedByTP"></a>  Jak żądania są przetwarzane przez puli wątków
 
 Na serwerze sieci web programu .NET Framework przechowuje pulę wątków, które są używane do obsługi żądań ASP.NET. Gdy żądanie dociera, wątków z puli jest wysyłane do przetwarzania tego żądania. Jeśli żądanie jest przetwarzane synchronicznie, wątku, który przetwarza żądania jest zajęty podczas żądanie jest przetwarzane i że wątek nie może zrealizować innego żądania.   
   
@@ -55,7 +55,7 @@ To może nie być problem, ponieważ pula wątków może się wystarczająco du�
 
 W aplikacji sieci web, które Zobacz dużej liczby równoczesnych żądań przy rozruchu lub ma seryjnym obciążenia (gdzie współbieżności zwiększa nagle) wywołania usługi sieci web jest asynchroniczne wydłużają czas odpowiedzi aplikacji. Asynchroniczne żądanie trwa tyle samo czasu na przetwarzanie jako żądań synchronicznych. Na przykład jeśli żądanie sprawia, że usługi sieci web wywołaniu, które wymaga dwóch sekund, przyjmuje żądania dwie sekundy czy jest wykonywane synchronicznie lub asynchronicznie. Jednak podczas wywołania asynchronicznego wątku nie blokuje odpowiedzi na inne żądania podczas oczekiwania na pierwsze żądanie do wykonania. W związku z tym żądań asynchronicznych uniknięcia wzrostu puli usługi kolejkowania wiadomości i wątku żądania, gdy istnieją dużą liczbą jednoczesnych żądań, które wywołują długotrwałej operacji.
 
-## <a id="ChoosingSyncVasync"></a>Wybieranie metody synchronicznego lub asynchronicznego
+## <a id="ChoosingSyncVasync"></a>  Wybieranie metody synchronicznego lub asynchronicznego
 
 Ta sekcja zawiera wskazówki dotyczące użycie metody synchroniczna lub asynchroniczna. Są to po prostu wytycznych; zbadać każdą aplikację osobno w celu ustalenia, czy metod asynchronicznych pomocy z wydajnością.
 
@@ -65,7 +65,7 @@ Ogólnie rzecz biorąc Użyj metod synchronicznych następujące warunki:
 - Prostota ma większe znaczenie niż wydajność.
 - Operacje są głównie operacje Procesora zamiast operacje, które wymagają szeroką gamę dysku lub obciążenie sieci. Używanie metod asynchronicznych operacji procesora zapewnia nie korzyści i narzut powoduje więcej.
 
- Ogólnie rzecz biorąc można używać metod asynchronicznych następujące warunki:
+  Ogólnie rzecz biorąc można używać metod asynchronicznych następujące warunki:
 
 - W przypadku wywoływania usługi, które mogą być używane za pośrednictwem metod asynchronicznych i używasz .NET 4.5 lub wyższej.
 - Operacje są powiązane z siecią lub I/E-granicę zamiast procesora.
@@ -74,19 +74,19 @@ Ogólnie rzecz biorąc Użyj metod synchronicznych następujące warunki:
 - Gdy korzyści przełączania wątków limit przeprowadzi koszt przełączania kontekstu. Ogólnie rzecz biorąc należy ustawić metody asynchroniczne Jeśli metoda synchroniczna blokuje wątku żądania ASP.NET podczas wykonywania żadne czynności. Za pomocą wywołania asynchronicznego, wątku żądania programu ASP.NET nie jest blokowane podczas żadne czynności podczas oczekiwania na żądanie usługi sieci web zakończyć.
 - Testowanie pokazuje, czy operacji blokowania wąskich gardeł wydajności lokacji i usług IIS może obsłużyć więcej żądań przy użyciu metod asynchronicznych tymi połączeniami blokowania.
 
- Do pobrania przykładowych pokazano, jak skutecznie używać metod asynchronicznych. Przykładu dostępnego zaprojektowano tak, aby zapewnić prosty pokaz programowania asynchronicznego w programie ASP.NET 4.5. Przykład nie jest przeznaczona do architektury odwołania do programowania asynchronicznego w programie ASP.NET. Wywołuje program przykładowy [ASP.NET Web API](../../../web-api/index.md) metod, które z kolei wymagają [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) do symulowania wywołania usługi sieci web długotrwałe. Większość aplikacji produkcyjnych, nie będą widoczne takie oczywiste korzyści wynikające z używania metod asynchronicznych.   
+  Do pobrania przykładowych pokazano, jak skutecznie używać metod asynchronicznych. Przykładu dostępnego zaprojektowano tak, aby zapewnić prosty pokaz programowania asynchronicznego w programie ASP.NET 4.5. Przykład nie jest przeznaczona do architektury odwołania do programowania asynchronicznego w programie ASP.NET. Wywołuje program przykładowy [ASP.NET Web API](../../../web-api/index.md) metod, które z kolei wymagają [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) do symulowania wywołania usługi sieci web długotrwałe. Większość aplikacji produkcyjnych, nie będą widoczne takie oczywiste korzyści wynikające z używania metod asynchronicznych.   
   
 Kilka aplikacji wymaga wszystkich metod asynchronicznych. Często konwertowanie kilka metod synchronicznych do metod asynchronicznych zapewnia najlepsze zwiększenia efektywności ilości pracy wymagane.
 
-## <a id="SampleApp"></a>Przykładowa aplikacja
+## <a id="SampleApp"></a>  Przykładowa aplikacja
 
-Możesz pobrać przykładową aplikację z [https://github.com/RickAndMSFT/Async-ASP.NET](https://github.com/RickAndMSFT/Async-ASP.NET) na [GitHub](https://github.com/) lokacji. Repozytorium zawiera trzy projekty:
+Możesz pobrać przykładową aplikację z [ https://github.com/RickAndMSFT/Async-ASP.NET ](https://github.com/RickAndMSFT/Async-ASP.NET) na [GitHub](https://github.com/) lokacji. Repozytorium zawiera trzy projekty:
 
 - *WebAppAsync*: projekt formularzy sieci Web ASP.NET, który wykorzystuje interfejs API sieci Web **WebAPIpwg** usługi. Większość kodu dla tego samouczka jest w tym projekcie.
 - *WebAPIpgw*: projekt programu ASP.NET MVC 4 interfejsu API sieci Web, który implementuje `Products, Gizmos and Widgets` kontrolerów. Zapewnia dane dla *WebAppAsync* projektu i *Mvc4Async* projektu.
 - *Mvc4Async*: projekt programu ASP.NET MVC 4, który zawiera kod używany w innym samouczka. Wykonywania wywołań interfejsu API sieci Web do **WebAPIpwg** usługi.
 
-## <a id="GizmosSynch"></a>Na stronie synchroniczne Gizmos
+## <a id="GizmosSynch"></a>  Na stronie synchroniczne Gizmos
 
  Poniższy kod przedstawia `Page_Load` metoda synchroniczna, który służy do wyświetlania listy gizmos. (W tym artykule gizmo jest urządzenie mechaniczne fikcyjne). 
 
@@ -101,7 +101,7 @@ Na poniższej ilustracji przedstawiono stronę gizmos z przykładowy projekt.
 
 ![Gizmos](using-asynchronous-methods-in-aspnet-45/_static/image1.png)
 
-## <a id="CreatingAsynchGizmos"></a>Tworzenie stron Gizmos asynchroniczne
+## <a id="CreatingAsynchGizmos"></a>  Tworzenie stron Gizmos asynchroniczne
 
 Przykład używa nowego [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) i [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) słowa kluczowe (dostępne w .NET 4.5 i programu Visual Studio 2012) pozwala kompilatora odpowiada za utrzymywanie złożone przekształcenia niezbędne do Programowanie asynchroniczne. Kompilator umożliwia pisanie kodu za pomocą, który tworzy przepływ sterowania synchroniczne C# w i kompilator automatycznie stosuje przekształcenia trzeba użyć wywołania zwrotne w celu unikania blokowania wątków.
 
@@ -127,7 +127,7 @@ Wersja asynchroniczna:
 - [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) — słowo kluczowe została zastosowana do wywołania usługi sieci web.
 - Interfejs API usługi sieci web asynchroniczne została wywołana (`GetGizmosAsync`).
 
-Wewnątrz `GetGizmosSvcAsync` innej metody asynchroniczne, treści metody `GetGizmosAsync` jest wywoływana. `GetGizmosAsync`natychmiast zwraca `Task<List<Gizmo>>` który ostatecznie zostanie zakończony, gdy dane są dostępne. Ponieważ nie chcesz wykonywanie dodatkowych czynności, aż do uzyskania danych gizmo kod oczekujące na zadanie (przy użyciu **await** — słowo kluczowe). Można użyć **await** — słowo kluczowe tylko w metodach opatrzoną **async** — słowo kluczowe.
+Wewnątrz `GetGizmosSvcAsync` innej metody asynchroniczne, treści metody `GetGizmosAsync` jest wywoływana. `GetGizmosAsync` natychmiast zwraca `Task<List<Gizmo>>` który ostatecznie zostanie zakończony, gdy dane są dostępne. Ponieważ nie chcesz wykonywanie dodatkowych czynności, aż do uzyskania danych gizmo kod oczekujące na zadanie (przy użyciu **await** — słowo kluczowe). Można użyć **await** — słowo kluczowe tylko w metodach opatrzoną **async** — słowo kluczowe.
 
 **Await** — słowo kluczowe nie blokuje wątek, do czasu ukończenia zadania. Rejestruje się pozostałe metody jako wywołania zwrotnego dla zadania i natychmiast zwraca. Po ukończeniu ostatecznie oczekiwano zadania, spowoduje wywołanie wywołanie zwrotne i w związku z tym wznowić wykonywanie prawa metody, w którym przerwał. Aby uzyskać więcej informacji na temat używania [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) i [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) słów kluczowych i [zadań](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) przestrzeni nazw, zobacz [odwołania async](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async).
 
@@ -157,7 +157,7 @@ Metody podłączonymi z `RegisterAsyncTask` zostanie uruchomiona natychmiast po 
 
 Wadą interfejsu async void zdarzeń jest, że deweloperzy już ma pełną kontrolę nad podczas wykonywania zdarzenia. Na przykład jeśli obie aspx oraz. Zdefiniuj wzorzec `Page_Load` zdarzeń i co najmniej jeden z nich są asynchroniczne, kolejność wykonywania nie może zagwarantować. Tej samej kolejności indeterminiate dla programów obsługi zdarzeń z systemem innym niż (takie jak `async void Button_Click` ) ma zastosowanie. Dla większości deweloperów powinna być akceptowane, ale tych, którzy wymagają pełną kontrolę nad kolejność wykonywania należy używać tylko interfejsów API, takich jak `RegisterAsyncTask` który korzystać z metod, które zwraca obiekt zadania.
 
-## <a id="Parallel"></a>Wykonywanie operacji na wielu równolegle
+## <a id="Parallel"></a>  Wykonywanie operacji na wielu równolegle
 
 Metod asynchronicznych ma znaczących korzyści za pośrednictwem metod synchronicznych, gdy akcję, należy wykonać kilka operacji niezależnych. W przykładowym podany synchroniczne strony *PWG.aspx*(dla produktów, elementów widget i Gizmos) są wyświetlane wyniki trzy wywołania usługi sieci web w celu uzyskania listy produktów, elementów widget i gizmos. [ASP.NET Web API](../../../web-api/index.md) projektu, który zawiera te usługi używa [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) wywołuje w celu symulowania opóźnienia lub powolnej sieci. Jeśli opóźnienie jest równa 500 milisekund asynchroniczną *PWGasync.aspx* strona zajmuje trochę ponad 500 MS, aby ukończyć podczas synchronicznego `PWG` wersji przejmuje 1500 MS. Synchroniczne *PWG.aspx* strony przedstawiono w poniższym kodzie.
 
@@ -171,7 +171,7 @@ Na poniższej ilustracji przedstawiono widok zwrócona z asynchronicznej *PWGasy
 
 ![](using-asynchronous-methods-in-aspnet-45/_static/image3.png)
 
-## <a id="CancelToken"></a>Przy użyciu Token anulowania
+## <a id="CancelToken"></a>  Przy użyciu Token anulowania
 
 Zwracanie metod asynchronicznych `Task`czy można anulować, będącą podejmują [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken(VS.110).aspx) parametru, gdy zostało ono określone z `AsyncTimeout` atrybutu [strony](https://msdn.microsoft.com/library/ydy4x04a.aspx) dyrektywy. Poniższy kod przedstawia *GizmosCancelAsync.aspx* strony z limitem czasu równym na sekundę.
 
@@ -183,14 +183,14 @@ Poniższy kod przedstawia *GizmosCancelAsync.aspx.cs* pliku.
 
 W przykładowej aplikacji pod warunkiem, wybierając *GizmosCancelAsync* link wywołania *GizmosCancelAsync.aspx* strony i prezentuje anulowanie wywołania asynchronicznego (za pomocą limitu czasu). Ponieważ czas opóźnienia losowego zakresu, może być konieczne odświeżenie strony kilka razy na komunikat o błędzie limitu czasu.
 
-## <a id="ServerConfig"></a>Konfiguracja serwera dla wywołania usługi sieci Web opóźnienia wysokiej współbieżności/wysoki
+## <a id="ServerConfig"></a>  Konfiguracja serwera dla wywołania usługi sieci Web opóźnienia wysokiej współbieżności/wysoki
 
 Aby wykorzystać zalety aplikacji sieci web asynchroniczne, może być konieczne dokonanie pewnych zmian w domyślnej konfiguracji serwera. Należy pamiętać o następujących w uwadze podczas konfigurowania i obciążeniowe testowania aplikacji sieci web asynchronicznego.
 
 - Windows 7, Windows Vista, Windows 8 i wszystkie klienckie systemy operacyjne Windows mieć maksymalnie 10 równoczesnych żądań. Będziesz potrzebować systemu operacyjnego Windows Server, aby można było wykorzystać zalety metod asynchronicznych mocno obciążony.
 - Zarejestruj .NET 4.5 z usługami IIS w wierszu polecenia z podwyższonym poziomem uprawnień, za pomocą następującego polecenia:  
- %windir%\Microsoft.NET\Framework64 \v4.0.30319\aspnet\_regiis -i  
- Zobacz [narzędzie rejestracji programu ASP.NET usług IIS (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h.aspx)
+  %windir%\Microsoft.NET\Framework64 \v4.0.30319\aspnet\_regiis -i  
+  Zobacz [narzędzie rejestracji programu ASP.NET usług IIS (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h.aspx)
 - Może być konieczne w celu zwiększenia [HTTP.sys](https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture) limitu kolejki z domyślnej wartości 1000 do 5000. Jeśli ustawienie jest zbyt niska, mogą pojawić się [HTTP.sys](https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture) odrzucanie żądań o stan HTTP 503. Aby zmienić limit kolejki sterownik HTTP.sys:
 
     - Otwórz Menedżera usług IIS i przejdź do okienka pul aplikacji.
@@ -199,7 +199,7 @@ Aby wykorzystać zalety aplikacji sieci web asynchroniczne, może być konieczne
     - W **Zaawansowane ustawienia** okno dialogowe, zmień *długość kolejki* z 1000 do 5000.  
         ![Długość kolejki](using-asynchronous-methods-in-aspnet-45/_static/image5.png)  
   
- Należy pamiętać, obrazy powyżej, .NET framework znajduje się w wersji 4.0, mimo że pula aplikacji jest przy użyciu platformy .NET 4.5. Aby poznać tę rozbieżność, zobacz następujące tematy:
+  Należy pamiętać, obrazy powyżej, .NET framework znajduje się w wersji 4.0, mimo że pula aplikacji jest przy użyciu platformy .NET 4.5. Aby poznać tę rozbieżność, zobacz następujące tematy:
 
         - [.NET Versioning and Multi-Targeting - .NET 4.5 is an in-place upgrade to .NET 4.0](http://www.hanselman.com/blog/NETVersioningAndMultiTargetingNET45IsAnInplaceUpgradeToNET40.aspx)
         - [How to set an IIS Application or AppPool to use ASP.NET 3.5 rather than 2.0](http://www.hanselman.com/blog/HowToSetAnIISApplicationOrAppPoolToUseASPNET35RatherThan20.aspx)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
-title: "Interakcji ze strony zawartość z strony wzorcowej (VB) | Dokumentacja firmy Microsoft"
+title: Interakcji ze strony zawartość z strony wzorcowej (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Sprawdza, czy sposób wywołania metody, ustaw właściwości, etc. zawartości strony z kodu na stronie wzorcowej."
+description: Sprawdza, czy sposób wywołania metody, ustaw właściwości, etc. zawartości strony z kodu na stronie wzorcowej.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a25f739e5d5717d275554909e1584bb7e7fed302
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9274924b441cb21e33eb57de06ff374428fa036b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>Interakcji ze strony zawartość z strony wzorcowej (VB)
 ====================
@@ -153,7 +153,7 @@ Zgodnie z opisem we wcześniejszej części tego samouczka, należy wywołać zd
 Klasa subskrybuje zdarzenia przez utworzenie *obsługi zdarzeń*, czyli metody, która jest wykonywana w odpowiedzi na zdarzenie jest wywoływane. Wydawca definiuje zdarzenia zgłasza on definiując *delegata zdarzenia*. Delegata zdarzenia określa, jakie parametrów wejściowych zaakceptować programu obsługi zdarzeń. W programie .NET Framework zdarzeń delegaty nie zwraca żadnej wartości i dwóch parametrów wejściowych zaakceptować:
 
 - `Object`, Który identyfikuje źródło zdarzenia i
-- Klasy pochodne`System.EventArgs`
+- Klasy pochodne `System.EventArgs`
 
 Drugi parametr przekazany do programu obsługi zdarzeń może zawierać dodatkowe informacje o zdarzeniu. Podczas podstawowym `EventArgs` klasy nie przekazują informacje, .NET Framework zawiera szereg klas, które rozszerzają `EventArgs` i obejmować dodatkowe właściwości. Na przykład `CommandEventArgs` wystąpienie zostanie przekazany do procedury obsługi zdarzeń, które odpowiadają na `Command` zdarzeń i zawiera dwie właściwości informacyjną: `CommandArgument` i `CommandName`.
 
@@ -257,12 +257,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
-Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Suchi Banerjee. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Suchi Banerjee. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](interacting-with-the-master-page-from-the-content-page-vb.md)
-[dalej](master-pages-and-asp-net-ajax-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](interacting-with-the-master-page-from-the-content-page-vb.md)
+> [dalej](master-pages-and-asp-net-ajax-vb.md)

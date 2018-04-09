@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
-title: "Scenariusz: Konfigurowanie środowiska przemieszczania na potrzeby wdrażania w sieci Web | Dokumentacja firmy Microsoft"
+title: 'Scenariusz: Konfigurowanie środowiska przemieszczania na potrzeby wdrażania w sieci Web | Dokumentacja firmy Microsoft'
 author: jrjlee
-description: "W tym temacie opisano scenariusz wdrażania typowych sieci web w środowisku przemieszczania i opisano zadania, które należy wykonać, aby skonfigurować podobne env..."
+description: W tym temacie opisano scenariusz wdrażania typowych sieci web w środowisku przemieszczania i opisano zadania, które należy wykonać, aby skonfigurować podobne env...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 683a0cf88225fee762e82925afe3785a2defd5bf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3864559b0599091beeacb87e90e80a51285039df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Scenariusz: Konfigurowanie środowiska przemieszczania na potrzeby wdrażania w sieci Web
 ====================
@@ -62,6 +62,6 @@ Te tematy zawierają wszystkie informacje potrzebne do wykonania tych zadań:
 
 Wskazówki dotyczące konfigurowania środowiska testowego typowe developer, zobacz [scenariusz: Konfigurowanie środowisku testu sieci Web wdrożenia](scenario-configuring-a-test-environment-for-web-deployment.md). Aby uzyskać wskazówki dotyczące konfigurowania środowiska produkcji, zobacz [scenariusz: Konfigurowanie środowiska produkcyjnego Web Deployment](scenario-configuring-a-production-environment-for-web-deployment.md).
 
->[!div class="step-by-step"]
-[Poprzednie](scenario-configuring-a-test-environment-for-web-deployment.md)
-[dalej](scenario-configuring-a-production-environment-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Poprzednie](scenario-configuring-a-test-environment-for-web-deployment.md)
+> [dalej](scenario-configuring-a-production-environment-for-web-deployment.md)

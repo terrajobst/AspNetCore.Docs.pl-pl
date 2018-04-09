@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/roles/creating-and-managing-roles-vb
-title: "Tworzenie i zarządzanie rolami (VB) | Dokumentacja firmy Microsoft"
+title: Tworzenie i zarządzanie rolami (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku sprawdza kroki niezbędne do skonfigurowania w ramach ról. Po tym, że budujemy stron sieci web do tworzenia i usuwania ról."
+description: W tym samouczku sprawdza kroki niezbędne do skonfigurowania w ramach ról. Po tym, że budujemy stron sieci web do tworzenia i usuwania ról.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/24/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0b1132c6d782cd85edb8cbee98c8ab95a15171ac
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 75ca9b1c36f9a74d755ef05717f03d139d0b29ea
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-and-managing-roles-vb"></a>Tworzenie i zarządzanie rolami (VB)
 ====================
@@ -96,10 +96,10 @@ Dostawcy `connectionStringName` atrybut określa magazynu roli, który jest uży
 
 W związku z tym jeśli pozwolimy po prostu framework role bez określania informacji o dostawcy w naszej aplikacji `Web.config` plik, aplikacja używa domyślny zarejestrowany dostawca ról, `AspNetSqlRoleProvider`. Jeśli `~/App_Data/aspnet.mdf` bazy danych nie istnieje, automatycznie go utworzyć i dodać schematu usług aplikacji środowiska wykonawczego programu ASP.NET. Jednak nie chcemy użyć `aspnet.mdf` bazy danych; zamiast chcemy użyć `SecurityTutorials.mdf` bazy danych, który mamy już utworzono i schemat usług aplikacji, aby dodać. Ta modyfikacja można zrobić w jeden z dwóch sposobów:
 
-- **Określ wartość ***`LocalSqlServer`*** Nazwa ciągu połączenia w ***`Web.config`***.** Zastępując `LocalSqlServer` wartości nazwy parametrów połączenia w `Web.config`, możemy użyć zarejestrowany domyślny dostawca ról (`AspNetSqlRoleProvider`) i będzie on działać poprawnie z `SecurityTutorials.mdf` bazy danych. Aby uzyskać więcej informacji na temat tej techniki, zobacz [Scott Guthrie](https://weblogs.asp.net/scottgu/)w blogu, [Konfigurowanie ASP.NET 2.0 usługi aplikacji, użyj programu SQL Server 2000 lub SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
-- **Dodaj nowego dostawcę zarejestrowany dla typu ***`SqlRoleProvider`*** i skonfigurować jej ***`connectionStringName`*** ustawienie wskazujące ***`SecurityTutorials.mdf`*** bazy danych.** Jest to metoda I zalecane i używane w <a id="_msoanchor_7"> </a> [ *tworzenie schematu członkostwa w programie SQL Server* ](../membership/creating-the-membership-schema-in-sql-server-vb.md) samouczek, a jest to rozwiązanie będzie używać w tym samouczku, jak również.
+- <strong>Określ wartość</strong><strong>`LocalSqlServer`</strong><strong>Nazwa ciągu połączenia w</strong><strong>`Web.config`</strong><strong>.</strong> Zastępując `LocalSqlServer` wartości nazwy parametrów połączenia w `Web.config`, możemy użyć zarejestrowany domyślny dostawca ról (`AspNetSqlRoleProvider`) i będzie on działać poprawnie z `SecurityTutorials.mdf` bazy danych. Aby uzyskać więcej informacji na temat tej techniki, zobacz [Scott Guthrie](https://weblogs.asp.net/scottgu/)w blogu, [Konfigurowanie ASP.NET 2.0 usługi aplikacji, użyj programu SQL Server 2000 lub SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
+- <strong>Dodaj nowego dostawcę zarejestrowanego typu</strong><strong>`SqlRoleProvider`</strong><strong>i skonfigurować jej</strong><strong>`connectionStringName`</strong><strong>ustawienie, aby wskazywał</strong> <strong>`SecurityTutorials.mdf`</strong> <strong>bazy danych.</strong> Jest to metoda I zalecane i używane w <a id="_msoanchor_7"> </a> [ *tworzenie schematu członkostwa w programie SQL Server* ](../membership/creating-the-membership-schema-in-sql-server-vb.md) samouczek, a jest to rozwiązanie będzie używać w tym samouczku, jak również.
 
-Dodaj następujące role konfiguracji znaczników `Web.config` pliku. Ten kod znaczników rejestruje nowego dostawcę o nazwie`SecurityTutorialsSqlRoleProvider.`
+Dodaj następujące role konfiguracji znaczników `Web.config` pliku. Ten kod znaczników rejestruje nowego dostawcę o nazwie `SecurityTutorialsSqlRoleProvider.`
 
 [!code-xml[Main](creating-and-managing-roles-vb/samples/sample5.xml)]
 
@@ -187,7 +187,7 @@ Widoku GridView wyświetla pojedynczy kolumnę z etykietą elementu, ponieważ w
 
 Podczas wyświetlania danych z widoku GridView, wolę jawnie zdefiniuj kolumn, a nie ich niejawnie wygenerowany przez widoku GridView. Definiując jawnie kolumny jest znacznie łatwiejsze do formatowania danych, zmienić kolejność kolumn i wykonywanie innych częstych zadań. W związku z tym teraz zaktualizować deklaratywne znaczników w widoku GridView tak, aby jawnie zdefiniowanych kolumn.
 
-Rozpocznij od ustawienia w widoku GridView `AutoGenerateColumns` wartość False dla właściwości. Następnie dodaj pole TemplateField do siatki, ustaw jej `HeaderText` właściwości do ról i skonfiguruj jego `ItemTemplate` tak, aby Wyświetla zawartość tablicy. W tym celu Dodaj formant etykiety sieci Web o nazwie `RoleNameLabel` do `ItemTemplate` i powiąż jego `Text` właściwości`Container.DataItem.`
+Rozpocznij od ustawienia w widoku GridView `AutoGenerateColumns` wartość False dla właściwości. Następnie dodaj pole TemplateField do siatki, ustaw jej `HeaderText` właściwości do ról i skonfiguruj jego `ItemTemplate` tak, aby Wyświetla zawartość tablicy. W tym celu Dodaj formant etykiety sieci Web o nazwie `RoleNameLabel` do `ItemTemplate` i powiąż jego `Text` właściwości `Container.DataItem.`
 
 Te właściwości i `ItemTemplate`jego zawartość można ustawić deklaratywnie lub przez okno dialogowe pola w widoku GridView i Edytuj szablony interfejsu. Aby uzyskać dostęp do pola — okno dialogowe, kliknij łącze Edytowanie kolumn w tagów inteligentnych w widoku GridView. Następnie usuń zaznaczenie pola wyboru automatycznego generowania pola wyboru, aby ustawić `AutoGenerateColumns` właściwości na wartość False i Dodaj pole TemplateField do widoku GridView, ustawiając jego `HeaderText` właściwości do roli. Aby zdefiniować `ItemTemplate`jego zawartość, wybierz opcję Edytuj szablony z tagów inteligentnych w widoku GridView. Przeciągnij formant etykiety sieci Web na `ItemTemplate`, ustaw jej `ID` właściwości `RoleNameLabel`i skonfigurować jego ustawienia wiązania z danymi, aby jego `Text` właściwość jest powiązana z `Container.DataItem`.
 
@@ -215,8 +215,8 @@ Teraz, gdy użytkownik dodaje nową rolę `RoleList` GridView zawiera po prostu 
 
 W tym momencie użytkownik może tworzyć nowej roli i wyświetlania wszystkich istniejących ról z `ManageRoles.aspx` strony. Teraz użytkownicy również usunięcie ról. `Roles.DeleteRole` Metoda ma dwa przeciążenia:
 
-- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx)— Usuwa rolę *roleName*. Jeśli rola zawiera co najmniej jednego członka, jest zgłaszany wyjątek.
-- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx)— Usuwa rolę *roleName*. Jeśli *throwOnPopulateRole* jest `True`, a następnie jest zgłaszany wyjątek, jeśli rola zawiera co najmniej jednego członka. Jeśli *throwOnPopulateRole* jest `False`, następnie roli jest usuwany, czy lub nie zawiera żadnych elementów członkowskich. Wewnętrznie `DeleteRole(roleName)` wywołania metody `DeleteRole(roleName, True)`.
+- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx) — Usuwa rolę *roleName*. Jeśli rola zawiera co najmniej jednego członka, jest zgłaszany wyjątek.
+- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx) — Usuwa rolę *roleName*. Jeśli *throwOnPopulateRole* jest `True`, a następnie jest zgłaszany wyjątek, jeśli rola zawiera co najmniej jednego członka. Jeśli *throwOnPopulateRole* jest `False`, następnie roli jest usuwany, czy lub nie zawiera żadnych elementów członkowskich. Wewnętrznie `DeleteRole(roleName)` wywołania metody `DeleteRole(roleName, True)`.
 
 `DeleteRole` Metody również zgłosić wyjątek, jeśli *roleName* jest `Nothing` lub ciąg pusty lub jeśli *roleName* zawiera przecinek. Jeśli *roleName* nie istnieje w systemie, `DeleteRole` nie jest w trybie dyskretnym, który wywołał wyjątek.
 
@@ -263,12 +263,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
-Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku obejmują Alicja Maziarz, Suchi Banerjee i Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku obejmują Alicja Maziarz, Suchi Banerjee i Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](role-based-authorization-cs.md)
-[dalej](assigning-roles-to-users-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](role-based-authorization-cs.md)
+> [dalej](assigning-roles-to-users-vb.md)

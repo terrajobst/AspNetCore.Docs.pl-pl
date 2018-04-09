@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/security/16-adding-security-and-membership
-title: "Dodawanie zabezpieczeń i członkostwo w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft"
+title: Dodawanie zabezpieczeń i członkostwo w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym rozdziale pokazuje, jak zabezpieczyć witryny sieci Web, dzięki czemu niektóre strony są dostępne tylko dla osób Zaloguj się. (Widoczne jest również sposób tworzenia stron określona..."
+description: W tym rozdziale pokazuje, jak zabezpieczyć witryny sieci Web, dzięki czemu niektóre strony są dostępne tylko dla osób Zaloguj się. (Widoczne jest również sposób tworzenia stron określona...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: af2eeb128cff554e7ae3d903e2117861087344e9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 351368a356a71e85d4abfdceac8d4f84e0b217f4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Dodawanie zabezpieczeń i członkostwo w witrynie sieci Web ASP.NET stron (Razor)
 ====================
@@ -47,7 +47,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > - Biblioteka pomocników sieci Web ASP.NET
 
 
-Można skonfigurować witryny sieci Web, dzięki czemu użytkownicy mogą zalogować się do &#8212; oznacza to, że lokacja obsługuje *członkostwa*. Może to być przydatne dla wielu powodów. Na przykład witryna może być stron, które powinny być dostępne tylko do elementów członkowskich. W niektórych przypadkach może wymagać użytkowników zalogować się, aby wysłać opinię lub zostaw komentarz.
+Można skonfigurować witryny sieci Web, dzięki czemu użytkownicy mogą logować się do niego &#8212; oznacza to, że lokacja obsługuje *członkostwa*. Może to być przydatne dla wielu powodów. Na przykład witryna może być stron, które powinny być dostępne tylko do elementów członkowskich. W niektórych przypadkach może wymagać użytkowników zalogować się, aby wysłać opinię lub zostaw komentarz.
 
 Nawet w przypadku witryny sieci Web obsługuje członkostwo, użytkownicy nie są wymagane musi się zalogować, aby korzystać z niektórych stron w witrynie. Użytkownicy, którzy nie są rejestrowane w są określane jako *użytkowników anonimowych*.
 
@@ -88,26 +88,26 @@ W poniższej procedurze opisano sposób tworzenia lokacji i skonfigurować go.
     Jeśli nie chcesz skonfigurować wiadomości e-mail z potwierdzeniem, możesz pominąć ten krok i następnego kroku. Jeśli nie ustawiono wartości SMTP, nowe konto jest natychmiast dostępna bez wiadomość e-mail z potwierdzeniem.
 6. Modyfikowanie następujących ustawień związanych z pocztą e-mail w kodzie:
 
-    - Ustaw `WebMail.SmtpServer` na nazwę serwera SMTP, który ma dostęp do.
-    - Pozostaw `WebMail.EnableSsl` ustawioną `true`. To ustawienie zabezpiecza poświadczenia, które są wysyłane do serwera SMTP przez ich szyfrowanie.
-    - Ustaw `WebMail.UserName` do nazwy użytkownika dla konta serwera SMTP.
-    - Ustaw `WebMail.Password` hasło dla konta serwera SMTP.
-    - Ustaw `WebMail.From` na adres e-mail. Jest to komunikat jest wysyłany z adres e-mail.
+   - Ustaw `WebMail.SmtpServer` na nazwę serwera SMTP, który ma dostęp do.
+   - Pozostaw `WebMail.EnableSsl` ustawioną `true`. To ustawienie zabezpiecza poświadczenia, które są wysyłane do serwera SMTP przez ich szyfrowanie.
+   - Ustaw `WebMail.UserName` do nazwy użytkownika dla konta serwera SMTP.
+   - Ustaw `WebMail.Password` hasło dla konta serwera SMTP.
+   - Ustaw `WebMail.From` na adres e-mail. Jest to komunikat jest wysyłany z adres e-mail.
 
-    > [!NOTE] 
-    > 
-    > **Porada** dodatkowe informacje o wartości tych właściwości, zobacz [Konfigurowanie ustawień poczty E-mail](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings) w [Dostosowywanie zachowanie całej witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkID=202906).
+     > [!NOTE] 
+     > 
+     > **Porada** dodatkowe informacje o wartości tych właściwości, zobacz [Konfigurowanie ustawień poczty E-mail](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings) w [Dostosowywanie zachowanie całej witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkID=202906).
 7. Zapisz i Zamknij  *\_AppStart.cshtml*.
 8. Uruchom *Default.cshtml* strony w przeglądarce.
 
     ![zabezpieczenia członkostwa 2](16-adding-security-and-membership/_static/image1.png)
 
-    > [!NOTE]
-    > Jeśli zostanie wyświetlony błąd informujący o tym, czy właściwość musi być wystąpieniem elementu `ExtendedMembershipProvider`, lokacji może nie być skonfigurowany do korzystania z systemu członkostwa ASP.NET Web Pages (SimpleMembership). Czasami może to występować, jeśli skonfigurowano serwer dostawcy hostingu inaczej niż na serwerze lokalnym. Aby rozwiązać ten problem, Dodaj następujący element w witrynie *Web.config* pliku:
-    > 
-    > [!code-xml[Main](16-adding-security-and-membership/samples/sample2.xml)]
-    > 
-    > Dodaj ten element jako element podrzędny `<configuration>` element i jako element równorzędny elementu `<system.web>` elementu.
+   > [!NOTE]
+   > Jeśli zostanie wyświetlony błąd informujący o tym, czy właściwość musi być wystąpieniem elementu `ExtendedMembershipProvider`, lokacji może nie być skonfigurowany do korzystania z systemu członkostwa ASP.NET Web Pages (SimpleMembership). Czasami może to występować, jeśli skonfigurowano serwer dostawcy hostingu inaczej niż na serwerze lokalnym. Aby rozwiązać ten problem, Dodaj następujący element w witrynie *Web.config* pliku:
+   > 
+   > [!code-xml[Main](16-adding-security-and-membership/samples/sample2.xml)]
+   > 
+   > Dodaj ten element jako element podrzędny `<configuration>` element i jako element równorzędny elementu `<system.web>` elementu.
 9. W prawym górnym rogu strony kliknij **zarejestrować** łącza. *Register.cshtml* zostanie wyświetlona strona.
 10. Wprowadź nazwę użytkownika i hasło, a następnie kliknij przycisk **zarejestrować**.
 
@@ -120,14 +120,14 @@ W poniższej procedurze opisano sposób tworzenia lokacji i skonfigurować go.
 12. Kliknij hiperłącze, aby aktywować konto. Hyperlink potwierdzenie otwiera stronę potwierdzenia rejestracji.
 
     ![security-membership-5](16-adding-security-and-membership/_static/image4.png)
-- Kliknij przycisk **logowania** połączyć, a następnie zaloguj się za pomocą konta, który został zarejestrowany.
+13. Kliknij przycisk **logowania** połączyć, a następnie zaloguj się za pomocą konta, który został zarejestrowany.
 
-    Po zalogowaniu, **logowania** i **zarejestrować** łącza są zastępowane przez **wylogowania** łącza. Nazwy logowania jest wyświetlany jako łącze. (Ten link pozwala przejść do strony, w którym można zmienić swoje hasło.)
+      Po zalogowaniu, **logowania** i **zarejestrować** łącza są zastępowane przez **wylogowania** łącza. Nazwy logowania jest wyświetlany jako łącze. (Ten link pozwala przejść do strony, w którym można zmienić swoje hasło.)
 
-    ![security-membership-6](16-adding-security-and-membership/_static/image5.png)
+      ![security-membership-6](16-adding-security-and-membership/_static/image5.png)
 
-    > [!NOTE]
-    > Domyślnie strony sieci web ASP.NET wysłać poświadczeń do serwera w postaci zwykłego tekstu (jako tekst zrozumiałą dla użytkownika). Witryny produkcyjnym należy używać bezpiecznego protokołu HTTP (https://, nazywany również *protokołu secure sockets layer* lub SSL) do szyfrowania poufnych informacji, które są wymieniane z serwerem. Można wymagane e-mail komunikatów do wysłania przy użyciu protokołu SSL, ustawiając `WebMail.EnableSsl=true` co w poprzednim przykładzie. Aby uzyskać więcej informacji na temat protokołu SSL, zobacz [zabezpieczania komunikacji w sieci Web: certyfikatów SSL i https://](https://go.microsoft.com/fwlink/?LinkId=208660).
+      > [!NOTE]
+      > Domyślnie strony sieci web ASP.NET wysłać poświadczeń do serwera w postaci zwykłego tekstu (jako tekst zrozumiałą dla użytkownika). Witryny produkcyjnym należy używać bezpiecznego protokołu HTTP (https://, nazywany również *protokołu secure sockets layer* lub SSL) do szyfrowania poufnych informacji, które są wymieniane z serwerem. Można wymagane e-mail komunikatów do wysłania przy użyciu protokołu SSL, ustawiając `WebMail.EnableSsl=true` co w poprzednim przykładzie. Aby uzyskać więcej informacji na temat protokołu SSL, zobacz [zabezpieczania komunikacji w sieci Web: certyfikatów SSL i https://](https://go.microsoft.com/fwlink/?LinkId=208660).
 
 ## <a name="additional-membership-functionality-in-the-site"></a>Funkcje dodatkowe członkostwa w lokacji
 
@@ -165,12 +165,12 @@ W tej procedurze utworzysz folder, który będzie zawierać stron, które są do
     (Numer portu (38366) prawdopodobnie będą różne w adresie URL).
 
     Są przekierowywane do *Login.cshtml* strony, ponieważ nie jest zalogowany.
-- Zaloguj się za pomocą utworzonego wcześniej konta. W przypadku przekierowany do *MembersInformation* strony. Ponieważ użytkownik jest zalogowany, teraz możesz zobaczyć strony zawartości.
+7. Zaloguj się za pomocą utworzonego wcześniej konta. W przypadku przekierowany do *MembersInformation* strony. Ponieważ użytkownik jest zalogowany, teraz możesz zobaczyć strony zawartości.
 
 Aby zabezpieczyć dostęp do wielu stron, można to zrobić:
 
 - Kontrola zabezpieczeń można dodać do każdej strony.
-- Utwórz  *\_PageStart.cshtml* strony w folderze, w której Zachowaj chronione stron, a następnie dodaj podczas sprawdzania zabezpieczeń. *\_PageStart.cshtml* strony pełni rolę rodzaju strony globalne dla wszystkich stron w folderze. Ta technika jest co omówiono bardziej szczegółowo w [Dostosowywanie zachowanie całej witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
+- Utwórz  *\_PageStart.cshtml* strony w folderze, w której Zachowaj chronione stron, a następnie dodaj podczas sprawdzania zabezpieczeń.  *\_PageStart.cshtml* strony pełni rolę rodzaju strony globalne dla wszystkich stron w folderze. Ta technika jest co omówiono bardziej szczegółowo w [Dostosowywanie zachowanie całej witryny ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
 
 ## <a name="creating-security-for-groups-of-users-roles"></a>Tworzenie zabezpieczeń dla grup użytkowników (role)
 
@@ -227,10 +227,10 @@ Strona logowania nie spowoduje zatrzymania automatycznych programów (czasami ok
 7. Zastąp `PUBLIC_KEY` kluczem.
 8. Jeśli jeszcze tego nie usunięto go już, Usuń `<div>` element zawierający tekst, który rozpoczyna się od "Aby włączyć weryfikację CAPTCHA...". (Usuń całą `<div>` elementu i jego zawartość.)
 
-1. Uruchom *Default.cshtml* w przeglądarce. Jeśli logujesz się do witryny, kliknij przycisk **wylogowania** łącza.
-2. Kliknij przycisk **zarejestrować** test rejestracji za pomocą testu CAPTCHA i łącza.
+9. Uruchom *Default.cshtml* w przeglądarce. Jeśli logujesz się do witryny, kliknij przycisk **wylogowania** łącza.
+10. Kliknij przycisk **zarejestrować** test rejestracji za pomocą testu CAPTCHA i łącza.
 
-    ![security-membership-10](16-adding-security-and-membership/_static/image9.png)
+     ![security-membership-10](16-adding-security-and-membership/_static/image9.png)
 
 Aby uzyskać więcej informacji na temat `ReCaptcha` pomocnika, zobacz [za pomocą CATPCHA uniemożliwiają automatyczne programy (robotów) z przy użyciu Your witryna sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251967).
 

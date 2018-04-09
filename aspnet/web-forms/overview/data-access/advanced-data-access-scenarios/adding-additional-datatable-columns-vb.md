@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
 title: Dodawanie elementu DataTable dodatkowych kolumn (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Podczas korzystania z Kreatora TableAdapter można utworzyć zestawu danych typu, odpowiedniego elementu DataTable zawiera kolumny zwracane przez zapytanie głównej bazy danych. Jednak brak..."
+description: Podczas korzystania z Kreatora TableAdapter można utworzyć zestawu danych typu, odpowiedniego elementu DataTable zawiera kolumny zwracane przez zapytanie głównej bazy danych. Jednak brak...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d357ca7bfe364090ff2c8504b2116e0d99d004bc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b51089057ad1e14901cb09589534d6e575261c3e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-additional-datatable-columns-vb"></a>Dodawanie elementu DataTable dodatkowych kolumn (VB)
 ====================
@@ -41,9 +41,9 @@ W tym samouczku przedstawiono, jak rozszerzyć schemat s DataTable w celu uwzgl�
 
 W *Tworzenie nowej procedury składowanej s wpisane DataSet TableAdapters* samouczek utworzyliśmy zestawu danych typu o nazwie `NorthwindWithSprocs`. Ten zestaw danych zawiera obecnie dwie DataTables: `ProductsDataTable` i `EmployeesDataTable`. `ProductsTableAdapter` Ma następujące trzy metody:
 
-- `GetProducts`-główne zapytanie zwraca wszystkie rekordy z `Products` tabeli
-- `GetProductsByCategoryID(categoryID)`-Zwraca wszystkie produkty z określonym *categoryID*.
-- `GetProductByProductID(productID)`— Zwraca iloczyn danego z określonym *productID*.
+- `GetProducts` -główne zapytanie zwraca wszystkie rekordy z `Products` tabeli
+- `GetProductsByCategoryID(categoryID)` -Zwraca wszystkie produkty z określonym *categoryID*.
+- `GetProductByProductID(productID)` — Zwraca iloczyn danego z określonym *productID*.
 
 Główne zapytanie i dwie dodatkowe metody wszystkie zwracać ten sam zestaw pól danych, czyli wszystkich kolumn z `Products` tabeli. Nie ma żadnych skorelowane podzapytania lub `JOIN` s ściąganie danych powiązanych z `Categories` lub `Suppliers` tabel. W związku z tym `ProductsDataTable` ma odpowiadającej mu kolumny dla każdego pola w `Products` tabeli.
 
@@ -209,12 +209,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Randy Schmidt, Artur Goor Bernadette Leigh i Hilton Giesenow. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](updating-the-tableadapter-to-use-joins-vb.md)
-[dalej](working-with-computed-columns-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](updating-the-tableadapter-to-use-joins-vb.md)
+> [dalej](working-with-computed-columns-vb.md)

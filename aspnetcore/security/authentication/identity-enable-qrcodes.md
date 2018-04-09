@@ -1,7 +1,7 @@
 ---
-title: "Włączenie generowania kodu QR uwierzytelniania aplikacji w ASP.NET Core"
+title: Włącz generowanie kodu QR dla uwierzytelniania w aplikacjach w ASP.NET Core
 author: rick-anderson
-description: "Wykryj jak włączyć generowanie kodu QR dla aplikacji uwierzytelniania, które współpracują z uwierzytelniania dwuskładnikowego platformy ASP.NET Core."
+description: Wykryj jak włączyć generowanie kodu QR dla aplikacji uwierzytelniania, które współpracują z uwierzytelniania dwuskładnikowego platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 09/24/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: dd326bb32565b743d21e196bcb616a716d7994bf
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c61918d42b407b01484b67d740edc7a682c3a4b0
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>Włączenie generowania kodu QR uwierzytelniania aplikacji w ASP.NET Core
+# <a name="enable-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>Włącz generowanie kodu QR dla uwierzytelniania w aplikacjach w ASP.NET Core
 
 Uwaga: W tym temacie dotyczą platformy ASP.NET Core 2.x
 

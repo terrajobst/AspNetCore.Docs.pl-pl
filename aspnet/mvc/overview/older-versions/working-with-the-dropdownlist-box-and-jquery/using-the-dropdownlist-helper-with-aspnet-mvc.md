@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
-title: "Używanie Pomocnika lista DropDownList na platformie ASP.NET MVC | Dokumentacja firmy Microsoft"
+title: Używanie Pomocnika lista DropDownList na platformie ASP.NET MVC | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2012
@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 278d04aec68e93f3ebfd12d06a96b59f3bcbef4b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 21373deeded801c5cea9e89f6dac0f3542a55ca5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>Używanie Pomocnika lista DropDownList na platformie ASP.NET MVC
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 W tym samouczku udzieli Ci podstawy pracy z [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) pomocnika i [ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) pomocy w aplikacji sieci Web programu ASP.NET MVC. Korzystając z Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest bezpłatna wersja programu Microsoft Visual Studio, które należy wykonać w samouczku. Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagania wstępne wymienione poniżej. Można zainstalować wszystkie z nich, klikając poniższe łącze: [Instalatora platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie można zainstalować oddzielnie wymagania wstępne, korzystając z następujących linków:
 
-- [Visual Studio Web Developer Express z dodatkiem SP1 wymagania wstępne](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)<a id="post"></a>
+- [Visual Studio Web Developer Express z dodatkiem SP1 wymagania wstępne](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack) <a id="post"></a>
 - [Aktualizacji narzędzi programu ASP.NET MVC 3](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
 - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(środowisko uruchomieniowe + narzędzia pomocy technicznej)
 
@@ -193,7 +193,7 @@ Otwórz *Views\Home\MultiSelectCountry.cshtml* plik i dodać `htmlAttributes` pa
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-W powyższym kodzie dodajemy atrybutu HTML i wartości atrybutu `class = "chzn-select"`. @-Znak poprzedzających klasa nie ma nic wspólnego z aparatu widoku Razor. `class`jest [— słowo kluczowe języka C#](https://msdn.microsoft.com/library/x53a06bb.aspx). Słowa kluczowe języka C# nie można użyć jako identyfikatory, jeśli nie obejmują one jako prefiksu. W powyższym przykładzie `@class` jest prawidłowym identyfikatorem, ale **klasy** jest ponieważ **klasy** jest słowem kluczowym.
+W powyższym kodzie dodajemy atrybutu HTML i wartości atrybutu `class = "chzn-select"`. @-Znak poprzedzających klasa nie ma nic wspólnego z aparatu widoku Razor. `class` jest [— słowo kluczowe języka C#](https://msdn.microsoft.com/library/x53a06bb.aspx). Słowa kluczowe języka C# nie można użyć jako identyfikatory, jeśli nie obejmują one jako prefiksu. W powyższym przykładzie `@class` jest prawidłowym identyfikatorem, ale **klasy** jest ponieważ **klasy** jest słowem kluczowym.
 
 Dodaj odwołania do *Chosen/chosen.jquery.js* i *Chosen/chosen.css* plików. *Chosen/chosen.jquery.js* i implementuje funkcjonalnie z wtyczki wybrana. *Chosen/chosen.css* plik zawiera style. Dodaj te odwołania do dołu *Views\Home\MultiSelectCountry.cshtml* pliku. Poniższy kod przedstawia sposób wtyczki wybranego odwołania.
 
@@ -217,5 +217,5 @@ Uruchom aplikację i przejdź do `MultiSelectCountry` widoku. Spróbuj dodawania
 
 W następnej sekcji zobaczysz, jak działa mechanizm szkieletów ASP.NET MVC z **DropDownList** pomocnika.
 
->[!div class="step-by-step"]
-[Next](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+> [!div class="step-by-step"]
+> [Next](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)

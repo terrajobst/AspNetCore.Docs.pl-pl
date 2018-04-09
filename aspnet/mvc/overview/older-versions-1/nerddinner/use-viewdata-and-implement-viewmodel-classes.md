@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
-title: "Użyj ViewData i wdrożenie ViewModel klasy | Dokumentacja firmy Microsoft"
+title: Użyj ViewData i wdrożenie ViewModel klasy | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Krok 6 przedstawia jak włączyć obsługę bardziej zaawansowane funkcje edycji scenariuszach formularza i omówiono również dwie metody, które mogą służyć do przekazywania danych z kontrolerów z widokami:..."
+description: Krok 6 przedstawia jak włączyć obsługę bardziej zaawansowane funkcje edycji scenariuszach formularza i omówiono również dwie metody, które mogą służyć do przekazywania danych z kontrolerów z widokami:...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
 msc.type: authoredcontent
-ms.openlocfilehash: 36b9e87cc24f74f7f2cc592afb5102709b598f74
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9ba8758bd6524f3e300f3fd91ef68cfe8a3587a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-viewdata-and-implement-viewmodel-classes"></a>Użyj ViewData i wdrożenie ViewModel klasy
 ====================
@@ -127,6 +127,6 @@ W kształcie niestandardowej klasy ViewModel zapewniają dużą elastyczność i
 
 Teraz Przyjrzyjmy się jak możemy użyć częściowe i stron wzorcowych do ponownego użycia i udostępniać interfejsu użytkownika w naszej aplikacji.
 
->[!div class="step-by-step"]
-[Poprzednie](provide-crud-create-read-update-delete-data-form-entry-support.md)
-[dalej](re-use-ui-using-master-pages-and-partials.md)
+> [!div class="step-by-step"]
+> [Poprzednie](provide-crud-create-read-update-delete-data-form-entry-support.md)
+> [dalej](re-use-ui-using-master-pages-and-partials.md)

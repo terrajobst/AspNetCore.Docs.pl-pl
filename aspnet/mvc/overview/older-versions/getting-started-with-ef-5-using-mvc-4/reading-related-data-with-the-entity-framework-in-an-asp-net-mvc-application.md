@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Odczytywanie danych powiązanych z programu Entity Framework w aplikacji platformy ASP.NET MVC (5 10) | Dokumentacja firmy Microsoft"
+title: Odczytywanie danych powiązanych z programu Entity Framework w aplikacji platformy ASP.NET MVC (5 10) | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9093fb90a52b297f173c5cddb6f332d2d1a25135
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 831f5e0a8b57907ea012c10c1d1f8ff166f5e88b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Odczytywanie powiązane dane z programu Entity Framework w aplikacji platformy ASP.NET MVC (5, 10)
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -149,7 +149,7 @@ Zastąp `Index` metody z następujący kod, aby załadować dodatkowe dane dotyc
 
 Metoda akceptuje dane trasy opcjonalne (`id`) i parametr ciągu zapytania (`courseID`) podaj wartości Identyfikatora wybranym instruktorze i wybranych przebieg i przekazuje wszystkie dane wymagane do widoku. Parametry są dostarczane przez **wybierz** hiperłącza, na stronie.
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Dane trasy**
 > 
@@ -186,7 +186,7 @@ Drugi `Include` metody ładuje kursy i dla każdego kursu, który jest ładowany
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cs)]
 
-Jak wspomniano wcześniej, ładowanie wczesny nie jest wymagany, ale odbywa się w celu zwiększenia wydajności. Ponieważ widok zawsze wymaga `OfficeAssignment` jednostki, jest bardziej wydajne, można pobrać który w jednym zapytaniu. `Course`jednostki są wymagane w przypadku instruktora jest zaznaczona na stronie sieci web, ładowanie wczesny jest lepszym rozwiązaniem niż opóźnionego ładowania tylko wtedy, gdy strona jest wyświetlana częściej z kursu wybrane niż bez.
+Jak wspomniano wcześniej, ładowanie wczesny nie jest wymagany, ale odbywa się w celu zwiększenia wydajności. Ponieważ widok zawsze wymaga `OfficeAssignment` jednostki, jest bardziej wydajne, można pobrać który w jednym zapytaniu. `Course` jednostki są wymagane w przypadku instruktora jest zaznaczona na stronie sieci web, ładowanie wczesny jest lepszym rozwiązaniem niż opóźnionego ładowania tylko wtedy, gdy strona jest wyświetlana częściej z kursu wybrane niż bez.
 
 Jeśli wybrano Identyfikator instruktora, wybranym instruktorze są pobierane z listy w modelu widoku instruktorów. Model widoku `Courses` właściwości jest następnie ładowany z `Course` jednostek z tego instruktora `Courses` właściwości nawigacji.
 
@@ -282,6 +282,6 @@ Teraz używano wszystkie trzy sposoby (opóźnieniem wczesny i jawne) ładowanie
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [Mapa zawartości dostępu do danych programu ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Poprzednie](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
-[dalej](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
+> [dalej](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

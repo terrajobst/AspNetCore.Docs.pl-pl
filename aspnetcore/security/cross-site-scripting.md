@@ -1,7 +1,7 @@
 ---
-title: "Zapobieganie krzyżowe skryptów (XSS) w platformy ASP.NET Core"
+title: Zapobiegaj krzyżowe skryptów (XSS) w platformy ASP.NET Core
 author: rick-anderson
-description: "Więcej informacji na temat skryptów między witrynami (XSS) i techniki adresowania tę lukę w zabezpieczeniach w aplikacji platformy ASP.NET Core."
+description: Więcej informacji na temat skryptów między witrynami (XSS) i techniki adresowania tę lukę w zabezpieczeniach w aplikacji platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: 9e54ee0b1169c01629c3cd91a378509a73c53904
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d9263a2c1bb6a376008b7d8a55864e4d15e77cee
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="preventing-cross-site-scripting-xss-in-aspnet-core"></a>Zapobieganie krzyżowe skryptów (XSS) w platformy ASP.NET Core
+# <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Zapobiegaj krzyżowe skryptów (XSS) w platformy ASP.NET Core
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -37,7 +37,7 @@ At podstawowe XSS poziomu działa przez aplikację na wstawianie oszukanie `<scr
 
 ## <a name="html-encoding-using-razor"></a>Kodowanie HTML przy użyciu Razor
 
-Używane w nazwie wzorca MVC automatycznie aparatu Razor koduje wszystkie dane wyjściowe pochodzących z zmiennych, chyba że naprawdę twardego pracy zapobiegania w ten sposób. Używa atrybutu HTML reguły kodowania przy każdym użyciu  *@*  dyrektywy. Jako HTML kodowanie atrybutu jest nadzbiorem kodowanie HTML, który oznacza to, że nie trzeba samodzielnie dotyczą z tego, czy należy użyć kodowanie HTML lub kodowanie atrybutu HTML. Należy się upewnić, czy używać tylko w kontekście HTML nie podczas próby wstawienia niezaufanych danych wejściowych bezpośrednio na język JavaScript. Pomocników tagów będzie również kodowanie danych wejściowych używanych w tagu parametrów.
+Używane w nazwie wzorca MVC automatycznie aparatu Razor koduje wszystkie dane wyjściowe pochodzących z zmiennych, chyba że naprawdę twardego pracy zapobiegania w ten sposób. Używa atrybutu HTML reguły kodowania przy każdym użyciu *@* dyrektywy. Jako HTML kodowanie atrybutu jest nadzbiorem kodowanie HTML, który oznacza to, że nie trzeba samodzielnie dotyczą z tego, czy należy użyć kodowanie HTML lub kodowanie atrybutu HTML. Należy się upewnić, czy używać tylko w kontekście HTML nie podczas próby wstawienia niezaufanych danych wejściowych bezpośrednio na język JavaScript. Pomocników tagów będzie również kodowanie danych wejściowych używanych w tagu parametrów.
 
 Podejmij następujące widoku Razor;
 
@@ -145,7 +145,7 @@ To spowoduje, że w przeglądarce
 
 ## <a name="accessing-encoders-in-code"></a>Uzyskiwanie dostępu do koderów w kodzie
 
-Kodery HTML, JavaScript i adres URL są dostępne do kodu na dwa sposoby, można wprowadzić je przy użyciu [iniekcji zależności](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) lub skorzystać z koderów domyślne zawarte w `System.Text.Encodings.Web` przestrzeni nazw. Jeśli używasz koderów domyślne, a następnie żadnego stosowane do zakres znaków należy traktować jako bezpieczne nie odniesie żadnego skutku — koderów domyślne Użyj najbezpieczniejszy reguł kodowania możliwe.
+Kodery HTML, JavaScript i adres URL są dostępne do kodu na dwa sposoby, można wprowadzić je przy użyciu [iniekcji zależności](xref:fundamentals/dependency-injection#fundamentals-dependency-injection) lub skorzystać z koderów domyślne zawarte w `System.Text.Encodings.Web` przestrzeni nazw. Jeśli używasz koderów domyślne, a następnie żadnego stosowane do zakres znaków należy traktować jako bezpieczne nie odniesie żadnego skutku — koderów domyślne Użyj najbezpieczniejszy reguł kodowania możliwe.
 
 Do użycia można konfigurować koderów za pośrednictwem Podpisane z konstruktorów powinno zająć *HtmlEncoder*, *JavaScriptEncoder* i *UrlEncoder* parametru zależnie od potrzeb. Na przykład;
 

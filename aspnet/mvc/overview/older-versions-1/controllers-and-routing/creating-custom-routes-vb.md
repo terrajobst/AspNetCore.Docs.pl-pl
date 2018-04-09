@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
 title: Tworzenie trasy niestandardowe (VB) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Dowiedz się, jak dodać trasy niestandardowe do aplikacji platformy ASP.NET MVC. W tym samouczku Dowiedz się jak zmodyfikować domyślną tabelę routingu w pliku Global.asax."
+description: Dowiedz się, jak dodać trasy niestandardowe do aplikacji platformy ASP.NET MVC. W tym samouczku Dowiedz się jak zmodyfikować domyślną tabelę routingu w pliku Global.asax.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3d3161bd1bf74df425d3c53873875a1abcfbfa05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e827725ab7ce54c86ae9f4193d0a8a7ef4af8512
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-custom-routes-vb"></a>Tworzenie trasy niestandardowe (VB)
 ====================
@@ -73,6 +73,6 @@ Zwróć uwagę, że metoda Entry() wyświetlania 2 przyjmuje parametr typu DateT
 
 Celem tego samouczka było wykazać, sposób tworzenia tras niestandardowych. Przedstawiono sposób dodawania tras niestandardowych do tabeli tras w pliku Global.asax, który reprezentuje wpisy. Omówiono sposób mapowania żądania do wpisów w kontrolerze o nazwie ArchiveController i o nazwie Entry() akcji kontrolera.
 
->[!div class="step-by-step"]
-[Poprzednie](asp-net-mvc-controller-overview-vb.md)
-[dalej](creating-a-route-constraint-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](asp-net-mvc-controller-overview-vb.md)
+> [dalej](creating-a-route-constraint-vb.md)

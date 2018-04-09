@@ -1,5 +1,5 @@
 ---
-title: Tworzenie interfejsu API sieci Web platformy ASP.NET Core i kodzie VS
+title: Tworzenie składnika Web API platformy ASP.NET Core i kodu programu Visual Studio
 author: rick-anderson
 description: Tworzenie interfejsu API sieci web na macOS, Linux lub Windows z platformy ASP.NET Core MVC i Visual Studio Code
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 12b1c3cea5101b4da673a1ad82cc1ad461f2a38d
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 705524a62018b9f0fbd8c40fa1b70d4c62ee236e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Utwórz interfejs API sieci Web platformy ASP.NET Core MVC i Visual Studio Code w systemie Linux, macOS i systemu Windows
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>Tworzenie składnika Web API platformy ASP.NET Core i kodu programu Visual Studio
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Wasson Jan](https://github.com/mikewasson)
 
@@ -29,14 +29,11 @@ Istnieją 3 wersje tego samouczka:
 
 <!-- WARNING: The code AND images in this doc are used by uid: tutorials/web-api-vsc, tutorials/first-web-api-mac and tutorials/first-web-api. If you change any code/images in this tutorial, update uid: tutorials/web-api-vsc -->
 
-[!INCLUDE[template files](../includes/webApi/intro.md)]
+[!INCLUDE [template files](../includes/webApi/intro.md)]
 
-## <a name="set-up-your-development-environment"></a>Konfigurowanie środowiska deweloperskiego
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Pobierz i zainstaluj:
-- [Oprogramowanie .NET core 2.0.0 SDK](https://www.microsoft.com/net/core) lub nowszym.
-- [Visual Studio Code](https://code.visualstudio.com)
-- Visual Studio Code [rozszerzenia C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+[!INCLUDE [](~/includes/net-core-prereqs-vscode.md)]
 
 ## <a name="create-the-project"></a>Utwórz projekt
 
@@ -57,7 +54,7 @@ Otwórz *TodoApi* folderu w Visual Studio (kod VS) i wybierz *Startup.cs* pliku.
 
 ![Kod w PORÓWNANIU z Ostrzegaj wymagane zasoby do tworzenia i debugowania brakuje "TodoApi". Czy chcesz je dodać? Nie pytaj ponownie, nie teraz tak](web-api-vsc/_static/vsc_restore.png)
 
-Naciśnij klawisz **debugowania** (F5), aby skompilować i uruchomić program. W przeglądarce przejdź do http://localhost: 5000/api/wartości. Wyświetlane są następujące:
+Naciśnij klawisz **debugowania** (F5), aby skompilować i uruchomić program. W przeglądarce przejdź do http://localhost:5000/api/values . Wyświetlane są następujące:
 
 `["value1","value2"]`
 
@@ -89,19 +86,19 @@ Dodaj `TodoContext` klasy w *modele* folderu:
 
 [!code-csharp[](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
-[!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
+[!INCLUDE [Register the database context](../includes/webApi/register_dbContext.md)]
 
 ## <a name="add-a-controller"></a>Dodawanie kontrolera
 
 W *kontrolerów* folderu, Utwórz klasę o nazwie `TodoController`. Dodaj następujący kod:
 
-[!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
+[!INCLUDE [code and get todo items](../includes/webApi/getTodoItems.md)]
 
 ### <a name="launch-the-app"></a>Uruchom aplikację
 
-W kodzie VS naciśnij klawisz F5, aby uruchomić aplikację. Przejdź do http://localhost: 5000/api/todo ( `Todo` kontrolera właśnie utworzyliśmy).
+W kodzie VS naciśnij klawisz F5, aby uruchomić aplikację. Przejdź do http://localhost:5000/api/todo ( `Todo` kontrolera właśnie utworzyliśmy).
 
-[!INCLUDE[last part of web API](../includes/webApi/end.md)]
+[!INCLUDE [last part of web API](../includes/webApi/end.md)]
 
 ## <a name="visual-studio-code-help"></a>Visual Studio Code pomocy
 
@@ -114,6 +111,5 @@ W kodzie VS naciśnij klawisz F5, aby uruchomić aplikację. Przejdź do http://
   - [Skróty klawiaturowe systemu Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
   - [Skróty klawiaturowe systemu Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
-[!INCLUDE[next steps](../includes/webApi/next.md)]
-
+[!INCLUDE [next steps](../includes/webApi/next.md)]
 

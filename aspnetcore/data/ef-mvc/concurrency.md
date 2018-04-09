@@ -1,7 +1,7 @@
 ---
-title: "Platformy ASP.NET Core MVC podstawowych EF - współbieżności - 8, 10"
+title: Platformy ASP.NET Core MVC podstawowych EF - współbieżności - 8, 10
 author: tdykstra
-description: "Ten samouczek pokazuje sposób obsługi konfliktów w przypadku wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie."
+description: Ten samouczek pokazuje sposób obsługi konfliktów w przypadku wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 056d3ffe3f27c45f4da9504dd00afa5e450a86b5
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 99c4872719a4e46aa27eb7138eb914dc5954c219
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Obsługa konfliktom współbieżności - Core EF z samouczek platformy ASP.NET Core MVC (8, 10)
+# <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF - współbieżności - 8, 10
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -279,6 +279,6 @@ Zastąp kod w *Views/Departments/Create.cshtml* do dodania do listy rozwijanej w
 
 Na tym kończy się wprowadzenie do obsługi konfliktom współbieżności. Aby uzyskać więcej informacji na temat obsługi współbieżność w EF Core, zobacz [konfliktom współbieżności](https://docs.microsoft.com/ef/core/saving/concurrency). Następny samouczek pokazuje, jak do zaimplementowania tabeli na hierarchii dziedziczenia dla jednostek instruktora i uczniów.
 
->[!div class="step-by-step"]
-[Poprzednie](update-related-data.md)
-[dalej](inheritance.md)  
+> [!div class="step-by-step"]
+> [Poprzednie](update-related-data.md)
+> [dalej](inheritance.md)  

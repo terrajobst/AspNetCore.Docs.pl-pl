@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
-title: "Obsługa wyjątków logiki warstwy Biznesowej i warstwy DAL poziom strony ASP.NET (C#) | Dokumentacja firmy Microsoft"
+title: Obsługa wyjątków logiki warstwy Biznesowej i warstwy DAL poziom strony ASP.NET (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku przedstawiono sposób wyświetlania komunikat o błędzie przyjaznych, informacyjny powinna wystąpić Wystąpił wyjątek podczas wstawiania, aktualizacji lub operacji usuwania programu..."
+description: W tym samouczku przedstawiono sposób wyświetlania komunikat o błędzie przyjaznych, informacyjny powinna wystąpić Wystąpił wyjątek podczas wstawiania, aktualizacji lub operacji usuwania programu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5a0ffde90aa85383d87bd48e16a1c16433465cbf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e7589584f3b0773a739b785c433ec45eeac3607e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a>Obsługa wyjątków logiki warstwy Biznesowej i warstwy DAL poziom strony ASP.NET (C#)
 ====================
@@ -155,9 +155,9 @@ Tworzenie ten program obsługi zdarzeń Dodaj następujący kod do klasy związa
 
 Drugi parametr wejściowy tej obsługi zdarzeń jest obiektem typu [GridViewUpdatedEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), która zawiera trzy właściwości istotnych dla obsługi wyjątków:
 
-- `Exception`Odwołanie do zgłoszenia wyjątku; Jeśli żaden wyjątek nie były zgłaszane, ta właściwość będzie mieć wartość`null`
-- `ExceptionHandled`wartość logiczna, która wskazuje, czy wyjątek został obsłużony w `RowUpdated` obsługi zdarzeń; Jeśli `false` (ustawienie domyślne), wyjątek jest zgłoszony ponownie wypływająca do środowiska wykonawczego programu ASP.NET
-- `KeepInEditMode`Jeśli ustawiono `true` edytowanych wiersza elementu GridView pozostaje w trybie edycji; Jeśli `false` (domyślna), wiersza elementu GridView powróci do trybu tylko do odczytu
+- `Exception` Odwołanie do zgłoszenia wyjątku; Jeśli żaden wyjątek nie były zgłaszane, ta właściwość będzie mieć wartość `null`
+- `ExceptionHandled` wartość logiczna, która wskazuje, czy wyjątek został obsłużony w `RowUpdated` obsługi zdarzeń; Jeśli `false` (ustawienie domyślne), wyjątek jest zgłoszony ponownie wypływająca do środowiska wykonawczego programu ASP.NET
+- `KeepInEditMode` Jeśli ustawiono `true` edytowanych wiersza elementu GridView pozostaje w trybie edycji; Jeśli `false` (domyślna), wiersza elementu GridView powróci do trybu tylko do odczytu
 
 Naszego kodu, następnie należy sprawdzić, czy `Exception` nie jest `null`, co oznacza, że wystąpił wyjątek podczas wykonywania operacji. Jeśli tak jest, chcemy się:
 
@@ -224,12 +224,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Liz Shulok. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
-[dalej](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
+> [dalej](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)

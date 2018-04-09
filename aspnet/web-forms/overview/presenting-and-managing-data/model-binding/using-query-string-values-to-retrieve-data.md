@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
-title: "Przy użyciu wartości ciągu zapytania do filtrowania danych z powiązaniem modelu i sieci web forms | Dokumentacja firmy Microsoft"
+title: Przy użyciu wartości ciągu zapytania do filtrowania danych z powiązaniem modelu i sieci web forms | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Ten samouczek serii przedstawiono podstawowe aspekty projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązania modelu sprawia, że dane interakcji więcej proste-..."
+description: Ten samouczek serii przedstawiono podstawowe aspekty projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązania modelu sprawia, że dane interakcji więcej proste-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
 msc.type: authoredcontent
-ms.openlocfilehash: 2e5328ccda019462163b984da3661f7322b738df
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 03d20decf0eeff6062fbc6f8dd66f644b405c7cc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>Przy użyciu wartości ciągu zapytania do filtrowania danych z wiązania modelu i formularzy sieci web
 ====================
@@ -85,6 +85,6 @@ W tym samouczku po dodaniu łącza z wartością ciągu zapytania. Tej wartości
 
 W następnej [samouczek](adding-business-logic-layer.md), przeniesie kod z kodem — pliki do warstwy logiki biznesowej i warstwy dostępu do danych.
 
->[!div class="step-by-step"]
-[Poprzednie](integrating-jquery-ui.md)
-[dalej](adding-business-logic-layer.md)
+> [!div class="step-by-step"]
+> [Poprzednie](integrating-jquery-ui.md)
+> [dalej](adding-business-logic-layer.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 title: Animowanie formantu UpdatePanel (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Zawartości..."
+description: Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Zawartości...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7e6d8954d2ec886994cdd723121e540b471131f6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5d8d5b9c3f15b39045b5e01b455bdddfc9443a24
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="animating-an-updatepanel-control-c"></a>Animowanie formantu UpdatePanel (C#)
 ====================
@@ -43,8 +43,8 @@ Animacja w tym scenariuszu zostaną zastosowane dla platformy ASP.NET `Wizard` k
 
 Kod znaczników, które są niezbędne do `UpdatePanelAnimationExtender` formant jest podobna do znacznika używany do `AnimationExtender`. W `TargetControlID` atrybutu udostępniamy `ID` z `UpdatePanel` do animowania; w `UpdatePanelAnimationExtender` kontroli, `<Animations>` element posiada znaczników XML dla animacje. Jednak nie ma różnicy jednego: ilość zdarzenia i procedury obsługi zdarzeń jest ograniczona w porównaniu z `AnimationExtender`. Aby uzyskać `UpdatePanels`, tylko dwa z nich istnieje:
 
-- `<OnUpdated>`Po zaktualizowaniu UpdatePanel
-- `<OnUpdating>`Po uruchomieniu aktualizacji UpdatePanel
+- `<OnUpdated>` Po zaktualizowaniu UpdatePanel
+- `<OnUpdating>` Po uruchomieniu aktualizacji UpdatePanel
 
 W tym scenariuszu nowej zawartości `UpdatePanel` (po odświeżenie strony) są zanikania. Jest to niezbędne znacznika, w tym:
 
@@ -57,6 +57,6 @@ Teraz po zmianie odświeżania strony w elemencie UpdatePanel, nowej zawartości
 
 Następny krok kreatora zanikania jest ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](animating-an-updatepanel-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](changing-an-animation-using-client-side-code-cs.md)
-[dalej](dynamically-controlling-updatepanel-animations-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](changing-an-animation-using-client-side-code-cs.md)
+> [dalej](dynamically-controlling-updatepanel-animations-cs.md)

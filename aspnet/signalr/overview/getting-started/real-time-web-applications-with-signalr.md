@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/real-time-web-applications-with-signalr
-title: "Wskazówki laboratorium: Aplikacje sieci Web czasu rzeczywistego z SignalR | Dokumentacja firmy Microsoft"
+title: 'Wskazówki laboratorium: Aplikacje sieci Web czasu rzeczywistego z SignalR | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "Aplikacje sieci Web w czasie rzeczywistym funkcji możliwość wypychania zawartości do połączonych klientów, zdarza się, w czasie rzeczywistym po stronie serwera. Dla deweloperów platformy ASP.NET i ASP..."
+description: Aplikacje sieci Web w czasie rzeczywistym funkcji możliwość wypychania zawartości do połączonych klientów, zdarza się, w czasie rzeczywistym po stronie serwera. Dla deweloperów platformy ASP.NET i ASP...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 22123a9c61e6830f3f9f66a45182e1e923950341
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5a2bc120ded18ad2302fd6c5cde65a5323e86ca8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Wskazówki laboratorium: Aplikacje sieci Web czasu rzeczywistego z SignalR
 ====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
 [Pobierz obozów sieci Web uczenie Kit](http://aka.ms/webcamps-training-kit)
 
@@ -34,7 +34,7 @@ przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > 
 > ![Architektura SignalR](real-time-web-applications-with-signalr/_static/image1.png)
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -160,12 +160,12 @@ W tym zadaniu zostanie Dodaj SignalR do rozwiązania i aktualizacje automatyczne
 
     *Instalacja pakietu SignalR*
 
-    > [!NOTE]
-    > Podczas instalowania **SignalR** wersji pakietów NuGet pkt 2.0.2 z nowego aplikacji MVC 5, należy ręcznie zaktualizować **OWIN** pakietów do wersji 2.0.1 (lub nowszej) przed zainstalowaniem SignalR. Aby to zrobić, należy wykonać następujący skrypt w **Konsola Menedżera pakietów**:
-    > 
-    > [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample2.ps1)]
-    > 
-    > W przyszłym wydaniu SignalR zależności OWIN zostanie automatycznie zaktualizowana.
+   > [!NOTE]
+   > Podczas instalowania **SignalR** wersji pakietów NuGet pkt 2.0.2 z nowego aplikacji MVC 5, należy ręcznie zaktualizować **OWIN** pakietów do wersji 2.0.1 (lub nowszej) przed zainstalowaniem SignalR. Aby to zrobić, należy wykonać następujący skrypt w **Konsola Menedżera pakietów**:
+   > 
+   > [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample2.ps1)]
+   > 
+   > W przyszłym wydaniu SignalR zależności OWIN zostanie automatycznie zaktualizowana.
 3. W **Eksploratora rozwiązań**, rozwiń węzeł **skryptów** folderu i zwróć uwagę, że SignalR *js* pliki zostały dodane do rozwiązania.
 
     ![SignalR JavaScript odwołuje się do](real-time-web-applications-with-signalr/_static/image10.png "SignalR JavaScript odwołuje się do")
@@ -349,7 +349,7 @@ W ramach tego zadania spowoduje utworzenie bazy danych, który będzie służyć
     ![Badanie stanu brokera usługi](real-time-web-applications-with-signalr/_static/image25.png "badanie stanu brokera usługi")
 
     *Badanie stanu brokera usługi*
-8. Jeśli wartość **jest\_brokera\_włączone** kolumny w bazie danych jest &quot;0&quot;, użyj następującego polecenia, aby ją włączyć. Zastąp  **&lt;bazy danych YOUR&gt;**  o nazwie ustawione podczas tworzenia bazy danych (np.: SignalR).
+8. Jeśli wartość **jest\_brokera\_włączone** kolumny w bazie danych jest &quot;0&quot;, użyj następującego polecenia, aby ją włączyć. Zastąp **&lt;bazy danych YOUR&gt;** o nazwie ustawione podczas tworzenia bazy danych (np.: SignalR).
 
     [!code-sql[Main](real-time-web-applications-with-signalr/samples/sample12.sql)]
 
@@ -369,7 +369,7 @@ W tym zadaniu zostanie skonfigurowana **Geek quizu** nawiązać środowiska IDE 
 
     [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample13.ps1)]
 2. Powtórz poprzedni krok, lecz tym razem dla projektu **GeekQuiz2**.
-3. Aby skonfigurować środowiska IDE programu SQL Server, otwórz **Startup.cs** pliku **GeekQuiz** projektu i Dodaj następujący kod, aby **Konfiguruj** — metoda. Zastąp  **&lt;bazy danych YOUR&gt;**  nazwą bazy danych używane podczas tworzenia środowiska IDE programu SQL Server. Powtórz ten krok w przypadku **GeekQuiz2** projektu.
+3. Aby skonfigurować środowiska IDE programu SQL Server, otwórz **Startup.cs** pliku **GeekQuiz** projektu i Dodaj następujący kod, aby **Konfiguruj** — metoda. Zastąp **&lt;bazy danych YOUR&gt;** nazwą bazy danych używane podczas tworzenia środowiska IDE programu SQL Server. Powtórz ten krok w przypadku **GeekQuiz2** projektu.
 
     (Fragment - kodu *StartupConfiguration RealTimeSignalR - Ex2 -*)
 

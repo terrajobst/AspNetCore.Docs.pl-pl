@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb
-title: "Wzorzec/szczegół za pomocą wybieranych GridView wzorca z DetailView szczegóły (VB) | Dokumentacja firmy Microsoft"
+title: Wzorzec/szczegół za pomocą wybieranych GridView wzorca z DetailView szczegóły (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek ma GridView, w której wiersze zawierają nazwę i ceny każdego produktu oraz przycisk Wybierz. Kliknięcie przycisku Wybierz dla particu..."
+description: Ten samouczek ma GridView, w której wiersze zawierają nazwę i ceny każdego produktu oraz przycisk Wybierz. Kliknięcie przycisku Wybierz dla particu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: eae9c07eff7780aab18346815ca410d687789d17
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 80db1589de901f7364c05c5bb67829145579b6c0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-vb"></a>Wzorzec/szczegół za pomocą wybieranych GridView wzorca z DetailView szczegóły (VB)
 ====================
@@ -131,12 +131,12 @@ Z `ProductsGrid` ukończyć GridView, wszystkie punkty, które pozostaje jest do
 **Rysunek 9**: wywołanie `ProductsBLL` klasy `GetProductByProductID(productID)` — metoda ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/_static/image27.png))
 
 
-Ma  *`productID`*  wartość parametru uzyskane z kontrolki widoku siatki `SelectedValue` właściwości. Jak wspomniano wcześniej, w widoku GridView `SelectedValue` właściwość zwraca wartość dla wybranego wiersza klucza pierwsze dane. W związku z tym należy bezwzględnie który w widoku GridView `DataKeyNames` właściwość jest ustawiona na `ProductID`, dzięki czemu wybranego wiersza `ProductID` wartość jest zwracana przez `SelectedValue`.
+Ma *`productID`* wartość parametru uzyskane z kontrolki widoku siatki `SelectedValue` właściwości. Jak wspomniano wcześniej, w widoku GridView `SelectedValue` właściwość zwraca wartość dla wybranego wiersza klucza pierwsze dane. W związku z tym należy bezwzględnie który w widoku GridView `DataKeyNames` właściwość jest ustawiona na `ProductID`, dzięki czemu wybranego wiersza `ProductID` wartość jest zwracana przez `SelectedValue`.
 
 
 [![Ustaw productID parametru do właściwości SelectedValue w widoku GridView](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/_static/image29.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/_static/image28.png)
 
-**Na rysunku nr 10**: Ustaw  *`productID`*  parametr w widoku GridView `SelectedValue` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/_static/image30.png))
+**Na rysunku nr 10**: Ustaw *`productID`* parametr w widoku GridView `SelectedValue` właściwości ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/_static/image30.png))
 
 
 Raz `productDetailsDataSource` ObjectDataSource został poprawnie skonfigurowany i powiązany z widoku DetailsView, w tym samouczku została zakończona! Po pierwsze odwiedzenia strony wiersza nie jest zaznaczone, dlatego w widoku GridView `SelectedValue` zwraca `Nothing`. Ponieważ nie ma żadnych produktów z `NULL` `ProductID` wartość, nie zwrócono żadnych rekordów przez `GetProductByProductID(productID)` metody, co oznacza, że nie są wyświetlane w widoku DetailsView (patrz rysunek 11). Po kliknięciu przycisku Wybierz wierszu elementu GridView, ensues odświeżania strony i odświeżeniu widoku DetailsView. Tym razem w widoku GridView `SelectedValue` zwraca właściwości `ProductID` wybranego wiersza `GetProductByProductID(productID)` metoda zwraca `ProductsDataTable` informacje dotyczące tego konkretnego produktu i widoku DetailsView zawiera te szczegóły (patrz rysunek 12).
@@ -162,11 +162,11 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Hilton Giesenow. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](master-detail-filtering-across-two-pages-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](master-detail-filtering-across-two-pages-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
-title: "Tworzenie sieci Web ASP.NET formularzy aplikacji za pomocą uwierzytelniania dwuskładnikowego programu SMS (C#) | Dokumentacja firmy Microsoft"
+title: Tworzenie sieci Web ASP.NET formularzy aplikacji za pomocą uwierzytelniania dwuskładnikowego programu SMS (C#) | Dokumentacja firmy Microsoft
 author: Erikre
-description: "Ten samouczek przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą uwierzytelniania dwuskładnikowego. W tym samouczku zaprojektowano tak, aby mogła uzupełniać Samouczek zatytułowany Cr..."
+description: Ten samouczek przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą uwierzytelniania dwuskładnikowego. W tym samouczku zaprojektowano tak, aby mogła uzupełniać Samouczek zatytułowany Cr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/09/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: b1f0ec0fdefa12eb7f7b2714dbc224fef735f4bb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6c040fd3e0592b8cfd230dcd85ed3293f0a22ba7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Tworzenie sieci Web ASP.NET formularzy aplikacji za pomocą uwierzytelniania dwuskładnikowego programu SMS (C#)
 ====================
@@ -63,12 +63,12 @@ W tym samouczku korzysta z usługi Twilio, ale można korzystać z każdego dost
 2. Z **pulpitu nawigacyjnego** kartę konta usługi Twilio kopiowania **identyfikator SID konta** i **Token uwierzytelniania.** Możesz spowoduje dodanie ich do aplikacji później.
 3. Z **numery** karcie, skopiować z usługi Twilio **numer telefonu** również.
 4. Wprowadź usługi Twilio **identyfikator SID konta**, **Token uwierzytelniania** i **numer telefonu** dostępne dla aplikacji. Aby zachować prostych czynności będą przechowywane te wartości w *web.config* pliku. Podczas wdrażania na platformie Azure można przechowywać bezpiecznie w wartości **appSettings** Karta Konfigurowanie sekcji w witrynie sieci web. Ponadto podczas dodawania numer telefonu, używać tylko cyfry.   
- Należy zauważyć, że można również dodać poświadczeń SendGrid. SendGrid jest usługą powiadomień e-mail. Aby uzyskać szczegółowe informacje o sposobie włączania SendGrid, zobacz sekcję "Haku zapasowej SendGrid" samouczka zatytułowany [utworzona aplikacja Secure formularzy sieci Web ASP.NET za pomocą rejestracja użytkownika, e-mail resetowania hasła i potwierdzania.](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)
+   Należy zauważyć, że można również dodać poświadczeń SendGrid. SendGrid jest usługą powiadomień e-mail. Aby uzyskać szczegółowe informacje o sposobie włączania SendGrid, zobacz sekcję "Haku zapasowej SendGrid" samouczka zatytułowany [utworzona aplikacja Secure formularzy sieci Web ASP.NET za pomocą rejestracja użytkownika, e-mail resetowania hasła i potwierdzania.](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)
 
     [!code-xml[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample1.xml?highlight=2,6-10)]
 
     > [!WARNING]
-    > Zabezpieczenia — nigdy nie magazynu danych poufnych w kodzie źródłowym. W tym przykładzie konta i poświadczenia są przechowywane w **appSettings** sekcji *Web.config* pliku. Na platformie Azure, można bezpiecznie przechowywać te wartości na  **[Konfiguruj](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  kartę w portalu Azure. Powiązane informacje, zobacz temat Rick Anderson zatytułowany [najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
+    > Zabezpieczenia — nigdy nie magazynu danych poufnych w kodzie źródłowym. W tym przykładzie konta i poświadczenia są przechowywane w **appSettings** sekcji *Web.config* pliku. Na platformie Azure, można bezpiecznie przechowywać te wartości na **[Konfiguruj](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** kartę w portalu Azure. Powiązane informacje, zobacz temat Rick Anderson zatytułowany [najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
 5. Skonfiguruj `SmsService` klasy w *aplikacji\_Start\IdentityConfig.cs* żółty wyróżniane na zmiany pliku, wykonując następujące czynności: 
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample2.cs?highlight=5-17)]
@@ -85,7 +85,7 @@ W tym samouczku korzysta z usługi Twilio, ale można korzystać z każdego dost
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample6.cs?highlight=3-4,13)]
 
- Wykonując powyższe kodu, zmień DropDownList "Providers" zawierający opcje uwierzytelniania nie zostaną zresetowane do pierwszej wartości. Dzięki temu użytkownikowi na wybranie pomyślnie wszystkich opcji podczas uwierzytelniania, nie tylko w pierwszym.
+   Wykonując powyższe kodu, zmień DropDownList "Providers" zawierający opcje uwierzytelniania nie zostaną zresetowane do pierwszej wartości. Dzięki temu użytkownikowi na wybranie pomyślnie wszystkich opcji podczas uwierzytelniania, nie tylko w pierwszym.
 10. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *Default.aspx* i wybierz **Ustaw jako stronę startową**.
 11. Podczas testów aplikacji, należy najpierw utworzyć aplikację (**Ctrl**+**Shift**+**B**), a następnie uruchom aplikację (**F5**) i Wybierz opcję **zarejestrować** Aby utworzyć nowe konto użytkownika lub wybierz **Zaloguj** Jeśli konto użytkownika zostało już zarejestrowane.
 12. Gdy użytkownik (przy użyciu konta użytkownika) ma zalogowany, kliknij przycisk identyfikatora użytkownika (adres e-mail) na pasku nawigacyjnym, aby wyświetlić **Zarządzaj kontem** strony (Manage.aspx).  
@@ -94,7 +94,7 @@ W tym samouczku korzysta z usługi Twilio, ale można korzystać z każdego dost
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image3.png)
 14. Numer telefonu, gdzie (przy użyciu konta użytkownika) chcesz otrzymywać wiadomości e-mail (wiadomości tekstowe), a następnie kliknij przycisk Dodaj **przesyłania** przycisku.   
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image4.png)  
- W tym momencie aplikacja będzie używać poświadczeń z *Web.config* do kontaktowania się z usługi Twilio. Wiadomość SMS (wiadomości tekstowej) będą wysyłane z numerem telefonu skojarzony z kontem użytkownika. Aby sprawdzić, czy wysłano komunikat usługi Twilio, wyświetlając pulpit nawigacyjny usługi Twilio.
+    W tym momencie aplikacja będzie używać poświadczeń z *Web.config* do kontaktowania się z usługi Twilio. Wiadomość SMS (wiadomości tekstowej) będą wysyłane z numerem telefonu skojarzony z kontem użytkownika. Aby sprawdzić, czy wysłano komunikat usługi Twilio, wyświetlając pulpit nawigacyjny usługi Twilio.
 15. W ciągu kilku sekund telefonu skojarzony z kontem użytkownika otrzyma wiadomość tekstową zawierającą kod weryfikacyjny. Wprowadź kod weryfikacyjny i naciśnij klawisz **przesyłania**.  
      ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image5.png)
 

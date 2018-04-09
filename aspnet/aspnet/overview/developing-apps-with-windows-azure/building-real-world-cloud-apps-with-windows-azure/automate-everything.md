@@ -2,21 +2,21 @@
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 title: Automatyzowanie wszystko (Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on..."
+description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: aa8bb895ed6eaa0ef4c5752f475ea7c911544ef2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2e30ab7831a10f215a08f74e61adf2d147e76543
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatyzowanie wszystko (Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure)
 ====================
@@ -90,7 +90,7 @@ Na **Konfiguruj** kartę dla aplikacji sieci web widać, że posiada ustawienia 
 
 ![appSettings i connectionStrings](automate-everything/_static/image6.png)
 
-*Automatyzacji* folder teraz zawiera także  *&lt;podaną&gt;.pubxml* pliku. Ten plik przechowuje ustawienia, które MSBuild będzie używany do wdrożenia aplikacji w środowisku platformy Azure, która została właśnie utworzona. Na przykład:
+*Automatyzacji* folder teraz zawiera także * &lt;podaną&gt;.pubxml* pliku. Ten plik przechowuje ustawienia, które MSBuild będzie używany do wdrożenia aplikacji w środowisku platformy Azure, która została właśnie utworzona. Na przykład:
 
 [!code-xml[Main](automate-everything/samples/sample1.xml)]
 
@@ -128,7 +128,7 @@ Ten skrypt wykonuje najpierw jest tworzenie aplikacji sieci web przez wywołanie
 
 ### <a name="create-the-storage-account"></a>Tworzenie konta magazynu
 
-A następnie uruchamia skrypt głównego *AzureStorage.ps1 nowy* skryptu, określając "*&lt;podaną&gt;*magazynu" nazwy konta magazynu, i lokalizacji co Centrum tych samych danych Aplikacja sieci web.
+A następnie uruchamia skrypt głównego <em>AzureStorage.ps1 nowy</em> skryptu, określając "<em>&lt;podaną&gt;</em>magazynu" nazwy konta magazynu, i lokalizacji co Centrum tych samych danych Aplikacja sieci web.
 
 [!code-powershell[Main](automate-everything/samples/sample4.ps1?highlight=3)]
 
@@ -158,7 +158,7 @@ Skrypt tworzenia bazy danych pobiera adres IP komputera deweloperów i Ustawia r
 
     [!code-powershell[Main](automate-everything/samples/sample10.ps1?highlight=4)]
 
-    `New-PSCredentialFromPlainText`jest to funkcja w skrypcie, który wywołuje `ConvertTo-SecureString` polecenia cmdlet do szyfrowania haseł i zwraca `PSCredential` obiekt, taki sam typ, który `Get-Credential` polecenie cmdlet zwraca.
+    `New-PSCredentialFromPlainText` jest to funkcja w skrypcie, który wywołuje `ConvertTo-SecureString` polecenia cmdlet do szyfrowania haseł i zwraca `PSCredential` obiekt, taki sam typ, który `Get-Credential` polecenie cmdlet zwraca.
 - Tworzy bazę danych aplikacji i bazy danych członkostwa przy użyciu `New-AzureSqlDatabase` polecenia cmdlet.
 
     [!code-powershell[Main](automate-everything/samples/sample11.ps1?highlight=2,5)]
@@ -253,7 +253,7 @@ W podobny sposób można zautomatyzować najbardziej Azure funkcji zarządzania,
 
 W [następnego rozdziału](source-control.md) firma Microsoft będzie przyjrzeć się kodu źródłowego i wyjaśnić, dlaczego warto uwzględnić skrypty w repozytorium kodu źródłowego.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 - [Instalacja i Konfiguracja środowiska Windows PowerShell dla usługi Azure](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). Wyjaśniono, jak zainstalować polecenia cmdlet programu Azure PowerShell i sposobu instalacji certyfikatu, że należy na komputerze, aby można było zarządzać platformy Azure o koncie. To jest doskonałym miejscem, aby rozpocząć pracę, ponieważ zawiera ona także linki do zasobów do uczenia PowerShell sam.
 - [Centrum skryptów Azure](https://docs.microsoft.com/azure/automation/automation-runbook-gallery). Portal WindowsAzure.com zasoby na potrzeby tworzenia skryptów, które zarządzają usług platformy Azure, wraz z łączami do pobierania pracy — samouczki, polecenia cmdlet odwołanie do dokumentacji i kod źródłowy i przykładowe skrypty
@@ -264,6 +264,6 @@ W [następnego rozdziału](source-control.md) firma Microsoft będzie przyjrzeć
 - [Za pomocą skryptów programu Windows PowerShell do opublikowania dla deweloperów i środowisk testowych](https://msdn.microsoft.com/library/azure/dn642480.aspx). Dokumentacji MSDN, który objaśnia, jak używać publikowania skrypty, które Visual Studio automatycznie generuje dla projektów sieci web.
 - [Narzędzia programu PowerShell dla programu Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597). Rozszerzenia usługi Visual Studio, które dodaje obsługę języka dla środowiska Windows PowerShell w programie Visual Studio.
 
->[!div class="step-by-step"]
-[Poprzednie](introduction.md)
-[dalej](source-control.md)
+> [!div class="step-by-step"]
+> [Poprzednie](introduction.md)
+> [dalej](source-control.md)

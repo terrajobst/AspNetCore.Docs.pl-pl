@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-title: "Wprowadzenie do programu Entity Framework 6 Code First przy użyciu MVC 5 | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do programu Entity Framework 6 Code First przy użyciu MVC 5 | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Dostępna jest nowsza wersja tej serii samouczek: wprowadzenie do platformy ASP.NET Core oraz Entity Framework Core za pomocą programu Visual Studio 2015. Contoso Universi..."
+description: 'Dostępna jest nowsza wersja tej serii samouczek: wprowadzenie do platformy ASP.NET Core oraz Entity Framework Core za pomocą programu Visual Studio 2015. Contoso Universi...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/22/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 46f53279e2e6daa4266c06feb4ba544e14b68a03
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2417a872bb57b18f4a61ef70f5dd35cb3d94ff73
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>Wprowadzenie do podejścia Code First w programie Entity Framework 6 z wykorzystaniem MVC 5
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [pobierania plików PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
@@ -175,7 +175,7 @@ W *modele* folderu, Utwórz *Enrollment.cs* i Zastąp istniejący kod następuj�
 
 `CourseID` Właściwość jest kluczem obcym i odpowiednią właściwość nawigacji jest `Course`. `Enrollment` Jednostka jest skojarzony z jednym `Course` jednostki.
 
-Entity Framework interpretuje właściwości jako właściwość klucza obcego, jeśli jest o nazwie  *&lt;nazwą właściwości nawigacji&gt;&lt;nazwa właściwości klucza podstawowego&gt;*  (na przykład `StudentID`dla `Student` właściwość nawigacji, ponieważ `Student` klucza podstawowego jednostki jest `ID`). Właściwości klucza obcego może również być taką samą nazwę po prostu  *&lt;nazwa właściwości klucza podstawowego&gt;*  (na przykład `CourseID` ponieważ `Course` klucza podstawowego jednostki jest `CourseID`).
+Entity Framework interpretuje właściwości jako właściwość klucza obcego, jeśli jest o nazwie *&lt;nazwą właściwości nawigacji&gt;&lt;nazwa właściwości klucza podstawowego&gt;* (na przykład `StudentID`dla `Student` właściwość nawigacji, ponieważ `Student` klucza podstawowego jednostki jest `ID`). Właściwości klucza obcego może również być taką samą nazwę po prostu *&lt;nazwa właściwości klucza podstawowego&gt;* (na przykład `CourseID` ponieważ `Course` klucza podstawowego jednostki jest `CourseID`).
 
 ### <a name="the-course-entity"></a>Jednostki ciągu
 
@@ -274,37 +274,37 @@ Teraz utworzysz strony sieci web, aby wyświetlić dane, a następnie automatycz
 Tworzenie bazy danych. Zostaną przez utworzenie nowego kontrolera. Jednak przed tym, skompiluj projekt, aby udostępnić klasy modelu i kontekstu szkieletów kontrolera MVC.
 
 1. Kliknij prawym przyciskiem myszy **kontrolerów** folderu w **Eksploratora rozwiązań**, wybierz pozycję **Dodaj**, a następnie kliknij przycisk **nowy element szkieletu**.
-- W **Dodawanie szkieletu** okno dialogowe, wybierz opcję **kontroler MVC 5 z widokami używający narzędzia Entity Framework**.
+2. W **Dodawanie szkieletu** okno dialogowe, wybierz opcję **kontroler MVC 5 z widokami używający narzędzia Entity Framework**.
 
-    ![Dodawanie szkieletu](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image12.png)
-- W oknie dialogowym Dodaj kontroler, wybierz następujące opcje, a następnie kliknij przycisk **Dodaj**:
+     ![Dodawanie szkieletu](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image12.png)
+3. W oknie dialogowym Dodaj kontroler, wybierz następujące opcje, a następnie kliknij przycisk **Dodaj**:
 
-    - Klasa modelu: **uczniów (ContosoUniversity.Models)**. (Jeśli nie widzisz tej opcji na liście rozwijanej skompilować projekt i spróbuj ponownie.)
-    - Klasa kontekstu danych: **SchoolContext (ContosoUniversity.DAL)**.
-    - Nazwa kontrolera: **StudentController** (nie StudentsController).
-    - Pozostaw wartości domyślne dla innych pól.
+   - Klasa modelu: **uczniów (ContosoUniversity.Models)**. (Jeśli nie widzisz tej opcji na liście rozwijanej skompilować projekt i spróbuj ponownie.)
+   - Klasa kontekstu danych: **SchoolContext (ContosoUniversity.DAL)**.
+   - Nazwa kontrolera: **StudentController** (nie StudentsController).
+   - Pozostaw wartości domyślne dla innych pól.
 
-    ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image13.png)
+     ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image13.png)
 
-    Po kliknięciu **Dodaj**, tworzenia szkieletu tworzy plik StudentController.cs i zestaw widoków (pliki cshtml), które współpracują z kontrolerem. W przyszłości, podczas tworzenia projektów, które używają programu Entity Framework mogą również czerpać korzyści z dodatkową funkcjonalnością tworzenia szkieletu: tylko tworzenie pierwszej klasy modelu, nie należy tworzyć parametry połączenia, a następnie w **Dodaj kontroler** polu Określ nową klasę kontekstu. Utworzy tworzenia szkieletu z `DbContext` klasy i połączenia ciągu oraz kontrolera i widoków.
-- Visual Studio otworzy *Controllers\StudentController.cs* pliku. Zobaczysz, że zmienna klasy utworzono tworzącym wystąpienie obiektu kontekstu bazy danych:
+     Po kliknięciu **Dodaj**, tworzenia szkieletu tworzy plik StudentController.cs i zestaw widoków (pliki cshtml), które współpracują z kontrolerem. W przyszłości, podczas tworzenia projektów, które używają programu Entity Framework mogą również czerpać korzyści z dodatkową funkcjonalnością tworzenia szkieletu: tylko tworzenie pierwszej klasy modelu, nie należy tworzyć parametry połączenia, a następnie w **Dodaj kontroler** polu Określ nową klasę kontekstu. Utworzy tworzenia szkieletu z `DbContext` klasy i połączenia ciągu oraz kontrolera i widoków.
+4. Visual Studio otworzy *Controllers\StudentController.cs* pliku. Zobaczysz, że zmienna klasy utworzono tworzącym wystąpienie obiektu kontekstu bazy danych:
 
-    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample11.cs)]
+     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample11.cs)]
 
-    `Index` Metody akcji pobiera listę studentów z *studentów* zestaw odczytując jednostek `Students` właściwości wystąpienia kontekstu bazy danych:
+     `Index` Metody akcji pobiera listę studentów z *studentów* zestaw odczytując jednostek `Students` właściwości wystąpienia kontekstu bazy danych:
 
-    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample12.cs)]
+     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample12.cs)]
 
-    *Student\Index.cshtml* widoku tej listy są wyświetlane w tabeli:
+     *Student\Index.cshtml* widoku tej listy są wyświetlane w tabeli:
 
-    [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample13.cshtml)]
-- Naciśnij klawisze CTRL + F5, aby uruchomić projekt. (Jeśli zostanie wyświetlony komunikat o błędzie "Nie można utworzyć kopii w tle", zamknij przeglądarkę i spróbuj ponownie.)
+     [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample13.cshtml)]
+5. Naciśnij klawisze CTRL + F5, aby uruchomić projekt. (Jeśli zostanie wyświetlony komunikat o błędzie "Nie można utworzyć kopii w tle", zamknij przeglądarkę i spróbuj ponownie.)
 
-    Kliknij przycisk **studentów** kartę, aby wyświetlić dane testowe który `Seed` dodaje metody. W zależności od sposobu wąskie okna przeglądarki jest, zobaczysz link kartę uczniów na pasku adresu w górnym lub musisz kliknąć prawym górnym rogu, aby zobaczyć łącza.
+     Kliknij przycisk **studentów** kartę, aby wyświetlić dane testowe który `Seed` dodaje metody. W zależności od sposobu wąskie okna przeglądarki jest, zobaczysz link kartę uczniów na pasku adresu w górnym lub musisz kliknąć prawym górnym rogu, aby zobaczyć łącza.
 
-    ![Przycisk menu](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image14.png)
+     ![Przycisk menu](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image14.png)
 
-    ![Strona indeksu dla użytkowników domowych](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image15.png)
+     ![Strona indeksu dla użytkowników domowych](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image15.png)
 
 ## <a name="view-the-database"></a>Widok bazy danych
 
@@ -332,7 +332,7 @@ Ilość kodu musiały zapisu w kolejności Entity Framework można było utworzy
 - Pluralized formy nazwy klas jednostki są używane jako nazwy tabeli.
 - Nazwy właściwości jednostki są używane dla nazw kolumn.
 - Właściwości jednostki, które są nazywane `ID` lub *classname* `ID` są rozpoznawane jako właściwości klucza podstawowego.
-- Właściwość jest interpretowana jako właściwości klucza obcego, jeśli jest o nazwie  *&lt;nazwą właściwości nawigacji&gt;&lt;nazwa właściwości klucza podstawowego&gt;*  (na przykład `StudentID` dla `Student` właściwość nawigacji, ponieważ `Student` klucza podstawowego jednostki jest `ID`). Właściwości klucza obcego może również być taką samą nazwę po prostu &lt;nazwa właściwości klucza podstawowego&gt; (na przykład `EnrollmentID` ponieważ `Enrollment` klucza podstawowego jednostki jest `EnrollmentID`).
+- Właściwość jest interpretowana jako właściwości klucza obcego, jeśli jest o nazwie *&lt;nazwą właściwości nawigacji&gt;&lt;nazwa właściwości klucza podstawowego&gt;* (na przykład `StudentID` dla `Student` właściwość nawigacji, ponieważ `Student` klucza podstawowego jednostki jest `ID`). Właściwości klucza obcego może również być taką samą nazwę po prostu &lt;nazwa właściwości klucza podstawowego&gt; (na przykład `EnrollmentID` ponieważ `Enrollment` klucza podstawowego jednostki jest `EnrollmentID`).
 
 Przedstawiono konwencje może zostać zastąpiona. Na przykład określić nazwy tabeli nie powinny być pluralized, czy pojawi się później sposobu oznaczania jawnie właściwości jako właściwość klucza obcego. Dowiesz się więcej na temat Konwencji i jak zastąpić je w [tworzenia więcej złożonych modelu danych](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) samouczek później w tej serii. Aby uzyskać więcej informacji na temat Konwencji, zobacz [pierwszy konwencje związane z kodami](https://msdn.microsoft.com/data/jj679962).
 
@@ -344,5 +344,5 @@ Wystaw opinię na jak zbędne tego samouczka i co można możemy ulepszyć. Moż
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [dostępu do danych programu ASP.NET - zalecane zasobów](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

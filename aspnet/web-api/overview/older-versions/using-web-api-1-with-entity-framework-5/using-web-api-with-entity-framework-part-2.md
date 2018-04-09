@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
-title: "Część 2: Tworzenie modeli domeny | Dokumentacja firmy Microsoft"
+title: 'Część 2: Tworzenie modeli domeny | Dokumentacja firmy Microsoft'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/03/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: a573b47d27767dc78d557cd2b6c73714eb9e94f4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 84631494c1be266c21e5e5702182df717b1d29b0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-2-creating-the-domain-models"></a>Część 2: Tworzenie modeli domeny
 ====================
@@ -84,6 +84,6 @@ W Eksploratorze rozwiązań rozwiń aplikacji\_Uruchom folderu i Otwórz plik o 
 
 Ten kod ustawia element formatujący JSON, aby zachować odwołania do obiektów i całkowicie usuwa element formatujący XML z potoku. (Można skonfigurować element formatujący XML, aby zachować odwołania do obiektów, ale jest nieco więcej pracy i musimy tylko JSON dla tej aplikacji. Aby uzyskać więcej informacji, zobacz [obsługi odwołań cyklicznych obiektu](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references).)
 
->[!div class="step-by-step"]
-[Poprzednie](using-web-api-with-entity-framework-part-1.md)
-[dalej](using-web-api-with-entity-framework-part-3.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-web-api-with-entity-framework-part-1.md)
+> [dalej](using-web-api-with-entity-framework-part-3.md)

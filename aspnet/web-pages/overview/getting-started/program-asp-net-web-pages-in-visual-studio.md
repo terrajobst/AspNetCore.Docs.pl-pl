@@ -1,8 +1,8 @@
 ---
 uid: aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
-title: "Programowania w języku ASP.NET Web Pages (Razor) przy użyciu programu Visual Studio | Dokumentacja firmy Microsoft"
+title: Programowania w języku ASP.NET Web Pages (Razor) przy użyciu programu Visual Studio | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Ten dodatek wyjaśniono, jak można użyć programu Visual Studio 2010 lub Visual Web Developer 2010 Express programu ASP.NET Web Pages o składni Razor."
+description: Ten dodatek wyjaśniono, jak można użyć programu Visual Studio 2010 lub Visual Web Developer 2010 Express programu ASP.NET Web Pages o składni Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 5cfeda206eda8fb3fd769d34fb40bae2c3b65093
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eb17c8cc1fab5b552c8495e74bb86ae9dbc5b972
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Programowanie stron sieci Web platformy ASP.NET (Razor) za pomocą programu Visual Studio
 ====================
@@ -34,7 +34,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 > - Visual Studio 2013
 > - Program WebMatrix 3
 >   
@@ -97,7 +97,7 @@ Teraz, po utworzeniu witryny widać, jak działa funkcja IntelliSense w Visual S
 
     ![IntelliSense](program-asp-net-web-pages-in-visual-studio/_static/image4.png)
 3. Wybierz `GetHtml` metodę z listy, a następnie naciśnij klawisz Enter. IntelliSense automatycznie wypełnia metody. (Przy użyciu dowolnej metody w języku C#, podczas dodawania `()` po metodzie znaki.)  
- Kompletny kod dla `GetHtml` metody wygląda następująco:  
+   Kompletny kod dla `GetHtml` metody wygląda następująco:  
 
     [!code-cshtml[Main](program-asp-net-web-pages-in-visual-studio/samples/sample1.cshtml)]
 4. Naciśnij klawisze Ctrl + F5, aby uruchomić strony. Jest to, jak podczas wyświetlania w przeglądarce wygląda strony: 
@@ -138,7 +138,7 @@ W tej sekcji przedstawiono sposób instalowania narzędzia stron sieci Web ASP.N
 
 1. Jeśli nie masz jeszcze Instalatora platformy sieci Web, należy go pobrać z następującego adresu URL:
 
-    [https://www.microsoft.com/Web/downloads/platform.aspx](https://www.microsoft.com/web/downloads/platform.aspx)
+    [https://www.microsoft.com/web/downloads/platform.aspx](https://www.microsoft.com/web/downloads/platform.aspx)
 2. Uruchom Instalatora platformy sieci Web.
 3. Kliknij przycisk **produktów** kartę.
 

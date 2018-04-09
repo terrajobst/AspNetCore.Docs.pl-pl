@@ -1,7 +1,7 @@
 ---
-title: "Umożliwia tworzenie aplikacji jednostronicowej w platformy ASP.NET Core JavaScriptServices"
+title: Umożliwia tworzenie aplikacji jednostronicowej w platformy ASP.NET Core JavaScriptServices
 author: scottaddie
-description: "Poznaj korzyści wynikające ze stosowania JavaScriptServices do utworzenia jednej strony aplikacji JEDNOSTRONICOWEJ obsługiwana przez platformy ASP.NET Core."
+description: Poznaj korzyści wynikające ze stosowania JavaScriptServices do utworzenia jednej strony aplikacji JEDNOSTRONICOWEJ obsługiwana przez platformy ASP.NET Core.
 manager: wpickett
 ms.author: scaddie
 ms.custom: H1Hack27Feb2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: c962fc160cf39ad1c69f4269616c993fde420035
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 05b0d7f31e167e620f2d168109ffd907ba120a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Umożliwia tworzenie aplikacji jednostronicowej w platformy ASP.NET Core JavaScriptServices
 
@@ -62,7 +62,7 @@ Zbiorczo te składniki infrastruktury zwiększenia zarówno przepływu pracy pro
 
 Aby pracować z SpaServices, należy zainstalować następujące elementy:
 * [Node.js](https://nodejs.org/) (w wersji 6 lub nowszej) z pakietu npm
-    * Aby sprawdzić te składniki są zainstalowane i można go znaleźć, należy uruchomić następujące polecenie z wiersza polecenia:
+  * Aby sprawdzić te składniki są zainstalowane i można go znaleźć, należy uruchomić następujące polecenie z wiersza polecenia:
 
     ```console
     node -v && npm -v
@@ -70,8 +70,9 @@ Aby pracować z SpaServices, należy zainstalować następujące elementy:
 
 Uwaga: Jeśli wdrażasz do witryny sieci web platformy Azure, nie musisz tutaj wykonywać żadnych czynności &mdash; Node.js jest zainstalowany i dostępny w środowisku serwerów.
 
-* [Zestaw SDK programu .NET core](https://www.microsoft.com/net/download/core) 1.0 (lub nowszy)
-    * Jeśli w systemie Windows, to można zainstalować, wybierając w Visual Studio 2017 **aplikacji dla wielu platform .NET Core** obciążenia.
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+
+  * Jeśli używasz systemu Windows za pomocą programu Visual Studio 2017, zestaw SDK jest zainstalowany, wybierając **aplikacji dla wielu platform .NET Core** obciążenia.
 
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet package
 
@@ -262,7 +263,7 @@ Istnieją dwa tryby konfiguracji podstawowego środowiska wykonawczego:
     * Wyklucza mapy źródła.
     * Optymalizuje kod po stronie klienta za pośrednictwem tworzenie pakietów i minimalizowanie.
 
-Zmienna środowiskowa o nazwie korzysta z platformy ASP.NET Core `ASPNETCORE_ENVIRONMENT` do przechowywania trybu konfiguracji. Zobacz  **[konfiguracji środowiska](xref:fundamentals/environments#setting-the-environment)**  Aby uzyskać więcej informacji.
+Zmienna środowiskowa o nazwie korzysta z platformy ASP.NET Core `ASPNETCORE_ENVIRONMENT` do przechowywania trybu konfiguracji. Zobacz **[konfiguracji środowiska](xref:fundamentals/environments#setting-the-environment)** Aby uzyskać więcej informacji.
 
 ### <a name="running-with-net-core-cli"></a>Uruchomione z platformą .NET Core interfejsu wiersza polecenia
 

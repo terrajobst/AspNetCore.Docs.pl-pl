@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
-title: "Wprowadzenie do składnika ASP.NET Web Pages — publikowania lokacji za pomocą programu WebMatrix | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do składnika ASP.NET Web Pages — publikowania lokacji za pomocą programu WebMatrix | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym samouczku jest ostatnim rat w zestawie Samouczek wprowadzający stron ASP.NET Web Pages i programu Microsoft WebMatrix. Zawarto informacje, jak opublikować witrynę t..."
+description: W tym samouczku jest ostatnim rat w zestawie Samouczek wprowadzający stron ASP.NET Web Pages i programu Microsoft WebMatrix. Zawarto informacje, jak opublikować witrynę t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 1e718c92a2f94df50fcf7af6859917746a4982ac
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7b9bffac5cc72e1bea3f1b211cc03be2ccb8e499
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Wprowadzenie do strony sieci Web ASP.NET - publikowania lokacji za pomocą programu WebMatrix
 ====================
@@ -32,7 +32,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 
 ## <a name="about-publishing-your-site"></a>Publikowanie witryny — informacje
 
-Do chwili wykonaniu całą pracę na komputerze lokalnym, łącznie z testowaniem stron. Do uruchomienia programu*.cshtml* stron, użytych serwera sieci web, wbudowany w program WebMatrix, to znaczy usług IIS Express. Jednak oczywiście nie zobaczyć, witryny, do której został utworzony, chyba że użytkownik. Aby inni pracować z witryny, należy opublikować go w Internecie.
+Do chwili wykonaniu całą pracę na komputerze lokalnym, łącznie z testowaniem stron. Do uruchomienia programu<em>.cshtml</em> stron, użytych serwera sieci web, wbudowany w program WebMatrix, to znaczy usług IIS Express. Jednak oczywiście nie zobaczyć, witryny, do której został utworzony, chyba że użytkownik. Aby inni pracować z witryny, należy opublikować go w Internecie.
 
 Jeśli nie masz już dostępu do serwera sieci web publiczne, publikowanie oznacza, że konto z *platformy w chmurze* lub *dostawcy hostingu*. Platformy w chmurze, takich jak Microsoft Azure oferuje infrastrukturę na żądanie do aplikacji. Dostawca usług hostingowych jest firmy, który jest właścicielem serwerów sieci web publicznie i który będzie można wynajmować miejsce dla witryny. Hosting planów wykonywania z kilku kwoty miesięcznie (lub nawet wolnego) dla małych witryn do wielu tysięcy dolarów miesięcznie dla dużych komercyjnych witryn sieci Web.
 
@@ -53,7 +53,7 @@ Ten samouczek zawiera cztery sekcje:
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Konfigurowanie domyślnej strony
 
-Gdy użytkownik przechodzi do podstawowego adresu witryny sieci web, domyślnej strony w witrynie jest wyświetlany użytkownikowi. Na przykład gdy Default.htm jest ustawiona jako stronę domyślną witryny w www.contoso.com, następnie przejść do obszaru **www.contoso.com** jest taka sama jak przejść do obszaru **www.contoso.com/Default.htm**.
+Gdy użytkownik przechodzi do podstawowego adresu witryny sieci web, domyślnej strony w witrynie jest wyświetlany użytkownikowi. Na przykład gdy Default.htm jest ustawiona jako stronę domyślną witryny w www.contoso.com, następnie przejść do obszaru <strong>www.contoso.com</strong> jest taka sama jak przejść do obszaru <strong>www.contoso.com/Default.htm</strong>.
 
 Obecnie Twoja witryna wymaga **Default.cshtml** jako domyślnej strony. Ta strona jest poprawnie domyślnej strony, ale w tym samouczku nie dodano żadnej zawartości do tej strony, będzie wyświetlany w pustej strony. Otwórz Default.cshtml i Zastąp zawartość następującym kodem.
 
@@ -219,5 +219,5 @@ Przejdź do witryny na żywo (można kliknąć link w komunikacie Powodzenie Je�
 
 - [Forum programu WebMatrix ASP.NET Web Pages platformy ASP.NET](https://forums.asp.net/1224.aspx/1?WebMatrix+and+ASP+NET+Web+Pages), doskonałym miejscem do zadawania pytań i odpowiedzi.
 
->[!div class="step-by-step"]
-[Poprzednie](layouts.md)
+> [!div class="step-by-step"]
+> [Poprzednie](layouts.md)

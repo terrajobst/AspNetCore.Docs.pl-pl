@@ -2,21 +2,21 @@
 uid: whitepapers/mvc3-release-notes
 title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/06/2010
 ms.topic: article
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 058b7c6fe6eeeea4403e7e5fdc05bb44d2ba1300
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 0bfe9cdc215226457ccfafff2b85ace87325b91b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -262,7 +262,7 @@ Pamiętaj, że starsze wersje przeglądarek nie obsługują tagów specyficznych
 <a id="tu-Modernizr"></a>
 ### <a name="project-templates-now-include-modernizr-17"></a>Szablony projektów zawierają teraz Modernizr 1.7
 
-Modernizr jest biblioteka języka JavaScript, która umożliwia obsługę CSS 3 oraz HTML5 w przeglądarkach, które jeszcze nie obsługuje te funkcje. Ta biblioteka jest uwzględniona jako wstępnie zainstalowany pakiet NuGet w szablonach dla projektów ASP.NET MVC 3. Aby uzyskać więcej informacji o Modernizr, zobacz [http://www.modernizr.com/](http://www.modernizr.com/).
+Modernizr jest biblioteka języka JavaScript, która umożliwia obsługę CSS 3 oraz HTML5 w przeglądarkach, które jeszcze nie obsługuje te funkcje. Ta biblioteka jest uwzględniona jako wstępnie zainstalowany pakiet NuGet w szablonach dla projektów ASP.NET MVC 3. Aby uzyskać więcej informacji o Modernizr, zobacz [ http://www.modernizr.com/ ](http://www.modernizr.com/).
 
 <a id="tu-UpdatedJQuery"></a>
 ### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>Szablony projektu obejmują zaktualizowane wersje jQuery, interfejsu użytkownika jQuery i jQuery sprawdzania poprawności
@@ -373,7 +373,7 @@ W tej sekcji opisano zmiany (nowe funkcje i poprawki błędów) w wersji platfor
 <a id="_Toc2_1"></a>
 ### <a name="project-templates-changed-to-include-jquery-144-jquery-validation-17-and-jquery-ui-186"></a>Zmieniać szablonów projektu o jQuery 1.4.4, 1.7 weryfikacji jQuery i jQuery 1.8.6 interfejsu użytkownika
 
-Szablony projektów programu ASP.NET MVC 3 zawierają teraz najnowsze wersje jQuery, weryfikacji jQuery i jQuery interfejsu użytkownika. jQuery interfejsu użytkownika jest nowe uzupełnienie szablony projektów i zawiera elementy widget interfejsu użytkownika użyteczne. Aby uzyskać więcej informacji na temat interfejsu użytkownika jQuery, odwiedź stronę ich strony głównej: [http://jqueryui.com/](http://jqueryui.com/).
+Szablony projektów programu ASP.NET MVC 3 zawierają teraz najnowsze wersje jQuery, weryfikacji jQuery i jQuery interfejsu użytkownika. jQuery interfejsu użytkownika jest nowe uzupełnienie szablony projektów i zawiera elementy widget interfejsu użytkownika użyteczne. Aby uzyskać więcej informacji na temat interfejsu użytkownika jQuery, odwiedź stronę ich strony głównej: [ http://jqueryui.com/ ](http://jqueryui.com/).
 
 <a id="_Toc2_2"></a>
 ### <a name="added-additionalmetadataattribute-class"></a>Klasa dodano "AdditionalMetadataAttribute"
@@ -438,7 +438,7 @@ Gdy *Html.ValidationMessage* metoda wyświetla komunikat dotyczący sprawdzania 
 <a id="_Toc2_10"></a>
 ### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>Stałe @model deklaracji nie dodać odstępu do dokumentu
 
-We wcześniejszych wersjach  *@model*  deklaracji w górnej części widoku dodany pusty wiersz do renderowanej danych wyjściowych HTML. Ten został rozwiązany, aby deklaracji nie wprowadza odstępu.
+We wcześniejszych wersjach <em>@model</em> deklaracji w górnej części widoku dodany pusty wiersz do renderowanej danych wyjściowych HTML. Ten został rozwiązany, aby deklaracji nie wprowadza odstępu.
 
 <a id="_Toc2_11"></a>
 ### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>Dodano "FileExtensions" dla właściwości aparatów widoków do obsługi nazw plików specyficznych dla aparatu
@@ -465,7 +465,7 @@ W starszych wersjach, jawne wartości, które zostały przekazane do *RenderActi
 - W poprzednich wersjach programu ASP.NET MVC filtry akcji zostały utworzone na żądanie, chyba że w niektórych przypadkach. To zachowanie nie zostały zachowanie gwarantuje, ale tylko szczegóły implementacji i kontraktu dla filtrów była wziąć pod uwagę ich bezstanowych. W programie ASP.NET MVC 3 filtry są buforowane bardziej agresywnie. W związku z tym wszystkie filtry akcji niestandardowej, które nieprawidłowo przechowują stan wystąpienia może być uszkodzona.
 - Kolejność wykonywania filtrów wyjątków została zmieniona dla filtry wyjątków, które mają taki sam *kolejności* wartość. W programie ASP.NET MVC 2 i starszych wyjątek filtry na kontrolerze, który ma takie same *kolejności* wartość jak te na metody akcji zostały wykonane przed filtrami wyjątek w metodzie akcji. Zwykle można sytuacji, gdy zostały zastosowane filtry wyjątków bez określonej *kolejności* wartość. W programie ASP.NET MVC 3 ta kolejność została wycofana tak, aby najpierw wykonana specyficzny obsługi wyjątków. Jak w starszych wersjach Jeśli *kolejności* jawnie określono właściwość, filtry są uruchamiane w określonej kolejności.
 - Nowe właściwości o nazwie *FileExtensions* został dodany do *VirtualPathProviderViewEngine* klasy podstawowej. Gdy ASP.NET wyszukuje widoku za pomocą ścieżki (a nie według nazwy), są traktowane jako tylko widoki z rozszerzeniem zawarte na liście określonej przez tę właściwość nowe. W przypadku, gdy dostawca niestandardowej kompilacji jest zarejestrowany w celu umożliwienia rozszerzenie pliku niestandardowych widoków formularza sieci Web, a dostawca odwołuje się do tych widoków przy użyciu pełnej ścieżki, a nie nazwę jest istotne zmiany w aplikacjach. Należy zmodyfikować wartość *FileExtensions* właściwości do niestandardowego pliku rozszerzenia.
-- Implementacje fabryka kontrolera niestandardowego, bezpośrednio implementujących *IControllerFactory* interfejs musi zapewniać implementację nowej *GetControllerSessionBehavior ** — metoda, która została dodana do Interfejs w tej wersji*. Ogólnie rzecz biorąc, zaleca się, możesz nie implementuje ten interfejs bezpośrednio i pochodzi z klasy *DefaultControllerFactory*.
+- Implementacje fabryka kontrolera niestandardowego, bezpośrednio implementujących <em>IControllerFactory</em> interfejs musi zapewniać implementację nowej <em>GetControllerSessionBehavior</em>  <em>Metoda, która została dodana do interfejsu w tej wersji</em>. Ogólnie rzecz biorąc, zaleca się, możesz nie implementuje ten interfejs bezpośrednio i pochodzi z klasy <em>DefaultControllerFactory</em>.
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>Znane problemy
@@ -629,11 +629,11 @@ Można również wyłączyć weryfikację żądań dla każdej właściwości w 
 
 Platforma ASP.NET MVC 3 Beta 6 października 2010 został wydany. Poniższe uwagi są specyficzne dla wersji Beta i podlegają aktualizacje lub zmiany w powyższej sekcji platformy ASP.NET MVC 3 Release Candidate.
 
-## <a id="0.1__Toc274034215"></a>Nowe Featuresin platformy ASP.NET MVC 3 w wersji Beta
+## <a id="0.1__Toc274034215"></a>  Nowe Featuresin platformy ASP.NET MVC 3 w wersji Beta
 
 <a id="0.1__Default_validation_system"></a>W tej sekcji opisano funkcje, które zostały wprowadzone w wersji Beta programu ASP.NET MVC 3.
 
-### <a id="0.1__Toc274034216"></a>Menedżer pakietów NuGet
+### <a id="0.1__Toc274034216"></a>  Menedżer pakietów NuGet
 
 Platforma ASP.NET MVC 3 zawiera Menedżera pakietów NuGet, który jest zintegrowany pakiet narzędzia do zarządzania Dodawanie bibliotek i narzędzia do projektów programu Visual Studio. W większości przypadków jest to automatyzacja czynności, które deweloperzy obecnie wykonać próba pobrania biblioteki do drzewa ich źródła.
 
@@ -641,7 +641,7 @@ Możesz pracować z programem NuGet jako narzędzie wiersza polecenia, w oknie k
 
 Aby uzyskać więcej informacji na temat narzędzia NuGet, przeczytaj [dokumentacji NuGet](https://docs.microsoft.com/nuget/).
 
-### <a id="0.1__Toc274034217"></a>Ulepszone okno dialogowe Nowy projekt
+### <a id="0.1__Toc274034217"></a>  Ulepszone okno dialogowe Nowy projekt
 
 Podczas tworzenia nowego projektu, okno dialogowe Nowy projekt teraz pozwala określić aparat widoku, jak również typ projektu programu ASP.NET MVC.
 
@@ -655,7 +655,7 @@ Pusta. Zawiera minimalnego zestawu plików w projekcie platformy ASP.NET MVC, ł
 
 Aplikacja Internet. Zawiera funkcji przykładowych pokazano, jak korzystać z dostawcy członkostwa w ramach platformy ASP.NET MVC.
 
-### <a id="0.1__Toc274034218"></a>Uproszczony sposób określania silnie wpisana modeli widokami Razor
+### <a id="0.1__Toc274034218"></a>  Uproszczony sposób określania silnie wpisana modeli widokami Razor
 
 Jest teraz prostszy sposób Określ typ modelu jednoznacznie widokami Razor przy użyciu nowej @model dyrektywy CSHTML widoków i @ModelType dyrektywy w ramach VBHTML widoków. We wcześniejszych wersjach programu ASP.NET MVC należy określić, że jednoznacznie modelu dla elementu Razor widoków w ten sposób:
 
@@ -665,7 +665,7 @@ W tej wersji można użyć następującej składni:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample26.cshtml)]
 
-### <a id="0.1__Toc274034219"></a>Obsługa nowej metody pomocnicze stron sieci Web ASP.NET
+### <a id="0.1__Toc274034219"></a>  Obsługa nowej metody pomocnicze stron sieci Web ASP.NET
 
 Nowej technologii ASP.NET Web Pages zawiera zestaw metody pomocnicze, które są przydatne w przypadku dodawania najczęściej używane funkcje do widoków i kontrolerów. ASP.NET MVC 3 obsługuje przy użyciu tych metod pomocnika, w ramach kontrolery i widoki (w razie potrzeby). Te metody są zawarte w zestawie System.Web.Helpers. W poniższej tabeli wymieniono kilka stron ASP.NET Web Pages metody pomocnicze.
 
@@ -681,7 +681,7 @@ Temat krótki przewodnik zawierający listę pomocników i podstawowa składnia 
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-api-reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 
-### <a id="0.1__Toc274034220"></a>Obsługa iniekcji zależności dodatkowe
+### <a id="0.1__Toc274034220"></a>  Obsługa iniekcji zależności dodatkowe
 
 Korzystając z wersji platformy ASP.NET MVC 3 Preview 1, bieżącej wersji obejmuje dodanie obsługi dwóch nowych usług oraz cztery istniejących usług i lepszą obsługę rozpoznawania zależności i wspólnego lokalizatora usług.
 
@@ -732,7 +732,7 @@ Nowe wydanie obejmuje obsługę rozpoznawania zależności dla następujących u
 - Dostawców wartości. Klasy, które implementują ValueProviderFactory może być zarejestrowany w mechanizmu rozpoznawania zależności, a system zostanie użyte do tworzenia dostawców wartości, które są używane przez kontroler i podczas tworzenia powiązania modelu.
 - Integratorów modeli. Klasy, które implementują IModelBinderProvider może być zarejestrowany w mechanizmu rozpoznawania zależności, a system zostanie użyte do tworzenia integratorów modeli, które są używane przez system powiązania modelu.
 
-### <a id="0.1__Toc274034221"></a>Nowa funkcja obsługi dyskretnego kodu na podstawie jQuery Ajax
+### <a id="0.1__Toc274034221"></a>  Nowa funkcja obsługi dyskretnego kodu na podstawie jQuery Ajax
 
 Platforma ASP.NET MVC zawiera metody pomocnicze Ajax, takie jak następujące:
 
@@ -748,7 +748,7 @@ Te metody używany język JavaScript do wywołania metody akcji na serwerze, a n
 
 Ta funkcja jest domyślnie włączone w pliku Web.config w nowych szablonów projektu programu ASP.NET MVC 3, ale jest domyślnie wyłączona dla istniejących projektów. Aby uzyskać więcej informacji, zobacz [dodać flag całej aplikacji dla weryfikacji klienta i dyskretny kod JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) dalszej części tego dokumentu.
 
-### <a id="0.1__Toc274034222"></a>Nowa funkcja obsługi dyskretnego kodu jQuery sprawdzania poprawności
+### <a id="0.1__Toc274034222"></a>  Nowa funkcja obsługi dyskretnego kodu jQuery sprawdzania poprawności
 
 Domyślnie platforma ASP.NET MVC 3 Beta używa weryfikacji jQuery w sposób dyskretny kod w celu sprawdzenia poprawności po stronie klienta. Aby włączyć sprawdzanie poprawności dyskretnego kodu klienta, należy wykonać wywołania podobnie do następującej od w widoku:
 
@@ -768,7 +768,7 @@ Ta funkcja jest domyślnie włączone na w pliku Web.config w nowych szablonów 
 
 <a id="0.1__Toc274034223"></a>
 
-### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>Nowe flagi całej aplikacji dla weryfikacji klienta i dyskretny kod JavaScript
+### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>  Nowe flagi całej aplikacji dla weryfikacji klienta i dyskretny kod JavaScript
 
 Można włączyć lub wyłączyć sprawdzanie poprawności klienta i dyskretny kod JavaScript za pomocą statyczne elementy członkowskie klasy HtmlHelper, jak w poniższym przykładzie:
 
@@ -784,7 +784,7 @@ Ponieważ te funkcje umożliwiają domyślnie, nowe przeciążenia zostały wpro
 
 Zgodność z poprzednimi wersjami obie te funkcje są domyślnie wyłączone.
 
-### <a id="0.1__Toc274034224"></a>Nowa funkcja obsługi kodu uruchamianego przed uruchomieniem widoków
+### <a id="0.1__Toc274034224"></a>  Nowa funkcja obsługi kodu uruchamianego przed uruchomieniem widoków
 
 Teraz możesz umieścić plik o nazwie \_viewstart.cshtml (lub \_viewstart.vbhtml) w katalogu widoki i Dodaj do niej, która będzie współdzielona przez wiele widoków w tym katalogu i jego podkatalogach kod. Na przykład może stanowić następujący kod do \_viewstart.cshtml strony w folderze ~/Views:
 
@@ -794,7 +794,7 @@ To ustawienie strony układu dla każdego widoku w folderze Widoki i rekursywnie
 
 Domyślnie ten kod w \_viewstart.cshtml plików mają zastosowanie również do widoków w dowolnym podfolderze. Jednak poszczególnych podfolderów może mieć własną wersję z \_viewstart.cshtml pliku; w tym przypadku lokalnej wersji ma pierwszeństwo. Na przykład, aby uruchomić kod, który jest wspólny dla wszystkich widoków dla HomeController, umieść \_viewstart.cshtml pliku w folderze ~/Views/Home.
 
-### <a id="0.1__Toc274034225"></a>Nowa funkcja obsługi VBHTML składni Razor
+### <a id="0.1__Toc274034225"></a>  Nowa funkcja obsługi VBHTML składni Razor
 
 W poprzedniej wersji zapoznawczej programu ASP.NET MVC uwzględnione obsługę widoków przy użyciu składni Razor oparty na języku C#. Widoki te używają z rozszerzeniem cshtml. W ramach trwającej pracy do obsługi Razor ASP.NET MVC 3 Beta wprowadzono obsługę składni Razor w języku Visual Basic, który korzysta z rozszerzeniem .vbhtml.
 
@@ -802,7 +802,7 @@ Aby obejrzeć wprowadzenie do przy użyciu składni języka Visual Basic na stro
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-visual-basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
 
-### <a id="0.1__Toc274034226"></a>Bardziej szczegółową kontrolę nad atrybut ValidateInputAttribute
+### <a id="0.1__Toc274034226"></a>  Bardziej szczegółową kontrolę nad atrybut ValidateInputAttribute
 
 ASP.NET MVC ma zawsze dołączane atrybut ValidateInputAttribute klasy, która wywołuje infrastruktury weryfikacji żądania ASP.NET core aby upewnić się, czy przychodzące żądanie nie zawiera potencjalnie złośliwych danych. Sprawdzania poprawności danych wejściowych jest domyślnie włączone. Istnieje możliwość wyłączono weryfikację żądań przy użyciu atrybutu atrybut ValidateInputAttribute, jak w poniższym przykładzie:
 
@@ -814,7 +814,7 @@ Na przykład jeśli tworzysz aparat blogu można umożliwić znacznik, w polach 
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample38.cs)]
 
-### <a id="0.1__Toc274034227"></a>Pomocnicy konwertowania podkreślenia łączniki do nazwy atrybutu HTML określony przy użyciu anonimowego obiektów
+### <a id="0.1__Toc274034227"></a>  Pomocnicy konwertowania podkreślenia łączniki do nazwy atrybutu HTML określony przy użyciu anonimowego obiektów
 
 Metody pomocnicze umożliwiają określenie atrybutu pary nazwa/wartość, przy użyciu obiektu anonimowego, jak w poniższym przykładzie:
 
@@ -830,7 +830,7 @@ Poprzedni przykład renderuje kod znaczników następujące po uruchomieniu pomo
 
 [!code-html[Main](mvc3-release-notes/samples/sample41.html)]
 
-## <a id="0.1__Toc274034228"></a>Poprawki błędów
+## <a id="0.1__Toc274034228"></a>  Poprawki błędów
 
 Domyślny szablon obiektu dla pomocników szablonu EditorFor i DisplayFor obsługuje teraz porządkowania określonego we właściwości DisplayAttribute.Order. (W poprzednich wersjach, ustawienie kolejności nie użyto.)
 
@@ -838,11 +838,11 @@ Teraz sprawdzanie poprawności klienta obsługuje weryfikacji zastąpione właś
 
 JsonValueProviderFactory teraz jest zarejestrowana domyślnie.
 
-## <a id="0.1__Toc274034229"></a>Fundamentalne zmiany
+## <a id="0.1__Toc274034229"></a>  Fundamentalne zmiany
 
 Kolejność wykonywania filtrów wyjątków została zmieniona dla filtry wyjątków, które mają taką samą wartość kolejności. W programie ASP.NET MVC 2 i starszych wyjątek filtruje na kontrolerze o takiej samej kolejności jak te na metody akcji zostały wykonane przed filtrami wyjątek w metodzie akcji. Zwykle będzie to wielkość liter podczas zostały zastosowane filtry wyjątków bez określoną wartość kolejności. W programie ASP.NET MVC 3 ta kolejność została wycofana tak, aby najpierw wykonana specyficzny obsługi wyjątków. Jak w starszych wersjach Jeśli właściwość kolejności jawnie określono, filtry są uruchamiane w określonej kolejności.
 
-## <a id="0.1__Toc274034230"></a>Znane problemy
+## <a id="0.1__Toc274034230"></a>  Znane problemy
 
 Podczas instalacji postanowienia licencyjne wyświetlone okno dialogowe akceptacji umowy licencyjnej w oknie, która jest mniejsza niż zamierzony.
 
@@ -862,7 +862,7 @@ Jest to znany problem, który powoduje, że uwierzytelnianie formularzy zawsze p
 
 [!code-xml[Main](mvc3-release-notes/samples/sample43.xml)]
 
-## <a id="0.1__Toc274034231"></a>Zrzeczenie odpowiedzialności
+## <a id="0.1__Toc274034231"></a>  Zrzeczenie odpowiedzialności
 
 © 2011 Microsoft Corporation. Wszelkie prawa zastrzeżone. Niniejszy dokument jest udostępniany "jako — jest." Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i inne odsyłacze do witryn internetowych, mogą ulec zmianie bez uprzedzenia. Użytkownik ponosi ryzyko związane z użyciem jej.
 

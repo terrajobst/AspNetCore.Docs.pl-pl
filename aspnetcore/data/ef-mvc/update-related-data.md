@@ -1,7 +1,7 @@
 ---
-title: "Dane — 7 10 dotyczące platformy ASP.NET Core MVC podstawowych EF - aktualizacji"
+title: Dane — 7 10 dotyczące platformy ASP.NET Core MVC podstawowych EF - aktualizacji
 author: tdykstra
-description: "W tym samouczku będziesz aktualizacji powiązanych danych, aktualizując pól klucza obcego i właściwości nawigacji."
+description: W tym samouczku będziesz aktualizacji powiązanych danych, aktualizując pól klucza obcego i właściwości nawigacji.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: ac9dc6f08bbcd890c5848e7cc5cb4ee93713a559
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 2501f4c4abdadd47b4910909205a5c798f1b938f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>Aktualizowanie danych powiązanych - Core EF z samouczek platformy ASP.NET Core MVC (7 10)
+# <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>Dane — 7 10 dotyczące platformy ASP.NET Core MVC podstawowych EF - aktualizacji
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -295,6 +295,6 @@ Zgodnie z objaśnieniem w [samouczek CRUD](crud.md), Entity Framework niejawnie 
 
 Wprowadzenie do pracy z powiązanych danych zostało zakończone. W następnym samouczku zobaczysz sposób obsługi konfliktom współbieżności.
 
->[!div class="step-by-step"]
-[Poprzednie](read-related-data.md)
-[dalej](concurrency.md)  
+> [!div class="step-by-step"]
+> [Poprzednie](read-related-data.md)
+> [dalej](concurrency.md)  

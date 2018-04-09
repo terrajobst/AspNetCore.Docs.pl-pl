@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Kod najpierw migracje i wdrażanie za pomocą programu Entity Framework w aplikacji platformy ASP.NET MVC | Dokumentacja firmy Microsoft"
+title: Kod najpierw migracje i wdrażanie za pomocą programu Entity Framework w aplikacji platformy ASP.NET MVC | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 za pomocą Entity Framework 6 Code First i Visual Studio..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 za pomocą Entity Framework 6 Code First i Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2294f2aba3f765d7849d1f407e85f424dc8b2518
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04d393edca0469df140f06a7d083a48aa8f84b65
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="code-first-migrations-and-deployment-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Kod najpierw migracje i wdrażanie za pomocą programu Entity Framework w aplikacji platformy ASP.NET MVC
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [pobierania plików PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
@@ -125,7 +125,7 @@ Jeśli utworzono początkowej migracji, gdy baza danych już istnieje, jest gene
     ![](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
     `update-database` Polecenia `Up` metodę w celu utworzenia bazy danych, a następnie go uruchamia `Seed` metodę, aby Wypełnianie bazy danych. Ten sam proces zostanie uruchomiony automatycznie w środowisku produkcyjnym po wdrożeniu aplikacji, jak można zauważyć w następnej sekcji.
-- Użyj **Eksploratora serwera** inspekcji bazy danych, tak jak w pierwszym samouczku i uruchom aplikację, aby sprawdzić, czy wszystkie elementy nadal działa tak samo, jak poprzednio.
+2. Użyj **Eksploratora serwera** inspekcji bazy danych, tak jak w pierwszym samouczku i uruchom aplikację, aby sprawdzić, czy wszystkie elementy nadal działa tak samo, jak poprzednio.
 
 ## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
 
@@ -153,7 +153,7 @@ Poniżej przedstawiono wdrażania bazy danych do bazy danych SQL Azure. Baza dan
 
     ![Przycisk Nowy w portalu zarządzania](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/CreateWeb-Sql.png)
 
- **Nowej aplikacji sieci Web & SQL — tworzenie** zostanie otwarty Kreator.
+   **Nowej aplikacji sieci Web & SQL — tworzenie** zostanie otwarty Kreator.
 
 2. W bloku, wprowadź ciąg w **Nazwa aplikacji** pole ma być używana jako unikatowy adres URL aplikacji. Pełny adres URL będzie zawierał co wprowadzony w tym miejscu i domyślną domenę usługi aplikacji Azure (. azurewebsites.net). Jeśli **Nazwa aplikacji** jest już zajęty, Kreator wyświetli powiadomienie tego czerwonym znakiem *Nazwa aplikacji jest niedostępna* wiadomości. Jeśli **Nazwa aplikacji** jest dostępny, zostanie wyświetlony na zielonym znacznikiem wyboru.
 
@@ -175,9 +175,9 @@ Poniżej przedstawiono wdrażania bazy danych do bazy danych SQL Azure. Baza dan
 10. Modyfikowanie [sortowania](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support) zgodnie z potrzebami.
 11. Wprowadź administrator **nazwa użytkownika administratora SQL** i **hasło administratora SQL**. W przypadku wybrania **nowej bazy danych SQL server**, nie wprowadzasz istniejącej nazwy i hasła w tym miejscu, podajesz nową nazwę i hasło definiowane w tej chwili do użycia w przyszłości podczas dostępu do bazy danych. W przypadku wybrania wcześniej utworzonego serwera zostanie wprowadź poświadczenia dla tego serwera.
 12. Kolekcja danych telemetrycznych można włączyć dla aplikacji za pomocą usługi Application Insights. Usługi Application Insights z małego konfiguracją zbiera dane zdarzeń cenne, wyjątków, zależności, żądania i informacje o śledzeniu. Aby dowiedzieć się więcej na temat usługi Application Insights, wprowadzenie [Azure Docs](https://azure.microsoft.com/services/application-insights/).
-12. Kliknij przycisk **Utwórz** w dolnej części bloku, aby wskazać, że wszystko jest gotowe.
+13. Kliknij przycisk **Utwórz** w dolnej części bloku, aby wskazać, że wszystko jest gotowe.
   
- Portal zarządzania zwróci do strony pulpitów nawigacyjnych i **powiadomienia** zawiera blok, w górnej części strony witryny jest tworzona. Po chwili (zazwyczaj mniej niż minutę) będzie powiadomienie, że wdrożenie zakończyło się pomyślnie. Na pasku nawigacyjnym po lewej stronie nowe **usługi aplikacji** pojawia się w *usługi aplikacji* sekcji i nowych **bazy danych SQL** pojawia się w *bazy danych SQL*  sekcji.
+    Portal zarządzania zwróci do strony pulpitów nawigacyjnych i **powiadomienia** zawiera blok, w górnej części strony witryny jest tworzona. Po chwili (zazwyczaj mniej niż minutę) będzie powiadomienie, że wdrożenie zakończyło się pomyślnie. Na pasku nawigacyjnym po lewej stronie nowe **usługi aplikacji** pojawia się w *usługi aplikacji* sekcji i nowych **bazy danych SQL** pojawia się w *bazy danych SQL*  sekcji.
 
 ### <a name="deploy-the-application-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 
@@ -195,30 +195,30 @@ Poniżej przedstawiono wdrażania bazy danych do bazy danych SQL Azure. Baza dan
 5. Po skonfigurowaniu profilu **połączenia** kartę będą wyświetlane. Kliknij przycisk **sprawdzania poprawności połączenia** aby upewnić się, że ustawienia są poprawne
 
     ![Weryfikacja połączenia](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Connection.png)
-7. Po sprawdzeniu poprawności połączenia zielony znacznik wyboru jest wyświetlany obok pozycji **sprawdzania poprawności połączenia** przycisku. Kliknij przycisk **Dalej**.
+6. Po sprawdzeniu poprawności połączenia zielony znacznik wyboru jest wyświetlany obok pozycji **sprawdzania poprawności połączenia** przycisku. Kliknij przycisk **Dalej**.
   
     ![Pomyślnie zweryfikowane połączenia](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-SettingsValidated.png)
-8. Otwórz **ciąg połączenia zdalnego** listy rozwijanej w obszarze **SchoolContext** i wybierz parametry połączenia dla bazy danych został utworzony.
-9. Wybierz **aktualizacji bazy danych**.
+7. Otwórz **ciąg połączenia zdalnego** listy rozwijanej w obszarze **SchoolContext** i wybierz parametry połączenia dla bazy danych został utworzony.
+8. Wybierz **aktualizacji bazy danych**.
 
     ![Karta Ustawienia](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Settings.png)
 
     To ustawienie powoduje, że proces wdrażania automatycznie skonfigurować aplikację *Web.config* plików na serwerze docelowym, aby używał Code First `MigrateDatabaseToLatestVersion` klasy inicjatora.
-10. Kliknij przycisk **Dalej**.
-11. W **Podgląd** , kliknij pozycję **Uruchom Podgląd**.
+9. Kliknij przycisk **Dalej**.
+10. W **Podgląd** , kliknij pozycję **Uruchom Podgląd**.
   
     ![Przycisk StartPreview w karcie podglądu](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Preview.png)
   
- Karcie zostanie wyświetlona lista plików, które zostaną skopiowane na serwer. Wyświetlanie podglądu nie jest wymagane, aby opublikować aplikację, ale jest to funkcja przydatna pod uwagę. W takim przypadku nie trzeba wykonywać żadnych czynności z listy plików, który jest wyświetlany. Przy następnym wdrażania tej aplikacji będzie tylko te pliki, które zostały zmienione na tej liście.
+    Karcie zostanie wyświetlona lista plików, które zostaną skopiowane na serwer. Wyświetlanie podglądu nie jest wymagane, aby opublikować aplikację, ale jest to funkcja przydatna pod uwagę. W takim przypadku nie trzeba wykonywać żadnych czynności z listy plików, który jest wyświetlany. Przy następnym wdrażania tej aplikacji będzie tylko te pliki, które zostały zmienione na tej liście.
     ![Dane wyjściowe pliku StartPreview](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-PreviewLoaded.png)
 
-12. Kliknij przycisk **publikowania**.
- Visual Studio rozpoczyna proces kopiowania plików na serwer platformy Azure.
-13. **Dane wyjściowe** okna pokazuje, jakie akcje wdrażania zostały pobrane i raporty pomyślnego wdrożenia.
+11. Kliknij przycisk **publikowania**.
+    Visual Studio rozpoczyna proces kopiowania plików na serwer platformy Azure.
+12. **Dane wyjściowe** okna pokazuje, jakie akcje wdrażania zostały pobrane i raporty pomyślnego wdrożenia.
   
     ![Okno danych wyjściowych raportowania pomyślnego wdrożenia](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-BuildOutput.png)
-14. Po pomyślnym wdrożeniu przeglądarka domyślna automatycznie otwiera adres URL wdrożonej witryny sieci web.
- Utworzoną aplikację jest teraz uruchomiona w chmurze. 
+13. Po pomyślnym wdrożeniu przeglądarka domyślna automatycznie otwiera adres URL wdrożonej witryny sieci web.
+    Utworzoną aplikację jest teraz uruchomiona w chmurze. 
   
     ![Students_index_page_with_paging](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Site.png)
 
@@ -258,6 +258,6 @@ Wystaw opinię na jak zbędne tego samouczka i co można możemy ulepszyć. Moż
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [dostępu do danych programu ASP.NET - zalecane zasobów](xref:whitepapers/aspnet-data-access-content-map).
 
->[!div class="step-by-step"]
-[Poprzednie](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
-[dalej](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)
+> [!div class="step-by-step"]
+> [Poprzednie](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
+> [dalej](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)

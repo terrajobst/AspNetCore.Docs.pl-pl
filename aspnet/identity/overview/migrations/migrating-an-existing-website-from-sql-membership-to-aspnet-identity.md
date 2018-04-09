@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
-title: "Migrowanie istniejącej witryny sieci Web z członkostwa SQL do tożsamości ASP.NET | Dokumentacja firmy Microsoft"
+title: Migrowanie istniejącej witryny sieci Web z członkostwa SQL do tożsamości ASP.NET | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "W tym samouczku przedstawiono kroki, aby dokonać migracji istniejącej aplikacji sieci web z użytkownika i roli dane utworzone za pomocą członkostwa SQL do nowej tożsamości programu ASP.NET s..."
+description: W tym samouczku przedstawiono kroki, aby dokonać migracji istniejącej aplikacji sieci web z użytkownika i roli dane utworzone za pomocą członkostwa SQL do nowej tożsamości programu ASP.NET s...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/19/2014
 ms.topic: article
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 3638c6779a0fcedaaa49623126b28ecf09a4954f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2790f32bc74cecf450f5a258fc1ff5b280a63923
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migrowanie istniejącej witryny sieci Web z członkostwa SQL do tożsamości platformy ASP.NET
 ====================
@@ -67,14 +67,14 @@ W tym samouczku teraz nastąpi przekierowanie do szablonu aplikacji sieci web (f
 
 1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt &gt; **Zarządzaj pakietami NuGet**. W polu wyszukiwania wprowadź "Asp.net Identity". Wybierz pakiet, na liście wyników, a następnie kliknij przycisk Instaluj. Zaakceptuj Umowę licencyjną, klikając przycisk "Zgadzam się". Należy pamiętać, że ten pakiet zostanie zainstalowany pakietów zależności: EntityFramework i Microsoft ASP.NET Identity Core. Podobnie można zainstalować następujących pakietów (Pomiń 4 ostatnie pakiety OWIN, jeśli nie chcesz włączyć logowania OAuth):
 
-    - Microsoft.AspNet.Identity.Owin
-    - Microsoft.Owin.Host.SystemWeb
-    - Microsoft.Owin.Security.Facebook
-    - Microsoft.Owin.Security.Google
-    - Microsoft.Owin.Security.MicrosoftAccount
-    - Microsoft.Owin.Security.Twitter
+   - Microsoft.AspNet.Identity.Owin
+   - Microsoft.Owin.Host.SystemWeb
+   - Microsoft.Owin.Security.Facebook
+   - Microsoft.Owin.Security.Google
+   - Microsoft.Owin.Security.MicrosoftAccount
+   - Microsoft.Owin.Security.Twitter
 
-    ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image6.png)
+     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image6.png)
 
 ### <a name="migrate-database-to-the-new-identity-system"></a>Migrację bazy danych do nowego systemu tożsamości
 
@@ -193,7 +193,7 @@ W naszym przykładzie tabele AspNetRoles, AspNetUserClaims, AspNetLogins i AspNe
 
 ### <a name="create-new-account-management-pages"></a>Utwórz nowe konto zarządzania stron
 
-Następnym krokiem w procesie migracji jest dodać konto zarządzania stron, które umożliwia użytkownikowi rejestracji i logowania. Stare konto strony z członkostwa SQL użyj formantów, które nie działają z nowym systemem tożsamości. Aby dodać nowego użytkownika strony zarządzania zgodne samouczek łącze [https://www.asp.net/identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project](../getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md) od kroku " Dodawanie do rejestracji użytkowników do aplikacji formularzy sieci Web ", ponieważ firma Microsoft już utworzeniu projektu i dodaniu pakietów NuGet.
+Następnym krokiem w procesie migracji jest dodać konto zarządzania stron, które umożliwia użytkownikowi rejestracji i logowania. Stare konto strony z członkostwa SQL użyj formantów, które nie działają z nowym systemem tożsamości. Aby dodać nowego użytkownika strony zarządzania zgodne samouczek łącze [ https://www.asp.net/identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project ](../getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md) od kroku "Dodawanie formularzy sieci Web rejestracji użytkowników do aplikacji" ponieważ firma Microsoft już utworzeniu projektu i dodaniu NuGet pakiety.
 
 Należy wprowadzić kilka zmian, na przykład, aby pracować z projektem, który mamy tutaj.
 

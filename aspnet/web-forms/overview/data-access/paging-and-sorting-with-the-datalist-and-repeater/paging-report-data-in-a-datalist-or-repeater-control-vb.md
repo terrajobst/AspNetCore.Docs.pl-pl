@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
 title: Stronicowanie danych raportu w kontrolce elementu powtarzanego (VB) lub DataList | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Podczas automatycznego stronicowania oferta DataList ani elementu powtarzanego lub sortowania pomocy technicznej w tym samouczku pokazano, jak dodać obsługę stronicowania DataList lub elementu powtarzanego..."
+description: Podczas automatycznego stronicowania oferta DataList ani elementu powtarzanego lub sortowania pomocy technicznej w tym samouczku pokazano, jak dodać obsługę stronicowania DataList lub elementu powtarzanego...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 66f1065c41352f355dd5f1be43443165df909b93
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 867f2a0a6de6da2ccda1526ef7c1d0edd97431c6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>Dane raportu stronicowania DataList lub w kontrolce elementu powtarzanego (VB)
 ====================
@@ -100,10 +100,10 @@ W ramach tego samouczka przyjrzymy Implementowanie stronicowania domyślne w Dat
 
 Dodaj metodę `ProductsBLL` klasy o nazwie `GetProductsAsPagedDataSource` który przyjmuje dwa parametry wejściowe całkowitą:
 
-- `pageIndex`Indeks strony do wyświetlenia, indeksowane na zero, a
-- `pageSize`Liczba rekordów wyświetlanych na każdej stronie.
+- `pageIndex` Indeks strony do wyświetlenia, indeksowane na zero, a
+- `pageSize` Liczba rekordów wyświetlanych na każdej stronie.
 
-`GetProductsAsPagedDataSource`rozpoczyna się przez pobranie *wszystkie* rekordy z `GetProducts()`. Następnie tworzy `PagedDataSource` obiektu ustawienie jej `CurrentPageIndex` i `PageSize` właściwości do wartości przekazane do `pageIndex` i `pageSize` parametrów. Metoda stwierdza, zwracając to skonfigurowany `PagedDataSource`:
+`GetProductsAsPagedDataSource` rozpoczyna się przez pobranie *wszystkie* rekordy z `GetProducts()`. Następnie tworzy `PagedDataSource` obiektu ustawienie jej `CurrentPageIndex` i `PageSize` właściwości do wartości przekazane do `pageIndex` i `pageSize` parametrów. Metoda stwierdza, zwracając to skonfigurowany `PagedDataSource`:
 
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample2.vb)]
@@ -275,12 +275,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Liz Shulok, Krzysztof Pespisa i Bernadette Leigh. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](sorting-data-in-a-datalist-or-repeater-control-cs.md)
-[dalej](sorting-data-in-a-datalist-or-repeater-control-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](sorting-data-in-a-datalist-or-repeater-control-cs.md)
+> [dalej](sorting-data-in-a-datalist-or-repeater-control-vb.md)

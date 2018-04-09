@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
-title: "Przekazywanie plików (C#) | Dokumentacja firmy Microsoft"
+title: Przekazywanie plików (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Dowiedz się, jak Zezwalaj użytkownikom na przekazywanie plików binarnych (takich jak dokumenty programu Word lub PDF) do witryny sieci Web, w którym mogą być przechowywane w systemu plików na serwerze..."
+description: Dowiedz się, jak Zezwalaj użytkownikom na przekazywanie plików binarnych (takich jak dokumenty programu Word lub PDF) do witryny sieci Web, w którym mogą być przechowywane w systemu plików na serwerze...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 629c1154683a0370e3e650873edf29dc9f22b4bc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3c758e94311817d01b17d27083733f805caf600f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="uploading-files-c"></a>Przekazywanie plików (C#)
 ====================
@@ -124,9 +124,9 @@ Dodaj nową `varchar(200)` kolumny `Categories` tabeli o nazwie `BrochurePath` i
 
 Zgodnie z opisem w *tworzenie Warstwa dostępu do danych*, DataTables w zestawie danych wpisane tworzą obiektów biznesowych. TableAdapters są zobowiązani do komunikowania się z bazą danych i wypełniania obiektów biznesowych z wynikami zapytania. `CategoriesDataTable` Jest wypełniana `CategoriesTableAdapter`, który ma trzy metody pobierania danych:
 
-- `GetCategories()`wykonuje zapytanie głównego s TableAdapter i zwraca `CategoryID`, `CategoryName`, i `Description` pól wszystkich rekordów w `Categories` tabeli. Główne zapytanie jest używana przez generowanych automatycznie `Insert` i `Update` metody.
-- `GetCategoryByCategoryID(categoryID)`Zwraca `CategoryID`, `CategoryName`, i `Description` pola kategorii, których `CategoryID` jest równe *categoryID*.
-- `GetCategoriesAndNumberOfProducts()`-Zwraca `CategoryID`, `CategoryName`, i `Description` pól dla wszystkich rekordów w `Categories` tabeli. Używa również podzapytania w celu Zwróć liczbę skojarzone z każdej kategorii produktów.
+- `GetCategories()` wykonuje zapytanie głównego s TableAdapter i zwraca `CategoryID`, `CategoryName`, i `Description` pól wszystkich rekordów w `Categories` tabeli. Główne zapytanie jest używana przez generowanych automatycznie `Insert` i `Update` metody.
+- `GetCategoryByCategoryID(categoryID)` Zwraca `CategoryID`, `CategoryName`, i `Description` pola kategorii, których `CategoryID` jest równe *categoryID*.
+- `GetCategoriesAndNumberOfProducts()` -Zwraca `CategoryID`, `CategoryName`, i `Description` pól dla wszystkich rekordów w `Categories` tabeli. Używa również podzapytania w celu Zwróć liczbę skojarzone z każdej kategorii produktów.
 
 Powiadomienie, że żaden z tych zapytań powrotu `Categories` tabeli s `Picture` lub `BrochurePath` kolumn; ani ma `CategoriesDataTable` podaj `DataColumn` s dla tych pól. Aby pracować z obrazu i `BrochurePath` właściwości, należy najpierw dodać je do `CategoriesDataTable` , a następnie zaktualizować `CategoriesTableAdapter` służącą do zwracania tych kolumn.
 
@@ -287,11 +287,11 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Teresa Murphy i Bernadette Leigh. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Next](displaying-binary-data-in-the-data-web-controls-cs.md)
+> [!div class="step-by-step"]
+> [Next](displaying-binary-data-in-the-data-web-controls-cs.md)

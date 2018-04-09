@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
-title: "Sprawdzaniu poprawności proste (VB) | Dokumentacja firmy Microsoft"
+title: Sprawdzaniu poprawności proste (VB) | Dokumentacja firmy Microsoft
 author: StephenWalther
 description: Informacje o sposobie przeprowadzania weryfikacji w aplikacji platformy ASP.NET MVC. W tym samouczku Stephen Walther wprowadza do stanu modelu i pomocnika weryfikacji HTML...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2bc4cdbcd267bcdd3e71abc4c52664ae62c5c02e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: efb98d87106e332fffb158e5f382d57fea778957
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-simple-validation-vb"></a>Sprawdzaniu poprawności proste (VB)
 ====================
@@ -130,6 +130,6 @@ Jeśli chcesz dostosować wygląd te komunikaty o błędach prebinding następni
 
 Celem tego samouczka było do opisywania podstawowa mechanika weryfikacji platformy ASP.NET MVC. Przedstawiono sposób użycia stanu modelu i sprawdzania poprawności pomocników HTML. Omówiono także różnice między prebinding i postbinding sprawdzania poprawności. W innych samouczków omówiono różne strategie kod weryfikacji z kontrolerami poza i w klasach modeli.
 
->[!div class="step-by-step"]
-[Poprzednie](displaying-a-table-of-database-data-vb.md)
-[dalej](validating-with-the-idataerrorinfo-interface-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](displaying-a-table-of-database-data-vb.md)
+> [dalej](validating-with-the-idataerrorinfo-interface-vb.md)

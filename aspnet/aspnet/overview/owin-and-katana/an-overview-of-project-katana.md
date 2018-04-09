@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/owin-and-katana/an-overview-of-project-katana
-title: "Przegląd projektu Katana | Dokumentacja firmy Microsoft"
+title: Przegląd projektu Katana | Dokumentacja firmy Microsoft
 author: howarddierking
-description: "Struktury programu ASP.NET została wokół ponad 10 lat, a platformy ma włączoną obsługę programowania niezliczonych witryn sieci Web i usług. Jako aplikacji sieci Web..."
+description: Struktury programu ASP.NET została wokół ponad 10 lat, a platformy ma włączoną obsługę programowania niezliczonych witryn sieci Web i usług. Jako aplikacji sieci Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/30/2013
 ms.topic: article
 ms.assetid: 0ee21741-c1bf-4025-a9b0-24580cae24bc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: ceb7d3a7d1cb1685c0f1e62698f508c9a73e77c2
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3c2bcbbc6e506af759f6d77af17d015278cc0bdf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-project-katana"></a>Przegląd projektu Katana
 ====================
@@ -144,7 +144,7 @@ Z poziomu wiersza polecenia, możemy następnie przejdź do folderu głównego p
 - Zarządzanie w podstawowym procesie.
 - Organizowanie przepływu pracy, który powoduje wybór serwera i budowy potoku OWIN za pośrednictwem których żądań obsługi.
 
- Obecnie istnieją 3 podstawowe opcje hostingu dla aplikacji opartych na Katana:  
+  Obecnie istnieją 3 podstawowe opcje hostingu dla aplikacji opartych na Katana:  
   
 **IIS/ASP.NET**: używanie standardowych typów HttpModule i HttpHandler, potoki OWIN można uruchomić na serwerze IIS jako część przepływu żądania ASP.NET. Hosting pomocy technicznej platformy ASP.NET jest włączony, instalując pakiet Microsoft.AspNet.Host.SystemWeb NuGet do projektu aplikacji sieci Web. Ponadto ponieważ usługi IIS działa jako serwer i hostów, w tym pakiecie NuGet, co oznacza, że używany SystemWeb host, Projektant nie może zastąpić implementację alternatywny serwer jest conflated rozróżnienie hosta serwera/OWIN.  
   
@@ -221,7 +221,7 @@ Hostingu infrastruktura Katana 2.0 obejmuje zarówno SystemWeb oraz serwerów op
 
 ## <a name="for-more-information-about-katana"></a>Aby uzyskać więcej informacji na temat Katana
 
-- Projekt Katana w witrynie GitHub: [https://github.com/aspnet/AspNetKatana/](https://github.com/aspnet/AspNetKatana/).
+- Projekt Katana w witrynie GitHub: [ https://github.com/aspnet/AspNetKatana/ ](https://github.com/aspnet/AspNetKatana/).
 - Wideo: [projekt Katana — OWIN dla platformy ASP.NET](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET), przez Dierking Howarda.
 
 ## <a name="acknowledgements"></a>Potwierdzeń

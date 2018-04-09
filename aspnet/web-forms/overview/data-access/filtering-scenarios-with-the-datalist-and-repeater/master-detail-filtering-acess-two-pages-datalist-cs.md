@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-cs
-title: "Wzorzec/szczegół filtrowania przez dwie strony (C#) | Dokumentacja firmy Microsoft"
+title: Wzorzec/szczegół filtrowania przez dwie strony (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W ramach tego samouczka przyjrzymy się oddzielającego raportu wzorzec/szczegół między dwoma stronami. Na stronie \"master\" używamy kontrolce elementu powtarzanego do renderowania listę categ..."
+description: W ramach tego samouczka przyjrzymy się oddzielającego raportu wzorzec/szczegół między dwoma stronami. Na stronie "master" używamy kontrolce elementu powtarzanego do renderowania listę categ...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bb86db509ca26dde0c24341dee402e7af4355507
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6a3783175218438f2a9f735c3861c56e039a248e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-c"></a>Wzorzec/szczegół filtrowania przez dwie strony (C#)
 ====================
@@ -59,7 +59,7 @@ Z tego znacznika pełną Poświęć chwilę, aby wyświetlić postęp naszych za
 
 ## <a name="step-2-turning-the-category-name-into-a-link-to-the-details-page"></a>Krok 2: Włączanie nazwę kategorii w łącze do strony szczegółów
 
-Aby zezwolić użytkownikowi na wyświetlanie informacji "szczegóły" dla danej kategorii, należy dodać do każdej listy punktowanej elementu, gdy kliknięty, potrwa użytkownikowi na drugiej stronie łącza (`ProductsForCategoryDetails.aspx`). Ta druga strona będzie wyświetlana produktów dla wybranej kategorii przy użyciu elementu DataList. W celu określenia kategorii, którego łącze został kliknięty, należy przekazać klikniętej kategorii `CategoryID` do drugiej strony za pomocą mechanizmu. Najprostszy, najbardziej oczywistym sposobem transferu danych skalarnych z jednej strony do innego jest za pośrednictwem querystring, czyli opcji, które będą używane w tym samouczku. W szczególności `ProductsForCategoryDetails.aspx` strony będą oczekiwać wybranego  *`categoryID`*  wartości przekazywane querystring pole o nazwie `CategoryID`. Na przykład, aby wyświetlić produkty należące do tej kategorii, który ma `CategoryID` 1, użytkownik może odwiedzić `ProductsForCategoryDetails.aspx?CategoryID=1`.
+Aby zezwolić użytkownikowi na wyświetlanie informacji "szczegóły" dla danej kategorii, należy dodać do każdej listy punktowanej elementu, gdy kliknięty, potrwa użytkownikowi na drugiej stronie łącza (`ProductsForCategoryDetails.aspx`). Ta druga strona będzie wyświetlana produktów dla wybranej kategorii przy użyciu elementu DataList. W celu określenia kategorii, którego łącze został kliknięty, należy przekazać klikniętej kategorii `CategoryID` do drugiej strony za pomocą mechanizmu. Najprostszy, najbardziej oczywistym sposobem transferu danych skalarnych z jednej strony do innego jest za pośrednictwem querystring, czyli opcji, które będą używane w tym samouczku. W szczególności `ProductsForCategoryDetails.aspx` strony będą oczekiwać wybranego *`categoryID`* wartości przekazywane querystring pole o nazwie `CategoryID`. Na przykład, aby wyświetlić produkty należące do tej kategorii, który ma `CategoryID` 1, użytkownik może odwiedzić `ProductsForCategoryDetails.aspx?CategoryID=1`.
 
 Aby utworzyć hiperłącze dla każdego elementu listy punktowanej w elemencie powtarzanym musimy albo Dodaj formant sieci HyperLink Web lub element kotwicy HTML (`<a>`) do `ItemTemplate`. W zastosowaniach hiperłącze wyświetlane takie same dla każdego wiersza, wystarczy albo podejście. Dla wzmacniaki wolę za pomocą elementu zakotwiczenia. Aby użyć elementu zakotwiczenia, zaktualizuj ItemTemplate elemencie powtarzanym do:
 
@@ -170,18 +170,18 @@ Po zaktualizowaniu odpowiednio bazy danych, wróć do `CategoryListMaster.aspx` 
 
 Gdy wzorzec/szczegół raporty można wyświetlić głównego i szczegółów rekordy na jednej stronie, w wiele witryn sieci Web one są rozdzielone przez dwie strony sieci web. W tym samouczku analizujemy sposobu wdrażania raportu wzorzec/szczegół za kategorii wymienionych na liście punktowanej przy użyciu elementu powtarzanego "główny" strony sieci web i skojarzone wymienionego na stronie "szczegóły". Każdy element tej listy na stronie głównej sieci web zawiera łącze do strony szczegółów, który przekazał wzdłuż wiersza `CategoryID` wartość.
 
-Na stronie szczegółów pobierania tych produktów dla określonego dostawcy zostało wykonane za pomocą `ProductsBLL` klasy `GetProductsByCategoryID(categoryID)` metody.  *`categoryID`*  Określono wartość parametru deklaratywnie przy użyciu `CategoryID` wartości querystring jako źródło parametru. Również Analizujemy sposób wyświetlania szczegółów kategorii na stronie szczegółów za pomocą FormView i wyświetli komunikat, jeśli nie było żadnych produktów należących do wybranej kategorii.
+Na stronie szczegółów pobierania tych produktów dla określonego dostawcy zostało wykonane za pomocą `ProductsBLL` klasy `GetProductsByCategoryID(categoryID)` metody. *`categoryID`* Określono wartość parametru deklaratywnie przy użyciu `CategoryID` wartości querystring jako źródło parametru. Również Analizujemy sposób wyświetlania szczegółów kategorii na stronie szczegółów za pomocą FormView i wyświetli komunikat, jeśli nie było żadnych produktów należących do wybranej kategorii.
 
 Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla...
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Kowalski Zack i Liz Shulok. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](master-detail-filtering-with-a-dropdownlist-datalist-cs.md)
-[dalej](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](master-detail-filtering-with-a-dropdownlist-datalist-cs.md)
+> [dalej](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/calling-a-web-api-from-a-net-client
-title: "Wywoływanie interfejsu API sieci Web z klienta programu .NET (C#) | Dokumentacja firmy Microsoft"
+title: Wywoływanie interfejsu API sieci Web z klienta programu .NET (C#) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/24/2017
@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 44e02888b53ee372ab93db5f90acb691f26b7519
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: a243eeb982ba581e237263c4e31e130d634aff0e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Wywoływanie interfejsu API sieci Web z klienta programu .NET (C#)
 ====================
@@ -48,7 +48,7 @@ W programie Visual Studio Utwórz nową aplikację konsoli systemu Windows o naz
 
 Poprzedni kod jest aplikacja kliencka ukończone.
 
-`RunAsync`Uruchamia i bloków, dopóki nie ukończy. Większość **HttpClient** są metody asynchronicznej, ponieważ wykonują operacje We/Wy sieci. Wszystkie zadania asynchroniczne są wykonywane w `RunAsync`. Zwykle aplikacja nie blokuje wątku głównego, ale ta aplikacja nie zezwala interakcji.
+`RunAsync` Uruchamia i bloków, dopóki nie ukończy. Większość **HttpClient** są metody asynchronicznej, ponieważ wykonują operacje We/Wy sieci. Wszystkie zadania asynchroniczne są wykonywane w `RunAsync`. Zwykle aplikacja nie blokuje wątku głównego, ale ta aplikacja nie zezwala interakcji.
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_run)]
 
@@ -109,7 +109,7 @@ Poniższy kod wysyła żądanie pobrania produktu:
 
 **GetAsync** metoda wysyła żądanie HTTP GET. Po ukończeniu metody, zwraca **HttpResponseMessage** zawierający odpowiedzi HTTP. Jeśli kod stanu w odpowiedzi kod sukces, treść odpowiedzi zawiera reprezentacja JSON produktu. Wywołanie **ReadAsAsync** do ładunek JSON do zdeserializowania `Product` wystąpienia. **ReadAsAsync** metoda jest asynchroniczne, ponieważ treść odpowiedzi może być dowolnie dużą.
 
-**HttpClient** nie zgłosić wyjątek, jeśli odpowiedź HTTP zawiera kod błędu. Zamiast tego **IsSuccessStatusCode** właściwość jest **false** Jeśli stan to kod błędu. Jeśli wolisz Traktuj kody błędów HTTP jako wyjątki, wywołanie [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) w obiekt odpowiedzi. `EnsureSuccessStatusCode`zgłasza wyjątek, jeśli kod stanu znajduje się poza zakresem 200&ndash;299. Należy pamiętać, że **HttpClient** można zgłaszanie wyjątków z innych powodów &mdash; na przykład, jeśli upłynie limit czasu żądania.
+**HttpClient** nie zgłosić wyjątek, jeśli odpowiedź HTTP zawiera kod błędu. Zamiast tego **IsSuccessStatusCode** właściwość jest **false** Jeśli stan to kod błędu. Jeśli wolisz Traktuj kody błędów HTTP jako wyjątki, wywołanie [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) w obiekt odpowiedzi. `EnsureSuccessStatusCode` zgłasza wyjątek, jeśli kod stanu znajduje się poza zakresem 200&ndash;299. Należy pamiętać, że **HttpClient** można zgłaszanie wyjątków z innych powodów &mdash; na przykład, jeśli upłynie limit czasu żądania.
 
 <a id="MediaTypeFormatters"></a>
 ### <a name="media-type-formatters-to-deserialize"></a>Programy formatujące typy nośnika do deserializacji
@@ -173,10 +173,10 @@ Aby przetestować aplikację klienta:
 
 3. Uruchom aplikację klienta. Są następujące wyniki:
 
- ```console
- Created at http://localhost:64195/api/products/4
-Name: Gizmo     Price: 100.0    Category: Widgets
-Updating price...
-Name: Gizmo     Price: 80.0     Category: Widgets
-Deleted (HTTP Status = 204)
-```
+   ```console
+   Created at http://localhost:64195/api/products/4
+   Name: Gizmo     Price: 100.0    Category: Widgets
+   Updating price...
+   Name: Gizmo     Price: 80.0     Category: Widgets
+   Deleted (HTTP Status = 204)
+   ```

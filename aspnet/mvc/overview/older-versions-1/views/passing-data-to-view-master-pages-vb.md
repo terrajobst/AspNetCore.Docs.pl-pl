@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-vb
 title: Przekazywanie danych do strony wzorcowej widoku (VB) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Celem tego samouczka jest wyjaśnienie, jak można przekazać dane z kontrolera do widoku strony wzorcowej. Omówione dwie strategie przekazywania danych do widoku m..."
+description: Celem tego samouczka jest wyjaśnienie, jak można przekazać dane z kontrolera do widoku strony wzorcowej. Omówione dwie strategie przekazywania danych do widoku m...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d92a1afe46af124e835b3d59f2b2093402742bbd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fcd7c5baacc00490720d1f82252d81e40c097c88
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="passing-data-to-view-master-pages-vb"></a>Przekazywanie danych do strony wzorcowej widoku (VB)
 ====================
@@ -53,7 +53,7 @@ Zacznijmy z Najprostszym rozwiązaniem w celu przekazywania danych widoku z kont
 
 Należy wziąć pod uwagę kontrolera 1 wyświetlania. Udostępnia ona dwie akcje o nazwie `Index()` i `Details()`. `Index()` Metoda akcji zwraca co film filmy tabeli bazy danych. `Details()` Metoda akcji zwraca co filmu w filmu określonej kategorii.
 
-**1 — Lista`Controllers\HomeController.vb`**
+**1 — Lista `Controllers\HomeController.vb`**
 
 [!code-vb[Main](passing-data-to-view-master-pages-vb/samples/sample1.vb)]
 
@@ -69,13 +69,13 @@ Należy zauważyć, że zarówno `Index()` i `Details()` akcje dodać dwóch ele
 
 Widok indeks znajduje się w wyświetlania 2. Iteruje po prostu Lista filmów reprezentowany przez element filmów w widoku danych.
 
-**2 — Lista`Views\Home\Index.aspx`**
+**2 — Lista `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-vb/samples/sample2.aspx)]
 
 Strony wzorcowej widoku znajduje się w 3 wyświetlania. Widok strony wzorcowej iteracje i renderuje wszystkie kategorie filmu reprezentowany przez element kategorii z danymi widoku.
 
-**3 — lista`Views\Shared\Site.master`**
+**3 — lista `Views\Shared\Site.master`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-vb/samples/sample3.aspx)]
 
@@ -91,7 +91,7 @@ Klasa ApplicationController znajduje się w listę 4.
 
 Klasa ApplicationController znajduje się w listę 4.
 
-**Wyświetlanie listy 4.`Controllers\ApplicationController.vb`**
+**Wyświetlanie listy 4. `Controllers\ApplicationController.vb`**
 
 [!code-vb[Main](passing-data-to-view-master-pages-vb/samples/sample4.vb)]
 
@@ -103,7 +103,7 @@ Trzecie Zwróć uwagę, że kontroler aplikacji zawiera konstruktora, który dod
 
 Kontroler filmów w listę 5 dziedziczy kontrolera aplikacji.
 
-**Wyświetlanie listy 5 —`Controllers\MoviesController.vb`**
+**Wyświetlanie listy 5 — `Controllers\MoviesController.vb`**
 
 [!code-vb[Main](passing-data-to-view-master-pages-vb/samples/sample5.vb)]
 
@@ -117,5 +117,5 @@ W tym samouczku omówiono dwa podejścia do przekazywania danych widoku z kontro
 
 Następnie możemy się zbadana znacznie lepszą strategię dodawania danych do wyświetlania danych wymagane przez strony wzorcowej widoku. Zamiast opcji dodawania danych widoku w każdej akcji kontrolera, dodaliśmy danych widoku tylko raz w ramach kontrolera aplikacji. W ten sposób można uniknąć zduplikowanych kodu podczas przekazywania danych do strony wzorcowej widoku w aplikacji platformy ASP.NET MVC.
 
->[!div class="step-by-step"]
-[Poprzednie](creating-page-layouts-with-view-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-page-layouts-with-view-master-pages-vb.md)

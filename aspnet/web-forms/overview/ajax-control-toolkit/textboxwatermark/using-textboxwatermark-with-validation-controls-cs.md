@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
-title: "Przy użyciu TextBoxWatermark z formantami sprawdzania poprawności (C#) | Dokumentacja firmy Microsoft"
+title: Przy użyciu TextBoxWatermark z formantami sprawdzania poprawności (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formant TextBoxWatermark w zestawie narzędzi kontroli AJAX rozszerza pole tekstowe tak, aby tekst jest wyświetlany w polu. Gdy użytkownik kliknie w polu go i..."
+description: Formant TextBoxWatermark w zestawie narzędzi kontroli AJAX rozszerza pole tekstowe tak, aby tekst jest wyświetlany w polu. Gdy użytkownik kliknie w polu go i...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 61fa55c8c4580800de1097b7242c7077cda27115
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b5cc7974f3444b54770cba54b991aab7b103f753
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-textboxwatermark-with-validation-controls-c"></a>Przy użyciu TextBoxWatermark z formantami sprawdzania poprawności (C#)
 ====================
@@ -56,6 +56,6 @@ Na koniec należy dodać kodu po stronie serwera do wyjściowego tekst w polu, j
 
 Moduł weryfikacji narzeka, że nie ma żadnego tekstu w polu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-textboxwatermark-with-validation-controls-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](using-textboxwatermark-in-a-formview-cs.md)
-[dalej](using-textboxwatermark-in-a-formview-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-textboxwatermark-in-a-formview-cs.md)
+> [dalej](using-textboxwatermark-in-a-formview-vb.md)

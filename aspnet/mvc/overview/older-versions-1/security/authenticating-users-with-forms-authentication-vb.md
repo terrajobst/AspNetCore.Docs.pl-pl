@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
-title: "Uwierzytelniania użytkowników przy użyciu formularzy uwierzytelniania (VB) | Dokumentacja firmy Microsoft"
+title: Uwierzytelniania użytkowników przy użyciu formularzy uwierzytelniania (VB) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Dowiedz się, jak za pomocą atrybutu [Authorize] hasło ochrony określonej strony w aplikacji MVC. Możesz dowiedzieć się, jak Administracja witryny sieci Web za pomocą..."
+description: Dowiedz się, jak za pomocą atrybutu [Authorize] hasło ochrony określonej strony w aplikacji MVC. Możesz dowiedzieć się, jak Administracja witryny sieci Web za pomocą...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c7d52e51158575c674264efd19c81de9b077d27b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0ff425a4c9728de2eec3d0c94e76cb51a15de487
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-forms-authentication-vb"></a>Uwierzytelnianie użytkowników za pomocą uwierzytelniania formularzy (VB)
 ====================
@@ -33,25 +33,25 @@ Zanim przejdziemy inaczej możemy należy zacząć od tworzenie niektórych uży
 
 **Rysunek 1 — Uruchamianie narzędzia administrowania witryną sieci Web**
 
-![clip_image002 [4]](authenticating-users-with-forms-authentication-vb/_static/image1.jpg)
+![clip_image002[4]](authenticating-users-with-forms-authentication-vb/_static/image1.jpg)
 
 W ramach narzędzia administrowania witryną sieci Web tworzenia nowych użytkowników i role, wybierając kartę Zabezpieczenia. Kliknij przycisk **tworzenia użytkownika** łącze, aby utworzyć nowego użytkownika o nazwie Stephen (patrz rysunek 2). Podaj użytkownika Stephen dowolnym hasłem, które mają (na przykład *klucz tajny*).
 
 **Rysunek 2 — Tworzenie nowego użytkownika**
 
-![clip_image004 [4]](authenticating-users-with-forms-authentication-vb/_static/image2.jpg)
+![clip_image004[4]](authenticating-users-with-forms-authentication-vb/_static/image2.jpg)
 
 Pierwszy Włączanie ról i definiowanie co najmniej jedną rolę do tworzenia nowych ról. Włącz role, klikając **Włącz role** łącza. Następnie należy utworzyć rolę o nazwie *Administratorzy* klikając **Utwórz role lub zarządzaj nimi** link (patrz rysunek 3).
 
 **Rysunek 3 — Tworzenie nowej roli**
 
-![clip_image006 [4]](authenticating-users-with-forms-authentication-vb/_static/image3.jpg)
+![clip_image006[4]](authenticating-users-with-forms-authentication-vb/_static/image3.jpg)
 
 Na koniec Utwórz nowego użytkownika o nazwie Zosi i skojarz Zosi z rolą Administratorzy klikając łącza tworzenia użytkownika i wybierając administratorów, podczas tworzenia Zosi (patrz rysunek 4).
 
 **Rysunek 4 — Dodawanie użytkownika do roli**
 
-![clip_image008 [4]](authenticating-users-with-forms-authentication-vb/_static/image4.jpg)
+![clip_image008[4]](authenticating-users-with-forms-authentication-vb/_static/image4.jpg)
 
 Gdy wszystkie jest nazywany i gotowe, powinien mieć dwóch nowych użytkowników o nazwie Stephen i Zosi. Nowa rola o nazwie Administratorzy powinni również mieć. Zosi jest członkiem roli Administratorzy i Stephen nie jest.
 
@@ -69,7 +69,7 @@ Jeśli wywołanie akcji CompanySecrets(), wprowadzając adres URL /Home/CompanyS
 
 **Rysunek 5 — widoku logowania**
 
-![clip_image010 [4]](authenticating-users-with-forms-authentication-vb/_static/image5.jpg)
+![clip_image010[4]](authenticating-users-with-forms-authentication-vb/_static/image5.jpg)
 
 Widok logowania umożliwia wprowadź nazwę użytkownika i hasło. Jeśli nie jesteś zarejestrowanym użytkownikiem, a następnie kliknięcie **zarejestrować** łącze, aby przejść do rejestru wyświetlania (patrz rysunek 6). Widok rejestru umożliwia utworzenie nowego konta użytkownika.
 
@@ -107,7 +107,7 @@ Przy użyciu bazy danych SQL Express domyślny jest poprawnie przy tworzeniu apl
 
 Pierwszym krokiem jest dodanie wszystkie niezbędne obiekty bazy danych (tabele i procedury składowane) do produkcyjnej bazy danych. Najprostszym sposobem, aby dodać te obiekty do nowej bazy danych jest wykorzystać Kreator konfiguracji ASP.NET SQL Server (patrz rysunek 8). To narzędzie można uruchomić, należy otworzyć wiersz polecenia 2008 programu Visual Studio z grupy programu Microsoft Visual Studio 2008 i wykonywania w wierszu polecenia następujące polecenie:
 
-ASPNET\_regsql
+aspnet\_regsql
 
 **Rysunek 8 — Kreator konfiguracji ASP.NET SQL Server**
 
@@ -117,9 +117,9 @@ Kreator konfiguracji ASP.NET SQL Server umożliwia wybierz bazę danych programu
 
 > [!NOTE]
 > Jeśli nie chcesz używać Kreator konfiguracji ASP.NET SQL Server można znaleźć skrypty SQL dodawania obiektów bazy danych usług aplikacji w następującym folderze:
-
-
-> C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727
+> 
+> 
+> C:\Windows\Microsoft.NET\Framework\v2.0.50727
 
 
 Po utworzeniu niezbędne obiekty bazy danych, należy zmodyfikować połączenie z bazą danych używanych przez aplikację MVC. Zmodyfikuj ApplicationServices parametry połączenia w pliku konfiguracyjnym (web.config) w sieci web tak, aby wskazywało w produkcyjnej bazie danych. Na przykład modyfikacji połączenia do wyświetlania 3 wskazuje na bazie danych o nazwie MyProductionDB (oryginalny ciąg połączenia ApplicationServices ma zostały oznaczone komentarzami).
@@ -152,6 +152,6 @@ Po utworzeniu wymagane logowania, należy do mapowania nazwy logowania użytkown
 
 W tym samouczku przedstawiono sposób użycia uwierzytelniania formularzy, podczas tworzenia aplikacji platformy ASP.NET MVC. Po pierwsze przedstawiono sposób tworzenia nowych użytkowników i role, korzystając z narzędzia administrowania witryną sieci Web. Następnie przedstawiono sposób użycia atrybutu [Authorize], aby zapobiec nieautoryzowanemu wywoływania akcji kontrolera. Ponadto przedstawiono sposób konfigurowania aplikacji MVC do użytkownika oraz informacje o rolach są przechowywane w produkcyjnej bazie danych.
 
->[!div class="step-by-step"]
-[Poprzednie](preventing-javascript-injection-attacks-cs.md)
-[dalej](authenticating-users-with-windows-authentication-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](preventing-javascript-injection-attacks-cs.md)
+> [dalej](authenticating-users-with-windows-authentication-vb.md)

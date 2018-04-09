@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
-title: "Wdrożenia sieci Web w przedsiębiorstwie: Omówienie scenariusza | Dokumentacja firmy Microsoft"
+title: 'Wdrożenia sieci Web w przedsiębiorstwie: Omówienie scenariusza | Dokumentacja firmy Microsoft'
 author: jrjlee
-description: "Ten zestaw samouczki używa przykładowe rozwiązanie z realistyczne poziom złożoności, oraz scenariusz wdrażania fikcyjnej organizacji, aby zapewnić ref..."
+description: Ten zestaw samouczki używa przykładowe rozwiązanie z realistyczne poziom złożoności, oraz scenariusz wdrażania fikcyjnej organizacji, aby zapewnić ref...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/03/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
 msc.type: authoredcontent
-ms.openlocfilehash: f90db22bf98456661c530e728e854ce109aec6fd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20f6e206d6aa4bebb4936246468f5ada0e213236
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="enterprise-web-deployment-scenario-overview"></a>Wdrożenia sieci Web w przedsiębiorstwie: Omówienie scenariusza
 ====================
@@ -39,7 +39,7 @@ Procesy zarządzania cyklem życia aplikacji (ALM) w firmie Fabrikam, Inc. wymag
 
 Każdy z tych środowisk ma inną konfigurację i wymagania dotyczące zabezpieczeń, a każdy stanowi związane z wdrożeniem unikatowych.
 
-### <a name="the-fabrikam-inc-server-infrastructure"></a>Firma Fabrikam, Inc. Serwer infrastruktury
+### <a name="the-fabrikam-inc-server-infrastructure"></a>The Fabrikam, Inc. Serwer infrastruktury
 
 Jest to ogólny opracowywania i wdrażania infrastruktury w firmie Fabrikam, Inc.
 
@@ -122,6 +122,6 @@ Ponadto zarządzanie wdrożenia, kiedy aktualizacje są często i przyrostowych 
 - Chcesz rejestrować działań wdrożenia. Proces wdrażania należy wysłać powiadomienia e-mail o pomyślnym lub niepomyślnym wdrożeń do wyznaczonych odbiorców.
 - W przypadku niepowodzenia automatycznego wdrażania procesu wdrażania należy ponów próbę wykonania bieżącego wdrożenia lub wdrożyć poprzedniego pakietu sieci web zamiast tego.
 
->[!div class="step-by-step"]
-[Poprzednie](deploying-web-applications-in-enterprise-scenarios.md)
-[dalej](application-lifecycle-management-from-development-to-production.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deploying-web-applications-in-enterprise-scenarios.md)
+> [dalej](application-lifecycle-management-from-development-to-production.md)

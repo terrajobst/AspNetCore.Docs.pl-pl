@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
-title: "Część 1: Plik -> Nowy projekt | Dokumentacja firmy Microsoft"
+title: 'Część 1: Plik -> Nowy projekt | Dokumentacja firmy Microsoft'
 author: JoeStagner
-description: "Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 1 zawiera przegląd/nowy plik projektu."
+description: Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 1 zawiera przegląd/nowy plik projektu.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: bd840f9f3f5d723e6bc1bb35955a7770634e9483
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a1b9681516e626b6a0eec420b168a74e05d88afb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-1-file--new-project"></a>Część 1: Plik -> Nowy projekt
 ====================
@@ -27,7 +27,7 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 > Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 1 zawiera przegląd/nowy plik projektu.
 
 
-## <a id="_Toc260221666"></a>Omówienie
+## <a id="_Toc260221666"></a>  Omówienie
 
 W tym samouczku jest wprowadzenie do formularzy sieci Web ASP.NET. Firma Microsoft będzie powoli uruchamianie, środowisko rozwoju poziomu sieci web dla początkujących użytkowników jest poprawny.
 
@@ -63,9 +63,9 @@ Rozpocznie się przez utworzenie nowego projektu formularzy sieci Web ASP.NET w 
 
 Można wykonać krok po kroku, można również pobrać ukończona aplikacja z [http://tailspinspyworks.codeplex.com/](http://tailspinspyworks.codeplex.com/)
 
-Możesz użyć programu Visual Studio 2010 lub wolnego Visual Web Developer 2010 z [https://www.microsoft.com/express/Web/](https://www.microsoft.com/express/Web/). Do skompilowania aplikacji, można użyć programu SQL Server lub wolnego programu SQL Server Express do hosta bazy danych.
+Możesz użyć programu Visual Studio 2010 lub wolnego Visual Web Developer 2010 z [ https://www.microsoft.com/express/Web/ ](https://www.microsoft.com/express/Web/). Do skompilowania aplikacji, można użyć programu SQL Server lub wolnego programu SQL Server Express do hosta bazy danych.
 
-## <a id="_Toc260221667"></a>Plik / nowy projekt
+## <a id="_Toc260221667"></a>  Plik / nowy projekt
 
 Zaczniemy, wybierając nowy projekt z menu Plik w programie Visual Studio. Spowoduje to wyświetlenie okna dialogowego Nowy projekt.
 
@@ -105,5 +105,5 @@ Chcemy też przenosić do katalogu stylów strony wzorcowej. Chociaż jest to ty
 
 Po wykonaniu, to trzeba będzie zmienić strony wzorcowej odwołań w wszystkie pliki aspx generowane przez domyślne strony formularzy sieci Web ASP.NET.
 
->[!div class="step-by-step"]
-[Dalej](tailspin-spyworks-part-2.md)
+> [!div class="step-by-step"]
+> [Next](tailspin-spyworks-part-2.md)

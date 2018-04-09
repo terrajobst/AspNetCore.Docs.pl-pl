@@ -5,7 +5,7 @@ Poniższe szczegóły tabeli platformy ASP.NET Core code generatory parametry:
 | -m  | Nazwa modelu. |
 | -dc  | Kontekst danych. |
 | -udl | Użyj domyślnego układu. |
-| outDir — | Ścieżka folderu względna dane wyjściowe do tworzenia widoków. |
+| -outDir | Ścieżka folderu względna dane wyjściowe do tworzenia widoków. |
 | --referenceScriptLibraries | Dodaje `_ValidationScriptsPartial` można edytować i tworzyć strony |
 
 Użyj `h` przełącznik, aby uzyskać pomoc dotyczącą `aspnet-codegenerator razorpage` polecenia:
@@ -19,7 +19,7 @@ dotnet aspnet-codegenerator razorpage -h
 * Uruchom aplikację i Dołącz `/Movies` do adresu URL w przeglądarce (`http://localhost:port/movies`).
 * Test **Utwórz** łącza.
 
- ![Tworzenie strony](../../tutorials/razor-pages/model/_static/conan.png)
+  ![Tworzenie strony](../../tutorials/razor-pages/model/_static/conan.png)
 
 <a name="scaffold"></a>
 

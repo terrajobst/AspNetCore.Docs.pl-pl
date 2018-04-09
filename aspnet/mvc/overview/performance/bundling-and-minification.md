@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/performance/bundling-and-minification
-title: "Tworzenie pakietów i minimalizowanie | Dokumentacja firmy Microsoft"
+title: Tworzenie pakietów i minimalizowanie | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Tworzenie pakietów i minimalizowanie są dwie metody można użyć w programie ASP.NET 4.5 do zwiększenia czas ładowania żądania. Tworzenie pakietów i minimalizowanie poprawia czas ładowania przez reducin..."
+description: Tworzenie pakietów i minimalizowanie są dwie metody można użyć w programie ASP.NET 4.5 do zwiększenia czas ładowania żądania. Tworzenie pakietów i minimalizowanie poprawia czas ładowania przez reducin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/23/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 7192481de46c36f7de71164766e68afdbba74f6d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 001ebf89cda66a50cddcd7e4944f27b9396d4450
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="bundling-and-minification"></a>Tworzenie pakietów i minimalizowanie
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Tworzenie pakietów i minimalizowanie są dwie metody można użyć w programie ASP.NET 4.5 do zwiększenia czas ładowania żądania. Tworzenie pakietów i minimalizowanie poprawia czas ładowania przez zmniejszenie liczby żądań do serwera oraz redukcję rozmiaru żądanych zasobów (takich jak CSS i JavaScript.)
 
@@ -98,7 +98,7 @@ Aby włączyć tworzenie pakietów i minimalizowanie, ustaw `debug` wartość "f
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> O ile `EnableOptimizations` jest `true` lub atrybutu debugowania w [compilation Element](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* plik ma ustawioną wartość `false`, pliki nie zostaną powiązane lub zminimalizowany. Ponadto wersji .min plików nie będą używane, zostanie wybrany debugowania pełnej wersji. `EnableOptimizations`zastępuje atrybut debugowania w [compilation Element](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* pliku
+> O ile `EnableOptimizations` jest `true` lub atrybutu debugowania w [compilation Element](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* plik ma ustawioną wartość `false`, pliki nie zostaną powiązane lub zminimalizowany. Ponadto wersji .min plików nie będą używane, zostanie wybrany debugowania pełnej wersji. `EnableOptimizations` zastępuje atrybut debugowania w [compilation Element](https://msdn.microsoft.com/library/s10awwz0.aspx) w *Web.config* pliku
 
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Przy użyciu tworzenie pakietów i minimalizowanie z formularzami sieci Web ASP.NET i stron sieci Web
@@ -186,7 +186,7 @@ Jawne Dodawanie każdego pliku do pakietu jest zwykle preferowany nad ładowania
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
- Selektor symbol wieloznaczny "\*.css" w przypadku każdego pliku CSS w folderze, w tym *Content\themes\base\jquery.ui.all.css* pliku. *Jquery.ui.all.css* pliku Importuje inne pliki CSS.
+  Selektor symbol wieloznaczny "\*.css" w przypadku każdego pliku CSS w folderze, w tym *Content\themes\base\jquery.ui.all.css* pliku. *Jquery.ui.all.css* pliku Importuje inne pliki CSS.
 
 ## <a name="bundle-caching"></a>Pakietu buforowanie
 
@@ -233,15 +233,15 @@ Powinien być dzielony na partycje pakietów przez strony, które tego wymagają
 
 `System.Web.Optimization` Przestrzeni nazw jest zaimplementowana w System.Web.Optimization.DLL. Jest przeprowadzana z zastosowaniem biblioteki WebGrease (WebGrease.dll) minimalizacji możliwości, który z kolei używa Antlr3.Runtime.dll.
 
-*Używam Twitter wpisów szybki i udostępniać łącza. Dojście do mojego Twitter*:[@RickAndMSFT](http://twitter.com/RickAndMSFT)
+*Używam Twitter wpisów szybki i udostępniać łącza. Dojście do mojego Twitter*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - Wideo:[tworzenie pakietów i optymalizowanie](https://channel9.msdn.com/Events/aspConf/aspConf/Bundling-and-Optimizing) przez [Howard Dierking](https://twitter.com/#!/howard_dierking)
 - [Dodawanie optymalizacji sieci Web do witryny sieci Web Pages](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx).
 - [Dodawanie tworzenie pakietów i minimalizowanie do formularzy sieci Web](https://blogs.msdn.com/b/rickandy/archive/2012/08/14/adding-bundling-and-minification-to-web-forms.aspx).
-- [Wpływ na wydajność programu tworzenie pakietów i minimalizowanie na przeglądanie sieci Web](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx) przez [Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen)[@frystyk](https://twitter.com/frystyk)
-- [Przy użyciu CDN i wygasa, aby zwiększyć wydajność witryny sieci Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) autorstwa Ricka Andersona[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
+- [Wpływ na wydajność programu tworzenie pakietów i minimalizowanie na przeglądanie sieci Web](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx) przez [Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen) [@frystyk](https://twitter.com/frystyk)
+- [Przy użyciu CDN i wygasa, aby zwiększyć wydajność witryny sieci Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) autorstwa Ricka Andersona [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 - [Minimalizowanie RTT (czasami opóźnienia)](https://developers.google.com/speed/docs/best-practices/rtt)
 
 ## <a name="contributors"></a>Współautorzy

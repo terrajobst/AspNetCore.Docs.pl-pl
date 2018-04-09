@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
-title: "Wprowadzenie do składnika ASP.NET Web Pages — wprowadzanie danych bazy danych za pomocą formularzy | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do składnika ASP.NET Web Pages — wprowadzanie danych bazy danych za pomocą formularzy | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym samouczku przedstawiono sposób tworzenia formularza wpis, a następnie wprowadź dane, które otrzymujesz z formularza do tabeli bazy danych użycia stron ASP.NET Web Pages (...)"
+description: W tym samouczku przedstawiono sposób tworzenia formularza wpis, a następnie wprowadź dane, które otrzymujesz z formularza do tabeli bazy danych użycia stron ASP.NET Web Pages (...)
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: b74eecb16b2c4695bb417816b90f701f724cc9d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bbccf8134e90c19e29efaa5afe1e46e15320c189
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Wprowadzenie do składnika ASP.NET Web Pages — wprowadzanie danych bazy danych za pomocą formularzy
 ====================
@@ -121,7 +121,7 @@ W widoku drzewa plików w programie WebMatrix, kliknij prawym przyciskiem myszy 
 
 !["Dodawanie filmu" strony w przeglądarce](entering-data/_static/image2.png)
 
-(Jeśli na końcu innej strony w przeglądarce, upewnij się, że adres URL jest `http://localhost:nnnnn/AddMovie`), gdzie  *nnnnn*  jest numerem portu, którego używasz.)
+(Jeśli na końcu innej strony w przeglądarce, upewnij się, że adres URL jest `http://localhost:nnnnn/AddMovie`), gdzie *nnnnn* numer portu, którego używasz.)
 
 Czy został wyświetlony stronę błędu Jeśli tak, należy uważnie przeczytać i upewnij się, że kod wygląda dokładnie co był wcześniej.
 
@@ -145,7 +145,7 @@ W takim przypadku faktycznie nie podnieść bazy danych (lub *throw*) wystąpił
 
 Oczywiście nie chcesz umożliwić użytkownikom wprowadzanie pusta połowie informacje do bazy danych. Rozwiązanie to sprawdzanie poprawności danych wejściowych użytkownika. Początkowo weryfikacji po prostu zostanie upewnij się, że użytkownik wprowadził wartość dla wszystkich pól (oznacza to, że żadna z nich nie zawiera pusty ciąg).
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Wartość null i pustych ciągów**
 > 
@@ -157,7 +157,7 @@ Oczywiście nie chcesz umożliwić użytkownikom wprowadzanie pusta połowie inf
 > 
 > Teraz, a następnie ważne jest zrozumienie, dokładnie gdy wartość jest równa null i gdy jest tylko pustym ciągiem. W kodzie *AddMovie* strony, należy pobrać wartości w polach tekstowych przy użyciu `Request.Form["title"]` i tak dalej. Po pierwszym uruchomieniu strony (zanim klikniesz przycisk), wartość `Request.Form["title"]` ma wartość null. Jednak po przesłaniu formularza, `Request.Form["title"]` pobiera wartość `title` pola tekstowego. Nie jest jasne, ale puste pole tekstowe nie ma wartości null; go po prostu zawiera pusty ciąg. Dlatego po kod uruchamiany w odpowiedzi na przycisk kliknij przycisk, `Request.Form["title"]` ma pusty ciąg.
 > 
-> Ta różnica jest ważna Podczas tworzenia *filmy* tabeli, należy jawnie powiedzieć, że żadne z pól może mieć wartości null. W tym miejscu masz formularz nowości a jest pozostawienie pustego pola. Czy spodziewać bazę danych do skarżą się, gdy próbowano zapisać nowe filmów, które nie mają wartości dla rodzaju lub roku. Jednak to punkt &mdash; nawet jeśli te pola tekstowe pozostanie puste, wartości nie ma wartości null; są one puste ciągi. W związku z tym możesz zapisać nowości w bazie danych z tych kolumn pusty &mdash; , ale nie o wartości null! &mdash;wartości. W związku z tym należy upewnić się, że użytkownicy nie przesyłaj pusty ciąg, co można zrobić poprzez sprawdzenie poprawności danych wejściowych użytkownika.
+> Ta różnica jest ważna Podczas tworzenia *filmy* tabeli, należy jawnie powiedzieć, że żadne z pól może mieć wartości null. W tym miejscu masz formularz nowości a jest pozostawienie pustego pola. Czy spodziewać bazę danych do skarżą się, gdy próbowano zapisać nowe filmów, które nie mają wartości dla rodzaju lub roku. Jednak to punkt &mdash; nawet jeśli te pola tekstowe pozostanie puste, wartości nie ma wartości null; są one puste ciągi. W związku z tym możesz zapisać nowości w bazie danych z tych kolumn pusty &mdash; , ale nie o wartości null! &mdash; wartości. W związku z tym należy upewnić się, że użytkownicy nie przesyłaj pusty ciąg, co można zrobić poprzez sprawdzenie poprawności danych wejściowych użytkownika.
 
 
 ### <a name="the-validation-helper"></a>Pomocnik weryfikacji
@@ -260,6 +260,6 @@ W następnym samouczku nauczysz się, jak umożliwić użytkownikom edytowanie d
 - [Wstawianie w instrukcji SQL](http://www.w3schools.com/sql/sql_insert.asp) w witrynie W3Schools
 - [Walidacja danych wejściowych użytkownika w sieci Web ASP.NET stron witryny](https://go.microsoft.com/fwlink/?LinkId=253002). Więcej informacji na temat pracy z `Validation` pomocnika.
 
->[!div class="step-by-step"]
-[Poprzednie](form-basics.md)
-[dalej](updating-data.md)
+> [!div class="step-by-step"]
+> [Poprzednie](form-basics.md)
+> [dalej](updating-data.md)

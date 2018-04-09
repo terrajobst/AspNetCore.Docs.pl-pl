@@ -1,7 +1,7 @@
 ---
-title: "Moduł platformy ASP.NET Core"
+title: Moduł platformy ASP.NET Core
 author: tdykstra
-description: "Dowiedz się, jak moduł platformy ASP.NET Core umożliwia Kestrel serwer sieci web dla usług IIS lub usług IIS Express jako serwera zwrotnego serwera proxy."
+description: Dowiedz się, jak moduł platformy ASP.NET Core umożliwia Kestrel serwer sieci web dla usług IIS lub usług IIS Express jako serwera zwrotnego serwera proxy.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: e2170014f1a8fc89ec7e0a02d19c943b88e005fb
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d99a4b446b53c431b11bfe083b1bb6133f8e0078
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="aspnet-core-module"></a>Moduł platformy ASP.NET Core
 
@@ -25,15 +25,15 @@ Moduł platformy ASP.NET Core umożliwia platformy ASP.NET Core uruchamiania za 
 Obsługiwane wersje systemu Windows:
 
 * Windows 7 lub nowszy
-* Windows Server 2008 R2 lub nowszym &#8224;
+* Windows Server 2008 R2 lub nowszy&#8224;
 
-&#8224; Koncepcyjnie modułu Core ASP.NET z programem IIS, w tym dokumencie opisano dotyczą również hosting aplikacji platformy ASP.NET Core w Nano Server w usługach IIS. Aby uzyskać instrukcje dotyczące Nano Server, zobacz [platformy ASP.NET Core z usługami IIS na serwerze Nano](xref:tutorials/nano-server) samouczka.
+&#8224;Koncepcyjnie modułu Core ASP.NET z programem IIS, w tym dokumencie opisano dotyczą również hosting aplikacji platformy ASP.NET Core w Nano Server w usługach IIS. Aby uzyskać instrukcje dotyczące Nano Server, zobacz [platformy ASP.NET Core z usługami IIS na serwerze Nano](xref:tutorials/nano-server) samouczka.
 
 Moduł platformy ASP.NET Core działa tylko z Kestrel. Moduł nie jest zgodna z [HTTP.sys](xref:fundamentals/servers/httpsys) (wcześniej nazywanych [WebListener](xref:fundamentals/servers/weblistener)).
 
 ## <a name="aspnet-core-module-description"></a>Opis podstawowych modułu ASP.NET
 
-Moduł platformy ASP.NET Core jest macierzysty moduł usług IIS, które podłącza się do potoku usług IIS do przekierowywania żądań sieci web do zaplecza aplikacji platformy ASP.NET Core. Wiele modułów macierzystych, takich jak uwierzytelnianie systemu Windows, pozostają aktywne. Aby dowiedzieć się, jak aktywne moduły usług IIS w module, zobacz [moduły IIS przy użyciu](xref:host-and-deploy/iis/modules).
+Moduł platformy ASP.NET Core jest macierzysty moduł usług IIS, które podłącza się do potoku usług IIS do przekierowywania żądań sieci web do zaplecza aplikacji platformy ASP.NET Core. Wiele modułów macierzystych, takich jak uwierzytelnianie systemu Windows, pozostają aktywne. Aby dowiedzieć się, jak aktywne moduły usług IIS w module, zobacz [moduły IIS](xref:host-and-deploy/iis/modules).
 
 Ponieważ aplikacje platformy ASP.NET Core, uruchom w procesie oddzielić od proces roboczy usług IIS, moduł obsługuje także zarządzanie procesem. Moduł uruchamia proces dla aplikacji platformy ASP.NET Core po pierwsze żądanie dociera i ponowne uruchomienie aplikacji, jeśli uległa awarii. Jest to zasadniczo takie samo zachowanie jako ASP.NET 4.x aplikacje, które są uruchamiane w procesie w usługach IIS, które są zarządzane przez [usługi aktywacji procesów systemu Windows (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
 

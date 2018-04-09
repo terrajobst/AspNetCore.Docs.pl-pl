@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
-title: "Wyświetlanie mapy w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft"
+title: Wyświetlanie mapy w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym artykule opisano sposób wyświetlania interaktywnego mapy na stronach witryny sieci Web ASP.NET Web Pages (Razor) oparte na mapowania usług świadczonych przez Bing, Google, Ma..."
+description: W tym artykule opisano sposób wyświetlania interaktywnego mapy na stronach witryny sieci Web ASP.NET Web Pages (Razor) oparte na mapowania usług świadczonych przez Bing, Google, Ma...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 6f3e6a0cfb8c08cd971e88986d0f059dd8237aab
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 608dab8760bad7b877ab6fd4f89b21e980f5b1db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>Wyświetlanie mapy witryny (Razor) stron sieci Web ASP.NET
 ====================
@@ -89,9 +89,9 @@ Poniższy przykład przedstawia sposób tworzenia strony, który renderuje mapy 
         > [!NOTE]
         > Jeśli używasz innej wersji biblioteki jQuery po prostu upewnij się, że wskazuje tej wersji poprawnie.
     - Wywołanie `@Maps.GetGoogleHtml` w treści strony. Aby mapować adres, należy podać ciąg adresu. Metody silników mapy działa w podobny sposób (`@Maps.GetYahooHtml`, `@Maps.GetMapQuestHtml`).
-- Uruchom strony, a następnie wprowadź adres. Na stronie są wyświetlane mapy, oparte na map programu Google, pokazujący określonej lokalizacji.
+3. Uruchom strony, a następnie wprowadź adres. Na stronie są wyświetlane mapy, oparte na map programu Google, pokazujący określonej lokalizacji.
 
-    ![Mapowanie-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
+     ![Mapowanie-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
 
 ## <a name="creating-a-map-based-on-latitude-and-longitude-coordinates-using-bing"></a>Tworzenie mapy oparte na współrzędne geograficzne współrzędne (przy użyciu usługi Bing)
 
@@ -103,12 +103,12 @@ W tym przykładzie pokazano, jak utworzyć na podstawie współrzędnych mapy. T
 2. Zastąp `your-key-here` z kluczem usługi mapy Bing, wcześniej wygenerowany.
 3. Uruchom *MapCoordinates.cshtml* wprowadź współrzędne geograficzne, a następnie kliknij pozycję **mapy go!** button. (Jeśli nie znasz wszystkie współrzędne, wykonaj następujące czynności. Jest to lokalizacja w firmy Microsoft Redmond).
 
-    - Szerokość: 47.6781005859375
-    - Longitude: -122.158317565918
+   - Szerokość: 47.6781005859375
+   - Longitude: -122.158317565918
 
-    Ta strona jest wyświetlana, przy użyciu współrzędnych, określone przez użytkownika.
+     Ta strona jest wyświetlana, przy użyciu współrzędnych, określone przez użytkownika.
 
-    ![mapping-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
+     ![mapping-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Dodatkowe zasoby

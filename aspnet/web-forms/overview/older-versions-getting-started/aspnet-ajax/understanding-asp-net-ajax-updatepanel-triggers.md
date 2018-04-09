@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 title: Opis ASP.NET AJAX UpdatePanel wyzwalaczy | Dokumentacja firmy Microsoft
 author: scottcate
-description: "Podczas pracy w edytorze kodu znaczników w programie Visual Studio, (z IntelliSense) można zauważyć, że istnieją dwa elementy podrzędne formantu UpdatePanel. Jeden z ki..."
+description: Podczas pracy w edytorze kodu znaczników w programie Visual Studio, (z IntelliSense) można zauważyć, że istnieją dwa elementy podrzędne formantu UpdatePanel. Jeden z ki...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/12/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: 1338ef0763d9bfab451bc30cafa39f715200153d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f30f2ead402d2f49a89b2caf47cc30b6445d4cfb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>Opis wyzwalaczy UpdatePanel AJAX ASP.NET
 ====================
@@ -59,8 +59,8 @@ Podobnie `<asp:PostBackTrigger>` element może służyć do renderowania strony 
 
 | **Tag** | **Opis** |
 | --- | --- |
-| &lt;ASP: AsyncPostBackTrigger&gt; | Określa formant i zdarzenia, który spowoduje, że aktualizacja strona częściowa dla elementu UpdatePanel, który zawiera odwołanie do tego wyzwalacza. |
-| &lt;ASP: PostBackTrigger&gt; | Określa formant i zdarzenia, który spowoduje, że całą stronę aktualizacji (odświeżania strony pełną). Ten tag można wymusić pełne odświeżenie, gdy formant w przeciwnym razie spowoduje wywołanie częściowe renderowanie. |
+| &lt;asp:AsyncPostBackTrigger&gt; | Określa formant i zdarzenia, który spowoduje, że aktualizacja strona częściowa dla elementu UpdatePanel, który zawiera odwołanie do tego wyzwalacza. |
+| &lt;asp:PostBackTrigger&gt; | Określa formant i zdarzenia, który spowoduje, że całą stronę aktualizacji (odświeżania strony pełną). Ten tag można wymusić pełne odświeżenie, gdy formant w przeciwnym razie spowoduje wywołanie częściowe renderowanie. |
 
 ## <a name="walkthrough-cross-updatepanel-triggers"></a>*Wskazówki: Element UpdatePanel między wyzwalacze*
 
@@ -151,10 +151,10 @@ Sprawdzając przebiega w postaci kodu ASP.NET AJAX po przejęciu modelu, można 
 
 ## <a name="bio"></a>Mnie
 
-Tomasz Paveza jest starszy Deweloper aplikacji .NET na Terralever ([www.terralever.com](http://www.terralever.com)), wiodące interakcyjne przedsiębiorstwo marketing Tempe, AZ. Piotr można uzyskać pod adresem [ robpaveza@gmail.com ](mailto:robpaveza@gmail.com), i znajduje się w jego blog [http://geekswithblogs.net/robp/](http://geekswithblogs.net/robp/).
+Tomasz Paveza jest starszy Deweloper aplikacji .NET na Terralever ([www.terralever.com](http://www.terralever.com)), wiodące interakcyjne przedsiębiorstwo marketing Tempe, AZ. Piotr można uzyskać pod adresem [ robpaveza@gmail.com ](mailto:robpaveza@gmail.com), i znajduje się w jego blog [ http://geekswithblogs.net/robp/ ](http://geekswithblogs.net/robp/).
 
 Scott IE pracuje z technologii Microsoft Web od 1997 i jest Prezes myKB.com ([www.myKB.com](http://www.myKB.com)) gdzie specjalizuje się on w pisaniu ASP.NET aplikacje oparte na systemie koncentruje się na rozwiązania w zakresie oprogramowania bazy wiedzy Knowledge Base. Scott można nawiązać połączenie za pośrednictwem poczty e-mail na [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) lub jego blogu w [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Poprzednie](understanding-partial-page-updates-with-asp-net-ajax.md)
-[dalej](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+> [!div class="step-by-step"]
+> [Poprzednie](understanding-partial-page-updates-with-asp-net-ajax.md)
+> [dalej](understanding-asp-net-ajax-authentication-and-profile-application-services.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
-title: "Tworzenie definicji kompilacji, który obsługuje wdrażanie | Dokumentacja firmy Microsoft"
+title: Tworzenie definicji kompilacji, który obsługuje wdrażanie | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "Jeśli chcesz wykonywać dowolny rodzaj kompilacji w Team Foundation Server (TFS) 2010, należy utworzyć definicję kompilacji w projekcie zespołowym. Ten temat des..."
+description: Jeśli chcesz wykonywać dowolny rodzaj kompilacji w Team Foundation Server (TFS) 2010, należy utworzyć definicję kompilacji w projekcie zespołowym. Ten temat des...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: e5610753968328e5d0f1dba4cbbfed08480fd773
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5ea0bd9f01bb57b96abd349741f304c0093d887
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>Tworzenie definicji kompilacji, która obsługuje wdrożenia
 ====================
@@ -27,9 +27,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > Jeśli chcesz wykonywać dowolny rodzaj kompilacji w Team Foundation Server (TFS) 2010, należy utworzyć definicję kompilacji w projekcie zespołowym. W tym temacie opisano, jak utworzyć nową definicję kompilacji w programie TFS i sterowanie wdrożenia sieci web jako część procesu kompilacji w Team Build.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w które procesem kompilacji i wdrażania są kontrolowane przez dwa pliki projektu & #x 2014; IE ne instrukcjami kompilacji, które są stosowane do każdego środowiska docelowego i jeden zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji i wdrożenia dwa pliki projektu&#x2014;jeden zawierającego instrukcje kompilacji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
 
 ## <a name="task-overview"></a>Omówienie zadań
 
@@ -62,7 +62,7 @@ Przedstawiono to proces:
 Następnej sekcji opisano sposób wykonania tego procesu, tworząc nową definicję kompilacji.
 
 > [!NOTE]
-> Tej procedury & #x 2014; w którym jednym zautomatyzowany proces kompilacji, testy i wdraża rozwiązanie & #x 2014; może być najbardziej nadaje się do wdrożenia, aby przetestować środowisk. W przypadku środowisk przemieszczania i produkcji prawdopodobnie znacznie więcej chcesz wdrożyć zawartość z poprzedniej kompilacji, która już zweryfikować i sprawdzić poprawności w środowisku testowym. Takie podejście jest opisana w następnym temacie [wdrażanie określonej kompilacji](deploying-a-specific-build.md).
+> Ta procedura&#x2014;, w której jeden automatycznego procesu kompilacji, testy i wdraża rozwiązanie&#x2014;może być najbardziej nadaje się do wdrożenia, aby przetestować środowisk. W przypadku środowisk przemieszczania i produkcji prawdopodobnie znacznie więcej chcesz wdrożyć zawartość z poprzedniej kompilacji, która już zweryfikować i sprawdzić poprawności w środowisku testowym. Takie podejście jest opisana w następnym temacie [wdrażanie określonej kompilacji](deploying-a-specific-build.md).
 
 
 ### <a name="who-performs-this-procedure"></a>Kto wykonuje tę procedurę?
@@ -133,7 +133,7 @@ Jeśli skonfigurowano definicję kompilacji, aby użyć elementu konfiguracji, m
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image10.png)
 
-Aby przejrzeć postęp i wyniki kompilacji & #x 2014; niezależnie od tego, czy zostało wyzwolone ręcznie lub automatycznie & #x 2014; kliknij dwukrotnie definicję kompilacji w **Team Explorer** okna. Spowoduje to otwarcie **Eksplorator kompilacji** kartę.
+Aby przejrzeć postęp i wyniki kompilacji&#x2014;niezależnie od tego, czy zostało wyzwolone ręcznie lub automatycznie&#x2014;kliknij dwukrotnie definicję kompilacji w **Team Explorer** okna. Spowoduje to otwarcie **Eksplorator kompilacji** kartę.
 
 ![](creating-a-build-definition-that-supports-deployment/_static/image11.png)
 
@@ -161,6 +161,6 @@ Aby automatycznego wdrażania do pomyślnego jako część procesu kompilacji na
 
 Aby uzyskać więcej informacji na temat tworzenia definicje kompilacji, zobacz [utworzyć podstawową definicję kompilacji](https://msdn.microsoft.com/library/ms181716.aspx) i [Definiowanie procesu kompilacji](https://msdn.microsoft.com/library/ms181715.aspx). Aby uzyskać więcej pomocy w przypadku kompilacji usługi kolejkowania wiadomości, zobacz [kolejki kompilację](https://msdn.microsoft.com/library/ms181722.aspx).
 
->[!div class="step-by-step"]
-[Poprzednie](configuring-a-tfs-build-server-for-web-deployment.md)
-[dalej](deploying-a-specific-build.md)
+> [!div class="step-by-step"]
+> [Poprzednie](configuring-a-tfs-build-server-for-web-deployment.md)
+> [dalej](deploying-a-specific-build.md)

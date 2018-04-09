@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
-title: "Oprogramowanie pośredniczące OWIN w usługach IIS zintegrowane potoku | Dokumentacja firmy Microsoft"
+title: Oprogramowanie pośredniczące OWIN w usługach IIS zintegrowane potoku | Dokumentacja firmy Microsoft
 author: Praburaj
-description: "W tym artykule przedstawiono sposób uruchamiania składników oprogramowania pośredniczącego OWIN (OMCs) w zintegrowanym potoku usług IIS i działa jak ustawić zdarzenia w potoku OMC na. Należy..."
+description: W tym artykule przedstawiono sposób uruchamiania składników oprogramowania pośredniczącego OWIN (OMCs) w zintegrowanym potoku usług IIS i działa jak ustawić zdarzenia w potoku OMC na. Należy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2013
 ms.topic: article
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 5f6ed1ae0309e9bdd3ca4ae229195835f20bc729
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5df70c80084a32c5f61ac9288c8cdbfaaa47f124
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>Oprogramowanie pośredniczące OWIN w zintegrowanym potoku usług IIS
 ====================
@@ -83,13 +83,13 @@ Składniki oprogramowania pośredniczącego Owin (OMC) można skonfigurować do 
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample9.cmd)]
 
- wywołuje się `app.UseStageMarker` przekazywanie `Authenticate` lub `PostAuthenticate` nie będzie można go uznać i nie zostanie wygenerowany wyjątek. Uruchom na etapie najnowszej, która domyślnie jest OMCs `PreHandlerExecute`. Znaczniki etapu są używane do były wcześniej Uruchom. Jeśli określisz znaczników etap poza kolejnością, możemy zaokrąglona do wcześniejszych znacznika. Innymi słowy znacznik etapu Dodawanie mówi "Uruchom nie później niż etap X". Uruchom w OMC przy najbliższej znacznika etapu dodane po ich w potoku OWIN.
+   wywołuje się `app.UseStageMarker` przekazywanie `Authenticate` lub `PostAuthenticate` nie będzie można go uznać i nie zostanie wygenerowany wyjątek. Uruchom na etapie najnowszej, która domyślnie jest OMCs `PreHandlerExecute`. Znaczniki etapu są używane do były wcześniej Uruchom. Jeśli określisz znaczników etap poza kolejnością, możemy zaokrąglona do wcześniejszych znacznika. Innymi słowy znacznik etapu Dodawanie mówi "Uruchom nie później niż etap X". Uruchom w OMC przy najbliższej znacznika etapu dodane po ich w potoku OWIN.
 4. Najwcześniejszym etapie wywołań `app.UseStageMarker` usługi wins. Na przykład jeśli przełącznik kolejność `app.UseStageMarker` wywołania z naszych poprzednim przykładzie:
 
     [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample10.cs?highlight=13,19)]
 
- W oknie dane wyjściowe będą wyświetlane: 
+   W oknie dane wyjściowe będą wyświetlane: 
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample11.cmd)]
 
- OMCs wszystkie działania w `AuthenticateRequest` etap, ponieważ ostatnia OMC zarejestrowany z `Authenticate` zdarzenia i `Authenticate` zdarzeń poprzedza inne zdarzenia.
+   OMCs wszystkie działania w `AuthenticateRequest` etap, ponieważ ostatnia OMC zarejestrowany z `Authenticate` zdarzenia i `Authenticate` zdarzeń poprzedza inne zdarzenia.

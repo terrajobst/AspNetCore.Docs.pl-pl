@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/advanced-enterprise-web-deployment
-title: "Zaawansowane wdrożenia sieci Web w przedsiębiorstwie | Dokumentacja firmy Microsoft"
+title: Zaawansowane wdrożenia sieci Web w przedsiębiorstwie | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "Ten samouczek przedstawia sposób wykonywania różnych zadań, które są wymagane lub pożądane wiele scenariuszy wdrażania w przedsiębiorstwie. Dla Włoska translati..."
+description: Ten samouczek przedstawia sposób wykonywania różnych zadań, które są wymagane lub pożądane wiele scenariuszy wdrażania w przedsiębiorstwie. Dla Włoska translati...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/advanced-enterprise-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: c3cb7f63cf7c0246a0c4da6038a65a6ac43a7b59
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 892e494b6fde994c4d04952382e4d618d73cad5c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="advanced-enterprise-web-deployment"></a>Wdrażanie sieci Web Zaawansowane Enterprise
 ====================
@@ -29,9 +29,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > Włoska translacji tego samouczka, odwiedź stronę [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
-To jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie & #x 2014; korzysta z tego samouczka serii [kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) #x 2014; & rozwiązania do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+To jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) rozwiązania&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md), w którym jest kontrolowany przez proces kompilacji projektu dwa pliki & #x 2014; jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md), w którym jest kontrolowany przez proces kompilacji dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
 
 ## <a name="scenario-overview"></a>Omówienie scenariusza
 
@@ -43,7 +43,7 @@ Scenariusz wysokiego poziomu te samouczki jest opisany w [wdrożenia sieci Web w
 - W tym samouczku omówiono następujące zagadnienia:
 - [Wykonywanie wdrożenia "Co w przypadku"](performing-a-what-if-deployment.md). W wiele scenariuszy należy do określenia wpływu proponowanych wdrożenia w środowisku docelowym lub istniejącą zawartość przed wprowadzeniem faktycznie wszelkie zmiany. W tym temacie opisano, jak uruchomić wdrożenia "co w przypadku" do generowania skryptów aktualizacji bazy danych i plików dziennika, tak, jakby zawartość w środowisku docelowym wdrożyli bez wprowadzania zmian. Analizowanie tych zasobów może pomóc dodatkowe potencjalne problemy klienta z wyprzedzeniem wdrożenia na żywo.
 - [Dostosowywanie wdrożenia bazy danych w wielu środowiskach](customizing-database-deployments-for-multiple-environments.md). Podczas wdrażania projektu bazy danych do wielu miejsc docelowych, często należy dostosować właściwości wdrożenia dla każdego środowiska docelowego. Na przykład w środowisku testowym będzie zazwyczaj ponownego tworzenia bazy danych przy każdym wdrożeniu w środowisku tymczasowym czy produkcyjnym może być znacznie bardziej prawdopodobne zachować dane aktualizacje przyrostowe. W tym temacie opisano, jak można zastosować te zmiany właściwości w logice wdrożenia przez utworzenie pliku konfiguracji (.sqldeployment) określonego środowiska wdrażania dla każdego środowiska docelowego.
-- Wdrażanie członkostwo roli bazy danych do środowiska testowego. Gdy ponownie bazy danych dla każdego wdrożenia & #x 2014, na przykład jako część kompilacji ciągłej integracji (CI) i wdrażanie w środowisku testowym & #x 2014; zazwyczaj musisz skonfigurować członkostwo roli bazy danych zawsze. Na przykład zazwyczaj należy udzielić uprawnień do tożsamości puli aplikacji, które są skojarzone z aplikacją sieci web. W tym temacie opisano, jak można zautomatyzować ten proces przez dodanie skryptu SQL po wdrożeniu do logiki wdrożenia.
+- Wdrażanie członkostwo roli bazy danych do środowiska testowego. Podczas ponownego tworzenia bazy danych przy każdym wdrożeniu&#x2014;na przykład w ramach ciągłej integracji (CI) tworzenia i wdrażania w środowisku testowym&#x2014;zwykle należy skonfigurować członkostwo roli bazy danych zawsze. Na przykład zazwyczaj należy udzielić uprawnień do tożsamości puli aplikacji, które są skojarzone z aplikacją sieci web. W tym temacie opisano, jak można zautomatyzować ten proces przez dodanie skryptu SQL po wdrożeniu do logiki wdrożenia.
 - [Wdrożenie bazy danych członkostwa w środowiskach przedsiębiorstw](deploying-membership-databases-to-enterprise-environments.md). Bazy danych członkostwa ASP.NET mają różne właściwości, które skomplikować procesu wdrażania. Na przykład wdrożenie tylko schematu pozostawi bazy danych w działającym stanie stanu. W większości przypadków zaleca się utworzenie bazy danych członkostwa bezpośrednio w każdym środowisku docelowym. Jednak jeśli trzeba wdrożyć bazę danych członkostwa, w tym temacie opisano niektóre z metod używanych w celu spełnienia wyzwania związane.
 - [Wykluczanie plików i folderów z wdrożenia](excluding-files-and-folders-from-deployment.md). W niektórych scenariuszach należy dostosować zawartość pakietu sieci web do określonego miejsca docelowego środowisk. Na przykład możesz chcieć obejmują pełne wersje bibliotek JavaScript podczas wdrażania w środowisku testowym obsługuje debugowania po stronie klienta, ale zminimalizowany wersje bibliotek podczas wdrażania w środowisku tymczasowym czy produkcyjnym. W tym temacie opisano, jak można wykluczyć określone pliki i foldery z proces tworzenia pakietu.
 - [Wdrażanie pobierania aplikacji sieci Web w trybie Offline z sieci Web](taking-web-applications-offline-with-web-deploy.md). Podczas wdrażania rozwiązania w środowisku tymczasowym czy produkcyjnym, często należy wykonać w czasie trwania procesu wdrażania aplikacji sieci web w trybie offline. W tym temacie opisano sposób dodawania *aplikacji\_offline.htm* plików do aplikacji sieci web w chwili rozpoczęcia procesu wdrażania i usunąć go na końcu. Gdy *aplikacji\_offline.htm* plik znajduje się w miejscu, wszyscy użytkownicy, którzy przejdź do aplikacji sieci web są automatycznie przekierowywane do *aplikacji\_offline.htm* pliku.
@@ -69,5 +69,5 @@ To jest częścią serii samouczków pięć w skali przedsiębiorstwa wdrożenia
 - [Konfigurowanie środowisk serwera sieci Web wdrożenia](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). W tym samouczku opisano sposób konfigurowania serwerów systemu Windows do obsługi różnych scenariuszy wdrażania, w tym wdrażania pakietu sieci web do zdalnego przy użyciu usługi sieci Web wdrożenia Agent (agent zdalnego) lub program obsługi wdrażania w sieci Web i wdrożenia zdalnej bazy danych. Go znajdują się wskazówki dotyczące wybierania metody wdrażania właściwe dla własnego środowiska i przedstawiono sposób używać struktury farmy sieci Web (WFF) w celu replikowania wdrożonych aplikacji sieci web na wszystkich serwerach sieci web w farmie serwerów.
 - [Konfigurowanie serwera Team Foundation Server Web Deployment](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). W tym samouczku opisano sposób konfigurowania TFS w celu obsługi różnych scenariuszy wdrażania, łącznie z automatycznego wdrażania w trakcie procesu konfiguracji i ręcznie wyzwalane wdrożeń określonej kompilacji.
 
->[!div class="step-by-step"]
-[Next](performing-a-what-if-deployment.md)
+> [!div class="step-by-step"]
+> [Next](performing-a-what-if-deployment.md)

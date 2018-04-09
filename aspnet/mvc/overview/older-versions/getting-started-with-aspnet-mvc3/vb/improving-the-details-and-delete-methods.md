@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
-title: "Poprawa szczegóły i metody Delete (VB) | Dokumentacja firmy Microsoft"
+title: Poprawa szczegóły i metody Delete (VB) | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest..."
+description: Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: e057d9f106aaa8afbe521d8185a06dfbf48e46fb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0c662510ce9a80e0e808af0eec2561ecdaa12c01
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="improving-the-details-and-delete-methods-vb"></a>Poprawa szczegóły i metody Delete (VB)
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Ten samouczek pokazuje podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu Microsoft Visual Web Developer 2010 Express Service Pack 1, która jest bezpłatna wersja programu Microsoft Visual Studio. Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagania wstępne wymienione poniżej. Można zainstalować wszystkie z nich, klikając poniższe łącze: [Instalatora platformy sieci Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatywnie można zainstalować oddzielnie wymagania wstępne, korzystając z następujących linków:
 > 
@@ -57,7 +57,7 @@ Należy pamiętać, że `Delete` — metoda nie powoduje usunięcia danych. Wyko
 
 Środowisko uruchomieniowe języka wspólnego (CLR) wymaga przeciążonej metody mają unikatowe sygnatury (tej samej nazwy, lista różnych parametrów). Jednak w tym miejscu należy Delete sposobów — jeden dla GET - i jeden dla żądania POST że dla obu wymaga takiego samego podpisu. (Oba muszą zaakceptować pojedynczego całkowitą jako parametr.)
 
-Aby posortować tę możliwość, można wykonać kilka rzeczy. Jeden jest zapewniają różne nazwy metody. To robiliśmy w on poprzedzających przykład. Jednak powstaje mały problem: ASP.NET mapuje segmentów adresu URL do metody akcji według nazwy i zmiana metody routingu zwykle nie będą mogli odnaleźć tej metody. Rozwiązanie, to zostanie wyświetlony w tym przykładzie jest dodanie `ActionName("Delete")` atrybutu `DeleteConfirmed` metody. To skutecznie wykonuje mapowania systemu routingu, aby adres URL, który zawiera */Delete/*POST znajdzie żądanie `DeleteConfirmed` metody.
+Aby posortować tę możliwość, można wykonać kilka rzeczy. Jeden jest zapewniają różne nazwy metody. To robiliśmy w on poprzedzających przykład. Jednak powstaje mały problem: ASP.NET mapuje segmentów adresu URL do metody akcji według nazwy i zmiana metody routingu zwykle nie będą mogli odnaleźć tej metody. Rozwiązanie, to zostanie wyświetlony w tym przykładzie jest dodanie `ActionName("Delete")` atrybutu `DeleteConfirmed` metody. To skutecznie wykonuje mapowania systemu routingu, aby adres URL, który zawiera <em>/Delete/</em>POST znajdzie żądanie `DeleteConfirmed` metody.
 
 Inny sposób, aby uniknąć problemów z metod, które mają identyczne nazwy i podpisy jest sztucznie Zmiana podpisu metody POST, aby uwzględnić parametrem nieużywane. Na przykład, niektórzy deweloperzy dodać parametr typu `FormCollection` przekazanego do metody POST, a następnie po prostu nie używaj parametru:
 
@@ -77,11 +77,11 @@ Jeśli chcesz wdrożyć aplikację, warto pierwszego testu aplikacji na lokalnym
 - [Enabling IIS 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
 - [Wdrażanie projektów aplikacji sieci Web](https://msdn.microsoft.com/library/dd394698.aspx)
 
-Można teraz zachęca do przejdź do naszego poziomu pośredniego [tworzenia modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) i [magazynu utworów muzycznych MVC](../../mvc-music-store/mvc-music-store-part-1.md) samouczki, aby zapoznać się z [ASP.NET artykuły w witrynie MSDN](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)i zapoznaj się z wielu plików wideo i zasobów w [https://asp.net/mvc](https://asp.net/mvc) nawet więcej informacji o platformie ASP.NET MVC! [ASP.NET MVC forum](https://forums.asp.net/1146.aspx) są doskonałe miejsce, aby zadać pytania.
+Można teraz zachęca do przejdź do naszego poziomu pośredniego [tworzenia modelu danych struktury jednostek dla aplikacji platformy ASP.NET MVC](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) i [magazynu utworów muzycznych MVC](../../mvc-music-store/mvc-music-store-part-1.md) samouczki, aby zapoznać się z [ASP.NET artykuły w witrynie MSDN](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)i zapoznaj się z wielu plików wideo i zasobów w [ https://asp.net/mvc ](https://asp.net/mvc) nawet więcej informacji o platformie ASP.NET MVC! [ASP.NET MVC forum](https://forums.asp.net/1146.aspx) są doskonałe miejsce, aby zadać pytania.
 
 Owocnej pracy.
 
-— Scott Hanselman ([http://hanselman.com](http://hanselman.com) i [ @shanselman ](http://twitter.com/shanselman) w serwisie Twitter) i Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
+— Scott Hanselman ([ http://hanselman.com ](http://hanselman.com) i [ @shanselman ](http://twitter.com/shanselman) w serwisie Twitter) i Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
 
->[!div class="step-by-step"]
-[Poprzednie](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [Poprzednie](adding-validation-to-the-model.md)

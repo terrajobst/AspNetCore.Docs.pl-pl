@@ -1,7 +1,7 @@
 ---
 title: Co to jest nowe w programie ASP.NET 2.0 Core
 author: rick-anderson
-description: "Więcej informacji na temat nowych funkcji w programie ASP.NET 2.0 Core."
+description: Więcej informacji na temat nowych funkcji w programie ASP.NET 2.0 Core.
 manager: wpickett
 ms.author: riande
 ms.date: 07/10/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: cfeff3abafb310c15d6623dcfbb9e1857640c79b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 711a96b17fd41847619ade21eb643af845705c79
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Co to jest nowe w programie ASP.NET 2.0 Core
 
@@ -73,12 +73,12 @@ Ułatwiliśmy ułatwia tworzenie bezpiecznej przy użyciu tożsamości w program
 Aby uzyskać więcej informacji na temat uwierzytelniania zmian w 2.0 zobacz następujące zasoby:
 
 * [Potwierdzenie konta i hasła odzyskiwania w ASP.NET Core](xref:security/authentication/accconfirm)
-* [Włączenie generowania kodu QR uwierzytelniania aplikacji w ASP.NET Core](xref:security/authentication/identity-enable-qrcodes)
-* [Migrowanie uwierzytelnianie i tożsamość platformy ASP.NET Core 2.0](xref:migration/1x-to-2x/identity-2x)
+* [Włącz generowanie kodu QR dla uwierzytelniania w aplikacjach w ASP.NET Core](xref:security/authentication/identity-enable-qrcodes)
+* [Migrowanie uwierzytelnianie i tożsamość do platformy ASP.NET Core 2.0](xref:migration/1x-to-2x/identity-2x)
 
 ## <a name="spa-templates"></a>Szablony SPA
 
-Jednej strony aplikacji JEDNOSTRONICOWEJ szablonów projektu dla kątową, Aurelia Knockout.js, React.js i React.js z Redux są dostępne. Dyrektywy Angular szablon został uaktualniony do dyrektywy Angular 4. Szablony kątową i bibliotece React. domyślnie są dostępne; Aby uzyskać informacje o sposobie pobrania innych szablonów, zobacz [tworzenia nowego projektu SPA](xref:client-side/spa-services#creating-a-new-project). Aby uzyskać informacje o sposobie budowania SPA w ASP.NET Core, zobacz [przy użyciu JavaScriptServices tworzenie aplikacji jednej strony](xref:client-side/spa-services).
+Jednej strony aplikacji JEDNOSTRONICOWEJ szablonów projektu dla kątową, Aurelia Knockout.js, React.js i React.js z Redux są dostępne. Dyrektywy Angular szablon został uaktualniony do dyrektywy Angular 4. Szablony kątową i bibliotece React. domyślnie są dostępne; Aby uzyskać informacje o sposobie pobrania innych szablonów, zobacz [Utwórz nowy projekt JEDNOSTRONICOWEJ](xref:client-side/spa-services#creating-a-new-project). Aby uzyskać informacje o sposobie budowania SPA w ASP.NET Core, zobacz [JavaScriptServices używany do tworzenia aplikacji jednej strony](xref:client-side/spa-services).
 
 ## <a name="kestrel-improvements"></a>Ulepszenia kestrel
 
@@ -144,17 +144,17 @@ Aby uzyskać informacje o stanie funkcji 7.1 C#, zobacz [repozytorium Roslyn Git
 
 * [Profilów dla wdrożenia aplikacji platformy ASP.NET Core publikowania programu Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles)
 * [Zarządzanie kluczami](xref:security/data-protection/implementation/key-management)
-* [Konfigurowanie uwierzytelniania usługi Facebook](xref:security/authentication/facebook-logins)
+* [Konfigurowanie uwierzytelniania serwisu Facebook](xref:security/authentication/facebook-logins)
 * [Konfigurowanie uwierzytelniania usługi Twitter](xref:security/authentication/twitter-logins)
 * [Konfigurowanie uwierzytelniania serwisu Google](xref:security/authentication/google-logins)
-* [Konfigurowanie uwierzytelniania Account firmy Microsoft](xref:security/authentication/microsoft-logins)
+* [Skonfiguruj uwierzytelnianie Account firmy Microsoft](xref:security/authentication/microsoft-logins)
 
 ## <a name="migration-guidance"></a>Wskazówki dotyczące migracji
 
 Aby uzyskać wskazówki dotyczące sposobu przeprowadzenia migracji platformy ASP.NET Core 1.x aplikacji platformy ASP.NET Core 2.0 zobacz następujące zasoby:
 
-* [Migrowanie z platformy ASP.NET Core 1.x do platformy ASP.NET Core 2.0](xref:migration/1x-to-2x/index)
-* [Migrowanie uwierzytelnianie i tożsamość platformy ASP.NET Core 2.0](xref:migration/1x-to-2x/identity-2x)
+* [Migracja z platformy ASP.NET Core 1.x do platformy ASP.NET Core 2.0](xref:migration/1x-to-2x/index)
+* [Migrowanie uwierzytelnianie i tożsamość do platformy ASP.NET Core 2.0](xref:migration/1x-to-2x/identity-2x)
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 

@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
-title: "Dodawanie projektu formularzy ASP.NET Identity pusta lub istniejącej sieci Web | Dokumentacja firmy Microsoft"
+title: Dodawanie projektu formularzy ASP.NET Identity pusta lub istniejącej sieci Web | Dokumentacja firmy Microsoft
 author: raquelsa
-description: "W tym samouczku przedstawiono sposób dodawania tożsamości platformy ASP.NET (nowego systemu członkostwa programu ASP.NET) do aplikacji ASP.NET. Podczas tworzenia nowych formularzy sieci Web lub MVC..."
+description: W tym samouczku przedstawiono sposób dodawania tożsamości platformy ASP.NET (nowego systemu członkostwa programu ASP.NET) do aplikacji ASP.NET. Podczas tworzenia nowych formularzy sieci Web lub MVC...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/23/2013
 ms.topic: article
 ms.assetid: 1cbc0ed2-5bd6-4b62-8d34-4c193dcd8b25
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: 3ab67b93a32106c0b79f9e8d739d47835391edb5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8961e596f0d6cc4810e2439be1ec2915bddb8c78
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-aspnet-identity-to-an-empty-or-existing-web-forms-project"></a>Dodawanie ASP.NET Identity pusta lub istniejącej sieci Web Forms projektu
 ====================
@@ -40,7 +40,7 @@ przez [Raquel Soares De Almeida](https://github.com/raquelsa)
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image2.png)  
   
- Powiadomienie **Zmień uwierzytelnianie** przycisk jest wyłączony i nie obsługuje uwierzytelniania jest dostępne w tym szablonie. Szablony sieci Web Forms, MVC i interfejsu API sieci Web umożliwiają wybierz metodę uwierzytelniania. Aby uzyskać więcej informacji, zobacz [omówienie uwierzytelniania](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#auth) .
+   Powiadomienie **Zmień uwierzytelnianie** przycisk jest wyłączony i nie obsługuje uwierzytelniania jest dostępne w tym szablonie. Szablony sieci Web Forms, MVC i interfejsu API sieci Web umożliwiają wybierz metodę uwierzytelniania. Aby uzyskać więcej informacji, zobacz [omówienie uwierzytelniania](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#auth) .
 
 ## <a name="adding-identity-packages-to-your-app"></a>Dodawanie pakietów tożsamości do aplikacji
 
@@ -152,20 +152,20 @@ W tym momencie tylko Dodaliśmy obsługę tworzenia użytkowników. Teraz zamier
     > - `Page_Load` Teraz sprawdza stan bieżącego użytkownika i podejmuje działania na podstawie jego `Context.User.Identity.IsAuthenticated` stanu.  
     >     **Wyświetlić zarejestrowane w nazwie użytkownika** : program Microsoft ASP.NET Identity Framework został dodany metody rozszerzenia w [System.Security.Principal.IIdentity](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx) pozwala to uzyskać `UserName` i `UserId` dla zalogowanego użytkownika. Te metody rozszerzenia są definiowane w `Microsoft.AspNet.Identity.Core` zestawu. Te metody rozszerzenia są zastępuje [HttpContext.User.Identity.Name](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx) .
     > - Metoda logowania:   
-    >     `This`metoda zastępuje poprzedniej `CreateUser_Click` metody w tym próbki i teraz loguje użytkownika po pomyślnym utworzeniu użytkownika.   
+    >     `This` metoda zastępuje poprzedniej `CreateUser_Click` metody w tym próbki i teraz loguje użytkownika po pomyślnym utworzeniu użytkownika.   
     >  Microsoft OWIN Framework został dodany metody rozszerzenia w `System.Web.HttpContext` umożliwiająca odwołać się do `IOwinContext`. Te metody rozszerzenia są definiowane w `Microsoft.Owin.Host.SystemWeb` zestawu. `OwinContext` Klasy ujawnia `IAuthenticationManager` właściwość, która reprezentuje funkcje oprogramowania pośredniczącego uwierzytelniania dostępne dla bieżącego żądania.  
     >  Można zalogować użytkownika przy użyciu `AuthenticationManager` OWIN i wywoływania `SignIn` i przekazując `ClaimsIdentity` zgodnie z powyższym.   
     >  Ponieważ ASP.NET Identity i uwierzytelniania plików Cookie OWIN są systemu opartego na oświadczeniach, framework wymaga aplikacji do wygenerowania `ClaimsIdentity` dla użytkownika.   
     >  `ClaimsIdentity` Informacje na temat wszystkich oświadczeń dla użytkownika, takich jak role, jakie należy użytkownik. Możesz także dodać więcej oświadczenia dla użytkownika na tym etapie  
     >  Ten kod będzie zalogować użytkownika i generowanie również pliku cookie. To wywołanie jest odpowiednikiem [FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx) używane przez [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) modułu.
-    > - `SignOut`Metoda:   
+    > - `SignOut` Metoda:   
     >  Pobiera odwołanie do `AuthenticationManager` z OWIN i wywołania `SignOut`. To jest odpowiednikiem [FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) metodę używaną przez [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) modułu.
 5. Naciśnij klawisz **Ctrl + F5** Aby skompilować i uruchomić aplikację sieci web. Wprowadź nową nazwę użytkownika i hasło, a następnie kliknij polecenie **zarejestrować**.  
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image13.png)  
- Uwaga: W tym momencie nowy użytkownik jest utworzony i zalogowany.
+   Uwaga: W tym momencie nowy użytkownik jest utworzony i zalogowany.
 6. Polecenie **Wyloguj się** przycisku. Nastąpi przekierowanie do strony logowania formularza.
 7. Wprowadź Nieprawidłowa nazwa użytkownika lub hasło i kliknij **Zaloguj** przycisku.   
- `UserManager.Find` Metoda zwróci wartość null i komunikat o błędzie: " *Nieprawidłowa nazwa użytkownika lub hasło* " będą wyświetlane.  
+   `UserManager.Find` Metoda zwróci wartość null i komunikat o błędzie: " *Nieprawidłowa nazwa użytkownika lub hasło* " będą wyświetlane.  
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image14.png)

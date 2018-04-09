@@ -1,7 +1,7 @@
 ---
-title: Dodawanie do platformy ASP.NET Core Razor strony wyszukiwania
+title: Dodaj wyszukiwanie do platformy ASP.NET Core Razor strony
 author: rick-anderson
-description: "Przedstawiono sposób dodawania wyszukiwania do platformy ASP.NET Core Razor stron"
+description: Przedstawiono sposób dodawania wyszukiwania do platformy ASP.NET Core Razor stron
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: f66d83a94505a74f7e0f6b7ae74ff2d408e36478
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 4bc1ccaae15bddb9bc62716f1e81b97ad78f577a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="adding-search-to-a-razor-pages-app"></a>Dodawanie do aplikacji stron Razor wyszukiwania
+# <a name="add-search-to-aspnet-core-razor-pages"></a>Dodaj wyszukiwanie do platformy ASP.NET Core Razor strony
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -106,6 +106,6 @@ Aktualizacja *Index.cshtml* w następujący sposób:
 
 Aby przetestować aplikację, wyszukiwanie według rodzaju, tytuł filmu i obu.
 
->[!div class="step-by-step"]
-[Poprzedni: Aktualizowanie stron](xref:tutorials/razor-pages/da1)
-[dalej: dodanie nowego pola](xref:tutorials/razor-pages/new-field)
+> [!div class="step-by-step"]
+> [Poprzedni: Aktualizowanie stron](xref:tutorials/razor-pages/da1)
+> [dalej: dodanie nowego pola](xref:tutorials/razor-pages/new-field)

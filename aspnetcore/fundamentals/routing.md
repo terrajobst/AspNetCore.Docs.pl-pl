@@ -1,7 +1,7 @@
 ---
 title: Routing w platformy ASP.NET Core
 author: ardalis
-description: "Odkryj, jak funkcji routingu platformy ASP.NET Core jest odpowiedzialny za mapowania przychodzącego żądania do obsługi trasy."
+description: Odkryj, jak funkcji routingu platformy ASP.NET Core jest odpowiedzialny za mapowania przychodzącego żądania do obsługi trasy.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 1ff08ee6389ce7b12d74b162b990ddaaadc05ea8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 51f667352f7d92ab8c73d958c821c6acf5eb7529
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w platformy ASP.NET Core
 
@@ -22,7 +22,7 @@ Przez [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.co
 Funkcje routingu jest odpowiedzialny za mapowania przychodzącego żądania do obsługi trasy. Trasy są zdefiniowane w aplikacji ASP.NET i skonfigurowane podczas uruchamiania aplikacji. Trasy opcjonalnie może wyodrębnić wartości z adresu URL zawarty w żądaniu, a następnie można używać tych wartości do przetworzenia żądania. Korzystając z informacji trasy z aplikacji ASP.NET, funkcji routingu może także do generowania adresów URL mapowane na programy obsługi trasy. W związku z tym routingu można znaleźć obsługi trasy, na podstawie adresu URL lub adres URL odpowiadający obsługi danego trasy, na podstawie informacji programu obsługi trasy.
 
 >[!IMPORTANT]
-> W tym dokumencie opisano niewielkie platformy ASP.NET Core routingu. Dla routingu platformy ASP.NET Core MVC, zobacz [routingu do akcji kontrolera](../mvc/controllers/routing.md)
+> W tym dokumencie opisano niewielkie platformy ASP.NET Core routingu. Dla routingu platformy ASP.NET Core MVC, zobacz [trasy do akcji kontrolera](../mvc/controllers/routing.md)
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
@@ -88,7 +88,7 @@ Routing zapewnia `Route` klasy jako standardowa implementacja elementu `IRouter`
 
 Większość aplikacji spowoduje utworzenie trasy przez wywołanie metody `MapRoute` lub jednej z metod rozszerzenia podobne zdefiniowane na `IRouteBuilder`. Wszystkie te metody spowoduje utworzenie wystąpienia `Route` i dodaj go do kolekcji tras.
 
-Uwaga: `MapRoute` nie przyjmuje parametr programu obsługi trasy — tylko dodaje tras, na których będzie obsługiwany przez `DefaultHandler`. Ponieważ jest domyślny program obsługi `IRouter`, mogą zdecydować, nie można obsłużyć żądania. Na przykład ASP.NET MVC jest zazwyczaj skonfigurowany jako domyślny program obsługi, który obsługuje tylko żądania zgodnych dostępnych kontrolerów i akcji. Aby dowiedzieć się więcej na temat routingu do MVC, zobacz [routingu do akcji kontrolera](../mvc/controllers/routing.md).
+Uwaga: `MapRoute` nie przyjmuje parametr programu obsługi trasy — tylko dodaje tras, na których będzie obsługiwany przez `DefaultHandler`. Ponieważ jest domyślny program obsługi `IRouter`, mogą zdecydować, nie można obsłużyć żądania. Na przykład ASP.NET MVC jest zazwyczaj skonfigurowany jako domyślny program obsługi, który obsługuje tylko żądania zgodnych dostępnych kontrolerów i akcji. Aby dowiedzieć się więcej na temat routingu do MVC, zobacz [trasy do akcji kontrolera](../mvc/controllers/routing.md).
 
 To jest przykład `MapRoute` połączenie używane przez definicję typowej tras platformy ASP.NET MVC:
 

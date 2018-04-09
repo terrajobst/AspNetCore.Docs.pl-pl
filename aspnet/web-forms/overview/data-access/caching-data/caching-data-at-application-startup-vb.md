@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb
 title: Buforowanie danych przy uruchamianiu aplikacji (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W dowolnej aplikacji sieci Web niektórych danych będzie często używane, a niektóre dane będą rzadko używane. Firma Microsoft może poprawić wydajność naszych b aplikacji ASP.NET..."
+description: W dowolnej aplikacji sieci Web niektórych danych będzie często używane, a niektóre dane będą rzadko używane. Firma Microsoft może poprawić wydajność naszych b aplikacji ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5b84b797bf0c9670ac65a5384b6d95d5df3827eb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f8f322dae89480fc7ed5586d7f8eeb4c67d7839f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching-data-at-application-startup-vb"></a>Buforowanie danych przy uruchamianiu aplikacji (VB)
 ====================
@@ -129,11 +129,11 @@ Dodaj `Global.asax` plik do katalogu głównego s aplikacji sieci web przez klik
 
 Wartość domyślna `Global.asax` plik szablonu zawiera pięć metod w ciągu po stronie serwera `<script>` tagu:
 
-- **`Application_Start`**wykonuje po pierwszym uruchomieniu aplikacji sieci web
-- **`Application_End`**jest uruchamiany, gdy aplikacja jest zamykana.
-- **`Application_Error`**wykonuje zawsze, gdy aplikacja osiągnie nieobsługiwany wyjątek
-- **`Session_Start`**wykonuje podczas tworzenia nowej sesji
-- **`Session_End`**jest uruchamiany, gdy sesja jest wygasła lub porzucone
+- **`Application_Start`** wykonuje po pierwszym uruchomieniu aplikacji sieci web
+- **`Application_End`** jest uruchamiany, gdy aplikacja jest zamykana.
+- **`Application_Error`** wykonuje zawsze, gdy aplikacja osiągnie nieobsługiwany wyjątek
+- **`Session_Start`** wykonuje podczas tworzenia nowej sesji
+- **`Session_End`** jest uruchamiany, gdy sesja jest wygasła lub porzucone
 
 `Application_Start` Program obsługi zdarzeń zostanie wywołana tylko raz w cyklu życia aplikacji s. Aplikacja rozpoczyna się po raz pierwszy zasobu ASP.NET zażąda aplikacji i będzie kontynuował działanie aż do ponownego uruchomienia aplikacji, która może się zdarzyć, modyfikując zawartość `/Bin` folderu, modyfikując `Global.asax`, modyfikowanie zawartość w `App_Code` folderu lub modyfikowanie `Web.config` pliku wśród innych przyczyn. Zapoznaj się [Przegląd cyklu życia aplikacji ASP.NET](https://msdn.microsoft.com/library/ms178473.aspx) bardziej szczegółowe omówienie w cyklu życia aplikacji.
 
@@ -194,12 +194,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Teresa Murphy i Zack Nowak. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](caching-data-in-the-architecture-vb.md)
-[dalej](using-sql-cache-dependencies-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](caching-data-in-the-architecture-vb.md)
+> [dalej](using-sql-cache-dependencies-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
-title: "Część 7: Członkostwa i autoryzacji | Dokumentacja firmy Microsoft"
+title: 'Część 7: Członkostwa i autoryzacji | Dokumentacja firmy Microsoft'
 author: jongalloway
-description: "Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 7 obejmuje członkostwa i autoryzacji."
+description: Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 7 obejmuje członkostwa i autoryzacji.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: db459de687db862be00a9b59ff5b1b238fa75061
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a0f599da4691c5bb7c8e6f01625fc0e94ce0eac8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-7-membership-and-authorization"></a>Część 7: Członkostwa i autoryzacji
 ====================
@@ -110,6 +110,6 @@ Teraz przechodząc do /StoreManager Wyświetla okno dialogowe logowania:
 
 Po zalogowaniu się przy użyciu naszego nowego konta administratora, możemy przejść do ekranu Edytuj Album jako przed.
 
->[!div class="step-by-step"]
-[Poprzednie](mvc-music-store-part-6.md)
-[dalej](mvc-music-store-part-8.md)
+> [!div class="step-by-step"]
+> [Poprzednie](mvc-music-store-part-6.md)
+> [dalej](mvc-music-store-part-8.md)

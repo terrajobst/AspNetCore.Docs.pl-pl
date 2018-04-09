@@ -1,7 +1,7 @@
 ---
-title: "Odwołania do składni razor dla platformy ASP.NET Core"
+title: Odwołania do składni razor dla platformy ASP.NET Core
 author: rick-anderson
-description: "Więcej informacji o składni Razor znaczników do osadzania kodu na serwerze do stron sieci Web."
+description: Więcej informacji o składni Razor znaczników do osadzania kodu na serwerze do stron sieci Web.
 manager: wpickett
 ms.author: riande
 ms.date: 10/18/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: 3528965cc65d2d5ec21df40cbeb71d1333839e1a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 168bd04585c5d7a2834cb97755dbf04b7b43767e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="razor-syntax-for-aspnet-core"></a>Składnia razor dla platformy ASP.NET Core
+# <a name="razor-syntax-reference-for-aspnet-core"></a>Odwołania do składni razor dla platformy ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Luke Latham](https://github.com/guardrex), [MULLENA Taylora](https://twitter.com/ntaylormullen), i [Dan Vicarel](https://github.com/Rabadash8820)
 
@@ -118,10 +118,10 @@ Jawne wyrażenia może zostać użyty do renderowania dane wyjściowe metody rod
 
 Poprzedni kod generowany jest błąd kompilatora podobny do jednego z następujących czynności:
 
- * Element "int" nie został zamknięty. Wszystkie elementy muszą być albo samodzielnie zamknięcie lub ma zgodnego tagu końcowego.
- *  Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzasz wywołać metodę? " 
+* Element "int" nie został zamknięty. Wszystkie elementy muszą być albo samodzielnie zamknięcie lub ma zgodnego tagu końcowego.
+* Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzasz wywołać metodę? " 
  
- Następujący kod przedstawia sposób poprawne zapisu tego kodu. Kod jest zapisywany jako jawne wyrażenie:
+  Następujący kod przedstawia sposób poprawne zapisu tego kodu. Kod jest zapisywany jako jawne wyrażenie:
 
 ```cshtml
 <p>@(GenericMethod<int>())</p>
@@ -517,7 +517,7 @@ Jeśli "rick@contoso.com" jest przekazywany w modelu widoku generuje następują
 
 ### <a name="functions"></a>@functions
 
-`@functions` Dyrektywy umożliwia Razor strony do dodania do widoku zawartości na poziomie funkcji:
+`@functions` Dyrektywy umożliwia Razor strony do dodania do widoku blok kodu C#:
 
 ```cshtml
 @functions { // C# Code }

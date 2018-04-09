@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-cs
-title: "Zezwalanie tylko niektórych znaków w polu tekstowym (C#) | Dokumentacja firmy Microsoft"
+title: Zezwalanie tylko niektórych znaków w polu tekstowym (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formanty weryfikacji platformy ASP.NET można upewnij się, czy tylko niektóre znaki są dozwolone w danych wejściowych użytkownika. Jednak to nadal uniemożliwia użytkownikom wpisywania nieprawidłowy..."
+description: Formanty weryfikacji platformy ASP.NET można upewnij się, czy tylko niektóre znaki są dozwolone w danych wejściowych użytkownika. Jednak to nadal uniemożliwia użytkownikom wpisywania nieprawidłowy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 246c3b5dd55ceb0f47ad1f4982ae5b3bf855e747
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d2ffc4b741bd0c7f9c456b6e76017f5350ab6378
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="allowing-only-certain-characters-in-a-text-box-c"></a>Zezwalanie tylko niektórych znaków w polu tekstowym (C#)
 ====================
@@ -45,10 +45,10 @@ Następnie potrzebujemy pole tekstowe:
 
 Na koniec `FilteredTextBoxExtender` kontroli zajmuje się ograniczenie znaków, użytkownik może wpisać. Najpierw należy ustawić `TargetControlID` atrybutu `ID` z `TextBox` formantu. Następnie wybierz jedną z dostępnych `FilterType` wartości:
 
-- `Custom`Domyślnie; należy podać listę prawidłowe znaki
-- `LowercaseLetters`małe litery
-- `Numbers`tylko cyfr
-- `UppercaseLetters`tylko wielkie litery
+- `Custom` Domyślnie; należy podać listę prawidłowe znaki
+- `LowercaseLetters` małe litery
+- `Numbers` tylko cyfr
+- `UppercaseLetters` tylko wielkie litery
 
 Jeśli `Custom FilterType` jest używana, `ValidChars` właściwości musi być ustawione i zawierają listę znaków, które mogą zostać wpisany. Sposobem: próba Wklej tekst w polu tekstowym zostaną usunięte wszystkie nieprawidłowe znaki.
 
@@ -63,5 +63,5 @@ Uruchomić stronę i spróbuj wprowadzić literę, czy włączyć obsługę jęz
 
 Można wprowadzać tylko cyfry ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](allowing-only-certain-characters-in-a-text-box-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Dalej](allowing-only-certain-characters-in-a-text-box-vb.md)
+> [!div class="step-by-step"]
+> [Next](allowing-only-certain-characters-in-a-text-box-vb.md)

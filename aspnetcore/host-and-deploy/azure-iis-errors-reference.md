@@ -1,7 +1,7 @@
 ---
-title: "Typowe błędy odwołania dla usługi Azure App Service i IIS z platformy ASP.NET Core"
+title: Typowe błędy odwołania dla usługi Azure App Service i IIS z platformy ASP.NET Core
 author: guardrex
-description: "Rozróżnianie typowe błędy hosting aplikacji platformy ASP.NET Core w usłudze aplikacji Azure i usług IIS."
+description: Rozróżnianie typowe błędy hosting aplikacji platformy ASP.NET Core w usłudze aplikacji Azure i usług IIS.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: cd9f8fc310ba0258477db51aa416c03debadeffe
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fb833ef8797ea7851cbaf53bb5681df248d07a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Typowe błędy odwołania dla usługi Azure App Service i IIS z platformy ASP.NET Core
 
@@ -30,19 +30,19 @@ Zbierz wymienione poniżej informacje.
 
 Porównywanie informacji do poniższych typowych błędów. Jeśli zostanie znaleziony dopasowanie, wykonaj porady dotyczące rozwiązywania problemów.
 
-[!INCLUDE[Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 ## <a name="installer-unable-to-obtain-vc-redistributable"></a>Nie można uzyskać VC ++ pakiet redystrybucyjny Instalatora
 
 * **Instalator wyjątek:** 0x80072efd lub 0x80072f76 — nieokreślony błąd
 
-* **Wyjątek dziennika Instalatora &#8224;:** błąd 0x80072efd lub 0x80072f76: nie można wykonać EXE pakietu
+* **Wyjątek dziennika Instalatora&#8224;:** błąd 0x80072efd lub 0x80072f76: nie można wykonać EXE pakietu
 
-  &#8224; Dziennik znajduje się pod adresem C:\Users\\{USER}\AppData\Local\Temp\dd_DotNetCoreWinSvrHosting__{timestamp}.log.
+  &#8224;Dziennik znajduje się pod adresem C:\Users\\{USER}\AppData\Local\Temp\dd_DotNetCoreWinSvrHosting__{timestamp}.log.
 
 Rozwiązywanie problemów:
 
-* Jeśli system nie ma dostępu do Internetu, podczas instalowania serwera obsługującego pakietu, ten wyjątek występuje, gdy Instalator będzie mógł uzyskiwania *Microsoft Visual C++ 2015 Redistributable*. Uzyskać Instalatora z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Jeśli Instalator zakończy się niepowodzeniem, serwer nie może otrzymywać środowiska uruchomieniowego .NET Core wymaganego do obsługi wdrożenia framework zależne (stacje). Jeśli hosting Dyskietki, upewnij się, że środowisko wykonawcze jest instalowana w programach &amp; funkcji. W razie potrzeby Uzyskaj Instalatora środowiska uruchomieniowego, z [pobiera .NET](https://www.microsoft.com/net/download/core). Po zainstalowaniu środowiska uruchomieniowego, ponownie uruchom system, lub ponownego uruchomienia usług IIS, wykonując **net stop została /y** następuje **net start w3svc** z wiersza polecenia.
+* Jeśli system nie ma dostępu do Internetu, podczas instalowania serwera obsługującego pakietu, ten wyjątek występuje, gdy Instalator będzie mógł uzyskiwania *Microsoft Visual C++ 2015 Redistributable*. Uzyskać Instalatora z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Jeśli Instalator zakończy się niepowodzeniem, serwer nie może otrzymywać środowiska uruchomieniowego .NET Core wymaganego do obsługi wdrożenia framework zależne (stacje). Jeśli hosting Dyskietki, upewnij się, że środowisko wykonawcze jest instalowana w programach &amp; funkcji. W razie potrzeby Uzyskaj Instalatora środowiska uruchomieniowego, z [.NET wszystkie pliki do pobrania](https://www.microsoft.com/net/download/all). Po zainstalowaniu środowiska uruchomieniowego, ponownie uruchom system, lub ponownego uruchomienia usług IIS, wykonując **net stop została /y** następuje **net start w3svc** z wiersza polecenia.
 
 ## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>Uaktualnienie systemu operacyjnego usunąć moduł 32-bitowej platformy ASP.NET Core
 
@@ -138,7 +138,7 @@ Rozwiązywanie problemów:
 
 * STACJE zostały wdrożone, oraz .NET Core zainstalowany bez ponownego uruchomienia usług IIS. Uruchom ponownie serwer lub ponownego uruchomienia usług IIS, wykonując **net stop została /y** następuje **net start w3svc** z wiersza polecenia.
 
-* STACJE mogą wdrożyć bez instalowania środowiska uruchomieniowego .NET Core przez system operacyjny. Jeśli nie zainstalowano środowiska wykonawczego platformy .NET Core, uruchom **.NET Core systemu Windows serwer obsługujący Instalatora pakietu** w systemie. Zobacz [instalacji pakietu .NET Core systemu Windows serwer obsługujący](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Jeśli próba instalowanie środowiska uruchomieniowego .NET Core w systemie bez połączenia z Internetem, uzyskać środowiska uruchomieniowego z [pobiera .NET](https://www.microsoft.com/net/download/core) i uruchom Instalatora pakietu hostingu, aby zainstalować moduł platformy ASP.NET Core. Ukończenie instalacji przez ponowne uruchomienie systemu lub ponowne uruchomienie usług IIS, wykonując **net stop została /y** następuje **net start w3svc** z wiersza polecenia.
+* STACJE mogą wdrożyć bez instalowania środowiska uruchomieniowego .NET Core przez system operacyjny. Jeśli nie zainstalowano środowiska wykonawczego platformy .NET Core, uruchom **.NET Core systemu Windows serwer obsługujący Instalatora pakietu** w systemie. Zobacz [instalacji pakietu .NET Core systemu Windows serwer obsługujący](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Jeśli próba instalowanie środowiska uruchomieniowego .NET Core w systemie bez połączenia z Internetem, uzyskać środowiska uruchomieniowego z [.NET wszystkie pliki do pobrania](https://www.microsoft.com/net/download/all) i uruchom Instalatora pakietu hostingu, aby zainstalować moduł platformy ASP.NET Core. Ukończenie instalacji przez ponowne uruchomienie systemu lub ponowne uruchomienie usług IIS, wykonując **net stop została /y** następuje **net start w3svc** z wiersza polecenia.
 
 * STACJE zostały wdrożone i *Microsoft Visual C++ 2015 Redistributable (x64)* nie jest zainstalowany w systemie. Uzyskać Instalatora z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840).
 
@@ -211,6 +211,18 @@ Rozwiązywanie problemów
 Rozwiązywanie problemów
 
 * Upewnij się, że aplikacja sub *web.config* nie zawiera pliku `<handlers>` sekcji.
+
+## <a name="stdout-log-path-incorrect"></a>Nieprawidłowa ścieżka dziennika stdout
+
+* **Przeglądarki:** aplikacji zwykle odpowiada.
+
+* **Dziennik aplikacji:** Ostrzeżenie: nie można utworzyć stdoutLogFile \\? \C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log, kod błędu = - 2147024893.
+
+* **Dziennik modułu platformy ASP.NET Core:** nie utworzono pliku dziennika
+
+Rozwiązywanie problemów
+
+* `stdoutLogFile` Ścieżki określonej w `<aspNetCore>` elementu *web.config* nie istnieje. Aby uzyskać więcej informacji, zobacz [tworzenia i Przekierowanie dziennika](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) tematu odniesienia konfiguracji platformy ASP.NET Core modułu.
 
 ## <a name="application-configuration-general-issue"></a>Ogólne problem z konfiguracją aplikacji
 

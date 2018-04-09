@@ -1,7 +1,7 @@
 ---
 title: Stan sesji i aplikacji w ASP.NET Core
 author: rick-anderson
-description: "Podejścia do zachowania aplikacji i stanu użytkowników (sesja) między żądaniami."
+description: Podejścia do zachowania aplikacji i stanu użytkowników (sesja) między żądaniami.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/app-state
-ms.openlocfilehash: 6b81cadf39c0db373f82b8de7d8d3901d51ea088
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ca77db7bd498289b448475fc6cadeea622b4a606
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Wprowadzenie do stanu sesji oraz aplikacji platformy ASP.NET Core
+# <a name="session-and-application-state-in-aspnet-core"></a>Stan sesji i aplikacji w ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), i [Diana LaRose](https://github.com/DianaLaRose)
 
@@ -33,7 +33,7 @@ Serwer zachowuje sesję przez ograniczony czas, po zgłoszeniu ostatniego żąda
 > [!WARNING]
 > Nie należy przechowywać poufnych danych w sesji. Klient nie może być Zamknij przeglądarkę i wyczyść pliku cookie sesji (i w niektórych przeglądarkach podtrzymywania plików cookie sesji w systemie windows). Ponadto sesji nie może być ograniczony do jednego użytkownika; Następny użytkownik może kontynuować tej samej sesji.
 
-Dostawca sesji w pamięci są przechowywane dane sesji na serwerze lokalnym. Jeśli planujesz uruchamianie aplikacji sieci web w farmie serwerów, należy użyć trwałe sesje powiązać każdej sesji do określonego serwera. Platforma Windows Azure Web Sites domyślnie trwałe sesje (Routing żądań aplikacji lub ARR). Trwałe sesje mogą jednak mieć wpływ na skalowalność i skomplikować aktualizacji aplikacji sieci web. Lepszym rozwiązaniem jest użycie pamięci podręcznej Redis, lub buforować rozproszonych programu SQL Server, które nie wymagają trwałe sesje. Aby uzyskać więcej informacji, zobacz [Praca z rozproszonej pamięci podręcznej](xref:performance/caching/distributed). Aby uzyskać więcej informacji na temat konfigurowania dostawcy usług, zobacz [Konfigurowanie sesji](#configuring-session) dalszej części tego artykułu.
+Dostawca sesji w pamięci są przechowywane dane sesji na serwerze lokalnym. Jeśli planujesz uruchamianie aplikacji sieci web w farmie serwerów, należy użyć trwałe sesje powiązać każdej sesji do określonego serwera. Platforma Windows Azure Web Sites domyślnie trwałe sesje (Routing żądań aplikacji lub ARR). Trwałe sesje mogą jednak mieć wpływ na skalowalność i skomplikować aktualizacji aplikacji sieci web. Lepszym rozwiązaniem jest użycie pamięci podręcznej Redis, lub buforować rozproszonych programu SQL Server, które nie wymagają trwałe sesje. Aby uzyskać więcej informacji, zobacz [pracować z rozproszonej pamięci podręcznej](xref:performance/caching/distributed). Aby uzyskać więcej informacji na temat konfigurowania dostawcy usług, zobacz [Konfigurowanie sesji](#configuring-session) dalszej części tego artykułu.
 
 <a name="temp"></a>
 ## <a name="tempdata"></a>TempData
@@ -70,20 +70,17 @@ Wybieranie dostawcy TempData obejmuje kilka kwestii, takich jak:
 <a name="config-temp"></a>
 ### <a name="configure-the-tempdata-provider"></a>Konfigurowanie dostawcy TempData
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Dostawca TempData na podstawie plików cookie jest domyślnie włączona. Następujące `Startup` kod klasy konfiguruje dostawcy TempData opartymi na sesji:
 
 [!code-csharp[](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupTempDataSession.cs?name=snippet_TempDataSession&highlight=4,6,11)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Następujące `Startup` kod klasy konfiguruje dostawcy TempData opartymi na sesji:
 
 [!code-csharp[](app-state/sample/src/WebAppSession/StartupTempDataSession.cs?name=snippet_TempDataSession&highlight=4,9)]
 
----
-
+* * *
 Kolejność jest kluczowa dla składników oprogramowania pośredniczącego. W powyższym przykładzie wyjątek typu `InvalidOperationException` występuje, gdy `UseSession` jest wywoływana po `UseMvcWithDefaultRoute`. Zobacz [kolejność oprogramowania pośredniczącego](xref:fundamentals/middleware/index#ordering) uzyskać więcej szczegółowych informacji.
 
 > [!IMPORTANT]
@@ -107,11 +104,11 @@ Pliki cookie są często używane na potrzeby personalizacji, gdy zawartość je
 
 ## <a name="httpcontextitems"></a>HttpContext.Items
 
-`Items` Kolekcja jest dobrym miejscem do przechowywania danych, które ma potrzebne tylko podczas przetwarzania jednego określonego żądania. Zawartość kolekcji zostaną odrzucone po każdym żądaniu. `Items` Kolekcja najlepiej jest używana jako sposób składniki lub oprogramowanie pośredniczące do komunikacji, gdy działają w różnych punktach w czasie żądania i nie może bezpośrednio do przekazania parametrów. Aby uzyskać więcej informacji, zobacz [Praca z HttpContext.Items](#working-with-httpcontextitems)w dalszej części tego artykułu.
+`Items` Kolekcja jest dobrym miejscem do przechowywania danych, które ma potrzebne tylko podczas przetwarzania jednego określonego żądania. Zawartość kolekcji zostaną odrzucone po każdym żądaniu. `Items` Kolekcja najlepiej jest używana jako sposób składniki lub oprogramowanie pośredniczące do komunikacji, gdy działają w różnych punktach w czasie żądania i nie może bezpośrednio do przekazania parametrów. Aby uzyskać więcej informacji, zobacz [pracować z HttpContext.Items](#working-with-httpcontextitems)w dalszej części tego artykułu.
 
 ## <a name="cache"></a>Pamięć podręczna
 
-Buforowanie jest wydajny sposób przechowywania i pobierania danych. Można kontrolować okres istnienia pamięci podręcznej elementów na podstawie czasu i innych kwestii. Dowiedz się więcej o [buforowanie](../performance/caching/index.md).
+Buforowanie jest wydajny sposób przechowywania i pobierania danych. Można kontrolować okres istnienia pamięci podręcznej elementów na podstawie czasu i innych kwestii. Dowiedz się więcej o [jak pamięci podręcznej](../performance/caching/index.md).
 
 <a name="session"></a>
 ## <a name="working-with-session-state"></a>Praca z stanu sesji
@@ -126,16 +123,13 @@ Buforowanie jest wydajny sposób przechowywania i pobierania danych. Można kont
 
 Poniższy kod przedstawia, jak skonfigurować dostawcę sesji w pamięci.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](app-state/sample/src/WebAppSessionDotNetCore2.0App/Startup.cs?highlight=11-19,24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](app-state/sample/src/WebAppSession/Startup.cs?highlight=11-19,24)]
 
----
-
+* * *
 Możesz odwoływać się do sesji z `HttpContext` po zostanie on zainstalowany i skonfigurowany.
 
 Jeśli użytkownik próbuje uzyskać dostęp `Session` przed `UseSession` została wywołana, wyjątek `InvalidOperationException: Session has not been configured for this application or request` jest generowany.
@@ -154,16 +148,13 @@ Sesja używa pliku cookie do śledzenia i zidentyfikować żądań z jednej prze
 
 Aby zastąpić wartości domyślne sesji, użyj `SessionOptions`:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupCopy.cs?name=snippet1&highlight=8-12)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](app-state/sample/src/WebAppSession/StartupCopy.cs?name=snippet1&highlight=8-12)]
 
----
-
+* * *
 Serwer używa `IdleTimeout` właściwości w celu określenia, jak długo sesji może być bezczynne, zanim zostały porzucone jego zawartość. Ta właściwość jest niezależna od datę ważności pliku cookie. Każde żądanie, który przechodzi przez oprogramowanie pośredniczące sesji (odczytywane lub zapisywane) resetuje limit czasu.
 
 Ponieważ `Session` jest *— blokowanie*, jeśli dwa żądania zarówno próbę zmodyfikowania zawartości sesji, ostatnią przesłania pierwszego. `Session` jest zaimplementowany jako *spójnego sesji*, co oznacza, że cała zawartość są przechowywane razem. Dwa żądania, które modyfikowania różnych części sesji (różne klucze) nadal może mieć wpływ na siebie.
@@ -271,7 +262,7 @@ public class MyController : Controller
 
 * "Nie można rozpoznać usługi dla typu"Microsoft.Extensions.Caching.Distributed.IDistributedCache"podczas próby aktywowania"Microsoft.AspNetCore.Session.DistributedSessionStore"."
 
-  Jest to zazwyczaj spowodowane nie powiodło się skonfigurowanie co najmniej jednego `IDistributedCache` implementacji. Aby uzyskać więcej informacji, zobacz [Praca z rozproszonej pamięci podręcznej](xref:performance/caching/distributed) i [w ramach buforowania pamięci](xref:performance/caching/memory).
+  Jest to zazwyczaj spowodowane nie powiodło się skonfigurowanie co najmniej jednego `IDistributedCache` implementacji. Aby uzyskać więcej informacji, zobacz [pracować z rozproszonej pamięci podręcznej](xref:performance/caching/distributed) i [w ramach buforowania pamięci](xref:performance/caching/memory).
 
 * W przypadku który sesji oprogramowanie pośredniczące nie powiedzie się, aby utrwalić sesji (na przykład: Jeśli bazy danych nie jest dostępna), rejestruje wyjątek i swallows go. Żądanie będzie się nadal normalnie, która prowadzi do bardzo nieprzewidywalne zachowanie.
 

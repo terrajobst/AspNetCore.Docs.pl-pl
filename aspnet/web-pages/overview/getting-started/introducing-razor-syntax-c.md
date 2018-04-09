@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-razor-syntax-c
-title: "Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor (C#) | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor (C#) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym rozdziale zapewnia przegląd programowania ze strony sieci Web ASP.NET przy użyciu składni Razor. ASP.NET to technologia firmy Microsoft dotyczące uruchamiania dynamicznych sieci Web..."
+description: W tym rozdziale zapewnia przegląd programowania ze strony sieci Web ASP.NET przy użyciu składni Razor. ASP.NET to technologia firmy Microsoft dotyczące uruchamiania dynamicznych sieci Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 32cdd8d524d783d7ccc3ab076de636ce4a868132
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 430033c06df74cc3661c40ca7f7bd9244cd257c9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor (C#)
 ====================
@@ -122,7 +122,7 @@ W tym miejscu jest wynikiem za pomocą obu tych przykładach na stronie:
 
 ### <a name="6-code-is-case-sensitive"></a>6. Kod jest rozróżniana wielkość liter
 
-W języku C#, słowa kluczowe (takich jak `var`, `true`, i `if`) i nazwy zmiennych jest uwzględniana wielkość liter. Następujące wiersze kodu utworzyć dwie różne zmienne, `lastName` i`LastName.`
+W języku C#, słowa kluczowe (takich jak `var`, `true`, i `if`) i nazwy zmiennych jest uwzględniana wielkość liter. Następujące wiersze kodu utworzyć dwie różne zmienne, `lastName` i `LastName.`
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample8.cshtml)]
 
@@ -134,7 +134,7 @@ Deklarowanie zmiennej jako `var lastName = "Smith";` i podjęcie próby odwołan
 
 ### <a name="7-much-of-your-coding-involves-objects"></a>7. Obejmuje większość kodowania obiektów
 
-*Obiektu* reprezentuje element, który zostanie z &#8212; strony, pola tekstowego, pliku, obraz, żądania sieci web, wiadomości e-mail, rekord klienta (wiersza bazy danych), itp. Obiekty mają właściwości, które opisują ich właściwości i że może odczytać lub Zmień &#8212; Obiekt pola tekstowego ma `Text` właściwość (między innymi), obiekt żądania ma `Url` właściwość, wiadomości e-mail ma `From` właściwości oraz obiektu klienta ma `FirstName` właściwości. Obiekty mają również metody, które są &quot;zleceń&quot; mogą wykonywać. Przykładami obiektu pliku `Save` metodę, obiekt obrazu `Rotate` — metoda i obiektu poczty e-mail `Send` metody.
+*Obiektu* reprezentuje element, który zostanie z &#8212; strony, pola tekstowego, pliku, obraz, żądania sieci web, wiadomości e-mail, rekord klienta (wiersza bazy danych), itp. Obiekty mają właściwości, które opisują ich właściwości i ich odczytywanie lub zmienić &#8212; ma obiekt pola tekstowego `Text` właściwość (między innymi), obiekt żądania ma `Url` właściwość, wiadomości e-mail ma `From` właściwość oraz obiekt klient ma `FirstName` właściwości. Obiekty mają również metody, które są &quot;zleceń&quot; mogą wykonywać. Przykładami obiektu pliku `Save` metodę, obiekt obrazu `Rotate` — metoda i obiektu poczty e-mail `Send` metody.
 
 Często będzie współpracować `Request` obiektów, które zapewnia informacje, takie jak wartości pól tekstowych (pola formularza) na stronie, jakiego rodzaju przeglądarki zgłosił żądanie, adres URL strony tożsamości użytkownika, itp. Poniższy przykład przedstawia sposób uzyskać dostępu do właściwości `Request` obiektów i wywoływania `MapPath` metody `Request` obiektu, który daje użytkownikowi bezwzględna ścieżka strony na serwerze:
 
@@ -199,7 +199,7 @@ Ale pierwszy, małego informacje techniczne.
 
 Składnia razor jest proste programowania składnię osadzania kodu na serwerze, na stronie sieci web. Na stronie sieci web, która używa składni Razor, istnieją dwa rodzaje zawartości: Kod klienta zawartości i serwera. Zawartość klienta jest rzeczy użyto do na stronach sieci web: kod znaczników HTML (elementy), informacje, takie jak CSS, styl może być niektórych skryptu klienta, takich jak JavaScript i zwykły tekst.
 
-Składnia razor pozwala dodać kod serwera do tej zawartości klienta. Jeśli na stronie jest kod serwera, na serwerze działa ten kod najpierw przed wysłaniem strony do przeglądarki. Uruchamiając na serwerze, kod mogą wykonywać zadania, które mogą być znacznie bardziej złożone, aby zrobić przy użyciu klienta zawartość samodzielnie, takich jak uzyskiwanie dostępu na serwerze baz danych. Przede wszystkim kod serwera można dynamicznie utworzyć klienta, zawartość &#8212; go wygenerować kod znaczników HTML lub innej zawartości w locie, a następnie wyślij ją w przeglądarce wraz z statycznych kodu HTML, który może zawierać strony. Z perspektywy przeglądarki nie różni się od innej zawartości klient się zawartość klienta, która jest generowana przez kod serwera. Jak już przeczytane, kod serwera, która jest wymagana jest bardzo proste.
+Składnia razor pozwala dodać kod serwera do tej zawartości klienta. Jeśli na stronie jest kod serwera, na serwerze działa ten kod najpierw przed wysłaniem strony do przeglądarki. Uruchamiając na serwerze, kod mogą wykonywać zadania, które mogą być znacznie bardziej złożone, aby zrobić przy użyciu klienta zawartość samodzielnie, takich jak uzyskiwanie dostępu na serwerze baz danych. Przede wszystkim kod serwera można dynamicznie utworzyć zawartość klienta &#8212; go może wygenerować kod znaczników HTML lub innej zawartości na bieżąco, a następnie wyślij ją w przeglądarce wraz z statycznych kodu HTML, który może zawierać strony. Z perspektywy przeglądarki nie różni się od innej zawartości klient się zawartość klienta, która jest generowana przez kod serwera. Jak już przeczytane, kod serwera, która jest wymagana jest bardzo proste.
 
 Strony sieci web ASP.NET zawierających składnię Razor mają rozszerzenie pliku specjalne (*.cshtml* lub *.vbhtml*). Serwer rozpoznaje tych rozszerzeń, uruchamia kod, który jest oznaczony atrybutem składni Razor, a następnie wysyła strony w przeglądarce.
 
@@ -224,7 +224,7 @@ Składnia Razor umożliwia wszystkie możliwości platformy ASP.NET, ale przy u�
 
 ## <a name="basic-syntax"></a>Podstawowa składnia
 
-Widać wcześniej podstawowy przykład sposobu tworzenia strony ASP.NET Web Pages i jak można dodać kod serwera do kod znaczników HTML. Tutaj dowiesz się podstawowe informacje dotyczące pisania kodu serwera ASP.NET przy użyciu składni Razor &#8212; oznacza to, że programowania reguł języka.
+Widać wcześniej podstawowy przykład sposobu tworzenia strony ASP.NET Web Pages i jak można dodać kod serwera do kod znaczników HTML. Tutaj dowiesz się podstawowe informacje dotyczące pisania kodu serwera ASP.NET przy użyciu składni Razor &#8212; czyli programowania reguł języka.
 
 Jeśli masz doświadczenia w pracy z programowania (zwłaszcza, jeśli używano C, C++, C#, Visual Basic lub JavaScript), większość tutaj odczytu jest znane. Prawdopodobnie należy zapoznać się z tylko sposób kod serwera jest dodawana do kodu znaczników w *.cshtml* plików.
 
@@ -249,7 +249,7 @@ W serwerze bloki kodu ma często dane wyjściowe tekstu lub znacznika (lub obie)
     Pierwszym przykładzie powtarza poprzednim przykładzie, ale używa jednej pary `<text>` znaczniki, aby umieścić tekst do renderowania. W drugim przykładzie `<text>` i `</text>` tagi należy ująć w trzy wiersze, które mają niektóre uncontained tekst i niedopasowane znaczniki HTML (`<br />`), wraz z kodu serwera i pasujących tagów HTML. Ponownie, można także poprzedzić każdego wiersza za `@:` operator; albo sposób działania.
 
     > [!NOTE]
-    > Podczas drukowania tekstu opisane w tej sekcji &#8212; za pomocą elementu HTML `@:` , operator lub `<text>` element &#8212; Program ASP.NET nie kodowanie HTML dane wyjściowe. (Jak wspomniano wcześniej, ASP.NET zakodować dane wyjściowe wyrażenia kodu serwera i serwera bloki kodu, które są poprzedzone `@`, z wyjątkiem przypadków wymienionych w tej sekcji.)
+    > Podczas drukowania tekstu opisane w tej sekcji &#8212; za pomocą elementu HTML `@:` , operator lub `<text>` elementu &#8212; ASP.NET nie kodowanie HTML dane wyjściowe. (Jak wspomniano wcześniej, ASP.NET zakodować dane wyjściowe wyrażenia kodu serwera i serwera bloki kodu, które są poprzedzone `@`, z wyjątkiem przypadków wymienionych w tej sekcji.)
 
 ### <a name="whitespace"></a>Odstępu
 
@@ -343,33 +343,35 @@ Aby dokonać konwersji wartości na liczby całkowite, należy wywołać `AsInt`
 
 W poniższej tabeli wymieniono niektóre typowe metody konwersji i testowania dla zmiennych.
 
-| **— Metoda** | **Opis** | **Przykład** |
-| --- | --- | --- |
-| `AsInt(), IsInt()` | Konwertuje ciąg reprezentujący liczbę całkowitą (na przykład "593") na liczbę całkowitą. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)] |
-| `AsBool(), IsBool()` | Konwertuje ciąg, takich jak &quot;true&quot; lub &quot;false&quot; na typ Boolean. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)] |
-| `AsFloat(), IsFloat()` | Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; liczby zmiennoprzecinkowej. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)] |
-| `AsDecimal(), IsDecimal()` | Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; na liczbę dziesiętną. (W programie ASP.NET, liczbą dziesiętną jest bardziej dokładne niż liczba zmiennoprzecinkowa). | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)] |
-| `AsDateTime(), IsDateTime()` | Konwertuje ciąg reprezentujący wartość daty i godziny do platformy ASP.NET `DateTime` typu. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)] |
-| `ToString()` | Konwertuje ciąg inny typ danych. | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)] |
+
+|   <strong>— Metoda</strong>    |                                                                              <strong>Opis</strong>                                                                              |                         <strong>Przykład</strong>                         |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+|      `AsInt(), IsInt()`      |                                                      Konwertuje ciąg reprezentujący liczbę całkowitą (na przykład "593") na liczbę całkowitą.                                                      |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]   |
+|     `AsBool(), IsBool()`     |                                                    Konwertuje ciąg, takich jak &quot;true&quot; lub &quot;false&quot; na typ Boolean.                                                     |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]   |
+|    `AsFloat(), IsFloat()`    |                                    Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; liczby zmiennoprzecinkowej.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]   |
+|  `AsDecimal(), IsDecimal()`  | Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; na liczbę dziesiętną. (W programie ASP.NET, liczbą dziesiętną jest bardziej dokładne niż liczba zmiennoprzecinkowa). |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]   |
+| `AsDateTime(), IsDateTime()` |                                                Konwertuje ciąg reprezentujący wartość daty i godziny do platformy ASP.NET `DateTime` typu.                                                 |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]   |
+|         `ToString()`         |                                                                       Konwertuje ciąg inny typ danych.                                                                        | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)] |
 
 ## <a name="operators"></a>Operatory
 
 Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaju polecenie do wykonania w wyrażeniu. W języku C# (i składni Razor oparty na nim) obsługuje wielu operatorów, ale musisz rozpoznać kilka, aby rozpocząć pracę. Poniższa tabela zawiera podsumowanie typowych operatorów.
 
-| **Operator** | **Opis** | **Przykłady** |
-| --- | --- | --- |
-| `+` `-` `*` `/` | Operatory matematyczne używać w wyrażeniach numerycznych. | [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)] |
-| `=` | Przypisanie. Przypisuje wartości po prawej stronie instrukcji obiektu po lewej stronie. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)] |
-| `==` | Równości. Zwraca `true` Jeśli wartości są równe. (Zwróć uwagę, że `=` operatora i `==` operatora.) | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)] |
-| `!=` | Nierówności. Zwraca `true` wartości nie są równe. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)] |
-| `< > <= >=` | Mniej-niż większe-niż mniej niż — lub równości i większa niż lub równości. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)] |
-| `+` | Łączenie, który jest używany do przyłączenia ciągów. ASP.NET wie, że różnica między Ten operator i operator dodawania na podstawie typu danych wyrażenia. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)] |
-| `+=``-=` | Operatory inkrementacji i dekrementacji, które dodawania i odejmowania 1 (odpowiednio) ze zmienną. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)] |
-| `.` | Kropki. Pozwala odróżnić obiektów i ich właściwości i metody. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)] |
-| `()` | Nawiasy. Używane do wyrażenia grupy oraz do przekazania parametrów do metod. | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)] |
-| `[]` | Nawiasy kwadratowe. Używane do uzyskiwania dostępu do wartości w macierzy lub kolekcji. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)] |
-| `!` | Nie. Odwraca `true` do wartości `false` i na odwrót. Zazwyczaj używany jako sposób skrócona do testowania `false` (oznacza to, aby nie `true`). | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)] |
-| `&&`<code>&#124;&#124;</code> | Logiczny AND i lub, w którym są używane do łączenia ze sobą warunki. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)] |
+
+|   <strong>Operator</strong>    |                                                                     <strong>Opis</strong>                                                                     |                        <strong>Przykłady</strong>                         |
+|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+|        `+` `-` `*` `/`         |                                                            Operatory matematyczne używać w wyrażeniach numerycznych.                                                             |    [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]    |
+|              `=`               |                                    Przypisanie. Przypisuje wartości po prawej stronie instrukcji obiektu po lewej stronie.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]   |
+|              `==`              |                      Równości. Zwraca `true` Jeśli wartości są równe. (Zwróć uwagę, że `=` operatora i `==` operatora.)                      |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]   |
+|              `!=`              |                                                       Nierówności. Zwraca `true` wartości nie są równe.                                                        |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]   |
+|          `< > <= >=`           |                                               Mniej-niż większe-niż mniej niż — lub równości i większa niż lub równości.                                                |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]   |
+|              `+`               | Łączenie, który jest używany do przyłączenia ciągów. ASP.NET wie, że różnica między Ten operator i operator dodawania na podstawie typu danych wyrażenia. |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]   |
+|           `+=``-=`            |                                   Operatory inkrementacji i dekrementacji, które dodawania i odejmowania 1 (odpowiednio) ze zmienną.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]   |
+|              `.`               |                                                  Kropki. Pozwala odróżnić obiektów i ich właściwości i metody.                                                  |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]   |
+|              `()`              |                                              Nawiasy. Używane do wyrażenia grupy oraz do przekazania parametrów do metod.                                               | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)] |
+|              `[]`              |                                                    Nawiasy kwadratowe. Używane do uzyskiwania dostępu do wartości w macierzy lub kolekcji.                                                     |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]   |
+|              `!`               |               Nie. Odwraca `true` do wartości `false` i na odwrót. Zazwyczaj używany jako sposób skrócona do testowania `false` (oznacza to, aby nie `true`).               |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]   |
+| `&&`<code>&#124;&#124;</code> |                                                   Logiczny AND i lub, w którym są używane do łączenia ze sobą warunki.                                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]   |
 
 <a id="ID_WorkingWithFileAndFolderPaths"></a>
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Praca z pliku i ścieżki folderu w kodzie
