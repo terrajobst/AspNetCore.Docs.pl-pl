@@ -1,0 +1,9 @@
+<span data-ttu-id="ca3cd-101">Zainstaluj **jeden** z następujących czynności:</span><span class="sxs-lookup"><span data-stu-id="ca3cd-101">Install **one** of the following:</span></span>
+
+* <span data-ttu-id="ca3cd-102">Interfejs wiersza polecenia narzędzia: systemu Windows, Linux lub macOS: [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]</span><span class="sxs-lookup"><span data-stu-id="ca3cd-102">CLI tooling: Windows, Linux, or macOS: [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]</span></span>
+* <span data-ttu-id="ca3cd-103">Narzędzia IDE/edytora</span><span class="sxs-lookup"><span data-stu-id="ca3cd-103">IDE/editor tooling</span></span>
+  * <span data-ttu-id="ca3cd-104">System Windows: [programu Visual Studio dla systemu Windows](https://www.microsoft.com/net/download/windows)</span><span class="sxs-lookup"><span data-stu-id="ca3cd-104">Windows: [Visual Studio for Windows](https://www.microsoft.com/net/download/windows)</span></span>
+    * <span data-ttu-id="ca3cd-105">**ASP.NET i sieć web development** obciążenia</span><span class="sxs-lookup"><span data-stu-id="ca3cd-105">**ASP.NET and web development** workload</span></span>
+    * <span data-ttu-id="ca3cd-106">**Programowanie wieloplatformowych .NET core** obciążenia</span><span class="sxs-lookup"><span data-stu-id="ca3cd-106">**.NET Core cross-platform development** workload</span></span>
+  * <span data-ttu-id="ca3cd-107">Linux: [Visual Studio Code](https://www.microsoft.com/net/download/linux)</span><span class="sxs-lookup"><span data-stu-id="ca3cd-107">Linux: [Visual Studio Code](https://www.microsoft.com/net/download/linux)</span></span>
+  * <span data-ttu-id="ca3cd-108">System macOS: [programu Visual Studio dla komputerów Mac](https://www.microsoft.com/net/download/macos)</span><span class="sxs-lookup"><span data-stu-id="ca3cd-108">macOS: [Visual Studio for Mac](https://www.microsoft.com/net/download/macos)</span></span>

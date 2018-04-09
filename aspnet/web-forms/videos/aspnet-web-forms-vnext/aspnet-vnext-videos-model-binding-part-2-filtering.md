@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-2-filtering
-title: "ASP.NET vNext wideo: część powiązanie modelu 2 - filtrowania | Dokumentacja firmy Microsoft"
+title: 'ASP.NET vNext wideo: część powiązanie modelu 2 - filtrowania | Dokumentacja firmy Microsoft'
 author: DamianEdwards
-description: "W tym wideo Dyszkiewicz Damianowi nadal pokazu wiązania modelu przez wyjaśniający filtrowania."
+description: W tym wideo Dyszkiewicz Damianowi nadal pokazu wiązania modelu przez wyjaśniający filtrowania.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/12/2011
@@ -12,21 +12,21 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-2-filtering
 msc.type: video
-ms.openlocfilehash: 2fcd31a07b84306a90b9e256617c9e0f0dd49247
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1eac6de4280c439d4c5c637e927af92c2f938b7f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="aspnet-vnext-videos-model-binding-part-2---filtering"></a><span data-ttu-id="a553d-103">ASP.NET vNext wideo: część powiązanie modelu 2 - filtrowania</span><span class="sxs-lookup"><span data-stu-id="a553d-103">ASP.NET vNext Videos: Model Binding Part 2 - Filtering</span></span>
+<a name="aspnet-vnext-videos-model-binding-part-2---filtering"></a><span data-ttu-id="bc055-103">ASP.NET vNext wideo: część powiązanie modelu 2 - filtrowania</span><span class="sxs-lookup"><span data-stu-id="bc055-103">ASP.NET vNext Videos: Model Binding Part 2 - Filtering</span></span>
 ====================
-<span data-ttu-id="a553d-104">przez [Damianowi Dyszkiewicz](https://github.com/DamianEdwards)</span><span class="sxs-lookup"><span data-stu-id="a553d-104">by [Damian Edwards](https://github.com/DamianEdwards)</span></span>
+<span data-ttu-id="bc055-104">przez [Damianowi Dyszkiewicz](https://github.com/DamianEdwards)</span><span class="sxs-lookup"><span data-stu-id="bc055-104">by [Damian Edwards](https://github.com/DamianEdwards)</span></span>
 
-<span data-ttu-id="a553d-105">W tym wideo Dyszkiewicz Damianowi nadal pokazu wiązania modelu przez wyjaśniający filtrowania.</span><span class="sxs-lookup"><span data-stu-id="a553d-105">In this video, Damian Edwards continues the demonstration of model binding by explaining filtering.</span></span>
+<span data-ttu-id="bc055-105">W tym wideo Dyszkiewicz Damianowi nadal pokazu wiązania modelu przez wyjaśniający filtrowania.</span><span class="sxs-lookup"><span data-stu-id="bc055-105">In this video, Damian Edwards continues the demonstration of model binding by explaining filtering.</span></span>
 
-[<span data-ttu-id="a553d-106">&#9654; Obejrzyj klip wideo (minuty 1)</span><span class="sxs-lookup"><span data-stu-id="a553d-106">&#9654; Watch video (1 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-model-binding-part-2-filtering)
+[<span data-ttu-id="bc055-106">&#9654;Obejrzyj klip wideo (minuty 1)</span><span class="sxs-lookup"><span data-stu-id="bc055-106">&#9654; Watch video (1 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-model-binding-part-2-filtering)
 
->[!div class="step-by-step"]
-<span data-ttu-id="a553d-107">[Poprzednie](aspnet-vnext-videos-model-binding-part-1-selecting-data.md)
-[dalej](aspnet-vnext-videos-model-binding-part-3-updating.md)</span><span class="sxs-lookup"><span data-stu-id="a553d-107">[Previous](aspnet-vnext-videos-model-binding-part-1-selecting-data.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="bc055-107">[Poprzednie](aspnet-vnext-videos-model-binding-part-1-selecting-data.md)
+> [dalej](aspnet-vnext-videos-model-binding-part-3-updating.md)</span><span class="sxs-lookup"><span data-stu-id="bc055-107">[Previous](aspnet-vnext-videos-model-binding-part-1-selecting-data.md)
 [Next](aspnet-vnext-videos-model-binding-part-3-updating.md)</span></span>
