@@ -1,7 +1,7 @@
 ---
-title: Jednostka stron razor i integracji testowania w ASP.NET Core
+title: Razor testów jednostkowych i integracja z stron w ASP.NET Core
 author: guardrex
-description: "Dowiedz się, jak tworzyć testy jednostkowe i integracji dla stron Razor aplikacji."
+description: Dowiedz się, jak tworzyć testy jednostkowe i integracji dla stron Razor aplikacji.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: e4f87a8151e378717aa9198e4629711c4ea6ef77
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: dc5e8651f873b8e86aaa8fdf2527e461bb065424
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Jednostka stron razor i integracji testowania w ASP.NET Core
+# <a name="razor-pages-unit-and-integration-tests-in-aspnet-core"></a>Razor testów jednostkowych i integracja z stron w ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
@@ -32,7 +32,7 @@ W tym temacie założono, że masz podstawową wiedzę na temat stron Razor apli
 * [Wprowadzenie do stron Razor](xref:mvc/razor-pages/index)
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Badanie C# .NET Core za pomocą testu dotnet i xUnit jednostki](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Testowanie integracji](xref:testing/integration-testing)
+* [Testy integracji](xref:testing/integration-testing)
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/testing/razor-pages-testing/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
@@ -59,9 +59,9 @@ Aplikacja wiadomości jest prosty system komunikatów stron Razor o następując
 * Ta aplikacja zawiera Warstwa dostępu do danych (DAL) w swojej klasie kontekst bazy danych `AppDbContext` (*Data/AppDbContext.cs*). Metody DAL są oznaczone `virtual`, dzięki czemu mocking metod do użycia w testach.
 * Jeśli baza danych jest pusta podczas uruchamiania aplikacji, Magazyn komunikatu jest inicjowany z trzech wiadomości. Te *rozpoczęta wiadomości* są również używane do testowania.
 
-&#8224;Temat EF [testowanie za pomocą InMemory](/ef/core/miscellaneous/testing/in-memory), opisano sposób korzystania z bazy danych w pamięci testowania za pomocą przełącznika MSTest. W tym temacie używa [xUnit](https://xunit.github.io/) testowania framework. Pojęcia dotyczące testowania i implementacje testu na różnych platformach testowych są podobne, lecz nie są identyczne.
+&#8224;Temat EF [testu z InMemory](/ef/core/miscellaneous/testing/in-memory), opisano sposób korzystania z bazy danych w pamięci testowania za pomocą przełącznika MSTest. W tym temacie używa [xUnit](https://xunit.github.io/) testowania framework. Pojęcia dotyczące testowania i implementacje testu na różnych platformach testowych są podobne, lecz nie są identyczne.
 
-Mimo że nie korzysta z aplikacji [wzorca repozytorium](http://martinfowler.com/eaaCatalog/repository.html) i nie jest skuteczne przykład [wzorzec jednostki pracy (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), stron Razor obsługuje te wzorce programowania. Aby uzyskać więcej informacji, zobacz [projektowania infrastruktury warstwę trwałości](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [wdrażanie repozytorium i jednostki pracy wzorce w aplikacji platformy ASP.NET MVC](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), i [testowanie logiką kontrolera](/aspnet/core/mvc/controllers/testing) (próbki implementuje wzorca repozytorium).
+Mimo że nie korzysta z aplikacji [wzorca repozytorium](http://martinfowler.com/eaaCatalog/repository.html) i nie jest skuteczne przykład [wzorzec jednostki pracy (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), stron Razor obsługuje te wzorce programowania. Aby uzyskać więcej informacji, zobacz [projektowania infrastruktury warstwę trwałości](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [wdrażanie repozytorium i jednostki pracy wzorce w aplikacji platformy ASP.NET MVC](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), i [kontrolera testów Logika](/aspnet/core/mvc/controllers/testing) (próbki implementuje wzorca repozytorium).
 
 ## <a name="test-app-organization"></a>Testowanie aplikacji organizacji
 
@@ -231,7 +231,7 @@ Testy integracji można również przekazać złe dane do aplikacji, aby przetes
 ## <a name="see-also"></a>Zobacz także
 
 * [Badanie C# .NET Core za pomocą testu dotnet i xUnit jednostki](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Testowanie integracji](xref:testing/integration-testing)
+* [Testy integracji](xref:testing/integration-testing)
 * [Kontrolery testów](xref:mvc/controllers/testing)
 * [Kod testu jednostkowego](/visualstudio/test/unit-test-your-code) (Visual Studio)
 * [xUnit.net](https://xunit.github.io/)

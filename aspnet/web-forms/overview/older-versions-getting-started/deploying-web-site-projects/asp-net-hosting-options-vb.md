@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 title: ASP.NET (VB) opcje hostingu | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Aplikacji sieci web ASP.NET zwykle są zaprojektowane, utworzony i przetestować w środowisku projektowym lokalnych i muszą zostać wdrożone do o środowisku produkcyjnym..."
+description: Aplikacji sieci web ASP.NET zwykle są zaprojektowane, utworzony i przetestować w środowisku projektowym lokalnych i muszą zostać wdrożone do o środowisku produkcyjnym...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 54bac82a96a35d871d764849856c8e31f6570666
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0e99423ec803927d0f621c88f3d814578fec11f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-hosting-options-vb"></a>ASP.NET (VB) opcje hostingu
 ====================
@@ -61,7 +61,7 @@ Informacje o konfiguracji dla aplikacji sieci web znajduje się w `Web.config` p
 Oprócz zmian w konfiguracji aplikacji sieci web krok 1 również może pociągać za sobą konfiguracji serwera sieci web i bazy danych. Na przykład jeśli strony ASP.NET umożliwia tworzenie lub usuwanie plików z katalogu na serwerze sieci web serwera sieci web trzeba skonfigurować tak, aby umożliwić modyfikacje systemu plików. Podobnie może być uprawnienia lub uwierzytelniania ustawień, które muszą zostać wprowadzone w bazie danych.
 
 
-Krok 2 polega na synchronizacji zestawu niezbędne stron ASP.NET i pliki obsługi między środowisk projektowania i produkcji. Określonego zestawu ASP. Plików związanych z sieci, które muszą być synchronizowane między dwoma środowiskami zależy od typu projektu utworzone w programie Visual Studio i jest dyskusji w następnym samouczku  *[określania co pliki potrzebne do wdrożenia](determining-what-files-need-to-be-deployed-vb.md)*. Samouczki trzeci i czwarty -  *[wdrażanie Your lokacji przy użyciu FTP](deploying-your-site-using-an-ftp-client-vb.md)*i  *[wdrażanie Your lokacji za pomocą programu Visual Studio](deploying-your-site-using-visual-studio-vb.md)*  -Sprawdź różnych narzędzi i technik do synchronizowania tych plików.
+Krok 2 polega na synchronizacji zestawu niezbędne stron ASP.NET i pliki obsługi między środowisk projektowania i produkcji. Określonego zestawu ASP. Plików związanych z sieci, które muszą być synchronizowane między dwoma środowiskami zależy od typu projektu utworzone w programie Visual Studio i jest dyskusji w następnym samouczku  <em>[określania co pliki potrzebne do wdrożenia](determining-what-files-need-to-be-deployed-vb.md)</em>. Samouczki trzeci i czwarty -  <em>[wdrażanie Your lokacji przy użyciu FTP](deploying-your-site-using-an-ftp-client-vb.md)</em>i <em>[wdrażanie Your lokacji za pomocą programu Visual Studio](deploying-your-site-using-visual-studio-vb.md)</em> -Sprawdź różnych narzędzi i technik do synchronizowania tych plików.
 
 Podczas tworzenia aplikacji opartych na danych są zwykle dwóch baz danych używane: jeden dla rozwoju i jeden w środowisku produkcyjnym. Podczas tworzenia schemat programowanie bazy danych mogą być modyfikowane w celu uwzględnienia nowych tabel, kolumn procedur składowanych i wyzwalaczy lub mogą zostać zmodyfikowane w celu usuń lub zmień istniejące obiekty bazy danych. Między czas tych zmian i czasu, w których aplikacja jest wdrażana w środowisku produkcyjnym projektowanie i produkcyjne bazy danych nie są zsynchronizowane. To asynchrony musi być stały podczas procesu wdrażania. Te problemy zostaną sprawdzone w przyszłości samouczki.
 
@@ -95,6 +95,6 @@ Programowanie przyjemność!
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Poprzednie](users-and-roles-on-the-production-website-cs.md)
-[dalej](determining-what-files-need-to-be-deployed-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](users-and-roles-on-the-production-website-cs.md)
+> [dalej](determining-what-files-need-to-be-deployed-vb.md)

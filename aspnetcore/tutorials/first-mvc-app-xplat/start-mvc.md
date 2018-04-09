@@ -1,7 +1,7 @@
 ---
 title: Wprowadzenie do platformy ASP.NET Core MVC macOS, Linux lub Windows
 author: rick-anderson
-description: "Dowiedz się, jak rozpocząć pracę z platformy ASP.NET Core MVC i Visual Studio Code na macOS, Linux i Windows"
+description: Dowiedz się, jak rozpocząć pracę z platformy ASP.NET Core MVC i Visual Studio Code na macOS, Linux i Windows
 manager: wpickett
 ms.author: riande
 ms.date: 07/07/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: a612d9b09e58fdc8071378ade15f1bdcafc9c9a6
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 50fbd54c6b0cc1146271afda7e45a0dab590dd7d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-aspnet-core-mvc-on-macos-linux-or-windows"></a>Wprowadzenie do platformy ASP.NET Core MVC macOS, Linux lub Windows
 
@@ -21,7 +21,7 @@ przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym samouczku udzieli Ci podstawy platformy ASP.NET Core MVC sieci web aplikacji za pomocą [Visual Studio Code](https://code.visualstudio.com) (VS kodu). Samouczek jest przeznaczony dla familarity z kodem VS. Zobacz [wprowadzenie kodu VS](https://code.visualstudio.com/docs) i [pomocy programu Visual Studio Code](#visual-studio-code-help) Aby uzyskać więcej informacji. 
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 Istnieją 3 wersje tego samouczka:
 
@@ -29,15 +29,9 @@ Istnieją 3 wersje tego samouczka:
 * System Windows: [utworzyć platformy ASP.NET Core aplikacji MVC za pomocą programu Visual Studio](xref:tutorials/first-mvc-app/start-mvc)
 * System macOS, Linux i Windows: [tworzenie aplikacji platformy ASP.NET Core MVC z kodem Visual Studio](xref:tutorials/first-mvc-app-xplat/start-mvc) 
 
-## <a name="install-vs-code-and-net-core"></a>Zainstaluj kodzie VS i .NET Core
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Ten samouczek wymaga [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) lub nowszym. Zobacz [pdf](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) dla wersji platformy ASP.NET Core 1.1.
-
-Zainstaluj następujące czynności:
-
-* [Oprogramowanie .NET core 2.0.0 SDK](https://www.microsoft.com/net/core) lub nowszym.
-* [Visual Studio Code](https://code.visualstudio.com)
-* Kod VS [rozszerzenia C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
+[!INCLUDE [](~/includes/net-core-prereqs-vscode.md)]
 
 ## <a name="create-a-web-app-with-dotnet"></a>Tworzenie aplikacji sieci web w usłudze dotnet
 
@@ -79,5 +73,5 @@ W następnej części tego samouczka możemy Dowiedz się więcej o MVC i rozpoc
   - [Skróty klawiaturowe systemu Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
   - [Skróty klawiaturowe systemu Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
->[!div class="step-by-step"]
-[Następne — Dodawanie kontrolera](adding-controller.md)
+> [!div class="step-by-step"]
+> [Następne — Dodawanie kontrolera](adding-controller.md)

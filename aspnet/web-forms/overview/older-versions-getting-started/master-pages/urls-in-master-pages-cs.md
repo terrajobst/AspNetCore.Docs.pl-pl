@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-cs
 title: Adresy URL w stron wzorcowych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Rozwiązuje, jak adresy URL na stronie głównej mogą być dzielone ze względu na plik strony głównej w katalogu względną innego niż ze strony zawartość. Analizuje zmienianie bazy..."
+description: Rozwiązuje, jak adresy URL na stronie głównej mogą być dzielone ze względu na plik strony głównej w katalogu względną innego niż ze strony zawartość. Analizuje zmienianie bazy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8b01f0ac780121c4e0941df6016220a1cb1ed2d1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 494338f1a0705c8d7e15bc693ae1ec6362b26d64
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="urls-in-master-pages-c"></a>Adresy URL w stron wzorcowych (C#)
 ====================
@@ -182,12 +182,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Poprzednie](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)
-[dalej](control-id-naming-in-content-pages-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)
+> [dalej](control-id-naming-in-content-pages-cs.md)

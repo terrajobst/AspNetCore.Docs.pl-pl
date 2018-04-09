@@ -1,7 +1,7 @@
 ---
 title: Stron razor z Entity Framework Core w platformy ASP.NET Core - 1 samouczka 8
 author: rick-anderson
-description: "Pokazuje, jak utworzyć aplikację stron Razor przy użyciu programu Entity Framework Core"
+description: Pokazuje, jak utworzyć aplikację stron Razor przy użyciu programu Entity Framework Core
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: 1b0fdb9be83530323f2dc7e3bcb26df26c597c1b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: be8162de1c839ef619e2ccd32253c6c3e5330301
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Stron razor z Entity Framework Core w platformy ASP.NET Core - 1 samouczka 8
 
@@ -27,7 +27,7 @@ Przykładowa aplikacja jest witryną sieci web dla fikcyjnej uniwersytetu Contos
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[!INCLUDE[install 2.0](../../includes/install2.0.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 Znajomość [stron Razor](xref:mvc/razor-pages/index). Nowe programistów powinno zakończyć się [wprowadzenie stron Razor](xref:tutorials/razor-pages/razor-pages-start) przed uruchomieniem tej serii.
 
@@ -100,7 +100,7 @@ Utwórz *modele* folderu. W *modele* folderu, Utwórz plik klasy o nazwie *Stude
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
 
-`ID` Właściwości staje się kolumna klucza podstawowego tabeli bazy danych (bazy danych), która odnosi się do tej klasy. Domyślnie EF rdzenie będą interpretowane przez właściwość o nazwie `ID` lub `classnameID` jako klucz podstawowy.
+`ID` Właściwości staje się kolumna klucza podstawowego tabeli bazy danych (bazy danych), która odnosi się do tej klasy. Domyślnie EF rdzenie będą interpretowane przez właściwość o nazwie `ID` lub `classnameID` jako klucz podstawowy. W `classnameID`, `classname` jest nazwą klasy, takich jak `Student` w poprzednim przykładzie.
 
 `Enrollments` Właściwość jest właściwością nawigacji. Właściwości nawigacji, połącz się z innymi obiektami, które są powiązane z tą jednostką. W takim przypadku `Enrollments` właściwość `Student entity` przechowuje wszystkie `Enrollment` jednostek, które są powiązane z których `Student`. Na przykład, jeśli wiersz uczniów w bazie danych ma dwa powiązane wiersze rejestracji `Enrollments` właściwość nawigacji zawiera tych dwóch `Enrollment` jednostek. Powiązane `Enrollment` wiersz jest wierszem zawiera Studenta dla tej wartości klucza podstawowego w `StudentID` kolumny. Na przykład, załóżmy, że uczniów o identyfikatorze = 1 ma dwa wiersze `Enrollment` tabeli. `Enrollment` Tabela zawiera dwa wiersze z `StudentID` = 1. `StudentID` jest to kolumna klucza obcego w `Enrollment` tabeli określający student w `Student` tabeli.
 
@@ -254,7 +254,7 @@ Skompiluj projekt. Kompilacja generuje błędy podobne do następujących:
 
  Globalnie zmienić `_context.Student` do `_context.Students` (to znaczy dodania "s" do `Student`). 7 wystąpienia są odnaleźć i zaktualizować. Mamy nadzieję naprawić [tej usterki](https://github.com/aspnet/Scaffolding/issues/633) w następnej wersji.
 
-[!INCLUDE[model4tbl](../../includes/RP/model4tbl.md)]
+[!INCLUDE [model4tbl](../../includes/RP/model4tbl.md)]
 
  <a name="test"></a>
 ### <a name="test-the-app"></a>Testowanie aplikacji
@@ -276,7 +276,7 @@ Rozwiń węzeł **tabel** węzła.
 
 Kliknij prawym przyciskiem myszy **uczniowie** tabeli, a następnie kliknij przycisk **danych widoku** kolumn utworzona i wiersze wstawione do tabeli.
 
-*.Mdf* i *ldf* pliki bazy danych znajdują się w *C:\Users\\ <yourusername>*  folderu.
+<em>.Mdf</em> i <em>ldf</em> pliki bazy danych znajdują się w <em>C:\Users\\ <yourusername> </em> folderu.
 
 `EnsureCreated` jest wywoływana po uruchomieniu aplikacji, dzięki czemu następującego przepływu pracy:
 
@@ -296,7 +296,7 @@ Ilość kodu napisanego w kolejności EF podstawowych utworzyć pełną bazy dan
 
 * Właściwości jednostki, które są nazywane Identyfikatora lub classnameID są rozpoznawane jako właściwości klucza podstawowego.
 
-* Właściwość jest interpretowana jako właściwości klucza obcego, jeśli jest o nazwie  *<navigation property name> <primary key property name>*  (na przykład `StudentID` dla `Student` właściwość nawigacji, ponieważ `Student` jest klucza podstawowego jednostki `ID`). Właściwości klucza obcego może mieć nazwę  *<primary key property name>*  (na przykład `EnrollmentID` ponieważ `Enrollment` klucza podstawowego jednostki jest `EnrollmentID`).
+* Właściwość jest interpretowana jako właściwości klucza obcego, jeśli jest o nazwie *<navigation property name> <primary key property name>* (na przykład `StudentID` dla `Student` właściwość nawigacji, ponieważ `Student` jest klucza podstawowego jednostki `ID`). Właściwości klucza obcego może mieć nazwę *<primary key property name>* (na przykład `EnrollmentID` ponieważ `Enrollment` klucza podstawowego jednostki jest `EnrollmentID`).
 
 Konwencjonalne zachowanie można przesłonić. Na przykład nazwy tabeli można jawnie określić, jak pokazano wcześniej w tym samouczku. Nazwy kolumn można ustawić jawnie. Klucze podstawowe i klucze obce można ustawić jawnie.
 
@@ -335,5 +335,5 @@ Aby uzyskać więcej informacji na temat programowania asynchronicznego w progra
 
 W następnym samouczku basic CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) operacje są sprawdzane.
 
->[!div class="step-by-step"]
-[Next](xref:data/ef-rp/crud)
+> [!div class="step-by-step"]
+> [Next](xref:data/ef-rp/crud)

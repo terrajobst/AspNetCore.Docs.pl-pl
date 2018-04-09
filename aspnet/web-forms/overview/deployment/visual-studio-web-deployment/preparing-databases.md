@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
-title: "Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: przygotowywanie do wdrożenia bazy danych | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: przygotowywanie do wdrożenia bazy danych | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane..."
+description: Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: caa79725ede320c4bd3e87ac246966c57175eb8e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 61392af322de454687da522055005a670b34f510
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: przygotowywanie do wdrożenia bazy danych
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -171,7 +171,7 @@ W tym miejscu, zwykle nie ma tych samych danych w środowisku produkcyjnym, czy 
 Użytkownicy programowanie wdrożony do środowiska testowego i produkcyjnego użytkownikom tymczasową i produkcyjną. W tym celu zostaną utworzone dwa skrypty SQL, w tym samouczku, jeden dla rozwoju i jeden w środowisku produkcyjnym, a w kolejnych samouczkach skonfigurujesz proces publikowania ich uruchamiać.
 
 > [!NOTE]
-> Baza danych członkostwa przechowuje skrót hasła do kont. Aby można było wdrożyć kont z jednego komputera na inny, należy się upewnić procedury wyznaczania wartości skrótu nie Generowanie skrótów różnych na serwerze docelowym niż na komputerze źródłowym. Tej samej wartości skrótu zostanie wygenerowany używania dostawców uniwersalnych ASP.NET, pod warunkiem, nie zmieniaj domyślny algorytm. Domyślny algorytm jest HMACSHA256 i jest określony w **weryfikacji** atrybutu  **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)**  elementu w pliku Web.config.
+> Baza danych członkostwa przechowuje skrót hasła do kont. Aby można było wdrożyć kont z jednego komputera na inny, należy się upewnić procedury wyznaczania wartości skrótu nie Generowanie skrótów różnych na serwerze docelowym niż na komputerze źródłowym. Tej samej wartości skrótu zostanie wygenerowany używania dostawców uniwersalnych ASP.NET, pod warunkiem, nie zmieniaj domyślny algorytm. Domyślny algorytm jest HMACSHA256 i jest określony w **weryfikacji** atrybutu **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)** elementu w pliku Web.config.
 
 
 Skrypty wdrażania danych można utworzyć ręcznie, za pomocą programu SQL Server Management Studio (SSMS) lub przy użyciu narzędzia innej firmy. Ta pozostałej części tego samouczka zostanie pokazują, jak to zrobić w programie SSMS, ale jeśli nie chcesz zainstalować i używać narzędzia SSMS można uzyskać skrypty ukończone wersji projektu i przejdź do sekcji, w której są przechowywane w folderze rozwiązania.
@@ -215,11 +215,11 @@ Ponieważ projekt nie zostało uruchomione z produkcyjną bazę danych, nie jest
 1. W programie SSMS **Eksplorator obiektów**, kliknij prawym przyciskiem myszy **baz danych** i kliknij przycisk **Attach**.
 
     ![Dołącz SSMS](preparing-databases/_static/image15.png)
-- W **dołączyć bazy danych** okno dialogowe, kliknij przycisk **Dodaj** , a następnie przejdź do *aspnet-ContosoUniversity-Prod.mdf* w pliku *aplikacji\_ Dane* folderu.
+2. W **dołączyć bazy danych** okno dialogowe, kliknij przycisk **Dodaj** , a następnie przejdź do *aspnet-ContosoUniversity-Prod.mdf* w pliku *aplikacji\_ Dane* folderu.
 
-    ![Dodaj SSMS plików .mdf można dołączyć](preparing-databases/_static/image16.png)
-- Kliknij przycisk **OK**.
-- Postępuj zgodnie z tą samą procedurą, który został wcześniej użyty do utworzenia skryptu dla pliku produkcji. Nazwa pliku skryptu *aspnet-data-prod.sql*.
+     ![Dodaj SSMS plików .mdf można dołączyć](preparing-databases/_static/image16.png)
+3. Kliknij przycisk **OK**.
+4. Postępuj zgodnie z tą samą procedurą, który został wcześniej użyty do utworzenia skryptu dla pliku produkcji. Nazwa pliku skryptu *aspnet-data-prod.sql*.
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -233,6 +233,6 @@ W samouczku następujące skonfigurować ustawienia projektu, które mają wpły
 
 Aby uzyskać więcej informacji o NuGet, zobacz [Zarządzanie biblioteki projektu z NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) i [dokumentacji NuGet](http://docs.nuget.org/docs/start-here/overview). Jeśli nie chcesz używać NuGet, należy dowiedzieć się, jak analizować pakietu NuGet, aby ustalić, jakie operacje po jej zainstalowaniu. (Na przykład może skonfigurować *Web.config* przekształcenia, skonfigurować skrypty programu PowerShell do uruchamiania w czasie kompilacji itp.) Aby dowiedzieć się więcej na temat działania NuGet, zobacz [tworzenie i publikowanie pakietu](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) i [pliku konfiguracji i przekształcenia kod źródłowy](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
->[!div class="step-by-step"]
-[Poprzednie](introduction.md)
-[dalej](web-config-transformations.md)
+> [!div class="step-by-step"]
+> [Poprzednie](introduction.md)
+> [dalej](web-config-transformations.md)

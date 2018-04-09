@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/adding-email-to-your-web-site
-title: "Dodawanie wiadomości E-mail do witryny sieci Web | Dokumentacja firmy Microsoft"
+title: Dodawanie wiadomości E-mail do witryny sieci Web | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: "Dodawanie wiadomości E-mail do witryny sieci Web (część 1)"
+description: Dodawanie wiadomości E-mail do witryny sieci Web (część 1)
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/adding-email-to-your-web-site
 msc.type: video
-ms.openlocfilehash: ccc419f0ffaf6b49ae642b6ed1c9457ab17ea600
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2516503658c178d5579311a9866edf61688d1427
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-email-to-your-web-site"></a>Dodawanie wiadomości E-mail do witryny sieci Web
 ====================
@@ -24,8 +24,8 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 
 Dodawanie wiadomości E-mail do witryny sieci Web (część 1)
 
-[&#9654; Obejrzyj klip wideo (10 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/adding-email-to-your-web-site)
+[&#9654;Obejrzyj klip wideo (10 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/adding-email-to-your-web-site)
 
->[!div class="step-by-step"]
-[Poprzednie](working-with-video.md)
-[dalej](adding-search-to-your-web-site.md)
+> [!div class="step-by-step"]
+> [Poprzednie](working-with-video.md)
+> [dalej](adding-search-to-your-web-site.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12
-title: "Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: Wdrażanie aktualizacji bazy danych — 9 12 | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: Wdrażanie aktualizacji bazy danych — 9 12 | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Tej serii samouczków opisano sposób wdrażania platformy ASP.NET (publikowanie) projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu..."
+description: Tej serii samouczków opisano sposób wdrażania platformy ASP.NET (publikowanie) projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 44faca6ac2cdb9193f5c7f6b1d7f5a26e6e22248
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0a00f9d3ed284ebbc1d83c1b5696436e5ba00f4b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-database-update---9-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: Wdrażanie aktualizacji bazy danych — 9 12
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -99,6 +99,6 @@ Gdy program Visual Studio otworzy adres URL strony głównej w przeglądarce, *a
 
 Teraz wdrożeniu aktualizacji aplikacji, która obejmuje zmianę bazy danych do testu i produkcji. Następny samouczek pokazuje, jak przeprowadzić migrację bazy danych z programu SQL Server Compact do programu SQL Server Express i programu SQL Server.
 
->[!div class="step-by-step"]
-[Poprzednie](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)
-[dalej](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)
+> [dalej](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)

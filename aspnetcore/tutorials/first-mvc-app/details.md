@@ -1,7 +1,7 @@
 ---
-title: "Badanie szczegóły i metody zostaną usunięte"
+title: Sprawdź szczegóły i metody zostaną usunięte z aplikacji platformy ASP.NET Core
 author: rick-anderson
-description: "Szczegóły metody kontrolera i widoku w Podstawowa aplikacja platformy ASP.NET Core MVC."
+description: Więcej informacji na temat metody kontrolera szczegóły i wyświetlanie Podstawowa aplikacja platformy ASP.NET Core MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: 4bb2489def9eb8fb3f0fd16814803877489899ed
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 3691801c2d48b7f635bee844fdf2392f2f3445de
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="examining-the-details-and-delete-methods"></a>Badanie szczegóły i metody zostaną usunięte
+# <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Sprawdź szczegóły i metody zostaną usunięte z aplikacji platformy ASP.NET Core
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -60,5 +60,5 @@ Zobacz [publikowania aplikacji sieci web platformy ASP.NET Core w usłudze Azure
 
 Dziękujemy za korzystanie to wprowadzenie do platformy ASP.NET Core MVC. Dziękujemy za wszelkie komentarze, które pozostaną. [Rozpoczynanie pracy z MVC i podstawowe EF](xref:data/ef-mvc/intro) jest doskonałym uzupełnianie w tym samouczku.
 
->[!div class="step-by-step"]
-[Poprzednie](validation.md)
+> [!div class="step-by-step"]
+> [Poprzednie](validation.md)

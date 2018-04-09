@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
-title: "Konfigurowanie serwera bazy danych dla sieci Web wdrażanie, publikowanie | Dokumentacja firmy Microsoft"
+title: Konfigurowanie serwera bazy danych dla sieci Web wdrażanie, publikowanie | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób konfigurowania serwera bazy danych programu SQL Server 2008 R2 do obsługi wdrożenia sieci web i publikowania. Zadania opisane w tym temacie są co..."
+description: W tym temacie opisano sposób konfigurowania serwera bazy danych programu SQL Server 2008 R2 do obsługi wdrożenia sieci web i publikowania. Zadania opisane w tym temacie są co...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 98fd728f48f6fb64a61686bc58824b9fb3a28b13
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a2340c0d561ed274e281b5f6d942af0a2027315a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Konfigurowanie serwera bazy danych dla publikowania narzędzia Web Deploy
 ====================
@@ -26,7 +26,7 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 
 > W tym temacie opisano sposób konfigurowania serwera bazy danych programu SQL Server 2008 R2 do obsługi wdrożenia sieci web i publikowania.
 > 
-> Zadania opisane w tym temacie są wspólne dla każdego scenariusza wdrażania & #x 2014; nie ma znaczenia, czy serwerów sieci web są skonfigurowane do używania usługi agenta zdalnego Narzędzie wdrażania Web usług IIS (Web Deploy), program obsługi wdrażania w sieci Web lub wdrożenia w trybie offline lub Aplikacja jest uruchomiona na serwerze sieci web jednej lub farmy serwerów. Sposób wdrażania bazy danych mogą ulec zmianie w zależności od wymagań dotyczących zabezpieczeń oraz inne kwestie. Na przykład mogą wdrożyć bazę danych z lub bez przykładowych danych i może wdrożyć mapowania roli użytkownika lub ręcznie skonfigurować po wdrożeniu. Jednak sposób konfigurowania serwera bazy danych jest taka sama.
+> W tym temacie opisano zadania są wspólne dla każdego scenariusza wdrażania&#x2014;nie ma znaczenia, czy serwerów sieci web są skonfigurowane do używania usługi agenta zdalnego Narzędzie wdrażania Web usług IIS (Web Deploy), program obsługi wdrażania w sieci Web lub wdrożenia w trybie offline lub z aplikacji Aplikacja jest uruchomiona na serwerze sieci web jednej lub farmy serwerów. Sposób wdrażania bazy danych mogą ulec zmianie w zależności od wymagań dotyczących zabezpieczeń oraz inne kwestie. Na przykład mogą wdrożyć bazę danych z lub bez przykładowych danych i może wdrożyć mapowania roli użytkownika lub ręcznie skonfigurować po wdrożeniu. Jednak sposób konfigurowania serwera bazy danych jest taka sama.
 
 
 Nie trzeba zainstalować wszystkie dodatkowe produkty lub narzędzi do konfigurowania serwera bazy danych do obsługi wdrożenia sieci web. Przy założeniu, że serwer bazy danych oraz serwera sieci web, uruchom na różnych komputerach, musisz po prostu:
@@ -65,8 +65,8 @@ Aby włączyć program SQL Server do komunikowania się za pośrednictwem protok
 1. Na **Start** menu wskaż **wszystkie programy**, kliknij przycisk **Microsoft SQL Server 2008 R2**, kliknij przycisk **narzędzia do konfiguracji**, a następnie kliknij przycisk **Programu SQL Server Configuration Manager**.
 2. W okienku widoku drzewa rozwiń **konfigurację sieci programu SQL Server**, a następnie kliknij przycisk **protokoły dla elementu MSSQLSERVER**.
 
-    > [!NOTE]
-    > Jeśli zainstalowano wiele wystąpień programu SQL Server, zostanie wyświetlone **protokoły dla *** [nazwa wystąpienia]* elementu dla każdego wystąpienia. Należy skonfigurować ustawienia sieci na podstawie wystąpienia przez wystąpienie.
+   > [!NOTE]
+   > Jeśli zainstalowano wiele wystąpień programu SQL Server, zostanie wyświetlone <strong>protokoły dla</strong><em>[nazwa wystąpienia]</em> elementu dla każdego wystąpienia. Należy skonfigurować ustawienia sieci na podstawie wystąpienia przez wystąpienie.
 3. W okienku szczegółów kliknij prawym przyciskiem myszy **TCP/IP** wiersza, a następnie kliknij przycisk **włączyć**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
@@ -130,7 +130,7 @@ Aby uzyskać więcej informacji na temat konfigurowania Zapory systemu Windows d
 
 ## <a name="configure-logins-and-database-permissions"></a>Konfigurowanie logowania i bazy danych uprawnienia
 
-Podczas wdrażania aplikacji sieci web do programu Internet Information Services (IIS), aplikacja zostanie uruchomiona przy użyciu tożsamości puli aplikacji. W środowisku domeny tożsamości puli aplikacji, użyj konta komputera serwera, na którym uruchomiony do dostępu do zasobów sieciowych. Konta komputera formę * [nazwa domeny]***\*** [nazwa komputera]***$** & #x 2014; na przykład **FABRIKAM\TESTWEB1$**. Aby zezwolić na dostęp do bazy danych w sieci przez aplikację sieci web, musisz:
+Podczas wdrażania aplikacji sieci web do programu Internet Information Services (IIS), aplikacja zostanie uruchomiona przy użyciu tożsamości puli aplikacji. W środowisku domeny tożsamości puli aplikacji, użyj konta komputera serwera, na którym uruchomiony do dostępu do zasobów sieciowych. Konta komputera formę <em>[nazwa domeny]</em><strong>\</ strong ><em>[nazwa komputera]</em><strong>$</strong>&#x2014;na przykład <strong>FABRIKAM\TESTWEB1$</strong>. Aby zezwolić na dostęp do bazy danych w sieci przez aplikację sieci web, musisz:
 
 - Dodaj dane logowania dla konta komputera serwera sieci web do wystąpienia programu SQL Server.
 - Mapowanie logowania konta komputera do żadnej roli wymaganej bazy danych (zazwyczaj **db\_datareader** i **db\_datawriter**).
@@ -231,6 +231,6 @@ Serwer bazy danych powinno być teraz gotowy do akceptowania wdrożeń zdalnej b
 
 Aby uzyskać wskazówki dotyczące wdrażania projektów bazy danych, zobacz [wdrażania projektów bazy danych](../web-deployment-in-the-enterprise/deploying-database-projects.md). Aby uzyskać wskazówki dotyczące tworzenia członkostwo roli bazy danych, uruchamiając skrypt po wdrożeniu, zobacz [wdrażanie członkostwo roli bazy danych do środowisk testowych](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Aby uzyskać wskazówki dotyczące sposobu spełnia wyzwania unikatowego wdrożenia, które stanowią bazy danych członkostwa, zobacz [wdrażanie baz danych członkostwa w środowiskach przedsiębiorstw](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md).
 
->[!div class="step-by-step"]
-[Poprzednie](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
-[dalej](creating-a-server-farm-with-the-web-farm-framework.md)
+> [!div class="step-by-step"]
+> [Poprzednie](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+> [dalej](creating-a-server-farm-with-the-web-farm-framework.md)

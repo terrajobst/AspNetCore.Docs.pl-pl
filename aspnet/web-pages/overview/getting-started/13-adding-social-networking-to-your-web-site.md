@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
-title: "Dodawanie sieci społecznościowych w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft"
+title: Dodawanie sieci społecznościowych w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym rozdziale opisano sposób zintegrowanie witryny z usługami sieci społecznościowych. W tym rozdziale dowiesz się, jak umożliwia użytkownikom zakładki/link witryny sieci Web..."
+description: W tym rozdziale opisano sposób zintegrowanie witryny z usługami sieci społecznościowych. W tym rozdziale dowiesz się, jak umożliwia użytkownikom zakładki/link witryny sieci Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 2c43fa7d286e43f3a4581662ce421c7435e1871f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d1f0074edf473c4be06adaa32598dd828a7552c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>Dodawanie sieci społecznościowych do stron sieci Web platformy ASP.NET (Razor) witryn
 ====================
@@ -36,7 +36,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 2
+> - ASP.NET Web Pages (Razor) 2
 > - Biblioteka pomocnika sieci Web platformy ASP.NET (pakiet NuGet)
 >   
 > 
@@ -57,10 +57,10 @@ Aby wyświetlić te symbole, Dodaj `LinkSharecode` pomocnika do strony. Osób od
     [!code-cshtml[Main](13-adding-social-networking-to-your-web-site/samples/sample1.cshtml)]
 
     W tym przykładzie gdy `LinkShare` pomocnika działa, tytuł strony jest przekazywana jako parametr, który z kolei przekazuje tytuł strony w witrynie sieci społecznościowych. Jednak można przekazać w dowolny ciąg, który ma. W tym przykładzie również określa, które witrynami sieci społecznościowych w celu dołączenia do listy. Można określić witrynami sieci społecznościowych, które mają zastosowanie do witryny.
-- Uruchom *ListLinkShare.cshtml* strony w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszar roboczy przed jej uruchomieniem.)
-- Kliknij symbol dla jednej z witryn, które jest zalogowany w usłudze. Link prowadzi do strony w witrynie wybranej sieci społecznościowych, gdzie można udostępniać link. Na przykład kliknięcie łącza Reddit, użytkownik jest przekierowanie do `submit to reddit` w witrynie Reddit.
+2. Uruchom *ListLinkShare.cshtml* strony w przeglądarce. (Upewnij się, że strona jest zaznaczona w **pliki** obszar roboczy przed jej uruchomieniem.)
+3. Kliknij symbol dla jednej z witryn, które jest zalogowany w usłudze. Link prowadzi do strony w witrynie wybranej sieci społecznościowych, gdzie można udostępniać link. Na przykład kliknięcie łącza Reddit, użytkownik jest przekierowanie do `submit to reddit` w witrynie Reddit.
 
-    ![Obraz 2](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
+     ![Obraz 2](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
 
 <a id="Adding_a_Twitter_Feed"></a>
 ## <a name="adding-a-twitter-feed"></a>Dodawanie Twitter źródła danych
@@ -81,7 +81,7 @@ Następujący wyróżniony kod jest kod, który został pobrany z narzędzia tak
 <a id="Rendering_a_Gravatar_Image"></a>
 ## <a name="rendering-a-gravatar-image"></a>Renderowanie obrazu Gravatar
 
-A *Gravatar* ( &quot;globalnie rozpoznanym awatara&quot;) jest obrazu, które mogą być używane na wiele witryn sieci Web jako Awatar &#8212; która jest obraz, który reprezentuje użytkownik. Na przykład można zidentyfikować osoby w wpis na forum w komentarzu blog, Gravatar i tak dalej. (Możesz zarejestrować własne Gravatar w witrynie Gravatar w [http://www.gravatar.com/](http://www.gravatar.com/).) Jeśli chcesz wyświetlić obrazy obok nazwy lub adresy e-mail użytkowników w witrynie sieci Web, można użyć pomocnika Gravatar.
+A *Gravatar* ( &quot;globalnie rozpoznanym awatara&quot;) jest obraz, który może być używany w wielu witryn sieci Web jako Awatar &#8212; oznacza to, że obraz, który reprezentuje użytkownik. Na przykład można zidentyfikować osoby w wpis na forum w komentarzu blog, Gravatar i tak dalej. (Możesz zarejestrować własne Gravatar w witrynie Gravatar w [ http://www.gravatar.com/ ](http://www.gravatar.com/).) Jeśli chcesz wyświetlić obrazy obok nazwy lub adresy e-mail użytkowników w witrynie sieci Web, można użyć pomocnika Gravatar.
 
 W tym przykładzie jest używany pojedynczy Gravatar, reprezentujący samodzielnie. Innym sposobem użycia Gravatar jest innym użytkownikom, podaj swój adres Gravatar po zarejestrowaniu się w witrynie. (Można poznać sposoby innym użytkownikom zarejestrowanie w [Dodawanie zabezpieczeń i członkostwo w witrynie stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=202904).) Następnie przy każdym możesz wyświetlić informacje dotyczące tego użytkownika, do których wyświetlania nazwę użytkownika można dodać tylko Gravatar.
 

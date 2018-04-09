@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
-title: "Tworzenie bardziej złożonych modelu danych dla aplikacji platformy ASP.NET MVC (4 10) | Dokumentacja firmy Microsoft"
+title: Tworzenie bardziej złożonych modelu danych dla aplikacji platformy ASP.NET MVC (4 10) | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: accb5ddab8df67dfa29038541dc0cd72eaac173c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c8f01b33c18ce77d91ee2f0db5e561b047c1891c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application-4-of-10"></a>Tworzenie bardziej złożonych modelu danych dla aplikacji platformy ASP.NET MVC (4 10)
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -51,7 +51,7 @@ W *Models\Student.cs*, Dodaj `using` instrukcji dla `System.ComponentModel.DataA
 
 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych. W takim przypadku tylko chcemy śledzić data nie Data i godzina. [Wyliczenie DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) zawiera wiele typów danych, takich jak *dat, czasu, numer telefonu, waluty, EmailAddress* i inne. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), i może zostać dostarczony selektora daty [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) w przeglądarkach obsługujących [HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybuty emituje HTML 5 [danych -](http://ejohn.org/blog/html-5-data-attributes/) (Wymowa *kreska danych*) atrybutów, które byłyby zrozumiałe dla przeglądarki HTML 5. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybutów nie dostarcza żadnych sprawdzania poprawności.
 
-`DataType.Date`Określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
+`DataType.Date` Określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
 
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 
@@ -155,7 +155,7 @@ Wiele atrybutów można umieścić w jednym wierszu, więc można także zapisa�
 
 ### <a name="the-fullname-calculated-property"></a>Imię i nazwisko obliczona właściwość
 
-`FullName`jest obliczonej właściwości, która zwraca wartość, która jest tworzona przez łączenie dwóch innych właściwości. W związku z tym ma tylko `get` metody dostępu i nie `FullName` kolumny zostanie wygenerowany w bazie danych.
+`FullName` jest obliczonej właściwości, która zwraca wartość, która jest tworzona przez łączenie dwóch innych właściwości. W związku z tym ma tylko `get` metody dostępu i nie `FullName` kolumny zostanie wygenerowany w bazie danych.
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample11.cs)]
 
@@ -258,8 +258,8 @@ Właściwości klucza i nawigacja obcego odzwierciedla się następująco:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample23.cs)]
 
- > [!NOTE]
- > Według Konwencji programu Entity Framework umożliwia usuwanie kaskadowe dla klucza obcego nie dopuszcza wartości null i relacje wiele do wielu. Może to spowodować cykliczne cascade delete reguł, które spowoduje, że wystąpił wyjątek podczas wykonywania kodu inicjatora. Na przykład, jeśli nie zostały zdefiniowane `Department.InstructorID` właściwość jako wartości null, jak następujący komunikat o wyjątku podczas uruchamiania inicjatora: "więzy relacji spowoduje odwołanie cykliczne, które nie są dozwolone." W razie potrzeby reguł biznesowych `InstructorID` właściwość jako wartości null, czy należy użyć następujących interfejsu API fluent wyłączyć usuwanie kaskadowe w relacji: 
+  > [!NOTE]
+  > Według Konwencji programu Entity Framework umożliwia usuwanie kaskadowe dla klucza obcego nie dopuszcza wartości null i relacje wiele do wielu. Może to spowodować cykliczne cascade delete reguł, które spowoduje, że wystąpił wyjątek podczas wykonywania kodu inicjatora. Na przykład, jeśli nie zostały zdefiniowane `Department.InstructorID` właściwość jako wartości null, jak następujący komunikat o wyjątku podczas uruchamiania inicjatora: "więzy relacji spowoduje odwołanie cykliczne, które nie są dozwolone." W razie potrzeby reguł biznesowych `InstructorID` właściwość jako wartości null, czy należy użyć następujących interfejsu API fluent wyłączyć usuwanie kaskadowe w relacji: 
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample24.cs)]
 
@@ -399,6 +399,6 @@ Masz teraz bardziej złożonych modelu danych i odpowiednią bazę danych. W sam
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [Mapa zawartości dostępu do danych programu ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Poprzednie](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[dalej](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Poprzednie](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [dalej](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

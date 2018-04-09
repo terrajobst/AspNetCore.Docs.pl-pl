@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
-title: "Wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010 | Dokumentacja firmy Microsoft"
+title: Wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010 | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "Ten zestaw samouczków opisano narzędzia i metod, które służy do wdrażania aplikacji sieci web w różnych scenariuszach dla przedsiębiorstwa. Wyjaśniono, jak najlepiej wykorzystać..."
+description: Ten zestaw samouczków opisano narzędzia i metod, które służy do wdrażania aplikacji sieci web w różnych scenariuszach dla przedsiębiorstwa. Wyjaśniono, jak najlepiej wykorzystać...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/03/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: 99bab371dd34b30f3554843e49bbec7f57c3f96c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 921b1ccd8a1f2109a51f3f75149588422fefb91d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw przy użyciu programu Visual Studio 2010
 ====================
@@ -36,7 +36,7 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > > Gdy te samouczki opisano użycie TFS jako serwer elementu konfiguracji, wskazówki łatwo jest dostosowane do dowolnego serwera CI. Nie trzeba szczegółowej znajomości TFS, aby poznać i korzystać z samouczków.
 > 
 > 
-> Włoska translacji tego samouczka, odwiedź stronę [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Włoska translacji tego samouczka, odwiedź stronę [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 ## <a name="about-the-authors"></a>O autorów
@@ -54,11 +54,11 @@ Jest to zestaw samouczków dla deweloperów aplikacji sieci web ASP.NET i archit
 Wykonaj wskazówki i wykonywać zadania, które opisują te samouczki, musisz zainstalować to oprogramowanie na komputerze deweloperskim:
 
 - Visual Studio 2010 Premium lub Ultimate Edition z dodatkiem Service Pack 1
-- .NET framework 4.0
+- .NET Framework 4.0
 - .NET framework 3.5 z dodatkiem Service Pack 1
 - ASP.NET MVC 3.0
 - Usługi IIS 7.5 Express
-- Program SQL Server Express 2008 R2
+- SQL Server Express 2008 R2
 
 Do wykonania opisanych w całym te wskazówki dotyczące kroków wdrażania, musisz mieć dostęp do środowiska wdrażania aplikacji sieci Web przykładowej. Aby uzyskać najlepsze wyniki tych środowisk powinien odzwierciedlać wzorca wdrażania przedsiębiorstwa w organizacji. Następnie można zmodyfikować wskazówki zawarte w tej dokumentacji, aby uwzględnić w środowiskach wdrożenia oraz wymagań organizacji.
 
@@ -80,5 +80,5 @@ Seria zawiera cztery zestawy samouczka. Każdy koncentruje się na różnych asp
 
 Ten zestaw samouczki używa przykładowe rozwiązanie z realistyczne poziom złożoności, oraz scenariusz wdrażania fikcyjnej organizacji do implementacji odwołania i zadania i wskazówki dotyczące typowych kontekstu. Następnym temacie [wdrożenia sieci Web w przedsiębiorstwie: omówienie scenariusza](enterprise-web-deployment-scenario-overview.md), wprowadza scenariusza i przykładowe rozwiązanie. Z tego miejsca pracy za pośrednictwem samouczki i tematy, które najlepiej odpowiadają Twoim potrzebom.
 
->[!div class="step-by-step"]
-[Dalej](enterprise-web-deployment-scenario-overview.md)
+> [!div class="step-by-step"]
+> [Next](enterprise-web-deployment-scenario-overview.md)

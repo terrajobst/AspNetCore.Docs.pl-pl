@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
 title: Wstawianie nowego rekordu w widoku GridView stopki (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Gdy kontrolki widoku siatki nie zapewnia wbudowaną obsługę dla Wstawianie nowego rekordu danych, w tym samouczku pokazano, jak rozszerzyć widoku GridView, aby uwzględnić..."
+description: Gdy kontrolki widoku siatki nie zapewnia wbudowaną obsługę dla Wstawianie nowego rekordu danych, w tym samouczku pokazano, jak rozszerzyć widoku GridView, aby uwzględnić...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4d452e15ced52fd9dcac8201598146cb9ef38d7b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 32f3cb23805813135bf463720e7479f5f819deb7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a>Wstawianie nowego rekordu w widoku GridView stopki (VB)
 ====================
@@ -140,18 +140,18 @@ Aby utworzyć interfejs edytowania, wybierz link Edytuj szablony z tagów inteli
 
 Poniższa lista punktowana wylicza pola widoku GridView Określanie Wstawianie interfejsu do dodania:
 
-- `ProductID`Brak.
-- `ProductName`Dodaj pole tekstowe i ustaw jego `ID` do `NewProductName`. Dodawanie formantu RequiredFieldValidator również, aby upewnić się, że użytkownik wprowadza wartość dla nowej nazwy produktu s.
-- `SupplierID`Brak.
-- `CategoryID`Brak.
-- `QuantityPerUnit`Dodaj pole tekstowe, ustawienie jej `ID` do `NewQuantityPerUnit`.
-- `UnitPrice`Dodaj pole tekstowe o nazwie `NewUnitPrice` i CompareValidator, które powodują wprowadzona wartość jest większa lub równa zero wartości waluty.
-- `UnitsInStock`Zastosuj pole tekstowe, którego `ID` ma ustawioną wartość `NewUnitsInStock`. Obejmują CompareValidator, który zapewnia, że wprowadzona wartość jest wartość całkowita większa lub równa zero.
-- `UnitsOnOrder`Zastosuj pole tekstowe, którego `ID` ma ustawioną wartość `NewUnitsOnOrder`. Obejmują CompareValidator, który zapewnia, że wprowadzona wartość jest wartość całkowita większa lub równa zero.
-- `ReorderLevel`Zastosuj pole tekstowe, którego `ID` ma ustawioną wartość `NewReorderLevel`. Obejmują CompareValidator, który zapewnia, że wprowadzona wartość jest wartość całkowita większa lub równa zero.
-- `Discontinued`pola wyboru, ustawienie jej `ID` do `NewDiscontinued`.
-- `CategoryName`Dodaj DropDownList i ustaw jej `ID` do `NewCategoryID`. Powiązać go z nowego elementu ObjectDataSource o nazwie `CategoriesDataSource` i skonfigurować go do używania `CategoriesBLL` klasy s `GetCategories()` metody. Ma DropDownList s `ListItem` wyświetlania s `CategoryName` danych pola `CategoryID` pola danych jako ich wartości.
-- `SupplierName`Dodaj DropDownList i ustaw jej `ID` do `NewSupplierID`. Powiązać go z nowego elementu ObjectDataSource o nazwie `SuppliersDataSource` i skonfigurować go do używania `SuppliersBLL` klasy s `GetSuppliers()` metody. Ma DropDownList s `ListItem` wyświetlania s `CompanyName` danych pola `SupplierID` pola danych jako ich wartości.
+- `ProductID` Brak.
+- `ProductName` Dodaj pole tekstowe i ustaw jego `ID` do `NewProductName`. Dodawanie formantu RequiredFieldValidator również, aby upewnić się, że użytkownik wprowadza wartość dla nowej nazwy produktu s.
+- `SupplierID` Brak.
+- `CategoryID` Brak.
+- `QuantityPerUnit` Dodaj pole tekstowe, ustawienie jej `ID` do `NewQuantityPerUnit`.
+- `UnitPrice` Dodaj pole tekstowe o nazwie `NewUnitPrice` i CompareValidator, które powodują wprowadzona wartość jest większa lub równa zero wartości waluty.
+- `UnitsInStock` Zastosuj pole tekstowe, którego `ID` ma ustawioną wartość `NewUnitsInStock`. Obejmują CompareValidator, który zapewnia, że wprowadzona wartość jest wartość całkowita większa lub równa zero.
+- `UnitsOnOrder` Zastosuj pole tekstowe, którego `ID` ma ustawioną wartość `NewUnitsOnOrder`. Obejmują CompareValidator, który zapewnia, że wprowadzona wartość jest wartość całkowita większa lub równa zero.
+- `ReorderLevel` Zastosuj pole tekstowe, którego `ID` ma ustawioną wartość `NewReorderLevel`. Obejmują CompareValidator, który zapewnia, że wprowadzona wartość jest wartość całkowita większa lub równa zero.
+- `Discontinued` pola wyboru, ustawienie jej `ID` do `NewDiscontinued`.
+- `CategoryName` Dodaj DropDownList i ustaw jej `ID` do `NewCategoryID`. Powiązać go z nowego elementu ObjectDataSource o nazwie `CategoriesDataSource` i skonfigurować go do używania `CategoriesBLL` klasy s `GetCategories()` metody. Ma DropDownList s `ListItem` wyświetlania s `CategoryName` danych pola `CategoryID` pola danych jako ich wartości.
+- `SupplierName` Dodaj DropDownList i ustaw jej `ID` do `NewSupplierID`. Powiązać go z nowego elementu ObjectDataSource o nazwie `SuppliersDataSource` i skonfigurować go do używania `SuppliersBLL` klasy s `GetSuppliers()` metody. Ma DropDownList s `ListItem` wyświetlania s `CompanyName` danych pola `SupplierID` pola danych jako ich wartości.
 
 Dla każdego z formanty walidacji wyczyszczenie `ForeColor` właściwości, aby `FooterStyle` kolor biały klasy s CSS będzie używany zamiast domyślnego czerwony. Również użyć `ErrorMessage` właściwość szczegółowy opis, ale wartość `Text` właściwości gwiazdkę. Aby zapobiec tekst formantu s sprawdzania poprawności spowodował Wstawianie interfejsu, który ma być zawijany do dwóch wierszy, ustaw `FooterStyle` s `Wrap` właściwości na wartość false dla każdego `FooterTemplate` s, który formant sprawdzania poprawności. Na koniec Dodaj formant ValidationSummary poniżej widoku GridView i ustaw jej `ShowMessageBox` właściwości `True` i jego `ShowSummary` właściwości `False`.
 
@@ -234,7 +234,7 @@ GridView używane w tym samouczku nie ma zastosowania do listy produktów dowoln
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample9.vb)]
 
-`SendUserToLastPage`jest zmienną wartości logicznej na poziomie strony, która jest początkowo przypisana wartość `False`. W widoku GridView s `DataBound` program obsługi zdarzeń, jeśli `SendUserToLastPage` ma wartość false, `PageIndex` właściwości jest aktualizowana w celu wysyłania użytkownika do ostatniej strony.
+`SendUserToLastPage` jest zmienną wartości logicznej na poziomie strony, która jest początkowo przypisana wartość `False`. W widoku GridView s `DataBound` program obsługi zdarzeń, jeśli `SendUserToLastPage` ma wartość false, `PageIndex` właściwości jest aktualizowana w celu wysyłania użytkownika do ostatniej strony.
 
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample10.vb)]
@@ -262,11 +262,11 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Bernadette Leigh. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](adding-a-gridview-column-of-checkboxes-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](adding-a-gridview-column-of-checkboxes-vb.md)

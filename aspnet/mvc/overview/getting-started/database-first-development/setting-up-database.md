@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/setting-up-database
-title: "Wprowadzenie do programu Entity Framework 6 Database First przy użyciu MVC 5 | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do programu Entity Framework 6 Database First przy użyciu MVC 5 | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Przy użyciu MVC, Entity Framework i szkieletów ASP.NET, można utworzyć aplikacji sieci web, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri..."
+description: Przy użyciu MVC, Entity Framework i szkieletów ASP.NET, można utworzyć aplikacji sieci web, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: cb979333131cc6ac87fd640bf7c96931054a1814
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ae60b5c808d2522c66dc17ccf7d16fefdc65d552
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Wprowadzenie do programu Entity Framework 6 Database First przy użyciu MVC 5
 ====================
@@ -111,5 +111,5 @@ Zostanie wyświetlony widok można edytować danych tabeli.
 
 Baza danych jest teraz i wypełniane przy użyciu danych. W następnym samouczku utworzysz aplikację sieci web dla bazy danych.
 
->[!div class="step-by-step"]
-[Next](creating-the-web-application.md)
+> [!div class="step-by-step"]
+> [Next](creating-the-web-application.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
-title: "Tworzenie i uruchamianie wdrożenia polecenie Plik | Dokumentacja firmy Microsoft"
+title: Tworzenie i uruchamianie wdrożenia polecenie Plik | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób tworzenia pliku poleceń, które pozwoli uruchamiać wdrażania przy użyciu plików projektu Microsoft kompilacji Engine (MSBuild) jako pojedynczy krok..."
+description: W tym temacie opisano sposób tworzenia pliku poleceń, które pozwoli uruchamiać wdrażania przy użyciu plików projektu Microsoft kompilacji Engine (MSBuild) jako pojedynczy krok...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: bc31bf55b29661816e0ca9a50b51b0abc3eb2c98
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e5fb034a67bc9f2ea549af269eae51a49acc4d98
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-and-running-a-deployment-command-file"></a>Tworzenie i uruchamianie pliku poleceń wdrażania
 ====================
@@ -27,9 +27,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > W tym temacie opisano sposób tworzenia pliku poleceń, które pozwoli uruchamiać wdrażania przy użyciu plików projektu Microsoft kompilacji Engine (MSBuild) jako pojedynczy krok i powtarzalnej proces.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie & #x 2014; korzysta z tego samouczka serii [kontaktów Menedżerze](the-contact-manager-solution.md) #x 2014; & rozwiązania do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [kontaktów Menedżerze](the-contact-manager-solution.md) rozwiązania&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis procesu kompilacji](understanding-the-build-process.md), w którym jest kontrolowany przez proces kompilacji projektu dwa pliki & #x 2014; jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis procesu kompilacji](understanding-the-build-process.md), w którym jest kontrolowany przez proces kompilacji dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
 
 ## <a name="process-overview"></a>Omówienie procesu
 
@@ -40,7 +40,7 @@ W tym temacie nauczysz się, jak utworzyć i uruchomić plik polecenia używane 
 
 ## <a name="create-an-msbuild-command"></a>Utwórz polecenie MSBuild
 
-Zgodnie z opisem w [opis procesu kompilacji](understanding-the-build-process.md), plik projektu określonego środowiska & #x 2014; na przykład *Env Dev.proj*& #x 2014; jest przeznaczona do zaimportowania do niezależny od środowiska *Publish.proj* plik w czasie kompilacji. Te dwa pliki Podaj ze sobą, kompletny zestaw instrukcje określające sposób tworzenia i wdrażania rozwiązania programu MSBuild.
+Zgodnie z opisem w [opis procesu kompilacji](understanding-the-build-process.md), plik projektu określonego środowiska&#x2014;na przykład *Env Dev.proj*&#x2014;zaprojektowano w celu zaimportowania do środowiska — funkcja *Publish.proj* plik w czasie kompilacji. Te dwa pliki Podaj ze sobą, kompletny zestaw instrukcje określające sposób tworzenia i wdrażania rozwiązania programu MSBuild.
 
 *Publish.proj* plików używa **zaimportować** element, aby zaimportować plik projektu określonego środowiska.
 
@@ -92,7 +92,7 @@ Po utworzeniu pliku poleceń dla środowiska docelowego, należy wykonać całeg
 5. Jeśli jest to w tym środowisku wdrożono rozwiązanie po raz pierwszy, musisz dodać konto komputera serwera sieci web testów, aby **db\_datawriter** i **db\_datareader**ról na **ContactManager** bazy danych. Ta procedura jest opisana w [Konfiguracja serwera bazy danych dla wdrożenia publikowania w sieci Web](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md).
 
     > [!NOTE]
-    > Należy przypisać te uprawnienia, podczas tworzenia bazy danych. Domyślnie proces kompilacji nie zostanie ponownie bazy danych dla każdego wdrożenia & #x 2014; zamiast tego porównuje istniejącą bazę danych do najnowszej schematu i wprowadź zmiany wymagane. W związku z tym należy tylko należy zamapować te role bazy danych podczas pierwszego wdrażania rozwiązania.
+    > Należy przypisać te uprawnienia, podczas tworzenia bazy danych. Domyślnie proces kompilacji nie zostanie ponownie bazy danych przy każdym wdrożeniu&#x2014;zamiast tego porównuje istniejącą bazę danych do najnowszej schematu i wprowadź zmiany wymagane. W związku z tym należy tylko należy zamapować te role bazy danych podczas pierwszego wdrażania rozwiązania.
 6. Otwórz program Internet Explorer i przejdź do adresu URL aplikacji, skontaktuj się z Menedżera (na przykład `http://testweb1:85/ContactManager/`).
 7. Sprawdź, czy aplikacja działa zgodnie z oczekiwaniami i możliwe będzie dodawanie kontaktów.
 
@@ -118,6 +118,6 @@ Plik polecenia do publikowania w środowisku przemieszczania mogą zawierać teg
 
 Proces kompilacji dla każdego środowiska można również dostosować przez zastępowanie właściwości albo ustawienie różnych przełączników inne polecenia programu MSBuild. Aby uzyskać więcej informacji, zobacz [informacje w wierszu polecenia programu MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
->[!div class="step-by-step"]
-[Poprzednie](deploying-database-projects.md)
-[dalej](manually-installing-web-packages.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deploying-database-projects.md)
+> [dalej](manually-installing-web-packages.md)

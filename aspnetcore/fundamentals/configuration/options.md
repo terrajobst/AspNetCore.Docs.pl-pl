@@ -1,7 +1,7 @@
 ---
 title: Wzorzec opcje dla platformy ASP.NET Core
 author: guardrex
-description: "Wykryj sposób użycia wzorca opcje do reprezentowania grupy powiązanych ustawień w aplikacji platformy ASP.NET Core."
+description: Wykryj sposób użycia wzorca opcje do reprezentowania grupy powiązanych ustawień w aplikacji platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 1b6b6275633364701c27b66b1dfa55a2a037572b
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 660ee2365e2e186dd93d57ec79628e0bd7d24d52
+ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcje dla platformy ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Wzorzec opcje używa klas opcji do reprezentowania grupy ustawień. Ustawienia konfiguracji są izolowane przez funkcję klasom oddzielne opcje, aplikacja odpowiada dwóch zasad ważne engineering oprogramowania:
+Wzorzec opcje używa klas do reprezentowania grupy ustawień. Ustawienia konfiguracji są izolowane przez funkcję w osobnych klas, aplikacja odpowiada dwóch zasad ważne engineering oprogramowania:
 
 * [Zasady podział interfejsu (ISP)](http://deviq.com/interface-segregation-principle/): funkcje (klasy), które są zależne od ustawienia konfiguracji są zależne tylko od ustawienia konfiguracji, które korzystają z.
 * [Separacji](http://deviq.com/separation-of-concerns/): ustawienia dla poszczególnych części aplikacji nie są zależne lub sprzężonego ze sobą.

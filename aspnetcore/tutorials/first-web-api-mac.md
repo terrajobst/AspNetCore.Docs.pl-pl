@@ -1,7 +1,7 @@
 ---
-title: "Tworzenie składnika Web API platformy ASP.NET Core i programu Visual Studio dla komputerów Mac"
+title: Tworzenie składnika Web API platformy ASP.NET Core i programu Visual Studio dla komputerów Mac
 author: rick-anderson
-description: "Tworzenie składnika Web API platformy ASP.NET Core MVC i programu Visual Studio dla komputerów Mac"
+description: Tworzenie składnika Web API platformy ASP.NET Core MVC i programu Visual Studio dla komputerów Mac
 helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
 manager: wpickett
 ms.author: riande
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 9499a203f899fade5d2972ab4e913b594dd591d8
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: ce94091447452a51654f2cd4dad9043b63c737ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Tworzenie składnika Web API platformy ASP.NET Core MVC i programu Visual Studio dla komputerów Mac
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>Tworzenie składnika Web API platformy ASP.NET Core i programu Visual Studio dla komputerów Mac
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Wasson Jan](https://github.com/mikewasson)
 
@@ -30,16 +30,13 @@ Istnieją 3 wersje tego samouczka:
 
 <!-- WARNING: The code AND images in this doc are used by uid: tutorials/web-api-vsc, tutorials/first-web-api-mac and tutorials/first-web-api. If you change any code/images in this tutorial, update uid: tutorials/web-api-vsc -->
 
-[!INCLUDE[template files](../includes/webApi/intro.md)]
+[!INCLUDE [template files](../includes/webApi/intro.md)]
 
-* Zobacz [wprowadzenie do platformy ASP.NET MVC rdzeni na macOS lub Linux](xref:tutorials/first-mvc-app-xplat/index) przykład korzystającego z trwałe bazy danych.
+Zobacz [wprowadzenie do platformy ASP.NET MVC rdzeni na macOS lub Linux](xref:tutorials/first-mvc-app-xplat/index) przykład korzystającego z trwałe bazy danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zainstaluj następujące czynności:
-
-- [Oprogramowanie .NET core 2.0.0 SDK](https://www.microsoft.com/net/core) lub nowszy
-- [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+[!INCLUDE [](~/includes/net-core-prereqs-macos.md)]
 
 ## <a name="create-the-project"></a>Utwórz projekt
 
@@ -100,7 +97,7 @@ Dodaj `TodoContext` klasy do *modele* folderu.
 
 [!code-csharp[](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
-[!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
+[!INCLUDE [Register the database context](../includes/webApi/register_dbContext.md)]
 
 ## <a name="add-a-controller"></a>Dodawanie kontrolera
 
@@ -108,7 +105,7 @@ W Eksploratorze rozwiązań w *kontrolerów* folderu, Dodaj klasę `TodoControll
 
 Zamień na wygenerowany kod poniżej (i dodać klamrowe nawiasy zamykające):
 
-[!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
+[!INCLUDE [code and get todo items](../includes/webApi/getTodoItems.md)]
 
 ### <a name="launch-the-app"></a>Uruchom aplikację
 

@@ -1,7 +1,7 @@
 ---
 title: Dodawanie wyszukiwania
 author: rick-anderson
-description: "Przedstawiono sposób dodawania wyszukiwania do prostej aplikacji platformy ASP.NET Core MVC"
+description: Przedstawiono sposób dodawania wyszukiwania do prostej aplikacji platformy ASP.NET Core MVC
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: 3ab9086275ec4c3651383c4c845e40db55f67f4c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 772409f11a43e1d130265d8bba3bad1da5a41b86
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model](../../includes/mvc-intro/search1.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/search1.md)]
 
 Można szybko zmienić `searchString` parametr `id` z **zmienić** polecenia. Kliknij prawym przyciskiem myszy `searchString` **> Zmień nazwę**.
 
@@ -29,7 +29,7 @@ Zmień parametr `id` i wszystkie wystąpienia `searchString` Zmień `id`.
 
 ![Edytor kodu przedstawiający zmiennej został zmieniony na identyfikator](search/_static/rename3.png)
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/search2.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/search2.md)]
 
 Zwróć uwagę, jak intelliSense pomaga nam zaktualizuj kod znaczników.
 
@@ -41,8 +41,8 @@ Zwróć uwagę, charakterystyczne czcionkę w `<form>` tagu. Charakterystyczne c
 
 ![tag formularza o purpurowa tekstu](search/_static/th_font.png)
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/search3.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/search3.md)]
 
->[!div class="step-by-step"]
-[Poprzednie](controller-methods-views.md)
-[dalej](new-field.md)  
+> [!div class="step-by-step"]
+> [Poprzednie](controller-methods-views.md)
+> [dalej](new-field.md)  

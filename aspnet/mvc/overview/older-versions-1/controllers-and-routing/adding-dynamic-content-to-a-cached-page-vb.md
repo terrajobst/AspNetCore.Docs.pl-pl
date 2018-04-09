@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
-title: "Zawartości dynamicznej buforowana strona (VB) | Dokumentacja firmy Microsoft"
+title: Zawartości dynamicznej buforowana strona (VB) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Dowiedz się, jak mieszać zawartości dynamicznej i pamięci podręcznej w tej samej stronie. Podstawianie po pamięci podręcznej umożliwia wyświetlanie zawartości dynamicznej, takie jak transparent anonsów o..."
+description: Dowiedz się, jak mieszać zawartości dynamicznej i pamięci podręcznej w tej samej stronie. Podstawianie po pamięci podręcznej umożliwia wyświetlanie zawartości dynamicznej, takie jak transparent anonsów o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f07f4ecec36e71679dbc471b65f26d260349a07e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 89421b4bec2170e408ded87ccc918a7a16844a98
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-dynamic-content-to-a-cached-page-vb"></a>Zawartości dynamicznej buforowana strona (VB)
 ====================
@@ -35,7 +35,7 @@ Na szczęście jest łatwe rozwiązania. Można skorzystać z funkcji platformy 
 Zwykle podczas wyprowadzania pamięci podręcznej strony za pomocą &lt;OutputCache&gt; atrybutu, strony są buforowane na serwerze i kliencie (przeglądarki sieci web). Użycie pamięci podręcznej po podstawienia, strony są buforowane tylko na serwerze.
 
 
-#### <a name="using-post-cache-substitution"></a>Przy użyciu podstawiania po pamięci podręcznej
+#### <a name="using-post-cache-substitution"></a>Using Post-Cache Substitution
 
 Przy użyciu pamięci podręcznej po podstawienia wymaga wykonania dwóch kroków. Najpierw należy zdefiniować metody, która zwraca ciąg reprezentujący zawartość dynamiczną, które mają być wyświetlane na stronie pamięci podręcznej. Następnie należy wywołać metodę HttpResponse.WriteSubstitution() iniekcję zawartość dynamiczną do strony.
 
@@ -97,6 +97,6 @@ W tym samouczku wyjaśniono, jak dynamicznie Aktualizuj zawartość w pamięci p
 
 Korzystać z pamięci podręcznej, jeśli to możliwe — go może mieć znaczący wpływ na wydajność aplikacji sieci web. Zgodnie z objaśnieniem w tym samouczku, możesz korzystać z pamięci podręcznej, nawet wtedy, gdy konieczne jest wyświetlenie zawartość dynamiczna na swoich stronach.
 
->[!div class="step-by-step"]
-[Poprzednie](improving-performance-with-output-caching-vb.md)
-[dalej](creating-a-controller-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](improving-performance-with-output-caching-vb.md)
+> [dalej](creating-a-controller-vb.md)

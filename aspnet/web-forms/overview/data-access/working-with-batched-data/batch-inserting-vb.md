@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 title: Wsadowe Wstawianie (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Dowiedz się, jak można wstawić wiele rekordów bazy danych w ramach jednej operacji. W warstwie interfejsu użytkownika rozbudowujemy widoku GridView, aby umożliwić użytkownikom wprowadzanie wielu n..."
+description: Dowiedz się, jak można wstawić wiele rekordów bazy danych w ramach jednej operacji. W warstwie interfejsu użytkownika rozbudowujemy widoku GridView, aby umożliwić użytkownikom wprowadzanie wielu n...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3f09b5fd86c1cc6641fb42a466b07da161c1dd35
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a25c889784ccc6cee3ae01df59bd489b48114e74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-inserting-vb"></a>Wsadowe Wstawianie (VB)
 ====================
@@ -203,7 +203,7 @@ Następnie należy utworzyć procedury obsługi zdarzeń dla produktów Dodaj z 
 
 [!code-vb[Main](batch-inserting-vb/samples/sample5.vb)]
 
-Zarówno `Click` procedury obsługi zdarzeń po prostu Wywołaj `ReturnToDisplayInterface` metody, mimo że wrócimy do Dodawanie produktów z wydania `Click` obsługi zdarzeń w kroku 4 i Dodaj kod, aby zapisać te produkty. `ReturnToDisplayInterface`rozpoczyna się zwracając `Suppliers` i `Categories` DropDownLists ich pierwszej opcji. Dwie stałe `firstControlID` i `lastControlID` oznaczyć początkową i końcową używać w nazwie produktu nazwy i Jednostka ceny pól tekstowych w Wstawianie interfejsu i są używane w zakresie wartości indeksu kontrolki `For` pętli, która ustawia `Text`właściwości formantów pole tekstowe z powrotem do pustego ciągu. Na koniec panele `Visible` właściwości są resetowane tak, aby Wstawianie interfejsu jest ukryta i interfejs wyświetlania wyświetlane.
+Zarówno `Click` procedury obsługi zdarzeń po prostu Wywołaj `ReturnToDisplayInterface` metody, mimo że wrócimy do Dodawanie produktów z wydania `Click` obsługi zdarzeń w kroku 4 i Dodaj kod, aby zapisać te produkty. `ReturnToDisplayInterface` rozpoczyna się zwracając `Suppliers` i `Categories` DropDownLists ich pierwszej opcji. Dwie stałe `firstControlID` i `lastControlID` oznaczyć początkową i końcową używać w nazwie produktu nazwy i Jednostka ceny pól tekstowych w Wstawianie interfejsu i są używane w zakresie wartości indeksu kontrolki `For` pętli, która ustawia `Text`właściwości formantów pole tekstowe z powrotem do pustego ciągu. Na koniec panele `Visible` właściwości są resetowane tak, aby Wstawianie interfejsu jest ukryta i interfejs wyświetlania wyświetlane.
 
 Poświęć chwilę, aby przetestować tę stronę w przeglądarce. Podczas odwiedzania najpierw strony interfejsu wyświetlania powinna zostać wyświetlona jak zostało pokazano na rysunku 5. Kliknij przycisk wydania produktu procesu. Strona zostanie ogłaszanie i powinien zostać wyświetlony interfejs Wstawianie, jak pokazano na rysunku 12. Kliknięcie przycisku albo Dodaj produkty z przycisków wydanie lub Anuluj powrót do wyświetlania interfejsu.
 
@@ -269,11 +269,11 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. W tym samouczku prowadzić osoby dokonujące przeglądu zostały ren Hilton Giesenow i S Lauritsen Jacoba. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](batch-deleting-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](batch-deleting-vb.md)

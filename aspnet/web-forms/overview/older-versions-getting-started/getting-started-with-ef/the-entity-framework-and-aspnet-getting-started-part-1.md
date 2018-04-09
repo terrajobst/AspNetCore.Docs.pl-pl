@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 title: Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i platformy ASP.NET 4 formularzy sieci Web | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu programu Entity Framework 4.0 i Visual Studio 2010..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu programu Entity Framework 4.0 i Visual Studio 2010...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: ae2fddc81f6f4da866ec0719a0e74516bdd2a4d1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ad504b02d801f9513787f9fde1a4d00d7b0afff0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i platformy ASP.NET 4 formularzy sieci Web
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 > Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu programu Entity Framework 4.0 i Visual Studio 2010. Przykładowa aplikacja jest witryną internetową uniwersytetu fikcyjnej firmy Contoso. Obejmuje funkcje, takie jak wprowadzenia studentów, tworzenie kursu i instruktora przypisania.
 > 
@@ -161,7 +161,7 @@ Widać, że diagram jednostek wygląda bardzo podobnie do diagramu bazy danych n
 
     [![Image40](the-entity-framework-and-aspnet-getting-started-part-1/_static/image38.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image37.png)
 
-    W takim przypadku `Person` jednostki mogą lub nie mogą być powiązane `StudentGrade` jednostek. A `StudentGrade` jednostki musi być skojarzony z jednym `Person` jednostki. `StudentGrade`jednostek faktycznie stanowi zarejestrowanych szkoleń w tej bazie danych; student jest zarejestrowane w toku, jeśli nie ma żadnych klasy jeszcze `Grade` właściwość ma wartość null. Innymi słowy studenta nie mogą być rejestrowane w żadnych kursów jeszcze, mogą być rejestrowane w jednym przebiegu lub mogą być rejestrowane w wielu kursów. Każda klasa w zarejestrowany kursu dotyczy uczniów tylko jeden.
+    W takim przypadku `Person` jednostki mogą lub nie mogą być powiązane `StudentGrade` jednostek. A `StudentGrade` jednostki musi być skojarzony z jednym `Person` jednostki. `StudentGrade` jednostek faktycznie stanowi zarejestrowanych szkoleń w tej bazie danych; student jest zarejestrowane w toku, jeśli nie ma żadnych klasy jeszcze `Grade` właściwość ma wartość null. Innymi słowy studenta nie mogą być rejestrowane w żadnych kursów jeszcze, mogą być rejestrowane w jednym przebiegu lub mogą być rejestrowane w wielu kursów. Każda klasa w zarejestrowany kursu dotyczy uczniów tylko jeden.
 - Odpowiada to skojarzenie wiele do wielu "\*"i"\*".
 
     [![Image41](the-entity-framework-and-aspnet-getting-started-part-1/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image39.png)
@@ -214,5 +214,5 @@ Entity Framework jest używany plik XML do przechowywania informacji o bazie dan
 
 Witryny sieci Web, bazy danych i model danych został już utworzony. W następnym wskazówki będzie rozpocząć pracę z danymi przy użyciu modelu danych i ASP.NET `EntityDataSource` formantu.
 
->[!div class="step-by-step"]
-[Next](the-entity-framework-and-aspnet-getting-started-part-2.md)
+> [!div class="step-by-step"]
+> [Next](the-entity-framework-and-aspnet-getting-started-part-2.md)

@@ -1,7 +1,7 @@
 ---
-title: Dodanie nowego pola
+title: Dodaj nowe pole do aplikacji platformy ASP.NET Core
 author: rick-anderson
-description: 
+description: Dowiedz się, jak używać migracje Code First Framework jednostki Dodaj nowe pole do modelu i przeprowadzić migrację tej zmiany do bazy danych.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 7b92d1b50311cedbae2bdf30a2dc19204c5b81d1
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: a314115459fedb9561694604509856503c023a5c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="adding-a-new-field"></a>Dodanie nowego pola
+# <a name="add-a-new-field-to-an-aspnet-core-app"></a>Dodaj nowe pole do aplikacji platformy ASP.NET Core
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -86,6 +86,6 @@ Po usunięciu wszystkich rekordów w bazie danych będzie inicjatora bazy danych
 
 Uruchom aplikację i sprawdzić, można utworzyć/edycji/wyświetlania filmów `Rating` pola. Należy również dodać `Rating` do `Edit`, `Details`, i `Delete` wyświetlania szablonów.
 
->[!div class="step-by-step"]
-[Poprzednie](search.md)
-[dalej](validation.md)  
+> [!div class="step-by-step"]
+> [Poprzednie](search.md)
+> [dalej](validation.md)  

@@ -2,7 +2,7 @@
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-9
 title: Dodaj nowy element do bazy danych | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-9
 msc.type: authoredcontent
-ms.openlocfilehash: d33355b1bd286513958f71ce5521942a6cbb584f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5845c092c4d7aee12b33b3f0a49c0e944c0fb9aa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="add-a-new-item-to-the-database"></a>Dodaj nowy element do bazy danych
 ====================
@@ -44,6 +44,6 @@ Obsługa przesyłania formularza jest powiązana z `addBook` funkcji:
 
 `addBook` Funkcja odczytuje bieżące wartości dane wejściowe formularza powiązane z danymi można utworzyć obiektu JSON. A następnie go zapisuje obiekt JSON do `/api/books`.
 
->[!div class="step-by-step"]
-[Poprzednie](part-8.md)
-[dalej](part-10.md)
+> [!div class="step-by-step"]
+> [Poprzednie](part-8.md)
+> [dalej](part-10.md)

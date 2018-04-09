@@ -1,7 +1,7 @@
 ---
-title: Dodanie nowego pola do Razor strony platformy ASP.NET Core
+title: Dodaj nowe pole do Razor strony platformy ASP.NET Core
 author: rick-anderson
-description: "Pokazuje, jak dodać nowe pole do stron Razor z programu Entity Framework Core"
+description: Pokazuje, jak dodać nowe pole do stron Razor z programu Entity Framework Core
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: c9494fe4b07590f76095d58b37290a9dc9e6e009
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 2652aea2bc587074da5101e3de2bdf55d032214a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="adding-a-new-field-to-a-razor-page-in-aspnet-core"></a>Dodanie nowego pola do Razor strony platformy ASP.NET Core
+# <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Dodaj nowe pole do Razor strony platformy ASP.NET Core
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -102,6 +102,6 @@ Nazwa "Klasyfikacja" jest dowolnego i jest używany do nazywania plików migracj
 
 Uruchom aplikację i sprawdzić, można utworzyć/edycji/wyświetlania filmów `Rating` pola. Jeśli bazy danych nie jest obsługiwany, Zatrzymaj usługi IIS Express, a następnie uruchom aplikację.
 
->[!div class="step-by-step"]
-[Poprzedni: Dodawanie wyszukiwania](xref:tutorials/razor-pages/search)
-[dalej: Dodawanie walidacji](xref:tutorials/razor-pages/validation)
+> [!div class="step-by-step"]
+> [Poprzedni: Dodawanie wyszukiwania](xref:tutorials/razor-pages/search)
+> [dalej: Dodawanie walidacji](xref:tutorials/razor-pages/validation)

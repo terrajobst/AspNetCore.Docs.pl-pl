@@ -20,7 +20,7 @@ Istnieje wiele narzędzi innych firm, które można pobrać do zarządzania i wy
 
 Utwórz nową klasę o nazwie `SeedData` w *modele* folderu. Zastąp wygenerowany kod poniżej:
 
-[!code-csharp[](code\Models\SeedData.cs)]
+[!code-csharp[](code/Models/SeedData.cs)]
 
 Jeśli w bazie danych są wszystkie filmy, zwraca inicjatora inicjatora.
 
@@ -36,7 +36,7 @@ if (context.Movie.Any())
 
 Inicjator inicjatora, aby dodać `Main` metody w *Program.cs* pliku:
 
-[!code-csharp[](../../tutorials/razor-pages\razor-pages-start\sample\RazorPagesMovie\Program.cs)]
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Program.cs)]
 
 ### <a name="test-the-app"></a>Testowanie aplikacji
 

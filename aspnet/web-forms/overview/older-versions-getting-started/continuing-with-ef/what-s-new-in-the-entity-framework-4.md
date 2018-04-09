@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 title: Co to jest nowa w programie Entity Framework 4.0 | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Ten samouczek serii opiera się na aplikację sieci web Contoso University jest tworzony przez wprowadzenie do samouczka serii Entity Framework 4.0. I..."
+description: Ten samouczek serii opiera się na aplikację sieci web Contoso University jest tworzony przez wprowadzenie do samouczka serii Entity Framework 4.0. I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: c114627388217e892c84d6b76366d0fa96b0b70c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 04444ce98fa60045cf617a6c518dd55677258148
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-the-entity-framework-40"></a>Co to jest nowa w programie Entity Framework 4.0
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 > Ten samouczek serii opiera się na aplikację sieci web Contoso University jest tworzony przez [wprowadzenie do korzystania z programu Entity Framework](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) samouczka serii. Jeśli nie została ukończona wcześniejszych samouczki, jako punkt początkowy dla tego samouczka możesz [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) będzie utworzony. Możesz również [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tworzone przez zakończenie samouczka serii. Jeśli masz pytania dotyczące samouczków, możesz zamieścić je do [forum ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
 
@@ -203,7 +203,7 @@ Aby uzyskać więcej informacji o korzystaniu z podejścia pierwszy kod do rozwo
 - [Samouczek magazynu utworów muzycznych MVC — część 4: modeli i dostęp do danych](../../../../mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4.md)
 - [Wprowadzenie do platformy MVC 3 - część 4: Entity Framework pierwszy kod programowanie](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model.md)
 
-Ponadto nowe samouczek pierwszego kodu MVC, który tworzy podobny do aplikacji Contoso University aplikacji jest zaprojektowana do opublikowania w źródła 2011 na [https://asp.net/entity-framework/tutorials](../../../../entity-framework.md)
+Ponadto nowe samouczek pierwszego kodu MVC, który tworzy podobny do aplikacji Contoso University aplikacji jest zaprojektowana do opublikowania w źródła 2011 w [https://asp.net/entity-framework/tutorials](../../../../entity-framework.md)
 
 ## <a name="more-information"></a>Więcej informacji
 
@@ -212,5 +212,5 @@ Na tym kończy się przegląd, aby what's new in programu Entity Framework i ten
 - [What's New in ADO.NET](https://msdn.microsoft.com/library/ex6y04yf.aspx) MSDN temat nowych funkcji programu Entity Framework w wersji 4.
 - [Informuje o wersji programu Entity Framework 4](https://blogs.msdn.com/b/efdesign/archive/2010/04/12/announcing-the-release-of-entity-framework-4.aspx) zespół deweloperów program Entity Framework wpis w blogu nowe funkcje w wersji 4.
 
->[!div class="step-by-step"]
-[Poprzednie](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [!div class="step-by-step"]
+> [Poprzednie](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)

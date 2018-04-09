@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process
-title: "Rozwiązywanie problemów z procesu tworzenia pakietów | Dokumentacja firmy Microsoft"
+title: Rozwiązywanie problemów z procesu tworzenia pakietów | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano, jak szczegółowe informacje na temat procesu tworzenia pakietów można zebrać za pomocą właściwości EnablePackageProcessLoggingAndAssert w M..."
+description: W tym temacie opisano, jak szczegółowe informacje na temat procesu tworzenia pakietów można zebrać za pomocą właściwości EnablePackageProcessLoggingAndAssert w M...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process
 msc.type: authoredcontent
-ms.openlocfilehash: 977077357eb5774193a40c55fabee9733dd5ab2f
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 816ab77c44b52c6449a139475f2ef8546bd38071
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="troubleshooting-the-packaging-process"></a>Rozwiązywanie problemów z procesu tworzenia pakietów
 ====================
@@ -38,9 +38,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > > **EnablePackageProcessLoggingAndAssert** właściwość działa tylko w przypadku tworzenia Twój projekt używający **debugowania** konfiguracji. Właściwość jest ignorowana w innych konfiguracji.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji projektu dwa pliki & #x 2014; jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
 
 ## <a name="understanding-the-enablepackageprocessloggingandassert-property"></a>Opis właściwości EnablePackageProcessLoggingAndAssert
 
@@ -115,5 +115,5 @@ W tym temacie opisano, jak używasz **EnablePackageProcessLoggingAndAssert** wł
 
 Aby uzyskać więcej informacji na temat używania niestandardowe pliki projektu MSBuild kontrolować proces wdrażania, zobacz [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md) i [opis procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Aby uzyskać więcej informacji na WPP i jak zarządza proces tworzenia pakietu, zobacz [budynku i projekty aplikacji sieci Web pakowania](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md). Aby uzyskać wskazówki dotyczące sposobu wykluczenie określonych plików i folderów z sieci web pakiety wdrożeniowe, zobacz [z wyjątkiem plików i folderów z wdrożenia](excluding-files-and-folders-from-deployment.md).
 
->[!div class="step-by-step"]
-[Poprzednie](running-windows-powershell-scripts-from-msbuild-project-files.md)
+> [!div class="step-by-step"]
+> [Poprzednie](running-windows-powershell-scripts-from-msbuild-project-files.md)

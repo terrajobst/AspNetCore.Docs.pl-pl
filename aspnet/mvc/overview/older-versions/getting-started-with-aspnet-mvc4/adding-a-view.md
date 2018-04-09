@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-view
 title: Dodawanie widoku | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Uwaga: Zaktualizowaną wersję tego samouczka jest dostępnych tutaj używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, znacznie prostsza do wykonania i demonstracją..."
+description: 'Uwaga: Zaktualizowaną wersję tego samouczka jest dostępnych tutaj używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, znacznie prostsza do wykonania i demonstracją...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 60374ddc6754f7e312ad08b420268308a9935bb4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 61a93c1430e9e39543c69b84901a50ceb710a5ae
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view"></a>Dodawanie widoku
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Dostępna jest zaktualizowana wersja tego samouczka [tutaj](../../getting-started/introduction/getting-started.md) używającej platformy ASP.NET MVC 5 i Visual Studio 2013. Jest bardziej bezpieczne, łatwiej wykonać i pokazuje więcej funkcji.
@@ -78,7 +78,7 @@ Najpierw należy zmienić &quot;tutaj logo.&quot; tytuł w górnej części stro
 
 ![_LayoutCshtml](adding-a-view/_static/image7.png)
 
-Szablony układu umożliwiają określ układ kontenera HTML witryny w jednym miejscu, a następnie zastosować je na wielu stronach w witrynie sieci. Znajdź `@RenderBody()` wiersza. `RenderBody`jest symbol zastępczy, gdzie wszystkie widoku specyficzne dla stron, możesz utworzyć pokaz, &quot;opakowana&quot; na stronie układu. Na przykład w przypadku wybrania łącza o *Views\Home\About.cshtml* renderowania widoku wewnątrz `RenderBody` metody.
+Szablony układu umożliwiają określ układ kontenera HTML witryny w jednym miejscu, a następnie zastosować je na wielu stronach w witrynie sieci. Znajdź `@RenderBody()` wiersza. `RenderBody` jest symbol zastępczy, gdzie wszystkie widoku specyficzne dla stron, możesz utworzyć pokaz, &quot;opakowana&quot; na stronie układu. Na przykład w przypadku wybrania łącza o *Views\Home\About.cshtml* renderowania widoku wewnątrz `RenderBody` metody.
 
 Zmiana pozycji tytułu witryny w szablon układu z &quot;tutaj znak logo&quot; do &quot;MVC Movie&quot;.
 
@@ -116,7 +116,7 @@ Kontrolery spoczywa odpowiedzialność za zapewnienie, niezależnie od danych lu
 
 Obecnie `Welcome` metody akcji w `HelloWorldController` klasy przyjmuje `name` i `numTimes` parametr, a następnie dane wyjściowe wartości bezpośrednio do przeglądarki. Zamiast renderowania tej odpowiedzi jako ciąg kontrolera, umożliwia zmianę kontrolera zamiast tego użyć szablonu widoku. Szablon widoku wygeneruje odpowiedzi dynamicznych, co oznacza, że trzeba przekazać odpowiednich bitów danych z kontrolera do widoku w celu wygenerowania odpowiedzi. Można to zrobić przez kontroler put danych dynamicznych (parametry), które wymaga Wyświetl szablon o `ViewBag` obiekt, który szablon widoku można następnie uzyskać dostęp.
 
-Wróć do *HelloWorldController.cs* plików i zmień `Welcome` metody w celu dodania `Message` i `NumTimes` do wartości `ViewBag` obiektu. `ViewBag`jest to obiekt dynamiczny, co oznacza, że możesz umieścić dowolne `ViewBag` obiekt nie ma zdefiniowanej właściwości dopóki coś wewnątrz put. [System powiązanie modelu platformy ASP.NET MVC](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) automatycznie mapuje nazwane parametry (`name` i `numTimes`) z ciągu zapytania w pasku adresu w parametrach w metodę. Pełną *HelloWorldController.cs* pliku wygląda następująco:
+Wróć do *HelloWorldController.cs* plików i zmień `Welcome` metody w celu dodania `Message` i `NumTimes` do wartości `ViewBag` obiektu. `ViewBag` jest to obiekt dynamiczny, co oznacza, że możesz umieścić dowolne `ViewBag` obiekt nie ma zdefiniowanej właściwości dopóki coś wewnątrz put. [System powiązanie modelu platformy ASP.NET MVC](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) automatycznie mapuje nazwane parametry (`name` i `numTimes`) z ciągu zapytania w pasku adresu w parametrach w metodę. Pełną *HelloWorldController.cs* pliku wygląda następująco:
 
 [!code-csharp[Main](adding-a-view/samples/sample7.cs)]
 
@@ -148,6 +148,6 @@ W powyższym przykładzie użyliśmy `ViewBag` obiektu do przekazywania danych z
 
 Źródło, które były rodzaju z &quot;M&quot; dla modelu, ale nie rodzaj bazy danych. Przyjrzyjmy się, co możemy samouczka jest i utworzyć bazę danych filmów.
 
->[!div class="step-by-step"]
-[Poprzednie](adding-a-controller.md)
-[dalej](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Poprzednie](adding-a-controller.md)
+> [dalej](adding-a-model.md)

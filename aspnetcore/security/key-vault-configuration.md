@@ -1,18 +1,18 @@
 ---
-title: "Dostawca konfiguracji usługi Azure Key Vault w ASP.NET Core"
+title: Dostawca konfiguracji usługi Azure Key Vault w ASP.NET Core
 author: guardrex
-description: "Dowiedz się, jak skonfigurować aplikację przy użyciu pary nazwa wartość załadowane w czasie wykonywania przy użyciu dostawcy konfiguracji magazynu kluczy Azure."
+description: Dowiedz się, jak skonfigurować aplikację przy użyciu pary nazwa wartość załadowane w czasie wykonywania przy użyciu dostawcy konfiguracji magazynu kluczy Azure.
 manager: wpickett
 ms.author: riande
 ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: e1a4be77417f0a74182f1b123bfba429737d4330
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 09f28ec3792cf137fbcfdecc593e27ce6b2e7e09
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Dostawca konfiguracji usługi Azure Key Vault w ASP.NET Core
 
@@ -54,20 +54,21 @@ Dostawca jest dodawany do `ConfigurationBuilder` z `AddAzureKeyVault` rozszerzen
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>Tworzenie kluczy tajnych w magazynie kluczy i ładowanie wartości konfiguracji (basic przykład)
 1. Tworzenie magazynu kluczy i konfigurowanie usługi Azure Active Directory (Azure AD) dla aplikacji, postępując zgodnie ze wskazówkami w [wprowadzenie do usługi Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-  * Dodawanie kluczy tajnych przy użyciu magazynu kluczy [modułu PowerShell magazynu klucz AzureRM](/powershell/module/azurerm.keyvault) dostępnej w sklepie [galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), [interfejsu API REST magazynu kluczy Azure](/rest/api/keyvault/), lub [Portalu azure](https://portal.azure.com/). Hasła są tworzone jako *ręcznego* lub *certyfikatu* kluczy tajnych. *Certyfikat* kluczy tajnych są certyfikaty na potrzeby używania przez aplikacje i usługi, ale nie są obsługiwane przez dostawcę konfiguracji. Należy używać *ręcznego* opcję, aby utworzyć klucze tajne pary nazwa wartość do użycia z dostawcą konfiguracji.
-    * Proste kluczy tajnych są tworzone jako pary nazwa wartość. Usługa Azure Key Vault nazw kluczy tajnych są ograniczone do znaki alfanumeryczne i łączniki.
-    * Użyj wartości hierarchicznych (sekcji konfiguracji) `--` (dwa łączniki) jako separator w próbce. Dwukropki, które zwykle są używane do rozdzielenia sekcji z podklucz [konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index), nie są dozwolone w nazwach tajny. W związku z tym są używane dwa łączniki i podmienić dla dwukropek, gdy kluczy tajnych są ładowane do konfiguracji aplikacji.
-    * Utwórz dwa *ręcznego* kluczy tajnych z następujących par nazwa wartość. Pierwszy klucz tajny jest proste nazwy i wartości, a drugi klucz tajny tworzy wartość tajna z sekcji i podklucz nazwa klucza tajnego:
-      * `SecretName`: `secret_value_1`
-      * `Section--SecretName`: `secret_value_2`
-  * Zarejestruj przykładowej aplikacji w usłudze Azure Active Directory.
-  * Zezwolić aplikacji na dostęp do magazynu kluczy. Jeśli używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby zezwolić aplikacji na dostęp do magazynu kluczy, podaj `List` i `Get` dostęp do kluczy tajnych z `-PermissionsToSecrets list,get`.
+   * Dodawanie kluczy tajnych przy użyciu magazynu kluczy [modułu PowerShell magazynu klucz AzureRM](/powershell/module/azurerm.keyvault) dostępnej w sklepie [galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), [interfejsu API REST magazynu kluczy Azure](/rest/api/keyvault/), lub [Portalu azure](https://portal.azure.com/). Hasła są tworzone jako *ręcznego* lub *certyfikatu* kluczy tajnych. *Certyfikat* kluczy tajnych są certyfikaty na potrzeby używania przez aplikacje i usługi, ale nie są obsługiwane przez dostawcę konfiguracji. Należy używać *ręcznego* opcję, aby utworzyć klucze tajne pary nazwa wartość do użycia z dostawcą konfiguracji.
+     * Proste kluczy tajnych są tworzone jako pary nazwa wartość. Usługa Azure Key Vault nazw kluczy tajnych są ograniczone do znaki alfanumeryczne i łączniki.
+     * Użyj wartości hierarchicznych (sekcji konfiguracji) `--` (dwa łączniki) jako separator w próbce. Dwukropki, które zwykle są używane do rozdzielenia sekcji z podklucz [konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index), nie są dozwolone w nazwach tajny. W związku z tym są używane dwa łączniki i podmienić dla dwukropek, gdy kluczy tajnych są ładowane do konfiguracji aplikacji.
+     * Utwórz dwa *ręcznego* kluczy tajnych z następujących par nazwa wartość. Pierwszy klucz tajny jest proste nazwy i wartości, a drugi klucz tajny tworzy wartość tajna z sekcji i podklucz nazwa klucza tajnego:
+       * `SecretName`: `secret_value_1`
+       * `Section--SecretName`: `secret_value_2`
+   * Zarejestruj przykładowej aplikacji w usłudze Azure Active Directory.
+   * Zezwolić aplikacji na dostęp do magazynu kluczy. Jeśli używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby zezwolić aplikacji na dostęp do magazynu kluczy, podaj `List` i `Get` dostęp do kluczy tajnych z `-PermissionsToSecrets list,get`.
+
 2. Aktualizowanie aplikacji *appsettings.json* pliku z wartościami `Vault`, `ClientId`, i `ClientSecret`.
 3. Uruchamianie przykładowej aplikacji, która uzyskuje jego wartości konfiguracji z `IConfigurationRoot` o takiej samej nazwie jak nazwa klucza tajnego.
-  * Inne niż hierarchicznych wartości: wartość `SecretName` są uzyskiwane z `config["SecretName"]`.
-  * Hierarchiczna wartości (sekcje): Użyj `:` notacji (dwukropek) lub `GetSection` — metoda rozszerzenia. Użyj jednej z tych metod można uzyskać wartości konfiguracji:
-    * `config["Section:SecretName"]`
-    * `config.GetSection("Section")["SecretName"]`
+   * Inne niż hierarchicznych wartości: wartość `SecretName` są uzyskiwane z `config["SecretName"]`.
+   * Hierarchiczna wartości (sekcje): Użyj `:` notacji (dwukropek) lub `GetSection` — metoda rozszerzenia. Użyj jednej z tych metod można uzyskać wartości konfiguracji:
+     * `config["Section:SecretName"]`
+     * `config.GetSection("Section")["SecretName"]`
 
 Po uruchomieniu aplikacji załadowanych tajny wartości wyświetlane strony sieci Web:
 
@@ -97,13 +98,14 @@ Po zaimplementowaniu tej metody:
 > Można też podać własne `KeyVaultClient` wykonania `AddAzureKeyVault`. Dostarczanie niestandardowego klienta umożliwia udostępnianie jedno wystąpienie klienta między dostawcy konfiguracji i innymi częściami pakietu aplikacji.
 
 1. Tworzenie magazynu kluczy i konfigurowanie usługi Azure Active Directory (Azure AD) dla aplikacji, postępując zgodnie ze wskazówkami w [wprowadzenie do usługi Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-  * Dodawanie kluczy tajnych przy użyciu magazynu kluczy [modułu PowerShell magazynu klucz AzureRM](/powershell/module/azurerm.keyvault) dostępnej w sklepie [galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), [interfejsu API REST magazynu kluczy Azure](/rest/api/keyvault/), lub [Portalu azure](https://portal.azure.com/). Hasła są tworzone jako *ręcznego* lub *certyfikatu* kluczy tajnych. *Certyfikat* kluczy tajnych są certyfikaty na potrzeby używania przez aplikacje i usługi, ale nie są obsługiwane przez dostawcę konfiguracji. Należy używać *ręcznego* opcję, aby utworzyć klucze tajne pary nazwa wartość do użycia z dostawcą konfiguracji.
-    * Użyj wartości hierarchicznych (sekcji konfiguracji) `--` (dwa łączniki) jako separatora.
-    * Utwórz dwa *ręcznego* kluczy tajnych z następujących par nazwa wartość:
-      * `5000-AppSecret`: `5.0.0.0_secret_value`
-      * `5100-AppSecret`: `5.1.0.0_secret_value`
-  * Zarejestruj przykładowej aplikacji w usłudze Azure Active Directory.
-  * Zezwolić aplikacji na dostęp do magazynu kluczy. Jeśli używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby zezwolić aplikacji na dostęp do magazynu kluczy, podaj `List` i `Get` dostęp do kluczy tajnych z `-PermissionsToSecrets list,get`.
+   * Dodawanie kluczy tajnych przy użyciu magazynu kluczy [modułu PowerShell magazynu klucz AzureRM](/powershell/module/azurerm.keyvault) dostępnej w sklepie [galerii programu PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), [interfejsu API REST magazynu kluczy Azure](/rest/api/keyvault/), lub [Portalu azure](https://portal.azure.com/). Hasła są tworzone jako *ręcznego* lub *certyfikatu* kluczy tajnych. *Certyfikat* kluczy tajnych są certyfikaty na potrzeby używania przez aplikacje i usługi, ale nie są obsługiwane przez dostawcę konfiguracji. Należy używać *ręcznego* opcję, aby utworzyć klucze tajne pary nazwa wartość do użycia z dostawcą konfiguracji.
+     * Użyj wartości hierarchicznych (sekcji konfiguracji) `--` (dwa łączniki) jako separatora.
+     * Utwórz dwa *ręcznego* kluczy tajnych z następujących par nazwa wartość:
+       * `5000-AppSecret`: `5.0.0.0_secret_value`
+       * `5100-AppSecret`: `5.1.0.0_secret_value`
+   * Zarejestruj przykładowej aplikacji w usłudze Azure Active Directory.
+   * Zezwolić aplikacji na dostęp do magazynu kluczy. Jeśli używasz `Set-AzureRmKeyVaultAccessPolicy` polecenia cmdlet programu PowerShell, aby zezwolić aplikacji na dostęp do magazynu kluczy, podaj `List` i `Get` dostęp do kluczy tajnych z `-PermissionsToSecrets list,get`.
+
 2. Aktualizowanie aplikacji *appsettings.json* pliku z wartościami `Vault`, `ClientId`, i `ClientSecret`.
 3. Uruchamianie przykładowej aplikacji, która uzyskuje jego wartości konfiguracji z `IConfigurationRoot` z taką samą nazwę jak prefiksem nazwa klucza tajnego. W tym przykładzie prefiks jest wersja aplikacji, który dostarczony do `PrefixKeyVaultSecretManager` po dodaniu dostawcę konfiguracji usługi Azure Key Vault. Wartość `AppSecret` są uzyskiwane z `config["AppSecret"]`. Strony sieci Web wygenerowany przez aplikację przedstawia załadowana wartość:
 

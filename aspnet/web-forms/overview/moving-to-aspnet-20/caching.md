@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/caching
 title: Buforowanie | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Opis buforowania jest ważne dla dobrze wydajności aplikacji ASP.NET. ASP.NET 1.x oferowane w trzech różnych opcji buforowania; dane wyjściowe buforowania..."
+description: Opis buforowania jest ważne dla dobrze wydajności aplikacji ASP.NET. ASP.NET 1.x oferowane w trzech różnych opcji buforowania; dane wyjściowe buforowania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 9b229de60e09b94189f62a6bb6fa61a9973d637b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching"></a>Buforowanie
 ====================
@@ -59,7 +59,7 @@ Unieważnianie elementu, który został wstawiony powyżej, po prostu usuń elem
 
 Należy pamiętać, że klucza elementu, który działa jako klucz pamięci podręcznej musi być taka sama jak wartość dodawane do tablicy kluczy pamięci podręcznej.
 
-## <a name="polling-based-sql-cache-dependenciesalso-called-table-based-dependencies"></a>Zależności buforu SQL na podstawie sondowania*(nazywanych również na podstawie tabeli zależności)*
+## <a name="polling-based-sql-cache-dependenciesemalso-called-table-based-dependenciesem"></a>Zależności buforu SQL na podstawie sondowania<em>(nazywanych również na podstawie tabeli zależności)</em>
 
 SQL Server 7 i 2000 przy użyciu modelu na podstawie sondowania zależności buforu SQL. Model na podstawie sondowania używa wyzwalacza w tabeli bazy danych, która jest wyzwalane, gdy zmiana danych w tabeli. Który wyzwolić aktualizacje **changeId** tabeli powiadomienia, który aplikacja ASP.NET sprawdza okresowo. Jeśli **changeId** pola zostały zaktualizowane, ASP.NET wie, że dane zostały zmienione, a jego unieważnia dane buforowane.
 
@@ -144,7 +144,7 @@ Poniższy przykładowy kod przedstawia sposób poprawnie skonfigurować Obsługa
 
 [!code-csharp[Main](caching/samples/sample11.cs)]
 
-More Information: [https://msdn.microsoft.com/library/t9x04ed2.aspx](https://msdn.microsoft.com/library/t9x04ed2.aspx)
+Więcej informacji: [https://msdn.microsoft.com/library/t9x04ed2.aspx](https://msdn.microsoft.com/library/t9x04ed2.aspx)
 
 ## <a name="query-based-sql-cache-dependencies-sql-server-2005-only"></a>Zależności buforu SQL na podstawie kwerendy (dotyczy tylko programu SQL Server 2005)
 
@@ -170,7 +170,7 @@ Inną metodą konfiguracji oparte na zapytaniach zależności bufora SQL jest w 
 
 [!code-csharp[Main](caching/samples/sample14.cs)]
 
-More Information: [https://msdn.microsoft.com/library/default.asp?url=/library/enus/dnvs05/html/querynotification.asp](https://msdn.microsoft.com/library/default.asp?url=/library/enus/dnvs05/html/querynotification.asp)
+Więcej informacji: [https://msdn.microsoft.com/library/default.asp?url=/library/enus/dnvs05/html/querynotification.asp](https://msdn.microsoft.com/library/default.asp?url=/library/enus/dnvs05/html/querynotification.asp)
 
 ## <a name="post-cache-substitution"></a>Post-Cache Substitution
 
@@ -237,12 +237,13 @@ Następujące atrybuty są dostępne w &lt;pamięci podręcznej&gt; elementu:
 
 Następujące atrybuty są dostępne dla &lt;outputCache&gt; elementu.
 
-| **Atrybut** | **Opis** |
-| --- | --- |
-| **enableOutputCache** | Opcjonalne **logiczna** atrybutu. Włącza/wyłącza pamięci podręcznej danych wyjściowych strony. Jeśli wyłączone, niezależnie od ustawień programistycznych albo zezwala na deklaratywne nie są buforowane nie ma żadnych stron. Wartość domyślna to **true**. |
-| **enableFragmentCache** | Opcjonalne **logiczna** atrybutu. Włącza/wyłącza pamięci podręcznej fragmentu aplikacji. Jeśli wyłączona, żadne strony nie są buforowane bez względu na to [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) dyrektywa lub profil używany do buforowania. Zawiera nagłówek z kontroli pamięci podręcznej wskazującą, czy serwery proxy nadrzędnego, jak również klientów w przeglądarkach nie powinny podejmować próby pamięci podręcznej danych wyjściowych strony. Wartość domyślna to **false**. |
-| **sendCacheControlHeader** | Opcjonalne **logiczna** atrybutu. Pobiera lub ustawia wartość wskazującą czy **pamięci podręcznej-kontrolki: prywatne** nagłówka domyślnie wysyłane przez moduł wyjściowej pamięci podręcznej. Wartość domyślna to **false**. |
-| **omitVaryStar** | Opcjonalne **logiczna** atrybutu. Włącza/wyłącza wysyłanie Http "**Vary: \*** " nagłówka w odpowiedzi. Z domyślnym ustawieniem false, "**Vary: \*** " nagłówka jest wysyłane do stron pamięci podręcznej danych wyjściowych. Po wysłaniu nagłówka Vary umożliwia dla innej wersji można buforować oparte na nazwie określonej w nagłówka Vary. Na przykład *Vary: użytkownik-agentów* będzie przechowywać różne wersje strony oparte na agenta użytkownika żądania. Wartość domyślna to **false**. |
+
+|       <strong>Atrybut</strong>        |                                                                                                                                                                                                                                                       <strong>Opis</strong>                                                                                                                                                                                                                                                       |
+|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   <strong>enableOutputCache</strong>    |                                                                                                                                                          Opcjonalne <strong>logiczna</strong> atrybutu. Włącza/wyłącza pamięci podręcznej danych wyjściowych strony. Jeśli wyłączone, niezależnie od ustawień programistycznych albo zezwala na deklaratywne nie są buforowane nie ma żadnych stron. Wartość domyślna to <strong>true</strong>.                                                                                                                                                           |
+|  <strong>enableFragmentCache</strong>   |                                                Opcjonalne <strong>logiczna</strong> atrybutu. Włącza/wyłącza pamięci podręcznej fragmentu aplikacji. Jeśli wyłączona, żadne strony nie są buforowane bez względu na to [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) dyrektywa lub profil używany do buforowania. Zawiera nagłówek z kontroli pamięci podręcznej wskazującą, czy serwery proxy nadrzędnego, jak również klientów w przeglądarkach nie powinny podejmować próby pamięci podręcznej danych wyjściowych strony. Wartość domyślna to <strong>false</strong>.                                                 |
+| <strong>sendCacheControlHeader</strong> |                                                                                                                                                      Opcjonalne <strong>logiczna</strong> atrybutu. Pobiera lub ustawia wartość wskazującą czy <strong>pamięci podręcznej-kontrolki: prywatne</strong> nagłówka domyślnie wysyłane przez moduł wyjściowej pamięci podręcznej. Wartość domyślna to <strong>false</strong>.                                                                                                                                                      |
+|      <strong>omitVaryStar</strong>      | Opcjonalne <strong>logiczna</strong> atrybutu. Włącza/wyłącza wysyłanie Http "<strong>Vary: \</ strong ><em>" nagłówka w odpowiedzi. Z domyślnym ustawieniem false, "</em>* Vary: \* <strong>" nagłówka jest wysyłane do stron pamięci podręcznej danych wyjściowych. Po wysłaniu nagłówka Vary umożliwia dla innej wersji można buforować oparte na nazwie określonej w nagłówka Vary. Na przykład <em>Vary: użytkownik-agentów</em> będzie przechowywać różne wersje strony oparte na agenta użytkownika żądania. Wartość domyślna to ** false</strong>. |
 
 ### <a name="the-ltoutputcachesettingsgt-element"></a>&lt;OutputCacheSettings&gt; — Element
 

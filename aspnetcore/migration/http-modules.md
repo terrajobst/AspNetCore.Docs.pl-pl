@@ -1,7 +1,7 @@
 ---
-title: "Migrowanie programów obsługi HTTP i modułów platformy ASP.NET Core oprogramowania pośredniczącego"
+title: Przenieść programów obsługi HTTP i modułów platformy ASP.NET Core oprogramowania pośredniczącego
 author: rick-anderson
-description: 
+description: ''
 manager: wpickett
 ms.author: tdykstra
 ms.date: 12/07/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: 7f08e155491b56933ae183818e9b9ee562ad8286
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e02f3a75269e5e4a4794d1979d3a5add21fe38be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrowanie programów obsługi HTTP i modułów platformy ASP.NET Core oprogramowania pośredniczącego 
+# <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>Przenieść programów obsługi HTTP i modułów platformy ASP.NET Core oprogramowania pośredniczącego
 
 Przez [Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
@@ -173,17 +173,17 @@ Nowy [system konfiguracji](xref:fundamentals/configuration/index) umożliwia te 
 
 * Użyj [wzorzec opcje](xref:fundamentals/configuration/options):
 
-1.  Tworzenie klasy utrzymującej opcje oprogramowania pośredniczącego, na przykład:
+1. Tworzenie klasy utrzymującej opcje oprogramowania pośredniczącego, na przykład:
 
-    [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Options)]
+   [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Options)]
 
-2.  Przechowywanie wartości opcji
+2. Przechowywanie wartości opcji
 
-    System konfiguracji umożliwia przechowywanie wartości opcji dowolnym ma. Jednak najbardziej Lokacje użyj *appsettings.json*, więc przeniesiemy tego podejścia:
+   System konfiguracji umożliwia przechowywanie wartości opcji dowolnym ma. Jednak najbardziej Lokacje użyj *appsettings.json*, więc przeniesiemy tego podejścia:
 
-    [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,14-18)]
+   [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,14-18)]
 
-    *MyMiddlewareOptionsSection* Oto nazwę sekcji. Nie musi być taka sama jak nazwa klasy opcje.
+   *MyMiddlewareOptionsSection* Oto nazwę sekcji. Nie musi być taka sama jak nazwa klasy opcje.
 
 3. Kojarzenie wartości opcji z klasy opcji
 
@@ -191,25 +191,25 @@ Nowy [system konfiguracji](xref:fundamentals/configuration/index) umożliwia te 
 
     Aktualizacja Twojego `Startup` klasy:
 
-    1.  Jeśli używasz *appsettings.json*, dodaj go do konstruktora konfiguracji w `Startup` konstruktora:
+   1. Jeśli używasz *appsettings.json*, dodaj go do konstruktora konfiguracji w `Startup` konstruktora:
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Ctor&highlight=5-6)]
 
-    2.  Skonfiguruj usługę opcje:
+   2. Skonfiguruj usługę opcje:
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=4)]
 
-    3.  Skojarz opcji z klasy opcje:
+   3. Skojarz opcji z klasy opcje:
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=6-8)]
 
-4.  Wstaw opcje do Twojej konstruktora oprogramowania pośredniczącego. Efekt jest podobny do iniekcję opcje do kontrolera.
+4. Wstaw opcje do Twojej konstruktora oprogramowania pośredniczącego. Efekt jest podobny do iniekcję opcje do kontrolera.
 
-  [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_MiddlewareWithParams&highlight=4,7,10,15-16)]
+   [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_MiddlewareWithParams&highlight=4,7,10,15-16)]
 
-  [UseMiddleware](#http-modules-usemiddleware) — metoda rozszerzenia, który dodaje oprogramowaniu pośredniczącym, aby `IApplicationBuilder` zajmuje się iniekcji zależności.
+   [UseMiddleware](#http-modules-usemiddleware) — metoda rozszerzenia, który dodaje oprogramowaniu pośredniczącym, aby `IApplicationBuilder` zajmuje się iniekcji zależności.
 
-  To nie jest ograniczona do `IOptions` obiektów. Drugi obiekt, który wymaga oprogramowania pośredniczącego mogą zostać dodane w ten sposób.
+   To nie jest ograniczona do `IOptions` obiektów. Drugi obiekt, który wymaga oprogramowania pośredniczącego mogą zostać dodane w ten sposób.
 
 ## <a name="loading-middleware-options-through-direct-injection"></a>Opcje oprogramowania pośredniczącego za pomocą iniekcji bezpośredniego ładowania
 
@@ -219,21 +219,21 @@ To dzieli jednak jeśli chcesz użyć tego samego oprogramowania pośredniczące
 
 Rozwiązanie to uzyskać obiekty opcje przy użyciu wartości rzeczywistych opcje w Twojej `Startup` klasy i przekazywać je bezpośrednio na każde wystąpienie oprogramowania pośredniczącego.
 
-1.  Dodaj drugi klucz do *appsettings.json*
+1. Dodaj drugi klucz do *appsettings.json*
 
-    Aby dodać drugi zestaw opcji, aby *appsettings.json* plików, użyj nowego klucza w celu jego jednoznacznej identyfikacji:
+   Aby dodać drugi zestaw opcji, aby *appsettings.json* plików, użyj nowego klucza w celu jego jednoznacznej identyfikacji:
 
-    [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,10-18&highlight=2-5)]
+   [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,10-18&highlight=2-5)]
 
-2.  Pobieranie wartości opcji i przekazywanie ich do oprogramowania pośredniczącego. `Use...` — Metoda rozszerzenia (która dodaje oprogramowania pośredniczącego do potoku) to logiczne miejsce do przekazywania wartości opcji: 
+2. Pobieranie wartości opcji i przekazywanie ich do oprogramowania pośredniczącego. `Use...` — Metoda rozszerzenia (która dodaje oprogramowania pośredniczącego do potoku) to logiczne miejsce do przekazywania wartości opcji: 
 
-    [!code-csharp[](http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=20-23)]
+   [!code-csharp[](http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=20-23)]
 
-4.  Włącz oprogramowaniu pośredniczącym, aby mieć parametr opcji. Udostępnij przeciążenie metody `Use...` — metoda rozszerzenia (która przyjmuje parametr opcje i przekazuje je do `UseMiddleware`). Gdy `UseMiddleware` jest wywoływana z parametrami przekazuje parametry do Twojej konstruktora oprogramowania pośredniczącego podczas tworzenia wystąpień obiektu oprogramowania pośredniczącego.
+3. Włącz oprogramowaniu pośredniczącym, aby mieć parametr opcji. Udostępnij przeciążenie metody `Use...` — metoda rozszerzenia (która przyjmuje parametr opcje i przekazuje je do `UseMiddleware`). Gdy `UseMiddleware` jest wywoływana z parametrami przekazuje parametry do Twojej konstruktora oprogramowania pośredniczącego podczas tworzenia wystąpień obiektu oprogramowania pośredniczącego.
 
-    [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Extensions&highlight=9-14)]
+   [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Extensions&highlight=9-14)]
 
-    Należy zwrócić uwagę, jak to opakowuje obiektu opcje w `OptionsWrapper` obiektu. To implementuje `IOptions`, zgodnie z oczekiwaniami konstruktora oprogramowania pośredniczącego.
+   Należy zwrócić uwagę, jak to opakowuje obiektu opcje w `OptionsWrapper` obiektu. To implementuje `IOptions`, zgodnie z oczekiwaniami konstruktora oprogramowania pośredniczącego.
 
 ## <a name="migrating-to-the-new-httpcontext"></a>Migracja do nowego element HttpContext
 

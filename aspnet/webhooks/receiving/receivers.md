@@ -1,20 +1,20 @@
 ---
 uid: webhooks/receiving/receivers
-title: "Odbiorniki elementów Webhook ASP.NET | Dokumentacja firmy Microsoft"
+title: Odbiorniki elementów Webhook ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Odbiorniki elementów Webhook ASP.NET"
+description: Odbiorniki elementów Webhook ASP.NET
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: 6cdea089-15b2-4732-8c68-921ca561a8f1
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
-ms.openlocfilehash: 8c42db4056dd7a6ef77c7bcbc0eca3b5bf7c87e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a8e42521f201f88b0ed433550e8786411b4487b0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-webhooks-receivers"></a>Odbiorniki elementów Webhook ASP.NET
 
@@ -36,7 +36,7 @@ https://<host>/api/webhooks/incoming/<receiver>/{id}
 
 Ze względów bezpieczeństwa wymagają identyfikator URI jest wiele odbiorników elementu WebHook *https* identyfikatora URI i w niektórych przypadkach może również zawierać parametr zapytania dodatkowe, które służy do wymuszania, które tylko do zamierzonego strony może wysyłać elementów Webhook do identyfikatora URI powyżej .
 
- *<receiver>*  Składnik jest nazwa odbiornika, na przykład *github* lub *slack*.
+<em> <receiver> </em> Składnik jest nazwa odbiornika, na przykład <em>github</em> lub <em>slack</em>.
 
 *{Id}* jest opcjonalny identyfikator, który może służyć do identyfikowania określoną konfigurację odbiornika elementu WebHook. Może to służyć do rejestrowania N elementów Webhook z określonego odbiornika. Na przykład następujące trzy identyfikatory URI mogą służyć do zarejestrowania dla trzech niezależnych elementów Webhook:
 

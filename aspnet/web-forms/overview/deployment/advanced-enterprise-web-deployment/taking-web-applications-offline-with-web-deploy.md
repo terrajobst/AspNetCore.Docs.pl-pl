@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
-title: "Wdrażanie pobierania aplikacji sieci Web w trybie Offline z sieci Web | Dokumentacja firmy Microsoft"
+title: Wdrażanie pobierania aplikacji sieci Web w trybie Offline z sieci Web | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób wykonania aplikacji sieci web w trybie offline na czas trwania automatycznego wdrażania przy użyciu alert Wdr sieci Web usług Internet Information Services (IIS)..."
+description: W tym temacie opisano sposób wykonania aplikacji sieci web w trybie offline na czas trwania automatycznego wdrażania przy użyciu alert Wdr sieci Web usług Internet Information Services (IIS)...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: 1c262ec7b834107524a18c6552b171f731452c91
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 511201dc5646340b21023430fa319417f2b53ae2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Wdrażanie pobierania aplikacji sieci Web w trybie Offline z sieci Web
 ====================
@@ -27,9 +27,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > W tym temacie opisano sposób wykonania aplikacji sieci web w trybie offline na czas trwania automatycznego wdrażania za pomocą narzędzia wdrażania usług Internet Information Services (IIS) w sieci Web (Web Deploy). Użytkownicy, którzy przejdź do aplikacji sieci web są przekierowywani do *aplikacji\_offline.htm* pliku do czasu ukończenia wdrożenia.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji projektu dwa pliki & #x 2014; jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
 
 ## <a name="task-overview"></a>Omówienie zadań
 
@@ -94,7 +94,7 @@ Aby zautomatyzować tych poleceń jako część procesu kompilacji i wdrożenia,
 2. W folderze głównym **projektu** elementu, Utwórz nową **PropertyGroup** element do przechowywania zmienne *aplikacji\_w trybie offline* wdrożenia:
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
-3. **SourceRoot** właściwość jest zdefiniowana w innym miejscu w *Publish.proj* pliku. Wskazuje on lokalizację folderu głównego dla zawartości źródłowej względem bieżącej ścieżki & #x 2014; innymi słowy, względną wobec lokalizacji *Publish.proj* pliku.
+3. **SourceRoot** właściwość jest zdefiniowana w innym miejscu w *Publish.proj* pliku. Wskazuje on lokalizację folderu głównego dla zawartości źródłowej względem bieżącej ścieżki&#x2014;innymi słowy, względną wobec lokalizacji *Publish.proj* pliku.
 4. **ContentPath** dostawcy nie akceptuje względne ścieżki do pliku, więc należy uzyskać ścieżka bezwzględna do pliku źródłowego, zanim będzie można go wdrożyć. Można użyć [converttoabsolutepath —](https://msdn.microsoft.com/library/bb882668.aspx) zadań w tym celu.
 5. Dodaj nową **docelowej** elementu o nazwie **GetAppOfflineAbsolutePath**. W obrębie tego celu użyć **converttoabsolutepath —** zadanie w celu uzyskania ścieżki bezwzględnej do *aplikacji\_w trybie offline szablonu* pliku w folderze projektu.
 
@@ -116,7 +116,7 @@ Po uruchomieniu niestandardowego pliku projektu MSBuild *aplikacji\_w trybie off
 
 ## <a name="adding-an-appoffline-file-to-deployment-packages"></a>Dodawanie aplikacji\_plików w trybie Offline do pakietów wdrożeniowych
 
-W zależności od sposobu skonfigurowania wdrożenia, istniejącą zawartość na docelowa aplikacja sieci web usług IIS & #x 2014; takich jak *aplikacji\_offline.htm* #x 2014; & plików mogą zostać usunięte automatycznie, podczas wdrażania sieci web pakiet do tego miejsca docelowego. Aby upewnić się, że *aplikacji\_offline.htm* plik pozostaje w miejscu na czas trwania rozmieszczania, należy także uwzględnić plik w obrębie samego pakietu wdrożeniowego sieci web wdrażanie pliku bezpośrednio na początku proces wdrażania.
+W zależności od konfiguracji wdrożenia, istniejących zawartości w miejscu docelowym usług IIS aplikacji sieci web&#x2014;jak *aplikacji\_offline.htm* pliku&#x2014;mogą zostać usunięte automatycznie, podczas wdrażania sieci web pakiet do tego miejsca docelowego. Aby upewnić się, że *aplikacji\_offline.htm* plik pozostaje w miejscu na czas trwania rozmieszczania, należy także uwzględnić plik w obrębie samego pakietu wdrożeniowego sieci web wdrażanie pliku bezpośrednio na początku proces wdrażania.
 
 - Jeśli po wykonaniu poprzednich zadań w tym temacie, będzie dodano *aplikacji\_offline.htm* plik do projektu aplikacji sieci web w innej nazwy pliku (użyliśmy *aplikacji\_ w trybie offline template.htm*) i będzie została wybrana akcja kompilacji **Brak**. Te zmiany są niezbędne w celu zapobieżenia pliku z zakłócać programowanie i debugowanie. W związku z tym musisz dostosować proces tworzenia pakietu, aby upewnić się, że *aplikacji\_offline.htm* plik znajduje się w pakiecie wdrożeniowym sieci web.
 
@@ -125,7 +125,7 @@ Web potok publikowania (WPP) używa listy elementów o nazwie **FilesForPackagin
 1. Utwórz plik niestandardowe projektu o nazwie *.wpp.targets [Nazwa projektu]* w tym samym folderze co plik projektu.
 
     > [!NOTE]
-    > *. Wpp.targets* plik ma znaleźć się w tym samym folderze co plik projektu aplikacji sieci web danej #x 2014; na przykład *ContactManager.Mvc.csproj*& #x 2014; a nie w tym samym folderze wszystkich pliki projektu niestandardowych służy do sterowania kompilacji i procesu wdrażania.
+    > *. Wpp.targets* plik ma znaleźć się w tym samym folderze co plik projektu aplikacji sieci web&#x2014;na przykład *ContactManager.Mvc.csproj*&#x2014;, a nie w tym samym folderze co niestandardowe pliki projektu, umożliwiające sterowanie procesem kompilacji i wdrażania.
 2. W *. wpp.targets* pliku, Utwórz nowy obiekt docelowy MSBuild, która wykonuje *przed* **CopyAllFilesToSingleFolderForPackage** docelowej. Jest to element docelowy WPP, który umożliwia tworzenie listy rzeczy do uwzględnienia w pakiecie.
 3. Tworzenie nowego docelowego **ItemGroup** elementu.
 4. W **ItemGroup** elementu, Dodaj **FilesForPackagingFromProject** elementu i określ *aplikacji\_offline.htm* pliku.
@@ -175,6 +175,6 @@ Aby uzyskać więcej informacji dotyczących tworzenia pakietów i proces wdraż
 
 Jeśli publikowanie aplikacji sieci web bezpośrednio z programu Visual Studio, a nie za pomocą podejście pliku niestandardowe projektu MSBuild opisane w tych samouczkach, konieczne będzie użycie nieco inny sposób w celu przejęcia aplikacji w trybie offline podczas publikowania proces. Aby uzyskać więcej informacji, zobacz [sposób wykonania aplikacji sieci web w trybie offline podczas publikowania](https://go.microsoft.com/?linkid=9805135) (wpis w blogu).
 
->[!div class="step-by-step"]
-[Poprzednie](excluding-files-and-folders-from-deployment.md)
-[dalej](running-windows-powershell-scripts-from-msbuild-project-files.md)
+> [!div class="step-by-step"]
+> [Poprzednie](excluding-files-and-folders-from-deployment.md)
+> [dalej](running-windows-powershell-scripts-from-msbuild-project-files.md)

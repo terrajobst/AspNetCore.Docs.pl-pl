@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 title: Wsadowe aktualizacji (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Dowiedz się, jak zaktualizować wiele rekordów bazy danych w ramach jednej operacji. W warstwie interfejsu użytkownika budujemy Element GridView każdego wiersza w przypadku edycji. W danych..."
+description: Dowiedz się, jak zaktualizować wiele rekordów bazy danych w ramach jednej operacji. W warstwie interfejsu użytkownika budujemy Element GridView każdego wiersza w przypadku edycji. W danych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1210f9048401ca1b4e29d6dde9bf5dbef987091f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9f1bad4f0b58175a8437ebfedf161db057bb2bd2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-updating-c"></a>Wsadowe aktualizacji (C#)
 ====================
@@ -185,7 +185,7 @@ Jeden ostatniego pozostaje problem: Jeśli t produktu `CategoryID` określona wa
 Uwaga jak `<asp:ListItem Value="">` — wybierz jedną — zawiera jego `Value` atrybutu jawnie ustawiona na pusty ciąg. Odwołaj się do [Dostosowywanie interfejs modyfikacji danych](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) samouczka bardziej szczegółowe omówienie na dlaczego tego dodatkowe elementu DropDownList jest potrzebne do obsługi `NULL` przypadku i dlaczego przypisanie `Value` istotne jest pusty ciąg dla właściwości.
 
 > [!NOTE]
-> Istnieje potencjalne wydajności i skalowalności problem tutaj który warto zauważyć. Ponieważ każdy wiersz zawiera DropDownList, która używa `CategoriesDataSource` jako źródło danych, `CategoriesBLL` klasy s `GetCategories` zostanie wywołana metoda  *n*  odwiedzać razy na stronie, gdy  *n*  jest to liczba wierszy w widoku GridView. Te  *n*  wywołań `GetCategories` spowodować  *n*  zapytania do bazy danych. Tej wpływa na bazie danych może to buforując zwrócony kategorii w pamięci podręcznej na żądanie lub przez warstwę buforowanie przy użyciu SQL buforowanie zależności lub bardzo krótkim na podstawie czasu wygaśnięcia. Aby uzyskać więcej informacji na żądanie na buforowanie opcji, zobacz [ `HttpContext.Items` magazynu pamięci podręcznej na żądanie](http://aspnet.4guysfromrolla.com/articles/060904-1.aspx).
+> Istnieje potencjalne wydajności i skalowalności problem tutaj który warto zauważyć. Ponieważ każdy wiersz zawiera DropDownList, która używa `CategoriesDataSource` jako źródło danych, `CategoriesBLL` klasy s `GetCategories` metoda zostanie wywołana *n* razy na stronie odwiedzać, gdzie *n* jest liczbą wierszy w widoku GridView. Te *n* wywołań `GetCategories` spowodować *n* zapytania do bazy danych. Tej wpływa na bazie danych może to buforując zwrócony kategorii w pamięci podręcznej na żądanie lub przez warstwę buforowanie przy użyciu SQL buforowanie zależności lub bardzo krótkim na podstawie czasu wygaśnięcia. Aby uzyskać więcej informacji na żądanie na buforowanie opcji, zobacz [ `HttpContext.Items` magazynu pamięci podręcznej na żądanie](http://aspnet.4guysfromrolla.com/articles/060904-1.aspx).
 
 
 ## <a name="step-4-completing-the-editing-interface"></a>Krok 4: Kończenie edycji interfejsu
@@ -270,7 +270,7 @@ Dla tych typów sytuacjach należy rozważyć użycie następujących `BatchUpda
 
 [!code-csharp[Main](batch-updating-cs/samples/sample7.cs)]
 
-`BatchMethodAlternate`Uruchamia, tworząc nowe puste `ProductsDataTable` o nazwie `products`. Następnie kroki do widoku GridView s `Rows` kolekcji i dla każdego wiersza pobiera informacje o określonym produktem przy użyciu logiki warstwy Biznesowej s `GetProductByProductID(productID)` metody. Pobranej `ProductsRow` wystąpienie ma właściwości zaktualizowane w taki sam sposób jak `BatchUpdate`, ale po zaktualizowaniu wiersza jest importowany do `products``ProductsDataTable` za pośrednictwem DataTable s [ `ImportRow(DataRow)` — metoda](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
+`BatchMethodAlternate` Uruchamia, tworząc nowe puste `ProductsDataTable` o nazwie `products`. Następnie kroki do widoku GridView s `Rows` kolekcji i dla każdego wiersza pobiera informacje o określonym produktem przy użyciu logiki warstwy Biznesowej s `GetProductByProductID(productID)` metody. Pobranej `ProductsRow` wystąpienie ma właściwości zaktualizowane w taki sam sposób jak `BatchUpdate`, ale po zaktualizowaniu wiersza jest importowany do `products``ProductsDataTable` za pośrednictwem DataTable s [ `ImportRow(DataRow)` — metoda](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
 Po `foreach` pętli zakończeniu `products` zawiera jeden `ProductsRow` wystąpienia dla każdego wiersza w widoku GridView. Ponieważ każdy z `ProductsRow` wystąpienia zostały dodane do `products` (zamiast aktualizacji), jeśli ślepo jest przekazywana do `UpdateWithTransaction` — metoda `ProductsTableAdatper` podejmie próbę wstawienia każdego rekordu do bazy danych. Zamiast tego należy określić, że każdy z tych wierszy została zmodyfikowana (nie dodany).
 
@@ -289,12 +289,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Teresa Murphy i Suru Dominika. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](wrapping-database-modifications-within-a-transaction-cs.md)
-[dalej](batch-deleting-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](wrapping-database-modifications-within-a-transaction-cs.md)
+> [dalej](batch-deleting-cs.md)

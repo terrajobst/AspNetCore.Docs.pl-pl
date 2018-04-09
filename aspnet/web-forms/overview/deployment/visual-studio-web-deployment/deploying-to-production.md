@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
-title: "Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie do środowiska produkcyjnego | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie do środowiska produkcyjnego | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane..."
+description: Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: abd3f3f78dd9a9e6394e2f61aa9bd692810ca875
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f3b3898bd003ace100ba05619f2c45ca808462df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie w środowisku produkcyjnym
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -144,10 +144,10 @@ Teraz, po utworzeniu aplikacji sieci web i bazy danych w środowisku przemieszcz
 9. 1. Wybierz **aktualizacji bazy danych**.
 
         **Ciąg połączenia zdalnego** bezpośrednio poniżej pola **połączenia DefaultConnection** jest wypełniane parametry połączenia z pliku .publishsettings. Parametry połączenia zawierają poświadczenia serwera SQL Server, które są przechowywane w postaci zwykłego tekstu w *.pubxml* pliku. Jeśli nie chcesz przechowywać je trwale istnieje, można je usunąć z profilu publikowania, po wdrożeniu bazy danych i przechowywać je na platformie Azure. Aby uzyskać więcej informacji, zobacz [jak chronić bazę danych programu ASP.NET parametry połączenia w przypadku wdrażania Azure ze źródła](http://www.hanselman.com/blog/HowToKeepYourASPNETDatabaseConnectionStringsSecureWhenDeployingToAzureFromSource.aspx) na blogu Scott Hanselman.
-    2. Kliknij przycisk **skonfigurować aktualizacje bazy danych**.
-    3. W **Konfigurowanie aktualizacji bazy danych** okno dialogowe, kliknij przycisk **Dodaj skrypt SQL**.
-    4. W **Dodaj skrypt SQL** wybierz opcję *aspnet-data-prod.sql* skrypt, który wcześniej zapisany w folderze rozwiązania, a następnie kliknij przycisk **Otwórz**.
-    5. Zamknij **Konfigurowanie aktualizacji bazy danych** okno dialogowe.
+      2. Kliknij przycisk **skonfigurować aktualizacje bazy danych**.
+      3. W **Konfigurowanie aktualizacji bazy danych** okno dialogowe, kliknij przycisk **Dodaj skrypt SQL**.
+      4. W **Dodaj skrypt SQL** wybierz opcję *aspnet-data-prod.sql* skrypt, który wcześniej zapisany w folderze rozwiązania, a następnie kliknij przycisk **Otwórz**.
+      5. Zamknij **Konfigurowanie aktualizacji bazy danych** okno dialogowe.
 10. W obszarze **SchoolContext** w **baz danych** zaznacz **wykonaj migracje Code First (wywoływane po uruchomieniu aplikacji)**.
 
     Wyświetla programu Visual Studio **wykonaj migracje Code First** zamiast **aktualizacji bazy danych** dla `DbContext` klasy. Jeśli chcesz użyć dostawcy dbDacFx zamiast migracje do bazy danych, do którego dostęp przy użyciu wdrożenia `DbContext` , zobacz [sposób wdrażania Code First bazy danych bez migracje?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) w sieci Web wdrożenia często zadawane pytania dla programu Visual Studio i platformy ASP.NET w witrynie MSDN.
@@ -296,11 +296,11 @@ W następnym samouczku możesz zaktualizować kodu aplikacji i wdrożenia zmiany
 
 > [!NOTE]
 > Gdy aplikacja jest używana w środowisku produkcyjnym powinien być wykonawczych planu odzyskiwania. To, że użytkownik należy okresowo kopii zapasowych baz danych z aplikacji produkcyjnej do lokalizacji bezpiecznego magazynu i należy zachować kilka generacji tych kopii zapasowych. Podczas aktualizowania bazy danych należy kopii zapasowej z bezpośrednio przed zmianą. Następnie jeśli popełnienia błędu, a nie odnalezienia dopiero po wdrożeniu w środowisku produkcyjnym, nadal będzie można odzyskać bazy danych do stanu sprzed przed jego uległa uszkodzeniu. Aby uzyskać więcej informacji, zobacz [i przywracania kopii zapasowej bazy danych SQL Azure](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
-
-
+> 
+> 
 > [!NOTE]
 > W tym samouczku SQL Server edition, które wdrażasz jest baza danych SQL Azure. Podczas procesu wdrażania jest podobny do innych wersji programu SQL Server, aplikacji rzeczywistej produkcji mogą wymagać specjalnego kodu bazy danych SQL Azure w niektórych scenariuszach. Aby uzyskać więcej informacji, zobacz [baza danych SQL Azure](../../../../whitepapers/aspnet-data-access-content-map.md#ssdb) i [wybór między programu SQL Server i bazy danych SQL Azure](../../../../whitepapers/aspnet-data-access-content-map.md#ssdbchoosing).
-
->[!div class="step-by-step"]
-[Poprzednie](setting-folder-permissions.md)
-[dalej](deploying-a-code-update.md)
+> 
+> [!div class="step-by-step"]
+> [Poprzednie](setting-folder-permissions.md)
+> [dalej](deploying-a-code-update.md)

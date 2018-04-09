@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/code-editing-in-web-forms-pages
 title: Edytowanie kodu formularzy sieci Web ASP.NET w programie Visual Studio 2013 | Dokumentacja firmy Microsoft
 author: Erikre
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/03/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 8714f673cb0434189ca23d2dda14035d8652a051
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 79b10df04432490d6338dadb8f7ddd36192beb3e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Kod edycji ASP.NET Web Forms w programie Visual Studio 2013
 ====================
@@ -46,7 +46,7 @@ W celu przeprowadzenia tego instruktażu potrzebne są:
     >   
     > Jeśli używasz programu Visual Studio w tym przewodniku przyjęto założenie, że wybrano **projektowanie witryn sieci Web** kolekcję ustawień przy pierwszym uruchomieniu programu Visual Studio. Aby uzyskać więcej informacji, zobacz [porady: Wybierz ustawienia środowiska sieci Web Development](https://msdn.microsoft.com/library/ff521558.aspx).
 
- Aby obejrzeć wprowadzenie do platformy ASP.NET i Visual Studio, zobacz [tworzenia podstawowego strony formularzy sieci Web programu ASP.NET 4.5 w programie Visual Studio 2013](creating-a-basic-web-forms-page.md).   
+  Aby obejrzeć wprowadzenie do platformy ASP.NET i Visual Studio, zobacz [tworzenia podstawowego strony formularzy sieci Web programu ASP.NET 4.5 w programie Visual Studio 2013](creating-a-basic-web-forms-page.md).   
  
 
 ## <a name="creating-a-web-application-project-and-a-page"></a>Tworzenie projektu aplikacji sieci Web i strony
@@ -98,19 +98,19 @@ Edytor kodu w programie Visual Studio pomaga uniknąć błędów, jak napisać k
 
 
 1. W **projekt** wyświetlić, kliknij dwukrotnie pustej strony, aby utworzyć program obsługi **obciążenia** zdarzenia dla strony.   
-Używasz programu obsługi zdarzeń tylko jako miejsce do pisania kodu.
+   Używasz programu obsługi zdarzeń tylko jako miejsce do pisania kodu.
 2. Wewnątrz obsługi, wpisz następujące polecenie, która zawiera błąd i naciśnij klawisz **ENTER**:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample1.cs)]
 
- Po naciśnięciu **ENTER**, edytora kodu umieszcza zielonego i czerwonego podkreślenia (często wywołać &quot;dowolnym kształcie&quot; wierszy) w obszarach kodu, które mają problemy. Zielony podkreślenie wskazuje ostrzeżenie. Czerwone podkreślenie wskazuje błąd, który należy naprawić. 
+   Po naciśnięciu **ENTER**, edytora kodu umieszcza zielonego i czerwonego podkreślenia (często wywołać &quot;dowolnym kształcie&quot; wierszy) w obszarach kodu, które mają problemy. Zielony podkreślenie wskazuje ostrzeżenie. Czerwone podkreślenie wskazuje błąd, który należy naprawić. 
 
     Umieść kursor `myStr` Aby wyświetlić etykietkę narzędzia, który informuje o ostrzeżenia. Ponadto wskaźnik myszy nad czerwonym podkreśleniem, aby wyświetlić komunikat o błędzie.
 
     Poniższa ilustracja przedstawia przykładowy kod podkreślenia.
 
     ![Witamy tekst w widoku Projekt](code-editing-in-web-forms-pages/_static/image5.png "Witamy tekst w widoku Projekt")  
- Błąd muszą zostać usunięte przez dodanie średnikiem `;` do końca wiersza. Ostrzeżenie po prostu powiadamia użytkownika, aby nie były używane `myStr` jeszcze zmiennej.  
+   Błąd muszą zostać usunięte przez dodanie średnikiem `;` do końca wiersza. Ostrzeżenie po prostu powiadamia użytkownika, aby nie były używane `myStr` jeszcze zmiennej.  
 
     > [!NOTE] 
     > 
@@ -137,7 +137,7 @@ W tej części przewodnika będą napisanie kodu, proste, a następnie Wyodrębn
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
- Kod tworzy **ArrayList** obiektu, używa go załadować z wartościami pętlę, a następnie używa innego pętli do wyświetlenia zawartości **ArrayList** obiektu.
+   Kod tworzy **ArrayList** obiektu, używa go załadować z wartościami pętlę, a następnie używa innego pętli do wyświetlenia zawartości **ArrayList** obiektu.
 4. Naciśnij klawisz **CTRL + F5** do uruchomienia strony, a następnie kliknij przycisk **przycisk** aby upewnić się, że wyświetlone następujące dane wyjściowe:   
 
     [!code-html[Main](code-editing-in-web-forms-pages/samples/sample3.html)]

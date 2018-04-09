@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 title: Raport dla stronicowania i sortowania danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Stronicowania i sortowania są dwie funkcje często podczas wyświetlania danych w aplikacji online. W tym samouczku zostaną wykonane pierwszy przyjrzeć się dodanie sortowania i..."
+description: Stronicowania i sortowania są dwie funkcje często podczas wyświetlania danych w aplikacji online. W tym samouczku zostaną wykonane pierwszy przyjrzeć się dodanie sortowania i...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 23dbd63110092b2e91b7f3f9f6b602ef917c5527
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5e7e110d436caa7b7526eae105fde601367007a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="paging-and-sorting-report-data-vb"></a>Stronicowania i sortowania danych raportu (VB)
 ====================
@@ -115,13 +115,13 @@ Formanty widoku DetailsView i FormView Pokaż tylko jeden rekord na stronie. Jed
 
 Tego widoku GridView widoku DetailsView i FormView interfejsu stronicowania s można dostosować z następującymi właściwościami:
 
-- `PagerStyle`Wskazuje informacji o stylu interfejsu stronicowania; można określić ustawień, takich jak `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`i tak dalej.
-- `PagerSettings`zawiera bevy właściwości, które można dostosować funkcjonalność interfejsu stronicowania; `PageButtonCount` wskazuje maksymalną liczbę numerów liczbowych strony wyświetlany w interfejsie stronicowania (wartość domyślna wynosi 10); [ `Mode` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) wskazuje, jak działa interfejs stronicowania i może być ustawiony na: 
+- `PagerStyle` Wskazuje informacji o stylu interfejsu stronicowania; można określić ustawień, takich jak `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`i tak dalej.
+- `PagerSettings` zawiera bevy właściwości, które można dostosować funkcjonalność interfejsu stronicowania; `PageButtonCount` wskazuje maksymalną liczbę numerów liczbowych strony wyświetlany w interfejsie stronicowania (wartość domyślna wynosi 10); [ `Mode` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) wskazuje, jak działa interfejs stronicowania i może być ustawiony na: 
 
-    - `NextPrevious`Pokazuje przycisków Następny i poprzedni, umożliwiając użytkownikowi krok przodu lub do tyłu jedną stronę w czasie
-    - `NextPreviousFirstLast`Oprócz przycisków Następny i poprzedni pierwszy i ostatni przyciski również są uwzględnione, dzięki czemu użytkownik szybko przejść do pierwszej lub ostatniej strony danych
-    - `Numeric`przedstawia serię numerów stron, umożliwiając użytkownikowi od razu przejść do określonej strony
-    - `NumericFirstLast`oprócz cyfr strony obejmuje pierwszy i ostatni przycisków, dzięki czemu użytkownik szybko przejść do pierwszej lub ostatniej strony danych. przyciski pierwszym i ostatnim są wyświetlane tylko jeśli wszystkie liczby liczbowych strony nie mieści się
+    - `NextPrevious` Pokazuje przycisków Następny i poprzedni, umożliwiając użytkownikowi krok przodu lub do tyłu jedną stronę w czasie
+    - `NextPreviousFirstLast` Oprócz przycisków Następny i poprzedni pierwszy i ostatni przyciski również są uwzględnione, dzięki czemu użytkownik szybko przejść do pierwszej lub ostatniej strony danych
+    - `Numeric` przedstawia serię numerów stron, umożliwiając użytkownikowi od razu przejść do określonej strony
+    - `NumericFirstLast` oprócz cyfr strony obejmuje pierwszy i ostatni przycisków, dzięki czemu użytkownik szybko przejść do pierwszej lub ostatniej strony danych. przyciski pierwszym i ostatnim są wyświetlane tylko jeśli wszystkie liczby liczbowych strony nie mieści się
 
 Ponadto GridView widoku DetailsView i FormView wszystkie oferty `PageIndex` i `PageCount` właściwości, które wskazują bieżącej strony wyświetlany i całkowita liczba stron danych, odpowiednio. `PageIndex` Właściwość jest indeksowana, zaczynając od 0, co oznacza, że podczas przeglądania danych na pierwszej stronie `PageIndex` będzie równa 0. `PageCount`, z drugiej strony, rozpoczyna zliczanie od 1, co oznacza, że `PageIndex` jest ograniczony do wartości pomiędzy 0 a `PageCount - 1`.
 
@@ -245,7 +245,7 @@ GridView wszystkie pola elementu BoundField, CheckBoxField, TemplateField, i mie
 
 1. GridView s [zdarzenia Sorting](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) uruchamiany
 2. GridView s [ `SortExpression` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) ma ustawioną wartość `SortExpression` pola, którego sortowania nagłówek został kliknięty przycisk łącza
-3. Element ObjectDataSource ponownie pobiera wszystkie dane z logiki warstwy Biznesowej i następnie sortuje danych za pomocą s widoku GridView`SortExpression`
+3. Element ObjectDataSource ponownie pobiera wszystkie dane z logiki warstwy Biznesowej i następnie sortuje danych za pomocą s widoku GridView `SortExpression`
 4. GridView s `PageIndex` właściwość zostanie zresetowana do 0, co oznacza, że podczas sortowania użytkownika jest zwracana do pierwszej strony danych (przy założeniu, obsługę stronicowania została zaimplementowana)
 5. GridView s [ `Sorted` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) uruchamiany
 
@@ -306,8 +306,8 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Poprzednie](creating-a-customized-sorting-user-interface-cs.md)
-[dalej](efficiently-paging-through-large-amounts-of-data-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-a-customized-sorting-user-interface-cs.md)
+> [dalej](efficiently-paging-through-large-amounts-of-data-vb.md)

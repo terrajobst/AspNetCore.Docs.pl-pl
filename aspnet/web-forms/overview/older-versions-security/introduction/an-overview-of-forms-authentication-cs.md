@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
-title: "Omówienie uwierzytelniania formularzy (C#) | Dokumentacja firmy Microsoft"
+title: Omówienie uwierzytelniania formularzy (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Tworzenie trasy niestandardowe
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d386a3b6328675fe21f989f8fd36bfc91fc08b32
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f64384d403f3cf81ffa3327a81b635bc71e2b44
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-forms-authentication-c"></a>Omówienie uwierzytelniania formularzy (C#)
 ====================
@@ -43,8 +43,8 @@ Gdy moduł wykonawczy platformy ASP.NET przetwarza żądanie dla zasobu ASP.NET,
 
 *Moduły HTTP* są klasami zarządzanymi, którego kod jest wykonywany w odpowiedzi na wystąpienie określonego zdarzenia w cyklu życia żądania. Program ASP.NET jest dostarczany z modułów HTTP wykonywania podstawowych zadań w tle. Są dwa wbudowane moduły HTTP, które są szczególnie istotne w naszym dyskusji:
 
-- **[`FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)**— uwierzytelnia użytkownika, sprawdzając biletu uwierzytelniania formularzy, który zazwyczaj znajduje się w kolekcji plików cookie przez użytkownika. Jeśli nie biletu uwierzytelniania formularzy, użytkownik jest anonimowy.
-- **[`UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)**— Określa, czy bieżący użytkownik jest autoryzowany do dostępu do żądanego adresu URL. Ten moduł określa jako źródło przez zapoznanie się z reguł autoryzacji, określona w plikach konfiguracji aplikacji. Zawiera również ASP.NET [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx) określający urzędu, przeglądając pliki żądanej listy kontroli dostępu.
+- **[`FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)** — uwierzytelnia użytkownika, sprawdzając biletu uwierzytelniania formularzy, który zazwyczaj znajduje się w kolekcji plików cookie przez użytkownika. Jeśli nie biletu uwierzytelniania formularzy, użytkownik jest anonimowy.
+- **[`UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)** — Określa, czy bieżący użytkownik jest autoryzowany do dostępu do żądanego adresu URL. Ten moduł określa jako źródło przez zapoznanie się z reguł autoryzacji, określona w plikach konfiguracji aplikacji. Zawiera również ASP.NET [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx) określający urzędu, przeglądając pliki żądanej listy kontroli dostępu.
 
 `FormsAuthenticationModule` Próby uwierzytelnienia użytkownika przed `UrlAuthorizationModule` (i `FileAuthorizationModule`) wykonywania. Jeśli użytkownik, zgłoszenia żądania nie ma uprawnień dostępu do żądanego zasobu, moduł autoryzacji kończy żądanie i zwraca [HTTP 401 nieautoryzowane](http://www.checkupdown.com/status/E401.html) stanu. W scenariuszach uwierzytelniania systemu Windows stan HTTP 401, jest zwracana do przeglądarki. Ten kod stanu powoduje, że przeglądarka monit o podanie swoich poświadczeń za pomocą modalne okno dialogowe. Za pomocą uwierzytelniania formularzy, stan HTTP 401 nieautoryzowane nigdy nie są wysyłane do przeglądarki ponieważ FormsAuthenticationModule wykrywa tego stanu i modyfikuje je przekierowanie użytkownika do strony logowania, zamiast tego (za pośrednictwem [HTTP 302 przekierowania](http://www.checkupdown.com/status/E302.html) stanu).
 
@@ -103,7 +103,7 @@ Następnie dodaj nową stronę wzorcową do lokacji w katalogu głównym o nazwi
 **Rysunek 3**: Dodaj Site.master o nazwie wzorca strony do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-cs/_static/image7.png))
 
 
-Zdefiniuj tutaj układ strony całej lokacji, na stronie głównej. Można użyć widoku projektu i Dodaj formanty niezależnie od układu lub sieci Web należy, lub można ręcznie dodać kod znaczników ręcznie w widoku źródła. Strukturę I układ strony wzorcowej naśladować układu używane w mojej  *[Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)*  samouczka serii (patrz rysunek 4). Używa strony wzorcowej [kaskadowych arkuszy stylów](http://www.w3schools.com/css/default.asp) pozycjonowanie i style z ustawieniami CSS zdefiniowanych w pliku Style.css (który jest dołączony do pobierania tego samouczka). Gdy nie można ustalić, z poziomu znacznika pokazano poniżej, reguły CSS są zdefiniowane tak, aby nawigacji &lt;div&gt;w zawartości jest bezwzględnego, który pojawia się po lewej stronie i ma stałą szerokość 200 pikseli.
+Zdefiniuj tutaj układ strony całej lokacji, na stronie głównej. Można użyć widoku projektu i Dodaj formanty niezależnie od układu lub sieci Web należy, lub można ręcznie dodać kod znaczników ręcznie w widoku źródła. Strukturę I układ strony wzorcowej naśladować układu używane w mojej *[Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)* samouczka serii (patrz rysunek 4). Używa strony wzorcowej [kaskadowych arkuszy stylów](http://www.w3schools.com/css/default.asp) pozycjonowanie i style z ustawieniami CSS zdefiniowanych w pliku Style.css (który jest dołączony do pobierania tego samouczka). Gdy nie można ustalić, z poziomu znacznika pokazano poniżej, reguły CSS są zdefiniowane tak, aby nawigacji &lt;div&gt;w zawartości jest bezwzględnego, który pojawia się po lewej stronie i ma stałą szerokość 200 pikseli.
 
 [!code-aspx[Main](an-overview-of-forms-authentication-cs/samples/sample1.aspx)]
 
@@ -240,7 +240,7 @@ Przy założeniu, że podane poświadczenia są prawidłowe, należy utworzyć b
 
 - [GetAuthCookie (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.getauthcookie.aspx) — tworzy biletu uwierzytelniania formularzy dla podanej nazwy *username*. Następnie ta metoda tworzy i zwraca obiekt HttpCookie, który znajduje się zawartość biletu uwierzytelniania. Jeśli *persistCookie* ma wartość true, trwały plik cookie jest tworzony.
 - [SetAuthCookie (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx) — wywołuje GetAuthCookie (*username*, *persistCookie*) Metoda służąca do generowania pliku cookie uwierzytelniania formularzy. Ta metoda jest następnie dodaje plik cookie zwrócony przez GetAuthCookie do kolekcji plików cookie (przy założeniu, uwierzytelnianie formularzy opartych na pliki cookie są używane; w przeciwnym razie, ta metoda wywołuje Wewnętrzna klasa, obsługująca logiki biletu cookieless).
-- [RedirectFromLoginPage (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.redirectfromloginpage.aspx) — ta metoda wywołuje SetAuthCookie (*username*, *persistCookie* ), a następnie przekierowuje użytkownika do odpowiedniej strony.
+- [RedirectFromLoginPage (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.redirectfromloginpage.aspx) — ta metoda wywołuje SetAuthCookie (*username*, *persistCookie*), a następnie przekierowuje użytkownika do odpowiedniej strony.
 
 GetAuthCookie jest przydatne, gdy należy zmodyfikować biletu uwierzytelniania przed zapisaniem pliku cookie do kolekcji plików cookie. SetAuthCookie jest przydatne, jeśli chcesz utworzyć biletu uwierzytelniania formularzy i dodaj go do kolekcji plików cookie, ale nie chcesz przekierowuje użytkownika do odpowiedniej strony. Prawdopodobnie chcesz zachować je na stronie logowania lub wysyłać je do niektórych alternatywnej strony.
 
@@ -459,7 +459,7 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Kontrolek logowania programu ASP.NET](https://msdn.microsoft.com/library/d51ttbhx.aspx)
 - [Professional ASP.NET 2.0 zabezpieczeń, członkostwo i zarządzanie rolami](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
 - [`<authentication>` — Element](https://msdn.microsoft.com/library/532aee0e.aspx)
-- [`<forms>` Elementu`<authentication>`](https://msdn.microsoft.com/library/1d3t3c61.aspx)
+- [`<forms>` Elementu `<authentication>`](https://msdn.microsoft.com/library/1d3t3c61.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Szkolenie wideo na tematy zawarte w tym samouczku
 
@@ -467,12 +467,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla...
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został w tym samouczku, który serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku obejmują Alicja Maziarz, Jan Suru i Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](security-basics-and-asp-net-support-cs.md)
-[dalej](forms-authentication-configuration-and-advanced-topics-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](security-basics-and-asp-net-support-cs.md)
+> [dalej](forms-authentication-configuration-and-advanced-topics-cs.md)

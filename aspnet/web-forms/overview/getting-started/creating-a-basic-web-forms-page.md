@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/creating-a-basic-web-forms-page
 title: Tworzenie podstawowych programu ASP.NET 4.5 formularzy sieci Web strony w programie Visual Studio 2013 | Dokumentacja firmy Microsoft
 author: Erikre
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/03/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 6b699cc939292b7ab0167dba7cfa6a00b681ef3a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0dbd3063c9be3564637fad34e60f62c1662dcc07
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>Tworzenie podstawowych programu ASP.NET 4.5 formularzy sieci Web strony w programie Visual Studio 2013
 ====================
@@ -201,8 +201,8 @@ Program Visual Studio oferuje różne sposoby ustawiania właściwości formant�
 
     > [!NOTE] 
     > 
-    > Wszystkie opcje znajdują się wewnątrz **formularza** element, który również ma atrybut **runat =&quot;serwera&quot;**. **Runat =&quot;serwera&quot;**  atrybutu i **asp:** prefiksu do tagów formantów oznaczanie kontrolek tak, aby są przetwarzane przez program ASP.NET na serwerze po uruchomieniu na stronie. Kod poza  **&lt;tworzą runat =&quot;serwera&quot; &gt;**  i  **&lt;skryptu runat =&quot;serwera&quot; &gt;**  elementy są wysyłane bez zmian w przeglądarce, dlatego kodu platformy ASP.NET musi znajdować się wewnątrz elementu, którego otwierający tag zawiera **runat =&quot;serwera&quot;**  atrybutu.
-4. Następnie można dodać dodatkowych właściwości do [etykiety](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) formantu. Umieść punkt wstawiania bezpośrednio po **asp: Label** w  **&lt;asp: Label&gt;**  tag, a następnie naciśnij klawisz **spacja**.
+    > Wszystkie opcje znajdują się wewnątrz **formularza** element, który również ma atrybut **runat =&quot;serwera&quot;**. **Runat =&quot;serwera&quot;**  atrybutu i **asp:** prefiksu do tagów formantów oznaczanie kontrolek tak, aby są przetwarzane przez program ASP.NET na serwerze po uruchomieniu na stronie. Kod poza **&lt;tworzą runat =&quot;serwera&quot; &gt;** i **&lt;skryptu runat =&quot;serwera&quot; &gt;** elementy są wysyłane bez zmian w przeglądarce, dlatego kodu platformy ASP.NET musi znajdować się wewnątrz elementu, którego otwierający tag zawiera **runat =&quot;serwera&quot;**  atrybutu.
+4. Następnie można dodać dodatkowych właściwości do [etykiety](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) formantu. Umieść punkt wstawiania bezpośrednio po **asp: Label** w **&lt;asp: Label&gt;** tag, a następnie naciśnij klawisz **spacja**.
 
     Listy rozwijanej zostanie wyświetlone na liście dostępnych właściwości można ustawić dla [etykiety](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) formantu. Ta funkcja określana jako **IntelliSense**, pomaga w **źródła** widoku przy użyciu składni kontrolki serwera, elementów HTML i innych elementów na stronie. Na poniższej ilustracji pokazano **IntelliSense** listy rozwijanej dla [etykiety](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) formantu.
 
@@ -214,7 +214,7 @@ Program Visual Studio oferuje różne sposoby ustawiania właściwości formant�
     > [!NOTE] 
     > 
     > Można wyświetlić **IntelliSense** listy rozwijanej w dowolnym momencie przez naciśnięcie przycisku **CTRL + J** podczas przeglądania kodu.
-6. Wybierz kolor  **[etykiety](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)**  tekstu formantu. Upewnij się, że można wybrać kolor, który jest ciemny, aby przeczytać przed białe tło.
+6. Wybierz kolor **[etykiety](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)** tekstu formantu. Upewnij się, że można wybrać kolor, który jest ciemny, aby przeczytać przed białe tło.
 
     **ForeColor** atrybutu zostało zakończone z kolor, który wybrano, włączając zamykającego znaku cudzysłowu.
 
@@ -231,7 +231,7 @@ W ramach tego przewodnika będą pisania kodu, który odczytuje nazwę, że uży
 2. Kliknij dwukrotnie [przycisk](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) formantu.
 
     Domyślnie program Visual Studio przełącza się do pliku CodeBehind i tworzy program obsługi zdarzeń szkielet dla [przycisk](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) formantu domyślne zdarzenie, [kliknij](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) zdarzeń. Plik CodeBehind oddziela Twoje znaczników interfejsu użytkownika (na przykład HTML) w kodzie serwera (takich jak C#).   
-Kursor znajduje się dodawać kod dla tego programu obsługi zdarzeń.
+   Kursor znajduje się dodawać kod dla tego programu obsługi zdarzeń.
 
     > [!NOTE] 
     > 
@@ -247,7 +247,7 @@ Kursor znajduje się dodawać kod dla tego programu obsługi zdarzeń.
 
     [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample2.vb?highlight=2)]
 5. Wrócić do wyświetlania **źródła** widoku z kod znaczników HTML, klikając prawym przyciskiem myszy *FirstWebPage.aspx* w **Eksploratora rozwiązań** i wybierając **widoku Kod znaczników**.
-6. Przewiń do  **&lt;asp: Button&gt;**  elementu. Należy pamiętać, że  **&lt;asp: Button&gt;**  element ma teraz atrybut **onclick =&quot;Button1\_kliknij&quot;**.
+6. Przewiń do **&lt;asp: Button&gt;** elementu. Należy pamiętać, że **&lt;asp: Button&gt;** element ma teraz atrybut **onclick =&quot;Button1\_kliknij&quot;**.
 
     Ten atrybut jest powiązany przycisku [kliknij](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) zdarzeń do metody obsługi kodowanych w poprzednim kroku.
 
@@ -268,7 +268,7 @@ Teraz możesz przetestować kontrolki serwera na stronie.
     Wprowadzona nazwa jest wyświetlana w [etykiety](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) formantu. Należy pamiętać, że po kliknięciu przycisku Strona jest przesyłana do serwera sieci Web. ASP.NET następnie tworzy ponownie strony, uruchamia kod (w takim przypadku [przycisk](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) formantu [kliknij](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) uruchamia program obsługi zdarzeń), a następnie wysyła nowej strony do przeglądarki. Obejrzyj paska stanu w przeglądarce, widać czy strona jest wprowadzenie obiegu do serwera sieci Web każdorazowo po kliknięciu przycisku.
 3. W przeglądarce, Wyświetl źródło strony są uruchomione, klikając prawym przyciskiem myszy na stronie i wybierając **Wyświetl źródło**.
 
-    W kodzie źródłowym strony widać HTML bez żadnego kodu serwera. W szczególności nie ma  **&lt;asp:&gt;**  elementów, które pracowano w **źródła** widoku. Po uruchomieniu strony ASP.NET przetwarza kontrolki serwera i renderowania elementów HTML do strony, które wykonują funkcje, które reprezentują formantu. Na przykład  **&lt;asp: Button&gt;**  renderowania formantu jako HTML  **&lt;wprowadzania type =&quot;przesłać&quot; &gt;**  element.
+    W kodzie źródłowym strony widać HTML bez żadnego kodu serwera. W szczególności nie ma **&lt;asp:&gt;** elementów, które pracowano w **źródła** widoku. Po uruchomieniu strony ASP.NET przetwarza kontrolki serwera i renderowania elementów HTML do strony, które wykonują funkcje, które reprezentują formantu. Na przykład **&lt;asp: Button&gt;** renderowania formantu jako HTML **&lt;wprowadzania type =&quot;przesłać&quot; &gt;** element.
 4. Zamknij przeglądarkę.
 
 
@@ -297,7 +297,7 @@ W tej sekcji dodasz [System.Web.UI.WebControls.Calendar](https://msdn.microsoft.
 4. Z **wybierz schemat** wybierz **proste** , a następnie kliknij przycisk **OK**.
 5. Przełącz się do **źródła** widoku.
 
-    Widać  **&lt;asp: kalendarza&gt;**  elementu. Ten element jest znacznie dłużej niż elementy prostych formantów utworzony wcześniej. Zawiera także podelementów, takich jak  **&lt;WeekEndDayStyle&gt;**, które reprezentują różne ustawienia formatowania. Na poniższej ilustracji pokazano [kalendarza](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) kontroli w **źródła** widoku. (Dokładny kod znaczników, który pojawi się w **źródła** widok może różnić się nieznacznie od ilustracji.)
+    Widać **&lt;asp: kalendarza&gt;** elementu. Ten element jest znacznie dłużej niż elementy prostych formantów utworzony wcześniej. Zawiera także podelementów, takich jak  **&lt;WeekEndDayStyle&gt;**, które reprezentują różne ustawienia formatowania. Na poniższej ilustracji pokazano [kalendarza](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) kontroli w **źródła** widoku. (Dokładny kod znaczników, który pojawi się w **źródła** widok może różnić się nieznacznie od ilustracji.)
 
     ![Formantu w widoku źródła kalendarza](creating-a-basic-web-forms-page/_static/image15.png "formantu w widoku źródła kalendarza")
 
@@ -316,10 +316,12 @@ W tej sekcji zostanie program [kalendarza](https://msdn.microsoft.com/library/sy
 2. Zakończ [SelectionChanged](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selectionchanged.aspx) obsługi zdarzeń z następującym kodem.
 
 
-    [!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
+~~~
+[!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
 
 
-    [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
+[!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
+~~~
 
  Powyższy kod ustawia tekst formantu etykiety wybranego dnia formantu kalendarza.
 

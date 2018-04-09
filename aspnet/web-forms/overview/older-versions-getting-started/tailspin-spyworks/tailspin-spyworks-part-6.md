@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
-title: "Część 6: Członkostwo ASP.NET | Dokumentacja firmy Microsoft"
+title: 'Część 6: Członkostwo ASP.NET | Dokumentacja firmy Microsoft'
 author: JoeStagner
-description: "Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 6 dodaje członkostwa ASP.NET."
+description: Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 6 dodaje członkostwa ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: efb0e2bed1172f42c7f1539f016fba305c47e3eb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83e9bc780ea8face3e0f55fdf8c00e13b60f80a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-6-aspnet-membership"></a>Część 6: Członkostwo ASP.NET
 ====================
@@ -27,7 +27,7 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 > Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 6 dodaje członkostwa ASP.NET.
 
 
-## <a id="_Toc260221672"></a>Praca z członkostwa ASP.NET
+## <a id="_Toc260221672"></a>  Praca z członkostwa ASP.NET
 
 ![](tailspin-spyworks-part-6/_static/image1.png)
 
@@ -112,6 +112,6 @@ Na potrzeby tej przykładowej aplikacji firma Microsoft będzie obliczać Data w
 
 Uruchamianie aplikacji teraz pozwolą firmie Microsoft w celu przetestowania zakupów procesu od początku do końca.
 
->[!div class="step-by-step"]
-[Poprzednie](tailspin-spyworks-part-5.md)
-[dalej](tailspin-spyworks-part-7.md)
+> [!div class="step-by-step"]
+> [Poprzednie](tailspin-spyworks-part-5.md)
+> [dalej](tailspin-spyworks-part-7.md)

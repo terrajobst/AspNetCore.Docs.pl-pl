@@ -1,7 +1,7 @@
 ---
-title: Interfejsy API klienta
+title: Interfejsy API klienta dla platformy ASP.NET Core
 author: rick-anderson
-description: "Ten dokument służy jako spisu treści dla różnych danych interfejsu API klienta platformy ASP.NET Core: ochrony tematów."
+description: 'Więcej informacji na temat różnych danych interfejsu API klienta platformy ASP.NET Core: ochrony tematów.'
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,22 +9,22 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/index
-ms.openlocfilehash: a36dbaa7c34ed0cd99bfb2b27a9d59b81ffccbcf
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d7ca1104b0a14a330df8d13be58425b3371bff73
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="consumer-apis"></a>Interfejsy API klienta
+# <a name="consumer-apis-for-aspnet-core"></a>Interfejsy API klienta dla platformy ASP.NET Core
 
-* [Omówienie interfejsów API przeznaczonych dla klientów](overview.md)
+* [Omówienie interfejsów API przeznaczonych dla klientów](xref:security/data-protection/consumer-apis/overview)
 
-* [Ciągi celów](purpose-strings.md)
+* [Ciągi celów](xref:security/data-protection/consumer-apis/purpose-strings)
 
-* [Hierarchia celów i obsługa wielu dzierżawców](purpose-strings-multitenancy.md)
+* [Hierarchia celów i obsługa wielu dzierżawców](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)
 
-* [Tworzenia skrótów haseł](password-hashing.md)
+* [Skrót hasła](xref:security/data-protection/consumer-apis/password-hashing)
 
-* [Ograniczanie okresu istnienia ładunków chronionych](limited-lifetime-payloads.md)
+* [Ograniczanie okresu istnienia ładunków chronionych](xref:security/data-protection/consumer-apis/limited-lifetime-payloads)
 
-* [Wyłączanie ochrony ładunków, których klucze zostały odwołane](dangerous-unprotect.md)
+* [Wyłączanie ochrony ładunków, których klucze zostały odwołane](xref:security/data-protection/consumer-apis/dangerous-unprotect)

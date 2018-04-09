@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
-title: "Wdrożenie kompilacji konfigurowania uprawnień dla zespołu | Dokumentacja firmy Microsoft"
+title: Wdrożenie kompilacji konfigurowania uprawnień dla zespołu | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób konfigurowania uprawnień do włączania na serwerze kompilacji w celu wdrażania zawartości serwerów sieci web i serwery baz danych jako część automatycznych b..."
+description: W tym temacie opisano sposób konfigurowania uprawnień do włączania na serwerze kompilacji w celu wdrażania zawartości serwerów sieci web i serwery baz danych jako część automatycznych b...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cb3d013d69e36f97335ea31dd6e4997772ba2d8e
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4698349d664816ec49475bbfe71fb32af79ea96d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Konfigurowanie uprawnień dla zespołu wdrożenie kompilacji
 ====================
@@ -27,9 +27,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > W tym temacie opisano sposób konfigurowania uprawnień, aby włączyć serwer kompilacji w celu wdrażania zawartości serwerów sieci web i serwery baz danych jako część procesu automatycznego tworzenia.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji projektu dwa pliki & #x 2014; jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
 
 ## <a name="task-overview"></a>Omówienie zadań
 
@@ -38,7 +38,7 @@ Podczas instalowania usługi kompilacji 2010 Team Foundation Server (TFS), możn
 Wszystkie zadania wdrażania, które wymagają uwierzytelniania systemu Windows i planujesz zautomatyzować za pomocą Team Build, zostanie uruchomiony przy użyciu tożsamości usługi kompilacji. Tak należy udzielić tożsamości usługi kompilacji wszelkich wymaganych uprawnień na serwerach bazy danych i serwerów sieci web.
 
 > [!NOTE]
-> Konto Usługa sieciowa używa konta komputera do uwierzytelniania na inne komputery. Konta komputera formę * [nazwa domeny]\[nazwa komputera] ***$**& #x 2014, na przykład **FABRIKAM\TFSBUILD$**. Tak usługa kompilacji jest uruchomiona przy użyciu tożsamości Network Service, należy udzielić uprawnień wymaganych do tożsamość konta komputera dla serwera kompilacji.
+> Konto Usługa sieciowa używa konta komputera do uwierzytelniania na inne komputery. Konta komputera formę * [nazwa domeny]\[nazwa komputera] ***$**&#x2014;na przykład **FABRIKAM\TFSBUILD$**. Tak usługa kompilacji jest uruchomiona przy użyciu tożsamości Network Service, należy udzielić uprawnień wymaganych do tożsamość konta komputera dla serwera kompilacji.
 
 
 ## <a name="configuring-web-server-permissions"></a>Konfigurowanie uprawnień serwera sieci Web
@@ -50,7 +50,7 @@ Zgodnie z opisem w [Wybieranie podejście prawo do wdrożenia w sieci Web](../co
 
 Agent zdalnego ma dwa ograniczenia klucza w takim przypadku:
 
-- Agent zdalnego obsługuje tylko uwierzytelnianie NTLM. Innymi słowy wdrożenia musi używać tożsamości usługi kompilacji & #x 2014; nie można spersonifikować innego konta.
+- Agent zdalnego obsługuje tylko uwierzytelnianie NTLM. Innymi słowy, wdrożenie musi używać tożsamości usługi kompilacji&#x2014;nie może spersonifikować innego konta.
 - Aby używać zdalnego agenta, konto, które wykonuje wdrożenia musi być administratorem na serwerze docelowym.
 
 Ze sobą te dwie ograniczenia uczynienia agenta zdalnego niepożądanych dla automatycznego wdrażania Team Build. Aby użyć tej metody, konieczne będzie konto administratora na wszystkich serwerach sieci web docelowy usługa kompilacji.
@@ -93,5 +93,5 @@ W tym momencie należy zrozumieć uprawnień wymaganych, wraz z, Otwórz opcje u
 
 Aby uzyskać więcej informacji na temat konfigurowania systemu Windows server w środowiskach do obsługi zdalnego wdrażania, zobacz [Konfigurowanie środowiska serwera sieci Web wdrożenia](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md).
 
->[!div class="step-by-step"]
-[Poprzednie](deploying-a-specific-build.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deploying-a-specific-build.md)

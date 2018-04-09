@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
-title: "Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: wdrażania w środowisku produkcyjnym - 7 12 | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: wdrażania w środowisku produkcyjnym - 7 12 | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Tej serii samouczków opisano sposób wdrażania platformy ASP.NET (publikowanie) projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu..."
+description: Tej serii samouczków opisano sposób wdrażania platformy ASP.NET (publikowanie) projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 4aa6766c2c7765f499f5c5380962a5fe443e8c9d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ab3b7ba332deddae7d04fc37c7aabc72bdb2d17e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: wdrażania w środowisku produkcyjnym - 7 12
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -125,7 +125,7 @@ W **importowania ustawień publikowania** okno dialogowe, wybierz opcję *.publi
 
 ![Publikowanie na karcie Połączenie Kreatora sieci Web](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image26.png)
 
-Plik .publishsettings umieszcza planowane stały adres URL witryny w polu docelowy adres URL, ale jeśli nie została jeszcze zakupiona tej domeny, zastąp wartość tymczasowego adresu URL. Na przykład adres URL jest  *[http://contosouniversity.com.vserver01.cytanium.com](http://contosouniversity.com.vserver01.cytanium.com).* Jedynym celem tego pola jest aby określić adres URL, które zostanie otwarta przeglądarka automatycznie po pomyślnym po wdrożeniu. Jeśli pole pozostanie puste, tylko konsekwencją jest, że przeglądarka nie uruchamia się automatycznie po wdrożeniu.
+Plik .publishsettings umieszcza planowane stały adres URL witryny w polu docelowy adres URL, ale jeśli nie została jeszcze zakupiona tej domeny, zastąp wartość tymczasowego adresu URL. Na przykład adres URL jest  *[ http://contosouniversity.com.vserver01.cytanium.com ](http://contosouniversity.com.vserver01.cytanium.com).* Jedynym celem tego pola jest aby określić adres URL, które zostanie otwarta przeglądarka automatycznie po pomyślnym po wdrożeniu. Jeśli pole pozostanie puste, tylko konsekwencją jest, że przeglądarka nie uruchamia się automatycznie po wdrożeniu.
 
 Kliknij przycisk **sprawdzania poprawności połączenia** można sprawdzić, czy ustawienia są poprawne i czy można połączyć się z serwerem. Zielony znacznik wyboru, jak przedstawiono wcześniej, sprawdza, czy połączenie zostanie nawiązane.
 
@@ -137,9 +137,9 @@ Kliknij przycisk **Dalej**.
 
 W **baz danych** sekcji **ustawienia** wprowadź takie same wartości, które zostały wprowadzone w teście profilu publikowania. Parametry połączenia, które są potrzebne znajdują się na liście rozwijanej.
 
-- W polu Parametry połączenia dla **SchoolContext,** wybierz`Data Source=|DataDirectory|School-Prod.sdf`
+- W polu Parametry połączenia dla **SchoolContext,** wybierz `Data Source=|DataDirectory|School-Prod.sdf`
 - W obszarze **SchoolContext**, wybierz pozycję **zastosować migracje Code First**.
-- W polu Parametry połączenia dla **połączenia DefaultConnection**, wybierz pozycję`Data Source=|DataDirectory|aspnet-Prod.sdf`
+- W polu Parametry połączenia dla **połączenia DefaultConnection**, wybierz pozycję `Data Source=|DataDirectory|aspnet-Prod.sdf`
 - W obszarze **połączenia DefaultConnection**, pozostaw **aktualizacji bazy danych** wyczyszczone.
 
 ![Publikowanie karcie Ustawienia Kreatora sieci Web](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image28.png)
@@ -252,6 +252,6 @@ Tworzenie drugiego konta hostingu jest podejście do pracy z środowiska testowe
 
 W następnym samouczku możesz zaktualizować kodu aplikacji i wdrażanie zmiany do tych środowisk testowych i produkcyjnych.
 
->[!div class="step-by-step"]
-[Poprzednie](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
-[dalej](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
+> [dalej](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)

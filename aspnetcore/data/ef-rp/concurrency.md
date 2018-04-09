@@ -1,7 +1,7 @@
 ---
-title: "Stron razor podstawowych EF w platformy ASP.NET Core - współbieżności - 8 8"
+title: Stron razor podstawowych EF w platformy ASP.NET Core - współbieżności - 8 8
 author: rick-anderson
-description: "Ten samouczek pokazuje sposób obsługi konfliktów w przypadku wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie."
+description: Ten samouczek pokazuje sposób obsługi konfliktów w przypadku wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 3921abe0b3741e906ff09b3dfd969214933ff83c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 1a5d1bdcb20da8270a0605c3937af2a8700a4e7f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 en-us /
 
@@ -21,7 +21,7 @@ en-us /
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Dykstra Tomasz](https://github.com/tdykstra), i [Jan Kowalski P](https://twitter.com/thereformedprog)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 Ten samouczek pokazuje sposób obsługi konflikty, gdy wielu użytkowników zaktualizować jednostki, jednocześnie (w tym samym czasie). Jeśli wystąpiły problemy, nie można rozwiązać, Pobierz [ukończonej aplikacji dla tego etapu](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part8).
 
@@ -57,19 +57,19 @@ Optymistycznej współbieżności zawiera następujące opcje:
 
 * Można zachować informacje o właściwości, które zostało zmodyfikowane przez użytkownika i aktualizować tylko odpowiednie kolumny w bazie danych.
 
- W tym scenariuszu żadne dane nie może zostać utracone. Inne właściwości zostały zaktualizowane przez użytkowników. Przy następnym ktoś przegląda w angielskiej wersji językowej działu, zobaczą zmiany zarówno Joanny i jego Jan. Ta metoda aktualizacji może zmniejszyć liczbę konfliktów, które może spowodować utratę danych. Takie podejście: * nie można uniknąć utraty danych, jeśli konkurują zmian z tą samą właściwością.
+  W tym scenariuszu żadne dane nie może zostać utracone. Inne właściwości zostały zaktualizowane przez użytkowników. Przy następnym ktoś przegląda w angielskiej wersji językowej działu, zobaczą zmiany zarówno Joanny i jego Jan. Ta metoda aktualizacji może zmniejszyć liczbę konfliktów, które może spowodować utratę danych. Takie podejście: * nie można uniknąć utraty danych, jeśli konkurują zmian z tą samą właściwością.
         * Jest zazwyczaj nie jest praktyczne w aplikacji sieci web. Wymaga to zachowanie znaczących stanu w celu śledzenia wszystkich pobranych oraz nowych wartości. Obsługa dużych ilości stan może mieć wpływ na wydajność aplikacji.
         * Może zwiększyć złożoność aplikacji w porównaniu do wykrywania współbieżności na jednostkę.
 
 * Możesz pozwolić, aby zmiany w Jan zastąpić zmiany nazwy.
 
- Przy następnym ktoś przegląda w angielskiej wersji językowej działu, zobaczą 9/1/2013 i pobranych wartość $350,000.00. Ta metoda jest wywoływana *klienta Wins* lub *ostatniego w usłudze Wins* scenariusza. (Wszystkie wartości z klienta wyższy priorytet niż co znajduje się w magazynie danych). Jeśli nie ma żadnych kodowania obsługi współbieżności, Wins klienta odbywa się automatycznie.
+  Przy następnym ktoś przegląda w angielskiej wersji językowej działu, zobaczą 9/1/2013 i pobranych wartość $350,000.00. Ta metoda jest wywoływana *klienta Wins* lub *ostatniego w usłudze Wins* scenariusza. (Wszystkie wartości z klienta wyższy priorytet niż co znajduje się w magazynie danych). Jeśli nie ma żadnych kodowania obsługi współbieżności, Wins klienta odbywa się automatycznie.
 
 * Aby uniemożliwić zmianę jego Jan aktualizację w bazie danych. Zwykle, czy aplikacja: * wyświetlony komunikat o błędzie.
         * Wyświetlić bieżący stan danych.
         * Umożliwia użytkownikowi ponownie zastosuj zmiany.
 
- Ta metoda jest wywoływana *Wins magazynu* scenariusza. (Wartości magazynu danych mają priorytet nad wartości przesłany przez klienta). W tym samouczku należy wdrożyć scenariusz dla magazynu usługi Wins. Ta metoda gwarantuje, że żadne zmiany nie zostaną zastąpione bez użytkownika w tym celu.
+  Ta metoda jest wywoływana *Wins magazynu* scenariusza. (Wartości magazynu danych mają priorytet nad wartości przesłany przez klienta). W tym samouczku należy wdrożyć scenariusz dla magazynu usługi Wins. Ta metoda gwarantuje, że żadne zmiany nie zostaną zastąpione bez użytkownika w tym celu.
 
 ## <a name="handling-concurrency"></a>Obsługa współbieżności 
 
@@ -158,9 +158,9 @@ Poprzednie polecenia:
 * Otwórz okno polecenia w katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
 * Uruchom następujące polecenie:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
+  ```
 
 Poprzedni rusztowania polecenia `Department` modelu. Otwórz projekt w programie Visual Studio.
 
@@ -308,5 +308,5 @@ Zobacz [dziedziczenia](xref:data/ef-mvc/inheritance) na temat sposobu dziedzicz�
 * [Tokeny współbieżności w EF Core](https://docs.microsoft.com/ef/core/modeling/concurrency)
 * [Obsługa współbieżności w EF Core](https://docs.microsoft.com/ef/core/saving/concurrency)
 
->[!div class="step-by-step"]
-[Poprzednie](xref:data/ef-rp/update-related-data)
+> [!div class="step-by-step"]
+> [Poprzednie](xref:data/ef-rp/update-related-data)

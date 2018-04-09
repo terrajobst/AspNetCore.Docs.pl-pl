@@ -1,7 +1,7 @@
 ---
-title: "Obsługę protokołu WebSockets w ASP.NET Core"
+title: Obsługę protokołu WebSockets w ASP.NET Core
 author: tdykstra
-description: "Dowiedz się, jak rozpocząć pracę z Websocket w ASP.NET Core."
+description: Dowiedz się, jak rozpocząć pracę z Websocket w ASP.NET Core.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/websockets
-ms.openlocfilehash: c6ad2ea249bf837ce86685b67e6460e433692849
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: e744ab5b81ff85f48edb012a86b55003cc74929c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-websockets-in-aspnet-core"></a>Wprowadzenie do protokołu WebSockets w platformy ASP.NET Core
+# <a name="websockets-support-in-aspnet-core"></a>Obsługę protokołu WebSockets w ASP.NET Core
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Andrew Stanton pielęgniarki](https://github.com/anurse)
 
@@ -43,7 +43,7 @@ W tym artykule wyjaśniono, jak rozpocząć pracę z Websocket w ASP.NET Core. [
 
   * Windows 8 / Windows Server 2012 lub nowszy
 
-* W przypadku obsługiwanych przeglądarek Zobacz https://caniuse.com/#feat=websockets.
+* W przypadku obsługiwanych przeglądarek, zobacz https://caniuse.com/#feat=websockets.
 
 ## <a name="when-to-use-websockets"></a>Kiedy należy używać protokołu WebSockets
 

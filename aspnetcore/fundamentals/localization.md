@@ -1,7 +1,7 @@
 ---
 title: Globalizacja i lokalizacja w ASP.NET Core
 author: rick-anderson
-description: "Dowiedz się, jak platformy ASP.NET Core udostępnia usługi i oprogramowanie pośredniczące dla lokalizacji zawartości do innych języków i kultur."
+description: Dowiedz się, jak platformy ASP.NET Core udostępnia usługi i oprogramowanie pośredniczące dla lokalizacji zawartości do innych języków i kultur.
 manager: wpickett
 ms.author: riande
 ms.date: 01/14/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: eb31bd81c5c3da27c8d412462d1c537aa85e4f8b
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 3ae73cb40b4db492883f302aeb559b9606aa8ee7
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w ASP.NET Core
 
@@ -91,8 +91,8 @@ Aby użyć pliku zasobu udostępnionego w widoku, wstrzyknąć `IHtmlLocalizer<T
 
 Komunikaty o błędach DataAnnotations są zlokalizowane z `IStringLocalizer<T>`. Przy użyciu opcji `ResourcesPath = "Resources"`, komunikaty o błędach w `RegisterViewModel` mogą być przechowywane w jednym z następujących ścieżek:
 
-* Resources/ViewModels.Account.RegisterViewModel.fr.resx
-* Resources/ViewModels/Account/RegisterViewModel.fr.resx
+* *Resources/ViewModels.Account.RegisterViewModel.fr.resx*
+* *Resources/ViewModels/Account/RegisterViewModel.fr.resx*
 
 [!code-csharp[](localization/sample/Localization/ViewModels/Account/RegisterViewModel.cs?start=9&end=26)]
 
@@ -114,9 +114,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-W kodzie poprzedzających `SharedResource` jest klasa odpowiadający resx przechowywania wiadomości sprawdzania poprawności. Takie podejście, DataAnnotations tylko za pomocą `SharedResource`, zamiast zasobów dla każdej klasy. 
+W kodzie poprzedzających `SharedResource` jest klasa odpowiadający resx przechowywania wiadomości sprawdzania poprawności. Takie podejście, DataAnnotations tylko za pomocą `SharedResource`, zamiast zasobów dla każdej klasy.
 
-## <a name="provide-localized-resources-for-the-languages-and-cultures-you-support"></a>Podaj zlokalizowanych zasobów dla języków i kultur, która jest obsługiwana  
+## <a name="provide-localized-resources-for-the-languages-and-cultures-you-support"></a>Podaj zlokalizowanych zasobów dla języków i kultur, która jest obsługiwana
 
 ### <a name="supportedcultures-and-supporteduicultures"></a>SupportedCultures i SupportedUICultures
 
@@ -172,17 +172,25 @@ Jeśli nie używasz `ResourcesPath` opcji *.resx* pliku dla widoku będzie znajd
 
 ## <a name="culture-fallback-behavior"></a>Działanie rezerwowe kultury
 
+Podczas wyszukiwania zasobów, lokalizacja uczestniczy w "kultury rezerwowej". Począwszy od żądaną kulturę, jeśli nie można odnaleźć, przywraca Kultura nadrzędna tej kultury. Jako Zarezerwuj [CultureInfo.Parent](/dotnet/api/system.globalization.cultureinfo.parent) właściwość reprezentuje Kultura nadrzędna. Oznacza to, zwykle (ale nie zawsze) usuwanie national signifier z obrazem ISO. Na przykład dialekt hiszpański używany w Meksyk jest "es-MX". Ma element nadrzędny "es"&mdash;hiszpańskim nieokreślonym w dowolnym kraju.
+
+Załóżmy, że witryny odbiera żądanie dla zasobu "-Zapraszamy!" przy użyciu kultury "fr-CA". Lokalizacja systemu sprawdza następujące zasoby w kolejności i wybiera pierwszego dopasowania:
+
+* *Welcome.fr-CA.resx*
+* *Welcome.fr.resx*
+* *Welcome.resx* (Jeśli `NeutralResourcesLanguage` jest "fr-CA")
+
 Na przykład jeśli usuniesz określenia kultury ".fr" i ma kultury ustawione na język francuski, domyślny plik zasobu jest do odczytu i są zlokalizowane ciągi. Menedżer zasobów wyznacza domyślny lub rezerwowej zasobu dla Jeśli nic nie spełnia Twoje żądaną kulturę. Jeśli chcesz przywrócić klucz tylko, gdy nie ma zasobu dla żądanego kultury nie może mieć domyślnego pliku zasobów.
 
 ### <a name="generate-resource-files-with-visual-studio"></a>Generowanie plików zasobów z programem Visual Studio
 
-Jeśli utworzysz plik zasobów w programie Visual Studio bez kultury w nazwie pliku (na przykład *Welcome.resx*), programu Visual Studio utworzy klasę C# z właściwością dla każdego ciągu. To zwykle nie chcesz z platformy ASP.NET Core; zwykle nie ma wartości domyślnej *.resx* pliku zasobów (A *.resx* pliku bez nazwy kultury). Zaleca się tworzenia *.resx* plik o nazwie kultury (na przykład *Welcome.fr.resx*). Po utworzeniu *.resx* plik o nazwie kultury, Visual Studio nie będzie Generowanie pliku klasy. Przewidujemy, że będzie wielu deweloperów **nie** Utwórz plik zasobu języka domyślnego.
+Jeśli utworzysz plik zasobów w programie Visual Studio bez kultury w nazwie pliku (na przykład *Welcome.resx*), programu Visual Studio utworzy klasę C# z właściwością dla każdego ciągu. To zwykle nie chcesz z platformy ASP.NET Core. Zwykle nie ma wartości domyślnej *.resx* pliku zasobów ( *.resx* pliku bez nazwy kultury). Zaleca się tworzenia *.resx* plik o nazwie kultury (na przykład *Welcome.fr.resx*). Po utworzeniu *.resx* plik o nazwie kultury, Visual Studio nie będzie Generowanie pliku klasy. Przewidujemy, że wielu deweloperów nie utworzy plik domyślny język zasobu.
 
 ### <a name="add-other-cultures"></a>Dodawanie innych kultur
 
-Każda kombinacja języka i kultury (innego niż domyślny język) wymaga pliku unikatowy zasób. Tworzenie plików zasobów dla innych kultur i ustawień regionalnych przez tworzenie nowych plików zasobów, w których kodów języka ISO należą do nazwy pliku (na przykład **en-us**, **fr-ca**, i  **pl pl.**). Te kody ISO umieszcza się pomiędzy nazwą i *.resx* rozszerzeniem, podobnie jak w *Welcome.es MX.resx* Hiszpański/Meksyk (). Aby określić kulturalnie niezależnym od języka, usuń numer kierunkowy kraju (`MX` w poprzednim przykładzie). Nazwa pliku kulturalnie neutralnego zasobu hiszpańskim jest *Welcome.es.resx*.
+Każda kombinacja języka i kultury (innego niż domyślny język) wymaga pliku unikatowy zasób. Tworzenie plików zasobów dla innych kultur i ustawień regionalnych przez tworzenie nowych plików zasobów, w których kodów języka ISO należą do nazwy pliku (na przykład **en-us**, **fr-ca**, i  **pl pl.**). Te kody ISO umieszcza się pomiędzy nazwą i *.resx* pliku rozszerzenie, podobnie jak w *Welcome.es MX.resx* Hiszpański/Meksyk ().
 
-## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Wdrożenie strategii wybierz języka/kultury dla każdego żądania  
+## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Wdrożenie strategii wybierz języka/kultury dla każdego żądania
 
 ### <a name="configure-localization"></a>Konfigurowanie lokalizacji
 

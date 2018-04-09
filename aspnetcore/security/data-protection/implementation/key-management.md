@@ -1,7 +1,7 @@
 ---
-title: "Zarządzanie kluczami"
+title: Zarządzania kluczami w programie ASP.NET Core
 author: rick-anderson
-description: "W tym dokumencie przedstawiono szczegóły implementacji platformy ASP.NET Core danych ochrony zarządzanie kluczami interfejsów API."
+description: Szczegóły dotyczące implementacji interfejsów API zarządzania kluczami ochrony danych platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: a1fd7c55ec94d5def569bb407c064f4fd2fe9695
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 1b073d8779547a828c17e825b0663b26efb61d14
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-management"></a>Zarządzanie kluczami
+# <a name="key-management-in-aspnet-core"></a>Zarządzania kluczami w programie ASP.NET Core
 
 <a name="data-protection-implementation-key-management"></a>
 
@@ -29,7 +29,7 @@ System ochrony danych automatycznie zarządza czasem istnienia kluczy głównych
 
 * Odwołany — klucz zostanie naruszony i nie mogą być używane dla nowej operacji Chroń.
 
-Utworzony, aktywne i wygasłe klucze mogą używane do usunięcia ochrony ładunków przychodzących. Odwołania kluczy domyślnie nie można używać do usunięcia ochrony ładunków, ale Deweloper aplikacji może [zastąpienia tego zachowania](../consumer-apis/dangerous-unprotect.md#data-protection-consumer-apis-dangerous-unprotect) w razie potrzeby.
+Utworzony, aktywne i wygasłe klucze mogą używane do usunięcia ochrony ładunków przychodzących. Odwołania kluczy domyślnie nie można używać do usunięcia ochrony ładunków, ale Deweloper aplikacji może [zastąpienia tego zachowania](xref:security/data-protection/consumer-apis/dangerous-unprotect#data-protection-consumer-apis-dangerous-unprotect) w razie potrzeby.
 
 >[!WARNING]
 > Deweloper może być wydawać się usuwanie klucza z pierścienia klucz (np. przez usunięcie odpowiedniego pliku z systemu plików). W tym momencie wszystkie dane chronione za pomocą klucza jest trwale niemożliwe do odczytania, a nie zastąpień awaryjnego, tak jak w przypadku kluczy odwołane. Usuwanie klucza jest rzeczywiście destrukcyjnego zachowanie, i w związku z tym system ochrony danych udostępnia żadnego pierwszej klasy interfejsu API do wykonania tej operacji.
@@ -83,6 +83,6 @@ Poniższy przykład pokazuje, przy użyciu `IKeyManager` interfejs do przegląda
 
 System ochrony danych ma heurystycznego, zgodnie z którymi spróbuje automatycznie wywnioskować lokalizacji odpowiedniego magazynu kluczy i szyfrowania w mechanizm rest. Dotyczy to również konfigurowane przez dewelopera aplikacji. Poniższe dokumenty omówiono implementacje pola w tych mechanizmów:
 
-* [W polu dostawcy magazynu kluczy](key-storage-providers.md#data-protection-implementation-key-storage-providers)
+* [W polu dostawcy magazynu kluczy](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers)
 
-* [W polu klucza szyfrowania dostawców rest](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers)
+* [W polu klucza szyfrowania dostawców rest](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest-providers)

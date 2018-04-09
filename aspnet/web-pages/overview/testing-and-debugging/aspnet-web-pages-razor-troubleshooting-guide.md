@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
-title: "ASP.NET Web Pages przewodnik rozwiązywania problemów (Razor) | Dokumentacja firmy Microsoft"
+title: ASP.NET Web Pages przewodnik rozwiązywania problemów (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym artykule opisano problemy, które mogą wystąpić podczas pracy z stron sieci Web platformy ASP.NET (Razor) oraz sugerowane rozwiązania. Wersje oprogramowania Zazn sieci Web ASP.NET..."
+description: W tym artykule opisano problemy, które mogą wystąpić podczas pracy z stron sieci Web platformy ASP.NET (Razor) oraz sugerowane rozwiązania. Wersje oprogramowania Zazn sieci Web ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: 2e25e9c7cea937016301e0f11919adb9647ca216
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ec51169ccea0016712de3fdb28a16a174150a8bd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>Strony sieci Web platformy ASP.NET (Razor) przewodnik rozwiązywania problemów
 ====================
@@ -144,12 +144,12 @@ Zastąp odpowiednimi wartościami dla `your-SMTP-server-name`i tak dalej. Komuni
     *Próba połączenia nie powiodła się, ponieważ strona połączenia nie odpowiada prawidłowo po upływie określonego czasu lub utworzone połączenie nie powiodło się, ponieważ połączony host nie odpowiada*
 
     Ten błąd oznacza, że aplikacji nie może połączyć się z serwerem SMTP. Sprawdź nazwę serwera i numer portu.
-- *Skrzynka pocztowa jest niedostępna. Odpowiedź serwera: 5.1.0 &lt; someuser@invaliddomain &gt; nadawcy odrzucone: nieprawidłowy nadawcy domeny*
+- <em>Skrzynka pocztowa jest niedostępna. Odpowiedź serwera: 5.1.0 &lt; someuser@invaliddomain &gt; nadawcy odrzucone: nieprawidłowy nadawcy domeny</em>
 
     Ten komunikat można wskazać, że `From` adres jest nieprawidłowy lub Brak.
 - *Określony ciąg nie ma formy wymaganej dla adresu e-mail.*
 
-    Ten błąd może oznaczać, że wartość `To` lub `From` właściwości nie są rozpoznawane jako adresy e-mail. (Aplikacja ASP.NET nie sprawdza, czy adres e-mail jest prawidłowy tylko jego obiektu w poprawnym formacie tak samo, jak  *name@domain.com* .)
+    Ten błąd może oznaczać, że wartość `To` lub `From` właściwości nie są rozpoznawane jako adresy e-mail. (Aplikacja ASP.NET nie sprawdza, czy adres e-mail jest prawidłowy tylko jego obiektu w poprawnym formacie tak samo, jak *name@domain.com*.)
 
 > [!NOTE]
 > Usuń kod znaczników, który zawiera błąd (`@errorMessage`) przed opublikowaniem strony w witrynie na żywo. Nie jest dobrym rozwiązaniem, aby umożliwić użytkownikom wyświetlić komunikaty o błędach, które można uzyskać z serwera.

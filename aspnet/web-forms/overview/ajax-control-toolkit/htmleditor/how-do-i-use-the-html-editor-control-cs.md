@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-cs
-title: "Jak używać formantu edytora HTML (C#) | Dokumentacja firmy Microsoft"
+title: Jak używać formantu edytora HTML (C#) | Microsoft Docs
 author: microsoft
-description: "HTMLEditor jest kontrolka AJAX ASP.NET, która pozwala na łatwe tworzenie i edytowanie zawartość HTML za pomocą przycisków na pasku narzędzi."
+description: HTMLEditor jest kontrolka AJAX ASP.NET, która pozwala na łatwe tworzenie i edytowanie zawartość HTML za pomocą przycisków na pasku narzędzi.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17343660d7bf7aa6210fa9c6c9c0206598d34b18
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fca18948c0e4f1323f214dc0033f19fa44efad47
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-html-editor-control-c"></a>Jak używać formantu edytora HTML (C#)
 ====================
@@ -111,5 +111,5 @@ Załóżmy, na przykład tworzysz aplikację blogu. W takim przypadku warto uży
 
 W tym samouczku zostały podane krótki przegląd formantu edytora HTML zawarte w zestawie narzędzi kontroli AJAX. Przedstawiono sposób, aby zaakceptować bogatej zawartości z danych użytkownika i przesyłania zawartości na serwerze za pomocą edytora HTML. Omówiono również, jak można dostosować przycisków paska narzędzi, które są wyświetlane w edytorze HTML. Ponadto przedstawiono sposób uniknąć skryptów przed atakami opartymi na Cross-Site, używając edytora HTML do przyjmowania danych wejściowych mogą okazać się złośliwe.
 
->[!div class="step-by-step"]
-[Dalej](how-do-i-use-the-html-editor-control-vb.md)
+> [!div class="step-by-step"]
+> [Next](how-do-i-use-the-html-editor-control-vb.md)

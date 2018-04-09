@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
-title: "Część 3: Układ i Menu kategorii | Dokumentacja firmy Microsoft"
+title: 'Część 3: Układ i Menu kategorii | Dokumentacja firmy Microsoft'
 author: JoeStagner
-description: "Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 3 obejmuje dodawanie układ i menu kategorii."
+description: Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 3 obejmuje dodawanie układ i menu kategorii.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 57c0342efb67b94a0d8c8b06dc13a727e7184db8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 27a493173b03f813ee3dcbbfafd8bc52fb0b9771
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-layout-and-category-menu"></a>Część 3: Układ i Menu kategorii
 ====================
@@ -27,7 +27,7 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 > Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 3 obejmuje dodawanie układ i menu kategorii.
 
 
-## <a id="_Toc260221669"></a>Dodanie niektórych układ i Menu kategorii
+## <a id="_Toc260221669"></a>  Dodanie niektórych układ i Menu kategorii
 
 W naszym strony wzorcowej witryny dodamy div kolumny po lewej stronie, która będzie zawierać naszych menu Kategoria produktu.
 
@@ -77,6 +77,6 @@ Umożliwia uruchamianie aplikacji teraz.
 
 Nasze menu Kategoria produktu jest teraz wyświetlany i po możemy umieść kursor nad jednym z elementów menu kategorii widzimy punktów menu element link do strony mamy jeszcze do zaimplementowania o nazwie ProductsList.aspx i że nawiązaliśmy argument ciągu zapytania dynamicznego który zawiera  Identyfikator kategorii.
 
->[!div class="step-by-step"]
-[Poprzednie](tailspin-spyworks-part-2.md)
-[dalej](tailspin-spyworks-part-4.md)
+> [!div class="step-by-step"]
+> [Poprzednie](tailspin-spyworks-part-2.md)
+> [dalej](tailspin-spyworks-part-4.md)

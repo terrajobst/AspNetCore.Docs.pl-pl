@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
-title: "Rozwiązanie kontaktów Menedżerze | Dokumentacja firmy Microsoft"
+title: Rozwiązanie kontaktów Menedżerze | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "Przykładowe rozwiązanie & #x 2014; rozwiązania z menedżerem skontaktuj się z & #x 2014; do reprezentowania aplikacji skali przedsiębiorstwa z realistyczne leve korzysta z tej serii samouczków..."
+description: Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014;rozwiązania kontaktów Menedżerze&#x2014;do reprezentowania aplikacji skali przedsiębiorstwa z realistyczne leve...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: b7f691a1ee855788f6a57616aea35d960e4c85c7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d7034f800df98747d10401d7e2c7297fea0e46d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-contact-manager-solution"></a>Rozwiązania z menedżerem kontaktu
 ====================
@@ -24,7 +24,7 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> To [serii samouczków](web-deployment-in-the-enterprise.md) używa przykładowe rozwiązanie & #x 2014; rozwiązania z menedżerem skontaktuj się z & #x 2014; do reprezentowania aplikacji skali przedsiębiorstwa z realistyczne poziom złożoności. W tym temacie przedstawiono rozwiązanie Menedżera skontaktuj się z, opisano najważniejsze składniki rozwiązania i identyfikuje wyzwania związane z wdrażaniem tego rodzaju aplikacji na różnych platformach docelowy w środowisku przedsiębiorstwa.
+> To [serii samouczków](web-deployment-in-the-enterprise.md) używa przykładowe rozwiązanie&#x2014;rozwiązania kontaktów Menedżerze&#x2014;do reprezentowania aplikacji skali przedsiębiorstwa z realistyczne poziom złożoności. W tym temacie przedstawiono rozwiązanie Menedżera skontaktuj się z, opisano najważniejsze składniki rozwiązania i identyfikuje wyzwania związane z wdrażaniem tego rodzaju aplikacji na różnych platformach docelowy w środowisku przedsiębiorstwa.
 > 
 > Podczas pracy z tematami w tych samouczkach służy rozwiązania kontaktów Menedżerze jako implementację odwołania, który pokazuje, jak można spełnić określonych wyzwania w scenariuszach wdrażania w przedsiębiorstwie. Następnym temacie [ustawienia zapasowej skontaktuj się z rozwiązania z menedżerem](setting-up-the-contact-manager-solution.md), opisano, jak pobrać i uruchomić rozwiązania na stacji roboczej developer.
 
@@ -67,6 +67,6 @@ W tym temacie podano ogólne omówienie rozwiązania kontaktów Menedżerze i zi
 
 Następnym temacie [ustawienia zapasowej skontaktuj się z rozwiązania z menedżerem](setting-up-the-contact-manager-solution.md), opisano, jak pobrać i uruchomić rozwiązania na stacji roboczej developer.
 
->[!div class="step-by-step"]
-[Poprzednie](web-deployment-in-the-enterprise.md)
-[dalej](setting-up-the-contact-manager-solution.md)
+> [!div class="step-by-step"]
+> [Poprzednie](web-deployment-in-the-enterprise.md)
+> [dalej](setting-up-the-contact-manager-solution.md)

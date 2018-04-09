@@ -1,7 +1,7 @@
 ---
-title: "Należy użyć szablonu projektu w bibliotece React."
+title: Szablon projektu platformy React za pomocą platformy ASP.NET Core
 author: SteveSandersonMS
-description: "Dowiedz się, jak rozpocząć pracę z szablonem projektu platformy ASP.NET Core jednej strony aplikacji JEDNOSTRONICOWEJ platformy React i utworzyć platformy react aplikacji."
+description: Dowiedz się, jak rozpocząć pracę z szablonem projektu platformy ASP.NET Core jednej strony aplikacji JEDNOSTRONICOWEJ platformy React i utworzyć platformy react aplikacji.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: cda9f52d1f5fa1d240e210488bf1bd5c76e49be7
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 4dcfef2bbb99873a9d716a4942f39123944f495c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="use-the-react-project-template"></a>Należy użyć szablonu projektu w bibliotece React.
+# <a name="use-the-react-project-template-with-aspnet-core"></a>Szablon projektu platformy React za pomocą platformy ASP.NET Core
 
 > [!NOTE]
 > O szablonie projektu platformy React niniejszej dokumentacji nie jest zawarty w programie ASP.NET 2.0 Core. Chodzi o nowszej szablonu platformy React, do której można zaktualizować ręcznie. Domyślnie znajduje szablonu platformy ASP.NET Core 2.1.

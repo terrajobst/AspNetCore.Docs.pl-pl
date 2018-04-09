@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-razor-syntax-vb
-title: "Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor (Visual Basic) | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor (Visual Basic) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Ten dodatek umożliwia omówienie programowania w języku strony sieci Web ASP.NET w języku Visual Basic, przy użyciu składni Razor."
+description: Ten dodatek umożliwia omówienie programowania w języku strony sieci Web ASP.NET w języku Visual Basic, przy użyciu składni Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8f5d223a5944d8adb9fe65c89e87829d18d1c7ee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 715e52715fb22b92f94d3d602ec58c29a913426c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor (Visual Basic)
 ====================
@@ -73,7 +73,7 @@ Wynik wyświetlony w przeglądarce:
 
 ### <a name="2-you-enclose-code-blocks-with-codeend-code"></a>2. Należy ująć bloków kodu za pomocą kodu... Kod zakończenia:
 
-Blok kodu zawiera jedną lub więcej instrukcji kodu i znajduje się ze słowami kluczowymi `Code` i `End Code`. Umieść otwierający `Code` — słowo kluczowe natychmiast po `@` znaku &#8212; nie może być spacji między nimi.
+Blok kodu zawiera jedną lub więcej instrukcji kodu i znajduje się ze słowami kluczowymi `Code` i `End Code`. Umieść otwierający `Code` — słowo kluczowe natychmiast po `@` znak &#8212; nie może być spacji między nimi.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample2.vbhtml)]
 
@@ -125,7 +125,7 @@ Wynik wyświetlony w przeglądarce:
 
 ### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7. Większość kodowania obejmuje pracy z obiektami
 
-Obiekt reprezentuje element, który zostanie z &#8212; Strona, pola tekstowego, pliku, obrazu, żądania sieci web, wiadomości e-mail, rekord klienta (wiersza bazy danych), itp. Obiekty mają właściwości, które opisują ich właściwości &#8212; Obiekt pola tekstowego ma `Text` właściwość, obiekt żądania ma `Url` właściwość, wiadomości e-mail ma `From` właściwości oraz obiektu klienta ma `FirstName` właściwości. Obiekty mają również metody, które są &quot;zleceń&quot; mogą wykonywać. Przykładami obiektu pliku `Save` metodę, obiekt obrazu `Rotate` — metoda i obiektu poczty e-mail `Send` metody.
+Obiekt reprezentuje element, który zostanie z &#8212; strony, pola tekstowego, pliku, obraz, żądania sieci web, wiadomości e-mail, rekord klienta (wiersza bazy danych), itp. Obiekty mają właściwości, które opisują ich właściwości &#8212; ma obiekt pola tekstowego `Text` właściwość, obiekt żądania ma `Url` właściwość, wiadomości e-mail ma `From` właściwości oraz obiektu klienta ma `FirstName` Właściwość. Obiekty mają również metody, które są &quot;zleceń&quot; mogą wykonywać. Przykładami obiektu pliku `Save` metodę, obiekt obrazu `Rotate` — metoda i obiektu poczty e-mail `Send` metody.
 
 Często będzie współpracować `Request` obiektu, który zawiera informacje, takie jak wartości formularza pola na stronie (pola tekstowe itp.), jaki typ przeglądarki zgłosił żądanie, adres URL strony tożsamości użytkownika, itp. W tym przykładzie pokazano, jak uzyskać dostępu do właściwości `Request` obiektów i wywoływania `MapPath` metody `Request` obiektu, który daje użytkownikowi bezwzględna ścieżka strony na serwerze:
 
@@ -180,11 +180,11 @@ Tej procedury przedstawiono sposób tworzenia strony, która ilustruje podstawow
 
 ## <a name="visual-basic-language-and-syntax"></a>Język Visual Basic i składni
 
-Widać wcześniej podstawowy przykład sposobu tworzenia strony sieci web platformy ASP.NET i jak można dodać kod serwera do kod znaczników HTML. Tutaj dowiesz się podstawy pisanie kodu serwera ASP.NET przy użyciu składni Razor &#8212; przy użyciu języka Visual Basic oznacza to, że programowania reguł języka.
+Widać wcześniej podstawowy przykład sposobu tworzenia strony sieci web platformy ASP.NET i jak można dodać kod serwera do kod znaczników HTML. Tutaj dowiesz się podstawowe informacje dotyczące pisania kodu serwera ASP.NET przy użyciu składni Razor przy użyciu języka Visual Basic &#8212; czyli programowania reguł języka.
 
 Jeśli masz doświadczenia w pracy z programowania (zwłaszcza, jeśli używano C, C++, C#, Visual Basic lub JavaScript), większość tutaj odczytu jest znane. Prawdopodobnie należy zaznajomić się tylko z jak program WebMatrix kodu jest dodawana do kodu znaczników w *.vbhtml* plików.
 
-### <a id="BM_CombiningTextMarkupAndCode"></a>Łączenie tekstu, znaczników i kodu w bloki kodu
+### <a id="BM_CombiningTextMarkupAndCode"></a>  Łączenie tekstu, znaczników i kodu w bloki kodu
 
 W blokach kodu serwera należy często output tekst i znacznik ze stroną. Jeśli blok kodu serwera zawiera tekst, który nie jest kodem i który zamiast tego ma być renderowany jako jest, ASP.NET musi mieć możliwość rozróżnienia ten tekst z kodu. Istnieje kilka sposobów, aby to zrobić.
 
@@ -207,7 +207,7 @@ W blokach kodu serwera należy często output tekst i znacznik ze stroną. Jeśl
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample14.vbhtml)]
 
     > [!NOTE]
-    > Podczas drukowania tekstu opisane w tej sekcji &#8212; za pomocą elementu HTML `@:` , operator lub `<text>` element &#8212; Program ASP.NET nie kodowanie HTML dane wyjściowe. (Jak wspomniano wcześniej, ASP.NET zakodować dane wyjściowe wyrażenia kodu serwera i serwera bloki kodu, które są poprzedzone `@`, z wyjątkiem przypadków wymienionych w tej sekcji.)
+    > Podczas drukowania tekstu opisane w tej sekcji &#8212; za pomocą elementu HTML `@:` , operator lub `<text>` elementu &#8212; ASP.NET nie kodowanie HTML dane wyjściowe. (Jak wspomniano wcześniej, ASP.NET zakodować dane wyjściowe wyrażenia kodu serwera i serwera bloki kodu, które są poprzedzone `@`, z wyjątkiem przypadków wymienionych w tej sekcji.)
 
 ### <a name="whitespace"></a>Odstępu
 
@@ -275,31 +275,33 @@ Aby dokonać konwersji wartości na liczby całkowite, należy wywołać `AsInt`
 
 W poniższej tabeli wymieniono niektóre typowe metody konwersji i testowania dla zmiennych.
 
-| **— Metoda** | **Opis** | **Przykład** |
-| --- | --- | --- |
-| `AsInt(), IsInt()` | Konwertuje ciąg reprezentujący liczbę całkowitą z zakresu (takie jak &quot;593&quot;) na liczbę całkowitą. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)] |
-| `AsBool(), IsBool()` | Konwertuje ciąg, takich jak &quot;true&quot; lub &quot;false&quot; na typ Boolean. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)] |
-| `AsFloat(), IsFloat()` | Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; liczby zmiennoprzecinkowej. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)] |
-| `AsDecimal(), IsDecimal()` | Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; na liczbę dziesiętną. (W programie ASP.NET, liczbą dziesiętną jest bardziej dokładne niż liczba zmiennoprzecinkowa). | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)] |
-| `AsDateTime(), IsDateTime()` | Konwertuje ciąg reprezentujący wartość daty i godziny do platformy ASP.NET `DateTime` typu. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)] |
-| `ToString()` | Konwertuje ciąg inny typ danych. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)] |
+
+|   <strong>— Metoda</strong>    |                                                                              <strong>Opis</strong>                                                                              |                     <strong>Przykład</strong>                      |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+|      `AsInt(), IsInt()`      |                                                 Konwertuje ciąg reprezentujący liczbę całkowitą z zakresu (takie jak &quot;593&quot;) na liczbę całkowitą.                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)] |
+|     `AsBool(), IsBool()`     |                                                    Konwertuje ciąg, takich jak &quot;true&quot; lub &quot;false&quot; na typ Boolean.                                                     | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)] |
+|    `AsFloat(), IsFloat()`    |                                    Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; liczby zmiennoprzecinkowej.                                    | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)] |
+|  `AsDecimal(), IsDecimal()`  | Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; na liczbę dziesiętną. (W programie ASP.NET, liczbą dziesiętną jest bardziej dokładne niż liczba zmiennoprzecinkowa). | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)] |
+| `AsDateTime(), IsDateTime()` |                                                Konwertuje ciąg reprezentujący wartość daty i godziny do platformy ASP.NET `DateTime` typu.                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)] |
+|         `ToString()`         |                                                                       Konwertuje ciąg inny typ danych.                                                                        | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)] |
 
 ## <a name="operators"></a>Operatory
 
 Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaju polecenie do wykonania w wyrażeniu. Visual Basic obsługuje wielu operatorów, ale musisz rozpoznać kilka, aby rozpocząć tworzenie stron sieci web programu ASP.NET. Poniższa tabela zawiera podsumowanie typowych operatorów.
 
-| **Operator** | **Opis** | **Przykłady** |
-| --- | --- | --- |
-| `+ - * /` | Operatory matematyczne używać w wyrażeniach numerycznych. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)] |
-| `=` | Przypisanie i równości. W zależności od kontekstu przypisuje wartość po prawej stronie instrukcji do obiektu po lewej stronie, lub sprawdza wartości pod kątem równości. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)] |
-| `<>` | Nierówności. Zwraca `True` wartości nie są równe. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)] |
-| `< > <= >=` | Mniej niż większe niż, mniejsze niż lub równy, a mniejsza. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)] |
-| `&` | Łączenie, który jest używany do przyłączenia ciągów. | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)] |
-| `+= -=` | Operatory inkrementacji i dekrementacji, które dodawania i odejmowania 1 (odpowiednio) ze zmienną. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)] |
-| `.` | Kropki. Pozwala odróżnić obiektów i ich właściwości i metody. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)] |
-| `()` | Nawiasy. Używany do wyrażenia grupy do przekazania parametrów do metod i do dostępu do członków kolekcji i tablic. | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)] |
-| `Not` | Nie. Odwraca wartość true, FALSE i odwrotnie. Zazwyczaj używany jako sposób skrócona do testowania `False` (oznacza to, aby nie `True`). | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)] |
-| `AndAlso OrElse` | Logiczny AND i lub, w którym są używane do łączenia ze sobą warunki. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)] |
+
+| <strong>Operator</strong> |                                                                        <strong>Opis</strong>                                                                         |                         <strong>Przykłady</strong>                         |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+|         `+ - * /`         |                                                                Operatory matematyczne używać w wyrażeniach numerycznych.                                                                |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]     |
+|            `=`            | Przypisanie i równości. W zależności od kontekstu przypisuje wartość po prawej stronie instrukcji do obiektu po lewej stronie, lub sprawdza wartości pod kątem równości. |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]     |
+|           `<>`            |                                                           Nierówności. Zwraca `True` wartości nie są równe.                                                           |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]     |
+|        `< > <= >=`        |                                                   Mniej niż większe niż, mniejsze niż lub równy, a mniejsza.                                                   |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]     |
+|            `&`            |                                                                Łączenie, który jest używany do przyłączenia ciągów.                                                                | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)] |
+|          `+= -=`          |                                       Operatory inkrementacji i dekrementacji, które dodawania i odejmowania 1 (odpowiednio) ze zmienną.                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]     |
+|            `.`            |                                                     Kropki. Pozwala odróżnić obiektów i ich właściwości i metody.                                                      |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]     |
+|           `()`            |                           Nawiasy. Używany do wyrażenia grupy do przekazania parametrów do metod i do dostępu do członków kolekcji i tablic.                           | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)] |
+|           `Not`           |                    Nie. Odwraca wartość true, FALSE i odwrotnie. Zazwyczaj używany jako sposób skrócona do testowania `False` (oznacza to, aby nie `True`).                     |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]     |
+|     `AndAlso OrElse`      |                                                       Logiczny AND i lub, w którym są używane do łączenia ze sobą warunki.                                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]     |
 
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Praca z pliku i ścieżki folderu w kodzie
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
-title: "Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i platformy ASP.NET 4 sieci Web Forms — część 7 | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i platformy ASP.NET 4 sieci Web Forms — część 7 | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu programu Entity Framework. Przykładowa aplikacja jest..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu programu Entity Framework. Przykładowa aplikacja jest...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: aeea122636f5235364e6a40cb6e041b1fe221317
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cb84f4f3e130fedb3e2f1a17d630767ff65bfa05
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i formularzy sieci Web 4 ASP.NET - część 7
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 > Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu programu Entity Framework 4.0 i Visual Studio 2010. Informacje o samouczek serii, zobacz [pierwszy samouczek z tej serii](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -51,7 +51,7 @@ Skopiuj następujące instrukcje SQL i wklej je do okna procedury składowanej, 
 
 [![image14](the-entity-framework-and-aspnet-getting-started-part-7/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image3.png)
 
-`Student`jednostki ma właściwości cztery: `PersonID`, `LastName`, `FirstName`, i `EnrollmentDate`. Bazy danych automatycznie generuje wartość Identyfikatora i procedury składowanej akceptuje parametry dla innych trzech. Procedura składowana ma zwracać wartości klucza rekordu nowego wiersza, aby programu Entity Framework można zachować informacje o który w wersji jednostkę, która zapewnia w pamięci.
+`Student` jednostki ma właściwości cztery: `PersonID`, `LastName`, `FirstName`, i `EnrollmentDate`. Bazy danych automatycznie generuje wartość Identyfikatora i procedury składowanej akceptuje parametry dla innych trzech. Procedura składowana ma zwracać wartości klucza rekordu nowego wiersza, aby programu Entity Framework można zachować informacje o który w wersji jednostkę, która zapewnia w pamięci.
 
 Zapisz i zamknij okno procedury składowanej.
 
@@ -139,6 +139,6 @@ Strona używa teraz `GetCourses` przechowywane procedury, aby pobrać listę wsz
 
 W następnym samouczku nauczysz się, jak ułatwić reguły programu i badanie danych formatowania i walidacji przy użyciu funkcji danych dynamicznych. Zamiast określania na każdej reguły strony sieci web, na przykład ciągi formatu danych i czy pole jest wymagane, takie reguły można określić w metadanych modelu danych i są automatycznie stosowane na każdej stronie.
 
->[!div class="step-by-step"]
-[Poprzednie](the-entity-framework-and-aspnet-getting-started-part-6.md)
-[dalej](the-entity-framework-and-aspnet-getting-started-part-8.md)
+> [!div class="step-by-step"]
+> [Poprzednie](the-entity-framework-and-aspnet-getting-started-part-6.md)
+> [dalej](the-entity-framework-and-aspnet-getting-started-part-8.md)

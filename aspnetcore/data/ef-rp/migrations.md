@@ -1,7 +1,7 @@
 ---
 title: Stron razor podstawowych EF w platformy ASP.NET Core - Migrations - 4, 8
 author: rick-anderson
-description: "W tym samouczku możesz uruchomić przy użyciu funkcji migracji EF Core zarządzania zmianami modelu danych w aplikacji ASP.NET Core MVC."
+description: W tym samouczku możesz uruchomić przy użyciu funkcji migracji EF Core zarządzania zmianami modelu danych w aplikacji ASP.NET Core MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 4aafb52be611d4088e47f64f83d25cf85dc5ca08
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4e9b747a3369bbb608c3b3832c865745a2322142
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - Migrations - 4, 8
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra), [Jan Kowalski P](https://twitter.com/thereformedprog), i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 W tym samouczku jest używany EF podstawowych funkcji migracji do zarządzania zmianami modelu danych.
 
@@ -115,15 +115,13 @@ Po wdrożeniu aplikacji do nowego środowiska, aby utworzyć bazę danych należ
 
 Wcześniej parametry połączenia została zmieniona na nową nazwę dla bazy danych użycia. Określonej bazy danych nie istnieje, więc migracji tworzy bazę danych.
 
-### <a name="examine-the-data-model-snapshot"></a>Sprawdź migawki modelu danych
+### <a name="the-data-model-snapshot"></a>Migawki modelu danych
 
-Tworzy migracje *migawki* bieżącego schematu baz danych w *Migrations/SchoolContextModelSnapshot.cs*:
+Tworzy migracje *migawki* bieżącego schematu bazy danych w *Migrations/SchoolContextModelSnapshot.cs*. Po dodaniu migracji EF określa co zmienione przez porównanie modelu danych do pliku migawki.
 
-[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+Podczas usuwania migracji, użyj [Usuń migracje ef dotnet](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) polecenia. `dotnet ef migrations remove` Usuwa migracji i gwarantuje, że poprawnie zresetowania migawki.
 
-Ponieważ bieżący schemat bazy danych jest reprezentowana w kodzie, EF Core nie ma na interakcję z bazy danych, aby utworzyć migracji. Po dodaniu migracji EF Core określa co zmienione przez porównanie modelu danych do pliku migawki. Podstawowe EF współdziała z bazy danych tylko wtedy, gdy musi zaktualizować bazę danych.
-
-Plik migawki musi być zsynchronizowane z migracji, które go utworzył. Nie można usunąć migracji przez usunięcie pliku o nazwie  *\<sygnatury czasowej > _\<migrationname > .cs*. Jeśli ten plik zostanie usunięty, pozostałe migracji nie są zsynchronizowane z plikiem migawki bazy danych. Aby usunąć ostatniego migracji dodany, użyj [Usuń migracje ef dotnet](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) polecenia.
+Zobacz [migracje Core EF w środowiskach zespołu](/ef/core/managing-schemas/migrations/teams) Aby uzyskać więcej informacji o sposobie używania pliku migawki.
 
 ## <a name="remove-ensurecreated"></a>Remove EnsureCreated
 
@@ -187,7 +185,7 @@ Użyj **Eksplorator obiektów SQL Server** przeprowadzać inspekcję bazy danych
 
 Uruchom aplikację i sprawdź, czy wszystko działa.
 
-## <a name="appling-migrations-in-production"></a>Appling migracji w środowisku produkcyjnym
+## <a name="applying-migrations-in-production"></a>Stosowanie migracji w środowisku produkcyjnym
 
 Firma Microsoft zaleca aplikacji w środowisku produkcyjnym należy **nie** wywołać [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) podczas uruchamiania aplikacji. `Migrate` Nie można wywołać z aplikacji w farmie serwerów. Na przykład, jeśli aplikacja została chmury z skalowalnego w poziomie (uruchomionych wiele wystąpień aplikacji).
 
@@ -236,6 +234,6 @@ Jeśli `update` polecenie zwraca błąd "Kompilacji nie powiodło się.":
 * Ponownie uruchom polecenie.
 * Pozostaw wiadomości w dolnej części strony.
 
->[!div class="step-by-step"]
-[Poprzednie](xref:data/ef-rp/sort-filter-page)
-[dalej](xref:data/ef-rp/complex-data-model)
+> [!div class="step-by-step"]
+> [Poprzednie](xref:data/ef-rp/sort-filter-page)
+> [dalej](xref:data/ef-rp/complex-data-model)

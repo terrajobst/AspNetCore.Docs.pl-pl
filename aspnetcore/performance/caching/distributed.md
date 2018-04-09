@@ -1,7 +1,7 @@
 ---
-title: "Praca z rozproszonej pamięci podręcznej w ASP.NET Core"
+title: Praca z rozproszonej pamięci podręcznej w ASP.NET Core
 author: ardalis
-description: "Dowiedz się, jak używać platformy ASP.NET Core rozproszonych buforowanie, aby zwiększyć wydajność aplikacji i skalowalność, szczególnie w środowisku farmy chmury lub serwera."
+description: Dowiedz się, jak używać platformy ASP.NET Core rozproszonych buforowanie, aby zwiększyć wydajność aplikacji i skalowalność, szczególnie w środowisku farmy chmury lub serwera.
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: 635c61cbb72a6a9eb822307bbc80936ee73bedc8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d9c7c1c3b2c052ba11f9ea5eaaa424d69bc43eb2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Praca z rozproszonej pamięci podręcznej w ASP.NET Core
+# <a name="work-with-a-distributed-cache-in-aspnet-core"></a>Praca z rozproszonej pamięci podręcznej w ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/)
 
@@ -25,7 +25,7 @@ Rozproszonej pamięci podręcznej może zwiększyć wydajność i skalowalność
 
 ## <a name="what-is-a-distributed-cache"></a>Co to jest rozproszonej pamięci podręcznej
 
-Rozproszonej pamięci podręcznej jest współużytkowany przez wiele serwerów aplikacji (zobacz [buforowanie podstawy](memory.md#caching-basics)). Informacje w pamięci podręcznej nie jest przechowywany w pamięci poszczególnych sieci web, serwerów i buforowane dane są dostępne dla wszystkich serwerów aplikacji. To zapewnia kilka korzyści:
+Rozproszonej pamięci podręcznej jest współużytkowany przez wiele serwerów aplikacji (zobacz [podstawowe informacje o pamięci podręcznej](memory.md#caching-basics)). Informacje w pamięci podręcznej nie jest przechowywany w pamięci poszczególnych sieci web, serwerów i buforowane dane są dostępne dla wszystkich serwerów aplikacji. To zapewnia kilka korzyści:
 
 1. Buforowane dane są spójne na wszystkich serwerach sieci web. Użytkownicy nie będą widzieli różne wyniki, w zależności od tego, które sieci web serwer obsługuje żądania
 
@@ -95,7 +95,7 @@ W przykładowym kodzie `RedisCache` implementacji jest używany, gdy serwer jest
 [!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
 
 > [!NOTE]
-> Aby zainstalować Redis na komputerze lokalnym, należy zainstalować pakiet chocolatey [https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/) i uruchom `redis-server` z wiersza polecenia.
+> Aby zainstalować Redis na komputerze lokalnym, należy zainstalować pakiet chocolatey [ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/) i uruchom `redis-server` z wiersza polecenia.
 
 ## <a name="using-a-sql-server-distributed-cache"></a>Używanie programu SQL Server rozproszonej pamięci podręcznej
 
@@ -138,7 +138,7 @@ Podczas podejmowania decyzji o życie `IDistributedCache` jest prawa dla aplikac
 
 * [Pamięć podręczna Azure redis](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [Baza danych SQL Azure](https://azure.microsoft.com/documentation/services/sql-database/)
-* [Buforowanie w pamięci](xref:performance/caching/memory)
+* [Pamięci podręcznej w pamięci](xref:performance/caching/memory)
 * [Wykrywanie zmian z tokenami zmiany](xref:fundamentals/primitives/change-tokens)
 * [Buforowanie odpowiedzi](xref:performance/caching/response)
 * [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)

@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 09/09/2011
 ms.topic: article
 ms.assetid: f014524f-25c0-4094-b8e1-886d99536f00
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: bea6f6112388290a2c6b5ed267626ba28fc36671
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: dbcea6090a0376b8732e02c0891721672bfe50f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -103,7 +103,7 @@ Interfejs API sieci Web platformy ASP.NET obsługuje następujące funkcje:
 - **Szablon projektu interfejsu API sieci Web:** wybierz nowy formularz projektu interfejsu API sieci Web Kreatora nowego projektu 4 MVC, aby szybko rozpocząć pracę z interfejsu API sieci Web platformy ASP.NET.
 - **Funkcja szkieletów:** użyj **Dodaj kontroler** okna dialogowego, aby szybko utworzyć szkielet kontrolera interfejsu API sieci web oparta na platformie Entity Framework, na podstawie typu modelu.
 
-Więcej informacji na temat interfejsu API sieci Web platformy ASP.NET można znaleźć pod adresem [https://www.asp.net/web-api](../web-api/index.md).
+Więcej informacji na temat interfejsu API sieci Web platformy ASP.NET można znaleźć pod adresem [ https://www.asp.net/web-api ](../web-api/index.md).
 
 <a id="_Toc303253808"></a>
 ### <a name="enhancements-to-default-project-templates"></a>Ulepszenia domyślnych szablonów projektu
@@ -230,7 +230,7 @@ Poniżej przedstawiono istotne zmiany z platformy ASP.NET MVC 4 Release Candidat
 - **Na programy obsługi wiadomości trasy:** program obsługi komunikatów końcowe można teraz określić w łańcuchu żądanie dla danej trasy. Umożliwia to obsługę jazdy wzdłuż struktur korzystać z routingu do wysłania do ich własnych (z systemem innym niż*IHttpController*) punktów końcowych.
 - **Postęp powiadomienia:** *ProgressMessageHandler* generuje powiadomienie o postępie dla przekazywanych jednostek żądania i pobieranych jednostek odpowiedzi. Przy użyciu tej procedury obsługi jest możliwe do śledzenia ile przekazywania treści żądania lub pobieranie treści odpowiedzi.
 - **Wypychania zawartości:** *PushStreamContent* klasa umożliwia obsługę scenariuszy, w których producent danych chce dokonywać zapisu bezpośrednio do żądania lub odpowiedzi (synchronicznie lub asynchronicznie) przy użyciu strumienia. Gdy *PushStreamContent* jest gotowa do akceptowania danych wywołuje do delegata działania z strumienia wyjściowego. Deweloper może następnie zapisać do strumienia tak długo, jak konieczne i zamknij strumienia podczas zapisywania zostało ukończone. *PushStreamContent* wykrywa zamknięcie strumienia i zakończeniu asynchronicznego odpowiadającego *zadań* dla wypisywanie zawartości.
-- **Tworzenie odpowiedzi na błędy:** użyj *HttpError* typu do reprezentowania spójnie informacje o błędzie z takich jak błędy sprawdzania poprawności i wyjątków, przy jednoczesnym zachowaniu nadal *IncludeErrorDetailPolicy* . Użyj nowych *CreateErrorResponse* metody rozszerzenia umożliwiające łatwe tworzenie odpowiedzi z *HttpError* jako zawartości. *HttpError* zawartości jest w pełni zawartości negocjowane.
+- **Tworzenie odpowiedzi na błędy:** użyj *HttpError* typu do reprezentowania spójnie informacje o błędzie z takich jak błędy sprawdzania poprawności i wyjątków, przy jednoczesnym zachowaniu nadal *IncludeErrorDetailPolicy*. Użyj nowych *CreateErrorResponse* metody rozszerzenia umożliwiające łatwe tworzenie odpowiedzi z *HttpError* jako zawartości. *HttpError* zawartości jest w pełni zawartości negocjowane.
 - **Usunięte MediaRangeMapping:** zakresy typu nośnika są teraz obsługiwane przez domyślny moduł negocjowania zawartości.
 - **Wiązanie parametru domyślne dla parametrów typu prostego jest teraz [FromUri]:** w poprzednich wersjach programu ASP.NET Web API powiązanie parametru domyślne dla parametrów typu prostego wiązania modelu. Wiązanie parametru domyślne dla parametrów typu prostego jest teraz *[FromUri]*.
 - **Wybór działania honoruje wymaganych parametrów:** wybór akcji w interfejsie API sieci Web ASP.NET będzie teraz tylko wybierz akcję, jeśli znajdują się wszystkie wymagane parametry, które pochodzą z identyfikatora URI. Parametr można określić jako opcjonalną, podając wartość domyślna argumentu w podpisie metody akcji.
@@ -245,7 +245,7 @@ Poniżej przedstawiono istotne zmiany z platformy ASP.NET MVC 4 Release Candidat
 - **Ulepszenia generowania łącza:** *UrlHelper* zależy od już *HttpControllerContext*. Teraz uzyskiwać dostęp do *UrlHelper* z dowolnym kontekście gdzie *HttpRequestMessage* jest dostępna.
 - **Zmień kolejność wykonywania obsługi komunikatów:** programy obsługi wiadomości, teraz są wykonywane w kolejności, które są skonfigurowane zamiast w odwrotnej kolejności.
 - **Pomocnik dla okablowania się programy obsługi wiadomości:** nowy *HttpClientFactory* który można okablować się *DelegatingHandlers* i Utwórz *HttpClient* z żądany potoku rozpocząć pracę. Zapewnia także funkcjonalność okablowania się z alternatywnych obsługi wewnętrzny (wartość domyślna to *HttpClientHandler*) również wykonać okablowania zapasową danych, korzystając z *HttpMessageInvoker* lub innym  *DelegatingHandler* zamiast *HttpClient* jako element wywołujący top.
-- **Obsługa CDN optymalizację sieci Web platformy ASP.NET:** optymalizacji sieci Web programu ASP.NET zapewnia wsparcie w zakresie alternatywnych ścieżek CDN, dzięki któremu można określić dla każdego pakietu dodatkowy adres URL wskazujący na tego samego zasobu w sieci dostarczania zawartości. Obsługa CDN pozwala uzyskać Twojego skryptu i stylu pakiety geograficznie bliżej do użytkowników końcowych w aplikacji sieci Web.
+- **Obsługa CDN optymalizację sieci Web platformy ASP.NET:** optymalizacji sieci Web programu ASP.NET zapewnia wsparcie w zakresie alternatywnych ścieżek CDN, dzięki któremu można określić dla każdego pakietu dodatkowy adres URL wskazujący na tego samego zasobu w sieci dostarczania zawartości. Obsługa CDN pozwala uzyskać Twojego skryptu i stylu pakiety geograficznie bliżej do użytkowników końcowych w aplikacji sieci Web. Aplikacje w środowisku produkcyjnym należy zaimplementować rezerwowe, jeśli element CDN jest niedostępny. Przetestuj powrotu.
 - **Kieruje Web API platformy ASP.NET i konfiguracji przeniesiona do *WebApiConfig.Register* statyczną metodę, która może być resused w kodzie testu.** ASP.NET Web API trasy zostały wcześniej dodane w *RouteConfig.RegisterRoutes* wraz ze standardowych MVC trasy. Domyślnym kieruje interfejsu API sieci Web platformy ASP.NET i konfiguracji są teraz obsługiwane w oddzielnej *WebApiConfig.Register* metodę, aby ułatwić testowanie.
 
 <a id="_Toc303253815"></a>
@@ -261,7 +261,7 @@ Poniżej przedstawiono istotne zmiany z platformy ASP.NET MVC 4 Release Candidat
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
- Ponadto usunięto następujących metod: 
+  Ponadto usunięto następujących metod: 
 
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
@@ -275,22 +275,23 @@ Poniżej przedstawiono istotne zmiany z platformy ASP.NET MVC 4 Release Candidat
 
     **Wymagane aktualizacje**
 
-    1. W głównym pliku Web.config, Dodaj nową  *&lt;appSettings&gt;*  wpisu z kluczem *webPages:Version* i wartość *1.0.0.0*. 
+  1. W głównym pliku Web.config, Dodaj nową *&lt;appSettings&gt;* wpisu z kluczem *webPages:Version* i wartość *1.0.0.0*. 
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample7.xml)]
-    2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę i wybierz polecenie Edytuj *ProjectName*.csproj.
-    3. Znajdź następujące odwołania do zestawu: 
+      [!code-xml[Main](mvc4-release-notes/samples/sample7.xml)]
+  2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę i wybierz polecenie Edytuj *ProjectName*.csproj.
+  3. Znajdź następujące odwołania do zestawu: 
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample8.xml)]
+      [!code-xml[Main](mvc4-release-notes/samples/sample8.xml)]
 
-        Zastąp je z następujących czynności:
+      Zastąp je z następujących czynności:
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample9.xml)]
-    4. Zapisz zmiany, zamknij plik projektu (.csproj), edytowania, a następnie kliknij prawym przyciskiem myszy projekt i wybierz pozycję Załaduj ponownie.
+      [!code-xml[Main](mvc4-release-notes/samples/sample9.xml)]
+  4. Zapisz zmiany, zamknij plik projektu (.csproj), edytowania, a następnie kliknij prawym przyciskiem myszy projekt i wybierz pozycję Załaduj ponownie.
+
 - **Zmiana projektu programu ASP.NET MVC 4 do docelowego 4.0, 4.5 nie zaktualizować odwołania do zestawu EntityFramework:** Jeżeli zmienisz projekt platformy ASP.NET MVC 4 do docelowego 4.0 po dotyczących 4.5 nadal będzie wskazywać odwołanie do zestawu EntityFramework w wersji 4.5. Aby rozwiązać ten problem Odinstaluj i ponownie zainstaluj pakiet EntityFramework NuGet.
-- **403 Zabroniony podczas uruchamiania aplikacji ASP.NET MVC 4 na platformie Azure po zmianie do docelowego 4.0, 4.5:** Jeśli możesz zmienić projekt platformy ASP.NET MVC 4 do docelowego 4.0 po dotyczących 4.5, a następnie wdrożyć na platformie Azure może zostać wyświetlony błąd 403 Zabroniony w czasie wykonywania. Aby obejść ten problem, Dodaj następujący kod do pliku web.config:`<modules runAllManagedModulesForAllRequests="true" />`
+- **403 Zabroniony podczas uruchamiania aplikacji ASP.NET MVC 4 na platformie Azure po zmianie do docelowego 4.0, 4.5:** Jeśli możesz zmienić projekt platformy ASP.NET MVC 4 do docelowego 4.0 po dotyczących 4.5, a następnie wdrożyć na platformie Azure może zostać wyświetlony błąd 403 Zabroniony w czasie wykonywania. Aby obejść ten problem, Dodaj następujący kod do pliku web.config: `<modules runAllManagedModulesForAllRequests="true" />`
 - **Program Visual Studio 2012 ulega awarii podczas wpisywania "\' w literale ciągu w pliku Razor.** Aby pracować wokół problem wprowadź najpierw zamykającym literału ciągu.
-- **Przeglądanie do &quot;konta/Zarządzaj&quot; w wynikach szablonu Internet błąd środowiska uruchomieniowego dla języków, CHS, TRK i (CHT).** Aby rozwiązać ten problem, zmodyfikuj stronę, aby rozdzielić  *@User.Identity.Name*  ustawiając dla niego jako zawartości tylko w ramach  *&lt;silne&gt;*  tagu.
+- <strong>Przeglądanie do &quot;konta/Zarządzaj&quot; w wynikach szablonu Internet błąd środowiska uruchomieniowego dla języków, CHS, TRK i (CHT).</strong> Aby rozwiązać ten problem, zmodyfikuj stronę, aby rozdzielić <em>@User.Identity.Name</em> ustawiając dla niego jako zawartości tylko w ramach <em>&lt;silne&gt;</em> tagu.
 - **Dostawcy Google i LinkedIn nie są obsługiwane w systemie Azure Web Sites.** Podczas wdrażania do witryn sieci Web platformy Azure, należy użyć dostawcy uwierzytelniania alternatywnych.
 - **Korzystając z programu IIS 8 Express/IIS UriPathExtensionMapping, otrzyma 404 Nie znaleziono błędy podczas próby użycia rozszerzenia.** Obsługa plików statycznych zakłóca żądań sieci Web API używanego *UriPathExtensionMappings*. Ustaw *runAllManagedModulesForAllRequests = true* w pliku web.config, aby obejść ten problem.
 - **Metoda Controller.Execute nie jest wywoływana.** Wszystkich kontrolerów MVC są teraz zawsze wykonywane asynchronicznie.

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 title: Stron wzorcowych i ASP.NET AJAX (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym artykule omówiono opcje za pomocą kodu ASP.NET AJAX i stron wzorcowych. Analizuje za pomocą klasy ScriptManagerProxy; w tym artykule omówiono sposób różnych plików JS są ładowane dependi..."
+description: W tym artykule omówiono opcje za pomocą kodu ASP.NET AJAX i stron wzorcowych. Analizuje za pomocą klasy ScriptManagerProxy; w tym artykule omówiono sposób różnych plików JS są ładowane dependi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6e09951be5483ed098b8cab6517335f9962a5d95
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 87e5855354610723823da88ec961e7391c3f705f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>Stron wzorcowych i ASP.NET AJAX (C#)
 ====================
@@ -184,9 +184,9 @@ Aby dodać powiązane ScriptManager dostosowania dla strony strona formant Scrip
 
 Aby wyświetlić kontroli ScriptManagerProxy w akcji, umożliwia rozszerzyć elementu UpdatePanel w `ShowRandomProduct.aspx` uwzględnienie przycisku, który używa skryptu po stronie klienta, aby wstrzymać lub wznowić kontrola czasomierza. Formant czasomierza ma trzy metody po stronie klienta, które możemy użyć do osiągnięcia tej wymaganej funkcjonalności:
 
-- `_startTimer()`-Uruchamia program Regulacja czasomierza
-- `_raiseTick()`-powoduje, że formant czasomierza "znaczników", a tym samym odświeżania i wywoływanie jej `Tick` zdarzeń na serwerze
-- `_stopTimer()`-sterowania czasomierza
+- `_startTimer()` -Uruchamia program Regulacja czasomierza
+- `_raiseTick()` -powoduje, że formant czasomierza "znaczników", a tym samym odświeżania i wywoływanie jej `Tick` zdarzeń na serwerze
+- `_stopTimer()` -sterowania czasomierza
 
 Utwórz plik JavaScript za pomocą zmiennych o nazwie `timerEnabled` i funkcji o nazwie `ToggleTimer`. `timerEnabled` Zmiennej wskazuje, czy formant czasomierza jest aktualnie włączone lub wyłączone; jego wartość domyślna to true. `ToggleTimer` Funkcja akceptuje dwa parametry wejściowe: odwołanie do przycisk Wstrzymaj i Wznów i po stronie klienta `id` wartość formantu czasomierza. Ta funkcja przełącza wartość `timerEnabled`, pobiera odwołanie do formantu czasomierza, uruchomienia lub zatrzymania czasomierza (w zależności od wartości `timerEnabled`) i aktualizuje tekst wyświetlany przycisk "Wstrzymaj" lub "Resume". Ta funkcja zostanie wywołana przy każdym kliknięciu przycisku Wstrzymanie/wznowienie.
 
@@ -228,7 +228,7 @@ Teraz można nazywa się `ToggleTimer` funkcji zdefiniowanej w `TimerScript.js` 
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-cs/samples/sample10.aspx)]
 
-Spowoduje to wyświetlenie element button z tekstem "Wstrzymaj". Po każdej zmianie kliknięciu, funkcja JavaScript `ToggleTimer` jest wywoływana, przekazując odwołanie do przycisku i wartość identyfikatora formantu czasomierza (`ProductTimer`). Należy zwrócić uwagę składni uzyskiwania `id` wartość formantu czasomierza. `<%=ProductTimer.ClientID%>`emituje wartość `ProductTimer` kontroli czasomierza `ClientID` właściwości. W [ *nazwy Identyfikatora formantów na stronach zawartości* ](control-id-naming-in-content-pages-cs.md) samouczku omówiono różnice między po stronie serwera `ID` wartość i wynikowy klienta `id` wartości i w jaki sposób `ClientID` zwraca po stronie klienta `id`.
+Spowoduje to wyświetlenie element button z tekstem "Wstrzymaj". Po każdej zmianie kliknięciu, funkcja JavaScript `ToggleTimer` jest wywoływana, przekazując odwołanie do przycisku i wartość identyfikatora formantu czasomierza (`ProductTimer`). Należy zwrócić uwagę składni uzyskiwania `id` wartość formantu czasomierza. `<%=ProductTimer.ClientID%>` emituje wartość `ProductTimer` kontroli czasomierza `ClientID` właściwości. W [ *nazwy Identyfikatora formantów na stronach zawartości* ](control-id-naming-in-content-pages-cs.md) samouczku omówiono różnice między po stronie serwera `ID` wartość i wynikowy klienta `id` wartości i w jaki sposób `ClientID` zwraca po stronie klienta `id`.
 
 Rysunek 11 przedstawia tę stronę po odwiedzeniu najpierw za pośrednictwem przeglądarki. Czasomierz jest uruchomiony i aktualizuje informacje wyświetlane produktu co 15 s. Rysunek 12 przedstawiono ekranu, po kliknięciu przycisk Wstrzymaj. Klikając przycisk Wstrzymaj zatrzymuje czasomierza i aktualizuje tekst przycisku "Resume". Informacji o produkcie Odśwież (i kontynuować odświeżanie co 15 sekund), gdy użytkownik kliknie przycisk Wznów.
 
@@ -264,12 +264,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
-Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](interacting-with-the-content-page-from-the-master-page-cs.md)
-[dalej](specifying-the-master-page-programmatically-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](interacting-with-the-content-page-from-the-master-page-cs.md)
+> [dalej](specifying-the-master-page-programmatically-cs.md)

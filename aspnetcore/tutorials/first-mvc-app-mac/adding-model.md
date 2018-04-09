@@ -1,5 +1,5 @@
 ---
-title: Dodaj model do aplikacji platformy ASP.NET Core MVC
+title: Dodawanie modelu do aplikacji platformy ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac
 author: rick-anderson
 description: Dodawanie modelu do prostej aplikacji platformy ASP.NET Core.
 manager: wpickett
@@ -10,13 +10,15 @@ ms.prod: .net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-mac/adding-model
-ms.openlocfilehash: 7f99f611c1554dfae72564905227c3fc25d96a01
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 6792dbc7c9ab063d85c0c4145481b8fd6b40da63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
+# <a name="add-a-model-to-an-aspnet-core-mvc-app-with-visual-studio-for-mac"></a>Dodawanie modelu do aplikacji platformy ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac
+
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 * Kliknij prawym przyciskiem myszy *modele* folder, a następnie wybierz **Dodaj** > **nowy plik**. 
 * W **nowy plik** okna dialogowego:
@@ -96,9 +98,9 @@ Automatyczne tworzenie [CRUD](https://wikipedia.org/wiki/Create,_read,_update_an
   * Przejdź do *widoków* folderu, wybierz opcję *Views\Movies*, a następnie wybierz **Otwórz**.
   * W **wybierz pliki, aby dodać z filmów** zaznacz pozycję **obejmują wszystkie**, a następnie **OK**.
 
-[!INCLUDE[adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
+[!INCLUDE [adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
 
 Masz teraz bazę danych i stron do wyświetlania, edytowania, aktualizacji i usuwania danych. W następnym samouczku firma Microsoft będzie współpracować z bazy danych.
 
@@ -107,6 +109,6 @@ Masz teraz bazę danych i stron do wyświetlania, edytowania, aktualizacji i usu
 * [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro)
 * [Globalizacja i lokalizacja](xref:fundamentals/localization)
 
->[!div class="step-by-step"]
-[Dodawanie widoku poprzedniej](adding-view.md)
-[obok Praca z SQL](working-with-sql.md)  
+> [!div class="step-by-step"]
+> [Dodawanie widoku poprzedniej](adding-view.md)
+> [obok Praca z SQL](working-with-sql.md)  

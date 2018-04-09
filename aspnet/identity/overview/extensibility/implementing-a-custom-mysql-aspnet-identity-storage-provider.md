@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
-title: "Implementacja dostawcy magazynu tożsamości ASP.NET MySQL niestandardowych | Dokumentacja firmy Microsoft"
+title: Implementacja dostawcy magazynu tożsamości ASP.NET MySQL niestandardowych | Dokumentacja firmy Microsoft
 author: raquelsa
-description: "ASP.NET Identity jest rozszerzalny system, co pozwala na tworzenie własnego dostawcę magazynu i podłącz go do aplikacji bez ponownego pracy nazwę..."
+description: ASP.NET Identity jest rozszerzalny system, co pozwala na tworzenie własnego dostawcę magazynu i podłącz go do aplikacji bez ponownego pracy nazwę...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
 ms.topic: article
 ms.assetid: 248f5fe7-39ba-40ea-ab1e-71a69b0bd649
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 3bfbccd91705755fc24bb8305fff171baa26f370
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d843b31e011fe520aad6cfdab0beca2d12477f12
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>Implementacja dostawcy magazynu tożsamości ASP.NET MySQL niestandardowych
 ====================
@@ -124,7 +124,7 @@ W razie potrzeby zainstaluj program [programu Visual Studio Express 2013 for Web
 5. Kliknij prawym przyciskiem myszy projekt IdentityMySQLDemo, wybierz **Dodaj**, **odwołania, rozwiązania, projekty;** wybierz projekt AspNet.Identity.MySQL, a następnie kliknij przycisk **OK**.
 6. W projekcie IdentityMySQLDemo Zamień wszystkie odwołania do  
     `using Microsoft.AspNet.Identity.EntityFramework;`  
- with  
+   with  
      `using AspNet.Identity.MySQL;`
 7. W IdentityModels.cs, ustaw **ApplicationDbContext** pochodzić z **MySqlDatabase** i obejmują contructor, który przyjmować jeden parametr o nazwie połączenia.  
 

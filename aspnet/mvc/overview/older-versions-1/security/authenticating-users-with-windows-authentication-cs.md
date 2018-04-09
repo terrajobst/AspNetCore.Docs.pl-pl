@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
-title: "Uwierzytelnianie użytkowników przy użyciu uwierzytelniania systemu Windows (C#) | Dokumentacja firmy Microsoft"
+title: Uwierzytelnianie użytkowników przy użyciu uwierzytelniania systemu Windows (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Dowiedz się, jak używać uwierzytelniania systemu Windows w kontekście aplikacji MVC. Możesz dowiedzieć się, jak włączyć uwierzytelnianie systemu Windows w Twojej aplikacji sieci web co..."
+description: Dowiedz się, jak używać uwierzytelniania systemu Windows w kontekście aplikacji MVC. Możesz dowiedzieć się, jak włączyć uwierzytelnianie systemu Windows w Twojej aplikacji sieci web co...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d52597e65272fa202ef4980924f669dcc4cec593
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 140d2232f7826e178301d1d2064e12657be23385
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-windows-authentication-c"></a>Uwierzytelnianie użytkowników przy użyciu uwierzytelniania systemu Windows (C#)
 ====================
@@ -51,7 +51,7 @@ W przypadku aplikacji sieci web produkcyjnej strony, należy użyć usług IIS j
 
 > [!NOTE] 
 > 
-> Bardziej szczegółowe omówienie różnego typu uwierzytelniania, zobacz [https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
+> Bardziej szczegółowe omówienie różnego typu uwierzytelniania, zobacz [ https://msdn.microsoft.com/library/aa292114(VS.71).aspx ](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
 
 Aby włączyć określony typ uwierzytelniania, można użyć Menedżera internetowych usług informacyjnych. Należy pamiętać, że wszystkie typy uwierzytelniania nie są dostępne w przypadku każdej wersji systemu operacyjnego. Ponadto jeśli korzystasz z usług IIS 7.0 z systemem Windows Vista, należy włączyć różne typy uwierzytelniania systemu Windows, zanim pojawią się one w Menedżera internetowych usług informacyjnych. Otwórz **Panelu sterowania, programy, programy i funkcje, Włącz lub wyłącz funkcje systemu Windows**, rozwiń węzeł Internetowe usługi informacyjne (patrz rysunek 2).
@@ -93,6 +93,6 @@ Jeśli, z drugiej strony, usługi IIS za pomocą wyłączone uwierzytelnianie an
 
 W tym samouczku wyjaśniono, jak można użyć uwierzytelniania systemu Windows w kontekście aplikacji platformy ASP.NET MVC. Wiesz, jak włączyć uwierzytelnianie systemu Windows w pliku konfiguracji aplikacji sieci web i jak skonfigurować uwierzytelnianie w usługach IIS. Ponadto przedstawiono sposób Użyj atrybutu [Authorize] do ograniczania dostępu do akcji kontrolera do określonych użytkowników systemu Windows lub grupy.
 
->[!div class="step-by-step"]
-[Poprzednie](authenticating-users-with-forms-authentication-cs.md)
-[dalej](preventing-javascript-injection-attacks-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](authenticating-users-with-forms-authentication-cs.md)
+> [dalej](preventing-javascript-injection-attacks-cs.md)

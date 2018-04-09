@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 title: Opis pliku projektu | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "Istotą procesem kompilacji i wdrażania znajdują się pliki projektu Microsoft kompilacji Engine (MSBuild). W tym temacie rozpoczyna się od omówienie MSBuild..."
+description: Istotą procesem kompilacji i wdrażania znajdują się pliki projektu Microsoft kompilacji Engine (MSBuild). W tym temacie rozpoczyna się od omówienie MSBuild...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 msc.type: authoredcontent
-ms.openlocfilehash: 09c3793e9cdddb7c42cf966f2d079245f441540c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 49d1d4fbe48cd4f073e774d8a9c6c0c011bd3319
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-the-project-file"></a>Opis pliku projektu
 ====================
@@ -36,9 +36,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 
 ## <a name="msbuild-and-the-project-file"></a>MSBuild i pliku projektu
 
-Podczas tworzenia i tworzenie rozwiązań programu Visual Studio, Visual Studio będzie korzystać MSBuild do tworzenia każdego projektu w rozwiązaniu. Każdy projekt programu Visual Studio zawiera plik projektu programu MSBuild z rozszerzeniem odzwierciedlający typ projektu & #x 2014; na przykład projektu C# (.csproj), projekt Visual języku (.vbproj) lub projekt bazy danych (.dbproj). Aby można było skompilować projekt, MSBuild musi przetworzyć pliku projektu skojarzony z projektem. Plik projektu jest dokument XML, który zawiera wszystkie informacje i wskazówki, że MSBuild wymaga, aby skompilować projekt, takie jak zawartość, aby uwzględnić wymagania dotyczące platformy, informacje na temat wersji, serwer sieci web lub ustawień serwera bazy danych i zadania, które należy wykonać.
+Podczas tworzenia i tworzenie rozwiązań programu Visual Studio, Visual Studio będzie korzystać MSBuild do tworzenia każdego projektu w rozwiązaniu. Każdy projekt programu Visual Studio zawiera plik projektu programu MSBuild z rozszerzeniem pliku, które odzwierciedla typ projektu&#x2014;na przykład projektu C# (.csproj), projekt Visual języku (.vbproj) lub projekt bazy danych (.dbproj). Aby można było skompilować projekt, MSBuild musi przetworzyć pliku projektu skojarzony z projektem. Plik projektu jest dokument XML, który zawiera wszystkie informacje i wskazówki, że MSBuild wymaga, aby skompilować projekt, takie jak zawartość, aby uwzględnić wymagania dotyczące platformy, informacje na temat wersji, serwer sieci web lub ustawień serwera bazy danych i zadania, które należy wykonać.
 
-Pliki projektu MSBuild są oparte na [schematu XML programu MSBuild](https://msdn.microsoft.com/library/5dy88c2e.aspx), i w związku z tym procesu kompilacji jest całkowicie otwarty i przejrzysty. Ponadto nie trzeba zainstalować program Visual Studio Aby korzystać z aparatu MSBuild & #x 2014; plik wykonywalny MSBuild.exe jest częścią programu .NET Framework i można go uruchomić z wiersza polecenia. Deweloperzy mogą jednostki własne pliki projektu MSBuild nałożyć zaawansowane i szczegółową kontrolę nad jak projekty są wbudowane i wdrażane za pomocą schematu XML programu MSBuild. Te pliki projektu niestandardowych działa w taki sam sposób, jak pliki projektu programu Visual Studio automatycznie generowanych przez.
+Pliki projektu MSBuild są oparte na [schematu XML programu MSBuild](https://msdn.microsoft.com/library/5dy88c2e.aspx), i w związku z tym procesu kompilacji jest całkowicie otwarty i przejrzysty. Ponadto, nie trzeba zainstalować program Visual Studio Aby korzystać z aparatu MSBuild&#x2014;MSBuild.exe pliku wykonywalnego, który jest częścią programu .NET Framework i można go uruchomić z wiersza polecenia. Deweloperzy mogą jednostki własne pliki projektu MSBuild nałożyć zaawansowane i szczegółową kontrolę nad jak projekty są wbudowane i wdrażane za pomocą schematu XML programu MSBuild. Te pliki projektu niestandardowych działa w taki sam sposób, jak pliki projektu programu Visual Studio automatycznie generowanych przez.
 
 > [!NOTE]
 > Umożliwia także pliki projektu programu MSBuild w usłudze Team Build w Team Foundation Server (TFS). Na przykład można użyć plików projektu w scenariuszach ciągłej integracji (CI) do automatyzowania wdrażania w środowisku testowym, po zaewidencjonowaniu nowy kod. Aby uzyskać więcej informacji, zobacz [Konfigurowanie Team Foundation Server dla automatycznego wdrażania Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md).
@@ -93,7 +93,7 @@ Plik projektu potrzebuje zazwyczaj zapewniają wiele różnych rodzajów informa
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
 
-Aby pobrać wartości właściwości, użyj formatu **$(***PropertyName***) ***.* Na przykład, aby pobrać wartość **ServerName** właściwości, należy wpisać:
+Aby pobrać wartości właściwości, użyj formatu <strong>$(</strong><em>PropertyName</em><strong>)</strong><em>.</em> Na przykład, aby pobrać wartość <strong>ServerName</strong> właściwości, należy wpisać:
 
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
@@ -113,7 +113,7 @@ Osadzanie informacji o jako statycznej właściwości w pliku projektu nie zawsz
 > Aby uzyskać więcej informacji na argumenty i przełączników, których można używać z MSBuild.exe, zobacz [informacje w wierszu polecenia programu MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
 
-Za pomocą tej samej składni właściwości można uzyskać wartości zmiennych środowiskowych i właściwości projektu wbudowanych. Wiele typowych właściwości są definiowane dla Ciebie i używać w plikach projektu przez dołączenie nazwy parametru odpowiednie. Na przykład, aby pobrać Bieżąca platforma projektu & #x 2014; na przykład **x86** lub **AnyCpu**& #x 2014; może zawierać **$(Platform)** odwołania do właściwości w plik projektu. Aby uzyskać więcej informacji, zobacz [makra dla poleceń kompilacji oraz właściwości](https://msdn.microsoft.com/library/c02as0cs.aspx), [wspólne właściwości projektów MSBuild](https://msdn.microsoft.com/library/bb629394.aspx), i [właściwości zastrzeżone](https://msdn.microsoft.com/library/ms164309.aspx).
+Za pomocą tej samej składni właściwości można uzyskać wartości zmiennych środowiskowych i właściwości projektu wbudowanych. Wiele typowych właściwości są definiowane dla Ciebie i używać w plikach projektu przez dołączenie nazwy parametru odpowiednie. Na przykład, aby pobrać Bieżąca platforma projektu&#x2014;na przykład **x86** lub **AnyCpu**&#x2014;mogą obejmować **$(Platform)** odwołania do właściwości w plik projektu. Aby uzyskać więcej informacji, zobacz [makra dla poleceń kompilacji oraz właściwości](https://msdn.microsoft.com/library/c02as0cs.aspx), [wspólne właściwości projektów MSBuild](https://msdn.microsoft.com/library/bb629394.aspx), i [właściwości zastrzeżone](https://msdn.microsoft.com/library/ms164309.aspx).
 
 Właściwości są często używane w połączeniu z *warunki*. Obsługuje większość elementów MSBuild **warunku** atrybut, który pozwala określić kryteria, na których MSBuild należy ocenić elementu. Rozważmy na przykład tej definicji właściwości:
 
@@ -121,13 +121,13 @@ Właściwości są często używane w połączeniu z *warunki*. Obsługuje więk
 [!code-xml[Main](understanding-the-project-file/samples/sample5.xml)]
 
 
-Gdy program MSBuild przetwarza tej definicji właściwości, najpierw sprawdza, czy **$(OutputRoot)** wartość właściwości jest dostępna. Jeśli wartość właściwości jest puste & #x 2014; innymi słowy, użytkownik nie podanej wartości dla tej właściwości & #x 2014; wyrażenie **true** i ma ustawioną wartość właściwości **... \Publish\Out**. Jeśli użytkownik ma podanej wartości dla tej właściwości, wyrażenie **false** i nie jest używana wartość właściwości statycznej.
+Gdy program MSBuild przetwarza tej definicji właściwości, najpierw sprawdza, czy **$(OutputRoot)** wartość właściwości jest dostępna. Jeśli wartość właściwości jest pusta&#x2014;innymi słowy, użytkownik nie podano wartości dla tej właściwości&#x2014;wyrażenie **true** i ma ustawioną wartość właściwości **... \Publish\Out**. Jeśli użytkownik ma podanej wartości dla tej właściwości, wyrażenie **false** i nie jest używana wartość właściwości statycznej.
 
 Aby uzyskać więcej informacji na różne sposoby, w którym można określić warunki, zobacz [warunki MSBuild](https://msdn.microsoft.com/library/7szfhaft.aspx).
 
 ### <a name="items-and-item-groups"></a>Elementy i grupy elementów
 
-Jedną z ról ważne pliku projektu jest określenie wejścia do procesu kompilacji. Zwykle te dane wejściowe są pliki & #x 2014 r., pliki kodu, pliki konfiguracji, pliki poleceń i inne pliki potrzebne do przetwarzania lub skopiuj jako część procesu kompilacji. W schemacie projektu MSBuild te dane wejściowe są reprezentowane przez [elementu](https://msdn.microsoft.com/library/ms164283.aspx) elementów. W pliku projektu elementów musi być zdefiniowany w ramach [ItemGroup](https://msdn.microsoft.com/library/646dk05y.aspx) elementu. Podobnie jak **właściwości** elementy, można określić nazwę **elementu** elementu jednak chcesz. Jednak należy określić **Include** atrybutu, aby zidentyfikować pliku lub symbolu wieloznacznego, który reprezentuje element.
+Jedną z ról ważne pliku projektu jest określenie wejścia do procesu kompilacji. Zazwyczaj te dane wejściowe są pliki&#x2014;kodu plików, pliki konfiguracji, pliki poleceń i inne pliki potrzebne do przetwarzania lub skopiuj jako część procesu kompilacji. W schemacie projektu MSBuild te dane wejściowe są reprezentowane przez [elementu](https://msdn.microsoft.com/library/ms164283.aspx) elementów. W pliku projektu elementów musi być zdefiniowany w ramach [ItemGroup](https://msdn.microsoft.com/library/646dk05y.aspx) elementu. Podobnie jak **właściwości** elementy, można określić nazwę **elementu** elementu jednak chcesz. Jednak należy określić **Include** atrybutu, aby zidentyfikować pliku lub symbolu wieloznacznego, który reprezentuje element.
 
 
 [!code-xml[Main](understanding-the-project-file/samples/sample6.xml)]
@@ -139,7 +139,7 @@ Określając wielu **elementu** elementów o takiej samej nazwie, efektywnie two
 [!code-xml[Main](understanding-the-project-file/samples/sample7.xml)]
 
 
-W ten sposób pliku projektu jest poinstruowanie MSBuild, aby utworzyć listę plików, które muszą być przetworzone w tej samej sposób & #x 2014; **odwołania** lista zawiera zestawy, które muszą być w celu pomyślnego utworzenia kompilacji **Skompilować** lista zawiera pliki kodu, które muszą być skompilowane i **zawartości** lista zawiera zasoby, które muszą zostać skopiowane niezmieniony. Wyjaśniono, jak proces kompilacji przywołuje i używa tych elementów w dalszej części tego tematu.
+W ten sposób pliku projektu jest poinstruowanie MSBuild, aby utworzyć listę plików, które muszą być przetworzone w taki sam sposób&#x2014; **odwołania** lista zawiera zestawy, które muszą być w celu pomyślnego utworzenia kompilacji  **Kompiluj** lista zawiera pliki kodu, które muszą być skompilowane i **zawartości** lista zawiera zasoby, które muszą zostać skopiowane niezmieniony. Wyjaśniono, jak proces kompilacji przywołuje i używa tych elementów w dalszej części tego tematu.
 
 Element mogą również obejmować [itemmetadata —](https://msdn.microsoft.com/library/ms164284.aspx) elementy podrzędne. Są zdefiniowane przez użytkownika pary klucz wartość i zasadniczo reprezentuje właściwości, które są specyficzne dla tego elementu. Na przykład wiele **skompilować** obejmują elementy elementu w pliku projektu **DependentUpon** elementy podrzędne.
 
@@ -195,11 +195,11 @@ Zarówno obiektów docelowych i zadań mogą obejmować **warunku** atrybutów. 
 
 Ogólnie rzecz biorąc podczas tworzenia użytecznych zadań i elementów docelowych, konieczne będzie odwoływać się do właściwości i elementy, które zostały zdefiniowane w innym miejscu w pliku projektu:
 
-- Aby użyć wartości właściwości, wpisz **$(***PropertyName***)**, gdzie *PropertyName* jest nazwą **właściwości** element lub nazwę parametr.
-- Aby użyć elementu, wpisz **@(***ItemName***)**, gdzie *ItemName* jest nazwą **elementu** elementu.
+- Aby użyć wartości właściwości, wpisz <strong>$(</strong><em>PropertyName</em><strong>)</strong>, gdzie <em>PropertyName</em> jest nazwą <strong>właściwości</strong> element lub nazwę parametru.
+- Aby użyć elementu, wpisz <strong>@(</strong><em>ItemName</em><strong>)</strong>, gdzie <em>ItemName</em> jest nazwą <strong>elementu</strong> elementu.
 
 > [!NOTE]
-> Należy pamiętać, że jeśli tworzysz wiele elementów o takiej samej nazwie, tworzysz listy. Z kolei w przypadku utworzenia wielu właściwości o tej samej nazwie, ostatnią wartość właściwości podane spowoduje zastąpienie poprzedniej właściwości z tej samej nazwy & #x 2014; właściwość może zawierać tylko jedną wartość.
+> Należy pamiętać, że jeśli tworzysz wiele elementów o takiej samej nazwie, tworzysz listy. Z kolei w przypadku utworzenia wielu właściwości o tej samej nazwie, ostatnią wartość właściwości, należy podać spowoduje zastąpienie wszelkich poprzednich właściwości o takiej samej nazwie&#x2014;właściwość może zawierać tylko jedną wartość.
 
 
 Na przykład w *Publish.proj* plików w przykładowe rozwiązanie, Przyjrzyjmy się **BuildProjects** docelowej.
@@ -227,7 +227,7 @@ Możesz też sprawdzić, które **MSBuild** zadań wywołuje element docelowy o 
 
 ## <a name="splitting-project-files-to-support-multiple-environments"></a>Podział plików projektu do obsługi wielu środowisk
 
-Załóżmy, że chcesz można było wdrożyć rozwiązanie w wielu środowiskach, takich jak serwery testu, przemieszczania platform i środowisk produkcyjnych. Konfiguracji mogą się znacznie różnić między tych środowisk & #x 2014; nie tylko pod względem nazwy serwerów, parametry połączenia i tak dalej, ale także potencjalnie pod względem poświadczeń, ustawienia zabezpieczeń i wiele innych czynników. Jeśli potrzebujesz w tym celu regularnie, nie jest naprawdę wskazane edytować wiele właściwości w pliku projektu, zawsze Przełącz środowiska docelowego. Nie jest to idealne rozwiązanie wymagające nieskończone lista wartości właściwości do procesu kompilacji.
+Załóżmy, że chcesz można było wdrożyć rozwiązanie w wielu środowiskach, takich jak serwery testu, przemieszczania platform i środowisk produkcyjnych. Konfiguracja mogą się znacznie różnić między tych środowisk&#x2014;nie tylko pod względem nazwy serwerów, parametry połączenia i tak dalej, ale także potencjalnie pod względem poświadczeń, ustawienia zabezpieczeń i wiele innych czynników. Jeśli potrzebujesz w tym celu regularnie, nie jest naprawdę wskazane edytować wiele właściwości w pliku projektu, zawsze Przełącz środowiska docelowego. Nie jest to idealne rozwiązanie wymagające nieskończone lista wartości właściwości do procesu kompilacji.
 
 Na szczęście stanowi alternatywę. MSBuild pozwala podzielić konfiguracji kompilacji na wielu plikach projektów. Aby zobaczyć, jak to działa, w rozwiązaniu próbki Zwróć uwagę, że dostępne są dwa pliki projektu niestandardowych:
 
@@ -266,6 +266,6 @@ Następnym temacie [opis procesu kompilacji](understanding-the-build-process.md)
 
 Aby uzyskać więcej informacji na temat wprowadzenie do plików projektu i WPP, zobacz [wewnątrz kompilacji aparatu Microsoft: przy użyciu programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi i Bartholomew łączy, ISBN: 978-0-7356-4524-0.
 
->[!div class="step-by-step"]
-[Poprzednie](setting-up-the-contact-manager-solution.md)
-[dalej](understanding-the-build-process.md)
+> [!div class="step-by-step"]
+> [Poprzednie](setting-up-the-contact-manager-solution.md)
+> [dalej](understanding-the-build-process.md)

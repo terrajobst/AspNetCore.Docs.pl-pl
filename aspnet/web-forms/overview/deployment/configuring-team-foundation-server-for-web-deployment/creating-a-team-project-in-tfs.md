@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
-title: "Tworzenie nowego projektu zespołowego w programie TFS | Dokumentacja firmy Microsoft"
+title: Tworzenie nowego projektu zespołowego w programie TFS | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób tworzenia nowego projektu zespołowego w Team Foundation Server (TFS) 2010."
+description: W tym temacie opisano sposób tworzenia nowego projektu zespołowego w Team Foundation Server (TFS) 2010.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 msc.type: authoredcontent
-ms.openlocfilehash: ef8cddb7733c1f8cacd24c5cf341a42741d25a95
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 79c069a601c0eafd84ae142241895428052acd29
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-team-project-in-tfs"></a>Tworzenie nowego projektu zespołowego w programie TFS
 ====================
@@ -27,7 +27,7 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > W tym temacie opisano sposób tworzenia nowego projektu zespołowego w Team Foundation Server (TFS) 2010.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
 ## <a name="task-overview"></a>Omówienie zadań
 
@@ -107,11 +107,11 @@ Następnie należy przyznać uprawnienia użytkownika do tworzenia nowych lokacj
 
     ![](creating-a-team-project-in-tfs/_static/image9.png)
 
-    > [!NOTE]
-    > Może pojawić się **HTTP 404 — Nie znaleziono** błąd z powodu podwójnego usterki kodowania protokołu HTTP. W takim przypadku należy zastąpić adres URL to:   
-    > [*adres URL zbioru witryn*] /\_layouts/permsetup.aspx  
-    > Na przykład:  
-    > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
+   > [!NOTE]
+   > Może pojawić się <strong>HTTP 404 — Nie znaleziono</strong> błąd z powodu podwójnego usterki kodowania protokołu HTTP. W takim przypadku należy zastąpić adres URL to:   
+   > [<em>adres URL zbioru witryn</em>] /\_layouts/permsetup.aspx  
+   > Na przykład:  
+   > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
 8. Na **Konfigurowanie grup w tej witrynie** strony, Dodaj użytkownika, który spowoduje utworzenie projektów zespołowych do **właścicieli** grupy, a następnie kliknij przycisk **OK**.
 
     ![](creating-a-team-project-in-tfs/_static/image10.png)
@@ -202,6 +202,6 @@ Następnym temacie [Dodawanie zawartości do kontroli źródła](adding-content-
 
 Szerszych wskazówki dotyczące tworzenia projektów zespołowych w programie TFS, zobacz [utworzenia projektu zespołowego](https://msdn.microsoft.com/library/ms181477(v=VS.100).aspx). Aby uzyskać więcej informacji na temat włączania użytkownikom na tworzenie nowych projektów zespołowych w kolekcji projektów zespołowych, zobacz [Ustawianie uprawnień administratora dla kolekcji projektu zespołowego](https://msdn.microsoft.com/library/dd547204.aspx). Aby uzyskać więcej informacji na temat dodawania użytkowników do zespołów i projektów, zobacz [Dodawanie użytkowników do zespołów i projektów](https://msdn.microsoft.com/library/bb558971.aspx).
 
->[!div class="step-by-step"]
-[Poprzednie](configuring-team-foundation-server-for-web-deployment.md)
-[dalej](adding-content-to-source-control.md)
+> [!div class="step-by-step"]
+> [Poprzednie](configuring-team-foundation-server-for-web-deployment.md)
+> [dalej](adding-content-to-source-control.md)

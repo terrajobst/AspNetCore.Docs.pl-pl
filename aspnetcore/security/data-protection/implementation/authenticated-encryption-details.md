@@ -1,7 +1,7 @@
 ---
-title: "Szczegóły uwierzytelnionego szyfrowania"
+title: Szczegóły uwierzytelnionego szyfrowania w ASP.NET Core
 author: rick-anderson
-description: "Ten dokument zawiera szczegóły implementacji platformy ASP.NET Core ochrony danych uwierzytelniony szyfrowania."
+description: Szczegóły dotyczące wykonania szyfrowania platformy ASP.NET Core Data Protection uwierzytelniony.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/authenticated-encryption-details
-ms.openlocfilehash: b58f36a5f0353da69d6f1ef4db542aba8267027a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3ca5231e84156ede59793825e1a3e3bea0313055
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="authenticated-encryption-details"></a>Szczegóły uwierzytelnionego szyfrowania
+# <a name="authenticated-encryption-details-in-aspnet-core"></a>Szczegóły uwierzytelnionego szyfrowania w ASP.NET Core
 
 <a name="data-protection-implementation-authenticated-encryption-details"></a>
 
@@ -31,7 +31,7 @@ Format ładunku chronionych obejmuje trzy główne składniki:
 
 * 128-bitowego klucza identyfikatora, który identyfikuje klucz używany do ochrony tego konkretnego ładunku.
 
-* W pozostałej części chronionych ładunku jest [specyficzne dla modułu szyfrującego zamknięte przez tego klucza](subkeyderivation.md#data-protection-implementation-subkey-derivation). W poniższym przykładzie reprezentuje klucz AES-256-CBC + modułu szyfrującego HMACSHA256 i ładunków dalszej podzielonych w następujący sposób: * A 128-bitowego klucza modyfikator. * Wektor inicjowania 128-bitowego. * 48 bajtów AES-256-CBC danych wyjściowych. * HMACSHA256 tag uwierzytelniania.
+* W pozostałej części chronionych ładunku jest [specyficzne dla modułu szyfrującego zamknięte przez tego klucza](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). W poniższym przykładzie reprezentuje klucz AES-256-CBC + modułu szyfrującego HMACSHA256 i ładunków dalszej podzielonych w następujący sposób: * A 128-bitowego klucza modyfikator. * Wektor inicjowania 128-bitowego. * 48 bajtów AES-256-CBC danych wyjściowych. * HMACSHA256 tag uwierzytelniania.
 
 Poniżej przedstawiono przykładowe ładunku chronionych.
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-vb
-title: "Wiązania danych formantu suwaka (VB) | Dokumentacja firmy Microsoft"
+title: Wiązania danych formantu suwaka (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Kontrolka suwaka w zestawie narzędzi kontroli AJAX zapewnia graficznego suwaka, które można zmieniać za pomocą myszy. Istnieje możliwość powiązania bieżące położenie..."
+description: Kontrolka suwaka w zestawie narzędzi kontroli AJAX zapewnia graficznego suwaka, które można zmieniać za pomocą myszy. Istnieje możliwość powiązania bieżące położenie...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6d106fda523356c9b7abd2d82b2d82537b50bd21
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3ecd8598cd7fdcbbb4812e501bb30fa1f563a054
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="databinding-the-slider-control-vb"></a>Wiązania danych formantu suwaka (VB)
 ====================
@@ -52,5 +52,5 @@ Jak widać w przeglądarce, powiązania danych działa w obu kierunkach: wprowad
 
 Suwak i pole tekstowe są zsynchronizowane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](databinding-the-slider-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](using-the-slider-control-with-auto-postback-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-the-slider-control-with-auto-postback-vb.md)

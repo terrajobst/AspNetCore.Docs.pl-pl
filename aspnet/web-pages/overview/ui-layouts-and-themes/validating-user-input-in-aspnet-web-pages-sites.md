@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
-title: "Walidacja danych wejściowych użytkownika w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft"
+title: Walidacja danych wejściowych użytkownika w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym artykule omówiono sposób sprawdzania poprawności informacji Uzyskaj od użytkowników &mdash; oznacza to, że się upewnić, że użytkownicy Wprowadź prawidłowe informacje w języku HTML formularzy w jako..."
+description: W tym artykule omówiono sposób sprawdzania poprawności informacji Uzyskaj od użytkowników &mdash; oznacza to, że się upewnić, że użytkownicy Wprowadź prawidłowe informacje w języku HTML formularzy w jako...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 3bde2a4ea69577ebcbe3e9e89a7ee07e6ece8dd1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 34f703e6db70ac79c22f4a50d4cfd4e2326b4c74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>Walidacja danych wejściowych użytkownika w sieci Web platformy ASP.NET (Razor) stron witryny
 ====================
@@ -40,7 +40,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 >   
 > 
 > W tym samouczku współdziała również z programu ASP.NET Web Pages 2.
@@ -83,15 +83,15 @@ W ASP.NET Web Pages 2, można użyć `Validator` pomocnika do przetestowania dan
     Aby sprawdzić, czy są wymagane pola, użyj `Validation.RequireField(field, [error message])` (dla poszczególnych pól) lub `Validation.RequireFields(field1, field2, ...))` (Aby uzyskać listę pól). Dla innych typów sprawdzania poprawności, użyj `Validation.Add(field, ValidationType)`. Aby uzyskać `ValidationType`, korzystając z tych opcji:
 
     `Validator.DateTime ([error message])`  
-`Validator.Decimal([error message])`  
-`Validator.EqualsTo(otherField [, error message])`  
-`Validator.Float([error message])`  
-`Validator.Integer([error message])`  
-`Validator.Range(min, max [, error message])`  
-`Validator.RegEx(pattern [, error message])`  
-`Validator.Required([error message])`  
-`Validator.StringLength(length)`  
-`Validator.Url([error message])`
+   `Validator.Decimal([error message])`  
+   `Validator.EqualsTo(otherField [, error message])`  
+   `Validator.Float([error message])`  
+   `Validator.Integer([error message])`  
+   `Validator.Range(min, max [, error message])`  
+   `Validator.RegEx(pattern [, error message])`  
+   `Validator.Required([error message])`  
+   `Validator.StringLength(length)`  
+   `Validator.Url([error message])`
 3. Po przesłaniu strony, sprawdź, czy Weryfikacja został przekazany przez sprawdzanie `Validation.IsValid`:
 
     [!code-csharp[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample1.cs)]
@@ -122,7 +122,7 @@ Możesz dodać obsługę przeprowadzania weryfikacji w skrypt po stronie klienta
 
     [!code-html[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample3.html)]
 
- Są dwa bibliotek obciążana z sieci dostarczania zawartości (CDN), więc masz zawsze mieć je na komputerze lub serwerze. Jednak musi mieć kopię lokalną *jquery.validate.unobtrusive.js*. Jeśli nie już pracujesz z szablonem programu WebMatrix (takich jak **witryny początkowej** ) zawierającej biblioteki należy utworzyć witrynę stron sieci Web na podstawie **witryny początkowej**. Następnie skopiuj *js* plik do bieżącej witryny.
+   Są dwa bibliotek obciążana z sieci dostarczania zawartości (CDN), więc masz zawsze mieć je na komputerze lub serwerze. Jednak musi mieć kopię lokalną *jquery.validate.unobtrusive.js*. Jeśli nie już pracujesz z szablonem programu WebMatrix (takich jak **witryny początkowej** ) zawierającej biblioteki należy utworzyć witrynę stron sieci Web na podstawie **witryny początkowej**. Następnie skopiuj *js* plik do bieżącej witryny.
 2. W znaczniku dla każdego elementu, który jest sprawdzanie poprawności, dodaj wywołanie do `Validation.For(field)`. Ta metoda emituje atrybuty, które są używane przez weryfikacji po stronie klienta. (Zamiast emitowanie rzeczywisty kod JavaScript, metoda emituje atrybutów, takich jak `data-val-...`. Te atrybuty obsługuje weryfikacji dyskretnego kodu klienta, który używa jQuery do wykonywania pracy).
 
 Następująca strona przedstawiono sposób dodawania funkcji sprawdzania poprawności klienta do wcześniej przykładzie.

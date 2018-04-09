@@ -1,7 +1,7 @@
 ---
-title: Praca z bazy danych LocalDB programu SQL Server
+title: Praca z bazy danych LocalDB programu SQL Server w platformy ASP.NET Core
 author: rick-anderson
-description: "Przy użyciu bazy danych LocalDB programu SQL Server z prostej aplikacji MVC"
+description: Informacje o używaniu bazy danych LocalDB programu SQL Server w prostej aplikacji ASP.NET Core MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: 7b4bb3a36326eca2a0eacaa1d0c9ea995e87f3c4
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 3f69657cb21e163bdf00fb1faea98889046e9b45
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="working-with-sql-server-localdb"></a>Praca z bazy danych LocalDB programu SQL Server
+# <a name="work-with-sql-server-localdb-in-aspnet-core"></a>Praca z bazy danych LocalDB programu SQL Server w platformy ASP.NET Core
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -69,20 +69,17 @@ if (context.Movie.Any())
 <a name="si"></a>
 ### <a name="add-the-seed-initializer"></a>Dodaj inicjatora inicjatora
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Inicjator inicjatora, aby dodać `Main` metody w *Program.cs* pliku:
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Dodaj inicjatora inicjatora na końcu `Configure` metody w *Startup.cs* pliku.
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Startup.cs?highlight=9&name=snippet_seed)]
 
----
-
+* * *
 Testowanie aplikacji
 
 * Usuń wszystkie rekordy w bazie danych. Można to zrobić z łączami Usuń w przeglądarce lub SSOX.
@@ -94,13 +91,13 @@ Testowanie aplikacji
 
     ![Menu kontekstowe](working-with-sql/_static/stopIIS.png)
 
-   * Podczas uruchamiania programu VS w trybie bez debugowania, naciśnij klawisz F5, aby uruchomić w trybie debugowania
-   * W przypadku korzystania z wersji programu VS w trybie debugowania, zatrzymaniu debugera i naciśnij klawisz F5
-   
+    * Podczas uruchamiania programu VS w trybie bez debugowania, naciśnij klawisz F5, aby uruchomić w trybie debugowania
+    * W przypadku korzystania z wersji programu VS w trybie debugowania, zatrzymaniu debugera i naciśnij klawisz F5
+
 Aplikacja zawiera wprowadzonych danych.
 
 ![Aplikacja MVC Movie otworzyć w programie Microsoft Edge danych Film przedstawiający](working-with-sql/_static/m55.png)
 
->[!div class="step-by-step"]
-[Poprzednie](adding-model.md)
-[dalej](controller-methods-views.md)  
+> [!div class="step-by-step"]
+> [Poprzednie](adding-model.md)
+> [dalej](controller-methods-views.md)  

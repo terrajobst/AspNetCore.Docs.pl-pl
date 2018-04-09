@@ -12,7 +12,7 @@ Jeśli zostanie wyświetlony błąd:
 No executable found matching command "dotnet-aspnet-codegenerator"
   ```
 
-Otwórz powłokę poleceń do katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików).
+Błąd poprzedzających odbywa się w niewłaściwego katalogu. Otwórz powłokę poleceń do katalogu projektu (katalog, który zawiera *Program.cs*, *Startup.cs*, i *.csproj* plików), a następnie uruchom polecenie poprzedzających.
 
 Jeśli zostanie wyświetlony błąd:
   ```

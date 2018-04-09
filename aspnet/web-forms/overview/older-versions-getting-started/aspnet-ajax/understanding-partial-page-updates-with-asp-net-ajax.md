@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
-title: "Opis strony częściowej aktualizacji z ASP.NET AJAX | Dokumentacja firmy Microsoft"
+title: Opis strony częściowej aktualizacji z ASP.NET AJAX | Dokumentacja firmy Microsoft
 author: scottcate
-description: "Prawdopodobnie najbardziej widocznej funkcji rozszerzeń AJAX ASP.NET jest możliwość czy aktualizacje częściowe lub przyrostowych strony nie robiąc pełne odświeżania strony t..."
+description: Prawdopodobnie najbardziej widocznej funkcji rozszerzeń AJAX ASP.NET jest możliwość czy aktualizacje częściowe lub przyrostowych strony nie robiąc pełne odświeżania strony t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: 1d8d3009df0a264e466d3f7decfb65978d8ae7a4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 91a98bf1c9a71ae84c569f7ae40930422cb652e0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Strona częściowa Opis aktualizacji z ASP.NET AJAX
 ====================
@@ -52,7 +52,7 @@ Możliwość integracji renderowania stron częściowych jest zintegrowany ASP.N
 ## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>Wskazówki: Integrowanie częściowe renderowanie istniejącego projektu
 
 
-1. W programie Microsoft Visual Studio 2008, Utwórz nowy projekt witryny sieci Web ASP.NET, przechodząc do *pliku*  *- &gt; nowy*  *- &gt; witryny sieci Web* i wybierając w oknie dialogowym witryny sieci Web ASP.NET. Można określić nazwę dowolne i może zainstalować ją do systemu plików lub do programu Internet Information Services (IIS).
+1. W programie Microsoft Visual Studio 2008, Utwórz nowy projekt witryny sieci Web ASP.NET, przechodząc do <em>pliku</em>  <em>- &gt; nowy</em>  <em>- &gt; witryny sieci Web</em> i wybierając w oknie dialogowym witryny sieci Web ASP.NET. Można określić nazwę dowolne i może zainstalować ją do systemu plików lub do programu Internet Information Services (IIS).
 2. Zostaną wyświetlone z puste domyślną stronę z podstawowych znaczników ASP.NET (formularza po stronie serwera i `@Page` dyrektywy). Upuść etykietę o nazwie `Label1` i przycisk o nazwie `Button1` na stronie w obrębie elementu form. Co chcesz mogą ustawić ich właściwości tekstu.
 3. W widoku Projekt, kliknij dwukrotnie `Button1` do generowania obsługi zdarzenia związane z kodem. W ramach tej obsługi zdarzeń, skonfigurować `Label1.Text` do kliknięto przycisk! .
 
@@ -73,11 +73,11 @@ Możliwość integracji renderowania stron częściowych jest zintegrowany ASP.N
 ([Kliknij, aby wyświetlić obraz w pełnym rozmiarze](understanding-partial-page-updates-with-asp-net-ajax/_static/image3.png))
 
 
-1. *Znany problem:*po zainstalowaniu programu Visual Studio 2008 na komputerze, na którym jest już zainstalowana z rozszerzeniami AJAX ASP.NET 2.0 programu Visual Studio 2005, Visual Studio 2008 zostaną zaimportowane elementy przybornika rozszerzenia AJAX. Można określić, czy jest to możliwe, sprawdzając etykietka narzędzia składników; powinny przekazać komunikat wersji 3.5.0.0. Jeśli podają wersją 2.0.0.0, następnie zaimportowano starych elementów przybornika i będzie musiał ręcznie zaimportować je za pomocą okna dialogowego Wybierz elementy przybornika programu Visual Studio. Nie można do dodawania formantów w wersji 2 za pomocą projektanta.
+1. <em>Znany problem:</em>po zainstalowaniu programu Visual Studio 2008 na komputerze, na którym jest już zainstalowana z rozszerzeniami AJAX ASP.NET 2.0 programu Visual Studio 2005, Visual Studio 2008 zostaną zaimportowane elementy przybornika rozszerzenia AJAX. Można określić, czy jest to możliwe, sprawdzając etykietka narzędzia składników; powinny przekazać komunikat wersji 3.5.0.0. Jeśli podają wersją 2.0.0.0, następnie zaimportowano starych elementów przybornika i będzie musiał ręcznie zaimportować je za pomocą okna dialogowego Wybierz elementy przybornika programu Visual Studio. Nie można do dodawania formantów w wersji 2 za pomocą projektanta.
 
-1. Przed `<asp:Label>` rozpoczyna tag, utworzyć linię odstępem, a następnie kliknij dwukrotnie na formantu UpdatePanel w przyborniku. Należy pamiętać, że nowy `@Register` dyrektywy znajduje się w górnej części strony, wskazującą, czy formanty w przestrzeni nazw System.Web.UI powinny być importowane przy użyciu `asp:` prefiks.
-2. Przeciągnij zamknięcia `</asp:UpdatePanel>` tag poza koniec elementu przycisk Tak, aby element jest poprawnie sformułowanym z formantami etykiety i przycisk opakowana.
-3. Po otwarciu `<asp:UpdatePanel>` tagów, Rozpocznij nowe tagu początkowego. Należy pamiętać, że funkcja IntelliSense wyświetla monit dwie opcje. W takim przypadku utworzyć `<ContentTemplate>` tagu. Pamiętaj zawijać ten tag wokół etykiety, a przycisk Tak, aby kod znaczników jest poprawnie sformułowany.
+2. Przed `<asp:Label>` rozpoczyna tag, utworzyć linię odstępem, a następnie kliknij dwukrotnie na formantu UpdatePanel w przyborniku. Należy pamiętać, że nowy `@Register` dyrektywy znajduje się w górnej części strony, wskazującą, czy formanty w przestrzeni nazw System.Web.UI powinny być importowane przy użyciu `asp:` prefiks.
+3. Przeciągnij zamknięcia `</asp:UpdatePanel>` tag poza koniec elementu przycisk Tak, aby element jest poprawnie sformułowanym z formantami etykiety i przycisk opakowana.
+4. Po otwarciu `<asp:UpdatePanel>` tagów, Rozpocznij nowe tagu początkowego. Należy pamiętać, że funkcja IntelliSense wyświetla monit dwie opcje. W takim przypadku utworzyć `<ContentTemplate>` tagu. Pamiętaj zawijać ten tag wokół etykiety, a przycisk Tak, aby kod znaczników jest poprawnie sformułowany.
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image5.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image4.png)
@@ -116,23 +116,23 @@ Włączone znaczników właściwości:
 
 | **Nazwa właściwości** | **Typ** | **Opis** |
 | --- | --- | --- |
-| AllowCustomErrors przekierowania | wartość logiczna | Określa, czy sekcja błędu niestandardowego pliku web.config służy do obsługi błędów. |
-| AsyncPostBackError — komunikat | String | Pobiera lub ustawia komunikat o błędzie wysłane do klienta, jeśli występuje błąd. |
-| Limit czasu AsyncPostBack | Int32 | Pobiera lub ustawia domyślny czas, jaki klient ma oczekiwać na żądania asynchronicznego zakończyć. |
-| Globalizacja EnableScript | wartość logiczna | Pobiera lub ustawia, czy włączono skryptów globalizacji. |
-| Lokalizacja EnableScript | wartość logiczna | Pobiera lub ustawia, czy lokalizacja skryptu jest włączona. |
+| AllowCustomErrors-Redirect | wartość logiczna | Określa, czy sekcja błędu niestandardowego pliku web.config służy do obsługi błędów. |
+| AsyncPostBackError-Message | String | Pobiera lub ustawia komunikat o błędzie wysłane do klienta, jeśli występuje błąd. |
+| AsyncPostBack-Timeout | Int32 | Pobiera lub ustawia domyślny czas, jaki klient ma oczekiwać na żądania asynchronicznego zakończyć. |
+| EnableScript-Globalization | wartość logiczna | Pobiera lub ustawia, czy włączono skryptów globalizacji. |
+| EnableScript-Localization | wartość logiczna | Pobiera lub ustawia, czy lokalizacja skryptu jest włączona. |
 | ScriptLoadTimeout | Int32 | Określa liczbę sekund, dozwolone w przypadku ładowania skryptów do klienta |
 | ScriptMode | Wyliczenia (Auto, debugowanie, wersji, dziedziczą) | Pobiera lub ustawia, czy renderowanie wersji skryptów |
-| scriptPath | String | Pobiera lub ustawia ścieżkę katalogu głównego do lokalizacji plików skryptów przeznaczonych do wysłania do klienta. |
+| ScriptPath | String | Pobiera lub ustawia ścieżkę katalogu głównego do lokalizacji plików skryptów przeznaczonych do wysłania do klienta. |
 
 Właściwości tylko do kodu:
 
 | **Nazwa właściwości** | **Typ** | **Opis** |
 | --- | --- | --- |
-| AuthenticationService | Menedżer AuthenticationService | Pobiera szczegóły serwera proxy usługi uwierzytelniania ASP.NET, które zostaną wysłane do klienta. |
+| AuthenticationService | AuthenticationService-Manager | Pobiera szczegóły serwera proxy usługi uwierzytelniania ASP.NET, które zostaną wysłane do klienta. |
 | IsDebuggingEnabled | wartość logiczna | Pobiera czy skrypt i debugowanie kodu jest włączone. |
 | IsInAsyncPostback | wartość logiczna | Pobiera informacje, czy strona jest obecnie w asynchroniczne żądanie post Wstecz. |
-| Elementu ProfileService | Menedżer elementu ProfileService | Pobiera szczegóły serwera proxy usługi profilowania ASP.NET, które zostaną wysłane do klienta. |
+| ProfileService | ProfileService-Manager | Pobiera szczegóły serwera proxy usługi profilowania ASP.NET, które zostaną wysłane do klienta. |
 | Skrypty | Kolekcja&lt;odwołania do skryptu&gt; | Pobiera kolekcję odwołań do skryptów, które zostaną wysłane do klienta. |
 | Usługi | Kolekcja&lt;odwołania do usługi&gt; | Pobiera kolekcję odwołań do serwera proxy usługi sieci Web, które zostaną wysłane do klienta. |
 | SupportsPartialRendering | wartość logiczna | Pobiera informacje, czy bieżący klient obsługuje renderowanie częściowej. Jeśli ta właściwość zwraca **false**, wszystkie żądania strony będzie standardowy ogłaszania zwrotnego. |
@@ -148,10 +148,10 @@ Elementy podrzędne znaczników:
 | **Tag** | **Opis** |
 | --- | --- |
 | &lt;AuthenticationService&gt; | Zawiera szczegółowe informacje o serwerze proxy do usługi uwierzytelniania ASP.NET. |
-| &lt;Elementu ProfileService&gt; | Zawiera szczegółowe informacje dotyczące serwera proxy do profilowania usługi ASP.NET. |
+| &lt;ProfileService&gt; | Zawiera szczegółowe informacje dotyczące serwera proxy do profilowania usługi ASP.NET. |
 | &lt;Skrypty&gt; | Zawiera dodatkowy skrypt służący odwołania. |
 | &lt;ASP: ScriptReference&gt; | Określa odwołania do określonego skryptu. |
-| &lt;Usługi&gt; | Zawiera dodatkowe informacje usługi sieci Web, których wygenerowane klasy serwera proxy. |
+| &lt;Usługa&gt; | Zawiera dodatkowe informacje usługi sieci Web, których wygenerowane klasy serwera proxy. |
 | &lt;ASP: servicereference kierowany&gt; | Określa określone odwołanie do usługi sieci Web. |
 
 Formantu ScriptManager jest istotne core dla rozszerzeń ASP.NET AJAX. Go zapewnia dostęp do biblioteki skryptu (w tym system typów szeroką gamę skryptu po stronie klienta), obsługuje częściowe renderowanie i zapewnia zaawansowaną obsługę dodatkowych usług platformy ASP.NET (takich jak uwierzytelnianie i profilowania, ale również inne usługi sieci Web). Formantu ScriptManager znajdują się również lokalizacja i globalizacja obsługę skryptów klienta.
@@ -190,9 +190,9 @@ Włączone znaczników właściwości:
 
 | **Nazwa właściwości** | **Typ** | **Opis** |
 | --- | --- | --- |
-| Dla właściwości ChildrenAsTriggers | bool | Określa, czy formanty podrzędne automatycznie wywołanie odświeżania strony. |
+| ChildrenAsTriggers | bool | Określa, czy formanty podrzędne automatycznie wywołanie odświeżania strony. |
 | RenderMode | wyliczenia (bloku, wbudowany) | Określa sposób zawartość zostanie wyświetlone wizualnie. |
-| Właściwość UpdateMode | wyliczenia (zawsze, warunkowego) | Określa, czy element UpdatePanel zawsze są odświeżane podczas renderowania częściowe lub gdy tylko jest odświeżany po wybraniu wyzwalacza. |
+| UpdateMode | wyliczenia (zawsze, warunkowego) | Określa, czy element UpdatePanel zawsze są odświeżane podczas renderowania częściowe lub gdy tylko jest odświeżany po wybraniu wyzwalacza. |
 
 Właściwości tylko do kodu:
 
@@ -207,16 +207,16 @@ Metody publiczne kodu:
 
 | **Nazwa metody** | **Typ** | **Opis** |
 | --- | --- | --- |
-| Metody Update() | Void | Aktualizuje określony element UpdatePanel programowo. Umożliwia wyzwalanie częściowe renderowanie elementu UpdatePanel w przeciwnym razie untriggered żądania serwera. |
+| Update() | Void | Aktualizuje określony element UpdatePanel programowo. Umożliwia wyzwalanie częściowe renderowanie elementu UpdatePanel w przeciwnym razie untriggered żądania serwera. |
 
 Elementy podrzędne znaczników:
 
 | **Tag** | **Opis** |
 | --- | --- |
-| &lt;Elementu ContentTemplate&gt; | Określa znaczników, który ma być używany do renderowania częściowe renderowanie wyniku. Element podrzędny &lt;asp: UpdatePanel&gt;. |
-| &lt;Wyzwalacze&gt; | Określa kolekcję  *n*  formanty powiązane z aktualizacji tego elementu UpdatePanel. Element podrzędny &lt;asp: UpdatePanel&gt;. |
-| &lt;ASP: AsyncPostBackTrigger&gt; | Określa wyzwalacz, który wywołuje renderowania strona częściowa dla danego elementu UpdatePanel. To może lub nie może być formant jako element podrzędny elementu UpdatePanel zagrożona. Szczegółowe na nazwę zdarzenia. Element podrzędny &lt;wyzwalaczy&gt;. |
-| &lt;ASP: PostBackTrigger&gt; | Określa formant, który powoduje, że cały stronę, aby odświeżyć. To może lub nie może być formant jako element podrzędny elementu UpdatePanel zagrożona. Szczegółowe do obiektu. Element podrzędny &lt;wyzwalaczy&gt;. |
+| &lt;ContentTemplate&gt; | Określa znaczników, który ma być używany do renderowania częściowe renderowanie wyniku. Element podrzędny &lt;asp: UpdatePanel&gt;. |
+| &lt;Wyzwalacze&gt; | Określa kolekcję *n* formanty powiązane z aktualizacji tego elementu UpdatePanel. Element podrzędny &lt;asp: UpdatePanel&gt;. |
+| &lt;asp:AsyncPostBackTrigger&gt; | Określa wyzwalacz, który wywołuje renderowania strona częściowa dla danego elementu UpdatePanel. To może lub nie może być formant jako element podrzędny elementu UpdatePanel zagrożona. Szczegółowe na nazwę zdarzenia. Element podrzędny &lt;wyzwalaczy&gt;. |
+| &lt;asp:PostBackTrigger&gt; | Określa formant, który powoduje, że cały stronę, aby odświeżyć. To może lub nie może być formant jako element podrzędny elementu UpdatePanel zagrożona. Szczegółowe do obiektu. Element podrzędny &lt;wyzwalaczy&gt;. |
 
 `UpdatePanel` Formant jest formantem ograniczającego zawartości po stronie serwera, która będzie uczestniczył w działaniu częściowe renderowanie rozszerzeń AJAX. Nie ma żadnego limitu liczby UpdatePanel formantów, które mogą się znajdować na stronie i mogą być zagnieżdżone. Każdy element UpdatePanel jest izolowanym, dzięki czemu każdy może pracować wielel osób (może mieć dwóch UpdatePanels uruchomione w tym samym czasie, renderowanie niezależnie od ogłaszania zwrotnego strony różnych części strony).
 
@@ -285,7 +285,7 @@ Włączone znaczników właściwości:
 
 | **Nazwa właściwości** | **Typ** | **Opis** |
 | --- | --- | --- |
-| AssociatedUpdate PanelID | String | Określa identyfikator elementu UpdatePanel, że ta wartość UpdateProgress należy sporządzić raport na. |
+| AssociatedUpdate-PanelID | String | Określa identyfikator elementu UpdatePanel, że ta wartość UpdateProgress należy sporządzić raport na. |
 | Wartość DisplayAfter | int | Określa limit czasu w milisekundach, przed wyświetleniem tego formantu, po rozpoczęciu żądania asynchronicznego. |
 | DynamicLayout | bool | Określa, czy postępu jest renderowany dynamicznie. |
 
@@ -293,7 +293,7 @@ Elementy podrzędne znaczników:
 
 | **Tag** | **Opis** |
 | --- | --- |
-| &lt;Element ProgressTemplate&gt; | Zawiera szablon formantu, ustaw dla zawartości, która będzie wyświetlana z tym formantem. |
+| &lt;ProgressTemplate&gt; | Zawiera szablon formantu, ustaw dla zawartości, która będzie wyświetlana z tym formantem. |
 
 Kontrolki postępu aktualizacji umożliwia miary opinię, aby zachować zainteresowania użytkowników podczas wykonywania pracy niezbędne do transportu do serwera. Może to ułatwić użytkowników, czy robimy coś mimo że może nie być oczywista, szczególnie w przypadku, ponieważ większość użytkowników są używane do strony odświeżanie i wyświetlanie na pasku stanu, zaznacz.
 
@@ -317,5 +317,5 @@ Te narzędzia pomocy ze sobą, utworzyć środowisko użytkowników zaawansowany
 
 Scott IE pracuje z technologii Microsoft Web od 1997 i jest Prezes myKB.com ([www.myKB.com](http://www.myKB.com)) gdzie specjalizuje się on w pisaniu ASP.NET aplikacje oparte na systemie koncentruje się na rozwiązania w zakresie oprogramowania bazy wiedzy Knowledge Base. Scott można nawiązać połączenie za pośrednictwem poczty e-mail na [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) lub jego blogu w [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Dalej](understanding-asp-net-ajax-updatepanel-triggers.md)
+> [!div class="step-by-step"]
+> [Next](understanding-asp-net-ajax-updatepanel-triggers.md)

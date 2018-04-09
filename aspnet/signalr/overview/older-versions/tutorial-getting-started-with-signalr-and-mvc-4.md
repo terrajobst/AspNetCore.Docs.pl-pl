@@ -2,7 +2,7 @@
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 title: 'Samouczek: Wprowadzenie do korzystania z SignalR 1.x a MVC 4 | Dokumentacja firmy Microsoft'
 author: pfletcher
-description: "Do tworzenia aplikacji rozmów w czasie rzeczywistym, należy użyć SignalR platformy ASP.NET i ASP.NET MVC 4."
+description: Do tworzenia aplikacji rozmów w czasie rzeczywistym, należy użyć SignalR platformy ASP.NET i ASP.NET MVC 4.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/29/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 632e6098a03eae02f2367c6dc1c293dbdb6b6170
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1ae330be5caf00c3cac7451f326398c0958538af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Samouczek: Wprowadzenie do korzystania z SignalR 1.x a MVC 4
 ====================
@@ -63,17 +63,17 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji ASP.NET MVC 4, Dodaj bibl
         > VS 2010 wybierz **.NET Framework 4** za pomocą kontrolki rozwijanej wersji Framework. SignalR kod działa w wersji systemu .NET Framework 4 i 4.5.
 
         ![Tworzenie sieci web mvc](tutorial-getting-started-with-signalr-and-mvc-4/_static/image3.png)
-    2. Wybierz szablon aplikacji internetowych, usuń zaznaczenie opcji do **Utwórz jednostkowy projekt testowy**i kliknij przycisk OK.
+      2. Wybierz szablon aplikacji internetowych, usuń zaznaczenie opcji do **Utwórz jednostkowy projekt testowy**i kliknij przycisk OK.
 
-        ![Tworzenie witryny internetowej mvc](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
-    3. Otwórz **narzędzia | Menedżer pakietów biblioteki | Konsola Menedżera pakietów** i uruchom następujące polecenie. Ten krok powoduje dodanie do projektu zestawu plików skryptów i włączyć funkcję SignalR odwołań do zestawu.
+         ![Tworzenie witryny internetowej mvc](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
+      3. Otwórz **narzędzia | Menedżer pakietów biblioteki | Konsola Menedżera pakietów** i uruchom następujące polecenie. Ten krok powoduje dodanie do projektu zestawu plików skryptów i włączyć funkcję SignalR odwołań do zestawu.
 
-        `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
-    4. W **Eksploratora rozwiązań** rozwiń folder skryptów. Należy pamiętać, że skrypt biblioteki SignalR zostały dodane do projektu.
+         `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
+      4. W **Eksploratora rozwiązań** rozwiń folder skryptów. Należy pamiętać, że skrypt biblioteki SignalR zostały dodane do projektu.
 
-        ![Odwołania do biblioteki](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
-    5. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt, wybierz **Dodaj | Nowy Folder**, i Dodaj nowy folder o nazwie **koncentratory**.
-    6. Kliknij prawym przyciskiem myszy **koncentratory** folderu, kliknij przycisk **Dodaj | Klasa**i Utwórz nową klasę C# o nazwie **ChatHub.cs**. Ta klasa będzie używany jako SignalR koncentratora serwera, który wysyła komunikaty do wszystkich klientów.
+         ![Odwołania do biblioteki](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
+      5. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt, wybierz **Dodaj | Nowy Folder**, i Dodaj nowy folder o nazwie **koncentratory**.
+      6. Kliknij prawym przyciskiem myszy **koncentratory** folderu, kliknij przycisk **Dodaj | Klasa**i Utwórz nową klasę C# o nazwie **ChatHub.cs**. Ta klasa będzie używany jako SignalR koncentratora serwera, który wysyła komunikaty do wszystkich klientów.
 
 > [!NOTE]
 > Jeśli używasz programu Visual Studio 2012 i zainstalowano [ASP.NET i 2012.2 narzędzia sieci Web aktualizacji](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation), nowy szablon elementu SignalR umożliwia tworzenie klasy koncentratora. W tym celu kliknij prawym przyciskiem myszy **koncentratory** folderu, kliknij przycisk **Dodaj | Nowy element**, wybierz pozycję **klasy koncentratora SignalR (wersja 1)**, a nazwa klasy **ChatHub.cs**.

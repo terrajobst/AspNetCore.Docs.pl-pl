@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 title: Badanie widoku edycji i Edytuj metody | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: d7e1ba503b8aa815cebf431d2f5ffc9436b3575b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a3baa8e9af572d4c21813218ba394715a6db65cb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Badanie metody edycji i widoku edycji
 ====================
 przez [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 W tej sekcji będziesz Sprawdź wygenerowany `Edit` widoków dla filmu kontrolera i metody akcji. Ale najpierw potrwa krótkich kierowania dokonanie Data wydania lepsze. Otwórz *Models\Movie.cs* i Dodaj wyróżnione wiersze, pokazano poniżej:
 
@@ -100,18 +100,18 @@ Jeśli używasz komputera angielski, można pominąć tę sekcję i przejdź do 
 
 
 > [!NOTE]
-> w celu obsługi weryfikacji jQuery dla ustawień regionalnych innych niż angielskie, które użyj przecinka (&quot;,&quot;) dla punktu dziesiętnego i formaty daty z systemem innym niż angielski, należy wprowadzić *globalize.js* i konkretnej  *cultures/globalize.cultures.js* pliku (z [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) i JavaScript, aby użyć `Globalize.parseFloat`. Możesz pobrać ze strony NuGet weryfikacji jQuery innej niż angielska. (Nie należy instalować Globalize Jeśli używasz angielskiej wersji językowej ustawień regionalnych.)
+> w celu obsługi weryfikacji jQuery dla ustawień regionalnych innych niż angielskie, które użyj przecinka (&quot;,&quot;) dla punktu dziesiętnego i formaty daty z systemem innym niż angielski, należy wprowadzić *globalize.js* i konkretnej * cultures/globalize.cultures.js* pliku (z [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) i JavaScript, aby użyć `Globalize.parseFloat`. Możesz pobrać ze strony NuGet weryfikacji jQuery innej niż angielska. (Nie należy instalować Globalize Jeśli używasz angielskiej wersji językowej ustawień regionalnych.)
 
 
 1. Z **narzędzia** kliknij menu **Menedżera pakietów NuGetLibrary**, a następnie kliknij przycisk **Zarządzaj pakietami NuGet dla rozwiązania**.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image5.png)
-2. W lewym okienku wybierz **Przeglądaj*. *** (zobacz obraz poniżej).
+2. W lewym okienku wybierz <strong>Przeglądaj*.</strong> *(Zobacz obraz poniżej).
 3. W polu wejściowym, wprowadź * Globalize **.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image6.png) Wybierz `jQuery.Validation.Globalize`, wybierz `MvcMovie` i kliknij przycisk **zainstalować**. *Scripts\jquery.globalize\globalize.js* plik zostanie dodany do projektu. *Scripts\jquery.globalize\cultures\* folder będzie zawierać wiele plików JavaScript kultury. Uwaga: może zająć 5 minut, aby zainstalować ten pakiet.
 
- Poniższy kod przedstawia zmiany w pliku Views\Movies\Edit.cshtml: 
+   Poniższy kod przedstawia zmiany w pliku Views\Movies\Edit.cshtml: 
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample10.cshtml)]
 
@@ -125,6 +125,6 @@ Jako tymczasowy poprawkę Jeśli nie można pobrać weryfikacji pracy w ustawie�
 
 <a id="gettingstarted"></a><a id="jQueryAjaxJSON"></a> W następnym samouczku będzie wprowadzania funkcji wyszukiwania.
 
->[!div class="step-by-step"]
-[Poprzednie](accessing-your-models-data-from-a-controller.md)
-[dalej](adding-search.md)
+> [!div class="step-by-step"]
+> [Poprzednie](accessing-your-models-data-from-a-controller.md)
+> [dalej](adding-search.md)

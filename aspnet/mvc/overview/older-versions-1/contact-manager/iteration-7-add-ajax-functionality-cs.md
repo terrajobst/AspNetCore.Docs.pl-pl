@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-cs
-title: "Iteracja #7 — Dodaj Ajax funkcji (C#) | Dokumentacja firmy Microsoft"
+title: 'Iteracja #7 — Dodaj Ajax funkcji (C#) | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "Siódmego iteracji możemy ulepszyć czas reakcji i wydajności aplikacji, dodając obsługę technologii Ajax."
+description: Siódmego iteracji możemy ulepszyć czas reakcji i wydajności aplikacji, dodając obsługę technologii Ajax.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-cs
 msc.type: authoredcontent
-ms.openlocfilehash: db313d12dfd6a146347f253dc3a1f4a889bee780
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 35d62383a571725749b2fc629bbb17954657b2f6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-7--add-ajax-functionality-c"></a>Iteracja #7 — Dodaj Ajax funkcji (C#)
 ====================
@@ -242,6 +242,6 @@ Dodaliśmy również obsługi w przeglądarce historii do naszej aplikacji Ajax.
 
 Na koniec utworzyliśmy łącze Usuń, który obsługuje operacje HTTP DELETE. Wykonując usuwa Ajax, możemy Zezwól użytkownikom na usuwanie rekordów bazy danych bez konieczności użytkownikowi żądanie stronę potwierdzenia usunięcia dodatkowe.
 
->[!div class="step-by-step"]
-[Poprzednie](iteration-6-use-test-driven-development-cs.md)
-[dalej](iteration-1-create-the-application-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](iteration-6-use-test-driven-development-cs.md)
+> [dalej](iteration-1-create-the-application-vb.md)

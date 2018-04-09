@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
-title: "Dodatek: Poprawkę go aplikacji przykładowej (Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure) | Dokumentacja firmy Microsoft"
+title: 'Dodatek: Poprawkę go aplikacji przykładowej (Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure) | Dokumentacja firmy Microsoft'
 author: MikeWasson
-description: "Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on..."
+description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: c98e79bf8e9a1fe0899ed6d952c3e411ca472f7e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9a1fa36b34c4783b101bb27bc6931241e9251e10
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Dodatek: Poprawkę go aplikacji przykładowej (Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure)
 ====================
@@ -245,18 +245,18 @@ Istnieją dwa sposoby uruchamiania aplikacji napraw:
 
     Za pomocą programu Visual Studio 2013:
 
-    1. Naciśnij klawisz F5, aby uruchomić projekt automatyczne rozwiązywanie problemu.
-    2. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt MyFixItCloudService, a następnie kliknij przycisk **debugowania** -- **uruchomić nowe wystąpienie**.
+   1. Naciśnij klawisz F5, aby uruchomić projekt automatyczne rozwiązywanie problemu.
+   2. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt MyFixItCloudService, a następnie kliknij przycisk **debugowania** -- **uruchomić nowe wystąpienie**.
 
-    Za pomocą programu Visual Studio Express 2013 for Web:
+      Za pomocą programu Visual Studio Express 2013 for Web:
 
-    1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy rozwiązanie automatyczne, a następnie wybierz **właściwości**.
-    2. Wybierz **wiele projektów startowych**...
-    3. W **akcji** wybierz z listy rozwijanej w obszarze MyFixIt i MyFixItCloudService, **Start**.
-    4. Kliknij przycisk **OK**.
-    5. Naciśnij klawisz F5, aby uruchomić oba projekty.
+   3. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy rozwiązanie automatyczne, a następnie wybierz **właściwości**.
+   4. Wybierz **wiele projektów startowych**...
+   5. W **akcji** wybierz z listy rozwijanej w obszarze MyFixIt i MyFixItCloudService, **Start**.
+   6. Kliknij przycisk **OK**.
+   7. Naciśnij klawisz F5, aby uruchomić oba projekty.
 
-    Po uruchomieniu MyFixItCloudService projektu programu Visual Studio rozpoczyna emulatora obliczeń platformy Azure. W zależności od konfiguracji zapory konieczne może być Zezwalaj emulatora przez zaporę.
+      Po uruchomieniu MyFixItCloudService projektu programu Visual Studio rozpoczyna emulatora obliczeń platformy Azure. W zależności od konfiguracji zapory konieczne może być Zezwalaj emulatora przez zaporę.
 
 <a id="deploybase"></a>
 ## <a name="how-to-deploy-the-base-app-to-azure-app-service-web-apps-by-using-the-windows-powershell-scripts"></a>Sposób wdrażania podstawowej aplikacji do aplikacji sieci Web usługi aplikacji Azure za pomocą skryptów środowiska Windows PowerShell
@@ -285,7 +285,7 @@ W poniższych instrukcjach przyjęto zostały już pobrane i uruchamianie rozwi�
     Te poświadczenia wygaśnie po upływie pewnego czasu i ponownie uruchom `Add-AzureAccount` polecenia cmdlet. Jak Książka elektroniczna jest zapisywana, limit czasu wygaśnięcia poświadczeń wynosi 12 godzin.
 5. Jeśli masz wiele subskrypcji, należy użyć polecenia cmdlet AzureSubscription wybierz, aby określić subskrypcję, którą chcesz utworzyć w środowisku testowym.
 6. Zaimportuj certyfikat zarządzania dla tej samej subskrypcji platformy Azure przy użyciu `Get-AzurePublishSettingsFile` i `Import-AzurePublishSettingsFile` polecenia cmdlet. Pierwsza z tych poleceń cmdlet pobiera plik certyfikatu, a w drugim Określ lokalizację tego pliku w celu zaimportowania. > [!IMPORTANT]
- > Zachować pobrany plik w bezpiecznym miejscu, lub usuń go, gdy wszystko będzie gotowe, ponieważ zawiera on certyfikat, który może służyć do zarządzania usługami Azure.
+   > Zachować pobrany plik w bezpiecznym miejscu, lub usuń go, gdy wszystko będzie gotowe, ponieważ zawiera on certyfikat, który może służyć do zarządzania usługami Azure.
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample22.cmd)]
 
@@ -399,5 +399,5 @@ W MyFixItCloudService\ServiceConfiguration.Cloud.cscfg Zastąp tego samego dwóc
 
 Teraz można przystąpić do wdrażania usługi w chmurze. W zapoznać się z rozwiązania, kliknij prawym przyciskiem myszy projekt MyFixItCloudService, a następnie wybierz **publikowania**. Aby uzyskać więcej informacji, zobacz "[wdrażanie aplikacji w usłudze Azure](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", która znajduje się w części 2 [w tym samouczku](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
 
->[!div class="step-by-step"]
-[Poprzednie](more-patterns-and-guidance.md)
+> [!div class="step-by-step"]
+> [Poprzednie](more-patterns-and-guidance.md)

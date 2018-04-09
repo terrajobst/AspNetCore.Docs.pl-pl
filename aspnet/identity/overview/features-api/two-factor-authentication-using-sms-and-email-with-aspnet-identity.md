@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
-title: "Uwierzytelnianie dwuskładnikowe przy użyciu programu SMS i wiadomości e-mail z tożsamości ASP.NET | Dokumentacja firmy Microsoft"
+title: Uwierzytelnianie dwuskładnikowe przy użyciu programu SMS i wiadomości e-mail z tożsamości ASP.NET | Dokumentacja firmy Microsoft
 author: HaoK
-description: "W tym samouczku opisano, jak skonfigurować uwierzytelnianie dwuskładnikowe (2FA) przy użyciu programu SMS i wiadomości e-mail. Ten artykuł dotyczy autorstwa Ricka Andersona ( @RickAndMSFT ), wzór..."
+description: W tym samouczku opisano, jak skonfigurować uwierzytelnianie dwuskładnikowe (2FA) przy użyciu programu SMS i wiadomości e-mail. Ten artykuł dotyczy autorstwa Ricka Andersona ( @RickAndMSFT ), wzór...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/15/2015
 ms.topic: article
 ms.assetid: 053e23c4-13c9-40fa-87cb-3e9b0823b31e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 0f9ff7cf74048a008b150da1e843ff15333269ab
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c8f628d177004a8569dde2651469ed591e48591e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="two-factor-authentication-using-sms-and-email-with-aspnet-identity"></a>Uwierzytelnianie dwuskładnikowe przy użyciu programu SMS i wiadomości e-mail z tożsamości platformy ASP.NET
 ====================
@@ -52,11 +52,11 @@ W tej sekcji użyjesz NuGet można pobrać przykładowy zajmiemy się. Rozpoczni
     `Install-Package SendGrid`  
     `Install-Package -Prerelease Microsoft.AspNet.Identity.Samples`  
   
- W tym samouczku użyjemy [SendGrid](http://sendgrid.com/) do wysyłania wiadomości e-mail i [usługi Twilio](https://www.twilio.com/) lub [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) dla tekstowe programu sms. `Identity.Samples` Pakiet instaluje firma Microsoft będzie działać z kodu.
+   W tym samouczku użyjemy [SendGrid](http://sendgrid.com/) do wysyłania wiadomości e-mail i [usługi Twilio](https://www.twilio.com/) lub [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) dla tekstowe programu sms. `Identity.Samples` Pakiet instaluje firma Microsoft będzie działać z kodu.
 3. Ustaw [projektu do używania protokołu SSL](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
 4. *Opcjonalne*: postępuj zgodnie z instrukcjami w mojej [samouczek potwierdzenie poczty E-mail](account-confirmation-and-password-recovery-with-aspnet-identity.md) do podpinanie SendGrid, a następnie uruchom aplikację i zarejestrować konto e-mail.
 5. * Opcjonalnie: * usunąć kod potwierdzenia pokaz e-mail łączy z próbki ( `ViewBag.Link` kodu w kontrolerze konta. Zobacz `DisplayEmail` i `ForgotPasswordConfirmation` metody akcji i widokami razor).
-6. * Opcjonalnie: * Usuń `ViewBag.Status` kodu z kontrolerami zarządzania i konta i *Views\Account\VerifyCode.cshtml* i *Views\Manage\VerifyPhoneNumber.cshtml* widokami razor. Alternatywnie można zachować `ViewBag.Status` wyświetlania, aby sprawdzić, jak ta aplikacja działa lokalnie, bez konieczności Podłączanie i wysyłanie wiadomości e-mail i wiadomości SMS.
+6. <em>Opcjonalnie: * Usuń `ViewBag.Status` kodu z kontrolerami zarządzania i konta i *Views\Account\VerifyCode.cshtml</em> i <em>Views\Manage\VerifyPhoneNumber.cshtml</em> widokami razor. Alternatywnie można zachować `ViewBag.Status` wyświetlania, aby sprawdzić, jak ta aplikacja działa lokalnie, bez konieczności Podłączanie i wysyłanie wiadomości e-mail i wiadomości SMS.
 
 > [!NOTE]
 > Ostrzeżenie: Jeśli zmienisz jakiekolwiek ustawienia zabezpieczeń w tym przykładzie produkcji aplikacje będą wymagały zastosowane inspekcji zabezpieczeń, która jawnie uwidacznia zmiany wprowadzone do.
@@ -70,44 +70,44 @@ Ten samouczek zawiera instrukcje dotyczące korzystania z usługi Twilio lub ASP
 
 1. **Tworzenie konta użytkownika z dostawcą programu SMS**  
   
- Utwórz [usługi Twilio](https://www.twilio.com/try-twilio) lub [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) konta.
+   Utwórz [usługi Twilio](https://www.twilio.com/try-twilio) lub [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) konta.
 2. **Instalowanie dodatkowych pakietów lub Dodawanie odwołań do usługi**  
   
- Usługi Twilio:  
- W konsoli Menedżera pakietów wprowadź następujące polecenie:  
+   Usługi Twilio:  
+   W konsoli Menedżera pakietów wprowadź następujące polecenie:  
     `Install-Package Twilio`  
   
- ASPSMS:  
- Następujące odwołanie do usługi musi zostać dodany:  
+   ASPSMS:  
+   Następujące odwołanie do usługi musi zostać dodany:  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image1.png)  
   
- Adres:  
+   Adres:  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
- Przestrzeń nazw:  
+   Przestrzeń nazw:  
     `ASPSMSX2`
 3. **Ustaleniem, poświadczenia użytkownika dostawcy programu SMS**  
   
- Usługi Twilio:  
- Z **pulpitu nawigacyjnego** kartę konta usługi Twilio kopiowania **identyfikator SID konta** i **token uwierzytelniania**.  
+   Usługi Twilio:  
+   Z **pulpitu nawigacyjnego** kartę konta usługi Twilio kopiowania **identyfikator SID konta** i **token uwierzytelniania**.  
   
- ASPSMS:  
- W ustawieniach konta, przejdź do **Userkey** i skopiować go razem z własnym zdefiniowanych **hasło**.  
+   ASPSMS:  
+   W ustawieniach konta, przejdź do **Userkey** i skopiować go razem z własnym zdefiniowanych **hasło**.  
   
- Te wartości będą przechowywane później w zmiennych `SMSAccountIdentification` i `SMSAccountPassword` .
+   Te wartości będą przechowywane później w zmiennych `SMSAccountIdentification` i `SMSAccountPassword` .
 4. **Określanie SenderID / inicjator**  
   
- Usługi Twilio:  
- Z **numery** karcie, skopiuj numer telefonu usługi Twilio.  
+   Usługi Twilio:  
+   Z **numery** karcie, skopiuj numer telefonu usługi Twilio.  
   
- ASPSMS:  
- W ramach **odblokować nadawcy** Menu, odblokuj co najmniej jednego nadawcy, lub Wybierz zleceniodawcę alfanumeryczne (nieobsługiwane przez wszystkie sieci).  
+   ASPSMS:  
+   W ramach **odblokować nadawcy** Menu, odblokuj co najmniej jednego nadawcy, lub Wybierz zleceniodawcę alfanumeryczne (nieobsługiwane przez wszystkie sieci).  
   
- Ta wartość zostanie później przechowywane w zmiennej `SMSAccountFrom` .
+   Ta wartość zostanie później przechowywane w zmiennej `SMSAccountFrom` .
 5. **Transferowanie poświadczenia dostawcy programu SMS w aplikacji**  
   
- Udostępnij poświadczenia i numer telefonu nadawcy aplikacji:
+   Udostępnij poświadczenia i numer telefonu nadawcy aplikacji:
 
     [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample1.cs)]
 
@@ -115,9 +115,9 @@ Ten samouczek zawiera instrukcje dotyczące korzystania z usługi Twilio lub ASP
     > Zabezpieczenia — nigdy nie magazynu danych poufnych w kodzie źródłowym. Konta i poświadczenia zostaną dodane do powyżej, aby zachować prosty przykład kodu. Zobacz Jan Atten [platformy ASP.NET MVC: Zachowaj prywatnego poza ustawień kontroli źródła](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
 6. **Implementacja transferu danych do dostawcy programu SMS**  
   
- Skonfiguruj `SmsService` klasy w *aplikacji\_Start\IdentityConfig.cs* pliku.  
+   Skonfiguruj `SmsService` klasy w *aplikacji\_Start\IdentityConfig.cs* pliku.  
   
- W zależności od dostawcy programu SMS używanego aktywować **usługi Twilio** lub **ASPSMS** sekcji: 
+   W zależności od dostawcy programu SMS używanego aktywować **usługi Twilio** lub **ASPSMS** sekcji: 
 
     [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample2.cs)]
 7. Uruchom aplikację i zaloguj się przy użyciu konta, które wcześniej zarejestrowane.

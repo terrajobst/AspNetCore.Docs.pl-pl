@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
-title: "Poprawa wydajności przy użyciu Output buforowania (C#) | Dokumentacja firmy Microsoft"
+title: Poprawa wydajności przy użyciu Output buforowania (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Z tego samouczka dowiesz się, jak można znacznie poprawić wydajność aplikacji sieci web platformy ASP.NET MVC dzięki wykorzystaniu buforowanie danych wyjściowych. Możesz..."
+description: Z tego samouczka dowiesz się, jak można znacznie poprawić wydajność aplikacji sieci web platformy ASP.NET MVC dzięki wykorzystaniu buforowanie danych wyjściowych. Możesz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 47f0aa976c5876991ccc2406fb8f7402e59ec556
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8958caa5a0ccad669ca861bed261102625be5cb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="improving-performance-with-output-caching-c"></a>Poprawa wydajności przy użyciu reguł wyjściowej pamięci podręcznej (C#)
 ====================
@@ -39,7 +39,7 @@ Należy włączyć buforowanie danych wyjściowych przez dodanie atrybutu [Outpu
 
 [!code-csharp[Main](improving-performance-with-output-caching-cs/samples/sample1.cs)]
 
-W wersji Beta programu ASP.NET MVC, buforowanie danych wyjściowych nie działa dla danego adresu URL, takie jak [http://www.MySite.com/](http://www.mysite.com/). Zamiast tego należy wprowadzić adres URL podobny [http://www.MySite.com/Home/Index](http://www.mysite.com/Home/Index). 
+W wersji Beta programu ASP.NET MVC, buforowanie danych wyjściowych nie działa dla danego adresu URL, takie jak [ http://www.MySite.com/ ](http://www.mysite.com/). Zamiast tego należy wprowadzić adres URL podobny [ http://www.MySite.com/Home/Index ](http://www.mysite.com/Home/Index). 
 
 Wyświetlanie listy 1 buforowania danych wyjściowych akcji indeks() 10 sekund. Jeśli wolisz, możesz określić wiele dłuższy czas buforowania. Na przykład, jeśli chcesz buforować wyniki akcji kontrolera przez jeden dzień następnie można określić czas trwania pamięci podręcznej 86400 sekund (60 sekund \* 60 minut \* 24 godzin).
 
@@ -69,11 +69,11 @@ Domyślnie, gdy używasz atrybutu [OutputCache] zawartość jest buforowana w tr
 
 Można ustawić właściwości Location do jednej z następujących wartości:
 
-> · Wszystkie
+> · Any
 > 
 > · Klienta
 > 
-> · Podrzędne
+> · Downstream
 > 
 > · Serwer
 > 
@@ -132,7 +132,7 @@ Należy pamiętać, że za pomocą właściwości VaryByParam wyników w ramach 
 
 Można ustawić właściwości VaryByParam na następujące wartości:
 
-> \*= Utworzyć inną wersję pamięci podręcznej zawsze, gdy zmienia się parametr typu string lub kwerendzie formularza.
+> \* = Utworzyć inną wersję pamięci podręcznej zawsze, gdy zmienia się parametr typu string lub kwerendzie formularza.
 > 
 > Brak = Nigdy tworzyć różne wersje pamięci podręcznej
 > 
@@ -165,6 +165,6 @@ Jeśli wywołanie akcji indeks() udostępnianych przez kontrolera w wyświetlani
 
 Buforowanie danych wyjściowych zawiera bardzo łatwa metoda znacznie poprawy wydajności aplikacji ASP.NET MVC. W tym samouczku przedstawiono sposób użycia atrybutu [OutputCache] do buforowania danych wyjściowych akcji kontrolera. Przedstawiono również sposób zmodyfikować właściwości atrybutu [OutputCache], takie jak właściwości Duration i VaryByParam można zmodyfikować sposób pobiera buforowania zawartości. Ponadto przedstawiono sposób definiowania profilów pamięci podręcznej w pliku konfiguracji sieci web.
 
->[!div class="step-by-step"]
-[Poprzednie](understanding-action-filters-cs.md)
-[dalej](adding-dynamic-content-to-a-cached-page-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](understanding-action-filters-cs.md)
+> [dalej](adding-dynamic-content-to-a-cached-page-cs.md)

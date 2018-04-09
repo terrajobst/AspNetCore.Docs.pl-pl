@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
-title: "Interfejs użytkownika i nawigacja | Dokumentacja firmy Microsoft"
+title: Interfejs użytkownika i nawigacja | Dokumentacja firmy Microsoft
 author: Erikre
-description: "Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy..."
+description: Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 7f1d8a1a473820a7c8da4c8086904cc41c86fd2a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d2d4101455a85c53e016e567c0cf1337642f1863
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ui-and-navigation"></a>Interfejs użytkownika i nawigacja
 ====================
@@ -54,7 +54,7 @@ Ten samouczek serii nastąpi przejście, modyfikując *Default.aspx* strony. Nal
     [!code-aspx[Main](ui_and_navigation/samples/sample2.aspx)]
 5. Zapisz *Default.aspx* strony, wybierając **zapisać Default.aspx** z **pliku** menu.
 
- Powstałe w ten sposób *Default.aspx* strony będzie wyglądać następująco: 
+   Powstałe w ten sposób *Default.aspx* strony będzie wyglądać następująco: 
 
 [!code-aspx[Main](ui_and_navigation/samples/sample3.aspx)]
 
@@ -62,7 +62,7 @@ W tym przykładzie ustawiono `Title` atrybutu `@Page` dyrektywy. Gdy HTML jest w
 
 Przykładowa strona zawiera podstawowe elementy, które stanowią strony sieci Web ASP.NET. Strona zawiera tekst statyczny, które masz na stronie HTML, wraz z elementów, które są specyficzne dla platformy ASP.NET. Zawartość w *Default.aspx* zintegrowania strony z zawartością strony wzorcowej, które opisano w dalszej części tego samouczka.
 
-### <a name="page-directive"></a>@PageDyrektywy
+### <a name="page-directive"></a>@Page Dyrektywy
 
 Formularze sieci Web ASP.NET zazwyczaj zawiera dyrektywy, które umożliwiają określenie stronę właściwości i informacje konfiguracyjne dla strony. Dyrektywy są używane przez program ASP.NET jako instrukcje dotyczące sposobu przetwarzania strony, ale nie są renderowane jako część kod znaczników, który jest wysyłany do przeglądarki.
 
@@ -166,8 +166,8 @@ W tym samouczku wygląd i działanie aplikacji Wingtip Toys ulegnie zmianie, zas
 2. Kliknij prawym przyciskiem myszy *bootstrap.css* plików i zmienić jego nazwę na *bootstrap original.css*.
 3. Zmień nazwę *bootstrap.min.css* do *bootstrap original.min.css*.
 4. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *zawartości* i wybierz polecenie **Otwórz Folder w Eksploratorze plików**.  
- Zostanie wyświetlony w Eksploratorze plików. Pobranych plików CSS bootstrap zapisze do tej lokalizacji.
-5. W przeglądarce przejdź do [http://Bootswatch.com](http://bootswatch.com/).
+   Zostanie wyświetlony w Eksploratorze plików. Pobranych plików CSS bootstrap zapisze do tej lokalizacji.
+5. W przeglądarce przejdź do [ http://Bootswatch.com ](http://bootswatch.com/).
 6. Przewiń okno przeglądarki Cerulean motywu. 
 
     ![Interfejs użytkownika i nawigacja - Cerulean motywu](ui_and_navigation/_static/image5.png)
@@ -176,9 +176,9 @@ W tym samouczku wygląd i działanie aplikacji Wingtip Toys ulegnie zmianie, zas
 
     ![Interfejs użytkownika i nawigacja - Eksploratora rozwiązań](ui_and_navigation/_static/image6.png)
 
- Zobaczysz dwa nowe pliki CSS w **zawartości** folder, ale należy zauważyć, że jest wyszarzona ikona obok nazwy każdego pliku. Oznacza to, że plik nie ma jeszcze dodane do projektu.
+   Zobaczysz dwa nowe pliki CSS w **zawartości** folder, ale należy zauważyć, że jest wyszarzona ikona obok nazwy każdego pliku. Oznacza to, że plik nie ma jeszcze dodane do projektu.
 9. Kliknij prawym przyciskiem myszy *bootstrap.css* i *bootstrap.min.css* pliki i wybierz **załącz do projektu**.   
- Po uruchomieniu aplikacji Wingtip Toys w dalszej części tego samouczka, pojawi się nowy interfejs użytkownika.
+   Po uruchomieniu aplikacji Wingtip Toys w dalszej części tego samouczka, pojawi się nowy interfejs użytkownika.
 
 > [!NOTE] 
 > 
@@ -292,6 +292,6 @@ W tym samouczku serii dodano podstawowy interfejs użytkownika, grafiki, stron i
 [Omówienie kontrolki serwera sieci Web ASP.NET](https://msdn.microsoft.com/library/zsyt68f1.aspx)   
 [Samouczek CSS](http://www.w3schools.com/css/default.asp)
 
->[!div class="step-by-step"]
-[Poprzednie](create_the_data_access_layer.md)
-[dalej](display_data_items_and_details.md)
+> [!div class="step-by-step"]
+> [Poprzednie](create_the_data_access_layer.md)
+> [dalej](display_data_items_and_details.md)

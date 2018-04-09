@@ -2,7 +2,7 @@
 uid: signalr/overview/getting-started/introduction-to-signalr
 title: Wprowadzenie do SignalR | Dokumentacja firmy Microsoft
 author: pfletcher
-description: "W tym artykule opisano, co to jest SignalR i niektóre rozwiązania, który został zaprojektowany do utworzenia."
+description: W tym artykule opisano, co to jest SignalR i niektóre rozwiązania, który został zaprojektowany do utworzenia.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 5bb49c9c2405d232ba5e067d99f8879b3bc99361
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: 0ceca3edc26d35b1155946e60863a84da0bbe592
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-signalr"></a>Wprowadzenie do SignalR
 ====================
@@ -85,11 +85,11 @@ Na poniższej liście przedstawiono kroki, które używa SignalR, aby zdecydowa�
 2. Jeśli skonfigurowano JSONP (oznacza to, `jsonp` parametr ma wartość `true` po uruchomieniu połączenia), długi sondowania jest używany.
 3. Jeśli między domenami jest nawiązywane połączenie (jeśli SignalR punktu końcowego nie jest w tej samej domenie co hostingu strony), następnie protokołu WebSocket zostaną użyte, jeśli są spełnione poniższe kryteria:
 
-    - Klient obsługuje CORS (Cross-Origin Resource Sharing). Aby uzyskać szczegółowe informacje, na których klienci obsługi mechanizmu CORS, zobacz [CORS w caniuse.com](http://www.caniuse.com/CORS).
-    - Klient obsługuje protokół WebSocket
-    - Serwer obsługuje protokół WebSocket
+   - Klient obsługuje CORS (Cross-Origin Resource Sharing). Aby uzyskać szczegółowe informacje, na których klienci obsługi mechanizmu CORS, zobacz [CORS w caniuse.com](http://www.caniuse.com/CORS).
+   - Klient obsługuje protokół WebSocket
+   - Serwer obsługuje protokół WebSocket
 
-    Jeśli którekolwiek z tych kryteriów nie są spełnione, będą używane długie sondowania. Aby uzyskać więcej informacji dotyczących połączeń między domenami, zobacz [jak nawiązać połączenie między domenami](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
+     Jeśli którekolwiek z tych kryteriów nie są spełnione, będą używane długie sondowania. Aby uzyskać więcej informacji dotyczących połączeń między domenami, zobacz [jak nawiązać połączenie między domenami](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
 4. Jeśli nie skonfigurowano JSONP i nie jest połączeniem między domenami, protokołu WebSocket zostaną użyte, jeśli klient i serwer jego obsługi.
 5. Jeśli klient lub serwer nie obsługują protokołu WebSocket, zdarzenia wysyłane serwera jest używany, jeśli jest dostępna.
 6. Jeśli zdarzenia wysyłane serwera nie jest dostępna, nastąpiła nieskończona ramki.

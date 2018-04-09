@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 title: Wprowadzenie do formularzy sieci Web 4.5 ASP.NET i Visual Studio 2013 | Dokumentacja firmy Microsoft
 author: Erikre
-description: "Ten krok samouczka serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express..."
+description: Ten krok samouczka serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 6ae398f94c0ac3872601bdc8fd935f6d285793db
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 572b263a5f968b473457771a1dd4075910218c01
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Wprowadzenie do formularzy sieci Web 4.5 ASP.NET i Visual Studio 2013
 ====================
@@ -177,9 +177,9 @@ Po zainstalowaniu wymagań wstępnych, można przystąpić do rozpoczęcia tworz
 
 [Wprowadzenie do formularzy sieci Web 4.5 ASP.NET i Visual Studio 2013 — Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) 
 
-Pobieranie jest *.zip* pliku. Aby wyświetlić ukończone projektu, który tworzy tę serię samouczek, Znajdź i wybierz *C#*folderu w *.zip* pliku. Zapisz *C#* folderto folderu używać do pracy z projektów Visual Studio 2013. Domyślnie folderu projektów programu Visual Studio 2013 jest następujący:
+Pobieranie jest <em>.zip</em> pliku. Aby wyświetlić ukończone projektu, który tworzy tę serię samouczek, Znajdź i wybierz <em>C#</em>folderu w <em>.zip</em> pliku. Zapisz <em>C#</em> folderto folderu używać do pracy z projektów Visual Studio 2013. Domyślnie folderu projektów programu Visual Studio 2013 jest następujący:
 
-**C:\Users\*****&lt;username&gt;*****\Documents\Visual Studio 2013\Projects**
+<strong>C:\Users\</ strong ><strong><em>&lt;username&gt;</em></strong><strong>\Documents\Visual 2013\Projects w Studio</strong>
 
 Zmień nazwę ***C#*** folder ***WingtipToys***.
 
@@ -197,5 +197,5 @@ Komentarze dotyczące tego samouczka serii są powitalną, a po zaktualizowaniu 
 
 Po wystąpieniu błędu podczas tworzenia lub witryny sieci Web nie działa poprawnie, komunikaty o błędach mogą spowodować wskazówek złożone źródło problemu lub nie może wyjaśnić, jak to naprawić. Pomóc w niektórych typowych scenariuszy problem, można również użyć [fora ASP.NET](https://forums.asp.net/) lub sekcji pytania dołączonego [wprowadzenie do formularzy sieci Web programu ASP.NET 4.5 i programu Visual Studio 2013 — Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) () C#) próbki. Jeśli coś nie działa podczas wykonywania kroków samouczków wyświetlony komunikat o błędzie, należy sprawdzić w powyższych lokalizacjach.
 
->[!div class="step-by-step"]
-[Next](create-the-project.md)
+> [!div class="step-by-step"]
+> [Next](create-the-project.md)

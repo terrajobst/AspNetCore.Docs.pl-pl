@@ -1,7 +1,7 @@
 ---
-title: "Należy użyć szablonu projektu platformy React z Redux"
+title: Szablon projektu platformy React z Redux za pomocą platformy ASP.NET Core
 author: SteveSandersonMS
-description: "Dowiedz się, jak rozpocząć pracę z szablonu projektu platformy ASP.NET Core jednej strony aplikacji JEDNOSTRONICOWEJ dla platformy React z Redux i utworzyć platformy react aplikacji."
+description: Dowiedz się, jak rozpocząć pracę z szablonu projektu platformy ASP.NET Core jednej strony aplikacji JEDNOSTRONICOWEJ dla platformy React z Redux i utworzyć platformy react aplikacji.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react-with-redux
-ms.openlocfilehash: f52f4a866b8bb2adeee19548df32f3e7a91761d1
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 9abfbfe5be69d3145de453d9d9e56ea35eec64ed
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="use-the-react-with-redux-project-template"></a>Należy użyć szablonu projektu platformy React z Redux
+# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>Szablon projektu platformy React z Redux za pomocą platformy ASP.NET Core
 
 > [!NOTE]
 > O bibliotece React z Redux szablonu projektu tej dokumentacji nie jest zawarty w programie ASP.NET 2.0 Core. Chodzi o nowszej platformy React z Redux szablonu, do której można zaktualizować ręcznie. Domyślnie znajduje szablonu platformy ASP.NET Core 2.1.

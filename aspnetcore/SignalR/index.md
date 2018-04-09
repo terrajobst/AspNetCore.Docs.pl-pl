@@ -1,21 +1,22 @@
 ---
-title: SignalR
+title: ASP.NET Core SignalR
 author: rachelappel
-description: 
+description: Wykryj tematy, które odnoszą się do produktu ASP.NET SignalR Core.
 manager: wpickett
 ms.author: rachelap
-ms.date: 03/14/2018
+ms.date: 03/29/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/index
-ms.openlocfilehash: 8518fd3491043910d8d160996389f81ee8d0e501
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 5ec8d8d1ff7b49281857b0868c289dccf632736d
+ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="signalr"></a>SignalR
+# <a name="aspnet-core-signalr"></a>ASP.NET Core SignalR
 
-* [Rozpoczynanie pracy z SignalR dla platformy ASP.NET Core](xref:signalr/get-started-signalr-core)
-* [Wprowadzenie do SignalR dla platformy ASP.NET Core](xref:signalr/introduction-signalr-core)
+* [Rozpoczynanie pracy z SignalR dla platformy ASP.NET Core](xref:signalr/get-started)
+* [Wprowadzenie do SignalR dla platformy ASP.NET Core](xref:signalr/introduction)
+* [Koncentratory SignalR](xref:signalr/hubs)

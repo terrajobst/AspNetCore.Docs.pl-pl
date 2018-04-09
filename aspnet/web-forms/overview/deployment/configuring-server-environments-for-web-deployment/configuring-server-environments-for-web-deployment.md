@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment
-title: "Konfigurowanie środowisk serwera sieci Web wdrożenia | Dokumentacja firmy Microsoft"
+title: Konfigurowanie środowisk serwera sieci Web wdrożenia | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym samouczku opisano, jak skonfigurować server w środowiskach z obsługą jednym kliknięciem lub zautomatyzowane, wdrożenia witryny sieci Web i publikowania w różnych scen różnych..."
+description: W tym samouczku opisano, jak skonfigurować server w środowiskach z obsługą jednym kliknięciem lub zautomatyzowane, wdrożenia witryny sieci Web i publikowania w różnych scen różnych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 8a07d283e3e4344e5513152cf760ac90481d9f4b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ff6118be618a170ac76d66a9de24a7b5cc2d840a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-server-environments-for-web-deployment"></a>Konfigurowanie środowisk serwera sieci Web wdrożenia
 ====================
@@ -28,20 +28,20 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > 
 > Scenariusz wdrażania firmy Fabrikam, Inc. opisane w samouczku [wdrożenia sieci Web w przedsiębiorstwie: omówienie scenariusza](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md) jako punkt odniesienia, przykłady i infrastruktury sieci.
 > 
-> Włoska translacji tego samouczka, odwiedź stronę [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Włoska translacji tego samouczka, odwiedź stronę [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 W tym samouczku omówiono następujące zagadnienia:
 
-- [Wybieranie podejście do wdrożenia sieci Web](choosing-the-right-approach-to-web-deployment.md)
-- [Scenariusz: Konfigurowanie środowiska testowego na potrzeby wdrażania w sieci Web](scenario-configuring-a-test-environment-for-web-deployment.md)
-- [Scenariusz: Konfigurowanie środowiska przemieszczania na potrzeby wdrażania w sieci Web](scenario-configuring-a-staging-environment-for-web-deployment.md)
-- [Scenariusz: Konfigurowanie środowiska produkcyjnego wdrożenia sieci Web](scenario-configuring-a-production-environment-for-web-deployment.md)
-- [Konfigurowanie serwera sieci Web dla narzędzia Web Deploy publikowania (agenta zdalnego)](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
-- [Konfigurowanie serwera sieci Web dla sieci Web wdrażanie, publikowanie (Web Deploy obsługi)](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
-- [Konfigurowanie serwera sieci Web dla narzędzia Web Deploy publikowania (wdrożenie w trybie Offline)](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
-- [Konfigurowanie serwera bazy danych dla publikowania narzędzia Web Deploy](configuring-a-database-server-for-web-deploy-publishing.md)
-- [Tworzenie farmy serwerów za pomocą struktury farmy sieci Web](creating-a-server-farm-with-the-web-farm-framework.md)
+- [Wybieranie właściwego podejścia do wdrażania w Internecie](choosing-the-right-approach-to-web-deployment.md)
+- [Scenariusz: Konfigurowanie środowiska testowego na potrzeby wdrażania w Internecie](scenario-configuring-a-test-environment-for-web-deployment.md)
+- [Scenariusz: Konfigurowanie środowiska przejściowego na potrzeby wdrażania w Internecie](scenario-configuring-a-staging-environment-for-web-deployment.md)
+- [Scenariusz: Konfigurowanie środowiska produkcyjnego na potrzeby wdrażania w Internecie](scenario-configuring-a-production-environment-for-web-deployment.md)
+- [Konfigurowanie serwera sieci Web dla usługi publikowania Web Deploy (agent zdalny)](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
+- [Konfigurowanie serwera sieci Web dla usługi publikowania Web Deploy (program obsługi narzędzia Web Deploy)](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+- [Konfigurowanie serwera sieci Web dla usługi publikowania Web Deploy (wdrożenie w trybie offline)](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+- [Konfigurowanie serwera bazy danych dla usługi publikowania Web Deploy](configuring-a-database-server-for-web-deploy-publishing.md)
+- [Tworzenie farmy serwerów za pomocą rozwiązania Web Farm Framework](creating-a-server-farm-with-the-web-farm-framework.md)
 - [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](configuring-deployment-properties-for-a-target-environment.md)
 
 Pierwszym temacie [Wybieranie podejście prawo do wdrożenia w sieci Web](choosing-the-right-approach-to-web-deployment.md), zawiera opis głównych podejścia, można użyć do publikowania aplikacji sieci web za pomocą narzędzia wdrażania Internet Information Services (IIS) w sieci Web (Web Deploy) 2.0. Identyfikuje również scenariusze, które mapują na każde podejście. W tym miejscu każdego tematu scenariusz zawiera ogólne omówienie zadań, które należy wykonać i identyfikuje tematy, które będą potrzebne do pracy za pośrednictwem ułatwiające wykonywanie tych zadań.
@@ -52,7 +52,7 @@ Jeśli używasz podejście pliku projektu podziału opisane w [opis procesu komp
 
 Ten samouczek koncentruje się na temat korzystania z tych produktów i technologii do obsługi wdrożenia sieci web:
 
-- USŁUGI IIS 7.5
+- IIS 7.5
 - Narzędzie Web Deploy 2.x
 - WFF 2.x
 - Usługi zarządzania usługami IIS sieci Web (WMSvc)
@@ -68,5 +68,5 @@ To jest częścią serii samouczków pięć w skali przedsiębiorstwa wdrożenia
 - [Konfigurowanie serwera Team Foundation Server Web Deployment](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). W tym samouczku opisano sposób konfigurowania Team Foundation Server (TFS) do obsługi różnych scenariuszy wdrażania, łącznie z automatycznego wdrażania w ramach procesu ciągłej integracji (CI) i ręcznie wyzwalane wdrożeń określonej kompilacji.
 - [Zaawansowane wdrażanie w przedsiębiorstwie sieci Web](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Ten przewodnik opisuje sposób wykonywania różnych bardziej zaawansowanych zadań wdrażania, jak dostosowywanie wdrożenia bazy danych w wielu środowiskach, z wyjątkiem plików i folderów z wdrożenia i pobieranie aplikacji sieci web w trybie offline podczas procesu wdrażania .
 
->[!div class="step-by-step"]
-[Dalej](choosing-the-right-approach-to-web-deployment.md)
+> [!div class="step-by-step"]
+> [Next](choosing-the-right-approach-to-web-deployment.md)

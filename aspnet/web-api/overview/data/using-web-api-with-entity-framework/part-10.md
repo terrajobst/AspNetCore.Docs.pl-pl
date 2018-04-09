@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-10
-title: "Publikowanie aplikacji w usłudze Azure Azure App Service | Dokumentacja firmy Microsoft"
+title: Publikowanie aplikacji w usłudze Azure Azure App Service | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-10
 msc.type: authoredcontent
-ms.openlocfilehash: 08994815cb339800619caacdcb8d717e9986f9d5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cc8a9199144e9fac041435938ea8899374ea199f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="publish-the-app-to-azure-azure-app-service"></a>Publikowanie aplikacji w usłudze Azure Azure App Service
 ====================
@@ -57,5 +57,5 @@ Wprowadź nazwę lokacji. Wybierz subskrypcję platformy Azure i region. W obsza
 
 Kliknij przycisk **ustawienia** i sprawdź &quot;wykonaj migracje Code First&quot;. Następnie kliknij przycisk **publikowania**.
 
->[!div class="step-by-step"]
-[Poprzednie](part-9.md)
+> [!div class="step-by-step"]
+> [Poprzednie](part-9.md)

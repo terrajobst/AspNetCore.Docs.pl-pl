@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-vb
-title: "Sprawdzanie poprawności z warstwy usług (VB) | Dokumentacja firmy Microsoft"
+title: Sprawdzanie poprawności z warstwy usług (VB) | Dokumentacja firmy Microsoft
 author: StephenWalther
-description: "Dowiedz się, jak przenieść logiki sprawdzania poprawności poza akcji kontrolera i do warstwy oddzielne usługi. W tym samouczku Stephen Walther wyjaśniono, jak można..."
+description: Dowiedz się, jak przenieść logiki sprawdzania poprawności poza akcji kontrolera i do warstwy oddzielne usługi. W tym samouczku Stephen Walther wyjaśniono, jak można...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5a8f1dd888c7fa6a3353b7b748a0ffa30b94149c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bb1191b663f863bf881def620efab4f2f03edc56
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-with-a-service-layer-vb"></a>Sprawdzanie poprawności z warstwy usług (VB)
 ====================
@@ -99,6 +99,6 @@ Używanie IValidationDictionary interfejsu i klasa ModelStateWrapper umożliwia 
 
 Celem tego samouczka został omówimy jeden ze sposobów przeprowadzania weryfikacji w aplikacji platformy ASP.NET MVC. W tym samouczku przedstawiono sposób Przenieś wszystkie logiki sprawdzania poprawności z kontrolerami poza i do warstwy oddzielne usługi. Przedstawiono również sposób wyizolować z warstwy usług z warstwą kontrolera, tworząc klasę ModelStateWrapper.
 
->[!div class="step-by-step"]
-[Poprzednie](validating-with-the-idataerrorinfo-interface-vb.md)
-[dalej](validation-with-the-data-annotation-validators-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](validating-with-the-idataerrorinfo-interface-vb.md)
+> [dalej](validation-with-the-data-annotation-validators-vb.md)

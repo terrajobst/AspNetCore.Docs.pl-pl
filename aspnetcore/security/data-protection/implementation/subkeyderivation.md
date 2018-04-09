@@ -1,7 +1,7 @@
 ---
-title: Pochodnym podkluczy i uwierzytelnionego szyfrowania
+title: Pochodnym podkluczy i uwierzytelnionego szyfrowania w ASP.NET Core
 author: rick-anderson
-description: "W tym dokumencie opisano szczegóły implementacji ochrony danych platformy ASP.NET Core podkluczy pochodnym i uwierzytelniony szyfrowania."
+description: Dowiedz się szczegóły implementacji ochrony danych platformy ASP.NET Core podkluczy pochodnym i uwierzytelniony szyfrowania.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 4b905bbc7bb064b6ba1741557bd694c8c67ccfa8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8c83da40a524896becc07c94c01d5e2b684e4386
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="subkey-derivation-and-authenticated-encryption"></a>Pochodnym podkluczy i uwierzytelnionego szyfrowania
+# <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>Pochodnym podkluczy i uwierzytelnionego szyfrowania w ASP.NET Core
 
 <a name="data-protection-implementation-subkey-derivation"></a>
 
@@ -63,7 +63,7 @@ Wygenerowany K_E za pośrednictwem mechanizmu powyżej firma Microsoft wektor in
 *dane wyjściowe: = keyModifier || IV || E_cbc (dane K_E, iv) || Metoda HMAC (K_H, iv || E_cbc (dane K_E, iv))*
 
 > [!NOTE]
-> `IDataProtector.Protect` Będzie implementacji [dołączy nagłówku magic i identyfikator klucza](authenticated-encryption-details.md) danych wyjściowych przed zwróceniem jej do obiektu wywołującego. Ponieważ magic nagłówka i identyfikator klucza niejawnie są częścią [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), i ponieważ modyfikator klucza jest podawany jako dane wejściowe KDF, oznacza to, że każdy pojedynczy bajt końcowy ładunek zwracane jest uwierzytelniany przez komputerów MAC.
+> `IDataProtector.Protect` Będzie implementacji [dołączy nagłówku magic i identyfikator klucza](xref:security/data-protection/implementation/authenticated-encryption-details) danych wyjściowych przed zwróceniem jej do obiektu wywołującego. Ponieważ magic nagłówka i identyfikator klucza niejawnie są częścią [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), i ponieważ modyfikator klucza jest podawany jako dane wejściowe KDF, oznacza to, że każdy pojedynczy bajt końcowy ładunek zwracane jest uwierzytelniany przez komputerów MAC.
 
 ## <a name="galoiscounter-mode-encryption--validation"></a>Tryb Galois liczników szyfrowania + sprawdzania poprawności
 
@@ -74,4 +74,4 @@ Wygenerowany K_E za pośrednictwem mechanizmu powyżej firma Microsoft generowan
 *dane wyjściowe: = keyModifier || Identyfikator jednorazowy || E_gcm (K_E, nonce, dane) || authTag*
 
 > [!NOTE]
-> Mimo że GCM natywnie obsługuje pojęcie usługi AAD, firma Microsoft jest nadal zasilania AAD tylko do oryginalnego KDF, aby przekazać pusty ciąg do usługi GCM jej parametru usługi AAD. Przyczyną tego jest dwukrotne. Najpierw [do obsługi elastyczność](context-headers.md#data-protection-implementation-context-headers) nigdy nie chcemy użyć K_M bezpośrednio jako klucza szyfrowania. Ponadto usługi GCM nakłada bardzo rygorystyczny unikatowość wymagania dotyczące jej danych wejściowych. Prawdopodobieństwo, że procedura szyfrowania GCM jest kiedykolwiek wywołana na dwóch lub więcej różne zestawy danych wejściowych o takiej samej (klucz, nonce) pary nie może przekraczać 2 ^ 32. Jeśli firma Microsoft rozwiąże K_E nie można wykonać więcej niż 2 ^ 32 operacji szyfrowania przed możemy uruchomić afoul o 2 ^ ograniczyć -32. To może się wydawać bardzo dużej liczby operacji, ale serwer sieci web o dużym natężeniu ruchu przejść przez kolejne żądania 4 miliardy w zwykłe dni, również w obrębie użytkowania tych kluczy. Aby pozostać zgodne 2 ^ limit prawdopodobieństwo-32 w dalszym ciągu używać 128-bitowego klucza modyfikator i identyfikator jednorazowy 96-bitowej, które znacząco rozszerza liczbę operacji można używać na dowolnym danym K_M. Dla uproszczenia projektowania firma Microsoft udostępnia ścieżkę kodu KDF między operacjami CBC i GCM, a ponieważ AAD jest już uznawana za w KDF nie jest konieczne ją przesłać do procedury usługi GCM.
+> Mimo że GCM natywnie obsługuje pojęcie usługi AAD, firma Microsoft jest nadal zasilania AAD tylko do oryginalnego KDF, aby przekazać pusty ciąg do usługi GCM jej parametru usługi AAD. Przyczyną tego jest dwukrotne. Najpierw [do obsługi elastyczność](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers) nigdy nie chcemy użyć K_M bezpośrednio jako klucza szyfrowania. Ponadto usługi GCM nakłada bardzo rygorystyczny unikatowość wymagania dotyczące jej danych wejściowych. Prawdopodobieństwo, że procedura szyfrowania GCM jest kiedykolwiek wywołana na dwóch lub więcej różne zestawy danych wejściowych o takiej samej (klucz, nonce) pary nie może przekraczać 2 ^ 32. Jeśli firma Microsoft rozwiąże K_E nie można wykonać więcej niż 2 ^ 32 operacji szyfrowania przed możemy uruchomić afoul o 2 ^ ograniczyć -32. To może się wydawać bardzo dużej liczby operacji, ale serwer sieci web o dużym natężeniu ruchu przejść przez kolejne żądania 4 miliardy w zwykłe dni, również w obrębie użytkowania tych kluczy. Aby pozostać zgodne 2 ^ limit prawdopodobieństwo-32 w dalszym ciągu używać 128-bitowego klucza modyfikator i identyfikator jednorazowy 96-bitowej, które znacząco rozszerza liczbę operacji można używać na dowolnym danym K_M. Dla uproszczenia projektowania firma Microsoft udostępnia ścieżkę kodu KDF między operacjami CBC i GCM, a ponieważ AAD jest już uznawana za w KDF nie jest konieczne ją przesłać do procedury usługi GCM.

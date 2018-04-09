@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 title: Model 2.0 strony ASP.NET | Dokumentacja firmy Microsoft
 author: microsoft
-description: "W programie ASP.NET 1.x, deweloperzy ma wybór między kodu wbudowanego i modelu kodu związane z kodem. Związane z kodem można zaimplementować za pomocą Src attr..."
+description: W programie ASP.NET 1.x, deweloperzy ma wybór między kodu wbudowanego i modelu kodu związane z kodem. Związane z kodem można zaimplementować za pomocą Src attr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: e008f197cf08bec81c560018f2d42306598f9e6d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fda85ec03f845cafa7720382bf85652937932c44
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-aspnet-20-page-model"></a>Model 2.0 strony ASP.NET
 ====================
@@ -65,7 +65,7 @@ Platforma ASP.NET 2.0 dodaje wiele nowych atrybutów do dyrektywy @ Page. Nastę
 
 Atrybut Async pozwala na skonfigurowanie strony, aby być wykonywane asynchronicznie. Obejmuje również asynchroniczne stron w dalszej części tego modułu.
 
-## <a name="asynctimeout"></a>Wartość AsyncTimeout
+## <a name="asynctimeout"></a>AsyncTimeout
 
 Określony limit czasu asynchronicznego stron. Wartość domyślna wynosi 45 sekund.
 
@@ -144,13 +144,13 @@ Następujące właściwości publiczne są nowe w programie ASP.NET 2.0.
 
 ## <a name="apprelativetemplatesourcedirectory"></a>AppRelativeTemplateSourceDirectory
 
-Zwraca ścieżkę względem aplikacji do strona lub kontrolka. Na przykład dla strony znajduje się w http://app/folder/page.aspx, właściwość zwraca ~ / folderu.
+Zwraca ścieżkę względem aplikacji do strona lub kontrolka. Na przykład dla strony znajduje się w http://app/folder/page.aspx, zwraca właściwość ~ / folderu.
 
 ## <a name="apprelativevirtualpath"></a>AppRelativeVirtualPath
 
-Zwraca ścieżka względna katalogu wirtualnego do strony lub formantu. Na przykład dla strony znajduje się w http://app/folder/page.aspx, właściwość zwraca ~ / folder/page.aspx.
+Zwraca ścieżka względna katalogu wirtualnego do strony lub formantu. Na przykład dla strony znajduje się w http://app/folder/page.aspx, zwraca właściwość ~ / folder/page.aspx.
 
-## <a name="asynctimeout"></a>Wartość AsyncTimeout
+## <a name="asynctimeout"></a>AsyncTimeout
 
 Pobiera lub ustawia limit czasu używany do obsługi asynchroniczne strony. (Asynchroniczne strony zostaną uwzględnione w dalszej części tego modułu.)
 
@@ -210,7 +210,7 @@ Ta właściwość tylko do odczytu zwraca odwołanie do wystąpienia formantu Ma
 
 Pobiera lub ustawia nazwę pliku strony wzorcowej dla strony. Tej właściwości można ustawić tylko w metodzie PreInit.
 
-## <a name="maxpagestatefieldlength"></a>Właściwość MaxPageStateFieldLength
+## <a name="maxpagestatefieldlength"></a>MaxPageStateFieldLength
 
 Ta właściwość pobiera lub ustawia maksymalną długość stanu stron w bajtach. Jeśli właściwość jest ustawiona na wartość dodatnią, stan widoku strony będzie być dzielone na wiele ukryte pola tak, aby nie przekraczała liczba bajtów określona. Jeśli właściwość jest liczbą ujemną, stan widoku nie będzie dzielony na fragmenty.
 
@@ -222,7 +222,7 @@ Zwraca odwołanie do obiektu PageAdapter, który modyfikuje strony do przegląda
 
 Zwraca odwołanie do poprzedniej strony w przypadku metody Server.Transfer lub odświeżenie strony między stronami.
 
-## <a name="skinid"></a>Identyfikator SkinID
+## <a name="skinid"></a>SkinID
 
 Określa karnacji ASP.NET 2.0 do zastosowania do strony.
 
@@ -230,7 +230,7 @@ Określa karnacji ASP.NET 2.0 do zastosowania do strony.
 
 Ta właściwość pobiera lub ustawia arkusza stylów, który jest stosowany do strony.
 
-## <a name="templatecontrol"></a>Element TemplateControl
+## <a name="templatecontrol"></a>TemplateControl
 
 Zwraca odwołanie do formantu zawierającego strony.
 
@@ -600,11 +600,13 @@ Użyj metody IsStartupScriptRegistered, aby ustalić, jeśli skrypt został już
 
 Oto niektóre przydatne metody klasy ClientScriptManager.
 
-| **GetCallbackEventReference** | Zobacz wywołania zwrotne skryptu wcześniej w tym module. |
-| --- | --- |
-| **GetPostBackClientHyperlink** | Pobiera odwołanie JavaScript (javascript:&lt;wywołać&gt;) można post z zdarzeń po stronie klienta. |
-| **GetPostBackEventReference** | Pobiera ciąg, który może służyć do zainicjowania post przez klienta. |
-| **GetWebResourceUrl** | Zwraca adres URL do zasobu, który jest osadzony w zestawie. Należy używać w połączeniu z **RegisterClientScriptResource**. |
-| **RegisterClientScriptResource** | Rejestruje zasobu sieci Web ze stroną. Są to zasoby osadzone w zestawie i obsługiwane przez nowy program obsługi WebResource.axd. |
-| **RegisterHiddenField** | Rejestruje ukryte pole formularza ze stroną. |
-| **RegisterOnSubmitStatement** | Rejestruje kod po stronie klienta, który jest wykonywany po przesłaniu formularza HTML. |
+
+|  <strong>GetCallbackEventReference</strong>   |                                                 Zobacz wywołania zwrotne skryptu wcześniej w tym module.                                                 |
+|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+|  <strong>GetPostBackClientHyperlink</strong>  |                Pobiera odwołanie JavaScript (javascript:&lt;wywołać&gt;) można post z zdarzeń po stronie klienta.                 |
+|  <strong>GetPostBackEventReference</strong>   |                                   Pobiera ciąg, który może służyć do zainicjowania post przez klienta.                                    |
+|      <strong>GetWebResourceUrl</strong>       | Zwraca adres URL do zasobu, który jest osadzony w zestawie. Należy używać w połączeniu z <strong>RegisterClientScriptResource</strong>. |
+| <strong>RegisterClientScriptResource</strong> |     Rejestruje zasobu sieci Web ze stroną. Są to zasoby osadzone w zestawie i obsługiwane przez nowy program obsługi WebResource.axd.      |
+|     <strong>RegisterHiddenField</strong>      |                                                 Rejestruje ukryte pole formularza ze stroną.                                                 |
+|  <strong>RegisterOnSubmitStatement</strong>   |                                  Rejestruje kod po stronie klienta, który jest wykonywany po przesłaniu formularza HTML.                                   |
+

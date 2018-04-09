@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/external-authentication-services
-title: "Zewnętrznych usług uwierzytelniania z interfejsu API sieci Web platformy ASP.NET (C#) | Dokumentacja firmy Microsoft"
+title: Zewnętrznych usług uwierzytelniania z interfejsu API sieci Web platformy ASP.NET (C#) | Dokumentacja firmy Microsoft
 author: rmcmurray
-description: "W tym artykule opisano, w interfejsie API sieci Web ASP.NET przy użyciu zewnętrznych usług uwierzytelniania."
+description: W tym artykule opisano, w interfejsie API sieci Web ASP.NET przy użyciu zewnętrznych usług uwierzytelniania.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 744396cb0c95d1887f259b1e2e890bd06ef7d049
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 406a85db7055910cb7a4e15fec8ef68dff5a19dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>Zewnętrznych usług uwierzytelniania z interfejsu API sieci Web platformy ASP.NET (C#)
 ====================
@@ -49,7 +49,7 @@ Aby użyć przykłady w tym przewodniku, należy dysponować następującymi ele
     - Konto użytkownika usługi Google
     - Konto dewelopera z aplikacji identyfikator i klucz tajny dla jednej z następujących usług uwierzytelniania mediów społecznościowych:
 
-        - Microsoft Accounts ([https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070))
+        - Konta Microsoft ([https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070))
         - W usłudze Twitter ([https://dev.twitter.com/](https://dev.twitter.com/))
         - Facebook ([https://developers.facebook.com/](https://developers.facebook.com/))
 
@@ -119,7 +119,7 @@ W poniższych sekcjach dowiesz się, jak włączyć poszczególnych usług uwier
 <a id="FACEBOOK"></a>
 ## <a name="enabling-facebook-authentication"></a>Włączenie uwierzytelniania serwisu Facebook
 
-Za pomocą usługi Facebook uwierzytelniania wymaga utworzenia konta dewelopera usługi Facebook, a projekt będzie wymagać prawidłowego działania aplikacji identyfikator i klucz tajny z usługi Facebook. Aby uzyskać informacje o tworzeniu konta dewelopera usługi Facebook i uzyskiwanie Identyfikatora aplikacji, a klucz tajny, zobacz [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166).
+Za pomocą usługi Facebook uwierzytelniania wymaga utworzenia konta dewelopera usługi Facebook, a projekt będzie wymagać prawidłowego działania aplikacji identyfikator i klucz tajny z usługi Facebook. Aby uzyskać informacje o tworzeniu konta dewelopera usługi Facebook i uzyskiwanie Identyfikatora aplikacji, a klucz tajny, zobacz [ https://go.microsoft.com/fwlink/?LinkID=252166 ](https://go.microsoft.com/fwlink/?LinkID=252166).
 
 Po uzyskaniu Twojej aplikacji identyfikator i klucz tajny, wykonaj następujące kroki, aby włączyć uwierzytelnianie serwisu Facebook dla aplikacji sieci web:
 
@@ -180,7 +180,7 @@ Aby włączyć uwierzytelnianie Google dla aplikacji sieci web, użyj następuj�
 <a id="MICROSOFT"></a>
 ## <a name="enabling-microsoft-authentication"></a>Włączanie uwierzytelniania firmy Microsoft
 
-Uwierzytelnianie firmy Microsoft wymaga utworzenia konta dewelopera i prawidłowego działania wymaga Identyfikatora klienta i klucz tajny klienta. Aby uzyskać informacje o tworzeniu konta dewelopera Microsoft i uzyskiwanie z Identyfikatorem klienta i klucz tajny klienta, zobacz [https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070).
+Uwierzytelnianie firmy Microsoft wymaga utworzenia konta dewelopera i prawidłowego działania wymaga Identyfikatora klienta i klucz tajny klienta. Aby uzyskać informacje o tworzeniu konta dewelopera Microsoft i uzyskiwanie z Identyfikatorem klienta i klucz tajny klienta, zobacz [ https://go.microsoft.com/fwlink/?LinkID=144070 ](https://go.microsoft.com/fwlink/?LinkID=144070).
 
 Po uzyskaniu Twoje klucz klienta i klucz tajny klienta, wykonaj następujące kroki, aby włączyć uwierzytelnianie platformy Microsoft dla aplikacji sieci web:
 
@@ -212,7 +212,7 @@ Po uzyskaniu Twoje klucz klienta i klucz tajny klienta, wykonaj następujące kr
 <a id="TWITTER"></a>
 ## <a name="enabling-twitter-authentication"></a>Włączanie uwierzytelniania usługi Twitter
 
-W usłudze Twitter uwierzytelniania wymaga utworzenia konta dewelopera i klucz klienta i klucz tajny klienta wymaga prawidłowego działania. Aby uzyskać informacje o tworzeniu konta dewelopera usługi Twitter i uzyskiwania z klucza klienta i klucz tajny klienta, zobacz [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166).
+W usłudze Twitter uwierzytelniania wymaga utworzenia konta dewelopera i klucz klienta i klucz tajny klienta wymaga prawidłowego działania. Aby uzyskać informacje o tworzeniu konta dewelopera usługi Twitter i uzyskiwania z klucza klienta i klucz tajny klienta, zobacz [ https://go.microsoft.com/fwlink/?LinkID=252166 ](https://go.microsoft.com/fwlink/?LinkID=252166).
 
 Po uzyskaniu Twoje klucz klienta i klucz tajny klienta, wykonaj następujące kroki, aby włączyć uwierzytelnianie usługi Twitter dla aplikacji sieci web:
 
@@ -260,19 +260,21 @@ Niektórzy dostawcy uwierzytelniania zewnętrznego nie obsługują testowania ap
 
 - Dodaj nazwę FQDN statyczne mapowania pliku HOSTS:
 
-    1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień w systemie Windows.
-    2. Wpisz następujące polecenie:
+  1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień w systemie Windows.
+  2. Wpisz następujące polecenie:
 
-        <kbd>%WinDir%\system32\drivers\etc\hosts Notatnik</kbd>
-    3. Dodaj wpis podobnie do następującej w pliku HOSTS:
+      <kbd>%WinDir%\system32\drivers\etc\hosts Notatnik</kbd>
+  3. Dodaj wpis podobnie do następującej w pliku HOSTS:
 
-        <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
-    4. Zapisz i zamknij plik HOSTS.
+      <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
+  4. Zapisz i zamknij plik HOSTS.
+
 - Konfigurowanie projektu programu Visual Studio do nazwy FQDN:
 
-    1. Gdy projekt jest otwarty w programie Visual Studio 2013, kliknij przycisk **projektu** menu, a następnie wybierz pozycję Właściwości projektu. Na przykład możesz wybrać pozycję **WebApplication1 właściwości**.
-    2. Wybierz **Web** kartę.
-    3. Wprowadź nazwę FQDN dla **projektu adres Url**. Na przykład możesz wpisać <kbd>http://www.wingtiptoys.com</kbd> Jeśli, która jest dodane do pliku HOSTS mapowanie nazwy FQDN.
+  1. Gdy projekt jest otwarty w programie Visual Studio 2013, kliknij przycisk **projektu** menu, a następnie wybierz pozycję Właściwości projektu. Na przykład możesz wybrać pozycję **WebApplication1 właściwości**.
+  2. Wybierz **Web** kartę.
+  3. Wprowadź nazwę FQDN dla <strong>projektu adres Url</strong>. Na przykład możesz wpisać <kbd> <http://www.wingtiptoys.com> </kbd> Jeśli, która jest dodane do pliku HOSTS mapowanie nazwy FQDN.
+
 - Konfigurowanie usług IIS Express do używania nazwy FQDN dla aplikacji:
 
     1. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień w systemie Windows.
@@ -283,14 +285,14 @@ Niektórzy dostawcy uwierzytelniania zewnętrznego nie obsługują testowania ap
 
         <kbd>appcmd.exe set config-section:system.applicationHost/sites / +&quot;[name = "WebApplication1"] .bindings. [ Protokół = 'http', bindingInformation = "*:80:www.wingtiptoys.com"]&quot; /commit:apphost</kbd>
 
- Gdzie **WebApplication1** jest nazwą projektu i **bindingInformation** zawiera numer portu i nazwy FQDN, które ma być używany na potrzeby testów.
+  Gdzie **WebApplication1** jest nazwą projektu i **bindingInformation** zawiera numer portu i nazwy FQDN, które ma być używany na potrzeby testów.
 
 <a id="OBTAIN"></a>
 ### <a name="how-to-obtain-your-application-settings-for-microsoft-authentication"></a>Jak uzyskać ustawienia aplikacji dla uwierzytelniania firmy Microsoft
 
 Łączenie aplikacji do usługi Windows Live dla Microsoft Authentication jest prosty proces. Jeśli aplikacji do usługi Windows Live nie jest już połączony, można użyć następujących czynności:
 
-1. Przejdź do [https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070) i wprowadź nazwę konta Microsoft i hasło po wyświetleniu monitu, a następnie kliknij przycisk **Zaloguj**:
+1. Przejdź do [ https://go.microsoft.com/fwlink/?LinkID=144070 ](https://go.microsoft.com/fwlink/?LinkID=144070) i wprowadź nazwę konta Microsoft i hasło po wyświetleniu monitu, a następnie kliknij przycisk **Zaloguj**:
 
     [![](external-authentication-services/_static/image64.png "Kliknij, aby rozwinąć obrazu")](external-authentication-services/_static/image63.png)
 2. Wprowadź nazwę i język aplikacji po wyświetleniu monitu, a następnie kliknij przycisk **akceptuję**:

@@ -1,7 +1,7 @@
 ---
-title: "Widok składniki platformy ASP.NET Core"
+title: Widok składniki platformy ASP.NET Core
 author: rick-anderson
-description: "Dowiedz się, jak widok składniki są używane w ASP.NET Core i sposobu dodawania ich do aplikacji."
+description: Dowiedz się, jak widok składniki są używane w ASP.NET Core i sposobu dodawania ich do aplikacji.
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: 95b68e1747296310967b7093bb7019005b92fcd7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 41c220c8db4e560f8d144982589eba6220f17980
+ms.sourcegitcommit: 664c5150e2f6bfa16aefb236daf9e32ecf6ab2e9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="view-components-in-aspnet-core"></a>Widok składniki platformy ASP.NET Core
 
@@ -242,7 +242,7 @@ Jeśli chcesz skompilować bezpieczeństwa czasu, nazwy składnika ustalony wido
 
 Dodaj `using` oświadczenie do użytkownika Razor wyświetlanie plików i używanie `nameof` operator:
 
-[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,35-)]
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

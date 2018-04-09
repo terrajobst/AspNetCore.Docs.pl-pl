@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-vb
-title: "Opis akcji filtrów (VB) | Dokumentacja firmy Microsoft"
+title: Opis akcji filtrów (VB) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Celem tego samouczka jest wyjaśnienie filtrów akcji. Filtr akcji jest atrybut, który można zastosować do akcji kontrolera — lub całego kontrolera..."
+description: Celem tego samouczka jest wyjaśnienie filtrów akcji. Filtr akcji jest atrybut, który można zastosować do akcji kontrolera — lub całego kontrolera...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 483133ec5db27c2fa1ed4b463e37e17efab12e0f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2796b67cba6a2ddaee7a006a170dfb7e5ff89888
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-action-filters-vb"></a>Opis akcji filtrów (VB)
 ====================
@@ -45,7 +45,7 @@ Filtr akcji jest atrybutem. Większość filtrów akcji można zastosować do ak
 
 Na przykład kontroler danych w 1 lista przedstawia akcji o nazwie `Index()` zwracającą bieżącego czasu. Ta akcja zostanie nadany `OutputCache` filtru akcji. Ten filtr powoduje, że wartość zwracana przez akcję pamięci podręcznej przez 10 sekund.
 
-**1 — Lista`Controllers\DataController.vb`**
+**1 — Lista `Controllers\DataController.vb`**
 
 [!code-vb[Main](understanding-action-filters-vb/samples/sample1.vb)]
 
@@ -103,7 +103,7 @@ W następnej sekcji przedstawiono będzie implementacji każdej z tych różnych
 
 Aby zilustrować, jak można utworzyć filtr akcji niestandardowej, utworzymy filtr akcji niestandardowej, który rejestruje etapów przetwarzania akcji kontrolera, w oknie programu Visual Studio danych wyjściowych. Nasze `LogActionFilter` znajduje się lista 2.
 
-**2 — Lista`ActionFilters\LogActionFilter.vb`**
+**2 — Lista `ActionFilters\LogActionFilter.vb`**
 
 [!code-vb[Main](understanding-action-filters-vb/samples/sample2.vb)]
 
@@ -117,7 +117,7 @@ Wyświetlanie 2 `OnActionExecuting()`, `OnActionExecuted()`, `OnResultExecuting(
 
 Kontrolera głównej w wyświetlania 3 przedstawiono, jak filtr akcji dziennika można stosować do klasy całego kontrolera. Zawsze, gdy wszystkie akcje udostępnianych przez kontrolera głównej są wywoływane — albo `Index()` metody lub `About()` metodą — etapy przetwarzania akcji są rejestrowane w oknie programu Visual Studio danych wyjściowych.
 
-**3 — lista`Controllers\HomeController.vb`**
+**3 — lista `Controllers\HomeController.vb`**
 
 [!code-vb[Main](understanding-action-filters-vb/samples/sample3.vb)]
 
@@ -127,6 +127,6 @@ W tym samouczku zostały wprowadzone do platformy ASP.NET MVC filtry akcji. Prze
 
 Ponadto przedstawiono sposób wykonania prostego filtru akcji. Utworzyliśmy filtru akcji dziennika, który rejestruje etapów przetwarzania akcji kontrolera, w oknie programu Visual Studio danych wyjściowych.
 
->[!div class="step-by-step"]
-[Poprzednie](asp-net-mvc-routing-overview-vb.md)
-[dalej](improving-performance-with-output-caching-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](asp-net-mvc-routing-overview-vb.md)
+> [dalej](improving-performance-with-output-caching-vb.md)

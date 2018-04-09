@@ -1,7 +1,7 @@
 ---
-title: "Pomocników tagów w platformy ASP.NET Core"
+title: Pomocników tagów w platformy ASP.NET Core
 author: rick-anderson
-description: "Poznaj pomocników tagów są i sposobu ich używania w ASP.NET Core."
+description: Poznaj pomocników tagów są i sposobu ich używania w ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: c775eaaa521399328d157c9b7312e6fe5325c07e
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 27246ece3eaaecb708f922bcaaf05658034bce82
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Wprowadzenie do pomocników tagów w platformy ASP.NET Core 
+# <a name="tag-helpers-in-aspnet-core"></a>Pomocników tagów w platformy ASP.NET Core
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -54,10 +54,10 @@ Następujący kod Razor:
 Generuje poniższy kod HTML:
 
 ```html
- <label for="Movie_Title">Title</label>
+<label for="Movie_Title">Title</label>
 ```
 
-`asp-for` Atrybutu jest udostępniana przez `For` właściwości w [LabelTagHelper](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.labeltaghelper?view=aspnetcore-2.0). Zobacz [tworzenia pomocników tagów](xref:mvc/views/tag-helpers/authoring) Aby uzyskać więcej informacji.
+`asp-for` Atrybutu jest udostępniana przez `For` właściwości w [LabelTagHelper](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.labeltaghelper?view=aspnetcore-2.0). Zobacz [pomocników tagów autora](xref:mvc/views/tag-helpers/authoring) Aby uzyskać więcej informacji.
 
 ## <a name="managing-tag-helper-scope"></a>Zarządzanie zakresem pomocnika tagów
 
@@ -185,7 +185,7 @@ W (`@`) informuje symbolu Razor jest to początek kodu. Następne dwa parametry 
 new {@class="caption"}
 ```
 
-Obiektu anonimowego jest używana do reprezentowania atrybutów. Ponieważ **klasy** jest zarezerwowanym słowem kluczowym języka C#, użyj `@` symbolu, aby wymusić C#, aby zinterpretować "@class=" jako symbolu (nazwa właściwości). Do projektanta frontonu (ktoś zapoznać się z kodu HTML/CSS/JavaScript i innych technologii klienta, ale nie znasz języka C# i Razor), większość wiersza jest obca. Cały wiersz musi być utworzony za pomocą pomoc od IntelliSense.
+Obiektu anonimowego jest używana do reprezentowania atrybutów. Ponieważ <strong>klasy</strong> jest zarezerwowanym słowem kluczowym języka C#, użyj `@` symbolu, aby wymusić C#, aby zinterpretować "@class=" jako symbolu (nazwa właściwości). Do projektanta frontonu (ktoś zapoznać się z kodu HTML/CSS/JavaScript i innych technologii klienta, ale nie znasz języka C# i Razor), większość wiersza jest obca. Cały wiersz musi być utworzony za pomocą pomoc od IntelliSense.
 
 Przy użyciu `LabelTagHelper`, można zapisać znacznika tej samej:
 
@@ -265,7 +265,6 @@ Możesz dostosować czcionki i kolorowania z **narzędzia** > **opcje** > **śro
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
+* [Autor pomocników tagów](xref:mvc/views/tag-helpers/authoring)
 * [Praca z formularzy ](xref:mvc/views/working-with-forms)
 * [TagHelperSamples w serwisie GitHub](https://github.com/dpaquette/TagHelperSamples) zawiera przykłady pomocnika tagów do pracy z [Bootstrap](http://getbootstrap.com/).
-* [Praca z formularzy ](xref:mvc/views/working-with-forms)

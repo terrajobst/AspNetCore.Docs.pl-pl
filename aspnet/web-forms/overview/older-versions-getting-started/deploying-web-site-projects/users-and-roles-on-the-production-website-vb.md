@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
-title: "Użytkownicy i role w środowisku produkcyjnym w sieci Web (VB) | Dokumentacja firmy Microsoft"
+title: Użytkownicy i role w środowisku produkcyjnym w sieci Web (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Narzędzie administracyjnej witryny sieci Web platformy ASP.NET (WSAT) udostępnia interfejs użytkownika sieci web, do konfigurowania ustawień członkostwo i role oraz do tworzenia, edytowania,..."
+description: Narzędzie administracyjnej witryny sieci Web platformy ASP.NET (WSAT) udostępnia interfejs użytkownika sieci web, do konfigurowania ustawień członkostwo i role oraz do tworzenia, edytowania,...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f3bfaa0e14e3e04a7faae1a78b566d7c2067785a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 611a54b9dd5f188fd64c7020bfbf8171fea27a71
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="users-and-roles-on-the-production-website-vb"></a>Użytkownicy i role w środowisku produkcyjnym w sieci Web (VB)
 ====================
@@ -37,7 +37,7 @@ Zarządza wspólnym wyzwaniem dla deweloperów korzystających z usług członko
 
 ## <a name="using-the-aspnet-web-site-administration-tool"></a>Za pomocą narzędzia administrowania witryną sieci Web ASP.NET
 
-Program ASP.NET zawiera [narzędzie do administrowania witryną sieci Web](https://msdn.microsoft.com/library/yy40ytx0.aspx) (WSAT) ułatwia tworzenie i zarządzanie nimi kont użytkowników i ról i umożliwia określenie reguł autoryzacji na podstawie użytkowników i ról. Aby używać WSAT, kliknij ikonę konfiguracja platformy ASP.NET w Eksploratorze rozwiązań lub przejdź do menu witryny sieci Web lub projektu i wybierz opcję Konfiguracja programu ASP.NET. Albo podejście spowoduje uruchomienie przeglądarki sieci web i wskazaniu WSAT pod adresem, takich jak:`http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
+Program ASP.NET zawiera [narzędzie do administrowania witryną sieci Web](https://msdn.microsoft.com/library/yy40ytx0.aspx) (WSAT) ułatwia tworzenie i zarządzanie nimi kont użytkowników i ról i umożliwia określenie reguł autoryzacji na podstawie użytkowników i ról. Aby używać WSAT, kliknij ikonę konfiguracja platformy ASP.NET w Eksploratorze rozwiązań lub przejdź do menu witryny sieci Web lub projektu i wybierz opcję Konfiguracja programu ASP.NET. Albo podejście spowoduje uruchomienie przeglądarki sieci web i wskazaniu WSAT pod adresem, takich jak: `http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
 
 WSAT jest podzielone na trzy części:
 
@@ -119,5 +119,5 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Omówienie narzędzia do administrowania witryny sieci Web](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 - [Samouczki dotyczące zabezpieczeń witryny sieci Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
->[!div class="step-by-step"]
-[Poprzednie](precompiling-your-website-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](precompiling-your-website-vb.md)

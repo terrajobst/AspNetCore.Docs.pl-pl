@@ -1,7 +1,7 @@
 ---
-title: "Należy użyć szablonu projektu dyrektywy Angular"
+title: Należy użyć szablonu projektu kątowego z platformy ASP.NET Core
 author: SteveSandersonMS
-description: "Dowiedz się, jak rozpocząć pracę z szablonem projektu platformy ASP.NET Core jednej strony aplikacji JEDNOSTRONICOWEJ kątową i kątowego interfejsu wiersza polecenia."
+description: Dowiedz się, jak rozpocząć pracę z szablonem projektu platformy ASP.NET Core jednej strony aplikacji JEDNOSTRONICOWEJ kątową i kątowego interfejsu wiersza polecenia.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: 07cfd20809acb67bdae6561b6ccd6edf1e70a3fe
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e3956bedbc243578f6dfdc09f5f043327de7c66b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="use-the-angular-project-template"></a>Należy użyć szablonu projektu dyrektywy Angular
+# <a name="use-the-angular-project-template-with-aspnet-core"></a>Należy użyć szablonu projektu kątowego z platformy ASP.NET Core
 
 > [!NOTE]
 > O szablonie projektu kątowego tej dokumentacji nie jest zawarty w programie ASP.NET 2.0 Core. Chodzi o nowszej kątowego szablonu, do której można zaktualizować ręcznie. Domyślnie znajduje szablonu platformy ASP.NET Core 2.1.
@@ -39,14 +39,12 @@ cd my-new-app
 
 Uruchamianie aplikacji z programu Visual Studio lub platformy .NET Core interfejsu wiersza polecenia:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
+#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 Otwórz wygenerowany *.csproj* pliku i uruchom aplikację w zwykły stamtąd.
 
 Proces kompilacji przywraca npm zależności przy pierwszym uruchomieniu, co może zająć kilka minut. Kolejne kompilacje są znacznie szybsze.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-
+#### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 Upewnij się, masz zmienną środowiskową o nazwie `ASPNETCORE_Environment` o wartości `Development`. W systemie Windows (w monity-PowerShell), uruchom `SET ASPNETCORE_Environment=Development`. W systemie Linux lub macOS Uruchom `export ASPNETCORE_Environment=Development`.
 
 Uruchom [kompilacji dotnet](/dotnet/core/tools/dotnet-build) można zweryfikować aplikacji kompilacje poprawnie. Przy pierwszym uruchomieniu procesu kompilacji przywraca npm zależności, co może potrwać kilka minut. Kolejne kompilacje są znacznie szybsze.
@@ -59,10 +57,9 @@ Now listening on: http://localhost:<port>
 
 Przejdź do tego adresu URL w przeglądarce.
 
-Wystąpienie serwera kątowego interfejsu wiersza polecenia w tle uruchamiania aplikacji. Zostanie zarejestrowany komunikat podobny do następującego: *NG Live Development Server nasłuchuje na localhost:&lt;otherport&gt;, otwórz przeglądarkę na http://localhost:&lt;otherport&gt; /* . Zignoruj ten komunikat&mdash;ma **nie** adres URL dla połączonych aplikacji platformy ASP.NET Core i kątowego interfejsu wiersza polecenia.
+Wystąpienie serwera kątowego interfejsu wiersza polecenia w tle uruchamiania aplikacji. Zostanie zarejestrowany komunikat podobny do następującego: <em>NG Live Development Server nasłuchuje na localhost:&lt;otherport&gt;, otwórz przeglądarkę na http://localhost: &lt;otherport&gt; /</em> . Zignoruj ten komunikat&mdash;ma <strong>nie</strong> adres URL dla połączonych aplikacji platformy ASP.NET Core i kątowego interfejsu wiersza polecenia.
 
----
-
+* * *
 Szablon projektu tworzy aplikację platformy ASP.NET Core i kątowego aplikacji. Aplikacja platformy ASP.NET Core jest przeznaczona do użycia dla dostępu do danych, autoryzację i inne problemy po stronie serwera. Dyrektywy Angular aplikacji, znajdującej się w *ClientApp* podkatalogu, jest przeznaczona do użycia dla wszystkich problemów w zakresie interfejsu użytkownika.
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Dodawanie stron, obrazy, style, modułów, itp.

@@ -1,7 +1,7 @@
 ---
-title: "Metody kontrolera i widoków"
+title: Metod kontrolera oraz widoki dla platformy ASP.NET Core
 author: rick-anderson
-description: "Praca z metod kontrolera, widoków i DataAnnotations"
+description: Dowiedz się, jak pracować z metod kontrolera, widoków i DataAnnotations w ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 69f7bfa0f1e203c860abce06f6f2daffcaf47a59
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 6fe0a0e71079bebcbd3a76abee0f2917f562e766
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="controller-methods-and-views"></a>Metody kontrolera i widoków
+# <a name="controller-methods-and-views-in-aspnet-core"></a>Metod kontrolera oraz widoki dla platformy ASP.NET Core
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -48,8 +48,8 @@ Zaktualizowany kod:
 
 <!-- include start -->
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/controller-methods-views.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/controller-methods-views.md)]
 
->[!div class="step-by-step"]
-[Poprzednie](working-with-sql.md)
-[dalej](search.md)  
+> [!div class="step-by-step"]
+> [Poprzednie](working-with-sql.md)
+> [dalej](search.md)  

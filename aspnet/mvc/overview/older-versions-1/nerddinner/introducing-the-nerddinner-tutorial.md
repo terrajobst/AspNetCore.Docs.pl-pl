@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 title: Wprowadzenie do samouczka NerdDinner | Dokumentacja firmy Microsoft
 author: shanselman
-description: "Najlepszym sposobem poznawania nowej struktury jest z nim coś kompilacji. W tym samouczku przedstawiono sposób tworzenia mały, ale pełny, aplikacji, za pomocą ASP.NE..."
+description: Najlepszym sposobem poznawania nowej struktury jest z nim coś kompilacji. W tym samouczku przedstawiono sposób tworzenia mały, ale pełny, aplikacji, za pomocą ASP.NE...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: 57eedb224e26867c78cc399b89f91b95f722074d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3d925a7dc89fc0c742468653c5c138a0f1d71231
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-the-nerddinner-tutorial"></a>Wprowadzenie do samouczka NerdDinner
 ====================
@@ -88,5 +88,5 @@ Teraz, kiedy możemy zostały objęte jest NerdDinner, umożliwia rzutowanie nas
 
 Rozpocznie się za pomocą pliku -&gt;nowy projekt w programie Visual Studio, aby utworzyć aplikację NerdDinner.
 
->[!div class="step-by-step"]
-[Dalej](create-a-new-aspnet-mvc-project.md)
+> [!div class="step-by-step"]
+> [Next](create-a-new-aspnet-mvc-project.md)

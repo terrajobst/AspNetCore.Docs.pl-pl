@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
-title: "Obsługa błędów programu ASP.NET | Dokumentacja firmy Microsoft"
+title: Obsługa błędów programu ASP.NET | Dokumentacja firmy Microsoft
 author: Erikre
-description: "Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy..."
+description: Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3f732ae6f1b7845bcae88912b4a4fe26574c10de
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: ac5508334bf6d471471a719b98618bdcd3214fb5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-error-handling"></a>Obsługa błędów ASP.NET
 ====================
@@ -104,7 +104,7 @@ W powyższym kodzie bloku try zawiera kod, który ma być chroniony przed dopusz
 Przed dodaniem obsługi do aplikacji przykładowej Wingtip Toys błędów, zostanie dodana obsługa rejestrowania błędów, dodając `ExceptionUtility` klasy do *logiki* folderu. Dzięki temu, zawsze aplikacja obsługuje błąd, szczegóły błędu zostanie dodany do pliku dziennika błędów.
 
 1. Kliknij prawym przyciskiem myszy *logiki* folder, a następnie wybierz **Dodaj**  - &gt; **nowy element**.   
- **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
 2. Wybierz **Visual C#**  - &gt; **kod** grupy szablonów po lewej stronie. Następnie wybierz opcję **klasy**ze środka listy i nadaj mu nazwę **ExceptionUtility.cs**.
 3. Wybierz **dodać**. Zostanie wyświetlony nowy plik klasy.
 4. Zastąp istniejący kod poniżej:  
@@ -118,7 +118,7 @@ W przypadku wystąpienia wyjątku wyjątek można zapisać pliku dziennika wyją
 W przykładowej aplikacji Wingtip Toys jedną stronę zostanie użyty do wyświetlenia błędów. Strona błędu jest przeznaczona do Pokaż komunikat o błędzie bezpieczny do użytkowników witryny. Jednak jeśli użytkownik jest dewelopera wprowadzania żądanie HTTP, która jest wykonywana lokalnie na komputerze, w którym znajduje się kod, szczegóły błędu dodatkowe będzie wyświetlana na stronę błędu.
 
 1. Kliknij prawym przyciskiem myszy nazwę projektu (**Wingtip Toys**) w **Eksploratora rozwiązań** i wybierz **Dodaj**  - &gt; **nowy element**.   
- **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
 2. Wybierz **Visual C#**  - &gt; **Web** grupy szablonów po lewej stronie. Wybierz z listy środkowej **formularza sieci Web ze stroną wzorcową**i nadaj mu nazwę **ErrorPage.aspx**.
 3. Kliknij przycisk **Dodaj**.
 4. Wybierz *Site.Master* pliku jako strony głównej, a następnie wybierz **OK**.
@@ -166,7 +166,7 @@ Możesz uruchomić aplikację teraz, aby zobaczyć zaktualizowane trasy.
 Aby sprawdzić, jak aplikacja będzie działać, jeśli błąd wystąpi, celowo można utworzyć warunki błędów w programie ASP.NET. W przykładowej aplikacji Wingtip Toys spowoduje zgłoszenie wyjątku testu po załadowaniu domyślnej strony, aby zobaczyć, co się stanie.
 
 1. Otwórz kodem z *Default.aspx* strony w programie Visual Studio.   
- *Default.aspx.cs* zostanie wyświetlona strona związane z kodem.
+   *Default.aspx.cs* zostanie wyświetlona strona związane z kodem.
 2. W `Page_Load` obsługi, Dodaj kod, tak aby program obsługi wygląda następująco:   
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample9.cs?highlight=3-4)]
@@ -356,11 +356,11 @@ Chcę Dziękujemy następujących osób istotny wkład do zawartości z tego sam
 ## <a name="community-contributions"></a>Społeczność
 
 - Mendick Grahamowi ([@grahammendick](http://twitter.com/grahammendick))  
- Przykładowy kod w witrynie MSDN dotyczące programu Visual Studio 2012: [nawigacji Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
+  Przykładowy kod w witrynie MSDN dotyczące programu Visual Studio 2012: [nawigacji Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
 - Chaney Kuba ([jchaney@agvance.net](mailto:jchaney@agvance.net))  
- Przykładowy kod w witrynie MSDN dotyczące programu Visual Studio 2012: [ASP.NET 4.5 sieci Web Forms samouczek serii w języku Visual Basic](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
+  Przykładowy kod w witrynie MSDN dotyczące programu Visual Studio 2012: [ASP.NET 4.5 sieci Web Forms samouczek serii w języku Visual Basic](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
 - Andrielle Azevedo - techniczne współautora odbiorców firmy Microsoft (twitter: @driazevedo)  
- Visual Studio 2012 tłumaczenia: [com Iniciando Introdução 4.5 formularzy sieci Web ASP.NET - Parte 1 - e Visão Geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
+  Visual Studio 2012 tłumaczenia: [com Iniciando Introdução 4.5 formularzy sieci Web ASP.NET - Parte 1 - e Visão Geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
 
->[!div class="step-by-step"]
-[Poprzednie](url-routing.md)
+> [!div class="step-by-step"]
+> [Poprzednie](url-routing.md)

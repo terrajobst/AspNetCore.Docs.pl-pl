@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/publish-to-azure
 title: Publikowanie witryny MVC Database First Azure | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Przy użyciu MVC, Entity Framework i szkieletów ASP.NET, można utworzyć aplikacji sieci web, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri..."
+description: Przy użyciu MVC, Entity Framework i szkieletów ASP.NET, można utworzyć aplikacji sieci web, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/22/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/publish-to-azure
 msc.type: authoredcontent
-ms.openlocfilehash: eadc0f2b08df29f80fe53d03cf88cd3cdcecfb12
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 839bbceba6f0e098303facd40dbb1496bd449ba3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>Publikowanie MVC bazy danych pierwszej lokacji na platformie Azure
 ====================
@@ -152,7 +152,7 @@ Teraz można przejść wstecz do portalu zarządzania dla Twojej bazy danych. Od
 
 ![nowe tabele](publish-to-azure/_static/image22.png)
 
-Teraz można przystąpić do testowania aplikacji sieci web, który jest wdrożony na platformie Azure. Przejdź do aplikacji sieci web na platformie Azure (na przykład http://contosositeexample.azurewebsites.net/). Kliknij łącze do listy studentów i powinien zostać wyświetlony widok indeksu dla uczniów lub studentów.
+Teraz można przystąpić do testowania aplikacji sieci web, który jest wdrożony na platformie Azure. Przejdź do aplikacji sieci web na platformie Azure (takich jak http://contosositeexample.azurewebsites.net/). Kliknij łącze do listy studentów i powinien zostać wyświetlony widok indeksu dla uczniów lub studentów.
 
 ![Widok](publish-to-azure/_static/image23.png)
 
@@ -166,5 +166,5 @@ Przykład wprowadzające programowanie Code First, zobacz [wprowadzenie do platf
 
 Na przykład bardziej zaawansowanych, zobacz [tworzenia modelu danych struktury jednostek dla aplikacji ASP.NET MVC 4](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Należy pamiętać, że API DbContext, służące do pracy z danymi w pierwszym bazy danych jest taki sam jak interfejs API, można użyć do pracy z danymi w Code First. Nawet jeśli zamierzasz użyć pierwszej bazy danych, można poznać sposoby obsługi złożonych scenariuszy, takich jak odczytywanie i aktualizowanie danych powiązanych konfliktów współbieżności, i z kodu pierwszy samouczek. Jedyną różnicą jest w sposób tworzenia bazy danych, klasa kontekstu i klas jednostek.
 
->[!div class="step-by-step"]
-[Poprzednie](enhancing-data-validation.md)
+> [!div class="step-by-step"]
+> [Poprzednie](enhancing-data-validation.md)

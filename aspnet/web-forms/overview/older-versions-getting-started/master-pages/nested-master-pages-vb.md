@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
-title: "Zagnieżdżone strony wzorcowe (VB) | Dokumentacja firmy Microsoft"
+title: Zagnieżdżone strony wzorcowe (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Pokazuje, jak można zagnieżdżać jednej strony wzorcowej w innym."
+description: Pokazuje, jak można zagnieżdżać jednej strony wzorcowej w innym.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9059e358311cc80b6a64aa3ee1168f4ffcd4e94c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8c0123c12bb653a7f680154e2155eae0eb129428
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nested-master-pages-vb"></a>Zagnieżdżone strony wzorcowe (VB)
 ====================
@@ -94,7 +94,7 @@ Ten kod znaczników zawiera łącze zatytułowany "Zagnieżdżone strony wzorcow
 
 ## <a name="step-2-creating-a-simple-nested-master-page"></a>Krok 2: Tworzenie prostego zagnieżdżone strony wzorcowej
 
-`Simple.master`zawiera dwa formanty ContentPlaceHolder: `MainContent` ContentPlaceHolder dodaliśmy w formularzu sieci Web, wraz z `head` elementu ContentPlaceHolder na `<head>` elementu. Czy możemy do tworzenia strony zawartości, który należy powiązać `Simple.master` musi dwóch formantów zawartości odwołujące się do dwóch Elementy ContentPlaceHolders strony zawartość. Podobnie możemy utworzyć osadzonej stronie głównej i powiązać `Simple.master` osadzonej stronie głównej będzie mieć dwa formanty zawartości.
+`Simple.master` zawiera dwa formanty ContentPlaceHolder: `MainContent` ContentPlaceHolder dodaliśmy w formularzu sieci Web, wraz z `head` elementu ContentPlaceHolder na `<head>` elementu. Czy możemy do tworzenia strony zawartości, który należy powiązać `Simple.master` musi dwóch formantów zawartości odwołujące się do dwóch Elementy ContentPlaceHolders strony zawartość. Podobnie możemy utworzyć osadzonej stronie głównej i powiązać `Simple.master` osadzonej stronie głównej będzie mieć dwa formanty zawartości.
 
 Możemy dodać do nowej strony wzorcowej zagnieżdżonych `NestedMasterPages` folder o nazwie `SimpleNested.master`. Kliknij prawym przyciskiem myszy `NestedMasterPages` folder i wybierz polecenie Dodaj nowy element. Spowoduje to wyświetlenie okna dialogowego Dodaj nowy element pokazany na rysunku 2. Wybierz typ szablonu strony wzorcowej i wpisz nazwę nowej strony wzorcowej. Aby wskazać, że nowe strony wzorcowej powinny być osadzonej stronie głównej, zaznacz pole wyboru "Wybierz strony głównej".
 
@@ -126,7 +126,7 @@ Zaktualizowanie tego osadzonej stronie głównej, tak aby zawiera tekst "Hello, 
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample4.aspx)]
 
-Po wprowadzeniu to dodawanie, zapisać osadzonej stronie głównej, a następnie dodaj nową stronę zawartości do `NestedMasterPages` folder o nazwie `Default.aspx`oraz powiązać `SimpleNested.master` strony wzorcowej. Podczas dodawania tej strony może być zaskoczeniem zobaczyć, czy zawiera on żadnych formantów zawartości (patrz rysunek 4)! Zawartość strony ma dostęp tylko do jego *nadrzędnej* Elementy ContentPlaceHolders strony wzorcowej. `SimpleNested.master`nie zawiera żadnych formantów elementu ContentPlaceHolder; w związku z tym wszystkie strony zawartości, powiązane z tej strony wzorcowej nie może zawierać wszystkie formanty zawartości.
+Po wprowadzeniu to dodawanie, zapisać osadzonej stronie głównej, a następnie dodaj nową stronę zawartości do `NestedMasterPages` folder o nazwie `Default.aspx`oraz powiązać `SimpleNested.master` strony wzorcowej. Podczas dodawania tej strony może być zaskoczeniem zobaczyć, czy zawiera on żadnych formantów zawartości (patrz rysunek 4)! Zawartość strony ma dostęp tylko do jego *nadrzędnej* Elementy ContentPlaceHolders strony wzorcowej. `SimpleNested.master` nie zawiera żadnych formantów elementu ContentPlaceHolder; w związku z tym wszystkie strony zawartości, powiązane z tej strony wzorcowej nie może zawierać wszystkie formanty zawartości.
 
 
 [![Nowa strona zawartości zawiera nie formanty zawartości](nested-master-pages-vb/_static/image11.png)](nested-master-pages-vb/_static/image10.png)
@@ -258,7 +258,7 @@ Rysunek nr 10 przedstawia `AdminNested.master` osadzonej stronie głównej oglą
 
 W dowolnym momencie dodania nowej strony zawartości do sekcji Administracja należy powiązać `AdminNested.master` właśnie utworzyliśmy strony wzorcowej. Ale co istniejącej zawartości strony? Obecnie wszystkie zawartości strony w witrynie pochodzi od `BasePage` klasy, która programowo ustawia strony wzorcowej zawartości strony w czasie wykonywania. To nie jest zachowanie interesujące dla stron zawartości w sekcji administracji. Zamiast tego chcemy te strony zawartości, aby zawsze była używana `AdminNested.master` strony. Będzie ona odpowiedzialność osadzonej stronie głównej wybierz prawo najwyższego poziomu strony zawartości w czasie wykonywania.
 
-Aby najlepszy sposób, aby osiągnąć to konieczne, zachowanie jest utworzenie nowej klasy niestandardowej strony podstawowej o nazwie `AdminBasePage` który rozszerza `BasePage` klasy. `AdminBasePage`następnie można zastąpić `SetMasterPageFile` i ustaw `Page` obiektu `MasterPageFile` wartość ustalony "~ / Admin/AdminNested.master". W ten sposób dowolną stronę która pochodzi z `AdminBasePage` użyje `AdminNested.master`, podczas gdy dowolną stronę, która pochodzi z `BasePage` będzie jego `MasterPageFile` właściwość ustawić dynamicznie "~ / Site.master" lub "~ / Alternate.master" na podstawie wartości z `MyMasterPage` Zmiennej sesji.
+Aby najlepszy sposób, aby osiągnąć to konieczne, zachowanie jest utworzenie nowej klasy niestandardowej strony podstawowej o nazwie `AdminBasePage` który rozszerza `BasePage` klasy. `AdminBasePage` następnie można zastąpić `SetMasterPageFile` i ustaw `Page` obiektu `MasterPageFile` wartość ustalony "~ / Admin/AdminNested.master". W ten sposób dowolną stronę która pochodzi z `AdminBasePage` użyje `AdminNested.master`, podczas gdy dowolną stronę, która pochodzi z `BasePage` będzie jego `MasterPageFile` właściwość ustawić dynamicznie "~ / Site.master" lub "~ / Alternate.master" na podstawie wartości z `MyMasterPage` Zmiennej sesji.
 
 Rozpocznij od dodania nowego pliku klasy `App_Code` folder o nazwie `AdminBasePage.vb`. Ma `AdminBasePage` rozszerzyć `BasePage` , a następnie zastąpić `SetMasterPageFile` metody. W tej metodzie przypisać `MasterPageFile` wartość "~ / Admin/AdminNested.master". Po wprowadzeniu tych zmian na klasę pliku powinien wyglądać podobnie do poniższej:
 
@@ -358,11 +358,11 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
-Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](specifying-the-master-page-programmatically-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](specifying-the-master-page-programmatically-vb.md)

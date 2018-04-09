@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/getting-started
 title: Wprowadzenie do platformy ASP.NET MVC 5 | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Uwaga: Dostępne w tym miejscu przy użyciu programu Visual Studio 2015 jest zaktualizowana wersja tego samouczka. Samouczek nowej używa platformy ASP.NET Core MVC 6, która oferuje wiele improvem..."
+description: 'Uwaga: Dostępne w tym miejscu przy użyciu programu Visual Studio 2015 jest zaktualizowana wersja tego samouczka. Samouczek nowej używa platformy ASP.NET Core MVC 6, która oferuje wiele improvem...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,26 +12,25 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 1616b238612fa9f519418f583c40a46b9d81d8ce
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0f1fd2026691d3bc0e81b20a9731879d7a6041bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a>Wprowadzenie do korzystania z wzorca ASP.NET MVC 5
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[consider RP](../../../../includes/razor.md)]
+[!INCLUDE [consider RP](../../../../includes/razor.md)]
 
- 
  W tym samouczku udzieli Ci podstawy ASP.NET MVC 5 sieci web aplikacji za pomocą [programu Visual Studio 2017](https://www.visualstudio.com/). Ostateczne źródło samouczek znajdujących się na [GitHub](https://github.com/aspnet/Docs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
- 
- 
+
+
  W tym samouczku, została napisana przy [Scott Guthrie](https://weblogs.asp.net/scottgu/) (twitter[ @scottgu ](https://twitter.com/scottgu) ), [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](https://twitter.com/shanselman) ) , a [Rick Anderson](https://twitter.com/RickAndMSFT) ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )
- 
+
  Potrzebne jest konto platformy Azure, aby wdrożyć tę aplikację na platformie Azure:
- 
+
  - Możesz [otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymasz kredyt służy do wypróbowania płatnych usług Azure, a nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
  - Możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -subskrypcji Your MSDN otrzymasz kredyt, co miesiąc, używanego programu płatnych usług Azure.
 
@@ -42,9 +41,9 @@ Rozpocznij od instalowania i uruchamiania [programu Visual Studio 2017](https://
 
 Program Visual Studio jest IDE lub zintegrowane środowisko deweloperskie. Tak samo jak w programie Microsoft Word do zapisywania dokumentów, użyjesz IDE do tworzenia aplikacji. W programie Visual Studio znajduje się lista wzdłuż dolnej pokazywanie różnych dostępnych opcji. Istnieje również menu, która umożliwia innym sposobem wykonania zadania w środowisku IDE. (Na przykład zamiast zaznaczania **nowy projekt** z **Start** strony, można skorzystać z menu i wybierz **pliku** &gt; **nowy projekt**.)
 
-   
+
 ![](getting-started/_static/image1.png)  
- 
+
 
 ## <a name="creating-your-first-application"></a>Tworzenie pierwszej aplikacji
 
@@ -83,5 +82,5 @@ Potrzebujesz konta platformy Azure, aby wdrożyć to rozwiązanie do platformy A
 - [Otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymasz kredyt służy do wypróbowania płatnych usług Azure, a nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
 - [Aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -subskrypcji Your MSDN otrzymasz kredyt, co miesiąc, używanego programu płatnych usług Azure.
 
->[!div class="step-by-step"]
-[Next](adding-a-controller.md)
+> [!div class="step-by-step"]
+> [Next](adding-a-controller.md)

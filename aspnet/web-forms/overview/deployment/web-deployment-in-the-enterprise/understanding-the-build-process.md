@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 title: Opis procesu kompilacji | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie przedstawiono wskazówki procesu kompilacji i wdrożenia skali przedsiębiorstwa. Podejście opisane w tym temacie używa niestandardowych Microsoft Engin kompilacji..."
+description: W tym temacie przedstawiono wskazówki procesu kompilacji i wdrożenia skali przedsiębiorstwa. Podejście opisane w tym temacie używa niestandardowych Microsoft Engin kompilacji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
-ms.openlocfilehash: 3efcefc40dc135ff42f55911036f8b38b5aa13b1
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4544a5e6212ea9b1247062dc35edc135ff7ca354
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-the-build-process"></a>Opis procesu kompilacji
 ====================
@@ -30,9 +30,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > > Poprzedniego tematu [opis pliku projektu](understanding-the-project-file.md), opisano najważniejsze składniki pliku projektu MSBuild i wprowadzono pojęcie podziału pliki projektu do obsługi wdrożenia w wielu środowiskach docelowych. Jeśli nie masz już znasz tych pojęć, należy przejrzeć [opis pliku projektu](understanding-the-project-file.md) przed rozpoczęciem pracy za pośrednictwem tego tematu.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji projektu dwa pliki & #x 2014; jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
 
 ## <a name="build-and-deployment-overview"></a>Omówienie wdrożenia i kompilacji
 
@@ -50,16 +50,16 @@ Przed wyświetleniu tych plików bardziej szczegółowo Spójrzmy na działania 
 
 ![](understanding-the-build-process/_static/image2.png)
 
-Pierwszą czynnością, która jest dwa projektu plików & #x 2014; zawierający uniwersalnych kompilacji i instrukcje dotyczące wdrażania i jeden zawierający ustawienia charakterystyczne dla środowiska & #x 2014; są scalane w pliku pojedynczego projektu. MSBuild następnie działa przy użyciu instrukcji w pliku projektu. Tworzy listę projektów w rozwiązaniu, dla każdego projektu przy użyciu pliku projektu. Następnie wywołuje do innych narzędzi, takich jak narzędzie Web Deploy (MSDeploy.exe) i narzędzie VSDBCMD, aby wdrożyć zawartość sieci web i baz danych w środowisku docelowym.
+Pierwszą czynnością, która jest dwa pliki projektu&#x2014;jeden instrukcjami uniwersalnych kompilowanie i wdrażanie i dysk zawierający ustawienia charakterystyczne dla środowiska&#x2014;są scalane w pliku projektu jednego. MSBuild następnie działa przy użyciu instrukcji w pliku projektu. Tworzy listę projektów w rozwiązaniu, dla każdego projektu przy użyciu pliku projektu. Następnie wywołuje do innych narzędzi, takich jak narzędzie Web Deploy (MSDeploy.exe) i narzędzie VSDBCMD, aby wdrożyć zawartość sieci web i baz danych w środowisku docelowym.
 
 Od początku do końca proces kompilacji i wdrożenia wykonuje te zadania:
 
 1. Usuwa zawartość do katalogu wyjściowego, w ramach przygotowań do świeże kompilacji.
 2. Zbudował każdego projektu w rozwiązaniu:
 
-    1. Projekty sieci web & #x 2014; w takim przypadku aplikacji sieci web platformy ASP.NET MVC i WCF sieci web usługi & #x 2014; proces kompilacji tworzy pakietu wdrożeniowego sieci web dla każdego projektu.
+    1. Dla projektów sieci web&#x2014;w takim przypadku aplikacji sieci web platformy ASP.NET MVC i WCF usługi sieci web&#x2014;proces kompilacji tworzy pakietu wdrożeniowego sieci web dla każdego projektu.
     2. Dla projektów bazy danych proces kompilacji tworzy manifest rozmieszczenia (plik .deploymanifest) dla każdego projektu.
-3. Narzędzie VSDBCMD.exe używa do każdego projektu bazy danych w rozwiązaniu, korzystając z różnych z plików projektu i #x 2014; ciąg połączenia docelowego oraz nazwę bazy danych i #x 2014; wraz z pliku .deploymanifest wdrożenia.
+3. Używa narzędzia VSDBCMD.exe do każdego projektu bazy danych w rozwiązaniu, korzystając z różnych plików projektu wdrożenia&#x2014;ciąg połączenia docelowego i nazwę bazy danych&#x2014;wraz z pliku .deploymanifest.
 4. Narzędzia programu MSDeploy.exe używa do wdrożenia każdego projektu sieci web w rozwiązaniu, korzystając z różnych z plików projektu Aby kontrolować proces wdrażania.
 
 Przykładowe rozwiązanie służy do śledzenia ten proces bardziej szczegółowo.
@@ -86,7 +86,7 @@ W tym momencie MSBuild zacznie działać, ładuje *Publish.proj* plików i rozpo
 [!code-xml[Main](understanding-the-build-process/samples/sample2.xml)]
 
 
-**TargetEnvPropsFile** określa parametr *Env Dev.proj* pliku, więc MSBuild Scala zawartość *Env Dev.proj* pliku do * Publish.Proj* pliku.
+**TargetEnvPropsFile** określa parametr *Env Dev.proj* pliku, więc MSBuild Scala zawartość *Env Dev.proj* pliku do  *Publish.Proj* pliku.
 
 Dalej elementy, które MSBuild napotka w pliku projektu scalony to grupy właściwości. Właściwości są przetwarzane w kolejności, w jakiej występują w pliku. MSBuild tworzy parę klucz wartość dla każdej właściwości, zapewniając, że wszystkie określone warunki są spełnione. Wszystkie właściwości o tej samej nazwie wcześniej zdefiniowane w pliku zostaną zastąpione właściwości później zdefiniowane w pliku. Rozważmy na przykład **OutputRoot** właściwości.
 
@@ -102,9 +102,9 @@ Następny element, który napotka MSBuild jest jeden element grupy, zawierający
 [!code-xml[Main](understanding-the-build-process/samples/sample4.xml)]
 
 
-MSBuild przetwarza tej instrukcji przez utworzenie listy elementów o nazwie **ProjectsToBuild**. W takim przypadku listy elementów zawiera pojedynczą wartość & #x 2014; ścieżkę i nazwę pliku rozwiązania.
+MSBuild przetwarza tej instrukcji przez utworzenie listy elementów o nazwie **ProjectsToBuild**. W takim przypadku listy elementów zawiera pojedynczą wartość&#x2014;ścieżkę i nazwę pliku rozwiązania.
 
-W tym momencie pozostałe elementy są elementy docelowe. Obiekty docelowe są przetwarzane inaczej z właściwości i elementy & #x 2014; zasadniczo elementów docelowych nie są przetwarzane chyba, że są one jawnie określone przez użytkownika lub wywołany przez inny konstrukcji w pliku projektu. Odwołania, który otwarcia **projektu** zawiera tag **defaulttargets —** atrybutu.
+W tym momencie pozostałe elementy są elementy docelowe. Obiekty docelowe są przetwarzane zależy od właściwości i elementów&#x2014;zasadniczo elementów docelowych nie są przetwarzane chyba, że są one jawnie określone przez użytkownika lub wywołany przez inny konstrukcji w pliku projektu. Odwołania, który otwarcia **projektu** zawiera tag **defaulttargets —** atrybutu.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample5.xml)]
@@ -132,7 +132,7 @@ Ta zależność informuje program MSBuild tego w celu wykonania **FullPublish** 
 [!code-xml[Main](understanding-the-build-process/samples/sample7.xml)]
 
 
-Należy zauważyć, że zawiera element docelowy **ItemGroup** elementu. Podczas definiowania właściwości lub elementów w obrębie **docelowej** elementu, tworzysz *dynamiczne* właściwości i elementów. Innymi słowy właściwości lub elementy nie są przetwarzane, aż obiekt docelowy jest wykonywana. Katalog wyjściowy nie istnieje lub ma żadnych plików do momentu rozpoczęcia procesu kompilacji, więc nie można utworzyć ** \_FilesToDelete** listy jako element statyczny; należy poczekać do czasu wykonywania jest przetwarzane. Tak należy utworzyć listę jako elementów dynamicznych w docelowym.
+Należy zauważyć, że zawiera element docelowy **ItemGroup** elementu. Podczas definiowania właściwości lub elementów w obrębie **docelowej** elementu, tworzysz *dynamiczne* właściwości i elementów. Innymi słowy właściwości lub elementy nie są przetwarzane, aż obiekt docelowy jest wykonywana. Katalog wyjściowy nie istnieje lub ma żadnych plików do momentu rozpoczęcia procesu kompilacji, więc nie można utworzyć  **\_FilesToDelete** listy jako element statyczny; należy poczekać do czasu wykonywania jest przetwarzane. Tak należy utworzyć listę jako elementów dynamicznych w docelowym.
 
 > [!NOTE]
 > W takim przypadku ponieważ **wyczyść** docelowy jest pierwszą osobą, która można wykonać, nie istnieje potrzeba rzeczywistych używanie grupy elementów dynamicznych. Jednak dobrym rozwiązaniem jest użycie właściwości dynamicznych i elementów w tym typie scenariusza, jak należy wykonać elementy docelowe w innej kolejności w pewnym momencie.  
@@ -173,7 +173,7 @@ Jeśli Przestudiowanie **GatherPackagesForPublishing** docelowej, można zauważ
 
 Te elementy można znaleźć pakiety wdrożeniowe, które zostały utworzone podczas obliczania **BuildProjects** docelowej zostało wykonane. Nie zdefiniujesz te elementy statycznie w pliku projektu, ponieważ nie istnieją pliki, do których odwołuje się elementy, aż do **BuildProjects** docelowy jest wykonywana. Zamiast tego elementów muszą być zdefiniowane dynamicznie w elemencie docelowym, który nie jest wywoływany do momentu po **BuildProjects** docelowy jest wykonywana.
 
-Elementy nie są używane w ramach tego docelowego & #x 2014; ten element docelowy po prostu tworzy elementy i metadane skojarzone z każdej wartości elementu. Po przetworzeniu tych elementów są **PublishPackages** element będzie zawierać dwie wartości, ścieżka do *ContactManager.Mvc.deploy.cmd* pliku i ścieżkę do * ContactManager.Service.deploy.cmd* pliku. Narzędzie Web Deploy tworzy te pliki jako część pakietu sieci web dla każdego projektu, i są to pliki, które należy wywołać na serwerze docelowym w celu wdrożenia pakietów. Jeśli otworzysz jednego z tych plików zasadniczo zobaczysz polecenie MSDeploy.exe z różnych wartości parametru specyficzne dla kompilacji.
+Elementy nie są używane w obrębie tego celu&#x2014;ten element docelowy po prostu tworzy elementy i metadane skojarzone z każdej wartości elementu. Po przetworzeniu tych elementów są **PublishPackages** element będzie zawierać dwie wartości, ścieżka do *ContactManager.Mvc.deploy.cmd* pliku i ścieżkę do  *ContactManager.Service.deploy.cmd* pliku. Narzędzie Web Deploy tworzy te pliki jako część pakietu sieci web dla każdego projektu, i są to pliki, które należy wywołać na serwerze docelowym w celu wdrożenia pakietów. Jeśli otworzysz jednego z tych plików zasadniczo zobaczysz polecenie MSDeploy.exe z różnych wartości parametru specyficzne dla kompilacji.
 
 **DbPublishPackages** element będzie zawierać pojedynczą wartość, ścieżka do *ContactManager.Database.deploymanifest* pliku.
 
@@ -193,24 +193,24 @@ Po pierwsze, zwróć uwagę, że otwierający tag zawiera **dane wyjściowe** at
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
 
 
-To jest przykład *przetwarzaniu wsadowym obiektów docelowych*. W plikach projektu MSBuild przetwarzanie wsadowe to technika potrzeby iteracji w kolekcji. Wartość **dane wyjściowe** atrybutu **"% (DbPublishPackages.Identity)"**, odwołuje się do **tożsamości** właściwości metadanych **DbPublishPackages ** listy elementów. Ten element notation, **Outputs=%***(ItemList.ItemMetadataName)*, jest translacja jako:
+To jest przykład *przetwarzaniu wsadowym obiektów docelowych*. W plikach projektu MSBuild przetwarzanie wsadowe to technika potrzeby iteracji w kolekcji. Wartość **dane wyjściowe** atrybutu **"% (DbPublishPackages.Identity)"**, odwołuje się do **tożsamości** właściwości metadanych **DbPublishPackages**  listy elementów. Ten element notation, **Outputs=%***(ItemList.ItemMetadataName)*, jest translacja jako:
 
 - Podziel elementy w **DbPublishPackages** w partie elementów, które zawierają takie same **tożsamości** wartości metadanych.
 - Wykonanie docelowego raz w każdej partii.
 
 > [!NOTE]
-> **Tożsamość** jest jednym z [wartości wbudowanych metadanych](https://msdn.microsoft.com/library/ms164313.aspx) przypisany do każdego elementu po utworzeniu. Odnosi się do wartości **Include** atrybutu w **elementu** elementu & #x 2014; innymi słowy, ścieżkę i nazwę elementu.
+> **Tożsamość** jest jednym z [wartości wbudowanych metadanych](https://msdn.microsoft.com/library/ms164313.aspx) przypisany do każdego elementu po utworzeniu. Odnosi się do wartości **Include** atrybutu w **elementu** elementu&#x2014;innymi słowy, ścieżkę i nazwę elementu.
 
 
 W takim przypadku ponieważ nigdy nie może mieć więcej niż jeden element o tej samej ścieżki i nazwy pliku, zasadniczo pracujemy o rozmiarze partii jednego. Element docelowy jest wykonywana raz dla każdego pakietu bazy danych.
 
-Zostanie wyświetlony podobne Notacja w ** \_Cmd** właściwość, która tworzy polecenie VSDBCMD z odpowiednich przełączników.
+Zostanie wyświetlony podobne Notacja w  **\_Cmd** właściwość, która tworzy polecenie VSDBCMD z odpowiednich przełączników.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
 
 
-W takim przypadku **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, i **%(DbPublishPackages.FullPath)** wszystkie odnoszą się do wartości metadanych **DbPublishPackages** Kolekcja elementów. ** \_Cmd** jest używana przez **Exec** zadania, które wywołuje polecenie.
+W takim przypadku **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, i **%(DbPublishPackages.FullPath)** wszystkie odnoszą się do wartości metadanych **DbPublishPackages** Kolekcja elementów.  **\_Cmd** jest używana przez **Exec** zadania, które wywołuje polecenie.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]
@@ -251,6 +251,6 @@ W tym temacie podano wskazówki użycia podziału pliki projektu do sterowania p
 
 Aby uzyskać więcej informacji na temat wprowadzenie do plików projektu i WPP, zobacz [wewnątrz kompilacji aparatu Microsoft: przy użyciu programu MSBuild i Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi i Bartholomew łączy, ISBN: 978-0-7356-4524-0.
 
->[!div class="step-by-step"]
-[Poprzednie](understanding-the-project-file.md)
-[dalej](building-and-packaging-web-application-projects.md)
+> [!div class="step-by-step"]
+> [Poprzednie](understanding-the-project-file.md)
+> [dalej](building-and-packaging-web-application-projects.md)

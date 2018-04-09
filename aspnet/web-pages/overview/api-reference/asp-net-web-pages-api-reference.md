@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/api-reference/asp-net-web-pages-api-reference
-title: "Strony sieci Web platformy ASP.NET (Razor) interfejsu API szybkie odwołanie | Dokumentacja firmy Microsoft"
+title: Strony sieci Web platformy ASP.NET (Razor) interfejsu API szybkie odwołanie | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Ta strona zawiera listę wraz z przykładami krótki najczęściej używanych obiektów, właściwości i metody dla programowania w języku ASP.NET Web Pages o składni Razor."
+description: Ta strona zawiera listę wraz z przykładami krótki najczęściej używanych obiektów, właściwości i metody dla programowania w języku ASP.NET Web Pages o składni Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/api-reference/asp-net-web-pages-api-reference
 msc.type: authoredcontent
-ms.openlocfilehash: 35f91f4dbea4881d9dabc4ab7c6b96dbb6a01ea2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5f9d84f4d453583d7d4eae12e4fc510275255616
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-pages-razor-api-quick-reference"></a>Strony sieci Web platformy ASP.NET (Razor) interfejsu API szybkie odwołanie
 ====================
@@ -31,7 +31,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions"></a>Wersje oprogramowania
 > 
 > 
-> - Strony sieci Web platformy ASP.NET (Razor) 3
+> - ASP.NET Web Pages (Razor) 3
 >   
 > 
 > W tym samouczku współdziała również z ASP.NET Web Pages 2 i stron sieci Web ASP.NET w wersji 1.0 (z wyjątkiem funkcji oznaczone v2).
@@ -42,7 +42,7 @@ Ta strona zawiera informacje dotyczące następujących czynności:
 - [Klasy](#Classes)
 - [Dane](#Data)
 - [Pomocnicy](#Helpers)
-- [Sprawdzanie poprawności](#Validation)
+- [Walidacja](#Validation)
 
 <a id="Classes"></a>
 ## <a name="classes"></a>Klasy
@@ -158,13 +158,13 @@ Pobiera pliki, które zostały przekazane w bieżącym żądaniu.
 
 ### `Request.Form[key]`
 
-Pobiera dane, która była umieszczona w formie (jako ciąg). `Request[key]`sprawdza zarówno `Request.Form` i `Request.QueryString` kolekcji.
+Pobiera dane, która była umieszczona w formie (jako ciąg). `Request[key]` sprawdza zarówno `Request.Form` i `Request.QueryString` kolekcji.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample19.cs)]
 
 ### `Request.QueryString[key]`
 
-Pobiera dane, która została określona w zapytaniu URL. `Request[key]`sprawdza zarówno `Request.Form` i `Request.QueryString` kolekcji.
+Pobiera dane, która została określona w zapytaniu URL. `Request[key]` sprawdza zarówno `Request.Form` i `Request.QueryString` kolekcji.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample20.cs)]
 
@@ -692,7 +692,7 @@ Wysyła wiadomość e-mail.
 
 ### `WebMail.SmtpServer`
 
-Ustawia nazwę serwera SMTP. Zwykle tę właściwość można ustawić w*\_AppStart* strony.
+Ustawia nazwę serwera SMTP. Zwykle tę właściwość można ustawić w<em>\_AppStart</em> strony.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample105.html)]
 

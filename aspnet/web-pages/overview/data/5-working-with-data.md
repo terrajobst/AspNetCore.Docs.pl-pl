@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/data/5-working-with-data
-title: "Wprowadzenie do pracy z bazą danych w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do pracy z bazą danych w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym rozdziale opisano, jak uzyskać dostęp do danych z bazy danych i wyświetlić je za pomocą stron sieci Web programu ASP.NET."
+description: W tym rozdziale opisano, jak uzyskać dostęp do danych z bazy danych i wyświetlić je za pomocą stron sieci Web programu ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: 460af471a1b0650f8d782d582ce6cd9a06664d5c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 563074cf3e60717c2e6c336a2c282b4203f73b8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Wprowadzenie do pracy z bazą danych w sieci Web ASP.NET stron witryny (Razor)
 ====================
@@ -361,7 +361,7 @@ W tej sekcji przedstawiono sposób zezwolić użytkownikom na usuwanie produktu 
 6. Kliknij przycisk **usunąć** łącze do jednego z produktów. *DeleteProduct.cshtml* zostanie wyświetlona strona, aby potwierdzić usunięcie tego rekordu.
 7. Kliknij przycisk **usunąć** przycisku. Rekord produkt zostanie usunięty i odświeżeniu strony z listą zaktualizowane produktu.
 
-> [!TIP] 
+> [!TIP]
 > 
 > <a id="SB_ConnectingToADatabase"></a>
 > ### <a name="connecting-to-a-database"></a>Połączenia z bazą danych

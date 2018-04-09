@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 title: Wprowadzenie do platformy ASP.NET MVC 4 | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Zaktualizowanej wersji, jeśli w tym samouczku jest dostępna, w tym miejscu przy użyciu programu Visual Studio 2013. Samouczek nowej używa platformy ASP.NET MVC 5, która udostępnia wiele ulepszeń w porównaniu z t..."
+description: Zaktualizowanej wersji, jeśli w tym samouczku jest dostępna, w tym miejscu przy użyciu programu Visual Studio 2013. Samouczek nowej używa platformy ASP.NET MVC 5, która udostępnia wiele ulepszeń w porównaniu z t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 92d9e583b6c26fa8c928d33e14593d280702a269
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 519bac22ba2607931c5f3123b9b567859a2b3d1c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="intro-to-aspnet-mvc-4"></a>Wprowadzenie do platformy ASP.NET MVC 4
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Zaktualizowanej wersji, jeśli jest dostępna w tym samouczku [tutaj](../../getting-started/introduction/getting-started.md) przy użyciu [programu Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). Nowe samouczku platformy ASP.NET MVC 5, która udostępnia wiele ulepszeń w porównaniu z tego samouczka.
 > 
@@ -88,5 +88,5 @@ F5 powoduje, że Visual Studio, aby uruchomić usługi IIS Express i uruchom apl
 
 Dodatkowych zabiegów ten szablon domyślny zawiera strony domowej, kontaktów oraz o. Ponadto zapewnia obsługę rejestracji i logowania, a linki do serwisu Facebook i Twitter. Następnym krokiem jest zmienić sposób działania tej aplikacji i nieco więcej informacji na temat platformy ASP.NET MVC. Zamknij przeglądarkę i Zmieńmy kodu.
 
->[!div class="step-by-step"]
-[Next](adding-a-controller.md)
+> [!div class="step-by-step"]
+> [Next](adding-a-controller.md)

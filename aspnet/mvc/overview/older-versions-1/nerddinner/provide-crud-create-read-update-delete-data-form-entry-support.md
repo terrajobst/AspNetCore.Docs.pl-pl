@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
-title: "Podaj CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) danych tworzą Obsługa wpis | Dokumentacja firmy Microsoft"
+title: Podaj CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) danych tworzą Obsługa wpis | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Krok 5 pokazano, jak wykonać klasy DinnersController nasze dalsze przez włączanie obsługi edycji, tworzenie i usuwanie kolacji z nim również."
+description: Krok 5 pokazano, jak wykonać klasy DinnersController nasze dalsze przez włączanie obsługi edycji, tworzenie i usuwanie kolacji z nim również.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
-ms.openlocfilehash: 5a314a1761527d8a2273166a743e3deac012a557
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bd906282db5c620476966ffbe09cecb5ade66ee4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>Podaj CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) danych tworzą wpis pomocy technicznej
 ====================
@@ -39,22 +39,22 @@ Wprowadzeniu wprowadzone kontrolery i widoki i jak ich używać do implementowan
 
 Dodaliśmy wcześniej metod akcji do DinnersController wprowadzonym obsługę adresów URL: */Dinners* i */Dinners/szczegóły / [id]*.
 
-| **ADRES URL** | **ZLECENIE** | **Cel** |
+| **ADRES URL** | **VERB** | **Cel** |
 | --- | --- | --- |
-| */Dinners/* | POBIERZ | Wyświetl listę nadchodzących kolacji HTML. |
-| */Dinners/szczegóły / [id]* | POBIERZ | Wyświetlanie szczegółów dotyczących określonego obiad. |
+| */Dinners/* | GET | Wyświetl listę nadchodzących kolacji HTML. |
+| */Dinners/szczegóły / [id]* | GET | Wyświetlanie szczegółów dotyczących określonego obiad. |
 
-Teraz dodamy metod akcji, aby zaimplementować trzy dodatkowe adresy URL: */Dinners/Edit / [id], / kolacji/Create,*i*/Dinners/Delete / [id]*. Te adresy URL zostanie włączona obsługa edycji istniejących kolacji, tworzenie nowych kolacji i usuwanie kolacji.
+Teraz dodamy metod akcji, aby zaimplementować trzy dodatkowe adresy URL: <em>/Dinners/Edit / [id], / kolacji/Create,</em>i<em>/Dinners/Delete / [id]</em>. Te adresy URL zostanie włączona obsługa edycji istniejących kolacji, tworzenie nowych kolacji i usuwanie kolacji.
 
 Obsługujemy interakcji zlecenie HTTP GET i POST protokołu HTTP z tych nowych adresów URL. Żądania HTTP GET do tych adresów URL wyświetli początkowej widok HTML danych (formularza wypełniane przy użyciu danych obiad w przypadku "edit", pusty formularz w przypadku "Utwórz" i ekran potwierdzenia usunięcia w przypadku "delete"). Żądania HTTP POST do tych adresów URL będzie save/aktualizowania/usuwania danych obiad w naszym DinnerRepository (i z tego miejsca w bazie danych).
 
-| **ADRES URL** | **ZLECENIE** | **Cel** |
+| **ADRES URL** | **VERB** | **Cel** |
 | --- | --- | --- |
-| */Dinners/edit / [id]* | POBIERZ | Wyświetlanie edytowalnego formularza HTML wypełniane przy użyciu danych obiad. |
+| */Dinners/edit / [id]* | GET | Wyświetlanie edytowalnego formularza HTML wypełniane przy użyciu danych obiad. |
 | POST | Zapisz zmiany formularza dla określonego obiad do bazy danych. |
-| */ Kolacji/utworzyć* | POBIERZ | Wyświetlanie pustego formularza HTML, który pozwala użytkownikom na definiowanie nowych kolacji. |
+| */Dinners/Create* | GET | Wyświetlanie pustego formularza HTML, który pozwala użytkownikom na definiowanie nowych kolacji. |
 | POST | Utwórz nowy obiad i zapisz go w bazie danych. |
-| */Dinners/delete / [id]* | POBIERZ | Wyświetl usuwanie ekran potwierdzenia. |
+| */Dinners/delete / [id]* | GET | Wyświetl usuwanie ekran potwierdzenia. |
 | POST | Usuwa określony obiad z bazy danych. |
 
 ### <a name="edit-support"></a>Edytuj pomocy technicznej
@@ -107,15 +107,15 @@ Alternatywnie Jeśli okaże się instrukcji "using" podejścia nienaturalnej sce
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample4.aspx)]
 
-Wywoływanie Html.BeginForm() bez parametrów spowoduje jego dane wyjściowe element formularza, który wykonuje akcję POST protokołu HTTP do adresu URL bieżącego żądania. Oznacza to, dlaczego naszych widoku edycji generuje  *&lt;akcji formularza = "/ kolacji/Edit/1" metody = "post"&gt;*  elementu. Firma Microsoft może również przekazano jawne parametry do Html.BeginForm() czy możemy post do innego adresu URL.
+Wywoływanie Html.BeginForm() bez parametrów spowoduje jego dane wyjściowe element formularza, który wykonuje akcję POST protokołu HTTP do adresu URL bieżącego żądania. Oznacza to, dlaczego naszych widoku edycji generuje *&lt;akcji formularza = "/ kolacji/Edit/1" metody = "post"&gt;* elementu. Firma Microsoft może również przekazano jawne parametry do Html.BeginForm() czy możemy post do innego adresu URL.
 
-##### <a name="htmltextbox-helper-method"></a>Metoda pomocnicza Html.TextBox()
+##### <a name="htmltextbox-helper-method"></a>Html.TextBox() helper method
 
 Nasze widoku Edit.aspx używa metody pomocnika Html.TextBox() do wyjściowego &lt;wprowadzania type = "text" /&gt; elementy:
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample5.aspx)]
 
-Metoda Html.TextBox() powyżej przyjmuje jeden parametr —, który jest używany do określenia atrybutów id/nazwa z &lt;wprowadzania type = "text" /&gt; element danych wyjściowych, a także aby wypełnić pole tekstowe wartości z właściwości modelu. Na przykład obiekt obiad możemy przekazany do widoku edycji ma wartość właściwości "Title" "Prognoz .NET" i tak wywołanie dane wyjściowe w naszym metody Html.TextBox("Title"):  *&lt;wejściowy identyfikator = "Title" name = "Title" type = wartość "text" = "Prognoz .NET" /&gt;* .
+Metoda Html.TextBox() powyżej przyjmuje jeden parametr —, który jest używany do określenia atrybutów id/nazwa z &lt;wprowadzania type = "text" /&gt; element danych wyjściowych, a także aby wypełnić pole tekstowe wartości z właściwości modelu. Na przykład obiekt obiad możemy przekazany do widoku edycji ma wartość właściwości "Title" "Prognoz .NET" i tak wywołanie dane wyjściowe w naszym metody Html.TextBox("Title"): *&lt;wejściowy identyfikator = "Title" name = "Title" type = wartość "text" = "Prognoz .NET" /&gt;*.
 
 Firma Microsoft można również użyć pierwszy parametr Html.TextBox(), aby określić identyfikator/nazwę elementu, a następnie jawnie przekazać wartości do użycia jako drugiego parametru:
 
@@ -141,7 +141,7 @@ Rozpocznie się przez dodanie przeciążonej metody akcji "Edytuj" do naszej Din
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample9.cs)]
 
-Gdy atrybut [AcceptVerbs] jest stosowany do metod akcji przeciążona, ASP.NET MVC automatycznie obsługuje wysyłania żądań do metody odpowiednie działania w zależności od przychodzące zlecenie HTTP. Żądania HTTP POST do */Dinners/Edit / [id]* adresy URL zostanie umieszczona na powyższej metody edycji podczas wszystkich innych żądaniach zlecenie HTTP */Dinners/Edit / [id]*przejdzie adresy URL pierwsza metodę edycji (które wprowadziliśmy atrybut nie jest [AcceptVerbs]).
+Gdy atrybut [AcceptVerbs] jest stosowany do metod akcji przeciążona, ASP.NET MVC automatycznie obsługuje wysyłania żądań do metody odpowiednie działania w zależności od przychodzące zlecenie HTTP. Żądania HTTP POST do <em>/Dinners/Edit / [id]</em> adresy URL zostanie umieszczona na powyższej metody edycji podczas wszystkich innych żądaniach zlecenie HTTP <em>/Dinners/Edit / [id]</em>przejdzie adresy URL pierwsza metodę edycji (które wprowadziliśmy atrybut nie jest [AcceptVerbs]).
 
 | **Temat po stronie: Dlaczego rozróżnianie za pomocą polecenia HTTP?** |
 | --- |
@@ -231,7 +231,7 @@ Metoda pomocnicza Html.ValidationMessage() obsługuje również drugi parametr, 
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample18.aspx)]
 
-Generuje kod powyżej:  *&lt;span klasy = "pola błędzie sprawdzania poprawności"&gt;\*&lt;/span&gt;*zamiast domyślny tekst błędu w przypadku błędu dla Właściwość EventDate.
+Generuje kod powyżej:  <em>&lt;span klasy = "pola błędzie sprawdzania poprawności"&gt;\*&lt;/span&gt;</em>zamiast domyślny tekst błędu w przypadku błędu dla Właściwość EventDate.
 
 ##### <a name="htmlvalidationsummary-helper-method"></a>Metoda pomocnicza Html.ValidationSummary()
 
@@ -427,6 +427,6 @@ Mamy teraz podstawowej obsługi CRUD (tworzenia, odczytu, aktualizacji i usuwani
 
 Teraz Przyjrzyjmy się jak możemy użyć klasy ViewData i ViewModel włączyć bardziej szczegółowego interfejsu użytkownika na naszych formularzy.
 
->[!div class="step-by-step"]
-[Poprzednie](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
-[dalej](use-viewdata-and-implement-viewmodel-classes.md)
+> [!div class="step-by-step"]
+> [Poprzednie](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+> [dalej](use-viewdata-and-implement-viewmodel-classes.md)

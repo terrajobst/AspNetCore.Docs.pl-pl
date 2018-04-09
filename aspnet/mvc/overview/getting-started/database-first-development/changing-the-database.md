@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/changing-the-database
 title: 'Baza danych EF najpierw o platformie ASP.NET MVC: Zmiana bazy danych | Dokumentacja firmy Microsoft'
 author: tfitzmac
-description: "Przy użyciu MVC, Entity Framework i szkieletów ASP.NET, można utworzyć aplikacji sieci web, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri..."
+description: Przy użyciu MVC, Entity Framework i szkieletów ASP.NET, można utworzyć aplikacji sieci web, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/changing-the-database
 msc.type: authoredcontent
-ms.openlocfilehash: 1ffe753812e5eef817f03ab488a28ae5fcefd41e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 63ee8768a43dbdac80922e3adbedd3378c10da73
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-changing-the-database"></a>Baza danych EF najpierw o platformie ASP.NET MVC: Zmiana bazy danych
 ====================
@@ -63,6 +63,6 @@ Widoki zawiera teraz właściwości MiddleName.
 
 W następnej sekcji dodasz kod, aby dostosować widok do wyświetlania szczegółów rekordu studenta.
 
->[!div class="step-by-step"]
-[Poprzednie](generating-views.md)
-[dalej](customizing-a-view.md)
+> [!div class="step-by-step"]
+> [Poprzednie](generating-views.md)
+> [dalej](customizing-a-view.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
-title: "Dodawanie zawartości do kontroli źródła | Dokumentacja firmy Microsoft"
+title: Dodawanie zawartości do kontroli źródła | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób dodawania zawartości do kontroli źródła w Team Foundation Server (TFS) 2010. Opisuje sposób dodawania rozwiązania i projekty do projek zespołu..."
+description: W tym temacie opisano sposób dodawania zawartości do kontroli źródła w Team Foundation Server (TFS) 2010. Opisuje sposób dodawania rozwiązania i projekty do projek zespołu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: d46e2697d10ca27f8e08533350a6e7f2354b4a43
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c9c3a506d2745a6793661453a293732429d3e46e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-content-to-source-control"></a>Dodawanie zawartości do kontroli źródła
 ====================
@@ -27,7 +27,7 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > W tym temacie opisano sposób dodawania zawartości do kontroli źródła w Team Foundation Server (TFS) 2010. Opisuje sposób dodawania rozwiązania i projekty do projektu zespołowego w programie TFS, oraz wyjaśniono sposób dodawania zależności zewnętrzne, takie jak struktury lub zestawów do kontroli źródła.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
 ## <a name="task-overview"></a>Omówienie zadań
 
@@ -157,6 +157,6 @@ Następnym temacie [Konfigurowanie kompilacji serwera TFS dla Web Deployment](co
 
 Aby uzyskać bardziej szczegółowe informacje na temat pracy z kontroli źródła w programie TFS, zobacz [przy użyciu kontroli wersji](https://msdn.microsoft.com/library/ms181368.aspx).
 
->[!div class="step-by-step"]
-[Poprzednie](creating-a-team-project-in-tfs.md)
-[dalej](configuring-a-tfs-build-server-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-a-team-project-in-tfs.md)
+> [dalej](configuring-a-tfs-build-server-for-web-deployment.md)

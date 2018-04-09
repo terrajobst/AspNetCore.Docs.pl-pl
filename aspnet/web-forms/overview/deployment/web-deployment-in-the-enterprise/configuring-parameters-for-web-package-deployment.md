@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
-title: "Konfigurowanie parametrów na potrzeby wdrażania pakietu sieci Web | Dokumentacja firmy Microsoft"
+title: Konfigurowanie parametrów na potrzeby wdrażania pakietu sieci Web | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób ustawiania wartości parametrów, takich jak nazwy aplikacji sieci web usług Internet Information Services (IIS), parametry połączenia i punktów końcowych usług..."
+description: W tym temacie opisano sposób ustawiania wartości parametrów, takich jak nazwy aplikacji sieci web usług Internet Information Services (IIS), parametry połączenia i punktów końcowych usług...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 12a4ba8ad30df43e7192500ad4514dfa9679f899
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7be08f1a1fb7232911a44cf64e2e784dbb95ff48
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a>Konfigurowanie parametrów na potrzeby wdrażania pakietu sieci Web
 ====================
@@ -92,7 +92,7 @@ Aby uzyskać szczegółowe informacje na temat tworzenia *parameters.xml* plikó
 
 ## <a name="modifying-the-setparametersxml-file"></a>Modyfikowanie pliku SetParameters.xml
 
-Jeśli planujesz ręczne wdrażanie pakietu aplikacji sieci web & #x 2014; uruchamiając *. pliku deploy.cmd* plików lub uruchamiając MSDeploy.exe z wiersza polecenia & #x 2014; nie ma nic do zatrzymania ręcznie edycji *SetParameters.xml* pliku przed ich wdrożeniem. Jednak podczas pracy na rozwiązanie skali przedsiębiorstwa, należy wdrożyć pakiet aplikacji sieci web w ramach większych i automatyczne procesem kompilacji i wdrażania. W tym scenariuszu należy aparat kompilacji firmy Microsoft (MSBuild), aby zmodyfikować *SetParameters.xml* pliku dla Ciebie. Można to zrobić za pomocą MSBuild **xmlpoke —** zadań.
+Jeśli planujesz wdrożyć pakiet aplikacji sieci web ręcznie&#x2014;uruchamiając *. pliku deploy.cmd* pliku lub uruchamiając MSDeploy.exe z wiersza polecenia&#x2014;nie ma nic do edycji ręcznie zatrzymaj  *SetParameters.xml* pliku przed ich wdrożeniem. Jednak podczas pracy na rozwiązanie skali przedsiębiorstwa, należy wdrożyć pakiet aplikacji sieci web w ramach większych i automatyczne procesem kompilacji i wdrażania. W tym scenariuszu należy aparat kompilacji firmy Microsoft (MSBuild), aby zmodyfikować *SetParameters.xml* pliku dla Ciebie. Można to zrobić za pomocą MSBuild **xmlpoke —** zadań.
 
 [Kontaktów Menedżerze przykładowe rozwiązanie](the-contact-manager-solution.md) przedstawiono ten proces. Aby wyświetlić szczegóły, które mają zastosowanie w tym przykładzie zmodyfikowane przykłady kodu, które należy wykonać.
 
@@ -148,6 +148,6 @@ Aby uzyskać informacje na temat tworzenia pakietów sieci web, zobacz [budynku 
 
 Aby uzyskać więcej ogólnych informacji o parametryzacja w narzędzia Web Deploy, zobacz [parametryzacja wdrażania sieci Web, w akcji](https://go.microsoft.com/?linkid=9805119) (wpis w blogu).
 
->[!div class="step-by-step"]
-[Poprzednie](building-and-packaging-web-application-projects.md)
-[dalej](deploying-web-packages.md)
+> [!div class="step-by-step"]
+> [Poprzednie](building-and-packaging-web-application-projects.md)
+> [dalej](deploying-web-packages.md)

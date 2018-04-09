@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Async i procedur składowanych z programu Entity Framework w aplikacji platformy ASP.NET MVC | Dokumentacja firmy Microsoft"
+title: Async i procedur składowanych z programu Entity Framework w aplikacji platformy ASP.NET MVC | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 za pomocą Entity Framework 6 Code First i Visual Studio..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 za pomocą Entity Framework 6 Code First i Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 7412b32ac29179dfa319544781d4c7165c58196b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 84cf427c7da7905444568ac34534e9ed98a7d8c8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Async i procedur składowanych z programu Entity Framework w aplikacji platformy ASP.NET MVC
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [pobierania plików PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
@@ -117,16 +117,16 @@ Niektóre deweloperów i DBAs preferowane procedur składowanych na potrzeby dos
     Otwórz *migracje\&lt; sygnatura czasowa&gt;\_DepartmentSP.cs* wyświetlić kod w `Up` metodę, która tworzy wstawiania, aktualizowania i usuwania procedur składowanych:
 
     [!code-csharp[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs?highlight=3-4,26-27,42-43)]
-- W konsoli Zarządzanie pakietów wprowadź następujące polecenie:
+3. W konsoli Zarządzanie pakietów wprowadź następujące polecenie:
 
-    `update-database`
-- Uruchom aplikację w trybie debugowania, kliknij przycisk **działów** , a następnie kliknij pozycję **Utwórz nowy**.
-- Wprowadź dane dla nowego działu, a następnie kliknij przycisk **Utwórz**.
+     `update-database`
+4. Uruchom aplikację w trybie debugowania, kliknij przycisk **działów** , a następnie kliknij pozycję **Utwórz nowy**.
+5. Wprowadź dane dla nowego działu, a następnie kliknij przycisk **Utwórz**.
 
-    ![Utwórz działu](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
-- W programie Visual Studio można znaleźć w dziennikach w **dane wyjściowe** okna, aby zobaczyć, czy procedury składowanej zostało użyte do wstawienia nowego wiersza działu.
+     ![Utwórz działu](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
+6. W programie Visual Studio można znaleźć w dziennikach w **dane wyjściowe** okna, aby zobaczyć, czy procedury składowanej zostało użyte do wstawienia nowego wiersza działu.
 
-    ![SP Insert działu](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
+     ![SP Insert działu](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
 Kod najpierw tworzy domyślną przechowywane procedury nazwy. Jeśli korzystasz z istniejącej bazy danych, konieczne może być Dostosowywanie nazw procedury składowanej, aby można było używać procedury składowane już zdefiniowana w bazie danych. Aby dowiedzieć się, jak to zrobić, zobacz [Entity Framework kod pierwszego wstawiania/aktualizacji/usuwania procedur składowanych](https://msdn.microsoft.com/data/dn468673).
 
@@ -152,6 +152,6 @@ W tym samouczku przedstawiono sposób poprawiania wydajności serwera przez napi
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [dostępu do danych programu ASP.NET - zalecane zasobów](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Poprzednie](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[dalej](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Poprzednie](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [dalej](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)

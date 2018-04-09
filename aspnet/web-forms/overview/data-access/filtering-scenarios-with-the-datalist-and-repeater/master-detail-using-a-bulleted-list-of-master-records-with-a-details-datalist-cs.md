@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs
-title: "Wzorzec/szczegół za pomocą listy punktowanej rekordów wzorca z DataList szczegóły (C#) | Dokumentacja firmy Microsoft"
+title: Wzorzec/szczegół za pomocą listy punktowanej rekordów wzorca z DataList szczegóły (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku firma Microsoft będzie skompresować dwustronicowy wzorzec/szczegół raport poprzedniej samouczka w pojedynczej strony, wyświetlanie listy punktowane nazwy kategorii na t..."
+description: W tym samouczku firma Microsoft będzie skompresować dwustronicowy wzorzec/szczegół raport poprzedniej samouczka w pojedynczej strony, wyświetlanie listy punktowane nazwy kategorii na t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cb943941ea4dbfbdc9230df4598ad406d4dee0b6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c041c352c379dc1d3c0f13013e7e323faa500912
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-c"></a>Wzorzec/szczegół za pomocą listy punktowanej rekordów wzorca z DataList szczegóły (C#)
 ====================
@@ -74,7 +74,7 @@ Po dodaniu klasy CSS i skonfigurowaniu znaczników w `CategoriesAndProducts.aspx
 
 Z elementu powtarzanego i DataList s otaczającego znaczników pełną re gotowe, aby powiązać dane kategorii powtarzanego sterować. Jak pokazano na liście punktowanej kategorii na rysunku 1, oprócz nazwy kategorii s również Potrzebujemy jednak wyświetlana liczba produktów skojarzonych z kategorii. Dostęp do informacji możemy:
 
-- **Należy określić te informacje z klasy związane z kodem s strony ASP.NET.** Podane określonego  *`categoryID`*  możemy określić liczbę produktów skojarzonych przez wywołanie metody `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` metody. Ta metoda zwraca `ProductsDataTable` którego `Count` właściwość wskazuje, ile `ProductsRow` istnieje s, który jest liczba produktów dla określonego  *`categoryID`* . Można utworzyć `ItemDataBound` obsługi zdarzenia powtarzanego wywołującą, dla każdej kategorii, powiązany z elementu powtarzanego, `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` — metoda i zawiera jego liczbę w danych wyjściowych.
+- **Należy określić te informacje z klasy związane z kodem s strony ASP.NET.** Podane określonego *`categoryID`* możemy określić liczbę produktów skojarzonych przez wywołanie metody `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` metody. Ta metoda zwraca `ProductsDataTable` którego `Count` właściwość wskazuje, ile `ProductsRow` istnieje s, który jest liczba produktów dla określonego *`categoryID`*. Można utworzyć `ItemDataBound` obsługi zdarzenia powtarzanego wywołującą, dla każdej kategorii, powiązany z elementu powtarzanego, `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` — metoda i zawiera jego liczbę w danych wyjściowych.
 - **Aktualizacja `CategoriesDataTable` w zestawie danych wpisany, aby uwzględnić `NumberOfProducts` kolumny.** Firma Microsoft może następnie zaktualizuj `GetCategories()` metody w `CategoriesDataTable` Dołącz tę informację, lub też pozostawić `GetCategories()` jako- i utworzyć nowy `CategoriesDataTable` wywołano metodę `GetCategoriesAndNumberOfProducts()`.
 
 Let s Eksploruj obu tych metod. Pierwszym sposobem jest prostsza do zaimplementowania, ponieważ będziemy ADAM t wymagana aktualizacja Warstwa dostępu do danych; jednak wymaga więcej komunikacji z bazą danych. Wywołanie `ProductsBLL` klasy s `GetProductsByCategoryID(categoryID)` metoda `ItemDataBound` obsługi zdarzeń dodaje wywołanie dodatkowe bazy danych dla każdej kategorii wyświetlany w elemencie powtarzanym. Ta metoda jest *N* + wywołania 1 bazy danych, gdzie *N* jest liczba kategorie wyświetlane w elemencie powtarzanym. Z drugiej metody, liczba produktu, jest zwracany za informacji dotyczących poszczególnych kategorii z `CategoriesBLL` klasy s `GetCategories()` (lub `GetCategoriesAndNumberOfProducts()`) metoda, powodując w podróży tylko jeden z bazą danych.
@@ -210,7 +210,7 @@ Dane wyjściowe renderowane, aktualizując DAL w celu uwzględnienia `NumberOfPr
 
 W tym momencie mamy `Categories` wyświetlanie listy kategorii wraz z liczbą produktów w każdej kategorii elementu powtarzanego. Powtarzanego używa element LinkButton dla każdej kategorii, że kliknięcie powoduje odświeżenie strony, w którym punktu możemy potrzebne do wyświetlenia tych produktów dla wybranej kategorii w `CategoryProducts` DataList.
 
-Jednym z wyzwań ukierunkowane nam jest sposobu ustawiania DataList wyświetlanie tylko tych produktów dla wybranej kategorii. W [wzorca/Detail, przy użyciu wybieranych GridView wzorca z DetailsView szczegóły](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) może zostać wybrany samouczek widzieliśmy jak zbudować Element GridView której wiersze, z wybranego wiersza s Szczegóły są wyświetlane w widoku DetailsView na tej samej stronie. GridView s ObjectDataSource zwrócone informacje o wszystkich produktów za pomocą `ProductsBLL` s `GetProducts()` metoda podczas s widoku DetailsView ObjectDataSource pobrać informacji o używaniu produktu `GetProductsByProductID(productID)` metody. *`productID`*  Deklaratywnie podano wartość parametru przez skojarzenie jej z wartością GridView s `SelectedValue` właściwości. Niestety, nie ma powtarzanego `SelectedValue` właściwości i nie może służyć jako źródło parametru.
+Jednym z wyzwań ukierunkowane nam jest sposobu ustawiania DataList wyświetlanie tylko tych produktów dla wybranej kategorii. W [wzorca/Detail, przy użyciu wybieranych GridView wzorca z DetailsView szczegóły](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) może zostać wybrany samouczek widzieliśmy jak zbudować Element GridView której wiersze, z wybranego wiersza s Szczegóły są wyświetlane w widoku DetailsView na tej samej stronie. GridView s ObjectDataSource zwrócone informacje o wszystkich produktów za pomocą `ProductsBLL` s `GetProducts()` metoda podczas s widoku DetailsView ObjectDataSource pobrać informacji o używaniu produktu `GetProductsByProductID(productID)` metody. *`productID`* Deklaratywnie podano wartość parametru przez skojarzenie jej z wartością GridView s `SelectedValue` właściwości. Niestety, nie ma powtarzanego `SelectedValue` właściwości i nie może służyć jako źródło parametru.
 
 > [!NOTE]
 > Jest to jeden z tych problemów, które jest wyświetlane podczas korzystania z element LinkButton w elementu powtarzanego. Gdyby użyliśmy hiperłącza do przekazania w `CategoryID` za pośrednictwem zmiennej querystring firma Microsoft może Użyj tego pola QueryString jako źródło dla wartości parametru s.
@@ -233,7 +233,7 @@ Teraz Ustaw listy rozwijanej źródła parametru None. Firma Microsoft będzie p
 
 [![Czy określono parametr źródło categoryID parametru](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image35.png)
 
-**Rysunek 13**: nie określaj parametru źródło  *`categoryID`*  parametr ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image37.png))
+**Rysunek 13**: nie określaj parametru źródło *`categoryID`* parametr ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image37.png))
 
 
 Po zakończeniu pracy Kreatora konfigurowania źródła danych programu Visual Studio automatycznie generuje DataList s `ItemTemplate`. Zastąp domyślną `ItemTemplate` z szablonem możemy używany w poprzednim samouczek; ustawisz DataList s `RepeatColumns` właściwości do 2. Po wprowadzeniu tych zmian deklaratywne znaczników dla listy DataList i jego skojarzony element ObjectDataSource powinna wyglądać następująco:
@@ -241,7 +241,7 @@ Po zakończeniu pracy Kreatora konfigurowania źródła danych programu Visual S
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample10.aspx)]
 
-Obecnie `CategoryProductsDataSource` ObjectDataSource s  *`categoryID`*  parametru nigdy nie ustawiono, więc produkty nie są wyświetlane podczas wyświetlania strony. Co należy zrobić jest ustawiony na podstawie wartość parametru `CategoryID` klikniętej kategorii w elemencie powtarzanym. Powstaje wyzwanie z dwóch powodów: najpierw, jak możemy określania, kiedy LinkButton w elemencie powtarzanym s `ItemTemplate` został kliknięty; oraz drugiego, jak możemy ustalić `CategoryID` odpowiedniej kategorii, których LinkButton został kliknięty?
+Obecnie `CategoryProductsDataSource` ObjectDataSource s *`categoryID`* parametru nigdy nie ustawiono, więc produkty nie są wyświetlane podczas wyświetlania strony. Co należy zrobić jest ustawiony na podstawie wartość parametru `CategoryID` klikniętej kategorii w elemencie powtarzanym. Powstaje wyzwanie z dwóch powodów: najpierw, jak możemy określania, kiedy LinkButton w elemencie powtarzanym s `ItemTemplate` został kliknięty; oraz drugiego, jak możemy ustalić `CategoryID` odpowiedniej kategorii, których LinkButton został kliknięty?
 
 Element LinkButton tak, jak przycisk i ImageButton formanty ma `Click` zdarzeń i [ `Command` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx). `Click` Zdarzeń zaprojektowano w celu po prostu należy pamiętać, że element LinkButton został kliknięty. Czasami jednak oprócz zauważyć, że został kliknięty element LinkButton również musimy przekazują do obsługi zdarzeń niektóre dodatkowe informacje. Jeśli jest to LinkButton s [ `CommandName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) i [ `CommandArgument` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) właściwości można przypisać te dodatkowe informacje. Następnie, gdy kliknięto element LinkButton jego `Command` generowane zdarzenie (zamiast jego `Click` zdarzeń) i program obsługi zdarzeń jest przekazywany wartości `CommandName` i `CommandArgument` właściwości.
 
@@ -296,12 +296,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Nowak Zack. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](master-detail-filtering-acess-two-pages-datalist-cs.md)
-[dalej](master-detail-filtering-with-a-dropdownlist-datalist-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](master-detail-filtering-acess-two-pages-datalist-cs.md)
+> [dalej](master-detail-filtering-with-a-dropdownlist-datalist-vb.md)

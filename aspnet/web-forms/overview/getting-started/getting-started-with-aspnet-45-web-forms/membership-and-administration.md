@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
-title: "Członkostwo i administrowanie | Dokumentacja firmy Microsoft"
+title: Członkostwo i administrowanie | Dokumentacja firmy Microsoft
 author: Erikre
-description: "Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy..."
+description: Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: a10dbfe1ca49baee1604aac8dd9a1f93ccfcb7f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 166bc642ea2083f455be0648e424f0b0ae3b082c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="membership-and-administration"></a>Członkostwo i Administracja
 ====================
@@ -45,7 +45,7 @@ W tym samouczku opiera się na poprzedniej Samouczek zatytułowany "Wyewidencjon
 
 ## <a name="these-features-are-included-in-the-tutorial"></a>Te funkcje dostępne w samouczku:
 
-- Tożsamość platformy ASP.NET
+- ASP.NET Identity
 - Konfiguracja i autoryzacji
 - Wiązanie modelu
 - Sprawdzania poprawności dyskretnego kodu
@@ -66,14 +66,14 @@ Przy użyciu tożsamości platformy ASP.NET, można dodawać niestandardowej rol
 
     [!code-csharp[Main](membership-and-administration/samples/sample2.cs?highlight=11,26-28)]
 6. Zwróć uwagę, że `AddUserAndRole` jest podkreślone na czerwono. Kliknij dwukrotnie AddUserAndRole kodu.  
- Litery "A" na początku metody wyróżnione zostanie podkreślone.
+   Litery "A" na początku metody wyróżnione zostanie podkreślone.
 7. Umieść kursor nad litery "A", a następnie kliknij przycisk interfejsu użytkownika, który służy do generowania szkieletu metody dla `AddUserAndRole` metody. 
 
     ![Członkostwo i Advministration - wygenerować klasy zastępczej — metoda](membership-and-administration/_static/image1.png)
 8. Kliknij opcję o nazwie:  
     `Generate method stub for "AddUserAndRole" in "WingtipToys.Logic.RoleActions"`
 9. Otwórz *RoleActions.cs* plik z *logiki* folderu.  
- `AddUserAndRole` Metody został dodany do pliku klasy.
+   `AddUserAndRole` Metody został dodany do pliku klasy.
 10. Modyfikowanie *RoleActions.cs* pliku przez usunięcie `NotImplementedeException` i dodawanie kodu wyróżnione kolorem żółtym, aby był on wyświetlany w następujący sposób:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample3.cs?highlight=5-7,15-51)]
@@ -120,8 +120,8 @@ Następnie utworzy folder o nazwie *Admin* dla użytkownika "canEditUser" należ
 1. Kliknij prawym przyciskiem myszy nazwę projektu (**Wingtip Toys**) w **Eksploratora rozwiązań** i wybierz **Dodaj**  - &gt; **nowy Folder**.
 2. Nazwa nowego folderu *Admin*.
 3. Kliknij prawym przyciskiem myszy *Admin* folder, a następnie wybierz **Dodaj**  - &gt; **nowy element**.   
- **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
-4. Wybierz **Visual C#** - &gt; **Web** grupy szablonów po lewej stronie. Wybierz z listy środkowej **formularza sieci Web ze stroną wzorcową**, nadaj jej nazwę *AdminPage.aspx***,** , a następnie wybierz **Dodaj**.
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+4. Wybierz <strong>Visual C#</strong> - &gt; <strong>Web</strong> grupy szablonów po lewej stronie. Wybierz z listy środkowej <strong>formularza sieci Web ze stroną wzorcową</strong>, nadaj jej nazwę <em>AdminPage.aspx</em><strong>,</strong> , a następnie wybierz <strong>Dodaj</strong>.
 5. Wybierz *Site.Master* pliku jako strony głównej, a następnie wybierz **OK**.
 
 #### <a name="add-a-webconfig-file"></a>Dodanie pliku Web.config
@@ -129,8 +129,8 @@ Następnie utworzy folder o nazwie *Admin* dla użytkownika "canEditUser" należ
 Dodając *Web.config* pliku na *Admin* folder, można ograniczyć dostęp do strony zawartych w folderze.
 
 1. Kliknij prawym przyciskiem myszy *Admin* i wybierz polecenie **Dodaj**  - &gt; **nowy element**.  
- **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
-2. Wybierz z listy szablonów sieci web Visual C#, **pliku konfiguracji sieci Web**na liście środkowej Zaakceptuj domyślną nazwę *Web.config***,** , a następnie wybierz **Dodaj**.
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+2. Wybierz z listy szablonów sieci web Visual C#, <strong>pliku konfiguracji sieci Web</strong>na liście środkowej Zaakceptuj domyślną nazwę <em>Web.config</em><strong>,</strong> , a następnie wybierz <strong>Dodaj</strong>.
 3. Zastąp istniejące zawartości w pliku XML *Web.config* pliku następującym kodem:  
 
     [!code-xml[Main](membership-and-administration/samples/sample4.xml)]
@@ -167,9 +167,9 @@ Do tej pory utworzono rolę "canEdit" i dodać użytkownika "canEditUser", folde
 W kodzie wprowadzone *AdminPage.aspx.cs* pliku CodeBehind, klasy o nazwie `AddProducts` wykonuje faktyczną pracę dodawania produktów w bazie danych. Ta klasa jeszcze nie istnieje, więc będzie można utworzyć go teraz.
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *logiki* folder, a następnie wybierz **Dodaj**  - &gt; **nowy element**.   
- **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
 2. Wybierz **Visual C#**  - &gt; **kod** grupy szablonów po lewej stronie. Następnie wybierz opcję **klasy**ze środka listy i nadaj mu nazwę *AddProducts.cs*.   
- Zostanie wyświetlony nowy plik klasy.
+   Zostanie wyświetlony nowy plik klasy.
 3. Zastąp istniejący kod poniżej:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample9.cs)]
@@ -235,15 +235,15 @@ Gdy *AdminPage.aspx* strony ładunki `Page_Load` zdarzenie jest wywoływane.
 Można uruchomić aplikacji teraz, aby zobaczyć sposób dodawania, usuwania i aktualizacji elementów w koszyku. Łączna wartość koszyka zakupów będzie odzwierciedlać całkowity koszt wszystkich elementów w koszyku.
 
 1. W Eksploratorze rozwiązań, naciśnij klawisz **F5** do uruchomienia aplikacji przykładowej Wingtip Toys.  
- W przeglądarce zostanie otwarty i przedstawia *Default.aspx* strony.
+   W przeglądarce zostanie otwarty i przedstawia *Default.aspx* strony.
 2. Kliknij przycisk **Zaloguj** łącze w górnej części strony. 
 
     ![Członkostwo i administrowanie — dziennik łącza](membership-and-administration/_static/image2.png)
 
- *Login.aspx* zostanie wyświetlona strona.
+   *Login.aspx* zostanie wyświetlona strona.
 3. Użyj następującej nazwy użytkownika i hasła:  
- Nazwa użytkownika:canEditUser@wingtiptoys.com  
- Hasło: Pa$ $word1 
+   Nazwa użytkownika: canEditUser@wingtiptoys.com  
+   Hasło: Pa$ $word1 
 
     ![Członkostwo i administrowanie — strony logowania](membership-and-administration/_static/image3.png)
 4. Kliknij przycisk **Zaloguj** znajdujący się u dołu strony.
@@ -254,7 +254,7 @@ Można uruchomić aplikacji teraz, aby zobaczyć sposób dodawania, usuwania i a
 
     ![Członkostwo i administrowanie — strony administratora](membership-and-administration/_static/image5.png)
 
- Zwróć uwagę, że są wyświetlane komunikaty wymaganego pola.
+   Zwróć uwagę, że są wyświetlane komunikaty wymaganego pola.
 7. Dodaj szczegóły nowego produktu, a następnie kliknij przycisk **Dodaj produkt** przycisku. 
 
     ![Członkostwo i administrowanie — Dodawanie produktu](membership-and-administration/_static/image6.png)
@@ -268,7 +268,7 @@ Można uruchomić aplikacji teraz, aby zobaczyć sposób dodawania, usuwania i a
     ![Członkostwo i administrowanie — Usuń produktu](membership-and-administration/_static/image8.png)
 12. Wybierz **produkty** w menu górnym menu nawigacyjnym, aby upewnić się, że produkt został usunięty.
 13. Kliknij przycisk **wylogować** istnieć w trybie administracji.   
- Należy zauważyć, że nie jest już wyświetlana w okienku nawigacji w górnym **Admin** elementu menu.
+    Należy zauważyć, że nie jest już wyświetlana w okienku nawigacji w górnym **Admin** elementu menu.
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -277,10 +277,10 @@ W tym samouczku dodaniu niestandardowej roli zabezpieczeń i użytkownika należ
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 [Web.config — autoryzacji elementu](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
-[Tożsamość platformy ASP.NET](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
+[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
 [Wdrażanie aplikacji formularzy bezpiecznej sieci Web platformy ASP.NET z członkostwa, OAuth i bazy danych SQL Azure witrynę sieci Web](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure — bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/)
 
->[!div class="step-by-step"]
-[Poprzednie](checkout-and-payment-with-paypal.md)
-[dalej](url-routing.md)
+> [!div class="step-by-step"]
+> [Poprzednie](checkout-and-payment-with-paypal.md)
+> [dalej](url-routing.md)

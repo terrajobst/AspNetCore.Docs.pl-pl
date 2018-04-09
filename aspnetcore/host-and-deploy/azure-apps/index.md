@@ -1,7 +1,7 @@
 ---
-title: "Host platformy ASP.NET Core w usłudze aplikacji Azure"
+title: Host platformy ASP.NET Core w usłudze aplikacji Azure
 author: guardrex
-description: "Dowiedzieć się, jak udostępniać aplikacje platformy ASP.NET Core w usłudze Azure App Service z łączami do przydatnych zasobów."
+description: Dowiedzieć się, jak udostępniać aplikacje platformy ASP.NET Core w usłudze Azure App Service z łączami do przydatnych zasobów.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: cefbc27c8091a2ed1441663e3779d67aae2c64dd
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c2675f73880a41ee75f6ec13155419945387e109
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Host platformy ASP.NET Core w usłudze aplikacji Azure
 
 [Usługa aplikacji Azure](https://azure.microsoft.com/services/app-service/) jest [przetwarzania platformy usług w chmurze firmy Microsoft](https://azure.microsoft.com/) do obsługi aplikacji sieci web, łącznie z platformy ASP.NET Core.
-
-[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 ## <a name="useful-resources"></a>Przydatne zasoby
 
@@ -57,6 +55,10 @@ Z platformy ASP.NET Core 2.0 lub nowszego oraz trzy pakiety w programie [Microso
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) wykonuje [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) dodawać dostawców rejestrowania diagnostyki Azure App Service w `Microsoft.Extensions.Logging.AzureAppServices` pakietu.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) zawiera implementacje rejestratora do obsługi dzienników diagnostyki Azure App Service i przesyłania strumieniowego funkcje dziennika.
 
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Serwer proxy i scenariuszy usługi równoważenia obciążenia
+
+IIS integracji oprogramowania pośredniczącego, który konfiguruje przekazywane oprogramowanie pośredniczące nagłówki i moduł platformy ASP.NET Core są skonfigurowane do przekazywania schemat (HTTP/HTTPS) oraz adres IP zdalnego, którego pochodzi żądanie. Dodatkowa konfiguracja może być wymagane dla aplikacji hostowanych serwerów proxy dodatkowe i moduły równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie platformy ASP.NET Core do pracy z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
+
 ## <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
 Monitorowanie, rejestrowanie i informacje dotyczące rozwiązywania problemów zobacz następujące artykuły:
@@ -89,6 +91,62 @@ Podczas wymiany między miejscami wdrożenia, każdy system przy użyciu ochrony
 
 Aby uzyskać więcej informacji, zobacz [dostawcy magazynu kluczy](xref:security/data-protection/implementation/key-storage-providers).
 
+## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Wdrażanie wersji zapoznawczej platformy ASP.NET Core w usłudze Azure App Service
+
+Platformy ASP.NET Core Podgląd aplikacje można wdrożyć w usłudze Azure App Service z następujących metod:
+
+* [Zainstaluj rozszerzenie lokacji wersji zapoznawczej](#site-x)
+* [Wdróż aplikację samodzielnie zawarte](#self)
+* [Użyj Docker z aplikacjami sieci Web dla kontenerów](#docker)
+
+Jeśli masz problem przy użyciu rozszerzenia lokacji wersji zapoznawczej, otwórz problemu na [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+
+<a name="site-x"></a>
+### <a name="install-the-preview-site-extention"></a>Zainstaluj rozszerzenie lokacji wersji zapoznawczej
+
+* W portalu Azure przejdź do bloku usługi aplikacji.
+* Wprowadź "ex" w polu wyszukiwania.
+* Wybierz **rozszerzenia**.
+* Wybierz opcję "Dodaj".
+
+![Azure bloku aplikacji z poprzednich krokach](index/_static/x1.png)
+
+* Wybierz **rozszerzenia środowiska uruchomieniowego platformy ASP.NET Core**.
+* Wybierz **OK** > **OK**.
+
+Po ukończeniu operacji dodawania zainstalowano najnowszej wersji zapoznawczej .NET Core 2.1. Instalację można zweryfikować, uruchamiając `dotnet --info` w konsoli. W bloku usługi aplikacji:
+
+* Wprowadź "con", w polu wyszukiwania.
+* Wybierz **konsoli**.
+* Wprowadź `dotnet --info` w konsoli.
+
+![Azure bloku aplikacji z poprzednich krokach](index/_static/cons.png)
+
+Obraz poprzedniego były aktualne w momencie to zostało zapisane. Może pojawić się innej wersji.
+
+`dotnet --info` Wyświetla ścieżkę do rozszerzenia lokacji, w których została zainstalowana wersja zapoznawcza. Pokazuje, aplikacja zostanie uruchomiona z rozszerzenia lokacji zamiast z domyślnej *ProgramFiles* lokalizacji. Jeśli widzisz *ProgramFiles*, należy ponownie uruchomić witrynę i uruchomić `dotnet --info`.
+
+#### <a name="use-the-preview-site-extention-with-an-arm-template"></a>Rozszerzenie lokacji wersji zapoznawczej za pomocą szablonu usługi ARM
+
+Jeśli używasz szablonu usługi ARM do tworzenia i wdrażania aplikacji można użyć `siteextensions` typu zasobów, aby dodać do lokacji rozszerzenie aplikacji sieci Web. Na przykład:
+
+[!code-json[Main](index/sample/arm.json?highlight=2)]
+
+<a name="self"></a>
+### <a name="deploy-the-app-self-contained"></a>Wdróż aplikację samodzielnie zawarte
+
+Można wdrożyć [niezależne aplikacji](/dotnet/core/deploying/#self-contained-deployments-scd) która prowadzi środowiska wykonawczego w wersji zapoznawczej wraz z nim podczas wdrażania. W przypadku wdrażania aplikacji samodzielną:
+
+* Nie trzeba przygotować witryny.
+* Należy opublikować aplikację inaczej niż w przypadku wdrażania aplikacji, gdy zestaw SDK jest zainstalowany na serwerze.
+
+Samodzielne aplikacje są opcję dla wszystkich aplikacji .NET Core.
+
+<a name="docker"></a>
+### <a name="use-docker-with-web-apps-for-containers"></a>Użyj Docker z aplikacjami sieci Web dla kontenerów
+
+[Centrum Docker](https://hub.docker.com/r/microsoft/aspnetcore/) zawiera najnowsze obrazy Docker 2.1 podglądu. Można ich używać jako obrazu podstawowego i wdrażania aplikacji sieci Web dla kontenerów w zwykły sposób.
+
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Przegląd usługi Web Apps (5-minutowy klip wideo z omówieniem)](/azure/app-service/app-service-web-overview)
@@ -101,5 +159,5 @@ Usługa aplikacji Azure w systemie Windows Server używa [Internet Information S
 * [Host platformy ASP.NET Core w systemie Windows z programem IIS](xref:host-and-deploy/iis/index)
 * [Wprowadzenie do platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module)
 * [Odwołania do konfiguracji modułu platformy ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Używanie modułów usług IIS z platformy ASP.NET Core](xref:host-and-deploy/iis/modules)
+* [Moduły usług IIS z platformą ASP.NET Core](xref:host-and-deploy/iis/modules)
 * [Bibliotece Microsoft TechNet: Serwer systemu Windows](/windows-server/windows-server-versions)

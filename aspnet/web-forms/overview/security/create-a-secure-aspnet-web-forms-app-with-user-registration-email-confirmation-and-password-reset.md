@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
-title: "Tworzenie bezpiecznej aplikacji formularzy sieci Web ASP.NET rejestracja użytkownika w wiadomości e-mail resetowania hasła i potwierdzania (C#) | Dokumentacja firmy Microsoft"
+title: Tworzenie bezpiecznej aplikacji formularzy sieci Web ASP.NET rejestracja użytkownika w wiadomości e-mail resetowania hasła i potwierdzania (C#) | Dokumentacja firmy Microsoft
 author: Erikre
-description: "W tym samouczku przedstawiono sposób tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą rejestracji użytkownika, potwierdzenie adresu e-mail i hasło resetowania przy użyciu składnika ASP.NET Identity..."
+description: W tym samouczku przedstawiono sposób tworzenia aplikacji formularzy sieci Web ASP.NET za pomocą rejestracji użytkownika, potwierdzenie adresu e-mail i hasło resetowania przy użyciu składnika ASP.NET Identity...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: ed39295ed1bcaa924336a1faf52049e291abeadb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1dc7ace69473b45432fd942b9cf1ba32332cb707
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji formularzy sieci Web ASP.NET rejestracja użytkownika w wiadomości e-mail resetowania hasła i potwierdzania (C#)
 ====================
@@ -90,7 +90,7 @@ Mimo że w tym samouczku tylko przedstawiono sposób dodawania powiadomienia poc
     [!code-xml[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample3.xml?highlight=2-5)]
 
     > [!WARNING]
-    > Zabezpieczenia — nigdy nie magazynu danych poufnych w kodzie źródłowym. W tym przykładzie konta i poświadczenia są przechowywane w **appSetting** sekcji *Web.config* pliku. Na platformie Azure, można bezpiecznie przechowywać te wartości na  **[Konfiguruj](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  kartę w portalu Azure. Aby uzyskać odpowiednie informacje zawiera temat Rick Anderson zatytułowany [najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
+    > Zabezpieczenia — nigdy nie magazynu danych poufnych w kodzie źródłowym. W tym przykładzie konta i poświadczenia są przechowywane w **appSetting** sekcji *Web.config* pliku. Na platformie Azure, można bezpiecznie przechowywać te wartości na **[Konfiguruj](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** kartę w portalu Azure. Aby uzyskać odpowiednie informacje zawiera temat Rick Anderson zatytułowany [najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
 6. Dodaj wartości usługi poczty e-mail aby odzwierciedlał wartości uwierzytelniania SendGrid (nazwa użytkownika i hasło), co pozwala powiodło się wysyłanie wiadomości e-mail z aplikacji. Należy użyć SendGrid nazwa konta, a nie adres e-mail podany SendGrid.
 
 ### <a name="enable-email-confirmation"></a>Włącz wiadomości E-mail z potwierdzeniem
@@ -104,9 +104,9 @@ Mimo że w tym samouczku tylko przedstawiono sposób dodawania powiadomienia poc
 2. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *Default.aspx* i wybierz **Ustaw jako stronę startową**.
 3. Uruchom aplikację, naciskając klawisz **F5.** Po wyświetleniu strony kliknij **zarejestrować** link do wyświetlenia strony rejestrowania.
 4. Wprowadź adres e-mail i hasło, a następnie kliknij przycisk **zarejestrować** przycisk, aby wysłać wiadomość e-mail za pośrednictwem SendGrid.  
- Bieżący stan projektu i Kod umożliwi użytkownikowi na logowanie po ukończeniu formularz rejestracji, nawet jeśli jeszcze tego nie potwierdził swojego konta.
+   Bieżący stan projektu i Kod umożliwi użytkownikowi na logowanie po ukończeniu formularz rejestracji, nawet jeśli jeszcze tego nie potwierdził swojego konta.
 5. Sprawdź swoje konto e-mail i kliknij link, aby potwierdzić swój adres e-mail.  
- Po przesłaniu formularza rejestracji będziesz się logować.  
+   Po przesłaniu formularza rejestracji będziesz się logować.  
     ![Przykładowe witryny sieci Web — zalogowany](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image4.png)
 
 <a id="require"></a>
@@ -146,9 +146,9 @@ Mimo że można potwierdzić konto e-mail, w tym momencie nie musisz kliknij lin
 4. Uruchom aplikację, naciskając klawisz **F5.** Po wyświetleniu strony kliknij **Zaloguj** łącza.
 5. Kliknij przycisk **nie pamiętasz hasła?** łącze, aby wyświetlić **nie pamiętasz hasła?** strony.
 6. Wprowadź adres e-mail, a następnie kliknij przycisk **przesyłania** przycisk, aby wysłać wiadomość e-mail na adres, co umożliwi zresetowanie hasła.   
- Sprawdź konto poczty e-mail, a następnie kliknij łącze, aby wyświetlić **Resetuj hasło** strony.
+   Sprawdź konto poczty e-mail, a następnie kliknij łącze, aby wyświetlić **Resetuj hasło** strony.
 7. Na **Resetuj hasło** Wprowadź użytkownika wiadomości e-mail, hasło i potwierdzenie hasła. Naciśnij klawisz **zresetować** przycisku.  
- Po zresetowaniu hasła, **zmiany hasła** zostanie wyświetlona strona. Teraz możesz zalogować się przy użyciu nowego hasła.
+   Po zresetowaniu hasła, **zmiany hasła** zostanie wyświetlona strona. Teraz możesz zalogować się przy użyciu nowego hasła.
 
 <a id="rsend"></a>
 ## <a name="resend-email-confirmation-link"></a>Ponowne wysyłanie wiadomości E-mail potwierdzenie łącza
@@ -167,7 +167,7 @@ Gdy użytkownik tworzy konto lokalne, są pocztą e-mail łącze potwierdzenia, 
 4. Usuwanie wszystkich kont w **AspNetUsers** tabeli, która zawiera alias e-mail chcesz przeprowadzić test.
 5. Uruchom aplikację (**F5**) i zarejestruj swój adres e-mail.
 6. Przed potwierdzeniem nowego konta za pośrednictwem poczty e-mail, który właśnie został wysłany, próba Zaloguj się przy użyciu nowego konta.  
- Nie można się zalogować i że musisz mieć konto e-mail potwierdzone będą widoczne. Ponadto możesz teraz ponownie wysłać komunikat potwierdzenia do Twojego konta e-mail.
+   Nie można się zalogować i że musisz mieć konto e-mail potwierdzone będą widoczne. Ponadto możesz teraz ponownie wysłać komunikat potwierdzenia do Twojego konta e-mail.
 7. Wprowadź adres e-mail i hasło, naciśnij klawisz **ponowne wysłanie potwierdzenia** przycisku.
 8. Po upewnieniu się, Twój adres e-mail, na podstawie komunikatu nowo wiadomości e-mail, zaloguj się do aplikacji.
 

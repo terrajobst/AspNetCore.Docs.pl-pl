@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
-title: "Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i platformy ASP.NET 4 sieci Web Forms — część 2 | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i platformy ASP.NET 4 sieci Web Forms — część 2 | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu programu Entity Framework. Przykładowa aplikacja jest..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu programu Entity Framework. Przykładowa aplikacja jest...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: a549bd62bd78573c368784fd1529a830e009b0d4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a6c95a92aa77e2bb73aa513a207e0469d1aedbd2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i formularzy sieci Web 4 ASP.NET — część 2
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 > Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu programu Entity Framework 4.0 i Visual Studio 2010. Informacje o samouczek serii, zobacz [pierwszy samouczek z tej serii](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -249,6 +249,6 @@ Uruchom strony i dział można wybrać z listy rozwijanej.
 
 Na tym kończy się wprowadzenie do korzystania z `EntityDataSource` formantu. Praca z tego formantu zazwyczaj nie różni się od pracy z innymi danymi ASP.NET kontroli źródła, z tą różnicą, że odwołania jednostki i właściwości zamiast tabel i kolumn. Jedynym wyjątkiem jest, aby uzyskać dostęp do właściwości nawigacji. W następnym samouczku zobaczysz, że składnia, można użyć z `EntityDataSource` formant może również różnią się od innych kontrolki źródła danych podczas filtrowanie, grupowanie i kolejność danych.
 
->[!div class="step-by-step"]
-[Poprzednie](the-entity-framework-and-aspnet-getting-started-part-1.md)
-[dalej](the-entity-framework-and-aspnet-getting-started-part-3.md)
+> [!div class="step-by-step"]
+> [Poprzednie](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> [dalej](the-entity-framework-and-aspnet-getting-started-part-3.md)

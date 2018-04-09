@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
-title: "Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i platformy ASP.NET 4 sieci Web Forms — część 5 | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i platformy ASP.NET 4 sieci Web Forms — część 5 | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu programu Entity Framework. Przykładowa aplikacja jest..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu programu Entity Framework. Przykładowa aplikacja jest...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 5efc5ff367d5da5df060eba0028399af898a69fa
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7f351718123e881e832f4ac95af506ed601d3337
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Wprowadzenie do korzystania z bazy danych programu Entity Framework 4.0 najpierw i formularzy sieci Web 4 ASP.NET — część 5
 ====================
@@ -123,10 +123,10 @@ Uruchom strony.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Wybierz instruktora. **Przypisać kursu** listy rozwijanej wyświetla kursów, które nie uczy instruktora, i **Usuń kursu** kursów, które instruktora jest już przypisany do wyświetla listy rozwijanej. W **przypisać kursu** sekcji wybierz kursu, a następnie kliknij przycisk **przypisać**. Przenosi kursu **Usuń kursu** listy rozwijanej. Wybierz kursów **Usuń kursu** sekcji, a następnie kliknij przycisk **Usuń ***.* Przenosi kursu **przypisać kursu** listy rozwijanej.
+Wybierz instruktora. <strong>Przypisać kursu</strong> listy rozwijanej wyświetla kursów, które nie uczy instruktora, i <strong>Usuń kursu</strong> kursów, które instruktora jest już przypisany do wyświetla listy rozwijanej. W <strong>przypisać kursu</strong> sekcji wybierz kursu, a następnie kliknij przycisk <strong>przypisać</strong>. Przenosi kursu <strong>Usuń kursu</strong> listy rozwijanej. Wybierz kursów <strong>Usuń kursu</strong> sekcji, a następnie kliknij przycisk <strong>Usuń</strong><em>.</em> Przenosi kursu <strong>przypisać kursu</strong> listy rozwijanej.
 
 Niektóre inne sposoby pracy z powiązanych danych ma teraz widoczna. Poniższe kroki samouczka dowiesz się, jak użycia dziedziczenia w modelu danych do poprawy łatwości konserwacji aplikacji.
 
->[!div class="step-by-step"]
-[Poprzednie](the-entity-framework-and-aspnet-getting-started-part-4.md)
-[dalej](the-entity-framework-and-aspnet-getting-started-part-6.md)
+> [!div class="step-by-step"]
+> [Poprzednie](the-entity-framework-and-aspnet-getting-started-part-4.md)
+> [dalej](the-entity-framework-and-aspnet-getting-started-part-6.md)

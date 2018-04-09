@@ -1,21 +1,21 @@
 ---
 title: Platformy ASP.NET Core MVC podstawowych EF - Migrations - 4 10
 author: tdykstra
-description: "W tym samouczku możesz uruchomić przy użyciu funkcji migracji EF Core zarządzania zmianami modelu danych w aplikacji platformy ASP.NET Core MVC."
+description: W tym samouczku możesz uruchomić przy użyciu funkcji migracji EF Core zarządzania zmianami modelu danych w aplikacji platformy ASP.NET Core MVC.
 manager: wpickett
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 03/15/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 0959ebc0f566540ea8a43d4889bb0e4fa041bfd6
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: f3f14d6dab1eb03e0ead5edaa9d7ba41a10b21e9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Migracje - Core EF z samouczek platformy ASP.NET Core MVC (4 10)
+# <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF - Migrations - 4 10
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -99,15 +99,13 @@ Ten kod jest początkowej migracji, który został utworzony po wprowadzeniu `mi
 
 Jeśli utworzono początkowej migracji, gdy baza danych już istnieje, jest generowany kod tworzenia bazy danych, ale nie ma działać, ponieważ w bazie danych jest już zgodny z modelem danych. Gdy wdrażasz aplikację do innego środowiska, w których bazy danych nie istnieje jeszcze tego kodu zostaną uruchomione, aby utworzyć bazę danych, dlatego jest dobrym rozwiązaniem jest przetestowanie go. Dlatego zmienić nazwę bazy danych w parametrach połączenia wcześniej — tak, aby migracji można utworzyć nową od początku.
 
-## <a name="examine-the-data-model-snapshot"></a>Sprawdź migawki modelu danych
+## <a name="the-data-model-snapshot"></a>Migawki modelu danych
 
-Tworzy także migracji *migawki* bieżącego schematu bazy danych w *Migrations/SchoolContextModelSnapshot.cs*. Oto, jak wygląda ten kod:
+Tworzy migracje *migawki* bieżącego schematu bazy danych w *Migrations/SchoolContextModelSnapshot.cs*. Po dodaniu migracji EF określa co zmienione przez porównanie modelu danych do pliku migawki.
 
-[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+Podczas usuwania migracji, użyj [Usuń migracje ef dotnet](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) polecenia. `dotnet ef migrations remove` Usuwa migracji i gwarantuje, że poprawnie zresetowania migawki.
 
-Ponieważ bieżący schemat bazy danych jest reprezentowana w kodzie, EF Core nie ma na interakcję z bazy danych do utworzenia migracji. Po dodaniu migracji EF określa co zmienione przez porównanie modelu danych do pliku migawki. EF współdziała z bazy danych tylko wtedy, gdy musi zaktualizować bazę danych. 
-
-Plik migawki musi być zsynchronizowany z migracji, które go utworzyć, dlatego migracji nie można usunąć tylko przez usunięcie pliku o nazwie  *\<sygnatury czasowej > _\<migrationname > .cs*. Jeśli usuniesz ten plik, pozostałe migracja będzie zsynchronizowany z pliku migawki bazy danych. Aby usunąć ostatniego migracji, który został dodany, użyj [Usuń migracje ef dotnet](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) polecenia.
+Zobacz [migracje Core EF w środowiskach zespołu](/ef/core/managing-schemas/migrations/teams) Aby uzyskać więcej informacji o sposobie używania pliku migawki.
 
 ## <a name="apply-the-migration-to-the-database"></a>Dotyczą migracji bazy danych
 
@@ -167,6 +165,6 @@ Aby uzyskać więcej informacji na temat poleceń PMC zobacz [Konsola Menedżera
 
 W tym samouczku przedstawiono sposób tworzenia i stosowania pierwszy migracji. W następnym samouczku zostaną patrzeć bardziej zaawansowanych tematów, rozwijając modelu danych. Wzdłuż sposób możesz utworzyć i zastosować dodatkowe migracji.
 
->[!div class="step-by-step"]
-[Poprzednie](sort-filter-page.md)
-[dalej](complex-data-model.md)  
+> [!div class="step-by-step"]
+> [Poprzednie](sort-filter-page.md)
+> [dalej](complex-data-model.md)  

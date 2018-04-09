@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
-title: "Konfigurowanie serwera sieci Web dla sieci Web wdrażanie publikowania (wdrożenie w trybie Offline) | Dokumentacja firmy Microsoft"
+title: Konfigurowanie serwera sieci Web dla sieci Web wdrażanie publikowania (wdrożenie w trybie Offline) | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób konfigurowania serwera sieci web usług IIS do obsługi publikowania w sieci web w trybie offline i wdrożenia. Podczas pracy z Internetowymi usługami informacyjnymi (I..."
+description: W tym temacie opisano sposób konfigurowania serwera sieci web usług IIS do obsługi publikowania w sieci web w trybie offline i wdrożenia. Podczas pracy z Internetowymi usługami informacyjnymi (I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: dfd3ab41e44a3b000bf2c25a5a71db4344617bf2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e28bdea26847d4e660d6ee59b15eb38f749d2314
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a>Konfigurowanie serwera sieci Web dla narzędzia Web Deploy publikowania (wdrożenie w trybie Offline)
 ====================
@@ -35,7 +35,7 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > Aby uzyskać więcej informacji o najważniejszych funkcjach, zalet i wad z tych metod, zobacz [Wybieranie podejście prawo do wdrożenia w sieci Web](choosing-the-right-approach-to-web-deployment.md).
 
 
-Tak, jeśli wdrożenie zdalne ograniczeń infrastruktury lub zabezpieczeń sieci. Jest to najbardziej prawdopodobne w przypadku w środowisku produkcyjnym internetowy, gdzie serwery sieci web są izolowane & #x 2014; albo fizycznie lub przez zapory i podsieci & #x 2014; od pozostałej części infrastruktury serwera.
+Tak, jeśli wdrożenie zdalne ograniczeń infrastruktury lub zabezpieczeń sieci. Jest to najbardziej prawdopodobne w przypadku w środowisku produkcyjnym internetowy, gdzie serwery sieci web są izolowane&#x2014;albo fizycznie lub przez zapory i podsieci&#x2014;od pozostałej części infrastruktury serwera.
 
 Oczywiście to rozwiązanie staje się mniej pożądane w przypadku aplikacji sieci web są aktualizowane na bieżąco. Jeśli infrastruktury pozwala na to, warto rozważyć włączenie zdalnego wdrażania przy użyciu obsługi wdrażania sieci Web lub usługi sieci Web wdrażanie zdalnego agenta.
 
@@ -97,7 +97,7 @@ W takim przypadku należy zainstalować następujące elementy:
 7. W okienku nawigacji kliknij **serwera**.
 8. W **usług IIS 7 zalecana konfiguracja** wiersz, kliknij przycisk **Dodaj**.
 9. W **2.1 narzędzia wdrażania Web** wiersz, kliknij przycisk **Dodaj**.
-10. Kliknij przycisk **zainstalować**. Instalator platformy sieci Web zostanie wyświetlona lista produktów i #x 2014; wraz z dowolnej skojarzone zależności & #x 2014; do zainstalowania i wyświetli monit o zaakceptowanie postanowień licencyjnych.
+10. Kliknij przycisk **zainstalować**. Instalator platformy sieci Web zostanie wyświetlona lista produktów&#x2014;oraz wszystkie skojarzone zależności&#x2014;do zainstalowania i wyświetli monit o zaakceptowanie postanowień licencyjnych.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image2.png)
 11. Przejrzyj postanowienia licencyjne, a użytkownik wyraża zgodę na warunki, kliknij przycisk **akceptuję**.
@@ -171,11 +171,11 @@ Nie ma nic zatrzymywanie możesz z wdrażanie zawartości do domyślnej witryny 
     > [!NOTE]
     > Przykładowe rozwiązanie wymaga programu .NET Framework 4.0. To nie jest wymagane dla narzędzia Web Deploy w zasadzie.
 
-Aby witryny sieci Web do obsługi zawartości tożsamość puli aplikacji musi mieć uprawnienia odczytu na folder lokalny, na którym jest przechowywana zawartość. W usługach IIS 7.5 lub pul aplikacji za pomocą tożsamości puli aplikacji są domyślnie uruchamiane (w przeciwieństwie do poprzednich wersji usług IIS, w których pule aplikacji czy są zazwyczaj uruchamiane przy użyciu konta Usługa sieciowa). Tożsamość puli aplikacji nie jest kontem rzeczywistego użytkownika i nie jest wyświetlany na listę użytkowników lub grup & #x 2014; zamiast tego należy go jest tworzony dynamicznie po uruchomieniu puli aplikacji. Każda tożsamość puli aplikacji zostanie dodany do lokalnej **IIS\_IUSRS** grupy zabezpieczeń jako element ukryty.
+Aby witryny sieci Web do obsługi zawartości tożsamość puli aplikacji musi mieć uprawnienia odczytu na folder lokalny, na którym jest przechowywana zawartość. W usługach IIS 7.5 lub pul aplikacji za pomocą tożsamości puli aplikacji są domyślnie uruchamiane (w przeciwieństwie do poprzednich wersji usług IIS, w których pule aplikacji czy są zazwyczaj uruchamiane przy użyciu konta Usługa sieciowa). Tożsamość puli aplikacji nie jest kontem rzeczywistego użytkownika i nie jest wyświetlany na listę użytkowników lub grup&#x2014;zamiast tego należy go jest tworzony dynamicznie po uruchomieniu puli aplikacji. Każda tożsamość puli aplikacji zostanie dodany do lokalnej **IIS\_IUSRS** grupy zabezpieczeń jako element ukryty.
 
 Aby udzielić uprawnień do pliku lub folderu, tożsamość puli aplikacji są dostępne dwie opcje:
 
-- Przypisywanie uprawnień do odpowiedniej tożsamości puli aplikacji bezpośrednio, w formacie **IIS AppPool\***[Nazwa puli aplikacji] * (na przykład **IIS AppPool\DemoSite**).
+- Przypisywanie uprawnień do odpowiedniej tożsamości puli aplikacji bezpośrednio, w formacie <strong>IIS AppPool\</ strong ><em>[Nazwa puli aplikacji]</em>(na przykład <strong>IIS AppPool\DemoSite</strong>).
 - Przypisywanie uprawnień do **IIS\_IUSRS** grupy.
 
 Najbardziej typowym podejściem jest przypisywanie uprawnień do lokalnej **IIS\_IUSRS** grupy, ponieważ takie podejście pozwala zmienić pule aplikacji bez konieczności ponownej konfiguracji uprawnień systemu plików. Następna procedura korzysta z tej metody oparte na grupach.
@@ -193,8 +193,8 @@ Najbardziej typowym podejściem jest przypisywanie uprawnień do lokalnej **IIS\
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image8.png)
 5. W **Wybieranie użytkowników lub grup** okno dialogowe, typ **IIS\_IUSRS**, kliknij przycisk **Sprawdź nazwy**, a następnie kliknij przycisk **OK**.
-6. W **uprawnienia *** [nazwa folderu]* okno dialogowe, zwróć uwagę, że nowa grupa zostanie przypisana **odczytu &amp; wykonania**, **wyświetlanie zawartości folderu**, i **Odczytu** uprawnienia domyślne. Pozostaw to bez zmian i kliknij przycisk **OK**.
-7. Kliknij przycisk **OK** zamknąć *[nazwa folderu] *** właściwości** okno dialogowe.
+6. W <strong>uprawnienia dla</strong><em>[nazwa folderu]</em> okno dialogowe, zwróć uwagę, że nowa grupa zostanie przypisana <strong>odczytu &amp; wykonania</strong>, <strong>listy folderów zawartość</strong>, i <strong>odczytu</strong> uprawnienia domyślne. Pozostaw to bez zmian i kliknij przycisk <strong>OK</strong>.
+7. Kliknij przycisk <strong>OK</strong> zamknąć <em>[nazwa folderu]</em><strong>właściwości</strong> okno dialogowe.
 
 ## <a name="disable-the-remote-agent-service"></a>Wyłącz usługę agenta zdalnego
 
@@ -226,6 +226,6 @@ W tym momencie serwer sieci web jest gotowa do wdrożenia pakietu sieci web w tr
 - Tożsamość puli aplikacji ma dostęp do odczytu do folderu źródłowego dla witryny sieci Web?
 - Czy zatrzymano usługę sieci Web wdrożenia agenta?
 
->[!div class="step-by-step"]
-[Poprzednie](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
-[dalej](configuring-a-database-server-for-web-deploy-publishing.md)
+> [!div class="step-by-step"]
+> [Poprzednie](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+> [dalej](configuring-a-database-server-for-web-deploy-publishing.md)

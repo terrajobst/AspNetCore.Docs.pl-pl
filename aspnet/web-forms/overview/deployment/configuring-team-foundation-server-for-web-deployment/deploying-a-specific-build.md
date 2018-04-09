@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
-title: "Wdrażanie określonej kompilacji | Dokumentacja firmy Microsoft"
+title: Wdrażanie określonej kompilacji | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób wdrażania pakietów sieci web i skryptów bazy danych z określonych ostatniej kompilacji do nowego miejsca docelowego, takich jak środowiska tymczasowym czy produkcyjnym..."
+description: W tym temacie opisano sposób wdrażania pakietów sieci web i skryptów bazy danych z określonych ostatniej kompilacji do nowego miejsca docelowego, takich jak środowiska tymczasowym czy produkcyjnym...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: be1000f0cbc2f509f5014789c2bc47ce2b12fb2f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 271d084b3c69016df5be28ada032973bf7fd5a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-a-specific-build"></a>Wdrażanie określonej kompilacji
 ====================
@@ -27,9 +27,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > W tym temacie opisano, jak wdrażać pakiety sieci web i skryptów bazy danych z określonych ostatniej kompilacji do nowego miejsca docelowego, takich jak środowisku tymczasowym czy produkcyjnym.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w które procesem kompilacji i wdrażania są kontrolowane przez dwa pliki projektu & #x 2014; IE ne instrukcjami kompilacji, które są stosowane do każdego środowiska docelowego i jeden zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji i wdrożenia dwa pliki projektu&#x2014;jeden zawierającego instrukcje kompilacji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
 
 ## <a name="task-overview"></a>Omówienie zadań
 
@@ -54,13 +54,13 @@ W [przykładowe rozwiązanie](../web-deployment-in-the-enterprise/the-contact-ma
 [!code-xml[Main](deploying-a-specific-build/samples/sample1.xml)]
 
 
-Jeśli chcesz, aby plik projektu do wdrażania pakietów sieci web i skryptów bazy danych z innej lokalizacji & #x 2014; takich jak dane wyjściowe poprzedniego kompilacji TFS & #x 2014; musisz po prostu zastąpić **OutputRoot** właściwości. Wartość właściwości należy ustawić do folderu odpowiednich kompilacji na serwerze programu Team Build. Jeśli podczas uruchamiania programu MSBuild w wierszu polecenia, można określić wartość dla **OutputRoot** jako argument wiersza polecenia:
+Jeśli chcesz, aby plik projektu do wdrażania pakietów sieci web i bazy danych skryptów z innej lokalizacji&#x2014;, takich jak dane wyjściowe poprzedniego kompilacji TFS&#x2014;należy po prostu zastąpić **OutputRoot** właściwości. Wartość właściwości należy ustawić do folderu odpowiednich kompilacji na serwerze programu Team Build. Jeśli podczas uruchamiania programu MSBuild w wierszu polecenia, można określić wartość dla **OutputRoot** jako argument wiersza polecenia:
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample2.cmd)]
 
 
-W praktyce, czy też chcesz pominąć **kompilacji** docelowej & #x 2014; nie ma żadnych punktu tworzenia rozwiązania, jeśli nie zamierzasz korzystać z danych wyjściowych kompilacji. Można to zrobić, określając obiektów docelowych, które chcesz wykonać z poziomu wiersza polecenia:
+W praktyce, czy też chcesz pominąć **kompilacji** docelowej&#x2014;nie ma żadnych punktu tworzenia rozwiązania, jeśli nie zamierzasz korzystać z danych wyjściowych kompilacji. Można to zrobić, określając obiektów docelowych, które chcesz wykonać z poziomu wiersza polecenia:
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample3.cmd)]
@@ -72,7 +72,7 @@ Jednak w większości przypadków należy do tworzenia logiki wdrożenia do defi
 
 Następna procedura opisuje sposób tworzenia definicji kompilacji, która umożliwia użytkownikom wyzwalacza wdrożenia w środowisku przemieszczania za pomocą jednego polecenia.
 
-W takim przypadku nie ma definicji kompilacji zbudowaniem niczego & #x 2014; możesz po prostu go do wykonania w pliku projektu niestandardowej logiki wdrożenia. *Publish.proj* plik zawiera logikę warunkową, z pominięciem **kompilacji** docelowych, jeśli plik jest uruchomiona w Team Build. Jest to możliwe dzięki wbudowanej oceny **BuildingInTeamBuild** właściwość, która jest automatycznie ustawiana **true** po uruchomieniu pliku projektu w Team Build. W związku z tym można pominąć proces kompilacji i wystarczy uruchomić plik projektu do kompilacji istniejącego wdrożenia.
+W takim przypadku nie ma definicji kompilacji zbudowaniem niczego&#x2014;chcesz ją wykonać logiki wdrożenia w pliku projektu niestandardowych. *Publish.proj* plik zawiera logikę warunkową, z pominięciem **kompilacji** docelowych, jeśli plik jest uruchomiona w Team Build. Jest to możliwe dzięki wbudowanej oceny **BuildingInTeamBuild** właściwość, która jest automatycznie ustawiana **true** po uruchomieniu pliku projektu w Team Build. W związku z tym można pominąć proces kompilacji i wystarczy uruchomić plik projektu do kompilacji istniejącego wdrożenia.
 
 **Aby utworzyć definicję kompilacji, aby wyzwolić wdrożenie ręcznie**
 
@@ -133,6 +133,6 @@ W tym temacie opisano sposób publikowania zasobów wdrożenia, takie jak pakiet
 
 Aby uzyskać więcej informacji na temat tworzenia definicje kompilacji, zobacz [utworzyć podstawową definicję kompilacji](https://msdn.microsoft.com/library/ms181716.aspx) i [Definiowanie procesu kompilacji](https://msdn.microsoft.com/library/ms181715.aspx). Aby uzyskać więcej pomocy w przypadku kompilacji usługi kolejkowania wiadomości, zobacz [kolejki kompilację](https://msdn.microsoft.com/library/ms181722.aspx).
 
->[!div class="step-by-step"]
-[Poprzednie](creating-a-build-definition-that-supports-deployment.md)
-[dalej](configuring-permissions-for-team-build-deployment.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-a-build-definition-that-supports-deployment.md)
+> [dalej](configuring-permissions-for-team-build-deployment.md)

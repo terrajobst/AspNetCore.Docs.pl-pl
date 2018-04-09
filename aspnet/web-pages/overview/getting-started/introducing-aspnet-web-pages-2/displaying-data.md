@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
-title: "Wprowadzenie do składnika ASP.NET Web Pages — wyświetlanie danych | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do składnika ASP.NET Web Pages — wyświetlanie danych | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Ten samouczek pokazuje, jak utworzyć bazę danych w programie WebMatrix i sposób wyświetlania danych bazy danych na stronie, gdy używasz stron sieci Web platformy ASP.NET (Razor). Przyjęto założenie, y..."
+description: Ten samouczek pokazuje, jak utworzyć bazę danych w programie WebMatrix i sposób wyświetlania danych bazy danych na stronie, gdy używasz stron sieci Web platformy ASP.NET (Razor). Przyjęto założenie, y...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: fdb9af0ba87c7802c63451ac7aa422e0020b5719
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6c66e5fb0a1a49da411286e19c7954f83055c3fd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---displaying-data"></a>Wprowadzenie do strony sieci Web ASP.NET - wyświetlanie danych
 ====================
@@ -36,7 +36,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > Funkcje/technologie omówione:
 > 
 > - Narzędzia bazy danych programu WebMatrix.
-> - `WebGrid`Pomocnik.
+> - `WebGrid` Pomocnik.
 
 
 ## <a name="what-youll-build"></a>Jakie będzie kompilacji
@@ -338,6 +338,6 @@ W następnym samouczku nauczysz się, jak pobrać dane wejściowe użytkownika w
 
 - [Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
 
->[!div class="step-by-step"]
-[Poprzednie](intro-to-web-pages-programming.md)
-[dalej](form-basics.md)
+> [!div class="step-by-step"]
+> [Poprzednie](intro-to-web-pages-programming.md)
+> [dalej](form-basics.md)

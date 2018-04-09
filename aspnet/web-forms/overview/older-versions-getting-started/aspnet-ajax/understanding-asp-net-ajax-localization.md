@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 title: Opis lokalizacji AJAX ASP.NET | Dokumentacja firmy Microsoft
 author: scottcate
-description: "Lokalizacja jest proces projektowania i włączenie obsługi języka i kultury do aplikacji lub składnika aplikacji. Mikrofon..."
+description: Lokalizacja jest proces projektowania i włączenie obsługi języka i kultury do aplikacji lub składnika aplikacji. Mikrofon...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: 5b801586ea77af78284f780fe47fe09cafb984af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 565b0294f57b784bc592b286b3d8b28504110415
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-localization"></a>Opis lokalizacji AJAX ASP.NET
 ====================
@@ -64,9 +64,9 @@ Poniższa tabela zawiera podsumowanie Konwencji wraz z przykładami nazewnictwa 
 | Nazwa pliku | Znaczenie |
 | --- | --- |
 | Script.js | Wersja wydana skrypt niezależny od kultury. |
-| Script.Debug.js | Wersja do debugowania skryptu niezależny od kultury. |
-| Script.en US.js | Wersja wersji angielskiej Stanów Zjednoczonych skrypt. |
-| Script.Debug.ES CO.js | Wersja do debugowania hiszpańskim, Kolumbii skrypt. |
+| Script.debug.js | Wersja do debugowania skryptu niezależny od kultury. |
+| Script.en-US.js | Wersja wersji angielskiej Stanów Zjednoczonych skrypt. |
+| Script.debug.es-CO.js | Wersja do debugowania hiszpańskim, Kolumbii skrypt. |
 
 ## <a name="walkthrough-create-an-localized-embedded-script"></a>Wskazówki: Tworzenie zlokalizowanego, osadzone skryptu
 
@@ -149,10 +149,10 @@ Wzrostem aplikacji sieci web do szerszego grona odbiorców, trzeba mieć dostęp
 
 .NET Framework obsługuje bardzo ramy sformatowanego lokalizacji przy użyciu zestawów satelickich i pliki zasobów (resx) XML do prezentowania ujednolicone do wyszukiwania ciągów zasobów i obrazów. Rozszerzenia ASP.NET AJAX, w tym programu Microsoft AJAX Framework i biblioteki skryptów Microsoft AJAX, zapewniają obsługę dla tego modelu programowania kodu po stronie klienta umożliwiające łatwe zasobów ciągu wyszukiwania. Zestawy satelickie obsługuje automatyczne włączenie skryptu zasobów (pliki rzeczywiste js) za pośrednictwem ScriptResource.axd tak długo, jak nazwy plików wykonaj dany schemat nazewnictwa. Z tej obsługi rozszerzeń programu ASP.NET AJAX uprościć lokalizacja skryptów i globalizacji aplikacji.
 
-## <a name="bio"></a>*Mnie*
+## <a name="bio"></a>*Bio*
 
 Scott IE pracuje z technologii Microsoft Web od 1997 i jest Prezes myKB.com ([www.myKB.com](http://www.myKB.com)) gdzie specjalizuje się on w pisaniu ASP.NET aplikacje oparte na systemie koncentruje się na rozwiązania w zakresie oprogramowania bazy wiedzy Knowledge Base. Scott można nawiązać połączenie za pośrednictwem poczty e-mail na [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) lub jego blogu w [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Poprzednie](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
-[dalej](understanding-asp-net-ajax-web-services.md)
+> [!div class="step-by-step"]
+> [Poprzednie](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+> [dalej](understanding-asp-net-ajax-web-services.md)

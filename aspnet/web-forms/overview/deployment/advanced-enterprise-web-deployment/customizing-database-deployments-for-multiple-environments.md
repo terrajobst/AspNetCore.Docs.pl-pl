@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
-title: "Dostosowywanie wdrożenia bazy danych w wielu środowiskach | Dokumentacja firmy Microsoft"
+title: Dostosowywanie wdrożenia bazy danych w wielu środowiskach | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano, jak dostosować właściwości bazy danych do określonego celu środowisk jako część procesu wdrażania. Uwaga: Temacie założono th..."
+description: 'W tym temacie opisano, jak dostosować właściwości bazy danych do określonego celu środowisk jako część procesu wdrażania. Uwaga: Temacie założono th...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
-ms.openlocfilehash: f3ca344c2466d9d538f55cd8ff0a5bf5b7bac808
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 06f22bc9a3068ee5621df62ee5ed1bea06d7e9e6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-database-deployments-for-multiple-environments"></a>Dostosowywanie wdrożenia bazy danych w wielu środowiskach
 ====================
@@ -35,9 +35,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > W projekcie bazy danych programu Visual Studio 2010 ustawienia wdrażania są zawarte w pliku konfiguracji (.sqldeployment) wdrożenia. W tym temacie opisano sposób tworzenia plików konfiguracji wdrożenia określonego środowiska i określić, który ma być używany jako parametr VSDBCMD.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji projektu dwa pliki & #x 2014; jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
 
 ## <a name="task-overview"></a>Omówienie zadań
 
@@ -146,6 +146,6 @@ Te artykuły w witrynie MSDN zawierają bardziej ogólne wskazówki dotyczące w
 - [Tworzenie i wdrażanie baz danych do środowiska projektowego izolowanym](https://msdn.microsoft.com/library/dd193409.aspx)
 - [Tworzenie i wdrażanie baz danych do środowiska produkcyjnego lub przemieszczania](https://msdn.microsoft.com/library/dd193413.aspx)
 
->[!div class="step-by-step"]
-[Poprzednie](performing-a-what-if-deployment.md)
-[dalej](deploying-database-role-memberships-to-test-environments.md)
+> [!div class="step-by-step"]
+> [Poprzednie](performing-a-what-if-deployment.md)
+> [dalej](deploying-database-role-memberships-to-test-environments.md)

@@ -1,7 +1,7 @@
 ---
-title: "Tworzenie doskonałych, reakcji witryn przy użyciu ładowania początkowego i ASP.NET Core"
+title: Tworzyć piękne, dynamiczne witryny z Bootstrap i ASP.NET Core
 author: ardalis
-description: "Dowiedz się, jak używać Bootstrap umożliwiający projektowanie aplikacji sieci web odpowiada za pomocą platformy ASP.NET Core."
+description: Dowiedz się, jak używać Bootstrap umożliwiający projektowanie aplikacji sieci web odpowiada za pomocą platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: c3dfaa53e9e3277d025d014f65004e4c24a5acc4
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 142a997fa46f37545ea04971ab6593bff053b1ef
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="building-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Tworzenie doskonałych, reakcji witryn przy użyciu ładowania początkowego i ASP.NET Core
+# <a name="build-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Tworzyć piękne, dynamiczne witryny z Bootstrap i ASP.NET Core
 
 <a name="bootstrap-index"></a>
 

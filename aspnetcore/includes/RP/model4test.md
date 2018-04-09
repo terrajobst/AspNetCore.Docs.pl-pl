@@ -4,7 +4,7 @@
 * Uruchom aplikację i Dołącz `/Movies` do adresu URL w przeglądarce (`http://localhost:port/movies`).
 * Test **Utwórz** łącza.
 
- ![Tworzenie strony](../../tutorials/razor-pages/model/_static/conan.png)
+  ![Tworzenie strony](../../tutorials/razor-pages/model/_static/conan.png)
 
 <a name="scaffold"></a>
 

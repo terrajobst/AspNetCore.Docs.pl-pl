@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs
 title: Wykonywanie wsadowe aktualizacji (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Dowiedz się, jak utworzyć pełni nieedytowalne Edytuj DataList, w którym wszystkie jego elementy znajdują się w tryb i wartości, których można zapisać, klikając przycisk \"Aktualizuj wszystkie\"..."
+description: Dowiedz się, jak utworzyć pełni nieedytowalne Edytuj DataList, w którym wszystkie jego elementy znajdują się w tryb i wartości, których można zapisać, klikając przycisk "Aktualizuj wszystkie"...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 46db3c5d733b9c8b6e749a9b8ff1aa9a061c36df
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: af19104edb1849272773193befe1f5b2c7347683
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-batch-updates-c"></a>Wykonywanie wsadowe aktualizacji (C#)
 ====================
@@ -43,8 +43,8 @@ W tym samouczku zajmiemy się, jak umożliwić użytkownikom aktualizowania info
 
 W poprzednim samouczek, gdzie tworzenie standardowych, poziom elementu DataList można edytować, możemy użyliśmy dwa szablony:
 
-- `ItemTemplate`zawiera interfejs użytkownika tylko do odczytu (formantów etykiet w sieci Web do wyświetlania każdego produktu, Nazwa s i cen).
-- `EditItemTemplate`zawiera interfejs użytkownika trybu edycji (dwie kontrolki TextBox w sieci Web).
+- `ItemTemplate` zawiera interfejs użytkownika tylko do odczytu (formantów etykiet w sieci Web do wyświetlania każdego produktu, Nazwa s i cen).
+- `EditItemTemplate` zawiera interfejs użytkownika trybu edycji (dwie kontrolki TextBox w sieci Web).
 
 DataList s `EditItemIndex` właściwość decyduje, jakie `DataListItem` (jeśli istnieje) jest renderowany przy użyciu `EditItemTemplate`. W szczególności `DataListItem` których `ItemIndex` wartość odpowiada DataList s `EditItemIndex` właściwości jest renderowany przy użyciu `EditItemTemplate`. Ten model działa również w przypadku, gdy tylko jeden element można edytować w czasie, ale powróci od siebie przy tworzeniu pełni edytowalnego elementu DataList.
 
@@ -163,12 +163,12 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Kowalski Zack i Krzysztof Pespisa. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)
-[dalej](handling-bll-and-dal-level-exceptions-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)
+> [dalej](handling-bll-and-dal-level-exceptions-cs.md)

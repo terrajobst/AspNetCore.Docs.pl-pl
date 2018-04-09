@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/project-properties
-title: "Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: właściwości projektu | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: właściwości projektu | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane..."
+description: Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
-ms.openlocfilehash: 85b6dbcc8d40c168a49513ef6b549f9ec7fa5097
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: fba3f089bf1693eec873b08b4bc50e3accba06ee
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: właściwości projektu
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -68,6 +68,6 @@ W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *Elmah* folderu
 
 Ukończono wszystkie zadania konfiguracji wdrożenia. W następnym samouczku możesz wdrożyć witrynę Contoso University do środowiska testowego i przetestować go brak.
 
->[!div class="step-by-step"]
-[Poprzednie](web-config-transformations.md)
-[dalej](deploying-to-iis.md)
+> [!div class="step-by-step"]
+> [Poprzednie](web-config-transformations.md)
+> [dalej](deploying-to-iis.md)

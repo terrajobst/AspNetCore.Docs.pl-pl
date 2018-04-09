@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: def2f4b3e54c8de539e10c1b526a1dababeca8fb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5ef7a6f44758cf94fc19d6fbab3cc4b7bce8e8e5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Macierzy sieci Web i plik Readme sieci Web ASP.NET w wersji Beta 3 stron (Razor)
 ====================
@@ -283,9 +283,9 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji Be
 > Po odinstalowaniu programu .NET Framework w wersji 4 i zainstaluj go ponownie, ASP.NET Web Pages o składni Razor jest wyłączona. Strony z *.cshtml* rozszerzenia nie działać prawidłowo. Strony ASP.NET Web Pages rejestruje zestawu w folderze głównym maszyny *Web.config* plików i usunięcie programu .NET Framework spowoduje usunięcie tego pliku. Ponowna instalacja programu .NET Framework instaluje nową wersję pliku konfiguracji, ale nie dodać odwołanie do zestawu stron sieci Web programu ASP.NET.
 > 
 > **Obejście** po ponownym zainstalowaniu programu .NET Framework, zainstaluj ponownie stron ASP.NET Web Pages o składni Razor. Spowoduje to dodanie następujący element do *Web.config* w katalogu głównym komputera, który zazwyczaj znajduje się w następującej lokalizacji:  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
 > [!code-xml[Main](beta3/samples/sample6.xml)]
@@ -302,9 +302,9 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji Be
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Problem: Adresy URL bez rozszerzeń nie zostanie znaleziony.cshtml/.vbhtml pliki w usługach IIS 7 i IIS 7.5
 
 > W usługach IIS 7 lub usług IIS 7.5 żądania o adresie URL podobnie do następującej nie są w stanie odnaleźć strony, które mają *.cshtml* lub *.vbhtml* rozszerzenia:  
->   
+> 
 > `http://www.example.com/ExampleSite/ExampleFile`  
->   
+> 
 > Problem występuje, ponieważ ponowne zapisywanie adresów URL nie jest włączona domyślnie dla usług IIS 7 i IIS 7.5. Scenariusz likeliest jest, że nie ma problem podczas testowania, lokalnie za pomocą usług IIS Express, ale wystąpić podczas wdrażania witryny sieci Web do obsługi witryny sieci Web.
 > 
 > **Obejście problemu**
@@ -344,7 +344,7 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji Be
 >     - Kopiuj *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\** **do** *\Bin\x86*
 >     - Kopiuj *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **do** *\Bin\amd64*
 > 2. W folderze głównym witryny sieci Web, należy utworzyć lub otworzyć *Web.config* pliku. (W programie WebMatrix w wersji Beta 3, ten typ pliku jest dostępna po kliknięciu **wszystkie** w **wybierz typ pliku** okno dialogowe.)
-> 3. Dodaj następujący element jako element podrzędny  **&lt;konfiguracji&gt;**  elementu (nie znajduje się w  **&lt;system.web&gt;**  element):
+> 3. Dodaj następujący element jako element podrzędny **&lt;konfiguracji&gt;** elementu (nie znajduje się w **&lt;system.web&gt;** element):
 > 
 > 
 > [!code-xml[Main](beta3/samples/sample10.xml)]
@@ -366,21 +366,21 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji Be
 > 
 > **Obejście problemu**  
 > Użyj `Encryption Mode` właściwość `SqlCeConnection` klasy do szyfrowania plików bazy danych programu SQL Server Compact 4.0. Poniższy przykład przedstawia sposób tworzenia zaszyfrowane programu SQL Server Compact 4.0 bazy danych przy użyciu `Encryption Mode` właściwości:
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample11.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample12.vb)]
 > 
 > Aby zmienić tryb szyfrowania z istniejącej bazy danych programu SQL Server Compact 4.0, wykonaj następujące czynności:
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample13.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample14.vb)]
 > 
 > Aby zaszyfrować niezaszyfrowane bazy danych programu SQL Server Compact 4.0, wykonaj następujące czynności:
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample15.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample16.vb)]
 
 
@@ -537,7 +537,7 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji Be
 > Jawnie ustawić typ danych dla parametrów, takich jak `SqlDbType` lub `DbType`. Jest to szczególnie ważne w przypadku typów danych obiektów BLOB (`image` i `ntext`). Użyj kodu podobne do poniższych:
 > 
 > [!code-sql[Main](beta3/samples/sample20.sql)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample21.vb)]
 
 

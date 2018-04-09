@@ -1,7 +1,7 @@
 ---
-title: "Rozwiązywanie problemów z platformy ASP.NET Core w usłudze aplikacji Azure"
+title: Rozwiązywanie problemów z platformy ASP.NET Core w usłudze aplikacji Azure
 author: guardrex
-description: "Dowiedz się, jak diagnozować problemy z wdrożeniami platformy ASP.NET Core usłudze Azure App Service."
+description: Dowiedz się, jak diagnozować problemy z wdrożeniami platformy ASP.NET Core usłudze Azure App Service.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: e6a8404d3fe96a0136d7f874107b2cdf63e8e890
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 47056c80c7abf5dd5ad5ae96af7b821d31b21b8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Rozwiązywanie problemów z platformy ASP.NET Core w usłudze aplikacji Azure
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 Ten artykuł zawiera instrukcje na temat diagnozowania platformy ASP.NET Core problem uruchamiania aplikacji za pomocą narzędzi diagnostycznych w usłudze Azure App Service. Aby uzyskać dodatkowe porady dotyczące rozwiązywania problemów, zobacz [Omówienie diagnostyki Azure App Service](/azure/app-service/app-service-diagnostics) i [porady: monitorowanie aplikacji w usłudze Azure App Service](/azure/app-service/web-sites-monitor) w dokumentacji platformy Azure.
 
@@ -105,9 +105,9 @@ Moduł platformy ASP.NET Core dziennika stdout rejestruje często przydatne komu
 1. Wybierz **zapisać** można zapisać pliku.
 
 > [!WARNING]
-> Aby wyłączyć dziennik stdout może doprowadzić do awarii aplikacji lub serwera. Brak limitu rozmiaru pliku dziennika lub liczba pliki dziennika utworzone.
+> Aby wyłączyć dziennik stdout może doprowadzić do awarii aplikacji lub serwera. Brak limitu rozmiaru pliku dziennika lub liczba pliki dziennika utworzone. Należy używać tylko stdout rejestrowania rozwiązywać problemy z uruchamianiem aplikacji.
 >
-> Użyć biblioteki rejestrowania, który ogranicza rozmiar pliku dziennika i dzienników obraca rutynowych rejestrowania w aplikacji platformy ASP.NET Core. Aby uzyskać więcej informacji, zobacz [dostawców innych firm rejestrowania](xref:fundamentals/logging/index#third-party-logging-providers).
+> Ogólne rejestrowanie w aplikacji platformy ASP.NET Core po uruchomieniu, użyj biblioteki rejestrowania, który ogranicza rozmiar pliku dziennika i dzienników obraca. Aby uzyskać więcej informacji, zobacz [dostawców innych firm rejestrowania](xref:fundamentals/logging/index#third-party-logging-providers).
 
 ## <a name="common-startup-errors"></a>Typowe błędy uruchamiania 
 

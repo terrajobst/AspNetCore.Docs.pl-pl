@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-cs
-title: "Tworzenie liczbowe w górę/dół formantu z zapleczem usługi sieci Web (C#) | Dokumentacja firmy Microsoft"
+title: Tworzenie liczbowe w górę/dół formantu z zapleczem usługi sieci Web (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Zamiast czekać na użytkownika, wpisz wartość w pole wyboru, liczbowe góra/dół formantu (znajdującego się w systemach Windows i innych systemów operacyjnych) może okazać się c w więcej..."
+description: Zamiast czekać na użytkownika, wpisz wartość w pole wyboru, liczbowe góra/dół formantu (znajdującego się w systemach Windows i innych systemów operacyjnych) może okazać się c w więcej...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0cce9aa215c2b4480e845326f69cad4679ecf847
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 942902bdba93fe4fef8a9122403c6d5c62e6123c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a>Tworzenie liczbowe formantu góra/dół z zapleczem usługi sieci Web (C#)
 ====================
@@ -45,10 +45,10 @@ Dla tego przykładu liczbowe w górę/dół formantu tylko Zezwalaj wartości, k
 
 Na koniec Utwórz nową stronę ASP.NET. Jak zwykle należy `ScriptManager` kontroli, `TextBox` kontroli i `NumericUpDownExtender` kontroli. W przypadku drugiego nagłówka musisz podać informacje o usłudze sieci web:
 
-- `ServiceDownMethod`Nazwa w dół sieci web — metoda lub strona — Metoda
-- `ServiceDownPath`Ścieżka do usługi sieci web z dół metody usługi; pominąć, jeśli używana jest metoda strony
-- `ServiceUpMethod`Nazwa pracy sieci web — metoda lub strona — Metoda
-- `ServiceUpPath`Ścieżka do usługi sieci web z się metody usługi; pominąć, jeśli używana jest metoda strony
+- `ServiceDownMethod` Nazwa w dół sieci web — metoda lub strona — Metoda
+- `ServiceDownPath` Ścieżka do usługi sieci web z dół metody usługi; pominąć, jeśli używana jest metoda strony
+- `ServiceUpMethod` Nazwa pracy sieci web — metoda lub strona — Metoda
+- `ServiceUpPath` Ścieżka do usługi sieci web z się metody usługi; pominąć, jeśli używana jest metoda strony
 
 W tym miejscu jest pełny kod znaczników dla strony:
 
@@ -61,5 +61,5 @@ Po uruchomieniu strony, zwróć uwagę, jak wartość w polu tekstowym zawsze po
 
 Są wyświetlane tylko cyfry, które są potęgami liczby 2 ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Dalej](creating-a-numeric-up-down-control-with-a-web-service-backend-vb.md)
+> [!div class="step-by-step"]
+> [Next](creating-a-numeric-up-down-control-with-a-web-service-backend-vb.md)

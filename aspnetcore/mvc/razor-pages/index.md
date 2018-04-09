@@ -1,7 +1,7 @@
 ---
 title: Wprowadzenie do platformy ASP.NET Core stron Razor
 author: Rick-Anderson
-description: "Dowiedz się, jak Razor strony platformy ASP.NET Core umożliwia kodowania scenariusze strony łatwiejsze i bardziej wydajnej pracy niż przy użyciu platformy MVC."
+description: Dowiedz się, jak Razor strony platformy ASP.NET Core umożliwia kodowania scenariusze strony łatwiejsze i bardziej wydajnej pracy niż przy użyciu platformy MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 09/12/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: cb80c38fd0284d5153aebfe7bb515722623a4a34
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 532799d013f26869da03fe1062072f55dcce35f8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
@@ -25,16 +25,9 @@ Jeśli szukasz samouczka, który korzysta z podejścia Model-View-Controller, zo
 
 Ten dokument zawiera wprowadzenie do stron Razor. Nie jest samouczek krok po kroku. Jeśli możesz znaleźć sekcje zbyt zaawansowanych, zobacz [wprowadzenie stron Razor](xref:tutorials/razor-pages/razor-pages-start). Omówienie platformy ASP.NET Core, zobacz [wprowadzenie do platformy ASP.NET Core](xref:index).
 
-<a name="prerequisites"></a>
+## <a name="prerequisites"></a>Wymagania wstępne
 
-## <a name="aspnet-core-20-prerequisites"></a>Wymagania wstępne platformy ASP.NET Core 2.0
-
-Zainstaluj [.NET Core](https://www.microsoft.com/net/core) 2.0.0 lub nowszym.
-
-Jeśli używasz programu Visual Studio, zainstaluj [programu Visual Studio](https://www.visualstudio.com/vs/) 2017 wersji 15.3 lub nowszym z następujące obciążenia:
-
-* **ASP.NET i sieć web development**
-* **Programowanie wieloplatformowych .NET core**
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 <a name="rpvs17"></a>
 
@@ -44,7 +37,7 @@ Jeśli używasz programu Visual Studio, zainstaluj [programu Visual Studio](http
 
 Zobacz [wprowadzenie stron Razor](xref:tutorials/razor-pages/razor-pages-start) szczegółowe informacje dotyczące sposobu tworzenia stron Razor projektu za pomocą programu Visual Studio.
 
-#   <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 Uruchom `dotnet new razor` z wiersza polecenia.
 
@@ -54,7 +47,7 @@ Otwórz wygenerowany *.csproj* plików z programu Visual Studio dla komputerów 
 
 Uruchom `dotnet new razor` z wiersza polecenia.
 
-#   <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
 Uruchom `dotnet new razor` z wiersza polecenia.
 
@@ -175,7 +168,11 @@ Kod związany z *Index.cshtml.cs* pliku:
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Edit.cshtml?highlight=1)]
 
-Pierwszy wiersz zawiera `@page "{id:int}"` dyrektywy. Ograniczenie routingu`"{id:int}"` informuje strony do akceptowania żądań do strony, które zawierają `int` danych trasy. Jeśli żądanie do strony nie zawiera danych trasy, który może zostać przekonwertowany na `int`, środowisko uruchomieniowe zwraca błąd HTTP 404 (nie znaleziono).
+Pierwszy wiersz zawiera `@page "{id:int}"` dyrektywy. Ograniczenie routingu`"{id:int}"` informuje strony do akceptowania żądań do strony, które zawierają `int` danych trasy. Jeśli żądanie do strony nie zawiera danych trasy, który może zostać przekonwertowany na `int`, środowisko uruchomieniowe zwraca błąd HTTP 404 (nie znaleziono). Aby wprowadzić identyfikator opcjonalne, dołącz `?` ograniczenia trasy:
+
+ ```cshtml
+@page "{id:int?}"
+```
 
 *Pages/Edit.cshtml.cs* pliku:
 
@@ -317,7 +314,7 @@ Generowania adresu URL dla stron obsługuje nazw względnych. W poniższej tabel
 | RedirectToPage("../Index") | *Strony/indeksu* |
 | RedirectToPage("Index")  | *Strony/klientów/indeksu* |
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")`, i `RedirectToPage("../Index")` są *względne nazwy*. `RedirectToPage` Parametr jest *łączyć* ze ścieżką bieżącej strony do obliczenia nazwę strony docelowej.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->
+`RedirectToPage("Index")`, `RedirectToPage("./Index")`, i `RedirectToPage("../Index")` są <em>względne nazwy</em>. `RedirectToPage` Parametr jest <em>łączyć</em> ze ścieżką bieżącej strony do obliczenia nazwę strony docelowej.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->
 
 Nazwa względna konsolidacji jest przydatne, gdy tworzenie witryn ze strukturą złożonych. Jeśli używasz nazwy względne do połączenia między stronami w folderze, można zmienić nazwę tego folderu. Wszystkie linki nadal działać (ponieważ one nie obejmować nazwę folderu).
 
@@ -423,4 +420,4 @@ services.AddMvc()
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Konwencje autoryzacji stron razor](xref:security/authorization/razor-pages-authorization)
 * [Razor strony trasy i strony modelu dostawców niestandardowych](xref:mvc/razor-pages/razor-pages-convention-features)
-* [Jednostka stron razor i integracji testowania](xref:testing/razor-pages-testing)
+* [Testy jednostkowe i integracja z stron razor](xref:testing/razor-pages-testing)

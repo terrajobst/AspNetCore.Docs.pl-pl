@@ -1,20 +1,20 @@
 ---
-title: "Platformy ASP.NET Core MVC EF podstawowych — sortowanie, filtrowanie, stronicowania - 3 10"
+title: Platformy ASP.NET Core MVC EF podstawowych — sortowanie, filtrowanie, stronicowania - 3 10
 author: tdykstra
-description: "W tym samouczku zostanie dodana sortowanie, filtrowanie i stronicowania funkcji na stronę przy użyciu programu Entity Framework Core i ASP.NET Core."
+description: W tym samouczku zostanie dodana sortowanie, filtrowanie i stronicowania funkcji na stronę przy użyciu programu Entity Framework Core i ASP.NET Core.
 ms.author: tdykstra
 ms.date: 03/15/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: d5a9ac83b30a8173f9229e512bf843d93c11baea
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d4fe6386318210a751d1248c87299d414ab563a3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sortowanie, filtrowanie, stronicowania i grupowanie — podstawowe EF z samouczek platformy ASP.NET Core MVC (3 10)
+# <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>Platformy ASP.NET Core MVC EF podstawowych — sortowanie, filtrowanie, stronicowania - 3 10
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -247,6 +247,6 @@ Uruchom aplikację i przejdź do strony informacje. Liczba studentów dla każde
 
 W tym samouczku przedstawiono sposób wykonywania sortowanie, filtrowanie, stronicowania i grupowania. W następnym samouczku nauczysz się, jak obsługiwać zmiany modelu danych przy użyciu migracji.
 
->[!div class="step-by-step"]
-[Poprzednie](crud.md)
-[dalej](migrations.md)  
+> [!div class="step-by-step"]
+> [Poprzednie](crud.md)
+> [dalej](migrations.md)  

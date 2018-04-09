@@ -1,7 +1,7 @@
 ---
-title: "Za pomocą rozwiązania Bower w platformy ASP.NET Core"
+title: Zarządzaj pakietami po stronie klienta z Bower w ASP.NET Core
 author: rick-anderson
-description: "Zarządzanie pakietami po stronie klienta z Bower."
+description: Zarządzanie pakietami po stronie klienta z Bower.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: 67695843846cfaf1619db11a7bffcc65802e0f69
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 81244cfb71194876071c64899d627c296aad3802
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Zarządzaj pakietami po stronie klienta z Bower w ASP.NET Core
 
@@ -39,7 +39,7 @@ W tym samouczku dodamy obsługę [czcionki świetny](http://fontawesome.io). Mo�
 
 * W **Bower: \<Nazwa projektu\>**  , kliknij kartę "Przeglądaj", a następnie przeprowadź filtrowanie listy pakietów, wprowadzając `font-awesome` w polu wyszukiwania:
 
- ![Zarządzaj pakietami bower](bower/_static/manage-bower-packages.png)
+  ![Zarządzaj pakietami bower](bower/_static/manage-bower-packages.png)
 
 * Upewnij się, że "zapisać zmiany w *bower.json*" jest zaznaczone pole wyboru. Wybierz z listy rozwijanej wersję, a następnie kliknij przycisk **zainstalować** przycisku. **Dane wyjściowe** okno zawiera szczegółowe informacje dotyczące instalacji.
 
@@ -100,9 +100,9 @@ Po listy pakietów *bower.json* pliku, Visual Studio będzie je pobrać. W poni�
 
 * Zapisz *bower.json* pliku.
 
- Sprawdź projekt zawiera *bootstrap* i *jQuery* katalogów w *wwwroot/lib*. Bower używa *.bowerrc* plik, aby zainstalować zasoby w *wwwroot/lib*.
+  Sprawdź projekt zawiera *bootstrap* i *jQuery* katalogów w *wwwroot/lib*. Bower używa *.bowerrc* plik, aby zainstalować zasoby w *wwwroot/lib*.
 
- Uwaga: Interfejsu użytkownika "Zarządzaj pakietami Bower" stanowi alternatywę do edycji plik ręcznie.
+  Uwaga: Interfejsu użytkownika "Zarządzaj pakietami Bower" stanowi alternatywę do edycji plik ręcznie.
 
 ### <a name="enable-static-files"></a>Włącz pliki statyczne
 
@@ -115,12 +115,12 @@ Po listy pakietów *bower.json* pliku, Visual Studio będzie je pobrać. W poni�
 
 W tej sekcji utworzysz stronę HTML, aby sprawdzić, czy można uzyskać dostępu do wdrożone pakiety.
 
-* Dodaj nową stronę HTML o nazwie *Index.html* do *wwwroot* folderu. Uwaga: Należy dodać do pliku w formacie HTML *wwwroot* folderu. Domyślnie funkcja zawartość statyczna nie może zostać wyświetlona poza *wwwroot*. Zobacz [Praca z pliki statyczne](xref:fundamentals/static-files) Aby uzyskać więcej informacji.
+* Dodaj nową stronę HTML o nazwie *Index.html* do *wwwroot* folderu. Uwaga: Należy dodać do pliku w formacie HTML *wwwroot* folderu. Domyślnie funkcja zawartość statyczna nie może zostać wyświetlona poza *wwwroot*. Zobacz [pracować z plikami statycznych](xref:fundamentals/static-files) Aby uzyskać więcej informacji.
 
- Zastąp zawartość *Index.html* z następujący kod:
+  Zastąp zawartość *Index.html* z następujący kod:
 
 [!code-html[](bower/sample/Index.html)]
 
 * Uruchom aplikację i przejdź do `http://localhost:<port>/Index.html`. Alternatywnie z *Index.html* otwarty, naciśnij klawisz `Ctrl+Shift+W`. Sprawdź stosowanie stylów jumbotron, kodu jQuery odpowiada po kliknięciu przycisku i że Bootstrap przycisku zmienia stan.
 
- ![Styl jumbotron](bower/_static/jumbotron.png)
+  ![Styl jumbotron](bower/_static/jumbotron.png)

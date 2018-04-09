@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
-title: "Przechowywanie dodatkowe informacje dotyczące użytkownika (VB) | Dokumentacja firmy Microsoft"
+title: Przechowywanie dodatkowe informacje dotyczące użytkownika (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku odpowiemy na to pytanie przez tworzenie aplikacji bardzo proste księgi gości. W ten sposób zajmiemy różnych opcji dla modeli..."
+description: W tym samouczku odpowiemy na to pytanie przez tworzenie aplikacji bardzo proste księgi gości. W ten sposób zajmiemy różnych opcji dla modeli...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a40238605e8fb3e26d80264af9156eec634affbe
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 9a8673e764ae94b12fbc01f81ef12ea4c133b7d5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="storing-additional-user-information-vb"></a>Przechowywanie dodatkowe informacje dotyczące użytkownika (VB)
 ====================
@@ -107,13 +107,13 @@ Aby zapisać ograniczenie klucza obcego, kliknij przycisk Zamknij, aby zakończy
 
 Teraz musisz skojarzyć trzy kolumny z każdego konta użytkownika do przechowywania podpisu, który pojawi się w jego komentarze księgi gości, strony głównej i miejscowość macierzystego użytkownika. Istnieją różne sposoby, w tym celu — liczba:
 
-- **Dodaj nowe kolumny ***`aspnet_Users`*** lub ***`aspnet_Membership`*** tabel.** I czy zaleca takie podejście, ponieważ modyfikuje Schemat używany przez `SqlMembershipProvider`. Ta decyzja może wrócić do mogły spowodować szkód występujących. Na przykład, co w przypadku przyszłych wersjach programu ASP.NET używa innej `SqlMembershipProvider` schematu. Microsoft może obejmować narzędzia do migracji programu ASP.NET 2.0 `SqlMembershipProvider` danych do nowego schematu, ale jeśli zmodyfikowano ASP.NET 2.0 `SqlMembershipProvider` schematu, takie Konwersja może nie być możliwe.
+- <strong>Dodaj nowe kolumny</strong><strong>`aspnet_Users`</strong><strong>lub</strong><strong>`aspnet_Membership`</strong><strong>tabel.</strong> I czy zaleca takie podejście, ponieważ modyfikuje Schemat używany przez `SqlMembershipProvider`. Ta decyzja może wrócić do mogły spowodować szkód występujących. Na przykład, co w przypadku przyszłych wersjach programu ASP.NET używa innej `SqlMembershipProvider` schematu. Microsoft może obejmować narzędzia do migracji programu ASP.NET 2.0 `SqlMembershipProvider` danych do nowego schematu, ale jeśli zmodyfikowano ASP.NET 2.0 `SqlMembershipProvider` schematu, takie Konwersja może nie być możliwe.
 
 - **Użyj ASP. NET w profilu platformy, definiowanie właściwości profilu miejscowość macierzystego, strony głównej i podpis.** Program ASP.NET zawiera framework profil, który służy do przechowywania dodatkowe dane specyficzne dla użytkownika. Jak framework członkostwa w ramach profilu została stworzona z modelu dostawcy. .NET Framework jest dostarczany z `SqlProfileProvider` czy magazyny profilu danych w bazie danych programu SQL Server. W rzeczywistości w naszej bazie danych ma już tabeli używanej przez `SqlProfileProvider` (`aspnet_Profile`), ponieważ zostało dodane, gdy dodaliśmy usług aplikacji ponownie [ *tworzenie schematu członkostwa w programie SQL Server* ](creating-the-membership-schema-in-sql-server-vb.md)samouczka.   
- Największą zaletą framework profilu jest umożliwia deweloperom do definiowania właściwości profilu `Web.config` — żaden kod nie trzeba napisać do serializowania danych profilu do i z odpowiedni magazyn danych. Krótko mówiąc jest bardzo łatwe do zdefiniowania zestawu właściwości profilu i pracować z nimi w kodzie. Jednak system profilu opuszcza się konieczne, jeśli chodzi o wersji, tak więc jeśli korzystasz z aplikacji, w którym oczekujesz nowe właściwości specyficzne dla użytkownika do dodania w późniejszym czasie lub istniejące ma zostać usunięta lub zmodyfikowana, a następnie framework profilu nie może być  najlepszym rozwiązaniem. Ponadto `SqlProfileProvider` przechowuje właściwości profilu w sposób wysokiej nieznormalizowany, uniemożliwiając dalej do wykonywania kwerend bezpośrednio do profilu danych (takich jak, ilu użytkowników mają macierzysty miejscowość z nowego Jorku).   
- Aby uzyskać więcej informacji w ramach profilu zapoznaj się w sekcji "Dalsze odczytów" na końcu tego samouczka.
+  Największą zaletą framework profilu jest umożliwia deweloperom do definiowania właściwości profilu `Web.config` — żaden kod nie trzeba napisać do serializowania danych profilu do i z odpowiedni magazyn danych. Krótko mówiąc jest bardzo łatwe do zdefiniowania zestawu właściwości profilu i pracować z nimi w kodzie. Jednak system profilu opuszcza się konieczne, jeśli chodzi o wersji, tak więc jeśli korzystasz z aplikacji, w którym oczekujesz nowe właściwości specyficzne dla użytkownika do dodania w późniejszym czasie lub istniejące ma zostać usunięta lub zmodyfikowana, a następnie framework profilu nie może być  najlepszym rozwiązaniem. Ponadto `SqlProfileProvider` przechowuje właściwości profilu w sposób wysokiej nieznormalizowany, uniemożliwiając dalej do wykonywania kwerend bezpośrednio do profilu danych (takich jak, ilu użytkowników mają macierzysty miejscowość z nowego Jorku).   
+  Aby uzyskać więcej informacji w ramach profilu zapoznaj się w sekcji "Dalsze odczytów" na końcu tego samouczka.
 
-- **Dodaj te trzy kolumny do nowej tabeli w bazie danych i ustanowienia relacją między tej tabeli i ***`aspnet_Users`***.** Ta metoda wymaga nieco więcej pracy niż Framework profilu, ale oferuje maksymalną elastyczność w sposób właściwości użytkownika dodatkowe są modelowane w bazie danych. Jest to opcja, które będą używane w tym samouczku.
+- <strong>Dodaj te trzy kolumny do nowej tabeli w bazie danych i ustanowienia relacją między tej tabeli i</strong><strong>`aspnet_Users`</strong><strong>.</strong> Ta metoda wymaga nieco więcej pracy niż Framework profilu, ale oferuje maksymalną elastyczność w sposób właściwości użytkownika dodatkowe są modelowane w bazie danych. Jest to opcja, które będą używane w tym samouczku.
 
 Utworzymy nową tabelę o nazwie `UserProfiles` zapisać miejscowość macierzystego, strony głównej i podpis dla każdego użytkownika. Kliknij prawym przyciskiem folder tabel w oknie Eksploratora bazy danych i wybrać opcję utworzenia nowej tabeli. Nazwa pierwszej kolumny `UserId` i Ustaw typ `uniqueidentifier`. Nie zezwalaj na `NULL` wartości i oznacz kolumnę jako klucz podstawowy. Następnie należy dodać kolumny o nazwie: `HomeTown` typu `nvarchar(50)`; `HomepageUrl` typu `nvarchar(100)`; i podpis typu `nvarchar(500)`. Każda z tych trzech kolumn może akceptować `NULL` wartość.
 
@@ -131,7 +131,7 @@ Teraz, gdy mamy modelu danych tworzone są nam będzie go. Kroki 2 i 3 przedstaw
 
 Istnieje wiele sposobów, aby umożliwić aktualnie zalogowanego użytkownika wyświetlić i edytować jego macierzystego informacje miejscowość, strony głównej i podpis. Można ręcznie utworzyć interfejsu użytkownika z polem tekstowym i formantów etykiet lub firma Microsoft może użyć jednej z danych formantów sieci Web, takich jak kontrola widoku DetailsView. Do wykonania w bazie danych `SELECT` i `UPDATE` instrukcje firma Microsoft może zapisać ADO.NET kod w klasie związanej z kodem naszą stronę lub można również stosować deklaratywne podejścia z SqlDataSource. W idealnym przypadku naszej aplikacji może zawierać architektury warstwowych, firma Microsoft może to wywołać programowo z klasy związane z kodem strony lub deklaratywnie za pomocą kontrolki ObjectDataSource.
 
-Ponieważ ta seria samouczek koncentruje się na uwierzytelnianie formularzy, autoryzacji, kont użytkowników i role, nie zostanie dogłębną dyskusję te opcje dostępu do danych lub dlaczego architektura warstwowego jest preferowane bezpośrednio wykonywania instrukcji SQL na stronie platformy ASP.NET. Użyjemy przeprowadzenie przy użyciu widoku DetailsView i SqlDataSource — opcja najszybszym i najprostszym —, ale kwestie omówione pewnością można zastosować do alternatywnego logiki sieci Web formantów i dane dostępu. Aby uzyskać więcej informacji na temat pracy z danymi w programie ASP.NET odwoływać się do mojej  *[Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)*  samouczka serii.
+Ponieważ ta seria samouczek koncentruje się na uwierzytelnianie formularzy, autoryzacji, kont użytkowników i role, nie zostanie dogłębną dyskusję te opcje dostępu do danych lub dlaczego architektura warstwowego jest preferowane bezpośrednio wykonywania instrukcji SQL na stronie platformy ASP.NET. Użyjemy przeprowadzenie przy użyciu widoku DetailsView i SqlDataSource — opcja najszybszym i najprostszym —, ale kwestie omówione pewnością można zastosować do alternatywnego logiki sieci Web formantów i dane dostępu. Aby uzyskać więcej informacji na temat pracy z danymi w programie ASP.NET odwoływać się do mojej *[Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)* samouczka serii.
 
 Otwórz `AdditionalUserInfo.aspx` strony `Membership` folderu i Dodaj do strony, ustawienie dla jego właściwości ID formantu widoku DetailsView `UserProfile` i wyczyszczenie jego `Width` i `Height` właściwości. Rozwiń tagów inteligentnych DetailsView i wybierz powiązać go z formantem źródła danych. Zostanie uruchomiony Kreator konfiguracji źródła danych (patrz rysunek 7). Pierwszym krokiem prośba o Określ typ źródła danych. Ponieważ zamierzamy Połącz bezpośrednio do `SecurityTutorials` bazy danych, wybierz ikonę bazy danych, określając `ID` jako `UserProfileDataSource`.
 
@@ -428,9 +428,9 @@ Pierwszy `WizardStep`, `CreateUserWizardStep`, renderuje interfejs, który wyśw
 
 Aby dostosować interfejs formancie CreateUserWizard uwzględnienie dodatkowe pola, możemy:
 
-- **Utwórz co najmniej jeden nowy ***`WizardStep`*** s zawierają dodatkowe elementy interfejsu użytkownika**. Aby dodać nowy `WizardStep` aby CreateUserWizard, kliknij przycisk "Dodaj lub usuń `WizardStep` s" link z jego tagów inteligentnych można uruchomić `WizardStep` edytora kolekcji. Z tego miejsca można dodać, usunąć lub zmienić kolejność kroków w kreatorze. To podejście, które będą używane na potrzeby tego samouczka.
+- <strong>Utwórz co najmniej jeden nowy</strong><strong>`WizardStep`</strong><strong>s zawierają dodatkowe elementy interfejsu użytkownika</strong>. Aby dodać nowy `WizardStep` aby CreateUserWizard, kliknij przycisk "Dodaj lub usuń `WizardStep` s" link z jego tagów inteligentnych można uruchomić `WizardStep` edytora kolekcji. Z tego miejsca można dodać, usunąć lub zmienić kolejność kroków w kreatorze. To podejście, które będą używane na potrzeby tego samouczka.
 
-- **Konwertuj ***`CreateUserWizardStep`*** do edycji ***`WizardStep`***.** Spowoduje to zastąpienie `CreateUserWizardStep` z równoważną `WizardStep` których znaczników definiuje interfejs użytkownika, który odpowiada `CreateUserWizardStep`"s. Konwertując `CreateUserWizardStep` do `WizardStep` możemy zmiana położenia kontrolki, lub Dodaj dodatkowe elementy interfejsu użytkownika do tego kroku. Aby przekonwertować `CreateUserWizardStep` lub `CompleteWizardStep` do edycji `WizardStep`, kliknij przycisk "Krok Dostosuj tworzenia użytkownika" lub "Dostosować wykonaj krok" link z tagu formantu.
+- <strong>Konwertuj</strong><strong>`CreateUserWizardStep`</strong><strong>do edycji</strong><strong>`WizardStep`</strong><strong>.</strong> Spowoduje to zastąpienie `CreateUserWizardStep` z równoważną `WizardStep` których znaczników definiuje interfejs użytkownika, który odpowiada `CreateUserWizardStep`"s. Konwertując `CreateUserWizardStep` do `WizardStep` możemy zmiana położenia kontrolki, lub Dodaj dodatkowe elementy interfejsu użytkownika do tego kroku. Aby przekonwertować `CreateUserWizardStep` lub `CompleteWizardStep` do edycji `WizardStep`, kliknij przycisk "Krok Dostosuj tworzenia użytkownika" lub "Dostosować wykonaj krok" link z tagu formantu.
 
 - **Użyj kombinacji powyższych dwóch opcji.**
 
@@ -527,11 +527,11 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla...
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Poprzednie](user-based-authorization-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](user-based-authorization-vb.md)

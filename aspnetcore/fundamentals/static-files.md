@@ -1,7 +1,7 @@
 ---
 title: Praca z plikami statycznych w ASP.NET Core
 author: rick-anderson
-description: "Dowiedz się, jak obsługiwać i zabezpieczania pliki statyczne oraz skonfigurować plik statyczny hosting zachowania oprogramowania pośredniczącego w aplikacji sieci web platformy ASP.NET Core."
+description: Dowiedz się, jak obsługiwać i zabezpieczania pliki statyczne oraz skonfigurować plik statyczny hosting zachowania oprogramowania pośredniczącego w aplikacji sieci web platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 677cd746215b6b2cfb3a0e1d768f5f0da65cefd8
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 46e868910661024ea3b950e78ced02a095896be1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="work-with-static-files-in-aspnet-core"></a>Praca z plikami statycznych w ASP.NET Core
 
@@ -31,20 +31,17 @@ Pliki statyczne są przechowywane w katalogu głównym projektu sieci web. Domy�
 
 Host sieci web aplikacji należy pamiętać o zawartości katalogu.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 `WebHost.CreateDefaultBuilder` Metoda ustawia zawartości katalogu głównego w bieżącym katalogu:
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=9)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Ustaw główny zawartości do bieżącego katalogu, wywołując [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) wewnątrz `Program.Main`:
 
 [!code-csharp[](static-files/samples/1x/Program.cs?name=snippet_ProgramClass&highlight=7)]
 
----
-
+* * *
 Pliki statyczne są dostępne za pośrednictwem ścieżka względem katalogu głównego sieci web. Na przykład **aplikacji sieci Web** szablon projektu zawiera kilka folderów w ramach *wwwroot* folderu:
 
 * **wwwroot**

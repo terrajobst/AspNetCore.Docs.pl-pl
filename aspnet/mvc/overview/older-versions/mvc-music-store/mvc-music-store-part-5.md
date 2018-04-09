@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-5
-title: "Część 5: Edycji formularzy i tworzenia szablonów | Dokumentacja firmy Microsoft"
+title: 'Część 5: Edycji formularzy i tworzenia szablonów | Dokumentacja firmy Microsoft'
 author: jongalloway
-description: "Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 5 obejmuje edycji formularzy oraz tworzenia szablonów."
+description: Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 5 obejmuje edycji formularzy oraz tworzenia szablonów.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: cde6fe133291254531a797a434a4b2cdd226dd5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d584e614b5a4124044cd9decd2272192ca164643
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-5-edit-forms-and-templating"></a>Część 5: Formularze edycji i tworzenia szablonów
 ====================
@@ -262,9 +262,9 @@ Teraz przeglądających /StoreManager/ adres URL, albumów i tytuły są przecho
 
 ![](mvc-music-store-part-5/_static/image18.png)
 
-Uwaga: Ten pokazuje simple case tworzenia i przy użyciu pomocnika, w jednym widoku. Aby dowiedzieć się więcej na temat tworzenia wątków, które są dostępne w całej lokacji, zapoznaj się z mojej blogu: [http://bit.ly/mvc3-helper-options](http://bit.ly/mvc3-helper-options)
+Uwaga: Ten pokazuje simple case tworzenia i przy użyciu pomocnika, w jednym widoku. Aby dowiedzieć się więcej o tworzeniu wątków, które są dostępne w całej lokacji, zobacz Moje wpisie w blogu: [http://bit.ly/mvc3-helper-options](http://bit.ly/mvc3-helper-options)
 
 
->[!div class="step-by-step"]
-[Poprzednie](mvc-music-store-part-4.md)
-[dalej](mvc-music-store-part-6.md)
+> [!div class="step-by-step"]
+> [Poprzednie](mvc-music-store-part-4.md)
+> [dalej](mvc-music-store-part-6.md)

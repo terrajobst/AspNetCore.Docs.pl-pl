@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-vb
 title: Dynamicznie danymi formantu (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formant DynamicPopulate w zestawie narzędzi programu ASP.NET AJAX kontroli wywołania usługi sieci web (lub metoda strony) i wypełnia wartość wynikową w formancie docelowym t..."
+description: Formant DynamicPopulate w zestawie narzędzi programu ASP.NET AJAX kontroli wywołania usługi sieci web (lub metoda strony) i wypełnia wartość wynikową w formancie docelowym t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ec0b6d429f3eb4a7243201c2a91adde462cf6345
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2031a80be71a406e632955583d83920dd0f3ef7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-populating-a-control-vb"></a>Dynamicznie danymi formantu (VB)
 ====================
@@ -55,12 +55,12 @@ Przycisk HTML (jako kontrolkę HTML, ponieważ nie wymaga ogłaszania zwrotnego 
 
 Na koniec należy `DynamicPopulateExtender` formantu do elementów danych przesyłanych w sieci w górę. Następujące atrybuty zostanie skonfigurowany (oprócz oczywiste te `ID` i `runat` = `"server"`):
 
-- `TargetControlID`gdzie umieścić wyniki z wywołaniem usługi sieci web
-- `ServicePath`Ścieżka do usługi sieci web (pominąć, jeśli chcesz użyć metody strony)
-- `ServiceMethod`Nazwa metody sieci web lub strona — Metoda
-- `ContextKey`informacje o kontekście do wysłania do usługi sieci web
-- `PopulateTriggerControlID`element, który wyzwala wywołania usługi sieci web
-- `ClearContentsDuringUpdate`Czy pusty element docelowy podczas wywołania usługi sieci web
+- `TargetControlID` gdzie umieścić wyniki z wywołaniem usługi sieci web
+- `ServicePath` Ścieżka do usługi sieci web (pominąć, jeśli chcesz użyć metody strony)
+- `ServiceMethod` Nazwa metody sieci web lub strona — Metoda
+- `ContextKey` informacje o kontekście do wysłania do usługi sieci web
+- `PopulateTriggerControlID` element, który wyzwala wywołania usługi sieci web
+- `ClearContentsDuringUpdate` Czy pusty element docelowy podczas wywołania usługi sieci web
 
 Jak widać, formantu wymaga pewne informacje, ale przygotowania wszystko, co jest dość proste. Oto kod znaczników dla `DynamicPopulateExtender` formantu w tym scenariuszu:
 
@@ -73,6 +73,6 @@ Uruchom strony ASP.NET w przeglądarce, a następnie kliknij przycisk; otrzymasz
 
 Kliknięcie przycisku pobiera daty z serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](dynamically-populating-a-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](using-dynamicpopulate-with-a-user-control-and-javascript-cs.md)
-[dalej](dynamically-populating-a-control-using-javascript-code-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-dynamicpopulate-with-a-user-control-and-javascript-cs.md)
+> [dalej](dynamically-populating-a-control-using-javascript-code-vb.md)

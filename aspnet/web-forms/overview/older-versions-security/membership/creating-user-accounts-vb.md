@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/creating-user-accounts-vb
-title: "Tworzenie kont użytkowników (VB) | Dokumentacja firmy Microsoft"
+title: Tworzenie kont użytkowników (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku przeanalizujemy, tworzenie nowych kont użytkowników przy użyciu członkostwa w ramach (za pośrednictwem SqlMembershipProvider). Należy sprawdzić, jak utworzyć nowe nam..."
+description: W tym samouczku przeanalizujemy, tworzenie nowych kont użytkowników przy użyciu członkostwa w ramach (za pośrednictwem SqlMembershipProvider). Należy sprawdzić, jak utworzyć nowe nam...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-user-accounts-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 61621ffaae98ac74c16b2ff014ba9d85c2c10b3a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d665e7ba43401da76a88a904c10a587aa4576d4b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-user-accounts-vb"></a>Tworzenie kont użytkowników (VB)
 ====================
@@ -31,7 +31,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 W <a id="_msoanchor_1"> </a> [poprzedniego samouczek](creating-the-membership-schema-in-sql-server-vb.md) zainstalowano schemat usług aplikacji w bazie danych, co dodać tabel, widoków i wymagane przez procedury składowane `SqlMembershipProvider` i `SqlRoleProvider`. To utworzyć infrastruktury, które są wymagane w pozostałej części w tej serii samouczków. W tym samouczku przeanalizujemy, przy użyciu platformy członkostwa (za pośrednictwem `SqlMembershipProvider`) do tworzenia nowych kont użytkowników. Przedstawiono sposób tworzenia nowych użytkowników programowo i za pośrednictwem ASP. NET przez wbudowane formancie CreateUserWizard.
 
-Oprócz dowiedzieć, jak utworzyć nowe konta użytkowników, będą również należy zaktualizować pokaz witryny sieci Web, utworzyliśmy najpierw w  *<a id="_msoanchor_2"> </a> [omówienie uwierzytelniania formularzy](../introduction/an-overview-of-forms-authentication-vb.md)*  samouczek, a następnie rozszerzone w  *<a id="_msoanchor_3"> </a> [konfiguracji uwierzytelniania formularzy i Tematy zaawansowane](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)*  samouczka. Pokaz aplikacji sieci web ma strony logowania, która weryfikuje poświadczenia użytkowników przed pary ustalony nazwy użytkownika i hasła. Ponadto `Global.asax` zawiera kod, który tworzy niestandardowe `IPrincipal` i `IIdentity` obiektów dla uwierzytelnionych użytkowników. Aktualizujemy strony logowania do zweryfikowania poświadczeń użytkowników przed framework członkostwa i usunąć niestandardowej logiki podmiot zabezpieczeń i tożsamości.
+Oprócz dowiedzieć, jak utworzyć nowe konta użytkowników, będą również należy zaktualizować pokaz witryny sieci Web, utworzyliśmy najpierw w *<a id="_msoanchor_2"> </a> [omówienie uwierzytelniania formularzy](../introduction/an-overview-of-forms-authentication-vb.md)* samouczek, a następnie rozszerzone w *<a id="_msoanchor_3"> </a> [konfiguracji uwierzytelniania formularzy i Tematy zaawansowane](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)* samouczka. Pokaz aplikacji sieci web ma strony logowania, która weryfikuje poświadczenia użytkowników przed pary ustalony nazwy użytkownika i hasła. Ponadto `Global.asax` zawiera kod, który tworzy niestandardowe `IPrincipal` i `IIdentity` obiektów dla uwierzytelnionych użytkowników. Aktualizujemy strony logowania do zweryfikowania poświadczeń użytkowników przed framework członkostwa i usunąć niestandardowej logiki podmiot zabezpieczeń i tożsamości.
 
 Dzieła!
 
@@ -40,7 +40,7 @@ Dzieła!
 Zanim zaczniemy pracy z członkostwa w ramach wytłumaczone przeczytaj ważne czynności, które przekierowaliśmy osiągnąć tego punktu. Korzystając z członkostwa w ramach `SqlMembershipProvider` w przypadku uwierzytelniania formularzy, należy wykonać przed Implementowanie funkcjonalności członkostwa w aplikacji sieci web następujące czynności:
 
 1. **Włącz uwierzytelnianie oparte na formularzach.** Jak wspomniano w  *<a id="_msoanchor_4"> </a> [omówienie uwierzytelniania formularzy](../introduction/an-overview-of-forms-authentication-vb.md)*, uwierzytelnianie formularzy jest włączone, edytując `Web.config` i ustawienie `<authentication>` elementu `mode` atrybutu `Forms`. Z włączone uwierzytelnianie formularzy, każde żądanie przychodzące jest pod kątem *biletu uwierzytelniania formularzy*, jeśli jest obecny, identyfikuje obiekt żądający.
-2. **Dodaj schemat usług aplikacji z odpowiednią bazą danych.** Korzystając z `SqlMembershipProvider` musimy zainstalować schemat usług aplikacji do bazy danych. Zazwyczaj ten schemat zostanie dodany do tej samej bazy danych, który zawiera model danych aplikacji. *<a id="_msoanchor_5"> </a> [Tworzenie schematu członkostwa w programie SQL Server](creating-the-membership-schema-in-sql-server-vb.md)*  samouczek przeglądał przy użyciu `aspnet_regsql.exe` narzędzia w tym celu.
+2. **Dodaj schemat usług aplikacji z odpowiednią bazą danych.** Korzystając z `SqlMembershipProvider` musimy zainstalować schemat usług aplikacji do bazy danych. Zazwyczaj ten schemat zostanie dodany do tej samej bazy danych, który zawiera model danych aplikacji. *<a id="_msoanchor_5"> </a> [Tworzenie schematu członkostwa w programie SQL Server](creating-the-membership-schema-in-sql-server-vb.md)* samouczek przeglądał przy użyciu `aspnet_regsql.exe` narzędzia w tym celu.
 3. **Dostosowywanie ustawień aplikacji sieci Web, aby odwoływać się do bazy danych z kroku 2.** *Tworzenie schematu członkostwa w programie SQL Server* samouczku przedstawiono dwa sposoby konfigurowania aplikacji sieci web, aby `SqlMembershipProvider` użyje bazy danych wybranej w kroku 2: modyfikując `LocalSqlServer` Nazwa ciągu połączenia; lub dodanie nowego dostawcę zarejestrowanych do listy dostawców członkostwa framework i dostosowując tego nowego dostawcy na potrzeby używania bazy danych z kroku 2.
 
 Podczas tworzenia aplikacji sieci web, która używa `SqlMembershipProvider` i uwierzytelnianie oparte na formularzach, konieczne będzie wykonywać te trzy kroki przed użyciem `Membership` klasy lub kontrolek logowania programu ASP.NET w sieci Web. Ponieważ już wykonane następujące kroki w poprzednim samouczki, możemy gotowe do rozpoczęcia przy użyciu platformy członkostwa!
@@ -69,7 +69,7 @@ Każdej strony w tym momencie powinna mieć dwóch formantów zawartości, jeden
 
 [!code-aspx[Main](creating-user-accounts-vb/samples/sample1.aspx)]
 
-Odwołania, który `LoginContent` znaczników domyślnego elementu ContentPlaceHolder na zawiera łącze do logowania się lub wylogowywania lokacji, w zależności od tego, czy użytkownik jest uwierzytelniony. Obecność `Content2` formantu zawartości, jednak zastępuje znaczników domyślnej strony wzorcowej. Jak wspomniano w  *<a id="_msoanchor_6"> </a> [omówienie uwierzytelniania formularzy](../introduction/an-overview-of-forms-authentication-vb.md)*  samouczek, jest to przydatne w którym firma Microsoft nie ma być wyświetlane opcje związane z logowaniem w lewej kolumnie strony.
+Odwołania, który `LoginContent` znaczników domyślnego elementu ContentPlaceHolder na zawiera łącze do logowania się lub wylogowywania lokacji, w zależności od tego, czy użytkownik jest uwierzytelniony. Obecność `Content2` formantu zawartości, jednak zastępuje znaczników domyślnej strony wzorcowej. Jak wspomniano w *<a id="_msoanchor_6"> </a> [omówienie uwierzytelniania formularzy](../introduction/an-overview-of-forms-authentication-vb.md)* samouczek, jest to przydatne w którym firma Microsoft nie ma być wyświetlane opcje związane z logowaniem w lewej kolumnie strony.
 
 Dla tych pięć stron, jednak chęć pokazania znaczników domyślnej strony wzorcowej dla `LoginContent` ContentPlaceHolder. W związku z tym usunąć deklaratywne kod znaczników dla `Content2` zawartości formantu. Po wykonaniu tej czynności, każdej strony pięć znacznika powinna zawierać tylko jeden formant zawartości.
 
@@ -107,7 +107,7 @@ Powyżej znaczników mapy witryny definiuje hierarchii pokazany na rysunku 3.
 
 Program ASP.NET zawiera szereg związanych z nawigacją formantów sieci Web podczas projektowania interfejsu użytkownika. Obejmują one Menu, TreeView i kontrolki ścieżki mapy witryny. Formanty TreeView i Menu renderowania struktury mapy witryny w menu lub drzewo, odpowiednio, natomiast ścieżki mapy witryny Wyświetla ślad, który pokazuje bieżący węzeł odwiedzana oraz jego obiektów nadrzędnych. Dane mapy witryny może być powiązana z innymi danymi formanty sieci Web przy użyciu SiteMapDataSource i można uzyskać programistycznie przy użyciu `SiteMap` klasy.
 
-Ponieważ dogłębną dyskusję framework mapy witryny i formantów nawigacji wykracza poza zakres tego samouczka serii, zamiast niż poświęcić czas teraz obsługuje tworzenie własnej interfejs użytkownika nawigacji zamiast przekazania używaną w mojej  *[ Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)*  samouczka serii, używanym w kontrolce elementu powtarzanego do wyświetlania listy punktowanej dwa bezpośrednich łączy nawigacji, jak pokazano na rysunku 4.
+Ponieważ dogłębną dyskusję framework mapy witryny i formantów nawigacji wykracza poza zakres tego samouczka serii, zamiast niż poświęcić czas teraz obsługuje tworzenie własnej interfejs użytkownika nawigacji zamiast przekazania używaną w mojej *[ Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)* samouczka serii, używanym w kontrolce elementu powtarzanego do wyświetlania listy punktowanej dwa bezpośrednich łączy nawigacji, jak pokazano na rysunku 4.
 
 ### <a name="adding-a-two-level-list-of-links-in-the-left-column"></a>Dodawanie listy dwupoziomowej łączy w lewej kolumnie
 
@@ -143,7 +143,7 @@ Rysunek 5. pokazuje wyniki ścieżki mapy witryny podczas odwiedzania `~/Members
 
 ## <a name="step-4-removing-the-custom-principal-and-identity-logic"></a>Krok 4: Usunięcie niestandardowego podmiotu i logiki tożsamości
 
-W  *<a id="_msoanchor_7"> </a> [konfiguracji uwierzytelniania formularzy i Tematy zaawansowane](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)*  samouczek widzieliśmy jak skojarzyć niestandardowe obiekty podmiot zabezpieczeń i tożsamość uwierzytelnionego użytkownika. Firma Microsoft to realizowane przez tworzenie obsługi zdarzeń w `Global.asax` dla aplikacji `PostAuthenticateRequest` zdarzenie, które są generowane po `FormsAuthenticationModule` uwierzytelnieniu użytkownika. W tej obsłudze zdarzeń możemy zastąpić `GenericPrincipal` i `FormsIdentity` obiektów dodanych przez `FormsAuthenticationModule` z `CustomPrincipal` i `CustomIdentity` obiekty utworzyliśmy w tym samouczku.
+W *<a id="_msoanchor_7"> </a> [konfiguracji uwierzytelniania formularzy i Tematy zaawansowane](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)* samouczek widzieliśmy jak skojarzyć niestandardowe obiekty podmiot zabezpieczeń i tożsamość uwierzytelnionego użytkownika. Firma Microsoft to realizowane przez tworzenie obsługi zdarzeń w `Global.asax` dla aplikacji `PostAuthenticateRequest` zdarzenie, które są generowane po `FormsAuthenticationModule` uwierzytelnieniu użytkownika. W tej obsłudze zdarzeń możemy zastąpić `GenericPrincipal` i `FormsIdentity` obiektów dodanych przez `FormsAuthenticationModule` z `CustomPrincipal` i `CustomIdentity` obiekty utworzyliśmy w tym samouczku.
 
 Niestandardowe obiekty Principal role i tożsamości są przydatne w niektórych scenariuszach, w większości przypadków `GenericPrincipal` i `FormsIdentity` obiekty są wystarczające. W rezultacie myślę, że będzie zastanowić, aby powrócić do domyślnego zachowania. To zrobić przez usunięcie lub komentarzy limit `PostAuthenticateRequest` obsługi zdarzeń lub usuwając `Global.asax` całkowicie pliku.
 
@@ -164,17 +164,17 @@ Aby utworzyć nowe konto użytkownika przy użyciu framework członkostwa `Membe
 
 Te cztery przeciążenia różnią się ilości zbieranych informacji. Pierwszy przeciążenia wymaga na przykład tylko nazwę użytkownika i hasło dla nowego konta użytkownika, a drugi wymaga również adres e-mail użytkownika.
 
-Te przeciążenia istnieje, ponieważ informacje wymagane do utworzenia nowego konta użytkownika zależy od ustawień konfiguracji dostawcy członkostwa. W  *<a id="_msoanchor_8"> </a> [tworzenie schematu członkostwa w programie SQL Server](creating-the-membership-schema-in-sql-server-vb.md)*  możemy zbadać określania ustawień konfiguracji dostawcy członkostwa w samouczku `Web.config`. Tabela 2 uwzględnione pełną listę ustawień konfiguracyjnych.
+Te przeciążenia istnieje, ponieważ informacje wymagane do utworzenia nowego konta użytkownika zależy od ustawień konfiguracji dostawcy członkostwa. W *<a id="_msoanchor_8"> </a> [tworzenie schematu członkostwa w programie SQL Server](creating-the-membership-schema-in-sql-server-vb.md)* możemy zbadać określania ustawień konfiguracji dostawcy członkostwa w samouczku `Web.config`. Tabela 2 uwzględnione pełną listę ustawień konfiguracyjnych.
 
 Jeden taki członkostwa dostawcy ustawienie konfiguracji, które ma wpływ na co `CreateUser` przeciążenia, które mogą być używane jest `requiresQuestionAndAnswer` ustawienie. Jeśli `requiresQuestionAndAnswer` ma ustawioną wartość `true` (ustawienie domyślne), a następnie podczas tworzenia nowego konta użytkownika firma Microsoft Wprowadź pytanie zabezpieczające i odpowiedzi. Te informacje są używane później, jeśli użytkownik musi zresetować lub zmienić swoje hasło. W szczególności w tym czasie są wyświetlane na pytanie zabezpieczające i wprowadzić poprawną odpowiedź w celu resetowania lub zmiany hasła. W związku z tym jeśli `requiresQuestionAndAnswer` ustawiono `true` , a następnie podczas wywoływania jednej z dwóch pierwszych `CreateUser` overloads powoduje wyjątek, ponieważ brakuje pytanie zabezpieczające i odpowiedzi. Ponieważ naszej aplikacji jest obecnie skonfigurowany do wymagają pytanie zabezpieczające i odpowiedzi, możemy należy użyć jednej z ostatnie dwa przeciążenia programowe tworzenie użytkownika.
 
 Aby zilustrować przy użyciu `CreateUser` metody, Utwórzmy interfejsu użytkownika, w którym firma Microsoft monit o podanie nazwy, hasła, poczty e-mail i odpowiedzi na pytanie zabezpieczające wstępnie zdefiniowane. Otwórz `CreatingUserAccounts.aspx` strony `Membership` folderu i dodaj następujące formantów sieci Web do kontroli zawartości:
 
-- Pole tekstowe o nazwie`Username`
-- Pole tekstowe o nazwie `Password`, których `TextMode` ma ustawioną wartość właściwości`Password`
-- Pole tekstowe o nazwie`Email`
+- Pole tekstowe o nazwie `Username`
+- Pole tekstowe o nazwie `Password`, których `TextMode` ma ustawioną wartość właściwości `Password`
+- Pole tekstowe o nazwie `Email`
 - Etykieta o nazwie `SecurityQuestion` z jego `Text` wyczyścić właściwości
-- Pole tekstowe o nazwie`SecurityAnswer`
+- Pole tekstowe o nazwie `SecurityAnswer`
 - Przycisk o nazwie `CreateAccountButton` którego `Text` właściwość jest ustawiona na tworzenie konta użytkownika
 - Etykieta o nazwie `CreateAccountResults` z jego `Text` wyczyścić właściwości
 
@@ -196,7 +196,7 @@ Następnie należy utworzyć programu obsługi zdarzeń dla `CreateAccountButton
 
 [!code-vb[Main](creating-user-accounts-vb/samples/sample6.vb)]
 
-`Click` Uruchamia program obsługi zdarzeń, definiując zmiennej o nazwie `createStatus` typu [ `MembershipCreateStatus` ](https://msdn.microsoft.com/library/system.web.security.membershipcreatestatus.aspx). `MembershipCreateStatus`to wyliczenie, które wskazuje stan `CreateUser` operacji. Na przykład, jeśli konto użytkownika jest została pomyślnie utworzona, powstałe w ten sposób `MembershipCreateStatus` wystąpienie zostanie ustawiona na wartość `Success;` z drugiej strony, jeśli operacja nie powiedzie się, ponieważ już istnieje użytkownik o tej samej nazwy użytkownika, zostanie ustawiona na wartość `DuplicateUserName`. W `CreateUser` przeciążenia używamy, należy przekazać `MembershipCreateStatus` wystąpienie do metody. Ten parametr ma wartość odpowiednią wartość w `CreateUser` — metoda i firma Microsoft, można sprawdzić jego wartość po wywołaniu metody do określenia, czy konto użytkownika zostało pomyślnie utworzone.
+`Click` Uruchamia program obsługi zdarzeń, definiując zmiennej o nazwie `createStatus` typu [ `MembershipCreateStatus` ](https://msdn.microsoft.com/library/system.web.security.membershipcreatestatus.aspx). `MembershipCreateStatus` to wyliczenie, które wskazuje stan `CreateUser` operacji. Na przykład, jeśli konto użytkownika jest została pomyślnie utworzona, powstałe w ten sposób `MembershipCreateStatus` wystąpienie zostanie ustawiona na wartość `Success;` z drugiej strony, jeśli operacja nie powiedzie się, ponieważ już istnieje użytkownik o tej samej nazwy użytkownika, zostanie ustawiona na wartość `DuplicateUserName`. W `CreateUser` przeciążenia używamy, należy przekazać `MembershipCreateStatus` wystąpienie do metody. Ten parametr ma wartość odpowiednią wartość w `CreateUser` — metoda i firma Microsoft, można sprawdzić jego wartość po wywołaniu metody do określenia, czy konto użytkownika zostało pomyślnie utworzone.
 
 Po wywołaniu `CreateUser`, przekazując `createStatus`, `Select Case` instrukcji jest używany do wypełniania wyjściowego odpowiedni komunikat w zależności od wartość przypisana do `createStatus`. Rysunki 7 przedstawiono dane wyjściowe, gdy nowy użytkownik został pomyślnie utworzony. Rysunki 8 do 9 wyświetlić dane wyjściowe, gdy konto użytkownika nie jest tworzone. Na rysunku 8 obiekt odwiedzający wprowadzone hasło pięciu litery, który nie spełnia wymagania dotyczące siły hasła, które zostały zapisane w ustawienia konfiguracji dostawcy członkostwa. Na rysunku nr 9 użytkownik próbuje utworzyć konto użytkownika z istniejącą nazwą użytkownika (utworzonym na rysunku 7).
 
@@ -231,7 +231,7 @@ Po utworzeniu kilka kont użytkowników, sprawdź, czy konta zostały utworzone 
 Gdy magazynie członkostwa użytkownika zawiera teraz informacje o koncie Bruce i jego Tito, musimy jeszcze implementuje funkcje, które umożliwia Bruce lub Tito do logowania się do witryny. Obecnie `Login.aspx` sprawdza poprawność poświadczeń użytkownika przed ustalony zbiór par nazwa użytkownika i hasło — robi *nie* sprawdzanie poprawności podanych poświadczeń przed framework członkostwa. Przy przeglądaniu teraz nowych kont użytkowników w `aspnet_Users` i `aspnet_Membership` tabel będzie musiał wystarczające. W następnym samouczku  *<a id="_msoanchor_9"> </a> [sprawdzania poprawności użytkownika poświadczeń przed członkostwa użytkownika przechowywania](validating-user-credentials-against-the-membership-user-store-vb.md)*, firma Microsoft będzie aktualizować strony logowania na potrzeby sprawdzania poprawności magazynu członkostwa.
 
 > [!NOTE]
-> Jeśli nie ma żadnych użytkowników w Twojej `SecurityTutorials.mdf` bazy danych, może to być spowodowane aplikacji sieci web używa domyślnego dostawcę członkostwa `AspNetSqlMembershipProvider`, który korzysta z `ASPNETDB.mdf` bazy danych jako jego magazynu użytkownika. Aby ustalić, czy na tym polega problem, kliknij przycisk Odśwież w Eksploratorze rozwiązań. Jeśli w bazie danych o nazwie `ASPNETDB.mdf` został dodany do `App_Data` folderu, na tym polega problem. Wróć do kroku 4  *<a id="_msoanchor_10"> </a> [tworzenie schematu członkostwa w programie SQL Server](creating-the-membership-schema-in-sql-server-vb.md)*  samouczek, w jaki sposób poprawnie skonfigurować dostawcę członkostwa.
+> Jeśli nie ma żadnych użytkowników w Twojej `SecurityTutorials.mdf` bazy danych, może to być spowodowane aplikacji sieci web używa domyślnego dostawcę członkostwa `AspNetSqlMembershipProvider`, który korzysta z `ASPNETDB.mdf` bazy danych jako jego magazynu użytkownika. Aby ustalić, czy na tym polega problem, kliknij przycisk Odśwież w Eksploratorze rozwiązań. Jeśli w bazie danych o nazwie `ASPNETDB.mdf` został dodany do `App_Data` folderu, na tym polega problem. Wróć do kroku 4 *<a id="_msoanchor_10"> </a> [tworzenie schematu członkostwa w programie SQL Server](creating-the-membership-schema-in-sql-server-vb.md)* samouczek, w jaki sposób poprawnie skonfigurować dostawcę członkostwa.
 
 
 W większości Utwórz użytkownika scenariusze konta, użytkownik zobaczy niektórych interfejsu, aby wprowadzić swoją nazwę użytkownika, hasło, poczty e-mail i inne ważne informacje, w którym utworzono nowe konto. W tym kroku będziemy przeglądał ręcznego tworzenia takiego interfejsu i następnie pokazano, jak używać `Membership.CreateUser` metoda programowo dodać nowe konto użytkownika oparta na danych wprowadzonych przez użytkownika. Naszego kodu, jednak tylko utworzyć nowe konto użytkownika. Nie wykonał wszelkich dalszych akcji, takich jak logowanie użytkownika do witryny przy użyciu konta użytkownika właśnie utworzony lub wysyłania do użytkownika wiadomość e-mail z potwierdzeniem. Te dodatkowe kroki wymagają dodatkowy kod w przycisku `Click` obsługi zdarzeń.
@@ -350,7 +350,7 @@ Zrzut ekranu przedstawia rysunek 15 `CreatingUserAccounts.aspx` gdy użytkownik 
 
 
 > [!NOTE]
-> Przykład użycia formancie CreateUserWizard zostanie wyświetlone `CreatedUser` zdarzenia w  *<a id="_msoanchor_11"> </a> [przechowywania dodatkowych informacji użytkownika](storing-additional-user-information-vb.md)*  samouczka.
+> Przykład użycia formancie CreateUserWizard zostanie wyświetlone `CreatedUser` zdarzenia w *<a id="_msoanchor_11"> </a> [przechowywania dodatkowych informacji użytkownika](storing-additional-user-information-vb.md)* samouczka.
 
 
 ## <a name="summary"></a>Podsumowanie
@@ -367,7 +367,7 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [`CreateUser`Dokumentacja techniczna](https://msdn.microsoft.com/library/system.web.security.membershipprovider.createuser.aspx)
+- [`CreateUser` Dokumentacja techniczna](https://msdn.microsoft.com/library/system.web.security.membershipprovider.createuser.aspx)
 - [Informacje o formancie CreateUserWizard](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/createuserwizard.aspx)
 - [Tworzenie dostawcy mapy witryny opartej na systemie plików](http://aspnet.4guysfromrolla.com/articles/020106-1.aspx)
 - [Tworzenie za pomocą programu ASP.NET 2.0 Kreator formantu interfejsu użytkownika krok po kroku](http://aspnet.4guysfromrolla.com/articles/061406-1.aspx)
@@ -377,12 +377,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Poprzednie](creating-the-membership-schema-in-sql-server-vb.md)
-[dalej](validating-user-credentials-against-the-membership-user-store-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-the-membership-schema-in-sql-server-vb.md)
+> [dalej](validating-user-credentials-against-the-membership-user-store-vb.md)

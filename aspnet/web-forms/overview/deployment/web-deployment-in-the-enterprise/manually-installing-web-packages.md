@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
-title: "Ręczne instalowanie pakietów sieci Web | Dokumentacja firmy Microsoft"
+title: Ręczne instalowanie pakietów sieci Web | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano, jak ręcznie zaimportować pakiet wdrożeniowy sieci web do programu Internet Information Services (IIS). Tworzenie tematu i pakowania instalacja sieci Web..."
+description: W tym temacie opisano, jak ręcznie zaimportować pakiet wdrożeniowy sieci web do programu Internet Information Services (IIS). Tworzenie tematu i pakowania instalacja sieci Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: e06d37c01ab66f0723b687f4ed1ee72561099aef
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4a28ea92b22e4928e41a39a8a91b62bfa4f08175
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="manually-installing-web-packages"></a>Ręczne instalowanie pakietów sieci Web
 ====================
@@ -30,10 +30,10 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > 
 > Po utworzeniu pakietu wdrożeniowego sieci web można opublikować na serwerze usług IIS na różne sposoby. W wiele scenariuszy należy skorzystać z punkty integracji między MSBuild, WPP i Web Deploy do tworzenia i instalowania pakietów sieci web zdalnie w trakcie procesu automatyczna lub pojedynczy krok kompilacji i wdrożenia. Ten proces jest opisany w [wdrażanie pakietów sieci Web](deploying-web-packages.md). Jednak nie jest to zawsze możliwe. Załóżmy, że chcesz wdrożyć aplikację sieci web do środowiska produkcyjnego skierowane do Internetu. Ze względów bezpieczeństwa środowiska produkcyjnego, jest na bardzo najmniej mogą znajdować się za zaporą w podsieci, która jest niezależna od serwera kompilacji w sieci obwodowej (znanej także jako strefa DMZ, strefą zdemilitaryzowaną i podsiecią ekranowaną). W wielu przypadkach w środowisku produkcyjnym będzie w osobnej domenie lub w sieci izolowanej fizycznie.
 > 
-> W tych scenariuszach może być jedyną opcją portu pakiet sieci web na serwerze docelowym i ręcznie zaimportuj go do usług IIS. Mimo że takie podejście wyklucza automatycznego wdrażania, jest nadal bardzo wydajny technika publikowania aplikacji sieci web & #x 2014; wystarczy skopiować plik zip jednego do serwera sieci web i za pomocą Kreatora prowadzące przez proces importowania.
+> W tych scenariuszach może być jedyną opcją portu pakiet sieci web na serwerze docelowym i ręcznie zaimportuj go do usług IIS. Mimo że takie podejście wyklucza automatycznego wdrażania, jest nadal bardzo wydajny technika publikowania aplikacji sieci web&#x2014;po prostu skopiuj plik zip jednego do serwera sieci web i jest używany Kreator prowadzące przez proces importowania.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
 ## <a name="task-overview"></a>Omówienie zadań
 
@@ -133,5 +133,5 @@ W tym temacie opisano jak zaimportować pakiet wdrożeniowy sieci web do witryny
 
 Aby uzyskać wskazówki dotyczące sposobu konfigurowania serwera sieci web usług IIS do obsługi Ręczne importowanie pakietu sieci web, zobacz [Konfiguracja serwera sieci Web dla wdrożenia publikowania w sieci Web (wdrożenie w trybie Offline)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Aby uzyskać bardziej ogólne wskazówki dotyczące wdrażania pakietów sieci web, zobacz [wskazówki: Wdrażanie pomocą projektu aplikacji sieci Web pakietu wdrożeniowego sieci Web (część 1 z 4)](https://msdn.microsoft.com/library/dd483479.aspx).
 
->[!div class="step-by-step"]
-[Poprzednie](creating-and-running-a-deployment-command-file.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-and-running-a-deployment-command-file.md)

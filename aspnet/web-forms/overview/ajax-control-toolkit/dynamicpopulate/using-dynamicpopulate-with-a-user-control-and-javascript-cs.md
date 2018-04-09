@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
-title: "Przy użyciu DynamicPopulate z formantu użytkownika i kodu JavaScript (C#) | Dokumentacja firmy Microsoft"
+title: Przy użyciu DynamicPopulate z formantu użytkownika i kodu JavaScript (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: "Formant DynamicPopulate w zestawie narzędzi programu ASP.NET AJAX kontroli wywołania usługi sieci web (lub metoda strony) i wypełnia wartość wynikową w formancie docelowym t..."
+description: Formant DynamicPopulate w zestawie narzędzi programu ASP.NET AJAX kontroli wywołania usługi sieci web (lub metoda strony) i wypełnia wartość wynikową w formancie docelowym t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0d98177561b72ffbe05455f785e156f91e450d36
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: cced645733375de7ab6235efa46b8d20ed262e50
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>Przy użyciu DynamicPopulate z formantu użytkownika i kodu JavaScript (C#)
 ====================
@@ -74,6 +74,6 @@ I to już wszystko! Strona działa zgodnie z oczekiwaniami: użytkownik kliknie 
 
 Przyciski radiowe znajdują się w formancie użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Poprzednie](dynamically-populating-a-control-using-javascript-code-cs.md)
-[dalej](dynamically-populating-a-control-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](dynamically-populating-a-control-using-javascript-code-cs.md)
+> [dalej](dynamically-populating-a-control-vb.md)

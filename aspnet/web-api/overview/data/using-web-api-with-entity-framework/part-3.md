@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-3
-title: "Umożliwia dodanie danych do bazy danych migracje Code First | Dokumentacja firmy Microsoft"
+title: Umożliwia dodanie danych do bazy danych migracje Code First | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 1ca627397f0f100d13388f9afc27ff481886e098
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 33bc6d82daa9ca5f46452a1adf4e2eebea04fa6c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-code-first-migrations-to-seed-the-database"></a>Umożliwia migracje Code First inicjatora bazy danych
 ====================
@@ -72,7 +72,7 @@ Interfejs API umożliwia operacje CRUD na bazie danych. Poniżej przedstawiono p
 | Umieść /api/autorów / {id} | Aktualizowanie istniejących autora. |
 | Usuń /api/autorów / {id} | Usuń autora. |
 
-| Książek |  |
+| Książki |  |
 | --- | -- |
 | Pobierz /api/books | Pobierz wszystkie źródłowe. |
 | Pobierz /api/books / {id} | Pobierz książkę według identyfikatora. |
@@ -102,6 +102,6 @@ Poniższy zrzut ekranu przedstawia wyniki dla tabeli książek. Zwróć uwagę, 
 
 ![](part-3/_static/image9.png)
 
->[!div class="step-by-step"]
-[Poprzednie](part-2.md)
-[dalej](part-4.md)
+> [!div class="step-by-step"]
+> [Poprzednie](part-2.md)
+> [dalej](part-4.md)

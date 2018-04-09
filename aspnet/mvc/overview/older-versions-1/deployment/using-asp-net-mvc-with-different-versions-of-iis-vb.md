@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
-title: "Przy użyciu platformy ASP.NET MVC z różnymi wersjami usług IIS (VB) | Dokumentacja firmy Microsoft"
+title: Przy użyciu platformy ASP.NET MVC z różnymi wersjami usług IIS (VB) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "W tym samouczku Dowiedz się jak używać programu ASP.NET MVC i routingu adresów URL, z różnymi wersjami programu Internet Information Services. Dowiedz się więcej różne strategie..."
+description: W tym samouczku Dowiedz się jak używać programu ASP.NET MVC i routingu adresów URL, z różnymi wersjami programu Internet Information Services. Dowiedz się więcej różne strategie...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6c9c3bf004b13677728c7c6bf2f5adf6a264dc49
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a131d5ae540356251e8d05178f8eef95be0ace39
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>Przy użyciu platformy ASP.NET MVC z różnymi wersjami usług IIS (VB)
 ====================
@@ -33,7 +33,7 @@ Poniżej przedstawiono podsumowanie różnych wersji programu IIS:
 - Usługi IIS 7.0 (trybu klasycznego) — należy przeprowadzić specjalnej konfiguracji, aby korzystać z routingu platformy ASP.NET.
 - Usługi IIS w wersji 6.0 lub poniżej — należy przeprowadzić specjalnej konfiguracji, aby korzystać z routingu platformy ASP.NET.
 
-Najnowszą wersję usług IIS jest wersja 7.5 (na Win7). Usługi IIS w usługach IIS 7 jest dołączony z systemu Windows Server 2008 i VISTA/z dodatkiem SP1 lub nowszy. Można też zainstalować usług IIS 7.0 w dowolnej wersji systemu operacyjnego Vista oprócz Home Basic (zobacz [https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx)).
+Najnowszą wersję usług IIS jest wersja 7.5 (na Win7). Usługi IIS w usługach IIS 7 jest dołączony z systemu Windows Server 2008 i VISTA/z dodatkiem SP1 lub nowszy. Można też zainstalować usług IIS 7.0 w dowolnej wersji systemu operacyjnego Vista oprócz Home Basic (zobacz [ https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx ](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx)).
 
 Usługi IIS 7.0 obsługuje dwa tryby do przetwarzania żądań. Można użyć trybu zintegrowanego lub w trybie klasycznym. Nie trzeba wykonywać żadnych czynności konfiguracyjnych specjalne, korzystając z usług IIS 7.0 w trybie zintegrowanym. Jednak należy wykonać dodatkowe czynności konfiguracyjne, korzystając z usług IIS 7.0 w trybie klasycznym.
 
@@ -64,9 +64,9 @@ Domyślnie usługi IIS jest skonfigurowany do obsługi dwóch pul aplikacji: **D
 
 Zwróć uwagę, że tryb przetwarzania żądań w oknie dialogowym Edytowanie aplikacji można modyfikować. Kliknij przycisk Wybierz, a następnie zmień pulę aplikacji skojarzone z aplikacją. Należy pamiętać, że występują problemy ze zgodnością w przypadku zmiany aplikacji ASP.NET z klasycznego trybu zintegrowanego. Aby uzyskać więcej informacji zobacz następujące artykuły:
 
-- Uaktualnianie 1.1 programu ASP.NET w usługach IIS 7.0 w systemach Windows Vista i Windows Server 2008 — [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008)
+- Uaktualnianie do usług IIS 7.0 w systemach Windows Vista i Windows Server 2008 — ASP.NET 1.1 [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008)
 
-- ASP.NET Integration With IIS 7.0 - [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
+- Integracja platformy ASP.NET z usług IIS 7.0 — [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
 
 
 Jeśli aplikacja ASP.NET używa domyślna pula aplikacji, następnie nie trzeba wykonywać żadnych dodatkowych czynności w celu pobrania routingu platformy ASP.NET (i w związku z tym ASP.NET MVC) do pracy. Jednak jeśli aplikacja ASP.NET jest skonfigurowany do Użyj klasycznego pulę aplikacji .NET, a następnie zachować odczytu, ma więcej pracy.
@@ -109,7 +109,7 @@ Starsze wersje programu IIS mapują tylko niektórych żądań do struktury prog
 
 W związku z tym uzyskanie do pracy proces routingu platformy ASP.NET, możemy zmodyfikuj trasy domyślnej tak, aby zawiera rozszerzenie pliku, który jest zamapowany na struktury programu ASP.NET.
 
-Jest to realizowane za pomocą skryptu o nazwie `registermvc.wsf`. Została włączona w wersji platformy ASP.NET MVC 1 w `C:\Program Files\Microsoft ASP.NET\ASP.NET MVC\Scripts`, ale począwszy od programu ASP.NET 2 ten skrypt został przeniesiony do prognozy ASP.NET, dostępne pod adresem [http://aspnet.codeplex.com/releases/view/39978](http://aspnet.codeplex.com/releases/view/39978).
+Jest to realizowane za pomocą skryptu o nazwie `registermvc.wsf`. Została włączona w wersji platformy ASP.NET MVC 1 w `C:\Program Files\Microsoft ASP.NET\ASP.NET MVC\Scripts`, ale począwszy od programu ASP.NET 2 ten skrypt został przeniesiony do prognozy ASP.NET, dostępne pod adresem [ http://aspnet.codeplex.com/releases/view/39978 ](http://aspnet.codeplex.com/releases/view/39978).
 
 Wykonującego ten skrypt rejestruje nowe rozszerzenie MVC z usługami IIS. Po zarejestrowaniu rozszerzenia MVC, dzięki czemu trasy rozszerzenia MVC można zmodyfikować trasy w pliku Global.asax.
 
@@ -228,5 +228,5 @@ Pierwsza opcja wymaga zmodyfikowania adresy URL używane w aplikacji ASP.NET MVC
 
 Drugą opcją jest utworzyć wieloznaczną mapę skryptu. Zaletą tej drugiej opcji jest, że nie ma potrzeby modyfikowania adresami URL. Wadą tego druga opcja to, że może wpłynąć na wydajność aplikacji ASP.NET MVC.
 
->[!div class="step-by-step"]
-[Poprzednie](using-asp-net-mvc-with-different-versions-of-iis-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-asp-net-mvc-with-different-versions-of-iis-cs.md)

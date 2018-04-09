@@ -1,7 +1,7 @@
 ---
-title: "Platformy ASP.NET Core MVC podstawowych EF — Model danych — 5 10"
+title: Platformy ASP.NET Core MVC podstawowych EF — Model danych — 5 10
 author: tdykstra
-description: "W tym samouczku Dodaj więcej jednostki i relacje i dostosować modelu danych, określając formatowania, sprawdzanie poprawności i mapowanie reguły."
+description: W tym samouczku Dodaj więcej jednostki i relacje i dostosować modelu danych, określając formatowania, sprawdzanie poprawności i mapowanie reguły.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 9f5354837672920158232b301cfe7be358dbc0f3
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ab3d4221b498bb2987105fb36f2c6803f8fe6125
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Tworzenie modelu danych złożonych - Core EF z samouczek platformy ASP.NET Core MVC (5, 10)
+# <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF — Model danych — 5 10
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -495,6 +495,6 @@ Kliknij prawym przyciskiem myszy **CourseAssignment** tabeli i wybierz **danych 
 
 Masz teraz bardziej złożonych modelu danych i odpowiednią bazę danych. Następujące samouczka dowiesz się więcej na temat dostępu do danych powiązanych.
 
->[!div class="step-by-step"]
-[Poprzednie](migrations.md)
-[dalej](read-related-data.md)  
+> [!div class="step-by-step"]
+> [Poprzednie](migrations.md)
+> [dalej](read-related-data.md)  

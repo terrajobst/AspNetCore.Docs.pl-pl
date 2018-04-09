@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
-title: "Sortowanie, stronicowania i filtrowanie danych przy użyciu wiązania modelu i formularzy sieci web | Dokumentacja firmy Microsoft"
+title: Sortowanie, stronicowania i filtrowanie danych przy użyciu wiązania modelu i formularzy sieci web | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Ten samouczek serii przedstawiono podstawowe aspekty projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązania modelu sprawia, że dane interakcji więcej proste-..."
+description: Ten samouczek serii przedstawiono podstawowe aspekty projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązania modelu sprawia, że dane interakcji więcej proste-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 94fc84533be5fcbcf0612fcdcabea7dee738d89b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d63ebecadd392877e4cb1d1dffe9db2d1d231190
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>Sortowanie, stronicowania i filtrowanie danych przy użyciu wiązania modelu i formularzy sieci web
 ====================
@@ -65,7 +65,7 @@ Wykonywanie zapytań odroczonych poprawia wydajność aplikacji. Zamiast pobiera
 Wiązanie modelu dodaje kilka atrybutów, które umożliwiają określanie sposobu wartość dla parametru w metodzie powiązania modelu. Te atrybuty są w **System.Web.ModelBinding** przestrzeni nazw. Obejmują one:
 
 - Formant
-- Plik cookie
+- Cookie
 - Formularz
 - Profil
 - Ciąg zapytania
@@ -100,6 +100,6 @@ W tym samouczku włączone sortowanie i stronicowanie danych. Możesz również 
 
 W następnej [samouczek](integrating-jquery-ui.md) zwiększy interfejsu użytkownika dzięki integracji elementu widget interfejsu użytkownika JQuery w szablonie danych dynamicznych.
 
->[!div class="step-by-step"]
-[Poprzednie](updating-deleting-and-creating-data.md)
-[dalej](integrating-jquery-ui.md)
+> [!div class="step-by-step"]
+> [Poprzednie](updating-deleting-and-creating-data.md)
+> [dalej](integrating-jquery-ui.md)

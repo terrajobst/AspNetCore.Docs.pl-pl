@@ -1,7 +1,7 @@
 ---
-title: "Przy użyciu Gulp w platformy ASP.NET Core"
+title: Użyj Gulp w platformy ASP.NET Core
 author: rick-anderson
-description: "Dowiedz się, jak używać Gulp w ASP.NET Core."
+description: Dowiedz się, jak używać Gulp w ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: 0a3443e8187d46992f55dc537d0f400c6771c50c
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: f776b2025b6ebfeff28d3903aaeac4d7d89665b3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="introduction-to-using-gulp-in-aspnet-core"></a>Wprowadzenie do korzystania z Gulp w ASP.NET Core 
+# <a name="use-gulp-in-aspnet-core"></a>Użyj Gulp w platformy ASP.NET Core
 
 Przez [Erik Reitan](https://github.com/Erikre), [Scott Addie](https://scottaddie.com), [Roth Danielowi](https://github.com/danroth27), i [Shayne Boyer](https://twitter.com/spboyer)
 
@@ -183,6 +183,9 @@ Jeśli jeszcze nie utworzono nową aplikację sieci Web, Utwórz nowy projekt ap
     **Zadanie Eksploratora modułu uruchamiającego** z listą zadań Gulp. (Może być konieczne kliknięcie pozycji **Odśwież** przycisku, który wydaje się po lewej stronie nazwy projektu.)
     
     ![Eksploratora modułu uruchamiającego zadania](using-gulp/_static/03-TaskRunnerExplorer.png)
+    
+    > [!IMPORTANT]
+    > **Eksploratora modułu uruchamiającego zadania** elementu menu kontekstowego jest wyświetlana tylko wtedy, gdy *gulpfile.js* znajduje się w katalogu głównym projektu.
 
 4.  Underneath **zadania** w **Eksploratora modułu uruchamiającego zadania**, kliknij prawym przyciskiem myszy **czystą**i wybierz **Uruchom** z menu podręcznego.
 
@@ -228,7 +231,7 @@ Aby zdefiniować nowe zadanie Gulp, zmodyfikuj *gulpfile.js*.
 
     ![Uruchom zadanie pierwszy Eksploratora modułu uruchamiającego zadania](using-gulp/_static/06-TaskRunner-First.png)
 
-    Zobaczysz, że jest wyświetlany tekst wyjściowy. Jeśli interesuje Cię w przykładach oparte na typowy scenariusz, zobacz system Gulp przepisami.
+    Tekst wyjściowy jest wyświetlany. Aby wyświetlić przykłady oparte na typowych scenariuszy, zobacz [system Gulp przepisami](#gulp-recipes).
 
 ## <a name="defining-and-running-tasks-in-a-series"></a>Definiowanie i uruchamianie zadań w serii
 
@@ -323,7 +326,7 @@ Aby przełączyć między kompilowania kodu dla różnych środowisk, należy zm
 
     Należy zauważyć, że łączy arkusza stylów wskaż unminified wersje plików CSS.
 
-Aby uzyskać więcej informacji związanych z środowiska w programie ASP.NET Core, zobacz [Praca w środowiskach wielu](../fundamentals/environments.md).
+Aby uzyskać więcej informacji związanych z środowiska w programie ASP.NET Core, zobacz [pracy w środowiskach wielu](../fundamentals/environments.md).
 
 ## <a name="task-and-module-details"></a>Szczegóły zadania i modułu
 
@@ -346,4 +349,4 @@ Społeczność Gulp oferuje Gulp [przepisami](https://github.com/gulpjs/gulp/blo
 
 * [Dokumentacja gulp](https://github.com/gulpjs/gulp/blob/master/docs/README.md)
 * [Tworzenie pakietów i minimalizowanie w ASP.NET Core](bundling-and-minification.md)
-* [Przy użyciu Grunt w platformy ASP.NET Core](using-grunt.md)
+* [Użyj Grunt w platformy ASP.NET Core](using-grunt.md)

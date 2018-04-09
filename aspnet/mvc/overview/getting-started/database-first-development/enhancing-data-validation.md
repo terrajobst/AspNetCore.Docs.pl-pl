@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/enhancing-data-validation
-title: "Baza danych EF najpierw o platformie ASP.NET MVC: udoskonalanie sprawdzanie poprawności danych | Dokumentacja firmy Microsoft"
+title: 'Baza danych EF najpierw o platformie ASP.NET MVC: udoskonalanie sprawdzanie poprawności danych | Dokumentacja firmy Microsoft'
 author: tfitzmac
-description: "Przy użyciu MVC, Entity Framework i szkieletów ASP.NET, można utworzyć aplikacji sieci web, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri..."
+description: Przy użyciu MVC, Entity Framework i szkieletów ASP.NET, można utworzyć aplikacji sieci web, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/29/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 842496c2d3ec56fb81f2409dd7d05d800f83799b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8ea2e94db7956b76c5ccf0a139ac024e38910b49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a>Baza danych EF najpierw o platformie ASP.NET MVC: udoskonalanie sprawdzanie poprawności danych
 ====================
@@ -87,6 +87,6 @@ Zapisz plik ContosoModel.edmx w celu zastosowania zmian.
 
 Otwórz plik Student.cs lub plik Enrollment.cs i nie są zastosowane wcześniej atrybuty weryfikacji danych w pliku. Uruchom aplikację i zwróć uwagę, reguły walidacji nadal są stosowane podczas wprowadzania danych.
 
->[!div class="step-by-step"]
-[Poprzednie](customizing-a-view.md)
-[dalej](publish-to-azure.md)
+> [!div class="step-by-step"]
+> [Poprzednie](customizing-a-view.md)
+> [dalej](publish-to-azure.md)

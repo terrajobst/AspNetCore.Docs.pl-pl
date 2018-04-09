@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb
-title: "Omówienie Wstawianie, aktualizowanie i usuwanie danych (VB) | Dokumentacja firmy Microsoft"
+title: Omówienie Wstawianie, aktualizowanie i usuwanie danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku zajmiemy się tym, jak zamapować operacji Insert() ObjectDataSource, Update(), i Delete() metod do metod logiki warstwy Biznesowej klasy, a także sposobu konfigu..."
+description: W tym samouczku zajmiemy się tym, jak zamapować operacji Insert() ObjectDataSource, Update(), i Delete() metod do metod logiki warstwy Biznesowej klasy, a także sposobu konfigu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e7552abb30aa26d3aaceb3312c00661c6d4d6cf8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: db77d9ec5b0d4b27259023363e786b26fe736d7b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-vb"></a>Omówienie Wstawianie, aktualizowanie i usuwanie danych (VB)
 ====================
@@ -238,7 +238,7 @@ W naszym samouczku umożliwia tylko usunięcie wszystkich rekordów z `Order Det
 - Rozszerzyć `DeleteProduct` metodę w celu uwzględnienia logiki można usunąć szczegółów zamówienia określonego produktu
 - Zmodyfikuj zapytanie SQL używane przez TableAdapter uwzględnienie usunięcia szczegółów zamówienia określonego produktu
 
-Umożliwia tylko usunięcie wszystkich rekordów z `Order Details` tabeli, aby obejść ograniczenie klucza obcego. Przejdź do Eksploratora serwera w programie Visual Studio, kliknij prawym przyciskiem myszy `NORTHWND.MDF` węzeł i wybierz nową kwerendę. Następnie w oknie zapytania, uruchom następującą instrukcję SQL:`DELETE FROM [Order Details]`
+Umożliwia tylko usunięcie wszystkich rekordów z `Order Details` tabeli, aby obejść ograniczenie klucza obcego. Przejdź do Eksploratora serwera w programie Visual Studio, kliknij prawym przyciskiem myszy `NORTHWND.MDF` węzeł i wybierz nową kwerendę. Następnie w oknie zapytania, uruchom następującą instrukcję SQL: `DELETE FROM [Order Details]`
 
 
 [![Usuń wszystkie rekordy z tabeli Szczegóły kolejności](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image34.png)
@@ -441,8 +441,8 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Poprzednie](limiting-data-modification-functionality-based-on-the-user-cs.md)
-[dalej](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](limiting-data-modification-functionality-based-on-the-user-cs.md)
+> [dalej](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)

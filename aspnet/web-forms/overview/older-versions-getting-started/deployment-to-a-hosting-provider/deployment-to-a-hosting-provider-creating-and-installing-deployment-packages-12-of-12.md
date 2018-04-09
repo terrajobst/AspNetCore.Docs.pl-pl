@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
-title: "Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: Rozwiązywanie problemów z (12 12) | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: Rozwiązywanie problemów z (12 12) | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Tej serii samouczków opisano sposób wdrażania platformy ASP.NET (publikowanie) projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu..."
+description: Tej serii samouczków opisano sposób wdrażania platformy ASP.NET (publikowanie) projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: d8c4931a1d26af49ee61c896897fa6ddf12fccea
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2a8342f026498a7cf3ff4a3c158ed177c15b7111
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-troubleshooting-12-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: Rozwiązywanie problemów z (12 12)
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -290,7 +290,7 @@ Publikowanie kończy się niepowodzeniem z powodu błędu z informacją nie maj�
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Domyślnie program Visual Studio zestawów uprawnień w folderze głównym lokacji Odczyt i zapis w aplikacji\_folderem danych. Jeśli wiesz, czy domyślne uprawnienia do folderów są prawidłowe i nie trzeba ustawić, dodając wyłączyć to zachowanie  **&lt;docelowego IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  pliku profilu publikowania (na jednym profilu) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o sposobie edytowania tych plików, zobacz [porady: edytowanie ustawień wdrażania plików profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). 
+Domyślnie program Visual Studio zestawów uprawnień w folderze głównym lokacji Odczyt i zapis w aplikacji\_folderem danych. Jeśli wiesz, czy domyślne uprawnienia do folderów są prawidłowe i nie trzeba ustawić, dodając wyłączyć to zachowanie **&lt;docelowego IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** pliku profilu publikowania (na jednym profilu) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o sposobie edytowania tych plików, zobacz [porady: edytowanie ustawień wdrażania plików profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). 
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Błędy odmowa dostępu, gdy aplikacja próbuje zapisać w folderze aplikacji
 
@@ -300,7 +300,7 @@ Błędy aplikacji podczas próby tworzenia lub edytowania pliku w jednym z folde
 
 ### <a name="possible-cause-and-solution"></a>Możliwa przyczyna i rozwiązanie
 
-Domyślnie program Visual Studio zestawów uprawnień w folderze głównym lokacji Odczyt i zapis w aplikacji\_folderem danych. Jeśli aplikacja wymaga dostępu do zapisu do podfolderu, można ustawić uprawnienia dla tego folderu, jak pokazano w [ustawiania uprawnień do folderu](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md) i [wdrażania w środowisku produkcyjnym](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) samouczki. Jeśli aplikacja wymaga uprawnienia do zapisu w folderze głównym witryny, należy uniemożliwić ustawienie dostęp tylko do odczytu w folderze głównym, dodając  **&lt;docelowego IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  pliku profilu publikowania (na jednym profilu) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o sposobie edytowania tych plików, zobacz [porady: edytowanie ustawień wdrażania plików profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). <a id="aspnet45error"></a>
+Domyślnie program Visual Studio zestawów uprawnień w folderze głównym lokacji Odczyt i zapis w aplikacji\_folderem danych. Jeśli aplikacja wymaga dostępu do zapisu do podfolderu, można ustawić uprawnienia dla tego folderu, jak pokazano w [ustawiania uprawnień do folderu](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md) i [wdrażania w środowisku produkcyjnym](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) samouczki. Jeśli aplikacja wymaga uprawnienia do zapisu w folderze głównym witryny, należy uniemożliwić ustawienie dostęp tylko do odczytu w folderze głównym, dodając **&lt;docelowego IncludeSetACLProviderOn&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** pliku profilu publikowania (na jednym profilu) lub pliku wpp.targets (mieć wpływ na wszystkie profile). Aby uzyskać informacje o sposobie edytowania tych plików, zobacz [porady: edytowanie ustawień wdrażania plików profilu (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). <a id="aspnet45error"></a>
 
 ## <a name="configuration-error---targetframework-attribute-references-a-version-that-is-later-than-the-installed-version-of-the-net-framework"></a>Błąd konfiguracji — atrybut targetFramework odwołuje się do wersji, która jest nowsza niż zainstalowana wersja programu .NET Framework
 
@@ -320,5 +320,5 @@ Serwer nie obsługuje platformy ASP.NET 4.5. Skontaktuj się z pomocą dostawcy 
 
 Projekt **właściwości** systemu windows zawiera listy rozwijanej docelowej framework, ale nie może rozwiązać ten problem, tak zmieniając z **.NET Framework 4.5** do **.NET Framework 4**. Zmiana platformy docelowej na starszą wersję framework, projekt nadal będzie zawierał odwołania do zestawów w nowszej wersji framework i nie będzie działać. Należy ręcznie zmienić te odwołania lub Utwórz nowy projekt, przeznaczonego dla platformy .NET Framework 4 lub starszym. Aby uzyskać więcej informacji, zobacz [.NET Framework elementów docelowych dla witryn sieci Web](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
 
->[!div class="step-by-step"]
-[Poprzednie](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

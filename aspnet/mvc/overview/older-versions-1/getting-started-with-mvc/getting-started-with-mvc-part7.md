@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part7
 title: Dodawanie walidacji do modelu | Dokumentacja firmy Microsoft
 author: shanselman
-description: "Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych."
+description: Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part7
 msc.type: authoredcontent
-ms.openlocfilehash: 5616c3c3bc77be0a770540d04cc2ae48ba9eedff
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 78dd6bdd81fcb51a3a21a8f1ee12b4b2bfc37db5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-to-the-model"></a>Dodawanie walidacji do modelu
 ====================
@@ -72,6 +72,6 @@ Uruchom aplikację ponownie odwiedź /Movies/Create i kliknij przycisk Utwórz b
 
 Zależy to dobry! Teraz Dodajmy jedną dodatkową kolumnę w bazie danych.
 
->[!div class="step-by-step"]
-[Poprzednie](getting-started-with-mvc-part6.md)
-[dalej](getting-started-with-mvc-part8.md)
+> [!div class="step-by-step"]
+> [Poprzednie](getting-started-with-mvc-part6.md)
+> [dalej](getting-started-with-mvc-part8.md)

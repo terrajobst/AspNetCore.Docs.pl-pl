@@ -1,7 +1,7 @@
 ---
 title: Metapackage Microsoft.AspNetCore.All dla platformy ASP.NET Core 2.x i nowsze
 author: Rick-Anderson
-description: "Microsoft.AspNetCore.All metapackage obejmuje wszystkie obsługiwane pakiety Entity Framework Core i ASP.NET Core, wraz z ich zależności."
+description: Microsoft.AspNetCore.All metapackage obejmuje wszystkie obsługiwane pakiety Entity Framework Core i ASP.NET Core, wraz z ich zależności.
 manager: wpickett
 ms.author: riande
 ms.date: 09/20/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/metapackage
-ms.openlocfilehash: 4cbb4f4068c65df586adb1a42b946f8971873352
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 69a1683feb66f9da5fe61378c4a4ed55e08d39ac
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-#<a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-2x"></a>Metapackage Microsoft.AspNetCore.All dla platformy ASP.NET Core 2.x
+# <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-2x"></a>Metapackage Microsoft.AspNetCore.All dla platformy ASP.NET Core 2.x
 
 Ta funkcja wymaga platformy ASP.NET Core 2.x docelowy .NET Core 2.x.
 
@@ -35,4 +35,4 @@ Proces przycinanie pakietu służy do usuwania pakietów, które nie są używan
 
 Następujące *.csproj* pliku odwołań `Microsoft.AspNetCore.All` metapackage dla platformy ASP.NET Core:
 
-[!code-xml[](..\mvc\views\view-compilation\sample\MvcRazorCompileOnPublish2.csproj?highlight=9)]
+[!code-xml[](../mvc/views/view-compilation/sample/MvcRazorCompileOnPublish2.csproj?highlight=9)]

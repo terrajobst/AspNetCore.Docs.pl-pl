@@ -1,7 +1,7 @@
 ---
-title: "Otwórz interfejs sieci Web dla platformy .NET (OWIN) z platformy ASP.NET Core"
+title: Otwórz interfejs sieci Web dla platformy .NET (OWIN) z platformy ASP.NET Core
 author: ardalis
-description: "Odkryj, jak platformy ASP.NET Core obsługuje interfejsu Open Web dla platformy .NET (OWIN), który umożliwia aplikacjom sieci web jest całkowicie niezależna od serwerów sieci web."
+description: Odkryj, jak platformy ASP.NET Core obsługuje interfejsu Open Web dla platformy .NET (OWIN), który umożliwia aplikacjom sieci web jest całkowicie niezależna od serwerów sieci web.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/owin
-ms.openlocfilehash: 358046e87ffefcf568c8d432a5614a110ea16f22
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7c379ddbcc1f66ba9f7a4d0a50a4607394fed0af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Otwórz interfejs sieci Web dla platformy .NET (OWIN) z platformy ASP.NET Core
 
@@ -162,7 +162,6 @@ namespace NowinSample
         }
     }
 }
-
 ```
 
 Dowiedz się więcej o ASP.NET [serwerów](servers/index.md).

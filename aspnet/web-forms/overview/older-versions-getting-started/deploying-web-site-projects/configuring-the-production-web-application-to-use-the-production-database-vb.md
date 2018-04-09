@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
-title: "Konfigurowanie aplikacji sieci Web produkcji do użycia w produkcyjnej bazie danych (VB) | Dokumentacja firmy Microsoft"
+title: Konfigurowanie aplikacji sieci Web produkcji do użycia w produkcyjnej bazie danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Zgodnie z opisem w starszych samouczki, nie jest rzadko informacje dotyczące konfiguracji mogą się różnić między środowisk projektowania i produkcji. Jest to es..."
+description: Zgodnie z opisem w starszych samouczki, nie jest rzadko informacje dotyczące konfiguracji mogą się różnić między środowisk projektowania i produkcji. Jest to es...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 60ef1f93efea777e9309ad8c664a2c6645f1ce80
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: b1741807fe02b4e60db7098cfd46922d3ba50ccd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>Konfigurowanie aplikacji sieci Web produkcji do użycia w produkcyjnej bazie danych (VB)
 ====================
@@ -71,7 +71,7 @@ Następnie określ różne bazy danych informacji o połączeniu (patrz rysunek 
 
 Środowisko produkcyjną bazę danych powinien być teraz wyświetlany w Eksploratorze serwera. Wybierz bazę danych z poziomu Eksploratora serwera, a następnie przejdź do okna właściwości. Można znaleźć właściwości o nazwie parametrów połączenia parametrami połączenia s bazy danych. Przy założeniu, że używasz bazy danych programu Microsoft SQL Server w środowisku produkcyjnym i dostawca SqlClient parametrów połączenia powinien wyglądać podobnie do następującego:
 
-**Źródło danych =*serverName*; Wykaz początkowy =*databaseName*; Utrzymuj informacje o zabezpieczeniach = True; Nazwa użytkownika =*username*; Hasło = * hasła***
+<strong>Źródło danych =<em>serverName</em>; Wykaz początkowy =<em>databaseName</em>; Utrzymuj informacje o zabezpieczeniach = True; Nazwa użytkownika =<em>username</em>; Hasło =*hasła</strong>*
 
 Gdzie *serverName*, *databaseName*, *username*, i *hasło* są wartościami dla nazwy serwera bazy danych, bazy danych Nazwa, nazwę użytkownika i hasło dostarczonych przez firmę hosta sieci web.
 
@@ -152,6 +152,6 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Przenoszenie ustawień z pliku Web.config](http://www.asp101.com/tips/index.asp?id=154)
 - [Dokumentacja techniczna dotycząca &lt;connectionStrings&gt; — Element](https://msdn.microsoft.com/library/bf7sd233.aspx)
 
->[!div class="step-by-step"]
-[Poprzednie](deploying-a-database-vb.md)
-[dalej](configuring-a-website-that-uses-application-services-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deploying-a-database-vb.md)
+> [dalej](configuring-a-website-that-uses-application-services-vb.md)

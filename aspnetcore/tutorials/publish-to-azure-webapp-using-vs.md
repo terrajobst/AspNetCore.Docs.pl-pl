@@ -1,7 +1,7 @@
 ---
-title: "Publikowanie aplikacji platformy ASP.NET Core dla platformy Azure przy użyciu programu Visual Studio"
+title: Publikowanie aplikacji platformy ASP.NET Core dla platformy Azure z programem Visual Studio
 author: rick-anderson
-description: "Dowiedz się, jak opublikować aplikację platformy ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio."
+description: Dowiedz się, jak opublikować aplikację platformy ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio.
 manager: wpickett
 ms.author: riande
 ms.date: 12/16/2017
@@ -9,19 +9,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 7291a67af77b959965652ad385e193680df840c0
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: e5c213a682c9bf7c64c40fad630cacfff24e23bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Publikowanie aplikacji sieci web platformy ASP.NET Core w usłudze Azure App Service przy użyciu programu Visual Studio
+# <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Publikowanie aplikacji platformy ASP.NET Core dla platformy Azure z programem Visual Studio
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Silveira Blum Cesarowi](https://github.com/cesarbs), i [Rachel Appel](https://twitter.com/rachelappel)
 
-[!INCLUDE[Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 Zobacz [publikowania na platformie Azure w programie Visual Studio for Mac](https://blog.xamarin.com/publish-azure-visual-studio-mac/) Jeśli pracujesz nad macOS.
+
+Aby rozwiązać problem wdrażania usługi aplikacji, zobacz [Rozwiązywanie problemów z platformy ASP.NET Core w usłudze Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot).
 
 ## <a name="set-up"></a>Konfigurowanie
 
@@ -102,7 +104,7 @@ W **publikowania** okna dialogowego:
 
 * Wybierz **usług** kartę, aby utworzyć nową bazę danych.
 
-* Wybierz zielonego  **+**  ikonę, aby utworzyć nową bazę danych SQL
+* Wybierz zielonego **+** ikonę, aby utworzyć nową bazę danych SQL
 
 ![Nowej bazy danych SQL](publish-to-azure-webapp-using-vs/_static/sql.png)
 
@@ -187,3 +189,4 @@ Po zakończeniu testowania aplikacji, przejdź do [portalu Azure](https://portal
 * [Usługa aplikacji Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 * [Grup zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
 * [Baza danych Azure SQL](https://docs.microsoft.com/azure/sql-database/)
+* [Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)

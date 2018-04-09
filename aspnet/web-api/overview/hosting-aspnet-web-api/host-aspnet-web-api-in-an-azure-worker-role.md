@@ -2,7 +2,7 @@
 uid: web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 title: Host ASP.NET Web API 2 w roli procesu roboczego platformy Azure | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Ten samouczek pokazuje, jak do obsługi interfejsu API sieci Web platformy ASP.NET w roli procesu roboczego platformy Azure przy użyciu OWIN do hosta samodzielnego strukturę interfejsu API sieci Web. Otwórz interfejs sieci Web dla platformy .NET (OWIN) de..."
+description: Ten samouczek pokazuje, jak do obsługi interfejsu API sieci Web platformy ASP.NET w roli procesu roboczego platformy Azure przy użyciu OWIN do hosta samodzielnego strukturę interfejsu API sieci Web. Otwórz interfejs sieci Web dla platformy .NET (OWIN) de...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/02/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 9a7f8242bf482e81513accfe05e10a64ae0ca0b2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7ba1dc850e2f9d9c88e6ddf263a796e1867a98be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>Host ASP.NET Web API 2 w roli procesu roboczego platformy Azure
 ====================
@@ -131,7 +131,7 @@ Emulator obliczeń przypisuje lokalny adres IP punktu końcowego. Adres IP możn
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image11.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image10.png)
 
-Znajdowanie adresu IP w ramach wdrożenia usługi, wdrażania [id], szczegóły usługi. Otwórz przeglądarkę sieci web i przejdź do http://*adres*/test/1, gdzie *adres* to adres IP przypisany przez emulator obliczeń; na przykład `http://127.0.0.1:80/test/1`. Powinny pojawić się odpowiedzi z kontrolera interfejsu API sieci Web:
+Znajdowanie adresu IP w ramach wdrożenia usługi, wdrażania [id], szczegóły usługi. Otwórz przeglądarkę sieci web i przejdź do http://<em>adres</em>/test/1, gdzie <em>adres</em> to adres IP przypisany przez emulator obliczeń; na przykład `http://127.0.0.1:80/test/1`. Powinny pojawić się odpowiedzi z kontrolera interfejsu API sieci Web:
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image12.png)
 

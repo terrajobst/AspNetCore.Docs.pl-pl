@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
-title: "Kontrolowanie Identyfikatora nazwy w strony z zawartością (C#) | Dokumentacja firmy Microsoft"
+title: Kontrolowanie Identyfikatora nazwy w strony z zawartością (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Przedstawia sposób kontrolki elementu ContentPlaceHolder służyć jako kontenera nazewnictwa i w związku z tym należy programowo Praca z formantem trudne (za pośrednictwem FindConrol)..."
+description: Przedstawia sposób kontrolki elementu ContentPlaceHolder służyć jako kontenera nazewnictwa i w związku z tym należy programowo Praca z formantem trudne (za pośrednictwem FindConrol)...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0c0db7fd76a7a486ff45085329ef7c77b0af5ebe
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1e834c38457c8477e0c81598d32f1e98473949d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="control-id-naming-in-content-pages-c"></a>Identyfikator formantu nazewnictwa na stronach zawartości (C#)
 ====================
@@ -121,7 +121,7 @@ Należy pamiętać, że `id` atrybutu obejmuje zarówno strony wzorcowej `ID` wa
 
 Kontrolka serwerowa ASP.NET, co obejmuje `FindControl("controlID")` metody, która wyszukuje elementów podrzędnych formantu dla formantu o nazwie *controlID*. Jeśli zostanie znaleziony taki formant, jest zwracany; Jeśli brak pasującego formantu zostanie znaleziony, `FindControl` zwraca `null`.
 
-`FindControl`jest przydatne w sytuacji, gdy trzeba kontroli dostępu, ale nie masz bezpośrednie odwołanie do niej. Podczas pracy z danymi formantów sieci Web, takich jak na przykład GridView formantów w widoku GridView pola są definiowane raz w składni deklaratywnej, ale w czasie wykonywania jest tworzone wystąpienie formantu dla każdego wiersza w widoku GridView. W rezultacie istnieją formanty generowane w czasie wykonywania, ale nie ma bezpośredniego odwołania dostępne w klasie związanej z kodem. W związku z tym należy użyć `FindControl` programowo pracować z określonego formantu w obrębie pola w widoku GridView. (Aby uzyskać więcej informacji na temat używania `FindControl` Aby uzyskać dostęp do formantów w szablonach formantów sieci Web danych, zobacz [niestandardowe formatowanie oparte na danych](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) W tym samym scenariuszu występuje podczas dynamicznego dodawania formantów sieci Web do formularza sieci Web, temat omówione w [tworzenie dynamicznych danych wpisu interfejsy użytkownika](https://msdn.microsoft.com/library/aa479330.aspx).
+`FindControl` jest przydatne w sytuacji, gdy trzeba kontroli dostępu, ale nie masz bezpośrednie odwołanie do niej. Podczas pracy z danymi formantów sieci Web, takich jak na przykład GridView formantów w widoku GridView pola są definiowane raz w składni deklaratywnej, ale w czasie wykonywania jest tworzone wystąpienie formantu dla każdego wiersza w widoku GridView. W rezultacie istnieją formanty generowane w czasie wykonywania, ale nie ma bezpośredniego odwołania dostępne w klasie związanej z kodem. W związku z tym należy użyć `FindControl` programowo pracować z określonego formantu w obrębie pola w widoku GridView. (Aby uzyskać więcej informacji na temat używania `FindControl` Aby uzyskać dostęp do formantów w szablonach formantów sieci Web danych, zobacz [niestandardowe formatowanie oparte na danych](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) W tym samym scenariuszu występuje podczas dynamicznego dodawania formantów sieci Web do formularza sieci Web, temat omówione w [tworzenie dynamicznych danych wpisu interfejsy użytkownika](https://msdn.microsoft.com/library/aa479330.aspx).
 
 Aby zilustrować przy użyciu `FindControl` metody do wyszukiwania formantów na stronie zawartości, utworzyć programu obsługi zdarzeń dla `SubmitButton`w `Click` zdarzeń. W obsłudze zdarzeń, Dodaj następujący kod, który odwołuje się programowo `Age` pole tekstowe i `Results` etykietę przy użyciu `FindControl` — metoda, a następnie wyświetla komunikat w `Results` oparte na danych wejściowych użytkownika.
 
@@ -256,7 +256,7 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Strony wzorcowe ASP.NET i`FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
+- [Strony wzorcowe ASP.NET i `FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
 - [Tworzenie interfejsów użytkownika wpisu danych dynamicznych](https://msdn.microsoft.com/library/aa479330.aspx)
 - [Rozszerzanie funkcjonalności typu podstawowego z metody rozszerzenia](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
 - [Porady: Odwołania zawartość strony ASP.NET wzorca](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
@@ -265,12 +265,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Kowalski Zack i Suchi Barnerjee. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Poprzednie](urls-in-master-pages-cs.md)
-[dalej](interacting-with-the-master-page-from-the-content-page-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](urls-in-master-pages-cs.md)
+> [dalej](interacting-with-the-master-page-from-the-content-page-cs.md)

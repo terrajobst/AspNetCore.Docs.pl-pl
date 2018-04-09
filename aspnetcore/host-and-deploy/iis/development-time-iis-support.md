@@ -1,7 +1,7 @@
 ---
-title: "Usługi IIS w czasie opracowywania obsługi w programie Visual Studio dla platformy ASP.NET Core"
+title: Usługi IIS w czasie opracowywania obsługi w programie Visual Studio dla platformy ASP.NET Core
 author: shirhatti
-description: "Wykryj obsługę debugowania aplikacji ASP.NET Core, gdy za usług IIS w systemie Windows Server."
+description: Wykryj obsługę debugowania aplikacji ASP.NET Core, gdy za usług IIS w systemie Windows Server.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,22 +10,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: a8bdf4c0c0399c62666e6e61e70c0298a42c2c12
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 218bb2653b92cd7b1cf2c6726b2d4bedbf307a62
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Usługi IIS w czasie opracowywania obsługi w programie Visual Studio dla platformy ASP.NET Core
 
-Autor: [Sourabh Shirhatti](https://twitter.com/sshirhatti)
+Przez [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
 W tym artykule opisano [programu Visual Studio](https://www.visualstudio.com/vs/) obsługę debugowania aplikacji ASP.NET Core za usług IIS w systemie Windows Server. Ten temat przeprowadzi Cię przez włączenie tej funkcji i konfigurowanie projektu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Visual Studio (2017 r/w wersji 15.3 lub nowszej)
-* ASP.NET i sieć web development obciążenia *lub* obciążenia aplikacji dla wielu platform .NET Core
+[!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="enable-iis"></a>Włącz usługi IIS
 
@@ -45,7 +44,7 @@ Uruchom Instalator programu Visual Studio. Wybierz **czasie opracowywania usług
 
 Utwórz nowy profil Uruchom, aby dodać obsługę usług IIS w czasie opracowywania. W programie Visual Studio **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **właściwości**. Wybierz **debugowania** kartę. Wybierz **IIS** z **uruchamianie** listy rozwijanej. Upewnij się, że **uruchamiania przeglądarki** z poprawny adres URL jest włączona funkcja.
 
-![Okno właściwości projektu z wybraną kartą debugowania. Ustawienia profilu, a następnie uruchom są ustawione w usługach IIS. Przy użyciu adresu http://localhost/WebApplication2 zostanie włączona funkcja przeglądarki uruchamiania. Ten sam adres jest również udostępniany w polu adres URL aplikacji w obszarze Ustawienia serwera sieci Web z włączyć włączone jest uwierzytelnianie anonimowe.](development-time-iis-support/_static/project_properties.png)
+![Okno właściwości projektu z wybraną kartą debugowania. Ustawienia profilu, a następnie uruchom są ustawione w usługach IIS. Włączono uruchamiania funkcji przeglądarki z adresem http://localhost/WebApplication2. Ten sam adres jest również udostępniany w polu adres URL aplikacji w obszarze Ustawienia serwera sieci Web z włączyć włączone jest uwierzytelnianie anonimowe.](development-time-iis-support/_static/project_properties.png)
 
 Możesz też ręcznie dodać profil uruchamiania do [launchSettings.json](http://json.schemastore.org/launchsettings) plik w aplikacji:
 

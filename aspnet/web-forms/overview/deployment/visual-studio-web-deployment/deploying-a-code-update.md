@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
-title: "Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji kod | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji kod | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane..."
+description: Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: f6861c702c1ccb19e5a4eee484a622079e205f86
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: dd02b5c627fbfbb0034030f4c21207d24f6aabce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie aktualizacji kodu
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -207,6 +207,6 @@ Teraz przedstawiono kilka sposobów wdrażania aktualizacji aplikacji, która ni
 
 Następny samouczek przedstawia sposób wdrażania zmianę w bazie danych: pole Data urodzenia zostanie dodana do bazy danych i do strony instruktorów.
 
->[!div class="step-by-step"]
-[Poprzednie](deploying-to-production.md)
-[dalej](deploying-a-database-update.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deploying-to-production.md)
+> [dalej](deploying-a-database-update.md)

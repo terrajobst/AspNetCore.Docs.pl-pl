@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
-title: "Sprawdzanie poprawności poświadczeń użytkownika z członkostwa w magazynie użytkownika (VB) | Dokumentacja firmy Microsoft"
+title: Sprawdzanie poprawności poświadczeń użytkownika z członkostwa w magazynie użytkownika (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku omówione sprawdzania poprawności poświadczeń użytkownika przed magazynie użytkownika członkostwa przy użyciu zarówno programowy sposób, jak i kontroli logowania..."
+description: W tym samouczku omówione sprawdzania poprawności poświadczeń użytkownika przed magazynie użytkownika członkostwa przy użyciu zarówno programowy sposób, jak i kontroli logowania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f57bc8c32757c1ea25bf6bbb34539570e4c09aad
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f8d3de9736d901e02096d20345650b47c47897ae
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>Sprawdzanie poprawności poświadczeń użytkownika z członkostwa w magazynie użytkownika (VB)
 ====================
@@ -71,8 +71,8 @@ Jeśli użytkownik osiągnie strony logowania i prześle poświadczeń, przeglą
 
 Aby zapobiec takich ataków siłowych, członkostwo w ramach blokuje użytkownika, jeśli istnieje wiele prób zalogowania się niepowodzeniem w danym okresie czasu. Można skonfigurować za pomocą następujących ustawień konfiguracji dwa dostawcy członkostwa są dokładne parametry:
 
-- `maxInvalidPasswordAttempts`— Określa, ile nieprawidłowe hasło prób są dozwolone dla użytkownika w określonym przedziale czasu przed zablokowaniem konta. Wartość domyślna to 5.
-- `passwordAttemptWindow`-Wskazuje czas w minutach, w których określoną liczbę nieudanych prób logowania spowoduje, że konto zostało zablokowane. Wartość domyślna to 10.
+- `maxInvalidPasswordAttempts` — Określa, ile nieprawidłowe hasło prób są dozwolone dla użytkownika w określonym przedziale czasu przed zablokowaniem konta. Wartość domyślna to 5.
+- `passwordAttemptWindow` -Wskazuje czas w minutach, w których określoną liczbę nieudanych prób logowania spowoduje, że konto zostało zablokowane. Wartość domyślna to 10.
 
 Jeśli zostało zablokowane przez użytkownika, użytkownik nie może zalogować się aż administrator odblokowuje konto. Gdy użytkownik zostaje zablokowane, `ValidateUser` metoda będzie *zawsze* zwracać `False`nawet wtedy, gdy podano poprawnych poświadczeń. Podczas tego zachowania zmniejsza prawdopodobieństwo, że haker spowoduje przerwanie do witryny za pomocą metod siłowych, można zakończyć blokowania limit prawidłowy użytkownik, który zapomniał po prostu swoje hasło lub przypadkowo włączony klawisz Caps Lock na lub napotkał nieprawidłowy dzień pisania.
 
@@ -110,7 +110,7 @@ I skończymy! Po kliknięciu formantu logowania w dzienniku przycisku, nastąpi 
 
 Kontrolka logowania używa czterech czynnikach w celu określenia przekierowania podczas pomyślnego logowania użytkownika do odpowiedniej strony:
 
-- Określa, czy formant logowania jest na stronie logowania, zgodnie z definicją w `loginUrl` jest wartość domyślna tego ustawienia w konfiguracji uwierzytelniania formularzy.`Login.aspx`
+- Określa, czy formant logowania jest na stronie logowania, zgodnie z definicją w `loginUrl` jest wartość domyślna tego ustawienia w konfiguracji uwierzytelniania formularzy. `Login.aspx`
 - Obecność `ReturnUrl` parametr querystring
 - Wartość formantu logowania [ `DestinationUrl` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
 - `defaultUrl` Wartość określona w formularzach Ustawienia konfiguracji uwierzytelniania; wartość domyślna to ustawienie to plik Default.aspx
@@ -230,7 +230,7 @@ Jak widać, `Authenticate` program obsługi zdarzeń jest przekazywany obiekt ty
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>Określanie i sprawdzanie poprawności podanych poświadczeń
 
-Użyj formantu logowania [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) i [ `Password` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) można określić nazwę użytkownika i hasło poświadczeń wprowadzonych przez użytkownika. Aby było możliwe określenie wartości wprowadzone do wszelkich dodatkowych formantów sieci Web (takie jak `Email` pole tekstowe dodaliśmy w poprzednim kroku), użyj `LoginControlID.FindControl`("*`controlID`*") do uzyskania programowego odwołania w sieci Web Określa szablon, którego `ID` właściwości jest równa  *`controlID`* . Na przykład, aby pobrać odwołanie do `Email` pola tekstowego, użyj następującego kodu:
+Użyj formantu logowania [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) i [ `Password` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) można określić nazwę użytkownika i hasło poświadczeń wprowadzonych przez użytkownika. Aby było możliwe określenie wartości wprowadzone do wszelkich dodatkowych formantów sieci Web (takie jak `Email` pole tekstowe dodaliśmy w poprzednim kroku), użyj `LoginControlID.FindControl`("*`controlID`*") do uzyskania programowego odwołania w sieci Web Określa szablon, którego `ID` właściwości jest równa *`controlID`*. Na przykład, aby pobrać odwołanie do `Email` pola tekstowego, użyj następującego kodu:
 
 `Dim EmailTextBox As TextBox = CType(myLogin.FindControl("Email"), TextBox)`
 
@@ -310,12 +310,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Teresa Murphy i Michael Olivero. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Poprzednie](creating-user-accounts-vb.md)
-[dalej](user-based-authorization-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-user-accounts-vb.md)
+> [dalej](user-based-authorization-vb.md)

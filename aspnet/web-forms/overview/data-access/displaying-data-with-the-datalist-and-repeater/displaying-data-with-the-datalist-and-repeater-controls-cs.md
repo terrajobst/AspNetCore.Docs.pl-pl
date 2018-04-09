@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
-title: "Wyświetlanie danych z DataList i kontrolki elementu powtarzanego (C#) | Dokumentacja firmy Microsoft"
+title: Wyświetlanie danych z DataList i kontrolki elementu powtarzanego (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W poprzednim samouczki użyliśmy kontrolki widoku siatki do wyświetlania danych. Począwszy od tego samouczka przyjrzymy się tworzenie typowe wzorce raportowania z..."
+description: W poprzednim samouczki użyliśmy kontrolki widoku siatki do wyświetlania danych. Począwszy od tego samouczka przyjrzymy się tworzenie typowe wzorce raportowania z...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 42203bdd7c22f3885eecab36dbd710d371107285
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a329ff5d598156e613e3b5ef370d9d1147e4ea61
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>Wyświetlanie danych z DataList i kontrolki elementu powtarzanego (C#)
 ====================
@@ -161,12 +161,12 @@ Dodając ten plik skórki wygląd s DataList jest aktualizowana w Projektancie (
 
 Oprócz `ItemTemplate`, DataList obsługuje sześciu szablony opcjonalne:
 
-- `HeaderTemplate`Jeśli zostanie podana, dodaje wiersz nagłówka do danych wyjściowych i jest używany do renderowania tego wiersza
-- `AlternatingItemTemplate`używany do renderowania elementów przemiennych
-- `SelectedItemTemplate`używany do renderowania wybranego elementu; wybrany element to element, którego indeks odpowiada DataList s [ `SelectedIndex` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
-- `EditItemTemplate`używany do renderowania elementu edytowany
-- `SeparatorTemplate`Jeśli zostanie podana, dodaje separatora między każdym z elementów i jest używany do renderowania tego separatora
-- `FooterTemplate`— w przypadku dodaje wiersz stopki dane wyjściowe i jest używany do renderowania tego wiersza
+- `HeaderTemplate` Jeśli zostanie podana, dodaje wiersz nagłówka do danych wyjściowych i jest używany do renderowania tego wiersza
+- `AlternatingItemTemplate` używany do renderowania elementów przemiennych
+- `SelectedItemTemplate` używany do renderowania wybranego elementu; wybrany element to element, którego indeks odpowiada DataList s [ `SelectedIndex` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
+- `EditItemTemplate` używany do renderowania elementu edytowany
+- `SeparatorTemplate` Jeśli zostanie podana, dodaje separatora między każdym z elementów i jest używany do renderowania tego separatora
+- `FooterTemplate` — w przypadku dodaje wiersz stopki dane wyjściowe i jest używany do renderowania tego wiersza
 
 Podczas określania `HeaderTemplate` lub `FooterTemplate`, DataList dodaje dodatkowy wiersz nagłówka lub stopki do przetworzonych wyników. Podobnie jak z widoku GridView s nagłówku i stopce wierszy, nagłówku i stopce w DataList nie są powiązane z danych. W związku z tym sformatowanej składni wiązania z danymi w `HeaderTemplate` lub `FooterTemplate` próbuje uzyskać dostęp do danych związane zwraca pusty ciąg.
 
@@ -210,11 +210,11 @@ Jeśli zrobisz widoku/źródła w przeglądarce podczas odwiedzania przykład Da
 
 Co zrobić, jeśli zrobisz chcesz t emitowanie kodu HTML `<table>`, ale? Dla całkowitej i pełną kontrolę nad znacznika generowany przez formant danych sieci Web możemy użyć kontrolce elementu powtarzanego. Podobnie jak DataList powtarzanego jest tworzony, oparte na szablonach. Powtarzanego, jednak tylko udostępnia następujących pięć szablonów:
 
-- `HeaderTemplate`Jeśli zostanie podana, dodaje określony znaczników przed elementów
-- `ItemTemplate`używany do renderowania elementów
-- `AlternatingItemTemplate`Jeśli zostanie podana, używany do renderowania elementów przemiennych
-- `SeparatorTemplate`Jeśli zostanie podana, dodaje określony znaczników między każdym z elementów
-- `FooterTemplate`— w przypadku dodaje określonego znacznika po elementów
+- `HeaderTemplate` Jeśli zostanie podana, dodaje określony znaczników przed elementów
+- `ItemTemplate` używany do renderowania elementów
+- `AlternatingItemTemplate` Jeśli zostanie podana, używany do renderowania elementów przemiennych
+- `SeparatorTemplate` Jeśli zostanie podana, dodaje określony znaczników między każdym z elementów
+- `FooterTemplate` — w przypadku dodaje określonego znacznika po elementów
 
 W programie ASP.NET 1.x, powtarzanego kontrolę został najczęściej używanych do wyświetlania listy punktowanej, którego dane pochodzą z określonego źródła danych. W takim przypadku `HeaderTemplate` i `FooterTemplates` zawierałoby otwarcia i zamknięcia `<ul>` tagów, odpowiednio, podczas gdy `ItemTemplate` zawierałoby `<li>` elementów ze składnią wiązania z danymi. Takie podejście nadal można zastosować w programie ASP.NET 2.0 widzieliśmy w dwóch przykładach w [stron wzorcowych i nawigacji w witrynie](../introduction/master-pages-and-site-navigation-cs.md) samouczek:
 
@@ -312,11 +312,11 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Yaakov Ellis, Liz Shulok Randy Schmidt i wstrzymywanie Stacy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Next](formatting-the-datalist-and-repeater-based-upon-data-cs.md)
+> [!div class="step-by-step"]
+> [Next](formatting-the-datalist-and-repeater-based-upon-data-cs.md)

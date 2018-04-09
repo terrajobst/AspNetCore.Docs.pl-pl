@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax
-title: "[Jak i.] Niestandardowe kontrolki serwera współpracujących z lub bez kodu ASP.NET AJAX kompilacji | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Niestandardowe kontrolki serwera współpracujących z lub bez kodu ASP.NET AJAX kompilacji | Microsoft Docs'
 author: rick-anderson
-description: "Masz pomysł formantu niestandardowego serwera, który powinien mieć możliwość pracy bez kodu ASP.NET AJAX, jeszcze można korzystać z ASP.NET AJAX, jeśli jest on dostępny..."
+description: Masz pomysł formantu niestandardowego serwera, który powinien mieć możliwość pracy bez kodu ASP.NET AJAX, jeszcze można korzystać z ASP.NET AJAX, jeśli jest on dostępny...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/01/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: eb753271c0abc91b2e601f1ef261fe83362f99cb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e9f428fb5a2dd07d450e077c2c554d6faab809cf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax"></a>[Jak i.] Niestandardowe kontrolki serwera współpracujących z lub bez kodu ASP.NET AJAX kompilacji
 ====================
@@ -24,8 +24,8 @@ przez [Pels Krzysztof](https://twitter.com/chrispels)
 
 Masz pomysł formantu niestandardowego serwera, który powinien mieć możliwość pracy bez kodu ASP.NET AJAX, jeszcze można korzystać z ASP.NET AJAX, jeśli jest on dostępny? To wideo firma Microsoft informacje o sposobie tworzenia formantu niestandardowego serwera, który nie odwołuje się do zestawu ASP.NET AJAX, ale używa odbicia do "play nieuprzywilejowany" z elementu UpdatePanel AJAX ASP.NET.
 
-[&#9654; Obejrzyj klip wideo (minuty 19)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax)
+[&#9654;Obejrzyj klip wideo (minuty 19)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax)
 
->[!div class="step-by-step"]
-[Poprzednie](how-do-i-create-an-aspnet-ajax-extender-from-scratch.md)
-[dalej](how-do-i-associate-ajax-client-behavior-with-an-aspnet-server-control.md)
+> [!div class="step-by-step"]
+> [Poprzednie](how-do-i-create-an-aspnet-ajax-extender-from-scratch.md)
+> [dalej](how-do-i-associate-ajax-client-behavior-with-an-aspnet-server-control.md)

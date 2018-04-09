@@ -2,7 +2,7 @@
 uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 title: 'Samouczek: Serwer emisji z SignalR 2 | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web, który używa 2 SignalR platformy ASP.NET w celu zapewnienia funkcji emisji serwera. Emisja serwera oznacza, że commun..."
+description: W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web, który używa 2 SignalR platformy ASP.NET w celu zapewnienia funkcji emisji serwera. Emisja serwera oznacza, że commun...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 98a7ce4991d58181177cf56976888e9fd1526987
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: de4ccb4f0865e250fa0d78a9707fe5129c78e764
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Samouczek: Serwer emisji z SignalR 2
 ====================
@@ -65,7 +65,7 @@ Aplikacja, która będzie kompilacji w pierwszej części tego samouczka Wyświe
 
 ![Wersja początkowa StockTicker](tutorial-server-broadcast-with-signalr/_static/image1.png)
 
-Okresowo serwer losowo aktualizuje giełdowych i wypychanie aktualizacji do wszystkich połączonych klientów. W przeglądarce liczby lub symbole w **zmienić** i  **%**  kolumn dynamicznej zmiany w odpowiedzi na powiadomienia z serwera. Po otwarciu przeglądarki dodatkowych dla tego samego adresu URL, wszystkie one Pokaż tych samych danych i zmian w danych jednocześnie.
+Okresowo serwer losowo aktualizuje giełdowych i wypychanie aktualizacji do wszystkich połączonych klientów. W przeglądarce liczby lub symbole w **zmienić** i **%** kolumn dynamicznej zmiany w odpowiedzi na powiadomienia z serwera. Po otwarciu przeglądarki dodatkowych dla tego samego adresu URL, wszystkie one Pokaż tych samych danych i zmian w danych jednocześnie.
 
 Ten samouczek zawiera następujące sekcje:
 
@@ -218,7 +218,7 @@ Ukończono konfigurowanie kod serwera. W następnej sekcji należy skonfigurowa�
 
     Tagi skryptu Określ plik skryptu jQuery, plik skryptu SignalR core pliku skryptu proxy SignalR i StockTicker plik skryptu, który zostanie utworzony później. SignalR pliku skryptu proxy, który określa adres URL "/ signalr/hubs", jest generowane dynamicznie i określa metody serwera proxy dla metod w klasie koncentratora, w tym przypadku StockTickerHub.GetAllStocks. Jeśli wolisz, możesz wygenerować plik JavaScript ręcznie przy użyciu [narzędzia SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR.Utils/) i Wyłącz tworzenie dynamicznych plików w wywołaniu metody MapHubs.
 3. > [!IMPORTANT]
- > Upewnij się, że plik JavaScript odwołania w *StockTicker.html* są poprawne. Oznacza to, upewnij się, że wersja jQuery w Twojej tagu skryptu (1.10.2 w przykładzie) jest taka sama jak wersja jQuery do projektu *skryptów* folderu i upewnij się, że wersja SignalR w Twojej tag skryptu jest taka sama jak SignalR Wersja do projektu *skryptów* folderu. Zmiana nazw plików w tagach skryptów, jeśli to konieczne.
+   > Upewnij się, że plik JavaScript odwołania w *StockTicker.html* są poprawne. Oznacza to, upewnij się, że wersja jQuery w Twojej tagu skryptu (1.10.2 w przykładzie) jest taka sama jak wersja jQuery do projektu *skryptów* folderu i upewnij się, że wersja SignalR w Twojej tag skryptu jest taka sama jak SignalR Wersja do projektu *skryptów* folderu. Zmiana nazw plików w tagach skryptów, jeśli to konieczne.
 4. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *StockTicker.html*, a następnie kliknij przycisk **Ustaw jako stronę startową**.
 5. Utwórz nowy plik JavaScript w folderze projektu i nadaj mu nazwę *StockTicker.js*...
 6. Zastąp kod szablonu z następującym kodem:

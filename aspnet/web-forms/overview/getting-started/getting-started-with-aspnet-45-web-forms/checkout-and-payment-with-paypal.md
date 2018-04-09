@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
-title: "Wyewidencjonowywanie i płatności w systemie PayPal | Dokumentacja firmy Microsoft"
+title: Wyewidencjonowywanie i płatności w systemie PayPal | Dokumentacja firmy Microsoft
 author: Erikre
-description: "Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy..."
+description: Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
 msc.type: authoredcontent
-ms.openlocfilehash: dd975850a3ed3e7b1746d5123572065675a88656
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0dba613594686a28b82bc6d7701cda6e24b82e2e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="checkout-and-payment-with-paypal"></a>Wyewidencjonowywanie i płatności w systemie PayPal
 ====================
@@ -55,7 +55,7 @@ W tym samouczku utworzysz dwie nowe klasy do śledzenia danych z zamówienia utw
 We wcześniejszej części tego samouczka serii zdefiniowany schemat kategorie produktów, oraz koszyk elementów przez utworzenie `Category`, `Product`, i `CartItem` klas w *modele* folderu. Teraz zostaną dodane dwie nowe klasy do definiowania schematu dla kolejności produktu i szczegółów zamówienia.
 
 1. W **modele** folderu, Dodaj nową klasę o nazwie *Order.cs*.   
- Nowy plik klasy jest wyświetlany w edytorze.
+   Nowy plik klasy jest wyświetlany w edytorze.
 2. Zastąp w kodzie domyślnym następujące czynności:   
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample1.cs)]
@@ -107,7 +107,7 @@ Teraz utworzysz *wyewidencjonowania* folderu i stron w nim wyświetlany klienta 
 Dodając nowe *Web.config* pliku na *wyewidencjonowania* folder, można ograniczyć dostęp do wszystkich stron zawartych w folderze.
 
 1. Kliknij prawym przyciskiem myszy *wyewidencjonowania* i wybierz polecenie **Dodaj**  - &gt; **nowy element**.  
- **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
 2. Wybierz **Visual C#**  - &gt; **Web** grupy szablonów po lewej stronie. Następnie w środkowym okienku wybierz **pliku konfiguracji sieci Web**, zaakceptuj domyślną nazwę *Web.config*, a następnie wybierz **Dodaj**.
 3. Zastąp istniejące zawartości w pliku XML *Web.config* pliku następującym kodem:  
 
@@ -162,32 +162,32 @@ Poniższe kroki pozwoli dodać dostawcę uwierzytelniania serwisu Google.
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample5.cs)]
 3. Przejdź do [konsoli deweloperów Google](https://console.developers.google.com/). Należy również do logowania z kontem Google developer poczty e-mail (gmail.com). Jeśli nie masz konta Google, wybierz **utworzyć konto** łącza.   
- Następnie zostanie wyświetlony **konsoli deweloperów Google**.   
+   Następnie zostanie wyświetlony **konsoli deweloperów Google**.   
     ![Konsola deweloperów Google](checkout-and-payment-with-paypal/_static/image8.png)
 4. Kliknij przycisk **tworzenia projektu** przycisk, a następnie wprowadź nazwę projektu i identyfikator (należy użyć wartości domyślnych). Następnie kliknij przycisk **wyboru umowy** i **Utwórz** przycisku.  
 
     ![Google — nowy projekt](checkout-and-payment-with-paypal/_static/image9.png)
 
- W ciągu kilku sekund zostanie utworzony nowy projekt i przeglądarka wyświetli nową stronę projektów.
+   W ciągu kilku sekund zostanie utworzony nowy projekt i przeglądarka wyświetli nową stronę projektów.
 5. Na karcie po lewej stronie kliknij **interfejsów API &amp; uwierzytelniania**, a następnie kliknij przycisk **poświadczenia**.
 6. Kliknij przycisk **Utwórz nowy identyfikator klienta** w obszarze **OAuth**.   
- **Utworzyć identyfikator klienta** zostanie wyświetlone okno dialogowe.   
+   **Utworzyć identyfikator klienta** zostanie wyświetlone okno dialogowe.   
     ![Google — Utwórz identyfikator klienta](checkout-and-payment-with-paypal/_static/image10.png)
 7. W **utworzyć identyfikator klienta** okna dialogowego, zachowaj ustawienie domyślne **aplikacji sieci Web** typu aplikacja.
 8. Ustaw **autoryzowany źródeł JavaScript** do adresu URL protokołu SSL używany we wcześniejszej części tego samouczka (`https://localhost:44300/` chyba, że po utworzeniu innych projektów SSL).   
- Ten adres URL jest punkt początkowy aplikacji. Dla tego przykładu zostanie tylko wprowadź adres URL testu localhost. Można jednak wprowadzić wiele adresów URL dla hosta lokalnego i produkcji.
+   Ten adres URL jest punkt początkowy aplikacji. Dla tego przykładu zostanie tylko wprowadź adres URL testu localhost. Można jednak wprowadzić wiele adresów URL dla hosta lokalnego i produkcji.
 9. Ustaw **autoryzowany identyfikator URI przekierowania** do następującego: 
 
     [!code-html[Main](checkout-and-payment-with-paypal/samples/sample6.html)]
 
- Ta wartość jest identyfikatorem URI tego OAuth ASP.NET użytkowników do komunikacji z serwerem programu google OAuth. Należy pamiętać, adres URL protokołu SSL używany powyżej ( `https://localhost:44300/` chyba, że po utworzeniu innych projektów SSL).
+   Ta wartość jest identyfikatorem URI tego OAuth ASP.NET użytkowników do komunikacji z serwerem programu google OAuth. Należy pamiętać, adres URL protokołu SSL używany powyżej ( `https://localhost:44300/` chyba, że po utworzeniu innych projektów SSL).
 10. Kliknij przycisk **utworzyć identyfikator klienta** przycisku.
 11. W menu po lewej stronie konsoli deweloperów Google, kliknij przycisk **ekranu zgody** element menu, a następnie ustaw nazwie e-mail adres i produktu. Po wypełnieniu formularza, kliknij przycisk **zapisać**.
 12. Kliknij przycisk **interfejsów API** element menu, przewiń w dół i kliknij przycisk **poza** znajdujący się obok **interfejsu API Google +**.   
- Akceptowanie tej opcji spowoduje włączenie interfejsu API Google +.
+    Akceptowanie tej opcji spowoduje włączenie interfejsu API Google +.
 13. Należy również zaktualizować **Microsoft.Owin** pakiet NuGet do wersji 3.0.0.   
- Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet** , a następnie wybierz **Zarządzaj pakietami NuGet dla rozwiązania**.  
- Z **Zarządzaj pakietami NuGet** okna, Znajdź i aktualizacji **Microsoft.Owin** pakietu do wersji 3.0.0.
+    Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet** , a następnie wybierz **Zarządzaj pakietami NuGet dla rozwiązania**.  
+    Z **Zarządzaj pakietami NuGet** okna, Znajdź i aktualizacji **Microsoft.Owin** pakietu do wersji 3.0.0.
 14. W programie Visual Studio, należy zaktualizować `UseGoogleAuthentication` metody *Startup.Auth.cs* strony przez kopiowanie i wklejanie **identyfikator klienta** i **klucz tajny klienta** do metody. **Identyfikator klienta** i **klucz tajny klienta** poniższe wartości są przykłady i nie będzie działać. 
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample7.cs?highlight=64-65)]
@@ -258,7 +258,7 @@ PayPal to platforma rozliczeń opartych na sieci web akceptujący płatności pr
 Aby korzystać z usługi PayPal, w środowisku testowym, należy utworzyć i zweryfikować konto dewelopera testu. Konto dewelopera testu użyje do utworzenia kupujący testowe konto oraz konto sprzedawcy testu. Poświadczenia konta dewelopera testu będzie również umożliwiać Wingtip Toys przykładowej aplikacji uzyskiwać dostęp do środowiska testowego PayPal.
 
 1. W przeglądarce przejdź do deweloperów PayPal testowania witryny:   
-    [https://Developer.PayPal.com](https://developer.paypal.com/)
+    [https://developer.paypal.com](https://developer.paypal.com/)
 2. Jeśli nie masz konta dewelopera systemu PayPal, należy utworzyć nowe konto, klikając **Utwórz konto**i wykonując kroki tworzenia konta. Jeśli masz istniejące konto dewelopera PayPal, zaloguj się, klikając **dziennika w**. Konieczne będzie konto dewelopera PayPal, aby przetestować aplikację przykładową Wingtip Toys w dalszej części tego samouczka.
 3. Użytkownik po prostu jest zarejestrowany dla konta dewelopera systemu PayPal, konieczne może zweryfikować konta dewelopera systemu PayPal z PayPal. Aby zweryfikować swoje konto, należy zgodnie z krokami, które PayPal wysyłane do swojego konta poczty e-mail. Po upewnieniu się, konto PayPal dewelopera, zaloguj się do testowania witryny dewelopera systemu PayPal.
 4. Po zalogowaniu się do witryny dewelopera PayPal z konta dewelopera systemu PayPal, musisz utworzyć konto PayPal nabywców testu, jeśli użytkownik nie jest już jeszcze raz. Aby utworzyć konto testu nabywców kliknij witrynę PayPal **aplikacji** a następnie kliknij pozycję **kont piaskownicy**.   
@@ -293,11 +293,11 @@ Konieczne będzie wyświetlane poświadczenia klasycznego interfejsu API TEST (n
 Większość kodu PayPal w jednej klasie zostaną umieszczone. Ta klasa zawiera metody używane do komunikacji z PayPal. Ponadto swoje poświadczenia usługi PayPal zostaną dodane do tej klasy.
 
 1. W przykładowej Wingtip Toys aplikacji w programie Visual Studio, kliknij prawym przyciskiem myszy **logiki** folder, a następnie wybierz **Dodaj**  - &gt; **nowy element**.   
- **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
 2. W obszarze **Visual C#** z **zainstalowana** w okienku po lewej stronie, wybierz opcję **kod**.
 3. W środkowym okienku wybierz **klasy**. Nazwa ta nowa klasa **PayPalFunctions.cs**.
 4. Kliknij przycisk **Dodaj**.  
- Nowy plik klasy jest wyświetlany w edytorze.
+   Nowy plik klasy jest wyświetlany w edytorze.
 5. Zastąp następujący kod w kodzie domyślnym:  
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample12.cs)]
@@ -312,9 +312,9 @@ Większość kodu PayPal w jednej klasie zostaną umieszczone. Ta klasa zawiera 
 
 Klasa NVPAPICaller zawiera większość funkcji PayPal. Kod w klasie udostępnia metody potrzebne do podejmowania testu kupić od środowiska testowego PayPal. Następujących trzech funkcji PayPal są używane do dokonywanie zakupów:
 
-- `SetExpressCheckout`Funkcja
-- `GetExpressCheckoutDetails`Funkcja
-- `DoExpressCheckoutPayment`Funkcja
+- `SetExpressCheckout` Funkcja
+- `GetExpressCheckoutDetails` Funkcja
+- `DoExpressCheckoutPayment` Funkcja
 
 `ShortcutExpressCheckout` — Metoda zbiera szczegóły informacji i produktu zakupu testu z koszyka zakupów i wywołania `SetExpressCheckout` funkcji PayPal. `GetCheckoutDetails` Metody potwierdza szczegóły zakupu i wywołania `GetExpressCheckoutDetails` funkcji PayPal przed dokonaniem zakupu testu. `DoCheckoutPayment` Metoda wykonuje zakupu testów w środowisku testowym przez wywołanie metody `DoExpressCheckoutPayment` funkcji PayPal. Pozostały kod obsługuje metody płatności PayPal i procesu, taką jak kodowanie ciągów i dekodowania ciągów, przetwarzania tablic oraz określania poświadczeń.
 
@@ -359,14 +359,14 @@ Teraz, podstawowe funkcje PayPal zostały dodane do przykładowej aplikacji, mo�
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample18.cs?highlight=18)]
 6. Zapisz zmiany w obu *ShoppingCart.aspx* pliku i *ShoppingCart.aspx.cs* pliku.
 7. Wybierz z menu **debugowania**-&gt;**kompilacji WingtipToys**.  
- Projekt zostanie odbudowany z nowo dodanego **ImageButton** formantu.
+   Projekt zostanie odbudowany z nowo dodanego **ImageButton** formantu.
 
 ### <a name="send-purchase-details-to-paypal"></a>Szczegóły zakupu wysyłania do systemu PayPal
 
 Po kliknięciu przez użytkownika **wyewidencjonowania** przycisk na stronie koszyka (*ShoppingCart.aspx*), zostaną one rozpocząć proces zakupu. Poniższy kod wywołuje pierwszej funkcji PayPal potrzebne do zakupu produktów.
 
 1. Z *wyewidencjonowania* folder, otwórz plik CodeBehind o nazwie *CheckoutStart.aspx.cs*.   
- Pamiętaj otworzyć plik CodeBehind.
+   Pamiętaj otworzyć plik CodeBehind.
 2. Zastąp istniejący kod poniżej:   
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample19.cs)]
@@ -439,20 +439,20 @@ Błędy podczas procesu zakupu będzie obsługiwany przez *CheckoutError.aspx* s
 Uruchom aplikację na temat sposobu zakupu produktów. Należy pamiętać, że będzie działać w PayPal środowiska testowego. Wymieniane bez rzeczywistego pieniędzy.
 
 1. Upewnij się, że wszystkie pliki są zapisywane w programie Visual Studio.
-2. Otwórz przeglądarkę sieci Web i przejdź do [https://developer.paypal.com](https://developer.paypal.com/).
+2. Otwórz przeglądarkę sieci Web i przejdź do [ https://developer.paypal.com ](https://developer.paypal.com/).
 3. Zaloguj się za pomocą konta dewelopera PayPal, który został utworzony we wcześniejszej części tego samouczka.  
- Piaskownica developer PayPal, musisz zalogować się na [https://developer.paypal.com](https://developer.paypal.com/) do testowania wyewidencjonowania express. Dotyczy to tylko piaskownicy PayPal testowania nie do środowiska produkcyjnego PayPal.
+   Piaskownica developer PayPal, musisz zalogować się na [ https://developer.paypal.com ](https://developer.paypal.com/) do testowania wyewidencjonowania express. Dotyczy to tylko piaskownicy PayPal testowania nie do środowiska produkcyjnego PayPal.
 4. W programie Visual Studio, naciśnij klawisz **F5** do uruchomienia aplikacji przykładowej Wingtip Toys.  
- Po odbudowania bazy danych, w przeglądarce zostanie otworzyć i Pokaż *Default.aspx* strony.
+   Po odbudowania bazy danych, w przeglądarce zostanie otworzyć i Pokaż *Default.aspx* strony.
 5. Dodaj do koszyka trzy różne produkty Wybieranie kategorii produktów, takie jak "Samochodów", a następnie klikając polecenie **Dodaj do koszyka** obok każdego produktu.  
- Moduł koszyka zakupów wyświetli produktu, który wybrano.
+   Moduł koszyka zakupów wyświetli produktu, który wybrano.
 6. Kliknij przycisk **PayPal** przycisku do wyewidencjonowania. 
 
     ![Wyewidencjonowywanie i płatności w systemie PayPal — koszyka](checkout-and-payment-with-paypal/_static/image20.png)
 
- Wyewidencjonowywanie wymaga posiadania konta użytkownika dla aplikacji przykładowej Wingtip Toys.
+   Wyewidencjonowywanie wymaga posiadania konta użytkownika dla aplikacji przykładowej Wingtip Toys.
 7. Kliknij przycisk **Google** łącza po prawej stronie do logowania się przy użyciu istniejącego konta e-mail gmail.com.  
- Jeśli nie masz konta gmail.com, możesz utworzyć jedną podczas testowania w [www.gmail.com](https://www.gmail.com/). Umożliwia także standardowe konto lokalne, klikając pozycję "Zarejestruj". 
+   Jeśli nie masz konta gmail.com, możesz utworzyć jedną podczas testowania w [www.gmail.com](https://www.gmail.com/). Umożliwia także standardowe konto lokalne, klikając pozycję "Zarejestruj". 
 
     ![Wyewidencjonowywanie i płatności w systemie PayPal — Zaloguj](checkout-and-payment-with-paypal/_static/image21.png)
 8. Zaloguj się przy użyciu swojego konta usługi gmail i hasło. 
@@ -465,7 +465,7 @@ Uruchom aplikację na temat sposobu zakupu produktów. Należy pamiętać, że b
 
     ![Wyewidencjonowywanie i płatności w systemie PayPal — PayPal logowania](checkout-and-payment-with-paypal/_static/image24.png)
 11. Zgodę na zasady PayPal i kliknij przycisk **Zgadzam się i Kontynuuj** przycisku.  
- Należy pamiętać, że ta strona jest tylko wyświetlane po raz pierwszy używasz tego konta PayPal. Ponownie należy pamiętać, że jest to konto testu nie pieniędzy są wymieniane. 
+    Należy pamiętać, że ta strona jest tylko wyświetlane po raz pierwszy używasz tego konta PayPal. Ponownie należy pamiętać, że jest to konto testu nie pieniędzy są wymieniane. 
 
     ![Wyewidencjonowywanie i płatności w systemie PayPal — PayPal zasad](checkout-and-payment-with-paypal/_static/image25.png)
 12. Przejrzeć informacje o kolejności na PayPal testowanie stronę przeglądu środowiska i kliknij przycisk **Kontynuuj**. 
@@ -518,6 +518,6 @@ W tym samouczku dodać kolejności i schematy szczegółów zamówienia śledzen
 
 Ten samouczek zawiera przykładowy kod. Takie przykładowy kod jest dostarczany "w jakim jest" bez jakichkolwiek gwarancji. W związku z tym Microsoft nie gwarantuje dokładność, integralność lub jakości przykładowy kod. Użytkownik zobowiązuje się używać przykładowy kod na własne ryzyko. W żadnym wypadku będzie Microsoft nie ponosi odpowiedzialności do Ciebie w żaden sposób żadnych przykładowy kod, zawartość, między innymi do błędów lub przeoczenia żadnych przykładowy kod, zawartości, lub dowolnego utratę lub uszkodzenie dowolnego rodzaju wynikające z użycia żadnych przykładowy kod. Jest powiadamiany, a zgadzają się wynagradzać, Zapisz i przytrzymaj z odpowiedzialności za straty wszystkie, oświadczenia straty, szkody lub uszkodzenia dowolnego rodzaju tym, bez ograniczenia, spowodowane lub wynikających z materiału, który ogłasza, Microsoft przekazuje, użyj lub polegać na tym, ale nie wyłącznie, poglądy wyrażone w nim.
 
->[!div class="step-by-step"]
-[Poprzednie](shopping-cart.md)
-[dalej](membership-and-administration.md)
+> [!div class="step-by-step"]
+> [Poprzednie](shopping-cart.md)
+> [dalej](membership-and-administration.md)

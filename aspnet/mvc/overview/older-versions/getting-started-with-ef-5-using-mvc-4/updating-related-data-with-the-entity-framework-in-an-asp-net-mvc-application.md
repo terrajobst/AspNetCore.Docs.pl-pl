@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Aktualizowanie danych powiązanych z programu Entity Framework w aplikacji platformy ASP.NET MVC (6 10) | Dokumentacja firmy Microsoft"
+title: Aktualizowanie danych powiązanych z programu Entity Framework w aplikacji platformy ASP.NET MVC (6 10) | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2ca76364a2e9a71dc92644bd579345ae3c304a69
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 227a7fed0ced884db591f0375454d6d0a62518f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>Aktualizowanie danych powiązanych z programu Entity Framework w aplikacji platformy ASP.NET MVC (6 10)
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -214,6 +214,6 @@ To wprowadzenie do pracy z powiązanych danych zostało zakończone. Do tej pory
 
 Linki do innych zasobów programu Entity Framework, można znaleźć na końcu [ostatniego samouczku tej serii](advanced-entity-framework-scenarios-for-an-mvc-web-application.md).
 
->[!div class="step-by-step"]
-[Poprzednie](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[dalej](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Poprzednie](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [dalej](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)

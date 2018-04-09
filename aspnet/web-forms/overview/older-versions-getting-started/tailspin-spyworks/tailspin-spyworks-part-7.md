@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
-title: "Część 7: Dodawanie funkcji | Dokumentacja firmy Microsoft"
+title: 'Część 7: Dodawanie funkcji | Dokumentacja firmy Microsoft'
 author: JoeStagner
-description: "Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 7 dodaje dodatkowe funkcje, takie jak konto okienko..."
+description: Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 7 dodaje dodatkowe funkcje, takie jak konto okienko...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 5280de44b3e75f9d1ae85e0248bc3ef6d5444f6d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17f068155f6726047901e2f7d580d375a4e07c87
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-7-adding-features"></a>Część 7: Dodawanie funkcji
 ====================
@@ -27,7 +27,7 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 > Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 7 dodaje dodatkowe funkcje, takie jak konto przeglądu, recenzje produktów i "popularnych elementy" i kontrolek użytkownika "również zakupionych".
 
 
-## <a id="_Toc260221673"></a>Dodawanie funkcji
+## <a id="_Toc260221673"></a>  Dodawanie funkcji
 
 Chociaż użytkownicy mogą przeglądać naszego katalogu, należy umieścić elementów w ich koszyk i ukończyć proces wyewidencjonowania, Brak funkcji obsługi wielu możemy uwzględni zwiększające naszej witrynie.
 
@@ -40,7 +40,7 @@ Chociaż użytkownicy mogą przeglądać naszego katalogu, należy umieścić el
 7. Dodaj informacje o stronie.
 8. Błąd globalne
 
-## <a id="_Toc260221674"></a>Przegląd konta
+## <a id="_Toc260221674"></a>  Przegląd konta
 
 W folderze "Konto" Utwórz dwie strony .aspx jedną o nazwie OrderList.aspx i innych OrderDetails.aspx o nazwie
 
@@ -56,7 +56,7 @@ Należy też zauważyć tych parametrów w pole hiperłącza HyperlinkField Grid
 
 Określają one łącza do każdego produktu, określając pola OrderID jako parametr QueryString na stronie OrderDetails.aspx w widoku szczegółów zamówienia.
 
-## <a id="_Toc260221675"></a>OrderDetails.aspx
+## <a id="_Toc260221675"></a>  OrderDetails.aspx
 
 Używamy obiektu EntityDataSource kontroli dostępu do zamówienia i FormView wyświetlać dane kolejności i innego obiektu EntityDataSource z widoku GridView do wyświetlenia wszystkich kolejność pozycji.
 
@@ -72,7 +72,7 @@ Musimy także obliczania i wyświetlania kolejności całkowita z pozycji wiersz
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample5.cs)]
 
-## <a id="_Toc260221676"></a>Strona główna
+## <a id="_Toc260221676"></a>  Strona główna
 
 Na stronie Default.aspx Dodajmy niektórych zawartość statyczną.
 
@@ -82,7 +82,7 @@ W zastępczym dolnej części strony Default.aspx Dodaj następujący kod znaczn
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample6.aspx)]
 
-## <a id="_Toc260221677"></a>Recenzje produktów
+## <a id="_Toc260221677"></a>  Recenzje produktów
 
 Najpierw dodamy przycisk z łączem do formularza, który możemy użyć do wprowadzania przeglądu produktu.
 
@@ -94,7 +94,7 @@ Należy pamiętać, możemy przekazywanie ProductID w ciągu zapytania
 
 Następny Dodajmy stronę o nazwie ReviewAdd.aspx
 
-Ta strona będzie używać zestawu ASP.NET AJAX kontroli narzędzi. Jeśli użytkownik jeszcze nie, aby pobrać go z [DevExpress](http://devexpress.com/act) i wskazówki dotyczące konfigurowania zestawu narzędzi do użytku z programem Visual Studio tutaj [https://www.asp.net/learn/ajax-videos/video-76.aspx](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md).
+Ta strona będzie używać zestawu ASP.NET AJAX kontroli narzędzi. Jeśli użytkownik jeszcze nie, aby pobrać go z [DevExpress](http://devexpress.com/act) i wskazówki dotyczące konfigurowania zestawu narzędzi do użytku z programem Visual Studio tutaj [ https://www.asp.net/learn/ajax-videos/video-76.aspx ](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md).
 
 W trybie projektowania przeciągnij formanty i modułów weryfikacji z przybornika i kompilacji podobny do poniższego formularza.
 
@@ -114,7 +114,7 @@ Uruchomienie teraz naszej aplikacji i przechodząc do produktu zawiera informacj
 
 ![](tailspin-spyworks-part-7/_static/image3.jpg)
 
-## <a id="_Toc260221678"></a>Formant popularnych elementów (Tworzenie kontrolki użytkownika)
+## <a id="_Toc260221678"></a>  Formant popularnych elementów (Tworzenie kontrolki użytkownika)
 
 W celu zwiększenia sprzedaży w witrynie sieci web dodamy kilka funkcji "sugerujących sprzedaje" produktów popularnych lub pokrewne.
 
@@ -156,7 +156,7 @@ Teraz możemy uruchamiania aplikacji na stronę główną Wyświetla najpopularn
 
 ![](tailspin-spyworks-part-7/_static/image6.jpg)
 
-## <a id="_Toc260221679"></a>"Zakupu" kontroli (kontrolek użytkownika z parametrami)
+## <a id="_Toc260221679"></a>  "Zakupu" kontroli (kontrolek użytkownika z parametrami)
 
 Drugi formant użytkownika, który utworzymy potrwa sugerujących, sprzedaży na następny poziom, dodając kontekstu szczegółowością.
 
@@ -236,6 +236,6 @@ Gdy firma Microsoft kompilacji i uruchomić teraz i przejdź do produktu widzimy
 
 ![](tailspin-spyworks-part-7/_static/image7.jpg)
 
->[!div class="step-by-step"]
-[Poprzednie](tailspin-spyworks-part-6.md)
-[dalej](tailspin-spyworks-part-8.md)
+> [!div class="step-by-step"]
+> [Poprzednie](tailspin-spyworks-part-6.md)
+> [dalej](tailspin-spyworks-part-8.md)

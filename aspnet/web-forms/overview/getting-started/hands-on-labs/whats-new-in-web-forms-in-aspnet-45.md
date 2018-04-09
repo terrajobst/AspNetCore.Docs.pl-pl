@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
-title: "Nowości w sieci Web formularzy w programie ASP.NET 4.5 | Dokumentacja firmy Microsoft"
+title: Nowości w sieci Web formularzy w programie ASP.NET 4.5 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Nowa wersja składnika ASP.NET Web Forms wprowadzono wiele ulepszeń skoncentrowane na ułatwieniu środowisko użytkownika podczas pracy z danymi. W poprzednich wersjach..."
+description: Nowa wersja składnika ASP.NET Web Forms wprowadzono wiele ulepszeń skoncentrowane na ułatwieniu środowisko użytkownika podczas pracy z danymi. W poprzednich wersjach...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 560f949f79be8ba4936e4a6f8ee8ee32ef15acbf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: db2658ff1feae1d4c20e4cfd19c36cfdf9492761
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Nowości w formularzach sieci Web w programie ASP.NET 4.5
 ====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
 > Nowa wersja składnika ASP.NET Web Forms wprowadzono wiele ulepszeń skoncentrowane na ułatwieniu środowisko użytkownika podczas pracy z danymi.
 > 
@@ -42,7 +42,7 @@ przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > 
 > W portalu oficjalnego ASP.NET można znaleźć więcej przykładów dotyczących nowych funkcji w programie ASP.NET 4.5 formularzy sieci Web: [What's New in ASP.NET 4.5 i programu Visual Studio 2012](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -103,12 +103,12 @@ W tym zadaniu zostanie wykryty nowego powiązania jednoznacznie dostępne w prog
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się na **źródło/Ex1-metodyModelBinding/Begin/** folderu.
 
-    1. Należy pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Należy pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 2. Otwórz **Customers.aspx** strony. Umieść nienumerowanych listy w formancie głównego i obejmują kontrolce elementu powtarzanego wewnątrz do wyświetlania każdego klienta. Ustaw nazwę elementu powtarzanego **customersRepeater** jak pokazano w poniższym kodzie.
 
     W poprzednich wersjach formularzy sieci Web gdy używanie powiązania danych do wysyłania wartości elementu członkowskiego dla obiekt jest powiązanie danych w celu, należy użyć wyrażenia wiązania danych wraz z wywołanie do metody Eval, przekazywanie nazwy elementu członkowskiego jako ciąg.
@@ -341,12 +341,12 @@ W tej sekcji zostaną włączone poprawności dyskretnego kodu w programie ASP.N
 
 1. Otwórz **programu Visual Studio 2012** , a następnie otwórz **rozpocząć** rozwiązania, znajdujących się w **Source\Ex2 Validation\Begin** folder tego laboratorium. Alternatywnie można kontynuować pracę na istniejące rozwiązania z poprzednim ćwiczeniu.
 
-    1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. W tym celu w Eksploratorze rozwiązań kliknij **WebFormsLab** projektu **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. W tym celu w Eksploratorze rozwiązań kliknij **WebFormsLab** projektu **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 2. Naciśnij klawisz **F5** można uruchomić aplikacji sieci web. Przejdź do klientów i kliknij przycisk **dodać nowego klienta** łącza.
 3. Kliknij prawym przyciskiem myszy na stronie przeglądarki, a następnie wybierz **Wyświetl źródło** opcję, aby otworzyć kod HTML wygenerowany przez aplikację.
 
@@ -535,12 +535,12 @@ W tym zadaniu zostanie zaktualizowana na stronie Szczegóły produktu umożliwia
 
 1. Otwórz **programu Visual Studio 2012** i załadować **rozpocząć** rozwiązania, znajdujących się w **Source\Ex3 Async\Begin** z folderu tego laboratorium. Alternatywnie można kontynuować pracę na istniejące rozwiązania z poprzednich ćwiczeń.
 
-    1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. W tym celu w Eksploratorze rozwiązań kliknij **WebFormsLab** projekt i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Po otwarciu dostarczonych **rozpocząć** rozwiązania, musisz pobrać niektórych brakujących pakietów NuGet aby kontynuować. W tym celu w Eksploratorze rozwiązań kliknij **WebFormsLab** projekt i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 2. Otwórz **ProductDetails.aspx** strony źródłowej i Dodaj pole w ItemTemplate FormView, aby wyświetlić obraz produktu.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample30.aspx)]
@@ -562,7 +562,7 @@ W tym zadaniu zostanie zaktualizowana na stronie Szczegóły produktu umożliwia
     (Fragment - kodu *sieci Web formularzy laboratorium - Ex03 - UpdateProductImage wywołania*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample34.cs)]
-7. Uruchom aplikację i spróbuj przekazać obraz produktu. Na przykład można użyć następującego adresu URL obrazu z Arts klip pakietu Office: [ [http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
+7. Uruchom aplikację i spróbuj przekazać obraz produktu. Na przykład można użyć następujący adres URL obrazu z Arts klip pakietu Office: [[http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
 
     ![Ustawienie obrazu produktu](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "ustawienie obrazu produktu")
 
@@ -580,7 +580,9 @@ Czas operacji w witrynie sieci web są obiekty doskonale nadające się programo
 1. Otwórz **ProductDetails.aspx** strony. Dodaj **Async** atrybutu w **strony** element i ustaw ją na **true**. Ten atrybut informuje program ASP.NET do zaimplementowania interfejsu IHttpAsyncHandler.
 
 
-    [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
+~~~
 2. Dodaj etykietę w dolnej części strony, aby wyświetlić szczegóły wątki uruchomione na stronie.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample36.aspx)]
@@ -636,9 +638,9 @@ W tym laboratorium praktycznego zostały skierowane i przedstawiono następując
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Dodatek A: Instalowanie programu Visual Studio Express 2012 for Web
 
-Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji  **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
+Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
 
-1. Przejdź do [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; *programu Visual Studio Express 2012 for Web z zestawem Azure SDK*&quot;.
+1. Przejdź do [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; <em>programu Visual Studio Express 2012 for Web z zestawem Azure SDK</em>&quot;.
 2. Polecenie **teraz zainstalować**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 
@@ -782,14 +784,14 @@ Jeśli aplikacja korzysta z programu SQL Server baz danych, należy utworzyć se
     *Konfiguracja narzędzia Web deploy*
 5. Skonfiguruj połączenie z bazą danych w następujący sposób:
 
-    - W **nazwy serwera** wpisz swoją bazą danych SQL server adresu URL przy użyciu *tcp:* prefiks.
-    - W **nazwy użytkownika** wpisz nazwę logowania administratora serwera.
-    - W **hasło** wpisz hasło logowania administratora serwera.
-    - Wpisz nazwę nowej bazy danych.
+   - W **nazwy serwera** wpisz swoją bazą danych SQL server adresu URL przy użyciu *tcp:* prefiks.
+   - W **nazwy użytkownika** wpisz nazwę logowania administratora serwera.
+   - W **hasło** wpisz hasło logowania administratora serwera.
+   - Wpisz nazwę nowej bazy danych.
 
-    ![Konfigurowanie parametrów połączenia z lokalizacją docelową](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "Konfigurowanie parametrów połączenia z lokalizacją docelową")
+     ![Konfigurowanie parametrów połączenia z lokalizacją docelową](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "Konfigurowanie parametrów połączenia z lokalizacją docelową")
 
-    *Konfigurowanie parametrów połączenia z lokalizacją docelową*
+     *Konfigurowanie parametrów połączenia z lokalizacją docelową*
 6. Następnie kliknij przycisk **OK**. Po wyświetleniu monitu można utworzyć bazy danych kliknij **tak**.
 
     ![Tworzenie bazy danych](whats-new-in-web-forms-in-aspnet-45/_static/image47.png "tworzenie parametry bazy danych")

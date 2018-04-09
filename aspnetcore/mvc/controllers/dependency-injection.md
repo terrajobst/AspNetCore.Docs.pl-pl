@@ -1,7 +1,7 @@
 ---
-title: "Iniekcji zależności do kontrolerów w ASP.NET Core"
+title: Iniekcji zależności do kontrolerów w ASP.NET Core
 author: ardalis
-description: "Odkryj, jak kontrolery ASP.NET Core MVC zażądać ich zależności jawnie za pośrednictwem ich konstruktorów z iniekcji zależności w ASP.NET Core."
+description: Odkryj, jak kontrolery ASP.NET Core MVC zażądać ich zależności jawnie za pośrednictwem ich konstruktorów z iniekcji zależności w ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 75b3da9805539ee04944231ed2ff0158fad451e4
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c3e26d294d51dc7044158b05c1ac39015c494610
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>Iniekcji zależności do kontrolerów w ASP.NET Core
 
@@ -66,7 +66,7 @@ Po skonfigurowaniu usługi uruchamiania aplikacji i przechodząc na stronę gł�
 ![Serwer pozdrowienia](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> Zobacz [logiką kontrolera testów](testing.md) informacje na temat jawne żądanie zależności [ http://deviq.com/explicit-dependencies-principle/ ](http://deviq.com/explicit-dependencies-principle/) kontrolery ułatwia kod do testowania.
+> Zobacz [logikę kontrolera testu](testing.md) informacje na temat jawne żądanie zależności [ http://deviq.com/explicit-dependencies-principle/ ](http://deviq.com/explicit-dependencies-principle/) kontrolery ułatwia kod do testowania.
 
 Iniekcji zależności wbudowanych platformy ASP.NET Core obsługuje posiadanie tylko jednego konstruktora dla klasy żądanie usługi. Jeśli masz więcej niż jeden konstruktor może wystąpić wyjątek z informacją:
 
@@ -104,4 +104,4 @@ Po określeniu obiekt jednoznacznie konfiguracji (w tym przypadku `SampleWebSett
 
 [!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
 
-Następujące opcje wzorzec umożliwia ustawienia i konfigurację być odłączona od siebie i zapewnia następujące jest kontrolerem [separacji](http://deviq.com/separation-of-concerns/), ponieważ nie musi wiedzieć, jak i gdzie można znaleźć ustawienia informacje. On również ułatwia kontrolera testu jednostkowego [logiką kontrolera testów](testing.md), ponieważ istnieje nie [statycznych przylepna](http://deviq.com/static-cling/) lub bezpośrednie tworzenie wystąpień klas ustawienia należące do klasy kontrolera.
+Następujące opcje wzorzec umożliwia ustawienia i konfigurację być odłączona od siebie i zapewnia następujące jest kontrolerem [separacji](http://deviq.com/separation-of-concerns/), ponieważ nie musi wiedzieć, jak i gdzie można znaleźć ustawienia informacje. On również ułatwia kontrolera testu jednostkowego [logikę kontrolera testu](testing.md), ponieważ istnieje nie [statycznych przylepna](http://deviq.com/static-cling/) lub bezpośrednie tworzenie wystąpień klas ustawienia należące do klasy kontrolera.

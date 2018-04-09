@@ -1,7 +1,7 @@
 ---
 title: Sterownik HTTP.sys implementacja serwera sieci web platformy ASP.NET Core
 author: tdykstra
-description: "Więcej informacji na temat HTTP.sys, serwer sieci web platformy ASP.NET Core w systemie Windows. W oparciu sterownik trybu jądra HTTP.sys, sterownik HTTP.sys stanowi alternatywę dla Kestrel, który może służyć do bezpośredniego połączenia z Internetem bez usług IIS."
+description: Więcej informacji na temat HTTP.sys, serwer sieci web platformy ASP.NET Core w systemie Windows. W oparciu sterownik trybu jądra HTTP.sys, sterownik HTTP.sys stanowi alternatywę dla Kestrel, który może służyć do bezpośredniego połączenia z Internetem bez usług IIS.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: d7ae6c070c7eecfd714086e15f32eff96c0943d9
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 1ec309a00b6cb156b0d11ad085eda3b7a772ac94
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Sterownik HTTP.sys implementacja serwera sieci web platformy ASP.NET Core
 
@@ -65,7 +65,7 @@ Sterownik HTTP.sys jest dojrzała technologia, która chroni przed wiele rodzaj�
 
 1. Odwołanie pakietu w pliku projektu nie jest wymagane, korzystając z [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)) (platformy ASP.NET Core w wersji 2.0 lub nowszej). Korzystając z nie `Microsoft.AspNetCore.All` metapackage, Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
 
-1. Wywołanie [UseHttpSys](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderhttpsysextensions.usehttpsys) — metoda rozszerzenia podczas kompilowania hosta sieci web, określając każdego wymaganego [opcje HTTP.sys](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions):
+2. Wywołanie [UseHttpSys](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderhttpsysextensions.usehttpsys) — metoda rozszerzenia podczas kompilowania hosta sieci web, określając każdego wymaganego [opcje HTTP.sys](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions):
 
    [!code-csharp[](httpsys/sample/Program.cs?name=snippet1&highlight=4-12)]
 
@@ -93,7 +93,7 @@ Sterownik HTTP.sys jest dojrzała technologia, która chroni przed wiele rodzaj�
    Maksymalny dozwolony rozmiar żadnych treści żądania w bajtach. Jeśli wartość `null`, żądanie maksymalny rozmiar treści jest nieograniczony. To ograniczenie nie ma wpływu na uaktualnionym połączeń, które są zawsze nieograniczone.
 
    Zalecaną metodą do zastąpienia limitu w aplikacji ASP.NET Core MVC z jednym `IActionResult` jest użycie [RequestSizeLimitAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requestsizelimitattribute) atrybutu metody akcji:
-   
+
    ```csharp
    [RequestSizeLimit(100000000)]
    public IActionResult MyActionMethod()
@@ -105,7 +105,7 @@ Sterownik HTTP.sys jest dojrzała technologia, która chroni przed wiele rodzaj�
 
    [!code-csharp[](httpsys/sample/Startup.cs?name=snippet1&highlight=6-7)]
 
-1. Jeśli używasz programu Visual Studio, upewnij się, że aplikacja nie jest skonfigurowana do uruchamiania usług IIS lub usług IIS Express.
+3. Jeśli używasz programu Visual Studio, upewnij się, że aplikacja nie jest skonfigurowana do uruchamiania usług IIS lub usług IIS Express.
 
    W programie Visual Studio domyślnego profilu uruchamiania jest dla usług IIS Express. Aby uruchomić projekt jako aplikację konsoli, ręcznie zmienić wybranego profilu, jak pokazano na poniższym zrzucie ekranu:
 
@@ -115,10 +115,10 @@ Sterownik HTTP.sys jest dojrzała technologia, która chroni przed wiele rodzaj�
 
 1. Jeśli aplikacja jest [wdrożenia zależne od framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd), zainstaluj oprogramowanie .NET Core i .NET Framework (jeśli jest to aplikacja .NET Core docelowy program .NET Framework).
 
-   * **Oprogramowanie .NET core** &ndash; Jeśli aplikacja wymaga platformy .NET Core, Uzyskaj i uruchom Instalatora programu .NET Core z [pobiera .NET](https://www.microsoft.com/net/download/windows).
-   * **.NET framework** &ndash; Jeśli aplikacja wymaga programu .NET Framework, zobacz [.NET Framework: Przewodnik instalacji](/dotnet/framework/install/) można znaleźć instrukcje dotyczące instalacji. Zainstaluj wymagane .NET Framework. Instalator programu .NET Framework najnowsze można znaleźć w folderze [pobiera .NET](https://www.microsoft.com/net/download/windows).
+   * **Oprogramowanie .NET core** &ndash; Jeśli aplikacja wymaga platformy .NET Core, Uzyskaj i uruchom Instalatora programu .NET Core z [.NET wszystkie pliki do pobrania](https://www.microsoft.com/net/download/all).
+   * **.NET framework** &ndash; Jeśli aplikacja wymaga programu .NET Framework, zobacz [.NET Framework: Przewodnik instalacji](/dotnet/framework/install/) można znaleźć instrukcje dotyczące instalacji. Zainstaluj wymagane .NET Framework. Instalator programu .NET Framework najnowsze można znaleźć w folderze [.NET wszystkie pliki do pobrania](https://www.microsoft.com/net/download/all).
 
-1. Skonfiguruj adresy URL i portów dla aplikacji.
+2. Skonfiguruj adresy URL i portów dla aplikacji.
 
    Domyślnie program ASP.NET Core wiąże `http://localhost:5000`. Aby skonfigurować prefiksy URL i portów, są następujące opcje przy użyciu:
 
@@ -140,7 +140,7 @@ Sterownik HTTP.sys jest dojrzała technologia, która chroni przed wiele rodzaj�
    > [!WARNING]
    > Powiązania najwyższego poziomu symbolu wieloznacznego (`http://*:80/` i `http://+:80`) powinien **nie** można użyć. Powiązania wieloznaczny najwyższego poziomu można otwarcie luk w zabezpieczeniach aplikacji. Dotyczy to zarówno silne i słabe symboli wieloznacznych. Użyj nazwy hostów jawne zamiast symboli wieloznacznych. Powiązanie symbolu wieloznacznego domeny podrzędnej (na przykład `*.mysub.com`) nie ma to zagrożenie bezpieczeństwa, jeśli kontrolować domeny nadrzędnej całego (w przeciwieństwie do `*.com`, której występuje). Zobacz [rfc7230 sekcji-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) Aby uzyskać więcej informacji.
 
-1. Preregister prefiksów URL do powiązania do pliku HTTP.sys i konfigurowanie certyfikatów x.509.
+3. Preregister prefiksów URL do powiązania do pliku HTTP.sys i konfigurowanie certyfikatów x.509.
 
    Jeśli adres URL prefiksy nie są preregistered w systemie Windows, uruchom aplikację z uprawnieniami administratora. Jedynym wyjątkiem jest podczas wiązania z hostem lokalnym przy użyciu protokołu HTTP (a nie HTTPS) z większą niż 1024 numeru portu. W takim przypadku uprawnienia administratora nie są wymagane.
 
@@ -164,11 +164,16 @@ Sterownik HTTP.sys jest dojrzała technologia, która chroni przed wiele rodzaj�
       * [Polecenia Netsh dla Hypertext Transfer Protocol (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
       * [Ciągi UrlPrefix](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
-   1. Tworzenie certyfikatów X.509 z podpisem własnym, jeśli jest to wymagane.
+   2. Tworzenie certyfikatów X.509 z podpisem własnym, jeśli jest to wymagane.
 
-     [!INCLUDE[How to make an X.509 cert](../../includes/make-x509-cert.md)]
+      [!INCLUDE [How to make an X.509 cert](../../includes/make-x509-cert.md)]
 
-1. Otwórz porty zapory, aby zezwolić na ruch do pliku HTTP.sys. Użyj *netsh.exe* lub [poleceń cmdlet programu PowerShell](https://technet.microsoft.com/library/jj554906).
+
+4. Otwórz porty zapory, aby zezwolić na ruch do pliku HTTP.sys. Użyj *netsh.exe* lub [poleceń cmdlet programu PowerShell](https://technet.microsoft.com/library/jj554906).
+
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Serwer proxy i scenariuszy usługi równoważenia obciążenia
+
+Dla aplikacji hostowanych przez rozszerzenie HTTP.sys, współpracujące z żądaniami z Internetu lub sieci firmowej dodatkowa konfiguracja może być wymagane, gdy hosting za serwerów proxy i moduły równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie platformy ASP.NET Core do pracy z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

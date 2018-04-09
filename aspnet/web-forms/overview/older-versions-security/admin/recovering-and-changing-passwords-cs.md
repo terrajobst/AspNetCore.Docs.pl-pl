@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-cs
-title: "Odzyskiwanie i zmiana haseł (C#) | Dokumentacja firmy Microsoft"
+title: Odzyskiwanie i zmiana haseł (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Program ASP.NET zawiera dwa formanty sieci Web z odzyskiwanie i zmiana haseł. Formant PasswordRecovery umożliwia odwiedzającego odzyskać jego utracone pa..."
+description: Program ASP.NET zawiera dwa formanty sieci Web z odzyskiwanie i zmiana haseł. Formant PasswordRecovery umożliwia odwiedzającego odzyskać jego utracone pa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 76c02a3da7dffad25a7bee03efff6b693f261d85
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7f8b019631eff4840bf1759f8e2752946abcaf80
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="recovering-and-changing-passwords-c"></a>Odzyskiwanie i zmiana haseł (C#)
 ====================
@@ -86,7 +86,7 @@ Aby przetestować tę stronę, jest jeden ostatni element konfiguracji do częst
 Konfiguracja dostarczania poczty jest określany za pośrednictwem [ `<system.net>` elementu](https://msdn.microsoft.com/library/6484zdc1.aspx)w [ `<mailSettings>` elementu](https://msdn.microsoft.com/library/w355a94k.aspx). Użyj [ `<smtp>` elementu](https://msdn.microsoft.com/library/ms164240.aspx) oznacza metodę dostarczania i domyślny adres nadawcy. Następujący kod konfiguruje ustawienia poczty do korzystania z serwera SMTP sieci o nazwie `smtp.example.com` na porcie 25 i poświadczenia nazwy użytkownika i hasła użytkownika i hasło.
 
 > [!NOTE]
-> `<system.net>`jest elementem podrzędnym głównego `<configuration>` elementu i elementem równorzędnym `<system.web>`. W związku z tym nie należy umieszczać `<system.net>` w elemencie `<system.web>` element; zamiast tego należy umieścić na tym samym poziomie.
+> `<system.net>` jest elementem podrzędnym głównego `<configuration>` elementu i elementem równorzędnym `<system.web>`. W związku z tym nie należy umieszczać `<system.net>` w elemencie `<system.web>` element; zamiast tego należy umieścić na tym samym poziomie.
 
 
 [!code-xml[Main](recovering-and-changing-passwords-cs/samples/sample1.xml)]
@@ -125,7 +125,7 @@ Wróć do witryny i zaloguj się za pomocą poniższych informacji.
 
 Nazwa użytkownika: *nazwy użytkownika*
 
-hasło: *hasła*
+Hasło: *hasła*
 
 Ten komunikat można dostosować programowo przez program obsługi zdarzeń dla formantu PasswordRecovery [ `SendingMail` zdarzeń](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.sendingmail.aspx), lub deklaratywnie za pomocą [ `MailDefinition` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.passwordrecovery.maildefinition.aspx). Przyjrzyjmy się obu tych opcji.
 
@@ -165,8 +165,8 @@ Do wysyłania wiadomości e-mail w formacie HTML ustawić [ `IsBodyHtml` ](https
 
 Podczas resetowania hasła użytkownika PasswordRecovery kontrolować wywołania `MembershipUser` obiektu [ `ResetPassword` metody](https://msdn.microsoft.com/library/system.web.security.membershipuser.resetpassword.aspx). Ta metoda ma dwa przeciążenia:
 
-- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)**-Resetuje hasło użytkownika. Użyj tego przeciążenia, jeśli `RequiresQuestionAndAnswer` ma wartość False.
-- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)**-Resetuje hasło użytkownika tylko wtedy, gdy podane *securityAnswer* jest poprawna. Użyj tego przeciążenia, jeśli `RequiresQuestionAndAnswer` ma wartość True.
+- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)** -Resetuje hasło użytkownika. Użyj tego przeciążenia, jeśli `RequiresQuestionAndAnswer` ma wartość False.
+- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)** -Resetuje hasło użytkownika tylko wtedy, gdy podane *securityAnswer* jest poprawna. Użyj tego przeciążenia, jeśli `RequiresQuestionAndAnswer` ma wartość True.
 
 Zarówno przeciążenia zwraca nowy, losowo wygenerowane hasło.
 
@@ -300,16 +300,16 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Element ChangePassword kontroli poradniki Szybki Start](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/changepassword.aspx)
 - [Przewodniki Szybki Start PasswordRecovery formantu](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/passwordrecovery.aspx)
 - [Wysyłanie wiadomości E-mail w programie ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
-- [`System.Net.Mail`Często zadawane pytania](http://www.systemnetmail.com/)
+- [`System.Net.Mail` Często zadawane pytania](http://www.systemnetmail.com/)
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
-Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku obejmują Michael Emmings i Suchi Banerjee. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku obejmują Michael Emmings i Suchi Banerjee. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](building-an-interface-to-select-one-user-account-from-many-cs.md)
-[dalej](unlocking-and-approving-user-accounts-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](building-an-interface-to-select-one-user-account-from-many-cs.md)
+> [dalej](unlocking-and-approving-user-accounts-cs.md)

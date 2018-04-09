@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
-title: "Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: przekształcenia pliku Web.config | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: przekształcenia pliku Web.config | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane..."
+description: Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: a526275d76618c325a6b00f33cc550f28ab0cc00
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 77ed0d8b2fe85adb009a3f4759030b7fba8fb9d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: przekształcenia pliku Web.config
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -152,6 +152,6 @@ W poniższych instrukcji zajmiesz zadań konfiguracji wdrożenia, które wymaga 
 
 Aby uzyskać więcej informacji o tematach opisane w tym samouczku, zobacz [przekształcenia przy użyciu pliku Web.config, aby zmienić ustawienia w pliku Web.config docelowego lub pliku app.config podczas wdrażania](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms) w planie zawartości sieci Web wdrożenia dla Program Visual Studio i platformy ASP.NET.
 
->[!div class="step-by-step"]
-[Poprzednie](preparing-databases.md)
-[dalej](project-properties.md)
+> [!div class="step-by-step"]
+> [Poprzednie](preparing-databases.md)
+> [dalej](project-properties.md)

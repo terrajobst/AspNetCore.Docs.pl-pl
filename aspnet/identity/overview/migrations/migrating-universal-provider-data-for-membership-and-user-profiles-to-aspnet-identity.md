@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
-title: "Migrowanie danych uniwersalnych dostawcy dla członkostwa i profilów użytkownika dla tożsamości ASP.NET (C#) | Dokumentacja firmy Microsoft"
+title: Migrowanie danych uniwersalnych dostawcy dla członkostwa i profilów użytkownika dla tożsamości ASP.NET (C#) | Dokumentacja firmy Microsoft
 author: rustd
-description: "W tym samouczku opisano kroki, które są niezbędne do przeprowadzenia migracji użytkowników i danych roli i danych profilów użytkowników utworzone przy użyciu dostawców uniwersalnych z istniejącej aplikacji..."
+description: W tym samouczku opisano kroki, które są niezbędne do przeprowadzenia migracji użytkowników i danych roli i danych profilów użytkowników utworzone przy użyciu dostawców uniwersalnych z istniejącej aplikacji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/13/2013
 ms.topic: article
 ms.assetid: 2e260430-d13c-4658-bd05-e256fc0d63b8
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: e00bcfc111425d5dd26c7ff341eaf87fd969e089
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f65f93b20543d06ea70a9009b6921e297477c99e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>Migrowanie danych uniwersalnych dostawcy dla członkostwa i profilów użytkownika dla tożsamości ASP.NET (C#)
 ====================
@@ -30,7 +30,7 @@ Wraz z wydaniem programu Visual Studio 2013, ASP.NET team wprowadzono nowy syste
 Na przykład Rozpoczniemy z aplikacją sieci web utworzony za pomocą programu Visual Studio 2012, który korzysta z modelu dostawców. Firma Microsoft będzie, a następnie dodaj kod do zarządzania profilami, zarejestruj użytkownika, dodać dane profilu dla użytkowników, migracji schemat bazy danych, a następnie Zmień aplikację do korzystania z systemu tożsamości użytkownika i roli zarządzania. Jako test migracji użytkowników utworzone przy użyciu dostawców uniwersalnych powinny mieć możliwość logowania i nowych użytkowników powinny mieć możliwość rejestrowania.
 
 > [!NOTE]
-> Znajduje się pełny przykład w [https://github.com/suhasj/UniversalProviders-Identity-Migrations](https://github.com/suhasj/UniversalProviders-Identity-Migrations).
+> Znajduje się pełny przykład w [ https://github.com/suhasj/UniversalProviders-Identity-Migrations ](https://github.com/suhasj/UniversalProviders-Identity-Migrations).
 
 
 ## <a name="profile-data-migration-summary"></a>Podsumowanie migracji danych profilu
@@ -39,7 +39,7 @@ Przed rozpoczęciem z migracja, poinformuj nas przyjrzeć się obsługi przechow
 
 1. Dodaj klasę, która ma właściwości używany do przechowywania danych profilu.
 2. Dodaj klasę, która rozszerza "ProfileBase" i implementuje metody w celu uzyskania powyższe dane profilu dla użytkownika.
-3. Włącz przy użyciu domyślnego dostawcy profilu w *web.config* plików i zdefiniuj klasy zadeklarowanej w kroku &#2; ma być używana podczas uzyskiwania dostępu do informacji o profilu.
+3. Włącz przy użyciu domyślnego dostawcy profilu w *web.config* plików i zdefiniuj klasy zadeklarowanej w kroku 2 # ma być używana podczas uzyskiwania dostępu do informacji o profilu.
 
 Informacje o profilu jest przechowywana jako serializacji xml i dane binarne w tabeli "Profilów" w bazie danych.
 
@@ -61,11 +61,11 @@ Po przeprowadzeniu migracji aplikacji do użycia w nowym systemie tożsamości p
 
     [!code-html[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample3.html)]
 
- Dodaj następujący kod w kodzie:
+   Dodaj następujący kod w kodzie:
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample4.cs)]
 
- Dodaj obszar nazw, w których AppProfile zdefiniowana jest klasa, aby usunąć błędy kompilacji.
+   Dodaj obszar nazw, w których AppProfile zdefiniowana jest klasa, aby usunąć błędy kompilacji.
 6. Uruchom aplikację i utworzenie nowego użytkownika z nazwą użytkownika "**olduser".** Przejdź do strony "AddProfileData" i Dodaj informacje o profilu użytkownika.  
     ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image2.png)
 
@@ -81,7 +81,7 @@ Aby istniejąca baza danych działa w systemie tożsamości, musimy zaktualizowa
 
 ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image5.png)
 
-Wklej skrypt SQL z [https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt](https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt) i uruchom go. Jeśli połączenia "DefaultConnection" zostanie odświeżona, możemy stwierdzić, że nowe tabele są dodawane. Można sprawdzić danych wewnątrz tabel, aby zobaczyć, że dane zostały poddane migracji.
+Wklej skrypt SQL z [ https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt ](https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt) i uruchom go. Jeśli połączenia "DefaultConnection" zostanie odświeżona, możemy stwierdzić, że nowe tabele są dodawane. Można sprawdzić danych wewnątrz tabel, aby zobaczyć, że dane zostały poddane migracji.
 
 ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image6.png)
 
@@ -97,14 +97,14 @@ Wklej skrypt SQL z [https://raw.github.com/suhasj/UniversalProviders-Identity-Mi
     - Microsoft.Owin.Security.MicrosoftAccount
     - Microsoft.Owin.Security.Twitter
 
- Więcej informacji na temat zarządzania pakietami Nuget można znaleźć [tutaj](http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog)
+   Więcej informacji na temat zarządzania pakietami Nuget można znaleźć [tutaj](http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog)
 2. Aby pracować z istniejących danych w tabeli, należy utworzyć klasy modelu, które mapowania tabeli, a Podłączanie w systemie tożsamości. W ramach umowy tożsamości klasy modelu albo powinien implementować interfejsów zdefiniowanych w bibliotece dll Identity.Core lub rozszerzyć istniejącą implementacją tych interfejsów, które są dostępne w Microsoft.AspNet.Identity.EntityFramework. Firma Microsoft będzie używać istniejących klas dla roli, logowania użytkowników i oświadczeń użytkownika. Należy użyć użytkownika niestandardowego dla naszej próbki. Kliknij prawym przyciskiem myszy projekt i Utwórz nowy folder "IdentityModels". Dodaj nową klasę "User", jak pokazano poniżej:
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample5.cs)]
 
- Zauważ, że ProfileInfo teraz jest właściwością klasy użytkownika. Dlatego możemy użyć klasy użytkownika bezpośrednio pracować z danymi profilu.
+   Zauważ, że ProfileInfo teraz jest właściwością klasy użytkownika. Dlatego możemy użyć klasy użytkownika bezpośrednio pracować z danymi profilu.
 
-Skopiuj pliki w **IdentityModels** i **IdentityAccount** folderów ze źródła pobierania ( [https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/ UniversalProviders-Identity-Migrations](https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations) ). Mają one pozostałe klasy modelu i nowych stron wymaganych dla użytkowników i zarządzania rolami przy użyciu interfejsów API tożsamości ASP.NET. Podejście, używane jest podobny do członkostwa SQL i szczegółowy opis można znaleźć [tutaj](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md).
+Skopiuj pliki w **IdentityModels** i **IdentityAccount** folderów ze źródła pobierania ( [ https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations ](https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations) ). Mają one pozostałe klasy modelu i nowych stron wymaganych dla użytkowników i zarządzania rolami przy użyciu interfejsów API tożsamości ASP.NET. Podejście, używane jest podobny do członkostwa SQL i szczegółowy opis można znaleźć [tutaj](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md).
 
 ## <a name="copying-profile-data-to-the-new-tables"></a>Kopiowanie danych profilu do nowych tabel
 
@@ -118,7 +118,7 @@ Jak wspomniano wcześniej, musimy deserializacji danych xml w tabelach profile i
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample6.cs)]
 
- Niektóre modele są definiowane w folderze "IdentityModels" projektu aplikacji sieci web, więc należy dołączyć odpowiednie przestrzenie nazw.
+   Niektóre modele są definiowane w folderze "IdentityModels" projektu aplikacji sieci web, więc należy dołączyć odpowiednie przestrzenie nazw.
 5. Powyższy kod działa na plik bazy danych w aplikacji\_utworzyć folderu dane projektu aplikacji sieci web w poprzednich krokach. Aby odwołać, który, należy zaktualizować parametry połączenia w pliku app.config aplikacji konsoli przy użyciu parametrów połączenia w pliku web.config aplikacji sieci web. Ponadto podaj pełną ścieżkę fizyczną we właściwości 'AttachDbFilename'.
 6. Otwórz wiersz polecenia i przejdź do folderu bin powyżej aplikacji konsoli. Uruchom plik wykonywalny i przejrzyj dane wyjściowe dziennika, jak pokazano na poniższej ilustracji.  
     ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image3.jpg)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
-title: "Implementowanie optymistycznej współbieżności (C#) | Dokumentacja firmy Microsoft"
+title: Implementowanie optymistycznej współbieżności (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Dla aplikacji sieci web, która umożliwia wielu użytkownikom edytowanie danych istnieje ryzyko, że dwóch użytkowników może edytować tych samych danych w tym samym czasie. W tym tutori..."
+description: Dla aplikacji sieci web, która umożliwia wielu użytkownikom edytowanie danych istnieje ryzyko, że dwóch użytkowników może edytować tych samych danych w tym samym czasie. W tym tutori...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a19e6c320838849e10d2aa397a23a0ee906bac22
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 27441ea9343055b3139468036fc6f201c77667e5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-optimistic-concurrency-c"></a>Implementowanie optymistycznej współbieżności (C#)
 ====================
@@ -259,8 +259,8 @@ Te samouczki poprzedniej związane modyfikacji danych usuniemy ObjectDataSource 
 
 Brak jednego ustawienie właściwości końcowego, który musi być dokonywane w kolejności dla elementu ObjectDataSource poprawnie przekazywane oryginalnych wartości do metod logiki warstwy Biznesowej. Element ObjectDataSource ma [właściwości wartość ConflictDetection](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx) mogą być przypisane do [jedną z dwóch wartości](https://msdn.microsoft.com/library/system.web.ui.conflictoptions.aspx):
 
-- `OverwriteChanges`— Wartość domyślna; nie przesyłają oryginalnych wartości parametrów wejściowych oryginalnej metody logiki warstwy Biznesowej
-- `CompareAllValues`— Wyślij oryginalne wartości do metod logiki warstwy Biznesowej; Wybierz tę opcję, używając optymistycznej współbieżności
+- `OverwriteChanges` — Wartość domyślna; nie przesyłają oryginalnych wartości parametrów wejściowych oryginalnej metody logiki warstwy Biznesowej
+- `CompareAllValues` — Wyślij oryginalne wartości do metod logiki warstwy Biznesowej; Wybierz tę opcję, używając optymistycznej współbieżności
 
 Poświęć chwilę, aby ustawić `ConflictDetection` właściwości `CompareAllValues`.
 
@@ -429,8 +429,8 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Poprzednie](customizing-the-data-modification-interface-cs.md)
-[dalej](adding-client-side-confirmation-when-deleting-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](customizing-the-data-modification-interface-cs.md)
+> [dalej](adding-client-side-confirmation-when-deleting-cs.md)

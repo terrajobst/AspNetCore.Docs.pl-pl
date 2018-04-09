@@ -1,7 +1,7 @@
 ---
-title: "Przekazywanie plików do Razor strony platformy ASP.NET Core"
+title: Przekazywanie plików do Razor strony platformy ASP.NET Core
 author: guardrex
-description: "Dowiedz się, jak przekazać pliki do strony Razor."
+description: Dowiedz się, jak przekazać pliki do strony Razor.
 manager: wpickett
 ms.author: riande
 ms.date: 09/12/2017
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 184a42b3b6a458a6fbe23c4d54e03abc228b6efa
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 6f229ef625b1c7ddaffb9cb3bc7945cc31e5263c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików do Razor strony platformy ASP.NET Core
+# <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików do Razor strony platformy ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
@@ -186,5 +186,5 @@ Dziękujemy za korzystanie z wprowadzenia do stron Razor. Dziękujemy za opinię
 * [W przypadku platformy ASP.NET Core przekazywania plików](xref:mvc/models/file-uploads)
 * [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile)
 
->[!div class="step-by-step"]
-[Poprzednie: Sprawdzanie poprawności](xref:tutorials/razor-pages/validation)
+> [!div class="step-by-step"]
+> [Poprzednie: Sprawdzanie poprawności](xref:tutorials/razor-pages/validation)

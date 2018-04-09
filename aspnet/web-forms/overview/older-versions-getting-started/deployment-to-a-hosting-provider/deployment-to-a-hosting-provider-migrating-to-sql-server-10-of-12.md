@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
-title: "Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: Migracja do programu SQL Server - 10, 12 | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: Migracja do programu SQL Server - 10, 12 | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Tej serii samouczków opisano sposób wdrażania platformy ASP.NET (publikowanie) projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu..."
+description: Tej serii samouczków opisano sposób wdrażania platformy ASP.NET (publikowanie) projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: b97834e3e287645151bf927996fde63d93ae8356
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 25a829f1d3c730c7bb3b174f075ce8163999e482
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio lub Visual Web Developer programu SQL Server Compact: Migracja do programu SQL Server - 10, 12
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -242,7 +242,7 @@ W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt Contoso
 
 Wybierz **profilu** kartę.
 
-Wybierz  **&lt;nowych... &gt;**  z listy rozwijanej liście, a następnie wprowadź "Test" jako nazwy profilu.
+Wybierz **&lt;nowych... &gt;** z listy rozwijanej liście, a następnie wprowadź "Test" jako nazwy profilu.
 
 W **adres URL usługi** wprowadź *localhost*.
 
@@ -268,7 +268,7 @@ Visual Studio wdraża aplikację i otwiera przeglądarkę do strony głównej wi
 
 Teraz, gdy została wdrożona do środowiska testowego, możesz przystąpić do konfigurowania wdrożenia do produkcji. Możesz rozpocząć tak samo jak dla środowiska testowego, tworząc bazę danych do wdrożenia. Tak jak pamiętasz z przeglądu, Cytanium Lite plan hostingu umożliwia tylko pojedynczej bazy danych programu SQL Server, zostanie zainstalowana tylko jedną bazę danych, tj. Wszystkie tabele i dane z członkostwa i szkoły programu SQL Server Compact baz danych będzie można wdrożyć do jednej bazy danych SQL Server w środowisku produkcyjnym.
 
-Przejdź do panelu sterowania Cytanium w [http://panel.cytanium.com](http://panel.cytanium.com). Umieść wskaźnik myszy nad **baz danych** , a następnie kliknij przycisk **programu SQL Server 2008**.
+Przejdź do panelu sterowania Cytanium w [ http://panel.cytanium.com ](http://panel.cytanium.com). Umieść wskaźnik myszy nad **baz danych** , a następnie kliknij przycisk **programu SQL Server 2008**.
 
 [![Selecting_Databases_in_Control_Panel](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image22.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image21.png)
 
@@ -380,7 +380,7 @@ W rzeczywistej aplikacji, w którym aktualizacji bazy danych w środowisku produ
 
 W **jeden kliknij publikowania w sieci Web** narzędzi, upewnij się, że **produkcji** profilu jest zaznaczona, a następnie kliknij przycisk **publikowania**.
 
-Jeśli został przekazany *aplikacji\_offline.htm* przed opublikowaniem, należy użyć **Menedżera plików** narzędzia w Panelu sterowania Cytanium, aby usunąć *aplikacji\_w trybie offline.* htm, aby można było przetestować. Można również w tym samym czasie usunąć *sdf* plików ze *aplikacji\_danych* folderu.
+Jeśli został przekazany <em>aplikacji\_offline.htm</em> przed opublikowaniem, należy użyć <strong>Menedżera plików</strong> narzędzia w Panelu sterowania Cytanium, aby usunąć <em>aplikacji\_w trybie offline.</em> htm, aby można było przetestować. Można również w tym samym czasie usunąć <em>sdf</em> plików ze <em>aplikacji\_danych</em> folderu.
 
 Możesz teraz Otwórz przeglądarkę i przejdź do adresu URL witryny sieci publicznych, aby przetestować aplikację w taki sam sposób jak w przypadku po wdrożeniu do środowiska testowego.
 
@@ -450,6 +450,6 @@ Postępuj zgodnie z tą samą procedurą, aby odinstalować **SqlServerCompact**
 
 Teraz pomyślnie zostały zmigrowane do programu SQL Server Express i pełnego serwera SQL. W następnej samouczek inną zmianę w bazie danych, na które należy podjąć, zostanie wyświetlone sposobu wdrażania zmian w bazie danych testowych i produkcyjnych baz danych użycia programu SQL Server Express i pełnego serwera SQL.
 
->[!div class="step-by-step"]
-[Poprzednie](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
-[dalej](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
+> [dalej](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

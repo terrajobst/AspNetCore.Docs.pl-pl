@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
-title: "Wdrożenie bazy danych (C#) | Dokumentacja firmy Microsoft"
+title: Wdrożenie bazy danych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Wdrażanie aplikacji sieci web ASP.NET wymaga pobieranie niezbędnych plików i zasobów z Środowisko deweloperskie do środowiska produkcyjnego. Dla da..."
+description: Wdrażanie aplikacji sieci web ASP.NET wymaga pobieranie niezbędnych plików i zasobów z Środowisko deweloperskie do środowiska produkcyjnego. Dla da...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f71e3cd1e81644df7b3dfed363b6f2ca826e610d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 203bf64da887f31e5f0727fc57173d6a573095da
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-a-database-c"></a>Wdrożenie bazy danych (C#)
 ====================
@@ -41,10 +41,10 @@ Używa aplikacji sieci web zaktualizowane przeglądy książki [programu SQL Ser
 
 `Reviews.mdf` Baza danych zawiera cztery tabele:
 
-- `Genres`-zawiera rekord dla każdego rodzaju, takich jak technologię, Fikcja i biznesowych.
-- `Books`-zawiera rekord dla każdego przeglądu z kolumnami, takich jak `Title`, `GenreId`, `ReviewDate`, i `Review`, między innymi.
-- `Authors`— zawiera informacje na temat każdego Autor, który przyczynił się je przejrzeć książce.
-- `BooksAuthors`-tabeli sprzężenia wiele do wielu, która określa, jakie autorów napisano książek.
+- `Genres` -zawiera rekord dla każdego rodzaju, takich jak technologię, Fikcja i biznesowych.
+- `Books` -zawiera rekord dla każdego przeglądu z kolumnami, takich jak `Title`, `GenreId`, `ReviewDate`, i `Review`, między innymi.
+- `Authors` — zawiera informacje na temat każdego Autor, który przyczynił się je przejrzeć książce.
+- `BooksAuthors` -tabeli sprzężenia wiele do wielu, która określa, jakie autorów napisano książek.
   
 
 Rysunek 1 zawiera diagram ER z tych czterech tabel.
@@ -195,6 +195,6 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Pobierz bazy danych programu Microsoft SQL Server 1.1 Kreator publikacji](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en)
 - [Pobierz program Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)
 
->[!div class="step-by-step"]
-[Poprzednie](core-differences-between-iis-and-the-asp-net-development-server-cs.md)
-[dalej](configuring-the-production-web-application-to-use-the-production-database-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](core-differences-between-iis-and-the-asp-net-development-server-cs.md)
+> [dalej](configuring-the-production-web-application-to-use-the-production-database-cs.md)

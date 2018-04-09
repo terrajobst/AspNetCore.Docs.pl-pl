@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/top-features-in-web-pages-2
 msc.type: authoredcontent
-ms.openlocfilehash: e8fc758936953970ff3e9ba289516925dee9ef45
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: f0d32edd3ab54c55aa06c803cd91e01cbbb8f08a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-top-features-in-aspnet-web-pages-2"></a>Najważniejsze funkcje w składniku ASP.NET Web Pages 2
 ====================
@@ -62,9 +62,9 @@ Aby zainstalować stron sieci Web, należy użyć Instalatora platformy sieci We
     Jeśli używasz programu Internet Explorer, przejdź do następnego kroku. Jeśli używasz innej przeglądarki, takich jak Mozilla Firefox lub Google Chrome, monit o zapisanie *Webmatrix.exe* plik na swoim komputerze. Zapisz plik, a następnie kliknij go, aby uruchomić Instalatora.
 3. Uruchom Instalatora i wybrać **zainstalować** przycisku. Spowoduje to zainstalowanie programu WebMatrix i stron sieci Web.
 
-## <a id="New_and_Enhanced_Features"></a>Nowe i ulepszone funkcje
+## <a id="New_and_Enhanced_Features"></a>  Nowe i ulepszone funkcje
 
-### <a id="Changes_for_the_RC_Version"></a>Zmiany dotyczące wersji RC (czerwiec 2012)
+### <a id="Changes_for_the_RC_Version"></a>  Zmiany dotyczące wersji RC (czerwiec 2012)
 
 Wersja wersji RC w czerwca 2012 ma kilka zmian odświeżanie wersji Beta, wydanej w marcu 2012. Te zmiany są:
 
@@ -94,8 +94,8 @@ Wersji Beta, wydanej w lutego 2012 zawiera tylko kilka zmian z wersji Beta, któ
     `<a href="~/Default.cshtml">Home</a>`
 - `Scripts` Pomocnika do zarządzania zasobami (zasobów) zostało zastąpione `Assets` pomocnika, który ma nieco inne metody, takie jak następujące:
 
-    - Aby uzyskać `Scripts.Add`, użyj`Assets.AddScript`
-    - Aby uzyskać `Scripts.GetScriptTags`, użyj`Assets.GetScripts`
+  - Aby uzyskać `Scripts.Add`, użyj `Assets.AddScript`
+  - Aby uzyskać `Scripts.GetScriptTags`, użyj `Assets.GetScripts`
 
     Jest to istotne zmiany; `Scripts` klasa nie jest dostępna w wersji Beta. Przykłady kodu w tym dokumencie, które używają zarządzania zasobami zostały zaktualizowane z tą zmianą.
 
@@ -149,13 +149,13 @@ Aby wyświetlić podsumowanie (`<ul>` listy) wszystkie błędy na stronie `Html.
 
 Te kroki są, aby zaimplementować weryfikację po stronie serwera. Jeśli chcesz dodać weryfikację po stronie klienta, wykonaj także następujące czynności.
 
-Dodaj następujące odwołania do pliku skryptu wewnątrz `<head>` części strony sieci web. Pierwszych dwóch odwołań do skryptów wskaż zdalnego plików na sieciowym dostarczania zawartości (CDN). Trzeci punktów odniesienia do pliku lokalnego skryptu.
+Dodaj następujące odwołania do pliku skryptu wewnątrz `<head>` części strony sieci web. Pierwszych dwóch odwołań do skryptów wskaż zdalnego plików na sieciowym dostarczania zawartości (CDN). Trzeci punktów odniesienia do pliku lokalnego skryptu. Aplikacje w środowisku produkcyjnym należy zaimplementować rezerwowe, jeśli element CDN jest niedostępny. Przetestuj powrotu.
 
 [!code-html[Main](top-features-in-web-pages-2/samples/sample5.html)]
 
 Najprostszym sposobem uzyskania kopii lokalnej *jquery.validate.unobtrusive.min.js* biblioteki jest utworzenie nowej lokacji stron sieci Web na podstawie jednej z szablonów lokacji (np. witryny początkowej). Zawiera ona utworzona przez szablon *jquery.validate.unobtrusive.js* pliku w jego folderze skryptów, z którego można skopiować go do swojej witryny.
 
-Jeśli korzysta z witryny sieci Web*\_SiteLayout* strony do sterowania układem strony, możesz dołączyć tych odwołań do skryptów na tej stronie, dzięki czemu sprawdzania poprawności jest dostępna dla wszystkich stron zawartości. Jeśli chcesz sprawdzania poprawności tylko dla określonej strony, można użyć Menedżera zasobów zarejestrować skryptów na tylko tych stron. Aby to zrobić, należy wywołać `Assets.AddScript(path)` w strony, którą chcesz zweryfikować i odwoływać się każdy z plików skryptów. Następnie dodaj wywołanie do `Assets.GetScripts` w  *\_SiteLayout* strony do renderowania zarejestrowaną `<script>` tagów. Aby uzyskać więcej informacji, zobacz sekcję [rejestrowanie skryptów z Menedżerem zasobów](#resmanagement).
+Jeśli korzysta z witryny sieci Web<em>\_SiteLayout</em> strony do sterowania układem strony, możesz dołączyć tych odwołań do skryptów na tej stronie, dzięki czemu sprawdzania poprawności jest dostępna dla wszystkich stron zawartości. Jeśli chcesz sprawdzania poprawności tylko dla określonej strony, można użyć Menedżera zasobów zarejestrować skryptów na tylko tych stron. Aby to zrobić, należy wywołać `Assets.AddScript(path)` w strony, którą chcesz zweryfikować i odwoływać się każdy z plików skryptów. Następnie dodaj wywołanie do `Assets.GetScripts` w  <em>\_SiteLayout</em> strony do renderowania zarejestrowaną `<script>` tagów. Aby uzyskać więcej informacji, zobacz sekcję [rejestrowanie skryptów z Menedżerem zasobów](#resmanagement).
 
 W znaczniku dla pojedynczego elementu, należy wywołać `Validation.For` metody. Ta metoda emituje atrybutów tego jQuery można utworzenie punktu zaczepienia w celu udostępnienia weryfikacji po stronie klienta. Na przykład:
 
@@ -172,15 +172,15 @@ W poniższym przykładzie przedstawiono strona, która sprawdza poprawność dan
 
 Oto strony, gdy użytkownik prześle prawidłowe wartości wejściowe:
 
-[![topSeven nieprawidłowy-1](top-features-in-web-pages-2/_static/image8.png)](top-features-in-web-pages-2/_static/image7.png)
+[![topSeven-valid-1](top-features-in-web-pages-2/_static/image8.png)](top-features-in-web-pages-2/_static/image7.png)
 
 Gdy użytkownik prześle on wymagane pole pozostanie puste, Oto strony:
 
-[![topSeven nieprawidłowy-2](top-features-in-web-pages-2/_static/image10.png)](top-features-in-web-pages-2/_static/image9.png)
+[![topSeven-valid-2](top-features-in-web-pages-2/_static/image10.png)](top-features-in-web-pages-2/_static/image9.png)
 
 Oto strony, gdy użytkownik prześle ją z inną niż całkowitą **środków** pola:
 
-[![topSeven nieprawidłowy-3](top-features-in-web-pages-2/_static/image12.png)](top-features-in-web-pages-2/_static/image11.png)
+[![topSeven-valid-3](top-features-in-web-pages-2/_static/image12.png)](top-features-in-web-pages-2/_static/image11.png)
 
 Aby uzyskać więcej informacji zobacz następujących wpisach w blogu:
 
@@ -207,7 +207,7 @@ W poniższym przykładzie pokazano, jak działa Menedżera zasobów. Kod zawiera
 
 - Obiekt pomocnika niestandardowy o nazwie `MakeNote`. Tego pomocnika renderuje ciąg wewnątrz pola zawijania `div` element wokół niego który ma styl obramowania, a przez dodanie &quot;Uwaga:&quot; do niego. Pomocnik wywołuje również plik JavaScript, który dodaje zachowanie czasu wykonania do uwagi. Zamiast odwołania skryptu `<script>` tagu pomocnika rejestruje skrypt przez wywołanie metody `Assets.AddScript` .
 - Plik JavaScript. To jest plik, który jest wywoływany przez pomocnika i tymczasowo zwiększa rozmiar czcionki elementów Uwaga Podczas `mouseover` zdarzeń.
-- Strony zawartości, który odwołuje się*\_SiteLayout* strony, renderuje zawartość w treści, a następnie wywołuje `MakeNote` pomocnika.
+- Strony zawartości, który odwołuje się<em>\_SiteLayout</em> strony, renderuje zawartość w treści, a następnie wywołuje `MakeNote` pomocnika.
 - A  *\_SiteLayout* strony. Ta strona zawiera typowe nagłówka i struktura układ strony. Zawiera również wywołanie `Assets.GetScripts`, czyli jak Menedżer zasobów renderuje skryptu wywołuje na stronie.
 
 Aby uruchomić przykład:
@@ -250,7 +250,7 @@ Strony sieci Web 2 udostępnia rozszerzone opcje członkostwa i uwierzytelniania
 
 Ten obraz zawiera strony logowania z **witryny początkowej** szablon, w którym użytkownik może wybrać ikonę Facebook, Twitter lub identyfikatora Windows Live, aby włączyć logowanie przy użyciu zewnętrznego konta:
 
-[![topSeven oauth 1](top-features-in-web-pages-2/_static/image16.png)](top-features-in-web-pages-2/_static/image15.png)
+[![topSeven-oauth-1](top-features-in-web-pages-2/_static/image16.png)](top-features-in-web-pages-2/_static/image15.png)
 
 Można włączyć protokołu OAuth i OpenID członkostwa przy użyciu kilku wierszy kodu. Metody i właściwości można używać do pracy z uwierzytelniania OAuth i OpenID dostawców znajdują się w `WebMatrix.Security.OAuthWebSecurity` klasy.
 
@@ -447,7 +447,7 @@ Poniżej przedstawiono niektóre czynności podczas instalacji wersji Beta 2 str
 - Jeśli chcesz uruchomić lokacji za pomocą stron sieci Web w wersji 1 (zamiast domyślnej, jak poprzedni punkt), można skonfigurować witryny, w tym celu. Jeśli witryna nie ma jeszcze *web.config* plików w katalogu głównym witryny, Utwórz nową i skopiuj następujący kod XML, zastępowanie istniejącej zawartości. Jeśli witryna zawiera już *web.config* plików, dodawanie `<appSettings>` element podobny do następującego do `<configuration>` sekcji.
 
     [!code-xml[Main](top-features-in-web-pages-2/samples/sample22.xml)]
-"— Jeśli nie określisz wersji w *web.config* pliku lokacji jest wdrażana jako lokację w wersji 2. (Zestawy w wersji 2 są kopiowane do *bin* folder w witrynie wdrożonej.)
+  "— Jeśli nie określisz wersji w *web.config* pliku lokacji jest wdrażana jako lokację w wersji 2. (Zestawy w wersji 2 są kopiowane do *bin* folder w witrynie wdrożonej.)
 - Nowe aplikacje utworzyć przy użyciu szablonów witryny w macierzy sieci Web w wersji 2 Beta zawierają zestawy w wersji 2 stron sieci Web w tej witrynie *bin* folderu.
 
 Ogólnie rzecz biorąc, zawsze można kontrolować wersję stron sieci Web do użycia z lokacji za pomocą NuGet odpowiednich zestawów do witryny *bin* folderu. Pakietów można znaleźć [NuGet.org](http://NuGet.org).
@@ -459,7 +459,7 @@ Strony sieci Web 2 umożliwia tworzenie niestandardowych służy do renderowania
 
 `System.Web.WebPages` Przestrzeń nazw zawiera następujące klasy, które pozwalają pracować z trybów wyświetlania: `DefaultDisplayMode`, `DisplayInfo`, i `DisplayModes`. Można użyć tych klas bezpośrednio i pisania kodu, który renderuje prawo produktu wyjściowego dla określonych urządzeń.
 
-Alternatywnie można utworzyć strony specyficzne dla urządzenia przy użyciu wzorca nazewnictwa plików następująco: *FileName.* *Mobile**.cshtml*. Na przykład można utworzyć dwie wersje strony, jedną o nazwie *MyFile.cshtml* i jedną o nazwie *MyFile.Mobile.cshtml*. W czasie, gdy urządzenie przenośne żąda wykonywania *MyFile.cshtml*, stron sieci Web renderuje zawartość z *MyFile.Mobile.cshtml*. W przeciwnym razie *MyFile.cshtml* jest renderowany.
+Alternatywnie można utworzyć strony specyficzne dla urządzenia przy użyciu wzorca nazewnictwa plików następująco: <em>FileName.</em> <em>Mobile</em><em>.cshtml</em>. Na przykład można utworzyć dwie wersje strony, jedną o nazwie <em>MyFile.cshtml</em> i jedną o nazwie <em>MyFile.Mobile.cshtml</em>. W czasie, gdy urządzenie przenośne żąda wykonywania <em>MyFile.cshtml</em>, stron sieci Web renderuje zawartość z <em>MyFile.Mobile.cshtml</em>. W przeciwnym razie <em>MyFile.cshtml</em> jest renderowany.
 
 Poniższy przykład pokazuje, jak umożliwiające renderowanie przenośnych przez dodanie strony zawartości dla urządzeń przenośnych. *Page1.cshtml* zawiera zawartości oraz pasek boczny nawigacji. *Page1.Mobile.cshtml* zawiera tę samą zawartość, ale pominięto paska bocznego.
 
@@ -483,7 +483,7 @@ Aby skompilować i uruchomić przykładowy kod:
 
 *Page1.cshtml* renderowane w przeglądarce pulpitu:
 
-[![topseven displaymodes 1](top-features-in-web-pages-2/_static/image42.png)](top-features-in-web-pages-2/_static/image41.png)
+[![topseven-displaymodes-1](top-features-in-web-pages-2/_static/image42.png)](top-features-in-web-pages-2/_static/image41.png)
 
 *Page1.Mobile.cshtml* wyświetlane w widoku symulatora telefonu iPhone Apple przeglądarki Firefox. Nawet jeśli żądanie dotyczy *Page1.cshtml*, renderuje aplikacji *Page1.Mobile.cshtml*.
 
@@ -502,5 +502,5 @@ Aby skompilować i uruchomić przykładowy kod:
 ### <a name="webmatrix-resources"></a>Zasoby programu WebMatrix
 
 - [Program WebMatrix 2 nowości](http://webmatrix.com/next)
-- [Microsoft WebMatrix lokacji](https://go.microsoft.com/fwlink/?LinkID=195076)
+- [Microsoft WebMatrix Site](https://go.microsoft.com/fwlink/?LinkID=195076)
 - [Uruchamianie aplikacji sieci Web Microsoft webmatrix](https://msdn.microsoft.com/en-us/library/hh145669(v=VS.99).aspx)(w tym pełnej długości przykładowej aplikacji stron sieci Web)

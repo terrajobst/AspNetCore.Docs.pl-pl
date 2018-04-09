@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
-title: "Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: wdrożenia z wiersza polecenia | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: wdrożenia z wiersza polecenia | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane..."
+description: Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 8446b3fc05e3ef4a5a30c753c989252fd7f1a56f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: acc4a0e7f4744a3759b90e0f1b159da68b7c7362
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: wdrożenia z wiersza polecenia
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -98,9 +98,9 @@ Można określić profil publikowania, według nazwy lub pełną ścieżkę do *
 
 Publikowanie trzy metody są obsługiwane w przypadku publikowania w wierszu polecenia:
 
-- `MSDeploy`-Publikowania za pomocą narzędzia Web Deploy.
-- `Package`-Opublikuj przez utworzenie pakietu Web Deploy. Należy zainstalować pakiet niezależnie od polecenia MSBuild, który go utworzył.
-- `FileSystem`-Opublikuj przez kopiowanie plików do określonego folderu.
+- `MSDeploy` -Publikowania za pomocą narzędzia Web Deploy.
+- `Package` -Opublikuj przez utworzenie pakietu Web Deploy. Należy zainstalować pakiet niezależnie od polecenia MSBuild, który go utworzył.
+- `FileSystem` -Opublikuj przez kopiowanie plików do określonego folderu.
 
 ### <a name="specifying-the-build-configuration-and-platform"></a>Określanie konfiguracji kompilacji i platform
 
@@ -144,6 +144,6 @@ Można teraz wdrożyć aktualizacji aplikacji przy użyciu wiersza polecenia.
 
 W następnym samouczku zobaczysz przykładem rozszerzyć sieci web publikowanie potoku. Przykład opisano sposób wdrażania plików, które nie znajdują się w projekcie.
 
->[!div class="step-by-step"]
-[Poprzednie](deploying-a-database-update.md)
-[dalej](deploying-extra-files.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deploying-a-database-update.md)
+> [dalej](deploying-extra-files.md)

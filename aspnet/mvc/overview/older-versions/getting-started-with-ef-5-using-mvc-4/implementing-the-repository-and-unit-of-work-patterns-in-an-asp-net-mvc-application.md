@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 title: Implementowanie repozytorium i jednostki pracy w aplikacji platformy ASP.NET MVC (9, 10) | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 02b1de31b9513247facc92bc6b72247865d176f9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f870b61658686769304a7809bde62e66da3bd0c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Implementowanie repozytorium i jednostki pracy w aplikacji platformy ASP.NET MVC (9, 10)
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -124,7 +124,7 @@ Wyróżniony kod został zmieniony.
 
 W wersji oryginalnej kodu `students` jest typu `IQueryable` obiektu. Zapytanie nie zostanie wysłany do bazy danych, aż zostanie przekonwertowany do kolekcji przy użyciu metody, takie jak `ToList`, który nie występuje aż widok indeksu uzyskuje dostęp do modelu studenta. `Where` Staje się w powyższym kodzie oryginalnej metody `WHERE` klauzuli w zapytanie SQL, które są wysyłane do bazy danych. Z kolei oznacza to, że tylko wybranych obiektów są zwracane przez bazę danych. Jednak w wyniku zmiany `context.Students` do `studentRepository.GetStudents()`, `students` zmiennej po tej instrukcji `IEnumerable` kolekcję zawierającą wszystkie studentów w bazie danych. W rezultacie stosowania `Where` metody jest taki sam, ale teraz praca jest wykonywana w pamięci na serwerze sieci web, a nie przez bazę danych. Dla zapytań, które zwracają dużych ilości danych może to być mało wydajne.
 
-> [!TIP] 
+> [!TIP]
 > 
 > **IQueryable vs. IEnumerable**
 > 
@@ -249,6 +249,6 @@ Teraz zaimplementowano repozytorium i jednostki pracy. Użyto wyrażenia lambda 
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [Mapa zawartości dostępu do danych programu ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Poprzednie](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[dalej](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+> [!div class="step-by-step"]
+> [Poprzednie](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [dalej](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

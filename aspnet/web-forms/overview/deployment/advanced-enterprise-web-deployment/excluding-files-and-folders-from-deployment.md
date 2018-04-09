@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
-title: "Wykluczanie plików i folderów z wdrożenia | Dokumentacja firmy Microsoft"
+title: Wykluczanie plików i folderów z wdrożenia | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano, jak można wykluczyć pliki i foldery z pakietu wdrożeniowego sieci web podczas kompilacji i pakietu projektu aplikacji sieci web."
+description: W tym temacie opisano, jak można wykluczyć pliki i foldery z pakietu wdrożeniowego sieci web podczas kompilacji i pakietu projektu aplikacji sieci web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 80810415bac473a58f60110fb9d08772e0627bd5
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c435448bf057bbef9127d66ffda24a07729f2322
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="excluding-files-and-folders-from-deployment"></a>Wykluczanie plików i folderów z wdrożenia
 ====================
@@ -27,9 +27,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > W tym temacie opisano, jak można wykluczyć pliki i foldery z pakietu wdrożeniowego sieci web podczas kompilacji i pakietu projektu aplikacji sieci web.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji projektu dwa pliki & #x 2014; jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
 
 ## <a name="overview"></a>Omówienie
 
@@ -74,7 +74,7 @@ Mimo że można manipulować plików projektu, które mają zostać wykluczone z
 1. Utwórz plik niestandardowe projektu o nazwie *.wpp.targets [Nazwa projektu]* w tym samym folderze co plik projektu.
 
     > [!NOTE]
-    > *. Wpp.targets* plik ma znaleźć się w tym samym folderze co plik projektu aplikacji sieci web danej #x 2014; na przykład *ContactManager.Mvc.csproj*& #x 2014; a nie w tym samym folderze wszystkich pliki projektu niestandardowych służy do sterowania kompilacji i procesu wdrażania.
+    > *. Wpp.targets* plik ma znaleźć się w tym samym folderze co plik projektu aplikacji sieci web&#x2014;na przykład *ContactManager.Mvc.csproj*&#x2014;, a nie w tym samym folderze co niestandardowe pliki projektu, umożliwiające sterowanie procesem kompilacji i wdrażania.
 2. W *. wpp.targets* plików, dodawanie **ItemGroup** elementu.
 3. W **ItemGroup** elementu, Dodaj **ExcludeFromPackageFolders** i **ExcludeFromPackageFiles** elementy do wykluczenia z określonych plików i folderów, zgodnie z wymaganiami.
 
@@ -106,16 +106,16 @@ Następna procedura przedstawia sposób dodawania *. wpp.targets* plik do projek
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample2.xml)]
 6. Jeśli chcesz wykluczyć foldery ze pakietu sieci web, Dodaj **ExcludeFromPackageFolders** elementu **ItemGroup** elementu:
 
-    1. W **Include** atrybutu, podaj Rozdzielana średnikami lista folderów do wykluczenia.
-    2. W **FromTarget** elementu metadanych, podaj wartość łatwy do rozpoznania, aby wskazać, dlaczego jest wykluczany folderów, takie jak nazwa *. wpp.targets* pliku.
+   1. W **Include** atrybutu, podaj Rozdzielana średnikami lista folderów do wykluczenia.
+   2. W **FromTarget** elementu metadanych, podaj wartość łatwy do rozpoznania, aby wskazać, dlaczego jest wykluczany folderów, takie jak nazwa *. wpp.targets* pliku.
 
-    [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
+      [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
 7. Jeśli chcesz wykluczyć pliki z pakietu sieci web, Dodaj **ExcludeFromPackageFiles** elementu **ItemGroup** elementu:
 
-    1. W **Include** atrybutu, podaj rozdzieloną średnikami listę plików, które chcesz wykluczyć.
-    2. W **FromTarget** elementu metadanych, podaj wartość łatwy do rozpoznania, aby wskazać, dlaczego jest wykluczany plików, takie jak nazwa *. wpp.targets* pliku.
+   1. W **Include** atrybutu, podaj rozdzieloną średnikami listę plików, które chcesz wykluczyć.
+   2. W **FromTarget** elementu metadanych, podaj wartość łatwy do rozpoznania, aby wskazać, dlaczego jest wykluczany plików, takie jak nazwa *. wpp.targets* pliku.
 
-    [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
+      [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
 8. *.Wpp.targets [Nazwa projektu]* plik powinien teraz wyglądać następująco:
 
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample5.xml)]
@@ -131,6 +131,6 @@ W tym temacie opisano sposób wykluczenie określonych plików i folderów podcz
 
 Aby uzyskać więcej informacji na przy użyciu niestandardowe pliki projektu Microsoft kompilacji Engine (MSBuild), aby kontrolować proces wdrażania, zobacz [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md) i [opis procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Aby uzyskać więcej informacji dotyczących tworzenia pakietów i proces wdrażania, zobacz [budynku i projekty aplikacji sieci Web pakowania](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md), [konfigurowania parametrów wdrażania pakietu sieci Web](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md), i [ Wdrażanie pakietów sieci Web](../web-deployment-in-the-enterprise/deploying-web-packages.md).
 
->[!div class="step-by-step"]
-[Poprzednie](deploying-membership-databases-to-enterprise-environments.md)
-[dalej](taking-web-applications-offline-with-web-deploy.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deploying-membership-databases-to-enterprise-environments.md)
+> [dalej](taking-web-applications-offline-with-web-deploy.md)

@@ -1,7 +1,7 @@
 ---
-title: "Przy użyciu Grunt w platformy ASP.NET Core"
+title: Użyj Grunt w platformy ASP.NET Core
 author: rick-anderson
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-grunt
-ms.openlocfilehash: c23f170b36ac1b9623835337020f2b5ac9514971
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 169552e9b5dd811884ce1c65952677ba83626b58
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-grunt-in-aspnet-core"></a>Przy użyciu Grunt w platformy ASP.NET Core 
+# <a name="use-grunt-in-aspnet-core"></a>Użyj Grunt w platformy ASP.NET Core
 
 Przez [ryżu Noel](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
-Grunt jest modułu uruchamiającego zadania JavaScript, który zautomatyzuje minimalizację skryptu, kompilowanie kodu TypeScript narzędzia "w wierszu" jakości kodu, procesory wstępne CSS i niemal wszystkie powtarzających się kwestii, wymagającym czynności umożliwiających rozwój klienta. Grunt jest w pełni obsługiwana w programie Visual Studio, że szablony projektów programu ASP.NET Gulp domyślnie (zobacz [przy użyciu system Gulp](using-gulp.md)).
+Grunt jest modułu uruchamiającego zadania JavaScript, który zautomatyzuje minimalizację skryptu, kompilowanie kodu TypeScript narzędzia "w wierszu" jakości kodu, procesory wstępne CSS i niemal wszystkie powtarzających się kwestii, wymagającym czynności umożliwiających rozwój klienta. Grunt jest w pełni obsługiwana w programie Visual Studio, że szablony projektów programu ASP.NET Gulp domyślnie (zobacz [Użyj system Gulp](using-gulp.md)).
 
 W tym przykładzie używane pusty projekt platformy ASP.NET Core jako punktu początkowego pokazanie sposobu automatyzacji procesu kompilacji klienta od początku.
 
@@ -129,16 +129,16 @@ Pakiety dla każdego elementu devDependencies pobierze oraz wszystkie pliki, kt�
 
 Grunt jest konfigurowana przy użyciu manifestu o nazwie *Gruntfile.js* który definiuje, ładuje i rejestruje zadania, które można uruchomić ręcznie lub skonfigurowany do uruchamiania automatycznie na podstawie zdarzeń w programie Visual Studio.
 
-1.  Kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj > Nowy element**. Wybierz **pliku konfiguracji Grunt** opcji, pozostaw nazwę domyślną *Gruntfile.js*i kliknij przycisk **Dodaj** przycisku.
+1. Kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj > Nowy element**. Wybierz **pliku konfiguracji Grunt** opcji, pozostaw nazwę domyślną *Gruntfile.js*i kliknij przycisk **Dodaj** przycisku.
 
-    Początkowa kod zawiera definicję modułu i `grunt.initConfig()` metody. `initConfig()` Służy do ustawiania opcji dla każdego pakietu, a w pozostałej części modułu zostanie obciążenia i zarejestrować zadań.
+   Początkowa kod zawiera definicję modułu i `grunt.initConfig()` metody. `initConfig()` Służy do ustawiania opcji dla każdego pakietu, a w pozostałej części modułu zostanie obciążenia i zarejestrować zadań.
     
-    ```javascript
-    module.exports = function (grunt) {
-      grunt.initConfig({
-      });
-    };
-    ```
+   ```javascript
+   module.exports = function (grunt) {
+     grunt.initConfig({
+     });
+   };
+   ```
 
 2. Wewnątrz `initConfig()` metody, Dodaj opcje `clean` zadań, jak pokazano w przykładzie *Gruntfile.js* poniżej. Wyczyść zadań akceptuje tablica ciągów katalogu. To zadanie usuwa z wwwroot/lib pliki i usuwa cały/tymczasowego katalogu.
 
@@ -207,16 +207,16 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *Gruntfile.js* który d
     > [!NOTE]
     > Opcja "-W069" jest błąd generowany przez jshint podczas JavaScript używa nawiasów składni, aby przypisać właściwości zamiast kropkowego, tj. `Tastes["Sweet"]` zamiast `Tastes.Sweet`. Opcja powoduje wyłączenie ostrzeżenia, aby umożliwić resztę procesu, aby kontynuować.
 
-10.  Dodaj `uglify` zadań przy użyciu kodu poniżej.
+10. Dodaj `uglify` zadań przy użyciu kodu poniżej.
 
     Zadanie minimalizuje *combined.js* plik znaleziono w katalogu tymczasowym i tworzy plik wyników w wwwroot/lib zgodnie ze standardową konwencją nazewnictwa  *\<nazwę pliku\>. min.js*.
     
     ```javascript
     uglify: {
-      all: {
-        src: ['temp/combined.js'],
-        dest: 'wwwroot/lib/combined.min.js'
-      }
+     all: {
+       src: ['temp/combined.js'],
+       dest: 'wwwroot/lib/combined.min.js'
+     }
     },
     ```
 
@@ -241,7 +241,7 @@ Grunt jest konfigurowana przy użyciu manifestu o nazwie *Gruntfile.js* który d
     ![Eksplorator rozwiązań po wszystkich zadań.](using-grunt/_static/solution-explorer-after-all-tasks.png)
     
     > [!NOTE]
-    > Aby uzyskać więcej informacji na temat opcji dla każdego pakietu, odwiedź stronę [https://www.npmjs.com/](https://www.npmjs.com/) i wyszukiwania nazwę pakietu w polu wyszukiwania na stronie głównej. Na przykład można wyszukiwać czyszczenia contrib grunt pakiet do pobrania łącze dokumentacji, który objaśnia, wszystkie jego parametrów.
+    > Aby uzyskać więcej informacji na temat opcji dla każdego pakietu, odwiedź stronę [ https://www.npmjs.com/ ](https://www.npmjs.com/) i wyszukiwania nazwę pakietu w polu wyszukiwania na stronie głównej. Na przykład można wyszukiwać czyszczenia contrib grunt pakiet do pobrania łącze dokumentacji, który objaśnia, wszystkie jego parametrów.
 
 ### <a name="all-together-now"></a>Wszystko w jednym miejscu
 

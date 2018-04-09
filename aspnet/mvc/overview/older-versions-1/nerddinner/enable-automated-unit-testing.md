@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
-title: "Włącz automatyczne testy jednostkowe | Dokumentacja firmy Microsoft"
+title: Włącz automatyczne testy jednostkowe | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Krok 12 pokazano, jak utworzyć zestaw testów jednostkowych automatycznych, który Sprawdź naszych funkcje NerdDinner i który będzie Prześlij nam zaufania, aby wprowadzić zmiany..."
+description: Krok 12 pokazano, jak utworzyć zestaw testów jednostkowych automatycznych, który Sprawdź naszych funkcje NerdDinner i który będzie Prześlij nam zaufania, aby wprowadzić zmiany...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
-ms.openlocfilehash: 1a4258054d90b2d5bcc06a63fb6f3b4673a4837d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fede08be7e06327c6d04fa5d36f7dd818d79b380
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="enable-automated-unit-testing"></a>Włącz automatyczne testy jednostkowe
 ====================
@@ -45,7 +45,7 @@ Testy jednostkowe automatycznych może udostępniać zabezpieczenie, umożliwiaj
 
 Platforma ASP.NET MVC ułatwia fizyczne do funkcjonalności aplikacji testów jednostkowych. Umożliwia również przepływ pracy Test Driven Development (TDD), który umożliwia programowanie oparte na wcześniejsze testowanie.
 
-### <a name="nerddinnertests-project"></a>NerdDinner.Tests projektu
+### <a name="nerddinnertests-project"></a>NerdDinner.Tests Project
 
 Gdy utworzyliśmy naszej aplikacji NerdDinner na początku tego samouczka zostały możemy monit okno dialogowe z pytaniem, czy trzeba utworzyć jednostkowy projekt testowy, aby przejść wraz z projektu aplikacji:
 
@@ -234,7 +234,7 @@ Obiekt użytkownika w klasie podstawowej kontrolera hermetyzuje szczegółów do
 
 Struktury mocking ułatwić testowanie włączając firmie Microsoft w celu dynamicznego tworzenia fałszywych wersji obiektów zależnych, które obsługują Nasze testy. Na przykład zastosowanie mocking framework w naszym teście akcji edycji można dynamicznie utworzyć obiekt użytkownika, który naszych DinnersController można użyć do wyszukania symulowane nazwy użytkownika. Pozwoli to uniknąć odwołanie o wartości null z jest generowany, gdy przeprowadzana naszym teście.
 
-Istnieje wiele .NET mocking struktury, których można użyć z platformą ASP.NET MVC (wyświetlana lista z nich w tym miejscu: [http://www.mockframeworks.com/](http://www.mockframeworks.com/)). Do testowania aplikacji NerdDinner użyjemy typu open source mocking framework o nazwie "Moq", który można pobrać bezpłatnie z [http://www.mockframeworks.com/moq](http://www.mockframeworks.com/moq).
+Istnieje wiele .NET mocking struktury, których można użyć z platformą ASP.NET MVC (wyświetlana lista z nich w tym miejscu: [ http://www.mockframeworks.com/ ](http://www.mockframeworks.com/)). Do testowania aplikacji NerdDinner użyjemy typu open source mocking framework o nazwie "Moq", który można pobrać bezpłatnie z [ http://www.mockframeworks.com/moq ](http://www.mockframeworks.com/moq).
 
 Po pobraniu, dodamy odwołanie w naszym NerdDinner.Tests projektu do zestawu Moq.dll:
 
@@ -285,6 +285,6 @@ Nowsze rozdziału w książce przedstawimy testu Driven Development (TDD) i jak 
 
 Niektóre końcowego zawijania komentarze.
 
->[!div class="step-by-step"]
-[Poprzednie](use-ajax-to-implement-mapping-scenarios.md)
-[dalej](nerddinner-wrap-up.md)
+> [!div class="step-by-step"]
+> [Poprzednie](use-ajax-to-implement-mapping-scenarios.md)
+> [dalej](nerddinner-wrap-up.md)

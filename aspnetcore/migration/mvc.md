@@ -1,7 +1,7 @@
 ---
-title: Migrowanie z programu ASP.NET MVC do podstawowej platformy ASP.NET MVC
+title: Migracja z programu ASP.NET MVC do podstawowej platformy ASP.NET MVC
 author: ardalis
-description: "Dowiedz się, jak rozpocząć Migrowanie projektu programu ASP.NET MVC do platformy ASP.NET Core MVC."
+description: Dowiedz się, jak rozpocząć Migrowanie projektu programu ASP.NET MVC do platformy ASP.NET Core MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: c9c9f63cd635f364d9b2e081dc051a46a44d3e4f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e249be06726b307a1c41a525a132f7e0ab8b50ee
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrowanie z programu ASP.NET MVC do podstawowej platformy ASP.NET MVC
+# <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migracja z programu ASP.NET MVC do podstawowej platformy ASP.NET MVC
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Roth Danielowi](https://github.com/danroth27), [Steve Smith](https://ardalis.com/), i [Scott Addie](https://scottaddie.com)
 
@@ -48,7 +48,7 @@ Utwórz nową *pusty* aplikacji sieci web platformy ASP.NET Core z taką samą n
 
 * Zainstaluj `Microsoft.AspNetCore.Mvc` i `Microsoft.AspNetCore.StaticFiles` pakietów NuGet.
 
-  `Microsoft.AspNetCore.Mvc` to platforma ASP.NET Core MVC. `Microsoft.AspNetCore.StaticFiles` Umożliwia to obsługę plików statycznych. Środowiska uruchomieniowego ASP.NET jest moduły i musi jawnie zgłosić się do obsługi plików statycznych (zobacz [Praca z pliki statyczne](../fundamentals/static-files.md)).
+  `Microsoft.AspNetCore.Mvc` to platforma ASP.NET Core MVC. `Microsoft.AspNetCore.StaticFiles` Umożliwia to obsługę plików statycznych. Środowiska uruchomieniowego ASP.NET jest moduły i musi jawnie zgłosić się do obsługi plików statycznych (zobacz [pracować z plikami statycznych](../fundamentals/static-files.md)).
 
 * Otwórz *.csproj* pliku (kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i wybierz **Edytuj WebApp1.csproj**) i Dodaj `PrepareForPublish` docelowych:
 
@@ -220,7 +220,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-Zobacz **za pomocą strony wyjątek Developer** w [obsługi błędu](../fundamentals/error-handling.md) Aby uzyskać więcej informacji.
+Zobacz **za pomocą strony wyjątek Developer** w [obsługi błędów](../fundamentals/error-handling.md) Aby uzyskać więcej informacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -1,7 +1,7 @@
 ---
 title: Wykrywanie zmian z tokenami zmiany w ASP.NET Core
 author: guardrex
-description: "Dowiedz się, jak używać tokeny zmian do śledzenia zmian."
+description: Dowiedz się, jak używać tokeny zmian do śledzenia zmian.
 manager: wpickett
 ms.author: riande
 ms.date: 11/10/2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 4d3fa59d44dac5742e310cec117f41289ed6c5ab
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fd57683506e809fd68ba8c02ad184b5f8afe53a2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Wykrywanie zmian z tokenami zmiany w ASP.NET Core
 
@@ -139,7 +139,7 @@ Gdy `OnPostStartMonitoring` jest wyzwalane, jest włączone monitorowanie, oraz 
 
 ## <a name="monitoring-cached-file-changes"></a>Monitorowanie zmian plików w pamięci podręcznej
 
-Zawartość pliku mogą być buforowane w pamięci przy użyciu [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache). Buforowanie w pamięci jest opisany w [buforowanie w pamięci](xref:performance/caching/memory) tematu. Bez wykonywania dodatkowych czynności, takich jak wykonanie opisanych poniżej, *starych* (przestarzałe) dane są zwracane z pamięci podręcznej, jeśli zmieni się źródło danych.
+Zawartość pliku mogą być buforowane w pamięci przy użyciu [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache). Buforowanie w pamięci jest opisany w [pamięci podręcznej w pamięci](xref:performance/caching/memory) tematu. Bez wykonywania dodatkowych czynności, takich jak wykonanie opisanych poniżej, *starych* (przestarzałe) dane są zwracane z pamięci podręcznej, jeśli zmieni się źródło danych.
 
 Nie biorąc pod uwagę stan pliku źródłowego w pamięci podręcznej podczas odnawiania [przedłużanie ważności](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions.slidingexpiration) okres prowadzi do starych danych w pamięci podręcznej. Każde żądanie danych odnawia przesuwanego okresem wygaśnięcia, ale plik nie zostanie ponownie załadowana do pamięci podręcznej. Wszystkie funkcje aplikacji używających plików zawartości w pamięci podręcznej podlegają prawdopodobnie odbieranie zawartość.
 
@@ -199,8 +199,8 @@ var compositeChangeToken =
 
 ## <a name="see-also"></a>Zobacz także
 
-* [Buforowanie w pamięci](xref:performance/caching/memory)
-* [Praca z rozproszonej pamięci podręcznej](xref:performance/caching/distributed)
+* [Pamięci podręcznej w pamięci](xref:performance/caching/memory)
+* [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)
 * [Wykrywanie zmian z tokenami zmiany](xref:fundamentals/primitives/change-tokens)
 * [Buforowanie odpowiedzi](xref:performance/caching/response)
 * [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)

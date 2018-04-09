@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
-title: "Trwa pobieranie i wyświetlanie danych z modelu formularzy sieci web i powiązanie | Dokumentacja firmy Microsoft"
+title: Trwa pobieranie i wyświetlanie danych z modelu formularzy sieci web i powiązanie | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Ten samouczek serii przedstawiono podstawowe aspekty projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązania modelu sprawia, że dane interakcji więcej proste-..."
+description: Ten samouczek serii przedstawiono podstawowe aspekty projektu formularzy sieci Web ASP.NET przy użyciu wiązania modelu. Wiązania modelu sprawia, że dane interakcji więcej proste-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: e750250285fcb0088da284588d721ac21e73820c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 26873efa5dbfdbdab39a52cfb9cfd5a65c8231a3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Trwa pobieranie i wyświetlanie danych z wiązania modelu i formularzy sieci web
 ====================
@@ -97,7 +97,7 @@ Klasa SchoolContext pochodzi od typu DbContext, która zarządza połączenia z 
 
 W klasie uczniów zauważyć atrybuty, które zostały zastosowane do **imię**, **nazwisko**, i **roku** właściwości. Te atrybuty będą używane do sprawdzania poprawności danych w tym samouczku. Aby uprościć kod dla tego projektu wykazanie, tylko te właściwości zostały oznaczone atrybutów sprawdzania poprawności danych. W projekcie prawdziwe będą miały zastosowania atrybutów sprawdzania poprawności na wszystkie właściwości wymagające zatwierdzonych dane, takie jak właściwości w klasach rejestracji oraz przebiegu.
 
-Zapisz UniversityModels.cs.
+Save UniversityModels.cs.
 
 Narzędzia dla migracje Code First użyje do konfigurowania bazy danych na podstawie tych klas.
 
@@ -182,5 +182,5 @@ W tym samouczku utworzyć klasy modelu danych i wygenerować bazę danych z tych
 
 W następnej [samouczek](updating-deleting-and-creating-data.md) w tej serii spowoduje włączenie aktualizowania, usuwania i tworzenia danych.
 
->[!div class="step-by-step"]
-[Dalej](updating-deleting-and-creating-data.md)
+> [!div class="step-by-step"]
+> [Next](updating-deleting-and-creating-data.md)

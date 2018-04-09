@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
-title: "Część 5: Logika biznesowa | Dokumentacja firmy Microsoft"
+title: 'Część 5: Logika biznesowa | Dokumentacja firmy Microsoft'
 author: JoeStagner
-description: "Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 5 dodaje niektórych logiki biznesowej."
+description: Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 5 dodaje niektórych logiki biznesowej.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: e205788e05a2ad94d86d4847c11c40898b1c3113
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e4342e634ef8c4bcf4e0085650a28f414ab23736
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-5-business-logic"></a>Część 5: Logika biznesowa
 ====================
@@ -27,7 +27,7 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 > Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 5 dodaje niektórych logiki biznesowej.
 
 
-## <a id="_Toc260221671"></a>Dodanie niektórych logika biznesowa
+## <a id="_Toc260221671"></a>  Dodanie niektórych logika biznesowa
 
 Chcemy wiemy z doświadczenia zakupów mają być dostępne, gdy ktoś odwiedzi witryny sieci web. Osoby odwiedzające będą mogli przeglądania i Dodaj elementy do koszyka, nawet jeśli nie są zarejestrowane lub zalogowany. Gdy są one gotowe do wyewidencjonowania otrzymają oni możliwość uwierzytelnienia i jeśli nie są jeszcze elementy członkowskie będą oni mogli utworzyć konto.
 
@@ -85,7 +85,7 @@ Zakładając, że żadne błędy nie zostaną napotkane kontrola jest przekazywa
 
 Obecnie firma Microsoft ma nie zaimplementowano jeszcze obsługi błędów ogólnych tego wyjątku przejdzie nieobsługiwany przez naszą aplikację, ale firma Microsoft będzie wkrótce to rozwiązać.
 
-Należy też zauważyć, użyj instrukcji Debug.Fail() (dostępne za pośrednictwem`using System.Diagnostics;)`
+Należy też zauważyć, użyj instrukcji Debug.Fail() (dostępne za pośrednictwem `using System.Diagnostics;)`
 
 Jest aplikacja jest uruchomiona w debugerze, ta metoda wyświetli okno dialogowe szczegółowe informacje o stanie aplikacji oraz komunikat o błędzie, który jest określona.
 
@@ -159,7 +159,7 @@ Teraz załóżmy ad metody obsługi sytuacji, gdy użytkownik po prostu zmienia 
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample14.cs)]
 
-Z podstawowymi funkcjami aktualizacja i usuwanie w miejscu możemy wdrożyć logikę, która faktycznie aktualizuje koszyk w bazie danych. (W MyShoppingCart.cs)
+Z podstawowymi funkcjami aktualizacja i usuwanie w miejscu możemy wdrożyć logikę, która faktycznie aktualizuje koszyk w bazie danych. (In MyShoppingCart.cs)
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample15.cs)]
 
@@ -187,6 +187,6 @@ Na tym etapie tworzenia projektu przygotowujemy się do realizacji procesu reali
 
 Przed dokonaniem teraz użyć programu Visual Studio do generowania bazy danych członkostwa i dodać użytkownika do repozytorium członkostwa.
 
->[!div class="step-by-step"]
-[Poprzednie](tailspin-spyworks-part-4.md)
-[dalej](tailspin-spyworks-part-6.md)
+> [!div class="step-by-step"]
+> [Poprzednie](tailspin-spyworks-part-4.md)
+> [dalej](tailspin-spyworks-part-6.md)

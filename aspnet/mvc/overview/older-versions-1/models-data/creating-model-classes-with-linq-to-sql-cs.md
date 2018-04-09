@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
-title: "Tworzenie klasy modelu za pomocą LINQ do SQL (C#) | Dokumentacja firmy Microsoft"
+title: Tworzenie klasy modelu za pomocą LINQ do SQL (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Celem tego samouczka jest wyjaśnienie jedną metodę tworzenia klasy modelu dla aplikacji platformy ASP.NET MVC. W tym samouczku Dowiedz się jak tworzyć c modelu..."
+description: Celem tego samouczka jest wyjaśnienie jedną metodę tworzenia klasy modelu dla aplikacji platformy ASP.NET MVC. W tym samouczku Dowiedz się jak tworzyć c modelu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c640007a75f2421e0f6c1e86e525de4834bbc8e4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1f30ff6c97e565059c57c55f26d2dff477774aeb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-linq-to-sql-c"></a>Tworzenie klasy modelu za pomocą LINQ do SQL (C#)
 ====================
@@ -73,7 +73,7 @@ Należy dodać następujące kolumny do tabeli w naszej bazie danych:
 
 | **Nazwa kolumny** | **Typ danych** | **Dopuszcza wartości null** |
 | --- | --- | --- |
-| Identyfikator | int | False |
+| Id | int | False |
 | Tytuł | Nvarchar(200) | False |
 | Dyrektor | nvarchar(50) | False |
 
@@ -109,7 +109,7 @@ Teraz, gdy mamy naszej klasy LINQ do SQL, możemy użyć tych klas do pobierania
 
 Najpierw należy zmodyfikować klasy HomeController. Ta klasa znajduje się w folderze kontrolery aplikacji. Modyfikowanie klasy tak wygląda jak klasa wyświetlania 1.
 
-**1 — Lista`Controllers\HomeController.cs`**
+**1 — Lista `Controllers\HomeController.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample1.cs)]
 
@@ -119,7 +119,7 @@ Kwerenda LINQ nie jest przeprowadzana DataContext pobranie wszystkich filmów z 
 
 Aby pokazać filmy, następnie należy zmodyfikować widok indeksu. Można znaleźć widoku indeksu w `Views\Home\` folderu. Widok indeksu należy zaktualizować, tak aby wygląda jak Widok wyświetlania 2.
 
-**2 — Lista`Views\Home\Index.aspx`**
+**2 — Lista `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample2.aspx)]
 
@@ -161,19 +161,19 @@ Podczas tworzenia klasy repozytorium, możesz utworzyć interfejs, który reprez
 
 Interfejs w 3 wyświetlania o nazwie `IMovieRepository` i reprezentuje jedną metodę o nazwie `ListAll()`.
 
-**3 — lista`Models\IMovieRepository.cs`**
+**3 — lista `Models\IMovieRepository.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample3.cs)]
 
 Implementuje klasę repozytorium w listę 4 `IMovieRepository` interfejsu. Powiadomienie zawiera metodę o nazwie `ListAll()` odpowiadającej metody wymaganej przez `IMovieRepository` interfejsu.
 
-**Wyświetlanie listy 4.`Models\MovieRepository.cs`**
+**Wyświetlanie listy 4. `Models\MovieRepository.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample4.cs)]
 
 Na koniec `MoviesController` klasy listę 5 korzysta ze wzorca repozytorium. Nie jest już używa LINQ w klasach SQL bezpośrednio.
 
-**Wyświetlanie listy 5 —`Controllers\MoviesController.cs`**
+**Wyświetlanie listy 5 — `Controllers\MoviesController.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample5.cs)]
 
@@ -183,7 +183,7 @@ Drugi Konstruktor ma jeden parametr: `IMovieRepository` parametru. Ten konstrukt
 
 `MoviesController` Klasy jest wykorzystaniu wzorca projektowego oprogramowania o nazwie wzorca iniekcji zależności. W szczególności używa coś wywołuje konstruktor iniekcji zależności. Możesz przeczytać więcej na temat tego wzorca odczytując w następującym artykule przez pole Fowler:
 
-[http://martinfowler.com/articles/Injection.HTML](http://martinfowler.com/articles/injection.html)
+[http://martinfowler.com/articles/injection.html](http://martinfowler.com/articles/injection.html)
 
 Zwróć uwagę, że cały kod w `MoviesController` klasy (z wyjątkiem pierwszej Konstruktor) współdziała z `IMovieRepository` interfejsu zamiast rzeczywistego `MovieRepository` klasy. Kod wchodzi w interakcję z interfejsem abstrakcyjny, a nie konkretną implementację interfejsu.
 
@@ -197,6 +197,6 @@ Celem tego samouczka było pokazują, jak można utworzyć klasy modelu MVC dzi�
 
 Następnie możemy przedstawione nieco trudniejsze, ale ostatecznie więcej virtuous ścieżki do wyświetlania danych w bazie danych. Firma Microsoft trwało zaletą wzorca repozytorium i umieszczenie wszystkich naszych logika dostępu do bazy danych w klasie oddzielne repozytorium. W naszym kontrolera napisaliśmy wszystkie naszego kodu interfejsu zamiast klasy konkretnej. Zaletą wzorca repozytorium jest czy pozwala na łatwe w przyszłości zmienić technologii dostępu do bazy danych i pozwala na łatwiejsze testowanie naszej klasy kontrolera.
 
->[!div class="step-by-step"]
-[Poprzednie](creating-model-classes-with-the-entity-framework-cs.md)
-[dalej](displaying-a-table-of-database-data-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-model-classes-with-the-entity-framework-cs.md)
+> [dalej](displaying-a-table-of-database-data-cs.md)

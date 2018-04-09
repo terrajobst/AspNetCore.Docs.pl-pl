@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
-title: "Część 7: Tworzenie głównym strony | Dokumentacja firmy Microsoft"
+title: 'Część 7: Tworzenie głównym strony | Dokumentacja firmy Microsoft'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 4d06e72bc664f707bbbe4603be41347158c58903
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2c378e68a1e6600daf655c19afbfe355e89496d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-7-creating-the-main-page"></a>Część 7: Tworzenie głównym strony
 ====================
@@ -59,13 +59,13 @@ Użytkownicy mogą wybrać istniejące i pobrać szczegółów zamówienia. Umie
 
 `OrderDetailsViewModel` Jest inicjowany z zlecenia i jego pobiera szczegółów zamówienia, wysyłając żądanie AJAX do serwera.
 
-Zauważ również, `total` właściwość `OrderDetailsViewModel`. Ta właściwość jest specjalnym rodzajem według o nazwie [obliczana według](http://knockoutjs.com/documentation/computedObservables.html). Jak wskazuje nazwę, obliczoną według umożliwia wiązanie danych z obliczoną wartością &#8212; w takim przypadku łączny koszt zlecenia.
+Zauważ również, `total` właściwość `OrderDetailsViewModel`. Ta właściwość jest specjalnym rodzajem według o nazwie [obliczana według](http://knockoutjs.com/documentation/computedObservables.html). Jak wskazuje nazwę, obliczoną według umożliwia tworzenia powiązań danych obliczoną wartość&#8212;w tym przypadku łączny koszt zlecenia.
 
 Następnie dodaj tych funkcji `AppViewModel`:
 
-- `resetCart`Usuwa wszystkie elementy z koszyka.
-- `getDetails`pobiera szczegóły dla zamówienia (przez pusing nowy `OrderDetailsViewModel` na `details` listy).
-- `createOrder`Tworzy nową kolejność i opróżnia koszyka.
+- `resetCart` Usuwa wszystkie elementy z koszyka.
+- `getDetails` pobiera szczegóły dla zamówienia (przez pusing nowy `OrderDetailsViewModel` na `details` listy).
+- `createOrder` Tworzy nową kolejność i opróżnia koszyka.
 
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample6.js?highlight=4)]
@@ -119,5 +119,5 @@ Dodatkowe zasoby:
 - [Mapa zawartości dostępu do danych w programie ASP.NET](https://msdn.microsoft.com/library/6759sth4.aspx)
 - [Centrum deweloperów Entity Framework](https://msdn.microsoft.com/data/ef)
 
->[!div class="step-by-step"]
-[Poprzednie](using-web-api-with-entity-framework-part-6.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-web-api-with-entity-framework-part-6.md)

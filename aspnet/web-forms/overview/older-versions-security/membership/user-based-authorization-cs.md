@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/user-based-authorization-cs
-title: "Autoryzacji opartej na użytkownika (C#) | Dokumentacja firmy Microsoft"
+title: Autoryzacji opartej na użytkownika (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku przedstawiono, ograniczanie dostępu do stron i ograniczenie funkcji na poziomie strony za pomocą różnych technik."
+description: W tym samouczku przedstawiono, ograniczanie dostępu do stron i ograniczenie funkcji na poziomie strony za pomocą różnych technik.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5bee98878b5191a096b851c65aaea19ad989f608
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9a0d476ffaf1f176c21b245520fa943f66e8c0d5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="user-based-authorization-c"></a>Autoryzacji opartej na użytkownika (C#)
 ====================
@@ -168,7 +168,7 @@ Aby przetestować tę zmianę autoryzacji, uruchom odwiedzając witrynę sieci W
 
 ### <a name="a-look-at-how-theurlauthorizationmoduleuses-the-authorization-rules-to-grant-or-deny-access"></a>Jak przeglądać`UrlAuthorizationModule`do udzielania lub odmawiania dostępu przy użyciu reguł autoryzacji
 
-`UrlAuthorizationModule` Określa, czy do autoryzacji określonej tożsamości dla określonego adresu URL, analizując Autoryzacja adresów URL reguły pojedynczo, zaczynając od pierwszego z nich i Praca drodze w dół. Jak dopasowania zostanie znaleziony, użytkownik jest udzielono lub odmówiono dostępu, w zależności od if dopasowania został znaleziony w `<allow>` lub `<deny>` elementu. **Jeśli nie znaleziono, użytkownik otrzymuje dostęp.** W związku z tym, jeśli chcesz ograniczyć dostęp, jest użycie `<deny>` element jako ostatni element w konfiguracji autoryzacji adresu URL. **W przypadku pominięcia ***`<deny>`*** elementu, wszyscy użytkownicy będą mieć dostęp.**
+`UrlAuthorizationModule` Określa, czy do autoryzacji określonej tożsamości dla określonego adresu URL, analizując Autoryzacja adresów URL reguły pojedynczo, zaczynając od pierwszego z nich i Praca drodze w dół. Jak dopasowania zostanie znaleziony, użytkownik jest udzielono lub odmówiono dostępu, w zależności od if dopasowania został znaleziony w `<allow>` lub `<deny>` elementu. <strong>Jeśli nie znaleziono, użytkownik otrzymuje dostęp.</strong> W związku z tym, jeśli chcesz ograniczyć dostęp, jest użycie `<deny>` element jako ostatni element w konfiguracji autoryzacji adresu URL. <strong>W przypadku pominięcia</strong><strong>`<deny>`</strong><strong>elementu, wszyscy użytkownicy będą mieć dostęp.</strong>
 
 Aby lepiej zrozumieć proces wykorzystywany przez `UrlAuthorizationModule` ustalenie urzędu Rozważmy przykład reguł autoryzacji adresów URL analizujemy wcześniej w tym kroku. Pierwsza reguła jest `<allow>` element, który umożliwia dostęp do Tito i Scott. Drugi reguły jest `<deny>` element, który nie zezwala na dostęp wszystkim użytkownikom. Jeśli użytkownik anonimowy odwiedza, `UrlAuthorizationModule` uruchamia pytając, jest anonimowy Scott lub Tito? Odpowiedź na pytanie, jest oczywiście nie, więc będzie kontynuowana, do drugiego reguły. Jest anonimowy w zestawie każdy? Od czasu odpowiedzi w tym miejscu jest tak, `<deny>` reguły jest umieszczany obowiązująca i użytkownik zostanie przekierowany do strony logowania. Podobnie, jeśli odwiedzania Jisun `UrlAuthorizationModule` rozpoczyna się od udzielenia jest Jisun Scott lub Tito? Ponieważ użytkownik nie jest `UrlAuthorizationModule` będzie kontynuowana, drugie pytanie, jest Jisun w zestawie każdy? Ona jest, więc użytkownik, zbyt, odmowa dostępu. Ponadto jeśli Tito odwiedza, pierwsze pytanie powodowane `UrlAuthorizationModule` jest za odpowiedzi, więc Tito uzyskuje dostęp.
 
@@ -217,7 +217,7 @@ Takie zasady autoryzacji poprawnie ziarna można zaimplementować deklaratywnie 
 Umożliwia tworzenie strony z listą plików w katalogu określonym w widoku GridView. Wraz z wyświetlania nazwy każdego pliku, rozmiar i inne informacje, widoku GridView będzie zawierać dwóch kolumn LinkButtons: jeden zatytułowany widoku i jeden zatytułowana Delete. Jeśli kliknięto element LinkButton widoku zostanie wyświetlona zawartość wybranego pliku; Jeśli kliknięto element LinkButton usunąć plik zostanie usunięty. Początkowo Utwórzmy tej strony tak, aby jego Wyświetl i usuń funkcje są dostępne dla wszystkich użytkowników. W używanie sekcje formantu LoginView i programowo Ograniczanie funkcjonalności, należy sprawdzić, jak włączyć lub wyłączyć te funkcje na podstawie użytkownika, odwiedzając stronę.
 
 > [!NOTE]
-> Strony ASP.NET, który mamy kompilacji używa kontrolce GridView, aby wyświetlić listę plików. Od tego samouczka, który seria skupia się na uwierzytelnianie formularzy, autoryzacji, kont użytkowników i role nie chcę spędzają zbyt dużo czasu dyskutować przebiega kontrolki widoku siatki. Ten samouczek zawiera określone instrukcje krok po kroku dotyczące konfigurowania tej strony, natomiast nie delve do szczegółów Dlaczego wprowadzono niektórych opcji lub właściwości określonym wpływ ma na renderowanych danych wyjściowych. Zbadania kontrolki widoku siatki można znaleźć w mojej  *[Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)*  samouczka serii.
+> Strony ASP.NET, który mamy kompilacji używa kontrolce GridView, aby wyświetlić listę plików. Od tego samouczka, który seria skupia się na uwierzytelnianie formularzy, autoryzacji, kont użytkowników i role nie chcę spędzają zbyt dużo czasu dyskutować przebiega kontrolki widoku siatki. Ten samouczek zawiera określone instrukcje krok po kroku dotyczące konfigurowania tej strony, natomiast nie delve do szczegółów Dlaczego wprowadzono niektórych opcji lub właściwości określonym wpływ ma na renderowanych danych wyjściowych. Zbadania kontrolki widoku siatki można znaleźć w mojej *[Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)* samouczka serii.
 
 
 Uruchamianie przez otwarcie `UserBasedAuthorization.aspx` w pliku `Membership` folderu i dodaniu kontrolce GridView stronę o nazwie `FilesGrid`. W tagu w widoku GridView kliknij łącze Edytowanie kolumn, aby uruchomić okno dialogowe pola. W tym miejscu należy usunąć zaznaczenie pola wyboru pola automatycznego generowania, w lewym dolnym rogu. Następnie dodaj przycisk Wybierz, przycisk Usuń, a BoundFields dwa z lewym górnym rogu (Wybierz i usuń przyciski można znaleźć w elemencie CommandField typu). Ustaw przycisku Wybierz `SelectText` właściwości widoku i pierwszego elementu BoundField `HeaderText` i `DataField` właściwości Name. Ustaw drugiego elementu BoundField `HeaderText` właściwości rozmiar w bajtach, jego `DataField` właściwości Length, jego `DataFormatString` właściwości do {0: N0} i jego `HtmlEncode` wartość False dla właściwości.
@@ -396,24 +396,24 @@ Programowanie przyjemność!
 
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Dodawanie reguły autoryzacji do działalności biznesowej i warstwy danych przy użyciu`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
+- [Dodawanie reguły autoryzacji do działalności biznesowej i warstwy danych przy użyciu `PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
 - [Autoryzacja w programie ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx)
 - [Zmiany między IIS6 i zabezpieczeń IIS7](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
 - [Konfigurowanie konkretne pliki i podkatalogi](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
 - [Ograniczenia funkcji modyfikacji danych oparte na użytkownika](../../data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs.md)
 - [Przewodniki Szybki Start formantu LoginView](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/loginview.aspx)
 - [Opis Autoryzacja adresów URL usług IIS7](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)
-- [`UrlAuthorizationModule`Dokumentacja techniczna](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
+- [`UrlAuthorizationModule` Dokumentacja techniczna](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
 - [Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Poprzednie](validating-user-credentials-against-the-membership-user-store-cs.md)
-[dalej](storing-additional-user-information-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](validating-user-credentials-against-the-membership-user-store-cs.md)
+> [dalej](storing-additional-user-information-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
-title: "Iteracja #6 — użyj test-driven development, (C#) | Dokumentacja firmy Microsoft"
+title: 'Iteracja #6 — użyj test-driven development, (C#) | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "W tym szóstego iteracji dodania nowych funkcji do naszej aplikacji najpierw pisania testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji..."
+description: W tym szóstego iteracji dodania nowych funkcji do naszej aplikacji najpierw pisania testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 85426a7d4024b779848c3ffd05f2ab306152000c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 94502625f66d3eb08a24b8f2a369bf456a3367b1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-6--use-test-driven-development-c"></a>Iteracja #6 — użyj test-driven development, (C#)
 ====================
@@ -248,7 +248,7 @@ Należy utworzyć nową tabelę bazy danych grupy. Wykonaj następujące kroki:
 
 | **Nazwa kolumny** | **Typ danych** | **Dopuszcza wartości null** |
 | --- | --- | --- |
-| Identyfikator | int | False |
+| Id | int | False |
 | Nazwa | nvarchar(50) | False |
 
 
@@ -359,6 +359,6 @@ Po zakończeniu pisania kodu za mało by spełnić ich wymagań wyrażonych prze
 
 W następnej iteracji — iteracji końcowego--możemy przepisywania naszej aplikacji, aby móc korzystać z technologii Ajax. Dzięki wykorzystaniu technologii Ajax, możemy zwiększyć czas reakcji i wydajności aplikacji, skontaktuj się z Menedżera.
 
->[!div class="step-by-step"]
-[Poprzednie](iteration-5-create-unit-tests-cs.md)
-[dalej](iteration-7-add-ajax-functionality-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](iteration-5-create-unit-tests-cs.md)
+> [dalej](iteration-7-add-ajax-functionality-cs.md)

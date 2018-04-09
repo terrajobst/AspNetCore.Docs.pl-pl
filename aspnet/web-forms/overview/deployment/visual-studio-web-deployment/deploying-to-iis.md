@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
-title: "Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie do testu | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie do testu | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane..."
+description: Ta seria samouczek pokazuje, jak wdrożyć platformy ASP.NET (publikowanie) aplikacji do aplikacji sieci Web usługi aplikacji Azure lub innego dostawcy hostingu sieci web przez używane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/23/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: 01f72e0240e84944f8ffece9a2dbc5802be4646b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: dc11072e053cbddd089e5df4bcea6d2a7af864fc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie do testu
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -52,15 +52,15 @@ Aby wdrożyć usług IIS na komputerze deweloperskim, musi mieć usług IIS i za
 
     Aby uruchomić Instalatora platformy sieci Web do zainstalowania usług IIS i Web Deploy, użyj następującego łącza. Jeśli już zostały zainstalowane usługi IIS, narzędzia Web Deploy lub dowolną ich wymagane składniki, Instalator platformy sieci Web instaluje tylko co to jest Brak.
 
-    - [Instalacja usług IIS i Web Deploy, przy użyciu WebPI](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=IIS7;ASPNET;NETFramework4;WDeploy)
+   - [Instalacja usług IIS i Web Deploy, przy użyciu WebPI](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=IIS7;ASPNET;NETFramework4;WDeploy)
 
-    Zostanie wyświetlone komunikaty wskazuje zainstalowanie usług IIS 7. Działania łącza dla usług IIS 8 w systemie Windows 8, ale dla systemu Windows 8, upewnij się, zainstalowanie ASP.NET 4.5, wykonując następujące czynności:
+     Zostanie wyświetlone komunikaty wskazuje zainstalowanie usług IIS 7. Działania łącza dla usług IIS 8 w systemie Windows 8, ale dla systemu Windows 8, upewnij się, zainstalowanie ASP.NET 4.5, wykonując następujące czynności:
 
-    1. Otwórz **Panelu sterowania**, **programy i funkcje**, **Włącz lub wyłącz funkcje systemu Windows**.
-    2. Rozwiń węzeł **Internetowe usługi informacyjne**, **usługi sieci World Wide Web**, i **funkcje tworzenia aplikacji**.
-    3. Upewnij się, że **ASP.NET 4.5** jest zaznaczone.
+   - Otwórz **Panelu sterowania**, **programy i funkcje**, **Włącz lub wyłącz funkcje systemu Windows**.
+   - Rozwiń węzeł **Internetowe usługi informacyjne**, **usługi sieci World Wide Web**, i **funkcje tworzenia aplikacji**.
+   - Upewnij się, że **ASP.NET 4.5** jest zaznaczone.
 
-        ![Wybierz funkcję ASP.NET 4.5](deploying-to-iis/_static/image1.png)
+      ![Wybierz funkcję ASP.NET 4.5](deploying-to-iis/_static/image1.png)
 
 Po zainstalowaniu usług IIS, należy uruchomić **Menedżera usług IIS** aby upewnić się, że .NET Framework w wersji 4 jest przypisane do domyślnej puli aplikacji.
 
@@ -178,7 +178,7 @@ Przed opublikowaniem, upewnij się, że używasz programu Visual Studio w trybie
     Kreator automatycznie przechodzi do **połączenia** kartę.
 4. W **adres URL usługi** wprowadź *localhost*.
 5. W **witryny i aplikacji** wprowadź *domyślna witryna sieci Web/ContosoUniversity*
-6. W **docelowy adres URL** wprowadź`http://localhost/ContosoUniversity`
+6. W **docelowy adres URL** wprowadź `http://localhost/ContosoUniversity`
 
     **Docelowy adres URL** ustawienie nie jest wymagane. Po zakończeniu pracy programu Visual Studio, wdrażanie aplikacji, automatycznie uruchomi domyślną przeglądarkę do tego adresu URL. Jeśli nie chcesz otwierać automatycznie po wdrożeniu przeglądarka, pozostaw to pole puste.
 7. Kliknij przycisk **sprawdzania poprawności połączenia** do Sprawdź, czy ustawienia są poprawne i czy możesz nawiązać połączenie usług IIS na komputerze lokalnym.
@@ -337,6 +337,6 @@ Aby uzyskać informacje dotyczące uruchamiania usług IIS lub usług IIS Expres
 
 Aby uzyskać informacje na temat problemów, jakie mogą wystąpić, gdy aplikacja działa w trybie średniego zaufania, zobacz [Hosting aplikacji ASP.NET w relacji zaufania średni](http://www.4guysfromrolla.com/articles/100307-1.aspx) na 4 Guys z Rolla lokacji.
 
->[!div class="step-by-step"]
-[Poprzednie](project-properties.md)
-[dalej](setting-folder-permissions.md)
+> [!div class="step-by-step"]
+> [Poprzednie](project-properties.md)
+> [dalej](setting-folder-permissions.md)

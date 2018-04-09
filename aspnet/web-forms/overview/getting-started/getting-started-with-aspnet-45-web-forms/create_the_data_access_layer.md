@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
-title: "Utwórz Warstwa dostępu do danych | Dokumentacja firmy Microsoft"
+title: Utwórz Warstwa dostępu do danych | Dokumentacja firmy Microsoft
 author: Erikre
-description: "Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy..."
+description: Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: 809609155b06c4632bd4f450082d84c432c7a46f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 671d1bbf661dfb3e56c6ccd67ce0d383990918d6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-data-access-layer"></a>Utwórz Warstwa dostępu do danych
 ====================
@@ -68,13 +68,13 @@ W tym samouczku będzie uruchomić przez dodanie jednostki prostej klasy repreze
 
     ![Tworzenie nowego elementu Menu Warstwa dostępu do danych-](create_the_data_access_layer/_static/image1.png)
 
- **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
 2. W obszarze **Visual C#** z **zainstalowana** w okienku po lewej stronie, wybierz opcję **kod**. 
 
     ![Tworzenie nowego elementu Menu Warstwa dostępu do danych-](create_the_data_access_layer/_static/image2.png)
 3. Wybierz **klasy** w środkowym okienku i nazwa ta nowa klasa *Product.cs*.
 4. Kliknij przycisk **Dodaj**.  
- Nowy plik klasy jest wyświetlany w edytorze.
+   Nowy plik klasy jest wyświetlany w edytorze.
 5. Zastąp następujący kod w kodzie domyślnym:   
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample1.cs)]
@@ -95,7 +95,7 @@ Aby rozpocząć korzystanie z klas dla dostępu do danych, należy zdefiniować 
 Ta procedura dodaje nowe C# kontekstu klasę do *modele* folderu.
 
 1. Kliknij prawym przyciskiem myszy *modele* folder, a następnie wybierz **Dodaj**  - &gt; **nowy element**.   
- **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
 2. Wybierz **klasy** w środkowym okienku, nadaj jej nazwę *ProductContext.cs* i kliknij przycisk **Dodaj**.
 3. Zastąp domyślny kod zawarty w klasie z następującym kodem:   
 
@@ -188,6 +188,6 @@ W następnym samouczku będzie aktualizacji interfejsu użytkownika, Dodaj nawig
 [Kod pierwszego adnotacji danych](https://msdn.microsoft.com/data/gg193958)  
 [Ulepszenia wydajności programu Entity Framework](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
 
->[!div class="step-by-step"]
-[Poprzednie](create-the-project.md)
-[dalej](ui_and_navigation.md)
+> [!div class="step-by-step"]
+> [Poprzednie](create-the-project.md)
+> [dalej](ui_and_navigation.md)

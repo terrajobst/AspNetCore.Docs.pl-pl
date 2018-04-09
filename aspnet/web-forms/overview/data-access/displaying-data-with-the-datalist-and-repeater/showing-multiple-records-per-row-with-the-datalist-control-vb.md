@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
-title: "Wyświetlanie wielu rekordów w wierszu o formant DataList (VB) | Dokumentacja firmy Microsoft"
+title: Wyświetlanie wielu rekordów w wierszu o formant DataList (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku krótkich firma Microsoft będzie Poznaj sposób dostosowywania układu DataList za pośrednictwem jego właściwości RepeatColumns i RepeatDirection."
+description: W tym samouczku krótkich firma Microsoft będzie Poznaj sposób dostosowywania układu DataList za pośrednictwem jego właściwości RepeatColumns i RepeatDirection.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 416178533f022f2a262799e6f042d6009bb9d999
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9c85e5a1d7b88a9ed53ed8392a300d5118363bf8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>Wyświetlanie wielu rekordów w wierszu o formant DataList (VB)
 ====================
@@ -55,7 +55,7 @@ Po utworzeniu i powiązanie ObjectDataSource nowego elementu DataList, Visual St
 
 [!code-aspx[Main](showing-multiple-records-per-row-with-the-datalist-control-vb/samples/sample2.aspx)]
 
-Powiadomienie tej I kolejnych uwzględnione specyfikatora formatu w `Eval` składnia wiązania z danymi `UnitPrice`, formatowanie zwrócona wartość jako walutę -`Eval("UnitPrice", "{0:C}").`
+Powiadomienie tej I kolejnych uwzględnione specyfikatora formatu w `Eval` składnia wiązania z danymi `UnitPrice`, formatowanie zwrócona wartość jako walutę - `Eval("UnitPrice", "{0:C}").`
 
 Poświęć chwilę, aby odwiedzić stronę w przeglądarce. Jak pokazano na rysunku 2, jako pojedynczej kolumny, wielowierszowych spis produktów powoduje renderowanie elementu DataList.
 
@@ -113,12 +113,12 @@ DataList, domyślnie zawiera elementy w pojedynczej kolumny, wielu wierszy tabel
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Suru Jan. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](formatting-the-datalist-and-repeater-based-upon-data-vb.md)
-[dalej](nested-data-web-controls-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](formatting-the-datalist-and-repeater-based-upon-data-vb.md)
+> [dalej](nested-data-web-controls-vb.md)

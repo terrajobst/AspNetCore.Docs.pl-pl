@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
-title: "Wdrażanie członkostwo roli bazy danych do środowiska testowego | Dokumentacja firmy Microsoft"
+title: Wdrażanie członkostwo roli bazy danych do środowiska testowego | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób dodawania kont użytkowników do ról bazy danych jako część wdrożenia rozwiązania do środowiska testowego. Podczas wdrażania zawierający rozwiązania..."
+description: W tym temacie opisano sposób dodawania kont użytkowników do ról bazy danych jako część wdrożenia rozwiązania do środowiska testowego. Podczas wdrażania zawierający rozwiązania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 226c28622f76e866fba1fc33cf9b9b7a01e5295b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4f635153213b0695d7d4b64d09adefaf8ee8e892
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a>Wdrażanie członkostwo roli bazy danych do środowisk testowych
 ====================
@@ -37,9 +37,9 @@ przez [Lewandowski Jason](https://github.com/jrjlee)
 > Kluczowym czynnikiem jest, że ta operacja musi być warunkowego oparte na środowisku docelowym. Jeśli wdrażasz przemieszczania lub w środowisku produkcyjnym, chcesz pominąć operację. Jeśli jest wdrażany do dewelopera lub środowiska testowego, którą chcesz wdrożyć członkostwo w rolach bez dalszej interwencji. W tym temacie opisano jeden podejście, które można użyć, aby rozwiązać ten problem.
 
 
-Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Ten samouczek serii używa przykładowe rozwiązanie & #x 2014; [rozwiązania z menedżerem skontaktuj się z](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, systemu Windows Usługi Communication Foundation (WCF), a projekt bazy danych.
+Ten temat jest częścią serii samouczków na podstawie tych wymagań związanych z przedsiębiorstwa wdrażaniem fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [rozwiązania kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji projektu dwa pliki & #x 2014; jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), w którym jest kontrolowany przez proces kompilacji dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
 
 ## <a name="task-overview"></a>Omówienie zadań
 
@@ -94,7 +94,7 @@ Zanim to polecenie jest osadzić w celu MSBuild, należy wziąć pod uwagę pod 
 
 - Docelowa baza danych musi istnieć przed zmianą jego przynależności do ról. Tak, należy uruchomić ten skrypt *po* wdrażania bazy danych.
 - Należy uwzględnić warunek, dzięki czemu skrypt jest wykonywać tylko dla środowisk testowych.
-- Jeśli korzystasz z wdrożenia "co w przypadku" & #x 2014; innymi słowy, jeśli jest generowanie skryptów wdrażania, ale nie są na nich uruchomione ich & #x 2014; nie należy uruchomieniem skryptu SQL.
+- Jeśli używasz wdrożenia "co w przypadku"&#x2014;innymi słowy, jeśli jest generowanie skryptów wdrażania, ale nie są na nich uruchomione je&#x2014;nie należy uruchomić skrypt SQL.
 
 Jeśli używasz podejście pliku projektu podziału opisane w [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md), jak dowodzą kontaktów Menedżerze przykładowe rozwiązanie, można podzielić instrukcje kompilacji skryptu SQL następująco:
 
@@ -132,6 +132,6 @@ W tym temacie opisano jeden sposób, w którym można dodać bazy danych użytko
 
 Aby uzyskać więcej informacji na temat używania VSDBCMD wdrażania projektów bazy danych, zobacz [wdrażania projektów bazy danych](../web-deployment-in-the-enterprise/deploying-database-projects.md). Aby uzyskać wskazówki dotyczące dostosowywania wdrożenia bazy danych dla środowisk inny element docelowy, zobacz [Dostosowywanie wdrożenia bazy danych w wielu środowiskach](customizing-database-deployments-for-multiple-environments.md). Aby uzyskać więcej informacji na temat używania niestandardowe pliki projektu MSBuild kontrolować proces wdrażania, zobacz [opis pliku projektu](../web-deployment-in-the-enterprise/understanding-the-project-file.md) i [opis procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Aby uzyskać więcej informacji na temat opcji wiersza polecenia sqlcmd, zobacz [narzędzia sqlcmd](https://msdn.microsoft.com/library/ms162773.aspx).
 
->[!div class="step-by-step"]
-[Poprzednie](customizing-database-deployments-for-multiple-environments.md)
-[dalej](deploying-membership-databases-to-enterprise-environments.md)
+> [!div class="step-by-step"]
+> [Poprzednie](customizing-database-deployments-for-multiple-environments.md)
+> [dalej](deploying-membership-databases-to-enterprise-environments.md)

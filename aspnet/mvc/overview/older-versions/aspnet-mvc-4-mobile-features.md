@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 title: Funkcje mobilne platformy ASP.NET MVC 4 | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Teraz jest wersją MVC 5 tego samouczka z przykładów kodu w Wdróż ASP.NET MVC 5 mobilnych aplikacji sieci Web w witrynach sieci Web platformy Azure."
+description: Teraz jest wersją MVC 5 tego samouczka z przykładów kodu w Wdróż ASP.NET MVC 5 mobilnych aplikacji sieci Web w witrynach sieci Web platformy Azure.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: f4e0e4eb558e0c7b9e94fc83ede986fa4c666739
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 5f38fcdd8e71ce12f7899214b6b2133e21f9910c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>Funkcje mobilne platformy ASP.NET MVC 4
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Teraz jest wersja MVC 5 tego samouczka z przykładów kodu w [wdrażania platformy ASP.NET MVC 5 mobilnych aplikacji sieci Web w witrynach sieci Web Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
 
@@ -190,7 +190,7 @@ Zainstaluj *jQuery.Mobile.MVC* pakietu NuGet w ten sposób:
 1. Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**.
 
     [![p3_packageMgr](aspnet-mvc-4-mobile-features/_static/image20.png)](aspnet-mvc-4-mobile-features/_static/image19.png)
-2. W **Konsola Menedżera pakietów**, wprowadź`Install-Package jQuery.Mobile.MVC -version 1.0.0`
+2. W **Konsola Menedżera pakietów**, wprowadź `Install-Package jQuery.Mobile.MVC -version 1.0.0`
 
 Na poniższej ilustracji przedstawiono pliki, dodawania i modyfikowania do projektu MvcMobile przez pakiet NuGet jQuery.Mobile.MVC. Pliki, które są dodawane [Dodaj] dołączane po nazwie pliku. Obraz nie jest wyświetlany plik GIF i PNG, pliki dodane do *Content\images* folderu.
 
@@ -204,7 +204,7 @@ Pakiet NuGet jQuery.Mobile.MVC instalowane są następujące:
 - jQuery Mobile JavaScript pliki.
 - Pliku jQuery Mobile, styl układu (*Views\Shared\\_Layout.Mobile.cshtml*).
 - Widok częściowy tym przełącznikiem widoku *(MvcMobile\Views\Shared\\_ViewSwitcher.cshtml*) zapewnia łącze na początku każdej strony, aby przełączyć się z widoku pulpitu widokiem dla urządzeń przenośnych i na odwrót.
-- Kilka*.png* i *.gif* pliki obrazów w *Content\images* folderu.
+- Kilka<em>.png</em> i <em>.gif</em> pliki obrazów w <em>Content\images</em> folderu.
 
 Otwórz *Global.asax* pliku i Dodaj następujący kod, jak ostatni wiersz `Application_Start` metody.
 
@@ -270,7 +270,7 @@ Widok domyślny (nieprzenośnych) z renderowania w układzie przenośnych global
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample17.cshtml)]
 
-Gdy `RequireConsistentDisplayMode` ma ustawioną wartość `true`, przenośne układu (*\_Layout.Mobile.cshtml*) jest używany tylko dla widoków przenośnych. (Plik widoku jest w formie ***ViewName**. Mobile.cshtml*). Należy ustawić `RequireConsistentDisplayMode` do `true` Jeśli przenośnych układu nie działa prawidłowo w przypadku widoków przeznaczone dla urządzeń przenośnych. Zrzut ekranu poniżej przedstawiono sposób *głośniki* renderowania strony, gdy `RequireConsistentDisplayMode` ma ustawioną wartość `true`.
+Gdy `RequireConsistentDisplayMode` ma ustawioną wartość `true`, przenośne układu (<em>\_Layout.Mobile.cshtml</em>) jest używany tylko dla widoków przenośnych. (Plik widoku jest w formie <em>** ViewName</em><em>. Mobile.cshtml</em>.) Należy ustawić `RequireConsistentDisplayMode` do `true` Jeśli przenośnych układu nie działa prawidłowo w przypadku widoków przeznaczone dla urządzeń przenośnych. Zrzut ekranu poniżej przedstawiono sposób <em>głośniki</em> renderowania strony, gdy `RequireConsistentDisplayMode` ma ustawioną wartość `true`.
 
 [![p3_speakersConsistent](aspnet-mvc-4-mobile-features/_static/image33.png)](aspnet-mvc-4-mobile-features/_static/image32.png)
 

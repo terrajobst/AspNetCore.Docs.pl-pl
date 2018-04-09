@@ -1,7 +1,7 @@
 ---
-title: "Strony pomocy Core interfejsu API sieci Web ASP.NET przy użyciu programu Swagger / Otwórz interfejs API"
+title: Strony ASP.NET Core interfejsu API sieci Web pomocy programu Swagger / Otwórz interfejs API
 author: rsuter
-description: "Ten samouczek zawiera wskazówki dodawania programu Swagger do generowania dokumentacji i strony dla aplikacji interfejsu API sieci Web pomocy."
+description: Ten samouczek zawiera wskazówki dodawania programu Swagger do generowania dokumentacji i strony dla aplikacji interfejsu API sieci Web pomocy.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: f0e2d97111c95d44269a2023a3349d86ccbf8bad
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: e44b491fd5265e12646efa42f12eb0662e287f04
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="aspnet-core-web-api-help-pages-using-swagger--open-api"></a>Strony pomocy Core interfejsu API sieci Web ASP.NET przy użyciu programu Swagger / Otwórz interfejs API
+# <a name="aspnet-core-web-api-help-pages-with-swagger--open-api"></a>Strony ASP.NET Core interfejsu API sieci Web pomocy programu Swagger / Otwórz interfejs API
 
 Przez [Christoph Nienaber](https://twitter.com/zuckerthoben) i [Rico Suter](http://rsuter.com)
 

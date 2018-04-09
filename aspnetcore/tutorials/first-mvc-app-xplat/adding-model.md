@@ -1,5 +1,5 @@
 ---
-title: Dodawanie modelu dla aplikacji ASP.NET Core MVC.
+title: Dodaj model do aplikacji platformy ASP.NET Core MVC
 author: rick-anderson
 description: Dodawanie modelu do prostej aplikacji platformy ASP.NET Core.
 manager: wpickett
@@ -9,13 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/adding-model
-ms.openlocfilehash: 180258444c3cca169470fd5f13d0d0fcec539f5f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 77750ba0df7775d6a0e4744811848bfe9782d995
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model1](../../includes/mvc-intro/adding-model1.md)]
+# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodaj model do aplikacji platformy ASP.NET Core MVC
+
+[!INCLUDE [adding-model1](../../includes/mvc-intro/adding-model1.md)]
 
 * Dodaj klasę do *modele* folder o nazwie *Movie.cs*.
 * Dodaj następujący kod do *Models/Movie.cs* pliku:
@@ -64,9 +66,9 @@ Aparat szkieletów tworzy następujące czynności:
 
 Automatyczne tworzenie [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (tworzenia, odczytu, aktualizacji i usuwania) metody akcji i widoki nosi nazwę *szkieletów*. Konieczne będzie wkrótce aplikacji funkcjonalnej sieci web, która umożliwia zarządzanie filmu bazy danych.
 
-[!INCLUDE[adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
+[!INCLUDE [adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
 
 Masz teraz bazę danych i stron do wyświetlania, edytowania, aktualizacji i usuwania danych. W następnym samouczku firma Microsoft będzie współpracować z bazy danych.
 
@@ -75,6 +77,6 @@ Masz teraz bazę danych i stron do wyświetlania, edytowania, aktualizacji i usu
 * [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro)
 * [Globalizacja i lokalizacja](xref:fundamentals/localization)
 
->[!div class="step-by-step"]
-[Poprzednie — Dodawanie widoku](adding-view.md)
-[następne — Praca z bazy danych SQLite](working-with-sql.md)
+> [!div class="step-by-step"]
+> [Poprzednie — Dodawanie widoku](adding-view.md)
+> [następne — Praca z bazy danych SQLite](working-with-sql.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 title: Tworzenie MVC 3 aplikacji Razor i dyskretny kod JavaScript | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Przykładową aplikację sieci web listy użytkowników pokazano, jak łatwo jest tworzenie aplikacji ASP.NET MVC 3, za pomocą aparatu widoku Razor. Przykładowe s aplikacji..."
+description: Przykładową aplikację sieci web listy użytkowników pokazano, jak łatwo jest tworzenie aplikacji ASP.NET MVC 3, za pomocą aparatu widoku Razor. Przykładowe s aplikacji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/01/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 29b45c07b5498542abbf22c4c3001b1cee41edc9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9b273f6827cad2078b581d6da7b127198dfddaa5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Tworzenie MVC 3 aplikacji Razor i dyskretny kod JavaScript
 ====================
@@ -54,7 +54,7 @@ W tym samouczku nie używana będzie dostawcy członkostwa ASP.NET, więc można
 
 ![Soln Exp](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)
 
-Edytuj  *\_Layout.cshtml* plików i Zastąp znaczników wewnątrz `<div>` elementu o nazwie `logindisplay` z komunikatem  *&quot;* wyłączone logowania&quot;. W poniższym przykładzie przedstawiono nowy kod znaczników:
+Edytuj  <em>\_Layout.cshtml</em> plików i Zastąp znaczników wewnątrz `<div>` elementu o nazwie `logindisplay` z komunikatem <em>&quot;</em>wyłączone logowania&quot;. W poniższym przykładzie przedstawiono nowy kod znaczników:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample1.cshtml)]
 
@@ -122,7 +122,7 @@ Dodaj następujące `Details` metody kontrolerowi macierzystego:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample8.cs)]
 
-Kliknij prawym przyciskiem myszy wewnątrz `Details` metody, a następnie wybierz **Dodaj widok**. Sprawdź, czy **wyświetlić klasy danych** zawiera pole **Mvc3Razor.Models.UserModel***.* Ustaw **wyświetlania zawartości** do **szczegóły** , a następnie kliknij przycisk **Dodaj**.
+Kliknij prawym przyciskiem myszy wewnątrz `Details` metody, a następnie wybierz <strong>Dodaj widok</strong>. Sprawdź, czy <strong>wyświetlić klasy danych</strong> zawiera pole <strong>Mvc3Razor.Models.UserModel</strong><em>.</em> Ustaw <strong>wyświetlania zawartości</strong> do <strong>szczegóły</strong> , a następnie kliknij przycisk <strong>Dodaj</strong>.
 
 ![Dodaj widok szczegółów](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image11.png)
 

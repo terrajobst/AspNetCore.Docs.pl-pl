@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-vb
-title: "Omówienie uwierzytelniania formularzy (VB) | Dokumentacja firmy Microsoft"
+title: Omówienie uwierzytelniania formularzy (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku będziemy zmieni się z zaledwie dyskusji implementacji; w szczególności zajmiemy Implementowanie uwierzytelniania formularzy. W aplikacji sieci web..."
+description: W tym samouczku będziemy zmieni się z zaledwie dyskusji implementacji; w szczególności zajmiemy Implementowanie uwierzytelniania formularzy. W aplikacji sieci web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 90bcff91d0642e6af66f43fd807b253cc516d277
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6482b10a470b50a1fc6f163ee2d59682e83f5a2b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-forms-authentication-vb"></a>Omówienie uwierzytelniania formularzy (VB)
 ====================
@@ -103,7 +103,7 @@ Następnie dodaj nową stronę wzorcową do lokacji w katalogu głównym o nazwi
 **Rysunek 03**: Dodaj Site.master o nazwie wzorca strony do witryny sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](an-overview-of-forms-authentication-vb/_static/image9.png))
 
 
-Zdefiniuj tutaj układ strony całej lokacji, na stronie głównej. Można użyć widoku projektu i Dodaj formanty niezależnie od układu lub sieci Web należy, lub można ręcznie dodać kod znaczników ręcznie w widoku źródła. Strukturę I układ strony wzorcowej naśladować układu używane w mojej  *[Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)*  samouczka serii (patrz rysunek 4). Używa strony wzorcowej [kaskadowych arkuszy stylów](http://www.w3schools.com/css/default.asp) pozycjonowanie i style z ustawieniami CSS zdefiniowanych w pliku Style.css (który jest dołączony do pobierania tego samouczka). Gdy nie można ustalić, z poziomu znacznika pokazano poniżej, reguły CSS są zdefiniowane tak, aby nawigacji &lt;div&gt;w zawartości jest bezwzględnego, który pojawia się po lewej stronie i ma stałą szerokość 200 pikseli.
+Zdefiniuj tutaj układ strony całej lokacji, na stronie głównej. Można użyć widoku projektu i Dodaj formanty niezależnie od układu lub sieci Web należy, lub można ręcznie dodać kod znaczników ręcznie w widoku źródła. Strukturę I układ strony wzorcowej naśladować układu używane w mojej *[Praca z danymi w programie ASP.NET 2.0](../../data-access/index.md)* samouczka serii (patrz rysunek 4). Używa strony wzorcowej [kaskadowych arkuszy stylów](http://www.w3schools.com/css/default.asp) pozycjonowanie i style z ustawieniami CSS zdefiniowanych w pliku Style.css (który jest dołączony do pobierania tego samouczka). Gdy nie można ustalić, z poziomu znacznika pokazano poniżej, reguły CSS są zdefiniowane tak, aby nawigacji &lt;div&gt;w zawartości jest bezwzględnego, który pojawia się po lewej stronie i ma stałą szerokość 200 pikseli.
 
 [!code-aspx[Main](an-overview-of-forms-authentication-vb/samples/sample1.aspx)]
 
@@ -221,7 +221,7 @@ Teraz musisz zaimplementować zadanie 2 w kliknięcia przycisku program obsługi
 
 Przed składnika ASP.NET 2.0 deweloperzy zostały odpowiedzialnych za wdrażanie własnych magazyny użytkowników i pisanie kodu można sprawdzić poprawności podanych poświadczeń z magazynu. Większość deweloperów czy implementuje magazynie użytkownika w bazie danych, tworzenie tabeli o nazwie użytkowników z kolumnami, takie jak nazwa użytkownika, hasło, poczty E-mail, LastLoginDate i tak dalej. Ta tabela musi następnie jeden rekord dla każdego konta użytkownika. Weryfikowanie podanych poświadczeń użytkownika wymagałoby kwerend bazy danych dla zgodnego nazwy użytkownika i sprawdzeniu, czy podane hasło odpowiadał hasła w bazie danych.
 
-Ze składnika ASP.NET 2.0 deweloperzy należy używać jednego z dostawców członkostwa do zarządzania Sklepem użytkownika. W tym samouczku użyjemy SqlMembershipProvider, który korzysta z bazy danych programu SQL Server dla magazynu użytkowników. Korzystając z SqlMembershipProvider musimy zaimplementować schemat określonej bazy danych, który zawiera tabele, widoki i procedury składowane oczekiwany przez dostawcę. Omówione zostaną sposobu wdrażania tego schematu w  *[tworzenie schematu członkostwa w programie SQL Server](../membership/creating-the-membership-schema-in-sql-server-vb.md)*  samouczka. Z dostawcy członkostwa w miejscu, sprawdzanie poprawności poświadczeń użytkownika jest równie proste co wywołanie [klasy członkostwa](https://msdn.microsoft.com/library/system.web.security.membership.aspx)w [funkcja ValidateUser (*username*, *hasło*) metody](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx), która zwraca wartość Boolean wskazującą czy ważności *nazwy użytkownika* i *hasło* kombinacji. Zobaczysz, jak firma Microsoft ma nie zaimplementowano jeszcze SqlMembershipProvider magazynu użytkowników, nie można użyć metody funkcja ValidateUser klasy członkostwo w tej chwili.
+Ze składnika ASP.NET 2.0 deweloperzy należy używać jednego z dostawców członkostwa do zarządzania Sklepem użytkownika. W tym samouczku użyjemy SqlMembershipProvider, który korzysta z bazy danych programu SQL Server dla magazynu użytkowników. Korzystając z SqlMembershipProvider musimy zaimplementować schemat określonej bazy danych, który zawiera tabele, widoki i procedury składowane oczekiwany przez dostawcę. Omówione zostaną sposobu wdrażania tego schematu w *[tworzenie schematu członkostwa w programie SQL Server](../membership/creating-the-membership-schema-in-sql-server-vb.md)* samouczka. Z dostawcy członkostwa w miejscu, sprawdzanie poprawności poświadczeń użytkownika jest równie proste co wywołanie [klasy członkostwa](https://msdn.microsoft.com/library/system.web.security.membership.aspx)w [funkcja ValidateUser (*username*, *hasło*) metody](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx), która zwraca wartość Boolean wskazującą czy ważności *nazwy użytkownika* i *hasło* kombinacji. Zobaczysz, jak firma Microsoft ma nie zaimplementowano jeszcze SqlMembershipProvider magazynu użytkowników, nie można użyć metody funkcja ValidateUser klasy członkostwo w tej chwili.
 
 Zamiast Poświęć chwilę, aby utworzyć własne niestandardowe użytkowników tabeli bazy danych (która jest przestarzałe po wprowadziliśmy SqlMembershipProvider), umożliwia zamiast kodowane prawidłowe poświadczenia w ramach logowania stronie. W LoginButton kliknij program obsługi zdarzeń, Dodaj następujący kod:
 
@@ -241,7 +241,7 @@ Przy założeniu, że podane poświadczenia są prawidłowe, należy utworzyć b
 
 - [GetAuthCookie (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.getauthcookie.aspx) — tworzy biletu uwierzytelniania formularzy dla podanej nazwy *username*. Następnie ta metoda tworzy i zwraca obiekt HttpCookie, który znajduje się zawartość biletu uwierzytelniania. Jeśli *persistCookie* ma wartość PRAWDA, trwały plik cookie jest tworzony.
 - [SetAuthCookie (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx) -wywołuje GetAuthCookie (*username*, *persistCookie*) Metoda służąca do generowania pliku cookie uwierzytelniania formularzy. Ta metoda jest następnie dodaje plik cookie zwrócony przez GetAuthCookie do kolekcji plików cookie (przy założeniu, uwierzytelnianie formularzy opartych na pliki cookie są używane; w przeciwnym razie, ta metoda wywołuje Wewnętrzna klasa, obsługująca logiki biletu cookieless).
-- [RedirectFromLoginPage (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.redirectfromloginpage.aspx) — ta metoda wywołuje SetAuthCookie (*username*, *persistCookie* ), a następnie przekierowuje użytkownika do odpowiedniej strony.
+- [RedirectFromLoginPage (*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.redirectfromloginpage.aspx) — ta metoda wywołuje SetAuthCookie (*username*, *persistCookie*), a następnie przekierowuje użytkownika do odpowiedniej strony.
 
 GetAuthCookie jest przydatne, gdy należy zmodyfikować biletu uwierzytelniania przed zapisaniem pliku cookie do kolekcji plików cookie. SetAuthCookie jest przydatne, jeśli chcesz utworzyć biletu uwierzytelniania formularzy i dodaj go do kolekcji plików cookie, ale nie chcesz przekierowuje użytkownika do odpowiedniej strony. Prawdopodobnie chcesz zachować je na stronie logowania lub wysyłać je do niektórych alternatywnej strony.
 
@@ -470,12 +470,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku obejmują Alicja Maziarz, Jan Suru i Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Poprzednie](security-basics-and-asp-net-support-vb.md)
-[dalej](forms-authentication-configuration-and-advanced-topics-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](security-basics-and-asp-net-support-vb.md)
+> [dalej](forms-authentication-configuration-and-advanced-topics-vb.md)

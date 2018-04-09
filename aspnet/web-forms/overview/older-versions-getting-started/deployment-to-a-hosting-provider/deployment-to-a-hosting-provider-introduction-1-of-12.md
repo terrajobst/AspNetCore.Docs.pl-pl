@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
-title: "Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio programu SQL Server Compact: wprowadzenie - 1 do 12 | Dokumentacja firmy Microsoft"
+title: 'Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio programu SQL Server Compact: wprowadzenie - 1 do 12 | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Tej serii samouczków opisano sposób wdrażania platformy ASP.NET (publikowanie) projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu..."
+description: Tej serii samouczków opisano sposób wdrażania platformy ASP.NET (publikowanie) projektu aplikacji sieci web, który zawiera bazę danych programu SQL Server Compact przy użyciu Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: a0f38c83bd9231dbd37d3d505c90316af521b336
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3f1572bb890ee136cdd746040a5efae2ce537116
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Wdrażanie aplikacji sieci Web ASP.NET przy użyciu programu Visual Studio programu SQL Server Compact: wprowadzenie - 1 do 12
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobierz początkowego projektu](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -53,7 +53,7 @@ Celem jest samouczków deweloperów platformy ASP.NET, którzy pracują w innych
 
 W środowiskach przedsiębiorstw jest bardziej typowego do implementacji procesów ciągłej integracji i środowiska produkcyjnego jest zwykle znajdujących się na serwerach przez firmę. Różne osoby zwykle także wykonywać różne role. Informacji o wdrażaniu przedsiębiorstwa, zobacz [wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md).
 
-Organizacjach różnej wielkości można także wdrożyć aplikacje sieci web na platformie Azure, a większość zgodnie z procedurami przedstawionymi w tych samouczkach stosuje się również do aplikacji sieci Web usługi aplikacji Azure. Aby obejrzeć wprowadzenie do platformy Azure, zobacz [https://azure.microsoft.com](https://azure.microsoft.com).
+Organizacjach różnej wielkości można także wdrożyć aplikacje sieci web na platformie Azure, a większość zgodnie z procedurami przedstawionymi w tych samouczkach stosuje się również do aplikacji sieci Web usługi aplikacji Azure. Aby obejrzeć wprowadzenie do platformy Azure, zobacz [ https://azure.microsoft.com ](https://azure.microsoft.com).
 
 ## <a name="the-hosting-provider-shown-in-the-tutorials"></a>Dostawca hostingu pokazano samouczków
 
@@ -142,5 +142,5 @@ Poniższe funkcje aplikacji wpływa na sposób wdrażania lub masz celu jej wdro
 
 W tym samouczku pierwszy z serii pobraniu przykładowy projekt programu Visual Studio i przejrzeć funkcji witryny, które mają wpływ na sposób wdrażania aplikacji. W następujących samouczkach przygotować się do wdrożenia, konfigurując niektóre z nich mają zostać obsłużone automatycznie. Inne rozwiązywane ręcznie.
 
->[!div class="step-by-step"]
-[Next](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+> [!div class="step-by-step"]
+> [Next](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

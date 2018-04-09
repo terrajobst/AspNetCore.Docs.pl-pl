@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
-title: "Określenie tytuł, tagi Meta i innych nagłówków HTML na stronie wzorcowej (VB) | Dokumentacja firmy Microsoft"
+title: Określenie tytuł, tagi Meta i innych nagłówków HTML na stronie wzorcowej (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Analizuje różnych technik w celu zdefiniowania asortymentach &lt;head&gt; elementy na stronie wzorcowej ze strony zawartość."
+description: Analizuje różnych technik w celu zdefiniowania asortymentach &lt;head&gt; elementy na stronie wzorcowej ze strony zawartość.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6d004a0ee0b46e2984aec8d0a99835dbf414ed9d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b8bf9d32eee3e35ffc84521f7f82f7beecc99a0c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a>Określenie tytuł, tagi Meta i innych nagłówków HTML na stronie wzorcowej (VB)
 ====================
@@ -130,7 +130,7 @@ Naszym pierwszym zadaniem jest tworzenie klasy strony podstawowej, która jest k
 
 ![Dodaj w folderze App_Code oraz klasę o nazwie BasePage](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image4.png)
 
-**Rysunek 04**: Dodaj `App_Code` Folder i klasę o nazwie`BasePage`
+**Rysunek 04**: Dodaj `App_Code` Folder i klasę o nazwie `BasePage`
 
 
 > [!NOTE]
@@ -279,7 +279,7 @@ Aktualizacja `BasePage` klasy `OnLoadComplete` metodę w celu uwzględnienia nas
 
 Jak wcześniej `OnLoadComplete` metoda uruchamia przez określenie, czy tytuł strony została jawnie ustawiona. Jeśli `Page.Title` jest `Nothing`, ciągiem pustym lub jest przypisywana wartość "Bez tytułu strony", a następnie kod automatycznie przypisuje wartość do `Page.Title`.
 
-Aby określić tytuł, aby użyć, odwołując zaczyna się kod [ `SiteMap` klasy](https://msdn.microsoft.com/library/system.web.sitemap.aspx)w [ `CurrentNode` właściwości](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx). `CurrentNode`Zwraca [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) wystąpienia mapy witryny, umożliwiająca obecnie żądanej strony. Zakładając, że obecnie żądanej strony znajduje się w obrębie mapy witryny `SiteMapNode`w `Title` właściwości jest przypisany do tytułu strony. Jeśli obecnie żądana strona nie ma mapy witryny `CurrentNode` zwraca `Nothing` filename żądanej strony służy jako tytuł (jak to zostało zrobione w kroku 2).
+Aby określić tytuł, aby użyć, odwołując zaczyna się kod [ `SiteMap` klasy](https://msdn.microsoft.com/library/system.web.sitemap.aspx)w [ `CurrentNode` właściwości](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx). `CurrentNode` Zwraca [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) wystąpienia mapy witryny, umożliwiająca obecnie żądanej strony. Zakładając, że obecnie żądanej strony znajduje się w obrębie mapy witryny `SiteMapNode`w `Title` właściwości jest przypisany do tytułu strony. Jeśli obecnie żądana strona nie ma mapy witryny `CurrentNode` zwraca `Nothing` filename żądanej strony służy jako tytuł (jak to zostało zrobione w kroku 2).
 
 Przedstawia rysunek 12 `MultipleContentPlaceHolders.aspx` strony podczas wyświetlania za pośrednictwem przeglądarki. Ponieważ tytułu tej strony nie jest jawnie ustawiona, zamiast tego użyć jej odpowiednie węzeł mapy witryny w tytule.
 
@@ -345,12 +345,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora wielu książek ASP/ASP.NET i twórcę 4GuysFromRolla.com pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 3.5 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott jest osiągalny w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Kowalski Zack i Suchi Banerjee. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Poprzednie](multiple-contentplaceholders-and-default-content-vb.md)
-[dalej](urls-in-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](multiple-contentplaceholders-and-default-content-vb.md)
+> [dalej](urls-in-master-pages-vb.md)

@@ -1,7 +1,7 @@
 ---
-title: "Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio dla komputerów Mac"
+title: Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio dla komputerów Mac
 author: rick-anderson
-description: "Dowiedz się, jak rozpocząć pracę z platformy ASP.NET Core MVC i Visual Studio"
+description: Dowiedz się, jak rozpocząć pracę z platformy ASP.NET Core MVC i Visual Studio
 manager: wpickett
 ms.author: riande
 ms.date: 8/23/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: 7d2729969a65cf2050d0eac390169898a4102de1
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: ffa620f07251c52c785672d8fbeefacac31ed4c1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio dla komputerów Mac
 
@@ -21,7 +21,7 @@ przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym samouczku uczy podstaw konstruowania platformy ASP.NET Core MVC aplikację sieciową przy użyciu [programu Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/). 
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 Istnieją 3 wersje tego samouczka:
 
@@ -31,12 +31,7 @@ Istnieją 3 wersje tego samouczka:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ten samouczek wymaga [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) lub nowszym.
-
-Zainstaluj następujące czynności:
-
-- [Oprogramowanie .NET core 2.0.0 SDK](https://www.microsoft.com/net/core) lub nowszy
-- [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+[!INCLUDE [](~/includes/net-core-prereqs-macos.md)]
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci web
 
@@ -67,5 +62,5 @@ Domyślny szablon umożliwia **macierzystego o** i **skontaktuj się z** łącza
 
 W następnej części tego samouczka Dowiedz się więcej o MVC i rozpocząć pisanie kodu.
 
->[!div class="step-by-step"]
-[Next](adding-controller.md)  
+> [!div class="step-by-step"]
+> [Next](adding-controller.md)  

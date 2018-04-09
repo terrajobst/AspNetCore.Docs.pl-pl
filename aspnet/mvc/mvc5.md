@@ -1,8 +1,8 @@
 ---
 uid: mvc/mvc5
-title: ASP.NET MVC 5 | Dokumentacja firmy Microsoft
+title: ASP.NET MVC 5 | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC 5 ASP.NET MVC 5 to struktura służąca do tworzenia aplikacji sieci web skalowalnych, opartych na standardach za pomocą często używanych wzorów projektów oraz funkcji platform AS...."
+description: ASP.NET MVC 5 ASP.NET MVC 5 to struktura służąca do tworzenia aplikacji sieci web skalowalnych, opartych na standardach za pomocą często używanych wzorów projektów oraz funkcji platform AS....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: e57163469ae4606df0fc17e3e054b7696782a084
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1b3f920b51a70757ec0e20e36fa8e7dc329e663d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================
@@ -28,17 +28,17 @@ Szablony projektów sieci Web MVC integrują się z nowego środowiska ASP.NET j
 
 Aby uzyskać informacje o uaktualnianiu projektów MVC 4 do MVC 5, zobacz [sposób uaktualnienia programu ASP.NET MVC 4 i projekt interfejsu API sieci Web platformy ASP.NET MVC 5 i Web API 2](overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 
-### <a name="aspnet-identity"></a>Tożsamość platformy ASP.NET
+### <a name="aspnet-identity"></a>ASP.NET Identity
 
 Szablony projektów MVC zostały zaktualizowane do korzystania z tożsamości ASP.NET do uwierzytelniania i zarządzania tożsamościami. Samouczek uwierzytelniania serwisu Facebook i Google i nowy interfejs API członkostwa można znaleźć w folderze [tworzenie aplikacji ASP.NET MVC 5 z usługi Facebook i Google OAuth2 i OpenID logowania jednokrotnego](overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) i [wdrażanie aplikacji platformy ASP.NET MVC Secure z Członkostwo, OAuth i bazy danych SQL do witryny sieci Web platformy Azure z systemem Windows](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data).
 
-### <a name="bootstrap"></a>Ładowania początkowego
+### <a name="bootstrap"></a>Bootstrap
 
 Szablon projektu MVC została zaktualizowana w celu użycia [Bootstrap](http://getbootstrap.com/) zapewnienie elegancki i elastyczny wyglądu i działania, które można łatwo dostosować. Aby uzyskać więcej informacji, zobacz [Bootstrap w szablonach projektu sieci web programu Visual Studio 2013](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap).
 
 ### <a name="authentication-filters"></a>Filtry uwierzytelniania
 
-[Filtry uwierzytelniania](http://www.dotnetcurry.com/showarticle.aspx?ID=957) nowy rodzaj filtru na platformie ASP.NET MVC przed filtry autoryzacji w potoku platformy ASP.NET MVC, umożliwiają określenie uwierzytelniania logiki na działania, które są na kontroler lub globalnie do wszystkich kontrolerów. Filtry uwierzytelniania przetworzyć poświadczeń w żądaniu i podaj odpowiednie podmiot zabezpieczeń. Filtry uwierzytelniania można również dodać wezwań do uwierzytelnienia w odpowiedzi do nieautoryzowanego żądania. Zobacz [filtry uwierzytelniania programu ASP.NET MVC 5](http://www.dotnetcurry.com/showarticle.aspx?ID=957), [filtry uwierzytelniania w programie ASP.NET MVC 5](http://theshravan.net/blog/authentication-filters-in-asp-net-mvc-5/) i [Finally nowe platformy ASP.NET MVC 5 filtry uwierzytelniania!](http://hackwebwith.net/finally-the-new-asp-net-mvc-5-authentication-filters/).
+[Filtry uwierzytelniania](http://www.dotnetcurry.com/showarticle.aspx?ID=957) nowy rodzaj filtru na platformie ASP.NET MVC przed filtry autoryzacji w potoku platformy ASP.NET MVC, umożliwiają określenie uwierzytelniania logiki na działania, które są na kontroler lub globalnie do wszystkich kontrolerów. Filtry uwierzytelniania przetworzyć poświadczeń w żądaniu i podaj odpowiednie podmiot zabezpieczeń. Filtry uwierzytelniania można również dodać wezwań do uwierzytelnienia w odpowiedzi do nieautoryzowanego żądania. Zobacz [filtrów uwierzytelniania platformy ASP.NET MVC 5](http://www.dotnetcurry.com/showarticle.aspx?ID=957), [filtry uwierzytelniania w aplikacji ASP.NET MVC 5](http://theshravan.net/blog/authentication-filters-in-asp-net-mvc-5/).
 
 ### <a name="filter-overrides"></a>Zastępuje filtru
 
@@ -46,7 +46,7 @@ Teraz można zastąpić, które filtry mają zastosowanie do metody danej akcji 
 
 ### <a name="attribute-routing"></a>Atrybut routingu
 
-ASP.NET MVC obsługuje teraz [trasami atrybutów](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), dzięki użyciu udział Timowi McCall, Autor [http://attributerouting.net](http://attributerouting.net). Atrybut routingu, można określić trasy przez dodawanie adnotacji do Twojej akcji i kontrolerów.
+ASP.NET MVC obsługuje teraz [trasami atrybutów](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), dzięki użyciu udział Timowi McCall, Autor [ http://attributerouting.net ](http://attributerouting.net). Atrybut routingu, można określić trasy przez dodawanie adnotacji do Twojej akcji i kontrolerów.
 
 ## <a name="new-web-project-experience"></a>Nowe środowisko projektu sieci Web
 
@@ -66,7 +66,7 @@ Nowe okno dialogowe umożliwia zmianę domyślne opcje uwierzytelniania dla wiel
 Aby uzyskać więcej informacji na temat nowego procesu tworzenia projektów sieci web, zobacz [tworzenia projektów sieci Web ASP.NET w programie Visual Studio 2013](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md). Aby uzyskać więcej informacji na temat nowej opcji uwierzytelniania, zobacz [ASP.NET Identity](../identity/overview/index.md).
 
 <a id="scaffold"></a>
-### <a name="aspnet-scaffolding"></a>Funkcja szkieletów ASP.NET
+### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
 
 Rusztowania ASP.NET to platforma generowania kodu dla aplikacji sieci Web ASP.NET. Ułatwia on dodać schematyczny kod służący do projektu, który współdziała z modelem danych.
 

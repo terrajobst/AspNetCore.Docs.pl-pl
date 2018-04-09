@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 title: Koszyka | Dokumentacja firmy Microsoft
 author: Erikre
-description: "Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy..."
+description: Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: 9fe6f28685d6a423b03f9c7abe753283b89344e1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a8e96da7737cdf649575711a464c4f7726cb6ded
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="shopping-cart"></a>Koszyk
 ====================
@@ -66,7 +66,7 @@ We wcześniejszej części tego samouczka serii schematu dla kategorii i produkt
     ![Koszyka — okno dialogowe nowego elementu do dodania](shopping-cart/_static/image2.png)
 3. Nazwa ta nowa klasa *CartItem.cs*.
 4. Kliknij przycisk **Dodaj**.  
- Nowy plik klasy jest wyświetlany w edytorze.
+   Nowy plik klasy jest wyświetlany w edytorze.
 5. Zastąp następujący kod w kodzie domyślnym:   
 
     [!code-csharp[Main](shopping-cart/samples/sample1.cs)]
@@ -136,7 +136,7 @@ Jak wspomniano wcześniej, zostanie utworzona strona przetwarzania o nazwie *Add
 #### <a name="to-create-the-add-to-cart-functionality"></a>Aby utworzyć Dodaj na do koszyka funkcji:
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **WingtipToys**projektu, kliknij przycisk **Dodaj**  - &gt; **nowy element**.  
- **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
 2. Dodaj nową stronę standardowe (formularza sieci Web) do aplikacji o nazwie *AddToCart.aspx*. 
 
     ![Koszyka — Dodawanie formularza sieci Web](shopping-cart/_static/image4.png)
@@ -154,7 +154,7 @@ Jak wcześniej wspomniano, użytkownik `ID` służy do identyfikowania produktó
 *ShoppingCart.aspx* będą wyświetlane produkty, które użytkownik został dodany do ich koszyk. Będzie on również zawierał możliwość dodawania, usuwania i aktualizowania elementów w koszyku.
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy **WingtipToys**, kliknij przycisk **Dodaj**  - &gt; **nowy element**.  
- **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
+   **Dodaj nowy element** zostanie wyświetlone okno dialogowe.
 2. Dodawanie nowej strony (formularza sieci Web), która zawiera stronę wzorcową wybierając **formularza sieci Web używający strony wzorcowej**. Nazwa nowej strony *ShoppingCart.aspx*.
 3. Wybierz **Site.Master** dołączyć strony wzorcowej do nowo utworzony *.aspx* strony.
 4. W *ShoppingCart.aspx* strony, Zamień istniejący kod znaczników następujący kod:   
@@ -323,6 +323,6 @@ Moduł koszyka zakupów obsługuje dodawanie, usuwanie i aktualizowanie element�
 
 [Przegląd stanu sesji ASP.NET](https://msdn.microsoft.com/library/ms178581.aspx)
 
->[!div class="step-by-step"]
-[Poprzednie](display_data_items_and_details.md)
-[dalej](checkout-and-payment-with-paypal.md)
+> [!div class="step-by-step"]
+> [Poprzednie](display_data_items_and_details.md)
+> [dalej](checkout-and-payment-with-paypal.md)

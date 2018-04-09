@@ -1,7 +1,7 @@
 ---
-title: Praca z Model aplikacji w programie ASP.NET Core
+title: Praca z model aplikacji w programie ASP.NET Core
 author: ardalis
-description: "Dowiedz się, jak do odczytywania i modyfikowania modelu aplikacji, aby zmodyfikować zachowanie elementy MVC ASP.NET Core."
+description: Dowiedz się, jak do odczytywania i modyfikowania modelu aplikacji, aby zmodyfikować zachowanie elementy MVC ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 36109a4264eda10e10a7dc071c257f7b4dc8b304
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 9fbf81b382b76c108769204b4003f6e9f1b47d2c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="working-with-the-application-model-in-aspnet-core"></a>Praca z Model aplikacji w programie ASP.NET Core
+# <a name="work-with-the-application-model-in-aspnet-core"></a>Praca z model aplikacji w programie ASP.NET Core
 
 Przez [Steve Smith](https://ardalis.com/)
 

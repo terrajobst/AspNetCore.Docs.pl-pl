@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
-title: "Użyć AJAX w celu dostarczenia aktualizacji dynamicznych | Dokumentacja firmy Microsoft"
+title: Użyć AJAX w celu dostarczenia aktualizacji dynamicznych | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Implementuje kroku 10 obsługuje zalogowany użytkownikom RSVP zainteresowanie uczestniczący obiad, opartych na technologii Ajax podejście zintegrowane w ramach szczegółów obiad..."
+description: Implementuje kroku 10 obsługuje zalogowany użytkownikom RSVP zainteresowanie uczestniczący obiad, opartych na technologii Ajax podejście zintegrowane w ramach szczegółów obiad...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: 7b75f8c6cf08112eb77d1a9a40222ed1425ef3a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7cea3ee2ec52261521941efac484e91a53f6310b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-ajax-to-deliver-dynamic-updates"></a>Użyj AJAX, aby dostarczać aktualizacje dynamiczne
 ====================
@@ -117,7 +117,7 @@ Aby użyć jQuery najpierw dodamy skryptu odwołanie do niej. Ponieważ zamierza
 
 *Porada: Upewnij się, że zainstalowano poprawkę intellisense języka JavaScript dla wersji programu VS 2008 z dodatkiem SP1, która umożliwia bardziej rozbudowane obsługę funkcji intellisense dla JavaScript plików (w tym jQuery). Możesz pobrać go z: http://tinyurl.com/vs2008javascripthotfix*
 
-Kod napisany za pomocą JQuery często używa globalnej "$ ()" metody JavaScript, która pobiera jeden lub więcej elementów HTML za pomocą selektora CSS. Na przykład *$("#rsvpmsg")* wybiera dowolnego elementu HTML z identyfikatorem rsvpmsg, podczas gdy *$(".something")* wybrać wszystkie elementy z coś, co"CSS nazwę klasy. Można również napisać bardziej zaawansowanych zapytań, takie jak "return wszystkie przyciski zaznaczenia opcji" przy użyciu selektora zapytania takie jak: *$("dane wejściowe [@type= radiowych] [@checked]")*.
+Kod napisany za pomocą JQuery często używa globalnej "$ ()" metody JavaScript, która pobiera jeden lub więcej elementów HTML za pomocą selektora CSS. Na przykład <em>$("#rsvpmsg")</em> wybiera dowolnego elementu HTML z identyfikatorem rsvpmsg, podczas gdy <em>$(".something")</em> wybrać wszystkie elementy z coś, co"CSS nazwę klasy. Można również napisać bardziej zaawansowanych zapytań, takie jak "return wszystkie przyciski zaznaczenia opcji" przy użyciu selektora zapytania takie jak: <em>$("dane wejściowe [@type= radiowych] [@checked]")</em>.
 
 Po wybraniu elementów można wywoływać metod na podjęcie działań, takich jak ich: *$("#rsvpmsg").hide();*
 
@@ -153,6 +153,6 @@ Dzięki temu kod czyszczący do odczytu i obsługi.
 
 Teraz Przyjrzyjmy się jak możemy jeszcze bardziej używać technologii AJAX i dodawanie interaktywnych mapowania obsługi do naszej aplikacji.
 
->[!div class="step-by-step"]
-[Poprzednie](secure-applications-using-authentication-and-authorization.md)
-[dalej](use-ajax-to-implement-mapping-scenarios.md)
+> [!div class="step-by-step"]
+> [Poprzednie](secure-applications-using-authentication-and-authorization.md)
+> [dalej](use-ajax-to-implement-mapping-scenarios.md)

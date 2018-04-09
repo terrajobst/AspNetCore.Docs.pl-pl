@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-cs
-title: "Wyświetlanie podsumowania w stopce w widoku GridView (C#) | Dokumentacja firmy Microsoft"
+title: Wyświetlanie podsumowania w stopce w widoku GridView (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Informacje podsumowania często są wyświetlane w dolnej części raportu w wierszu podsumowania. Kontrolki widoku siatki mogą obejmować wiersza stopki, do których komórek możemy pr..."
+description: Informacje podsumowania często są wyświetlane w dolnej części raportu w wierszu podsumowania. Kontrolki widoku siatki mogą obejmować wiersza stopki, do których komórek możemy pr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0d3df976181a4641dbfffe77875989c77ece059d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3bb00a41bee86090f71d6315d73037cd41b2c621
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-c"></a>Wyświetlanie podsumowania w stopce w widoku GridView (C#)
 ====================
@@ -101,7 +101,7 @@ Ponieważ `GetProductsByCategoryID(categoryID)` metoda przyjmuje parametr wejśc
 
 [![Pobierz categoryID wartość parametru z DropDownList kategorie wybrane](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image22.png)
 
-**Rysunek 8**: Pobierz  *`categoryID`*  wartości parametru z DropDownList kategorie wybrane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image24.png))
+**Rysunek 8**: Pobierz *`categoryID`* wartości parametru z DropDownList kategorie wybrane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image24.png))
 
 
 Po zakończeniu pracy kreatora widoku GridView będzie mieć elementu BoundField dla każdej właściwości produktu. Umożliwia czyszczenie, aby tylko te BoundFields `ProductName`, `UnitPrice`, `UnitsInStock`, i `UnitsOnOrder` BoundFields są wyświetlane. Możesz także dodać wszystkie ustawienia na poziomie pola do pozostałych BoundFields (takie jak formatowanie `UnitPrice` jako walutę). Po wprowadzeniu tych zmian, deklaratywne znaczników w widoku GridView powinien wyglądać podobnie do poniższej:
@@ -114,7 +114,7 @@ W tym momencie mamy pełni funkcjonalnej raportu wzorzec/szczegół, który zawi
 
 [![Pobierz categoryID wartość parametru z DropDownList kategorie wybrane](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image25.png)
 
-**Rysunek 9**: Pobierz  *`categoryID`*  wartości parametru z DropDownList kategorie wybrane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image27.png))
+**Rysunek 9**: Pobierz *`categoryID`* wartości parametru z DropDownList kategorie wybrane ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image27.png))
 
 
 ## <a name="step-2-displaying-a-footer-in-the-gridview"></a>Krok 2: Wyświetlanie stopki w widoku GridView
@@ -177,10 +177,10 @@ Utwórz `RowDataBound` programu obsługi zdarzeń dla widoku GridView wybierają
 
 Aby sumy musimy zdefiniować zmienne poza zasięgiem programu obsługi zdarzeń. Utwórz następujące cztery zmienne na poziomie strony:
 
-- `_totalUnitPrice`, typu`decimal`
-- `_totalNonNullUnitPriceCount`, typu`int`
-- `_totalUnitsInStock`, typu`int`
-- `_totalUnitsOnOrder`, typu`int`
+- `_totalUnitPrice`, typu `decimal`
+- `_totalNonNullUnitPriceCount`, typu `int`
+- `_totalUnitsInStock`, typu `int`
+- `_totalUnitsOnOrder`, typu `int`
 
 Następnie należy napisać kod, aby zwiększyć te trzy zmienne dla każdego wiersza danych napotkał w `RowDataBound` obsługi zdarzeń.
 
@@ -221,8 +221,8 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Poprzednie](using-the-formview-s-templates-cs.md)
-[dalej](custom-formatting-based-upon-data-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-the-formview-s-templates-cs.md)
+> [dalej](custom-formatting-based-upon-data-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
-title: "Wybieranie podejście do wdrożenia sieci Web | Dokumentacja firmy Microsoft"
+title: Wybieranie podejście do wdrożenia sieci Web | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "Podczas pracy z usług Internet Information Services (IIS) Narzędzie Web Deployment (Web Deploy) 2.0 lub nowszej, istnieją trzy główne metody można użyć do pobrania..."
+description: Podczas pracy z usług Internet Information Services (IIS) Narzędzie Web Deployment (Web Deploy) 2.0 lub nowszej, istnieją trzy główne metody można użyć do pobrania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b77aa37160f3822f58908866e44497aea3d3bdc8
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 2d690744687af93a69743dc6ce6c853629f61f5d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Wybieranie podejście do wdrożenia sieci Web
 ====================
@@ -118,7 +118,7 @@ W przypadku użytkowników niebędących administratorami usługi zarządzania s
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample6.cmd)]
 
 
-Na przykład załóżmy, że proces kompilacji jest skonfigurowany do automatycznego wdrożenia aplikacji sieci web w środowisku przemieszczania po każdym pomyślnej kompilacji. Jeśli używana jest metoda agenta zdalnego, będzie potrzebny do wyznaczenia tożsamość procesu kompilacji administratora na serwerach sieci docelowej. Z kolei przy użyciu podejścia program obsługi wdrażania w sieci Web można nadać użytkownik bez uprawnień administratora & #x 2014; **FABRIKAM\stagingdeployer** w tym przypadku & #x 2014; uprawnienia do określonych usług IIS witryna sieci Web tylko, a proces kompilacji zapewniają te poświadczenia można wdrożyć pakietu sieci web.
+Na przykład załóżmy, że proces kompilacji jest skonfigurowany do automatycznego wdrożenia aplikacji sieci web w środowisku przemieszczania po każdym pomyślnej kompilacji. Jeśli używana jest metoda agenta zdalnego, będzie potrzebny do wyznaczenia tożsamość procesu kompilacji administratora na serwerach sieci docelowej. Z kolei, stosując metodę program obsługi wdrażania w sieci Web można udzielać użytkownik bez uprawnień administratora&#x2014;**FABRIKAM\stagingdeployer** w takim przypadku&#x2014;zapewniają te uprawnienia do określonych usług IIS witryna sieci Web tylko i procesu kompilacji poświadczenia, aby wdrożyć pakiet sieci web.
 
 
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample7.cmd)]
@@ -150,6 +150,6 @@ Aby uzyskać więcej informacji dotyczących narzędzia Web Deploy operacji wier
 
 Aby uzyskać bardziej ogólne wskazówki na różne sposoby, w którym można wdrożyć pakietów sieci web z komputera zdalnego, zobacz [przy użyciu sieci Web wdrażanie zdalnie](https://technet.microsoft.com/library/ee461175(WS.10).aspx). Aby uzyskać więcej informacji na temat używania sieci Web wdrażanie na żądanie, zobacz [sieci Web wdrażanie na żądanie](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
->[!div class="step-by-step"]
-[Poprzednie](configuring-server-environments-for-web-deployment.md)
-[dalej](scenario-configuring-a-test-environment-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Poprzednie](configuring-server-environments-for-web-deployment.md)
+> [dalej](scenario-configuring-a-test-environment-for-web-deployment.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 title: Implementowanie funkcji Basic CRUD z programu Entity Framework w aplikacji ASP.NET MVC | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 za pomocą Entity Framework 6 Code First i Visual Studio..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 za pomocą Entity Framework 6 Code First i Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e3dbea51199722bfe50f201c4ddcc90aa081927d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 14f5143bb5086890d4a2f2fb3b98f1be88a549a3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application"></a>Implementowanie funkcji Basic CRUD z programu Entity Framework w aplikacji ASP.NET MVC
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [pobierania plików PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
@@ -108,7 +108,7 @@ W poniższym kodzie `courseID` nie jest zgodny z parametrem w trasy domyślnej, 
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample8.cs?highlight=7)]
 
-    Nawet jeśli nie masz `Secret` pola na stronie sieci web, haker można za pomocą narzędzia, takie jak [fiddler](http://fiddler2.com/home), lub zapisu fragmentów kodu JavaScript można opublikować `Secret` tworzą wartość. Bez [powiązać](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) ograniczanie pól używanych przez integrator modelu podczas tworzenia atrybutu `Student` wystąpienia*,* integratora modelu czy odebrania który `Secret` stanowią wartość i użyć go do Utwórz `Student` wystąpienia jednostki. Następnie niezależnie od wartości haker określony dla `Secret` pola formularza, czy zaktualizowane w bazie danych. Na poniższej ilustracji przedstawiono fiddler Dodawanie narzędzia `Secret` pola (o wartości "OverPost") do wartości przesłanego formularza.
+    Nawet jeśli nie masz `Secret` pola na stronie sieci web, haker można za pomocą narzędzia, takie jak [fiddler](http://fiddler2.com/home), lub zapisu fragmentów kodu JavaScript można opublikować `Secret` tworzą wartość. Bez [powiązać](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) ograniczanie pól używanych przez integrator modelu podczas tworzenia atrybutu `Student` wystąpienia<em>,</em> integratora modelu czy odebrania który `Secret` stanowią wartość i użyć go do Utwórz `Student` wystąpienia jednostki. Następnie niezależnie od wartości haker określony dla `Secret` pola formularza, czy zaktualizowane w bazie danych. Na poniższej ilustracji przedstawiono fiddler Dodawanie narzędzia `Secret` pola (o wartości "OverPost") do wartości przesłanego formularza.
 
     ![](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image5.png)  
 
@@ -201,27 +201,27 @@ Należy dodać `try-catch` za pomocą bloku `HttpPost` `Delete` można obsłuży
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample12.cs?highlight=1,7-10)]
 
     Ten kod akceptuje [opcjonalny parametr](https://msdn.microsoft.com/library/dd264739.aspx) wskazująca, czy metoda została wywołana po awarii, aby zapisać zmiany. Ten parametr jest `false` podczas `HttpGet` `Delete` metoda jest wywoływana bez poprzednim błędzie. Gdy jest wywoływana `HttpPost` `Delete` parametr metody w odpowiedzi na błąd aktualizacji bazy danych, jest `true` , a komunikat o błędzie jest przekazywana do widoku.
-- Zastąp `HttpPost` `Delete` metody akcji (o nazwie `DeleteConfirmed`) z następującym kodem, wykonuje operację usuwania rzeczywistego oraz przechwytującą wszystkie błędy aktualizacji bazy danych.
+2. Zastąp `HttpPost` `Delete` metody akcji (o nazwie `DeleteConfirmed`) z następującym kodem, wykonuje operację usuwania rzeczywistego oraz przechwytującą wszystkie błędy aktualizacji bazy danych.
 
-    [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample13.cs)]
+     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample13.cs)]
 
-    Ten kod pobiera wybranej jednostki, następnie wywołuje [Usuń](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx) metody w celu ustawienia stanu jednostki `Deleted`. Gdy `SaveChanges` jest nazywany SQL `DELETE` wygenerowaniu polecenia. Również zmieniono nazwę metody akcji `DeleteConfirmed` do `Delete`. Kod z utworzonym szkieletem o nazwie `HttpPost` `Delete` metody `DeleteConfirmed` umożliwiają `HttpPost` metody unikatowego podpisu. (CLR wymaga przeciążonej metody mają parametry innej metody). Teraz, czy podpisy są unikatowe, możesz przestrzegaj Konwencji MVC i użyć takiej samej nazwy `HttpPost` i `HttpGet` metody zostaną usunięte.
+     Ten kod pobiera wybranej jednostki, następnie wywołuje [Usuń](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx) metody w celu ustawienia stanu jednostki `Deleted`. Gdy `SaveChanges` jest nazywany SQL `DELETE` wygenerowaniu polecenia. Również zmieniono nazwę metody akcji `DeleteConfirmed` do `Delete`. Kod z utworzonym szkieletem o nazwie `HttpPost` `Delete` metody `DeleteConfirmed` umożliwiają `HttpPost` metody unikatowego podpisu. (CLR wymaga przeciążonej metody mają parametry innej metody). Teraz, czy podpisy są unikatowe, możesz przestrzegaj Konwencji MVC i użyć takiej samej nazwy `HttpPost` i `HttpGet` metody zostaną usunięte.
 
-    W przypadku zwiększania wydajności aplikacji dużych priorytet, można uniknąć niepotrzebnych zapytanie SQL, który można pobrać wiersza, zastępując wierszy kodu, które wywołują `Find` i `Remove` metody z następującym kodem:
+     W przypadku zwiększania wydajności aplikacji dużych priorytet, można uniknąć niepotrzebnych zapytanie SQL, który można pobrać wiersza, zastępując wierszy kodu, które wywołują `Find` i `Remove` metody z następującym kodem:
 
-    [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample14.cs)]
+     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample14.cs)]
 
-    Ten kod tworzy `Student` jednostką przy użyciu tylko wartość klucza podstawowego, a następnie ustawia stan jednostki `Deleted`. To wszystko, który programu Entity Framework wymaga, aby usunąć jednostkę.
+     Ten kod tworzy `Student` jednostką przy użyciu tylko wartość klucza podstawowego, a następnie ustawia stan jednostki `Deleted`. To wszystko, który programu Entity Framework wymaga, aby usunąć jednostkę.
 
-    Jak wspomniano, `HttpGet` `Delete` — metoda nie powoduje usunięcia danych. Wykonywanie operacji usuwania w odpowiedzi na polecenie GET żądania (lub istotnego dla badania, wykonywanie żadnych operacji edycji Utwórz operację lub innej operacji, które zmienia dane) tworzy zagrożenie bezpieczeństwa. Aby uzyskać więcej informacji, zobacz [46 Porada # w programie ASP.NET MVC — nie używaj usunąć łącza, ponieważ mogą one tworzyć luk w zabezpieczeniach](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx) na blogu Stephen Walther.
-- W *Views\Student\Delete.cshtml*, Dodaj komunikat o błędzie między `h2` nagłówek i `h3` nagłówek, jak pokazano w poniższym przykładzie:
+     Jak wspomniano, `HttpGet` `Delete` — metoda nie powoduje usunięcia danych. Wykonywanie operacji usuwania w odpowiedzi na polecenie GET żądania (lub istotnego dla badania, wykonywanie żadnych operacji edycji Utwórz operację lub innej operacji, które zmienia dane) tworzy zagrożenie bezpieczeństwa. Aby uzyskać więcej informacji, zobacz [46 Porada # w programie ASP.NET MVC — nie używaj usunąć łącza, ponieważ mogą one tworzyć luk w zabezpieczeniach](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx) na blogu Stephen Walther.
+3. W *Views\Student\Delete.cshtml*, Dodaj komunikat o błędzie między `h2` nagłówek i `h3` nagłówek, jak pokazano w poniższym przykładzie:
 
-    [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample15.cshtml?highlight=2)]
+     [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample15.cshtml?highlight=2)]
 
-    Uruchom strony, wybierając **studentów** kartę i klikając **usunąć** hiperłącze:
+     Uruchom strony, wybierając **studentów** kartę i klikając **usunąć** hiperłącze:
 
-    ![Student_Delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image10.png)
-- Kliknij przycisk **usunąć**. Bez uczniów usuniętych zostanie wyświetlona strona indeksu. (Zobaczysz przykładowy kod w praktyce obsługi błędów [samouczek współbieżności](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md).)
+     ![Student_Delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image10.png)
+4. Kliknij przycisk **usunąć**. Bez uczniów usuniętych zostanie wyświetlona strona indeksu. (Zobaczysz przykładowy kod w praktyce obsługi błędów [samouczek współbieżności](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md).)
 
 ## <a name="closing-database-connections"></a>Zamykanie połączenia bazy danych
 
@@ -246,6 +246,6 @@ Wystaw opinię na jak zbędne tego samouczka i co można możemy ulepszyć. Moż
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [dostępu do danych programu ASP.NET - zalecane zasobów](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Poprzednie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
-[dalej](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
+> [dalej](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)

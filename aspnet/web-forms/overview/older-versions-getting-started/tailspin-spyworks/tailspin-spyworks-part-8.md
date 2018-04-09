@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
-title: "Część 8: Końcowe strony, obsługa wyjątków i zawarcia | Dokumentacja firmy Microsoft"
+title: 'Część 8: Końcowe strony, obsługa wyjątków i zawarcia | Dokumentacja firmy Microsoft'
 author: JoeStagner
-description: "Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 8 dodaje kontaktu strony, strony i wyjątków — informacje..."
+description: Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 8 dodaje kontaktu strony, strony i wyjątków — informacje...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: fce1a20f9d1093b6c60542d8a786ddf54fdc922c
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: f82294aab0616012393cf3e10f932f6d1ad0cdb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-8-final-pages-exception-handling-and-conclusion"></a>Część 8: Końcowe strony, obsługa wyjątków i zawarcia
 ====================
@@ -27,7 +27,7 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 > Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 8 dodaje kontaktu strony, strony i obsługa wyjątków — informacje. Jest to zawarcia serii.
 
 
-## <a id="_Toc260221680"></a>Skontaktuj się z strony (wysyłanie wiadomości e-mail z platformy ASP.NET)
+## <a id="_Toc260221680"></a>  Skontaktuj się z strony (wysyłanie wiadomości e-mail z platformy ASP.NET)
 
 Utwórz nową stronę o nazwie ContactUs.aspx
 
@@ -43,11 +43,11 @@ Ten kod wymaga, aby plik web.config zawiera wpis w sekcji konfiguracji, który o
 
 [!code-xml[Main](tailspin-spyworks-part-8/samples/sample2.xml)]
 
-## <a id="_Toc260221681"></a>Strona — informacje
+## <a id="_Toc260221681"></a>  Strona — informacje
 
 Utwórz stronę o nazwie AboutUs.aspx i niezależnie od zawartości, które chcesz dodać.
 
-## <a id="_Toc260221682"></a>Globalnego programu obsługi wyjątków
+## <a id="_Toc260221682"></a>  Globalnego programu obsługi wyjątków
 
 Ponadto w całej aplikacji ma możemy zgłaszane wyjątki i brak nieprzewidzianych okoliczności to zimnych również Przyczyna nieobsługiwanych wyjątków w naszej aplikacji sieci web.
 
@@ -75,11 +75,11 @@ Teraz na stronie\_załadować wyodrębniania programu obsługi zdarzeń komunika
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample6.cs)]
 
-## <a id="_Toc260221683"></a>Zawierania
+## <a id="_Toc260221683"></a>  Zawierania
 
 Firma Microsoft w tym samouczku czy ASP.NET WebForms można łatwo utworzyć zaawansowane witryny sieci Web z dostępem do bazy danych, członkostwa, AJAX, itp. bardzo szybko.
 
 Miejmy nadzieję, że w tym samouczku przyznał Ci narzędzia, które należy rozpocząć tworzenie własnych formularzy sieci Web ASP.NET aplikacji!
 
->[!div class="step-by-step"]
-[Poprzednie](tailspin-spyworks-part-7.md)
+> [!div class="step-by-step"]
+> [Poprzednie](tailspin-spyworks-part-7.md)

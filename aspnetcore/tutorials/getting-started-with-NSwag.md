@@ -1,7 +1,7 @@
 ---
-title: Rozpoczynanie pracy z NSwag
+title: Rozpoczynanie pracy z NSwag i ASP.NET Core
 author: zuckerthoben
-description: "Ten samouczek zawiera wskazówki dodawania NSwag do generowania dokumentacji i strony dla aplikacji interfejsu API sieci Web pomocy."
+description: Dowiedz się, jak używać NSwag do generowania dokumentacji i strony dla aplikacji interfejsu API platformy ASP.NET Core sieci Web pomocy.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 62b729feabf12e3428e58ed3cb6ed1864bd6171c
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 80e6a9e1702d8f68d139d2ff9c3a01a27c40cecb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="get-started-with-nswag"></a>Rozpoczynanie pracy z NSwag
+# <a name="get-started-with-nswag-and-aspnet-core"></a>Rozpoczynanie pracy z NSwag i ASP.NET Core
 
 Przez [Christoph Nienaber](https://twitter.com/zuckerthoben) i [Rico Suter](https://rsuter.com)
 
@@ -88,7 +88,7 @@ using NJsonSchema;
 
 W `Startup.Configure` metody, włącza oprogramowanie pośredniczące dla obsługująca specyfikację struktury Swagger generowane i interfejsu użytkownika programu Swagger:
 
-[!code-cs[](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=4,7-10)]
+[!code-cs[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=4,7-10)]
 
 Uruchom aplikację. Przejdź do `/swagger` do wyświetlania interfejsu użytkownika programu Swagger. Przejdź do `/swagger/v1/swagger.json` Aby wyświetlić specyfikację struktury Swagger.
 
@@ -146,28 +146,24 @@ Można wygenerować kod w inny sposób więcej nadaje się do przepływu pracy:
 
 Komentarze XML są włączone z następujących metod:
 
-# <a name="visual-studiotabvisual-studio-xml"></a>[Visual Studio](#tab/visual-studio-xml)
-
+#### <a name="visual-studiotabvisual-studio-xml"></a>[Visual Studio](#tab/visual-studio-xml/)
 * Kliknij prawym przyciskiem myszy projekt w **Eksploratora rozwiązań** i wybierz **właściwości**
 * Sprawdź **pliku dokumentacji XML** obszarze **dane wyjściowe** sekcji **kompilacji** karty:
 
 ![Na karcie właściwości projektu kompilacji](web-api-help-pages-using-swagger/_static/swagger-xml-comments.png)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac-xml"></a>[Visual Studio for Mac](#tab/visual-studio-mac-xml)
-
+#### <a name="visual-studio-for-mactabvisual-studio-mac-xml"></a>[Visual Studio for Mac](#tab/visual-studio-mac-xml/)
 * Otwórz **opcje projektu** okna dialogowego > **kompilacji** > **kompilatora**
 * Sprawdź **Generowanie dokumentacji xml** obszarze **Opcje ogólne** sekcji:
 
 ![Sekcja Opcje ogólne opcje projektu](web-api-help-pages-using-swagger/_static/swagger-xml-comments-mac.png)
 
-# <a name="visual-studio-codetabvisual-studio-code-xml"></a>[Visual Studio Code](#tab/visual-studio-code-xml)
-
+#### <a name="visual-studio-codetabvisual-studio-code-xml"></a>[Visual Studio Code](#tab/visual-studio-code-xml/)
 Ręcznie dodaj poniższy fragment do *.csproj* pliku:
 
-[!code-xml[](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi.NSwag/TodoApiNSwag.csproj?range=7-9)]
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.NSwag/TodoApiNSwag.csproj?range=7-9)]
 
----
-
+* * *
 ## <a name="data-annotations"></a>Adnotacje danych
 
 Używa NSwag [odbicia](/dotnet/csharp/programming-guide/concepts/reflection), i jest najlepszym rozwiązaniem dla interfejsu API sieci Web akcji do zwrócenia [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult). W rezultacie NSwag nie można wywnioskować czynności akcję i ją zwraca. Rozważmy następujący przykład:

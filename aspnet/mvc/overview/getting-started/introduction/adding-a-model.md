@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/adding-a-model
 title: Dodawanie modelu | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 79f136257119a8600a65e8d7c5f6e99cb9abceae
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: b3ef871c4d7627a03c8f0fd8cce9d3e97fc1a4ba
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-model"></a>Dodawanie modelu
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 W tej sekcji dodasz niektóre klasy zarządzania filmów w bazie danych. Te klasy będzie &quot;modelu&quot; częścią aplikacji ASP.NET MVC.
 
@@ -54,7 +54,7 @@ Aby można było odwołać `DbContext` i `DbSet`, należy dodać następujące `
 
 [!code-csharp[Main](adding-a-model/samples/sample3.cs)]
 
-Można to zrobić przez ręczne dodanie przy użyciu instrukcji, lub umieść kursor nad czerwoną linie dowolnym kształcie, kliknij przycisk `Show potential fixes` i kliknij przycisk`using System.Data.Entity;`
+Można to zrobić przez ręczne dodanie przy użyciu instrukcji, lub umieść kursor nad czerwoną linie dowolnym kształcie, kliknij przycisk `Show potential fixes` i kliknij przycisk `using System.Data.Entity;`
 
 ![](adding-a-model/_static/image2.png)
 
@@ -64,6 +64,6 @@ Uwaga: Niektóre nieużywane `using` instrukcje zostały usunięte. Visual Studi
 
 Na koniec dodaliśmy modelu (M MVC). W następnej sekcji będzie współpracować parametry połączenia bazy danych.
 
->[!div class="step-by-step"]
-[Poprzednie](adding-a-view.md)
-[dalej](creating-a-connection-string.md)
+> [!div class="step-by-step"]
+> [Poprzednie](adding-a-view.md)
+> [dalej](creating-a-connection-string.md)

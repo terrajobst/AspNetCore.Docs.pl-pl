@@ -33,11 +33,13 @@ using Microsoft.Extensions.FileProviders;
 PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
 ```
 ## <a name="secure-redirection-extensions"></a>Zabezpieczanie rozszerzenia przekierowania
-Ten przykład zawiera `WebHostBuilder` konfiguracji dla aplikacji użyć adresów URL (**https://localhost:5001**, **https://localhost**) i certyfikatu testowego (**testCert.pfx**) do pomocy w one poznawanie przekierowywania metod. Dodawanie ich do `RewriteOptions()` w **Startup.cs** badanie ich zachowanie.
+Ten przykład zawiera `WebHostBuilder` konfiguracji dla aplikacji użyć adresów URL (**https://localhost:5001**, **https://localhost**) i certyfikatu testowego (**testCert.pfx**) do Pomoc w one poznawanie przekierowywania metod. Dodawanie ich do `RewriteOptions()` w **Startup.cs** badanie ich zachowanie.
 
-Metoda | Kod stanu | Port
---- | :---: | :---:
-`.AddRedirectToHttpsPermanent()` | 301 | wartość null (465)
-`.AddRedirectToHttps()` | 302 | wartość null (465)
-`.AddRedirectToHttps(301)` | 301 | wartość null (465)
-`.AddRedirectToHttps(301, 5001)` | 301 | 5001
+
+|              Metoda              | Kod stanu |    Port    |
+|----------------------------------|:-----------:|:----------:|
+| `.AddRedirectToHttpsPermanent()` |     301     | wartość null (465) |
+|     `.AddRedirectToHttps()`      |     302     | wartość null (465) |
+|    `.AddRedirectToHttps(301)`    |     301     | wartość null (465) |
+| `.AddRedirectToHttps(301, 5001)` |     301     |    5001    |
+

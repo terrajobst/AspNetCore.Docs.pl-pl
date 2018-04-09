@@ -1,7 +1,7 @@
 ---
-title: "Publikowanie aplikacji platformy ASP.NET Core dla platformy Azure przy użyciu narzędzia wiersza polecenia"
+title: Publikowanie aplikacji platformy ASP.NET Core na platformie Azure za pomocą narzędzia wiersza polecenia
 author: camsoper
-description: "Dowiedz się, jak opublikować aplikację platformy ASP.NET Core w usłudze Azure App Service przy użyciu klienta wiersza polecenia Git."
+description: Dowiedz się, jak opublikować aplikację platformy ASP.NET Core w usłudze Azure App Service przy użyciu klienta wiersza polecenia Git.
 manager: wpickett
 ms.author: casoper
 ms.custom: mvc
@@ -12,17 +12,17 @@ ms.technology: aspnet
 ms.topic: get-started-article
 services: multiple
 uid: tutorials/publish-to-azure-webapp-using-cli
-ms.openlocfilehash: 0e87fbc7f5b5489f20e095be3180d87284e79c4e
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 0462a4cf18bba23643ed3b1b4e6b76bdbceb24a8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="deploy-an-aspnet-core-application-to-azure-app-service-from-the-command-line"></a>Wdrażanie aplikacji platformy ASP.NET Core usłudze Azure App Service z wiersza polecenia
+# <a name="publish-an-aspnet-core-app-to-azure-with-command-line-tools"></a>Publikowanie aplikacji platformy ASP.NET Core na platformie Azure za pomocą narzędzia wiersza polecenia
 
 Przez [Soper kamery](https://twitter.com/camsoper)
 
-[!INCLUDE[Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 Ten samouczek przedstawia sposób tworzenia i wdrażania aplikacji platformy ASP.NET Core w usłudze Microsoft Azure App Service przy użyciu narzędzia wiersza polecenia.  Po zakończeniu będziesz mieć aplikację sieci web wbudowanych w platformy ASP.NET Core MVC hostowanej jako aplikacji sieci Web platformy Azure App Service.  W tym samouczku zostały utworzone za pomocą narzędzia wiersza polecenia systemu Windows, ale można zastosować do macOS i środowisk Linux, jak również.  
 
@@ -37,7 +37,7 @@ Z tego samouczka, dowiesz się, jak:
 Do ukończenia tego samouczka będą potrzebne:
 
 * A [subskrypcji Microsoft Azure](https://azure.microsoft.com/free/)
-* [.NET Core](https://www.microsoft.com/net/download/core)
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 * [Git](https://www.git-scm.com/) klient wiersza polecenia
 
 ## <a name="create-a-web-application"></a>Tworzenie aplikacji sieci web
@@ -71,7 +71,7 @@ dotnet run
 
 ![Dane wyjściowe wiersza polecenia](publish-to-azure-webapp-using-cli/_static/new_prj.png)
 
-Przetestuj aplikację, przechodząc do http://localhost: 5000.
+Przetestuj aplikację, przechodząc do http://localhost:5000.
 
 ![Witryny sieci Web uruchomionej na komputerze lokalnym](publish-to-azure-webapp-using-cli/_static/app_test.png)
 

@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing
 title: Adres URL routingu | Dokumentacja firmy Microsoft
 author: Erikre
-description: "Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy..."
+description: Ten samouczek serii uczy podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu platformy ASP.NET 4.5 i programu Microsoft Visual Studio Express 2013 dla możemy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 279617e4ebb475d935c0d1e01e08a3a2def0f9e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a195b36517bcae4bbeaf43fe7386e7787fd00212
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="url-routing"></a>Routingu adresów URL
 ====================
@@ -82,7 +82,7 @@ Drugi parametr trasy zawiera określoną wartość dynamiczna klamrowym (`{ }`).
 
 > [!NOTE] 
 > 
-> **Opcjonalne**
+> **Optional**
 > 
 > Użytkownik może łatwiej zarządzać kodem przenosząc `RegisterCustomRoutes` metody do osobnej klasy. W *logiki* folderu, Utwórz oddzielne `RouteActions` klasy. Przenieś powyższych `RegisterCustomRoutes` metody z *Global.asax.cs* pliku do nowej `RoutesActions` klasy. Użyj `RoleActions` klasy i `createAdmin` metody, na przykład sposób wywoływania `RegisterCustomRoutes` metody z *Global.asax.cs* pliku.
 
@@ -153,6 +153,6 @@ W tym samouczku można dodać trasy dla kategorii i produktów. Wiesz już, jak 
 [Wdrażanie aplikacji formularzy bezpiecznej sieci Web platformy ASP.NET z członkostwa, OAuth i bazy danych SQL Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure — bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/)
 
->[!div class="step-by-step"]
-[Poprzednie](membership-and-administration.md)
-[dalej](aspnet-error-handling.md)
+> [!div class="step-by-step"]
+> [Poprzednie](membership-and-administration.md)
+> [dalej](aspnet-error-handling.md)

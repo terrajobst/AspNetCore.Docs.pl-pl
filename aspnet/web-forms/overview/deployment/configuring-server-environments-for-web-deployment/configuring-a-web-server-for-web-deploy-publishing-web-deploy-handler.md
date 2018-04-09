@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
-title: "Konfigurowanie serwera sieci Web dla sieci Web wdrażanie, publikowanie (Web Deploy obsługi) | Dokumentacja firmy Microsoft"
+title: Konfigurowanie serwera sieci Web dla sieci Web wdrażanie, publikowanie (Web Deploy obsługi) | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób konfigurowania serwera sieci web usług Internet Information Services (IIS) do obsługi publikowania w sieci web i wdrożenia przy użyciu Han wdrażania w sieci Web usług IIS..."
+description: W tym temacie opisano sposób konfigurowania serwera sieci web usług Internet Information Services (IIS) do obsługi publikowania w sieci web i wdrożenia przy użyciu Han wdrażania w sieci Web usług IIS...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: 81848c683fb9ddaa8942f030a520847a3c89fde0
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d98be2859181e014ad332298ee3a572ad4235649
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Konfigurowanie serwera sieci Web dla sieci Web wdrażanie, publikowanie (Web Deploy obsługi)
 ====================
@@ -108,7 +108,7 @@ W takim przypadku należy zainstalować następujące elementy:
 9. W **2.1 narzędzia wdrażania Web** wiersz, kliknij przycisk **Dodaj**.
 10. W **usługi IIS: uwierzytelnianie podstawowe** wiersz, kliknij przycisk **Dodaj**.
 11. W **usługi IIS: Usługa zarządzania** wiersz, kliknij przycisk **Dodaj**.
-12. Kliknij przycisk **zainstalować**. Instalator platformy sieci Web zostanie wyświetlona lista produktów i #x 2014; wraz z dowolnej skojarzone zależności & #x 2014; do zainstalowania i wyświetli monit o zaakceptowanie postanowień licencyjnych.
+12. Kliknij przycisk **zainstalować**. Instalator platformy sieci Web zostanie wyświetlona lista produktów&#x2014;oraz wszystkie skojarzone zależności&#x2014;do zainstalowania i wyświetli monit o zaakceptowanie postanowień licencyjnych.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image2.png)
 13. Przejrzyj postanowienia licencyjne, a użytkownik wyraża zgodę na warunki, kliknij przycisk **akceptuję**.
@@ -232,11 +232,11 @@ Nie ma nic zatrzymywanie możesz z wdrażanie zawartości do domyślnej witryny 
     > [!NOTE]
     > Przykładowe rozwiązanie wymaga programu .NET Framework 4.0. To nie jest wymagane dla narzędzia Web Deploy w zasadzie.
 
-Aby witryny sieci Web do obsługi zawartości tożsamość puli aplikacji musi mieć uprawnienia odczytu na folder lokalny, na którym jest przechowywana zawartość. W usługach IIS 7.5 lub pul aplikacji za pomocą tożsamości puli aplikacji są domyślnie uruchamiane (w przeciwieństwie do poprzednich wersji usług IIS, w których pule aplikacji czy są zazwyczaj uruchamiane przy użyciu konta Usługa sieciowa). Tożsamość puli aplikacji nie jest kontem rzeczywistego użytkownika i nie jest wyświetlany na listę użytkowników lub grup & #x 2014; zamiast tego należy go jest tworzony dynamicznie po uruchomieniu puli aplikacji. Każda tożsamość puli aplikacji zostanie dodany do lokalnej **IIS\_IUSRS** grupy zabezpieczeń jako element ukryty.
+Aby witryny sieci Web do obsługi zawartości tożsamość puli aplikacji musi mieć uprawnienia odczytu na folder lokalny, na którym jest przechowywana zawartość. W usługach IIS 7.5 lub pul aplikacji za pomocą tożsamości puli aplikacji są domyślnie uruchamiane (w przeciwieństwie do poprzednich wersji usług IIS, w których pule aplikacji czy są zazwyczaj uruchamiane przy użyciu konta Usługa sieciowa). Tożsamość puli aplikacji nie jest kontem rzeczywistego użytkownika i nie jest wyświetlany na listę użytkowników lub grup&#x2014;zamiast tego należy go jest tworzony dynamicznie po uruchomieniu puli aplikacji. Każda tożsamość puli aplikacji zostanie dodany do lokalnej **IIS\_IUSRS** grupy zabezpieczeń jako element ukryty.
 
 Aby udzielić uprawnień do pliku lub folderu, tożsamość puli aplikacji są dostępne dwie opcje:
 
-- Przypisywanie uprawnień do odpowiedniej tożsamości puli aplikacji bezpośrednio, w formacie **IIS AppPool\***[Nazwa puli aplikacji] * (na przykład **IIS AppPool\DemoSite**).
+- Przypisywanie uprawnień do odpowiedniej tożsamości puli aplikacji bezpośrednio, w formacie <strong>IIS AppPool\</ strong ><em>[Nazwa puli aplikacji]</em>(na przykład <strong>IIS AppPool\DemoSite</strong>).
 - Przypisywanie uprawnień do **IIS\_IUSRS** grupy.
 
 Najbardziej typowym podejściem jest przypisywanie uprawnień do lokalnej **IIS\_IUSRS** grupy, ponieważ takie podejście pozwala zmienić pule aplikacji bez konieczności ponownej konfiguracji uprawnień systemu plików. Następna procedura korzysta z tej metody oparte na grupach.
@@ -254,8 +254,8 @@ Najbardziej typowym podejściem jest przypisywanie uprawnień do lokalnej **IIS\
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image15.png)
 5. W **Wybieranie użytkowników lub grup** okno dialogowe, typ **IIS\_IUSRS**, kliknij przycisk **Sprawdź nazwy**, a następnie kliknij przycisk **OK**.
-6. W **uprawnienia *** [nazwa folderu]* okno dialogowe, zwróć uwagę, że nowa grupa zostanie przypisana **odczytu &amp; wykonania**, **wyświetlanie zawartości folderu**, i **Odczytu** uprawnienia domyślne. Pozostaw to bez zmian i kliknij przycisk **OK**.
-7. Kliknij przycisk **OK** zamknąć *[nazwa folderu] *** właściwości** okno dialogowe.
+6. W <strong>uprawnienia dla</strong><em>[nazwa folderu]</em> okno dialogowe, zwróć uwagę, że nowa grupa zostanie przypisana <strong>odczytu &amp; wykonania</strong>, <strong>listy folderów zawartość</strong>, i <strong>odczytu</strong> uprawnienia domyślne. Pozostaw to bez zmian i kliknij przycisk <strong>OK</strong>.
+7. Kliknij przycisk <strong>OK</strong> zamknąć <em>[nazwa folderu]</em><strong>właściwości</strong> okno dialogowe.
 
 Jako ostatnim zadaniem można przyznać odpowiednie uprawnienia do użytkownika bez uprawnień administratora poświadczeń, którego będziesz używać do wdrażania zawartości. Ten użytkownik musi mieć uprawnienia do zdalnego wdrożenia zawartości witryny sieci Web.
 
@@ -306,6 +306,6 @@ Serwer sieci web powinno być teraz gotowy do akceptowania zdalnych wdrożeń do
 
 Aby uzyskać wskazówki dotyczące sposobu konfigurowania niestandardowe pliki projektu Microsoft kompilacji Engine (MSBuild) do wdrażania pakietów sieci web do obsługi wdrażania w sieci Web, zobacz [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](configuring-deployment-properties-for-a-target-environment.md).
 
->[!div class="step-by-step"]
-[Poprzednie](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
-[dalej](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+> [!div class="step-by-step"]
+> [Poprzednie](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
+> [dalej](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)

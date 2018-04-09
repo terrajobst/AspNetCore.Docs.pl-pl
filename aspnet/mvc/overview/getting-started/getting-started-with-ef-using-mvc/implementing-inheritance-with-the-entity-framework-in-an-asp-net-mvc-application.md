@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Wdrażanie dziedziczenia z programu Entity Framework 6 w aplikacji platformy ASP.NET MVC 5 (11, 12) | Dokumentacja firmy Microsoft"
+title: Wdrażanie dziedziczenia z programu Entity Framework 6 w aplikacji platformy ASP.NET MVC 5 (11, 12) | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 za pomocą Entity Framework 6 Code First i Visual Studio..."
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 5 za pomocą Entity Framework 6 Code First i Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 118233338112a71216b909b1dabed2333bfa235e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1826659626106993d4796641492c62fcbd22a1b3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-inheritance-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-11-of-12"></a>Wdrażanie dziedziczenia z programu Entity Framework 6 w aplikacji platformy ASP.NET MVC 5 (11, 12)
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) lub [pobierania plików PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
@@ -152,7 +152,7 @@ W tej sekcji wymaga zakończył opcjonalny **wdrażania aplikacji na platformie 
   
     ![Publikowanie](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)  
   
- Aplikacja sieci Web zostanie otwarty w domyślnej przeglądarce.
+   Aplikacja sieci Web zostanie otwarty w domyślnej przeglądarce.
 3. Testowanie aplikacji w celu weryfikacji działa.
 
     Przy pierwszym uruchomieniu strony uzyskuje dostęp do bazy danych, Entity Framework uruchamia wszystkie migracja `Up` metody wymagane do bazy danych na bieżąco z bieżącym modelem danych.
@@ -163,6 +163,6 @@ Zostały zaimplementowane tabeli na hierarchii dziedziczenia dla `Person`, `Stud
 
 Linki do innych zasobów programu Entity Framework, można znaleźć w [dostępu do danych programu ASP.NET - zalecane zasobów](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Poprzednie](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[dalej](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+> [!div class="step-by-step"]
+> [Poprzednie](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [dalej](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

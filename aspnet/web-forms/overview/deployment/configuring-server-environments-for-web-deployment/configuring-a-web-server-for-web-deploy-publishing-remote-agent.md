@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
-title: "Konfigurowanie serwera sieci Web dla sieci Web wdrażanie publikowania (agenta zdalnego) | Dokumentacja firmy Microsoft"
+title: Konfigurowanie serwera sieci Web dla sieci Web wdrażanie publikowania (agenta zdalnego) | Dokumentacja firmy Microsoft
 author: jrjlee
-description: "W tym temacie opisano sposób konfigurowania serwera sieci web usług Internet Information Services (IIS) do obsługi publikowania w sieci web i wdrożenia przy użyciu wdrożenia sieci Web usług IIS..."
+description: W tym temacie opisano sposób konfigurowania serwera sieci web usług Internet Information Services (IIS) do obsługi publikowania w sieci web i wdrożenia przy użyciu wdrożenia sieci Web usług IIS...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 23195949121cd13ca4b1809b8db91a7320d1fdd2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 8cad6ee45a8331513c72c4079f300fbb06c1ed77
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Konfigurowanie serwera sieci Web dla narzędzia Web Deploy publikowania (agenta zdalnego)
 ====================
@@ -102,7 +102,7 @@ W takim przypadku należy zainstalować następujące elementy:
 7. W okienku nawigacji kliknij **serwera**.
 8. W **usług IIS 7 zalecana konfiguracja** wiersz, kliknij przycisk **Dodaj**.
 9. W **2.1 narzędzia wdrażania Web** wiersz, kliknij przycisk **Dodaj**.
-10. Kliknij przycisk **zainstalować**. Instalator platformy sieci Web zostanie wyświetlona lista produktów i #x 2014; wraz z dowolnej skojarzone zależności & #x 2014; do zainstalowania i wyświetli monit o zaakceptowanie postanowień licencyjnych.
+10. Kliknij przycisk **zainstalować**. Instalator platformy sieci Web zostanie wyświetlona lista produktów&#x2014;oraz wszystkie skojarzone zależności&#x2014;do zainstalowania i wyświetli monit o zaakceptowanie postanowień licencyjnych.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image2.png)
 11. Przejrzyj postanowienia licencyjne, a użytkownik wyraża zgodę na warunki, kliknij przycisk **akceptuję**.
@@ -176,11 +176,11 @@ Nie ma nic zatrzymywanie możesz z wdrażanie zawartości do domyślnej witryny 
     > [!NOTE]
     > Przykładowe rozwiązanie wymaga programu .NET Framework 4.0. To nie jest wymagane dla narzędzia Web Deploy w zasadzie.
 
-Aby witryny sieci Web do obsługi zawartości tożsamość puli aplikacji musi mieć uprawnienia odczytu na folder lokalny, na którym jest przechowywana zawartość. W usługach IIS 7.5 lub pul aplikacji za pomocą tożsamości puli aplikacji są domyślnie uruchamiane (w przeciwieństwie do poprzednich wersji usług IIS, w których pule aplikacji czy są zazwyczaj uruchamiane przy użyciu konta Usługa sieciowa). Tożsamość puli aplikacji nie jest kontem rzeczywistego użytkownika i nie jest wyświetlany na listę użytkowników lub grup & #x 2014; zamiast tego należy go jest tworzony dynamicznie po uruchomieniu puli aplikacji. Każda tożsamość puli aplikacji zostanie dodany do lokalnej **IIS\_IUSRS** grupy zabezpieczeń jako element ukryty.
+Aby witryny sieci Web do obsługi zawartości tożsamość puli aplikacji musi mieć uprawnienia odczytu na folder lokalny, na którym jest przechowywana zawartość. W usługach IIS 7.5 lub pul aplikacji za pomocą tożsamości puli aplikacji są domyślnie uruchamiane (w przeciwieństwie do poprzednich wersji usług IIS, w których pule aplikacji czy są zazwyczaj uruchamiane przy użyciu konta Usługa sieciowa). Tożsamość puli aplikacji nie jest kontem rzeczywistego użytkownika i nie jest wyświetlany na listę użytkowników lub grup&#x2014;zamiast tego należy go jest tworzony dynamicznie po uruchomieniu puli aplikacji. Każda tożsamość puli aplikacji zostanie dodany do lokalnej **IIS\_IUSRS** grupy zabezpieczeń jako element ukryty.
 
 Aby udzielić uprawnień do pliku lub folderu, tożsamość puli aplikacji są dostępne dwie opcje:
 
-- Przypisywanie uprawnień do odpowiedniej tożsamości puli aplikacji bezpośrednio, w formacie **IIS AppPool\***[Nazwa puli aplikacji] * (na przykład **IIS AppPool\DemoSite**).
+- Przypisywanie uprawnień do odpowiedniej tożsamości puli aplikacji bezpośrednio, w formacie <strong>IIS AppPool\</ strong ><em>[Nazwa puli aplikacji]</em>(na przykład <strong>IIS AppPool\DemoSite</strong>).
 - Przypisywanie uprawnień do **IIS\_IUSRS** grupy.
 
 Najbardziej typowym podejściem jest przypisywanie uprawnień do lokalnej **IIS\_IUSRS** grupy, ponieważ takie podejście pozwala zmienić pule aplikacji bez konieczności ponownej konfiguracji uprawnień systemu plików. Następna procedura korzysta z tej metody oparte na grupach.
@@ -198,8 +198,8 @@ Najbardziej typowym podejściem jest przypisywanie uprawnień do lokalnej **IIS\
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image8.png)
 5. W **Wybieranie użytkowników lub grup** okno dialogowe, typ **IIS\_IUSRS**, kliknij przycisk **Sprawdź nazwy**, a następnie kliknij przycisk **OK**.
-6. W **uprawnienia *** [nazwa folderu]*okno dialogowe, zwróć uwagę, że nowa grupa zostanie przypisana **odczytu &amp; wykonania**, **wyświetlanie zawartości folderu**, i **Odczytu** uprawnienia domyślne. Pozostaw to bez zmian i kliknij przycisk **OK**.
-7. Kliknij przycisk **OK** zamknąć *[nazwa folderu] *** właściwości** okno dialogowe.
+6. W <strong>uprawnienia dla</strong><em>[nazwa folderu]</em>okno dialogowe, zwróć uwagę, że nowa grupa zostanie przypisana <strong>odczytu &amp; wykonania</strong>, <strong>listy folderów zawartość</strong>, i <strong>odczytu</strong> uprawnienia domyślne. Pozostaw to bez zmian i kliknij przycisk <strong>OK</strong>.
+7. Kliknij przycisk <strong>OK</strong> zamknąć <em>[nazwa folderu]</em><strong>właściwości</strong> okno dialogowe.
 
 Jako ostatnim zadaniem przed przystąpieniem do wdrażania żadnych pakietów sieci web z serwerem, należy upewnieniu się, że jest uruchomiona usługa agenta sieci Web wdrożenia. Podczas wdrażania pakietu z komputera zdalnego, Usługa agenta sieci Web wdrażania jest odpowiedzialny za wyodrębnianie i instalowanie zawartości pakietu. Usługa jest uruchamiane domyślnie po zainstalowaniu narzędzia wdrażania Web i zostanie uruchomiona w ramach tożsamości Network Service.
 
@@ -217,7 +217,7 @@ Można sprawdzić czy usługa jest uruchomiona w wielu różne sposoby, za pomoc
 
 Domyślnie usługa agenta zdalnego nasłuchuje na porcie TCP 80, pod tym adresem URL:
 
-http:// [*nazwy serwera*] / MSDEPLOYAGENTSERVICE
+http:// [<em>nazwy serwera</em>] / MSDEPLOYAGENTSERVICE
 
 W większości przypadków nie można skonfigurować reguł zapory dodatkowych dla zdalnej usługi agenta, ponieważ serwery sieci web zwykle nasłuchiwać żądań HTTP na porcie 80. Po dostosowaniu instalacji nasłuchiwanie na porcie niestandardowym, należy do skonfigurowania wyjątków zapory, zgodnie z wymaganiami.
 
@@ -233,6 +233,6 @@ W tym momencie serwer sieci web jest gotowy do zaakceptowania i zainstalowania p
 
 Aby uzyskać wskazówki dotyczące sposobu konfigurowania niestandardowe pliki projektu Microsoft kompilacji Engine (MSBuild) do wdrażania pakietów sieci web do zdalnej usługi agenta, zobacz [Konfigurowanie właściwości wdrożenia dla środowiska docelowego](configuring-deployment-properties-for-a-target-environment.md).
 
->[!div class="step-by-step"]
-[Poprzednie](scenario-configuring-a-production-environment-for-web-deployment.md)
-[dalej](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+> [!div class="step-by-step"]
+> [Poprzednie](scenario-configuring-a-production-environment-for-web-deployment.md)
+> [dalej](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)

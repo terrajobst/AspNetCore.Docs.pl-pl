@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
-title: "W programie Visual Studio 2012 za pomocą narzędzia Page Inspector | Dokumentacja firmy Microsoft"
+title: W programie Visual Studio 2012 za pomocą narzędzia Page Inspector | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym laboratorium Hands-on odnajdzie nowe narzędzie do znajdowania i rozwiązywania problemów strony sieci web w programie Visual Studio — narzędzie Page Inspector. Narzędzie Page Inspector to nowe narzędzie tego b..."
+description: W tym laboratorium Hands-on odnajdzie nowe narzędzie do znajdowania i rozwiązywania problemów strony sieci web w programie Visual Studio — narzędzie Page Inspector. Narzędzie Page Inspector to nowe narzędzie tego b...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 1a9e093faae2cea1c27c582e22aebc908f78addb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 052d29dba170d403c2b1c1667c55fc2c34045615
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a>W programie Visual Studio 2012 za pomocą narzędzia Page Inspector
 ====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
 > W tym laboratorium Hands-on odnajdzie nowe narzędzie do znajdowania i rozwiązywania problemów strony sieci web w programie Visual Studio — narzędzie Page Inspector.
 > 
@@ -38,7 +38,7 @@ przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > 
 > W tym laboratorium przeprowadzi Cię przez rozszerzenia oraz nowe funkcje opisane wcześniej przez zastosowanie drobne zmiany do przykładowej aplikacji sieci Web w folderze źródłowym.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -96,12 +96,12 @@ W tym zadaniu dowiesz się, jak używać narzędzia Page Inspector w kontekście
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się na **źródło/Ex1-MVC4/Begin/** folderu.
 
-    1. Należy pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Należy pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 2. W Eksploratorze rozwiązań, Znajdź **Index.cshtml** wyświetlić w obszarze **/widoków domowych** folderu projektu, kliknij go prawym przyciskiem myszy i wybierz **widoku w narzędzie Page Inspector**.
 
     ![Wybieranie plików do podglądu w narzędzie Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image1.png "Wybieranie plików do podglądu w narzędzie Page Inspector")
@@ -128,7 +128,7 @@ W tym zadaniu dowiesz się, jak używać narzędzia Page Inspector w kontekście
 
     To narzędzie będzie można wybrać dowolny element strony i wyświetlić jego kod HTML i Razor.
 
-    ![Tryb przycisku, przełącznika kontroli w-](using-page-inspector-in-visual-studio-2012/_static/image4.png)
+    ![Toggle-Inspection-Mode-button](using-page-inspector-in-visual-studio-2012/_static/image4.png)
 
     *Przycisk przełączania trybu inspekcji*
 6. W przeglądarce narzędzie Page Inspector Przesuń wskaźnik myszy nad elementy na stronie. Podczas przesuwania wskaźnika myszy nad dowolną część renderowanej strony wyświetlany jest typ elementu, a odpowiedni kod źródłowy lub kod zostanie wyróżniona w edytorze programu Visual Studio.
@@ -221,7 +221,7 @@ To zadanie będzie używane narzędzie Page inspector i rozwiązać problemy, Ga
 2. Przełącz tryb inspekcji zaznaczone kliknij przycisk Zamknij, aby, ale nie na, łącze rejestru, aby otworzyć jego kod.
 
     Należy zauważyć, że kod źródłowy łączy znajduje się w  **\_LoginPartial.cshtml** plików, nie Index.cshtml ani \_Layout.cshtml, które są miejsca może wyglądać na pierwszym miejscu. Zostały zastosowane bezpośrednio w pliku poprawnego źródła.
-3. W **style** , zlokalizuj i kliknij  **<section> #login</section>**  elementu, który jest kontenerem HTML dla tych łączy.
+3. W **style** , zlokalizuj i kliknij **<section> #login</section>** elementu, który jest kontenerem HTML dla tych łączy.
 
     Zwróć uwagę, że **#login** styl automatycznie znajduje się w **Site.css** po kliknięciu przycisku. Ponadto jest teraz wyróżniony kod.
 
@@ -242,7 +242,7 @@ To zadanie będzie używane narzędzie Page inspector i rozwiązać problemy, Ga
     ![Zaktualizowane strony](using-page-inspector-in-visual-studio-2012/_static/image18.png)
 
     *Zaktualizowane strony*
-6. Przy użyciu trybu inspekcji, wybierz dowolne  **&lt;li&gt;**  elementów, które zawierają &quot;zarejestrować&quot; i &quot;Zaloguj&quot; łącza. Następnie kliknij przycisk  **&lt;sekcji&gt; #login** element, aby uzyskać dostęp do **Styles.css** kodu.
+6. Przy użyciu trybu inspekcji, wybierz dowolne **&lt;li&gt;** elementów, które zawierają &quot;zarejestrować&quot; i &quot;Zaloguj&quot; łącza. Następnie kliknij przycisk  **&lt;sekcji&gt; #login** element, aby uzyskać dostęp do **Styles.css** kodu.
 
     ![Znajdowanie styl](using-page-inspector-in-visual-studio-2012/_static/image19.png "znajdowanie styl")
 
@@ -287,12 +287,12 @@ W tym zadaniu dowiesz się, jak używać funkcji narzędzie Page Inspector w kon
 
 1. Otwórz **rozpocząć** rozwiązania, znajdujących się na **źródło/Ex2-WebForms/Begin/** folderu.
 
-    1. Należy pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-    2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
-    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
+   1. Należy pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
-    > [!NOTE]
-    > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
+      > [!NOTE]
+      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
 2. W Eksploratorze rozwiązań, Znajdź **Default.aspx** strony, kliknij go prawym przyciskiem myszy i wybierz **widoku w narzędzie Page Inspector**.
 
     ![Otwieranie Default.aspx z narzędziem Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image24.png "otwierania Default.aspx z narzędziem Page Inspector")
@@ -433,7 +433,7 @@ W tym zadaniu użyjesz narzędzie Page inspector ustalania problemy aplikacji ga
     ![Zaktualizowane strony](using-page-inspector-in-visual-studio-2012/_static/image41.png)
 
     *Zaktualizowane strony*
-6. Przy użyciu trybu inspekcji, wybierz dowolne  **&lt;li&gt;**  elementów, które zawierają &quot;zarejestrować&quot; i &quot;Zaloguj&quot; łącza. Następnie kliknij przycisk  **&lt;sekcji&gt; #login** element, aby uzyskać dostęp do **Styles.css** kodu.
+6. Przy użyciu trybu inspekcji, wybierz dowolne **&lt;li&gt;** elementów, które zawierają &quot;zarejestrować&quot; i &quot;Zaloguj&quot; łącza. Następnie kliknij przycisk  **&lt;sekcji&gt; #login** element, aby uzyskać dostęp do **Styles.css** kodu.
 
     ![Znajdowanie styl](using-page-inspector-in-visual-studio-2012/_static/image42.png "znajdowanie styl")
 
@@ -474,9 +474,9 @@ Wykonując tego laboratorium Hands-On ma doświadczeń jak narzędzie Page Inspe
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Dodatek A: Instalowanie programu Visual Studio Express 2012 for Web
 
-Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji  **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
+Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
 
-1. Przejdź do [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; *programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK*&quot;.
+1. Przejdź do [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; <em>programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK</em>&quot;.
 2. Polecenie **teraz zainstalować**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 

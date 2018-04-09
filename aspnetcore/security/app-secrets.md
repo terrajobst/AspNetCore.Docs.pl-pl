@@ -1,7 +1,7 @@
 ---
-title: Bezpieczne przechowywanie kluczy tajnych aplikacji w czasie opracowywania w ASP.NET Core
+title: Bezpieczne przechowywanie kluczy tajnych aplikacji w rozwoju platformy ASP.NET Core
 author: rick-anderson
-description: "Pokazuje, jak bezpiecznie przechowywać klucze tajne podczas tworzenia"
+description: Pokazuje, jak bezpiecznie przechowywać klucze tajne podczas tworzenia
 manager: wpickett
 ms.author: riande
 ms.date: 09/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: a23c9dc9ee1e20c0e0551a372e1cd706bb82070e
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 166111696a9c4244ede44fca8878dd3725bb3099
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Bezpieczne przechowywanie kluczy tajnych aplikacji w czasie opracowywania w ASP.NET Core
+# <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Bezpieczne przechowywanie kluczy tajnych aplikacji w rozwoju platformy ASP.NET Core
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Roth Danielowi](https://github.com/danroth27), i [Scott Addie](https://scottaddie.com) 
 
@@ -34,15 +34,14 @@ Na przykład w przypadku utworzenia nowej aplikacji sieci web platformy ASP.NET 
 
 ## <a name="secret-manager"></a>Menedżer klucz tajny
 
-Narzędzie Menedżer klucz tajny są przechowywane poufne dane w projektach poza drzewa Twojego projektu. Narzędzie Menedżer klucz tajny jest narzędzie projektu, który może służyć do przechowywania kluczy tajnych dla [.NET Core](https://www.microsoft.com/net/core) projektu w czasie projektowania. Za pomocą narzędzia menedżera klucz tajny można skojarzyć klucze tajne aplikacji z określonego projektu i udostępniać je w wielu projektach.
+Narzędzie Menedżer klucz tajny są przechowywane poufne dane w projektach poza drzewa Twojego projektu. Narzędzie Menedżer klucz tajny jest narzędzie projektu, który może służyć do przechowywania kluczy tajnych w projekcie platformy .NET Core podczas tworzenia. Za pomocą narzędzia menedżera klucz tajny można skojarzyć klucze tajne aplikacji z określonego projektu i udostępniać je w wielu projektach.
 
 >[!WARNING]
 > Narzędzie Menedżer klucz tajny nie Szyfruj przechowywane klucze tajne i nie powinny być traktowane jako zaufanego magazynu. Jest tylko do celów programistycznych. Klucze i wartości są przechowywane w pliku konfiguracji JSON w katalogu profilu użytkownika.
 
 ## <a name="installing-the-secret-manager-tool"></a>Instalowanie narzędzia menedżera klucz tajny
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
+#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **Edytuj \<project_name\>.csproj** z menu kontekstowego. Dodaj wybrany element do *.csproj* pliku, a następnie zapisz do przywrócenia skojarzonego pakietu NuGet:
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -59,8 +58,7 @@ Zapisywanie zmodyfikowanych *.csproj* również plik zostanie otwarta `secrets.j
 }
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
+#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 Dodaj `Microsoft.Extensions.SecretManager.Tools` do *.csproj* pliku i uruchom [przywracania dotnet](/dotnet/core/tools/dotnet-restore). Te same kroki można użyć do zainstalowania narzędzia menedżera klucz tajny przy użyciu wiersza polecenia.
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -89,15 +87,14 @@ dotnet user-secrets set MySecret ValueOfMySecret
 ```
 
 Można uruchomić narzędzie Menedżer klucz tajny z innych katalogów, ale należy użyć `--project` opcję, aby przekazać w ścieżce do *.csproj* pliku:
- 
+
 ```console
 dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\webapp1
 ```
 
 Narzędzie Menedżer klucz tajny służy również do, Usuń, a następnie wyczyść klucze tajne aplikacji.
 
------
-
+* * *
 ## <a name="accessing-user-secrets-via-configuration"></a>Uzyskiwanie dostępu do kluczy tajnych użytkownika za pomocą konfiguracji
 
 Klucz tajny Menedżera kluczy tajnych dostępu za pomocą systemu konfiguracji. Dodaj `Microsoft.Extensions.Configuration.UserSecrets` pakiet, a następnie uruchom [przywracania dotnet](/dotnet/core/tools/dotnet-restore).

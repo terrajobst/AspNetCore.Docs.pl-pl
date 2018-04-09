@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
-title: "Przy użyciu programu Entity Framework 4.0 i kontrolki ObjectDataSource, część 1: wprowadzenie | Dokumentacja firmy Microsoft"
+title: 'Przy użyciu programu Entity Framework 4.0 i kontrolki ObjectDataSource, część 1: wprowadzenie | Dokumentacja firmy Microsoft'
 author: tdykstra
-description: "Ten samouczek serii kompilacje w aplikacji sieci web Contoso University utworzony przez wprowadzenie do samouczka serii Entity Framework. Jeśli yo..."
+description: Ten samouczek serii kompilacje w aplikacji sieci web Contoso University utworzony przez wprowadzenie do samouczka serii Entity Framework. Jeśli yo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 83fe815af9030aee10a5204718b00c79925e9126
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6584767418c898913777b3b1549a816679c8430d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Przy użyciu programu Entity Framework 4.0 i kontrolki ObjectDataSource, część 1: wprowadzenie
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 > Ten samouczek serii opiera się na aplikację sieci web Contoso University jest tworzony przez [wprowadzenie do korzystania z programu Entity Framework 4.0](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) samouczka serii. Jeśli nie została ukończona wcześniejszych samouczki, jako punkt początkowy dla tego samouczka możesz [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) będzie utworzony. Możesz również [pobrać aplikację](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tworzone przez zakończenie samouczka serii.
 > 
@@ -311,7 +311,7 @@ Program obsługi dla `Init` odwołanie do zapisuje zdarzenia `DropDownList` kont
 Użyj *DepartmentsAdd.aspx* strony, aby dodać nowy dział, a następnie uruchom *Departments.aspx* i kliknij przycisk **Edytuj** na wiersz, który został dodany.
 
 > [!NOTE]
-> Nie można edytować wierszy, które nie zostały dodane (oznacza to, że już zostały w bazie danych), ze względu na nieprawidłowe dane w bazie danych. Administratorzy dla wierszy, które zostały utworzone w bazie danych są studenta. Jeśli próbujesz edytować jeden z nich, otrzyma strony błędu, który zgłasza błąd, takich jak`'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
+> Nie można edytować wierszy, które nie zostały dodane (oznacza to, że już zostały w bazie danych), ze względu na nieprawidłowe dane w bazie danych. Administratorzy dla wierszy, które zostały utworzone w bazie danych są studenta. Jeśli próbujesz edytować jeden z nich, otrzyma strony błędu, który zgłasza błąd, takich jak `'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
 
 
 [![Image10](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image36.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image35.png)
@@ -324,5 +324,5 @@ Zmień wartość pola lub wybierz innego administratora i kliknij przycisk **akt
 
 Na tym kończy się wprowadzenie do korzystania z `ObjectDataSource` kontrola basic CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) operacje przy użyciu programu Entity Framework. Powstanie prostej aplikacji warstwowych, ale warstwy logiki biznesowej jest nadal ściśle powiązane do warstwy dostępu do danych, co stwarza automatyczne testy jednostkowe. W samouczku następujące zobaczysz sposobu implementacji wzorca repozytorium w celu ułatwienia testowania jednostki.
 
->[!div class="step-by-step"]
-[Next](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+> [!div class="step-by-step"]
+> [Next](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)

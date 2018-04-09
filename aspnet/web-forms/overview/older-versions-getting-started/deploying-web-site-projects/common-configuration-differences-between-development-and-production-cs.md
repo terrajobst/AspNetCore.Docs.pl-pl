@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
-title: "Typowych konfiguracji różnice między rozwoju i produkcji (C#) | Dokumentacja firmy Microsoft"
+title: Typowych konfiguracji różnice między rozwoju i produkcji (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W samouczkach wcześniejszych wdrożyliśmy naszą witrynę sieci Web przez skopiowanie wszystkie odpowiednie pliki środowiska programistycznego do środowiska produkcyjnego. Jednak i..."
+description: W samouczkach wcześniejszych wdrożyliśmy naszą witrynę sieci Web przez skopiowanie wszystkie odpowiednie pliki środowiska programistycznego do środowiska produkcyjnego. Jednak i...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 092362e3811213047820dab08efc16e1a1e75020
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2694e0dba774a5bca13b9acc6b14c3e47226a064
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="common-configuration-differences-between-development-and-production-c"></a>Typowych konfiguracji różnice między rozwoju i produkcji (C#)
 ====================
@@ -53,7 +53,7 @@ W przypadku odwiedzenia strony ASP.NET po raz pierwszy (lub po raz pierwszy po z
 Atrybut debugowania jest jednym z najważniejszych atrybutów w `<compilation>` elementu. Jeśli `debug` atrybut ma wartość "true", a następnie skompilowane zestawy dołączać symbole debugowania, które są potrzebne podczas debugowania aplikacji w programie Visual Studio. Jednak symboli debugowania zwiększyć rozmiar zestawu i nałożyć wymagań dodatkowej pamięci podczas uruchamiania kodu. Ponadto, jeśli `debug` atrybut ma wartość "true" żadnej zawartości zwrócony przez `WebResource.axd` nie są buforowane, co oznacza zawsze odwiedzać strony, będzie musiał ponownie pobrać zawartość statyczną zwrócony przez `WebResource.axd`.
 
 > [!NOTE]
-> `WebResource.axd`wbudowana obsługa HTTP wprowadzony w programie ASP.NET 2.0 kontrolki serwera służy do pobierania zasoby osadzone, takie jak pliki skryptów, obrazów, plików CSS i innej zawartości. Aby uzyskać więcej informacji na temat `WebResource.axd` działa i jak umożliwia dostęp do zasobów osadzonych z Twojej niestandardowe kontrolki serwera, zobacz [podczas uzyskiwania dostępu do osadzonych zasobów za pomocą adresu URL za pomocą `WebResource.axd` ](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx).
+> `WebResource.axd` wbudowana obsługa HTTP wprowadzony w programie ASP.NET 2.0 kontrolki serwera służy do pobierania zasoby osadzone, takie jak pliki skryptów, obrazów, plików CSS i innej zawartości. Aby uzyskać więcej informacji na temat `WebResource.axd` działa i jak umożliwia dostęp do zasobów osadzonych z Twojej niestandardowe kontrolki serwera, zobacz [podczas uzyskiwania dostępu do osadzonych zasobów za pomocą adresu URL za pomocą `WebResource.axd` ](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx).
 
 
 `<compilation>` Elementu `debug` atrybut zazwyczaj ma wartość "true" w środowisku programistycznym. W rzeczywistości ten atrybut musi mieć ustawioną "true", aby debugować aplikację sieci web; Jeśli spróbujesz debugowania aplikacji ASP.NET w programie Visual Studio i `debug` atrybut ma ustawioną wartość "false", Visual Studio będzie wyświetlany komunikat wyjaśniający, że nie można debugować aplikacji do `debug` atrybut ma wartość "true" która ma Oferta dokonać tej zmiany.
@@ -136,6 +136,6 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Projekty wdrażania Web 2008 VS](https://weblogs.asp.net/scottgu/archive/2005/11/06/429723.aspx) | [wydane VS 2008 Web wdrażania projektu obsługi](https://weblogs.asp.net/scottgu/archive/2008/01/28/vs-2008-web-deployment-project-support-released.aspx)
 - [Projekty wdrażania w Internecie](https://msdn.microsoft.com/magazine/cc163448.aspx)
 
->[!div class="step-by-step"]
-[Poprzednie](deploying-your-site-using-visual-studio-cs.md)
-[dalej](core-differences-between-iis-and-the-asp-net-development-server-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](deploying-your-site-using-visual-studio-cs.md)
+> [dalej](core-differences-between-iis-and-the-asp-net-development-server-cs.md)
