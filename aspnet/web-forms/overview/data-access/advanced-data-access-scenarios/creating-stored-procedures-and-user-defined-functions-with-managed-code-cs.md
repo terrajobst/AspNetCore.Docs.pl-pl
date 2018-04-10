@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
-title: "Tworzenie procedury składowane i funkcje zdefiniowane przez użytkownika za pomocą zarządzanego kodu (C#) | Dokumentacja firmy Microsoft"
+title: Tworzenie procedury składowane i funkcje zdefiniowane przez użytkownika za pomocą zarządzanego kodu (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Microsoft SQL Server 2005 integruje się z .NET środowisko uruchomieniowe języka wspólnego umożliwia deweloperom tworzenie obiektów bazy danych za pomocą kodu zarządzanego. W tym samouczku..."
+description: Microsoft SQL Server 2005 integruje się z .NET środowisko uruchomieniowe języka wspólnego umożliwia deweloperom tworzenie obiektów bazy danych za pomocą kodu zarządzanego. W tym samouczku...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6daa0dec764e2e9248cac97ba7d7b6df0da3208f
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 5a860c8ab6ad7ff04de2175900491d532db782d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>Tworzenie procedury składowane i funkcje zdefiniowane przez użytkownika za pomocą kodu zarządzanego (C#)
 ====================
@@ -31,7 +31,7 @@ przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
 Użyj bazy danych, takich jak Microsoft SQL Server 2005-s [Transact-Structured Query Language (T-SQL)](http://en.wikipedia.org/wiki/Transact-SQL) do wstawiania, modyfikowania i pobierania danych. Większość systemów bazy danych zawiera konstrukcji grupowania serii instrukcji SQL, które następnie mogą być wykonywane jako jednostka jednej, wielokrotnego użytku. Procedury składowane są jednym z przykładów. Inny jest *funkcje zdefiniowane przez użytkownika*(UDF) konstrukcję omówione bardziej szczegółowo w kroku 9.
 
-Zasadniczo SQL jest przeznaczony do pracy z zestawów danych. `SELECT`, `UPDATE`, I `DELETE` instrukcje dotyczą wszystkich rekordów w tej tabeli z założenia i tylko są ograniczone przez ich `WHERE` klauzul. Brak jeszcze wiele funkcji języka zaprojektowane do pracy z jeden rekord w czasie i manipulowania danymi skalarne. [`CURSOR`s](http://www.sqlteam.com/item.asp?ItemID=553) umożliwiają dla zestawu rekordów można zapętlonego za pomocą jednego naraz. Ciąg manipulowania funkcji, takich jak `LEFT`, `CHARINDEX`, i `PATINDEX` pracować z danymi skalarne. SQL zawiera również instrukcje przepływu sterowania, takie jak `IF` i `WHILE`.
+Zasadniczo SQL jest przeznaczony do pracy z zestawów danych. `SELECT`, `UPDATE`, I `DELETE` instrukcje dotyczą wszystkich rekordów w tej tabeli z założenia i tylko są ograniczone przez ich `WHERE` klauzul. Brak jeszcze wiele funkcji języka zaprojektowane do pracy z jeden rekord w czasie i manipulowania danymi skalarne. [`CURSOR` s](http://www.sqlteam.com/item.asp?ItemID=553) umożliwiają dla zestawu rekordów można zapętlonego za pomocą jednego naraz. Ciąg manipulowania funkcji, takich jak `LEFT`, `CHARINDEX`, i `PATINDEX` pracować z danymi skalarne. SQL zawiera również instrukcje przepływu sterowania, takie jak `IF` i `WHILE`.
 
 Przed Microsoft SQL Server 2005 procedury składowane i funkcje UDF tylko można zdefiniować jako kolekcja instrukcje T-SQL. SQL Server 2005, jednak zaprojektowano tak, aby zapewnić integrację z [środowiska uruchomieniowego języka wspólnego (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), który jest używany przez wszystkie zestawy .NET środowiska uruchomieniowego. W związku z tym procedury składowane i funkcje UDF w bazie danych programu SQL Server 2005 mogą być tworzone za pomocą kodu zarządzanego. Oznacza to można utworzyć procedury składowanej lub funkcji zdefiniowanej przez użytkownika jako metodę w klasie C#. Dzięki temu te procedury składowane i funkcje UDF mogą korzystać z funkcji w programie .NET Framework i z klas niestandardowych.
 
@@ -424,8 +424,8 @@ Teraz, gdy utworzono zarządzanych UDF, możemy są gotowe do wdrożenia go do b
 
 Po wdrożeniu projektu, wróć do programu SQL Server Management Studio i Odśwież folder skalarne. Powinien zostać wyświetlony dwie pozycje:
 
-- `dbo.udf_ComputeInventoryValue`-UDF T-SQL utworzony w kroku 9 i
-- `dbo.udf ComputeInventoryValue_Managed`-zarządzanych UDF utworzony w kroku 10, która właśnie została wdrożona.
+- `dbo.udf_ComputeInventoryValue` -UDF T-SQL utworzony w kroku 9 i
+- `dbo.udf ComputeInventoryValue_Managed` -zarządzanych UDF utworzony w kroku 10, która właśnie została wdrożona.
 
 Do testowania tej funkcji zdefiniowanej przez użytkownika zarządzanych, wykonaj następujące zapytanie w programie Management Studio:
 
@@ -569,12 +569,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został ren S Lauritsen Jacoba. Oprócz przeglądania tego artykułu, S ren również utworzony projekt Visual C# Express Edition, zawarte w tym pobieranie artykułu s dla ręcznie kompilowania obiektów zarządzanych bazy danych. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](debugging-stored-procedures-cs.md)
-[dalej](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](debugging-stored-procedures-cs.md)
+> [dalej](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)

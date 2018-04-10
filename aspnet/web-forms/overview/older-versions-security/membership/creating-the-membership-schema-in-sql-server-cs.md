@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
-title: "Tworzenie schematu członkostwa w programie SQL Server (C#) | Dokumentacja firmy Microsoft"
+title: Tworzenie schematu członkostwa w programie SQL Server (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku rozpoczyna badanie techniki Dodawanie schematu niezbędne do bazy danych, aby można było używać SqlMembershipProvider. Po tym, że firma Microsoft wi..."
+description: W tym samouczku rozpoczyna badanie techniki Dodawanie schematu niezbędne do bazy danych, aby można było używać SqlMembershipProvider. Po tym, że firma Microsoft wi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 38fc60b79a348ab198069a9a80a085e0dc4bcb88
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4fa0476ca8336b56340dd177f9816acbe015ef7d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-the-membership-schema-in-sql-server-c"></a>Tworzenie schematu członkostwa w programie SQL Server (C#)
 ====================
@@ -158,9 +158,9 @@ Drugim krokiem w Kreatorze zapyta nam czy chcemy usług aplikacji Dodaj lub usu�
 
 Trzeci krok monituje o informacje z bazy danych: Nazwa serwera, informacje dotyczące uwierzytelniania i nazwę bazy danych. Jeśli zostały następujące wraz z tego samouczka i dodano `SecurityTutorials.mdf` bazy danych do `App_Data`, dołączone do `localhost\InstanceName`, zmienić jego nazwę i `SecurityTutorialsDatabase`, następnie użyj następujących wartości:
 
-- Serwer:`localhost\InstanceName`
+- Serwer: `localhost\InstanceName`
 - Uwierzytelnianie systemu Windows
-- Baza danych:`SecurityTutorialsDatabase`
+- Baza danych: `SecurityTutorialsDatabase`
 
 
 [![Wprowadź informacje o bazie danych](creating-the-membership-schema-in-sql-server-cs/_static/image26.png)](creating-the-membership-schema-in-sql-server-cs/_static/image25.png)
@@ -204,7 +204,7 @@ Struktury członkostwo i role są zaprojektowane tak, aby ma jeden magazyn użyt
 **Rysunek 11**: użytkownika konta może być podzielona na partycje w wielu aplikacjach ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-the-membership-schema-in-sql-server-cs/_static/image33.png))
 
 
-`aspnet_Applications` Tabela jest definiuje co tych partycji. Każda aplikacja, która przechowuje informacje o koncie użytkownika przy użyciu bazy danych jest reprezentowana przez wiersza w tej tabeli. `aspnet_Applications` Ma cztery kolumny: `ApplicationId`, `ApplicationName`, `LoweredApplicationName`, i `Description`. `ApplicationId`Typ jest [ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx) i klucz podstawowy tabeli; `ApplicationName` zapewnia unikatową nazwę przyjaznych dla człowieka dla każdej aplikacji.
+`aspnet_Applications` Tabela jest definiuje co tych partycji. Każda aplikacja, która przechowuje informacje o koncie użytkownika przy użyciu bazy danych jest reprezentowana przez wiersza w tej tabeli. `aspnet_Applications` Ma cztery kolumny: `ApplicationId`, `ApplicationName`, `LoweredApplicationName`, i `Description`. `ApplicationId` Typ jest [ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx) i klucz podstawowy tabeli; `ApplicationName` zapewnia unikatową nazwę przyjaznych dla człowieka dla każdej aplikacji.
 
 Inne powiązane członkostwa i ról tabele link do `ApplicationId` w `aspnet_Applications`. Na przykład `aspnet_Users` tabeli, która zawiera rekord dla każdego konta użytkownika, ma `ApplicationId` pola klucza obcego; jw. dla `aspnet_Roles` tabeli. `ApplicationId` Pola w tych tabelach określa partycji aplikacji konto użytkownika lub rola.
 
@@ -216,7 +216,7 @@ Informacje o koncie użytkownika są przechowywane w dwóch tabelach: `aspnet_Us
 - `UserName`
 - `ApplicationId`
 
-`UserId`jest to klucz podstawowy (i typu `uniqueidentifier`). `UserName`Typ jest `nvarchar(256)` i wraz z hasłem, stanowi poświadczenia użytkownika. (Hasło użytkownika są przechowywane w `aspnet_Membership` tabeli.) `ApplicationId` łączy konta użytkownika do konkretnej aplikacji w `aspnet_Applications`. Brak złożonym [ `UNIQUE` ograniczenia](https://msdn.microsoft.com/library/ms191166.aspx) na `UserName` i `ApplicationId` kolumn. Dzięki temu, że w danej aplikacji jest unikatowe nazwy użytkownika, ale umożliwia dla tego samego `UserName` do użycia w innych aplikacjach.
+`UserId` jest to klucz podstawowy (i typu `uniqueidentifier`). `UserName` Typ jest `nvarchar(256)` i wraz z hasłem, stanowi poświadczenia użytkownika. (Hasło użytkownika są przechowywane w `aspnet_Membership` tabeli.) `ApplicationId` łączy konta użytkownika do konkretnej aplikacji w `aspnet_Applications`. Brak złożonym [ `UNIQUE` ograniczenia](https://msdn.microsoft.com/library/ms191166.aspx) na `UserName` i `ApplicationId` kolumn. Dzięki temu, że w danej aplikacji jest unikatowe nazwy użytkownika, ale umożliwia dla tego samego `UserName` do użycia w innych aplikacjach.
 
 `aspnet_Membership` Tabela zawiera dodatkowe informacje, takie jak hasło użytkownika, adres e-mail, ostatniego logowania daty i godziny oraz itd. Brak odpowiednika między rekordów w `aspnet_Users` i `aspnet_Membership` tabel. Ta relacja jest zapewniana przez `UserId` w `aspnet_Membership`, która służy jako klucz podstawowy tabeli. Podobnie jak `aspnet_Users` tabeli `aspnet_Membership` obejmuje `ApplicationId` pola, które wiąże te informacje do określonej partycji aplikacji.
 
@@ -230,7 +230,7 @@ Informacje o hasło jest przechowywane w `aspnet_Membership` tabeli. `SqlMembers
 
 Zależy od hasła magazynu zastosowanych `SqlMembershipProvider` ustawień określonych w `Web.config`. Zajmiemy dostosowywanie `SqlMembershipProvider` ustawienia w kroku 4. Domyślnym zachowaniem jest przechowywanie skrótu hasła.
 
-Są zobowiązani do przechowywania hasła kolumny `Password`, `PasswordFormat`, i `PasswordSalt`. `PasswordFormat`To pole typu `int` wskazuje, którego wartość zastosowanych do przechowywania hasła: 0 w przypadku zwykłego; 1 dla Hashed 2 dla zaszyfrowana. `PasswordSalt`przypisano losowo wygenerowany ciąg niezależnie od tego hasła magazynu zastosowanych; wartość `PasswordSalt` jest używana tylko podczas obliczania skrótu hasła. Na koniec `Password` kolumna zawiera dane rzeczywiste hasło, jest to hasło jako zwykły tekst, skrót hasła lub zaszyfrowane hasło.
+Są zobowiązani do przechowywania hasła kolumny `Password`, `PasswordFormat`, i `PasswordSalt`. `PasswordFormat` To pole typu `int` wskazuje, którego wartość zastosowanych do przechowywania hasła: 0 w przypadku zwykłego; 1 dla Hashed 2 dla zaszyfrowana. `PasswordSalt` przypisano losowo wygenerowany ciąg niezależnie od tego hasła magazynu zastosowanych; wartość `PasswordSalt` jest używana tylko podczas obliczania skrótu hasła. Na koniec `Password` kolumna zawiera dane rzeczywiste hasło, jest to hasło jako zwykły tekst, skrót hasła lub zaszyfrowane hasło.
 
 Tabela 1 przedstawiono te trzy kolumny przykładową różnych technik magazynu w przypadku przechowywania haseł MySecret! .
 
@@ -254,7 +254,7 @@ W ramach ról umożliwia deweloperom zdefiniować zestaw ról i określ, jakie u
 - `RoleName`
 - `ApplicationId`
 
-`RoleId`jest to klucz podstawowy (i typu `uniqueidentifier`). `RoleName`jest typu `nvarchar(256)`. I `ApplicationId` łączy konta użytkownika do konkretnej aplikacji w `aspnet_Applications`. Brak złożonym `UNIQUE` ograniczenie `RoleName` i `ApplicationId` kolumn, zapewnia, że nazwa każdej roli w danej aplikacji jest unikatowy.
+`RoleId` jest to klucz podstawowy (i typu `uniqueidentifier`). `RoleName` jest typu `nvarchar(256)`. I `ApplicationId` łączy konta użytkownika do konkretnej aplikacji w `aspnet_Applications`. Brak złożonym `UNIQUE` ograniczenie `RoleName` i `ApplicationId` kolumn, zapewnia, że nazwa każdej roli w danej aplikacji jest unikatowy.
 
 `aspnet_UsersInRoles` Tabeli służy jako mapowania między użytkownikami i rolami. Istnieją tylko dwa kolumny - `UserId` i `RoleId` - i razem stanowią podstawowy klucz złożony.
 
@@ -313,8 +313,8 @@ Jak widać, ten ciąg połączenia definiuje SQL 2005 Express Edition w lokaliza
 
 Jeśli firma Microsoft nie określa żadnych informacji o dostawcy członkostwa w naszej aplikacji `Web.config` plik, aplikacja używa dostawcę członkostwa w zarejestrowany domyślne `AspNetSqlMembershipProvider`. Jeśli `~/App_Data/aspnet.mdf` bazy danych nie istnieje, automatycznie go utworzyć i dodać schematu usług aplikacji środowiska wykonawczego programu ASP.NET. Jednak nie chcemy użyć `aspnet.mdf` bazy danych; zamiast chcemy użyć `SecurityTutorials.mdf` bazy danych utworzono w kroku 2. Ta modyfikacja można zrobić w jeden z dwóch sposobów:
 
-- **Określ wartość ***`LocalSqlServer`*** Nazwa ciągu połączenia w ***`Web.config`***.** Zastępując `LocalSqlServer` wartości nazwy parametrów połączenia w `Web.config`, możemy użyć zarejestrowany domyślnym dostawcą członkostwa (`AspNetSqlMembershipProvider`) i będzie on działać poprawnie z `SecurityTutorials.mdf` bazy danych. Ta metoda jest poprawnie, jeśli jesteś zawartości przy użyciu ustawień konfiguracyjnych, określony przez `AspNetSqlMembershipProvider`. Aby uzyskać więcej informacji na temat tej techniki, zobacz [Scott Guthrie](https://weblogs.asp.net/scottgu/)w blogu, [Konfigurowanie ASP.NET 2.0 usługi aplikacji, użyj programu SQL Server 2000 lub SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
-- **Dodaj nowego dostawcę zarejestrowany dla typu ***`SqlMembershipProvider`*** i skonfigurować jej ***`connectionStringName`*** ustawienie wskazujące ***`SecurityTutorials.mdf`*** bazy danych.** Takie rozwiązanie jest przydatne w scenariuszach, w których chcesz dostosować inne właściwości konfiguracji oprócz parametry połączenia bazy danych. W projektach I zawsze posłuż się tą metodą ze względu na jego elastyczność i możliwość odczytania.
+- <strong>Określ wartość</strong><strong>`LocalSqlServer`</strong><strong>Nazwa ciągu połączenia w</strong><strong>`Web.config`</strong><strong>.</strong> Zastępując `LocalSqlServer` wartości nazwy parametrów połączenia w `Web.config`, możemy użyć zarejestrowany domyślnym dostawcą członkostwa (`AspNetSqlMembershipProvider`) i będzie on działać poprawnie z `SecurityTutorials.mdf` bazy danych. Ta metoda jest poprawnie, jeśli jesteś zawartości przy użyciu ustawień konfiguracyjnych, określony przez `AspNetSqlMembershipProvider`. Aby uzyskać więcej informacji na temat tej techniki, zobacz [Scott Guthrie](https://weblogs.asp.net/scottgu/)w blogu, [Konfigurowanie ASP.NET 2.0 usługi aplikacji, użyj programu SQL Server 2000 lub SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
+- <strong>Dodaj nowego dostawcę zarejestrowanego typu</strong><strong>`SqlMembershipProvider`</strong><strong>i skonfigurować jej</strong><strong>`connectionStringName`</strong><strong>ustawienie, aby wskazywał</strong> <strong>`SecurityTutorials.mdf`</strong> <strong>bazy danych.</strong> Takie rozwiązanie jest przydatne w scenariuszach, w których chcesz dostosować inne właściwości konfiguracji oprócz parametry połączenia bazy danych. W projektach I zawsze posłuż się tą metodą ze względu na jego elastyczność i możliwość odczytania.
 
 Zanim można dodać nowego dostawcę zarejestrowanych, który odwołuje się do `SecurityTutorials.mdf` bazy danych, najpierw należy dodać wartość ciągu połączenia w `<connectionStrings>` sekcji `Web.config`. Następujący kod dodaje nowe parametry połączenia o nazwie `SecurityTutorialsConnectionString` który odwołuje się do programu SQL Server 2005 Express Edition `SecurityTutorials.mdf` bazy danych w `App_Data` folderu.
 
@@ -357,7 +357,7 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [`<membership>` — Element](https://msdn.microsoft.com/library/1b9hw62f.aspx)
 - [`<providers>` Element członkostwa](https://msdn.microsoft.com/library/6d4936ht.aspx)
 - [Przy użyciu `<clear />` podczas dodawania dostawców](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx)
-- [Praca bezpośrednio z`SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
+- [Praca bezpośrednio z `SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Szkolenie wideo na tematy zawarte w tym samouczku
 
@@ -367,11 +367,11 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Alicja Maziarz. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Next](creating-user-accounts-cs.md)
+> [!div class="step-by-step"]
+> [Next](creating-user-accounts-cs.md)

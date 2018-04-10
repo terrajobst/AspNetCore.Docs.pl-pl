@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-cs
-title: "Tworzenie niestandardowych AJAX formantu rozszerzeń formantu Toolkit (C#) | Dokumentacja firmy Microsoft"
+title: Tworzenie niestandardowych AJAX formantu rozszerzeń formantu Toolkit (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Niestandardowych rozszerzeń umożliwiają dostosowywanie i rozszerzanie możliwości kontrolki ASP.NET, bez konieczności tworzenia nowych klas."
+description: Niestandardowych rozszerzeń umożliwiają dostosowywanie i rozszerzanie możliwości kontrolki ASP.NET, bez konieczności tworzenia nowych klas.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2ae03484dd1161c65b77f4718bb8cedb5abfdd82
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dc058d1d19df880109352caf2dc7d1860121a104
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-custom-ajax-control-toolkit-control-extender-c"></a>Tworzenie rozszerzeń formantu Toolkit kontroli AJAX niestandardowych (C#)
 ====================
@@ -198,7 +198,7 @@ Następnie należy utworzyć nową stronę ASP.NET. Wykonaj następujące kroki:
 2. Przeciągnij element ScriptManager na stronie.
 3. Przeciągnij kontrolki pola tekstowego na stronie.
 4. Przeciągnij formant przycisku na stronie.
-5. W oknie Właściwości zmień wartość właściwości przycisk identyfikator na wartość *btnSave* i wartość właściwości Text *zapisać\**.
+5. W oknie Właściwości zmień wartość właściwości przycisk identyfikator na wartość <em>btnSave</em> i wartość właściwości Text *zapisać\**.
   
 
 Utworzono stronę z formantu standardowego pola tekstowego ASP.NET i przycisk.
@@ -238,6 +238,6 @@ Po uruchomieniu strony (za pomocą F5) formantu przycisku początkowo jest wył�
 
 Celem tego samouczka było wyjaśniają, jak można rozszerzyć Toolkit kontroli AJAX z formanty rozszerzające niestandardowych. W tym samouczku utworzyliśmy proste rozszerzeń formantu DisabledButton. Tworząc klasę DisabledButtonExtender, zachowanie DisabledButtonBehavior JavaScript i klasa DisabledButtonDesigner zaimplementowano tego rozszerzenia. Zbiór podobne kroki należy wykonać zawsze, gdy Tworzenie rozszerzeń kontrolki niestandardowej.
 
->[!div class="step-by-step"]
-[Poprzednie](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)
-[dalej](get-started-with-the-ajax-control-toolkit-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)
+> [dalej](get-started-with-the-ajax-control-toolkit-vb.md)

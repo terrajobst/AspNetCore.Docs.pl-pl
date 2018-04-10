@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-cs
-title: "Jak używać formantu ComboBox? (C#) | Dokumentacja firmy Microsoft"
+title: Jak używać formantu ComboBox? (C#) | Microsoft Docs
 author: microsoft
-description: "ComboBox jest formantem ASP.NET AJAX, łączącą elastyczność pole tekstowe z listy opcji, z których użytkownicy mogą wybrać."
+description: ComboBox jest formantem ASP.NET AJAX, łączącą elastyczność pole tekstowe z listy opcji, z których użytkownicy mogą wybrać.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7913affb73c1c314944782ff80cf6c5558502ee9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20afd7334437a021f6f68216f84406eef5ea65c6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-combobox-control-c"></a>Jak używać formantu ComboBox? (C#)
 ====================
@@ -172,5 +172,5 @@ Właściwość parametr ComboBox AutoCompleteMode umożliwia określenie, co si�
 
 W tym samouczku przedstawiono sposób umożliwia wyświetlanie ustalony zbiór elementów kontrolki ComboBox. Firma powiązana formantu ComboBox zarówno do statycznego zestawu elementów i tabeli bazy danych. Ponadto przedstawiono sposób zmodyfikować zachowanie ComboBox przez ustawienie właściwości parametr DropDownStyle, a parametr AutoCompleteMode.
 
->[!div class="step-by-step"]
-[Dalej](how-do-i-use-the-combobox-control-vb.md)
+> [!div class="step-by-step"]
+> [Next](how-do-i-use-the-combobox-control-vb.md)

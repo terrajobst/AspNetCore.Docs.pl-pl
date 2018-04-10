@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-vb
-title: "Przy użyciu zależności buforu SQL (VB) | Dokumentacja firmy Microsoft"
+title: Przy użyciu zależności buforu SQL (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Najprostsza strategii buforowania jest umożliwienie buforowane dane wygaśnie po upływie określonego czasu. Jednak takie podejście proste oznacza, że maintai buforowane dane..."
+description: Najprostsza strategii buforowania jest umożliwienie buforowane dane wygaśnie po upływie określonego czasu. Jednak takie podejście proste oznacza, że maintai buforowane dane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-vb
 msc.type: authoredcontent
-ms.openlocfilehash: af302d67b009fc25e38fb33a5e2a623f7200bcd5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 452d856fe352ef2eb7dfcc3f3acd6aa5bcb5ae41
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-sql-cache-dependencies-vb"></a>Przy użyciu zależności buforu SQL (VB)
 ====================
@@ -309,15 +309,15 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 - [Tworzenie powiadomienia kwerendy](https://msdn.microsoft.com/library/ms188669.aspx)
 - [Buforowanie w programie ASP.NET z `SqlCacheDependency` — klasa](https://msdn.microsoft.com/library/ms178604(VS.80).aspx)
 - [Narzędzie rejestracji programu ASP.NET SQL Server (`aspnet_regsql.exe`)](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)
-- [Omówienie`SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
+- [Omówienie `SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Marko Rangel Teresa Murphy i Hilton Giesenow. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Poprzednie](caching-data-at-application-startup-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](caching-data-at-application-startup-vb.md)

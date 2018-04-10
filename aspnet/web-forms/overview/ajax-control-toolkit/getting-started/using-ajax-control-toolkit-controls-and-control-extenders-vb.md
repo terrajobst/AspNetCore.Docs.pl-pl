@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/using-ajax-control-toolkit-controls-and-control-extenders-vb
-title: "Za pomocą technologii AJAX kontroli zestawu narzędzi kontrolek i rozszerzeń formantu (VB) | Dokumentacja firmy Microsoft"
+title: Za pomocą technologii AJAX kontroli zestawu narzędzi kontrolek i rozszerzeń formantu (VB) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Dowiedz się, jak dodać kontrolki AJAX kontroli narzędzi i rozszerzeń do stron ASP.NET."
+description: Dowiedz się, jak dodać kontrolki AJAX kontroli narzędzi i rozszerzeń do stron ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/using-ajax-control-toolkit-controls-and-control-extenders-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7b248855a1b82f3e8f172b439ee36502f95a39ca
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 080dd65677d80fb75ab37a20f6c385a38af4e353
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-ajax-control-toolkit-controls-and-control-extenders-vb"></a>Za pomocą technologii AJAX kontroli zestawu narzędzi kontrolek i rozszerzeń formantu (VB)
 ====================
@@ -106,6 +106,6 @@ Zwróć uwagę, że zwykle nie przeciągania rozszerzeń kontrolki na stronie. Z
 
 Jeden formant ASP.NET można rozszerzyć przez wiele rozszerzeń formantu. Arkusz właściwości formantu rozszerzaną spowoduje wyświetlenie listy wszystkich rozszerzeń formantu skojarzony z formantem.
 
->[!div class="step-by-step"]
-[Poprzednie](get-started-with-the-ajax-control-toolkit-vb.md)
-[dalej](creating-a-custom-ajax-control-toolkit-control-extender-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](get-started-with-the-ajax-control-toolkit-vb.md)
+> [dalej](creating-a-custom-ajax-control-toolkit-control-extender-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
-title: "Efektywne stronicowania za pośrednictwem dużych ilości danych (VB) | Dokumentacja firmy Microsoft"
+title: Efektywne stronicowania za pośrednictwem dużych ilości danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Podczas pracy z dużą ilością danych, jako jego podstawowy pobierania kontroli źródła danych nie nadaje się domyślną opcją stronicowania formantu prezentacji danych..."
+description: Podczas pracy z dużą ilością danych, jako jego podstawowy pobierania kontroli źródła danych nie nadaje się domyślną opcją stronicowania formantu prezentacji danych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9a1b7fbb1e60c9f1bc6a26ccaeb7d14b4c95219d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 00057f9bfd9b1c479e500ac591db694388a5d358
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-vb"></a>Efektywne stronicowania za pośrednictwem dużych ilości danych (VB)
 ====================
@@ -122,9 +122,9 @@ Istnieją dwie metody Ogólne umożliwia wydajne skojarzyć indeks wiersza z dan
 - **Za pomocą programu SQL Server 2005 s `ROW_NUMBER()` — słowo kluczowe** jesteś nowym użytkownikiem programu SQL Server 2005, `ROW_NUMBER()` — słowo kluczowe kojarzy klasyfikacji z każdego zwróconego rekordu według kolejności. Ta klasyfikacja może służyć jako indeks wiersza dla każdego wiersza.
 - **Za pomocą zmiennej tabeli i `SET ROWCOUNT`**  s programu SQL Server [ `SET ROWCOUNT` instrukcji](https://msdn.microsoft.com/library/ms188774.aspx) można określić liczbę rekordów całkowita zapytania ma być przetwarzana przed zakończeniem; [tabeli zmienne](http://www.sqlteam.com/item.asp?ItemID=9454) są zmienne lokalne T-SQL, które mogą zawierać dane tabelaryczne akin do [tabel tymczasowych](http://www.sqlteam.com/item.asp?ItemID=2029). Ta metoda działa równie dobrze z Microsoft SQL Server 2005 i SQL Server 2000 (natomiast `ROW_NUMBER()` podejście działa tylko w przypadku programu SQL Server 2005).  
   
- W tym miejscu będzie utworzyć zmienną tabeli, która ma `IDENTITY` kolumny i kolumny kluczy podstawowych w tabeli jest trwa stronicowanej którego dane za pośrednictwem. Następnie utworzyć zrzutu zawartość tabeli, którego dane jest trwa stronicowanej za pośrednictwem do zmiennej tabeli, w tym samym kojarzenie indeks wiersza sekwencyjnych (za pośrednictwem `IDENTITY` kolumny) dla każdego rekordu w tabeli. Gdy zmienna tabeli zostały wypełnione, `SELECT` instrukcji w zmiennej tabeli połączony z tabeli podstawowej, aby można było wykonać Aby wysunąć określonych rekordów. `SET ROWCOUNT` Używana jest instrukcja inteligentnie ograniczyć liczbę rekordów, które należy można utworzyć zrzutu w zmiennej tabeli.  
+  W tym miejscu będzie utworzyć zmienną tabeli, która ma `IDENTITY` kolumny i kolumny kluczy podstawowych w tabeli jest trwa stronicowanej którego dane za pośrednictwem. Następnie utworzyć zrzutu zawartość tabeli, którego dane jest trwa stronicowanej za pośrednictwem do zmiennej tabeli, w tym samym kojarzenie indeks wiersza sekwencyjnych (za pośrednictwem `IDENTITY` kolumny) dla każdego rekordu w tabeli. Gdy zmienna tabeli zostały wypełnione, `SELECT` instrukcji w zmiennej tabeli połączony z tabeli podstawowej, aby można było wykonać Aby wysunąć określonych rekordów. `SET ROWCOUNT` Używana jest instrukcja inteligentnie ograniczyć liczbę rekordów, które należy można utworzyć zrzutu w zmiennej tabeli.  
   
- Takie zwiększenie efektywności podejście s jest oparta na numer strony żądanej, jako `SET ROWCOUNT` wartość jest przypisywana wartość Start indeks wiersza oraz maksymalna liczba wierszy. Jeśli stronicowanie za pośrednictwem strony o numerach niski, takich jak pierwszy kilka stron danych ta metoda jest bardzo wydajny. Jednak wskazuje domyślną stronicowania przypominającej wydajności podczas pobierania strony blisko końca.
+  Takie zwiększenie efektywności podejście s jest oparta na numer strony żądanej, jako `SET ROWCOUNT` wartość jest przypisywana wartość Start indeks wiersza oraz maksymalna liczba wierszy. Jeśli stronicowanie za pośrednictwem strony o numerach niski, takich jak pierwszy kilka stron danych ta metoda jest bardzo wydajny. Jednak wskazuje domyślną stronicowania przypominającej wydajności podczas pobierania strony blisko końca.
 
 W tym samouczku implementuje niestandardowych za pomocą stronicowania `ROW_NUMBER()` — słowo kluczowe. Aby uzyskać więcej informacji na temat używania zmiennej tabeli i `SET ROWCOUNT` technika, zobacz [A więcej efektywną metodą stronicowania za pośrednictwem dużych zestawów wyników](http://www.4guysfromrolla.com/webtech/042606-1.shtml).
 
@@ -133,7 +133,7 @@ W tym samouczku implementuje niestandardowych za pomocą stronicowania `ROW_NUMB
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample3.sql)]
 
-`ROW_NUMBER()`Zwraca wartość liczbową określa rangę dla każdego rekordu w odniesieniu do wskazanej kolejności. Na przykład aby wyświetlić pozycję dla każdego produktu, uporządkowanych od najbardziej kosztowne o najmniejszej można Stosujemy następujące zapytanie:
+`ROW_NUMBER()` Zwraca wartość liczbową określa rangę dla każdego rekordu w odniesieniu do wskazanej kolejności. Na przykład aby wyświetlić pozycję dla każdego produktu, uporządkowanych od najbardziej kosztowne o najmniejszej można Stosujemy następujące zapytanie:
 
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample4.sql)]
@@ -147,7 +147,7 @@ Rysunek 5. Pokazuje to zapytanie wyniki s uruchamianych w oknie zapytania w prog
 
 
 > [!NOTE]
-> `ROW_NUMBER()`jest tylko jeden z wielu nowych funkcji klasyfikacji dostępnych w programie SQL Server 2005. Bardziej szczegółowe omówienie `ROW_NUMBER()`, oraz inne funkcje klasyfikacji, przeczytaj [zwracanie wyniki związane z programu Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml).
+> `ROW_NUMBER()` jest tylko jeden z wielu nowych funkcji klasyfikacji dostępnych w programie SQL Server 2005. Bardziej szczegółowe omówienie `ROW_NUMBER()`, oraz inne funkcje klasyfikacji, przeczytaj [zwracanie wyniki związane z programu Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml).
 
 
 Gdy klasyfikacja wyniki według określonego `ORDER BY` kolumny w `OVER` klauzuli (`UnitPrice`, w powyższym przykładzie), programu SQL Server musi sortowania wyników. To jest szybkie działanie, jeśli istnieje indeks klastrowany kolumn na liście wyników jest porządkowana, lub jeśli istnieje pokryciem indeksu, ale może być bardziej kosztowne inaczej. Aby zwiększyć wydajność kwerend wystarczająco duże, należy rozważyć dodanie indeks nieklastrowany za pomocą której wyniki są uporządkowane według kolumny. Zobacz [funkcji klasyfikacji i wydajności w programie SQL Server 2005](http://www.sql-server-performance.com/ak_ranking_functions.asp) dla bardziej szczegółowy widok zagadnienia dotyczące wydajności.
@@ -163,7 +163,7 @@ Rozszerzanie nieco więcej koncepcji, firma Microsoft może korzystać z tej met
 [!code-html[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample6.html)]
 
 > [!NOTE]
-> Jak zostanie wyświetlone później w tym samouczku  *`StartRowIndex`*  dostarczonych przez element ObjectDataSource jest indeksowana zaczynając od zera, podczas gdy `ROW_NUMBER()` wartość zwrócona przez program SQL Server 2005 jest indeksowana, zaczynając od 1. W związku z tym `WHERE` klauzula zwraca te rekordy, gdzie `PriceRank` jest większa niż  *`StartRowIndex`*  i mniejsza niż lub równa  *`StartRowIndex`*   +  *`MaximumRows`*.
+> Jak zostanie wyświetlone później w tym samouczku *`StartRowIndex`* dostarczonych przez element ObjectDataSource jest indeksowana zaczynając od zera, podczas gdy `ROW_NUMBER()` wartość zwrócona przez program SQL Server 2005 jest indeksowana, zaczynając od 1. W związku z tym `WHERE` klauzula zwraca te rekordy, gdzie `PriceRank` jest większa niż *`StartRowIndex`* i mniejsza niż lub równa *`StartRowIndex`*  +  *`MaximumRows`*.
 
 
 Teraz tego możemy kolejnych omówiony sposób `ROW_NUMBER()` mogą być używane do pobierania określonej strony danych podanych wartości Start indeks wiersza i maksymalna liczba wierszy, teraz należy wdrożyć logikę tej metody w DAL i logiki warstwy Biznesowej.
@@ -188,7 +188,7 @@ Po utworzeniu procedury składowanej, Poświęć chwilę, aby przetestować go. 
 
 ![Wprowadź wartość dla @startRowIndex i @maximumRows parametrów](efficiently-paging-through-large-amounts-of-data-vb/_static/image7.png)
 
-**Rysunek 7**: wprowadź wartość dla @startRowIndex i @maximumRows parametrów
+<strong>Rysunek 7</strong>: wprowadź wartość dla @startRowIndex i @maximumRows parametrów
 
 
 Po wybranie tych wprowadzanie wartości parametrów, okno dane wyjściowe będą pokazywały wyniki. Rysunek nr 8 przedstawia wyniki podczas przekazywania na 10 dla obu `@startRowIndex` i `@maximumRows` parametrów.
@@ -276,9 +276,9 @@ Widoku GridView jest Brak, ponieważ element ObjectDataSource aktualnie używa 0
 Aby rozwiązać ten problem, należy skonfigurować element ObjectDataSource do użycia stronicowania niestandardowego. Można to zrobić w poniższych krokach:
 
 1. **Ustaw element ObjectDataSource s `EnablePaging` właściwości `true`**  wskazuje element ObjectDataSource, który musi upłynąć do `SelectMethod` dwóch dodatkowych parametrów: jedna, aby określić indeks wiersza Start ([ `StartRowIndexParameterName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.startrowindexparametername.aspx)) i określ maksymalna liczba wierszy ([`MaximumRowsParameterName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.maximumrowsparametername.aspx)).
-2. **Ustaw ObjectDataSource s `StartRowIndexParameterName` i `MaximumRowsParameterName` odpowiednio do właściwości** `StartRowIndexParameterName` i `MaximumRowsParameterName` właściwości wskazują nazwy parametrów wejściowych przekazany `SelectMethod` celach stronicowania niestandardowego . Domyślnie te nazwy parametru są `startIndexRow` i `maximumRows`, czyli Dlaczego, podczas tworzenia `GetProductsPaged` metody w logiki warstwy Biznesowej, można użyć tych wartości parametrów wejściowych. Jeśli zostanie wybrany różne nazwy parametrów dla s logiki warstwy Biznesowej `GetProductsPaged` metody, takie jak `startIndex` i `maxRows`dla przykładzie trzeba ustawić ObjectDataSource s `StartRowIndexParameterName` i `MaximumRowsParameterName` właściwości odpowiednio (na przykład startIndex dla `StartRowIndexParameterName` i maksymalna liczba wierszy do `MaximumRowsParameterName`).
+2. **Ustaw ObjectDataSource s `StartRowIndexParameterName` i `MaximumRowsParameterName` odpowiednio do właściwości** `StartRowIndexParameterName` i `MaximumRowsParameterName` właściwości wskazują nazwy parametrów wejściowych przekazany `SelectMethod` celach stronicowania niestandardowego. Domyślnie te nazwy parametru są `startIndexRow` i `maximumRows`, czyli Dlaczego, podczas tworzenia `GetProductsPaged` metody w logiki warstwy Biznesowej, można użyć tych wartości parametrów wejściowych. Jeśli zostanie wybrany różne nazwy parametrów dla s logiki warstwy Biznesowej `GetProductsPaged` metody, takie jak `startIndex` i `maxRows`dla przykładzie trzeba ustawić ObjectDataSource s `StartRowIndexParameterName` i `MaximumRowsParameterName` właściwości odpowiednio (na przykład startIndex dla `StartRowIndexParameterName` i maksymalna liczba wierszy do `MaximumRowsParameterName`).
 3. **Ustaw element ObjectDataSource s [ `SelectCountMethod` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selectcountmethod(VS.80).aspx) na nazwę metody, która zwraca łączna liczba z rekordów jest stronicowanej za pośrednictwem (`TotalNumberOfProducts`)** odwołania, który `ProductsBLL` klasy s `TotalNumberOfProducts`metoda zwraca wartość całkowita liczba rekordów jest stronicowana przy użyciu metody DAL, która wykonuje `SELECT COUNT(*) FROM Products` zapytania. Te informacje są potrzebne przez element ObjectDataSource, aby można było poprawnie renderowania interfejsu stronicowania.
-4. **Usuń `startRowIndex` i `maximumRows` `<asp:Parameter>` elementy z s ObjectDataSource deklaratywne znaczników** podczas konfigurowania ObjectDataSource za pomocą kreatora, Visual Studio automatycznie dodane dwa `<asp:Parameter>` elementy dla `GetProductsPaged` metody s parametrów wejściowych. Przez ustawienie `EnablePaging` do `true`, parametry te będą przekazywane automatycznie; jeśli znajdują się również w składni deklaratywnej, ObjectDataSource spróbuje przekazać *cztery* parametry `GetProductsPaged` — metoda i dwa parametry `TotalNumberOfProducts` metody. Jeśli użytkownik zapomni usunąć te `<asp:Parameter>` elementów, podczas odwiedzania strony za pośrednictwem przeglądarki, zostanie wyświetlony komunikat o błędzie, takich jak: *element ObjectDataSource "ObjectDataSource1" nie można znaleźć nieuniwersalnej metody TotalNumberOfProducts, która ma Parametry: startRowIndex, maximumRows*.
+4. **Usuń `startRowIndex` i `maximumRows` `<asp:Parameter>` elementy z s ObjectDataSource deklaratywne znaczników** podczas konfigurowania ObjectDataSource za pomocą kreatora, Visual Studio automatycznie dodane dwa `<asp:Parameter>` elementów dla `GetProductsPaged` metody s parametrów wejściowych. Przez ustawienie `EnablePaging` do `true`, parametry te będą przekazywane automatycznie; jeśli znajdują się również w składni deklaratywnej, ObjectDataSource spróbuje przekazać *cztery* parametry `GetProductsPaged` — metoda i dwa parametry `TotalNumberOfProducts` metody. Jeśli użytkownik zapomni usunąć te `<asp:Parameter>` elementów, podczas odwiedzania strony za pośrednictwem przeglądarki, zostanie wyświetlony komunikat o błędzie, takich jak: *element ObjectDataSource "ObjectDataSource1" nie można znaleźć nieuniwersalnej metody TotalNumberOfProducts, która ma Parametry: startRowIndex, maximumRows*.
 
 Po wprowadzeniu tych zmian, składni deklaratywnej s ObjectDataSource powinna wyglądać następująco:
 
@@ -326,7 +326,7 @@ Jeśli użytkownik włączenie funkcji usuwania w widoku GridView, którego dane
 Podczas usuwania ostatniego produktu widoku GridView *powinien* automatyczne przejście do strony ósmego i takich funkcji wystawiony jest z domyślną stronicowania. Z stronicowania niestandardowego, jednak po usunięciu ostatniego produktu na ostatniej stronie widoku GridView po prostu zniknie z ekranu całkowicie. Dokładne Przyczyna *Dlaczego* dzieje się to nieco wykracza poza zakres tego samouczka; zobacz [usunięcie ostatniego rekordu na ostatniej stronie z Element GridView z właściwością stronicowania niestandardowego](http://scottonwriting.net/sowblog/posts/7326.aspx) dla niskiego poziomu szczegóły dotyczące źródła Ten problem. W podsumowaniu go s z powodu następująca sekwencja kroków, które są wykonywane w widoku GridView po kliknięciu przycisku Usuń:
 
 1. Usuń rekord
-2. Pobierz odpowiednie rekordy do wyświetlenia dla określonego `PageIndex` i`PageSize`
+2. Pobierz odpowiednie rekordy do wyświetlenia dla określonego `PageIndex` i `PageSize`
 3. Sprawdź, upewnij się, że `PageIndex` nie przekracza liczbę stron danych w źródle danych; jeśli ją automatycznie zmniejszyć GridView s `PageIndex` właściwości
 4. Powiązać odpowiedniej strony danych widoku GridView przy użyciu rekordów uzyskanym w kroku 2
 
@@ -377,8 +377,8 @@ Programowanie przyjemność!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Poprzednie](paging-and-sorting-report-data-vb.md)
-[dalej](sorting-custom-paged-data-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](paging-and-sorting-report-data-vb.md)
+> [dalej](sorting-custom-paged-data-vb.md)

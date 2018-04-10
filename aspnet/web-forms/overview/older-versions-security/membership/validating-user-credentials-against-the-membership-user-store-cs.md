@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
-title: "Sprawdzanie poprawności poświadczeń użytkownika z członkostwa w magazynie użytkownika (C#) | Dokumentacja firmy Microsoft"
+title: Sprawdzanie poprawności poświadczeń użytkownika z członkostwa w magazynie użytkownika (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku omówione sprawdzania poprawności poświadczeń użytkownika przed magazynie użytkownika członkostwa przy użyciu zarówno programowy sposób, jak i kontroli logowania..."
+description: W tym samouczku omówione sprawdzania poprawności poświadczeń użytkownika przed magazynie użytkownika członkostwa przy użyciu zarówno programowy sposób, jak i kontroli logowania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8f8f4db63ba8c1f1c1df7c1c5c1f92184bf6841d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 484a0f16265ee2d887ee08f6ae7ada47047f1f04
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-c"></a>Sprawdzanie poprawności poświadczeń użytkownika z członkostwa w magazynie użytkownika (C#)
 ====================
@@ -39,9 +39,9 @@ W tym samouczku omówione sprawdzania poprawności poświadczeń użytkownika pr
 
 Dla witryn sieci web, które korzystają z uwierzytelniania formularzy, użytkownik loguje się do witryny sieci Web odwiedzając stronę logowania i wprowadzić swoje poświadczenia. Te poświadczenia są porównywane ze sklepem użytkownika. Jeśli są one prawidłowe, użytkownik otrzymuje biletu uwierzytelniania formularzy, który jest token zabezpieczający, który wskazuje tożsamości i autentyczności dla obiekt odwiedzający.
 
-Aby zweryfikować użytkownika względem framework członkostwa, użyj `Membership` klasy [ `ValidateUser` metody](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx). `ValidateUser` Metoda przyjmuje dwa parametry wejściowe -  *`username`*  i  *`password`*  - i zwraca wartość logiczną wskazującą, czy poświadczenia są prawidłowe. Jak `CreateUser` możemy się zbadana poprzedniej samouczka — metoda `ValidateUser` metody deleguje rzeczywista weryfikacja do skonfigurowanego dostawcy członkostwa.
+Aby zweryfikować użytkownika względem framework członkostwa, użyj `Membership` klasy [ `ValidateUser` metody](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx). `ValidateUser` Metoda przyjmuje dwa parametry wejściowe - *`username`* i *`password`* - i zwraca wartość logiczną wskazującą, czy poświadczenia są prawidłowe. Jak `CreateUser` możemy się zbadana poprzedniej samouczka — metoda `ValidateUser` metody deleguje rzeczywista weryfikacja do skonfigurowanego dostawcy członkostwa.
 
-`SqlMembershipProvider` Weryfikuje podanych poświadczeń, uzyskując określonego użytkownika hasła za pośrednictwem `aspnet_Membership_GetPasswordWithFormat` procedury składowanej. Odwołania, który `SqlMembershipProvider` przechowuje hasła użytkowników przy użyciu jednej z trzech formatów: wyczyść, szyfrowane lub mieszany. `aspnet_Membership_GetPasswordWithFormat` Procedury składowanej zwraca hasło w jego format raw. Dla zaszyfrowanych lub skrótu hasła `SqlMembershipProvider` przekształca  *`password`*  wartość przekazany `ValidateUser` metody do jego odpowiednik szyfrowane lub mieszany stanu i porównuje ją z zwrócił co Baza danych. Jeśli hasło przechowywane w bazie danych odpowiada sformatowany hasła podanego przez użytkownika, poświadczenia są prawidłowe.
+`SqlMembershipProvider` Weryfikuje podanych poświadczeń, uzyskując określonego użytkownika hasła za pośrednictwem `aspnet_Membership_GetPasswordWithFormat` procedury składowanej. Odwołania, który `SqlMembershipProvider` przechowuje hasła użytkowników przy użyciu jednej z trzech formatów: wyczyść, szyfrowane lub mieszany. `aspnet_Membership_GetPasswordWithFormat` Procedury składowanej zwraca hasło w jego format raw. Dla zaszyfrowanych lub skrótu hasła `SqlMembershipProvider` przekształca *`password`* wartość przekazany `ValidateUser` metody do jego odpowiednik szyfrowane lub mieszany stanu i porównuje ją z zwrócił co Baza danych. Jeśli hasło przechowywane w bazie danych odpowiada sformatowany hasła podanego przez użytkownika, poświadczenia są prawidłowe.
 
 Ta funkcja pozwala zaktualizować naszą stronę logowania (~ /`Login.aspx`), aby sprawdza poprawność dostarczonych poświadczeń z magazynu użytkowników framework członkostwa. Utworzyliśmy tę stronę logowania w <a id="Tutorial02"> </a> [ *omówienie uwierzytelniania formularzy* ](../introduction/an-overview-of-forms-authentication-cs.md) samouczek, Tworzenie interfejsu z dwóch pól tekstowych dla nazwy użytkownika i hasła, Zapamiętaj mnie, pole wyboru, a przycisk logowania (zobacz rysunek 1). Kod weryfikuje wprowadzone poświadczenia z wpisaną na stałe listą par nazwa użytkownika i hasło (Scott/hasło, Jisun/hasło i Sam i hasła). W <a id="Tutorial03"> </a> [ *konfiguracji uwierzytelniania formularzy i Tematy zaawansowane* ](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md) samouczek Zaktualizowaliśmy stronę logowania kod do przechowywania dodatkowych informacji w formularzach bilet uwierzytelnienia `UserData` właściwości.
 
@@ -71,8 +71,8 @@ Jeśli użytkownik osiągnie strony logowania i prześle poświadczeń, przeglą
 
 Aby zapobiec takich ataków siłowych, członkostwo w ramach blokuje użytkownika, jeśli istnieje wiele prób zalogowania się niepowodzeniem w danym okresie czasu. Można skonfigurować za pomocą następujących ustawień konfiguracji dwa dostawcy członkostwa są dokładne parametry:
 
-- `maxInvalidPasswordAttempts`— Określa, ile nieprawidłowe hasło prób są dozwolone dla użytkownika w określonym przedziale czasu przed zablokowaniem konta. Wartość domyślna to 5.
-- `passwordAttemptWindow`-Wskazuje czas w minutach, w których określoną liczbę nieudanych prób logowania spowoduje, że konto zostało zablokowane. Wartość domyślna to 10.
+- `maxInvalidPasswordAttempts` — Określa, ile nieprawidłowe hasło prób są dozwolone dla użytkownika w określonym przedziale czasu przed zablokowaniem konta. Wartość domyślna to 5.
+- `passwordAttemptWindow` -Wskazuje czas w minutach, w których określoną liczbę nieudanych prób logowania spowoduje, że konto zostało zablokowane. Wartość domyślna to 10.
 
 Jeśli zostało zablokowane przez użytkownika, użytkownik nie może zalogować się aż administrator odblokowuje konto. Gdy użytkownik zostaje zablokowane, `ValidateUser` metoda będzie *zawsze* zwracać `false`nawet wtedy, gdy podano poprawnych poświadczeń. Podczas tego zachowania zmniejsza prawdopodobieństwo, że haker spowoduje przerwanie do witryny za pomocą metod siłowych, można zakończyć blokowania limit prawidłowy użytkownik, który zapomniał po prostu swoje hasło lub przypadkowo włączony klawisz Caps Lock na lub napotkał nieprawidłowy dzień pisania.
 
@@ -110,10 +110,10 @@ I skończymy! Po kliknięciu formantu logowania w dzienniku przycisku, nastąpi 
 
 Kontrolka logowania używa czterech czynnikach w celu określenia przekierowania podczas pomyślnego logowania użytkownika do odpowiedniej strony:
 
-- Określa, czy formant logowania jest na stronie logowania, zgodnie z definicją w `loginUrl` jest wartość domyślna tego ustawienia w konfiguracji uwierzytelniania formularzy.`Login.aspx`
+- Określa, czy formant logowania jest na stronie logowania, zgodnie z definicją w `loginUrl` jest wartość domyślna tego ustawienia w konfiguracji uwierzytelniania formularzy. `Login.aspx`
 - Obecność `ReturnUrl` parametr querystring
 - Wartość formantu logowania [ `DestinationUrl` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
-- `defaultUrl` Wartość określona w formularzach Ustawienia konfiguracji uwierzytelniania; wartość domyślna to ustawienie jest`Default.aspx`
+- `defaultUrl` Wartość określona w formularzach Ustawienia konfiguracji uwierzytelniania; wartość domyślna to ustawienie jest `Default.aspx`
 
 Rysunek 4 przedstawia sposób formantu logowania korzysta z tych czterech parametrów na decyzję odpowiedniej strony.
 
@@ -230,7 +230,7 @@ Jak widać, `Authenticate` program obsługi zdarzeń jest przekazywany obiekt ty
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>Określanie i sprawdzanie poprawności podanych poświadczeń
 
-Użyj formantu logowania [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) i [ `Password` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) można określić nazwę użytkownika i hasło poświadczeń wprowadzonych przez użytkownika. Aby było możliwe określenie wartości wprowadzone do wszelkich dodatkowych formantów sieci Web (takie jak `Email` pole tekstowe dodaliśmy w poprzednim kroku), użyj  *`LoginControlID`*  `.FindControl`(" *`controlID`* ") można uzyskać programowy odwołanie do formantu sieci Web w szablonie którego `ID` właściwości jest równa  *`controlID`* . Na przykład, aby pobrać odwołanie do `Email` pola tekstowego, użyj następującego kodu:
+Użyj formantu logowania [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) i [ `Password` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) można określić nazwę użytkownika i hasło poświadczeń wprowadzonych przez użytkownika. Aby było możliwe określenie wartości wprowadzone do wszelkich dodatkowych formantów sieci Web (takie jak `Email` pole tekstowe dodaliśmy w poprzednim kroku), użyj *`LoginControlID`* `.FindControl`("*`controlID`*") można uzyskać programowy odwołanie do formantu sieci Web w szablonie którego `ID` właściwości jest równa *`controlID`*. Na przykład, aby pobrać odwołanie do `Email` pola tekstowego, użyj następującego kodu:
 
 `TextBox EmailTextBox = myLogin.FindControl("Email") as TextBox;`
 
@@ -310,12 +310,12 @@ Więcej informacji dotyczących tematów omówionych w tym samouczku można znal
 
 ### <a name="about-the-author"></a>Informacje o autorze
 
-Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Bento, Utwórz wiele książek ASP/ASP.NET i twórcę 4GuysFromRolla.com, pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki  *[Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott jest osiągalny w [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) lub za pośrednictwem jego blogu w [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
 Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Teresa Murphy i Michael Olivero. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Poprzednie](creating-user-accounts-cs.md)
-[dalej](user-based-authorization-cs.md)
+> [!div class="step-by-step"]
+> [Poprzednie](creating-user-accounts-cs.md)
+> [dalej](user-based-authorization-cs.md)

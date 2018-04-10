@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
-title: "ASP.NET MVC widoków — omówienie (VB) | Dokumentacja firmy Microsoft"
+title: ASP.NET MVC widoków — omówienie (VB) | Dokumentacja firmy Microsoft
 author: StephenWalther
-description: "Co to jest widok ASP.NET MVC i jak go różni się od strony HTML? W tym samouczku Stephen Walther stanowi wprowadzenie do widoków i pokazuje, jak można t..."
+description: Co to jest widok ASP.NET MVC i jak go różni się od strony HTML? W tym samouczku Stephen Walther stanowi wprowadzenie do widoków i pokazuje, jak można t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c85b969aa4457d0326b4a16da218db9e11d01e10
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a64c70851d13b923964dfd1cf3bad55612ae0d0f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-views-overview-vb"></a>ASP.NET MVC, widoki (VB) — omówienie
 ====================
@@ -84,7 +84,7 @@ Na przykład widok wyświetlania 2 Wyświetla bieżącą datę i godzinę.
 
 Zwróć uwagę, że strony HTML w wyświetlania 2 zawiera następujący skrypt:
 
-&lt;% Response.Write(DateTime.Now) %&gt;
+&lt;% Response.Write(DateTime.Now)%&gt;
 
 Użyj ograniczników skryptu &lt;% i %&gt; aby oznaczyć początek i koniec skryptu. Ten skrypt jest napisany w języku Visual basic. Wyświetla bieżącą datę i godzinę, wywołując metodę metody Response.Write() do renderowania zawartości w przeglądarce. Ograniczniki skryptu &lt;% i %&gt; może służyć do wykonywania instrukcji jeden lub więcej.
 
@@ -152,6 +152,6 @@ Istnieje również opcja przekazywania danych silnie typizowanego widoku z kontr
 
 W tym samouczku podać krótkie wprowadzenie do platformy ASP.NET MVC widoków danych widoku i pomocników HTML. W pierwszej sekcji przedstawiono sposób dodawania nowych widoków do projektu. Wiesz, że należy dodać widok do prawidłowego folderu celu wywołania go z danego kontrolera. Następnie Rozmawialiśmy temat pomocników HTML. Przedstawiono sposób pomocników HTML umożliwiają łatwe generowanie standardowe zawartość HTML. Ponadto przedstawiono sposób korzystać z danych widoku do przekazywania danych z kontrolera do widoku.
 
->[!div class="step-by-step"]
-[Poprzednie](passing-data-to-view-master-pages-cs.md)
-[dalej](creating-custom-html-helpers-vb.md)
+> [!div class="step-by-step"]
+> [Poprzednie](passing-data-to-view-master-pages-cs.md)
+> [dalej](creating-custom-html-helpers-vb.md)
