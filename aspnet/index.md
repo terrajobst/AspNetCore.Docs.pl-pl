@@ -3,12 +3,12 @@ uid: index
 layout: HubPage
 ms.topic: hub-page
 title: Dokumentacja platformy ASP.NET | Microsoft Docs
-description: 
-ms.openlocfilehash: 4ab928b65bc91a24d02cd0450e143cd6bd3b639b
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+description: ''
+ms.openlocfilehash: cc887183fba9d3c46fbb1068d13d612a3e1806e6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/08/2018
                             <li>
                                 <div class="container intro">
                                     <p>Platforma ASP.NET Core to nowa międzyplatformowa struktura .NET typu open source służąca do tworzenia nowoczesnych, opartych na chmurze aplikacji internetowych w systemie Windows, Mac lub Linux.</p>
-                                    <p>[Poznaj zalety platform ASP.NET Core i ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework) i wybierz odpowiednią dla siebie.</p>
+                                    <p><a href="https://docs.microsoft.com/aspnet/core/choose-aspnet-framework" data-raw-source="[Learn the benefits of both ASP.NET Core and ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)">Poznaj zalety platform ASP.NET Core oraz ASP.NET</a> i wybierz odpowiednią dla siebie.</p>
                                 </div>
                             </li>
                             <li>
@@ -153,7 +153,7 @@ ms.lasthandoff: 03/08/2018
                         <ul id="core_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
-                                    <p>Polecane samouczki | [Wyświetl wszystkie samouczki platformy ASP.NET Core](https://docs.microsoft.com/aspnet/core/tutorials/)</p>
+                                    <p>Polecane samouczki | <a href="https://docs.microsoft.com/aspnet/core/tutorials/" data-raw-source="[View all ASP.NET Core tutorials](https://docs.microsoft.com/aspnet/core/tutorials/)">Wyświetl wszystkie samouczki platformy ASP.NET Core</a></p>
                                 </div>
                             </li>
                             <li>
@@ -291,7 +291,7 @@ ms.lasthandoff: 03/08/2018
                             <li>
                                 <div class="container intro">
                                     <p>ASP.NET to dojrzała platforma internetowa, która zapewnia wszystkie usługi potrzebne do tworzenia opartych na serwerze internetowym aplikacji klasy korporacyjnej przy użyciu platformy .NET w systemie Windows.</p>
-                                    <p>[Poznaj zalety platform ASP.NET Core i ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework) i wybierz odpowiednią dla siebie.</p>
+                                    <p><a href="https://docs.microsoft.com/aspnet/core/choose-aspnet-framework" data-raw-source="[Learn the benefits of both ASP.NET Core and ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)">Poznaj zalety platform ASP.NET Core oraz ASP.NET</a> i wybierz odpowiednią dla siebie.</p>
                                 </div>
                             </li>
                             <li>
@@ -568,7 +568,7 @@ ms.lasthandoff: 03/08/2018
                         <ul id="aspnet_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
-                                    <p>Polecane samouczki | [Wyświetl wszystkie samouczki platformy ASP.NET](https://docs.microsoft.com/aspnet/tutorials/)</p>
+                                    <p>Polecane samouczki | <a href="https://docs.microsoft.com/aspnet/tutorials/" data-raw-source="[View all ASP.NET tutorials](https://docs.microsoft.com/aspnet/tutorials/)">Wyświetl wszystkie samouczki platformy ASP.NET</a></p>
                                 </div>
                             </li>
                             <li>
