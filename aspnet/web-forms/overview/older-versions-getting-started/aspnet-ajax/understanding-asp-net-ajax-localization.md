@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
-title: Opis lokalizacji AJAX ASP.NET | Dokumentacja firmy Microsoft
+title: Understanding ASP.NET AJAX Localization | Microsoft Docs
 author: scottcate
 description: Lokalizacja jest proces projektowania i włączenie obsługi języka i kultury do aplikacji lub składnika aplikacji. Mikrofon...
 ms.author: aspnetcontent
@@ -16,9 +16,9 @@ ms.openlocfilehash: 565b0294f57b784bc592b286b3d8b28504110415
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
-<a name="understanding-aspnet-ajax-localization"></a>Opis lokalizacji AJAX ASP.NET
+<a name="understanding-aspnet-ajax-localization"></a>Understanding ASP.NET AJAX Localization
 ====================
 przez [Scott kategorii](https://github.com/scottcate)
 

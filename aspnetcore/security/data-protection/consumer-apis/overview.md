@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/overview
 ms.openlocfilehash: 5d161ed8fbc39bcf4a970644480b4e909810b555
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="consumer-apis-overview-for-aspnet-core"></a>Omówienie interfejsów API klienta dla platformy ASP.NET Core
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/22/2018
 
 Interfejs dostawcy reprezentuje katalog główny systemu ochrony danych. Nie można go bezpośrednio służyć do Włączanie lub wyłączanie ochrony danych. Zamiast tego klient musi pobrać odwołanie do `IDataProtector` przez wywołanie metody `IDataProtectionProvider.CreateProtector(purpose)`, której celem jest ciąg, który opisuje zamierzone konsumenta przypadek użycia. Zobacz [ciągów w celu](xref:security/data-protection/consumer-apis/purpose-strings) znacznie więcej informacji na celem tego parametru i jak wybrać odpowiednią wartość.
 
-## <a name="idataprotector"></a>Interfejsu IDataProtector
+## <a name="idataprotector"></a>IDataProtector
 
 Interfejs ochrony jest zwracany przez wywołanie do `CreateProtector`, a jego użytkowników można używać do wykonywania tego interfejsu ustawiania i usuwania ochrony operacji.
 

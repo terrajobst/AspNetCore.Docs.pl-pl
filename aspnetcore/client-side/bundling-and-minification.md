@@ -15,7 +15,7 @@ ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Pakiet i minifiy zasoby statyczne platformy ASP.NET Core
 
@@ -82,8 +82,8 @@ Opcje konfiguracji obejmują:
 * `minify`: Minimalizację opcje dla typu danych wyjściowych. **opcjonalne**, *domyślnie — `minify: { enabled: true }`*
   * Opcje konfiguracji są dostępne na typ pliku wyjściowego.
     * [Element minimalizujący CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
-    * [Element minimalizujący JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
-    * [Element minimalizujący HTML](https://github.com/madskristensen/BundlerMinifier/wiki)
+    * [JavaScript Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
+    * [HTML Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
 * `includeInProject`: Flaga oznaczająca, czy dodać pliki wygenerowane do pliku projektu. **opcjonalne**, *domyślne — FAŁSZ.*
 * `sourceMap`: Flaga oznaczająca, czy można wygenerować mapy źródła dla pliku powiązane. **opcjonalne**, *domyślne — FAŁSZ.*
 * `sourceMapRootPath`Ścieżka katalogu głównego do przechowywania pliku mapy wygenerowanego źródła.

@@ -16,7 +16,7 @@ ms.openlocfilehash: 9a0d476ffaf1f176c21b245520fa943f66e8c0d5
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="user-based-authorization-c"></a>Autoryzacji opartej na użytkownika (C#)
 ====================
@@ -397,7 +397,7 @@ Programowanie przyjemność!
 Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
 - [Dodawanie reguły autoryzacji do działalności biznesowej i warstwy danych przy użyciu `PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
-- [Autoryzacja w programie ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx)
+- [ASP.NET Authorization](https://msdn.microsoft.com/library/wce3kxhd.aspx)
 - [Zmiany między IIS6 i zabezpieczeń IIS7](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
 - [Konfigurowanie konkretne pliki i podkatalogi](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
 - [Ograniczenia funkcji modyfikacji danych oparte na użytkownika](../../data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs.md)

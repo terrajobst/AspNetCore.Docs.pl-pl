@@ -16,7 +16,7 @@ ms.openlocfilehash: 0bfe9cdc215226457ccfafff2b85ace87325b91b
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2018
 - [Dokumentacja](#documentation)
 - [Obsługa](#support)
 - [Uaktualnianie projektów programu ASP.NET MVC 2 do platformy ASP.NET MVC 3 narzędzia aktualizacji](#upgrading)
-- [ASP.NET MVC 3 narzędzia aktualizacji (12 kwietnia 2011)](#tu-changes)
+- [ASP.NET MVC 3 Tools Update (April 12, 2011)](#tu-changes)
 
     - [Okno dialogowe "Dodaj kontroler" można teraz utworzyć szkielet kontrolerów z kodem dostępu do widoków i danych](#tu-AddControllerDialog)
     - [Ulepszenia "platformy ASP.NET MVC 3 nowego projektu" — okno dialogowe](#tu-ImprovementsNewDialogBox)
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/06/2018
     - [Szablony projektów zawierają teraz ADO.NET Entity Framework 4.1 jako wstępnie zainstalowany pakiet NuGet](#tu-EF)
     - [Szablony projektu obejmują bibliotek JavaScript jako wstępnie zainstalowane pakiety NuGet](#tu-JavaScriptLibsNuget)
     - [Znane problemy](#tu-KI)
-- [RTM programu ASP.NET MVC 3 (13 stycznia 2011)](#MVC3RTM)
+- [ASP.NET MVC 3 RTM (January 13, 2011)](#MVC3RTM)
 
     - [Zmień: Zaktualizowana wersja interfejsu użytkownika jQuery do 1.8.7](#RTM-1)
     - [Zmień: Zmieniono domyślny ModelMetadataProvider z powrotem do DataAnnotationsModelMetadataProvider](#RTM-2)
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/06/2018
     - [Stałym: Zmiana nazwy pliku Razor, który jest otwarty w edytorze wyłącza kolorowanie składni i IntelliSense](#RTM-4)
     - [Znane problemy](#RTM-KI)
     - [Fundamentalne zmiany](#RTM-BC)
-- [Program ASP.NET MVC 3 Release Candidate 2 (10 grudnia 2010)](#_Toc2)
+- [ASP.NET MVC 3 Release Candidate 2 (December 10, 2010)](#_Toc2)
 
     - [Zmieniać szablonów projektu o jQuery 1.4.4, 1.7 weryfikacji jQuery i jQuery 1.8.6y interfejsu użytkownika 1.8.6 interfejsu użytkownika](#_Toc2_1)
     - [Klasa dodano "AdditionalMetadataAttribute"](#_Toc2_2)
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/06/2018
     - [Metody stałej "RenderAction" pierwszeństwo jawne wartości podczas tworzenia powiązania modelu](#_Toc2_12)
     - [Fundamentalne zmiany](#_Toc2_BC)
     - [Znane problemy](#_Toc2_KI)
-- [Program ASP.NET MVC 3 Release Candidate (9 lis 2010)](#TOC_ASP_NET_3_RC)
+- [ASP.NET MVC 3 Release Candidate (Nov 9, 2010)](#TOC_ASP_NET_3_RC)
 
     - [Nowe funkcje w wersji platformy ASP.NET MVC 3 RC](#_Toc276711785)
     - [NuGet Package Manager](#_Toc276711786)
@@ -99,9 +99,9 @@ ms.lasthandoff: 04/06/2018
 Ten dokument zawiera opis wersji RTM programu ASP.NET MVC 3 dla programu Visual Studio 2010. ASP.NET MVC to platforma do tworzenia aplikacji sieci Web, która korzysta ze wzorca Model-widok-kontroler (MVC). Instalator programu ASP.NET MVC 3 obejmuje następujące składniki:
 
 - Składniki wykonawcze platformy ASP.NET MVC 3
-- Narzędzia platformy ASP.NET MVC 3 programu Visual Studio 2010
+- ASP.NET MVC 3 Visual Studio 2010 tools
 - Składniki wykonawcze stron sieci Web ASP.NET
-- Narzędzia Visual Studio 2010 stron sieci Web ASP.NET
+- ASP.NET Web Pages Visual Studio 2010 tools
 - Menedżer pakietów dla platformy .NET (NuGet)
 - Aktualizacja dla programu Visual Studio 2010, który umożliwia obsługę składni Razor. (Aby uzyskać więcej informacji, zobacz artykuł bazy wiedzy 2483190).
 
@@ -164,7 +164,7 @@ Aby ręcznie uaktualnić istniejącą aplikację ASP.NET MVC 2 do wersji 3, wyko
 
     - /Views/Web.config
     - /packages.config
-    - /scripts/\*js
+    - /scripts/\*.js
     - /Zawartości/motywów/\*.\*
 3. Kopiuj *pakiety* folderu w folderze głównym puste rozwiązanie projektu programu ASP.NET MVC 3, w folderze głównym Twojego rozwiązania, które znajduje się w katalogu, w którym znajduje się plik .sln rozwiązania.
 4. Jeśli projekt platformy ASP.NET MVC 2 zawiera obszary, skopiować plik /Views/Web.config *widoków* folderu każdego obszaru.
@@ -178,8 +178,8 @@ Aby ręcznie uaktualnić istniejącą aplikację ASP.NET MVC 2 do wersji 3, wyko
 6. W Eksploratorze rozwiązań, Usuń odwołanie do *System.Web.Mvc* (który wskazuje plik DLL, z wersji 2), a następnie dodaj odwołanie do *System.Web.Mvc* (v3.0.0.0).
 7. Dodaj odwołanie do System.Web.WebPages.dll i System.Web.Helpers.dll. Te zestawy znajdują się w następujących folderach: 
 
-    - %ProgramFiles%\ 3\Assemblies MVC ASP.NET\ASP.NET firmy Microsoft
-    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET Pages\v1.0\Assemblies sieci Web
+    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET MVC 3\Assemblies
+    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET Web Pages\v1.0\Assemblies
 8. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu i wybierz Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę projektu i wybierz polecenie Edytuj *ProjectName*.csproj.
 9. Zlokalizuj *ProjectTypeGuids* elementu i zastępowanie {F85E285D-A4E0-4152-9332-AB1D724D3325} z {E53F8FEA-EAE0-44A6-8774-FFD645390401}.
 10. Zapisać zmiany, kliknij prawym przyciskiem myszy projekt i wybierz pozycję Załaduj ponownie projekt.
@@ -191,9 +191,9 @@ Aby ręcznie uaktualnić istniejącą aplikację ASP.NET MVC 2 do wersji 3, wyko
     [!code-xml[Main](mvc3-release-notes/samples/sample4.xml)]
 
 <a id="tu-changes"></a>
-## <a name="changes-in-aspnet-mvc-3-tools-update"></a>Zmiany w programie ASP.NET MVC 3 narzędzia aktualizacji
+## <a name="changes-in-aspnet-mvc-3-tools-update"></a>Changes in ASP.NET MVC 3 Tools Update
 
-W tej sekcji opisano zmiany wprowadzone w wersji aktualizacji narzędzi programu ASP.NET MVC 3 od wersji RTM programu ASP.NET MVC 3.
+This section describes changes made in the ASP.NET MVC 3 Tools Update release since the ASP.NET MVC 3 RTM release.
 
 <a id="tu-AddControllerDialog"></a>
 ### <a name="add-controller-dialog-box-can-now-scaffold-controllers-with-views-and-data-access-code"></a>Okno dialogowe "Dodaj kontroler" można teraz utworzyć szkielet kontrolerów z kodem dostępu do widoków i danych
@@ -481,7 +481,7 @@ W starszych wersjach, jawne wartości, które zostały przekazane do *RenderActi
 - Instalowanie platformy ASP.NET MVC 3 RC 2 nie powoduje aktualizacji NuGet, jeśli masz już zainstalowany. Aby uaktualnić program NuGet, przejdź do Menedżera rozszerzenia usługi Visual Studio i powinny być widoczne jako dostępna aktualizacja. Można uaktualnić narzędzie NuGet do najnowszej wersji z tego miejsca.
 
 <a id="TOC_ASP_NET_3_RC"></a>
-## <a name="aspnet-mvc-3-release-candidate"></a>Program ASP.NET MVC 3 Release Candidate
+## <a name="aspnet-mvc-3-release-candidate"></a>ASP.NET MVC 3 Release Candidate
 
 ASP.NET MVC w wersji Release Candidate 9 listopada 2010 został wydany.
 
@@ -491,7 +491,7 @@ ASP.NET MVC w wersji Release Candidate 9 listopada 2010 został wydany.
 W tej sekcji opisano funkcje, które zostały wprowadzone w wersji platformy ASP.NET MVC 3 RC od czasu wydania Beta.
 
 <a id="_Toc276711786"></a>
-### <a name="nuget-package-manager"></a>NuGet Package Manager
+### <a name="nuget-package-manager"></a>Menedżer pakietów NuGet
 
 Platforma ASP.NET MVC 3 zawiera Menedżera pakietów NuGet (wcześniej znane jako NuPack), który jest zintegrowany pakiet narzędzia do zarządzania dodawania biblioteki i narzędzia do projektów programu Visual Studio. To narzędzie automatyzuje czynności, które deweloperzy obecnie wykonać próba pobrania biblioteki do drzewa ich źródła.
 
@@ -581,7 +581,7 @@ ClassName (przestrzeń nazw)
 
 We wcześniejszych wersjach to czy zostały wyświetlone następujące parametry:
 
-Namespace.ClassName
+ObszarNazw.NazwaKlasy
 
 <a id="_Toc276711793"></a>
 ### <a name="granular-request-validation"></a>Sprawdzanie poprawności żądań szczegółowego

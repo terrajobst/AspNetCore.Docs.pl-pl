@@ -16,7 +16,7 @@ ms.openlocfilehash: 977a6b5a84825ebd087752dcc2ebc0c5410e1657
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>Co to jest nowe w programie ASP.NET MVC 4
 
@@ -78,7 +78,7 @@ Jeśli nie masz doświadczenia z wstawki programu Visual Studio i chcesz dowiedz
 
 To laboratorium praktycznego obejmuje następujących czynnościach:
 
-1. [Nowe szablony projektów programu ASP.NET MVC 4](#Exercise1)
+1. [New ASP.NET MVC 4 Project Templates](#Exercise1)
 2. [Tworzenie aplikacji sieci Web galerii fotografii](#Exercise2)
 3. [Dodawanie obsługi urządzeń przenośnych](#Exercise3)
 4. [Za pomocą kontrolerów asynchroniczne](#Exercise4)
@@ -144,7 +144,7 @@ W tym ćwiczeniu zostanie Poznaj ulepszenia w szablonach projektu programu ASP.N
 
     ![Sprawdzanie poprawności jQuery](whats-new-in-aspnet-mvc-4/_static/image6.png)
 
-    *Sprawdzanie poprawności jQuery*
+    *jQuery Validation*
 
     > [!NOTE]
     > Powiadomienie, że dwa Zaloguj się w sekcji, w pierwszej sekcji można zalogować się przy użyciu konta SuperScript z lokacji i w drugiej sekcji można altenativelly logowanie się za pomocą innej usługi uwierzytelniania, takich jak google (domyślnie wyłączone).
@@ -175,9 +175,9 @@ W tym ćwiczeniu zostanie Poznaj ulepszenia w szablonach projektu programu ASP.N
 13. Zamknij przeglądarkę, aby zatrzymać debuger i powrócić do programu Visual Studio.
 14. Teraz Poznaj rozwiązania do wyewidencjonowania niektórych innych nowych funkcji wprowadzonych przez program ASP.NET MVC 4 w szablonie projektu.
 
-   ![Szablon projektu aplikacji internetowych platformy ASP.NET MVC 4](whats-new-in-aspnet-mvc-4/_static/image9.png "szablonu projektu aplikacji internetowych platformy ASP.NET MVC 4")
+   ![The ASP.NET MVC 4 Internet Application Project Template](whats-new-in-aspnet-mvc-4/_static/image9.png "The ASP.NET MVC 4 Internet Application Project Template")
 
-   *Szablon projektu aplikacji internetowych platformy ASP.NET MVC 4*
+   *The ASP.NET MVC 4 Internet Application Project Template*
 
    - **HTML 5 znaczników**
 
@@ -700,7 +700,7 @@ Tego ćwiczenia przedstawiono podstawowe operację asynchroniczną na platformie
 ~~~
 7. Zmień kod, aby kontynuować z implementacją asynchroniczne przez zamianę wiersze nowy kod w sposób przedstawiony poniżej
 
-    (Fragment - kodu *platformy ASP.NET MVC 4 laboratorium - Ex04 - ReadAsStringAsync*)
+    (Code Snippet - *ASP.NET MVC 4 Lab - Ex04 - ReadAsStringAsync*)
 
 
 ~~~

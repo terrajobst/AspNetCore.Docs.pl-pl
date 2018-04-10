@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
-title: Wprowadzenie do platformy ASP.NET MVC | Dokumentacja firmy Microsoft
+title: Intro to ASP.NET MVC | Microsoft Docs
 author: shanselman
 description: Jest to samouczek początkujących przedstawiający podstawowe informacje o platformie ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych.
 ms.author: aspnetcontent
@@ -16,7 +16,7 @@ ms.openlocfilehash: 476d832e389b9b5a26fe2d552ca648c79b100056
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="intro-to-aspnet-mvc"></a>Wprowadzenie do platformy ASP.NET MVC
 ====================

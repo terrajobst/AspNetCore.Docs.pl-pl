@@ -16,7 +16,7 @@ ms.openlocfilehash: 7b3130ca7d36ffec457e1871fa62c1077b5e3174
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Konfigurowanie serwera kompilacji TFS do wdrożenia sieci Web
 ====================
@@ -72,7 +72,7 @@ Aby włączyć serwer kompilacji do tworzenia rozwiązań, należy zainstalować
 
 Najlepszym sposobem instalowania wspólnych składników platformy sieci web jest użycie [Instalatora platformy sieci Web](https://go.microsoft.com/?linkid=9805118). Dzięki temu, że użytkownik instaluje najnowszą wersję każdego produktu, a także automatycznie wykrywa i instaluje wszystkie wymagania wstępne dla każdego produktu. W przypadku liczby [kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) rozwiązanie, należy używać Instalatora platformy sieci Web do zainstalowania tych produktów i składników:
 
-- **.NET framework 4.0**. Jest to wymagane do uruchamiania aplikacji, które zostały utworzone w tej wersji programu .NET Framework.
+- **.NET Framework 4.0**. Jest to wymagane do uruchamiania aplikacji, które zostały utworzone w tej wersji programu .NET Framework.
 - **Narzędzia Deployment Tool w wersji 2.1 lub nowszej w sieci Web**. Spowoduje to zainstalowanie narzędzia Web Deploy (i jego podstawowy plik wykonywalny MSDeploy.exe) na serwerze. W ramach tego procesu instaluje i uruchamia usługę sieci Web wdrażania agenta. Usługa ta umożliwia wdrażanie pakietów sieci web z komputera zdalnego.
 - **ASP.NET MVC 3**. Spowoduje to zainstalowanie zestawów potrzebne do uruchamiania aplikacji ASP.NET MVC 3.
 

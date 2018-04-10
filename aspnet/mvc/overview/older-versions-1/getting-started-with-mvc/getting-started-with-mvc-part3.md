@@ -16,7 +16,7 @@ ms.openlocfilehash: 978d7980274c072ed559b54ed69ab86245b6c5a7
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="adding-a-view"></a>Dodawanie widoku
 ====================
@@ -77,7 +77,7 @@ Oto Site.Master w całości z naszych zmieniono tytuł:
 
 Teraz Zmieńmy tytuł strony indeksu.
 
-Otwórz /HelloWorld/Index.aspx. Brak dwóch miejscach, aby zmienić. Po pierwsze tytuł wyświetlany w tytule przeglądarki, a następnie dodatkowej nagłówku -, który jest również H2 —. Będzie wprowadzić je nieco inne pozwala zobaczyć, które fragmentem kodu zmienia której części aplikacji
+Open /HelloWorld/Index.aspx. Brak dwóch miejscach, aby zmienić. Po pierwsze tytuł wyświetlany w tytule przeglądarki, a następnie dodatkowej nagłówku -, który jest również H2 —. Będzie wprowadzić je nieco inne pozwala zobaczyć, które fragmentem kodu zmienia której części aplikacji
 
 [!code-aspx[Main](getting-started-with-mvc-part3/samples/sample7.aspx)]
 

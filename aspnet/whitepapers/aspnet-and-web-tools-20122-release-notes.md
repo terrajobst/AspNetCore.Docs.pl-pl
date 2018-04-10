@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/aspnet-and-web-tools-20122-release-notes
-title: "ASP.NET i sieć Web narzędzi 2012.2 informacje o wersji | Dokumentacja firmy Microsoft"
+title: ASP.NET i sieć Web narzędzi 2012.2 informacje o wersji | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Informacje o wersji programu ASP.NET i 2012.2 narzędzia sieci Web."
+description: Informacje o wersji programu ASP.NET i 2012.2 narzędzia sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/14/2013
 ms.topic: article
 ms.assetid: bdb18d02-9f61-4676-836d-6fdea94f9282
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-and-web-tools-20122-release-notes
 msc.type: content
 ms.openlocfilehash: 52559a47f86e572f873d4eaaab50e87eb51722fd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>Informacje o wersji platformy ASP.NET i narzędzia sieci Web 2012.2
 ====================
@@ -31,11 +31,11 @@ ms.lasthandoff: 01/24/2018
 
     - [Narzędzia](#_Tooling)
     - [Publikowanie w sieci Web](#_Web_Publishing)
-    - [Szablony ASP.NET MVC](#_Templates)
+    - [ASP.NET MVC Templates](#_Templates)
     - [ASP.NET Web API](#_ASP.NET_Web_API)
 
-    - [Biblioteka SignalR platformy ASP.NET](#_ASP.NET_SignalR)
-    - [ASP.NET, przyjazne adresy URL](#_ASP.NET_Friendly_URLs)
+    - [ASP.NET SignalR](#_ASP.NET_SignalR)
+    - [ASP.NET Friendly URLs](#_ASP.NET_Friendly_URLs)
 - [Znane problemy i fundamentalne zmiany](#_Known_Issues_and)
 
 <a id="_Installation"></a>
@@ -53,12 +53,12 @@ Możesz także zainstalować ASP.NET i 2012.2 narzędzia sieci Web ręcznie. Mus
 5. Gdy zostanie wyświetlony monit o kliknij polecenie Uruchom. Można także zapisać plik później uruchomić.
 
 > [!NOTE]
-> Wersja platformy ASP.NET i 2012.2 narzędzia sieci Web nie ma programu SQL Server Data Tools. SQL Server i bazy danych SQL Azure z systemem Windows zapewnia bogaty zestaw narzędzi, w tym tworzenia kopii projektu w trybie offline, porównanie schematu i możliwości wdrożenia rozszerzonego bazy danych w bazie danych. Aby uzyskać więcej informacji lub zainstalować program SQL Server Data Tools odwiedź [https://go.microsoft.com/fwlink/?LinkID=237127](https://go.microsoft.com/fwlink/?LinkID=237127).
+> Wersja platformy ASP.NET i 2012.2 narzędzia sieci Web nie ma programu SQL Server Data Tools. SQL Server i bazy danych SQL Azure z systemem Windows zapewnia bogaty zestaw narzędzi, w tym tworzenia kopii projektu w trybie offline, porównanie schematu i możliwości wdrożenia rozszerzonego bazy danych w bazie danych. Aby uzyskać więcej informacji lub zainstalować program SQL Server Data Tools odwiedź [ https://go.microsoft.com/fwlink/?LinkID=237127 ](https://go.microsoft.com/fwlink/?LinkID=237127).
 
 <a id="_Documentation"></a>
 ## <a name="documentation"></a>Dokumentacja
 
-Samouczki i inne informacje dotyczące platformy ASP.NET i 2012.2 narzędzia sieci Web są dostępne w witrynie sieci web platformy ASP.NET (https://www.asp.net).
+Samouczki i inne informacje dotyczące platformy ASP.NET i 2012.2 narzędzia sieci Web są dostępne w witrynie sieci web platformy ASP.NET ( https://www.asp.net).
 
 <a id="_Support"></a>
 ## <a name="support"></a>Obsługa
@@ -95,7 +95,7 @@ W tej sekcji opisano funkcje, które zostały wprowadzone w wersji platformy ASP
 ### <a name="web-publishing"></a>Publikowanie w sieci Web
 
 - Projekt witryny sieci Web ma teraz tego samego środowiska publikowania jako projektów aplikacji sieci Web, w tym publikowanie do systemu Windows Azure Web Sites.
-- Publikowanie selektywne &#8211; dla co najmniej jednego pliku (po opublikowaniu do punktu końcowego narzędzia Web Deploy) można wykonywać następujące czynności: 
+- Publikowanie selektywne &#8211; dla jednego lub więcej plików (po opublikowaniu do punktu końcowego narzędzia Web Deploy) można wykonać następujące akcje: 
 
     - Opublikuj wybrane pliki.
     - Widocznej różnicy między pliku lokalnego i zdalnego pliku.
@@ -104,10 +104,10 @@ W tej sekcji opisano funkcje, które zostały wprowadzone w wersji platformy ASP
 <a id="_Templates"></a>
 ### <a name="aspnet-mvc-templates"></a>Szablony ASP.NET MVC
 
-- Nowy szablon aplikacji usługi Facebook sprawia, że pisanie łatwe aplikacji usługi Facebook. W kilku prostych krokach można utworzyć aplikacji usługi Facebook, która pobiera dane od zalogowanego użytkownika i integruje się z jego znajomymi. Szablon zawiera nową bibliotekę automatyzującą wszystkie żmudne procesy związanie z tworzeniem aplikacji usługi Facebook, łącznie z uwierzytelnianiem, uprawnieniami i uzyskiwania dostępu do danych usługi Facebook. Aby uzyskać więcej informacji na temat przy użyciu szablonu aplikacji usługi Facebook zobacz [https://go.microsoft.com/fwlink/?LinkID=269921](https://go.microsoft.com/fwlink/?LinkID=269921).
-- Nowy szablon jednej aplikacji jednostronicowej platformy MVC umożliwia deweloperom tworzenie aplikacji sieci web po stronie klienta interactive przy użyciu HTML 5, CSS 3 oraz popularnych Knockout i jQuery JavaScript bibliotek interfejsu API sieci Web platformy ASP.NET. Szablon zawiera aplikację do listy "todo", której przedstawiono typowe rozwiązania do tworzenia aplikacji JavaScript HTML5 korzystającej z interfejsu API serwera REST. Więcej w [https://www.asp.net/single-page-application](../single-page-application/index.md).
-- Można teraz utworzyć VSIX, który dodaje nowe szablony do okna dialogowego Nowy projekt programu ASP.NET MVC. Dowiedz się jak tutaj: [https://go.microsoft.com/fwlink/?LinkId=275019](https://go.microsoft.com/fwlink/?LinkId=275019)
-- Pakiet FixedDisplayModes &#8211; Aby dołączyć nowy pakiet NuGet "FixedDisplayModes" obejście dla usterki w MVC 4 zawiera szablony projektów MVC zostały zaktualizowane. Aby uzyskać więcej informacji na zawartych w pakiecie poprawki dotyczą ten wpis w blogu ([https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx)) od zespołu MVC.
+- Nowy szablon aplikacji usługi Facebook sprawia, że pisanie łatwe aplikacji usługi Facebook. W kilku prostych krokach można utworzyć aplikacji usługi Facebook, która pobiera dane od zalogowanego użytkownika i integruje się z jego znajomymi. Szablon zawiera nową bibliotekę automatyzującą wszystkie żmudne procesy związanie z tworzeniem aplikacji usługi Facebook, łącznie z uwierzytelnianiem, uprawnieniami i uzyskiwania dostępu do danych usługi Facebook. Aby uzyskać więcej informacji na temat przy użyciu szablonu aplikacji usługi Facebook zobacz [ https://go.microsoft.com/fwlink/?LinkID=269921 ](https://go.microsoft.com/fwlink/?LinkID=269921).
+- Nowy szablon jednej aplikacji jednostronicowej platformy MVC umożliwia deweloperom tworzenie aplikacji sieci web po stronie klienta interactive przy użyciu HTML 5, CSS 3 oraz popularnych Knockout i jQuery JavaScript bibliotek interfejsu API sieci Web platformy ASP.NET. Szablon zawiera aplikację do listy "todo", której przedstawiono typowe rozwiązania do tworzenia aplikacji JavaScript HTML5 korzystającej z interfejsu API serwera REST. Więcej w [ https://www.asp.net/single-page-application ](../single-page-application/index.md).
+- Można teraz utworzyć VSIX, który dodaje nowe szablony do okna dialogowego Nowy projekt programu ASP.NET MVC. Dowiedz się, jak poniżej: [https://go.microsoft.com/fwlink/?LinkId=275019](https://go.microsoft.com/fwlink/?LinkId=275019)
+- Pakiet FixedDisplayModes &#8211; szablony projektów MVC zostały zaktualizowane, aby dołączyć nowy pakiet NuGet "FixedDisplayModes" zawiera obejścia usterki w MVC 4. Aby uzyskać więcej informacji na zawartych w pakiecie poprawki dotyczą ten wpis w blogu ([https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx)) od zespołu MVC.
 
 <a id="_ASP.NET_Web_API"></a>
 ### <a name="aspnet-web-api"></a>ASP.NET Web API
@@ -115,7 +115,7 @@ W tej sekcji opisano funkcje, które zostały wprowadzone w wersji platformy ASP
 Interfejs API sieci Web programu ASP.NET została rozszerzona o kilka nowych funkcji:
 
 - ASP.NET Web API OData
-- Śledzenie interfejsu API sieci Web ASP.NET
+- ASP.NET Web API Tracing
 - Strona pomocy interfejsu API sieci Web ASP.NET
 
 #### <a name="aspnet-web-api-odata"></a>ASP.NET Web API OData
@@ -148,33 +148,33 @@ ASP.NET Web API OData obsługuje obecnie następujące funkcje:
 - Akcji OData.
 - Na tej samej podstawie co usługi danych WCF, czyli ODataLib ([http://www.nuget.org/packages/microsoft.data.odata](http://www.nuget.org/packages/microsoft.data.odata)).
 
-Aby uzyskać więcej informacji na temat programu ASP.NET Web API OData zobacz [https://go.microsoft.com/fwlink/?LinkId=271141](https://go.microsoft.com/fwlink/?LinkId=271141).
+Aby uzyskać więcej informacji na temat programu ASP.NET Web API OData zobacz [ https://go.microsoft.com/fwlink/?LinkId=271141 ](https://go.microsoft.com/fwlink/?LinkId=271141).
 
-#### <a name="aspnet-web-api-tracing"></a>Śledzenie interfejsu API sieci Web ASP.NET
+#### <a name="aspnet-web-api-tracing"></a>ASP.NET Web API Tracing
 
 Śledzenia ASP.NET Web API integruje dane śledzenia z sieci web API z włączonym śledzeniem .NET. Teraz włączono domyślny szablon projektu interfejsu API sieci Web. Śledzenie danych w sieci Web jest wysyłane do okna wyjściowego interfejsów API i jest udostępniana przy użyciu funkcji IntelliTrace. ASP.NET Web API Tracing pozwala do śledzenia informacji na temat interfejsu API sieci Web podczas udostępniania w systemie Windows Azure dzięki integracji z [Windows Azure Diagnostics](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx). Można również zainstalować i włączyć ASP.NET Web API Tracing w dowolnej aplikacji przy użyciu pakietu NuGet śledzenia interfejsu API sieci Web platformy ASP.NET ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
 
-Aby uzyskać więcej informacji na temat konfigurowania i używania programu ASP.NET Web API Tracing zobacz [https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874).
+Aby uzyskać więcej informacji na temat konfigurowania i używania programu ASP.NET Web API Tracing zobacz [ https://go.microsoft.com/fwlink/?LinkID=269874 ](https://go.microsoft.com/fwlink/?LinkID=269874).
 
 #### <a name="aspnet-web-api-help-page"></a>Strona pomocy interfejsu API sieci Web ASP.NET
 
 Stronę pomocy programu ASP.NET Web API jest teraz zawarta domyślny szablon projektu interfejsu API sieci Web. Stronę pomocy interfejsu API sieci Web ASP.NET jest automatycznie generuje tym punktów końcowych HTTP, obsługiwane metody HTTP, parametry oraz przykład ładunków komunikatów żądań i odpowiedzi interfejsów API sieci web w dokumentacji. Dokumentacja są automatycznie pobierane z komentarze w kodzie. Stronę pomocy interfejsu API sieci Web platformy ASP.NET można również dodać do aplikacji przy użyciu pakietu pomocy NuGet strony ASP.NET Web API ([http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage](http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage)).
 
-Aby uzyskać więcej informacji na temat instalowania i dostosowywania Zobacz strona pomocy interfejsu API sieci Web ASP.NET [https://go.microsoft.com/fwlink/?LinkId=271140](https://go.microsoft.com/fwlink/?LinkId=271140).
+Aby uzyskać więcej informacji na temat instalowania i dostosowywania Zobacz strona pomocy interfejsu API sieci Web ASP.NET [ https://go.microsoft.com/fwlink/?LinkId=271140 ](https://go.microsoft.com/fwlink/?LinkId=271140).
 
 <a id="_ASP.NET_SignalR"></a>
 ### <a name="aspnet-signalr"></a>ASP.NET SignalR
 
 Biblioteka SignalR platformy ASP.NET ułatwia dodawanie funkcji sieci web w czasie rzeczywistym do aplikacji ASP.NET przy użyciu protokołu WebSockets, jeśli jest dostępny i automatycznie nastąpi powrót do innych technik, gdy nie jest.
 
-Aby uzyskać więcej informacji na temat używania biblioteki SignalR platformy ASP.NET, zobacz [https://go.microsoft.com/fwlink/?LinkId=271271](https://go.microsoft.com/fwlink/?LinkId=271271).
+Aby uzyskać więcej informacji na temat używania biblioteki SignalR platformy ASP.NET, zobacz [ https://go.microsoft.com/fwlink/?LinkId=271271 ](https://go.microsoft.com/fwlink/?LinkId=271271).
 
 <a id="_ASP.NET_Friendly_URLs"></a>
 ### <a name="aspnet-friendly-urls"></a>ASP.NET, przyjazne adresy URL
 
 ASP.NET FriendlyURLs ułatwia bardzo dla deweloperów formularzy sieci web do wygenerowania czyszcząca wyszukiwania adresów URL (bez rozszerzenia aspx). Mały do nie wymaga konfiguracji, a może być używany z istniejących aplikacji programu ASP.NET 4.0. Funkcja FriendlyURLs również ułatwia deweloperom dodać obsługę przenośnych do swoich aplikacji dzięki obsłudze przełączania się między widokami komputerów stacjonarnych i przenośnych.
 
-Aby uzyskać więcej informacji o instalowaniu i używaniu przyjazne adresy URL platformy ASP.NET zobacz [http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx).
+Aby uzyskać więcej informacji o instalowaniu i używaniu przyjazne adresy URL platformy ASP.NET zobacz [ http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx ](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx).
 
 <a id="_Known_Issues_and"></a>
 ## <a name="known-issues-and-breaking-changes"></a>Znane problemy i fundamentalne zmiany
@@ -226,8 +226,8 @@ ASP.NET i 2012.2 narzędzia sieci Web NuGet 2.1 jest dostarczany i uaktualni roz
 3. Zamknij program Visual Studio
 4. Przejdź do folderu instalacji programu ASP.NET i 2012.2 narzędzia sieci Web:
 
-    1. Dla programu Visual Studio 2012: **Program Files\Microsoft ASP.NET\ASP.NET Web Stack\Visual Studio 2012**
-    2. Dla programu Visual Studio Express 2012 for Web: **Program Files\Microsoft ASP.NET\ASP.NET Web Stack\Visual Studio Express 2012 for Web**
+    1. For Visual Studio 2012: **Program Files\Microsoft ASP.NET\ASP.NET Web Stack\Visual Studio 2012**
+    2. For Visual Studio 2012 Express for Web: **Program Files\Microsoft ASP.NET\ASP.NET Web Stack\Visual Studio Express 2012 for Web**
 5. Kliknij dwukrotnie NuGet.Tools.vsix ponowna instalacja NuGet
 
 ### <a name="web-api-issues"></a>Problemy z interfejsu API sieci Web
@@ -247,7 +247,7 @@ Jeśli użytkownicy mają innej wielkości znaków na javascript po stronie klie
 
 #### <a name="default-odata-routing-conventions-doesnt-support-postput-on-navigation-property"></a>Routing Konwencji OData domyślny nie obsługuje POST/PUT we właściwości nawigacji.
 
-Routing Konwencji OData domyślny nie obsługuje POST/PUT we właściwości nawigacji. Zobacz element roboczy [http://aspnetwebstack.codeplex.com/workitem/366](http://aspnetwebstack.codeplex.com/workitem/366). Firma Microsoft Brak tę Konwencję często używane w domyślnych Konwencji.
+Routing Konwencji OData domyślny nie obsługuje POST/PUT we właściwości nawigacji. Zobacz element roboczy [ http://aspnetwebstack.codeplex.com/workitem/366 ](http://aspnetwebstack.codeplex.com/workitem/366). Firma Microsoft Brak tę Konwencję często używane w domyślnych Konwencji.
 
 Aby obejść go, użytkownicy muszą rozszerzyć nowej Konwencji routingu do jego obsługi.
 
@@ -259,7 +259,7 @@ Musisz wybrać .NET 4.5, w ramach listy rozwijanej w oknie dialogowym Nowy proje
 
 #### <a name="real-time-update-controller"></a>Kontroler aktualizacji w czasie rzeczywistym
 
-Szablon aplikacji usługi Facebook umożliwia użytkownikowi łatwe tworzenie kontrolera interfejsu API sieci Web do obsługi aktualizacji w czasie rzeczywistym z usługi Facebook. Jeśli na komputerze deweloperskim jest za translatorem adresów Sieciowych, kontroler może nie działać bez dalszej konfiguracji sieci. Aby uzyskać szczegółowe informacje, zobacz: [http://facebook.stackoverflow.com/questions/5259467/can-a-computer-behind-a-nat-router-receive-realtime-updates-from-facebook](http://facebook.stackoverflow.com/questions/5259467/can-a-computer-behind-a-nat-router-receive-realtime-updates-from-facebook)
+Szablon aplikacji usługi Facebook umożliwia użytkownikowi łatwe tworzenie kontrolera interfejsu API sieci Web do obsługi aktualizacji w czasie rzeczywistym z usługi Facebook. Jeśli na komputerze deweloperskim jest za translatorem adresów Sieciowych, kontroler może nie działać bez dalszej konfiguracji sieci. Aby uzyskać więcej informacji, zobacz tutaj: [http://facebook.stackoverflow.com/questions/5259467/can-a-computer-behind-a-nat-router-receive-realtime-updates-from-facebook](http://facebook.stackoverflow.com/questions/5259467/can-a-computer-behind-a-nat-router-receive-realtime-updates-from-facebook)
 
 #### <a name="query-string-values-conflict-with-facebook-oauth-parameters"></a>Ciąg wartości będących w konflikcie z usługi Facebook OAuth parametrów zapytania
 
@@ -275,7 +275,7 @@ Nie można użyć funkcji narzędzie Page Inspector programu Visual Studio 2012 
 
 Z JQuery 1.9/odcinania 2.2.1 aktualizacji, gdy używany jest domyślny projekt JEDNOSTRONICOWEJ platformy MVC, nowe edycji elementu todo wprowadź już fokus do nowego pola edycji elementu todo po wprowadzeniu nowego elementu todo do listy zadań do wykonania.
 
-Odwołania do rozwiązania [http://knockoutjs.com/documentation/hasfocus-binding.html](http://knockoutjs.com/documentation/hasfocus-binding.html)i wprowadzić poprawki podobne następujący przykładowy kod:
+Odwołania do rozwiązania [ http://knockoutjs.com/documentation/hasfocus-binding.html ](http://knockoutjs.com/documentation/hasfocus-binding.html)i wprowadzić poprawki podobne następujący przykładowy kod:
 
 Todo.model.js pliku  
  Funkcja todolist(data), należy dodać następujące:  
@@ -288,4 +288,4 @@ Funkcja todoList.prototype.addTodo, Dodaj poniższy tekst blacked:
 Plik index.cshtml, Dodaj poniższy tekst blacked:  
  &lt;tworzą data-bind =&quot;przesyłania: addTodo&quot;&gt;  
  &lt;dane wejściowe klasy =&quot;addTodo&quot; typu =&quot;tekst&quot; wiązania danych =&quot;wartość: newTodoTitle, symbol zastępczy: "Wpisz tutaj", blurOnEnter: ma wartość true, **hasfocus: isSelected**, zdarzenia: {rozmycia: addTodo}&quot; /&gt;  
- &lt;/form&gt;
+ &lt;/ Form&gt;

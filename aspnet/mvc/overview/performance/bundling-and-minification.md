@@ -16,7 +16,7 @@ ms.openlocfilehash: 001ebf89cda66a50cddcd7e4944f27b9396d4450
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="bundling-and-minification"></a>Tworzenie pakietów i minimalizowanie
 ====================
@@ -55,7 +55,7 @@ Po minimalizowanie funkcji, zostanie zmniejszona do następującego:
 
 Oprócz usuwanie komentarzy i niepotrzebne odstępu, następujących parametrów i nazwy zmiennych zmieniono (skrócony) w następujący sposób:
 
-| **Original** | **Zmieniono jego nazwę** |
+| **Oryginał** | **Zmieniono jego nazwę** |
 | --- | --- |
 | imageTagAndImageID | n |
 | imageContext | t |

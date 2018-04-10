@@ -16,7 +16,7 @@ ms.openlocfilehash: 0dba613594686a28b82bc6d7701cda6e24b82e2e
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="checkout-and-payment-with-paypal"></a>Wyewidencjonowywanie i płatności w systemie PayPal
 ====================

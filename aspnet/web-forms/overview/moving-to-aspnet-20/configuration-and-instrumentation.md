@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 title: Konfiguracja i Instrumentacji | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Są istotne zmiany w konfiguracji i instrumentacji w programie ASP.NET 2.0. Nowy interfejs API konfiguracji ASP.NET pozwala na pr wprowadzanie zmian w konfiguracji..."
+description: Są istotne zmiany w konfiguracji i instrumentacji w programie ASP.NET 2.0. Nowy interfejs API konfiguracji ASP.NET pozwala na pr wprowadzanie zmian w konfiguracji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
 ms.openlocfilehash: 16dfe3c899dfa028d8a52b4b5f9c2868887e8fa9
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="configuration-and-instrumentation"></a>Konfiguracja i Instrumentacji
 ====================
@@ -79,7 +79,7 @@ Wiele konfiguracji klasy i metody są podobne do siebie. W poniższej tabeli opi
 | **Konfiguracja klasy lub przestrzeni nazw** | **Opis** |
 | --- | --- |
 | [System.Configuration](https://msdn.microsoft.com/library/system.configuration.aspx) przestrzeni nazw | Zawiera klasy głównym konfiguracji dla wszystkich aplikacji .NET Framework. Klasy obsługi sekcji są używane do uzyskania danych konfiguracyjnych z sekcji z metod, takich jak GetSection i GetSectionGroup. Te dwie metody są niestatycznego. |
-| System.Configuration.Configuration class | Reprezentuje zestaw danych o konfiguracji dla komputera, aplikacji, katalogów sieci Web lub innego zasobu. Ta klasa zawiera przydatne metody, takie jak GetSection i GetSectionGroup, aktualizowania ustawień konfiguracji i uzyskaniu odwołania do sekcji i grupy sekcji. Ta klasa jest używana jako typ zwracany dla metod, które uzyskują dane konfiguracji w czasie projektowania, takie jak metod klas WebConfigurationManager i program Configuration Manager. |
+| Klasa System.Configuration.Configuration | Reprezentuje zestaw danych o konfiguracji dla komputera, aplikacji, katalogów sieci Web lub innego zasobu. Ta klasa zawiera przydatne metody, takie jak GetSection i GetSectionGroup, aktualizowania ustawień konfiguracji i uzyskaniu odwołania do sekcji i grupy sekcji. Ta klasa jest używana jako typ zwracany dla metod, które uzyskują dane konfiguracji w czasie projektowania, takie jak metod klas WebConfigurationManager i program Configuration Manager. |
 | System.Web.Configuration namespace | Zawiera klasy programu obsługi sekcji dla sekcji konfiguracji ASP.NET zdefiniowany w [ustawienia konfiguracji ASP.NET](https://msdn.microsoft.com/library/b5ysx397.aspx). Klasy obsługi sekcji są używane do uzyskania danych konfiguracyjnych z sekcji z metod, takich jak GetSection i GetSectionGroup. |
 | System.Web.Configuration.WebConfigurationManager class | Udostępnia metody przydatne dla uzyskania odwołania do ustawień konfiguracji środowiska wykonawczego i czasu projektowania. Te metody należy użyć klasy System.Configuration.Configuration jako typ zwracany. Zamiennie można użyć metody statycznej GetSection tej klasy lub Metoda niestatyczna GetSection klasy System.Configuration.ConfigurationManager. W przypadku konfiguracji aplikacji sieci Web zaleca się klasy System.Web.Configuration.WebConfigurationManager zamiast klasy System.Configuration.ConfigurationManager. |
 | [System.Configuration.Provider](https://msdn.microsoft.com/library/system.configuration.provider.aspx) namespace | Umożliwia dostosowywanie i rozszerzanie dostawcę konfiguracji. Jest to klasa podstawowa dla wszystkich klas dostawców w systemie konfiguracji. |
@@ -151,8 +151,8 @@ Konfiguracja domyślnych dostawców i zdarzenia znajduje się w pliku Web.config
 | **dostawców** | Zawiera dostawców dla podglądu zdarzeń, usługi WMI i SQL Server. |
 | --- | --- |
 | **eventMappings** | Zawiera mapowania dla różnych klas WebBase. Można rozszerzyć tę listę, jeśli Generowanie klasy zdarzeń. Generowanie klasy zdarzeń zapewnia bardziej szczegółowy za pośrednictwem dostawcy, możesz wysłać informacje. Na przykład można skonfigurować nieobsługiwanych wyjątków, które mają być wysyłane do programu SQL Server podczas wysyłania zdarzeń niestandardowych do poczty e-mail. |
-| **reguły** | Łącza eventMappings dla dostawcy. |
-| **buforowanie** | Używane z dostawcami programu SQL Server i wiadomości e-mail do określania, jak często opróżnić zdarzenia dla dostawcy. |
+| **Reguły** | Łącza eventMappings dla dostawcy. |
+| **Buforowanie** | Używane z dostawcami programu SQL Server i wiadomości e-mail do określania, jak często opróżnić zdarzenia dla dostawcy. |
 
 Poniżej podano przykładowy kod z globalnego pliku Web.config.
 
@@ -212,7 +212,7 @@ Poniższa reguła jest także dodawane do dostawcy poczty e-mail, aby powiązać
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample12.xml)]
 
-## <a name="aspnet-20-tracing"></a>Platforma ASP.NET 2.0 śledzenia
+## <a name="aspnet-20-tracing"></a>ASP.NET 2.0 Tracing
 
 Istnieją trzy najważniejsze ulepszenia do śledzenia w programie ASP.NET 2.0.
 
@@ -253,7 +253,7 @@ Dostępne są następujące narzędzia wiersza polecenia:
 
 Ponieważ aspnet\_narzędzia regiis.exe nie jesteś nowym użytkownikiem programu ASP.NET 2.0, nie omówimy go tutaj.
 
-## <a name="aspnet-sql-server-registration-tool---aspnetregsqlexe"></a>Narzędzie rejestracji serwera SQL programu ASP.NET - aspnet\_regsql.exe
+## <a name="aspnet-sql-server-registration-tool---aspnetregsqlexe"></a>ASP.NET SQL Server Registration Tool - aspnet\_regsql.exe
 
 Można ustawić różne opcje za pomocą narzędzia rejestracji serwera SQL programu ASP.NET. Można określić połączenie SQL, określić które usługami aplikacji ASP.NET przy użyciu programu SQL Server zarządzanie informacjami, określ, które bazy danych lub tabeli jest używane dla zależności bufora SQL i dodać lub usunąć obsługę przy użyciu programu SQL Server do przechowywania procedur i stanu sesji.
 
@@ -267,7 +267,7 @@ Kilka usług aplikacji ASP.NET korzystają z dostawcy zarządzania przechowywani
 
 Po zainstalowaniu programu ASP.NET pliku Machine.config serwera zawiera elementy konfiguracji, które określają dostawcy programu SQL Server dla każdej funkcji programu ASP.NET, które zależą od dostawcy. Ci dostawcy są konfigurowane domyślnie, aby nawiązać połączenie użytkownika lokalnego wystąpienia programu SQL Server Express 2005. Jeśli zmienisz domyślny ciąg połączenia używany przez dostawców, przed użyciem dowolnej funkcji programu ASP.NET w konfiguracji maszyny należy zainstalować bazy danych programu SQL Server i elementy bazy danych z wybranej funkcji przy użyciu Aspnet\_regsql.exe. Jeśli bazy danych przez użytkownika za pomocą narzędzia rejestracji SQL jeszcze nie istnieje (aspnetdb będzie domyślna baza danych, jeśli nie został określony w wierszu polecenia), a następnie bieżący użytkownik musi mieć uprawnienia do tworzenia baz danych w programie SQL Server oraz do tworzenia schematu e lements w bazie danych.
 
-### <a name="sql-cache-dependency"></a>Zależności bufora SQL
+### <a name="sql-cache-dependency"></a>SQL Cache Dependency
 
 Zaawansowanych funkcji buforowania danych wyjściowych programu ASP.NET jest zależności bufora SQL. Zależności bufora SQL obsługuje dwa różne tryby działania: korzystającą z implementacją ASP.NET sondowania tabeli i drugi tryb, który korzysta z funkcji powiadomień zapytania programu SQL Server 2005. Narzędzie rejestracji SQL można skonfigurować tryb sondowania tabeli operacji.
 
@@ -330,7 +330,7 @@ W poniższej tabeli opisano, jak inny plik uchwyty narzędzia kompilacji platfor
 
 | **Typ pliku** | **Akcja kompilatora** |
 | --- | --- |
-| .ascx, .aspx, .master | Te pliki są podzielone na znaczników i źródła kodu, który obejmuje zarówno plików z kodem i kodu, który jest ujęta w &lt;skryptu runat = "server"&gt; elementów. Kod źródłowy jest kompilowany do zestawów z nazwami pochodzących z algorytmem wyznaczania wartości skrótu i zestawy są umieszczane w katalogu Bin. Każdy kod wbudowanego, ujętą w kodzie  **&lt; %**  i  **% &gt;**  nawiasy, znajduje się kod znaczników i nie został skompilowany. Nowe pliki z taką samą nazwę jak pliki źródłowe są zawiera kod znaczników i umieszczane w odpowiednich katalogów wyjściowych. |
+| .ascx, .aspx, .master | Te pliki są podzielone na znaczników i źródła kodu, który obejmuje zarówno plików z kodem i kodu, który jest ujęta w &lt;skryptu runat = "server"&gt; elementów. Kod źródłowy jest kompilowany do zestawów z nazwami pochodzących z algorytmem wyznaczania wartości skrótu i zestawy są umieszczane w katalogu Bin. Każdy kod wbudowanego, ujętą w kodzie **&lt; %** i **% &gt;** nawiasy, znajduje się kod znaczników i nie został skompilowany. Nowe pliki z taką samą nazwę jak pliki źródłowe są zawiera kod znaczników i umieszczane w odpowiednich katalogów wyjściowych. |
 | .ashx, .asmx | Pliki te nie są kompilowane i zostaną przeniesione do katalogów wyjściowych i nie został skompilowany. Jeśli chcesz, aby skompilować kod obsługi, umieść kod do plików kodu źródłowego w aplikacji\_katalog kodów. |
 | .CS, .vb, .jsl, .cpp (nie w tym pliki CodeBehind dla podanych wcześniej typów plików) | Te pliki są kompilowane i uwzględniane jako zasób w zestawy, które odwołują się do nich. Pliki źródłowe nie są kopiowane do katalogu wyjściowego. Jeśli nie odwołuje się do pliku kodu, jest nie skompilowany. |
 | Niestandardowe typy plików | Te pliki nie zostały skompilowane. Te pliki są kopiowane do odpowiednich katalogów wyjściowych. |
@@ -344,7 +344,7 @@ W poniższej tabeli opisano, jak inny plik uchwyty narzędzia kompilacji platfor
 
 | **Typ pliku** | **Akcja kompilatora** |
 | --- | --- |
-| .aspx, .asmx, .ashx, .master | Te pliki są podzielone na znaczników i źródła kodu, który obejmuje zarówno plików z kodem i kodu, który jest ujęta w &lt;skryptu runat = "server"&gt; elementów. Kod źródłowy jest kompilowany do zestawów z nazwami pochodzących z algorytmu wyznaczania wartości skrótu. Wynikowa zestawy są umieszczane w katalogu Bin. Każdy kod wbudowanego, ujętą w kodzie  **&lt; %**  i  **% &gt;**  nawiasy, znajduje się kod znaczników i nie został skompilowany. Kompilator tworzy nowe pliki zawierają znaczników z taką samą nazwę jak plików źródłowych. Te pliki wynikowe są umieszczane w katalogu Bin. Kompilator również tworzy pliki, z taką samą nazwę jak pliki źródłowe, ale z rozszerzeniem. COMPILED, które zawierają informacje dotyczące mapowania. . SKOMPILOWANE pliki są umieszczane w katalogów wyjściowych odpowiadającego do oryginalnej lokalizacji plików źródłowych. |
+| .aspx, .asmx, .ashx, .master | Te pliki są podzielone na znaczników i źródła kodu, który obejmuje zarówno plików z kodem i kodu, który jest ujęta w &lt;skryptu runat = "server"&gt; elementów. Kod źródłowy jest kompilowany do zestawów z nazwami pochodzących z algorytmu wyznaczania wartości skrótu. Wynikowa zestawy są umieszczane w katalogu Bin. Każdy kod wbudowanego, ujętą w kodzie **&lt; %** i **% &gt;** nawiasy, znajduje się kod znaczników i nie został skompilowany. Kompilator tworzy nowe pliki zawierają znaczników z taką samą nazwę jak plików źródłowych. Te pliki wynikowe są umieszczane w katalogu Bin. Kompilator również tworzy pliki, z taką samą nazwę jak pliki źródłowe, ale z rozszerzeniem. COMPILED, które zawierają informacje dotyczące mapowania. . SKOMPILOWANE pliki są umieszczane w katalogów wyjściowych odpowiadającego do oryginalnej lokalizacji plików źródłowych. |
 | .ascx | Te pliki są dzielone na znaczników i kod źródłowy. Kod źródłowy jest skompilowany do zestawów i umieszczane w katalogu Bin o nazwach, pochodzących z algorytmu wyznaczania wartości skrótu. Są generowane żadne pliki znaczników. |
 | .CS, .vb, .jsl, .cpp (nie w tym pliki CodeBehind dla podanych wcześniej typów plików) | Kod źródłowy, który odwołuje się do niego zestawów wygenerowanych z .ascx, ashx lub plików aspx kompilacji do zestawów i umieszczane w katalogu Bin. Nie pliki źródłowe zostają skopiowane. |
 | Niestandardowe typy plików | Te pliki są kompilowane takich jak pliki dynamiczne. Zależnie od typu plików, które są oparte na kompilator można umieścić mapowania plików w katalogach danych wyjściowych. |

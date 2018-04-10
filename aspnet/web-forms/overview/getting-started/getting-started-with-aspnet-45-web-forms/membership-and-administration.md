@@ -16,7 +16,7 @@ ms.openlocfilehash: 166bc642ea2083f455be0648e424f0b0ae3b082c
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="membership-and-administration"></a>Członkostwo i Administracja
 ====================
@@ -243,7 +243,7 @@ Można uruchomić aplikacji teraz, aby zobaczyć sposób dodawania, usuwania i a
    *Login.aspx* zostanie wyświetlona strona.
 3. Użyj następującej nazwy użytkownika i hasła:  
    Nazwa użytkownika: canEditUser@wingtiptoys.com  
-   Hasło: Pa$ $word1 
+   Password: Pa$$word1 
 
     ![Członkostwo i administrowanie — strony logowania](membership-and-administration/_static/image3.png)
 4. Kliknij przycisk **Zaloguj** znajdujący się u dołu strony.

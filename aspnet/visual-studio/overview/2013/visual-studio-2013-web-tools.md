@@ -1,26 +1,26 @@
 ---
 uid: visual-studio/overview/2013/visual-studio-2013-web-tools
-title: "Wskazówki laboratorium: Narzędzia sieci Web 2013 Visual Studio | Dokumentacja firmy Microsoft"
+title: 'Wskazówki laboratorium: Narzędzia sieci Web 2013 Visual Studio | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "Visual Studio to środowisko rozwoju znakomity. SIEĆ systemu Windows i projekty sieci web. Obejmuje on łatwo służący do edytora tekstu zaawansowane..."
+description: Visual Studio to środowisko rozwoju znakomity. SIEĆ systemu Windows i projekty sieci web. Obejmuje on łatwo służący do edytora tekstu zaawansowane...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
 ms.openlocfilehash: ef8ab82f9043ef9da3a3e6a146a97f083149534d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/10/2018
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Wskazówki laboratorium: Narzędzia sieci Web 2013 Visual Studio
 ====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
 [Pobierz obozów sieci Web uczenie Kit](http://aka.ms/webcamps-training-kit)
 
@@ -30,7 +30,7 @@ przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > 
 > Wszystkie tego uprawnienia jest również dostępny do rozszerzenia, dzięki czemu można łatwo rozszerzyć edytory nowe zaawansowane funkcje, w zależności od potrzeb. Podstawowe informacje dotyczące sieci Web jest kolekcją rozszerzeń programu Visual Studio (przeważnie) związanych z sieci web. Zawiera wiele nowych funkcji IntelliSense zakończeń (szczególnie w przypadku CSS), nowe funkcje łącze przeglądarki, automatyczne JSHint JavaScript pliki nowego ostrzeżenia dla HTML, CSS i wiele innych funkcji, które są niezbędne do tworzenia nowoczesnych witryn sieci web.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -51,8 +51,8 @@ W tym laboratorium praktycznego przedstawiono sposób:
 
 Poniżej jest wymagany do ukończenia tego laboratorium praktycznego:
 
-- [Microsoft Visual Studio Professional 2013](https://www.microsoft.com/visualstudio/) lub nowszej
-- [Essentials sieci Web 2013](http://vswebessentials.com/)
+- [Microsoft Visual Studio Professional 2013](https://www.microsoft.com/visualstudio/) or greater
+- [Web Essentials 2013](http://vswebessentials.com/)
 - [Google Chrome](https://www.google.com/chrome/)
 
 <a id="Setup"></a>
@@ -144,14 +144,14 @@ W tym ćwiczeniu funkcję kodowania Zen podał Essentials sieci Web użyje do ok
 
 1. Przełącz się do programu Visual Studio.
 2. Otwórz **Index.cshtml** plik znajdujący się w **widoków** | **Home** folderu.
-3. Zastąp  **&lt;!--TODO: Dodaj tutaj--opcje&gt;**  komentarza z następującego kodu i naciśnij klawisz **kartę**.
+3. Zastąp **&lt;!--TODO: Dodaj tutaj--opcje&gt;** komentarza z następującego kodu i naciśnij klawisz **kartę**.
 
     [!code-css[Main](visual-studio-2013-web-tools/samples/sample1.css)]
 4. Kod powinny być rozwijane w formacie HTML.
 
-    ![Rozszerzona HTML](visual-studio-2013-web-tools/_static/image6.png "rozwinięty HTML")
+    ![Expanded HTML](visual-studio-2013-web-tools/_static/image6.png "Expanded HTML")
 
-    *Rozwinięte HTML*
+    *Expanded HTML*
 
     > [!NOTE]
     > Aby dowiedzieć się więcej o składni Zen kodowania, zobacz następujące tematy [artykułu](http://www.johnpapa.net/zen-coding-in-visual-studio-2012/).
@@ -307,7 +307,7 @@ W tym zadaniu użyje łącze przeglądarki **tryb projektowania** funkcji do edy
     ![Pytanie edytować](visual-studio-2013-web-tools/_static/image29.png "edytować pytanie")
 
     *Pytanie edytować*
-4. Przełącz do programu Visual Studio i Otwórz **Index.cshtml**, jeśli nie jest jeszcze otwarty. Należy zauważyć, że tekst wewnętrzny z  **&lt;p&gt;**  element został zaktualizowany.
+4. Przełącz do programu Visual Studio i Otwórz **Index.cshtml**, jeśli nie jest jeszcze otwarty. Należy zauważyć, że tekst wewnętrzny z **&lt;p&gt;** element został zaktualizowany.
 
     ![Pytanie zaktualizowane na stronie HTML](visual-studio-2013-web-tools/_static/image30.png "pytanie zaktualizowane strony HTML")
 
@@ -323,7 +323,7 @@ W tym zadaniu użyje łącze przeglądarki **tryb projektowania** funkcji do edy
     ![Błąd w widoku listy menu](visual-studio-2013-web-tools/_static/image31.png "listy błędów w menu Widok")
 
     *Błąd w widoku listy menu*
-2. Zwróć uwagę, że istnieje ostrzeżenie optymalizacji dla aparatów wyszukiwania z informacją, że  **&lt;meta&gt;**  tagu dla Brak opisu strony. Kliknij dwukrotnie wpis ostrzeżenie optymalizacji dla aparatów wyszukiwania, aby go rozwiązać.
+2. Zwróć uwagę, że istnieje ostrzeżenie optymalizacji dla aparatów wyszukiwania z informacją, że **&lt;meta&gt;** tagu dla Brak opisu strony. Kliknij dwukrotnie wpis ostrzeżenie optymalizacji dla aparatów wyszukiwania, aby go rozwiązać.
 
     ![Okno listy błędów](visual-studio-2013-web-tools/_static/image32.png "w oknie Lista błędów")
 
@@ -333,7 +333,7 @@ W tym zadaniu użyje łącze przeglądarki **tryb projektowania** funkcji do edy
     ![Okno dialogowe Essentials Web](visual-studio-2013-web-tools/_static/image33.png "Essentials sieci Web — okno dialogowe")
 
     *Okno dialogowe Essentials sieci Web*
-4. Edytor dla  **\_Layout.cshtml** otwiera i  **&lt;meta&gt;**  tag jest automatycznie dodawany do **head** sekcji Plik HTML.
+4. Edytor dla  **\_Layout.cshtml** otwiera i **&lt;meta&gt;** tag jest automatycznie dodawany do **head** sekcji Plik HTML.
 
     ![Tag meta automatycznie dodane na stronie _Layout](visual-studio-2013-web-tools/_static/image34.png "metatag automatycznie dodane w _Layout strony")
 
@@ -354,7 +354,7 @@ W ramach tego zadania spowoduje utworzenie nowego elementu formularza HTML, któ
 
 1. Otwórz **programu Visual Studio Express 2013 for Web** i **Begin.sln** rozwiązania, znajdujących się w **źródło/Ex2-TakingAdvantageofCodeSnippetsandIntelliSense/Begin** folderu. Alternatywnie możesz kontynuować z rozwiązaniem uzyskanymi w poprzednim ćwiczeniu.
 2. W **Eksploratora rozwiązań**, otwórz **Index.cshtml** plik znajdujący się w **widoków** | **Home** folderu.
-3. Dodaj następującą postać wewnątrz  **&lt;sekcji&gt;**  elementu.
+3. Dodaj następującą postać wewnątrz **&lt;sekcji&gt;** elementu.
 
     (Fragment - kodu *VisualStudio2013WebTooling* - *Ex2* - *formularz*)
 
@@ -362,19 +362,19 @@ W ramach tego zadania spowoduje utworzenie nowego elementu formularza HTML, któ
 4. Etykieta z niektórych opis pola powinien być poprzedzony tagu wejściowego. Dodaj następujące etykiety przed tagu wejściowego.
 
     [!code-html[Main](visual-studio-2013-web-tools/samples/sample5.html)]
-5. **Dla** atrybutu  **&lt;etykiety&gt;**  Określa, który element formularza etykietę jest powiązany. Wartość atrybutu powinna być równa identyfikator elementu pokrewne. Dodaj **dla** atrybutu  **&lt;etykiety&gt;**  elementu. Jak pokazano na poniższej ilustracji, &quot;nazwa&quot; wartość pojawia się w polu IntelliSense, na podstawie identyfikatora elementów w tym samym zakresie (otaczający  **&lt;formularza&gt;**).
+5. **Dla** atrybutu **&lt;etykiety&gt;** Określa, który element formularza etykietę jest powiązany. Wartość atrybutu powinna być równa identyfikator elementu pokrewne. Dodaj **dla** atrybutu **&lt;etykiety&gt;** elementu. Jak pokazano na poniższej ilustracji, &quot;nazwa&quot; wartość pojawia się w polu IntelliSense, na podstawie identyfikatora elementów w tym samym zakresie (otaczający  **&lt;formularza&gt;**).
 
     ![Wyświetlanie w IntelliSense identyfikator](visual-studio-2013-web-tools/_static/image35.png "zawierające identyfikator w IntelliSense")
 
     *Wyświetlanie w IntelliSense identyfikator*
-6. Usuń ostatnio dodany  **&lt;formularza&gt;**  elementu i jego zawartości.
+6. Usuń ostatnio dodany **&lt;formularza&gt;** elementu i jego zawartości.
 
 <a id="Ex2Task2"></a>
 #### <a name="task-2---using-html-code-snippets"></a>Zadanie 2 — przy użyciu fragmentów kodu HTML
 
 HTML5 wprowadzić więcej niż 25 nowych znaczników semantyki. Visual Studio już obsługę funkcji IntelliSense na te tagi, ale programu Visual Studio 2013 pozwala szybciej i łatwiej można zapisać znacznika przez dodanie nowych fragmentów kodu. Chociaż te tagi nie są skomplikowane, pochodzą z kilku precyzyjnie małych, takie jak dodanie przejścia poprawnego kodera-dekodera dla *audio* tagu. W tym zadaniu zobaczysz wstawki kodu HTML dla tagu audio.
 
-1. W **Index.cshtml** plików, wpisz  **&lt;lub** wewnątrz  **&lt;sekcji&gt;**  element, jak pokazano na poniższej ilustracji.
+1. W **Index.cshtml** plików, wpisz  **&lt;lub** wewnątrz **&lt;sekcji&gt;** element, jak pokazano na poniższej ilustracji.
 
     ![Wstawianie audio element](visual-studio-2013-web-tools/_static/image36.png "Wstawianie audio element")
 
@@ -385,7 +385,7 @@ HTML5 wprowadzić więcej niż 25 nowych znaczników semantyki. Visual Studio ju
 
     > [!NOTE]
     > Naciskając **kartę** klucza dwukrotnie wstawieniu fragmentu kodu. Audio fragment kodu przedstawia standardowego użycia *audio* tag o dwa pliki źródłowe ulepszoną obsługę.
-3. Usuń drugi wiersz i aktualizowanie źródła pierwszego wiersza następujące łącze, aby WebCampsTV Katana Pokaz: [http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3](http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3). Poniżej przedstawiono wynikowy kod.
+3. Usuń drugi wiersz i aktualizowanie źródła pierwszego wiersza następujące łącze, aby WebCampsTV Katana Pokaz: [ http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3 ](http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3). Poniżej przedstawiono wynikowy kod.
 
     [!code-html[Main](visual-studio-2013-web-tools/samples/sample7.html)]
 
@@ -439,7 +439,7 @@ W przypadku sieci Web 2013 Essentials HTML strony i arkusze stylów drukować li
 
     ![Odwołanie html init.js](visual-studio-2013-web-tools/_static/image42.png "Init.js odwołania html")
 
-    *Odwołanie do init.js html*
+    *Init.js html reference*
 7. Przejdź do **Eksploratora rozwiązań** i zwróć uwagę, że **init.js** pliku została automatycznie uwzględniona w rozwiązaniu.
 
     ![Plik init.js zawartych w rozwiązaniu](visual-studio-2013-web-tools/_static/image43.png "pliku Init.js zawartych w rozwiązaniu")
@@ -465,7 +465,7 @@ W przypadku sieci Web 2013 Essentials HTML strony i arkusze stylów drukować li
     ![Wyświetlanie funkcji IntelliSense dla metody getElementByTagName](visual-studio-2013-web-tools/_static/image45.png "przedstawiający IntelliSense dla metody getElementByTagName")
 
     *Wyświetlanie funkcji IntelliSense dla metody getElementsByTagName*
-13. Wybierz  **&quot;audio&quot;**  z listy i kliknij **ENTER**. Wynik jest wyświetlany na poniższej ilustracji.
+13. Wybierz **&quot;audio&quot;** z listy i kliknij **ENTER**. Wynik jest wyświetlany na poniższej ilustracji.
 
     ![Pobieranie elementów Audio](visual-studio-2013-web-tools/_static/image46.png "pobierania elementów Audio")
 
@@ -474,7 +474,7 @@ W przypadku sieci Web 2013 Essentials HTML strony i arkusze stylów drukować li
 
     ![Zminimalizowania pliki JavaScript](visual-studio-2013-web-tools/_static/image47.png "pliki zminimalizowania JavaScript")
 
-    *Zminimalizowania pliki JavaScript*
+    *Minify JavaScript file(s)*
 15. Po wyświetleniu monitu, aby włączyć automatyczne minimalizowanie kliknięcie zmiany pliku źródłowego **tak**.
 
     ![Włączanie automatycznego minimalizację ostrzeżenie](visual-studio-2013-web-tools/_static/image48.png "włączenie automatycznego minimalizację ostrzeżenie")

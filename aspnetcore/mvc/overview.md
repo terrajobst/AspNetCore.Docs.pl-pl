@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: mvc/overview
 ms.openlocfilehash: 1cf48499d3bc0ba63e2f0667740668fad0b13c28
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
@@ -27,7 +27,7 @@ Wzorzec architektury Model-widok-kontroler (MVC) dzieli aplikację na trzy głó
 
 Na poniższym diagramie przedstawiono trzy główne składniki i te, które odwołują się inne:
 
-![Wzorzec MVC](overview/_static/mvc.png)
+![MVC Pattern](overview/_static/mvc.png)
 
 Ta nakreślenia obowiązki pomaga skalowanie aplikacji pod względem stopnia złożoności, ponieważ ułatwia kodu, debugowania i testowania coś (model, widok lub kontrolera) z jednym zadaniu (i jest zgodna z [jednej zasady odpowiedzialności ](http://deviq.com/single-responsibility-principle/)). Jest trudne do aktualizacji, badanie i debugowania kodu, który ma zależności rozłożyć na co najmniej dwa z tych trzech obszarach. Na przykład logika interfejsu użytkownika zwykle zmieniać częściej niż logiki biznesowej. Jeśli prezentacji kodu i logiki biznesowej są łączone w pojedynczy obiekt, należy zmodyfikować obiekt zawierający logiki biznesowej każdej zmianie interfejsu użytkownika. To często wprowadza błędy i wymaga ponowne logiki biznesowej po każdej zmianie interfejsu użytkownika minimalnej.
 
@@ -72,7 +72,7 @@ Platformy ASP.NET Core MVC obejmuje następujące funkcje:
 * [Filtry](#filters)
 * [Obszary](#areas)
 * [Interfejsy API sieci Web](#web-apis)
-* [Testability](#testability)
+* [Pola](#testability)
 * [Aparat widoku razor](#razor-view-engine)
 * [Jednoznacznie widoków](#strongly-typed-views)
 * [Pomocnicy tagów](#tag-helpers)

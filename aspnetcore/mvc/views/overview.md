@@ -1,7 +1,7 @@
 ---
 title: Widoki w podstawowej platformy ASP.NET MVC
 author: ardalis
-description: "Dowiedz się, jak widoki obsługi aplikacji prezentacji danych i interakcji z użytkownikiem w nazwie wzorca MVC ASP.NET Core."
+description: Dowiedz się, jak widoki obsługi aplikacji prezentacji danych i interakcji z użytkownikiem w nazwie wzorca MVC ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 12/12/2017
@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
 ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Widoki w podstawowej platformy ASP.NET MVC
 
@@ -93,7 +93,7 @@ Domyślne zachowanie `View` — metoda (`return View();`) jest do zwrócenia wid
 Nie ma znaczenia, gdy zwracają niejawnie `ViewResult` z `return View();` lub jawnego przesłania nazwy widoku, aby `View` metody z `return View("<ViewName>");`. W obu przypadkach widok odnajdywania wyszukuje odpowiedniego pliku widoku w następującej kolejności:
 
    1. *Views/\[ControllerName]/\[ViewName].cshtml*
-   1. *Widoki/udostępnione/\[ViewName] .cshtml*
+   1. *Views/Shared/\[ViewName].cshtml*
 
 Ścieżka pliku widoku można podać zamiast nazwy widoku. Jeśli przy użyciu ścieżką bezwzględną, zaczynając od katalogu głównego aplikacji (opcjonalnie rozpoczynających się od "/" lub "~ /"), *.cshtml* rozszerzenia musi być określona:
 
@@ -243,7 +243,7 @@ Praca z danymi w widoku:
 </address>
 ```
 
-**Obiekt ViewBag**
+**ViewBag**
 
 Uwaga: `ViewBag` nie jest dostępna na stronach Razor.
 

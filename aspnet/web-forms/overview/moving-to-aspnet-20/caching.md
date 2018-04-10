@@ -16,7 +16,7 @@ ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="caching"></a>Buforowanie
 ====================
@@ -249,13 +249,13 @@ Następujące atrybuty są dostępne dla &lt;outputCache&gt; elementu.
 
 &lt;OutputCacheSettings&gt; element umożliwia tworzenie profilów pamięci podręcznej w sposób opisany wcześniej. Element podrzędny tylko dla &lt;outputCacheSettings&gt; jest element &lt;outputCacheProfiles&gt; elementu Konfigurowanie profilów pamięci podręcznej.
 
-### <a name="the-ltsqlcachedependencygt-element"></a>&lt;SqlCacheDependency&gt; — Element
+### <a name="the-ltsqlcachedependencygt-element"></a>The &lt;sqlCacheDependency&gt; Element
 
 Następujące atrybuty są dostępne dla &lt;sqlCacheDependency&gt; elementu.
 
 | **Atrybut** | **Opis** |
 | --- | --- |
-| **włączone** | Wymagane **logiczna** atrybutu. Wskazuje, czy zmiany są trwa sondowania. |
+| **enabled** | Wymagane **logiczna** atrybutu. Wskazuje, czy zmiany są trwa sondowania. |
 | **pollTime** | Opcjonalne **Int32** atrybutu. Określa częstotliwość, z którym SqlCacheDependency sonduje w tabeli bazy danych zmiany. Ta wartość odpowiada liczba milisekund między kolejnymi pollings. Nie można ustawić milisekund mniej niż 500. Wartość domyślna to 1 minuta. |
 
 ### <a name="more-information"></a>Więcej informacji

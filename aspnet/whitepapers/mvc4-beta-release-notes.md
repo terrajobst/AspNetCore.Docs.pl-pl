@@ -16,7 +16,7 @@ ms.openlocfilehash: d29f09d726e835c1eb1fc38e643a4bfe7f00f61c
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -301,7 +301,7 @@ ASP.NET MVC 4 w wersji Beta obsługuje wrzesień 2011 1.5 wersji zestawu SDK pla
 - **Menedżer pakietów NuGet nie zostanie zainstalowany podczas próby zainstalowania programu ASP.NET MVC 4 dla siebie instalacji programu Visual Studio 2010 oraz Visual Web Developer 2010.** Do uruchomienia programu Visual Studio 2010 i Visual Web Developer 2010 równolegle z platformy ASP.NET MVC 4 należy zainstalować program ASP.NET MVC 4 po obie wersje programu Visual Studio zostały już zainstalowane.
 - **Odinstalowywanie platformy ASP.NET MVC 4 kończy się niepowodzeniem, jeśli wymagania wstępne zostały już odinstalowane.** Aby odinstalować prawidłowo ASP.NET MVC 4you odinstalować ASP.NET MVC 4 przed odinstalowaniem programu Visual Studio.
 - **Uruchamianie domyślny projekt interfejsu API sieci Web zawiera instrukcje dotyczące niepoprawnie przekierować użytkownika można dodać tras za pomocą metody RegisterApis, który nie istnieje.** W metodzie RegisterRoutes przy użyciu tabeli tras platformy ASP.NET, należy dodać trasy.
-- **Instalowanie platformy ASP.NET MVC 4 w wersji Beta dzieli RTM programu ASP.NET MVC 3 aplikacji.** Aplikacje programu ASP.NET MVC 3, które zostały utworzone z RTM zlecenia (nie w wersji aktualizacji narzędzi programu ASP.NET MVC 3) wymagają następujących zmian do side-by-side z platformy ASP.NET MVC 4 w wersji Beta. Tworzenie projektu bez wprowadzania tych wyników aktualizacje w błędy kompilacji. 
+- **Installing ASP.NET MVC 4 Beta breaks ASP.NET MVC 3 RTM applications.** Aplikacje programu ASP.NET MVC 3, które zostały utworzone z RTM zlecenia (nie w wersji aktualizacji narzędzi programu ASP.NET MVC 3) wymagają następujących zmian do side-by-side z platformy ASP.NET MVC 4 w wersji Beta. Tworzenie projektu bez wprowadzania tych wyników aktualizacje w błędy kompilacji. 
 
     **Wymagane aktualizacje**
 

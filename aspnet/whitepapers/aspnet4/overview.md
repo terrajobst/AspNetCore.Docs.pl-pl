@@ -16,7 +16,7 @@ ms.openlocfilehash: 6ce52c387ff835eda46bc1882b8b974889e2d4af
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>Program ASP.NET 4 i omówienie tworzenia sieci Web programu Visual Studio 2010
 ====================
@@ -52,7 +52,7 @@ ms.lasthandoff: 04/06/2018
 [Routing w programie ASP.NET 4](#0.2__Toc253429260 "_Toc253429260")  
 [Ustawienia klienta identyfikatorów](#0.2__Toc253429261 "_Toc253429261")  
 [Utrwalanie zaznaczenie wiersza w formantach danych](#0.2__Toc253429262 "_Toc253429262")  
-[ASP.NET Chart Control](#0.2__Toc253429263 "_Toc253429263")  
+[Formant wykresu ASP.NET](#0.2__Toc253429263 "_Toc253429263")  
 [Filtrowanie danych za pomocą formantu klasą QueryExtender](#0.2__Toc253429264 "_Toc253429264")  
 [Wyrażenia kodu kodowania HTML](#0.2__Toc253429265 "_Toc253429265")  
 [Zmiany szablonu projektu](#0.2__Toc253429266 "_Toc253429266")  
@@ -344,7 +344,7 @@ Po ustawieniu właściwości EnableCdn wartość true, struktury programu ASP.NE
 
 <a id="0.2__Toc253429253"></a><a id="0.2__Toc243304627"></a>
 
-### <a name="scriptmanager-explicit-scripts"></a>Skrypty jawne ScriptManager
+### <a name="scriptmanager-explicit-scripts"></a>ScriptManager Explicit Scripts
 
 W przeszłości Jeśli użyto ASP.NET ScriptManger następnie zostały trzeba załadować całej biblioteki wbudowanymi Ajax ASP.NET. Dzięki wykorzystaniu nowych właściwości ScriptManager.AjaxFrameworkMode, można kontrolować dokładnie są ładowane składniki biblioteki ASP.NET Ajax i załadować tylko składniki biblioteki ASP.NET Ajax, potrzebne.
 
@@ -821,7 +821,7 @@ Tylko jedno wyrażenie używane w tych przykładach *klasą QueryExtender* forma
 
 <a id="0.2__Toc253429265"></a><a id="0.2__Toc243304639"></a>
 
-### <a name="html-encoded-code-expressions"></a>Wyrażenia kodu kodowania HTML
+### <a name="html-encoded-code-expressions"></a>Html Encoded Code Expressions
 
 Niektóre witryny ASP.NET (zwłaszcza z platformą ASP.NET MVC) silnie zależy od usługi `<%` =  `expression %>` składni (często nazywane "code nuggets") do zapisania fragment tekstu w odpowiedzi. Użycie wyrażenia kodu, jest proste zapomnieć do zakodowania w formacie HTML wprowadzania tekstu, jeśli tekst pochodzi od użytkownika, jego można pozostawić strony Otwórz na ataki XSS (skryptów krzyżowych).
 

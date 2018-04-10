@@ -2,30 +2,30 @@
 uid: whitepapers/overview
 title: Oficjalne dokumenty | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Na tej stronie znajdziesz oficjalnych dokumentów ułatwiają instalowanie i konfigurowanie programu ASP.NET i ułatwi zapisu bezpieczny, szybkie i elastyczne aplikacji ASP.NET."
+description: Na tej stronie znajdziesz oficjalnych dokumentów ułatwiają instalowanie i konfigurowanie programu ASP.NET i ułatwi zapisu bezpieczny, szybkie i elastyczne aplikacji ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2011
 ms.topic: article
 ms.assetid: d5e79470-01f2-4d65-8077-11c3e10a6784
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers
 msc.type: content
 ms.openlocfilehash: ba9fda509605025754dc9753266f86585f38b089
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="whitepapers"></a>Dodatkowe informacje
 ====================
 > Na tej stronie znajdziesz oficjalnych dokumentów ułatwiają instalowanie i konfigurowanie programu ASP.NET i ułatwi zapisu bezpieczny, szybkie i elastyczne aplikacji ASP.NET.
 > 
 > - [ASP.NET 4](#aspnet4)
-> - [Oficjalne dokumenty zabezpieczeń platformy ASP.NET](#security)
+> - [ASP.NET Security Whitepapers](#security)
 > - [Instalacji i konfiguracji oficjalne dokumenty](#setup)
-> - [Oficjalne dokumenty programu SQL Server](#sql)
+> - [SQL Server Whitepapers](#sql)
 > - [Oficjalne dokumenty ogólne](#general)
 
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/24/2018
 
 Informacje dotyczące programu ASP.NET 4 i programu Visual Studio 2010.
 
-[Informacje o wersji platformy ASP.NET MVC 4](mvc4-beta-release-notes.md "informacje o wersji platformy MVC 4")
+[ASP.NET MVC 4 Release Notes](mvc4-beta-release-notes.md "mvc4-release-notes")
 
 Tym dokumencie opisano nowe funkcje i ulepszenia wprowadzono w programie ASP.NET MVC 4 Developer Preview dla Visual Studio 2010, a także informacje o instalacji i znane problemy.
 
@@ -46,7 +46,7 @@ W tym dokumencie opisano nowe funkcje i ulepszenia wprowadzono w programie ASP.N
 
 Wiele zmian atrakcyjnych dla platformy ASP.NET będzie można używać w programie .NET Framework w wersji 4. Ten dokument zawiera omówienie wiele nowych funkcji, które znajdują się w kolejnych wersji.
 
-[Zmienia podziału w wersji Beta 2 programu ASP.NET 4](aspnet4/breaking-changes.md "najważniejszych zmian")
+[ASP.NET 4 Beta 2 Breaking Changes](aspnet4/breaking-changes.md "breaking-changes")
 
 W tym dokumencie opisano zmiany, które zostały wprowadzone dla programu .NET Framework w wersji 4 wersji Beta 2 (to znaczy wersji platformy ASP.NET 4 Beta 2), które mogą wpłynąć na aplikacje, które zostały utworzone przy użyciu wcześniejszych wersjach, łącznie z wersji platformy ASP.NET 4 Beta 1.
 
@@ -59,7 +59,7 @@ Ten dokument zawiera opis nowych funkcji i ulepszeń wprowadzonych w programie A
 ASP.NET MVC 2 można zainstalować równolegle program ASP.NET MVC w wersji 1.0 na tym samym serwerze. Zapewnia elastyczność deweloperzy aplikacji, wybierając podczas uaktualniania aplikacji ASP.NET MVC 2 platformy ASP.NET MVC w wersji 1.0. Ten dokument tym zarówno jak uaktualnić ręcznie i za pomocą kreatora w języku Visual...
 
 <a id="security"></a>
-## <a name="aspnet-security-whitepapers"></a>Oficjalne dokumenty zabezpieczeń platformy ASP.NET
+## <a name="aspnet-security-whitepapers"></a>ASP.NET Security Whitepapers
 
 Zabezpieczenia są istotnym elementem aplikacji internetowych, a te dokumenty zawierają opis projektować i implementować zabezpieczenia aplikacji ASP.NET.
 
@@ -113,7 +113,7 @@ Ten sposób aby opisano podejście do tworzenia modelu zagrożeń dla aplikacji 
 
 ### <a name="forms-authentication"></a>Uwierzytelnianie formularzy
 
-[Ochrona uwierzytelniania formularzy w programie ASP.NET 2.0](https://msdn.microsoft.com/library/ms998310.aspx)
+[Protect Forms Authentication in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998310.aspx)
 
 Ten sposób można przedstawiono sposób bezpiecznie Konfigurowanie i używanie uwierzytelniania formularzy aplikacji ASP.NET 2.0. Kluczowych czynników, które należy uwzględnić obejmują poprawnie zabezpieczanie biletu uwierzytelniania i zabezpieczania dostępu do tego magazynu i magazynu tożsamości użytkownika. ...
 
@@ -151,7 +151,7 @@ W tym dokumencie opisano funkcję sprawdzania poprawności żądania programu AS
 
 Ten sposób można pokazuje, jak może pomóc chronić aplikacje ASP.NET przed atakami skryptów między witrynami, przy użyciu techniki prawidłowego sprawdzania poprawności danych wejściowych i kodowanie danych wyjściowych. Opisano również kilka innych mechanizmów ochrony, których można używać w...
 
-[Ochrona przed iniekcja kodu SQL w programie ASP.NET](https://msdn.microsoft.com/library/ms998271.aspx)
+[Protect From SQL Injection in ASP.NET](https://msdn.microsoft.com/library/ms998271.aspx)
 
 Ten sposób można zawiera kilka różnych sposobów w celu ochrony przed atakami iniekcji kodu SQL aplikacji ASP.NET. Iniekcja kodu SQL może wystąpić, gdy aplikacja używa danych wejściowych do konstruowania dynamicznych instrukcji SQL lub jeśli używa procedur składowanych do nawiązania połączenia...
 
@@ -197,7 +197,7 @@ Często jest to istotne w przypadku aplikacji można było zabezpieczyć dane pr
 
 [Wywoływanie usługi sieci Web przy użyciu certyfikatów klienta z programu ASP.NET 1.1](https://msdn.microsoft.com/library/aa302408.aspx)
 
-Ten sposób można w tym artykule opisano sposób można przekazać certyfikat klienta do usługi sieci Web na potrzeby uwierzytelniania z aplikacji sieci Web ASP.NET lub aplikacji formularzy systemu Windows. Certyfikat klienta można zainstalować w magazynie komputera lokalnego lub w magazynie użytkownika. IF...
+Ten sposób można w tym artykule opisano sposób można przekazać certyfikat klienta do usługi sieci Web na potrzeby uwierzytelniania z aplikacji sieci Web ASP.NET lub aplikacji formularzy systemu Windows. Certyfikat klienta można zainstalować w magazynie komputera lokalnego lub w magazynie użytkownika. If...
 
 [Wywoływanie usługi sieci Web przy użyciu protokołu SSL z platformy ASP.NET 1.1](https://msdn.microsoft.com/library/aa302409.aspx)
 
@@ -289,7 +289,7 @@ Ten sposób można przedstawia sposób użycia dostawcę konfiguracji chronione 
 Ten sposób aby pokazuje, kiedy należy używać personifikacji w aplikacjach ASP.NET 2.0. Domyślnie personifikacja jest wyłączona, a dostęp do zasobów przy użyciu tożsamości procesu aplikacji sieci Web ASP.NET. Można jednak użyć...
 
 <a id="sql"></a>
-## <a name="sql-server-whitepapers"></a>Oficjalne dokumenty programu SQL Server
+## <a name="sql-server-whitepapers"></a>SQL Server Whitepapers
 
 Gdy ASP.NET działa z różnymi bazami danych, te oficjalne dokumenty przyjrzeć się w szczególności łączenie aplikacji ASP.NET do programu SQL Server.
 

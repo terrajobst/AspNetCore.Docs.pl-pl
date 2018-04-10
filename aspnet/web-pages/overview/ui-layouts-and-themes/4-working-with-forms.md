@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 title: Praca z formularzy HTML w witrynach platformy ASP.NET Web Pages (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Formularz jest sekcji dokumentu HTML, gdzie umieścić kontroli danych wejściowych użytkownika, takich jak pola tekstowe, pola wyboru, przyciski radiowe i listy rozwijane. Używanie formularzy ki..."
+description: Formularz jest sekcji dokumentu HTML, gdzie umieścić kontroli danych wejściowych użytkownika, takich jak pola tekstowe, pola wyboru, przyciski radiowe i listy rozwijane. Używanie formularzy ki...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
 ms.openlocfilehash: 8579c444fd19d1a366349cc09f9f768de23055f8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Praca z formularzy HTML w lokacjach (Razor) stron sieci Web ASP.NET
 ====================
@@ -41,7 +41,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - Strony sieci Web platformy ASP.NET (Razor) 3
 >   
 > 
 > W tym samouczku współdziała również z programu ASP.NET Web Pages 2.
@@ -73,7 +73,7 @@ Aby przetwarzania formularza, należy dodać kod odczytuje wartości pól przes�
 
     ![Zrzut ekranu pokazujący wprowadzone wartości wyświetlane na stronie.](4-working-with-forms/_static/image2.jpg)
 
-    Sprawdź kod dla strony. Należy najpierw użyć `IsPost` metodę, aby określić, czy strona jest jest przesyłana &#8212; oznacza to, czy użytkownik kliknął **przesyłania** przycisku. Jeśli jest to post, `IsPost` zwraca wartość true. Jest to standardowy sposób stron ASP.NET Web Pages można określić, czy pracy z żądania początkowego (żądanie GET) lub odświeżenie strony (żądania POST). (Aby uzyskać więcej informacji na temat GET i POST, zobacz "HTTP GET i POST i IsPost Property" paska bocznego w [wprowadzenie do platformy ASP.NET Web Pages programowania przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
+    Sprawdź kod dla strony. Należy najpierw użyć `IsPost` metodę, aby określić, czy strona jest przesyłana &#8212; oznacza to, czy użytkownik kliknął **przesyłania** przycisku. Jeśli jest to post, `IsPost` zwraca wartość true. Jest to standardowy sposób stron ASP.NET Web Pages można określić, czy pracy z żądania początkowego (żądanie GET) lub odświeżenie strony (żądania POST). (Aby uzyskać więcej informacji na temat GET i POST, zobacz "HTTP GET i POST i IsPost Property" paska bocznego w [wprowadzenie do platformy ASP.NET Web Pages programowania przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
 
     Następnie Pobierz wartości, które użytkownik wypełnione `Request.Form` obiekt i umieść je w zmiennych na później. `Request.Form` Obiekt zawiera wszystkie wartości, które zostały przesłane ze stroną, identyfikowanych przy użyciu klucza. Klucz jest odpowiednikiem `name` atrybutu pola formularza, który chcesz odczytać. Na przykład, aby odczytać `companyname` pola (pole tekstowe), możesz użyć `Request.Form["companyname"]`.
 
@@ -89,7 +89,7 @@ Aby przetwarzania formularza, należy dodać kod odczytuje wartości pól przes�
 > 
 > Kodowanie HTML zastępuje te znaki zastrzeżone kod, który przeglądarki zinterpretować jako poprawne symbolu. Na przykład `<` znak jest zastępowany `&lt;` i `>` znak jest zastępowany `&gt;`. Przeglądarka renderuje te ciągi zamienne jako znaki, które mają być wyświetlane.
 > 
-> Należy dobrze do użycia w dowolnym momencie wyświetlić ciągów kodowania HTML (dane wejściowe) uzyskanego od użytkownika. Jeśli nie, użytkownik może spróbuj pobrać strony sieci web do uruchamiania skryptu złośliwego lub czegoś innego który obniża poziom bezpieczeństwa witryny lub nie ma. (Jest to szczególnie ważne w przypadku zastosowania danych wejściowych użytkownika, zapisz go w innym, a następnie Wyświetl później &#8212; na przykład jako komentarz blog, przejrzyj użytkownika, lub coś, takich jak który).
+> Należy dobrze do użycia w dowolnym momencie wyświetlić ciągów kodowania HTML (dane wejściowe) uzyskanego od użytkownika. Jeśli nie, użytkownik może spróbuj pobrać strony sieci web do uruchamiania skryptu złośliwego lub czegoś innego który obniża poziom bezpieczeństwa witryny lub nie ma. (Jest to szczególnie ważne, jeśli otrzymuje dane wejściowe użytkownika, zapisz go w innym i wyświetl ją później &#8212; na przykład jako komentarz blog, przejrzyj użytkownika lub wyglądać mniej więcej tak że.)
 > 
 > Aby uniknąć tych problemów, ASP.NET Web Pages automatycznie koduje HTML tekstu zawartości tego przypadku dane wyjściowe w kodzie. Na przykład podczas wyświetlania zawartości zmiennej lub wyrażenie, przy użyciu kodu, takich jak `@MyVar`, ASP.NET Web Pages automatycznie koduje dane wyjściowe.
 

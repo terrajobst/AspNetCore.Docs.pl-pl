@@ -2,7 +2,7 @@
 uid: web-pages/overview/data/working-with-files
 title: Praca z plikami w witryny ASP.NET Web Pages (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym rozdziale opisano sposób odczytu, zapisu, Dołącz, Usuń i przekazywania plików."
+description: W tym rozdziale opisano sposób odczytu, zapisu, Dołącz, Usuń i przekazywania plików.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
 ms.openlocfilehash: 0f119f8fb4873e55292203f21a2efd8f26793ae4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Praca z plikami w witrynie sieci Web ASP.NET (Razor) stron
 ====================
@@ -46,7 +46,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
 > 
 > 
-> - ASP.NET Web Pages (Razor) 2
+> - Strony sieci Web platformy ASP.NET (Razor) 2
 > - WebMatrix 2
 >   
 > 
@@ -133,9 +133,9 @@ W tej procedurze przedstawiono odczytywanie i wyświetlić dane utworzonego w po
 
     Kod w tym celu znajduje się wewnątrz `if` instrukcji. Umożliwia odczytywanie pliku, to warto użyć `File.Exists` metodę, aby najpierw ustalić, czy plik jest dostępny. Kod sprawdza również, czy plik jest pusty.
 
-    Treść strony zawiera dwa `foreach` pętli jedną zagnieżdżone w innych. Zewnętrznego `foreach` pętli pobiera jeden wiersz jednocześnie z pliku danych. W takim przypadku wiersze są definiowane przez podziały wierszy w pliku &#8212; Każdy element danych jest w osobnym wierszu. Zewnętrzne pętli tworzy nowy element (`<li>` element) wewnątrz listy uporządkowanej (`<ol>` elementu).
+    Treść strony zawiera dwa `foreach` pętli jedną zagnieżdżone w innych. Zewnętrznego `foreach` pętli pobiera jeden wiersz jednocześnie z pliku danych. W takim przypadku wiersze są definiowane przez podziały wierszy w pliku &#8212; każdy element danych jest w osobnym wierszu. Zewnętrzne pętli tworzy nowy element (`<li>` element) wewnątrz listy uporządkowanej (`<ol>` elementu).
 
-    Fragment pętli dzielony elementów (pól) za pomocą przecinka jako ogranicznik każdego wiersza danych. (Na podstawie poprzedniego przykładu, oznacza to, że każdy wiersz zawiera trzy pola &#8212; imię, nazwisko i adres e-mail rozdzielonych przecinkami). Tworzy również pętli wewnętrznej `<ul>` elementu listy i wyświetla listę jednej dla każdego pola w wierszu danych.
+    Fragment pętli dzielony elementów (pól) za pomocą przecinka jako ogranicznik każdego wiersza danych. (Na podstawie poprzedniego przykładu, oznacza to, że każdy wiersz zawiera trzy pola &#8212; imię, nazwisko i adres e-mail, oddzielonych przecinkami.) Tworzy również pętli wewnętrznej `<ul>` elementu listy i wyświetla listę jednej dla każdego pola w wierszu danych.
 
     Kod ilustruje sposób używania dwa typy danych, tablicy i `char` — typ danych. Tablica jest wymagane, ponieważ `File.ReadAllLines` metoda zwraca dane w postaci tablicy. `char` Wymagany jest typ danych, ponieważ `Split` metoda zwraca `array` , w której każdy element jest typu `char`. (Aby uzyskać informacje dotyczące tablic, zobacz [wprowadzenie do platformy ASP.NET Web programowania przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkId=202890#ID_CollectionsAndObjects).)
 3. Uruchom strony w przeglądarce. Wyświetlania danych wprowadzonych w poprzednich przykładach. 
@@ -194,7 +194,7 @@ Aby usunąć pliki z witryny sieci Web, można użyć `File.Delete` metody. Za p
 
     Właściwości, które można ustawić dla `FileUpload` pomocnika Określ, które mają pojedyncze pole pliku do przekazania i ma przycisku przesyłania, aby odczytać **przekazać**. (Dodasz więcej pól w dalszej części tego artykułu.)
 
-    Po kliknięciu przez użytkownika **przekazać**, kod w górnej części strony pobiera pliku i zapisanie go. `Request` Obiekt, który pobiera wartości z pola formularza zwykle jest używana również ma `Files` tablicy, która zawiera plik (lub pliki) zostały przekazane. Możesz uzyskać poszczególnych plików z określonej pozycji w tablicy &#8212; na przykład, aby uzyskać pierwszy przekazany plik, możesz uzyskać `Request.Files[0]`, aby uzyskać drugi plik otrzymasz `Request.Files[1]`i tak dalej. (Należy pamiętać, że w programowaniu zliczania zwykle zaczyna się od zera).
+    Po kliknięciu przez użytkownika **przekazać**, kod w górnej części strony pobiera pliku i zapisanie go. `Request` Obiekt, który pobiera wartości z pola formularza zwykle jest używana również ma `Files` tablicy, która zawiera plik (lub pliki) zostały przekazane. Możesz uzyskać poszczególnych plików określonych pozycji w tablicy &#8212; na przykład, aby uzyskać pierwszy przekazany plik, możesz uzyskać `Request.Files[0]`, aby uzyskać drugi plik otrzymasz `Request.Files[1]`i tak dalej. (Należy pamiętać, że w programowaniu zliczania zwykle zaczyna się od zera).
 
     Podczas pobierania przekazany plik, należy umieścić w zmiennej (w tym miejscu `uploadedFile`), dzięki czemu można manipulować go. Aby określić nazwę przekazany plik, po prostu otrzymasz jego `FileName` właściwości. Jednak gdy użytkownik przekazuje plik, `FileName` zawiera oryginalna nazwa użytkownika, który zawiera pełną ścieżkę. Go może wyglądać następująco:
 
@@ -238,7 +238,7 @@ W poprzednim przykładzie można zezwolić użytkownikom na przekazywanie jedneg
 
     ![[Obraz]](working-with-files/_static/image11.jpg)
 
-    Aby przetwarzać pliki, które przekazuje użytkownika, w kodzie użyto tę samą metodę podstawowego, który został użyty w poprzednim przykładzie &#8212; Pobierz plik z `Request.Files` i zapisać go. (Łącznie z różnych rzeczy należy zrobić, aby uzyskać prawidłowy plik nazwę i ścieżkę.) Innowacji teraz jest, czy użytkownik może przekazać wielu plików i nie można ustalić wiele. Aby dowiedzieć się, możesz uzyskać `Request.Files.Count`.
+    Aby przetwarzać pliki, które przekazuje użytkownika, w kodzie użyto tę samą metodę podstawowego, który został użyty w poprzednim przykładzie &#8212; pobierania pliku z `Request.Files` i zapisać go. (Łącznie z różnych rzeczy należy zrobić, aby uzyskać prawidłowy plik nazwę i ścieżkę.) Innowacji teraz jest, czy użytkownik może przekazać wielu plików i nie można ustalić wiele. Aby dowiedzieć się, możesz uzyskać `Request.Files.Count`.
 
     Ten numer strony, można przeglądać `Request.Files`, pobrać z kolei każdy plik i zapisać go. Chcąc pętli znane wiele razy w kolekcji, można użyć `for` pętli następująco:
 

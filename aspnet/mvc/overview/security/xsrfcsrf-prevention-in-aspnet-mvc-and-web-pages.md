@@ -2,7 +2,7 @@
 uid: mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 title: Zapobieganie XSRF/CSRF w platformie ASP.NET MVC i stron sieci Web | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Sfałszowaniem żądania między witrynami (znanej także jako XSRF lub CSRF) jest atak wykorzystujący aplikacje obsługiwane w sieci web, zgodnie z którymi złośliwa witryna sieci web może mieć wpływ interakcyjne..."
+description: Sfałszowaniem żądania między witrynami (znanej także jako XSRF lub CSRF) jest atak wykorzystujący aplikacje obsługiwane w sieci web, zgodnie z którymi złośliwa witryna sieci web może mieć wpływ interakcyjne...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2013
@@ -13,14 +13,14 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 6cf30daa7ed966b11405cec715c5bc803b567249
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>Zapobieganie XSRF/CSRF w platformie ASP.NET MVC i stron sieci Web
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Żądania międzywitrynowego sfałszowaniem (znanej także jako XSRF lub CSRF) jest atak wykorzystujący aplikacje obsługiwane w sieci web, zgodnie z którymi złośliwa witryna sieci web może mieć wpływ interakcji między przeglądarką klienta i witryny sieci web ufa tej przeglądarki. Tego rodzaju ataki są możliwe, ponieważ przeglądarki sieci web do witryny sieci web wysyła tokeny uwierzytelniania automatycznie z każdym żądaniem. Canonical przykładem jest pliku cookie uwierzytelniania, takich jak ASP. Biletu uwierzytelniania formularzy w sieci. Jednak tego rodzaju ataki może być celem witryn sieci web, korzystających z dowolnego mechanizmu uwierzytelniania trwałe (takich jak uwierzytelnianie systemu Windows, Basic i tak dalej).
 > 
@@ -86,7 +86,7 @@ Weryfikacja żądania XSRF *tokenu sesji* jest przechowywana jako plik cookie HT
 Do generowania tokenów anti-XSRF, wywołaj [ @Html.AntiForgeryToken ](https://msdn.microsoft.com/library/dd470175.aspx) metody z widoku MVC lub @AntiForgery.GetHtml() na stronie aparatu Razor. Środowisko uruchomieniowe zostanie następnie wykonaj następujące czynności:
 
 1. Jeśli bieżące żądanie HTTP zawiera już token anti-XSRF sesji (plik cookie anti-XSRF \_ \_RequestVerificationToken), token zabezpieczający jest wyodrębniana z niego. Żądanie HTTP nie zawiera tokenu anti-XSRF sesji lub nie powiodło się wyodrębnienie tokenu zabezpieczającego, zostanie wygenerowany nowy token anti-XSRF losowych.
-2. Token anti-XSRF pola jest generowana z użyciem tokenu zabezpieczającego z powyższym kroku (1) i tożsamości bieżącego zalogowanego użytkownika. (Aby uzyskać więcej informacji na temat określania tożsamości użytkownika, zobacz  **[scenariusze z obsługą specjalne](#_Scenarios_with_special)**  poniżej.) Ponadto jeśli [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/jj158328(v=vs.111).aspx) jest skonfigurowany, wywoła środowisko uruchomieniowe jego [GetAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.getadditionaldata(v=vs.111).aspx) — metoda i Dołącz zwracany ciąg token pola. (Zobacz  **[konfiguracji i rozszerzalność](#_Configuration_and_extensibility)**  sekcji, aby uzyskać więcej informacji.)
+2. Token anti-XSRF pola jest generowana z użyciem tokenu zabezpieczającego z powyższym kroku (1) i tożsamości bieżącego zalogowanego użytkownika. (Aby uzyskać więcej informacji na temat określania tożsamości użytkownika, zobacz **[scenariusze z obsługą specjalne](#_Scenarios_with_special)** poniżej.) Ponadto jeśli [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/jj158328(v=vs.111).aspx) jest skonfigurowany, wywoła środowisko uruchomieniowe jego [GetAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.getadditionaldata(v=vs.111).aspx) — metoda i Dołącz zwracany ciąg token pola. (Zobacz **[konfiguracji i rozszerzalność](#_Configuration_and_extensibility)** sekcji, aby uzyskać więcej informacji.)
 3. Jeśli nowy token anti-XSRF został wygenerowany w kroku (1), token nowej sesji zostanie utworzony dla niej i zostanie dodany do kolekcji wychodzące pliki cookie HTTP. Token pola w kroku (2) zostaną opakowane w `<input type="hidden" />` elementu, a ten kod znaczników HTML będzie zwracana wartość `Html.AntiForgeryToken()` lub `AntiForgery.GetHtml()`.
 
 ## <a name="validating-the-tokens"></a>Sprawdzanie poprawności tokenów
@@ -108,9 +108,9 @@ Począwszy od środowiska uruchomieniowego stosu sieci Web ASP.NET w wersji 2 ż
 - Token sesji i token pola zostały zamienione.
 - Tokenu sesji i token pola zawiera niedopasowane tokenów.
 - Osadzone w tokenie pole Nazwa użytkownika jest niezgodna z bieżącego zalogowanego użytkownika.
-- *[IAntiForgeryAdditionalDataProvider.ValidateAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.validateadditionaldata(v=vs.111).aspx)*  metoda zwróciła *false*.
+- *[IAntiForgeryAdditionalDataProvider.ValidateAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.validateadditionaldata(v=vs.111).aspx)* metoda zwróciła *false*.
 
-Urządzenia anti-XSRF może także przeprowadzić dodatkowe sprawdzenie podczas generowania tokenów lub sprawdzania poprawności i może spowodować błędy podczas kontroli wyjątki są zgłaszane. Zobacz [WIF / ACS / opartego na oświadczeniach uwierzytelniania](#_WIF_ACS) i  **[konfiguracji i rozszerzalność](#_Configuration_and_extensibility)**  sekcjach, aby uzyskać więcej informacji.
+Urządzenia anti-XSRF może także przeprowadzić dodatkowe sprawdzenie podczas generowania tokenów lub sprawdzania poprawności i może spowodować błędy podczas kontroli wyjątki są zgłaszane. Zobacz [WIF / ACS / opartego na oświadczeniach uwierzytelniania](#_WIF_ACS) i **[konfiguracji i rozszerzalność](#_Configuration_and_extensibility)** sekcjach, aby uzyskać więcej informacji.
 
 <a id="_Scenarios_with_special"></a>
 
@@ -139,10 +139,10 @@ Wiele wdrożeń, które korzystają z uwierzytelniania opartego na oświadczenia
 
 Podczas tworzenia lub sprawdzania poprawności tokenu, Runtime stosu sieci Web ASP.NET w czasie wykonywania spróbuje powiązania do typów:
 
-- `Microsoft.IdentityModel.Claims.IClaimsIdentity, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35`(Dla zestawu SDK programu WIF.)
-- `System.Security.Claims.ClaimsIdentity`(Dla platformy .NET 4.5).
+- `Microsoft.IdentityModel.Claims.IClaimsIdentity, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35` (Dla zestawu SDK programu WIF.)
+- `System.Security.Claims.ClaimsIdentity` (Dla platformy .NET 4.5).
 
-Jeśli te typy istnieje, a bieżący użytkownik *IIIIdentity* implementuje lub podklasy jeden z tych typów, funkcji anti-XSRF będzie używać (dostawcy tożsamości, nazwa identyfikatora) krotki zamiast nazwy użytkownika podczas generowania i Sprawdzanie poprawności tokenów. Jeśli nie takie spójnej kolekcji, żądanie zakończy się niepowodzeniem z powodu błędu opisujące deweloperowi sposób skonfigurowania systemu anti-XSRF, aby zrozumieć mechanizm określonego uwierzytelniania opartego na oświadczeniach w użyciu. Zobacz  **[konfiguracji i rozszerzalność](#_Configuration_and_extensibility)**  sekcji, aby uzyskać więcej informacji.
+Jeśli te typy istnieje, a bieżący użytkownik *IIIIdentity* implementuje lub podklasy jeden z tych typów, funkcji anti-XSRF będzie używać (dostawcy tożsamości, nazwa identyfikatora) krotki zamiast nazwy użytkownika podczas generowania i Sprawdzanie poprawności tokenów. Jeśli nie takie spójnej kolekcji, żądanie zakończy się niepowodzeniem z powodu błędu opisujące deweloperowi sposób skonfigurowania systemu anti-XSRF, aby zrozumieć mechanizm określonego uwierzytelniania opartego na oświadczeniach w użyciu. Zobacz **[konfiguracji i rozszerzalność](#_Configuration_and_extensibility)** sekcji, aby uzyskać więcej informacji.
 
 ### <a name="oauth--openid-authentication"></a>OAuth / OpenID uwierzytelniania
 
@@ -167,7 +167,7 @@ Deweloper może skonfigurować system anti-XSRF z aplikacji\_Start. Konfiguracja
 | --- | --- |
 | **AdditionalDataProvider** | [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) udostępnia dodatkowe dane podczas generowania tokenu i używa dodatkowych danych podczas sprawdzania poprawności tokenu. Wartość domyślna to *null*. Aby uzyskać więcej informacji, zobacz [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) sekcji. |
 | **CookieName** | Ciąg, który zawiera nazwę pliku cookie HTTP, który jest używany do przechowywania tokenu anti-XSRF sesji. Jeśli ta wartość nie jest ustawiona, nazwy będą automatycznie generowane na podstawie ścieżki wirtualnej wdrożonej aplikacji. Wartość domyślna to *null*. |
-| **Parametru RequireSsl** | Wartość logiczna określająca, czy tokeny anti-XSRF są wymagane do przesłania za pośrednictwem kanału zabezpieczonego protokołem SSL. Jeśli ta wartość jest *true*, plików cookie generowane automatycznie ma flagę "bezpiecznej" i interfejsów API anti-XSRF nie jest wykonywana żadna wywołane z wnętrza żądanie, które nie są przesyłane za pośrednictwem protokołu SSL. Wartość domyślna to *false*. |
+| **parametru requireSsl** | Wartość logiczna określająca, czy tokeny anti-XSRF są wymagane do przesłania za pośrednictwem kanału zabezpieczonego protokołem SSL. Jeśli ta wartość jest *true*, plików cookie generowane automatycznie ma flagę "bezpiecznej" i interfejsów API anti-XSRF nie jest wykonywana żadna wywołane z wnętrza żądanie, które nie są przesyłane za pośrednictwem protokołu SSL. Wartość domyślna to *false*. |
 | **SuppressIdentityHeuristicChecks** | Wartość logiczna określająca, czy system anti-XSRF dezaktywować jego obsługę tożsamości opartego na oświadczeniach. Jeśli ta wartość jest *true*, system zakłada, że *IIdentity.Name* jest odpowiednie do użycia jako identyfikator unikatowy dla poszczególnych użytkowników i nie będzie próbował specjalny przypadek *IClaimsIdentity*lub *ClClaimsIdentity* zgodnie z opisem w [WIF / ACS / opartego na oświadczeniach uwierzytelniania](#_WIF_ACS) sekcji. Wartość domyślna to `false`. |
 | **UniqueClaimTypeIdentifier** | Ciąg, który wskazuje typ oświadczenia, które jest odpowiednie do użycia jako identyfikator unikatowy dla poszczególnych użytkowników. Jeśli ta wartość jest ustawiony, a bieżące *tożsamości* opartego na oświadczeniach, system będzie podejmować próby wyodrębnienia oświadczenie typu określonym przez *UniqueClaimTypeIdentifier*, i będzie używana wartość odpowiadająca zamiast nazwy użytkownika podczas generowania token pola. Nie znaleziono typu oświadczenia, zakończy się niepowodzeniem żądania przez system. Wartość domyślna to *null*, co oznacza, że system powinien używać (dostawcy tożsamości, nazwa identyfikatora) spójnej kolekcji, jak opisano wcześniej zamiast nazwy użytkownika. |
 
@@ -175,7 +175,7 @@ Deweloper może skonfigurować system anti-XSRF z aplikacji\_Start. Konfiguracja
 
 ### <a name="iantiforgeryadditionaldataprovider"></a>IAntiForgeryAdditionalDataProvider
 
-*[IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx)*  typu umożliwia deweloperom rozszerzyć zachowanie systemu anti-XSRF przez dwustronną komunikację w każdym token dodatkowe dane. *GetAdditionalData* metoda jest wywoływana za każdym razem zostanie wygenerowany token pola i wartość zwracana jest osadzony w wygenerowany token. Realizator może zwrócić sygnaturę czasową, identyfikatora jednorazowego lub wszelkie inne wartości, które użytkownik chce z tej metody.
+*[IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx)* typu umożliwia deweloperom rozszerzyć zachowanie systemu anti-XSRF przez dwustronną komunikację w każdym token dodatkowe dane. *GetAdditionalData* metoda jest wywoływana za każdym razem zostanie wygenerowany token pola i wartość zwracana jest osadzony w wygenerowany token. Realizator może zwrócić sygnaturę czasową, identyfikatora jednorazowego lub wszelkie inne wartości, które użytkownik chce z tej metody.
 
 Podobnie *ValidateAdditionalData* metoda jest wywoływana za każdym razem token pola jest zweryfikowany, a ciąg "dane dodatkowe", które zostały osadzone w tokenie jest przekazywany do metody. Procedury weryfikacji można zaimplementować przekroczenie limitu czasu (sprawdzając aktualny czas od czasu, które były przechowywane, podczas tworzenia tokenu), identyfikatora jednorazowego sprawdzanie procedury lub inne potrzeby logiki.
 

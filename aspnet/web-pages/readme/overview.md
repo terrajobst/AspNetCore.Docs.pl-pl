@@ -16,7 +16,7 @@ ms.openlocfilehash: c65ee58b8c13b0b4acb6e7c9b631c8235e791506
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="webmatrix-readme"></a>Plik Readme programu WebMatrix
 ====================
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/06/2018
     - [Instalacja programu WebMatrix w wersji 1.0](#Known_Issues_Installation)
     - [ASP.NET Web Pages](#Known_Issues_ASPNET)
     - [WebMatrix](#Known_Issues_WebMatrix)
-    - [Usługi IIS Express](#Known_Issues_IISExpress)
+    - [IIS Express](#Known_Issues_IISExpress)
     - [SQL Server Compact](#Known_Issues_SQLServerCompact)
     - [Instalowanie aplikacji](#Known_Issues_Installing_Applications)
     - [Publikowanie aplikacji](#Known_Issues_Publishing_Applications)
@@ -258,9 +258,9 @@ W tej sekcji dokumentu opisano nowe funkcje, zmiany i znane problemy z wersji 1.
 > 1. Kopiowanie zestawów aparatu bazy danych do *Bin* folderze (i jego podfolderach) aplikacji na komputerze docelowym:  
 > 
 >    - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->        **Aby** *\Bin*
->    - Kopiuj <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>do</em></strong>\Bin\x86*
->    - Kopiuj <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>do</strong><em>\Bin\amd64</em>
+>        **to** *\Bin*
+>    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>to</em></strong>\Bin\x86*
+>    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>to</strong><em>\Bin\amd64</em>
 > 
 > 2. W folderze głównym witryny sieci Web, należy utworzyć lub otworzyć *web.config* pliku. (W wersji 1.0 programu WebMatrix, ten typ pliku jest dostępna po kliknięciu **wszystkie** w **wybierz typ pliku** okno dialogowe.)
 > 3. Dodaj następujący element jako element podrzędny `<configuration>` elementu (nie znajduje się w `<system.web>` element):
@@ -397,7 +397,7 @@ W tej sekcji dokumentu opisano znane problemy dotyczące środowiska programowan
 
 
 <a id="Known_Issues_IISExpress"></a>
-### <a name="iis-express"></a>Usługi IIS Express
+### <a name="iis-express"></a>IIS Express
 
 Usługi IIS Express ma własny plik readme, który jest dostępny pod adresem URL:
 
