@@ -1,29 +1,29 @@
 ---
 uid: whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
-title: "Porady: Dodawanie stron dla urządzeń przenośnych do formularzy sieci Web ASP.NET / aplikacji MVC | Dokumentacja firmy Microsoft"
+title: 'Porady: Dodawanie stron dla urządzeń przenośnych do formularzy sieci Web ASP.NET / aplikacji MVC | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "Ten sposób można opisano różne sposoby do obsługi stron zoptymalizowane dla urządzeń przenośnych z formularzy sieci Web ASP.NET / aplikacji MVC, a także sugeruje architektury i..."
+description: Ten sposób można opisano różne sposoby do obsługi stron zoptymalizowane dla urządzeń przenośnych z formularzy sieci Web ASP.NET / aplikacji MVC, a także sugeruje architektury i...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2011
 ms.topic: article
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: aac359b26c508784793a67260dc2e65c30db687a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a8358b91ca424f4f3e576057ab43d850081dda60
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Porady: Dodawanie stron dla urządzeń przenośnych do formularzy sieci Web ASP.NET / aplikacji MVC
 ====================
 > **Dotyczy**
 > 
-> - Formularze sieci Web ASP.NET w wersji 4.0
-> - ASP.NET MVC w wersji 3.0
+> - ASP.NET Web Forms version 4.0
+> - ASP.NET MVC version 3.0
 > 
 > **Podsumowanie**
 > 
@@ -116,7 +116,7 @@ Deweloperzy i formularzy sieci Web platformy ASP.NET MVC można natychmiast odna
 - Request.Browser.MobileDeviceManufacturer, Request.Browser.MobileDeviceModel
 - Request.Browser.ScreenPixelsWidth
 - Request.Browser.SupportsXmlHttp
-- .. .a wielu innych
+- ...a wielu innych
 
 W tle, platforma ASP.NET jest zgodna z przychodzącego *agenta użytkownika* nagłówka HTTP (UC) przed wyrażeń regularnych w zestawie plików XML definicji przeglądarki. Domyślnie platforma zawiera definicje dla wielu typowych urządzeń przenośnych, a można dodać niestandardowe pliki definicji przeglądarki dla innych osób, które chcesz rozpoznać. Aby uzyskać więcej informacji, zobacz stronę MSDN [kontrolki serwera sieci Web ASP.NET i możliwości przeglądarki](https://msdn.microsoft.com/library/x3k2ssx2.aspx).
 
@@ -185,7 +185,7 @@ Należy pamiętać, że uwierzytelnianie formularzy zapewnia pewne założenia, 
 
     [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample4.cs)]
   
- Ten kod przyjęto założenie, że strony jest formant serwera logowania nazywany odwoływały, jak w domyślnym szablonie projektu.
+  Ten kod przyjęto założenie, że strony jest formant serwera logowania nazywany odwoływały, jak w domyślnym szablonie projektu.
 
 ### <a name="working-with-output-caching"></a>Praca z buforowanie danych wyjściowych
 
@@ -243,7 +243,7 @@ Następnie należy pamiętać, że dodanie drugiego HomeController do aplikacji 
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample9.cs)]
 
-Teraz błąd przejdzie zadań i adresu URL http://*yoursite*/ osiągną strony głównej pulpitu i http://*yoursite*/mobile/ osiągną przenośnych strony głównej.
+Teraz błąd przejdzie zadań i adresu URL http://<em>yoursite</em>/ osiągną strony głównej pulpitu i http://<em>yoursite</em>/mobile/ osiągną przenośnych strony głównej.
 
 ### <a name="redirecting-mobile-visitors-to-your-mobile-area"></a>Przekierowywanie gości przenośne obszaru przenośnych
 
@@ -365,4 +365,4 @@ Listę urządzeń przenośnych emulatorów i symulatorów, można użyć do test
 ## <a name="credits"></a>Środki na korzystanie z
 
 - Główny Autor: Steven Sanderson
-- Osoby dokonujące przeglądu / dodatkowe składniki zapisywania zawartości: Rosewell Kuba, Mikael Söderström, Scott Hanselman, Scott myśliwego
+- Reviewers / additional content writers: James Rosewell, Mikael Söderström, Scott Hanselman, Scott Hunter
