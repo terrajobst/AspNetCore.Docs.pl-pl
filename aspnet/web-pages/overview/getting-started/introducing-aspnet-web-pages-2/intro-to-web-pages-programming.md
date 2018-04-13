@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
-title: "Wprowadzenie do składnika ASP.NET Web Pages — podstawy programowania | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do składnika ASP.NET Web Pages — podstawy programowania | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym samouczku przedstawiono omówienie jak do programu ASP.NET Web Pages o składni Razor. Dowiesz się: podstawowa składnia \"Razor\" używanego programu pr..."
+description: 'W tym samouczku przedstawiono omówienie jak do programu ASP.NET Web Pages o składni Razor. Dowiesz się: podstawowa składnia "Razor" używanego programu pr...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/17/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: eed07f4f8a13ea9082ab3aad3e3db24febff8ef6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3e2c990a6451c13e03baafa343df156b2d46d219
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>Wprowadzenie do strony sieci Web ASP.NET — podstawy programowania
 ====================
@@ -103,7 +103,7 @@ Nie masz ograniczone do zmiennych, jednak. W kilku przypadkach w tym miejscu zna
 
 - @(\*b) renderuje produkt jest bez względu na zmienne i b. ( \* Operator oznacza mnożenia.)
 - @(technologia + "" + produktu) renderuje wartości w zmiennych technologii i produktów po ich łączenie i dodaniu odstęp między nimi. Łączenie ciągów operator (+) jest taka sama jak operator dodawania liczb. ASP.NET zwykle można określić, czy podczas pracy z numerami lub z ciągami i prawej równoznaczne z operatora +.
-- @Request.Urlrenderuje właściwości adresu Url obiektu żądania. Obiekt żądania zawiera informacje o bieżącym żądaniu z przeglądarki, a oczywiście właściwość adres Url zawiera adres URL tego bieżącego żądania.
+- @Request.Url renderuje właściwości adresu Url obiektu żądania. Obiekt żądania zawiera informacje o bieżącym żądaniu z przeglądarki, a oczywiście właściwość adres Url zawiera adres URL tego bieżącego żądania.
 
 Przykład jest również zaprojektowana tak, że użytkownik, który można pracować na różne sposoby. Można wykonywania obliczeń w bloku kodu u góry, umieść wyniki do zmiennej i renderowania zmiennej w znaczniku. Lub możesz wykonać obliczeń w prawej strony wyrażenia w znaczniku. Podejście, którego używasz zależy od pracy oraz, w pewnym stopniu na własnych preferencji.
 
@@ -165,7 +165,7 @@ Oto kilka przykładów warunki, można sprawdzić w przypadku instrukcji:
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample7.cs)]
 
-Zmienne względem wartości lub wyrażenia można testować przy użyciu *operatora logicznego* lub *operator porównania*: równe (==), przekracza (&gt;), poniżej (&lt;), większe lub równe (&gt;=) i mniejsze niż lub równe (&lt;=). ! = Oznacza operator nie jest równa — na przykład, jeśli (! = 0) oznacza *Jeśli* *a***nie jest równa 0*.
+Zmienne względem wartości lub wyrażenia można testować przy użyciu <em>operatora logicznego</em> lub <em>operator porównania</em>: równe (==), przekracza (&gt;), poniżej (&lt;), większe lub równe (&gt;=) i mniejsze niż lub równe (&lt;=). ! = Oznacza operator nie jest równa — na przykład, jeśli (! = 0) oznacza <em>Jeśli</em> <em>a</em><em>nie jest równa 0</em>.
 
 > [!NOTE]
 > Upewnij się, że można zauważyć, że operator porównania dla równa (==) nie jest taka sama jak =. = — Operator służy tylko do przypisywania wartości (var = 2). Jeśli tych operatorów należy pomylone, albo zostanie wyświetlony błąd lub niektóre dziwne wyniki.
@@ -281,7 +281,7 @@ Strony ASP.NET Web Pages ma kilka wątków wbudowane. Wiele wątków są jednak 
 
 W tej części samouczka nastąpi instalacja pomocnika, który umożliwia wyświetlanie obrazów Gravatar ("globalnie rozpoznanym awatara"). Dowiesz się dwie czynności. Jedna jest jak Znajdź i zainstaluj obiekt pomocnika. Dowiesz się, jak pomocnika ułatwia czymś, które w przeciwnym razie trzeba wykonać, korzystając z dużej ilości kodu będzie musiał zapisać samodzielnie.
 
-Możesz zarejestrować własne Gravatar w witrynie Gravatar w [http://www.gravatar.com/](http://www.gravatar.com/), ale nie jest istotne, aby utworzyć konto Gravatar do wykonania tej części samouczka.
+Możesz zarejestrować własne Gravatar w witrynie Gravatar w [ http://www.gravatar.com/ ](http://www.gravatar.com/), ale nie jest istotne, aby utworzyć konto Gravatar do wykonania tej części samouczka.
 
 W programie WebMatrix, kliknij przycisk **NuGet** przycisku.
 
@@ -360,6 +360,6 @@ Następny samouczek stanowi wprowadzenie do pracy z bazą danych. W tym samouczk
 - [Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
 - [Pomocnik usługi Twitter](../../ui-layouts-and-themes/twitter-helper.md)
 
->[!div class="step-by-step"]
-[Poprzednie](getting-started.md)
-[dalej](displaying-data.md)
+> [!div class="step-by-step"]
+> [Poprzednie](getting-started.md)
+> [dalej](displaying-data.md)

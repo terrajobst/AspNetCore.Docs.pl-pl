@@ -580,7 +580,7 @@ To zadanie zaktualizuje układ pulpitu do uwzględnienia w tym przełącznikiem 
     ![Wyświetl przełącznik renderowane w widoku pulpitu](whats-new-in-aspnet-mvc-4/_static/image32.png "przełącznik widok renderowany w widoku pulpitu")
 
     *Przełącznik widok renderowany w widoku pulpitu*
-7. Przełącz do widoku przenośnych ponownie, a następnie przejdź do <strong>o</strong> strony (http://localhost[portu] / Home/o). Należy zauważyć, że nawet jeśli nie utworzono widok About.Mobile.cshtml informacje strona jest wyświetlana w układzie przenośnych (\_Layout.Mobile.cshtml).
+7. Przełącz do widoku przenośnych ponownie, a następnie przejdź do <strong>o</strong> strony (http://localhost[portu]/Home/About). Należy zauważyć, że nawet jeśli nie utworzono widok About.Mobile.cshtml informacje strona jest wyświetlana w układzie przenośnych (\_Layout.Mobile.cshtml).
 
     ![Strona informacje](whats-new-in-aspnet-mvc-4/_static/image33.png "strona — informacje")
 
