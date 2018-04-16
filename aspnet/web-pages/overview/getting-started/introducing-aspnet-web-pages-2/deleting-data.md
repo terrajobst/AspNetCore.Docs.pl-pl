@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
-title: "Wprowadzenie do składnika ASP.NET Web Pages — usuwanie danych z baz danych | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do składnika ASP.NET Web Pages — usuwanie danych z baz danych | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Ten samouczek pokazuje, jak można usunąć wpisu poszczególne bazy danych. Zakłada się, że zostały wykonane serii za pośrednictwem aktualizacji bazy danych w sieci Web ASP.NET Pa...."
+description: Ten samouczek pokazuje, jak można usunąć wpisu poszczególne bazy danych. Zakłada się, że zostały wykonane serii za pośrednictwem aktualizacji bazy danych w sieci Web ASP.NET Pa....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/02/2018
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: 5bc92b5d40e7a55dcd730d552c71031d913b277e
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 146199e862cd6fa2607671d31633476b1cb67021
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>Wprowadzenie do strony sieci Web ASP.NET — usuwanie danych z baz danych
 ====================
@@ -137,7 +137,7 @@ Drugi warunek jest `!Request["buttonDelete"].IsEmpty()`, co oznacza, że żądan
   
  AND  
   
-*Przycisk* `buttonDelete`*został przycisk formularz został przesłany.*
+** `buttonDelete` *Przycisk został przycisk formularz został przesłany.*
 
 Ten formularz (w rzeczywistości ta strona) zawiera tylko jeden przycisk Tak dodatkowy test na `buttonDelete` nie technicznie jest wymagana. Nadal którą zamierzasz wykonać operację, która spowoduje trwałe usunięcie danych. Dlatego należy się, jak to możliwe, że wykonujesz operację tylko wtedy, gdy użytkownik jawnie zgłosił żądanie. Załóżmy na przykład, możesz później rozszerzyć tę stronę i dodane do niej inne przyciski. Nawet wówczas kod, który usuwa filmu zostanie uruchomiony tylko wtedy, gdy `buttonDelete` przycisk został kliknięty.
 
@@ -172,6 +172,6 @@ Następnym samouczku przedstawiono sposób zapewnić wszystkich stron w witrynie
 - [Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor](../introducing-razor-syntax-c.md)
 - [Instrukcja DELETE SQL](http://www.w3schools.com/sql/sql_delete.asp) w witrynie W3Schools
 
->[!div class="step-by-step"]
-[Poprzednie](updating-data.md)
-[dalej](layouts.md)
+> [!div class="step-by-step"]
+> [Poprzednie](updating-data.md)
+> [dalej](layouts.md)
