@@ -64,7 +64,7 @@ Widoki są zazwyczaj zwracane z akcji jako [ViewResult](/aspnet/core/api/microso
 
 Po powrocie z tej akcji *About.cshtml* renderowania widoku w ostatniej sekcji jako następujące strony sieci Web:
 
-![Strona renderowane w przeglądarce Edge — informacje](overview/_static/about-page.png)
+![Strona renderowane w przeglądarce Microsoft Edge — informacje](overview/_static/about-page.png)
 
 `View` Metoda pomocnika ma kilka przeciążeń. Opcjonalnie można określić:
 

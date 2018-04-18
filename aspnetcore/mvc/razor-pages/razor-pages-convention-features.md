@@ -1,7 +1,7 @@
 ---
 title: Razor strony trasy i aplikacji Konwencji funkcji programu ASP.NET Core
 author: guardrex
-description: "Odkryj, jak trasy i aplikacjami modelu dostawcy Konwencji funkcje pomagają formantu strony routingu, odnajdywania i przetwarzania."
+description: Odkryj, jak trasy i aplikacjami modelu dostawcy Konwencji funkcje pomagają formantu strony routingu, odnajdywania i przetwarzania.
 manager: wpickett
 ms.author: riande
 ms.date: 10/23/2017
@@ -127,7 +127,7 @@ Należy pamiętać, że wygenerowany adres URL dla **skontaktuj się z** łącza
 
 Odwiedź stronę kontaktu w albo jego zwykłej trasy `/Contact`, lub tras niestandardowych `/TheContactPage`. Jeśli podasz dodatkowe `text` segmentu trasy, na stronie znajdują się segmentu kodowany w formacie HTML podanie:
 
-![Przykład przeglądarki Edge podawania opcjonalne 'text' segment trasy "Wartość tekstowa" w adresie URL. Renderowanej strony zawiera wartość segmentu 'text'.](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
+![Przykład przeglądarki Microsoft Edge podawania opcjonalne 'text' segment trasy "Wartość tekstowa" w adresie URL. Renderowanej strony zawiera wartość segmentu 'text'.](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
 
 ## <a name="page-model-action-conventions"></a>Konwencje akcji modelu strony
 
