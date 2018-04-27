@@ -3,17 +3,18 @@ title: Aktualizowanie wygenerowanego stron w aplikacji platformy ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak zaktualizować strony wygenerowane w aplikacji platformy ASP.NET Core.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 0207696af14305a1b549cf55da1b42fa99d01776
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5c188799b7a42bcd5e9d5eab8dfe8cdad8002fe5
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Aktualizowanie wygenerowanego stron w aplikacji platformy ASP.NET Core
 

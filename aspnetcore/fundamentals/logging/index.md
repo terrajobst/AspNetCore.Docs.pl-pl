@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 4cb2cf5b22ed9f5b84638b5f8c4b07d99a17ce1c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aab1190467c13ae121625c377d0908eac2fe8d95
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="logging-in-aspnet-core"></a>Logowanie do platformy ASP.NET Core
 
@@ -487,37 +487,6 @@ Dobrym sposobem na zbieranie i przeglądanie dzienników jest użycie [narzędzi
 Aby skonfigurować narzędzia PerfView zbierania zdarzenia zarejestrowane przez tego dostawcę, Dodaj ciąg `*Microsoft-Extensions-Logging` do **dodatkowych dostawców** listy. (Nie zostały pominięte gwiazdki na początku ciąg.)
 
 ![Narzędzia Perfview dodatkowych dostawców](index/_static/perfview-additional-providers.png)
-
-Przechwytywanie zdarzeń na serwerze Nano wymaga dodatkowej konfiguracji:
-
-* Nawiąż połączenie z serwerem Nano obsługę zdalną środowiska PowerShell:
-
-  ```powershell
-  Enter-PSSession [name]
-  ```
-
-* Utwórz sesję ETW:
-
-  ```powershell
-  New-EtwTraceSession -Name "MyAppTrace" -LocalFilePath C:\trace.etl
-  ```
-
-* Dodawanie dostawcy ETW dla [CLR](/dotnet/framework/performance/clr-etw-providers), platformy ASP.NET Core, a inne zgodnie z potrzebami. Dostawcy platformy ASP.NET Core identyfikator GUID jest `3ac73b97-af73-50e9-0822-5da4367920d0`. 
-
-  ```powershell
-  Add-EtwTraceProvider -Guid "{e13c0d23-ccbc-4e12-931b-d9cc2eee27e4}" -SessionName MyAppTrace
-  Add-EtwTraceProvider -Guid "{3ac73b97-af73-50e9-0822-5da4367920d0}" -SessionName MyAppTrace
-  ```
-
-* Uruchom witrynę i czy niezależnie od akcje chcesz informacji śledzenia dla.
-
-* Zatrzymaj sesję śledzenia, po zakończeniu:
-
-  ```powershell
-  Stop-EtwTraceSession -Name "MyAppTrace"
-  ```
-
-Powstałe w ten sposób *C:\trace.etl* plik może być analizowane za pomocą narzędzia PerfView w innych wersjach systemu Windows.
 
 <a id="eventlog"></a>
 ### <a name="the-windows-eventlog-provider"></a>Dostawca dziennika zdarzeń systemu Windows

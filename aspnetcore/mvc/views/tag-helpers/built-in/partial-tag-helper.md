@@ -3,22 +3,25 @@ title: Pomocnik częściowe tagu w platformy ASP.NET Core
 author: scottaddie
 description: Dostęp do platformy ASP.NET Core częściowe Tag pomocnika i roli każdego z jego atrybuty odtwarzana renderowania widoku częściowego.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/23/2018
+ms.date: 04/13/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: 4573409720ccba524c0d5d05696e0fb3468ff338
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 670663b963f4207da793afff44d55b85ba58b7f8
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Pomocnik częściowe tagu w platformy ASP.NET Core
 
 Przez [Scott Addie](https://github.com/scottaddie)
+
+[!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
@@ -47,21 +50,29 @@ Spis atrybutów częściowe pomocnika tagów jest zgodna.
 
 `name` Atrybut jest wymagany. Wskazuje on, nazwa lub ścieżka widoku częściowego do renderowania. Jeśli podano nazwę widoku częściowego, [widok odnajdywania](xref:mvc/views/overview#view-discovery) proces jest inicjowany. Ten proces jest pomijane, gdy została podana ścieżka jawna.
 
-Następujący kod używa jawne ścieżki, co oznacza, że *_ProductPartial.cshtml* ma zostać załadowane z *Shared* folderu. Przy użyciu [asp — dla](#asp-for) atrybut modelu są przekazywane do widoku częściowego dla powiązania.
+Następujący kod używa jawne ścieżki, co oznacza, że *_ProductPartial.cshtml* ma zostać załadowane z *Shared* folderu. Przy użyciu [dla](#for) atrybut modelu są przekazywane do widoku częściowego dla powiązania.
 
 [!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_Name)]
 
-## <a name="asp-for"></a>ASP — dla
+## <a name="for"></a>dla
 
-`asp-for` Atrybutu przypisuje [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) ma zostać obliczone dla bieżącego modelu. A `ModelExpression` wnioskuje `@Model.` składni. Na przykład `asp-for="Product"` można użyć zamiast `asp-for="@Model.Product"`. To domyślne zachowanie wnioskowania zostanie zastąpiona przy użyciu `@` symbolu, aby zdefiniować wyrażenie wbudowanego.
+`for` Atrybutu przypisuje [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) ma zostać obliczone dla bieżącego modelu. A `ModelExpression` wnioskuje `@Model.` składni. Na przykład `for="Product"` można użyć zamiast `for="@Model.Product"`. To domyślne zachowanie wnioskowania zostanie zastąpiona przy użyciu `@` symbolu, aby zdefiniować wyrażenie wbudowanego. `for` Nie można użyć atrybutu [modelu](#model) atrybutu.
 
 Następujący kod znaczników ładuje *_ProductPartial.cshtml*:
 
-[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_AspFor)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_For)]
 
 Widok częściowy jest powiązana z modelem skojarzonej strony `Product` właściwości:
 
 [!code-csharp[](samples/TagHelpersBuiltIn/Pages/Product.cshtml.cs?highlight=8)]
+
+## <a name="model"></a>model
+
+`model` Atrybut przypisuje wystąpienie modelu do przekazania do widoku częściowego. `model` Nie można użyć atrybutu [dla](#for) atrybutu.
+
+W następujących znaczników nowy `Product` obiektu jest wystąpienie zostało utworzone i przekazane do `model` atrybutu dla powiązania:
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_Model)]
 
 ## <a name="view-data"></a>Wyświetlanie danych
 

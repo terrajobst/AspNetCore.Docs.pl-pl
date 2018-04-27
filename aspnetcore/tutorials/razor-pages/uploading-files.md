@@ -3,17 +3,18 @@ title: Przekazywanie plików do Razor strony platformy ASP.NET Core
 author: guardrex
 description: Dowiedz się, jak przekazać pliki do strony Razor.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/12/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 6f229ef625b1c7ddaffb9cb3bc7945cc31e5263c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5f86164b3d227e55e11244da7600394809b6a4a7
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików do Razor strony platformy ASP.NET Core
 
@@ -59,16 +60,40 @@ Aby uniknąć zduplikowania kodu do przetwarzania plików przekazane harmonogram
 
 ### <a name="save-the-file-to-disk"></a>Zapisz plik na dysku
 
-Przykładowa aplikacja zapisuje zawartość pliku w polu bazy danych. Zapisanie zawartości pliku na dysku, użyj [FileStream](/dotnet/api/system.io.filestream):
+Przykładowa aplikacja zapisuje pliki przekazana do pola bazy danych. Aby zapisać plik na dysku, należy użyć [FileStream](/dotnet/api/system.io.filestream). Poniższy przykładowy kod kopiuje plik posiadaniu `FileUpload.UploadPublicSchedule` do `FileStream` w `OnPostAsync` metody. `FileStream` Zapisuje plik na dysku na `<PATH-AND-FILE-NAME>` podane:
 
 ```csharp
-using (var fileStream = new FileStream(filePath, FileMode.Create))
+public async Task<IActionResult> OnPostAsync()
 {
-    await formFile.CopyToAsync(fileStream);
+    // Perform an initial check to catch FileUpload class attribute violations.
+    if (!ModelState.IsValid)
+    {
+        return Page();
+    }
+
+    var filePath = "<PATH-AND-FILE-NAME>";
+
+    using (var fileStream = new FileStream(filePath, FileMode.Create))
+    {
+        await FileUpload.UploadPublicSchedule.CopyToAsync(fileStream);
+    }
+
+    return RedirectToPage("./Index");
 }
 ```
 
 Proces roboczy musi mieć uprawnienia do zapisu w lokalizacji określonej przez `filePath`.
+
+> [!NOTE]
+> `filePath` *Musi* obejmują nazwę pliku. Jeśli nazwa pliku nie został podany, [unauthorizedaccessexception —](/dotnet/api/system.unauthorizedaccessexception) jest zgłaszany w czasie wykonywania.
+
+> [!WARNING]
+> Nigdy nie będą się powtarzać przekazane pliki w tym samym drzewie katalogu co aplikacja.
+>
+> Przykładowy kod nie zapewnia po stronie serwera ochrony przed przekazywania złośliwych plików. Aby uzyskać informacje na zmniejszenie powierzchni ataku, akceptując pliki od użytkowników zobacz następujące zasoby:
+>
+> * [Przekazywanie pliku bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Zabezpieczeń platformy Azure: Upewnij się, że odpowiednie formanty w miejscu akceptując pliki użytkowników](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 ### <a name="save-the-file-to-azure-blob-storage"></a>Zapisz plik do magazynu obiektów Blob Azure
 

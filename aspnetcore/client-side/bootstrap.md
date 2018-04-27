@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: 142a997fa46f37545ea04971ab6593bff053b1ef
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: a11ed13c709830795ebfd0e658d3f2fd2fd5a458
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Tworzyć piękne, dynamiczne witryny z Bootstrap i ASP.NET Core
 
@@ -81,7 +81,7 @@ Domyślny szablon używa zestawu `<div>` elementy do renderowania górny pasek n
 </button>
 ```
 
-Zawiera również nazwę aplikacji, która pojawia się w lewej górnej części. Menu główne nawigacji jest renderowana przez `<ul>` element div drugiego oraz linki do Home około i skontaktuj się z pomocą. Linki do dodatkowych rejestru i logowania są dodawane przez _LoginPartial wiersz w wierszu 29. Poniżej nawigacji, główną każdej strony jest renderowany w innym `<div>`, oznaczone przy klasy "treść" i "kontenera". W pliku _Layout domyślne proste pokazane, zawartość strony są renderowany przez widok określonych skojarzone z strony, a następnie prostą `<footer>` zostanie dodany na końcu `<div>` elementu. Zobacz temat jak wbudowane o stronie pojawia się przy użyciu tego szablonu:
+Zawiera również nazwę aplikacji, która pojawia się w lewej górnej części. Menu główne nawigacji jest renderowana przez `<ul>` element div drugiego oraz linki do Home około i skontaktuj się z pomocą. Poniżej nawigacji, główną każdej strony jest renderowany w innym `<div>`, oznaczone przy klasy "treść" i "kontenera". W pliku _Layout domyślne proste pokazane, zawartość strony są renderowany przez widok określonych skojarzone z strony, a następnie prostą `<footer>` zostanie dodany na końcu `<div>` elementu. Zobacz temat jak wbudowane o stronie pojawia się przy użyciu tego szablonu:
 
 ![Strona — informacje](bootstrap/_static/about-page-wide.png)
 
@@ -146,7 +146,7 @@ Na poniższej ilustracji przedstawiono domyślne przycisk klasy i ich kolorów.
 
 ### <a name="badges"></a>Identyfikatory
 
-Identyfikatory odwoływać się do krótkich, zwykle numerycznych objaśnienia obok elementu nawigacji. Pokazują liczbę komunikatów lub powiadomień o oczekiwanie lub obecności aktualizacji. Określenie takie identyfikatory jest tak proste, jak dodawanie <span> zawierającej tekst, w przypadku klasy "wskaźnik":
+Identyfikatory odwoływać się do krótkich, zwykle numerycznych objaśnienia obok elementu nawigacji. Pokazują liczbę komunikatów lub powiadomień o oczekiwanie lub obecności aktualizacji. Określenie takie identyfikatory jest tak proste, jak dodawanie `<span>` zawierającej tekst, w przypadku klasy "wskaźnik":
 
 ![identyfikatory motywów](bootstrap/_static/theme-badges.png)
 
@@ -158,7 +158,7 @@ Konieczne może być wyświetlany rodzaj powiadomień, alertu lub komunikat o b�
 
 ### <a name="navbars-and-menus"></a>Navbars i menu
 
-Nasze układ już zawiera standardowe pasek nawigacyjny, ale Bootstrap motywu obsługuje opcje dodatkowymi stylami. Możemy również łatwo można wybrać opcję Wyświetl pasek nawigacyjny pionowo zamiast poziomie Jeśli która zawiera preferowane, elementów oraz jak dodanie podrzędnego nawigacji w menu wysuwane. Menu nawigacji proste, takie jak karta pasków, są tworzone na <ul> elementy. Można je utworzyć bardzo prosty przez zapewnienie im tylko z klas CSS "nav" i "Nawiguj do karty":
+Nasze układ już zawiera standardowe pasek nawigacyjny, ale Bootstrap motywu obsługuje opcje dodatkowymi stylami. Możemy również łatwo można wybrać opcję Wyświetl pasek nawigacyjny pionowo zamiast poziomie Jeśli która zawiera preferowane, elementów oraz jak dodanie podrzędnego nawigacji w menu wysuwane. Menu nawigacji proste, takie jak karta pasków, są tworzone nad `<ul>` elementów. Można je utworzyć bardzo prosty przez zapewnienie im tylko z klas CSS "nav" i "Nawiguj do karty":
 
 ![tabstrips motywów](bootstrap/_static/theme-tabstrips.png)
 

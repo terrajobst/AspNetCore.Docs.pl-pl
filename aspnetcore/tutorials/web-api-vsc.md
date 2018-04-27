@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 705524a62018b9f0fbd8c40fa1b70d4c62ee236e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 83a6a09f8c0fd399efeb38903786bc41ff8ac4fb
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>Tworzenie składnika Web API platformy ASP.NET Core i kodu programu Visual Studio
 
@@ -98,7 +98,9 @@ W *kontrolerów* folderu, Utwórz klasę o nazwie `TodoController`. Dodaj nastę
 
 W kodzie VS naciśnij klawisz F5, aby uruchomić aplikację. Przejdź do http://localhost:5000/api/todo ( `Todo` kontrolera właśnie utworzyliśmy).
 
-[!INCLUDE [last part of web API](../includes/webApi/end.md)]
+[!INCLUDE[Javascript Jquery](../includes/add-javascript-jquery/index.md)]
+
+[!INCLUDE[last part of web API](../includes/webApi/end.md)]
 
 ## <a name="visual-studio-code-help"></a>Visual Studio Code pomocy
 

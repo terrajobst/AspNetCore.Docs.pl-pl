@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: fd57683506e809fd68ba8c02ad184b5f8afe53a2
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 3055eec91adc412b596d4cc73e8523e18ff63331
+ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Wykrywanie zmian z tokenami zmiany w ASP.NET Core
 
@@ -59,16 +59,16 @@ Tokeny zmiany są używane w widocznym zakresie platformy ASP.NET Core monitorow
 
 Domyślnie używają szablonów platformy ASP.NET Core [pliki konfiguracji w formacie JSON](xref:fundamentals/configuration/index#json-configuration) (*appsettings.json*, *appsettings. Development.JSON*, i *appsettings. Production.JSON*) można załadować ustawień konfiguracji aplikacji.
 
-Te pliki są skonfigurowane przy użyciu [AddJsonFile (IConfigurationBuilder, String, Boolean, wartość logiczna)](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions.addjsonfile?view=aspnetcore-2.0#Microsoft_Extensions_Configuration_JsonConfigurationExtensions_AddJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_System_Boolean_System_Boolean_) — metoda rozszerzenia na [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder) która akceptuje `reloadOnChange` parametr (ASP.NET Podstawowa 1.1 lub nowszej). `reloadOnChange` Wskazuje, jeśli konfiguracja powinna ładowane na zmiany pliku. Zobacz to ustawienie w [WebHost](/dotnet/api/microsoft.aspnetcore.webhost) wygodne metody [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) ([źródło odwołania](https://github.com/aspnet/MetaPackages/blob/rel/2.0.3/src/Microsoft.AspNetCore/WebHost.cs#L152-L193)):
+Te pliki są skonfigurowane przy użyciu [AddJsonFile (IConfigurationBuilder, String, Boolean, wartość logiczna)](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions.addjsonfile?view=aspnetcore-2.0#Microsoft_Extensions_Configuration_JsonConfigurationExtensions_AddJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_System_Boolean_System_Boolean_) — metoda rozszerzenia na [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder) która akceptuje `reloadOnChange` parametr (ASP.NET Podstawowa 1.1 lub nowszej). `reloadOnChange` Wskazuje, jeśli konfiguracja powinna ładowane na zmiany pliku. Zobacz to ustawienie w [WebHost](/dotnet/api/microsoft.aspnetcore.webhost) wygodne metody [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder):
 
 ```csharp
 config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
       .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
 ```
 
-Na podstawie pliku konfiguracji jest reprezentowana przez [FileConfigurationSource](/dotnet/api/microsoft.extensions.configuration.fileconfigurationsource). `FileConfigurationSource` używa [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider) ([źródło odwołania](https://github.com/aspnet/FileSystem/blob/patch/2.0.1/src/Microsoft.Extensions.FileProviders.Abstractions/IFileProvider.cs)) do monitorowania plików.
+Na podstawie pliku konfiguracji jest reprezentowana przez [FileConfigurationSource](/dotnet/api/microsoft.extensions.configuration.fileconfigurationsource). `FileConfigurationSource` używa [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider) monitorować pliki.
 
-Domyślnie `IFileMonitor` są dostarczane przez [PhysicalFileProvider](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider) ([źródło odwołania](https://github.com/aspnet/Configuration/blob/patch/2.0.1/src/Microsoft.Extensions.Configuration.FileExtensions/FileConfigurationSource.cs#L82)), który korzysta z [FileSystemWatcher](/dotnet/api/system.io.filesystemwatcher) do monitorowania pliku konfiguracji zmiany.
+Domyślnie `IFileMonitor` są dostarczane przez [PhysicalFileProvider](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider), który korzysta z [FileSystemWatcher](/dotnet/api/system.io.filesystemwatcher) do monitorowania zmian w pliku konfiguracji.
 
 Przykładowa aplikacja przedstawiono dwa implementacje monitorowania zmian konfiguracji. Jeśli dowolny *appsettings.json* zmiany pliku lub wersji środowiska pliku zmianę, każda implementacja wykonuje kod niestandardowy. Przykładowa aplikacja zapisuje komunikat do konsoli.
 
@@ -174,7 +174,7 @@ Model strony ładuje zawartość pliku przy użyciu usługi (*Pages/Index.cshtml
 
 ## <a name="compositechangetoken-class"></a>Klasa CompositeChangeToken
 
-Reprezentujący co najmniej jeden `IChangeToken` wystąpień w jeden obiekt, użyj [CompositeChangeToken](/dotnet/api/microsoft.extensions.primitives.compositechangetoken) klasy ([źródło odwołania](https://github.com/aspnet/Common/blob/patch/2.0.1/src/Microsoft.Extensions.Primitives/CompositeChangeToken.cs)).
+Reprezentujący co najmniej jeden `IChangeToken` wystąpień w jeden obiekt, użyj [CompositeChangeToken](/dotnet/api/microsoft.extensions.primitives.compositechangetoken) klasy.
 
 ```csharp
 var firstCancellationTokenSource = new CancellationTokenSource();

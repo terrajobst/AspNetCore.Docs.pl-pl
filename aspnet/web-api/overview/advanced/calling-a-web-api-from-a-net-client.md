@@ -11,17 +11,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: a243eeb982ba581e237263c4e31e130d634aff0e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fdb74b0eb74ce7f387f49a0b25ceebd3fc389da9
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Wywoływanie interfejsu API sieci Web z klienta programu .NET (C#)
 ====================
 przez [Wasson Jan](https://github.com/MikeWasson) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Pobieranie ukończone projektu](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)
+[Pobieranie ukończone projektu](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample). [Instrukcje pobierania](/aspnet/core/tutorials/#how-to-download-a-sample). 
 
 W tym samouczku przedstawiono sposób wywołania interfejsu API sieci web z poziomu aplikacji .NET przy użyciu [System.Net.Http.HttpClient.](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
 
@@ -29,7 +29,7 @@ W tym samouczku aplikacji klienta są zapisywane, który wykorzystuje następuj�
 
 | Akcja | Metoda HTTP | Względny identyfikator URI |
 | --- | --- | --- |
-| Uzyskiwanie produktu według Identyfikatora | GET | /API/produkty/*id* |
+| Uzyskiwanie produktu według Identyfikatora | POBIERZ | /API/produkty/*id* |
 | Tworzenie nowego produktu | POST | / api/produktów |
 | Aktualizacji produktu | UMIEŚĆ | /API/produkty/*id* |
 | Usuwanie produktu | DELETE | /API/produkty/*id* |
@@ -167,7 +167,7 @@ Poniższy kod wysyła żądanie usunięcia, aby usunąć produkt:
 
 Aby przetestować aplikację klienta:
 
-1. [Pobierz](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) i uruchamianie aplikacji serwera. [Instrukcje pobierania](https://docs.microsoft.com/aspnet/core/tutorials/#how-to-download-a-sample). Sprawdź, czy serwer aplikacji działa. Dla exaxmple `http://localhost:64195/api/products` powinien zwrócić listę produktów.
+1. [Pobierz](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) i uruchamianie aplikacji serwera. [Instrukcje pobierania](/aspnet/core/tutorials/#how-to-download-a-sample). Sprawdź, czy serwer aplikacji działa. Dla exaxmple `http://localhost:64195/api/products` powinien zwrócić listę produktów.
 2. Ustaw podstawowy identyfikator URI dla żądań HTTP. Zmień numer portu na port używany w aplikacji serwera.
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

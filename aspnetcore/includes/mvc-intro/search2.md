@@ -25,7 +25,7 @@ Tytuł wyszukiwania mogą być obecnie przekazywane jako dane trasy (segment adr
 
 ![Widok indeksu z widma word dodane do adresu Url i filmu zwrócona lista filmów Ghostbusters i Ghostbusters 2](../../tutorials/first-mvc-app/search/_static/g2.png)
 
-Nie można jednak spodziewać się użytkowników, aby zmodyfikować adres URL, za każdym razem, gdy chcą, aby wyszukać filmu. Dlatego teraz dodasz interfejsu użytkownika, aby ułatwić im filtrować filmów. Zmiana podpisu `Index` metody do testowania sposób przekazywania trasy wiązaniem `ID` parametr, wróć, aby przyspieszyć parametr o nazwie `searchString`:
+Nie można jednak spodziewać się użytkowników, aby zmodyfikować adres URL, za każdym razem, gdy chcą, aby wyszukać filmu. Dlatego teraz dodasz elementy interfejsu użytkownika, aby ułatwić im filtrować filmów. Zmiana podpisu `Index` metody do testowania sposób przekazywania trasy wiązaniem `ID` parametr, wróć, aby przyspieszyć parametr o nazwie `searchString`:
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1&name=snippet_1stSearch)]
 

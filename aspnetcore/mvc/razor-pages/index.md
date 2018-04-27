@@ -3,17 +3,18 @@ title: Wprowadzenie do platformy ASP.NET Core stron Razor
 author: Rick-Anderson
 description: Dowiedz się, jak Razor strony platformy ASP.NET Core umożliwia kodowania scenariusze strony łatwiejsze i bardziej wydajnej pracy niż przy użyciu platformy MVC.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/12/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 532799d013f26869da03fe1062072f55dcce35f8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5e2b53a4771a97b0a4091f593720b9c0e4e345bf
+ms.sourcegitcommit: c4a31aaf902f2e84aaf4a9d882ca980fdf6488c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
@@ -291,7 +292,7 @@ Aplikacja ma następującą strukturę plik lub folder:
 * */ Stron*
 
   * *Index.cshtml*
-  * */Customer*
+  * */ Klientów*
 
     * *Create.cshtml*
     * *Edit.cshtml*
@@ -314,7 +315,7 @@ Generowania adresu URL dla stron obsługuje nazw względnych. W poniższej tabel
 | RedirectToPage("../Index") | *Strony/indeksu* |
 | RedirectToPage("Index")  | *Strony/klientów/indeksu* |
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")`, i `RedirectToPage("../Index")` są <em>względne nazwy</em>. `RedirectToPage` Parametr jest <em>łączyć</em> ze ścieżką bieżącej strony do obliczenia nazwę strony docelowej.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->
+`RedirectToPage("Index")`, `RedirectToPage("./Index")`, i `RedirectToPage("../Index")` są <em>względne nazwy</em>. `RedirectToPage` Parametr jest <em>łączyć</em> ze ścieżką bieżącej strony do obliczenia nazwę strony docelowej.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
 
 Nazwa względna konsolidacji jest przydatne, gdy tworzenie witryn ze strukturą złożonych. Jeśli używasz nazwy względne do połączenia między stronami w folderze, można zmienić nazwę tego folderu. Wszystkie linki nadal działać (ponieważ one nie obejmować nazwę folderu).
 
@@ -417,6 +418,7 @@ services.AddMvc()
 ## <a name="see-also"></a>Zobacz także
 
 * [Wprowadzenie do platformy ASP.NET Core](xref:index)
+* [Składnia Razor](xref:mvc/views/razor)
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Konwencje autoryzacji stron razor](xref:security/authorization/razor-pages-authorization)
 * [Razor strony trasy i strony modelu dostawców niestandardowych](xref:mvc/razor-pages/razor-pages-convention-features)

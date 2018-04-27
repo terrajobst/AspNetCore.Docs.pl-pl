@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: c2675f73880a41ee75f6ec13155419945387e109
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f53f77d342cc59094a80e8667db6ef345a6e8305
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Host platformy ASP.NET Core w usłudze aplikacji Azure
 
@@ -95,14 +95,13 @@ Aby uzyskać więcej informacji, zobacz [dostawcy magazynu kluczy](xref:security
 
 Platformy ASP.NET Core Podgląd aplikacje można wdrożyć w usłudze Azure App Service z następujących metod:
 
-* [Zainstaluj rozszerzenie lokacji wersji zapoznawczej](#site-x)
-* [Wdróż aplikację samodzielnie zawarte](#self)
-* [Użyj Docker z aplikacjami sieci Web dla kontenerów](#docker)
+* [Zainstaluj rozszerzenie lokacji wersji zapoznawczej](#install-the-preview-site-extension)
+* [Wdróż aplikację autonomiczną](#deploy-the-app-self-contained)
+* [Użyj Docker z aplikacjami sieci Web dla kontenerów](#use-docker-with-web-apps-for-containers)
 
-Jeśli masz problem przy użyciu rozszerzenia lokacji wersji zapoznawczej, otwórz problemu na [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+Jeśli wystąpi problem przy użyciu rozszerzenia lokacji wersji zapoznawczej, otwórz problemu na [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
-<a name="site-x"></a>
-### <a name="install-the-preview-site-extention"></a>Zainstaluj rozszerzenie lokacji wersji zapoznawczej
+### <a name="install-the-preview-site-extension"></a>Zainstaluj rozszerzenie lokacji wersji zapoznawczej
 
 * W portalu Azure przejdź do bloku usługi aplikacji.
 * Wprowadź "ex" w polu wyszukiwania.
@@ -111,10 +110,10 @@ Jeśli masz problem przy użyciu rozszerzenia lokacji wersji zapoznawczej, otwó
 
 ![Azure bloku aplikacji z poprzednich krokach](index/_static/x1.png)
 
-* Wybierz **rozszerzenia środowiska uruchomieniowego platformy ASP.NET Core**.
-* Wybierz **OK** > **OK**.
+* Wybierz **środowiska wykonawczego platformy ASP.NET Core 2.1 (x 86)** lub **środowiska wykonawczego platformy ASP.NET Core 2.1 (x 64)**.
+* Wybierz **OK**. Wybierz **OK** ponownie.
 
-Po ukończeniu operacji dodawania zainstalowano najnowszej wersji zapoznawczej .NET Core 2.1. Instalację można zweryfikować, uruchamiając `dotnet --info` w konsoli. W bloku usługi aplikacji:
+Po ukończeniu operacji dodawania, jest zainstalowana w najnowszej wersji zapoznawczej .NET Core 2.1. Weryfikowanie instalacji przez uruchomienie `dotnet --info` w konsoli. Z **usługi aplikacji** bloku:
 
 * Wprowadź "con", w polu wyszukiwania.
 * Wybierz **konsoli**.
@@ -126,26 +125,24 @@ Obraz poprzedniego były aktualne w momencie to zostało zapisane. Może pojawi�
 
 `dotnet --info` Wyświetla ścieżkę do rozszerzenia lokacji, w których została zainstalowana wersja zapoznawcza. Pokazuje, aplikacja zostanie uruchomiona z rozszerzenia lokacji zamiast z domyślnej *ProgramFiles* lokalizacji. Jeśli widzisz *ProgramFiles*, należy ponownie uruchomić witrynę i uruchomić `dotnet --info`.
 
-#### <a name="use-the-preview-site-extention-with-an-arm-template"></a>Rozszerzenie lokacji wersji zapoznawczej za pomocą szablonu usługi ARM
+**Rozszerzenie lokacji wersji zapoznawczej za pomocą szablonu usługi ARM**
 
-Jeśli używasz szablonu usługi ARM do tworzenia i wdrażania aplikacji można użyć `siteextensions` typu zasobów, aby dodać do lokacji rozszerzenie aplikacji sieci Web. Na przykład:
+Jeśli szablon ARM jest używany do tworzenia i wdrażania aplikacji, `siteextensions` typ zasobu można dodać do lokacji rozszerzenie aplikacji sieci web. Na przykład:
 
 [!code-json[Main](index/sample/arm.json?highlight=2)]
 
-<a name="self"></a>
-### <a name="deploy-the-app-self-contained"></a>Wdróż aplikację samodzielnie zawarte
+### <a name="deploy-the-app-self-contained"></a>Wdróż aplikację autonomiczną
 
-Można wdrożyć [niezależne aplikacji](/dotnet/core/deploying/#self-contained-deployments-scd) która prowadzi środowiska wykonawczego w wersji zapoznawczej wraz z nim podczas wdrażania. W przypadku wdrażania aplikacji samodzielną:
+A [niezależne aplikacji](/dotnet/core/deploying/#self-contained-deployments-scd) można wdrożyć środowiska wykonawczego w wersji zapoznawczej która prowadzi we wdrożeniu. W przypadku wdrażania aplikacji niezależne:
 
-* Nie trzeba przygotować witryny.
-* Należy opublikować aplikację inaczej niż w przypadku wdrażania aplikacji, gdy zestaw SDK jest zainstalowany na serwerze.
+* Witryny nie muszą być przygotowane.
+* Aplikację należy opublikować inaczej niż podczas publikowania wdrożenia zależne od framework z udostępnionego środowiska uruchomieniowego i hosta na serwerze.
 
-Samodzielne aplikacje są opcję dla wszystkich aplikacji .NET Core.
+Samodzielne aplikacje są opcję dla wszystkich aplikacji platformy ASP.NET Core.
 
-<a name="docker"></a>
 ### <a name="use-docker-with-web-apps-for-containers"></a>Użyj Docker z aplikacjami sieci Web dla kontenerów
 
-[Centrum Docker](https://hub.docker.com/r/microsoft/aspnetcore/) zawiera najnowsze obrazy Docker 2.1 podglądu. Można ich używać jako obrazu podstawowego i wdrażania aplikacji sieci Web dla kontenerów w zwykły sposób.
+[Centrum Docker](https://hub.docker.com/r/microsoft/aspnetcore/) zawiera najnowsze obrazy Docker 2.1 podglądu. Obrazy mogą służyć jako obrazu podstawowego. Użyć obrazu i wdrażania aplikacji sieci Web dla kontenerów normalnie.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

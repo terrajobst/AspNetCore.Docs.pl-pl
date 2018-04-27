@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 320409cd395384a608a07307a56d18105d45de14
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ded549109ca6e7ad806f1c3f53387766527e5a94
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>Tworzenie interfejsów API RESTful za pomocą interfejsu API sieci Web ASP.NET
 ====================
@@ -25,7 +25,7 @@ Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > W ostatnich latach okazało HTTP jest nie tylko dla obsługująca stron HTML. Jest również zaawansowane platformę do tworzenia interfejsów API sieci Web, przy użyciu kilku poleceń (GET, POST i tak dalej) oraz kilka pojęć proste takich jak *identyfikatorów URI* i *nagłówki*. Interfejs API sieci Web platformy ASP.NET to zestaw składników, które upraszczają Programowanie HTTP. Ponieważ jest on oparty na środowiska uruchomieniowego ASP.NET MVC, interfejsu API sieci Web obsługuje automatycznie szczegółów niskiego poziomu transportu HTTP. W tym samym czasie interfejsu API sieci Web udostępnia naturalnie modelu programowania protokołu HTTP. W rzeczywistości celem jednego interfejsu API sieci Web jest *nie* abstrakcyjnej optymalizacji stanu HTTP. W związku z tym interfejs API sieci Web jest zarówno elastyczne i łatwe do rozszerzenia. W tym laboratorium praktycznego użyjesz interfejsu API sieci Web do tworzenia prostego interfejsu API REST kontaktów Menedżerze aplikacji. Utworzysz także klientowi korzystanie z interfejsu API. Styl architektury REST okazał się efektywny sposób korzystać z protokołu HTTP -, chociaż na pewno nie jest ważny tylko metody HTTP. Powoduje to udostępnienie kontaktów Menedżerze RESTful do wyświetlania, dodawania i usuwania kontaktów, między innymi. W tym laboratorium wymaga podstawową wiedzę na temat protokołu HTTP, REST, przyjęto założenie, że masz podstawową wiedzę na temat pracy z kodu HTML, JavaScript i jQuery.
 > 
 > > [!NOTE]
-> > Witryny sieci Web ASP.NET jest przeznaczona do framework interfejsu API sieci Web platformy ASP.NET w [ [ https://asp.net/web-api ](https://asp.net/web-api) ](https://asp.net/web-api). Ta lokacja będzie dostarczać, najnowsze informacje, przykłady i informacje związane z interfejsu API sieci Web, więc spróbuj on często Jeśli chcesz delve więcej danych w kompozycji tworzenia niestandardowych interfejsów API sieci Web dostępnych praktycznie dowolne urządzenie lub programowanie Framework.
+> > Witryny sieci Web ASP.NET jest przeznaczona do framework interfejsu API sieci Web platformy ASP.NET w [ https://asp.net/web-api ](https://asp.net/web-api). Ta lokacja będzie dostarczać, najnowsze informacje, przykłady i informacje związane z interfejsu API sieci Web, więc spróbuj on często Jeśli chcesz delve więcej danych w kompozycji tworzenia niestandardowych interfejsów API sieci Web dostępnych praktycznie dowolne urządzenie lub programowanie Framework.
 > > 
 > > ASP.NET Web API, podobnie jak ASP.NET MVC 4 ma dużą elastyczność w zakresie oddzielanie warstwy usług z kontrolerów, co umożliwia używanie kilku dostępnych platform iniekcji zależności dość proste. W witrynie MSDN, która przedstawia sposób użycia Ninject iniekcji zależności w projekcie interfejsu API sieci Web platformy ASP.NET, który można pobrać z znajduje się przykład dobrej [tutaj](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7).
 > 

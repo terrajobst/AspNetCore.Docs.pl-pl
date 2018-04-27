@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/action-return-types
-ms.openlocfilehash: 02a28425cc3b7b792e7275ebab37fa8eeafc74c1
-ms.sourcegitcommit: 211ef03cf13f631dd77076de0c55863fe0cee2c8
+ms.openlocfilehash: a81d307a944bb14e7431708ffcc70eb28b1aab0d
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Zwracane typy akcji kontrolera w interfejsu API platformy ASP.NET Core sieci Web
 
@@ -22,11 +22,17 @@ Przez [Scott Addie](https://github.com/scottaddie)
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-Platformy ASP.NET Core oferują typy zwracane trzech opcji dla akcji kontrolera interfejsu API sieci Web:
+Platformy ASP.NET Core oferują następujące opcje dla akcji kontrolera interfejsu API sieci Web zwracanych typów:
 
+::: moniker range="<= aspnetcore-2.0"
 * [Określony typ](#specific-type)
 * [IActionResult](#iactionresult-type)
-* [ActionResult\<T>](#actionresultt-type)
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+* [Określony typ](#specific-type)
+* [IActionResult](#iactionresult-type)
+* [ActionResult\<T >](#actionresultt-type)
+::: moniker-end
 
 W tym dokumencie opisano, gdy jest najbardziej odpowiednie do użycia w każdym zwracanego typu.
 
@@ -66,6 +72,7 @@ W poprzednim akcji kod stanu 400 jest zwracany w przypadku niepowodzenia weryfik
 
 Poprzedniej akcji innych znanych kod powrotny jest 201, która jest generowana przez [CreatedAtRoute](/dotnet/api/system.web.http.apicontroller.createdatroute) metody pomocnika. W tej ścieżce `Product` obiekt jest zwracany.
 
+::: moniker range=">= aspnetcore-2.1"
 ## <a name="actionresultt-type"></a>ActionResult\<T > typ
 
 Platformy ASP.NET Core 2.1 wprowadzono `ActionResult<T>` zwracany typ dla akcji kontrolera interfejsu API sieci Web. Umożliwia ona zwracany typ pochodny [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) lub zwróć [określonego typu](#specific-type). `ActionResult<T>` oferuje następujące korzyści za pośrednictwem [IActionResult typu](#iactionresult-type):
@@ -96,6 +103,7 @@ W przypadku niepowodzenia weryfikacji modelu [element BadRequest](/dotnet/api/mi
 
 > [!TIP]
 > Począwszy od platformy ASP.NET Core 2.1, wnioskowania źródła wiązania parametrów akcji jest włączona, gdy klasa kontrolera jest ozdobione `[ApiController]` atrybutu. Parametry typu złożonego automatycznie powiązane przy użyciu treści żądania. W rezultacie poprzedniej akcji `product` parametr nie jest jawnie oznaczony za pomocą [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) atrybutu.
+::: moniker-end
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 430033c06df74cc3661c40ca7f7bd9244cd257c9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 48f49f40a6fc0c6a0c664873879f9f61080132ea
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor (C#)
 ====================
@@ -34,7 +34,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions"></a>Wersje oprogramowania
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - Strony sieci Web platformy ASP.NET (Razor) 3
 >   
 > 
 > W tym samouczku współdziała również z programu ASP.NET Web Pages 2.
@@ -343,35 +343,84 @@ Aby dokonać konwersji wartości na liczby całkowite, należy wywołać `AsInt`
 
 W poniższej tabeli wymieniono niektóre typowe metody konwersji i testowania dla zmiennych.
 
-
-|   <strong>— Metoda</strong>    |                                                                              <strong>Opis</strong>                                                                              |                         <strong>Przykład</strong>                         |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-|      `AsInt(), IsInt()`      |                                                      Konwertuje ciąg reprezentujący liczbę całkowitą (na przykład "593") na liczbę całkowitą.                                                      |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]   |
-|     `AsBool(), IsBool()`     |                                                    Konwertuje ciąg, takich jak &quot;true&quot; lub &quot;false&quot; na typ Boolean.                                                     |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]   |
-|    `AsFloat(), IsFloat()`    |                                    Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; liczby zmiennoprzecinkowej.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]   |
-|  `AsDecimal(), IsDecimal()`  | Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; na liczbę dziesiętną. (W programie ASP.NET, liczbą dziesiętną jest bardziej dokładne niż liczba zmiennoprzecinkowa). |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]   |
-| `AsDateTime(), IsDateTime()` |                                                Konwertuje ciąg reprezentujący wartość daty i godziny do platformy ASP.NET `DateTime` typu.                                                 |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]   |
-|         `ToString()`         |                                                                       Konwertuje ciąg inny typ danych.                                                                        | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)] |
+: wiersz:: kolumny: <strong>— metoda</strong> : koniec kolumny:: kolumny: <strong>opis</strong> : koniec kolumny:::: kolumny: <strong>przykład</strong> : koniec kolumny:: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `AsInt(), IsInt()` : koniec kolumny:::: kolumny: Konwertuje ciąg reprezentujący liczbę całkowitą (na przykład "593") na liczbę całkowitą.
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersz:: kolumny: `AsBool(), IsBool()` : koniec kolumny:::: kolumny: Konwertuje ciąg, takich jak &quot;true&quot; lub &quot;false&quot; na typ Boolean.
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersza:::: kolumny: `AsFloat(), IsFloat()` : koniec kolumny:::: kolumny: Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; liczby zmiennoprzecinkowej.
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersz:::: kolumny: `AsDecimal(), IsDecimal()` : koniec kolumny:::: kolumny: Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; na liczbę dziesiętną. (W programie ASP.NET, liczbą dziesiętną jest bardziej dokładne niż liczba zmiennoprzecinkowa). : koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `AsDateTime(), IsDateTime()` : koniec kolumny:::: kolumny: Konwertuje ciąg reprezentujący wartość daty i godziny do platformy ASP.NET `DateTime` typu.
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersz:::: kolumny: `ToString()` : koniec kolumny:::: kolumny: konwertuje inny typ danych na ciąg.
+: koniec kolumny:::: kolumny: [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
+    : koniec kolumny:::: koniec wiersza:
 
 ## <a name="operators"></a>Operatory
 
 Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaju polecenie do wykonania w wyrażeniu. W języku C# (i składni Razor oparty na nim) obsługuje wielu operatorów, ale musisz rozpoznać kilka, aby rozpocząć pracę. Poniższa tabela zawiera podsumowanie typowych operatorów.
 
 
-|   <strong>Operator</strong>    |                                                                     <strong>Opis</strong>                                                                     |                        <strong>Przykłady</strong>                         |
-|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-|        `+` `-` `*` `/`         |                                                            Operatory matematyczne używać w wyrażeniach numerycznych.                                                             |    [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]    |
-|              `=`               |                                    Przypisanie. Przypisuje wartości po prawej stronie instrukcji obiektu po lewej stronie.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]   |
-|              `==`              |                      Równości. Zwraca `true` Jeśli wartości są równe. (Zwróć uwagę, że `=` operatora i `==` operatora.)                      |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]   |
-|              `!=`              |                                                       Nierówności. Zwraca `true` wartości nie są równe.                                                        |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]   |
-|          `< > <= >=`           |                                               Mniej-niż większe-niż mniej niż — lub równości i większa niż lub równości.                                                |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]   |
-|              `+`               | Łączenie, który jest używany do przyłączenia ciągów. ASP.NET wie, że różnica między Ten operator i operator dodawania na podstawie typu danych wyrażenia. |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]   |
-|           `+=``-=`            |                                   Operatory inkrementacji i dekrementacji, które dodawania i odejmowania 1 (odpowiednio) ze zmienną.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]   |
-|              `.`               |                                                  Kropki. Pozwala odróżnić obiektów i ich właściwości i metody.                                                  |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]   |
-|              `()`              |                                              Nawiasy. Używane do wyrażenia grupy oraz do przekazania parametrów do metod.                                               | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)] |
-|              `[]`              |                                                    Nawiasy kwadratowe. Używane do uzyskiwania dostępu do wartości w macierzy lub kolekcji.                                                     |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]   |
-|              `!`               |               Nie. Odwraca `true` do wartości `false` i na odwrót. Zazwyczaj używany jako sposób skrócona do testowania `false` (oznacza to, aby nie `true`).               |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]   |
-| `&&`<code>&#124;&#124;</code> |                                                   Logiczny AND i lub, w którym są używane do łączenia ze sobą warunki.                                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]   |
+: wiersza:: kolumny: <strong>Operator</strong> : koniec kolumny:::: kolumny: <strong>opis</strong> : koniec kolumny:: kolumny: <strong>przykłady</strong> : koniec kolumny:: koniec wiersza:
+* * *
+: wiersza:::: kolumny: `+` `-` `*` `/` : koniec kolumny:::: kolumny: operatory matematyczne używać w wyrażeniach numerycznych.
+: koniec kolumny:::: kolumny: [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `=` : koniec kolumny:::: kolumny: przypisania. Przypisuje wartości po prawej stronie instrukcji obiektu po lewej stronie.
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `==` : koniec kolumny:::: kolumny: równości. Zwraca `true` Jeśli wartości są równe. (Zwróć uwagę, że `=` operatora i `==` operatora.): koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `!=` : koniec kolumny:::: kolumny: nierówności. Zwraca `true` wartości nie są równe.
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersza:::: kolumny: `< > <= >=` : koniec kolumny:::: kolumny: mniej — niż większe — niż mniej niż — lub równości i większa niż lub równości.
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `+` : koniec kolumny:::: kolumny: łączenia, który jest używany do przyłączenia ciągów. ASP.NET wie, że różnica między Ten operator i operator dodawania na podstawie typu danych wyrażenia.
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersza:::: kolumny: `+=` `-=` : koniec kolumny:::: kolumny: operatory inkrementacji i dekrementacji, które dodawania i odejmowania 1 (odpowiednio) ze zmienną.
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `.` : koniec kolumny:::: kolumny: kropka. Pozwala odróżnić obiektów i ich właściwości i metody.
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `()` : koniec kolumny:::: kolumny: nawiasów. Używane do wyrażenia grupy oraz do przekazania parametrów do metod.
+: koniec kolumny:::: kolumny: [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `[]` : koniec kolumny:::: kolumny: nawiasy. Używane do uzyskiwania dostępu do wartości w macierzy lub kolekcji.
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `!` : koniec kolumny:::: kolumny: nie. Odwraca `true` do wartości `false` i na odwrót. Zazwyczaj używany jako sposób skrócona do testowania `false` (oznacza to, aby nie `true`).
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersza:::: kolumny: `&&` <code>&#124;&#124;</code> : koniec kolumny:::: kolumny: logicznych i i lub, w którym są używane do łączenia ze sobą warunki.
+: koniec kolumny:::: kolumny: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]
+    : koniec kolumny:::: koniec wiersza:
 
 <a id="ID_WorkingWithFileAndFolderPaths"></a>
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Praca z pliku i ścieżki folderu w kodzie

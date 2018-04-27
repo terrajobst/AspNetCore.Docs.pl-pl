@@ -3,17 +3,18 @@ title: Razor strony trasy i aplikacji Konwencji funkcji programu ASP.NET Core
 author: guardrex
 description: Odkryj, jak trasy i aplikacjami modelu dostawcy Konwencji funkcje pomagają formantu strony routingu, odnajdywania i przetwarzania.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 10/23/2017
+ms.date: 04/12/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: 5105935a8f5b9e9f258fe84f839d17f6948bab1d
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: 0d8dc4e236d82de6c59add8aa949c28e9435f8fa
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Razor strony trasy i aplikacji Konwencji funkcji programu ASP.NET Core
 
@@ -23,20 +24,50 @@ Dowiedz się, jak używać strony [trasy i aplikacjami modelu Konwencji dostawcy
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
+::: moniker range="= aspnetcore-2.0"
 | Funkcje | W przykładzie pokazano... |
 | -------- | --------------------------- |
-| [Konwencje modelu trasy i aplikacji](#add-route-and-app-model-conventions)<br><br>Conventions.Add<ul><li>IPageRouteModelConvention</li><li>IPageApplicationModelConvention</li></ul> | Dodaj szablon trasy i nagłówka do strony aplikacji. |
-| [Konwencje akcji trasy strony](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | Dodawanie szablonu trasy do stron w folderze i do jednej strony. |
-| [Konwencje akcji modelu strony](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (klasa filtru, wyrażenia lambda lub filtra)</li></ul> | Dodawanie nagłówka do stron w folderze, dodanie nagłówka do pojedynczej strony i konfigurowanie [filtra](xref:mvc/controllers/filters#ifilterfactory) można dodać nagłówka do strony aplikacji. |
-| [Domyślnego dostawcę modelu aplikacji strony](#replace-the-default-page-app-model-provider) | Zastępowanie domyślnego dostawcę modelu strony można zmienić z konwencją nazewnictwa programu obsługi. |
+| [Konwencje modelu](#model-conventions)<br><br>Conventions.Add<ul><li>IPageRouteModelConvention</li><li>IPageApplicationModelConvention</li></ul> | Dodaj szablon trasy i nagłówek do strony aplikacji. |
+| [Konwencje akcji trasy strony](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | Dodaj szablon trasy do stron w folderze i do jednej strony. |
+| [Konwencje akcji modelu strony](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (klasa filtru, wyrażenia lambda lub filtra)</li></ul> | Dodanie nagłówka do stron w folderze, dodanie nagłówka do jednej strony, a następnie skonfiguruj [filtra](xref:mvc/controllers/filters#ifilterfactory) można dodać nagłówka do strony aplikacji. |
+| [Domyślnego dostawcę modelu aplikacji strony](#replace-the-default-page-app-model-provider) | Zastąp domyślnego dostawcę modelu strony można zmienić konwencje nazw programu obsługi. |
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+| Funkcje | W przykładzie pokazano... |
+| -------- | --------------------------- |
+| [Konwencje modelu](#model-conventions)<br><br>Conventions.Add<ul><li>IPageRouteModelConvention</li><li>IPageApplicationModelConvention</li><li>IPageHandlerModelConvention</li></ul> | Dodaj szablon trasy i nagłówek do strony aplikacji. |
+| [Konwencje akcji trasy strony](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | Dodaj szablon trasy do stron w folderze i do jednej strony. |
+| [Konwencje akcji modelu strony](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (klasa filtru, wyrażenia lambda lub filtra)</li></ul> | Dodanie nagłówka do stron w folderze, dodanie nagłówka do jednej strony, a następnie skonfiguruj [filtra](xref:mvc/controllers/filters#ifilterfactory) można dodać nagłówka do strony aplikacji. |
+| [Domyślnego dostawcę modelu aplikacji strony](#replace-the-default-page-app-model-provider) | Zastąp domyślnego dostawcę modelu strony można zmienić konwencje nazw programu obsługi. |
+::: moniker-end
 
-## <a name="add-route-and-app-model-conventions"></a>Dodaj konwencje modelu trasy i aplikacji
+Konwencje stron razor są dodawane i skonfigurować za pomocą [AddRazorPagesOptions](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.addrazorpagesoptions) metodę rozszerzenie [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc) w kolekcji usługi w `Startup` klasy. Poniższe przykłady Konwencji opisano szczegółowo w dalszej części tego tematu:
 
-Dodaj obiekt delegowany dla [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) można dodać [konwencje modelu trasy i aplikacji](xref:mvc/controllers/application-model#conventions) przeznaczonych do stron Razor.
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc()
+        .AddRazorPagesOptions(options =>
+            {
+                options.Conventions.Add( ... );
+                options.Conventions.AddFolderRouteModelConvention("/OtherPages", model => { ... });
+                options.Conventions.AddPageRouteModelConvention("/About", model => { ... });
+                options.Conventions.AddPageRoute("/Contact", "TheContactPage/{text?}");
+                options.Conventions.AddFolderApplicationModelConvention("/OtherPages", model => { ... });
+                options.Conventions.AddPageApplicationModelConvention("/About", model => { ... });
+                options.Conventions.ConfigureFilter(model => { ... });
+                options.Conventions.ConfigureFilter( ... );
+            });
+}
+```
+
+## <a name="model-conventions"></a>Konwencje modelu
+
+Dodaj obiekt delegowany dla [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) można dodać [modelu Konwencji](xref:mvc/controllers/application-model#conventions) przeznaczonych do stron Razor.
 
 **Dodawanie Konwencji modelu trasy do wszystkich stron**
 
-Użyj [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) utworzyć i dodać [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) do kolekcji [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) wystąpień, które są stosowane podczas modelu trasy i strony konstrukcja.
+Użyj [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) utworzyć i dodać [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) do kolekcji [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) wystąpień, które są stosowane podczas modelu trasy strony konstrukcja.
 
 Przykładowa aplikacja dodaje `{globalTemplate?}` szablon trasy do wszystkich stron w aplikacji:
 
@@ -55,7 +86,7 @@ Opcje stron razor, takie jak dodawanie [konwencje](/dotnet/api/microsoft.aspnetc
 
 **Dodawanie aplikacji modelu Konwencji do wszystkich stron**
 
-Użyj [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) utworzyć i dodać [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) do kolekcji [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) wystąpień, które są stosowane podczas trasy i strony konstruowania modelu.
+Użyj [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) utworzyć i dodać [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) do kolekcji [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) wystąpień, które są stosowane podczas modelu aplikacji strony konstrukcja.
 
 Aby zademonstrować to i inne konwencje w dalszej części tematu, zawiera przykładową aplikację `AddHeaderAttribute` klasy. Konstruktor klasy akceptuje `name` ciągu i `values` tablicy ciągów. Te wartości są używane w jego `OnResultExecuting` metodę, aby ustawić nagłówka odpowiedzi. Pełna klasy jest wyświetlany w obszarze [strony konwencje akcji modelu](#page-model-action-conventions) dalszej części tematu.
 
@@ -70,6 +101,35 @@ Przykładowe zastosowania aplikacji `AddHeaderAttribute` klasy można dodać nag
 Żądanie przykładową stronę o w `localhost:5000/About` i sprawdzić nagłówków, aby wyświetlić wyniki:
 
 ![Nagłówki odpowiedzi strony informacje zawierają GlobalHeader został dodany.](razor-pages-convention-features/_static/about-page-global-header.png)
+
+::: moniker range=">= aspnetcore-2.1"
+**Dodawanie obsługi modelu Konwencji do wszystkich stron**
+
+[!INCLUDE[](~/includes/2.1.md)]
+
+Użyj [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) utworzyć i dodać [IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) do kolekcji [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) wystąpień, które są stosowane podczas modelu obsługi strony konstrukcja.
+
+```csharp
+public class GlobalPageHandlerModelConvention 
+    : IPageHandlerModelConvention
+{
+    public void Apply(PageHandlerModel model)
+    {
+        ...
+    }
+}
+```
+
+`Startup.ConfigureServices`:
+
+```csharp
+services.AddMvc()
+    .AddRazorPagesOptions(options =>
+        {
+            options.Conventions.Add(new GlobalPageHandlerModelConvention());
+        });
+```
+::: moniker-end
 
 ## <a name="page-route-action-conventions"></a>Konwencje akcji trasy strony
 
@@ -280,19 +340,7 @@ Zanotuj nazwy obsługi w *Index.cshtml* odpowiada `DeleteAllMessages` i `DeleteM
 
 MVC [filtry akcji](xref:mvc/controllers/filters#action-filters) są ignorowane przez Razor strony, ponieważ stron Razor użyć metod obsługi. Inne rodzaje MVC filtry są dostępne do użycia: [autoryzacji](xref:mvc/controllers/filters#authorization-filters), [wyjątek](xref:mvc/controllers/filters#exception-filters), [zasobów](xref:mvc/controllers/filters#resource-filters), i [wynik](xref:mvc/controllers/filters#result-filters). Aby uzyskać więcej informacji, zobacz [filtry](xref:mvc/controllers/filters) tematu.
 
-Filtr strony ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)) jest filtr, który ma zastosowanie do stron Razor. Otacza jej wykonanie metody obsługi strony. Umożliwia przetwarzanie niestandardowego kodu na etapach wykonywania metody obsługi strony. Oto przykład z przykładową aplikację:
-
-[!code-csharp[](razor-pages-convention-features/sample/Filters/ReplaceRouteValueFilterAttribute.cs?name=snippet1)]
-
-Sprawdza, czy ten filtr `globalTemplate` trasy w "ReplacementValue" wartość "TriggerValue" i zamiany.
-
-`ReplaceRouteValueFilter` Atrybut można stosować bezpośrednio do `PageModel`:
-
-[!code-csharp[](razor-pages-convention-features/sample/Pages/OtherPages/Page3.cshtml.cs?range=10-12&highlight=1)]
-
-Żądanie strony Page3 z przykładową aplikację z na `localhost:5000/OtherPages/Page3/TriggerValue`. Zwróć uwagę, jak filtr zastępuje wartość trasy:
-
-![Żądanie OtherPages/Page3 z wyników TriggerValue trasy segmentu w filtrze, zamieniając wartość trasy ReplacementValue.](razor-pages-convention-features/_static/otherpages-page3-filter-replacement-value.png)
+Filtr strony ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)) jest filtr, który ma zastosowanie do stron Razor. Aby uzyskać więcej informacji, zobacz [filtrować metod dla stron Razor](xref:mvc/razor-pages/filter).
 
 ## <a name="see-also"></a>Zobacz także
 

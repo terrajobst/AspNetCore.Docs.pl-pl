@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: fb833ef8797ea7851cbaf53bb5681df248d07a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1500f026c245f80de4120d6db4901cb117552966
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Typowe błędy odwołania dla usługi Azure App Service i IIS z platformy ASP.NET Core
 
@@ -42,7 +42,7 @@ Porównywanie informacji do poniższych typowych błędów. Jeśli zostanie znal
 
 Rozwiązywanie problemów:
 
-* Jeśli system nie ma dostępu do Internetu, podczas instalowania serwera obsługującego pakietu, ten wyjątek występuje, gdy Instalator będzie mógł uzyskiwania *Microsoft Visual C++ 2015 Redistributable*. Uzyskać Instalatora z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Jeśli Instalator zakończy się niepowodzeniem, serwer nie może otrzymywać środowiska uruchomieniowego .NET Core wymaganego do obsługi wdrożenia framework zależne (stacje). Jeśli hosting Dyskietki, upewnij się, że środowisko wykonawcze jest instalowana w programach &amp; funkcji. W razie potrzeby Uzyskaj Instalatora środowiska uruchomieniowego, z [.NET wszystkie pliki do pobrania](https://www.microsoft.com/net/download/all). Po zainstalowaniu środowiska uruchomieniowego, ponownie uruchom system, lub ponownego uruchomienia usług IIS, wykonując **net stop została /y** następuje **net start w3svc** z wiersza polecenia.
+* Jeśli system nie ma dostępu do Internetu podczas instalowania pakietu hostingu, ten wyjątek występuje, gdy Instalator będzie mógł uzyskiwania *Microsoft Visual C++ 2015 Redistributable*. Uzyskać Instalatora z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Jeśli Instalator zakończy się niepowodzeniem, serwer nie może otrzymywać środowiska uruchomieniowego .NET Core wymaganego do obsługi wdrożenia framework zależne (stacje). Jeśli hosting Dyskietki, upewnij się, że środowisko wykonawcze jest instalowana w programach &amp; funkcji. W razie potrzeby Uzyskaj Instalatora środowiska uruchomieniowego, z [.NET wszystkie pliki do pobrania](https://www.microsoft.com/net/download/all). Po zainstalowaniu środowiska uruchomieniowego, ponownie uruchom system, lub ponownego uruchomienia usług IIS, wykonując **net stop została /y** następuje **net start w3svc** z wiersza polecenia.
 
 ## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>Uaktualnienie systemu operacyjnego usunąć moduł 32-bitowej platformy ASP.NET Core
 
@@ -50,7 +50,7 @@ Rozwiązywanie problemów:
 
 Rozwiązywanie problemów:
 
-* Pliki systemu operacyjnego bez **C:\Windows\SysWOW64\inetsrv** katalogu nie są zachowywane podczas OS uaktualnienia. Jeśli zainstalowano modułu platformy ASP.NET Core przed uaktualnienia systemu operacyjnego, a następnie wszystkie puli aplikacji jest uruchomiony w trybie 32-bitowej, po uaktualnieniu systemu operacyjnego, ten problem. Po uaktualnieniu systemu operacyjnego Napraw moduł platformy ASP.NET Core. Zobacz [instalacji pakietu .NET Core systemu Windows serwer obsługujący](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Wybierz **naprawy** po uruchomieniu Instalatora.
+* Pliki systemu operacyjnego bez **C:\Windows\SysWOW64\inetsrv** katalogu nie są zachowywane podczas OS uaktualnienia. Jeśli zainstalowano modułu platformy ASP.NET Core przed uaktualnienia systemu operacyjnego, a następnie wszystkie puli aplikacji jest uruchomiony w trybie 32-bitowej, po uaktualnieniu systemu operacyjnego, ten problem. Po uaktualnieniu systemu operacyjnego Napraw moduł platformy ASP.NET Core. Zobacz [instalacji pakietu .NET Core Hosting](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Wybierz **naprawy** po uruchomieniu Instalatora.
 
 ## <a name="platform-conflicts-with-rid"></a>Platforma w konflikcie z identyfikatorów RID
 
@@ -114,7 +114,7 @@ Rozwiązywanie problemów:
 
 * Upewnij się, że właściwej roli jest włączona. Zobacz [konfiguracji usług IIS](xref:host-and-deploy/iis/index#iis-configuration).
 
-* Sprawdź **programy &amp; funkcje** i upewnij się, że **modułu programu Microsoft ASP.NET Core** został zainstalowany. Jeśli **modułu programu Microsoft ASP.NET Core** nie występuje na liście zainstalowanych programów, instalowania modułu. Zobacz [instalacji pakietu .NET Core systemu Windows serwer obsługujący](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle).
+* Sprawdź **programy &amp; funkcje** i upewnij się, że **modułu programu Microsoft ASP.NET Core** został zainstalowany. Jeśli **modułu programu Microsoft ASP.NET Core** nie występuje na liście zainstalowanych programów, instalowania modułu. Zobacz [Zainstaluj oprogramowanie .NET Core Hosting pakietu](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle).
 
 * Upewnij się, że **puli aplikacji** > **Model procesu** > **tożsamości** ustawiono **puli** lub tożsamość niestandardowa ma odpowiednie uprawnienia dostępu do folderu wdrożenia aplikacji.
 
@@ -138,7 +138,7 @@ Rozwiązywanie problemów:
 
 * STACJE zostały wdrożone, oraz .NET Core zainstalowany bez ponownego uruchomienia usług IIS. Uruchom ponownie serwer lub ponownego uruchomienia usług IIS, wykonując **net stop została /y** następuje **net start w3svc** z wiersza polecenia.
 
-* STACJE mogą wdrożyć bez instalowania środowiska uruchomieniowego .NET Core przez system operacyjny. Jeśli nie zainstalowano środowiska wykonawczego platformy .NET Core, uruchom **.NET Core systemu Windows serwer obsługujący Instalatora pakietu** w systemie. Zobacz [instalacji pakietu .NET Core systemu Windows serwer obsługujący](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Jeśli próba instalowanie środowiska uruchomieniowego .NET Core w systemie bez połączenia z Internetem, uzyskać środowiska uruchomieniowego z [.NET wszystkie pliki do pobrania](https://www.microsoft.com/net/download/all) i uruchom Instalatora pakietu hostingu, aby zainstalować moduł platformy ASP.NET Core. Ukończenie instalacji przez ponowne uruchomienie systemu lub ponowne uruchomienie usług IIS, wykonując **net stop została /y** następuje **net start w3svc** z wiersza polecenia.
+* STACJE mogą wdrożyć bez instalowania środowiska uruchomieniowego .NET Core przez system operacyjny. Jeśli nie zainstalowano środowiska wykonawczego platformy .NET Core, uruchom **Instalator .NET Core Hosting pakietu** w systemie. Zobacz [Zainstaluj oprogramowanie .NET Core Hosting pakietu](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Jeśli próba instalowanie środowiska uruchomieniowego .NET Core w systemie bez połączenia z Internetem, uzyskać środowiska uruchomieniowego z [.NET wszystkie pliki do pobrania](https://www.microsoft.com/net/download/all) i uruchom Instalatora Hosting pakietu do zainstalowania modułu platformy ASP.NET Core. Ukończenie instalacji przez ponowne uruchomienie systemu lub ponowne uruchomienie usług IIS, wykonując **net stop została /y** następuje **net start w3svc** z wiersza polecenia.
 
 * STACJE zostały wdrożone i *Microsoft Visual C++ 2015 Redistributable (x64)* nie jest zainstalowany w systemie. Uzyskać Instalatora z [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840).
 

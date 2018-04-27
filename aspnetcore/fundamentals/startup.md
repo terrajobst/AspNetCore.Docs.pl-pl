@@ -5,16 +5,16 @@ description: Odkryj, jak klasa początkowa w ASP.NET Core umożliwia skonfigurow
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/08/2017
+ms.date: 4/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: bad1bc986be3e8681dacdf48fe7d20ab660ebcb0
-ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
+ms.openlocfilehash: 8dd632a2c888e65c6420e0fed7acf6fa15173b3d
+ms.sourcegitcommit: c4a31aaf902f2e84aaf4a9d882ca980fdf6488c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
 
@@ -52,17 +52,55 @@ Aby dowiedzieć się więcej o `WebHostBuilder`, zobacz [hostingu](xref:fundamen
 
 [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) metoda jest:
 
-* Opcjonalny.
+* Optional
 * Wywołanie przez hosta sieci web przed `Configure` metody do skonfigurowania usług aplikacji.
 * Gdzie [opcje konfiguracji](xref:fundamentals/configuration/index) są ustawiane przez Konwencję.
 
 Dodawanie usługi do kontenera usługi udostępnia je w aplikacji i w `Configure` metody. Usługi zostały rozwiązane za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection) lub [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices).
 
-Host sieci web można skonfigurować niektóre usługi przed `Startup` metody są wywoływane. Szczegółowe informacje są dostępne w [hostingu](xref:fundamentals/hosting) tematu. 
+Host sieci web można skonfigurować niektóre usługi przed `Startup` metody są wywoływane. Szczegółowe informacje są dostępne w [hostingu](xref:fundamentals/hosting) tematu.
 
 Dla funkcji, które wymagają znacznej Instalatora, są `Add[Service]` metody rozszerzenia na [IServiceCollection](/dotnet/api/Microsoft.Extensions.DependencyInjection.IServiceCollection). Aplikacja sieci web typowe rejestruje usługi programu Entity Framework, tożsamości i MVC:
 
 [!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
+
+::: moniker range=">= aspnetcore-2.1" 
+
+<a name="setcompatibilityversion"></a>
+### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>SetCompatibilityVersion dla platformy ASP.NET Core MVC 
+
+`SetCompatibilityVersion` Metody, dzięki czemu aplikacja opcjonalnych lub zrezygnować z potencjalnie fundamentalne zmiany zachowania wprowadzone w ASP.NET MVC Core 2.1 +. Potencjalnie fundamentalne zmiany zachowania są zazwyczaj w jak działa w podsystemie MVC i jak **kodu** jest wywoływana przez środowisko uruchomieniowe. Dzięki zgodzie na rozwiązanie, możesz uzyskać najnowsze zachowania i długoterminowego zachowania platformy ASP.NET Core.
+
+Poniższy kod ustawia tryb zgodności ASP.NET Core 2.1:
+
+[!code-csharp[Main](startup/sampleCompatibility/Startup.cs?name=snippet1)]
+
+Zaleca się przetestowanie aplikacji za pomocą najnowszej wersji (`CompatibilityVersion.Version_2_1`). Przewidujemy, że większość aplikacji nie zostaną istotne zmiany zachowania przy użyciu najnowszej wersji. 
+
+Aplikacje, które wywołują `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` są chronione przed potencjalnie fundamentalne zmiany zachowania wprowadzone w ASP.NET Core 2.1 MVC i nowszych wersjach 2.x. Ta ochrona:
+
+* Nie ma zastosowania do wszystkich zmian 2.1 i nowsze, jest on skierowany do potencjalnie fundamentalne zmiany zachowania środowiska uruchomieniowego platformy ASP.NET Core w podsystemie MVC.
+* Nie obejmuje następnej wersji głównej.
+
+Zgodność domyślny dla platformy ASP.NET Core 2.1 i nowsze aplikacji 2.x, które wykonują **nie** wywołania `SetCompatibilityVersion` jest zgodności 2.0. Oznacza to, że nie wywołuje metody `SetCompatibilityVersion` jest taka sama jak wywołanie `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)`.
+
+Poniższy kod ustawia tryb zgodności ASP.NET Core 2.1, z wyjątkiem następujących problemów:
+
+* [AllowCombiningAuthorizeFilters](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs)
+* [InputFormatterExceptionPolicy](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs)
+
+[!code-csharp[Main](startup/sampleCompatibility/Startup2.cs?name=snippet1)]
+
+Dla aplikacji, który wystąpić zmiany zachowania podziału, za pomocą przełączników odpowiednie zgodności:
+
+* Pozwala używać najnowszej wersji i zrezygnować z określonych podziału zmiany zachowania.
+* Umożliwia aktualizacji aplikacji, więc w przypadku najnowsze zmiany.
+
+[MvcOptions](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs) komentarze źródła klasy mają dobrej wyjaśnienie co zmienione i dlaczego zmiany są poprawy w przypadku większości użytkowników.
+
+W przyszłości, będzie [wersji platformy ASP.NET Core 3.0](https://github.com/aspnet/Home/wiki/Roadmap). Stary zachowania obsługiwany przez przełączniki zgodności zostaną usunięte w wersji 3.0. Uważamy, że są to pozytywnych zmian w niemal wszystkich użytkowników korzystających. Dzięki zastosowaniu teraz te zmiany, większość aplikacji mogą teraz korzystać, a pozostałe będzie miał zaktualizować swoje aplikacje.
+
+::: moniker-end
 
 ## <a name="services-available-in-startup"></a>Dostępne w uruchamiania usługi
 
@@ -76,7 +114,7 @@ Host sieci web zawiera niektóre usługi, które są dostępne dla `Startup` kon
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Startup.cs?range=28-48&highlight=5,6,10,13,15)]
 
-Każdy `Use` — metoda rozszerzenia dodaje składnik oprogramowania pośredniczącego do potoku żądania. Na przykład `UseMvc` — metoda rozszerzenia dodaje [routingu oprogramowanie pośredniczące](xref:fundamentals/routing) do potoku żądania i konfiguruje [MVC](xref:mvc/overview) jako domyślny program obsługi. 
+Każdy `Use` — metoda rozszerzenia dodaje składnik oprogramowania pośredniczącego do potoku żądania. Na przykład `UseMvc` — metoda rozszerzenia dodaje [routingu oprogramowanie pośredniczące](xref:fundamentals/routing) do potoku żądania i konfiguruje [MVC](xref:mvc/overview) jako domyślny program obsługi.
 
 Każdy składnik oprogramowania pośredniczącego w potoku żądania jest odpowiedzialny za wywoływanie następny składnik w potoku lub zwarcie łańcucha, w razie potrzeby. Jeśli zwarcie nie występuje prowadzącą do pominięcia oprogramowanie pośredniczące, każdy oprogramowanie pośredniczące ma drugiej szansy przetwarzania żądania, przed ich wysłaniem do klienta.
 

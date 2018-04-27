@@ -5,16 +5,16 @@ description: Wykryj aktywną i nieaktywną modułów usług IIS dla aplikacji pl
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/15/2018
+ms.date: 04/04/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: d9b3de915df333153255f91649f9169f76ba2fe0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e88526d997618658f58488adb37ae1e519ea3f59
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Moduły usług IIS z platformy ASP.NET Core
 
@@ -24,8 +24,10 @@ Aplikacje platformy ASP.NET Core są obsługiwane przez usługi IIS w konfigurac
 
 ## <a name="native-modules"></a>Moduły macierzyste
 
-| Moduł | .NET core aktywny | Opcja platformy ASP.NET Core |
-| ------ | :--------------: | ------------------- |
+Tabela wskazuje modułów macierzystych usług IIS, które działają na zwrotny serwer proxy żądań do aplikacji platformy ASP.NET Core.
+
+| Moduł | Funkcjonalności przy użyciu aplikacji platformy ASP.NET Core | Opcja platformy ASP.NET Core |
+| ------ | :-------------------------------: | ------------------- |
 | **Uwierzytelnianie anonimowe**<br>`AnonymousAuthenticationModule` | Tak | |
 | **Uwierzytelnianie podstawowe**<br>`BasicAuthenticationModule` | Tak | |
 | **Uwierzytelnianie mapowań certyfikacji klientów**<br>`CertificateMappingAuthenticationModule` | Tak | |
@@ -62,21 +64,23 @@ Aplikacje platformy ASP.NET Core są obsługiwane przez usługi IIS w konfigurac
 
 ## <a name="managed-modules"></a>Modułów zarządzanych
 
-| Moduł                  | .NET core aktywny | Opcja platformy ASP.NET Core |
-| ----------------------- | :--------------: | ------------------- |
-| AnonymousIdentification | Nie               | |
-| DefaultAuthentication   | Nie               | |
-| FileAuthorization       | Nie               | |
-| Uwierzytelniania formularzy     | Nie               | [Oprogramowanie pośredniczące uwierzytelniania plików cookie](xref:security/authentication/cookie) |
-| OutputCache             | Nie               | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) |
-| Profil                 | Nie               | |
-| RoleManager             | Nie               | |
-| ScriptModule-4.0        | Nie               | |
-| Sesja                 | Nie               | [Oprogramowanie pośredniczące sesji](xref:fundamentals/app-state) |
-| UrlAuthorization        | Nie               | |
-| UrlMappingsModule       | Nie               | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) |
-| UrlRoutingModule-4.0    | Nie               | [ASP.NET Core Identity](xref:security/authentication/identity) |
-| WindowsAuthentication   | Nie               | |
+Moduły zarządzane są *nie* funkcjonalności z hostowanej aplikacji platformy ASP.NET Core, gdy wersja środowiska .NET CLR puli aplikacji ustawiono **bez kodu zarządzanego**. Platformy ASP.NET Core oferuje alternatywne oprogramowanie pośredniczące w kilku przypadkach.
+
+| Moduł                  | Opcja platformy ASP.NET Core |
+| ----------------------- | ------------------- |
+| AnonymousIdentification | |
+| DefaultAuthentication   | |
+| FileAuthorization       | |
+| Uwierzytelniania formularzy     | [Oprogramowanie pośredniczące uwierzytelniania plików cookie](xref:security/authentication/cookie) |
+| OutputCache             | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) |
+| Profil                 | |
+| RoleManager             | |
+| ScriptModule 4.0        | |
+| Sesja                 | [Oprogramowanie pośredniczące sesji](xref:fundamentals/app-state) |
+| UrlAuthorization        | |
+| UrlMappingsModule       | [Oprogramowanie pośredniczące ponownego zapisywania adresów URL](xref:fundamentals/url-rewriting) |
+| UrlRoutingModule-4.0    | [ASP.NET Core Identity](xref:security/authentication/identity) |
+| WindowsAuthentication   | |
 
 ## <a name="iis-manager-application-changes"></a>Zmiany aplikacji Menedżera usług IIS
 
@@ -88,7 +92,7 @@ Jeśli moduł usług IIS jest skonfigurowany na poziomie serwera, który musi zo
 
 ### <a name="module-deactivation"></a>Dezaktywacja modułu
 
-Wiele modułów zapewniają ustawienia konfiguracji, która pozwala na wyłączony bez usuwania modułu z poziomu aplikacji. Jest to najprostsza i najszybszym sposobem dezaktywować modułu. Na przykład można wyłączyć moduł ponowne zapisywanie adresów URL usług IIS z  **\<httpRedirect >** element *web.config*:
+Wiele modułów zapewniają ustawienia konfiguracji, która pozwala na wyłączony bez usuwania modułu z poziomu aplikacji. Jest to najprostsza i najszybszym sposobem dezaktywować modułu. Na przykład można wyłączyć moduł przekierowania HTTP z  **\<httpRedirect >** element *web.config*:
 
 ```xml
 <configuration>
@@ -122,22 +126,6 @@ Jeśli Aby usunąć moduł z ustawieniem w *web.config*, odblokowanie modułem i
    </configuration>
    ```
 
-Dla instalacji usług IIS z modułami domyślne zainstalowany, należy użyć następującego  **\<modułu >** sekcji, aby usunąć domyślne moduły.
-
-```xml
-<modules>
-  <remove name="CustomErrorModule" />
-  <remove name="DefaultDocumentModule" />
-  <remove name="DirectoryListingModule" />
-  <remove name="HttpCacheModule" />
-  <remove name="HttpLoggingModule" />
-  <remove name="ProtocolSupportModule" />
-  <remove name="RequestFilteringModule" />
-  <remove name="StaticCompressionModule" /> 
-  <remove name="StaticFileModule" /> 
-</modules>
-```
-
 Moduł usług IIS może zostać także usunięty z *Appcmd.exe*. Podaj `MODULE_NAME` i `APPLICATION_NAME` w poleceniu:
 
 ```console
@@ -155,6 +143,10 @@ Na przykład usunąć `DynamicCompressionModule` z domyślnej witryny sieci Web:
 Tylko modułami wymaganymi do uruchomienia aplikacji platformy ASP.NET Core to modułu uwierzytelniania anonimowego i moduł platformy ASP.NET Core.
 
 ![Otwórz Menedżera usług IIS, aby moduły z minimalną konfiguracją modułów pokazano](modules/_static/modules.png)
+
+Moduł pamięci podręcznej URI (`UriCacheModule`) zezwala usługom IIS do pamięci podręcznej konfiguracji witryny sieci Web na poziomie adresu URL. Bez tego modułu IIS należy odczytać i przeanalizować konfiguracji na każde żądanie, nawet wtedy, gdy wymagany jest wielokrotnie ten sam adres URL. Każde żądanie podczas analizowania konfiguracji powoduje zmniejszenie wydajności znaczące. *Mimo że moduł buforowania identyfikator URI nie jest ściśle wymagane do uruchamiania hostowanej aplikacji platformy ASP.NET Core, zaleca się włączenia modułu pamięci podręcznej URI dla wszystkich wdrożeń platformy ASP.NET Core.*
+
+Moduł buforowania HTTP (`HttpCacheModule`) implementuje wyjściową pamięć podręczną programu IIS, a także logikę buforowanie elementów w pamięci podręcznej z pliku HTTP.sys. Bez tego modułu zawartości jest już w pamięci podręcznej w trybie jądra, a pamięć podręczna profile są ignorowane. Usunięcie modułu buforowanie HTTP zazwyczaj ma negatywny wpływ na wydajność i zużycie zasobów. *Mimo że moduł buforowania HTTP nie jest ściśle wymagane do uruchamiania hostowanej aplikacji platformy ASP.NET Core, zalecamy włączenia moduł buforowania HTTP dla wszystkich wdrożeń platformy ASP.NET Core.*
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

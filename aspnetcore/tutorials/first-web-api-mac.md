@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: ce94091447452a51654f2cd4dad9043b63c737ce
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9d548ae0046785e8ffac059d6fa585ec86ce292d
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>Tworzenie składnika Web API platformy ASP.NET Core i programu Visual Studio dla komputerów Mac
 
@@ -189,6 +189,8 @@ public IActionResult GetById(string id)
 Odpowiedź jest [204 (bez zawartości)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
 
 ![Postman Konsola z wyświetlonymi 204 odpowiedzi (bez zawartości)](first-web-api/_static/pmd.png)
+
+[!INCLUDE[Javascript Jquery](../includes/add-javascript-jquery/index.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

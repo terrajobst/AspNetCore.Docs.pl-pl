@@ -1,7 +1,7 @@
 ---
 title: Samouczki platformy ASP.NET Core
 author: rick-anderson
-description: "Lista przewodniki krok po kroku dotyczące poznanie metod tworzenia aplikacji platformy ASP.NET Core."
+description: Lista przewodniki krok po kroku dotyczące poznanie metod tworzenia aplikacji platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: fd58a6a3e35a706d503603790fa1c726e6c865d6
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 9cd14a47a512c2a887614e617dd914dbdb25cb9d
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="aspnet-core-tutorials"></a>Samouczki platformy ASP.NET Core
 
@@ -32,55 +32,54 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
 
 * Tworzenie aplikacji sieci web platformy ASP.NET Core MVC
 
-   * [Aplikacja sieci Web z programem Visual Studio dla systemu Windows](first-mvc-app/index.md)
-   * [Aplikacja sieci Web z programem Visual Studio dla komputerów Mac](first-mvc-app-mac/index.md)
-   * [Aplikacja sieci Web z kodem Visual Studio na macOS lub Linux](first-mvc-app-xplat/index.md)
+   * [Aplikacja sieci Web z programem Visual Studio dla systemu Windows](xref:tutorials/first-mvc-app/index)
+   * [Aplikacja sieci Web z programem Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/index)
+   * [Aplikacja sieci Web z kodem Visual Studio na macOS lub Linux](xref:tutorials/first-mvc-app-xplat/index)
 
-* [Rozpoczynanie pracy z platformą ASP.NET Core i programem Entity Framework Core przy użyciu programu Visual Studio](../data/ef-mvc/index.md)
-* [Tworzenie pomocników tagów](../mvc/views/tag-helpers/authoring.md)
-* [Tworzenie prostego widoku składnika](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
-* [Tworzenie aplikacji platformy ASP.NET Core za pomocą czujki dotnet](dotnet-watch.md)
+* [Rozpoczynanie pracy z platformą ASP.NET Core i programem Entity Framework Core przy użyciu programu Visual Studio](xref:data/ef-mvc/index)
+* [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
+* [Tworzenie prostego widoku składnika](xref:mvc/views/view-components#walkthrough-creating-a-simple-view-component)
+* [Tworzenie aplikacji platformy ASP.NET Core za pomocą czujki dotnet](xref:tutorials/dotnet-watch)
 
 ## <a name="build-web-apis"></a>Tworzenie interfejsów API sieci Web
 * Tworzenie składnika Web API z platformy ASP.NET Core
 
-  * [Składnik Web API z programem Visual Studio dla systemu Windows](first-web-api.md)
+  * [Składnik Web API z programem Visual Studio dla systemu Windows](xref:tutorials/first-web-api)
   * [Interfejs API sieci Web z programem Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
-  * [Interfejs API sieci Web z programem Visual Studio Code](web-api-vsc.md)
+  * [Interfejs API sieci Web z programem Visual Studio Code](xref:tutorials/web-api-vsc)
 
 * [Strony pomocy dla interfejsu Web API platformy ASP.NET Core korzystające z programu Swagger](xref:tutorials/web-api-help-pages-using-swagger)
   * [Rozpoczynanie pracy z NSwag](xref:tutorials/get-started-with-nswag)
   * [Rozpoczynanie pracy z Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
 
-* [Tworzenie zaplecza usługi sieci web do natywnej aplikacji mobilnych](../mobile/native-mobile-backend.md)
+* [Tworzenie zaplecza usługi sieci web do natywnej aplikacji mobilnych](xref:mobile/native-mobile-backend)
 
 ## <a name="data-access-and-storage"></a>Dostęp do danych i magazynu
 * [Wprowadzenie do stron Razor i podstawowe EF przy użyciu programu Visual Studio](xref:data/ef-rp/intro)
-* [Wprowadzenie do platformy ASP.NET MVC Core i Core EF przy użyciu programu Visual Studio](../data/ef-mvc/index.md)
-* [Platformy ASP.NET Core MVC podstawowych EF - nowej bazy danych](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
-* [Platformy ASP.NET Core MVC podstawowych EF - istniejącej bazy danych](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
+* [Wprowadzenie do platformy ASP.NET MVC Core i Core EF przy użyciu programu Visual Studio](xref:data/ef-mvc/index)
+* [Platformy ASP.NET Core MVC podstawowych EF - nowej bazy danych](/ef/core/get-started/aspnetcore/new-db)
+* [Platformy ASP.NET Core MVC podstawowych EF - istniejącej bazy danych](/ef/core/get-started/aspnetcore/existing-db)
 
 ## <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
-* [Włączanie uwierzytelniania za pomocą usługi Facebook, Google i innych dostawców zewnętrznych](../security/authentication/social/index.md)
-* [Potwierdzenie konta i odzyskiwanie hasła](../security/authentication/accconfirm.md)
-* [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS](../security/authentication/2fa.md)
+* [Włączanie uwierzytelniania za pomocą usługi Facebook, Google i innych dostawców zewnętrznych](xref:security/authentication/social/index)
+* [Potwierdzenie konta i odzyskiwanie hasła](xref:security/authentication/accconfirm)
+* [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS](xref:security/authentication/2fa)
 
 ## <a name="client-side-development"></a>Programowanie po stronie klienta
-* [Korzystanie z Gulp](../client-side/using-gulp.md)
-* [Korzystanie z Grunt](../client-side/using-grunt.md)
-* [Zarządzanie pakietami po stronie klienta za pomocą narzędzi Bower](../client-side/bower.md)
-* [Tworzenie szybko reagujących witryn za pomocą narzędzi Bootstrap](../client-side/bootstrap.md)
+* [Korzystanie z Gulp](xref:client-side/using-gulp)
+* [Korzystanie z Grunt](xref:client-side/using-grunt)
+* [Zarządzanie pakietami po stronie klienta za pomocą narzędzi Bower](xref:client-side/bower)
+* [Tworzenie szybko reagujących witryn za pomocą narzędzi Bootstrap](xref:client-side/bootstrap)
 
 ## <a name="test"></a>Test
-* [Jednostka testowania w .NET Core za pomocą testu dotnet](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
+* [Jednostka testowania w .NET Core za pomocą testu dotnet](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-## <a name="publish-and-deploy"></a>Publikowanie i wdrażanie
-* [Wdrażanie aplikacji sieci web platformy ASP.NET Core na platformie Azure przy użyciu programu Visual Studio](publish-to-azure-webapp-using-vs.md)
-* [Wdrażanie aplikacji sieci web platformy ASP.NET Core na platformie Azure przy użyciu wiersza polecenia](publish-to-azure-webapp-using-cli.md)
+## <a name="host-and-deploy"></a>Host i wdrażanie
+* [Wdrażanie aplikacji sieci web platformy ASP.NET Core na platformie Azure przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)
+* [Wdrażanie aplikacji sieci web platformy ASP.NET Core na platformie Azure przy użyciu wiersza polecenia](xref:tutorials/publish-to-azure-webapp-using-cli)
 * [Publikowanie aplikacji sieci Web platformy Azure z ciągłe wdrażanie](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
-* [Wdrażanie kontenera ASP.NET z hostem zdalnym Docker](https://docs.microsoft.com/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
-* [Platformy ASP.NET Core na serwerze Nano](nano-server.md)
-* [Platformy ASP.NET Core i sieci szkieletowej usług Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-add-a-web-frontend)
+* [Wdrażanie kontenera ASP.NET z hostem zdalnym Docker](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
+* [Platformy ASP.NET Core i sieci szkieletowej usług Azure](/azure/service-fabric/service-fabric-add-a-web-frontend)
 
 <a name="download"></a> 
 ## <a name="how-to-download-a-sample"></a>Jak pobrać próbki

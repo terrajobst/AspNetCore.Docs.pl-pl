@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: b31cb1c227ac73de18efc58fd69f9446e11994c4
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 27f07afaefa0af2b489237e6e0ff772a5c9d64dc
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 [!INCLUDE [adding-view](../../includes/mvc-intro/adding_view1.md)]
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/06/2018
 
   * W polu wyszukiwania w prawym górnym wprowadź *widoku*
 
-  * Wybierz **MVC wyświetlania strony**
+  * Wybierz **widoku Razor**
 
   * W **nazwa** polu, w razie potrzeby można zmienić nazwę *Index.cshtml*.
 

@@ -1,7 +1,7 @@
 ---
-title: "Konfiguracja modułu Core programu ASP.NET"
+title: Konfiguracja modułu Core programu ASP.NET
 author: guardrex
-description: "Dowiedz się, jak skonfigurować moduł platformy ASP.NET Core do hostowania aplikacji platformy ASP.NET Core."
+description: Dowiedz się, jak skonfigurować moduł platformy ASP.NET Core do hostowania aplikacji platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 5aac5cf2b8fd4bc53ba7201645b9bb02a5d1ecae
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 954841a1b1465c80e60d5745ad9e22294a88fdf4
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Konfiguracja modułu Core programu ASP.NET
 
@@ -65,6 +65,7 @@ Zobacz [podrzędna aplikacji konfiguracji](xref:host-and-deploy/iis/index#sub-ap
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Atrybuty elementu aspNetCore
 
+::: moniker range="<= aspnetcore-2.0"
 | Atrybut | Opis | Domyślny |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Opcjonalny atrybut ciągu.</p><p>Argumenty plik wykonywalny określony w **processPath**.</p>| |
@@ -72,11 +73,26 @@ Zobacz [podrzędna aplikacji konfiguracji](xref:host-and-deploy/iis/index#sub-ap
 | `forwardWindowsAuthToken` | prawda lub fałsz.</p><p>Jeśli PRAWDA, token jest przekazywane do procesu podrzędnego nasłuchiwanie ASPNETCORE_PORT % jako nagłówek "MS-ASPNETCORE-WINAUTHTOKEN" na żądanie. Jest odpowiedzialny za ten proces może wywołać funkcji CloseHandle: ten token na żądanie.</p> | `true` |
 | `processPath` | <p>Atrybut wymaganych parametrów.</p><p>Ścieżka do pliku wykonywalnego, który uruchamia proces nasłuchiwanie żądań HTTP. Ścieżki względne są obsługiwane. Jeśli ścieżka zaczyna się od `.`, ścieżka jest traktowany jako względem katalogu głównego witryny.</p> | |
 | `rapidFailsPerMinute` | <p>Opcjonalny atrybut całkowity.</p><p>Określa liczbę powtórzeń procesu w **processPath** może awarii na minutę. Po przekroczeniu tego limitu modułu zatrzymuje uruchamiania procesu w pozostałej części minutę.</p> | `10` |
-| `requestTimeout` | <p>Atrybut opcjonalny timespan.</p><p>Określa okres czasu, dla którego moduł platformy ASP.NET Core czeka na odpowiedź z procesu nasłuchiwanie ASPNETCORE_PORT %.</p><p>`requestTimeout` Muszą być określone w pełnych minutach, w przeciwnym razie domyślne 2 minuty.</p> | `00:02:00` |
+| `requestTimeout` | <p>Atrybut opcjonalny timespan.</p><p>Określa okres czasu, dla którego moduł platformy ASP.NET Core czeka na odpowiedź z procesu nasłuchiwanie ASPNETCORE_PORT %.</p><p>W wersjach programu ASP.NET moduł Core dostarczonej wraz z wydaniem programu ASP.NET 2.0 rdzeni lub wcześniej `requestTimeout` muszą być określone w pełnych minutach, w przeciwnym razie domyślne 2 minuty.</p> | `00:02:00` |
 | `shutdownTimeLimit` | <p>Opcjonalny atrybut całkowity.</p><p>Czas w sekundach modułu dla pliku wykonywalnego jest bezpiecznie zamknąć po *app_offline.htm* Wykryto plik.</p> | `10` |
 | `startupTimeLimit` | <p>Opcjonalny atrybut całkowity.</p><p>Czas w sekundach modułu dla pliku wykonywalnego do uruchomienia procesu nasłuchiwanie na porcie. Po przekroczeniu tego limitu czasu modułu kasuje procesu. Moduł próbuje uruchomić proces, kiedy odbierze żądanie nowej i podejmować próby ponownego uruchomienia procesu dla kolejnych żądań przychodzących, chyba że aplikacja nie została uruchomiona w dalszym ciągu się **rapidFailsPerMinute** razy w ciągu ostatnich wycofanie minutę.</p> | `120` |
 | `stdoutLogEnabled` | <p>Opcjonalny logiczny atrybut.</p><p>Jeśli PRAWDA, **stdout** i **stderr** dla określonym w procesie **processPath** są przekierowywane do pliku określonego w **stdoutLogFile**.</p> | `false` |
 | `stdoutLogFile` | <p>Opcjonalny atrybut ciągu.</p><p>Określa ścieżkę względną lub bezwzględną, dla którego **stdout** i **stderr** z określonym w procesie **processPath** są rejestrowane. Ścieżki względne są względem katalogu głównego witryny. Dowolną ścieżkę, począwszy od `.` są względem lokacji głównej i wszystkich innych ścieżek są traktowane jako ścieżki bezwzględne. Wszystkie foldery w ścieżce musi istnieć w kolejności dla modułu utworzyć plik dziennika. Przy użyciu ograniczników podkreślenia, timestamp, identyfikator procesu i rozszerzenie pliku (*log*) są dodawane do ostatniego segment **stdoutLogFile** ścieżki. Jeśli `.\logs\stdout` jest podana jako wartość przykład stdout dziennik jest zapisywany jako *stdout_20180205194132_1934.log* w *dzienniki* folder po zapisaniu na 2/5/2018 na 19:41:32 z procesu o identyfikatorze 1934.</p> | `aspnetcore-stdout` |
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+| Atrybut | Opis | Domyślny |
+| --------- | ----------- | :-----: |
+| `arguments` | <p>Opcjonalny atrybut ciągu.</p><p>Argumenty plik wykonywalny określony w **processPath**.</p>| |
+| `disableStartUpErrorPage` | prawda lub fałsz.</p><p>Jeśli PRAWDA, **502.5 — niepowodzenie procesu** strony jest pomijane, a strona kodowa 502 stan skonfigurowane w *web.config* pierwszeństwo.</p> | `false` |
+| `forwardWindowsAuthToken` | prawda lub fałsz.</p><p>Jeśli PRAWDA, token jest przekazywane do procesu podrzędnego nasłuchiwanie ASPNETCORE_PORT % jako nagłówek "MS-ASPNETCORE-WINAUTHTOKEN" na żądanie. Jest odpowiedzialny za ten proces może wywołać funkcji CloseHandle: ten token na żądanie.</p> | `true` |
+| `processPath` | <p>Atrybut wymaganych parametrów.</p><p>Ścieżka do pliku wykonywalnego, który uruchamia proces nasłuchiwanie żądań HTTP. Ścieżki względne są obsługiwane. Jeśli ścieżka zaczyna się od `.`, ścieżka jest traktowany jako względem katalogu głównego witryny.</p> | |
+| `rapidFailsPerMinute` | <p>Opcjonalny atrybut całkowity.</p><p>Określa liczbę powtórzeń procesu w **processPath** może awarii na minutę. Po przekroczeniu tego limitu modułu zatrzymuje uruchamiania procesu w pozostałej części minutę.</p> | `10` |
+| `requestTimeout` | <p>Atrybut opcjonalny timespan.</p><p>Określa okres czasu, dla którego moduł platformy ASP.NET Core czeka na odpowiedź z procesu nasłuchiwanie ASPNETCORE_PORT %.</p><p>W wersjach moduł Core platformy ASP.NET, dostarczonej wraz z wydaniem programu ASP.NET Core 2.1 lub nowszego `requestTimeout` jest określona w godziny, minuty i sekundy.</p> | `00:02:00` |
+| `shutdownTimeLimit` | <p>Opcjonalny atrybut całkowity.</p><p>Czas w sekundach modułu dla pliku wykonywalnego jest bezpiecznie zamknąć po *app_offline.htm* Wykryto plik.</p> | `10` |
+| `startupTimeLimit` | <p>Opcjonalny atrybut całkowity.</p><p>Czas w sekundach modułu dla pliku wykonywalnego do uruchomienia procesu nasłuchiwanie na porcie. Po przekroczeniu tego limitu czasu modułu kasuje procesu. Moduł próbuje uruchomić proces, kiedy odbierze żądanie nowej i podejmować próby ponownego uruchomienia procesu dla kolejnych żądań przychodzących, chyba że aplikacja nie została uruchomiona w dalszym ciągu się **rapidFailsPerMinute** razy w ciągu ostatnich wycofanie minutę.</p> | `120` |
+| `stdoutLogEnabled` | <p>Opcjonalny logiczny atrybut.</p><p>Jeśli PRAWDA, **stdout** i **stderr** dla określonym w procesie **processPath** są przekierowywane do pliku określonego w **stdoutLogFile**.</p> | `false` |
+| `stdoutLogFile` | <p>Opcjonalny atrybut ciągu.</p><p>Określa ścieżkę względną lub bezwzględną, dla którego **stdout** i **stderr** z określonym w procesie **processPath** są rejestrowane. Ścieżki względne są względem katalogu głównego witryny. Dowolną ścieżkę, począwszy od `.` są względem lokacji głównej i wszystkich innych ścieżek są traktowane jako ścieżki bezwzględne. Wszystkie foldery w ścieżce musi istnieć w kolejności dla modułu utworzyć plik dziennika. Przy użyciu ograniczników podkreślenia, timestamp, identyfikator procesu i rozszerzenie pliku (*log*) są dodawane do ostatniego segment **stdoutLogFile** ścieżki. Jeśli `.\logs\stdout` jest podana jako wartość przykład stdout dziennik jest zapisywany jako *stdout_20180205194132_1934.log* w *dzienniki* folder po zapisaniu na 2/5/2018 na 19:41:32 z procesu o identyfikatorze 1934.</p> | `aspnetcore-stdout` |
+::: moniker-end
 
 ### <a name="setting-environment-variables"></a>Ustawianie zmiennych środowiskowych
 
@@ -113,11 +129,15 @@ Jeśli moduł platformy ASP.NET Core nie można uruchomić procesu zaplecza lub 
 
 ## <a name="log-creation-and-redirection"></a>Tworzenie dziennika i Przekierowanie
 
-Moduł platformy ASP.NET Core przekierowuje `stdout` i `stderr` dzienniki na dysku, jeśli `stdoutLogEnabled` i `stdoutLogFile` atrybuty `aspNetCore` ustawiono element. Wszystkie foldery w `stdoutLogFile` ścieżka musi istnieć w kolejności dla modułu utworzyć plik dziennika. Rozszerzenia znaczników czasu i pliku są dodawane automatycznie podczas tworzenia pliku dziennika. Dzienniki nie są obracane, chyba że występuje procesu recykling/ponowne uruchomienie. Jest odpowiedzialny za dostawcy usług hostingowych, aby ograniczyć miejsce na dysku korzystać z dzienników. Przy użyciu `stdout` dziennika jest zalecane tylko dla rozwiązywania problemów uruchomienia aplikacji. Dziennik stdout nie jest używany do rejestrowania aplikacji ogólnych celów. Użyć biblioteki rejestrowania, który ogranicza rozmiar pliku dziennika i dzienników obraca rutynowych rejestrowania w aplikacji platformy ASP.NET Core. Aby uzyskać więcej informacji, zobacz [dostawców innych firm rejestrowania](xref:fundamentals/logging/index#third-party-logging-providers).
+Moduł platformy ASP.NET Core przekierowuje dzienników stdout i stderr na dysku, jeśli `stdoutLogEnabled` i `stdoutLogFile` atrybuty `aspNetCore` ustawiono element. Wszystkie foldery w `stdoutLogFile` ścieżka musi istnieć w kolejności dla modułu utworzyć plik dziennika. Pula aplikacji musi mieć dostęp do zapisu do lokalizacji, w którym zapisywane są dzienniki (Użyj `IIS AppPool\<app_pool_name>` zapewniające uprawnienia do zapisu).
 
-Nazwa pliku dziennika składa się przez dodanie sygnatury czasowej ID procesu i rozszerzenie pliku (*log*) do ostatni segment `stdoutLogFile` ścieżki (zazwyczaj *stdout*) rozdzielane znakami podkreślenia. Jeśli `stdoutLogFile` ścieżka kończy się *stdout*, nazwa pliku ma dziennika dla aplikacji za pomocą identyfikatora PID 1934 utworzony na 2/5/2018 w 19:42:32 *stdout_20180205194132_1934.log*.
+Dzienniki nie są obracane, chyba że występuje procesu recykling/ponowne uruchomienie. Jest odpowiedzialny za dostawcy usług hostingowych, aby ograniczyć miejsce na dysku korzystać z dzienników.
 
-Poniższy przykład `aspNetCore` konfiguruje element `stdout` rejestrowania dla aplikacji hostowanej w usłudze Azure App Service. Ścieżkę lokalną lub ścieżkę do udziału sieciowego jest dopuszczalne do lokalnego logowania. Upewnij się, że tożsamość puli aplikacji ma uprawnienia do zapisu w podanej ścieżce.
+Przy użyciu dzienników stdout jest zalecane tylko dla rozwiązywania problemów uruchomienia aplikacji. Dziennik stdout nie jest używany do rejestrowania aplikacji ogólnych celów. Użyć biblioteki rejestrowania, który ogranicza rozmiar pliku dziennika i dzienników obraca rutynowych rejestrowania w aplikacji platformy ASP.NET Core. Aby uzyskać więcej informacji, zobacz [dostawców innych firm rejestrowania](xref:fundamentals/logging/index#third-party-logging-providers).
+
+Rozszerzenia znaczników czasu i pliku są dodawane automatycznie podczas tworzenia pliku dziennika. Nazwa pliku dziennika składa się przez dodanie sygnatury czasowej ID procesu i rozszerzenie pliku (*log*) do ostatni segment `stdoutLogFile` ścieżki (zazwyczaj *stdout*) rozdzielane znakami podkreślenia. Jeśli `stdoutLogFile` ścieżka kończy się *stdout*, nazwa pliku ma dziennika dla aplikacji za pomocą identyfikatora PID 1934 utworzony na 2/5/2018 w 19:42:32 *stdout_20180205194132_1934.log*.
+
+Poniższy przykład `aspNetCore` element konfiguruje stdout rejestrowania dla aplikacji hostowanej w usłudze Azure App Service. Ścieżkę lokalną lub ścieżkę do udziału sieciowego jest dopuszczalne do lokalnego logowania. Upewnij się, że tożsamość puli aplikacji ma uprawnienia do zapisu w podanej ścieżce.
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -144,7 +164,7 @@ Instalator platformy ASP.NET Core modułu jest uruchamiany z uprawnieniami **sys
 1. Eksportuj zaktualizowanego *applicationHost.config* plików do udziału.
 1. Ponownie włączyć konfiguracji udostępnionej usług IIS.
 
-## <a name="module-version-and-hosting-bundle-installer-logs"></a>Wersja modułu oraz hosting dzienniki Instalatora pakietu
+## <a name="module-version-and-hosting-bundle-installer-logs"></a>Dzienniki Instalatora Hosting pakietu i wersja modułu
 
 Aby określić wersję zainstalowanego modułu Core ASP.NET:
 
@@ -153,7 +173,7 @@ Aby określić wersję zainstalowanego modułu Core ASP.NET:
 1. Kliknij prawym przyciskiem myszy plik i wybierz **właściwości** z menu kontekstowego.
 1. Wybierz **szczegóły** kartę. **Wersja pliku** i **wersji produktu** reprezentują zainstalowanej wersji modułu.
 
-Dzienniki Instalatora pakietu systemu Windows serwer obsługujący modułu znajdują się w *C:\\użytkowników\\% UserName %\\AppData\\lokalnego\\Temp*. Plik ma nazwę *dd_DotNetCoreWinSvrHosting__\<sygnatury czasowej > _000_AspNetCoreModule_x64.log*.
+Dzienniki Instalatora pakietu Hosting dla modułu znajdują się w *C:\\użytkowników\\% UserName %\\AppData\\lokalnego\\Temp*. Plik ma nazwę *dd_DotNetCoreWinSvrHosting__\<sygnatury czasowej > _000_AspNetCoreModule_x64.log*.
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Moduł, schematów i konfiguracji lokalizacje plików
 

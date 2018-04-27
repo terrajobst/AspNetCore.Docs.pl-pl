@@ -3,17 +3,18 @@ title: Wprowadzenie do platformy ASP.NET Core Razor stron w programie Visual Stu
 author: rick-anderson
 description: Poznaj podstawy tworzenia aplikacji sieci web platformy ASP.NET Core Razor strony z kodem Visual Studio.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 11164fda108e7cc87791e777a66e58f33fe558ae
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0ad008b4f2b2e74dcf7f3d6c83798d5f03d1d315
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Wprowadzenie do platformy ASP.NET Core Razor stron w programie Visual Studio Code
 

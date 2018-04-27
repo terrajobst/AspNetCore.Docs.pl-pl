@@ -3,17 +3,18 @@ title: Dodaj nowe pole do Razor strony platformy ASP.NET Core
 author: rick-anderson
 description: Pokazuje, jak dodać nowe pole do stron Razor z programu Entity Framework Core
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 2652aea2bc587074da5101e3de2bdf55d032214a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 45a39defc9480b0e4fe85ae7ed6bfa654a35264a
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Dodaj nowe pole do Razor strony platformy ASP.NET Core
 

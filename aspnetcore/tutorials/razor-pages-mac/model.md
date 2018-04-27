@@ -3,17 +3,18 @@ title: Dodawanie modelu do aplikacji platformy ASP.NET Core Razor strony za pomo
 author: rick-anderson
 description: Dowiedz się, jak dodać modelu do aplikacji stron Razor w ASP.NET Core za pomocą programu Visual Studio dla komputerów Mac.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/model
-ms.openlocfilehash: 16b2cfa872d89ba1b78d1abc43765ad4319673a9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 97bc9f14b8d6da958a7f587e54a37d2d0e0aabd4
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-for-mac"></a>Dodawanie modelu do aplikacji platformy ASP.NET Core Razor strony za pomocą programu Visual Studio dla komputerów Mac
 

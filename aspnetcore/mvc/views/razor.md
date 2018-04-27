@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: 168bd04585c5d7a2834cb97755dbf04b7b43767e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6dd78e1c4d0e3373719f24ac3615af4b6943acb8
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Odwołania do składni razor dla platformy ASP.NET Core
 
@@ -212,7 +212,7 @@ Aby zdefiniować podsekcji bloku kodu, które mają renderować kod HTML, Otocz 
 
 Tej metody można użyć do renderowania kodu HTML, który nie jest ujęta w tagu HTML. Bez tagu HTML lub Razor występuje błąd w czasie wykonywania Razor.
 
- **\<Tekst >** tag jest przydatne do kontroli odstępu podczas renderowania zawartości:
+**\<Tekst >** tag jest przydatne do kontroli odstępu podczas renderowania zawartości:
 
 * Tylko zawartość między  **\<tekst >** renderowania tagu. 
 * Nie spacji przed lub po  **\<tekst >** tag jest wyświetlany w danych wyjściowych HTML.
@@ -439,6 +439,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 
 Dalszej części tego artykułu, w sekcji [wyświetlanie klasy Razor C# wygenerowany dla widoku](#viewing-the-razor-c-class-generated-for-a-view) opisano sposób wyświetlania tego wygenerowanej klasy.
 
+<a name="using"></a>
 ### <a name="using"></a>@using
 
 `@using` Dodaje dyrektywy języka C# `using` dyrektywy do wygenerowanego widoku:
@@ -471,7 +472,7 @@ Przedstawia razor `Model` właściwości do uzyskiwania dostępu do modelu przek
 <div>The Login Email: @Model.Email</div>
 ```
 
-`@model` Dyrektywa określa typ tej właściwości. Określa dyrektywy `T` w `RazorPage<T>` czy wygenerowanej klasy który widok jest pochodną. Jeśli `@model` dyrektywa nie zostanie określona, `Model` właściwość jest typu `dynamic`. Wartość modelu jest przekazywany z kontrolera do widoku. Aby uzyskać więcej informacji, zobacz [silnie typizowane modeli i @model — słowo kluczowe.
+`@model` Dyrektywa określa typ tej właściwości. Określa dyrektywy `T` w `RazorPage<T>` czy wygenerowanej klasy który widok jest pochodną. Jeśli `@model` dyrektywa nie zostanie określona, `Model` właściwość jest typu `dynamic`. Wartość modelu jest przekazywany z kontrolera do widoku. Aby uzyskać więcej informacji, zobacz [silnie typizowane modeli i &commat;— słowo kluczowe modelu](xref:tutorials/first-mvc-app/adding-model#strongly-typed-models-and-the--keyword).
 
 ### <a name="inherits"></a>@inherits
 
@@ -547,9 +548,9 @@ Istnieją trzy dyrektywy, które odnoszą się do [pomocników tagów](xref:mvc/
 
 | Dyrektywy | Funkcja |
 | --------- | -------- |
-| [@addTagHelper](xref:mvc/views/tag-helpers/intro#add-helper-label) | Udostępnia pomocników tagów do widoku. |
-| [@removeTagHelper](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | Usuwa pomocników tagów, które wcześniej dodano z widoku. |
-| [@tagHelperPrefix](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | Określa prefiks tagu, aby włączyć obsługę pomocnika tagów i użycia Pomocnika tagów jawnego. |
+| [&commat;addTagHelper](xref:mvc/views/tag-helpers/intro#add-helper-label) | Udostępnia pomocników tagów do widoku. |
+| [&commat;removeTagHelper](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | Usuwa pomocników tagów, które wcześniej dodano z widoku. |
+| [&commat;tagHelperPrefix](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | Określa prefiks tagu, aby włączyć obsługę pomocnika tagów i użycia Pomocnika tagów jawnego. |
 
 ## <a name="razor-reserved-keywords"></a>Razor zastrzeżone słowa kluczowe
 

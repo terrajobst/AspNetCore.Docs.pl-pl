@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/owin
-ms.openlocfilehash: 7c379ddbcc1f66ba9f7a4d0a50a4607394fed0af
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3ff7b6e02284b4f6c61bf5d31013b4edfe8f7f29
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Otwórz interfejs sieci Web dla platformy .NET (OWIN) z platformy ASP.NET Core
 
@@ -80,10 +80,10 @@ Można skonfigurować inne akcje w ramach potoku OWIN.
 ```csharp
 app.UseOwin(pipeline =>
 {
-    pipeline(next =>
+    pipeline(async (next) =>
     {
         // do something before
-        return OwinHello;
+        await OwinHello(new OwinEnvironment(HttpContext));
         // do something after
     });
 });
@@ -134,10 +134,9 @@ namespace Microsoft.AspNetCore.Hosting
 }
 ```
 
-Z tym w miejscu ma wszystkie wymagane do uruchamiania aplikacji ASP.NET przy użyciu tego niestandardowego serwera do wywoływania rozszerzenia w *Program.cs*:
+Z tym w miejscu, należy wywołać rozszerzenie w *Program.cs* uruchamianie aplikacji platformy ASP.NET Core za pomocą tego niestandardowego serwera:
 
 ```csharp
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -239,12 +238,12 @@ Zależy od OWIN `IDictionary<string,object>` obiektu do przekazywania informacji
 | Key               | Wartość (typ) | Opis |
 | ----------------- | ------------ | ----------- |
 | owin.RequestScheme | `String` |  |
-| owin.RequestMethod  | `String` | |    
+| owin. RequestMethod  | `String` | |    
 | owin.RequestPathBase  | `String` | |    
 | owin.RequestPath | `String` | |     
 | owin.RequestQueryString  | `String` | |    
 | owin.RequestProtocol  | `String` | |    
-| owin.RequestHeaders | `IDictionary<string,string[]>`  | |
+| owin. RequestHeaders | `IDictionary<string,string[]>`  | |
 | owin.RequestBody | `Stream`  | |
 
 ### <a name="request-data-owin-v110"></a>Dane żądania (OWIN v1.1.0)
@@ -260,7 +259,7 @@ Zależy od OWIN `IDictionary<string,object>` obiektu do przekazywania informacji
 | owin.ResponseStatusCode | `int` | Optional |
 | owin.ResponseReasonPhrase | `String` | Optional |
 | owin.ResponseHeaders | `IDictionary<string,string[]>`  | |
-| owin.ResponseBody | `Stream`  | |
+| owin. ResponseBody | `Stream`  | |
 
 
 ### <a name="other-data-owin-v100"></a>Inne dane (OWIN v1.0.0)
@@ -268,7 +267,7 @@ Zależy od OWIN `IDictionary<string,object>` obiektu do przekazywania informacji
 | Key               | Wartość (typ) | Opis |
 | ----------------- | ------------ | ----------- |
 | owin.CallCancelled | `CancellationToken` |  |
-| owin.Version  | `String` | |   
+| owin. Wersja  | `String` | |   
 
 
 ### <a name="common-keys"></a>Klucze wspólne
@@ -281,7 +280,7 @@ Zależy od OWIN `IDictionary<string,object>` obiektu do przekazywania informacji
 | server.RemotePort | `String` | |     
 | server.LocalIpAddress  | `String` | |    
 | server.LocalPort  | `String` | |    
-| server.IsLocal  | `bool` | |    
+| serwer. IsLocal  | `bool` | |    
 | server.OnSendingHeaders  | `Action<Action<object>,object>` | |
 
 
@@ -297,7 +296,7 @@ Zależy od OWIN `IDictionary<string,object>` obiektu do przekazywania informacji
 | Key               | Wartość (typ) | Opis |
 | ----------------- | ------------ | ----------- |
 | opaque.Version | `String` |  |
-| opaque.Upgrade | `OpaqueUpgrade` | Zobacz [podpisu delegata](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
+| Brak przezroczystości. Uaktualnienie | `OpaqueUpgrade` | Zobacz [podpisu delegata](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
 | opaque.Stream | `Stream` |  |
 | opaque.CallCancelled | `CancellationToken` |  |
 

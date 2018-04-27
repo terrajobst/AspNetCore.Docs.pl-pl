@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: d99a4b446b53c431b11bfe083b1bb6133f8e0078
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 4e842544f861c3704ba7798fa693b36435d54731
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="aspnet-core-module"></a>Moduł platformy ASP.NET Core
 
@@ -25,9 +25,7 @@ Moduł platformy ASP.NET Core umożliwia platformy ASP.NET Core uruchamiania za 
 Obsługiwane wersje systemu Windows:
 
 * Windows 7 lub nowszy
-* Windows Server 2008 R2 lub nowszy&#8224;
-
-&#8224;Koncepcyjnie modułu Core ASP.NET z programem IIS, w tym dokumencie opisano dotyczą również hosting aplikacji platformy ASP.NET Core w Nano Server w usługach IIS. Aby uzyskać instrukcje dotyczące Nano Server, zobacz [platformy ASP.NET Core z usługami IIS na serwerze Nano](xref:tutorials/nano-server) samouczka.
+* Windows Server 2008 R2 lub nowszy
 
 Moduł platformy ASP.NET Core działa tylko z Kestrel. Moduł nie jest zgodna z [HTTP.sys](xref:fundamentals/servers/httpsys) (wcześniej nazywanych [WebListener](xref:fundamentals/servers/weblistener)).
 
@@ -50,7 +48,7 @@ Po Kestrel przejmuje żądania z modułu, żądanie zostanie przypisany do potok
 Moduł platformy ASP.NET Core ma kilka innych funkcji. Moduł może:
 
 * Ustawianie zmiennych środowiskowych dla procesu roboczego.
-* Dziennik `stdout` dane wyjściowe do przechowywania plików podczas rozwiązywania problemów uruchamiania.
+* Zaloguj się stdout dane wyjściowe do przechowywania plików podczas rozwiązywania problemów uruchamiania.
 * Tokeny uwierzytelniania systemu Windows do przodu.
 
 ## <a name="how-to-install-and-use-the-aspnet-core-module"></a>Jak zainstalować i używać modułu platformy ASP.NET Core

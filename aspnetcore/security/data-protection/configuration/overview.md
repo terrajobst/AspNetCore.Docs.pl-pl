@@ -9,19 +9,27 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 3a19cec2ce4387ca44ca120f031a072269b93454
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 300feb42dff7f1bb86bab6fedf3f657273ced8be
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Konfigurowanie ochrony danych platformy ASP.NET Core
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Po zainicjowaniu systemu ochrony danych dotyczy [ustawienia domyślne](xref:security/data-protection/configuration/default-settings) oparte na środowisku operacyjnym. Te ustawienia są zazwyczaj odpowiednie dla aplikacji działających na jednym komputerze. Istnieją przypadki, w którym deweloper może być konieczne może zmienić ustawienia domyślne, ponieważ ich aplikacji zostanie rozmieszczona na wielu komputerach lub wymaganiami dotyczącymi zgodności. W tych sytuacjach systemu ochrony danych oferuje interfejs API konfiguracji zaawansowanych.
+Po zainicjowaniu systemu ochrony danych dotyczy [ustawienia domyślne](xref:security/data-protection/configuration/default-settings) oparte na środowisku operacyjnym. Te ustawienia są zazwyczaj odpowiednie dla aplikacji działających na jednym komputerze. Istnieją przypadki, w którym deweloper może być konieczna zmiana ustawienia domyślne:
 
-Brak metody rozszerzenia [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) zwracającą [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` udostępnia metody rozszerzenia, czy użytkownik może łańcuch można skonfigurować ochrony danych opcje.
+* Aplikacja zostanie rozmieszczona na wielu komputerach.
+* Wymaganiami dotyczącymi zgodności.
+
+W tych sytuacjach systemu ochrony danych oferuje interfejs API konfiguracji zaawansowanych.
+
+> [!WARNING]
+> Podobnie jak pliki konfiguracji, pierścień klucza ochrony danych powinny być chronione przy użyciu odpowiednich uprawnień. Można wybrać do szyfrowania kluczy magazynowane, ale to nie uniemożliwiają osobom atakującym tworzenia nowych kluczy. W rezultacie zabezpieczeń aplikacji jest w pełni funkcjonalne. Lokalizacja magazynu skonfigurowaną do ochrony danych powinien mieć jego dostęp ograniczony do samej siebie, podobnie jak będzie chronić pliki konfiguracji aplikacji. Na przykład jeśli zdecydujesz się przechowywać pierścień Twojego klucza na dysku, Użyj uprawnień systemu plików. Sprawdź tożsamość w której działa aplikacja sieci web ma odczytu, zapisu i tworzenia dostęp do tego katalogu. Jeśli używasz magazynu tabel Azure, tylko aplikacja sieci web powinien mieć możliwość odczytu, zapisu lub tworzenia nowych wpisów w tabeli magazynu itp.
+>
+> Metody rozszerzenia [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) zwraca [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` udostępnia metody rozszerzenia, czy użytkownik może łańcuch można skonfigurować ochrony danych opcje.
 
 ## <a name="persistkeystofilesystem"></a>PersistKeysToFileSystem
 

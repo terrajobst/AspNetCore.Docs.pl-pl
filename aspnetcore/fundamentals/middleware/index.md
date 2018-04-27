@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 3312b27f936340a73243224c1a716fe421f178bc
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: a410d686b6140a487efb9962e94f64cfbec245f2
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="aspnet-core-middleware"></a>Oprogramowanie pośredniczące platformy ASP.NET Core
 
@@ -241,7 +241,7 @@ Składniki oprogramowania pośredniczącego można rozwiązać zależności z in
 
 Ponieważ oprogramowanie pośredniczące jest tworzony podczas uruchamiania aplikacji, nie dla poszczególnych żądań, *zakres* okres istnienia usługi używane przez oprogramowanie pośredniczące konstruktory nie są współużytkowane z innych typów zależności wprowadzonym podczas każdego żądania. Jeśli trzeba udostępnić *zakres* usługi między oprogramowania pośredniczącego i innych typów, należy dodać tych usług `Invoke` podpis metody. `Invoke` Metody może zaakceptować dodatkowe parametry, które są wypełniane przy iniekcji zależności. Na przykład:
 
-```c#
+```csharp
 public class MyMiddleware
 {
     private readonly RequestDelegate _next;

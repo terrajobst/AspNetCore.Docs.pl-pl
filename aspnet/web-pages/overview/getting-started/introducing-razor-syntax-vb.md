@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 715e52715fb22b92f94d3d602ec58c29a913426c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aad951a0e4344dbaafbdcc3b3980307a26fa75fc
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Wprowadzenie do programowania sieci Web ASP.NET przy użyciu składni Razor (Visual Basic)
 ====================
@@ -34,7 +34,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > ## <a name="software-versions"></a>Wersje oprogramowania
 > 
 > 
-> - ASP.NET Web Pages (Razor) 3
+> - Strony sieci Web platformy ASP.NET (Razor) 3
 >   
 > 
 > W tym samouczku współdziała również z programu ASP.NET Web Pages 2.
@@ -276,32 +276,78 @@ Aby dokonać konwersji wartości na liczby całkowite, należy wywołać `AsInt`
 W poniższej tabeli wymieniono niektóre typowe metody konwersji i testowania dla zmiennych.
 
 
-|   <strong>— Metoda</strong>    |                                                                              <strong>Opis</strong>                                                                              |                     <strong>Przykład</strong>                      |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-|      `AsInt(), IsInt()`      |                                                 Konwertuje ciąg reprezentujący liczbę całkowitą z zakresu (takie jak &quot;593&quot;) na liczbę całkowitą.                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)] |
-|     `AsBool(), IsBool()`     |                                                    Konwertuje ciąg, takich jak &quot;true&quot; lub &quot;false&quot; na typ Boolean.                                                     | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)] |
-|    `AsFloat(), IsFloat()`    |                                    Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; liczby zmiennoprzecinkowej.                                    | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)] |
-|  `AsDecimal(), IsDecimal()`  | Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; na liczbę dziesiętną. (W programie ASP.NET, liczbą dziesiętną jest bardziej dokładne niż liczba zmiennoprzecinkowa). | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)] |
-| `AsDateTime(), IsDateTime()` |                                                Konwertuje ciąg reprezentujący wartość daty i godziny do platformy ASP.NET `DateTime` typu.                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)] |
-|         `ToString()`         |                                                                       Konwertuje ciąg inny typ danych.                                                                        | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)] |
+: wiersz:: kolumny: <strong>— metoda</strong> : koniec kolumny:: kolumny: <strong>opis</strong> : koniec kolumny:::: kolumny: <strong>przykład</strong> : koniec kolumny:: koniec wiersza:
+* * *
+: wiersz:::: kolumny: `AsInt(), IsInt()` : koniec kolumny:::: kolumny: Konwertuje ciąg reprezentujący liczbę całkowitą z zakresu (takich jak &quot;593&quot;) na liczbę całkowitą.
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersz:: kolumny: `AsBool(), IsBool()` : koniec kolumny:::: kolumny: Konwertuje ciąg, takich jak &quot;true&quot; lub &quot;false&quot; na typ Boolean.
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersza:::: kolumny: `AsFloat(), IsFloat()` : koniec kolumny:::: kolumny: Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; liczby zmiennoprzecinkowej.
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersz:::: kolumny: `AsDecimal(), IsDecimal()` : koniec kolumny:::: kolumny: Konwertuje ciąg o wartości dziesiętnej, takich jak &quot;1.3&quot; lub &quot;7.439&quot; na liczbę dziesiętną. (W programie ASP.NET, liczbą dziesiętną jest bardziej dokładne niż liczba zmiennoprzecinkowa). : koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `AsDateTime(), IsDateTime()` : koniec kolumny:::: kolumny: Konwertuje ciąg reprezentujący wartość daty i godziny do platformy ASP.NET `DateTime` typu.
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersz:::: kolumny: `ToString()` : koniec kolumny:::: kolumny: konwertuje inny typ danych na ciąg.
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)]
+    : koniec kolumny:::: koniec wiersza:
+
 
 ## <a name="operators"></a>Operatory
 
 Operator jest słowo kluczowe lub znak, który informuje ASP.NET, jakiego rodzaju polecenie do wykonania w wyrażeniu. Visual Basic obsługuje wielu operatorów, ale musisz rozpoznać kilka, aby rozpocząć tworzenie stron sieci web programu ASP.NET. Poniższa tabela zawiera podsumowanie typowych operatorów.
 
 
-| <strong>Operator</strong> |                                                                        <strong>Opis</strong>                                                                         |                         <strong>Przykłady</strong>                         |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-|         `+ - * /`         |                                                                Operatory matematyczne używać w wyrażeniach numerycznych.                                                                |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]     |
-|            `=`            | Przypisanie i równości. W zależności od kontekstu przypisuje wartość po prawej stronie instrukcji do obiektu po lewej stronie, lub sprawdza wartości pod kątem równości. |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]     |
-|           `<>`            |                                                           Nierówności. Zwraca `True` wartości nie są równe.                                                           |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]     |
-|        `< > <= >=`        |                                                   Mniej niż większe niż, mniejsze niż lub równy, a mniejsza.                                                   |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]     |
-|            `&`            |                                                                Łączenie, który jest używany do przyłączenia ciągów.                                                                | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)] |
-|          `+= -=`          |                                       Operatory inkrementacji i dekrementacji, które dodawania i odejmowania 1 (odpowiednio) ze zmienną.                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]     |
-|            `.`            |                                                     Kropki. Pozwala odróżnić obiektów i ich właściwości i metody.                                                      |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]     |
-|           `()`            |                           Nawiasy. Używany do wyrażenia grupy do przekazania parametrów do metod i do dostępu do członków kolekcji i tablic.                           | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)] |
-|           `Not`           |                    Nie. Odwraca wartość true, FALSE i odwrotnie. Zazwyczaj używany jako sposób skrócona do testowania `False` (oznacza to, aby nie `True`).                     |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]     |
-|     `AndAlso OrElse`      |                                                       Logiczny AND i lub, w którym są używane do łączenia ze sobą warunki.                                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]     |
+: wiersza:: kolumny: <strong>Operator</strong> : koniec kolumny:::: kolumny: <strong>opis</strong> : koniec kolumny:: kolumny: <strong>przykłady</strong> : koniec kolumny:: koniec wiersza:
+* * *
+: wiersza:::: kolumny: `+ - * /` : koniec kolumny:::: kolumny: operatory matematyczne używać w wyrażeniach numerycznych.
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `=` : koniec kolumny:::: kolumny: przypisania i o równość. W zależności od kontekstu przypisuje wartość po prawej stronie instrukcji do obiektu po lewej stronie, lub sprawdza wartości pod kątem równości.
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `<>` : koniec kolumny:::: kolumny: nierówności. Zwraca `True` wartości nie są równe.
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersz:::: kolumny: `< > <= >=` : koniec kolumny:::: kolumny: mniej niż większe niż, mniejsze niż lub równy i większa niż lub równej.
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `&` : koniec kolumny:::: kolumny: łączenia, który jest używany do przyłączenia ciągów.
+: koniec kolumny:::: kolumny: [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersza:::: kolumny: `+= -=` : koniec kolumny:::: kolumny: operatory inkrementacji i dekrementacji, które dodawania i odejmowania 1 (odpowiednio) ze zmienną.
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `.` : koniec kolumny:::: kolumny: kropka. Pozwala odróżnić obiektów i ich właściwości i metody.
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `()` : koniec kolumny:::: kolumny: nawiasów. Używany do wyrażenia grupy do przekazania parametrów do metod i do dostępu do członków kolekcji i tablic.
+: koniec kolumny:::: kolumny: [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+::: wiersza:::: kolumny: `Not` : koniec kolumny:::: kolumny: nie. Odwraca wartość true, FALSE i odwrotnie. Zazwyczaj używany jako sposób skrócona do testowania `False` (oznacza to, aby nie `True`).
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]
+    : koniec kolumny:::: koniec wiersza:
+* * *
+: wiersza:::: kolumny: `AndAlso OrElse` : koniec kolumny:::: kolumny: logicznych i i lub, w którym są używane do łączenia ze sobą warunki.
+: koniec kolumny:::: kolumny: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]
+    : koniec kolumny:::: koniec wiersza:
 
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Praca z pliku i ścieżki folderu w kodzie
 

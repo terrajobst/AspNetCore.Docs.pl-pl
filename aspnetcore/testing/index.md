@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/index
-ms.openlocfilehash: 73d239070726eda3f572d3e13ad2908c6d7b55c4
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 74ceef2637d68e38323415a82fd9fd3432c2db8f
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="test-and-debug-in-aspnet-core"></a>Test i debugowania w ASP.NET Core
 
@@ -21,6 +21,7 @@ ms.lasthandoff: 03/22/2018
 * [Testy integracji](xref:testing/integration-testing)
 * [Testy jednostkowe i integracja z stron razor](xref:testing/razor-pages-testing)
 * [Kontrolery testów](xref:mvc/controllers/testing)
-* [Debug ASP.NET Core 2.x source](https://github.com/aspnet/Docs/issues/4155)
+* [Debugowanie ASP.NET Core 2.x źródła](https://github.com/aspnet/Docs/issues/4155)
 * [Debugowanie zdalne](/visualstudio/debugger/remote-debugging-azure)
 * [Debugowanie migawek](/azure/application-insights/app-insights-snapshot-debugger)
+* [YouTube: Diagnozowanie problemów w aplikacjach ASP.NET Core](https://www.youtube.com/watch?v=RYI0DHoIVaA)

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: 05b0d7f31e167e620f2d168109ffd907ba120a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fd893b7c62f38442bf5633a956786983763e6f9f
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Umożliwia tworzenie aplikacji jednostronicowej w platformy ASP.NET Core JavaScriptServices
 
@@ -166,7 +166,7 @@ Oprogramowanie pośredniczące deweloperów Webpack został zarejestrowany z pot
 
 ## <a name="hot-module-replacement"></a>Moduł dynamicznej wymiany
 
-Pomyśl o jego Webpack [dynamicznej wymiany modułu](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html) funkcji (HMR) jako rozwoju [oprogramowanie pośredniczące deweloperów Webpack](#webpack-dev-middleware). HMR wprowadzono takich samych korzyści, ale dodatkowo upraszcza przepływu pracy programowania przez automatyczne aktualizowanie zawartości strony po kompilowanie zmiany. Nie pomyl go z odświeżenia przeglądarki, która będzie zakłócać bieżący stan w pamięci i sesji debugowania aplikacja JEDNOSTRONICOWA. Istnieje aktywne łącze między usługą oprogramowanie pośredniczące deweloperów Webpack i przeglądarki, co oznacza, że zmiany są przenoszone do przeglądarki.
+Pomyśl o jego Webpack [dynamicznej wymiany modułu](https://webpack.js.org/concepts/hot-module-replacement/) funkcji (HMR) jako rozwoju [oprogramowanie pośredniczące deweloperów Webpack](#webpack-dev-middleware). HMR wprowadzono takich samych korzyści, ale dodatkowo upraszcza przepływu pracy programowania przez automatyczne aktualizowanie zawartości strony po kompilowanie zmiany. Nie pomyl go z odświeżenia przeglądarki, która będzie zakłócać bieżący stan w pamięci i sesji debugowania aplikacja JEDNOSTRONICOWA. Istnieje aktywne łącze między usługą oprogramowanie pośredniczące deweloperów Webpack i przeglądarki, co oznacza, że zmiany są przenoszone do przeglądarki.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -226,7 +226,7 @@ Porada: Trasy są oceniane w kolejności, w którym jest skonfigurowane. W rezul
 
 ## <a name="creating-a-new-project"></a>Tworzenie nowego projektu
 
-JavaScriptServices zawiera szablony wstępnie skonfigurowanej aplikacji. SpaServices jest używany w tych szablonów w połączeniu z różnych struktury i biblioteki, takich jak kątową, Aurelia odcinania, platformy React i Vue.
+JavaScriptServices zawiera szablony wstępnie skonfigurowanej aplikacji. SpaServices jest używany w tych szablonów w połączeniu z różnych struktury i biblioteki, takich jak kątową, platformy React i Redux.
 
 Szablony te można zainstalować za pomocą interfejsu wiersza polecenia platformy .NET Core, uruchamiając następujące polecenie:
 
@@ -239,11 +239,8 @@ Zostanie wyświetlona lista dostępnych szablonów SPA:
 | Szablony                                 | Krótka nazwa | Język | Znaczniki        |
 |:------------------------------------------|:-----------|:---------|:------------|
 | MVC ASP.NET Core z dyrektywy Angular             | dyrektywy angular    | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core z Aurelia             | aurelia    | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core z Knockout.js         | Odcinania   | [C#]     | Web/MVC/SPA |
 | MVC ASP.NET Core z React.js            | Reakcji      | [C#]     | Web/MVC/SPA |
 | MVC ASP.NET Core z React.js i Redux  | reactredux | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core z Vue.js              | VUE        | [C#]     | Web/MVC/SPA | 
 
 Aby utworzyć nowy projekt za pomocą jednego z szablonów SPA, dołącz **krótką nazwę** szablonu w [dotnet nowe](/dotnet/core/tools/dotnet-new) polecenia. Poniższe polecenie tworzy aplikację kątowego z platformą ASP.NET MVC Core skonfigurowany po stronie serwera:
 
@@ -295,7 +292,7 @@ Korzystanie z aplikacji kątowego jako przykład dwóch przypadków testowych ja
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/app/components/counter/counter.component.spec.ts?range=15-28)]
 
-Otwórz wiersz polecenia w katalogu głównym projektu i uruchom następujące polecenie:
+Otwórz wiersz polecenia w *ClientApp* katalogu. Uruchom następujące polecenie:
 
 ```console
 npm test

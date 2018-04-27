@@ -3,17 +3,18 @@ title: Aktualizowanie wygenerowanego stron
 author: rick-anderson
 description: Zaktualizuj stron wygenerowanych przy lepsze wyświetlanie.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/da1
-ms.openlocfilehash: 8fcf81f1ae02509a0382bd40c857696e74f5c85b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a8217917ab11a0dee42d71b4912d74e1e320446e
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 [!INCLUDE [model1](../../includes/RP/da1.md)]
 

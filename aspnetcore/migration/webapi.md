@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 2b9d6ac41266e0e6085153e1302d84a34ee85257
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2f1d0b43f565dbf6189406bfd65158f809e1f18f
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Migracja z interfejsu API sieci Web ASP.NET do platformy ASP.NET Core
 
@@ -66,7 +66,7 @@ Usuń `Project_Readme.html` pliku z nowego projektu. Rozwiązania powinna wyglą
 
 Już korzysta z platformy ASP.NET Core *Global.asax*, *web.config*, lub *App_Start* folderów. Zamiast tego, wszystkie zadania uruchamiania są wykonywane w *Startup.cs* w katalogu głównym projektu (zobacz [uruchamiania aplikacji](../fundamentals/startup.md)). W programie ASP.NET MVC Core, opartych na atrybutach routingu jest teraz zawarta domyślnie podczas `UseMvc()` nosi nazwę; i jest to zalecane podejście do konfigurowania tras interfejsu API sieci Web (, jak projekt starter interfejsu API sieci Web obsługuje routing).
 
-[!code-none[](../migration/webapi/sample/ProductsCore/Startup.cs?highlight=40)]
+[!code-csharp[](../migration/webapi/sample/ProductsCore/Startup.cs?highlight=40)]
 
 Zakładając, że chcesz używać atrybutu routingu w projekcie w przyszłości, dodatkowa konfiguracja nie jest potrzebna. Po prostu stosowanie atrybutów w razie potrzeby do kontrolerów i akcji, co jest wykonywane w próbce `ValuesController` klasy, która znajduje się w projekcie starter interfejsu API sieci Web:
 

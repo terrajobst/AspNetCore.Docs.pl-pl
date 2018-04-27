@@ -3,17 +3,18 @@ title: Tworzenie aplikacji sieci web Razor strony z platformy ASP.NET Core
 author: rick-anderson
 description: Tworzenie aplikacji sieci web Razor strony w systemie Windows z programu Visual Studio, platformy ASP.NET Core i EF Core.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/08/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: 9325eafeedd3e78629d6ced29e0c4122c6b394ad
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: d8baf482d689f899f166ac206fad55de03f3e432
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core"></a>Tworzenie aplikacji sieci web Razor strony z platformy ASP.NET Core
 

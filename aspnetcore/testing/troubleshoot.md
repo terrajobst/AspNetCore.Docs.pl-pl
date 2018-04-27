@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: testing/troubleshoot
-ms.openlocfilehash: 98077081409949db14b19c7934bc162990ffc302
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a75dc666621600e1e2fe36c29acbe7484bae9229
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>Rozwiązywanie problemów z projektów platformy ASP.NET Core
 
@@ -24,6 +24,7 @@ Poniższe łącza zawierają wskazówki dotyczące rozwiązywania problemów:
 * [Rozwiązywanie problemów z platformą ASP.NET Core w usłudze Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)
 * [Rozwiązywanie problemów z platformą ASP.NET Core w usługach IIS](xref:host-and-deploy/iis/troubleshoot)
 * [Typowe błędy odwołania dla usługi Azure App Service i IIS z platformy ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
+* [YouTube: Diagnozowanie problemów w aplikacjach ASP.NET Core](https://www.youtube.com/watch?v=RYI0DHoIVaA)
 
 <a name="sdk"></a>
 ## <a name="net-core-sdk-warnings"></a>Ostrzeżenia .NET core SDK

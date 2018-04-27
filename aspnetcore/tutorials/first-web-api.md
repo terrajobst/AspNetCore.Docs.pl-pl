@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: c264ae6a04e46d029f8c710af9cbce4f8437ba7c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 92b1b28205584d2f08a5dc8124e5c50aa938c80f
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Tworzenie interfejsu API sieci Web przy użyciu programu Visual Studio i ASP.NET Core dla systemu Windows
 
@@ -99,5 +99,7 @@ W programie Visual Studio naciśnij kombinację klawiszy CTRL + F5, aby uruchomi
 
 [!INCLUDE [last part of web API](../includes/webApi/end.md)]
 
-[!INCLUDE [next steps](../includes/webApi/next.md)]
+[!INCLUDE[Javascript Jquery](../includes/add-javascript-jquery/index.md)]
+
+[!INCLUDE[next steps](../includes/webApi/next.md)]
 
