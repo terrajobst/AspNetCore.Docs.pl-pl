@@ -3,6 +3,6 @@ Ten samouczek zawiera wskazówki platformy ASP.NET Core MVC i Entity Framework C
 * Łatwiej wykonać.
 * Zawiera więcej EF podstawowe najlepsze rozwiązania.
 * Używa większą wydajność kwerend.
-* Jest bardziej aktualny z najnowsza interfejsu API.
+* Jest bardziej aktualny przy użyciu najnowszych interfejsu API.
 * Obejmuje więcej funkcji.
 * Jest to preferowane rozwiązanie w przypadku nowych wdrożeń aplikacji.
