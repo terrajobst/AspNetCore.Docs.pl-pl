@@ -4,16 +4,17 @@ author: rick-anderson
 description: Tworzenie składnika web API platformy ASP.NET Core MVC i Visual Studio dla systemu Windows
 manager: wpickett
 ms.author: riande
-ms.date: 08/15/2017
+ms.custom: mvc
+ms.date: 04/27/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: 92b1b28205584d2f08a5dc8124e5c50aa938c80f
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 71f1e10dee9fbae8cf76733d33533be832fb5769
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Tworzenie interfejsu API sieci Web przy użyciu programu Visual Studio i ASP.NET Core dla systemu Windows
 
@@ -21,7 +22,7 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Wasson Jan](https://gi
 
 W tym samouczku tworzy interfejs API sieci web do zarządzania listę elementów "do wykonania". Interfejs użytkownika (UI) nie jest tworzone.
 
-Istnieją 3 wersje tego samouczka:
+Istnieją trzy wersje tego samouczka:
 
 * Systemu Windows: Interfejs API z programu Visual Studio dla systemu Windows (w tym samouczku) sieci Web
 * System macOS: [interfejsu API sieci Web z programem Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
@@ -29,45 +30,46 @@ Istnieją 3 wersje tego samouczka:
 
 <!-- WARNING: The code AND images in this doc are used by uid: tutorials/web-api-vsc, tutorials/first-web-api-mac and tutorials/first-web-api. If you change any code/images in this tutorial, update uid: tutorials/web-api-vsc -->
 
-[!INCLUDE [intro to web API](../includes/webApi/intro.md)]
+[!INCLUDE[intro to web API](../includes/webApi/intro.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="create-the-project"></a>Utwórz projekt
 
 W programie Visual Studio, wybierz **pliku** menu > **nowy** > **projektu**.
 
-Wybierz **.NET Core** > **aplikacji sieci Web platformy ASP.NET Core** szablonu projektu. Nazwij projekt `TodoApi` i wybierz **OK**.
+Wybierz **.NET Core** > **aplikacji sieci Web platformy ASP.NET Core** szablonu projektu. Nazwij projekt *TodoApi* i wybierz **OK**.
 
 ![Okno dialogowe nowego projektu](first-web-api/_static/new-project.png)
 
-W **nowe podstawowe aplikacji sieci Web ASP.NET - TodoApi** okno dialogowe, wybierz opcję **interfejsu API** szablonu. Wybierz **OK**. Czy **nie** wybierz **Włącz obsługę Docker**.
+W **nowe podstawowe aplikacji sieci Web ASP.NET - TodoApi** okno dialogowe, wybierz wersję platformy ASP.NET Core. Wybierz **interfejsu API** szablonu. Wybierz **OK**. Czy **nie** wybierz **Włącz obsługę Docker**.
 
 ![Okno dialogowe nowego aplikacji sieci Web platformy ASP.NET z szablonem projektu interfejsu API sieci Web z platformy ASP.NET Core szablonów](first-web-api/_static/web-api-project.png)
 
 ### <a name="launch-the-app"></a>Uruchom aplikację
 
-W programie Visual Studio naciśnij kombinację klawiszy CTRL + F5, aby uruchomić aplikację. Program Visual Studio spowoduje uruchomienie przeglądarki i przechodzi do `http://localhost:port/api/values`, gdzie *portu* jest liczbą losowo wybranego portu. Chrome, Microsoft Edge i przeglądarki Firefox można wyświetlić następujące dane wyjściowe:
+W programie Visual Studio naciśnij kombinację klawiszy CTRL + F5, aby uruchomić aplikację. Program Visual Studio spowoduje uruchomienie przeglądarki i przechodzi do `http://localhost:<port>/api/values`, gdzie `<port>` jest liczbą losowo wybranego portu. Chrome, Microsoft Edge i przeglądarki Firefox można wyświetlić następujące dane wyjściowe:
 
-```
+```json
 ["value1","value2"]
 ```
 
 ### <a name="add-a-model-class"></a>Dodaj klasę modelu
 
-Model jest obiekt, który reprezentuje dane w aplikacji. W takim przypadku tylko model jest zadanie do wykonania.
+Model jest obiekt reprezentujący danych w aplikacji. W takim przypadku tylko model jest zadanie do wykonania.
 
-Dodaj folder o nazwie "Modele". W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt. Wybierz **dodać** > **nowy Folder**. Nazwa folderu *modele*.
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt. Wybierz **dodać** > **nowy Folder**. Nazwa folderu *modele*.
 
-Uwaga: Klasy modelu dowolnym Przejdź w projekcie. *Modele* folder jest używany przez Konwencję dla klas modelu.
+> [!NOTE]
+> Klasy modelu może przejść w dowolnym miejscu w projekcie. *Modele* folder jest używany przez Konwencję dla klas modelu.
 
-Dodaj `TodoItem` klasy. Kliknij prawym przyciskiem myszy *modele* i wybierz polecenie **Dodaj** > **klasy**. Nazwa klasy `TodoItem` i wybierz **Dodaj**.
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy *modele* i wybierz polecenie **Dodaj** > **klasy**. Nazwa klasy *TodoItem* i kliknij przycisk **Dodaj**.
 
 Aktualizacja `TodoItem` klasy następującym kodem:
 
-[!code-csharp[](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
+[!code-csharp[](first-web-api/samples/2.0/TodoApi/Models/TodoItem.cs)]
 
 Generuje bazy danych `Id` podczas `TodoItem` jest tworzony.
 
@@ -75,31 +77,30 @@ Generuje bazy danych `Id` podczas `TodoItem` jest tworzony.
 
 *Kontekst bazy danych* jest główna klasa, która koordynuje funkcji programu Entity Framework o dany model danych. Ta klasa jest tworzona przez pochodny `Microsoft.EntityFrameworkCore.DbContext` klasy.
 
-Dodaj `TodoContext` klasy. Kliknij prawym przyciskiem myszy *modele* i wybierz polecenie **Dodaj** > **klasy**. Nazwa klasy `TodoContext` i wybierz **Dodaj**.
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy *modele* i wybierz polecenie **Dodaj** > **klasy**. Nazwa klasy *TodoContext* i kliknij przycisk **Dodaj**.
 
 Zastąp klasę z następującym kodem:
 
-[!code-csharp[](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
+[!code-csharp[](first-web-api/samples/2.0/TodoApi/Models/TodoContext.cs)]
 
 [!INCLUDE [Register the database context](../includes/webApi/register_dbContext.md)]
 
 ### <a name="add-a-controller"></a>Dodawanie kontrolera
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy *kontrolerów* folderu. Wybierz **dodać** > **nowy element**. W **Dodaj nowy element** okno dialogowe, wybierz opcję **klasy kontrolera interfejsu API sieci Web** szablonu. Nazwa klasy `TodoController`.
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy *kontrolerów* folderu. Wybierz **dodać** > **nowy element**. W **Dodaj nowy element** okno dialogowe, wybierz opcję **Klasa kontrolera interfejsu API** szablonu. Nazwa klasy *TodoController*i kliknij przycisk **Dodaj**.
 
 ![Okno dialogowe nowego elementu z kontrolerem dodatek do wyszukiwania sieci web i pole Kontroler interfejsu API wybrane](first-web-api/_static/new_controller.png)
 
 Zastąp klasę z następującym kodem:
 
-[!INCLUDE [code and get todo items](../includes/webApi/getTodoItems.md)]
+[!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
 
 ### <a name="launch-the-app"></a>Uruchom aplikację
 
-W programie Visual Studio naciśnij kombinację klawiszy CTRL + F5, aby uruchomić aplikację. Program Visual Studio spowoduje uruchomienie przeglądarki i przechodzi do `http://localhost:port/api/values`, gdzie *portu* jest liczbą losowo wybranego portu. Przejdź do `Todo` kontroler na `http://localhost:port/api/todo`.
+W programie Visual Studio naciśnij kombinację klawiszy CTRL + F5, aby uruchomić aplikację. Program Visual Studio spowoduje uruchomienie przeglądarki i przechodzi do `http://localhost:<port>/api/values`, gdzie `<port>` jest liczbą losowo wybranego portu. Przejdź do `Todo` kontroler na `http://localhost:<port>/api/todo`.
 
-[!INCLUDE [last part of web API](../includes/webApi/end.md)]
+[!INCLUDE[last part of web API](../includes/webApi/end.md)]
 
-[!INCLUDE[Javascript Jquery](../includes/add-javascript-jquery/index.md)]
+[!INCLUDE[jQuery](../includes/webApi/add-jquery.md)]
 
 [!INCLUDE[next steps](../includes/webApi/next.md)]
-

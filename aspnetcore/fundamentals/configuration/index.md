@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: f272f9629ab1f9e7f7643cafd0d45f19340d5284
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8325776597eab9c673a4847edf87ae0d9e0d3efb
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja platformy ASP.NET Core
 
@@ -316,7 +316,7 @@ Przykładowe polecenie:
 dotnet run key1=value1 -key2=value2 --key3=value3 /key4=value4
 ```
 
-Uwaga: Jeśli `-key1` nie jest obecny w [przełącznika mapowania](#switch-mappings) przekazany dostawcy konfiguracji `FormatException` jest generowany.
+Uwaga: Jeśli `-key2` nie jest obecny w [przełącznika mapowania](#switch-mappings) przekazany dostawcy konfiguracji `FormatException` jest generowany.
 
 **Sekwencja dwa argumenty**
 
@@ -469,7 +469,7 @@ W widoku MVC:
 
 * [Opcje](xref:fundamentals/configuration/options)
 * [Praca w środowiskach wielu](xref:fundamentals/environments)
-* [Bezpieczne przechowywanie klucze tajne aplikacji do rozwoju](xref:security/app-secrets)
+* [Bezpieczne przechowywanie wpisów tajnych aplikacji w czasie projektowania](xref:security/app-secrets)
 * [Hosting w platformy ASP.NET Core](xref:fundamentals/hosting)
 * [Wstrzykiwanie zależności](xref:fundamentals/dependency-injection)
 * [Dostawca konfiguracji usługi Azure Key Vault](xref:security/key-vault-configuration)

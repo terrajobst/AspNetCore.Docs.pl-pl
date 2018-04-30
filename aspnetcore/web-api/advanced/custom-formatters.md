@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 6530459afe5cc3987ace938af77151fdd74f07b3
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 45d64feea9b3466d32088b5949b33d3fec3b3a41
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>Niestandardowe elementy formatujące w interfejsu API platformy ASP.NET Core sieci Web
 
@@ -21,7 +21,7 @@ Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 Podstawowe ASP.NET MVC ma wbudowaną obsługę wymiany danych w interfejsów API sieci web za pomocą formatu JSON, XML lub zwykły tekst. W tym artykule pokazano, jak dodać obsługę dodatkowych formatach tworząc niestandardowe elementy formatujące.
 
-[Wyświetlanie lub pobieranie próbki z usługi GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample).
+[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="when-to-use-custom-formatters"></a>Kiedy używać niestandardowej elementy formatujące
 

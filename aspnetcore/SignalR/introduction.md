@@ -1,21 +1,21 @@
 ---
 title: Wprowadzenie do platformy ASP.NET Core SignalR
 author: rachelappel
-description: Dowiedz się, jak biblioteka ASP.NET Core SignalR ułatwia dodawanie do aplikacji funkcji sieci web w czasie rzeczywistym.
+description: Dowiedz się, jak biblioteka ASP.NET Core SignalR ułatwia dodawanie w czasie rzeczywistym funkcjonalności do aplikacji.
 manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 03/07/2018
+ms.date: 04/25/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/introduction
-ms.openlocfilehash: fa9b10201b5dc0e67bcd6d1321a3737e2025fda4
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 190dfe9eac95be646b458870ac4ee95f681f45d7
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-aspnet-core-signalr"></a>Wprowadzenie do platformy ASP.NET Core SignalR
 
@@ -51,20 +51,17 @@ Połączenie między klientem a serwerem jest trwała, w przeciwieństwie do po�
 
 Abstract SignalR przez kilka technik tworzenia aplikacji sieci web czasu rzeczywistego. [Protokół WebSockets](https://tools.ietf.org/html/rfc7118) jest optymalna transportu, ale innych technik, takich jak zdarzenia Server-Sent i długi sondowania można użyć w przypadku te nie są dostępne. SignalR automatycznie wykryje i zainicjować odpowiednie transportu oparte na funkcji serwera i klienta są obsługiwane.
 
-## <a name="hubs-and-endpoints"></a>Koncentratory i punkty końcowe
+## <a name="hubs"></a>Koncentratory
 
-Biblioteka SignalR używa punktów końcowych i koncentratory do komunikacji między klientami a serwerami. Interfejs API koncentratory obejmuje większości scenariuszy.
+Biblioteka SignalR używa koncentratory do komunikacji między klientami a serwerami.
 
-Koncentrator jest oparty na interfejs API punktu końcowego, który umożliwia klienta i serwera, wywoływanie metod od siebie wzajemnie potoku wysokiego poziomu. SignalR obsługuje wysyłki poza granicami maszyny automatycznie, co pozwala klientom wywoływać metod na serwerze jako łatwo jako metody lokalne i na odwrót. Koncentratory zezwala na przekazywanie jednoznacznie parametrów do metod, co pozwala wiązania modelu. Biblioteka SignalR udostępnia dwa protokoły wbudowanych koncentratora: protokół tekst na podstawie JSON i protokół binarny na podstawie [MessagePack](https://msgpack.org/).  MessagePack tworzy zazwyczaj wiadomości mniejszych niż przy użyciu formatu JSON. Starsze przeglądarki musi obsługiwać [XHR poziom 2](https://caniuse.com/#feat=xhr2) do obsługi protokołu MessagePack.
+Koncentrator jest wysokiego poziomu potok, który umożliwia klienta i serwera, wywoływanie metod na siebie. SignalR obsługuje wysyłki poza granicami maszyny automatycznie, co pozwala klientom wywoływać metod na serwerze jako łatwo jako metody lokalne i na odwrót. Koncentratory zezwala na przekazywanie jednoznacznie parametrów do metod, co pozwala wiązania modelu. Biblioteka SignalR udostępnia dwa protokoły wbudowanych koncentratora: protokół tekst na podstawie JSON i protokół binarny na podstawie [MessagePack](https://msgpack.org/).  MessagePack tworzy zazwyczaj wiadomości mniejszych niż przy użyciu formatu JSON. Starsze przeglądarki musi obsługiwać [XHR poziom 2](https://caniuse.com/#feat=xhr2) do obsługi protokołu MessagePack.
 
 Koncentratory wywoływać kod po stronie klienta przez wysyłanie wiadomości przy użyciu aktywny transport. Komunikaty zawierają nazwę i parametry metody po stronie klienta. Obiekty wysyłane jako parametry metody są deserializacji za pomocą protokołu skonfigurowany. Klient próbuje jest zgodna z nazwą metody w kodzie po stronie klienta. W przypadku dopasowania w metodzie klienta jest wykonywane przy użyciu danych parametru zdeserializowany.
 
-Punkty końcowe Podaj raw API przypominającej gniazda, włączanie ich do odczytu i zapisu z klienta. To deweloperom grupowania, emisji i inne funkcje. Interfejs API koncentratory jest oparty na warstwie punktów końcowych.
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Na poniższym diagramie przedstawiono relację między koncentratorów, punktów końcowych i klientów.
-
-![Mapa SignalR](introduction/_static/signalr-core-architecture.png)
-
-## <a name="related-resources"></a>Zasoby pokrewne
-
-[Rozpoczynanie pracy z SignalR dla platformy ASP.NET Core](xref:signalr/get-started)
+* [Rozpoczynanie pracy z SignalR dla platformy ASP.NET Core](xref:signalr/get-started)
+* [Obsługiwane platformy](xref:signalr/supported-platforms)
+* [Centra](xref:signalr/hubs)
+* [Klient JavaScript](xref:signalr/javascript-client)

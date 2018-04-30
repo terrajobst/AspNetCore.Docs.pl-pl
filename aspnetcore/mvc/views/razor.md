@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: 6dd78e1c4d0e3373719f24ac3615af4b6943acb8
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 9c96ea34071bf3009f1ec53ed9af9206439aa229
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Odwołania do składni razor dla platformy ASP.NET Core
 
@@ -109,19 +109,7 @@ Jawne wyrażenia może służyć do łączenia tekstu w wyniku wyrażenia:
 
 Bez jawnego wyrażenia `<p>Age@joe.Age</p>` jest traktowany jak adres e-mail i `<p>Age@joe.Age</p>` jest renderowany. Gdy zapisywane jako wyrażenie jawne `<p>Age33</p>` jest renderowany.
 
-
-Jawne wyrażenia może zostać użyty do renderowania dane wyjściowe metody rodzajowe w *.cshtml* plików. W wyrażeniu niejawne znak wewnątrz nawiasów (`<>`) są interpretowane jako tagu HTML. Następujący kod znaczników jest **nie** Razor prawidłowy:
-
-```cshtml
-<p>@GenericMethod<int>()</p>
-```
-
-Poprzedni kod generowany jest błąd kompilatora podobny do jednego z następujących czynności:
-
-* Element "int" nie został zamknięty. Wszystkie elementy muszą być albo samodzielnie zamknięcie lub ma zgodnego tagu końcowego.
-* Nie można przekonwertować grupy metod "GenericMethod" na typ "object" Niedelegowany. Czy zamierzasz wywołać metodę? " 
- 
-  Następujący kod przedstawia sposób poprawne zapisu tego kodu. Kod jest zapisywany jako jawne wyrażenie:
+Jawne wyrażenia może zostać użyty do renderowania dane wyjściowe metody rodzajowe w *.cshtml* plików. Następujący kod pokazuje, jak rozwiązać problem, przedstawiono wcześniej spowodowane nawiasy ogólnego C#. Kod jest zapisywany jako jawne wyrażenie:
 
 ```cshtml
 <p>@(GenericMethod<int>())</p>

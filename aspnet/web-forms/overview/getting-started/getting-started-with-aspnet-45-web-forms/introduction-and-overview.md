@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 572b263a5f968b473457771a1dd4075910218c01
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a3527b54d1936bc14e32a1828ac3a2be625107ba
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Wprowadzenie do formularzy sieci Web 4.5 ASP.NET i Visual Studio 2013
 ====================
@@ -71,7 +71,7 @@ Funkcje formularza sieci Web ASP.NET przedstawionych w tej serii obejmują:
 - Projekt aplikacji sieci Web (nie projekt witryny sieci Web)
 - Formularze sieci Web
 - Strony wzorcowe, konfiguracji
-- Bootstrap
+- Ładowania początkowego
 - Entity Framework Code najpierw LocalDB
 - Sprawdzanie poprawności żądań
 - Silnie Typizowane formantów danych wiązań adnotacji danych modelu i dostawców wartości
@@ -179,7 +179,7 @@ Po zainstalowaniu wymagań wstępnych, można przystąpić do rozpoczęcia tworz
 
 Pobieranie jest <em>.zip</em> pliku. Aby wyświetlić ukończone projektu, który tworzy tę serię samouczek, Znajdź i wybierz <em>C#</em>folderu w <em>.zip</em> pliku. Zapisz <em>C#</em> folderto folderu używać do pracy z projektów Visual Studio 2013. Domyślnie folderu projektów programu Visual Studio 2013 jest następujący:
 
-<strong>C:\Users\</ strong ><strong><em>&lt;username&gt;</em></strong><strong>\Documents\Visual 2013\Projects w Studio</strong>
+<strong>C:\Users&#92;</strong><strong><em>&lt;username&gt;</em></strong><strong>\Documents\Visual 2013\Projects w Studio</strong>
 
 Zmień nazwę ***C#*** folder ***WingtipToys***.
 

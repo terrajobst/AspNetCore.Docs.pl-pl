@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 4e9b747a3369bbb608c3b3832c865745a2322142
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 4578a84adad668f1d60e202d7895cd67d451dc51
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - Migrations - 4, 8
 
@@ -106,7 +106,7 @@ Migracje wywołania `Up` metody implementacji zmian modelu danych do migracji. P
 
 Poprzedni kod jest początkowej migracji. Ten kod został utworzony podczas `migrations add InitialCreate` polecenia. Parametr name migracji ("InitialCreate" w przykładzie) jest używany dla nazwy pliku. Nazwa migracji może być dowolną prawidłową nazwę pliku. Najlepiej wybrać słowo lub frazę podsumowanie, co jest wykonywana w procesie migracji. Na przykład migracji, które dodano tabelę działu może mieć nazwę "AddDepartmentTable."
 
-Jeśli zostanie utworzona początkowa migracji i kończy działanie bazy danych:
+Jeśli zostanie utworzona początkowa migracji i istnieje w bazie danych:
 
 * Zostaje wygenerowany kod tworzenia bazy danych.
 * Kod tworzenia bazy danych nie wymaga się uruchomić, ponieważ bazy danych jest już zgodny z modelem danych. Jeśli uruchomiony jest kod tworzenia bazy danych, nie wprowadzać żadnych zmian, ponieważ bazy danych jest już zgodny z modelem danych.

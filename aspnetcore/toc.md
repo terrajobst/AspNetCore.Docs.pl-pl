@@ -226,6 +226,7 @@
 ## [Wprowadzenie](xref:signalr/get-started)
 ## [Centra](xref:signalr/hubs)
 ## [Klient JavaScript](xref:signalr/javascript-client)
+## [Publikowanie na platformie Azure](xref:signalr/publish-to-azure-web-app)
 ## [Obsługiwane platformy](xref:signalr/supported-platforms)
 
 # [Urządzenia przenośne](xref:mobile/index)

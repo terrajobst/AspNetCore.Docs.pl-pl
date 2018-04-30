@@ -4,9 +4,9 @@ W tym kroku kontekst bazy danych jest zarejestrowany w [iniekcji zależności](x
 
 Zarejestruj kontekst bazy danych z kontenerem usługi przy użyciu wbudowaną obsługę [iniekcji zależności](xref:fundamentals/dependency-injection). Zastąp zawartość *Startup.cs* pliku następującym kodem:
 
-[!code-csharp[](../../tutorials/first-web-api/sample/TodoApi/Startup.cs?highlight=2,4,12)]
+[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup.cs?highlight=2,4,12-13)]
 
 Poprzedni kod:
 
-* Usunięcie kodu, który nie jest używany.
+* Usunięcie nieużywanych kodu.
 * Określa, że bazy danych w pamięci są wstrzykiwane do kontenera usług.

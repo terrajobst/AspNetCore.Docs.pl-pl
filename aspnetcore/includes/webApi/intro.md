@@ -10,8 +10,6 @@ W tym samouczku tworzy następujący interfejs API:
 |Umieść /api/zadania / {id} | Aktualizuj istniejący element &nbsp; | Zadania do wykonania | Brak |
 |Usuń /api/zadania / {id} &nbsp; &nbsp; | Usuń element &nbsp; &nbsp; | Brak | Brak|
 
-<br>
-
 Na poniższym diagramie przedstawiono podstawowy projekt aplikacji.
 
 ![Klient jest reprezentowany jako pole po lewej stronie i przesyła żądanie i odbiera odpowiedzi z aplikacji, okno rysowane po prawej stronie. W polu aplikacji trzy pola reprezentują kontrolera, modelu i warstwa dostępu do danych. Żądanie wejścia kontrolera aplikacji, a operacje odczytu/zapisu są wykonywane między kontrolerem i warstwa dostępu do danych. Model jest serializowany i zwracany do klienta w odpowiedzi.](../../tutorials/first-web-api/_static/architecture.png)

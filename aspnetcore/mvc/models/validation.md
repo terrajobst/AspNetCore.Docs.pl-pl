@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: befbec393c089ec1f4dfdac5dbbdc3bdc7ddbf69
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 06526848dc84472c8629e6e1700a74312442f67c
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Weryfikacja modelu w programie ASP.NET MVC Core
 
@@ -192,7 +192,7 @@ $.get({
 
 ## <a name="iclientmodelvalidator"></a>IClientModelValidator
 
-Możesz utworzyć logiki po stronie klienta dla użytkownika niestandardowego atrybutu i [sprawdzania poprawności dyskretnego kodu](http://jqueryvalidation.org/documentation/) będą wykonywane na kliencie zostanie automatycznie w ramach sprawdzania poprawności. Pierwszym krokiem jest kontrolować, jakie atrybuty danych są dodawane zaimplementowanie `IClientModelValidator` interfejsu, jak pokazano poniżej:
+Możesz utworzyć logiki po stronie klienta dla użytkownika niestandardowego atrybutu i [sprawdzania poprawności dyskretnego kodu](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html) co powoduje adapter w celu [weryfikacji jquery] (http://jqueryvalidation.org/documentation/) będą wykonywane na kliencie zostanie automatycznie w ramach sprawdzania poprawności. Pierwszym krokiem jest kontrolować, jakie atrybuty danych są dodawane zaimplementowanie `IClientModelValidator` interfejsu, jak pokazano poniżej:
 
 [!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=30-42)]
 
@@ -207,7 +207,7 @@ Atrybuty, które implementują ten interfejs można dodawać atrybuty HTML do wy
     id="ReleaseDate" name="ReleaseDate" value="" />
 ```
 
-Sprawdzania poprawności dyskretnego kodu używa danych w `data-` atrybutów, aby wyświetlić komunikaty o błędach. Jednak nie ma informacji dotyczących reguły jQuery lub wiadomości do momentu dodania do tego jQuery `validator` obiektu. Przedstawiono to w poniższym przykładzie, który dodaje metodę o nazwie `classicmovie` niestandardowego klienta kodem weryfikacji jQuery `validator` obiektu.
+Sprawdzania poprawności dyskretnego kodu używa danych w `data-` atrybutów, aby wyświetlić komunikaty o błędach. Jednak nie ma informacji dotyczących reguły jQuery lub wiadomości do momentu dodania do tego jQuery `validator` obiektu. Przedstawiono to w poniższym przykładzie, który dodaje metodę o nazwie `classicmovie` niestandardowego klienta kodem weryfikacji jQuery `validator` obiektu. Wyjaśnienia dotyczące metody unobtrusive.adapters.add można znaleźć [tutaj](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html)
 
 [!code-javascript[](validation/sample/Views/Movies/Create.cshtml?range=71-93)]
 
