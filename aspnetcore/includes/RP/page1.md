@@ -55,7 +55,7 @@ Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
-`@model` Dyrektywa określa typ modelu przekazywane do strony Razor. W powyższym przykładzie `@model` wiersz sprawia, że `PageModel`-klasy dostępny na stronie aparatu Razor. Model jest używany w `@Html.DisplayNameFor` i `@Html.DisplayName` [pomocników HTML](https://docs.microsoft.com/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) na stronie.
+`@model` Dyrektywa określa typ modelu przekazywane do strony Razor. W powyższym przykładzie `@model` wiersz sprawia, że `PageModel`-klasy dostępny na stronie aparatu Razor. Model jest używany w `@Html.DisplayNameFor` i `@Html.DisplayName` [pomocników HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) na stronie.
 
 <!-- why don't xref links work?
 [HTML Helpers 2](xref:aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs)
