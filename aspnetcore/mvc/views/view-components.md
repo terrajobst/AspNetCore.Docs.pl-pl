@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: 41c220c8db4e560f8d144982589eba6220f17980
-ms.sourcegitcommit: 664c5150e2f6bfa16aefb236daf9e32ecf6ab2e9
+ms.openlocfilehash: a3614024c7f776e4502bc049180ae1c965e31db4
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="view-components-in-aspnet-core"></a>Widok składniki platformy ASP.NET Core
 
@@ -40,7 +40,7 @@ Składniki w widoku mają gdziekolwiek się, że masz logiki renderowania wielok
 * Zawartość paska bocznego w typowych blogu
 * Panel logowania, który będzie renderowany na każdej stronie i Pokaż łącza Wyloguj się lub zaloguj w zależności od dziennika w stanie użytkownika
 
-Składnik widoku składa się z dwóch części: klasy (zwykle pochodną [ViewComponent](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponent)) i wynik zwraca (zazwyczaj widok). Podobnie jak kontrolerów składnika Widok może być POCO, ale większość deweloperów będą korzystać z metod i właściwości dostępne przez wynikających z `ViewComponent`.
+Składnik widoku składa się z dwóch części: klasy (zwykle pochodną [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)) i wynik zwraca (zazwyczaj widok). Podobnie jak kontrolerów składnika Widok może być POCO, ale większość deweloperów będą korzystać z metod i właściwości dostępne przez wynikających z `ViewComponent`.
 
 ## <a name="creating-a-view-component"></a>Tworzenie widoku składnika
 
@@ -77,7 +77,7 @@ Składnik widoku definiuje swojej logiki w `InvokeAsync` metodę zwracającą `I
 Środowisko uruchomieniowe wyszukuje widoku w następujących ścieżkach:
 
    * Views/\<controller_name>/Components/\<view_component_name>/\<view_name>
-   * Views/Shared/Components/\<view_component_name>/\<view_name>
+   * Widoki/Shared/składniki/\<view_component_name > /\<view_name >
 
 Domyślna nazwa widoku dla składnika widoku to *domyślne*, co oznacza, że plik widoku zazwyczaj będzie miała nazwę *Default.cshtml*. Można określić nazwę inny widok, podczas tworzenia składnika wynik widoku lub podczas wywoływania metody `View` metody.
 

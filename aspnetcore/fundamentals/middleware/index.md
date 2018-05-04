@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: a410d686b6140a487efb9962e94f64cfbec245f2
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: 4c44063fb3385fc625c35c8a3cf06a35b5b0afb7
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="aspnet-core-middleware"></a>Oprogramowanie pośredniczące platformy ASP.NET Core
 
@@ -30,7 +30,7 @@ Oprogramowanie pośredniczące to oprogramowanie, które są umieszczone w potok
 
 Obiekty delegowane żądania są używane do tworzenia potoku żądania. Obiekty delegowane żądania obsługi każdego żądania HTTP.
 
-Żądanie delegatów są skonfigurowane przy użyciu [Uruchom](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions), [mapy](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions), i [użyj](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions) metody rozszerzenia. Obiekt delegowany oddzielne żądanie może być określony w wierszu jako metody anonimowej (nazywane oprogramowanie pośredniczące w wierszu) lub może być zdefiniowana w klasie wielokrotnego użytku. Te klasy wielokrotnego użytku i metod anonimowych w wierszu są *oprogramowanie pośredniczące*, lub *składników oprogramowania pośredniczącego*. Każdy składnik oprogramowania pośredniczącego w potoku żądania jest odpowiedzialny za wywoływanie następny składnik w potoku lub zwarcie łańcucha, w razie potrzeby.
+Żądanie delegatów są skonfigurowane przy użyciu [Uruchom](/dotnet/api/microsoft.aspnetcore.builder.runextensions), [mapy](/dotnet/api/microsoft.aspnetcore.builder.mapextensions), i [użyj](/dotnet/api/microsoft.aspnetcore.builder.useextensions) metody rozszerzenia. Obiekt delegowany oddzielne żądanie może być określony w wierszu jako metody anonimowej (nazywane oprogramowanie pośredniczące w wierszu) lub może być zdefiniowana w klasie wielokrotnego użytku. Te klasy wielokrotnego użytku i metod anonimowych w wierszu są *oprogramowanie pośredniczące*, lub *składników oprogramowania pośredniczącego*. Każdy składnik oprogramowania pośredniczącego w potoku żądania jest odpowiedzialny za wywoływanie następny składnik w potoku lub zwarcie łańcucha, w razie potrzeby.
 
 [Migrowanie moduły HTTP z oprogramowaniem pośredniczącym](xref:migration/http-modules) objaśniono różnicę między potoków żądania w ASP.NET Core i ASP.NET 4.x i zawiera więcej przykładów oprogramowania pośredniczącego.
 
@@ -46,9 +46,9 @@ Najprostsza możliwa aplikacji platformy ASP.NET Core ustawia delegata pojedyncz
 
 [!code-csharp[](index/sample/Middleware/Startup.cs)]
 
-Pierwszy [aplikacji. Uruchom](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions) delegata kończy potoku.
+Pierwszy [aplikacji. Uruchom](/dotnet/api/microsoft.aspnetcore.builder.runextensions) delegata kończy potoku.
 
-Tworzenia łańcucha wielu delegatów żądania razem z [aplikacji. Użyj](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions). `next` Parametr reprezentuje dalej delegata w potoku. (Należy pamiętać, że można zwarcia potoku przez *nie* wywoływania *dalej* parametru.) Zazwyczaj można wykonywać akcje przed i po następnej delegata, jak pokazano w tym przykładzie:
+Tworzenia łańcucha wielu delegatów żądania razem z [aplikacji. Użyj](/dotnet/api/microsoft.aspnetcore.builder.useextensions). `next` Parametr reprezentuje dalej delegata w potoku. (Należy pamiętać, że można zwarcia potoku przez *nie* wywoływania *dalej* parametru.) Zazwyczaj można wykonywać akcje przed i po następnej delegata, jak pokazano w tym przykładzie:
 
 [!code-csharp[](index/sample/Chain/Startup.cs?name=snippet1)]
 
@@ -57,7 +57,7 @@ Tworzenia łańcucha wielu delegatów żądania razem z [aplikacji. Użyj](https
 > - Może spowodować naruszenie protokołu. Na przykład zapisywania więcej niż podanej `content-length`.
 > - Może spowodować uszkodzenie formatu treści. Na przykład zapisywanie stopkę HTML w pliku CSS.
 >
-> [HttpResponse.HasStarted](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.httpresponsefeature#Microsoft_AspNetCore_Http_Features_HttpResponseFeature_HasStarted) przydatne podpowiada, aby wskazać, czy wysłaniu nagłówków i/lub treść została zapisana.
+> [HttpResponse.HasStarted](/dotnet/api/microsoft.aspnetcore.http.features.httpresponsefeature#Microsoft_AspNetCore_Http_Features_HttpResponseFeature_HasStarted) przydatne podpowiada, aby wskazać, czy wysłaniu nagłówków i/lub treść została zapisana.
 
 ## <a name="ordering"></a>Szeregowanie
 
@@ -122,7 +122,7 @@ Jeśli żądanie nie jest obsługiwane przez oprogramowanie pośredniczące plik
 
 -----------
 
-W poniższym przykładzie pokazano oprogramowanie pośredniczące kolejność, w którym żądań dotyczących plików statycznych są obsługiwane przez oprogramowanie pośredniczące plików statycznych przed oprogramowanie pośredniczące kompresji odpowiedzi. Pliki statyczne nie są kompresowane z ta kolejność oprogramowania pośredniczącego. Odpowiedzi MVC z [UseMvcWithDefaultRoute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) można skompresować.
+W poniższym przykładzie pokazano oprogramowanie pośredniczące kolejność, w którym żądań dotyczących plików statycznych są obsługiwane przez oprogramowanie pośredniczące plików statycznych przed oprogramowanie pośredniczące kompresji odpowiedzi. Pliki statyczne nie są kompresowane z ta kolejność oprogramowania pośredniczącego. Odpowiedzi MVC z [UseMvcWithDefaultRoute](/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) można skompresować.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -140,7 +140,7 @@ public void Configure(IApplicationBuilder app)
 
 Można skonfigurować za pomocą potoku HTTP `Use`, `Run`, i `Map`. `Use` Metody może zwarcia potoku (to znaczy, jeśli go nie wywołać `next` delegata żądania). `Run` jest to Konwencja i niektórych składników oprogramowania pośredniczącego może narazić `Run[Middleware]` metod, które są uruchamiane na końcu potoku.
 
-`Map*` rozszerzenia są używane jako Konwencji Rozgałęzienie potoku. [Mapa](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) odgałęzień potoku żądania na podstawie dopasowań z podanej ścieżki żądania. Jeśli ścieżka żądania rozpoczyna się od podanej ścieżce, gałęzi jest wykonywana.
+`Map*` rozszerzenia są używane jako Konwencji Rozgałęzienie potoku. [Mapa](/dotnet/api/microsoft.aspnetcore.builder.mapextensions) odgałęzień potoku żądania na podstawie dopasowań z podanej ścieżki żądania. Jeśli ścieżka żądania rozpoczyna się od podanej ścieżce, gałęzi jest wykonywana.
 
 [!code-csharp[](index/sample/Chain/StartupMap.cs?name=snippet1)]
 
@@ -155,7 +155,7 @@ W poniższej tabeli przedstawiono żądania i odpowiedzi z `http://localhost:123
 
 Gdy `Map` jest, następującą liczbę segmentów ścieżki dopasowane są usuwane z `HttpRequest.Path` i jest dołączany do `HttpRequest.PathBase` dla każdego żądania.
 
-[MapWhen](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapwhenextensions) odgałęzień potoku żądania na podstawie wyniku danego predykatu. Predykat dowolnego typu `Func<HttpContext, bool>` służy do mapowania żądania do nowej gałęzi potoku. W poniższym przykładzie predykat jest używana do wykrywania obecności zmiennej ciągu zapytania `branch`:
+[MapWhen](/dotnet/api/microsoft.aspnetcore.builder.mapwhenextensions) odgałęzień potoku żądania na podstawie wyniku danego predykatu. Predykat dowolnego typu `Func<HttpContext, bool>` służy do mapowania żądania do nowej gałęzi potoku. W poniższym przykładzie predykat jest używana do wykrywania obecności zmiennej ciągu zapytania `branch`:
 
 [!code-csharp[](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
 
@@ -225,7 +225,7 @@ Poniższy kod powoduje delegata oprogramowanie pośredniczące do klasy:
 > [!NOTE]
 > W przypadku platformy ASP.NET Core 1.x, oprogramowanie pośredniczące `Task` Nazwa metody musi być `Invoke`. W programie ASP.NET Core 2.0 lub nowszej, może to być albo `Invoke` lub `InvokeAsync`.
 
-Oprogramowanie pośredniczące za pośrednictwem udostępnia następujące metody rozszerzenia [IApplicationBuilder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder):
+Oprogramowanie pośredniczące za pośrednictwem udostępnia następujące metody rozszerzenia [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder):
 
 [!code-csharp[](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
 
@@ -235,7 +235,7 @@ Poniższy kod wywołuje oprogramowanie pośredniczące z `Configure`:
 
 Oprogramowanie pośredniczące powinno wykonać [jawne zależności zasady](http://deviq.com/explicit-dependencies-principle/) przez udostępnianie jego zależności w jego konstruktora. Oprogramowanie pośredniczące jest tworzony raz na *istnienia aplikacji*. Zobacz *zależności żądania* poniżej Jeśli potrzebne do udostępnienia usług z oprogramowania pośredniczącego w ramach żądania.
 
-Składniki oprogramowania pośredniczącego można rozwiązać zależności z iniekcji zależności za pomocą parametrów konstruktora. [`UseMiddleware<T>`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary) Ponadto może zaakceptować dodatkowe parametry bezpośrednio.
+Składniki oprogramowania pośredniczącego można rozwiązać zależności z iniekcji zależności za pomocą parametrów konstruktora. [`UseMiddleware<T>`](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary) Ponadto może zaakceptować dodatkowe parametry bezpośrednio.
 
 ### <a name="per-request-dependencies"></a>Zależności żądania
 

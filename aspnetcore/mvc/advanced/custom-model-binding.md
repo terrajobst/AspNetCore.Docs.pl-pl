@@ -1,7 +1,7 @@
 ---
-title: "Powiązanie niestandardowe modelu w platformy ASP.NET Core"
+title: Powiązanie niestandardowe modelu w platformy ASP.NET Core
 author: ardalis
-description: "Dowiedz się, jak wiązanie modelu umożliwia akcji kontrolera pracować bezpośrednio z modelu typów w ASP.NET Core."
+description: Dowiedz się, jak wiązanie modelu umożliwia akcji kontrolera pracować bezpośrednio z modelu typów w ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 04/10/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 941aa9e3ff4e4a75714e11b79d913418d0514d1e
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a687753083d3b11898e9ff35828780a5ad240854
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Powiązanie niestandardowe modelu w platformy ASP.NET Core
 
@@ -31,7 +31,7 @@ Domyślne integratorów modeli obsługuje większość popularnych typów danych
 
 Wiązanie modelu używa definicji określonych typów, który działa na. A *typu prostego* jest konwertowana z jednego ciągu w danych wejściowych. A *typu złożonego* jest konwertowana z wielu wartości wejściowe. Platformę określa różnicę oparte na istnienie `TypeConverter`. Zalecane jest tworzenie konwertera typów, jeśli masz prostą `string`  ->  `SomeType` mapowania, które nie wymagają zasobów zewnętrznych.
 
-Przed utworzeniem własnego niestandardowego integratora modelu, to warto recenzowania jak istniejący model i integratorów są implementowane. Należy wziąć pod uwagę [ByteArrayModelBinder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder) które mogą służyć do konwertowania ciągów algorytmem base64 na tablice typu byte. Tablice bajtów często są przechowywane jako pliki lub pola obiektu BLOB bazy danych.
+Przed utworzeniem własnego niestandardowego integratora modelu, to warto recenzowania jak istniejący model i integratorów są implementowane. Należy wziąć pod uwagę [ByteArrayModelBinder](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder) które mogą służyć do konwertowania ciągów algorytmem base64 na tablice typu byte. Tablice bajtów często są przechowywane jako pliki lub pola obiektu BLOB bazy danych.
 
 ### <a name="working-with-the-bytearraymodelbinder"></a>Praca z ByteArrayModelBinder
 
@@ -45,7 +45,7 @@ Mała część ciągu zakodowanego pokazano na poniższej ilustracji:
 
 Postępuj zgodnie z instrukcjami [README w próbce](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) można przekonwertować ciągu zakodowanego algorytmem base64 do pliku.
 
-ASP.NET Core MVC może przejąć ciągi znaków algorytmem base64 i użyć `ByteArrayModelBinder` przekonwertować go do tablicy typu byte. [ByteArrayModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) z zaimplementowanym [IModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) mapy `byte[]` argumenty `ByteArrayModelBinder`:
+ASP.NET Core MVC może przejąć ciągi znaków algorytmem base64 i użyć `ByteArrayModelBinder` przekonwertować go do tablicy typu byte. [ByteArrayModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) z zaimplementowanym [IModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) mapy `byte[]` argumenty `ByteArrayModelBinder`:
 
 ```csharp
 public IModelBinder GetBinder(ModelBinderProviderContext context)
@@ -64,7 +64,7 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 }
 ```
 
-Podczas tworzenia własnego niestandardowego integratora modelu, można zaimplementować własne `IModelBinderProvider` wpisz lub użyj [ModelBinderAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinderattribute).
+Podczas tworzenia własnego niestandardowego integratora modelu, można zaimplementować własne `IModelBinderProvider` wpisz lub użyj [ModelBinderAttribute](/dotnet/api/microsoft.aspnetcore.mvc.modelbinderattribute).
 
 Poniższy przykład przedstawia użycie `ByteArrayModelBinder` do przekonwertowania ciągu zakodowanego algorytmem base64 `byte[]` i zapisać wynik w pliku:
 
@@ -135,4 +135,4 @@ Dodawanie dostawcy do końca kolekcji może spowodować integratora modelu wbudo
 Integratorów modeli niestandardowych:
 - Nie należy próbować ustawiania kodów stanu lub zwracania wyników (na przykład 404 — Nie znaleziono). W przypadku niepowodzenia wiązania modelu [filtr akcji](xref:mvc/controllers/filters) lub logiki w ramach tej metody akcji powinna obsługiwać awarii.
 - Są najbardziej przydatny w przypadku wyeliminowanie powtarzających się kodu oraz problemów powiązanych z metody akcji.
-- Zwykle nie można użyć do przekonwertowania ciągu na typ niestandardowy, [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter) jest zwykle lepszym rozwiązaniem.
+- Zwykle nie można użyć do przekonwertowania ciągu na typ niestandardowy, [ `TypeConverter` ](/dotnet/api/system.componentmodel.typeconverter) jest zwykle lepszym rozwiązaniem.

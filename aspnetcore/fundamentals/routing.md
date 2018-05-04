@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 51f667352f7d92ab8c73d958c821c6acf5eb7529
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2e1257639ec41f657093439c5245b50adbad34dc
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w platformy ASP.NET Core
 
@@ -28,7 +28,7 @@ Funkcje routingu jest odpowiedzialny za mapowania przychodzącego żądania do o
 
 ## <a name="routing-basics"></a>Podstawowe informacje dotyczące routingu
 
-Używa routingu *tras* (implementacje [IRouter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.routing.irouter)) do:
+Używa routingu *tras* (implementacje [IRouter](/dotnet/api/microsoft.aspnetcore.routing.irouter)) do:
 
 * Mapuj przychodzące żądania do *trasy programów obsługi*
 
@@ -275,7 +275,7 @@ Poniższa tabela przedstawia niektóre szablony trasy i ich zachowanie.
 
 | Szablon trasy | Przykładowy adres URL dopasowania | Uwagi |
 | -------- | -------- | ------- |
-| Cześć  | /hello  | Zgodny tylko pojedynczą ścieżkę `/hello` |
+| Cześć  | człon  | Zgodny tylko pojedynczą ścieżkę `/hello` |
 | {Page=Home} | / | Dopasowuje i ustawia `Page` do `Home` |
 | {Page=Home}  | / Skontaktuj się z  | Dopasowuje i ustawia `Page` do `Contact` |
 | {controller} / {action} / {id}? | / / Listy produktów | Mapuje `Products` kontrolera i `List` akcji |
@@ -321,7 +321,7 @@ Poniższa tabela przedstawia niektóre ograniczenia trasy, a ich oczekiwane zach
 
 ## <a name="regular-expressions"></a>Wyrażenia regularne 
 
-Dodaje platformę ASP.NET Core `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` do konstruktora wyrażenia regularnego. Zobacz [wyliczenie RegexOptions](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions) opis tych elementów członkowskich.
+Dodaje platformę ASP.NET Core `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` do konstruktora wyrażenia regularnego. Zobacz [wyliczenie RegexOptions](/dotnet/api/system.text.regularexpressions.regexoptions) opis tych elementów członkowskich.
 
 Wyrażenia regularne używać ograniczników i tokeny podobne do tych używanych przez usługę Routing i języka C#. Należy użyć znaków ucieczki tokeny wyrażenia regularnego. Na przykład, aby użyć wyrażenia regularnego `^\d{3}-\d{2}-\d{4}$` routingu, musi mieć `\` znaków wpisanych jako `\\` w pliku źródłowym C# ucieczki `\` ciągu znak ucieczki (chyba że przy użyciu [dosłownego wyrażenia Literały ciągu](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string). `{` , `}` , "[" I "]" znaki należy wstawić podwajając im Usuń znaki Ogranicznik parametru routingu.  Poniższa tabela zawiera wyrażenie regularne i zmienionym wersji.
 

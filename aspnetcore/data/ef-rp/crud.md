@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: 366e396b628021fb14579f1d7f8c7e9f6194d231
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: b3f170ad35bcff7c662fb0205b0bff2e98b4724c
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - CRUD - 2 8
 
@@ -36,7 +36,7 @@ Strony indeksu i szczegóły Pobierz i Wyświetl żądanych danych z metodą HTT
 
 ## <a name="replace-singleordefaultasync-with-firstordefaultasync"></a>Zamień SingleOrDefaultAsync FirstOrDefaultAsync
 
-Wygenerowany kod używa [SingleOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) można pobrać żądanej jednostki. [FirstOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_) jest bardziej wydajny w pobieranie jedną jednostkę:
+Wygenerowany kod używa [SingleOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) można pobrać żądanej jednostki. [FirstOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_) jest bardziej wydajny w pobieranie jedną jednostkę:
 
 * Jeśli kod należy sprawdzić, czy nie ma więcej niż jednej jednostki zwróconych przez kwerendę. 
 * `SingleOrDefaultAsync` pobiera dane i niepotrzebne działa.
@@ -51,7 +51,7 @@ Zastąp globalnie `SingleOrDefaultAsync` z `FirstOrDefaultAsync`. `SingleOrDefau
 <a name="FindAsync"></a>
 ### <a name="findasync"></a>FindAsync
 
-W bardzo szkieletu kodu [metoda FindAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) można użyć zamiast `FirstOrDefaultAsync` lub `SingleOrDefaultAsync`. 
+W bardzo szkieletu kodu [metoda FindAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) można użyć zamiast `FirstOrDefaultAsync` lub `SingleOrDefaultAsync`. 
 
 `FindAsync`:
 
@@ -59,7 +59,7 @@ W bardzo szkieletu kodu [metoda FindAsync](https://docs.microsoft.com/dotnet/api
 * To proste i zwięzłe.
 * Jest zoptymalizowany do odszukania pojedynczej jednostki.
 * Może korzystnie wydajności w niektórych sytuacjach, ale rzadko pochodzą do gry dla scenariuszy normalne sieci web.
-* Niejawnie wykorzystuje [FirstAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) zamiast [SingleAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).
+* Niejawnie wykorzystuje [FirstAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) zamiast [SingleAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).
 Ale jeśli chcesz dołączyć inne jednostki, a następnie znajdź nie jest już właściwe. Oznacza to, że może być konieczne porzucenie Znajdź i przejdź do zapytania w miarę postępów Twojej aplikacji.
 
 ## <a name="customize-the-details-page"></a>Dostosowywanie strony szczegółów
@@ -122,7 +122,7 @@ Sprawdź [TryUpdateModelAsync](/dotnet/api/microsoft.aspnetcore.mvc.controllerba
 
 [!code-csharp[](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_TryUpdateModelAsync)]
 
-W powyższym kodzie `TryUpdateModelAsync<Student>` próbuje zaktualizować `emptyStudent` przy użyciu wartości przesłanego formularza z [PageContext](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) właściwości w [PageModel](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel?view=aspnetcore-2.0). `TryUpdateModelAsync` tylko aktualizuje właściwości wymienionych (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`).
+W powyższym kodzie `TryUpdateModelAsync<Student>` próbuje zaktualizować `emptyStudent` przy użyciu wartości przesłanego formularza z [PageContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) właściwości w [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel?view=aspnetcore-2.0). `TryUpdateModelAsync` tylko aktualizuje właściwości wymienionych (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`).
 
 W poprzednim przykładzie:
 
@@ -157,7 +157,7 @@ Poniższy kod używa `StudentVM` modelu widoku, aby utworzyć nowy uczniów:
 
 [!code-csharp[](intro/samples/cu/Pages/Students/CreateVM.cshtml.cs?name=snippet_OnPostAsync)]
 
-[SetValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) metody ustawia wartości tego obiektu, odczytując wartości z innej [PropertyValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) obiektu. `SetValues` używa dopasowania nazwy właściwości. Typ modelu widoku nie musi być powiązany typ modelu, po prostu musi mieć właściwości, które pasują.
+[SetValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) metody ustawia wartości tego obiektu, odczytując wartości z innej [PropertyValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) obiektu. `SetValues` używa dopasowania nazwy właściwości. Typ modelu widoku nie musi być powiązany typ modelu, po prostu musi mieć właściwości, które pasują.
 
 Przy użyciu `StudentVM` wymaga [CreateVM.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Students/CreateVM.cshtml) zaktualizować w celu zastosowania `StudentVM` zamiast `Student`.
 
@@ -173,7 +173,7 @@ Zmiany kodu są podobne do tworzenia strony kilka wyjątków:
 
 * `OnPostAsync` ma opcjonalny `id` parametru.
 * Bieżący uczniów jest pobierana z bazy danych, zamiast tworzenia uczniów puste.
-* `FirstOrDefaultAsync` zostało zastąpione [metoda FindAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1.findasync?view=efcore-2.0). `FindAsync` jest to dobry wybór, wybierając jednostkę z klucza podstawowego. Zobacz [metoda FindAsync](#FindAsync) Aby uzyskać więcej informacji.
+* `FirstOrDefaultAsync` zostało zastąpione [metoda FindAsync](/dotnet/api/microsoft.entityframeworkcore.dbset-1.findasync?view=efcore-2.0). `FindAsync` jest to dobry wybór, wybierając jednostkę z klucza podstawowego. Zobacz [metoda FindAsync](#FindAsync) Aby uzyskać więcej informacji.
 
 ### <a name="test-the-edit-and-create-pages"></a>Testowanie edytować i tworzyć strony
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: aab1190467c13ae121625c377d0908eac2fe8d95
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: 78dcee05799965c72f878662df61034018a23021
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="logging-in-aspnet-core"></a>Logowanie do platformy ASP.NET Core
 
@@ -586,8 +586,6 @@ Poniżej przedstawiono niektóre platform rejestrowania innych firm, które wsp�
 Możliwość niektórych struktur innych firm [semantycznego rejestrowania, nazywany również strukturalnych rejestrowania](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
 Przy użyciu platformy innej firmy jest podobny do przy użyciu jednego z dostawców wbudowanych: Dodaj pakiet NuGet do projektu i wywołanie metody rozszerzenia na `ILoggerFactory`. Aby uzyskać więcej informacji zobacz dokumentację każdego framework.
-
-Możesz utworzyć własnych dostawców niestandardowych, również do obsługi innych platform rejestrowania lub wymagań rejestrowania.
 
 ## <a name="azure-log-streaming"></a>Strumieniowe przesyłanie dzienników Azure
 

@@ -1,7 +1,7 @@
 ---
-title: "W przypadku platformy ASP.NET Core przekazywania plików"
+title: W przypadku platformy ASP.NET Core przekazywania plików
 author: ardalis
-description: "Jak używać wiązania modelu i przesyłania strumieniowego przekazywania plików w programie ASP.NET MVC Core."
+description: Jak używać wiązania modelu i przesyłania strumieniowego przekazywania plików w programie ASP.NET MVC Core.
 manager: wpickett
 ms.author: riande
 ms.date: 07/05/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/file-uploads
-ms.openlocfilehash: bfcbddb208fedaa4de46df782336176d97ea5bdc
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7ba4f6d9e3901c310fe9fa7a70382d9243d8b347
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>W przypadku platformy ASP.NET Core przekazywania plików
 
@@ -47,7 +47,7 @@ Aby zapewnić obsługę przekazywania plików, należy określić formularzy HTM
 
 ![Formularz przekazywania pliku](file-uploads/_static/upload-form.png)
 
-Poszczególnych przekazany na serwer plików jest możliwy za pośrednictwem [powiązanie modelu](xref:mvc/models/model-binding) przy użyciu [IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile) interfejsu. `IFormFile` ma następującą strukturę:
+Poszczególnych przekazany na serwer plików jest możliwy za pośrednictwem [powiązanie modelu](xref:mvc/models/model-binding) przy użyciu [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) interfejsu. `IFormFile` ma następującą strukturę:
 
 ```csharp
 public interface IFormFile
@@ -195,7 +195,7 @@ Ustawieniem domyślnym jest `30000000`, czyli około 28.6 MB. Wartość można d
 </system.webServer>
 ```
 
-To ustawienie dotyczy tylko programu IIS. To zachowanie nie występuje domyślnie odnośnie do hostowania na Kestrel. Aby uzyskać więcej informacji, zobacz [limity żądań \<requestLimits\>](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
+To ustawienie dotyczy tylko programu IIS. To zachowanie nie występuje domyślnie odnośnie do hostowania na Kestrel. Aby uzyskać więcej informacji, zobacz [limity żądań \<requestLimits\>](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
 
 ### <a name="null-reference-exception-with-iformfile"></a>Wyjątek odwołania zerowego z IFormFile
 

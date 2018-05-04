@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 45d64feea9b3466d32088b5949b33d3fec3b3a41
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.openlocfilehash: dbe42a6943dbf615c4227356271053329f01e34b
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>Niestandardowe elementy formatujące w interfejsu API platformy ASP.NET Core sieci Web
 
@@ -35,7 +35,7 @@ Poniżej przedstawiono procedurę tworzenia i używania niestandardowego element
 
 * Utwórz klasę program formatujący danych wyjściowych, aby serializować dane do wysłania do klienta.
 * Utwórz klasę wejściowy element formatujący, aby deserializować danych otrzymanych od klienta.
-* Dodawanie wystąpień użytkownika elementy formatujące do `InputFormatters` i `OutputFormatters` kolekcji w [MvcOptions](/aspnet/core/api/microsoft.aspnetcore.mvc.mvcoptions).
+* Dodawanie wystąpień użytkownika elementy formatujące do `InputFormatters` i `OutputFormatters` kolekcji w [MvcOptions](/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions).
 
 Poniższe sekcje zawierają wskazówki i przykłady kodu dla każdego z tych kroków.
 
@@ -50,11 +50,11 @@ Aby utworzyć element formatujący:
   
 ### <a name="derive-from-the-appropriate-base-class"></a>Pochodzi od odpowiedniej klasy podstawowej
 
-Dla typów nośników tekstu (na przykład vCard), pochodzi z [TextInputFormatter](/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.textinputformatter) lub [TextOutputFormatter](/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.textoutputformatter) klasy podstawowej.
+Dla typów nośników tekstu (na przykład vCard), pochodzi z [TextInputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.textinputformatter) lub [TextOutputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.textoutputformatter) klasy podstawowej.
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
 
-Dla typu binary, pochodzi z [InputFormatter](/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.inputformatter) lub [OutputFormatter](/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.outputformatter) klasy podstawowej.
+Dla typu binary, pochodzi z [InputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.inputformatter) lub [OutputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformatter) klasy podstawowej.
 
 ### <a name="specify-valid-media-types-and-encodings"></a>Określ prawidłowy nośnik typy i kodowania
 
@@ -79,7 +79,7 @@ W niektórych scenariuszach należy zastąpić `CanWriteResult` zamiast `CanWrit
 * Brak klasy pochodne, które może być zwracany w czasie wykonywania.
 * Należy znać w czasie wykonywania, z którego pochodzi klasy został zwrócony przez akcję.
 
-Na przykład załóżmy, że podpis metody akcji zwraca `Person` typu, ale może zwrócić `Student` lub `Instructor` typu pochodzącego od `Person`. Jeśli chcesz, aby Twoje elementu formatującego do obsługi tylko `Student` obiektów, sprawdź typ [obiektu](/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) w obiekt kontekstu do `CanWriteResult` — metoda. Należy pamiętać, że nie jest konieczne użycie `CanWriteResult` gdy metoda akcji zwraca `IActionResult`; w takim przypadku `CanWriteType` metody odbiera typ środowiska uruchomieniowego.
+Na przykład załóżmy, że podpis metody akcji zwraca `Person` typu, ale może zwrócić `Student` lub `Instructor` typu pochodzącego od `Person`. Jeśli chcesz, aby Twoje elementu formatującego do obsługi tylko `Student` obiektów, sprawdź typ [obiektu](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) w obiekt kontekstu do `CanWriteResult` — metoda. Należy pamiętać, że nie jest konieczne użycie `CanWriteResult` gdy metoda akcji zwraca `IActionResult`; w takim przypadku `CanWriteType` metody odbiera typ środowiska uruchomieniowego.
 
 <a id="read-write"></a>
 ### <a name="override-readrequestbodyasyncwriteresponsebodyasync"></a>Zastąpienie ReadRequestBodyAsync/WriteResponseBodyAsync

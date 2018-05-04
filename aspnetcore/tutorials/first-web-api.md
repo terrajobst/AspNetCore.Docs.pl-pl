@@ -10,15 +10,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: 71f1e10dee9fbae8cf76733d33533be832fb5769
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.openlocfilehash: 962c24a7e654328df7e8893e589e45b19e87b931
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Tworzenie interfejsu API sieci Web przy użyciu programu Visual Studio i ASP.NET Core dla systemu Windows
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Wasson Jan](https://github.com/mikewasson)
+
+::: moniker range="= aspnetcore-2.1"
+[!INCLUDE[](~/includes/2.1.md)]
+::: moniker-end
 
 W tym samouczku tworzy interfejs API sieci web do zarządzania listę elementów "do wykonania". Interfejs użytkownika (UI) nie jest tworzone.
 
@@ -38,15 +42,11 @@ Istnieją trzy wersje tego samouczka:
 
 ## <a name="create-the-project"></a>Utwórz projekt
 
-W programie Visual Studio, wybierz **pliku** menu > **nowy** > **projektu**.
+Wykonaj następujące czynności w programie Visual Studio:
 
-Wybierz **.NET Core** > **aplikacji sieci Web platformy ASP.NET Core** szablonu projektu. Nazwij projekt *TodoApi* i wybierz **OK**.
-
-![Okno dialogowe nowego projektu](first-web-api/_static/new-project.png)
-
-W **nowe podstawowe aplikacji sieci Web ASP.NET - TodoApi** okno dialogowe, wybierz wersję platformy ASP.NET Core. Wybierz **interfejsu API** szablonu. Wybierz **OK**. Czy **nie** wybierz **Włącz obsługę Docker**.
-
-![Okno dialogowe nowego aplikacji sieci Web platformy ASP.NET z szablonem projektu interfejsu API sieci Web z platformy ASP.NET Core szablonów](first-web-api/_static/web-api-project.png)
+* Z **pliku** menu, wybierz opcję **nowy** > **projektu**.
+* Wybierz **aplikacji sieci Web platformy ASP.NET Core** szablonu. Nazwij projekt *TodoApi* i kliknij przycisk **OK**.
+* W **nowe podstawowe aplikacji sieci Web ASP.NET - TodoApi** okno dialogowe, wybierz wersję platformy ASP.NET Core. Wybierz **interfejsu API** szablon i kliknij przycisk **OK**. Czy **nie** wybierz **Włącz obsługę Docker**.
 
 ### <a name="launch-the-app"></a>Uruchom aplikację
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 8325776597eab9c673a4847edf87ae0d9e0d3efb
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.openlocfilehash: b1c2b734a2e9b274792b597bfd222c31e661b0d7
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja platformy ASP.NET Core
 
@@ -228,7 +228,7 @@ key3=value_from_json_3
 
 ## <a name="commandline-configuration-provider"></a>Dostawca konfiguracji wiersza polecenia
 
-[Dostawcę konfiguracji CommandLine](/aspnet/core/api/microsoft.extensions.configuration.commandline.commandlineconfigurationprovider) odbiera pary klucz wartość argumentu wiersza polecenia dla konfiguracji w czasie wykonywania.
+[Dostawcę konfiguracji CommandLine](/dotnet/api/microsoft.extensions.configuration.commandline.commandlineconfigurationprovider) odbiera pary klucz wartość argumentu wiersza polecenia dla konfiguracji w czasie wykonywania.
 
 [Wyświetlanie lub pobieranie przykładowej konfiguracji wiersza polecenia](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/index/sample/CommandLine)
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 33a88b8c1ba0704e5361399c672025e1c1ff49ff
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: 9155bd54bc211c8be0678065e857f73d8a139365
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Pomocników tagów w formularzy w programie ASP.NET Core
 
@@ -59,7 +59,7 @@ Pomocnik Tag formularza powyżej generuje poniższy kod HTML:
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-Wiele widoków w *widoków/konta* folder (generowane podczas tworzenia nowej aplikacji sieci web z *indywidualnych kont użytkowników*) zawierać [asp trasy returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms) atrybutu:
+Wiele widoków w *widoków/konta* folder (generowane podczas tworzenia nowej aplikacji sieci web z *indywidualnych kont użytkowników*) zawierać [asp trasy returnurl](xref:mvc/views/working-with-forms) atrybutu:
 
 ```cshtml
 <form asp-controller="Account" asp-action="Login"
@@ -84,11 +84,11 @@ Pomocnik tagu wejściowego:
 
 * Generuje `id` i `name` atrybutów HTML dla podanej nazwy wyrażenia w `asp-for` atrybutu. `asp-for="Property1.Property2"` jest odpowiednikiem `m => m.Property1.Property2`. Nazwa wyrażenia jest, do czego służy `asp-for` wartość atrybutu. Zobacz [nazwy wyrażeń](#expression-names) sekcji, aby uzyskać dodatkowe informacje.
 
-* Ustawia kod HTML `type` atrybutu wartości na podstawie typu modelu i [adnotacji danych elementu](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybuty zastosowane do właściwości modelu
+* Ustawia kod HTML `type` atrybutu wartości na podstawie typu modelu i [adnotacji danych elementu](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybuty zastosowane do właściwości modelu
 
 * Nie zastępować HTML `type` wartość atrybutu, gdy został określony
 
-* Generuje [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) sprawdzania poprawności atrybutów z [adnotacji danych elementu](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybuty stosowane do właściwości modelu
+* Generuje [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) sprawdzania poprawności atrybutów z [adnotacji danych elementu](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybuty stosowane do właściwości modelu
 
 * Funkcję pomocnika kodu HTML, które nakładają się na `Html.TextBoxFor` i `Html.EditorFor`. Zobacz **alternatyw pomocnika kodu HTML do pomocniczego Tag danych wejściowych** sekcji, aby uzyskać szczegółowe informacje.
 
@@ -111,13 +111,13 @@ Type expected
 |---|---|
 |wartość logiczna|type=”checkbox”|
 |String|Typ = "text"|
-|DataGodzina|type=”datetime”|
+|DataGodzina|Typ "datetime" =|
 |Byte|Typ = "number"|
 |int|Typ = "number"|
 |Single, Double|Typ = "number"|
 
 
-W poniższej tabeli przedstawiono niektóre typowe [adnotacji danych](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybuty, które pomocnika tagu wejściowego przypisze do określonych typów wejściowych (nie każdy atrybut weryfikacji znajduje się):
+W poniższej tabeli przedstawiono niektóre typowe [adnotacji danych](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atrybuty, które pomocnika tagu wejściowego przypisze do określonych typów wejściowych (nie każdy atrybut weryfikacji znajduje się):
 
 
 |Atrybut|Typ danych wejściowych|
@@ -126,7 +126,7 @@ W poniższej tabeli przedstawiono niektóre typowe [adnotacji danych](https://do
 |[Url]|type=”url”|
 |[HiddenInput]|type=”hidden”|
 |[Phone]|type=”tel”|
-|[DataType(DataType.Password)]| type=”password”|
+|[DataType(DataType.Password)]| Typ = 'password'|
 |[DataType(DataType.Date)]| Typ "date" =|
 |[DataType(DataType.Time)]| Typ = "razem"|
 

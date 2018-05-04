@@ -65,7 +65,7 @@ Poniżej znajduje się część *Create.cshtml* Wyświetl szablon, który szkiel
 
 [!code-HTML[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
 
-[Pomocnika Tag danych wejściowych](xref:mvc/views/working-with-forms) używa [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) atrybutów i tworzy wymagane dla technologii jQuery weryfikacji po stronie klienta atrybutów HTML. [Pomocnika tagów weryfikacji](xref:mvc/views/working-with-forms#the-validation-tag-helpers) przedstawia błędy sprawdzania poprawności. Zobacz [weryfikacji](xref:mvc/models/validation) Aby uzyskać więcej informacji.
+[Pomocnika Tag danych wejściowych](xref:mvc/views/working-with-forms) używa [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) atrybutów i tworzy wymagane dla technologii jQuery weryfikacji po stronie klienta atrybutów HTML. [Pomocnika tagów weryfikacji](xref:mvc/views/working-with-forms#the-validation-tag-helpers) przedstawia błędy sprawdzania poprawności. Zobacz [weryfikacji](xref:mvc/models/validation) Aby uzyskać więcej informacji.
 
 Co to jest naprawdę nieuprzywilejowany o tej metody oznacza, że żaden kontroler ani `Create` Wyświetl szablon zna niczego dotyczące reguł rzeczywista weryfikacja wymuszany lub określone komunikaty o błędach wyświetlane. Reguły sprawdzania poprawności i ciągi błąd są określane tylko w `Movie` klasy. Te tej samej reguły sprawdzania poprawności są automatycznie stosowane do `Edit` widoku i wszystkich innych widoków szablonów można tworzyć które edytować model.
 

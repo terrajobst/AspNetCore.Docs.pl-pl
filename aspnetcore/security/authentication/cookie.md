@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/cookie
-ms.openlocfilehash: 26101d46557c64047f3d121083fe34ad34ff99ea
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b251aa3ff0b4d0c08f9885cd73a111b7c2008766
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Użyj plików cookie uwierzytelniania bez ASP.NET Core Identity
 
@@ -162,7 +162,7 @@ Ustawienie oprogramowaniu pośredniczącym pliku Cookie zasad `MinimumSameSitePo
 
 ## <a name="creating-an-authentication-cookie"></a>Tworzenie pliku cookie uwierzytelniania
 
-Aby utworzyć plik cookie zawierający informacje o użytkownikach, należy tworzyć [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). Informacje o użytkowniku są serializowane i przechowywane w pliku cookie. 
+Aby utworzyć plik cookie zawierający informacje o użytkownikach, należy tworzyć [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). Informacje o użytkowniku są serializowane i przechowywane w pliku cookie. 
 
 #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Utwórz [ClaimsIdentity](/dotnet/api/system.security.claims.claimsidentity) z każdego wymaganego [oświadczeń](/dotnet/api/system.security.claims.claim)s i wywołanie [SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signinasync?view=aspnetcore-2.0) do logowania użytkownika:

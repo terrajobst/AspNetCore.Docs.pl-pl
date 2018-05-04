@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: b42e62b560e01d592c9f4cb61ea6199a15dc8bb6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7cfceb38204b6cfd3589a082761273e54ac122ca
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 <a name="create-the-project"></a>Tworzenie projektu
 ====================
@@ -52,7 +52,10 @@ W tym samouczku utworzysz, przejrzyj i uruchom domyślny projekt w programie Vis
 
     > [!NOTE]
     > Nazwa projektu w tym samouczku jest **WingtipToys**. Zaleca się korzystanie z tej *dokładnie* Nazwa projektu, dzięki czemu kod podane w serii samouczek funkcji zgodnie z oczekiwaniami.
-6. Następnie wybierz pozycję **formularzy sieci Web** szablonu i wybierz polecenie **tworzenia projektu** przycisku.  
+
+6. Kliknij przycisk **Zmień uwierzytelnianie** przycisku. Wybierz **indywidualnych kont użytkowników** i kliknij przycisk **OK** przycisku.
+
+7. Wybierz **formularzy sieci Web** szablon i kliknij przycisk **OK** przycisku.
 
     ![Utwórz projekt — nowy szablon projektu](create-the-project/_static/image3.png)
 

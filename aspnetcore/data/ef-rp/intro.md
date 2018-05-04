@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: be8162de1c839ef619e2ccd32253c6c3e5330301
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 99a8d158c896566c2f6e6c22e4b37b1956e21cbf
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Stron razor z Entity Framework Core w platformy ASP.NET Core - 1 samouczka 8
 
@@ -175,7 +175,7 @@ Otwórz *appsettings.json* i dodaj ciąg połączenia, jak pokazano w poniższym
 
 [!code-json[](./intro/samples/cu/appsettings1.json?highlight=2-4)]
 
-Poprzednie parametry połączenia używane `ConnectRetryCount=0` zapobiegające [SQLClient](https://docs.microsoft.com/dotnet/framework/data/adonet/ef/sqlclient-for-the-entity-framework) z wiszące.
+Poprzednie parametry połączenia używane `ConnectRetryCount=0` zapobiegające [SQLClient](/dotnet/framework/data/adonet/ef/sqlclient-for-the-entity-framework) z wiszące.
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB.
 
@@ -315,7 +315,7 @@ W poniższym kodzie `async` — słowo kluczowe, `Task<T>` zwrócić wartość, 
 * `async` — Słowo kluczowe informuje kompilator, aby:
 
   * Generuj wywołania zwrotne dla części treści metody.
-  * Automatyczne tworzenie [zadań](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task?view=netframework-4.7) obiekt, który jest zwracany. Aby uzyskać więcej informacji, zobacz [typu zwracanego zadań](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/async-return-types#BKMK_TaskReturnType).
+  * Automatyczne tworzenie [zadań](/dotnet/api/system.threading.tasks.task?view=netframework-4.7) obiekt, który jest zwracany. Aby uzyskać więcej informacji, zobacz [typu zwracanego zadań](/dotnet/csharp/programming-guide/concepts/async/async-return-types#BKMK_TaskReturnType).
 
 * Typ zwracany niejawne `Task` reprezentuje pracy w toku.
 
@@ -331,7 +331,7 @@ Należy pamiętać o podczas pisania kodu asynchroniczne EF Core używa w kilku 
 
 * Można wykorzystać zalety wydajności async kodu, sprawdź, czy pakiety bibliotekę (takie jak w przypadku stronicowania) używają async Jeśli wywołują metody EF podstawowych, które wysyłanie zapytań do bazy danych.
 
-Aby uzyskać więcej informacji na temat programowania asynchronicznego w programie .NET, zobacz [omówienie Async](https://docs.microsoft.com/dotnet/articles/standard/async).
+Aby uzyskać więcej informacji na temat programowania asynchronicznego w programie .NET, zobacz [omówienie Async](/dotnet/articles/standard/async).
 
 W następnym samouczku basic CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) operacje są sprawdzane.
 

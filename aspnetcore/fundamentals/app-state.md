@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/app-state
-ms.openlocfilehash: ca77db7bd498289b448475fc6cadeea622b4a606
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3a9463e5c501b5f32471f002ecab5ad7a81a5c4a
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="session-and-application-state-in-aspnet-core"></a>Stan sesji i aplikacji w ASP.NET Core
 
@@ -38,7 +38,7 @@ Dostawca sesji w pamięci są przechowywane dane sesji na serwerze lokalnym. Je�
 <a name="temp"></a>
 ## <a name="tempdata"></a>TempData
 
-Przedstawia platformy ASP.NET Core MVC [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) właściwość [kontrolera](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Ta właściwość przechowuje dane, dopóki nie jest do odczytu. `Keep` i `Peek` metod można użyć do sprawdzenia danych bez usuwania. `TempData` jest szczególnie przydatne podczas przekierowania, gdy dane są potrzebne dla więcej niż jednego żądania. `TempData` jest implementowany przez dostawców TempData, na przykład za pomocą plików cookie lub stanu sesji.
+Przedstawia platformy ASP.NET Core MVC [TempData](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) właściwość [kontrolera](/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Ta właściwość przechowuje dane, dopóki nie jest do odczytu. `Keep` i `Peek` metod można użyć do sprawdzenia danych bez usuwania. `TempData` jest szczególnie przydatne podczas przekierowania, gdy dane są potrzebne dla więcej niż jednego żądania. `TempData` jest implementowany przez dostawców TempData, na przykład za pomocą plików cookie lub stanu sesji.
 
 <a name="tempdata-providers"></a>
 ### <a name="tempdata-providers"></a>TempData dostawców
@@ -47,7 +47,7 @@ Przedstawia platformy ASP.NET Core MVC [TempData](https://docs.microsoft.com/dot
 
 W programie ASP.NET Core 2.0 lub nowszego oraz dostawcy TempData na podstawie plików cookie jest używany domyślnie do przechowywania TempData w plikach cookie.
 
-Dane pliku cookie jest zakodowane za pomocą [Base64UrlTextEncoder](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0). Ponieważ plik cookie jest zaszyfrowany i fragmentaryczne, pojedynczy plik cookie rozmiar limit w ASP.NET Core 1.x nie ma zastosowania. Ponieważ kompresja zaszyfrowanych danych może prowadzić do problemów z bezpieczeństwem takich jak dane pliku cookie nie jest skompresowany [ataki CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) i [naruszenia](https://wikipedia.org/wiki/BREACH_(security_exploit)) ataków. Aby uzyskać więcej informacji o dostawcy TempData na podstawie plików cookie, zobacz [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs).
+Dane pliku cookie jest zakodowane za pomocą [Base64UrlTextEncoder](/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0). Ponieważ plik cookie jest zaszyfrowany i fragmentaryczne, pojedynczy plik cookie rozmiar limit w ASP.NET Core 1.x nie ma zastosowania. Ponieważ kompresja zaszyfrowanych danych może prowadzić do problemów z bezpieczeństwem takich jak dane pliku cookie nie jest skompresowany [ataki CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) i [naruszenia](https://wikipedia.org/wiki/BREACH_(security_exploit)) ataków. Aby uzyskać więcej informacji o dostawcy TempData na podstawie plików cookie, zobacz [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -117,9 +117,9 @@ Buforowanie jest wydajny sposób przechowywania i pobierania danych. Można kont
 
 `Microsoft.AspNetCore.Session` Pakietu udostępnia oprogramowanie pośredniczące do zarządzania stanem sesji. Aby włączyć sesji oprogramowanie pośredniczące, `Startup` musi zawierać:
 
-- Żadnego z [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) pamięci podręcznej pamięci. `IDistributedCache` Implementacji jest używany jako magazynu zapasowego dla sesji.
-- [AddSession](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions#Microsoft_Extensions_DependencyInjection_SessionServiceCollectionExtensions_AddSession_Microsoft_Extensions_DependencyInjection_IServiceCollection_) wywołać, co wymaga pakietu NuGet "Microsoft.AspNetCore.Session".
-- [UseSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_) wywołania.
+- Żadnego z [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) pamięci podręcznej pamięci. `IDistributedCache` Implementacji jest używany jako magazynu zapasowego dla sesji.
+- [AddSession](/dotnet/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions#Microsoft_Extensions_DependencyInjection_SessionServiceCollectionExtensions_AddSession_Microsoft_Extensions_DependencyInjection_IServiceCollection_) wywołać, co wymaga pakietu NuGet "Microsoft.AspNetCore.Session".
+- [UseSession](/dotnet/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_) wywołania.
 
 Poniższy kod przedstawia, jak skonfigurować dostawcę sesji w pamięci.
 
@@ -138,9 +138,9 @@ Jeśli próbujesz utworzyć nowy `Session` (to znaczy, że pliki cookie sesji ni
 
 ### <a name="loading-session-asynchronously"></a>Ładowany asynchronicznie sesji 
 
-Domyślny dostawca sesji w ASP.NET Core ładuje rekordu sesji z podstawową [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) magazynu asynchronicznie tylko wtedy, gdy [ISession.LoadAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession#Microsoft_AspNetCore_Http_ISession_LoadAsync) metoda jawnie jest wywoływana przed  `TryGetValue`, `Set`, lub `Remove` metody. Jeśli `LoadAsync` nie jest wywoływany jako pierwszy, odpowiadającego rekordu sesji jest ładowany synchronicznie, które mogą potencjalnie wpłynąć na możliwość skalowania aplikacji.
+Domyślny dostawca sesji w ASP.NET Core ładuje rekordu sesji z podstawową [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) magazynu asynchronicznie tylko wtedy, gdy [ISession.LoadAsync](/dotnet/api/microsoft.aspnetcore.http.isession#Microsoft_AspNetCore_Http_ISession_LoadAsync) metoda jawnie jest wywoływana przed  `TryGetValue`, `Set`, lub `Remove` metody. Jeśli `LoadAsync` nie jest wywoływany jako pierwszy, odpowiadającego rekordu sesji jest ładowany synchronicznie, które mogą potencjalnie wpłynąć na możliwość skalowania aplikacji.
 
-Aby wymusić ten wzorzec aplikacji, zawijać [DistributedSessionStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsessionstore) i [DistributedSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsession) implementacje wersje zgłosić wyjątek, jeśli `LoadAsync` — metoda nie jest wywoływana przed `TryGetValue`, `Set`, lub `Remove`. Zarejestruj opakowana wersje w kontenerze usług.
+Aby wymusić ten wzorzec aplikacji, zawijać [DistributedSessionStore](/dotnet/api/microsoft.aspnetcore.session.distributedsessionstore) i [DistributedSession](/dotnet/api/microsoft.aspnetcore.session.distributedsession) implementacje wersje zgłosić wyjątek, jeśli `LoadAsync` — metoda nie jest wywoływana przed `TryGetValue`, `Set`, lub `Remove`. Zarejestruj opakowana wersje w kontenerze usług.
 
 ### <a name="implementation-details"></a>Szczegóły implementacji
 
@@ -161,7 +161,7 @@ Ponieważ `Session` jest *— blokowanie*, jeśli dwa żądania zarówno próbę
 
 ### <a name="setting-and-getting-session-values"></a>Ustawianie i pobieranie wartości sesji
 
-Sesja jest dostępny za pośrednictwem `Session` właściwość `HttpContext`. Ta właściwość jest [ISession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession) implementacji.
+Sesja jest dostępny za pośrednictwem `Session` właściwość `HttpContext`. Ta właściwość jest [ISession](/dotnet/api/microsoft.aspnetcore.http.isession) implementacji.
 
 W poniższym przykładzie pokazano, ustawiania i pobierania int i ciąg:
 

@@ -11,15 +11,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 9fca43e809720c22d87b963925bc009dc6c51831
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.openlocfilehash: 46050f4bbd6ae821c03d92c8750e839d491328cd
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>Tworzenie składnika Web API platformy ASP.NET Core i programu Visual Studio dla komputerów Mac
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Wasson Jan](https://github.com/mikewasson)
+
+::: moniker range="= aspnetcore-2.1"
+[!INCLUDE[](~/includes/2.1.md)]
+::: moniker-end
 
 W tym samouczku kompilacji interfejsu API sieci web do zarządzania listę elementów "do wykonania". Nie jest zbudowana w Interfejsie użytkownika.
 
@@ -132,12 +136,12 @@ Dodamy `Create`, `Update`, i `Delete` metody kontrolera. Te metody są odmiany m
 ::: moniker range="<= aspnetcore-2.0"
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Powyższa metoda odpowiada HTTP POST wskazywany przez [[HttpPost]](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) atrybutu. [[FromBody]](/aspnet/core/api/microsoft.aspnetcore.mvc.frombodyattribute) atrybut informuje MVC, aby uzyskać wartość elementu zadań do wykonania z treści żądania HTTP.
+Powyższa metoda odpowiada HTTP POST wskazywany przez [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) atrybutu. [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) atrybut informuje MVC, aby uzyskać wartość elementu zadań do wykonania z treści żądania HTTP.
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Powyższa metoda odpowiada HTTP POST wskazywany przez [[HttpPost]](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) atrybutu. MVC pobiera wartość elementu zadań do wykonania z treści żądania HTTP.
+Powyższa metoda odpowiada HTTP POST wskazywany przez [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) atrybutu. MVC pobiera wartość elementu zadań do wykonania z treści żądania HTTP.
 ::: moniker-end
 
 `CreatedAtRoute` Metoda zwraca odpowiedź 201. Jest standardowe odpowiedzi dla metody POST protokołu HTTP, która tworzy nowy zasób na serwerze. `CreatedAtRoute` również dodaje do odpowiedzi nagłówek lokalizacji. Nagłówek lokalizacji Określa identyfikator URI elementu nowo utworzone zadanie do wykonania. Zobacz [10.2.2 201 utworzony](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/google-logins
-ms.openlocfilehash: ab49eb1c45d69ff918b25190d7b94a105ff13972
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aba12a94a573db35eadaa6a38f2fcf074b7b64c2
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Ustawienia logowania zewnętrznego Google w ASP.NET Core
 
@@ -122,7 +122,7 @@ app.UseGoogleAuthentication(new GoogleOptions()
 ```
 
 * * *
-Zobacz [GoogleOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.googleoptions) dokumentacja interfejsu API, aby uzyskać więcej informacji na temat opcji konfiguracji obsługiwanych przez uwierzytelniania serwisu Google. To może być używane do żądania różne informacje o użytkowniku.
+Zobacz [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) dokumentacja interfejsu API, aby uzyskać więcej informacji na temat opcji konfiguracji obsługiwanych przez uwierzytelniania serwisu Google. To może być używane do żądania różne informacje o użytkowniku.
 
 ## <a name="sign-in-with-google"></a>Zaloguj się przy użyciu usługi Google
 

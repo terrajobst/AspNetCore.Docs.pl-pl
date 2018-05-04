@@ -73,7 +73,7 @@ Należy podjąć ich nieco inne pozwala zobaczyć, które fragmentem kodu zmieni
 
 Zapisz zmiany i przejdź do `http://localhost:xxxx/HelloWorld`. Należy zauważyć, że tytuł przeglądarki, nagłówek głównej i dodatkowej nagłówki zostały zmienione. (Jeśli nie widzisz zmian w przeglądarce, użytkownik może mieć możliwość wyświetlania zawartości w pamięci podręcznej. Naciśnij klawisz Ctrl + F5 w przeglądarce, aby wymusić odpowiedzi z serwera do załadowania.) Tytuł przeglądarki jest tworzony z `ViewData["Title"]` ustawiliśmy *Index.cshtml* wyświetlić szablonu i dodatkowych "-Movie App" dodane w pliku układu.
 
-Należy również zauważyć, jak zawartości w *Index.cshtml* Wyświetl szablon został scalony z *Views/Shared/_Layout.cshtml* szablon widoku i pojedynczą odpowiedź HTML był wysyłany do przeglądarki. Szablony układu ułatwiają naprawdę wprowadzić zmiany, które są stosowane dla wszystkich stron w aplikacji. Aby dowiedzieć się więcej, zobacz [układu](../../mvc/views/layout.md).
+Należy również zauważyć, jak zawartości w *Index.cshtml* Wyświetl szablon został scalony z *Views/Shared/_Layout.cshtml* szablon widoku i pojedynczą odpowiedź HTML był wysyłany do przeglądarki. Szablony układu ułatwiają naprawdę wprowadzić zmiany, które są stosowane dla wszystkich stron w aplikacji. Aby dowiedzieć się więcej, zobacz [układu](xref:mvc/views/layout).
 
 ![Widok listy filmów](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
 

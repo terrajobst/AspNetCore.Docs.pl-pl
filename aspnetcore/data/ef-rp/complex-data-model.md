@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: bf643cab3b82a9e2138403c6c61d1c15c85abfbd
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 2cec45afbf08e5dd379a54e780e4218bfc86d13f
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - Model danych — 5 8
 
@@ -44,14 +44,14 @@ Aktualizacja *Models/Student.cs* z następującymi wyróżniony kod:
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-[DataType](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) atrybut określa typ danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych. W tym przypadku powinien zostać wyświetlony tylko data nie daty i godziny. [Wyliczenie DataType](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takie jak data, czas, numer telefonu, waluty, EmailAddress itp. `DataType` Atrybut można również włączyć automatycznie udostępnić funkcji specyficznych dla typu aplikacji. Na przykład:
+[DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) atrybut określa typ danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych. W tym przypadku powinien zostać wyświetlony tylko data nie daty i godziny. [Wyliczenie DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) zawiera wiele typów danych, takie jak data, czas, numer telefonu, waluty, EmailAddress itp. `DataType` Atrybut można również włączyć automatycznie udostępnić funkcji specyficznych dla typu aplikacji. Na przykład:
 
 * `mailto:` Link jest tworzony automatycznie dla `DataType.EmailAddress`.
 * Selektor Data jest dostępne w celu `DataType.Date` w większości przeglądarek.
 
 `DataType` HTML 5 emituje atrybut `data-` atrybutów (dash wyraźnym danych), które korzystać z przeglądarki HTML 5. `DataType` Atrybutów nie mają funkcje sprawdzania poprawności.
 
-`DataType.Date` nie określono format daty, która jest wyświetlana. Domyślnie pole daty są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
+`DataType.Date` nie określono format daty, która jest wyświetlana. Domyślnie pole daty są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](xref:fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
 
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 
@@ -74,13 +74,13 @@ Uruchom aplikację. Przejdź do strony indeksu studenta. Nie są wyświetlane go
 
 ### <a name="the-stringlength-attribute"></a>Atrybut StringLength
 
-Atrybuty można określić reguły sprawdzania poprawności danych i komunikatów o błędach weryfikacji. [StringLength](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) atrybut określa minimalną i maksymalną długość znaki, które są dozwolone w polu danych. `StringLength` Atrybut udostępnia również weryfikację po stronie klienta i po stronie serwera. Wartość minimalna nie ma wpływu na schemat bazy danych.
+Atrybuty można określić reguły sprawdzania poprawności danych i komunikatów o błędach weryfikacji. [StringLength](/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) atrybut określa minimalną i maksymalną długość znaki, które są dozwolone w polu danych. `StringLength` Atrybut udostępnia również weryfikację po stronie klienta i po stronie serwera. Wartość minimalna nie ma wpływu na schemat bazy danych.
 
 Aktualizacja `Student` modelu z następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
-Poprzedni kod ogranicza nazwy do nie więcej niż 50 znaków. `StringLength` Atrybutu nie uniemożliwić wprowadzanie biały znak dla nazwy użytkownika. [Wyrażenia regularnego](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) atrybut jest używany, aby zastosować ograniczenia do danych wejściowych. Na przykład następujący kod wymaga pierwszego znaku się wielkie litery i pozostałych znaków jako alfabetycznej:
+Poprzedni kod ogranicza nazwy do nie więcej niż 50 znaków. `StringLength` Atrybutu nie uniemożliwić wprowadzanie biały znak dla nazwy użytkownika. [Wyrażenia regularnego](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) atrybut jest używany, aby zastosować ograniczenia do danych wejściowych. Na przykład następujący kod wymaga pierwszego znaku się wielkie litery i pozostałych znaków jako alfabetycznej:
 
 ```csharp
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]

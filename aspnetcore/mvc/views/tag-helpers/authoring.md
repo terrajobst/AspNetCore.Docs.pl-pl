@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: dce7668d06bd810f12bdb763143a003bee49e8f8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 85809a0f7bfe0adcf535c2be7f5b77e8abd947fd
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Autor pomocników tagów w platformy ASP.NET Core
 
@@ -92,8 +92,6 @@ Aby dodać pomocnika tagów do widoku, używając FQN, należy najpierw dodać F
    [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
 
 4. Uruchom aplikację i użyj ulubionej przeglądarce, aby wyświetlić źródło HTML, aby zweryfikować tagi poczty e-mail są zastępowane znacznika zakotwiczenia (na przykład `<a>Support</a>`). *Pomocy technicznej* i *Marketing* są renderowane jako łącza, ale nie mają `href` atrybutu w celu zapewnienia ich funkcjonalności. Firma Microsoft będzie rozwiązać ten problem w następnej sekcji.
-
-Uwaga: Jak tagów HTML i atrybutów, tagi, nazwy klas i atrybutów w Razor i C# nie jest rozróżniana.
 
 ## <a name="setattribute-and-setcontent"></a>SetAttribute i SetContent
 

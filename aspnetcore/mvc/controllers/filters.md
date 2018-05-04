@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: 980c7f595e8276ed58e15f296dba69663384168d
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 24e754daa68d5247fa444e87ba733891c908d32c
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry platformy ASP.NET Core
 
@@ -283,13 +283,13 @@ Oto przykładowy filtr akcji:
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet_ActionFilter)]
 
-[ActionExecutingContext](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.filters.actionexecutingcontext) zapewnia następujące właściwości:
+[ActionExecutingContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionexecutingcontext) zapewnia następujące właściwości:
 
 * `ActionArguments` — umożliwia manipulowanie wejść do akcji.
 * `Controller` — umożliwia manipulowanie wystąpienie kontrolera. 
 * `Result` — to ustawienie short-circuits wykonywanie metody akcji i filtry akcji kolejne. Zgłaszanie wyjątku powoduje również uniemożliwia wykonanie metody akcji i kolejne filtrów, ale jest traktowana jako błąd zamiast pomyślnego wyniku.
 
-[ActionExecutedContext](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.filters.actionexecutedcontext) zapewnia `Controller` i `Result` oraz następujące właściwości:
+[ActionExecutedContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionexecutedcontext) zapewnia `Controller` i `Result` oraz następujące właściwości:
 
 * `Canceled` -będzie mieć wartość true, jeśli zwartym został wykonanie akcji przez inny filtr.
 * `Exception` -mieć wartości null, jeśli akcji lub filtr akcji kolejnych zwrócił wyjątek. Ustawienie tej właściwości na wartość null, efektywnie "handles" Wystąpił wyjątek, i `Result` będą wykonywane tak, jakby jego zwykle zwróconych przez metodę akcji.

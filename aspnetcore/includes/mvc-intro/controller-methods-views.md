@@ -1,9 +1,9 @@
 
-Omówione zostaną następujące czynności [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) w następnym samouczku. [Wyświetlić](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) Określa atrybut, co ma być wyświetlany dla nazwy pola (w tym przypadku "Data wydania" zamiast "ReleaseDate"). [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) atrybut określa typ danych (Data), co nie jest wyświetlane w polu informacje o godzinie.
+Omówione zostaną następujące czynności [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) w następnym samouczku. [Wyświetlić](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) Określa atrybut, co ma być wyświetlany dla nazwy pola (w tym przypadku "Data wydania" zamiast "ReleaseDate"). [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) atrybut określa typ danych (Data), co nie jest wyświetlane w polu informacje o godzinie.
 
 Przejdź do `Movies` kontrolera i umieść wskaźnik myszy nad **Edytuj** łącze, aby wyświetlić docelowy adres URL.
 
-![Okna przeglądarki z myszą łącza edycji i link jest wyświetlany adres Url http://localhost:1234/filmów/Edit/5](../../tutorials/first-mvc-app/controller-methods-views/_static/edit7.png)
+![Okno przeglądarki z myszą łącza edycji i łącze adres Url http://localhost:1234/Movies/Edit/5 jest wyświetlany](../../tutorials/first-mvc-app/controller-methods-views/_static/edit7.png)
 
 **Edytuj**, **szczegóły**, i **usunąć** łącza są generowane przez pomocnika Tag kotwicy MVC Core w *Views/Movies/Index.cshtml* pliku.
 
@@ -35,7 +35,7 @@ Poniższy kod przedstawia `HTTP POST Edit` metodę, która przetwarza wartości 
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
-`[Bind]` Atrybut jest jednym ze sposobów ochrony przed [zbyt księgowej](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Powinna zawierać tylko właściwości w `[Bind]` atrybut, który chcesz zmienić. Zobacz [chronić kontroler z nadmiernego publikowanie](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) Aby uzyskać więcej informacji. [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) zapewnić alternatywne podejście, aby uniknąć nadmiernego publikowanie.
+`[Bind]` Atrybut jest jednym ze sposobów ochrony przed [zbyt księgowej](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Powinna zawierać tylko właściwości w `[Bind]` atrybut, który chcesz zmienić. Zobacz [chronić kontroler z nadmiernego publikowanie](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) Aby uzyskać więcej informacji. [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) zapewnić alternatywne podejście, aby uniknąć nadmiernego publikowanie.
 
 Zwróć uwagę, drugi `Edit` metody akcji jest poprzedzony `[HttpPost]` atrybutu.
 
@@ -89,7 +89,7 @@ Wszystkie `HttpGet` metod w kontrolerze filmu wykonaj podobnego wzorca. Otrzymuj
 * [Wprowadzenie do pomocników tagów](xref:mvc/views/tag-helpers/intro)
 * [Autor pomocników tagów](xref:mvc/views/tag-helpers/authoring)
 * [Ochrona przed fałszerstwem żądań](xref:security/anti-request-forgery)
-* Ochrona kontroler z [zbyt księgowej](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
+* Ochrona kontroler z [zbyt księgowej](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
 * [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Pomocnik Tag formularza](xref:mvc/views/working-with-forms)
 * [Pomocnik tagu wejściowego](xref:mvc/views/working-with-forms)

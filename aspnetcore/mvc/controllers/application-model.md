@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 9fbf81b382b76c108769204b4003f6e9f1b47d2c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: f61d04f6cf0aa054566d9f48a030cf268f2ba72a
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Praca z model aplikacji w programie ASP.NET Core
 
@@ -39,18 +39,18 @@ Każdy poziom modelu ma dostęp do wspólnego `Properties` kolekcji i niższe po
 
 ### <a name="iapplicationmodelprovider"></a>IApplicationModelProvider
 
-Platformy ASP.NET Core MVC ładuje modelu aplikacji przy użyciu wzorca dostawcy, zdefiniowane przez [IApplicationModelProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelprovider) interfejsu. W tej sekcji opisano niektóre szczegóły wewnętrznej implementacji tej funkcji dostawcy. To jest temat zaawansowany — większość aplikacji, które wykorzystują model aplikacji należy to zrobić, Praca z Konwencji.
+Platformy ASP.NET Core MVC ładuje modelu aplikacji przy użyciu wzorca dostawcy, zdefiniowane przez [IApplicationModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelprovider) interfejsu. W tej sekcji opisano niektóre szczegóły wewnętrznej implementacji tej funkcji dostawcy. To jest temat zaawansowany — większość aplikacji, które wykorzystują model aplikacji należy to zrobić, Praca z Konwencji.
 
 Implementacje `IApplicationModelProvider` interfejsu "wrap", z każdego wywołania implementacji `OnProvidersExecuting` rosnąco na podstawie jego `Order` właściwości. `OnProvidersExecuted` Wywoływana jest metoda następnie w odwrotnej kolejności. Wielu dostawców są zdefiniowane w ramach:
 
 Pierwszy (`Order=-1000`):
 
-* [`DefaultApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.internal.defaultapplicationmodelprovider)
+* [`DefaultApplicationModelProvider`](/dotnet/api/microsoft.aspnetcore.mvc.internal.defaultapplicationmodelprovider)
 
 Następnie (`Order=-990`):
 
-* [`AuthorizationApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.internal.authorizationapplicationmodelprovider)
-* [`CorsApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
+* [`AuthorizationApplicationModelProvider`](/dotnet/api/microsoft.aspnetcore.mvc.internal.authorizationapplicationmodelprovider)
+* [`CorsApplicationModelProvider`](/dotnet/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
 
 > [!NOTE]
 > Kolejność, w których dwóch dostawców z taką samą wartość `Order` są nazywane jest niezdefiniowana i dlatego nie powinny być stosowane.
@@ -66,7 +66,7 @@ Następnie (`Order=-990`):
 * Dodawanie parametrów metody akcji w kontekście
 * Stosowanie trasy i inne atrybuty
 
-Niektóre wbudowane zachowań implementowanych przez `DefaultApplicationModelProvider`. Ten dostawca jest odpowiedzialny za konstruowanie [ `ControllerModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), który z kolei odwołuje się do [ `ActionModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [ `PropertyModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), i [ `ParameterModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel) wystąpień. `DefaultApplicationModelProvider` Klasa jest szczegółów implementacji wewnętrzną strukturę i zmieni się w przyszłości. 
+Niektóre wbudowane zachowań implementowanych przez `DefaultApplicationModelProvider`. Ten dostawca jest odpowiedzialny za konstruowanie [ `ControllerModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), który z kolei odwołuje się do [ `ActionModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [ `PropertyModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), i [ `ParameterModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel) wystąpień. `DefaultApplicationModelProvider` Klasa jest szczegółów implementacji wewnętrzną strukturę i zmieni się w przyszłości. 
 
 `AuthorizationApplicationModelProvider` Jest odpowiedzialny za stosowanie zachowania związanego z `AuthorizeFilter` i `AllowAnonymousFilter` atrybutów. [Dowiedz się więcej o tych atrybutów](xref:security/authorization/simple).
 
@@ -78,10 +78,10 @@ Model aplikacji definiuje abstrakcje Konwencji, które zapewniają prostszy spos
 
 Dostępne są następujące konwencje:
 
-* [`IApplicationModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelconvention)
-* [`IControllerModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.icontrollermodelconvention)
-* [`IActionModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iactionmodelconvention)
-* [`IParameterModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iparametermodelconvention)
+* [`IApplicationModelConvention`](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelconvention)
+* [`IControllerModelConvention`](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.icontrollermodelconvention)
+* [`IActionModelConvention`](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iactionmodelconvention)
+* [`IParameterModelConvention`](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iparametermodelconvention)
 
 Konwencje są stosowane przez dodanie ich do opcji MVC lub implementując `Attribute`s i zastosowaniu ich do kontrolerów, akcji lub parametry akcji (podobnie jak [ `Filters` ](xref:mvc/controllers/filters)). W przeciwieństwie do filtrów konwencje są wykonywane tylko podczas uruchamiania aplikacji, nie jako część każdego żądania.
 
@@ -144,7 +144,7 @@ Ten atrybut jest stosowany do metody akcji w `HomeController`:
 Mimo że nazwa metody jest `SomeName`, atrybut zastępuje przy użyciu nazwy metody z Konwencją MVC i zastępuje nazwę akcji z `MyCoolAction`. W związku z tym trasy używany w celu osiągnięcia tej akcji jest `/Home/MyCoolAction`.
 
 > [!NOTE]
-> W tym przykładzie jest zasadniczo taki sam, jak za pomocą wbudowanych [Nazwa akcji](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.actionnameattribute) atrybutu.
+> W tym przykładzie jest zasadniczo taki sam, jak za pomocą wbudowanych [Nazwa akcji](/dotnet/api/microsoft.aspnetcore.mvc.actionnameattribute) atrybutu.
 
 ### <a name="sample-custom-routing-convention"></a>Przykład: Niestandardowy Routing Konwencji
 
@@ -178,10 +178,10 @@ services.AddMvc().AddWebApiConventions();
 
 Konwencje pochodzącymi z podkładką są stosowane tylko do elementów aplikacji, które miały określonych atrybutów. Czterech atrybutów umożliwiają określanie kontrolerów powinny mieć ich konwencje zmodyfikowane przez konwencje podkładki:
 
-* [UseWebApiActionConventionsAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiactionconventionsattribute)
-* [UseWebApiOverloadingAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapioverloadingattribute)
-* [UseWebApiParameterConventionsAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiparameterconventionsattribute)
-* [UseWebApiRoutesAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiroutesattribute)
+* [UseWebApiActionConventionsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiactionconventionsattribute)
+* [UseWebApiOverloadingAttribute](/dotnet/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapioverloadingattribute)
+* [UseWebApiParameterConventionsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiparameterconventionsattribute)
+* [UseWebApiRoutesAttribute](/dotnet/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiroutesattribute)
 
 ### <a name="action-conventions"></a>Konwencje akcji
 
@@ -203,7 +203,7 @@ Oprócz zestawie Konwencji, pakiet zgodności zawiera `System.Web.Http.ApiContro
 
 ## <a name="using-apiexplorer-to-document-your-app"></a>Przy użyciu ApiExplorer dokumentów aplikacji
 
-Udostępnia model aplikacji [ `ApiExplorer` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.apiexplorermodel) właściwości na każdym poziomie, który może służyć do przechodzenia struktury aplikacji. Może to być używane do [generowania strony pomocy dla interfejsów API sieci Web za pomocą takich narzędzi jak Swagger](https://docs.microsoft.com/aspnet/core/tutorials/web-api-help-pages-using-swagger). `ApiExplorer` Ujawnia właściwości `IsVisible` właściwości, który można ustawić, aby określić części modelu aplikacji, które powinny zostać ujawnione. Można skonfigurować to ustawienie za pomocą Konwencji:
+Udostępnia model aplikacji [ `ApiExplorer` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.apiexplorermodel) właściwości na każdym poziomie, który może służyć do przechodzenia struktury aplikacji. Może to być używane do [generowania strony pomocy dla interfejsów API sieci Web za pomocą takich narzędzi jak Swagger](xref:tutorials/web-api-help-pages-using-swagger). `ApiExplorer` Ujawnia właściwości `IsVisible` właściwości, który można ustawić, aby określić części modelu aplikacji, które powinny zostać ujawnione. Można skonfigurować to ustawienie za pomocą Konwencji:
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/EnableApiExplorerApplicationConvention.cs)]
 

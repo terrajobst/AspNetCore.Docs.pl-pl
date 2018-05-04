@@ -12,7 +12,7 @@ Uruchom aplikację w trybie bez debugowania i Dołącz "HelloWorld" do ścieżki
 
 ![Wyświetlanie odpowiedzi aplikacji tego okna przeglądarki jest Mój Akcja domyślna](../../tutorials/first-mvc-app/adding-controller/_static/hell1.png)
 
-MVC wywołuje klasy kontrolera (i metod akcji w nich), w zależności od przychodzącego adresu URL. Wartość domyślna [logiki routingu adresu URL](../../mvc/controllers/routing.md) używany przez MVC używa formatu to w celu określenia, kodu do wywołania:
+MVC wywołuje klasy kontrolera (i metod akcji w nich), w zależności od przychodzącego adresu URL. Wartość domyślna [logiki routingu adresu URL](xref:mvc/controllers/routing) używany przez MVC używa formatu to w celu określenia, kodu do wywołania:
 
 `/[Controller]/[ActionName]/[Parameters]`
 
@@ -36,13 +36,13 @@ Poprzedni kod:
 
 * Aby wskazać, że jest używana funkcja opcjonalny parametr C# `numTimes` parametr ma domyślnie wartość 1, jeśli nie przekazano żadnej wartości tego parametru.
 * Używa`HtmlEncoder.Default.Encode` do ochrony aplikacji przed złośliwymi danych wejściowych (to znaczy JavaScript). 
-* Używa [ciągi interpolowane](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/keywords/interpolated-strings).
+* Używa [ciągi interpolowane](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings).
 
 Uruchom aplikację i przejdź do:
 
    `http://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-(Zamiast xxxx numer portu). Możesz spróbować różnych wartości `name` i `numtimes` w adresie URL. MVC [modelu powiązania](../../mvc/models/model-binding.md) system automatycznie mapuje parametry nazwane z ciągu zapytania w pasku adresu w parametrach w metodę. Zobacz [powiązanie modelu](../../mvc/models/model-binding.md) Aby uzyskać więcej informacji.
+(Zamiast xxxx numer portu). Możesz spróbować różnych wartości `name` i `numtimes` w adresie URL. MVC [modelu powiązania](xref:mvc/models/model-binding) system automatycznie mapuje parametry nazwane z ciągu zapytania w pasku adresu w parametrach w metodę. Zobacz [powiązanie modelu](xref:mvc/models/model-binding) Aby uzyskać więcej informacji.
 
 ![Okno przeglądarki, przedstawiające odpowiedzi aplikacji Hello Rick jest NumTimes: 4](../../tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 

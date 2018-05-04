@@ -4,7 +4,7 @@ przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym samouczku doda nowe pole do `Movies` tabeli. Firma Microsoft będzie porzucić bazy danych i utworzyć nową, możemy zmiany schematu (Dodaj nowe pole). Ten przepływ pracy działa dobrze w rozwoju, gdy nie mamy żadnych danych produkcyjnych perserve.
 
-Po wdrożeniu aplikacji i dane potrzebne do perserve, nie można usunąć z bazy danych, jeśli należy zmienić schemat. Entity Framework [migracje Code First](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) można aktualizować schematu i migrację bazy danych bez utraty danych. Migracje jest popularnych funkcji podczas używania programu SQL Server, ale SQLlite nie obsługuje wielu operacji schematu migracji, dlatego tylko bardzo prosty są możliwe do migracji. Zobacz [ograniczenia SQLite](https://docs.microsoft.com/ef/core/providers/sqlite/limitations) Aby uzyskać więcej informacji.
+Po wdrożeniu aplikacji i dane potrzebne do perserve, nie można usunąć z bazy danych, jeśli należy zmienić schemat. Entity Framework [migracje Code First](/ef/core/get-started/aspnetcore/new-db) można aktualizować schematu i migrację bazy danych bez utraty danych. Migracje jest popularnych funkcji podczas używania programu SQL Server, ale SQLlite nie obsługuje wielu operacji schematu migracji, dlatego tylko bardzo prosty są możliwe do migracji. Zobacz [ograniczenia SQLite](/ef/core/providers/sqlite/limitations) Aby uzyskać więcej informacji.
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>Dodawanie właściwości klasyfikacji do modelu film
 

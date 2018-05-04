@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: e02f3a75269e5e4a4794d1979d3a5add21fe38be
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cbdef871ffc3269e3118d23ed20306a71b9df030
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>Przenieść programów obsługi HTTP i modułów platformy ASP.NET Core oprogramowania pośredniczącego
 
 Przez [Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
-W tym artykule pokazano, jak przeprowadzić migrację istniejących ASP.NET [moduły HTTP i programów obsługi system.webserver](https://docs.microsoft.com/iis/configuration/system.webserver/) do platformy ASP.NET Core [oprogramowanie pośredniczące](xref:fundamentals/middleware/index).
+W tym artykule pokazano, jak przeprowadzić migrację istniejących ASP.NET [moduły HTTP i programów obsługi system.webserver](/iis/configuration/system.webserver/) do platformy ASP.NET Core [oprogramowanie pośredniczące](xref:fundamentals/middleware/index).
 
 ## <a name="modules-and-handlers-revisited"></a>Moduły i uruchomić ponownie programów obsługi
 
@@ -29,15 +29,15 @@ Przed przystąpieniem do platformy ASP.NET Core oprogramowanie pośredniczące, 
 
 **Programy obsługi są:**
 
-   * Klasy, które implementują [IHttpHandler](https://docs.microsoft.com/dotnet/api/system.web.ihttphandler)
+   * Klasy, które implementują [IHttpHandler](/dotnet/api/system.web.ihttphandler)
 
    * Umożliwia obsługę żądania za pomocą podanej nazwy pliku lub rozszerzenie, takich jak *.report*
 
-   * [Skonfigurowane](https://docs.microsoft.com//iis/configuration/system.webserver/handlers/) w *pliku Web.config*
+   * [Skonfigurowane](/iis/configuration/system.webserver/handlers/) w *pliku Web.config*
 
 **Moduły są:**
 
-   * Klasy, które implementują [IHttpModule](https://docs.microsoft.com/dotnet/api/system.web.ihttpmodule)
+   * Klasy, które implementują [IHttpModule](/dotnet/api/system.web.ihttpmodule)
 
    * Wywoływane dla każdego żądania
 
@@ -45,11 +45,11 @@ Przed przystąpieniem do platformy ASP.NET Core oprogramowanie pośredniczące, 
 
    * Można dodać do odpowiedzi HTTP lub utworzyć własne
 
-   * [Skonfigurowane](https://docs.microsoft.com//iis/configuration/system.webserver/modules/) w *pliku Web.config*
+   * [Skonfigurowane](/iis/configuration/system.webserver/modules/) w *pliku Web.config*
 
 **Kolejność, w którym modułów przetwarzania przychodzących żądań jest określany przez:**
 
-   1. [Cyklu życia aplikacji](https://msdn.microsoft.com/library/ms227673.aspx), która jest zdarzenia serii wywoływane przez platformę ASP.NET: [powstaniem zdarzenia BeginRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.authenticaterequest)itp. Każdy moduł można utworzyć programu obsługi dla co najmniej jednego zdarzenia.
+   1. [Cyklu życia aplikacji](https://msdn.microsoft.com/library/ms227673.aspx), która jest zdarzenia serii wywoływane przez platformę ASP.NET: [powstaniem zdarzenia BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest)itp. Każdy moduł można utworzyć programu obsługi dla co najmniej jednego zdarzenia.
 
    2. Dla tego samego zdarzenia kolejności, w której jest skonfigurowany w *Web.config*.
 
@@ -243,9 +243,9 @@ Wcześniej przedstawiono który `Invoke` metoda w oprogramowania pośredniczące
 public async Task Invoke(HttpContext context)
 ```
 
-`HttpContext` znacznie została zmieniona w ASP.NET Core. W tej sekcji przedstawiono sposób tłumaczenia najczęściej używane właściwości [System.Web.HttpContext](https://docs.microsoft.com/dotnet/api/system.web.httpcontext) do nowego `Microsoft.AspNetCore.Http.HttpContext`.
+`HttpContext` znacznie została zmieniona w ASP.NET Core. W tej sekcji przedstawiono sposób tłumaczenia najczęściej używane właściwości [System.Web.HttpContext](/dotnet/api/system.web.httpcontext) do nowego `Microsoft.AspNetCore.Http.HttpContext`.
 
-### <a name="httpcontext"></a>HttpContext
+### <a name="httpcontext"></a>Element HttpContext
 
 **HttpContext.Items** umożliwia to:
 
@@ -283,7 +283,7 @@ Zawiera unikatowy identyfikator dla każdego żądania. Bardzo przydatny w dzien
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Cookies)]
 
-**HttpContext.Request.RequestContext.RouteData** translates to:
+**HttpContext.Request.RequestContext.RouteData** umożliwia to:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Route)]
 

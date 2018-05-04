@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/roles
-ms.openlocfilehash: 7bc7ed35ef0496e855b024f92c915eb85b55511b
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: f1e7209cae1e2a58ad536547d655dd744ca0d3f7
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="role-based-authorization-in-aspnet-core"></a>Autoryzacji opartej na rolach w ASP.NET Core
 
 <a name="security-authorization-role-based"></a>
 
-Po utworzeniu tożsamości może należeć do jednej lub więcej ról. Na przykład Tracy może należeć do ról administratora i użytkownika, przy jednoczesnym Scott może należeć tylko do roli użytkownika. Jak te role są tworzone i zarządzane zależy od magazynu zapasowego procesu autoryzacji. Role są widoczne dla projektanta za pośrednictwem [IsInRole](https://docs.microsoft.com/dotnet/api/system.security.principal.genericprincipal.isinrole) metoda [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) klasy.
+Po utworzeniu tożsamości może należeć do jednej lub więcej ról. Na przykład Tracy może należeć do ról administratora i użytkownika, przy jednoczesnym Scott może należeć tylko do roli użytkownika. Jak te role są tworzone i zarządzane zależy od magazynu zapasowego procesu autoryzacji. Role są widoczne dla projektanta za pośrednictwem [IsInRole](/dotnet/api/system.security.principal.genericprincipal.isinrole) metoda [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) klasy.
 
 ## <a name="adding-role-checks"></a>Dodawanie ról kontroli
 

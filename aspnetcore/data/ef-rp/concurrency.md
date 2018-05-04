@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 1a5d1bdcb20da8270a0605c3937af2a8700a4e7f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b6a8354bf438895f5188290013afefd883c4dd0a
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 en-us /
 
@@ -75,20 +75,20 @@ Optymistycznej współbieżności zawiera następujące opcje:
 
 Jeśli właściwość została skonfigurowana jako [tokenu współbieżności](https://docs.microsoft.com/ef/core/modeling/concurrency):
 
-* Podstawowe EF sprawdza, czy właściwości nie został zmodyfikowany po jego pobrania. Sprawdzanie jest wykonywane podczas [SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) lub [SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) jest wywoływana.
-* Jeśli właściwość została zmieniona po pobrano, [DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) jest generowany. 
+* Podstawowe EF sprawdza, czy właściwości nie został zmodyfikowany po jego pobrania. Sprawdzanie jest wykonywane podczas [SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) lub [SaveChangesAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) jest wywoływana.
+* Jeśli właściwość została zmieniona po pobrano, [DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) jest generowany. 
 
 Model danych i bazy danych musi być skonfigurowany do obsługi zgłaszanie `DbUpdateConcurrencyException`.
 
 ### <a name="detecting-concurrency-conflicts-on-a-property"></a>Wykrywanie konfliktów współbieżności we właściwości
 
-Mogą być wykrywane konfliktom współbieżności na poziomie właściwości z [ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) atrybutu. Ten atrybut można zastosować na wiele właściwości w modelu. Aby uzyskać więcej informacji, zobacz [danych adnotacje-ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations).
+Mogą być wykrywane konfliktom współbieżności na poziomie właściwości z [ConcurrencyCheck](/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) atrybutu. Ten atrybut można zastosować na wiele właściwości w modelu. Aby uzyskać więcej informacji, zobacz [danych adnotacje-ConcurrencyCheck](/ef/core/modeling/concurrency#data-annotations).
 
 `[ConcurrencyCheck]` Atrybut nie jest używana w tym samouczku.
 
 ### <a name="detecting-concurrency-conflicts-on-a-row"></a>Wykrywanie konfliktów współbieżności na wiersz
 
-Aby wykryć konfliktom współbieżności [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) kolumny śledzenia jest dodawane do modelu.  `rowversion` :
+Aby wykryć konfliktom współbieżności [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) kolumny śledzenia jest dodawane do modelu.  `rowversion` :
 
 * Dotyczy programu SQL Server. Innych baz danych może nie zapewniać podobnych funkcji.
 * Służy do określania, czy jednostka nie ma została zmieniona, ponieważ została ona pobrana z bazy danych. 
@@ -107,7 +107,7 @@ W *Models/Department.cs*, Dodaj właściwość śledzenia o nazwie RowVersion:
 
 [!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
-[Sygnatury czasowej](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.timestampattribute) atrybut określa, czy ta kolumna jest uwzględniona w `Where` klauzuli `Update` i `Delete` poleceń. Ten atrybut jest nazywany `Timestamp` ponieważ poprzednie wersje programu SQL Server używany SQL `timestamp` — typ danych przed SQL `rowversion` zamieniony typu.
+[Sygnatury czasowej](/dotnet/api/system.componentmodel.dataannotations.timestampattribute) atrybut określa, czy ta kolumna jest uwzględniona w `Where` klauzuli `Update` i `Delete` poleceń. Ten atrybut jest nazywany `Timestamp` ponieważ poprzednie wersje programu SQL Server używany SQL `timestamp` — typ danych przed SQL `rowversion` zamieniony typu.
 
 Interfejsu API fluent można również określić właściwość śledzenia:
 
@@ -127,7 +127,7 @@ Następujący wyróżniony kod T-SQL, który sprawdza, czy dokładnie jeden wier
 
 [!code-sql[](intro/samples/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT ](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql) zwraca liczbę wierszy objętych ostatniej instrukcji. W żadnym wierszy są aktualizowane, zgłasza EF Core `DbUpdateConcurrencyException`.
+[@@ROWCOUNT ](/sql/t-sql/functions/rowcount-transact-sql) zwraca liczbę wierszy objętych ostatniej instrukcji. W żadnym wierszy są aktualizowane, zgłasza EF Core `DbUpdateConcurrencyException`.
 
 Można zauważyć, że generuje rdzeń EF T-SQL w oknie danych wyjściowych programu Visual Studio.
 
@@ -193,7 +193,7 @@ Aktualizacja *pages\departments\edit.cshtml.cs* następującym kodem:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
-Aby wykryć problem współbieżności, [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) został zaktualizowany o `rowVersion` wartości z obiektu jego pobrania. EF Core generuje polecenia aktualizacji SQL z klauzula WHERE zawiera oryginał `RowVersion` wartość. Jeśli żadne wiersze nie dotyczy polecenia aktualizacji (żadnych wierszy ma oryginalną `RowVersion` wartość), `DbUpdateConcurrencyException` wyjątku.
+Aby wykryć problem współbieżności, [OriginalValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) został zaktualizowany o `rowVersion` wartości z obiektu jego pobrania. EF Core generuje polecenia aktualizacji SQL z klauzula WHERE zawiera oryginał `RowVersion` wartość. Jeśli żadne wiersze nie dotyczy polecenia aktualizacji (żadnych wierszy ma oryginalną `RowVersion` wartość), `DbUpdateConcurrencyException` wyjątku.
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-999)]
 
@@ -305,8 +305,8 @@ Zobacz [dziedziczenia](xref:data/ef-mvc/inheritance) na temat sposobu dziedzicz�
 
 ### <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Tokeny współbieżności w EF Core](https://docs.microsoft.com/ef/core/modeling/concurrency)
-* [Obsługa współbieżności w EF Core](https://docs.microsoft.com/ef/core/saving/concurrency)
+* [Tokeny współbieżności w EF Core](/ef/core/modeling/concurrency)
+* [Obsługa współbieżności w EF Core](/ef/core/saving/concurrency)
 
 > [!div class="step-by-step"]
 > [Poprzednie](xref:data/ef-rp/update-related-data)

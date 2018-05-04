@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/action-return-types
-ms.openlocfilehash: a81d307a944bb14e7431708ffcc70eb28b1aab0d
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 88c8e61960982f405275c429087c7dd0c61abb8d
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Zwracane typy akcji kontrolera w interfejsu API platformy ASP.NET Core sieci Web
 

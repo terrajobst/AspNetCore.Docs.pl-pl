@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: 711a96b17fd41847619ade21eb643af845705c79
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: b4ac500888ce134e8f4f0d4bf16efa4e95f24c15
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Co to jest nowe w programie ASP.NET 2.0 Core
 
@@ -38,9 +38,9 @@ Aby uzyskać więcej informacji, zobacz [metapackage Microsoft.AspNetCore.All dl
 
 Aplikacje używające `Microsoft.AspNetCore.All` metapackage automatycznie korzystać z nowego magazynu środowiska uruchomieniowego .NET Core. Magazyn zawiera wszystkie zasoby środowiska uruchomieniowego potrzebne do uruchomienia aplikacji platformy ASP.NET Core 2.0. Jeśli używasz `Microsoft.AspNetCore.All` metapackage, nie zasoby, z którym związane są odwołania pakietów platformy ASP.NET Core NuGet są wdrażane w aplikacji, ponieważ są one już przechowywane na komputerze docelowym. Zasoby w magazynie środowiska uruchomieniowego są również wstępnie skompilowanym skrócić czas uruchomienia aplikacji.
 
-Aby uzyskać więcej informacji, zobacz [magazynu środowiska wykonawczego](https://docs.microsoft.com/dotnet/core/deploying/runtime-store)
+Aby uzyskać więcej informacji, zobacz [magazynu środowiska wykonawczego](/dotnet/core/deploying/runtime-store)
 
-## <a name="net-standard-20"></a>.NET Standard 2.0
+## <a name="net-standard-20"></a>.NET 2.0 standardowe
 
 Pakiety programu ASP.NET 2.0 Core docelowe .NET 2.0 standardowa. Pakiety mogą odwoływać się inne biblioteki .NET 2.0 standardowych i mogą być uruchamiane na standardowe .NET 2.0 zgodne implementacje .NET, w tym .NET Core 2.0 i .NET Framework 4.6.1. 
 

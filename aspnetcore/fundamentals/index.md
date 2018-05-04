@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: b74870c93ea0120e43931bb75f47bab19a6de201
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: d5b74e213828d1a1f7e09810e5cc72773a821dab
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET Core
 
@@ -98,6 +98,10 @@ Platformy ASP.NET Core zawiera bogaty zestaw wbudowanych oprogramowania pośredn
 [OWIN](http://owin.org)— oparte na oprogramowaniu pośredniczącym jest dostępne dla aplikacji platformy ASP.NET Core, a można pisać własne niestandardowe oprogramowania pośredniczącego.
 
 Aby uzyskać więcej informacji, zobacz [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) i [interfejsu Open Web dla platformy .NET (OWIN)](xref:fundamentals/owin).
+
+## <a name="initiate-http-requests"></a>Zainicjuj żądań HTTP
+
+Informacji o używaniu `IHttpClientFactory` dostępu `HttpClient` wystąpień do żądania HTTP, zobacz [żądań HTTP zainicjować](xref:fundamentals/http-requests).
 
 ## <a name="environments"></a>Środowisk
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: c2eae83219e8995a614b2933b1290d061f1b7869
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: a1ceb6c577c634aae7ee9c327e8e5b33e973912d
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Pamięci podręcznej w pamięci w platformy ASP.NET Core
 
@@ -26,11 +26,11 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Luo Jan](https://github
 
 Buforowanie może znacznie poprawić wydajność i skalowalność aplikacji dzięki zmniejszeniu pracy wymaganej do generowania zawartości. Buforowanie działa najlepiej z danymi, które zmieniają się rzadko. Buforowanie tworzy kopię danych, które mogą być zwrócone znacznie szybciej niż z oryginalnego źródła. Należy zapisać i przetestować aplikację, aby nigdy nie są zależne od danych z pamięci podręcznej.
 
-Platformy ASP.NET Core obsługuje kilka różnych pamięci podręcznych. Najprostsza pamięci podręcznej jest oparta na [IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache), który reprezentuje pamięć podręczną przechowywane w pamięci serwera sieci web. Aplikacje działające w farmie serwerów wielu serwerów należy upewnij się, sesje są trwałe, korzystając z pamięci podręcznej. Trwałe sesje upewnij się, że kolejne żądania w kliencie wszystkich przejść do tego samego serwera. Na przykład użycia aplikacji sieci Web Azure [Routing żądań aplikacji](https://www.iis.net/learn/extensions/planning-for-arr) (ARR), aby przekierować wszystkie kolejne żądania do tego samego serwera.
+Platformy ASP.NET Core obsługuje kilka różnych pamięci podręcznych. Najprostsza pamięci podręcznej jest oparta na [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache), który reprezentuje pamięć podręczną przechowywane w pamięci serwera sieci web. Aplikacje działające w farmie serwerów wielu serwerów należy upewnij się, sesje są trwałe, korzystając z pamięci podręcznej. Trwałe sesje upewnij się, że kolejne żądania w kliencie wszystkich przejść do tego samego serwera. Na przykład użycia aplikacji sieci Web Azure [Routing żądań aplikacji](https://www.iis.net/learn/extensions/planning-for-arr) (ARR), aby przekierować wszystkie kolejne żądania do tego samego serwera.
 
 Inne niż trwałe sesje w kolektywie serwerów sieci web wymagają [rozproszonej pamięci podręcznej](distributed.md) Aby uniknąć problemów spójności pamięci podręcznej. W przypadku niektórych aplikacji rozproszonej pamięci podręcznej może obsługiwać wyższe skalowania w poziomie niż w pamięci podręcznej. Przy użyciu rozproszonej pamięci podręcznej odciąża pamięci podręcznej procesu zewnętrznego. 
 
-`IMemoryCache` Pamięci podręcznej Wyklucz wpisy w pamięci podręcznej wykorzystanie pamięci, chyba że [pamięci podręcznej priorytet](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheitempriority) ma ustawioną wartość `CacheItemPriority.NeverRemove`. Można ustawić `CacheItemPriority` aby dopasować priorytet, z którym pamięci podręcznej wyklucza mogą elementów wykorzystanie pamięci.
+`IMemoryCache` Pamięci podręcznej Wyklucz wpisy w pamięci podręcznej wykorzystanie pamięci, chyba że [pamięci podręcznej priorytet](/dotnet/api/microsoft.extensions.caching.memory.cacheitempriority) ma ustawioną wartość `CacheItemPriority.NeverRemove`. Można ustawić `CacheItemPriority` aby dopasować priorytet, z którym pamięci podręcznej wyklucza mogą elementów wykorzystanie pamięci.
 
 Dowolny obiekt; mogą być przechowywane w pamięci podręcznej Interfejs rozproszonej pamięci podręcznej jest ograniczona do `byte[]`.
 
@@ -58,24 +58,24 @@ Zapisane w pamięci podręcznej `DateTime` wartość pozostaje w pamięci podrę
 
 ![Widok indeksu z dwóch różnych porach wyświetlane](memory/_static/time.png)
 
-Poniższy kod używa [GetOrCreate](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreate__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry___0__) i [GetOrCreateAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreateAsync__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry_System_Threading_Tasks_Task___0___) do pamięci podręcznej danych. 
+Poniższy kod używa [GetOrCreate](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreate__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry___0__) i [GetOrCreateAsync](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreateAsync__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry_System_Threading_Tasks_Task___0___) do pamięci podręcznej danych. 
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet2&highlight=3-7,14-19)]
 
-Poniższy kod wywołania [uzyskać](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Get__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_) można pobrać czasu pamięci podręcznej:
+Poniższy kod wywołania [uzyskać](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Get__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_) można pobrać czasu pamięci podręcznej:
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_gct)]
 
-Zobacz [metody IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache) i [metody CacheExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions) opis metody pamięci podręcznej.
+Zobacz [metody IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache) i [metody CacheExtensions](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) opis metody pamięci podręcznej.
 
-## <a name="using-memorycacheentryoptions"></a>Using MemoryCacheEntryOptions
+## <a name="using-memorycacheentryoptions"></a>Przy użyciu MemoryCacheEntryOptions
 
 Poniższy przykład:
 
 - Ustawia czas wygaśnięcia bezwzględne. To jest maksymalny czas, które mogą być buforowane wpis i uniemożliwia stają się zbyt stare po odnowieniu stale wygaśniecie elementu.
 - Ustawia zmienną czas wygaśnięcia. Żądania, które uzyskują dostęp do tego elementu pamięci podręcznej spowoduje zresetowanie przesuwanego zegara wygaśnięcia.
 - Ustawia priorytet pamięci podręcznej na `CacheItemPriority.NeverRemove`. 
-- Ustawia [PostEvictionDelegate](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.postevictiondelegate) która będzie wywoływana po wykonaniu wpis zostanie usunięty z pamięci podręcznej. Wywołanie zwrotne jest uruchamiane w innym wątku z kodu, który usuwa element z pamięci podręcznej.
+- Ustawia [PostEvictionDelegate](/dotnet/api/microsoft.extensions.caching.memory.postevictiondelegate) która będzie wywoływana po wykonaniu wpis zostanie usunięty z pamięci podręcznej. Wywołanie zwrotne jest uruchamiane w innym wątku z kodu, który usuwa element z pamięci podręcznej.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-20)]
 

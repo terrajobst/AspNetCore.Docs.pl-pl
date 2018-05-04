@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 27246ece3eaaecb708f922bcaaf05658034bce82
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0c66b700f9bb3e6349fe2e0c8a7e254b8e7903a5
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Pomocników tagów w platformy ASP.NET Core
 
@@ -161,7 +161,7 @@ Zaraz po wprowadzeniu atrybut pomocnika tagów zmiana czcionki tagów i atrybut�
 
 ![obraz](intro/_static/labelaspfor2.png)
 
-Visual Studio można wprowadzić *CompleteWord* skrótów (Ctrl + spacja jest [domyślne](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) wewnątrz podwójnych cudzysłowów (""), i wszystko jest teraz w języku C#, tak jak będzie w klasie C#. IntelliSense wyświetla wszystkie metody i właściwości w modelu strony. Metody i właściwości są dostępne, ponieważ typ właściwości jest `ModelExpression`. Na poniższej ilustracji, 'M I edytowanie `Register` widoku, więc `RegisterViewModel` jest dostępna.
+Visual Studio można wprowadzić *CompleteWord* skrótów (Ctrl + spacja jest [domyślne](/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) wewnątrz podwójnych cudzysłowów (""), i wszystko jest teraz w języku C#, tak jak będzie w klasie C#. IntelliSense wyświetla wszystkie metody i właściwości w modelu strony. Metody i właściwości są dostępne, ponieważ typ właściwości jest `ModelExpression`. Na poniższej ilustracji, 'M I edytowanie `Register` widoku, więc `RegisterViewModel` jest dostępna.
 
 ![obraz](intro/_static/intellemail.png)
 
@@ -179,7 +179,7 @@ Dołącz pomocników tagów do elementów HTML w widokach Razor podczas [pomocni
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-W (`@`) informuje symbolu Razor jest to początek kodu. Następne dwa parametry ("Imię" i "imię:") są ciągami, więc [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) nie może pomóc. Ostatni argument:
+W (`@`) informuje symbolu Razor jest to początek kodu. Następne dwa parametry ("Imię" i "imię:") są ciągami, więc [IntelliSense](/visualstudio/ide/using-intellisense) nie może pomóc. Ostatni argument:
 
 ```cshtml
 new {@class="caption"}
@@ -249,13 +249,13 @@ Edytor programu Visual Studio ułatwia pisanie **wszystkie** z kodu znaczników 
 
 * Formanty serwera sieci Web obejmują wykrywanie automatyczne przeglądarki. Pomocników tagów nie korzystają z nie przeglądarki.
 
-* Wiele pomocników tagów może działać na tym samym elemencie (zobacz [pomocnika tagów unikanie konfliktów](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/authoring#avoiding-tag-helper-conflicts) ) podczas zwykle nie można utworzyć kontrolki serwera sieci Web.
+* Wiele pomocników tagów może działać na tym samym elemencie (zobacz [pomocnika tagów unikanie konfliktów](xref:mvc/views/tag-helpers/authoring#avoid-tag-helper-conflicts) ) podczas zwykle nie można utworzyć kontrolki serwera sieci Web.
 
 * Pomocników tagów można tagu i zawartość elementów HTML, które jest zakresem, ale nie bezpośrednio modyfikować dowolne inne na stronie. Formanty serwera sieci Web mają szerszym zakresie i mogą wykonywać akcje, które mają wpływ na inne części strony; Włączanie niezamierzone skutki uboczne.
 
 * Formanty serwera sieci Web umożliwia konwertowanie ciągów na obiekty konwertery typu. Z pomocników tagów pracy natywnie w języku C#, dzięki czemu nie trzeba konwersja typu.
 
-* Serwer sieci Web steruje użyciem [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) do zaimplementowania zachowania czasu wykonywania i czasu projektowania, składników i kontrolek. `System.ComponentModel` zawiera klasy podstawowe i interfejsy dla wykonania atrybutów i typy konwerterów, powiązanie z danymi źródeł i licencjonowania składników. Natomiast który do pomocników tagów, które zwykle pochodzi od `TagHelper`i `TagHelper` klasy podstawowej przedstawia tylko dwie metody `Process` i `ProcessAsync`.
+* Serwer sieci Web steruje użyciem [System.ComponentModel](/dotnet/api/system.componentmodel) do zaimplementowania zachowania czasu wykonywania i czasu projektowania, składników i kontrolek. `System.ComponentModel` zawiera klasy podstawowe i interfejsy dla wykonania atrybutów i typy konwerterów, powiązanie z danymi źródeł i licencjonowania składników. Natomiast który do pomocników tagów, które zwykle pochodzi od `TagHelper`i `TagHelper` klasy podstawowej przedstawia tylko dwie metody `Process` i `ProcessAsync`.
 
 ## <a name="customizing-the-tag-helper-element-font"></a>Dostosowywanie czcionki element pomocnika tagów
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9af08d8fcbd91a9189fe1f4c6cedd644361773f7
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Widoki w podstawowej platformy ASP.NET MVC
 
@@ -56,7 +56,7 @@ Wyświetl zawartość pokazanym powyżej jest tylko część całą stronę siec
 
 ## <a name="how-controllers-specify-views"></a>Jak określić widoki, kontrolery
 
-Widoki są zazwyczaj zwracane z akcji jako [ViewResult](/aspnet/core/api/microsoft.aspnetcore.mvc.viewresult), który jest typem [ActionResult](/aspnet/core/api/microsoft.aspnetcore.mvc.actionresult). Metodę akcji można tworzyć i zwracać `ViewResult` bezpośrednio, ale często nie jest stosowana. Ponieważ większość kontrolerów dziedziczyć [kontrolera](/aspnet/core/api/microsoft.aspnetcore.mvc.controller), po prostu `View` metody pomocnika do zwrócenia `ViewResult`:
+Widoki są zazwyczaj zwracane z akcji jako [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult), który jest typem [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult). Metodę akcji można tworzyć i zwracać `ViewResult` bezpośrednio, ale często nie jest stosowana. Ponieważ większość kontrolerów dziedziczyć [kontrolera](/dotnet/api/microsoft.aspnetcore.mvc.controller), po prostu `View` metody pomocnika do zwrócenia `ViewResult`:
 
 *HomeController.cs*
 
@@ -93,7 +93,7 @@ Domyślne zachowanie `View` — metoda (`return View();`) jest do zwrócenia wid
 Nie ma znaczenia, gdy zwracają niejawnie `ViewResult` z `return View();` lub jawnego przesłania nazwy widoku, aby `View` metody z `return View("<ViewName>");`. W obu przypadkach widok odnajdywania wyszukuje odpowiedniego pliku widoku w następującej kolejności:
 
    1. *Views/\[ControllerName]/\[ViewName].cshtml*
-   1. *Views/Shared/\[ViewName].cshtml*
+   1. *Widoki/udostępnione/\[ViewName] .cshtml*
 
 Ścieżka pliku widoku można podać zamiast nazwy widoku. Jeśli przy użyciu ścieżką bezwzględną, zaczynając od katalogu głównego aplikacji (opcjonalnie rozpoczynających się od "/" lub "~ /"), *.cshtml* rozszerzenia musi być określona:
 
@@ -115,7 +115,7 @@ return View("./About");
 
 [Widoki częściowe](xref:mvc/views/partial) i [wyświetlić składniki](xref:mvc/views/view-components) używa mechanizmów odnajdywania podobne (ale nie są identyczne).
 
-Można dostosować domyślnej Konwencji dla jak widoki znajdują się w aplikacji przy użyciu niestandardowego [IViewLocationExpander](/aspnet/core/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander).
+Można dostosować domyślnej Konwencji dla jak widoki znajdują się w aplikacji przy użyciu niestandardowego [IViewLocationExpander](/dotnet/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander).
 
 Widok odnajdywania zależy od tego, wyszukiwanie Wyświetl pliki według nazwy pliku. Jeśli źródłowy system plików jest rozróżniana wielkość liter, nazwy widoku są prawdopodobnie wielkość liter. Zgodność w różnych systemach operacyjnych wielkość liter między kontrolera i nazwy akcji i skojarzony widok folderów i plików. Jeśli wystąpi błąd, którego nie można odnaleźć pliku widoku podczas pracy z systemem plików z uwzględnieniem wielkości liter, upewnij się, zgodność między plikiem żądany widok i nazwa pliku rzeczywista widok wielkość liter.
 
@@ -205,7 +205,7 @@ Ta kolekcja można odwoływać się przy użyciu jednej `ViewData` lub `ViewBag`
 
 **ViewData**
 
-`ViewData` jest [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) dostępne za pośrednictwem obiektu `string` kluczy. Danych dotyczących ciągu mogą być przechowywane i używane bezpośrednio, bez konieczności rzutowanie, ale należy rzutować innych `ViewData` obiektu wartości do określonych typów, po ich wyodrębnieniu. Można użyć `ViewData` do przekazywania danych z kontrolerów, widoków i w obrębie widoków, w tym [widoki częściowe](xref:mvc/views/partial) i [układów](xref:mvc/views/layout).
+`ViewData` jest [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) dostępne za pośrednictwem obiektu `string` kluczy. Danych dotyczących ciągu mogą być przechowywane i używane bezpośrednio, bez konieczności rzutowanie, ale należy rzutować innych `ViewData` obiektu wartości do określonych typów, po ich wyodrębnieniu. Można użyć `ViewData` do przekazywania danych z kontrolerów, widoków i w obrębie widoków, w tym [widoki częściowe](xref:mvc/views/partial) i [układów](xref:mvc/views/layout).
 
 Poniżej przedstawiono przykład, która ustawia wartości pozdrowienia i przy użyciu adresu `ViewData` w akcji:
 
@@ -243,11 +243,11 @@ Praca z danymi w widoku:
 </address>
 ```
 
-**ViewBag**
+**Obiekt ViewBag**
 
 Uwaga: `ViewBag` nie jest dostępna na stronach Razor.
 
-`ViewBag` jest [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) obiekt, który umożliwia dynamiczne dostęp do obiektów przechowywanych w `ViewData`. `ViewBag` może być bardziej wygodne do pracy, ponieważ nie wymaga rzutowania. Poniższy przykład przedstawia użycie `ViewBag` z takiego samego wyniku jako przy użyciu `ViewData` powyżej:
+`ViewBag` jest [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) obiekt, który umożliwia dynamiczne dostęp do obiektów przechowywanych w `ViewData`. `ViewBag` może być bardziej wygodne do pracy, ponieważ nie wymaga rzutowania. Poniższy przykład przedstawia użycie `ViewBag` z takiego samego wyniku jako przy użyciu `ViewData` powyżej:
 
 ```csharp
 public IActionResult SomeAction()
@@ -321,11 +321,11 @@ Za pomocą obu `ViewData` i `ViewBag` w tej samej pracy czas, jak mieszania i do
  `ViewBag` nie jest dostępna na stronach Razor.
 
 * `ViewData`
-  * Pochodną [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary), co powoduje słownika właściwości, które mogą być przydatne, takich jak `ContainsKey`, `Add`, `Remove`, i `Clear`.
+  * Pochodną [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary), co powoduje słownika właściwości, które mogą być przydatne, takich jak `ContainsKey`, `Add`, `Remove`, i `Clear`.
   * Klucze w słowniku są ciągi, więc spacji jest dozwolony. Przykład: `ViewData["Some Key With Whitespace"]`
   * Dowolny typ innych niż `string` musi być rzutowane w widoku, aby użyć `ViewData`.
 * `ViewBag`
-  * Pochodną [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata), więc umożliwia tworzenie dynamicznych właściwości, używając zapisu kropkowego (`@ViewBag.SomeKey = <value or object>`), a Rzutowanie nie jest wymagana. Składnia `ViewBag` umożliwia szybsze do dodania do widoków i kontrolerów.
+  * Pochodną [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata), więc umożliwia tworzenie dynamicznych właściwości, używając zapisu kropkowego (`@ViewBag.SomeKey = <value or object>`), a Rzutowanie nie jest wymagana. Składnia `ViewBag` umożliwia szybsze do dodania do widoków i kontrolerów.
   * Łatwiejsze do sprawdzenia wartości null. Przykład: `@ViewBag.Person?.Name`
 
 **Kiedy należy używać ViewData lub obiekt ViewBag**

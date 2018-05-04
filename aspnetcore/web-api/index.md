@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/index
-ms.openlocfilehash: 017bcc1ed65b1baa92408db07201d1c7bab2849d
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: f0368258d078673ab5eab21c5ce07f2437cb8ea4
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Tworzenie interfejsów API z platformy ASP.NET Core sieci web
 
@@ -75,6 +75,9 @@ Atrybut źródłowy powiązanie definiuje lokalizacji, w którym znajduje się w
 |**[[FromRoute]](/dotnet/api/microsoft.aspnetcore.mvc.fromrouteattribute)**   | Dane trasy z bieżącego żądania |
 |**[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)** | Usługa żądania dodane jako parametru akcji |
 
+> [!NOTE]
+> Czy **nie** użyj `[FromRoute]` po wartości mogą zawierać `%2f` (to znaczy `/`) ponieważ `%2f` nie unescaped do `/`. Użyj `[FromQuery]` Jeśli ta wartość może zawierać `%2f`.
+
 Bez `[ApiController]` atrybut powiązania źródła jawnie zdefiniowanych atrybutów. W poniższym przykładzie `[FromQuery]` atrybut wskazuje, że `discontinuedOnly` wartość parametru jest podana w ciągu zapytania w adresie URL żądania:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=2)]
@@ -115,5 +118,5 @@ Akcje są niedostępne za pośrednictwem [trasy z konwencjonalnej](xref:mvc/cont
 * [Zwracane typy akcji kontrolera](xref:web-api/action-return-types)
 * [Niestandardowe elementy formatujące](xref:web-api/advanced/custom-formatters)
 * [Formatowanie danych odpowiedzi](xref:web-api/advanced/formatting)
-* [Strony pomocy przy użyciu programu Swagger](xref:tutorials/web-api-help-pages-using-swagger)
+* [Strony pomocy korzystające z programu Swagger](xref:tutorials/web-api-help-pages-using-swagger)
 * [Routing do akcji kontrolera](xref:mvc/controllers/routing)

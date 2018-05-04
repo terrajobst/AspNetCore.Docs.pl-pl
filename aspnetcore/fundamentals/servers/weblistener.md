@@ -1,7 +1,7 @@
 ---
 title: WebListener implementacja serwera sieci web platformy ASP.NET Core
 author: rick-anderson
-description: "Więcej informacji na temat WebListener, serwer sieci web platformy ASP.NET Core w systemie Windows, który może służyć do bezpośredniego połączenia z Internetem bez usług IIS."
+description: Więcej informacji na temat WebListener, serwer sieci web platformy ASP.NET Core w systemie Windows, który może służyć do bezpośredniego połączenia z Internetem bez usług IIS.
 manager: wpickett
 ms.author: riande
 ms.date: 03/13/2018
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 13555becb76b9df37728f78a7a8bc112d8de682f
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: cd2e477824d916afcf1a7901e935dd465a466922
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>WebListener implementacja serwera sieci web platformy ASP.NET Core
 
@@ -78,7 +78,7 @@ Dostępne są także [ustawienia rejestru Http.Sys](https://support.microsoft.co
 
 * Zainstaluj pakiet NuGet [Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/). Spowoduje to również zainstalowanie [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) jako zależność.
 
-* Wywołanie `UseWebListener` — metoda rozszerzenia na [WebHostBuilder](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) w Twojej `Main` metody, określając żadnych WebListener [opcje](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) i [ustawienia](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) potrzebne , jak pokazano w poniższym przykładzie:
+* Wywołanie `UseWebListener` — metoda rozszerzenia na [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) w Twojej `Main` metody, określając żadnych WebListener [opcje](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) i [ustawienia](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) potrzebne , jak pokazano w poniższym przykładzie:
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 

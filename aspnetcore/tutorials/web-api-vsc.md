@@ -10,15 +10,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 303016c7e1d27726faaa0b1546575255355d5275
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.openlocfilehash: f991aeadbaa3f7696d6fd6b8791d26248e7560a6
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>Tworzenie składnika Web API platformy ASP.NET Core i kodu programu Visual Studio
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Wasson Jan](https://github.com/mikewasson)
+
+::: moniker range="= aspnetcore-2.1"
+[!INCLUDE[](~/includes/2.1.md)]
+::: moniker-end
 
 W tym samouczku kompilacji interfejsu API sieci web do zarządzania listę elementów "do wykonania". Interfejs użytkownika nie jest tworzony.
 

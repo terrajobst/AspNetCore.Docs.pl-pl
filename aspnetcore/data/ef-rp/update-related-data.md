@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: d793a7ca3635108ed7941ccc8578572afd79c305
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 2eff6cd5f4bb737cb79875c9b04c889914376cd0
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - aktualizacji powiązanych danych - 7, 8
 
@@ -36,7 +36,7 @@ Kursy/Utwórz kursy i edytowanie strony i każdego muszą listę nazw działów.
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/DepartmentNamePageModel.cshtml.cs?highlight=9,11,20-21)]
 
-Poprzedni kod tworzy [SelectList](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) zawierać listę nazw działu. Jeśli `selectedDepartment` określono, że dział został wybrany w `SelectList`.
+Poprzedni kod tworzy [SelectList](/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) zawierać listę nazw działu. Jeśli `selectedDepartment` określono, że dział został wybrany w `SelectList`.
 
 Klasy modeli tworzenie i edytowanie strony będzie dziedziczyć `DepartmentNamePageModel`.
 
@@ -103,7 +103,7 @@ Przetestuj zaktualizowanego kodu. Tworzenie, edytowanie i usuwanie kursu.
 
 ## <a name="add-asnotracking-to-the-details-and-delete-page-models"></a>Dodaj AsNoTracking do szczegółów i usuń modele strony
 
-[AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) może poprawić wydajność podczas śledzenia nie jest wymagane. Dodaj `AsNoTracking` do modelu strony Delete i szczegóły. Poniższy kod przedstawia w zaktualizowanym modelu. Usuń strony:
+[AsNoTracking](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) może poprawić wydajność podczas śledzenia nie jest wymagane. Dodaj `AsNoTracking` do modelu strony Delete i szczegóły. Poniższy kod przedstawia w zaktualizowanym modelu. Usuń strony:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
 
@@ -178,7 +178,7 @@ Utwórz *Pages/Instructors/InstructorCoursesPageModel.cshtml.cs* klasy podstawow
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/InstructorCoursesPageModel.cshtml.cs)]
 
-`InstructorCoursesPageModel` Jest klasą podstawową będzie używane do edycji i tworzenia modeli strony. `PopulateAssignedCourseData` odczytuje wszystkie `Course` jednostek do wypełnienia `AssignedCourseDataList`. Dla każdego kursu kod ustawia `CourseID`, tytuł i czy nie jest przypisany do kursu instruktora. A [zestaw HashSet](https://docs.microsoft.com/dotnet/api/system.collections.generic.hashset-1) służy do tworzenia wydajne wyszukiwań.
+`InstructorCoursesPageModel` Jest klasą podstawową będzie używane do edycji i tworzenia modeli strony. `PopulateAssignedCourseData` odczytuje wszystkie `Course` jednostek do wypełnienia `AssignedCourseDataList`. Dla każdego kursu kod ustawia `CourseID`, tytuł i czy nie jest przypisany do kursu instruktora. A [zestaw HashSet](/dotnet/api/system.collections.generic.hashset-1) służy do tworzenia wydajne wyszukiwań.
 
 ### <a name="instructors-edit-page-model"></a>Instruktorów edycji strony modelu
 

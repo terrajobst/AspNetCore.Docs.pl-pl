@@ -4,4 +4,4 @@ Ten samouczek zawiera projektowanie witryn sieci web platformy ASP.NET Core MVC 
 * Łatwiej wykonać.
 * Obejmuje więcej funkcji.
 
-Jeśli w tym samouczku za pośrednictwem [stron Razor](xref:tutorials/razor-pages/razor-pages-start) wersji, pozostaw wyjaśniający, dlaczego notatki.
+Jeśli w tym samouczku za pośrednictwem [stron Razor](xref:tutorials/razor-pages/razor-pages-start) wersji, powiedz nam, dlaczego w [ten problem GitHub](https://github.com/aspnet/Docs/issues/6146).

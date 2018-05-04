@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 3f0eb9abce067108b82cf8b639cea3b120ca4b5a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e0bf0084f8e46f3774fa070602404840aa803661
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>Logowanie zewnętrzne konfiguracji z platformy ASP.NET Core w usłudze Twitter
 
@@ -85,7 +85,7 @@ app.UseTwitterAuthentication(new TwitterOptions()
 ```
 
 * * *
-Zobacz [TwitterOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.twitteroptions) dokumentacja interfejsu API, aby uzyskać więcej informacji na temat opcji konfiguracji obsługiwanych przez uwierzytelniania usługi Twitter. To może być używane do żądania różne informacje o użytkowniku.
+Zobacz [TwitterOptions](/dotnet/api/microsoft.aspnetcore.builder.twitteroptions) dokumentacja interfejsu API, aby uzyskać więcej informacji na temat opcji konfiguracji obsługiwanych przez uwierzytelniania usługi Twitter. To może być używane do żądania różne informacje o użytkowniku.
 
 ## <a name="sign-in-with-twitter"></a>Zaloguj się przy użyciu usługi Twitter
 

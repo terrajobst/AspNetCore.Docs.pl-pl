@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 5e2b53a4771a97b0a4091f593720b9c0e4e345bf
-ms.sourcegitcommit: c4a31aaf902f2e84aaf4a9d882ca980fdf6488c0
+ms.openlocfilehash: 08866543d5b510b86c6af1896a9bd41ae0053ecf
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
@@ -207,6 +207,38 @@ Ponieważ `handler` jest `delete` w tym przykładzie `OnPostDeleteAsync` metoda 
 * Jeśli zostanie znaleziony kontaktowe klienta, są one usunięte z listy kontaktów klienta. Baza danych jest aktualizowana.
 * Wywołania `RedirectToPage` ma nastąpić przekierowanie do strony indeksu głównego (`/Index`).
 
+::: moniker range=">= aspnetcore-2.1"
+## <a name="manage-head-requests-with-the-onget-handler"></a>Zarządzaj żądaniami HEAD z obsługą OnGet
+
+Zwykle HEAD program obsługi jest tworzony i wywołana dla żądania HEAD:
+
+```csharp
+public void OnHead()
+{
+    HttpContext.Response.Headers.Add("HandledBy", "Handled by OnHead!");
+}
+```
+
+Jeśli bez obsługi HEAD (`OnHead`) jest zdefiniowany, stron Razor nastąpi powrót do wywoływania obsługi strony GET (`OnGet`) platformy ASP.NET Core 2.1 lub nowszej. Zgódź się na zachowanie w przypadku [metody SetCompatibilityVersion](xref:fundamentals/startup#setcompatibilityversion-for-aspnet-core-mvc) w `Startup.Configure` dla platformy ASP.NET Core 2.1 2.x:
+
+```csharp
+services.AddMvc()
+    .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+```
+
+`SetCompatibilityVersion` efektywnie ustawia opcję stron Razor `AllowMappingHeadRequestsToGetHandler` do `true`. Zachowanie jest zdecydować się na do wersji platformy ASP.NET Core 3.0 w wersji zapoznawczej 1 lub nowszym. Każda wersja główna platformy ASP.NET Core przyjmuje wszystkie zachowania wersji poprawki poprzedniej wersji.
+
+Globalne zdecydować się na zachowanie poprawki wersje 2.1 do 2.x można uniknąć z konfiguracją aplikacji, która mapuje żądania HEAD do obsługi GET. Ustaw `AllowMappingHeadRequestsToGetHandler` stron Razor opcji w celu `true` bez wywoływania elementu `SetCompatibilityVersion` w `Startup.Configure`:
+
+```csharp
+services.AddMvc()
+    .AddRazorPagesOptions(options =>
+    {
+        options.AllowMappingHeadRequestsToGetHandler = true;
+    });
+```
+::: moniker-end
+
 <a name="xsrf"></a>
 
 ## <a name="xsrfcsrf-and-razor-pages"></a>XSRF/CSRF i stron Razor
@@ -321,7 +353,7 @@ Nazwa względna konsolidacji jest przydatne, gdy tworzenie witryn ze strukturą 
 
 ## <a name="tempdata"></a>TempData
 
-Przedstawia platformy ASP.NET Core [TempData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) właściwość [kontrolera](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller). Ta właściwość przechowuje dane, dopóki nie jest do odczytu. `Keep` i `Peek` metod można użyć do sprawdzenia danych bez usuwania. `TempData` jest przydatne w przypadku przekierowania, gdy dane są potrzebne dla więcej niż jednego żądania.
+Przedstawia platformy ASP.NET Core [TempData](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) właściwość [kontrolera](/dotnet/api/microsoft.aspnetcore.mvc.controller). Ta właściwość przechowuje dane, dopóki nie jest do odczytu. `Keep` i `Peek` metod można użyć do sprawdzenia danych bez usuwania. `TempData` jest przydatne w przypadku przekierowania, gdy dane są potrzebne dla więcej niż jednego żądania.
 
 `[TempData]` Jest nowy w programie ASP.NET 2.0 Core i jest obsługiwane na stronach i kontrolerów.
 
@@ -364,6 +396,8 @@ W poprzednim kodzie użyto *o nazwie metod obsługi*. Metody o nazwie procedury 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml?range=12-13)]
 
 Przy użyciu poprzedniego kodu ścieżkę adresu URL, który przesyła do `OnPostJoinListAsync` jest `http://localhost:5000/Customers/CreateFATH?handler=JoinList`. Ścieżka adresu URL, który przesyła do `OnPostJoinListUCAsync` jest `http://localhost:5000/Customers/CreateFATH?handler=JoinListUC`.
+
+
 
 ## <a name="customizing-routing"></a>Dostosowywanie routingu
 

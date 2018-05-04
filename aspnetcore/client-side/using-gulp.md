@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: f776b2025b6ebfeff28d3903aaeac4d7d89665b3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7a3d7807484b76e40e9728e0c750fa1383cc271f
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-gulp-in-aspnet-core"></a>Użyj Gulp w platformy ASP.NET Core
 
@@ -101,7 +101,7 @@ Poniższa tabela zawiera objaśnienie zadania określone w powyższym kodzie:
 
 |Nazwa zadania|Opis|
 |--- |--- |
-|clean:js|Zadanie, które używa modułu usunięcie węzła rimraf usunąć zminimalizowany wersję pliku site.js.|
+|Wyczyść: js|Zadanie, które używa modułu usunięcie węzła rimraf usunąć zminimalizowany wersję pliku site.js.|
 |Wyczyść: css|Zadanie, które używa modułu usunięcie węzła rimraf usunąć zminimalizowany wersję pliku site.css.|
 |Czyszczenie|Zadanie, które wywołuje `clean:js` zadań, a następnie `clean:css` zadań.|
 |min:js|Zadanie, które minimalizuje i łączy wszystkie pliki js znajdujących się w folderze js. . Pliki min.js są wyłączone.|
@@ -267,7 +267,7 @@ IntelliSense zawiera kod zakończenia, opisy parametrów i innych funkcji, aby z
 
 ![System gulp IntelliSense](using-gulp/_static/08-IntelliSense.png)
 
-Aby uzyskać więcej informacji o funkcji IntelliSense, zobacz [IntelliSense dla JavaScript](https://docs.microsoft.com/visualstudio/ide/javascript-intellisense).
+Aby uzyskać więcej informacji o funkcji IntelliSense, zobacz [IntelliSense dla JavaScript](/visualstudio/ide/javascript-intellisense).
 
 ## <a name="development-staging-and-production-environments"></a>Środowiska deweloperskie, przemieszczania i produkcji
 

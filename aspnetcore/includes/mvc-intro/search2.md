@@ -33,7 +33,7 @@ Otwórz *Views/Movies/Index.cshtml* pliku, a następnie dodaj `<form>` znacznik�
 
 [!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexForm1.cshtml?highlight=10-16&range=4-21)]
 
-Kod HTML `<form>` tagów używa [pomocnika Tag formularza](../../mvc/views/working-with-forms.md), więc po przesłaniu formularza ciąg filtru jest zamieszczana `Index` akcji kontrolera filmów. Zapisz zmiany, a następnie sprawdź filtr.
+Kod HTML `<form>` tagów używa [pomocnika Tag formularza](xref:mvc/views/working-with-forms), więc po przesłaniu formularza ciąg filtru jest zamieszczana `Index` akcji kontrolera filmów. Zapisz zmiany, a następnie sprawdź filtr.
 
 ![Widok indeksu z widma word wpisane w polu tekstowym filtru tytułu](../../tutorials/first-mvc-app/search/_static/filter.png)
 
@@ -53,6 +53,6 @@ Jednak nawet jeśli dodasz to `[HttpPost]` wersji `Index` metody, jest to ograni
 
 ![Karta Sieć narzędzi dla deweloperów w programie Microsoft Edge przedstawiający treści żądania z wartością parametru Wyszukiwany_ciąg widma](../../tutorials/first-mvc-app/search/_static/f12_rb.png)
 
-Parametr wyszukiwania jest widoczny i [XSRF](../../security/anti-request-forgery.md) tokenu w treści żądania. Należy zwrócić uwagę, jak wspomniano w poprzedniej samouczka [pomocnika Tag formularza](../../mvc/views/working-with-forms.md) generuje [XSRF](../../security/anti-request-forgery.md) token zabezpieczający przed sfałszowaniem. Firma Microsoft nie modyfikacji danych, więc nie musimy zweryfikować token metody kontrolera.
+Parametr wyszukiwania jest widoczny i [XSRF](xref:security/anti-request-forgery) tokenu w treści żądania. Należy zwrócić uwagę, jak wspomniano w poprzedniej samouczka [pomocnika Tag formularza](xref:mvc/views/working-with-forms) generuje [XSRF](xref:security/anti-request-forgery) token zabezpieczający przed sfałszowaniem. Firma Microsoft nie modyfikacji danych, więc nie musimy zweryfikować token metody kontrolera.
 
 Ponieważ parametr wyszukiwania znajduje się w treści żądania, a nie adres URL, nie można przechwytywanie informacji wyszukiwania do zakładki lub udostępniać innym osobom. Firma Microsoft będzie rozwiązać ten problem, określając żądania powinien być `HTTP GET`.

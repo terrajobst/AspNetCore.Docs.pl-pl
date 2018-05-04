@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 5302cd5e8eebb3601aa64ac946c356b54521b198
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b7036b92e8f25613917cfc4112389be81c12f614
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
 
@@ -92,7 +92,7 @@ Wybierz **F5** do uruchomienia aplikacji w trybie debugowania lub **Ctrl-F5** w 
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
 ![uruchomionej aplikacji](start-mvc/_static/1.png)
 
-* Uruchamia program Visual Studio [usług IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchamia aplikację. Należy zauważyć, że na pasku adresu `localhost:port#` i nie coś, takich jak `example.com`. Jest to spowodowane tym `localhost` jest standardowa nazwa hosta komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci web, losowy port jest używany dla serwera sieci web. Powyższy obraz numer portu to 5000. Adres URL w przeglądarce przedstawiono `localhost:5000`. Po uruchomieniu aplikacji zostanie wyświetlony inny numer portu.
+* Uruchamia program Visual Studio [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchamia aplikację. Należy zauważyć, że na pasku adresu `localhost:port#` i nie coś, takich jak `example.com`. Jest to spowodowane tym `localhost` jest standardowa nazwa hosta komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci web, losowy port jest używany dla serwera sieci web. Powyższy obraz numer portu to 5000. Adres URL w przeglądarce przedstawiono `localhost:5000`. Po uruchomieniu aplikacji zostanie wyświetlony inny numer portu.
 * Uruchamianie aplikacji z **Ctrl + F5** (tryb-debug) pozwala wprowadzać zmiany kodu, Zapisz plik, Odśwież przeglądarkę i zobaczyć zmiany kodu. Wielu deweloperów preferowane jest w trybie bez debugowania szybko uruchomić aplikację i zobaczyć zmiany.
 * Możesz uruchomić aplikację w trybie bez debugowania z lub debugowania **debugowania** element menu:
 
@@ -100,7 +100,7 @@ Wybierz **F5** do uruchomienia aplikacji w trybie debugowania lub **Ctrl-F5** w 
 
 * Można debugować aplikacji, naciskając pozycję **usług IIS Express** przycisku
 
-![Usługi IIS Express](start-mvc/_static/iis_express.png)
+![IIS Express](start-mvc/_static/iis_express.png)
 
 Domyślny szablon umożliwia pracy **macierzystego o** i **skontaktuj się z** łącza. Powyższy obraz przeglądarki nie wyświetla tych łączy. W zależności od rozmiaru przeglądarki konieczne może być kliknij ikonę nawigacji, aby je wyświetlić.
 

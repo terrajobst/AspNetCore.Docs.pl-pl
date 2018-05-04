@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: b80f92b815439796693528b314b521c1484ba661
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 51b7a02c697807c9e3504b70f89370126ee0e781
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Logikę kontrolera testu w ASP.NET Core
 
@@ -40,12 +40,12 @@ Typowy kontroler obowiązki:
 
 ## <a name="unit-testing"></a>Testowanie jednostek
 
-[Testy jednostkowe](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) obejmuje testowania części aplikacji w izolacji od jego infrastruktury i zależności. Podczas testowania logiką kontrolera, zawartości jednej akcji jednostek jest testowany, nie zachowanie z jego zależności lub struktury sam. Jako jednostki można przetestować akcji kontrolera, upewnij się, że można skupić się tylko na jego zachowania. Kontroler testu jednostkowego pozwala uniknąć elementów, jak [filtry](filters.md), [routingu](../../fundamentals/routing.md), lub [modelu powiązania](../models/model-binding.md). Istotą testowania tylko jeden element, testy jednostkowe są zwykle proste do zapisu i szybkie uruchamianie. Dobrze napisane zbiór testy jednostkowe mogą być uruchamiane często bez znacznie obciążenie. Jednak testów jednostkowych nie wykrywaj problemy w interakcji między składnikami, który jest celem [testy integracji](xref:mvc/controllers/testing#integration-testing).
+[Testy jednostkowe](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) obejmuje testowania części aplikacji w izolacji od jego infrastruktury i zależności. Podczas testowania logiką kontrolera, zawartości jednej akcji jednostek jest testowany, nie zachowanie z jego zależności lub struktury sam. Jako jednostki można przetestować akcji kontrolera, upewnij się, że można skupić się tylko na jego zachowania. Kontroler testu jednostkowego pozwala uniknąć elementów, jak [filtry](filters.md), [routingu](../../fundamentals/routing.md), lub [modelu powiązania](../models/model-binding.md). Istotą testowania tylko jeden element, testy jednostkowe są zwykle proste do zapisu i szybkie uruchamianie. Dobrze napisane zbiór testy jednostkowe mogą być uruchamiane często bez znacznie obciążenie. Jednak testów jednostkowych nie wykrywaj problemy w interakcji między składnikami, który jest celem [testy integracji](xref:mvc/controllers/testing#integration-testing).
 
 Jeśli piszesz filtry niestandardowe, tras, itp., należy testu jednostkowego ich, ale nie jako część testy na akcję określony kontroler. Powinny one być testowane w izolacji.
 
 > [!TIP]
-> [Tworzenie i Uruchamianie testów jednostkowych z programem Visual Studio](https://docs.microsoft.com/visualstudio/test/unit-test-your-code).
+> [Tworzenie i Uruchamianie testów jednostkowych z programem Visual Studio](/visualstudio/test/unit-test-your-code).
 
 Aby zademonstrować testy jednostkowe, przejrzyj następujący kontroler. Wyświetla listę Burza sesji, a zezwala na nowe Burza sesji ma zostać utworzony wpis:
 

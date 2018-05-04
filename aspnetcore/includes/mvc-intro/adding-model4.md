@@ -1,4 +1,4 @@
-Zaznaczony kod powyżej przedstawiono filmu kontekst bazy danych dodawane do [iniekcji zależności](xref:fundamentals/dependency-injection) kontenera (w *Startup.cs* pliku). `services.AddDbContext<MvcMovieContext>(options =>` Określa bazę danych i parametry połączenia. `=>` jest [operatora lambda](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/operators/lambda-operator).
+Zaznaczony kod powyżej przedstawiono filmu kontekst bazy danych dodawane do [iniekcji zależności](xref:fundamentals/dependency-injection) kontenera (w *Startup.cs* pliku). `services.AddDbContext<MvcMovieContext>(options =>` Określa bazę danych i parametry połączenia. `=>` jest [operatora lambda](/dotnet/articles/csharp/language-reference/operators/lambda-operator).
 
 Otwórz *Controllers/MoviesController.cs* pliku i sprawdź, czy konstruktora:
 
@@ -30,9 +30,9 @@ Można również przekazać `id` za pomocą kwerendy ciągu w następujący spos
 
 `http://localhost:1234/movies/details?id=1`
 
-`id` Parametr jest zdefiniowany jako [typ dopuszczający wartość null](https://docs.microsoft.com/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) w przypadku, gdy nie jest podana wartość Identyfikatora.
+`id` Parametr jest zdefiniowany jako [typ dopuszczający wartość null](/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) w przypadku, gdy nie jest podana wartość Identyfikatora.
 
-A [wyrażenia lambda](https://docs.microsoft.com/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) jest przekazywany do `SingleOrDefaultAsync` Wybierz film jednostek, które odpowiada wartości ciągu danych lub zapytanie trasy.
+A [wyrażenia lambda](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) jest przekazywany do `SingleOrDefaultAsync` Wybierz film jednostek, które odpowiada wartości ciągu danych lub zapytanie trasy.
 
 ```csharp
 var movie = await _context.Movie

@@ -10,4 +10,4 @@ Obecnie `Index` metoda zwraca ciąg zawierający komunikat, który jest ustalony
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
 
-Zwraca poprzedni kod `View` obiektu. Szablon widoku używa do generowania odpowiedzi HTML do przeglądarki. Metody kontrolera (znanej także jako metody akcji), takich jak `Index` zazwyczaj zwracany przez metodę powyżej [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) (lub klasą pochodną `ActionResult`), nie jest typem, takie jak ciąg.
+Zwraca poprzedni kod `View` obiektu. Szablon widoku używa do generowania odpowiedzi HTML do przeglądarki. Metody kontrolera (znanej także jako metody akcji), takich jak `Index` zazwyczaj zwracany przez metodę powyżej [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) (lub klasą pochodną `ActionResult`), nie jest typem, takie jak ciąg.

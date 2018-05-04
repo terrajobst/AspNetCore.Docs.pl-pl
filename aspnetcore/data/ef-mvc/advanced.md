@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: bc0f42cc387a51f9ae2cea6f5d63c50c4555c918
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 655f60116cbfe1dd81b7e2855906446b919b6489
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>Zaawansowane platformy ASP.NET Core MVC podstawowych EF - - 10, 10
 
@@ -192,7 +192,7 @@ Aby uzyskać więcej informacji na temat EF Core, zobacz [dokumentację programu
 
 Aby uzyskać informacje na temat wdrażania aplikacji sieci web, zobacz [hosta i wdrażanie](xref:host-and-deploy/index).
 
-Informacje o innych tematów dotyczących podstawowych ASP.NET MVC, takie jak uwierzytelniania i autoryzacji, zobacz [dokumentacji platformy ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
+Informacje o innych tematów dotyczących podstawowych ASP.NET MVC, takie jak uwierzytelniania i autoryzacji, zobacz [dokumentacji platformy ASP.NET Core](xref:index).
 
 ## <a name="acknowledgments"></a>Potwierdzenia
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity
-ms.openlocfilehash: b3bfae665403162db1fb012fac227275b1dfd6c9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f9215767bf9a7c8b43b474848ba7dff7c3ddaf24
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości na platformy ASP.NET Core
 
@@ -23,7 +23,7 @@ Tożsamość platformy ASP.NET Core to system członkostwa, co pozwala na dodawa
 
 Można skonfigurować ASP.NET Identity Core używać bazy danych programu SQL Server do przechowywania nazwy użytkownika, hasła i danych profilu. Alternatywnie można użyć własnych magazynu trwałego, na przykład magazynu tabel Azure. Ten dokument zawiera instrukcje dla programu Visual Studio i przy użyciu interfejsu wiersza polecenia.
 
-[Wyświetl lub pobrać przykładowy kod.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Jak pobrać)](https://docs.microsoft.com/aspnet/core/tutorials/index#how-to-download-a-sample)
+[Wyświetl lub pobrać przykładowy kod.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Jak pobrać)](xref:tutorials/index#how-to-download-a-sample)
 
 ## <a name="overview-of-identity"></a>Omówienie tożsamości
 

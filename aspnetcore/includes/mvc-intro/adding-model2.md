@@ -10,7 +10,7 @@
   dotnet ef database update
   ```
   
-  [Oprogramowanie .NET core](https://docs.microsoft.com/dotnet/core/tools/index) jest implementacją wieloplatformowych platformy .NET. Oto, wykonaj następujące polecenia:
+  [Oprogramowanie .NET core](/dotnet/core/tools/index) jest implementacją wieloplatformowych platformy .NET. Oto, wykonaj następujące polecenia:
 
   * [Przywracanie DotNet](/dotnet/core/tools/dotnet-restore): pobiera pakiety NuGet określone w *.csproj* pliku.
   * `dotnet ef migrations add Initial` Uruchamia polecenie migracje interfejsu wiersza polecenia programu Entity Framework .NET Core i tworzy początkowej migracji. Parametr po "Dodaj" jest nazwą, która zostanie przypisana do migracji. W tym miejscu możesz jest nazw migracji "Początkowego" ponieważ jest on migracji wstępnej bazy danych. Ta operacja powoduje utworzenie *danych/migracje/\<Data i godzina > _Initial.cs* plik zawierający polecenia migracji, aby dodać *film* tabeli w bazie danych.

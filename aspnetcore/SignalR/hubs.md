@@ -6,22 +6,24 @@ manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 03/30/2018
+ms.date: 05/01/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/hubs
-ms.openlocfilehash: 7da0c4832b1aa6a844172bf751a46b280a02f37a
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: e23d7ef6d5e5e93d5fc69ad4c845a6a896836170
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Użyj koncentratory w SignalR platformy ASP.NET Core
 
 Przez [Rachel Appel](https://twitter.com/rachelappel) i [Griffin Kevina](https://twitter.com/1kevgriff)
 
 [!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
+
+[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(jak pobrać)](xref:tutorials/index#how-to-download-a-sample)
 
 ## <a name="what-is-a-signalr-hub"></a>Co to jest Centrum SignalR
 
@@ -31,17 +33,17 @@ API koncentratorów SignalR można wywoływać metod w połączonych klientów z
 
 Oprogramowanie pośredniczące SignalR wymaga niektórych usług, które są konfigurowane przez wywołanie metody `services.AddSignalR`.
 
-[!code-csharp[Configure service](hubs/sample/startup.cs?range=35)]
+[!code-csharp[Configure service](hubs/sample/startup.cs?range=37)]
 
 Podczas dodawania funkcji SignalR dla aplikacji platformy ASP.NET Core, Konfiguracja trasy SignalR przez wywołanie metody `app.UseSignalR` w `Startup.Configure` metody.
 
-[!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=55-58)]
+[!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=56-59)]
 
 ## <a name="create-and-use-hubs"></a>Tworzenie i używanie koncentratory
 
 Utwórz koncentratora od zadeklarowania klasy, która dziedziczy `Hub`i Dodaj do niej metody publiczne. Klientów można wywołać metody, które są zdefiniowane jako `public`.
 
-[!code-csharp[Create and use hubs](hubs/sample/chathub.cs?range=10-13)]
+[!code-csharp[Create and use hubs](hubs/sample/hubs/chathub.cs?range=8-37)]
 
 Można określić zwracany typ i parametry, łącznie z typami złożonymi i tablic, tak jak w dowolnej metody C#. SignalR obsługi serializacji i deserializacji złożone obiekty i tablice parametrów i zwracanych wartości.
 
@@ -75,20 +77,19 @@ Każda właściwość lub metoda w poprzednich tabelach zwraca obiekt z `SendAsy
 
 W celu wykonywania wywołań do określonych klientów, należy użyć właściwości `Clients` obiektu. W poniższym przykładzie poniżej `SendMessageToCaller` przedstawiono metody wysyłania komunikatu do połączenia, który wywołał metodę koncentratora. `SendMessageToGroups` Metoda wysyła komunikat do grupy przechowywane w `List` o nazwie `groups`.
 
-[!code-csharp[Send messages](hubs/sample/chathub.cs?range=15-24)]
+[!code-csharp[Send messages](hubs/sample/hubs/chathub.cs?range=15-24)]
 
 ## <a name="handle-events-for-a-connection"></a>Obsługa zdarzeń dla połączenia
 
 Interfejs API koncentratorów SignalR zawiera `OnConnectedAsync` i `OnDisconnectedAsync` metody wirtualne do zarządzania i śledzenia połączeń. Zastąpienie `OnConnectedAsync` metody wirtualnej do wykonania akcji, gdy klient nawiąże połączenie z koncentratorem, takie jak dodanie go do grupy.
 
-[!code-csharp[Handle events](hubs/sample/chathub.cs?range=26-30)]
+[!code-csharp[Handle events](hubs/sample/hubs/chathub.cs?range=26-36)]
 
 ## <a name="handle-errors"></a>Obsługa błędów
 
 Wyjątki zgłaszane w metodach koncentratora, z są wysyłane do klienta, który wywołał metodę. Na komputerze klienckim JavaScript `invoke` metoda zwraca [JavaScript Promise](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). Gdy klient odbierze błąd obsługi dołączony do promise przy użyciu `catch`, ma ona wywoływana i przekazywane jako JavaScript `Error` obiektu.
 
-[!code-javascript[Error](hubs/sample/chat.js?range=20)]
-[!code-javascript[Error](hubs/sample/chat.js?range=16-18)]
+[!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=22)]
 
 ## <a name="related-resources"></a>Zasoby pokrewne
 

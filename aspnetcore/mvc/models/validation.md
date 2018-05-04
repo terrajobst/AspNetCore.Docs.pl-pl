@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: 06526848dc84472c8629e6e1700a74312442f67c
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.openlocfilehash: 1ab19fad90eab9f2da58b4d62615a85d71894218
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Weryfikacja modelu w programie ASP.NET MVC Core
 
@@ -55,7 +55,7 @@ Po prostu odczytywania za pośrednictwem modelu ujawnia zasad dotyczących danyc
 
 * `[Url]`: Weryfikuje właściwość ma format adresu URL.
 
-Wszelkie atrybuty, która jest pochodną obsługuje MVC `ValidationAttribute` do celów weryfikacji. Wiele atrybutów sprawdzania poprawności przydatne znajdują się w [System.ComponentModel.DataAnnotations](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations) przestrzeni nazw.
+Wszelkie atrybuty, która jest pochodną obsługuje MVC `ValidationAttribute` do celów weryfikacji. Wiele atrybutów sprawdzania poprawności przydatne znajdują się w [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) przestrzeni nazw.
 
 Może być konieczne więcej funkcji niż wbudowane atrybuty wystąpień. W takich sytuacjach można utworzyć niestandardowego sprawdzania poprawności atrybutów wynikających z `ValidationAttribute` lub zmiana modelu do zaimplementowania `IValidatableObject`.
 
@@ -65,7 +65,7 @@ Niedopuszczająca wartości null [typów wartości](/dotnet/csharp/language-refe
 
 Wiązanie modelu MVC, który nie jest związana z weryfikacji i atrybutów sprawdzania poprawności, odrzuca przesłanie pole formularza zawierających brakujące wartości lub odstępem dla typu wartości null. W przypadku braku `BindRequired` atrybutu na właściwość target wiązania modelu ignoruje brakujące dane dla typów wartości null, w którym nie ma pola formularza z przychodzących danych formularza.
 
-[Atrybutu BindRequired](/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (Zobacz też [dostosować zachowanie wiązania modelu z atrybutami](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)) przydaje się do zapewnienia zakończeniu danych formularza. Gdy jest stosowany do właściwości, system powiązanie modelu wymaga wartości tej właściwości. Po zastosowaniu do typu systemu powiązanie modelu wymaga wartości dla wszystkich właściwości tego typu.
+[Atrybutu BindRequired](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (Zobacz też [dostosować zachowanie wiązania modelu z atrybutami](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)) przydaje się do zapewnienia zakończeniu danych formularza. Gdy jest stosowany do właściwości, system powiązanie modelu wymaga wartości tej właściwości. Po zastosowaniu do typu systemu powiązanie modelu wymaga wartości dla wszystkich właściwości tego typu.
 
 Jeśli używasz [Nullable\<T > typ](/dotnet/csharp/programming-guide/nullable-types/) (na przykład `decimal?` lub `System.Nullable<decimal>`) i oznacz ją `Required`, sprawdzanie poprawności po stronie serwera odbywa się tak, jakby właściwość był Standardowy typ dopuszczający wartość null (dla przykład `string`).
 
@@ -192,7 +192,7 @@ $.get({
 
 ## <a name="iclientmodelvalidator"></a>IClientModelValidator
 
-Możesz utworzyć logiki po stronie klienta dla użytkownika niestandardowego atrybutu i [sprawdzania poprawności dyskretnego kodu](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html) co powoduje adapter w celu [weryfikacji jquery] (http://jqueryvalidation.org/documentation/) będą wykonywane na kliencie zostanie automatycznie w ramach sprawdzania poprawności. Pierwszym krokiem jest kontrolować, jakie atrybuty danych są dodawane zaimplementowanie `IClientModelValidator` interfejsu, jak pokazano poniżej:
+Możesz utworzyć logiki po stronie klienta dla użytkownika niestandardowego atrybutu i [sprawdzania poprawności dyskretnego kodu](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html) co powoduje adapter w celu [weryfikacji jquery](http://jqueryvalidation.org/documentation/) będą wykonywane na kliencie zostanie automatycznie w ramach Sprawdzanie poprawności. Pierwszym krokiem jest kontrolować, jakie atrybuty danych są dodawane zaimplementowanie `IClientModelValidator` interfejsu, jak pokazano poniżej:
 
 [!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=30-42)]
 
