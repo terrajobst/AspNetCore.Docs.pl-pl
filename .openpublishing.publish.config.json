@@ -30,7 +30,8 @@
         "RestApi": "Content"
       },
       "template_folder": "_themes",
-      "version": 0
+      "version": 0,
+      "moniker_ranges": [">= aspnetcore-1.0"]
     }
   ],
   "notification_subscribers": [],
@@ -38,7 +39,7 @@
     "live",
     "master"
   ],
-  "git_repository_url_open_to_public_contributors": "https://github.com/aspnet/Docs.pl-pl",
+  "git_repository_url_open_to_public_contributors": "https://github.com/aspnet/docs.pl-pl",
   "git_repository_branch_open_to_public_contributors": "live",
   "continue_with_document_error": true,
   "skip_source_output_uploading": false,
