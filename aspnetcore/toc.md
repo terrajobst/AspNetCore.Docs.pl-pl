@@ -132,6 +132,7 @@
 ### [HTTP.sys](fundamentals/servers/httpsys.md)
 ## [Globalizacja i lokalizacja](xref:fundamentals/localization)
 ### [Konfigurowanie lokalizacji obiektu przenośnego przy użyciu Orchard Core](xref:fundamentals/portable-object-localization)
+## [Inicjowanie żądań HTTP](xref:fundamentals/http-requests)
 ## [Funkcje na żądanie](fundamentals/request-features.md)
 ## [Zadania w tle z usługami hostowanymi](xref:fundamentals/hosted-services)
 ## [Typy pierwotne](xref:fundamentals/primitives/index)
@@ -143,9 +144,11 @@
 ## [Wybieranie między platformą ASP.NET Core i ASP.NET](choose-aspnet-framework.md)
 
 # [Strony Razor](xref:mvc/razor-pages/index)
-## [Funkcje konwencji tras i aplikacji](xref:mvc/razor-pages/razor-pages-convention-features)
 ## [Metody filtrowania dla stron Razor](xref:mvc/razor-pages/filter)
+## [Tworzenie biblioteki klas Razor](xref:mvc/razor-pages/ui-class)
+## [Funkcje konwencji tras i aplikacji](xref:mvc/razor-pages/razor-pages-convention-features)
 ## [Zestaw Razor SDK](xref:mvc/razor-pages/sdk)
+
 
 # [MVC](mvc/overview.md)
 ## [Wiązanie modelu](mvc/models/model-binding.md)
@@ -355,7 +358,7 @@
 ## [ASP.NET Core 1.x do 2.0](xref:migration/1x-to-2x/index)
 ### [Uwierzytelnianie i tożsamość](xref:migration/1x-to-2x/identity-2x)
 
-# [Dokumentacja interfejsu API](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0)
+# [Dokumentacja interfejsu API](/dotnet/api/?view=aspnetcore-2.0)
 
 # [Informacje o wersji 2.0](aspnetcore-2.0.md)
 ## [Informacje o wersji 1.1](aspnetcore-1.1.md)

@@ -9,12 +9,12 @@ Dodaj następujące `Create` metody:
 ::: moniker range="<= aspnetcore-2.0"
 [!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Poprzedni kod jest metodą HTTP POST, wskazywany przez [[HttpPost]](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) atrybutu. [[FromBody]](/aspnet/core/api/microsoft.aspnetcore.mvc.frombodyattribute) atrybut informuje MVC, aby uzyskać wartość elementu zadań do wykonania z treści żądania HTTP.
+Poprzedni kod jest metodą HTTP POST, wskazywany przez [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) atrybutu. [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) atrybut informuje MVC, aby uzyskać wartość elementu zadań do wykonania z treści żądania HTTP.
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Poprzedni kod jest metodą HTTP POST, wskazywany przez [[HttpPost]](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) atrybutu. MVC pobiera wartość elementu zadań do wykonania z treści żądania HTTP.
+Poprzedni kod jest metodą HTTP POST, wskazywany przez [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) atrybutu. MVC pobiera wartość elementu zadań do wykonania z treści żądania HTTP.
 ::: moniker-end
 
 `CreatedAtRoute` Metody:
