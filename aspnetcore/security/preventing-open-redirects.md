@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/preventing-open-redirects
-ms.openlocfilehash: 4a210b8bb8091e7c036d4bc98306e3b3f90d7d46
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 9ac6b311170dbbc27dd388842c071bc64add6f08
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>Zapobieganie atakom Otwórz przekierowania w ASP.NET Core
 
@@ -29,18 +29,18 @@ Docelowy adres URL, ponieważ określono w ciąg zapytania żądania złośliwy 
 
 ### <a name="an-example-attack"></a>Na przykład ataki
 
-Złośliwy użytkownik może utworzyć atak ma umożliwić złośliwemu użytkownikowi dostęp do poświadczeń użytkownika lub poufnych informacji w aplikacji. Aby rozpocząć atak, ich przekonać użytkownika do kliknij łącze do strony logowania w witrynie, z `returnUrl` wartości querystring dodany do adresu URL. Na przykład [NerdDinner.com](http://nerddinner.com) przykładowej aplikacji (przeznaczone dla platformy ASP.NET MVC) zawiera takie strony logowania tutaj: ``http://nerddinner.com/Account/LogOn?returnUrl=/Home/About``. Atak następnie obejmuje następujące kroki:
+Złośliwy użytkownik może utworzyć atak ma umożliwić złośliwemu użytkownikowi dostęp do poświadczeń użytkownika lub poufnych informacji w aplikacji. Aby rozpocząć atak, ich przekonać użytkownika do kliknij łącze do strony logowania w witrynie, z `returnUrl` wartości querystring dodany do adresu URL. Na przykład [NerdDinner.com](http://nerddinner.com) przykładowej aplikacji (przeznaczone dla platformy ASP.NET MVC) zawiera takie strony logowania tutaj: `http://nerddinner.com/Account/LogOn?returnUrl=/Home/About`. Atak następnie obejmuje następujące kroki:
 
-1. Użytkownik kliknie łącze do ``http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn`` (należy pamiętać, drugi adres URL jest nerddi**n**era, nie nerddi**nn**ERA).
+1. Użytkownik kliknie łącze do `http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn` (należy pamiętać, drugi adres URL jest nerddi**n**era, nie nerddi**nn**ERA).
 2. Użytkownik, który loguje się pomyślnie.
-3. Użytkownik zostaje przekierowany (przez witrynę) do ``http://nerddiner.com/Account/LogOn`` (złośliwa witryna przypominającą rzeczywistej lokacji).
+3. Użytkownik zostaje przekierowany (przez witrynę) do `http://nerddiner.com/Account/LogOn` (złośliwa witryna przypominającą rzeczywistej lokacji).
 4. Użytkownik loguje się ponownie (podając złośliwego lokacji poświadczeń) i jest przekierowywany do rzeczywistego witryny.
 
 Użytkownik prawdopodobnie będą sądziły pierwsza próba logowania nie powiodła się, a ich drugi zakończyło się pomyślnie. Prawdopodobnie pozostanie bez "świadomości" swoje poświadczenia zostały naruszone.
 
 ![Otwórz przekierowania ataku procesu](preventing-open-redirects/_static/open-redirection-attack-process.png)
 
-Oprócz strony logowania niektóre Lokacje przekierowania strony lub punktów końcowych. Wyobraź sobie aplikacja ma stronę Otwórz przekierowania ``/Home/Redirect``. Osoba atakująca może utworzyć na przykład łącze w wiadomości e-mail, który jest przesyłany do ``[yoursite]/Home/Redirect?url=http://phishingsite.com/Home/Login``. Typowy użytkownik będzie wyglądać pod adresem URL i znaleźć zaczyna się od nazwy lokacji. Który ufające, będzie kliknij łącze. Otwórz przekierowania następnie może wysłać do użytkownika do witryny wyłudzaniem informacji, która jest taka sama jak należy do Ciebie, a użytkownik będzie prawdopodobnie będą uważali logowanie jest witryną.
+Oprócz strony logowania niektóre Lokacje przekierowania strony lub punktów końcowych. Wyobraź sobie aplikacja ma stronę Otwórz przekierowania `/Home/Redirect`. Osoba atakująca może utworzyć na przykład łącze w wiadomości e-mail, który jest przesyłany do `[yoursite]/Home/Redirect?url=http://phishingsite.com/Home/Login`. Typowy użytkownik będzie wyglądać pod adresem URL i znaleźć zaczyna się od nazwy lokacji. Który ufające, będzie kliknij łącze. Otwórz przekierowania następnie może wysłać do użytkownika do witryny wyłudzaniem informacji, która jest taka sama jak należy do Ciebie, a użytkownik będzie prawdopodobnie będą uważali logowanie jest witryną.
 
 ## <a name="protecting-against-open-redirect-attacks"></a>Ochrona przed atakami Otwórz przekierowania
 
@@ -48,7 +48,7 @@ Podczas tworzenia aplikacji sieci web, należy traktować wszystkie dane dostarc
 
 ### <a name="localredirect"></a>LocalRedirect
 
-Użyj ``LocalRedirect`` metody pomocnika od podstawy `Controller` klasy:
+Użyj `LocalRedirect` metody pomocnika od podstawy `Controller` klasy:
 
 ```csharp
 public IActionResult SomeAction(string redirectUrl)
@@ -57,7 +57,7 @@ public IActionResult SomeAction(string redirectUrl)
 }
 ```
 
-``LocalRedirect`` spowoduje zgłoszenie wyjątku, jeśli określono adres URL nie lokalnego. W przeciwnym razie wartość działa tak samo jak ``Redirect`` metody.
+`LocalRedirect` spowoduje zgłoszenie wyjątku, jeśli określono adres URL nie lokalnego. W przeciwnym razie wartość działa tak samo jak `Redirect` metody.
 
 ### <a name="islocalurl"></a>IsLocalUrl
 

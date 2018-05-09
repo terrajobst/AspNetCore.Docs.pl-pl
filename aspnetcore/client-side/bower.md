@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: 2d6cc526b5a0890103e2856a0ca4b58c5f162c79
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 4f53d0f04d17631a12e2c2030d6dbb1f4fcc09d3
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Zarządzaj pakietami po stronie klienta z Bower w ASP.NET Core
 
@@ -115,7 +115,7 @@ Po listy pakietów *bower.json* pliku, Visual Studio będzie je pobrać. W poni�
 
 W tej sekcji utworzysz stronę HTML, aby sprawdzić, czy można uzyskać dostępu do wdrożone pakiety.
 
-* Dodaj nową stronę HTML o nazwie *Index.html* do *wwwroot* folderu. Uwaga: Należy dodać do pliku w formacie HTML *wwwroot* folderu. Domyślnie funkcja zawartość statyczna nie może zostać wyświetlona poza *wwwroot*. Zobacz [pracować z plikami statycznych](xref:fundamentals/static-files) Aby uzyskać więcej informacji.
+* Dodaj nową stronę HTML o nazwie *Index.html* do *wwwroot* folderu. Uwaga: Należy dodać do pliku w formacie HTML *wwwroot* folderu. Domyślnie funkcja zawartość statyczna nie może zostać wyświetlona poza *wwwroot*. Zobacz [pliki statyczne](xref:fundamentals/static-files) Aby uzyskać więcej informacji.
 
   Zastąp zawartość *Index.html* z następujący kod:
 

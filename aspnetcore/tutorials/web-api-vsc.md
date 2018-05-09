@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/web-api-vsc
 ms.openlocfilehash: 303016c7e1d27726faaa0b1546575255355d5275
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
-ms.translationtype: MT
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>Tworzenie składnika Web API platformy ASP.NET Core i kodu programu Visual Studio
 

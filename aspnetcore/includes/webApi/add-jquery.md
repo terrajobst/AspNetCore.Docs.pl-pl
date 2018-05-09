@@ -2,7 +2,7 @@
 
 W tej sekcji strony HTML jest dodać używającą jQuery do wywołania interfejsu API sieci Web. jQuery inicjuje żądanie i aktualizuje strony szczegółów z odpowiedzi interfejsu API.
 
-Konfigurowanie projektu do obsługi plików statycznych i umożliwia domyślne mapowanie plików. Jest to osiągane przez wywoływanie [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) i [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) metody rozszerzenia w *Startup.Configure*. Aby uzyskać więcej informacji, zobacz [Praca z plikami statycznych w ASP.NET Core](xref:fundamentals/static-files).
+Konfigurowanie projektu do obsługi plików statycznych i umożliwia domyślne mapowanie plików. Jest to osiągane przez wywoływanie [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) i [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) metody rozszerzenia w *Startup.Configure*. Aby uzyskać więcej informacji, zobacz [pliki statyczne](xref:fundamentals/static-files).
 
 [!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup2.cs?name=snippet_Configure&highlight=3-4)]
 

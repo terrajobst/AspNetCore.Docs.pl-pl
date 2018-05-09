@@ -10,7 +10,7 @@ W poniższej tabeli wymieniono pliki i foldery w projekcie. W tym samouczku *Sta
 
 | Plik lub folder              | Cel |
 | ----------------- | ------------ | 
-| wwwroot | Zawiera pliki statyczne. Zobacz [pracować z plikami statycznych](xref:fundamentals/static-files). |
+| wwwroot | Zawiera pliki statyczne. Zobacz [pliki statyczne](xref:fundamentals/static-files). |
 | Strony | Folder [stron Razor](xref:mvc/razor-pages/index). | 
 | *appsettings.json* | [Konfiguracja](xref:fundamentals/configuration/index) |
 | *Program.cs* | [Hosty](xref:fundamentals/hosting) aplikacji platformy ASP.NET Core.|

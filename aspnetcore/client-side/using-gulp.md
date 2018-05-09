@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: 7a3d7807484b76e40e9728e0c750fa1383cc271f
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 13f30be7670983bd65f8402404b841039bdacb09
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-gulp-in-aspnet-core"></a>Użyj Gulp w platformy ASP.NET Core
 
@@ -326,7 +326,7 @@ Aby przełączyć między kompilowania kodu dla różnych środowisk, należy zm
 
     Należy zauważyć, że łączy arkusza stylów wskaż unminified wersje plików CSS.
 
-Aby uzyskać więcej informacji związanych z środowiska w programie ASP.NET Core, zobacz [pracy w środowiskach wielu](../fundamentals/environments.md).
+Aby uzyskać więcej informacji związanych z środowiska w programie ASP.NET Core, zobacz [używać wiele środowisk](../fundamentals/environments.md).
 
 ## <a name="task-and-module-details"></a>Szczegóły zadania i modułu
 

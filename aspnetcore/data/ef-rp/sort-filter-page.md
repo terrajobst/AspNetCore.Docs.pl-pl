@@ -8,11 +8,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: be7d55bf1a5d3da63ff137ed86f71984dc897eff
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 26f516716864bdce81cf3acdacb0f9d2f98407b7
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - sortowanie, filtrowanie, stronicowania - 3 8
 
@@ -58,7 +58,7 @@ Pierwszy wiersz określa, że w przypadku `sortOrder` ma wartość null lub jest
 
 `?: operator` Jest także znana jako operator trójargumentowy.
 
-Te dwie instrukcje włączyć widok, aby ustawić hiperłącza nagłówek kolumny w następujący sposób:
+Te dwie instrukcje włączyć stronę, aby ustawić hiperłącza nagłówek kolumny w następujący sposób:
 
 | Bieżącej kolejności sortowania | Ostatnia nazwa hiperłącza | Data hiperłącza |
 |:--------------------:|:-------------------:|:--------------:|
@@ -77,7 +77,7 @@ Metoda używa do składnika LINQ to Entities Określ kolumny, aby posortować we
 
 `OnGetAsync` można pobrać verbose z dużą liczbą kolumn.
 
-### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Dodawanie hiperłączy nagłówek kolumny do widoku indeksu dla użytkowników domowych
+### <a name="add-column-heading-hyperlinks-to-the-student-index-page"></a>Dodawanie hiperłączy nagłówek kolumny do strony indeksu dla użytkowników domowych
 
 Zastąp kod w *Students/Index.cshtml*, z następującymi wyróżniony kod:
 
@@ -122,7 +122,7 @@ Poprzedni kod:
 
 Uwaga: Poprzedniego wywołania kodu `Where` metoda `IQueryable` obiektu, a filtr jest przetwarzane na serwerze. W niektórych scenariuszach może być wywoływania określona aplikacja `Where` metody jako metodę rozszerzenie w kolekcji w pamięci. Załóżmy na przykład, `_context.Students` zmieni się z podstawowej EF `DbSet` do metody repozytorium, która zwraca `IEnumerable` kolekcji. Wynik zazwyczaj będzie taki sam, ale w niektórych przypadkach może się różnić.
 
-Na przykład, .NET Framework wykonania `Contains` wykonuje domyślnie porównania z uwzględnieniem wielkości liter. W programie SQL Server `Contains` uwzględnianie wielkości liter, jest określany przez ustawienie sortowania wystąpienia programu SQL Server. SQL służą domyślnie do bez uwzględniania wielkości liter. `ToUpper` może być wywołane w celu należy jawnie bez uwzględniania wielkości liter testu:
+Na przykład, .NET Framework wykonania `Contains` wykonuje domyślnie porównania z uwzględnieniem wielkości liter. W programie SQL Server `Contains` uwzględnianie wielkości liter, jest określany przez ustawienie sortowania wystąpienia programu SQL Server. SQL Server domyślnie do bez uwzględniania wielkości liter. `ToUpper` może być wywołane w celu należy jawnie bez uwzględniania wielkości liter testu:
 
 `Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())`
 
@@ -133,9 +133,9 @@ Poprzedni kod będzie upewnij się, że wyniki są bez uwzględniania wielkości
 
 Brak zmniejszenie wydajności dla wywołania `ToUpper`. `ToUpper` Kod dodaje funkcję w klauzuli WHERE instrukcji TSQL SELECT. Funkcja dodana zapobiega Optymalizator przy użyciu indeksu. Biorąc pod uwagę, że program SQL jest zainstalowany jako bez uwzględniania wielkości liter, jest unikanie `ToUpper` wywołania, gdy nie jest wymagana.
 
-### <a name="add-a-search-box-to-the-student-index-view"></a>Dodaj pole wyszukiwania do widoku indeksu dla użytkowników domowych
+### <a name="add-a-search-box-to-the-student-index-page"></a>Dodaj pole wyszukiwania do strony indeksu dla użytkowników domowych
 
-W *Views/Student/Index.cshtml*, Dodaj następujący wyróżniony kod do utworzenia **wyszukiwania** przycisk i różne chrome.
+W *Pages/Students/Index.cshtml*, Dodaj następujący wyróżniony kod do utworzenia **wyszukiwania** przycisk i różne chrome.
 
 [!code-html[](intro/samples/cu/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
@@ -267,7 +267,7 @@ Uwaga: LINQ `group` polecenia nie jest obecnie obsługiwany przez EF rdzeń. W p
 
 ### <a name="modify-the-about-razor-page"></a>Modyfikowanie o stronie aparatu Razor
 
-Zastąp kod w *Views/Home/About.cshtml* pliku następującym kodem:
+Zastąp kod w *Pages/About.cshtml* pliku następującym kodem:
 
 [!code-html[](intro/samples/cu/Pages/About.cshtml)]
 

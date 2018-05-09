@@ -11,17 +11,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/http-requests
-ms.openlocfilehash: 30ac239a38376feecffc3010387ec5e0009b6db6
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 1f2c7522a10220cd9520d78846d2e897115447c2
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="initiate-http-requests"></a>Zainicjuj żądań HTTP
 
 Przez [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak), i [Steve Gordon](https://github.com/stevejgordon)
-
-[!INCLUDE[](~/includes/2.1.md)]
 
 `IHttpClientFactory` Były rejestrowane i służy do konfigurowania i utworzyć [HttpClient](/dotnet/api/system.net.http.httpclient) wystąpień w aplikacji. Zapewnia następujące korzyści:
 
@@ -77,7 +75,7 @@ Klient z typowaniem akceptuje `HttpClient` parametru w swoich konstruktorach:
 
 [!code-csharp[](http-requests/samples/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
 
-W powyższym kodzie konfiguracji jest przenoszony do typu klienta. `HttpClient` Obiektu jest ujawniona jako właściwość publiczna. Można zdefiniować metody specyficzne dla interfejsu API, które udostępniają `HttpClient` funkcji. `GetLatestDocsIssue` Metody hermetyzuje kod wymagany do kwerendy i analizy najnowsze problem z repozytorium GitHub.
+W powyższym kodzie konfiguracji jest przenoszony do typu klienta. `HttpClient` Obiektu jest ujawniona jako właściwość publiczna. Można zdefiniować metody specyficzne dla interfejsu API, które udostępniają `HttpClient` funkcji. `GetAspNetDocsIssues` Metody hermetyzuje kod wymagany do kwerendy i analizy najnowsze otwarte problemy z repozytorium GitHub.
 
 Aby zarejestrować klienta typu ogólnego `AddHttpClient` — metoda rozszerzenia może być używana w `ConfigureServices`, określając klasy klient z typowaniem:
 

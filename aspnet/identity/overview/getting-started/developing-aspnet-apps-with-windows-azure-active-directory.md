@@ -12,20 +12,17 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 44bf29e099583bf9d49f2715d3ff4f748728ad8b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9b2dc05089126fd5f4c1b0a0bd85b8a39f3041dc
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 <a name="developing-aspnet-apps-with-azure-active-directory"></a>Tworzenie aplikacji ASP.NET w usłudze Azure Active Directory
 ====================
 przez [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Narzędzia Microsoft ASP.NET dla usługi Azure Active Directory upraszcza włączyć uwierzytelnianie dla aplikacji sieci web znajdującej się na [Azure](https://www.windowsazure.com/home/features/web-sites/). Azure Authentication służy do uwierzytelniania użytkowników usługi Office 365 z organizacji, użytkownicy utworzeni w własne niestandardowe domeny usługi Azure Active Directory lub kont firmowych synchronizowane z lokalnej usługi Active Directory. Włączenie uwierzytelniania systemu Windows Azure konfiguruje aplikację do uwierzytelniania użytkowników za pomocą pojedynczej [usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) dzierżawy.
-> 
->  W tym samouczku zapisał Rick Anderson [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
-
+Narzędzia Microsoft ASP.NET dla usługi Azure Active Directory upraszcza włączania uwierzytelniania dla aplikacji sieci web hostowanych na [Azure](https://www.windowsazure.com/home/features/web-sites/). Azure Authentication służy do uwierzytelniania użytkowników usługi Office 365 z organizacji, użytkownicy utworzeni w własne niestandardowe domeny usługi Azure Active Directory lub kont firmowych synchronizowane z lokalnej usługi Active Directory. Włączenie uwierzytelniania systemu Windows Azure konfiguruje aplikację do uwierzytelniania użytkowników za pomocą pojedynczej [usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) dzierżawy.
 
 Ten samouczek przedstawia sposób tworzenia aplikacji ASP.NET, która jest skonfigurowana dla logowania z [usługi Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (Azure AD). Także przedstawiono sposób wywołania interfejsu API programu Graph, aby uzyskać informacje o aktualnie zalogowanego użytkownika oraz sposobu wdrażania aplikacji na platformie Azure.
 

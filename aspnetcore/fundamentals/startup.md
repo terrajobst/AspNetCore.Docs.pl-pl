@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: 8dd632a2c888e65c6420e0fed7acf6fa15173b3d
-ms.sourcegitcommit: c4a31aaf902f2e84aaf4a9d882ca980fdf6488c0
+ms.openlocfilehash: a61f78b2d0e5c6c171a26690fcce256462a82508
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
 
@@ -44,7 +44,7 @@ Określ `Startup` klasy z [WebHostBuilderExtensions](/dotnet/api/Microsoft.AspNe
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
-Zamiast wstrzyknięcie `IHostingEnvironment` jest użycie podejście oparte na Konwencji. Aplikacji można zdefiniować oddzielne `Startup` klasy dla różnych środowisk (na przykład `StartupDevelopment`), a klasa początkowa odpowiednie jest wybierana w czasie wykonywania. Priorytety jest klasa, którego sufiks nazwy zgodny z bieżącym środowisku. Jeśli aplikacja jest uruchamiana w środowisku programistycznym i zawiera zarówno `Startup` klasy i `StartupDevelopment` klasy `StartupDevelopment` klasa jest używana. Aby uzyskać więcej informacji, zobacz [pracy w środowiskach wielu](xref:fundamentals/environments#startup-conventions).
+Zamiast wstrzyknięcie `IHostingEnvironment` jest użycie podejście oparte na Konwencji. Aplikacji można zdefiniować oddzielne `Startup` klasy dla różnych środowisk (na przykład `StartupDevelopment`), a klasa początkowa odpowiednie jest wybierana w czasie wykonywania. Priorytety jest klasa, którego sufiks nazwy zgodny z bieżącym środowisku. Jeśli aplikacja jest uruchamiana w środowisku programistycznym i zawiera zarówno `Startup` klasy i `StartupDevelopment` klasy `StartupDevelopment` klasa jest używana. Aby uzyskać więcej informacji, zobacz [używać wiele środowisk](xref:fundamentals/environments#startup-conventions).
 
 Aby dowiedzieć się więcej o `WebHostBuilder`, zobacz [hostingu](xref:fundamentals/hosting) tematu. Aby informacji na temat obsługi błędów podczas uruchamiania, zobacz [obsługi wyjątków uruchamiania](xref:fundamentals/error-handling#startup-exception-handling).
 
@@ -64,9 +64,10 @@ Dla funkcji, które wymagają znacznej Instalatora, są `Add[Service]` metody ro
 
 [!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 
-::: moniker range=">= aspnetcore-2.1" 
+::: moniker range=">= aspnetcore-2.1"
 
 <a name="setcompatibilityversion"></a>
+
 ### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>SetCompatibilityVersion dla platformy ASP.NET Core MVC 
 
 `SetCompatibilityVersion` Metody, dzięki czemu aplikacja opcjonalnych lub zrezygnować z potencjalnie fundamentalne zmiany zachowania wprowadzone w ASP.NET MVC Core 2.1 +. Potencjalnie fundamentalne zmiany zachowania są zazwyczaj w jak działa w podsystemie MVC i jak **kodu** jest wywoływana przez środowisko uruchomieniowe. Dzięki zgodzie na rozwiązanie, możesz uzyskać najnowsze zachowania i długoterminowego zachowania platformy ASP.NET Core.
@@ -157,10 +158,14 @@ Kolejność wykonywania oprogramowanie pośredniczące zestaw jest w celu `IStar
 * Wiele `IStartupFilter` implementacje może współpracować z te same obiekty. Jeśli kolejność jest ważna, kolejność ich `IStartupFilter` usługi rejestracji, aby dopasować kolejności ich middlewares powinno być ono uruchomione.
 * Biblioteki mogą dodawać oprogramowanie pośredniczące z co najmniej jednym `IStartupFilter` implementacje uruchamiane przed lub po innym oprogramowaniu pośredniczącym aplikacji zarejestrowany `IStartupFilter`. Do wywołania `IStartupFilter` oprogramowanie pośredniczące przed oprogramowanie pośredniczące dodane przez bibliotekę `IStartupFilter`, umieść rejestracji usługi przed biblioteki jest dodawany do kontenera usług. Aby wywołać później, umieść rejestracji usługi, po dodaniu biblioteki.
 
+## <a name="adding-configuration-at-startup-from-an-external-assembly"></a>Dodawanie konfiguracji podczas uruchamiania z zewnętrznego zestawu
+
+[IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) implementacji umożliwia dodawania rozszerzenia do aplikacji przy uruchamianiu z zewnętrznego zestawu poza aplikacji `Startup` klasy. Aby uzyskać więcej informacji, zobacz [ulepszyć aplikację z zewnętrznego zestawu](xref:fundamentals/configuration/platform-specific-configuration).
+
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Hosting](xref:fundamentals/hosting)
-* [Praca z wieloma środowiskami](xref:fundamentals/environments)
+* [Użyj wiele środowisk](xref:fundamentals/environments)
 * [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
 * [Rejestrowanie](xref:fundamentals/logging/index)
 * [Konfiguracja](xref:fundamentals/configuration/index)

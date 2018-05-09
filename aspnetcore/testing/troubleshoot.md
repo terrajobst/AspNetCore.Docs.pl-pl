@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: testing/troubleshoot
-ms.openlocfilehash: a75dc666621600e1e2fe36c29acbe7484bae9229
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: f2c785bfe27ddd67db0313b8ee1c077a8cc06e05
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>Rozwiązywanie problemów z projektów platformy ASP.NET Core
 
@@ -29,8 +29,8 @@ Poniższe łącza zawierają wskazówki dotyczące rozwiązywania problemów:
 <a name="sdk"></a>
 ## <a name="net-core-sdk-warnings"></a>Ostrzeżenia .NET core SDK
 
-### <a name="both-the-32-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>Zarówno w 32- i 64 bitowych wersjach zestawu SDK .NET Core są zainstalowane
-W **nowy projekt** okna dialogowego dla platformy ASP.NET Core, mogą pojawić się następujące ostrzeżenie pojawiają się u góry: 
+### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>Zainstalowano 32-bitowe i 64-bitowe wersje .NET Core SDK
+W **nowy projekt** okna dialogowego dla platformy ASP.NET Core, mogą pojawić się następujące ostrzeżenie: 
 
     Both 32 and 64 bit versions of the .NET Core SDK are installed. Only templates from the 64 bit version(s) installed at C:\Program Files\dotnet\sdk\" will be displayed.
 
@@ -45,12 +45,24 @@ To ostrzeżenie jest wyświetlane, gdy zarówno wersji 64-bitowej (x 64), jak i 
 Odinstaluj 32-bitowej platformy .NET Core SDK, aby uniknąć tego ostrzeżenia. Odinstaluj z **Panelu sterowania** > **programy i funkcje** > **Odinstaluj lub zmień program**. Jeśli wiesz, dlaczego występuje ostrzeżenie i jej wpływ, można zignorować to ostrzeżenie.
 
 ### <a name="the-net-core-sdk-is-installed-in-multiple-locations"></a>.NET Core SDK jest zainstalowany w wielu lokalizacjach
-W **nowy projekt** okno dialogowe dla platformy ASP.NET Core mogą pojawić się następujące ostrzeżenie pojawiają się u góry: 
+W **nowy projekt** okna dialogowego dla platformy ASP.NET Core mogą pojawić się następujące ostrzeżenie: 
 
  Zestaw SDK .NET Core zainstalowano w wielu lokalizacjach. Tylko szablony z Jeśli zainstalowana w "C:\Program Files\dotnet\sdk\' będą wyświetlane.
 
 ![Zrzut ekranu przedstawiający komunikat ostrzegawczy okna dialogowego OneASP.NET](troubleshoot/_static/multiplelocations.png)
 
-Ten komunikat jest wyświetlany, ponieważ ma co najmniej jedna instalacja zestawu SDK .NET Core w katalogu poza * C:\Program Files\dotnet\sdk\*. Zwykle ma to miejsce podczas .NET Core SDK został wdrożony na komputerze za pomocą kopiowania i wklejania zamiast Instalatora MSI.
+Ten komunikat zostanie wyświetlony, jeśli masz co najmniej jedna instalacja zestawu SDK .NET Core w katalogu poza * C:\Program Files\dotnet\sdk\*. Zwykle ma to miejsce podczas .NET Core SDK został wdrożony na komputerze za pomocą kopiowania i wklejania zamiast Instalatora MSI.
 
 Odinstaluj 32-bitowej platformy .NET Core SDK, aby uniknąć tego ostrzeżenia. Odinstaluj z **Panelu sterowania** > **programy i funkcje** > **Odinstaluj lub zmień program**. Jeśli wiesz, dlaczego występuje ostrzeżenie i jej wpływ, można zignorować to ostrzeżenie.
+
+### <a name="no-net-core-sdks-were-detected"></a>Nie wykryto nie .NET Core SDK
+W **nowy projekt** okna dialogowego dla platformy ASP.NET Core mogą pojawić się następujące ostrzeżenie: 
+
+**Nie wykryto nie .NET Core SDK, upewnij się, że są one uwzględnione w zmiennej środowiskowej "PATH"**
+
+![Zrzut ekranu przedstawiający komunikat ostrzegawczy okna dialogowego OneASP.NET](troubleshoot/_static/NoNetCore.png)
+
+To ostrzeżenie jest wyświetlane, gdy zmienna środowiskowa `PATH` nie wskazuje na żadnych zestawów SDK Core .NET na tym komputerze. Aby rozwiązać ten problem:
+
+* Zainstaluj lub sprawdź, czy jest zainstalowany zestaw SDK .NET Core.
+* Sprawdź `PATH` zmiennej środowiskowej wskazuje lokalizację, jest zainstalowany zestaw SDK. Instalator zwykle ustawia `PATH`.

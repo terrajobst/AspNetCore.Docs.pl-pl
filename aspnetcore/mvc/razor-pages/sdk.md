@@ -10,17 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: mvc/razor-pages/sdk
-ms.openlocfilehash: 2cbebb12ccd1098e1950aa7eeb22fab4ffc689e6
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: acc049a69574968d1e304d6c504cb89243387d6c
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="aspnet-core-razor-sdk"></a>Razor platformy ASP.NET Core SDK
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-[!INCLUDE[](~/includes/2.1.md)]
 
 [!INCLUDE [](~/includes/2.1-SDK.md)] Obejmuje `Microsoft.NET.Sdk.Razor` MSBuild SDK (zestaw SDK Razor). Razor SDK:
 
@@ -66,7 +64,7 @@ Aby skonfigurować dane wejściowe i wyjściowe do zestawu SDK Razor służą po
 | ------------                                  | -------------                                                                 |
 | RazorGenerate                                 | Element elementy (*.cshtml* plików), które są dane wejściowe do celów generowania kodu. |
 | RazorCompile                                  | Element elementy (pliki .cs) danych wejściowych w celu obiekty docelowe kompilacji Razor. Użyj tego ItemGroup, aby określić dodatkowe pliki, które ma być kompilowana w zestawie Razor. |
-| RazorAssemblyAttribute                        | Element używany do kodu generowania atrybuty dla zestawu Razor. Na przykład:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
+| RazorTargetAssemblyAttribute                  | Element używany do kodu generowania atrybuty dla zestawu Razor. Na przykład:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
 | RazorEmbeddedResource                         | Element dodany jako zasoby osadzone do wygenerowanego zestawu Razor |
 
 | Właściwość                                      | Opis                                                                   |

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: d5b74e213828d1a1f7e09810e5cc72773a821dab
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 223b1906ef9941084e18e0698f007d9564e81f09
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET Core
 
@@ -107,7 +107,7 @@ Informacji o używaniu `IHttpClientFactory` dostępu `HttpClient` wystąpień do
 
 Środowiskach, na przykład "Programowanie" i "Production", są pojęcie pierwszą klasą w ASP.NET Core i można ustawić za pomocą zmiennych środowiskowych.
 
-Aby uzyskać więcej informacji, zobacz [pracy w środowiskach wielu](xref:fundamentals/environments).
+Aby uzyskać więcej informacji, zobacz [używać wiele środowisk](xref:fundamentals/environments).
 
 ## <a name="configuration"></a>Konfiguracja
 
@@ -143,7 +143,7 @@ Aby uzyskać więcej informacji, zobacz [dostawców pliku](xref:fundamentals/fil
 
 Oprogramowanie pośredniczące plików statycznych służy plików statycznych, takich jak HTML, CSS, obrazu i JavaScript.
 
-Aby uzyskać więcej informacji, zobacz [pracować z plikami statycznych](xref:fundamentals/static-files).
+Aby uzyskać więcej informacji, zobacz [pliki statyczne](xref:fundamentals/static-files).
 
 ## <a name="hosting"></a>Hosting
 

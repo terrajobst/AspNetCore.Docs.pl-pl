@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 2e1257639ec41f657093439c5245b50adbad34dc
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: d9d5a26b08f67fe4ee39d6b974027826a93e5d5f
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w platformy ASP.NET Core
 
@@ -74,7 +74,7 @@ Trasy przede wszystkim użyj wartości trasy udostępniane przez `Values` i `Amb
 
 Porada: Należy traktować `Values` jako zbiór zastąpienia `AmbientValues`. Generowania adresu URL spróbuje ponownie użyć wartości tras z bieżącego żądania umożliwia łatwe do generowania adresów URL dla łącza za pomocą tego samego trasy i wartości trasy.
 
-Dane wyjściowe `GetVirtualPath` jest `VirtualPathData`. `VirtualPathData` jest równolegle z `RouteData`; zawiera `VirtualPath` dla adresu URL danych wyjściowych, a także pewne dodatkowe właściwości, które powinien być ustawiony przez trasę.
+Dane wyjściowe `GetVirtualPath` jest `VirtualPathData`. `VirtualPathData` jest równolegle z `RouteData`; zawiera `VirtualPath` dla adresu URL danych wyjściowych i niektóre dodatkowe właściwości, które powinny być określone przez trasy.
 
 `VirtualPathData.VirtualPath` Właściwość zawiera *ścieżki wirtualnej* utworzonego przez trasy. W zależności od potrzeb konieczne może przetwarzać dalszych ścieżki. Na przykład jeśli ma być renderowany wygenerowany adres URL w formacie HTML konieczne dołączenie wartości podstawowa ścieżka aplikacji.
 

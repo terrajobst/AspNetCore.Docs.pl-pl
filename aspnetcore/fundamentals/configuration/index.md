@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: b1c2b734a2e9b274792b597bfd222c31e661b0d7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 4637ff6312f32f5887ff0f7a6e74d10f5beb0ca5
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja platformy ASP.NET Core
 
@@ -105,13 +105,13 @@ Jeśli środowisko jest równa `Staging`, następujące `Configure` metoda odczy
 
 [!code-csharp[](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
 
-Środowisko jest zwykle ustawiana na `Development`, `Staging`, lub `Production`. Aby uzyskać więcej informacji, zobacz [pracy w środowiskach wielu](xref:fundamentals/environments).
+Środowisko jest zwykle ustawiana na `Development`, `Staging`, lub `Production`. Aby uzyskać więcej informacji, zobacz [używać wiele środowisk](xref:fundamentals/environments).
 
 Zagadnienia dotyczące konfiguracji:
 
 * [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot) można ponownie załadować dane konfiguracji, gdy zmienia.
 * Klucze konfiguracji **nie** z uwzględnieniem wielkości liter.
-* **Nigdy nie** przechowywania haseł i innych poufnych danych w konfiguracji dostawcy kodu lub pliki konfiguracyjne w formacie zwykłego tekstu. Nie używasz produkcji kluczy tajnych w rozwoju lub testowania środowisk. Określ klucze tajne poza projektem, aby nie może być przypadkowo przekazane do repozytorium kodu źródłowego. Dowiedz się więcej o [pracy w środowiskach wielu](xref:fundamentals/environments) i zarządzanie [bezpiecznego magazynu kluczy tajnych aplikacji do rozwoju](xref:security/app-secrets).
+* **Nigdy nie** przechowywania haseł i innych poufnych danych w konfiguracji dostawcy kodu lub pliki konfiguracyjne w formacie zwykłego tekstu. Nie używasz produkcji kluczy tajnych w rozwoju lub testowania środowisk. Określ klucze tajne poza projektem, aby nie może być przypadkowo przekazane do repozytorium kodu źródłowego. Dowiedz się więcej o [jak używać wiele środowisk](xref:fundamentals/environments) i zarządzanie [bezpiecznego magazynu kluczy tajnych aplikacji do rozwoju](xref:security/app-secrets).
 * Dla wartości hierarchiczna konfiguracji określonych w zmiennych środowiskowych, dwukropek (`:`) może nie działać na wszystkich platformach. Podwójne podkreślenia (`__`) jest obsługiwana przez wszystkie platformy.
 * Gdy korzysta z konfiguracji interfejsu API, dwukropek (`:`) działa na wszystkich platformach.
 
@@ -413,6 +413,10 @@ A *web.config* hosting aplikacji w usługach IIS lub usług IIS Express jest wym
 
 Do konfiguracji dostępu w ramach `ConfigureServices` lub `Configure` podczas uruchamiania, zobacz przykłady w [uruchamiania aplikacji](xref:fundamentals/startup) tematu.
 
+## <a name="adding-configuration-from-an-external-assembly"></a>Dodawanie konfiguracji z zewnętrznego zestawu
+
+[IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) implementacji umożliwia dodawania rozszerzenia do aplikacji przy uruchamianiu z zewnętrznego zestawu poza aplikacji `Startup` klasy. Aby uzyskać więcej informacji, zobacz [ulepszyć aplikację z zewnętrznego zestawu](xref:fundamentals/configuration/platform-specific-configuration).
+
 ## <a name="access-configuration-in-a-razor-page-or-mvc-view"></a>Konfiguracja dostępu w widoku Razor strony lub MVC
 
 Aby uzyskać dostęp do ustawień konfiguracji na stronie aparatu Razor strony lub widok MVC, Dodaj [dyrektywa using](xref:mvc/views/razor#using) ([odwołanie w C#: dyrektywa using](/dotnet/csharp/language-reference/keywords/using-directive)) dla [Microsoft.Extensions.Configuration przestrzeni nazw ](/dotnet/api/microsoft.extensions.configuration) i wstrzyknąć [wartości IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) do strony lub widoku.
@@ -468,7 +472,7 @@ W widoku MVC:
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Opcje](xref:fundamentals/configuration/options)
-* [Praca w środowiskach wielu](xref:fundamentals/environments)
+* [Użyj wiele środowisk](xref:fundamentals/environments)
 * [Bezpieczne przechowywanie wpisów tajnych aplikacji w czasie projektowania](xref:security/app-secrets)
 * [Hosting w platformy ASP.NET Core](xref:fundamentals/hosting)
 * [Wstrzykiwanie zależności](xref:fundamentals/dependency-injection)
