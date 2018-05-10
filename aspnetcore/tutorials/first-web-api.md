@@ -5,16 +5,16 @@ description: Tworzenie składnika web API platformy ASP.NET Core MVC i Visual St
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/27/2018
+ms.date: 05/08/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: 865f4345f2d135375b7ed7c3d5199bdbaa1aae50
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
-ms.translationtype: HT
+ms.openlocfilehash: cb46f8b4013488dbe2bb5ca3d08a8c6e452141dd
+ms.sourcegitcommit: c867d7427bd4a88a78b2322e156367733b532730
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/09/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Tworzenie interfejsu API sieci Web przy użyciu programu Visual Studio i ASP.NET Core dla systemu Windows
 
@@ -79,7 +79,7 @@ Zastąp klasę z następującym kodem:
 
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Models/TodoContext.cs)]
 
-[!INCLUDE [Register the database context](../includes/webApi/register_dbContext.md)]
+[!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
 
 ### <a name="add-a-controller"></a>Dodawanie kontrolera
 

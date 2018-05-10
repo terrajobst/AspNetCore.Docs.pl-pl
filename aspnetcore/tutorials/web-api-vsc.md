@@ -5,16 +5,16 @@ description: Tworzenie interfejsu API sieci web na macOS, Linux lub Windows z pl
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/27/2018
+ms.date: 05/08/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 303016c7e1d27726faaa0b1546575255355d5275
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
-ms.translationtype: HT
+ms.openlocfilehash: 9fac4d7b3f687881eafbd63ee71f99bff3b27183
+ms.sourcegitcommit: c867d7427bd4a88a78b2322e156367733b532730
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/09/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>Tworzenie składnika Web API platformy ASP.NET Core i kodu programu Visual Studio
 
