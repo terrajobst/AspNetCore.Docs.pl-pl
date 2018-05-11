@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: 9af08d8fcbd91a9189fe1f4c6cedd644361773f7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: b9947de03942bd71616e4bf12263befd9f784915
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Widoki w podstawowej platformy ASP.NET MVC
 
@@ -21,7 +21,7 @@ Przez [Steve Smith](https://ardalis.com/) i [Luke Latham](https://github.com/gua
 
 W tym dokumencie opisano widoki używane w aplikacjach ASP.NET Core MVC. Aby uzyskać informacje na stronach Razor, zobacz [wprowadzenie do stron Razor](xref:mvc/razor-pages/index).
 
-W **M**odelu -**V**rzeglądaj -**C**wzorzec ontroller (MVC) *widoku* obsługuje interakcję danych aplikacji prezentacji i użytkownika. Widok jest szablonu HTML z osadzonych [znaczników Razor](xref:mvc/views/razor). Kod znaczników razor jest kod, który współdziała z kod znaczników HTML do tworzenia strony sieci Web, które są wysyłane do klienta.
+We wzorcu Model-widok-kontroler (MVC) *widoku* obsługuje interakcję danych aplikacji prezentacji i użytkownika. Widok jest szablonu HTML z osadzonych [znaczników Razor](xref:mvc/views/razor). Kod znaczników razor jest kod, który współdziała z kod znaczników HTML do tworzenia strony sieci Web, które są wysyłane do klienta.
 
 W programie ASP.NET Core MVC, widoki są *.cshtml* pliki, które używają [język programowania C#](/dotnet/csharp/) w znaczniku Razor. Zwykle, Wyświetl pliki są podzielone na foldery o nazwie dla każdej aplikacji [kontrolerów](xref:mvc/controllers/actions). Foldery są przechowywane w *widoków* folder w katalogu głównym aplikacji:
 
@@ -37,7 +37,7 @@ Użyj [układów](xref:mvc/views/layout) sekcje spójne strony sieci Web i obni�
 
 ## <a name="benefits-of-using-views"></a>Korzyści wynikające z korzystania z widoków
 
-Widoki pomóc w ustaleniu [ **S**eparation **o**f **C**oncerns (SoC) projektu](http://deviq.com/separation-of-concerns/) w aplikacji MVC, oddzielając znaczników interfejsu użytkownika z inne części aplikacji. Następującego projektu SoC sprawia, że aplikacja moduły, który zapewnia kilka korzyści:
+Widoki pomóc w ustaleniu [projektu separacji dotyczy (SoC)](http://deviq.com/separation-of-concerns/) w aplikacji MVC, oddzielając znaczników interfejsu użytkownika z innych części aplikacji. Następującego projektu SoC sprawia, że aplikacja moduły, który zapewnia kilka korzyści:
 
 * Aplikacja jest łatwiejsze w obsłudze, ponieważ jest lepiej zorganizowany. Widoki zazwyczaj są pogrupowane według funkcji aplikacji. Dzięki temu można łatwiej znaleźć widoki pokrewne podczas pracy z funkcją.
 * Są luźno powiązane z części aplikacji. Możesz skompilować i aktualizacji aplikacji widoków niezależnie od składniki dostępu logikę i dane biznesowe. Widoki aplikacji można modyfikować, bez konieczności aktualizacji innych części aplikacji.
@@ -123,7 +123,16 @@ Postępuj zgodnie z najlepszym rozwiązaniem organizowania struktury plików wid
 
 ## <a name="passing-data-to-views"></a>Przekazywanie danych do widoków
 
-Dane można przekazać do widoków przy użyciu kilku metod. Najbardziej niezawodna podejściem jest określenie [modelu](xref:mvc/models/model-binding) typu w widoku. Ten model jest często określana jako *viewmodel*. Wystąpienie typu viewmodel są przekazywane do widoku z akcji.
+Przekazywanie danych do widoków przy użyciu kilku metod:
+
+* Dane jednoznacznie: viewmodel
+* Słabą danych
+  - `ViewData` (`ViewDataAttribute`)
+  - `ViewBag`
+
+### <a name="strongly-typed-data-viewmodel"></a>Silnie typizowanych danych (viewmodel)
+
+Najbardziej niezawodna podejściem jest określenie [modelu](xref:mvc/models/model-binding) typu w widoku. Ten model jest często określana jako *viewmodel*. Wystąpienie typu viewmodel są przekazywane do widoku z akcji.
 
 Aby przekazać dane do widoku przy użyciu viewmodel umożliwia widok, aby móc korzystać z *silne* sprawdzania typu. *Silne wpisywanie* (lub *jednoznacznie*) oznacza, że każdy zmiennej i stałej ma jawnie zdefiniowanych typów (na przykład `string`, `int`, lub `DateTime`). Ważność typy używane w widoku jest sprawdzany w czasie kompilacji.
 
@@ -162,7 +171,7 @@ public IActionResult Contact()
 }
 ```
 
-Nie ma żadnych ograniczeń na typy modelu, umożliwiające do widoku. Firma Microsoft zaleca używanie **P**zwykły **O**ld **C**LR **O**viewmodels obiektu (POCO) z zachowaniem żadnych (metody), zdefiniowane. Zazwyczaj klasy viewmodel albo są przechowywane w *modele* folderu lub oddzielnej *ViewModels* folder w katalogu głównym aplikacji. *Adres* viewmodel używane w powyższym przykładzie jest viewmodel POCO, przechowywane w pliku o nazwie *Address.cs*:
+Nie ma żadnych ograniczeń na typy modelu, umożliwiające do widoku. Zalecamy używanie viewmodels zwykłego obiektu CLR stary (POCO) z zachowaniem żadnych (metody), zdefiniowane. Zazwyczaj klasy viewmodel albo są przechowywane w *modele* folderu lub oddzielnej *ViewModels* folder w katalogu głównym aplikacji. *Adres* viewmodel używane w powyższym przykładzie jest viewmodel POCO, przechowywane w pliku o nazwie *Address.cs*:
 
 ```csharp
 namespace WebApplication1.ViewModels
@@ -178,15 +187,13 @@ namespace WebApplication1.ViewModels
 }
 ```
 
-> [!NOTE]
-> Nic nie uniemożliwia przy użyciu tej samej klasy dla użytkownika typy viewmodel i z typów modelu biznesowych. Jednak przy użyciu osobnych modeli umożliwia widoków się różnić, niezależnie od logiki biznesowej i dane dostępu do części aplikacji. Rozdzielenie modeli i viewmodels oferuje również korzyści w zakresie zabezpieczeń używania modeli [modelu powiązania](xref:mvc/models/model-binding) i [weryfikacji](xref:mvc/models/validation) dla danych przesyłanych do aplikacji przez użytkownika.
-
+Nic nie uniemożliwia przy użyciu tej samej klasy dla użytkownika typy viewmodel i z typów modelu biznesowych. Jednak przy użyciu osobnych modeli umożliwia widoków się różnić, niezależnie od logiki biznesowej i dane dostępu do części aplikacji. Rozdzielenie modeli i viewmodels oferuje również korzyści w zakresie zabezpieczeń używania modeli [modelu powiązania](xref:mvc/models/model-binding) i [weryfikacji](xref:mvc/models/validation) dla danych przesyłanych do aplikacji przez użytkownika.
 
 <a name="VD_VB"></a>
 
-### <a name="weakly-typed-data-viewdata-and-viewbag"></a>Słabą danych (ViewData i obiekt ViewBag)
+### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>Słabą danych (ViewData, atrybut ViewData i obiekt ViewBag)
 
-Uwaga: `ViewBag` nie jest dostępna na stronach Razor.
+`ViewBag` *nie jest dostępna w stron Razor.*
 
 Oprócz widoków z silnie typizowanych widoki mają dostęp do *słabą kontrolą* (nazywane również *typowaniem luźnym*) zbierania danych. W odróżnieniu od typów silne *słabe typy* (lub *luźno typy*) oznacza, że nie jawnie zadeklarować typ danych. Zbieranie danych, słabą kontrolą służy do przekazywania niewielkich ilości danych do i z widoków i kontrolerów.
 
@@ -199,7 +206,6 @@ Oprócz widoków z silnie typizowanych widoki mają dostęp do *słabą kontrol�
 Ta kolekcja można odwoływać się przy użyciu jednej `ViewData` lub `ViewBag` właściwości kontrolery i widoki. `ViewData` Właściwości jest słownikiem słabą kontrolą obiektów. `ViewBag` Właściwość jest otokę `ViewData` zapewnia właściwości dynamicznych odpowiadającego `ViewData` kolekcji.
 
 `ViewData` i `ViewBag` są dynamicznie rozwiązane w czasie wykonywania. Ponieważ nie oferują sprawdzanie typów w czasie kompilacji, są zazwyczaj bardziej podatnych niż przy użyciu viewmodel. Z tego powodu niektórzy deweloperzy wolą minimalny zestaw lub nigdy nie należy używać `ViewData` i `ViewBag`.
-
 
 <a name="VD"></a>
 
@@ -243,9 +249,49 @@ Praca z danymi w widoku:
 </address>
 ```
 
+::: moniker range=">= aspnetcore-2.1"
+**Atrybut viewData**
+
+Innym rozwiązaniem, która używa [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) jest [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Właściwości w kontrolerach ani w modelach Razor strony ozdobione `[ViewData]` ich wartości przechowywane i załadować ze słownika.
+
+W poniższym przykładzie zawiera kontrolera głównej `Title` ozdobione właściwości `[ViewData]`. `About` Metoda Ustawia tytuł dla tego widoku informacje:
+
+```csharp
+public class HomeController : Controller
+{
+    [ViewData]
+    public string Title { get; set; }
+
+    public IActionResult About()
+    {
+        Title = "About Us";
+        ViewData["Message"] = "Your application description page.";
+
+        return View();
+    }
+}
+```
+
+W widoku informacje dostępu `Title` właściwości jako właściwość modelu:
+
+```cshtml
+<h1>@Model.Title</h1>
+```
+
+W układzie tytuł jest do odczytu ze słownika ViewData:
+
+```cshtml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - WebApplication</title>
+    ...
+```
+::: moniker-end
+
 **Obiekt ViewBag**
 
-Uwaga: `ViewBag` nie jest dostępna na stronach Razor.
+`ViewBag` *nie jest dostępna w stron Razor.*
 
 `ViewBag` jest [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) obiekt, który umożliwia dynamiczne dostęp do obiektów przechowywanych w `ViewData`. `ViewBag` może być bardziej wygodne do pracy, ponieważ nie wymaga rzutowania. Poniższy przykład przedstawia użycie `ViewBag` z takiego samego wyniku jako przy użyciu `ViewData` powyżej:
 
@@ -278,7 +324,7 @@ public IActionResult SomeAction()
 
 **Przy użyciu elementów ViewBag, ViewData a jednocześnie**
 
-Uwaga: `ViewBag` nie jest dostępna na stronach Razor.
+`ViewBag` *nie jest dostępna w stron Razor.*
 
 Ponieważ `ViewData` i `ViewBag` odwoływać się do tego samego podstawowego `ViewData` kolekcji, można użyć zarówno `ViewData` i `ViewBag` i mieszać i dopasowywać między nimi podczas odczytywania i zapisywania wartości.
 

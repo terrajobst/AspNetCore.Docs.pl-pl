@@ -4,16 +4,16 @@ author: ardalis
 description: Dowiedz się, jak przeprowadzić migrację implementacji interfejsu API sieci Web z interfejsu API sieci Web platformy ASP.NET do platformy ASP.NET Core MVC.
 manager: wpickett
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 05/10/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 059e1bc54c57e502ad01fd50d9899dfd0671037f
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 8d842877e49e317323d453e71ebb3302245f388d
+ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Migracja z interfejsu API sieci Web ASP.NET do platformy ASP.NET Core
 
@@ -36,7 +36,7 @@ W *Global.asax.cs*, połączenie jest nawiązywane w przypadku `WebApiConfig.Reg
 [!code-csharp[](../migration/webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15,16,17,18,19,20)]
 
 
-Ta klasa konfiguruje [trasami atrybutów](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), mimo że faktycznie nie jest on używany w projekcie. Konfiguruje również tabeli routingu, który jest używany przez interfejs API sieci Web ASP.NET. W takim przypadku interfejsu API sieci Web platformy ASP.NET będzie oczekiwać adresy URL zgodne z formatem */api/ {controller} / {id}*, z *{id}* opcjonalne.
+Ta klasa konfiguruje [trasami atrybutów](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), mimo że faktycznie nie jest on używany w projekcie. Umożliwia również skonfigurowanie tabeli routingu, który jest używany przez interfejs API sieci Web ASP.NET. W takim przypadku interfejsu API sieci Web platformy ASP.NET będzie oczekiwać adresy URL zgodne z formatem */api/ {controller} / {id}*, z *{id}* opcjonalne.
 
 *ProductsApp* projekt zawiera tylko jeden proste kontrolera, który dziedziczy `ApiController` i udostępnia dwie metody:
 
@@ -116,6 +116,37 @@ Po te zmiany zostały dokonane i nieużywanych instrukcje using usunięty, zmigr
 [!code-csharp[](../migration/webapi/sample/ProductsCore/Controllers/ProductsController.cs?highlight=1,2,6,8,9,27)]
 
 Teraz powinno być możliwe do uruchomienia projektu zmigrowane, a następnie przejdź do *produkty/api/*; i będzie widoczna z pełną listą produktów 3. Przejdź do */api/products/1* i powinien zostać wyświetlony pierwszy produkt.
+
+## <a name="microsoftaspnetcoremvcwebapicompatshim"></a>Microsoft.AspNetCore.Mvc.WebApiCompatShim
+
+Jest przydatne narzędzie podczas migrowania składnika ASP.NET Web API projekty do platformy ASP.NET Core [Microsoft.AspNetCore.Mvc.WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) biblioteki. Podkładki zgodności rozszerza platformy ASP.NET Core, aby umożliwić szereg różnych konwencji 2 interfejsu API sieci Web do użycia. Przykładowe przenoszone wcześniej w tym dokumencie jest wystarczająco podstawowe, że podkładki zgodności nie jest konieczne. Dla większych projektów przy użyciu podkładki zgodności może być przydatne mostkowania tymczasowo interfejsu API odstęp między platformy ASP.NET Core i ASP.NET Web API 2.
+
+Oznacza, że podkładki zgodności interfejsu API sieci Web można użyć jako środek tymczasowy w celu ułatwienia migrowania dużych projektów interfejsu API sieci Web platformy ASP.NET Core. Wraz z upływem czasu projekty powinny zostać uaktualnione do korzystania z platformy ASP.NET Core wzorce zamiast polegania na podkładki zgodności. 
+
+Funkcje zgodności objęte Microsoft.AspNetCore.Mvc.WebApiCompatShim:
+
+* Dodaje `ApiController` wpisz, aby kontrolery typów podstawowych nie muszą zostać zaktualizowane.
+* Umożliwia powiązanie modelu stylu interfejsu API sieci Web. ASP.NET MVC model powiązania funkcji podstawowych podobnie jak MVC 5, domyślnie. Zmiany podkładki zgodności modelu powiązania wyglądać mniej więcej konwencje powiązanie modelu 2 interfejsu API sieci Web. Na przykład typy złożone automatycznie są powiązane z treści żądania.
+* Rozszerza wiązania modelu tak, aby kontroler akcji może zająć parametrów typu `HttpRequestMessage`.
+* Dodaje elementy formatujące komunikaty stosowanie akcji do zwracania wyników typu `HttpResponseMessage`.
+* Dodaje metody odpowiedzi dodatkowe, które akcje 2 interfejsu API sieci Web mógł zostać użyty do obsługi odpowiedzi:
+    * Generatory HttpResponseMessage:
+        * `CreateResponse<T>`
+        * `CreateErrorResponse`
+    * Metody wynik akcji:
+        * `BadResuestErrorMessageResult`
+        * `ExceptionResult`
+        * `InternalServerErrorResult`
+        * `InvalidModelStateResult`
+        * `NegotiatedContentResult`
+        * `ResponseMessageResult`
+* Dodaje wystąpienie `IContentNegotiator` do aplikacji kontenera Podpisane i sprawia, że zawartość związanych z negocjacji typów z [Microsoft.AspNet.WebApi.Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) dostępne. Dotyczy to również wykresach `DefaultContentNegotiator`, `MediaTypeFormatter`itp.
+
+Aby użyć podkładek zgodności, musisz:
+
+* Odwołanie [Microsoft.AspNetCore.Mvc.WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) pakietu NuGet.
+* Zarejestruj usługi podkładki zgodności aplikacji kontenera Podpisane przez wywołanie metody `services.AddWebApiConventions()` w aplikacji `Startup.ConfigureServices` metody.
+* Definiowanie tras specyficzne dla interfejsu API sieci Web przy użyciu `MapWebApiRoute` na `IRouteBuilder` w aplikacji `IApplicationBuilder.UseMvc` wywołania.
 
 ## <a name="summary"></a>Podsumowanie
 

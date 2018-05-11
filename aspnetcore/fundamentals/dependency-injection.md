@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 8a105f835dddfcd0e9f32059e644f60dc1fdbbe1
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 700ceb081b2067f932ce8ed08c45c62058775e33
+ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Iniekcji zależności w ASP.NET Core
 
@@ -351,13 +351,15 @@ Podczas pracy z iniekcji zależności należy pamiętać o następujących zalec
 
 * Unikaj statycznych dostęp do `HttpContext`.
 
-> [!NOTE]
-> Podobnie jak wszystkie zestawy zaleceń mogą wystąpić sytuacje, w których zostanie zignorowany, co jest wymagane. Znaleziono wyjątki, aby się bardzo rzadko — przeważnie bardzo szczególnych przypadkach w ramach samego.
+Podobnie jak wszystkie zestawy zaleceń mogą wystąpić sytuacje, w których zostanie zignorowany, co jest wymagane. Znaleziono wyjątki, aby się bardzo rzadko — przeważnie bardzo szczególnych przypadkach w ramach samego.
 
-Należy pamiętać, że iniekcji zależności *alternatywnych* do wzorce dostępu do obiektu statyczne/globalne. Nie można wykorzystać zalety Podpisane, jeśli można mieszać z dostępem do obiektu statycznego.
+Iniekcji zależności jest *alternatywnych* do wzorce dostępu do obiektu statyczne/globalne. Nie można wykorzystać zalety Podpisane, jeśli można mieszać z dostępem do obiektu statycznego.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
+* [Wstrzykiwanie zależności do widoków](xref:mvc/views/dependency-injection)
+* [Wstrzykiwanie zależności do kontrolerów](xref:mvc/controllers/dependency-injection)
+* [Wstrzykiwanie zależności w programach obsługi wymagań](xref:security/authorization/dependencyinjection)
 * [Uruchamianie aplikacji](xref:fundamentals/startup)
 * [Testowanie i debugowanie](xref:testing/index)
 * [Aktywacji opartej na fabryki oprogramowania pośredniczącego](xref:fundamentals/middleware/extensibility)

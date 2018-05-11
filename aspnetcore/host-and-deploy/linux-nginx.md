@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 64093b9fcfa9047145de8f8b142f72fa1515f248
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: fe772203e5e3fceb7489e0a5866f60ea914b7329
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Host platformy ASP.NET Core w systemie Linux z Nginx
 
@@ -185,6 +185,13 @@ WantedBy=multi-user.target
 **Uwaga:** Jeśli użytkownik *danych www* nie jest używany przez tę konfigurację użytkownika zdefiniowane w tym miejscu musi być najpierw utworzyć i podane odpowiednie własność plików.
 **Uwaga:** Linux ma system plików z uwzględnieniem wielkości liter. Ustawienie "Production" spowoduje wyszukiwanie w pliku konfiguracyjnym ASPNETCORE_ENVIRONMENT *appsettings. Production.JSON*, a nie *appsettings.production.json*.
 
+> [!NOTE]
+> Niektóre wartości (na przykład parametry połączenia SQL), należy użyć znaków ucieczki dla dostawców konfiguracji można odczytać zmiennych środowiskowych. Użyj następującego polecenia, aby wygenerować prawidłowo zmienionym wartość do użycia w pliku konfiguracji:
+>
+> ```console
+> systemd-escape "<value-to-escape>"
+> ```
+
 Zapisz plik i włączyć usługę.
 
 ```bash
@@ -248,7 +255,7 @@ sudo ufw allow 80/tcp
 sudo ufw allow 443/tcp
 ```
 
-### <a name="securing-nginx"></a>Securing Nginx
+### <a name="securing-nginx"></a>Zabezpieczanie Nginx
 
 Rozkład domyślne Nginx nie Włącz protokół SSL. Aby włączyć dodatkowe funkcje zabezpieczeń, kompilacji ze źródła.
 

@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/action-return-types
-ms.openlocfilehash: 88c8e61960982f405275c429087c7dd0c61abb8d
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 6734153eab699bb951400baa5c40968019c35b2c
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Zwracane typy akcji kontrolera w interfejsu API platformy ASP.NET Core sieci Web
 
@@ -58,7 +58,7 @@ Należy wziąć pod uwagę następujące akcji synchroniczne, w której istniej�
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=8,11)]
 
-W poprzednich operacji, kod stanu 404 zwracana jest produktu reprezentowane przez `id` nie istnieje w magazynie danych podstawowych. [NotFound](/dotnet/api/system.web.http.apicontroller.notfound) pomocnika metoda jest wywoływana w celu szybkiego `return new NotFoundResult();`. Jeśli istnieje produktu, `Product` obiekt reprezentujący ładunku jest zwracana z kodem stanu 200. [Ok](/dotnet/api/system.web.http.apicontroller.ok) jako formę skrótu wywoływana jest metoda pomocnika `return new OkObjectResult(product);`.
+W poprzednich operacji, kod stanu 404 zwracana jest produktu reprezentowane przez `id` nie istnieje w magazynie danych podstawowych. [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) pomocnika metoda jest wywoływana w celu szybkiego `return new NotFoundResult();`. Jeśli istnieje produktu, `Product` obiekt reprezentujący ładunku jest zwracana z kodem stanu 200. [Ok](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.ok) jako formę skrótu wywoływana jest metoda pomocnika `return new OkObjectResult(product);`.
 
 ### <a name="asynchronous-action"></a>Akcja asynchroniczna
 
@@ -66,16 +66,16 @@ Należy wziąć pod uwagę następujące akcja asynchroniczna, w której istniej
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-W poprzednim akcji kod stanu 400 jest zwracany w przypadku niepowodzenia weryfikacji modelu i [element BadRequest](/dotnet/api/system.web.http.apicontroller.badrequest) wywołania metody pomocnika. Na przykład następujący model wskazuje Podaj żądań `Name` właściwości i wartości. W związku z tym braku odpowiedniego `Name` w żądaniu powoduje niepowodzenie sprawdzania poprawności modelu.
+W poprzednim akcji kod stanu 400 jest zwracany w przypadku niepowodzenia weryfikacji modelu i [element BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest) wywołania metody pomocnika. Na przykład następujący model wskazuje Podaj żądań `Name` właściwości i wartości. W związku z tym braku odpowiedniego `Name` w żądaniu powoduje niepowodzenie sprawdzania poprawności modelu.
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6)]
 
-Poprzedniej akcji innych znanych kod powrotny jest 201, która jest generowana przez [CreatedAtRoute](/dotnet/api/system.web.http.apicontroller.createdatroute) metody pomocnika. W tej ścieżce `Product` obiekt jest zwracany.
+Poprzedniej akcji innych znanych kod powrotny jest 201, która jest generowana przez [CreatedAtAction](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction) metody pomocnika. W tej ścieżce `Product` obiekt jest zwracany.
 
 ::: moniker range=">= aspnetcore-2.1"
 ## <a name="actionresultt-type"></a>ActionResult\<T > typ
 
-Platformy ASP.NET Core 2.1 wprowadzono `ActionResult<T>` zwracany typ dla akcji kontrolera interfejsu API sieci Web. Umożliwia ona zwracany typ pochodny [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) lub zwróć [określonego typu](#specific-type). `ActionResult<T>` oferuje następujące korzyści za pośrednictwem [IActionResult typu](#iactionresult-type):
+Platformy ASP.NET Core 2.1 wprowadzono [ActionResult\<T >](/dotnet/api/microsoft.aspnetcore.mvc.actionresult-1) zwracany typ dla akcji kontrolera interfejsu API sieci Web. Umożliwia ona zwracany typ pochodny [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) lub zwróć [określonego typu](#specific-type). `ActionResult<T>` oferuje następujące korzyści za pośrednictwem [IActionResult typu](#iactionresult-type):
 
 * [[ProducesResponseType]](/dotnet/api/microsoft.aspnetcore.mvc.producesresponsetypeattribute) atrybutu `Type` właściwości mogą być wykluczone.
 * [Niejawne rzutowanie operatory](/dotnet/csharp/language-reference/keywords/implicit) obsługuje konwersji zarówno `T` i `ActionResult` do `ActionResult<T>`. `T` Konwertuje [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult), co oznacza, że `return new ObjectResult(T);` została uproszczona w celu `return T;`.

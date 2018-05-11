@@ -5,16 +5,16 @@ description: Dowiedz się, jak Razor strony platformy ASP.NET Core umożliwia ko
 manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/12/2017
+ms.date: 5/12/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: f9484d4806a7430177878b462209ba6608cfdd7d
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: c848c5d66a9e8141d9d737e8ce9c994587b04916
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
@@ -208,6 +208,13 @@ Ponieważ `handler` jest `delete` w tym przykładzie `OnPostDeleteAsync` metoda 
 * Wywołania `RedirectToPage` ma nastąpić przekierowanie do strony indeksu głównego (`/Index`).
 
 ::: moniker range=">= aspnetcore-2.1"
+
+## <a name="mark-page-properties-required"></a>Wymagane właściwości strony znaku
+
+Właściwości `PageModel` może korzystać z [wymagane](/dotnet/api/system.componentmodel.dataannotations.requiredattribute) atrybutu:
+
+[!code-cs[](index/sample/Create.cshtml.cs?highlight=3,15-16)]
+
 ## <a name="manage-head-requests-with-the-onget-handler"></a>Zarządzaj żądaniami HEAD z obsługą OnGet
 
 Zwykle HEAD program obsługi jest tworzony i wywołana dla żądania HEAD:
@@ -226,9 +233,10 @@ services.AddMvc()
     .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 ```
 
-`SetCompatibilityVersion` efektywnie ustawia opcję stron Razor `AllowMappingHeadRequestsToGetHandler` do `true`. Zachowanie jest zdecydować się na do wersji platformy ASP.NET Core 3.0 w wersji zapoznawczej 1 lub nowszym. Każda wersja główna platformy ASP.NET Core przyjmuje wszystkie zachowania wersji poprawki poprzedniej wersji.
+`SetCompatibilityVersion` efektywnie ustawia opcję stron Razor `AllowMappingHeadRequestsToGetHandler` do `true`.
 
-Globalne zdecydować się na zachowanie poprawki wersje 2.1 do 2.x można uniknąć z konfiguracją aplikacji, która mapuje żądania HEAD do obsługi GET. Ustaw `AllowMappingHeadRequestsToGetHandler` stron Razor opcji w celu `true` bez wywoływania elementu `SetCompatibilityVersion` w `Startup.Configure`:
+Zamiast Rezygnacja do wszystkich zachowań 2.1 z `SetCompatibilityVersion`, użytkownik może jawnie wyrazić zgodę na konkretne zachowania. Poniższy kod wybranych żądań HEAD mapowanie do programu obsługi pobierania.
+
 
 ```csharp
 services.AddMvc()
@@ -267,7 +275,7 @@ Zobacz [układ strony](xref:mvc/views/layout) Aby uzyskać więcej informacji.
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_ViewStart.cshtml)]
 
-**Uwaga:** układ jest *stron* folderu. Strony wyszukać innych widoków (układy, szablony, częściowe) hierarchicznie, uruchamianie w tym samym folderze co bieżąca strona. Układ w *stron* folderu można używać z dowolnej strony Razor, w obszarze *stron* folderu.
+Układ jest *stron* folderu. Strony wyszukać innych widoków (układy, szablony, częściowe) hierarchicznie, uruchamianie w tym samym folderze co bieżąca strona. Układ w *stron* folderu można używać z dowolnej strony Razor, w obszarze *stron* folderu.
 
 Firma Microsoft zaleca **nie** umieścić plik układu w *widoków/Shared* folderu. *Widoki/Shared* jest wzorzec widoków MVC. Stron razor są przeznaczone do zależą od hierarchii folderów, nie ścieżkę Konwencji.
 
@@ -299,7 +307,7 @@ Na przykład kodzie pliku *Pages/Customers/Edit.cshtml.cs* jawnie Ustawia obszar
 
 Wygenerowany obszar nazw dla *Pages/Customers/Edit.cshtml* Razor strony jest taka sama jak pliku CodeBehind. `@namespace` Dyrektywa została zaprojektowana tak klasy C# dodane do projektu i stron wygenerowany kod *tylko pracy* bez dodawania `@using` dyrektywy do pliku CodeBehind.
 
-**Uwaga:** `@namespace` współdziała również z konwencjonalnej widokami Razor.
+`@namespace` *współdziała również z konwencjonalnej widokami Razor.*
 
 Oryginalna *Pages/Create.cshtml* pliku widoku:
 
@@ -350,6 +358,42 @@ Generowania adresu URL dla stron obsługuje nazw względnych. W poniższej tabel
 `RedirectToPage("Index")`, `RedirectToPage("./Index")`, i `RedirectToPage("../Index")` są <em>względne nazwy</em>. `RedirectToPage` Parametr jest <em>łączyć</em> ze ścieżką bieżącej strony do obliczenia nazwę strony docelowej.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
 
 Nazwa względna konsolidacji jest przydatne, gdy tworzenie witryn ze strukturą złożonych. Jeśli używasz nazwy względne do połączenia między stronami w folderze, można zmienić nazwę tego folderu. Wszystkie linki nadal działać (ponieważ one nie obejmować nazwę folderu).
+
+::: moniker range=">= aspnetcore-2.1"
+## <a name="viewdata-attribute"></a>Atrybut viewData
+
+Dane mogą być przekazywane do strony z [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Właściwości w kontrolerach ani w modelach Razor strony ozdobione `[ViewData]` ich wartości przechowywane i załadowane z [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
+
+W poniższym przykładzie `AboutModel` zawiera `Title` ozdobione właściwości `[ViewData]`. `Title` Właściwość jest ustawiona na tytuł strony informacje:
+
+```csharp
+public class AboutModel : PageModel
+{
+    [ViewData]
+    public string Title { get; } = "About";
+
+    public void OnGet()
+    {
+    }
+}
+```
+
+Na stronie informacje dostępu `Title` właściwości jako właściwość modelu:
+
+```cshtml
+<h1>@Model.Title</h1>
+```
+
+W układzie tytuł jest do odczytu ze słownika ViewData:
+
+```cshtml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - WebApplication</title>
+    ...
+```
+::: moniker-end
 
 ## <a name="tempdata"></a>TempData
 

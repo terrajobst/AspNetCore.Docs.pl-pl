@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: d084c5c7e232b92c8cfe2230e076752d42d8da5d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 946d4d5e5a506fb437232f9f4440c98e33a1a9b3
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 <a name="adding-validation"></a>Dodawanie walidacji
 ====================
@@ -134,7 +134,7 @@ Otwórz *Movie.cs* pliku i sprawdź, czy `Movie` klasy. [ `System.ComponentModel
 
 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybuty zapewniają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i podaj atrybutów, takich jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` do obsługi poczty e-mail. Można użyć [wyrażenia regularnego](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atrybut do zweryfikowania formatu danych. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych znajdują się one ***nie*** atrybutów sprawdzania poprawności. W takim przypadku tylko chcemy śledzić data nie Data i godzina. [Wyliczenie DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) zawiera wiele typów danych, takich jak *dat, czasu, numer telefonu, waluty, EmailAddress* i inne. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), i może zostać dostarczony selektora daty [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) w przeglądarkach obsługujących [HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybuty emituje HTML 5 [danych -](http://ejohn.org/blog/html-5-data-attributes/) (Wymowa *kreska danych*) atrybutów, które byłyby zrozumiałe dla przeglądarki HTML 5. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybutów nie dostarcza żadnych sprawdzania poprawności.
 
-`DataType.Date` Określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
+`DataType.Date` Określa format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
 
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 
@@ -147,17 +147,17 @@ Otwórz *Movie.cs* pliku i sprawdź, czy `Movie` klasy. [ `System.ComponentModel
 Można użyć [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atrybutu przez sam, ale jest zwykle warto użyć [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) również atrybutu. `DataType` Przekazuje atrybutu *semantyki* danych w przeciwieństwie do jak renderować ją na ekranie i zapewnia następujące korzyści, które nie można uzyskać z `DisplayFormat`:
 
 - Przeglądarki, można włączyć funkcje HTML5 (na przykład pokazać formant kalendarza, symbol waluty odpowiednie ustawienia regionalne, przesyłanie pocztą e-mail łączy, itp.).
-- Domyślnie, przeglądarka wyświetli danych przy użyciu właściwego formatu na podstawie Twojej[ustawień regionalnych](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
-- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybut można włączyć MVC wybrać szablon pola prawo do renderowania danych ( [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) Jeśli używany przez samego używa szablonu ciągu). Aby uzyskać więcej informacji, zobacz Brad Wilson[ASP.NET MVC 2 szablony](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (Chociaż przeznaczone dla platformy MVC 2, w tym artykule nadal dotyczy bieżącej wersji programu ASP.NET MVC.)
+- Domyślnie, przeglądarka wyświetli danych przy użyciu właściwego formatu na podstawie Twojej [ustawień regionalnych](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
+- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atrybut można włączyć MVC wybrać szablon pola prawo do renderowania danych ( [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) Jeśli używany przez samego używa szablonu ciągu). Aby uzyskać więcej informacji, zobacz Brad Wilson [ASP.NET MVC 2 szablony](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (Chociaż przeznaczone dla platformy MVC 2, w tym artykule nadal dotyczy bieżącej wersji programu ASP.NET MVC.)
 
 Jeśli używasz `DataType` atrybutu z polem daty należy określić `DisplayFormat` atrybutu również w celu zapewnienia, że pole poprawnie renderuje przeglądarki Chrome. Aby uzyskać więcej informacji, zobacz [tego wątku StackOverflow](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie).
 
 > [!NOTE]
-> nie obsługuje weryfikacji jQuery[zakres](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutu i[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Na przykład następujący kod zawsze wyświetli błąd sprawdzania poprawności po stronie klienta, nawet wtedy, gdy data jest w określonym zakresie:
+> nie obsługuje weryfikacji jQuery [zakres](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutu i [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Na przykład następujący kod zawsze wyświetli błąd sprawdzania poprawności po stronie klienta, nawet wtedy, gdy data jest w określonym zakresie:
 > 
 > [!code-csharp[Main](adding-validation/samples/sample9.cs)]
 > 
-> Należy wyłączyć sprawdzanie poprawności daty jQuery do użycia [zakres](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutem[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Zazwyczaj nie jest dobrym rozwiązaniem do skompilowania w modelach przy użyciu twardych daty[zakres](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutu i[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx) jest niezalecane.
+> Należy wyłączyć sprawdzanie poprawności daty jQuery do użycia [zakres](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutem [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Zazwyczaj nie jest dobrym rozwiązaniem do skompilowania w modelach przy użyciu twardych daty [zakres](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atrybutu i [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx) jest niezalecane.
 
 
 Poniższy kod przedstawia łączenie atrybutów w jednym wierszu:
