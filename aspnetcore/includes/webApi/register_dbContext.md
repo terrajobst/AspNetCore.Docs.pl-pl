@@ -1,12 +1,17 @@
-## <a name="register-the-database-context"></a><span data-ttu-id="ffba8-101">Zarejestruj kontekst bazy danych</span><span class="sxs-lookup"><span data-stu-id="ffba8-101">Register the database context</span></span>
+## <a name="register-the-database-context"></a>Zarejestruj kontekst bazy danych
 
-<span data-ttu-id="ffba8-102">W tym kroku kontekst bazy danych jest zarejestrowany w [iniekcji zależności](xref:fundamentals/dependency-injection) kontenera.</span><span class="sxs-lookup"><span data-stu-id="ffba8-102">In this step, the database context is registered with the [dependency injection](xref:fundamentals/dependency-injection) container.</span></span> <span data-ttu-id="ffba8-103">Usługi (takie jak kontekst bazy danych), które są zarejestrowane w usłudze kontenera iniekcji (Podpisane) zależności są dostępne do kontrolerów.</span><span class="sxs-lookup"><span data-stu-id="ffba8-103">Services (such as the DB context) that are registered with the dependency injection (DI) container are available to the controllers.</span></span>
+W tym kroku kontekst bazy danych jest zarejestrowany w [iniekcji zależności](xref:fundamentals/dependency-injection) kontenera. Usługi (takie jak kontekst bazy danych), które są zarejestrowane w usłudze kontenera iniekcji (Podpisane) zależności są dostępne do kontrolerów.
 
-<span data-ttu-id="ffba8-104">Zarejestruj kontekst bazy danych z kontenerem usługi przy użyciu wbudowaną obsługę [iniekcji zależności](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="ffba8-104">Register the DB context with the service container using the built-in support for [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="ffba8-105">Zastąp zawartość *Startup.cs* pliku następującym kodem:</span><span class="sxs-lookup"><span data-stu-id="ffba8-105">Replace the contents of the *Startup.cs* file with the following code:</span></span>
+Zarejestruj kontekst bazy danych z kontenerem usługi przy użyciu wbudowaną obsługę [iniekcji zależności](xref:fundamentals/dependency-injection). Zastąp zawartość *Startup.cs* pliku następującym kodem:
 
+::: moniker range="<= aspnetcore-2.0"
 [!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup.cs?highlight=2,4,12-13)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Startup.cs?highlight=3,5,13-14)]
+::: moniker-end
 
-<span data-ttu-id="ffba8-106">Poprzedni kod:</span><span class="sxs-lookup"><span data-stu-id="ffba8-106">The preceding code:</span></span>
+Poprzedni kod:
 
-* <span data-ttu-id="ffba8-107">Usunięcie nieużywanych kodu.</span><span class="sxs-lookup"><span data-stu-id="ffba8-107">Removes the unused code.</span></span>
-* <span data-ttu-id="ffba8-108">Określa, że bazy danych w pamięci są wstrzykiwane do kontenera usług.</span><span class="sxs-lookup"><span data-stu-id="ffba8-108">Specifies an in-memory database is injected into the service container.</span></span>
+* Usunięcie nieużywanych kodu.
+* Określa, że bazy danych w pamięci są wstrzykiwane do kontenera usług.

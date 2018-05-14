@@ -1,16 +1,16 @@
 <a name="test"></a>
-### <a name="test-the-app"></a><span data-ttu-id="fb9d3-101">Testowanie aplikacji</span><span class="sxs-lookup"><span data-stu-id="fb9d3-101">Test the app</span></span>
+### <a name="test-the-app"></a>Testowanie aplikacji
 
-* <span data-ttu-id="fb9d3-102">Uruchom aplikację i Dołącz `/Movies` do adresu URL w przeglądarce (`http://localhost:port/movies`).</span><span class="sxs-lookup"><span data-stu-id="fb9d3-102">Run the app and append `/Movies` to the URL in the browser (`http://localhost:port/movies`).</span></span>
-* <span data-ttu-id="fb9d3-103">Test **Utwórz** łącza.</span><span class="sxs-lookup"><span data-stu-id="fb9d3-103">Test the **Create** link.</span></span>
+* Uruchom aplikację i Dołącz `/Movies` do adresu URL w przeglądarce (`http://localhost:port/movies`).
+* Test **Utwórz** łącza.
 
   ![Tworzenie strony](../../tutorials/razor-pages/model/_static/conan.png)
 
 <a name="scaffold"></a>
 
-* <span data-ttu-id="fb9d3-105">Test **Edytuj**, **szczegóły**, i **usunąć** łącza.</span><span class="sxs-lookup"><span data-stu-id="fb9d3-105">Test the **Edit**, **Details**, and **Delete** links.</span></span>
+* Test **Edytuj**, **szczegóły**, i **usunąć** łącza.
 
-<span data-ttu-id="fb9d3-106">Jeśli zostanie wyświetlony następujący błąd, sprawdź zostało uruchomione migracji i aktualizacji bazy danych:</span><span class="sxs-lookup"><span data-stu-id="fb9d3-106">If you get the following error, verify you have run migrations and updated the database:</span></span>
+Jeśli zostanie wyświetlony następujący błąd, sprawdź zostało uruchomione migracji i aktualizacji bazy danych:
 
 ```
 An unhandled exception occurred while processing the request.

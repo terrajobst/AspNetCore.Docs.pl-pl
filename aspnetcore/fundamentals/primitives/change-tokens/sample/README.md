@@ -1,5 +1,5 @@
-# <a name="aspnet-core-change-token-sample"></a><span data-ttu-id="81d43-101">Przykładowy Token platformy ASP.NET Core zmiany</span><span class="sxs-lookup"><span data-stu-id="81d43-101">ASP.NET Core Change Token Sample</span></span>
+# <a name="aspnet-core-change-token-sample"></a>Przykładowy Token platformy ASP.NET Core zmiany
 
-<span data-ttu-id="81d43-102">Ten przykład przedstawia użycie [właściwości ChangeToken](https://docs.microsoft.com/dotnet/api/microsoft.extensions.primitives.changetoken).</span><span class="sxs-lookup"><span data-stu-id="81d43-102">This sample illustrates the use of [ChangeToken](https://docs.microsoft.com/dotnet/api/microsoft.extensions.primitives.changetoken).</span></span> <span data-ttu-id="81d43-103">W tym przykładzie pokazano funkcje opisane w [wykrywa zmian z tokenami zmiany](https://docs.microsoft.com/aspnet/core/fundamentals/primitives/change-tokens) tematu.</span><span class="sxs-lookup"><span data-stu-id="81d43-103">This sample demonstrates the features described in the [Detect changes with Change Tokens](https://docs.microsoft.com/aspnet/core/fundamentals/primitives/change-tokens) topic.</span></span>
+Ten przykład przedstawia użycie [właściwości ChangeToken](https://docs.microsoft.com/dotnet/api/microsoft.extensions.primitives.changetoken). W tym przykładzie pokazano funkcje opisane w [wykrywa zmian z tokenami zmiany](https://docs.microsoft.com/aspnet/core/fundamentals/primitives/change-tokens) tematu.
 
-<span data-ttu-id="81d43-104">Uruchom próbkę i postępuj zgodnie z instrukcjami na stronie indeksu.</span><span class="sxs-lookup"><span data-stu-id="81d43-104">Run the sample and follow the instructions on the Index page.</span></span>
+Uruchom próbkę i postępuj zgodnie z instrukcjami na stronie indeksu.

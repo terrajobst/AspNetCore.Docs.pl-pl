@@ -1,7 +1,7 @@
-# <a name="data-protection-key-folder"></a><span data-ttu-id="13c7d-101">Folder klucza ochrony danych</span><span class="sxs-lookup"><span data-stu-id="13c7d-101">Data protection key folder</span></span>
+# <a name="data-protection-key-folder"></a>Folder klucza ochrony danych
 
-<span data-ttu-id="13c7d-102">Ten plik jest symbol zastępczy, aby utworzyć folder udostępniony dla kluczy ochrony danych.</span><span class="sxs-lookup"><span data-stu-id="13c7d-102">This file is a placeholder to create a shared folder for data protection keys.</span></span>
+Ten plik jest symbol zastępczy, aby utworzyć folder udostępniony dla kluczy ochrony danych.
 
-<span data-ttu-id="13c7d-103">W środowisku produkcyjnym należy umieścić klucze poza głównym programowanie i nigdy nie ewidencjonowania plików w tym katalogu do kontroli źródła.</span><span class="sxs-lookup"><span data-stu-id="13c7d-103">In a production deployment, place the keys outside of the development root and never check-in files in this directory into source control.</span></span> <span data-ttu-id="13c7d-104">Ochrona kluczy ochrony danych w plikach DPAPI lub X509Certificate.</span><span class="sxs-lookup"><span data-stu-id="13c7d-104">Protect data protection keys in the files with DPAPI or an X509Certificate.</span></span>
+W środowisku produkcyjnym należy umieścić klucze poza głównym programowanie i nigdy nie ewidencjonowania plików w tym katalogu do kontroli źródła. Ochrona kluczy ochrony danych w plikach DPAPI lub X509Certificate.
 
-<span data-ttu-id="13c7d-105">Zobacz [ochrony danych w ASP.NET Core: interfejsy API konsumenta, konfigurowanie, rozszerzalności interfejsów API i wdrażanie](https://docs.microsoft.com/aspnet/core/security/data-protection/) Aby uzyskać więcej informacji.</span><span class="sxs-lookup"><span data-stu-id="13c7d-105">See [Data Protection in ASP.NET Core: Consumer APIs, configuration, extensibility APIs and implementation](https://docs.microsoft.com/aspnet/core/security/data-protection/) for more information.</span></span>
+Zobacz [ochrony danych w ASP.NET Core: interfejsy API konsumenta, konfigurowanie, rozszerzalności interfejsów API i wdrażanie](https://docs.microsoft.com/aspnet/core/security/data-protection/) Aby uzyskać więcej informacji.

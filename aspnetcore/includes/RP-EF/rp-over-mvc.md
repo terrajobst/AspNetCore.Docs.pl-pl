@@ -1,8 +1,8 @@
-<span data-ttu-id="a0715-101">Ten samouczek zawiera wskazówki platformy ASP.NET Core MVC i Entity Framework Core z widoków i kontrolerów.</span><span class="sxs-lookup"><span data-stu-id="a0715-101">This tutorial teaches ASP.NET Core MVC and Entity Framework Core with controllers and views.</span></span> <span data-ttu-id="a0715-102">Stron razor jest alternatywą nowe w programie ASP.NET 2.0 Core, na stronie modelu programowania, który sprawia, że tworzenie interfejsu użytkownika sieci web łatwiejsze i bardziej wydajnej pracy.</span><span class="sxs-lookup"><span data-stu-id="a0715-102">Razor Pages is a new alternative in ASP.NET Core 2.0, a page-based programming model that makes building web UI easier and more productive.</span></span> <span data-ttu-id="a0715-103">Firma Microsoft zaleca [stron Razor](xref:data/ef-rp/intro) samouczka na wersji platformy MVC.</span><span class="sxs-lookup"><span data-stu-id="a0715-103">We recommend the [Razor Pages](xref:data/ef-rp/intro) tutorial over the MVC version.</span></span> <span data-ttu-id="a0715-104">Samouczek Razor strony:</span><span class="sxs-lookup"><span data-stu-id="a0715-104">The Razor Pages tutorial:</span></span>
+Ten samouczek zawiera wskazówki platformy ASP.NET Core MVC i Entity Framework Core z widoków i kontrolerów. Stron razor jest alternatywą nowe w programie ASP.NET 2.0 Core, na stronie modelu programowania, który sprawia, że tworzenie interfejsu użytkownika sieci web łatwiejsze i bardziej wydajnej pracy. Firma Microsoft zaleca [stron Razor](xref:data/ef-rp/intro) samouczka na wersji platformy MVC. Samouczek Razor strony:
 
-* <span data-ttu-id="a0715-105">Łatwiej wykonać.</span><span class="sxs-lookup"><span data-stu-id="a0715-105">Is easier to follow.</span></span>
-* <span data-ttu-id="a0715-106">Zawiera więcej EF podstawowe najlepsze rozwiązania.</span><span class="sxs-lookup"><span data-stu-id="a0715-106">Provides more EF Core best practices.</span></span>
-* <span data-ttu-id="a0715-107">Używa większą wydajność kwerend.</span><span class="sxs-lookup"><span data-stu-id="a0715-107">Uses more efficient queries.</span></span>
-* <span data-ttu-id="a0715-108">Jest bardziej aktualny przy użyciu najnowszych interfejsu API.</span><span class="sxs-lookup"><span data-stu-id="a0715-108">Is more current with the latest API.</span></span>
-* <span data-ttu-id="a0715-109">Obejmuje więcej funkcji.</span><span class="sxs-lookup"><span data-stu-id="a0715-109">Covers more features.</span></span>
-* <span data-ttu-id="a0715-110">Jest to preferowane rozwiązanie w przypadku nowych wdrożeń aplikacji.</span><span class="sxs-lookup"><span data-stu-id="a0715-110">Is the preferred approach for new application development.</span></span>
+* Łatwiej wykonać.
+* Zawiera więcej EF podstawowe najlepsze rozwiązania.
+* Używa większą wydajność kwerend.
+* Jest bardziej aktualny przy użyciu najnowszych interfejsu API.
+* Obejmuje więcej funkcji.
+* Jest to preferowane rozwiązanie w przypadku nowych wdrożeń aplikacji.

@@ -1,3 +1,3 @@
-[<span data-ttu-id="34c7e-101">Visual Studio dla systemu Windows</span><span class="sxs-lookup"><span data-stu-id="34c7e-101">Visual Studio for Windows</span></span>](https://www.microsoft.com/net/download/windows)
-* <span data-ttu-id="34c7e-102">**ASP.NET i sieć web development** obciążenia</span><span class="sxs-lookup"><span data-stu-id="34c7e-102">**ASP.NET and web development** workload</span></span>
-* <span data-ttu-id="34c7e-103">**Programowanie wieloplatformowych .NET core** obciążenia</span><span class="sxs-lookup"><span data-stu-id="34c7e-103">**.NET Core cross-platform development** workload</span></span>
+[Visual Studio dla systemu Windows](https://www.microsoft.com/net/download/windows)
+* **ASP.NET i sieć web development** obciążenia
+* **Programowanie wieloplatformowych .NET core** obciążenia

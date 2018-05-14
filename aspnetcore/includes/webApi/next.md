@@ -1,13 +1,13 @@
-## <a name="next-steps"></a><span data-ttu-id="7c884-101">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="7c884-101">Next steps</span></span>
+## <a name="next-steps"></a>Następne kroki
 
-* <span data-ttu-id="7c884-102">Aby uzyskać informacji na temat używania trwałe bazy danych zobacz:</span><span class="sxs-lookup"><span data-stu-id="7c884-102">For information on using a persistent database, see:</span></span>
+* Aby uzyskać informacji na temat używania trwałe bazy danych zobacz:
 
-  * [<span data-ttu-id="7c884-103">Tworzenie aplikacji sieci web Razor strony z platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="7c884-103">Create a Razor Pages web app with ASP.NET Core</span></span>](xref:tutorials/index)
-  * [<span data-ttu-id="7c884-104">Praca z danymi w programie ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="7c884-104">Work with data in ASP.NET Core</span></span>](xref:data/index)
+  * [Tworzenie aplikacji sieci web Razor strony z platformy ASP.NET Core](xref:tutorials/index)
+  * [Praca z danymi w programie ASP.NET Core](xref:data/index)
 
-* [<span data-ttu-id="7c884-105">Strony pomocy dla interfejsu Web API platformy ASP.NET Core korzystające z programu Swagger</span><span class="sxs-lookup"><span data-stu-id="7c884-105">ASP.NET Core Web API help pages using Swagger</span></span>](xref:tutorials/web-api-help-pages-using-swagger)
-* [<span data-ttu-id="7c884-106">Routing do akcji kontrolera</span><span class="sxs-lookup"><span data-stu-id="7c884-106">Routing to controller actions</span></span>](xref:mvc/controllers/routing)
-* [<span data-ttu-id="7c884-107">Tworzenie interfejsów API z platformy ASP.NET Core sieci web</span><span class="sxs-lookup"><span data-stu-id="7c884-107">Build web APIs with ASP.NET Core</span></span>](xref:web-api/index)
-* [<span data-ttu-id="7c884-108">Zwracane typy akcji kontrolera</span><span class="sxs-lookup"><span data-stu-id="7c884-108">Controller action return types</span></span>](xref:web-api/action-return-types)
-* <span data-ttu-id="7c884-109">Aby uzyskać informacje na temat wdrażania interfejsu API, w tym w usłudze Azure App Service, zobacz [hosta i wdrażanie](xref:host-and-deploy/index).</span><span class="sxs-lookup"><span data-stu-id="7c884-109">For information about deploying an API, including to Azure App Service, see [Host and deploy](xref:host-and-deploy/index).</span></span>
-* <span data-ttu-id="7c884-110">[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/samples).</span><span class="sxs-lookup"><span data-stu-id="7c884-110">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/samples).</span></span> <span data-ttu-id="7c884-111">Zobacz [sposobu pobierania](xref:tutorials/index#how-to-download-a-sample).</span><span class="sxs-lookup"><span data-stu-id="7c884-111">See [how to download](xref:tutorials/index#how-to-download-a-sample).</span></span>
+* [Strony pomocy dla interfejsu Web API platformy ASP.NET Core korzystające z programu Swagger](xref:tutorials/web-api-help-pages-using-swagger)
+* [Routing do akcji kontrolera](xref:mvc/controllers/routing)
+* [Tworzenie interfejsów API z platformy ASP.NET Core sieci web](xref:web-api/index)
+* [Zwracane typy akcji kontrolera](xref:web-api/action-return-types)
+* Aby uzyskać informacje na temat wdrażania interfejsu API, w tym w usłudze Azure App Service, zobacz [hosta i wdrażanie](xref:host-and-deploy/index).
+* [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/samples). Zobacz [sposobu pobierania](xref:tutorials/index#how-to-download-a-sample).
