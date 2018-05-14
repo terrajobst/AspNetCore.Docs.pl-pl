@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
-title: "Wskazówki laboratorium: Jeden ASP.NET: integrowanie formularzy sieci Web ASP.NET, MVC i interfejs API sieci Web | Dokumentacja firmy Microsoft"
+title: 'Wskazówki laboratorium: Jeden ASP.NET: integrowanie formularzy sieci Web ASP.NET, MVC i interfejs API sieci Web | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "ASP.NET to struktura służąca do tworzenia witryn sieci Web, aplikacji i usług przy użyciu technologii specjalnych, takich jak MVC, Web API i inne. Z rozszerzeniem ASP.NET h..."
+description: ASP.NET to struktura służąca do tworzenia witryn sieci Web, aplikacji i usług przy użyciu technologii specjalnych, takich jak MVC, Web API i inne. Z rozszerzeniem ASP.NET h...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
@@ -161,7 +161,7 @@ W tym zadaniu zostanie uruchamianie wygenerowanego rozwiązania, aplikacji i nie
     *Przyjazne adresy URL*
 
     > [!NOTE]
-    > Jak widać, zmiana adresu URL do **/skontaktuj się z**. Począwszy od **programu ASP.NET 4**, adres URL funkcji routingu zostały dodane do formularzy sieci Web, więc można napisać adresów URL, takich jak  *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)*  zamiast  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Więcej informacji można znaleźć w [routingu adresów URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
+    > Jak widać, zmiana adresu URL do **/skontaktuj się z**. Począwszy od **programu ASP.NET 4**, adres URL funkcji routingu zostały dodane do formularzy sieci Web, więc można napisać adresów URL, takich jak *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* zamiast  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Więcej informacji można znaleźć w [routingu adresów URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
 3. Użytkownik może teraz zapoznać przepływ uwierzytelniania zintegrowane w aplikacji. Aby to zrobić, kliknij przycisk **zarejestrować** w prawym górnym rogu strony.
 
     ![Rejestrowanie nowego użytkownika](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)
