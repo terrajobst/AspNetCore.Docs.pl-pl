@@ -1,7 +1,7 @@
-### <a name="next-steps"></a>Następne kroki
+### <a name="next-steps"></a><span data-ttu-id="6a5e2-101">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="6a5e2-101">Next steps</span></span>
 
-Rozpoczynanie pracy — samouczki, aby zapoznać [platformy ASP.NET Core samouczki](xref:tutorials/index).
+<span data-ttu-id="6a5e2-102">Rozpoczynanie pracy — samouczki, aby zapoznać [platformy ASP.NET Core samouczki](xref:tutorials/index).</span><span class="sxs-lookup"><span data-stu-id="6a5e2-102">For getting started tutorials, see [ASP.NET Core Tutorials](xref:tutorials/index).</span></span>
 
-Aby zapoznać się z wprowadzeniem do podstawowych pojęć i architektury platformy ASP.NET, zobacz [Wprowadzenie do platformy ASP.NET Core](xref:index) i [Podstawowe informacje na temat platformy ASP.NET Core](xref:fundamentals/index).
+<span data-ttu-id="6a5e2-103">Aby zapoznać się z wprowadzeniem do podstawowych pojęć i architektury platformy ASP.NET, zobacz [Wprowadzenie do platformy ASP.NET Core](xref:index) i [Podstawowe informacje na temat platformy ASP.NET Core](xref:fundamentals/index).</span><span class="sxs-lookup"><span data-stu-id="6a5e2-103">For an introduction to ASP.NET Core concepts and architecture, see [ASP.NET Core Introduction](xref:index) and [ASP.NET Core Fundamentals](xref:fundamentals/index).</span></span>
 
-Aplikacja ASP.NET Core może używać biblioteki klas bazowych i środowiska uruchomieniowego .NET Core lub .NET Framework. Aby uzyskać więcej informacji, zobacz [wybór między .NET Core i .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).
+<span data-ttu-id="6a5e2-104">Aplikacja ASP.NET Core może używać biblioteki klas bazowych i środowiska uruchomieniowego .NET Core lub .NET Framework.</span><span class="sxs-lookup"><span data-stu-id="6a5e2-104">An ASP.NET Core app can use the .NET Core or .NET Framework Base Class Library and runtime.</span></span> <span data-ttu-id="6a5e2-105">Aby uzyskać więcej informacji, zobacz [wybór między .NET Core i .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).</span><span class="sxs-lookup"><span data-stu-id="6a5e2-105">For more information, see [Choosing between .NET Core and .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).</span></span>
