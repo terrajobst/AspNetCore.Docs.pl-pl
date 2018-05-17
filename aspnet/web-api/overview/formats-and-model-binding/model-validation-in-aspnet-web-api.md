@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
-title: "Sprawdzanie poprawności w składniku ASP.NET Web API modelu | Dokumentacja firmy Microsoft"
+title: Sprawdzanie poprawności w składniku ASP.NET Web API modelu | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/20/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 45b519af4073b62c8be1ca8951e44d6cf3cbe075
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 409a91eceb8baa48a7dded1b850d59a27cec2c60
+ms.sourcegitcommit: 5ae0c125ee3bbd324edef3818d1d160f4dd84602
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/17/2018
 ---
 <a name="model-validation-in-aspnet-web-api"></a>Weryfikacja modelu w składniku ASP.NET Web API
 ====================
@@ -26,7 +26,7 @@ Gdy klient wysyła dane do interfejsu API sieci web, często chcesz sprawdzić p
 
 ## <a name="data-annotations"></a>Adnotacji danych
 
-W interfejsie API sieci Web ASP.NET, można użyć atrybutów z [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) przestrzeni nazw, aby ustawić reguły sprawdzania poprawności dla właściwości w modelu. Należy wziąć pod uwagę następujące modelu:
+W interfejsie API sieci Web ASP.NET, można użyć atrybutów z [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) przestrzeni nazw, aby ustawić reguły sprawdzania poprawności dla właściwości w modelu. Należy wziąć pod uwagę następujące modelu:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample1.cs)]
 

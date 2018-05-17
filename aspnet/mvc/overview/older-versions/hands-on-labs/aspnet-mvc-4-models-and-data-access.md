@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 081a71ef67a6eee6c84058c30f9e15301afbed23
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 57477cf15bf6755523f28356d5384517bea24982
+ms.sourcegitcommit: 5ae0c125ee3bbd324edef3818d1d160f4dd84602
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>Modele platformy ASP.NET MVC 4 oraz dostęp do danych
 
@@ -235,12 +235,14 @@ To zadanie spowoduje zaktualizowanie klasy StoreController tak, aby zamiast dane
 
 ~~~
 [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
+~~~
 
 > [!NOTE]
-> You are using a capability of .NET called **LINQ** (language-integrated query) to write strongly-typed query expressions against these collections - which will execute code against the database and return objects that you can program against.
+> W przypadku korzystania z możliwości .NET o nazwie **LINQ** (zapytanie o języku zintegrowanym) do zapisania wyrażeń jednoznacznie zapytania względem tych kolekcje — co spowoduje wykonanie kodu w bazie danych i zwracać obiekty można umieszczonych przed.
 > 
-> For more information about LINQ, please visit the [msdn site](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
-~~~
+> Aby uzyskać więcej informacji na temat LINQ, odwiedź stronę [witrynę msdn](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
+
+
 3. Aktualizacja **indeksu** metody akcji, aby pobrać wszystkie genres.
 
     (Fragment - kodu *modeli i Data Access — indeks magazynu Ex1*)
