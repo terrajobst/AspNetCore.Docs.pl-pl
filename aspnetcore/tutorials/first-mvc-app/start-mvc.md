@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: b7036b92e8f25613917cfc4112389be81c12f614
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 1dba6eaceb6b69cf92cb8a831df9dc8d70a005d4
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
 
@@ -29,10 +29,12 @@ Istnieją 3 wersje tego samouczka:
 
 ## <a name="install-visual-studio-and-net-core"></a>Zainstaluj oprogramowanie .NET Core i Visual Studio
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!INCLUDE [](~/includes/net-core-prereqs.md)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Install Visual Studio Community 2017. Wybierz pobieranie społeczności. Jeśli masz program Visual Studio 2017 r zainstalowany, Pomiń ten krok.
 
 * [Visual Studio 2017 głównej strony Instalatora](https://www.visualstudio.com/)
@@ -46,7 +48,8 @@ Uruchom Instalatora, a następnie wybierz następujące obciążenia:
 
 ![* *.NET core cross-cross-platfrom Programowanie ** (w obszarze ** inne procesami **)](start-mvc/_static/x_plat_wl.png)
 
-* * *
+---
+
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci web
 
 W programie Visual Studio, wybierz **Plik > Nowy > Projekt**.
@@ -61,7 +64,6 @@ Zakończenie **nowy projekt** okna dialogowego:
 * Wybierz **OK**
 
 ![Okno dialogowe nowego projektu, .net core w okienku po lewej stronie sieci web platformy ASP.NET Core ](start-mvc/_static/new_project2.png)
-
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

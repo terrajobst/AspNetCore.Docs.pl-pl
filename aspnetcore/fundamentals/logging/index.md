@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 78dcee05799965c72f878662df61034018a23021
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 7e2a4657211b0142ec87fd792d013f7ef397de2b
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="logging-in-aspnet-core"></a>Logowanie do platformy ASP.NET Core
 
@@ -47,7 +47,8 @@ Platformy ASP.NET Core nie async rejestratora udostępniają metody służące p
 
 ## <a name="how-to-add-providers"></a>Jak dodać dostawców
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Dostawcy logowania ma utworzonych za pomocą wiadomości `ILogger` obiektów, wyświetla i przechowuje je. Na przykład konsola dostawca wyświetla komunikaty w konsoli i dostawcy usługi Azure App Service można przechowywać w magazynie obiektów blob Azure.
 
 Aby użyć dostawcy, należy wywołać dostawcy `Add<ProviderName>` — metoda rozszerzenia w *Program.cs*:
@@ -58,7 +59,8 @@ Domyślny szablon projektu umożliwia rejestrowanie z [CreateDefaultBuilder](/do
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Dostawcy logowania ma utworzonych za pomocą wiadomości `ILogger` obiektów, wyświetla i przechowuje je. Na przykład konsola dostawca wyświetla komunikaty w konsoli i dostawcy usługi Azure App Service można przechowywać w magazynie obiektów blob Azure.
 
 Do korzystania z dostawcy, instalowanie pakietu NuGet i wywołanie metody rozszerzenia dostawcy na wystąpienie `ILoggerFactory`, jak pokazano w poniższym przykładzie.
@@ -70,7 +72,8 @@ Platformy ASP.NET Core [iniekcji zależności](xref:fundamentals/dependency-inje
 > [!NOTE]
 > Przykładowa aplikacja dla tego artykułu dodaje rejestrowanie dostawców w `Configure` metody `Startup` klasy. Jeśli chcesz pobrać dane wyjściowe dziennika z kodu, która wykonuje wcześniej, Dodaj rejestrowanie dostawców w `Startup` klasy zamiast tego konstruktora. 
 
-* * *
+---
+
 Znajdują się informacje o poszczególnych [rejestrowania wbudowanego dostawcy](#built-in-logging-providers) i łącza do [dostawców innych firm rejestrowania](#third-party-logging-providers) dalszej części tego artykułu.
 
 ## <a name="sample-logging-output"></a>Przykładowe dane wyjściowe rejestrowania
@@ -263,7 +266,8 @@ System.Exception: Item not found exception.
 
 ## <a name="log-filtering"></a>Filtrowanie dziennika
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Można określić poziom dziennika minimalną dla określonego dostawcy i kategorii lub dla wszystkich dostawców lub wszystkich kategorii. Żadnych dzienników poniżej minimalnego poziomu nie są przekazywane do tego dostawcy, tak, aby nie pobrać wyświetlane ani przechowywane. 
 
 Jeśli chcesz pominąć wszystkie dzienniki, można określić `LogLevel.None` jako poziom dziennika minimalnej. Wartość całkowita `LogLevel.None` to 6, która jest wyższa niż `LogLevel.Critical` (5).
@@ -344,7 +348,8 @@ W funkcji Filtr można zastosować reguł filtrowania, można napisać kod. Funk
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Niektórzy dostawcy rejestrowania pozwalają określić, gdy zapisywane na nośniku magazynowania lub ignorowane dzienniki na podstawie poziomu dziennika i kategorii.
 
 `AddConsole` i `AddDebug` metody rozszerzenia udostępniają przeciążenia, które umożliwiają przekazywanie w kryteriach filtrowania. Następujący przykładowy kod powoduje, że dostawca konsoli do ignorowania dzienniki poniżej `Warning` poziom, gdy dostawca debugowania ignoruje dzienników tworzone w ramach.
@@ -361,7 +366,8 @@ Jeśli chcesz użyć filtrowania, aby uniemożliwić wszystkie dzienniki zapisyw
 
 `WithFilter` — Metoda rozszerzenia są dostarczane przez [Microsoft.Extensions.Logging.Filter](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) pakietu NuGet. Metoda zwraca nową `ILoggerFactory` wystąpienia, która będzie filtrować wiadomości dziennika przekazany do wszystkich dostawców rejestratora zarejestrowany z nim. Nie wpływa na inne `ILoggerFactory` wystąpienia, w tym oryginalnej `ILoggerFactory` wystąpienia.
 
-* * *
+---
+
 ## <a name="log-scopes"></a>Zakresy dziennika
 
 Można grupować zestaw operacji logicznych w *zakres* aby można było dołączyć tych samych danych do każdego dziennika, który został utworzony jako część tego zbioru. Na przykład może być co dziennika utworzona w ramach przetwarzania transakcji, aby uwzględnić identyfikator transakcji.
@@ -372,7 +378,8 @@ Zakres jest `IDisposable` typu, który jest zwracany przez `ILogger.BeginScope<T
 
 Poniższy kod umożliwia zakresy dla dostawcy konsoli:
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 W *Program.cs*:
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_Scopes&highlight=4)]
@@ -380,12 +387,14 @@ W *Program.cs*:
 > [!NOTE]
 > Konfigurowanie `IncludeScopes` opcja rejestratora konsoli jest wymagana, aby włączyć rejestrowanie zakresu. Konfiguracja `IncludeScopes` przy użyciu *appsettings* pliki konfiguracji będą dostępne w wersji platformy ASP.NET Core 2.1.
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 W *Startup.cs*:
 
 [!code-csharp[](index/sample/Startup.cs?name=snippet_Scopes&highlight=6)]
 
-* * *
+---
+
 Każdy komunikat dziennika zawiera informacje o zakresie:
 
 ```
@@ -413,12 +422,14 @@ Platformy ASP.NET Core dostarczany następujących dostawców:
 
 [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) pakiet dostawcy wysyła dane wyjściowe dziennika do konsoli. 
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 ```csharp
 logging.AddConsole()
 ```
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 ```csharp
 loggerFactory.AddConsole()
 ```
@@ -439,7 +450,8 @@ Ten kod odwołuje się do `Logging` sekcji *appSettings.json* pliku:
 
 Ustawienia wyświetlane limit framework dzienniki, aby ostrzeżenia, umożliwiając aplikacji do logowania się na poziomie debugowania, zgodnie z objaśnieniem w [filtrowania dziennika](#log-filtering) sekcji. Aby uzyskać więcej informacji, zobacz [konfiguracji](xref:fundamentals/configuration/index).
 
-* * *
+---
+
 <a id="debug"></a>
 ### <a name="the-debug-provider"></a>Dostawca debugowania
 

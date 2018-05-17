@@ -1,6 +1,6 @@
 ---
 title: Sterownik HTTP.sys implementacja serwera sieci web platformy ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: Więcej informacji na temat HTTP.sys, serwer sieci web platformy ASP.NET Core w systemie Windows. W oparciu sterownik trybu jądra HTTP.sys, sterownik HTTP.sys stanowi alternatywę dla Kestrel, który może służyć do bezpośredniego połączenia z Internetem bez usług IIS.
 manager: wpickett
 ms.author: tdykstra
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 1ec309a00b6cb156b0d11ad085eda3b7a772ac94
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: ce4edf6f07808d3958c919a1d81561ce020fe52b
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Sterownik HTTP.sys implementacja serwera sieci web platformy ASP.NET Core
 
@@ -156,7 +156,7 @@ Sterownik HTTP.sys jest dojrzała technologia, która chroni przed wiele rodzaj�
       Poniższy przykład pokazuje, jak można przypisać certyfikat X.509:
 
       ```console
-      netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={00000000-0000-0000-0000-000000000000}"
+      netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid="{00000000-0000-0000-0000-000000000000}"
       ```
 
       Odwołanie dokumentacji *netsh.exe*:

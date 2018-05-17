@@ -107,7 +107,7 @@ Rozszerzenie filtr **ActionFilterAttributeClass** i zastąpić **OnActionExecuti
 
 To rozwiązanie magazynu utworów muzycznych ma nowej tabeli modelu danych do rejestrowania lokacji **ActionLog**, z następującymi polami: Nazwa kontrolera, który odebrał żądanie, wywoływanej akcji, IP klienta i sygnaturę czasową.
 
-![Model danych. Tabela ActionLog. ] (aspnet-mvc-4-custom-action-filters/_static/image1.png "Modelu danych. Tabela ActionLog.")
+![Model danych. Tabela ActionLog. ](aspnet-mvc-4-custom-action-filters/_static/image1.png "Modelu danych. Tabela ActionLog.")
 
 *Model danych - ActionLog tabeli*
 

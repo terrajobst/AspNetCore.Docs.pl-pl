@@ -1,6 +1,6 @@
 ---
 title: Host platformy ASP.NET Core w usłudze systemu Windows
-author: tdykstra
+author: rick-anderson
 description: Dowiedz się, jak udostępniać aplikacji platformy ASP.NET Core w usłudze systemu Windows.
 manager: wpickett
 ms.author: tdykstra
@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: b0b27f274de1ca88b20bf582127132527b553ce0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 29f83ee585c73aeb57a09f70ea8e28650c05ce69
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze systemu Windows
 
@@ -46,13 +46,15 @@ W tej sekcji opisano minimalną zmiany wymagane do skonfigurowania istniejącego
 
    * Jeśli kod wywołuje `UseContentRoot`, użyj ścieżki do lokalizacji publikacji zamiast `Directory.GetCurrentDirectory()`.
 
-   #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
    [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOnly&highlight=3-4,7,12)]
 
-   #### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
    [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOnly&highlight=3-4,8,14)]
 
-   * * *
+   ---
 
 3. Publikowanie aplikacji w folderze. Użyj [publikowania dotnet](/dotnet/articles/core/tools/dotnet-publish) lub [profilu publikowania programu Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles) który publikuje do folderu.
 
@@ -77,13 +79,16 @@ W tej sekcji opisano minimalną zmiany wymagane do skonfigurowania istniejącego
 
 Możliwe jest łatwiejsze testowanie i debugowanie podczas uruchamiania poza usługą, dzięki czemu zwyczajowe można dodać kod, który wywołuje `RunAsService` tylko w niektórych warunkach. Na przykład aplikacja może działać jako aplikację konsoli z `--console` argumentu wiersza polecenia lub jeśli jest dołączony debuger:
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOrConsole)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOrConsole)]
 
-* * *
+---
+
 ## <a name="handle-stopping-and-starting-events"></a>Obsługa zatrzymywania i uruchamiania zdarzeń
 
 Do obsługi `OnStarting`, `OnStarted`, i `OnStopping` zdarzenia, wprowadź następujące zmiany dodatkowe:
@@ -98,13 +103,16 @@ Do obsługi `OnStarting`, `OnStarted`, i `OnStopping` zdarzenia, wprowadź nast�
 
 3. W `Program.Main`, wywołaj nowej metody rozszerzenia `RunAsCustomService`, zamiast `RunAsService`:
 
-   #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
    [!code-csharp[](windows-service/sample/Program.cs?name=HandleStopStart&highlight=24)]
 
-   #### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
    [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=HandleStopStart&highlight=26)]
 
-   * * *
+   ---
+
 Jeśli niestandardowa `WebHostService` kod wymaga usługi z iniekcji zależności (np. Rejestrator), Uzyskaj ją z `Services` właściwości `IWebHost`:
 
 [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=Logging&highlight=7)]

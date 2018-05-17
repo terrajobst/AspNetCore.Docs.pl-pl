@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity
-ms.openlocfilehash: cf63766dc4ae94d784190d6dbc7b5beb57342f42
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 4eebda171f02c46ff831adf2798a025cd094051d
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości na platformy ASP.NET Core
 
@@ -59,7 +59,8 @@ W tym temacie będzie używanie ASP.NET Core Identity funkcje, aby zarejestrowa�
 
    Usługi tożsamości są dodawane do aplikacji w `ConfigureServices` metoda `Startup` klasy:
 
-   #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-42)]
 
    Te usługi są udostępniane dla aplikacji za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection).
@@ -68,7 +69,8 @@ W tym temacie będzie używanie ASP.NET Core Identity funkcje, aby zarejestrowa�
 
    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
 
-   #### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,13-33)]
 
    Te usługi są udostępniane dla aplikacji za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection).
@@ -77,7 +79,8 @@ W tym temacie będzie używanie ASP.NET Core Identity funkcje, aby zarejestrowa�
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
 
-   * * *
+   ---
+
    Aby uzyskać więcej informacji na temat uruchamiania aplikacji, zobacz [uruchamiania aplikacji](xref:fundamentals/startup).
 
 3. Utwórz użytkownika.
@@ -126,13 +129,16 @@ W tym temacie będzie używanie ASP.NET Core Identity funkcje, aby zarejestrowa�
 
    Tożsamość ma niektóre domyślne zachowania, które mogą zostać zastąpione w klasie uruchomienia aplikacji. `IdentityOptions` Nie można skonfigurować, korzystając z domyślnego zachowania. Poniższy kod ustawia kilka opcji siły hasła:
 
-   #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-42)]
 
-   #### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=13-33)]
 
-   * * *
+   ---
+
    Aby uzyskać więcej informacji na temat konfigurowania tożsamości, zobacz [konfigurowania tożsamości](xref:security/authentication/identity-configuration).
 
    Można także skonfigurować typ danych klucza podstawowego, zobacz [typu danych kluczy podstawowych konfigurowania tożsamości](xref:security/authentication/identity-primary-key-configuration).

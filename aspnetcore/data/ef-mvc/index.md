@@ -1,6 +1,6 @@
 ---
 title: Platformy ASP.NET Core MVC podstawowych EF — samouczek serii
-author: tdykstra
+author: rick-anderson
 description: ''
 manager: wpickett
 ms.author: tdykstra
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/index
-ms.openlocfilehash: f09773bac67dd2d7462805993bed8609e0b5d767
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c5d1f3f57c7371aa5fa4254a44f2c544067ad2ed
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="aspnet-core-mvc-with-ef-core---tutorial-series"></a>Platformy ASP.NET Core MVC podstawowych EF — samouczek serii
 

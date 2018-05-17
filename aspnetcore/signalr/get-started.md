@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: 11c8cf079a0922e925060ad3d439ba5e095ae22e
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 5929ee44aa58088614f910560eafbf5f5ab82ded
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Rozpoczynanie pracy z SignalR platformy ASP.NET Core
 
@@ -70,8 +70,8 @@ Visual Studio zawiera `Microsoft.AspNetCore.SignalR` pakiet zawierający bibliot
 3. Uruchom następujące polecenia **Konsola Menedżera pakietów** okno z katalogu głównego projektu:
 
     ```console
-      npm init -y
-      npm install @aspnet/signalr
+    npm init -y
+    npm install @aspnet/signalr
     ```     
 
 4. Kopiuj *signalr.js* plik z *node_modules\\ @aspnet\signalr\dist\browser*  do *lib* folder w projekcie.
@@ -81,14 +81,14 @@ Visual Studio zawiera `Microsoft.AspNetCore.SignalR` pakiet zawierający bibliot
 1. Z **zintegrowane Terminal**, uruchom następujące polecenie:
 
     ```console
-      dotnet new razor -o SignalRChat
+    dotnet new razor -o SignalRChat
     ```
 
 2. Zainstaluj JavaScript klienta biblioteki przy użyciu *npm*.
 
-    ```
-      npm init -y
-      npm install @aspnet/signalr
+    ```console
+    npm init -y
+    npm install @aspnet/signalr
     ```
 
 3. Kopiuj *signalr.js* plik z *node_modules\\ @aspnet\signalr\dist\browser*  do *lib* folder w projekcie.
@@ -167,7 +167,7 @@ Serwer SignalR musi być skonfigurowany, tak aby wie, do przekazywania żądań 
 
 1. Wybierz albo przeglądarkę, wprowadź nazwę i wiadomość, a następnie kliknij przycisk **wysyłania** przycisku. Nazwa i wiadomości są wyświetlane na obu stronach natychmiast.
 
------
+---
 
   ![Rozwiązanie](get-started/_static/signalr-get-started-finished.png)
 

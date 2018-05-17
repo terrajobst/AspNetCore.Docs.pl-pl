@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: e0bf0084f8e46f3774fa070602404840aa803661
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: f6b03c01ae0da1cc8fb3bc2e0546c0d9752ddf75
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>Logowanie zewnętrzne konfiguracji z platformy ASP.NET Core w usłudze Twitter
 
@@ -56,7 +56,8 @@ Szablon projektu używany w tym samouczku upewnia się, że [Microsoft.AspNetCor
 
    `dotnet add package Microsoft.AspNetCore.Authentication.Twitter`
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Dodaj usługę Twitter w `ConfigureServices` metody w *Startup.cs* pliku:
 
 ```csharp
@@ -73,7 +74,8 @@ services.AddAuthentication().AddTwitter(twitterOptions =>
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Dodaj oprogramowaniu pośredniczącym usługi Twitter w `Configure` metody w *Startup.cs* pliku:
 
 ```csharp
@@ -84,7 +86,8 @@ app.UseTwitterAuthentication(new TwitterOptions()
 });
 ```
 
-* * *
+---
+
 Zobacz [TwitterOptions](/dotnet/api/microsoft.aspnetcore.builder.twitteroptions) dokumentacja interfejsu API, aby uzyskać więcej informacji na temat opcji konfiguracji obsługiwanych przez uwierzytelniania usługi Twitter. To może być używane do żądania różne informacje o użytkowniku.
 
 ## <a name="sign-in-with-twitter"></a>Zaloguj się przy użyciu usługi Twitter

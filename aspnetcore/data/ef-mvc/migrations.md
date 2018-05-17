@@ -1,6 +1,6 @@
 ---
 title: Platformy ASP.NET Core MVC podstawowych EF - Migrations - 4 10
-author: tdykstra
+author: rick-anderson
 description: W tym samouczku możesz uruchomić przy użyciu funkcji migracji EF Core zarządzania zmianami modelu danych w aplikacji platformy ASP.NET Core MVC.
 manager: wpickett
 ms.author: tdykstra
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: f3f14d6dab1eb03e0ead5edaa9d7ba41a10b21e9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0a3ff28c9edefd2c7f96222060a0df76d538012b
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF - Migrations - 4 10
 

@@ -1,6 +1,6 @@
 ---
 title: Obsługę protokołu WebSockets w ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: Dowiedz się, jak rozpocząć pracę z Websocket w ASP.NET Core.
 manager: wpickett
 ms.author: tdykstra
@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/websockets
-ms.openlocfilehash: e744ab5b81ff85f48edb012a86b55003cc74929c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ede8064b5e77024b843357d4715869b3495b9147
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Obsługę protokołu WebSockets w ASP.NET Core
 
@@ -131,7 +131,7 @@ Jeśli przy użyciu obsługi protokołu WebSocket w [użyciu biblioteki socket.i
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) dołączony ten artykuł jest aplikacją echo. Istnieją strony sieci web, która umożliwia nawiązanie połączenia obiektu WebSocket i ponownie serwer wysyła komunikaty, które otrzymuje do klienta. Uruchamianie aplikacji z wiersza polecenia (go nie skonfigurował do uruchomienia z programu Visual Studio z programem IIS Express) i przejdź do http://localhost: 5000. Strony sieci web w lewym górnym rogu jest widoczny stan połączenia:
+[Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) dołączony ten artykuł jest aplikacją echo. Istnieją strony sieci web, która umożliwia nawiązanie połączenia obiektu WebSocket i ponownie serwer wysyła komunikaty, które otrzymuje do klienta. Uruchamianie aplikacji z wiersza polecenia (go nie skonfigurował do uruchomienia z programu Visual Studio z programem IIS Express) i przejdź do http://localhost:5000. Strony sieci web w lewym górnym rogu jest widoczny stan połączenia:
 
 ![Początkowy stan strony sieci web](websockets/_static/start.png)
 

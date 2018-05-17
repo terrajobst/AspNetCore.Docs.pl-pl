@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 484cee3565fc5b72c19559f3fb907070d8178f9d
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 7244f7a808899a2846bb8b40e626208f168d40b8
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Konfigurowanie logowania zewnętrznego Account firmy Microsoft z platformy ASP.NET Core
 
@@ -74,7 +74,8 @@ Szablon projektu używany w tym samouczku upewnia się, że [Microsoft.AspNetCor
 
    `dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount`
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Dodaj usługę Microsoft Account w `ConfigureServices` metody w *Startup.cs* pliku:
 
 ```csharp
@@ -91,7 +92,8 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Dodaj oprogramowanie pośredniczące Account Microsoft w `Configure` metody w *Startup.cs* pliku:
 
 ```csharp
@@ -102,7 +104,8 @@ app.UseMicrosoftAccountAuthentication(new MicrosoftAccountOptions()
 });
 ```
 
-* * *
+---
+
 Chociaż te tokeny nazwy z terminologią używaną w portalu usługi Microsoft Developer `ApplicationId` i `Password`, są one widoczne jako `ClientId` i `ClientSecret` konfiguracji interfejsu API.
 
 Zobacz [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) dokumentacja interfejsu API, aby uzyskać więcej informacji na temat opcji konfiguracji obsługiwanych przez uwierzytelnianie Account firmy Microsoft. To może być używane do żądania różne informacje o użytkowniku.

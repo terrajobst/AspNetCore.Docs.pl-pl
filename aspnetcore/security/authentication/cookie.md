@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/cookie
-ms.openlocfilehash: b251aa3ff0b4d0c08f9885cd73a111b7c2008766
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: bdaa0e3a5ce54d3822615ac57e22f4fd6beacdcb
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Użyj plików cookie uwierzytelniania bez ASP.NET Core Identity
 
@@ -27,7 +27,8 @@ Aby uzyskać informacje dotyczące migrowania uwierzytelniania opartego na pliku
 
 ## <a name="configuration"></a>Konfiguracja
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Jeśli nie używasz [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage), zainstaluj w wersji 2.0 + [Microsoft.AspNetCore.Authentication.Cookies](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Cookies/) pakietu NuGet.
 
 W `ConfigureServices` metody, Utwórz usługę oprogramowania pośredniczącego uwierzytelniania za pomocą `AddAuthentication` i `AddCookie` metod:
@@ -77,7 +78,8 @@ services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     });
 ```
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Plik cookie używa 1.x platformy ASP.NET Core [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) serializujący głównej nazwy użytkownika do zaszyfrowanego pliku cookie. Kolejne żądania plik cookie jest weryfikowana i ponownie utworzyć podmiot zabezpieczeń i ma przypisaną do `HttpContext.User` właściwości.
 
 Zainstaluj [Microsoft.AspNetCore.Authentication.Cookies](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Cookies/) pakietu NuGet w projekcie. Ten pakiet zawiera oprogramowaniu pośredniczącym pliku cookie.
@@ -122,7 +124,8 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 });
 ```
 
-* * *
+---
+
 ## <a name="cookie-policy-middleware"></a>Oprogramowanie pośredniczące zasad pliku cookie
 
 [Oprogramowanie pośredniczące zasad pliku cookie](/dotnet/api/microsoft.aspnetcore.cookiepolicy.cookiepolicymiddleware) włącza funkcje zasad pliku cookie w aplikacji. Dodawanie oprogramowania pośredniczącego do potoku przetwarzania aplikacji jest kolejność liter; wpływa tylko na składniki zarejestrowane po nim w potoku.
@@ -164,12 +167,14 @@ Ustawienie oprogramowaniu pośredniczącym pliku Cookie zasad `MinimumSameSitePo
 
 Aby utworzyć plik cookie zawierający informacje o użytkownikach, należy tworzyć [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). Informacje o użytkowniku są serializowane i przechowywane w pliku cookie. 
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Utwórz [ClaimsIdentity](/dotnet/api/system.security.claims.claimsidentity) z każdego wymaganego [oświadczeń](/dotnet/api/system.security.claims.claim)s i wywołanie [SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signinasync?view=aspnetcore-2.0) do logowania użytkownika:
 
 [!code-csharp[](cookie/sample/Pages/Account/Login.cshtml.cs?name=snippet1)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Wywołanie [SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.signinasync?view=aspnetcore-1.1) do logowania użytkownika:
 
 ```csharp
@@ -178,19 +183,22 @@ await HttpContext.Authentication.SignInAsync(
     new ClaimsPrincipal(claimsIdentity));
 ```
 
-* * *
+---
+
 `SignInAsync` Tworzy zaszyfrowanego pliku cookie i dodaje go do bieżącej odpowiedzi. Jeśli nie określisz `AuthenticationScheme`, używany jest domyślny schemat.
 
 W obszarze obejmuje szyfrowania używany jest platformy ASP.NET Core [ochrony danych](xref:security/data-protection/using-data-protection#security-data-protection-getting-started) systemu. Jeśli przechowujesz aplikacji na wiele komputerów, równoważenia obciążenia w aplikacjach lub przy użyciu farmy sieci web, a następnie należy [skonfigurować ochronę danych](xref:security/data-protection/configuration/overview) korzystać z tej samej pierścień klucz i identyfikator aplikacji.
 
 ## <a name="signing-out"></a>Wylogowywanie
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Wyloguj z bieżącego użytkownika i usuń ich pliku cookie, wywołaj [SignOutAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signoutasync?view=aspnetcore-2.0):
 
 [!code-csharp[](cookie/sample/Pages/Account/Login.cshtml.cs?name=snippet2)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Wyloguj z bieżącego użytkownika i usuń ich pliku cookie, wywołaj [SignOutAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.signoutasync?view=aspnetcore-1.1):
 
 ```csharp
@@ -198,7 +206,8 @@ await HttpContext.Authentication.SignOutAsync(
     CookieAuthenticationDefaults.AuthenticationScheme);
 ```
 
-* * *
+---
+
 Jeśli nie używasz `CookieAuthenticationDefaults.AuthenticationScheme` (lub "Plików cookie") jako systemu (na przykład "ContosoCookie"), podaj Schemat używany podczas konfigurowania dostawcy uwierzytelniania. W przeciwnym razie jest używany domyślny schemat.
 
 ## <a name="reacting-to-back-end-changes"></a>Reagowanie na zmiany zaplecza

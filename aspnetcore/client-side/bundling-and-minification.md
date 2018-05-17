@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 381025d1c4a9951349e242482ca9b780c461e588
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: a3d49315fbb62eb1a42eb1b30885dc19a81c0a91
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Pakiet i minifiy zasoby statyczne platformy ASP.NET Core
 
@@ -220,22 +220,28 @@ Określ pliki, których ma obejmować na swoich stronach za pomocą [pomocnika T
 
 Następujące `environment` tag renderuje nieprzetworzone pliki CSS w `Development` środowiska:
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
-* * *
+---
+
 Następujące `environment` tag renderuje pliki CSS powiązane i zminimalizowany podczas uruchamiania w środowisku innym niż `Development`. Na przykład uruchomiona `Production` lub `Staging` wyzwala renderowania tych arkuszy stylów:
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
-* * *
+---
+
 ## <a name="consume-bundleconfigjson-from-gulp"></a>Korzystanie z bundleconfig.json z Gulp
 
 Istnieją przypadki, w których aplikacja tworzenie pakietów i minimalizowanie przepływ pracy wymaga dodatkowego przetwarzania. Przykładami Optymalizacja obrazu, rozrywające pamięci podręcznej i przetwarzania zasobów w sieci CDN. Aby spełnić te wymagania, można przekonwertować tworzenie pakietów i minimalizowanie przepływu pracy Użyj Gulp.
@@ -313,5 +319,5 @@ Alternatywnie Eksploratora modułu uruchamiającego zadania programu Visual Stud
 
 * [Korzystanie z Gulp](xref:client-side/using-gulp)
 * [Korzystanie z Grunt](xref:client-side/using-grunt)
-* [Użyj wiele środowisk](xref:fundamentals/environments)
+* [Używanie wielu środowisk](xref:fundamentals/environments)
 * [Pomocnicy tagów](xref:mvc/views/tag-helpers/intro)

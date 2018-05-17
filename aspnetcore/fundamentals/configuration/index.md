@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 4637ff6312f32f5887ff0f7a6e74d10f5beb0ca5
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
-ms.translationtype: MT
+ms.openlocfilehash: afff36ffc232b00389c52d9e751ae398555c9656
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja platformy ASP.NET Core
 
@@ -234,7 +234,8 @@ key3=value_from_json_3
 
 ### <a name="setup-and-use-the-commandline-configuration-provider"></a>Skonfigurować i stosować dostawcę konfiguracji wiersza polecenia
 
-#### <a name="basic-configurationtabbasicconfiguration"></a>[Konfiguracja podstawowa](#tab/basicconfiguration/)
+# <a name="basic-configurationtabbasicconfiguration"></a>[Konfiguracja podstawowa](#tab/basicconfiguration/)
+
 Aby aktywować konfigurację wiersza polecenia, należy wywołać `AddCommandLine` — metoda rozszerzenia w wystąpieniu [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder):
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program.cs?highlight=18,21)]
@@ -263,7 +264,8 @@ Aby zastąpić konfiguracji dostarczanych przez innych dostawców konfiguracji z
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program2.cs?range=11-16&highlight=1,5)]
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Typowe aplikacje 2.x platformy ASP.NET Core należy użyć metody statycznej wygody `CreateDefaultBuilder` tworzenie hosta:
 
 [!code-csharp[](index/sample_snapshot//Program.cs?highlight=12)]
@@ -280,12 +282,14 @@ Jeśli wszystkie powyższe warunki są spełnione, argumenty wiersza polecenia s
 
 Można użyć aplikacji 2.x platformy ASP.NET Core [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) zamiast `CreateDefaultBuilder`. Korzystając z `WebHostBuilder`, ręcznie Konfiguracja zestawu z [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder). Zobacz kartę 1.x platformy ASP.NET Core, aby uzyskać więcej informacji.
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Utwórz [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) i Wywołaj `AddCommandLine` — metoda korzysta z wiersza polecenia dostawcy konfiguracji. Ostatnio wywoływania dostawcy umożliwia wcześniej o nazwie argumenty wiersza polecenia przekazywane w czasie wykonywania, aby zastąpić konfiguracji ustawione przez innych dostawców konfiguracji. Zastosuj konfigurację do [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) z `UseConfiguration` metody:
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program2.cs?highlight=11,15,19)]
 
-* * *
+---
+
 ### <a name="arguments"></a>Argumenty
 
 Argumenty wiersza polecenia musi być zgodna z jednym z dwóch formatów pokazano w poniższej tabeli:
@@ -472,7 +476,7 @@ W widoku MVC:
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Opcje](xref:fundamentals/configuration/options)
-* [Użyj wiele środowisk](xref:fundamentals/environments)
+* [Używanie wielu środowisk](xref:fundamentals/environments)
 * [Bezpieczne przechowywanie wpisów tajnych aplikacji w czasie projektowania](xref:security/app-secrets)
 * [Hosting w platformy ASP.NET Core](xref:fundamentals/hosting)
 * [Wstrzykiwanie zależności](xref:fundamentals/dependency-injection)

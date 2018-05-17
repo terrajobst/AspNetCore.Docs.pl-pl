@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: b324dbcd6d28c1a8505f96da333874728e2e6a18
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: edc69443455677ba80ebb0a73e193d4d6741e470
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="enforce-https-in-an-aspnet-core"></a>Wymuszanie protokołu HTTPS w platformy ASP.NET Core
 
@@ -73,7 +73,7 @@ Globalny wymagających protokołu HTTPS (`options.Filters.Add(new RequireHttpsAt
 
 Na [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [zabezpieczeń transportu HTTP ograniczeniami (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) jest ulepszeniem zabezpieczeń opcjonalnych w określonym przez aplikację sieci web przy użyciu nagłówka odpowiedzi specjalnych. Kiedy obsługiwanej przeglądarki odbiera ten nagłówek przeglądarka uniemożliwi komunikację z są wysyłane za pośrednictwem protokołu HTTP z określoną domeną i zamiast tego wyśle cała komunikacja za pośrednictwem protokołu HTTPS. Uniemożliwia także kliknij HTTPS za pomocą monity w przeglądarkach.
 
-ASP.NET Core 2.1 preview1 lub później implementuje HSTS z `UseHsts` — metoda rozszerzenia. Poniższy kod wywołania `UseHsts` gdy aplikacja nie jest w [tryb programowania](xref:fundamentals/environments):
+Platformy ASP.NET Core 2.1 lub nowszej implementuje HSTS z `UseHsts` — metoda rozszerzenia. Poniższy kod wywołania `UseHsts` gdy aplikacja nie jest w [tryb programowania](xref:fundamentals/environments):
 
 [!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=10)]
 

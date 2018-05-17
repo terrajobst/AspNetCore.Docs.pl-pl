@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 3055eec91adc412b596d4cc73e8523e18ff63331
-ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
+ms.openlocfilehash: 06751e713fbd579a944333cc3c3b2c0c0ad51eba
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Wykrywanie zmian z tokenami zmiany w ASP.NET Core
 
@@ -108,7 +108,7 @@ Konstruktor klasy zaimplementowane `ConfigurationMonitor`, rejestruje wywołanie
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet2)]
 
-`config.GetReloadToken()` dostarcza token. `InvokeChanged` jest to metoda wywołania zwrotnego. `state` w tym wystąpieniu jest ciąg opisujący monitorowania stanu. Używane są dwie właściwości:
+`config.GetReloadToken()` dostarcza token. `InvokeChanged` jest to metoda wywołania zwrotnego. `state` w tym wystąpieniu jest odwołaniem do `IConfigurationMonitor` wystąpienia, który służy do monitorowania stanu. Używane są dwie właściwości:
 
 * `MonitoringEnabled` Wskazuje, czy wywołanie zwrotne uruchomione jego kod niestandardowy.
 * `CurrentState` w tym artykule opisano bieżący stan monitorowania do użycia w interfejsie użytkownika.
@@ -116,7 +116,6 @@ Konstruktor klasy zaimplementowane `ConfigurationMonitor`, rejestruje wywołanie
 `InvokeChanged` Metoda jest podobna do wcześniejszych podejście, ale:
 
 * Nie działa jego kod, chyba że `MonitoringEnabled` jest `true`.
-* Ustawia `CurrentState` właściwości ciąg opisowy komunikat, który rejestruje czas, który uruchomił kod.
 * Uwagi dotyczące bieżącego `state` w jego `WriteConsole` danych wyjściowych.
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet3)]
@@ -199,9 +198,8 @@ var compositeChangeToken =
 
 ## <a name="see-also"></a>Zobacz także
 
-* [Pamięci podręcznej w pamięci](xref:performance/caching/memory)
+* [Buforowanie w pamięci](xref:performance/caching/memory)
 * [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)
-* [Wykrywanie zmian z tokenami zmiany](xref:fundamentals/primitives/change-tokens)
 * [Buforowanie odpowiedzi](xref:performance/caching/response)
 * [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)
 * [Pomocnik tagu pamięci podręcznej](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

@@ -1,6 +1,6 @@
 ---
 title: Zaawansowane platformy ASP.NET Core MVC podstawowych EF - - 10, 10
-author: tdykstra
+author: rick-anderson
 description: Ten samouczek przedstawia przydatne tematy dotyczące wykraczających poza podstawy tworzenia aplikacji sieci web platformy ASP.NET Core, które używają programu Entity Framework Core.
 manager: wpickett
 ms.author: tdykstra
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 655f60116cbfe1dd81b7e2855906446b919b6489
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 95500686052a3f75dd71244bc9da500300416dec
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>Zaawansowane platformy ASP.NET Core MVC podstawowych EF - - 10, 10
 

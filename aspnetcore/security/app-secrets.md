@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 0a04f5762a35426f342b58b8b60288c66c057ae7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
-ms.translationtype: MT
+ms.openlocfilehash: a268fd76a303dc1185b451e4f678fc2fe761e80a
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Bezpieczne przechowywanie kluczy tajnych aplikacji w rozwoju platformy ASP.NET Core
 
@@ -41,7 +41,8 @@ Narzędzie Menedżer klucz tajny są przechowywane poufne dane w projektach poza
 
 ## <a name="installing-the-secret-manager-tool"></a>Instalowanie narzędzia menedżera klucz tajny
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+
 Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań i wybierz **Edytuj \<project_name\>.csproj** z menu kontekstowego. Dodaj wybrany element do *.csproj* pliku, a następnie zapisz do przywrócenia skojarzonego pakietu NuGet:
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -58,7 +59,8 @@ Zapisywanie zmodyfikowanych *.csproj* również plik zostanie otwarta `secrets.j
 }
 ```
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+
 Dodaj `Microsoft.Extensions.SecretManager.Tools` do *.csproj* pliku i uruchom [przywracania dotnet](/dotnet/core/tools/dotnet-restore). Te same kroki można użyć do zainstalowania narzędzia menedżera klucz tajny przy użyciu wiersza polecenia.
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -94,7 +96,8 @@ dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\w
 
 Narzędzie Menedżer klucz tajny służy również do, Usuń, a następnie wyczyść klucze tajne aplikacji.
 
-* * *
+---
+
 ## <a name="accessing-user-secrets-via-configuration"></a>Uzyskiwanie dostępu do kluczy tajnych użytkownika za pomocą konfiguracji
 
 Klucz tajny Menedżera kluczy tajnych dostępu za pomocą systemu konfiguracji. Dodaj `Microsoft.Extensions.Configuration.UserSecrets` pakiet, a następnie uruchom [przywracania dotnet](/dotnet/core/tools/dotnet-restore).

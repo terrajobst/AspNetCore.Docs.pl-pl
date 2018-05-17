@@ -1,6 +1,6 @@
 ---
 title: Host i wdrażania platformy ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: Dowiedz się, jak skonfigurować środowiskach hostingu i wdrażanie aplikacji platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/index
-ms.openlocfilehash: 515589e38a1ba121d365427b5fddac1b0e845b1f
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: 6364f54ede43b8eec070166a75b4552d896644f3
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Host i wdrażania platformy ASP.NET Core
 
@@ -45,7 +45,7 @@ Aplikacja platformy ASP.NET Core jest aplikacji konsoli, która musi być urucha
   * [Apache](xref:host-and-deploy/linux-apache)
 * Windows
   * [IIS](xref:host-and-deploy/iis/index)
-  * [Windows Service](xref:host-and-deploy/windows-service)
+  * [Usługa systemu Windows](xref:host-and-deploy/windows-service)
 
 ## <a name="set-up-a-reverse-proxy"></a>Konfigurowanie zwrotny serwer proxy
 

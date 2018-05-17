@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/response-compression
-ms.openlocfilehash: bde0522de0c70be637b903c3bbced8c0be814c31
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cae81a04e41dc7fcbacec975e63171f633fccecf
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Oprogramowanie pośredniczące kompresji odpowiedzi dla platformy ASP.NET Core
 
@@ -24,6 +24,7 @@ Przez [Luke Latham](https://github.com/guardrex)
 Przepustowość sieci jest ograniczona zasobów. Zmniejszenie rozmiaru odpowiedzi, zazwyczaj często gwałtowny wzrost czas odpowiedzi aplikacji. Jednym ze sposobów zmniejszyć rozmiar ładunku jest kompresji odpowiedzi aplikacji.
 
 ## <a name="when-to-use-response-compression-middleware"></a>Kiedy należy używać oprogramowania pośredniczącego kompresji odpowiedzi
+
 Użyj technologii kompresji odpowiedzi na serwerze usług IIS, Apache lub Nginx. Wydajność oprogramowania pośredniczącego prawdopodobnie nie będzie zgodne z modułami serwera. [Serwer HTTP.sys](xref:fundamentals/servers/httpsys) i [Kestrel](xref:fundamentals/servers/kestrel) aktualnie nie oferują obsługę wbudowanych kompresji.
 
 Użyj oprogramowania pośredniczącego kompresji odpowiedzi, gdy jesteś:
@@ -37,6 +38,7 @@ Użyj oprogramowania pośredniczącego kompresji odpowiedzi, gdy jesteś:
   * [Kestrel](xref:fundamentals/servers/kestrel)
 
 ## <a name="response-compression"></a>Kompresja odpowiedzi
+
 Zazwyczaj nie natywnie skompresowane odpowiedzi mogą korzystać z kompresji odpowiedzi. Odpowiedzi nie natywnie skompresowane zwykle obejmują: CSS, JavaScript, HTML, XML i JSON. Nie Kompresuj natywnie skompresowany zasobów, takich jak pliki PNG. Próba dalsze Kompresuj natywnie skompresowane odpowiedzi żadnych dodatkowych małych skrócenie czasu rozmiaru i transmisji prawdopodobnie będzie overshadowed przez czas przetwarzania kompresji. Nie Kompresuj pliki mniejsze niż około 150 – 1000 bajtów (w zależności od zawartości pliku i wydajności kompresji). Koszty kompresowania małych plików może powodować większe niż nieskompresowanego pliku skompresowanego pliku.
 
 W przypadku klienta może przetwarzać skompresowanej zawartości, klient musi powiadomić serwera jej możliwości, wysyłając `Accept-Encoding` nagłówek z żądania. Gdy serwer wysyła skompresowanej treści, musi on zawierać informacje w `Content-Encoding` nagłówka w sposób jest zakodowany skompresowanych odpowiedzi. W poniższej tabeli przedstawiono zawartości kodowania nazw obsługiwanych przez oprogramowanie pośredniczące.
@@ -72,22 +74,28 @@ Nagłówki zaangażowane w żądanie wysyłania, buforowanie i odbieranie skompr
 | `Vary`             | Po wysłaniu przez serwer z wartością `Accept-Encoding` do klientów i serwerów proxy, `Vary` nagłówka wskazuje do klienta lub serwera proxy, który powinien pamięci podręcznej (różne) odpowiedzi na podstawie wartości z `Accept-Encoding` nagłówka żądania. Wynik zwracania zawartości za pomocą `Vary: Accept-Encoding` nagłówka jest zarówno skompresowane i nieskompresowanym odpowiedzi są buforowane oddzielnie. |
 
 Funkcje oprogramowania pośredniczącego kompresji odpowiedzi z można eksplorować [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples). Przykładową:
+
 * Kompresja odpowiedzi aplikacji przy użyciu dostawców niestandardowych kompresji i gzip.
 * Jak dodać typ MIME do listy domyślnych typów MIME kompresji.
 
 ## <a name="package"></a>Package
+
 Aby dołączyć oprogramowanie pośredniczące w projekcie, należy dodać odwołanie do [ `Microsoft.AspNetCore.ResponseCompression` ](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) pakietu lub użyj [ `Microsoft.AspNetCore.All` ](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) pakietu. Ta funkcja jest dostępna dla aplikacji przeznaczonych dla platformy ASP.NET Core 1.1 lub nowszej.
 
 ## <a name="configuration"></a>Konfiguracja
+
 Poniższy kod przedstawia sposób włączania pośredniczącym kompresji odpowiedzi z kompresją gzip domyślne i domyślne typy MIME.
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](response-compression/samples/2.x/StartupBasic.cs?name=snippet1&highlight=4,8)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](response-compression/samples/1.x/StartupBasic.cs?name=snippet1&highlight=3,8)]
 
-* * *
+---
+
 > [!NOTE]
 > Użyj narzędzia, takiego jak [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), lub [Postman](https://www.getpostman.com/) można ustawić `Accept-Encoding` nagłówek żądania i badania nagłówki odpowiedzi, rozmiar i treść.
 
@@ -100,7 +108,9 @@ Prześlij żądanie do aplikacji przykładowej przy `Accept-Encoding: gzip` nag�
 ![Okno narzędzia fiddler przedstawiający wynik żądania z nagłówka Accept-Encoding i wartości gzip. Nagłówki Vary i kodowania zawartości są dodawane do odpowiedzi. Odpowiedź jest kompresowana.](response-compression/_static/request-compressed.png)
 
 ## <a name="providers"></a>dostawców
+
 ### <a name="gzipcompressionprovider"></a>GzipCompressionProvider
+
 Użyj `GzipCompressionProvider` kompresji odpowiedzi z gzip. To jest dostawcą domyślnym kompresji, jeśli żaden nie jest określony. Można ustawić poziomu z kompresji `GzipCompressionProviderOptions`. 
 
 Domyślnie dostawca kompresji gzip najszybszym poziom kompresji (`CompressionLevel.Fastest`), może nie dawać najbardziej efektywny kompresji. W razie potrzeby najbardziej efektywny kompresji można skonfigurować oprogramowanie pośredniczące optymalnej kompresji.
@@ -111,15 +121,18 @@ Domyślnie dostawca kompresji gzip najszybszym poziom kompresji (`CompressionLev
 | `CompressionLevel.NoCompression` | Kompresja nie powinny być wykonywane.                                                                           |
 | `CompressionLevel.Optimal`       | Odpowiedzi powinna być optymalnie kompresowana, nawet jeśli kompresja trwa dłużej.                |
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=3,8-11)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,10-13)]
 
-* * *
+---
+
 ## <a name="mime-types"></a>MIME, typy
+
 Oprogramowanie pośredniczące Określa domyślny zestaw typy MIME kompresji:
 * `text/plain`
 * `text/css`
@@ -132,37 +145,46 @@ Oprogramowanie pośredniczące Określa domyślny zestaw typy MIME kompresji:
 
 Można zastąpić, lub Dołącz typy MIME opcje oprogramowania pośredniczącego kompresji odpowiedzi. Należy pamiętać, że symbol wieloznaczny MIME typy, takich jak `text/*` nie są obsługiwane. Przykładowa aplikacja dodaje typ MIME dla `image/svg+xml` kompresuje i obsługuje platformy ASP.NET Core obraz transparentu (*banner.svg*).
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=5)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7)]
 
-* * *
+---
+
 ### <a name="custom-providers"></a>Dostawcy niestandardowi
+
 Można tworzyć niestandardowe kompresji implementacje z `ICompressionProvider`. `EncodingName` Reprezentuje zawartość, kodowanie tego `ICompressionProvider` tworzy. Oprogramowanie pośredniczące używa tych informacji do wybierz dostawcę na podstawie listy określone w `Accept-Encoding` nagłówka żądania.
 
 Przy użyciu aplikacji przykładowej, klient przesyła żądanie z `Accept-Encoding: mycustomcompression` nagłówka. Oprogramowanie pośredniczące używa implementacji niestandardowych kompresji i zwraca odpowiedź z `Content-Encoding: mycustomcompression` nagłówka. Klient musi mieć możliwość dekompresja niestandardowego kodowania w kolejności stosowania niestandardowego kompresji do pracy.
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=4)]
 
 [!code-csharp[](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
 
 [!code-csharp[](response-compression/samples/1.x/CustomCompressionProvider.cs?name=snippet1)]
 
-* * *
+---
+
 Prześlij żądanie do aplikacji przykładowej przy `Accept-Encoding: mycustomcompression` nagłówka i obserwować nagłówków odpowiedzi. `Vary` i `Content-Encoding` nagłówki są obecne w odpowiedzi. Treść odpowiedzi (tego nie pokazano) nie jest skompresowane za próbki. Nie ma implementacja kompresji `CustomCompressionProvider` klasy próbki. Jednak pokazano, gdzie czy wdrożenie jest algorytm kompresji.
 
 ![Wynik żądania z nagłówka Accept-Encoding oraz wartość mycustomcompression okno fiddler. Nagłówki Vary i kodowania zawartości są dodawane do odpowiedzi.](response-compression/_static/request-custom-compression.png)
 
 ## <a name="compression-with-secure-protocol"></a>Kompresja z bezpiecznego protokołu
+
 Skompresowane odpowiedzi za pośrednictwem bezpiecznego połączenia można sterować za pomocą `EnableForHttps` opcja, która jest domyślnie wyłączona. Używanie kompresji na dynamicznie generowanym stronach może prowadzić do problemów z bezpieczeństwem takich jak [ataki CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) i [naruszenia](https://wikipedia.org/wiki/BREACH_(security_exploit)) ataków.
 
 ## <a name="adding-the-vary-header"></a>Dodawanie nagłówka Vary
+
 Podczas kompresowania odpowiedzi na podstawie `Accept-Encoding` nagłówka, istnieją potencjalnie wiele wersji skompresowanych odpowiedzi i nieskompresowanym wersji. Aby nakazać klienta i serwera proxy pamięci podręcznej, czy istnieją wiele wersji, a powinien być przechowywany, `Vary` nagłówka zostanie dodany z `Accept-Encoding` wartości. W przypadku platformy ASP.NET Core 1.x, dodawanie `Vary` nagłówka do odpowiedzi odbywa się ręcznie. W przypadku platformy ASP.NET Core dodaje oprogramowanie pośredniczące 2.x, `Vary` nagłówka automatycznie w przypadku skompresowanych odpowiedzi.
 
 **Program ASP.NET Core tylko 1.x**
@@ -170,19 +192,24 @@ Podczas kompresowania odpowiedzi na podstawie `Accept-Encoding` nagłówka, istn
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet1)]
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Oprogramowanie pośredniczące problem podczas pod zwrotny serwer proxy Nginx
+
 Jeśli żądanie jest przekazywane przez serwer proxy przez Nginx, `Accept-Encoding` nagłówka zostaną usunięte. Zapobiega to oprogramowanie pośredniczące od kompresji odpowiedzi. Aby uzyskać więcej informacji, zobacz [NGINX: kompresji i dekompresji](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Ten problem jest śledzony przez [zorientować się przekazujące kompresja Nginx (BasicMiddleware #123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Praca z kompresji dynamicznej usług IIS
+
 Jeśli masz aktywnego IIS dynamicznej kompresji modułu skonfigurowane na poziomie serwera, który ma zostać wyłączone dla aplikacji, możesz to zrobić z dodatku programu *web.config* pliku. Aby uzyskać więcej informacji, zobacz [moduły IIS wyłączenie](xref:host-and-deploy/iis/modules#disabling-iis-modules).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
 Użyj narzędzia, takiego jak [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), lub [Postman](https://www.getpostman.com/), umożliwiają skonfigurowanie `Accept-Encoding` nagłówek żądania i badania nagłówki odpowiedzi, rozmiar i treść. Oprogramowanie pośredniczące kompresji odpowiedzi kompresuje odpowiedzi, które spełniają poniższe warunki:
+
 * `Accept-Encoding` Nagłówek ma wartość `gzip`, `*`, lub niestandardowy kodowania pasujący dostawcy niestandardowego kompresji, który został określony. Wartość nie może być `identity` ani mieć wartości jakości (qvalue, `q`) ustawienie 0 (zero).
 * Typ MIME (`Content-Type`) musi być ustawiona i musi być zgodny z typem MIME skonfigurowane na `ResponseCompressionOptions`.
 * Żądanie nie może zawierać `Content-Range` nagłówka.
 * Żądanie musi używać protokołu niezabezpieczonego (http), chyba że bezpiecznego protokołu (https) jest skonfigurowana w opcjach oprogramowanie pośredniczące kompresji odpowiedzi. *Należy zwrócić uwagę zagrożenia [opisane powyżej](#compression-with-secure-protocol) po włączaniu bezpiecznych kompresji zawartości.*
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
+
 * [Uruchamianie aplikacji](xref:fundamentals/startup)
 * [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
 * [Mozilla Developer Network: Zaakceptuj kodowania](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)

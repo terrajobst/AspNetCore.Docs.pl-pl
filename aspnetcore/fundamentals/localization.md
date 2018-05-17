@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: b81926f81fdfb832ff6ae3bd65c00fa09412fec4
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 929c73c314a15e7003853d3996158d1328e597cb
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizacja i lokalizacja w ASP.NET Core
 
@@ -141,14 +141,6 @@ Plik zasobów jest mechanizm przydatne do oddzielania Lokalizowalny ciągów z k
     Visual Studio zawiera *Welcome.es.resx* pliku.
 
     ![Eksploratora rozwiązań przedstawiający plik zasobów-Zapraszamy hiszpański (es)](localization/_static/se.png)
-
-<a name="error"></a>
-
-Jeśli używasz wersji Preview 2017 r w usłudze Visual Studio 15 ustęp 3, zostanie wyświetlony wskaźnik błędów w edytorze zasobów. Usuń *ResXFileCodeGenerator* wartość z *niestandardowego narzędzia* siatki właściwości, aby uniknąć tego komunikatu o błędzie:
-
-![Edytor resx](localization/_static/err.png)
-
-Alternatywnie możesz zignorować ten błąd. Mamy nadzieję rozwiązać ten problem w następnej wersji.
 
 ## <a name="resource-file-naming"></a>Nazywanie pliku zasobów
 

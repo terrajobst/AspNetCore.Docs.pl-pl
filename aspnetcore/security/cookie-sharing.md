@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cookie-sharing
-ms.openlocfilehash: 2c0f5de4ecedb796e85c08fc50d9697947a75a3f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5f77377f168993d48686217adac54a75313766ec
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>Udostępnianie plików cookie między aplikacji ASP.NET i ASP.NET Core
 
@@ -46,7 +46,8 @@ W przykładach, które należy wykonać:
 
 Podczas używania ASP.NET Core Identity:
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 W `ConfigureServices` metody, użyj [ConfigureApplicationCookie](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.configureapplicationcookie) — metoda rozszerzenia, aby skonfigurować usługę ochrony danych plików cookie.
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.Core/Startup.cs?name=snippet1)]
@@ -55,7 +56,8 @@ Klucze ochrony danych i nazwa aplikacji musi być współużytkowane przez aplik
 
 Zobacz *CookieAuthWithIdentity.Core* projektu w [przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)).
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 W `Configure` metody, użyj [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions) do skonfigurowania:
 
 * Usługa ochrony danych plików cookie.
@@ -82,17 +84,20 @@ app.AddIdentity<ApplicationUser, IdentityRole>(options =>
 });
 ```
 
-* * *
+---
+
 Podczas używania plików cookie bezpośrednio:
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](cookie-sharing/sample/CookieAuth.Core/Startup.cs?name=snippet1)]
 
 Klucze ochrony danych i nazwa aplikacji musi być współużytkowane przez aplikacje. W przykładowych aplikacji `GetKeyRingDirInfo` Zwraca lokalizację przechowywania klucza wspólnego [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) metody. Użyj [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) Aby skonfigurować nazwę pospolitą udostępnionej aplikacji (`SharedCookieApp` w próbce). Aby uzyskać więcej informacji, zobacz [konfigurowania ochrony danych](xref:security/data-protection/configuration/overview). 
 
 Zobacz *CookieAuth.Core* projektu w [przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)).
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 ```csharp
 app.UseCookieAuthentication(new CookieAuthenticationOptions
 {
@@ -102,7 +107,8 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 });
 ```
 
-* * *
+---
+
 ## <a name="encrypting-data-protection-keys-at-rest"></a>Szyfrowanie kluczy ochrony danych magazynowanych
 
 W przypadku wdrożeń produkcyjnych, skonfigurować `DataProtectionProvider` do szyfrowania kluczy magazynowane DPAPI lub X509Certificate. Zobacz [klucza szyfrowania w Rest](xref:security/data-protection/implementation/key-encryption-at-rest) Aby uzyskać więcej informacji.
@@ -146,7 +152,8 @@ Aby udostępnić pliki cookie uwierzytelniania między ASP.NET 4.x aplikacje i a
 
 2. W *Startup.Auth.cs*, zlokalizuj wywołanie `UseCookieAuthentication` i zmodyfikuj go w następujący sposób. Zmień nazwę pliku cookie do dopasowania nazwę używaną przez oprogramowanie pośredniczące uwierzytelniania plików cookie platformy ASP.NET Core. Podaj wystąpienia `DataProtectionProvider` zainicjowany do wspólnej lokalizacji magazynu kluczy ochrony danych. Upewnij się, że nazwa aplikacji jest ustawiona na nazwę pospolitą aplikacji używane przez wszystkie aplikacje, które współużytkują plików cookie, `SharedCookieApp` w przykładowej aplikacji.
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/App_Start/Startup.Auth.cs?name=snippet1)]
 
 Zobacz *CookieAuthWithIdentity.NETFramework* projektu w [przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)).
@@ -157,7 +164,8 @@ Podczas generowania tożsamości użytkownika, typ uwierzytelniania musi być zg
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/Models/IdentityModels.cs?name=snippet1)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Ustaw `CookieManager` do interop `ChunkingCookieManager` , format segmentu jest zgodny.
 
 ```csharp
@@ -180,7 +188,8 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 });
 ```
 
-* * *
+---
+
 ## <a name="use-a-common-user-database"></a>Użyj wspólną bazę danych użytkownika
 
 Upewnij się, że w tej samej bazy danych użytkownika jest wskazywana systemu tożsamości dla każdej aplikacji. W przeciwnym razie systemu tożsamości tworzy błędy w czasie wykonywania, podczas próby zgodny z informacjami w pliku cookie uwierzytelniania względem informacji w bazie danych.

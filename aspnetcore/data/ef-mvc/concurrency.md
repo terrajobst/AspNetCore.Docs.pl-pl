@@ -1,6 +1,6 @@
 ---
 title: Platformy ASP.NET Core MVC podstawowych EF - współbieżności - 8, 10
-author: tdykstra
+author: rick-anderson
 description: Ten samouczek pokazuje sposób obsługi konfliktów w przypadku wielu użytkowników aktualizacji tej samej jednostki w tym samym czasie.
 manager: wpickett
 ms.author: tdykstra
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 99c4872719a4e46aa27eb7138eb914dc5954c219
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 48aa5a2d47c9d60ab8ac5a25f8f29ce8e462dd61
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF - współbieżności - 8, 10
 

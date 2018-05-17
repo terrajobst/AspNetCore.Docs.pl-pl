@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: c848c5d66a9e8141d9d737e8ce9c994587b04916
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 651d47ce20f3269340f0796f487e2f1a2a155710
+ms.sourcegitcommit: 0063338c2e130409081bb60fcffa0c3f190cd46a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
@@ -214,6 +214,8 @@ Ponieważ `handler` jest `delete` w tym przykładzie `OnPostDeleteAsync` metoda 
 Właściwości `PageModel` może korzystać z [wymagane](/dotnet/api/system.componentmodel.dataannotations.requiredattribute) atrybutu:
 
 [!code-cs[](index/sample/Create.cshtml.cs?highlight=3,15-16)]
+
+Zobacz [modelu weryfikacji](xref:mvc/models/validation) Aby uzyskać więcej informacji.
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>Zarządzaj żądaniami HEAD z obsługą OnGet
 
@@ -418,7 +420,7 @@ Następujący kod w *Pages/Customers/Index.cshtml* plik zawiera wartość `Messa
 public string Message { get; set; }
 ```
 
-Zobacz [TempData](xref:fundamentals/app-state#temp) Aby uzyskać więcej informacji.
+Zobacz [TempData](xref:fundamentals/app-state#tempdata) Aby uzyskać więcej informacji.
 
 <a name="mhpp"></a>
 ## <a name="multiple-handlers-per-page"></a>Wielu obsług na stronie
