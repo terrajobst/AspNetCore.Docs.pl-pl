@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: ce79118fa025f912d7f04e2c9bff481a04489674
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
-ms.translationtype: HT
+ms.openlocfilehash: 97c0b289b259332d57f8175e05020fe03d505723
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET Core
 
@@ -155,7 +155,7 @@ Aby uzyskać więcej informacji, zobacz [pliki statyczne](xref:fundamentals/stat
 
 Aplikacje platformy ASP.NET Core skonfigurować i uruchomić *hosta*, który jest odpowiedzialny za zarządzanie uruchamiania i okresem istnienia aplikacji.
 
-Aby uzyskać więcej informacji, zobacz [hostingu](xref:fundamentals/hosting).
+Aby uzyskać więcej informacji, zobacz [hosta w ASP.NET Core](xref:fundamentals/host/index).
 
 ## <a name="session-and-application-state"></a>Stan sesji i aplikacji
 
@@ -189,7 +189,7 @@ Aby uzyskać więcej informacji, zobacz [żądania funkcji](xref:fundamentals/re
 
 Zadania w tle są zaimplementowane jako *usług hostowanych*. Hostowana usługa jest klasa z logiką zadania tła, który implementuje [IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice) interfejsu.
 
-Aby uzyskać więcej informacji, zobacz [zadania związane z usług hostowanych w tle](xref:fundamentals/hosted-services).
+Aby uzyskać więcej informacji, zobacz [zadania związane z usług hostowanych w tle](xref:fundamentals/host/hosted-services).
 
 ## <a name="open-web-interface-for-net-owin"></a>Otwórz interfejs sieci Web dla platformy .NET (OWIN)
 

@@ -5,76 +5,141 @@ description: Wykryj obsługę debugowania aplikacji ASP.NET Core, gdy za usług 
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/13/2017
+ms.date: 05/14/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 218bb2653b92cd7b1cf2c6726b2d4bedbf307a62
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0bf4585d44e61c5e7e5b89ce9d8dfdfa10d5460e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Usługi IIS w czasie opracowywania obsługi w programie Visual Studio dla platformy ASP.NET Core
 
-Przez [Sourabh Shirhatti](https://twitter.com/sshirhatti)
+Przez [Sourabh Shirhatti](https://twitter.com/sshirhatti) i [Luke Latham](https://github.com/guardrex)
 
 W tym artykule opisano [programu Visual Studio](https://www.visualstudio.com/vs/) obsługę debugowania aplikacji ASP.NET Core za usług IIS w systemie Windows Server. Ten temat przeprowadzi Cię przez włączenie tej funkcji i konfigurowanie projektu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="enable-iis"></a>Włącz usługi IIS
 
-Włącz usługi IIS. Przejdź do **Panelu sterowania** > **programy** > **programy i funkcje** > **wyłączyć funkcje systemu Windows na lub wyłącz** (po lewej stronie ekranu). Wybierz **Internetowe usługi informacyjne** wyboru.
+1. Przejdź do **Panelu sterowania** > **programy** > **programy i funkcje** > **wyłączyć funkcje systemu Windows na lub wyłącz** (po lewej stronie ekranu).
+1. Wybierz **Internetowe usługi informacyjne** pole wyboru.
 
-![Wyświetlanie wyboru Internetowe usługi informacyjne zaznaczone jako czarny kwadrat (nie zaznaczone) wskazujący, że niektóre funkcje usług IIS są włączone funkcje systemu Windows](development-time-iis-support/_static/enable_iis.png)
+![Pole wyboru Internetowe usługi informacyjne funkcje systemu Windows prezentujących zaznaczone jako czarny kwadrat (nie zaznaczone), wskazujący, że niektóre funkcje usług IIS są włączone](development-time-iis-support/_static/enable_iis.png)
 
-Jeśli instalacja usług IIS wymaga ponownego uruchomienia komputera, należy ponownie uruchomić system.
+Instalacja usług IIS może wymagać ponownego uruchomienia systemu.
 
-## <a name="enable-development-time-iis-support"></a>Włącz obsługę usług IIS w czasie opracowywania
+## <a name="configure-iis"></a>Konfigurowanie usług IIS
 
-Uruchom Instalator programu Visual Studio. Wybierz **czasie opracowywania usługi IIS obsługują** składnika. Składnik jest wymieniony jako opcjonalne w **Podsumowanie** panelu dla **ASP.NET i sieć web development** obciążenia. Spowoduje to zainstalowanie [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), która jest moduł macierzysty usług IIS wymagane do uruchomienia aplikacji platformy ASP.NET Core.
+Usługi IIS musi mieć skonfigurowaną następujące witryny sieci Web:
 
-![Modyfikowanie funkcje programu Visual Studio: wybrana jest karta obciążeń. W sekcji sieci Web i w chmurze wybrano panelu programowanie ASP.NET i sieć web. Po prawej stronie w obszarze opcjonalne panel Podsumowanie jest to pole wyboru dla rozwoju razem, gdy usługi IIS obsługują.](development-time-iis-support/_static/development_time_support.png)
+* Nazwa hosta nazwę hosta, która odpowiada adresowi URL profilu uruchamiania aplikacji.
+* Powiązanie dla portu 443 z certyfikatem przypisane.
+
+Na przykład **nazwy hosta** dla witryny sieci Web dodano jest ustawiony na wartość "localhost" (profilu uruchamiania będą też używać w dalszej części tego tematu "localhost"). Port ten jest ustawiony na "443" (HTTPS). **Usług IIS Express certyfikatu deweloperskiego** jest przypisany do witryny sieci Web, ale dowolnego ważnego certyfikatu działania:
+
+![Dodaj okno witryny sieci Web w usługach IIS przedstawiający powiązania zestawu hosta lokalnego na porcie 443 z certyfikatem, który został przypisany.](development-time-iis-support/_static/add-website-window.png)
+
+Jeśli ma już instalacji usług IIS **domyślna witryna sieci Web** przy użyciu nazwy hosta, który dopasowuje nazwy hosta URL profilu uruchamiania aplikacji:
+
+* Dodaj powiązanie portów dla portu 443 (HTTPS).
+* Przypisz prawidłowy certyfikat do witryny sieci Web.
+
+## <a name="enable-development-time-iis-support-in-visual-studio"></a>Włącz obsługę usług IIS czasie opracowywania w programie Visual Studio
+
+1. Uruchom Instalator programu Visual Studio.
+1. Wybierz **czasie opracowywania usługi IIS obsługują** składnika. Składnik jest wymieniony jako opcjonalne w **Podsumowanie** panelu dla **ASP.NET i sieć web development** obciążenia. Instaluje składnik [moduł platformy ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), która jest moduł macierzysty usług IIS wymagane do uruchomienia aplikacji za IIS platformy ASP.NET Core w konfiguracji zwrotnego serwera proxy.
+
+![Modyfikowanie funkcje programu Visual Studio: wybrana jest karta obciążeń. W sekcji sieci Web i w chmurze wybrano panelu programowanie ASP.NET i sieć web. Po prawej stronie w obszarze opcjonalne panel Podsumowanie ma postać pola wyboru dla rozwoju razem, gdy usługi IIS obsługują.](development-time-iis-support/_static/development_time_support.png)
 
 ## <a name="configure-the-project"></a>Konfigurowanie projektu
 
-Utwórz nowy profil Uruchom, aby dodać obsługę usług IIS w czasie opracowywania. W programie Visual Studio **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **właściwości**. Wybierz **debugowania** kartę. Wybierz **IIS** z **uruchamianie** listy rozwijanej. Upewnij się, że **uruchamiania przeglądarki** z poprawny adres URL jest włączona funkcja.
+### <a name="https-redirection"></a>Przekierowania protokołu HTTPS
 
-![Okno właściwości projektu z wybraną kartą debugowania. Ustawienia profilu, a następnie uruchom są ustawione w usługach IIS. Włączono uruchamiania funkcji przeglądarki z adresem http://localhost/WebApplication2. Ten sam adres jest również udostępniany w polu adres URL aplikacji w obszarze Ustawienia serwera sieci Web z włączyć włączone jest uwierzytelnianie anonimowe.](development-time-iis-support/_static/project_properties.png)
+Dla nowego projektu, zaznacz pole wyboru, aby **Konfiguruj na potrzeby protokołu HTTPS** w **nową aplikację sieci Web Core ASP.NET** okno:
+
+![Nowe okno aplikacji sieci Web platformy ASP.NET Core z konfiguracji dla protokołu HTTPS jest zaznaczone pole wyboru.](development-time-iis-support/_static/new-app.png)
+
+W istniejącego projektu, za pomocą oprogramowania pośredniczącego przekierowania protokołu HTTPS w `Startup.Configure` przez wywołanie metody [UseHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpspolicybuilderextensions.usehttpsredirection) — metoda rozszerzenia:
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+    else
+    {
+        app.UseExceptionHandler("/Error");
+        app.UseHsts();
+    }
+
+    app.UseHttpsRedirection();
+    app.UseStaticFiles();
+    app.UseCookiePolicy();
+
+    app.UseMvc();
+}
+```
+
+### <a name="iis-launch-profile"></a>Profil uruchamiania usług IIS
+
+Utwórz nowy profil Uruchom, aby dodać obsługę usług IIS w czasie opracowywania:
+
+1. Dla **profilu**, wybierz pozycję **nowy** przycisku. Nazwa profilu "Usług IIS" w oknie podręcznym. Wybierz **OK** do tworzenia profilu.
+1. Dla **uruchamianie** wybierz pozycję **IIS** z listy.
+1. Zaznacz pole wyboru dla **uruchamiania przeglądarki** i podaj adres URL punktu końcowego. Użyj protokołu HTTPS. W tym przykładzie użyto `https://localhost/WebApplication1`.
+1. W **zmiennych środowiskowych** zaznacz **Dodaj** przycisku. Podaj wartość zmiennej środowiskowej z kluczem `ASPNETCORE_ENVIRONMENT` i wartości `Development`.
+1. W **ustawienia serwera sieci Web** obszar, **adres URL aplikacji**. W tym przykładzie użyto `https://localhost/WebApplication1`.
+1. Zapisywanie profilu.
+
+![Okno właściwości projektu z wybraną kartą debugowania. Ustawienia profilu, a następnie uruchom są ustawione w usługach IIS. Włączono uruchamiania funkcji przeglądarki z adresem https://localhost/WebApplication1. Dostępne są również ten sam adres w polu adres URL aplikacji w obszarze Ustawienia serwera sieci Web.](development-time-iis-support/_static/project_properties.png)
 
 Możesz też ręcznie dodać profil uruchamiania do [launchSettings.json](http://json.schemastore.org/launchsettings) plik w aplikacji:
 
 ```json
 {
-    "iisSettings": {
-        "windowsAuthentication": false,
-        "anonymousAuthentication": true,
-        "iis": {
-            "applicationUrl": "http://localhost/WebApplication2",
-            "sslPort": 0
-        }
-    },
-    "profiles": {
-        "IIS": {
-            "commandName": "IIS",
-            "launchBrowser": "true",
-            "launchUrl": "http://localhost/WebApplication2",
-            "environmentVariables": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
-            }
-        }
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "https://localhost/WebApplication1",
+      "sslPort": 0
     }
+  },
+  "profiles": {
+    "IIS": {
+      "commandName": "IIS",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost/WebApplication1",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
 }
 ```
 
+## <a name="run-the-project"></a>Uruchom projekt
+
+W interfejsie użytkownika programu VS ustawioną przycisk Uruchom **IIS** profilu, a następnie wybierz przycisk, aby uruchomić aplikację:
+
+![Przycisk Uruchom na pasku narzędzi programu VS ustawiona do profilowania "Usług IIS".](development-time-iis-support/_static/toolbar.png)
+
 Visual Studio może monit o ponowne uruchomienie, gdy nie jest uruchomiona jako administrator. Jeśli zostanie wyświetlony monit, uruchom ponownie program Visual Studio.
+
+Użycie certyfikatu deweloperskiego niezaufanych przeglądarki mogą wymagać utworzenia wyjątku niezaufanego certyfikatu.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Host platformy ASP.NET Core w systemie Windows z programem IIS](xref:host-and-deploy/iis/index)
 * [Wprowadzenie do platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module)
 * [Odwołania do konfiguracji modułu platformy ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
+* [Wymuszanie protokołu HTTPS](xref:security/enforcing-ssl)

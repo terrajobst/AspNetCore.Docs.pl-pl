@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 700ceb081b2067f932ce8ed08c45c62058775e33
-ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
+ms.openlocfilehash: 067d9bd09f6d5e54bbafd953eea169d2df2be34e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Iniekcji zależności w ASP.NET Core
 
@@ -72,7 +72,7 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 
 ## <a name="using-framework-provided-services"></a>Za pomocą usług dostarczonych framework
 
-`ConfigureServices` Metoda `Startup` klasy jest odpowiedzialny za definiowanie usługi aplikacja będzie korzystać, w tym funkcji platformy Entity Framework Core i ASP.NET Core MVC. Początkowo `IServiceCollection` do `ConfigureServices` ma następujące usługi zdefiniowane (w zależności od [konfiguracji hosta](xref:fundamentals/hosting)):
+`ConfigureServices` Metoda `Startup` klasy jest odpowiedzialny za definiowanie usługi aplikacja będzie korzystać, w tym funkcji platformy Entity Framework Core i ASP.NET Core MVC. Początkowo `IServiceCollection` do `ConfigureServices` ma następujące usługi zdefiniowane (w zależności od [konfiguracji hosta](xref:fundamentals/host/index)):
 
 | Typ usługi | Okres istnienia |
 | ----- | ------- |
@@ -235,7 +235,7 @@ Dostawcy usług głównego jest tworzone, gdy [BuildServiceProvider](/dotnet/api
 
 Usługi w zakresie są usuwane przez kontener, który je utworzył. Zakresami usługi jest tworzony w kontenerze katalogu głównego, okres istnienia usługi jest skutecznie podwyższany do pojedynczego wystąpienia ponieważ tylko są usuwane przez nadrzędny kontener, gdy serwera aplikacji zostanie zamknięta. Walidacja zakresów usługi przechwytuje tych sytuacji gdy `BuildServiceProvider` jest wywoływana.
 
-Aby uzyskać więcej informacji, zobacz [zakres sprawdzania poprawności w temacie hostingu](xref:fundamentals/hosting#scope-validation).
+Aby uzyskać więcej informacji, zobacz [zakres sprawdzania poprawności w temacie hosta sieci Web](xref:fundamentals/host/web-host#scope-validation).
 
 ## <a name="request-services"></a>Żądanie usługi
 
@@ -245,7 +245,7 @@ Dostępne w programie ASP.NET usługi, poproś `HttpContext` dostępnych za poś
 
 Żądanie usługi reprezentują usługi, konfigurowanie i żądania jako część aplikacji. Gdy obiektów Określ zależności, te są spełnione przez typy w `RequestServices`, a nie `ApplicationServices`.
 
-Ogólnie rzecz biorąc nie można używać tych właściwości bezpośrednio, zamiast tego preferowanie do żądania z klas, które wymagają za pośrednictwem swojej klasy Konstruktor typów i pozwolić framework wstrzyknięcia zależności. Daje to klasy, które są łatwiejsze do testowania (zobacz [testu i debugowania](../testing/index.md)) i są bardziej luźno powiązane.
+Ogólnie rzecz biorąc nie można używać tych właściwości bezpośrednio, zamiast tego preferowanie do żądania z klas, które wymagają za pośrednictwem swojej klasy Konstruktor typów i pozwolić framework wstrzyknięcia zależności. Daje to klasy, które są łatwiejsze do testowania (zobacz [testu i debugowania](xref:testing/index)) i są bardziej luźno powiązane.
 
 > [!NOTE]
 > Preferowane jest żądaniem zależności jako parametry konstruktora do uzyskiwania dostępu do `RequestServices` kolekcji.

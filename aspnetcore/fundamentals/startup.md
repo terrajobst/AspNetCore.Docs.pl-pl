@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: a61f78b2d0e5c6c171a26690fcce256462a82508
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 58ced0ae11f462bc309526b7db7bda7897c33009
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
 
@@ -46,7 +46,7 @@ Określ `Startup` klasy z [WebHostBuilderExtensions](/dotnet/api/Microsoft.AspNe
 
 Zamiast wstrzyknięcie `IHostingEnvironment` jest użycie podejście oparte na Konwencji. Aplikacji można zdefiniować oddzielne `Startup` klasy dla różnych środowisk (na przykład `StartupDevelopment`), a klasa początkowa odpowiednie jest wybierana w czasie wykonywania. Priorytety jest klasa, którego sufiks nazwy zgodny z bieżącym środowisku. Jeśli aplikacja jest uruchamiana w środowisku programistycznym i zawiera zarówno `Startup` klasy i `StartupDevelopment` klasy `StartupDevelopment` klasa jest używana. Aby uzyskać więcej informacji, zobacz [używać wiele środowisk](xref:fundamentals/environments#startup-conventions).
 
-Aby dowiedzieć się więcej o `WebHostBuilder`, zobacz [hostingu](xref:fundamentals/hosting) tematu. Aby informacji na temat obsługi błędów podczas uruchamiania, zobacz [obsługi wyjątków uruchamiania](xref:fundamentals/error-handling#startup-exception-handling).
+Aby dowiedzieć się więcej o `WebHostBuilder`, zobacz [hostingu](xref:fundamentals/host/index) tematu. Aby informacji na temat obsługi błędów podczas uruchamiania, zobacz [obsługi wyjątków uruchamiania](xref:fundamentals/error-handling#startup-exception-handling).
 
 ## <a name="the-configureservices-method"></a>Metoda ConfigureServices
 
@@ -58,7 +58,7 @@ Aby dowiedzieć się więcej o `WebHostBuilder`, zobacz [hostingu](xref:fundamen
 
 Dodawanie usługi do kontenera usługi udostępnia je w aplikacji i w `Configure` metody. Usługi zostały rozwiązane za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection) lub [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices).
 
-Host sieci web można skonfigurować niektóre usługi przed `Startup` metody są wywoływane. Szczegółowe informacje są dostępne w [hostingu](xref:fundamentals/hosting) tematu.
+Host sieci web można skonfigurować niektóre usługi przed `Startup` metody są wywoływane. Szczegółowe informacje są dostępne w [hosta w ASP.NET Core](xref:fundamentals/host/index) tematu.
 
 Dla funkcji, które wymagają znacznej Instalatora, są `Add[Service]` metody rozszerzenia na [IServiceCollection](/dotnet/api/Microsoft.Extensions.DependencyInjection.IServiceCollection). Aplikacja sieci web typowe rejestruje usługi programu Entity Framework, tożsamości i MVC:
 
@@ -164,8 +164,8 @@ Kolejność wykonywania oprogramowanie pośredniczące zestaw jest w celu `IStar
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Hosting](xref:fundamentals/hosting)
-* [Użyj wiele środowisk](xref:fundamentals/environments)
+* [Hosting](xref:fundamentals/host/index)
+* [Używanie wielu środowisk](xref:fundamentals/environments)
 * [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
 * [Rejestrowanie](xref:fundamentals/logging/index)
 * [Konfiguracja](xref:fundamentals/configuration/index)

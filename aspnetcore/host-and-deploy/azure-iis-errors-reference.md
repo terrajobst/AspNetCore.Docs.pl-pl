@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 1500f026c245f80de4120d6db4901cb117552966
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 995890a5e6b0cc1d9cebc21486917a7a39587076
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Typowe błędy odwołania dla usługi Azure App Service i IIS z platformy ASP.NET Core
 
@@ -198,7 +198,7 @@ Rozwiązywanie problemów
   * Oprogramowanie pośredniczące integracji usług IIS jest referencedby wywoływania `UseIISIntegration` metody w aplikacji `WebHostBuilder` (platformy ASP.NET Core 1.x)
   * Używa aplikacji `CreateDefaultBuilder` — metoda (platformy ASP.NET Core 2.x).
   
-  Zobacz [Hosting w ASP.NET Core](xref:fundamentals/hosting) szczegółowe informacje.
+  Zobacz [hosta w ASP.NET Core](xref:fundamentals/host/index) szczegółowe informacje.
 
 ## <a name="sub-application-includes-a-handlers-section"></a>Podrzędne aplikacja zawiera \<obsługi\> sekcji
 

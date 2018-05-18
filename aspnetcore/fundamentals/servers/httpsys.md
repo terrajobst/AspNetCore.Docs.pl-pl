@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: ce4edf6f07808d3958c919a1d81561ce020fe52b
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
-ms.translationtype: HT
+ms.openlocfilehash: 89d9a51334bdd50b72213d32fa194808ac6a93b9
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Sterownik HTTP.sys implementacja serwera sieci web platformy ASP.NET Core
 
@@ -133,7 +133,7 @@ Sterownik HTTP.sys jest dojrzała technologia, która chroni przed wiele rodzaj�
 
    Zaletą `UrlPrefixes` jest natychmiast wygenerowany komunikat o błędzie dla prefiksów niewłaściwie sformatowany.
 
-   Ustawienia w `UrlPrefixes` zastąpienia `UseUrls` / `urls` / `ASPNETCORE_URLS` ustawienia. W związku z tym zaletą `UseUrls`, `urls`i `ASPNETCORE_URLS` zmiennej środowiskowej, jest łatwiejsze w celu przełączania się między Kestrel i sterownik HTTP.sys. Aby uzyskać więcej informacji na temat `UseUrls`, `urls`, i `ASPNETCORE_URLS`, zobacz [hostingu](xref:fundamentals/hosting).
+   Ustawienia w `UrlPrefixes` zastąpienia `UseUrls` / `urls` / `ASPNETCORE_URLS` ustawienia. W związku z tym zaletą `UseUrls`, `urls`i `ASPNETCORE_URLS` zmiennej środowiskowej, jest łatwiejsze w celu przełączania się między Kestrel i sterownik HTTP.sys. Aby uzyskać więcej informacji na temat `UseUrls`, `urls`, i `ASPNETCORE_URLS`, zobacz [hosta w ASP.NET Core](xref:fundamentals/host/index) tematu.
 
    Korzysta z pliku HTTP.sys [formaty ciągu UrlPrefix interfejsu API serwera HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx).
 
@@ -179,4 +179,4 @@ Dla aplikacji hostowanych przez rozszerzenie HTTP.sys, współpracujące z żąd
 
 * [Interfejsu API serwera HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
 * [repozytorium GitHub ASPNET/HttpSysServer (kodu źródłowego)](https://github.com/aspnet/HttpSysServer/)
-* [Hosting](xref:fundamentals/hosting)
+* [Host platformy ASP.NET Core](xref:fundamentals/host/index)

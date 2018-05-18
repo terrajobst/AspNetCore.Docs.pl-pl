@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: a1162da01fad67f3e8ccb1e70bd646b39c38997f
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
-ms.translationtype: HT
+ms.openlocfilehash: 251385b268e75cfadb815c293be52176297ed3e4
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Kestrel implementacja serwera sieci web platformy ASP.NET Core
 
@@ -276,7 +276,7 @@ Określ adresy URL przy użyciu:
 * `urls` Klucz konfiguracji hosta.
 * `UseUrls` metody rozszerzenia.
 
-Aby uzyskać więcej informacji, zobacz [adresów URL serwera](xref:fundamentals/hosting#server-urls) i [konfiguracji zastąpiona](xref:fundamentals/hosting#overriding-configuration).
+Aby uzyskać więcej informacji, zobacz [adresów URL serwera](xref:fundamentals/host/web-host#server-urls) i [zastępczą konfigurację](xref:fundamentals/host/web-host#override-configuration).
 
 Wartość podana przy użyciu tych metod może być co najmniej jeden protokół HTTP i HTTPS punktów końcowych (HTTPS jeśli cert domyślny jest dostępna). Skonfiguruj wartość jako lista Rozdzielana średnikami (na przykład `"Urls": "http://localhost:8000;http://localhost:8001"`).
 
@@ -489,7 +489,7 @@ Domyślnie program ASP.NET Core wiąże `http://localhost:5000`. Skonfiguruj pre
 * `urls` Klucz konfiguracji hosta
 * System konfiguracji platformy ASP.NET Core, w tym `ASPNETCORE_URLS` zmienna środowiskowa
 
-Aby uzyskać więcej informacji na temat tych metod, zobacz [hostingu](xref:fundamentals/hosting).
+Aby uzyskać więcej informacji na temat tych metod, zobacz [hostingu](xref:fundamentals/host/index).
 
 **Konfiguracja punktu końcowego IIS**
 
