@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 4db09d3d41b705597f93d05af91077f2b9236b7e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 88b4ee9a963543f8cc97cb66271628a14fe657de
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Bezpieczne przechowywanie kluczy tajnych aplikacji w rozwoju platformy ASP.NET Core
 
@@ -55,8 +55,25 @@ Narzędzie Menedżer klucz tajny są przechowywane poufne dane podczas tworzenia
 
 Narzędzie Menedżer klucz tajny optymalizacji abstracts szczegóły implementacji, takich jak jak i gdzie są przechowywane wartości. Można użyć narzędzia bez uprzedniego uzyskania informacji o tych szczegóły implementacji. Wartości są przechowywane w [JSON](https://json.org/) pliku konfiguracji w folderze profilu użytkownika chronionych przez system na komputerze lokalnym:
 
-* System Windows: `%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`
-* Linux & macOS: `~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+Ścieżka systemu plików:
+
+`%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+Ścieżka systemu plików:
+
+`~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+Ścieżka systemu plików:
+
+`~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`
+
+---
 
 W poprzednim ścieżki pliku, Zastąp `<user_secrets_id>` z `UserSecretsId` wartości określonej w *.csproj* pliku.
 
@@ -133,17 +150,33 @@ dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp
 
 ## <a name="set-multiple-secrets"></a>Ustawianie wielu kluczy tajnych
 
-Można ustawić partii kluczy tajnych przez przekazanie w potoku JSON do `set` polecenia. W poniższym przykładzie *input.json* jego zawartość jest przetwarzana potokowo do `set` polecenia w systemie Windows:
+Można ustawić partii kluczy tajnych przez przekazanie w potoku JSON do `set` polecenia. W poniższym przykładzie *input.json* jego zawartość jest przetwarzana potokowo do `set` polecenia.
 
-```console
-type .\input.json | dotnet user-secrets set
-```
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-System macOS i Linux, użyj następującego polecenia:
+Otwórz powłokę poleceń, a następnie uruchom następujące polecenie:
 
-```console
-cat ./input.json | dotnet user-secrets set
-```
+  ```console
+  type .\input.json | dotnet user-secrets set
+  ```
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+Otwórz powłokę poleceń, a następnie uruchom następujące polecenie:
+
+  ```console
+  cat ./input.json | dotnet user-secrets set
+  ```
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+Otwórz powłokę poleceń, a następnie uruchom następujące polecenie:
+
+  ```console
+  cat ./input.json | dotnet user-secrets set
+  ```
+
+---
 
 ## <a name="access-a-secret"></a>Dostęp do klucza tajnego
 

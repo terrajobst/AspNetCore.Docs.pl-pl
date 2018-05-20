@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: a0dd32280321938aba84a2aed5273d80750ed774
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 225dff4663e0e556cfb8966f1078848b4c2b47a5
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET MVC 4
 
@@ -191,10 +191,7 @@ To zadanie spowoduje dodanie klasy kontrolera, która będzie obsługiwać adres
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - indeksu HomeController Ex1*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample1.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample1.cs)]
 
 <a id="Ex1Task4"></a>
 
@@ -259,18 +256,12 @@ To zadanie, należy zmodyfikować metod kontrolera, które są nazywane **akcje*
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - indeksu StoreController Ex2*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample2.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample2.cs)]
 2. Dodaj **Przeglądaj** i **szczegóły** metody. Aby to zrobić, Dodaj następujący kod, aby **StoreController**:
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - Ex2 StoreController BrowseAndDetails*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample3.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample3.cs)]
 
 <a id="Ex2Task3"></a>
 
@@ -319,15 +310,12 @@ W tym zadaniu użyjesz **querystring** wysłać parametry **Przeglądaj** metody
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - Ex3 StoreController BrowseMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample4.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample4.cs)]
 
 > [!NOTE]
-> You are using the **HttpUtility.HtmlEncode** utility method to prevents users from injecting Javascript into the View with a link like **/Store/Browse?Genre=&lt;script&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;**.
+> Używasz **HttpUtility.HtmlEncode** metodę narzędzie uniemożliwia użytkownikom wstrzykiwania Javascript do widoku z łączem, takich jak   **/magazynu/Przeglądaj? Genre =&lt;skryptu&gt;window.location= "[http://hackersite.com](http://hackersite.com)"&lt;/script&gt;**.
 > 
-> For further explanation, please visit [this msdn article](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
-~~~
+> Aby uzyskać dokładniejsze objaśnienie, odwiedź stronę [ten artykuł w witrynie msdn](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
 
 <a id="Ex3Task2"></a>
 
@@ -355,10 +343,7 @@ W tym zadaniu użyjesz **adres URL** do przekazania **identyfikator** parametr *
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - Ex3 StoreController DetailsMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample5.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample5.cs)]
 
 <a id="Ex3Task4"></a>
 
@@ -441,10 +426,7 @@ To zadanie spowoduje dodanie szablonu widoku do generowania odpowiedzi HTML, kt�
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - indeksu HomeController Ex4*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample9.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample9.cs)]
 2. Teraz musisz dodać odpowiedni szablon widoku. Aby to zrobić, **kliknij prawym przyciskiem myszy** wewnątrz **indeksu** metody akcji i wybierz **Dodaj widok**. Zostanie wyświetlone okno **Dodaj widok** okna dialogowego.
 
     ![Dodawanie widoku z w metodzie indeksu](aspnet-mvc-4-fundamentals/_static/image13.png "Dodawanie widoku z wewnątrz Index — metoda")
@@ -469,10 +451,7 @@ To zadanie spowoduje dodanie szablonu widoku do generowania odpowiedzi HTML, kt�
     > W ten sposób ASP.NET MVC pozwala uniknąć konieczności jawnego określania nazwy lub lokalizacji szablonu widoku, używając tę konwencję nazewnictwa do zwrócenia widoku.
 5. Wygenerowany szablon widoku jest oparty na  **\_layout.cshtml** wcześniej zdefiniowanego szablonu. Zaktualizuj właściwość ViewBag.Title do **Home**i zmień głównej zawartości do **to strona główna**, jak pokazano w poniższym kodzie:
 
-
-~~~
-[!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample10.cshtml)]
-~~~
+    [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample10.cshtml)]
 6. Wybierz **MvcMusicStore** projekt w Eksploratorze rozwiązań i naciśnij klawisz **F5** do uruchomienia aplikacji.
 
 <a id="Ex4Task4"></a>
@@ -550,13 +529,10 @@ To zadanie spowoduje dodanie tych właściwości 2 w celu **StoreIndexViewModel*
 
     (Fragment - kodu *ASP.NET MVC 4 podstawy — właściwości Ex5 StoreIndexViewModel*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample11.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample11.cs)]
 
 > [!NOTE]
-> The **{ get; set; }** notation makes use of C#'s auto-implemented properties feature. It provides the benefits of a property without requiring us to declare a backing field.
-~~~
+> **{Get; Ustaw;}**  notacji korzysta z C# w funkcji właściwości zaimplementowane automatycznie. Zapewnia korzyści właściwości bez konieczności nam zadeklarować polem zapasowym.
 
 <a id="Ex5Task3"></a>
 
@@ -576,10 +552,7 @@ To zadanie zaktualizuje **StoreController** do używania **StoreIndexViewModel**
 
     (Fragment - kodu *ASP.NET MVC 4 podstawy — za pomocą ViewModels StoreIndexViewModel Ex5*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample12.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample12.cs)]
 3. Zmień **StoreController**w **indeksu** metody akcji, którą tworzy i wypełnia **StoreIndexViewModel** obiektu i przekazuje ją do szablonu widoku w celu Generowanie odpowiedzi HTML z nim.
 
     > [!NOTE]
@@ -590,13 +563,10 @@ To zadanie zaktualizuje **StoreController** do używania **StoreIndexViewModel**
 
     (Fragment - kodu *ASP.NET MVC 4 podstawy — metoda indeksu StoreController Ex5*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample13.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample13.cs)]
 
 > [!NOTE]
-> If you're unfamiliar with C#, you may assume that using **var** means that the **viewModel** variable is late-bound. That's not correct - the C# compiler is using type-inference based on what you assign to the variable to determine that **viewModel** is of type **StoreIndexViewModel**. Also, by compiling the local **viewModel** variable as a **StoreIndexViewModel** type you get compile-time checking and Visual Studio code-editor support.
-~~~
+> Jeśli znasz C#, może założyć to przy użyciu **var** oznacza, że **viewModel** zmienna jest późnym wiązaniem. Nie jest to poprawna - kompilatora C# używa wnioskowanie typów w oparciu o przypisania do zmiennej do określenia, który **viewModel** jest typu **StoreIndexViewModel**. Ponadto uzyskując kompilowanie lokalnej **viewModel** zmiennej jako **StoreIndexViewModel** typ ma sprawdzanie kompilacji get i pomocy technicznej edytora kodu programu Visual Studio.
 
 <a id="Ex5Task4"></a>
 
@@ -633,24 +603,20 @@ To zadanie zaktualizuje Wyświetl szablon utworzony w ostatnim zadaniem, aby pob
 > [!NOTE]
 > Użyjesz @ składni (często określany jako &quot;kodu nuggets&quot;) do wykonywania kodu w szablonie widoku.
 
-
 1. W **Index.cshtml** pliku poziomu **magazynu** folderu, zastąp jego kod następującym kodem:
 
-
-~~~
 [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample14.cshtml)]
 
-> [!NOTE]
-> As soon as you finish typing the period after the word **Model**, Visual Studio's Intellisense will show a list of possible properties and methods to choose from.
-> 
-> ![](aspnet-mvc-4-fundamentals/_static/image25.png)
-> 
-> *Getting Model properties and methods with Visual Studio's IntelliSense*
-> 
-> The **Model** property references the **StoreIndexViewModel** object that the Controller passed to the View template. This means that you can access all of the data passed from the Controller to the View template via the **Model** property, and format it into an appropriate HTML response within the View template.
-> 
-> You can just select the **NumberOfGenres** property from the Intellisense list rather than typing it in and then it will auto-complete it by pressing the **tab key**.
-~~~
+    > [!NOTE]
+    > As soon as you finish typing the period after the word **Model**, Visual Studio's Intellisense will show a list of possible properties and methods to choose from.
+    > 
+    > ![](aspnet-mvc-4-fundamentals/_static/image25.png)
+    > 
+    > *Getting Model properties and methods with Visual Studio's IntelliSense*
+    > 
+    > The **Model** property references the **StoreIndexViewModel** object that the Controller passed to the View template. This means that you can access all of the data passed from the Controller to the View template via the **Model** property, and format it into an appropriate HTML response within the View template.
+    > 
+    > You can just select the **NumberOfGenres** property from the Intellisense list rather than typing it in and then it will auto-complete it by pressing the **tab key**.
 2. Pętla za pośrednictwem listy genre w **StoreIndexViewModel** i tworzenia kodu HTML **&lt;ul&gt;** listy przy użyciu **foreach** pętli.
    (C#)
 
@@ -698,19 +664,13 @@ W odróżnieniu od ViewModels, które są tworzone tylko w celu przekazywania in
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - Ex6 Genre*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample16.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample16.cs)]
 5. Procedury jak wcześniej, Dodaj **albumu** klasy. Aby to zrobić, kliknij prawym przyciskiem myszy **modele** folderu w **Eksploratora rozwiązań**, wybierz pozycję **Dodaj** , a następnie **nowy element** opcji. W obszarze **kod**, wybierz **klasy** elementu i nazwij plik *Album.cs*, następnie kliknij przycisk **Dodaj**.
 6. Dodaj dwie właściwości do klasy albumu: **Genre** i **tytuł**. Aby to zrobić, Dodaj następujący kod:
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - albumu Ex6*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample17.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample17.cs)]
 
 <a id="Ex6Task2"></a>
 
@@ -724,25 +684,19 @@ A **StoreBrowseViewModel** będzie używany w tym zadaniu pokazanie albumy, zgod
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - Ex6 UsingModel*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample18.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample18.cs)]
 3. Dodaj dwie właściwości do **StoreBrowseViewModel** klasy: **Genre** i **albumów**. Aby to zrobić, Dodaj następujący kod:
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - Ex6 ModelProperties*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample19.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample19.cs)]
 
 > [!NOTE]
-> What is **List&lt;Album&gt;** ?: This definition is using the **List&lt;T&gt;** type, where **T** constrains the type to which elements of this **List** belong to, in this case **Album** (or any of its descendants).
+> Co to jest **listy&lt;albumu&gt;**  ?: używa tej definicji **listy&lt;T&gt;**  typu, których **T** ogranicza Typ, na których elementy tego **listy** należy w tym przypadku **albumu** (lub któregokolwiek z jej obiektów podrzędnych).
 > 
-> This ability to design classes and methods that defer the specification of one or more types until the class or method is declared and instantiated by client code is a feature of the C# language called **Generics**.
+> Ta możliwość projektowania klasy i metody, które mają być odroczone specyfikację jeden lub więcej typów, aż klasa lub metoda jest zadeklarowany i utworzone przez kod klienta jest funkcją języka C# o nazwie **ogólne**.
 > 
-> **List&lt;T&gt;** is the generic equivalent of the **ArrayList** type and is available in the **System.Collections.Generic** namespace. One of the benefits of using **generics** is that since the type is specified, you do not need to take care of type checking operations such as casting the elements into **Album** as you would do with an **ArrayList**.
-~~~
+> **Lista&lt;T&gt;**  ogólny odpowiednik **ArrayList** typu i jest dostępny w **system.Collections.Generic —** przestrzeni nazw. Jedną z korzyści wynikające ze stosowania **ogólne** jest, że ponieważ typem jest określona, nie trzeba zajmie się sprawdzanie operacji, takich jak elementy do rzutowania typu **albumu** jak z **ArrayList**.
 
 <a id="Ex6Task3"></a>
 
@@ -755,26 +709,17 @@ To zadanie, należy zmodyfikować **StoreController**w **Przeglądaj** i **szcze
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - Ex6 UsingModelInController*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample20.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample20.cs)]
 2. Zastąp **Przeglądaj** metody akcji, aby użyć **StoreViewBrowseController** klasy. Utworzysz określonego rodzaju i dwa nowe obiekty albumów fikcyjny danych (w następnej laboratorium Hands-on będą korzystać prawdziwe dane z bazy danych). Aby to zrobić, Zamień **Przeglądaj** metodę z następującym kodem:
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - Ex6 BrowseMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample21.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample21.cs)]
 3. Zastąp **szczegóły** metody akcji, aby użyć **StoreViewBrowseController** klasy. Utworzy nowy **albumu** obiekt ma zostać zwrócona do **widoku**. Aby to zrobić, Zamień **szczegóły** metodę z następującym kodem:
 
     (Fragment - kodu *podstawy platformy ASP.NET MVC 4 - Ex6 DetailsMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample22.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample22.cs)]
 
 <a id="Ex6Task4"></a>
 
@@ -889,13 +834,10 @@ Teraz użyje kolekcji dynamicznych elementów ViewBag do przekazania listę &quo
 
 1. Zamknij przeglądarkę, jeśli to konieczne, aby powrócić do okna programu Visual Studio. Otwórz **StoreController.cs** i zmodyfikuj **indeksu** metodę w celu utworzenia listy starred genres do kolekcji ViewModel:
 
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample26.cs)]
 
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample26.cs)]
-
-> [!NOTE]
-> You could also use the syntax **ViewBag[&quot;Starred&quot;]** to access the properties.
-~~~
+    > [!NOTE]
+    > Można również użyć składni **obiekt ViewBag [&quot;Starred&quot;]** uzyskać dostęp do właściwości.
 2. Ikonę gwiazdki **&quot;starred.png&quot;** znajduje się w **Source\Assets\Images** folder tego laboratorium. Aby dodać go do aplikacji, przeciągnij ich zawartość z **Eksploratora Windows** okna do **Eksploratora rozwiązań** w Visual Web Developer Express, jak pokazano poniżej:
 
     ![Dodawanie obrazu gwiazdy do rozwiązania](aspnet-mvc-4-fundamentals/_static/image34.png "Dodawanie gwiazdy obrazu do rozwiązania")

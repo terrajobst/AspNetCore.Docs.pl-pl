@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: b328b733914b20b0aa3fe529c9a9f999349171ec
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7887d81366cc166ad89308b22ad7cc6af0263111
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="mvc-recommended-resources"></a>Zalecane zasobów MVC
 ====================
@@ -42,7 +42,6 @@ przez [Rick Anderson](https://github.com/Rick-Anderson)
 ## <a name="new-featured-content"></a>Nowa polecana zawartość
 
 - [Wybór kultury dla lokalizacji w programie ASP.NET](http://weblog.west-wind.com/posts/2014/Mar/27/Auto-Selecting-Cultures-for-Localization-in-ASPNET)
-- [Układy zagnieżdżenia w nazwie wzorca MVC](http://astutelogic.com/nesting-layouts-in-mvc/) przez Dunker Russell
 - [Tworzenie aplikacji platformy ASP.NET MVC 5 z usługi Facebook i Google OAuth2 logowania jednokrotnego](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 - [Opis programu ASP.NET MVC filtry i atrybuty](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)
 - [Cykl życia aplikacji platformy ASP.NET MVC 5](lifecycle-of-an-aspnet-mvc-5-application.md) (PDF)
@@ -249,10 +248,10 @@ przez [Rick Anderson](https://github.com/Rick-Anderson)
 - [Cykl życia aplikacji platformy ASP.NET MVC 5](lifecycle-of-an-aspnet-mvc-5-application.md) (PDF)
 - [Używanie ograniczeń w celu ulepszania routingu na platformie MVC](http://blog.greatrexpectations.com/2012/08/03/using-constraints-for-better-routing-in-mvc/)
 - [Szczegółowo: potok MVC ASP.NET](http://blog.stevensanderson.com/2007/11/20/aspnet-mvc-pipeline-lifecycle/)
-- [ASP.NET MVC Routing](http://evolpin.wordpress.com/2011/03/27/asp-net-mvc-routing/)
+- [Routing na platformie ASP.NET MVC](http://evolpin.wordpress.com/2011/03/27/asp-net-mvc-routing/)
 - [Rozszerzalność routingu platformy ASP.NET MVC](http://www.simple-talk.com/dotnet/.net-framework/asp.net-mvc-routing-extensibility/)
 - [Wprowadzenie do rozszerzalności programu ASP.NET MVC](http://www.simple-talk.com/content/article.aspx?article=1358)
-- [ASP.NET MVC Routing](http://evolpin.wordpress.com/2011/03/27/asp-net-mvc-routing/)
+- [Routing na platformie ASP.NET MVC](http://evolpin.wordpress.com/2011/03/27/asp-net-mvc-routing/)
 - [Silnie typizowane routingu MVC 4](http://dysphoria.net/2013/03/14/strongly-typed-action-references-in-microsoft-mvc4/)
 
 <a id="global"></a>

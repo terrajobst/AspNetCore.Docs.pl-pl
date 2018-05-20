@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 548afe1926eed49841251832d54dc213da0cb753
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 42a12ee39223a06054382dbe9b4784196a706216
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>Platforma ASP.NET MVC 4 Entity Framework rusztowania i migracji
 
@@ -108,10 +108,7 @@ W tym ćwiczeniu dowiesz się, jak używać szkieletów ASP.NET MVC 4 z kodem na
 
     (Fragment - kodu *platformy ASP.NET MVC 4 oraz Entity Framework migracje - właściwości osoby Ex1*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
 6. Kliknij przycisk **kompilacji | Tworzenie rozwiązania** Aby zapisać zmiany i skompilować projekt.
 
     ![Tworzenie aplikacji](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image3.png "tworzenie aplikacji")
@@ -196,16 +193,10 @@ To zadanie zaktualizuje bazę danych przy użyciu Entity Framework migracji. Mo�
     *Migrations folder*
 3. Otwórz **Configuration.cs** pliku w folderze migracji. Znajdź Konstruktor klasy i zmień **AutomaticMigrationsEnabled** do wartości *true*.
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
 4. Otwórz klasy osoby i Dodaj atrybut drugie imię. Z tego nowego atrybutu zmieniasz modelu.
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
 5. Wybierz **kompilacji | Tworzenie rozwiązania** menu do skompilowania aplikacji.
 
     ![Tworzenie aplikacji](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image13.png "tworzenie aplikacji")

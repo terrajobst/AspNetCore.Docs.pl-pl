@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 0dbd3063c9be3564637fad34e60f62c1662dcc07
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0d44a8f607df3a45ef312820f85f269c7a2c9c1e
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>Tworzenie podstawowych programu ASP.NET 4.5 formularzy sieci Web strony w programie Visual Studio 2013
 ====================
@@ -315,15 +315,12 @@ W tej sekcji zostanie program [kalendarza](https://msdn.microsoft.com/library/sy
     Nowy program obsługi zdarzeń jest tworzone i wyświetlane w pliku związanym z kodem o nazwie *FirstWebPage.aspx.cs*.
 2. Zakończ [SelectionChanged](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selectionchanged.aspx) obsługi zdarzeń z następującym kodem.
 
-
-~~~
-[!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
+    [!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
 
 
-[!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
-~~~
+    [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
 
- Powyższy kod ustawia tekst formantu etykiety wybranego dnia formantu kalendarza.
+    Powyższy kod ustawia tekst formantu etykiety wybranego dnia formantu kalendarza.
 
 
 ### <a name="running-the-page"></a>Uruchomienie strony

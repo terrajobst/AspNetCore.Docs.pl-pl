@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: ded549109ca6e7ad806f1c3f53387766527e5a94
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: cb02288e93be801a1e55852741ed1443d8d3617d
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>Tworzenie interfejsów API RESTful za pomocą interfejsu API sieci Web ASP.NET
 ====================
@@ -171,10 +171,7 @@ W ramach tego zadania spowoduje utworzenie klasy kontrolera, w których będą z
 
     (Fragment - kodu *sieci Web, skontaktuj się z pomocą klasy interfejsu API laboratorium - Ex01 -*)
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample2.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample2.cs)]
 4. W **ContactController** klasy, zaznacz słowo **ciąg** w definicji metody **uzyskać** metody i typu wyrazu *skontaktuj się z*. Po słowie jest wpisany, wskaźnik będą wyświetlane na początku słowo **skontaktuj się z**. Albo przytrzymaj **Ctrl** klucza i naciśnij klawisz kropki (.) lub kliknij ikonę, aby otworzyć okno dialogowe Pomoc w edytorze kodu, aby automatycznie wypełnić przy użyciu myszy **przy użyciu** dyrektywy dla modeli przestrzeń nazw.
 
     ![Przy użyciu Pomocy Intellisense dla deklaracji przestrzeni nazw](build-restful-apis-with-aspnet-web-api/_static/image12.png)
@@ -222,10 +219,7 @@ To zadanie będzie pokazują, jak można wyodrębnić funkcji do warstwy usług,
     *Tworzenie pliku klasy zawiera kod dla warstwy usług skontaktuj się z repozytorium*
 4. Dodaj using dyrektywy do **ContactRepository.cs** pliku, aby uwzględnić modeli przestrzeni nazw.
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample4.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample4.cs)]
 5. Dodaj następujący wyróżniony kod, aby **ContactRepository.cs** plik, aby zaimplementować metodę GetAllContacts.
 
     (Fragment - kodu *sieci Web interfejsu API laboratorium - Ex01 - kontaktu repozytorium*)
@@ -234,10 +228,7 @@ To zadanie będzie pokazują, jak można wyodrębnić funkcji do warstwy usług,
 6. Otwórz **ContactController.cs** plik, jeśli nie jest jeszcze otwarty.
 7. Dodaj następującą instrukcję using do sekcji deklaracji przestrzeni nazw w pliku.
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample6.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample6.cs)]
 8. Dodaj następujący wyróżniony kod, aby **ContactController.cs** klasa do dodania pole prywatne reprezentujący wystąpienie repozytorium, dzięki czemu rest klasy członkowie mogą wprowadzać implementacji usługi.
 
     (Fragment - kodu *kontaktu Kontroler interfejsu API laboratorium - Ex01 - Web*)
@@ -356,16 +347,10 @@ To zadanie należy zmodyfikować domyślny widok indeksu aplikacji sieci web do 
 3. Otwórz **Index.cshtml** znajdującym się w **widoków domowych** folderu.
 4. Zastąp kod HTML w elemencie div o identyfikatorze **treści** tak, aby wygląda podobnie do następującego kodu.
 
-
-~~~
-[!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample13.html)]
-~~~
+    [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample13.html)]
 5. Dodaj następujący kod Javascript w dolnej części pliku do wykonania żądania HTTP do interfejsu API sieci Web.
 
-
-~~~
-[!code-cshtml[Main](build-restful-apis-with-aspnet-web-api/samples/sample14.cshtml)]
-~~~
+    [!code-cshtml[Main](build-restful-apis-with-aspnet-web-api/samples/sample14.cshtml)]
 6. Otwórz **ContactController.cs** plik, jeśli nie jest jeszcze otwarty.
 7. Umieść punkt przerwania na **uzyskać** metody **ContactController** klasy.
 
@@ -400,17 +385,11 @@ To zadanie będzie do modyfikowania widoku indeksu aplikacji MVC. Formularz zost
 
     (Fragment - kodu *sieci Web interfejsu API laboratorium - Ex03 - metody Post*)
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample15.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample15.cs)]
 3. Otwórz **Index.cshtml** plik w programie Visual Studio, jeśli nie jest jeszcze otwarty.
 4. Dodaj poniższy kod HTML do pliku zaraz po nieuporządkowaną listę, dodanym w poprzednim zadaniu.
 
-
-~~~
-[!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample16.html)]
-~~~
+    [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample16.html)]
 5. W elemencie skryptu w dolnej części dokumentu Dodaj następujący kod wyróżnione do obsługi zdarzeń kliknięcia przycisków, których zostanie wysłany danych do interfejsu API sieci Web przy użyciu wywołania protokołu HTTP POST.
 
     [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample17.html)]
