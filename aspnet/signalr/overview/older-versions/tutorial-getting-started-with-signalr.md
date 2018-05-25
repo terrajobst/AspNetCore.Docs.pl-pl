@@ -2,7 +2,7 @@
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr
 title: 'Samouczek: Wprowadzenie do korzystania z SignalR 1.x | Dokumentacja firmy Microsoft'
 author: pfletcher
-description: "Umożliwia tworzenie aplikacji czatu w czasie rzeczywistym na stronie HTML ASP.NET SignalR."
+description: Umożliwia tworzenie aplikacji czatu w czasie rzeczywistym na stronie HTML ASP.NET SignalR.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013

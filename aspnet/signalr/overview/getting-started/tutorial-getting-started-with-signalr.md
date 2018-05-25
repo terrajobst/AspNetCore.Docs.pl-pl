@@ -2,7 +2,7 @@
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
 title: 'Samouczek: Wprowadzenie do korzystania z SignalR 2 | Dokumentacja firmy Microsoft'
 author: pfletcher
-description: "Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Spowoduje dodanie SignalR do pustą aplikację sieci web ASP.NET i utworzyć pa HTML..."
+description: Ten samouczek pokazuje, jak utworzyć aplikację do obsługi rozmów w czasie rzeczywistym przy użyciu SignalR. Spowoduje dodanie SignalR do pustą aplikację sieci web ASP.NET i utworzyć pa HTML...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014

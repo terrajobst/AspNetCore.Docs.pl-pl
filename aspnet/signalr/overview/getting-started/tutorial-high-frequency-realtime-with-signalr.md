@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
-title: "Samouczek: Wysokiej częstotliwości z czasu rzeczywistego z SignalR 2 | Dokumentacja firmy Microsoft"
+title: 'Samouczek: Wysokiej częstotliwości z czasu rzeczywistego z SignalR 2 | Dokumentacja firmy Microsoft'
 author: pfletcher
-description: "W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web, który używa biblioteki SignalR platformy ASP.NET w celu zapewnienia wysokiej częstotliwości z obsługą wiadomości. Wysokiej częstotliwości wiadomości w..."
+description: W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web, który używa biblioteki SignalR platformy ASP.NET w celu zapewnienia wysokiej częstotliwości z obsługą wiadomości. Wysokiej częstotliwości wiadomości w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014

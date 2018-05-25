@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/individual-accounts-in-web-api
-title: "Zabezpieczanie interfejsu API sieci Web z indywidualnych kont i logowania lokalnego w składniku ASP.NET Web API 2.2 | Dokumentacja firmy Microsoft"
+title: Zabezpieczanie interfejsu API sieci Web z indywidualnych kont i logowania lokalnego w składniku ASP.NET Web API 2.2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "W tym temacie pokazano, jak zabezpieczyć interfejs API sieci web przy użyciu protokołu OAuth2 do uwierzytelniania na bazie danych członkostwa. Używane w samouczek Visual Studio 201 wersje oprogramowania..."
+description: W tym temacie pokazano, jak zabezpieczyć interfejs API sieci web przy użyciu protokołu OAuth2 do uwierzytelniania na bazie danych członkostwa. Używane w samouczek Visual Studio 201 wersje oprogramowania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/15/2014

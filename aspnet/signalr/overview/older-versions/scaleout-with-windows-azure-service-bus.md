@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
-title: "Skalowania SignalR z usługi Azure Service Bus (SignalR 1.x) | Dokumentacja firmy Microsoft"
+title: Skalowania SignalR z usługi Azure Service Bus (SignalR 1.x) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2013

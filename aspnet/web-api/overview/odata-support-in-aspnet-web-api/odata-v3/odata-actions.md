@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
-title: "Obsługa akcji OData w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft"
+title: Obsługa akcji OData w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "W protokole OData akcje służą do dodawania zachowań po stronie serwera, które łatwo nie są zdefiniowane jako operacje CRUD na jednostkach. Niektóre zastosowania dla działania obejmują: Implementowanie..."
+description: 'W protokole OData akcje służą do dodawania zachowań po stronie serwera, które łatwo nie są zdefiniowane jako operacje CRUD na jednostkach. Niektóre zastosowania dla działania obejmują: Implementowanie...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014

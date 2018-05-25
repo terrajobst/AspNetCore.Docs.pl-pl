@@ -2,7 +2,7 @@
 uid: signalr/overview/older-versions/working-with-groups
 title: Praca z grupami w SignalR 1.x | Dokumentacja firmy Microsoft
 author: pfletcher
-description: "W tym temacie opisano, jak do utrwalenia informacji o członkostwie grupy przy użyciu interfejsu API koncentratora."
+description: W tym temacie opisano, jak do utrwalenia informacji o członkostwie grupy przy użyciu interfejsu API koncentratora.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/21/2013

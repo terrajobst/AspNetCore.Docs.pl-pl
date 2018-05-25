@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-cs
 title: Opis modele, widoki i kontrolery (C#) | Dokumentacja firmy Microsoft
 author: StephenWalther
-description: "Masz wątpliwości dotyczące modele, widoki i kontrolery? W tym samouczku Stephen Walther przedstawiono różne części aplikacji platformy ASP.NET MVC."
+description: Masz wątpliwości dotyczące modele, widoki i kontrolery? W tym samouczku Stephen Walther przedstawiono różne części aplikacji platformy ASP.NET MVC.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008

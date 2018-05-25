@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/10-working-with-video
-title: "Wyświetlanie wideo w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft"
+title: Wyświetlanie wideo w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym rozdziale opisano sposób wyświetlania wideo w stron ASP.NET Web Pages ze stroną składni Razor."
+description: W tym rozdziale opisano sposób wyświetlania wideo w stron ASP.NET Web Pages ze stroną składni Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
