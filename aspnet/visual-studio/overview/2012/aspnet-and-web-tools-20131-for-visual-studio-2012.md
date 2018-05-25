@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
-title: "Informacje o wersji dla platformy ASP.NET i narzędzia sieci Web 2013.1 dla programu Visual Studio 2012 | Dokumentacja firmy Microsoft"
+title: Informacje o wersji dla platformy ASP.NET i narzędzia sieci Web 2013.1 dla programu Visual Studio 2012 | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Ten dokument zawiera opis wersji platformy ASP.NET i 2013.1 narzędzia sieci Web dla programu Visual Studio 2012."
+description: Ten dokument zawiera opis wersji platformy ASP.NET i 2013.1 narzędzia sieci Web dla programu Visual Studio 2012.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2013
 ms.topic: article
 ms.assetid: ca26e5bb-630e-41d2-8512-2a9386c431cb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
@@ -181,7 +181,7 @@ Po wprowadzeniu tej zmiany, wybierając F5 przechodzi do katalogu głównego apl
 
 Po uaktualnieniu do programu ASP.NET Razor 3 i ASP.NET MVC 5 notacji tilde(~) może już nie działają prawidłowo, jeśli używasz ponownego adresu URL. Ponowne zapisywanie adresów URL wpływa notacji tilde(~) w elementów HTML, takich jak &lt;A /&gt;, &lt;skryptu /&gt;, &lt;łącze /&gt;, i w związku z tym tylda nie jest już mapowana do katalogu głównego.
 
-Na przykład, jeśli przepisywania żądania **asp.net/content** do **asp.net**, atrybutu href w &lt;A href = "~/content/" /&gt; jest rozpoznawana jako **/content/ zawartość /** zamiast  **/** . Aby pominąć tę zmianę, można ustawić **IIS\_WasUrlRewritten** kontekstu false w każdej strony sieci Web lub w **aplikacji\_powstaniem zdarzenia BeginRequest** w pliku Global.asax.
+Na przykład, jeśli przepisywania żądania **asp.net/content** do **asp.net**, atrybutu href w &lt;A href = "~/content/" /&gt; jest rozpoznawana jako **/content/ zawartość /** zamiast **/**. Aby pominąć tę zmianę, można ustawić **IIS\_WasUrlRewritten** kontekstu false w każdej strony sieci Web lub w **aplikacji\_powstaniem zdarzenia BeginRequest** w pliku Global.asax.
 
 <a id="templateissue"></a>
 ### <a name="templates"></a>Szablony

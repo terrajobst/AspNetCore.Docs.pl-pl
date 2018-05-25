@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/aspnet-web-pages-razor-faq
-title: "Strony sieci Web platformy ASP.NET (Razor) — często zadawane pytania | Dokumentacja firmy Microsoft"
+title: Strony sieci Web platformy ASP.NET (Razor) — często zadawane pytania | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym artykule wymieniono niektóre często zadawane pytania dotyczące stron sieci Web platformy ASP.NET (Razor) i programu WebMatrix. Używane w samouczek platformy ASP.NET Web Pages (R... wersje oprogramowania"
+description: W tym artykule wymieniono niektóre często zadawane pytania dotyczące stron sieci Web platformy ASP.NET (Razor) i programu WebMatrix. Używane w samouczek platformy ASP.NET Web Pages (R... wersje oprogramowania
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014

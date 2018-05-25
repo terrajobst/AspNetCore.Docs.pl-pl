@@ -139,7 +139,7 @@ Należy zauważyć, że zawiera element docelowy **ItemGroup** elementu. Podczas
 > Należy również celem uniknąć deklarowanie elementów, które nigdy nie będą używane. Jeśli masz elementy, które będą używane tylko przez określony element docelowy, należy rozważyć umieszczenie ich wewnątrz obiektu docelowego, aby usunąć wszystkie zbędne obciążenie procesu kompilacji.
 
 
-Dynamiczne elementy Odłóż, **wyczyść** docelowy jest bardzo prosta i korzysta z wbudowanej **komunikat**, **usunąć**, i **removedir —**zadań do:
+Dynamiczne elementy Odłóż, **wyczyść** docelowy jest bardzo prosta i korzysta z wbudowanej **komunikat**, **usunąć**, i **removedir —** zadań do:
 
 1. Wyślij wiadomość do rejestratora.
 2. Tworzenie listy plików do usunięcia.
@@ -210,7 +210,7 @@ Zostanie wyświetlony podobne Notacja w  **\_Cmd** właściwość, która tworzy
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
 
 
-W takim przypadku **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, i **%(DbPublishPackages.FullPath)** wszystkie odnoszą się do wartości metadanych **DbPublishPackages** Kolekcja elementów.  **\_Cmd** jest używana przez **Exec** zadania, które wywołuje polecenie.
+W takim przypadku **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, i **%(DbPublishPackages.FullPath)** wszystkie odnoszą się do wartości metadanych **DbPublishPackages** Kolekcja elementów. **\_Cmd** jest używana przez **Exec** zadania, które wywołuje polecenie.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]

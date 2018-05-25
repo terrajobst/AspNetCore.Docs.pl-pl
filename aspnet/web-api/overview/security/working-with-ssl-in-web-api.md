@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/working-with-ssl-in-web-api
-title: "Praca z protokołem SSL w składniku Web API | Dokumentacja firmy Microsoft"
+title: Praca z protokołem SSL w składniku Web API | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Przedstawia sposób użycia protokołu SSL z interfejsu API sieci Web ASP.NET, w tym o korzystaniu z certyfikatów SSL klienta."
+description: Przedstawia sposób użycia protokołu SSL z interfejsu API sieci Web ASP.NET, w tym o korzystaniu z certyfikatów SSL klienta.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/12/2012

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
-title: "Używanie składnika Web API z formularzami sieci Web programu ASP.NET | Dokumentacja firmy Microsoft"
+title: Używanie składnika Web API z formularzami sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2012

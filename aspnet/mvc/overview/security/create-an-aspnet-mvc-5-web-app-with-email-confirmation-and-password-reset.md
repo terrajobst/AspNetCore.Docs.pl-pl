@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
-title: "Tworzenie bezpiecznej aplikacji sieci web platformy ASP.NET MVC 5 z dziennikiem, poczty e-mail resetowania hasła i potwierdzania (C#) | Dokumentacja firmy Microsoft"
+title: Tworzenie bezpiecznej aplikacji sieci web platformy ASP.NET MVC 5 z dziennikiem, poczty e-mail resetowania hasła i potwierdzania (C#) | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Ten samouczek przedstawia sposób tworzenia aplikacji sieci web platformy ASP.NET MVC 5 z wiadomości e-mail z potwierdzeniem i resetowania przy użyciu systemu członkostwa ASP.NET Identity hasła. Możesz urzędu certyfikacji..."
+description: Ten samouczek przedstawia sposób tworzenia aplikacji sieci web platformy ASP.NET MVC 5 z wiadomości e-mail z potwierdzeniem i resetowania przy użyciu systemu członkostwa ASP.NET Identity hasła. Możesz urzędu certyfikacji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: d55b34135d5bab98ab8de31cc4b12dcc272cbc0a
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: bfa5d52019be81374c7a544e255ab7ffb301fa7b
+ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 05/22/2018
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Tworzenie bezpiecznej aplikacji sieci web platformy ASP.NET MVC 5 z dziennikiem, poczty e-mail resetowania hasła i potwierdzania (C#)
 ====================
@@ -62,7 +62,7 @@ Ogólnie rzecz biorąc chcesz uniemożliwić przesyłanie danych do witryny siec
 
 Mimo że w tym samouczku tylko przedstawiono sposób dodawania powiadomienia pocztą e-mail za pomocą [SendGrid](http://sendgrid.com/), możesz wysłać wiadomości e-mail przy użyciu SMTP i innych mechanizmów (zobacz [dodatkowe zasoby](#addRes)).
 
-1. W konsoli Menedżera pakietów, wprowadź następujące polecenie: 
+1. W konsoli Menedżera pakietów wprowadź następujące polecenie: 
 
     [!code-console[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample1.cmd)]
 2. Przejdź do [stronę Tworzenie konta Azure SendGrid](https://go.microsoft.com/fwlink/?linkid=271033&clcid=0x409) i zarejestruj bezpłatne konto SendGrid. Skonfiguruj SendGrid przez dodanie kodu podobne do następującego *App_Start/IdentityConfig.cs*:
@@ -78,7 +78,7 @@ Aby zachować ten przykład prostego, możemy przechowywania ustawień aplikacji
 [!code-xml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample4.xml)]
 
 > [!WARNING]
-> Zabezpieczenia — nigdy nie magazynu danych poufnych w kodzie źródłowym. Konto i poświadczenia są przechowywane w appSetting. Na platformie Azure, można bezpiecznie przechowywać te wartości na  **[Konfiguruj](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  kartę w portalu Azure. Zobacz [najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
+> Zabezpieczenia — nigdy nie magazynu danych poufnych w kodzie źródłowym. Konto i poświadczenia są przechowywane w appSetting. Na platformie Azure, można bezpiecznie przechowywać te wartości na **[Konfiguruj](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** kartę w portalu Azure. Zobacz [najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
 
 
 ### <a name="enable-email-confirmation-in-the-account-controller"></a>Włącz wiadomości e-mail z potwierdzeniem w kontrolerze konta
@@ -108,7 +108,7 @@ Utwórz `Views\Shared\Info.cshtml` i Dodaj następujący kod razor:
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample8.cshtml)]
 
-Dodaj [atrybutu autoryzacji](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx) do `Contact` metody akcji kontrolera głównej. Możesz użyć kliknij na **skontaktuj się z** łącze, aby zweryfikować użytkownicy anonimowi nie mają dostępu oraz uwierzytelnieni użytkownicy mają dostęp.
+Dodaj [atrybutu autoryzacji](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx) do `Contact` metody akcji kontrolera głównej. Możesz kliknąć **skontaktuj się z** łącze, aby zweryfikować użytkownicy anonimowi nie mają dostępu oraz uwierzytelnieni użytkownicy mają dostęp.
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample9.cs?highlight=1)]
 
@@ -148,18 +148,18 @@ Zaktualizuj metodę rejestru nowy Pomocnik:
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample15.cs?highlight=17)]
 
-Update — metoda logowania, aby ponownie wysłać hasło podczas Jeśli konto użytkownika nie został potwierdzony:
+Metoda logowania ponownie hasło, jeśli konto użytkownika nie został potwierdzony aktualizacji:
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample16.cs?highlight=20)]
 
 <a id="combine"></a>
 ## <a name="combine-social-and-local-login-accounts"></a>Łączenie kont społecznościowych i lokalne logowanie
 
-Konta lokalne i społecznościowych można łączyć, klikając link do wiadomości e-mail. W następującej kolejności  **RickAndMSFT@gmail.com**  najpierw zostanie utworzona jako logowania lokalnego, ale można utworzyć konta społecznościowych logowania w pierwszym, a następnie dodaj lokalny identyfikator logowania.
+Konta lokalne i społecznościowych można łączyć, klikając link do wiadomości e-mail. W następującej kolejności **RickAndMSFT@gmail.com** najpierw zostanie utworzona jako logowania lokalnego, ale można utworzyć konta społecznościowych logowania w pierwszym, a następnie dodaj lokalny identyfikator logowania.
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image5.png)
 
-Polecenie **Zarządzaj** łącza. Uwaga zewnętrznych 0 (społecznościowych logowania) skojarzone z tym kontem.
+Polecenie **Zarządzaj** łącza. Uwaga **logowań zewnętrznych: 0** skojarzone z tym kontem.
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image6.png)
 

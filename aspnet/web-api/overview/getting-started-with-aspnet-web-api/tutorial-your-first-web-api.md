@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: "Wprowadzenie do składnika ASP.NET Web API 2 (C#)"
+title: Wprowadzenie do składnika ASP.NET Web API 2 (C#)
 author: MikeWasson
-description: "HTTP nie jest po prostu wysyłaniu stron sieci web. Istnieje również zaawansowane platformę do tworzenia interfejsów API, który ujawnia usług i danych. HTTP jest prosty i elastyczny i ubiq..."
+description: HTTP nie jest po prostu wysyłaniu stron sieci web. Istnieje również zaawansowane platformę do tworzenia interfejsów API, który ujawnia usług i danych. HTTP jest prosty i elastyczny i ubiq...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/28/2017

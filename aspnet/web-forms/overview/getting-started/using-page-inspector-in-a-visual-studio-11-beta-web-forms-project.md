@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
-title: "Za pomocą narzędzia Page Inspector dla formularzy programu Visual Studio 2012 w sieci Web programu ASP.NET | Dokumentacja firmy Microsoft"
+title: Za pomocą narzędzia Page Inspector dla formularzy programu Visual Studio 2012 w sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Narzędzie Page Inspector dla programu Visual Studio 2012 to narzędzie do projektowania sieci web za pomocą zintegrowanego przeglądarki. Wybierz dowolny element w zintegrowanej przeglądarki i narzędzie Page Inspector..."
+description: Narzędzie Page Inspector dla programu Visual Studio 2012 to narzędzie do projektowania sieci web za pomocą zintegrowanego przeglądarki. Wybierz dowolny element w zintegrowanej przeglądarki i narzędzie Page Inspector...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -249,7 +249,7 @@ Po wpisaniu pierwszych znaków każdego wyrazu we właściwości rozdzielone ł�
 
 ![IntelliSense filtrowane wartości](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image24.png)
 
-Teraz wpisz dwukropkiem. Po wykonaniu czynności są wstawiane nazwę właściwości pełny kolor tła. Typ  **#**  lub **rgb (**, i zostanie wyświetlony pasek selektora kolorów:
+Teraz wpisz dwukropkiem. Po wykonaniu czynności są wstawiane nazwę właściwości pełny kolor tła. Typ **#** lub **rgb (**, i zostanie wyświetlony pasek selektora kolorów:
 
 ![Na pasku próbnika kolorów CSS](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image25.png)
 

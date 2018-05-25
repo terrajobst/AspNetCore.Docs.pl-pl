@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
 title: Ulepszenia w programie Visual Studio 2005 | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Visual Studio 2005 oferuje deweloperom długą listę i ulepszeń do projektów sieci Web w aplikacji sieci Web."
+description: Visual Studio 2005 oferuje deweloperom długą listę i ulepszeń do projektów sieci Web w aplikacji sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -445,7 +445,7 @@ Jako weve już omówione Visual Studio 2005 jest dostarczany z serwera sieci Web
 
 ASP.NET Development Server jest ograniczony serwera sieci Web. Zezwala na połączenia zdalne, nie zezwala żądań z dowolnego konta użytkownika niż użytkownika, który uruchomił serwera sieci Web. Ponadto nie ma możliwości obsługę stron ASP. Obsługiwane są tylko ASP.NET zasobów i HTML (w tym obrazów, plików CSS itp.).
 
-ASP.NET Development Server można uruchomić z wiersza polecenia, uruchamiając plik WebDev.WebServer.exe znajdujący się w c:/Windows/Microsoft.NET/Framework/v2.0./ */*  /  */*/*. To okno dialogowe wyświetla parametry, które są dostępne.
+ASP.NET Development Server można uruchomić z wiersza polecenia, uruchamiając plik WebDev.WebServer.exe znajdujący się w c:/Windows/Microsoft.NET/Framework/v2.0./*/* /  */*/*. To okno dialogowe wyświetla parametry, które są dostępne.
 
 
 ![](improvements-in-visual-studio-2005/_static/image11.jpg)

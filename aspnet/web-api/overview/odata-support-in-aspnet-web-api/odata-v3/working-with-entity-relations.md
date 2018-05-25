@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations
-title: "Obsługa relacjami jednostek w OData v3 z składnika Web API 2 | Dokumentacja firmy Microsoft"
+title: Obsługa relacjami jednostek w OData v3 z składnika Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Większość zestawów danych definiować relacje między obiektami: klienci mają zleceń; książki ma autorów; produkty mają dostawców. Używanie protokołu OData, klientów można przechodzić przez..."
+description: 'Większość zestawów danych definiować relacje między obiektami: klienci mają zleceń; książki ma autorów; produkty mają dostawców. Używanie protokołu OData, klientów można przechodzić przez...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2014
@@ -68,7 +68,7 @@ Aby zapewnić obsługę tego żądania, dodaj następującą metodę do `Product
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample6.cs)]
 
-*Klucza* parametru jest klucz produktu. Metoda zwraca obiekt pokrewny &#8212;w takim przypadku `Supplier` wystąpienia. Nazwa metody i nazwa parametru są ważne. Ogólnie rzecz biorąc Jeśli właściwość nawigacji ma nazwę "X", należy dodać metodę o nazwie "GetX". Metoda przyjmuje parametr o nazwie "*klucza*" odpowiedniego dla typu danych klucza nadrzędnego.
+*Klucza* parametru jest klucz produktu. Metoda zwraca obiekt pokrewny & #8212 w takim przypadku `Supplier` wystąpienia. Nazwa metody i nazwa parametru są ważne. Ogólnie rzecz biorąc Jeśli właściwość nawigacji ma nazwę "X", należy dodać metodę o nazwie "GetX". Metoda przyjmuje parametr o nazwie "*klucza*" odpowiedniego dla typu danych klucza nadrzędnego.
 
 Należy również uwzględnić **[FromOdataUri]** atrybutu w *klucza* parametru. Ten atrybut informuje interfejsu API sieci Web do używania reguły składni OData po przeanalizowaniu klucza z identyfikatora URI żądania.
 

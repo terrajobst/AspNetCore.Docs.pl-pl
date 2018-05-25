@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 7e2a4657211b0142ec87fd792d013f7ef397de2b
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 8b53a19f4958e97198175d6acea4017d54f827bb
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="logging-in-aspnet-core"></a>Logowanie do platformy ASP.NET Core
 
@@ -583,21 +583,22 @@ Dostawca działa tylko w przypadku, gdy projekt jest uruchamiana w środowisku p
 
 ## <a name="third-party-logging-providers"></a>Rejestrowanie innych dostawców
 
-Poniżej przedstawiono niektóre platform rejestrowania innych firm, które współpracują z platformy ASP.NET Core:
+Struktury rejestrowania innych firm, które współpracują z platformy ASP.NET Core:
 
-* [elmah.IO](https://github.com/elmahio/Elmah.Io.Extensions.Logging) — dostawca usługi Elmah.Io
+* [elmah.IO](https://elmah.io/) ([repozytorium GitHub](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
+* [JSNLog](http://jsnlog.com/) ([repozytorium GitHub](https://github.com/mperdeck/jsnlog))
+* [Loggr](http://loggr.net/) ([repozytorium GitHub](https://github.com/imobile3/Loggr.Extensions.Logging))
+* [NLog](http://nlog-project.org/) ([repozytorium GitHub](https://github.com/NLog/NLog.Extensions.Logging))
+* [Serilog](https://serilog.net/) ([repozytorium GitHub](https://github.com/serilog/serilog-extensions-logging))
 
-* [JSNLog](http://jsnlog.com) — rejestruje w dzienniku po stronie serwera wyjątków JavaScript oraz inne zdarzenia po stronie klienta.
+Niektórych struktur innych firm mogą wykonywać [semantycznego rejestrowania, nazywany również strukturalnych rejestrowania](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-* [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging) — dostawca usługi Loggr
+Przy użyciu platformy innej firmy jest podobny do przy użyciu jednego z dostawców wbudowanych:
 
-* [NLog](https://github.com/NLog/NLog.Extensions.Logging) -dostawca dla biblioteki NLog
+1. Dodaj pakiet NuGet do projektu.
+1. Wywoływanie metody rozszerzenia na `ILoggerFactory`.
 
-* [Serilog](https://github.com/serilog/serilog-extensions-logging) -dostawca dla biblioteki Serilog
-
-Możliwość niektórych struktur innych firm [semantycznego rejestrowania, nazywany również strukturalnych rejestrowania](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
-
-Przy użyciu platformy innej firmy jest podobny do przy użyciu jednego z dostawców wbudowanych: Dodaj pakiet NuGet do projektu i wywołanie metody rozszerzenia na `ILoggerFactory`. Aby uzyskać więcej informacji zobacz dokumentację każdego framework.
+Aby uzyskać więcej informacji zobacz dokumentację każdego framework.
 
 ## <a name="azure-log-streaming"></a>Strumieniowe przesyłanie dzienników Azure
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 8cad6ee45a8331513c72c4079f300fbb06c1ed77
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9f3a55c5e68e61a2d7907c765209d3786e05a485
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Konfigurowanie serwera sieci Web dla narzędzia Web Deploy publikowania (agenta zdalnego)
 ====================
@@ -217,7 +217,7 @@ Można sprawdzić czy usługa jest uruchomiona w wielu różne sposoby, za pomoc
 
 Domyślnie usługa agenta zdalnego nasłuchuje na porcie TCP 80, pod tym adresem URL:
 
-http:// [<em>nazwy serwera</em>] / MSDEPLOYAGENTSERVICE
+<http://servername.com/MSDEPLOYAGENTSERVICE>
 
 W większości przypadków nie można skonfigurować reguł zapory dodatkowych dla zdalnej usługi agenta, ponieważ serwery sieci web zwykle nasłuchiwać żądań HTTP na porcie 80. Po dostosowaniu instalacji nasłuchiwanie na porcie niestandardowym, należy do skonfigurowania wyjątków zapory, zgodnie z wymaganiami.
 

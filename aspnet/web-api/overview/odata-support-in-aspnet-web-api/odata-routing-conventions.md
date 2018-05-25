@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
-title: "Konwencje tras w składniku ASP.NET Web API 2 Odata | Dokumentacja firmy Microsoft"
+title: Konwencje tras w składniku ASP.NET Web API 2 Odata | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "W tym artykule opisano konwencje tras, które używa interfejsu API sieci Web dla punktów końcowych OData."
+description: W tym artykule opisano konwencje tras, które używa interfejsu API sieci Web dla punktów końcowych OData.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/31/2013
@@ -147,7 +147,7 @@ Obecnie wbudowane konwencje nie obejmują wszystkich możliwych identyfikatorów
 
 Dla obu metod Jeśli Konwencji nie ma zastosowania do tego żądania, metoda powinna zwrócić wartość null.
 
-**Element ODataPath** parametr reprezentuje przeanalizowany ścieżka zasobu OData. Zawiera listę  **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)**  wystąpienia, po jednej dla każdego segmentu ścieżki zasobu. **ODataPathSegment** jest klasą abstrakcyjną; każdy typ segmentu jest reprezentowany przez klasę pochodną **ODataPathSegment**.
+**Element ODataPath** parametr reprezentuje przeanalizowany ścieżka zasobu OData. Zawiera listę **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** wystąpienia, po jednej dla każdego segmentu ścieżki zasobu. **ODataPathSegment** jest klasą abstrakcyjną; każdy typ segmentu jest reprezentowany przez klasę pochodną **ODataPathSegment**.
 
 **ODataPath.TemplatePath** właściwość jest ciągiem, który reprezentuje połączenie wszystkich segmentów ścieżki. Na przykład, jeśli identyfikator URI jest `/Products(1)/Supplier`, jest szablon ścieżki &quot;~/entityset/key/navigation&quot;. Zwróć uwagę, że segmenty nie odnoszą się bezpośrednio do segmentów identyfikatora URI. Na przykład klucz jednostki (1) jest reprezentowany jako własnego **ODataPathSegment**.
 
@@ -169,7 +169,7 @@ Uwagi:
 
 1. I pochodzi od **EntitySetRoutingConvention**, ponieważ **SelectController** metody klasy jest odpowiedni dla tego nowego Konwencji routingu. Oznacza to, że nie należy ponownie wdrożyć **SelectController**.
 2. Konwencja dotyczy tylko żądania GET, i tylko wtedy, gdy szablon ścieżki &quot;~/entityset/key/navigation/key&quot;.
-3. Nazwa akcji jest &quot;uzyskać {EntityType}&quot;, gdzie *{EntityType}* jest typ kolekcji nawigacji. Na przykład &quot;GetSupplier&quot;. Korzystając z konwencją nazewnictwa, który chcesz &#8212; tylko upewnić, że odpowiada akcji kontrolera.
+3. Nazwa akcji jest &quot;uzyskać {EntityType}&quot;, gdzie *{EntityType}* jest typ kolekcji nawigacji. Na przykład &quot;GetSupplier&quot;. Korzystając z konwencją nazewnictwa, który chcesz & #8212; tylko upewnić, że odpowiada akcji kontrolera.
 4. Akcja przyjmuje dwa parametry o nazwie *klucza* i *relatedKey*. (Aby uzyskać listę niektóre nazwy wstępnie zdefiniowanych parametrów, zobacz [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
 
 Następny krok polega na dodaniu nowej Konwencji do listy Konwencji tras. Dzieje się to podczas konfiguracji, jak pokazano w poniższym kodzie:

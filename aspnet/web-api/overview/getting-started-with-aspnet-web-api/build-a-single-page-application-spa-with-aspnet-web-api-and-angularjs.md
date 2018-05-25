@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
-title: "Wskazówki laboratorium: Tworzenie aplikacji jednej strony (SPA) z interfejsu API sieci Web ASP.NET i Angular.js | Dokumentacja firmy Microsoft"
+title: 'Wskazówki laboratorium: Tworzenie aplikacji jednej strony (SPA) z interfejsu API sieci Web ASP.NET i Angular.js | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W aplikacjach sieci web tradycyjnych klienta (przeglądarka) inicjuje komunikację z serwerem przez żądanie strony. Serwer następnie przetwarza żądanie..."
+description: W aplikacjach sieci web tradycyjnych klienta (przeglądarka) inicjuje komunikację z serwerem przez żądanie strony. Serwer następnie przetwarza żądanie...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/30/2015
@@ -153,13 +153,13 @@ W tym zadaniu rozpoczęcia tworzenia nowego projektu platformy ASP.NET MVC z obs
 
     > [!NOTE]
     > **Autoryzacji** filtrować sprawdza, czy użytkownik jest uwierzytelniony. Jeśli użytkownik nie jest uwierzytelniony, zwraca kod stanu HTTP 401 (bez autoryzacji) bez wywoływania akcji. Można zastosować filtr globalny, na poziomie kontrolera lub na poziomie poszczególnych działań.
-9. Układ strony sieci web i znakowanie zostanie teraz dostosować. Aby to zrobić, otwórz  **\_Layout.cshtml** pliku wewnątrz **widoków | Udostępnione** folderu i zaktualizowania zawartości  **&lt;tytuł&gt;**  element zastępując *Moja aplikacja platformy ASP.NET* z *Geek quizu* .
+9. Układ strony sieci web i znakowanie zostanie teraz dostosować. Aby to zrobić, otwórz  **\_Layout.cshtml** pliku wewnątrz **widoków | Udostępnione** folderu i zaktualizowania zawartości **&lt;tytuł&gt;** element zastępując *Moja aplikacja platformy ASP.NET* z *Geek quizu* .
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample4.cshtml)]
 10. W tym samym pliku, należy zaktualizować pasek nawigacyjny przez usunięcie *o* i *skontaktuj się z* łącza i zmiana nazwy *Home* połączyć *odtwarzanie*. Ponadto, Zmień nazwę *Nazwa aplikacji* połączyć *quizu Geek*. HTML paska nawigacyjnego powinien wyglądać podobnie do następującego kodu.
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample5.cshtml)]
-11. Zaktualizuj stopki strony układu zastępując *Moja aplikacja platformy ASP.NET* z *quizu Geek*. Aby to zrobić, zastąpi zawartość  **&lt;stopki&gt;**  elementu o następujący wyróżniony kod.
+11. Zaktualizuj stopki strony układu zastępując *Moja aplikacja platformy ASP.NET* z *quizu Geek*. Aby to zrobić, zastąpi zawartość **&lt;stopki&gt;** elementu o następujący wyróżniony kod.
 
     [!code-html[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample6.html)]
 
@@ -421,7 +421,7 @@ W tym zadaniu właściwości CSS3 użyje do wykonywania zaawansowanych animacji 
 5. Zlokalizuj **Ukryj obu okienku podczas przerzucania** komentarza. Styl pod tym komentarzem ukrywa stronie powierzchni Wstecz, gdy są one skierowane w przeciwną Podgląd przez ustawienie **widoczność wszelkie niepożądane obiekty za** właściwości CSS do *ukryte*.
 
     [!code-css[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample23.css)]
-6. Otwórz **BundleConfig.cs** pliku wewnątrz **aplikacji\_Start** folderu i Dodaj odwołanie do **Flip.css** w pliku  **&quot;~/Content/css&quot;**  styl pakietu
+6. Otwórz **BundleConfig.cs** pliku wewnątrz **aplikacji\_Start** folderu i Dodaj odwołanie do **Flip.css** w pliku **&quot;~/Content/css&quot;** styl pakietu
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample24.cs)]
 7. Naciśnij klawisz **F5** do uruchamiania rozwiązań i zaloguj się przy użyciu poświadczeń.

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
-title: "Parametr wiązania w składniku ASP.NET Web API | Dokumentacja firmy Microsoft"
+title: Parametr wiązania w składniku ASP.NET Web API | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2013

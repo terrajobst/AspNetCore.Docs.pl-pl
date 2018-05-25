@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-4/using-page-inspector-in-aspnet-mvc
-title: "W programie ASP.NET MVC przy użyciu narzędzia Page Inspector | Dokumentacja firmy Microsoft"
+title: W programie ASP.NET MVC przy użyciu narzędzia Page Inspector | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Wideo Eksploruje użycie narzędzia Page Inspector w aplikacji sieci web platformy ASP.NET MVC. Przeczytaj samouczek"
+description: Wideo Eksploruje użycie narzędzia Page Inspector w aplikacji sieci web platformy ASP.NET MVC. Przeczytaj samouczek
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/04/2012
@@ -24,4 +24,4 @@ przez Ammann Timowi
 
 Wideo Eksploruje użycie narzędzia Page Inspector w aplikacji sieci web platformy ASP.NET MVC. [Przeczytaj samouczek](../../overview/views/using-page-inspector-in-aspnet-mvc.md)
 
-[&#9654; Obejrzyj klip wideo (minuty 6)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-page-inspector-in-aspnet-mvc)
+[& #9654; Obejrzyj klip wideo (minuty 6)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-page-inspector-in-aspnet-mvc)

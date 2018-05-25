@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
-title: "Za pomocą liczników wydajności SignalR w roli sieci Web platformy Azure | Dokumentacja firmy Microsoft"
+title: Za pomocą liczników wydajności SignalR w roli sieci Web platformy Azure | Dokumentacja firmy Microsoft
 author: guardrex
-description: "Jak zainstalować i używać liczniki wydajności SignalR w roli sieci Web platformy Azure."
+description: Jak zainstalować i używać liczniki wydajności SignalR w roli sieci Web platformy Azure.
 keywords: Licznik ASP.NET,signalr,Performance, roli sieci web platformy azure
 ms.author: aspnetcontent
 manager: wpickett

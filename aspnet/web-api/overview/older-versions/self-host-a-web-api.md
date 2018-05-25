@@ -2,7 +2,7 @@
 uid: web-api/overview/older-versions/self-host-a-web-api
 title: Host samodzielny ASP.NET Web API 1 (C#) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Interfejs API sieci Web ASP.NET nie wymaga usług IIS. Interfejs API sieci web można hosta samodzielnego procesu hosta. Ten samouczek pokazuje, jak udostępniać interfejsu API sieci web wewnątrz applic konsoli..."
+description: Interfejs API sieci Web ASP.NET nie wymaga usług IIS. Interfejs API sieci web można hosta samodzielnego procesu hosta. Ten samouczek pokazuje, jak udostępniać interfejsu API sieci web wewnątrz applic konsoli...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2012

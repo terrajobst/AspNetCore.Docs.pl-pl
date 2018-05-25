@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 8f4c7cb5ac7d518f2d51ab5ff078a2c7c32ea4cc
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: ec38a988a73278481de6535c627b2479a9805387
+ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>Niestandardowe elementy formatujące w interfejsu API platformy ASP.NET Core sieci Web
 
@@ -98,7 +98,7 @@ Elementy formatujące są oceniane w kolejności, w jakiej wstawić je. Pierwsza
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample), który implementuje proste vCard dane wejściowe i elementy formatujące danych wyjściowych.  Aplikacja czyta i zapisuje vCard, który wygląda jak w poniższym przykładzie:
+Zobacz [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample), który implementuje proste vCard dane wejściowe i elementy formatujące danych wyjściowych. Aplikacja czyta i zapisuje vCard, który wygląda jak w poniższym przykładzie:
 
 ```
 BEGIN:VCARD

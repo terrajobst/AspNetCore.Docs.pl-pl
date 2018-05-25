@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/views/using-page-inspector-in-aspnet-mvc
-title: "W programie ASP.NET MVC przy użyciu narzędzia Page Inspector | Dokumentacja firmy Microsoft"
+title: W programie ASP.NET MVC przy użyciu narzędzia Page Inspector | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Narzędzie Page Inspector w programie Visual Studio 2012 to narzędzie do projektowania sieci web za pomocą zintegrowanego przeglądarki. Wybierz dowolny element w zintegrowanej przeglądarki i narzędzie Page Inspector i..."
+description: Narzędzie Page Inspector w programie Visual Studio 2012 to narzędzie do projektowania sieci web za pomocą zintegrowanego przeglądarki. Wybierz dowolny element w zintegrowanej przeglądarki i narzędzie Page Inspector i...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -202,7 +202,7 @@ Teraz Zmień wartość atrybutu `background-color` do "red". W przeglądarce nar
 
 Edytor CSS w programie Visual Studio 2012 zawiera próbnika kolorów, który można łatwo wybrać i Wstaw kolorów. Próbnika kolorów zawiera standardowe paletę kolorów, obsługuje standardowe kolor nazwy i skrótu, kolorów RGB, RGBA HSL i HSLA i przechowuje listę kolorów używanych ostatnio w dokumencie.
 
-W poprzedniej sekcji, należy zmienić wartość `background-color` właściwości. Aby wywołać próbnika kolorów, umieść kursor po nazwie właściwości i typ  **#**  lub **rgb (**.
+W poprzedniej sekcji, należy zmienić wartość `background-color` właściwości. Aby wywołać próbnika kolorów, umieść kursor po nazwie właściwości i typ **#** lub **rgb (**.
 
 ![Na pasku próbnika kolorów CSS](using-page-inspector-in-aspnet-mvc/_static/image36.png)
 

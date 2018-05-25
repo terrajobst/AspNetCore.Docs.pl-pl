@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/deployment/using-signalr-with-azure-web-sites
-title: "Przy użyciu SignalR z aplikacjami sieci Web w usłudze Azure App Service | Dokumentacja firmy Microsoft"
+title: Przy użyciu SignalR z aplikacjami sieci Web w usłudze Azure App Service | Dokumentacja firmy Microsoft
 author: pfletcher
-description: "Ten dokument zawiera opis sposobu konfigurowania aplikacji SignalR, która działa w systemie Microsoft Azure. Wersje oprogramowania używany w samouczku Visual Studio 2013 lub Vis...."
+description: Ten dokument zawiera opis sposobu konfigurowania aplikacji SignalR, która działa w systemie Microsoft Azure. Wersje oprogramowania używany w samouczku Visual Studio 2013 lub Vis....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/01/2015

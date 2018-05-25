@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
-title: "Obsługa opcje zapytania OData w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft"
+title: Obsługa opcje zapytania OData w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/04/2013
@@ -26,7 +26,7 @@ OData definiuje parametry, które mogą służyć do modyfikowania zapytania ODa
 
 `http://localhost/Products?$orderby=Name`
 
-Specyfikację OData wywołuje te parametry *opcje kwerendy*. Można włączyć opcji zapytania OData dla każdego kontrolera interfejsu API sieci Web w projekcie &#8212; kontroler nie musi być punkt końcowy OData. Zapewnia to wygodny sposób, aby dodać funkcje, takie jak filtrowanie i sortowanie do dowolnej aplikacji interfejsu API sieci Web.
+Specyfikację OData wywołuje te parametry *opcje kwerendy*. Można włączyć opcji zapytania OData dla każdego kontrolera interfejsu API sieci Web w projekcie & #8212; kontroler nie musi być punkt końcowy OData. Zapewnia to wygodny sposób, aby dodać funkcje, takie jak filtrowanie i sortowanie do dowolnej aplikacji interfejsu API sieci Web.
 
 Przed włączeniem opcje zapytania, przeczytaj temat [wskazówki dotyczące zabezpieczeń OData](odata-security-guidance.md).
 

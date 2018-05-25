@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/9-working-with-images
 title: Praca z obrazami w witryny ASP.NET Web Pages (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym rozdziale przedstawiono sposób dodawania, wyświetlania i modyfikowania obrazów (zmienianie rozmiaru, przerzucania i dodać znaki wodne) w witrynie sieci Web."
+description: W tym rozdziale przedstawiono sposób dodawania, wyświetlania i modyfikowania obrazów (zmienianie rozmiaru, przerzucania i dodać znaki wodne) w witrynie sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -58,7 +58,7 @@ Jeśli obraz nie jest jeszcze dostępna w witrynie i chcesz go wyświetlić na s
 
 [!code-html[Main](9-working-with-images/samples/sample1.html)]
 
-Czasami jednak musisz mieć możliwość wyświetlania obrazów dynamicznie &#8212; oznacza to nie wiadomo, jakie obraz do wyświetlania aż do strony jest uruchomiona.
+Czasami jednak musisz mieć możliwość wyświetlania obrazów dynamicznie & #8212; oznacza to nie wiadomo, jakie obraz do wyświetlania aż do strony jest uruchomiona.
 
 Procedura w tej sekcji przedstawiono sposób wyświetlania obrazu na bieżąco, w którym użytkownicy określić nazwę pliku obrazu z listy nazw obrazów. Nazwa obrazu one wybierz z listy rozwijanej i po przesyłają strony one wybranego obrazu.
 
@@ -109,7 +109,7 @@ W poprzednim przykładzie pokazano sposób wyświetlania obrazu dynamicznie, ale
 
     *C:\Users\Joe\Pictures\SamplePhoto1.jpg*
 
-    Nie ma jednak te informacje Ścieżka &#8212; chcesz rzeczywiste nazwy plików (*SamplePhoto1.jpg*). Tylko plik ze ścieżki można usuwają przy użyciu `Path.GetFileName` metody następująco:
+    Nie ma jednak te informacje Ścieżka & #8212; chcesz rzeczywiste nazwy plików (*SamplePhoto1.jpg*). Tylko plik ze ścieżki można usuwają przy użyciu `Path.GetFileName` metody następująco:
 
     [!code-csharp[Main](9-working-with-images/samples/sample4.cs)]
 

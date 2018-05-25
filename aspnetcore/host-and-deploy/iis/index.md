@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 3a9479dc1bb09218ebb4a5a76078ea514041d751
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 6b2c3334798861ebdb14787205480422d7d536ea
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core w systemie Windows z programem IIS
 
@@ -113,7 +113,7 @@ Przy wyłączaniu zestawu SDK sieci Web z transformacji pliku *processPath* i *a
 
 ### <a name="webconfig-file-location"></a>Lokalizacja pliku Web.config
 
-Aplikacje platformy ASP.NET Core są obsługiwane w zwrotnego serwera proxy między usługami IIS a Kestrel serwera. Aby można było utworzyć zwrotny serwer proxy, *web.config* plik musi znajdować się w ścieżce zawartości katalogu głównego (zazwyczaj ścieżki podstawowej aplikacji) wdrożonej aplikacji. To jest tej samej lokalizacji co ścieżkę fizyczną witryny sieci Web do usług IIS. *Web.config* plik jest wymagany w katalogu głównym aplikacji, aby umożliwić publikowanie wielu aplikacji za pomocą narzędzia Web Deploy.
+Aby można było utworzyć zwrotnego serwera proxy między usługami IIS a serwerem Kestrel *web.config* plik musi znajdować się w ścieżce zawartości katalogu głównego (zazwyczaj ścieżki podstawowej aplikacji) wdrożonej aplikacji. To jest tej samej lokalizacji co ścieżkę fizyczną witryny sieci Web do usług IIS. *Web.config* plik jest wymagany w katalogu głównym aplikacji, aby umożliwić publikowanie wielu aplikacji za pomocą narzędzia Web Deploy.
 
 Poufne pliki istnieją na ścieżkę fizyczną aplikacji, takich jak  *\<zestawu >. runtimeconfig.json*,  *\<zestawu > .xml* (komentarze dokumentacji XML), a  *\<zestawu >. deps.json*. Gdy *web.config* plik istnieje i i zwykle uruchamiania witryny, usługi IIS nie obsługiwać te poufnych plików, jeśli są one wymagane. Jeśli *web.config* brakuje pliku, niepoprawnie o nazwie lub nie można skonfigurować lokacji podczas normalnego uruchamiania, usługi IIS mogą służyć poufnych plików publicznie.
 
@@ -172,7 +172,7 @@ Włącz **Konsola zarządzania usługami IIS** i **usługi sieci World Wide Web*
 1. Zainstaluj *.NET Core Hosting pakietu* przez system operacyjny. Pakiet instaluje wykonawczym .NET Core .NET Core biblioteki, a [platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module). Moduł tworzy zwrotny serwer proxy między usługami IIS a Kestrel serwera. Jeśli system nie ma połączenia internetowego, Uzyskaj i zainstaluj [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) przed zainstalowaniem pakietu Hosting .NET Core.
 
    1. Przejdź do [.NET wszystkie pliki do pobrania strony](https://www.microsoft.com/net/download/all).
-   1. Wybierz z listy najnowsze środowisko uruchomieniowe .NET Core-preview (**.NET Core** > **środowiska uruchomieniowego** > **x.y.z środowisko uruchomieniowe platformy .NET Core**). Jeśli nie zamierzasz pracować z oprogramowaniem w wersji zapoznawczej, należy unikać środowisk uruchomieniowych, który program word "w wersji zapoznawczej" w ich tekst łącza.
+   1. Wybierz z listy najnowsze środowisko uruchomieniowe .NET Core-preview (**.NET Core** > **środowiska uruchomieniowego** > **x.y.z środowisko uruchomieniowe platformy .NET Core**). Jeśli nie zamierzasz pracować z oprogramowaniem w wersji zapoznawczej, uniknąć środowiska uruchomieniowego od słowa "w wersji zapoznawczej" lub "rc" (Wersja Release Candidate) tekst łącza.
    1. Na środowiska uruchomieniowego .NET Core strony w obszarze pobierania **Windows**, wybierz pozycję **Hosting Instalatora pakietu** łącze, aby pobrać *.NET Core Hosting pakietu*.
 
    **Ważne!** Po zainstalowaniu pakietu Hosting przed zainstalowaniem usług IIS instalacji pakietu musi zostać naprawiony. Uruchom Instalatora pakietu Hosting ponownie po zainstalowaniu usług IIS.

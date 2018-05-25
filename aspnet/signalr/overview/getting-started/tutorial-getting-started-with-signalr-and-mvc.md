@@ -2,7 +2,7 @@
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 title: 'Samouczek: Wprowadzenie do korzystania z SignalR 2 i MVC 5 | Dokumentacja firmy Microsoft'
 author: pfletcher
-description: "Ten samouczek pokazuje, jak używać ASP.NET SignalR 2 do tworzenia aplikacji rozmów w czasie rzeczywistym. Spowoduje dodanie SignalR do aplikacji MVC 5 i Utwórz widok rozmów..."
+description: Ten samouczek pokazuje, jak używać ASP.NET SignalR 2 do tworzenia aplikacji rozmów w czasie rzeczywistym. Spowoduje dodanie SignalR do aplikacji MVC 5 i Utwórz widok rozmów...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014

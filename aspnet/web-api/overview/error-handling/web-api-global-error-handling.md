@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/error-handling/web-api-global-error-handling
-title: "Globalne obsługi błędów w ASP.NET Web API 2 | Dokumentacja firmy Microsoft"
+title: Globalne obsługi błędów w ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: davidmatson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/03/2014
