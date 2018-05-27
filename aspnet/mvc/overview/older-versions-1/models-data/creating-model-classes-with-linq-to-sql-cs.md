@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f30ff6c97e565059c57c55f26d2dff477774aeb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9a56ceb9eab5774906ecc89ce9da570d4f691a82
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/27/2018
 ---
 <a name="creating-model-classes-with-linq-to-sql-c"></a>Tworzenie klasy modelu za pomocą LINQ do SQL (C#)
 ====================
@@ -149,7 +149,7 @@ Po dodaniu niektórych rekordów bazy danych do `tblMovies` tabeli i uruchomić 
 
 ## <a name="using-the-repository-pattern"></a>Przy użyciu wzorca repozytorium
 
-W poprzedniej sekcji użyliśmy LINQ w klasach SQL bezpośrednio w ramach akcji kontrolera. My używamy `MovieDataContex` t klasy bezpośrednio z `Index()` akcji kontrolera. Nie ma nic błąd w ten sposób w przypadku prostą aplikację. Jednak praca bezpośrednio z LINQ do SQL w klasie kontrolera stwarza problemy, gdy jest potrzebne do tworzenia bardziej złożonych aplikacji.
+W poprzedniej sekcji użyliśmy LINQ w klasach SQL bezpośrednio w ramach akcji kontrolera. My używamy `MovieDataContext` klasy bezpośrednio z `Index()` akcji kontrolera. Nie ma nic błąd w ten sposób w przypadku prostą aplikację. Jednak praca bezpośrednio z LINQ do SQL w klasie kontrolera stwarza problemy, gdy jest potrzebne do tworzenia bardziej złożonych aplikacji.
 
 Za pomocą LINQ do SQL w obrębie klasy kontrolera utrudnia przełącznika technologii dostępu do danych w przyszłości. Na przykład można zdecydować przełączyć się z Microsoft LINQ do SQL, które jako technologii dostępu do danych za pomocą programu Microsoft Entity Framework. W takim przypadku należy zmodyfikować każdy kontroler, który uzyskuje dostęp do bazy danych w aplikacji.
 

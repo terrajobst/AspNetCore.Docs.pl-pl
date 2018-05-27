@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: c462f38ba345a9eaf648967524cadd1ba45aee19
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: f96b38e9f0368e04198c849bb3585674183a92b1
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a>Migracja z platformy ASP.NET Core 1.x 2.0
 
 Przez [Scott Addie](https://github.com/scottaddie)
 
-W tym artykule pomożemy Ci przez aktualizowanie istniejącego projektu platformy ASP.NET Core 1.x do składnika ASP.NET 2.0 Core. Migrowanie aplikacji platformy ASP.NET Core 2.0 umożliwia korzystanie z [wiele nowe funkcje i ulepszenia wydajności](xref:aspnetcore-2.0). 
+W tym artykule firma Microsoft umożliwia przeprowadzenie aktualizowanie istniejącego projektu platformy ASP.NET Core 1.x do składnika ASP.NET 2.0 Core. Migrowanie aplikacji platformy ASP.NET Core 2.0 umożliwia korzystanie z [wiele nowe funkcje i ulepszenia wydajności](xref:aspnetcore-2.0). 
 
 Istniejące aplikacje 1.x platformy ASP.NET Core są oparte na znajdujące się na nich szablony przeznaczone do wersji projektu. W miarę rozwoju platformy ASP.NET Core framework środowisko tak zrobić szablonów projektu i kod startowy zawarte w nich. Oprócz aktualizacji w ramach platformy ASP.NET Core, musisz zaktualizować kod aplikacji.
 

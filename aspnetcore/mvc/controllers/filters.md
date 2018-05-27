@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: edc2e9460eb68febe25e8dd60e3872e5ab28e9e9
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 49e51a867e47ce375a5048cae5979360c4103365
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry platformy ASP.NET Core
 
@@ -66,7 +66,7 @@ Synchroniczne filtry, które można uruchomić kod zarówno przed i po ich etap 
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet1)]
 
-Asynchroniczne Filtry definiują jeden na*etap*ExecutionAsync metody. Ta metoda przyjmuje *FilterType*ExecutionDelegate delegata, który wykonuje etap potoku filtru. Na przykład `ActionExecutionDelegate` wywołania metody akcji i może zostać uruchomiony kod przed i po jej wywołaniu.
+Asynchroniczne Filtry definiują jeden na*etap*ExecutionAsync metody. Ta metoda przyjmuje *FilterType*ExecutionDelegate delegata, który wykonuje etap potoku filtru. Na przykład `ActionExecutionDelegate` wywołania metody akcji lub dalej filtr akcji, a może uruchomić kod przed i po jej wywołaniu.
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleAsyncActionFilter.cs?highlight=6,8-10,13)]
 
@@ -171,7 +171,7 @@ Jeśli mają taki sam 3 filtry działania wyświetlane w poprzednim przykładzie
 | 5 | Kontrolera | 1  | `OnActionExecuted` |
 | 6 | Metoda | 0  | `OnActionExecuted` |
 
-`Order` Atu właściwości zakresu podczas określania kolejność uruchamiania filtrów. Filtry są najpierw posortowane według kolejności, a następnie zakres jest używany do dzielenia ties. Wszystkie filtry wbudowane zaimplementować `IOrderedFilter` i ustaw wartość domyślna `Order` wartość na 0. FIR wbudowanych filtrów zakres określa porządek, chyba że ustawisz `Order` na wartość inną niż zero.
+`Order` Atu właściwości zakresu podczas określania kolejność uruchamiania filtrów. Filtry są najpierw posortowane według kolejności, a następnie zakres jest używany do dzielenia ties. Wszystkie filtry wbudowane zaimplementować `IOrderedFilter` i ustaw wartość domyślna `Order` wartość na 0. Dla wbudowanych filtrów zakres określa porządek, chyba że zostanie ustawiony `Order` na wartość inną niż zero.
 
 ## <a name="cancellation-and-short-circuiting"></a>Anulowanie i krótki circuiting
 

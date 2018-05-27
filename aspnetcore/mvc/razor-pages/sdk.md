@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: mvc/razor-pages/sdk
-ms.openlocfilehash: acc049a69574968d1e304d6c504cb89243387d6c
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: cf0e1873c7ce500ce3b8ad2b3367555bdc41a576
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="aspnet-core-razor-sdk"></a>Razor platformy ASP.NET Core SDK
 
@@ -63,7 +63,7 @@ Aby skonfigurować dane wejściowe i wyjściowe do zestawu SDK Razor służą po
 | Elementy                                         | Opis                                                                   |
 | ------------                                  | -------------                                                                 |
 | RazorGenerate                                 | Element elementy (*.cshtml* plików), które są dane wejściowe do celów generowania kodu. |
-| RazorCompile                                  | Element elementy (pliki .cs) danych wejściowych w celu obiekty docelowe kompilacji Razor. Użyj tego ItemGroup, aby określić dodatkowe pliki, które ma być kompilowana w zestawie Razor. |
+| RazorCompile                                  | Element elementy (pliki .cs) danych wejściowych w celu obiekty docelowe kompilacji Razor. Użyj tego ItemGroup, aby określić dodatkowe pliki i skompilowany w zestawie Razor. |
 | RazorTargetAssemblyAttribute                  | Element używany do kodu generowania atrybuty dla zestawu Razor. Na przykład:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
 | RazorEmbeddedResource                         | Element dodany jako zasoby osadzone do wygenerowanego zestawu Razor |
 

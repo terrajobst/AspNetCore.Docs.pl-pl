@@ -3,6 +3,7 @@ title: Szablon projektu platformy React z Redux za pomocą platformy ASP.NET Cor
 author: SteveSandersonMS
 description: Dowiedz się, jak rozpocząć pracę z szablonu projektu platformy ASP.NET Core jednej strony aplikacji JEDNOSTRONICOWEJ dla platformy React z Redux i utworzyć platformy react aplikacji.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
@@ -11,16 +12,20 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react-with-redux
-ms.openlocfilehash: 9abfbfe5be69d3145de453d9d9e56ea35eec64ed
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 7ec4f6d53a4723ace087b1dc256de7845cb44cc6
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>Szablon projektu platformy React z Redux za pomocą platformy ASP.NET Core
 
+::: moniker range="= aspnetcore-2.0"
+
 > [!NOTE]
 > O bibliotece React z Redux szablonu projektu tej dokumentacji nie jest zawarty w programie ASP.NET 2.0 Core. Chodzi o nowszej platformy React z Redux szablonu, do której można zaktualizować ręcznie. Domyślnie znajduje szablonu platformy ASP.NET Core 2.1.
+
+::: moniker-end
 
 Zaktualizowany szablon projektu platformy React z Redux udostępnia dogodny punkt początkowy dla aplikacji platformy ASP.NET Core za pomocą zareagować Redux, i [utworzyć platformy react aplikacji](https://github.com/facebookincubator/create-react-app) konwencje (CRA) do zaimplementowania rozbudowanego klienta interfejsu użytkownika (UI).
 

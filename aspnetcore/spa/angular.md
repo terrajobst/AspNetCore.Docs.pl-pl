@@ -3,6 +3,7 @@ title: Należy użyć szablonu projektu kątowego z platformy ASP.NET Core
 author: SteveSandersonMS
 description: Dowiedz się, jak rozpocząć pracę z szablonem projektu platformy ASP.NET Core jednej strony aplikacji JEDNOSTRONICOWEJ kątową i kątowego interfejsu wiersza polecenia.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
@@ -11,16 +12,20 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: b4e48f40c3d4e3167e7fdb3534d2c33b3544592c
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 244fece83279ae4d9ead9b345fcdd66ad6ed4225
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Należy użyć szablonu projektu kątowego z platformy ASP.NET Core
 
+::: moniker range="= aspnetcore-2.0"
+
 > [!NOTE]
 > O szablonie projektu kątowego tej dokumentacji nie jest zawarty w programie ASP.NET 2.0 Core. Chodzi o nowszej kątowego szablonu, do której można zaktualizować ręcznie. Domyślnie znajduje szablonu platformy ASP.NET Core 2.1.
+
+::: moniker-end
 
 Szablon zaktualizowany projekt kątowego udostępnia dogodny punkt początkowy dla platformy ASP.NET Core aplikacji przy użyciu kątową i kątowego interfejsu wiersza polecenia, aby zaimplementować rozbudowanego klienta interfejsu użytkownika (UI).
 
@@ -59,7 +64,7 @@ Now listening on: http://localhost:<port>
 
 Przejdź do tego adresu URL w przeglądarce.
 
-Wystąpienie serwera kątowego interfejsu wiersza polecenia w tle uruchamiania aplikacji. Zostanie zarejestrowany komunikat podobny do następującego: <em>NG Live Development Server nasłuchuje na localhost:&lt;otherport&gt;, otwórz przeglądarkę na http://localhost:&lt; otherport&gt; /</em>  . Zignoruj ten komunikat&mdash;ma <strong>nie</strong> adres URL dla połączonych aplikacji platformy ASP.NET Core i kątowego interfejsu wiersza polecenia.
+Wystąpienie serwera kątowego interfejsu wiersza polecenia w tle uruchamiania aplikacji. Zostanie zarejestrowany komunikat podobny do następującego: *NG Live Development Server nasłuchuje na localhost:&lt;otherport&gt;, otwórz przeglądarkę na http://localhost:&lt; otherport&gt; /*  . Zignoruj ten komunikat&mdash;ma **nie** adres URL dla połączonych aplikacji platformy ASP.NET Core i kątowego interfejsu wiersza polecenia.
 
 ---
 
@@ -137,7 +142,7 @@ W *uruchamiania* klasy *po* wiersza, który konfiguruje `spa.Options.SourcePath`
 
 [!code-csharp[](sample/AngularServerSideRendering/Startup.cs?name=snippet_Call_UseSpa&highlight=5-12)]
 
-W trybie projektowania, ten kod próbuje kompilacji pakietu SSR przez uruchomienie skryptu `build:ssr`, która jest zdefiniowana w *ClientApp\package.json*. Powoduje to skompilowanie kątowego aplikacji o nazwie `ssr`, która nie jest jeszcze zdefiniowana. 
+W trybie projektowania, ten kod próbuje kompilacji pakietu SSR przez uruchomienie skryptu `build:ssr`, która jest zdefiniowana w *ClientApp\package.json*. Powoduje to skompilowanie kątowego aplikacji o nazwie `ssr`, która nie jest jeszcze zdefiniowana.
 
 Na koniec `apps` tablicy w *ClientApp/.angular-cli.json*, zdefiniuj dodatkowy aplikacji o nazwie `ssr`. Użyj następujących opcji:
 
@@ -149,7 +154,7 @@ Dodaj nowy plik o nazwie *tsconfig.server.json* wewnątrz *ClientApp/src* (obok 
 
 [!code-json[](sample/AngularServerSideRendering/ClientApp/src/tsconfig.server.json)]
 
-Ten plik konfiguruje kątową przez kompilator drzewa obiektów aplikacji do wyszukania modułu o nazwie `app.server.module`. Dodaj tę przez utworzenie nowego pliku w *ClientApp/src/app/app.server.module.ts* (obok istniejącej *app.module.ts*), które zawierają: 
+Ten plik konfiguruje kątową przez kompilator drzewa obiektów aplikacji do wyszukania modułu o nazwie `app.server.module`. Dodaj tę przez utworzenie nowego pliku w *ClientApp/src/app/app.server.module.ts* (obok istniejącej *app.module.ts*), które zawierają:
 
 [!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/app/app.server.module.ts)]
 
@@ -159,7 +164,7 @@ Odwołania, który nowy `ssr` wpis w *.angular cli.json* odwołuje się do pliku
 
 [!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/main.server.ts)]
 
-Kod ten plik znajduje się co platformy ASP.NET Core wykonuje dla każdego żądania po uruchomieniu `UseSpaPrerendering` oprogramowanie pośredniczące, który został dodany do *uruchamiania* klasy. Dotyczy on odbieranie `params` z kodu platformy .NET (na przykład adres URL żądanego) i wykonywania wywołań do dyrektywy Angular SSR interfejsów API można pobrać wynikowy kod HTML. 
+Kod ten plik znajduje się co platformy ASP.NET Core wykonuje dla każdego żądania po uruchomieniu `UseSpaPrerendering` oprogramowanie pośredniczące, który został dodany do *uruchamiania* klasy. Dotyczy on odbieranie `params` z kodu platformy .NET (na przykład adres URL żądanego) i wykonywania wywołań do dyrektywy Angular SSR interfejsów API można pobrać wynikowy kod HTML.
 
 Ściśle mówiąc, jest wystarczające, aby umożliwić SSR w trybie projektowania. Należy zmienić jedną końcowego tak, aby aplikacja działa prawidłowo po opublikowaniu. W głównym aplikacji *.csproj* pliku, ustaw `BuildServerSideRenderer` wartości właściwości do `true`:
 

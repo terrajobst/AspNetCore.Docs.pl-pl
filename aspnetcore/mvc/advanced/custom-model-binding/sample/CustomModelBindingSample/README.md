@@ -1,6 +1,6 @@
 # <a name="custom-model-binding-demo"></a>Wersja demonstracyjna powiązania niestandardowego modelu
 
-Test `ByteArrayModelBinder` przez aplikację i przesyłanie ciąg kodowany w formacie base64, aby `ImageController` punktu końcowego (`/api/image/`). Określ proparties pliku i nazwa pliku w treści żądania jako dane formularza (przy użyciu [Postman](https://www.getpostman.com/) lub podobnego narzędzia). Można użyć [ten przykładowy ciąg](Base64String.txt). Wynik jest zapisywany w *wwwroot/obrazów/przekazywania* folder o określono nazwę pliku.
+Test `ByteArrayModelBinder` przez aplikację i przesyłanie ciąg kodowany w formacie base64, aby `ImageController` punktu końcowego (`/api/image/`). Określ właściwości pliku i nazwa pliku w treści żądania jako dane formularza (przy użyciu [Postman](https://www.getpostman.com/) lub podobnego narzędzia). Można użyć [ten przykładowy ciąg](Base64String.txt). Wynik jest zapisywany w *wwwroot/obrazów/przekazywania* folder o określono nazwę pliku.
 
 Aby przetestować przykład niestandardowego powiązania, spróbuj następujących punktów końcowych:
 
