@@ -1,55 +1,61 @@
-# <a name="adding-a-new-field"></a>Dodanie nowego pola
+<!-- This include not used by windows version -->
+# <a name="adding-a-new-field"></a><span data-ttu-id="73ec8-101">Dodanie nowego pola</span><span class="sxs-lookup"><span data-stu-id="73ec8-101">Adding a new field</span></span>
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+<span data-ttu-id="73ec8-102">przez [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="73ec8-102">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-W tym samouczku doda nowe pole do `Movies` tabeli. Firma Microsoft będzie porzucić bazy danych i utworzyć nową, możemy zmiany schematu (Dodaj nowe pole). Ten przepływ pracy działa dobrze w rozwoju, gdy nie mamy żadnych danych produkcyjnych perserve.
+<span data-ttu-id="73ec8-103">W tym samouczku doda nowe pole do `Movies` tabeli.</span><span class="sxs-lookup"><span data-stu-id="73ec8-103">This tutorial will add a new field to the `Movies` table.</span></span> <span data-ttu-id="73ec8-104">Firma Microsoft będzie porzucić bazy danych i utworzyć nową, możemy zmiany schematu (Dodaj nowe pole).</span><span class="sxs-lookup"><span data-stu-id="73ec8-104">We'll drop the database and create a new one when we change the schema (add a new field).</span></span> <span data-ttu-id="73ec8-105">Ten przepływ pracy działa dobrze w rozwoju, gdy nie mamy żadnych danych produkcyjnych perserve.</span><span class="sxs-lookup"><span data-stu-id="73ec8-105">This workflow works well early in development when we don't have any production data to perserve.</span></span>
 
-Po wdrożeniu aplikacji i dane potrzebne do perserve, nie można usunąć z bazy danych, jeśli należy zmienić schemat. Entity Framework [migracje Code First](/ef/core/get-started/aspnetcore/new-db) można aktualizować schematu i migrację bazy danych bez utraty danych. Migracje jest popularnych funkcji podczas używania programu SQL Server, ale SQLlite nie obsługuje wielu operacji schematu migracji, dlatego tylko bardzo prosty są możliwe do migracji. Zobacz [ograniczenia SQLite](/ef/core/providers/sqlite/limitations) Aby uzyskać więcej informacji.
+<span data-ttu-id="73ec8-106">Po wdrożeniu aplikacji i dane potrzebne do perserve, nie można usunąć z bazy danych, jeśli należy zmienić schemat.</span><span class="sxs-lookup"><span data-stu-id="73ec8-106">Once your app is deployed and you have data that you need to perserve, you can't drop your DB when you need to change the schema.</span></span> <span data-ttu-id="73ec8-107">Entity Framework [migracje Code First](/ef/core/get-started/aspnetcore/new-db) można aktualizować schematu i migrację bazy danych bez utraty danych.</span><span class="sxs-lookup"><span data-stu-id="73ec8-107">Entity Framework [Code First Migrations](/ef/core/get-started/aspnetcore/new-db) allows you to update your schema and migrate the database without losing data.</span></span> <span data-ttu-id="73ec8-108">Migracje jest popularnych funkcji podczas używania programu SQL Server, ale SQLlite nie obsługuje wielu operacji schematu migracji, dlatego tylko bardzo prosty są możliwe do migracji.</span><span class="sxs-lookup"><span data-stu-id="73ec8-108">Migrations is a popular feature when using SQL Server, but SQLlite doesn't support many migration schema operations, so only very simply migrations are possible.</span></span> <span data-ttu-id="73ec8-109">Zobacz [ograniczenia SQLite](/ef/core/providers/sqlite/limitations) Aby uzyskać więcej informacji.</span><span class="sxs-lookup"><span data-stu-id="73ec8-109">See [SQLite Limitations](/ef/core/providers/sqlite/limitations) for more information.</span></span>
 
-## <a name="adding-a-rating-property-to-the-movie-model"></a>Dodawanie właściwości klasyfikacji do modelu film
+## <a name="adding-a-rating-property-to-the-movie-model"></a><span data-ttu-id="73ec8-110">Dodawanie właściwości klasyfikacji do modelu film</span><span class="sxs-lookup"><span data-stu-id="73ec8-110">Adding a Rating Property to the Movie Model</span></span>
 
-Otwórz *Models/Movie.cs* plik i dodać `Rating` właściwości:
+<span data-ttu-id="73ec8-111">Otwórz *Models/Movie.cs* plik i dodać `Rating` właściwości:</span><span class="sxs-lookup"><span data-stu-id="73ec8-111">Open the *Models/Movie.cs* file and add a `Rating` property:</span></span>
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+::: moniker range=">= aspnetcore-2.1"
+<span data-ttu-id="73ec8-112">[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Models/MovieDateRating.cs?highlight=12&name=snippet)]</span><span class="sxs-lookup"><span data-stu-id="73ec8-112">[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Models/MovieDateRating.cs?highlight=12&name=snippet)]</span></span>
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+<span data-ttu-id="73ec8-113">[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]</span><span class="sxs-lookup"><span data-stu-id="73ec8-113">[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]</span></span>
+::: moniker-end
 
-Ponieważ zostały dodane nowe pole do `Movie` klasy, również należy zaktualizować powiązania listy dozwolonych, ta nowa właściwość zostanie uwzględniony. W *MoviesController.cs*, zaktualizuj `[Bind]` atrybutu dla obu `Create` i `Edit` metod akcji, aby uwzględnić `Rating` właściwości:
+<span data-ttu-id="73ec8-114">Ponieważ zostały dodane nowe pole do `Movie` klasy, również należy zaktualizować powiązania listy dozwolonych, ta nowa właściwość zostanie uwzględniony.</span><span class="sxs-lookup"><span data-stu-id="73ec8-114">Because you've added a new field to the `Movie` class, you also need to update the binding whitelist so this new property will be included.</span></span> <span data-ttu-id="73ec8-115">W *MoviesController.cs*, zaktualizuj `[Bind]` atrybutu dla obu `Create` i `Edit` metod akcji, aby uwzględnić `Rating` właściwości:</span><span class="sxs-lookup"><span data-stu-id="73ec8-115">In *MoviesController.cs*, update the `[Bind]` attribute for both the `Create` and `Edit` action methods to include the `Rating` property:</span></span>
 
 ```csharp
 [Bind("ID,Title,ReleaseDate,Genre,Price,Rating")]
    ```
 
-Możesz również konieczne aktualizacja szablonów widok, aby wyświetlić, tworzenia i edytowania nowe `Rating` właściwości w widoku przeglądarki.
+<span data-ttu-id="73ec8-116">Możesz również konieczne aktualizacja szablonów widok, aby wyświetlić, tworzenia i edytowania nowe `Rating` właściwości w widoku przeglądarki.</span><span class="sxs-lookup"><span data-stu-id="73ec8-116">You also need to update the view templates in order to display, create, and edit the new `Rating` property in the browser view.</span></span>
 
-Edytuj */Views/Movies/Index.cshtml* plik i dodać `Rating` pola:
+<span data-ttu-id="73ec8-117">Edytuj */Views/Movies/Index.cshtml* plik i dodać `Rating` pola:</span><span class="sxs-lookup"><span data-stu-id="73ec8-117">Edit the */Views/Movies/Index.cshtml* file and add a `Rating` field:</span></span>
 
-[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
 
-Aktualizacja */Views/Movies/Create.cshtml* z `Rating` pola.
+<span data-ttu-id="73ec8-118">Aktualizacja */Views/Movies/Create.cshtml* z `Rating` pola.</span><span class="sxs-lookup"><span data-stu-id="73ec8-118">Update the */Views/Movies/Create.cshtml* with a `Rating` field.</span></span>
 
-Aplikacja nie będzie działać, dopóki nie możemy zaktualizować bazę danych, aby uwzględnić nowe pole. Jeżeli możesz uruchomić go teraz, uzyskasz następujące `SqliteException`:
+<span data-ttu-id="73ec8-119">Aplikacja nie będzie działać, dopóki nie możemy zaktualizować bazę danych, aby uwzględnić nowe pole.</span><span class="sxs-lookup"><span data-stu-id="73ec8-119">The app won't work until we update the DB to include the new field.</span></span> <span data-ttu-id="73ec8-120">Jeżeli możesz uruchomić go teraz, uzyskasz następujące `SqliteException`:</span><span class="sxs-lookup"><span data-stu-id="73ec8-120">If you run it now, you'll get the following `SqliteException`:</span></span>
 
 ```
 SqliteException: SQLite Error 1: 'no such column: m.Rating'.
 ```
 
-Ten błąd jest wyświetlane, ponieważ zaktualizowane klasy modelu film jest inny niż schemat tabeli filmu istniejącej bazy danych. (Brak nie `Rating` kolumny w tabeli bazy danych.)
+<span data-ttu-id="73ec8-121">Ten błąd jest wyświetlane, ponieważ zaktualizowane klasy modelu film jest inny niż schemat tabeli filmu istniejącej bazy danych.</span><span class="sxs-lookup"><span data-stu-id="73ec8-121">You're seeing this error because the updated Movie model class is different than the schema of the Movie table of the existing database.</span></span> <span data-ttu-id="73ec8-122">(Brak nie `Rating` kolumny w tabeli bazy danych.)</span><span class="sxs-lookup"><span data-stu-id="73ec8-122">(There's no `Rating` column in the database table.)</span></span>
 
-Istnieje kilka sposobów rozwiązania problemu:
+<span data-ttu-id="73ec8-123">Istnieje kilka sposobów rozwiązania problemu:</span><span class="sxs-lookup"><span data-stu-id="73ec8-123">There are a few approaches to resolving the error:</span></span>
 
-1. Porzucenia bazy danych i ma automatycznie ponownie utworzyć bazę danych na podstawie nowego schematu klasy modelu Entity Framework. Z tej metody, utracisz istniejące dane w bazie danych, więc nie można tego zrobić z produkcyjną bazę danych! Automatycznie inicjatora bazy danych z danych testowych za pomocą inicjatora jest często produktywności możliwości opracowywania aplikacji.
+1. <span data-ttu-id="73ec8-124">Porzucenia bazy danych i ma automatycznie ponownie utworzyć bazę danych na podstawie nowego schematu klasy modelu Entity Framework.</span><span class="sxs-lookup"><span data-stu-id="73ec8-124">Drop the database and have the Entity Framework automatically re-create the database based on the new model class schema.</span></span> <span data-ttu-id="73ec8-125">Z tej metody, utracisz istniejące dane w bazie danych, więc nie można tego zrobić z produkcyjną bazę danych!</span><span class="sxs-lookup"><span data-stu-id="73ec8-125">With this approach, you lose existing data in the database — so you can't do this with a production database!</span></span> <span data-ttu-id="73ec8-126">Automatycznie inicjatora bazy danych z danych testowych za pomocą inicjatora jest często produktywności możliwości opracowywania aplikacji.</span><span class="sxs-lookup"><span data-stu-id="73ec8-126">Using an initializer to automatically seed a database with test data is often a productive way to develop an app.</span></span>
 
-2. Ręcznie zmodyfikować schemat z istniejącej bazy danych, tak aby był zgodny z klasy modelu. Zaletą tej metody jest, aby zachować dane. Można to zrobić to ręcznie lub przez tworzenie bazy danych należy zmienić skryptu.
+2. <span data-ttu-id="73ec8-127">Ręcznie zmodyfikować schemat z istniejącej bazy danych, tak aby był zgodny z klasy modelu.</span><span class="sxs-lookup"><span data-stu-id="73ec8-127">Manually modify the schema of the existing database so that it matches the model classes.</span></span> <span data-ttu-id="73ec8-128">Zaletą tej metody jest, aby zachować dane.</span><span class="sxs-lookup"><span data-stu-id="73ec8-128">The advantage of this approach is that you keep your data.</span></span> <span data-ttu-id="73ec8-129">Można to zrobić to ręcznie lub przez tworzenie bazy danych należy zmienić skryptu.</span><span class="sxs-lookup"><span data-stu-id="73ec8-129">You can make this change either manually or by creating a database change script.</span></span>
 
-3. Użyj migracje Code First, aby zaktualizować schemat bazy danych.
+3. <span data-ttu-id="73ec8-130">Użyj migracje Code First, aby zaktualizować schemat bazy danych.</span><span class="sxs-lookup"><span data-stu-id="73ec8-130">Use Code First Migrations to update the database schema.</span></span>
 
-W tym samouczku będziemy Porzuć i ponownie utworzyć bazę danych podczas zmiany schematu. W terminalu, aby usunąć bazę danych, uruchom następujące polecenie:
+<span data-ttu-id="73ec8-131">W tym samouczku będziemy Porzuć i ponownie utworzyć bazę danych podczas zmiany schematu.</span><span class="sxs-lookup"><span data-stu-id="73ec8-131">For this tutorial, we'll drop and re-create the database when the schema changes.</span></span> <span data-ttu-id="73ec8-132">W terminalu, aby usunąć bazę danych, uruchom następujące polecenie:</span><span class="sxs-lookup"><span data-stu-id="73ec8-132">Run the following command from a terminal to drop the db:</span></span>
 
 `dotnet ef database drop`
 
-Aktualizacja `SeedData` klasy, dzięki czemu zapewnia wartość dla nowej kolumny. Poniżej przedstawiono przykładowe zmiany, ale należy to zrobić dla każdego `new Movie`.
+<span data-ttu-id="73ec8-133">Aktualizacja `SeedData` klasy, dzięki czemu zapewnia wartość dla nowej kolumny.</span><span class="sxs-lookup"><span data-stu-id="73ec8-133">Update the `SeedData` class so that it provides a value for the new column.</span></span> <span data-ttu-id="73ec8-134">Poniżej przedstawiono przykładowe zmiany, ale należy to zrobić dla każdego `new Movie`.</span><span class="sxs-lookup"><span data-stu-id="73ec8-134">A sample change is shown below, but you'll want to make this change for each `new Movie`.</span></span>
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
-Dodaj `Rating` do `Edit`, `Details`, i `Delete` widoku.
+<span data-ttu-id="73ec8-135">Dodaj `Rating` do `Edit`, `Details`, i `Delete` widoku.</span><span class="sxs-lookup"><span data-stu-id="73ec8-135">Add the `Rating` field to the `Edit`, `Details`, and `Delete` view.</span></span>
 
-Uruchom aplikację i sprawdzić, można utworzyć/edycji/wyświetlania filmów `Rating` pola. Szablony.
+<span data-ttu-id="73ec8-136">Uruchom aplikację i sprawdzić, można utworzyć/edycji/wyświetlania filmów `Rating` pola.</span><span class="sxs-lookup"><span data-stu-id="73ec8-136">Run the app and verify you can create/edit/display movies with a `Rating` field.</span></span> <span data-ttu-id="73ec8-137">Szablony.</span><span class="sxs-lookup"><span data-stu-id="73ec8-137">templates.</span></span>
