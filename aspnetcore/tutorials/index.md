@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 9cd14a47a512c2a887614e617dd914dbdb25cb9d
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: 019224e86f1f5583ce0f212d8be70e8829274c7e
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34688442"
 ---
 # <a name="aspnet-core-tutorials"></a>Samouczki platformy ASP.NET Core
 
@@ -39,7 +40,7 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
 * [Rozpoczynanie pracy z platformą ASP.NET Core i programem Entity Framework Core przy użyciu programu Visual Studio](xref:data/ef-mvc/index)
 * [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
 * [Tworzenie prostego widoku składnika](xref:mvc/views/view-components#walkthrough-creating-a-simple-view-component)
-* [Tworzenie aplikacji platformy ASP.NET Core za pomocą czujki dotnet](xref:tutorials/dotnet-watch)
+* [Opracowywanie aplikacji przy użyciu pliku obserwatora](xref:tutorials/dotnet-watch)
 
 ## <a name="build-web-apis"></a>Tworzenie interfejsów API sieci Web
 * Tworzenie składnika Web API z platformy ASP.NET Core
@@ -49,13 +50,13 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
   * [Interfejs API sieci Web z programem Visual Studio Code](xref:tutorials/web-api-vsc)
 
 * [Strony pomocy dla interfejsu Web API platformy ASP.NET Core korzystające z programu Swagger](xref:tutorials/web-api-help-pages-using-swagger)
-  * [Rozpoczynanie pracy z NSwag](xref:tutorials/get-started-with-nswag)
-  * [Rozpoczynanie pracy z Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
+  * [Wprowadzenie do łańcucha narzędzi NSwag](xref:tutorials/get-started-with-nswag)
+  * [Wprowadzenie do pakietu Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
 
 * [Tworzenie zaplecza usługi sieci web do natywnej aplikacji mobilnych](xref:mobile/native-mobile-backend)
 
 ## <a name="data-access-and-storage"></a>Dostęp do danych i magazynu
-* [Wprowadzenie do stron Razor i podstawowe EF przy użyciu programu Visual Studio](xref:data/ef-rp/intro)
+* [Rozpoczynanie pracy ze stronami Razor i programem EF Core przy użyciu programu Visual Studio](xref:data/ef-rp/intro)
 * [Wprowadzenie do platformy ASP.NET MVC Core i Core EF przy użyciu programu Visual Studio](xref:data/ef-mvc/index)
 * [Platformy ASP.NET Core MVC podstawowych EF - nowej bazy danych](/ef/core/get-started/aspnetcore/new-db)
 * [Platformy ASP.NET Core MVC podstawowych EF - istniejącej bazy danych](/ef/core/get-started/aspnetcore/existing-db)

@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: e0bca48fcaa9a29847fdda714698ed8562d30707
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 397d8bf04abf6be811ad8c91d52565251ac61678
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688973"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Potwierdzenie konta i hasła odzyskiwania w ASP.NET Core
 
@@ -36,10 +37,23 @@ Zobacz [plik PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/security
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
+::: moniker range=">= aspnetcore-2.1"
+
+```console
+dotnet new webapp --auth Individual -o WebPWrecover
+cd WebPWrecover
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 ```console
 dotnet new razor --auth Individual -o WebPWrecover
 cd WebPWrecover
 ```
+
+::: moniker-end
 
 * `--auth Individual` Określa szablon projektu indywidualnych kont użytkowników.
 * W systemie Windows, należy dodać `-uld` opcji. Określa ona, że LocalDB powinna być używana zamiast funkcji SQLite.

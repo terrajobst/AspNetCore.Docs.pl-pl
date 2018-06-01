@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 336a097c2186bc195854bd54211d4554a577ed14
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: a021c1e133bac6676859f5bf8eb01f3a7a8c63ed
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34689051"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Adres URL ponowne zapisanie oprogramowania pośredniczącego w platformy ASP.NET Core
 
@@ -22,15 +23,16 @@ Przez [Luke Latham](https://github.com/guardrex) i [Mikael Mengistu](https://git
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 Ponowne zapisywanie adresów URL jest czynnością modyfikowania żądania, których adresy URL na podstawie co najmniej jeden wstępnie zdefiniowanych reguł. Ponowne zapisywanie adresów URL powoduje abstrakcję między lokalizacje zasobów i ich adresów, tak aby lokalizacje i adresy nie są ściśle powiązane. Istnieje kilka scenariuszy, w których jest przydatna ponowne zapisywanie adresów URL:
-* Przenoszenie lub zastępowanie tymczasowo lub trwale zasoby serwera przy zachowaniu stabilna lokalizatorów dla tych zasobów
-* Dzielenie żądania przetwarzania różnych aplikacji lub obszarów jednej aplikacji
-* Usuwanie, dodając lub reorganizacja segmenty adresu URL na przychodzące żądania
-* Optymalizacja publiczne adresy URL do optymalizacji aparatu wyszukiwania (SEO)
-* Pozwalające na używanie przyjaznych adresów URL publiczne, ułatwiające osobom prognozowania zawartość, którą znajdą, wykonując następujące łącze
-* Przekierowywanie żądań niezabezpieczonego do bezpiecznego punkty końcowe
-* Zapobieganie hotlinking obrazu
 
-Można zdefiniować reguły zmiana adresu URL na kilka sposobów, łącznie z wyrażenia regularnego, Apache mod_rewrite modułu zasad, zasady przepisywania moduł usług IIS i przy użyciu reguły niestandardowej logiki. Ten dokument zawiera instrukcje dotyczące sposobu używania pośredniczącym ponowne zapisywanie adresów URL w aplikacji platformy ASP.NET Core ponowne zapisywanie adresów URL.
+* Przenoszenie lub zastępowanie tymczasowo lub trwale zasoby serwera przy zachowaniu stabilna lokalizatorów dla tych zasobów.
+* Dzielenie żądania przetwarzania różnych aplikacji lub obszarów jedną aplikację.
+* Usuwanie, dodając lub reorganizacja segmenty adresu URL na żądań przychodzących.
+* Optymalizacja publiczne adresy URL do optymalizacji aparatu wyszukiwania (SEO).
+* Pozwalające na używanie przyjaznych adresów URL publiczne, ułatwiające osobom prognozowania zawartość, którą znajdą, wykonując następujące łącze.
+* Przekierowywanie żądań niezabezpieczonego do bezpiecznego punktów końcowych.
+* Zapobieganie hotlinking obrazu.
+
+Można zdefiniować reguły zmiana adresu URL na kilka sposobów, łącznie z wyrażenia regularnego Apache mod_rewrite modułu zasad, zasady przepisywania moduł usług IIS i przy użyciu reguły niestandardowej logiki. Ten dokument zawiera instrukcje dotyczące sposobu używania pośredniczącym ponowne zapisywanie adresów URL w aplikacji platformy ASP.NET Core ponowne zapisywanie adresów URL.
 
 > [!NOTE]
 > Ponowne zapisywanie adresów URL może zmniejszyć wydajność aplikacji. W przypadku, gdy jest to możliwe, należy ograniczyć liczba i złożoność reguł.
@@ -127,8 +129,8 @@ Część wyrażenia umieszczone w nawiasach jest nazywana *grupy przechwytywania
 
 W ciągu zastępowania przechwyconej grupy są wstrzykiwane do ciągu z znak dolara (`$`) wraz z numerem sekwencji przechwytywania. Pierwsza wartość grupy przechwytywania są uzyskiwane z `$1`, druga z `$2`, i kontynuują w sekwencji dla grup przechwytywania w Twojej wyrażenia regularnego. Tylko jedna grupa przechwyconych regex reguły przekierowania w jest przykładowej aplikacji, tak aby tylko jedna grupa wprowadzony w ciągu zastępowania, która jest `$1`. Reguła jest stosowana, adres URL staje się `/redirected/1234/5678`.
 
-<a name="url-redirect-to-secure-endpoint"></a>
 ### <a name="url-redirect-to-a-secure-endpoint"></a>Adres URL przekierowania do bezpiecznego punktu końcowego
+
 Użyj `AddRedirectToHttps` przekierowywania żądań HTTP do tego samego hosta i ścieżkę przy użyciu protokołu HTTPS (`https://`). Jeśli kod stanu nie jest podany, oprogramowanie pośredniczące domyślnie 302 (Found). Jeśli port nie jest podany, oprogramowanie pośredniczące domyślnie `null`, co oznacza, że protokół zmienia się na `https://` i klient uzyskuje dostęp do zasobów na porcie 443. W przykładzie przedstawiono sposób ustawić kod stanu 301 (trwale przeniesiona) i zmień numer portu na 5001.
 
 ```csharp
@@ -153,13 +155,16 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-Przykładowa aplikacja jest w stanie pokazuje sposób użycia `AddRedirectToHttps` lub `AddRedirectToHttpsPermanent`. Dodaj metodę rozszerzenie do `RewriteOptions`. Wprowadź niezabezpieczonego żądania do aplikacji na dowolny adres URL. Zignoruj ostrzeżenie niezaufany certyfikat z podpisem własnym zabezpieczeń przeglądarki.
+> [!NOTE]
+> Podczas przekierowywania HTTPS na porcie 443 bez potrzeby przekierowania dodatkowe reguły, firma Microsoft zaleca używanie oprogramowania pośredniczącego przekierowania protokołu HTTPS. Aby uzyskać więcej informacji, zobacz [wymusić HTTPS](xref:security/enforcing-ssl#require-https) tematu.
 
-Oryginalnego żądania przy użyciu `AddRedirectToHttps(301, 5001)`: `/secure`
+Przykładowa aplikacja jest w stanie pokazuje sposób użycia `AddRedirectToHttps` lub `AddRedirectToHttpsPermanent`. Dodaj metodę rozszerzenie do `RewriteOptions`. Wprowadź niezabezpieczonego żądania do aplikacji na dowolny adres URL. Odrzucić zabezpieczeń przeglądarki ostrzeżenie niezaufany certyfikat z podpisem własnym lub utworzyć wyjątek dotyczący ufać certyfikatowi.
+
+Oryginalnego żądania przy użyciu `AddRedirectToHttps(301, 5001)`: `http://localhost:5000/secure`
 
 ![Okno przeglądarki z narzędzi deweloperskich śledzenia żądań i odpowiedzi](url-rewriting/_static/add_redirect_to_https.png)
 
-Oryginalnego żądania przy użyciu `AddRedirectToHttpsPermanent`: `/secure`
+Oryginalnego żądania przy użyciu `AddRedirectToHttpsPermanent`: `http://localhost:5000/secure`
 
 ![Okno przeglądarki z narzędzi deweloperskich śledzenia żądań i odpowiedzi](url-rewriting/_static/add_redirect_to_https_permanent.png)
 
@@ -254,6 +259,7 @@ Oryginalne żądanie: `/apache-mod-rules-redirect/1234`
 ##### <a name="supported-server-variables"></a>Zmienne serwera obsługiwanych
 
 Oprogramowanie pośredniczące obsługuje następujące zmienne serwera Apache mod_rewrite:
+
 * CONN_REMOTE_ADDR
 * HTTP_ACCEPT
 * HTTP_CONNECTION
@@ -325,6 +331,7 @@ Jeśli masz aktywnego modułu ponownego zapisywania usług IIS skonfigurowanych 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Oprogramowanie pośredniczące zwolnione z platformy ASP.NET Core 2.x nie obsługuje następujące funkcje moduł ponowne zapisywanie adresów URL usług IIS:
+
 * Reguły ruchu wychodzącego
 * Zmienne serwera niestandardowego
 * Symbole wieloznaczne
@@ -333,6 +340,7 @@ Oprogramowanie pośredniczące zwolnione z platformy ASP.NET Core 2.x nie obsłu
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Oprogramowanie pośredniczące zwolnione z platformy ASP.NET Core 1.x nie obsługuje następujące funkcje moduł ponowne zapisywanie adresów URL usług IIS:
+
 * Globalne zasady
 * Reguły ruchu wychodzącego
 * Ponownego zapisywania map
@@ -347,6 +355,7 @@ Oprogramowanie pośredniczące zwolnione z platformy ASP.NET Core 1.x nie obsłu
 #### <a name="supported-server-variables"></a>Zmienne serwera obsługiwanych
 
 Oprogramowanie pośredniczące obsługuje następujące zmienne serwera moduł ponowne zapisywanie adresów URL usług IIS:
+
 * CONTENT_LENGTH
 * TYP_ZAWARTOŚCI
 * HTTP_ACCEPT

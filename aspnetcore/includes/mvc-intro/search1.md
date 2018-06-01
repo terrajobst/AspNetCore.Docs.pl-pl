@@ -6,10 +6,10 @@ W tej sekcji możesz dodać możliwości wyszukiwania do `Index` metody akcji, k
 
 Aktualizacja `Index` metodę z następującym kodem:
 <!--
-[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 -->
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
 
 W pierwszym wierszu `Index` tworzy metody akcji [LINQ](/dotnet/standard/using-linq) zapytanie, aby wybrać filmy:
 
@@ -22,7 +22,7 @@ Zapytanie jest *tylko* zdefiniowane w tym momencie, ma **nie** zostały uruchomi
 
 Jeśli `searchString` parametru zawiera ciąg, filmy zapytania są modyfikowane w celu filtrowania wartość ciągu wyszukiwania:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull2)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull2)]
 
 `s => s.Title.Contains()` Kod powyżej [wyrażenia Lambda](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Wyrażenia lambda są używane w oparte na metodzie [LINQ](/dotnet/standard/using-linq) wysyła zapytanie jako argumenty do metod operator standardowej kwerendy, takich jak [gdzie](/dotnet/api/system.linq.enumerable.where) metody lub `Contains` (używane w powyższym kodzie). Zapytania LINQ nie są wykonywane podczas definiowania lub są one zmienione przez wywołanie metody, takie jak `Where`, `Contains` lub `OrderBy`. Zamiast wykonywania zapytania została odroczona.  Oznacza to, że obliczania wyrażenia jest opóźnione aż do jej wartość rzeczywista jest rzeczywiście iterowane za pośrednictwem lub `ToListAsync` metoda jest wywoływana. Aby uzyskać więcej informacji na temat wykonywania zapytań odroczonych, zobacz [wykonywania zapytania](/dotnet/framework/data/adonet/ef/language-reference/query-execution).
 
@@ -30,8 +30,8 @@ Uwaga: [zawiera](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.
 
 Przejdź do `/Movies/Index`. Dołącz ciąg zapytania, takie jak `?searchString=Ghost` do adresu URL. Filtrowane filmów są wyświetlane.
 
-![Widok indeksu](../../tutorials/first-mvc-app/search/_static/ghost.png)
+![Widok indeksu](~/tutorials/first-mvc-app/search/_static/ghost.png)
 
 Jeśli zmienisz podpis `Index` metoda ma parametr o nazwie `id`, `id` parametr będzie odpowiadać opcjonalny `{id}` symbolu zastępczego dla domyślnej kieruje zestawu w *Startup.cs*.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]

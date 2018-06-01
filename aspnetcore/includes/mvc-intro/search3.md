@@ -1,21 +1,21 @@
 <!--
-[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull)]
 
-![Index view](../../tutorials/first-mvc-app/search/_static/ghost.png)
+![Index view](~/tutorials/first-mvc-app/search/_static/ghost.png)
 
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]
 
 --> 
 
 Teraz podczas przesyłania wyszukiwania adres URL zawiera ciąg zapytania wyszukiwania. Wyszukiwanie będzie także przejść do `HttpGet Index` metody akcji, nawet jeśli masz `HttpPost Index` metody.
 
-![Okno przeglądarki, przedstawiające parametru Wyszukiwany_ciąg = widma w adres Url i zwracany, filmy Ghostbusters i Ghostbusters 2 zawierają widma programu word](../../tutorials/first-mvc-app/search/_static/search_get.png)
+![Okno przeglądarki, przedstawiające parametru Wyszukiwany_ciąg = widma w adres Url i zwracany, filmy Ghostbusters i Ghostbusters 2 zawierają widma programu word](~/tutorials/first-mvc-app/search/_static/search_get.png)
 
 Następujący kod przedstawia zmiany `form` tagu:
 
@@ -27,7 +27,7 @@ Następujący kod przedstawia zmiany `form` tagu:
 
 Dodaj następujące `MovieGenreViewModel` klasy do *modele* folderu:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieGenreViewModel.cs)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieGenreViewModel.cs)]
 
 Model widoku genre film będzie zawierać:
 
@@ -37,11 +37,11 @@ Model widoku genre film będzie zawierać:
 
 Zastąp `Index` metoda `MoviesController.cs` następującym kodem:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchGenre)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchGenre)]
 
 Następujący kod jest `LINQ` kwerendę, która pobiera wszystkie genres z bazy danych.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_LINQ)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_LINQ)]
 
 `SelectList` Gatunkami muzyki jest tworzony przez projekcji różne gatunki (nie chcemy naszej listy wyboru mają zduplikowane genres).
 
@@ -53,7 +53,7 @@ movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())
 
 Aktualizacja `Index.cshtml` w następujący sposób:
 
-[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexFormGenreNoRating.cshtml?highlight=1,15,16,17,28,31,34,37,43)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexFormGenreNoRating.cshtml?highlight=1,15,16,17,28,31,34,37,43)]
 
 Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
 

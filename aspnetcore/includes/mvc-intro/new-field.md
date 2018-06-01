@@ -1,3 +1,4 @@
+<!-- This include not used by windows version -->
 # <a name="adding-a-new-field"></a>Dodanie nowego pola
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
@@ -10,7 +11,12 @@ Po wdrożeniu aplikacji i dane potrzebne do perserve, nie można usunąć z bazy
 
 Otwórz *Models/Movie.cs* plik i dodać `Rating` właściwości:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Models/MovieDateRating.cs?highlight=12&name=snippet)]
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+::: moniker-end
 
 Ponieważ zostały dodane nowe pole do `Movie` klasy, również należy zaktualizować powiązania listy dozwolonych, ta nowa właściwość zostanie uwzględniony. W *MoviesController.cs*, zaktualizuj `[Bind]` atrybutu dla obu `Create` i `Edit` metod akcji, aby uwzględnić `Rating` właściwości:
 
@@ -22,7 +28,7 @@ Możesz również konieczne aktualizacja szablonów widok, aby wyświetlić, two
 
 Edytuj */Views/Movies/Index.cshtml* plik i dodać `Rating` pola:
 
-[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
 
 Aktualizacja */Views/Movies/Create.cshtml* z `Rating` pola.
 
@@ -48,7 +54,7 @@ W tym samouczku będziemy Porzuć i ponownie utworzyć bazę danych podczas zmia
 
 Aktualizacja `SeedData` klasy, dzięki czemu zapewnia wartość dla nowej kolumny. Poniżej przedstawiono przykładowe zmiany, ale należy to zrobić dla każdego `new Movie`.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
 Dodaj `Rating` do `Edit`, `Details`, i `Delete` widoku.
 

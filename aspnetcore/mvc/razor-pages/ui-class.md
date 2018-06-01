@@ -10,17 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: advanced
 uid: mvc/razor-pages/ui-class
-ms.openlocfilehash: 44091ab8ab5d69a5975e191fd00fca1d1d957238
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: b6658186adf5ccd74e1d0f0e925627f50bad250c
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34687554"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Utwórz wielokrotnego użytku interfejsu użytkownika przy użyciu projektu biblioteki klas Razor w ASP.NET Core.
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Widokami razor, strony, kontrolerów, strona modeli i modeli danych mogą być wbudowane w bibliotece klas Razor (RCL). RCL można umieszczone i użyć ponownie. Aplikacje można obejmują RCL i zastąpić widoków i stron, które zawiera. Gdy widok, widok częściowy lub Razor strony nie został znaleziony w aplikacji sieci web i RCL, znaczników Razor (*.cshtml* pliku) w sieci web, pierwszeństwo ma aplikacja.
+Widokami razor, stron, kontrolerów, modeli strony [wyświetlić składniki](xref:mvc/views/view-components), i modeli danych mogą być wbudowane w bibliotece klas Razor (RCL). RCL można umieszczone i użyć ponownie. Aplikacje można obejmują RCL i zastąpić widoków i stron, które zawiera. Gdy widok, widok częściowy lub Razor strony nie został znaleziony w aplikacji sieci web i RCL, znaczników Razor (*.cshtml* pliku) w sieci web, pierwszeństwo ma aplikacja.
 
 Ta funkcja wymaga [!INCLUDE[](~/includes/2.1-SDK.md)]
 
@@ -188,8 +189,8 @@ Uruchom aplikację.
 
 Tworzenie aplikacji sieci web Razor strony i plik rozwiązania zawierający stron Razor aplikacji i biblioteki klas Razor:
 
-``` CLI
-dotnet new razor -o WebApp1
+```console
+dotnet new webapp -o WebApp1
 dotnet new sln
 dotnet sln add WebApp1
 dotnet sln add RazorUIClassLib
@@ -198,12 +199,12 @@ dotnet add WebApp1 reference RazorUIClassLib
 
 Tworzenie i uruchamianie aplikacji sieci web:
 
-``` CLI
+```console
 cd WebApp1
 dotnet run
 ```
 
-------
+---
 
 <a name="test"></a>
 

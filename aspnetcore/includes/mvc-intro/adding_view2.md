@@ -1,14 +1,14 @@
 Zastąp zawartość *Views/HelloWorld/Index.cshtml* pliku widoku Razor z następujących czynności:
 
-[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
 
 Przejdź do `http://localhost:xxxx/HelloWorld`. `Index` Metody w `HelloWorldController` nie zrobić wiele; napotkał instrukcji `return View();`, który określony metody należy użyć pliku szablonu widoku do renderowania odpowiedzi do przeglądarki. Ponieważ nie został jawnie określić nazwę pliku szablonu widoku, MVC używa domyślnie *Index.cshtml* pliku widoku w */widoków/HelloWorld* folderu. Na poniższym obrazie pokazano ciąg "Hello z naszych szablonu widoku!" ustalony w widoku.
 
-![Okno przeglądarki](../../tutorials/first-mvc-app/adding-view/_static/hell_template.png)
+![Okno przeglądarki](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
 Jeśli okno przeglądarki jest mały (na przykład na urządzeniu przenośnym), może być konieczne przełączania (tap) [przycisk nawigacji Bootstrap](http://getbootstrap.com/components/#navbar) w prawym górnym rogu, aby wyświetlić **Home**, **o**, i **skontaktuj się z** łącza.
 
-![Wyróżnianie przycisk nawigacji Bootstrap okna przeglądarki](../../tutorials/first-mvc-app/adding-view/_static/1.png)
+![Wyróżnianie przycisk nawigacji Bootstrap okna przeglądarki](~/tutorials/first-mvc-app/adding-view/_static/1.png)
 
 ## <a name="changing-views-and-layout-pages"></a>Zmiana widoków i układ strony
 
@@ -20,16 +20,21 @@ Wybierz z menu łączy (**MvcMovie**, **Home**, **o**). Każda strona zawiera te
 
 W elemencie tytuł zmienić `MvcMovie` do `Movie App`. Zmień tekst zakotwiczenia w szablon układu z `MvcMovie` do `Movie App` i kontroler z `Home` do `Movies` jak wyróżniono poniżej:
 
-Uwaga: Wersja platformy ASP.NET Core 2.0 jest nieco inne. Nie zawiera on `@inject ApplicationInsights` i `@Html.Raw(JavaScriptSnippet.FullScript)`.
+::: moniker range="<= aspnetcore-2.0"
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
-[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=6,29)]
+::: moniker-end
 
 >[!WARNING]
 > Firma Microsoft nie zaimplementował `Movies` jeszcze kontrolera, dlatego możesz kliknąć łącze, zostanie wyświetlony błąd 404 (nie znaleziono).
 
 Zapisz zmiany, a następnie naciśnij pozycję **o** łącza. Zwróć uwagę, jak tytuł na karcie przeglądarki są obecnie wyświetlane **o - Movie App** zamiast **o - Mvc Movie**: 
 
-![O karcie](../../tutorials/first-mvc-app/adding-view/_static/about2.png)
+![O karcie](~/tutorials/first-mvc-app/adding-view/_static/about2.png)
 
 Wybierz **skontaktuj się z** link i zwróć uwagę tekstu tytułu i zakotwiczenia również wyświetlić **Movie App**. Udało się zmienić raz w szablonie układ i mieć wszystkich stron w witrynie uwzględniać nowy tekst łącza i nowy tytuł.
 
@@ -75,7 +80,7 @@ Zapisz zmiany i przejdź do `http://localhost:xxxx/HelloWorld`. Należy zauważy
 
 Należy również zauważyć, jak zawartości w *Index.cshtml* Wyświetl szablon został scalony z *Views/Shared/_Layout.cshtml* szablon widoku i pojedynczą odpowiedź HTML był wysyłany do przeglądarki. Szablony układu ułatwiają naprawdę wprowadzić zmiany, które są stosowane dla wszystkich stron w aplikacji. Aby dowiedzieć się więcej, zobacz [układu](xref:mvc/views/layout).
 
-![Widok listy filmów](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+![Widok listy filmów](~/tutorials/first-mvc-app/adding-view/_static/hell3.png)
 
 Nasze niewielki "data" (w tym przypadku "Hello z naszych szablonu widoku!" komunikat) jest ustalony, mimo że. Aplikacji MVC ma "V" (Widok) i masz "C" (kontroler), ale nie "M" (model) jeszcze.
 
@@ -89,7 +94,7 @@ Obecnie `Welcome` metody w `HelloWorldController` klasy przyjmuje `name` i `ID` 
 
 Wróć do *HelloWorldController.cs* plików i zmień `Welcome` metody w celu dodania `Message` i `NumTimes` do wartości `ViewData` słownika. `ViewData` Słownik jest obiekt dynamiczny, co oznacza, które można wprowadzić dowolne; `ViewData` obiekt nie ma zdefiniowanej właściwości dopóki coś wewnątrz put. [System powiązanie modelu MVC](xref:mvc/models/model-binding) automatycznie mapuje nazwane parametry (`name` i `numTimes`) z ciągu zapytania w pasku adresu w parametrach w metodę. Pełną *HelloWorldController.cs* pliku wygląda następująco:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
 `ViewData` Obiekt słownika zawiera dane, które zostaną przekazane do widoku. 
 
@@ -97,7 +102,7 @@ Tworzenie szablonu powitalnej widok o nazwie *Views/HelloWorld/Welcome.cshtml*.
 
 Utworzysz pętli w *Welcome.cshtml* szablon widoku, który zawiera "tekst Hello" `NumTimes`. Zastąp zawartość *Views/HelloWorld/Welcome.cshtml* następującym kodem:
 
-[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
 
 Zapisz zmiany i przejdź do następującego adresu URL:
 
@@ -105,7 +110,7 @@ Zapisz zmiany i przejdź do następującego adresu URL:
 
 Dane są pobierane z adresu URL i przekazywane do kontrolera przy użyciu [integratora modelu MVC](xref:mvc/models/model-binding) . Kontroler pakiety danych w `ViewData` słownika i przekazuje, które obiekt do widoku. Widok następnie renderuje dane jako HTML do przeglądarki.
 
-![Widok pokazujący powitalnej etykiety i frazy Hello Rick przedstawiono cztery razy — informacje](../../tutorials/first-mvc-app/adding-view/_static/rick2.png)
+![Widok pokazujący powitalnej etykiety i frazy Hello Rick przedstawiono cztery razy — informacje](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
 W powyższym przykładzie użyliśmy `ViewData` słownika do przekazywania danych z kontrolera do widoku. Później w samouczku używamy model widoku do przekazywania danych z kontrolera do widoku. Podejście modelu widoku do przekazywania danych jest zwykle znacznie preferowany nad `ViewData` podejście słownika. Zobacz [ViewModel vs vs ViewData vs obiekt ViewBag TempData vs sesji na platformie MVC](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc) Aby uzyskać więcej informacji.
 

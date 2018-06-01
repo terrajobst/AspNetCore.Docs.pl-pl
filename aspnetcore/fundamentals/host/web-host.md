@@ -10,23 +10,24 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/host/web-host
-ms.openlocfilehash: ced2a766359894b9b83164c12a3ab69aa13c93a0
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: ce95599ec8e940635ca63c3bf9a3c28784a3f371
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34687493"
 ---
 # <a name="aspnet-core-web-host"></a>Host sieci Web platformy ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-Aplikacje platformy ASP.NET Core skonfigurować i uruchomić *hosta*. Host jest odpowiedzialny za zarządzanie uruchamiania i okresem istnienia aplikacji. Co najmniej hosta konfiguruje serwer i potoku przetwarzania żądań. W tym temacie omówiono hosta sieci Web platformy ASP.NET Core ([WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)), co jest przydatne do obsługi aplikacji sieci web. Pokrycia hosta ogólnego .NET ([HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder)), zobacz [rodzajowego hosta](xref:fundamentals/host/generic-host) tematu.
+Aplikacje platformy ASP.NET Core skonfigurować i uruchomić *hosta*. Host jest odpowiedzialny za zarządzanie uruchamiania i okresem istnienia aplikacji. Co najmniej hosta konfiguruje serwer i potoku przetwarzania żądań. W tym temacie omówiono hosta sieci Web platformy ASP.NET Core ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)), co jest przydatne do obsługi aplikacji sieci web. Pokrycia hosta ogólnego .NET ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), zobacz [rodzajowego hosta](xref:fundamentals/host/generic-host) tematu.
 
 ## <a name="set-up-a-host"></a>Konfigurowanie hosta
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-Utwórz hosta za pomocą wystąpienia [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder). Jest to najczęściej wykonywane w punkcie wejścia aplikacji, `Main` metody. W szablonach projektu `Main` znajduje się w *Program.cs*. Typowe *Program.cs* wywołania [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) do rozpoczęcia konfigurowania hosta:
+Utwórz hosta za pomocą wystąpienia [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Jest to najczęściej wykonywane w punkcie wejścia aplikacji, `Main` metody. W szablonach projektu `Main` znajduje się w *Program.cs*. Typowe *Program.cs* wywołania [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) do rozpoczęcia konfigurowania hosta:
 
 ```csharp
 public class Program
@@ -44,12 +45,12 @@ public class Program
 
 `CreateDefaultBuilder` wykonuje następujące zadania:
 
-* Konfiguruje [Kestrel](xref:fundamentals/servers/kestrel) jako serwera sieci web. Aby Kestrel domyślnych opcji, zobacz [Kestrel opcje sekcji Kestrel implementacja serwera sieci web platformy ASP.NET Core](xref:fundamentals/servers/kestrel#kestrel-options).
+* Konfiguruje [Kestrel](xref:fundamentals/servers/kestrel) jako serwera sieci web i konfiguruje serwer przy użyciu dostawcy hostingu konfiguracji aplikacji. Aby Kestrel domyślnych opcji, zobacz [Kestrel opcje sekcji Kestrel implementacja serwera sieci web platformy ASP.NET Core](xref:fundamentals/servers/kestrel#kestrel-options).
 * Ustawia głównego zawartości w ścieżce zwracanej przez [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
-* Konfiguracja opcjonalna obciążeń z:
+* Opcjonalne obciążeń [wartości IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) od:
   * *appsettings.json*.
   * *appSettings. {Środowiska} JSON*.
-  * [Klucze tajne użytkownika](xref:security/app-secrets) po uruchomieniu aplikacji `Development` środowiska.
+  * [Klucze tajne użytkownika](xref:security/app-secrets) po uruchomieniu aplikacji `Development` środowiska przy użyciu zestawu wpisu.
   * Zmienne środowiskowe.
   * Argumenty wiersza polecenia.
 * Konfiguruje [rejestrowanie](xref:fundamentals/logging/index) dla danych wyjściowych konsoli i debugowania. Dostęp do rejestrów uwzględniających [filtrowania dziennika](xref:fundamentals/logging/index#log-filtering) reguły określone w sekcji konfiguracji rejestrowania *appsettings.json* lub *appsettings. { Środowisko} JSON* pliku.

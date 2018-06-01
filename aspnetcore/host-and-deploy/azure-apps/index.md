@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 9e438cef9db61e725b5385da53e8aa2b407218c3
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 4cf81a3e269500a5108f280348fbddd172df10a0
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34687506"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Host platformy ASP.NET Core w usłudze aplikacji Azure
 
@@ -103,25 +104,29 @@ Jeśli wystąpi problem przy użyciu rozszerzenia lokacji wersji zapoznawczej, o
 
 ### <a name="install-the-preview-site-extension"></a>Zainstaluj rozszerzenie lokacji wersji zapoznawczej
 
-* W portalu Azure przejdź do bloku usługi aplikacji.
-* Wprowadź "ex" w polu wyszukiwania.
-* Wybierz **rozszerzenia**.
-* Wybierz opcję "Dodaj".
+1. W portalu Azure przejdź do bloku usługi aplikacji.
+1. Wybierz aplikację sieci web.
+1. W polu wyszukiwania wprowadź "ex" lub przewiń w dół listy okienka zarządzania do **narzędzi PROGRAMISTYCZNYCH**.
+1. Wybierz **narzędzi PROGRAMISTYCZNYCH** > **rozszerzenia**.
+1. Wybierz **dodać**.
 
-![Azure bloku aplikacji z poprzednich krokach](index/_static/x1.png)
+   ![Azure bloku aplikacji z poprzednich krokach](index/_static/x1.png)
 
-* Wybierz **środowiska wykonawczego platformy ASP.NET Core 2.1 (x 86)** lub **środowiska wykonawczego platformy ASP.NET Core 2.1 (x 64)**.
-* Wybierz **OK**. Wybierz **OK** ponownie.
+1. Wybierz **rozszerzeń platformy ASP.NET Core**.
+1. Wybierz **OK** zaakceptować postanowienia prawne.
+1. Wybierz **OK** do zainstalowania rozszerzenia.
 
-Po ukończeniu operacji dodawania, jest zainstalowana w najnowszej wersji zapoznawczej .NET Core 2.1. Weryfikowanie instalacji przez uruchomienie `dotnet --info` w konsoli. Z **usługi aplikacji** bloku:
+Po ukończeniu operacji dodawania, jest zainstalowana w najnowszej wersji zapoznawczej .NET Core. Weryfikowanie instalacji przez uruchomienie `dotnet --info` w konsoli. Z **usługi aplikacji** bloku:
 
-* Wprowadź "con", w polu wyszukiwania.
-* Wybierz **konsoli**.
-* Wprowadź `dotnet --info` w konsoli.
+1. Wprowadź "con" w polu wyszukiwania lub przewiń w dół listę okienka zarządzania do **narzędzi PROGRAMISTYCZNYCH**.
+1. Wybierz **narzędzi PROGRAMISTYCZNYCH** > **konsoli**.
+1. Wprowadź `dotnet --info` w konsoli.
+
+Jeśli wersja `2.1.300-preview1-008174` jest najnowszej wersji zapoznawczej następujące dane wyjściowe są uzyskiwane przez uruchomienie `dotnet --info` w wierszu polecenia:
 
 ![Azure bloku aplikacji z poprzednich krokach](index/_static/cons.png)
 
-Obraz poprzedniego były aktualne w momencie to zostało zapisane. Może pojawić się innej wersji.
+Wersja platformy ASP.NET Core pokazano na powyższej ilustracji `2.1.300-preview1-008174`, jest przykładem. Najnowszej wersji wstępnej programu ASP.NET Core w czasie skonfigurowano rozszerzenie lokacji pojawia się podczas wykonywania `dotnet --info`.
 
 `dotnet --info` Wyświetla ścieżkę do rozszerzenia lokacji, w których została zainstalowana wersja zapoznawcza. Pokazuje, aplikacja zostanie uruchomiona z rozszerzenia lokacji zamiast z domyślnej *ProgramFiles* lokalizacji. Jeśli widzisz *ProgramFiles*, należy ponownie uruchomić witrynę i uruchomić `dotnet --info`.
 
@@ -142,7 +147,7 @@ Samodzielne aplikacje są opcję dla wszystkich aplikacji platformy ASP.NET Core
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Użyj Docker z aplikacjami sieci Web dla kontenerów
 
-[Centrum Docker](https://hub.docker.com/r/microsoft/aspnetcore/) zawiera najnowsze obrazy Docker 2.1 podglądu. Obrazy mogą służyć jako obrazu podstawowego. Użyć obrazu i wdrażania aplikacji sieci Web dla kontenerów normalnie.
+[Centrum Docker](https://hub.docker.com/r/microsoft/aspnetcore/) zawiera najnowsze obrazy usługi Docker w wersji preview. Obrazy mogą służyć jako obrazu podstawowego. Użyć obrazu i wdrażania aplikacji sieci Web dla kontenerów normalnie.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

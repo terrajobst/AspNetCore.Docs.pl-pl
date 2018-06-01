@@ -9,27 +9,40 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 4204d4e2d474db51692d42751a9f82373e9f0c0d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 802cb458cb05579b97256022b56d6f97a03d2f1a
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34687795"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodaj model do aplikacji platformy ASP.NET Core MVC
 
-[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model1.md)]
-
-Uwaga: Szablony ASP.NET Core 2.0 zawierają *modele* folderu.
+[!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model1.md)]
 
 Kliknij prawym przyciskiem myszy *modele* folder > **Dodaj** > **klasy**. Nazwa klasy **film** i dodaj następujące właściwości:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
 
 `ID` Pole jest wymagane przez bazę danych dla klucza podstawowego. 
 
 Skompiluj projekt, aby sprawdzić, czy nie zawiera błędów. Masz teraz **M**odelu w Twojej **M**VC aplikacji.
 
 ## <a name="scaffolding-a-controller"></a>Tworzenia szkieletu kontrolera
+
+::: moniker range=">= aspnetcore-2.1"
+
+W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *kontrolerów* folderu **> Dodaj > Nowy element szkieletu**.
+
+![Widok powyżej kroku](adding-model/_static/add_controller21.png)
+
+W **Dodawanie szkieletu** okno dialogowe, naciśnij **kontroler MVC z widokami używający narzędzia Entity Framework > Dodaj**.
+
+![Dodawanie szkieletu okna dialogowego](adding-model/_static/add_scaffold21.png)
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
 
 W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *kontrolerów* folderu **> Dodaj > kontrolera**.
 
@@ -43,6 +56,8 @@ Jeśli **Dodaj zależności MVC** zostanie wyświetlone okno dialogowe:
 W **Dodawanie szkieletu** okno dialogowe, naciśnij **kontroler MVC z widokami używający narzędzia Entity Framework > Dodaj**.
 
 ![Dodawanie szkieletu okna dialogowego](adding-model/_static/add_scaffold2.png)
+
+::: moniker-end
 
 Zakończenie **Dodaj kontroler** okna dialogowego:
 
@@ -67,7 +82,7 @@ Automatyczne tworzenie kontekstu bazy danych i [CRUD](https://wikipedia.org/wiki
 
 Uruchom aplikację i kliknięcie na **Mvc Movie** łącza, wystąpi błąd podobny do następującego:
 
-```
+``` error
 An unhandled exception occurred while processing the request.
 
 SqlException: Cannot open database "MvcMovieContext-<GUID removed>" requested by the login. The login failed.
@@ -93,6 +108,20 @@ Z **narzędzia** menu, wybierz opcję **Menedżera pakietów NuGet > konsoli Men
 
 W kryterium wprowadź następujące polecenia:
 
+::: moniker range=">= aspnetcore-2.1"
+``` PMC
+Add-Migration Initial
+Update-Database
+```
+
+Ignoruj następujący komunikat o błędzie, możemy naprawić w następnym samouczku:
+
+*Microsoft.EntityFrameworkCore.Model.Validation[30000]*  
+      *Typ nie został określony dla kolumny dziesiętną "Cena" na typ jednostki "Filmu". Spowoduje to wartości, aby dyskretnie obcięty, jeśli nie mieszczą się w domyślnej precyzję i skalę. Jawnie określić typ kolumny serwera SQL, która może obsłużyć wszystkie wartości przy użyciu "ForHasColumnType()".*
+
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+
 ``` PMC
 Install-Package Microsoft.EntityFrameworkCore.Tools
 Add-Migration Initial
@@ -100,6 +129,8 @@ Update-Database
 ```
 
 **Uwaga:** Jeśli wystąpi błąd z `Install-Package` polecenia, otwórz Menedżera pakietów NuGet i wyszukaj `Microsoft.EntityFrameworkCore.Tools` pakietu. Dzięki temu można zainstalować pakiet lub sprawdź, czy jest on już zainstalowany. Zobacz też [podejście CLI](#cli) Jeśli masz problemy z kryterium.
+
+::: moniker-end
 
 `Add-Migration` Polecenie tworzy kod w celu utworzenia schematu początkowej bazy danych. Schemat jest oparta na modelu określone w `DbContext`(w *Data/MvcMovieContext.cs* pliku). `Initial` Argument jest używany do nazywania migracji. Można użyć dowolnej nazwy, ale Konwencja wybierz nazwę, która opisuje migracji. Zobacz [wprowadzenie do migracji](xref:data/ef-mvc/migrations#introduction-to-migrations) Aby uzyskać więcej informacji.
 
@@ -113,23 +144,28 @@ Update-Database
   ```console
   dotnet ef migrations add Initial
   dotnet ef database update
-  ```     
-  
+  ```
+
   Jeżeli możesz uruchomić aplikację i komunikat o błędzie:
-  
+
   ```text
   SqlException: Cannot open database "Movie" requested by the login.
   The login failed.
   Login failed for user 'user name'.
   ```
 
-Prawdopodobnie nie uruchomiono ` dotnet ef database update`.
-  
-[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
+Prawdopodobnie nie uruchomiono `dotnet ef database update`.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+[!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model3.md)]
 
-[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model4.md)]
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Startup.cs?name=ConfigureServices&highlight=13-99)]
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+::: moniker-end
+
+[!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model4.md)]
 
 ![Menu kontekstowe IntelliSense w elemencie modelu listę dostępnych właściwości dla Identyfikatora, Price Data wydania i tytuł](adding-model/_static/ints.png)
 

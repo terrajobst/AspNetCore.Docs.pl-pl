@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/gdpr
-ms.openlocfilehash: dc1724e8a78c25d3697d14ad784ce853737681f2
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 92a7000f4f8e4c2097065cb530fe106ef0e98545
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688630"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Obsługa interfejsów UE ogólne dane ochrony rozporządzenia (GDPR) w ASP.NET Core
 
@@ -38,7 +39,7 @@ Stron razor i MVC projektów utworzonych za pomocą szablonów projektu obejmuj�
 
 * [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions?view=aspnetcore-2.0) i [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_CookiePolicyAppBuilderExtensions_UseCookiePolicy_Microsoft_AspNetCore_Builder_IApplicationBuilder_) są ustawione w `Startup`.
 * *_CookieConsentPartial.cshtml* [widoku częściowego](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper).
-* *Pages/Privacy.cshtml* lub *Home/rivacy.cshtml* widok zawiera strona szczegółów zasady zachowania poufności informacji witryny. *_CookieConsentPartial.cshtml* plik generuje łącze do strony prywatności.
+* *Pages/Privacy.cshtml* lub *Home/Privacy.cshtml* widok zawiera strona szczegółów zasady zachowania poufności informacji witryny. *_CookieConsentPartial.cshtml* plik generuje łącze do strony prywatności.
 * Dla aplikacji utworzonych za pomocą indywidualne konta użytkowników, na stronie Zarządzanie zawiera łącza do pobierania i usuwania [dane osobiste użytkownika](#pd).
 
 ### <a name="cookiepolicyoptions-and-usecookiepolicy"></a>CookiePolicyOptions i UseCookiePolicy

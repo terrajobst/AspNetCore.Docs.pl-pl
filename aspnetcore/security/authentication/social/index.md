@@ -9,15 +9,14 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/social/index
-ms.openlocfilehash: 93fa42be9c551f5bbdf3851aec1d9e01139fdb76
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: dc6ec61519c200901cc8af03853e7381c1d4cad0
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688962"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google i zewnętrznego dostawcy uwierzytelniania w ASP.NET Core
-
-<a name="security-authentication-social-logins"></a>
 
 Przez [Valeriy Novytskyy](https://github.com/01binary) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -78,13 +77,15 @@ Aby skonfigurować aplikację do używania odpowiednich dostawców, należy uży
 * [Microsoft](xref:security/authentication/microsoft-logins) instrukcje
 * [Inny dostawca](xref:security/authentication/otherlogins) instrukcje
 
+[!INCLUDE[](~/includes/chain-auth-providers.md)]
+
 ## <a name="optionally-set-password"></a>Opcjonalnie Ustaw hasło.
 
 Podczas rejestrowania przy użyciu dostawcy logowania zewnętrznego nie ma hasła w zarejestrowany z aplikacją. Pozwala to uniknąć z tworzeniem i zapamiętywanie hasła dla lokacji, ale zapewnia także możesz zależny od dostawcy logowania zewnętrznego. Jeśli dostawcy logowania zewnętrznego jest niedostępny, nie będzie można logować się do witryny sieci web.
 
 Aby utworzyć hasło i zaloguj się przy użyciu poczty e-mail ustawioną podczas logowania w procesie z zewnętrznych źródeł:
 
-* Wybierz **Hello <email alias>**  łącze w prawym górnym rogu, aby przejść do **Zarządzaj** widoku.
+* Wybierz **Hello &lt;alias e-mail&gt;**  łącze w prawym górnym rogu, aby przejść do **Zarządzaj** widoku.
 
 ![Widok Zarządzaj aplikacji sieci Web](index/_static/pass1a.png)
 

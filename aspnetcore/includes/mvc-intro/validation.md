@@ -16,7 +16,12 @@ Otwórz *Movie.cs* pliku. DataAnnotations zawiera zestaw wbudowanych atrybutów 
 
 Aktualizacja `Movie` klasy, aby móc korzystać z wbudowanych `Required`, `StringLength`, `RegularExpression`, i `Range` atrybutów sprawdzania poprawności.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+::: moniker-end
 
 Atrybuty weryfikacji Określ zachowanie, które mają zostać wymuszone we właściwościach modelu, do którego jest stosowany. `Required` i `MinimumLength` atrybuty wskazuje, że właściwość musi mieć wartość, ale nic nie uniemożliwia wprowadzanie biały znak do zaspokojenia tej weryfikacji przez użytkownika. `RegularExpression` Atrybut służy do ograniczania znaków, które można wprowadzić. W powyższym kodzie `Genre` i `Rating` należy używać tylko liter (białe miejsca, cyfry i znaki specjalne są niedozwolone). `Range` Atrybut ogranicza wartość do określonego zakresu. `StringLength` Atrybut pozwala określić maksymalną długość ciągu właściwości oraz opcjonalnie długości minimalnej. Typy wartości (takie jak `decimal`, `int`, `float`, `DateTime`) są z założenia wymagane i nie wymagają `[Required]` atrybutu.
 
@@ -28,7 +33,7 @@ Uruchom aplikację i przejdź do kontrolera filmów.
 
 Wybierz **Utwórz nowy** łącze, aby dodać nowy filmu. Wypełnij formularz z niektórych z nieprawidłowymi wartościami. Jak weryfikacji po stronie klienta jQuery wykryje błąd, wyświetla komunikat o błędzie.
 
-![Formularz widoku film z wielu błędy weryfikacji po stronie klienta jQuery](../../tutorials/first-mvc-app/validation/_static/val.png)
+![Formularz widoku film z wielu błędy weryfikacji po stronie klienta jQuery](~/tutorials/first-mvc-app/validation/_static/val.png)
 
 > [!NOTE]
 > Nie można wprowadzić przecinki dziesiętne w `Price` pola. Do obsługi [weryfikacji jQuery](https://jqueryvalidation.org/) dla innych niż angielski, które użyj przecinka (",") dla punktu dziesiętnego i formaty daty z systemem innym niż angielski, należy wykonać kroki, aby globalize aplikacji. To [GitHub problem 4076](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) instrukcje dotyczące dodawania przecinkiem. 
@@ -43,7 +48,7 @@ Dane formularza nie jest wysyłane do serwera, dopóki nie ma żadnych błędów
 
 Może zastanawiasz się, jak weryfikacji interfejsu użytkownika został wygenerowany bez żadnych aktualizacji do kodu w kontrolerze lub widoków. Poniższy kod przedstawia dwa `Create` metody.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Controllers/MoviesController.cs?name=snippetCreate)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Controllers/MoviesController.cs?name=snippetCreate)]
 
 Pierwszy (HTTP GET) `Create` formularza początkowego Utwórz Wyświetla metody akcji. Druga (`[HttpPost]`) wersja obsługuje post formularza. Drugi `Create` — metoda ( `[HttpPost]` wersji) wywołań `ModelState.IsValid` do sprawdzenia, czy film ma jakieś błędy sprawdzania poprawności. Wywołanie tej metody ocenia wszystkie atrybuty weryfikacji, które zostały zastosowane do tego obiektu. Jeśli obiekt ma błędy sprawdzania poprawności `Create` — metoda zostanie ponownie wyświetlony formularz. Jeśli nie ma żadnych błędów, metoda zapisuje nowe filmu w bazie danych. W naszym przykładzie filmu formularza nie jest zaksięgowany na serwerze, gdy występują błędy sprawdzania poprawności wykryto po stronie klienta; drugi `Create` metoda nigdy nie jest wywoływana, gdy występują błędy sprawdzania poprawności po stronie klienta. Jeśli wyłączysz JavaScript w przeglądarce, sprawdzanie poprawności klienta jest wyłączona i można przetestować HTTP POST `Create` metody `ModelState.IsValid` wykrywanie jakieś błędy sprawdzania poprawności.
 
@@ -51,19 +56,19 @@ Można ustawić punktu przerwania w `[HttpPost] Create` — metoda i sprawdź ni
 
 Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce FireFox.
 
-![Firefox: Na karcie zawartość okna dialogowego Opcje usunąć zaznaczenie pola wyboru Włącz język Javascript.](../../tutorials/first-mvc-app/validation/_static/ff.png)
+![Firefox: Na karcie zawartość okna dialogowego Opcje usunąć zaznaczenie pola wyboru Włącz język Javascript.](~/tutorials/first-mvc-app/validation/_static/ff.png)
 
 Na poniższej ilustracji przedstawiono sposób wyłączania JavaScript w przeglądarce Chrome.
 
-![Google Chrome: Sekcja w Javascript ustawienia zawartości, wybierz nie zezwalają na dowolnej lokacji do uruchomienia kodu JavaScript.](../../tutorials/first-mvc-app/validation/_static/chrome.png)
+![Google Chrome: Sekcja w Javascript ustawienia zawartości, wybierz nie zezwalają na dowolnej lokacji do uruchomienia kodu JavaScript.](~/tutorials/first-mvc-app/validation/_static/chrome.png)
 
 Po wyłączeniu JavaScript po nieprawidłowe dane i kroku przez debuger.
 
-![Podczas debugowania na post nieprawidłowych danych, Intellisense w ModelState.IsValid pokazano, że wartość ma wartość false.](../../tutorials/first-mvc-app/validation/_static/ms.png)
+![Podczas debugowania na post nieprawidłowych danych, Intellisense w ModelState.IsValid pokazano, że wartość ma wartość false.](~/tutorials/first-mvc-app/validation/_static/ms.png)
 
 Poniżej znajduje się część *Create.cshtml* Wyświetl szablon, który szkieletu wcześniej w samouczku. Jest on używany przez metody akcji pokazanym powyżej zarówno do wyświetlania formularza początkowego i wyświetl ją ponownie w przypadku wystąpienia błędu.
 
-[!code-HTML[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
 
 [Pomocnika Tag danych wejściowych](xref:mvc/views/working-with-forms) używa [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) atrybutów i tworzy wymagane dla technologii jQuery weryfikacji po stronie klienta atrybutów HTML. [Pomocnika tagów weryfikacji](xref:mvc/views/working-with-forms#the-validation-tag-helpers) przedstawia błędy sprawdzania poprawności. Zobacz [weryfikacji](xref:mvc/models/validation) Aby uzyskać więcej informacji.
 
@@ -75,7 +80,7 @@ Jeśli musisz zmienić logikę weryfikacji, możesz to zrobić w dokładnie jedn
 
 Otwórz *Movie.cs* pliku i sprawdź, czy `Movie` klasy. `System.ComponentModel.DataAnnotations` Przestrzeń nazw zawiera atrybuty formatowania oprócz wbudowanych zestaw atrybutów weryfikacji. Zastosowaliśmy już `DataType` wartość wyliczenia Data wydania i pola cen. Poniższy kod przedstawia `ReleaseDate` i `Price` właściwości z odpowiednią `DataType` atrybutu.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
 `DataType` Atrybuty zapewniają tylko wskazówki dotyczące aparatu widoku do formatowania danych (i dostarcza elementy/atrybutów, takich jak `<a>` dla adresu URL i `<a href="mailto:EmailAddress.com">` do obsługi poczty e-mail. Można użyć `RegularExpression` atrybut do zweryfikowania formatu danych. `DataType` Atrybut służy do określania typu danych, który jest bardziej szczegółowy niż typ wewnętrznej bazy danych, nie ma atrybutów sprawdzania poprawności. W takim przypadku tylko chcemy śledzić datę, a nie czas. `DataType` Wyliczenie zapewnia dla różnych typów danych, takie jak data, czas, numer telefonu, waluty, EmailAddress i inne. `DataType` Atrybut można również włączyć aplikacji w celu umożliwienia automatycznie funkcji specyficznych dla typu. Na przykład `mailto:` można tworzyć łącza `DataType.EmailAddress`, i może zostać dostarczony selektora daty `DataType.Date` w przeglądarkach obsługujących HTML5. `DataType` Atrybuty emituje HTML 5 `data-` atrybutów (wyraźnym danych dash), które byłyby zrozumiałe dla przeglądarki HTML 5. `DataType` Czy atrybuty **nie** Podaj wszystkich sprawdzania poprawności.
 
@@ -109,7 +114,14 @@ Należy wyłączyć sprawdzanie poprawności daty jQuery do użycia `Range` atry
 
 Poniższy kod przedstawia łączenie atrybutów w jednym wierszu:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+::: moniker-end
 
 W następnej części serii, firma Microsoft będzie Przejrzyj aplikacji i poprawiają do automatycznie generowanego `Details` i `Delete` metody.
 
