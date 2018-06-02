@@ -1,7 +1,7 @@
 ---
-title: "Oprogramowanie pośredniczące aktywacji z kontenerem innych firm w ASP.NET Core"
+title: Oprogramowanie pośredniczące aktywacji z kontenerem innych firm w ASP.NET Core
 author: guardrex
-description: "Dowiedz się, jak używać jednoznacznie oprogramowania pośredniczącego z aktywacją opartą na fabryki i kontener innych firm w ASP.NET Core."
+description: Dowiedz się, jak używać jednoznacznie oprogramowania pośredniczącego z aktywacją opartą na fabryki i kontener innych firm w ASP.NET Core.
 ms.author: riande
 manager: wpickett
 ms.custom: mvc
@@ -10,11 +10,12 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility-third-party-container
-ms.openlocfilehash: b6fd02d1863efe571bafe1344fb34939883e6cb5
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: c55075fd3c6fda4073d26925eab823c35d8656f5
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729895"
 ---
 # <a name="middleware-activation-with-a-third-party-container-in-aspnet-core"></a>Oprogramowanie pośredniczące aktywacji z kontenerem innych firm w ASP.NET Core
 
@@ -61,7 +62,7 @@ Rozszerzenie jest tworzona dla oprogramowania pośredniczącego (*Middleware/Mid
 
 Oprogramowanie pośredniczące jest zarejestrowany w potoku przetwarzania żądań w `Startup.Configure`:
 
-[!code-csharp[](extensibility-third-party-container/sample/Startup.cs?name=snippet2&highlight=12)]
+[!code-csharp[](extensibility-third-party-container/sample/Startup.cs?name=snippet2&highlight=13)]
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

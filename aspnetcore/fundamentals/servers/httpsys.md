@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 89d9a51334bdd50b72213d32fa194808ac6a93b9
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: dff798b19ad6d10a8ce93001ed4cebe732c54320
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729318"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Sterownik HTTP.sys implementacja serwera sieci web platformy ASP.NET Core
 
@@ -63,7 +64,7 @@ Sterownik HTTP.sys jest dojrzała technologia, która chroni przed wiele rodzaj�
 
 ### <a name="configure-the-aspnet-core-app-to-use-httpsys"></a>Konfigurowanie aplikacji platformy ASP.NET Core korzystanie z pliku HTTP.sys
 
-1. Odwołanie pakietu w pliku projektu nie jest wymagane, korzystając z [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)) (platformy ASP.NET Core w wersji 2.0 lub nowszej). Korzystając z nie `Microsoft.AspNetCore.All` metapackage, Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
+1. Odwołanie pakietu w pliku projektu nie jest wymagane, korzystając z [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)) (platformy ASP.NET Core 2.1 lub nowszej). Korzystając z nie `Microsoft.AspNetCore.App` metapackage, Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
 
 2. Wywołanie [UseHttpSys](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderhttpsysextensions.usehttpsys) — metoda rozszerzenia podczas kompilowania hosta sieci web, określając każdego wymaganego [opcje HTTP.sys](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions):
 
@@ -167,7 +168,6 @@ Sterownik HTTP.sys jest dojrzała technologia, która chroni przed wiele rodzaj�
    2. Tworzenie certyfikatów X.509 z podpisem własnym, jeśli jest to wymagane.
 
       [!INCLUDE [How to make an X.509 cert](../../includes/make-x509-cert.md)]
-
 
 4. Otwórz porty zapory, aby zezwolić na ruch do pliku HTTP.sys. Użyj *netsh.exe* lub [poleceń cmdlet programu PowerShell](https://technet.microsoft.com/library/jj554906).
 

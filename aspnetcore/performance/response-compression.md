@@ -3,17 +3,20 @@ title: Oprogramowanie pośredniczące kompresji odpowiedzi dla platformy ASP.NET
 author: guardrex
 description: Więcej informacji na temat kompresji odpowiedzi i sposobie używania oprogramowania pośredniczącego kompresji odpowiedzi w aplikacji platformy ASP.NET Core.
 manager: wpickett
+monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
+ms.custom: mvc
 ms.date: 08/20/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/response-compression
-ms.openlocfilehash: cae81a04e41dc7fcbacec975e63171f633fccecf
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 152799500577dd09247bcee8c87cde39ca20aa79
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729577"
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Oprogramowanie pośredniczące kompresji odpowiedzi dla platformy ASP.NET Core
 
@@ -44,7 +47,7 @@ Zazwyczaj nie natywnie skompresowane odpowiedzi mogą korzystać z kompresji odp
 W przypadku klienta może przetwarzać skompresowanej zawartości, klient musi powiadomić serwera jej możliwości, wysyłając `Accept-Encoding` nagłówek z żądania. Gdy serwer wysyła skompresowanej treści, musi on zawierać informacje w `Content-Encoding` nagłówka w sposób jest zakodowany skompresowanych odpowiedzi. W poniższej tabeli przedstawiono zawartości kodowania nazw obsługiwanych przez oprogramowanie pośredniczące.
 
 | `Accept-Encoding` wartości nagłówka | Obsługiwane oprogramowanie pośredniczące | Opis                                                 |
-| :-----------------------------: | :------------------: | ----------------------------------------------------------- |
+| ------------------------------- | :------------------: | ----------------------------------------------------------- |
 | `br`                            | Nie                   | Format skompresowanych danych Brotli                               |
 | `compress`                      | Nie                   | Format danych "Kompresuj" systemu UNIX                                 |
 | `deflate`                       | Nie                   | "deflate" skompresowane dane w formacie danych "zlib"     |
@@ -80,21 +83,42 @@ Funkcje oprogramowania pośredniczącego kompresji odpowiedzi z można eksplorow
 
 ## <a name="package"></a>Package
 
-Aby dołączyć oprogramowanie pośredniczące w projekcie, należy dodać odwołanie do [ `Microsoft.AspNetCore.ResponseCompression` ](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) pakietu lub użyj [ `Microsoft.AspNetCore.All` ](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) pakietu. Ta funkcja jest dostępna dla aplikacji przeznaczonych dla platformy ASP.NET Core 1.1 lub nowszej.
+::: moniker range="< aspnetcore-2.0"
+
+Aby dołączyć oprogramowanie pośredniczące w projekcie, należy dodać odwołanie do [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) pakietu. Ta funkcja jest dostępna dla aplikacji przeznaczonych dla platformy ASP.NET Core 1.1 lub nowszej.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Aby dołączyć oprogramowanie pośredniczące w projekcie, należy dodać odwołanie do [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) pakietu lub użyj [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage).
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.0"
+
+Aby dołączyć oprogramowanie pośredniczące w projekcie, należy dodać odwołanie do [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) pakietu lub użyj [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+
+::: moniker-end
 
 ## <a name="configuration"></a>Konfiguracja
 
 Poniższy kod przedstawia sposób włączania pośredniczącym kompresji odpowiedzi z kompresją gzip domyślne i domyślne typy MIME.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+```csharp
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddResponseCompression();
+    }
 
-[!code-csharp[](response-compression/samples/2.x/StartupBasic.cs?name=snippet1&highlight=4,8)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-[!code-csharp[](response-compression/samples/1.x/StartupBasic.cs?name=snippet1&highlight=3,8)]
-
----
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseResponseCompression();
+    }
+}
+```
 
 > [!NOTE]
 > Użyj narzędzia, takiego jak [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), lub [Postman](https://www.getpostman.com/) można ustawić `Accept-Encoding` nagłówek żądania i badania nagłówki odpowiedzi, rozmiar i treść.
@@ -111,29 +135,30 @@ Prześlij żądanie do aplikacji przykładowej przy `Accept-Encoding: gzip` nag�
 
 ### <a name="gzipcompressionprovider"></a>GzipCompressionProvider
 
-Użyj `GzipCompressionProvider` kompresji odpowiedzi z gzip. To jest dostawcą domyślnym kompresji, jeśli żaden nie jest określony. Można ustawić poziomu z kompresji `GzipCompressionProviderOptions`. 
+Użyj [GzipCompressionProvider](/dotnet/api/microsoft.aspnetcore.responsecompression.gzipcompressionprovider) kompresji odpowiedzi z gzip. To jest dostawcą domyślnym kompresji, jeśli żaden nie jest określony. Można ustawić poziomu z kompresji [GzipCompressionProviderOptions](/dotnet/api/microsoft.aspnetcore.responsecompression.gzipcompressionprovideroptions).
 
-Domyślnie dostawca kompresji gzip najszybszym poziom kompresji (`CompressionLevel.Fastest`), może nie dawać najbardziej efektywny kompresji. W razie potrzeby najbardziej efektywny kompresji można skonfigurować oprogramowanie pośredniczące optymalnej kompresji.
+Domyślnie dostawca kompresji gzip najszybszym poziom kompresji ([CompressionLevel.Fastest](/dotnet/api/system.io.compression.compressionlevel)), może nie dawać najbardziej efektywny kompresji. W razie potrzeby najbardziej efektywny kompresji można skonfigurować oprogramowanie pośredniczące optymalnej kompresji.
 
-| Poziom kompresji                | Opis                                                                                                   |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `CompressionLevel.Fastest`       | Kompresja powinno zakończyć tak szybko jak to możliwe, nawet jeśli dane wyjściowe nie jest optymalnie skompresowane. |
-| `CompressionLevel.NoCompression` | Kompresja nie powinny być wykonywane.                                                                           |
-| `CompressionLevel.Optimal`       | Odpowiedzi powinna być optymalnie kompresowana, nawet jeśli kompresja trwa dłużej.                |
+| Poziom kompresji | Opis |
+| ----------------- | ----------- |
+| [CompressionLevel.Fastest](/dotnet/api/system.io.compression.compressionlevel) | Kompresja powinno zakończyć tak szybko jak to możliwe, nawet jeśli dane wyjściowe nie jest optymalnie skompresowane. |
+| [CompressionLevel.NoCompression](/dotnet/api/system.io.compression.compressionlevel) | Kompresja nie powinny być wykonywane. |
+| [CompressionLevel.Optimal](/dotnet/api/system.io.compression.compressionlevel) | Odpowiedzi powinna być optymalnie kompresowana, nawet jeśli kompresja trwa dłużej. |
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=3,8-11)]
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=5,12-15)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,10-13)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,12-15)]
 
 ---
 
 ## <a name="mime-types"></a>MIME, typy
 
 Oprogramowanie pośredniczące Określa domyślny zestaw typy MIME kompresji:
+
 * `text/plain`
 * `text/css`
 * `application/javascript`
@@ -147,29 +172,29 @@ Można zastąpić, lub Dołącz typy MIME opcje oprogramowania pośredniczącego
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=5)]
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=7-9)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7-9)]
 
 ---
 
 ### <a name="custom-providers"></a>Dostawcy niestandardowi
 
-Można tworzyć niestandardowe kompresji implementacje z `ICompressionProvider`. `EncodingName` Reprezentuje zawartość, kodowanie tego `ICompressionProvider` tworzy. Oprogramowanie pośredniczące używa tych informacji do wybierz dostawcę na podstawie listy określone w `Accept-Encoding` nagłówka żądania.
+Można tworzyć niestandardowe kompresji implementacje z [ICompressionProvider](/dotnet/api/microsoft.aspnetcore.responsecompression.icompressionprovider). [EncodingName](/dotnet/api/microsoft.aspnetcore.responsecompression.icompressionprovider.encodingname) reprezentuje zawartość, kodowanie tego `ICompressionProvider` tworzy. Oprogramowanie pośredniczące używa tych informacji do wybierz dostawcę na podstawie listy określone w `Accept-Encoding` nagłówka żądania.
 
 Przy użyciu aplikacji przykładowej, klient przesyła żądanie z `Accept-Encoding: mycustomcompression` nagłówka. Oprogramowanie pośredniczące używa implementacji niestandardowych kompresji i zwraca odpowiedź z `Content-Encoding: mycustomcompression` nagłówka. Klient musi mieć możliwość dekompresja niestandardowego kodowania w kolejności stosowania niestandardowego kompresji do pracy.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=4)]
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=5,12-15)]
 
 [!code-csharp[](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,12-15)]
 
 [!code-csharp[](response-compression/samples/1.x/CustomCompressionProvider.cs?name=snippet1)]
 
@@ -185,11 +210,19 @@ Skompresowane odpowiedzi za pośrednictwem bezpiecznego połączenia można ster
 
 ## <a name="adding-the-vary-header"></a>Dodawanie nagłówka Vary
 
-Podczas kompresowania odpowiedzi na podstawie `Accept-Encoding` nagłówka, istnieją potencjalnie wiele wersji skompresowanych odpowiedzi i nieskompresowanym wersji. Aby nakazać klienta i serwera proxy pamięci podręcznej, czy istnieją wiele wersji, a powinien być przechowywany, `Vary` nagłówka zostanie dodany z `Accept-Encoding` wartości. W przypadku platformy ASP.NET Core 1.x, dodawanie `Vary` nagłówka do odpowiedzi odbywa się ręcznie. W przypadku platformy ASP.NET Core dodaje oprogramowanie pośredniczące 2.x, `Vary` nagłówka automatycznie w przypadku skompresowanych odpowiedzi.
+::: moniker range=">= aspnetcore-2.0"
 
-**Program ASP.NET Core tylko 1.x**
+Podczas kompresowania odpowiedzi na podstawie `Accept-Encoding` nagłówka, istnieją potencjalnie wiele wersji skompresowanych odpowiedzi i nieskompresowanym wersji. Aby nakazać klienta i serwera proxy pamięci podręcznej, czy istnieją wiele wersji, a powinien być przechowywany, `Vary` nagłówka zostanie dodany z `Accept-Encoding` wartości. W programie ASP.NET Core 2.0 lub nowszej, dodaje oprogramowanie pośredniczące `Vary` nagłówka automatycznie w przypadku skompresowanych odpowiedzi.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+Podczas kompresowania odpowiedzi na podstawie `Accept-Encoding` nagłówka, istnieją potencjalnie wiele wersji skompresowanych odpowiedzi i nieskompresowanym wersji. Aby nakazać klienta i serwera proxy pamięci podręcznej, czy istnieją wiele wersji, a powinien być przechowywany, `Vary` nagłówka zostanie dodany z `Accept-Encoding` wartości. W przypadku platformy ASP.NET Core 1.x, dodawanie `Vary` nagłówka do odpowiedzi odbywa się ręcznie:
 
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet1)]
+
+::: moniker-end
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Oprogramowanie pośredniczące problem podczas pod zwrotny serwer proxy Nginx
 
@@ -204,7 +237,7 @@ Jeśli masz aktywnego IIS dynamicznej kompresji modułu skonfigurowane na poziom
 Użyj narzędzia, takiego jak [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), lub [Postman](https://www.getpostman.com/), umożliwiają skonfigurowanie `Accept-Encoding` nagłówek żądania i badania nagłówki odpowiedzi, rozmiar i treść. Oprogramowanie pośredniczące kompresji odpowiedzi kompresuje odpowiedzi, które spełniają poniższe warunki:
 
 * `Accept-Encoding` Nagłówek ma wartość `gzip`, `*`, lub niestandardowy kodowania pasujący dostawcy niestandardowego kompresji, który został określony. Wartość nie może być `identity` ani mieć wartości jakości (qvalue, `q`) ustawienie 0 (zero).
-* Typ MIME (`Content-Type`) musi być ustawiona i musi być zgodny z typem MIME skonfigurowane na `ResponseCompressionOptions`.
+* Typ MIME (`Content-Type`) musi być ustawiona i musi być zgodny z typem MIME skonfigurowane na [ResponseCompressionOptions](/dotnet/api/microsoft.aspnetcore.responsecompression.responsecompressionoptions).
 * Żądanie nie może zawierać `Content-Range` nagłówka.
 * Żądanie musi używać protokołu niezabezpieczonego (http), chyba że bezpiecznego protokołu (https) jest skonfigurowana w opcjach oprogramowanie pośredniczące kompresji odpowiedzi. *Należy zwrócić uwagę zagrożenia [opisane powyżej](#compression-with-secure-protocol) po włączaniu bezpiecznych kompresji zawartości.*
 

@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 06751e713fbd579a944333cc3c3b2c0c0ad51eba
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 9fd76ea1c6d746ecf1897c70ee719ea4f4517872
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729158"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Wykrywanie zmian z tokenami zmiany w ASP.NET Core
 
@@ -26,7 +27,7 @@ A *zmienić token* jest ogólnego przeznaczenia, niskiego poziomu bloku konstruk
 
 ## <a name="ichangetoken-interface"></a>Interfejs IChangeToken
 
-[IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken) propaguje powiadomienia, że nastąpiła zmiana. `IChangeToken` znajduje się w [Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives) przestrzeni nazw. W przypadku aplikacji, które nie używają [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) metapackage, odwołanie [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) pakietu NuGet w pliku projektu.
+[IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken) propaguje powiadomienia, że nastąpiła zmiana. `IChangeToken` znajduje się w [Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives) przestrzeni nazw. W przypadku aplikacji, które nie używają [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) metapackage, odwołanie [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) pakietu NuGet w pliku projektu.
 
 `IChangeToken` ma dwie właściwości:
 
@@ -37,9 +38,10 @@ Interfejs ma jedną metodę [RegisterChangeCallback (akcji&lt;obiektu&gt;, Objec
 
 ## <a name="changetoken-class"></a>Właściwości ChangeToken — klasa
 
-`ChangeToken` Klasa statyczna służy do propagacji powiadomienia, że nastąpiła zmiana. `ChangeToken` znajduje się w [Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives) przestrzeni nazw. W przypadku aplikacji, które nie używają [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) metapackage, odwołanie [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) pakietu NuGet w pliku projektu.
+`ChangeToken` Klasa statyczna służy do propagacji powiadomienia, że nastąpiła zmiana. `ChangeToken` znajduje się w [Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives) przestrzeni nazw. W przypadku aplikacji, które nie używają [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) metapackage, odwołanie [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) pakietu NuGet w pliku projektu.
 
 `ChangeToken` [OnChange (Func&lt;IChangeToken&gt;, akcji)](/dotnet/api/microsoft.extensions.primitives.changetoken.onchange?view=aspnetcore-2.0#Microsoft_Extensions_Primitives_ChangeToken_OnChange_System_Func_Microsoft_Extensions_Primitives_IChangeToken__System_Action_) metoda rejestrów `Action` wywołać przy każdej zmianie token:
+
 * `Func<IChangeToken>` tworzy token.
 * `Action` jest wywoływane, gdy zmienia tokenu.
 
@@ -196,7 +198,7 @@ var compositeChangeToken =
 
 `HasChanged` na złożone raporty tokenu `true` Jeśli żadnego reprezentowane token `HasChanged` jest `true`. `ActiveChangeCallbacks` na złożone raporty tokenu `true` Jeśli żadnego reprezentowane token `ActiveChangeCallbacks` jest `true`. Jeśli występuje wiele równoczesnych zmian zdarzeń, wywołania zwrotnego zmiany złożonego jest wywoływany dokładnie jeden raz.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Buforowanie w pamięci](xref:performance/caching/memory)
 * [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)

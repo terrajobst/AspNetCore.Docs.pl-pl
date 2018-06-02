@@ -9,21 +9,24 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/index
-ms.openlocfilehash: 46e98bc0de19ca09921c7505aa0a2f075887cd64
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 84ccaee9bc9e6af0b420de9a35caa36f49d8f6bb
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729811"
 ---
 # <a name="create-a-web-app-with-aspnet-core-mvc-on-windows-with-visual-studio"></a>Tworzenie aplikacji sieci web z platformą ASP.NET MVC Core w systemie Windows z programem Visual Studio
 
-[!INCLUDE [consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](~/includes/razor.md)]
 
 Istnieją 3 wersje tego samouczka:
 
 * Systemu Windows: Ta seria
 * System macOS: [tworzenie aplikacji platformy ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
-* System macOS, Linux i Windows: [tworzenie aplikacji platformy ASP.NET Core MVC z programu Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc) serii samouczek obejmuje następujące elementy:
+* System macOS, Linux i Windows: [tworzenie aplikacji platformy ASP.NET Core MVC z kodem Visual Studio](xref:tutorials/first-mvc-app-xplat/start-mvc)
+
+Seria samouczek obejmuje następujące funkcje:
 
 1. [Wprowadzenie](start-mvc.md)
 1. [Dodawanie kontrolera](adding-controller.md)

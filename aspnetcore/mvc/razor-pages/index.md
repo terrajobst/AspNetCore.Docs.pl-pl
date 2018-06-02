@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 651d47ce20f3269340f0796f487e2f1a2a155710
-ms.sourcegitcommit: 0063338c2e130409081bb60fcffa0c3f190cd46a
+ms.openlocfilehash: c8611ef9218711410cde9e142202fa25c3e51862
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729461"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
@@ -40,17 +41,47 @@ Zobacz [wprowadzenie stron Razor](xref:tutorials/razor-pages/razor-pages-start) 
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
+::: moniker range=">= aspnetcore-2.1"
+
+Uruchom `dotnet new webapp` z wiersza polecenia.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Uruchom `dotnet new razor` z wiersza polecenia.
+
+::: moniker-end
 
 Otwórz wygenerowany *.csproj* plików z programu Visual Studio dla komputerów Mac.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
 
+::: moniker range=">= aspnetcore-2.1"
+
+Uruchom `dotnet new webapp` z wiersza polecenia.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Uruchom `dotnet new razor` z wiersza polecenia.
+
+::: moniker-end
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
+::: moniker range=">= aspnetcore-2.1"
+
+Uruchom `dotnet new webapp` z wiersza polecenia.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Uruchom `dotnet new razor` z wiersza polecenia.
+
+::: moniker-end
 
 ---
 
@@ -116,7 +147,7 @@ Kontekst bazy danych:
 
 Według konwencji `PageModel` nosi nazwę klasy `<PageName>Model` i znajduje się w tej samej przestrzeni nazw jako strony.
 
-`PageModel` Klasa umożliwia oddzielenie logiki strony z jego prezentacji. Definiuje stronę obsługi żądania wysyłane na stronie i dane używane do renderowania strony. Ta separacja umożliwia zarządzanie zależności strony za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection) i [testu jednostkowego](xref:testing/razor-pages-testing) stron.
+`PageModel` Klasa umożliwia oddzielenie logiki strony z jego prezentacji. Definiuje stronę obsługi żądania wysyłane na stronie i dane używane do renderowania strony. Ta separacja umożliwia zarządzanie zależności strony za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection) i [testu jednostkowego](xref:test/razor-pages-tests) stron.
 
 Na stronie `OnPostAsync` *metoda obsługi*, która działa w `POST` żąda (gdy użytkownik zapisuje formularz). Można dodać obsługi metod dla dowolnej zlecenie HTTP. Są najczęściej programów obsługi:
 
@@ -502,4 +533,4 @@ services.AddMvc()
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Konwencje autoryzacji stron razor](xref:security/authorization/razor-pages-authorization)
 * [Razor strony trasy i strony modelu dostawców niestandardowych](xref:mvc/razor-pages/razor-pages-conventions)
-* [Testy jednostkowe i integracja z stron razor](xref:testing/razor-pages-testing)
+* [Testy jednostkowe stron razor](xref:test/razor-pages-tests)

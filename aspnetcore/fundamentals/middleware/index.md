@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 016f15c13470db53252941acafa25a3c6caf8db5
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 381c1a5cecee945559ea0dabd0aa086c8d52b43a
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729171"
 ---
 # <a name="aspnet-core-middleware"></a>Oprogramowanie pośredniczące platformy ASP.NET Core
 
@@ -196,14 +197,16 @@ Platformy ASP.NET Core jest dostarczany z następujących składników oprogramo
 | [Uwierzytelnianie](xref:security/authentication/identity) | Zapewnia obsługę uwierzytelniania. | Przed `HttpContext.User` jest wymagana. Terminalu wywołania zwrotne OAuth. |
 | [CORS](xref:security/cors) | Konfiguruje współużytkowanie zasobów między źródłami. | Przed składników, które korzystają z CORS. |
 | [Diagnostyka](xref:fundamentals/error-handling) | Konfiguruje diagnostyki. | Przed składniki, które generują błędy. |
-| [ForwardedHeaders/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Przekazuje proxy nagłówki na bieżącego żądania. | Przed składniki używające zaktualizowanych pól (przykłady: schemat, hosta, ClientIP, metoda). |
+| [Zastąpienia przekazywane nagłówki/HTTP](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Przekazuje proxy nagłówki na bieżącego żądania. | Przed składniki używające zaktualizowanych pól (przykłady: schemat, hosta, ClientIP, metoda). |
+| [Przekierowania protokołu HTTPS](xref:security/enforcing-ssl#require-https) | Przekieruj żądania HTTP, HTTPS (platformy ASP.NET Core 2.1 lub nowszej). | Przed składniki używające adresu URL. |
+| [Zabezpieczenia transportu Strict HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Pośredniczącym ulepszenie zabezpieczeń dodaje nagłówek odpowiedzi specjalne (platformy ASP.NET Core 2.1 lub nowszej). | Przed wysłaniem odpowiedzi oraz po wykonaniu składników, które modyfikują żądań (na przykład przekazywane nagłówków, ponowne zapisywanie adresów URL). |
 | [Buforowanie odpowiedzi](xref:performance/caching/middleware) | Zapewnia obsługę buforowania odpowiedzi. | Przed składniki, które wymagają buforowania. |
 | [Kompresja odpowiedzi](xref:performance/response-compression) | Zapewnia obsługę kompresowania odpowiedzi. | Przed składniki, które wymagają kompresji. |
-| [RequestLocalization](xref:fundamentals/localization) | Zapewnia obsługę lokalizacji. | Przed składniki poufnych lokalizacji. |
+| [Lokalizacja żądania](xref:fundamentals/localization) | Zapewnia obsługę lokalizacji. | Przed składniki poufnych lokalizacji. |
 | [Routing](xref:fundamentals/routing) | Definiuje i ogranicza trasy żądania. | Terminalu zgodnych tras. |
 | [Sesja](xref:fundamentals/app-state) | Zapewnia obsługę zarządzania sesjami użytkownika. | Przed składniki, które wymagają sesji. |
 | [Pliki statyczne](xref:fundamentals/static-files) | Zapewnia obsługę obsługujących pliki statyczne oraz przeglądanie katalogów. | Terminal, jeśli żądanie pasuje do plików. |
-| [Ponowne zapisywanie adresów URL ](xref:fundamentals/url-rewriting) | Umożliwia ponowne zapisywanie adresów URL i przekierowywanie żądań. | Przed składniki używające adresu URL. |
+| [Ponowne zapisywanie adresów URL](xref:fundamentals/url-rewriting) | Umożliwia ponowne zapisywanie adresów URL i przekierowywanie żądań. | Przed składniki używające adresu URL. |
 | [Obiekty WebSocket](xref:fundamentals/websockets) | Włącza protokołu WebSockets. | Przed składników, które są wymagane, aby akceptował żądania protokołu WebSocket. |
 
 <a name="middleware-writing-middleware"></a>

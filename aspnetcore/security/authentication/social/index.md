@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/social/index
 ms.openlocfilehash: dc6ec61519c200901cc8af03853e7381c1d4cad0
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688962"
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729861"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google i zewnętrznego dostawcy uwierzytelniania w ASP.NET Core
 

@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 1c5d229614e6d6ca6889d19a5f3dc145da01bc04
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: abdff718dbbebec17ca4f077e206bcb547f3677b
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729268"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Kestrel implementacja serwera sieci web platformy ASP.NET Core
 
@@ -74,11 +75,11 @@ Nawet jeśli zwrotnego serwera proxy nie jest wymagane, dobrym rozwiązaniem mo�
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) pakietu znajduje się w [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage).
+[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) dodatku [Microsoft.AspNetCore.App metapackage] (xref:fundamentals / metapackage aplikacji).
 
 Szablony projektów platformy ASP.NET Core domyślnie używają Kestrel. W *Program.cs*, wywołań kodu szablonów [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), które wywołuje [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) w tle.
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_DefaultBuilder&highlight=7)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_DefaultBuilder&highlight=7)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
@@ -86,7 +87,7 @@ Zainstaluj [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/
 
 Wywołanie [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) — metoda rozszerzenia na [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder?view=aspnetcore-1.1) w `Main` metoda określania żadnego [opcje Kestrel](/dotnet/api/microsoft.aspnetcore.server.kestrel.kestrelserveroptions?view=aspnetcore-1.1) wymagane, jak pokazano w następnej sekcji.
 
-[!code-csharp[](kestrel/samples/1.x/Program.cs?name=snippet_Main&highlight=13-19)]
+[!code-csharp[](kestrel/samples/1.x/KestrelSample/Program.cs?name=snippet_Main&highlight=13-19)]
 
 ---
 
@@ -109,11 +110,11 @@ Ustaw na tych i innych ograniczeń [limity](/dotnet/api/microsoft.aspnetcore.ser
 
 Można ustawić maksymalną liczbę równoczesnych połączeń TCP otwarte dla całej aplikacji z następującym kodem:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=3)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=3)]
 
 Brak oddzielnych limit połączeń, które zostały uaktualnione do inny protokół (na przykład na żądanie Websocket) z HTTP lub HTTPS. Po uaktualnieniu połączenie nie jest uwzględniane `MaxConcurrentConnections` limit.
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=4)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=4)]
 
 Maksymalna liczba połączeń jest nieograniczony (null) domyślnie.
 
@@ -132,11 +133,11 @@ public IActionResult MyActionMethod()
 
 Oto przykład, który pokazuje, jak skonfigurować ograniczenia dla aplikacji na każde żądanie:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=5)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=5)]
 
 Można zastąpić ustawienie dla określonego żądania w oprogramowaniu pośredniczącym:
 
-[!code-csharp[](kestrel/samples/2.x/Startup.cs?name=snippet_Limits&highlight=3-4)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=3-4)]
 
 Przy próbie skonfigurować limit na żądanie, po uruchomieniu aplikacji można odczytać żądania, jest zgłaszany wyjątek. Brak `IsReadOnly` właściwość, która wskazuje, czy `MaxRequestBodySize` właściwość jest w stanie tylko do odczytu, co oznacza jest za późno skonfigurować limit.
 
@@ -153,11 +154,11 @@ Minimalna częstotliwość ma również zastosowanie do odpowiedzi. Kod, aby ust
 
 Oto przykład pokazujący sposób konfigurowania stawki minimalną ilość danych w *Program.cs*:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=6-7)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=6-7)]
 
 Stawki na żądanie można skonfigurować w oprogramowaniu pośredniczącym:
 
-[!code-csharp[](kestrel/samples/2.x/Startup.cs?name=snippet_Limits&highlight=5-8)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=5-8)]
 
 Aby uzyskać informacje o innych opcjach Kestrel i limity zobacz:
 
@@ -366,7 +367,7 @@ Informacje o schemacie:
       });
   ```
 
-  Można również uzyskać dostęp do `KestrelServerOptions.ConfigurationLoader` Aby zachować iteracja na istniejący moduł ładujący, takie jak udostępnione przez `WebHost.CreatedDeafaultBuilder`.
+  Można również uzyskać dostęp do `KestrelServerOptions.ConfigurationLoader` Aby zachować iteracja na istniejący moduł ładujący, takie jak udostępnione przez [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).
 
 * Jest dostępna w opcjach dostępnych w sekcji konfiguracyjnej dla każdego punktu końcowego `Endpoint` metody, dzięki czemu mogą być odczytywane ustawienia niestandardowe.
 * Wiele konfiguracji mogą być ładowane przez wywołanie metody `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` ponownie, używając innej sekcji. Ostatniej konfiguracji jest używana, chyba że `Load` jawnie jest wywoływana w poprzednich wystąpień. Wywołanie nie metapackage `Load` , dzięki czemu można zastąpić jego sekcji konfiguracji domyślnej.
@@ -438,7 +439,7 @@ WebHost.CreateDefaultBuilder()
 
 [Nasłuchiwania](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) metody wiąże gniazda TCP i zezwala na lambda opcje konfiguracji certyfikatu SSL:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_TCPSocket&highlight=9-16)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_TCPSocket&highlight=9-16)]
 
 Przykład konfiguruje SSL dla punktu końcowego z [ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions). Skonfiguruj inne ustawienia Kestrel dla określonych punktów końcowych za pomocą tego samego interfejsu API.
 
@@ -448,13 +449,13 @@ Przykład konfiguruje SSL dla punktu końcowego z [ListenOptions](/dotnet/api/mi
 
 Nasłuchiwanie na gnieździe Unix z [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) zwiększonej wydajności z Nginx, jak pokazano w poniższym przykładzie:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_UnixSocket)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_UnixSocket)]
 
 **Port 0**
 
 Jeśli numer portu `0` określono Kestrel dynamicznie wiąże dostępnego portu. Poniższy przykład przedstawia sposób określić port, który Kestrel faktycznie powiązana w czasie wykonywania:
 
-[!code-csharp[](kestrel/samples/2.x/Startup.cs?name=snippet_Port0&highlight=3)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Port0&highlight=3)]
 
 Gdy aplikacja jest uruchamiana, dane wyjściowe z okna konsoli wskazuje port dynamiczny, gdzie można połączyć aplikacji:
 
@@ -512,7 +513,7 @@ Dla platformy ASP.NET Core 2.1 lub nowszej projektów używające `Microsoft.Asp
 
     ```xml
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv" 
-                    Version="2.1.0" />
+                      Version="2.1.0" />
     ```
 
 * Wywołanie [WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv):
@@ -664,10 +665,15 @@ var host = new WebHostBuilder()
 
 Gdy Kestrel obsługuje konfigurację oparte na prefiksy, takich jak `http://example.com:5000`, Kestrel przede wszystkim ignoruje nazwy hosta. Host `localhost` jest szczególnych przypadkach używane do wiązania na adresy sprzężenia zwrotnego. Host żadnego, innych niż jawny adres IP jest powiązany z wszystkich publicznych adresów IP. Żadne z tych informacji jest używany do sprawdzania poprawności żądania `Host` nagłówków.
 
-Istnieją dwa obejścia:
+::: moniker range="< aspnetcore-2.0"
 
-* Host pod zwrotny serwer proxy z filtrowania nagłówka hosta. To jedyny obsługiwany scenariusz Kestrel w ASP.NET Core 1.x.
-* Oprogramowanie pośredniczące do filtrowania żądań przez użycie `Host` nagłówka. Oprogramowanie pośredniczące próbki są następujące:
+Jako rozwiązanie alternatywne hosta pod zwrotny serwer proxy z filtrowania nagłówka hosta. Jest to jedyny obsługiwany scenariusz Kestrel w ASP.NET Core 1.x.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Jako obejście, za pomocą oprogramowania pośredniczącego Filtrowanie żądań przez `Host` nagłówka:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -803,23 +809,40 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Poprzednie oprogramowanie pośredniczące oczekuje `AllowedHosts` klucza w *appsettings.\< EnvironmentName > JSON*. Wartość tego klucza jest rozdzielaną średnikami listę nazw hostów bez numery portów. Obejmują `AllowedHosts` pary klucz wartość w *appsettings. Production.JSON*:
+Oprogramowanie pośredniczące oczekuje `AllowedHosts` klucza w *appsettings.json*/*appsettings.\< EnvironmentName > JSON*. Wartość jest rozdzielaną średnikami listę nazw hostów bez numerów portów:
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+Obejście tego problemu za pomocą oprogramowania pośredniczącego hosta filtrowania. Oprogramowanie pośredniczące hosta filtrowania są dostarczane przez [Microsoft.AspNetCore.HostFiltering](https://www.nuget.org/packages/Microsoft.AspNetCore.HostFiltering) pakietu, który jest dostępny w [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) metapackage. Oprogramowanie pośredniczące jest dodawany przez [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), które wywołuje [AddHostFiltering](/dotnet/api/microsoft.aspnetcore.builder.hostfilteringservicesextensions.addhostfiltering):
+
+[!code-csharp[](kestrel/samples-snapshot/2.x/KestrelSample/Program.cs?name=snippet_Program&highlight=9)]
+
+Oprogramowanie pośredniczące hosta filtrowanie jest domyślnie wyłączona. Aby włączyć oprogramowanie pośredniczące, zdefiniuj `AllowedHosts` klucza w *appsettings.json*/*appsettings.\< EnvironmentName > JSON*. Wartość jest rozdzielaną średnikami listę nazw hostów bez numerów portów:
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
+
+*appSettings.JSON*:
 
 ```json
 {
-  "AllowedHosts": "example.com"
+  "AllowedHosts": "example.com;localhost"
 }
 ```
 
-*appSettings. Development.JSON* (pliku konfiguracji hosta lokalnego):
+> [!NOTE]
+> [Nagłówki oprogramowanie pośredniczące przekazane](xref:host-and-deploy/proxy-load-balancer) ma również [ForwardedHeadersOptions.AllowedHosts](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.allowedhosts) opcji. Przekazany dalej oprogramowanie pośredniczące nagłówki i oprogramowanie pośredniczące hosta filtrowania mają podobne funkcje w różnych scenariuszach. Ustawienie `AllowedHosts` z przekazywane oprogramowanie pośredniczące nagłówki jest odpowiednie, gdy nagłówek hosta nie jest zachowywane podczas przekazywania żądań z serwera zwrotnego serwera proxy lub usługę równoważenia obciążenia. Ustawienie `AllowedHosts` z oprogramowania pośredniczącego hosta filtrowanie jest gdy Kestrel zostanie użyty jako serwer graniczny lub gdy nagłówek hosta był kierowany bezpośrednio.
+>
+> Aby uzyskać więcej informacji na przekazywane oprogramowanie pośredniczące nagłówków, zobacz [Konfigurowanie platformy ASP.NET Core do pracy z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
 
-```json
-{
-  "AllowedHosts": "localhost"
-}
-```
+::: moniker-end
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Wymuszanie protokołu HTTPS](xref:security/enforcing-ssl)
 * [Kod źródłowy kestrel](https://github.com/aspnet/KestrelHttpServer)
+* [RFC 7230: Składnia i Routing komunikatów (5.4 sekcji: Host)](https://tools.ietf.org/html/rfc7230#section-5.4)
+* [Konfigurowanie platformy ASP.NET Core do pracy z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer)

@@ -7,11 +7,12 @@ ms.date: 11/03/2016
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/authentication/otherlogins
-ms.openlocfilehash: ed42f0f61c8ed7e04216828ff5a64c36fd028dc6
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 25c88ae2fdd210c827f3f71d90b1bcca164d86af
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729522"
 ---
 # <a name="short-survey-of-other-authentication-providers"></a>Krótki przegląd innych dostawców uwierzytelniania
 
@@ -46,3 +47,7 @@ W tym miejscu są konfigurowane instrukcje dotyczące niektórych innych typowyc
 * Konfigurowanie **SoundCloud** zalogować: [ https://soundcloud.com/you/apps/new ](https://soundcloud.com/you/apps/new). Zobacz [oficjalnego kroki](https://developers.soundcloud.com/blog/we-love-oauth-2).
 
 * Konfigurowanie **VK** zalogować: [ https://vk.com/apps?act=manage ](https://vk.com/apps?act=manage). Zobacz [oficjalnego kroki](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites).
+
+## <a name="multiple-authentication-providers"></a>Wielu dostawców uwierzytelniania
+
+[!INCLUDE[](~/includes/chain-auth-providers.md)]

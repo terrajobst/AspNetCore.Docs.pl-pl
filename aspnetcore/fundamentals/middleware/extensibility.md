@@ -1,7 +1,7 @@
 ---
-title: "Aktywacji opartej na fabryki oprogramowanie pośredniczące w ASP.NET Core"
+title: Aktywacji opartej na fabryki oprogramowanie pośredniczące w ASP.NET Core
 author: guardrex
-description: "Dowiedz się, jak użyć jednoznacznie oprogramowania pośredniczącego z aktywacji opartej na fabryki implementacja platformy ASP.NET Core."
+description: Dowiedz się, jak użyć jednoznacznie oprogramowania pośredniczącego z aktywacji opartej na fabryki implementacja platformy ASP.NET Core.
 ms.author: riande
 manager: wpickett
 ms.custom: mvc
@@ -10,11 +10,12 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 76ba257abfb11e0c2950b974f837c6ae5818a6a1
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 8cec5b3b498f5a23463d8c3cd5901e14f22f6eab
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729119"
 ---
 # <a name="factory-based-middleware-activation-in-aspnet-core"></a>Aktywacji opartej na fabryki oprogramowanie pośredniczące w ASP.NET Core
 
@@ -69,11 +70,11 @@ public static IApplicationBuilder UseIMiddlewareMiddleware(
 
 Oprogramowanie pośredniczące aktywowany fabryki jest dodawany do kontenera wbudowanych w *Startup.cs*:
 
-[!code-csharp[](extensibility/sample/Startup.cs?name=snippet1&highlight=6)]
+[!code-csharp[](extensibility/sample/Startup.cs?name=snippet1&highlight=12)]
 
 Zarówno middlewares są rejestrowane w potoku przetwarzania żądań w `Configure`:
 
-[!code-csharp[](extensibility/sample/Startup.cs?name=snippet2&highlight=12-13)]
+[!code-csharp[](extensibility/sample/Startup.cs?name=snippet2&highlight=13-14)]
 
 ## <a name="imiddlewarefactory"></a>IMiddlewareFactory
 

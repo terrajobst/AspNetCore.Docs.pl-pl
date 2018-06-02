@@ -1,7 +1,7 @@
 ---
-title: "Rejestrowanie wysokiej wydajności z LoggerMessage w ASP.NET Core"
+title: Rejestrowanie wysokiej wydajności z LoggerMessage w ASP.NET Core
 author: guardrex
-description: "Dowiedz się, jak używać LoggerMessage do tworzenia buforowalnej obiektów delegowanych, które wymagają mniej alokacji obiektu w scenariuszach logowania wysokiej wydajności."
+description: Dowiedz się, jak używać LoggerMessage do tworzenia buforowalnej obiektów delegowanych, które wymagają mniej alokacji obiektu w scenariuszach logowania wysokiej wydajności.
 manager: wpickett
 ms.author: riande
 ms.date: 11/03/2017
@@ -9,17 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: 24a75cfacfa61ca66e78deeb743baa75718dfb76
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 5b5bd03b6cb5da693f046653a09ba400ee6ff585
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729197"
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Rejestrowanie wysokiej wydajności z LoggerMessage w ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-[LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage) funkcje tworzenia buforowalnej delegatów, które wymagają mniej obiekt alokacji i zmniejszyć obciążenie obliczeniowe niż [metody rozszerzenia rejestratora](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions), takich jak `LogInformation`, `LogDebug`i `LogError`. W scenariuszach logowania wysokiej wydajności, należy użyć `LoggerMessage` wzorca.
+[LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage) funkcje tworzenia buforowalnej obiektów delegowanych, które wymagają mniej obiekt alokacji i mniejsze koszty obliczeniowych w porównaniu do [metody rozszerzenia rejestratora](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions), takich jak `LogInformation`, `LogDebug`, i `LogError`. W scenariuszach logowania wysokiej wydajności, należy użyć `LoggerMessage` wzorca.
 
 `LoggerMessage` zapewnia następujące korzyści wydajności za pośrednictwem metody rozszerzenia rejestratora:
 
@@ -143,13 +144,9 @@ Zdefiniuj [dziennika zakres](xref:fundamentals/logging/index#log-scopes) do zast
 
 Przykładowa aplikacja ma **Wyczyść wszystko** przycisk usuwania wszystkich znaków cudzysłowu w bazie danych. Cudzysłowy zostaną usunięte przez usunięcie jednego naraz. Zawsze oferty zostanie usunięty, `QuoteDeleted` wywoływana jest metoda rejestratora. Zakres dziennika zostanie dodany do tych wiadomości dziennika.
 
-Włącz `IncludeScopes` w opcjach rejestratora konsoli:
+Włącz `IncludeScopes` w sekcji rejestratora konsoli *appsettings.json*:
 
-[!code-csharp[](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
-
-Ustawienie `IncludeScopes` wymaganego do włączenia dziennika zakresów w aplikacjach ASP.NET Core 2.0. Ustawienie `IncludeScopes` za pośrednictwem *appsettings* plików konfiguracyjnych jest funkcją, która ma zaplanowane dla wersji platformy ASP.NET Core 2.1.
-
-Przykładowa aplikacja czyści innych dostawców i dodaje filtry, aby zmniejszyć dane wyjściowe rejestrowania. Ułatwia zobaczyć przykładowy komunikatów dziennika, które pokazują `LoggerMessage` funkcji.
+[!code-csharp[](loggermessage/sample/appsettings.json?highlight=3-5)]
 
 Aby utworzyć zakres dziennika, Dodaj pole do przechowywania `Func` delegowanie dla zakresu. Przykładowa aplikacja tworzy pole o nazwie `_allQuotesDeletedScope` (*Internal/LoggerExtensions.cs*):
 
@@ -181,6 +178,6 @@ info: LoggerMessageSample.Pages.IndexModel[4]
       Quote deleted (Quote = 'Quote 3' Id = 4)
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Rejestrowanie](xref:fundamentals/logging/index)

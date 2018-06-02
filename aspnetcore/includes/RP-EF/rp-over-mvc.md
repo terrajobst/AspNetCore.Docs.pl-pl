@@ -6,3 +6,5 @@ Ten samouczek zawiera wskazówki platformy ASP.NET Core MVC i Entity Framework C
 * Jest bardziej aktualny przy użyciu najnowszych interfejsu API.
 * Obejmuje więcej funkcji.
 * Jest to preferowane rozwiązanie w przypadku nowych wdrożeń aplikacji.
+
+Jeśli w tym samouczku za pośrednictwem [stron Razor](xref:data/ef-rp/intro) wersji, poinformować nas, dlatego w [ten problem GitHub](https://github.com/aspnet/Docs/issues/6146).

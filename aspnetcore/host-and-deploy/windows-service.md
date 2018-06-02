@@ -11,10 +11,11 @@ ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/windows-service
 ms.openlocfilehash: 69b04d2ae723b67e16bf581127a13ceab268697d
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34473028"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze systemu Windows
 

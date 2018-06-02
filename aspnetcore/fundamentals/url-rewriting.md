@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/url-rewriting
 ms.openlocfilehash: a021c1e133bac6676859f5bf8eb01f3a7a8c63ed
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34689051"
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729255"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Adres URL ponowne zapisanie oprogramowania pośredniczącego w platformy ASP.NET Core
 

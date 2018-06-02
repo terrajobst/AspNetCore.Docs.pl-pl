@@ -14,13 +14,13 @@ Uruchom tworzenia szkieletu tożsamości:
 Jeśli tworzenia szkieletu ASP.NET nie został wcześniej zainstalowany, zainstaluj go:
 
 ```cli
-dotnet tool install -g dotnet-aspnet-codegenerator --version 2.1.0-rc1-final
+dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
 Dodaj odwołanie do pakietu [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) do projektu (\*.csproj) pliku. Uruchom następujące polecenie w katalogu projektu:
 
 ```cli
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v "2.1.0-rc1-final"
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
 dotnet restore
 ```
 

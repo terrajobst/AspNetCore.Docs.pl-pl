@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/razor-pages/razor-pages-conventions
-ms.openlocfilehash: 15bb0687ffef777b82ea9374fdc3b92f3af7818b
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: eba3422fbf46ac181a783b7f8cc605c2a549b4b7
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729746"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor strony trasy i aplikacji w Konwencji platformy ASP.NET Core
 
@@ -104,8 +105,6 @@ Przykładowe zastosowania aplikacji `AddHeaderAttribute` klasy można dodać nag
 
 ::: moniker range=">= aspnetcore-2.1"
 **Dodawanie obsługi modelu Konwencji do wszystkich stron**
-
-
 
 Użyj [konwencje](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) utworzyć i dodać [IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) do kolekcji [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) wystąpień, które są stosowane podczas modelu obsługi strony konstrukcja.
 
@@ -342,6 +341,6 @@ MVC [filtry akcji](xref:mvc/controllers/filters#action-filters) są ignorowane p
 
 Filtr strony ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)) jest filtr, który ma zastosowanie do stron Razor. Aby uzyskać więcej informacji, zobacz [filtrować metod dla stron Razor](xref:mvc/razor-pages/filter).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Konwencje autoryzacji stron razor](xref:security/authorization/razor-pages-authorization)

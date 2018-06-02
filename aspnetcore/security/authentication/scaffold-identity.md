@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 7527d3c075fd845ac804d4cfd56469a0679ed7e8
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: a43b7bbaf1f90d3373b3846bc3f4f32be6b80bd4
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729613"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Tożsamość szkieletu w projektów platformy ASP.NET Core
 
@@ -47,7 +48,7 @@ Dodaj następujący wyróżniony wywołania metody `Startup` klasy:
 <!--
 set projNam=RPnoAuth
 set projType=razor
-set version=2.1.0-rc1-final
+set version=2.1.0
 
 dotnet new %projType% -o %projNam%
 cd %projNam%
@@ -76,12 +77,13 @@ Opcjonalnie: Dodaj częściowego logowania (`_LoginPartial`) do pliku układu:
 
 [!code-html[Main](scaffold-identity/sample/_Layout.cshtml?highlight=37)]
 
-## <a name="scaffold-identity-into-a-razor-project-with-individual-authorization"></a>Tożsamość szkieletu do projektu Razor z poszczególnych autoryzacji
+## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a>Tożsamość szkieletu do projektu Razor z autoryzacji
 
 <!--
-dotnet new razor -au Individual -o RPauth
+Use >=2.1: dotnet new webapp -au Individual -o RPauth
+Use = 2.0: dotnet new razor -au Individual -o RPauth
 cd RPauth
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v "2.1.0-rc1-final"
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
 dotnet restore
 dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --files Account.Register
 -->
@@ -94,7 +96,7 @@ Niektóre opcje tożsamości są konfigurowane w *Areas/Identity/IdentityHosting
 <!--
 set projNam=MvcNoAuth
 set projType=mvc
-set version=2.1.0-rc1-final
+set version=2.1.0
 
 dotnet new %projType% -o %projNam%
 cd %projNam%
@@ -123,12 +125,12 @@ Wywołanie [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/micro
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-## <a name="scaffold-identity-into-an-mvc-project-with-individual-authorization"></a>Tożsamość szkieletu do projektu programu MVC z poszczególnych autoryzacji
+## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a>Tożsamość szkieletu do projektu programu MVC z autoryzacji
 
 <!--
 dotnet new mvc -au Individual -o MvcAuth
 cd MvcAuth
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v "2.1.0-rc1-final"
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
 dotnet restore
 dotnet aspnet-codegenerator identity -dc MvcAuth.Data.ApplicationDbContext --files Account.Register
 -->

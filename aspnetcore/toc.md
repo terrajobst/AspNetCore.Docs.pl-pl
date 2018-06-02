@@ -1,5 +1,9 @@
 # [Wprowadzenie](index.md)
 
+# [Nowości](xref:aspnetcore-2.1)
+# [Nowości](xref:aspnetcore-2.0)
+# [Nowości](xref:aspnetcore-1.1)
+
 # [Wprowadzenie](getting-started.md)
 ## [Tworzenie aplikacji internetowych](xref:mvc/razor-pages/index)
 ## [Tworzenie interfejsu Web API](xref:tutorials/first-web-api)
@@ -104,6 +108,8 @@
 ### [Interfejs API sieci Web z programem Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
 ### [Interfejs API sieci Web z programem Visual Studio Code](xref:tutorials/web-api-vsc)
 
+## [Opracowywanie aplikacji przy użyciu pliku obserwatora](xref:tutorials/dotnet-watch)
+
 ## [Tworzenie usług zaplecza dla aplikacji mobilnych](mobile/native-mobile-backend.md)
 
 # [Podstawowe założenia](fundamentals/index.md)
@@ -198,15 +204,15 @@
 ### [Niestandardowe elementy formatujące](xref:web-api/advanced/custom-formatters)
 ### [Formatowanie danych odpowiedzi](xref:web-api/advanced/formatting)
 
-# [Testowanie, debugowanie i rozwiązywanie problemów](xref:testing/index)
+# [Testowanie, debugowanie i rozwiązywanie problemów](xref:test/index)
 ## [Testowanie jednostek](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-## [Testy integracji](xref:testing/integration-testing)
-## [Testowanie stron Razor](xref:testing/razor-pages-testing)
+## [Testy integracji](xref:test/integration-tests)
+## [Testy jednostkowe stron razor](xref:test/razor-pages-tests)
 ## [Kontrolery testów](xref:mvc/controllers/testing)
 ## [Debugowanie zdalne](/visualstudio/debugger/remote-debugging-azure)
 ## [Debugowanie migawek](/azure/application-insights/app-insights-snapshot-debugger)
 ## [Debugowanie migawki w programie Visual Studio](/visualstudio/debugger/debug-live-azure-applications)
-## [Rozwiązywanie problemów](xref:testing/troubleshoot)
+## [Rozwiązywanie problemów](xref:test/troubleshoot)
 
 # [Dostęp do danych przy użyciu programu EF Core i platformy Azure](data/index.md)
 ## [Rozpoczynanie pracy ze stronami Razor i programem EF Core przy użyciu programu Visual Studio](xref:data/ef-rp/intro)
@@ -361,6 +367,7 @@
 ## [Oprogramowanie pośredniczące kompresji odpowiedzi](xref:performance/response-compression)
 
 # [Migracja](xref:migration/index)
+## [Platformy ASP.NET Core 2.0 lub 2.1](xref:migration/20_21)
 ## [ASP.NET do ASP.NET Core](xref:migration/proper-to-2x/index)
 ### [MVC](xref:migration/mvc)
 ### [Interfejs Web API](xref:migration/webapi)
@@ -373,10 +380,5 @@
 ### [Uwierzytelnianie i tożsamość](xref:migration/1x-to-2x/identity-2x)
 
 # [Dokumentacja interfejsu API](/dotnet/api/?view=aspnetcore-2.0)
-
-# [Informacje o wersji 2.0](aspnetcore-2.0.md)
-## [Informacje o wersji 1.1](aspnetcore-1.1.md)
-## [Informacje o wcześniejszej wersji](https://github.com/aspnet/home/releases)
-## [Dokumentacja dla programu VS 2015 i pliku project.json](https://docs.microsoft.com/dotnet/articles/project-json)
 
 # [Współtworzenie](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md)

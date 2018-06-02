@@ -12,11 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: cee5fded4d8005df6054ab921f39882c3e5f21b8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5b3b9b82fa64155c1dfd2a49649def10d7dae87e
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729184"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>Używanie metod asynchronicznych na platformie ASP.NET MVC 4
 ====================
@@ -43,7 +44,7 @@ To może nie być problem, ponieważ pula wątków może się wystarczająco du�
 
 ## <a name="processing-asynchronous-requests"></a>Przetwarzanie żądań asynchronicznych
 
-W aplikacji sieci web, które widzi dużej liczby równoczesnych żądań przy rozruchu lub ma seryjnym obciążenia (gdzie współbieżności zwiększa nagle) co asynchroniczne te wywołania usługi sieci web spowoduje zwiększenie czas odpowiedzi aplikacji. Asynchroniczne żądanie trwa tyle samo czasu na przetwarzanie jako żądań synchronicznych. Na przykład jeśli żądanie sprawia, że usługi sieci web wywołaniu, które wymaga dwóch sekund, przyjmuje żądania dwie sekundy czy jest wykonywane synchronicznie lub asynchronicznie. Jednak podczas wywołania asynchronicznego wątku nie blokuje odpowiedzi na inne żądania podczas oczekiwania na pierwsze żądanie do wykonania. W związku z tym żądań asynchronicznych uniknięcia wzrostu puli usługi kolejkowania wiadomości i wątku żądania, gdy istnieją dużą liczbą jednoczesnych żądań, które wywołują długotrwałej operacji.
+W aplikacji sieci web, które Zobacz dużej liczby równoczesnych żądań przy rozruchu lub ma seryjnym obciążenia (gdzie współbieżności zwiększa nagle) co asynchroniczne te wywołania usługi sieci web spowoduje zwiększenie czasu odpowiedzi aplikacji. Asynchroniczne żądanie trwa tyle samo czasu na przetwarzanie jako żądań synchronicznych. Na przykład jeśli żądanie sprawia, że usługi sieci web wywołaniu, które wymaga dwóch sekund, przyjmuje żądania dwie sekundy czy jest wykonywane synchronicznie lub asynchronicznie. Jednak podczas wywołania asynchronicznego wątku nie blokuje odpowiedzi na inne żądania podczas oczekiwania na pierwsze żądanie do wykonania. W związku z tym żądań asynchronicznych uniknięcia wzrostu puli usługi kolejkowania wiadomości i wątku żądania, gdy istnieją dużą liczbą jednoczesnych żądań, które wywołują długotrwałej operacji.
 
 ## <a id="ChoosingSyncVasync"></a>  Wybór metody akcji synchronicznego lub asynchronicznego
 
@@ -61,7 +62,7 @@ Ogólnie rzecz biorąc Użyj metod synchronicznych następujące warunki:
 - Operacje są powiązane z siecią lub I/E-granicę zamiast procesora.
 - Równoległość ma większe znaczenie niż prostota kodu.
 - Chcesz udostępniają mechanizm umożliwiający użytkownikom anulować żądanie długotrwałe.
-- Gdy korzyści przełączania wątków limit przeprowadzi koszt przełączania kontekstu. Ogólnie rzecz biorąc należy metody asynchroniczne, jeśli metoda synchroniczna oczekuje na wątek żądania ASP.NET podczas wykonywania żadne czynności. Za pomocą wywołania asynchronicznego, wątku żądania ASP.NET jest zainstalowany ten żadne czynności podczas oczekiwania na żądanie usługi sieci web zakończyć.
+- Gdy korzyści przełączania wątków podejścia są większe niż koszt przełączania kontekstu. Ogólnie rzecz biorąc należy metody asynchroniczne, jeśli metoda synchroniczna oczekuje na wątek żądania ASP.NET podczas wykonywania żadne czynności. Za pomocą wywołania asynchronicznego, wątku żądania ASP.NET jest zainstalowany ten żadne czynności podczas oczekiwania na żądanie usługi sieci web zakończyć.
 - Testowanie pokazuje, czy operacji blokowania wąskich gardeł wydajności lokacji i usług IIS może obsłużyć więcej żądań przy użyciu metod asynchronicznych tymi połączeniami blokowania.
 
   Do pobrania przykładowych pokazano, jak skutecznie używać metod asynchronicznych akcji. Przykładu dostępnego zaprojektowano tak, aby zapewnić prosty pokaz programowania asynchronicznego w programie ASP.NET MVC 4 przy użyciu platformy .NET 4.5. Przykład nie jest przeznaczona do architektury odwołania do programowania asynchronicznego w programie ASP.NET MVC. Wywołuje program przykładowy [ASP.NET Web API](../../../web-api/index.md) metod, które z kolei wymagają [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) do symulowania wywołania usługi sieci web długotrwałe. Większość aplikacji produkcyjnych, nie będą widoczne takie oczywiste korzyści wynikające z używania metod asynchronicznych akcji.   

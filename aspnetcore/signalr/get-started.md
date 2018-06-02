@@ -11,12 +11,12 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: eb14fbf42f5c18ccdc3ca42af8fd8bcfaa15c623
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 880abd87805990baf8dd977c340a60582e54d2df
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688591"
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729507"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Rozpoczynanie pracy z SignalR platformy ASP.NET Core
 
@@ -75,7 +75,7 @@ Visual Studio zawiera `Microsoft.AspNetCore.SignalR` pakiet zawierający bibliot
     npm install @aspnet/signalr
     ```     
 
-4. Kopiuj *signalr.js* plik z *node_modules\\ @aspnet\signalr\dist\browser*  do *lib* folder w projekcie.
+4. Utwórz nowy folder o nazwie "signalr" wewnątrz *lib* folder w projekcie. Następnie skopiuj *signalr.js* plik z *node_modules\\ @aspnet\signalr\dist\browser*  do tego folderu.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -102,7 +102,7 @@ Koncentrator jest klasa, która służy jako wysokiego poziomu potok, który umo
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-1. Dodaj do projektu klasę, wybierając **pliku** > **nowy** > **pliku** i wybierając **Visual C# klasy**.
+1. Dodaj do projektu klasę, wybierając **pliku** > **nowy** > **pliku** i wybierając **Visual C# klasy**. Nadaj nazwę plikowi *ChatHub*. 
 
 2. Dziedzicz `Microsoft.AspNetCore.SignalR.Hub`. `Hub` Zawiera klasę, właściwości i zdarzeń związanych z zarządzaniem połączeń i grupy, a także wysyłania i odbierania danych.
 

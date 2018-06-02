@@ -9,17 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 1dba6eaceb6b69cf92cb8a831df9dc8d70a005d4
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 3272700c7739778a6a341ae8ee424fd69605ca53
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729720"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Wprowadzenie do platformy ASP.NET Core MVC i Visual Studio
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE [consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](~/includes/razor.md)]
 
 Istnieją 3 wersje tego samouczka:
 
@@ -29,9 +30,64 @@ Istnieją 3 wersje tego samouczka:
 
 ## <a name="install-visual-studio-and-net-core"></a>Zainstaluj oprogramowanie .NET Core i Visual Studio
 
+::: moniker range=">= aspnetcore-2.1"
+
+[! OBEJMUJĄ [] (~/includes/net-core-prereqs-windows.md) [](~/includes/net-core-prereqs-windows.md)]
+
+## <a name="create-a-web-app"></a>Tworzenie aplikacji sieci web
+
+W programie Visual Studio, wybierz **Plik > Nowy > Projekt**.
+
+![Plik > Nowy > Projekt](start-mvc/_static/alt_new_project.png)
+
+Zakończenie **nowy projekt** okna dialogowego:
+
+* W okienku po lewej stronie wybierz **.NET Core**
+* W środkowym okienku wybierz **aplikacji sieci Web platformy ASP.NET Core (.NET Core)**
+* Nazwa projektu "MvcMovie" (należy nazwa projektu "MvcMovie", po skopiowaniu kodu przestrzeni nazw będą zgodne.)
+* Wybierz **OK**
+
+![Okno dialogowe nowego projektu, .net core w okienku po lewej stronie sieci web platformy ASP.NET Core ](start-mvc/_static/new_project2-21.png)
+
+Zakończenie **nowej platformy ASP.NET Core aplikacji sieci Web (.NET Core) — MvcMovie** okna dialogowego:
+
+* W polu listy rozwijanej selektora wersja wybierz **platformy ASP.NET Core 2.1**
+* Wybierz **Application(Model-View-Controller) w sieci Web**
+* Wybierz **OK**.
+
+![Okno dialogowe nowego projektu, .net core w okienku po lewej stronie sieci web platformy ASP.NET Core ](start-mvc/_static/new_project22-21.png)
+
+Visual Studio używany domyślny szablon projektu MVC, który został utworzony. Masz aplikację pracy z teraz wpisując nazwę projektu i wybierając kilka opcji. Jest to projekt starter podstawowe i jest dobrym miejscem do rozpoczęcia,
+
+Wybierz **F5** do uruchomienia aplikacji w trybie debugowania lub **Ctrl-F5** w trybie bez debugowania.
+<!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
+![uruchomionej aplikacji](start-mvc/_static/1.png)
+
+* Uruchamia program Visual Studio [usług IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) i uruchamia aplikację. Należy zauważyć, że na pasku adresu `localhost:port#` i nie coś, takich jak `example.com`. Jest to spowodowane tym `localhost` jest standardowa nazwa hosta komputera lokalnego. Gdy program Visual Studio tworzy projekt sieci web, losowy port jest używany dla serwera sieci web. Powyższy obraz numer portu to 5000. Adres URL w przeglądarce przedstawiono `localhost:5000`. Po uruchomieniu aplikacji zostanie wyświetlony inny numer portu.
+* Uruchamianie aplikacji z **Ctrl + F5** (tryb-debug) pozwala wprowadzać zmiany kodu, Zapisz plik, Odśwież przeglądarkę i zobaczyć zmiany kodu. Wielu deweloperów preferowane jest w trybie bez debugowania szybko uruchomić aplikację i zobaczyć zmiany.
+* Możesz uruchomić aplikację w trybie bez debugowania z lub debugowania **debugowania** element menu:
+
+![Debugowanie menu](start-mvc/_static/debug_menu.png)
+
+* Można debugować aplikacji, naciskając pozycję **usług IIS Express** przycisku
+
+![IIS Express](start-mvc/_static/iis_express.png)
+
+Domyślny szablon umożliwia pracy **macierzystego o** i **skontaktuj się z** łącza. Powyższy obraz przeglądarki nie wyświetla tych łączy. W zależności od rozmiaru przeglądarki konieczne może być kliknij ikonę nawigacji, aby je wyświetlić.
+
+![Ikona nawigacji w prawym górnym rogu](start-mvc/_static/2.png)
+
+Podczas uruchamiania w trybie debugowania, naciśnij przycisk **Shift-F5** można zatrzymać debugowania.
+
+W następnej części tego samouczka możemy Dowiedz się więcej o MVC i rozpocząć pisanie kodu.
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+[! OBEJMUJĄ [] (~/includes/net-core-prereqs.md) [](~/includes/net-core-prereqs.md)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
@@ -88,7 +144,7 @@ Zakończenie **nowej platformy ASP.NET Core aplikacji sieci Web (.NET Core) — 
 
 ---
 
-Visual Studio używany domyślny szablon projektu MVC, który został utworzony. Masz aplikację pracy z teraz wpisując nazwę projektu i wybierając kilka opcji. Jest to projekt starter proste i jest dobrym miejscem do rozpoczęcia,
+Visual Studio używany domyślny szablon projektu MVC, który został utworzony. Masz aplikację pracy z teraz wpisując nazwę projektu i wybierając kilka opcji. Jest to projekt starter podstawowe i jest dobrym miejscem do rozpoczęcia,
 
 Wybierz **F5** do uruchomienia aplikacji w trybie debugowania lub **Ctrl-F5** w trybie bez debugowania.
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
@@ -112,5 +168,6 @@ Podczas uruchamiania w trybie debugowania, naciśnij przycisk **Shift-F5** możn
 
 W następnej części tego samouczka możemy Dowiedz się więcej o MVC i rozpocząć pisanie kodu.
 
+::: moniker-end
 > [!div class="step-by-step"]
 > [Next](adding-controller.md)  
