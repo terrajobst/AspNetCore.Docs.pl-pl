@@ -1,23 +1,32 @@
-# <a name="scaffolded-razor-pages-in-aspnet-core"></a>Szkieletu Razor strony platformy ASP.NET Core
+# <a name="scaffolded-razor-pages-in-aspnet-core"></a><span data-ttu-id="17de3-101">Szkieletu Razor strony platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="17de3-101">Scaffolded Razor Pages in ASP.NET Core</span></span>
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+<span data-ttu-id="17de3-102">przez [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="17de3-102">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-W tym samouczku sprawdza stron Razor, tworzonych przez szkieletów poprzedniej samouczka. 
+<span data-ttu-id="17de3-103">W tym samouczku sprawdza stron Razor, tworzonych przez szkieletów poprzedniej samouczka.</span><span class="sxs-lookup"><span data-stu-id="17de3-103">This tutorial examines the Razor Pages created by scaffolding in the previous tutorial.</span></span> 
 
-[Wyświetlanie lub pobieranie](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) próbki.
+<span data-ttu-id="17de3-104">[Wyświetlanie lub pobieranie](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) próbki.</span><span class="sxs-lookup"><span data-stu-id="17de3-104">[View or download](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) sample.</span></span>
 
-## <a name="the-create-delete-details-and-edit-pages"></a>Utwórz, Usuń, szczegóły i Edycja stron.
+## <a name="the-create-delete-details-and-edit-pages"></a><span data-ttu-id="17de3-105">Utwórz, Usuń, szczegóły i Edycja stron.</span><span class="sxs-lookup"><span data-stu-id="17de3-105">The Create, Delete, Details, and Edit pages.</span></span>
 
-Sprawdź *Pages/Movies/Index.cshtml.cs* modelu strony: [!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
+<span data-ttu-id="17de3-106">Sprawdź *Pages/Movies/Index.cshtml.cs* modelu strony:</span><span class="sxs-lookup"><span data-stu-id="17de3-106">Examine the *Pages/Movies/Index.cshtml.cs* Page Model:</span></span>
 
-Pochodne stron razor `PageModel`. Według konwencji `PageModel`-nosi nazwę klasy pochodnej `<PageName>Model`. Używa konstruktora [iniekcji zależności](xref:fundamentals/dependency-injection) można dodać `MovieContext` do strony. Wszystkie strony szkieletu wykonaj tego wzorca. Zobacz [kod asynchroniczny](xref:data/ef-rp/intro#asynchronous-code) uzyskać więcej informacji o asynchronicznych programing Entity Framework.
+::: moniker range="= aspnetcore-2.0"
+<span data-ttu-id="17de3-107">[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]</span><span class="sxs-lookup"><span data-stu-id="17de3-107">[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]</span></span>
+::: moniker-end
 
-Po wysłaniu żądania dla tej strony, `OnGetAsync` metoda zwraca listę filmów na stronie aparatu Razor. `OnGetAsync` lub `OnGet` jest wywoływana na stronie aparatu Razor zainicjować stan strony. W takim przypadku `OnGetAsync` pobiera listę filmy i wyświetla je. 
+::: moniker range=">= aspnetcore-2.1"
+<span data-ttu-id="17de3-108">[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index21.cshtml.cs)]</span><span class="sxs-lookup"><span data-stu-id="17de3-108">[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index21.cshtml.cs)]</span></span>
 
-Gdy `OnGet` zwraca `void` lub `OnGetAsync` zwraca`Task`, brak metody zwracany jest używany. Gdy typ zwrotny jest `IActionResult` lub `Task<IActionResult>`, należy podać instrukcji return. Na przykład *Pages/Movies/Create.cshtml.cs* `OnPostAsync` metody:
+::: moniker-end
+
+<span data-ttu-id="17de3-109">Pochodne stron razor `PageModel`.</span><span class="sxs-lookup"><span data-stu-id="17de3-109">Razor Pages are derived from `PageModel`.</span></span> <span data-ttu-id="17de3-110">Według konwencji `PageModel`-nosi nazwę klasy pochodnej `<PageName>Model`.</span><span class="sxs-lookup"><span data-stu-id="17de3-110">By convention, the `PageModel`-derived class is called `<PageName>Model`.</span></span> <span data-ttu-id="17de3-111">Używa konstruktora [iniekcji zależności](xref:fundamentals/dependency-injection) można dodać `MovieContext` do strony.</span><span class="sxs-lookup"><span data-stu-id="17de3-111">The constructor uses [dependency injection](xref:fundamentals/dependency-injection) to add the `MovieContext` to the page.</span></span> <span data-ttu-id="17de3-112">Wszystkie strony szkieletu wykonaj tego wzorca.</span><span class="sxs-lookup"><span data-stu-id="17de3-112">All the scaffolded pages follow this pattern.</span></span> <span data-ttu-id="17de3-113">Zobacz [kod asynchroniczny](xref:data/ef-rp/intro#asynchronous-code) uzyskać więcej informacji o asynchronicznych programing Entity Framework.</span><span class="sxs-lookup"><span data-stu-id="17de3-113">See [Asynchronous code](xref:data/ef-rp/intro#asynchronous-code) for more information on asynchronous programing with Entity Framework.</span></span>
+
+<span data-ttu-id="17de3-114">Po wysłaniu żądania dla tej strony, `OnGetAsync` metoda zwraca listę filmów na stronie aparatu Razor.</span><span class="sxs-lookup"><span data-stu-id="17de3-114">When a request is made for the page, the `OnGetAsync` method returns a list of movies to the Razor Page.</span></span> <span data-ttu-id="17de3-115">`OnGetAsync` lub `OnGet` jest wywoływana na stronie aparatu Razor zainicjować stan strony.</span><span class="sxs-lookup"><span data-stu-id="17de3-115">`OnGetAsync` or `OnGet` is called on a Razor Page to initialize the state for the page.</span></span> <span data-ttu-id="17de3-116">W takim przypadku `OnGetAsync` pobiera listę filmy i wyświetla je.</span><span class="sxs-lookup"><span data-stu-id="17de3-116">In this case, `OnGetAsync` gets a list of movies and displays them.</span></span> 
+
+<span data-ttu-id="17de3-117">Gdy `OnGet` zwraca `void` lub `OnGetAsync` zwraca`Task`, brak metody zwracany jest używany.</span><span class="sxs-lookup"><span data-stu-id="17de3-117">When `OnGet` returns `void` or `OnGetAsync` returns`Task`, no return method is used.</span></span> <span data-ttu-id="17de3-118">Gdy typ zwrotny jest `IActionResult` lub `Task<IActionResult>`, należy podać instrukcji return.</span><span class="sxs-lookup"><span data-stu-id="17de3-118">When the return type is `IActionResult` or `Task<IActionResult>`, a return statement must be provided.</span></span> <span data-ttu-id="17de3-119">Na przykład *Pages/Movies/Create.cshtml.cs* `OnPostAsync` metody:</span><span class="sxs-lookup"><span data-stu-id="17de3-119">For example, the *Pages/Movies/Create.cshtml.cs* `OnPostAsync` method:</span></span>
 
 <!-- TODO - replace with snippet
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
  -->
 
 ```csharp
@@ -34,100 +43,128 @@ public async Task<IActionResult> OnPostAsync()
     return RedirectToPage("./Index");
 }
 ```
-Sprawdź *Pages/Movies/Index.cshtml* Razor strony:
+
+<span data-ttu-id="17de3-120">Sprawdź *Pages/Movies/Index.cshtml* Razor strony:</span><span class="sxs-lookup"><span data-stu-id="17de3-120">Examine the *Pages/Movies/Index.cshtml* Razor Page:</span></span>
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]
 
-Razor można przejście z kodu HTML w C# lub znacznika specyficzne dla elementu Razor. Gdy `@` następuje symbol [Razor zastrzeżone słowa kluczowego](xref:mvc/views/razor#razor-reserved-keywords), jego przejścia do znaczników specyficzne dla elementu Razor, w przeciwnym razie przejścia w języku C#.
+<span data-ttu-id="17de3-121">Razor można przejście z kodu HTML w C# lub znacznika specyficzne dla elementu Razor.</span><span class="sxs-lookup"><span data-stu-id="17de3-121">Razor can transition from HTML into C# or into Razor-specific markup.</span></span> <span data-ttu-id="17de3-122">Gdy `@` następuje symbol [Razor zastrzeżone słowa kluczowego](xref:mvc/views/razor#razor-reserved-keywords), jego przejścia do znaczników specyficzne dla elementu Razor, w przeciwnym razie przejścia w języku C#.</span><span class="sxs-lookup"><span data-stu-id="17de3-122">When an `@` symbol is followed by a [Razor reserved keyword](xref:mvc/views/razor#razor-reserved-keywords), it transitions into Razor-specific markup, otherwise it transitions into C#.</span></span>
 
-`@page` Dyrektywy Razor sprawia, że plik na akcję MVC &mdash; co oznacza, że może obsłużyć żądania. `@page` musi być pierwszym dyrektywy Razor na stronie. `@page` jest przykładem przechodzi do znaczników specyficzne dla elementu Razor. Zobacz [składni Razor](xref:mvc/views/razor#razor-syntax) Aby uzyskać więcej informacji.
+<span data-ttu-id="17de3-123">`@page` Dyrektywy Razor sprawia, że plik na akcję MVC &mdash; co oznacza, że może obsłużyć żądania.</span><span class="sxs-lookup"><span data-stu-id="17de3-123">The `@page` Razor directive makes the file into an MVC action &mdash; which means that it can handle requests.</span></span> <span data-ttu-id="17de3-124">`@page` musi być pierwszym dyrektywy Razor na stronie.</span><span class="sxs-lookup"><span data-stu-id="17de3-124">`@page` must be the first Razor directive on a page.</span></span> <span data-ttu-id="17de3-125">`@page` jest przykładem przechodzi do znaczników specyficzne dla elementu Razor.</span><span class="sxs-lookup"><span data-stu-id="17de3-125">`@page` is an example of transitioning into Razor-specific markup.</span></span> <span data-ttu-id="17de3-126">Zobacz [składni Razor](xref:mvc/views/razor#razor-syntax) Aby uzyskać więcej informacji.</span><span class="sxs-lookup"><span data-stu-id="17de3-126">See [Razor syntax](xref:mvc/views/razor#razor-syntax) for more information.</span></span>
 
-Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:
+<span data-ttu-id="17de3-127">Sprawdź wyrażenie lambda, używane w następujących pomocnika kodu HTML:</span><span class="sxs-lookup"><span data-stu-id="17de3-127">Examine the lambda expression used in the following HTML Helper:</span></span>
 
 ```cshtml
 @Html.DisplayNameFor(model => model.Movie[0].Title))
 ```
 
-`DisplayNameFor` Przeprowadzający pomocnika kodu HTML `Title` właściwości, do którego odwołuje się wyrażenie lambda, aby ustalić nazwę wyświetlaną. Wyrażenie lambda jest sprawdzana zamiast obliczone. Oznacza to, że istnieje żadne naruszenie dostępu podczas `model`, `model.Movie`, lub `model.Movie[0]` są `null` lub jest pusty. Podczas oceny wyrażenia lambda (na przykład z `@Html.DisplayFor(modelItem => item.Title)`), wartości właściwości modelu.
+<span data-ttu-id="17de3-128">`DisplayNameFor` Przeprowadzający pomocnika kodu HTML `Title` właściwości, do którego odwołuje się wyrażenie lambda, aby ustalić nazwę wyświetlaną.</span><span class="sxs-lookup"><span data-stu-id="17de3-128">The `DisplayNameFor` HTML Helper inspects the `Title` property referenced in the lambda expression to determine the display name.</span></span> <span data-ttu-id="17de3-129">Wyrażenie lambda jest sprawdzana zamiast obliczone.</span><span class="sxs-lookup"><span data-stu-id="17de3-129">The lambda expression is inspected rather than evaluated.</span></span> <span data-ttu-id="17de3-130">Oznacza to, że istnieje żadne naruszenie dostępu podczas `model`, `model.Movie`, lub `model.Movie[0]` są `null` lub jest pusty.</span><span class="sxs-lookup"><span data-stu-id="17de3-130">That means there is no access violation when `model`, `model.Movie`, or `model.Movie[0]` are `null` or empty.</span></span> <span data-ttu-id="17de3-131">Podczas oceny wyrażenia lambda (na przykład z `@Html.DisplayFor(modelItem => item.Title)`), wartości właściwości modelu.</span><span class="sxs-lookup"><span data-stu-id="17de3-131">When the lambda expression is evaluated (for example, with `@Html.DisplayFor(modelItem => item.Title)`), the model's property values are evaluated.</span></span>
 
 <a name="md"></a>
-### <a name="the-model-directive"></a>@model — Dyrektywa
+### <a name="the-model-directive"></a><span data-ttu-id="17de3-132">@model — Dyrektywa</span><span class="sxs-lookup"><span data-stu-id="17de3-132">The @model directive</span></span>
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
-`@model` Dyrektywa określa typ modelu przekazywane do strony Razor. W powyższym przykładzie `@model` wiersz sprawia, że `PageModel`-klasy dostępny na stronie aparatu Razor. Model jest używany w `@Html.DisplayNameFor` i `@Html.DisplayName` [pomocników HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) na stronie.
+<span data-ttu-id="17de3-133">`@model` Dyrektywa określa typ modelu przekazywane do strony Razor.</span><span class="sxs-lookup"><span data-stu-id="17de3-133">The `@model` directive specifies the type of the model passed to the Razor Page.</span></span> <span data-ttu-id="17de3-134">W powyższym przykładzie `@model` wiersz sprawia, że `PageModel`-klasy dostępny na stronie aparatu Razor.</span><span class="sxs-lookup"><span data-stu-id="17de3-134">In the preceding example, the `@model` line makes the `PageModel`-derived class available to the Razor Page.</span></span> <span data-ttu-id="17de3-135">Model jest używany w `@Html.DisplayNameFor` i `@Html.DisplayName` [pomocników HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) na stronie.</span><span class="sxs-lookup"><span data-stu-id="17de3-135">The model is used in the `@Html.DisplayNameFor` and `@Html.DisplayName` [HTML Helpers](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) on the page.</span></span>
 
-<!-- why don't xref links work?
+<span data-ttu-id="17de3-136"><!-- why don't xref links work?
 [HTML Helpers 2](xref:aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs)
 -->
 
 <a name="vd"></a>
-### ViewData i układu
+### ViewData i układu</span><span class="sxs-lookup"><span data-stu-id="17de3-136"><!-- why don't xref links work?
+[HTML Helpers 2](xref:aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs)
+-->
 
-Rozważmy następujący kod:
+<a name="vd"></a>
+### ViewData and layout</span></span>
+
+<span data-ttu-id="17de3-137">Rozważmy następujący kod:</span><span class="sxs-lookup"><span data-stu-id="17de3-137">Consider the following code:</span></span>
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-6&highlight=4-999)]
 
-Poprzedni wyróżniony kod jest przykładem Razor przechodzi do języka C#. `{` i `}` znaków ujmij bloku kodu C#.
+<span data-ttu-id="17de3-138">Poprzedni wyróżniony kod jest przykładem Razor przechodzi do języka C#.</span><span class="sxs-lookup"><span data-stu-id="17de3-138">The preceding highlighted code is an example of Razor transitioning into C#.</span></span> <span data-ttu-id="17de3-139">`{` i `}` znaków ujmij bloku kodu C#.</span><span class="sxs-lookup"><span data-stu-id="17de3-139">The `{` and `}` characters enclose a block of C# code.</span></span>
 
-`PageModel` Ma klasy podstawowej `ViewData` właściwości słownik, który może służyć do dodania danych, które mają być przekazywane do widoku. Dodawanie obiektów do `ViewData` słownika przy użyciu wzorca klucza i wartości. W poprzednim przykładzie właściwość "Title" została dodana do `ViewData` słownika. Właściwość "Title" jest używana w *Pages/_Layout.cshtml* pliku. Następujący kod przedstawia pierwsze kilka wierszy *Pages/_Layout.cshtml* pliku.
+<span data-ttu-id="17de3-140">`PageModel` Ma klasy podstawowej `ViewData` właściwości słownik, który może służyć do dodania danych, które mają być przekazywane do widoku.</span><span class="sxs-lookup"><span data-stu-id="17de3-140">The `PageModel` base class has a `ViewData` dictionary property that can be used to add data that you want to pass to a View.</span></span> <span data-ttu-id="17de3-141">Dodawanie obiektów do `ViewData` słownika przy użyciu wzorca klucza i wartości.</span><span class="sxs-lookup"><span data-stu-id="17de3-141">You add objects into the `ViewData` dictionary using a key/value pattern.</span></span> <span data-ttu-id="17de3-142">W poprzednim przykładzie właściwość "Title" została dodana do `ViewData` słownika.</span><span class="sxs-lookup"><span data-stu-id="17de3-142">In the preceding sample, the "Title" property is added to the `ViewData` dictionary.</span></span> 
+
+::: moniker range="= aspnetcore-2.0"
+
+<span data-ttu-id="17de3-143">Właściwość "Title" jest używana w *Pages/_Layout.cshtml* pliku.</span><span class="sxs-lookup"><span data-stu-id="17de3-143">The "Title" property is used in the *Pages/_Layout.cshtml* file.</span></span> <span data-ttu-id="17de3-144">Następujący kod przedstawia pierwsze kilka wierszy *Pages/_Layout.cshtml* pliku.</span><span class="sxs-lookup"><span data-stu-id="17de3-144">The following markup shows the first few lines of the *Pages/_Layout.cshtml* file.</span></span>
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+<span data-ttu-id="17de3-145">Właściwość "Title" jest używana w *Pages/Shared/_Layout.cshtml* pliku.</span><span class="sxs-lookup"><span data-stu-id="17de3-145">The "Title" property is used in the *Pages/Shared/_Layout.cshtml* file.</span></span> <span data-ttu-id="17de3-146">Następujący kod przedstawia pierwsze kilka wierszy *_Layout.cshtml* pliku.</span><span class="sxs-lookup"><span data-stu-id="17de3-146">The following markup shows the first few lines of the *_Layout.cshtml* file.</span></span>
+
+::: moniker-end
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-999)]
 
-Wiersz `@*Markup removed for brevity.*@` komentarza Razor. W przeciwieństwie do komentarzy HTML (`<!-- -->`), Razor komentarze nie są wysyłane do klienta.
+<span data-ttu-id="17de3-147">Wiersz `@*Markup removed for brevity.*@` komentarza Razor.</span><span class="sxs-lookup"><span data-stu-id="17de3-147">The line `@*Markup removed for brevity.*@` is a Razor comment.</span></span> <span data-ttu-id="17de3-148">W przeciwieństwie do komentarzy HTML (`<!-- -->`), Razor komentarze nie są wysyłane do klienta.</span><span class="sxs-lookup"><span data-stu-id="17de3-148">Unlike HTML comments (`<!-- -->`), Razor comments are not sent to the client.</span></span>
 
-Uruchom aplikację i przetestować linki w projekcie (**Home**, **o**, **skontaktuj się z**, **Utwórz**, **Edytuj**, i **usunąć**). Każdej strony Ustawia tytuł, który można wyświetlić na karcie przeglądarki. Gdy zakładki na stronie tytuł jest używana do zakładki. *Pages/Index.cshtml* i *Pages/Movies/Index.cshtml* obecnie o takiej samej nazwie, ale można modyfikować mają różne wartości.
+<span data-ttu-id="17de3-149">Uruchom aplikację i przetestować linki w projekcie (**Home**, **o**, **skontaktuj się z**, **Utwórz**, **Edytuj**, i **usunąć**).</span><span class="sxs-lookup"><span data-stu-id="17de3-149">Run the app and test the links in the project (**Home**, **About**, **Contact**, **Create**, **Edit**, and **Delete**).</span></span> <span data-ttu-id="17de3-150">Każdej strony Ustawia tytuł, który można wyświetlić na karcie przeglądarki. Gdy zakładki na stronie tytuł jest używana do zakładki.</span><span class="sxs-lookup"><span data-stu-id="17de3-150">Each page sets the title, which you can see in the browser tab. When you bookmark a page, the title is used for the bookmark.</span></span> <span data-ttu-id="17de3-151">*Pages/Index.cshtml* i *Pages/Movies/Index.cshtml* obecnie o takiej samej nazwie, ale można modyfikować mają różne wartości.</span><span class="sxs-lookup"><span data-stu-id="17de3-151">*Pages/Index.cshtml* and *Pages/Movies/Index.cshtml* currently have the same title, but you can modify them to have different values.</span></span>
 
-`Layout` Właściwość jest ustawiona *Pages/_ViewStart.cshtml* pliku:
+> [!NOTE]
+> <span data-ttu-id="17de3-152">Nie można wprowadzić przecinki dziesiętne w `Price` pola.</span><span class="sxs-lookup"><span data-stu-id="17de3-152">You may not be able to enter decimal commas in the `Price` field.</span></span> <span data-ttu-id="17de3-153">Do obsługi [weryfikacji jQuery](https://jqueryvalidation.org/) dla innych niż angielski, które użyj przecinka (",") dla punktu dziesiętnego i formaty daty z systemem innym niż angielski, należy wykonać kroki, aby globalize aplikacji.</span><span class="sxs-lookup"><span data-stu-id="17de3-153">To support [jQuery validation](https://jqueryvalidation.org/) for non-English locales that use a comma (",") for a decimal point, and non US-English date formats, you must take steps to globalize your app.</span></span> <span data-ttu-id="17de3-154">To [GitHub problem 4076](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) instrukcje dotyczące dodawania przecinkiem.</span><span class="sxs-lookup"><span data-stu-id="17de3-154">This [GitHub issue 4076](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) for instructions on adding decimal comma.</span></span>
+
+<span data-ttu-id="17de3-155">`Layout` Właściwość jest ustawiona *Pages/_ViewStart.cshtml* pliku:</span><span class="sxs-lookup"><span data-stu-id="17de3-155">The `Layout` property is set in the *Pages/_ViewStart.cshtml* file:</span></span>
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_ViewStart.cshtml)]
 
-Poprzedni kod znaczników ustawia plik układu *Pages/_Layout.cshtml* wszystkich plików Razor w *stron* folderu. Zobacz [układu](xref:mvc/razor-pages/index#layout) Aby uzyskać więcej informacji.
+<span data-ttu-id="17de3-156">Poprzedni kod znaczników ustawia plik układu *Pages/_Layout.cshtml* wszystkich plików Razor w *stron* folderu.</span><span class="sxs-lookup"><span data-stu-id="17de3-156">The preceding markup sets the layout file to *Pages/_Layout.cshtml* for all Razor files under the *Pages* folder.</span></span> <span data-ttu-id="17de3-157">Zobacz [układu](xref:mvc/razor-pages/index#layout) Aby uzyskać więcej informacji.</span><span class="sxs-lookup"><span data-stu-id="17de3-157">See [Layout](xref:mvc/razor-pages/index#layout) for more information.</span></span>
 
-### <a name="update-the-layout"></a>Aktualizacja układu
+### <a name="update-the-layout"></a><span data-ttu-id="17de3-158">Aktualizacja układu</span><span class="sxs-lookup"><span data-stu-id="17de3-158">Update the layout</span></span>
 
-Zmień `<title>` element *Pages/_Layout.cshtml* plik krótszego ciągu.
+<span data-ttu-id="17de3-159">Zmień `<title>` element *Pages/_Layout.cshtml* plik krótszego ciągu.</span><span class="sxs-lookup"><span data-stu-id="17de3-159">Change the `<title>` element in the *Pages/_Layout.cshtml* file to use a shorter string.</span></span>
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=1-6&highlight=6)]
 
-Znajdź następujący element zakotwiczenia w *Pages/_Layout.cshtml* pliku.
+<span data-ttu-id="17de3-160">Znajdź następujący element zakotwiczenia w *Pages/_Layout.cshtml* pliku.</span><span class="sxs-lookup"><span data-stu-id="17de3-160">Find the following anchor element in the *Pages/_Layout.cshtml* file.</span></span>
 
 ```cshtml
 <a asp-page="/Index" class="navbar-brand">RazorPagesMovie</a>
 ```
-Zastąp następujący kod znaczników poprzedni element.
+<span data-ttu-id="17de3-161">Zastąp następujący kod znaczników poprzedni element.</span><span class="sxs-lookup"><span data-stu-id="17de3-161">Replace the preceding element with the following markup.</span></span>
 
 ```cshtml
 <a asp-page="/Movies/Index" class="navbar-brand">RpMovie</a>
 ```
 
-Poprzedni element zakotwiczenia jest [pomocnika tagów](xref:mvc/views/tag-helpers/intro). W takim przypadku ma [pomocnika Tag kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper). `asp-page="/Movies/Index"` Atrybut pomocnika tagów i wartość tworzy łącze do `/Movies/Index` Razor strony.
+<span data-ttu-id="17de3-162">Poprzedni element zakotwiczenia jest [pomocnika tagów](xref:mvc/views/tag-helpers/intro).</span><span class="sxs-lookup"><span data-stu-id="17de3-162">The preceding anchor element is a [Tag Helper](xref:mvc/views/tag-helpers/intro).</span></span> <span data-ttu-id="17de3-163">W takim przypadku ma [pomocnika Tag kotwicy](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper).</span><span class="sxs-lookup"><span data-stu-id="17de3-163">In this case, it's the [Anchor Tag Helper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper).</span></span> <span data-ttu-id="17de3-164">`asp-page="/Movies/Index"` Atrybut pomocnika tagów i wartość tworzy łącze do `/Movies/Index` Razor strony.</span><span class="sxs-lookup"><span data-stu-id="17de3-164">The `asp-page="/Movies/Index"` Tag Helper attribute and value creates a link to the `/Movies/Index` Razor Page.</span></span>
 
-Zapisz zmiany i przetestować aplikację, klikając **RpMovie** łącza. Zobacz [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) pliku w witrynie GitHub.
+<span data-ttu-id="17de3-165">Zapisz zmiany i przetestować aplikację, klikając **RpMovie** łącza.</span><span class="sxs-lookup"><span data-stu-id="17de3-165">Save your changes, and test the app by clicking on the **RpMovie** link.</span></span> <span data-ttu-id="17de3-166">Zobacz [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) pliku w witrynie GitHub.</span><span class="sxs-lookup"><span data-stu-id="17de3-166">See the [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) file in GitHub.</span></span>
 
-### <a name="the-create-page-model"></a>Utwórz model strony
+### <a name="the-create-page-modelthe-create-page-model"></a><span data-ttu-id="17de3-167">Utwórz stronę modelThe Tworzenie strony model</span><span class="sxs-lookup"><span data-stu-id="17de3-167">The Create page modelThe Create page model</span></span>
 
-Sprawdź *Pages/Movies/Create.cshtml.cs* modelu strony:
+<span data-ttu-id="17de3-168">Sprawdź *Pages/Movies/Create.cshtml.cs* modelu strony:</span><span class="sxs-lookup"><span data-stu-id="17de3-168">Examine the *Pages/Movies/Create.cshtml.cs* page model:</span></span>
 
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+::: moniker range="= aspnetcore-2.0"
+<span data-ttu-id="17de3-169">[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]</span><span class="sxs-lookup"><span data-stu-id="17de3-169">[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]</span></span>
+::: moniker-end
 
-`OnGet` Metoda inicjuje każdy stan potrzebne dla strony. Utwórz stronę nie ma żadnych stan inicjowania. `Page` Metoda tworzy `PageResult` obiektu, który renderuje *Create.cshtml* strony.
+::: moniker range=">= aspnetcore-2.1"
+<span data-ttu-id="17de3-170">[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create21.cshtml.cs?name=snippetALL)]</span><span class="sxs-lookup"><span data-stu-id="17de3-170">[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create21.cshtml.cs?name=snippetALL)]</span></span>
+::: moniker-end
 
-`Movie` Używa właściwości `[BindProperty]` atrybut, aby wyrazić zgodę na [modelu powiązania](xref:mvc/models/model-binding). Gdy formularz Utwórz przesyła wartości formularza, środowisko uruchomieniowe platformy ASP.NET Core wiąże przesłanych wartości do `Movie` modelu.
 
-`OnPostAsync` Metody jest uruchamiany, gdy strona zapisuje dane formularza:
+<span data-ttu-id="17de3-171">`OnGet` Metoda inicjuje każdy stan potrzebne dla strony.</span><span class="sxs-lookup"><span data-stu-id="17de3-171">The `OnGet` method initializes any state needed for the page.</span></span> <span data-ttu-id="17de3-172">Utwórz stronę nie ma żadnych stan inicjowania to `Page` jest zwracany.</span><span class="sxs-lookup"><span data-stu-id="17de3-172">The Create page doesn't have any state to initialize, so `Page` is returned.</span></span> <span data-ttu-id="17de3-173">Później w samouczku zobacz `OnGet` metody zainicjować stanu.</span><span class="sxs-lookup"><span data-stu-id="17de3-173">Later in the tutorial you see `OnGet` method initialize state.</span></span> <span data-ttu-id="17de3-174">`Page` Metoda tworzy `PageResult` obiektu, który renderuje *Create.cshtml* strony.</span><span class="sxs-lookup"><span data-stu-id="17de3-174">The `Page` method creates a `PageResult` object that renders the *Create.cshtml* page.</span></span>
 
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetPost)]
+<span data-ttu-id="17de3-175">`Movie` Używa właściwości `[BindProperty]` atrybut, aby wyrazić zgodę na [modelu powiązania](xref:mvc/models/model-binding).</span><span class="sxs-lookup"><span data-stu-id="17de3-175">The `Movie` property uses the `[BindProperty]` attribute to opt-in to [model binding](xref:mvc/models/model-binding).</span></span> <span data-ttu-id="17de3-176">Gdy formularz Utwórz przesyła wartości formularza, środowisko uruchomieniowe platformy ASP.NET Core wiąże przesłanych wartości do `Movie` modelu.</span><span class="sxs-lookup"><span data-stu-id="17de3-176">When the Create form posts the form values, the ASP.NET Core runtime binds the posted values to the `Movie` model.</span></span>
 
-Jeśli wystąpią jakieś błędy modelu, formularza zostanie wyświetlony ponownie, wraz z danymi formularza opublikowane. Większość błędów modelu może być wykrytych po stronie klienta, przed opublikowania formularza. Przykład błąd modelu jest przesyłanie wartość pola daty, której nie można przekonwertować na typ date. Firma Microsoft będzie komunikować więcej informacji na temat weryfikacji po stronie klienta i sprawdzania poprawności modelu później w samouczku.
+<span data-ttu-id="17de3-177">`OnPostAsync` Metody jest uruchamiany, gdy strona zapisuje dane formularza:</span><span class="sxs-lookup"><span data-stu-id="17de3-177">The `OnPostAsync` method is run when the page posts form data:</span></span>
 
-Jeśli nie ma żadnych błędów w modelu, dane są zapisywane i przeglądarki, zostanie przekierowany do strony indeksu.
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetPost)]
 
-### <a name="the-create-razor-page"></a>Utwórz stronę Razor
+<span data-ttu-id="17de3-178">Jeśli wystąpią jakieś błędy modelu, formularza zostanie wyświetlony ponownie, wraz z danymi formularza opublikowane.</span><span class="sxs-lookup"><span data-stu-id="17de3-178">If there are any model errors, the form is redisplayed, along with any form data posted.</span></span> <span data-ttu-id="17de3-179">Większość błędów modelu może być wykrytych po stronie klienta, przed opublikowania formularza.</span><span class="sxs-lookup"><span data-stu-id="17de3-179">Most model errors can be caught on the client-side before the form is posted.</span></span> <span data-ttu-id="17de3-180">Przykład błąd modelu jest przesyłanie wartość pola daty, której nie można przekonwertować na typ date.</span><span class="sxs-lookup"><span data-stu-id="17de3-180">An example of a model error is posting a value for the date field that cannot be converted to a date.</span></span> <span data-ttu-id="17de3-181">Firma Microsoft będzie komunikować więcej informacji na temat weryfikacji po stronie klienta i sprawdzania poprawności modelu później w samouczku.</span><span class="sxs-lookup"><span data-stu-id="17de3-181">We'll talk more about client-side validation and model validation later in the tutorial.</span></span>
 
-Sprawdź *Pages/Movies/Create.cshtml* pliku Razor strony:
+<span data-ttu-id="17de3-182">Jeśli nie ma żadnych błędów w modelu, dane są zapisywane i przeglądarki, zostanie przekierowany do strony indeksu.</span><span class="sxs-lookup"><span data-stu-id="17de3-182">If there are no model errors, the data is saved, and the browser is redirected to the Index page.</span></span>
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
+### <a name="the-create-razor-page"></a><span data-ttu-id="17de3-183">Utwórz stronę Razor</span><span class="sxs-lookup"><span data-stu-id="17de3-183">The Create Razor Page</span></span>
+
+<span data-ttu-id="17de3-184">Sprawdź *Pages/Movies/Create.cshtml* pliku Razor strony:</span><span class="sxs-lookup"><span data-stu-id="17de3-184">Examine the *Pages/Movies/Create.cshtml* Razor Page file:</span></span>
+
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
 
 <!--
 Visual Studio displays the `<form method="post">` tag in a distinctive font used for Tag Helpers. The `<form method="post">` element is a [Form Tag Helper](xref:mvc/views/working-with-forms#the-form-tag-helper). The Form Tag Helper automatically includes an [antiforgery token](xref:security/anti-request-forgery).
