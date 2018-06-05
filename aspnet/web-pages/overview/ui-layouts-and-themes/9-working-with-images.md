@@ -63,7 +63,7 @@ Czasami jednak musisz mieć możliwość wyświetlania obrazów dynamicznie & #8
 
 Procedura w tej sekcji przedstawiono sposób wyświetlania obrazu na bieżąco, w którym użytkownicy określić nazwę pliku obrazu z listy nazw obrazów. Nazwa obrazu one wybierz z listy rozwijanej i po przesyłają strony one wybranego obrazu.
 
-![[Obraz] ] (9-working-with-images/_static/image1.jpg "ch9images 1.jpg")
+![[Obraz] ](9-working-with-images/_static/image1.jpg "ch9images 1.jpg")
 
 1. W programie WebMatrix Utwórz nową witrynę sieci Web.
 2. Dodaj nową stronę o nazwie *DynamicImage.cshtml*.
@@ -93,7 +93,7 @@ Procedura w tej sekcji przedstawiono sposób wyświetlania obrazu na bieżąco, 
 
 W poprzednim przykładzie pokazano sposób wyświetlania obrazu dynamicznie, ale działał tylko z obrazami, które zostały już w witrynie sieci Web. Za pomocą poniższej procedury zezwolić użytkownikom na przekazywanie obrazu, który następnie jest wyświetlany na stronie. W programie ASP.NET, można manipulować obrazów na bieżąco przy użyciu `WebImage` pomocnika, mającej metody, które umożliwiają tworzenia, modyfikowania i zapisywania obrazów. `WebImage` Pomocnika obsługuje wszystkie wspólne web obrazu typy plików, łącznie z *.jpg*, *.png*, i *.bmp*. W tym artykule użyjesz *.jpg* obrazów, ale można użyć dowolnego typu obrazu.
 
-![[Obraz] ] (9-working-with-images/_static/image2.jpg "ch9images 2.jpg")
+![[Obraz] ](9-working-with-images/_static/image2.jpg "ch9images 2.jpg")
 
 1. Dodaj nową stronę i nadaj mu nazwę *UploadImage.cshtml*.
 2. Zastąp istniejącą zawartość na stronie następujące czynności: 
@@ -145,7 +145,7 @@ Witryny sieci Web akceptuje obrazów z użytkownikiem, można zmienić rozmiar o
 
 W tej procedurze pokazano, jak zmienić rozmiar załadowanego obrazu, aby utworzyć miniaturę, a następnie zapisać miniatur i oryginalnego obrazu w witrynie internetowej. Wyświetlania miniatury na stronie i używać hiperłącza do przekierowywania użytkowników do obrazu w pełnym rozmiarze.
 
-![[Obraz] ] (9-working-with-images/_static/image3.jpg "ch9images 3.jpg")
+![[Obraz] ](9-working-with-images/_static/image3.jpg "ch9images 3.jpg")
 
 1. Dodaj nową stronę o nazwie *Thumbnail.cshtml*.
 2. W *obrazów* folderu, utwórz podfolder o nazwie *Kciuki*.
@@ -166,7 +166,7 @@ W tej procedurze pokazano, jak zmienić rozmiar załadowanego obrazu, aby utworz
 
 `WebImage` Pomocnika umożliwia także Przerzucanie i obracanie obrazów. W tej procedurze pokazano, jak pobrać obrazu z serwera, Przerzucanie obrazu odwrócona (pionowo), zapisz go, a następnie Wyświetl odwrócony obraz na stronie. W tym przykładzie tylko używasz plik istnieje już na serwerze (*Photo2.jpg*). W rzeczywistej aplikacji będzie prawdopodobnie Przerzucanie obrazu o nazwie otrzymasz dynamicznie, tak jak w poprzednich przykładach.
 
-![[Obraz] ] (9-working-with-images/_static/image4.jpg "ch9images 4.jpg")
+![[Obraz] ](9-working-with-images/_static/image4.jpg "ch9images 4.jpg")
 
 1. Dodaj nową stronę o nazwie *FlipImage.cshtml*.
 2. Zastąp istniejącą zawartość na stronie następujące czynności: 
@@ -190,7 +190,7 @@ Obracanie obrazów, możesz użyć tego samego kodu, z wyjątkiem zamiast wywoł
 
 Po dodaniu obrazów do witryny sieci Web, można dodać do obrazu znaku wodnego, zanim zostanie zapisany lub wyświetl ją na stronie. Aby dodać informacje o prawach autorskich do obrazu lub anonsowanie ich firma ludzie często używają znaków wodnych.
 
-![[Obraz] ] (9-working-with-images/_static/image5.jpg "ch9images 5.jpg")
+![[Obraz] ](9-working-with-images/_static/image5.jpg "ch9images 5.jpg")
 
 1. Dodaj nową stronę o nazwie *Watermark.cshtml*.
 2. Zastąp istniejącą zawartość na stronie następujące czynności: 
@@ -207,7 +207,7 @@ Po dodaniu obrazów do witryny sieci Web, można dodać do obrazu znaku wodnego,
 
 Zamiast przy użyciu tekstu znaku wodnego, możesz użyć innego obrazu. Osoby czasami użyć obrazów, takich jak logo firmy jako znaku wodnego lub ich obraz znaku wodnego zamiast tekstu informacjami o prawach autorskich.
 
-![[Obraz] ] (9-working-with-images/_static/image6.jpg "ch9images 6.jpg")
+![[Obraz] ](9-working-with-images/_static/image6.jpg "ch9images 6.jpg")
 
 1. Dodaj nową stronę o nazwie *ImageWatermark.cshtml*.
 2. Dodawanie obrazu do *obrazów* folderu używany jako logo i Zmień nazwę obrazu *MyCompanyLogo.jpg*. Ten obraz powinien być obrazu, który widać wyraźnie po ustawieniu 80 pikseli szerokości i wysokości 20 pikseli.
