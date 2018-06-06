@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: abdff718dbbebec17ca4f077e206bcb547f3677b
-ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
+ms.openlocfilehash: 22311d90fb327fc1e01f82759ad62551501a10c1
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2018
-ms.locfileid: "34729268"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734565"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Kestrel implementacja serwera sieci web platformy ASP.NET Core
 
@@ -75,7 +75,7 @@ Nawet jeśli zwrotnego serwera proxy nie jest wymagane, dobrym rozwiązaniem mo�
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) dodatku [Microsoft.AspNetCore.App metapackage] (xref:fundamentals / metapackage aplikacji).
+[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) dodatku [Microsoft.AspNetCore.App metapackage] (xref:fundamentals / metapackage aplikacji) (platformy ASP.NET Core 2.1 lub nowszej).
 
 Szablony projektów platformy ASP.NET Core domyślnie używają Kestrel. W *Program.cs*, wywołań kodu szablonów [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), które wywołuje [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) w tle.
 
@@ -507,7 +507,7 @@ Od wersji platformy ASP.NET Core 2.1 Kestrel przez domyślny transport jest już
 * [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) (bezpośrednie odwołanie do pakietu)
 * [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
 
-Dla platformy ASP.NET Core 2.1 lub nowszej projektów używające `Microsoft.AspNetCore.App` metapackage i wymagają użycia Libuv:
+Dla platformy ASP.NET Core 2.1 lub nowszej projektów używające [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) i wymagają użycia Libuv:
 
 * Dodawanie zależności dla [Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv/) pakietu aplikacji w pliku projektu:
 
@@ -815,7 +815,7 @@ Oprogramowanie pośredniczące oczekuje `AllowedHosts` klucza w *appsettings.jso
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Obejście tego problemu za pomocą oprogramowania pośredniczącego hosta filtrowania. Oprogramowanie pośredniczące hosta filtrowania są dostarczane przez [Microsoft.AspNetCore.HostFiltering](https://www.nuget.org/packages/Microsoft.AspNetCore.HostFiltering) pakietu, który jest dostępny w [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) metapackage. Oprogramowanie pośredniczące jest dodawany przez [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), które wywołuje [AddHostFiltering](/dotnet/api/microsoft.aspnetcore.builder.hostfilteringservicesextensions.addhostfiltering):
+Obejście tego problemu za pomocą oprogramowania pośredniczącego hosta filtrowania. Oprogramowanie pośredniczące hosta filtrowania są dostarczane przez [Microsoft.AspNetCore.HostFiltering](https://www.nuget.org/packages/Microsoft.AspNetCore.HostFiltering) pakietu, który jest dostępny w [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (platformy ASP.NET Core 2.1 lub nowszej). Oprogramowanie pośredniczące jest dodawany przez [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), które wywołuje [AddHostFiltering](/dotnet/api/microsoft.aspnetcore.builder.hostfilteringservicesextensions.addhostfiltering):
 
 [!code-csharp[](kestrel/samples-snapshot/2.x/KestrelSample/Program.cs?name=snippet_Program&highlight=9)]
 

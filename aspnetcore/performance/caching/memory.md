@@ -4,17 +4,18 @@ author: rick-anderson
 description: Dowiedz się, jak dane w pamięci w ASP.NET Core z pamięci podręcznej.
 manager: wpickett
 ms.author: riande
-ms.custom: H1Hack27Feb2017
+ms.custom: mvc
 ms.date: 12/14/2016
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: 4835e2331afca7a648abac6bc35d255ec6356067
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: eca6610caf4e0a654c9a31f89a42e2ac82e94d23
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734487"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Pamięci podręcznej w pamięci w platformy ASP.NET Core
 
@@ -28,7 +29,7 @@ Buforowanie może znacznie poprawić wydajność i skalowalność aplikacji dzi�
 
 Platformy ASP.NET Core obsługuje kilka różnych pamięci podręcznych. Najprostsza pamięci podręcznej jest oparta na [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache), który reprezentuje pamięć podręczną przechowywane w pamięci serwera sieci web. Aplikacje działające w farmie serwerów wielu serwerów należy upewnij się, sesje są trwałe, korzystając z pamięci podręcznej. Trwałe sesje upewnij się, że kolejne żądania w kliencie wszystkich przejść do tego samego serwera. Na przykład użycia aplikacji sieci Web Azure [Routing żądań aplikacji](https://www.iis.net/learn/extensions/planning-for-arr) (ARR), aby przekierować wszystkie kolejne żądania do tego samego serwera.
 
-Inne niż trwałe sesje w kolektywie serwerów sieci web wymagają [rozproszonej pamięci podręcznej](distributed.md) Aby uniknąć problemów spójności pamięci podręcznej. W przypadku niektórych aplikacji rozproszonej pamięci podręcznej może obsługiwać wyższe skalowania w poziomie niż w pamięci podręcznej. Przy użyciu rozproszonej pamięci podręcznej odciąża pamięci podręcznej procesu zewnętrznego. 
+Inne niż trwałe sesje w kolektywie serwerów sieci web wymagają [rozproszonej pamięci podręcznej](distributed.md) Aby uniknąć problemów spójności pamięci podręcznej. W przypadku niektórych aplikacji rozproszonej pamięci podręcznej może obsługiwać wyższe skalowania w poziomie niż w pamięci podręcznej. Przy użyciu rozproszonej pamięci podręcznej odciąża pamięci podręcznej procesu zewnętrznego.
 
 `IMemoryCache` Pamięci podręcznej Wyklucz wpisy w pamięci podręcznej wykorzystanie pamięci, chyba że [pamięci podręcznej priorytet](/dotnet/api/microsoft.extensions.caching.memory.cacheitempriority) ma ustawioną wartość `CacheItemPriority.NeverRemove`. Można ustawić `CacheItemPriority` aby dopasować priorytet, z którym pamięci podręcznej wyklucza mogą elementów wykorzystanie pamięci.
 
@@ -38,13 +39,29 @@ Dowolny obiekt; mogą być przechowywane w pamięci podręcznej Interfejs rozpro
 
 Buforowanie w pamięci jest *usługi* który jest wywoływany przez przy użyciu aplikacji [iniekcji zależności](../../fundamentals/dependency-injection.md). Wywołanie `AddMemoryCache` w `ConfigureServices`:
 
-[!code-csharp[](memory/sample/WebCache/Startup.cs?highlight=8)] 
+[!code-csharp[](memory/sample/WebCache/Startup.cs?highlight=9)]
 
 Żądanie `IMemoryCache` wystąpienia w Konstruktorze:
 
-[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ctor&highlight=3,5-999)] 
+[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ctor)]
 
-`IMemoryCache` wymaga pakietu NuGet "Microsoft.Extensions.Caching.Memory".
+::: moniker range="< aspnetcore-2.0"
+
+`IMemoryCache` wymaga pakietu NuGet [Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/).
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+`IMemoryCache` wymaga pakietu NuGet [Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/), który jest niedostępny w [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage).
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.0"
+
+`IMemoryCache` wymaga pakietu NuGet [Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/), który jest niedostępny w [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+
+::: moniker-end
 
 Poniższy kod używa [TryGetValue](/dotnet/api/microsoft.extensions.caching.memory.imemorycache.trygetvalue?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) do Sprawdź, czy czas w pamięci podręcznej. Jeśli nie jest buforowany przez czas, nowy wpis jest tworzony i dodawany do pamięci podręcznej z [ustawić](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.set?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_).
 
@@ -74,14 +91,14 @@ Poniższy przykład:
 
 - Ustawia czas wygaśnięcia bezwzględne. To jest maksymalny czas, które mogą być buforowane wpis i uniemożliwia stają się zbyt stare po odnowieniu stale wygaśniecie elementu.
 - Ustawia zmienną czas wygaśnięcia. Żądania, które uzyskują dostęp do tego elementu pamięci podręcznej spowoduje zresetowanie przesuwanego zegara wygaśnięcia.
-- Ustawia priorytet pamięci podręcznej na `CacheItemPriority.NeverRemove`. 
+- Ustawia priorytet pamięci podręcznej na `CacheItemPriority.NeverRemove`.
 - Ustawia [PostEvictionDelegate](/dotnet/api/microsoft.extensions.caching.memory.postevictiondelegate) która będzie wywoływana po wykonaniu wpis zostanie usunięty z pamięci podręcznej. Wywołanie zwrotne jest uruchamiane w innym wątku z kodu, który usuwa element z pamięci podręcznej.
 
-[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-20)]
+[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-21)]
 
 ## <a name="cache-dependencies"></a>Zależności pamięci podręcznej
 
-Poniższy przykład przedstawia sposób wygaśnięcia wpisu pamięci podręcznej po przekroczeniu pozycji zależności. A `CancellationChangeToken` zostanie dodany do elementu pamięci podręcznej. Gdy `Cancel` jest wywoływana na `CancellationTokenSource`, zarówno wpisy w pamięci podręcznej jest wykluczony. 
+Poniższy przykład przedstawia sposób wygaśnięcia wpisu pamięci podręcznej po przekroczeniu pozycji zależności. A `CancellationChangeToken` zostanie dodany do elementu pamięci podręcznej. Gdy `Cancel` jest wywoływana na `CancellationTokenSource`, zarówno wpisy w pamięci podręcznej jest wykluczony.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ed)]
 
@@ -91,7 +108,7 @@ Przy użyciu `CancellationTokenSource` zezwala na wiele wpisów pamięci podręc
 
 - Korzystając z wywołania zwrotnego do wypełnienia elementu pamięci podręcznej:
 
-  - Wiele żądań można znaleźć wartość klucza w pamięci podręcznej pusty ponieważ wywołania zwrotnego nie zostało ukończone. 
+  - Wiele żądań można znaleźć wartość klucza w pamięci podręcznej pusty ponieważ wywołania zwrotnego nie zostało ukończone.
   - Może to spowodować kilka wątków ponownego uzupełnienia pamięci podręcznej elementu.
 
 - Jeden wpis pamięci podręcznej jest używany do tworzenia drugiego, podrzędne kopiuje wpis nadrzędny tokeny wygaśnięcia i ustawienia na podstawie czasu wygaśnięcia. Obiekt podrzędny nie jest wygasłe przez ręczne usunięcie lub aktualizowania wprowadzania nadrzędnej.

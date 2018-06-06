@@ -1,11 +1,11 @@
 Uruchom tworzenia szkieletu tożsamości:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Z **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy na Projekt > **Dodaj** > **nowy element szkieletu**.
 * W lewym okienku **Dodawanie szkieletu** okno dialogowe, wybierz opcję **tożsamości** > **dodać**.
 * W **tożsamości Dodaj** okno dialogowe, wybierz odpowiednie opcje.
-  * Wybierz stronę układu istniejących lub pliku układu zostaną zastąpione niepoprawny kod znaczników. Na przykład `~/Pages/Shared/_Layout.cshtml` dla stron Razor `~/Views/Shared/_Layout.cshtml` dla projektów MVC 
+  * Wybierz stronę układu istniejących lub pliku układu zostaną zastąpione niepoprawny kod znaczników. Na przykład `~/Pages/Shared/_Layout.cshtml` dla stron Razor `~/Views/Shared/_Layout.cshtml` dla projektów MVC
   * Wybierz **+** przycisk, aby utworzyć nowy **klasa kontekstu danych**.
 * Wybierz **dodać**.
 
@@ -20,12 +20,11 @@ dotnet tool install -g dotnet-aspnet-codegenerator
 Dodaj odwołanie do pakietu [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) do projektu (\*.csproj) pliku. Uruchom następujące polecenie w katalogu projektu:
 
 ```cli
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
 Uruchom następujące polecenie, aby wyświetlić listę opcji tworzenia szkieletu tożsamości:
-
 
 ```cli
 dotnet aspnet-codegenerator identity -h
@@ -36,4 +35,5 @@ W folderze projektu Uruchom tworzenia szkieletu tożsamości z wybranymi opcjami
 ```cli
 dotnet aspnet-codegenerator identity --useDefaultUI
 ```
+
 -------------

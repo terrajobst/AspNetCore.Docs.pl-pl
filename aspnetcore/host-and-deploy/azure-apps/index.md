@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
 ms.openlocfilehash: 4cf81a3e269500a5108f280348fbddd172df10a0
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34687506"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Host platformy ASP.NET Core w usłudze aplikacji Azure

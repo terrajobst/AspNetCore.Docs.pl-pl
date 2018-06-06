@@ -1,20 +1,20 @@
 Uruchom tworzenia szkieletu tożsamości:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Z **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy na Projekt > **Dodaj** > **nowy element szkieletu**.
 * W lewym okienku **Dodawanie szkieletu** okno dialogowe, wybierz opcję **tożsamości** > **dodać**.
 * W **tożsamości Dodaj** okno dialogowe, wybierz odpowiednie opcje.
   * Wybierz stronę układu istniejących lub pliku układu zostaną zastąpione niepoprawny kod znaczników. Po wybraniu istniejący plik _Layout.cshtml jest **nie** zastąpione.
 
- Na przykład `~/Pages/Shared/_Layout.cshtml` dla stron Razor `~/Views/Shared/_Layout.cshtml` dla projektów MVC 
-* Aby użyć istniejącego kontekstu danych, wybierz co najmniej jeden plik do zastąpienia. Należy wybrać co najmniej jeden plik, aby dodać kontekstu danych. 
+ Na przykład `~/Pages/Shared/_Layout.cshtml` dla stron Razor `~/Views/Shared/_Layout.cshtml` dla projektów MVC
+* Aby użyć istniejącego kontekstu danych, wybierz co najmniej jeden plik do zastąpienia. Należy wybrać co najmniej jeden plik, aby dodać kontekstu danych.
   * Wybierz klasy kontekstu danych.
   * Wybierz **dodać**.
 * Aby utworzyć nowy kontekst użytkownika i ewentualnie utworzyć klasę użytkownika niestandardowego dla tożsamości:
   * Wybierz **+** przycisk, aby utworzyć nowy **klasa kontekstu danych**.
   * Wybierz **dodać**.
-  
+
 Uwaga: Jeśli tworzysz nowy kontekst użytkownika, nie trzeba wybrać plik do zastąpienia.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
@@ -28,7 +28,7 @@ dotnet tool install -g dotnet-aspnet-codegenerator
 Dodaj odwołanie do pakietu [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) do projektu (\*.csproj) pliku. Uruchom następujące polecenie w katalogu projektu:
 
 ```cli
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
@@ -43,4 +43,5 @@ W folderze projektu Uruchom tworzenia szkieletu tożsamości z wybranymi opcjami
 ```cli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files Account.Register
 ```
+
 -------------

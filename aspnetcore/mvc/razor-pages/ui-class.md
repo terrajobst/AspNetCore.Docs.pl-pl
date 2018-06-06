@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: advanced
 uid: mvc/razor-pages/ui-class
-ms.openlocfilehash: b6658186adf5ccd74e1d0f0e925627f50bad250c
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 4370fdaf7a5c066cec7b341a6012a100f8aed3ea
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34687554"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734552"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Utwórz wielokrotnego użytku interfejsu użytkownika przy użyciu projektu biblioteki klas Razor w ASP.NET Core.
 
@@ -33,6 +33,7 @@ Ta funkcja wymaga [!INCLUDE[](~/includes/2.1-SDK.md)]
 
 * W programie Visual Studio **pliku** menu, wybierz opcję **nowy** > **projektu**.
 * Wybierz **aplikacji sieci Web platformy ASP.NET Core**.
+* Nazwa biblioteki (na przykład "RazorClassLib") > **OK**. Aby uniknąć kolizję nazw plików z biblioteką wygenerowanego widoku, upewnij się, nazwa biblioteki nie kończyć się znakiem `.Views`.
 * Sprawdź **platformy ASP.NET Core 2.1** lub nowszego jest zaznaczone.
 * Wybierz **biblioteki klas Razor** > **OK**.
 
@@ -44,7 +45,7 @@ W wierszu polecenia, uruchom `dotnet new razorclasslib`. Na przykład:
 dotnet new razorclasslib -o RazorUIClassLib
 ```
 
-Aby uzyskać więcej informacji, zobacz [dotnet nowe](/dotnet/core/tools/dotnet-new).
+Aby uzyskać więcej informacji, zobacz [dotnet nowe](/dotnet/core/tools/dotnet-new). Aby uniknąć kolizję nazw plików z biblioteką wygenerowanego widoku, upewnij się, nazwa biblioteki nie kończyć się znakiem `.Views`.
 
 ------
 Dodaj pliki Razor do RCL.

@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
 ms.openlocfilehash: dff798b19ad6d10a8ce93001ed4cebe732c54320
-ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34729318"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Sterownik HTTP.sys implementacja serwera sieci web platformy ASP.NET Core

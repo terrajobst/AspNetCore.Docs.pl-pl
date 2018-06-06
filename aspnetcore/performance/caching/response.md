@@ -8,20 +8,21 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: cc1ec50155398ba4143a2bf697ca26435c228c49
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: e5a3877c68f8475e7dd49d44f4a92cf7b09ac7f5
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734513"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w ASP.NET Core
 
 Przez [Luo Jan](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), i [Luke Latham](https://github.com/guardrex)
 
 > [!NOTE]
-> Buforowanie odpowiedzi [nie jest obsługiwane na stronach Razor, ASP.NET 2.0 Core](https://github.com/aspnet/Mvc/issues/6437). Ta funkcja będzie obsługiwany od [wersji platformy ASP.NET Core 2.1](https://github.com/aspnet/Home/wiki/Roadmap).
-  
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+> Na stronach Razor buforowanie odpowiedzi jest dostępne w programie ASP.NET Core 2.1 lub nowszej.
+
+[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 Buforowanie odpowiedzi zmniejsza liczbę żądań, które powoduje, że klient lub serwer proxy na serwerze sieci web. Buforowanie odpowiedzi zmniejsza ilość pracy serwera sieci web wykonuje do generowania odpowiedzi. Buforowanie odpowiedzi jest kontrolowana przez nagłówki, które określają sposób klienta, serwera proxy i oprogramowanie pośredniczące do odpowiedzi z pamięci podręcznej.
 
@@ -47,7 +48,7 @@ W poniższej tabeli przedstawiono innych nagłówków pamięci podręcznej, któ
 | ---------------------------------------------------------- | -------- |
 | [okres ważności](https://tools.ietf.org/html/rfc7234#section-5.1)     | Szacowana ilość czasu w sekundach od czasu odpowiedzi został wygenerowany lub pomyślnie zweryfikowane na serwerze źródłowym. |
 | [Wygasa](https://tools.ietf.org/html/rfc7234#section-5.3) | Data/Godzina po upływie którego odpowiedź jest uznawane za przestarzałe. |
-| [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Istnieje dla zapewnienia zgodności z protokołu HTTP/1.0 buforuje ustawienia `no-cache` zachowanie. Jeśli `Cache-Control` występuje nagłówek `Pragma` nagłówka zostanie zignorowany. |
+| [Wartość dyrektywy pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Istnieje dla zapewnienia zgodności z protokołu HTTP/1.0 buforuje ustawienia `no-cache` zachowanie. Jeśli `Cache-Control` występuje nagłówek `Pragma` nagłówka zostanie zignorowany. |
 | [różnią się](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Określa, że buforowanej odpowiedzi może nie zostać wysłane dopóki wszystkie z `Vary` pola nagłówka są takie same w nowe żądanie i odpowiedź buforowana oryginalne żądanie. |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>Oparte na protokole HTTP względem buforowania żądań dyrektywy Cache-Control
@@ -84,7 +85,7 @@ Zawartość z widoku MVC lub Razor strony w chmurze rozproszonej lub scenariusze
 
 Aby uzyskać więcej informacji, zobacz [rozproszonej pamięci podręcznej pomocnika tagów](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper).
 
-## <a name="responsecache-attribute"></a>ResponseCache attribute
+## <a name="responsecache-attribute"></a>Atrybut ResponseCache
 
 [ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) określa parametry, które są niezbędne do ustawiania odpowiednich nagłówków w ramach buforowania odpowiedzi.
 
@@ -113,7 +114,17 @@ Pierwsze żądanie jest zwrócony przez serwer i w pamięci podręcznej w oprogr
 
 Ten nagłówek są zapisywane tylko, gdy `VaryByHeader` właściwość jest ustawiona. Ma ustawioną wartość `Vary` wartość właściwości. Następujące przykładowe używa `VaryByHeader` właściwości:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+
+::: moniker-end
 
 Można wyświetlić nagłówki odpowiedzi z narzędziami sieci w przeglądarce. Na poniższej ilustracji przedstawiono krawędzi naciśnięcia klawisza F12, dane wyjściowe na **sieci** karcie kiedy `About2` odświeżeniu metody akcji:
 
@@ -130,7 +141,17 @@ Jeśli `NoStore` jest `false` i `Location` jest `None`, `Cache-Control` i `Pragm
 
 Zwykle ustawiana `NoStore` do `true` na stron błędów. Na przykład:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+
+::: moniker-end
 
 Powoduje to następujące nagłówki:
 
@@ -148,7 +169,17 @@ Aby włączyć buforowanie, `Duration` musi mieć ustawioną wartość dodatnią
 
 Poniżej przedstawiono przykładowy nagłówki powstaje przez ustawienie `Duration` i pozostawienie domyślnej `Location` wartość:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+
+::: moniker-end
 
 Spowoduje to utworzenie następujący nagłówek:
 
@@ -162,11 +193,31 @@ Zamiast duplikowania `ResponseCache` ustawienia na wiele atrybutów akcji kontro
 
 Konfigurowanie profilu pamięci podręcznej:
 
-[!code-csharp[](response/sample/Startup.cs?name=snippet1)] 
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Startup.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Startup.cs?name=snippet1)]
+
+::: moniker-end
 
 Odwołanie do profilu pamięci podręcznej:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+
+::: moniker-end
 
 `ResponseCache` Atrybut może odnosić się zarówno do działania (metody) i kontrolery (klasy). Atrybuty na poziomie metody zastępują ustawienia określone w poziomie klasy atrybutów.
 
@@ -182,7 +233,7 @@ Cache-Control: public,max-age=60
 
 * [Przechowywanie odpowiedzi w pamięci podręcznej](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Pamięci podręcznej w pamięci](xref:performance/caching/memory)
+* [Buforowanie w pamięci](xref:performance/caching/memory)
 * [Praca z rozproszoną pamięcią podręczną](xref:performance/caching/distributed)
 * [Wykrywanie zmian z tokenami zmiany](xref:fundamentals/primitives/change-tokens)
 * [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware)

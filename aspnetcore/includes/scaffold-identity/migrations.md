@@ -1,6 +1,6 @@
 Wygenerowany kod tożsamości w bazie danych wymaga [Entity Framework Core migracje](/ef/core/managing-schemas/migrations/). Utwórz migracji i aktualizacji bazy danych. Na przykład uruchom następujące polecenia:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 W programie Visual Studio **Konsola Menedżera pakietów**:
 
@@ -18,4 +18,4 @@ dotnet ef database update
 
 ------
 
-Parametr name "CreateIdentitySchema" `Add-Migration` jest dowolnego polecenia. ""CreateIdentitySchema"opisano migrację.
+Parametr name "CreateIdentitySchema" `Add-Migration` jest dowolnego polecenia. `"CreateIdentitySchema"` Opisuje migrację.

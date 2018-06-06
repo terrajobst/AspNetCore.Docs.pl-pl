@@ -12,12 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 5b3b9b82fa64155c1dfd2a49649def10d7dae87e
-ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
+ms.openlocfilehash: 65ba01dd1b0ed5a43ca5c868608f2858f86b4b59
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2018
-ms.locfileid: "34729184"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734539"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>Używanie metod asynchronicznych na platformie ASP.NET MVC 4
 ====================
@@ -44,7 +44,7 @@ To może nie być problem, ponieważ pula wątków może się wystarczająco du�
 
 ## <a name="processing-asynchronous-requests"></a>Przetwarzanie żądań asynchronicznych
 
-W aplikacji sieci web, które Zobacz dużej liczby równoczesnych żądań przy rozruchu lub ma seryjnym obciążenia (gdzie współbieżności zwiększa nagle) co asynchroniczne te wywołania usługi sieci web spowoduje zwiększenie czasu odpowiedzi aplikacji. Asynchroniczne żądanie trwa tyle samo czasu na przetwarzanie jako żądań synchronicznych. Na przykład jeśli żądanie sprawia, że usługi sieci web wywołaniu, które wymaga dwóch sekund, przyjmuje żądania dwie sekundy czy jest wykonywane synchronicznie lub asynchronicznie. Jednak podczas wywołania asynchronicznego wątku nie blokuje odpowiedzi na inne żądania podczas oczekiwania na pierwsze żądanie do wykonania. W związku z tym żądań asynchronicznych uniknięcia wzrostu puli usługi kolejkowania wiadomości i wątku żądania, gdy istnieją dużą liczbą jednoczesnych żądań, które wywołują długotrwałej operacji.
+W aplikacji sieci web, który widzi dużej liczby równoczesnych żądań przy rozruchu lub seryjnym obciążenia (gdzie współbieżności zwiększa nagle) wywołania usługi sieci web jest asynchroniczne zwiększa czas odpowiedzi aplikacji. Asynchroniczne żądanie trwa tyle samo czasu na przetwarzanie jako żądań synchronicznych. Jeśli żądanie sprawia, że usługi sieci web wywołaniu, które wymaga dwóch sekund, żądanie ma dwie sekundy czy jest wykonywane synchronicznie lub asynchronicznie. Jednak podczas wywołania asynchronicznego wątku nie jest zablokowany odpowiada na inne żądania podczas oczekiwania na pierwsze żądanie do wykonania. W związku z tym żądań asynchronicznych uniknięcia wzrostu puli usługi kolejkowania wiadomości i wątku żądania, gdy istnieją dużą liczbą jednoczesnych żądań, które wywołują długotrwałej operacji.
 
 ## <a id="ChoosingSyncVasync"></a>  Wybór metody akcji synchronicznego lub asynchronicznego
 

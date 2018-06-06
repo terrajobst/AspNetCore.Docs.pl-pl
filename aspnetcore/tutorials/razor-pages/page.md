@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/page
 ms.openlocfilehash: 1388249eaf62b7e7a102a87385565c462eef8564
-ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34729927"
 ---
 [!INCLUDE [model1](../../includes/RP/page1.md)]

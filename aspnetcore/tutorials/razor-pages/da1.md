@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/da1
 ms.openlocfilehash: e36982f2b14ec65feb6be0c7f9e942c7a3c9e9ca
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34688435"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Aktualizowanie wygenerowanego stron w aplikacji platformy ASP.NET Core

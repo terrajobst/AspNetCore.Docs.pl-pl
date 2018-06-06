@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 397d8bf04abf6be811ad8c91d52565251ac61678
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: b6dbe234973431448c18d3cc82a6ac98d4f53a3b
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688973"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34730454"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Potwierdzenie konta i hasła odzyskiwania w ASP.NET Core
 
@@ -110,7 +110,7 @@ Zobacz [wymagać protokołu HTTPS](xref:security/enforcing-ssl).
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>Wymagaj wiadomości e-mail z potwierdzeniem
 
-Jest najlepszym rozwiązaniem w celu potwierdzenia adresu e-mail nowej rejestracji użytkownika. Wiadomości e-mail potwierdzenie pomaga sprawdzić ich jest nie przeprowadza personifikacji ktoś (to znaczy one nie został zarejestrowany przy do kogoś innego adresu e-mail). Załóżmy, że masz forum dyskusyjne i chcesz zapobiec "yli@example.com"z rejestracją jako"nolivetto@contoso.com." Bez wiadomości e-mail z potwierdzeniem "nolivetto@contoso.com" może otrzymywać niechcianych wiadomości e-mail z aplikacji. Załóżmy, że użytkownik przypadkowo zarejestrowany jako "ylo@example.com", a nie wystąpieniem słowa "yli". Nie można używać hasła odzyskiwania, ponieważ aplikacja nie ma ich prawidłowy adres e-mail. Wiadomości e-mail z potwierdzeniem chroni tylko ograniczone z robotów. Wiadomości e-mail z potwierdzeniem nie zapewnia ochrony przed złośliwymi użytkownikami z wielu kont e-mail.
+Jest najlepszym rozwiązaniem w celu potwierdzenia adresu e-mail nowej rejestracji użytkownika. Wiadomości e-mail potwierdzenie pomaga sprawdzić ich jest nie przeprowadza personifikacji ktoś (to znaczy one nie został zarejestrowany przy do kogoś innego adresu e-mail). Załóżmy, że masz forum dyskusyjne i chcesz zapobiec "yli@example.com"z rejestracją jako"nolivetto@contoso.com". Bez wiadomości e-mail z potwierdzeniem "nolivetto@contoso.com" może otrzymywać niechcianych wiadomości e-mail z aplikacji. Załóżmy, że użytkownik przypadkowo zarejestrowany jako "ylo@example.com", a nie wystąpieniem słowa "yli". Nie można używać hasła odzyskiwania, ponieważ aplikacja nie ma ich prawidłowy adres e-mail. Wiadomości e-mail z potwierdzeniem chroni tylko ograniczone z robotów. Wiadomości e-mail z potwierdzeniem nie zapewnia ochrony przed złośliwymi użytkownikami z wielu kont e-mail.
 
 Zazwyczaj chcesz uniemożliwić użytkownikom nowe przesyłanie danych do witryny sieci web, zanim potwierdzony adres e-mail.
 
@@ -307,7 +307,7 @@ Dwa konta zostały połączone. Będą mogli logować się na każdym koncie. Mo
 
 ## <a name="enable-account-confirmation-after-a-site-has-users"></a>Włącz potwierdzenie konta po lokacja ma użytkowników
 
-Włączanie potwierdzenia konta w witrynie użytkownikom do zablokowania wszystkich istniejących użytkowników. Istniejący użytkownicy są zablokowane, ponieważ nie są potwierdzone ich kont. Aby obejść Kończenie blokady użytkownika, użyj jednej z następujących metod:
+Włączanie potwierdzenia konta w witrynie użytkownikom do zablokowania wszystkich istniejących użytkowników. Istniejący użytkownicy są zablokowane, ponieważ nie są potwierdzone ich kont. Aby obejść istniejące blokady użytkownika, użyj jednej z następujących metod:
 
-* Aktualizacja bazy danych, aby oznaczyć wszystkich istniejących użytkowników, jak zostało potwierdzone
+* Aktualizowanie bazy danych, aby oznaczyć wszystkich istniejących użytkowników, jak zostało potwierdzone.
 * Potwierdzanie istniejących użytkowników. Na przykład partii — wysyłanie wiadomości e-mail z potwierdzeniem łącza.

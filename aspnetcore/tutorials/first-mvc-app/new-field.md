@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/new-field
 ms.openlocfilehash: a8299871671979264383fe7997e56c6708b2e741
-ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34729759"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-app"></a>Dodaj nowe pole do aplikacji platformy ASP.NET Core

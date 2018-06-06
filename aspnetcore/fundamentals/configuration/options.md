@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 176ba346a8950169beb8e3a2530939408873df77
-ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
+ms.openlocfilehash: dc95d2b76277e177246a6b0e4af5bb3815dce383
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2018
-ms.locfileid: "34729002"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734578"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcje dla platformy ASP.NET Core
 
@@ -100,7 +100,7 @@ W poniższym kodzie innej `IConfigureOptions<TOptions>` usługi jest dodawany do
 
 [!code-csharp[](options/sample/Startup.cs?name=snippet_Example3)]
 
-`GetSection` — Metoda rozszerzenia wymaga [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) pakietu NuGet. Jeśli aplikacja korzysta z [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) metapackage, że pakiet jest automatycznie dołączane.
+`GetSection` — Metoda rozszerzenia wymaga [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) pakietu NuGet. Jeśli aplikacja korzysta z [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (platformy ASP.NET Core 2.1 lub nowszej), pakiet jest automatycznie dołączane.
 
 Przykładowe *appsettings.json* plik definiuje `subsection` elementu członkowskiego z kluczami `suboption1` i `suboption2`:
 

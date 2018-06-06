@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
 ms.openlocfilehash: 019224e86f1f5583ce0f212d8be70e8829274c7e
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34688442"
 ---
 # <a name="aspnet-core-tutorials"></a>Samouczki platformy ASP.NET Core

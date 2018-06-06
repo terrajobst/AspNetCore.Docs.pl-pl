@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/working-with-sql
 ms.openlocfilehash: b00d709f3009f63431becf24797269ad5988a20b
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34688377"
 ---
 # <a name="work-with-sql-server-localdb-in-aspnet-core"></a>Praca z bazy danych LocalDB programu SQL Server w platformy ASP.NET Core

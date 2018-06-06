@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: mvc/razor-pages/razor-pages-conventions
 ms.openlocfilehash: eba3422fbf46ac181a783b7f8cc605c2a549b4b7
-ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34729746"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor strony trasy i aplikacji w Konwencji platformy ASP.NET Core

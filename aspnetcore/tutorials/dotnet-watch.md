@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: tutorials/dotnet-watch
 ms.openlocfilehash: 29890640223fe533cca82fb8d39a5ef26e8c6639
-ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34729979"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Tworzenie aplikacji platformy ASP.NET Core za pomocą monitora plików

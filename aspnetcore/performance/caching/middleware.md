@@ -3,39 +3,41 @@ title: Oprogramowanie pośredniczące w platformy ASP.NET Core buforowania odpow
 author: guardrex
 description: Dowiedz się, jak konfigurowanie i używanie oprogramowania pośredniczącego odpowiedzi buforowanie w ASP.NET Core.
 manager: wpickett
+monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 8296d535725d95682fa5904a43ab196e21b4f83c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 7ceccffa39baf5f13d63c26e78c64a595bb42f60
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734500"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Oprogramowanie pośredniczące w platformy ASP.NET Core buforowania odpowiedzi
 
 Przez [Luke Latham](https://github.com/guardrex) i [Luo Jan](https://github.com/JunTaoLuo)
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetl lub Pobierz program ASP.NET Core 2.1 Przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 W tym artykule opisano sposób konfigurowania oprogramowania pośredniczącego odpowiedzi buforowanie w aplikacji platformy ASP.NET Core. Oprogramowanie pośredniczące Określa, kiedy buforowalnej są odpowiedzi, magazyny odpowiedzi i służy odpowiedzi z pamięci podręcznej. Aby obejrzeć wprowadzenie do buforowania HTTP i `ResponseCache` atrybutów, zobacz [buforowanie odpowiedzi](xref:performance/caching/response).
 
 ## <a name="package"></a>Package
 
-Aby dołączyć oprogramowanie pośredniczące w projekcie, należy dodać odwołanie do [ `Microsoft.AspNetCore.ResponseCaching` ](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) pakietu lub użyj [ `Microsoft.AspNetCore.All` ](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) pakietu (platformy ASP.NET Core 2.0 lub nowszej, gdy przeznaczonych dla platformy .NET Core).
+Aby dołączyć oprogramowanie pośredniczące w projekcie, należy dodać odwołanie do [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) pakietu lub użyj [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), który jest dostępny do użycia w Platformy ASP.NET Core 2.1 lub nowszej.
 
 ## <a name="configuration"></a>Konfiguracja
 
 W `ConfigureServices`, Dodaj oprogramowanie pośredniczące do kolekcji usługi.
 
-[!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=9)]
 
 Skonfiguruj aplikację do używania oprogramowania pośredniczącego z `UseResponseCaching` metodę rozszerzenia, która dodaje oprogramowanie pośredniczące w potoku przetwarzania żądań. Przykładowa aplikacja dodaje [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) nagłówka odpowiedzi, który buforuje buforowalnej odpowiedzi do 10 sekund. Wysyła próbki [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) nagłówka do konfiguracji oprogramowania pośredniczącego do obsługi tylko wtedy, gdy odpowiedź buforowana [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) nagłówka kolejne żądania jest zgodna z wersją z oryginalnego żądania. W przykładzie poniżej [CacheControlHeaderValue](/dotnet/api/microsoft.net.http.headers.cachecontrolheadervalue) i [HeaderNames](/dotnet/api/microsoft.net.http.headers.headernames) wymagają `using` instrukcji dla [Microsoft.Net.Http.Headers](/dotnet/api/microsoft.net.http.headers) przestrzeń nazw.
 
-[!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=17,21-28)]
 
 Oprogramowanie pośredniczące odpowiedzi buforowanie tylko buforuje odpowiedzi serwera, które powodują powstanie kod stanu 200 (OK). Inne odpowiedzi, w tym [stron błędów](xref:fundamentals/error-handling), są ignorowane przez oprogramowanie pośredniczące.
 
@@ -46,10 +48,10 @@ Oprogramowanie pośredniczące odpowiedzi buforowanie tylko buforuje odpowiedzi 
 
 Oprogramowanie pośredniczące udostępnia trzy opcje do kontrolowania buforowania odpowiedzi.
 
-| Opcja                | Wartość domyślna |
-| --------------------- | ------------- |
-| UseCaseSensitivePaths | Określa, czy odpowiedzi są buforowane w ścieżkach, z uwzględnieniem wielkości liter.</p><p>Wartość domyślna to `false`. |
-| MaximumBodySize       | Największy rozmiar buforowalnej treść odpowiedzi w bajtach.</p>Wartość domyślna to `64 * 1024 * 1024` (64 MB). |
+| Opcja                | Opis |
+| --------------------- | ----------- |
+| UseCaseSensitivePaths | Określa, czy odpowiedzi są buforowane w ścieżkach, z uwzględnieniem wielkości liter. Wartość domyślna to `false`. |
+| MaximumBodySize       | Największy rozmiar buforowalnej treść odpowiedzi w bajtach. Wartość domyślna to `64 * 1024 * 1024` (64 MB). |
 | SizeLimit             | Limit rozmiaru pamięci podręcznej odpowiedzi oprogramowania pośredniczącego w bajtach. Wartość domyślna to `100 * 1024 * 1024` (100 MB). |
 
 Poniższy przykład konfiguruje oprogramowaniu pośredniczącym, aby:

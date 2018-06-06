@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/metapackage
 ms.openlocfilehash: fbb76f41f3178ddc4e51faa14edece1869a30cd0
-ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34729080"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Metapackage Microsoft.AspNetCore.All dla platformy ASP.NET Core 2.0

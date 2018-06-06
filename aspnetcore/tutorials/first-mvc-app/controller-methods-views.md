@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/controller-methods-views
 ms.openlocfilehash: 3f84d242a41bc482110d87ff342fa5b5d8c870ff
-ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34729856"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Metod kontrolera oraz widoki dla platformy ASP.NET Core
