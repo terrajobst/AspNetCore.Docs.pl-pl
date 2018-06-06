@@ -280,6 +280,7 @@
 ## [Uwierzytelnianie](xref:security/authentication/index)
 ### [Wprowadzenie do tożsamości](xref:security/authentication/identity)
 ### [Tworzenie szkieletu tożsamości](xref:security/authentication/scaffold-identity)
+### [Dodaj użytkownika niestandardowego danych tożsamości](xref:security/authentication/add-user-data)
 ### [Opcje uwierzytelniania społeczności OSS](xref:security/authentication/community)
 ### [Konfigurowanie tożsamości](xref:security/authentication/identity-configuration)
 ### [Konfigurowanie uwierzytelniania systemu Windows](xref:security/authentication/windowsauth)
