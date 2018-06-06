@@ -5,16 +5,17 @@ description: Przedstawiono sposób dodawania wyszukiwania do platformy ASP.NET C
 manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 08/07/2017
+ms.date: 5/30/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 545e1ce7d73b40a84d37684ee070f51e90e8b528
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 849ebc1c9e661480f02f80078f2fdad02366b3a5
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34582846"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Dodaj wyszukiwanie do platformy ASP.NET Core Razor strony
 
@@ -71,7 +72,14 @@ Kod HTML `<form>` tagów używa [pomocnika Tag formularza](xref:mvc/views/workin
 
 Dodaj następujące właściwości wyróżnione *Pages/Movies/Index.cshtml.cs*:
 
+::: moniker range="= aspnetcore-2.0"
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
+::: moniker-end
+
 
 `SelectList Genres` Zawiera listę gatunkami muzyki. Dzięki temu użytkownikowi na wybranie określonego rodzaju z listy.
 

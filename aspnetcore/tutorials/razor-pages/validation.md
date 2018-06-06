@@ -10,11 +10,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: bf3cfd8ce7616807bae4bcacf09b63e54c8fae55
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 39c4d8997a46472f082b234bdc8c0f12298266d4
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34582833"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do strony platformy ASP.NET Core Razor
 
@@ -34,7 +35,16 @@ Otwórz *Movie.cs* pliku. [DataAnnotations](https://docs.microsoft.com/aspnet/mv
 
 Aktualizacja `Movie` klasy, aby móc korzystać z `Required`, `StringLength`, `RegularExpression`, i `Range` atrybutów sprawdzania poprawności.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+::: moniker range="= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDA.cs)]
+
+::: moniker-end
 
 Atrybuty weryfikacji Określ zachowanie, który jest wymuszany dla właściwości modelu:
 
@@ -106,6 +116,10 @@ Sprawdź `Movie` klasy. `System.ComponentModel.DataAnnotations` Przestrzeń nazw
 
 `DataType.Date` nie określono format daty, która jest wyświetlana. Domyślnie pole danych są wyświetlane domyślne formaty oparte na tym serwerze `CultureInfo`.
 
+::: moniker range=">= aspnetcore-2.1"
+`[Column(TypeName = "decimal(18, 2)")]` Adnotacji danych elementu jest wymagany, aby poprawnie mapować Entity Framework Core `Price` walutę w bazie danych. Aby uzyskać więcej informacji, zobacz [typy danych](/ef/core/modeling/relational/data-types).
+::: moniker-end
+
 `DisplayFormat` Atrybut służy do jawnie określić format daty:
 
 ```csharp
@@ -131,9 +145,17 @@ Zazwyczaj nie jest dobrym rozwiązaniem do skompilowania w modelach przy użyciu
 
 Poniższy kod przedstawia łączenie atrybutów w jednym wierszu:
 
+::: moniker range="= aspnetcore-2.0"
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
-[Wprowadzenie do stron Razor i podstawowe EF](xref:data/ef-rp/intro) przedstawiono bardziej zaawansowane EF podstawowych operacji ze stronami Razor.
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+::: moniker-end
+
+[Wprowadzenie do stron Razor i podstawowe EF](xref:data/ef-rp/intro) pokazuje zaawansowane EF podstawowych operacji ze stronami Razor.
 
 ### <a name="publish-to-azure"></a>Publikowanie na platformie Azure
 

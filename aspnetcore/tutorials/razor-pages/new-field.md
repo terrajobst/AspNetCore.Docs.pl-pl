@@ -5,16 +5,17 @@ description: Pokazuje, jak dodać nowe pole do stron Razor z programu Entity Fra
 manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 08/07/2017
+ms.date: 5/30/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 45a39defc9480b0e4fe85ae7ed6bfa654a35264a
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 926091a7643bbe584316677cbaae6574471c47f8
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34582713"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Dodaj nowe pole do Razor strony platformy ASP.NET Core
 
@@ -22,13 +23,25 @@ przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tej sekcji użyjesz [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) migracje Code First, aby dodać nowe pole do modelu i migracji, które zmiany w bazie danych.
 
-Gdy używasz EF Code First automatycznie utworzyć bazę danych, Code First dodaje tabeli do bazy danych, aby sprawdzić, czy schemat bazy danych jest zsynchronizowana z klasy modelu, który został wygenerowany. Jeśli nie są zsynchronizowane, EF zgłasza wyjątek. Dzięki temu można łatwiej znaleźć problemy niespójne bazy danych/kod.
+Podczas używania EF Code First, aby automatycznie utworzyć bazę danych, Code First:
+
+* Dodaje tabelę w bazie danych do sprawdzenia, czy schemat bazy danych jest zsynchronizowana z klasy modelu, który został wygenerowany.
+* Jeśli klasy modelu nie są zsynchronizowane z bazy danych, EF zgłasza wyjątek. 
+
+Automatyczne weryfikacji schematu/modelu synchronizację ułatwia znaleźć problemy niespójne bazy danych/kod.
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>Dodawanie właściwości klasyfikacji do modelu film
 
 Otwórz *Models/Movie.cs* plik i dodać `Rating` właściwości:
-
+::: moniker range="= aspnetcore-2.0"
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRating.cs?highlight=13&name=snippet)]
+
+::: moniker-end
 
 Tworzenie aplikacji (Ctrl + Shift + B).
 
@@ -70,7 +83,13 @@ Aktualizacja `SeedData` klasy, dzięki czemu zapewnia wartość dla nowej kolumn
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
+::: moniker range="= aspnetcore-2.0"
 Zobacz [ukończone pliku SeedData.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs).
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+Zobacz [ukończone pliku SeedData.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/SeedDataRating.cs).
+::: moniker-end
 
 Skompiluj rozwiązanie.
 
