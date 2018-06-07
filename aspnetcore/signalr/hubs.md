@@ -11,11 +11,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/hubs
-ms.openlocfilehash: 5c477dd64c4cf8b7d6da1f121a290b00f3864f45
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 495aa156dd5e4641d688d7b16df1e5814c9607f4
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819087"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Użyj koncentratory w SignalR platformy ASP.NET Core
 
@@ -63,12 +64,12 @@ Ponadto `Hub.Clients` zawiera następujące metody:
 | `AllExcept` | Wywołuje metodę dla wszystkich połączonych klientów z wyjątkiem wskazanych połączeń |
 | `Client` | Wywołuje metodę dla określonego połączony klient |
 | `Clients` | Wywołuje metodę dla określonego połączonych klientów |
-| `Group` | Wysyła komunikat do wszystkich połączeń w określonej grupie  |
-| `GroupExcept` | Wysyła komunikat do wszystkich połączeń w określonej grupie, z wyjątkiem wskazanych połączeń |
-| `Groups` | Wysyła komunikat do wielu grup połączeń  |
-| `OthersInGroup` | Wysyła komunikat do grupy połączeń z wykluczeniem klienta, który wywołał metodę koncentratora  |
-| `User` | Wysyła komunikat do wszystkich połączeń skojarzone z określonym użytkownikiem |
-| `Users` | Wysyła komunikat do wszystkich połączeń skojarzone z określonych użytkowników |
+| `Group` | Wywołuje metodę do wszystkich połączeń w określonej grupie  |
+| `GroupExcept` | Wywołuje metodę do wszystkich połączeń w określonej grupie, z wyjątkiem wskazanych połączeń |
+| `Groups` | Wywołuje metodę do wielu grup połączeń  |
+| `OthersInGroup` | Wywołuje metodę do grupy połączeń z wykluczeniem klienta, który wywołał metodę koncentratora  |
+| `User` | Wywołuje metodę do wszystkich połączeń skojarzone z określonym użytkownikiem |
+| `Users` | Wywołuje metodę do wszystkich połączeń skojarzone z określonych użytkowników |
 
 Każda właściwość lub metoda w poprzednich tabelach zwraca obiekt z `SendAsync` metody. `SendAsync` Metoda umożliwia podanie nazwy i parametry metody klienta do wywołania.
 

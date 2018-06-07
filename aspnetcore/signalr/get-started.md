@@ -11,12 +11,12 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: 880abd87805990baf8dd977c340a60582e54d2df
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: ba1db640e5608fd9f5e7fa024283a651bf7772c2
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729507"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819061"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Rozpoczynanie pracy z SignalR platformy ASP.NET Core
 
@@ -75,7 +75,7 @@ Visual Studio zawiera `Microsoft.AspNetCore.SignalR` pakiet zawierający bibliot
     npm install @aspnet/signalr
     ```     
 
-4. Utwórz nowy folder o nazwie "signalr" wewnątrz *lib* folder w projekcie. Następnie skopiuj *signalr.js* plik z *node_modules\\ @aspnet\signalr\dist\browser*  do tego folderu.
+4. Utwórz nowy folder o nazwie "signalr" wewnątrz *lib* folder w projekcie. Kopiuj *signalr.js* plik z *node_modules\\ @aspnet\signalr\dist\browser*  do tego folderu.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -92,7 +92,7 @@ Visual Studio zawiera `Microsoft.AspNetCore.SignalR` pakiet zawierający bibliot
     npm install @aspnet/signalr
     ```
 
-3. Kopiuj *signalr.js* plik z *node_modules\\ @aspnet\signalr\dist\browser*  do *lib* folder w projekcie.
+3. Utwórz nowy folder o nazwie "signalr" wewnątrz *lib* folder w projekcie. Kopiuj *signalr.js* plik z *node_modules\\ @aspnet\signalr\dist\browser*  do tego folderu.
 
 -----
 
@@ -140,15 +140,16 @@ Serwer SignalR musi być skonfigurowany, tak aby wie, do przekazywania żądań 
 
 ## <a name="create-the-signalr-client-code"></a>Utwórz kod klienta SignalR
 
-1. Zamień zawartość *Pages\Index.cshtml* następującym kodem:
+1. Dodaj plik JavaScript o nazwie *chat.js*, do *wwwroot\js* folderu. Dodaj do niej następujący kod:
+
+   [!code-javascript[Index](get-started/sample/wwwroot/js/chat.js)]
+
+2. Zamień zawartość *Pages\Index.cshtml* następującym kodem:
 
    [!code-cshtml[Index](get-started/sample/Pages/Index.cshtml)]
 
    Poprzedni kod HTML Wyświetla nazwę i pola wiadomości i przycisk przesyłania. Zwróć uwagę, odwołań do skryptów u dołu: odwołanie do biblioteki SignalR i *chat.js*.
 
-2. Dodaj plik JavaScript o nazwie *chat.js*, do *wwwroot\js* folderu. Dodaj do niej następujący kod:
-
-   [!code-javascript[Index](get-started/sample/wwwroot/js/chat.js)]
 
 ## <a name="run-the-app"></a>Uruchamianie aplikacji
 

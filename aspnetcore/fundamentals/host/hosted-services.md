@@ -3,6 +3,7 @@ title: Zadania w tle z usług hostowanych w ASP.NET Core
 author: guardrex
 description: Informacje o sposobie wykonania zadania w tle z usług hostowanych w ASP.NET Core.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/15/2018
@@ -10,11 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: cc39d125b639719599eca68d627fda014fb107e0
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: 122d09981ae314a65e4a0771cb7b9b3b02bcaa8e
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819035"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Zadania w tle z usług hostowanych w ASP.NET Core
 
@@ -45,7 +47,7 @@ Wdrożenie usług hostowanych [IHostedService](/dotnet/api/microsoft.extensions.
 
 * [StopAsync(CancellationToken)](/dotnet/api/microsoft.extensions.hosting.ihostedservice.stopasync) -wyzwalane, gdy host wykonuje łagodne zamykanie. `StopAsync` zawiera logikę do zakończenia zadania w tle i usuń wszelkie niezarządzane zasoby. Jeśli aplikacja zostanie wyłączony nieoczekiwanie (na przykład aplikacji proces zakończy się niepowodzeniem), `StopAsync` nie może mieć nazwę.
 
-Hostowana usługa jest pojedyncza po aktywowaniu uruchamiania aplikacji i bezpiecznie zamknięcia przy zamykaniu aplikacji. Gdy [IDisposable](/dotnet/api/system.idisposable) jest zaimplementowana, zasobów można usunięta po usunięciu kontenera usług. Jeśli podczas wykonywania zadania w tle, zostanie zgłoszony błąd `Dispose` powinna być wywoływana nawet wtedy, gdy `StopAsync` nie jest wywoływana.
+Usługa hostowana jest uaktywnić raz uruchamiania aplikacji i bezpiecznie zamykania przy zamykaniu aplikacji. Gdy [IDisposable](/dotnet/api/system.idisposable) jest zaimplementowana, zasobów można usunięta po usunięciu kontenera usług. Jeśli podczas wykonywania zadania w tle, zostanie zgłoszony błąd `Dispose` powinna być wywoływana nawet wtedy, gdy `StopAsync` nie jest wywoływana.
 
 ## <a name="timed-background-tasks"></a>Zadania w tle czasu
 
@@ -53,9 +55,21 @@ Zadanie w tle czasu sprawia, że użycie [System.Threading.Timer](/dotnet/api/sy
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/TimedHostedService.cs?name=snippet1&highlight=15-16,30,37)]
 
-Usługa jest zarejestrowana w `Startup.ConfigureServices`:
+::: moniker range=">= aspnetcore-2.1"
+
+Usługa jest zarejestrowana w `Startup.ConfigureServices` z `AddHostedService` — metoda rozszerzenia:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Usługa jest zarejestrowana w `Startup.ConfigureServices`:
+
+[!code-csharp[](hosted-services/samples-snapshot/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet1)]
+
+::: moniker-end
 
 ## <a name="consuming-a-scoped-service-in-a-background-task"></a>Korzystanie z zakresami usługę zadania w tle
 
@@ -69,9 +83,21 @@ Usługa hostowana tworzy zakres na rozpoznawanie usługi zadania tła o zakresie
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/ConsumeScopedServiceHostedService.cs?name=snippet1&highlight=29-36)]
 
-Usługi są zarejestrowane w `Startup.ConfigureServices`:
+::: moniker range=">= aspnetcore-2.1"
+
+Usługi są zarejestrowane w `Startup.ConfigureServices`. `IHostedService` Implementacji został zarejestrowany za pomocą `AddHostedService` — metoda rozszerzenia:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet2)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Usługi są zarejestrowane w `Startup.ConfigureServices`:
+
+[!code-csharp[](hosted-services/samples-snapshot/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet2)]
+
+::: moniker-end
 
 ## <a name="queued-background-tasks"></a>Zadania w tle w kolejce
 
@@ -83,9 +109,21 @@ W `QueueHostedService`, zadania w tle (`workItem`) w kolejce usuniętej i wykona
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/QueuedHostedService.cs?name=snippet1&highlight=30-31,35)]
 
-Usługi są zarejestrowane w `Startup.ConfigureServices`:
+::: moniker range=">= aspnetcore-2.1"
+
+Usługi są zarejestrowane w `Startup.ConfigureServices`. `IHostedService` Implementacji został zarejestrowany za pomocą `AddHostedService` — metoda rozszerzenia:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet3)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Usługi są zarejestrowane w `Startup.ConfigureServices`:
+
+[!code-csharp[](hosted-services/samples-snapshot/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet3)]
+
+::: moniker-end
 
 W klasie indeksu strony modelu `IBackgroundTaskQueue` do konstruktora i ma przypisaną do `Queue`:
 

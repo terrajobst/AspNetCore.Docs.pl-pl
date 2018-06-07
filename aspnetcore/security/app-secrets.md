@@ -5,16 +5,17 @@ description: Sposób przechowywania i pobierania informacji poufnych jako klucze
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 9e9b548e5572da2c347bc874c473a02d8691e738
-ms.sourcegitcommit: 300a1127957dcdbce1b6ad79a7b9dc676f571510
-ms.translationtype: HT
+ms.openlocfilehash: fd5cf5cdffd7281d7f4e0d96e8230b60be64a7c3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819139"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Bezpieczne przechowywanie kluczy tajnych aplikacji w rozwoju platformy ASP.NET Core
 
@@ -48,7 +49,7 @@ Narzędzie Menedżer klucz tajny są przechowywane poufne dane podczas tworzenia
 
 ## <a name="how-the-secret-manager-tool-works"></a>Jak działa narzędzie Menedżer klucz tajny
 
-Narzędzie Menedżer klucz tajny optymalizacji abstracts szczegóły implementacji, takich jak jak i gdzie są przechowywane wartości. Można użyć narzędzia bez uprzedniego uzyskania informacji o tych szczegóły implementacji. Wartości są przechowywane w [JSON](https://json.org/) pliku konfiguracji w folderze profilu użytkownika chronionych przez system na komputerze lokalnym:
+Narzędzie Menedżer klucz tajny optymalizacji abstracts szczegóły implementacji, takich jak jak i gdzie są przechowywane wartości. Można użyć narzędzia bez uprzedniego uzyskania informacji o tych szczegóły implementacji. Wartości są przechowywane w pliku konfiguracji JSON w folderze profilu użytkownika chronionych przez system na komputerze lokalnym:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -77,9 +78,18 @@ Nie pisania kodu, który jest zależny od lokalizacji lub format dane zapisane z
 ::: moniker range="<= aspnetcore-2.0"
 ## <a name="install-the-secret-manager-tool"></a>Zainstaluj narzędzie Menedżer klucz tajny
 
-Narzędzie Menedżer klucz tajny jest dołączany .NET Core interfejsu wiersza polecenia w .NET Core SDK 2.1. Dla platformy .NET Core SDK 2.0 i starszych wersji niezbędne jest narzędzie instalacji.
+Narzędzie Menedżer klucz tajny jest dołączany .NET Core interfejsu wiersza polecenia począwszy od zestawu SDK programu .NET Core 2.1.300. W przypadku wersji zestawu SDK programu .NET Core przed 2.1.300 niezbędne jest instalację narzędzia.
 
-Zainstaluj [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) pakietu NuGet w projekcie platformy ASP.NET Core:
+> [!TIP]
+> Uruchom `dotnet --version` z powłoki poleceń, aby wyświetlić numer wersji zainstalowanego zestawu SDK programu .NET Core.
+
+Zostanie wyświetlone ostrzeżenie, jeśli używany zestaw .NET Core SDK zawiera narzędzia:
+
+```console
+The tool 'Microsoft.Extensions.SecretManager.Tools' is now included in the .NET Core SDK. Information on resolving this warning is available at (https://aka.ms/dotnetclitools-in-box).
+```
+
+Zainstaluj [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) pakietu NuGet w projekcie platformy ASP.NET Core. Na przykład:
 
 [!code-xml[](app-secrets/samples/1.x/UserSecrets/UserSecrets.csproj?name=snippet_CsprojFile&highlight=13-14)]
 
@@ -205,7 +215,7 @@ Klucze tajne użytkownika mogą zostać pobrane za pośrednictwem `Configuration
 
 ## <a name="string-replacement-with-secrets"></a>Ciąg zastępczy z kluczy tajnych
 
-Przechowywanie haseł w postaci zwykłego tekstu jest ryzykowne. Na przykład ciąg połączenia bazy danych są przechowywane w *appsettings.json* może zawierać hasła dla określonego użytkownika:
+Przechowywanie haseł w postaci zwykłego tekstu jest niebezpieczne. Na przykład ciąg połączenia bazy danych są przechowywane w *appsettings.json* może zawierać hasła dla określonego użytkownika:
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings-unsecure.json?highlight=3)]
 
@@ -215,17 +225,17 @@ Bardziej bezpieczną metodą jest, aby zapisać hasło jako klucz tajny. Na przy
 dotnet user-secrets set "DbPassword" "pass123"
 ```
 
-Zamień hasło w *appsettings.json* symbol zastępczy. W poniższym przykładzie `{0}` jest używany jako symbol zastępczy do formularza [złożonego ciąg formatu](/dotnet/standard/base-types/composite-formatting#composite-format-string).
+Usuń `Password` pary klucz wartość z parametrów połączenia w *appsettings.json*. Na przykład:
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings.json?highlight=3)]
 
-Wartość klucza tajnego mogą zostać dodane do symbolu zastępczego, aby ukończyć parametry połączenia:
+Można ustawić wartości klucza tajnego [SqlConnectionStringBuilder](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder) obiektu [hasło](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.password) właściwości, aby ukończyć parametry połączenia:
 
 ::: moniker range="<= aspnetcore-1.1"
-[!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=23-25)]
+[!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=26-29)]
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.0"
-[!code-csharp[](app-secrets/samples/2.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-16)]
+[!code-csharp[](app-secrets/samples/2.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-17)]
 ::: moniker-end
 
 ## <a name="list-the-secrets"></a>Lista kluczy tajnych

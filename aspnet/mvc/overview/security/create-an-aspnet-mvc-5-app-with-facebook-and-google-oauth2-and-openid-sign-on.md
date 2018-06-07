@@ -12,11 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: c289c209b50f0c2c1f2d8b15a3aedeaebf671d0b
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: aa4c91865f7b720846a5e8deb4281c3ca6933c8e
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819100"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Tworzenie aplikacji platformy ASP.NET MVC 5 z usługi Facebook, Twitter, LinkedIn i Google OAuth2 logowania jednokrotnego (C#)
 ====================
@@ -174,7 +175,7 @@ Dla uwierzytelniania serwisu Facebook OAuth2 należy skopiować do projektu niek
     ![Utwórz nową aplikację](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image22.png)
 4. Wprowadź **Nazwa aplikacji** i **kategorii**, następnie kliknij przycisk **tworzenie aplikacji**.
 
-    To musi być unikatowa w serwisie Facebook. <strong>Namespace aplikacji</strong> to część adresu URL, które Twoja aplikacja będzie używać do dostępu do aplikacji usługi Facebook dla uwierzytelniania (na przykład https://apps.facebook.com/{App Namespace}). Jeśli nie określisz <strong>Namespace aplikacji</strong>, <strong>identyfikator aplikacji</strong> będą używane dla adresu URL. <strong>Identyfikator aplikacji</strong> jest liczbą długo generowanych przez system, która będzie widoczna w następnym kroku.
+    <strong>Namespace aplikacji</strong> to część adresu URL, które Twoja aplikacja będzie używać do dostępu do aplikacji usługi Facebook dla uwierzytelniania (na przykład https\://apps.facebook.com/{App Namespace}). Jeśli nie określisz <strong>Namespace aplikacji</strong>, <strong>identyfikator aplikacji</strong> będą używane dla adresu URL. <strong>Identyfikator aplikacji</strong> jest liczbą długo generowanych przez system, która będzie widoczna w następnym kroku.
 
     ![Utwórz nową aplikację w oknie dialogowym](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
 5. Przedstawia wyboru standardowych zabezpieczeń.

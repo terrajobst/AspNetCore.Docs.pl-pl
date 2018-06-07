@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 381c1a5cecee945559ea0dabd0aa086c8d52b43a
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: c6d362cf15b5d4611f0e544c5092a18f32ed7dfc
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729171"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819048"
 ---
 # <a name="aspnet-core-middleware"></a>Oprogramowanie pośredniczące platformy ASP.NET Core
 
@@ -197,7 +197,8 @@ Platformy ASP.NET Core jest dostarczany z następujących składników oprogramo
 | [Uwierzytelnianie](xref:security/authentication/identity) | Zapewnia obsługę uwierzytelniania. | Przed `HttpContext.User` jest wymagana. Terminalu wywołania zwrotne OAuth. |
 | [CORS](xref:security/cors) | Konfiguruje współużytkowanie zasobów między źródłami. | Przed składników, które korzystają z CORS. |
 | [Diagnostyka](xref:fundamentals/error-handling) | Konfiguruje diagnostyki. | Przed składniki, które generują błędy. |
-| [Zastąpienia przekazywane nagłówki/HTTP](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Przekazuje proxy nagłówki na bieżącego żądania. | Przed składniki używające zaktualizowanych pól (przykłady: schemat, hosta, ClientIP, metoda). |
+| [Nagłówki przekazany dalej](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Przekazuje proxy nagłówki na bieżącego żądania. | Przed składniki używające zaktualizowanych pól (przykłady: schemat, hosta i adresu IP klienta, metoda). |
+| [Zastąpienie metody HTTP](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Zezwala na przychodzące żądania POST przesłonić metodę. | Przed składniki używające zaktualizowana metoda. |
 | [Przekierowania protokołu HTTPS](xref:security/enforcing-ssl#require-https) | Przekieruj żądania HTTP, HTTPS (platformy ASP.NET Core 2.1 lub nowszej). | Przed składniki używające adresu URL. |
 | [Zabezpieczenia transportu Strict HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Pośredniczącym ulepszenie zabezpieczeń dodaje nagłówek odpowiedzi specjalne (platformy ASP.NET Core 2.1 lub nowszej). | Przed wysłaniem odpowiedzi oraz po wykonaniu składników, które modyfikują żądań (na przykład przekazywane nagłówków, ponowne zapisywanie adresów URL). |
 | [Buforowanie odpowiedzi](xref:performance/caching/middleware) | Zapewnia obsługę buforowania odpowiedzi. | Przed składniki, które wymagają buforowania. |
