@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 6b2c3334798861ebdb14787205480422d7d536ea
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 0cb9bc7d8bf415e5a0125c3798f2430c9e861c98
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729655"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host platformy ASP.NET Core w systemie Windows z programem IIS
 
@@ -43,7 +44,7 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-Moduł platformy ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `UseIISIntegration` Metoda przejmuje portów dynamicznych i konfiguruje Kestrel do nasłuchiwania `http://localhost:{dynamicPort}/`. Przesłania inne konfiguracje adresu URL, takie jak wywołania `UseUrls` lub [API nasłuchiwania na Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration). W związku z tym wywołań `UseUrls` lub jego Kestrel `Listen` interfejsu API nie są wymagane, gdy za pomocą modułu. Jeśli `UseUrls` lub `Listen` jest nazywany wykrywa Kestrel na port określony podczas uruchamiania aplikacji bez usług IIS.
+Moduł platformy ASP.NET Core generuje portów dynamicznych do przypisania do procesu zaplecza. `CreateDefaultBuilder` wywołania [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) metodę, która przejmuje portów dynamicznych i konfiguruje Kestrel do nasłuchiwania `http://localhost:{dynamicPort}/`. Przesłania inne konfiguracje adresu URL, takie jak wywołania `UseUrls` lub [API nasłuchiwania na Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration). W związku z tym wywołań `UseUrls` lub jego Kestrel `Listen` interfejsu API nie są wymagane, gdy za pomocą modułu. Jeśli `UseUrls` lub `Listen` jest nazywany wykrywa Kestrel na port określony podczas uruchamiania aplikacji bez usług IIS.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -89,7 +90,7 @@ IIS integracji oprogramowania pośredniczącego, który konfiguruje przekazywane
 
 ### <a name="webconfig-file"></a>plik Web.config
 
-*Web.config* konfiguruje pliku [platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module). Tworzenie, przekształcanie i publikowanie *web.config* jest obsługiwany przez zestaw SDK programu .NET Core sieci Web (`Microsoft.NET.Sdk.Web`). Zestaw SDK jest ustawiona na początku pliku projektu:
+*Web.config* konfiguruje pliku [platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module). Tworzenie, przekształcanie i publikowanie *web.config* pliku jest obsługiwane przez obiekt docelowy programu MSBuild (`_TransformWebConfig`) po opublikowaniu projektu. Ten element docelowy znajduje się w docelowych zestawu SDK sieci Web (`Microsoft.NET.Sdk.Web`). Zestaw SDK jest ustawiona na początku pliku projektu:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -172,8 +173,9 @@ Włącz **Konsola zarządzania usługami IIS** i **usługi sieci World Wide Web*
 1. Zainstaluj *.NET Core Hosting pakietu* przez system operacyjny. Pakiet instaluje wykonawczym .NET Core .NET Core biblioteki, a [platformy ASP.NET Core modułu](xref:fundamentals/servers/aspnet-core-module). Moduł tworzy zwrotny serwer proxy między usługami IIS a Kestrel serwera. Jeśli system nie ma połączenia internetowego, Uzyskaj i zainstaluj [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) przed zainstalowaniem pakietu Hosting .NET Core.
 
    1. Przejdź do [.NET wszystkie pliki do pobrania strony](https://www.microsoft.com/net/download/all).
-   1. Wybierz z listy najnowsze środowisko uruchomieniowe .NET Core-preview (**.NET Core** > **środowiska uruchomieniowego** > **x.y.z środowisko uruchomieniowe platformy .NET Core**). Jeśli nie zamierzasz pracować z oprogramowaniem w wersji zapoznawczej, uniknąć środowiska uruchomieniowego od słowa "w wersji zapoznawczej" lub "rc" (Wersja Release Candidate) tekst łącza.
-   1. Na środowiska uruchomieniowego .NET Core strony w obszarze pobierania **Windows**, wybierz pozycję **Hosting Instalatora pakietu** łącze, aby pobrać *.NET Core Hosting pakietu*.
+   1. W **środowiska uruchomieniowego** kolumnie tabeli, z listy wybierz najnowsze środowisko uruchomieniowe .NET Core-preview (**X.Y środowiska uruchomieniowego (vX.Y.Z) pliki do pobrania**). Zawiera najnowsze środowisko uruchomieniowe **bieżącego** etykiety. Jeśli nie zamierzasz pracować z oprogramowaniem w wersji zapoznawczej, uniknąć środowiska uruchomieniowego od słowa "w wersji zapoznawczej" lub "rc" (Wersja Release Candidate) tekst łącza.
+   1. Na środowiska uruchomieniowego .NET Core strony w obszarze pobierania **Windows**, wybierz pozycję **Hosting Instalatora pakietu** łącze, aby pobrać *.NET Core Hosting pakietu* Instalatora.
+   1. Uruchom Instalatora na serwerze.
 
    **Ważne!** Po zainstalowaniu pakietu Hosting przed zainstalowaniem usług IIS instalacji pakietu musi zostać naprawiony. Uruchom Instalatora pakietu Hosting ponownie po zainstalowaniu usług IIS.
    
