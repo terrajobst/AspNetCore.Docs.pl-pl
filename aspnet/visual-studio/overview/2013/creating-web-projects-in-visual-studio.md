@@ -1,26 +1,27 @@
 ---
 uid: visual-studio/overview/2013/creating-web-projects-in-visual-studio
-title: "Tworzenie projektów sieci Web ASP.NET w programie Visual Studio 2013 | Dokumentacja firmy Microsoft"
+title: Tworzenie projektów sieci Web ASP.NET w programie Visual Studio 2013 | Dokumentacja firmy Microsoft
 author: tdykstra
-description: "W tym temacie opisano opcje tworzenia projektów sieci web ASP.NET w programie Visual Studio 2013 z aktualizacji 3 w tym miejscu są niektóre z nowych funkcji dla c Projektowanie sieci web..."
+description: W tym temacie opisano opcje tworzenia projektów sieci web ASP.NET w programie Visual Studio 2013 z aktualizacji 3 w tym miejscu są niektóre z nowych funkcji dla c Projektowanie sieci web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/01/2014
 ms.topic: article
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
 ms.openlocfilehash: aacae7a9ccf483b21d3c6796c0411d558fa3c75b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28038868"
 ---
 <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Tworzenie projektów sieci Web ASP.NET w programie Visual Studio 2013
 ====================
-przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Dykstra niestandardowy](https://github.com/tdykstra)
 
 > W tym temacie opisano opcje tworzenia projektów sieci web ASP.NET w programie Visual Studio 2013 z aktualizacją Update 3
 > 
@@ -101,7 +102,7 @@ Aby uzyskać więcej informacji na temat używania tego procesu tworzenia zasob�
 W dalszej części tego artykułu zawiera więcej informacji na temat dostępnych szablonów i ich opcji. Artykuł wprowadza również Bootstrap, układu i motywów framework używane w szablonach.
 
 <a id="vs2013"></a>
-## <a name="visual-studio-2013-web-project-templates"></a>Visual Studio 2013 Web Project Templates
+## <a name="visual-studio-2013-web-project-templates"></a>Szablony projektów sieci Web programu Visual Studio 2013
 
 Szablony Visual Studio będzie korzystać do tworzenia projektów sieci web. Szablon projektu może tworzyć pliki i foldery w nowym projekcie, zainstalować pakietów NuGet i udostępnia kodu do podstawowe działającą aplikację. Szablony implementuje najnowszych standardów sieci web i służą jedynie do zademonstrowania, że najlepsze rozwiązania dotyczące jak używać technologii ASP.NET, jak również zapewniają szybki start dotyczące tworzenia własnych aplikacji.
 
@@ -243,7 +244,7 @@ Nieco bardziej zawęzić okna, a następnie włącza poziome menu u góry do iko
 
 Funkcja tworzenia motywów ładowania początkowego na umożliwia również łatwe wpływ zmian w aplikacji wyglądu i działania. Można na przykład, wykonaj następujące kroki, aby zmienić motyw.
 
-1. W przeglądarce przejdź do [http://Bootswatch.com](http://Bootswatch.com), umożliwia wybranie motywu, a następnie kliknij przycisk **Pobierz**. (Spowoduje to pobranie *bootstrap.min.css* domyślnie; Jeśli chcesz sprawdzić kod CSS, Pobierz *bootstrap.css* zamiast wersji zminimalizowany.)
+1. W przeglądarce przejdź do [ http://Bootswatch.com ](http://Bootswatch.com), umożliwia wybranie motywu, a następnie kliknij przycisk **Pobierz**. (Spowoduje to pobranie *bootstrap.min.css* domyślnie; Jeśli chcesz sprawdzić kod CSS, Pobierz *bootstrap.css* zamiast wersji zminimalizowany.)
 2. Skopiuj zawartość pobranego pliku CSS.
 3. W programie Visual Studio Utwórz nową **arkusz stylów** plik o nazwie *bootstrap theme.css* w *zawartości* folder i Wklej pobrany CSS kodu do niego.
 4. Otwórz *aplikacji\_Start/Bundle.config* i zmienić *bootstrap.css* do *bootstrap theme.css*.
@@ -384,7 +385,7 @@ W celu udostępnienia aplikacji w usłudze Azure AD lub połączyć projekt z is
 
 Aby uzyskać informacje o sposobie tworzenia aplikacji, które używają **Cloud - jednej organizacji** uwierzytelniania, zobacz następujące zasoby:
 
-- [Azure Authentication](../2012/windows-azure-authentication.md)
+- [Uwierzytelniania systemu Azure](../2012/windows-azure-authentication.md)
 - [Dodawanie logowania jednokrotnego do aplikacji sieci Web przy użyciu usługi Azure AD](https://msdn.microsoft.com/library/windowsazure/dn151790.aspx)
 - [Tworzenie aplikacji ASP.NET z wykorzystaniem usługi Azure Active Directory](../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
 - [Zabezpieczenia programu ASP.NET Web API z usługi Azure AD i składniki Microsoft OWIN](https://msdn.microsoft.com/magazine/dn463788.aspx)
@@ -426,4 +427,4 @@ Podaj unikatowy identyfikator URI, który AD służy do identyfikowania tej apli
 <a id="nextsteps"></a>
 ## <a name="next-steps"></a>Następne kroki
 
-Ten dokument udostępnił podstawowa pomoc do tworzenia nowego projektu sieci web ASP.NET w programie Visual Studio 2013. Aby uzyskać więcej informacji o korzystaniu z programu Visual Studio do tworzenia aplikacji sieci web, zobacz [https://www.asp.net/visual-studio/](../../index.md).
+Ten dokument udostępnił podstawowa pomoc do tworzenia nowego projektu sieci web ASP.NET w programie Visual Studio 2013. Aby uzyskać więcej informacji o korzystaniu z programu Visual Studio do tworzenia aplikacji sieci web, zobacz [ https://www.asp.net/visual-studio/ ](../../index.md).

@@ -1,26 +1,27 @@
 ---
 uid: identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
-title: "Najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure App Service | Dokumentacja firmy Microsoft"
+title: Najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure App Service | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Ten samouczek pokazuje, jak kod może bezpiecznie przechowywać i dostęp do informacji o. Najważniejsze punkt znajduje się, że nigdy nie należy przechowywać haseł i innych Wyślij..."
+description: Ten samouczek pokazuje, jak kod może bezpiecznie przechowywać i dostęp do informacji o. Najważniejsze punkt znajduje się, że nigdy nie należy przechowywać haseł i innych Wyślij...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2015
 ms.topic: article
 ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
 ms.openlocfilehash: 995d9a088e3095f36a01d2adb19ec08e6a6d1b3e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28033024"
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure App Service
 ====================
-Przez [Rick Anderson](https://github.com/Rick-Anderson)
+przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Ten samouczek pokazuje, jak kod może bezpiecznie przechowywać i dostęp do informacji o. Najważniejsze punkt znajduje się w kodzie źródłowym nigdy nie należy przechowywać haseł i innych poufnych danych i kluczy tajnych w środowisku produkcyjnym nie można używać w trybie projektowania i testowania.
 > 
@@ -90,7 +91,7 @@ Można użyć `configSource` atrybutu Zastąp całą `<connectionStrings>` znacz
 
 Podczas wdrażania aplikacji sieci web na platformie Azure, *AppSettingsSecrets.config* pliku nie zostaną wdrożone (do którego ma). Można przejść do [portalu zarządzania Azure](https://azure.microsoft.com/services/management-portal/) i ustaw je ręcznie, w tym:
 
-1. Przejdź do [https://portal.azure.com](https://portal.azure.com)i zaloguj się przy użyciu poświadczeń platformy Azure.
+1. Przejdź do [ https://portal.azure.com ](https://portal.azure.com)i zaloguj się przy użyciu poświadczeń platformy Azure.
 2. Kliknij przycisk **Przeglądaj &gt; aplikacje sieci Web**, następnie kliknij nazwę aplikacji sieci web.
 3. Kliknij przycisk **wszystkie ustawienia &gt; ustawienia aplikacji**.
 

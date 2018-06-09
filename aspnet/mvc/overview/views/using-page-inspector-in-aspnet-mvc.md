@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
 ms.openlocfilehash: 5b443963a089f96a9dab11b7db4a25451075d6be
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034519"
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>Za pomocą narzędzia Page Inspector na platformie ASP.NET MVC
 ====================
@@ -177,7 +178,7 @@ Zaznacz pole wyboru ponownie, kliknij dwukrotnie wartość właściwości i zmie
 **Style** sprawia, że okno łatwe do testowania i Podgląd CSS zmienia przed dokonaniem zmiany stylu arkusza samej siebie.
 
 <a id="css_auto_sync"></a>
-## <a name="css-auto-sync"></a>CSS Auto Sync
+## <a name="css-auto-sync"></a>Automatyczna synchronizacja z CSS
 
 > [!NOTE]
 > Ta funkcja wymaga wersji 1.3 narzędzie Page Inspector.

@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
 ms.openlocfilehash: c11e2ef9c33b0cae1f196690533094ce1c342da5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036430"
 ---
 <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Informacje o wersji dla platformy ASP.NET i narzędzia sieci Web 2013.1 dla programu Visual Studio 2012
 ====================
@@ -38,12 +39,12 @@ przez [firmy Microsoft](https://github.com/microsoft)
         - [Szablon 2 interfejsu API sieci Web ASP.NET](#apitemplate)
         - [Szablony elementu](#itemtemplate)
     - [Entity Framework 6](#ef6)
-    - [ASP.NET Scaffolding](#scaffold)
+    - [Funkcja szkieletów ASP.NET](#scaffold)
     - [Razor Editor](#razor)
     - [NuGet 2.7](#nuget)
 - Znane problemy i fundamentalne zmiany
 
-    - [ASP.NET Scaffolding](#issuescaffolding)
+    - [Funkcja szkieletów ASP.NET](#issuescaffolding)
 
         - [MVC i Web API szkieletów - HTTP 404 błędu nie znaleziono](#404issue)
         - [Visual Studio Express 2012 for Web przestaje działać po Dodawanie elementu szkieletu](#expressissue)
@@ -66,7 +67,7 @@ Musi mieć programu Visual Studio 2012 lub Visual Studio Express 2012 for Web.
 ## <a name="new-features-in-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Nowe funkcje programu ASP.NET i narzędzia sieci Web 2013.1 dla programu Visual Studio 2012
 
 <a id="bootstrap"></a>
-### <a name="bootstrap"></a>Bootstrap
+### <a name="bootstrap"></a>Ładowania początkowego
 
 Po utworzeniu szkieletu kontrolerów MVC 5 z widokami, korzysta z kodu znaczników dla widoków [Bootstrap](http://getbootstrap.com/).
 
@@ -96,7 +97,7 @@ Po utworzeniu szkieletu kontrolera MVC lub Web API przy użyciu programu Entity 
 Można również pobrać i zainstalować narzędzia Entity Framework 6 dla programu Visual Studio 2012. Zobacz [uzyskać programu Entity Framework](https://msdn.com/data/ee712906#tooling).
 
 <a id="scaffold"></a>
-### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
+### <a name="aspnet-scaffolding"></a>Funkcja szkieletów ASP.NET
 
 Rusztowania ASP.NET to platforma generowania kodu dla aplikacji sieci Web ASP.NET. Ułatwia on dodać schematyczny kod służący do projektu, który współdziała z modelem danych.
 
@@ -125,7 +126,7 @@ Ta wersja programu NuGet eliminuje to potrzebę dla użytkowników jawnie zezwol
 ## <a name="known-issues-and-breaking-changes"></a>Znane problemy i fundamentalne zmiany
 
 <a id="issuescaffolding"></a>
-### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
+### <a name="aspnet-scaffolding"></a>Funkcja szkieletów ASP.NET
 
 <a id="404issue"></a>
 #### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC i Web API szkieletów - HTTP 404 błędu nie znaleziono
@@ -168,7 +169,7 @@ Aby rozwiązać ten problem, skonfiguruj Visual Studio Express do pracy z obrazu
 <a id="browseissue"></a>
 #### <a name="viewing-cshtml-file-withbrowse-withorf5causes-a-server-error"></a>Wyświetlanie withBrowse plik cshtml WithorF5causes błąd serwera
 
-Podczas tworzenia projektu MVC 5 w Visual Studio 2012 (lub Otwórz w programie Visual Studio 2012 MVC 5 projektu, który został utworzony w programie Visual Studio 2013) i próbujesz wyświetlić przy użyciu przeglądanie za pomocą lub F5 plik cshtml, zostanie wyświetlony błąd informujący - **błąd serwera w Aplikacja '/'**. Próbuje przejdź do serwera`http://localhost:XXXX/Views/../XXXX.cshtml`
+Podczas tworzenia projektu MVC 5 w Visual Studio 2012 (lub Otwórz w programie Visual Studio 2012 MVC 5 projektu, który został utworzony w programie Visual Studio 2013) i próbujesz wyświetlić przy użyciu przeglądanie za pomocą lub F5 plik cshtml, zostanie wyświetlony błąd informujący - **błąd serwera w Aplikacja '/'**. Próbuje przejdź do serwera `http://localhost:XXXX/Views/../XXXX.cshtml`
 
 Aby rozwiązać ten problem, zmień **Akcja uruchamiania** ustawienie w swoim projekcie **określonej strony**. Nie trzeba podać wartość dla strony.
 

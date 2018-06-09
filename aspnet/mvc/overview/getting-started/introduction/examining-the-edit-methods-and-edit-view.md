@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
 ms.openlocfilehash: a3baa8e9af572d4c21813218ba394715a6db65cb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30874749"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Badanie metody edycji i widoku edycji
 ====================
@@ -100,13 +101,13 @@ Jeśli używasz komputera angielski, można pominąć tę sekcję i przejdź do 
 
 
 > [!NOTE]
-> w celu obsługi weryfikacji jQuery dla ustawień regionalnych innych niż angielskie, które użyj przecinka (&quot;,&quot;) dla punktu dziesiętnego i formaty daty z systemem innym niż angielski, należy wprowadzić *globalize.js* i konkretnej * cultures/globalize.cultures.js* pliku (z [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) i JavaScript, aby użyć `Globalize.parseFloat`. Możesz pobrać ze strony NuGet weryfikacji jQuery innej niż angielska. (Nie należy instalować Globalize Jeśli używasz angielskiej wersji językowej ustawień regionalnych.)
+> w celu obsługi weryfikacji jQuery dla ustawień regionalnych innych niż angielskie, które użyj przecinka (&quot;,&quot;) dla punktu dziesiętnego i formaty daty z systemem innym niż angielski, należy wprowadzić *globalize.js* i konkretnej  *cultures/globalize.cultures.js* pliku (z [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) i JavaScript, aby użyć `Globalize.parseFloat`. Możesz pobrać ze strony NuGet weryfikacji jQuery innej niż angielska. (Nie należy instalować Globalize Jeśli używasz angielskiej wersji językowej ustawień regionalnych.)
 
 
 1. Z **narzędzia** kliknij menu **Menedżera pakietów NuGetLibrary**, a następnie kliknij przycisk **Zarządzaj pakietami NuGet dla rozwiązania**.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image5.png)
-2. W lewym okienku wybierz <strong>Przeglądaj*.</strong> *(Zobacz obraz poniżej).
+2. W lewym okienku wybierz <strong>Przeglądaj *.</strong>* (Zobacz obraz poniżej).
 3. W polu wejściowym, wprowadź * Globalize **.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image6.png) Wybierz `jQuery.Validation.Globalize`, wybierz `MvcMovie` i kliknij przycisk **zainstalować**. *Scripts\jquery.globalize\globalize.js* plik zostanie dodany do projektu. *Scripts\jquery.globalize\cultures\* folder będzie zawierać wiele plików JavaScript kultury. Uwaga: może zająć 5 minut, aby zainstalować ten pakiet.

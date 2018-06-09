@@ -2,7 +2,7 @@
 uid: mvc/mvc3
 title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
-description: "(obejmuje kwietnia 2011 aktualizacji narzędzi) ASP.NET MVC 3 to struktura służąca do tworzenia aplikacji sieci web skalowalnych, opartych na standardach przy użyciu wzorca projektowego ustalonym..."
+description: (obejmuje kwietnia 2011 aktualizacji narzędzi) ASP.NET MVC 3 to struktura służąca do tworzenia aplikacji sieci web skalowalnych, opartych na standardach przy użyciu wzorca projektowego ustalonym...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2010
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc3
 msc.type: content
 ms.openlocfilehash: c7eee987b28a5d7f8b40fe89a7bf7517ec06646f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034740"
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -128,8 +129,8 @@ ASP.NET MVC 3 zawiera nowy aparat widoków o nazwie Razor, która oferuje nastę
 
 Niektóre nowe funkcje Razor są następujące:
 
-- `@model`Składnia określająca typ są przekazywane do widoku.
-- `@* *@`składnia komentarza.
+- `@model` Składnia określająca typ są przekazywane do widoku.
+- `@* *@` składnia komentarza.
 - Umożliwia określenie wartości domyślnych (takie jak `layoutpage`) raz dla całej witryny.
 - `Html.Raw` Metody do wyświetlania tekstu bez kodowania HTML go.
 - Obsługa udostępniania kodu wśród wielu widoków (*\_viewstart.cshtml* lub  *\_viewstart.vbhtml* plików).

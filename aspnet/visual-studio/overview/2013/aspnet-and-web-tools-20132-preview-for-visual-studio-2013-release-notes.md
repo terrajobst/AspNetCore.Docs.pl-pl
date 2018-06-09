@@ -1,22 +1,23 @@
 ---
 uid: visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
-title: "ASP.NET i sieć Web narzędzi 2013.2 dla programu Visual Studio 2013 informacje o wersji | Dokumentacja firmy Microsoft"
+title: ASP.NET i sieć Web narzędzi 2013.2 dla programu Visual Studio 2013 informacje o wersji | Dokumentacja firmy Microsoft
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2014
 ms.topic: article
 ms.assetid: 7ef5f73c-ca60-43c1-bdb2-702800347e7e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
 ms.openlocfilehash: 0e7ad52662f7ceaa1f087d007d0b14b610f90bee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036027"
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>ASP.NET i narzędzia sieci Web 2013.2 dla programu Visual Studio 2013 informacje o wersji
 ====================
@@ -45,12 +46,12 @@ W poniższych sekcjach opisano funkcje, które zostały wprowadzone w wersji.
 - [Obsługa aplikacji sieci Web usługi aplikacji Azure w programie Visual Studio](#waws)
 - [Utwórz zasoby zdalne Azure podczas tworzenia nowego projektu sieci Web](#AzureResources)
 - [Ulepszenia publikowania w sieci Web](#webpublish)
-- [ASP.NET Scaffolding](#scaffolding)
+- [Funkcja szkieletów ASP.NET](#scaffolding)
 - [NuGet 2.8.1](#nuget)
 - [Formularze sieci Web ASP.NET](#webforms)
 - [ASP.NET MVC 5.1.2](#mvc)
 - [ASP.NET Web API 2.1.2](#webapi)
-- [ASP.NET Web Pages 3.1.2](#webpages)
+- [3.1.2 strony sieci Web ASP.NET](#webpages)
 - [Entity Framework 6.1](#ef)
 - [ASP.NET Identity 2.0.0](#identity)
 - [Składniki Microsoft OWIN](#owin)
@@ -123,7 +124,7 @@ Firefox używa magazynu certyfikatów, więc zostanie wyświetlone ostrzeżenie 
     ![Wybór adresu URL dla znacznika obrazu](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image16.png)    ![Wybór adresu URL dla widoków](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image17.png)    ![Wybór adresu URL CSS](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image18.png)
 
 <a id="browserlink"></a>
-### <a name="browser-link"></a>Browser Link
+### <a name="browser-link"></a>Łącze przeglądarki
 
 - Łącze przeglądarki teraz obsługuje połączenia HTTPS i będzie listy na pulpicie nawigacyjnym przy użyciu innych połączeń tak długo, jak certyfikat jest zaufany przez przeglądarkę.
 - Statyczne mapowania źródła HTML
@@ -149,7 +150,7 @@ Dodaliśmy Azure ["Utwórz zasoby zdalne"](https://docs.microsoft.com/azure/app-
 - Udoskonalanie użytkownika do publikowania.
 
 <a id="scaffolding"></a>
-### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
+### <a name="aspnet-scaffolding"></a>Funkcja szkieletów ASP.NET
 
 - **Obsługa wyliczenia:** Jeśli model jest przy użyciu wyliczenia, a następnie tworzenia szkieletu MVC wygeneruje listy rozwijanej dla wyliczenia. W nazwie wzorca MVC używa pomocników wyliczenia.
 - **Wykryto obsługę**: Zaktualizowano szablonów EditorFor w szkieletów MVC, aby ich używać klas ładowania początkowego.
@@ -225,7 +226,7 @@ NuGet 2.8.1, który RTM zostaną wydane w ramach kwietnia 2014 r. Poniżej przed
 - Różne [poprawki błędów](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=v5.1%20Preview%7cv5.1%20RTM&assignedTo=All&component=Web%20API%7cWeb%20API%20OData&sortField=AssignedTo&sortDirection=Ascending&page=0&reasonClosed=Fixed)
 
 <a id="webpages"></a>
-### <a name="aspnet-web-pages-312"></a>ASP.NET Web Pages 3.1.2
+### <a name="aspnet-web-pages-312"></a>3.1.2 strony sieci Web ASP.NET
 
 - Różne [poprawki błędów](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=v5.1%20Preview%7cv5.1%20RTM&assignedTo=All&component=Web%20Pages/Razor&sortField=AssignedTo&sortDirection=Ascending&page=0&reasonClosed=Fixed)
 

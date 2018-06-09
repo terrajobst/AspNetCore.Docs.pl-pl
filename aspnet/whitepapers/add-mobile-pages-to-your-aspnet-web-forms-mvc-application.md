@@ -13,17 +13,18 @@ ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
 ms.openlocfilehash: a8358b91ca424f4f3e576057ab43d850081dda60
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30898986"
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Porady: Dodawanie stron dla urządzeń przenośnych do formularzy sieci Web ASP.NET / aplikacji MVC
 ====================
 > **Dotyczy**
 > 
-> - ASP.NET Web Forms version 4.0
-> - ASP.NET MVC version 3.0
+> - Formularze sieci Web ASP.NET w wersji 4.0
+> - ASP.NET MVC w wersji 3.0
 > 
 > **Podsumowanie**
 > 
@@ -365,4 +366,4 @@ Listę urządzeń przenośnych emulatorów i symulatorów, można użyć do test
 ## <a name="credits"></a>Środki na korzystanie z
 
 - Główny Autor: Steven Sanderson
-- Reviewers / additional content writers: James Rosewell, Mikael Söderström, Scott Hanselman, Scott Hunter
+- Osoby dokonujące przeglądu / dodatkowe składniki zapisywania zawartości: Rosewell Kuba, Mikael Söderström, Scott Hanselman, Scott myśliwego

@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 55109723e566a9f7c66c1a59414377b05dbec760
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566441"
 ---
 <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Wskazówki laboratorium: Jeden ASP.NET: integrowanie formularzy sieci Web ASP.NET, MVC i interfejs API sieci Web
 ====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
 [Pobierz obozów sieci Web uczenie Kit](http://aka.ms/webcamps-training-kit)
 
@@ -28,7 +29,7 @@ przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > 
 > Visual Studio 2013 wprowadzenie nowego systemu ujednoliconego projektu, który umożliwia tworzenie aplikacji i korzystać z technologii ASP.NET w jednym projekcie. Ta funkcja eliminuje konieczność pobrania jednej technologii na początku projektu i dysku z nim, a zamiast tego zaleca się korzystanie z wielu platform ASP.NET w jednym projekcie.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -161,7 +162,7 @@ W tym zadaniu zostanie uruchamianie wygenerowanego rozwiązania, aplikacji i nie
     *Przyjazne adresy URL*
 
     > [!NOTE]
-    > Jak widać, zmiana adresu URL do **/skontaktuj się z**. Począwszy od **programu ASP.NET 4**, adres URL funkcji routingu zostały dodane do formularzy sieci Web, więc można napisać adresów URL, takich jak *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* zamiast  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Więcej informacji można znaleźć w [routingu adresów URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
+    > Jak widać, zmiana adresu URL do **/skontaktuj się z**. Począwszy od **programu ASP.NET 4**, adres URL funkcji routingu zostały dodane do formularzy sieci Web, więc można napisać adresów URL, takich jak *[ http://www.mysite.com/products/software ](http://www.mysite.com/products/software)* zamiast  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Więcej informacji można znaleźć w [routingu adresów URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
 3. Użytkownik może teraz zapoznać przepływ uwierzytelniania zintegrowane w aplikacji. Aby to zrobić, kliknij przycisk **zarejestrować** w prawym górnym rogu strony.
 
     ![Rejestrowanie nowego użytkownika](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)

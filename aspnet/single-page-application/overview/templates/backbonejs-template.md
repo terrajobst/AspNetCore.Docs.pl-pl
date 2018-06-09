@@ -8,15 +8,16 @@ manager: wpickett
 ms.date: 04/04/2013
 ms.topic: article
 ms.assetid: 00aca413-f067-4108-9bd1-cf21e64a2646
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/backbonejs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 3b8eabd3cefcb96dc40bbf6cc6e3ee81accb0d7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566309"
 ---
 <a name="backbone-template"></a>Szablon sieci szkieletowej
 ====================
@@ -59,9 +60,9 @@ Klikając przycisk "Moje konto" powoduje wyświetlenie strony logowania:
 
 Załóżmy rozpoczyna się po stronie klienta. Skrypty aplikacji klienta znajdują się w folderze ~/Scripts/application. Aplikacja została napisana [TypeScript](http://www.typescriptlang.org/) (pliki TS) kompilowane na język JavaScript (js plików).
 
-**Aplikacji**
+**Aplikacja**
 
-`Application`jest zdefiniowany w application.ts. Ten obiekt inicjuje aplikacji i działa jako głównej przestrzeni nazw. Przechowuje informacje konfiguracji i stanie, który jest współużytkowany przez aplikację, takie jak określa, czy użytkownik jest zalogowany.
+`Application` jest zdefiniowany w application.ts. Ten obiekt inicjuje aplikacji i działa jako głównej przestrzeni nazw. Przechowuje informacje konfiguracji i stanie, który jest współużytkowany przez aplikację, takie jak określa, czy użytkownik jest zalogowany.
 
 `application.start` Metoda tworzy modalne widoków i dołącza programy obsługi zdarzeń dla zdarzenia na poziomie aplikacji, takich jak logowanie użytkowników. Następnie tworzy routera domyślnego i sprawdza, czy określono dowolny adres URL po stronie klienta. Jeśli nie, przekierowuje do domyślnego adresu url (#! /).
 

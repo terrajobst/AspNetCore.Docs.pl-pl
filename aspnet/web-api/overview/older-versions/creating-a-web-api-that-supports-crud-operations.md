@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
-title: "Włączanie operacji CRUD w składniku ASP.NET Web API 1 | Dokumentacja firmy Microsoft"
+title: Włączanie operacji CRUD w składniku ASP.NET Web API 1 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "W tym samouczku przedstawiono sposób obsługi operacji CRUD usługi HTTP przy użyciu interfejsu API sieci Web platformy ASP.NET. Używane w samouczek Visual Studio 2012 Web region wersje oprogramowania..."
+description: W tym samouczku przedstawiono sposób obsługi operacji CRUD usługi HTTP przy użyciu interfejsu API sieci Web platformy ASP.NET. Używane w samouczek Visual Studio 2012 Web region wersje oprogramowania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/28/2012
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
 ms.openlocfilehash: 69b7d5453b6ff36d6e28a69428b016cb8cfd06e9
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "29153011"
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>Włączanie operacji CRUD w składniku ASP.NET Web API 1
 ====================
@@ -41,9 +42,9 @@ Powoduje to udostępnienie następujących metod produktów interfejsu API.
 
 | Akcja | Metoda HTTP | Względny identyfikator URI |
 | --- | --- | --- |
-| Pobranie listy wszystkich produktów | GET | / api/produktów |
-| Uzyskiwanie produktu według Identyfikatora | GET | /API/produkty/*id* |
-| Uzyskiwanie produktu według kategorii | GET | produkty/api /? kategorii =*kategorii* |
+| Pobranie listy wszystkich produktów | POBIERZ | / api/produktów |
+| Uzyskiwanie produktu według Identyfikatora | POBIERZ | /API/produkty/*id* |
+| Uzyskiwanie produktu według kategorii | POBIERZ | produkty/api /? kategorii =*kategorii* |
 | Tworzenie nowego produktu | POST | / api/produktów |
 | Aktualizacji produktu | UMIEŚĆ | /API/produkty/*id* |
 | Usuwanie produktu | DELETE | /API/produkty/*id* |
@@ -157,15 +158,15 @@ Interfejs API ProductStore uwidoczni kilka &quot;odczytu&quot; akcje jako metody
 
 | Akcja | Metoda HTTP | Względny identyfikator URI |
 | --- | --- | --- |
-| Pobranie listy wszystkich produktów | GET | / api/produktów |
-| Uzyskiwanie produktu według Identyfikatora | GET | /API/produkty/*id* |
-| Uzyskiwanie produktu według kategorii | GET | produkty/api /? kategorii =*kategorii* |
+| Pobranie listy wszystkich produktów | POBIERZ | / api/produktów |
+| Uzyskiwanie produktu według Identyfikatora | POBIERZ | /API/produkty/*id* |
+| Uzyskiwanie produktu według kategorii | POBIERZ | produkty/api /? kategorii =*kategorii* |
 
 Aby uzyskać listę wszystkich produktów, Dodaj tę metodę w celu `ProductsController` klasy:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample6.cs)]
 
-Nazwa metody rozpoczyna się od &quot;uzyskać&quot;, więc Konwencja mapowania żądania GET. Ponadto, ponieważ metoda nie ma parametrów, mapowania identyfikatora URI, który nie zawiera  *&quot;identyfikator&quot;*  segment w ścieżce.
+Nazwa metody rozpoczyna się od &quot;uzyskać&quot;, więc Konwencja mapowania żądania GET. Ponadto, ponieważ metoda nie ma parametrów, mapowania identyfikatora URI, który nie zawiera *&quot;identyfikator&quot;* segment w ścieżce.
 
 Uzyskanie produktu przez identyfikator, Dodaj tę metodę w celu `ProductsController` klasy:
 

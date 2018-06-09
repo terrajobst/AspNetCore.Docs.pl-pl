@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
 ms.openlocfilehash: 06f22bc9a3068ee5621df62ee5ed1bea06d7e9e6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30881360"
 ---
 <a name="customizing-database-deployments-for-multiple-environments"></a>Dostosowywanie wdrożenia bazy danych w wielu środowiskach
 ====================
@@ -69,7 +70,7 @@ Domyślnie projekt bazy danych zawiera plik konfiguracji wdrożenia jednego o na
 
 W poniższej tabeli zamieszczono Ustawienia typowe wdrożenie w środowiskach różnych miejsc docelowych. Jednak ustawienia mogą być różne w zależności od wymagań dokładne.
 
-|  | Deweloperów i testowanie | Staging/Integration | Produkcji |
+|  | Deweloperów i testowanie | Przemieszczania/integracji | Produkcji |
 | --- | --- | --- | --- |
 | **Sortowanie porównania wdrożenia** | Źródło | docelowy | docelowy |
 | **Wdrażanie właściwości bazy danych** | True | Tylko po raz pierwszy | Tylko po raz pierwszy |

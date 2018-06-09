@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/enabling-cross-origin-requests-in-web-api
-title: "Włączanie żądań Cross-Origin w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft"
+title: Włączanie żądań Cross-Origin w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Przedstawia sposób obsługi udostępniania zasobów między źródłami (CORS) w interfejsie API sieci Web ASP.NET."
+description: Przedstawia sposób obsługi udostępniania zasobów między źródłami (CORS) w interfejsie API sieci Web ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/15/2014
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 453ad29ff4f10f9660f3aa8bab358519b4cfd48b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566819"
 ---
 <a name="enabling-cross-origin-requests-in-aspnet-web-api-2"></a>Włączanie żądań Cross-Origin w składniku ASP.NET Web API 2
 ====================
@@ -51,10 +52,10 @@ Te dwa adresy URL są tego samego źródła:
 
 Tych adresów URL mają różne źródła niż poprzedniej dwóch:
 
-- `http://example.net`-Innej domeny
-- `http://example.com:9000/foo.html`-Różnych portów:
-- `https://example.com/foo.html`-Inny schemat
-- `http://www.example.com/foo.html`-Różnych poddomeny
+- `http://example.net` -Innej domeny
+- `http://example.com:9000/foo.html` -Różnych portów:
+- `https://example.com/foo.html` -Inny schemat
+- `http://www.example.com/foo.html` -Różnych poddomeny
 
 > [!NOTE]
 > Program Internet Explorer nie należy wziąć pod uwagę portu podczas porównywania źródeł.
@@ -154,7 +155,7 @@ Przeglądarka może pominąć żądania wstępnego, jeśli są spełnione nastę
 - Aplikacja nie określa żadnych nagłówków żądania innego niż Akceptuj, Accept-Language, Content-Language, Content-Type lub Last-zdarzenia-ID *i*
 - Nagłówek Content-Type (Jeśli ustawiona) jest jednym z następujących czynności: 
 
-    - Application/x--www-form-urlencoded
+    - application/x-www-form-urlencoded
     - dane multipart/formularza
     - zwykły tekst
 
@@ -202,7 +203,7 @@ Jeśli ten atrybut zostanie ustawiony na więcej niż jednego zakresu, kolejnoś
 
 1. Akcja
 2. Kontrolera
-3. Globalne
+3. Global
 
 <a id="allowed-origins"></a>
 ## <a name="set-the-allowed-origins"></a>Ustaw dozwolonych źródeł
@@ -244,7 +245,7 @@ Domyślnie przeglądarka nie ujawnia wszystkich nagłówków odpowiedzi do aplik
 - Język zawartości
 - Typ zawartości
 - Wygasa
-- Ostatniej modyfikacji
+- Last-Modified
 - Wartość dyrektywy pragma
 
 Specyfikacja CORS wywołuje te [nagłówki odpowiedzi proste](https://dvcs.w3.org/hg/cors/raw-file/tip/Overview.html#simple-response-header). Aby udostępnić inne nagłówki do aplikacji, ustaw *exposedHeaders* parametr **[EnableCors]**.

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
-title: "Atrybut routingu w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft"
+title: Atrybut routingu w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
 ms.openlocfilehash: 173add73a150d3e13ae243d6548463da912dadee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28038052"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Atrybut routingu w składniku ASP.NET Web API 2
 ====================
@@ -31,7 +32,7 @@ W tym temacie pokazano, jak włączyć routing atrybutu i zawiera opis różnych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional, or Enterprise Edition
+[Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional lub Enterprise Edition
 
 Można również użyć Menedżera pakietów NuGet w celu zainstalowania wymaganych pakietów. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżer pakietów biblioteki**, a następnie wybierz pozycję **Konsola Menedżera pakietów**. Wprowadź następujące polecenie w oknie konsoli Menedżera pakietów:
 
@@ -180,7 +181,7 @@ W poniższej tabeli wymieniono ograniczenia, które są obsługiwane.
 
 | Ograniczenia | Opis | Przykład |
 | --- | --- | --- |
-| alpha | Dopasowań wielkie lub małe litery alfabetu łacińskiego (a – z, A-Z) | {x:alpha} |
+| Alpha | Dopasowań wielkie lub małe litery alfabetu łacińskiego (a – z, A-Z) | {x: alfa} |
 | bool | Dopasowuje wartość logiczną. | {x:bool} |
 | datetime | Dopasowań **DateTime** wartość. | {x: datetime} |
 | decimal | Odpowiada wartości dziesiętnej. | {x: decimal} |
@@ -193,9 +194,9 @@ W poniższej tabeli wymieniono ograniczenia, które są obsługiwane.
 | max | Dopasowuje typu integer o wartości maksymalnej. | {x:max(10)} |
 | Element MaxLength | Dopasowuje ciąg o maksymalnej długości. | {x:maxlength(10)} |
 | min | Dopasowuje jako liczba całkowita, wartość minimalna. | {x:min(10)} |
-| minlength | Dopasowuje ciąg o minimalnej długości. | {x:minlength(10)} |
-| range | Dopasowuje całkowitą w zakresie wartości. | {x:range(10,50)} |
-| regex | Pasuje do wyrażenia regularnego. | {x:regex(^\d{3}-\d{3}-\d{4}$)} |
+| Element MinLength | Dopasowuje ciąg o minimalnej długości. | {x:minlength(10)} |
+| range | Dopasowuje całkowitą w zakresie wartości. | {x: range(10,50)} |
+| wyrażenia regularnego | Pasuje do wyrażenia regularnego. | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
 
 Powiadomienie niektórych ograniczeń, takich jak &quot;min&quot;, przyjmuje argumentów w nawiasach. Można stosować wiele ograniczeń do parametru, oddzielone dwukropkiem.
 
@@ -271,7 +272,7 @@ Te trasy są sortowane w następujący sposób.
 
 1. Szczegóły/zamówień
 2. zamówienia / {id}
-3. orders/{customerName}
+3. zamówienia / {customerName}
 4. zamówienia / {\*Data}
 5. zamówienia / oczekujące
 

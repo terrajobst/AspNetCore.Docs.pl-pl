@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
 ms.openlocfilehash: 4cfa98144919c3f1bdb3608970af1a7952fe6ea7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30878181"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Pomocników platformy ASP.NET MVC 4, formularzy i sprawdzania poprawności
 
@@ -605,7 +606,7 @@ Sprawdzanie poprawności można dodać do aplikacji przez dodanie do własnej kl
 
 To zadanie spowoduje dodanie adnotacji danych do modelu albumy, aby ułatwić tworzenie i edytowanie strony ekranu komunikatów dotyczących sprawdzania poprawności, gdy jest to konieczne.
 
-Proste klasy modelu, dodawanie adnotacji danych tylko odbywa się przez dodanie **przy użyciu** instrukcji dla **System.ComponentModel.DataAnnotation**, następnie umieszczenie **[wymagane]**atrybutu na odpowiednie właściwości. Poniższy przykład spowodowałoby **nazwa** właściwości wymaganego pola w widoku.
+Proste klasy modelu, dodawanie adnotacji danych tylko odbywa się przez dodanie **przy użyciu** instrukcji dla **System.ComponentModel.DataAnnotation**, następnie umieszczenie **[wymagane]** atrybutu na odpowiednie właściwości. Poniższy przykład spowodowałoby **nazwa** właściwości wymaganego pola w widoku.
 
 [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample18.cs)]
 
@@ -743,11 +744,11 @@ W tym zadaniu zostanie sprawdzić, czy **StoreManager** utworzyć widok szablonu
    > Dla każdej reguły weryfikacji klienta jQuery dyskretny kod dodaje atrybut z danymi-val -*rulename*=&quot;*komunikat*&quot;. Poniżej znajduje się lista znaczników tej Unobtrusive jQuery wstawia do pola wejściowego html do sprawdzania poprawności klienta:
    > 
    > - Val danych
-   > - Data-val-number
+   > - Dane val numerów
    > - Zakres danych val
    > - Dane val zakresu min / danych val zakresu max.
    > - Wymagane wartości danych
-   > - Data-val-length
+   > - Długość danych val
    > - Dane val długość max / danych val długość min
    > 
    > Wszystkie wartości są wypełniane modelu **adnotacji danych elementu**. Następnie całą logikę, która działa po stronie serwera może działać po stronie klienta. Na przykład atrybut cen ma następujące adnotacji danych w modelu:

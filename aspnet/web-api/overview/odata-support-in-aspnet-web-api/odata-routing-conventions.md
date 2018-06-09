@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
 ms.openlocfilehash: 0ab99dd443040b90ffefd2f5b9261a63b91e9463
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28037324"
 ---
 <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>Konwencje tras w składniku ASP.NET Web API 2 Odata
 ====================
@@ -47,9 +48,9 @@ Przed I opisano konwencje tras OData w składniku Web API, warto poznać identyf
 
 W przypadku routingu ważnym elementem jest ścieżka zasobu. Ścieżka zasobu jest podzielona na segmenty. Na przykład `/Products(1)/Supplier` ma trzy segmenty:
 
-- `Products`Odwołanie do zestawu jednostek o nazwie "Produktów".
-- `1`jest kluczem jednostki, wybierając pojedynczej jednostki z zestawu.
-- `Supplier`jest właściwością nawigacji, który wybiera powiązanej jednostki.
+- `Products` Odwołanie do zestawu jednostek o nazwie "Produktów".
+- `1` jest kluczem jednostki, wybierając pojedynczej jednostki z zestawu.
+- `Supplier` jest właściwością nawigacji, który wybiera powiązanej jednostki.
 
 Dlatego tej ścieżki wybiera się dostawcę produktu 1.
 
@@ -96,9 +97,9 @@ Aby uzyskać więcej informacji, zobacz [Praca z relacjami jednostek](odata-v3/w
 
 | Żądanie | Przykład identyfikatora URI | Nazwa akcji |
 | --- | --- | --- |
-| /Entityset POST (klucz) / $links/nawigacji | /Products(1)/$links/Supplier | CreateLink |
-| Umieść /entityset (klucz) / $links/nawigacji | /Products(1)/$links/Supplier | CreateLink |
-| Usuń /entityset (klucz) / $links/nawigacji | /Products(1)/$links/Supplier | DeleteLink |
+| /Entityset POST (klucz) / $links/nawigacji | / (1) / $produktów łącza lub dostawcy | CreateLink |
+| Umieść /entityset (klucz) / $links/nawigacji | / (1) / $produktów łącza lub dostawcy | CreateLink |
+| Usuń /entityset (klucz) / $links/nawigacji | / (1) / $produktów łącza lub dostawcy | DeleteLink |
 | Usuń /entityset(key)/$links/navigation(relatedKey) | /Products/(1)/$Links/Suppliers(1) | DeleteLink |
 
 Aby uzyskać więcej informacji, zobacz [Praca z relacjami jednostek](odata-v3/working-with-entity-relations.md).
@@ -169,7 +170,7 @@ Uwagi:
 
 1. I pochodzi od **EntitySetRoutingConvention**, ponieważ **SelectController** metody klasy jest odpowiedni dla tego nowego Konwencji routingu. Oznacza to, że nie należy ponownie wdrożyć **SelectController**.
 2. Konwencja dotyczy tylko żądania GET, i tylko wtedy, gdy szablon ścieżki &quot;~/entityset/key/navigation/key&quot;.
-3. Nazwa akcji jest &quot;uzyskać {EntityType}&quot;, gdzie *{EntityType}* jest typ kolekcji nawigacji. Na przykład &quot;GetSupplier&quot;. Korzystając z konwencją nazewnictwa, który chcesz & #8212; tylko upewnić, że odpowiada akcji kontrolera.
+3. Nazwa akcji jest &quot;uzyskać {EntityType}&quot;, gdzie *{EntityType}* jest typ kolekcji nawigacji. Na przykład &quot;GetSupplier&quot;. Korzystając z konwencją nazewnictwa, który chcesz &#8212; upewnij się, zgodne akcji kontrolera.
 4. Akcja przyjmuje dwa parametry o nazwie *klucza* i *relatedKey*. (Aby uzyskać listę niektóre nazwy wstępnie zdefiniowanych parametrów, zobacz [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
 
 Następny krok polega na dodaniu nowej Konwencji do listy Konwencji tras. Dzieje się to podczas konfiguracji, jak pokazano w poniższym kodzie:

@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
 ms.openlocfilehash: 5f38fcdd8e71ce12f7899214b6b2133e21f9910c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30876842"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>Funkcje mobilne platformy ASP.NET MVC 4
 ====================
@@ -29,7 +30,7 @@ W tym samouczku uczy podstaw dotyczących pracy z Funkcje mobilne w aplikacji si
 
 Przed rozpoczęciem upewnij się, że po zainstalowaniu wymagania wstępne wymienione poniżej.
 
-- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (zalecane) lub programu Visual Studio Web Developer Express z dodatkiem SP1. Visual Studio 2012 contains ASP.NET MVC 4. Jeśli używasz programu Visual Web Developer 2010, należy zainstalować [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
+- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (zalecane) lub programu Visual Studio Web Developer Express z dodatkiem SP1. Program Visual Studio 2012 zawiera ASP.NET MVC 4. Jeśli używasz programu Visual Web Developer 2010, należy zainstalować [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
 
 Należy również emulatora przeglądarkę dla telefonów. Działa jedną z następujących czynności:
 

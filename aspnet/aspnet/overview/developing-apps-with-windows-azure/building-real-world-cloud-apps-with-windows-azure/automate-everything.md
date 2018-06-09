@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
 ms.openlocfilehash: 2e30ab7831a10f215a08f74e61adf2d147e76543
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30875178"
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatyzowanie wszystko (Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure)
 ====================
@@ -90,7 +91,7 @@ Na **Konfiguruj** kartę dla aplikacji sieci web widać, że posiada ustawienia 
 
 ![appSettings i connectionStrings](automate-everything/_static/image6.png)
 
-*Automatyzacji* folder teraz zawiera także * &lt;podaną&gt;.pubxml* pliku. Ten plik przechowuje ustawienia, które MSBuild będzie używany do wdrożenia aplikacji w środowisku platformy Azure, która została właśnie utworzona. Na przykład:
+*Automatyzacji* folder teraz zawiera także  *&lt;podaną&gt;.pubxml* pliku. Ten plik przechowuje ustawienia, które MSBuild będzie używany do wdrożenia aplikacji w środowisku platformy Azure, która została właśnie utworzona. Na przykład:
 
 [!code-xml[Main](automate-everything/samples/sample1.xml)]
 
@@ -253,7 +254,7 @@ W podobny sposób można zautomatyzować najbardziej Azure funkcji zarządzania,
 
 W [następnego rozdziału](source-control.md) firma Microsoft będzie przyjrzeć się kodu źródłowego i wyjaśnić, dlaczego warto uwzględnić skrypty w repozytorium kodu źródłowego.
 
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
 - [Instalacja i Konfiguracja środowiska Windows PowerShell dla usługi Azure](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1). Wyjaśniono, jak zainstalować polecenia cmdlet programu Azure PowerShell i sposobu instalacji certyfikatu, że należy na komputerze, aby można było zarządzać platformy Azure o koncie. To jest doskonałym miejscem, aby rozpocząć pracę, ponieważ zawiera ona także linki do zasobów do uczenia PowerShell sam.
 - [Centrum skryptów Azure](https://docs.microsoft.com/azure/automation/automation-runbook-gallery). Portal WindowsAzure.com zasoby na potrzeby tworzenia skryptów, które zarządzają usług platformy Azure, wraz z łączami do pobierania pracy — samouczki, polecenia cmdlet odwołanie do dokumentacji i kod źródłowy i przykładowe skrypty

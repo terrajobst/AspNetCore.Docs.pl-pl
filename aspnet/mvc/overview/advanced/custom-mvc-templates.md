@@ -2,7 +2,7 @@
 uid: mvc/overview/advanced/custom-mvc-templates
 title: Szablon niestandardowy MVC | Dokumentacja firmy Microsoft
 author: joeloff
-description: "Utwórz szablon jako rozszerzenia VSIX."
+description: Utwórz szablon jako rozszerzenia VSIX.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/10/2012
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
 ms.openlocfilehash: c3ddd4e341511f520927e924b25d890088adb69e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034610"
 ---
 <a name="custom-mvc-template"></a>Szablon niestandardowy MVC
 ====================
@@ -65,7 +66,7 @@ Jeśli zamierzasz obsługiwać wszystkie Professional i nowsze wersje produktu (
 
 &lt;Content Include=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
 
-&lt;CopyToOutputDirectory&gt;Always&lt;/CopyToOutputDirectory&gt;
+&lt;CopyToOutputDirectory&gt;zawsze&lt;/CopyToOutputDirectory&gt;
 
 &lt;IncludeInVSIX&gt;true&lt;/IncludeInVSIX&gt;
 
@@ -79,21 +80,21 @@ Zamknij projektanta VSIX, a następnie kliknij prawym przyciskiem myszy **source
 
 ![Otwórz za pomocą okna dialogowego](custom-mvc-templates/_static/image7.jpg)
 
-Utwórz  **&lt;zasoby&gt;**  element i Dodaj  **&lt;zasobów&gt;**  elementu dla każdego pliku, który musi być uwzględniona w pliku VSIX. **Typu** atrybut każdego  **&lt;zasobów&gt;**  element musi być ustawiony na **Microsoft.VisualStudio.Mvc.Template**. Jest to niestandardowej przestrzeni nazw, która rozumie, Kreator projektu MVC. Zapoznaj się z dokumentacją schematu 2.0 VSIX, aby uzyskać dodatkowe informacje na temat struktury i układ pliku manifestu.
+Utwórz **&lt;zasoby&gt;** element i Dodaj **&lt;zasobów&gt;** elementu dla każdego pliku, który musi być uwzględniona w pliku VSIX. **Typu** atrybut każdego **&lt;zasobów&gt;** element musi być ustawiony na **Microsoft.VisualStudio.Mvc.Template**. Jest to niestandardowej przestrzeni nazw, która rozumie, Kreator projektu MVC. Zapoznaj się z dokumentacją schematu 2.0 VSIX, aby uzyskać dodatkowe informacje na temat struktury i układ pliku manifestu.
 
-Tylko dodanie plików do pliku VSIX nie wystarcza do rejestracji szablonów przy użyciu Kreatora MVC. Musisz podać informacje, takie jak nazwa szablonu, opis i aparatów widoków obsługiwanych język programowania, w Kreatorze programu MVC. Te informacje są przenoszone w niestandardowe atrybuty powiązane z  **&lt;zasobów&gt;**  elementu dla każdego **vstemplate** pliku.
+Tylko dodanie plików do pliku VSIX nie wystarcza do rejestracji szablonów przy użyciu Kreatora MVC. Musisz podać informacje, takie jak nazwa szablonu, opis i aparatów widoków obsługiwanych język programowania, w Kreatorze programu MVC. Te informacje są przenoszone w niestandardowe atrybuty powiązane z **&lt;zasobów&gt;** elementu dla każdego **vstemplate** pliku.
 
 &lt;Asset d:VsixSubPath=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
 
 Type=&quot;Microsoft.VisualStudio.Mvc.Template&quot;
 
-d:Source=&quot;File&quot;
+d:Source =&quot;pliku&quot;
 
 Path=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
 
 ProjectType=&quot;MVC&quot;
 
-Language=&quot;C#&quot;
+Język =&quot;C#&quot;
 
 ViewEngine=&quot;Aspx&quot;
 
@@ -114,7 +115,7 @@ Poniżej znajdują się objaśnienia dotyczące atrybutów niestandardowych, kt�
 - **Tytuł** wyznacza krótki opis wyświetlany w Kreatorze MVC poniżej każdego szablonu projektu.
 - **Opis elementu** określa dokładniejszy opis szablonu.
 
-Po dodaniu wszystkich plików do manifestu i zapisaniu, można zauważyć, że **zasoby** kartę w Projektancie spowoduje wyświetlenie wszystkich plików, ale atrybutów nie niestandardowych, można dodać do  **&lt;zasobów&gt;**  elementy **vstemplate** plików.
+Po dodaniu wszystkich plików do manifestu i zapisaniu, można zauważyć, że **zasoby** kartę w Projektancie spowoduje wyświetlenie wszystkich plików, ale atrybutów nie niestandardowych, można dodać do **&lt;zasobów&gt;** elementy **vstemplate** plików.
 
 ![Zasoby projektanta projektu](custom-mvc-templates/_static/image8.jpg)
 

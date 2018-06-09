@@ -2,7 +2,7 @@
 uid: web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 title: Tworzenie stron pomocy dla interfejsu API sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2013
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 37fd26ebaea192cb540c443eff8a07343ab8c15b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28037906"
 ---
 <a name="creating-help-pages-for-aspnet-web-api"></a>Tworzenie stron pomocy dla interfejsu API sieci Web ASP.NET
 ====================
@@ -60,9 +61,9 @@ Można dodać strony pomocy do istniejącego projektu interfejsu API sieci Web z
 
 Z **narzędzia** menu, wybierz opcję **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. W [Konsola Menedżera pakietów](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) okna, wpisz jedno z następujących poleceń:
 
-Aby uzyskać **C#** aplikacji:`Install-Package Microsoft.AspNet.WebApi.HelpPage`
+Aby uzyskać **C#** aplikacji: `Install-Package Microsoft.AspNet.WebApi.HelpPage`
 
-Aby uzyskać **Visual Basic** aplikacji:`Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
+Aby uzyskać **Visual Basic** aplikacji: `Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
 
 Istnieją dwa pakiety, dla C# i jeden dla języka Visual Basic. Upewnij się użyć zgodną z projektu.
 

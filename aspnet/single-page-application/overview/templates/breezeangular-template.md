@@ -1,22 +1,23 @@
 ---
 uid: single-page-application/overview/templates/breezeangular-template
-title: "Błyskawicznie/kątową szablonu | Dokumentacja firmy Microsoft"
+title: Błyskawicznie/kątową szablonu | Dokumentacja firmy Microsoft
 author: madskristensen
-description: "Szablon błyskawicznie/kątową jednej strony aplikacji"
+description: Szablon błyskawicznie/kątową jednej strony aplikacji
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/08/2013
 ms.topic: article
 ms.assetid: db31e909-563a-4516-aadd-62aa210ac7e4
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/breezeangular-template
 msc.type: authoredcontent
 ms.openlocfilehash: faf28a510a83b7fa07585904344176601c2e1f34
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566312"
 ---
 <a name="breezeangular-template"></a>Błyskawicznie/kątową szablonu
 ====================

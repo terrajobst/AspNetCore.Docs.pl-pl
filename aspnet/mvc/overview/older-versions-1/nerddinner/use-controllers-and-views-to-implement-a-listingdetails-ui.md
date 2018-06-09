@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
 ms.openlocfilehash: ac3568941eeef24bd9857c5787471aadea15fc7f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30875737"
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>W celu zaimplementowania interfejsu użytkownika listę/szczegóły użyć kontrolery i widoki
 ====================
@@ -97,7 +98,7 @@ Poniżej znajduje się tabela, która ilustruje sposób różnych adresów URL s
 | **ADRES URL** | **Klasa kontrolera** | **Metody akcji** | **Parametry przekazane** |
 | --- | --- | --- | --- |
 | */ Kolacji/szczegóły/2* | DinnersController | Details(ID) | id=2 |
-| */Dinners/Edit/5* | DinnersController | Edit(ID) | id=5 |
+| */ Kolacji/Edit/5* | DinnersController | Edit(ID) | id=5 |
 | */Dinners/Create* | DinnersController | Create() | Brak |
 | */ Kolacji* | DinnersController | Index() | Brak |
 | *Domowych* | HomeController | Index() | Brak |

@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
 ms.openlocfilehash: 1f1e90544c9dd8439a522f2196d81d020ea2f4f2
-ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30223265"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Tworzenie interfejsu API REST z atrybutem routingu w składniku ASP.NET Web API 2
 ====================
@@ -65,7 +66,7 @@ W **nowy projekt ASP.NET** okno dialogowe, wybierz opcję **pusty** szablonu. W 
 
 Spowoduje to utworzenie szkielet projektu, który jest skonfigurowany do obsługi funkcji interfejsu API sieci Web.
 
-### <a name="domain-models"></a>Domain Models
+### <a name="domain-models"></a>Modele domeny
 
 Następnie Dodaj klasy dla modeli domeny. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder modeli. Wybierz **Dodaj**, a następnie wybierz pozycję **klasy**. Nazwa klasy `Author`.
 

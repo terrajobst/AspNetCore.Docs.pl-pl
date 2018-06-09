@@ -8,15 +8,16 @@ manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: 04d5f142-5f62-494a-b5ea-4f3d068d34cb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/emberjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 1fb7633aee288be648d4f9681b43c8911b7dbab9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566345"
 ---
 <a name="emberjs-template"></a>Szablon EmberJS
 ====================
@@ -134,7 +135,7 @@ TodoListRoute.js ładuje dane dla TodoListRoute przez zastąpienie funkcja setup
 
 [!code-javascript[Main](emberjs-template/samples/sample11.js)]
 
-Członkowskimi używa konwencji nazewnictwa w celu dopasowania adresy URL, nazwy tras, kontrolerów i szablony. Aby uzyskać więcej informacji, zobacz [http://emberjs.com/guides/routing/defining-your-routes/](http://emberjs.com/guides/routing/defining-your-routes/) w dokumentacji EmberJS.
+Członkowskimi używa konwencji nazewnictwa w celu dopasowania adresy URL, nazwy tras, kontrolerów i szablony. Aby uzyskać więcej informacji, zobacz [ http://emberjs.com/guides/routing/defining-your-routes/ ](http://emberjs.com/guides/routing/defining-your-routes/) w dokumentacji EmberJS.
 
 ## <a name="templates"></a>Szablony
 
@@ -146,7 +147,7 @@ Folder szablonów zawiera cztery szablony:
 - todoList.hbs: szablonu dla "/ todo" trasy.
 - \_navbar.HBS: szablon definiuje menu nawigacji.
 
-Szablon aplikacji działa jak strony wzorcowej. Zawiera nagłówek, stopka i "{{gniazda}}" do wstawienia innych szablonów w zależności od trasy. Aby uzyskać więcej informacji na temat szablonów aplikacji w Członkowskimi, zobacz [http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/).
+Szablon aplikacji działa jak strony wzorcowej. Zawiera nagłówek, stopka i "{{gniazda}}" do wstawienia innych szablonów w zależności od trasy. Aby uzyskać więcej informacji na temat szablonów aplikacji w Członkowskimi, zobacz [ http://guides.emberjs.com/v1.10.0/templates/the-application-template// ](http://guides.emberjs.com/v1.10.0/templates/the-application-template/).
 
 "/ TodoList" szablon zawiera dwóch wyrażeń pętli. Pętla poza `{{#each controller}}`oraz wewnątrz pętli jest `{{#each todos}}`. Poniższy kod przedstawia wbudowaną `Ember.Checkbox` wyświetlić dostosowany `App.TodoItemEditView`i link `deleteTodo` akcji.
 

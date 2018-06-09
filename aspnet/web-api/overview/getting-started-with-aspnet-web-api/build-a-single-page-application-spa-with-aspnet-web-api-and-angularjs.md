@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
 ms.openlocfilehash: 9a748628d53878be380869ac5327de0111d2284d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566483"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Wskazówki laboratorium: Tworzenie aplikacji jednej strony (SPA) z interfejsu API sieci Web ASP.NET i Angular.js
 ====================
-przez [obozów sieci Web Team](https://twitter.com/webcamps)
+Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 
 [Pobierz obozów sieci Web uczenie Kit](http://aka.ms/webcamps-training-kit)
 
@@ -32,7 +33,7 @@ przez [obozów sieci Web Team](https://twitter.com/webcamps)
 > 
 > W tym strony w laboratorium będą korzystać z tych technologii do zaimplementowania Geek quizu oparty na koncepcji SPA witryny sieci Web elementy towarzyszące składni. Najpierw będzie implementowany warstwy usług z interfejsu API sieci Web ASP.NET do udostępnienia wymagane punkty końcowe można pobrać pytania kwizu i przechowywać odpowiedzi. Następnie utworzysz bogaty i elastyczny interfejsu użytkownika przy użyciu efekty przekształcania AngularJS i CSS3.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 ## <a name="overview"></a>Omówienie
@@ -307,7 +308,7 @@ W tym zadaniu użyjesz **AngularJS** do zaimplementowania quizu Geek aplikacji p
 Rozpoczęcia, instalując AngularJS w konsoli Menedżera pakietów programu Visual Studio. Następnie można utworzyć kontrolera, aby zapewnić zachowanie aplikacji kwizu Geek i widoku do renderowania kwizu pytania i odpowiedzi przy użyciu aparatu szablonu AngularJS.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat AngularJS dotyczą [ [http://angularjs.org/](http://angularjs.org/)](http://angularjs.org/).
+> Aby uzyskać więcej informacji na temat AngularJS dotyczą [ [ http://angularjs.org/ ](http://angularjs.org/) ](http://angularjs.org/).
 
 
 1. Otwórz **programu Visual Studio Express 2013 for Web** , a następnie otwórz **GeekQuiz.sln** rozwiązania, znajdujących się w **źródło/Ex2-CreatingASPAInterface/Begin** folderu. Alternatywnie możesz kontynuować z rozwiązaniem uzyskanymi w poprzednim ćwiczeniu.
