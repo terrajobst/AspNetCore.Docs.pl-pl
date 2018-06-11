@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: test/razor-pages-tests
-ms.openlocfilehash: 460c35754750691d3d940dac04d06823083133c2
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: df74d8e44b2dff00e76139edba47fd8a30ce33ef
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734722"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252308"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Testy jednostkowe stron razor w ASP.NET Core
 
@@ -34,7 +34,7 @@ W tym temacie założono, że masz podstawową wiedzę na temat stron Razor apli
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Badanie C# .NET Core za pomocą testu dotnet i xUnit jednostki](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tests/razor-pages-tests/samples/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 Przykładowy projekt składa się z dwóch aplikacji:
 

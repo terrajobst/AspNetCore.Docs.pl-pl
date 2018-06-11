@@ -8,11 +8,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 26f516716864bdce81cf3acdacb0f9d2f98407b7
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 1220740ca35edf75fac97d4f33eff4e221414574
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252467"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - sortowanie, filtrowanie, stronicowania - 3 8
 
@@ -120,7 +121,7 @@ Poprzedni kod:
 * Dodaje `searchString` parametr `OnGetAsync` metody. Wartość ciągu wyszukiwania są odebrane z pola tekstowego, który jest dodawany w następnej sekcji.
 * Dodane do instrukcji LINQ `Where` klauzuli. `Where` Klauzuli wybiera tylko studentów, w których imię lub nazwisko zawiera ciąg wyszukiwania. Instrukcja LINQ jest wykonywana tylko wtedy, gdy wartość do wyszukania.
 
-Uwaga: Poprzedniego wywołania kodu `Where` metoda `IQueryable` obiektu, a filtr jest przetwarzane na serwerze. W niektórych scenariuszach może być wywoływania określona aplikacja `Where` metody jako metodę rozszerzenie w kolekcji w pamięci. Załóżmy na przykład, `_context.Students` zmieni się z podstawowej EF `DbSet` do metody repozytorium, która zwraca `IEnumerable` kolekcji. Wynik zazwyczaj będzie taki sam, ale w niektórych przypadkach może się różnić.
+Uwaga: Poprzedniego wywołania kodu `Where` metoda `IQueryable` obiektu, a filtr jest przetwarzane na serwerze. W niektórych scenariuszach może być wywołanie aplikacji `Where` metody jako metodę rozszerzenie w kolekcji w pamięci. Załóżmy na przykład, `_context.Students` zmieni się z podstawowej EF `DbSet` do metody repozytorium, która zwraca `IEnumerable` kolekcji. Wynik zazwyczaj będzie taki sam, ale w niektórych przypadkach może się różnić.
 
 Na przykład, .NET Framework wykonania `Contains` wykonuje domyślnie porównania z uwzględnieniem wielkości liter. W programie SQL Server `Contains` uwzględnianie wielkości liter, jest określany przez ustawienie sortowania wystąpienia programu SQL Server. SQL Server domyślnie do bez uwzględniania wielkości liter. `ToUpper` może być wywołane w celu należy jawnie bez uwzględniania wielkości liter testu:
 

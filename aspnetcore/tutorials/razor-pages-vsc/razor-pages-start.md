@@ -10,12 +10,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 3dda0f20dfbb7066dfeb3360361435ef65caaca4
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 17ab52b80a40f6204e2bf2cf9048071c55c0a708
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34688390"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252220"
 ---
 # <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Wprowadzenie do platformy ASP.NET Core Razor stron w programie Visual Studio Code
 
@@ -38,6 +38,8 @@ dotnet new webapp -o RazorPagesMovie
 cd RazorPagesMovie
 dotnet run
 ```
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ::: moniker-end
 

@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: c8611ef9218711410cde9e142202fa25c3e51862
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: d515e1354546e95553a010fa7a2143f0e529d68b
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729461"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252454"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
@@ -45,6 +45,8 @@ Zobacz [wprowadzenie stron Razor](xref:tutorials/razor-pages/razor-pages-start) 
 
 Uruchom `dotnet new webapp` z wiersza polecenia.
 
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
@@ -61,6 +63,8 @@ Otwórz wygenerowany *.csproj* plików z programu Visual Studio dla komputerów 
 
 Uruchom `dotnet new webapp` z wiersza polecenia.
 
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
@@ -74,6 +78,8 @@ Uruchom `dotnet new razor` z wiersza polecenia.
 ::: moniker range=">= aspnetcore-2.1"
 
 Uruchom `dotnet new webapp` z wiersza polecenia.
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ::: moniker-end
 
@@ -474,17 +480,19 @@ W poprzednim kodzie użyto *o nazwie metod obsługi*. Metody o nazwie procedury 
 
 Przy użyciu poprzedniego kodu ścieżkę adresu URL, który przesyła do `OnPostJoinListAsync` jest `http://localhost:5000/Customers/CreateFATH?handler=JoinList`. Ścieżka adresu URL, który przesyła do `OnPostJoinListUCAsync` jest `http://localhost:5000/Customers/CreateFATH?handler=JoinListUC`.
 
-
-
 ## <a name="customizing-routing"></a>Dostosowywanie routingu
+
+Ciąg zapytania można zmienić `?handler=JoinList` w adresie URL do segmentu trasy `/JoinList` , określając szablon trasy `@page "{handler?}"`.
 
 Jeśli nie chcesz, ciąg zapytania `?handler=JoinList` w adresie URL, można zmienić trasy, aby umieścić nazwę programu obsługi w części ścieżki adresu URL. Trasy można dostosować, dodając szablonu trasy ująć w podwójny cudzysłów po `@page` dyrektywy.
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateRoute.cshtml?highlight=1)]
 
-Trasa poprzedniego umieszcza nazwa programu obsługi ścieżki adresu URL zamiast ciągu zapytania. `?` Następujące `handler` oznacza, że parametr trasy jest opcjonalny.
+Przy użyciu poprzedniego kodu ścieżkę adresu URL, który przesyła do `OnPostJoinListAsync` jest `http://localhost:5000/Customers/CreateFATH/JoinList`. Ścieżka adresu URL, który przesyła do `OnPostJoinListUCAsync` jest `http://localhost:5000/Customers/CreateFATH/JoinListUC`.
 
-Można użyć `@page` dodać dodatkowe segmenty i parametrów do strony trasy. Niezależnie od istnieje już ma **dołączany** do trasy domyślnej strony. Zmiana trasy strony przy użyciu ścieżki bezwzględnej lub wirtualnych (takie jak `"~/Some/Other/Path"`) nie jest obsługiwany.
+`?` Następujące `handler` oznacza, że parametr trasy jest opcjonalny.
+
+Można użyć `@page` dołączyć segmentów i parametrów do trasy domyślnej strony. Zmiana trasy strony przy użyciu ścieżki bezwzględnej lub wirtualnych (takie jak `"~/Some/Other/Path"`) nie jest obsługiwany.
 
 ## <a name="configuration-and-settings"></a>Konfiguracja i ustawienia
 

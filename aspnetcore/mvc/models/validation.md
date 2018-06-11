@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: 1ab19fad90eab9f2da58b4d62615a85d71894218
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: f6748ef6df865919e43cdd9ee86fcc64dbe9651a
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252363"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Weryfikacja modelu w programie ASP.NET MVC Core
 
@@ -99,9 +100,13 @@ Atrybuty weryfikacji działają w wielu zastosowaniach sprawdzania poprawności.
 
 W poniższym przykładzie reguła biznesowa określają, czy użytkownicy mogą nie ustawiono genre *klasycznego* filmu wydaną po 1960. `[ClassicMovie]` Atrybut najpierw sprawdza genre, a jeśli klasyczny, następnie sprawdza Data wydania jest późniejsza niż 1960. Jeśli po uwolnieniu po 1960, uwierzytelnienie nie powiedzie się. Atrybut akceptuje parametr całkowitą reprezentującą rok, który służy do sprawdzania poprawności danych. Wartość parametru w Konstruktorze ten atrybut można przechwycić w sposób pokazany poniżej:
 
-[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=9-29)]
+[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=9-28)]
 
-`movie` Zmiennej powyżej reprezentuje `Movie` obiekt, który zawiera dane z przesyłania formularza do zweryfikowania. W takim przypadku kodu walidacji sprawdza datę i genre w `IsValid` metody `ClassicMovieAttribute` klasy zgodnie z zasadami. Po pomyślnym zweryfikowaniem `IsValid` zwraca `ValidationResult.Success` kodu, i w przypadku niepowodzenia weryfikacji, `ValidationResult` z komunikatem o błędzie. Gdy użytkownik modyfikuje `Genre` pól i przesyła formularz, `IsValid` metody `ClassicMovieAttribute` Sprawdź, czy jest klasyczny. Podobnie jak wszelkie atrybuty, wbudowane, zastosuj `ClassicMovieAttribute` do właściwości, takie jak `ReleaseDate` aby upewnić się, występuje sprawdzania poprawności, jak pokazano w poprzednim przykładzie kodu. Ponieważ przykładzie działa tylko w przypadku `Movie` typów, lepszym rozwiązaniem jest użycie `IValidatableObject` jak pokazano w poniższych akapitu.
+`movie` Zmiennej powyżej reprezentuje `Movie` obiekt, który zawiera dane z przesyłania formularza do zweryfikowania. W takim przypadku kodu walidacji sprawdza datę i genre w `IsValid` metody `ClassicMovieAttribute` klasy zgodnie z zasadami. Po pomyślnym zweryfikowaniem`IsValid` zwraca `ValidationResult.Success` kodu. Podczas sprawdzania poprawności zakończy się niepowodzeniem, `ValidationResult` ze względu na błąd jest zwracany komunikat:
+
+[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=55-58)]
+
+Gdy użytkownik modyfikuje `Genre` pól i przesyła formularz, `IsValid` metody `ClassicMovieAttribute` Sprawdź, czy jest klasyczny. Podobnie jak wszelkie atrybuty, wbudowane, zastosuj `ClassicMovieAttribute` do właściwości, takie jak `ReleaseDate` aby upewnić się, występuje sprawdzania poprawności, jak pokazano w poprzednim przykładzie kodu. Ponieważ przykładzie działa tylko w przypadku `Movie` typów, lepszym rozwiązaniem jest użycie `IValidatableObject` jak pokazano w poniższych akapitu.
 
 Alternatywnie można umieścić ten sam kod w modelu zaimplementowanie `Validate` metoda `IValidatableObject` interfejsu. Podczas pracy niestandardowego sprawdzania poprawności atrybutów do sprawdzania poprawności poszczególnych właściwości, implementacja `IValidatableObject` może służyć do zaimplementowania weryfikacji na poziomie klasy, jak pokazano poniżej.
 

@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/options
-ms.openlocfilehash: dc95d2b76277e177246a6b0e4af5bb3815dce383
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 11f3e0b0cc1356db4c5fb9a2ce948099ed9f85b5
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734578"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252389"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcje dla platformy ASP.NET Core
 
@@ -26,11 +26,11 @@ Wzorzec opcje używa klas do reprezentowania grupy ustawień. Ustawienia konfigu
 * [Zasady podział interfejsu (ISP)](http://deviq.com/interface-segregation-principle/): funkcje (klasy), które są zależne od ustawienia konfiguracji są zależne tylko od ustawienia konfiguracji, które korzystają z.
 * [Separacji](http://deviq.com/separation-of-concerns/): ustawienia dla poszczególnych części aplikacji nie są zależne lub sprzężonego ze sobą.
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)) w tym artykule jest łatwiej postępuj zgodnie z przykładowej aplikacji.
+[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)) w tym artykule jest łatwiej postępuj zgodnie z przykładowej aplikacji.
 
 ## <a name="basic-options-configuration"></a>Podstawowe opcje konfiguracji
 
-Podstawowe opcje konfiguracji przedstawiono przykład &num;1 w [Przykładowa aplikacja](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Podstawowe opcje konfiguracji przedstawiono przykład &num;1 w [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 Klasa opcji musi być typem abstrakcyjnym z publicznym konstruktorem bez parametrów. Następujące klasy `MyOptions`, ma dwie właściwości `Option1` i `Option2`. Ustawianie wartości domyślnych jest opcjonalne, ale konstruktora klasy w poniższym przykładzie ustawia domyślną wartość `Option1`. `Option2` ma wartość domyślną, ustawione przez inicjowanie właściwość bezpośrednio (*Models/MyOptions.cs*):
 
@@ -60,7 +60,7 @@ option1 = value1_from_json, option2 = -1
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Konfiguruj opcje proste delegata
 
-Konfigurowanie opcji prostego z delegata przedstawiono przykład &num;2 w [Przykładowa aplikacja](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Konfigurowanie opcji prostego z delegata przedstawiono przykład &num;2 w [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 Użyj delegata, aby ustawić opcje wartości. Przykładowe zastosowania aplikacji `MyOptionsWithDelegateConfig` klasy (*Models/MyOptionsWithDelegateConfig.cs*):
 
@@ -90,7 +90,7 @@ delegate_option1 = value1_configured_by_delgate, delegate_option2 = 500
 
 ## <a name="suboptions-configuration"></a>Konfiguracja suboptions
 
-Konfiguracja suboptions przedstawiono przykład &num;3 w [Przykładowa aplikacja](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Konfiguracja suboptions przedstawiono przykład &num;3 w [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 Aplikacje, należy utworzyć klasy opcje, które odnoszą się do określonych funkcji grupy (klasy) w aplikacji. Części aplikacji, które wymagają wartości konfiguracji tylko powinien mieć dostęp do wartości konfiguracji, które używają.
 
@@ -126,7 +126,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="options-provided-by-a-view-model-or-with-direct-view-injection"></a>Opcje przekazane przez model widoku lub widok bezpośredniego iniekcji
 
-Opcje przekazane przez model widoku lub widok bezpośredniego iniekcji przedstawiono przykład &num;4 w [Przykładowa aplikacja](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Opcje przekazane przez model widoku lub widok bezpośredniego iniekcji przedstawiono przykład &num;4 w [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 Opcje mogą być dostarczane w modelu widoku lub przez wstrzykiwanie `IOptions<TOptions>` bezpośrednio w widoku (*Pages/Index.cshtml.cs*):
 
@@ -146,7 +146,7 @@ Po uruchomieniu aplikacji na renderowanej stronie są wyświetlane wartości opc
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Załaduj ponownie dane konfiguracyjne z IOptionsSnapshot
 
-Ponowne ładowanie danych konfiguracji z `IOptionsSnapshot` przedstawiono w przykładzie &num;5 w [Przykładowa aplikacja](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Ponowne ładowanie danych konfiguracji z `IOptionsSnapshot` przedstawiono w przykładzie &num;5 w [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 *Wymaga platformy ASP.NET Core 1.1 lub nowszej.*
 
@@ -174,7 +174,7 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>O nazwie Opcje pomocy dotyczącej IConfigureNamedOptions
 
-Opcje obsługi o nazwie [IConfigureNamedOptions](/dotnet/api/microsoft.extensions.options.iconfigurenamedoptions-1) przedstawiono przykład &num;6 w [Przykładowa aplikacja](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Opcje obsługi o nazwie [IConfigureNamedOptions](/dotnet/api/microsoft.extensions.options.iconfigurenamedoptions-1) przedstawiono przykład &num;6 w [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 *Wymaga platformy ASP.NET Core 2.0 lub nowszej.*
 

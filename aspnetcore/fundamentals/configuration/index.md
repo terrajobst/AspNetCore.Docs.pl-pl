@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: f4b0af39ea865d5d8b47a7b385de72e616c13cd7
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 1048554c78e3810206b1261371ae7c41485c436a
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252129"
 ---
 # <a name="configuration-in-aspnet-core"></a>Konfiguracja platformy ASP.NET Core
 
@@ -36,7 +37,7 @@ Każda wartość konfiguracji jest mapowany na klucz ciągu. Brak obsługi wbudo
 
 Wzorzec opcje używa klas opcji do reprezentowania grupy ustawień. Aby uzyskać więcej informacji o wykorzystaniu wzorca opcji, zobacz [opcje](xref:fundamentals/configuration/options) tematu.
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/index/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="json-configuration"></a>JSON konfiguracji
 
@@ -230,7 +231,7 @@ key3=value_from_json_3
 
 [Dostawcę konfiguracji CommandLine](/dotnet/api/microsoft.extensions.configuration.commandline.commandlineconfigurationprovider) odbiera pary klucz wartość argumentu wiersza polecenia dla konfiguracji w czasie wykonywania.
 
-[Wyświetlanie lub pobieranie przykładowej konfiguracji wiersza polecenia](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/index/sample/CommandLine)
+[Wyświetlanie lub pobieranie przykładowej konfiguracji wiersza polecenia](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample/CommandLine)
 
 ### <a name="setup-and-use-the-commandline-configuration-provider"></a>Skonfigurować i stosować dostawcę konfiguracji wiersza polecenia
 

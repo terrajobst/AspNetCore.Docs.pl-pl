@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started
-ms.openlocfilehash: a7233082e9262e6976cec3b086900a5dda069213
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 0b5de87b99e57df16f663f13d41e750a29ea6276
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34730441"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252051"
 ---
 # <a name="get-started-with-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
 
@@ -28,6 +28,8 @@ ms.locfileid: "34730441"
     ```console
     dotnet new webapp -o aspnetcoreapp
     ```
+
+    [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 3. Ufać certyfikatowi programowanie HTTPS:
 

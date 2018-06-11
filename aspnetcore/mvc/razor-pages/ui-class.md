@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: advanced
 uid: mvc/razor-pages/ui-class
-ms.openlocfilehash: 4370fdaf7a5c066cec7b341a6012a100f8aed3ea
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 1321164d683439709ed2a219aa2d784094bae7cf
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734552"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252324"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Utwórz wielokrotnego użytku interfejsu użytkownika przy użyciu projektu biblioteki klas Razor w ASP.NET Core.
 
@@ -59,12 +59,6 @@ RCL może odwoływać się:
 
 * Pakiet NuGet. Zobacz [pakietów NuGet tworzenie](/nuget/create-packages/creating-a-package) i [dotnet Dodaj pakiet](/dotnet/core/tools/dotnet-add-package) i [tworzenie i publikowanie pakietu NuGet](/nuget/quickstart/create-and-publish-a-package-using-visual-studio).
 * *{Nazwa_projektu} .csproj*. Zobacz [dotnet — Dodaj odwołanie](/dotnet/core/tools/dotnet-add-reference).
-
-### <a name="partial-files-access-in-the-rcl"></a>Dostęp do plików z częściowa w RCL
-
-Zawartości poza RCL środowisko uruchomieniowe platformy ASP.NET Core nie wyszukiwania plików częściowe w RCL.
-
-Na przykład w pobieranie próbki *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* można widoku częściowego **nie** odwoływać się do *WebApp1\Pages\About.cshtml* . Jednak stron w RCL ( *RazorUIClassLib /* **można** dostępu *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml*.
 
 ## <a name="walkthrough-create-a-razor-class-library-project-and-use-from-a-razor-pages-project"></a>Wskazówki: Tworzenie projektu biblioteki klas Razor i korzystać z projektu stron Razor
 
@@ -197,6 +191,8 @@ dotnet sln add WebApp1
 dotnet sln add RazorUIClassLib
 dotnet add WebApp1 reference RazorUIClassLib
 ```
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 Tworzenie i uruchamianie aplikacji sieci web:
 

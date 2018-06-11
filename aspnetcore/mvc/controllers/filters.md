@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: 49e51a867e47ce375a5048cae5979360c4103365
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: d3b775116c126e4d6456b89b2c76ca9d9e1a004c
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252155"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry platformy ASP.NET Core
 
@@ -77,7 +78,7 @@ Dla wielu etapów filtrów w jednej klasy mogą implementować interfejsów. Na 
 
 ### <a name="ifilterfactory"></a>IFilterFactory
 
-`IFilterFactory` implementuje `IFilter`. W związku z tym `IFilterFactory` wystąpienie może być używane jako `IFilter` wystąpienia dowolne miejsce w potoku filtru. Gdy w ramach przygotowuje się do wywołania filtru, próbuje rzutować go na `IFilterFactory`. Jeśli tego rzutowania zakończy się powodzeniem, `CreateInstance` metoda jest wywoływana w celu utworzenia `IFilter` wystąpienia, która będzie wywołana. Zapewnia to elastycznością, ponieważ potoku filtru dokładne nie trzeba ustawić jawnie po uruchomieniu aplikacji.
+[IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) implementuje [IFilterMetadata](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifiltermetadata). W związku z tym `IFilterFactory` wystąpienie może być używane jako `IFilterMetadata` wystąpienia dowolne miejsce w potoku filtru. Gdy w ramach przygotowuje się do wywołania filtru, próbuje rzutować go na `IFilterFactory`. Jeśli tego rzutowania zakończy się powodzeniem, [CreateInstance](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) metoda jest wywoływana w celu utworzenia `IFilterMetadata` wystąpienia, która będzie wywołana. Zapewnia to elastycznością, ponieważ potoku filtru dokładne nie trzeba ustawić jawnie po uruchomieniu aplikacji.
 
 Można zaimplementować `IFilterFactory` na własnych implementacje atrybut jako innego podejścia do tworzenia filtrów:
 
@@ -220,7 +221,7 @@ System.InvalidOperationException: No service for type
 'FiltersSample.Filters.AddHeaderFilterWithDI' has been registered.
 ```
 
-`ServiceFilterAttribute` implementuje `IFilterFactory`. `IFilterFactory` przedstawia `CreateInstance` metodę tworzenia `IFilter` wystąpienia. `CreateInstance` Metody ładuje określonego typu z kontenera usługi (Podpisane).
+`ServiceFilterAttribute` implementuje `IFilterFactory`. `IFilterFactory` przedstawia `CreateInstance` metodę tworzenia `IFilterMetadata` wystąpienia. `CreateInstance` Metody ładuje określonego typu z kontenera usługi (Podpisane).
 
 ### <a name="typefilterattribute"></a>TypeFilterAttribute
 

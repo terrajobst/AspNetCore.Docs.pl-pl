@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/host/index
-ms.openlocfilehash: 37c527718433410eede8321dd7813f0ffd6473e5
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 7f8ccff7e3da93d6e617505ac93fafc3a82ed880
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34687447"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252012"
 ---
 # <a name="host-in-aspnet-core"></a>Host platformy ASP.NET Core
 
@@ -24,4 +24,4 @@ Aplikacje .NET skonfigurować i uruchomić *hosta*. Host jest odpowiedzialny za 
 * [Sieci Web hosta](xref:fundamentals/host/web-host) &ndash; odpowiednia na potrzeby hostowania aplikacji sieci web.
 * [Ogólny hosta](xref:fundamentals/host/generic-host) (platformy ASP.NET Core 2.1 lub nowszej) &ndash; odpowiednia na potrzeby hostowania aplikacji sieci web (na przykład aplikacji uruchamianych zadania w tle). W przyszłym wydaniu rodzajowego hosta będzie odpowiednie do obsługi dowolnego rodzaju aplikacji, w tym aplikacji sieci web. Ogólny hosta ostatecznie spowoduje zastąpienie hosta sieci Web.
 
-W tej chwili Programiści powinni używać [hosta sieci Web](xref:fundamentals/host/web-host) na podstawie [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) do hostowania aplikacji platformy ASP.NET Core.
+Dla hostingu ASP.NET Core *sieci web apps*, programiści powinni używać hosta sieci Web na podstawie [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Dla hostingu *-web apps*, programiści powinni używać rodzajowego hosta, na podstawie [HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder).

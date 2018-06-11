@@ -1,120 +1,172 @@
 ---
 title: Host platformy ASP.NET Core w usłudze systemu Windows
-author: rick-anderson
+author: guardrex
 description: Dowiedz się, jak udostępniać aplikacji platformy ASP.NET Core w usłudze systemu Windows.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/30/2018
+ms.date: 06/04/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 69b04d2ae723b67e16bf581127a13ceab268697d
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 33493e1ff674cd81544a7d14a7fd758c1e68bf9a
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34473028"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252350"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze systemu Windows
 
-Przez [Dykstra niestandardowy](https://github.com/tdykstra)
+Przez [Luke Latham](https://github.com/guardrex) i [Dykstra niestandardowy](https://github.com/tdykstra)
 
-Zalecanym sposobem hostowania aplikacji platformy ASP.NET Core w systemie Windows bez za pomocą usług IIS jest uruchomienie go w [usługi systemu Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications). Gdy hostowany jako usługa systemu Windows, aplikacja może automatycznie uruchamiania po ponownym uruchomieniu i awarii bez udziału człowieka.
+Aplikacja platformy ASP.NET Core może być obsługiwany w systemie Windows bez użycia usługi IIS jako [usługi systemu Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications). Gdy hostowany jako usługa systemu Windows, aplikacja może automatycznie uruchamiania po ponownym uruchomieniu i awarii bez udziału człowieka.
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample)). Instrukcje na temat uruchamiania przykładowej aplikacji, można znaleźć w próbce *README.md* pliku.
-
-## <a name="prerequisites"></a>Wymagania wstępne
-
-* Aplikacja muszą działać na środowiska uruchomieniowego .NET Framework. W *.csproj* pliku, podaj odpowiednie wartości dla [TargetFramework](/nuget/schema/target-frameworks) i [RuntimeIdentifier](/dotnet/articles/core/rid-catalog). Oto przykład:
-
-  [!code-xml[](windows-service/sample/AspNetCoreService.csproj?range=3-6)]
-
-  Podczas tworzenia projektu w programie Visual Studio, użyj **aplikacji platformy ASP.NET Core (.NET Framework)** szablonu.
-
-* Jeśli aplikacja odbiera żądania z Internetu (nie tylko z sieci wewnętrznej), należy użyć [HTTP.sys](xref:fundamentals/servers/httpsys) serwera sieci web (wcześniej znane jako [WebListener](xref:fundamentals/servers/weblistener) dla platformy ASP.NET Core 1.x aplikacji) zamiast [Kestrel](xref:fundamentals/servers/kestrel). Korzystanie z usług IIS w konfiguracji serwera zwrotny serwer proxy z Kestrel jest opcją w przypadku wdrożeń krawędzi. Aby uzyskać więcej informacji, zobacz [użycie Kestrel z zwrotny serwer proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="get-started"></a>Wprowadzenie
 
-W tej sekcji opisano minimalną zmiany wymagane do skonfigurowania istniejącego projektu platformy ASP.NET Core do uruchamiania w usłudze.
+Następujące minimalne zmiany są wymagane do skonfigurowania istniejącego projektu platformy ASP.NET Core do uruchamiania w usłudze:
 
-1. Zainstaluj pakiet NuGet [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
+1. Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
 
-2. Wprowadź następujące zmiany w `Program.Main`:
+1. Wprowadź następujące zmiany w `Program.Main`:
 
-   * Wywołanie `host.RunAsService` zamiast `host.Run`.
+   * Wywołanie [hosta. RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice) zamiast `host.Run`.
 
-   * Jeśli kod wywołuje `UseContentRoot`, użyj ścieżki do lokalizacji publikacji zamiast `Directory.GetCurrentDirectory()`.
+   * Jeśli kod wywołuje `UseContentRoot`, użyj ścieżki do aplikacji opublikowane lokalizacji, a nie `Directory.GetCurrentDirectory()`.
 
-   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+     ::: moniker range=">= aspnetcore-2.0"
 
-   [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOnly&highlight=3-4,7,12)]
+     [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOnly&highlight=3-4,7,11)]
 
-   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+     ::: moniker-end
 
-   [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOnly&highlight=3-4,8,14)]
+     ::: moniker range="< aspnetcore-2.0"
 
-   ---
+     [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOnly&highlight=3-4,8,13)]
 
-3. Publikowanie aplikacji w folderze. Użyj [publikowania dotnet](/dotnet/articles/core/tools/dotnet-publish) lub [profilu publikowania programu Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles) który publikuje do folderu.
+     ::: moniker-end
 
-4. Przetestuj tworzenia i uruchamiania usługi.
+1. Publikowanie aplikacji w folderze. Użyj [publikowania dotnet](/dotnet/articles/core/tools/dotnet-publish) lub [profilu publikowania programu Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles) który publikuje do folderu.
 
-   Otwórz powłokę wiersza polecenia z uprawnieniami administracyjnymi do użycia [sc.exe](https://technet.microsoft.com/library/bb490995) wiersza polecenia narzędzia do tworzenia i uruchamiania usługi. Jeśli usługa ma nazwę Moja_usługa, są publikowane w `c:\svc`, a polecenia o nazwie AspNetCoreService, są:
+   Aby opublikować przykładową aplikację z poziomu wiersza polecenia, uruchom następujące polecenie w oknie konsoli z folderu projektu:
 
    ```console
-   sc create MyService binPath="c:\svc\aspnetcoreservice.exe"
+   dotnet publish --configuration Release --output c:\svc
+   ```
+
+1. Użyj [sc.exe](https://technet.microsoft.com/library/bb490995) narzędzia wiersza polecenia, aby utworzyć usługę (`sc create <SERVICE_NAME> binPath= "<PATH_TO_SERVICE_EXECUTABLE>"`). `binPath` Wartość jest ścieżką do pliku wykonywalnego aplikacji, która zawiera nazwę pliku wykonywalnego. **Odstęp między znak równości i znaku cudzysłowu, która rozpoczyna się ścieżka jest wymagana.**
+
+   Przykładowa aplikacja i polecenia, który jest zgodny usługa jest:
+
+   * O nazwie **Moja_usługa**.
+   * Opublikowany *c:\\svc* folderu.
+   * Aplikację pliku wykonywalnego o nazwie *AspNetCoreService.exe*.
+
+   Otwórz powłokę wiersza polecenia z uprawnieniami administracyjnymi i uruchom następujące polecenie:
+
+   ```console
+   sc create MyService binPath= "c:\svc\aspnetcoreservice.exe"
+   ```
+
+   **Upewnij się, że ma miejsce, między `binPath=` argumentu i jego wartość.**
+
+1. Uruchom usługę z `sc start <SERVICE_NAME>` polecenia.
+
+   Aby uruchomić usługę aplikacji przykładowej, użyj następującego polecenia:
+
+   ```console
    sc start MyService
    ```
 
-   `binPath` Wartość jest ścieżką do pliku wykonywalnego aplikacji, która zawiera nazwę pliku wykonywalnego.
+   Polecenie zajmuje kilka sekund, aby uruchomić usługę.
 
-   ![Okno konsoli tworzenie i uruchamianie przykładu](windows-service/_static/create-start.png)
+1. `sc query <SERVICE_NAME>` Polecenia może służyć do sprawdzania stanu usługi można określić jego stanu:
 
-   Po zakończeniu tych poleceń, przejdź do tej samej ścieżki, w przypadku uruchamiania jako aplikacji konsoli (domyślnie `http://localhost:5000`):
+   * `START_PENDING`
+   * `RUNNING`
+   * `STOP_PENDING`
+   * `STOPPED`
 
-   ![Uruchomionych w usłudze](windows-service/_static/running-in-service.png)
+   Aby sprawdzić stan usługi aplikacji przykładowej, użyj następującego polecenia:
+
+   ```console
+   sc query MyService
+   ```
+
+1. Gdy usługa jest w `RUNNING` stanu i usługi w przypadku aplikacji sieci web, przejdź aplikację w jego ścieżki (domyślnie `http://localhost:5000`, która przekierowuje do `https://localhost:5001` przy użyciu [HTTPS przekierowanie w oprogramowaniu pośredniczącym](xref:security/enforcing-ssl)).
+
+   Usługi aplikacji przykładowej Przeglądaj aplikację w `http://localhost:5000`.
+
+1. Zatrzymaj usługę z `sc stop <SERVICE_NAME>` polecenia.
+
+   Polecenie zatrzymuje usługę aplikacji przykładowej:
+
+   ```console
+   sc stop MyService
+   ```
+
+1. Z niewielkim opóźnieniem zatrzymania usługi, odinstaluj usługę z `sc delete <SERVICE_NAME>` polecenia.
+
+   Sprawdź stan usługi aplikacji przykładowej:
+
+   ```console
+   sc query MyService
+   ```
+
+   Gdy przykładowej aplikacji usługi jest w `STOPPED` stanu, użyj następującego polecenia, aby odinstalować usługę aplikacji przykładowej:
+
+   ```console
+   sc delete MyService
+   ```
 
 ## <a name="provide-a-way-to-run-outside-of-a-service"></a>Umożliwiają uruchamianie poza usługą
 
 Możliwe jest łatwiejsze testowanie i debugowanie podczas uruchamiania poza usługą, dzięki czemu zwyczajowe można dodać kod, który wywołuje `RunAsService` tylko w niektórych warunkach. Na przykład aplikacja może działać jako aplikację konsoli z `--console` argumentu wiersza polecenia lub jeśli jest dołączony debuger:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOrConsole)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+Ponieważ konfiguracja platformy ASP.NET Core wymaga pary nazwa wartość dla argumentów wiersza polecenia, `--console` przełącznik jest usunięty przed argumenty są przekazywane do [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOrConsole)]
 
----
+::: moniker-end
 
 ## <a name="handle-stopping-and-starting-events"></a>Obsługa zatrzymywania i uruchamiania zdarzeń
 
-Do obsługi `OnStarting`, `OnStarted`, i `OnStopping` zdarzenia, wprowadź następujące zmiany dodatkowe:
+Do obsługi [OnStarting](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstarting), [OnStarted](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstarted), i [OnStopping](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstopping) zdarzenia, wprowadź następujące zmiany dodatkowe:
 
-1. Utwórz klasę pochodną `WebHostService`:
+1. Utwórz klasę pochodną [WebHostService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice):
 
    [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=NoLogging)]
 
-2. Create — metoda rozszerzenia dla `IWebHost` niestandardowego, który przekazuje `WebHostService` do `ServiceBase.Run`:
+2. Create — metoda rozszerzenia dla [IWebHost](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost) niestandardowego, który przekazuje `WebHostService` do [ServiceBase.Run](/dotnet/api/system.serviceprocess.servicebase.run):
 
    [!code-csharp[](windows-service/sample/WebHostServiceExtensions.cs?name=ExtensionsClass)]
 
-3. W `Program.Main`, wywołaj nowej metody rozszerzenia `RunAsCustomService`, zamiast `RunAsService`:
+3. W `Program.Main`, wywołaj nowej metody rozszerzenia `RunAsCustomService`, zamiast [RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice):
 
-   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+   ::: moniker range=">= aspnetcore-2.0"
 
-   [!code-csharp[](windows-service/sample/Program.cs?name=HandleStopStart&highlight=24)]
+   [!code-csharp[](windows-service/sample/Program.cs?name=HandleStopStart&highlight=27)]
 
-   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+   ::: moniker-end
 
-   [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=HandleStopStart&highlight=26)]
+   ::: moniker range="< aspnetcore-2.0"
 
-   ---
+   [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=HandleStopStart&highlight=27)]
 
-Jeśli niestandardowa `WebHostService` kod wymaga usługi z iniekcji zależności (np. Rejestrator), Uzyskaj ją z `Services` właściwości `IWebHost`:
+   ::: moniker-end
+
+Jeśli niestandardowa `WebHostService` kod wymaga usługi z iniekcji zależności (np. Rejestrator), Uzyskaj ją z [IWebHost.Services](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost.services) właściwości:
 
 [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=Logging&highlight=7)]
 
