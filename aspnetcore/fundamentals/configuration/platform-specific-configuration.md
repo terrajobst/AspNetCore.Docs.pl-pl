@@ -11,12 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: d913d8a773d312fc4c3191926c6eae2fcb7c6a3e
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 47d3a64ce0cc543162a066eeeaa0aaaf7dc96a5f
+ms.sourcegitcommit: 0d6f151e69c159d776ed0142773279e645edbc0a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734393"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35415011"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>Zwiększ możliwości aplikacji z zewnętrznego zestawu w ASP.NET Core z IHostingStartup
 
@@ -57,7 +57,7 @@ A [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingstartupattrib
 
 [!code-csharp[](platform-specific-configuration/snapshot_sample/StartupEnhancement.cs?name=snippet1)]
 
-Implementuje klasę `IHostingStartup`. Klasa [Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) używa metody [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) można dodać rozszerzenia do aplikacji:
+Implementuje klasę `IHostingStartup`. Klasa [Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) używa metody [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) można dodać rozszerzenia do aplikacji. `IHostingStartup.Configure` przy uruchamianiu hostingu zestawu jest wywoływana przez środowisko wykonawcze przed `Startup.Configure` w kodzie użytkownika, dzięki czemu kod użytkownika zastąpić wszystkie configruation udostępniane przez zestaw uruchomienia hostingu.
 
 [!code-csharp[](platform-specific-configuration/snapshot_sample/StartupEnhancement.cs?name=snippet2&highlight=3,5)]
 
@@ -117,13 +117,15 @@ Udostępniony framework w wersji odzwierciedla wersji udostępnionego środowisk
 
 Ustaw następujące zmienne środowiskowe w kontekście aplikacji, który używa poprawy.
 
-ASPNETCORE\_HOSTINGSTARTUPASSEMBLIES
+ASPNETCORE_HOSTINGSTARTUPASSEMBLIES
 
 Tylko zestawy uruchomienia hostingu są skanowane pod kątem `HostingStartupAttribute`. Nazwa zestawu wdrożenia znajduje się w tej zmiennej środowiskowej. Przykładowa aplikacja ustawia tę wartość na `StartupDiagnostics`.
 
 Wartość można również ustawić za pomocą [Hosting zestawy uruchamiania](xref:fundamentals/host/web-host#hosting-startup-assemblies) hosta ustawienia konfiguracji.
 
-DOTNET\_DODATKOWYCH\_DEPS
+Podczas uruchamiania obsługi wielu składana są obecne, ich [Konfiguruj](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) metody są wykonywane w kolejności, czy zestawy są wyświetlane.
+
+DOTNET_ADDITIONAL_DEPS
 
 Lokalizacja wdrożenia  *\*. deps.json* pliku.
 

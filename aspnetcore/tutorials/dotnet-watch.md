@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 29890640223fe533cca82fb8d39a5ef26e8c6639
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 016ee107ae646ed43d8a98e97fd2d5b41356910e
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729979"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341850"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Tworzenie aplikacji platformy ASP.NET Core za pomocą monitora plików
 
@@ -114,8 +114,73 @@ Sprawdź `http://localhost:<port number>/api/math/product?a=4&b=5` zwraca prawid
 
 `dotnet watch` wykrywa zmiany pliku i zwracające testy. Dane wyjściowe konsoli wskazuje testy zostały zakończone pomyślnie.
 
-## <a name="dotnet-watch-in-github"></a>wyrażenie kontrolne DotNet w serwisie GitHub
+## <a name="customize-files-list-to-watch"></a>Dostosowywanie listy plików do monitorowania
 
-Obejrzyj DotNet jest częścią usługi GitHub [repozytorium DotNetTools](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch).
+Domyślnie `dotnet-watch` śledzi wszystkie pliki następujące wzorce glob dopasowywania:
 
-[Sekcji MSBuild](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch#msbuild) z [ReadMe czujki dotnet](https://github.com/aspnet/DotNetTools/blob/dev/src/dotnet-watch/README.md) wyjaśniono, jak czujki dotnet można skonfigurować w pliku projektu MSBuild są monitorowane. [ReadMe czujki dotnet](https://github.com/aspnet/DotNetTools/blob/dev/src/dotnet-watch/README.md) zawiera informacje o dotnet czujki nieuwzględnione w tym samouczku.
+* `**/*.cs`
+* `*.csproj`
+* `**/*.resx`
+
+Można dodać więcej elementów do listy czujki, edytując *.csproj* pliku. Można określić elementów pojedynczo lub za pomocą glob wzorce.
+
+```xml
+<ItemGroup>
+    <!-- extends watching group to include *.js files -->
+    <Watch Include="**\*.js" Exclude="node_modules\**\*;**\*.js.map;obj\**\*;bin\**\*" />
+</ItemGroup>
+```
+
+## <a name="opt-out-of-files-to-be-watched"></a>Wypisz pliki, aby być monitorowane
+
+`dotnet-watch` można skonfigurować tak, aby zignorować jego domyślnych ustawień. Ignorowanie określonych plików, dodawanie `Watch="false"` atrybutu do definicji elementu w *.csproj* pliku:
+
+```xml
+<ItemGroup>
+    <!-- exclude Generated.cs from dotnet-watch -->
+    <Compile Include="Generated.cs" Watch="false" />
+
+    <!-- exclude Strings.resx from dotnet-watch -->
+    <EmbeddedResource Include="Strings.resx" Watch="false" />
+
+    <!-- exclude changes in this referenced project -->
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" Watch="false" />
+</ItemGroup>
+```
+
+## <a name="custom-watch-projects"></a>Projekty niestandardowych czujki
+
+`dotnet-watch` nie jest ograniczony do projektów C#. Można tworzyć projektów niestandardowych czujki do obsługi różnych scenariuszy. Należy wziąć pod uwagę następujące układ projektu:
+
+* **Testowanie /**
+  * *UnitTests/UnitTests.csproj*
+  * *IntegrationTests/IntegrationTests.csproj*
+
+Jeśli celem jest Obejrzyj oba projekty, Utwórz plik projektu niestandardowe skonfigurowane do wykrywania oba projekty:
+
+```xml
+<Project>
+    <ItemGroup>
+        <TestProjects Include="**\*.csproj" />
+        <Watch Include="**\*.cs" />
+    </ItemGroup>
+
+    <Target Name="Test">
+        <MSBuild Targets="VSTest" Projects="@(TestProjects)" />
+    </Target>
+
+    <Import Project="$(MSBuildExtensionsPath)\Microsoft.Common.targets" />
+</Project>
+```
+
+Aby uruchomić plik obserwowanie na obu projektów, zmienić *test* folderu. Uruchom następujące polecenie:
+
+```console
+dotnet watch msbuild /t:Test
+```
+
+VSTest wykonuje po zmianie dowolnego pliku w każdym projekcie testowym.
+
+## <a name="dotnet-watch-in-github"></a>`dotnet-watch` w witrynie GitHub
+
+`dotnet-watch` wchodzi w skład GitHub [repozytorium DotNetTools](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch).

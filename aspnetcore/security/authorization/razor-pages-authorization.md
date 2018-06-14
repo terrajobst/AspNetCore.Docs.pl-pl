@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: 35a21156c001d8703e09e604129c4c2c500fe25f
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: cd1fa7957ca50db0de71f71234f84d3fbc631f45
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734656"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341746"
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>Konwencje autoryzacji stron razor w ASP.NET Core
 
@@ -23,7 +23,7 @@ Przez [Luke Latham](https://github.com/guardrex)
 
 Jednym ze sposobów kontroli dostępu w aplikacji stron Razor ma używać konwencji autoryzacji podczas uruchamiania. Konwencje te pozwalają na autoryzowanie użytkowników i anonimowe użytkownicy mogą uzyskiwać dostęp do poszczególnych stron lub folderów stron. Konwencje opisanych w tym temacie automatycznie zastosować [filtry autoryzacji](xref:mvc/controllers/filters#authorization-filters) do kontroli dostępu.
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/razor-pages-authorization/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/razor-pages-authorization/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 Przykładowe zastosowania aplikacji [uwierzytelniania plików Cookie bez ASP.NET Core Identity](xref:security/authentication/cookie). Konto użytkownika dla użytkownika hipotetyczny, Maria Rodriguez jest zapisane na stałe w aplikacji. Użyj nazwy użytkownika wiadomości E-mail "maria.rodriguez@contoso.com" i wszelkich hasło do logowania użytkownika. Użytkownik jest uwierzytelniany w `AuthenticateUser` metody w *Pages/Account/Login.cshtml.cs* pliku. W przykładzie rzeczywistych użytkownik będzie uwierzytelniony w bazie danych. Aby korzystać z ASP.NET Core Identity, postępuj zgodnie ze wskazówkami w [wprowadzenie do tożsamości na platformy ASP.NET Core](xref:security/authentication/identity) tematu. Koncepcje i przykłady zamieszczone w tym temacie stosowane jednakowo do aplikacji, które używają ASP.NET Core Identity.
 

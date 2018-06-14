@@ -10,10 +10,11 @@ ms.technology: aspnet
 ms.topic: article
 uid: web-api/advanced/custom-formatters
 ms.openlocfilehash: ec38a988a73278481de6535c627b2479a9805387
-ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "34452579"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>Niestandardowe elementy formatujące w interfejsu API platformy ASP.NET Core sieci Web
 

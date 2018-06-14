@@ -5,5 +5,5 @@ Zainstaluj **jeden** z następujących czynności:
   * System Windows: [programu Visual Studio dla systemu Windows](https://www.microsoft.com/net/download/windows)
     * **ASP.NET i sieć web development** obciążenia
     * **Programowanie wieloplatformowych .NET core** obciążenia
-  * Linux: [Visual Studio Code](https://www.microsoft.com/net/download/linux)
+  * Linux: [kodu programu Visual Studio](https://www.microsoft.com/net/download/linux)
   * System macOS: [programu Visual Studio dla komputerów Mac](https://www.microsoft.com/net/download/macos)

@@ -11,10 +11,11 @@ ms.technology: aspnet
 ms.topic: article
 uid: web-api/advanced/formatting
 ms.openlocfilehash: f25705bcd3a704de12ea24c3e196de1ba1afd492
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "32078643"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Formatowanie danych odpowiedzi w interfejsu API platformy ASP.NET Core sieci Web
 

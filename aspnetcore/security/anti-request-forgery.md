@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: ad50f8b261447d40ccc24c0ee006239aa976bf20
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 3bca96f4a2e247eeeb93140df93221371d88d4d3
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341863"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Zapobiegaj Cross-Site żądania (XSRF/CSRF) fałszerstwie w ASP.NET Core
 
@@ -43,11 +44,13 @@ Przykład atak CSRF:
 1. Gdy użytkownik wybierze przycisk przesyłania. Przeglądarka wysyła żądanie i automatycznie uwzględnia pliku cookie uwierzytelniania dla żądanej domeny `www.good-banking-site.com`.
 1. Żądanie jest uruchamiany na `www.good-banking-site.com` serwera z kontekstem uwierzytelniania użytkownika i mogą wykonywać żadnych czynności, że uwierzytelniony użytkownik może wykonywać.
 
-Gdy użytkownik wybierze przycisk Prześlij formularz, złośliwa witryna można:
+Oprócz scenariusz, w którym użytkownik wybierze przycisk, aby przesłać formularza złośliwa witryna można:
 
 * Uruchom skrypt, który automatycznie wyśle formularz.
-* Wysyła żądanie AJAX przesyłania formularza. 
-* Formularz ukryty z CSS. 
+* Wyślij przesyłania formularza jako żądaniem AJAX.
+* Ukryj do formularza używającego CSS.
+
+Te scenariusze alternatywnych nie wymagają żadnych akcji lub danych wejściowych od użytkownika niż początkowo odwiedzający niebezpiecznej witryny.
 
 Przy użyciu protokołu HTTPS nie uniemożliwia atak CSRF. Złośliwa witryna można wysyłać `https://www.good-banking-site.com/` równie proste, jak może wysłać żądanie niezabezpieczonego żądania.
 
@@ -195,7 +198,7 @@ services.AddAntiforgery(options =>
 
 | Opcja | Opis |
 | ------ | ----------- |
-| [Cookie](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Określa ustawienia używane do tworzenia antiforgery plików cookie. |
+| [Plik cookie](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Określa ustawienia używane do tworzenia antiforgery plików cookie. |
 | [CookieDomain](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiedomain) | Domena pliku cookie. Domyślnie `null`. Ta właściwość jest przestarzała i zostanie usunięta w przyszłych wersjach. Zalecaną alternatywą jest Cookie.Domain. |
 | [CookieName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiename) | Nazwa pliku cookie. Jeśli nie jest ustawiona, system generuje unikatowa nazwa zaczyna się od [DefaultCookiePrefix](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.defaultcookieprefix) (". AspNetCore.Antiforgery."). Ta właściwość jest przestarzała i zostanie usunięta w przyszłych wersjach. Zalecaną alternatywą jest Cookie.Name. |
 | [CookiePath](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiepath) | Ścieżka ustawiona w pliku cookie. Ta właściwość jest przestarzała i zostanie usunięta w przyszłych wersjach. Zalecaną alternatywą jest Cookie.Path. |
@@ -271,7 +274,7 @@ public async Task<IActionResult> RemoveLogin(RemoveLoginViewModel account)
 
 Aplikacje platformy ASP.NET Core nie generować antiforgery tokeny dla bezpieczne metody HTTP (GET, HEAD, opcje i śledzenia). Zamiast stosowania szeroko `ValidateAntiForgeryToken` atrybutu, a następnie przesłanianie go z `IgnoreAntiforgeryToken` atrybutów, [AutoValidateAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute) atrybut może być używany. Ten atrybut działa identycznie do `ValidateAntiForgeryToken` atrybutów, z wyjątkiem tego, czy nie wymaga tokeny żądań zostało nawiązane przy użyciu następujących metod HTTP:
 
-* GET
+* POBIERZ
 * HEAD
 * OPCJE
 * TRACE
