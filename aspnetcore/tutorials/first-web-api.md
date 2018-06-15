@@ -11,10 +11,11 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
 ms.openlocfilehash: 1680d5e0be0f4844c904d923af30634c53bd1b81
-ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "34306676"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Tworzenie interfejsu API sieci Web przy użyciu programu Visual Studio i ASP.NET Core dla systemu Windows
 
