@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: cc34b9069ec062f08644c0026c1ccdcd00f667ac
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: d33f0253fc7c1329e8bab400ace4c4ce8d10d792
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613063"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>Iniekcji zależności do widoków w ASP.NET Core
 
@@ -67,8 +68,8 @@ Te listy są wypełniane przez usługę, które zostały dodane do widoku:
 
 [!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/ProfileOptionsService.cs?highlight=7,13,24)]
 
->[!TIP]
-> Nie zapomnij zarejestrować typy będzie żądać za pomocą iniekcji zależności w `ConfigureServices` metody w *Startup.cs*.
+> [!IMPORTANT]
+> Nie zapomnij zarejestrować typy żądań za pomocą iniekcji zależności w `Startup.ConfigureServices`. Typem wyrejestrować zgłasza wyjątek w czasie wykonywania, ponieważ dostawca usług wewnętrznie wysyłane jest [GetRequiredService](/dotnet/api/microsoft.extensions.dependencyinjection.serviceproviderserviceextensions.getrequiredservice).
 
 ## <a name="overriding-services"></a>Zastępowanie usług
 

@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 22311d90fb327fc1e01f82759ad62551501a10c1
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 39949585dc8fce10c31045ef3013c6bc166e45ba
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734565"
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613154"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Kestrel implementacja serwera sieci web platformy ASP.NET Core
 
@@ -209,7 +209,7 @@ Domyślnie program ASP.NET Core wiąże:
 Utworzono certyfikatu deweloperskiego:
 
 * Gdy [.NET Core SDK](/dotnet/core/sdk) jest zainstalowany.
-* [Narzędzie certyfikaty deweloperów](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-dev-certs) służy do tworzenia certyfikatu.
+* [Narzędzie certyfikaty deweloperów](xref:aspnetcore-2.1#https) służy do tworzenia certyfikatu.
 
 Niektóre przeglądarki wymagają przyznanie jawnym uprawnieniem do przeglądarki do ufać certyfikatowi rozwoju lokalnego.
 
@@ -395,7 +395,10 @@ options.ConfigureHttpsDefaults(httpsOptions =>
 
 Kestrel obsługuje SNI za pośrednictwem `ServerCertificateSelector` wywołania zwrotnego. Wywołanie zwrotne jest wywoływana raz dla każdego połączenia, aby umożliwić aplikacji Sprawdź nazwę hosta, a następnie wybierz odpowiedni certyfikat.
 
-Obsługa SNI wymaga uruchomiona na platformie docelowej `netcoreapp2.1`. Na `netcoreapp2.0` i `net461`, wywołania zwrotnego jest wywoływane, ale `name` jest zawsze `null`. `name` Jest również `null` Jeśli klient nie udostępnia hosta nazwę parametru w uzgadniania TLS.
+Obsługa SNI wymaga:
+
+* Uruchomiona na platformie docelowej `netcoreapp2.1`. Na `netcoreapp2.0` i `net461`, wywołania zwrotnego jest wywoływane, ale `name` jest zawsze `null`. `name` Jest również `null` Jeśli klient nie udostępnia hosta nazwę parametru w uzgadniania TLS.
+* Uruchom wszystkie witryny sieci Web na tym samym wystąpieniu Kestrel. Kestrel nie obsługuje udostępniania adresu IP i portu w wielu wystąpieniach bez zwrotnego serwera proxy.
 
 ```csharp
 WebHost.CreateDefaultBuilder()

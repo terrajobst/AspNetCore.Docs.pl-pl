@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: c61918d42b407b01484b67d740edc7a682c3a4b0
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 463c1c7b3aef624622e34943f1a7a518e658a037
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613037"
 ---
 # <a name="enable-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>Włącz generowanie kodu QR dla uwierzytelniania w aplikacjach w ASP.NET Core
 
@@ -89,4 +90,4 @@ Adres URL poprawnie sformatowany kod QR jest dostępna w:
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP pochylenia czasu klienta i serwera
 
-Uwierzytelnianie TOTP zależy od zarówno serwera, jak i Wystawca uwierzytelnienia urządzenia o dokładnego czasu. Tokeny tylko ostatnie 30 sekund. Jeśli TOTP 2FA logowania kończą się niepowodzeniem, sprawdź, czy czas serwera jest dokładne i najlepiej synchronizowane z usługi dokładne NTP.
+Uwierzytelnianie TOTP (na podstawie czasu hasła jednorazowego) zależy od zarówno serwera, jak i Wystawca uwierzytelnienia urządzenia o dokładnego czasu. Tokeny tylko ostatnie 30 sekund. Jeśli TOTP 2FA logowania kończą się niepowodzeniem, sprawdź, czy czas serwera jest dokładne i najlepiej synchronizowane z usługi dokładne NTP.

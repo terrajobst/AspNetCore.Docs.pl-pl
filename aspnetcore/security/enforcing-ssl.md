@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 69ce182855878e4d05bff95139fefb9e1312f3d5
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 48a25b7ba7affe84cfa6fe16096409239c510221
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252077"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652191"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Wymuszanie protokołu HTTPS w platformy ASP.NET Core
 
@@ -48,8 +48,8 @@ Poniższy kod wywołania [AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.
 
 Wyróżniony kod:
 
-* Ustawia [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode).
-* Ustawia HTTPS port 5001.
+* Ustawia [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) do `Status307TemporaryRedirect`, która jest wartością domyślną. Aplikacje w środowisku produkcyjnym powinny wywoływać [UseHsts](#hsts).
+* Ustawia HTTPS port 5001. Wartość domyślna to 443.
 
 Następujące mechanizmy automatycznie ustawiony port:
 
@@ -77,6 +77,11 @@ Jeśli port nie jest ustawiony:
 * Nie można przekierować żądania.
 * Oprogramowanie pośredniczące rejestruje ostrzeżenie.
 
+> [!NOTE]
+> Alternatywa dla użycia oprogramowania pośredniczącego przekierowania protokołu HTTPS (`UseHttpsRedirection`) jest użycie ponowne zapisywanie adresów URL w oprogramowaniu pośredniczącym (`AddRedirectToHttps`). `AddRedirectToHttps` Podczas wykonywania przekierowania, można również ustawić kod stanu i portu. Aby uzyskać więcej informacji, zobacz [ponowne zapisywanie adresów URL w oprogramowaniu pośredniczącym](xref:fundamentals/url-rewriting).
+>
+> Gdy przekierowywany do protokołu HTTPS, bez potrzeby przekierowania dodatkowe reguły, firma Microsoft zaleca używanie oprogramowania pośredniczącego przekierowania protokołu HTTPS (`UseHttpsRedirection`) opisanych w tym temacie.
+
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.1"
@@ -89,7 +94,7 @@ Poprzedni wyróżniony kod wymaga wszystkie żądania przy użyciu `HTTPS`; w zw
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
-Aby uzyskać więcej informacji, zobacz [ponowne zapisywanie adresów URL w oprogramowaniu pośredniczącym](xref:fundamentals/url-rewriting).
+Aby uzyskać więcej informacji, zobacz [ponowne zapisywanie adresów URL w oprogramowaniu pośredniczącym](xref:fundamentals/url-rewriting). Oprogramowanie pośredniczące umożliwia również aplikacji, aby określić kod stanu lub kod stanu i portu podczas wykonywania przekierowania.
 
 Globalny wymagających protokołu HTTPS (`options.Filters.Add(new RequireHttpsAttribute());`) jest ze względów bezpieczeństwa. Stosowanie `[RequireHttps]` atrybut, aby wszystkie kontrolery/Razor strony nie jest uznawane za należycie zabezpieczone globalnie wymagających protokołu HTTPS. Nie można zagwarantować `[RequireHttps]` atrybut jest stosowany podczas dodawania nowych kontrolerów i stron Razor.
 

@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: mvc/razor-pages/sdk
-ms.openlocfilehash: cf0e1873c7ce500ce3b8ad2b3367555bdc41a576
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: 5217f17045a0fec09a8a67b4c9f132b1cebeaf1e
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35612882"
 ---
 # <a name="aspnet-core-razor-sdk"></a>Razor platformy ASP.NET Core SDK
 
@@ -87,3 +88,9 @@ Zestaw SDK Razor definiuje dwa obiekty docelowe głównej:
 
 * `RazorGenerate` -Generuje kod *.cs* pliki z RazorGenerate elementu elementów. Użyj `RazorGenerateDependsOn` właściwości w celu określenia dodatkowych celem można uruchamiać przed lub po tym elemencie docelowym.
 * `RazorCompile` -Kompiluje wygenerowany *.cs* plików w zestawie Razor. Użyj `RazorCompileDependsOn` do określenia dodatkowych obiektów docelowych, które mogą być uruchamiane przed lub po tym elemencie docelowym.
+
+### <a name="runtime-compilation-of-razor-views"></a>Kompilacja środowiska uruchomieniowego z widokami Razor
+
+* Domyślnie Razor SDK nie publikuje zestawów odwołań, które są wymagane do przeprowadzenia kompilacja środowiska uruchomieniowego. Powoduje to błędy kompilacji podczas model aplikacji zależy od kompilacja środowiska uruchomieniowego&mdash;na przykład aplikacja używa osadzonych widoków widoków lub zmiany po opublikowaniu aplikacji. Ustaw `CopyRefAssembliesToPublishDirectory` do `true` aby kontynuować publikowanie zestawów odwołań.
+
+* Dla aplikacji sieci web, upewnij się, aplikacja jest docelowo `Microsoft.NET.Sdk.Web` zestawu SDK.

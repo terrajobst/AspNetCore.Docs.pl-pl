@@ -12,11 +12,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: 244fece83279ae4d9ead9b345fcdd66ad6ed4225
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: b8ee7e1b401b16a240fa0373c58f0ee6a400d9f8
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35612982"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Należy użyć szablonu projektu kątowego z platformy ASP.NET Core
 
@@ -33,7 +34,16 @@ Szablon jest odpowiednikiem Tworzenie projektu platformy ASP.NET Core do działa
 
 ## <a name="create-a-new-app"></a>Tworzenie nowej aplikacji
 
-Jeśli za pomocą platformy ASP.NET Core 2.0, upewnij się, które zostały [zainstalowane szablonu zaktualizowany projekt kątowego](xref:spa/index#installation). Jeśli masz program ASP.NET Core 2.1 jest niepotrzebna go zainstalować.
+::: moniker range="= aspnetcore-2.0"
+
+Jeśli za pomocą platformy ASP.NET Core 2.0, upewnij się, które zostały [zainstalowany zaktualizowany szablon projektu platformy React](xref:spa/index#installation).
+
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+
+Jeśli masz program ASP.NET Core 2.1 zainstalowany jest niepotrzebna zainstalować szablon kątowego projektu.
+
+::: moniker-end
 
 Utwórz nowy projekt z wiersza polecenia przy użyciu polecenia `dotnet new angular` w pustych katalogów. Na przykład poniższe polecenia Utwórz aplikację w *— nowy — aplikacji my* katalogu i przełącznika do tego katalogu:
 

@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: b073f00469ada915244a2db71540fd7c971d55ea
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 38fcbb1b6691854eb6d5930fdcb789b1c67f4c70
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652178"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Host platformy ASP.NET Core w systemie Linux z Apache
 
@@ -54,9 +55,9 @@ Zwrotny serwer proxy jest typowe dla obsługi aplikacji sieci web dynamicznych. 
 
 Serwer proxy to taki, który przekazuje żądania klienta do innego serwera zamiast samego spełnienie żądania. Zwrotny serwer proxy przekazuje do stałej miejsca docelowego, zwykle w imieniu dowolnego klientów. W tym przewodniku Apache jest skonfigurowana jako zwrotny serwer proxy, uruchomione na tym samym serwerze, że Kestrel służy aplikacji platformy ASP.NET Core.
 
-Ponieważ żądania są przekazywane przez zwrotny serwer proxy, należy używać oprogramowania pośredniczącego nagłówki przekazywane z [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) pakietu. Aktualizacje oprogramowania pośredniczącego `Request.Scheme`za pomocą `X-Forwarded-Proto` nagłówka, więc poprawne działanie tego przekierowania URI i innymi zasadami zabezpieczeń.
+Ponieważ żądania są przekazywane przez zwrotny serwer proxy, należy użyć [przekazywane oprogramowanie pośredniczące nagłówki](xref:host-and-deploy/proxy-load-balancer) z [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) pakietu. Aktualizacje oprogramowania pośredniczącego `Request.Scheme`za pomocą `X-Forwarded-Proto` nagłówka, więc poprawne działanie tego przekierowania URI i innymi zasadami zabezpieczeń.
 
-Korzystając z dowolnego typu uwierzytelniania oprogramowania pośredniczącego, najpierw należy uruchomić oprogramowanie pośredniczące przekazane nagłówków. Ta kolejność zapewnia, że oprogramowanie pośredniczące uwierzytelniania można używać wartości nagłówka i generowanie poprawne przekierowania URI.
+Każdego składnika, który jest zależny od systemu, takich jak uwierzytelnianie, generowanie konsolidacji przekierowania i używanie funkcji geolokalizacji, muszą znajdować się po wywołaniu przez oprogramowanie pośredniczące przekazane nagłówków. Ogólną zasadą przekazywane oprogramowanie pośredniczące nagłówków należy uruchomić przed innym oprogramowaniu pośredniczącym, z wyjątkiem diagnostyki i obsługi oprogramowania pośredniczącego błędów. Ta kolejność zapewnia, że oprogramowanie pośredniczące polegania na informacje przekazywane nagłówków może używać wartości nagłówka do przetwarzania.
 
 ::: moniker range=">= aspnetcore-2.0"
 > [!NOTE]
@@ -135,13 +136,17 @@ Complete!
 > [!NOTE]
 > W tym przykładzie danych wyjściowych odzwierciedla httpd.86_64, ponieważ wersja CentOS 7 jest 64-bitowym. Aby sprawdzić, w którym zainstalowano Apache, uruchom `whereis httpd` z wiersza polecenia.
 
-### <a name="configure-apache-for-reverse-proxy"></a>Konfigurowanie Apache dla zwrotnego serwera proxy
+### <a name="configure-apache"></a>Skonfiguruj Apache
 
 Pliki konfiguracji Apache znajdują się w `/etc/httpd/conf.d/` katalogu. Dowolne pliki z *.conf* rozszerzenia są przetwarzane w kolejności alfabetycznej oprócz plików konfiguracji modułu w `/etc/httpd/conf.modules.d/`, który zawiera żadnej konfiguracji pliki niezbędne do ładowania modułów.
 
 Utwórz plik konfiguracji o nazwie *hellomvc.conf*, dla aplikacji:
 
 ```
+<VirtualHost *:*>
+    RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+</VirtualHost>
+
 <VirtualHost *:80>
     ProxyPreserveHost On
     ProxyPass / http://127.0.0.1:5000/
@@ -279,7 +284,7 @@ sudo firewall-cmd --add-port=443/tcp --permanent
 
 Ponowne załadowanie ustawień zapory. Sprawdź dostępnych usług i portów w strefie domyślnej. Opcje są dostępne, sprawdzając `firewall-cmd -h`.
 
-```bash 
+```bash
 sudo firewall-cmd --reload
 sudo firewall-cmd --list-all
 ```
@@ -303,6 +308,7 @@ Aby skonfigurować Apache dla protokołu SSL, *mod_ssl* moduł jest używany. Gd
 ```bash
 sudo yum install mod_ssl
 ```
+
 Aby wymusić protokołu SSL, należy zainstalować `mod_rewrite` modułu, aby umożliwić ponowne zapisywanie adresów URL:
 
 ```bash
@@ -312,10 +318,14 @@ sudo yum install mod_rewrite
 Modyfikowanie *hellomvc.conf* plik, aby umożliwić ponowne zapisywanie adresów URL i zabezpieczania komunikacji na porcie 443:
 
 ```
+<VirtualHost *:*>
+    RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+</VirtualHost>
+
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} !=on
-    RewriteRule ^/?(.*) https://%{SERVER_NAME}/ [R,L]
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -381,7 +391,7 @@ sudo nano /etc/httpd/conf/httpd.conf
 
 Dodaj wiersz `Header set X-Content-Type-Options "nosniff"`. Zapisz plik. Uruchom ponownie Apache.
 
-### <a name="load-balancing"></a>Równoważenie obciążenia 
+### <a name="load-balancing"></a>Równoważenie obciążenia
 
 W tym przykładzie przedstawiono sposób instalacji i konfiguracji Apache CentOS 7 i Kestrel na tym samym komputerze wystąpienia. Aby można było ma pojedynczego punktu awarii; przy użyciu *mod_proxy_balancer* i modyfikowanie **VirtualHost** umożliwiałyby zarządzania wiele wystąpień aplikacji sieci web za serwerem proxy Apache.
 
@@ -392,10 +402,14 @@ sudo yum install mod_proxy_balancer
 W pliku konfiguracyjnym pokazano poniżej, dodatkowego wystąpienia `hellomvc` aplikacji jest skonfigurowana do uruchamiania na porcie 5001. *Proxy* sekcji ustawiono na potrzeby równoważenia obciążenia z konfiguracją modułu równoważenia z dwóch członków *byrequests*.
 
 ```
+<VirtualHost *:*>
+    RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+</VirtualHost>
+
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} !=on
-    RewriteRule ^/?(.*) https://%{SERVER_NAME}/ [R,L]
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -424,6 +438,7 @@ W pliku konfiguracyjnym pokazano poniżej, dodatkowego wystąpienia `hellomvc` a
 ```
 
 ### <a name="rate-limits"></a>Limity szybkości
+
 Przy użyciu *mod_ratelimit*, który znajduje się w *host z wieloma adresami* moduł, może być ograniczona przepustowość klientów:
 
 ```bash
@@ -439,3 +454,7 @@ Przykładowy plik ogranicza przepustowość jako 600 KB/s w lokalizacji główne
     </Location>
 </IfModule>
 ```
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
+
+* [Konfigurowanie platformy ASP.NET Core do pracy z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer)

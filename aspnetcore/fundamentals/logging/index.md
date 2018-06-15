@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 8b53a19f4958e97198175d6acea4017d54f827bb
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 5e7e0fe0744a8dc3f3dd6097a059d77f2c578f77
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652204"
 ---
 # <a name="logging-in-aspnet-core"></a>Logowanie do platformy ASP.NET Core
 
@@ -33,7 +34,7 @@ Platformy ASP.NET Core obsługuje interfejs API rejestrowania, który współpra
 
 ## <a name="how-to-create-logs"></a>Jak utworzyć dzienników
 
-Aby utworzyć dzienników, Pobierz `ILogger` obiekt z [iniekcji zależności](xref:fundamentals/dependency-injection) kontenera:
+Aby utworzyć dzienników, zaimplementuj [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) obiekt z [iniekcji zależności](xref:fundamentals/dependency-injection) kontenera:
 
 [!code-csharp[](index/sample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
 
@@ -63,14 +64,14 @@ Domyślny szablon projektu umożliwia rejestrowanie z [CreateDefaultBuilder](/do
 
 Dostawcy logowania ma utworzonych za pomocą wiadomości `ILogger` obiektów, wyświetla i przechowuje je. Na przykład konsola dostawca wyświetla komunikaty w konsoli i dostawcy usługi Azure App Service można przechowywać w magazynie obiektów blob Azure.
 
-Do korzystania z dostawcy, instalowanie pakietu NuGet i wywołanie metody rozszerzenia dostawcy na wystąpienie `ILoggerFactory`, jak pokazano w poniższym przykładzie.
+Do korzystania z dostawcy, instalowanie pakietu NuGet i wywołanie metody rozszerzenia dostawcy na wystąpienie [element ILoggerFactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory), jak pokazano w poniższym przykładzie:
 
 [!code-csharp[](index/sample//Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
 
 Platformy ASP.NET Core [iniekcji zależności](xref:fundamentals/dependency-injection) (Podpisane) zapewnia `ILoggerFactory` wystąpienia. `AddConsole` i `AddDebug` metody rozszerzenia są definiowane w [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) i [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) pakietów. Każda metoda rozszerzenia wywołuje `ILoggerFactory.AddProvider` metody, przekazując wystąpienie dostawcy. 
 
 > [!NOTE]
-> Przykładowa aplikacja dla tego artykułu dodaje rejestrowanie dostawców w `Configure` metody `Startup` klasy. Jeśli chcesz pobrać dane wyjściowe dziennika z kodu, która wykonuje wcześniej, Dodaj rejestrowanie dostawców w `Startup` klasy zamiast tego konstruktora. 
+> [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample) dodaje rejestrowanie dostawców w `Startup.Configure` metody. Uzyskanie danych wyjściowych dziennika z kodu, która wykonuje wcześniej, dodać rejestrowanie dostawców w `Startup` konstruktora klasy.
 
 ---
 
@@ -372,7 +373,7 @@ Jeśli chcesz użyć filtrowania, aby uniemożliwić wszystkie dzienniki zapisyw
 
 Można grupować zestaw operacji logicznych w *zakres* aby można było dołączyć tych samych danych do każdego dziennika, który został utworzony jako część tego zbioru. Na przykład może być co dziennika utworzona w ramach przetwarzania transakcji, aby uwzględnić identyfikator transakcji.
 
-Zakres jest `IDisposable` typu, który jest zwracany przez `ILogger.BeginScope<TState>` — metoda i trwa do momentu jego usunięcia. Użyj zakresu przez zawijania odwołuje Twoje rejestratora `using` zablokować, jak pokazano poniżej:
+Zakres jest `IDisposable` typu, który jest zwracany przez [ILogger.BeginScope&lt;stanu dławienia&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger.beginscope) — metoda i trwa do momentu jego usunięcia. Użyj zakresu przez zawijania odwołuje Twoje rejestratora `using` zablokować, jak pokazano poniżej:
 
 [!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_Scopes&highlight=4-5,13)]
 
@@ -410,15 +411,14 @@ warn: TodoApi.Controllers.TodoController[4000]
 
 Platformy ASP.NET Core dostarczany następujących dostawców:
 
-* [Console](#console)
-* [Debugowania](#debug)
-* [EventSource](#eventsource)
-* [EventLog](#eventlog)
-* [TraceSource](#tracesource)
-* [Usługa aplikacji Azure](#appservice)
+* [Console](#console-provider)
+* [Debugowania](#debug-provider)
+* [EventSource](#eventsource-provider)
+* [EventLog](#windows-eventlog-provider)
+* [TraceSource](#tracesource-provider)
+* [Usługa aplikacji Azure](#azure-app-service-provider)
 
-<a id="console"></a>
-### <a name="the-console-provider"></a>Dostawca konsoli
+### <a name="console-provider"></a>Dostawca konsoli
 
 [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) pakiet dostawcy wysyła dane wyjściowe dziennika do konsoli. 
 
@@ -452,8 +452,7 @@ Ustawienia wyświetlane limit framework dzienniki, aby ostrzeżenia, umożliwiaj
 
 ---
 
-<a id="debug"></a>
-### <a name="the-debug-provider"></a>Dostawca debugowania
+### <a name="debug-provider"></a>Debugowanie dostawcy
 
 [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug) pakiet dostawcy zapisuje dane wyjściowe dziennika przy użyciu [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) klasy (`Debug.WriteLine` wywołania metody).
 
@@ -475,8 +474,7 @@ loggerFactory.AddDebug()
 
 ---
 
-<a id="eventsource"></a>
-### <a name="the-eventsource-provider"></a>Dostawca źródła zdarzeń
+### <a name="eventsource-provider"></a>Dostawca źródła zdarzeń
 
 Dla aplikacji przeznaczonych dla platformy ASP.NET Core 1.1.0 lub nowszej, [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) zaimplementować pakiet dostawcy śledzenia zdarzeń. W systemie Windows, używa [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803). Dostawca jest między platformami, ale żadne zdarzenie kolekcji i wyświetlanie narzędzi jeszcze dla systemu Linux lub macOS. 
 
@@ -500,8 +498,7 @@ Aby skonfigurować narzędzia PerfView zbierania zdarzenia zarejestrowane przez 
 
 ![Narzędzia Perfview dodatkowych dostawców](index/_static/perfview-additional-providers.png)
 
-<a id="eventlog"></a>
-### <a name="the-windows-eventlog-provider"></a>Dostawca dziennika zdarzeń systemu Windows
+### <a name="windows-eventlog-provider"></a>Dostawca dziennika zdarzeń systemu Windows
 
 [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) pakiet dostawcy wysyła dane wyjściowe dziennika w dzienniku zdarzeń systemu Windows.
 
@@ -521,8 +518,7 @@ loggerFactory.AddEventLog()
 
 ---
 
-<a id="tracesource"></a>
-### <a name="the-tracesource-provider"></a>Dostawca TraceSource
+### <a name="tracesource-provider"></a>TraceSource dostawcy
 
 [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) używa dostawcy pakietu [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) bibliotek i dostawców.
 
@@ -548,14 +544,13 @@ Poniższy przykład konfiguruje `TraceSource` dostawcy, który rejestruje `Warni
 
 [!code-csharp[](index/sample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
 
-<a id="appservice"></a>
-### <a name="the-azure-app-service-provider"></a>Dostawca usługi Azure App Service
+### <a name="azure-app-service-provider"></a>Dostawca usługi Azure App Service
 
-[Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) pakiet dostawcy zapisuje dzienniki w plikach tekstowych w systemie plików aplikacji w usłudze Azure App Service i do [magazynu obiektów blob](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) na koncie magazynu Azure. Dostawca jest dostępna tylko dla aplikacji przeznaczonych dla platformy ASP.NET Core 1.1.0 lub nowszej. 
+[Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) pakiet dostawcy zapisuje dzienniki w plikach tekstowych w systemie plików aplikacji w usłudze Azure App Service i do [magazynu obiektów blob](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) na koncie magazynu Azure. Dostawca jest dostępna tylko dla aplikacji przeznaczonych dla platformy ASP.NET Core 1.1 lub nowszej.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Jeśli przeznaczonych dla platformy .NET Core, nie trzeba zainstalować pakiet dostawcy lub jawnie wywołać `AddAzureWebAppDiagnostics`. Dostawca jest automatycznie dostępne dla aplikacji, podczas wdrażania aplikacji w usłudze Azure App Service.
+Jeśli przeznaczonych dla platformy .NET Core, nie należy zainstalować pakiet dostawcy lub jawnie wywołać [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics). Dostawca jest automatycznie dostępne dla aplikacji, gdy aplikacja jest wdrożona w usłudze Azure App Service.
 
 Jeśli przeznaczonych dla platformy .NET Framework, Dodaj pakiet dostawcy do projektu i wywołać `AddAzureWebAppDiagnostics`:
 
@@ -569,23 +564,24 @@ logging.AddAzureWebAppDiagnostics();
 loggerFactory.AddAzureWebAppDiagnostics();
 ```
 
-`AddAzureWebAppDiagnostics` Przeciążenia umożliwia przekazywanie w [AzureAppServicesDiagnosticsSettings](https://github.com/aspnet/Logging/blob/c7d0b1b88668ff4ef8a86ea7d2ebb5ca7f88d3e0/src/Microsoft.Extensions.Logging.AzureAppServices/AzureAppServicesDiagnosticsSettings.cs) z którym mogą zastąpić ustawienia domyślne, takie jak rejestrowanie danych wyjściowych szablonu, nazwa obiektu blob i limit rozmiaru pliku. (*Danych wyjściowych szablonu* jest szablon wiadomości, która jest stosowana do wszystkich dzienników na elemencie podane podczas wywoływania `ILogger` metody.)
+[AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) przeciążenia umożliwia przekazywanie w [AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings) z którym mogą zastąpić ustawienia domyślne, takie jak rejestrowanie danych wyjściowych szablonu, nazwa obiektu blob i plików limit rozmiaru. (*Danych wyjściowych szablonu* jest szablon wiadomości, która jest stosowana do wszystkich dzienników na elemencie podane podczas wywoływania `ILogger` metody.)
 
 ---
 
-Podczas wdrażania aplikacji usługi app Service, aplikacja będzie honorować ustawień w [dzienników diagnostycznych](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/#enablediag) sekcji **usługi aplikacji** strony portalu Azure. Zmiana tych ustawień, zmiany zaczynają obowiązywać natychmiast bez konieczności ponownego uruchomienia aplikacji, lub Wdróż ponownie kod, aby go. 
+Podczas wdrażania aplikacji usługi app Service, aplikacja będzie honorować ustawień w [dzienników diagnostycznych](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/#enablediag) sekcji **usługi aplikacji** strony portalu Azure. Jeśli te ustawienia zostaną zaktualizowane, zmiany zaczynają obowiązywać natychmiast bez konieczności ponownego uruchamiania lub ponownego wdrażania aplikacji.
 
 ![Ustawienia rejestrowania usługi Azure](index/_static/azure-logging-settings.png)
 
-Domyślna lokalizacja dla plików dziennika jest *D:\\macierzystego\\LogFiles\\aplikacji* folderu, a domyślna nazwa pliku jest *yyyymmdd.txt diagnostyki*. Domyślnego limitu rozmiaru pliku to 10 MB, a domyślna maksymalna liczba pliki przechowywane wynosi 2. Domyślna nazwa obiektu blob jest *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*. Aby uzyskać więcej informacji na temat domyślnego zachowania, zobacz [AzureAppServicesDiagnosticsSettings](https://github.com/aspnet/Logging/blob/c7d0b1b88668ff4ef8a86ea7d2ebb5ca7f88d3e0/src/Microsoft.Extensions.Logging.AzureAppServices/AzureAppServicesDiagnosticsSettings.cs).
+Domyślna lokalizacja dla plików dziennika jest *D:\\macierzystego\\LogFiles\\aplikacji* folderu, a domyślna nazwa pliku jest *yyyymmdd.txt diagnostyki*. Domyślnego limitu rozmiaru pliku to 10 MB, a domyślna maksymalna liczba pliki przechowywane wynosi 2. Domyślna nazwa obiektu blob jest *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*. Aby uzyskać więcej informacji na temat domyślnego zachowania, zobacz [AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings).
 
-Dostawca działa tylko w przypadku, gdy projekt jest uruchamiana w środowisku platformy Azure. Po uruchomieniu lokalnie nie ma wpływu &mdash; nie zapisu plików lokalnych lub rozwoju lokalnego magazynu obiektów blob.
+Dostawca działa tylko w przypadku, gdy projekt jest uruchamiana w środowisku platformy Azure. Nie ma wpływu, gdy projekt jest uruchamiana lokalnie&mdash;nie zapisu plików lokalnych lub rozwoju lokalnego magazynu obiektów blob.
 
 ## <a name="third-party-logging-providers"></a>Rejestrowanie innych dostawców
 
 Struktury rejestrowania innych firm, które współpracują z platformy ASP.NET Core:
 
 * [elmah.IO](https://elmah.io/) ([repozytorium GitHub](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
+* [Gelf](http://docs.graylog.org/en/2.3/pages/gelf.html) ([repozytorium GitHub](https://github.com/mattwcole/gelf-extensions-logging))
 * [JSNLog](http://jsnlog.com/) ([repozytorium GitHub](https://github.com/mperdeck/jsnlog))
 * [Loggr](http://loggr.net/) ([repozytorium GitHub](https://github.com/imobile3/Loggr.Extensions.Logging))
 * [NLog](http://nlog-project.org/) ([repozytorium GitHub](https://github.com/NLog/NLog.Extensions.Logging))
@@ -604,22 +600,21 @@ Aby uzyskać więcej informacji zobacz dokumentację każdego framework.
 
 Strumieniowe przesyłanie dzienników Azure umożliwia wyświetlenie dziennika aktywności w czasie rzeczywistym z: 
 
-* Serwer aplikacji 
+* Serwer aplikacji
 * Serwer sieci web
-* Śledzenie nieudanych żądań 
+* Śledzenie nieudanych żądań
 
-Aby skonfigurować przesyłania strumieniowego dzienników Azure: 
+Aby skonfigurować przesyłania strumieniowego dzienników Azure:
 
 * Przejdź do **dzienników diagnostycznych** strony ze strony portalu aplikacji
-* Ustaw **rejestrowanie aplikacji (systemu plików)** do włączenia. 
+* Ustaw **rejestrowanie aplikacji (systemu plików)** do włączenia.
 
 ![Strona Azure portalu dzienników diagnostycznych](index/_static/azure-diagnostic-logs.png)
 
-Przejdź do **dzienników przesyłania strumieniowego** strony w celu wyświetlenia komunikatów aplikacji. Są one zarejestrowane przez aplikację za pomocą `ILogger` interfejsu. 
+Przejdź do **dzienników przesyłania strumieniowego** strony w celu wyświetlenia komunikatów aplikacji. Są one zarejestrowane przez aplikację za pomocą `ILogger` interfejsu.
 
 ![Przesyłanie strumieniowe dziennika aplikacji z portalu Azure](index/_static/azure-log-streaming.png)
 
-
-## <a name="see-also"></a>Zobacz także
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 [Rejestrowanie wysokiej wydajności z LoggerMessage](xref:fundamentals/logging/loggermessage)

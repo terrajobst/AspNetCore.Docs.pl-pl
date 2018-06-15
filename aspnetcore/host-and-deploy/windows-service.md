@@ -10,12 +10,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 33493e1ff674cd81544a7d14a7fd758c1e68bf9a
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 5eba685bbe55d43bb063a01798bc691a1ba0d6fc
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252350"
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613089"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Host platformy ASP.NET Core w usłudze systemu Windows
 
@@ -29,7 +29,16 @@ Aplikacja platformy ASP.NET Core może być obsługiwany w systemie Windows bez 
 
 Następujące minimalne zmiany są wymagane do skonfigurowania istniejącego projektu platformy ASP.NET Core do uruchamiania w usłudze:
 
-1. Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
+1. W pliku projektu:
+
+   1. Potwierdzić obecność identyfikator środowiska uruchomieniowego lub dodanie go do  **\<PropertyGroup >** zawierający platformy docelowej:
+      ```xml
+      <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+      </PropertyGroup>
+      ```
+   1. Dodaj odwołanie do pakietu [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
 
 1. Wprowadź następujące zmiany w `Program.Main`:
 
@@ -174,9 +183,6 @@ Jeśli niestandardowa `WebHostService` kod wymaga usługi z iniekcji zależnośc
 
 Usługi, które interakcję z żądaniami z Internetu lub sieci firmowej i znajdują się za serwerem proxy lub usługę równoważenia obciążenia mogą wymagać dodatkowej konfiguracji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie platformy ASP.NET Core do pracy z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
 
-## <a name="acknowledgments"></a>Potwierdzenia
+## <a name="kestrel-endpoint-configuration"></a>Konfiguracja punktu końcowego kestrel
 
-W tym artykule został napisany za pomocą opublikowanych źródeł:
-
-* [Hosting platformy ASP.NET Core jako usługa systemu Windows](https://stackoverflow.com/questions/37346383/hosting-asp-net-core-as-windows-service/37464074)
-* [Jak obsługiwać podstawowych ASP.NET w usłudze systemu Windows](https://dotnetthoughts.net/how-to-host-your-aspnet-core-in-a-windows-service/)
+Aby uzyskać informacje dotyczące konfiguracji punktu końcowego Kestrel, w tym konfiguracja protokołu HTTPS i SNI pomocy technicznej, zobacz [konfiguracji punktu końcowego Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration).

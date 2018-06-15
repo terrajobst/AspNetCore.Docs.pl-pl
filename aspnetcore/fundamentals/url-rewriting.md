@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: a021c1e133bac6676859f5bf8eb01f3a7a8c63ed
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: a4ffa512825fedafdc58ade9929097e255593fa9
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729255"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652217"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Adres URL ponowne zapisanie oprogramowania pośredniczącego w platformy ASP.NET Core
 
@@ -156,7 +156,7 @@ public void Configure(IApplicationBuilder app)
 ```
 
 > [!NOTE]
-> Podczas przekierowywania HTTPS na porcie 443 bez potrzeby przekierowania dodatkowe reguły, firma Microsoft zaleca używanie oprogramowania pośredniczącego przekierowania protokołu HTTPS. Aby uzyskać więcej informacji, zobacz [wymusić HTTPS](xref:security/enforcing-ssl#require-https) tematu.
+> Podczas przekierowywania HTTPS bez potrzeby przekierowania dodatkowe reguły, firma Microsoft zaleca używanie oprogramowania pośredniczącego przekierowania protokołu HTTPS. Aby uzyskać więcej informacji, zobacz [wymusić HTTPS](xref:security/enforcing-ssl#require-https) tematu.
 
 Przykładowa aplikacja jest w stanie pokazuje sposób użycia `AddRedirectToHttps` lub `AddRedirectToHttpsPermanent`. Dodaj metodę rozszerzenie do `RewriteOptions`. Wprowadź niezabezpieczonego żądania do aplikacji na dowolny adres URL. Odrzucić zabezpieczeń przeglądarki ostrzeżenie niezaufany certyfikat z podpisem własnym lub utworzyć wyjątek dotyczący ufać certyfikatowi.
 
