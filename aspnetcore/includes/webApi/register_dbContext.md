@@ -4,12 +4,17 @@ W tym kroku kontekst bazy danych jest zarejestrowany w [iniekcji zależności](x
 
 Zarejestruj kontekst bazy danych z kontenerem usługi przy użyciu wbudowaną obsługę [iniekcji zależności](xref:fundamentals/dependency-injection). Zastąp zawartość *Startup.cs* pliku następującym kodem:
 
-::: moniker range="<= aspnetcore-2.0"
-[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup.cs?highlight=2,4,12-13)]
-::: moniker-end
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Startup.cs?highlight=3,5,13-14)]
+
 ::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup.cs?highlight=2,4,12-13)]
+
+::: moniker-end  
 
 Poprzedni kod:
 
