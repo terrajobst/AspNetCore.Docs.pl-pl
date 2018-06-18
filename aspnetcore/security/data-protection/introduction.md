@@ -9,17 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/introduction
-ms.openlocfilehash: 5526b517ba9f1ac4b041576156b2964217460726
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 56876f43ed48b577f4d870825fd9230f526baec3
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725955"
 ---
 # <a name="aspnet-core-data-protection"></a>Ochrona danych platformy ASP.NET Core
 
 Aplikacje sieci Web często muszą przechowywać dane dotyczące zabezpieczeń. System Windows udostępnia DPAPI aplikacji klasycznych, ale to nie nadaje się do aplikacji sieci web. Stos ochrony danych platformy ASP.NET Core zapewniają prosty i łatwy w użyciu API kryptograficznych deweloper może użyć do ochrony danych, w tym zarządzania kluczami i obrotu.
 
-Stos ochrony danych platformy ASP.NET Core zaprojektowano jako długoterminowej zastępuje <machineKey> elementu w programie ASP.NET 1.x - 4.x. Została zaprojektowana w celu rozwiązania wiele niedociągnięć starego stosu kryptograficznych zapewniając poza gotowe rozwiązanie dla większości przypadków użycia, które nowoczesne aplikacje są prawdopodobnie mogą wystąpić.
+Stos ochrony danych platformy ASP.NET Core zaprojektowano jako długoterminowej zastępuje &lt;machineKey&gt; elementu w programie ASP.NET 1.x - 4.x. Została zaprojektowana w celu rozwiązania wiele niedociągnięć starego stosu kryptograficznych zapewniając poza gotowe rozwiązanie dla większości przypadków użycia, które nowoczesne aplikacje są prawdopodobnie mogą wystąpić.
 
 ## <a name="problem-statement"></a>Opis problemu
 
@@ -75,6 +76,6 @@ Stos ochrony danych składa się z pięciu pakietów.
 
 * Microsoft.AspNetCore.DataProtection.Extensions zawiera dodatkowe interfejsy API, które deweloperzy mogą być przydatne, ale które nie powinny znajdować się w pakiecie core. Na przykład ten pakiet zawiera proste "wystąpienia systemu, wskazując katalogu określonego klucza magazynu bez ustawień iniekcji zależności" API (więcej informacji). Zawiera również metody rozszerzenia dla ograniczanie okresu istnienia chronionych ładunków (więcej informacji).
 
-* Microsoft.AspNetCore.DataProtection.SystemWeb można zainstalować w istniejącej aplikacji ASP.NET 4.x przekierować jego <machineKey> operacje, aby zamiast tego użyć nowego stosu ochrony danych. Zobacz [zgodności](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey) Aby uzyskać więcej informacji.
+* Microsoft.AspNetCore.DataProtection.SystemWeb można zainstalować w istniejącej aplikacji ASP.NET 4.x przekierować jego &lt;machineKey&gt; operacje, aby zamiast tego użyć nowego stosu ochrony danych. Zobacz [zgodności](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey) Aby uzyskać więcej informacji.
 
 * Microsoft.AspNetCore.Cryptography.KeyDerivation dostarcza implementację tego hasła PBKDF2 mieszania procedury i mogą być używane przez systemy, które musi obsłużyć bezpiecznego hasła użytkownika. Zobacz [skrótów haseł](xref:security/data-protection/consumer-apis/password-hashing) Aby uzyskać więcej informacji.

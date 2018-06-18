@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 3f59f7d1bf0280cef8f7757e8cd57d4872769b3d
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 440695f98714f33cff9e4bf97bfc09477901e14c
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34688999"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725994"
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>Logowanie zewnętrzne konfiguracji z platformy ASP.NET Core w usłudze Twitter
 
@@ -32,7 +32,10 @@ W tym samouczku przedstawiono sposób użytkownicy mogli [Zaloguj się przy uży
 
 ![Tworzenie strony aplikacji](index/_static/TwitterCreate.png)
 
-* Wprowadź identyfikator URI programowania z */signin-twitter* dołączany do **prawidłowy OAuth identyfikator URI przekierowania** pola (na przykład: `https://localhost:44320/signin-twitter`). Schemat uwierzytelniania Twitter skonfigurowane w dalszej części tego samouczka automatycznie będzie obsługiwać żądań */signin-twitter* trasy do zaimplementowania przepływu OAuth.
+* Wprowadź identyfikator URI programowania z `/signin-twitter` dołączany do **prawidłowy OAuth identyfikator URI przekierowania** pola (na przykład: `https://localhost:44320/signin-twitter`). Schemat uwierzytelniania Twitter skonfigurowane w dalszej części tego samouczka automatycznie będzie obsługiwać żądań `/signin-twitter` trasy do zaimplementowania przepływu OAuth.
+
+> [!NOTE]
+> Segment identyfikatora URI `/signin-twitter` jest ustawiony jako wywołania zwrotnego domyślnego dostawcy uwierzytelniania usługi Twitter. Identyfikator URI wywołania zwrotnego domyślne można zmienić podczas konfigurowania oprogramowania pośredniczącego uwierzytelniania usługi Twitter, za pośrednictwem dziedziczonego [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) właściwość [TwitterOptions](/dotnet/api/microsoft.aspnetcore.authentication.twitter.twitteroptions) Klasa.
 
 * Wypełnij pozostałej części formularza i wybierz **tworzenie aplikacji Twitter**. Wyświetlane są szczegóły nowej aplikacji:
 

@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: a9bf7b49b1cfdfff65c639eed1e14c94c5432350
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 46973f8a82034bd99a6e6634bbd6da06b1b14f25
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34689025"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35726033"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Konfigurowanie logowania zewnętrznego Account firmy Microsoft z platformy ASP.NET Core
 
@@ -46,9 +46,12 @@ Jeśli nie masz już konto Microsoft, naciśnij przycisk  **[utwórz je!](https:
 
 ![Platforma okno dialogowe Dodawanie](index/_static/MicrosoftDevAppPlatform.png)
 
-* W nowym **Web** platformy wprowadź adres URL programowanie z */signin-microsoft* dołączany do **adresów URL przekierowań** pola (na przykład: `https://localhost:44320/signin-microsoft`). Schemat uwierzytelniania firmy Microsoft, skonfigurowane w dalszej części tego samouczka automatycznie będzie obsługiwać żądań */signin-microsoft* trasy do zaimplementowania przepływu OAuth:
+* W nowym **Web** platformy wprowadź adres URL programowanie z `/signin-microsoft` dołączany do **adresów URL przekierowań** pola (na przykład: `https://localhost:44320/signin-microsoft`). Schemat uwierzytelniania firmy Microsoft, skonfigurowane w dalszej części tego samouczka automatycznie będzie obsługiwać żądań `/signin-microsoft` trasy do zaimplementowania przepływu OAuth:
 
 ![Sekcja platformy sieci Web](index/_static/MicrosoftRedirectUri.png)
+
+> [!NOTE]
+> Segment identyfikatora URI `/signin-microsoft` jest ustawiony jako wywołania zwrotnego domyślnego dostawcy uwierzytelniania firmy Microsoft. Identyfikator URI wywołania zwrotnego domyślne można zmienić podczas konfigurowania oprogramowania pośredniczącego uwierzytelniania firmy Microsoft za pośrednictwem dziedziczonego [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) właściwość [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions) klasy.
 
 * Wybierz **Dodaj adres URL** zapewnienie adres URL został dodany.
 

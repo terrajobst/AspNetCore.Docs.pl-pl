@@ -10,18 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: e7a2cf3633ed48a0d2030739cdc092441fcae2ff
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 80cd39af61e856d3ce92db1c26e70788bcdca83d
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252038"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725822"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Tożsamość szkieletu w projektów platformy ASP.NET Core
 
 przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Udostępnia platformy ASP.NET Core 2.1 i nowsze [ASP.NET Core Identity](xref:security/authentication/identity) jako [biblioteki klas Razor](xref:mvc/razor-pages/ui-class). Aplikacje, które obejmują tożsamości można zastosować tworzenia szkieletu selektywnie dodać kod źródłowy zawartych w bibliotece klasy Razor tożsamości (RCL). Można wygenerować kodu źródłowego, aby można było zmodyfikować kod i zmiany zachowania. Na przykład można nakazać tworzenia szkieletu, aby wygenerować kod używany w rejestracji. Wygenerowany kod mają pierwszeństwo przed ten sam kod w RCL tożsamości.
+Udostępnia platformy ASP.NET Core 2.1 i nowsze [ASP.NET Core Identity](xref:security/authentication/identity) jako [biblioteki klas Razor](xref:mvc/razor-pages/ui-class). Aplikacje, które obejmują tożsamości można zastosować tworzenia szkieletu selektywnie dodać kod źródłowy zawartych w bibliotece klasy Razor tożsamości (RCL). Można wygenerować kodu źródłowego, aby można było zmodyfikować kod i zmiany zachowania. Na przykład można nakazać tworzenia szkieletu, aby wygenerować kod używany w rejestracji. Wygenerowany kod mają pierwszeństwo przed ten sam kod w RCL tożsamości. Aby uzyskać pełną kontrolę nad interfejsu użytkownika i nie używa domyślnego RCL, zobacz sekcję [Utwórz pełną tożsamości interfejsu użytkownika źródło](#full).
 
 Aplikacje, które wykonują **nie** obejmują uwierzytelniania można zastosować tworzenia szkieletu, aby dodać pakiet RCL tożsamości. Istnieje możliwość wybrania tożsamości kod zostanie wygenerowany.
 
@@ -144,3 +144,24 @@ dotnet aspnet-codegenerator identity -dc MvcAuth.Data.ApplicationDbContext --fil
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
 
 Usuń *stron/Shared* folderów i plików w tym folderze.
+
+<a name="full"></a>
+
+## <a name="create-full-identity-ui-source"></a>Utwórz pełną tożsamości źródło interfejsu użytkownika
+
+Aby zachować pełną kontrolę nad interfejsu tożsamości użytkownika, uruchom tworzenia szkieletu tożsamości i wybierz **Zastąp wszystkie pliki**.
+
+Następujący wyróżniony kod przedstawia zmiany, aby zastąpić domyślny interfejs tożsamości użytkownika z tożsamością w aplikacji sieci web platformy ASP.NET Core 2.1. Można to zrobić, aby mieć pełną kontrolę nad interfejsu tożsamości użytkownika.
+
+[!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet1&highlight=13-14,17-999)]
+
+Wartość domyślna tożsamości został zastąpiony w poniższym kodzie: [!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet2)]
+
+Poniższy kod konfiguruje platformy ASP.NET Core do autoryzacji strony tożsamości, które wymagają autoryzacji: [!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet3)]
+
+Poniższy kod ustawia plik cookie tożsamości do użycia poprawną ścieżkę strony tożsamości.
+[!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet3)]
+
+Zarejestruj `IEmailSender` implementacji, na przykład:
+
+[!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet4)]
