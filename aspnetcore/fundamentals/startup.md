@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
 ms.openlocfilehash: 58ced0ae11f462bc309526b7db7bda7897c33009
-ms.sourcegitcommit: 0d6f151e69c159d776ed0142773279e645edbc0a
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/13/2018
+ms.lasthandoff: 06/18/2018
 ms.locfileid: "34233173"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
