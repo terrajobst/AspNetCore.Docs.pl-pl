@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "26566444"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Wskazówki laboratorium: Narzędzia sieci Web 2013 Visual Studio
 ====================

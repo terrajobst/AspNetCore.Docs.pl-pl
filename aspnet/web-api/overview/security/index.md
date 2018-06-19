@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/index
-title: "Zabezpieczenia, uwierzytelnianie i autoryzacja w składniku ASP.NET Web API | Dokumentacja firmy Microsoft"
+title: Zabezpieczenia, uwierzytelnianie i autoryzacja w składniku ASP.NET Web API | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Problemy z bezpieczeństwem dotyczące interfejsu API sieci Web."
+description: Problemy z bezpieczeństwem dotyczące interfejsu API sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/11/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566732"
 ---
 <a name="security-authentication-and-authorization-in-aspnet-web-api"></a>Zabezpieczenia, uwierzytelnianie i autoryzacja w składniku ASP.NET Web API
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/index
-title: "ASP.NET 4 - wdrożenia sieci Web przy użyciu programu Visual Studio programu SQL Server Compact | Dokumentacja firmy Microsoft"
+title: ASP.NET 4 - wdrożenia sieci Web przy użyciu programu Visual Studio programu SQL Server Compact | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ta seria samouczek pokazuje, jak utworzyć aplikację sieci web platformy ASP.NET, który używa programu SQL Server Compact dostępne w Internecie przez wdrożenie jej h innych firm..."
+description: Ta seria samouczek pokazuje, jak utworzyć aplikację sieci web platformy ASP.NET, który używa programu SQL Server Compact dostępne w Internecie przez wdrożenie jej h innych firm...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/29/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569735"
 ---
 <a name="aspnet-4---web-deployment-with-sql-server-compact-using-visual-studio"></a>ASP.NET 4 - wdrożenia sieci Web przy użyciu programu Visual Studio programu SQL Server Compact
 ====================

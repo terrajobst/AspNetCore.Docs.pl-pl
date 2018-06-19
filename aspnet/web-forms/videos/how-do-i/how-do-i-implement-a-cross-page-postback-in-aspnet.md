@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet
-title: "[Jak i.] Implementowanie odświeżania strony między stronami w programie ASP.NET | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Implementowanie odświeżania strony między stronami w programie ASP.NET | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof przedstawiono sposób tworzenia granic ogłaszania zwrotnego strony w programie ASP.NET, w którym formantu na stronie źródło wywołuje zdarzenie ogłaszania zwrotnego strony na inny element docelowy..."
+description: W tym wideo Pels Krzysztof przedstawiono sposób tworzenia granic ogłaszania zwrotnego strony w programie ASP.NET, w którym formantu na stronie źródło wywołuje zdarzenie ogłaszania zwrotnego strony na inny element docelowy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/10/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572198"
 ---
 <a name="how-do-i-implement-a-cross-page-postback-in-aspnet"></a>[Jak i.] Implementowanie odświeżania strony między stronami w programie ASP.NET
 ====================

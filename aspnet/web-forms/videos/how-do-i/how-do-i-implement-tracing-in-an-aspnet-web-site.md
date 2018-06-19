@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-tracing-in-an-aspnet-web-site
-title: "[Jak i.]  Implementowanie śledzenia w witrynie sieci Web ASP.NET? | Dokumentacja firmy Microsoft"
+title: '[Jak i.]  Implementowanie śledzenia w witrynie sieci Web ASP.NET? | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof opisano, jak Implementowanie śledzenia w witryny sieci web ASP.NET do monitorowania lub pomiaru wydajności i diagnozowanie błędów. Dowiedz się więcej ho..."
+description: W tym wideo Pels Krzysztof opisano, jak Implementowanie śledzenia w witryny sieci web ASP.NET do monitorowania lub pomiaru wydajności i diagnozowanie błędów. Dowiedz się więcej ho...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572273"
 ---
 <a name="how-do-i--implement-tracing-in-an-aspnet-web-site"></a>[Jak i.]  Implementowanie śledzenia w witrynie sieci Web ASP.NET?
 ====================

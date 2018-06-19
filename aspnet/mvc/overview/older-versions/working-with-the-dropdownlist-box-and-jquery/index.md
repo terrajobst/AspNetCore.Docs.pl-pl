@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/index
-title: "MVC 3 — Praca z jQuery i okno Lista DropDownList | Dokumentacja firmy Microsoft"
+title: MVC 3 — Praca z jQuery i okno Lista DropDownList | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku przedstawiono sposób korzystania z pola DropDownList z jQuery"
+description: W tym samouczku przedstawiono sposób korzystania z pola DropDownList z jQuery
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/19/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565082"
 ---
 <a name="mvc-3---working-with-the-dropdownlist-box-and-jquery"></a>MVC 3 — Praca z pola DropDownList i jQuery
 ====================

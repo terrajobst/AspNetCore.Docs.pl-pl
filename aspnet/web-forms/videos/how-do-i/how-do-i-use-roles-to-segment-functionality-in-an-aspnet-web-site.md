@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site
-title: "[Jak i.] Użyć ról na segmenty funkcji w witrynie sieci Web programu ASP.NET | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Użyć ról na segmenty funkcji w witrynie sieci Web programu ASP.NET | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "To wideo Pels Krzysztof wyświetli jak zwiększyć użycie ról w witrynie sieci web ASP.NET po skonfigurowaniu członkostwa ASP.NET. Po pierwsze Dowiedz się, jak skonfigurować formant karta..."
+description: To wideo Pels Krzysztof wyświetli jak zwiększyć użycie ról w witrynie sieci web ASP.NET po skonfigurowaniu członkostwa ASP.NET. Po pierwsze Dowiedz się, jak skonfigurować formant karta...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572264"
 ---
 <a name="how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site"></a>[Jak i.] Użyć ról na segmenty funkcji w witrynie sieci Web ASP.NET
 ====================

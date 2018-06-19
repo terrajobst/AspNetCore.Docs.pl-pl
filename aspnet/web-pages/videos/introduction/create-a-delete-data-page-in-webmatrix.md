@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/create-a-delete-data-page-in-webmatrix
-title: "Utwórz stronę usuwania danych w programie WebMatrix | Dokumentacja firmy Microsoft"
+title: Utwórz stronę usuwania danych w programie WebMatrix | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Część 8 zakończy się poza aplikacji poprzez wyświetlenie tworzenie stronę usuwania danych."
+description: Część 8 zakończy się poza aplikacji poprzez wyświetlenie tworzenie stronę usuwania danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573293"
 ---
 <a name="create-a-delete-data-page-in-webmatrix"></a>Utwórz stronę usuwania danych w programie WebMatrix
 ====================

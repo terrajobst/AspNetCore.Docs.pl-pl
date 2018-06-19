@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/index
-title: "Visual Studio 2012 wskazówki Labs | Dokumentacja firmy Microsoft"
+title: Visual Studio 2012 wskazówki Labs | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Dowiedz się, jak tworzyć aplikacje za pomocą składnika ASP.NET Web Forms z tych laboratoriów w ręce"
+description: Dowiedz się, jak tworzyć aplikacje za pomocą składnika ASP.NET Web Forms z tych laboratoriów w ręce
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569270"
 ---
 <a name="visual-studio-2012-hands-on-labs"></a>Visual Studio 2012 wskazówki Labs
 ====================

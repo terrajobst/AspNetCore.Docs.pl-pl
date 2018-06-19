@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566783"
 ---
 <a name="testing-and-debugging-aspnet-web-api"></a>Testowanie i debugowanie interfejsu API sieci Web ASP.NET
 ====================

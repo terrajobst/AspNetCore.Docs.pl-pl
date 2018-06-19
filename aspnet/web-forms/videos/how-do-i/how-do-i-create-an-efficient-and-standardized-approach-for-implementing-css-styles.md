@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles
-title: "Jak: utworzyć podejście wydajne i standardowej implementacji style CSS? | Dokumentacja firmy Microsoft"
+title: 'Jak: utworzyć podejście wydajne i standardowej implementacji style CSS? | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof pokazuje, jak organizowanie i stosowanie stylów CSS, które zapewniają standardowe wyglądu i działania witryny sieci web. Ponadto style są..."
+description: W tym wideo Pels Krzysztof pokazuje, jak organizowanie i stosowanie stylów CSS, które zapewniają standardowe wyglądu i działania witryny sieci web. Ponadto style są...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/15/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570875"
 ---
 <a name="how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles"></a>Jak: utworzyć podejście wydajne i standardowej implementacji style CSS?
 ====================

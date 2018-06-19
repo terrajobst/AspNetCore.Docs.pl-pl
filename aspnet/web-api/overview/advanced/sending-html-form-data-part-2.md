@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/sending-html-form-data-part-2
-title: "Wysyłanie danych formularza HTML zakodowanych w składniku ASP.NET Web API: Przekaż i wieloczęściowej wiadomości MIME pliku | Dokumentacja firmy Microsoft"
+title: 'Wysyłanie danych formularza HTML zakodowanych w składniku ASP.NET Web API: Przekaż i wieloczęściowej wiadomości MIME pliku | Dokumentacja firmy Microsoft'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/21/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28040145"
 ---
 <a name="sending-html-form-data-in-aspnet-web-api-file-upload-and-multipart-mime"></a>Wysyłanie danych formularza HTML zakodowanych w składniku ASP.NET Web API: Przekaż i wieloczęściowej wiadomości MIME pliku
 ====================

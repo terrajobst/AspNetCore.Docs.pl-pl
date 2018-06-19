@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies
-title: "[Jak i.] Scal zestawy za pomocą narzędzia aspnet_merge.exe | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Scal zestawy za pomocą narzędzia aspnet_merge.exe | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "To wideo Pels Krzysztof będzie pokazują, jak połączyć zestawy, które zostały skompilowane przy użyciu aspnet_compiler.exe utilit za pomocą narzędzia aspnet_merge.exe..."
+description: To wideo Pels Krzysztof będzie pokazują, jak połączyć zestawy, które zostały skompilowane przy użyciu aspnet_compiler.exe utilit za pomocą narzędzia aspnet_merge.exe...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572252"
 ---
 <a name="how-do-i-use-the-aspnetmergeexe-utility-to-merge-assemblies"></a>[Jak i.] Użyj narzędzia aspnet_merge.exe do scalenia zestawów
 ====================

@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-2/how-do-i/index
 title: Jak I | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Filmy wideo w tej sekcji opisano platformy ASP.NET MVC, łącznie ze sposobem tworzenia \"sklepu\" - aplikacji cały handlu elektronicznego od początku do zakończenia."
+description: Filmy wideo w tej sekcji opisano platformy ASP.NET MVC, łącznie ze sposobem tworzenia "sklepu" - aplikacji cały handlu elektronicznego od początku do zakończenia.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/15/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565583"
 ---
 <a name="how-do-i"></a>Jak I
 ====================

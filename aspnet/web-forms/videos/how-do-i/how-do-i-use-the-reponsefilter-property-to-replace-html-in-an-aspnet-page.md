@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-reponsefilter-property-to-replace-html-in-an-aspnet-page
-title: "[Jak i.] Aby zastąpić HTML strony ASP.NET należy użyć właściwości Reponse.Filter | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Aby zastąpić HTML strony ASP.NET należy użyć właściwości Reponse.Filter | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof przedstawia sposób użycia właściwości Reponse.Filter przechwycenia i alter są wysyłane do strony HTML. Po pierwsze przykładową stronę jest tworzony w..."
+description: W tym wideo Pels Krzysztof przedstawia sposób użycia właściwości Reponse.Filter przechwycenia i alter są wysyłane do strony HTML. Po pierwsze przykładową stronę jest tworzony w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/29/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571964"
 ---
 <a name="how-do-i-use-the-reponsefilter-property-to-replace-html-in-an-aspnet-page"></a>[Jak i.] Aby zastąpić HTML strony ASP.NET należy użyć właściwości Reponse.Filter
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/database-driven-site-maps/index
 title: Opartej na bazie danych map witryn | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku wyjaśniono sposób zastosowania mapy witryny sieci Web dynamicznie na podstawie informacji w bazie danych."
+description: W tym samouczku wyjaśniono sposób zastosowania mapy witryny sieci Web dynamicznie na podstawie informacji w bazie danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568214"
 ---
 <a name="database-driven-site-maps"></a>Mapy witryny opartej na bazie danych
 ====================

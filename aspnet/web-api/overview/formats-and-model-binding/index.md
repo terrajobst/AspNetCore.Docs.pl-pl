@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/index
-title: "Serializacja i wiązania modelu w składniku ASP.NET Web API | Dokumentacja firmy Microsoft"
+title: Serializacja i wiązania modelu w składniku ASP.NET Web API | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak składnika ASP.NET Web API wiąże wiadomości HTTP modeli domeny i jak pracować z nośnika formaty w interfejsie API sieci Web."
+description: Jak składnika ASP.NET Web API wiąże wiadomości HTTP modeli domeny i jak pracować z nośnika formaty w interfejsie API sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566336"
 ---
 <a name="serialization-and-model-binding-in-aspnet-web-api"></a>Serializacja i wiązania modelu w składniku ASP.NET Web API
 ====================

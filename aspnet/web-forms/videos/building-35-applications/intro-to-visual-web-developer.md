@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/intro-to-visual-web-developer
 title: Wprowadzenie do programu Visual Web Developer | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: "Microsoft Visual Web Developer jest bezpłatna wersja programu Visual Studio do tworzenia aplikacji ASP.NET. Ten film pokazują, jak pobrać i zainstalować go i t..."
+description: Microsoft Visual Web Developer jest bezpłatna wersja programu Visual Studio do tworzenia aplikacji ASP.NET. Ten film pokazują, jak pobrać i zainstalować go i t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570563"
 ---
 <a name="intro-to-visual-web-developer"></a>Wprowadzenie do programu Visual Web Developer
 ====================

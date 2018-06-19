@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/index
 title: Starsze wersje - Ajax kontroli Toolkit | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak rozpocząć pracę z zestawu narzędzi kontroli Ajax i jak korzystać z niektórych formantów najpopularniejszych. DevExpress utrzymuje bezpłatne i otwórz powierzając jej ich konserwację zysk Ajax..."
+description: Jak rozpocząć pracę z zestawu narzędzi kontroli Ajax i jak korzystać z niektórych formantów najpopularniejszych. DevExpress utrzymuje bezpłatne i otwórz powierzając jej ich konserwację zysk Ajax...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567560"
 ---
 <a name="older-versions---ajax-control-toolkit"></a>Starsze wersje - Toolkit kontroli Ajax
 ====================

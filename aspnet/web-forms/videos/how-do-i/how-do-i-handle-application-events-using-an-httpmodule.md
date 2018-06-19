@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-handle-application-events-using-an-httpmodule
-title: "[Jak i.] Obsługa zdarzeń aplikacji przy użyciu HttpModule? | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Obsługa zdarzeń aplikacji przy użyciu HttpModule? | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "Dowiedz się, jak utworzyć HttpModule obsługuje zdarzenia aplikacji podczas przetwarzania żądania strony. Moduł próbki zapisze informacje w dzienniku..."
+description: Dowiedz się, jak utworzyć HttpModule obsługuje zdarzenia aplikacji podczas przetwarzania żądania strony. Moduł próbki zapisze informacje w dzienniku...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572159"
 ---
 <a name="how-do-i-handle-application-events-using-an-httpmodule"></a>[Jak i.] Obsługa zdarzeń aplikacji przy użyciu HttpModule?
 ====================

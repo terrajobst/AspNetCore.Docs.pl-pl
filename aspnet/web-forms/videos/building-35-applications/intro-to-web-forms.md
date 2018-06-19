@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/intro-to-web-forms
 title: Wprowadzenie do formularzy sieci Web | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: "Formularze sieci Web ASP.NET jest domyślny mechanizm interfejsu użytkownika dla aplikacji ASP.NET. Ten film pokazują, basic powstania z formularzy sieci Web."
+description: Formularze sieci Web ASP.NET jest domyślny mechanizm interfejsu użytkownika dla aplikacji ASP.NET. Ten film pokazują, basic powstania z formularzy sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570611"
 ---
 <a name="intro-to-web-forms"></a>Wprowadzenie do formularzy sieci Web
 ====================

@@ -2,7 +2,7 @@
 uid: web-api/overview/web-api-routing-and-actions/index
 title: Routing w sieci Web interfejsu API | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak składnika ASP.NET Web API kieruje żądania HTTP do kontrolerów i akcji."
+description: Jak składnika ASP.NET Web API kieruje żądania HTTP do kontrolerów i akcji.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566999"
 ---
 <a name="web-api-routing"></a>Routing interfejsu API sieci Web
 ====================

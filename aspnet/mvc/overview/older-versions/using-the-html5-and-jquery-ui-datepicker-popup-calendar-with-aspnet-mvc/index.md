@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/index
-title: "MVC 3 - kalendarza podręcznego selektora daty interfejsu użytkownika jQuery i HTML5 | Dokumentacja firmy Microsoft"
+title: MVC 3 - kalendarza podręcznego selektora daty interfejsu użytkownika jQuery i HTML5 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku przedstawiono sposób pracy z szablonami edytora, szablonów wyświetlania i kalendarza podręcznego selektora daty interfejsu użytkownika jQuery, w aplikacji sieci Web programu ASP.NET MVC."
+description: W tym samouczku przedstawiono sposób pracy z szablonami edytora, szablonów wyświetlania i kalendarza podręcznego selektora daty interfejsu użytkownika jQuery, w aplikacji sieci Web programu ASP.NET MVC.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/19/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565085"
 ---
 <a name="mvc-3---the-html5-and-jquery-ui-datepicker-popup-calendar"></a>MVC 3 - kalendarza podręcznego selektora daty interfejsu użytkownika jQuery i HTML5
 ====================

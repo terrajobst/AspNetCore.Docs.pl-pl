@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/index
-title: "Uzyskiwanie dostępu do bazy danych bezpośrednio ze strony programu ASP.NET | Dokumentacja firmy Microsoft"
+title: Uzyskiwanie dostępu do bazy danych bezpośrednio ze strony programu ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Te samouczki przedstawiają sposób formant SqlDataSource umożliwia bezpośrednio kwerend do bazy danych, gdy nie są ściśle separacji prezentacji i danych..."
+description: Te samouczki przedstawiają sposób formant SqlDataSource umożliwia bezpośrednio kwerend do bazy danych, gdy nie są ściśle separacji prezentacji i danych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567821"
 ---
 <a name="accessing-the-database-directly-from-an-aspnet-page"></a>Uzyskiwanie dostępu do bazy danych bezpośrednio ze strony programu ASP.NET
 ====================

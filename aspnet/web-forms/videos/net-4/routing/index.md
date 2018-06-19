@@ -2,7 +2,7 @@
 uid: web-forms/videos/net-4/routing/index
 title: Routing | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "To wideo pokazuje, jak utworzyć intuicyjne i adresów URL przyjaznych dla aparatów wyszukiwania dla aplikacji formularzy sieci Web."
+description: To wideo pokazuje, jak utworzyć intuicyjne i adresów URL przyjaznych dla aparatów wyszukiwania dla aplikacji formularzy sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571922"
 ---
 <a name="routing"></a>Routing
 ====================

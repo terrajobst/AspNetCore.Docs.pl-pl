@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/mvc-learning-sequence
-title: "MVC zalecane samouczki i artykuły | Dokumentacja firmy Microsoft"
+title: MVC zalecane samouczki i artykuły | Dokumentacja firmy Microsoft
 author: Rick-Anderson
-description: "Ta strona zawiera linki do samouczki platformy ASP.NET MVC i sugerowane sekwencji je wykonać."
+description: Ta strona zawiera linki do samouczki platformy ASP.NET MVC i sugerowane sekwencji je wykonać.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28032644"
 ---
 <a name="mvc-recommended-tutorials-and-articles"></a>Zalecane samouczki i artykuły MVC
 ====================

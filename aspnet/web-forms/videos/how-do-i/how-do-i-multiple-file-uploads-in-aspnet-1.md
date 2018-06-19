@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-multiple-file-uploads-in-aspnet-1
-title: "[Jak i.]  Przekazywania wielu plików w programie ASP.NET 1 | Dokumentacja firmy Microsoft"
+title: '[Jak i.]  Przekazywania wielu plików w programie ASP.NET 1 | Dokumentacja firmy Microsoft'
 author: JoeStagner
-description: "W tym wideo I opracuje dotyczące przekazywania wielu plików do aplikacji ASP.NET."
+description: W tym wideo I opracuje dotyczące przekazywania wielu plików do aplikacji ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/12/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572759"
 ---
 <a name="how-do-i--multiple-file-uploads-in-aspnet-1"></a>[Jak i.]  Przekazywania wielu plików w programie ASP.NET 1
 ====================

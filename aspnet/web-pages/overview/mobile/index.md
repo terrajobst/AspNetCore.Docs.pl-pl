@@ -2,7 +2,7 @@
 uid: web-pages/overview/mobile/index
 title: Mobile | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak pracować z urządzeń przenośnych w aplikacjach ASP.NET Web Pages."
+description: Jak pracować z urządzeń przenośnych w aplikacjach ASP.NET Web Pages.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572894"
 ---
 <a name="mobile"></a>Telefon komórkowy
 ====================

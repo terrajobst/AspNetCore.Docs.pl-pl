@@ -2,7 +2,7 @@
 uid: web-pages/videos/introduction/create-a-web-interface-in-webmatrix
 title: Tworzenie interfejsu sieci Web w programie WebMatrix | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Część 6 przedstawia sposób tworzenia strony, który umożliwia użytkownikom dodawanie danych do bazy danych, więc witryny może renderować ją."
+description: Część 6 przedstawia sposób tworzenia strony, który umożliwia użytkownikom dodawanie danych do bazy danych, więc witryny może renderować ją.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573227"
 ---
 <a name="create-a-web-interface-in-webmatrix"></a>Tworzenie interfejsu sieci Web w programie WebMatrix
 ====================

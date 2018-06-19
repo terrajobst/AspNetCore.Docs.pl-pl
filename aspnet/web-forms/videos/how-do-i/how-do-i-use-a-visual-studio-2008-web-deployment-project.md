@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-a-visual-studio-2008-web-deployment-project
-title: "[Jak i.] Użyj programu Visual Studio 2008 projektu sieci Web wdrożenia | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Użyj programu Visual Studio 2008 projektu sieci Web wdrożenia | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof przedstawia sposób użycia dodatku Visual Studio 2008 Web Deployment do tworzenia projektów wdrożenia z dokładniejszą kontrolę nad jak..."
+description: W tym wideo Pels Krzysztof przedstawia sposób użycia dodatku Visual Studio 2008 Web Deployment do tworzenia projektów wdrożenia z dokładniejszą kontrolę nad jak...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/11/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570860"
 ---
 <a name="how-do-i-use-a-visual-studio-2008-web-deployment-project"></a>[Jak i.] Użyj programu Visual Studio 2008 projektu sieci Web wdrożenia
 ====================

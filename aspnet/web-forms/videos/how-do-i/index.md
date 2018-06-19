@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/index
 title: Jak? | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Sposób wykonywania różnych zadań."
+description: Sposób wykonywania różnych zadań.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572258"
 ---
 <a name="how-do-i"></a>Jak?
 ====================

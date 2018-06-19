@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-and-use-classes-in-javascript
-title: "Jak i. Tworzenie i używać klas w języku JavaScript? | Dokumentacja firmy Microsoft"
+title: Jak i. Tworzenie i używać klas w języku JavaScript? | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "To wideo Pels Krzysztof przedstawiono sposób tworzenia klas w języku JavaScript z funkcjami podobne do innych języków programowania z capabilitie obiektowej..."
+description: To wideo Pels Krzysztof przedstawiono sposób tworzenia klas w języku JavaScript z funkcjami podobne do innych języków programowania z capabilitie obiektowej...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/08/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572087"
 ---
 <a name="how-do-i-create-and-use-classes-in-javascript"></a>Jak i. Tworzenie i używać klas w języku JavaScript?
 ====================

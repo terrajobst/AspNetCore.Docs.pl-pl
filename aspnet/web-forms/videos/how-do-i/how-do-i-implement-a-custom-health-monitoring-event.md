@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-a-custom-health-monitoring-event
-title: "[Jak i.] Implementowanie niestandardowych kondycji, monitorowanie zdarzeń | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Implementowanie niestandardowych kondycji, monitorowanie zdarzeń | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie pokazują, jak utworzyć niestandardowe kondycji, monitorowanie zdarzeń, rozszerzający standardowe kondycji, monitorowanie zdarzeń w programie ASP.NET. Niestandardowe pro..."
+description: W tym wideo Pels Krzysztof będzie pokazują, jak utworzyć niestandardowe kondycji, monitorowanie zdarzeń, rozszerzający standardowe kondycji, monitorowanie zdarzeń w programie ASP.NET. Niestandardowe pro...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/17/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571793"
 ---
 <a name="how-do-i-implement-a-custom-health-monitoring-event"></a>[Jak i.] Implementowanie niestandardowych kondycji, monitorowanie zdarzeń
 ====================

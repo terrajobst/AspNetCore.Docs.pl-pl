@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-1/conference-presentations/americas-next-top-model-view-controller-framework
 title: Framework kontrolera widoku modelu Top w Ameryce dalej | Dokumentacja firmy Microsoft
 author: Haacked
-description: "Zobacz, jak utworzyć prostą aplikację, która opisano niektóre z kluczowych możliwości platformy ASP.NET MVC. Ponadto Dowiedz się, jak poprawić wydajność niektórych..."
+description: Zobacz, jak utworzyć prostą aplikację, która opisano niektóre z kluczowych możliwości platformy ASP.NET MVC. Ponadto Dowiedz się, jak poprawić wydajność niektórych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565337"
 ---
 <a name="americas-next-top-model-view-controller-framework"></a>Framework kontrolera widoku modelu Top w Ameryce dalej
 ====================

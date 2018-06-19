@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/index
 title: Akcje niestandardowe przycisk DataList i powtarzanego | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Te samouczki przedstawiają sposób dodawanie przycisków do kontroli DataList i powtarzanego w celu dodania funkcji niestandardowych."
+description: Te samouczki przedstawiają sposób dodawanie przycisków do kontroli DataList i powtarzanego w celu dodania funkcji niestandardowych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568109"
 ---
 <a name="custom-button-actions-with-the-datalist-and-repeater"></a>Akcje niestandardowe przycisk DataList i powtarzanego
 ====================

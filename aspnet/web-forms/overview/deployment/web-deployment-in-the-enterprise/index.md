@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/index
-title: "ASP.NET 4 - Enterprise wdrażania serii 1 | Dokumentacja firmy Microsoft"
+title: ASP.NET 4 - Enterprise wdrażania serii 1 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek przedstawia sposób spełniają partii wyzwania, które będą występować w przypadku zarządzać wdrażaniem aplikacji sieci web skali przedsiębiorstwa developmen..."
+description: Ten samouczek przedstawia sposób spełniają partii wyzwania, które będą występować w przypadku zarządzać wdrażaniem aplikacji sieci web skali przedsiębiorstwa developmen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568859"
 ---
 <a name="aspnet-4---enterprise-deployment-series-1"></a>ASP.NET 4 - Enterprise wdrażania serii 1
 ====================

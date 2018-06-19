@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/build-your-first-asp-net-application-with-asp-net-mvc
-title: "Tworzenie pierwszej aplikacji platformy ASP.NET z platformą ASP.NET MVC | Dokumentacja firmy Microsoft"
+title: Tworzenie pierwszej aplikacji platformy ASP.NET z platformą ASP.NET MVC | Dokumentacja firmy Microsoft
 author: lmoroney
-description: "Firmy Microsoft Laurence Moroney przedstawia sposób tworzenia pierwszej aplikacji platformy ASP.NET z platformą ASP.NET MVC."
+description: Firmy Microsoft Laurence Moroney przedstawia sposób tworzenia pierwszej aplikacji platformy ASP.NET z platformą ASP.NET MVC.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571856"
 ---
 <a name="build-your-first-aspnet-application-with-aspnet-mvc"></a>Tworzenie pierwszej aplikacji platformy ASP.NET z platformą ASP.NET MVC
 ====================

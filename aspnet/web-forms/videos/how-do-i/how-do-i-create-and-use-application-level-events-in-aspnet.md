@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-and-use-application-level-events-in-aspnet
-title: "[Jak i.]  Tworzenie i używanie zdarzenia na poziomie aplikacji w programie ASP.NET | Dokumentacja firmy Microsoft"
+title: '[Jak i.]  Tworzenie i używanie zdarzenia na poziomie aplikacji w programie ASP.NET | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie pokazują, jak utworzyć plik klasa aplikacji (pliku Global.asax), który zawiera programy obsługi zdarzeń na poziomie aplikacji takich jak Application_S..."
+description: W tym wideo Pels Krzysztof będzie pokazują, jak utworzyć plik klasa aplikacji (pliku Global.asax), który zawiera programy obsługi zdarzeń na poziomie aplikacji takich jak Application_S...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/28/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570659"
 ---
 <a name="how-do-i--create-and-use-application-level-events-in-aspnet"></a>[Jak i.]  Tworzenie i używanie zdarzenia na poziomie aplikacji w programie ASP.NET
 ====================

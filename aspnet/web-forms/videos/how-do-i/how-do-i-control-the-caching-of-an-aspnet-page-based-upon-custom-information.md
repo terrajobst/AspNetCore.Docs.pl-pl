@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information
 title: '[Jak i.] Formant buforowanie strony ASP.NET na podstawie niestandardowych informacji | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof pokazuje, jak do sterowania kryteriami buforowania na podstawie informacji niestandardowej strony ASP.NET. Przykładowa strona jest tworzony, a następnie ogram."
+description: W tym wideo Pels Krzysztof pokazuje, jak do sterowania kryteriami buforowania na podstawie informacji niestandardowej strony ASP.NET. Przykładowa strona jest tworzony, a następnie ogram.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/19/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572744"
 ---
 <a name="how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information"></a>[Jak i.] Formant buforowanie strony ASP.NET na podstawie niestandardowych informacji
 ====================

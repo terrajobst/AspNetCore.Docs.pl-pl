@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/testing-and-debugging/enabling-signalr-tracing
-title: "Włączanie śledzenia SignalR | Dokumentacja firmy Microsoft"
+title: Włączanie śledzenia SignalR | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Ten dokument zawiera opis sposobu włączania i konfigurowania śledzenia dla SignalR serwerów i klientów. Śledzenie umożliwia przeglądanie informacji diagnostycznych dotyczących zdarzeń..."
+description: Ten dokument zawiera opis sposobu włączania i konfigurowania śledzenia dla SignalR serwerów i klientów. Śledzenie umożliwia przeglądanie informacji diagnostycznych dotyczących zdarzeń...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28032821"
 ---
 <a name="enabling-signalr-tracing"></a>Włączanie śledzenia SignalR
 ====================

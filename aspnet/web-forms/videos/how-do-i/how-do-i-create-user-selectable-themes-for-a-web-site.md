@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-user-selectable-themes-for-a-web-site
-title: "[Jak i.] Tworzenie motywów wybór użytkownika dla witryny sieci Web | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Tworzenie motywów wybór użytkownika dla witryny sieci Web | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "To wideo Pels Krzysztof będzie pokazują, jak utworzyć wiele motywów witryny sieci web, a następnie zezwolić użytkownikowi na wybranie motywu, który jest stosowany do lokacji. Zobacz temat jak..."
+description: To wideo Pels Krzysztof będzie pokazują, jak utworzyć wiele motywów witryny sieci web, a następnie zezwolić użytkownikowi na wybranie motywu, który jest stosowany do lokacji. Zobacz temat jak...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571790"
 ---
 <a name="how-do-i-create-user-selectable-themes-for-a-web-site"></a>[Jak i.] Tworzenie motywów wybór użytkownika dla witryny sieci Web
 ====================

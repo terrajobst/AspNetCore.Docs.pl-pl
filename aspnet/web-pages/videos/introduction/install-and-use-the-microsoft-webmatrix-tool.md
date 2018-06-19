@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/install-and-use-the-microsoft-webmatrix-tool
-title: "Zainstaluj i użyj narzędzia Microsoft WebMatrix | Dokumentacja firmy Microsoft"
+title: Zainstaluj i użyj narzędzia Microsoft WebMatrix | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Część 1 stanowi wprowadzenie do programu WebMatrix i jak można zainstalować i używać go."
+description: Część 1 stanowi wprowadzenie do programu WebMatrix i jak można zainstalować i używać go.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573221"
 ---
 <a name="install-and-use-the-microsoft-webmatrix-tool"></a>Zainstaluj i użyj narzędzia Microsoft WebMatrix
 ====================

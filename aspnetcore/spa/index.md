@@ -17,6 +17,7 @@ ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555563"
 ---
 # <a name="use-the-single-page-application-templates-with-aspnet-core"></a>Szablony jednej strony aplikacji za pomocą platformy ASP.NET Core
 

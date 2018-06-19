@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/index
-title: "Starsze wersje - dostęp do danych | Dokumentacja firmy Microsoft"
+title: Starsze wersje - dostęp do danych | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Sposób wykonywania różnych zadań związanych z danymi za pomocą formantów danych formularzy sieci Web ASP.NET."
+description: Sposób wykonywania różnych zadań związanych z danymi za pomocą formantów danych formularzy sieci Web ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568565"
 ---
 <a name="older-versions---data-access"></a>Starsze wersje - dostęp do danych
 ====================

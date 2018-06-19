@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/index
 title: Animacja | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku przedstawiono sposób tworzenia animacji przy użyciu formantu animacji i framework animacji."
+description: W tym samouczku przedstawiono sposób tworzenia animacji przy użyciu formantu animacji i framework animacji.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/11/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567158"
 ---
 <a name="animation"></a>Animacja
 ====================

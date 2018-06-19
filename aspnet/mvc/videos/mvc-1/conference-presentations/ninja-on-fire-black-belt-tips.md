@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-1/conference-presentations/ninja-on-fire-black-belt-tips
-title: "Nindżą na porady taśmy czarne Fire | Dokumentacja firmy Microsoft"
+title: Nindżą na porady taśmy czarne Fire | Dokumentacja firmy Microsoft
 author: Haacked
-description: "Zobacz wskazówki dotyczące kilku porady i wskazówki dla pobierania wykorzystanie platformę ASP.NET MVC."
+description: Zobacz wskazówki dotyczące kilku porady i wskazówki dla pobierania wykorzystanie platformę ASP.NET MVC.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565475"
 ---
 <a name="ninja-on-fire-black-belt-tips"></a>Nindżą na Fire taśmy czarne porady
 ====================

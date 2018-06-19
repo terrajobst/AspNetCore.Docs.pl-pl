@@ -2,7 +2,7 @@
 uid: web-forms/pluralsight
 title: Sieci Web Forms szkolenia wideo z Pluralsight | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Szkolenia wideo formularzy sieci Web z formularzy sieci Web ASP.NET to Pluralsight programowanie kursu przedstawiono kilka najważniejszych technologii, musisz wiedzieć, jak odchyleń .NET..."
+description: Szkolenia wideo formularzy sieci Web z formularzy sieci Web ASP.NET to Pluralsight programowanie kursu przedstawiono kilka najważniejszych technologii, musisz wiedzieć, jak odchyleń .NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/16/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570347"
 ---
 <a name="web-forms-video-training-from-pluralsight"></a>Formularze szkolenia wideo z Pluralsight w sieci Web
 ====================

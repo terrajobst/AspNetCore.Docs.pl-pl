@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/mobile-clients/index
-title: "Sieci Web interfejsu API i klientów mobilnych | Dokumentacja firmy Microsoft"
+title: Sieci Web interfejsu API i klientów mobilnych | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Przy użyciu interfejsu API sieci Web platformy ASP.NET do natywnej klientów mobilnych."
+description: Przy użyciu interfejsu API sieci Web platformy ASP.NET do natywnej klientów mobilnych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/23/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566786"
 ---
 <a name="web-api-and-mobile-clients"></a>Interfejs API sieci Web i klientów mobilnych
 ====================

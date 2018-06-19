@@ -2,7 +2,7 @@
 uid: web-api/overview/releases/whats-new-in-aspnet-web-api-22
 title: What's New in ASP.NET Web API 2.2 | Dokumentacja firmy Microsoft
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/25/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566825"
 ---
 <a name="whats-new-in-aspnet-web-api-22"></a>What's New in ASP.NET Web API 2.2
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list
-title: "[Jak i.] Utwórz komponentów wielokrotnego użytku do wysyłania wiadomości E-mail do listy dystrybucyjnej | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Utwórz komponentów wielokrotnego użytku do wysyłania wiadomości E-mail do listy dystrybucyjnej | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof pokazano, jak utworzyć składnik używany w wielu stron sieci web i witryn sieci web wysyłanej wiadomości e-mail do listy adresatów. Firs..."
+description: W tym wideo Pels Krzysztof pokazano, jak utworzyć składnik używany w wielu stron sieci web i witryn sieci web wysyłanej wiadomości e-mail do listy adresatów. Firs...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/04/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571955"
 ---
 <a name="how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list"></a>[Jak i.] Utwórz komponentów wielokrotnego użytku do wysyłania wiadomości E-mail do listy dystrybucyjnej
 ====================

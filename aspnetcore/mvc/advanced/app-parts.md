@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32739857"
 ---
 # <a name="application-parts-in-aspnet-core"></a>Części aplikacji platformy ASP.NET Core
 
