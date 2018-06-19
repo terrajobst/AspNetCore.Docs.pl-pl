@@ -1,8 +1,8 @@
 ---
 uid: web-api/videos/getting-started/index
-title: "Przegląd interfejsu API sieci Web ASP.NET i pierwsze kroki wideo | Dokumentacja firmy Microsoft"
+title: Przegląd interfejsu API sieci Web ASP.NET i pierwsze kroki wideo | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jest to seria filmów wideo ułatwiających rozpoczęcie pracy z interfejsu API sieci Web platformy ASP.NET."
+description: Jest to seria filmów wideo ułatwiających rozpoczęcie pracy z interfejsu API sieci Web platformy ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567002"
 ---
 <a name="aspnet-web-api-overview-and-getting-started-videos"></a><span data-ttu-id="b6694-103">Przegląd interfejsu API sieci Web ASP.NET i pierwsze kroki wideo</span><span class="sxs-lookup"><span data-stu-id="b6694-103">ASP.NET Web API Overview and Getting Started Videos</span></span>
 ====================

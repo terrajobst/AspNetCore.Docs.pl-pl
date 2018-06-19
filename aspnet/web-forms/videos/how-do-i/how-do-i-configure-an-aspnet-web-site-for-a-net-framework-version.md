@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version
-title: "[Jak i.] Konfiguruj witrynę sieci Web platformy ASP.NET dla wersji programu .NET Framework | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Konfiguruj witrynę sieci Web platformy ASP.NET dla wersji programu .NET Framework | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof wyświetli sposobu konfigurowania witryny sieci web ASP.NET do korzystania z określonej wersji ASP.NET/.NET Framework. Najpierw Zobacz Identyfikowanie jakie v..."
+description: W tym wideo Pels Krzysztof wyświetli sposobu konfigurowania witryny sieci web ASP.NET do korzystania z określonej wersji ASP.NET/.NET Framework. Najpierw Zobacz Identyfikowanie jakie v...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571811"
 ---
 <a name="how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version"></a><span data-ttu-id="d71c9-104">[Jak i.] Konfiguruj witrynę sieci Web platformy ASP.NET dla wersji programu .NET Framework</span><span class="sxs-lookup"><span data-stu-id="d71c9-104">[How Do I:] Configure an ASP.NET Web Site for a .NET Framework Version</span></span>
 ====================

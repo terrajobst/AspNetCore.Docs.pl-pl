@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564332"
 ---
 <a name="older-versions---mvc-1-and-2"></a><span data-ttu-id="014e5-103">Starsze wersje - MVC 1 i 2</span><span class="sxs-lookup"><span data-stu-id="014e5-103">Older Versions - MVC 1 and 2</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project
-title: "[Jak i.] Określanie, czy używać witryny sieci Web lub projektu aplikacji sieci Web | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Określanie, czy używać witryny sieci Web lub projektu aplikacji sieci Web | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie natomiast różnice między projekt witryny sieci web ASP.NET i projektu aplikacji sieci web. Dowiedz się więcej uwagi dotyczące korzystania z..."
+description: W tym wideo Pels Krzysztof będzie natomiast różnice między projekt witryny sieci web ASP.NET i projektu aplikacji sieci web. Dowiedz się więcej uwagi dotyczące korzystania z...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/22/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570965"
 ---
 <a name="how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project"></a><span data-ttu-id="487a2-104">[Jak i.] Określanie, czy używać witryny sieci Web lub projektu aplikacji sieci Web</span><span class="sxs-lookup"><span data-stu-id="487a2-104">[How Do I:] Determine Whether to Use a Web Site or a Web Application Project</span></span>
 ====================

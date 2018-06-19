@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-35/data-controls/index
 title: Formanty danych | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak korzystać z nowych funkcji kontroli danych z programu ASP.NET 3.5 Eksploruje to zestaw plików wideo"
+description: Jak korzystać z nowych funkcji kontroli danych z programu ASP.NET 3.5 Eksploruje to zestaw plików wideo
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570458"
 ---
 <a name="data-controls"></a><span data-ttu-id="d904b-103">Formanty danych</span><span class="sxs-lookup"><span data-stu-id="d904b-103">Data Controls</span></span>
 ====================

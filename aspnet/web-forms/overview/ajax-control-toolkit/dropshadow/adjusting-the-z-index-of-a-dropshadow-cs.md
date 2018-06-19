@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868285"
 ---
 <a name="adjusting-the-z-index-of-a-dropshadow-c"></a><span data-ttu-id="53cd7-104">Dopasowywanie indeks cień (C#)</span><span class="sxs-lookup"><span data-stu-id="53cd7-104">Adjusting the Z-Index of a DropShadow (C#)</span></span>
 ====================

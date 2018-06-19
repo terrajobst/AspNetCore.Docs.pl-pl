@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/confirmbutton/index
 title: ConfirmButton | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek przedstawia sposób użycia formantu ConfirmButton Wyświetla tak/nie podręcznego, gdy użytkownik kliknie przycisk."
+description: Ten samouczek przedstawia sposób użycia formantu ConfirmButton Wyświetla tak/nie podręcznego, gdy użytkownik kliknie przycisk.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567407"
 ---
 <a name="confirmbutton"></a><span data-ttu-id="d4530-103">ConfirmButton</span><span class="sxs-lookup"><span data-stu-id="d4530-103">ConfirmButton</span></span>
 ====================

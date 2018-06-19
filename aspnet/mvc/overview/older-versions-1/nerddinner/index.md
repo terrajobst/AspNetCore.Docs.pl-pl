@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/index
 title: NerdDinner | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak utworzyć NerdDinner.com witryny sieci Web, przy użyciu platformy ASP.NET MVC 1. Użycie programu ASP.NET MVC 3 odwiedź stronę nerddinner w witrynie GitHub."
+description: Jak utworzyć NerdDinner.com witryny sieci Web, przy użyciu platformy ASP.NET MVC 1. Użycie programu ASP.NET MVC 3 odwiedź stronę nerddinner w witrynie GitHub.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564530"
 ---
 <a name="nerddinner"></a><span data-ttu-id="4a8b0-104">NerdDinner</span><span class="sxs-lookup"><span data-stu-id="4a8b0-104">NerdDinner</span></span>
 ====================

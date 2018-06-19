@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-controls-to-an-aspnet-web-page-programmatically
-title: "[Jak i.] Dodawanie formantów do strony sieci Web platformy ASP.NET programowo | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Dodawanie formantów do strony sieci Web platformy ASP.NET programowo | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie pokazują, jak utworzyć kontrolka serwerowa ASP.NET programowo w czasie wykonywania i dodaj go do strony. Po pierwsze Dowiedz się więcej o podstawowych koncepcji..."
+description: W tym wideo Pels Krzysztof będzie pokazują, jak utworzyć kontrolka serwerowa ASP.NET programowo w czasie wykonywania i dodaj go do strony. Po pierwsze Dowiedz się więcej o podstawowych koncepcji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572000"
 ---
 <a name="how-do-i-add-controls-to-an-aspnet-web-page-programmatically"></a><span data-ttu-id="7f343-104">[Jak i.] Programowe dodawanie formantów do strony sieci Web ASP.NET</span><span class="sxs-lookup"><span data-stu-id="7f343-104">[How Do I:] Add Controls to an ASP.NET Web Page Programmatically</span></span>
 ====================

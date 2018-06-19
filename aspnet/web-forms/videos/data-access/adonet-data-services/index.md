@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/data-access/adonet-data-services/index
-title: "Usługi danych ADO.NET | Dokumentacja firmy Microsoft"
+title: Usługi danych ADO.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Te pliki wideo pokazano, jak utworzyć warstwę dostępu do danych przy użyciu typu zestawu danych dla prostą aplikację ASP.NET."
+description: Te pliki wideo pokazano, jak utworzyć warstwę dostępu do danych przy użyciu typu zestawu danych dla prostą aplikację ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/04/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571835"
 ---
 <a name="adonet-data-services"></a><span data-ttu-id="3cf1b-103">ADO.NET Data Services</span><span class="sxs-lookup"><span data-stu-id="3cf1b-103">ADO.NET Data Services</span></span>
 ====================

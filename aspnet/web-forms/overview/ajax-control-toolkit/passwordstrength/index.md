@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/passwordstrength/index
 title: PasswordStrength | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek przedstawia sposób do formantu PasswordStrength, aby sprawdzić, jak silne hasło to jako użytkownik tworzy go."
+description: Ten samouczek przedstawia sposób do formantu PasswordStrength, aby sprawdzić, jak silne hasło to jako użytkownik tworzy go.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567494"
 ---
 <a name="passwordstrength"></a><span data-ttu-id="e6110-103">PasswordStrength</span><span class="sxs-lookup"><span data-stu-id="e6110-103">PasswordStrength</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/filteredtextbox/index
 title: FilteredTextBox | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek przedstawia sposób użycia formantu FilteredTextBox, która umożliwia określenie, które znaki są dozwolone w danych wejściowych użytkownika."
+description: Ten samouczek przedstawia sposób użycia formantu FilteredTextBox, która umożliwia określenie, które znaki są dozwolone w danych wejściowych użytkownika.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567422"
 ---
 <a name="filteredtextbox"></a><span data-ttu-id="41944-103">FilteredTextBox</span><span class="sxs-lookup"><span data-stu-id="41944-103">FilteredTextBox</span></span>
 ====================

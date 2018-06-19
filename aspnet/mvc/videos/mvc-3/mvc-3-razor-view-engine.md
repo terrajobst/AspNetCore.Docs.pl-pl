@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-3/mvc-3-razor-view-engine
 title: MVC 3 - aparatu widoku Razor | Dokumentacja firmy Microsoft
 author: jongalloway
-description: "W ten film przedstawiono podstawowe informacje o nowych aparatu widoku Razor uwzględnione w programie ASP.NET MVC 3."
+description: W ten film przedstawiono podstawowe informacje o nowych aparatu widoku Razor uwzględnione w programie ASP.NET MVC 3.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/04/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565451"
 ---
 <a name="mvc-3---razor-view-engine"></a><span data-ttu-id="f9de2-103">MVC 3 - aparatu widoku Razor</span><span class="sxs-lookup"><span data-stu-id="f9de2-103">MVC 3 - Razor View Engine</span></span>
 ====================

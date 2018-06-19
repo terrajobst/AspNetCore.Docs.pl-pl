@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-file-uploads-with-an-ajax-style-interface
-title: "[Jak i.]  Plik przekazywania przy użyciu interfejsu w stylu AJAX | Dokumentacja firmy Microsoft"
+title: '[Jak i.]  Plik przekazywania przy użyciu interfejsu w stylu AJAX | Dokumentacja firmy Microsoft'
 author: JoeStagner
-description: "W tym wideo I zostaną przedstawione, za pomocą ASP.NET AJAX styl przekazywania plików z komputera klienta z serwerem. Powiedz styl AJAX, ponieważ nie istnieje..."
+description: W tym wideo I zostaną przedstawione, za pomocą ASP.NET AJAX styl przekazywania plików z komputera klienta z serwerem. Powiedz styl AJAX, ponieważ nie istnieje...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/12/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572168"
 ---
 <a name="how-do-i--file-uploads-with-an-ajax-style-interface"></a><span data-ttu-id="c5601-104">[Jak i.]  Przekazywania plików z interfejsem styl AJAX</span><span class="sxs-lookup"><span data-stu-id="c5601-104">[How Do I:]  File Uploads with an AJAX Style Interface</span></span>
 ====================

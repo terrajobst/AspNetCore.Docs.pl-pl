@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/index
 title: ASP.NET MVC wprowadzenie | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Dowiedz się więcej o ASP.NET MVC ASP.NET MVC umożliwia tworzenie dynamicznych witryn sieci Web, który umożliwia czyste rozdzielenie problemy i że g sposób zaawansowane, na podstawie wzorców..."
+description: Dowiedz się więcej o ASP.NET MVC ASP.NET MVC umożliwia tworzenie dynamicznych witryn sieci Web, który umożliwia czyste rozdzielenie problemy i że g sposób zaawansowane, na podstawie wzorców...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/31/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564068"
 ---
 <a name="aspnet-mvc-getting-started"></a><span data-ttu-id="72c0b-103">Wprowadzenie do platformy ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="72c0b-103">ASP.NET MVC Getting Started</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field
-title: "[Jak i.] Udostępnianie danych między JavaScript klienta i kod serwera za pomocą pola ukrytego | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Udostępnianie danych między JavaScript klienta i kod serwera za pomocą pola ukrytego | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie pokazują, jak udostępniać dane między JavaScript i kod po stronie serwera za pomocą pola ukrytego strony ASP.NET. Następnie Dowiedz się, jak t..."
+description: W tym wideo Pels Krzysztof będzie pokazują, jak udostępniać dane między JavaScript i kod po stronie serwera za pomocą pola ukrytego strony ASP.NET. Następnie Dowiedz się, jak t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570779"
 ---
 <a name="how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field"></a><span data-ttu-id="1028d-104">[Jak i.] Udostępnianie danych między JavaScript klienta i kod serwera za pomocą pola ukrytego</span><span class="sxs-lookup"><span data-stu-id="1028d-104">[How Do I:] Share Data Between Client JavaScript and Server Code Using a Hidden Field</span></span>
 ====================

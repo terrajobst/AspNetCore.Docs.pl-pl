@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867830"
 ---
 <a name="aspnet-mvc-storefront-part-15-public-code-review"></a><span data-ttu-id="4d77d-104">Platformy ASP.NET MVC sklepu część 15: Przegląd kodu publicznej</span><span class="sxs-lookup"><span data-stu-id="4d77d-104">ASP.NET MVC Storefront Part 15: Public Code review</span></span>
 ====================

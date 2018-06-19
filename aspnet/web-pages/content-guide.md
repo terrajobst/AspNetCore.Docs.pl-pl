@@ -1,8 +1,8 @@
 ---
 uid: web-pages/content-guide
-title: "Przewodnik po zawartości programu WebMatrix | Dokumentacja firmy Microsoft"
+title: Przewodnik po zawartości programu WebMatrix | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/13/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572909"
 ---
 <a name="webmatrix-content-guide"></a><span data-ttu-id="d311f-102">Przewodnik po zawartości programu WebMatrix</span><span class="sxs-lookup"><span data-stu-id="d311f-102">WebMatrix Content Guide</span></span>
 ====================

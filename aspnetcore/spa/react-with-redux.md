@@ -17,6 +17,7 @@ ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555225"
 ---
 # <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a><span data-ttu-id="e60b4-103">Szablon projektu platformy React z Redux za pomocą platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="e60b4-103">Use the React-with-Redux project template with ASP.NET Core</span></span>
 

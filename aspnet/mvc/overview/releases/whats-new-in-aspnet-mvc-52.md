@@ -2,7 +2,7 @@
 uid: mvc/overview/releases/whats-new-in-aspnet-mvc-52
 title: Co to jest nowe w programie ASP.NET MVC 5.2 | Dokumentacja firmy Microsoft
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/25/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565535"
 ---
 <a name="whats-new-in-aspnet-mvc-52"></a><span data-ttu-id="7a1cf-102">Co to jest nowe w programie ASP.NET MVC 5.2</span><span class="sxs-lookup"><span data-stu-id="7a1cf-102">What’s New in ASP.NET MVC 5.2</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/hub-authorization
-title: "Uwierzytelnianie i autoryzacja koncentratorów SignalR (SignalR 1.x) | Dokumentacja firmy Microsoft"
+title: Uwierzytelnianie i autoryzacja koncentratorów SignalR (SignalR 1.x) | Dokumentacja firmy Microsoft
 author: pfletcher
-description: "W tym temacie opisano, jak ograniczyć, których użytkowników lub ról można uzyskać dostępu do metody koncentratora."
+description: W tym temacie opisano, jak ograniczyć, których użytkowników lub ról można uzyskać dostępu do metody koncentratora.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042878"
 ---
 <a name="authentication-and-authorization-for-signalr-hubs-signalr-1x"></a><span data-ttu-id="d2dba-103">Uwierzytelnianie i autoryzacja koncentratorów SignalR (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="d2dba-103">Authentication and Authorization for SignalR Hubs (SignalR 1.x)</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-skins-with-css-for-a-flexible-and-maintainable-aspnet-web-site
-title: "[Jak i.] Za pomocą karnacji CSS dla witryny sieci Web ASP.NET elastyczne i łatwy w obsłudze | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Za pomocą karnacji CSS dla witryny sieci Web ASP.NET elastyczne i łatwy w obsłudze | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof pokazano, jak utworzyć karnacje kontrolek serwera ASP.NET, a następnie używanie style CSS, aby sterować wyglądem stosowanie skórek zysk..."
+description: W tym wideo Pels Krzysztof pokazano, jak utworzyć karnacje kontrolek serwera ASP.NET, a następnie używanie style CSS, aby sterować wyglądem stosowanie skórek zysk...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/07/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570836"
 ---
 <a name="how-do-i-use-skins-with-css-for-a-flexible-and-maintainable-aspnet-web-site"></a><span data-ttu-id="f41f8-103">[Jak i.] Za pomocą karnacji CSS dla witryny sieci Web ASP.NET elastyczne i łatwy w obsłudze</span><span class="sxs-lookup"><span data-stu-id="f41f8-103">[How Do I:] Use Skins with CSS for a Flexible and Maintainable ASP.NET Web Site</span></span>
 ====================

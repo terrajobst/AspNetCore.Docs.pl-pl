@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/unit-testing/index
 title: Testy jednostkowe | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten zestaw samouczka przedstawiono sposób tworzenia testów jednostkowych dla platformy ASP.NET MVC akcji kontrolera."
+description: Ten zestaw samouczka przedstawiono sposób tworzenia testów jednostkowych dla platformy ASP.NET MVC akcji kontrolera.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564521"
 ---
 <a name="unit-testing"></a><span data-ttu-id="b612f-103">Testowanie jednostkowe</span><span class="sxs-lookup"><span data-stu-id="b612f-103">Unit Testing</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566051"
 ---
 <a name="signalr-troubleshooting-signalr-1x"></a><span data-ttu-id="14c6a-103">Rozwiązywanie problemów z SignalR (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="14c6a-103">SignalR Troubleshooting (SignalR 1.x)</span></span>
 ====================

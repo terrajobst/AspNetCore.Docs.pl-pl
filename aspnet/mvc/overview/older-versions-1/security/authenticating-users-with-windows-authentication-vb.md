@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869000"
 ---
 <a name="authenticating-users-with-windows-authentication-vb"></a><span data-ttu-id="a7667-104">Uwierzytelnianie użytkowników przy użyciu uwierzytelniania systemu Windows (VB)</span><span class="sxs-lookup"><span data-stu-id="a7667-104">Authenticating Users with Windows Authentication (VB)</span></span>
 ====================

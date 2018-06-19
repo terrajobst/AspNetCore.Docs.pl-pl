@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-make-greater-use-of-caching
-title: "[Jak i.] Większa wykorzystują buforowanie? | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Większa wykorzystują buforowanie? | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "Obejrzyj pokaz buforowanie danych wyjściowych stron częściowych, następuje przegląd interfejsu API w pamięci podręcznej, który demonstruje sposób wydajnie powiązać prezentacji danych..."
+description: Obejrzyj pokaz buforowanie danych wyjściowych stron częściowych, następuje przegląd interfejsu API w pamięci podręcznej, który demonstruje sposób wydajnie powiązać prezentacji danych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572240"
 ---
 <a name="how-do-i-make-greater-use-of-caching"></a><span data-ttu-id="b7998-104">[Jak i.] Większa wykorzystują buforowanie?</span><span class="sxs-lookup"><span data-stu-id="b7998-104">[How Do I:] Make Greater use of Caching?</span></span>
 ====================

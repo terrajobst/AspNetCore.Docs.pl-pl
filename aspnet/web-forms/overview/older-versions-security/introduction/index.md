@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/index
-title: "ASP.NET 3.5 — wprowadzenie do zabezpieczeń | Dokumentacja firmy Microsoft"
+title: ASP.NET 3.5 — wprowadzenie do zabezpieczeń | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Tej serii samouczków Eksploruje technik w celu uwierzytelniania użytkowników za pomocą formularza logowania (uwierzytelnianie formularzy) i autoryzowanie dostępu do poszczególnych stron..."
+description: Tej serii samouczków Eksploruje technik w celu uwierzytelniania użytkowników za pomocą formularza logowania (uwierzytelnianie formularzy) i autoryzowanie dostępu do poszczególnych stron...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/04/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570023"
 ---
 <a name="aspnet-35---introduction-to-security"></a><span data-ttu-id="13baf-103">ASP.NET 3.5 — wprowadzenie do zabezpieczeń</span><span class="sxs-lookup"><span data-stu-id="13baf-103">ASP.NET 3.5 - Introduction to Security</span></span>
 ====================

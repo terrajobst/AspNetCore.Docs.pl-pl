@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/forms-authentication
-title: "Uwierzytelnianie formularzy w składniku ASP.NET Web API | Dokumentacja firmy Microsoft"
+title: Uwierzytelnianie formularzy w składniku ASP.NET Web API | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "W tym artykule opisano, w interfejsie API sieci Web ASP.NET przy użyciu uwierzytelniania formularzy."
+description: W tym artykule opisano, w interfejsie API sieci Web ASP.NET przy użyciu uwierzytelniania formularzy.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/12/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566798"
 ---
 <a name="forms-authentication-in-aspnet-web-api"></a><span data-ttu-id="37f5a-103">Uwierzytelnianie formularzy w składniku ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="37f5a-103">Forms Authentication in ASP.NET Web API</span></span>
 ====================

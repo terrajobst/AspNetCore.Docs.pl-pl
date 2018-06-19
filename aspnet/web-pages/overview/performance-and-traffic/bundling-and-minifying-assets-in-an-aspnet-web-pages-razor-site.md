@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site
-title: "Tworzenie pakietów i zminimalizowania liczby zasobów w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft"
+title: Tworzenie pakietów i zminimalizowania liczby zasobów w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Tworzenie pakietów i minimalizowanie metodami przyspieszyć witryny. Tworzenie pakietów umożliwia łączone wiele plików JavaScript (js) lub wielu kaskadowy arkusz stylów (...)"
+description: Tworzenie pakietów i minimalizowanie metodami przyspieszyć witryny. Tworzenie pakietów umożliwia łączone wiele plików JavaScript (js) lub wielu kaskadowy arkusz stylów (...)
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/21/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572870"
 ---
 <a name="bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="964bf-104">Tworzenie pakietów i zminimalizowania liczby zasobów witryny ASP.NET Web Pages (Razor)</span><span class="sxs-lookup"><span data-stu-id="964bf-104">Bundling and Minifying Assets in an ASP.NET Web Pages (Razor) Site</span></span>
 ====================

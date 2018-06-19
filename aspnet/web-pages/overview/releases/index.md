@@ -2,7 +2,7 @@
 uid: web-pages/overview/releases/index
 title: Wersje stron sieci Web | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Nowości w każdej wersji składnika ASP.NET Web Pages."
+description: Nowości w każdej wersji składnika ASP.NET Web Pages.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572876"
 ---
 <a name="web-pages-releases"></a><span data-ttu-id="08acc-103">Wersje stron sieci Web</span><span class="sxs-lookup"><span data-stu-id="08acc-103">Web Pages Releases</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-api/overview/getting-started-with-aspnet-web-api/index
 title: Wprowadzenie do korzystania z interfejsu API sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Dowiedz się więcej o sieci Web API platformy ASP.NET Web API platformy ASP.NET to platforma, która ułatwia tworzenie usług HTTP, które są używane przez szeroki wachlarz klientów, w tym przeglądarki..."
+description: Dowiedz się więcej o sieci Web API platformy ASP.NET Web API platformy ASP.NET to platforma, która ułatwia tworzenie usług HTTP, które są używane przez szeroki wachlarz klientów, w tym przeglądarki...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566360"
 ---
 <a name="getting-started-with-aspnet-web-api"></a><span data-ttu-id="073e6-103">Wprowadzenie do korzystania z interfejsu API sieci Web ASP.NET</span><span class="sxs-lookup"><span data-stu-id="073e6-103">Getting Started with ASP.NET Web API</span></span>
 ====================

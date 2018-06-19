@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/index
 title: Wprowadzenie do formularzy sieci Web 4.5 ASP.NET i Visual Studio 2013 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek serii nauczyć podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu ASP.NET 4.5 i programu Visual Studio 2013 Express for Web. Visua..."
+description: Ten samouczek serii nauczyć podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web ASP.NET przy użyciu ASP.NET 4.5 i programu Visual Studio 2013 Express for Web. Visua...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569267"
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a><span data-ttu-id="9ae1c-104">Wprowadzenie do formularzy sieci Web 4.5 ASP.NET i Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="9ae1c-104">Getting Started with ASP.NET 4.5 Web Forms and Visual Studio 2013</span></span>
 ====================

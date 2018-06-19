@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/index
-title: "ASP.NET 4 - Enterprise wdrażania serii 3 Konfigurowanie TFS | Dokumentacja firmy Microsoft"
+title: ASP.NET 4 - Enterprise wdrażania serii 3 Konfigurowanie TFS | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek przedstawia sposób konfigurowania Team Foundation Server (TFS) 2010 do tworzenia rozwiązań i wdrażania zawartości sieci web do różnych środowiskach docelowych."
+description: Ten samouczek przedstawia sposób konfigurowania Team Foundation Server (TFS) 2010 do tworzenia rozwiązań i wdrażania zawartości sieci web do różnych środowiskach docelowych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568856"
 ---
 <a name="aspnet-4---enterprise-deployment-series-3-configuring-tfs"></a><span data-ttu-id="9744b-103">ASP.NET 4 - Enterprise wdrażania serii 3 konfigurowania programu TFS</span><span class="sxs-lookup"><span data-stu-id="9744b-103">ASP.NET 4 - Enterprise Deployment Series 3 Configuring TFS</span></span>
 ====================

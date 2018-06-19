@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-use-control-state-to-persist-information-for-a-custom-web-server-control
 title: '[Jak i.] Formant stanu do utrwalenia informacji dla kontrolki serwera sieci Web niestandardowego | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie pokazują, jak magazynowania informacji powiązanych z formantu serwera sieci web niestandardowego w stan kontrolki, która jest niezależna od stan..."
+description: W tym wideo Pels Krzysztof będzie pokazują, jak magazynowania informacji powiązanych z formantu serwera sieci web niestandardowego w stan kontrolki, która jest niezależna od stan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/17/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572171"
 ---
 <a name="how-do-i-use-control-state-to-persist-information-for-a-custom-web-server-control"></a><span data-ttu-id="40d5c-103">[Jak i.] Formant stanu do utrwalenia informacji dla kontrolki serwera sieci Web niestandardowego</span><span class="sxs-lookup"><span data-stu-id="40d5c-103">[How Do I:] Use Control State to Persist Information for a Custom Web Server Control</span></span>
 ====================

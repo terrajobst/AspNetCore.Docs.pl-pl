@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/signalr-performance
-title: "SignalR wydajności (SignalR 1.x) | Dokumentacja firmy Microsoft"
+title: SignalR wydajności (SignalR 1.x) | Dokumentacja firmy Microsoft
 author: pfletcher
-description: "SignalR wydajności"
+description: SignalR wydajności
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/03/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28037155"
 ---
 <a name="signalr-performance-signalr-1x"></a><span data-ttu-id="7ae99-103">SignalR wydajności (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="7ae99-103">SignalR Performance (SignalR 1.x)</span></span>
 ====================

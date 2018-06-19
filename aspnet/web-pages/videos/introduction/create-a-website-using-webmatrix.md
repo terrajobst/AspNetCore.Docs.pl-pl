@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/create-a-website-using-webmatrix
-title: "Tworzenie witryny sieci Web za pomocą programu WebMatrix | Dokumentacja firmy Microsoft"
+title: Tworzenie witryny sieci Web za pomocą programu WebMatrix | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Część 2 jest przedstawienie sposobu tworzenia pierwsza strona sieci Web za pomocą programu WebMatrix."
+description: Część 2 jest przedstawienie sposobu tworzenia pierwsza strona sieci Web za pomocą programu WebMatrix.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573260"
 ---
 <a name="create-a-website-using-webmatrix"></a><span data-ttu-id="77923-103">Tworzenie witryny sieci Web za pomocą programu WebMatrix</span><span class="sxs-lookup"><span data-stu-id="77923-103">Create a Website Using WebMatrix</span></span>
 ====================

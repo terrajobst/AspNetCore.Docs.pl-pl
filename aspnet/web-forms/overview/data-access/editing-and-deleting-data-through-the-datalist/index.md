@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/index
-title: "Edytowanie i usuwanie danych za pośrednictwem elementu DataList | Dokumentacja firmy Microsoft"
+title: Edytowanie i usuwanie danych za pośrednictwem elementu DataList | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Te samouczki wyjaśniają, jak dostosować formant DataList, dzięki czemu umożliwia modyfikowanie danych używa."
+description: Te samouczki wyjaśniają, jak dostosować formant DataList, dzięki czemu umożliwia modyfikowanie danych używa.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568337"
 ---
 <a name="editing-and-deleting-data-through-the-datalist"></a><span data-ttu-id="9a2cf-103">Edytowanie i usuwanie danych za pośrednictwem elementu DataList</span><span class="sxs-lookup"><span data-stu-id="9a2cf-103">Editing and Deleting Data Through the DataList</span></span>
 ====================

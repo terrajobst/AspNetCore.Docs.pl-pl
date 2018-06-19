@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869221"
 ---
 <a name="testing-the-strength-of-a-password-c"></a><span data-ttu-id="51a53-104">Testowanie siły hasła (C#)</span><span class="sxs-lookup"><span data-stu-id="51a53-104">Testing the Strength of a Password (C#)</span></span>
 ====================

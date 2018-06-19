@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/css
 title: CSS | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: "Kaskadowych arkuszy stylów są integralną częścią tworzenia nowoczesnych witryn sieci web i Visual Web Developer 2008 zawiera kolekcję zaawansowanych CSS tworzenia urządzenia, aby ułatwić..."
+description: Kaskadowych arkuszy stylów są integralną częścią tworzenia nowoczesnych witryn sieci web i Visual Web Developer 2008 zawiera kolekcję zaawansowanych CSS tworzenia urządzenia, aby ułatwić...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/30/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570749"
 ---
 <a name="css"></a><span data-ttu-id="eee21-103">CSS</span><span class="sxs-lookup"><span data-stu-id="eee21-103">CSS</span></span>
 ====================

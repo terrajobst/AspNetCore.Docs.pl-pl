@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/security/index
 title: Zabezpieczenia | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku ustawić obejmuje jak hasło chronić niektóre strony w aplikacji ASP.NET MVC i tworzenie i zarządzanie użytkownikami i rolami."
+description: W tym samouczku ustawić obejmuje jak hasło chronić niektóre strony w aplikacji ASP.NET MVC i tworzenie i zarządzanie użytkownikami i rolami.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564500"
 ---
 <a name="security"></a><span data-ttu-id="0c912-103">Zabezpieczenia</span><span class="sxs-lookup"><span data-stu-id="0c912-103">Security</span></span>
 ====================

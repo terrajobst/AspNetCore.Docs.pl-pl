@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/index
 title: ASP.NET 3.5 - AJAX | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Informacje o bibliotece ASP.NET AJAX, takich jak UpdatePanels i aktualizacje stron częściowych, uwierzytelnianie, lokalizacji i debugowanie."
+description: Informacje o bibliotece ASP.NET AJAX, takich jak UpdatePanels i aktualizacje stron częściowych, uwierzytelnianie, lokalizacji i debugowanie.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569300"
 ---
 <a name="aspnet-35---ajax"></a><span data-ttu-id="e1bab-103">ASP.NET 3.5 - AJAX</span><span class="sxs-lookup"><span data-stu-id="e1bab-103">ASP.NET 3.5 - AJAX</span></span>
 ====================

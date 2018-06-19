@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/index
-title: "Skontaktuj się z Menedżera | Dokumentacja firmy Microsoft"
+title: Skontaktuj się z Menedżera | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak utworzyć całej aplikacji zarządzania skontaktuj się z od początku do zakończenia."
+description: Jak utworzyć całej aplikacji zarządzania skontaktuj się z od początku do zakończenia.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564062"
 ---
 <a name="contact-manager"></a><span data-ttu-id="bff78-103">Skontaktuj się z Menedżera</span><span class="sxs-lookup"><span data-stu-id="bff78-103">Contact Manager</span></span>
 ====================

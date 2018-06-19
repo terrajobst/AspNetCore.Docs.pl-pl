@@ -2,7 +2,7 @@
 uid: mvc/index
 title: ASP.NET MVC | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Pobierz program ASP.NET MVC i Dowiedz się, jak tworzyć aplikacje sieci web przy użyciu wzorca kontrolera widoku modelu."
+description: Pobierz program ASP.NET MVC i Dowiedz się, jak tworzyć aplikacje sieci web przy użyciu wzorca kontrolera widoku modelu.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/24/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563654"
 ---
 <a name="aspnet-mvc"></a><span data-ttu-id="dff9b-103">ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="dff9b-103">ASP.NET MVC</span></span>
 ====================

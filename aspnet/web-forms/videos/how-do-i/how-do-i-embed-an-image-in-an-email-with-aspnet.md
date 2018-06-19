@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-embed-an-image-in-an-email-with-aspnet
-title: "[Jak i.] Osadzanie obrazu w wiadomości E-mail z platformy ASP.NET | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Osadzanie obrazu w wiadomości E-mail z platformy ASP.NET | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "Krzysztof Pels pokazuje, jak ma zostać osadzony obraz w wiadomości e-mail z platformy ASP.NET. ADAM tworzy formularz sieci web (za pomocą pola, z temat i treść), używa AlternateView..."
+description: Krzysztof Pels pokazuje, jak ma zostać osadzony obraz w wiadomości e-mail z platformy ASP.NET. ADAM tworzy formularz sieci web (za pomocą pola, z temat i treść), używa AlternateView...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/06/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571826"
 ---
 <a name="how-do-i-embed-an-image-in-an-email-with-aspnet"></a><span data-ttu-id="cb7f3-104">[Jak i.] Osadzanie obrazu w wiadomości E-mail z platformy ASP.NET</span><span class="sxs-lookup"><span data-stu-id="cb7f3-104">[How Do I:] Embed an Image in an Email with ASP.NET</span></span>
 ====================

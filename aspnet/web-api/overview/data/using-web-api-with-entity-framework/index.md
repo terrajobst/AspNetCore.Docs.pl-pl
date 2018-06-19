@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/index
-title: "Używanie składnika Web API 2 z programu Entity Framework 6 | Dokumentacja firmy Microsoft"
+title: Używanie składnika Web API 2 z programu Entity Framework 6 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak utworzyć aplikację interfejsu API sieci Web, która używa trwałości bazy danych programu Entity Framework."
+description: Jak utworzyć aplikację interfejsu API sieci Web, która używa trwałości bazy danych programu Entity Framework.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/03/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566300"
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a><span data-ttu-id="769a7-103">Używanie składnika Web API 2 z programu Entity Framework 6</span><span class="sxs-lookup"><span data-stu-id="769a7-103">Using Web API 2 with Entity Framework 6</span></span>
 ====================

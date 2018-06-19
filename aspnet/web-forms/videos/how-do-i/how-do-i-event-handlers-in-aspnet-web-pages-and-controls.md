@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-event-handlers-in-aspnet-web-pages-and-controls
-title: "[Jak i.] Programy obsługi zdarzeń w sieci Web stron i kontrolek ASP.NET | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Programy obsługi zdarzeń w sieci Web stron i kontrolek ASP.NET | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof wyświetli tworzenie obsługi zdarzeń dla stron sieci web ASP.NET i kontrolek serwera sieci web. Po pierwsze Dowiedz się, jak utworzyć f zdarzenia na poziomie strony..."
+description: W tym wideo Pels Krzysztof wyświetli tworzenie obsługi zdarzeń dla stron sieci web ASP.NET i kontrolek serwera sieci web. Po pierwsze Dowiedz się, jak utworzyć f zdarzenia na poziomie strony...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/17/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572117"
 ---
 <a name="how-do-i-event-handlers-in-aspnet-web-pages-and-controls"></a><span data-ttu-id="349c1-104">[Jak i.] Programy obsługi zdarzeń w stron sieci Web ASP.NET i kontrolek</span><span class="sxs-lookup"><span data-stu-id="349c1-104">[How Do I:] Event Handlers in ASP.NET Web Pages and Controls</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570464"
 ---
 <a name="visual-studio-designer"></a><span data-ttu-id="25fa1-103">Projektant programu Visual Studio</span><span class="sxs-lookup"><span data-stu-id="25fa1-103">Visual Studio Designer</span></span>
 ====================

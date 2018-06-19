@@ -1,14 +1,14 @@
 ---
 uid: ajax/cdn/jquery-validate/index
-title: "Sprawdź poprawność jQuery | Dokumentacja firmy Microsoft"
+title: Sprawdź poprawność jQuery | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/14/2017
 ms.topic: article
 ms.assetid: a266cc44-f514-4913-9768-5b382380184d
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-validate
 msc.type: folder
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563138"
 ---
 <a name="jquery-validate"></a><span data-ttu-id="722cf-102">Sprawdź poprawność jQuery</span><span class="sxs-lookup"><span data-stu-id="722cf-102">jQuery Validate</span></span>
 ====================

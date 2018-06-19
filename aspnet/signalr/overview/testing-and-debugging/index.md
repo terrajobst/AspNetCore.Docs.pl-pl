@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565964"
 ---
 <a name="signalr-testing-and-debugging"></a><span data-ttu-id="a9806-103">SignalR testowania i debugowania</span><span class="sxs-lookup"><span data-stu-id="a9806-103">SignalR Testing and Debugging</span></span>
 ====================

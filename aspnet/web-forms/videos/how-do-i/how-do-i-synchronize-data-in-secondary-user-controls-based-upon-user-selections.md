@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections
-title: "[Jak]: synchronizacja danych w dodatkowej użytkownika doświadczeniach kontrolnych oparte na wybór użytkownika | Dokumentacja firmy Microsoft"
+title: '[Jak]: synchronizacja danych w dodatkowej użytkownika doświadczeniach kontrolnych oparte na wybór użytkownika | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof pokazano, jak utworzyć dwa formanty DropDownList gdy zaznaczenie elementu z pierwszej listy elementów na liście drugi wypełnia. Firs..."
+description: W tym wideo Pels Krzysztof pokazano, jak utworzyć dwa formanty DropDownList gdy zaznaczenie elementu z pierwszej listy elementów na liście drugi wypełnia. Firs...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2009
@@ -17,8 +17,10 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572237"
 ---
-<a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a><span data-ttu-id="eaf6f-104">[Jak]: synchronizacja danych w dodatkowej użytkownika doświadczeniach kontrolnych oparte na wybór użytkownika</span><span class="sxs-lookup"><span data-stu-id="eaf6f-104">[How Do I]: Synchronize Data in Secondary User Control(s) Based Upon User Selections</span></span>
+<a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a>[Jak]: synchronizacja danych w dodatkowej użytkownika doświadczeniach kontrolnych oparte na wybór użytkownika
+[How Do I]: Synchronize Data in Secondary User Control(s) Based Upon User Selections
 ====================
 <span data-ttu-id="eaf6f-105">przez [Pels Krzysztof](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="eaf6f-105">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 

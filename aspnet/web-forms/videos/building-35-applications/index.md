@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/index
 title: Tworzenie aplikacji w wersji 3.5 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web programu ASP.NET."
+description: Podstawowe informacje dotyczące tworzenia aplikacji formularzy sieci Web programu ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572225"
 ---
 <a name="building-35-applications"></a><span data-ttu-id="0f8cb-103">Tworzenie aplikacji w wersji 3.5</span><span class="sxs-lookup"><span data-stu-id="0f8cb-103">Building 3.5 Applications</span></span>
 ====================

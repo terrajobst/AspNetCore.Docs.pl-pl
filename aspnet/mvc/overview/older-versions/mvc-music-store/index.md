@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/index
-title: "Magazyn utworów muzycznych platformy ASP.NET MVC 3 | Dokumentacja firmy Microsoft"
+title: Magazyn utworów muzycznych platformy ASP.NET MVC 3 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak utworzyć aplikację sklep muzyczny MVC, przykładowej aplikacji, która sprzedaje albumów muzycznych w trybie online i implementującej Administracja witryny logowanie użytkowników,..."
+description: Jak utworzyć aplikację sklep muzyczny MVC, przykładowej aplikacji, która sprzedaje albumów muzycznych w trybie online i implementującej Administracja witryny logowanie użytkowników,...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565040"
 ---
 <a name="aspnet-mvc-3-music-store"></a><span data-ttu-id="8a09d-103">Magazyn utworów muzycznych platformy ASP.NET MVC 3</span><span class="sxs-lookup"><span data-stu-id="8a09d-103">ASP.NET MVC 3 Music Store</span></span>
 ====================

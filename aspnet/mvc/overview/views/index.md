@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/views/index
-title: "ASP.NET MVC interfejsu użytkownika, układów i kompozycje | Dokumentacja firmy Microsoft"
+title: ASP.NET MVC interfejsu użytkownika, układów i kompozycje | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "I jak z niego korzystać w widokach (V MVC), aby wyświetlić informacje o składni Razor."
+description: I jak z niego korzystać w widokach (V MVC), aby wyświetlić informacje o składni Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/10/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565289"
 ---
 <a name="aspnet-mvc-ui-layouts-and-themes"></a><span data-ttu-id="da9ea-103">ASP.NET MVC interfejsu użytkownika, układów i motywów</span><span class="sxs-lookup"><span data-stu-id="da9ea-103">ASP.NET MVC UI, Layouts, and Themes</span></span>
 ====================

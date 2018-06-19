@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-persist-the-state-of-a-user-control-during-a-postback
-title: "[Jak]: utrwalanie stanu formantu użytkownika podczas odświeżania strony | Dokumentacja firmy Microsoft"
+title: '[Jak]: utrwalanie stanu formantu użytkownika podczas odświeżania strony | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof pokazuje, jak można utrwalić stanu jednego lub więcej obiektów w formancie użytkownika. Po pierwsze kontrola użytkownika jest tworzony reprezentujący abilit..."
+description: W tym wideo Pels Krzysztof pokazuje, jak można utrwalić stanu jednego lub więcej obiektów w formancie użytkownika. Po pierwsze kontrola użytkownika jest tworzony reprezentujący abilit...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/02/2009
@@ -17,8 +17,10 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572096"
 ---
-<a name="how-do-i-persist-the-state-of-a-user-control-during-a-postback"></a><span data-ttu-id="62295-104">[Jak]: utrwalanie stanu formantu użytkownika podczas odświeżania strony</span><span class="sxs-lookup"><span data-stu-id="62295-104">[How Do I]: Persist the State of a User Control During a Postback</span></span>
+<a name="how-do-i-persist-the-state-of-a-user-control-during-a-postback"></a>[Jak]: utrwalanie stanu formantu użytkownika podczas odświeżania strony
+[How Do I]: Persist the State of a User Control During a Postback
 ====================
 <span data-ttu-id="62295-105">przez [Pels Krzysztof](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="62295-105">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 

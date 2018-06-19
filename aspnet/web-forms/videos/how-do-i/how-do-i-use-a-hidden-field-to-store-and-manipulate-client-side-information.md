@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
-title: "[Jak i.] Ukryte pole służy do przechowywania i modyfikowania informacji po stronie klienta | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Ukryte pole służy do przechowywania i modyfikowania informacji po stronie klienta | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "To wideo Pels Krzysztof będzie pokazują, jak używać ukryte pole jako jeden ze sposobów zarządzania stanem prostego na stronie platformy ASP.NET i przekazywania po stronie klienta..."
+description: To wideo Pels Krzysztof będzie pokazują, jak używać ukryte pole jako jeden ze sposobów zarządzania stanem prostego na stronie platformy ASP.NET i przekazywania po stronie klienta...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571829"
 ---
 <a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a><span data-ttu-id="87632-103">[Jak i.] Ukryte pole służy do przechowywania i modyfikowania informacji po stronie klienta</span><span class="sxs-lookup"><span data-stu-id="87632-103">[How Do I:] Use a Hidden Field to Store and Manipulate Client-Side Information</span></span>
 ====================

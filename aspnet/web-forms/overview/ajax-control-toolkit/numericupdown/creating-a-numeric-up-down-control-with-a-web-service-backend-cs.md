@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868818"
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a><span data-ttu-id="88fbe-103">Tworzenie liczbowe formantu góra/dół z zapleczem usługi sieci Web (C#)</span><span class="sxs-lookup"><span data-stu-id="88fbe-103">Creating a Numeric Up/Down Control with a Web Service Backend (C#)</span></span>
 ====================

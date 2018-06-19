@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/data-access/linq-videos-from-the-vb-team/index
-title: "Filmy wideo LINQ z zespołu VB | Dokumentacja firmy Microsoft"
+title: Filmy wideo LINQ z zespołu VB | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Te pliki wideo zapewniają za pośrednictwem godzinę, a druga połowa zawartości koncentruje się na nowe funkcje języka Visual Basic 9.0 uwzględnione w programie Visual Studio 2008 LINQ."
+description: Te pliki wideo zapewniają za pośrednictwem godzinę, a druga połowa zawartości koncentruje się na nowe funkcje języka Visual Basic 9.0 uwzględnione w programie Visual Studio 2008 LINQ.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572081"
 ---
 <a name="linq-videos-from-the-vb-team"></a><span data-ttu-id="f13ef-103">Filmy wideo LINQ z zespołu VB</span><span class="sxs-lookup"><span data-stu-id="f13ef-103">LINQ Videos from the VB Team</span></span>
 ====================

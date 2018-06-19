@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/index
-title: "Cień | Dokumentacja firmy Microsoft"
+title: Cień | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek przedstawia sposób użycia formantu cień rysuje cień za panelu."
+description: Ten samouczek przedstawia sposób użycia formantu cień rysuje cień za panelu.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567428"
 ---
 <a name="dropshadow"></a><span data-ttu-id="792e5-103">Cień</span><span class="sxs-lookup"><span data-stu-id="792e5-103">DropShadow</span></span>
 ====================

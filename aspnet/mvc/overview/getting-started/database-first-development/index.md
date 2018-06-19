@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/index
-title: "Wprowadzenie do korzystania z bazy danych programu Entity Framework 6 najpierw przy użyciu MVC 5 | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do korzystania z bazy danych programu Entity Framework 6 najpierw przy użyciu MVC 5 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ta seria przedstawia sposób użycia programowanie pierwszej bazy danych do tworzenia aplikacji MVC 5 z programu Entity Framework"
+description: Ta seria przedstawia sposób użycia programowanie pierwszej bazy danych do tworzenia aplikacji MVC 5 z programu Entity Framework
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/17/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563717"
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a><span data-ttu-id="f6db1-103">Wprowadzenie do korzystania z bazy danych programu Entity Framework 6 najpierw przy użyciu MVC 5</span><span class="sxs-lookup"><span data-stu-id="f6db1-103">Getting Started with Entity Framework 6 Database First Using MVC 5</span></span>
 ====================

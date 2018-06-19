@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts
-title: "[Jak i.] Praca z zagnieżdżone strony wzorcowe, można utworzyć standardowych układów zawartości | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Praca z zagnieżdżone strony wzorcowe, można utworzyć standardowych układów zawartości | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie pokazują, jak zagnieżdżone strony wzorcowe umożliwia tworzenie pojedynczych stron wzorcowych reprezentujących różne standardowych układów zawartości w..."
+description: W tym wideo Pels Krzysztof będzie pokazują, jak zagnieżdżone strony wzorcowe umożliwia tworzenie pojedynczych stron wzorcowych reprezentujących różne standardowych układów zawartości w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572093"
 ---
 <a name="how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts"></a><span data-ttu-id="00208-103">[Jak i.] Praca z zagnieżdżone strony wzorcowe, można utworzyć standardowych układów zawartości</span><span class="sxs-lookup"><span data-stu-id="00208-103">[How Do I:] Work with Nested Master Pages to Create Standard Content Layouts</span></span>
 ====================

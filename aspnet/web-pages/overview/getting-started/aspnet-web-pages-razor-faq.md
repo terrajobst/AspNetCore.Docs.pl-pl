@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042462"
 ---
 <a name="aspnet-web-pages-razor-faq"></a><span data-ttu-id="7acf8-104">Strony sieci Web platformy ASP.NET (Razor) — często zadawane pytania</span><span class="sxs-lookup"><span data-stu-id="7acf8-104">ASP.NET Web Pages (Razor) FAQ</span></span>
 ====================

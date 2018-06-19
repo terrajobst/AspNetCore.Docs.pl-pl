@@ -2,7 +2,7 @@
 uid: signalr/overview/older-versions/scaleout-with-sql-server
 title: Skalowania SignalR z programem SQL Server (SignalR 1.x) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565988"
 ---
 <a name="signalr-scaleout-with-sql-server-signalr-1x"></a><span data-ttu-id="bf118-102">Skalowania SignalR z programem SQL Server (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="bf118-102">SignalR Scaleout with SQL Server (SignalR 1.x)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868727"
 ---
 <a name="dynamically-adding-an-accordion-pane-vb"></a><span data-ttu-id="90c13-104">Dynamiczne dodawanie Harmonijka okienka (VB)</span><span class="sxs-lookup"><span data-stu-id="90c13-104">Dynamically Adding An Accordion Pane (VB)</span></span>
 ====================

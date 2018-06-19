@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/index
-title: "Wskazówki dotyczące interfejsu API w sieci Web | Dokumentacja firmy Microsoft"
+title: Wskazówki dotyczące interfejsu API w sieci Web | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566459"
 ---
 <a name="web-api-guidance"></a><span data-ttu-id="6fa6f-102">Wskazówki dotyczące interfejsu API sieci Web</span><span class="sxs-lookup"><span data-stu-id="6fa6f-102">Web API Guidance</span></span>
 ====================

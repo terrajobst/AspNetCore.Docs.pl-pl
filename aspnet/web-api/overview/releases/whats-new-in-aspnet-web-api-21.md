@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566756"
 ---
 <a name="whats-new-in-aspnet-web-api-21"></a><span data-ttu-id="73907-102">What's New in ASP.NET Web API 2.1</span><span class="sxs-lookup"><span data-stu-id="73907-102">What's New in ASP.NET Web API 2.1</span></span>
 ====================

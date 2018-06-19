@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/basic-reporting/index
 title: Podstawowym raportowaniem | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten zestaw samouczki wygląda jak używać kontrolki ObjectDataSource do pracy z danych uzyskanych od logiki warstwy Biznesowej, bez kodu."
+description: Ten zestaw samouczki wygląda jak używać kontrolki ObjectDataSource do pracy z danych uzyskanych od logiki warstwy Biznesowej, bez kodu.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568085"
 ---
 <a name="basic-reporting"></a><span data-ttu-id="3c4d6-103">Podstawowym raportowaniem</span><span class="sxs-lookup"><span data-stu-id="3c4d6-103">Basic Reporting</span></span>
 ====================

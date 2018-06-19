@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/deployment/index
-title: "Wdrożenie | Dokumentacja firmy Microsoft"
+title: Wdrożenie | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak wdrożyć projekty składnika ASP.NET MVC na serwerze."
+description: Jak wdrożyć projekty składnika ASP.NET MVC na serwerze.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/18/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563669"
 ---
 # <a name="aspnet-mvc-deployment"></a><span data-ttu-id="70245-103">Wdrożenie programu ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="70245-103">ASP.NET MVC Deployment</span></span>
 

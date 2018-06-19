@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/numericupdown/index
 title: NumericUpDown | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek przedstawia sposób użycia numericupdown — formant, który umożliwia użytkownikom, wybierz wartość za pomocą strzałek w górę i w dół."
+description: Ten samouczek przedstawia sposób użycia numericupdown — formant, który umożliwia użytkownikom, wybierz wartość za pomocą strzałek w górę i w dół.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567446"
 ---
 <a name="numericupdown"></a><span data-ttu-id="7564d-103">NumericUpDown</span><span class="sxs-lookup"><span data-stu-id="7564d-103">NumericUpDown</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site
-title: "Zalogował się przy użyciu zewnętrznych witryn w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft"
+title: Zalogował się przy użyciu zewnętrznych witryn w sieci Web ASP.NET stron witryny (Razor) | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym artykule wyjaśniono, jak zalogować się do witryny stron sieci Web platformy ASP.NET (Razor) za pomocą usługi Facebook, Google, Twitter, Yahoo i innych witryn, oznacza to, jak obsługiwać..."
+description: W tym artykule wyjaśniono, jak zalogować się do witryny stron sieci Web platformy ASP.NET (Razor) za pomocą usługi Facebook, Google, Twitter, Yahoo i innych witryn, oznacza to, jak obsługiwać...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573356"
 ---
 <a name="logging-in-using-external-sites-in-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="bae27-103">Rejestrowanie przy użyciu zewnętrznych witryn w sieci Web platformy ASP.NET (Razor) stron witryny</span><span class="sxs-lookup"><span data-stu-id="bae27-103">Logging In Using External Sites in an ASP.NET Web Pages (Razor) Site</span></span>
 ====================

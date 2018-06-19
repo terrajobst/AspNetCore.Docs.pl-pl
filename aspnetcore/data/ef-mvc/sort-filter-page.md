@@ -13,6 +13,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153725"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a><span data-ttu-id="e702d-103">Platformy ASP.NET Core MVC EF podstawowych — sortowanie, filtrowanie, stronicowania - 3 10</span><span class="sxs-lookup"><span data-stu-id="e702d-103">ASP.NET Core MVC with EF Core - Sort, Filter, Paging - 3 of 10</span></span>
 

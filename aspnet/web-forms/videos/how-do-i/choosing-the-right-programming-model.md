@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/choosing-the-right-programming-model
 title: Wybieranie odpowiedniej Model programowania | Dokumentacja firmy Microsoft
 author: shanselman
-description: "Firmy Microsoft Scott Hanselman zapewnia informacje, które należy zdecydować, czy formularzy sieci Web ASP.NET, ASP.NET MVC lub ASP.NET Web Pages jest odpowiednie dla Ciebie."
+description: Firmy Microsoft Scott Hanselman zapewnia informacje, które należy zdecydować, czy formularzy sieci Web ASP.NET, ASP.NET MVC lub ASP.NET Web Pages jest odpowiednie dla Ciebie.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/10/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571937"
 ---
 <a name="choosing-the-right-programming-model"></a><span data-ttu-id="a646b-103">Wybieranie odpowiedniej Model programowania</span><span class="sxs-lookup"><span data-stu-id="a646b-103">Choosing the Right Programming Model</span></span>
 ====================

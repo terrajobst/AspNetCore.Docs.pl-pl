@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/roles/index
 title: ASP.NET 3.5 - role | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek serii opisuje sposób tworzenia i usuwania ról, jak przypisać użytkowników do ról oraz autoryzacji w ramach roli."
+description: Ten samouczek serii opisuje sposób tworzenia i usuwania ról, jak przypisać użytkowników do ról oraz autoryzacji w ramach roli.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570152"
 ---
 <a name="aspnet-35---roles"></a><span data-ttu-id="10cc9-103">ASP.NET 3.5 - ról</span><span class="sxs-lookup"><span data-stu-id="10cc9-103">ASP.NET 3.5 - Roles</span></span>
 ====================

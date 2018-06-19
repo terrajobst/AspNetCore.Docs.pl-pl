@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/index
 title: Filtrowanie scenariusze DataList i powtarzanego | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Te samouczki jest widoczny sposób wyświetlania raportów wzorzec/szczegół za pomocą listy rozwijanej dla rekordu głównego i formant DataList, aby uzyskać szczegóły."
+description: Te samouczki jest widoczny sposób wyświetlania raportów wzorzec/szczegół za pomocą listy rozwijanej dla rekordu głównego i formant DataList, aby uzyskać szczegóły.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568535"
 ---
 <a name="filtering-scenarios-with-the-datalist-and-repeater"></a><span data-ttu-id="ecf89-103">Scenariusze z DataList i powtarzanego filtrowania</span><span class="sxs-lookup"><span data-stu-id="ecf89-103">Filtering Scenarios with the DataList and Repeater</span></span>
 ====================

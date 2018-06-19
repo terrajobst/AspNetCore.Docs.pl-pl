@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868558"
 ---
 <a name="introducing-the-nerddinner-tutorial"></a><span data-ttu-id="40f37-104">Wprowadzenie do samouczka NerdDinner</span><span class="sxs-lookup"><span data-stu-id="40f37-104">Introducing the NerdDinner Tutorial</span></span>
 ====================

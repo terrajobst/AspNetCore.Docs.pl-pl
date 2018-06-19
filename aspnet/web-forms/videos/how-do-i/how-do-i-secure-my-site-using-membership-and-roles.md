@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-secure-my-site-using-membership-and-roles
-title: "[Jak i.] Zabezpieczyć przy użyciu członkostwa i ról lokacji? | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Zabezpieczyć przy użyciu członkostwa i ról lokacji? | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "Dowiedz się, jak zabezpieczyć witrynę sieci web przy użyciu nowych funkcji członkostwo i role programu ASP.NET 2.0. Tematy zawierają rejestracja użytkownika, hasło odzyskiwania i restricti..."
+description: Dowiedz się, jak zabezpieczyć witrynę sieci web przy użyciu nowych funkcji członkostwo i role programu ASP.NET 2.0. Tematy zawierają rejestracja użytkownika, hasło odzyskiwania i restricti...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/09/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572135"
 ---
 <a name="how-do-i-secure-my-site-using-membership-and-roles"></a><span data-ttu-id="35e5e-105">[Jak i.] Zabezpieczyć przy użyciu członkostwa i ról lokacji?</span><span class="sxs-lookup"><span data-stu-id="35e5e-105">[How Do I:] Secure my Site using Membership and Roles?</span></span>
 ====================

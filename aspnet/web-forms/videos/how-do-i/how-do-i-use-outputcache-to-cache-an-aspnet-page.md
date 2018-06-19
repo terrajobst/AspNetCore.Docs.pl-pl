@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-outputcache-to-cache-an-aspnet-page
-title: "[Jak i.] Używanie OutputCache w celu buforowania strony ASP.NET | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Używanie OutputCache w celu buforowania strony ASP.NET | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof pokazano, jak korzystać z wbudowanemu buforowaniu ASP.NET do przechowywania stron w pamięci podręcznej, więc nie musi on być ponownie renderowany. Najpierw..."
+description: W tym wideo Pels Krzysztof pokazano, jak korzystać z wbudowanemu buforowaniu ASP.NET do przechowywania stron w pamięci podręcznej, więc nie musi on być ponownie renderowany. Najpierw...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/05/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572165"
 ---
 <a name="how-do-i-use-outputcache-to-cache-an-aspnet-page"></a><span data-ttu-id="47104-104">[Jak i.] Używanie OutputCache w celu buforowania strony platformy ASP.NET</span><span class="sxs-lookup"><span data-stu-id="47104-104">[How Do I:] Use OutputCache to Cache an ASP.NET Page</span></span>
 ====================

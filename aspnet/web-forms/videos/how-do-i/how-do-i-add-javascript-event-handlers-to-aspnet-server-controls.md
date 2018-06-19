@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-javascript-event-handlers-to-aspnet-server-controls
-title: "[Jak i.] Dodawanie obsługi zdarzeń języka JavaScript do kontrolek serwera ASP.NET | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Dodawanie obsługi zdarzeń języka JavaScript do kontrolek serwera ASP.NET | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie pokazują, jak interfejsu JavaScript — metody z kontrolek serwera ASP.NET w celu zapewnienia po stronie klienta funkcji zysk serwera..."
+description: W tym wideo Pels Krzysztof będzie pokazują, jak interfejsu JavaScript — metody z kontrolek serwera ASP.NET w celu zapewnienia po stronie klienta funkcji zysk serwera...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/20/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571928"
 ---
 <a name="how-do-i-add-javascript-event-handlers-to-aspnet-server-controls"></a><span data-ttu-id="1cd60-103">[Jak i.] Dodawanie obsługi zdarzeń języka JavaScript do kontrolek serwera ASP.NET</span><span class="sxs-lookup"><span data-stu-id="1cd60-103">[How Do I:] Add JavaScript Event Handlers to ASP.NET Server Controls</span></span>
 ====================

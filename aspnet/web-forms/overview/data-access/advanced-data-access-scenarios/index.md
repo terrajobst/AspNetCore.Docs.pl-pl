@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/index
-title: "Zaawansowanych scenariuszy dostępu do danych | Dokumentacja firmy Microsoft"
+title: Zaawansowanych scenariuszy dostępu do danych | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Te samouczki opisano sposób pracy z procedur składowanych i kolumn obliczanych, jak używać sprzężeń z tabel bazy danych i jak zaszyfrować dane połączenia danych..."
+description: Te samouczki opisano sposób pracy z procedur składowanych i kolumn obliczanych, jak używać sprzężeń z tabel bazy danych i jak zaszyfrować dane połączenia danych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567992"
 ---
 <a name="advanced-data-access-scenarios"></a><span data-ttu-id="4478b-103">Dane zaawansowanych scenariuszy dostępu</span><span class="sxs-lookup"><span data-stu-id="4478b-103">Advanced Data Access Scenarios</span></span>
 ====================

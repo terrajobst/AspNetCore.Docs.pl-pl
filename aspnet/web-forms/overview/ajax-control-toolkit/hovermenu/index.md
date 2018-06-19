@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/hovermenu/index
 title: HoverMenu | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek przedstawia sposób użycia formantu HoverMenu Wyświetla okna podręcznego, gdy użytkownicy kursora myszy nad elementem."
+description: Ten samouczek przedstawia sposób użycia formantu HoverMenu Wyświetla okna podręcznego, gdy użytkownicy kursora myszy nad elementem.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567485"
 ---
 <a name="hovermenu"></a><span data-ttu-id="3a8eb-103">HoverMenu</span><span class="sxs-lookup"><span data-stu-id="3a8eb-103">HoverMenu</span></span>
 ====================

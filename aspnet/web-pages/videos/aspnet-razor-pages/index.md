@@ -2,7 +2,7 @@
 uid: web-pages/videos/aspnet-razor-pages/index
 title: Strony ASP.NET Razor | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Które pliki wideo można wyświetlić aby przejść do strony sieci Web i programu WebMatrix."
+description: Które pliki wideo można wyświetlić aby przejść do strony sieci Web i programu WebMatrix.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573284"
 ---
 <a name="aspnet-web-pages"></a><span data-ttu-id="3723c-103">Strony sieci Web ASP.NET</span><span class="sxs-lookup"><span data-stu-id="3723c-103">ASP.NET Web Pages</span></span>
 =================

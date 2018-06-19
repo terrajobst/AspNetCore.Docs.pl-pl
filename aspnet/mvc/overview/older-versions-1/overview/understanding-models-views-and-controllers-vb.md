@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564602"
 ---
 <a name="understanding-models-views-and-controllers-vb"></a><span data-ttu-id="33a8a-104">Opis modele, widoki i kontrolery (VB)</span><span class="sxs-lookup"><span data-stu-id="33a8a-104">Understanding Models, Views, and Controllers (VB)</span></span>
 ====================

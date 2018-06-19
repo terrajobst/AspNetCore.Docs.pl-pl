@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/index
-title: "Obsługa protokołu OData v4 w składniku ASP.NET Web API | Dokumentacja firmy Microsoft"
+title: Obsługa protokołu OData v4 w składniku ASP.NET Web API | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Interfejs API sieci Web programu ASP.NET umożliwiają utworzenie punktów końcowych, które obsługują OData w wersji 4."
+description: Interfejs API sieci Web programu ASP.NET umożliwiają utworzenie punktów końcowych, które obsługują OData w wersji 4.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566708"
 ---
 <a name="supporting-odata-v4-in-aspnet-web-api"></a><span data-ttu-id="4936e-103">Obsługa protokołu OData v4 w składniku ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="4936e-103">Supporting OData v4 in ASP.NET Web API</span></span>
 ====================

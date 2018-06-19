@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/deployment/index
-title: "SignalR wdrażania i obsługi | Dokumentacja firmy Microsoft"
+title: SignalR wdrażania i obsługi | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak wdrożyć i obsługiwać aplikacji SignalR."
+description: Jak wdrożyć i obsługiwać aplikacji SignalR.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/19/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565526"
 ---
 <a name="signalr-deployment-and-hosting"></a><span data-ttu-id="413ef-103">SignalR wdrażania i obsługi</span><span class="sxs-lookup"><span data-stu-id="413ef-103">SignalR Deployment and Hosting</span></span>
 ====================

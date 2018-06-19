@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/data-access/index
-title: "Dostęp do danych | Dokumentacja firmy Microsoft"
+title: Dostęp do danych | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak utworzyć warstwy dostępu do danych (DAL)."
+description: Jak utworzyć warstwy dostępu do danych (DAL).
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571979"
 ---
 <a name="data-access"></a><span data-ttu-id="5e952-103">Dostęp do danych</span><span class="sxs-lookup"><span data-stu-id="5e952-103">Data Access</span></span>
 ====================

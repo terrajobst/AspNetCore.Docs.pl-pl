@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
-title: "Umożliwia OWIN hosta samodzielnego ASP.NET Web API 2 | Dokumentacja firmy Microsoft"
+title: Umożliwia OWIN hosta samodzielnego ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym samouczku przedstawiono sposób obsługi interfejsu API sieci Web platformy ASP.NET w aplikacji konsoli przy użyciu OWIN do hosta samodzielnego strukturę interfejsu API sieci Web. Otwórz interfejs sieci Web dla platformy .NET (OWIN) d..."
+description: W tym samouczku przedstawiono sposób obsługi interfejsu API sieci Web platformy ASP.NET w aplikacji konsoli przy użyciu OWIN do hosta samodzielnego strukturę interfejsu API sieci Web. Otwórz interfejs sieci Web dla platformy .NET (OWIN) d...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566396"
 ---
 <a name="use-owin-to-self-host-aspnet-web-api-2"></a><span data-ttu-id="dade6-104">Umożliwia OWIN hosta samodzielnego ASP.NET Web API 2</span><span class="sxs-lookup"><span data-stu-id="dade6-104">Use OWIN to Self-Host ASP.NET Web API 2</span></span>
 ====================
