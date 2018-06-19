@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890700"
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-vb"></a><span data-ttu-id="ab026-103">Efektywne stronicowania za pośrednictwem dużych ilości danych (VB)</span><span class="sxs-lookup"><span data-stu-id="ab026-103">Efficiently Paging Through Large Amounts of Data (VB)</span></span>
 ====================

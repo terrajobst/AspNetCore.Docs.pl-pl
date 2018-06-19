@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896007"
 ---
 <a name="displaying-data-in-a-grid"></a><span data-ttu-id="f8a46-103">Wyświetlanie danych w siatce</span><span class="sxs-lookup"><span data-stu-id="f8a46-103">Displaying Data in a Grid</span></span>
 ====================

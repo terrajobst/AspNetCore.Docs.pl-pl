@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896273"
 ---
 <a name="how-do-i-create-my-own-bug-work-item"></a><span data-ttu-id="42bf8-105">[Jak i.] Tworzenie własnych elementu roboczego usterki?</span><span class="sxs-lookup"><span data-stu-id="42bf8-105">[How Do I:] Create My Own Bug Work Item?</span></span>
 ====================

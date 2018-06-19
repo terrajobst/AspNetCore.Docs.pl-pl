@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34094648"
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a><span data-ttu-id="b85c6-103">Pakiet i minifiy zasoby statyczne platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="b85c6-103">Bundle and minifiy static assets in ASP.NET Core</span></span>
 

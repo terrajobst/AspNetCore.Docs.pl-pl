@@ -1,7 +1,7 @@
 ---
-title: "Inne niż Podpisane pamiętać scenariusze dotyczące ochrony danych platformy ASP.NET Core"
+title: Inne niż Podpisane pamiętać scenariusze dotyczące ochrony danych platformy ASP.NET Core
 author: rick-anderson
-description: "Dowiedz się, jak obsługiwać scenariusze ochrony danych, których nie może lub nie chcesz używać usługi udostępniane przez iniekcji zależności."
+description: Dowiedz się, jak obsługiwać scenariusze ochrony danych, których nie może lub nie chcesz używać usługi udostępniane przez iniekcji zależności.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29727249"
 ---
 # <a name="non-di-aware-scenarios-for-data-protection-in-aspnet-core"></a><span data-ttu-id="f68b5-103">Inne niż Podpisane pamiętać scenariusze dotyczące ochrony danych platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="f68b5-103">Non-DI aware scenarios for Data Protection in ASP.NET Core</span></span>
 

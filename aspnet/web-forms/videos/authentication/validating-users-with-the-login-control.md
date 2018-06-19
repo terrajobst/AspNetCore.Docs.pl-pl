@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883242"
 ---
 <a name="validating-users-with-the-login-control"></a><span data-ttu-id="d560a-103">Walidacja użytkowników za pomocą formantu logowania</span><span class="sxs-lookup"><span data-stu-id="d560a-103">Validating Users with the Login Control</span></span>
 ====================

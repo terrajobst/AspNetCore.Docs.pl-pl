@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool
-title: "[Jak i.] Wdrażanie witryny sieci Web za pomocą narzędzia Kopia witryny sieci Web | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Wdrażanie witryny sieci Web za pomocą narzędzia Kopia witryny sieci Web | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie pokazują, jak wdrożyć witrynę sieci web za pomocą narzędzia witryny sieci Web kopiowania w programie Visual Studio. Najpierw zobacz sposób podłączania do zdalnej witryny sieci web i..."
+description: W tym wideo Pels Krzysztof będzie pokazują, jak wdrożyć witrynę sieci web za pomocą narzędzia witryny sieci Web kopiowania w programie Visual Studio. Najpierw zobacz sposób podłączania do zdalnej witryny sieci web i...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572006"
 ---
 <a name="how-do-i-deploy-a-web-site-using-the-copy-web-site-tool"></a><span data-ttu-id="48d94-104">[Jak i.] Wdrażanie witryny sieci Web za pomocą narzędzia Kopia witryny sieci Web</span><span class="sxs-lookup"><span data-stu-id="48d94-104">[How Do I:] Deploy a Web Site Using the Copy Web Site Tool</span></span>
 ====================

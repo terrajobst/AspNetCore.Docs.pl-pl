@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895825"
 ---
 <a name="visual-studio-2010-quick-hit---websites-instead-of-web-projects"></a><span data-ttu-id="ac039-103">Program Visual Studio 2010 "Szybkie trafień" - witryn sieci Web zamiast projekty sieci Web</span><span class="sxs-lookup"><span data-stu-id="ac039-103">Visual Studio 2010 "Quick Hit" - Websites Instead of Web Projects</span></span>
 ====================

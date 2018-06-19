@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891490"
 ---
 <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-c"></a><span data-ttu-id="50fd1-103">Określenie tytuł, tagi Meta i innych nagłówków HTML na stronie wzorcowej (C#)</span><span class="sxs-lookup"><span data-stu-id="50fd1-103">Specifying the Title, Meta Tags, and Other HTML Headers in the Master Page (C#)</span></span>
 ====================

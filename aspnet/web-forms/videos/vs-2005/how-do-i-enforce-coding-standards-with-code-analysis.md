@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893150"
 ---
 <a name="how-do-i-enforce-coding-standards-with-code-analysis"></a><span data-ttu-id="5834b-104">[Jak i.] Wymusić kodowania norm z analizy kodu?</span><span class="sxs-lookup"><span data-stu-id="5834b-104">[How Do I:] Enforce Coding Standards with Code Analysis?</span></span>
 ====================

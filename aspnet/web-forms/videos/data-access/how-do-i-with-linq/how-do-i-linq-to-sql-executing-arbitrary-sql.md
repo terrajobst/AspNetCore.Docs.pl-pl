@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885720"
 ---
 <a name="how-do-i-linq-to-sql-executing-arbitrary-sql"></a><span data-ttu-id="fb9ee-103">Jak I: LINQ do SQL: wykonywanie dowolnego SQL</span><span class="sxs-lookup"><span data-stu-id="fb9ee-103">How Do I: LINQ to SQL: Executing Arbitrary SQL</span></span>
 ====================

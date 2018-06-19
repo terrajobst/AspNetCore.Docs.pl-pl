@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30899046"
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a><span data-ttu-id="e5c8e-103">Program ASP.NET 4 i omówienie tworzenia sieci Web programu Visual Studio 2010</span><span class="sxs-lookup"><span data-stu-id="e5c8e-103">ASP.NET 4 and Visual Studio 2010 Web Development Overview</span></span>
 ====================

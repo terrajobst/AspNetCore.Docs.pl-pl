@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/application-level-objects
-title: "Obiektów na poziomie aplikacji | Dokumentacja firmy Microsoft"
+title: Obiektów na poziomie aplikacji | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: "Ten film będą powodować zdarzenia na poziomie aplikacji i obiektów i opisano pojęcia &quot;zakres&quot; w odniesieniu do nich."
+description: Ten film będą powodować zdarzenia na poziomie aplikacji i obiektów i opisano pojęcia &quot;zakres&quot; w odniesieniu do nich.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570773"
 ---
 <a name="application-level-objects"></a><span data-ttu-id="70235-103">Obiektów na poziomie aplikacji</span><span class="sxs-lookup"><span data-stu-id="70235-103">Application Level Objects</span></span>
 ====================

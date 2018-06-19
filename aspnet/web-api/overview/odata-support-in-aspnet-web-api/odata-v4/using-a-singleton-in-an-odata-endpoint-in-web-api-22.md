@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22
-title: "Utwórz wzorzec Singleton w protokołu OData v4 używanie składnika Web API 2.2 | Dokumentacja firmy Microsoft"
+title: Utwórz wzorzec Singleton w protokołu OData v4 używanie składnika Web API 2.2 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym temacie przedstawiono sposób definiowania pojedynczą w punktu końcowego OData w wersji 2.2 interfejsu API sieci Web."
+description: W tym temacie przedstawiono sposób definiowania pojedynczą w punktu końcowego OData w wersji 2.2 interfejsu API sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/27/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566768"
 ---
 <a name="create-a-singleton-in-odata-v4-using-web-api-22"></a><span data-ttu-id="572b4-103">Utwórz wzorzec Singleton w protokołu OData v4 używanie składnika Web API 2.2</span><span class="sxs-lookup"><span data-stu-id="572b4-103">Create a Singleton in OData v4 Using Web API 2.2</span></span>
 ====================

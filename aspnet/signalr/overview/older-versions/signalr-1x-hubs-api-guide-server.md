@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/signalr-1x-hubs-api-guide-server
-title: "Podręcznik interfejsu API koncentratorów SignalR platformy ASP.NET — serwera (SignalR 1.x) | Dokumentacja firmy Microsoft"
+title: Podręcznik interfejsu API koncentratorów SignalR platformy ASP.NET — serwera (SignalR 1.x) | Dokumentacja firmy Microsoft
 author: pfletcher
-description: "Ten dokument zawiera wprowadzenie do programowania po stronie serwera interfejsu API koncentratorów SignalR platformy ASP.NET SignalR w wersji 1.1, z demonstratin przykłady kodu..."
+description: Ten dokument zawiera wprowadzenie do programowania po stronie serwera interfejsu API koncentratorów SignalR platformy ASP.NET SignalR w wersji 1.1, z demonstratin przykłady kodu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/17/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28044185"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-signalr-1x"></a><span data-ttu-id="9b579-103">Podręcznik interfejsu API koncentratorów SignalR platformy ASP.NET — serwera (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="9b579-103">ASP.NET SignalR Hubs API Guide - Server (SignalR 1.x)</span></span>
 ====================

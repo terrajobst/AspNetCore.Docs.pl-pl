@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30223076"
 ---
 # <a name="aspnet-core-tutorials"></a><span data-ttu-id="56b86-103">Samouczki platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="56b86-103">ASP.NET Core tutorials</span></span>
 

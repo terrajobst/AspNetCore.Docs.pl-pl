@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873186"
 ---
 <a name="dynamically-populating-a-control-using-javascript-code-c"></a><span data-ttu-id="01271-103">Dynamicznie danymi formantu przy użyciu kodu JavaScript (C#)</span><span class="sxs-lookup"><span data-stu-id="01271-103">Dynamically Populating a Control Using JavaScript Code (C#)</span></span>
 ====================

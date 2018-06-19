@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890102"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a><span data-ttu-id="e386b-103">Używanie metod asynchronicznych w języku ASP.NET 4.5</span><span class="sxs-lookup"><span data-stu-id="e386b-103">Using Asynchronous Methods in ASP.NET 4.5</span></span>
 ====================

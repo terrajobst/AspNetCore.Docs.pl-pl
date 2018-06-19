@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897894"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a><span data-ttu-id="60a2f-103">Ciągłe wdrażanie na platformie Azure z programem Visual Studio oraz Git z platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="60a2f-103">Continuous deployment to Azure with Visual Studio and Git with ASP.NET Core</span></span>
 

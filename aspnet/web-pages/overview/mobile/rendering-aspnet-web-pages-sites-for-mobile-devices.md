@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897322"
 ---
 <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a><span data-ttu-id="367d3-104">Renderowanie witryny sieci Web ASP.NET (Razor) stron dla urządzeń przenośnych</span><span class="sxs-lookup"><span data-stu-id="367d3-104">Rendering ASP.NET Web Pages (Razor) Sites for Mobile Devices</span></span>
 ====================

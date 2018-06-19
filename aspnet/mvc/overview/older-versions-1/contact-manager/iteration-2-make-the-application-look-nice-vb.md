@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872770"
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a><span data-ttu-id="a0711-103">Iteracja #2 — zastosować Szukaj nieuprzywilejowany (VB)</span><span class="sxs-lookup"><span data-stu-id="a0711-103">Iteration #2 – Make the application look nice (VB)</span></span>
 ====================

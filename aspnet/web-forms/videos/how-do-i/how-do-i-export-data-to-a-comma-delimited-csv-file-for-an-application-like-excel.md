@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel
 title: '[Jak i.] Eksportuj dane do pliku w formacie CSV rozdzielanego (CSV) dla aplikacji, takich jak program Excel | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "Krzysztof Pels to wideo pokazuje, jak pobierają dane z bazy danych lub inne źródło i eksportowania ich do pliku rozdzielanego przecinkami i mogą być używane w li aplikacji..."
+description: Krzysztof Pels to wideo pokazuje, jak pobierają dane z bazy danych lub inne źródło i eksportowania ich do pliku rozdzielanego przecinkami i mogą być używane w li aplikacji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/22/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571997"
 ---
 <a name="how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel"></a><span data-ttu-id="aaba1-103">[Jak i.] Eksportuj dane do pliku w formacie CSV rozdzielanego (CSV) dla aplikacji, takich jak program Excel</span><span class="sxs-lookup"><span data-stu-id="aaba1-103">[How Do I:] Export Data to a Comma Delimited (CSV) File for an Application Like Excel</span></span>
 ====================

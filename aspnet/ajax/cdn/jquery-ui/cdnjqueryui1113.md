@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30074471"
 ---
 <a name="jquery-ui-1113-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="c2f80-102">jQuery 1.11.3 interfejsu użytkownika w sieci Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="c2f80-102">jQuery UI 1.11.3 on the Microsoft Ajax CDN</span></span>
 ====================

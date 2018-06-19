@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891272"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a><span data-ttu-id="481be-104">Do utworzenia układu całej lokacji za pomocą stron wzorcowych (C#)</span><span class="sxs-lookup"><span data-stu-id="481be-104">Creating a Site-Wide Layout Using Master Pages (C#)</span></span>
 ====================

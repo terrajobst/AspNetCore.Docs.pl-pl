@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/index
 title: Wprowadzenie do aplikacji ASP.NET MVC3 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express."
+description: Podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564800"
 ---
 <a name="getting-started-with-aspnet-mvc3"></a><span data-ttu-id="65caf-103">Wprowadzenie do programu ASP.NET MVC 3</span><span class="sxs-lookup"><span data-stu-id="65caf-103">Getting Started with ASP.NET MVC3</span></span>
 ====================

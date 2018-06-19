@@ -17,6 +17,7 @@ ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/21/2018
+ms.locfileid: "30075532"
 ---
 <a name="jquery-validate-16"></a><span data-ttu-id="4126b-102">Sprawdź poprawność 1.6 jQuery</span><span class="sxs-lookup"><span data-stu-id="4126b-102">jQuery Validate 1.6</span></span>
 ====================

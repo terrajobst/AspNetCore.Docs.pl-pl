@@ -15,6 +15,7 @@ ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31483555"
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a><span data-ttu-id="4f5e2-103">Umożliwia tworzenie aplikacji jednostronicowej w platformy ASP.NET Core JavaScriptServices</span><span class="sxs-lookup"><span data-stu-id="4f5e2-103">Use JavaScriptServices to Create Single Page Applications in ASP.NET Core</span></span>
 

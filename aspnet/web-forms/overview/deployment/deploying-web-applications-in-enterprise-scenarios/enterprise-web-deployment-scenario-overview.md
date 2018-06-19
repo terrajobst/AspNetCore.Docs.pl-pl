@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890024"
 ---
 <a name="enterprise-web-deployment-scenario-overview"></a><span data-ttu-id="d7a45-103">Wdrożenia sieci Web w przedsiębiorstwie: Omówienie scenariusza</span><span class="sxs-lookup"><span data-stu-id="d7a45-103">Enterprise Web Deployment: Scenario Overview</span></span>
 ====================

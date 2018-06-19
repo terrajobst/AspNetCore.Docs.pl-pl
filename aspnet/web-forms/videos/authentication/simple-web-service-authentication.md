@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880557"
 ---
 <a name="simple-web-service-authentication"></a><span data-ttu-id="e3c95-103">Uwierzytelnianie usługi sieci Web proste</span><span class="sxs-lookup"><span data-stu-id="e3c95-103">Simple Web Service Authentication</span></span>
 ====================

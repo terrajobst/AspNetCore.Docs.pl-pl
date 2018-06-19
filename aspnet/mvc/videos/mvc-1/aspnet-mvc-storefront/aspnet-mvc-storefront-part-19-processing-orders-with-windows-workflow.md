@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879663"
 ---
 <a name="aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow"></a><span data-ttu-id="5cdec-103">ASP.NET MVC, MVC częścią sklepu 19: Przetwarzanie zamówień z przepływu pracy systemu Windows</span><span class="sxs-lookup"><span data-stu-id="5cdec-103">ASP.NET MVC MVC Storefront Part 19: Processing Orders With Windows Workflow</span></span>
 ====================

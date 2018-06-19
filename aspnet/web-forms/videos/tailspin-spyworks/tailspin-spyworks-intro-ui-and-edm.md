@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895093"
 ---
 <a name="tailspin-spyworks---intro-ui-and-edm"></a><span data-ttu-id="89ff7-103">Spyworks Tailspin — wprowadzenie do interfejsu użytkownika i EDM</span><span class="sxs-lookup"><span data-stu-id="89ff7-103">Tailspin Spyworks - Intro UI and EDM</span></span>
 ====================

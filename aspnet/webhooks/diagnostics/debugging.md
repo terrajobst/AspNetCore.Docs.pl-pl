@@ -1,20 +1,21 @@
 ---
 uid: webhooks/diagnostics/debugging
-title: "Elementów Webhook ASP.NET debugowanie | Dokumentacja firmy Microsoft"
+title: Elementów Webhook ASP.NET debugowanie | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak można debugować elementów Webhook ASP.NET."
+description: Jak można debugować elementów Webhook ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: 467da78b-3c35-4c51-8b08-77a32379e4a8
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 524cdf0246eda9ef213414923cd23a92a01f211e
 ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28044867"
 ---
 # <a name="aspnet-webhooks-debugging"></a><span data-ttu-id="dc6b1-103">ASP.NET elementów Webhook debugowania</span><span class="sxs-lookup"><span data-stu-id="dc6b1-103">ASP.NET WebHooks debugging</span></span>  
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30071699"
 ---
 # <a name="data-protection-in-aspnet-core"></a><span data-ttu-id="30ecb-103">Ochrona danych w podstawowej platformy ASP.NET</span><span class="sxs-lookup"><span data-stu-id="30ecb-103">Data Protection in ASP.NET Core</span></span>
 

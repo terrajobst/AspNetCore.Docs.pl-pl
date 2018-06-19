@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884031"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a><span data-ttu-id="ff3f1-104">Konfigurowanie serwera sieci Web dla narzędzia Web Deploy publikowania (wdrożenie w trybie Offline)</span><span class="sxs-lookup"><span data-stu-id="ff3f1-104">Configuring a Web Server for Web Deploy Publishing (Offline Deployment)</span></span>
 ====================

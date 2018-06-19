@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873082"
 ---
 <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="d12a5-104">Obsługa (Tworzenie aplikacji w chmurze rzeczywistych z platformy Azure) wystąpienia błędu przejściowego</span><span class="sxs-lookup"><span data-stu-id="d12a5-104">Transient Fault Handling (Building Real-World Cloud Apps with Azure)</span></span>
 ====================

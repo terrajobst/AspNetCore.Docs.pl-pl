@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30075397"
 ---
 # <a name="performance-in-aspnet-core"></a><span data-ttu-id="972c0-103">Wydajność w platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="972c0-103">Performance in ASP.NET Core</span></span>
 

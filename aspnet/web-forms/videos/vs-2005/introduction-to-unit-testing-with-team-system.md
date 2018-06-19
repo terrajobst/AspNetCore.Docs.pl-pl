@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894057"
 ---
 <a name="introduction-to-unit-testing-with-team-system"></a><span data-ttu-id="387b6-103">Wprowadzenie do testowania Team System jednostek</span><span class="sxs-lookup"><span data-stu-id="387b6-103">Introduction to Unit Testing with Team System</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891220"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-c"></a><span data-ttu-id="a4e8c-103">Wyświetlanie wielu rekordów w wierszu o formant DataList (C#)</span><span class="sxs-lookup"><span data-stu-id="a4e8c-103">Showing Multiple Records per Row with the DataList Control (C#)</span></span>
 ====================

@@ -1,7 +1,7 @@
 ---
 title: Routing do akcji kontrolera w ASP.NET Core
 author: rick-anderson
-description: "Dowiedz się, jak platformy ASP.NET Core MVC używa routingu oprogramowanie pośredniczące umożliwia dopasowanie adresów URL żądań przychodzących i zamapowania ich do akcji."
+description: Dowiedz się, jak platformy ASP.NET Core MVC używa routingu oprogramowanie pośredniczące umożliwia dopasowanie adresów URL żądań przychodzących i zamapowania ich do akcji.
 manager: wpickett
 ms.author: riande
 ms.date: 03/14/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29905208"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a><span data-ttu-id="95f9e-103">Routing do akcji kontrolera w ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="95f9e-103">Routing to controller actions in ASP.NET Core</span></span>
 

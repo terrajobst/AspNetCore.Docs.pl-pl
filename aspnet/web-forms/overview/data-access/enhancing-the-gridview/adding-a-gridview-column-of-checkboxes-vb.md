@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892741"
 ---
 <a name="adding-a-gridview-column-of-checkboxes-vb"></a><span data-ttu-id="fd8ae-103">Dodawanie kolumny widoku GridView pola wyboru (VB)</span><span class="sxs-lookup"><span data-stu-id="fd8ae-103">Adding a GridView Column of Checkboxes (VB)</span></span>
 ====================

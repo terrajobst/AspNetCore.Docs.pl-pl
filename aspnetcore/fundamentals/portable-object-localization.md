@@ -1,7 +1,7 @@
 ---
-title: "Skonfiguruj przenośne obiektu lokalizacji w ASP.NET Core"
+title: Skonfiguruj przenośne obiektu lokalizacji w ASP.NET Core
 author: sebastienros
-description: "W tym artykule przedstawiono pliki Portable obiektów oraz opisano kroki dotyczące korzystania z nich w aplikacji platformy ASP.NET Core Framework Orchard Core."
+description: W tym artykule przedstawiono pliki Portable obiektów oraz opisano kroki dotyczące korzystania z nich w aplikacji platformy ASP.NET Core Framework Orchard Core.
 manager: wpickett
 ms.author: scaddie
 ms.date: 09/26/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29904550"
 ---
 # <a name="configure-portable-object-localization-in-aspnet-core"></a><span data-ttu-id="2a131-103">Skonfiguruj przenośne obiektu lokalizacji w ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="2a131-103">Configure portable object localization in ASP.NET Core</span></span>
 

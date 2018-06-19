@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30892520"
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a><span data-ttu-id="4e877-103">Konfigurowanie serwera kompilacji TFS do wdrożenia sieci Web</span><span class="sxs-lookup"><span data-stu-id="4e877-103">Configuring a TFS Build Server for Web Deployment</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888656"
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-vb"></a><span data-ttu-id="cd45d-104">Podczas dodawania nowego rekordu (VB) w tym opcja przekazywania pliku</span><span class="sxs-lookup"><span data-stu-id="cd45d-104">Including a File Upload Option When Adding a New Record (VB)</span></span>
 ====================

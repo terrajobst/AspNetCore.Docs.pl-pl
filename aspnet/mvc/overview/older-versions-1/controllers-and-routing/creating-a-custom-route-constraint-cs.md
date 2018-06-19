@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874346"
 ---
 <a name="creating-a-custom-route-constraint-c"></a><span data-ttu-id="60b8d-104">Utworzenie ograniczenia trasy niestandardowe (C#)</span><span class="sxs-lookup"><span data-stu-id="60b8d-104">Creating a Custom Route Constraint (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877804"
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a><span data-ttu-id="3d3e8-103">ASP.NET i narzędzia sieci Web dla programu Visual Studio 2013 informacje o wersji</span><span class="sxs-lookup"><span data-stu-id="3d3e8-103">ASP.NET and Web Tools for Visual Studio 2013 Release Notes</span></span>
 ====================

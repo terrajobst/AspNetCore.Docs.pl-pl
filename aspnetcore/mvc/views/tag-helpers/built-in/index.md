@@ -1,7 +1,7 @@
 ---
-title: "Wbudowane pomocników tagów platformy ASP.NET Core"
+title: Wbudowane pomocników tagów platformy ASP.NET Core
 author: pkellner
-description: "Dowiedz się, jak wbudowane pomocników tagów platformy ASP.NET Core zwiększania wydajności pracy."
+description: Dowiedz się, jak wbudowane pomocników tagów platformy ASP.NET Core zwiększania wydajności pracy.
 manager: wpickett
 ms.author: riande
 ms.date: 09/13/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29903211"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a><span data-ttu-id="abac1-103">Wbudowane pomocników tagów platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="abac1-103">ASP.NET Core built-in Tag Helpers</span></span>
 

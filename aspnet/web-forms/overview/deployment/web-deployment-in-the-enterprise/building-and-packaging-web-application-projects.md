@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892312"
 ---
 <a name="building-and-packaging-web-application-projects"></a><span data-ttu-id="f361a-103">Skompilowanie i utworzenie pakietu projekty aplikacji sieci Web</span><span class="sxs-lookup"><span data-stu-id="f361a-103">Building and Packaging Web Application Projects</span></span>
 ====================

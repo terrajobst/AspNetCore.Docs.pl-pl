@@ -1,20 +1,21 @@
 ---
 uid: webhooks/diagnostics/logging
-title: "ASP.NET elementów Webhook rejestrowania | Dokumentacja firmy Microsoft"
+title: ASP.NET elementów Webhook rejestrowania | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak przeprowadzić logowanie elementów Webhook ASP.NET."
+description: Jak przeprowadzić logowanie elementów Webhook ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: f71bc442-5f80-481b-a32c-a0ec18dee9d6
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 042d20e38a9bc4f1e9792f6e3ff5be11a1eaa882
 ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28044828"
 ---
 # <a name="aspnet-webhooks-logging"></a><span data-ttu-id="31f65-103">ASP.NET elementów Webhook rejestrowania</span><span class="sxs-lookup"><span data-stu-id="31f65-103">ASP.NET WebHooks logging</span></span>
 

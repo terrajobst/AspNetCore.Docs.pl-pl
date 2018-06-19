@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899411"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a><span data-ttu-id="f04a8-103">Pomocnik Tag kotwicy w platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="f04a8-103">Anchor Tag Helper in ASP.NET Core</span></span>
 

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/error-handling/exception-handling
-title: "Obsługa wyjątków w ASP.NET Web API | Dokumentacja firmy Microsoft"
+title: Obsługa wyjątków w ASP.NET Web API | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/12/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566393"
 ---
 <a name="exception-handling-in-aspnet-web-api"></a><span data-ttu-id="e9489-102">Obsługa wyjątków w Web API platformy ASP.NET</span><span class="sxs-lookup"><span data-stu-id="e9489-102">Exception Handling in ASP.NET Web API</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891503"
 ---
 <a name="control-id-naming-in-content-pages-vb"></a><span data-ttu-id="58431-103">Identyfikator formantu nazewnictwa na stronach zawartości (VB)</span><span class="sxs-lookup"><span data-stu-id="58431-103">Control ID Naming in Content Pages (VB)</span></span>
 ====================

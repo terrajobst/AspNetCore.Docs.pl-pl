@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892156"
 ---
 <a name="role-based-authorization-vb"></a><span data-ttu-id="cb2ce-104">Autoryzacji opartej na rolach (VB)</span><span class="sxs-lookup"><span data-stu-id="cb2ce-104">Role-Based Authorization (VB)</span></span>
 ====================

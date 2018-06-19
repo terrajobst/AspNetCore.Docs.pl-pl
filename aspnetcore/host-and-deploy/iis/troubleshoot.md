@@ -15,6 +15,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30073896"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a><span data-ttu-id="1666c-103">Rozwiązywanie problemów z platformy ASP.NET Core w usługach IIS</span><span class="sxs-lookup"><span data-stu-id="1666c-103">Troubleshoot ASP.NET Core on IIS</span></span>
 

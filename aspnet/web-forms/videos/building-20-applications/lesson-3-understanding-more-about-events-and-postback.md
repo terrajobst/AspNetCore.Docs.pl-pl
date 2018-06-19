@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886150"
 ---
 <a name="lesson-3--understanding-more-about-events-and-postback"></a><span data-ttu-id="0e1e1-103">[Lekcja 3:]  Opis więcej informacji na temat zdarzeń i ogłaszania zwrotnego</span><span class="sxs-lookup"><span data-stu-id="0e1e1-103">[Lesson 3:]  Understanding More About Events and Postback</span></span>
 ====================

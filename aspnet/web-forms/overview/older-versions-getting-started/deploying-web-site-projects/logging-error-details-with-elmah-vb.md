@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891311"
 ---
 <a name="logging-error-details-with-elmah-vb"></a><span data-ttu-id="ae585-104">Szczegóły rejestrowania błędów ELMAH (VB)</span><span class="sxs-lookup"><span data-stu-id="ae585-104">Logging Error Details with ELMAH (VB)</span></span>
 ====================

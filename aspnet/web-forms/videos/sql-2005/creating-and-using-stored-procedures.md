@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893472"
 ---
 <a name="creating-and-using-stored-procedures"></a><span data-ttu-id="87e0c-104">Tworzenie i korzystanie z procedur składowanych</span><span class="sxs-lookup"><span data-stu-id="87e0c-104">Creating and Using Stored Procedures</span></span>
 ====================

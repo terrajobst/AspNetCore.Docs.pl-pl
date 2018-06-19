@@ -13,8 +13,10 @@ ms.topic: article
 uid: fundamentals/http-requests
 ms.openlocfilehash: 1f2c7522a10220cd9520d78846d2e897115447c2
 ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33838764"
 ---
 # <a name="initiate-http-requests"></a><span data-ttu-id="4e38a-103">Zainicjuj żądań HTTP</span><span class="sxs-lookup"><span data-stu-id="4e38a-103">Initiate HTTP requests</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877206"
 ---
 <a name="working-with-computed-columns-vb"></a><span data-ttu-id="86aab-103">Praca z kolumnami obliczanymi (VB)</span><span class="sxs-lookup"><span data-stu-id="86aab-103">Working with Computed Columns (VB)</span></span>
 ====================

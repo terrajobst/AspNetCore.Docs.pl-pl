@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879195"
 ---
 <a name="caching-data-with-the-objectdatasource-c"></a><span data-ttu-id="37872-104">Buforowanie danych z elementu ObjectDataSource (C#)</span><span class="sxs-lookup"><span data-stu-id="37872-104">Caching Data with the ObjectDataSource (C#)</span></span>
 ====================

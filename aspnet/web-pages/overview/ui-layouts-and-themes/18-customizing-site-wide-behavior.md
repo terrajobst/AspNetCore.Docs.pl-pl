@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899204"
 ---
 <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a><span data-ttu-id="cc858-103">Dostosowywanie zachowania całej witryny dla witryny sieci Web ASP.NET (Razor) stron</span><span class="sxs-lookup"><span data-stu-id="cc858-103">Customizing Site-Wide Behavior for ASP.NET Web Pages (Razor) Sites</span></span>
 ====================

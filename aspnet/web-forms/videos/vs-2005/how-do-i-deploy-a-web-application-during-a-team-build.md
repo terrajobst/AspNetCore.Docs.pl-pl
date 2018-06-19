@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895321"
 ---
 <a name="how-do-i-deploy-a-web-application-during-a-team-build"></a><span data-ttu-id="1864e-105">[Jak i.] Wdrażanie aplikacji sieci Web podczas kompilowania zespołowego?</span><span class="sxs-lookup"><span data-stu-id="1864e-105">[How Do I:] Deploy a Web Application during a Team Build?</span></span>
 ====================

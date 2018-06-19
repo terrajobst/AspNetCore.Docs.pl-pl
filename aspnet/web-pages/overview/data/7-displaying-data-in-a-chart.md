@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899726"
 ---
 <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a><span data-ttu-id="a3b3e-105">Wyświetlanie danych na wykresie ze stronami sieci Web platformy ASP.NET (Razor)</span><span class="sxs-lookup"><span data-stu-id="a3b3e-105">Displaying Data in a Chart with ASP.NET Web Pages (Razor)</span></span>
 ====================

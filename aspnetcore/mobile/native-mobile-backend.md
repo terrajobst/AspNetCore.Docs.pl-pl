@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30073181"
 ---
 # <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a><span data-ttu-id="cac9c-103">Tworzenie usługi wewnętrznej bazy danych dla natywnych aplikacji mobilnych z platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="cac9c-103">Create backend services for native mobile apps with ASP.NET Core</span></span>
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892965"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-app"></a><span data-ttu-id="699da-103">Dodawanie kontrolera do aplikacji platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="699da-103">Add a controller to an ASP.NET Core app</span></span>
 

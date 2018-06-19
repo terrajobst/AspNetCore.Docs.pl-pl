@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890934"
 ---
 <a name="understanding-aspnet-ajax-debugging-capabilities"></a><span data-ttu-id="77d05-104">Opis możliwości debugowania kodu ASP.NET AJAX</span><span class="sxs-lookup"><span data-stu-id="77d05-104">Understanding ASP.NET AJAX Debugging Capabilities</span></span>
 ====================

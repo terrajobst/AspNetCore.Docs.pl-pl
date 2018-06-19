@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893849"
 ---
 <a name="custom-extraction-rules-and-coded-web-tests"></a><span data-ttu-id="b8933-103">Niestandardowych reguł wyodrębniania i kodowanych testów strony Web</span><span class="sxs-lookup"><span data-stu-id="b8933-103">Custom Extraction Rules and Coded Web Tests</span></span>
 ====================

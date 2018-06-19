@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874733"
 ---
 <a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a><span data-ttu-id="4dcd6-103">Jak uaktualnić do programu ASP.NET MVC 5 i składnika Web API 2 platformy ASP.NET MVC 4 oraz projekt interfejsu API sieci Web</span><span class="sxs-lookup"><span data-stu-id="4dcd6-103">How to Upgrade an ASP.NET MVC 4 and Web API Project to ASP.NET MVC 5 and Web API 2</span></span>
 ====================

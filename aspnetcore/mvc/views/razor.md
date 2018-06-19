@@ -14,6 +14,7 @@ ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33962495"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a><span data-ttu-id="c0c18-103">Odwołania do składni razor dla platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="c0c18-103">Razor syntax reference for ASP.NET Core</span></span>
 

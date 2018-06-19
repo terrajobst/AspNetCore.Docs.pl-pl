@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153436"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a><span data-ttu-id="8753e-103">Platformy ASP.NET Core MVC podstawowych EF - dziedziczenia - 9, 10</span><span class="sxs-lookup"><span data-stu-id="8753e-103">ASP.NET Core MVC with EF Core - Inheritance - 9 of 10</span></span>
 

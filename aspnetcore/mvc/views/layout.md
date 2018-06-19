@@ -1,7 +1,7 @@
 ---
-title: "Układ platformy ASP.NET Core"
+title: Układ platformy ASP.NET Core
 author: ardalis
-description: "Dowiedz się, jak używać typowych układów, udostępnić dyrektywy i uruchom typowy kod przed renderowania widoków w aplikacji platformy ASP.NET Core."
+description: Dowiedz się, jak używać typowych układów, udostępnić dyrektywy i uruchom typowy kod przed renderowania widoków w aplikacji platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29904754"
 ---
 # <a name="layout-in-aspnet-core"></a><span data-ttu-id="b3911-103">Układ platformy ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="b3911-103">Layout in ASP.NET Core</span></span>
 

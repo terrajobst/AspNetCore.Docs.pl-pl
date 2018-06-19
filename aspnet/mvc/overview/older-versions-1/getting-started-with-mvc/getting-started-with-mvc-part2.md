@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869026"
 ---
 <a name="adding-a-controller"></a><span data-ttu-id="c4291-104">Dodawanie kontrolera</span><span class="sxs-lookup"><span data-stu-id="c4291-104">Adding a Controller</span></span>
 ====================

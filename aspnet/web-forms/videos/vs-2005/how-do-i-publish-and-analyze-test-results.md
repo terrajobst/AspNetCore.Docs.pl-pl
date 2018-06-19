@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894899"
 ---
 <a name="how-do-i-publish-and-analyze-test-results"></a><span data-ttu-id="128b6-105">[Jak i.] Publikowanie i Analizuj wyniki testów?</span><span class="sxs-lookup"><span data-stu-id="128b6-105">[How Do I:] Publish and Analyze Test Results?</span></span>
 ====================

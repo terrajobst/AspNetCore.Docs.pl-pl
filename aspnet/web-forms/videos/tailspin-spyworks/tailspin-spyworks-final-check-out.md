@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896069"
 ---
 <a name="tailspin-spyworks---final-check-out"></a><span data-ttu-id="84ba9-103">Spyworks Tailspin - końcowego wyewidencjonowania</span><span class="sxs-lookup"><span data-stu-id="84ba9-103">Tailspin Spyworks - Final Check Out</span></span>
 ====================

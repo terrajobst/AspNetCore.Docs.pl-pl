@@ -2,13 +2,13 @@
 uid: whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 title: What's New in ASP.NET 4.5 i programu Visual Studio 2012 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten dokument zawiera opis nowych funkcji i ulepszeń wprowadzonych w programie ASP.NET 4.5. Opisano również ulepszeniami do tworzenia aplikacji sieci web..."
+description: Ten dokument zawiera opis nowych funkcji i ulepszeń wprowadzonych w programie ASP.NET 4.5. Opisano również ulepszeniami do tworzenia aplikacji sieci web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/29/2012
 ms.topic: article
 ms.assetid: ba1fabb4-31a3-4ebf-8327-41a6bbba6eaf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28886445"
 ---
 <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a><span data-ttu-id="9d398-104">What's New in ASP.NET 4.5 i programu Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="9d398-104">What's New in ASP.NET 4.5 and Visual Studio 2012</span></span>
 ====================

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077910"
 ---
 # <a name="authenticated-encryption-details-in-aspnet-core"></a><span data-ttu-id="45fd0-103">Szczegóły uwierzytelnionego szyfrowania w ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="45fd0-103">Authenticated encryption details in ASP.NET Core</span></span>
 

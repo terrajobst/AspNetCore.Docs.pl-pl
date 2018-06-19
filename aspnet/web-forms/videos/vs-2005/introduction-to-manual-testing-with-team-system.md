@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894843"
 ---
 <a name="introduction-to-manual-testing-with-team-system"></a><span data-ttu-id="588fc-103">Wprowadzenie do testowania ręcznego za pomocą systemu Team</span><span class="sxs-lookup"><span data-stu-id="588fc-103">Introduction to Manual Testing with Team System</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-membership-provider
-title: "[Jak i.] Utwórz dostawcę członkostwa niestandardowych? | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Utwórz dostawcę członkostwa niestandardowych? | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "Dostawca członkostwa umożliwia aplikacji sieci web do przechowywania i pobierania danych o członkostwie dla użytkownika i wstępnie zdefiniować standardowe używa dostawcy członkostwa ASP.NET..."
+description: Dostawca członkostwa umożliwia aplikacji sieci web do przechowywania i pobierania danych o członkostwie dla użytkownika i wstępnie zdefiniować standardowe używa dostawcy członkostwa ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571961"
 ---
 <a name="how-do-i-create-a-custom-membership-provider"></a><span data-ttu-id="3db27-104">[Jak i.] Utwórz dostawcę członkostwa niestandardowych?</span><span class="sxs-lookup"><span data-stu-id="3db27-104">[How Do I:] Create a Custom Membership Provider?</span></span>
 ====================

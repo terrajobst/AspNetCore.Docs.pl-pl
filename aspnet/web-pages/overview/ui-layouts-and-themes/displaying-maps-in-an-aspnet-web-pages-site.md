@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893865"
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="8d23a-103">Wyświetlanie mapy witryny (Razor) stron sieci Web ASP.NET</span><span class="sxs-lookup"><span data-stu-id="8d23a-103">Displaying Maps in an ASP.NET Web Pages (Razor) Site</span></span>
 ====================

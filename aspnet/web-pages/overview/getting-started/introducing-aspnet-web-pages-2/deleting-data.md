@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897441"
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a><span data-ttu-id="8eaeb-104">Wprowadzenie do strony sieci Web ASP.NET — usuwanie danych z baz danych</span><span class="sxs-lookup"><span data-stu-id="8eaeb-104">Introducing ASP.NET Web Pages - Deleting Database Data</span></span>
 ====================

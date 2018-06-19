@@ -18,6 +18,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988019"
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a><span data-ttu-id="fe67f-104">Za pomocą liczników wydajności SignalR w roli sieci Web Azure</span><span class="sxs-lookup"><span data-stu-id="fe67f-104">Using SignalR performance counters in an Azure Web Role</span></span>
 

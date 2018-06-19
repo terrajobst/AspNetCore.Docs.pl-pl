@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-make-use-of-caching
-title: "[Jak i.] Korzystają z buforowania? | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Korzystają z buforowania? | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "Obejrzyj pokaz następuje omówienie nowych obsługi pamięci podręcznej bazy danych programu SQL Server 2000 i SQL Server 2005 buforowanie danych wyjściowych strony."
+description: Obejrzyj pokaz następuje omówienie nowych obsługi pamięci podręcznej bazy danych programu SQL Server 2000 i SQL Server 2005 buforowanie danych wyjściowych strony.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572195"
 ---
 <a name="how-do-i-make-use-of-caching"></a><span data-ttu-id="0422a-104">[Jak i.] Korzystają z buforowania?</span><span class="sxs-lookup"><span data-stu-id="0422a-104">[How Do I:] Make use of Caching?</span></span>
 ====================

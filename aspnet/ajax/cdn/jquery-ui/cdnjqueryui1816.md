@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30074947"
 ---
 <a name="jquery-ui-1816-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="3566f-102">jQuery 1.8.16 interfejsu użytkownika w sieci Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="3566f-102">jQuery UI 1.8.16 on the Microsoft Ajax CDN</span></span>
 ====================

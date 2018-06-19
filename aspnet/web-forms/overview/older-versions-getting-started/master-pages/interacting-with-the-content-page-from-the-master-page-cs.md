@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891090"
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-c"></a><span data-ttu-id="6d4cf-103">Interakcji ze strony zawartość z strony wzorcowej (C#)</span><span class="sxs-lookup"><span data-stu-id="6d4cf-103">Interacting with the Content Page from the Master Page (C#)</span></span>
 ====================

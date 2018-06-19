@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891389"
 ---
 <a name="assigning-roles-to-users-c"></a><span data-ttu-id="3c870-104">Przypisywanie ról do użytkowników (C#)</span><span class="sxs-lookup"><span data-stu-id="3c870-104">Assigning Roles to Users (C#)</span></span>
 ====================

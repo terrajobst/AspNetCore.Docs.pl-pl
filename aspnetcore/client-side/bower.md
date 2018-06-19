@@ -15,6 +15,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33838426"
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a><span data-ttu-id="a79b2-103">Zarządzaj pakietami po stronie klienta z Bower w ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="a79b2-103">Manage client-side packages with Bower in ASP.NET Core</span></span>
 

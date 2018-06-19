@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892689"
 ---
 <a name="troubleshooting-the-packaging-process"></a><span data-ttu-id="138da-103">Rozwiązywanie problemów z procesu tworzenia pakietów</span><span class="sxs-lookup"><span data-stu-id="138da-103">Troubleshooting the Packaging Process</span></span>
 ====================

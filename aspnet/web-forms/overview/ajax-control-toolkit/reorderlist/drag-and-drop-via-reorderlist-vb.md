@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878792"
 ---
 <a name="drag-and-drop-via-reorderlist-vb"></a><span data-ttu-id="ef33a-103">Przeciągnij i upuść za pośrednictwem ReorderList (VB)</span><span class="sxs-lookup"><span data-stu-id="ef33a-103">Drag and Drop via ReorderList (VB)</span></span>
 ====================

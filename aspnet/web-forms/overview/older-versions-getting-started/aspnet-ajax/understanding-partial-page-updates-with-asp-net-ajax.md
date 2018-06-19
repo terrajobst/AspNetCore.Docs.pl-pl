@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891324"
 ---
 <a name="understanding-partial-page-updates-with-aspnet-ajax"></a><span data-ttu-id="a6fbd-103">Strona częściowa Opis aktualizacji z ASP.NET AJAX</span><span class="sxs-lookup"><span data-stu-id="a6fbd-103">Understanding Partial Page Updates with ASP.NET AJAX</span></span>
 ====================

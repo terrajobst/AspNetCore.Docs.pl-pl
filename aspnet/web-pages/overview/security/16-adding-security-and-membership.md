@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898862"
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="6cbd7-104">Dodawanie zabezpieczeń i członkostwo w witrynie sieci Web ASP.NET stron (Razor)</span><span class="sxs-lookup"><span data-stu-id="6cbd7-104">Adding Security and Membership to an ASP.NET Web Pages (Razor) Site</span></span>
 ====================

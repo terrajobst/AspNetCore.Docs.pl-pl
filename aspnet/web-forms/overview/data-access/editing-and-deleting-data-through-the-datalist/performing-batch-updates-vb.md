@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30892390"
 ---
 <a name="performing-batch-updates-vb"></a><span data-ttu-id="24467-103">Wykonywanie wsadowe aktualizacji (VB)</span><span class="sxs-lookup"><span data-stu-id="24467-103">Performing Batch Updates (VB)</span></span>
 ====================

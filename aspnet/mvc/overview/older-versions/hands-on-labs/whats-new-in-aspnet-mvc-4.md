@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306900"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a><span data-ttu-id="50449-103">Co to jest nowe w programie ASP.NET MVC 4</span><span class="sxs-lookup"><span data-stu-id="50449-103">What's New in ASP.NET MVC 4</span></span>
 

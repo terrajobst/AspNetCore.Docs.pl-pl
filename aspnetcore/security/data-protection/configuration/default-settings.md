@@ -1,7 +1,7 @@
 ---
-title: "Zarządzanie kluczami ochrony danych i okres istnienia w ASP.NET Core"
+title: Zarządzanie kluczami ochrony danych i okres istnienia w ASP.NET Core
 author: rick-anderson
-description: "Więcej informacji na temat zarządzania kluczami ochrony danych i okres istnienia w ASP.NET Core."
+description: Więcej informacji na temat zarządzania kluczami ochrony danych i okres istnienia w ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28887293"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a><span data-ttu-id="8cae8-103">Zarządzanie kluczami ochrony danych i okres istnienia w ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="8cae8-103">Data Protection key management and lifetime in ASP.NET Core</span></span>
 

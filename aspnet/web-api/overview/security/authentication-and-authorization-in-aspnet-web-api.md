@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
-title: "Uwierzytelnianie i autoryzacja w składniku ASP.NET Web API | Dokumentacja firmy Microsoft"
+title: Uwierzytelnianie i autoryzacja w składniku ASP.NET Web API | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Zawiera ogólne omówienie uwierzytelniania i autoryzacji w interfejsie API sieci Web ASP.NET."
+description: Zawiera ogólne omówienie uwierzytelniania i autoryzacji w interfejsie API sieci Web ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/27/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29726761"
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a><span data-ttu-id="732f2-103">Uwierzytelnianie i autoryzacja w składniku ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="732f2-103">Authentication and Authorization in ASP.NET Web API</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895182"
 ---
 <a name="introduction-to-managing-and-running-tests-with-team-system"></a><span data-ttu-id="1f92e-104">Wprowadzenie do zarządzania i Uruchamianie testów w programie Team System</span><span class="sxs-lookup"><span data-stu-id="1f92e-104">Introduction to Managing and Running Tests with Team System</span></span>
 ====================

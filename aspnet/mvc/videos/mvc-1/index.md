@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153907"
 ---
 <a name="aspnet-mvc-1"></a><span data-ttu-id="62c46-103">ASP.NET MVC 1</span><span class="sxs-lookup"><span data-stu-id="62c46-103">ASP.NET MVC 1</span></span>
 ====================

@@ -1,14 +1,14 @@
 ---
 uid: aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
-title: "Co nie zrobić w programie ASP.NET i co należy zrobić w zamian | Dokumentacja firmy Microsoft"
+title: Co nie zrobić w programie ASP.NET i co należy zrobić w zamian | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym temacie opisano kilka typowych pomyłek przez osoby w ramach projektów sieci web ASP.NET. Zapewnia zalecenia dotyczące co należy zrobić, aby uniknąć tych commo..."
+description: W tym temacie opisano kilka typowych pomyłek przez osoby w ramach projektów sieci web ASP.NET. Zapewnia zalecenia dotyczące co należy zrobić, aby uniknąć tych commo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2014
 ms.topic: article
 ms.assetid: c39b9965-545c-4b04-8f55-21be7f28a9e5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28034923"
 ---
 <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a><span data-ttu-id="17f05-104">Co nie zrobić w programie ASP.NET i co zrobić, zamiast niego</span><span class="sxs-lookup"><span data-stu-id="17f05-104">What not to do in ASP.NET, and what to do instead</span></span>
 ====================

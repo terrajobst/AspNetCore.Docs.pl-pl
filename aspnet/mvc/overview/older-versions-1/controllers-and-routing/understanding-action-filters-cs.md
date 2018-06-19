@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870417"
 ---
 <a name="understanding-action-filters-c"></a><span data-ttu-id="e89e8-104">Opis filtry akcji (C#)</span><span class="sxs-lookup"><span data-stu-id="e89e8-104">Understanding Action Filters (C#)</span></span>
 ====================

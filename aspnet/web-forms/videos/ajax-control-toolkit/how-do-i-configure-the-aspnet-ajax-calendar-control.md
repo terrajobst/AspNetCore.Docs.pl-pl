@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884369"
 ---
 <a name="how-do-i-configure-the-aspnet-ajax-calendar-control"></a><span data-ttu-id="9d885-104">[Jak i.] Skonfiguruj formant kalendarza ASP.NET AJAX?</span><span class="sxs-lookup"><span data-stu-id="9d885-104">[How Do I:] Configure the ASP.NET AJAX Calendar Control?</span></span>
 ====================

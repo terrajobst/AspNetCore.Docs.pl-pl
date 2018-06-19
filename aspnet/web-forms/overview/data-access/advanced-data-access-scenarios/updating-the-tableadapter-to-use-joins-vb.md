@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878311"
 ---
 <a name="updating-the-tableadapter-to-use-joins-vb"></a><span data-ttu-id="63129-104">Aktualizowanie TableAdapter w celu użycia sprzężenia (VB)</span><span class="sxs-lookup"><span data-stu-id="63129-104">Updating the TableAdapter to Use JOINs (VB)</span></span>
 ====================

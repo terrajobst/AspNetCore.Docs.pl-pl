@@ -2,7 +2,7 @@
 uid: web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 title: ASP.NET Web API 2 testy jednostkowe | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Tej wskazówki i aplikacji przedstawiają sposób tworzenia testów jednostkowych proste dla aplikacji sieci Web API 2. W tym samouczku pokazano, jak dołączyć proj testu jednostki..."
+description: Tej wskazówki i aplikacji przedstawiają sposób tworzenia testów jednostkowych proste dla aplikacji sieci Web API 2. W tym samouczku pokazano, jak dołączyć proj testu jednostki...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/05/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042748"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a><span data-ttu-id="e5ca7-104">ASP.NET Web API 2 testy jednostkowe</span><span class="sxs-lookup"><span data-stu-id="e5ca7-104">Unit Testing ASP.NET Web API 2</span></span>
 ====================

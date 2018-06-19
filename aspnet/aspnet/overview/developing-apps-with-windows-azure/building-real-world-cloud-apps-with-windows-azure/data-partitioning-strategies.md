@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871353"
 ---
 <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="3f12e-104">Dane partycjonowania strategie (kompilowanie praktyczne aplikacje w chmurze platformy Azure)</span><span class="sxs-lookup"><span data-stu-id="3f12e-104">Data Partitioning Strategies (Building Real-World Cloud Apps with Azure)</span></span>
 ====================

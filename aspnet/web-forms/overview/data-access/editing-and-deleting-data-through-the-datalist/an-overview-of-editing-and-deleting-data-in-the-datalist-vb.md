@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892780"
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a><span data-ttu-id="777b0-103">Omówienie edytowanie i usuwanie danych DataList (VB)</span><span class="sxs-lookup"><span data-stu-id="777b0-103">An Overview of Editing and Deleting Data in the DataList (VB)</span></span>
 ====================

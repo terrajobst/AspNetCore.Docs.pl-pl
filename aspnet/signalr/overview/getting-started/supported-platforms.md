@@ -17,6 +17,7 @@ ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31585234"
 ---
 <a name="supported-platforms"></a><span data-ttu-id="5c7b7-103">Obsługiwane platformy</span><span class="sxs-lookup"><span data-stu-id="5c7b7-103">Supported Platforms</span></span>
 ====================

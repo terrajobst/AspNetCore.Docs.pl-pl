@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869741"
 ---
 <a name="allowing-only-certain-characters-in-a-text-box-c"></a><span data-ttu-id="0a452-104">Zezwalanie tylko niektórych znaków w polu tekstowym (C#)</span><span class="sxs-lookup"><span data-stu-id="0a452-104">Allowing Only Certain Characters in a Text Box (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30892169"
 ---
 <a name="storing-additional-user-information-c"></a><span data-ttu-id="af6d5-104">Przechowywanie dodatkowe informacje dotyczące użytkownika (C#)</span><span class="sxs-lookup"><span data-stu-id="af6d5-104">Storing Additional User Information (C#)</span></span>
 ====================

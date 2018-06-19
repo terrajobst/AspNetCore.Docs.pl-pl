@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873982"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a><span data-ttu-id="1ee87-104">Iteracja #4 — zastosować luźno (C#)</span><span class="sxs-lookup"><span data-stu-id="1ee87-104">Iteration #4 – Make the application loosely coupled (C#)</span></span>
 ====================

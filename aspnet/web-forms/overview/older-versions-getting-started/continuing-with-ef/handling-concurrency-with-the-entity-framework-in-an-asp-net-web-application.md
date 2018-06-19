@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889865"
 ---
 <a name="handling-concurrency-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a><span data-ttu-id="395a1-104">Obsługa współbieżności Entity Framework 4.0 w aplikacji ASP.NET 4 sieci Web</span><span class="sxs-lookup"><span data-stu-id="395a1-104">Handling Concurrency with the Entity Framework 4.0 in an ASP.NET 4 Web Application</span></span>
 ====================

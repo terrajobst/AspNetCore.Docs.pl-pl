@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572063"
 ---
 <a name="migrating"></a><span data-ttu-id="ba28a-103">Migrowanie</span><span class="sxs-lookup"><span data-stu-id="ba28a-103">Migrating</span></span>
 ====================

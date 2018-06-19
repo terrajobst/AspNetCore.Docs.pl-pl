@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891350"
 ---
 <a name="control-id-naming-in-content-pages-c"></a><span data-ttu-id="79147-103">Identyfikator formantu nazewnictwa na stronach zawartości (C#)</span><span class="sxs-lookup"><span data-stu-id="79147-103">Control ID Naming in Content Pages (C#)</span></span>
 ====================

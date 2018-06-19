@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879299"
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-c"></a><span data-ttu-id="7e5ce-104">Tworzenie nowego procedur składowanych do TableAdapters Typizowanego obiektu DataSet (C#)</span><span class="sxs-lookup"><span data-stu-id="7e5ce-104">Creating New Stored Procedures for the Typed DataSet's TableAdapters (C#)</span></span>
 ====================

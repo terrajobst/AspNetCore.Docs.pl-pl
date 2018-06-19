@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/request-validation
-title: "Żądanie sprawdzania poprawności - zapobieganie atakom skryptu | Dokumentacja firmy Microsoft"
+title: Żądanie sprawdzania poprawności - zapobieganie atakom skryptu | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym dokumencie opisano funkcję sprawdzania poprawności żądania programu ASP.NET, w którym, domyślnie aplikacji nie będzie mógł przetwarzania niekodowany submitt zawartości HTML..."
+description: W tym dokumencie opisano funkcję sprawdzania poprawności żądania programu ASP.NET, w którym, domyślnie aplikacji nie będzie mógł przetwarzania niekodowany submitt zawartości HTML...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: fa429113-5f8f-4ef4-97c5-5c04900a19fa
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883558"
 ---
 <a name="request-validation---preventing-script-attacks"></a><span data-ttu-id="7e332-103">Żądanie sprawdzania poprawności - zapobieganie atakom skryptu</span><span class="sxs-lookup"><span data-stu-id="7e332-103">Request Validation - Preventing Script Attacks</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884094"
 ---
 <a name="aspnet-45-web-forms-model-binding"></a><span data-ttu-id="c66ac-103">Powiązanie modelu formularzy sieci Web 4.5 ASP.NET</span><span class="sxs-lookup"><span data-stu-id="c66ac-103">ASP.NET 4.5 Web Forms Model Binding</span></span>
 ====================

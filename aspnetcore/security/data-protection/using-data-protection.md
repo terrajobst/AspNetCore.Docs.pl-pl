@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30076991"
 ---
 # <a name="get-started-with-the-data-protection-apis-in-aspnet-core"></a><span data-ttu-id="58fd0-103">Rozpoczynanie pracy z interfejsami API ochrony danych w podstawowej platformy ASP.NET</span><span class="sxs-lookup"><span data-stu-id="58fd0-103">Get started with the Data Protection APIs in ASP.NET Core</span></span>
 

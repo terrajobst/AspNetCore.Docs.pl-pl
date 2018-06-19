@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879338"
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a><span data-ttu-id="d5062-104">Wprowadzenie do programu Entity Framework 6 Database First przy użyciu MVC 5</span><span class="sxs-lookup"><span data-stu-id="d5062-104">Getting Started with Entity Framework 6 Database First using MVC 5</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891896"
 ---
 <a name="checkout-and-payment-with-paypal"></a><span data-ttu-id="46207-103">Wyewidencjonowywanie i płatności w systemie PayPal</span><span class="sxs-lookup"><span data-stu-id="46207-103">Checkout and Payment with PayPal</span></span>
 ====================

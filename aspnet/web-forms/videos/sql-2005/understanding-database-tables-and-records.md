@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893618"
 ---
 <a name="understanding-database-tables-and-records"></a><span data-ttu-id="2e4ea-104">Opis tabel bazy danych i rekordów</span><span class="sxs-lookup"><span data-stu-id="2e4ea-104">Understanding Database Tables and Records</span></span>
 ====================

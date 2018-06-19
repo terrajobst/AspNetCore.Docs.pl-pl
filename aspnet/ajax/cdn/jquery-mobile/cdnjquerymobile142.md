@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072000"
 ---
 <a name="jquery-mobile-142-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="796dc-102">jQuery Mobile 1.4.2 w sieci Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="796dc-102">jQuery Mobile 1.4.2 on the Microsoft Ajax CDN</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30076857"
 ---
 <a name="jquery-ui-1114-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="a9691-102">jQuery 1.11.4 interfejsu użytkownika w sieci Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="a9691-102">jQuery UI 1.11.4 on the Microsoft Ajax CDN</span></span>
 ====================

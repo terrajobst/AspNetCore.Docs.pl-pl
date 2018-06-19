@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "29793743"
 ---
 # <a name="aspnet-overview"></a><span data-ttu-id="12092-103">Omówienie programu ASP.NET</span><span class="sxs-lookup"><span data-stu-id="12092-103">ASP.NET overview</span></span>
 
