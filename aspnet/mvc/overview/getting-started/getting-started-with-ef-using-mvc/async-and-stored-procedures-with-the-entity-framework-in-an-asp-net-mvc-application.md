@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873264"
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a><span data-ttu-id="73601-103">Async i procedur składowanych z programu Entity Framework w aplikacji platformy ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="73601-103">Async and Stored Procedures with the Entity Framework in an ASP.NET MVC Application</span></span>
 ====================

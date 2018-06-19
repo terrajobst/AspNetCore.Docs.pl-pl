@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072026"
 ---
 # <a name="limit-the-lifetime-of-protected-payloads-in-aspnet-core"></a><span data-ttu-id="278a6-103">Limit ważności chronionych ładunków w ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="278a6-103">Limit the lifetime of protected payloads in ASP.NET Core</span></span>
 

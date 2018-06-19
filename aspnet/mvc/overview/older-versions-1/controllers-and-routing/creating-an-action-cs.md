@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867908"
 ---
 <a name="creating-an-action-c"></a><span data-ttu-id="47d9b-104">Tworzenie akcji (C#)</span><span class="sxs-lookup"><span data-stu-id="47d9b-104">Creating an Action (C#)</span></span>
 ====================

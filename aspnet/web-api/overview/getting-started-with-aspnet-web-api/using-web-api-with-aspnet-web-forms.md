@@ -17,6 +17,7 @@ ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26575855"
 ---
 <a name="using-web-api-with-aspnet-web-forms"></a><span data-ttu-id="aec3b-102">Używanie składnika Web API z formularzami sieci Web ASP.NET</span><span class="sxs-lookup"><span data-stu-id="aec3b-102">Using Web API with ASP.NET Web Forms</span></span>
 ====================

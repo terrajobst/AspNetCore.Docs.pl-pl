@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872138"
 ---
 <a name="how-to-best-learn-aspnet-mvc"></a><span data-ttu-id="2d8cf-103">Jak najlepiej Dowiedz się, platformy ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="2d8cf-103">How to Best Learn ASP.NET MVC</span></span>
 ====================

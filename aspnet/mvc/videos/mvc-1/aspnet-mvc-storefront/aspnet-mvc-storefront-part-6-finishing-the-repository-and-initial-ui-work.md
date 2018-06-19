@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872140"
 ---
 <a name="aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work"></a><span data-ttu-id="cee95-103">ASP.NET MVC sklepu część 6: Kończenie repozytorium i pracy początkowej interfejsu użytkownika</span><span class="sxs-lookup"><span data-stu-id="cee95-103">ASP.NET MVC Storefront Part 6: Finishing The Repository, and Initial UI Work</span></span>
 ====================

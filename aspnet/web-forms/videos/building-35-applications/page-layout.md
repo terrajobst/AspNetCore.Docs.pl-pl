@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/page-layout
-title: "Układ strony | Dokumentacja firmy Microsoft"
+title: Układ strony | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: "Tabele lub arkusze stylów? Pozycjonowanie względną lub bezwzględną? Ten film przedstawiono funkcje programu Visual Web developer, która obsługuje programowania z użyciem yo..."
+description: Tabele lub arkusze stylów? Pozycjonowanie względną lub bezwzględną? Ten film przedstawiono funkcje programu Visual Web developer, która obsługuje programowania z użyciem yo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571925"
 ---
 <a name="page-layout"></a><span data-ttu-id="093cb-105">Układ strony</span><span class="sxs-lookup"><span data-stu-id="093cb-105">Page Layout</span></span>
 ====================

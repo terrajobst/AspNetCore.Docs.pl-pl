@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-35/index
 title: ASP.NET 3.5 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak tworzyć aplikacje ASP.NET 3.5, ze szczególnym uwzględnieniem nowych funkcji."
+description: Jak tworzyć aplikacje ASP.NET 3.5, ze szczególnym uwzględnieniem nowych funkcji.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570878"
 ---
 <a name="aspnet-35"></a><span data-ttu-id="a6e19-103">ASP.NET 3.5</span><span class="sxs-lookup"><span data-stu-id="a6e19-103">ASP.NET 3.5</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and-programmatically
 title: '[Jak i.] Praca z stron wzorcowych deklaratywnie i programowo | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof wyświetli kilka aspektów definiowanie i za pomocą wzorca stron w witrynie sieci web programu ASP.NET. Po pierwsze Zobacz Tworzenie stron wzorcowych declarati..."
+description: W tym wideo Pels Krzysztof wyświetli kilka aspektów definiowanie i za pomocą wzorca stron w witrynie sieci web programu ASP.NET. Po pierwsze Zobacz Tworzenie stron wzorcowych declarati...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572261"
 ---
 <a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a><span data-ttu-id="6263a-104">[Jak i.] Praca z stron wzorcowych deklaratywnie i programowo</span><span class="sxs-lookup"><span data-stu-id="6263a-104">[How Do I:] Work with Master Pages Declaratively and Programmatically</span></span>
 ====================

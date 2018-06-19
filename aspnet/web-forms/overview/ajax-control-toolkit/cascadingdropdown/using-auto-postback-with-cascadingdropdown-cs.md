@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872471"
 ---
 <a name="using-auto-postback-with-cascadingdropdown-c"></a><span data-ttu-id="b0b16-103">Przy użyciu automatycznego odświeżania z CascadingDropDown (C#)</span><span class="sxs-lookup"><span data-stu-id="b0b16-103">Using Auto-Postback with CascadingDropDown (C#)</span></span>
 ====================

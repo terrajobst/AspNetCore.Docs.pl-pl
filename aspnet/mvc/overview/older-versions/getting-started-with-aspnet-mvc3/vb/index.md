@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/index
 title: Wprowadzenie do platformy ASP.NET MVC 3 (VB.NET) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express przy użyciu VB.NET."
+description: Podstawowe informacje dotyczące tworzenia aplikacji sieci Web programu ASP.NET MVC przy użyciu programu Microsoft Visual Web Developer 2010 Express przy użyciu VB.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564791"
 ---
 <a name="getting-started-with-aspnet-mvc-3-vbnet"></a><span data-ttu-id="9f346-103">Wprowadzenie do platformy ASP.NET MVC 3 (VB.NET)</span><span class="sxs-lookup"><span data-stu-id="9f346-103">Getting Started with ASP.NET MVC 3 (VB.NET)</span></span>
 ====================

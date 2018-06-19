@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/advanced/dependency-injection
-title: "Iniekcji zależności w bibliotece SignalR | Dokumentacja firmy Microsoft"
+title: Iniekcji zależności w bibliotece SignalR | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Wersje oprogramowania używane w tym temacie Visual Studio 2013 .NET 4.5 SignalR w wersji 2 poprzednie wersje tego tematu informacji o wcześniejszych wersji..."
+description: Wersje oprogramowania używane w tym temacie Visual Studio 2013 .NET 4.5 SignalR w wersji 2 poprzednie wersje tego tematu informacji o wcześniejszych wersji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565559"
 ---
 <a name="dependency-injection-in-signalr"></a><span data-ttu-id="daee1-103">Iniekcji zależności w bibliotece SignalR</span><span class="sxs-lookup"><span data-stu-id="daee1-103">Dependency Injection in SignalR</span></span>
 ====================

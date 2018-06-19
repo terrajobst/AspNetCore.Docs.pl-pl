@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570782"
 ---
 <a name="building-20-applications"></a><span data-ttu-id="4daf1-103">Tworzenie aplikacji 2.0</span><span class="sxs-lookup"><span data-stu-id="4daf1-103">Building 2.0 Applications</span></span>
 ====================

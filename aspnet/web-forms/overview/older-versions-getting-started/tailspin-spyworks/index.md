@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/index
 title: ASP.NET 4 - Tailspin Spyworks | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak korzystać z nowych funkcji w programie ASP.NET 4 do magazynu online, łącznie z zakupów, wyewidencjonowania i administrowanie kompilacji."
+description: Jak korzystać z nowych funkcji w programie ASP.NET 4 do magazynu online, łącznie z zakupów, wyewidencjonowania i administrowanie kompilacji.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569900"
 ---
 <a name="aspnet-4---tailspin-spyworks"></a><span data-ttu-id="dd4e9-103">ASP.NET 4 - Tailspin Spyworks</span><span class="sxs-lookup"><span data-stu-id="dd4e9-103">ASP.NET 4 - Tailspin Spyworks</span></span>
 ====================

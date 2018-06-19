@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889023"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a><span data-ttu-id="c7570-103">Wzorzec/szczegół za pomocą listy punktowanej rekordów wzorca z szczegóły elementu DataList (VB)</span><span class="sxs-lookup"><span data-stu-id="c7570-103">Master/Detail Using a Bulleted List of Master Records with a Details DataList (VB)</span></span>
 ====================

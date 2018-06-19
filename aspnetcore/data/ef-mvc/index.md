@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153468"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---tutorial-series"></a><span data-ttu-id="e0b4a-102">Platformy ASP.NET Core MVC podstawowych EF — samouczek serii</span><span class="sxs-lookup"><span data-stu-id="e0b4a-102">ASP.NET Core MVC with EF Core - tutorial series</span></span>
 

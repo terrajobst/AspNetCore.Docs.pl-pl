@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30078053"
 ---
 # <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a><span data-ttu-id="aed50-103">Cel hierarchii i obsługi wielu dzierżawców w ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="aed50-103">Purpose hierarchy and multi-tenancy in ASP.NET Core</span></span>
 

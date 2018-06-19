@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/visual-studio-2010/index
-title: "Ogólne VS 2010 porady | Dokumentacja firmy Microsoft"
+title: Ogólne VS 2010 porady | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Funkcje programu Visual Studio 2010, łącznie z tymi specjalnie z myślą o pracy z programem ASP.NET."
+description: Funkcje programu Visual Studio 2010, łącznie z tymi specjalnie z myślą o pracy z programem ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572246"
 ---
 <a name="general-vs-2010-tips"></a><span data-ttu-id="89081-103">Ogólne VS 2010 porady</span><span class="sxs-lookup"><span data-stu-id="89081-103">General VS 2010 Tips</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-pages/overview/data/index
 title: Praca z danymi | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak pracować z baz danych i plików w sposób wyświetlania stron sieci Web i aktualizacji danych."
+description: Jak pracować z baz danych i plików w sposób wyświetlania stron sieci Web i aktualizacji danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572867"
 ---
 <a name="working-with-data"></a><span data-ttu-id="99140-103">Praca z danymi</span><span class="sxs-lookup"><span data-stu-id="99140-103">Working with Data</span></span>
 ====================

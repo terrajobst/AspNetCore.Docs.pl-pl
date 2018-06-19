@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-multiple-file-uploads-in-aspnet-2
-title: "[Jak i.]  Przekazywania wielu plików w programie ASP.NET 2 | Dokumentacja firmy Microsoft"
+title: '[Jak i.]  Przekazywania wielu plików w programie ASP.NET 2 | Dokumentacja firmy Microsoft'
 author: JoeStagner
-description: "W tym wideo I zostaną przedstawione przekazywania dynamicznie określoną liczbę plików do aplikacji platformy ASP.NET."
+description: W tym wideo I zostaną przedstawione przekazywania dynamicznie określoną liczbę plików do aplikacji platformy ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/12/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570719"
 ---
 <a name="how-do-i--multiple-file-uploads-in-aspnet-2"></a><span data-ttu-id="6507c-103">[Jak i.]  Przekazywania wielu plików w programie ASP.NET 2</span><span class="sxs-lookup"><span data-stu-id="6507c-103">[How Do I:]  Multiple File Uploads in ASP.NET 2</span></span>
 ====================

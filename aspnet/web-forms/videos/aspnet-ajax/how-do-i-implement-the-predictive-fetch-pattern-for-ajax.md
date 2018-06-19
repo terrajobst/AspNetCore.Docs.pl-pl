@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883375"
 ---
 <a name="how-do-i-implement-the-predictive-fetch-pattern-for-ajax"></a><span data-ttu-id="0858c-104">[Jak i.] Implementowanie wzorca predykcyjnej pobierania dla AJAX?</span><span class="sxs-lookup"><span data-stu-id="0858c-104">[How Do I:] Implement the Predictive Fetch Pattern for AJAX?</span></span>
 ====================

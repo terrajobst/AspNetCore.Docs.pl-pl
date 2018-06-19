@@ -8,4 +8,4 @@ services:
 networks:
   default:
     external:
-      name: Translator adresów sieciowych
+      name: <span data-ttu-id="72534-101">Translator adresów sieciowych</span><span class="sxs-lookup"><span data-stu-id="72534-101">nat</span></span>

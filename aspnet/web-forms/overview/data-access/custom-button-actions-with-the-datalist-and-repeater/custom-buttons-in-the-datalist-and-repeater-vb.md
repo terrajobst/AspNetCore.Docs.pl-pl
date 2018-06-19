@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876088"
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a><span data-ttu-id="7d525-103">Przyciski niestandardowe DataList i powtarzanego (VB)</span><span class="sxs-lookup"><span data-stu-id="7d525-103">Custom Buttons in the DataList and Repeater (VB)</span></span>
 ====================

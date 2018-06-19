@@ -1,8 +1,8 @@
 ---
 uid: web-api/samples-list
-title: "Interfejs API sieci Web przykłady listy | Dokumentacja firmy Microsoft"
+title: Interfejs API sieci Web przykłady listy | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28038992"
 ---
 <a name="web-api-samples-list"></a><span data-ttu-id="e5f08-102">Lista przykładów interfejsu API sieci Web</span><span class="sxs-lookup"><span data-stu-id="e5f08-102">Web API Samples List</span></span>
 ====================

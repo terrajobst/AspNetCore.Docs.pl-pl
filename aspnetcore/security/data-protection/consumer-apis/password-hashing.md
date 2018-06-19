@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32740104"
 ---
 # <a name="hash-passwords-in-aspnet-core"></a><span data-ttu-id="c9d4b-103">Skrót hasła w ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="c9d4b-103">Hash passwords in ASP.NET Core</span></span>
 

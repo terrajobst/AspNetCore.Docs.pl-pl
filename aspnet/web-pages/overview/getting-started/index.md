@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/index
-title: "Wprowadzenie do składnika ASP.NET Web Pages | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do składnika ASP.NET Web Pages | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Dowiedz się więcej o stron sieci Web ASP.NET strony sieci Web ASP.NET i Nowa składnia Razor oferują szybki, bezpośredni i nieskomplikowany sposób łączenia kodu serwera z HTML t..."
+description: Dowiedz się więcej o stron sieci Web ASP.NET strony sieci Web ASP.NET i Nowa składnia Razor oferują szybki, bezpośredni i nieskomplikowany sposób łączenia kodu serwera z HTML t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572882"
 ---
 <a name="getting-started-with-aspnet-web-pages"></a><span data-ttu-id="abcd9-103">Wprowadzenie do strony sieci Web ASP.NET</span><span class="sxs-lookup"><span data-stu-id="abcd9-103">Getting Started with ASP.NET Web Pages</span></span>
 ====================

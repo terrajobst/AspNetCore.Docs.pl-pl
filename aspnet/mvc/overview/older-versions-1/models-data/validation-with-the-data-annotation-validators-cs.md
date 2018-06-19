@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870196"
 ---
 <a name="validation-with-the-data-annotation-validators-c"></a><span data-ttu-id="db35b-104">Weryfikowanie przy użyciu adnotacji danych modułów sprawdzania poprawności (C#)</span><span class="sxs-lookup"><span data-stu-id="db35b-104">Validation with the Data Annotation Validators (C#)</span></span>
 ====================

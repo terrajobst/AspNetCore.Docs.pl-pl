@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-learn-the-tips-and-tricks-of-experts
-title: "[Jak i.] Dowiedz się, porady i wskazówki ekspertów? | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Dowiedz się, porady i wskazówki ekspertów? | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "Wyświetl porady i wskazówki, łącznie z szyfrowania są przechowywane poufne dane w pliku web.config, wysyłanie zawartości do innej strony, co upraszcza złożone adresy URL..."
+description: Wyświetl porady i wskazówki, łącznie z szyfrowania są przechowywane poufne dane w pliku web.config, wysyłanie zawartości do innej strony, co upraszcza złożone adresy URL...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572033"
 ---
 <a name="how-do-i-learn-the-tips-and-tricks-of-experts"></a><span data-ttu-id="16b7a-104">[Jak i.] Dowiedz się, porady i wskazówki ekspertów?</span><span class="sxs-lookup"><span data-stu-id="16b7a-104">[How Do I:] Learn the Tips and Tricks of Experts?</span></span>
 ====================

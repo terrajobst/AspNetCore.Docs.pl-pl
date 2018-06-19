@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872328"
 ---
 <a name="creating-custom-routes-vb"></a><span data-ttu-id="67183-104">Tworzenie trasy niestandardowe (VB)</span><span class="sxs-lookup"><span data-stu-id="67183-104">Creating Custom Routes (VB)</span></span>
 ====================

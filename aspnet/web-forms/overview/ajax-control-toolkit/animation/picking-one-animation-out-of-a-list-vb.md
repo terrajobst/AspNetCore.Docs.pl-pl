@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872068"
 ---
 <a name="picking-one-animation-out-of-a-list-vb"></a><span data-ttu-id="919c3-104">Pobrania jednej animacji spoza listy (VB)</span><span class="sxs-lookup"><span data-stu-id="919c3-104">Picking One Animation Out Of a List (VB)</span></span>
 ====================

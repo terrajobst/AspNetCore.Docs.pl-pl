@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page
-title: "[Jak]: Dodaj formanty programów obsługi zdarzeń skryptu klienta na stronie platformy ASP.NET? | Dokumentacja firmy Microsoft"
+title: '[Jak]: Dodaj formanty programów obsługi zdarzeń skryptu klienta na stronie platformy ASP.NET? | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof przedstawiono sposób dodawania zdarzenia skryptu klienta do formantów na stronie platformy ASP.NET. Po pierwsze strony i e zostaną dodane kilka kontrolki ASP.NET..."
+description: W tym wideo Pels Krzysztof przedstawiono sposób dodawania zdarzenia skryptu klienta do formantów na stronie platformy ASP.NET. Po pierwsze strony i e zostaną dodane kilka kontrolki ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -17,8 +17,10 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571853"
 ---
-<a name="how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page"></a><span data-ttu-id="30737-105">[Jak]: Dodaj formanty programów obsługi zdarzeń skryptu klienta na stronie platformy ASP.NET?</span><span class="sxs-lookup"><span data-stu-id="30737-105">[How Do I]: Add Client Script Event Handlers Controls on an ASP.NET Page?</span></span>
+<a name="how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page"></a>[Jak]: Dodaj formanty programów obsługi zdarzeń skryptu klienta na stronie platformy ASP.NET?
+[How Do I]: Add Client Script Event Handlers Controls on an ASP.NET Page?
 ====================
 <span data-ttu-id="30737-106">przez [Pels Krzysztof](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="30737-106">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 

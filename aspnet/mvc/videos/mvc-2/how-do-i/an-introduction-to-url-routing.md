@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869884"
 ---
 <a name="an-introduction-to-url-routing"></a><span data-ttu-id="b6930-104">Wprowadzenie do routingu adresów URL</span><span class="sxs-lookup"><span data-stu-id="b6930-104">An Introduction to URL Routing</span></span>
 ====================

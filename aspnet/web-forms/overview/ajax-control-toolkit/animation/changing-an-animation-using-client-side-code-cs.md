@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870651"
 ---
 <a name="changing-an-animation-using-client-side-code-c"></a><span data-ttu-id="326a3-104">Zmiana animacji przy użyciu kodu po stronie klienta (C#)</span><span class="sxs-lookup"><span data-stu-id="326a3-104">Changing an Animation Using Client-Side Code (C#)</span></span>
 ====================

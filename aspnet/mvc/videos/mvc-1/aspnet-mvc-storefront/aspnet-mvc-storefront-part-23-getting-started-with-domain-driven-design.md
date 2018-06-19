@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872380"
 ---
 <a name="aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design"></a><span data-ttu-id="6edb2-104">ASP.NET MVC sklepu część 23: Wprowadzenie do projektowania oparte na domenie</span><span class="sxs-lookup"><span data-stu-id="6edb2-104">ASP.NET MVC Storefront Part 23: Getting Started With Domain-Driven Design</span></span>
 ====================

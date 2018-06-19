@@ -2,7 +2,7 @@
 uid: web-api/index
 title: Interfejs API sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Pobierz program ASP.NET MVC 4 i tworzenie usług HTTP, które są używane przez szeroki wachlarz klientów."
+description: Pobierz program ASP.NET MVC 4 i tworzenie usług HTTP, które są używane przez szeroki wachlarz klientów.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566420"
 ---
 <a name="aspnet-web-api"></a><span data-ttu-id="0f710-103">ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="0f710-103">ASP.NET Web API</span></span>
 ====================

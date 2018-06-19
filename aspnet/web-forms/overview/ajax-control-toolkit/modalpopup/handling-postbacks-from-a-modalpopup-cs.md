@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873735"
 ---
 <a name="handling-postbacks-from-a-modalpopup-c"></a><span data-ttu-id="8c47d-104">Obsługa ogłaszania zwrotnego z ModalPopup (C#)</span><span class="sxs-lookup"><span data-stu-id="8c47d-104">Handling Postbacks from a ModalPopup (C#)</span></span>
 ====================

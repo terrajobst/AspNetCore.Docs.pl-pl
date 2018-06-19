@@ -14,6 +14,7 @@ ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555355"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a><span data-ttu-id="0acd3-103">Praca z model aplikacji w programie ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="0acd3-103">Work with the application model in ASP.NET Core</span></span>
 

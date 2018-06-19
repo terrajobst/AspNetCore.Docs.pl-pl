@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-make-html-elements-accessible-from-server-side-code
-title: "[Jak i.] Udostępnij elementów HTML z kod po stronie serwera | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Udostępnij elementów HTML z kod po stronie serwera | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie pokazują, jak udostępnić standardowych elementów HTML w strony .aspx z kod po stronie serwera dzięki mogą być używane w processin strony..."
+description: W tym wideo Pels Krzysztof będzie pokazują, jak udostępnić standardowych elementów HTML w strony .aspx z kod po stronie serwera dzięki mogą być używane w processin strony...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570770"
 ---
 <a name="how-do-i-make-html-elements-accessible-from-server-side-code"></a><span data-ttu-id="9b89e-103">[Jak i.] Udostępnij elementów HTML z kod po stronie serwera</span><span class="sxs-lookup"><span data-stu-id="9b89e-103">[How Do I:] Make HTML elements accessible from server side code</span></span>
 ====================

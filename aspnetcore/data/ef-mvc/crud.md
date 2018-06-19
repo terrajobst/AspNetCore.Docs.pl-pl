@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153589"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a><span data-ttu-id="f2e5a-102">Platformy ASP.NET Core MVC podstawowych EF - CRUD - 2 10</span><span class="sxs-lookup"><span data-stu-id="f2e5a-102">ASP.NET Core MVC with EF Core - CRUD - 2 of 10</span></span>
 

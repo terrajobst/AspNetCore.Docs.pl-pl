@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874112"
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="2847b-104">Projektowanie po awarii (kompilowanie praktyczne aplikacje w chmurze platformy Azure)</span><span class="sxs-lookup"><span data-stu-id="2847b-104">Design to Survive Failures (Building Real-World Cloud Apps with Azure)</span></span>
 ====================

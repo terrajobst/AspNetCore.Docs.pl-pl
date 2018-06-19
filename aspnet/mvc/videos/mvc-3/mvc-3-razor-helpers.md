@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-3/mvc-3-razor-helpers
-title: "MVC 3 - pomocników Razor | Dokumentacja firmy Microsoft"
+title: MVC 3 - pomocników Razor | Dokumentacja firmy Microsoft
 author: jongalloway
-description: "W tym wideo dowiesz jak obie metody rozszerzenia, a declarative @helper składni w widokach Razor."
+description: W tym wideo dowiesz jak obie metody rozszerzenia, a declarative @helper składni w widokach Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565403"
 ---
 <a name="mvc-3---razor-helpers"></a><span data-ttu-id="58d96-103">MVC 3 - pomocników Razor</span><span class="sxs-lookup"><span data-stu-id="58d96-103">MVC 3 - Razor Helpers</span></span>
 ====================

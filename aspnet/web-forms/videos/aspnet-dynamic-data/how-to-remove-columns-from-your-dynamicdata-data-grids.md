@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883680"
 ---
 <a name="how-to-remove-columns-from-your-dynamicdata-data-grids"></a><span data-ttu-id="3d9f5-103">Jak usunąć kolumny z Twojej siatki DynamicData danych</span><span class="sxs-lookup"><span data-stu-id="3d9f5-103">How to Remove Columns From Your DynamicData Data Grids</span></span>
 ====================

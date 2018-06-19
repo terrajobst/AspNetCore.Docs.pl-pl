@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871054"
 ---
 <a name="aspnet-mvc-2---render-action"></a><span data-ttu-id="a1597-104">Program ASP.NET MVC 2 - renderowania akcji</span><span class="sxs-lookup"><span data-stu-id="a1597-104">ASP.NET MVC 2 - Render Action</span></span>
 ====================

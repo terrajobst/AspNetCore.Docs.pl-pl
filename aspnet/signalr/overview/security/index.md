@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/security/index
-title: "SignalR zabezpieczeń | Dokumentacja firmy Microsoft"
+title: SignalR zabezpieczeń | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Opis i obsługi problemów z zabezpieczeniami w aplikacji SignalR."
+description: Opis i obsługi problemów z zabezpieczeniami w aplikacji SignalR.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/19/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565979"
 ---
 <a name="signalr-security"></a><span data-ttu-id="4f127-103">SignalR zabezpieczeń</span><span class="sxs-lookup"><span data-stu-id="4f127-103">SignalR Security</span></span>
 ====================

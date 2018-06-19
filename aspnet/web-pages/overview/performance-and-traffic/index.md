@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/performance-and-traffic/index
-title: "Wydajność | Dokumentacja firmy Microsoft"
+title: Wydajność | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak zawartości pamięci podręcznej, aby uzyskać większą wydajność i sposób mierzenia ruch w witrynie."
+description: Jak zawartości pamięci podręcznej, aby uzyskać większą wydajność i sposób mierzenia ruch w witrynie.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572861"
 ---
 <a name="performance"></a><span data-ttu-id="33af2-103">Wydajność</span><span class="sxs-lookup"><span data-stu-id="33af2-103">Performance</span></span>
 ====================

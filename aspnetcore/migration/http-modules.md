@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32741053"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a><span data-ttu-id="396e9-102">Przenieść programów obsługi HTTP i modułów platformy ASP.NET Core oprogramowania pośredniczącego</span><span class="sxs-lookup"><span data-stu-id="396e9-102">Migrate HTTP handlers and modules to ASP.NET Core middleware</span></span>
 

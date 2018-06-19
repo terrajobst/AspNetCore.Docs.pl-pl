@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-command-buttons-for-individual-items
-title: "[Jak i.] Implementowanie przyciski poleceń dla poszczególnych elementów | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Implementowanie przyciski poleceń dla poszczególnych elementów | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "To wideo Pels Krzysztof wyświetli sposobu obsługi zdarzenia związane z formantu przycisku w każdym elemencie formantu powiązanego z danymi formantu ListView. Pierwszy..."
+description: To wideo Pels Krzysztof wyświetli sposobu obsługi zdarzenia związane z formantu przycisku w każdym elemencie formantu powiązanego z danymi formantu ListView. Pierwszy...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571973"
 ---
 <a name="how-do-i-implement-command-buttons-for-individual-items"></a><span data-ttu-id="b3cdf-104">[Jak i.] Przyciski poleceń implementacji dla poszczególnych elementów</span><span class="sxs-lookup"><span data-stu-id="b3cdf-104">[How Do I:] Implement Command Buttons for Individual Items</span></span>
 ====================

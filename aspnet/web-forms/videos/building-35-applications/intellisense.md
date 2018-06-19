@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/intellisense
 title: IntelliSense | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: "IntelliSense jest przydatna funkcja programu Visual Studio dla platformy .NET zarówno uczenie programowania, jak również przyspieszenia wydajność programowania. Ten film wprowadzi..."
+description: IntelliSense jest przydatna funkcja programu Visual Studio dla platformy .NET zarówno uczenie programowania, jak również przyspieszenia wydajność programowania. Ten film wprowadzi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570665"
 ---
 <a name="intellisense"></a><span data-ttu-id="61f7e-104">IntelliSense</span><span class="sxs-lookup"><span data-stu-id="61f7e-104">IntelliSense</span></span>
 ====================

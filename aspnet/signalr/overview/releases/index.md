@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566006"
 ---
 <a name="signalr-releases"></a><span data-ttu-id="81723-103">Wersje biblioteki SignalR</span><span class="sxs-lookup"><span data-stu-id="81723-103">SignalR Releases</span></span>
 ====================

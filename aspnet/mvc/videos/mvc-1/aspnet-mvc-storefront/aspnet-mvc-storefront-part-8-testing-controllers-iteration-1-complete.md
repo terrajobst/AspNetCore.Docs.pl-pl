@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871119"
 ---
 <a name="aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete"></a><span data-ttu-id="01182-103">ASP.NET MVC sklepu część 8: Testowanie kontrolery, iteracji 1 ukończenia</span><span class="sxs-lookup"><span data-stu-id="01182-103">ASP.NET MVC Storefront Part 8: Testing Controllers, Iteration 1 Complete</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870755"
 ---
 <a name="passing-data-to-view-master-pages-vb"></a><span data-ttu-id="a67ab-104">Przekazywanie danych do strony wzorcowej widoku (VB)</span><span class="sxs-lookup"><span data-stu-id="a67ab-104">Passing Data to View Master Pages (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870443"
 ---
 <a name="iteration-3--add-form-validation-vb"></a><span data-ttu-id="d2384-105">Iteracja #3 — Dodaj walidacji formularza (VB)</span><span class="sxs-lookup"><span data-stu-id="d2384-105">Iteration #3 – Add form validation (VB)</span></span>
 ====================

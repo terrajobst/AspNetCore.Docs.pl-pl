@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871262"
 ---
 <a name="authenticating-users-with-forms-authentication-c"></a><span data-ttu-id="5dc22-104">Uwierzytelnianie użytkowników za pomocą uwierzytelniania formularzy (C#)</span><span class="sxs-lookup"><span data-stu-id="5dc22-104">Authenticating Users with Forms Authentication (C#)</span></span>
 ====================

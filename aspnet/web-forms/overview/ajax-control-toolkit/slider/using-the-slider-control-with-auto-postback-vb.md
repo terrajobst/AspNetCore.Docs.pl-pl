@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879275"
 ---
 <a name="using-the-slider-control-with-auto-postback-vb"></a><span data-ttu-id="3f7f9-104">Za pomocą suwaka z automatycznego odświeżania strony (VB)</span><span class="sxs-lookup"><span data-stu-id="3f7f9-104">Using the Slider Control With Auto-Postback (VB)</span></span>
 ====================

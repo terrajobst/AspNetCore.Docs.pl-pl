@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/index
-title: "Wskazówki dotyczące stron sieci Web | Dokumentacja firmy Microsoft"
+title: Wskazówki dotyczące stron sieci Web | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572915"
 ---
 <a name="web-pages-guidance"></a><span data-ttu-id="2141e-102">Wskazówki dotyczące stron sieci Web</span><span class="sxs-lookup"><span data-stu-id="2141e-102">Web Pages Guidance</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30070488"
 ---
 <a name="jquery-validation-1140"></a><span data-ttu-id="64775-102">Sprawdzanie poprawności 1.14.0 jQuery</span><span class="sxs-lookup"><span data-stu-id="64775-102">jQuery Validation 1.14.0</span></span>
 ====================

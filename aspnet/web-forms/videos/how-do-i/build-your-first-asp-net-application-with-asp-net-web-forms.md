@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/build-your-first-asp-net-application-with-asp-net-web-forms
 title: Tworzenie pierwszej aplikacji platformy ASP.NET z formularzami sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
 author: lmoroney
-description: "Firmy Microsoft Laurence Moroney przedstawia sposób tworzenia pierwszej aplikacji platformy ASP.NET z formularzy sieci Web ASP.NET."
+description: Firmy Microsoft Laurence Moroney przedstawia sposób tworzenia pierwszej aplikacji platformy ASP.NET z formularzy sieci Web ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571772"
 ---
 <a name="build-your-first-aspnet-application-with-aspnet-web-forms"></a><span data-ttu-id="f5637-103">Tworzenie pierwszej aplikacji platformy ASP.NET z formularzami sieci Web ASP.NET</span><span class="sxs-lookup"><span data-stu-id="f5637-103">Build Your First ASP.NET Application with ASP.NET Web Forms</span></span>
 ====================

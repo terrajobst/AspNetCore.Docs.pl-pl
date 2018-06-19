@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306835"
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a><span data-ttu-id="c40d1-103">What's New in ASP.NET i aplikacji sieci Web w programie Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="c40d1-103">What's New in ASP.NET and Web Development in Visual Studio 2012</span></span>
 ====================
