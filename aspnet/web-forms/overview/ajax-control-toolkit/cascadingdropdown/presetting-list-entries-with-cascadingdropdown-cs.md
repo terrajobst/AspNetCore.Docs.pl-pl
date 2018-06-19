@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868831"
 ---
 <a name="presetting-list-entries-with-cascadingdropdown-c"></a><span data-ttu-id="e9314-103">Ustawianie wstępne listy wpisów z CascadingDropDown (C#)</span><span class="sxs-lookup"><span data-stu-id="e9314-103">Presetting List Entries with CascadingDropDown (C#)</span></span>
 ====================

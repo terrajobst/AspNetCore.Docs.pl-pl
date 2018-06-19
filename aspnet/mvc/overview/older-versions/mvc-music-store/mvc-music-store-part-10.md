@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878597"
 ---
 <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a><span data-ttu-id="7b194-104">Część 10: Końcowe aktualizacje nawigacji i lokacja, zawarcia</span><span class="sxs-lookup"><span data-stu-id="7b194-104">Part 10: Final Updates to Navigation and Site Design, Conclusion</span></span>
 ====================

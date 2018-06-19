@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
-title: "Buforowanie danych w sieci Web ASP.NET stron witryny (Razor) w celu poprawy wydajności | Dokumentacja firmy Microsoft"
+title: Buforowanie danych w sieci Web ASP.NET stron witryny (Razor) w celu poprawy wydajności | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Można przyspieszyć witryny sieci Web przez go przechowywać — to znaczy pamięci podręcznej - wyników dane, które zwykle może zająć wiele czasu pobierania lub przetwarzania..."
+description: Można przyspieszyć witryny sieci Web przez go przechowywać — to znaczy pamięci podręcznej - wyników dane, które zwykle może zająć wiele czasu pobierania lub przetwarzania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/14/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28039199"
 ---
 <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a><span data-ttu-id="67ba8-103">Buforowanie danych w lokacji (Razor) stron sieci Web ASP.NET w celu poprawy wydajności</span><span class="sxs-lookup"><span data-stu-id="67ba8-103">Caching Data in an ASP.NET Web Pages (Razor) Site for Better Performance</span></span>
 ====================

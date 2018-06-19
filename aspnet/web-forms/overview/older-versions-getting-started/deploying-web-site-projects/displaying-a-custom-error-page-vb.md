@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889166"
 ---
 <a name="displaying-a-custom-error-page-vb"></a><span data-ttu-id="368af-104">Wyświetlanie niestandardowej strony błędu (VB)</span><span class="sxs-lookup"><span data-stu-id="368af-104">Displaying a Custom Error Page (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890869"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a><span data-ttu-id="b76cb-103">Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie do testu</span><span class="sxs-lookup"><span data-stu-id="b76cb-103">ASP.NET Web Deployment using Visual Studio: Deploying to Test</span></span>
 ====================

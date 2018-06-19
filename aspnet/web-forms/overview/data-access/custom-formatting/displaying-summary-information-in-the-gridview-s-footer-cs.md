@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877427"
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-c"></a><span data-ttu-id="bca50-104">Wyświetlanie podsumowania w stopce w widoku GridView (C#)</span><span class="sxs-lookup"><span data-stu-id="bca50-104">Displaying Summary Information in the GridView's Footer (C#)</span></span>
 ====================

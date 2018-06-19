@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881961"
 ---
 <a name="how-do-i-linq-to-sql-using-stored-procedures"></a><span data-ttu-id="01e5a-104">[Jak i.] LINQ do SQL: Korzystanie z procedur składowanych</span><span class="sxs-lookup"><span data-stu-id="01e5a-104">[How Do I:] LINQ to SQL: Using Stored Procedures</span></span>
 ====================

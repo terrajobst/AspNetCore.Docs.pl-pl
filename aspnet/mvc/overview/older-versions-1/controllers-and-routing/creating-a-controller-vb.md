@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879013"
 ---
 <a name="creating-a-controller-vb"></a><span data-ttu-id="bf73c-103">Tworzenie kontrolera (VB)</span><span class="sxs-lookup"><span data-stu-id="bf73c-103">Creating a Controller (VB)</span></span>
 ====================

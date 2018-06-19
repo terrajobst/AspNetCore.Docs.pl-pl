@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878558"
 ---
 <a name="aspnet-mvc-storefront-part-19a-windows-workflow-followup"></a><span data-ttu-id="0ca59-103">ASP.NET MVC częścią sklepu 19a: monitowania przepływu pracy systemu Windows</span><span class="sxs-lookup"><span data-stu-id="0ca59-103">ASP.NET MVC Storefront Part 19a: Windows Workflow Followup</span></span>
 ====================

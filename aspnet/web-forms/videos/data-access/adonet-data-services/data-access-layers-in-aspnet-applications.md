@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882299"
 ---
 <a name="data-access-layers-in-aspnet-applications"></a><span data-ttu-id="b4ac6-104">Warstwy dostępu do danych w aplikacjach ASP.NET</span><span class="sxs-lookup"><span data-stu-id="b4ac6-104">Data Access Layers in ASP.NET Applications</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879113"
 ---
 <a name="using-templatefields-in-the-detailsview-control-c"></a><span data-ttu-id="3d9cd-104">Używanie TemplateFields w kontrolce widoku DetailsView (C#)</span><span class="sxs-lookup"><span data-stu-id="3d9cd-104">Using TemplateFields in the DetailsView Control (C#)</span></span>
 ====================

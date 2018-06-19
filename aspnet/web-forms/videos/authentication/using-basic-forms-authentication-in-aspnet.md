@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887645"
 ---
 <a name="using-basic-forms-authentication-in-aspnet"></a><span data-ttu-id="5d13b-104">Przy użyciu uwierzytelniania podstawowego formularzy w programie ASP.NET</span><span class="sxs-lookup"><span data-stu-id="5d13b-104">Using Basic Forms Authentication in ASP.NET</span></span>
 ====================

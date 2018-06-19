@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891038"
 ---
 <a name="how-do-i-create-excel-spreadsheets-using-linq-to-xml"></a><span data-ttu-id="b9a43-104">[Jak i.] Tworzenie arkuszy programu Excel za pomocą LINQ do XML?</span><span class="sxs-lookup"><span data-stu-id="b9a43-104">[How Do I:] Create Excel Spreadsheets using LINQ to XML?</span></span>
 ====================

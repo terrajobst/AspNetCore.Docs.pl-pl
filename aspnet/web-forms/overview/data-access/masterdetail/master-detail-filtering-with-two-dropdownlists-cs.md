@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887255"
 ---
 <a name="masterdetail-filtering-with-two-dropdownlists-c"></a><span data-ttu-id="8ebb0-103">Wzorzec/szczegół filtrowanie z dwóch DropDownLists (C#)</span><span class="sxs-lookup"><span data-stu-id="8ebb0-103">Master/Detail Filtering With Two DropDownLists (C#)</span></span>
 ====================

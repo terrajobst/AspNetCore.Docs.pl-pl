@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873943"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-vb"></a><span data-ttu-id="96dfc-104">Iteracja #4 — złożyć wniosek luźno (VB)</span><span class="sxs-lookup"><span data-stu-id="96dfc-104">Iteration #4 – Make the application loosely coupled (VB)</span></span>
 ====================

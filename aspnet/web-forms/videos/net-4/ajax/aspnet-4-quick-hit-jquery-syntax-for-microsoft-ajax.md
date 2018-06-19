@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879975"
 ---
 <a name="aspnet-4-quick-hit---jquery-syntax-for-microsoft-ajax"></a><span data-ttu-id="4b843-103">ASP.NET 4 "Szybkie trafień" - jQuery składnię Microsoft Ajax</span><span class="sxs-lookup"><span data-stu-id="4b843-103">ASP.NET 4 "Quick Hit" - jQuery Syntax for Microsoft Ajax</span></span>
 ====================

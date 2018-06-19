@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30889202"
 ---
 <a name="uploading-files-c"></a><span data-ttu-id="bf4e7-103">Przekazywanie plików (C#)</span><span class="sxs-lookup"><span data-stu-id="bf4e7-103">Uploading Files (C#)</span></span>
 ====================

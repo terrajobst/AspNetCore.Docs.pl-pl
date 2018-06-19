@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877596"
 ---
 <a name="iteration-6--use-test-driven-development-vb"></a><span data-ttu-id="7f1f4-104">Iteracja #6 — użyj test-driven development (VB)</span><span class="sxs-lookup"><span data-stu-id="7f1f4-104">Iteration #6 – Use test-driven development (VB)</span></span>
 ====================

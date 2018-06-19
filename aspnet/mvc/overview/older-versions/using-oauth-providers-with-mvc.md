@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/using-oauth-providers-with-mvc
-title: "Przy użyciu dostawców uwierzytelniania OAuth z MVC 4 | Dokumentacja firmy Microsoft"
+title: Przy użyciu dostawców uwierzytelniania OAuth z MVC 4 | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web platformy ASP.NET MVC 4, która umożliwia użytkownikom logowanie się przy użyciu poświadczeń z zewnętrznego dostawcy, takich jak Facebo..."
+description: W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web platformy ASP.NET MVC 4, która umożliwia użytkownikom logowanie się przy użyciu poświadczeń z zewnętrznego dostawcy, takich jak Facebo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28033579"
 ---
 <a name="using-oauth-providers-with-mvc-4"></a><span data-ttu-id="951c9-103">Przy użyciu dostawców uwierzytelniania OAuth z MVC 4</span><span class="sxs-lookup"><span data-stu-id="951c9-103">Using OAuth Providers with MVC 4</span></span>
 ====================

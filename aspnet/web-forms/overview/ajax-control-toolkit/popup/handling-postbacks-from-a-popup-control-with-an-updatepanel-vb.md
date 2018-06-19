@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868480"
 ---
 <a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-vb"></a><span data-ttu-id="41ee4-104">Obsługa ogłaszania zwrotnego przez formant okna podręcznego o UpdatePanel (VB)</span><span class="sxs-lookup"><span data-stu-id="41ee4-104">Handling Postbacks from A Popup Control With an UpdatePanel (VB)</span></span>
 ====================

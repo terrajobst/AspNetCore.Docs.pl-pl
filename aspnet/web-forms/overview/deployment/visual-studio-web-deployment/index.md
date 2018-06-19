@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/index
-title: "Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio | Dokumentacja firmy Microsoft"
+title: Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ta seria samouczek pokazuje, jak utworzyć aplikację sieci web platformy ASP.NET, który używa programu SQL Server (nie programu SQL Server Compact) dostępnych w Internecie przez wdrożenie jej t..."
+description: Ta seria samouczek pokazuje, jak utworzyć aplikację sieci web platformy ASP.NET, który używa programu SQL Server (nie programu SQL Server Compact) dostępnych w Internecie przez wdrożenie jej t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568865"
 ---
 <a name="aspnet-web-deployment-using-visual-studio"></a><span data-ttu-id="23f6f-103">Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio</span><span class="sxs-lookup"><span data-stu-id="23f6f-103">ASP.NET Web Deployment using Visual Studio</span></span>
 ====================

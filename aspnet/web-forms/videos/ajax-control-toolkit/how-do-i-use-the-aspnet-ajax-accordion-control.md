@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883362"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-accordion-control"></a><span data-ttu-id="b4e9f-104">[Jak i.] Formant ASP.NET AJAX Harmonijka?</span><span class="sxs-lookup"><span data-stu-id="b4e9f-104">[How Do I:] Use the ASP.NET AJAX Accordion Control?</span></span>
 ====================

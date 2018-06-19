@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886599"
 ---
 <a name="how-do-i-add-aspnet-ajax-features-to-an-existing-web-application"></a><span data-ttu-id="61131-105">[Jak i.] Funkcje platformy ASP.NET AJAX należy dodać do istniejącej aplikacji sieci Web?</span><span class="sxs-lookup"><span data-stu-id="61131-105">[How Do I:] Add ASP.NET AJAX Features to an Existing Web Application?</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881724"
 ---
 <a name="how-do-i-create-a-master-page-in-visual-studio-2008"></a><span data-ttu-id="e7234-103">[Jak i.] Utwórz stronę wzorcową w programie Visual Studio 2008</span><span class="sxs-lookup"><span data-stu-id="e7234-103">[How Do I:] Create a Master Page in Visual Studio 2008</span></span>
 ====================

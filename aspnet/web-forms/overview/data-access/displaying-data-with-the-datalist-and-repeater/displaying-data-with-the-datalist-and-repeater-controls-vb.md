@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877128"
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-vb"></a><span data-ttu-id="508d4-104">Wyświetlanie danych z DataList i kontrolki elementu powtarzanego (VB)</span><span class="sxs-lookup"><span data-stu-id="508d4-104">Displaying Data with the DataList and Repeater Controls (VB)</span></span>
 ====================

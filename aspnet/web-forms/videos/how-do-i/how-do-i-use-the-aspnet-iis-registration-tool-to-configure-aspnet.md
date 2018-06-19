@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet
-title: "Jak używać narzędzie rejestracji programu ASP.NET w usługach IIS do skonfigurowania programu ASP.NET | Dokumentacja firmy Microsoft"
+title: Jak używać narzędzie rejestracji programu ASP.NET w usługach IIS do skonfigurowania programu ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof pokazuje, jak skonfigurować program ASP.NET przy użyciu narzędzia rejestracji platformy ASP.NET usług IIS. Najpierw Zobacz odwzorowania rozszerzenia plików do programu ASP.NET w..."
+description: W tym wideo Pels Krzysztof pokazuje, jak skonfigurować program ASP.NET przy użyciu narzędzia rejestracji platformy ASP.NET usług IIS. Najpierw Zobacz odwzorowania rozszerzenia plików do programu ASP.NET w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572072"
 ---
 <a name="how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet"></a><span data-ttu-id="09ae2-104">Jak używać narzędzia rejestracji programu ASP.NET w usługach IIS do skonfigurowania programu ASP.NET</span><span class="sxs-lookup"><span data-stu-id="09ae2-104">How Do I Use the ASP.NET IIS Registration Tool to Configure ASP.NET</span></span>
 ====================

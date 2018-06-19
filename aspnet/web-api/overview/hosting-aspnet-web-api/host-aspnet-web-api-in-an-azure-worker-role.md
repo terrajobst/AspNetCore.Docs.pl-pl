@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873654"
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a><span data-ttu-id="23b8b-104">Host ASP.NET Web API 2 w roli procesu roboczego platformy Azure</span><span class="sxs-lookup"><span data-stu-id="23b8b-104">Host ASP.NET Web API 2 in an Azure Worker Role</span></span>
 ====================

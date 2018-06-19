@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it
-title: "[Jak i.] Mapowanie do karty używany do renderowania jej kontrolka serwera programu ASP.NET | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Mapowanie do karty używany do renderowania jej kontrolka serwera programu ASP.NET | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie pokazują, jak Użyj karty sterowania, aby zapewnić różne obrzutki dla kontrolki serwera ASP.NET bez zmieniania faktycznie c..."
+description: W tym wideo Pels Krzysztof będzie pokazują, jak Użyj karty sterowania, aby zapewnić różne obrzutki dla kontrolki serwera ASP.NET bez zmieniania faktycznie c...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572123"
 ---
 <a name="how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it"></a><span data-ttu-id="68ea1-103">[Jak i.] Kontrolka serwera programu ASP.NET do karty używany do renderowania jej mapy</span><span class="sxs-lookup"><span data-stu-id="68ea1-103">[How Do I:] Map an ASP.NET Server Control to the Adaptor Used to Render It</span></span>
 ====================

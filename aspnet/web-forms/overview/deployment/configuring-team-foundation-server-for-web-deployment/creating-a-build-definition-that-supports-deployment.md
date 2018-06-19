@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30880365"
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a><span data-ttu-id="2b814-104">Tworzenie definicji kompilacji, która obsługuje wdrożenia</span><span class="sxs-lookup"><span data-stu-id="2b814-104">Creating a Build Definition That Supports Deployment</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882660"
 ---
 <a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a><span data-ttu-id="10f73-104">[Jak i.] Poprawić kaskadowych funkcje arkusza stylów i zarządzanie</span><span class="sxs-lookup"><span data-stu-id="10f73-104">[How Do I:] Advance Cascading Style Sheet Features and Management</span></span>
 ====================

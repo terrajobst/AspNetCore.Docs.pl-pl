@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/index
-title: "Praca z plików binarnych | Dokumentacja firmy Microsoft"
+title: Praca z plików binarnych | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Te samouczki przedstawiają sposób zezwolić użytkownikom na przekazywanie plików binarnych (takich jak dokumenty programu Word lub PDF) na serwerze, gdzie one mogą być przechowywane w folderach lub w bazie danych."
+description: Te samouczki przedstawiają sposób zezwolić użytkownikom na przekazywanie plików binarnych (takich jak dokumenty programu Word lub PDF) na serwerze, gdzie one mogą być przechowywane w folderach lub w bazie danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568847"
 ---
 <a name="working-with-binary-files"></a><span data-ttu-id="34cdf-103">Praca z plików binarnych</span><span class="sxs-lookup"><span data-stu-id="34cdf-103">Working with Binary Files</span></span>
 ====================

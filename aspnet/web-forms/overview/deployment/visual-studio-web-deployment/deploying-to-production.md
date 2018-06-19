@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889810"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a><span data-ttu-id="8f61a-103">Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: Wdrażanie w środowisku produkcyjnym</span><span class="sxs-lookup"><span data-stu-id="8f61a-103">ASP.NET Web Deployment using Visual Studio: Deploying to Production</span></span>
 ====================

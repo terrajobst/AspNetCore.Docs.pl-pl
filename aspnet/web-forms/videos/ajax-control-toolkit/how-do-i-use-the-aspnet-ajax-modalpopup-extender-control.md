@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884337"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-modalpopup-extender-control"></a><span data-ttu-id="5fbfe-105">[Jak i.] Formant ASP.NET AJAX ModalPopup rozszerzeń?</span><span class="sxs-lookup"><span data-stu-id="5fbfe-105">[How Do I:] Use the ASP.NET AJAX ModalPopup Extender Control?</span></span>
 ====================

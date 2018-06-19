@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/login-controls
 title: Kontrolek logowania | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: "W tym Jan wideo przedstawiono członkostwa ASP.NET pokazując jak korzystać z niektórych kontrolek logowania programu ASP.NET."
+description: W tym Jan wideo przedstawiono członkostwa ASP.NET pokazując jak korzystać z niektórych kontrolek logowania programu ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/04/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570581"
 ---
 <a name="login-controls"></a><span data-ttu-id="90576-103">Kontrolek logowania</span><span class="sxs-lookup"><span data-stu-id="90576-103">Login Controls</span></span>
 ====================

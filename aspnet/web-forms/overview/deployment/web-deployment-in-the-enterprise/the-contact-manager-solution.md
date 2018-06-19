@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883703"
 ---
 <a name="the-contact-manager-solution"></a><span data-ttu-id="fdb36-103">Rozwiązania z menedżerem kontaktu</span><span class="sxs-lookup"><span data-stu-id="fdb36-103">The Contact Manager Solution</span></span>
 ====================

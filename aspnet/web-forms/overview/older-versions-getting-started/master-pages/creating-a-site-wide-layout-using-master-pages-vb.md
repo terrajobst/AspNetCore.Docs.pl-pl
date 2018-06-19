@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890882"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-vb"></a><span data-ttu-id="e90df-104">Do utworzenia układu całej lokacji za pomocą stron wzorcowych (VB)</span><span class="sxs-lookup"><span data-stu-id="e90df-104">Creating a Site-Wide Layout Using Master Pages (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892299"
 ---
 <a name="configuring-server-environments-for-web-deployment"></a><span data-ttu-id="75895-103">Konfigurowanie środowisk serwera sieci Web wdrożenia</span><span class="sxs-lookup"><span data-stu-id="75895-103">Configuring Server Environments for Web Deployment</span></span>
 ====================

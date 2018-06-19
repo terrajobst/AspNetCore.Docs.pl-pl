@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884392"
 ---
 <a name="aspnet-vnext-videos-model-binding-part-2---filtering"></a><span data-ttu-id="bc055-103">ASP.NET vNext wideo: część powiązanie modelu 2 - filtrowania</span><span class="sxs-lookup"><span data-stu-id="bc055-103">ASP.NET vNext Videos: Model Binding Part 2 - Filtering</span></span>
 ====================

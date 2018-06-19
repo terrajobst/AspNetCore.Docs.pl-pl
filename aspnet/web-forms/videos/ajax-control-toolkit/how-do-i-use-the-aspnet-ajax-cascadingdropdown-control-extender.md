@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883388"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender"></a><span data-ttu-id="a7b9a-104">[Jak i.] Użyj rozszerzeń formantu CascadingDropDown AJAX ASP.NET?</span><span class="sxs-lookup"><span data-stu-id="a7b9a-104">[How Do I:] Use the ASP.NET AJAX CascadingDropDown Control Extender?</span></span>
 ====================

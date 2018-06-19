@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/caching-data/index
 title: Buforowanie danych | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek zestaw wyjaśniono buforowania, które może poprawić wydajność lokacji i sposób stosowania buforowania do warstwy prezentacji za pomocą kontrolki ObjectDataSource..."
+description: Ten samouczek zestaw wyjaśniono buforowania, które może poprawić wydajność lokacji i sposób stosowania buforowania do warstwy prezentacji za pomocą kontrolki ObjectDataSource...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568091"
 ---
 <a name="caching-data"></a><span data-ttu-id="d6804-103">Buforowanie danych</span><span class="sxs-lookup"><span data-stu-id="d6804-103">Caching Data</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885552"
 ---
 <a name="how-do-i-build-a-custom-aspnet-ajax-server-control"></a><span data-ttu-id="bb0d3-105">[Jak i.] Kontrolka serwerowa AJAX dla ASP.NET niestandardowej kompilacji</span><span class="sxs-lookup"><span data-stu-id="bb0d3-105">[How Do I:] Build a Custom ASP.NET AJAX Server Control?</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874489"
 ---
 <a name="aspnet-mvc-storefront-part-2-the-repository-pattern"></a><span data-ttu-id="b02f1-104">ASP.NET MVC sklepu część 2: Wzorca repozytorium</span><span class="sxs-lookup"><span data-stu-id="b02f1-104">ASP.NET MVC Storefront Part 2: The Repository Pattern</span></span>
 ====================

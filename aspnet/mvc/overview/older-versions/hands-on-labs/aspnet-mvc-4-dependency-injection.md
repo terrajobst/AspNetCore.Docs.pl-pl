@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877661"
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a><span data-ttu-id="3405a-104">Iniekcji zależności platformy ASP.NET MVC 4</span><span class="sxs-lookup"><span data-stu-id="3405a-104">ASP.NET MVC 4 Dependency Injection</span></span>
 

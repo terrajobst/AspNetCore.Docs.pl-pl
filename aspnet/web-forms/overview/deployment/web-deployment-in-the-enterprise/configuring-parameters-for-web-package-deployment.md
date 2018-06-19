@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880404"
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a><span data-ttu-id="3aa80-103">Konfigurowanie parametrów na potrzeby wdrażania pakietu sieci Web</span><span class="sxs-lookup"><span data-stu-id="3aa80-103">Configuring Parameters for Web Package Deployment</span></span>
 ====================

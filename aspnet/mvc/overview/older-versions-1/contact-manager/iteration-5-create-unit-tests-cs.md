@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875581"
 ---
 <a name="iteration-5--create-unit-tests-c"></a><span data-ttu-id="e9924-104">Iteracja #5 — Tworzenie testów jednostkowych (C#)</span><span class="sxs-lookup"><span data-stu-id="e9924-104">Iteration #5 – Create unit tests (C#)</span></span>
 ====================

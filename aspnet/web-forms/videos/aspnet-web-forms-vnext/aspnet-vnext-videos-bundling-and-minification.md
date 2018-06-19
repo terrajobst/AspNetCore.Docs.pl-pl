@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883999"
 ---
 <a name="aspnet-vnext-videos-bundling-and-minification"></a><span data-ttu-id="b974a-103">ASP.NET vNext wideo: tworzenie pakietów i minimalizowanie</span><span class="sxs-lookup"><span data-stu-id="b974a-103">ASP.NET vNext Videos: Bundling and Minification</span></span>
 ====================

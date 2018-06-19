@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884626"
 ---
 <a name="feature-specific-delegated-management"></a><span data-ttu-id="06c20-103">Funkcja unikatowe delegowane Zarządzanie</span><span class="sxs-lookup"><span data-stu-id="06c20-103">Feature Specific Delegated Management</span></span>
 ====================

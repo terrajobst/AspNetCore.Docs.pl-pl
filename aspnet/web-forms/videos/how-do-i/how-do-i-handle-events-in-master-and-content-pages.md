@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-handle-events-in-master-and-content-pages
-title: "[Jak i.] Obsługa zdarzeń w głównym i strony z zawartością | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Obsługa zdarzeń w głównym i strony z zawartością | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "To wideo Pels Krzysztof opisano sposób obsługi zdarzeń w głównym i poszczególnych stron zawartości. Mimo że wynik końcowy num głównego i poszczególnych..."
+description: To wideo Pels Krzysztof opisano sposób obsługi zdarzeń w głównym i poszczególnych stron zawartości. Mimo że wynik końcowy num głównego i poszczególnych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572105"
 ---
 <a name="how-do-i-handle-events-in-master-and-content-pages"></a><span data-ttu-id="caca2-104">[Jak i.] Obsługa zdarzeń w głównym i strony z zawartością</span><span class="sxs-lookup"><span data-stu-id="caca2-104">[How Do I:] Handle Events in Master and Content Pages</span></span>
 ====================

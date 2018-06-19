@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877973"
 ---
 <a name="building-a-custom-database-driven-site-map-provider-vb"></a><span data-ttu-id="9cd67-104">Tworzenie dostawcy mapy witryny niestandardowej opartej na bazie danych (VB)</span><span class="sxs-lookup"><span data-stu-id="9cd67-104">Building a Custom Database-Driven Site Map Provider (VB)</span></span>
 ====================

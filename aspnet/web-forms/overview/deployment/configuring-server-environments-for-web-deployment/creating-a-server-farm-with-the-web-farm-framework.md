@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882468"
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a><span data-ttu-id="c39e0-103">Tworzenie farmy serwerów za pomocą struktury farmy sieci Web</span><span class="sxs-lookup"><span data-stu-id="c39e0-103">Creating a Server Farm with the Web Farm Framework</span></span>
 ====================

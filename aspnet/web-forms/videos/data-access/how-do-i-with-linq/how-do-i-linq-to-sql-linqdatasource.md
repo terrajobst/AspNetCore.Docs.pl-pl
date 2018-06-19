@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885812"
 ---
 <a name="how-do-i-linq-to-sql-linqdatasource"></a><span data-ttu-id="920cb-105">[Jak i.] LINQ do SQL: LinqDataSource</span><span class="sxs-lookup"><span data-stu-id="920cb-105">[How Do I:] LINQ to SQL: LinqDataSource</span></span>
 ====================

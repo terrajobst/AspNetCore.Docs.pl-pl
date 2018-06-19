@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888214"
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-c"></a><span data-ttu-id="d9a36-103">Wyświetlanie danych binarnych w formantach sieci Web danych (C#)</span><span class="sxs-lookup"><span data-stu-id="d9a36-103">Displaying Binary Data in the Data Web Controls (C#)</span></span>
 ====================

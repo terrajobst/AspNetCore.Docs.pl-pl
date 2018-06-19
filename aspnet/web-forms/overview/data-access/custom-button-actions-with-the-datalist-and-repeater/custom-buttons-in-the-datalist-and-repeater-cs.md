@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876491"
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-c"></a><span data-ttu-id="c26cd-103">Przyciski niestandardowe DataList i powtarzanego (C#)</span><span class="sxs-lookup"><span data-stu-id="c26cd-103">Custom Buttons in the DataList and Repeater (C#)</span></span>
 ====================

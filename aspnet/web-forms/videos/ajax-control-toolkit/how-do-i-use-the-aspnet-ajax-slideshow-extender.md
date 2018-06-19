@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883473"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-slideshow-extender"></a><span data-ttu-id="7c3bd-104">[Jak i.] Użyj rozszerzenia pokazu slajdów AJAX ASP.NET?</span><span class="sxs-lookup"><span data-stu-id="7c3bd-104">[How Do I:] Use the ASP.NET AJAX SlideShow Extender?</span></span>
 ====================

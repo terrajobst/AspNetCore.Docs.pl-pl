@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880638"
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a><span data-ttu-id="e630b-103">Wzorzec/szczegół filtrowanie z DropDownList (C#)</span><span class="sxs-lookup"><span data-stu-id="e630b-103">Master/Detail Filtering With a DropDownList (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877115"
 ---
 <a name="querying-data-with-the-sqldatasource-control-c"></a><span data-ttu-id="4e620-104">Wykonywanie zapytania na danych z formantem SqlDataSource (C#)</span><span class="sxs-lookup"><span data-stu-id="4e620-104">Querying Data with the SqlDataSource Control (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885357"
 ---
 <a name="how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application"></a><span data-ttu-id="cdd56-104">Sposób instalacji i używania uwierzytelniania plików Cookie bez w aplikacji ASP.NET</span><span class="sxs-lookup"><span data-stu-id="cdd56-104">How to Setup and Use Cookie-less Authentication in an ASP.NET Application</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877323"
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-database-table-vb"></a><span data-ttu-id="8c842-103">Dodanie nowego pola do filmu modelu i tabeli bazy danych (VB)</span><span class="sxs-lookup"><span data-stu-id="8c842-103">Adding a New Field to the Movie Model and Database Table (VB)</span></span>
 ====================

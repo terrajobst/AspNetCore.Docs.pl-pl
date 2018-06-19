@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881106"
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-vb"></a><span data-ttu-id="bbc00-104">Wzorzec/szczegół za pomocą wybieranych GridView wzorca z DetailView szczegóły (VB)</span><span class="sxs-lookup"><span data-stu-id="bbc00-104">Master/Detail Using a Selectable Master GridView with a Details DetailView (VB)</span></span>
 ====================

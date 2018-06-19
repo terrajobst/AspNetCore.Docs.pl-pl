@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888253"
 ---
 <a name="batch-updating-vb"></a><span data-ttu-id="b1a06-105">Wsadowe aktualizacji (VB)</span><span class="sxs-lookup"><span data-stu-id="b1a06-105">Batch Updating (VB)</span></span>
 ====================

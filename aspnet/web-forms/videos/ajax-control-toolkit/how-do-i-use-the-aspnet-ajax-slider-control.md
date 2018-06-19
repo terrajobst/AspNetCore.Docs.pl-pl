@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880053"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-slider-control"></a><span data-ttu-id="cef32-105">[Jak i.] Korzystać z ASP.NET AJAX suwaka?</span><span class="sxs-lookup"><span data-stu-id="cef32-105">[How Do I:] Use the ASP.NET AJAX Slider Control?</span></span>
 ====================

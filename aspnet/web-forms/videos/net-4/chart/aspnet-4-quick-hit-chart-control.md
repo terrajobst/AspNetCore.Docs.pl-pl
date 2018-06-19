@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884824"
 ---
 <a name="aspnet-4-quick-hit---chart-control"></a><span data-ttu-id="2d9c5-103">ASP.NET 4 "Szybkie trafień" - wykresu formantu</span><span class="sxs-lookup"><span data-stu-id="2d9c5-103">ASP.NET 4 "Quick Hit" - Chart Control</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887944"
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a><span data-ttu-id="1e4fc-103">Dodawanie formantów weryfikacji do edycji i wstawianie interfejsów (VB)</span><span class="sxs-lookup"><span data-stu-id="1e4fc-103">Adding Validation Controls to the Editing and Inserting Interfaces (VB)</span></span>
 ====================

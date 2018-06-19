@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888997"
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-c"></a><span data-ttu-id="f6b99-103">Omówienie edytowanie i usuwanie danych DataList (C#)</span><span class="sxs-lookup"><span data-stu-id="f6b99-103">An Overview of Editing and Deleting Data in the DataList (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879052"
 ---
 <a name="adding-additional-datatable-columns-vb"></a><span data-ttu-id="21300-104">Dodawanie elementu DataTable dodatkowych kolumn (VB)</span><span class="sxs-lookup"><span data-stu-id="21300-104">Adding Additional DataTable Columns (VB)</span></span>
 ====================

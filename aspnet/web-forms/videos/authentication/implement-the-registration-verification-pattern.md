@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880872"
 ---
 <a name="implement-the-registration-verification-pattern"></a><span data-ttu-id="f24a2-103">Implementowanie wzorca weryfikacji rejestracji</span><span class="sxs-lookup"><span data-stu-id="f24a2-103">Implement the Registration Verification Pattern</span></span>
 ====================

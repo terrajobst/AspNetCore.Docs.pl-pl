@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873056"
 ---
 <a name="filling-a-list-using-cascadingdropdown-vb"></a><span data-ttu-id="51d3e-103">Wypełnianie listy przy użyciu CascadingDropDown (VB)</span><span class="sxs-lookup"><span data-stu-id="51d3e-103">Filling a List Using CascadingDropDown (VB)</span></span>
 ====================

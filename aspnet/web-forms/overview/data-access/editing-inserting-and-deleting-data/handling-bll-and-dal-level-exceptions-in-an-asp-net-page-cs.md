@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888240"
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a><span data-ttu-id="d9a33-103">Obsługa wyjątków logiki warstwy Biznesowej i warstwy DAL poziom strony ASP.NET (C#)</span><span class="sxs-lookup"><span data-stu-id="d9a33-103">Handling BLL- and DAL-Level Exceptions in an ASP.NET Page (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889647"
 ---
 <a name="processing-unhandled-exceptions-c"></a><span data-ttu-id="eaaf6-103">Przetwarzania nieobsługiwanych wyjątków (C#)</span><span class="sxs-lookup"><span data-stu-id="eaaf6-103">Processing Unhandled Exceptions (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873615"
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a><span data-ttu-id="bdad7-104">Aplikacja ASP.NET MVC 5 z programu SMS i adres e-mail uwierzytelniania dwuskładnikowego</span><span class="sxs-lookup"><span data-stu-id="bdad7-104">ASP.NET MVC 5 app with SMS and email Two-Factor Authentication</span></span>
 ====================

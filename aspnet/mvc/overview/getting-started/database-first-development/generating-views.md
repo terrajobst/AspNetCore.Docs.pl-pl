@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879754"
 ---
 <a name="ef-database-first-with-aspnet-mvc-generating-views"></a><span data-ttu-id="c3690-104">Baza danych EF najpierw o platformie ASP.NET MVC: generowanie widoków</span><span class="sxs-lookup"><span data-stu-id="c3690-104">EF Database First with ASP.NET MVC: Generating Views</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869325"
 ---
 <a name="using-multiple-popup-controls-vb"></a><span data-ttu-id="35b3a-104">Używanie wielu formantów podręcznego (VB)</span><span class="sxs-lookup"><span data-stu-id="35b3a-104">Using Multiple Popup Controls (VB)</span></span>
 ====================

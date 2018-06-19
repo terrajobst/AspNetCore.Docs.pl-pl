@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889400"
 ---
 <a name="examining-the-events-associated-with-inserting-updating-and-deleting-c"></a><span data-ttu-id="42c47-104">Badanie ze zdarzeniami związanymi z Wstawianie, aktualizowanie i usuwanie (C#)</span><span class="sxs-lookup"><span data-stu-id="42c47-104">Examining the Events Associated with Inserting, Updating, and Deleting (C#)</span></span>
 ====================

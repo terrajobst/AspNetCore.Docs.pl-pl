@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884252"
 ---
 <a name="how-do-i-make-custom-pages"></a><span data-ttu-id="ed41d-104">Jak utworzyć niestandardowe strony?</span><span class="sxs-lookup"><span data-stu-id="ed41d-104">How Do I Make Custom Pages?</span></span>
 ====================

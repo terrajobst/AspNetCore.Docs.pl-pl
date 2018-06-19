@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882367"
 ---
 <a name="how-do-i-change-how-my-fields-render"></a><span data-ttu-id="8ad62-105">Jak zmienić sposób renderowania Moje pól</span><span class="sxs-lookup"><span data-stu-id="8ad62-105">How do I Change how my Fields render?</span></span>
 ====================

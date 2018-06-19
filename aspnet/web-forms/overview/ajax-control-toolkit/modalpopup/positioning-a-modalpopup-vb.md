@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874619"
 ---
 <a name="positioning-a-modalpopup-vb"></a><span data-ttu-id="723ec-104">Pozycjonowanie ModalPopup (VB)</span><span class="sxs-lookup"><span data-stu-id="723ec-104">Positioning a ModalPopup (VB)</span></span>
 ====================

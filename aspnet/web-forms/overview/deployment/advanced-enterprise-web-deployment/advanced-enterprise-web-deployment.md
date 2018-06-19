@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879936"
 ---
 <a name="advanced-enterprise-web-deployment"></a><span data-ttu-id="bb167-104">Wdrażanie sieci Web Zaawansowane Enterprise</span><span class="sxs-lookup"><span data-stu-id="bb167-104">Advanced Enterprise Web Deployment</span></span>
 ====================
