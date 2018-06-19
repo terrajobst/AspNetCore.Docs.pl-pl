@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-aspnet-to-send-email-from-a-web-site
-title: "[Jak i.] Wyślij wiadomość E-mail z witryny sieci Web za pomocą programu ASP.NET | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Wyślij wiadomość E-mail z witryny sieci Web za pomocą programu ASP.NET | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof pokazano, jak utworzyć i wysłać wiadomość e-mail w witrynie sieci web programu ASP.NET. Po pierwsze Dowiedz się więcej o podstawowe klasy w f przestrzeni nazw System.Net.Mail..."
+description: W tym wideo Pels Krzysztof pokazano, jak utworzyć i wysłać wiadomość e-mail w witrynie sieci web programu ASP.NET. Po pierwsze Dowiedz się więcej o podstawowe klasy w f przestrzeni nazw System.Net.Mail...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572120"
 ---
 <a name="how-do-i-use-aspnet-to-send-email-from-a-web-site"></a>[Jak i.] Wyślij wiadomość E-mail z witryny sieci Web za pomocą programu ASP.NET
 ====================

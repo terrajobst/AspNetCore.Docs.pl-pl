@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/scaleout-with-redis
-title: "Skalowania SignalR z pamięci podręcznej Redis (SignalR 1.x) | Dokumentacja firmy Microsoft"
+title: Skalowania SignalR z pamięci podręcznej Redis (SignalR 1.x) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28035738"
 ---
 <a name="signalr-scaleout-with-redis-signalr-1x"></a>Skalowania SignalR z pamięci podręcznej Redis (SignalR 1.x)
 ====================

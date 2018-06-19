@@ -15,6 +15,7 @@ ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31483131"
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core"></a>Tworzenie aplikacji sieci web Razor strony z platformy ASP.NET Core
 

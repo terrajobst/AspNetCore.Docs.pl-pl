@@ -1,20 +1,21 @@
 ---
 uid: webhooks/receiving/handlers
-title: "Programy obsługi elementów Webhook ASP.NET | Dokumentacja firmy Microsoft"
+title: Programy obsługi elementów Webhook ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Sposób obsługi żądań w elementów Webhook ASP.NET."
+description: Sposób obsługi żądań w elementów Webhook ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: a55b0d20-9c90-4bd3-a471-20da6f569f0c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 4cf5770a731ef77842eb29b0a66ee0aac5d85d85
 ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883674"
 ---
 # <a name="aspnet-webhooks-handlers"></a>Programy obsługi elementów Webhook ASP.NET
 

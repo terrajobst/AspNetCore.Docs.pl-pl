@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/data-source-controls
-title: "Źródła danych kontrolki | Dokumentacja firmy Microsoft"
+title: Źródła danych kontrolki | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Formant DataGrid w programie ASP.NET 1.x oznaczone dużą poprawy dostępu do danych w aplikacji sieci Web. Jednak nie tak przyjazną dla użytkownika jako mogło być..."
+description: Formant DataGrid w programie ASP.NET 1.x oznaczone dużą poprawy dostępu do danych w aplikacji sieci Web. Jednak nie tak przyjazną dla użytkownika jako mogło być...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885898"
 ---
 <a name="data-source-controls"></a>Kontrolki źródła danych
 ====================

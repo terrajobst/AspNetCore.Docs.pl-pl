@@ -1,7 +1,7 @@
 ---
-title: "Plik dostawców w platformy ASP.NET Core"
+title: Plik dostawców w platformy ASP.NET Core
 author: ardalis
-description: "Dowiedz się, jak platformy ASP.NET Core abstracts dostępu do systemu plików przy użyciu dostawcy plików."
+description: Dowiedz się, jak platformy ASP.NET Core abstracts dostępu do systemu plików przy użyciu dostawcy plików.
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29724574"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Plik dostawców w platformy ASP.NET Core
 

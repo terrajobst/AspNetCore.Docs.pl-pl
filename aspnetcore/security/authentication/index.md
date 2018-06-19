@@ -1,7 +1,7 @@
 ---
 title: Uwierzytelnianie w platformy ASP.NET Core
 author: rick-anderson
-description: "Wykryj tematów dotyczących technologii uwierzytelniania platformy ASP.NET Core."
+description: Wykryj tematów dotyczących technologii uwierzytelniania platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29903302"
 ---
 # <a name="authentication-in-aspnet-core"></a>Uwierzytelnianie w platformy ASP.NET Core
 

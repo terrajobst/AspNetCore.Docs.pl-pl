@@ -2,13 +2,13 @@
 uid: whitepapers/what-is-new-in-aspnet-mvc
 title: Co to jest nowe w programie ASP.NET MVC 2 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten dokument zawiera opis nowych funkcji i ulepszeń wprowadzonych w programie ASP.NET MVC 2. Ten dokument jest również dostępny do pobrania."
+description: Ten dokument zawiera opis nowych funkcji i ulepszeń wprowadzonych w programie ASP.NET MVC 2. Ten dokument jest również dostępny do pobrania.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2010
 ms.topic: article
 ms.assetid: 69a8d6f8-4b10-4602-8822-2d6c05fc432b
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885235"
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a>Co to jest nowe w programie ASP.NET MVC 2
 ====================

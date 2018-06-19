@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/server-controls
 title: Formanty serwera | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Platforma ASP.NET 2.0 zwiększa kontrolki serwera na wiele sposobów. W tym module omówione zostaną następujące czynności niektóre zmiany w architekturze sposób ASP.NET 2.0 i programu Visual Studio 200..."
+description: Platforma ASP.NET 2.0 zwiększa kontrolki serwera na wiele sposobów. W tym module omówione zostaną następujące czynności niektóre zmiany w architekturze sposób ASP.NET 2.0 i programu Visual Studio 200...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885196"
 ---
 <a name="server-controls"></a>Formanty serwera
 ====================

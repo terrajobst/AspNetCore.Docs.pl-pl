@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042589"
 ---
 <a name="global-error-handling-in-aspnet-web-api-2"></a>Globalne obsługi błędów w ASP.NET Web API 2
 ====================

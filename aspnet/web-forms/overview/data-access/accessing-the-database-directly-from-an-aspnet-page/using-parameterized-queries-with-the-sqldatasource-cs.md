@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878194"
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-c"></a>Użycie zapytań sparametryzowanych z SqlDataSource (C#)
 ====================

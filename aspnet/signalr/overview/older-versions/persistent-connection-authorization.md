@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/persistent-connection-authorization
-title: "Uwierzytelnianie i autoryzacja połączenia trwałego SignalR (SignalR 1.x) | Dokumentacja firmy Microsoft"
+title: Uwierzytelnianie i autoryzacja połączenia trwałego SignalR (SignalR 1.x) | Dokumentacja firmy Microsoft
 author: pfletcher
-description: "W tym temacie opisano wymuszanie autoryzacji dla trwałego połączenia. Aby uzyskać ogólne informacje o integracji zabezpieczeń aplikacji SignalR..."
+description: W tym temacie opisano wymuszanie autoryzacji dla trwałego połączenia. Aby uzyskać ogólne informacje o integracji zabezpieczeń aplikacji SignalR...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/21/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036105"
 ---
 <a name="authentication-and-authorization-for-signalr-persistent-connections-signalr-1x"></a>Uwierzytelnianie i autoryzacja połączenia trwałego SignalR (SignalR 1.x)
 ====================

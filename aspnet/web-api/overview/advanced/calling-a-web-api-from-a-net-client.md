@@ -16,6 +16,7 @@ ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "32006160"
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Wywoływanie interfejsu API sieci Web z klienta programu .NET (C#)
 ====================

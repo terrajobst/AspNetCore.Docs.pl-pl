@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898409"
 ---
 <a name="running-different-versions-of-aspnet-web-pages-razor-side-by-side"></a>Równolegle z różnymi wersjami stron sieci Web platformy ASP.NET (Razor)
 ====================

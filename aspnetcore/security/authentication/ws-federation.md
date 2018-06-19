@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898807"
 ---
 # <a name="authenticate-users-with-ws-federation-in-aspnet-core"></a>Uwierzytelniać użytkowników za pomocą protokołu WS-Federation w ASP.NET Core
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153683"
 ---
 <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Wyświetlanie wideo w sieci Web platformy ASP.NET (Razor) stron witryny
 ====================

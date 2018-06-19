@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-detect-browser-capabilities-in-aspnet-web-pages
-title: "[Jak i.] Wykrywania możliwości przeglądarki na stronach sieci Web programu ASP.NET | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Wykrywania możliwości przeglądarki na stronach sieci Web programu ASP.NET | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof wyświetli jak ustalić, jakie funkcje ma przeglądarki użytkownika podczas wyświetlania stron w witrynie sieci web programu ASP.NET. Po pierwsze, Dowiedz się, jak konto."
+description: W tym wideo Pels Krzysztof wyświetli jak ustalić, jakie funkcje ma przeglądarki użytkownika podczas wyświetlania stron w witrynie sieci web programu ASP.NET. Po pierwsze, Dowiedz się, jak konto.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28884094"
 ---
 <a name="how-do-i-detect-browser-capabilities-in-aspnet-web-pages"></a>[Jak i.] Wykrywania możliwości przeglądarki na stronach sieci Web ASP.NET
 ====================

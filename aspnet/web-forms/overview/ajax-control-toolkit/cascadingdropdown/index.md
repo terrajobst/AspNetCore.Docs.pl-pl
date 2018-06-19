@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/index
 title: CascadingDropdown | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek przedstawia sposób użycia formantu CascadingDropDown utworzyć powiązane listy rozwijanej przedstawiono tej aktualizacji po użytkowników wybierz odpowiednią opcję."
+description: Ten samouczek przedstawia sposób użycia formantu CascadingDropDown utworzyć powiązane listy rozwijanej przedstawiono tej aktualizacji po użytkowników wybierz odpowiednią opcję.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29152855"
 ---
 <a name="cascadingdropdown"></a>CascadingDropdown
 ====================

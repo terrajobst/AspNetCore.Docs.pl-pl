@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/aspnet-web-deployment-content-map
-title: "Wdrażanie sieci Web platformy ASP.NET — zalecane zasoby | Dokumentacja firmy Microsoft"
+title: Wdrażanie sieci Web platformy ASP.NET — zalecane zasoby | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten temat zawiera linki do dokumentacji (publikowanie) ASP.NET web Zasoby dotyczące wdrażania aplikacji do usług IIS przy użyciu programu Visual Studio 2010, Visual De sieci Web..."
+description: Ten temat zawiera linki do dokumentacji (publikowanie) ASP.NET web Zasoby dotyczące wdrażania aplikacji do usług IIS przy użyciu programu Visual Studio 2010, Visual De sieci Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2014
 ms.topic: article
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28048171"
 ---
 <a name="aspnet-web-deployment---recommended-resources"></a>Wdrażanie sieci Web platformy ASP.NET — zalecane zasobów
 ====================

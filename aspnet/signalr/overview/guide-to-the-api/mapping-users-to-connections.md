@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/guide-to-the-api/mapping-users-to-connections
-title: "Mapowanie użytkowników SignalR do połączeń | Dokumentacja firmy Microsoft"
+title: Mapowanie użytkowników SignalR do połączeń | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "W tym temacie przedstawiono sposób przechowywania informacji o użytkownikach i ich połączenia. Patrick Fletcher pomogła zapisu w tym temacie. Używane w tym temacie wersje oprogramowania..."
+description: W tym temacie przedstawiono sposób przechowywania informacji o użytkownikach i ich połączenia. Patrick Fletcher pomogła zapisu w tym temacie. Używane w tym temacie wersje oprogramowania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/30/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036417"
 ---
 <a name="mapping-signalr-users-to-connections"></a>Mapowanie użytkowników SignalR do połączenia
 ====================

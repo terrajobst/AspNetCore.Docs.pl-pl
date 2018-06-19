@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-35/how-do-i/index
-title: "Jak utworzyć | Dokumentacja firmy Microsoft"
+title: Jak utworzyć | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ta seria wideo wieloczęściowych pokazano, jak korzystać z nowych funkcji w programie ASP.NET 3.5 i Visual Studio 2008."
+description: Ta seria wideo wieloczęściowych pokazano, jak korzystać z nowych funkcji w programie ASP.NET 3.5 i Visual Studio 2008.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570497"
 ---
 <a name="how-do-i"></a>Jak utworzyć
 ====================

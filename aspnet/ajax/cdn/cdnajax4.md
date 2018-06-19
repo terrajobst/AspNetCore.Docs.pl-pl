@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30070693"
 ---
 <a name="aspnet-web-forms-and-ajax-4"></a>Formularze sieci Web ASP.NET i Ajax 4
 ====================

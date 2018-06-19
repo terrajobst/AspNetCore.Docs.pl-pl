@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897587"
 ---
 <a name="aspnet-web-pages-razor-api-quick-reference"></a>Strony sieci Web platformy ASP.NET (Razor) interfejsu API szybkie odwołanie
 ====================

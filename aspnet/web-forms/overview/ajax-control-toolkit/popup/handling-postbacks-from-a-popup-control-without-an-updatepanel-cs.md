@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879546"
 ---
 <a name="handling-postbacks-from-a-popup-control-without-an-updatepanel-c"></a>Obsługa ogłaszania zwrotnego przez formant okna podręcznego bez elementu UpdatePanel (C#)
 ====================

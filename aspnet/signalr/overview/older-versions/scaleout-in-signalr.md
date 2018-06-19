@@ -2,7 +2,7 @@
 uid: signalr/overview/older-versions/scaleout-in-signalr
 title: Wprowadzenie do skalowania w SignalR 1.x | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/29/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28043749"
 ---
 <a name="introduction-to-scaleout-in-signalr-1x"></a>Wprowadzenie do skalowania w SignalR 1.x
 ====================

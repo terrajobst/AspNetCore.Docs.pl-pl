@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894333"
 ---
 <a name="connecting-your-web-application-to-sql-server-2005-express-edition"></a>Łączenie aplikacji sieci Web do programu SQL Server 2005 Express Edition.
 ====================

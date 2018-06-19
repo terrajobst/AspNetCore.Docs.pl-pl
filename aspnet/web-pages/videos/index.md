@@ -2,7 +2,7 @@
 uid: web-pages/videos/index
 title: Filmy wideo | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573308"
 ---
 <a name="videos"></a>Wideo
 ====================

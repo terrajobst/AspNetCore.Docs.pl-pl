@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896956"
 ---
 <a name="visual-studio-2010-quick-hit---snippets-intellisense"></a>Program Visual Studio 2010 "Szybkie trafień" - wstawki kodu programu IntelliSense
 ====================

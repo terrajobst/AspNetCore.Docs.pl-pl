@@ -1,7 +1,7 @@
 ---
 title: Programowanie po stronie klienta w ASP.NET Core
 author: rick-anderson
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 02/21/2018
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29526408"
 ---
 # <a name="client-side-development-in-aspnet-core"></a>Programowanie po stronie klienta w ASP.NET Core
 

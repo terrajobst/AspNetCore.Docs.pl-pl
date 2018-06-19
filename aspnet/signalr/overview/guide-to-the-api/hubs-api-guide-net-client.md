@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/guide-to-the-api/hubs-api-guide-net-client
-title: "Podręcznik interfejsu API koncentratorów SignalR platformy ASP.NET — klienta .NET (C#) | Dokumentacja firmy Microsoft"
+title: Podręcznik interfejsu API koncentratorów SignalR platformy ASP.NET — klienta .NET (C#) | Dokumentacja firmy Microsoft
 author: pfletcher
-description: "Ten dokument zawiera wprowadzenie do korzystania z interfejsu API koncentratorów dla biblioteki SignalR w wersji 2 w klientów platformy .NET, takich jak Sklep Windows (WinRT), WPF, Silverlight i wad..."
+description: Ten dokument zawiera wprowadzenie do korzystania z interfejsu API koncentratorów dla biblioteki SignalR w wersji 2 w klientów platformy .NET, takich jak Sklep Windows (WinRT), WPF, Silverlight i wad...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28043941"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-c"></a>Podręcznik interfejsu API koncentratorów SignalR platformy ASP.NET — klienta .NET (C#)
 ====================

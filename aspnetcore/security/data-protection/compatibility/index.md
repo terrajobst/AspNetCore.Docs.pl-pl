@@ -14,6 +14,7 @@ ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/20/2018
+ms.locfileid: "30001340"
 ---
 # <a name="compatibility-in-aspnet-core"></a>Zgodność w platformy ASP.NET Core
 

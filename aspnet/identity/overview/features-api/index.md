@@ -8,7 +8,7 @@ manager: wpickett
 ms.date: 05/09/2014
 ms.topic: article
 ms.assetid: 70f7c0ac-aeb9-4e21-ae05-deb10640b1b3
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api
 msc.type: chapter
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563666"
 ---
 <a name="aspnet-identity-features--api"></a>Funkcje platformy ASP.NET Identity i interfejsu API
 ====================

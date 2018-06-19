@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-utilize-the-css-friendly-control-adapters
-title: "[Jak i.] Korzystanie z kart kontrolki przyjazną CSS? | Microsoft Docs"
+title: '[Jak i.] Korzystanie z kart kontrolki przyjazną CSS? | Microsoft Docs'
 author: rick-anderson
-description: "Karty kontroli przyjazną CSS umożliwiają alter kod HTML, który jest renderowany przez formantu standardowego serwera programu ASP.NET 2.0. To wideo możemy Dowiedz się, że stan..."
+description: Karty kontroli przyjazną CSS umożliwiają alter kod HTML, który jest renderowany przez formantu standardowego serwera programu ASP.NET 2.0. To wideo możemy Dowiedz się, że stan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/01/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988084"
 ---
 <a name="how-do-i-utilize-the-css-friendly-control-adapters"></a>[Jak i.] Korzystanie z kart kontrolki przyjazną CSS?
 ====================

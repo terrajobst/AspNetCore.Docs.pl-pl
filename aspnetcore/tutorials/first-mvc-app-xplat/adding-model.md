@@ -14,6 +14,7 @@ ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/21/2018
+ms.locfileid: "30896540"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodaj model do aplikacji platformy ASP.NET Core MVC
 

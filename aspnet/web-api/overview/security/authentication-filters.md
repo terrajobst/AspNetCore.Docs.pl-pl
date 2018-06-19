@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/authentication-filters
-title: "Filtry uwierzytelniania w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft"
+title: Filtry uwierzytelniania w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Filtr uwierzytelniania jest składnikiem, który uwierzytelnia żądanie HTTP. Interfejs API sieci Web 2 i MVC 5 obsługuje zarówno filtry uwierzytelniania, ale różnią się nieco..."
+description: Filtr uwierzytelniania jest składnikiem, który uwierzytelnia żądanie HTTP. Interfejs API sieci Web 2 i MVC 5 obsługuje zarówno filtry uwierzytelniania, ale różnią się nieco...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/25/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153521"
 ---
 <a name="authentication-filters-in-aspnet-web-api-2"></a>Filtry uwierzytelniania w składniku ASP.NET Web API 2
 ====================

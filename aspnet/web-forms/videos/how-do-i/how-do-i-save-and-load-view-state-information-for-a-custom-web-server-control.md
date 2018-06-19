@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-save-and-load-view-state-information-for-a-custom-web-server-control
-title: "[Jak i.] Zapisz i informacje o stanie widoku obciążenia dla niestandardowego formant serwera sieci Web | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Zapisz i informacje o stanie widoku obciążenia dla niestandardowego formant serwera sieci Web | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie pokazują, jak utrwalić danych i ich przywracania w stan formantu użytkownika niestandardowego. Po pierwsze Dowiedz się, jak utrwalić prostą wartością..."
+description: W tym wideo Pels Krzysztof będzie pokazują, jak utrwalić danych i ich przywracania w stan formantu użytkownika niestandardowego. Po pierwsze Dowiedz się, jak utrwalić prostą wartością...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571976"
 ---
 <a name="how-do-i-save-and-load-view-state-information-for-a-custom-web-server-control"></a>[Jak i.] Zapisz i informacje o stanie widoku obciążenia dla kontrolki serwera sieci Web niestandardowego
 ====================

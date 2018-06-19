@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-provider-for-logging-health-monitoring-events
-title: "[Jak i.] Tworzenie niestandardowego dostawcy dla rejestrowania kondycji monitorowanie zdarzeń | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Tworzenie niestandardowego dostawcy dla rejestrowania kondycji monitorowanie zdarzeń | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "Krzysztof Pels przedstawiono sposób tworzenia niestandardowego dostawcy dla kondycji ASP.NET monitorowanie systemu, który rejestruje zdarzenia w pliku tekstowym dziennika monitorowania kondycji. Le..."
+description: Krzysztof Pels przedstawiono sposób tworzenia niestandardowego dostawcy dla kondycji ASP.NET monitorowanie systemu, który rejestruje zdarzenia w pliku tekstowym dziennika monitorowania kondycji. Le...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/06/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571796"
 ---
 <a name="how-do-i-create-a-custom-provider-for-logging-health-monitoring-events"></a>[Jak i.] Tworzenie niestandardowego dostawcy dla rejestrowania kondycji monitorowanie zdarzeń
 ====================

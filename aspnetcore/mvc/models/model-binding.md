@@ -1,7 +1,7 @@
 ---
-title: "Wiązania modelu w platformy ASP.NET Core"
+title: Wiązania modelu w platformy ASP.NET Core
 author: rachelappel
-description: "Dowiedz się, jak wiązanie modelu w programie ASP.NET MVC Core mapuje dane z żądania HTTP parametrami metody akcji."
+description: Dowiedz się, jak wiązanie modelu w programie ASP.NET MVC Core mapuje dane z żądania HTTP parametrami metody akcji.
 manager: wpickett
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: rachelap
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29904563"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Wiązania modelu w platformy ASP.NET Core
 

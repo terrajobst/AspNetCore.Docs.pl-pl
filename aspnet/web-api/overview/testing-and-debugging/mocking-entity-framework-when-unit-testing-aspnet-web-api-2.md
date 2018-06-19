@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
-title: "Mocking programu Entity Framework podczas testowania składnika ASP.NET Web API 2 jednostek | Dokumentacja firmy Microsoft"
+title: Mocking programu Entity Framework podczas testowania składnika ASP.NET Web API 2 jednostek | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Tej wskazówki i aplikacji przedstawiają sposób tworzenia testów jednostkowych dla aplikacji sieci Web API 2, który używa programu Entity Framework. Widoczny jest sposób modyfikowania..."
+description: Tej wskazówki i aplikacji przedstawiają sposób tworzenia testów jednostkowych dla aplikacji sieci Web API 2, który używa programu Entity Framework. Widoczny jest sposób modyfikowania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/13/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29152868"
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Mocking programu Entity Framework podczas testowania składnika ASP.NET Web API 2 jednostek
 ====================

@@ -1,7 +1,7 @@
 ---
-title: "Funkcje platformy ASP.NET Core żądania"
+title: Funkcje platformy ASP.NET Core żądania
 author: ardalis
-description: "Więcej informacji na temat szczegóły implementacji serwera sieci web związanych z żądaniami HTTP i odpowiedzi, które są zdefiniowane w interfejsach dla platformy ASP.NET Core."
+description: Więcej informacji na temat szczegóły implementacji serwera sieci web związanych z żądaniami HTTP i odpowiedzi, które są zdefiniowane w interfejsach dla platformy ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28913575"
 ---
 # <a name="request-features-in-aspnet-core"></a>Funkcje platformy ASP.NET Core żądania
 

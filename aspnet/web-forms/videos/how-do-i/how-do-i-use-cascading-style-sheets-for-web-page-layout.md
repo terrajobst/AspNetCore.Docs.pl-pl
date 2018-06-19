@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-cascading-style-sheets-for-web-page-layout
-title: "[Jak i.] Użyj kaskadowych arkuszy stylów układu strony sieci Web? | Microsoft Docs"
+title: '[Jak i.] Użyj kaskadowych arkuszy stylów układu strony sieci Web? | Microsoft Docs'
 author: rick-anderson
-description: "W tym wideo możemy Dowiedz się, jak używać &amp;lt; div&amp;gt; elementów w połączeniu z kaskadowych arkuszy stylów (CSS) do utworzenia niezawodny i wyższa wydajność p sieci web..."
+description: W tym wideo możemy Dowiedz się, jak używać &amp;lt; div&amp;gt; elementów w połączeniu z kaskadowych arkuszy stylów (CSS) do utworzenia niezawodny i wyższa wydajność p sieci web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988006"
 ---
 <a name="how-do-i-use-cascading-style-sheets-for-web-page-layout"></a>[Jak i.] Użyj kaskadowych arkuszy stylów układu strony sieci Web?
 ====================

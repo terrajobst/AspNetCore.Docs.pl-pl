@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153245"
 ---
 <a name="aspnet-mvc-storefront"></a>Sklepu platformy ASP.NET MVC
 ====================

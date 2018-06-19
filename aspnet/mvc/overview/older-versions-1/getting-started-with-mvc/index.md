@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/index
 title: Wprowadzenie do programu MVC | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jest to serię samouczek początkujących wprowadza ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych."
+description: Jest to serię samouczek początkujących wprowadza ASP.NET MVC. Utwórz prostą aplikację sieci web odczytuje i zapisuje z bazy danych.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/08/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883301"
 ---
 <a name="getting-started-with-mvc"></a>Wprowadzenie do programu MVC
 ====================

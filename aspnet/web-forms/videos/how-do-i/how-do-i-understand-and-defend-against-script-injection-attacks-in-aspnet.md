@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-understand-and-defend-against-script-injection-attacks-in-aspnet
-title: "Jak zrozumieć i obrony przed uruchomienie skryptu przed atakami opartymi na w programie ASP.NET | Dokumentacja firmy Microsoft"
+title: Jak zrozumieć i obrony przed uruchomienie skryptu przed atakami opartymi na w programie ASP.NET | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: "Krzyżowe skryptów lokacji (XSS) jest prawdopodobnie najbardziej powodującymi problem z zabezpieczeniami dla deweloperów sieci web w celu spełnienia tych dni. To wideo pro Stagner Jan firmy Microsoft..."
+description: Krzyżowe skryptów lokacji (XSS) jest prawdopodobnie najbardziej powodującymi problem z zabezpieczeniami dla deweloperów sieci web w celu spełnienia tych dni. To wideo pro Stagner Jan firmy Microsoft...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882233"
 ---
 <a name="how-do-i-understand-and-defend-against-script-injection-attacks-in-aspnet"></a>Jak zrozumieć i obrony przed uruchomienie skryptu przed atakami opartymi na w programie ASP.NET
 ====================
