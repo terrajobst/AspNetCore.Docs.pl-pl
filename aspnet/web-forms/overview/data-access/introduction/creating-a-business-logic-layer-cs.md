@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886943"
 ---
 <a name="creating-a-business-logic-layer-c"></a><span data-ttu-id="24f42-103">Tworzenie warstwy logiki biznesowej (C#)</span><span class="sxs-lookup"><span data-stu-id="24f42-103">Creating a Business Logic Layer (C#)</span></span>
 ====================

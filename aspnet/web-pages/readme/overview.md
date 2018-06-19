@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30898973"
 ---
 <a name="webmatrix-readme"></a><span data-ttu-id="93ef6-103">Plik Readme programu WebMatrix</span><span class="sxs-lookup"><span data-stu-id="93ef6-103">WebMatrix Readme</span></span>
 ====================
