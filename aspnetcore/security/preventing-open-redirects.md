@@ -14,6 +14,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33851212"
 ---
 # <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>Zapobieganie atakom Otwórz przekierowania w ASP.NET Core
 

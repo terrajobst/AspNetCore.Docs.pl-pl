@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887616"
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>Dane raportu stronicowania DataList lub w kontrolce elementu powtarzanego (C#)
 ====================
