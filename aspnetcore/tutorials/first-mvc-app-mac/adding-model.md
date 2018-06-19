@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899528"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app-with-visual-studio-for-mac"></a>Dodawanie modelu do aplikacji platformy ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac
 

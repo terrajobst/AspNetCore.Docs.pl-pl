@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/slider/index
 title: Suwak | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek przedstawia sposób użycia suwaka do wyświetlenia graficznego suwaka, które użytkownicy mogą kontrolować za pomocą myszy."
+description: Ten samouczek przedstawia sposób użycia suwaka do wyświetlenia graficznego suwaka, które użytkownicy mogą kontrolować za pomocą myszy.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567794"
 ---
 <a name="slider"></a>Suwak
 ====================

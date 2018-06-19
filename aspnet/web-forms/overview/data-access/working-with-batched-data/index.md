@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/index
-title: "Praca z danymi wsadów | Dokumentacja firmy Microsoft"
+title: Praca z danymi wsadów | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Te samouczki Spójrz na aktualizowanie, usuwanie i wstawianie partii danych przy użyciu transakcji."
+description: Te samouczki Spójrz na aktualizowanie, usuwanie i wstawianie partii danych przy użyciu transakcji.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568733"
 ---
 <a name="working-with-batched-data"></a>Praca z danymi wsadów
 ====================

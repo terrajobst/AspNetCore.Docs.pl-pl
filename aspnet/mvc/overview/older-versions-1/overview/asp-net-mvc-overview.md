@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/overview/asp-net-mvc-overview
-title: "ASP.NET MVC — omówienie | Dokumentacja firmy Microsoft"
+title: ASP.NET MVC — omówienie | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Więcej informacji na temat różnic między aplikacji ASP.NET MVC i formularzy sieci Web ASP.NET aplikacji. Informacje o podjęcie decyzji dotyczącej do tworzenia aplikacji platformy ASP.NET MVC."
+description: Więcej informacji na temat różnic między aplikacji ASP.NET MVC i formularzy sieci Web ASP.NET aplikacji. Informacje o podjęcie decyzji dotyczącej do tworzenia aplikacji platformy ASP.NET MVC.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564566"
 ---
 <a name="aspnet-mvc-overview"></a>ASP.NET MVC — omówienie
 ====================

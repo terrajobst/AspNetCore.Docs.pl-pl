@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889426"
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-c"></a>Dodawanie kolumny widoku GridView przycisków radiowych (C#)
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875331"
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Odczytywanie powiązane dane z programu Entity Framework w aplikacji platformy ASP.NET MVC
 ====================

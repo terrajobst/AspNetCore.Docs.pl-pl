@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888526"
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>Rejestrowanie szczegóły błędu z kondycji ASP.NET monitorowania (C#)
 ====================

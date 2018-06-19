@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306783"
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Nowości w formularzach sieci Web w programie ASP.NET 4.5
 ====================

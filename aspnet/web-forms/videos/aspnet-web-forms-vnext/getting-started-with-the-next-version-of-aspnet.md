@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885667"
 ---
 <a name="getting-started-with-the-next-version-of-aspnet"></a>Wprowadzenie do następnej wersji platformy ASP.NET
 ====================

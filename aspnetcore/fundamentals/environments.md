@@ -14,6 +14,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33840960"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Użyj wiele środowisk w ASP.NET Core
 

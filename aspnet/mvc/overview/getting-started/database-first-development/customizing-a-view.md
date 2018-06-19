@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867661"
 ---
 <a name="ef-database-first-with-aspnet-mvc-customizing-a-view"></a>Baza danych EF najpierw o platformie ASP.NET MVC: Dostosowywanie widoku
 ====================

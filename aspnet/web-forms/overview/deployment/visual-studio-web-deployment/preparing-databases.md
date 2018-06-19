@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889150"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Wdrażanie sieci Web ASP.NET przy użyciu programu Visual Studio: przygotowywanie do wdrożenia bazy danych
 ====================

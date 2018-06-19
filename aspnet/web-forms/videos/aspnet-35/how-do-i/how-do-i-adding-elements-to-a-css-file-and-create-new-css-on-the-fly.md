@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884126"
 ---
 <a name="how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly"></a>[Jak i.] Dodawanie elementów do CSS plików i Utwórz nowe CSS na bieżąco
 ====================

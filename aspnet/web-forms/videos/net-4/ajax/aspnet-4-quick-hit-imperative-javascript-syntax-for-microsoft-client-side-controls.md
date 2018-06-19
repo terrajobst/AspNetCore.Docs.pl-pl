@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882406"
 ---
 <a name="aspnet-4-quick-hit---imperative-javascript-syntax-for-microsoft-client-side-controls"></a>Formanty "Szybkie trafień" - Imperatywnych składnię języka JavaScript po stronie klienta Microsoft ASP.NET 4
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888295"
 ---
 <a name="users-and-roles-on-the-production-website-c"></a>Użytkownicy i role w środowisku produkcyjnym w sieci Web (C#)
 ====================

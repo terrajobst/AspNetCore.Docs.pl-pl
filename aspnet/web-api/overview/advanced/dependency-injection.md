@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/dependency-injection
-title: "Iniekcji zależności w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft"
+title: Iniekcji zależności w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "W tym samouczku przedstawiono sposób wstrzyknięcia zależności w kontrolerze interfejsu API sieci Web platformy ASP.NET. Wersje oprogramowania używany w samouczek zablokowanych witryn sieci Web API 2 platformy Unity aplikacji..."
+description: W tym samouczku przedstawiono sposób wstrzyknięcia zależności w kontrolerze interfejsu API sieci Web platformy ASP.NET. Wersje oprogramowania używany w samouczek zablokowanych witryn sieci Web API 2 platformy Unity aplikacji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036518"
 ---
 <a name="dependency-injection-in-aspnet-web-api-2"></a>Iniekcji zależności w składniku ASP.NET Web API 2
 ====================

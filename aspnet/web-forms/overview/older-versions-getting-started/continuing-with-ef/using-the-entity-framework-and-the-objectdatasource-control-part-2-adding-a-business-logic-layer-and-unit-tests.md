@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888318"
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Przy użyciu programu Entity Framework 4.0 i kontrolki ObjectDataSource, część 2: Dodawanie warstwy logiki biznesowej i testów jednostkowych
 ====================

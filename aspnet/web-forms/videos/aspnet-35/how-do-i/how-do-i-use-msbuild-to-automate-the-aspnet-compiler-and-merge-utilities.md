@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885542"
 ---
 <a name="how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities"></a>[Jak i.] Użyj programu MSBuild, aby zautomatyzować kompilatora ASP.NET i narzędzia do scalania
 ====================

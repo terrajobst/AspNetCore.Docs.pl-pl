@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884837"
 ---
 <a name="how-to-create-table-specific-custom-forms-in-an-aspnet-dynamic-data-application"></a>Tworzenie niestandardowych formularzy tabeli określonej w aplikacji ASP.NET Dynamic Data
 ====================

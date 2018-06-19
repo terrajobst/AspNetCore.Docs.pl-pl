@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887428"
 ---
 <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Tworzenie sieci Web ASP.NET formularzy aplikacji za pomocą uwierzytelniania dwuskładnikowego programu SMS (C#)
 ====================

@@ -2,7 +2,7 @@
 uid: mvc/mvc4
 title: PLATFORMA ASP.NET MVC 4 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "ASP.NET MVC 4 ASP.NET MVC 4 to struktura służąca do tworzenia aplikacji sieci web skalowalnych, opartych na standardach za pomocą często używanych wzorów projektów oraz funkcji platform AS...."
+description: ASP.NET MVC 4 ASP.NET MVC 4 to struktura służąca do tworzenia aplikacji sieci web skalowalnych, opartych na standardach za pomocą często używanych wzorów projektów oraz funkcji platform AS....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563663"
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================

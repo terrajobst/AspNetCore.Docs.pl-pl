@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882926"
 ---
 <a name="set-up-your-development-environment-for-aspnet-20"></a>Konfigurowanie środowiska programowania dla platformy ASP.NET 2.0
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880739"
 ---
 <a name="how-do-i-aspnet-ajax-enable-an-existing-web-service"></a>[Jak i.] ASP.NET AJAX włączyć istniejącej usługi sieci Web?
 ====================

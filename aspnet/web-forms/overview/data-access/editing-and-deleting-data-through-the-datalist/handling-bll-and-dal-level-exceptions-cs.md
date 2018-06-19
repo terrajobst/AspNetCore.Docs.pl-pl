@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892338"
 ---
 <a name="handling-bll--and-dal-level-exceptions-c"></a>Obsługa wyjątków na poziomie logiki warstwy Biznesowej i warstwy DAL (C#)
 ====================
