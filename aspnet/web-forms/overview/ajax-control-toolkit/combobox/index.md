@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/combobox/index
 title: ComboBox | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten samouczek pokazuje, jak używać formantu ComboBox łączy elastyczność pola tekstowego z listą opcji, które użytkownicy mogą wybierać."
+description: Ten samouczek pokazuje, jak używać formantu ComboBox łączy elastyczność pola tekstowego z listą opcji, które użytkownicy mogą wybierać.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567410"
 ---
 <a name="combobox"></a>ComboBox
 ====================

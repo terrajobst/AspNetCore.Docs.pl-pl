@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/index
-title: "Starsze wersje — program ASP.NET 2.0 | Dokumentacja firmy Microsoft"
+title: Starsze wersje — program ASP.NET 2.0 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak przeprowadzić migrację aplikacji 1.x ASP.NET do programu ASP.NET 2.0."
+description: Jak przeprowadzić migrację aplikacji 1.x ASP.NET do programu ASP.NET 2.0.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569312"
 ---
 <a name="older-versions---aspnet-20"></a>Starsze wersje — program ASP.NET 2.0
 ====================

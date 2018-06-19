@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872627"
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a>Wprowadzenie do korzystania z wzorca ASP.NET MVC 5
 ====================

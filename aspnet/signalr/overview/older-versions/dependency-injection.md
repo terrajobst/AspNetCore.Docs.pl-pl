@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/dependency-injection
-title: "Iniekcji zależności w bibliotece SignalR 1.x | Dokumentacja firmy Microsoft"
+title: Iniekcji zależności w bibliotece SignalR 1.x | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/15/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565952"
 ---
 <a name="dependency-injection-in-signalr-1x"></a>Iniekcji zależności w bibliotece SignalR 1.x
 ====================

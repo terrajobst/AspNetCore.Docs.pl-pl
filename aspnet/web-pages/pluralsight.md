@@ -2,7 +2,7 @@
 uid: web-pages/pluralsight
 title: Program WebMatrix i stron sieci Web szkolenia wideo z Pluralsight | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Program WebMatrix &amp; szkolenia stron sieci Web z szczegółowe szkolenia Pluralsight programy skonfigurowaniu i uruchomieniu z programu WebMatrix i stron ASP.NET Web Pages. Obejmuje on everythi..."
+description: Program WebMatrix &amp; szkolenia stron sieci Web z szczegółowe szkolenia Pluralsight programy skonfigurowaniu i uruchomieniu z programu WebMatrix i stron ASP.NET Web Pages. Obejmuje on everythi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573251"
 ---
 <a name="webmatrix-and-web-pages-video-training-from-pluralsight"></a>Program WebMatrix i stron sieci Web szkolenia wideo z Pluralsight
 ====================

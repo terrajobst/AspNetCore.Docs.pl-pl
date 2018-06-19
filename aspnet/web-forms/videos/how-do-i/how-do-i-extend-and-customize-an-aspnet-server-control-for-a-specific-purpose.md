@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose
-title: "[Jak i.] Rozszerzanie i dostosowywanie kontrolka serwera programu ASP.NET w określonym celu | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Rozszerzanie i dostosowywanie kontrolka serwera programu ASP.NET w określonym celu | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof będzie pokazują, jak rozszerzyć formantu standardowego serwera ASP.NET i dostosować go do określonego celu. Specjalne elementy sterujące udostępniają c..."
+description: W tym wideo Pels Krzysztof będzie pokazują, jak rozszerzyć formantu standardowego serwera ASP.NET i dostosować go do określonego celu. Specjalne elementy sterujące udostępniają c...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572255"
 ---
 <a name="how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose"></a>[Jak i.] Rozszerzanie i dostosowywanie kontrolka serwera programu ASP.NET w określonym celu
 ====================

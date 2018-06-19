@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/scaleout-with-redis
-title: "Skalowania SignalR z pamięci podręcznej Redis | Dokumentacja firmy Microsoft"
+title: Skalowania SignalR z pamięci podręcznej Redis | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Wersje oprogramowania używane w tym temacie Visual Studio 2013 .NET 4.5 SignalR w wersji 2 poprzednie wersje tego tematu informacji o wcześniejszych wersji..."
+description: Wersje oprogramowania używane w tym temacie Visual Studio 2013 .NET 4.5 SignalR w wersji 2 poprzednie wersje tego tematu informacji o wcześniejszych wersji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042693"
 ---
 <a name="signalr-scaleout-with-redis"></a>Skalowania SignalR z pamięci podręcznej Redis
 ====================

@@ -2,13 +2,13 @@
 uid: whitepapers/side-by-side-with-10
 title: Wykonanie programu ASP.NET Side-by-Side programu .NET Framework 1.0 i 1.1 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ten dokument zawiera opis sposobu instalowania zarówno .NET 1.0 i .NET 1.1 na tym komputerze, umożliwiając uruchamianie na danej wersji obra aplikacji sieci Web ASP.NET..."
+description: Ten dokument zawiera opis sposobu instalowania zarówno .NET 1.0 i .NET 1.1 na tym komputerze, umożliwiając uruchamianie na danej wersji obra aplikacji sieci Web ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: bdea2003-e964-4db5-9092-d56cc7560616
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/side-by-side-with-10
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573359"
 ---
 <a name="aspnet-side-by-side-execution-of-net-framework-10-and-11"></a>Wykonanie programu ASP.NET Side-by-Side programu .NET Framework 1.0 i 1.1
 ====================

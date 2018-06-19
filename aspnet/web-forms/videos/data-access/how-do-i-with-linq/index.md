@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/data-access/how-do-i-with-linq/index
-title: "Jak to zrobić za pomocą LINQ | Dokumentacja firmy Microsoft"
+title: Jak to zrobić za pomocą LINQ | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Ta seria wideo przeprowadzi Cię przez wszystkie elementy potrzebne do stają się dobrą znajomością za pomocą LINQ jako deweloperem sieci web."
+description: Ta seria wideo przeprowadzi Cię przez wszystkie elementy potrzebne do stają się dobrą znajomością za pomocą LINQ jako deweloperem sieci web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572222"
 ---
 <a name="how-do-i-with-linq"></a>Jak to zrobić za pomocą LINQ
 ====================

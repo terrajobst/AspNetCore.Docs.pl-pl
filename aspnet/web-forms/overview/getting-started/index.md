@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/index
 title: Wprowadzenie do formularzy sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Dowiedz się więcej o formularzy sieci Web ASP.NET formularzy ASP.NET sieci Web umożliwia kompilacji dynamicznych witryn sieci Web przy użyciu znanego modelu przeciągania i upuszczania, sterowanego zdarzeniami. Dzięki powierzchni projektowej oraz hund..."
+description: Dowiedz się więcej o formularzy sieci Web ASP.NET formularzy ASP.NET sieci Web umożliwia kompilacji dynamicznych witryn sieci Web przy użyciu znanego modelu przeciągania i upuszczania, sterowanego zdarzeniami. Dzięki powierzchni projektowej oraz hund...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569276"
 ---
 <a name="getting-started-with-aspnet-web-forms"></a>Wprowadzenie do formularzy sieci Web ASP.NET
 ====================

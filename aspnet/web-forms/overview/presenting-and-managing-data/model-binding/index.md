@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/index
-title: "Model powiązanie i formularze sieci Web w programie Visual Studio 2013 | Dokumentacja firmy Microsoft"
+title: Model powiązanie i formularze sieci Web w programie Visual Studio 2013 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak pracować z danymi przy użyciu wiązania modelu i formularzy sieci Web."
+description: Jak pracować z danymi przy użyciu wiązania modelu i formularzy sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570236"
 ---
 <a name="model-binding-and-web-forms-in-visual-studio-2013"></a>Wiązania modelu i formularzy sieci Web w programie Visual Studio 2013
 ====================

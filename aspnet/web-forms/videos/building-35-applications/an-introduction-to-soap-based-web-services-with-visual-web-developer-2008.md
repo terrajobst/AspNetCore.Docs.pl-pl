@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/an-introduction-to-soap-based-web-services-with-visual-web-developer-2008
-title: "Wprowadzenie do protokołu SOAP na podstawie usług sieci Web za pomocą programu Visual Web Developer 2008 | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do protokołu SOAP na podstawie usług sieci Web za pomocą programu Visual Web Developer 2008 | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: "To wideo pokazuje, jak szybka i łatwa może być aby rozpocząć tworzenie aplikacji rozproszonej z SOAP / usług XML sieci web."
+description: To wideo pokazuje, jak szybka i łatwa może być aby rozpocząć tworzenie aplikacji rozproszonej z SOAP / usług XML sieci web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570797"
 ---
 <a name="an-introduction-to-soap-based-web-services-with-visual-web-developer-2008"></a>Wprowadzenie do protokołu SOAP na podstawie usług sieci Web za pomocą programu Visual Web Developer 2008
 ====================

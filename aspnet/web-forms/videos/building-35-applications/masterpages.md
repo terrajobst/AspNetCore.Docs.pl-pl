@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/masterpages
 title: Stron wzorcowych | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: "Stron wzorcowych ASP.NET są kluczowym elementem tworzenia aplikacji sieci web elastyczne. Ten film przedstawi podstawy przy użyciu stron wzorcowych i zagnieżdżone stron wzorcowych w..."
+description: Stron wzorcowych ASP.NET są kluczowym elementem tworzenia aplikacji sieci web elastyczne. Ten film przedstawi podstawy przy użyciu stron wzorcowych i zagnieżdżone stron wzorcowych w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570575"
 ---
 <a name="masterpages"></a>Stron wzorcowych
 ====================

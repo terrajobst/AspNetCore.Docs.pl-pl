@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/handling-connection-lifetime-events
-title: "Opis i obsługa zdarzeń okres istnienia połączenia SignalR 1.x | Dokumentacja firmy Microsoft"
+title: Opis i obsługa zdarzeń okres istnienia połączenia SignalR 1.x | Dokumentacja firmy Microsoft
 author: pfletcher
-description: "W tym artykule opisano sposób użycia udostępniany przez interfejs API centrów zdarzeń."
+description: W tym artykule opisano sposób użycia udostępniany przez interfejs API centrów zdarzeń.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/05/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036729"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a>Opis i obsługa zdarzeń okres istnienia połączenia SignalR 1.x
 ====================

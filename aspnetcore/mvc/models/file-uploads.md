@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32740416"
 ---
 # <a name="file-uploads-in-aspnet-core"></a>W przypadku platformy ASP.NET Core przekazywania plików
 

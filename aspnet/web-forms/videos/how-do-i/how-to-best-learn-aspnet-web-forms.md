@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-to-best-learn-aspnet-web-forms
 title: Jak najlepiej informacje formularzy sieci Web ASP.NET | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: "Stagner Jan firmy Microsoft zawiera należy dowiedzieć się, jak tworzyć aplikacje sieci web przy użyciu formularzy sieci Web ASP.NET."
+description: Stagner Jan firmy Microsoft zawiera należy dowiedzieć się, jak tworzyć aplikacje sieci web przy użyciu formularzy sieci Web ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/03/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570827"
 ---
 <a name="how-to-best-learn-aspnet-web-forms"></a>Jak najlepiej informacje formularzy sieci Web ASP.NET
 ====================

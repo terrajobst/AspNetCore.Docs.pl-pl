@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/performance-and-caching/index
-title: "Wydajność | Dokumentacja firmy Microsoft"
+title: Wydajność | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak buforowanie zawartości witryny, aby zwiększyć wydajność."
+description: Jak buforowanie zawartości witryny, aby zwiększyć wydajność.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570149"
 ---
 <a name="performance"></a>Wydajność
 ====================

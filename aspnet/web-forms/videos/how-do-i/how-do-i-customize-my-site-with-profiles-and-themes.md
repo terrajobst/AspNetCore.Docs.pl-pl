@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-customize-my-site-with-profiles-and-themes
-title: "[Jak i.] Dostosowywanie witryny sieci przy użyciu profilów i motywów? | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Dostosowywanie witryny sieci przy użyciu profilów i motywów? | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "Informacje o sposobie używania profilów do zbierania informacji o konfiguracji poszczególnych użytkowników i motywy rozszerzenie spójne wyglądu i działania w całej witryny sieci Web."
+description: Informacje o sposobie używania profilów do zbierania informacji o konfiguracji poszczególnych użytkowników i motywy rozszerzenie spójne wyglądu i działania w całej witryny sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/06/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572162"
 ---
 <a name="how-do-i-customize-my-site-with-profiles-and-themes"></a>[Jak i.] Dostosowywanie witryny sieci przy użyciu profilów i motywów?
 ====================

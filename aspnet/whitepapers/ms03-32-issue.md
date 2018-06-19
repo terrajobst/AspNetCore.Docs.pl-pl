@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898216"
 ---
 <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>Napraw błąd "Aplikacja serwera niedostępna" po zastosowaniu aktualizacji zabezpieczeń dla programu Internet Explorer
 ====================

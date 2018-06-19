@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32741462"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Migrowanie uwierzytelnianie i tożsamość do platformy ASP.NET Core 2.0
 

@@ -2,7 +2,7 @@
 uid: web-forms/videos/vs-2005/index
 title: Visual Studio 2005 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak pracować z programu Visual Studio 2005 Team System i dodatki do wykonywania testów, wdrażania i inne zadania."
+description: Jak pracować z programu Visual Studio 2005 Team System i dodatki do wykonywania testów, wdrażania i inne zadania.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572858"
 ---
 <a name="visual-studio-2005"></a>Visual Studio 2005
 ====================

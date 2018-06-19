@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/index
-title: "Wprowadzenie do programu Entity Framework 6 Code First przy użyciu MVC 5 | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do programu Entity Framework 6 Code First przy użyciu MVC 5 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Podstawy przy użyciu programu Entity Framework 6 do wyświetlania i edytowania danych w aplikacji ASP.NET MVC 5."
+description: Podstawy przy użyciu programu Entity Framework 6 do wyświetlania i edytowania danych w aplikacji ASP.NET MVC 5.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564059"
 ---
 <a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>Wprowadzenie do programu Entity Framework 6 Code First przy użyciu MVC 5
 ====================

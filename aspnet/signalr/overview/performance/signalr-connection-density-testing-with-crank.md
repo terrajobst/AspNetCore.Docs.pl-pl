@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/signalr-connection-density-testing-with-crank
-title: "Testowanie za pomocą węzłówką gęstość połączenia SignalR | Dokumentacja firmy Microsoft"
+title: Testowanie za pomocą węzłówką gęstość połączenia SignalR | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Testowanie za pomocą węzłówką gęstość połączenia SignalR"
+description: Testowanie za pomocą węzłówką gęstość połączenia SignalR
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/22/2015
@@ -17,6 +17,7 @@ ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/21/2017
+ms.locfileid: "26575540"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>Testowanie za pomocą węzłówką gęstość połączenia SignalR
 ====================

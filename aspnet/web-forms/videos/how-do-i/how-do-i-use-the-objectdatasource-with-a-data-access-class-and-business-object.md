@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-objectdatasource-with-a-data-access-class-and-business-object
-title: "[Jak i.] Element ObjectDataSource za pomocą klasy dostęp do danych i obiektu biznesowego | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Element ObjectDataSource za pomocą klasy dostęp do danych i obiektu biznesowego | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "To wideo Pels Krzysztof wyświetli sposób użycia ObjectDataSource warstwie pośredniej między elementy interfejsu użytkownika powiązana z danymi i niestandardowe dane konto..."
+description: To wideo Pels Krzysztof wyświetli sposób użycia ObjectDataSource warstwie pośredniej między elementy interfejsu użytkownika powiązana z danymi i niestandardowe dane konto...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572141"
 ---
 <a name="how-do-i-use-the-objectdatasource-with-a-data-access-class-and-business-object"></a>[Jak i.] Użyj elementu ObjectDataSource przy użyciu klasy dostęp do danych i obiektu biznesowego
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-health-monitoring-for-an-aspnet-application
-title: "[Jak i.]  Wdrożenie, monitorowanie kondycji aplikacji ASP.NET aplikację? | Dokumentacja firmy Microsoft"
+title: '[Jak i.]  Wdrożenie, monitorowanie kondycji aplikacji ASP.NET aplikację? | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "W tym wideo Pels Krzysztof wyświetli implementowania kondycji monitorowanie, aby uzyskać szczegółowe informacje czasu wykonywania dla aplikacji ASP.NET. Dowiedz się zaawansowanego i..."
+description: W tym wideo Pels Krzysztof wyświetli implementowania kondycji monitorowanie, aby uzyskać szczegółowe informacje czasu wykonywania dla aplikacji ASP.NET. Dowiedz się zaawansowanego i...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572180"
 ---
 <a name="how-do-i--implement-health-monitoring-for-an-aspnet-application"></a>[Jak i.]  Wdrożenie, monitorowanie kondycji aplikacji ASP.NET aplikację?
 ====================

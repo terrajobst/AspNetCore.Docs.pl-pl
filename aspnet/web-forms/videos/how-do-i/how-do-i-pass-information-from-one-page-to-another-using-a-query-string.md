@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-pass-information-from-one-page-to-another-using-a-query-string
-title: "[Jak i.] Przekazywania informacji z jednej strony, do drugiego za pomocą ciągu zapytania | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Przekazywania informacji z jednej strony, do drugiego za pomocą ciągu zapytania | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "To wideo Pels Krzysztof opisano sposób informacje mogą zostać przekazane z jednej strony przy użyciu ciągu zapytania. Po pierwsze zobacz sposób tworzenia ciągu zapytania w..."
+description: To wideo Pels Krzysztof opisano sposób informacje mogą zostać przekazane z jednej strony przy użyciu ciągu zapytania. Po pierwsze zobacz sposób tworzenia ciągu zapytania w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570893"
 ---
 <a name="how-do-i-pass-information-from-one-page-to-another-using-a-query-string"></a>[Jak i.] Przekazywania informacji z jednej strony przy użyciu ciągu zapytania
 ====================

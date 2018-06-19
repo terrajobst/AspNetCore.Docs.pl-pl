@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306887"
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>Tworzenie interfejsów API RESTful za pomocą interfejsu API sieci Web ASP.NET
 ====================

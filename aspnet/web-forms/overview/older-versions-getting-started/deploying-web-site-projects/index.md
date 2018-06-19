@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/index
-title: "Wdrażanie projektów witryny sieci Web w programie Visual Studio 2008 i starszych wersji | Dokumentacja firmy Microsoft"
+title: Wdrażanie projektów witryny sieci Web w programie Visual Studio 2008 i starszych wersji | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Aplikacji sieci web ASP.NET zwykle są zaprojektowane, utworzony i przetestować w środowisku projektowym lokalnych i muszą zostać wdrożone do o środowisku produkcyjnym..."
+description: Aplikacji sieci web ASP.NET zwykle są zaprojektowane, utworzony i przetestować w środowisku projektowym lokalnych i muszą zostać wdrożone do o środowisku produkcyjnym...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569528"
 ---
 <a name="deploying-web-site-projects-in-visual-studio-2008-and-earlier"></a>Wdrażanie projektów witryny sieci Web w programie Visual Studio 2008 lub starszej
 ====================

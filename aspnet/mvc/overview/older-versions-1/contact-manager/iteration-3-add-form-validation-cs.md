@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872367"
 ---
 <a name="iteration-3--add-form-validation-c"></a>Iteracja #3 — Dodaj walidacji formularza (C#)
 ====================

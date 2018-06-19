@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-multi-lingual-site-with-localization
-title: "[Jak i.] Utwórz witrynę wielu języków z lokalizacji? | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Utwórz witrynę wielu języków z lokalizacji? | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "Dowiedz się, jak utworzyć zawartości sieci web z uwzględnieniem kultury i ustawień regionalnych z żaden dodatkowy kod. Do tworzenia strony i na poziomie aplikacji, należy użyć edytora zasobów..."
+description: Dowiedz się, jak utworzyć zawartości sieci web z uwzględnieniem kultury i ustawień regionalnych z żaden dodatkowy kod. Do tworzenia strony i na poziomie aplikacji, należy użyć edytora zasobów...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/06/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571838"
 ---
 <a name="how-do-i-create-a-multi-lingual-site-with-localization"></a>[Jak i.] Utwórz witrynę wielu języków z lokalizacji?
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/sql-2005/index
 title: SQL 2005 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak pracować z programu SQL Server Express umożliwiające dodanie funkcji bazy danych do aplikacji ASP.NET."
+description: Jak pracować z programu SQL Server Express umożliwiające dodanie funkcji bazy danych do aplikacji ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570980"
 ---
 <a name="sql-2005"></a>SQL 2005
 ====================

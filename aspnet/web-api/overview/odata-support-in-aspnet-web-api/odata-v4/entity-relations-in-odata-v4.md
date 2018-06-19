@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4
-title: "Relacjami jednostek w protokołu OData v4 używanie składnika ASP.NET Web API 2.2 | Dokumentacja firmy Microsoft"
+title: Relacjami jednostek w protokołu OData v4 używanie składnika ASP.NET Web API 2.2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: "Większość zestawów danych definiować relacje między obiektami: klienci mają zleceń; książki ma autorów; produkty mają dostawców. Używanie protokołu OData, klientów można przechodzić przez..."
+description: 'Większość zestawów danych definiować relacje między obiektami: klienci mają zleceń; książki ma autorów; produkty mają dostawców. Używanie protokołu OData, klientów można przechodzić przez...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566735"
 ---
 <a name="entity-relations-in-odata-v4-using-aspnet-web-api-22"></a>Relacjami jednostek w protokołu OData v4 używanie składnika ASP.NET Web API 2.2
 ====================

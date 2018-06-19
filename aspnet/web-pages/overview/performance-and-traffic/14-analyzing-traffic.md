@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/performance-and-traffic/14-analyzing-traffic
-title: "Śledzenie informacji odwiedzający (Analytics) dla strony sieci Web ASP.NET (Razor) lokacji | Dokumentacja firmy Microsoft"
+title: Śledzenie informacji odwiedzający (Analytics) dla strony sieci Web ASP.NET (Razor) lokacji | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: "Po ich zaakceptujesz przechodzi do witryny sieci Web, można przeanalizować ruchu witryny sieci Web."
+description: Po ich zaakceptujesz przechodzi do witryny sieci Web, można przeanalizować ruchu witryny sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572933"
 ---
 <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>Śledzenie informacji odwiedzający (Analytics) dla lokacji (Razor) stron sieci Web ASP.NET
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/sending-html-form-data-part-1
-title: "Wysyłanie danych formularza HTML zakodowanych w składniku ASP.NET Web API: dane formularza urlencoded | Dokumentacja firmy Microsoft"
+title: 'Wysyłanie danych formularza HTML zakodowanych w składniku ASP.NET Web API: dane formularza urlencoded | Dokumentacja firmy Microsoft'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/15/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566387"
 ---
 <a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>Wysyłanie danych formularza HTML zakodowanych w składniku ASP.NET Web API: urlencoded formularza danych
 ====================

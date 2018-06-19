@@ -2,13 +2,13 @@
 uid: visual-studio/index
 title: Program Visual Studio 2012 i 2013 ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/25/2013
 ms.topic: article
 ms.assetid: 7356f644-2b54-4d9f-8863-9d59b9f75532
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio
 msc.type: categoryindex
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566237"
 ---
 # <a name="visual-studio-2012-and-2013-with-aspnet"></a>Visual Studio 2012 i 2013 z platformy ASP.NET
 

@@ -2,7 +2,7 @@
 uid: web-pages/overview/routing/index
 title: Routing | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "Jak dostosowywać adresów URL używanych przez aplikację stron sieci Web."
+description: Jak dostosowywać adresów URL używanych przez aplikację stron sieci Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573155"
 ---
 <a name="routing"></a>Routing
 ====================

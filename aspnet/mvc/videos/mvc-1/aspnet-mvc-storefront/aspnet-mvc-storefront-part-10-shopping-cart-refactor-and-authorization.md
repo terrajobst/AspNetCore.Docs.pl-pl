@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876335"
 ---
 <a name="aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization"></a>Programu ASP.NET MVC sklepu część 10: Zrefaktoryzuj koszyka zakupów i autoryzacji
 ====================

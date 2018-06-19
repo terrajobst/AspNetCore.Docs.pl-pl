@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-use-validation-controls-in-aspnet
 title: '[Jak i.]  Formanty walidacji w programie ASP.NET? | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: "To wideo pokazuje sposób użycia formanty walidacji dostępnych w programie ASP.NET do implementacji sprawdzania poprawności na stronach sieci web. Wszystkie główne weryfikacji formanty takie..."
+description: To wideo pokazuje sposób użycia formanty walidacji dostępnych w programie ASP.NET do implementacji sprawdzania poprawności na stronach sieci web. Wszystkie główne weryfikacji formanty takie...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/26/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572090"
 ---
 <a name="how-do-i--use-validation-controls-in-aspnet"></a>[Jak i.]  Formanty walidacji w programie ASP.NET?
 ====================

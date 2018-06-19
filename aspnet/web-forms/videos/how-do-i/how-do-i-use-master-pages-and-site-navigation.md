@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-master-pages-and-site-navigation
-title: "[Jak i.] Stron wzorcowych użycia i nawigacji w witrynie? | Dokumentacja firmy Microsoft"
+title: '[Jak i.] Stron wzorcowych użycia i nawigacji w witrynie? | Dokumentacja firmy Microsoft'
 author: microsoft
-description: "Utwórz witrynę sieci web z spójnego układu i projektowania na swoich stronach za pomocą stron wzorcowych programu ASP.NET 2.0. Zobacz, jak łatwo jest dodać nawigacji do witryny sieci web..."
+description: Utwórz witrynę sieci web z spójnego układu i projektowania na swoich stronach za pomocą stron wzorcowych programu ASP.NET 2.0. Zobacz, jak łatwo jest dodać nawigacji do witryny sieci web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/11/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570755"
 ---
 <a name="how-do-i-use-master-pages-and-site-navigation"></a>[Jak i.] Stron wzorcowych użycia i nawigacji w witrynie?
 ====================

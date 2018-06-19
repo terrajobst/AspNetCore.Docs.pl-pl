@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871288"
 ---
 <a name="part-8-shopping-cart-with-ajax-updates"></a>Część 8: Koszyku z aktualizacje interfejsu Ajax
 ====================

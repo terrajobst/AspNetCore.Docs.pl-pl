@@ -1,14 +1,14 @@
 ---
 uid: identity/overview/getting-started/index
-title: "Wprowadzenie do korzystania z tożsamości ASP.NET | Dokumentacja firmy Microsoft"
+title: Wprowadzenie do korzystania z tożsamości ASP.NET | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: "System ASP.NET Identity zaprojektowano w celu zastąpienia starszych systemach członkostwa ASP.NET i członkostwa prostego. Zawiera obsługę profilu, OAuth integrat..."
+description: System ASP.NET Identity zaprojektowano w celu zastąpienia starszych systemach członkostwa ASP.NET i członkostwa prostego. Zawiera obsługę profilu, OAuth integrat...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2013
 ms.topic: article
 ms.assetid: 72bb0051-a696-437e-a4e6-ca1225a6e271
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started
 msc.type: chapter
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563672"
 ---
 <a name="getting-started-with-aspnet-identity"></a>Wprowadzenie do korzystania z tożsamości platformy ASP.NET
 ====================

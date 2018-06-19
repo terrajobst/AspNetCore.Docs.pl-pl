@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/http-message-handlers
-title: "Programy obsługi komunikatów HTTP w składniku ASP.NET Web API | Dokumentacja firmy Microsoft"
+title: Programy obsługi komunikatów HTTP w składniku ASP.NET Web API | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566390"
 ---
 <a name="http-message-handlers-in-aspnet-web-api"></a>Programy obsługi komunikatów HTTP w składniku ASP.NET Web API
 ====================

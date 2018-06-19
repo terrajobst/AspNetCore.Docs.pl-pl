@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/complex-type-inheritance-in-odata-v4
-title: "Dziedziczenie typu złożonego w protokołu OData v4 z interfejsu API sieci Web programu ASP.NET | Dokumentacja firmy Microsoft"
+title: Dziedziczenie typu złożonego w protokołu OData v4 z interfejsu API sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
 author: microsoft
-description: "Zgodnie ze specyfikacją OData v4 typu złożonego może dziedziczyć z innego typu złożonego. (Typ złożony jest typem strukturalnym bez klucza). Interfejs API sieci Web..."
+description: Zgodnie ze specyfikacją OData v4 typu złożonego może dziedziczyć z innego typu złożonego. (Typ złożony jest typem strukturalnym bez klucza). Interfejs API sieci Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/16/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566831"
 ---
 <a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a>Dziedziczenie typu złożonego w protokołu OData v4 z interfejsu API sieci Web ASP.NET
 ====================
