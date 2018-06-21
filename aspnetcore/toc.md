@@ -1,8 +1,8 @@
 # [Wprowadzenie](index.md)
 
-# [Nowości](xref:aspnetcore-2.1)
-# [Nowości](xref:aspnetcore-2.0)
-# [Nowości](xref:aspnetcore-1.1)
+# [Co nowego](xref:aspnetcore-2.1)
+# [Co nowego](xref:aspnetcore-2.0)
+# [Co nowego](xref:aspnetcore-1.1)
 
 # [Wprowadzenie](getting-started.md)
 ## [Tworzenie aplikacji internetowych](xref:mvc/razor-pages/index)
@@ -108,7 +108,7 @@
 ### [Interfejs API sieci Web z programem Visual Studio dla komputerów Mac](xref:tutorials/first-web-api-mac)
 ### [Interfejs API sieci Web z programem Visual Studio Code](xref:tutorials/web-api-vsc)
 
-## [Opracowywanie aplikacji przy użyciu pliku obserwatora](xref:tutorials/dotnet-watch)
+## [Tworzenie aplikacji przy użyciu obserwatora plików](xref:tutorials/dotnet-watch)
 
 ## [Tworzenie usług zaplecza dla aplikacji mobilnych](mobile/native-mobile-backend.md)
 
@@ -207,7 +207,7 @@
 # [Testowanie, debugowanie i rozwiązywanie problemów](xref:test/index)
 ## [Testowanie jednostek](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 ## [Testy integracji](xref:test/integration-tests)
-## [Testy jednostkowe stron razor](xref:test/razor-pages-tests)
+## [Testy jednostkowe stron Razor](xref:test/razor-pages-tests)
 ## [Kontrolery testów](xref:mvc/controllers/testing)
 ## [Debugowanie zdalne](/visualstudio/debugger/remote-debugging-azure)
 ## [Debugowanie migawek](/azure/application-insights/app-insights-snapshot-debugger)
@@ -246,7 +246,11 @@
 ## [Centra](xref:signalr/hubs)
 ## [Klient JavaScript](xref:signalr/javascript-client)
 ## [Klient .NET](xref:signalr/dotnet-client)
+## [HubContext](xref:signalr/hubcontext)
+## [Użytkownicy i grupy](xref:signalr/groups)
+## [Protokół centrum MessagePack](xref:signalr/messagepackhubprotocol)
 ## [Publikowanie na platformie Azure](xref:signalr/publish-to-azure-web-app)
+## [Przesyłanie strumieniowe](xref:signalr/streaming)
 ## [Obsługiwane platformy](xref:signalr/supported-platforms)
 
 # [Urządzenia przenośne](xref:mobile/index)
@@ -280,7 +284,7 @@
 ## [Uwierzytelnianie](xref:security/authentication/index)
 ### [Wprowadzenie do tożsamości](xref:security/authentication/identity)
 ### [Tworzenie szkieletu tożsamości](xref:security/authentication/scaffold-identity)
-### [Dodaj użytkownika niestandardowego danych tożsamości](xref:security/authentication/add-user-data)
+### [Dodawanie niestandardowych danych użytkowników do tożsamości](xref:security/authentication/add-user-data)
 ### [Opcje uwierzytelniania społeczności OSS](xref:security/authentication/community)
 ### [Konfigurowanie tożsamości](xref:security/authentication/identity-configuration)
 ### [Konfigurowanie uwierzytelniania systemu Windows](xref:security/authentication/windowsauth)
@@ -368,7 +372,7 @@
 ## [Oprogramowanie pośredniczące kompresji odpowiedzi](xref:performance/response-compression)
 
 # [Migracja](xref:migration/index)
-## [Platformy ASP.NET Core 2.0 lub 2.1](xref:migration/20_21)
+## [ASP.NET Core 2.0 do 2.1](xref:migration/20_21)
 ## [ASP.NET do ASP.NET Core](xref:migration/proper-to-2x/index)
 ### [MVC](xref:migration/mvc)
 ### [Interfejs Web API](xref:migration/webapi)
