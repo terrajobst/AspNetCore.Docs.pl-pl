@@ -2,20 +2,16 @@
 title: Tworzenie interfejsu API sieci Web przy użyciu programu Visual Studio i ASP.NET Core dla systemu Windows
 author: rick-anderson
 description: Tworzenie składnika web API platformy ASP.NET Core MVC i Visual Studio dla systemu Windows
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: 1680d5e0be0f4844c904d923af30634c53bd1b81
-ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
+ms.openlocfilehash: 3da22cbbbe0db7771656997a13587521e182fb2a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "34306676"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277403"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Tworzenie interfejsu API sieci Web przy użyciu programu Visual Studio i ASP.NET Core dla systemu Windows
 
