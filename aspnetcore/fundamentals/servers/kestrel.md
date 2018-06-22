@@ -2,20 +2,16 @@
 title: Kestrel implementacja serwera sieci web platformy ASP.NET Core
 author: rick-anderson
 description: Więcej informacji na temat Kestrel, serwer sieci web i platform dla platformy ASP.NET Core.
-manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/02/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 39949585dc8fce10c31045ef3013c6bc166e45ba
-ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
+ms.openlocfilehash: 62649351271deebcf1ed9d2f8b2258bed3478989
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35613154"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276659"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Kestrel implementacja serwera sieci web platformy ASP.NET Core
 
@@ -458,12 +454,12 @@ Nasłuchiwanie na gnieździe Unix z [ListenUnixSocket](/dotnet/api/microsoft.asp
 
 Jeśli numer portu `0` określono Kestrel dynamicznie wiąże dostępnego portu. Poniższy przykład przedstawia sposób określić port, który Kestrel faktycznie powiązana w czasie wykonywania:
 
-[!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Port0&highlight=3)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Configure&highlight=3-4,15-21)]
 
 Gdy aplikacja jest uruchamiana, dane wyjściowe z okna konsoli wskazuje port dynamiczny, gdzie można połączyć aplikacji:
 
 ```console
-Now listening on: http://127.0.0.1:48508
+Listening on the following addresses: http://127.0.0.1:48508
 ```
 
 **UseUrls, argument wiersza polecenia — adresów URL, klucz konfiguracji hosta adresy URL i ograniczenia zmiennej środowiskowej ASPNETCORE_URLS**

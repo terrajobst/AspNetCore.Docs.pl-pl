@@ -2,19 +2,15 @@
 title: Użyj wiele środowisk w ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak platformy ASP.NET Core umożliwia kontrolowanie zachowania aplikacji w wielu środowiskach.
-manager: wpickett
 ms.author: riande
 ms.date: 12/25/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/environments
-ms.openlocfilehash: 2c8441db527203aeea516073dae3bc335c335565
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 5a4caeeba045cb93dec9c73c931dae8a352bede9
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33840960"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276935"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Użyj wiele środowisk w ASP.NET Core
 
@@ -82,8 +78,8 @@ Gdy aplikacja jest uruchamiana z [dotnet Uruchom](/dotnet/core/tools/dotnet-run)
 * *launchSettings.json* jest do odczytu. Jeśli jest dostępna. `environmentVariables` ustawienia w *launchSettings.json* zastąpienia zmiennych środowiskowych.
 * Środowisko macierzyste są wyświetlane.
 
-
 Następujące dane wyjściowe zawiera wprowadzenie do aplikacji [dotnet Uruchom](/dotnet/core/tools/dotnet-run):
+
 ```bash
 PS C:\Webs\WebApp1> dotnet run
 Using launch settings from C:\Webs\WebApp1\Properties\launchSettings.json...
@@ -99,8 +95,29 @@ Visual Studio **debugowania** karta zawiera graficzny interfejs użytkownika do 
 
 Zmiany wprowadzone do profilów projektu mogą nie zostać zastosowane do czasu ponownego uruchomienia serwera sieci web. Przed wykryje zmiany wprowadzone w jego środowisku, należy ponownie uruchomić kestrel.
 
->[!WARNING]
+> [!WARNING]
 > *launchSettings.json* nie należy przechowywać kluczy tajnych. [Narzędzie Menedżer klucz tajny](xref:security/app-secrets) może służyć do przechowywania kluczy tajnych dla rozwoju lokalnych.
+
+Korzystając z [Visual Studio Code](https://code.visualstudio.com/), można ustawić zmienne środowiskowe w *.vscode/launch.json* pliku. Poniższy przykład przedstawia środowiska `Development`:
+
+```json
+{
+   "version": "0.2.0",
+   "configurations": [
+        {
+            "name": ".NET Core Launch (web)",
+
+            ... additional VS Code configuration settings ...
+
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        }
+    ]
+}
+```
+
+A *.vscode/launch.json* plik w projekcie nie jest do odczytu podczas uruchamiania aplikacji z `dotnet run` w taki sam sposób jak *Properties/launchSettings.json*. Podczas uruchamiania aplikacji w projektowania, które nie ma *launchSettings.json* pliku, należy ustawić środowisko zmienną środowiskową lub argumentu wiersza polecenia do `dotnet run` polecenia.
 
 ### <a name="production"></a>Produkcji
 

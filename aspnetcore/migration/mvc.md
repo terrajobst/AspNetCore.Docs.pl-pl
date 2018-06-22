@@ -2,19 +2,15 @@
 title: Migracja z programu ASP.NET MVC do podstawowej platformy ASP.NET MVC
 author: ardalis
 description: Dowiedz się, jak rozpocząć Migrowanie projektu programu ASP.NET MVC do platformy ASP.NET Core MVC.
-manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: b8c913c0a6f47a1c993d508f9baae54981327957
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 6fecc820177ca5033cfd00d632904a950c1b29bb
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851030"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274778"
 ---
 # <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migracja z programu ASP.NET MVC do podstawowej platformy ASP.NET MVC
 

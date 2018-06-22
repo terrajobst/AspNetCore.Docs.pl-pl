@@ -2,20 +2,16 @@
 title: Testy jednostkowe stron razor w ASP.NET Core
 author: guardrex
 description: Informacje o sposobie tworzenia testów jednostkowych dla aplikacji stron Razor.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: test/razor-pages-tests
-ms.openlocfilehash: df74d8e44b2dff00e76139edba47fd8a30ce33ef
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: bde1bef78fcc7ac1d570057d54636ea0f5490de8
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252308"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274410"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Testy jednostkowe stron razor w ASP.NET Core
 
@@ -30,7 +26,7 @@ Platformy ASP.NET Core obsługuje testów jednostkowych aplikacji stron Razor. T
 
 W tym temacie założono, że masz podstawową wiedzę na temat stron Razor aplikacji i testów jednostkowych. Jeśli znasz stron Razor aplikacji lub badanie koncepcji, zobacz następujące tematy:
 
-* [Wprowadzenie do stron Razor](xref:mvc/razor-pages/index)
+* [Wprowadzenie do stron Razor](xref:razor-pages/index)
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Badanie C# .NET Core za pomocą testu dotnet i xUnit jednostki](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 

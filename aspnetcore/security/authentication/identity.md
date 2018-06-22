@@ -2,19 +2,15 @@
 title: Wprowadzenie do tożsamości na platformy ASP.NET Core
 author: rick-anderson
 description: Tożsamość aplikacji korzystać z platformy ASP.NET Core. Zawiera wymagania dotyczące hasła ustawienie (RequireDigit, RequiredLength, RequiredUniqueChars i inne).
-manager: wpickett
 ms.author: riande
 ms.date: 01/24/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/identity
-ms.openlocfilehash: 4eebda171f02c46ff831adf2798a025cd094051d
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 57d9abbf82aedadd4d8c5eaabd21a5d31d5c6c61
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34094132"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272704"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Wprowadzenie do tożsamości na platformy ASP.NET Core
 

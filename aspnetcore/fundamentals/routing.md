@@ -2,19 +2,15 @@
 title: Routing w platformy ASP.NET Core
 author: ardalis
 description: Odkryj, jak funkcji routingu platformy ASP.NET Core jest odpowiedzialny za mapowania przychodzącego żądania do obsługi trasy.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: a23e2e1a1dd25a57e5d6189bbd5938c48078515b
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 0bb62cad0dcf54d593171d6a40eb1510a88eb6b3
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341785"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274898"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w platformy ASP.NET Core
 
@@ -285,6 +281,16 @@ Poniższa tabela przedstawia niektóre szablony trasy i ich zachowanie.
 Przy użyciu szablonu zwykle jest najprostsza metoda routingu. Ograniczenia i ustawienia domyślne można również określić poza szablon trasy.
 
 Porada: Włączanie [rejestrowanie](xref:fundamentals/logging/index) aby zobaczyć sposób tworzone w implementacjach routingu, takich jak `Route`, odpowiada na żądania.
+
+## <a name="reserved-routing-names"></a>Zastrzeżonych nazw routingu
+
+Poniższe słowa kluczowe są zarezerwowane nazwy i nie można użyć jako nazwy trasy i parametry:
+
+* `action`
+* `area`
+* `controller`
+* `handler`
+* `page`
 
 ## <a name="route-constraint-reference"></a>Odwołanie do ograniczenia trasy
 

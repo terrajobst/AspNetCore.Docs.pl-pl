@@ -2,19 +2,15 @@
 title: Stron razor podstawowych EF w platformy ASP.NET Core - aktualizacji powiązanych danych - 7, 8
 author: rick-anderson
 description: W tym samouczku będziesz aktualizacji powiązanych danych, aktualizując pól klucza obcego i właściwości nawigacji.
-manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 2eff6cd5f4bb737cb79875c9b04c889914376cd0
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: e987971f60e5c5a9fb79e30440c7c986df64447e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740377"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275297"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - aktualizacji powiązanych danych - 7, 8
 
@@ -95,8 +91,6 @@ Poprzedni kod znaczników wprowadza następujące zmiany:
 * Wyświetla identyfikator kursu. Zazwyczaj nie są wyświetlane podstawowego klucza (PK) z jednostki. PKs są zazwyczaj bezużyteczne dla użytkowników. W takim przypadku PK jest to liczba kursu.
 * Zmienia podpisu z **DepartmentID** do **działu**.
 * Zastępuje `"ViewBag.DepartmentID"` z `DepartmentNameSL` (od klasy podstawowej).
-* Dodaje opcję "Wybierz dział". Ta zmiana powoduje "Wybierz dział" zamiast pierwszy działu.
-* Dodaje komunikat dotyczący sprawdzania poprawności, gdy dział nie jest wybrany.
 
 Strona zawiera pola ukrytego (`<input type="hidden">`) dla porach numeru. Dodawanie `<label>` pomocnika za pomocą tagów `asp-for="Course.CourseID"` nie eliminuje potrzebę stosowania ukryte pole. `<input type="hidden">` jest wymagany dla numeru kursu mają zostać uwzględnione w przesłane dane, gdy użytkownik kliknie **zapisać**.
 

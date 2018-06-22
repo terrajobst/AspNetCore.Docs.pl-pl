@@ -2,20 +2,16 @@
 title: Szkieletu Razor strony platformy ASP.NET Core
 author: rick-anderson
 description: W tym artykule wyjaśniono generowane przez funkcję szkieletów na macOS stron Razor.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 1/27/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/page
-ms.openlocfilehash: a2a69614485c8dbfc1fcf6ad3f410fe103d87994
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: d746e17df4008cb4566928767381c9b31e547a2a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31483250"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278339"
 ---
 [!INCLUDE [model1](../../includes/RP/page1.md)]
 

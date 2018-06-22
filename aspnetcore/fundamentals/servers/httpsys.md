@@ -2,20 +2,16 @@
 title: Sterownik HTTP.sys implementacja serwera sieci web platformy ASP.NET Core
 author: rick-anderson
 description: Więcej informacji na temat HTTP.sys, serwer sieci web platformy ASP.NET Core w systemie Windows. W oparciu sterownik trybu jądra HTTP.sys, sterownik HTTP.sys stanowi alternatywę dla Kestrel, który może służyć do bezpośredniego połączenia z Internetem bez usług IIS.
-manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/13/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: dff798b19ad6d10a8ce93001ed4cebe732c54320
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: ae76c9d3adde524fd246b0228d74861ea2b81272
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729318"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278677"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Sterownik HTTP.sys implementacja serwera sieci web platformy ASP.NET Core
 

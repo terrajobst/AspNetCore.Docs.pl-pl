@@ -2,19 +2,15 @@
 title: Platformy ASP.NET Core MVC z Entity Framework Core - 1 samouczka 10
 author: rick-anderson
 description: ''
-manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 0eef084c656f68fb1cad9fc0f5cfeee31ff96a30
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 3c418cc4e331ad19b0ec1be3207fa2cc44bef041
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34153780"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275674"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>Platformy ASP.NET Core MVC z Entity Framework Core - 1 samouczka 10
 
@@ -31,8 +27,7 @@ Przykładowa aplikacja jest witryną sieci web dla fikcyjnej uniwersytetu Contos
 Podstawowe EF 2.0 jest najnowsza wersja EF jeszcze nie wszystkich funkcji EF 6.x. Informacje o tym, jak wybrać EF 6.x i podstawowe EF, zobacz [EF podstawowe programu vs. EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Jeśli wybierzesz EF 6.x, zobacz [we wcześniejszej wersji tego samouczka serii](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 > [!NOTE]
-> * Wersja platformy ASP.NET Core 1.1 tego samouczka, dla [wersji programu VS 2017 Update 2 tego samouczka w formacie PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf).
-> * W tym samouczku w wersji programu Visual Studio 2015 [wersji programu VS 2015 dokumentacji platformy ASP.NET Core w formacie PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf).
+> Wersja platformy ASP.NET Core 1.1 tego samouczka, dla [wersji programu VS 2017 Update 2 tego samouczka w formacie PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,7 +37,7 @@ Podstawowe EF 2.0 jest najnowsza wersja EF jeszcze nie wszystkich funkcji EF 6.x
 
 Jeśli napotkasz problem, nie można rozpoznać zwykle można znaleźć rozwiązania na podstawie porównania ilości kodu do [projektu zakończone](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Aby uzyskać listę typowych błędów i sposobów ich rozwiązania, zobacz [sekcji rozwiązywania problemów ostatniego samouczek z tej serii](advanced.md#common-errors). Nie można znaleźć, muszą, możesz wysłać zapytanie do StackOverflow.com dla [platformy ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) lub [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
-> [!TIP] 
+> [!TIP]
 > Jest to szereg 10 samouczków, z których każdy opiera się na czynności wykonane w starszych samouczki. Warto zapisać kopię projektu po każdym pomyślnym ukończeniu samouczka. Następnie w razie problemów, możesz zacząć od nowa z poprzednich samouczek zamiast po powrocie do początku całej serii.
 
 ## <a name="the-contoso-university-web-application"></a>Aplikacja sieci web University firmy Contoso

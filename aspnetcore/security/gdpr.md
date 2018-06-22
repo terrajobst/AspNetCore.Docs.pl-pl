@@ -2,21 +2,17 @@
 title: Obsługa ochrony rozporządzenia (GDPR) ogólne dane w ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak uzyskać dostęp do punktów rozszerzenia GDPR w aplikacji sieci web platformy ASP.NET Core.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/gdpr
-ms.openlocfilehash: eb9173bfe554b8b00ef8deb255e8347a534e7ba3
-ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
+ms.openlocfilehash: c986eeca572eecb43e76d56dbc5cb872a9dff6b2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35725799"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277641"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Obsługa interfejsów UE ogólne dane ochrony rozporządzenia (GDPR) w ASP.NET Core
 

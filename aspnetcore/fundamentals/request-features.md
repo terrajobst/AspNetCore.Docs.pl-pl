@@ -2,19 +2,15 @@
 title: Funkcje platformy ASP.NET Core żądania
 author: ardalis
 description: Więcej informacji na temat szczegóły implementacji serwera sieci web związanych z żądaniami HTTP i odpowiedzi, które są zdefiniowane w interfejsach dla platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/request-features
-ms.openlocfilehash: c79ad6001e106a3e3104b0f804a386fe8b0ee30a
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: d0f3ae521d1f314dd04cb581d9a921da4719273d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28913575"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279496"
 ---
 # <a name="request-features-in-aspnet-core"></a>Funkcje platformy ASP.NET Core żądania
 
@@ -26,34 +22,34 @@ Szczegóły implementacji serwera sieci Web związanych z żądaniami HTTP i odp
 
 Platformy ASP.NET Core definiuje kilka interfejsów funkcji HTTP w `Microsoft.AspNetCore.Http.Features` używane przez serwery do identyfikować funkcje, które obsługują. Następujące interfejsy funkcji obsługi żądań i zwracać odpowiedzi:
 
-`IHttpRequestFeature`Definiuje strukturę żądania HTTP, łącznie z protokołem, ścieżka, ciąg zapytania, nagłówki i treść.
+`IHttpRequestFeature` Definiuje strukturę żądania HTTP, łącznie z protokołem, ścieżka, ciąg zapytania, nagłówki i treść.
 
-`IHttpResponseFeature`Definiuje strukturę odpowiedzi HTTP, w tym kod stanu, nagłówki i treść odpowiedzi.
+`IHttpResponseFeature` Definiuje strukturę odpowiedzi HTTP, w tym kod stanu, nagłówki i treść odpowiedzi.
 
-`IHttpAuthenticationFeature`Definiuje pomocy technicznej do identyfikacji użytkowników na podstawie `ClaimsPrincipal` i określając program obsługi uwierzytelniania.
+`IHttpAuthenticationFeature` Definiuje pomocy technicznej do identyfikacji użytkowników na podstawie `ClaimsPrincipal` i określając program obsługi uwierzytelniania.
 
-`IHttpUpgradeFeature`Określa obsługę [uaktualnień HTTP](https://tools.ietf.org/html/rfc2616.html#section-14.42), umożliwiające klienta określić dodatkowe protokoły go chcesz użyć, jeśli serwer chce przełącznika protokołów.
+`IHttpUpgradeFeature` Określa obsługę [uaktualnień HTTP](https://tools.ietf.org/html/rfc2616.html#section-14.42), umożliwiające klienta określić dodatkowe protokoły go chcesz użyć, jeśli serwer chce przełącznika protokołów.
 
-`IHttpBufferingFeature`Definiuje metody wyłączenie buforowania żądań i/lub odpowiedzi.
+`IHttpBufferingFeature` Definiuje metody wyłączenie buforowania żądań i/lub odpowiedzi.
 
-`IHttpConnectionFeature`Definiuje właściwości dla adresów lokalnych i zdalnych i portów.
+`IHttpConnectionFeature` Definiuje właściwości dla adresów lokalnych i zdalnych i portów.
 
-`IHttpRequestLifetimeFeature`Określa obsługę przerywania połączenia lub wykrywania, jeśli żądanie został zakończony przedwcześnie, takie jak przez rozłączeniu klienta.
+`IHttpRequestLifetimeFeature` Określa obsługę przerywania połączenia lub wykrywania, jeśli żądanie został zakończony przedwcześnie, takie jak przez rozłączeniu klienta.
 
-`IHttpSendFileFeature`Definiuje metoda asynchronicznego przesyłania plików.
+`IHttpSendFileFeature` Definiuje metoda asynchronicznego przesyłania plików.
 
-`IHttpWebSocketFeature`Definiuje interfejs API do obsługi gniazda sieci web.
+`IHttpWebSocketFeature` Definiuje interfejs API do obsługi gniazda sieci web.
 
-`IHttpRequestIdentifierFeature`Dodaje właściwość, która może być używane do unikatowego identyfikowania żądań.
+`IHttpRequestIdentifierFeature` Dodaje właściwość, która może być używane do unikatowego identyfikowania żądań.
 
-`ISessionFeature`Definiuje `ISessionFactory` i `ISession` obiektów abstrakcyjnych odpowiadających Obsługa sesji użytkownika.
+`ISessionFeature` Definiuje `ISessionFactory` i `ISession` obiektów abstrakcyjnych odpowiadających Obsługa sesji użytkownika.
 
-`ITlsConnectionFeature`Definiuje interfejs API pobieranie certyfikatów klienta.
+`ITlsConnectionFeature` Definiuje interfejs API pobieranie certyfikatów klienta.
 
-`ITlsTokenBindingFeature`Definiuje metody do pracy z parametrami tokenu powiązania protokołu TLS.
+`ITlsTokenBindingFeature` Definiuje metody do pracy z parametrami tokenu powiązania protokołu TLS.
 
 > [!NOTE]
-> `ISessionFeature`nie jest funkcją serwera, ale jest implementowany przez `SessionMiddleware` (zobacz [stan aplikacji Zarządzanie](app-state.md)).
+> `ISessionFeature` nie jest funkcją serwera, ale jest implementowany przez `SessionMiddleware` (zobacz [stan aplikacji Zarządzanie](app-state.md)).
 
 ## <a name="feature-collections"></a>Funkcja kolekcji
 

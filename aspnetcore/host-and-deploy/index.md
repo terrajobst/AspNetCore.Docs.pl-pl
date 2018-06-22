@@ -2,20 +2,16 @@
 title: Host i wdrażania platformy ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak skonfigurować środowiskach hostingu i wdrażanie aplikacji platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 08/07/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/index
-ms.openlocfilehash: 1ffc7f9f2dc2a06dddb629d2d2553964b56cec05
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 31444475e39a12d526dd624bb508770429e414ca
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34472937"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277153"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Host i wdrażania platformy ASP.NET Core
 

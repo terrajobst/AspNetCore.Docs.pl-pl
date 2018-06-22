@@ -2,19 +2,16 @@
 title: Iniekcji zależności w ASP.NET Core
 author: ardalis
 description: Dowiedz się, jak platformy ASP.NET Core implementuje iniekcji zależności i jak z niego korzystać.
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 067d9bd09f6d5e54bbafd953eea169d2df2be34e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 04c52bd47d34cd2135753c469077b6a75ee02f86
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278456"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Iniekcji zależności w ASP.NET Core
 
@@ -245,7 +242,7 @@ Dostępne w programie ASP.NET usługi, poproś `HttpContext` dostępnych za poś
 
 Żądanie usługi reprezentują usługi, konfigurowanie i żądania jako część aplikacji. Gdy obiektów Określ zależności, te są spełnione przez typy w `RequestServices`, a nie `ApplicationServices`.
 
-Ogólnie rzecz biorąc nie można używać tych właściwości bezpośrednio, zamiast tego preferowanie do żądania z klas, które wymagają za pośrednictwem swojej klasy Konstruktor typów i pozwolić framework wstrzyknięcia zależności. Daje to klasy, które są łatwiejsze do testowania (zobacz [testu i debugowania](xref:testing/index)) i są bardziej luźno powiązane.
+Ogólnie rzecz biorąc nie można używać tych właściwości bezpośrednio, zamiast tego preferowanie do żądania z klas, które wymagają za pośrednictwem swojej klasy Konstruktor typów i pozwolić framework wstrzyknięcia zależności. Daje to klasy, które są łatwiejsze do testowania (zobacz [testu i debugowania](xref:test/index)) i są bardziej luźno powiązane.
 
 > [!NOTE]
 > Preferowane jest żądaniem zależności jako parametry konstruktora do uzyskiwania dostępu do `RequestServices` kolekcji.
@@ -361,7 +358,7 @@ Iniekcji zależności jest *alternatywnych* do wzorce dostępu do obiektu statyc
 * [Wstrzykiwanie zależności do kontrolerów](xref:mvc/controllers/dependency-injection)
 * [Wstrzykiwanie zależności w programach obsługi wymagań](xref:security/authorization/dependencyinjection)
 * [Uruchamianie aplikacji](xref:fundamentals/startup)
-* [Testowanie i debugowanie](xref:testing/index)
+* [Testowanie i debugowanie](xref:test/index)
 * [Aktywacji opartej na fabryki oprogramowania pośredniczącego](xref:fundamentals/middleware/extensibility)
 * [Czysty kod platformy ASP.NET Core z iniekcji zależności (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Projekt aplikacji zarządzanych przez kontener, Prelude: Gdzie jest kontener należeć?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)

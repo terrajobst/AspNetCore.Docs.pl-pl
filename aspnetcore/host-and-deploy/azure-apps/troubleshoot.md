@@ -2,20 +2,16 @@
 title: Rozwiązywanie problemów z platformy ASP.NET Core w usłudze aplikacji Azure
 author: guardrex
 description: Dowiedz się, jak diagnozować problemy z wdrożeniami platformy ASP.NET Core usłudze Azure App Service.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/31/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 47056c80c7abf5dd5ad5ae96af7b821d31b21b8b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f9918e9162329f4c5dbd1ff18e30fce0db24e651
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897436"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272727"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Rozwiązywanie problemów z platformy ASP.NET Core w usłudze aplikacji Azure
 

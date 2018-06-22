@@ -2,19 +2,15 @@
 title: Format magazynu kluczy platformy ASP.NET Core
 author: rick-anderson
 description: Szczegóły dotyczące implementacji format magazynu kluczy platformy ASP.NET Core do ochrony danych.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: 1a5912f246708355e6677c60034d982d053c3938
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: bb2bcdff3ac2b17623a67f51fd27b29bb928a2fb
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34153576"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274521"
 ---
 # <a name="key-storage-format-in-aspnet-core"></a>Format magazynu kluczy platformy ASP.NET Core
 

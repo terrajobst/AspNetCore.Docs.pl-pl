@@ -2,19 +2,15 @@
 title: Dodaj kontroler do aplikacji platformy ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac
 author: rick-anderson
 description: Jak dodać kontrolera do Podstawowa aplikacja platformy ASP.NET Core MVC za pomocą programu Visual Studio komputera Mac
-manager: wpickett
 ms.author: riande
 ms.date: 06/28/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: tutorials/first-mvc-app-mac/adding-controller
-ms.openlocfilehash: e728f607ac780e35067d5c1174d3d23f083c39b6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 963c05059a29452c3346cbc6d95942f90c5fdc9c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30893680"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279483"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app-with-visual-studio-for-mac"></a>Dodaj kontroler do aplikacji platformy ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac
 

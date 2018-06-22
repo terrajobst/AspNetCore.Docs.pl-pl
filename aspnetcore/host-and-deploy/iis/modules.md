@@ -2,19 +2,16 @@
 title: Moduły usług IIS z platformy ASP.NET Core
 author: guardrex
 description: Wykryj aktywną i nieaktywną modułów usług IIS dla aplikacji platformy ASP.NET Core i zarządzanie modułów usług IIS.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: e88526d997618658f58488adb37ae1e519ea3f59
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 1ff0fdcaae066b493eeebf6a061e383f88c81052
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272740"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Moduły usług IIS z platformy ASP.NET Core
 
@@ -39,7 +36,7 @@ Tabela wskazuje modułów macierzystych usług IIS, które działają na zwrotny
 | **Uwierzytelnianie szyfrowane**<br>`DigestAuthenticationModule` | Tak | |
 | **Przeglądanie katalogów**<br>`DirectoryListingModule` | Nie | [Oprogramowanie pośredniczące przeglądania w katalogu](xref:fundamentals/static-files#enable-directory-browsing) |
 | **Kompresja dynamiczna**<br>`DynamicCompressionModule` | Tak | [Oprogramowanie pośredniczące kompresji odpowiedzi](xref:performance/response-compression) |
-| **Śledzenie**<br>`FailedRequestsTracingModule` | Tak | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index#the-tracesource-provider) |
+| **Śledzenie**<br>`FailedRequestsTracingModule` | Tak | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
 | **Buforowanie plików**<br>`FileCacheModule` | Nie | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) |
 | **Buforowanie HTTP**<br>`HttpCacheModule` | Nie | [Oprogramowanie pośredniczące buforowania odpowiedzi](xref:performance/caching/middleware) |
 | **Rejestrowanie HTTP**<br>`HttpLoggingModule` | Tak | [Rejestrowanie platformy ASP.NET Core](xref:fundamentals/logging/index)<br>Implementacje: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)

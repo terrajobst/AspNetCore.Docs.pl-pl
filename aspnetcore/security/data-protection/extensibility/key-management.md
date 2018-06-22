@@ -2,19 +2,15 @@
 title: Zarządzanie kluczami rozszerzalność na platformie ASP.NET Core
 author: rick-anderson
 description: Więcej informacji na temat ochrony danych platformy ASP.NET Core rozszerzalności zarządzania kluczami.
-manager: wpickett
 ms.author: riande
 ms.date: 11/22/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: e3042b371cf7be8fa0218c1906042d2810b180e3
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 3ebde889d207e02aff8c042b1d80884210a68ff4
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30074167"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274755"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a>Zarządzanie kluczami rozszerzalność na platformie ASP.NET Core
 

@@ -2,19 +2,15 @@
 title: Dojście żądań z kontrolerami w programie ASP.NET MVC Core
 author: ardalis
 description: ''
-manager: wpickett
 ms.author: riande
 ms.date: 07/03/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 187ac69322545685380ad8f810bb65208c093d82
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 3f3f565021d484b69401a3e03a2a966c92764a49
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740299"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275663"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Dojście żądań z kontrolerami w programie ASP.NET MVC Core
 

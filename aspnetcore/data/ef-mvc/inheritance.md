@@ -2,19 +2,15 @@
 title: Platformy ASP.NET Core MVC podstawowych EF - dziedziczenia - 9, 10
 author: rick-anderson
 description: Ten samouczek przedstawia sposób implementacji dziedziczenia w modelu danych, przy użyciu programu Entity Framework Core w aplikacji platformy ASP.NET Core.
-manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 1ddca97d0a68311e8c6fa793ec4245c7ffef1337
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 818af711c23d37810b29eda8915b3c195a3e48f8
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34153436"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272857"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF - dziedziczenia - 9, 10
 

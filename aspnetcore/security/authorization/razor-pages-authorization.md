@@ -2,20 +2,16 @@
 title: Konwencje autoryzacji stron razor w ASP.NET Core
 author: guardrex
 description: Informacje o sposobie kontrolowania dostępu do stron z konwencjami autoryzacji użytkowników, które użytkownicy anonimowego dostępu do stron lub folderów stron.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/27/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: cd1fa7957ca50db0de71f71234f84d3fbc631f45
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 8856520bf43f2f62cc12c7e883485babdb43fb3e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341746"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272678"
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>Konwencje autoryzacji stron razor w ASP.NET Core
 
@@ -40,7 +36,7 @@ Określona ścieżka jest ścieżki aparat widoku, która jest ścieżką wzglę
 ::: moniker range=">= aspnetcore-2.1"
 
 > [!NOTE]
-> `AuthorizeFilter` Może odnosić się do strony klasy modelu z `[Authorize]` atrybutu filtru. Aby uzyskać więcej informacji, zobacz [atrybutu filtru autoryzacji](xref:mvc/razor-pages/filter#authorize-filter-attribute).
+> `AuthorizeFilter` Może odnosić się do strony klasy modelu z `[Authorize]` atrybutu filtru. Aby uzyskać więcej informacji, zobacz [atrybutu filtru autoryzacji](xref:razor-pages/filter#authorize-filter-attribute).
 
 ::: moniker-end
 
@@ -90,5 +86,5 @@ Wymaganie autoryzacji na stronie prywatnych nie będą działać, ponieważ podc
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Razor strony trasy i strony modelu dostawców niestandardowych](xref:mvc/razor-pages/razor-pages-conventions)
+* [Razor strony trasy i strony modelu dostawców niestandardowych](xref:razor-pages/razor-pages-conventions)
 * [PageConventionCollection](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection) — klasa

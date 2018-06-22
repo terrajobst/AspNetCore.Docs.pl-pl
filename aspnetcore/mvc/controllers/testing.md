@@ -2,18 +2,15 @@
 title: Logikę kontrolera testu w ASP.NET Core
 author: ardalis
 description: Dowiedz się, jak logikę kontrolera testu w ASP.NET Core z Moq i xUnit.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: 51b7a02c697807c9e3504b70f89370126ee0e781
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: fc5f10b4d5947a6af114bf00f8b1d955b083a44d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273926"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Logikę kontrolera testu w ASP.NET Core
 
@@ -74,7 +71,7 @@ Drugi test sprawdza, że w przypadku `ModelState` jest prawidłowy, nowy `Brains
 
 Inny kontroler w aplikacji Wyświetla informacje związane z sesją określonego Diagram burzy. Zawiera logikę radzenia sobie z wartości nieprawidłowy identyfikator:
 
-[!code-csharp[](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
 Akcja kontrolera ma trzech przypadkach do testowania, po jednej dla każdego `return` instrukcji:
 
@@ -100,7 +97,7 @@ Ostatni test sprawdza, czy z repozytorium `Update` metoda jest wywoływana. Jak 
 
 ## <a name="integration-testing"></a>Testowanie integracji
 
-[Testy integracji](../../testing/integration-testing.md) poprawnie ze sobą zapewnia oddzielnych modułów w pracy aplikacji. Ogólnie rzecz biorąc coś, co można przetestować z testu jednostkowego, można również sprawdzić z testem integracji, ale odwrotnej nie jest spełniony. Jednak testy integracji zazwyczaj można znacznie mniejsza niż testy jednostkowe. W związku z tym najlepiej do testowania, niezależnie od można przy użyciu testów jednostkowych i użyć testów integracji dla scenariuszy obejmujących wiele współpracowników.
+[Testy integracji](xref:test/integration-tests) poprawnie ze sobą zapewnia oddzielnych modułów w pracy aplikacji. Ogólnie rzecz biorąc coś, co można przetestować z testu jednostkowego, można również sprawdzić z testem integracji, ale odwrotnej nie jest spełniony. Jednak testy integracji zazwyczaj można znacznie mniejsza niż testy jednostkowe. W związku z tym najlepiej do testowania, niezależnie od można przy użyciu testów jednostkowych i użyć testów integracji dla scenariuszy obejmujących wiele współpracowników.
 
 Mimo że nadal mogą być użyteczne, zasymulować obiekty są rzadko używane w testach integracji. W przypadku przeprowadzania testów jednostkowych zasymulować obiekty są efektywny sposób kontrolować sposób zachowania przypadku współpracownicy poza jednostki testowane na potrzeby testu. W teście integracji rzeczywistych współpracownicy są używane do upewnij się, że podsystem całego razem działa prawidłowo.
 

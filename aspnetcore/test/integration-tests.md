@@ -2,20 +2,16 @@
 title: Integracja z testów w ASP.NET Core
 author: guardrex
 description: Dowiedz się, jak testy integracji zapewnienia poprawnego działania składniki aplikacji na poziomie infrastruktury, włącznie z bazy danych, system plików i sieci.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: test/integration-tests
-ms.openlocfilehash: a402c3f5f6a75917eba4058e6cc6926f25b214d4
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 1895b06f1af9a9eb66c14aa5c7834497fc95d583
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734719"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277699"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Integracja z testów w ASP.NET Core
 
@@ -29,9 +25,9 @@ W tym temacie założono podstawową wiedzę na temat testów jednostkowych. Je�
 
 Przykładowa aplikacja jest aplikacją stron Razor przyjęto założenie, podstawową wiedzę na temat stron Razor. Jeśli znasz stron Razor, zobacz następujące tematy:
 
-* [Wprowadzenie do stron Razor](xref:mvc/razor-pages/index)
+* [Wprowadzenie do stron Razor](xref:razor-pages/index)
 * [Wprowadzenie do korzystania ze stron Razor](xref:tutorials/razor-pages/razor-pages-start)
-* [Testy jednostkowe stron razor](xref:test/razor-pages-tests)
+* [Testy jednostkowe stron Razor](xref:test/razor-pages-tests)
 
 ## <a name="introduction-to-integration-tests"></a>Wprowadzenie do integracji testów
 
@@ -314,6 +310,6 @@ Przykładowa aplikacja nasiona bazy danych z trzech wiadomości w *Utilities.cs*
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Testy jednostkowe](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Testy jednostkowe stron razor](xref:test/razor-pages-tests)
+* [Testy jednostkowe stron Razor](xref:test/razor-pages-tests)
 * [Oprogramowanie pośredniczące](xref:fundamentals/middleware/index)
 * [Kontrolery testów](xref:mvc/controllers/testing)

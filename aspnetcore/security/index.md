@@ -2,19 +2,15 @@
 title: Przegląd zabezpieczeń platformy ASP.NET Core
 author: rachelappel
 description: Poznaj podstawowe informacje dotyczące uwierzytelniania, autoryzacji i zabezpieczeń w ASP.NET Core.
-manager: wpickett
 ms.author: rachelap
 ms.date: 11/01/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/index
-ms.openlocfilehash: da3829b2d5ae5db1861c7423da5afc7acbee6697
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: a23d23cf1bf0503b59c6f5d962cecf89af37b4b3
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30074357"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278508"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Przegląd zabezpieczeń platformy ASP.NET Core
 
@@ -75,7 +71,7 @@ Istnieje więcej usterek, które należy zwrócić uwagę. Aby uzyskać więcej 
         *   [Omówienie interfejsów API przeznaczonych dla klientów](xref:security/data-protection/consumer-apis/overview)
         *   [Ciągi celów](xref:security/data-protection/consumer-apis/purpose-strings)
         *   [Hierarchia celów i obsługa wielu dzierżawców](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)
-        *   [Skrót hasła](xref:security/data-protection/consumer-apis/password-hashing)
+        *   [Wyznaczanie skrótów haseł](xref:security/data-protection/consumer-apis/password-hashing)
         *   [Ograniczanie okresu istnienia ładunków chronionych](xref:security/data-protection/consumer-apis/limited-lifetime-payloads)
         *   [Wyłączanie ochrony ładunków, których klucze zostały odwołane](xref:security/data-protection/consumer-apis/dangerous-unprotect)
     *   [Konfiguracja](xref:security/data-protection/configuration/index)
@@ -94,13 +90,13 @@ Istnieje więcej usterek, które należy zwrócić uwagę. Aby uzyskać więcej 
         *   [Zarządzanie kluczami](xref:security/data-protection/implementation/key-management)
         *   [Dostawcy magazynu kluczy](xref:security/data-protection/implementation/key-storage-providers)
         *   [Szyfrowanie kluczy podczas magazynowania](xref:security/data-protection/implementation/key-encryption-at-rest)
-        *   [Immutability klucza i ustawienia](xref:security/data-protection/implementation/key-immutability)
+        *   [Ustawienia i niezmienność klucza](xref:security/data-protection/implementation/key-immutability)
         *   [Format magazynu kluczy](xref:security/data-protection/implementation/key-storage-format)
         *   [Dostawcy efemerycznej ochrony danych](xref:security/data-protection/implementation/key-storage-ephemeral)
     *   [Zgodność](xref:security/data-protection/compatibility/index)
         *   [Zamienianie elementu <machineKey> na platformie ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
 *   [Tworzenie aplikacji przy użyciu danych użytkownika chronionych przez autoryzację](xref:security/authorization/secure-data)
-*   [Bezpieczne przechowywanie klucze tajne aplikacji do rozwoju](xref:security/app-secrets)
+*   [Bezpieczne przechowywanie wpisów tajnych aplikacji w czasie projektowania](xref:security/app-secrets)
 *   [Dostawca konfiguracji usługi Azure Key Vault](xref:security/key-vault-configuration)
 *   [Wymuszanie protokołu SSL](xref:security/enforcing-ssl)
 *   [Ochrona przed fałszerstwem żądań](xref:security/anti-request-forgery)

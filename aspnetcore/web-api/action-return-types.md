@@ -2,20 +2,16 @@
 title: Zwracane typy akcji kontrolera w interfejsu API platformy ASP.NET Core sieci Web
 author: scottaddie
 description: 'Informacje o używaniu różne metody akcji kontrolera: zwracane typy w interfejsie API sieci Web platformy ASP.NET Core.'
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/21/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: web-api/action-return-types
-ms.openlocfilehash: 6734153eab699bb951400baa5c40968019c35b2c
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 422db97da222fb5e742e1d8e6ae410edc90dbc18
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "33972798"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273559"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Zwracane typy akcji kontrolera w interfejsu API platformy ASP.NET Core sieci Web
 

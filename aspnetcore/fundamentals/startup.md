@@ -2,20 +2,16 @@
 title: Uruchamianie aplikacji w ASP.NET Core
 author: ardalis
 description: Odkryj, jak klasa początkowa w ASP.NET Core umożliwia skonfigurowanie usług i aplikacji żądania potoku.
-manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: 58ced0ae11f462bc309526b7db7bda7897c33009
-ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
+ms.openlocfilehash: 75d5331ce665927b978472dc9eba29de86ce635f
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "34233173"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272964"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
 

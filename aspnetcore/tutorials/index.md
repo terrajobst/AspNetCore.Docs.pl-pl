@@ -2,19 +2,15 @@
 title: Samouczki platformy ASP.NET Core
 author: rick-anderson
 description: Lista przewodniki krok po kroku dotyczące poznanie metod tworzenia aplikacji platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 019224e86f1f5583ce0f212d8be70e8829274c7e
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 2ec362ea546d7bdb493665fe836bdf9ddb68b1b3
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34688442"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279522"
 ---
 # <a name="aspnet-core-tutorials"></a>Samouczki platformy ASP.NET Core
 
@@ -22,14 +18,16 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
 
 ## <a name="build-web-apps"></a>Tworzenie aplikacji sieci web
 
-[Stron razor](xref:mvc/razor-pages/index) jest zalecane podejście do utworzenia nowej aplikacji interfejsu użytkownika sieci Web platformy ASP.NET Core 2.0.
+[Stron razor](xref:razor-pages/index) jest zalecane podejście do utworzenia nowej aplikacji interfejsu użytkownika sieci Web platformy ASP.NET Core 2.0.
 
-* [Wprowadzenie do platformy ASP.NET Core stron Razor](xref:mvc/razor-pages/index)
+* [Wprowadzenie do platformy ASP.NET Core stron Razor](xref:razor-pages/index)
 * Tworzenie aplikacji sieci web Razor strony z platformy ASP.NET Core
 
    * [Stron razor w systemie Windows](xref:tutorials/razor-pages/index)
    * [System macOS razor strony](xref:tutorials/razor-pages-mac/index)
    * [Razor strony z kodu VS](xref:tutorials/razor-pages-vsc/index)  
+
+* [Tworzenie aplikacji sieci web w czasie rzeczywistym SignalR](xref:tutorials/signalr)
 
 * Tworzenie aplikacji sieci web platformy ASP.NET Core MVC
 
@@ -40,9 +38,10 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
 * [Rozpoczynanie pracy z platformą ASP.NET Core i programem Entity Framework Core przy użyciu programu Visual Studio](xref:data/ef-mvc/index)
 * [Tworzenie pomocników tagów](xref:mvc/views/tag-helpers/authoring)
 * [Tworzenie prostego widoku składnika](xref:mvc/views/view-components#walkthrough-creating-a-simple-view-component)
-* [Opracowywanie aplikacji przy użyciu pliku obserwatora](xref:tutorials/dotnet-watch)
+* [Tworzenie aplikacji przy użyciu obserwatora plików](xref:tutorials/dotnet-watch)
 
 ## <a name="build-web-apis"></a>Tworzenie interfejsów API sieci Web
+
 * Tworzenie składnika Web API z platformy ASP.NET Core
 
   * [Składnik Web API z programem Visual Studio dla systemu Windows](xref:tutorials/first-web-api)
@@ -56,34 +55,40 @@ Dostępne są następujące Przewodniki krok po kroku umożliwiający projektowa
 * [Tworzenie zaplecza usługi sieci web do natywnej aplikacji mobilnych](xref:mobile/native-mobile-backend)
 
 ## <a name="data-access-and-storage"></a>Dostęp do danych i magazynu
+
 * [Rozpoczynanie pracy ze stronami Razor i programem EF Core przy użyciu programu Visual Studio](xref:data/ef-rp/intro)
 * [Wprowadzenie do platformy ASP.NET MVC Core i Core EF przy użyciu programu Visual Studio](xref:data/ef-mvc/index)
 * [Platformy ASP.NET Core MVC podstawowych EF - nowej bazy danych](/ef/core/get-started/aspnetcore/new-db)
 * [Platformy ASP.NET Core MVC podstawowych EF - istniejącej bazy danych](/ef/core/get-started/aspnetcore/existing-db)
 
 ## <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
+
 * [Włączanie uwierzytelniania za pomocą usługi Facebook, Google i innych dostawców zewnętrznych](xref:security/authentication/social/index)
 * [Potwierdzenie konta i odzyskiwanie hasła](xref:security/authentication/accconfirm)
 * [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS](xref:security/authentication/2fa)
 
 ## <a name="client-side-development"></a>Programowanie po stronie klienta
+
 * [Korzystanie z Gulp](xref:client-side/using-gulp)
 * [Korzystanie z Grunt](xref:client-side/using-grunt)
 * [Zarządzanie pakietami po stronie klienta za pomocą narzędzi Bower](xref:client-side/bower)
 * [Tworzenie szybko reagujących witryn za pomocą narzędzi Bootstrap](xref:client-side/bootstrap)
 
 ## <a name="test"></a>Test
+
 * [Jednostka testowania w .NET Core za pomocą testu dotnet](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
 ## <a name="host-and-deploy"></a>Host i wdrażanie
+
 * [Wdrażanie aplikacji sieci web platformy ASP.NET Core na platformie Azure przy użyciu programu Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)
 * [Wdrażanie aplikacji sieci web platformy ASP.NET Core na platformie Azure przy użyciu wiersza polecenia](xref:tutorials/publish-to-azure-webapp-using-cli)
 * [Publikowanie aplikacji sieci Web platformy Azure z ciągłe wdrażanie](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 * [Wdrażanie kontenera ASP.NET z hostem zdalnym Docker](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
 * [Platformy ASP.NET Core i sieci szkieletowej usług Azure](/azure/service-fabric/service-fabric-add-a-web-frontend)
 
-<a name="download"></a> 
+<a name="download"></a>
 ## <a name="how-to-download-a-sample"></a>Jak pobrać próbki
+
 1. [Pobierz plik zip repozytorium ASP.NET](https://codeload.github.com/aspnet/Docs/zip/master).
 1. Rozpakuj *Docs master.zip* pliku.
-1. Użyj adresu URL w Przykładowe łącze ułatwiające przejdź do katalogu próbki. 
+1. Użyj adresu URL w Przykładowe łącze ułatwiające przejdź do katalogu próbki.

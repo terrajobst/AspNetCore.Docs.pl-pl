@@ -2,18 +2,15 @@
 title: Omówienie platformy ASP.NET Core MVC
 author: ardalis
 description: Dowiedz się, jak platformy ASP.NET Core MVC jest sformatowany framework do tworzenia aplikacji sieci web i interfejsów API przy użyciu Model-View-Controller projektowanie wzorca.
-manager: wpickett
 ms.author: riande
 ms.date: 01/08/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 1cf48499d3bc0ba63e2f0667740668fad0b13c28
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aca34f91e8c7efaa34263ddf830b1662a2518969
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272595"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Omówienie platformy ASP.NET Core MVC
 
@@ -27,7 +24,7 @@ Wzorzec architektury Model-widok-kontroler (MVC) dzieli aplikację na trzy głó
 
 Na poniższym diagramie przedstawiono trzy główne składniki i te, które odwołują się inne:
 
-![MVC Pattern](overview/_static/mvc.png)
+![Wzorzec MVC](overview/_static/mvc.png)
 
 Ta nakreślenia obowiązki pomaga skalowanie aplikacji pod względem stopnia złożoności, ponieważ ułatwia kodu, debugowania i testowania coś (model, widok lub kontrolera) z jednym zadaniu (i jest zgodna z [jednej zasady odpowiedzialności ](http://deviq.com/single-responsibility-principle/)). Jest trudne do aktualizacji, badanie i debugowania kodu, który ma zależności rozłożyć na co najmniej dwa z tych trzech obszarach. Na przykład logika interfejsu użytkownika zwykle zmieniać częściej niż logiki biznesowej. Jeśli prezentacji kodu i logiki biznesowej są łączone w pojedynczy obiekt, należy zmodyfikować obiekt zawierający logiki biznesowej każdej zmianie interfejsu użytkownika. To często wprowadza błędy i wymaga ponowne logiki biznesowej po każdej zmianie interfejsu użytkownika minimalnej.
 
@@ -191,7 +188,7 @@ Użyj generowania łącze, aby włączyć obsługę hipermedialnych. Łatwo wł�
 
 ### <a name="testability"></a>Pola
 
-W ramach korzystanie z interfejsów i iniekcji zależności był dobrze nadaje się do przeprowadzania testów jednostkowych i ramach zawiera funkcje (na przykład TestHost i InMemory dostawcy programu Entity Framework) [testy integracji](../testing/integration-testing.md) szybki i łatwe również. Dowiedz się więcej o [jak logikę kontrolera testu](controllers/testing.md).
+W ramach korzystanie z interfejsów i iniekcji zależności był dobrze nadaje się do przeprowadzania testów jednostkowych i ramach zawiera funkcje (na przykład TestHost i InMemory dostawcy programu Entity Framework) [testy integracji](xref:test/integration-tests) szybki i łatwe również. Dowiedz się więcej o [jak logikę kontrolera testu](controllers/testing.md).
 
 ### <a name="razor-view-engine"></a>Aparat widoku razor
 

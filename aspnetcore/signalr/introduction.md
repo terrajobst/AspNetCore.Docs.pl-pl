@@ -2,21 +2,17 @@
 title: Wprowadzenie do platformy ASP.NET Core SignalR
 author: rachelappel
 description: Dowiedz się, jak biblioteka ASP.NET Core SignalR ułatwia dodawanie w czasie rzeczywistym funkcjonalności do aplikacji.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 04/25/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: signalr/introduction
-ms.openlocfilehash: f05b7cbf05372dc5d5cdadaf5a534d7a9d9bfecc
-ms.sourcegitcommit: c867d7427bd4a88a78b2322e156367733b532730
+ms.openlocfilehash: 0c833acea139d22883a69a02c2357a71f3ac8db8
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2018
-ms.locfileid: "33923358"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277907"
 ---
 # <a name="introduction-to-aspnet-core-signalr"></a>Wprowadzenie do platformy ASP.NET Core SignalR
 
@@ -59,7 +55,7 @@ Koncentratory wywoływać kod po stronie klienta przez wysyłanie wiadomości pr
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Rozpoczynanie pracy z SignalR dla platformy ASP.NET Core](xref:signalr/get-started)
+* [Rozpoczynanie pracy z SignalR dla platformy ASP.NET Core](xref:tutorials/signalr)
 * [Obsługiwane platformy](xref:signalr/supported-platforms)
 * [Centra](xref:signalr/hubs)
 * [Klient JavaScript](xref:signalr/javascript-client)

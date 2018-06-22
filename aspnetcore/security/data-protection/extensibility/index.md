@@ -2,19 +2,15 @@
 title: Program ASP.NET Core ochrony danych rozszerzalności interfejsów API
 author: rick-anderson
 description: Poznaj różne tematy rozszerzalności ochrony danych platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/extensibility/index
-ms.openlocfilehash: 822f44b9aa2745278c3074f74f7f6f7972d5edd2
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 6a5a50f13fa3c7c437ec7d98da4dab67e4870f71
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077512"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273530"
 ---
 # <a name="aspnet-core-data-protection-extensibility-apis"></a>Program ASP.NET Core ochrony danych rozszerzalności interfejsów API
 

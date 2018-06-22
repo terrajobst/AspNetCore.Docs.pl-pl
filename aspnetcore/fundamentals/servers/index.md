@@ -2,20 +2,16 @@
 title: Implementacje serwera sieci Web w ASP.NET Core
 author: rick-anderson
 description: Wykrywa Kestrel i HTTP.sys serwerów sieci web dla platformy ASP.NET Core. Dowiedz się, wybierz serwer, jak i kiedy należy używać serwera zwrotnego serwera proxy.
-manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/13/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/servers/index
-ms.openlocfilehash: c9ed385208df083f631174c7071ca31ed2114350
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: bb0331d7201d4e979e6c6524cbf630280c4eaeb6
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34473197"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274446"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementacje serwera sieci Web w ASP.NET Core
 

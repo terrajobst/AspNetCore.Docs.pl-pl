@@ -2,19 +2,15 @@
 title: Limit ważności chronionych ładunków w ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak ograniczyć okres istnienia ładunku chronionych przy użyciu interfejsów API platformy ASP.NET Core danych ochrony.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/consumer-apis/limited-lifetime-payloads
-ms.openlocfilehash: 324887b3d29de989ad855c4e78fd5a235fdb560e
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 8dc3b856ec67477ec8ae777749c9bf3107eb4eda
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072026"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278060"
 ---
 # <a name="limit-the-lifetime-of-protected-payloads-in-aspnet-core"></a>Limit ważności chronionych ładunków w ASP.NET Core
 

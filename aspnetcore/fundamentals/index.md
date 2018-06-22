@@ -2,20 +2,16 @@
 title: Podstawowe informacje na temat platformy ASP.NET Core
 author: rick-anderson
 description: Poznaj podstawowe pojęcia do tworzenia aplikacji platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/30/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: 97c0b289b259332d57f8175e05020fe03d505723
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: b51d7b62525944d9924ecb4ce5964312f30a7835
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34233313"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278872"
 ---
 # <a name="aspnet-core-fundamentals"></a>Podstawowe informacje na temat platformy ASP.NET Core
 
@@ -78,7 +74,7 @@ Aby uzyskać więcej informacji, zobacz [uruchamiania aplikacji](xref:fundamenta
 
 ## <a name="content-root"></a>Główny zawartości
 
-Główny zawartości jest ścieżki podstawowej do dowolnej zawartości używany przez aplikację, takich jak widoki, [stron Razor](xref:mvc/razor-pages/index)i zasoby statyczne. Domyślnie zawartości główny jest taka sama jak podstawowa ścieżka aplikacji dla pliku wykonywalnego hosting aplikacji.
+Główny zawartości jest ścieżki podstawowej do dowolnej zawartości używany przez aplikację, takich jak widoki, [stron Razor](xref:razor-pages/index)i zasoby statyczne. Domyślnie zawartości główny jest taka sama jak podstawowa ścieżka aplikacji dla pliku wykonywalnego hosting aplikacji.
 
 ## <a name="web-root"></a>Główny sieci Web
 
@@ -106,9 +102,13 @@ Platformy ASP.NET Core zawiera bogaty zestaw wbudowanych oprogramowania pośredn
 
 Aby uzyskać więcej informacji, zobacz [oprogramowanie pośredniczące](xref:fundamentals/middleware/index) i [interfejsu Open Web dla platformy .NET (OWIN)](xref:fundamentals/owin).
 
+::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="initiate-http-requests"></a>Zainicjuj żądań HTTP
 
 Informacji o używaniu `IHttpClientFactory` dostępu `HttpClient` wystąpień do żądania HTTP, zobacz [żądań HTTP zainicjować](xref:fundamentals/http-requests).
+
+::: moniker-end
 
 ## <a name="environments"></a>Środowisk
 
@@ -126,7 +126,7 @@ Aby uzyskać więcej informacji, zobacz [konfiguracji](xref:fundamentals/configu
 
 Platformy ASP.NET Core obsługuje interfejs API rejestrowania, który współpracuje z różnych dostawców rejestrowania. Dostawców wbudowanych obsługuje wysyłania dzienników do jednego lub więcej miejsc docelowych. Można platform rejestrowania innych firm.
 
-[Rejestrowanie](xref:fundamentals/logging/index)
+Aby uzyskać więcej informacji, zobacz [rejestrowania](xref:fundamentals/logging/index)
 
 ## <a name="error-handling"></a>Obsługa błędów
 
@@ -158,11 +158,11 @@ Aplikacje platformy ASP.NET Core skonfigurować i uruchomić *hosta*, który jes
 
 Aby uzyskać więcej informacji, zobacz [hosta w ASP.NET Core](xref:fundamentals/host/index).
 
-## <a name="session-and-application-state"></a>Stan sesji i aplikacji
+## <a name="session-and-app-state"></a>Stan sesji i aplikacji
 
-Stan sesji jest funkcją platformy ASP.NET Core, który służy do zapisywania i przechowywania danych użytkownika, gdy użytkownik będzie przeglądać aplikacji sieci web.
+Platformy ASP.NET Core udostępnia kilka metod, aby zachować stan sesji i aplikacji, gdy użytkownik będzie przeglądać aplikacji sieci web.
 
-Aby uzyskać więcej informacji, zobacz [sesji i stan aplikacji](xref:fundamentals/app-state).
+Aby uzyskać więcej informacji, zobacz [stanu sesji oraz aplikacji](xref:fundamentals/app-state).
 
 ## <a name="servers"></a>Serwery
 

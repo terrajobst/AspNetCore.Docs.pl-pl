@@ -2,19 +2,15 @@
 title: Stron razor z Entity Framework Core w platformy ASP.NET Core - 1 samouczka 8
 author: rick-anderson
 description: Pokazuje, jak utworzyć aplikację stron Razor przy użyciu programu Entity Framework Core
-manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: d7cf4740f31f1e0ae56461efc4c1b3d91238270f
-ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
+ms.openlocfilehash: cadf36f4e1ff3776ad4139e1d7c4e9b73687bc5c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35726020"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279233"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Stron razor z Entity Framework Core w platformy ASP.NET Core - 1 samouczka 8
 
@@ -30,7 +26,7 @@ Przykładowa aplikacja jest witryną sieci web dla fikcyjnej uniwersytetu Contos
 
 [!INCLUDE [](~/includes/net-core-prereqs.md)]
 
-Znajomość [stron Razor](xref:mvc/razor-pages/index). Nowe programistów powinno zakończyć się [wprowadzenie stron Razor](xref:tutorials/razor-pages/razor-pages-start) przed uruchomieniem tej serii.
+Znajomość [stron Razor](xref:razor-pages/index). Nowe programistów powinno zakończyć się [wprowadzenie stron Razor](xref:tutorials/razor-pages/razor-pages-start) przed uruchomieniem tej serii.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -57,7 +53,7 @@ Styl interfejsu użytkownika w tej lokacji jest bliski co to jest generowany prz
 * Utwórz nową aplikację sieci Web platformy ASP.NET Core. Nazwij projekt **ContosoUniversity**. Ważne jest, aby nazwa projektu *ContosoUniversity* tak dopasuj przestrzenie nazw, jeśli kod jest skopiowane i wklejone.
  ![nową aplikację sieci Web Core ASP.NET](intro/_static/np.png)
 * Wybierz **ASP.NET Core 2.0** w listy rozwijanej, a następnie wybierz **aplikacji sieci Web**.
- ![Aplikacja sieci Web (Razor strony)](../../mvc/razor-pages/index/_static/np2.png)
+ ![Aplikacja sieci Web (Razor strony)](../../razor-pages/index/_static/np2.png)
 
 Naciśnij klawisz **F5** do uruchomienia aplikacji w trybie debugowania lub **Ctrl-F5** działać bez dołączanie debugera
 

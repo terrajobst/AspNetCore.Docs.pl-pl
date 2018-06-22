@@ -2,19 +2,15 @@
 title: Konfigurowanie tożsamości platformy ASP.NET Core
 author: AdrienTorris
 description: Zrozumienie ASP.NET Core Identity wartości domyślne i Dowiedz się, jak skonfigurować właściwości tożsamości, aby użyć niestandardowej wartości.
-manager: wpickett
 ms.author: scaddie
 ms.date: 03/06/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 511c39db2bb4d3b215a1037c52f6c4f89b48ff7d
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 914e9b22ed52b560366fdff1f2430d3dd66454c3
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34094632"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276265"
 ---
 # <a name="configure-aspnet-core-identity"></a>Konfigurowanie tożsamości platformy ASP.NET Core
 

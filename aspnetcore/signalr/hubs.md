@@ -2,21 +2,17 @@
 title: Użyj koncentratory w ASP.NET Core SignalR
 author: rachelappel
 description: Dowiedz się, jak używać koncentratory w ASP.NET Core SignalR.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/01/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: signalr/hubs
-ms.openlocfilehash: 495aa156dd5e4641d688d7b16df1e5814c9607f4
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 5558a5787396c3aa8055175486369eb2534c1fa2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34819087"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277673"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Użyj koncentratory w SignalR platformy ASP.NET Core
 

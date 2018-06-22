@@ -3,19 +3,15 @@ title: Oprogramowanie pośredniczące aktywacji z kontenerem innych firm w ASP.N
 author: guardrex
 description: Dowiedz się, jak używać jednoznacznie oprogramowania pośredniczącego z aktywacją opartą na fabryki i kontener innych firm w ASP.NET Core.
 ms.author: riande
-manager: wpickett
 ms.custom: mvc
 ms.date: 02/02/2018
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility-third-party-container
-ms.openlocfilehash: c55075fd3c6fda4073d26925eab823c35d8656f5
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 81d52aafd4e4d964aaec1c5fe61e585b023ff915
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729895"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279509"
 ---
 # <a name="middleware-activation-with-a-third-party-container-in-aspnet-core"></a>Oprogramowanie pośredniczące aktywacji z kontenerem innych firm w ASP.NET Core
 
