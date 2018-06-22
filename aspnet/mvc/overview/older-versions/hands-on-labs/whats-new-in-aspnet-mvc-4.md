@@ -181,7 +181,7 @@ W tym ćwiczeniu zostanie Poznaj ulepszenia w szablonach projektu programu ASP.N
 
        Przeglądaj widoków szablonu, aby dowiedzieć się nowego znacznika motywu.
 
-       ![Nowy szablon, za pomocą znacznika About.cshtml Razor i HTML5. ] (whats-new-in-aspnet-mvc-4/_static/image10.png "Nowego szablonu, za pomocą znacznika About.cshtml Razor i HTML5.")
+       ![Nowy szablon, za pomocą znacznika About.cshtml Razor i HTML5. ](whats-new-in-aspnet-mvc-4/_static/image10.png "Nowego szablonu, za pomocą znacznika About.cshtml Razor i HTML5.")
 
        *Nowy szablon, przy użyciu znaczników Razor i HTML5 (About.cshtml).*
    - **Zaktualizowano biblioteki JavaScript**
