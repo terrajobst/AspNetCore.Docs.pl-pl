@@ -2,19 +2,15 @@
 title: Odwołania do składni razor dla platformy ASP.NET Core
 author: rick-anderson
 description: Więcej informacji o składni Razor znaczników do osadzania kodu na serwerze do stron sieci Web.
-manager: wpickett
 ms.author: riande
 ms.date: 10/18/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: 224c855b355b8ecde36377bba6966edec251af6a
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: d0f4d59cb605cc3cc7cdfa84bfc65399699e475a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33962495"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272691"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Odwołania do składni razor dla platformy ASP.NET Core
 

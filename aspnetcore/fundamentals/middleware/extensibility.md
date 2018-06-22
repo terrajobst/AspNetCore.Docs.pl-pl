@@ -3,19 +3,15 @@ title: Aktywacji opartej na fabryki oprogramowanie pośredniczące w ASP.NET Cor
 author: guardrex
 description: Dowiedz się, jak użyć jednoznacznie oprogramowania pośredniczącego z aktywacji opartej na fabryki implementacja platformy ASP.NET Core.
 ms.author: riande
-manager: wpickett
 ms.custom: mvc
 ms.date: 01/29/2018
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 8cec5b3b498f5a23463d8c3cd5901e14f22f6eab
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 44987dbc20b0419865a23e64b60a5dc3f436743a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729119"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277075"
 ---
 # <a name="factory-based-middleware-activation-in-aspnet-core"></a>Aktywacji opartej na fabryki oprogramowanie pośredniczące w ASP.NET Core
 

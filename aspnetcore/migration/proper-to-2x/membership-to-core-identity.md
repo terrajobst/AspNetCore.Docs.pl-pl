@@ -2,20 +2,16 @@
 title: Migracja z uwierzytelniania członkostwa ASP.NET do platformy ASP.NET Core 2.0 tożsamości
 author: isaac2004
 description: Dowiedz się, jak przeprowadzić migrację istniejących aplikacji ASP.NET przy użyciu uwierzytelniania członkostwa platformy ASP.NET Core 2.0 tożsamości.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/24/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/proper-to-2x/membership-to-core-identity
-ms.openlocfilehash: f0d1099bfda01d036831350e0888ae3830ad3d58
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 3ec22713997a74b587ef5d18e71a28668a5481e2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851598"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274108"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>Migracja z uwierzytelniania członkostwa ASP.NET do platformy ASP.NET Core 2.0 tożsamości
 
@@ -42,7 +38,7 @@ Jest to najszybszy sposób, aby wyświetlić schemat dla platformy ASP.NET Core 
 
 * Select **File** > **New** > **Project**.
 * Utwórz nową **aplikacji sieci Web platformy ASP.NET Core**i nazwij projekt *CoreIdentitySample*.
-* Wybierz **ASP.NET Core 2.0** w listy rozwijanej, a następnie wybierz **aplikacji sieci Web**. Ten szablon tworzy [stron Razor](xref:mvc/razor-pages/index) aplikacji. Przed kliknięciem przycisku **OK**, kliknij przycisk **Zmień uwierzytelnianie**.
+* Wybierz **ASP.NET Core 2.0** w listy rozwijanej, a następnie wybierz **aplikacji sieci Web**. Ten szablon tworzy [stron Razor](xref:razor-pages/index) aplikacji. Przed kliknięciem przycisku **OK**, kliknij przycisk **Zmień uwierzytelnianie**.
 * Wybierz **indywidualnych kont użytkowników** dla szablonów tożsamości. Na koniec kliknij **OK**, następnie **OK**. Visual Studio tworzy projekt przy użyciu szablonu platformy ASP.NET Identity Core.
 
 Używa tożsamości platformy ASP.NET Core 2.0 [Entity Framework Core](/ef/core) do interakcji z bazą danych z danymi uwierzytelniania. Aby dla nowo utworzonej aplikacji do pracy musi istnieć bazy danych do przechowywania tych danych. Po utworzeniu nowej aplikacji, to najszybszy sposób sprawdzić schematu w środowisku bazy danych jest utworzenie bazy danych przy użyciu programu Entity Framework migracji. Ten proces tworzy bazę danych, albo lokalnie lub w innych miejscach, która symuluje tego schematu. Zapoznaj się z dokumentacją poprzedniego, aby uzyskać więcej informacji.

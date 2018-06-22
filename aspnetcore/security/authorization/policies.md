@@ -2,20 +2,16 @@
 title: Na podstawie zasad autoryzacji w ASP.NET Core
 author: rick-anderson
 description: Informacje o sposobie tworzenia i używania programów obsługi zasady autoryzacji dotyczące wymuszania wymagań autoryzacji w aplikacji platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/21/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/policies
-ms.openlocfilehash: 411fee90bdccfb45c33f5d4ccd7864c83c614e70
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 81ca6ad9ddba3de094762f5608bb6a5719bca7a1
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072864"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277985"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>Na podstawie zasad autoryzacji w ASP.NET Core
 

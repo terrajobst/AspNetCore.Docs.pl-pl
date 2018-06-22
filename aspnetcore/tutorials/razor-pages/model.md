@@ -2,19 +2,15 @@
 title: Dodawanie do aplikacji stron Razor w ASP.NET Core modelu
 author: rick-anderson
 description: Dowiedzieć się, jak można dodać klasy do zrządzania filmów w bazie danych przy użyciu Entity Framework Core (EF Core).
-manager: wpickett
 ms.author: riande
-ms.date: 5/30/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: get-started-article
+ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 50b1b01448ad870a2889db7dfe8367ab9e661840
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: edc8ceb3de7e2fe0afc106278307d3961e9d8845
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729966"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277361"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie do aplikacji stron Razor w ASP.NET Core modelu
 

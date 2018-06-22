@@ -2,19 +2,15 @@
 title: Platformy ASP.NET Core MVC podstawowych EF - odczytanie danych powiązanych — 6 10
 author: rick-anderson
 description: W tym samouczku będziesz odczytu i wyświetlanie powiązanych danych — to znaczy dane programu Entity Framework wczytywane właściwości nawigacji.
-manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: db47340aa3dbca486cc30667baf03e49491f1d1a
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 8c634bb1ae715776e18b847574ce03791f2ede03
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34153657"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277215"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF - odczytanie danych powiązanych — 6 10
 

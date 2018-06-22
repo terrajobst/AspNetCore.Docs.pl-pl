@@ -2,20 +2,17 @@
 title: Klient .NET SignalR platformy ASP.NET Core
 author: rachelappel
 description: Informacje o kliencie .NET SignalR platformy ASP.NET Core
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 05/18/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
+ms.date: 05/29/2018
 uid: signalr/dotnet-client
-ms.openlocfilehash: 412d2362575789f1fb4792940df6d3dd24dbdd5a
-ms.sourcegitcommit: 300a1127957dcdbce1b6ad79a7b9dc676f571510
+ms.openlocfilehash: faa4368988971a3e7fcdcd1b044971e16d70f19a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273298"
 ---
 # <a name="aspnet-core-signalr-net-client"></a>Klient .NET SignalR platformy ASP.NET Core
 
@@ -27,7 +24,7 @@ Klient ASP.NET Core SignalR .NET może służyć przez aplikacje platformy Xamar
 
 Przykładowy kod w tym artykule jest aplikacja WPF, które używa klienta platformy ASP.NET Core SignalR .NET.
 
-## <a name="setup-client"></a>Ustawienia klienta
+## <a name="install-the-signalr-net-client-package"></a>Zainstaluj pakiet klienta SignalR platformy .NET
 
 `Microsoft.AspNetCore.SignalR.Client` Pakiet jest wymagany dla platformy .NET klientom na łączenie się z koncentratorami SignalR. Aby zainstalować bibliotekę klienta, uruchom następujące polecenie **Konsola Menedżera pakietów** okno:
 

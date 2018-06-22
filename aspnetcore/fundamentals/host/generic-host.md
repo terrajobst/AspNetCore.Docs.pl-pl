@@ -2,21 +2,17 @@
 title: .NET rodzajowego hosta
 author: guardrex
 description: Więcej informacji na temat ogólnych hosta w .NET, który jest odpowiedzialny za zarządzanie uruchamiania i okresem istnienia aplikacji.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: a851f2faf13792b2c232c124371d07710ae1fce3
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 33e5829ce4a09e132743b4174a588cf232a44775
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734474"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276266"
 ---
 # <a name="net-generic-host"></a>.NET rodzajowego hosta
 
@@ -58,7 +54,13 @@ Biblioteka rodzajowego hosta jest dostępna w [przestrzeni nazw Microsoft.Extens
 
 ### <a name="configuration-builder"></a>Konstruktor konfiguracji
 
-Konfiguracja Konstruktora hosta jest tworzony przez wywołanie metody [ConfigureHostConfiguration](/dotnet/api/microsoft.extensions.hosting.ihostbuilder.configurehostconfiguration) na [IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder) implementacji. `ConfigureHostConfiguration` używa [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder) utworzyć [wartości IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) dla hosta. Inicjuje konstruktora konfiguracji [IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) do użycia w procesie kompilacji. `ConfigureHostConfiguration` może być wywołana wiele razy z dodatku wyników. Host używa jednego z tych opcji ustawia wartość ostatnio.
+Konfiguracja Konstruktora hosta jest tworzony przez wywołanie metody [ConfigureHostConfiguration](/dotnet/api/microsoft.extensions.hosting.ihostbuilder.configurehostconfiguration) na [IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder) implementacji. `ConfigureHostConfiguration` używa [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder) utworzyć [wartości IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) dla hosta. Inicjuje konstruktora konfiguracji [IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) do użycia w procesie kompilacji.
+
+Domyślnie nie jest dodawany konfiguracji zmiennej środowiskowej. Wywołanie [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables) na Konstruktor hosta, aby skonfigurować hosta z zmiennych środowiskowych. `AddEnvironmentVariables` akceptuje opcjonalny prefiks zdefiniowany przez użytkownika. Przykładowa aplikacja korzysta z prefiksem `PREFIX_`. Prefiks jest usuwany przeczytaniu zmiennych środowiskowych. Jeśli została skonfigurowana Przykładowa aplikacja hosta, wartość zmiennej środowiskowej dla `PREFIX_ENVIRONMENT` staje się wartością konfiguracji hosta dla `environment` klucza.
+
+Podczas tworzenia przy użyciu [programu Visual Studio](https://www.visualstudio.com/) lub uruchamiania aplikacji z `dotnet run`, zmienne środowiskowe może być ustawiona w *Properties/launchSettings.json* pliku. W [Visual Studio Code](https://code.visualstudio.com/), zmienne środowiskowe może być ustawiona w *.vscode/launch.json* plik w czasie projektowania. Aby uzyskać więcej informacji, zobacz [używać wiele środowisk](xref:fundamentals/environments).
+
+`ConfigureHostConfiguration` może być wywołana wiele razy z dodatku wyników. Host używa jednego z tych opcji ustawia wartość ostatnio.
 
 *hostsettings.JSON*:
 
@@ -83,7 +85,7 @@ To ustawienie określa, gdzie hosta rozpocznie się wyszukiwanie plików zawarto
 **Typ**: *ciągu*  
 **Domyślna**: domyślne do folderu, w którym znajduje się zestaw aplikacji.  
 **Ustawić za pomocą**: `UseContentRoot`  
-**Zmienna środowiskowa**: `ASPNETCORE_CONTENTROOT`
+**Zmienna środowiskowa**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` jest [opcjonalne i zdefiniowanych przez użytkownika](#configuration-builder))
 
 Jeśli ścieżka nie istnieje, host nie powiedzie się.
 
@@ -97,9 +99,9 @@ Ustawia aplikacji [środowiska](xref:fundamentals/environments).
 **Typ**: *ciągu*  
 **Domyślna**: produkcji  
 **Ustawić za pomocą**: `UseEnvironment`  
-**Zmienna środowiskowa**: `ASPNETCORE_ENVIRONMENT`
+**Zmienna środowiskowa**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` jest [opcjonalne i zdefiniowanych przez użytkownika](#configuration-builder))
 
-Środowisko można ustawić dowolną wartość. Wartości zdefiniowane w ramach obejmują `Development`, `Staging`, i `Production`. Wartości nie jest uwzględniana wielkość liter. Domyślnie *środowiska* są odczytywane z `ASPNETCORE_ENVIRONMENT` zmiennej środowiskowej. Korzystając z [programu Visual Studio](https://www.visualstudio.com/), zmienne środowiskowe może być ustawiona w *launchSettings.json* pliku. Aby uzyskać więcej informacji, zobacz [używać wiele środowisk](xref:fundamentals/environments).
+Środowisko można ustawić dowolną wartość. Wartości zdefiniowane w ramach obejmują `Development`, `Staging`, i `Production`. Wartości nie jest uwzględniana wielkość liter.
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_UseEnvironment)]
 

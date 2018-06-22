@@ -2,20 +2,16 @@
 title: Strony ASP.NET Core interfejsu API sieci Web pomocy programu Swagger / Otwórz interfejs API
 author: rsuter
 description: Ten samouczek zawiera wskazówki dodawania programu Swagger do generowania dokumentacji i strony dla aplikacji interfejsu API sieci Web pomocy.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/09/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: e44b491fd5265e12646efa42f12eb0662e287f04
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 56e146337ad9e94298f72abf5ede009eea65fb46
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077339"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272254"
 ---
 # <a name="aspnet-core-web-api-help-pages-with-swagger--open-api"></a>Strony ASP.NET Core interfejsu API sieci Web pomocy programu Swagger / Otwórz interfejs API
 
@@ -121,5 +117,5 @@ Każda metoda akcji publicznego w kontrolerach można przetestować w interfejsi
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozpoczynanie pracy z Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
-* [Rozpoczynanie pracy z NSwag](xref:tutorials/get-started-with-nswag)
+* [Wprowadzenie do pakietu Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
+* [Wprowadzenie do łańcucha narzędzi NSwag](xref:tutorials/get-started-with-nswag)

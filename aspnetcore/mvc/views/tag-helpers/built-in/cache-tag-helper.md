@@ -2,19 +2,15 @@
 title: Buforuj pomocnika tagów w podstawowej platformy ASP.NET MVC
 author: pkellner
 description: Pokazuje, jak pracować z pamięci podręcznej pomocnika tagów
-manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 6f19a989c9bdfddea7609c5571cdd49de29e036b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 969716e21211513053f52049368a0a7190ffba47
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30898755"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276555"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Buforuj pomocnika tagów w podstawowej platformy ASP.NET MVC
 
@@ -81,7 +77,7 @@ Przykład:
 
 | Typ atrybutu |        Przykładowa wartość         |
 |----------------|------------------------------|
-|    TimeSpan    | "@TimeSpan.FromSeconds(120)" |
+|    Zakres czasu    | "@TimeSpan.FromSeconds(120)" |
 
 Ustawia czas od pierwszego żądania, aby buforować zawartość. 
 
@@ -99,7 +95,7 @@ Przykład:
 
 | Typ atrybutu |        Przykładowa wartość        |
 |----------------|-----------------------------|
-|    TimeSpan    | "@TimeSpan.FromSeconds(60)" |
+|    Zakres czasu    | "@TimeSpan.FromSeconds(60)" |
 
 Ustawia czas, który wykluczyć wpisu pamięci podręcznej, jeśli nie uzyska dostępu.
 
@@ -113,7 +109,7 @@ Przykład:
 
 - - -
 
-### <a name="vary-by-header"></a>vary-by-header
+### <a name="vary-by-header"></a>różnią się w nagłówku
 
 | Typ atrybutu    | Przykładowe wartości                |
 |----------------   |----------------               |
@@ -280,5 +276,5 @@ Pomocnik Tag pamięci podręcznej jest zależna od [pamięci podręcznej usługi
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Pamięci podręcznej w pamięci](xref:performance/caching/memory)
+* [Buforowanie w pamięci](xref:performance/caching/memory)
 * [Wprowadzenie do tożsamości](xref:security/authentication/identity)

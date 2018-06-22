@@ -2,18 +2,15 @@
 title: Dostawcy magazynu niestandardowego dla ASP.NET Core Identity
 author: ardalis
 description: Dowiedz się, jak skonfigurować magazyn na niestandardowych dostawców dla ASP.NET Core Identity.
-manager: wpickett
 ms.author: riande
 ms.date: 05/24/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: a50069586c702152e81961773114ea75901ab23d
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 11c49d630c922b0aa91678277e9553bf0c25134d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278430"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Dostawcy magazynu niestandardowego dla ASP.NET Core Identity
 
@@ -170,7 +167,7 @@ W ramach `UserStore` klasy, użyj klasy dostępu do danych, które zostały utwo
 - **IUserLockoutStore**  
  [IUserLockoutStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) interfejs definiuje metody implementacji przechowywania informacji na temat blokowania konta. Zawiera metody do śledzenia nieudanych prób dostępu i blokady.
 - **IQueryableUserStore**  
- [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) interfejs definiuje wdrożenie elementy członkowskie w celu zapewnienia magazynu użytkowników z obsługą zapytań.
+ [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) interfejs definiuje elementy zaimplementować zapewnienie magazynu użytkowników z obsługą zapytań.
 
 Można zaimplementować interfejsów, które są wymagane w aplikacji. Na przykład:
 

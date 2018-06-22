@@ -2,19 +2,15 @@
 title: Filtry platformy ASP.NET Core
 author: ardalis
 description: Dowiedz się, jak działają filtry i sposobu ich używania w programie ASP.NET MVC Core.
-manager: wpickett
 ms.author: riande
 ms.date: 4/10/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: d3b775116c126e4d6456b89b2c76ca9d9e1a004c
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 24551382847fee0896fe6620d52c30a03aca69d1
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252155"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275648"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtry platformy ASP.NET Core
 
@@ -23,10 +19,10 @@ Przez [Rick Anderson](https://twitter.com/RickAndMSFT), [Dykstra Tomasz](https:/
 *Filtry* na platformie ASP.NET Core MVC pozwala na uruchamianie kodu przed lub po określonym etapy potoku przetwarzania żądań.
 
 > [!IMPORTANT]
-> Ten temat jest **nie** dotyczą stron Razor. Platformy ASP.NET Core 2.1 i nowsze wersje obsługują [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) i [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) dla stron Razor. Aby uzyskać więcej informacji, zobacz [filtrować metod dla stron Razor](xref:mvc/razor-pages/filter).
+> Ten temat jest **nie** dotyczą stron Razor. Platformy ASP.NET Core 2.1 i nowsze wersje obsługują [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) i [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) dla stron Razor. Aby uzyskać więcej informacji, zobacz [filtrować metod dla stron Razor](xref:razor-pages/filter).
 
  Filtry wbudowane realizacji zadań, takich jak:
- 
+
  * Autoryzacji (uniemożliwienia dostępu do zasobów, które użytkownik nie jest autoryzowany do).
  * Zapewnienie, że wszystkie żądania przy użyciu protokołu HTTPS.
  * Odpowiedź buforowania (zwarcie Potok żądań do zwrócenia buforowanej odpowiedzi). 

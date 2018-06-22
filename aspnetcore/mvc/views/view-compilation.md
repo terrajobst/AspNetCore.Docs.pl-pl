@@ -2,21 +2,17 @@
 title: Kompilacja pliku razor i wstępnej kompilacji w ASP.NET Core
 author: rick-anderson
 description: Dowiedz się więcej o zaletach prekompilowanie Razor plików i sposobu wykonywania wstępnej kompilacji pliku Razor w aplikacji platformy ASP.NET Core.
-manager: wpickett
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 03b11116a15c291452acd878e32cd015dc553dcc
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: 6ef450a24f57c721021f77f6df5088574caa2645
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34336281"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274043"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Kompilacja pliku razor w ASP.NET Core
 
@@ -29,7 +25,7 @@ Po wywołaniu skojarzonego widoku MVC pliku Razor jest kompilowana w czasie wyko
 Plik Razor jest kompilowana w czasie wykonywania, po wywołaniu skojarzonego widoku Razor strony lub MVC. Publikowanie pliku Razor czas kompilacji nie jest obsługiwane. Opcjonalnie można kompilować pliki razor w czasie publikacji i wdrożone z aplikacją&mdash;narzędzie wstępnej kompilacji.
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.1"
-Plik Razor jest kompilowana w czasie wykonywania, po wywołaniu skojarzonego widoku Razor strony lub MVC. Razor pliki kompilowane w obu kompilacji i opublikować za pomocą czasu [Razor SDK](xref:mvc/razor-pages/sdk).
+Plik Razor jest kompilowana w czasie wykonywania, po wywołaniu skojarzonego widoku Razor strony lub MVC. Razor pliki kompilowane w obu kompilacji i opublikować za pomocą czasu [Razor SDK](xref:razor-pages/sdk).
 ::: moniker-end
 
 ## <a name="precompilation-considerations"></a>Zagadnienia dotyczące wstępnej kompilacji
@@ -87,12 +83,12 @@ A *< project_name >. PrecompiledViews.dll* zawierający skompilowane pliki Razor
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
-* <xref:mvc/razor-pages/index>
+* <xref:razor-pages/index>
 * <xref:mvc/views/overview>
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
-* <xref:mvc/razor-pages/index>
+* <xref:razor-pages/index>
 * <xref:mvc/views/overview>
-* <xref:mvc/razor-pages/sdk>
+* <xref:razor-pages/sdk>
 ::: moniker-end

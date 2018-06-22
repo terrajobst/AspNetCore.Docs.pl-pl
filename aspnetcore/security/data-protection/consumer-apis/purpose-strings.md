@@ -2,19 +2,15 @@
 title: Cel ciągów w ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak ciągi celu są używane w API ochrony danych platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/consumer-apis/purpose-strings
-ms.openlocfilehash: 8fe0020256d3a105b1968db693b0c667244957ec
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 4c85423f8de7e4b784ae1bb304a884541df251b6
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077656"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278768"
 ---
 # <a name="purpose-strings-in-aspnet-core"></a>Cel ciągów w ASP.NET Core
 

@@ -2,19 +2,15 @@
 title: Logowanie do platformy ASP.NET Core
 author: ardalis
 description: Więcej informacji na temat struktury rejestrowania w ASP.NET Core. Odnajdywanie dostawców wbudowanych rejestrowania i Dowiedz się więcej o innych popularnych dostawców.
-manager: wpickett
 ms.author: tdykstra
 ms.date: 12/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 5e7e0fe0744a8dc3f3dd6097a059d77f2c578f77
-ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
+ms.openlocfilehash: 8ba604ae8748455c95932f9d8843c1f7a5da2a06
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35652204"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272766"
 ---
 # <a name="logging-in-aspnet-core"></a>Logowanie do platformy ASP.NET Core
 

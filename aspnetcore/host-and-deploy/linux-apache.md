@@ -2,20 +2,16 @@
 title: Host platformy ASP.NET Core w systemie Linux z Apache
 description: Dowiedz się, jak ustawić Apache jako zwrotny serwer proxy serwera na CentOS, aby przekierować ruch HTTP do aplikacji sieci web platformy ASP.NET Core systemem Kestrel.
 author: spboyer
-manager: wpickett
 ms.author: spboyer
 ms.custom: mvc
 ms.date: 03/13/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 38fcbb1b6691854eb6d5930fdcb789b1c67f4c70
-ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
+ms.openlocfilehash: 69e92af08eabede023608e612f1fbd48a8f2608e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35652178"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275454"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Host platformy ASP.NET Core w systemie Linux z Apache
 

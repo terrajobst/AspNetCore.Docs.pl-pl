@@ -2,19 +2,15 @@
 title: Dodaj model do aplikacji platformy ASP.NET Core MVC
 author: rick-anderson
 description: Dodawanie modelu do prostej aplikacji platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 09/18/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/adding-model
-ms.openlocfilehash: 77750ba0df7775d6a0e4744811848bfe9782d995
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: a3b6f68acef748ab7d7703dd3e24a3766fda159c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2018
-ms.locfileid: "30896540"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273324"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodaj model do aplikacji platformy ASP.NET Core MVC
 

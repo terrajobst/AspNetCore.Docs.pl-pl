@@ -2,20 +2,16 @@
 title: Praca z bazy danych LocalDB programu SQL Server i platformy ASP.NET Core
 author: rick-anderson
 description: W tym artykule wyjaśniono pracy z bazy danych LocalDB programu SQL Server i ASP.NET Core.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 92a5965e7a535ca729c0bec13911b6bf051a7b19
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 1fd86fb61b7f5ddb760992ac10f9bee43ab831cf
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34582872"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272146"
 ---
 # <a name="work-with-sql-server-localdb-and-aspnet-core"></a>Praca z bazy danych LocalDB programu SQL Server i platformy ASP.NET Core
 

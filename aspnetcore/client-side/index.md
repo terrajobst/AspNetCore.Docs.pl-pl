@@ -2,19 +2,15 @@
 title: Programowanie po stronie klienta w ASP.NET Core
 author: rick-anderson
 description: ''
-manager: wpickett
 ms.author: riande
 ms.date: 02/21/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: client-side/index
-ms.openlocfilehash: a4b42f7f4de07351e4e9a48ebc59bab2f187cedd
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 5c4efc0e3c29d9b55fbaf5d0d6bf79b4318015e2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29526408"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278482"
 ---
 # <a name="client-side-development-in-aspnet-core"></a>Programowanie po stronie klienta w ASP.NET Core
 
@@ -27,7 +23,7 @@ ms.locfileid: "29526408"
 - [TypeScript](https://www.typescriptlang.org/docs/handbook/asp-net-core.html)
 - [Korzystanie z łączności z przeglądarkami](xref:client-side/using-browserlink)
 - [Korzystanie z technologii JavaScriptServices dla aplikacji jednostronicowych](xref:client-side/spa-services)
-- [Użyj SPA szablony projektu](xref:spa/index)
+- [Korzystanie z szablonów projektów aplikacji jednostronicowych](xref:spa/index)
     - [Szablon projektu biblioteki Angular](xref:spa/angular)
     - [Szablon projektu biblioteki React](xref:spa/react)
     - [Szablon projektu biblioteki React z implementacją Redux](xref:spa/react-with-redux)

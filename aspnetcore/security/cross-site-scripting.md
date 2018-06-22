@@ -2,18 +2,15 @@
 title: Zapobiegaj krzyżowe skryptów (XSS) w platformy ASP.NET Core
 author: rick-anderson
 description: Więcej informacji na temat skryptów między witrynami (XSS) i techniki adresowania tę lukę w zabezpieczeniach w aplikacji platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: d9263a2c1bb6a376008b7d8a55864e4d15e77cee
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ce6bb273034c56890e0cd98b890436602b5acc69
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272451"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Zapobiegaj krzyżowe skryptów (XSS) w platformy ASP.NET Core
 
@@ -60,7 +57,7 @@ Ten widok wyświetla zawartość *untrustedInput* zmiennej. Ta zmienna zawiera n
 
 ## <a name="javascript-encoding-using-razor"></a>Kodowanie JavaScript za pomocą Razor
 
-Może to być razy wstawiona wartość na język JavaScript do przetworzenia w danym widoku. Istnieją dwa sposoby, w tym celu. Jest to najbezpieczniejszy sposób na wstawienie wartości prostego umieścić wartości w atrybucie danych tagu i pobrać go w sieci JavaScript. Na przykład:
+Może to być razy wstawiona wartość na język JavaScript do przetworzenia w danym widoku. Istnieją dwa sposoby, w tym celu. Jest to najbezpieczniejszy sposób, aby wstawić wartości umieścić wartości w atrybucie danych tagu i pobrać go w sieci JavaScript. Na przykład:
 
 ```none
 @{
@@ -228,4 +225,4 @@ Ogólne zaakceptowane rozwiązaniem jest, że kodowanie odbywa się w punkcie da
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Sprawdzanie poprawności jako technikę zapobiegania XSS
 
-Sprawdzanie poprawności mogą być przydatne narzędzie ograniczanie atakom XSS. Na przykład prostego ciągu numerycznego zawierającą tylko znaki 0-9, nie spowoduje wyzwolenia atak XSS. Sprawdzanie poprawności staje się bardziej skomplikowany, powinien chcesz zaakceptować HTML w danych wejściowych użytkownika - analiza input języka HTML jest trudne lub niemożliwe. Składni języka markDown i innych formatach tekstowych będą bezpieczniejsze dla zaawansowanych danych wejściowych. Nigdy nie należy polegać na samych sprawdzania poprawności. Zawsze kodowania niezaufanych dane wejściowe przed danych wyjściowych, niezależnie od tego, jakie walidacji mogły być wykonane.
+Sprawdzanie poprawności mogą być przydatne narzędzie ograniczanie atakom XSS. Na przykład liczbowych ciąg zawierający tylko znaki 0-9, nie spowoduje wyzwolenia atak XSS. Sprawdzanie poprawności staje się bardziej skomplikowany, powinien chcesz zaakceptować HTML w danych wejściowych użytkownika - analiza input języka HTML jest trudne lub niemożliwe. Składni języka markDown i innych formatach tekstowych będą bezpieczniejsze dla zaawansowanych danych wejściowych. Nigdy nie należy polegać na samych sprawdzania poprawności. Zawsze kodowania niezaufanych dane wejściowe przed danych wyjściowych, niezależnie od tego, jakie walidacji mogły być wykonane.

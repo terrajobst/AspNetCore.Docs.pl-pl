@@ -2,19 +2,15 @@
 title: Stron razor podstawowych EF w platformy ASP.NET Core - CRUD - 2 8
 author: rick-anderson
 description: Przedstawia sposób tworzenia, odczytu, aktualizowanie i usuwanie EF podstawowych
-manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: b3f170ad35bcff7c662fb0205b0bff2e98b4724c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 17d48cae50745508a64a9fb8a153b7b891e64a23
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32741449"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278690"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - CRUD - 2 8
 
@@ -101,8 +97,7 @@ Nie zawiera utworzony szkielet kodu strony indeksu studentów `Enrollments` wła
 
 Otwórz *Pages/Students/Details.cshtml*. Dodaj następujący wyróżniony kod, aby wyświetlić listę rejestracji:
 
- <!--2do ricka. if doesn't change, remove dup -->
-[!code-cshtml[](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
+ <!--2do ricka. if doesn't change, remove dup --> [!code-cshtml[](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
 
 Jeśli po wklejeniu kod wcięcia kodu o nieprawidłowej naciśnij kombinację klawiszy CTRL-K-D, aby naprawić błąd.
 

@@ -2,19 +2,15 @@
 title: Niestandardowe elementy formatujące w interfejsu API platformy ASP.NET Core sieci Web
 author: rick-anderson
 description: Informacje o sposobie tworzenia i używania niestandardowych elementy formatujące do interfejsów API w ASP.NET Core sieci web.
-manager: wpickett
 ms.author: tdykstra
 ms.date: 02/08/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: ec38a988a73278481de6535c627b2479a9805387
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: a21fcea68d957d0344309c9bbd3286b71c092f60
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "34452579"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273861"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>Niestandardowe elementy formatujące w interfejsu API platformy ASP.NET Core sieci Web
 

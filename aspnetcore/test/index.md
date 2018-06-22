@@ -2,20 +2,16 @@
 title: Testowanie, debugowania i rozwiązywanie problemów w ASP.NET Core
 author: guardrex
 description: Linki do zasobów, testowanie i debugowanie aplikacji platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 06/13/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: test/index
-ms.openlocfilehash: 61c94d71a820a89e6f6561fdacee0c2e6c129a41
-ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
+ms.openlocfilehash: c5925d55a1b7d50d44d6bea4013331416ce3cec8
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35613076"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278804"
 ---
 # <a name="test-debug-and-troubleshoot-in-aspnet-core"></a>Testowanie, debugowania i rozwiązywanie problemów w ASP.NET Core
 
@@ -27,7 +23,7 @@ Zobacz temat jak korzystać jednostki testowania w projektach platformy .NET Cor
 [Testy integracji](xref:test/integration-tests)  
 Dowiedz się, jak testy integracji zapewnienia poprawnego działania składniki aplikacji na poziomie infrastruktury, włącznie z bazy danych, system plików i sieci.
 
-[Testy jednostkowe stron razor](xref:test/razor-pages-tests)  
+[Testy jednostkowe stron Razor](xref:test/razor-pages-tests)  
 Wykryj sposobu tworzenia testów jednostkowych dla aplikacji stron Razor.
 
 [Kontrolery testów](xref:mvc/controllers/testing)  

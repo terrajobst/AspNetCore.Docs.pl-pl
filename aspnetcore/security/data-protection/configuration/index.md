@@ -2,19 +2,15 @@
 title: Konfiguracja ochrony danych w ASP.NET Core
 author: rick-anderson
 description: Wykryj tematy wyjaśniają sposób konfigurowania ochrony danych w ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/12/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/configuration/index
-ms.openlocfilehash: 74fb5de465a740303872cbbc79ed2d3fafb1eea0
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: d6b87f8c0b20572929cf7449379c6fa3ade123ad
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30076375"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273376"
 ---
 # <a name="data-protection-configuration-in-aspnet-core"></a>Konfiguracja ochrony danych w ASP.NET Core
 

@@ -2,19 +2,15 @@
 title: Nagłówki kontekstu w ASP.NET Core
 author: rick-anderson
 description: Dowiedz się szczegóły implementacji nagłówków kontekstu ASP.NET Core do ochrony danych.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 5ba247a74e11408145e1f6e87c7cfa251c66707f
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2343e59898c024eba420390d7fb0bce2fc82a895
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077857"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274472"
 ---
 # <a name="context-headers-in-aspnet-core"></a>Nagłówki kontekstu w ASP.NET Core
 

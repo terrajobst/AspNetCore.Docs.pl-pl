@@ -9,9 +9,9 @@ Przetestuj łącza. **RazorPagesMovie** i **Home** łącza, przejdź do strony i
 W poniższej tabeli wymieniono pliki i foldery w projekcie. W tym samouczku *Startup.cs* pliku najbardziej ważne jest zrozumienie. Nie musisz przejrzeć każdego łącza poniżej. Jeśli potrzebujesz więcej informacji na temat pliku lub folderu w projekcie, łącza znajdują się jako odwołanie.
 
 | Plik lub folder | Cel |
-| -------------- | ------- | 
+| -------------- | ------- |
 | *wwwroot* | Zawiera zasoby statyczne. Zobacz [pliki statyczne](xref:fundamentals/static-files). |
-| *Strony* | Folder [stron Razor](xref:mvc/razor-pages/index). | 
+| *Strony* | Folder [stron Razor](xref:razor-pages/index). |
 | *appsettings.json* | [Konfiguracja](xref:fundamentals/configuration/index) |
 | *Program.cs* | Konfiguruje [hosta](xref:fundamentals/host/index) aplikacji platformy ASP.NET Core. |
 | *Startup.cs* | Konfigurowanie usługi i żądania potoku. Zobacz [uruchamiania](xref:fundamentals/startup). |

@@ -2,19 +2,15 @@
 title: Usługa Azure Active Directory z platformy ASP.NET Core
 author: rick-anderson
 description: Odnajdywanie usługi Azure Active Directory tematów związanych z platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/4/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/azure-active-directory/index
-ms.openlocfilehash: 9981a073ec931e6732662af7e16ddccd35d1a928
-ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
+ms.openlocfilehash: d909de78a8794a71d75c65affbeee29bf15158b6
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35613050"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272912"
 ---
 # <a name="azure-active-directory-with-aspnet-core"></a>Usługa Azure Active Directory z platformy ASP.NET Core
 

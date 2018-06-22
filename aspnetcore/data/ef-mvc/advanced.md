@@ -2,18 +2,15 @@
 title: Zaawansowane platformy ASP.NET Core MVC podstawowych EF - - 10, 10
 author: rick-anderson
 description: Ten samouczek przedstawia przydatne tematy dotyczące wykraczających poza podstawy tworzenia aplikacji sieci web platformy ASP.NET Core, które używają programu Entity Framework Core.
-manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 95500686052a3f75dd71244bc9da500300416dec
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 2aced1126e3062835d9c35ef01fd3c1438f0af84
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274372"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>Zaawansowane platformy ASP.NET Core MVC podstawowych EF - - 10, 10
 
@@ -147,9 +144,9 @@ Wielu deweloperów napisać kod do implementacji repozytorium i jednostki pracy 
 
 * EF obejmuje funkcje implementowania TDD bez pisania kodu repozytorium.
 
-Informacje dotyczące sposobu wdrażania repozytorium i jednostki pracy, zobacz [wersji programu Entity Framework 5 tego samouczka serii](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application).
+Informacje dotyczące sposobu wdrażania repozytorium i jednostki pracy, zobacz [wersji programu Entity Framework 5 tego samouczka serii](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application).
 
-Entity Framework Core implementuje dostawcę bazy danych w pamięci, który może służyć do testowania. Aby uzyskać więcej informacji, zobacz [testu z InMemory](https://docs.microsoft.com/ef/core/miscellaneous/testing/in-memory).
+Entity Framework Core implementuje dostawcę bazy danych w pamięci, który może służyć do testowania. Aby uzyskać więcej informacji, zobacz [testu z InMemory](/ef/core/miscellaneous/testing/in-memory).
 
 ## <a name="automatic-change-detection"></a>Zmiana automatycznego wykrywania
 

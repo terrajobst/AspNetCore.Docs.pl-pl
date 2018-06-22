@@ -2,19 +2,15 @@
 title: Logowanie zewnętrzne konfiguracji z platformy ASP.NET Core w usłudze Twitter
 author: rick-anderson
 description: W tym samouczku przedstawiono integracji usługi Twitter konta użytkownika uwierzytelniania do istniejącej aplikacji platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 11/01/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 440695f98714f33cff9e4bf97bfc09477901e14c
-ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
+ms.openlocfilehash: 81c19105e4cda932db3302a5df343322fb85abef
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35725994"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278495"
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>Logowanie zewnętrzne konfiguracji z platformy ASP.NET Core w usłudze Twitter
 

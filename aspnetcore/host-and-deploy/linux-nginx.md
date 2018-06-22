@@ -2,19 +2,16 @@
 title: Host platformy ASP.NET Core w systemie Linux z Nginx
 author: rick-anderson
 description: Dowiedz się, jak można skonfigurować jako zwrotny serwer proxy na 16.04 Ubuntu, aby przesyłał dalej ruch HTTP dla aplikacji sieci web platformy ASP.NET Core systemem Kestrel Nginx.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: cf8965131669b681e9477113953ed40cd81df884
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 374b13e0851cd171a7d8500a4965851a3a0eb49c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277377"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Host platformy ASP.NET Core w systemie Linux z Nginx
 
@@ -80,9 +77,9 @@ Kestrel stanowi doskonałe rozwiązanie do obsługi zawartości dynamicznej z pl
 
 Na potrzeby tego przewodnika jest używany przez pojedyncze wystąpienie Nginx. Uruchamia go na tym samym serwerze, z serwera HTTP. Na podstawie wymagań, można wybrać różne ustawienia.
 
-Ponieważ żądania są przekazywane przez zwrotny serwer proxy, należy używać oprogramowania pośredniczącego nagłówki przekazywane z [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) pakietu. Aktualizacje oprogramowania pośredniczącego `Request.Scheme`za pomocą `X-Forwarded-Proto` nagłówka, więc poprawne działanie tego przekierowania URI i innymi zasadami zabezpieczeń.
+Ponieważ żądania są przekazywane przez zwrotny serwer proxy, należy użyć [przekazywane oprogramowanie pośredniczące nagłówki](xref:host-and-deploy/proxy-load-balancer) z [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) pakietu. Aktualizacje oprogramowania pośredniczącego `Request.Scheme`za pomocą `X-Forwarded-Proto` nagłówka, więc poprawne działanie tego przekierowania URI i innymi zasadami zabezpieczeń.
 
-Korzystając z dowolnego typu uwierzytelniania oprogramowania pośredniczącego, najpierw należy uruchomić oprogramowanie pośredniczące przekazane nagłówków. Ta kolejność zapewnia, że oprogramowanie pośredniczące uwierzytelniania można używać wartości nagłówka i generowanie poprawne przekierowania URI.
+Każdego składnika, który jest zależny od systemu, takich jak uwierzytelnianie, generowanie konsolidacji przekierowania i używanie funkcji geolokalizacji, muszą znajdować się po wywołaniu przez oprogramowanie pośredniczące przekazane nagłówków. Ogólną zasadą przekazywane oprogramowanie pośredniczące nagłówków należy uruchomić przed innym oprogramowaniu pośredniczącym, z wyjątkiem diagnostyki i obsługi oprogramowania pośredniczącego błędów. Ta kolejność zapewnia, że oprogramowanie pośredniczące polegania na informacje przekazywane nagłówków może używać wartości nagłówka do przetwarzania.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -161,6 +158,8 @@ server {
         proxy_set_header   Connection keep-alive;
         proxy_set_header   Host $host;
         proxy_cache_bypass $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
     }
 }
 ```
@@ -362,3 +361,5 @@ Dodaj wiersz `add_header X-Content-Type-Options "nosniff";` i Zapisz plik, a nas
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Nginx: Wersje binarne: oficjalny Debian/Ubuntu pakietów](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages)
+* [Konfigurowanie platformy ASP.NET Core do pracy z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer)
+* [NGINX: Nagłówek przekazane za pomocą](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/)

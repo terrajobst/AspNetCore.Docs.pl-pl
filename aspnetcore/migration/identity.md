@@ -2,19 +2,15 @@
 title: Migrowanie do platformy ASP.NET Core uwierzytelnianie i tożsamość
 author: ardalis
 description: Dowiedz się, jak przeprowadzić migrację uwierzytelnianie i tożsamość z projektu programu ASP.NET MVC do projektu programu ASP.NET Core MVC.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/identity
-ms.openlocfilehash: 2a80274e9056b41e370f199c7d41865db5fcedd7
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: e05d72ca78c7b8191a47f78cda31ee40e04d0706
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851446"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275700"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core"></a>Migrowanie do platformy ASP.NET Core uwierzytelnianie i tożsamość
 

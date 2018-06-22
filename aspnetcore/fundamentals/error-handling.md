@@ -2,19 +2,16 @@
 title: Obsługa błędów w ASP.NET Core
 author: ardalis
 description: Wykryj sposób obsługi błędów w aplikacji platformy ASP.NET Core.
-manager: wpickett
 ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
 ms.date: 11/30/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/error-handling
-ms.openlocfilehash: 3ff3a17d14d9ed7c438399191ffe3cf93d555d49
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 2fe46ecc32d61a7fafb2ad6e2a35456476608251
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273712"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Obsługa błędów w ASP.NET Core
 
@@ -49,17 +46,21 @@ To żądanie nie ma żadnych plików cookie, ale jeśli jak, będą widoczne w *
 
 ## <a name="configuring-a-custom-exception-handling-page"></a>Konfigurowanie niestandardowych wyjątków, Obsługa strony
 
-Należy dobrze, aby skonfigurować stronę programu obsługi wyjątków do użycia, gdy aplikacja nie jest uruchomiona `Development` środowiska.
+Konfigurowanie strony obsługi wyjątków do użycia, gdy aplikacja nie jest uruchomiona `Development` środowiska.
 
 [!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
-W aplikacji MVC nie jawnie dekoracji metody akcji programu obsługi błędu z atrybutami metody HTTP, takie jak `HttpGet`. Za pomocą jawnego zlecenia może uniemożliwić osiągnięcia metody niektórych żądań.
+W aplikacji stron Razor [dotnet nowe](/dotnet/core/tools/dotnet-new) stron Razor szablon zawiera stronę błędu i `ErrorModel` strony klasy modelu w *stron* folderu.
+
+W aplikacji MVC nie dekoracji metody akcji programu obsługi błędu z atrybutami metody HTTP, takie jak `HttpGet`. Jawne zleceń zapobiec osiągnięciu metody niektórych żądań. Zezwala na dostęp anonimowy do metody, aby mogły otrzymywać widoku błędów nieuwierzytelnionym użytkownikom.
+
+Na przykład następujące metody obsługi błędów są dostarczane przez [dotnet nowe](/dotnet/core/tools/dotnet-new) szablonu MVC i pojawia się w kontrolerze głównej:
 
 ```csharp
-[Route("/Error")]
-public IActionResult Index()
+[AllowAnonymous]
+public IActionResult Error()
 {
-    // Handle error here
+    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 }
 ```
 
@@ -106,6 +107,53 @@ if (statusCodePagesFeature != null)
 }
 ```
 
+Jeśli przy użyciu `UseStatusCodePages*` przeciążenia, że wskazuje punkt końcowy w aplikacji, Utwórz MVC widoku lub strony Razor dla punktu końcowego. Na przykład [dotnet nowe](/dotnet/core/tools/dotnet-new) szablonu aplikacji dla stron Razor tworzy następującą stronę i klasy modelu strony:
+
+*Error.cshtml*:
+
+```cshtml
+@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<h3>Development Mode</h3>
+<p>
+    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
+</p>
+<p>
+    <strong>Development environment should not be enabled in deployed applications</strong>, as it can result in sensitive information from exceptions being displayed to end users. For local debugging, development environment can be enabled by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>, and restarting the application.
+</p>
+```
+
+*Error.cshtml.cs*:
+
+```csharp
+public class ErrorModel : PageModel
+{
+    public string RequestId { get; set; }
+
+    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public void OnGet()
+    {
+        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+    }
+}
+```
+
 ## <a name="exception-handling-code"></a>Kod obsługi wyjątków
 
 Kod w stronach obsługi wyjątków można zgłaszają wyjątki. Często jest dobrym rozwiązaniem dla stron błędów produkcji ma zawierać wyłącznie statyczne.
@@ -132,7 +180,7 @@ Podczas uruchamiania [IIS](/iis) lub [usług IIS Express](/iis/extensions/introd
 
 Filtry wyjątków można skonfigurować globalnie lub na podstawie-controller lub -action w aplikacji MVC. Te filtry obsługi nieobsługiwanego wyjątku, który występuje podczas wykonywania akcji kontrolera lub inny filtr, a nie są nazywane inaczej. Dowiedz się więcej na temat filtrów wyjątków na [filtry](xref:mvc/controllers/filters).
 
->[!TIP]
+> [!TIP]
 > Filtry wyjątków są dobrym zalewania wyjątków, które występują w ramach działań MVC, ale nie są one tak elastyczne jako błąd obsługi oprogramowania pośredniczącego. Preferowane jest oprogramowanie pośredniczące w przypadku ogólnych i za pomocą filtrów, tylko gdy należy wykonywać obsługi błędów *inaczej* oparte na Akcja kontrolera MVC, który został wybrany.
 
 ### <a name="handling-model-state-errors"></a>Stan modelu obsługi błędów
@@ -140,6 +188,3 @@ Filtry wyjątków można skonfigurować globalnie lub na podstawie-controller lu
 [Sprawdzanie poprawności modelu](xref:mvc/models/validation) występuje przed wywołaniem akcji każdego kontrolera i odpowiada metoda akcji sprawdzić `ModelState.IsValid` i odpowiednio zareagować.
 
 Niektóre aplikacje wybierze wykonać standardowej konwencji zajmujących się błędy sprawdzania poprawności modelu, w którym to przypadku [filtru](xref:mvc/controllers/filters) może być odpowiednie miejsce do wdrożenia tych zasad. Należy przetestować zachowanie akcji stanów nieprawidłowy model. Dowiedz się więcej w [logikę kontrolera testu](xref:mvc/controllers/testing).
-
-
-

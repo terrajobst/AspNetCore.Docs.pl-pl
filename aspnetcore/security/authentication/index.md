@@ -2,19 +2,15 @@
 title: Uwierzytelnianie w platformy ASP.NET Core
 author: rick-anderson
 description: Wykryj tematów dotyczących technologii uwierzytelniania platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/index
-ms.openlocfilehash: 20a6d5ae598a0d1e8d7735cb1311fac1c10513eb
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 9091510df2953f86d18e6f5daaa67c1e99c4af04
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
-ms.locfileid: "29903302"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276065"
 ---
 # <a name="authentication-in-aspnet-core"></a>Uwierzytelnianie w platformy ASP.NET Core
 
@@ -42,7 +38,7 @@ ms.locfileid: "29903302"
 
   * [Integrowanie usługi Azure AD B2C z aplikacją internetową platformy ASP.NET Core dostępną dla klientów](xref:security/authentication/azure-ad-b2c)
 
-  * [Integrowanie usługi Azure AD B2C platformy ASP.NET Core interfejsu API sieci web](xref:security/authentication/azure-ad-b2c-webapi)
+  * [Integrowanie usługi Azure AD B2C z internetowym interfejsem API platformy ASP.NET Core](xref:security/authentication/azure-ad-b2c-webapi)
 
   * [Wywołanie interfejsu API platformy ASP.NET Core sieci Web z aplikacji WPF przy użyciu usługi Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 

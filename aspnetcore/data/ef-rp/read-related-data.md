@@ -2,19 +2,15 @@
 title: Stron razor podstawowych EF w platformy ASP.NET Core - odczytanie danych powiązanych — 6, 8
 author: rick-anderson
 description: W tym samouczku odczytu i wyświetlanie powiązanych danych — to znaczy dane programu Entity Framework wczytywane właściwości nawigacji.
-manager: wpickett
 ms.author: riande
 ms.date: 11/05/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 1a63246dd81a16bbcca22ad2c50bc2010c852c4e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 4e0aa7151cc54f666202458ba60500a7c04f5ebb
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34233404"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276763"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - odczytanie danych powiązanych — 6, 8
 
@@ -184,7 +180,7 @@ Zastąp *Pages/Instructors/Index.cshtml.cs* następującym kodem:
 
 `OnGetAsync` — Metoda akceptuje dane trasy opcjonalny identyfikator wybranego instruktora.
 
-Sprawdź zapytania na *Pages/Instructors/Index.cshtml* strony:
+Sprawdź zapytania w *Pages/Instructors/Index.cshtml.cs* pliku:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
 
@@ -278,7 +274,7 @@ Poniższy kod umożliwia wypełnienie modelu widoku `Enrollments` właściwości
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
 
-Dodaj następujący kod na końcu *Pages/Courses/Index.cshtml* Razor strony:
+Dodaj następujący kod na końcu *Pages/Instructors/Index.cshtml* Razor strony:
 
 [!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-999)]
 

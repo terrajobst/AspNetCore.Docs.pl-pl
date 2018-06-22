@@ -2,19 +2,16 @@
 title: Konfigurowanie platformy ASP.NET Core do pracy z serwerów proxy i moduły równoważenia obciążenia
 author: guardrex
 description: Informacje o konfiguracji dla aplikacji hostowanych serwerów proxy i równoważenia obciążenia, które często przesłaniać żądanie ważnych informacji.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/26/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: f18a5c518edc739e0fe667f3aef6ffd38c06366c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 1797962d6eada9c48b31cd94e2c7481380301a0d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276779"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Konfigurowanie platformy ASP.NET Core do pracy z serwerów proxy i moduły równoważenia obciążenia
 
@@ -25,7 +22,7 @@ W zalecanej konfiguracji dla platformy ASP.NET Core aplikacja jest hostowana prz
 * Gdy żądań HTTPS są przekazywane przez serwer proxy za pośrednictwem protokołu HTTP, oryginalny schemat (HTTPS) zostaną utracone i muszą być przekazywane w nagłówku.
 * Ponieważ aplikacja odbiera żądanie z serwera proxy i jego wartość true źródła w Internecie lub sieci firmowej, źródłowy adres IP klienta, również muszą być przekazywane w nagłówku.
 
-Te informacje mogą być ważne przetwarzania żądania, na przykład w przekierowania uwierzytelniania, generowania łącza, oceny zasad i geoloation klienta.
+Te informacje mogą być ważne przetwarzania żądania, na przykład w przekierowania uwierzytelniania, generowania łącza, oceny zasad i używanie funkcji geolokalizacji klienta.
 
 ## <a name="forwarded-headers"></a>Nagłówki przekazany dalej
 
@@ -37,7 +34,7 @@ Konwencja serwery proxy przesyła informacje w nagłówkach HTTP.
 | X-Forwarded-Proto | Wartość źródłowego schemat (HTTP/HTTPS). Wartość może być również listy programów, jeśli żądanie ma przechodzić wielu serwerów proxy. |
 | X-Forwarded-Host | Oryginalnej wartości pola nagłówka hosta. Zwykle nie należy modyfikować proxy nagłówka hosta. Zobacz [Microsoft Security Advisory CVE-2018-0787](https://github.com/aspnet/Announcements/issues/295) uzyskać informacji dotyczących usterki "podniesienia uprawnień", która dotyczy systemów, gdy serwer proxy nie sprawdzania poprawności lub nagłówków hosta restict znanej dobrej wartości. |
 
-Przekazywane nagłówki oprogramowanie pośredniczące, z [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) pakietu, odczytuje te nagłówki i wypełnia skojarzonymi polami na [element HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext). 
+Przekazywane nagłówki oprogramowanie pośredniczące, z [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) pakietu, odczytuje te nagłówki i wypełnia skojarzonymi polami na [element HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext).
 
 Aktualizacje oprogramowania pośredniczącego:
 
@@ -66,7 +63,7 @@ Konfigurowanie oprogramowania pośredniczącego z [ForwardedHeadersOptions](/dot
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
-    
+
     services.Configure<ForwardedHeadersOptions>(options =>
     {
         options.ForwardedHeaders = 
@@ -96,6 +93,14 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 > [!NOTE]
 > Jeśli nie [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) są określone w `Startup.ConfigureServices` lub bezpośrednio do metody rozszerzenia [UseForwardedHeaders (IApplicationBuilder, ForwardedHeadersOptions)](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_ForwardedHeadersExtensions_UseForwardedHeaders_Microsoft_AspNetCore_Builder_IApplicationBuilder_Microsoft_AspNetCore_Builder_ForwardedHeadersOptions_), wartość domyślna nagłówki do przekazywania są [ForwardedHeaders.None](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders). [ForwardedHeadersOptions.ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) właściwości musi być skonfigurowany z nagłówkami do przesyłania dalej.
+
+## <a name="nginx-configuration"></a>Konfiguracja Nginx
+
+Przekazywanie `X-Forwarded-For` i `X-Forwarded-Proto` nagłówków, zobacz [hosta w systemie Linux z Nginx: Konfigurowanie Nginx](xref:host-and-deploy/linux-nginx#configure-nginx). Aby uzyskać więcej informacji, zobacz [NGINX: przy użyciu nagłówka przekazane](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/).
+
+## <a name="apache-configuration"></a>Apache konfiguracji
+
+`X-Forwarded-For` jest automatycznie dodawany (zobacz [mod_proxy modułu Apache: wstecznego nagłówki żądania serwera Proxy](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers)). Aby uzyskać informacje na temat przekazywania `X-Forwarded-Proto` nagłówka, zobacz [hosta w systemie Linux z Apache: Konfigurowanie Apache](xref:host-and-deploy/linux-apache#configure-apache).
 
 ## <a name="forwarded-headers-middleware-options"></a>Opcje oprogramowania pośredniczącego nagłówki przekazany dalej
 

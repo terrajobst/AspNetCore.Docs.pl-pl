@@ -2,19 +2,15 @@
 title: Dodawanie walidacji do aplikacji platformy ASP.NET Core
 author: rick-anderson
 description: Jak dodać weryfikacji do prostej aplikacji platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 06/13/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app-mac/validation
-ms.openlocfilehash: d4788d7139311657bf307266dc8f131c57a82fc5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7057eb71f497d8129bf213dc17b82aa05e0196be
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30895342"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277712"
 ---
 [!INCLUDE [validation](../../includes/mvc-intro/validation.md)]
 

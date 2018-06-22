@@ -2,21 +2,16 @@
 title: Oparte na zasobach autoryzacji w ASP.NET Core
 author: scottaddie
 description: Dowiedz się, jak zaimplementuj autoryzacji na podstawie zasobów w aplikacji platformy ASP.NET Core, gdy atrybut autoryzacji nie będą wystarczające.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/07/2017
-ms.devlang: csharp
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 3be2d9b9aef18763fbdba78e044dd6b68ddcef0c
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 577af3ba45361aec715a49fa59b9ec9869ced851
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34094285"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273350"
 ---
 # <a name="resource-based-authorization-in-aspnet-core"></a>Oparte na zasobach autoryzacji w ASP.NET Core
 
