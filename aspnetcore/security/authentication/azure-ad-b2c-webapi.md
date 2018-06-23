@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 01/25/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 82179e52e2c292ec3b7e618b3c61eef6494abc7c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c56efda28c668b8f88d28334705b4c26f288870f
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273421"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314165"
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>W składniku web API z usługi Azure Active Directory B2C w ASP.NET Core uwierzytelniania w chmurze
 
@@ -173,7 +173,7 @@ Aby wykonać uwierzytelnione żądania interfejsu API sieci web, wymagany jest t
    |      <strong>Nazwa tokenu</strong>       |                                  <em>&lt;Nazwa tokenu&gt;</em>                                  |                                                                                                                   Wprowadź nazwę opisową dla tokenu.                                                                                                                    |
    |      <strong>Typ przydziału</strong>       |                                           Niejawne                                            |                                                                                                                                                                                                                                                                              |
    |     <strong>Adres URL wywołania zwrotnego</strong>      |                               `https://getpostman.com/postman`                                |                                                                                                                                                                                                                                                                              |
-   |       <strong>Adres URL uwierzytelniania</strong>        | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |                                                                                                  Zastąp <em>&lt;nazwę domeny dzierżawy&gt;</em> z nazwą domeny dzierżawcy.                                                                                                  |
+   |       <strong>Adres URL uwierzytelniania</strong>        | `https://login.microsoftonline.com/tfp/<tenant domain name>/B2C_1_SiUpIn/oauth2/v2.0/authorize` |                                                                                                  Zastąp <em>&lt;nazwę domeny dzierżawy&gt;</em> z nazwą domeny dzierżawcy.                                                                                                  |
    |       <strong>Identyfikator klienta</strong>       |                <em>&lt;Wprowadź aplikacji Postman <b>identyfikator aplikacji</b>&gt;</em>                 |                                                                                                                                                                                                                                                                              |
    |     <strong>Klucz tajny klienta</strong>     |                                 <em>&lt;Pozostaw puste&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
    |         <strong>Zakres</strong>         |         `https://<tenant domain name>/<api>/user_impersonation openid offline_access`         | Zastąp <em>&lt;nazwę domeny dzierżawy&gt;</em> z nazwą domeny dzierżawcy. Zastąp <em>&lt;interfejsu api&gt;</em> o nazwie projektu interfejsu API sieci Web. Można również użyć identyfikator aplikacji. Wzorzec dla adresu URL jest: <em>nazwa https://{tenant}.onmicrosoft.com/{app_name_or_id}/{scope}</em>. |

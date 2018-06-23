@@ -12,12 +12,12 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 2790f32bc74cecf450f5a258fc1ff5b280a63923
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1766c11dabec3931ec2bfc4ae2e15332427d7855
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874996"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314016"
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migrowanie istniejącej witryny sieci Web z członkostwa SQL do tożsamości platformy ASP.NET
 ====================
@@ -103,7 +103,7 @@ Dla klas ASP.NET Identity pracy fabrycznej przy użyciu danych istniejących uż
 
 Musimy mieć tabel dla każdego z tych modeli z kolumnami odpowiadającej właściwości. Mapowanie między klasami i tabel jest zdefiniowany w `OnModelCreating` metody `IdentityDBContext`. Jest to określane jako metodę interfejsu API fluent konfiguracji i więcej informacji można znaleźć [tutaj](https://msdn.microsoft.com/data/jj591617.aspx). Konfiguracja dla klas jest wymienione poniżej
 
-| **Klasy** | **Tabela** | **Klucz podstawowy** | **Klucz obcy** |
+| **Class** | **Tabela** | **Klucz podstawowy** | **Klucz obcy** |
 | --- | --- | --- | --- |
 | IdentityUser | AspnetUsers | Id |  |
 | IdentityRole | AspnetRoles | Id |  |
@@ -116,6 +116,8 @@ Dzięki tym informacjom można utworzyć instrukcji SQL, aby utworzyć nowe tabe
 - Uruchom polecenie "Enable-Migrations", aby włączyć migracje platformy EntityFramework.
 - Uruchom polecenie "Add-migration początkowego", który tworzy kod początkowej konfiguracji, aby utworzyć bazę danych w języku C# / VB.
 - Ostatnim krokiem jest uruchomienie "Update-Database — skryptu" polecenie, które generuje skrypt SQL w oparciu klasy modelu.
+
+[!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
 
 Ten skrypt generowania bazy danych może służyć jako start, w której będzie można czynione dodatkowe zmiany, aby dodać nowe kolumny, a następnie skopiować dane. Dzięki temu jest firma Microsoft Generowanie `_MigrationHistory` tabeli, które jest używane przez EntityFramework do modyfikacji schematu bazy danych, gdy zmiany w przyszłych wersjach programu wersjach tożsamości klasy modelu. 
 
