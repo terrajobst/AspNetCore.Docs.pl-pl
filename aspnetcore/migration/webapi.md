@@ -5,12 +5,12 @@ description: Dowiedz się, jak przeprowadzić migrację implementacji interfejsu
 ms.author: riande
 ms.date: 05/10/2018
 uid: migration/webapi
-ms.openlocfilehash: 9385805d548bc87f4a50b87f2c06aa74abdaf8af
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 4f4dc140bd60463037be0757176dcf7a619918bd
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272533"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36327512"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Migracja z interfejsu API sieci Web ASP.NET do platformy ASP.NET Core
 
@@ -131,7 +131,7 @@ Funkcje zgodności objęte Microsoft.AspNetCore.Mvc.WebApiCompatShim:
         * `CreateResponse<T>`
         * `CreateErrorResponse`
     * Metody wynik akcji:
-        * `BadResuestErrorMessageResult`
+        * `BadRequestErrorMessageResult`
         * `ExceptionResult`
         * `InternalServerErrorResult`
         * `InvalidModelStateResult`

@@ -5,20 +5,20 @@ description: Dowiedz się więcej o zarządzaniu logicznej wystąpień HttpClien
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/02/2018
+ms.date: 06/22/2018
 uid: fundamentals/http-requests
-ms.openlocfilehash: 540bbbf01f7f1780b2d0cce9bd51e53dccb6a336
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e56c7a3ed80cc08103f6178859a1a99f1a5ec068
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273264"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36327525"
 ---
 # <a name="initiate-http-requests"></a>Zainicjuj żądań HTTP
 
 Przez [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak), i [Steve Gordon](https://github.com/stevejgordon)
 
-`IHttpClientFactory` Były rejestrowane i służy do konfigurowania i utworzyć [HttpClient](/dotnet/api/system.net.http.httpclient) wystąpień w aplikacji. Zapewnia następujące korzyści:
+[IHttpClientFactory](/dotnet/api/system.net.http.ihttpclientfactory) były rejestrowane i służy do konfigurowania i utworzyć [HttpClient](/dotnet/api/system.net.http.httpclient) wystąpień w aplikacji. Zapewnia następujące korzyści:
 
 * Udostępnia centralną lokalizację do nazywania i konfigurowanie logicznej `HttpClient` wystąpień. Na przykład klienta "github" można zarejestrować i skonfigurowane do korzystania z usługi GitHub. Domyślne klienta można zarejestrować do innych celów.
 * Określa zasady koncepcji wychodzących oprogramowanie pośredniczące za pośrednictwem Delegowanie obsługi w `HttpClient` i udostępnia rozszerzenia na podstawie Polly przeprowadzać tego oprogramowania pośredniczącego.
@@ -38,7 +38,7 @@ Istnieje kilka sposobów `IHttpClientFactory` mogą być używane w aplikacji:
 
 ### <a name="basic-usage"></a>Podstawowe sposoby użycia
 
-`IHttpClientFactory` Mogą być rejestrowane przez wywołanie metody `AddHttpClient` — metoda rozszerzenia na `IServiceCollection`w `ConfigureServices` metody w pliku Startup.cs.
+`IHttpClientFactory` Mogą być rejestrowane przez wywołanie metody `AddHttpClient` — metoda rozszerzenia na `IServiceCollection`w `Startup.ConfigureServices` metody.
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet1)]
 
@@ -50,7 +50,7 @@ Przy użyciu `IHttpClientFactory` w ten sposób jest doskonałym sposobem Refakt
 
 ### <a name="named-clients"></a>Nazwane klientów
 
-Jeśli aplikacja wymaga wielu różnych zastosowań `HttpClient`, każdy z innej konfiguracji opcją jest użycie **o nazwie klientów**. Konfiguracja nazwane `HttpClient` można określić podczas rejestracji w `ConfigureServices`.
+Jeśli aplikacja wymaga wielu różnych zastosowań `HttpClient`, każdy z innej konfiguracji opcją jest użycie **o nazwie klientów**. Konfiguracja nazwane `HttpClient` można określić podczas rejestracji w `Startup.ConfigureServices`.
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet2)]
 
@@ -74,7 +74,7 @@ Klient z typowaniem akceptuje `HttpClient` parametru w swoich konstruktorach:
 
 W powyższym kodzie konfiguracji jest przenoszony do typu klienta. `HttpClient` Obiektu jest ujawniona jako właściwość publiczna. Można zdefiniować metody specyficzne dla interfejsu API, które udostępniają `HttpClient` funkcji. `GetAspNetDocsIssues` Metody hermetyzuje kod wymagany do kwerendy i analizy najnowsze otwarte problemy z repozytorium GitHub.
 
-Aby zarejestrować klienta typu ogólnego `AddHttpClient` — metoda rozszerzenia może być używana w `ConfigureServices`, określając klasy klient z typowaniem:
+Aby zarejestrować klienta typu ogólnego `AddHttpClient` — metoda rozszerzenia może być używana w `Startup.ConfigureServices`, określając klasy klient z typowaniem:
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet3)]
 
@@ -82,7 +82,7 @@ Klient z typowaniem jest zarejestrowany jako przejściowy z Podpisane. Klient z 
 
 [!code-csharp[](http-requests/samples/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
 
-Jeśli preferowane, konfiguracji dla typu klienta można określić podczas rejestracji w `ConfigureServices`, a nie w Konstruktorze typu klienta:
+Jeśli preferowane, konfiguracji dla typu klienta można określić podczas rejestracji w `Startup.ConfigureServices`, a nie w Konstruktorze typu klienta:
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet4)]
 
@@ -171,7 +171,7 @@ Procedury obsługi wielu może być zarejestrowany w kolejności ich powinien zo
 
 `IHttpClientFactory` integruje się z popularnych biblioteki innej firmy o nazwie [Polly](https://github.com/App-vNext/Polly). Polly to kompleksowe odporności i przejściowych biblioteki obsługi błędów dla platformy .NET. Umożliwia deweloperom express zasad, na przykład ponów próbę, wyłącznika limitu czasu, izolacji grodziowego i rezerwowe w sposób fluent i bezpieczne wątkowo.
 
-Metody rozszerzenia znajdują się na korzystanie z zasad Polly z skonfigurowane `HttpClient` wystąpień. Rozszerzenia Polly są dostępne w pakiecie NuGet o nazwie "Microsoft.Extensions.Http.Polly". Ten pakiet nie jest domyślnie instalowane przez metapackage "Microsoft.AspNetCore.App". Aby korzystać z rozszerzeń, PackageReference powinny być jawnie uwzględnione w projekcie.
+Metody rozszerzenia znajdują się na korzystanie z zasad Polly z skonfigurowane `HttpClient` wystąpień. Rozszerzenia Polly są dostępne w [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/) pakietu NuGet. Ten pakiet nie jest zawarty w [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Aby korzystać z rozszerzeń, jawnego `<PackageReference />` powinien być dołączony do projektu.
 
 [!code-csharp[](http-requests/samples/HttpClientFactorySample.csproj?highlight=9)]
 
@@ -181,7 +181,7 @@ Po przywróceniu tego pakietu, metody rozszerzenia są dostępne do obsługi dod
 
 Najbardziej typowych błędów, oczekiwanych może wystąpić, gdy zewnętrznych połączeń HTTP będzie mieć charakter przejściowy. Wywołana metoda rozszerzenia wygodne `AddTransientHttpErrorPolicy` jest włączone, dzięki czemu zasady można definiować w celu obsługi błędów przejściowych. Zasady skonfigurowane z ta dojścia metody rozszerzenia `HttpRequestException`, odpowiedzi HTTP 5xx i odpowiedzi HTTP 408.
 
-`AddTransientHttpErrorPolicy` Rozszerzenia mogą być używane w `ConfigureServices`. Rozszerzenie zapewnia dostęp do `PolicyBuilder` skonfigurowany do obsługi błędów reprezentujący możliwych błędów przejściowych obiektu:
+`AddTransientHttpErrorPolicy` Rozszerzenia mogą być używane w `Startup.ConfigureServices`. Rozszerzenie zapewnia dostęp do `PolicyBuilder` skonfigurowany do obsługi błędów reprezentujący możliwych błędów przejściowych obiektu:
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet7)]
 
