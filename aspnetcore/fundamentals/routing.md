@@ -5,12 +5,12 @@ description: Odkryj, jak funkcji routingu platformy ASP.NET Core jest odpowiedzi
 ms.author: riande
 ms.date: 10/14/2016
 uid: fundamentals/routing
-ms.openlocfilehash: 0bb62cad0dcf54d593171d6a40eb1510a88eb6b3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 4482c865671eb4f5decbd5f1cd6e26f2e68e5c25
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274898"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314139"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing w platformy ASP.NET Core
 
@@ -150,7 +150,7 @@ routes.MapRoute(
     dataTokens: new { locale = "en-US" });
 ```
 
-Ten szablon jest zgodny Ścieżka adresu URL, takie jak `/Products/5` , który wyodrębnia wartości `{ controller = Products, action = Details, id = 5 }` i tokeny danych `{ locale = en-US }`.
+Ten szablon jest zgodny Ścieżka adresu URL, takie jak `/en-US/Products/5` i wyodrębnia wartości `{ controller = Products, action = Details, id = 5 }` i tokeny danych `{ locale = en-US }`.
 
 ![Zmienne lokalne tokenów systemu Windows](routing/_static/tokens.png)
 
@@ -342,10 +342,10 @@ Wyrażenia regularne użyte w routingu często zacznie działanie od `^` znaków
 
 | Wyrażenie               | String | Dopasowanie | Komentarz |
 | ----------------- | ------------ |  ------------ |  ------------ | 
-| `[a-z]{2}` | Cześć | Tak | dopasowań podciągów |
-| `[a-z]{2}` | 123abc456 | Tak | dopasowań podciągów |
-| `[a-z]{2}` | mz | Tak | pasuje do wyrażenia |
-| `[a-z]{2}` | MZ | Tak | bez rozróżniania wielkości liter |
+| `[a-z]{2}` | Cześć | tak | dopasowań podciągów |
+| `[a-z]{2}` | 123abc456 | tak | dopasowań podciągów |
+| `[a-z]{2}` | mz | tak | pasuje do wyrażenia |
+| `[a-z]{2}` | MZ | tak | bez rozróżniania wielkości liter |
 | `^[a-z]{2}$` |  Cześć | Brak | zobacz `^` i `$` powyżej |
 | `^[a-z]{2}$` |  123abc456 | Brak | zobacz `^` i `$` powyżej |
 

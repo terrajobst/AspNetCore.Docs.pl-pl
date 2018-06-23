@@ -12,17 +12,19 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations
 msc.type: chapter
-ms.openlocfilehash: 7e7b3d999bac106959017e5c9562f81fad03a7b1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6209a56ac859ca1152bfa5fe850eac6333a106ac
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26563681"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36313920"
 ---
 <a name="migrating-to-aspnet-identity"></a>Migrowanie do tożsamości platformy ASP.NET
 ====================
 > Migracja do ASP.NET Identity od innych dostawców członkostwa
 
 
-- [Migrowanie istniejącej witryny sieci Web z członkostwa SQL do tożsamości platformy ASP.NET](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [Migrowanie danych uniwersalnych dostawcy dla członkostwa i profilów użytkownika dla tożsamości ASP.NET (C#)](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+- [Migrowanie istniejącej witryny internetowej z członkostwa SQL do produktu ASP.NET Identity](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [Migrowanie danych uniwersalnego dostawcy dotyczących członkostwa i profilów użytkowników do produktu ASP.NET Identity (C#)](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+
+[!INCLUDE[](../../../includes/identity/alter-command-exception.md)]

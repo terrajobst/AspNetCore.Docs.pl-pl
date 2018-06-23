@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 75d5331ce665927b978472dc9eba29de86ce635f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f0b907e4322809dfe2bcd287bb064f35f5ebe150
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272964"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314123"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core
 
@@ -41,7 +41,7 @@ Określ `Startup` klasy z [WebHostBuilderExtensions](/dotnet/api/Microsoft.AspNe
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
-Zamiast wstrzyknięcie `IHostingEnvironment` jest użycie podejście oparte na Konwencji. Aplikacji można zdefiniować oddzielne `Startup` klasy dla różnych środowisk (na przykład `StartupDevelopment`), a klasa początkowa odpowiednie jest wybierana w czasie wykonywania. Priorytety jest klasa, którego sufiks nazwy zgodny z bieżącym środowisku. Jeśli aplikacja jest uruchamiana w środowisku programistycznym i zawiera zarówno `Startup` klasy i `StartupDevelopment` klasy `StartupDevelopment` klasa jest używana. Aby uzyskać więcej informacji, zobacz [używać wiele środowisk](xref:fundamentals/environments#startup-conventions).
+Zamiast wstrzyknięcie `IHostingEnvironment` jest użycie podejście oparte na Konwencji. Aplikacji można zdefiniować oddzielne `Startup` klasy dla różnych środowisk (na przykład `StartupDevelopment`), a klasa początkowa odpowiednie jest wybierana w czasie wykonywania. Priorytety jest klasa, którego sufiks nazwy zgodny z bieżącym środowisku. Jeśli aplikacja jest uruchamiana w środowisku programistycznym i zawiera zarówno `Startup` klasy i `StartupDevelopment` klasy `StartupDevelopment` klasa jest używana. Aby uzyskać więcej informacji, zobacz [używać wiele środowisk](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
 Aby dowiedzieć się więcej o `WebHostBuilder`, zobacz [hostingu](xref:fundamentals/host/index) tematu. Aby informacji na temat obsługi błędów podczas uruchamiania, zobacz [obsługi wyjątków uruchamiania](xref:fundamentals/error-handling#startup-exception-handling).
 
