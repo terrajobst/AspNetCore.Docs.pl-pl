@@ -107,7 +107,7 @@ Uruchom aplikację i przetestować linki w projekcie (**Home**, **o**, **skontak
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_ViewStart.cshtml)]
 
-Poprzedni kod znaczników ustawia plik układu *Pages/_Layout.cshtml* wszystkich plików Razor w *stron* folderu. Zobacz [układu](xref:mvc/razor-pages/index#layout) Aby uzyskać więcej informacji.
+Poprzedni kod znaczników ustawia plik układu *Pages/_Layout.cshtml* wszystkich plików Razor w *stron* folderu. Zobacz [układu](xref:razor-pages/index#layout) Aby uzyskać więcej informacji.
 
 ### <a name="update-the-layout"></a>Aktualizacja układu
 

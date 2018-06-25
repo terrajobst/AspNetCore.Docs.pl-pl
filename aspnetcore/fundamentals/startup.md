@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
 ms.openlocfilehash: f0b907e4322809dfe2bcd287bb064f35f5ebe150
-ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2018
+ms.lasthandoff: 06/25/2018
 ms.locfileid: "36314123"
 ---
 # <a name="application-startup-in-aspnet-core"></a>Uruchamianie aplikacji w ASP.NET Core

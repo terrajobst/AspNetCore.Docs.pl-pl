@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 05/08/2018
 uid: tutorials/web-api-vsc
 ms.openlocfilehash: 4c41c949a9b5ca8db8928a0a53aff928fd7c8a4e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
+ms.lasthandoff: 06/25/2018
 ms.locfileid: "36291676"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>Tworzenie składnika Web API platformy ASP.NET Core i kodu programu Visual Studio
