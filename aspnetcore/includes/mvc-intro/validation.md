@@ -1,6 +1,6 @@
-# <a name="adding-validation"></a>Dodawanie walidacji
+# <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Dodawanie walidacji do aplikacji platformy ASP.NET Core MVC
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tej sekcji dodasz logikę weryfikacji `Movie` modelu, a będzie wymusić reguł sprawdzania poprawności w dowolnym momencie użytkownik tworzy lub edytuje filmu.
 

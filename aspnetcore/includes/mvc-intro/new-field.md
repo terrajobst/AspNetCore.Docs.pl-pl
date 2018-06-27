@@ -1,7 +1,7 @@
 <!-- This include not used by windows version -->
-# <a name="adding-a-new-field"></a>Dodanie nowego pola
+# <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Dodaj nowe pole do aplikacji platformy ASP.NET Core MVC
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym samouczku doda nowe pole do `Movies` tabeli. Firma Microsoft będzie porzucić bazy danych i utworzyć nową, możemy zmiany schematu (Dodaj nowe pole). Ten przepływ pracy działa dobrze w rozwoju, gdy nie mamy żadnych danych produkcyjnych perserve.
 

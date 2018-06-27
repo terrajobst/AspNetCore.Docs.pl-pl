@@ -5,12 +5,12 @@ description: Dowiedzieć się, jak można dodać klasy do zrządzania filmów w 
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 508cca07fa96c20e228d2c55c9fb101f7fc3cb02
-ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
+ms.openlocfilehash: ed8faf8b3049adc7bcc7953d63ad805b0a836bd9
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36327555"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961178"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Dodawanie do aplikacji stron Razor w ASP.NET Core modelu
 
@@ -53,6 +53,36 @@ Zakończenie **Dodaj Razor strony przy użyciu programu Entity Framework (CRUD)*
 * Wybierz **dodać**.
 
 ![Obraz z poprzednich instrukcji.](model/_static/arp.png)
+
+Proces szkieletu tworzonych i zmienianych następujące pliki:
+
+### <a name="files-created"></a>Utworzone pliki
+
+* *Strony/filmów* tworzenie, usuwanie i uzyskać szczegółowe informacje, edytowanie indeksu. Te strony są wyszczególnione w następnym samouczku.
+* *Data/RazorPagesMovieContext.cs*
+
+### <a name="files-updates"></a>Pliki aktualizacji
+
+* *Startup.cs*: wyszczególnione modyfikacje tego pliku w następnej sekcji.
+* *appSettings.JSON*: parametry połączenia używane do nawiązania połączenia z lokalną bazą danych został dodany.
+
+## <a name="examine-the-context-registered-with-dependency-injection"></a>Sprawdź kontekst zarejestrowany iniekcji zależności
+
+Zbudowany platformy ASP.NET Core za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection). Usługi (takie jak kontekst danych podstawowych EF) są zarejestrowane w usłudze iniekcji zależności podczas uruchamiania aplikacji. Składniki, które wymagają tych usług (takich jak strony Razor) są udostępniane tych usług za pomocą parametrów konstruktora. Kod konstruktora, który pobiera wystąpienia kontekstu DB przedstawiono w dalszej części tego samouczka.
+
+Narzędzie do tworzenia szkieletów automatycznie tworzone kontekst bazy danych i zarejestrowana kontenera iniekcji zależności.
+
+Sprawdź `Startup.ConfigureServices` metody. Wybrany element został dodany w procesie tworzenia szkieletu:
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Startup.cs?name=snippet_ConfigureServices&highlight=12-13)]
+
+Klasy głównym, która koordynuje EF podstawową funkcjonalność o dany model danych jest klasa kontekstu bazy danych. Kontekst danych jest określana na podstawie [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Kontekst danych określa jednostki, które znajdują się w modelu danych. W tym projekcie klasy o nazwie `RazorPagesMovieContext`.
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Data/RazorPagesMovieContext.cs)]
+
+Poprzedni kod tworzy [DbSet\<filmu >](/dotnet/api/microsoft.entityframeworkcore.dbset-1) właściwości dla zestawu jednostek. W terminologii programu Entity Framework zwykle zestawu jednostek odnosi się do tabeli bazy danych. Jednostka odpowiada wiersza w tabeli.
+
+Nazwa ciągu połączenia jest przekazywany do kontekstu, wywołując metodę na [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) obiektu. Dla wdrożenia lokalnego [systemu konfiguracji platformy ASP.NET Core](xref:fundamentals/configuration/index) odczytuje parametry połączenia z *appsettings.json* pliku.
 
 <a name="pmc"></a>
 ## <a name="perform-initial-migration"></a>Przeprowadź migrację początkowej
@@ -194,4 +224,4 @@ Następny samouczek wyjaśnia plików utworzonych przez funkcję szkieletów.
 
 > [!div class="step-by-step"]
 > [Poprzedni: Rozpoczynanie pracy](xref:tutorials/razor-pages/razor-pages-start)
-> [dalej: szkieletu stron Razor](xref:tutorials/razor-pages/page)    
+> [dalej: szkieletu stron Razor](xref:tutorials/razor-pages/page)

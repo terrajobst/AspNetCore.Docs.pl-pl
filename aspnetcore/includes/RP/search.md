@@ -1,6 +1,6 @@
-# <a name="adding-search-to-a-razor-pages-app"></a>Dodawanie do aplikacji stron Razor wyszukiwania
+# <a name="add-search-to-an-aspnet-core-razor-pages-app"></a>Dodawanie do aplikacji platformy ASP.NET Core Razor strony wyszukiwania
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tym dokumencie możliwości wyszukiwania jest dodawany do strony indeksu, która umożliwia wyszukiwanie filmów przez *genre* lub *nazwa*.
 

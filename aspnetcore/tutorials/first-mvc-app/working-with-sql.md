@@ -1,20 +1,20 @@
 ---
-title: Praca z bazy danych LocalDB programu SQL Server w platformy ASP.NET Core
+title: Praca z bazy danych LocalDB programu SQL Server w platformy ASP.NET Core aplikacji MVC
 author: rick-anderson
 description: Informacje o używaniu bazy danych LocalDB programu SQL Server w prostej aplikacji ASP.NET Core MVC.
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: 5b8bbcd3c6590edbe199a0a52494e83fd2aa4dcf
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 05bd76038e5856d2a3e392e3b00e589dbc26fcc6
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273874"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961061"
 ---
 # <a name="work-with-sql-server-localdb-in-aspnet-core"></a>Praca z bazy danych LocalDB programu SQL Server w platformy ASP.NET Core
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `MvcMovieContext` Obiektu obsługuje zadanie łączenia z bazą danych i mapowanie `Movie` obiektów do rekordów bazy danych. Kontekst bazy danych został zarejestrowany za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` metody w *Startup.cs* pliku:
 
