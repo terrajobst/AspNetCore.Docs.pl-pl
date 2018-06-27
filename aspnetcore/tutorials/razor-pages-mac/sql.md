@@ -1,21 +1,21 @@
 ---
-title: Praca z SQLite i i stron Razor
+title: Praca z bazy danych SQLite w platformy ASP.NET Core Razor strony aplikacji
 author: rick-anderson
 description: Przy użyciu systemu SQLite stron Razor
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 1/27/2018
 uid: tutorials/razor-pages-mac/sql
-ms.openlocfilehash: 63cbcfe8a2bdabd69dd926b4c7eadb2515b79fe1
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f2e224b8670ba48dceae1d23757698ddb658ccf1
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274557"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961022"
 ---
 [!INCLUDE [SQLlite](../../includes/RP/sql.md)]
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="78ae6-103">[Poprzedni: Dodawanie modelu](xref:tutorials/razor-pages-mac/model)
-> [dalej: zaktualizować strony](xref:tutorials/razor-pages-mac/da1)</span><span class="sxs-lookup"><span data-stu-id="78ae6-103">[Previous: Adding a model](xref:tutorials/razor-pages-mac/model)
+> <span data-ttu-id="de1b9-103">[Poprzedni: Dodawanie modelu](xref:tutorials/razor-pages-mac/model)
+> [dalej: zaktualizować strony](xref:tutorials/razor-pages-mac/da1)</span><span class="sxs-lookup"><span data-stu-id="de1b9-103">[Previous: Adding a model](xref:tutorials/razor-pages-mac/model)
 [Next: Update the pages](xref:tutorials/razor-pages-mac/da1)</span></span>
