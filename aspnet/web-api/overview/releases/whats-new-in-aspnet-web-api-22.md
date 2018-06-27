@@ -12,12 +12,12 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/releases/whats-new-in-aspnet-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: 400329dd852ca3c527387ee45e3e902b725e771b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 89b065fccd0e4864f4a24c37b4caa29a1e127840
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566825"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961302"
 ---
 <a name="whats-new-in-aspnet-web-api-22"></a>What's New in ASP.NET Web API 2.2
 ====================
@@ -29,7 +29,7 @@ W tym temacie opisano, co jest nowego w wersji 2.2 interfejsu API sieci Web ASP.
 - [Dokumentacja](#documentation)
 - [Nowe funkcje w składniku ASP.NET Web API 2.2](#newf)
 
-    - [Protokołu OData v4](#OData)
+    - [OData v4](#OData)
     - [Atrybut ulepszenia routingu](#ARI)
     - [Obsługa klienta interfejsu API sieci Web dla systemu Windows Phone 8.1](#phone)
 - [Znane problemy i fundamentalne zmiany](#known-issues)
@@ -131,7 +131,7 @@ Na przykład literały ciągu można w ścieżkach zasobów OData jako parametry
 
 Usługi otrzymują takich żądań hostów spowoduje un ucieczki Sekwencje te specjalne przed przekazaniem ich do środowiska wykonawczego interfejsu API sieci Web. Chroni przed atakami podobne do poniższych:  
   
- http://www.contoso.com/..%2f..%2f/Windows/System32/cmd.exe?/c+dir+c:
+`http://www.contoso.com/..%2F..%2F/Windows/System32/cmd.exe?/c+dir+c:`
 
 Powoduje to, że stos sieci Web API OData do zwrócenia błędu 404 (nie znaleziono). Aby uniknąć tego błędu, klient należy używać sekwencje podwójnego anulowania kreski ułamkowej (% 252F) i ukośnika odwrotnego (% 255C). Nie odbywa się to dla ciągów zapytania, takie jak /Employees? $filter = nazwa eq nazwy % 2F
 

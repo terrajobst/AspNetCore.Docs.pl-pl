@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/09/2018
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: 06d3f097cd93ceb2a23b9f6516a9b7a1f3ca3089
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8e2693397f826d0e9a36ff52aa1d1d623b31043d
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273676"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960830"
 ---
 # <a name="aspnet-core-directory-structure"></a>Struktura katalogów platformy ASP.NET Core
 
@@ -22,8 +22,8 @@ W ASP.NET Core katalogu aplikacji opublikowanych *publikowania*, składa się z 
 
 | Typ aplikacji | Struktura katalogów |
 | -------- | ------------------- |
-| [Zależne od Framework wdrożenia](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>Publikowanie&dagger;<ul><li>dzienniki&dagger; (opcjonalne, chyba że wymagane, aby odbierać dzienniki stdout)</li><li>Widoki&dagger; (MVC aplikacji; Jeśli nie są wstępnie skompilowana widoków)</li><li>Strony&dagger; (MVC ani stron Razor aplikacji; Jeśli nie są wstępnie skompilowana stron)</li><li>Wwwroot&dagger;</li><li>*\.pliki dll</li><li>\<Nazwa zestawu >. deps.json</li><li>\<Nazwa zestawu > .dll</li><li>\<Nazwa zestawu > .pdb</li><li>\<Nazwa zestawu >. PrecompiledViews.dll</li><li>\<Nazwa zestawu >. PrecompiledViews.pdb</li><li>\<Nazwa zestawu >. runtimeconfig.json</li><li>plik Web.config (wdrożenia usług IIS)</li></ul></li></ul> |
-| [Samodzielne wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Publikowanie&dagger;<ul><li>dzienniki&dagger; (opcjonalne, chyba że wymagane, aby odbierać dzienniki stdout)</li><li>System plików refs&dagger;</li><li>Widoki&dagger; (MVC aplikacji; Jeśli nie są wstępnie skompilowana widoków)</li><li>Strony&dagger; (MVC ani stron Razor aplikacji; Jeśli nie są wstępnie skompilowana stron)</li><li>Wwwroot&dagger;</li><li>\*pliki dll</li><li>\<Nazwa zestawu >. deps.json</li><li>\<Nazwa zestawu > .exe</li><li>\<Nazwa zestawu > .pdb</li><li>\<Nazwa zestawu >. PrecompiledViews.dll</li><li>\<Nazwa zestawu >. PrecompiledViews.pdb</li><li>\<Nazwa zestawu >. runtimeconfig.json</li><li>plik Web.config (wdrożenia usług IIS)</li></ul></li></ul> |
+| [Zależne od Framework wdrożenia](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>Publikowanie&dagger;<ul><li>Dzienniki&dagger; (opcjonalne, chyba że wymagane, aby odbierać dzienniki stdout)</li><li>Widoki&dagger; (MVC aplikacji; Jeśli nie są wstępnie skompilowana widoków)</li><li>Strony&dagger; (MVC ani stron Razor aplikacji; Jeśli nie są wstępnie skompilowana stron)</li><li>Wwwroot&dagger;</li><li>*\.pliki dll</li><li>\<Nazwa zestawu >. deps.json</li><li>\<Nazwa zestawu > .dll</li><li>\<Nazwa zestawu > .pdb</li><li>\<Nazwa zestawu >. PrecompiledViews.dll</li><li>\<Nazwa zestawu >. PrecompiledViews.pdb</li><li>\<Nazwa zestawu >. runtimeconfig.json</li><li>plik Web.config (wdrożenia usług IIS)</li></ul></li></ul> |
+| [Samodzielne wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Publikowanie&dagger;<ul><li>Dzienniki&dagger; (opcjonalne, chyba że wymagane, aby odbierać dzienniki stdout)</li><li>System plików refs&dagger;</li><li>Widoki&dagger; (MVC aplikacji; Jeśli nie są wstępnie skompilowana widoków)</li><li>Strony&dagger; (MVC ani stron Razor aplikacji; Jeśli nie są wstępnie skompilowana stron)</li><li>Wwwroot&dagger;</li><li>\*pliki dll</li><li>\<Nazwa zestawu >. deps.json</li><li>\<Nazwa zestawu > .exe</li><li>\<Nazwa zestawu > .pdb</li><li>\<Nazwa zestawu >. PrecompiledViews.dll</li><li>\<Nazwa zestawu >. PrecompiledViews.pdb</li><li>\<Nazwa zestawu >. runtimeconfig.json</li><li>plik Web.config (wdrożenia usług IIS)</li></ul></li></ul> |
 
 &dagger;Wskazuje katalog
 

@@ -1,6 +1,6 @@
-# <a name="adding-a-view-to-an-aspnet-core-mvc-app"></a>Dodawanie widoku do aplikacji platformy ASP.NET Core MVC
+# <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Dodaj widok do aplikacji platformy ASP.NET Core MVC
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tej sekcji możesz zmodyfikować `HelloWorldController` klasę, aby użyć widoku Razor pliki szablonu, aby bezpośrednio Hermetyzowanie proces generowania odpowiedzi HTML do klienta.
 

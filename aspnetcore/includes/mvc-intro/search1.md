@@ -1,6 +1,6 @@
-# <a name="adding-search-to-an-aspnet-core-mvc-app"></a>Dodawanie wyszukiwania do platformy ASP.NET Core aplikacji MVC
+# <a name="add-search-to-an-aspnet-core-mvc-app"></a>Dodawanie do aplikacji ASP.NET Core MVC wyszukiwania
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tej sekcji możesz dodać możliwości wyszukiwania do `Index` metody akcji, która umożliwia wyszukiwanie filmów przez *genre* lub *nazwa*.
 

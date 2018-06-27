@@ -5,15 +5,13 @@ description: Dodawanie modelu do prostej aplikacji platformy ASP.NET Core.
 ms.author: riande
 ms.date: 09/22/2017
 uid: tutorials/first-mvc-app-mac/adding-model
-ms.openlocfilehash: 53d63cd554f6a3ec958f27ed35b0a30b1833f84c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6db079558ccf4515a37a90f7a9e2608333acd7cf
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276116"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961389"
 ---
-# <a name="add-a-model-to-an-aspnet-core-mvc-app-with-visual-studio-for-mac"></a>Dodawanie modelu do aplikacji platformy ASP.NET Core MVC za pomocą programu Visual Studio dla komputerów Mac
-
 [!INCLUDE [adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 * Kliknij prawym przyciskiem myszy *modele* folder, a następnie wybierz **Dodaj** > **nowy plik**. 

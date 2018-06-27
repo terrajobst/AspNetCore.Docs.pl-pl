@@ -1,20 +1,20 @@
 ---
-title: Dodaj nowe pole do aplikacji platformy ASP.NET Core
+title: Dodaj nowe pole do aplikacji platformy ASP.NET Core MVC
 author: rick-anderson
 description: Dowiedz się, jak używać migracje Code First Framework jednostki Dodaj nowe pole do modelu i przeprowadzić migrację tej zmiany do bazy danych.
 ms.author: riande
 ms.date: 10/14/2016
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 0077205e0f10037c9b24eab80337cb76f027e688
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: eb98ebcde1086ad605127dddc055a18d4874c722
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278781"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961038"
 ---
-# <a name="add-a-new-field-to-an-aspnet-core-app"></a>Dodaj nowe pole do aplikacji platformy ASP.NET Core
+# <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Dodaj nowe pole do aplikacji platformy ASP.NET Core MVC
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tej sekcji użyjesz [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) migracje Code First, aby dodać nowe pole do modelu i migracji, które zmiany w bazie danych.
 

@@ -7,12 +7,12 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 8762a4be1032d58014dd32dfdd3707197e14c6f9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e57fa86476dcb57a04211240a7202dcfc2e263ad
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291625"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960609"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Rozpoczynanie pracy z SignalR platformy ASP.NET Core
 
@@ -29,7 +29,7 @@ W tym samouczku przedstawiono następujące SignalR zadań związanych z projekt
 > * Utwórz koncentratora SignalR do dystrybuowania zawartości do klientów.
 > * Modyfikowanie `Startup` klasy i skonfigurowania aplikacji.
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/get-started/sample/) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 # <a name="prerequisites"></a>Wymagania wstępne
 
@@ -100,7 +100,7 @@ Koncentrator jest klasa, która służy jako wysokiego poziomu potok, który umo
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-1. Dodaj do projektu klasę, wybierając **pliku** > **nowy** > **pliku** i wybierając **Visual C# klasy**. Nadaj nazwę plikowi *ChatHub*.
+1. Dodaj do projektu klasę, wybierając **pliku** > **nowy** > **pliku** i wybierając **Visual C# klasy**. Nazwa klasy `ChatHub` i plik *ChatHub.cs*.
 
 2. Dziedzicz `Microsoft.AspNetCore.SignalR.Hub`. `Hub` Zawiera klasę, właściwości i zdarzeń związanych z zarządzaniem połączeń i grupy, a także wysyłania i odbierania danych.
 
@@ -112,13 +112,13 @@ Koncentrator jest klasa, która służy jako wysokiego poziomu potok, który umo
 
 1. Otwórz *SignalRChat* folderu w programie Visual Studio Code.
 
-2. Dodaj klasę do projektu, wybierając **pliku** > **nowy plik** z menu.
+2. Dodaj klasę do projektu, wybierając **pliku** > **nowy plik** z menu. Nazwa klasy `ChatHub` i plik *ChatHub.cs*.
 
 3. Dziedzicz `Microsoft.AspNetCore.SignalR.Hub`. `Hub` Zawiera klasę, właściwości i zdarzeń związanych z zarządzaniem połączeń i grupy, a także wysyłania i odbierania danych do klientów.
 
 4. Dodaj `SendMessage` metodę do klasy. `SendMessage` Metoda wysyła komunikat do wszystkich klientów połączonych rozmów. Zwróć uwagę, zwraca [zadań](/dotnet/api/system.threading.tasks.task), ponieważ asynchroniczny SignalR. Kod asynchroniczny skaluje się lepiej.
 
-   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs?range=6-12)]
+   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
 
 -----
 

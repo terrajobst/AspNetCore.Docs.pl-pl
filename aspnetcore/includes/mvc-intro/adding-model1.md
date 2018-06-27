@@ -1,4 +1,4 @@
-# <a name="adding-a-model-to-an-aspnet-core-mvc-app"></a>Dodawanie modelu dla aplikacji platformy ASP.NET Core MVC
+# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Dodaj model do aplikacji platformy ASP.NET Core MVC
 
 Przez [Rick Anderson](https://twitter.com/RickAndMSFT) i [Dykstra niestandardowy](https://github.com/tdykstra)
 

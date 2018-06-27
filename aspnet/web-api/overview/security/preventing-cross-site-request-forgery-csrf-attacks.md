@@ -12,12 +12,12 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 1cd03f3b396cc2ece1d8dbe6820f6277c02d8e62
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5e7b24c697e0bb37f388341abd89609c76f6b64c
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566750"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961240"
 ---
 <a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-web-api"></a>Zapobieganie Cross-Site (CSRF) Fałszerstwie żądania w składniku ASP.NET Web API
 ====================
@@ -27,7 +27,7 @@ Sfałszowaniem żądania między witrynami (CSRF) jest atak, gdzie niebezpieczne
 
 Oto przykład ataku CSRF:
 
-1. Uwierzytelnianie przy użyciu formularzy logowania użytkownika do www.example.com.
+1. Użytkownicy logujący się do `www.example.com` uwierzytelnianie za pomocą formularzy.
 2. Serwer uwierzytelnia użytkownika. Odpowiedź z serwera zawiera pliku cookie uwierzytelniania.
 3. Bez rejestrowania, użytkownik odwiedzi złośliwą witrynę sieci web. Ta witryna złośliwego zawiera poniższy formularz HTML: 
 

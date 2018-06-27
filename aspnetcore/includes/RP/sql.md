@@ -1,6 +1,6 @@
-# <a name="working-with-sqlite-in-and-razor-pages"></a>Praca z bazy danych SQLite w i stron Razor
+# <a name="work-with-sqlite-in-an-aspnet-core-razor-pages-app"></a>Praca z bazy danych SQLite w platformy ASP.NET Core Razor strony aplikacji
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `MovieContext` Obiektu obsługuje zadanie łączenia z bazą danych i mapowanie `Movie` obiektów do rekordów bazy danych. Kontekst bazy danych został zarejestrowany za pomocą [iniekcji zależności](xref:fundamentals/dependency-injection) kontenera w `ConfigureServices` metody w *Startup.cs* pliku:
 
