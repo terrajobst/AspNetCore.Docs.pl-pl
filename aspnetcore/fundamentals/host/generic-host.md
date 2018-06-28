@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 33e5829ce4a09e132743b4174a588cf232a44775
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 40d297257895a4defeb89cef9c5ec6deea64a985
+ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276266"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033358"
 ---
 # <a name="net-generic-host"></a>.NET rodzajowego hosta
 
@@ -394,7 +394,7 @@ Aby uzyskać więcej informacji, zobacz [używać wiele środowisk](xref:fundame
 | [ApplicationStopped](/dotnet/api/microsoft.extensions.hosting.iapplicationlifetime.applicationstopped) | Host jest kończonych łagodne zamykanie. Wszystkie żądania powinna zostać przetworzona. Bloki zamknięcia aż do zakończenia tego zdarzenia. |
 | [ApplicationStopping](/dotnet/api/microsoft.extensions.hosting.iapplicationlifetime.applicationstopping) | Host wykonuje łagodne zamykanie. Żądania mogą nadal być przetwarzane. Bloki zamknięcia aż do zakończenia tego zdarzenia. |
 
-Wstaw konstruktora `IApplicationLifetime` usługi do żadnej klasy. [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) używa iniekcji contructor do `LifetimeEventsHostedService` klasy ( `IHostedService` implementacji) można zarejestrować zdarzenia.
+Wstaw konstruktora `IApplicationLifetime` usługi do żadnej klasy. [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) używa iniekcji konstruktora do `LifetimeEventsHostedService` klasy ( `IHostedService` implementacji) można zarejestrować zdarzenia.
 
 *LifetimeEventsHostedService.cs*:
 

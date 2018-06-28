@@ -5,12 +5,12 @@ description: Więcej informacji na temat struktury rejestrowania w ASP.NET Core.
 ms.author: tdykstra
 ms.date: 12/15/2017
 uid: fundamentals/logging/index
-ms.openlocfilehash: 8ba604ae8748455c95932f9d8843c1f7a5da2a06
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 2307df3b4b571840f31808b86b48b0e6fb2de852
+ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272766"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033316"
 ---
 # <a name="logging-in-aspnet-core"></a>Logowanie do platformy ASP.NET Core
 
@@ -302,7 +302,7 @@ Dane konfiguracji i `AddFilter` kodem przedstawionym w powyższych przykładach 
 | 5      | Konsola       | Wszystkie kategorie                          | Informacje       |
 | 6      | Wszystkich dostawców | Wszystkie kategorie                          | Debugowanie             |
 | 7      | Wszystkich dostawców | System                                  | Debugowanie             |
-| 8      | Debugowanie         | Microsoft                               | śledzenia             |
+| 8      | Debugowanie         | Microsoft                               | Śledzenia             |
 
 Po utworzeniu `ILogger` obiektu do zapisania dzienniki, `ILoggerFactory` obiektu wybiera jedną regułę na dostawcy, aby zastosować do tego rejestratora. Wszystkie komunikaty napisane przez to `ILogger` obiektu są filtrowane w zależności od wybranej reguły. Reguła specyficzny dla każdej pary kategorii i dostawcy możliwe jest wybierana z dostępne reguły.
 
@@ -488,7 +488,7 @@ loggerFactory.AddEventSourceLogger()
 
 ---
 
-Dobrym sposobem na zbieranie i przeglądanie dzienników jest użycie [narzędzie narzędzia PerfView](https://www.microsoft.com/download/details.aspx?id=28567). Istnieją inne narzędzia umożliwiające wyświetlanie dzienników zdarzeń systemu Windows, ale narzędzia PerfView zapewnia najlepsze środowisko do pracy z zdarzenia ETW emitowane przez platformę ASP.NET. 
+Dobrym sposobem na zbieranie i przeglądanie dzienników jest użycie [narzędzie narzędzia PerfView](https://github.com/Microsoft/perfview). Istnieją inne narzędzia umożliwiające wyświetlanie dzienników zdarzeń systemu Windows, ale narzędzia PerfView zapewnia najlepsze środowisko do pracy z zdarzenia ETW emitowane przez platformę ASP.NET. 
 
 Aby skonfigurować narzędzia PerfView zbierania zdarzenia zarejestrowane przez tego dostawcę, Dodaj ciąg `*Microsoft-Extensions-Logging` do **dodatkowych dostawców** listy. (Nie zostały pominięte gwiazdki na początku ciąg.)
 

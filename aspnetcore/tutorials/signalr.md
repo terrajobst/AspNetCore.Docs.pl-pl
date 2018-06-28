@@ -7,12 +7,12 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: e57fa86476dcb57a04211240a7202dcfc2e263ad
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 62cef2d6f032caa2f048cfdd49a225d975dad10d
+ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960609"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033345"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Rozpoczynanie pracy z SignalR platformy ASP.NET Core
 
@@ -31,7 +31,7 @@ W tym samouczku przedstawiono następujące SignalR zadań związanych z projekt
 
 [Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-# <a name="prerequisites"></a>Wymagania wstępne
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Należy zainstalować następujące oprogramowanie:
 

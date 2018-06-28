@@ -3,20 +3,19 @@ title: Stron razor z Entity Framework Core w platformy ASP.NET Core - 1 samouczk
 author: rick-anderson
 description: Pokazuje, jak utworzyć aplikację stron Razor przy użyciu programu Entity Framework Core
 ms.author: riande
-ms.date: 11/15/2017
+ms.date: 6/31/2017
 uid: data/ef-rp/intro
-ms.openlocfilehash: 97ae8a0f268d3ca6fb2deee72128714ab6e89266
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: a31b3e0ad72964a0c01c0b855a70d2f3e8966ab9
+ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961363"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033293"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Stron razor z Entity Framework Core w platformy ASP.NET Core - 1 samouczka 8
 
-::: moniker range="= aspnetcore-2.0"
-Wersja platformy ASP.NET Core 2.0 tego samouczka można znaleźć w [plik PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/PDF-6-18-18.pdf).
-::: moniker-end
+[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
+
 ::: moniker range=">= aspnetcore-2.1"
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
