@@ -4,15 +4,13 @@ author: rick-anderson
 description: Zapoznaj się z wprowadzeniem do rozwiązania ASP.NET Core, czyli międzyplatformowej struktury typu open source o wysokiej wydajności służącej do tworzenia nowoczesnych aplikacji internetowych opartych na chmurze.
 ms.author: riande
 ms.date: 02/28/2018
-ms.technology: aspnetcore
-ms.topic: conceptual
 uid: index
-ms.openlocfilehash: 3b55390e23f538a298e9fe97c9678fe6841b818c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6de7f1bc8229c5de519e4064dda0a7061cf8b9c6
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272873"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077715"
 ---
 # <a name="introduction-to-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
 

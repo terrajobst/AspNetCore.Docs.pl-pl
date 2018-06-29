@@ -5,12 +5,12 @@ description: Więcej informacji na temat struktury rejestrowania w ASP.NET Core.
 ms.author: tdykstra
 ms.date: 12/15/2017
 uid: fundamentals/logging/index
-ms.openlocfilehash: 2307df3b4b571840f31808b86b48b0e6fb2de852
-ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
+ms.openlocfilehash: 4ceb7886cc9410c3b39beec68c2b11ea3578d851
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033316"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077780"
 ---
 # <a name="logging-in-aspnet-core"></a>Logowanie do platformy ASP.NET Core
 
@@ -610,6 +610,10 @@ Aby skonfigurować przesyłania strumieniowego dzienników Azure:
 Przejdź do **dzienników przesyłania strumieniowego** strony w celu wyświetlenia komunikatów aplikacji. Są one zarejestrowane przez aplikację za pomocą `ILogger` interfejsu.
 
 ![Przesyłanie strumieniowe dziennika aplikacji z portalu Azure](index/_static/azure-log-streaming.png)
+
+## <a name="azure-application-insights-trace-logging"></a>Azure rejestrowanie śledzenia usługi Application Insights
+
+[Usługi Application Insights](https://azure.microsoft.com/services/application-insights/) zestawu SDK jest w stanie zbierając dane telemetryczne śledzenia z dzienniki generowane przez infrastrukturę rejestrowanie platformy ASP.NET Core. Aby uzyskać więcej informacji, zobacz [Microsoft/ApplicationInsights-aspnetcore typu Wiki: rejestrowanie](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

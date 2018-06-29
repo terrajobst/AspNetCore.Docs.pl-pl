@@ -6,16 +6,16 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 569c5b977d832aec3657321cad8d0f9520aae031
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: cabf3d955ef2eb17b3bcb40170a9de7b53ffd107
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277777"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077634"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Dodawanie walidacji do strony platformy ASP.NET Core Razor
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 W tej sekcji logikę weryfikacji jest dodawany do `Movie` modelu. Reguł sprawdzania poprawności są wymuszane w dowolnym momencie użytkownik tworzy lub edytuje filmu.
 
@@ -45,7 +45,7 @@ Aktualizacja `Movie` klasy, aby móc korzystać z `Required`, `StringLength`, `R
 Atrybuty weryfikacji Określ zachowanie, który jest wymuszany dla właściwości modelu:
 
 * `Required` i `MinimumLength` atrybuty oznacza, że właściwość musi mieć wartość. Jednak nie uniemożliwia użytkownikowi wprowadzanie odstępów, aby spełniać ograniczenie sprawdzania poprawności dla typu dopuszczającego wartość null. Niedopuszczająca wartości null [typów wartości](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (takich jak `decimal`, `int`, `float`, i `DateTime`) są z założenia wymagane i nie wymagają `Required` atrybutu.
-* `RegularExpression` Atrybut ogranicza znaki, które użytkownik może wprowadzić. W powyższym kodzie `Genre` i `Rating` należy używać tylko liter (odstępów, cyfr i znaków specjalnych nie są dozwolone).
+* `RegularExpression` Atrybut ogranicza znaki, które użytkownik może wprowadzić. W powyższym kodzie `Genre` musi zaczynać się wielkimi literami i postępuj zgodnie z zero lub więcej liter, pojedynczym lub podwójnym cudzysłowie, znaki spacji lub łączniki. `Rating` musi zaczynać się wielkimi literami i postępuj zgodnie z zero lub więcej litery, cyfry, pojedyncze lub podwójne cudzysłowy, znaki spacji i łączniki.
 * `Range` Atrybut ogranicza wartości do określonego zakresu.
 * `StringLength` Atrybut Ustawia maksymalną długość ciągu i opcjonalnie, minimalną długość. 
 

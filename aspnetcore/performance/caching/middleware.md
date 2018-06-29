@@ -2,20 +2,17 @@
 title: Oprogramowanie pośredniczące w platformy ASP.NET Core buforowania odpowiedzi
 author: guardrex
 description: Dowiedz się, jak konfigurowanie i używanie oprogramowania pośredniczącego odpowiedzi buforowanie w ASP.NET Core.
-manager: wpickett
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
-ms.prod: asp.net-core
-ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: abf07ec2d2692a8504caea243eacead6aa6e1a62
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 0b33e55acc6b3112349a2a5a791f7563dbd19fb5
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341707"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077650"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Oprogramowanie pośredniczące w platformy ASP.NET Core buforowania odpowiedzi
 
@@ -93,13 +90,13 @@ Buforowanie odpowiedzi przez oprogramowanie pośredniczące jest konfigurowana p
 | Cache-Control | Oprogramowanie pośredniczące uwzględnia tylko buforowanie odpowiedzi oznaczonych `public` dyrektywy pamięci podręcznej. Sterowanie buforowaniem z następującymi parametrami:<ul><li>Maksymalny wiek</li><li>max-stale&#8224;</li><li>świeża min</li><li>must-revalidate</li><li>no-cache</li><li>nie magazynu</li><li>tylko w przypadku-zapisanych w pamięci podręcznej</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Jeśli nie limitu `max-stale`, oprogramowanie pośredniczące nie podejmuje żadnych akcji.<br>&#8225;`proxy-revalidate`ma ten sam efekt co `must-revalidate`.<br><br>Aby uzyskać więcej informacji, zobacz [RFC 7231: żądanie dyrektywy Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | Wartość dyrektywy pragma | A `Pragma: no-cache` nagłówka w żądaniu tworzy ten sam efekt co `Cache-Control: no-cache`. Ten nagłówek zostanie zastąpiona przez odpowiednie dyrektywy w `Cache-Control` nagłówka, jeśli jest obecny. Rozważyć zgodności z poprzednimi wersjami z protokołu HTTP/1.0. |
 | Set-Cookie | Jeśli istnieje nagłówek odpowiedzi nie są buforowane. Wszelkie oprogramowanie pośredniczące w potoku przetwarzania żądań, który ustawia pliki cookie co najmniej jeden uniemożliwia buforowanie odpowiedzi przez oprogramowanie pośredniczące buforowanie odpowiedzi (na przykład [na podstawie plików cookie dostawcy TempData](xref:fundamentals/app-state#tempdata)).  |
-| różnią się | `Vary` Nagłówka jest używana będzie różnicować buforowane odpowiedzi przez inny nagłówek. Na przykład buforuje odpowiedzi przez kodowania, w tym `Vary: Accept-Encoding` nagłówek, który buforuje odpowiedzi dla żądań z nagłówkami `Accept-Encoding: gzip` i `Accept-Encoding: text/plain` osobno. Odpowiedzi o wartości nagłówka `*` nigdy nie są przechowywane. |
+| Różnią się | `Vary` Nagłówka jest używana będzie różnicować buforowane odpowiedzi przez inny nagłówek. Na przykład buforuje odpowiedzi przez kodowania, w tym `Vary: Accept-Encoding` nagłówek, który buforuje odpowiedzi dla żądań z nagłówkami `Accept-Encoding: gzip` i `Accept-Encoding: text/plain` osobno. Odpowiedzi o wartości nagłówka `*` nigdy nie są przechowywane. |
 | Wygasa | Uznane za przestarzałe przez ten nagłówek odpowiedzi nie jest przechowywany lub pobrać, chyba że zastąpione przez inne `Cache-Control` nagłówków. |
 | If-None-Match | Całą odpowiedź jest udostępniany z pamięci podręcznej, jeśli wartość nie jest `*` i `ETag` odpowiedzi nie pasuje do żadnego z podanych wartości. W przeciwnym razie odpowiedź 304 (nie jest modyfikowany) jest obsługiwana. |
 | If-Modified-Since | Jeśli `If-None-Match` nagłówka nie jest obecny, całą odpowiedź jest udostępniany z pamięci podręcznej, jeśli data buforowanej odpowiedzi jest nowsza niż podana wartość. W przeciwnym razie odpowiedź 304 (nie jest modyfikowany) jest obsługiwana. |
 | Data | Przy wysyłaniu z pamięci podręcznej, `Date` nagłówka jest ustawiony przez oprogramowanie pośredniczące, jeśli nie podano w oryginalnym odpowiedzi. |
 | Długość zawartości | Przy wysyłaniu z pamięci podręcznej, `Content-Length` nagłówka jest ustawiony przez oprogramowanie pośredniczące, jeśli nie podano w oryginalnym odpowiedzi. |
-| okres ważności | `Age` Wysyłany w odpowiedzi oryginalnego nagłówka zostanie zignorowany. Oprogramowanie pośredniczące oblicza nową wartość przy wysyłaniu buforowanej odpowiedzi. |
+| Okres ważności | `Age` Wysyłany w odpowiedzi oryginalnego nagłówka zostanie zignorowany. Oprogramowanie pośredniczące oblicza nową wartość przy wysyłaniu buforowanej odpowiedzi. |
 
 ## <a name="caching-respects-request-cache-control-directives"></a>Buforowanie szanuje dyrektywy Cache-Control żądania
 

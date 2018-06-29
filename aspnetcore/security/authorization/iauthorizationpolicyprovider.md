@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/02/2018
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: 524928a5b291e02556d11a762d86430a6dc94660
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 218d7a495655598046671093c0cfe7b9622aca5e
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277260"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077605"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Niestandardowych dostawców zasad autoryzacji przy użyciu IAuthorizationPolicyProvider w ASP.NET Core 
 
@@ -88,7 +88,7 @@ Niestandardowa `MinimumAgeAuthorizeAttribute` ułatwia zasad autoryzacji żądan
 Korzystając z `MinimumAgeAuthorizationAttribute`, nazwy zasad autoryzacji będzie zgodne ze wzorcem `"MinimumAge" + Age`, więc niestandardowego `IAuthorizationPolicyProvider` powinna generować zasad autoryzacji przez:
 
 * Podczas analizowania wieku z nazwę zasady.
-* Przy użyciu `AuthorizationPolicyBuiler` do tworzenia nowego `AuthorizationPolicy`
+* Przy użyciu `AuthorizationPolicyBuilder` do tworzenia nowego `AuthorizationPolicy`
 * Dodawanie wymagań do zasady oparte na wiek za pomocą `AuthorizationPolicyBuilder.AddRequirements`. W innych sytuacjach można użyć `RequireClaim`, `RequireRole`, lub `RequireUserName` zamiast tego.
 
 ```CSharp

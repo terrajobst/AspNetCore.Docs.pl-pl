@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: eb049dea2800cf2e12c044b88d1664ee80bb95a5
-ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
+ms.openlocfilehash: 22e9c982921cc03d89506e18ff99bf481027dda6
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36291673"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077663"
 ---
 # <a name="get-started-with-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core
 
@@ -25,7 +25,7 @@ ms.locfileid: "36291673"
     dotnet new webapp -o aspnetcoreapp
     ```
 
-    [!INCLUDE[](~/includes/webapp-alias-notice.md)]
+    [! OBEJMUJĄ [] (~/includes/webapp-alias-notice.md) [](~/includes/webapp-alias-notice.md)]
 
 3. Ufać certyfikatowi programowanie HTTPS:
 
@@ -76,7 +76,7 @@ ms.locfileid: "36291673"
 
 7. Przejdź do [ http://localhost:5001/About ](http://localhost:5001/About) i Sprawdź zmiany są wyświetlane.
 
-[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
 
 ::: moniker-end
 
@@ -107,7 +107,7 @@ ms.locfileid: "36291673"
 
 6. Przejdź do [ http://localhost:5000/About ](http://localhost:5000/About) i zweryfikować zmiany.
 
-[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
 
 ::: moniker-end
 
@@ -154,5 +154,5 @@ ms.locfileid: "36291673"
 
 7. Przejdź do `http://localhost:5000`.
 
-[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
 ::: moniker-end

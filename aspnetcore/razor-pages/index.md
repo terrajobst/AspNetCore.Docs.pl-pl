@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 601d6ac2cb373c40fb1de5427b0ea6c299fa1f32
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9d7d4d49dbb55e327a208df99a0e3ca744de8609
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291535"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077751"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Wprowadzenie do platformy ASP.NET Core stron Razor
 
@@ -31,7 +31,7 @@ Ten dokument zawiera wprowadzenie do stron Razor. Nie jest samouczek krok po kro
 
 ## <a name="creating-a-razor-pages-project"></a>Tworzenie projektu stron Razor
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Zobacz [wprowadzenie stron Razor](xref:tutorials/razor-pages/razor-pages-start) szczegółowe informacje dotyczące sposobu tworzenia stron Razor projektu za pomocą programu Visual Studio.
 
@@ -53,7 +53,7 @@ Uruchom `dotnet new razor` z wiersza polecenia.
 
 Otwórz wygenerowany *.csproj* plików z programu Visual Studio dla komputerów Mac.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -69,7 +69,7 @@ Uruchom `dotnet new razor` z wiersza polecenia.
 
 ::: moniker-end
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -295,7 +295,17 @@ Strony pracować ze wszystkimi funkcjami systemu aparatu widoku Razor. Układy, 
 
 Dzięki wykorzystaniu niektóre z tych funkcji umożliwia declutter tej strony.
 
+::: moniker range=">= aspnetcore-2.1"
+
+Dodaj [układ strony](xref:mvc/views/layout) do *Pages/Shared/_Layout.cshtml*:
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Dodaj [układ strony](xref:mvc/views/layout) do *Pages/_Layout.cshtml*:
+
+::: moniker-end
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_LayoutSimple.cshtml)]
 
@@ -310,7 +320,19 @@ Zobacz [układ strony](xref:mvc/views/layout) Aby uzyskać więcej informacji.
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_ViewStart.cshtml)]
 
+::: moniker range=">= aspnetcore-2.1"
+
+Układ jest *strony/udostępnione* folderu. Strony wyszukać innych widoków (układy, szablony, częściowe) hierarchicznie, uruchamianie w tym samym folderze co bieżąca strona. Układ w *strony/udostępnione* folderu można używać z dowolnej strony Razor, w obszarze *stron* folderu.
+
+Plik układu powinien znajdować się *stron/Shared* folderu.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Układ jest *stron* folderu. Strony wyszukać innych widoków (układy, szablony, częściowe) hierarchicznie, uruchamianie w tym samym folderze co bieżąca strona. Układ w *stron* folderu można używać z dowolnej strony Razor, w obszarze *stron* folderu.
+
+::: moniker-end
 
 Firma Microsoft zaleca **nie** umieścić plik układu w *widoków/Shared* folderu. *Widoki/Shared* jest wzorzec widoków MVC. Stron razor są przeznaczone do zależą od hierarchii folderów, nie ścieżkę Konwencji.
 

@@ -2,16 +2,15 @@
 title: What's new in ASP.NET Core 1.1
 author: rick-anderson
 description: Dowiedz się więcej na temat nowych funkcji programu ASP.NET Core 1.1.
-manager: wpickett
 monikerRange: = aspnetcore-1.1
 ms.date: 02/14/2017
 uid: aspnetcore-1.1
-ms.openlocfilehash: 3cfe34c3a677f01000d16e4a7de54d1025b0f373
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ae55c677c31f4bf298f7de5c7b1a81f1945598cd
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291607"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077435"
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>What's new in ASP.NET Core 1.1
 

@@ -2,18 +2,15 @@
 title: Buforowanie odpowiedzi w ASP.NET Core
 author: rick-anderson
 description: Dowiedz się, jak używać odpowiedzi buforowanie, aby niższe wymagania dotyczące przepustowości i zwiększyć wydajność aplikacji platformy ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 09/20/2017
-ms.prod: asp.net-core
-ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: e5a3877c68f8475e7dd49d44f4a92cf7b09ac7f5
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: c53ae3f6ab8d26588533772dd4fdacb36ec12059
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734513"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077767"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Buforowanie odpowiedzi w ASP.NET Core
 
@@ -46,10 +43,10 @@ W poniższej tabeli przedstawiono innych nagłówków pamięci podręcznej, któ
 
 | nagłówek                                                     | Funkcja |
 | ---------------------------------------------------------- | -------- |
-| [okres ważności](https://tools.ietf.org/html/rfc7234#section-5.1)     | Szacowana ilość czasu w sekundach od czasu odpowiedzi został wygenerowany lub pomyślnie zweryfikowane na serwerze źródłowym. |
+| [Okres ważności](https://tools.ietf.org/html/rfc7234#section-5.1)     | Szacowana ilość czasu w sekundach od czasu odpowiedzi został wygenerowany lub pomyślnie zweryfikowane na serwerze źródłowym. |
 | [Wygasa](https://tools.ietf.org/html/rfc7234#section-5.3) | Data/Godzina po upływie którego odpowiedź jest uznawane za przestarzałe. |
 | [Wartość dyrektywy pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Istnieje dla zapewnienia zgodności z protokołu HTTP/1.0 buforuje ustawienia `no-cache` zachowanie. Jeśli `Cache-Control` występuje nagłówek `Pragma` nagłówka zostanie zignorowany. |
-| [różnią się](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Określa, że buforowanej odpowiedzi może nie zostać wysłane dopóki wszystkie z `Vary` pola nagłówka są takie same w nowe żądanie i odpowiedź buforowana oryginalne żądanie. |
+| [Różnią się](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Określa, że buforowanej odpowiedzi może nie zostać wysłane dopóki wszystkie z `Vary` pola nagłówka są takie same w nowe żądanie i odpowiedź buforowana oryginalne żądanie. |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>Oparte na protokole HTTP względem buforowania żądań dyrektywy Cache-Control
 
@@ -92,7 +89,7 @@ Aby uzyskać więcej informacji, zobacz [rozproszonej pamięci podręcznej pomoc
 > [!WARNING]
 > Wyłącz buforowanie zawartości, który zawiera informacje dotyczące klientów, uwierzytelnionym. Buforowanie powinna być włączona tylko dla zawartości, która nie zmienia się na podstawie tożsamości użytkownika lub określa, czy użytkownik jest zalogowany.
 
-[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) odpowiedzi przechowywane zależy od wartości danej listy kluczy zapytania. Gdy do pojedynczej wartości `*` została podana, oprogramowanie pośredniczące zmienia się odpowiedzi dla wszystkich żądań parametrów ciągu zapytania. `VaryByQueryKeys` Wymaga platformy ASP.NET Core 1.1 lub nowszej.
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) odpowiedzi przechowywane zależy od wartości danej listy kluczy zapytania. Gdy do pojedynczej wartości `*` została podana, oprogramowanie pośredniczące zmienia się odpowiedzi dla wszystkich żądań parametrów ciągu zapytania. `VaryByQueryKeys` wymaga platformy ASP.NET Core 1.1 lub nowszej.
 
 Oprogramowanie pośredniczące buforowanie odpowiedzi musi być włączona, aby ustawić `VaryByQueryKeys` właściwość; w przeciwnym razie jest zgłaszany wyjątek czasu wykonywania. Nie ma odpowiedniego nagłówek HTTP dla `VaryByQueryKeys` właściwości. Właściwość jest funkcją HTTP obsługiwane przez oprogramowanie pośredniczące buforowanie odpowiedzi. Oprogramowanie pośredniczące do obsługi buforowaną odpowiedź ciąg zapytania i wartość ciągu zapytania musi odpowiadać poprzedniego żądania. Rozważmy na przykład sekwencji żądań i wyniki będą wyświetlane w poniższej tabeli.
 
@@ -110,7 +107,7 @@ Pierwsze żądanie jest zwrócony przez serwer i w pamięci podręcznej w oprogr
 * Zapisuje się odpowiednie nagłówki na podstawie właściwości w `ResponseCacheAttribute`. 
 * Aktualizuje odpowiedzi HTTP funkcji buforowania, jeśli `VaryByQueryKeys` jest ustawiona.
 
-### <a name="vary"></a>różnią się
+### <a name="vary"></a>Różnią się
 
 Ten nagłówek są zapisywane tylko, gdy `VaryByHeader` właściwość jest ustawiona. Ma ustawioną wartość `Vary` wartość właściwości. Następujące przykładowe używa `VaryByHeader` właściwości:
 
