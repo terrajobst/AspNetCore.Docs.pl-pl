@@ -5,14 +5,18 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: e0d454ce4f2319b48b649d46c0878d6969acbc9f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: bc02ee6933634cc5987dbc3fcf57b0cce5a93bef
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278560"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093104"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF - CRUD - 2 10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -20,7 +24,7 @@ Przykładową aplikację sieci web firmy Contoso University przedstawia sposób 
 
 W poprzednich samouczek utworzono aplikację MVC, która przechowuje i wyświetla danych przy użyciu programu Entity Framework i bazy danych LocalDB programu SQL Server. W tym samouczku, należy przejrzeć i dostosować CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) kodu, który będzie szkieletów MVC automatycznie tworzy w kontrolery i widoki.
 
-> [!NOTE] 
+> [!NOTE]
 > Jest typowym rozwiązaniem implementacji klienta wzorca repozytorium, aby można było utworzyć warstwę abstrakcji między kontrolerem a warstwa dostępu do danych. Aby zachować te samouczki proste i skupiają się na nauczania sposobu korzystania z programu Entity Framework samej siebie, nie używają repozytoriów. Informacje o repozytoria z EF, zobacz [ostatniego samouczku tej serii](advanced.md).
 
 W tym samouczku będziesz pracować z następujących stron sieci web:
@@ -183,7 +187,7 @@ W wyniku tych zmian podpis metody HttpPost `Edit` metody jest taka sama jak Http
 
 ### <a name="alternative-httppost-edit-code-create-and-attach"></a>Kod HttpPost Edytuj alternatywnych: Utwórz i Dołącz
 
-Zalecane kodu edycji HttpPost gwarantuje, że tylko zmienione kolumny pobierania aktualizacji i zachowuje dane w właściwości, które nie mają być dołączane do wiązania modelu. Jednak odczytu pierwszego podejścia wymaga dodatkowych bazy danych do odczytu i może spowodować bardziej złożonego kodu do obsługi konfliktom współbieżności. Alternatywą jest dołączyć jednostki utworzone przez integratora modelu dla kontekstu EF i oznacz ją jako zmodyfikowane. (Nie Aktualizuj projektu o tym kodzie tylko wykazał ilustrujący opcjonalne podejście.) 
+Zalecane kodu edycji HttpPost gwarantuje, że tylko zmienione kolumny pobierania aktualizacji i zachowuje dane w właściwości, które nie mają być dołączane do wiązania modelu. Jednak odczytu pierwszego podejścia wymaga dodatkowych bazy danych do odczytu i może spowodować bardziej złożonego kodu do obsługi konfliktom współbieżności. Alternatywą jest dołączyć jednostki utworzone przez integratora modelu dla kontekstu EF i oznacz ją jako zmodyfikowane. (Nie Aktualizuj projektu o tym kodzie tylko wykazał ilustrujący opcjonalne podejście.)
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
 
@@ -293,6 +297,8 @@ Aby uzyskać więcej informacji, zobacz [śledzenia wersji programu vs. Śledzen
 
 Masz teraz kompletny zestaw stron, które wykonywać proste operacje CRUD dla uczniów jednostek. W następnym samouczku będzie rozszerzyć funkcjonalność **indeksu** dodając sortowanie, filtrowanie i stronicowania.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Poprzednie](intro.md)
-> [dalej](sort-filter-page.md)  
+> [dalej](sort-filter-page.md)

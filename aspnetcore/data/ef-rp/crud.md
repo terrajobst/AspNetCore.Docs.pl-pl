@@ -3,20 +3,19 @@ title: Stron razor podstawowych EF w platformy ASP.NET Core - CRUD - 2 8
 author: rick-anderson
 description: Przedstawia sposób tworzenia, odczytu, aktualizowanie i usuwanie EF podstawowych
 ms.author: riande
-ms.date: 10/15/2017
+ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 157257d10306ded3456cd66c186a82edf0ba5d65
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: dfc79964cc4f15851b42822bb97d14800f54b878
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961324"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093013"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Stron razor podstawowych EF w platformy ASP.NET Core - CRUD - 2 8
 
-::: moniker range="= aspnetcore-2.0"
-Wersja platformy ASP.NET Core 2.0 tego samouczka można znaleźć w [plik PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/PDF-6-18-18.pdf).
-::: moniker-end
+[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
+
 ::: moniker range=">= aspnetcore-2.1"
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra), [Jan Kowalski P](https://twitter.com/thereformedprog), i [Rick Anderson](https://twitter.com/RickAndMSFT)
@@ -48,6 +47,7 @@ Wygenerowany kod używa [FirstOrDefaultAsync](/dotnet/api/microsoft.entityframew
 * `FirstOrDefaultAsync` nie zgłoszenia, jeśli istnieje więcej niż jednej jednostki, która pasuje do części filtru.
 
 <a name="FindAsync"></a>
+
 ### <a name="findasync"></a>FindAsync
 
 W bardzo szkieletu kodu [metoda FindAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) można użyć zamiast `FirstOrDefaultAsync`.
@@ -57,8 +57,9 @@ W bardzo szkieletu kodu [metoda FindAsync](/dotnet/api/microsoft.entityframework
 * Znajduje obiekt z (klucz podstawowy) klucz podstawowy. Jeśli jednostka entity z atrybutem na PK jest śledzony przez kontekst, jest zwracany bez żądania z bazą danych.
 * To proste i zwięzłe.
 * Jest zoptymalizowany do odszukania pojedynczej jednostki.
-* Może korzystnie wydajności w niektórych sytuacjach, ale rzadko pochodzą do gry dla aplikacji sieci web typowych.
+* Może korzystnie wydajności w niektórych sytuacjach, ale są rzadko odbywa się w aplikacji sieci web typowych.
 * Niejawnie wykorzystuje [FirstAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) zamiast [SingleAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).
+
 Ale jeśli chcesz `Include` inne jednostki, następnie `FindAsync` nie jest właściwe. Oznacza to, że może być konieczne porzucenie `FindAsync` i przejdź do zapytania w trakcie Twojej aplikacji.
 
 ## <a name="customize-the-details-page"></a>Dostosowywanie strony szczegółów
@@ -114,6 +115,7 @@ Aktualizacja `OnPostAsync` metody w *Pages/Students/Create.cshtml.cs* następuj�
 [!code-csharp[](intro/samples/cu21/Pages/Students/Create.cshtml.cs?name=snippet_OnPostAsync)]
 
 <a name="TryUpdateModelAsync"></a>
+
 ### <a name="tryupdatemodelasync"></a>TryUpdateModelAsync
 
 Sprawdź [TryUpdateModelAsync](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.tryupdatemodelasync#Microsoft_AspNetCore_Mvc_ControllerBase_TryUpdateModelAsync_System_Object_System_Type_System_String_) kodu:
@@ -124,10 +126,11 @@ W powyższym kodzie `TryUpdateModelAsync<Student>` próbuje zaktualizować `empt
 
 W poprzednim przykładzie:
 
-* Drugi argument (` "student", // Prefix`) to prefiks używany do odszukania wartości. Nie jest uwzględniana wielkość liter.
+* Drugi argument (`"student", // Prefix`) to prefiks używany do odszukania wartości. Nie jest uwzględniana wielkość liter.
 * Wartości przesłanego formularza są konwertowane na typy w `Student` modelu przy użyciu [modelu powiązania](xref:mvc/models/model-binding#how-model-binding-works).
 
 <a id="overpost"></a>
+
 ### <a name="overposting"></a>Overposting
 
 Przy użyciu `TryUpdateModel` można zaktualizować pola z wartościami oczekujących na opublikowanie jest ze względów bezpieczeństwa, ponieważ nie dopuszcza overposting. Na przykład, załóżmy, że zawiera jednostki uczniów `Secret` właściwości, które ta strona sieci web nie należy zaktualizować lub dodać:

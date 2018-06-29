@@ -6,16 +6,16 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 04/05/2018
 uid: razor-pages/filter
-ms.openlocfilehash: ff2f4b4c2556e31d0261bc2c2ff47a4a6c7a1335
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 70f762f32a9e4fda01418a47e3eb7d7224639a0a
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291598"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37092846"
 ---
 # <a name="filter-methods-for-razor-pages-in-aspnet-core"></a>Metody filtru dla elementu Razor strony platformy ASP.NET Core
 
-przez [Rick Anderson](https://twitter.com/RickAndMSFT)
+Przez [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Filtry stron razor [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) i [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) Zezwalaj stron Razor do uruchomienia kodu przed i po uruchomieniu programu obsługi stron Razor. Są podobne do filtrów stron razor [platformy ASP.NET Core MVC filtry akcji](xref:mvc/controllers/filters#action-filters), z wyjątkiem nie można zastosować do metody obsługi poszczególnych stron. 
 
@@ -29,7 +29,7 @@ Filtry stron razor:
 
 Można uruchomić kod przed metoda obsługi jest wykonywana przy użyciu konstruktora strony lub oprogramowanie pośredniczące, ale tylko filtry Razor strony mają dostęp do [element HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_HttpContext). Filtry mają [FilterContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.filtercontext?view=aspnetcore-2.0) pochodnych parametr, który zapewnia dostęp do `HttpContext`. Na przykład [zaimplementować atrybutu filtru](#ifa) próbki dodaje nagłówek odpowiedzi, coś, co nie można przeprowadzić z konstruktorów lub oprogramowania pośredniczącego.
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/live/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/filter/sample/PageFilter) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
 Filtry stron razor zawierają następujące metody, które mogą być stosowane globalnie lub na poziomie strony:
 

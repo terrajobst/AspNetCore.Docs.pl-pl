@@ -5,14 +5,18 @@ description: Ten samouczek przedstawia przydatne tematy dotyczące wykraczający
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 2aced1126e3062835d9c35ef01fd3c1438f0af84
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: be44ef115ce72e1571bbdea2c609ea6c53792c59
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274372"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093078"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>Zaawansowane platformy ASP.NET Core MVC podstawowych EF - - 10, 10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -195,7 +199,7 @@ Informacje o innych tematów dotyczących podstawowych ASP.NET MVC, takie jak uw
 
 Tomasz Dykstra i Rick Anderson (twitter @RickAndMSFT) został napisany w tym samouczku. Tomaszewski rowan, Diego Vega i innych członków zespołu programu Entity Framework wspierana z przeglądy kodu i pomogła debugowanie problemów, które powstały podczas możemy zostały pisanie kodu dla samouczków.
 
-## <a name="common-errors"></a>Typowe błędy  
+## <a name="common-errors"></a>Typowe błędy
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll używany przez inny proces
 
@@ -240,6 +244,7 @@ Komunikat o błędzie:
 Rozwiązanie:
 
 Sprawdź parametry połączenia. Jeśli plik bazy danych został ręcznie usunięty, Zmień nazwę bazy danych w ciągu konstrukcji rozpocząć nową bazę danych.
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Poprzednie](inheritance.md)

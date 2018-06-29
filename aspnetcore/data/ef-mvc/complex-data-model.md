@@ -5,14 +5,18 @@ description: W tym samouczku Dodaj więcej jednostki i relacje i dostosować mod
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: d89ca44917fac57febc2f8b0d632ae004ca7216c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 1d3c69c8c658b5ca2f0253b790b0dc75d44d3064
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277390"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093117"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF — Model danych — 5 10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -351,7 +355,7 @@ Każdy wiersz relacji ma 1 w jeden element end i znak gwiazdki (*) w innych, wsk
 
 Jeśli w tabeli rejestracji nie włączono informacji o kategorii, tylko będzie konieczne zawiera dwa klucze obce CourseID i StudentID. W takim przypadku byłoby wiele do wielu sprzężenia tabeli bez ładunku (lub tabeli czysty sprzężenia) w bazie danych. Jednostki instruktora i kursu mieć typu relacji wiele do wielu, a następnym krokiem jest utworzenie klasę jednostki do działania jako tabelę sprzężenia bez ładunku.
 
-(Niejawne sprzężenie tabel dla relacji wiele do wielu, ale podstawowe EF nie obsługuje 6.x EF. Aby uzyskać więcej informacji, zobacz [dyskusji w repozytorium EF Core GitHub](https://github.com/aspnet/EntityFramework/issues/1368).) 
+(Niejawne sprzężenie tabel dla relacji wiele do wielu, ale podstawowe EF nie obsługuje 6.x EF. Aby uzyskać więcej informacji, zobacz [dyskusji w repozytorium EF Core GitHub](https://github.com/aspnet/EntityFramework/issues/1368).)
 
 ## <a name="the-courseassignment-entity"></a>Jednostka CourseAssignment
 
@@ -437,7 +441,7 @@ Czasami podczas wykonywania migracji z istniejącymi danymi, należy wstawić da
 
 Aby migracja pracy z istniejącymi danymi, trzeba zmienić kod, aby podać nową kolumnę wartości domyślnej, a następnie utwórz działu stub o nazwie "Temp" jako domyślnego działu. W związku z tym istniejących wierszy kursu zostaną wszystkie powiązane do działu "Temp" po `Up` uruchamia metody.
 
-* Otwórz *{timestamp}_ComplexDataModel.cs* pliku. 
+* Otwórz *{timestamp}_ComplexDataModel.cs* pliku.
 
 * Komentarz wiersz kodu, który dodaje kolumnę DepartmentID tabeli kursu.
 
@@ -491,7 +495,8 @@ Kliknij prawym przyciskiem myszy **CourseAssignment** tabeli i wybierz **danych 
 ## <a name="summary"></a>Podsumowanie
 
 Masz teraz bardziej złożonych modelu danych i odpowiednią bazę danych. Następujące samouczka dowiesz się więcej na temat dostępu do danych powiązanych.
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Poprzednie](migrations.md)
-> [dalej](read-related-data.md)  
+> [dalej](read-related-data.md)

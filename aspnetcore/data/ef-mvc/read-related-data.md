@@ -5,14 +5,18 @@ description: W tym samouczku będziesz odczytu i wyświetlanie powiązanych dany
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 8c634bb1ae715776e18b847574ce03791f2ede03
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d5c9b665a80003ef5029754d7ad1780b3254e97e
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277215"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37092987"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF - odczytanie danych powiązanych — 6 10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -238,6 +242,8 @@ Uruchom aplikację, przejdź do strony indeksu instruktorów teraz i będzie ża
 
 Teraz wczesny ładowanie z jednego zapytania i używane z wieloma zapytaniami do wczytania powiązanych danych do właściwości nawigacji. W następnym samouczku nauczysz się, jak zaktualizować powiązanych danych.
 
+::: moniker-end
+
 >[!div class="step-by-step"]
 >[Poprzednie](complex-data-model.md)
->[dalej](update-related-data.md)  
+>[dalej](update-related-data.md)

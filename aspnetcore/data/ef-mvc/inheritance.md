@@ -5,14 +5,18 @@ description: Ten samouczek przedstawia sposób implementacji dziedziczenia w mod
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 818af711c23d37810b29eda8915b3c195a3e48f8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a71954297f44f936893a7f1e9d3b0685f81378b9
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272857"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093000"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF - dziedziczenia - 9, 10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -50,7 +54,7 @@ Wzorce dziedziczenia TPC i TPH zazwyczaj zapewniają lepszą wydajność niż w 
 
 Ten samouczek pokazuje, jak zaimplementować dziedziczenia TPH. TPH to wzorzec tylko dziedziczenia, który obsługuje programu Entity Framework Core.  Co należy zrobić to utworzyć `Person` klasy, zmień `Instructor` i `Student` pochodzi od klasy `Person`, Dodaj nową klasę do `DbContext`i Utwórz migracji.
 
-> [!TIP] 
+> [!TIP]
 > Warto zapisać kopię projektu przed wprowadzeniem następujące zmiany.  Następnie w razie problemów i należy zacząć od początku, będzie łatwiejsze do uruchamiania z zapisanym projektu zamiast cofania czynności wykonywane w ramach tego samouczka lub będzie powrót do początku całej serii.
 
 ## <a name="create-the-person-class"></a>Utwórz klasę osoby
@@ -121,7 +125,7 @@ dotnet ef database update
 
 (W systemie produkcji może wprowadzić odpowiednie zmiany do `Down` metody w przypadku kiedykolwiek musiał używać, aby wrócić do poprzedniej wersji bazy danych. W tym samouczku nie będzie używany `Down` metody.)
 
-> [!NOTE] 
+> [!NOTE]
 > Istnieje możliwość pobrania inne błędy podczas wprowadzania zmian schematu w bazie danych istniejących danych. Jeśli występują błędy migracji, których nie można rozwiązać, można zmienić nazwę bazy danych w parametrach połączenia lub Usuń bazę danych. Z nową bazę danych nie ma żadnych danych do migracji, a polecenia update-database jest bardziej prawdopodobne zakończyć bez błędów. Aby usunąć bazę danych, użyj SSOX lub uruchom `database drop` polecenia interfejsu wiersza polecenia.
 
 ## <a name="test-with-inheritance-implemented"></a>Test z dziedziczenia zaimplementowany
@@ -140,6 +144,8 @@ Kliknij prawym przyciskiem myszy tabeli osób, a następnie kliknij przycisk **P
 
 Zostały zaimplementowane tabeli na hierarchii dziedziczenia dla `Person`, `Student`, i `Instructor` klasy. Aby uzyskać więcej informacji na temat dziedziczenia w Entity Framework Core, zobacz [dziedziczenia](https://docs.microsoft.com/ef/core/modeling/inheritance). W następnym samouczku zobaczysz sposób obsługi różnych stosunkowo zaawansowanych scenariuszy programu Entity Framework.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Poprzednie](concurrency.md)
-> [dalej](advanced.md)  
+> [dalej](advanced.md)

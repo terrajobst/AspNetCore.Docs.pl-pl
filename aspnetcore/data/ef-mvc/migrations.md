@@ -5,14 +5,18 @@ description: W tym samouczku możesz uruchomić przy użyciu funkcji migracji EF
 ms.author: tdykstra
 ms.date: 03/15/2018
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: d8b92aeedb252b93e1dc1aca424d26a377305da2
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f710b33ac1a6017b0e3d7e8c3e528675a41424bb
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273588"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37092945"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>Platformy ASP.NET Core MVC podstawowych EF - Migrations - 4 10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -34,7 +38,7 @@ Narzędzia EF dla interfejsu wiersza polecenia (CLI) są dostępne w [Microsoft.
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
   
-(Numery wersji w tym przykładzie zostały bieżącej, gdy samouczka został zapisany). 
+(Numery wersji w tym przykładzie zostały bieżącej, gdy samouczka został zapisany).
 
 ## <a name="change-the-connection-string"></a>Zmień parametry połączenia
 
@@ -154,14 +158,15 @@ Polecenia EF poleceń PMC znajdują się w [Microsoft.EntityFrameworkCore.Tools]
 
 **Ważne:** nie jest tym samym pakiecie, jak zainstalować dla interfejsu wiersza polecenia, edytując *.csproj* pliku. Nazwa tego kończy się `Tools`, w odróżnieniu od nazwy pakietu interfejsu wiersza polecenia, która kończy się `Tools.DotNet`.
 
-Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, zobacz [interfejsu wiersza polecenia platformy .NET Core](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet). 
+Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, zobacz [interfejsu wiersza polecenia platformy .NET Core](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet).
 
 Aby uzyskać więcej informacji na temat poleceń PMC zobacz [Konsola Menedżera pakietów (Visual Studio)](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell).
 
 ## <a name="summary"></a>Podsumowanie
 
 W tym samouczku przedstawiono sposób tworzenia i stosowania pierwszy migracji. W następnym samouczku zostaną patrzeć bardziej zaawansowanych tematów, rozwijając modelu danych. Wzdłuż sposób możesz utworzyć i zastosować dodatkowe migracji.
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Poprzednie](sort-filter-page.md)
-> [dalej](complex-data-model.md)  
+> [dalej](complex-data-model.md)

@@ -5,14 +5,18 @@ description: W tym samouczku zostanie dodana sortowanie, filtrowanie i stronicow
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 34097eacad16c0ffb989efb3b6a8656be4a076cd
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 1f80faf0e36332c28e8337ddc331cc8b4c4970d7
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273653"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093091"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>Platformy ASP.NET Core MVC EF podstawowych — sortowanie, filtrowanie, stronicowania - 3 10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -110,7 +114,7 @@ Na tym etapie po kliknięciu łącza sortowania nagłówka kolumny zostanie utra
 
 Aby dodać stronicowania do strony indeksu studentów, należy utworzyć `PaginatedList` klasy, która używa `Skip` i `Take` instrukcje, aby filtrować dane na serwerze zamiast zawsze pobierania wszystkie wiersze w tabeli. Następnie będzie można wprowadzić dodatkowe zmiany w `Index` — metoda i dodać przyciski stronicowania `Index` widoku. Na poniższej ilustracji przedstawiono przyciski stronicowania.
 
-![Strona indeksu studentów z łączami stronicowania](sort-filter-page/_static/paging.png)
+![Strona zawierająca linki stronicowania indeksu uczniów lub studentów](sort-filter-page/_static/paging.png)
 
 W folderze projektu Utwórz `PaginatedList.cs`, a następnie Zastąp kod szablonu z następującym kodem.
 
@@ -191,7 +195,7 @@ Przyciski stronicowania są wyświetlane przez pomocników tagów:
 
 Uruchom aplikację i przejdź do strony studenta.
 
-![Strona indeksu studentów z łączami stronicowania](sort-filter-page/_static/paging.png)
+![Strona zawierająca linki stronicowania indeksu uczniów lub studentów](sort-filter-page/_static/paging.png)
 
 Kliknij łącza stronicowania w różnych sortowania, aby upewnić się, że działa stronicowania. Następnie wprowadź ciąg wyszukiwania i spróbuj stronicowania ponownie, aby sprawdzić, czy stronicowania również działa poprawnie z sortowania i filtrowania.
 
@@ -228,7 +232,7 @@ Zastąp `About` metodę z następującym kodem:
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 Instrukcja LINQ grupy jednostek uczniowie według daty rejestracji oblicza liczbę jednostek w każdej grupie i przechowuje wyniki w kolekcji z `EnrollmentDateGroup` wyświetlić obiekty modelu.
-> [!NOTE] 
+> [!NOTE]
 > W wersji 1.0 programu Entity Framework Core cały zestaw wyników jest zwracana do klienta, a operacji grupowania na kliencie. W niektórych scenariuszach to można utworzyć problemy z wydajnością. Pamiętaj testu wydajności przy użyciu produkcyjnego ilości danych, a w razie potrzeby umożliwia wykonaj grupowanie na serwerze raw SQL. Informacje o sposobie używania pierwotnych SQL, zobacz [ostatniego samouczku tej serii](advanced.md).
 
 ### <a name="modify-the-about-view"></a>Zmodyfikuj widok — informacje
@@ -245,6 +249,8 @@ Uruchom aplikację i przejdź do strony informacje. Liczba studentów dla każde
 
 W tym samouczku przedstawiono sposób wykonywania sortowanie, filtrowanie, stronicowania i grupowania. W następnym samouczku nauczysz się, jak obsługiwać zmiany modelu danych przy użyciu migracji.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Poprzednie](crud.md)
-> [dalej](migrations.md)  
+> [dalej](migrations.md)

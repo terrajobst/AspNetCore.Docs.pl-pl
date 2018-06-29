@@ -5,14 +5,18 @@ description: W tym samouczku będziesz aktualizacji powiązanych danych, aktuali
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 53f1607d96a9a1db98f4e80e9582c124cedf6c8d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ef8cb3916e5d1542e4d36cad694351462b94ed32
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272653"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093062"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>Dane — 7 10 dotyczące platformy ASP.NET Core MVC podstawowych EF - aktualizacji
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Przez [Dykstra Tomasz](https://github.com/tdykstra) i [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -134,7 +138,7 @@ Kod wykonuje następujące czynności:
         "",
         i => i.FirstMidName, i => i.LastName, i => i.HireDate, i => i.OfficeAssignment))
     ```
-    
+
 -   Jeśli w lokalizacji biura jest puste, ustawia właściwość Instructor.OfficeAssignment równej null, dzięki czemu powiązanego wiersza w tabeli OfficeAssignment zostaną usunięte.
 
     <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
@@ -213,7 +217,7 @@ Jeśli nie zostało zaznaczone pole wyboru dla porach, ale znajduje się w trakc
 W *Views/Instructors/Edit.cshtml*, Dodaj **kursy** pole z tablicą pola wyboru przez dodanie poniższego kodu bezpośrednio po `div` elementy **pakietu Office**  pola i przed `div` elementu **zapisać** przycisku.
 
 <a id="notepad"></a>
-> [!NOTE] 
+> [!NOTE]
 > Po wklejeniu kodu w programie Visual Studio, podziały wiersza zostanie zmieniony w taki sposób, który dzieli kod.  Naciśnij klawisze Ctrl + Z jeden raz, aby cofnąć automatycznego formatowania.  Naprawi podziały wiersza, aby wyglądają tu wyświetlić. Wcięcie nie musi być idealne, ale `@</tr><tr>`, `@:<td>`, `@:</td>`, i `@:</tr>` linie muszą być w jednym wierszu pokazany lub zostanie wyświetlony błąd w czasie wykonywania. Z bloku nowy kod zaznaczone naciśnij klawisz Tab trzykrotnie Aby wyrównać nowy kod z istniejącym kodem. Stan tego problemu można sprawdzić [tutaj](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
@@ -228,7 +232,7 @@ Uruchom aplikację, wybierz **instruktorów** , a następnie kliknij pozycję **
 
 Zmień przypisania pewnych porach i kliknij przycisk Zapisz. Wprowadzone zmiany zostaną odzwierciedlone na stronie indeksu.
 
-> [!NOTE] 
+> [!NOTE]
 > Podejście przyjęte tutaj, aby edytować dane kursu instruktora działa również w przypadku, gdy istnieje ograniczona liczba kursów. Kolekcje, które są znacznie większe innego interfejsu użytkownika i różne metody aktualizacji będą wymagane.
 
 ## <a name="update-the-delete-page"></a>Zaktualizuj strony usuwania
@@ -282,7 +286,7 @@ W *Views/Instructor/Create.cshtml*, Dodaj pole tekstowe lokalizacji pakietu offi
 
 [!code-html[](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
 
-Przetestuj aplikację i tworzenie instruktora. 
+Przetestuj aplikację i tworzenie instruktora.
 
 ## <a name="handling-transactions"></a>Obsługa transakcji
 
@@ -292,6 +296,8 @@ Zgodnie z objaśnieniem w [samouczek CRUD](crud.md), Entity Framework niejawnie 
 
 Wprowadzenie do pracy z powiązanych danych zostało zakończone. W następnym samouczku zobaczysz sposób obsługi konfliktom współbieżności.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Poprzednie](read-related-data.md)
-> [dalej](concurrency.md)  
+> [dalej](concurrency.md)
