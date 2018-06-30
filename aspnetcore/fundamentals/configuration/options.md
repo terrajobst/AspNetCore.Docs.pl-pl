@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 1fe05fbc5035ffa2d01bc6be55436146f1434d17
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 96d7d2956fa9bf72706cde0532ee7f4ff753b72c
+ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278547"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37126264"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Wzorzec opcje dla platformy ASP.NET Core
 
@@ -53,6 +53,20 @@ Gdy aplikacja jest uruchamiana, modelu strony `OnGet` metoda zwraca ciąg przeds
 ```html
 option1 = value1_from_json, option2 = -1
 ```
+
+> [!NOTE]
+> Podczas korzystania z niestandardowego [ConfigurationBuilder](/dotnet/api/system.configuration.configurationbuilder) załadować opcje konfiguracji z pliku ustawień, potwierdź poprawnie ustawiono ścieżki podstawowej:
+>
+> ```csharp
+> var configBuilder = new ConfigurationBuilder()
+>    .SetBasePath(Directory.GetCurrentDirectory())
+>    .AddJsonFile("appsettings.json", optional: true);
+> var config = configBuilder.Build();
+>
+> services.Configure<MyOptions>(config);
+> ```
+>
+> Jawnego ustawiania podstawowa ścieżka nie jest wymagane podczas ładowania konfiguracji opcji z pliku ustawień za pomocą [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Konfiguruj opcje proste delegata
 
@@ -144,7 +158,7 @@ Po uruchomieniu aplikacji na renderowanej stronie są wyświetlane wartości opc
 
 Ponowne ładowanie danych konfiguracji z `IOptionsSnapshot` przedstawiono w przykładzie &num;5 w [Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
-*Wymaga platformy ASP.NET Core 1.1 lub nowszej.*
+*wymaga platformy ASP.NET Core 1.1 lub nowszej.*
 
 [IOptionsSnapshot](/dotnet/api/microsoft.extensions.options.ioptionssnapshot-1) obsługuje ponowne ładowanie opcji z minimalnym przetwarzania. W programie ASP.NET Core 1.1 `IOptionsSnapshot` jest migawką [IOptionsMonitor&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1) i aktualizacje automatyczne zawsze, gdy monitor wyzwala zmiany oparte na Zmiana źródła danych. W programie ASP.NET Core 2.0 lub nowszego oraz opcje są obliczane raz na każde żądanie, gdy dostępne i pamięci podręcznej przez czas ich istnienia żądania.
 

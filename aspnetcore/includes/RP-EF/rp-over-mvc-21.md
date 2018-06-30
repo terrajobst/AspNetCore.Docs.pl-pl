@@ -1,6 +1,6 @@
 ::: moniker range=">= aspnetcore-2.1"
 
-W tym samouczku nie został uaktualniony do platformy ASP.NET Core 2.1. Wybierając dostępna jest wersja platformy ASP.NET Core 2.0 w tym samouczku **2.0** powyżej tabeli treści lub w górnej części strony:
+W tym samouczku nie został uaktualniony do platformy ASP.NET Core 2.1. Wybierając dostępna jest wersja platformy ASP.NET Core 2.0 w tym samouczku **ASP.NET Core 2.0** powyżej tabeli treści lub w górnej części strony:
 
 Wersja platformy ASP.NET Core 2.1 Razor strony tego samouczka zawiera wiele ulepszeń w wersji 2.0.
 
