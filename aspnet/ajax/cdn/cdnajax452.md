@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/cdnajax452
-title: Formularze sieci Web ASP.NET i Ajax 4.5.2 | Dokumentacja firmy Microsoft
+title: ASP.NET Web Forms i Ajax 4.5.2 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,17 +9,16 @@ ms.date: 11/26/2014
 ms.topic: article
 ms.assetid: 0b25ecc9-b1b0-4738-ad80-09f1e33faf09
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/cdnajax452
 msc.type: content
-ms.openlocfilehash: eae75d591ab9d6648a5048bca4e49b427fc5f904
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: effb3218637e5427ab7131bd427935b334aaf52e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30071275"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371703"
 ---
-<a name="aspnet-web-forms-and-ajax-452"></a>Formularze sieci Web ASP.NET i Ajax 4.5.2
+<a name="aspnet-web-forms-and-ajax-452"></a>ASP.NET Web Forms i Ajax 4.5.2
 ====================
 Następujące pliki znajdują się w sieci CDN:
 

@@ -2,59 +2,58 @@
 uid: mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 title: Wprowadzenie do samouczka NerdDinner | Dokumentacja firmy Microsoft
 author: shanselman
-description: Najlepszym sposobem poznawania nowej struktury jest z nim coś kompilacji. W tym samouczku przedstawiono sposób tworzenia mały, ale pełny, aplikacji, za pomocą ASP.NE...
+description: Najlepszym sposobem, aby dowiedzieć się nowej struktury jest Zbuduj coś z nim. Ten samouczek zawiera szczegółowe instrukcje dotyczące tworzenia aplikacji mały, ale pełny, za pomocą ASP.NE...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
 ms.topic: article
 ms.assetid: 397522d5-0402-4b94-b810-a2fb564f869d
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: 3d925a7dc89fc0c742468653c5c138a0f1d71231
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 735a775752beda3fc24852422b1ff9d60a7c46b5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868558"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371631"
 ---
 <a name="introducing-the-nerddinner-tutorial"></a>Wprowadzenie do samouczka NerdDinner
 ====================
-przez [Scott Hanselman](https://github.com/shanselman)
+przez [Scotta Hanselmana](https://github.com/shanselman)
 
 [Pobierz plik PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Najlepszym sposobem poznawania nowej struktury jest z nim coś kompilacji. W tym samouczku przedstawiono sposób tworzenia małą, ale zakończyć aplikację przy użyciu platformy ASP.NET MVC 1 i wprowadza niektóre podstawowe koncepcje za nią.
+> Najlepszym sposobem, aby dowiedzieć się nowej struktury jest Zbuduj coś z nim. W tym samouczku przedstawiono sposób tworzenia małych, ale wykonania aplikacji za pomocą platformy ASP.NET MVC 1 oraz przedstawiono niektóre z podstawowych pojęciach związanych z nim.
 > 
-> Jeśli używasz programu ASP.NET MVC 3, zaleca się wykonanie [pobierania uruchomiona z MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [magazynu utworów muzycznych MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) samouczki.
+> Jeśli używasz programu ASP.NET MVC 3, zaleca się wykonać [Rozpoczynanie pracy z MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) samouczków.
 
 
-## <a name="nerddinner-tutorial"></a>Samouczek NerdDinner
+## <a name="nerddinner-tutorial"></a>Samouczka NerdDinner
 
-Najlepszym sposobem poznawania nowej struktury jest z nim coś kompilacji. W tym samouczku przedstawiono sposób tworzenia małą, ale zakończyć aplikację przy użyciu platformy ASP.NET MVC i wprowadza niektóre podstawowe koncepcje za nią.
+Najlepszym sposobem, aby dowiedzieć się nowej struktury jest Zbuduj coś z nim. W tym samouczku przedstawiono sposób tworzenia małych, ale wykonania aplikacji za pomocą platformy ASP.NET MVC i wprowadza niektóre z podstawowych pojęciach związanych z nim.
 
-Aplikacja, któremu zamierzamy utworzyć nazywa się "NerdDinner". NerdDinner zapewnia prosty sposób użytkownikom wyszukiwanie i organizowanie kolacji w trybie online:
+Aplikację, którą zamierzamy kompilacji jest nazywany "NerdDinner". NerdDinner zapewnia łatwy sposób dla osób, Znajdź i organizowania kolacji w trybie online:
 
 ![](introducing-the-nerddinner-tutorial/_static/image1.png)
 
-NerdDinner umożliwia tworzenie, edytowanie i usuwanie kolacji dla zarejestrowanych użytkowników. Wymusza spójny zestaw reguł sprawdzania poprawności i biznesowych w aplikacji:
+NerdDinner umożliwia tworzenie, edytowanie i usuwanie kolacji dla zarejestrowanych użytkowników. Wymusza on spójny zestaw reguł biznesowych i weryfikacji w aplikacji:
 
 ![](introducing-the-nerddinner-tutorial/_static/image2.png)
 
-Osoby odwiedzające opartych na technologii AJAX tablica służy do wyszukiwania nadchodzących kolacji odbywają się obok nich:
+Osoby odwiedzające opartych na technologii AJAX tablica służy do wyszukiwania nadchodzących kolacji odbywają się w pobliżu je:
 
 ![](introducing-the-nerddinner-tutorial/_static/image3.png)
 
-Kliknięcie przycisku obiad powoduje wyświetlenie strony szczegółów gdzie można znaleźć więcej informacji:
+Klikając obiad powoduje wyświetlenie strony szczegółów gdzie oni dowiedzieć się więcej na ten temat:
 
 ![](introducing-the-nerddinner-tutorial/_static/image4.png)
 
-Jeśli są zainteresowani uczestniczący obiad mogą zalogować się lub zarejestrować się w lokacji:
+Jeśli są zainteresowani udziałowi obiad mogą zalogować się lub zarejestrować się w lokacji:
 
 ![](introducing-the-nerddinner-tutorial/_static/image5.png)
 
-One następnie kliknij łącze RSVP opartych na technologii AJAX do udziału zdarzenia:
+Są następnie kliknąć link RSVP opartych na technologii AJAX w taki sposób, aby weź udział w wydarzeniu:
 
 ![](introducing-the-nerddinner-tutorial/_static/image6.png)
 
@@ -62,32 +61,32 @@ One następnie kliknij łącze RSVP opartych na technologii AJAX do udziału zda
 
 ### <a name="implementing-nerddinner"></a>Implementowanie NerdDinner
 
-Zamierzamy rozpocząć naszej aplikacji NerdDinner przy użyciu pliku -&gt;polecenie Nowy projekt w programie Visual Studio do tworzenia nowego projektu platformy ASP.NET MVC. Następnie przyrostowo dodamy możliwości i funkcje. Wzdłuż sposób omówione zostaną następujące czynności:
+Zamierzamy zacząć naszej aplikacji NerdDinner przy użyciu pliku -&gt;polecenie Nowy projekt w programie Visual Studio do tworzenia nowego projektu ASP.NET MVC. Następnie przyrostowe dodamy funkcje i. Po drodze omówimy:
 
-1. [Jak utworzyć nowy projekt ASP.NET MVC](# "Utwórz nowy projekt ASP.NET MVC")
+1. [Tworzenie nowego projektu MVC ASP.NET](# "Utwórz nowy projekt ASP.NET MVC")
 2. [Jak utworzyć bazę danych](# "tworzenie bazy danych")
-3. [Sposób tworzenia modelu sprawdzaniem poprawności reguły biznesowej](# "Budowanie modelu sprawdzaniem poprawności reguły biznesowej")
-4. [Jak używać kontrolery i widoki do zaimplementowania listę/szczegółów interfejsu użytkownika](# "używać kontrolery i widoki, do zaimplementowania interfejsu użytkownika listę/szczegółów")
-5. [Jak zapewnić CRUD (tworzenia, odczytu, aktualizowanie i usuwanie) danych tworzą Obsługa wpis](# "obsługuje wpis formularza danych Podaj CRUD (tworzenia, odczytu, aktualizacji, usuwania)")
-6. [Jak używać ViewData i implementuje klasy ViewModel](# "Użyj ViewData i implementuje klasy ViewModel")
-7. [Jak ponownie użyć interfejsu użytkownika przy użyciu stron wzorcowych i częściowe](# "ponownego użycia interfejsu użytkownika przy użyciu stron wzorcowych i częściowe")
-8. [Implementowania stronicowania danych wydajne](# "zaimplementować wydajne danych stronicowania")
-9. [Jak zabezpieczyć aplikacji przy użyciu uwierzytelniania i autoryzacji](# "bezpiecznego aplikacji przy użyciu uwierzytelniania i autoryzacji")
-10. [Sposób użycia interfejsu AJAX do dostarczenia aktualizacji dynamicznej](# "używać technologii AJAX, aby dostarczać aktualizacje dynamiczne")
-11. [Jak używać technologii AJAX do implementacji mapowania scenariusze](# "Użyj AJAX do implementacji mapowania scenariuszy")
-12. [Jak włączyć automatyczne testy jednostkowe](# "włączenia zautomatyzowanych testów jednostkowych")
+3. [Sposób tworzenia modelu z weryfikacją reguł biznesowych](# "Budowanie modelu z weryfikacją reguł biznesowych")
+4. [Jak zaimplementować lista/szczegóły interfejsu użytkownika za pomocą widoków i kontrolerów](# "używać kontrolery i widoki, do zaimplementowania interfejsu użytkownika lista/szczegóły")
+5. [Jak zapewnić CRUD (Tworzenie, odczytywanie, aktualizowanie, usuwanie) danych tworzą obsługi](# "obsługuje wpis formularza danych zapewniają CRUD (tworzenia, odczytu, Update, Delete)")
+6. [Jak używać ViewData i Implementowanie klas ViewModel](# "korzystać z podejścia ViewData i Implementowanie klas ViewModel")
+7. [Jak ponownie używać interfejsu użytkownika za pomocą stron wzorcowych i częściowych](# "ponowne używanie interfejsu użytkownika za pomocą stron wzorcowych i częściowych")
+8. [Implementowanie wydajnego stronicowania danych jak](# "zaimplementować wydajne danych stronicowania")
+9. [Jak zabezpieczyć aplikacje przy użyciu uwierzytelniania i autoryzacji](# "bezpieczne aplikacje przy użyciu uwierzytelniania i autoryzacji")
+10. [Jak korzystanie z technologii AJAX w celu dostarczania aktualizacji dynamicznych](# "Użyj AJAX do dostarczania aktualizacji dynamicznych")
+11. [Sposób użycia interfejsu AJAX w celu implementacji scenariuszy mapowania](# "Użyj AJAX do implementacji scenariuszy mapowania")
+12. [Jak włączyć automatyczne testy jednostkowe](# "Włącz zautomatyzowane testy jednostkowe")
 
-Możesz utworzyć własną kopię NerdDinner od początku, wykonując każdego kroku będziemy wskazówki w tym rozdziale. Alternatywnie możesz pobrać ukończoną wersję kodu źródłowego w tym miejscu: [NerdDinner w serwisie GitHub](https://github.com/AspNetMVPSamples/NerdDinner). Możesz również opcjonalnie również [Pobierz bezpłatną wersję PDF tego samouczka](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf) Aby odczytać samouczek w trybie offline.
+Możesz tworzyć własną kopię NerdDinner od podstaw, wykonując każdego kroku będziemy instrukcje przedstawione w tym rozdziale. Alternatywnie możesz pobrać pełną wersję kodu źródłowego w tym miejscu: [NerdDinner w serwisie GitHub](https://github.com/AspNetMVPSamples/NerdDinner). Możesz również opcjonalnie również [Pobierz bezpłatną wersję PDF po ukończeniu tego samouczka](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf) aby przeczytaj samouczek w trybie offline.
 
-Do skompilowania aplikacji, można użyć programu Visual Studio 2008 lub wolnego Visual Web Developer 2008 Express. SQL Server lub wolnego programu SQL Server Express można użyć dla bazy danych.
+Aby skompilować aplikację, można użyć programu Visual Studio 2008 lub bezpłatnego programu Visual Web Developer 2008 Express. Dla bazy danych, można użyć programu SQL Server lub bezpłatnego programu SQL Server Express.
 
-Można zainstalować programu ASP.NET MVC, Visual Web Developer 2008 Express i programu SQL Server Express (wszystkim jest bezpłatny) przy użyciu V2 z [Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)
+ASP.NET MVC, Visual Web Developer 2008 Express i programu SQL Server Express (wszystkie wersja bezpłatna) przy użyciu programu w wersji 2 można zainstalować [Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)
 
-### <a name="now-lets-get-started"></a>Teraz do dzieła...
+### <a name="now-lets-get-started"></a>Teraz Rozpocznijmy od...
 
-Teraz, kiedy możemy zostały objęte jest NerdDinner, umożliwia rzutowanie naszych rękawami i pisania kodu.
+Teraz, gdy Omówiliśmy już jest NerdDinner, umożliwia rzutowanie naszych programistyczne firmy Microsoft i pisanie kodu.
 
-Rozpocznie się za pomocą pliku -&gt;nowy projekt w programie Visual Studio, aby utworzyć aplikację NerdDinner.
+Firma Microsoft rozpocznie się za pomocą pliku -&gt;nowy projekt w programie Visual Studio do tworzenia aplikacji NerdDinner.
 
 > [!div class="step-by-step"]
 > [Next](create-a-new-aspnet-mvc-project.md)

@@ -1,78 +1,77 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
-title: Tworzenie trasy niestandardowe (VB) | Dokumentacja firmy Microsoft
+title: Tworzenie tras niestandardowych (VB) | Dokumentacja firmy Microsoft
 author: microsoft
-description: Dowiedz się, jak dodać trasy niestandardowe do aplikacji platformy ASP.NET MVC. W tym samouczku Dowiedz się jak zmodyfikować domyślną tabelę routingu w pliku Global.asax.
+description: Dowiedz się, jak dodać trasy niestandardowe do aplikacji ASP.NET MVC. W tym samouczku dowiesz się, jak zmodyfikować tabela routingu domyślnego w pliku Global.asax.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
 ms.topic: article
 ms.assetid: 6ac5758b-6199-42af-adcb-21954b864951
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e827725ab7ce54c86ae9f4193d0a8a7ef4af8512
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b2bca002434274e334509d21f6857e094d391198
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872328"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362021"
 ---
-<a name="creating-custom-routes-vb"></a>Tworzenie trasy niestandardowe (VB)
+<a name="creating-custom-routes-vb"></a>Tworzenie tras niestandardowych (VB)
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-> Dowiedz się, jak dodać trasy niestandardowe do aplikacji platformy ASP.NET MVC. W tym samouczku Dowiedz się jak zmodyfikować domyślną tabelę routingu w pliku Global.asax.
+> Dowiedz się, jak dodać trasy niestandardowe do aplikacji ASP.NET MVC. W tym samouczku dowiesz się, jak zmodyfikować tabela routingu domyślnego w pliku Global.asax.
 
 
-W tym samouczku Dowiedz się jak dodać niestandardowe trasy do aplikacji platformy ASP.NET MVC. Jak zmodyfikować tabeli trasy domyślnej w pliku Global.asax z tras niestandardowych.
+W tym samouczku dowiesz się, jak dodać trasy niestandardowej do aplikacji ASP.NET MVC. Dowiesz się, jak zmodyfikować tabela routingu domyślnego w pliku Global.asax z tras niestandardowych.
 
-W aplikacjach ASP.NET MVC domyślne tabeli tras będzie działać bez problemu. Jednak może się okazać, że ma specjalizowany potrzeb routingu. W takim przypadku można utworzyć tras niestandardowych.
+W aplikacjach ASP.NET MVC tabela routingu domyślnego będzie działać prawidłowo. Jednak może się okazać, że ma wyspecjalizowany potrzeb routingu. W takim przypadku można utworzyć trasy niestandardowej.
 
-Załóżmy, na przykład tworzysz aplikację blogu. Można obsłużyć żądań przychodzących, które wyglądają następująco:
+Wyobraź sobie, na przykład tworzysz aplikację blogu. Możesz chcieć obsłużyć żądań przychodzących, które wyglądają następująco:
 
-/ Archiwum 12-25-2009
+/ Archiwum/12-25-2009
 
-Gdy użytkownik wprowadza to żądanie, chcesz przywrócić wpis w blogu, która odpowiada Data 2009-12/25. Aby obsługiwać ten typ żądania, należy utworzyć niestandardowe trasy.
+Kiedy użytkownik wprowadzi tego żądania, mają być zwracane wpis w blogu, który odnosi się do wartości typu date 12/25/2009. Aby umożliwić obsługę tego typu żądania, musisz utworzyć tras niestandardowych.
 
-Plik Global.asax 1 Lista zawiera nowe niestandardowe trasy, o nazwie blogu w żądaniach dojść, które mają postać /Archive/*Data wprowadzenia*.
+Plik Global.asax w ofercie 1 zawiera nowe trasy niestandardowej o nazwie blogu, które obsługuje żądania, które mają postać /Archive/*Data wpisu*.
 
-**Wyświetlanie listy 1 - Global.asax (z tras niestandardowych)**
+**Wyświetlanie listy 1 - Global.asax (przy użyciu tras niestandardowych)**
 
 [!code-vb[Main](creating-custom-routes-vb/samples/sample1.vb)]
 
-Kolejność trasy, które można dodać do tabeli tras jest ważna. Nasze nowe niestandardowe trasy blogu zostanie dodany przed istniejącą trasę domyślną. Jeśli odwrócić kolejność, następnie trasy domyślnej zawsze będzie uzyskać nazwę zamiast tras niestandardowych.
+Kolejność trasy, które można dodać do tabeli tras jest ważna. Nasz nowy trasy niestandardowej blogu zostanie dodany przed istniejącą trasę domyślną. Czy to zamówienie, jest wycofywany, a następnie trasy domyślnej zawsze ma zostać wywołana zamiast tras niestandardowych.
 
-Niestandardowe trasy blogu odpowiada każde żądanie, która rozpoczyna się od/archiwum /. Tak jest on zgodny wszystkich następujących adresów URL:
+Każde żądanie, które zaczyna się od/archiwum/pasuje do trasy niestandardowej blogu. Tak jest on zgodny wszystkie następujące adresy URL:
 
-- / Archiwum 12-25-2009
+- / Archiwum/12-25-2009
 
-- -Archiwum 10-6-2004
+- / Archiwum/10-6-2004
 
 - / Archiwum/firmy apple
 
-Tras niestandardowych mapuje przychodzące żądanie do kontrolera o nazwie archiwum i wywołuje akcję Entry(). Gdy wywoływana jest metoda Entry(), daty rozpoczęcia jest przekazywana jako parametr o nazwie entryDate.
+Trasy niestandardowej mapy przychodzące żądanie do kontrolera, o nazwie archiwum i wywołuje akcję Entry(). Gdy wywoływana jest metoda Entry(), daty rozpoczęcia jest przekazywany jako parametr o nazwie entryDate.
 
-Można użyć tras niestandardowych blogu kontroler w wyświetlania 2.
+Za pomocą tras niestandardowych blogu kontrolera w ofercie 2.
 
 **Wyświetlanie listy 2 - ArchiveController.vb**
 
 [!code-vb[Main](creating-custom-routes-vb/samples/sample2.vb)]
 
-Zwróć uwagę, że metoda Entry() wyświetlania 2 przyjmuje parametr typu DateTime. Struktura MVC jest inteligentne przekonwertować datę wejścia z adresu URL na wartość daty i godziny automatycznie. Jeśli parametr Data wpisu z adresu URL nie można przekonwertować na wartość typu DateTime, występuje błąd (zobacz rysunek 1).
+Należy zauważyć, że metoda Entry() w ofercie 2 akceptuje parametr typu Data/Godzina. Struktura MVC jest inteligentnego przekonwertować datę wejścia z adresu URL na wartość typu DateTime automatycznie. Jeśli parametr daty wpis z adresu URL nie można przekonwertować na wartość typu DateTime, zgłaszany jest błąd (patrz rysunek 1).
 
-**Rysunek 1 — błąd podczas konwersji parametru**
+**Rysunek 1. Błąd konwersji parametru**
 
 
-[![Okno dialogowe nowego projektu](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
+[![Okno dialogowe Nowy projekt](creating-custom-routes-vb/_static/image1.jpg)](creating-custom-routes-vb/_static/image1.png)
 
-**Rysunek 01**: błąd podczas konwersji parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-custom-routes-vb/_static/image2.png))
+**Rysunek 01**: błąd konwersji parametru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](creating-custom-routes-vb/_static/image2.png))
 
 
 ## <a name="summary"></a>Podsumowanie
 
-Celem tego samouczka było wykazać, sposób tworzenia tras niestandardowych. Przedstawiono sposób dodawania tras niestandardowych do tabeli tras w pliku Global.asax, który reprezentuje wpisy. Omówiono sposób mapowania żądania do wpisów w kontrolerze o nazwie ArchiveController i o nazwie Entry() akcji kontrolera.
+Celem tego samouczka było pokazują, jak można utworzyć trasy niestandardowej. Pokazaliśmy ci, jak dodać niestandardowe trasy w tabeli tras w pliku Global.asax, który reprezentuje wpisy w blogu. Omówiliśmy sposób mapowania żądania dotyczące wpisów w blogu o nazwie ArchiveController kontrolera i akcji kontrolera, o nazwie Entry().
 
 > [!div class="step-by-step"]
 > [Poprzednie](asp-net-mvc-controller-overview-vb.md)

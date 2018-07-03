@@ -1,6 +1,6 @@
 ---
 uid: single-page-application/overview/templates/backbonejs-template
-title: Szablon szkieletu | Dokumentacja firmy Microsoft
+title: Szablon backbone | Dokumentacja firmy Microsoft
 author: madskristensen
 description: Backbone.js SPA szablonu
 ms.author: aspnetcontent
@@ -9,46 +9,45 @@ ms.date: 04/04/2013
 ms.topic: article
 ms.assetid: 00aca413-f067-4108-9bd1-cf21e64a2646
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/backbonejs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 3b8eabd3cefcb96dc40bbf6cc6e3ee81accb0d7c
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 641e149155fbee2655024bec3b76dce5243e7d59
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "26566309"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362508"
 ---
-<a name="backbone-template"></a>Szablon sieci szkieletowej
+<a name="backbone-template"></a>Szablon backbone
 ====================
-przez [Mads Kristensen](https://github.com/madskristensen)
+przez [: Mads Kristensen](https://github.com/madskristensen)
 
-> Szablon SPA szkieletu zapisał Kazi Manzur Rashid
+> Szablon Backbone w SPA został napisany przez Kazi Manzur Rashid
 > 
 > [Pobierz szablon SPA Backbone.js](https://go.microsoft.com/fwlink/?LinkId=293631)
 
 
-Szablon Backbone.js SPA zaprojektowano ułatwiających rozpoczęcie pracy szybkie opracowywanie aplikacji sieci web po stronie klienta interactive przy użyciu [Backbone.js.](http://backbonejs.org/)
+Szablon Backbone.js SPA jest przeznaczony do ułatwiające rozpoczęcie pracy szybkiego tworzenia aplikacji sieci web interactive po stronie klienta przy użyciu [Backbone.js.](http://backbonejs.org/)
 
-Szablon zapewnia początkowej szkielet opracowanie aplikacji Backbone.js na platformie ASP.NET MVC. Poza pole zawiera funkcję logowania użytkownika podstawowego, tym resetowania hasła rejestrację, logowanie, użytkownika i potwierdzenie przez użytkownika z szablonami podstawowe wiadomości e-mail.
+Szablon zawiera szkielet początkowy do tworzenia aplikacji w języku Backbone.js we wzorcu ASP.NET MVC. Gotowych zapewnia funkcje logowania użytkowników w warstwie podstawowa, w tym, resetowanie hasła tworzenia nowych kont i logowania użytkownika i potwierdzenie przez użytkownika za pomocą szablonów podstawowy adres e-mail.
 
 Wymagania:
 
-- [Aktualizacja programu ASP.NET i 2012.2 narzędzi sieci Web](https://go.microsoft.com/fwlink/?LinkId=282650)
+- [Aktualizacja programu ASP.NET i Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650)
 
-## <a name="create-a-backbone-template-project"></a>Tworzenie szablonu projektu sieci szkieletowej
+## <a name="create-a-backbone-template-project"></a>Tworzenie projektu sieci szkieletowej szablonu
 
-Pobierz i zainstaluj szablonu, klikając przycisk Pobierz powyżej. Szablon jest dostarczana jako plik rozszerzenia serwera Visual Studio (VSIX). Może być konieczne ponowne uruchomienie programu Visual Studio.
+Pobierz i zainstaluj szablon, klikając przycisk Pobierz powyżej. Szablon jest spakowany jako plik programu Visual Studio rozszerzenia (VSIX). Może być konieczne ponowne uruchomienie programu Visual Studio.
 
-W **szablony** okienku wybierz **zainstalowane szablony** i rozwiń **Visual C#** węzła. W obszarze **Visual C#**, wybierz pozycję **Web**. Na liście szablony projektów, wybierz **aplikacji sieci Web programu ASP.NET MVC 4**. Nazwij projekt i kliknij przycisk **OK**.
+W **szablony** okienku wybierz **zainstalowane szablony** i rozwiń **Visual C#** węzła. W obszarze **Visual C#**, wybierz opcję **Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web programu ASP.NET MVC 4**. Nadaj projektowi nazwę, a następnie kliknij przycisk **OK**.
 
 ![](backbonejs-template/_static/image1.png)
 
-W **nowy projekt** kreatora, wybierz projekt JEDNOSTRONICOWEJ Backbone.js.
+W **nowy projekt** kreatora, wybierz projekt SPA Backbone.js.
 
 ![](backbonejs-template/_static/image2.png)
 
-Naciśnij klawisze Ctrl-F5, aby skompilować i uruchomić aplikację bez debugowania, lub naciśnij klawisz F5, aby uruchomić z debugowaniem.
+Naciśnij kombinację klawiszy Ctrl-F5, aby skompilować i uruchomić aplikację bez debugowania lub naciśnij klawisz F5, aby uruchomić debugowanie.
 
 ![](backbonejs-template/_static/image3.png)
 
@@ -56,57 +55,57 @@ Klikając przycisk "Moje konto" powoduje wyświetlenie strony logowania:
 
 ![](backbonejs-template/_static/image4.png)
 
-## <a name="walkthrough-client-code"></a>Wskazówki: Kodu klienta
+## <a name="walkthrough-client-code"></a>Wskazówki: Kod klienta
 
-Załóżmy rozpoczyna się po stronie klienta. Skrypty aplikacji klienta znajdują się w folderze ~/Scripts/application. Aplikacja została napisana [TypeScript](http://www.typescriptlang.org/) (pliki TS) kompilowane na język JavaScript (js plików).
+Spróbujmy zaczyna się po stronie klienta. Skrypty aplikacji klienta znajdują się w folderze ~/Scripts/application. Aplikacja została napisana [TypeScript](http://www.typescriptlang.org/) (plików TS) które są kompilowane do kodu JavaScript (js plików).
 
 **Aplikacja**
 
-`Application` jest zdefiniowany w application.ts. Ten obiekt inicjuje aplikacji i działa jako głównej przestrzeni nazw. Przechowuje informacje konfiguracji i stanie, który jest współużytkowany przez aplikację, takie jak określa, czy użytkownik jest zalogowany.
+`Application` jest zdefiniowany w application.ts. Ten obiekt jest inicjowany aplikacji i działa jako głównej przestrzeni nazw. Utrzymuje informacje konfigurację i stan, który jest współużytkowany przez aplikację, takie jak tego, czy użytkownik jest zalogowany.
 
-`application.start` Metoda tworzy modalne widoków i dołącza programy obsługi zdarzeń dla zdarzenia na poziomie aplikacji, takich jak logowanie użytkowników. Następnie tworzy routera domyślnego i sprawdza, czy określono dowolny adres URL po stronie klienta. Jeśli nie, przekierowuje do domyślnego adresu url (#! /).
+`application.start` Metoda tworzy modalne widoków i dołącza obsługę zdarzeń dla zdarzeń na poziomie aplikacji, takich jak logowanie użytkownika. Następnie tworzy domyślny routera i sprawdza, czy określono dowolnego adresu URL po stronie klienta. Jeśli nie, zostanie przekierowany do domyślnego adresu url (#! /).
 
 **Zdarzenia**
 
-Zdarzenia są zawsze ważne podczas opracowywania luźno powiązane składniki. Aplikacje często wykonywać wiele operacji w odpowiedzi na akcję użytkownika. Szkielet zawiera wbudowane zdarzenia ze składnikami modelu, kolekcji i widoku. Zamiast tworzyć między zależności między tymi składnikami, szablon wykorzystuje model "pub/sub": `events` obiekt zdefiniowany w events.ts, pełni funkcję Centrum zdarzeń do publikowania i subskrybowanie zdarzeń aplikacji. `events` Obiektu jest klasą pojedynczą. Poniższy kod przedstawia sposób subskrybować zdarzenia, a następnie wyzwala zdarzenia:
+Zdarzenia są istotne zawsze w przypadku, gdy tworzenie luźno sprzężonymi składnikami. Aplikacje często wykonują wiele operacji w odpowiedzi na akcję użytkownika. Sieci szkieletowej udostępnia wbudowane zdarzeń za pomocą składników, takich jak Model, kolekcji i widoku. Zamiast tworzyć wzajemnych zależności między tymi składnikami, ten szablon korzysta z modelu "pub/sub": `events` zdefiniowanego w events.ts, obiektu pełniącego funkcję Centrum zdarzeń do publikowania i subskrybowania zdarzenia aplikacji. `events` Obiektu jest klasą pojedynczą. Poniższy kod pokazuje, jak subskrybować zdarzenie, a następnie wyzwalacz zdarzenia:
 
 [!code-csharp[Main](backbonejs-template/samples/sample1.cs)]
 
 **Router**
 
-W Backbone.js router zapewnia metody routingu strony po stronie klienta oraz łącząc je do działań i zdarzeń. Szablon definiuje jednym routerem router.ts. Router tworzy activable widoki i przechowuje informacje o stanie podczas przełączania widoków. (Activable widoki są opisane w następnej sekcji). Początkowo projekt zawiera dwa widoki fikcyjny, macierzystego i informacje o. Ma również widoku NotFound, która jest wyświetlana, jeśli trasa jest nieznana.
+W Backbone.js router zapewnia metody routingu stron po stronie klienta i łącząc je w celu działaniach i zdarzeniach. Szablon definiuje pojedynczego routera router.ts. Router activable widoków tworzy i przechowuje informacje o stanie podczas przełączania widoków. (Activable widoki są opisane w następnej sekcji). Początkowo projekt ma dwa widoki fikcyjnego, głównego i wkrótce. Ponadto wprowadzono widoku NotFound jest wyświetlana, jeśli trasa jest nieznany.
 
 **Widoki**
 
-Widoki są definiowane w ~/Scripts/application/widoków. Istnieją dwa rodzaje widoków, activable widoki i modalnego okna dialogowego. Widoki activable są wywoływane przez router. Widok activable jest wyświetlany, wszystkie widoki activable stają się nieaktywne. Aby utworzyć widok activable, rozszerzanie widoku z `Activable` obiektu:
+Widoki są definiowane w ~/Scripts/application/widoków. Istnieją dwa rodzaje widoków, activable widoków i modalne okno dialogowe. Widoki activable są wywoływane przez router. Widok activable jest wyświetlany, inne widoki activable stają się nieaktywne. Aby utworzyć widok activable, rozszerzyć widok z `Activable` obiektu:
 
 [!code-javascript[Main](backbonejs-template/samples/sample2.js)]
 
-Rozszerzanie z `Activable` dodaje dwie nowe metody do widoku, `activate` i `deactivate`. Router wywołania tych metod, aby aktywować i zdezaktywować widoku.
+Rozszerzanie za pomocą `Activable` dodaje dwie nowe metody w widoku `activate` i `deactivate`. Router wywołuje te metody aktywacji i zdezaktywować się widoku.
 
-Modalne widoki są zaimplementowane jako [Twitter Bootstrap](http://twitter.github.com/bootstrap/) modalne okna dialogowe. `Membership` i `Profile` widoki są modalne widoków. Widoki modelu może być wywoływany przez zdarzeń aplikacji. Na przykład w `Navigation` przedstawia widok, klikając łącze "Moje konto", albo `Membership` widoku lub `Profile` widok, w zależności od tego, czy użytkownik jest zalogowany. `Navigation` Dołącza kliknięcie uchwytów zdarzeń, aby wszystkie elementy podrzędne, które mają `data-command` atrybutu. Oto kod znaczników HTML:
+Modalne widoki są implementowane jako [Twitter Bootstrap](http://twitter.github.com/bootstrap/) modalne okna dialogowe. `Membership` i `Profile` widoki są modalne widoków. Widoki modelu może być wywoływany przez zdarzenia z dowolnej aplikacji. Na przykład w `Navigation` widoku, klikając link "Moje konto" przedstawia albo `Membership` widoku lub `Profile` widok, w zależności od tego, czy użytkownik jest zalogowany. `Navigation` Dołącza kliknij obsługi zdarzeń, aby wszystkie elementy podrzędne, które mają `data-command` atrybutu. Poniżej przedstawiono kod znaczników HTML:
 
 [!code-html[Main](backbonejs-template/samples/sample3.html)]
 
-Oto kod w navigation.ts do podpinanie zdarzeń:
+Oto kod w navigation.ts do podłączania zdarzeń:
 
 [!code-csharp[Main](backbonejs-template/samples/sample4.cs)]
 
 **Modele**
 
-Modele są definiowane w ~/Scripts/application/modeli. Wszystkie modele ma trzy podstawowe czynności: domyślne atrybuty, reguły sprawdzania poprawności i punkt końcowy po stronie serwera. Oto typowy przykład:
+Modele są definiowane w ~/Scripts/application/modeli. Wszystkie modele ma trzy podstawowe czynności: domyślne atrybuty, reguł sprawdzania poprawności i punkt końcowy po stronie serwera. Oto typowy przykład:
 
 [!code-javascript[Main](backbonejs-template/samples/sample5.js)]
 
 **Dodatki plug-in**
 
-~/Scripts/application/lib folder zawiera kilka wtyczek przydatną jQuery. Plik form.ts definiuje wtyczki do pracy z danymi formularza. Często potrzebne do serializacji lub deserializacji danych formularza i Pokaż wszystkie błędy weryfikacji modelu. Wtyczka form.ts ma metody `serializeFields`, `deserializeFields`, i `showFieldErrors`. Poniższy przykład pokazuje, jak do formularza z modelem serializacji.
+~/Scripts/application/lib folder zawiera kilka wtyczek jQuery pod ręką. Plik form.ts definiuje dodatku typu plug-in do pracy z danymi formularza. Często potrzebne do serializacji lub deserializacji danych formularza i wyświetlane ewentualne błędy sprawdzania poprawności modelu. Wtyczka form.ts zawiera metody, takie jak `serializeFields`, `deserializeFields`, i `showFieldErrors`. Poniższy przykład pokazuje, jak do serializacji formularza z modelem.
 
 [!code-javascript[Main](backbonejs-template/samples/sample6.js)]
 
-Wtyczka flashbar.ts daje różne rodzaje opinii dla użytkownika. Metody są `$.showSuccessbar`, `$.showErrorbar` i `$.showInfobar`. W tle używa Twitter Bootstrap alertów do wyświetlenia wiadomości dobrze animowany.
+Wtyczka flashbar.ts zapewnia różne rodzaje komunikatów zwrotnych do użytkownika. Metody są `$.showSuccessbar`, `$.showErrorbar` i `$.showInfobar`. W tle używa Twitter Bootstrap alertów do wyświetlenia wiadomości dobrze animowany.
 
-Wtyczka confirm.ts zastępuje przeglądarki potwierdzić okna dialogowego, chociaż jest nieco inny interfejs API:
+Wtyczka confirm.ts zastępuje przeglądarkę okna dialogowego, upewnij się, chociaż interfejs API jest nieco inne:
 
 [!code-javascript[Main](backbonejs-template/samples/sample7.js)]
 
@@ -116,24 +115,24 @@ Teraz Przyjrzyjmy się po stronie serwera.
 
 **Kontrolery**
 
-W aplikacji jednej strony serwera odgrywa małych roli w interfejsie użytkownika. Zwykle serwer renderuje stronę początkową, a następnie wysyła i odbiera dane JSON.
+W aplikacji jednostronicowej serwera odgrywa małych roli w interfejsie użytkownika. Zwykle serwer renderuje stronę początkową a następnie wysyła i odbiera dane JSON.
 
-Szablon ma dwa kontrolerów MVC: `HomeController` renderuje stronę początkową i `SupportsController` służy do potwierdzenia nowych kont użytkowników i resetowania haseł. Wszystkie kontrolery w szablonie są kontrolery interfejsu API sieci Web platformy ASP.NET, które wysyłać i odbierać dane JSON. Domyślnie kontrolery korzystać z nowych `WebSecurity` klasy do wykonywania zadań związanych z użytkownika. Jednak również mają konstruktorów opcjonalne, które umożliwiają przekazywanie w delegatach do wykonywania tych zadań. To ułatwia testowanie i umożliwia wymianę `WebSecurity` na inny, korzystając z kontenera IoC. Oto przykład:
+Szablon zawiera dwa kontrolerów MVC: `HomeController` renderuje stronę początkową i `SupportsController` służy do potwierdzenia nowych kont użytkowników i resetowania haseł. Innych kontrolerów w szablonie są kontrolery ASP.NET Web API, które wysyłać i odbierać dane JSON. Domyślnie, korzystać z nowych kontrolerów `WebSecurity` klasy, aby wykonywać zadania związane z użytkownikiem. Jednak mają także opcjonalne konstruktorów, które umożliwiają przekazywanie w delegatach do wykonywania tych zadań. To ułatwia testowanie i pozwala zastąpić `WebSecurity` z czymś innym, za pomocą kontenera IoC. Oto przykład:
 
 [!code-csharp[Main](backbonejs-template/samples/sample8.cs)]
 
 ## <a name="views"></a>Widoki
 
-Widoki są zaprojektowane jako moduły: każda sekcja strony ma własne dedykowane widoku. W aplikacji jednej strony jest często zawierają widoki, które nie mają żadnych odpowiedniego kontrolera. Widok może zawierać przez wywołanie metody `@Html.Partial('myView')`, ale to pobiera nużące. Aby ułatwić, szablon definiuje metodę pomocniczą, `IncludeClientViews`, który renderuje wszystkie widoki w określonym folderze:
+Widoki są przeznaczone do moduły: każda sekcja strony ma swój własny dedykowany widoku. W aplikacji jednostronicowej jest często zawierają widoki, które nie mają żadnego odpowiedniego kontrolera. Może zawierać widok, wywołując `@Html.Partial('myView')`, ale spowoduje pobranie żmudnym. Aby to ułatwić, szablon definiuje metodę Pomocnika `IncludeClientViews`, który powoduje wyświetlenie wszystkich widoków w określonym folderze:
 
 [!code-cshtml[Main](backbonejs-template/samples/sample9.cshtml)]
 
-Jeśli nie określono nazwy folderu, domyślna nazwa folderu jest "ClientViews". Jeśli widok klienta używa także widoki częściowe, nazwę widoku częściowego się od znaku podkreślenia (na przykład `_SignUp`). `IncludeClientViews` — Metoda nie obejmuje żadnych widoków, których nazwa rozpoczyna się od znaku podkreślenia. Aby uwzględnić widoku częściowego w widoku klienta, należy wywołać `Html.ClientView('SignUp')` zamiast `Html.Partial('_SignUp')`.
+Jeśli nie określono nazwy folderu, domyślna nazwa folderu jest "ClientViews". Jeśli widok klienta używa także widoki częściowe, nazwę widoku częściowego się od znaku podkreślenia (na przykład `_SignUp`). `IncludeClientViews` Metoda nie obejmuje żadnych widoków, których nazwa rozpoczyna się od znaku podkreślenia. Aby uwzględnić widoku częściowego w widoku klienta, należy wywołać `Html.ClientView('SignUp')` zamiast `Html.Partial('_SignUp')`.
 
 **Wysyłanie wiadomości E-mail**
 
-Aby wysłać wiadomość e-mail, używa szablonu [pocztowych](http://aboutcode.net/postal). Jednak pocztowych jest pobieranej z resztą kodu przy użyciu `IMailer` interfejsu, dlatego łatwo można zastąpić go z implementacją innego. Szablony wiadomości e-mail znajdują się w folderze widoki lub wiadomości E-mail. Adres e-mail nadawcy jest określony w pliku web.config w `sender.email` klucza z **appSettings** sekcji. Ponadto, kiedy `debug="true"` w pliku web.config, aplikacja nie wymaga potwierdzenie adresu e-mail użytkownika, aby przyspieszyć programowanie.
+Aby wysłać wiadomość e-mail, są używane w szablonie [pocztowych](http://aboutcode.net/postal). Jednak pocztowych jest wyodrębniony od pozostałej części kodu za pomocą `IMailer` interfejsu, dzięki czemu można łatwo zastąpić go inną implementację. Szablony wiadomości e-mail znajdują się w folderze widoków lub wiadomości E-mail. Adres e-mail nadawcy jest określona w pliku web.config w `sender.email` klucz **appSettings** sekcji. Również gdy `debug="true"` w pliku web.config, aplikacja nie wymaga potwierdzenie adresu e-mail użytkownika, aby przyspieszyć programowanie.
 
 ## <a name="github"></a>GitHub
 
-Możesz również znaleźć szablonu Backbone.js SPA na [GitHub](https://github.com/kazimanzurrashid/AspNetMvcBackboneJsSpa).
+Możesz również znaleźć szablon Backbone.js SPA na [GitHub](https://github.com/kazimanzurrashid/AspNetMvcBackboneJsSpa).
