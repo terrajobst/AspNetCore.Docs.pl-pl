@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-mobile/cdnjquerymobile142
-title: jQuery Mobile 1.4.2 w sieci Microsoft Ajax CDN | Dokumentacja firmy Microsoft
+title: jQuery Mobile 1.4.2 w usłudze Microsoft Ajax CDN | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,19 +9,18 @@ ms.date: 07/23/2014
 ms.topic: article
 ms.assetid: cf0c0d88-33b1-465c-a7f7-7928cacac9fa
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile142
 msc.type: content
-ms.openlocfilehash: 9d88c6c6a493e41cb0a5d369a34993318abbce25
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ec58006254f821b437084f665002b3bfecef64bf
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072000"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37396737"
 ---
-<a name="jquery-mobile-142-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="796dc-102">jQuery Mobile 1.4.2 w sieci Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="796dc-102">jQuery Mobile 1.4.2 on the Microsoft Ajax CDN</span></span>
+<a name="jquery-mobile-142-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="cc4d1-102">jQuery Mobile 1.4.2 w usłudze Microsoft Ajax CDN</span><span class="sxs-lookup"><span data-stu-id="cc4d1-102">jQuery Mobile 1.4.2 on the Microsoft Ajax CDN</span></span>
 ====================
-<span data-ttu-id="796dc-103">Bibliotece jQuery Mobile 1.4.2 zawiera następujące pliki:</span><span class="sxs-lookup"><span data-stu-id="796dc-103">The jQuery Mobile 1.4.2 library includes the following files:</span></span>
+<span data-ttu-id="cc4d1-103">Biblioteka jQuery Mobile 1.4.2 zawiera następujące pliki:</span><span class="sxs-lookup"><span data-stu-id="cc4d1-103">The jQuery Mobile 1.4.2 library includes the following files:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.4.2/jquery.mobile.structure-1.4.2.css
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css
