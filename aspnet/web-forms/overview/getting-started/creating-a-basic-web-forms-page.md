@@ -13,7 +13,7 @@ msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-pa
 msc.type: authoredcontent
 ms.openlocfilehash: c2051b166b8800654a107c5100ad5ed94af93407
 ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 07/03/2018
 ms.locfileid: "37394456"
