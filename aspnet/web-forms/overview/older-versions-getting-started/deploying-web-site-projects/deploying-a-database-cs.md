@@ -1,111 +1,110 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
-title: Wdrożenie bazy danych (C#) | Dokumentacja firmy Microsoft
+title: Wdrażanie bazy danych (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Wdrażanie aplikacji sieci web ASP.NET wymaga pobieranie niezbędnych plików i zasobów z Środowisko deweloperskie do środowiska produkcyjnego. Dla da...
+description: Wdrażanie aplikacji sieci web ASP.NET pociąga za sobą pobieranie niezbędnych plików i zasobów środowiska programowania do środowiska produkcyjnego. Dla aplikacji rozproszonej...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
 ms.topic: article
 ms.assetid: ff537a10-9f1f-43fe-9bcb-3dda161ba8f5
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 203bf64da887f31e5f0727fc57173d6a573095da
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fe85e583618cbab772c788f9a53509000aa415c5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30888029"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37386540"
 ---
-<a name="deploying-a-database-c"></a>Wdrożenie bazy danych (C#)
+<a name="deploying-a-database-c"></a>Wdrażanie bazy danych (C#)
 ====================
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
-[Pobierz kod](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_07_CS.zip) lub [pobierania plików PDF](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial07_DeployDB_cs.pdf)
+[Pobierz program Code](http://download.microsoft.com/download/E/6/F/E6FE3A1F-EE3A-4119-989A-33D1A9F6F6DD/ASPNET_Hosting_Tutorial_07_CS.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/C/3/9/C391A649-B357-4A7B-BAA4-48C96871FEA6/aspnet_tutorial07_DeployDB_cs.pdf)
 
-> Wdrażanie aplikacji sieci web ASP.NET wymaga pobieranie niezbędnych plików i zasobów z Środowisko deweloperskie do środowiska produkcyjnego. W aplikacjach opartych na danych sieci web obejmują dane i schemat bazy danych. W tym samouczku jest pierwszy serii, która opisuje kroki niezbędne do pomyślnego wdrożenia bazy danych z Środowisko deweloperskie do środowiska produkcyjnego.
+> Wdrażanie aplikacji sieci web ASP.NET pociąga za sobą pobieranie niezbędnych plików i zasobów środowiska programowania do środowiska produkcyjnego. W przypadku aplikacji sieci web opartej na danych w tym schemat bazy danych i danych. W tym samouczku jest to pierwszy z serii, który pokazuje kroków niezbędnych do pomyślnego wdrożenia bazy danych ze środowiska projektowego w środowisku produkcyjnym.
 
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Wdrażanie aplikacji sieci web ASP.NET wymaga pobieranie niezbędnych plików i zasobów z Środowisko deweloperskie do środowiska produkcyjnego. W ciągu ostatnich sześciu samouczki analizujemy wdrażanie prostej aplikacji sieci web przeglądami książki. Tej lokacji pokaz został obejmuje wiele zasobów po stronie serwera - stron ASP.NET, pliki konfiguracji `Web.sitemap` pliku i tak dalej — wraz z zasobów po stronie klienta, takie jak obrazów i plików CSS. Ale co opartych na danych aplikacji sieci web? Jakie kroki należy do wdrożenia aplikacji sieci web, która korzysta z bazy danych?
+Wdrażanie aplikacji sieci web ASP.NET pociąga za sobą pobieranie niezbędnych plików i zasobów środowiska programowania do środowiska produkcyjnego. W ciągu ostatnich sześciu samouczki zobaczyliśmy, wdrażając prostą aplikację sieci web przeglądy książki. Tej wersji demonstracyjnej witryny zostało obejmuje wiele zasobów po stronie serwera — strony ASP.NET, pliki konfiguracji `Web.sitemap` pliku i tak dalej — wraz z zasobów po stronie klienta, takich jak obrazy i pliki CSS. Ale co opartych na danych aplikacje sieci web? Jakie dodatkowe kroki należy podjąć w taki sposób, aby wdrożyć aplikację sieci web, która korzysta z bazy danych?
 
-W następnym samouczki kilka będzie można rozwiązać kroki niezbędne do wdrożenia aplikacji sieci web opartych na danych. W tym samouczku rozpoczyna badanie sposobu uzyskania schematu s bazy danych i zawartość ze środowiska projektowego do środowiska produkcyjnego, podczas kolejnych samouczek sprawdza zmiany konfiguracji potrzebne. Po, że firma Microsoft będzie Eksploruj wyzwania wdrażania bazy danych, która korzysta z usługi aplikacji (członkostwo, role, profilu i tak dalej).
+Za pośrednictwem dalej kilka samouczków zajmujemy kroki niezbędne do wdrożenia aplikacji sieci web opartej na danych. Ten samouczek rozpoczyna się przez badanie sposobu uzyskania s schemat bazy danych i zawartość ze środowiska projektowego do środowiska produkcyjnego, podczas kolejnych samouczek analizuje zmiany konfiguracji potrzebne. Po pokażemy wyzwaniom wdrażania bazy danych, która korzysta z usług aplikacji (członkostwo, role, profilu i tak dalej).
 
-## <a name="examining-the-updated-book-reviews-web-application"></a>Badanie aplikacji sieci Web przeglądami książki zaktualizowane
+## <a name="examining-the-updated-book-reviews-web-application"></a>Badanie aplikacji sieci Web przeglądy zaktualizowane książki
 
-W celu zaprezentowania wdrażanie aplikacji sieci web opartych na danych, I Zapisz zaktualizowany przeglądami książki aplikacji sieci web z prostego, statycznej witryny sieci Web jednej usługi opartej na danych. Jak wcześniej, istnieją dwie wersje aplikacji, w tym samouczku s pobierania:, który korzysta z modelu projektu aplikacji sieci Web i który korzysta z modelu projekt witryny sieci Web.
+W celu przedstawienia wdrażanie aplikacji sieci web opartej na danych, I Zapisz zaktualizowany przeglądy książki aplikacji sieci web z prostego, statycznej witryny internetowej opartej na danych niż ten, który. Jak poprzednio, istnieją dwie wersje aplikacji, w tym samouczku s: jedną, która używa modelu projektu aplikacji sieci Web i jedną, która używa modelu projektu witryny sieci Web.
 
-Używa aplikacji sieci web zaktualizowane przeglądy książki [programu SQL Server 2008 Express Edition](https://www.microsoft.com/express/sql/default.aspx) bazy danych, który jest przechowywany w witrynie s `App_Data` folder (`~/App_Data/Reviews.mdf`). Jeśli masz zainstalowany na komputerze, a następnie pokaz powinny być uruchamiane bez błędów programu SQL Server 2008. Jeśli masz starszą wersję programu SQL Server można zainstalować wolnego programu SQL Server 2008 Express Edition lub skorzystać z bazy danych, Pobierz skrypty dostępne w tym samouczku s samodzielnie utworzyć bazę danych.
+Zaktualizowano przeglądy książki sieci web używa aplikacji [programu SQL Server 2008 Express Edition](https://www.microsoft.com/express/sql/default.aspx) bazy danych, który jest przechowywany w witrynie s `App_Data` folder (`~/App_Data/Reviews.mdf`). Jeśli masz zainstalowany na komputerze, a następnie wersję demonstracyjną powinny być uruchamiane bez błędów programu SQL Server 2008. Jeśli masz starszą wersję programu SQL Server, można kliknąć przycisk Zainstaluj bezpłatny program SQL Server 2008 Express Edition lub można użyć bazy danych dostępnych w ramach tego samouczka s skryptów pobieranie samodzielnie utworzyć bazę danych.
 
 `Reviews.mdf` Baza danych zawiera cztery tabele:
 
-- `Genres` -zawiera rekord dla każdego rodzaju, takich jak technologię, Fikcja i biznesowych.
-- `Books` -zawiera rekord dla każdego przeglądu z kolumnami, takich jak `Title`, `GenreId`, `ReviewDate`, i `Review`, między innymi.
-- `Authors` — zawiera informacje na temat każdego Autor, który przyczynił się je przejrzeć książce.
-- `BooksAuthors` -tabeli sprzężenia wiele do wielu, która określa, jakie autorów napisano książek.
+- `Genres` -zawiera rekord dla każdego gatunku, takich jak technologia Fikcja i biznesowych.
+- `Books` -zawiera rekord dla każdej recenzji, za pomocą kolumny, takie jak `Title`, `GenreId`, `ReviewDate`, i `Review`, między innymi.
+- `Authors` — zawiera informacje na temat każdego autora, który przyczynił się do przeglądu książki.
+- `BooksAuthors` -tabelę sprzężenia wiele do wielu, która określa, jakie autorzy zostały napisane książek.
   
 
-Rysunek 1 zawiera diagram ER z tych czterech tabel.
+Rysunek 1 zawiera diagram ER te cztery tabele.
 
 
-[![S aplikacji sieci Web przeglądami książki bazy danych jest składającej się z czterech tabel](deploying-a-database-cs/_static/image2.jpg)](deploying-a-database-cs/_static/image1.jpg) 
+[![S aplikacji sieci Web przeglądy książki bazy danych jest składa się z czterech tabel](deploying-a-database-cs/_static/image2.jpg)](deploying-a-database-cs/_static/image1.jpg) 
 
-**Rysunek 1**: aplikacja sieci Web przeglądami książki s bazy danych jest składającej się z czterech tabel ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image3.jpg))
-
-
-Poprzedniej wersji witryny sieci Web, książki przeglądami ma osobnej stronie ASP.NET dla każdej księgi. Na przykład znaleziono strony o nazwie `~/Tech/TYASP35.aspx` który zawiera przegląd *nauczyć się ASP.NET 3.5 w ciągu 24 godzin*. Nowa wersja opartych na danych witryny sieci Web ma przeglądy przechowywane w bazie danych i jednej strony ASP.NET Review.aspx?ID=*bookId*, który zawiera przegląd książki określony. Ponadto istnieje Genre.aspx?ID=*genreId* strony zawierającej listę je przejrzeć książek określonego rodzaju.
-
-Dane 2 i 3 Pokaż `Genre.aspx` i `Review.aspx` stron w akcji. Zanotuj adres URL na pasku adresu dla każdej strony. W rysunku 2 it s Genre.aspx? ID = c 85d164ba-1123-4 47-82a0-c8ec75de7e0e. Ponieważ jest 85d164ba-1123-4c47-82a0-c8ec75de7e0e `GenreId` wartość genre technologii i odczytuje nagłówek strony s "Technologii monitoruje" Lista punktowana wylicza przeglądy w lokacji, które są objęte tego rodzaju.
+**Rysunek 1**: aplikacja sieci Web przeglądy książki bazy danych jest składa się z czterech tabel ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image3.jpg))
 
 
-[![Strona Genre technologii](deploying-a-database-cs/_static/image5.jpg)](deploying-a-database-cs/_static/image4.jpg) 
+Poprzedniej wersji witryny sieci Web, książki, przeglądy ma osobnej strony ASP.NET dla każdej książki. Na przykład podczas stronę o nazwie `~/Tech/TYASP35.aspx` znajdujących się przegląd dla *uczyć się ASP.NET 3.5 w ciągu 24 godzin*. Nowa wersja opartych na danych w witrynie sieci Web ma przeglądy przechowywanych w bazie danych i jednej strony ASP.NET Review.aspx?ID=*bookId*, który zawiera przegląd dla określonej książki. Podobnie, brak Genre.aspx?ID=*genreId* strony zawierającej listę przeglądu książki określonego rodzaju.
 
-**Rysunek 2**: na stronie Genre technologii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image6.jpg))
-
-
-[![Przegląd nauczyć się ASP.NET 3.5 w 24 godzin](deploying-a-database-cs/_static/image8.jpg)](deploying-a-database-cs/_static/image7.jpg) 
-
-**Rysunek 3**: Przegląd *nauczyć się ASP.NET 3.5 w ciągu 24 godzin* ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image9.jpg))
+Dane 2 i 3 show `Genre.aspx` i `Review.aspx` stron w działaniu. Zanotuj adres URL na pasku adresu dla każdej strony. W elemencie rysunek 2 it s Genre.aspx? ID = c 85d164ba 1123 4 47-82a0-c8ec75de7e0e. Ponieważ 85d164ba-1123-4c47-82a0-c8ec75de7e0e `GenreId` wartość gatunku technologii i odczytuje nagłówek strony s "Technologii przeglądy" listy punktowanej wylicza przeglądy w witrynie, mieszczące się w ramach tego gatunku.
 
 
-Aplikacja sieci web sprawdza książki także sekcji Administracja, w którym administratorzy mogą dodawać, edytować i Usuń genres, recenzje i tworzyć informacji. Obecnie każdy obiekt odwiedzający mogą uzyskać dostęp do sekcji administracji. W samouczku przyszłych możemy dodać obsługę kont użytkowników i tylko zezwala autoryzowanym użytkownikom do stron administracyjnych.
+[![Na stronie gatunku technologii](deploying-a-database-cs/_static/image5.jpg)](deploying-a-database-cs/_static/image4.jpg) 
 
-Jeśli możesz pobrać aplikację przeglądami książki należy należy pamiętać, że jej celem jest, aby zademonstrować, wdrażanie aplikacji opartych na danych. Nie wykazuje najlepszych rozwiązań, o ile jest to projekt aplikacji. Na przykład istnieje nie oddzielnego danych Access warstwy (DAL); strony ASP.NET komunikują się bezpośrednio z bazą danych za pomocą formantu SqlDataSource lub kod ADO.NET w ich klasy związane z kodem. Więcej informacji na temat tworzenia aplikacji opartych na danych przy użyciu architektury warstwowych przeglądać, można znaleźć w mojej [ *Praca z danymi* samouczki](../../data-access/index.md).
-
-## <a name="databases-on-development-versus-production"></a>Bazy danych na programowanie i produkcji
-
-Po uruchomieniu Programowanie w aplikacji sieci web opartych na danych należy określić ciąg połączenia bazy danych, który udostępnia aplikacji szczegółowe informacje na temat połączenia z bazą danych. Określa parametry połączenia, między innymi, serwera bazy danych, nazwy bazy danych i informacji o zabezpieczeniach. Najczęściej używane przez aplikację podczas tworzenia bazy danych jest inny niż bazy danych używane podczas jego s w środowisku produkcyjnym. Istnieje wiele zalet używanie różnych baz danych do tworzenia i produkcji. ADAM t o innej bazy danych w sposób programowanie trzeba się martwić o przypadkowo modyfikacja lub usunięcie danych na żywo. Umożliwia również umieścić w danych testowych zastępczego lub wprowadzić przełomowe zmiany do modelu danych, nie martwiąc się o skutki dla aplikacji w środowisku produkcyjnym. Wadą interfejsu o innej bazy danych w środowisku projektowania i produkcji, gdy aplikacja jest wdrożona bazy danych i wszelkie istotne zmiany do schematu bazy danych s lub danych musi być także wdrożony.
-
-Przed ich pierwszym wdrożeniu istnieje tylko jedno wystąpienie bazy danych, a to wystąpienie jest w środowisku programistycznym. W przypadku wdrażania aplikacji w środowisku produkcyjnym po raz pierwszy został muszą nie tylko skopiować się niezbędne pliki po stronie serwera i klienta, ale również skopiować bazę danych ze środowiska projektowego do środowiska produkcyjnego. Jest to, gdzie możemy autonomiczna prawo teraz z aplikacji sieci web przeglądami Book - bazy danych znajdują się w `App_Data` folder w naszym środowisku programistycznym nie ma jednak jeszcze został naciśnięty do środowiska produkcyjnego.
-
-Po wdrożeniu aplikacji istnieją dwie kopie bazy danych. Miarę rozwoju aplikacji, można dodać nowe funkcje, wymagających zmiany do modelu danych (takich jak dodawanie nowej kolumny do istniejących tabel, wprowadzania zmian do istniejących kolumn, dodając nowe tabele i tak dalej). Gdy obok wdrożonej aplikacji sieci web, zmiany zastosowane do bazy danych w środowisku programistycznym od czasu ostatniego wdrożenia należy zastosować w produkcyjnej bazie danych. W przyszłych samouczek omówiono kilka strategii zarządzania tego procesu. Ten samouczek koncentruje się na temat wdrażania całą bazę danych ze środowiska projektowego do środowiska produkcyjnego.
-
-## <a name="deploying-the-database-to-the-production-environment"></a>Wdrożenie bazy danych do środowiska produkcyjnego
-
-W pozostałej części tego samouczka analizuje sposobu wdrażania bazy danych z Środowisko deweloperskie do środowiska produkcyjnego. Jeśli wykonujesz wzdłuż możesz należy się upewnić, że Twoje konto u dostawcy usługi hosta sieci web zawiera programu Microsoft SQL Server baza danych obsługuje. Należy również mieć pewne informacje, a mianowicie nazwa serwera bazy danych, nazwy bazy danych oraz nazwy użytkownika i hasło używane do łączenia z bazą danych.
-
-Jak wspomniano wcześniej w tym samouczku, bazy danych witryny sieci Web s przeglądami książki jest przechowywane w bazie danych programu SQL Server 2008 Express Edition `App_Data` folderu. Będzie znajdować się na przyczyny, że wdrożenie bazy danych jest tak proste, jak kopiowanie `App_Data` folderu środowiska programowania do środowiska produkcyjnego. Jednak większość dostawców usług hosta sieci web nie obsługuje hostingu baz danych w `App_Data` folderu z powodu ze względów bezpieczeństwa. Zamiast tego hosty sieci web podać konto, na serwerze bazy danych programu SQL Server w ich środowisku. Wdrożenie bazy danych z środowiska deweloperskiego do środowiska produkcyjnego wymaga bazy danych zarejestrowany na serwerze sieci web hosta s bazy danych.
-
-W jaki sposób otrzymujesz bazy danych ze środowiska projektowego do środowiska produkcyjnego? Istnieje kilka sposobów, aby to zrobić, w zależności od tego, jakie usług oferty hosta sieci web. Z niektóre hosty, na przykład DiscountASP.NET, można FTP kopii zapasowej bazy danych lub rzeczywiste `.mdf` plików do witryny sieci Web, a następnie z poziomu Panelu sterowania, Przywróć plik kopii zapasowej lub Dołącz `.mdf` pliku na serwerze bazy danych programu SQL Server. Z tych narzędzi wdrażania bazy danych jest tak proste, jak kopiowanie `App_Data` folderu w środowisku produkcyjnym i dołączenie go za pomocą Panelu sterowania. Jest to prawdopodobnie najłatwiejszy i najszybszy sposób publikowania bazy danych po raz pierwszy.
-
-Innym rozwiązaniem jest użycie Kreatora publikowania bazy danych. Kreator publikowania bazy danych jest generowany poleceń SQL, aby utworzyć schemat s bazy danych — tabele, procedury składowane, widoki, funkcje zdefiniowane przez użytkownika i tak dalej - i, opcjonalnie, dane w tabelach jego aplikacji pulpitu systemu Windows. Można następnie połączenie z serwerem sieci web hosta dostawcy s bazy danych za pomocą programu SQL Server Management Studio, a następnie wykonaj tego skryptu, które mają zostać zduplikowane bazy danych w środowisku produkcyjnym. Jeszcze bardziej poprawić jakość, jeśli dostawca hosta sieci web obsługuje Microsoft s [usługi publikowania bazy danych](http://www.codeplex.com/sqlhost/Wiki/View.aspx?title=Database%20Publishing%20Services&amp;referringTitle=Home) może mieć skryptu generowane przez Kreatora publikowania bazy danych, automatycznie są wykonywane na serwerze bazy danych w Twoim imieniu. Ponieważ Kreator publikowania bazy danych generuje skrypt, który tworzy danych i schemat bazy danych s, będzie ona działać niezależnie od tego, czy dostawcy usługi hosta sieci web udostępnia funkcje, takie jak dołączanie przekazane `.mdf` pliku.
-
-### <a name="generating-the-sql-commands-to-create-the-database-schema-and-data-using-the-database-publishing-wizard"></a>Generowanie poleceń SQL, aby utworzyć schemat bazy danych i danych za pomocą Kreatora publikacji bazy danych
-
-Let s przeprowadzenie wdrażania przeglądami książki bazy danych w środowisku produkcyjnym za pomocą Kreatora publikowania bazy danych. Jeśli używasz programu Visual Studio 2008 lub poza Kreator publikowania bazy danych jest już zainstalowana. Jeśli używasz programu Visual Studio 2005, musisz najpierw [Pobierz i zainstaluj](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en) kreatora.
-
-Otwórz program Visual Studio i przejdź do `Reviews.mdf` bazy danych. Jeśli używasz programu Visual Web Developer, przejdź do Eksploratora bazy danych; Jeśli używasz programu Visual Studio, skorzystaj z Eksploratora serwera. Na rysunku 4 przedstawiono `Reviews.mdf` bazy danych w Eksploratorze bazy danych w Visual Web Developer. Jak pokazano na rysunku 4, `Reviews.mdf` bazy danych składa się z czterech tabel, trzech procedur składowanych i funkcji zdefiniowanych przez użytkownika.
+**Rysunek 2**: na stronie gatunku technologii ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image6.jpg))
 
 
-[![Zlokalizuj bazę danych w Eksploratorze bazy danych lub Eksploratora serwera](deploying-a-database-cs/_static/image11.jpg)](deploying-a-database-cs/_static/image10.jpg) 
+[![Przegląd dla prowadzenia ASP.NET 3.5 w 24 godziny](deploying-a-database-cs/_static/image8.jpg)](deploying-a-database-cs/_static/image7.jpg) 
 
-**Rysunek 4**: Zlokalizuj bazę danych w Eksploratorze bazy danych lub Eksploratora serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image12.jpg))
+**Rysunek 3**: Przegląd dla *uczyć się ASP.NET 3.5 w ciągu 24 godzin* ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image9.jpg))
 
 
-Kliknij prawym przyciskiem myszy nazwę bazy danych i wybierz opcję "Publikuj do dostawcy" z menu kontekstowego. Spowoduje to uruchomienie Kreatora publikowania bazy danych (zobacz rysunek 5). Kliknij przycisk Dalej wcześniejszym poza ekranu powitalnego.
+Aplikacja sieci web książki przeglądów zawiera także sekcji Administracja, w którym administratorzy mogą dodawać, edytować i Usuń gatunki, przeglądy i tworzyć informacji. Obecnie wszystkie osoby odwiedzającej można uzyskać dostęp do sekcji Administracja. W przyszłości samouczku utworzymy dodanie obsługi dla kont użytkowników i tylko zezwala autoryzowanym użytkownikom do stron administracji.
+
+Jeśli pobierzesz aplikację przeglądy książki, należy pamiętać, że jego celem jest, aby zademonstrować, wdrażanie aplikacji opartych na danych. Nie jest zauważalna podczas najlepsze rozwiązania z zakresu projektowania aplikacji. Na przykład nie ma żadnych oddzielnych danych dostęp do warstwy (DAL); strony ASP.NET komunikują się bezpośrednio z bazą danych przy użyciu kontrolki SqlDataSource lub kodu ADO.NET w ich klasy CodeBehind. Aby uzyskać bardziej szczegółowe omówienie procesu tworzenia aplikacji opartych na danych, przy użyciu architektury warstwowej, zobacz mój [ *Praca z danymi* samouczki](../../data-access/index.md).
+
+## <a name="databases-on-development-versus-production"></a>Bazy danych na rozwoju i produkcji
+
+Po uruchomieniu rozwoju w aplikacji sieci web opartej na danych, należy określić ciąg połączenia bazy danych, który zawiera szczegóły aplikacji dotyczące sposobu łączenia z bazą danych. Ten ciąg połączeń określa między innymi, serwer bazy danych, nazwę bazy danych oraz informacje o zabezpieczeniach. Najczęściej używanych przez aplikację podczas tworzenia bazy danych jest inny niż bazy danych używane podczas jego s w środowisku produkcyjnym. Ma wiele zalet dla rozwoju i produkcji przy użyciu różnych baz danych. O różnych baz danych w rozwoju oznacza don t musisz martwić się o przypadkowe modyfikowania i usuwania danych na żywo. Umożliwia także umieścić w danych testowych fikcyjnego lub wprowadzić przełomowe zmiany w modelu danych bez konieczności martwienia się o wpływ na tę aplikację w środowisku produkcyjnym. Wadą o innej bazy danych w środowiskach deweloperskich i produkcyjnych jest to, że gdy aplikacja jest wdrożona bazy danych i wszystkie istotne zmiany schematu bazy danych s lub danych musi być także wdrożony.
+
+Przed pierwszym wdrożeniem jest tylko jedno wystąpienie bazy danych, a to wystąpienie znajduje się w środowisku programistycznym. Podczas wdrażania aplikacji w środowisku produkcyjnym po raz pierwszy firma Microsoft musi nie tylko kopiować się niezbędne pliki po stronie serwera i klienta, ale również skopiować bazę danych ze środowiska projektowego w środowisku produkcyjnym. Jest to, gdzie możemy pozostawić odpowiednie teraz z aplikacją sieci web przeglądy książki — baza danych znajduje się w `App_Data` folderu w naszym środowisku programistycznym nie został jednak jeszcze przesunięte w do środowiska produkcyjnego.
+
+Po wdrożeniu aplikacji istnieją dwie kopie bazy danych. Jak dojrzewa aplikacji, można dodać nowe funkcje, przez co konieczna zmiana modelu danych (takich jak dodawanie nowych kolumn do istniejących tabel, wprowadzania zmian w istniejących kolumn, dodając nowe tabele i tak dalej). Gdy następnie wdrożono aplikację sieci web, zmiany zastosowane do bazy danych w środowisku programistycznym od czasu ostatniego wdrożenia muszą być stosowane do produkcyjnej bazy danych. Kilka strategii zarządzania tego procesu są omówione w przyszłości zapoznać się z samouczkiem. Ten samouczek koncentruje się na temat wdrażania całej bazy danych ze środowiska projektowego do środowiska produkcyjnego.
+
+## <a name="deploying-the-database-to-the-production-environment"></a>Wdrażanie bazy danych w środowisku produkcyjnym
+
+W pozostałej części tego samouczka patrzy na sposób wdrażania bazy danych ze środowiska projektowego w środowisku produkcyjnym. Jeśli wykonujesz wzdłuż możesz należy się upewnić, że Twoje konto za pomocą dostawcy hosta sieci web zawiera program Microsoft SQL Server database obsługuje. Należy również mieć pewne informacje, a mianowicie nazwa serwera bazy danych, nazwę bazy danych i nazwę użytkownika i hasło używane do łączenia z bazą danych.
+
+Jak wspomniano wcześniej w tym samouczku, bazy danych witryny sieci Web s przeglądy książki jest przechowywane w bazie danych programu SQL Server 2008 Express Edition `App_Data` folderu. Będzie ona autonomiczna do przyczyny, że wdrażanie bazy danych będzie proste i polega na kopiowaniu `App_Data` folderu ze środowiska projektowego do środowiska produkcyjnego. Jednak większość dostawców usług hosta sieci web nie obsługują hostowania baz danych w `App_Data` folderu z powodów bezpieczeństwa. Zamiast tego hosty sieci web podać konto na serwerze bazy danych programu SQL Server w ich środowisku. Wdrażanie bazy danych w środowisku deweloperskim, do środowiska produkcyjnego wymaga bazy danych zarejestrowany na serwerze sieci web hosta s bazy danych.
+
+W jaki sposób otrzymujesz bazy danych ze środowiska projektowego w środowisku produkcyjnym? Istnieje kilka sposobów, w tym celu w zależności od tego, jakich usług ofert hosta sieci web. Za pomocą niektóre hosty, na przykład DiscountASP.NET, można FTP kopii zapasowej bazy danych lub rzeczywistego `.mdf` plik do witryny sieci Web i następnie w Panelu sterowania, Przywróć plik kopii zapasowej lub dołączyć `.mdf` plików na serwerze bazy danych programu SQL Server. Za pomocą takich narzędzi wdrażania bazy danych jest równie proste jak kopiowanie `App_Data` folder w środowisku produkcyjnym i dołączenie go za pośrednictwem Panelu sterowania. Być może jest to najprostszy i najszybszy sposób Publikuj swoją bazę danych po raz pierwszy.
+
+Innym rozwiązaniem jest użycie Kreatora publikowania bazy danych. Kreator publikowania bazy danych jest Windows aplikacja komputerowa, która spowoduje wygenerowanie polecenia SQL, aby utworzyć schemat bazy danych s - tabele, procedury składowane, widoki, funkcje zdefiniowane przez użytkownika i tak dalej - i, opcjonalnie, dane w jego tabel. Można następnie połączenie z serwerem sieci web hosta dostawcy s bazy danych programu SQL Server Management Studio, a następnie wykonaj ten skrypt, aby zduplikować bazy danych w środowisku produkcyjnym. Jeszcze lepsza, jeśli Twój dostawca hosta sieci web obsługuje Microsoft s [usługi publikowania bazy danych](http://www.codeplex.com/sqlhost/Wiki/View.aspx?title=Database%20Publishing%20Services&amp;referringTitle=Home) może mieć skrypt wygenerowany przez Kreator publikowania bazy danych, automatycznie są wykonywane na serwerze bazy danych w Twoim imieniu. Ponieważ Database Publishing Wizard generuje skrypt, który tworzy bazę danych s schematu i danych, będzie ona działać niezależnie od tego, czy Twój dostawca hosta sieci web oferuje funkcje, takie jak dołączanie przekazanych `.mdf` pliku.
+
+### <a name="generating-the-sql-commands-to-create-the-database-schema-and-data-using-the-database-publishing-wizard"></a>Generowanie poleceń SQL, aby utworzyć schemat bazy danych i danych przy użyciu bazy danych, Kreator publikacji
+
+Pozwól s przeprowadzenie wdrażania bazy danych przeglądy książki w środowisku produkcyjnym za pomocą Kreatora publikowania bazy danych. Jeśli używasz programu Visual Studio 2008 lub nowszych, Kreator publikowania bazy danych jest już zainstalowana. Jeśli używasz programu Visual Studio 2005, wówczas konieczne będzie pierwszy [Pobierz i zainstaluj](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en) kreatora.
+
+Otwórz program Visual Studio i przejdź do `Reviews.mdf` bazy danych. Jeśli używasz Visual Web Developer, przejdź do Eksploratora bazy danych; Jeśli używasz programu Visual Studio, skorzystaj z Eksploratora serwera. Rysunek 4 przedstawia `Reviews.mdf` bazy danych w Eksploratorze bazy danych w Visual Web Developer. Jak pokazano na rysunku 4, `Reviews.mdf` bazy danych składa się z czterech tabel, trzech procedur składowanych i funkcji zdefiniowanych przez użytkownika.
+
+
+[![Zlokalizuj bazę danych w Eksploratorze bazy danych lub w Eksploratorze serwera](deploying-a-database-cs/_static/image11.jpg)](deploying-a-database-cs/_static/image10.jpg) 
+
+**Rysunek 4**: Zlokalizuj bazę danych w Eksploratorze bazy danych lub w Eksploratorze serwera ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image12.jpg))
+
+
+Kliknij prawym przyciskiem myszy nazwę bazy danych, a następnie wybierz opcję "Publikuj do dostawcy" z menu kontekstowego. Spowoduje to uruchomienie Kreatora publikowania bazy danych (zobacz rysunek 5). Kliknij obok wcześniejszym ekran powitalny.
 
 
 [![Ekran powitalny Kreatora publikowania bazy danych](deploying-a-database-cs/_static/image14.jpg)](deploying-a-database-cs/_static/image13.jpg) 
@@ -113,10 +112,10 @@ Kliknij prawym przyciskiem myszy nazwę bazy danych i wybierz opcję "Publikuj d
 **Rysunek 5**: ekran powitalny Kreatora publikowania bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image15.jpg))
 
 
-Drugi ekran Kreatora listy baz danych dostępnych do Kreatora publikowania bazy danych i umożliwia wybranie, czy skrypt wszystkich obiektów w wybranej bazy danych i wybierz obiekty, które do skryptu. Wybierz odpowiednią bazę danych i pozostaw zaznaczoną opcją "Skrypt wszystkie obiekty w wybranej bazy danych".
+Drugi ekran kreatora zawiera listę baz danych dostępne dla Kreatora publikowania bazy danych i umożliwia wybranie, czy wszystkie obiekty w wybranej bazie danych skryptu lub wybrać obiekty, które do skryptu. Wybierz odpowiednią bazę danych i pozostaw zaznaczoną opcją "Skrypt wszystkie obiekty w wybranej bazie danych".
 
 > [!NOTE]
-> Jeśli zostanie wyświetlony błąd "nie ma żadnych obiektów w bazie danych *databaseName* typów skryptowe przez tego kreatora" po kliknięciu przycisku Dalej na ekranie przedstawiono na rysunku 6, upewnij się, że ścieżka do pliku bazy danych nie jest zbyt długa. Wykryto, że tego błędu mogą wystąpić, jeśli ścieżka do pliku bazy danych jest za długa.
+> Jeśli zostanie wyświetlony błąd "nie ma żadnych obiektów w bazie danych *databaseName* typów za pomocą skryptów przez tego kreatora" po kliknięciu przycisku Dalej na ekranie pokazano na rysunku 6, upewnij się, że ścieżka do pliku bazy danych nie jest zbyt długa. Wykryto, że tego błędu mogą wystąpić, jeśli ścieżka do pliku bazy danych jest za długa.
 
 
 [![Ekran powitalny Kreatora publikowania bazy danych](deploying-a-database-cs/_static/image17.jpg)](deploying-a-database-cs/_static/image16.jpg) 
@@ -124,74 +123,74 @@ Drugi ekran Kreatora listy baz danych dostępnych do Kreatora publikowania bazy 
 **Rysunek 6**: ekran powitalny Kreatora publikowania bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image18.jpg))
 
 
-Z następnym ekranie można wygenerować plik skryptu lub, jeśli host sieci web obsługuje, publikowanie bazy danych bezpośrednio do serwera sieci web hosta dostawcy s bazy danych. Jak pokazano na rysunku 7, występują zapisywane do pliku skryptu `C:\REVIEWS.MDF.sql`.
+Z następnego ekranu można wygenerować plik skryptu lub, jeśli hosta sieci web obsługuje, opublikować bazę danych bezpośrednio na serwerze sieci web hosta dostawcy s bazy danych. Jak pokazano na rysunku 7, mam skryptu zapisywane w pliku `C:\REVIEWS.MDF.sql`.
 
 
-[![Bazy danych do pliku skryptu lub opublikować go bezpośrednio Your dostawcy hosta sieci Web](deploying-a-database-cs/_static/image20.jpg)](deploying-a-database-cs/_static/image19.jpg) 
+[![Skrypt bazy danych do pliku lub opublikować ją bezpośrednio na Twój dostawca hosta sieci Web](deploying-a-database-cs/_static/image20.jpg)](deploying-a-database-cs/_static/image19.jpg) 
 
-**Rysunek 7**: skryptu bazy danych do pliku lub opublikować go bezpośrednio Your dostawcy hosta sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image21.jpg))
-
-
-Kolejne ekranu wyświetli monit o podanie różne opcje obsługi skryptów. Można określić, czy skrypt ma uwzględniać upuszczania instrukcji, aby usuwać te istniejących obiektów. Domyślnie na wartość True, która jest poprawnie podczas wdrażania bazy danych po raz pierwszy. Można również określić, czy docelowa baza danych programu SQL Server 2000, SQL Server 2005 lub SQL Server 2008. Na koniec można wskazać, czy skrypt: schemat i dane, tylko te dane, lub tylko schemat. Schemat jest kolekcją obiektów bazy danych, tabel, procedur składowanych, widoków i tak dalej. Dane są informacji znajdujących się w tabelach.
-
-Jak pokazano w rysunku 8, I wystąpił kreatora skonfigurowany tak, aby porzucić istniejące obiekty bazy danych, do wygenerowania skryptu bazy danych programu SQL Server 2008 oraz publikowania schemat i dane.
+**Rysunek 7**: skrypt bazy danych do pliku lub opublikować ją bezpośrednio na Twój dostawca hosta sieci Web ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image21.jpg))
 
 
-[![Określ publikowania opcje](deploying-a-database-cs/_static/image23.jpg)](deploying-a-database-cs/_static/image22.jpg) 
+Kolejne ekran jest wyświetlany monit dla różnych opcji obsługi skryptów. Można określić, czy skrypt powinien zawierać instrukcje usuwania, aby usunąć te istniejących obiektów. To wartość domyślna to True, co jest dobrym rozwiązaniem w przypadku wdrażania bazy danych po raz pierwszy. Można również określić, czy docelowa baza danych programu SQL Server 2000, SQL Server 2005 lub SQL Server 2008. Na koniec można wskazać, czy do skryptu schemat i dane, po prostu dane lub po prostu schematu. Schemat jest kolekcją obiektów bazy danych, tabel, procedur składowanych, widoków i tak dalej. Dane są informacje znajdujące się w tabelach.
+
+Tak jak pokazano w rysunek 8 I ve stało się Kreator skonfigurowany tak, aby porzucić istniejące obiekty bazy danych, można wygenerować skryptu dla bazy danych programu SQL Server 2008 i opublikować schematu i danych.
+
+
+[![Podczas publikowania Określ opcje](deploying-a-database-cs/_static/image23.jpg)](deploying-a-database-cs/_static/image22.jpg) 
 
 **Rysunek 8**: Określ opcje publikowania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image24.jpg))
 
 
-Końcowe obu ekranach podsumowanie działań, które mają zostać podjęte, a następnie Wyświetl stan skryptów. Wynikiem kreatora jest firma Microsoft plik skryptu, który zawiera potrzebne do utworzenia bazy danych w środowisku produkcyjnym i wypełnić je z tymi samymi danymi na programowanie polecenia SQL.
+Końcowe dwa ekrany podsumowanie akcje, które zamierzasz podjęte, a następnie Wyświetl stan obsługę skryptów. Wynikiem działania kreatora to, że mamy plik skryptu, który zawiera polecenia SQL potrzebne do utworzenia bazy danych w środowisku produkcyjnym i wypełnić ją przy użyciu tych samych danych na rozwój.
 
-### <a name="executing-the-sql-commands-on-the-production-environment-database"></a>Wykonywanie polecenia SQL na bazie środowiska produkcyjnego
+### <a name="executing-the-sql-commands-on-the-production-environment-database"></a>Wykonywanie poleceń SQL w bazie danych środowiska produkcyjnego
 
-Teraz, gdy mamy skrypt, który zawiera poleceń SQL, aby utworzyć bazę danych i jego dane wszystkich i który pozostaje jest można wykonać skryptu w produkcyjnej bazie danych. Niektóre dostawców usług hosta sieci web oferuje pole tekstowe w Panelu sterowania, ich wprowadzane polecenia SQL do wykonania na bazie danych. Jeśli masz bardzo dużych skryptu, ta opcja może nie działać ( `REVIEWS.MDF.sql` pliku skryptu jest ponad 425 KB rozmiaru, na przykład).
+Skoro mamy już skrypt, który zawiera polecenia SQL, aby utworzyć bazę danych i jej dane wszystkich i nadal będzie to można wykonać skryptu na produkcyjnej bazy danych. Niektórzy dostawcy hosta sieci web oferują pole tekstowe w ich Panelu sterowania, w którym możesz wprowadzić poleceń SQL do wykonania w bazie danych. Jeśli masz plik skryptu bardzo duże, wówczas ta opcja może nie działać ( `REVIEWS.MDF.sql` pliku skryptu jest ponad 425 KB rozmiaru, na przykład).
 
-Lepszym rozwiązaniem jest bezpośrednie łączenie się z produkcyjnym serwera bazy danych przy użyciu programu SQL Server Management Studio (SSMS). Jeśli masz nie - Express wersji programu SQL Server zainstalowana na danym komputerze następnie prawdopodobnie masz już zainstalowany w programie SSMS. W przeciwnym razie można [Pobierz i zainstaluj](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en) uzyskać bezpłatną kopię programu SQL Server Management Studio Express Edition.
+Lepszym rozwiązaniem jest aby bezpośrednio połączyć się z serwera bazy danych produkcyjnych przy użyciu programu SQL Server Management Studio (SSMS). Jeśli masz inne niż - Express programu SQL Server zainstalowana na danym komputerze następnie prawdopodobnie masz już zainstalowany program SSMS. W przeciwnym razie możesz [Pobierz i zainstaluj](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en) uzyskać bezpłatną kopię programu SQL Server Management Studio Express Edition.
 
-Uruchom narzędzia SSMS i Połącz z serwerem sieci web hosta s bazy danych przy użyciu informacji dostarczonych przez dostawcę hosta sieci web.
-
-
-[![Połączenie z serwerem sieci Web hosta dostawcy s bazy danych](deploying-a-database-cs/_static/image26.jpg)](deploying-a-database-cs/_static/image25.jpg) 
-
-**Rysunek 9**: nawiązania s Your dostawcy hosta sieci Web serwera bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image27.jpg))
+Uruchom program SSMS i nawiązać połączenie z serwerem bazy danych s hosta sieci web korzystając z informacji podanych przez dostawcę hosta sieci web.
 
 
-Rozwiń kartę baz danych i Znajdź bazy danych. Kliknij przycisk Nowa kwerenda w lewym górnym rogu paska narzędzi, Wklej polecenia SQL z pliku skryptu utworzonego przez Kreatora publikowania bazy danych i kliknij przycisk Execute do uruchamiania tych poleceń na serwerze bazy danych w środowisku produkcyjnym. Jeśli plik skryptu jest szczególnie duże go może potrwać kilka minut, można wykonać polecenia.
+[![Łączenie się z serwerem sieci Web hosta dostawcy s bazy danych](deploying-a-database-cs/_static/image26.jpg)](deploying-a-database-cs/_static/image25.jpg) 
+
+**Rysunek 9**: połączyć się z usługi sieci Web hosta dostawcy s serwera bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image27.jpg))
 
 
-[![Połączenie z serwerem sieci Web hosta dostawcy s bazy danych](deploying-a-database-cs/_static/image29.jpg)](deploying-a-database-cs/_static/image28.jpg) 
-
-**Na rysunku nr 10**: nawiązania s Your dostawcy hosta sieci Web serwera bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image30.jpg))
+Rozwiń kartę baz danych i Znajdź bazy danych. Kliknij przycisk Nowe zapytanie w lewym górnym rogu paska narzędzi, Wklej poleceń SQL z pliku skryptu, tworzone przez Kreatora publikowania bazy danych i kliknij przycisk Execute, do uruchamiania tych poleceń na serwerze bazy danych w środowisku produkcyjnym. Jeśli plik skryptu jest szczególnie dużych go może potrwać kilka minut można wykonać polecenia.
 
 
-Wszystkie dostępne tego s jest! W tym momencie projektowej bazie danych został zduplikowany w środowisku produkcyjnym. Jeśli odświeżania bazy danych w programie SSMS powinno być widoczne nowe obiekty bazy danych. Rysunek 11 zawiera tabele bazy danych s produkcji, procedury składowane i funkcje zdefiniowane przez użytkownika, które dublują tymi w projektowej bazie danych. I ponieważ firma Microsoft instrukcją Kreatora publikowania bazy danych, aby opublikować dane, s tabel bazy danych produkcyjnych tych samych danych co tabel s programowania bazy danych w czasie, które zostało wykonane przez kreatora. Rysunek 12 zawiera dane w `Books` tabeli w produkcyjnej bazie danych.
+[![Łączenie się z serwerem sieci Web hosta dostawcy s bazy danych](deploying-a-database-cs/_static/image29.jpg)](deploying-a-database-cs/_static/image28.jpg) 
+
+**Na rysunku nr 10**: połączyć się z usługi sieci Web hosta dostawcy s serwera bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image30.jpg))
 
 
-[![Obiekty bazy danych ma został zduplikowany w produkcyjnej bazie danych](deploying-a-database-cs/_static/image32.jpg)](deploying-a-database-cs/_static/image31.jpg) 
-
-**Rysunek 11**: baza danych obiekty mają został zduplikowany w produkcyjnej bazie danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image33.jpg))
+Wszystkie dostępne tego s jest! W tym momencie rozwoju bazy danych został zduplikowany w środowisku produkcyjnym. Jeśli odświeżanie bazy danych w programie SSMS powinny pojawić się nowe obiekty bazy danych. Na ilustracji 11 pokazano tabel bazy danych s produkcyjnych, procedur składowanych i funkcji zdefiniowanych przez użytkownika, które takie same jak stosowane w bazie danych rozwoju. A ponieważ możemy nakazał Kreator publikowania bazy danych, aby opublikować dane, tabele s produkcyjne bazy danych ma te same dane jako tabele s rozwoju bazy danych w czasie, który został wykonany przez kreatora. Rysunek 12 pokazuje dane w `Books` tabeli w bazie danych produkcyjnych.
 
 
-[![Baza danych produkcyjnych zawiera tych samych danych, co w projektowej bazie danych](deploying-a-database-cs/_static/image35.jpg)](deploying-a-database-cs/_static/image34.jpg) 
+[![Obiekty bazy danych ma został zduplikowany w produkcyjnej bazy danych](deploying-a-database-cs/_static/image32.jpg)](deploying-a-database-cs/_static/image31.jpg) 
 
-**Rysunek 12**: produkcyjnej bazy danych zawiera tych samych danych w projektowej bazie danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image36.jpg))
+**Rysunek 11**: bazy danych obiekty mają został zduplikowany w produkcyjnej bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image33.jpg))
 
 
-Na tym etapie firma Microsoft została wdrożona tylko projektowej bazie danych do środowiska produkcyjnego. Firma Microsoft nie zostały jeszcze przeglądał wdrażanie aplikacji sieci web lub zbadać, jakie zmiany konfiguracji są wymagane do aplikacji w środowisku produkcyjnym Użyj produkcyjną bazę danych. Te problemy omówione zostaną następujące czynności w następnym samouczku!
+[![Produkcyjnej bazy danych zawiera te Same dane co w rozwoju bazy danych](deploying-a-database-cs/_static/image35.jpg)](deploying-a-database-cs/_static/image34.jpg) 
+
+**Rysunek 12**: produkcyjnej bazy danych zawiera te Same dane ponieważ w bazie danych rozwoju ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](deploying-a-database-cs/_static/image36.jpg))
+
+
+W tym momencie możemy wdrożona tylko rozwoju bazy danych do środowiska produkcyjnego. Firma Microsoft nie zostały jeszcze przyjrzano się wdrażanie aplikacji sieci web, samego lub sprawdzić, jakie zmiany konfiguracji są potrzebne do aplikacji w środowisku produkcyjnym, użyj produkcyjnej bazy danych. W następnym samouczku omówiono te problemy!
 
 ## <a name="summary"></a>Podsumowanie
 
-Wdrażanie aplikacji sieci web opartych na danych wymaga kopiowanie bazy danych używane podczas tworzenia do środowiska produkcyjnego. Wielu dostawców usług hosta sieci web oferuje narzędzia w celu uproszczenia procesu wdrażania bazy danych. Na przykład z DiscountASP.NET można FTP bazy danych `.mdf` pliku (lub kopii zapasowej), a następnie dołączyć bazy danych na serwerze bazy danych z poziomu Panelu sterowania. Inną opcją, która działa niezależnie od tego, jakie funkcje oferty dostawcy hosta sieci web jest s narzędzia Kreator publikowania bazy danych firmy Microsoft, które generuje skrypt poleceń SQL, aby utworzyć programowanie bazy danych s schemat i dane. Po wygenerowaniu tego skryptu można ją wykonać na produkcyjną bazę danych.
+Wdrażanie aplikacji sieci web opartej na danych wymaga kopiowania bazy danych używanej podczas programowania do środowiska produkcyjnego. Wielu dostawców usług hosta sieci web oferuje narzędzia w celu uproszczenia procesu wdrażania bazy danych. Na przykład za pomocą DiscountASP.NET można FTP bazy danych `.mdf` pliku (lub kopii zapasowej) i następnie dołączyć bazę danych na serwerze bazy danych z poziomu Panelu sterowania. Inną opcję, która działa niezależnie od tego, jakie funkcje ofert dostawcy hosta sieci web jest Microsoft s Database Publishing Wizard narzędzia, które generuje skrypt poleceń SQL, aby utworzyć schemat s bazy danych rozwoju i danych. Po wygenerowaniu ten skrypt można ją wykonać na produkcyjnej bazy danych.
 
-Teraz, recenzje książki sieci web aplikacji s baza danych jest w środowisku produkcyjnym możemy wdrożyć aplikację. Informacje o konfiguracji sieci web aplikacji s określa parametry połączenia z bazą danych i projektowej bazie danych odwołuje się do tego ciągu połączenia. Należy zaktualizować tego ciągu połączenia w przypadku wdrażania lokacji do środowiska produkcyjnego. Następny samouczek przegląda tych różnic konfiguracji i przeprowadzi Cię przez kroki niezbędne do publikowania witryny przeglądami książki opartych na danych w środowisku produkcyjnym.
+Teraz, gdy przeglądy książki sieci web aplikacji s bazy danych znajduje się w produkcji możemy wdrożyć aplikację. Jednak informacje o konfiguracji sieci web aplikacji s określa parametry połączenia z bazą danych, a te parametry połączenia odwołuje się do rozwoju bazy danych. Musimy zaktualizować to informacje o parametrach połączenia, w przypadku wdrażania w witrynie do środowiska produkcyjnego. Następny samouczek patrzy na te różnice konfiguracji i opisuje etapy potrzebne do opublikowania witryny opartej na danych przeglądy książki do środowiska produkcyjnego.
 
-Programowanie przyjemność!
+Wszystkiego najlepszego programowania!
 
 #### <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
 - [Pobierz bazy danych programu Microsoft SQL Server 1.1 Kreator publikacji](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en)
 - [Pobierz program Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)

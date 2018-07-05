@@ -1,82 +1,81 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/setting-up-database
-title: Wprowadzenie do programu Entity Framework 6 Database First przy użyciu MVC 5 | Dokumentacja firmy Microsoft
+title: Wprowadzenie do First w programie Entity Framework 6 bazy danych za pomocą MVC 5 | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: Przy użyciu MVC, Entity Framework i szkieletów ASP.NET, można utworzyć aplikacji sieci web, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri...
+description: Za pomocą MVC, platformy Entity Framework i funkcja tworzenia szkieletu ASP.NET, można utworzyć aplikację internetową, która zapewnia interfejs do istniejącej bazy danych. Ten samouczek seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
 ms.topic: article
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: ae60b5c808d2522c66dc17ccf7d16fefdc65d552
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 98deeb91dc2b9a1bad535be1bf1e2ec85dfe4028
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879338"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371716"
 ---
-<a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Wprowadzenie do programu Entity Framework 6 Database First przy użyciu MVC 5
+<a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Wprowadzenie do First w programie Entity Framework 6 bazy danych za pomocą MVC 5
 ====================
-przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
+przez [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Przy użyciu MVC, Entity Framework i szkieletów ASP.NET, można utworzyć aplikacji sieci web, która zapewnia interfejs do istniejącej bazy danych. Ta seria samouczka przedstawiono sposób automatycznego generowania kodu, która umożliwia użytkownikom wyświetlanie, edytowanie, tworzenie i Usuń dane, które znajdują się w tabeli bazy danych. Wygenerowany kod odnosi się do kolumn w tabeli bazy danych. W ostatniej części serii zostanie wdrożona lokacji i bazy danych do platformy Azure.
+> Za pomocą MVC, platformy Entity Framework i funkcja tworzenia szkieletu ASP.NET, można utworzyć aplikację internetową, która zapewnia interfejs do istniejącej bazy danych. W tej serii samouczków pokazano, jak automatycznie wygenerować kod, który pozwala użytkownikom na wyświetlanie, edytowanie, tworzenie i usuwanie danych, która znajduje się w tabeli bazy danych. Wygenerowany kod odnosi się do kolumn w tabeli bazy danych. W ostatniej części serii zostanie wdrożona lokacji i bazy danych na platformie Azure.
 > 
 > Ta część serii koncentruje się na utworzenie bazy danych i zapełnianie danymi.
 > 
-> Ta seria zostało zapisane z udziałami Tomasz Dykstra i Ricka Andersona. Zostało ulepszone oparte na opinii użytkowników w sekcji uwag.
+> W tej serii został napisany z uwzględnieniem materiałów przekazanych z Tom Dykstra i Ricka Andersona. Został udoskonalony na podstawie informacji pochodzących od użytkowników w sekcji komentarzy.
 
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W tym temacie przedstawiono sposób do uruchomienia z istniejącej bazy danych i szybkie tworzenie aplikacji sieci web, która umożliwia użytkownikom na interakcję z danymi. Do tworzenia aplikacji sieci web używa Entity Framework 6 i MVC 5. Funkcja szkieletów ASP.NET umożliwia automatyczne generowanie kodu dla wyświetlanie, aktualizowanie, tworzenie i usuwanie danych. Korzystając z narzędzi publikowania w programie Visual Studio, można łatwo wdrożyć lokacji i bazy danych na platformie Azure.
+W tym temacie pokazano, jak rozpocząć od istniejącej bazy danych i szybkie tworzenie aplikacji sieci web, która umożliwia użytkownikom na interakcję z danymi. Aby utworzyć aplikację sieci web używa platformy Entity Framework 6 i MVC 5. Funkcja tworzenia szkieletu ASP.NET umożliwia automatyczne generowanie kodu na wyświetlanie, aktualizowanie, tworzenie i usuwanie danych. Za pomocą narzędzia publikowania w programie Visual Studio, można łatwo wdrożysz lokacji i bazy danych na platformie Azure.
 
-Ten temat dotyczy sytuacji, w których bazy danych i generowanie kodu dla aplikacji sieci web na podstawie pól tej bazy danych. Takie podejście jest nazywany programowanie pierwszej bazy danych. Jeśli nie masz już istniejącą bazę danych, zamiast tego można użyć metody o nazwie rozwoju Code First, który obejmuje Definiowanie klas danych i generowania bazy danych na podstawie właściwości klasy.
+Ten temat dotyczy sytuacji, w którym masz bazę danych i chcesz wygenerować kod dla aplikacji sieci web na podstawie pól tej bazy danych. To podejście jest nazywane tworzenie pierwszej bazy danych. Jeśli nie masz już istniejącą bazę danych, możesz zamiast tego użyć podejścia o nazwie rozwiązania deweloperskiego Code First, który obejmuje Definiowanie klas danych i generowanie bazy danych przy użyciu właściwości klasy.
 
-Przykład wprowadzające programowanie Code First, zobacz [wprowadzenie do platformy ASP.NET MVC 5](../introduction/getting-started.md). Na przykład bardziej zaawansowanych, zobacz [tworzenia modelu danych struktury jednostek dla aplikacji ASP.NET MVC 4](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+Wprowadzający przykład rozwiązania deweloperskiego Code First, zobacz [wprowadzenie do ASP.NET MVC 5](../introduction/getting-started.md). Na przykład bardziej zaawansowanych, zobacz [Tworzenie modelu danych Entity Framework dla aplikacji platformy ASP.NET MVC 4](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
-Aby uzyskać wskazówki dotyczące wybierania rozwiązaniem Entity Framework, zobacz [Entity Framework programowanie podejścia](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
+Aby uzyskać wskazówki dotyczące wybierania rozwiązaniem platformy Entity Framework, zobacz [podejścia do projektowania struktury jednostki](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Visual Studio 2013 lub Visual Studio Express 2013 for Web
 
-## <a name="set-up-the-database"></a>Baza danych
+## <a name="set-up-the-database"></a>Konfigurowanie bazy danych
 
-Aby używane środowisko przypominało środowisko o istniejącej bazy danych, zostanie najpierw utworzyć bazę danych z niektórych wstępnie wypełnione danych, a następnie utwórz aplikację sieci web, który nawiązuje połączenie z bazą danych.
+Aby mógł naśladować środowisko o istniejącą bazę danych, zostanie najpierw utwórz bazę danych z pewnymi wstępnie wypełniony danymi, a następnie utwórz aplikację sieci web, który nawiązuje połączenie z bazą danych.
 
-W tym samouczku został opracowany przy użyciu bazy danych LocalDB programu Visual Studio 2013 lub Visual Studio Express 2013 for Web. Można użyć istniejącego serwera baz danych, zamiast LocalDB, ale w zależności od używanej wersji programu Visual Studio i typ bazy danych, wszystkie narzędzia danych w programie Visual Studio może nie być obsługiwany. Jeśli narzędzia nie są dostępne dla Twojej bazy danych, może być konieczne do wykonania niektórych kroków specyficzny dla bazy danych w ramach pakietu administracyjnego dla Twojej bazy danych.
+W tym samouczku został opracowany, instalacja programu LocalDB za pomocą programu Visual Studio 2013 lub Visual Studio Express 2013 for Web. Można użyć istniejącego serwera baz danych, zamiast programu LocalDB, ale w zależności od używanej wersji programu Visual Studio i typ bazy danych, wszystkie narzędzia danych w programie Visual Studio może nie być obsługiwany. Jeśli narzędzia nie są dostępne dla bazy danych, może być konieczne do wykonania niektórych kroków określonej bazy danych w pakiecie zarządzania z bazą danych.
 
-Jeśli masz problem z narzędzia bazy danych w wersji programu Visual Studio, upewnij się, że zainstalowano najnowszą wersję narzędzia bazy danych. Informacje o aktualizacji lub instalowanie narzędzi bazy danych, zobacz [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027).
+Jeśli masz problem z narzędzia graficzne bazy danych w wersji programu Visual Studio, upewnij się, że zainstalowano najnowszą wersję narzędzia graficzne bazy danych. Aby dowiedzieć się, czy instalujesz narzędzia graficzne bazy danych, zobacz [programu Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027).
 
-Uruchom program Visual Studio i utworzyć **projekt bazy danych programu SQL Server**. Nazwij projekt **ContosoUniversityData**.
+Uruchom program Visual Studio i Utwórz **projekt bazy danych programu SQL Server**. Nadaj projektowi nazwę **ContosoUniversityData**.
 
 ![Utwórz projekt bazy danych](setting-up-database/_static/image1.png)
 
-Masz teraz projektu pustej bazy danych. Ta baza danych zostanie wdrożona na platformie Azure w dalszej części tego samouczka, musisz ustawić bazy danych SQL Azure jako platforma docelowa projektu. Ustawienie platformy docelowej faktycznie niewdrażającej bazy danych. oznacza jedynie, że projekt bazy danych sprawdzi, czy projekt bazy danych jest zgodna z platformą docelową. Aby ustawić platformę docelową, otwórz **właściwości** dla projektu i wybierz **Microsoft Azure SQL Database** dla platformy docelowej.
+Masz teraz projekt pustej bazy danych. Ta baza danych zostanie wdrożona na platformie Azure w dalszej części tego samouczka, należy ustawić usługi Azure SQL Database jako platformę docelową dla projektu. Ustawienie platforma docelowa nie jest faktycznie wdrażana bazy danych. oznacza jedynie, że projekt bazy danych sprawdzi, czy projekt bazy danych jest zgodna z platformą docelową. Aby ustawić platformę docelową, otwórz **właściwości** dla projektu i wybierz **Microsoft Azure SQL Database** dla platformy docelowej.
 
 ![Platforma docelowa zestawu](setting-up-database/_static/image2.png)
 
-Można tworzyć tabel potrzebne w tym samouczku, dodając skrypty SQL, które definiują tabel. Kliknij prawym przyciskiem myszy projektu i Dodaj nowy element.
+Możesz utworzyć tabele wymagane na potrzeby tego samouczka, dodając skrypty SQL, które tabel. Kliknij prawym przyciskiem myszy projekt i Dodaj nowy element.
 
 ![Dodaj nowy element](setting-up-database/_static/image3.png)
 
-Dodaj nową tabelę o nazwie studenta.
+Dodaj nową tabelę o nazwie Student.
 
-![Dodaj tabelę dla użytkowników domowych](setting-up-database/_static/image4.png)
+![Dodaj tabelę dla uczniów](setting-up-database/_static/image4.png)
 
-W pliku tabeli Zastąp następujący kod, aby utworzyć tabelę polecenia T-SQL.
+W pliku tabeli Zastąp następujący kod, aby utworzyć tabelę polecenia języka T-SQL.
 
 [!code-sql[Main](setting-up-database/samples/sample1.sql)]
 
-Należy zauważyć, że okno projektowania automatycznie zsynchronizowana ponownie z kodem. Możesz pracować z kodu lub projektanta.
+Należy zauważyć, że okna projektu automatycznie synchronizuje się z kodem. Możesz pracować z kodem lub projektanta.
 
 ![Pokaż kod i projekt](setting-up-database/_static/image5.png)
 
-Dodaj inną tabelą. Ten czas nadaj jej nazwę kursu i użyj następującego polecenia T-SQL.
+Dodaj inną tabelę. Ten czas, nadaj jej nazwę na kursie i użyj następującego polecenia języka T-SQL.
 
 [!code-sql[Main](setting-up-database/samples/sample2.sql)]
 
@@ -84,33 +83,33 @@ I powtórz jeszcze raz, aby utworzyć tabelę o nazwie rejestracji.
 
 [!code-sql[Main](setting-up-database/samples/sample3.sql)]
 
-Należy wypełnić bazę danych z danymi za pomocą skryptu uruchamianego po wdrożeniu bazy danych. Skrypt po wdrożeniu do projektu. Można użyć domyślnej nazwy.
+Możesz wypełnić bazę danych danymi za pomocą skryptu, który jest uruchamiany po wdrożeniu bazy danych. Skrypt po wdrożeniu należy dodać do projektu. Można użyć domyślnej nazwy.
 
 ![Dodaj skrypt po wdrożeniu](setting-up-database/_static/image6.png)
 
-Dodaj poniższy kod T-SQL do skryptu po wdrożeniu. Ten skrypt po prostu dodaje dane do bazy danych, gdy nie znaleziono żadnego pasującego rekordu. Nie Zastąp lub Usuń wszystkie dane, które zostały wprowadzone do bazy danych.
+Dodaj poniższy kod T-SQL do skryptu po wdrożeniu. Ten skrypt po prostu dodaje dane do bazy danych po znalezieniu odpowiedniego rekordu. Nie zastąpić lub Usuń wszystkie dane, który został wprowadzony w bazie danych.
 
 [!code-sql[Main](setting-up-database/samples/sample4.sql)]
 
-Należy pamiętać, że skrypt po wdrożeniu jest uruchamiany za każdym razem, gdy wdrażania projektu bazy danych. Dlatego należy uważnie wziąć pod uwagę wymogi dotyczące pisania skryptu. W niektórych przypadkach warto zacząć od nowa z znanego zestawu danych za każdym razem, gdy projekt jest wdrażany. W innych przypadkach może nie być zmienia istniejące dane w dowolny sposób. W zależności od wymagań można zdecydować, czy potrzebujesz skrypt po wdrożeniu lub co jest potrzebne do uwzględnienia w skrypcie. Aby uzyskać więcej informacji o wprowadzaniu bazy danych za pomocą skryptu po wdrożeniu, zobacz [w tym dane w projekcie bazy danych programu SQL Server](https://blogs.msdn.com/b/ssdt/archive/2012/02/02/including-data-in-an-sql-server-database-project.aspx).
+Należy zauważyć, że skrypt po wdrożeniu jest uruchamiany za każdym razem, aby wdrożyć projekt bazy danych. W związku z tym należy starannie wziąć pod uwagę wymogi podczas pisania tego skryptu. W niektórych przypadkach warto zacząć od nowa z znanego zestawu danych, za każdym razem, gdy projekt został wdrożony. W innych przypadkach może nie chcieć zmienić istniejące dane w dowolny sposób. W zależności od wymagań, możesz zdecydować, czy potrzebujesz skrypt po wdrożeniu lub potrzebnych do uwzględnienia w skrypcie. Aby uzyskać więcej informacji na temat Wypełnianie bazy danych za pomocą skryptu po wdrożeniu, zobacz [łącznie z danymi w projekt bazy danych serwera SQL](https://blogs.msdn.com/b/ssdt/archive/2012/02/02/including-data-in-an-sql-server-database-project.aspx).
 
-Masz teraz 4 plików skryptów SQL, ale nie rzeczywiste tabele. Można przystąpić do wdrażania projektu bazy danych do localdb. W programie Visual Studio kliknij przycisk Start (lub F5) do tworzenia i wdrażania projektu bazy danych. Sprawdź kartę danych wyjściowych, aby zweryfikować, że kompilowanie i wdrażanie zakończyło się pomyślnie.
+Masz teraz 4 pliki skryptów SQL, ale nie rzeczywiste tabele. Jesteś gotowy wdrożyć projekt bazy danych localdb. W programie Visual Studio kliknij przycisk Start (lub F5) do tworzenia i wdrażania projektu bazy danych. Sprawdź kartę danych wyjściowych, aby sprawdzić, czy kompilacja i wdrażanie zakończyło się pomyślnie.
 
 ![Pokaż dane wyjściowe](setting-up-database/_static/image7.png)
 
-Aby zobaczyć, czy nowa baza danych została utworzona, otwórz **Eksplorator obiektów SQL Server** i wyszukaj nazwę projektu na serwerze poprawne lokalnej bazy danych (w tym przypadku **\ProjectsV12 (localdb)**).
+Aby sprawdzić, czy nowa baza danych została utworzona, otwórz **Eksplorator obiektów SQL Server** i wyszukaj nazwę projektu na serwerze poprawne lokalnej bazy danych (w tym przypadku **\ProjectsV12 (localdb)**).
 
 ![Pokaż nowej bazy danych](setting-up-database/_static/image8.png)
 
-Aby sprawdzić, czy tabele są wypełniane przy użyciu danych, kliknij prawym przyciskiem myszy tabelę, a następnie wybierz **danych widoku**.
+Aby zobaczyć, że tabele są wypełniane przy użyciu danych, kliknij prawym przyciskiem myszy tabelę, a następnie wybierz pozycję **dane widoku**.
 
-![Pokaż tabelę danych](setting-up-database/_static/image9.png)
+![Pokaż dane tabeli](setting-up-database/_static/image9.png)
 
-Zostanie wyświetlony widok można edytować danych tabeli.
+Wyświetlany jest widok edycji danych tabeli.
 
-![Pokaż wyniki z danymi tabeli](setting-up-database/_static/image10.png)
+![Pokaż wyniki danych tabeli](setting-up-database/_static/image10.png)
 
-Baza danych jest teraz i wypełniane przy użyciu danych. W następnym samouczku utworzysz aplikację sieci web dla bazy danych.
+Baza danych jest teraz i wypełniony danymi. W następnym samouczku utworzysz aplikację sieci web, dla bazy danych.
 
 > [!div class="step-by-step"]
 > [Next](creating-the-web-application.md)

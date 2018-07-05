@@ -1,37 +1,36 @@
 ---
 uid: web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
-title: Mocking programu Entity Framework podczas testowania składnika ASP.NET Web API 2 jednostek | Dokumentacja firmy Microsoft
+title: Pozorowanie programu Entity Framework podczas testowania ASP.NET Web API 2 jednostek | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: Tej wskazówki i aplikacji przedstawiają sposób tworzenia testów jednostkowych dla aplikacji sieci Web API 2, który używa programu Entity Framework. Widoczny jest sposób modyfikowania...
+description: Tej wskazówki i aplikacji przedstawiają sposób tworzenia testów jednostkowych dla aplikacji sieci Web API 2, który używa programu Entity Framework. Pokazuje, jak zmodyfikować...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/13/2013
 ms.topic: article
 ms.assetid: cd844025-ccad-41ce-8694-595f1022a49f
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: abfde7edec85812de3560f4edefb110c3e374580
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: f1ff2fda85a6d56a6bbb76b1bff740301ab0c70d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
-ms.locfileid: "29152868"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371872"
 ---
-<a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Mocking programu Entity Framework podczas testowania składnika ASP.NET Web API 2 jednostek
+<a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Pozorowanie programu Entity Framework podczas testowania ASP.NET Web API 2 jednostek
 ====================
-przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
+przez [Tom FitzMacken](https://github.com/tfitzmac)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-e2867d4d)
 
-> Tej wskazówki i aplikacji przedstawiają sposób tworzenia testów jednostkowych dla aplikacji sieci Web API 2, który używa programu Entity Framework. Widoczny jest sposób modyfikowania szkieletu kontrolera, aby umożliwić przekazywanie obiektu kontekstu do testowania oraz sposobu tworzenia obiektów testu, które współpracują z programu Entity Framework.
+> Tej wskazówki i aplikacji przedstawiają sposób tworzenia testów jednostkowych dla aplikacji sieci Web API 2, który używa programu Entity Framework. Pokazuje sposób modyfikowania szkieletu kontrolera, aby umożliwić przekazywanie obiekt kontekstu do testowania oraz sposób tworzenia obiektów testowych, które działają z platformą Entity Framework.
 > 
-> Aby obejrzeć wprowadzenie do testy jednostkowe za pomocą interfejsu API sieci Web platformy ASP.NET, zobacz [testów jednostkowych z ASP.NET Web API 2](unit-testing-with-aspnet-web-api.md).
+> Aby zapoznać się z wprowadzeniem do testowanie jednostek za pomocą interfejsu API sieci Web platformy ASP.NET, zobacz [testów jednostkowych przy użyciu wzorca ASP.NET Web API 2](unit-testing-with-aspnet-web-api.md).
 > 
-> W tym samouczku założono, że czytelnik zna podstawowe pojęcia związane z interfejsu API sieci Web platformy ASP.NET. Samouczek wprowadzający, zobacz [wprowadzenie do korzystania z programu ASP.NET Web API 2](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
+> W tym samouczku przyjęto założenie, że znasz podstawowe pojęcia dotyczące środowiska ASP.NET Web API. Aby uzyskać Samouczek wprowadzający, zobacz [wprowadzenie do wzorca ASP.NET Web API 2](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 > 
 > 
 > - [Visual Studio 2017](https://www.visualstudio.com/vs/)
@@ -43,45 +42,45 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 Ten temat zawiera następujące sekcje:
 
 - [Wymagania wstępne](#prereqs)
-- [Pobierz kod](#download)
-- [Tworzenie aplikacji z jednostkowy projekt testowy](#appwithunittest)
-- [Utwórz klasę modelu](#modelclass)
+- [Pobierz program code](#download)
+- [Tworzenie aplikacji przy użyciu projektu testu jednostkowego](#appwithunittest)
+- [Tworzenie klasy modelu](#modelclass)
 - [Dodawanie kontrolera](#controller)
-- [Dodaj iniekcji zależności](#dependency)
+- [Dodaj wstrzykiwanie zależności](#dependency)
 - [Instalowanie pakietów NuGet w projekcie testowym](#testpackages)
 - [Tworzenie kontekstu testu](#testcontext)
 - [Tworzenie testów](#tests)
 - [Uruchom testy](#runtests)
 
-Jeśli wykonano już kroki opisane w [testów jednostkowych z ASP.NET Web API 2](unit-testing-with-aspnet-web-api.md), możesz przejść do sekcji [dodać kontroler](#controller).
+Jeśli wykonano już kroki opisane w [testów jednostkowych przy użyciu wzorca ASP.NET Web API 2](unit-testing-with-aspnet-web-api.md), możesz przejść do sekcji [dodać kontrolera](#controller).
 
 <a id="prereqs"></a>
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Visual Studio 2017 Community, Professional or Enterprise edition
+Program Visual Studio 2017 Community, Professional lub Enterprise edition
 
 <a id="download"></a>
-## <a name="download-code"></a>Pobierz kod
+## <a name="download-code"></a>Pobierz program code
 
-Pobierz [projektu zakończone](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11). Projekt do pobrania zawiera kod testu jednostkowego dla tego tematu i [jednostek testowania ASP.NET Web API 2](unit-testing-with-aspnet-web-api.md) tematu.
+Pobierz [projektu ukończona](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11). Projekt do pobrania zawiera kod testu jednostkowego dla tego tematu i [jednostki testowania wzorca ASP.NET Web API 2](unit-testing-with-aspnet-web-api.md) tematu.
 
 <a id="appwithunittest"></a>
-## <a name="create-application-with-unit-test-project"></a>Tworzenie aplikacji z jednostkowy projekt testowy
+## <a name="create-application-with-unit-test-project"></a>Tworzenie aplikacji przy użyciu projektu testu jednostkowego
 
-Możesz utworzyć jednostkowy projekt testowy, podczas tworzenia aplikacji lub Dodaj jednostkowy projekt testowy do istniejącej aplikacji. Ten samouczek przedstawia tworzenie jednostkowy projekt testowy, podczas tworzenia aplikacji.
+Możesz utworzyć projekt testów jednostkowych, podczas tworzenia aplikacji lub dodać projekt testów jednostkowych do istniejących aplikacji. Ten samouczek przedstawia tworzenie projektu testu jednostkowego, podczas tworzenia aplikacji.
 
-Tworzenie nowej aplikacji sieci Web programu ASP.NET o nazwie **StoreApp**.
+Utwórz nową aplikację sieci Web programu ASP.NET o nazwie **StoreApp**.
 
-W systemie windows nowy projekt ASP.NET, wybierz **pusty** szablon i Dodaj foldery i podstawowe odwołania dla interfejsu API sieci Web. Wybierz **Dodaj testy jednostkowe** opcji. Automatycznie nosi nazwę jednostkowy projekt testowy **StoreApp.Tests**. Możesz pozostawić tę nazwę.
+W systemie windows nowy projekt ASP.NET, wybierz **pusty** szablon i Dodaj foldery i podstawowe odwołania dla internetowego interfejsu API. Wybierz **dodać testy jednostkowe** opcji. Projekt testów jednostkowych ma automatycznie nadawaną nazwę **StoreApp.Tests**. Możesz zachować tę nazwę.
 
-![Tworzenie projektu testu jednostki](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image1.png)
+![Tworzenie projektu testu jednostkowego](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image1.png)
 
-Po utworzeniu aplikacji będą widzieli zawiera dwa projekty — **StoreApp** i **StoreApp.Tests**.
+Po utworzeniu aplikacji, zostanie wyświetlony zawiera dwa projekty — **StoreApp** i **StoreApp.Tests**.
 
 <a id="modelclass"></a>
-## <a name="create-the-model-class"></a>Utwórz klasę modelu
+## <a name="create-the-model-class"></a>Tworzenie klasy modelu
 
-W projekcie StoreApp dodać plik klasy do **modele** folder o nazwie **Product.cs**. Zastąp zawartość pliku następującym kodem.
+W projekcie StoreApp Dodaj plik klasy do **modeli** folder o nazwie **Product.cs**. Zastąp zawartość pliku następującym kodem.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample1.cs)]
 
@@ -90,38 +89,38 @@ Skompiluj rozwiązanie.
 <a id="controller"></a>
 ## <a name="add-the-controller"></a>Dodawanie kontrolera
 
-Kliknij prawym przyciskiem myszy folder kontrolery, a następnie wybierz **Dodaj** i **nowy element szkieletu**. Wybierz kontroler programu Web API 2 z akcjami używający narzędzia Entity Framework.
+Kliknij prawym przyciskiem myszy folder kontrolerów, a następnie wybierz pozycję **Dodaj** i **nowy element szkieletu**. Wybierz kontroler 2 internetowego interfejsu API z akcjami używający narzędzia Entity Framework.
 
-![Dodawanie nowego kontrolera](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image2.png)
+![Dodaj nowy kontroler](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image2.png)
 
 Ustaw następujące wartości:
 
 - Nazwa kontrolera: **ProductController**
 - Klasa modelu: **produktu**
-- Klasa kontekstu danych: [wybierz **nowy kontekst danych** przycisku, wypełnia wartości przedstawione poniżej]
+- Klasa kontekstu danych: [wybierz **nowy kontekst danych** przycisk, który wypełnia wartości widoczne poniżej]
 
 ![Określ kontroler](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image3.png)
 
-Kliknij przycisk **Dodaj** do utworzenia kontrolera automatycznie wygenerowany kod. Kod zawiera metody tworzenia, pobierania, aktualizowania i usuwania wystąpienia klasy produktu. Poniższy kod przedstawia metody do dodawania produktu. Należy zauważyć, że ta metoda zwraca wystąpienie **IHttpActionResult**.
+Kliknij przycisk **Dodaj** do tworzenia kontrolera przy użyciu automatycznie generowanego kodu. Kod zawiera metody do tworzenia, pobierania, aktualizowania i usuwania wystąpień klasy produktu. Poniższy kod przedstawia metodę dla dodawania produktu. Należy zauważyć, że metoda zwraca wystąpienie **IHttpActionResult**.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample2.cs)]
 
-IHttpActionResult jest jedną z nowych funkcji w sieci Web API 2, a jego upraszcza tworzenie testów jednostek.
+IHttpActionResult jest jedną z nowych funkcji w sieci Web API 2 i upraszcza tworzenie testów jednostkowych.
 
-W następnej sekcji, możesz dostosować wygenerowany kod w celu ułatwienia przekazywanie obiektów testu na kontrolerze.
+W następnej sekcji dostosujesz wygenerowany kod w celu ułatwienia przekazywanie obiektów testowych do kontrolera.
 
 <a id="dependency"></a>
-## <a name="add-dependency-injection"></a>Dodaj iniekcji zależności
+## <a name="add-dependency-injection"></a>Dodaj wstrzykiwanie zależności
 
-Klasa ProductController jest obecnie ustalony Aby użyć wystąpienia klasy StoreAppContext. Do modyfikowania aplikacji i tej zależności z wpisaną na stałe usunąć użyjesz wzorzec o nazwie iniekcji zależności. Dzięki pozbyciu się tym zależności można przekazać w obiekcie testowych podczas testowania.
+Obecnie klasy ProductController jest ustalony do korzystania z wystąpienia klasy StoreAppContext. Wzorzec o nazwie wstrzykiwanie zależności użyje do modyfikowania aplikacji i usunąć tej ustalonych zależności. Dzięki pozbyciu się do tej zależności możesz przekazać makiety obiektu podczas testowania.
 
-Kliknij prawym przyciskiem myszy **modele** folderu i Dodaj nowy interfejs o nazwie **IStoreAppContext**.
+Kliknij prawym przyciskiem myszy **modeli** folderze i Dodaj nowy interfejs o nazwie **IStoreAppContext**.
 
 Zastąp kod następującym kodem.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample3.cs)]
 
-Otwórz plik StoreAppContext.cs i wprowadź następujące zmiany zaznaczony. Ważne zmiany, należy pamiętać, są następujące:
+Otwórz plik StoreAppContext.cs i wprowadź następujące zmiany wyróżnione. Istotne zmiany, należy pamiętać, są następujące:
 
 - Klasa StoreAppContext implementuje interfejs IStoreAppContext
 - Metoda MarkAsModified jest zaimplementowana.
@@ -129,11 +128,11 @@ Otwórz plik StoreAppContext.cs i wprowadź następujące zmiany zaznaczony. Wa�
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample4.cs?highlight=6,14-17)]
 
-Otwórz plik ProductController.cs. Zmień istniejący kod, aby dopasować wyróżniony kod. Te zmiany zepsuć zależności na StoreAppContext i Włącz innych klas umożliwia przekazywanie dla klasy kontekstu na inny obiekt. Ta zmiana pozwoli podczas testów jednostkowych należy przekazać w kontekście testu.
+Otwórz plik ProductController.cs. Zmień istniejący kod, aby dopasować wyróżniony kod. Te zmiany zepsuć zależności na StoreAppContext i włączyć inne klasy przekazać innego obiektu klasy kontekstu. Ta zmiana spowoduje włączenie przekazania w kontekście testu podczas testów jednostkowych.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample5.cs?highlight=4,7-12)]
 
-Brak jednej więcej zmiany, które należy wykonać w ProductController. W **PutProduct** metoda, Zastąp wiersza, która ustawia stan jednostki zmodyfikowane przez wywołanie do metody MarkAsModified.
+Istnieje jeden więcej zmian, które należy wykonać w ProductController. W **PutProduct** metody, Zastąp wiersz, który ustawia stan jednostki można modyfikować za pomocą wywołanie metody MarkAsModified.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample6.cs?highlight=14-15)]
 
@@ -144,30 +143,30 @@ Teraz można przystąpić do konfigurowania projektu testowego.
 <a id="testpackages"></a>
 ## <a name="install-nuget-packages-in-test-project"></a>Instalowanie pakietów NuGet w projekcie testowym
 
-Użycie pustego szablonu do tworzenia aplikacji, jednostkowy projekt testowy (StoreApp.Tests) nie zawiera żadnych zainstalowanych pakietów NuGet. Inne szablony, takie jak szablon interfejsu API sieci Web obejmują niektórych pakietów NuGet w jednostkowy projekt testowy. W tym samouczku muszą zawierać packge Entity Framework i pakietu Microsoft ASP.NET Web API 2 Core do projektu testowego.
+Gdy używasz pusty szablon do tworzenia aplikacji projektu testu jednostkowego (StoreApp.Tests) nie obejmuje wszystkie zainstalowane pakiety NuGet. Inne szablony, takie jak szablon interfejsu API sieci Web obejmują niektóre pakiety NuGet w projekcie testów jednostkowych. W tym samouczku musi zawierać pakiet platformy Entity Framework i pakiet Microsoft ASP.NET Web API 2 Core do projektu testowego.
 
-Kliknij prawym przyciskiem myszy projekt StoreApp.Tests i wybierz **Zarządzaj pakietami NuGet**. Należy wybrać projekt StoreApp.Tests dodawania pakietów do tego projektu.
+Kliknij prawym przyciskiem myszy projekt StoreApp.Tests, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**. Musisz wybrać projekt StoreApp.Tests, aby dodać pakiety do tego projektu.
 
-![Zarządzaj pakietami](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image4.png)
+![Zarządzanie pakietami](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image4.png)
 
-Z pakietów w trybie Online Znajdź i zainstaluj pakiet EntityFramework (w wersji 6.0 lub nowszej). Jeśli wygląda na to, że pakiet EntityFramework jest już zainstalowany, być może wybrano projektu StoreApp zamiast StoreApp.Tests projektu.
+Z pakietów w trybie Online należy znaleźć i zainstalować pakiet EntityFramework (w wersji 6.0 lub nowszej). Jeśli wygląda na to, że pakiet EntityFramework jest już zainstalowany, może wybrany projekt StoreApp zamiast StoreApp.Tests projektu.
 
-![Dodaj Entity Framework](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image5.png)
+![Dodawanie programu Entity Framework](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image5.png)
 
 Znajdź i zainstaluj pakiet Microsoft ASP.NET Web API 2 Core.
 
-![Zainstaluj pakiet podstawowy interfejs api sieci web](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image6.png)
+![Zainstaluj pakiet podstawowego interfejsu api sieci web](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image6.png)
 
 Zamknij okno Zarządzanie pakietami NuGet.
 
 <a id="testcontext"></a>
 ## <a name="create-test-context"></a>Tworzenie kontekstu testu
 
-Dodaj klasę o nazwie **TestDbSet** do projektu testowego. Ta klasa służy jako klasa podstawowa dla użytkownika testowego zestawu danych. Zastąp kod następującym kodem.
+Dodaj klasę o nazwie **TestDbSet** do projektu testu. Ta klasa służy jako klasa bazowa dla zestawu danych testowych. Zastąp kod następującym kodem.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample7.cs)]
 
-Dodaj klasę o nazwie **TestProductDbSet** do projektu testowego, który zawiera następujący kod.
+Dodaj klasę o nazwie **TestProductDbSet** do projektu testu, który zawiera następujący kod.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample8.cs)]
 
@@ -178,19 +177,19 @@ Dodaj klasę o nazwie **TestStoreAppContext** i Zastąp istniejący kod następu
 <a id="tests"></a>
 ## <a name="create-tests"></a>Tworzenie testów
 
-Domyślnie projekt testowy zawiera plik pusty test o nazwie **UnitTest1.cs**. Ten plik zawiera atrybuty się, że jest używany do utworzenia metody testowe. W tym samouczku można usunąć tego pliku, ponieważ doda nową klasę testów.
+Domyślnie projektu testowego zawiera plik pusty test o nazwie **UnitTest1.cs**. Ten plik zawiera atrybuty, że umożliwia tworzenie metod testowych. Na potrzeby tego samouczka możesz usunąć ten plik, ponieważ spowoduje dodanie nowej klasy testowej.
 
-Dodaj klasę o nazwie **TestProductController** do projektu testowego. Zastąp kod następującym kodem.
+Dodaj klasę o nazwie **TestProductController** do projektu testu. Zastąp kod następującym kodem.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample10.cs)]
 
 <a id="runtests"></a>
 ## <a name="run-tests"></a>Uruchom testy
 
-Teraz można przystąpić do uruchomienia testów. Wszystkie metody, które są oznaczone ikoną z **TestMethod** atrybut zostanie przetestowana. Z **testu** element menu, uruchom testy.
+Teraz można przystąpić do uruchomienia testów. Wszystkie metody, które są oznaczone **TestMethod** atrybut, który będzie testowany. Z **testu** elementu menu, uruchom testy.
 
 ![uruchom testy](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image7.png)
 
-Otwórz **Eksploratora testów** okna i zwróć uwagę, wyniki testów.
+Otwórz **Eksplorator testów** okna i zwróć uwagę, wyniki testów.
 
 ![wyniki testu](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image8.png)

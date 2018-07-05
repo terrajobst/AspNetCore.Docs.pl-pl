@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views
-title: 'Jak I: wdrożenie widoku modeli do zarządzania danymi w widokach programu ASP.NET MVC? | Microsoft Docs'
+title: Jak mogę Implementowanie modeli widoków do zarządzania danymi dla widoków ASP.NET MVC? | Microsoft Docs
 author: rick-anderson
-description: To wideo pokazuje, jak korzystają z Pels Krzysztof &quot;Model widoku&quot; zarządzania danymi, widoki ASP.NET MVC. Po pierwsze przykładowy projekt MVC jest uż...
+description: W tym filmie pokazano, jak koncepcji pikseli Chris &quot;Model widoku&quot; do zarządzania danymi dla widoków ASP.NET MVC. Po pierwsze przykładowy projekt MVC jest poświadczeń...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/11/2009
 ms.topic: article
 ms.assetid: 22f55d63-78f7-44fd-9107-f74cbe16022b
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views
 msc.type: video
-ms.openlocfilehash: 95be7e6bdbefe3f988fbc4065a8298395fb3ac89
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f0713b87dc6455016de921998a994f8bca7dd8bc
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871197"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37378089"
 ---
-<a name="how-do-i-implement-view--models-to-manage-data-for-aspnet-mvc-views"></a>Jak I: wdrożenie widoku modeli do zarządzania danymi w widokach programu ASP.NET MVC?
+<a name="how-do-i-implement-view--models-to-manage-data-for-aspnet-mvc-views"></a>Jak mogę Implementowanie modeli widoków do zarządzania danymi dla widoków ASP.NET MVC?
 ====================
-przez [Pels Krzysztof](https://twitter.com/chrispels)
+przez [Chris pikseli](https://twitter.com/chrispels)
 
-W tym wideo Pels Krzysztof pokazano, jak korzystają z modelu"Widok" zarządzania danymi, widoki ASP.NET MVC. Po pierwsze przykładowy projekt MVC jest tworzony, który używa ViewDataDictionary pakietu i przekazywanie danych z kontrolera do widoku. Następnie klasy jest tworzone reprezentuje model widoku dla widoku w przykładowy projekt MVC. W ramach tej implementacji omówiono zalety podejścia modelu widoku. Na koniec jest omówienie sposobu partycji logikę aplikacji, korzystając z implementacji modelu widoku.
+W tym wideo pikseli Chris pokazuje, jak używać koncepcji "Model widoku" do zarządzania danymi dla widoków ASP.NET MVC. Po pierwsze przykładowy projekt MVC jest tworzony, który używa ViewDataDictionary spakować i przekazywania danych za pomocą kontrolera do widoku. Następnie klasy jest tworzona, który reprezentuje model widoku w celu wyświetlenia w przykładowym projekcie platformy MVC. W ramach tej implementacji omówiono korzyści wynikające z podejścia modelu widoku. Na koniec jest dyskusję na temat sposobu partycji logiki aplikacji, korzystając z widoku implementacja modelu.
 
-[&#9654;Obejrzyj klip wideo (minuty 21)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views)
+[&#9654;Obejrzyj film wideo (minuty 21)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)

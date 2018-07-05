@@ -1,45 +1,44 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
-title: W programie Visual Studio 2012 za pomocą narzędzia Page Inspector | Dokumentacja firmy Microsoft
+title: Za pomocą narzędzia Page Inspector w programie Visual Studio 2012 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: W tym laboratorium Hands-on odnajdzie nowe narzędzie do znajdowania i rozwiązywania problemów strony sieci web w programie Visual Studio — narzędzie Page Inspector. Narzędzie Page Inspector to nowe narzędzie tego b...
+description: W tym laboratorium praktyczne wykryje nowe narzędzie służące do znajdowania i rozwiązywania problemów strony sieci web w programie Visual Studio — narzędzie Page Inspector. Narzędzie Page Inspector to nowe narzędzie tego b...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
 ms.topic: article
 ms.assetid: 73232292-a5fe-4720-82a1-8f6553effd1f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 052d29dba170d403c2b1c1667c55fc2c34045615
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 236b739abb8c9073535361040dd7d921da9dba6e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30891246"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365727"
 ---
-<a name="using-page-inspector-in-visual-studio-2012"></a>W programie Visual Studio 2012 za pomocą narzędzia Page Inspector
+<a name="using-page-inspector-in-visual-studio-2012"></a>Za pomocą narzędzia Page Inspector w programie Visual Studio 2012
 ====================
-Przez [obozów sieci Web Team](https://twitter.com/webcamps)
+Przez [Camp w sieci Web zespołu](https://twitter.com/webcamps)
 
-> W tym laboratorium Hands-on odnajdzie nowe narzędzie do znajdowania i rozwiązywania problemów strony sieci web w programie Visual Studio — narzędzie Page Inspector.
+> W tym laboratorium praktyczne wykryje nowe narzędzie służące do znajdowania i rozwiązywania problemów strony sieci web w programie Visual Studio — narzędzie Page Inspector.
 > 
-> Narzędzie Page Inspector to nowe narzędzie wprowadzające narzędzia diagnostyczne przeglądarki do programu Visual Studio i oferujące integrację przeglądarki, ASP.NET i kod źródłowy. Renderuje stronę sieci web (HTML, formularzy sieci Web, ASP.NET MVC lub strony sieci Web) bezpośrednio z poziomu programu Visual Studio IDE, a pozwala sprawdzić zarówno kod źródłowy, jak i dane wyjściowe. Narzędzie Page Inspector umożliwia łatwą dekompozycję witryny sieci Web, błyskawiczne tworzenie stron od podstaw w i szybkie diagnozowanie problemów.
+> Narzędzie Page Inspector to nowe narzędzie wprowadzające narzędzia diagnostyczne przeglądarki do programu Visual Studio i oferujące integrację między przeglądarką, ASP.NET i kod źródłowy. On renderuje stronę sieci web (HTML, formularze sieci Web, ASP.NET MVC lub strony sieci Web) bezpośrednio z poziomu środowiska IDE programu Visual Studio i pozwala na badanie zarówno kod źródłowy, jak i dane wyjściowe. Narzędzie Page Inspector umożliwia łatwą dekompozycję witryny sieci Web, szybko tworząc strony od podstaw i szybkie diagnozowanie problemów.
 > 
-> Dzisiaj mamy kilka platformy sieci Web, które tworzenie witryn sieci Web elastyczność i skalowalność w odpowiednim czasie, takich jak ASP.NET MVC i formularzy sieci Web. Z drugiej strony pobiera trudniej można znaleźć problemy na stronach IDE nie obsługują Widok projektanta strony na podstawie szablonu i zawartość dynamiczną. W związku z tym tych witryn sieci Web muszą być otwarte w przeglądarce, aby sprawdzić, jak są wyświetlane dla użytkownika.
+> Dzisiaj mamy wiele struktur sieci Web tworzyć elastyczne i skalowalne witryny sieci Web w odpowiednim czasie, takie jak ASP.NET MVC i formularzy sieci Web. Z drugiej strony otrzymuje trudniejsze można znaleźć problemy na stronach, ponieważ IDE nie obsługuje Widok projektanta w stronach na podstawie szablonu i zawartości dynamicznej. W związku z tym tych witryn sieci Web muszą być otwarte w przeglądarce, aby zobaczyć, jak pojawiają się z użytkownikiem.
 > 
-> Deweloperzy sieci Web stosowanie zewnętrznych narzędzi, aby znaleźć problemy, które regularnie uruchamianie jej w przeglądarce. Następnie wróć do środowiska IDE i rozpocząć rozwiązywanie. To i z powrotem działania między IDE, przeglądarki i narzędzia profilowania może być mało wydajne i czasami wymaga świeże wdrożenie i zawsze Aby odtworzyć problem czyszczenia pamięci podręcznej.
+> Deweloperzy sieci Web użyj zewnętrznych narzędzi, aby znaleźć problemy, które regularnie uruchomić w przeglądarce. Następnie wróć do IDE i rozpocząć rozwiązywanie. To i z powrotem działanie środowiska IDE, przeglądarki i narzędzia profilowania może być mało wydajne i czasami wymaga świeże wdrożenie i każdym razem, aby odtworzyć problem czyszczenia pamięci podręcznej.
 > 
-> Narzędzie Page Inspector pomost przerwa w aplikacji sieci Web między klientem (Narzędzia przeglądarki) i serwerem (ASP.NET i kod źródłowy), łącząc najlepsze cechy obu tych środowisk w połączony zestaw funkcji.
+> Narzędzie Page Inspector wypełnia lukę przy projektowaniu aplikacji internetowych między klientem (Narzędzia przeglądarki) i serwerem (program ASP.NET i kod źródłowy), łącząc najlepsze cechy obu tych środowisk w połączony zestaw funkcji.
 > 
-> Za pomocą narzędzia Page Inspector, można sprawdzić elementów w plikach źródłowych (w tym kod po stronie serwera) tworzą kod znaczników HTML do renderowania w przeglądarce. Narzędzie Page Inspector umożliwia także modyfikowanie właściwości stylów CSS oraz atrybutów elementów modelu DOM, aby zobaczyć zmiany natychmiast odzwierciedlone w przeglądarce.
+> Korzystając z narzędzia Page Inspector, możesz zobaczyć, które elementy w plikach źródłowych (łącznie z kodem po stronie serwera) zostały wygenerowane kod znaczników HTML do renderowania w przeglądarce. Narzędzie Page Inspector umożliwia także modyfikowanie właściwości stylów CSS oraz atrybutów elementów modelu DOM, aby zobaczyć zmiany, natychmiast odzwierciedlone w przeglądarce.
 > 
-> To laboratorium praktycznego będzie zademonstrować funkcje narzędzia Page Inspector i pokazują, jak można je Rozwiąż problemy w aplikacji sieci Web. **W tym laboratorium zawiera dwa ćwiczeń przy użyciu podobnych przepływów, ale przeznaczonych dla różnych technologii. Jeżeli deweloperów programu ASP.NET MVC, należy wykonać ćwiczenia w przypadku wykonywania wykonaj projektanta formularzy sieci Web, dwa**.
+> To ćwiczenie praktyczne spowoduje przeprowadzą Cię przez funkcje narzędzia Page Inspector i dowiesz się, jak można je rozwiązać problemy w aplikacjach sieci Web. **W tym laboratorium zawiera dwa ćwiczeń przy użyciu przepływów podobne, ale przeznaczone dla różnych technologii. Jeśli dla deweloperów programu ASP.NET MVC, wykonaj ćwiczenie Jeśli jesteś wykonywania postępuj zgodnie z projektanta formularzy sieci Web, dwa**.
 > 
-> W tym laboratorium przeprowadzi Cię przez rozszerzenia oraz nowe funkcje opisane wcześniej przez zastosowanie drobne zmiany do przykładowej aplikacji sieci Web w folderze źródłowym.
+> W tym laboratorium przeprowadzi Cię przez ulepszeń i nowych funkcji, które opisano wcześniej, stosując drobne zmiany do przykładowej aplikacji sieci Web, pod warunkiem w folderze źródłowym.
 > 
-> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web obozów zestaw szkoleniowy, dostępne pod adresem [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Wszystkie przykładowy kod i fragmenty kodu są uwzględnione w sieci Web Camp zestaw szkoleniowy, dostępne pod adresem [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -47,20 +46,20 @@ Przez [obozów sieci Web Team](https://twitter.com/webcamps)
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Cele
 
-W tym laboratorium praktycznego przedstawiono sposób:
+W tym praktyczne laboratorium dowiesz się jak:
 
-- Rozłóż witryny sieci Web przy użyciu narzędzia Page Inspector
-- Zbadaj i Podgląd zmian style CSS z narzędziem Page Inspector
-- Wykrywanie i naprawianie problemów na stronach sieci web za pomocą narzędzia Page Inspector
+- Rozłóż witryny sieci Web za pomocą narzędzia Page Inspector
+- Sprawdzanie i Podgląd zmian stylów CSS przy użyciu narzędzia Page Inspector
+- Wykrywanie i rozwiązywanie problemów na stronach sieci web za pomocą narzędzia Page Inspector
 
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Musi mieć następujące elementy do przygotowania tego laboratorium:
+Należy dysponować następującymi elementami do przygotowania tego laboratorium:
 
-- [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) lub wyższego poziomu (odczytu [dodatek a.](#AppendixA) instrukcje dotyczące sposobu jego instalacji).
+- [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) lub wyższego poziomu (odczyt [dodatek a.](#AppendixA) instrukcje dotyczące sposobu jego instalacji).
 - Program Internet Explorer 9 lub nowszy
 
 * * *
@@ -70,196 +69,196 @@ Musi mieć następujące elementy do przygotowania tego laboratorium:
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Ćwiczenia
 
-To laboratorium praktycznego obejmuje następujących czynnościach:
+To ćwiczenie praktyczne obejmuje następujących czynnościach:
 
-1. [Ćwiczenie 1: Za pomocą narzędzia Page Inspector w projekty składnika ASP.NET MVC](#Exercise1)
-2. [Ćwiczenie 2: Za pomocą narzędzia Page Inspector w projektach formularzy sieci Web](#Exercise2)
+1. [Ćwiczenie 1: Korzystanie z narzędzia Page Inspector w projektach ASP.NET MVC](#Exercise1)
+2. [Ćwiczenie 2: Za pomocą narzędzia Page Inspector w projektach formularzy WebForms](#Exercise2)
 
 > [!NOTE]
-> Każdy wykonywania towarzyszy początkowy rozwiązania, znajdujących się w folderze Begin ćwiczenia, umożliwiający postępuj zgodnie z każdym wykonywania niezależnie od innych. W kodzie źródłowym wykonywania będzie również znaleźć folderu zakończenia zawierającego rozwiązanie Visual Studio z kodem, który powoduje wykonanie czynności opisane w odpowiedniej wykonywania. Jeśli potrzebujesz dodatkowej pomocy w pracy za pośrednictwem tego laboratorium praktycznego, można użyć tych rozwiązań jako wskazówki.
+> Każdy wykonywania towarzyszy początkowy rozwiązania, znajdującego się w folderze rozpoczęcia wykonywania, umożliwiający wykonanie każdego wykonywania niezależnie od innych. Wewnątrz kodu źródłowego dla ćwiczenia można również znaleźć folderu zakończenia, zawierającego rozwiązanie programu Visual Studio z kodem, powstałego w wykonaniu tych kroków, wykonując odpowiednie. Jeśli potrzebujesz dodatkowej pomocy, gdy pracujesz za pośrednictwem tego laboratorium praktycznego, można użyć jako wskazówki dotyczące tych rozwiązań.
 
 
-Szacowany czas trwania tego laboratorium: **30 minut**.
+Szacowany czas do ukończenia tego laboratorium: **30 minut**.
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Using_Page_Inspector_in_ASPNET_MVC_Projects"></a>
-### <a name="exercise-1-using-page-inspector-in-aspnet-mvc-projects"></a>Ćwiczenie 1: Za pomocą narzędzia Page Inspector w projekty składnika ASP.NET MVC
+### <a name="exercise-1-using-page-inspector-in-aspnet-mvc-projects"></a>Ćwiczenie 1: Korzystanie z narzędzia Page Inspector w projektach ASP.NET MVC
 
-W tym ćwiczeniu dowiesz sposób Podgląd i debugowania **ASP.NET MVC 4** przy użyciu rozwiązania **narzędzie Page Inspector**. Po pierwsze będzie wykonywać krótki laptop wokół narzędzie, aby dowiedzieć się więcej funkcji, które ułatwiają debugowanie procesu sieci Web. Następnie będzie działać na stronie sieci web zawierający style problemy. Dowiesz się używania narzędzie Page Inspector można znaleźć kodu źródłowego, który generuje problemu i rozwiąż problem.
+W tym ćwiczeniu zostanie dowiesz się, jak wyświetlić podgląd i debugować **platformy ASP.NET MVC 4** rozwiązanie przy użyciu **narzędzie Page Inspector**. Należy najpierw wykonać krótkie omówienie narzędzia się funkcji, które ułatwiają debugowanie procesu w sieci Web. Następnie będzie działać na stronie sieci web, zawierającą stylów problemów. Dowiesz się jak Inspektor stron umożliwia znajdowanie kodu źródłowego, który generuje ten problem i rozwiązać ten problem.
 
 <a id="Ex1Task1"></a>
 
 <a id="Task_1_-_Exploring_Page_Inspector"></a>
-#### <a name="task-1---exploring-page-inspector"></a>Zadanie 1 - eksploracji narzędzie Page Inspector
+#### <a name="task-1---exploring-page-inspector"></a>Zadanie 1 — poznawanie narzędzia Page Inspector
 
-W tym zadaniu dowiesz się, jak używać narzędzia Page Inspector w kontekście projektu programu ASP.NET MVC 4, pokazujący galerii fotografii.
+W tym zadaniu dowiesz się, jak używać narzędzia Page Inspector w kontekście projektu programu ASP.NET MVC 4, pokazujący Galeria fotografii.
 
-1. Otwórz **rozpocząć** rozwiązania, znajdujących się na **źródło/Ex1-MVC4/Begin/** folderu.
+1. Otwórz **rozpocząć** rozwiązania znajdujący się w **źródło/Ex1-MVC4/rozpoczęcia/** folderu.
 
-   1. Należy pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   1. Musisz pobrać niektóre brakujące pakiety NuGet przed kontynuowaniem. Aby to zrobić, kliknij przycisk **projektu** menu, a następnie wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okno dialogowe, kliknij przycisk **przywrócić** Aby pobrać brakujące pakiety.
    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
       > [!NOTE]
-      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
-2. W Eksploratorze rozwiązań, Znajdź **Index.cshtml** wyświetlić w obszarze **/widoków domowych** folderu projektu, kliknij go prawym przyciskiem myszy i wybierz **widoku w narzędzie Page Inspector**.
+      > Jedną z zalet za pomocą narzędzia NuGet jest, że nie masz do wysłania wszystkie biblioteki w projekcie, zmniejszenie rozmiaru projektu. Za pomocą narzędzi NuGet Power Tools, określając wersji pakietu w pliku Packages.config można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego należy uruchomić następujące kroki, po otwarciu istniejącego rozwiązania, w tym środowisku laboratoryjnym.
+2. W Eksploratorze rozwiązań zlokalizuj **Index.cshtml** wyświetlona w obszarze **/widoków domowych** folderu projektu, kliknij go prawym przyciskiem myszy i wybierz **widoku w narzędzia Page Inspector**.
 
-    ![Wybieranie plików do podglądu w narzędzie Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image1.png "Wybieranie plików do podglądu w narzędzie Page Inspector")
+    ![Wybieranie pliku, aby wyświetlić podgląd w narzędzia Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image1.png "wyboru pliku, aby wyświetlić podgląd w narzędzia Page Inspector")
 
-    *Wybieranie plików do podglądu w narzędzie Page Inspector*
-3. Okno narzędzia Page Inspector będzie zawierać */Home/indeksu* adres URL mapowany do źródła wybranego widoku.
+    *Wybieranie pliku, aby wyświetlić podgląd w narzędzia Page Inspector*
+3. Okno narzędzia Page Inspector będzie zawierać */Home/Index* adres URL mapowany do źródła wybranego widoku.
 
     ![ThefirstcontactwithPageInspector](using-page-inspector-in-visual-studio-2012/_static/image2.png)
 
-    *Pierwszym kontakcie z narzędziem Page Inspector*
+    *Pierwszy kontakt z narzędziem Page Inspector*
 
-    Narzędzie narzędzie Page Inspector jest zintegrowana w środowisku Visual Studio. Inspektor zawiera osadzony przeglądarki, wraz z zaawansowanych profilera HTML. Należy zauważyć, że nie masz Aby uruchomić rozwiązanie, aby zobaczyć strony.
+    Narzędzie Page Inspector jest zintegrowana w środowisku Visual Studio. Inspektor zawiera osadzony przeglądarce wraz z zaawansowany profiler HTML. Należy zauważyć, że jest konieczne uruchamianie rozwiązania, aby zobaczyć, jak wyglądają strony.
 
     > [!NOTE]
-    > Gdy szerokość przeglądarkę narzędzia Page Inspector jest mniejsza niż szerokość otwarta strona, nie zobaczysz stronę poprawnie. Jeśli tak się stanie, należy dostosować szerokość narzędzie Page Inspector.
-4. Kliknij przycisk **pliki** kartę w narzędzie Page Inspector.
+    > Gdy szerokość przeglądarki narzędzia Page Inspector jest mniejsza niż szerokość otwarta strona, nie zobaczysz stronę prawidłowo. Jeśli tak się stanie, należy dostosować szerokość narzędzia Page Inspector.
+4. Kliknij przycisk **pliki** karcie narzędzie Page Inspector.
 
-    Zostanie wyświetlone wszystkie pliki źródłowe, które są redagowania strony indeksu. Ta funkcja pomaga zidentyfikować wszystkie elementy w skrócie, szczególnie w przypadku, gdy użytkownik pracuje z częściowa widoki i szablony. Należy zauważyć, że można również otworzyć plików po kliknięciu łącza.
+    Widoczne będą wszystkie pliki źródłowe, które są Tworzenie strony indeksu. Ta funkcja pomaga w identyfikacji wszystkie elementy, które na pierwszy rzut oka, szczególnie w przypadku, gdy pracujesz z widoki częściowe i szablony. Należy zauważyć, że możesz również otworzyć każdy plik po kliknięciu łącza.
 
     ![Karta pliki](using-page-inspector-in-visual-studio-2012/_static/image3.png)
 
     *Karta pliki*
-5. Kliknij przycisk **Przełącz tryb inspekcji** przycisk znajdujący się po lewej stronie kart.
+5. Kliknij przycisk **Przełącz tryb inspekcji** przycisk znajdujący się na kartach po lewej stronie.
 
-    To narzędzie będzie można wybrać dowolny element strony i wyświetlić jego kod HTML i Razor.
+    To narzędzie umożliwia wybranie dowolnego elementu strony i wyświetlić jego kod HTML i Razor.
 
     ![Toggle-Inspection-Mode-button](using-page-inspector-in-visual-studio-2012/_static/image4.png)
 
-    *Przycisk przełączania trybu inspekcji*
-6. W przeglądarce narzędzie Page Inspector Przesuń wskaźnik myszy nad elementy na stronie. Podczas przesuwania wskaźnika myszy nad dowolną część renderowanej strony wyświetlany jest typ elementu, a odpowiedni kod źródłowy lub kod zostanie wyróżniona w edytorze programu Visual Studio.
+    *Przełącz tryb inspekcji przycisku*
+6. W przeglądarce narzędzia Page Inspector Przesuń wskaźnik myszy nad elementów strony. Podczas przesuwania wskaźnika myszy nad dowolną część renderowanej strony, typ elementu jest wyświetlany, oraz odpowiedni kod źródłowy lub kod jest wyróżniony w edytorze programu Visual Studio.
 
     ![Inspectionmodeinaction](using-page-inspector-in-visual-studio-2012/_static/image5.png)
 
-    *Tryb inspekcji w akcji*
+    *Tryb inspekcji w działaniu*
 
     > [!NOTE]
-    > Nie Maksymalizuj okno narzędzia Page Inspector lub nie będzie widoczna na karcie Podgląd przedstawiający kodu źródłowego. Po kliknięciu elementu w narzędzie Page Inspector jest maksymalizacji, zostanie wyświetlony kod źródłowy zaznaczenia, ale spowoduje ukrycie okna narzędzia Page Inspector.
+    > Nie zmaksymalizuj okno narzędzia Page Inspector lub nie będzie można wyświetlić na karcie podglądu przedstawiający kodu źródłowego. Kliknięcie elementu w narzędzia Page Inspector jest maksymalizacji pojawi się kod źródłowy zaznaczenia, ale będzie go ukryć okno narzędzia Page Inspector.
 
-    Jeśli użytkownik należy zwrócić uwagę na **Index.cshtml** plików, można zauważyć, że zostanie wyróżniona części kodu źródłowego, który generuje wybranego elementu. Ta funkcja umożliwia edytowanie plików źródłowych długie, dzięki czemu bezpośredniego i szybki dostęp do kodu.
+    Jeśli użytkownik należy zwrócić uwagę na **Index.cshtml** plik, zauważysz, że fragment kodu źródłowego, który generuje wybranego elementu jest wyróżniona. Ta funkcja ułatwia tworzenie, edytowanie plików źródłowych długie, zapewniając bezpośredni i szybki sposób uzyskiwać dostęp do kodu.
 
     ![Inspectingelements](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
-    *Zapoznanie się elementy*
-7. Kliknij przycisk **Przełącz tryb inspekcji** przycisk (![wybierz kartę HTML, aby wyświetlić kod HTML renderowane w przeglądarce narzędzie Page Inspector.] (using-page-inspector-in-visual-studio-2012/_static/image7.png "Wybierz kartę HTML, aby wyświetlić kod HTML renderowane w przeglądarce narzędzie Page Inspector.") ) można wyłączyć kursora.
-8. Wybierz **HTML** kartę, aby wyświetlić kod HTML renderowane w przeglądarce narzędzie Page Inspector.
-9. W znaczniku HTML Znajdź element listy z łączem Koala i zaznacz je.
+    *Sprawdzanie elementów*
+7. Kliknij przycisk **Przełącz tryb inspekcji** przycisku (![wybierz kartę HTML, aby wyświetlić kod HTML w przeglądarce narzędzia Page Inspector.] (using-page-inspector-in-visual-studio-2012/_static/image7.png "Wybierz kartę HTML, aby wyświetlić kod HTML w przeglądarce narzędzia Page Inspector.") ) można wyłączyć kursora.
+8. Wybierz **HTML** kartę, aby wyświetlić kod HTML w przeglądarce narzędzia Page Inspector.
+9. W kod znaczników HTML Znajdź element listy z linkiem Koala i zaznacz je.
 
-    Należy zauważyć, że po wybraniu kod odpowiednie dane wyjściowe automatycznie zostanie wyróżniona w przeglądarce. Ta funkcja jest przydatna zobaczyć, jak jest renderowany blok HTML na stronie.
+    Należy zauważyć, że po wybraniu kod, odpowiednie dane wyjściowe automatycznie zostanie wyróżniona w przeglądarce. Ta funkcja jest przydatna zobaczyć sposób renderowania bloku kodu HTML na stronie.
 
-    ![Wybieranie elementu HTML na stronie](using-page-inspector-in-visual-studio-2012/_static/image8.png "elementu wybranie HTML na stronie")
+    ![Wybranie elementu HTML na stronie](using-page-inspector-in-visual-studio-2012/_static/image8.png "HTML z wybraniu elementu na stronie")
 
-    *Wybranie elementu HTML na stronie*
-10. Kliknij przycisk **Przełącz tryb inspekcji** przycisk, aby włączyć *trybu inspekcji* i kliknij na pasku nawigacji. Po prawej stronie kodu HTML, w okienku style zostanie wyświetlona lista przy użyciu stylów CSS stosowany do wybranego elementu.
+    *Wybieranie elementu HTML na stronie*
+10. Kliknij przycisk **Przełącz tryb inspekcji** przycisk, aby włączyć *tryb inspekcji* i kliknij przycisk na pasku nawigacyjnym. Po prawej stronie kodu HTML, w okienku style zostanie wyświetlona lista ze stylami CSS stosowane do wybranego elementu.
 
     > [!NOTE]
-    > Ponieważ nagłówka jest częścią układu witryny, narzędzie Page Inspector będzie również otworzyć \_plik Layout.cshtml i podświetl wpływ segment kodu.
+    > Ponieważ nagłówek jest częścią układu witryny, narzędzie Page Inspector będzie również otworzyć \_plik Layout.cshtml i wyróżnienie na segmencie kodu.
 
     ![Discoveringstyles](using-page-inspector-in-visual-studio-2012/_static/image9.png)
 
     *Odnajdywanie stylów i pliki źródłowe zaznaczonego elementu*
-11. Wskaźnikiem Przełącz inspekcji włączone Przenieś wskaźnik myszy poniżej paska polecanych niebieski, a następnie kliknij przycisk połowa okręgu.
+11. Wskaźnikiem Przełącz Inspekcja włączona umieść kursor myszy poniżej niebieski pasek polecane, a następnie kliknij przycisk Półokrąg.
 
-    ![Wybranie elementu](using-page-inspector-in-visual-studio-2012/_static/image10.png "zaznaczenie elementu")
+    ![Wybieranie elementu](using-page-inspector-in-visual-studio-2012/_static/image10.png "zaznaczenie elementu")
 
-    *Wybranie elementu*
-12. W okienku style zlokalizować **obraz tła** elementu w obszarze **.main zawartości** grupy. **Usuń zaznaczenie pola wyboru** **obraz tła** i zobacz, co się stanie. Można zauważyć, że przeglądarki zmienienia natychmiast i okręgu jest ukryty.
+    *Wybieranie elementu*
+12. W okienku style zlokalizować **obraz tła** w obszarze **.main zawartości** grupy. **Usuń zaznaczenie pola wyboru** **obraz tła** i zobacz, co się dzieje. Zauważysz, że przeglądarki w celu zmienienia natychmiast i koła jest ukryty.
 
     > [!NOTE]
-    > Zmiany, które należy zastosować na karcie Strona inspektora style nie wpływają na oryginalnym arkusza stylów. Możesz usunąć zaznaczenie pola wyboru style lub zmieniać tyle razy, ale będzie można przywrócić po odświeżeniu strony.
+    > Zmiany, które można zastosować na karcie Style Inspektor strony nie wpływają na oryginalny arkusza stylów. Można usunąć zaznaczenie style lub zmienić ich wartości jako tyle razy, ile chcesz, ale zostanie przywrócona po odświeżeniu strony.
 
-    ![Włączanie i wyłączanie style CSS](using-page-inspector-in-visual-studio-2012/_static/image11.png "Włączanie i wyłączanie stylów CSS")
+    ![Włączanie i wyłączanie style CSS](using-page-inspector-in-visual-studio-2012/_static/image11.png "Włączanie i wyłączanie style CSS")
 
-    *Włączanie i wyłączanie stylów CSS*
-13. Teraz, kliknij przycisk "**tutaj znak logo**" tekst w nagłówku przy użyciu trybu inspekcji.
-14. W **style** zlokalizuj **rozmiar czcionki** atrybutu CSS w obszarze **.site tytuł** grupy. Kliknij dwukrotnie wartość atrybutu, a wartość 2.3 em **3 em**, a następnie naciśnij klawisz **ENTER**. Zwróć uwagę, że tytuł wygląda większy.
+    *Włączanie i wyłączanie style CSS*
+13. Teraz, kliknij pozycję "**Twoje logo**" tekst w nagłówku przy użyciu trybu inspekcji.
+14. W **style** kartę, odszukaj **rozmiar czcionki** CSS atrybutu w ramach **.site tytuł** grupy. Kliknij dwukrotnie wartość atrybutu, a następnie Zamień wartość 2.3 em na **3 em**, a następnie naciśnij klawisz **ENTER**. Należy zauważyć, że tytuł wygląda większe.
 
-    ![Zmiana wartości CSS w narzędzie Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image12.png "wartości zmiana CSS w narzędzie Page Inspector")
+    ![Zmiana wartości CSS w narzędzia Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image12.png "wartości zmiana CSS w narzędzia Page Inspector")
 
-    *Zmiana wartości CSS w narzędzie Page Inspector*
-15. Kliknij przycisk **style śledzenia** kartę, znajduje się w okienku po prawej stronie narzędzie Page Inspector. Jest to alternatywny sposób, aby wyświetlić wszystkie style, które są stosowane do zaznaczenia, uporządkowanych według nazwy atrybutu.
+    *Zmiana wartości CSS w narzędzia Page Inspector*
+15. Kliknij przycisk **— śledzenie stylów** karcie znajduje się w prawym okienku narzędzia Page Inspector. Jest to alternatywny sposób, aby zobaczyć wszystkie style, które są stosowane do wyboru, uporządkowane według nazwy atrybutu.
 
     ![CSSstylestracing](using-page-inspector-in-visual-studio-2012/_static/image13.png)
 
-    *Śledzenie style CSS wybranego elementu*
-16. Inna funkcja narzędzie Page Inspector to okienko układu. Przy użyciu trybu inspekcji, wybierz na pasku nawigacyjnym, a następnie kliknij przycisk **układu** karty w okienku po prawej stronie. Zostanie wyświetlone rozmiarze wybranego elementu, a także rozmiaru przesunięcie, margines i Wypełnienie obramowania. Należy zauważyć, że wartości w tym widoku można również zmodyfikować.
+    *Śledzenie stylów CSS zaznaczonego elementu*
+16. Kolejną funkcją narzędzia Page Inspector jest okienko układu. Tryb inspekcji, zaznacz pasek nawigacyjny, a następnie kliknij przycisk **układ** karty w okienku po prawej stronie. Zostanie wyświetlony dokładny rozmiar wybranego elementu, a także jego rozmiar przesunięcie, marża, uzupełnienie i obramowanie. Należy zauważyć, że wartości w tym widoku można również zmodyfikować.
 
-    ![Elementu układu w narzędzie Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image14.png "układu elementu w narzędzie Page Inspector")
+    ![Układ elementów w narzędzia Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image14.png "układ elementów w narzędzia Page Inspector")
 
-    *Elementu układu w narzędzie Page Inspector*
+    *Układ elementów w narzędzia Page Inspector*
 
 <a id="Ex1Task2"></a>
 
 <a id="Task_2_-_Finding_and_Fixing_Style_Issues_in_the_Photo_Gallery"></a>
 #### <a name="task-2---finding-and-fixing-style-issues-in-the-photo-gallery"></a>Zadanie 2 — Znajdowanie i rozwiązywanie problemów stylu w Galerii fotografii
 
-Jak można zdiagnozować problemy stron sieci Web z poprzednich wersji programu Visual Studio? Jesteś prawdopodobnie znane z narzędzia debugowania, które są uruchomione spoza programu Visual Studio IDE, takich jak narzędzi deweloperskich programu Internet Explorer lub Firebug sieci web. Przeglądarki tylko zrozumieć HTML, skryptów i stylów, podczas gdy podstawowej struktury generuje kod HTML, który będzie renderowany. Z tego powodu często konieczne wdrażanie całej lokacji, aby zobaczyć, jak wyglądają stron sieci web.
+Jak możesz zdiagnozować problemów stron sieci Web we wcześniejszych wersjach programu Visual Studio? To jest prawdopodobnie masz narzędzia debugowania, które są uruchomione spoza programu Visual Studio IDE, takich jak narzędzia dla deweloperów programu Internet Explorer lub Firebug w sieci web. Przeglądarek tylko zrozumienie kodu HTML, skryptów i stylów, podczas gdy podstawowej struktury generuje kod HTML, który będzie renderowany. Z tego powodu często konieczne do wdrożenia w całej lokacji, aby zobaczyć, jak wyglądało stron sieci web.
 
-Przy Wykryj i napraw problem w witrynie sieci web ma prawdopodobnie zostały wykonane następujące kroki:
+Ma prawdopodobnie wykonano następujące kroki, gdy chcesz wykryć i naprawić problem w witrynie sieci web:
 
-1. Uruchom rozwiązania z programu Visual Studio, albo wdrożyć strony na serwerze sieci web.
-2. W przeglądarce otwórz narzędzi deweloperskich używanie lub po prostu otworzyć kodu źródłowego i style i podjąć próbę dopasowania problem. Znajdź pliki związane, możesz korzystać z &quot;wyszukiwania&quot; lub &quot;wyszukiwania w plikach&quot; funkcji o nazwie klasy stylów.
-3. Po wykryciu błąd zatrzymania przeglądarki sieci Web a serwerem.
-4. Wyczyścić pamięć podręczną przeglądarki.
+1. Uruchom rozwiązanie za pomocą programu Visual Studio lub Wdróż strony na serwerze sieci web.
+2. W przeglądarce otwórz narzędzia programistyczne używane, lub po prostu otwórz kod źródłowy i stylów i podjąć próbę dopasowania problem. Aby znaleźć pliki związane, użyto &quot;wyszukiwania&quot; lub &quot;wyszukiwania w plikach&quot; funkcji o nazwie klasy stylów.
+3. Po wykryciu błędu, należy zatrzymać przeglądarki sieci Web a serwerem.
+4. Wyczyść pamięć podręczną przeglądarki.
 5. Wróć do programu Visual Studio, aby zastosować poprawkę. Powtórz kroki, aby przetestować.
 
-Ponieważ w technologii ASP.NET MVC 4, nie ma żadnych rzeczywistych WYSIWYG, większość problemów styl są wykrywane na późniejszym etapie, po uruchomiona lub wdrażania aplikacji sieci web. Teraz z narzędziem Page Inspector jest możliwe do podglądu dowolną stronę bez uruchamiania rozwiązania.
+Ponieważ istnieje nie rzeczywistych WYSIWYG w ASP.NET MVC 4, większość problemów style są wykrywane na późniejszym etapie, po uruchomiona lub jest wdrażanie aplikacji sieci web. Teraz za pomocą narzędzia Page Inspector to możliwe bez konieczności uruchamiania rozwiązania w wersji zapoznawczej dowolnej strony.
 
-To zadanie będzie używane narzędzie Page inspector i rozwiązać problemy, Galeria fotografii aplikacji.
+W ramach tego zadania będzie używane narzędzie Page inspector i rozwiązywanie niektórych problemów z aplikacji z galerii fotografii.
 
 1. Za pomocą narzędzia Page Inspector zlokalizować **zarejestrować** i **Zaloguj** linki po lewej stronie nagłówka.
 
-    Zwróć uwagę, linki nie są wyświetlane w oczekiwanym miejscu po prawej stronie, czy są wyświetlane takie jak listy punktowanej. Zostanie teraz Dopasuj łącza po prawej stronie i odpowiednio je restyle.
+    Należy zauważyć, że łącza nie są wyświetlane w oczekiwanym miejscu po prawej stronie i są wyświetlane takie jak listy punktowanej. Teraz będzie wyrównać łącza z prawej strony i zmienianie stylu odpowiednio je.
 
-    ![Lokalizowanie rejestru i dziennika w łączach](using-page-inspector-in-visual-studio-2012/_static/image15.png "lokalizowanie rejestru i dziennika w łącza")
+    ![Lokalizowanie rejestru i dziennika w linkach](using-page-inspector-in-visual-studio-2012/_static/image15.png "lokalizowania rejestru i dziennika linki")
 
     *Lokalizowanie rejestru i dziennika w łącza*
-2. Przełącz tryb inspekcji zaznaczone kliknij przycisk Zamknij, aby, ale nie na, łącze rejestru, aby otworzyć jego kod.
+2. Przełącz tryb inspekcji zaznaczone kliknij przycisk Zamknij, aby, ale nie na, link Zarejestruj, aby otworzyć jego kod.
 
-    Należy zauważyć, że kod źródłowy łączy znajduje się w  **\_LoginPartial.cshtml** plików, nie Index.cshtml ani \_Layout.cshtml, które są miejsca może wyglądać na pierwszym miejscu. Zostały zastosowane bezpośrednio w pliku poprawnego źródła.
-3. W **style** , zlokalizuj i kliknij **<section> #login</section>** elementu, który jest kontenerem HTML dla tych łączy.
+    Należy zauważyć, że kod źródłowy łączy znajduje się w  **\_LoginPartial.cshtml** pliku nie Index.cshtml ani \_Layout.cshtml, będące miejscach może wyglądać na pierwszym miejscu. Zostały umieszczone bezpośrednio w pliku poprawnego źródła.
+3. W **style** kartę, zlokalizuj i kliknij **<section> #login</section>** elementu, który jest kontenerem HTML, aby te łącza.
 
-    Zwróć uwagę, że **#login** styl automatycznie znajduje się w **Site.css** po kliknięciu przycisku. Ponadto jest teraz wyróżniony kod.
+    Należy zauważyć, że **#login** styl automatycznie znajduje się w **Site.css** po kliknięciu przycisku. Ponadto ten kod jest podświetlona.
 
-    ![Wybieranie stylów CSS](using-page-inspector-in-visual-studio-2012/_static/image16.png "wybranie style CSS")
+    ![Wybieranie style CSS](using-page-inspector-in-visual-studio-2012/_static/image16.png "wybierając style CSS")
 
-    *Wybieranie stylów CSS*
-4. Usuń znaczniki komentarza **wyrównanie tekstu** atrybutu w wyróżniony kod przez usunięcie otwarcia i zamknięcia znaków i zapisać **Site.css** pliku.
+    *Wybieranie style CSS*
+4. Usuń znaczniki komentarza **text-align** atrybutu w wyróżniony kod, usuwając otwierającym i zamykającym znaków i zapisać **Site.css** pliku.
 
-    Narzędzie Page Inspector zna wszystkie pliki różnych tworzące bieżącej strony i wykrywa zmiany dowolnego z tych plików. Generuje alert w każdym przypadku, gdy nie jest zsynchronizowana z plików źródłowych bieżącej strony w przeglądarce.
-5. W przeglądarce narzędzie Page Inspector kliknij pasek znajdujący się poniżej paska adresu, aby ponownie załadować stronę.
+    Narzędzie Page Inspector zna wszystkie różnych plików wchodzących w skład bieżącej strony i może wykryć, gdy zmienią się któryś z tych plików. Generuje alert w każdym przypadku, gdy nie jest zsynchronizowany z plikami źródłowymi bieżącej strony w przeglądarce.
+5. W przeglądarce narzędzia Page Inspector kliknij pasek znajdujący się poniżej paska adresu, aby ponownie załadować stronę.
 
-    ![Ponowne ładowanie strony](using-page-inspector-in-visual-studio-2012/_static/image17.png)
+    ![Ponownie załadować stronę](using-page-inspector-in-visual-studio-2012/_static/image17.png)
 
-    *Ponowne ładowanie strony*
+    *Ponownie załadować stronę*
 
-    Łącza są teraz po prawej, ale nadal wyglądają listy punktowanej. Teraz spowoduje usunięcie punktory i wyrównanie w poziomie łącza przez użytkownika.
+    Linki są teraz z prawej strony, ale nadal wyglądają listy punktowanej. Teraz spowoduje usunięcie punktory i wyrównanie w poziomie łącza przez użytkownika.
 
-    ![Zaktualizowane strony](using-page-inspector-in-visual-studio-2012/_static/image18.png)
+    ![Zaktualizowana strona](using-page-inspector-in-visual-studio-2012/_static/image18.png)
 
-    *Zaktualizowane strony*
-6. Przy użyciu trybu inspekcji, wybierz dowolne **&lt;li&gt;** elementów, które zawierają &quot;zarejestrować&quot; i &quot;Zaloguj&quot; łącza. Następnie kliknij przycisk  **&lt;sekcji&gt; #login** element, aby uzyskać dostęp do **Styles.css** kodu.
+    *Zaktualizowana strona*
+6. Przy użyciu trybu inspekcji, wybierz dowolne z **&lt;li&gt;** elementów, które zawierają &quot;zarejestrować&quot; i &quot;Zaloguj&quot; łącza. Następnie kliknij przycisk  **&lt;sekcji&gt; #login** element, aby uzyskać dostęp do **Styles.css** kodu.
 
-    ![Znajdowanie styl](using-page-inspector-in-visual-studio-2012/_static/image19.png "znajdowanie styl")
+    ![Znajdowanie styl](using-page-inspector-in-visual-studio-2012/_static/image19.png "znajdowanie stylu")
 
     *Znajdowanie stylu*
-7. W **Style.css**, usuń znaczniki komentarza kod **#login li** elementów. Styl, który dodajesz Ukryj punktor, a następnie Wyświetl elementy w poziomie.
+7. W **Style.css**, Usuń komentarz w kodzie **#login li** elementów. Styl, który dodajesz spowoduje Ukryj punktor i wyświetlanie elementów w poziomie.
 
     ![Restyling łącza logowania](using-page-inspector-in-visual-studio-2012/_static/image20.png "Restyling łącza logowania")
 
     *Restyling łącza logowania*
-8. Zapisz **Style.css** plików i kliknij jeden raz na pasku znajduje się pod adresem ponowne załadowanie tej strony. Należy zauważyć, że łącza są wyświetlane poprawnie.
+8. Zapisz **Style.css** plików i kliknij jeden raz, na pasku znajdujący się poniżej adres, aby ponownie załadować stronę. Należy zauważyć, że łącza są poprawnie wyświetlane.
 
-    ![Łącza wyrównany do prawej strony](using-page-inspector-in-visual-studio-2012/_static/image21.png "łącza wyrównany do prawej strony")
+    ![Łącza są wyrównane do prawej strony](using-page-inspector-in-visual-studio-2012/_static/image21.png "łącza wyrównany do prawej")
 
-    *Łącza wyrównany do prawej strony*
-9. Na koniec zostanie zmieniony tytuł nagłówka. W trybie inspekcji kliknij **tutaj znak logo** tekstu i get do kodu źródłowego, który generuje go.
-10. Teraz znajdują się w  **\_Layout.cshtml**, zastąp "**tutaj znak logo**"tekst z"**galerii fotografii**". Zapisz i zaktualizuj przeglądarkę narzędzia Page Inspector.
+    *Linki wyrównany do prawej*
+9. Na koniec będzie zmienić tytuł nagłówka. W trybie inspekcji kliknij **Twoje logo** tekstu i uzyskiwać do kodu źródłowego, który generuje go.
+10. Teraz znajdują się w  **\_Layout.cshtml**, zastąp "**Twoje logo**"tekstem"**Galeria fotografii**". Zapisz i zaktualizować przeglądarkę narzędzia Page Inspector.
 
     ![Przypisywanie nowy tytuł](using-page-inspector-in-visual-studio-2012/_static/image22.png "przypisywanie nowy tytuł")
 
@@ -267,199 +266,199 @@ To zadanie będzie używane narzędzie Page inspector i rozwiązać problemy, Ga
 
     ![PhotoGallerypage](using-page-inspector-in-visual-studio-2012/_static/image23.png)
 
-    *Zaktualizowane strony galerii fotografii*
-11. Na koniec wybierz **PhotoGallery** projektu i naciśnij klawisz **F5** do uruchomienia aplikacji. Sprawdź wszystkie zmiany działać zgodnie z oczekiwaniami.
+    *Strona Galeria fotografii zaktualizowane*
+11. Na koniec wybierz **PhotoGallery** projektu i naciśnij klawisz **F5** do uruchomienia aplikacji. Sprawdź wszystkie zmiany działają zgodnie z oczekiwaniami.
 
 * * *
 
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Using_Page_Inspector_in_WebForms_Projects"></a>
-### <a name="exercise-2-using-page-inspector-in-webforms-projects"></a>Ćwiczenie 2: Za pomocą narzędzia Page Inspector w projektach formularzy sieci Web
+### <a name="exercise-2-using-page-inspector-in-webforms-projects"></a>Ćwiczenie 2: Za pomocą narzędzia Page Inspector w projektach formularzy WebForms
 
-W tym ćwiczeniu dowiesz się, jak wyświetlić podgląd i debugowanie rozwiązania formularzy sieci Web za pomocą narzędzia Page Inspector. Najpierw będzie wykonywać krótki laptop wokół narzędzie, aby dowiedzieć się więcej funkcji narzędzie Page Inspector, które ułatwiają debugowanie procesu sieci Web. Następnie będzie działać na stronie sieci web zawierający style problemy. Dowiesz się używania narzędzie Page Inspector można znaleźć kodu źródłowego, który generuje problemu i rozwiąż problem.
+W tym ćwiczeniu dowiesz się, jak wyświetlić podgląd i debugowanie rozwiązania formularzy sieci Web za pomocą narzędzia Page Inspector. Należy najpierw wykonać krótkie omówienie narzędzia się funkcje narzędzia Page Inspector, ułatwiające debugowanie procesu w sieci Web. Następnie będzie działać na stronie sieci web, zawierającą stylów problemów. Dowiesz się jak Inspektor stron umożliwia znajdowanie kodu źródłowego, który generuje ten problem i rozwiązać ten problem.
 
 <a id="Ex2Task1"></a>
 
 <a id="Task_1_-_Exploring_Page_Inspector"></a>
-#### <a name="task-1---exploring-page-inspector"></a>Zadanie 1 - eksploracji narzędzie Page Inspector
+#### <a name="task-1---exploring-page-inspector"></a>Zadanie 1 — poznawanie narzędzia Page Inspector
 
-W tym zadaniu dowiesz się, jak używać funkcji narzędzie Page Inspector w kontekście projektu formularzy sieci Web, który zawiera galerii fotografii.
+W tym zadaniu dowiesz się, jak używać funkcji narzędzia Page Inspector w kontekście projektu formularzy sieci Web, który pokazuje Galeria fotografii.
 
-1. Otwórz **rozpocząć** rozwiązania, znajdujących się na **źródło/Ex2-WebForms/Begin/** folderu.
+1. Otwórz **rozpocząć** rozwiązania znajdujący się w **źródło/Ex2-formularzy sieciWeb/rozpoczęcia/** folderu.
 
-   1. Należy pobrać niektórych brakujących pakietów NuGet aby kontynuować. Aby to zrobić, kliknij przycisk **projektu** menu i wybierz **Zarządzaj pakietami NuGet**.
-   2. W **Zarządzaj pakietami NuGet** okna dialogowego, kliknij przycisk **przywrócić** celu pobieranie brakujących pakietów.
+   1. Musisz pobrać niektóre brakujące pakiety NuGet przed kontynuowaniem. Aby to zrobić, kliknij przycisk **projektu** menu, a następnie wybierz **Zarządzaj pakietami NuGet**.
+   2. W **Zarządzaj pakietami NuGet** okno dialogowe, kliknij przycisk **przywrócić** Aby pobrać brakujące pakiety.
    3. Na koniec Skompiluj rozwiązanie, klikając **kompilacji** | **Kompiluj rozwiązanie**.
 
       > [!NOTE]
-      > Jedną z zalet przy użyciu narzędzia NuGet jest, że nie masz do wysłania wszystkich bibliotek w projekcie, zmniejszenie jego rozmiar projektu. Narzędzia Power NuGet określając wersje pakietów w pliku Packages.config, będzie można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego konieczne będzie wykonanie tych kroków, po otwarciu istniejącego rozwiązania z tego laboratorium.
-2. W Eksploratorze rozwiązań, Znajdź **Default.aspx** strony, kliknij go prawym przyciskiem myszy i wybierz **widoku w narzędzie Page Inspector**.
+      > Jedną z zalet za pomocą narzędzia NuGet jest, że nie masz do wysłania wszystkie biblioteki w projekcie, zmniejszenie rozmiaru projektu. Za pomocą narzędzi NuGet Power Tools, określając wersji pakietu w pliku Packages.config można pobrać wymaganych bibliotek podczas pierwszego uruchomienia projektu. Jest to, dlaczego należy uruchomić następujące kroki, po otwarciu istniejącego rozwiązania, w tym środowisku laboratoryjnym.
+2. W Eksploratorze rozwiązań zlokalizuj **Default.aspx** strony, kliknij go prawym przyciskiem myszy i wybierz **widoku w narzędzia Page Inspector**.
 
-    ![Otwieranie Default.aspx z narzędziem Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image24.png "otwierania Default.aspx z narzędziem Page Inspector")
+    ![Otwarcie Default.aspx za pomocą narzędzia Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image24.png "otwarcie Default.aspx za pomocą narzędzia Page Inspector")
 
-    *Otwieranie Default.aspx z narzędziem Page Inspector*
-3. Okno narzędzia Page Inspector będzie zawierać plik Default.aspx.
+    *Otwieranie Default.aspx za pomocą narzędzia Page Inspector*
+3. Okno narzędzia Page Inspector będzie zawierać Default.aspx.
 
-    ![Wyświetlanie Default.aspx w narzędzie Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image25.png "wyświetlania Default.aspx w narzędzie Page Inspector")
+    ![Wyświetlanie Default.aspx w narzędzia Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image25.png "wyświetlania Default.aspx w narzędzia Page Inspector")
 
-    *Wyświetlanie Default.aspx w narzędzie Page Inspector*
+    *Wyświetlanie Default.aspx w narzędzia Page Inspector*
 
-    Narzędzie narzędzie Page Inspector jest zintegrowana w środowisku Visual Studio. Inspektor zawiera osadzony przeglądarki, wraz z zaawansowanych profilera HTML, który będzie informować o zaznaczony kod. Należy zauważyć, że nie masz Aby uruchomić rozwiązanie, aby zobaczyć strony.
+    Narzędzie Page Inspector jest zintegrowana w środowisku Visual Studio. Inspektor zawiera osadzony przeglądarce wraz z zaawansowany profiler HTML, która będzie wyświetlana w zaznaczonym kodzie. Należy zauważyć, że jest konieczne uruchamianie rozwiązania, aby zobaczyć, jak wyglądają strony.
 
     > [!NOTE]
-    > Gdy szerokość przeglądarkę narzędzia Page Inspector jest mniejsza niż szerokość otwarta strona, nie zobaczysz stronę poprawnie. Jeśli tak się stanie, należy dostosować szerokość narzędzie Page Inspector.
-4. Kliknij przycisk **pliki** kartę w narzędzie Page Inspector.
+    > Gdy szerokość przeglądarki narzędzia Page Inspector jest mniejsza niż szerokość otwarta strona, nie zobaczysz stronę prawidłowo. Jeśli tak się stanie, należy dostosować szerokość narzędzia Page Inspector.
+4. Kliknij przycisk **pliki** karcie narzędzie Page Inspector.
 
-    Zostanie wyświetlone wszystkie pliki źródłowe, które są składających się na renderowanej stronie domyślnej. Jest to funkcja przydatna do identyfikowania wszystkie elementy w skrócie, szczególnie w przypadku, gdy użytkownik pracuje z kontrolek użytkownika i stron wzorcowych. Należy zauważyć, że można również przejść do każdego z plików.
+    Widoczne będą wszystkie pliki źródłowe, które są redagowania renderowanej strony domyślnej. Jest to przydatne, aby zidentyfikować wszystkie elementy, które na pierwszy rzut oka, szczególnie w przypadku, gdy pracujesz z formantami użytkowników i stron wzorcowych. Należy zauważyć, że możesz także przejść do poszczególnych plików.
 
-    ![Karta pliki](using-page-inspector-in-visual-studio-2012/_static/image26.png "plikach — karta")
+    ![Karta pliki](using-page-inspector-in-visual-studio-2012/_static/image26.png "karty pliki")
 
     *Karta pliki*
-5. Kliknij przycisk **Przełącz tryb inspekcji** przycisk znajdujący się po lewej stronie kart.
+5. Kliknij przycisk **Przełącz tryb inspekcji** przycisk znajdujący się na kartach po lewej stronie.
 
-    To narzędzie umożliwia wybierz dowolny element strony i wyświetlić kod i .aspx źródła HTML.
+    To narzędzie umożliwia wybranie dowolnego elementu strony i wyświetlić źródło HTML kodu i .aspx.
 
-    ![Przycisk przełączania trybu inspekcji](using-page-inspector-in-visual-studio-2012/_static/image27.png "przycisk przełączania trybu inspekcji")
+    ![Przełącz tryb inspekcji przycisk](using-page-inspector-in-visual-studio-2012/_static/image27.png "przycisk Przełącz tryb inspekcji")
 
-    *Przycisk przełączania trybu inspekcji*
-6. W przeglądarce narzędzie Page Inspector kursorem myszy elementy na stronie. Podczas przesuwania wskaźnika myszy nad dowolną część renderowanej strony wyświetlany jest typ elementu, a odpowiedni kod źródłowy lub kod zostanie wyróżniona w edytorze programu Visual Studio.
+    *Przełącz tryb inspekcji przycisku*
+6. Wskaż myszą elementów strony w przeglądarce narzędzia Page Inspector. Podczas przesuwania wskaźnika myszy nad dowolną część renderowanej strony, typ elementu jest wyświetlany, oraz odpowiedni kod źródłowy lub kod jest wyróżniony w edytorze programu Visual Studio.
 
-    ![Tryb inspekcji w akcji](using-page-inspector-in-visual-studio-2012/_static/image28.png "trybu inspekcji, w akcji")
+    ![Tryb inspekcji w działaniu](using-page-inspector-in-visual-studio-2012/_static/image28.png "tryb inspekcji w działaniu")
 
-    *Tryb inspekcji w akcji*
-
-    > [!NOTE]
-    > Nie Maksymalizuj okno narzędzia Page Inspector lub nie będzie widoczna na karcie Podgląd przedstawiający kodu źródłowego. Po kliknięciu elementu w narzędzie Page Inspector jest maksymalizacji, zostanie wyświetlony kod źródłowy zaznaczenia, ale spowoduje ukrycie okna narzędzia Page Inspector.
-
-    Jeśli użytkownik należy zwrócić uwagę na **Default.aspx** plików, można zauważyć, że zostanie wyróżniona części kodu źródłowego, który generuje wybranego elementu. Ta funkcja umożliwia wersji plików źródłowych długie, dzięki czemu bezpośredniego i szybki dostęp do kodu.
-
-    ![Zapoznanie się elementy](using-page-inspector-in-visual-studio-2012/_static/image29.png "sprawdzania elementów")
-
-    *Zapoznanie się elementy*
-7. Kliknij przycisk **Przełącz tryb inspekcji** przycisk (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.] (using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), znajdujące się na kartach narzędzie Page Inspector, aby wyłączyć kursora.
-8. Wybierz **HTML** kartę, aby wyświetlić kod HTML renderowane w przeglądarce narzędzie Page Inspector.
-9. W kodzie HTML Znajdź element listy z łączem Koala i zaznacz je.
-
-    Zauważ, że po wybraniu kod odpowiednie dane wyjściowe jest automatycznie wyróżnione przeglądarki. Ta funkcja jest przydatna zobaczyć, jak jest renderowany blok HTML na stronie.
-
-    ![Wybranie elementu HTML na stronie](using-page-inspector-in-visual-studio-2012/_static/image31.png "zaznaczenie elementu HTML na stronie")
-
-    *Wybranie elementu HTML na stronie*
-10. Kliknij przycisk **Przełącz tryb inspekcji** przycisk, aby włączyć *trybu inspekcji* i kliknij na pasku nawigacji. Po prawej stronie kodu HTML, w okienku style zostanie wyświetlona lista przy użyciu stylów CSS stosowany do wybranego elementu.
+    *Tryb inspekcji w działaniu*
 
     > [!NOTE]
-    > ponieważ nagłówka jest częścią układu witryny, narzędzie Page Inspector również otworzyć plik Site.Master i zaznacz segment kodu, których to dotyczy.
+    > Nie zmaksymalizuj okno narzędzia Page Inspector lub nie będzie można wyświetlić na karcie podglądu przedstawiający kodu źródłowego. Kliknięcie elementu w narzędzia Page Inspector jest maksymalizacji pojawi się kod źródłowy zaznaczenia, ale będzie go ukryć okno narzędzia Page Inspector.
+
+    Jeśli użytkownik należy zwrócić uwagę na **Default.aspx** plik, zauważysz, że fragment kodu źródłowego, który generuje wybranego elementu jest wyróżniona. Ta funkcja ułatwia wersję plików źródłowych długie, zapewniając bezpośredni i szybki sposób uzyskiwać dostęp do kodu.
+
+    ![Sprawdzanie elementów](using-page-inspector-in-visual-studio-2012/_static/image29.png "Sprawdzanie elementów")
+
+    *Sprawdzanie elementów*
+7. Kliknij przycisk **Przełącz tryb inspekcji** przycisku (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.] (using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), znajdujący się na kartach Narzędzia Page Inspector, aby wyłączyć kursora.
+8. Wybierz **HTML** kartę, aby wyświetlić kod HTML w przeglądarce narzędzia Page Inspector.
+9. W kodzie HTML Znajdź element listy z linkiem Koala i zaznacz je.
+
+    Zauważ, że po wybraniu kod, odpowiednie dane wyjściowe automatycznie wyróżnione przeglądarki. Ta funkcja jest przydatna zobaczyć sposób renderowania bloku kodu HTML na stronie.
+
+    ![Wybieranie elementu HTML na stronie](using-page-inspector-in-visual-studio-2012/_static/image31.png "zaznaczenie elementu HTML na stronie")
+
+    *Wybieranie elementu HTML na stronie*
+10. Kliknij przycisk **Przełącz tryb inspekcji** przycisk, aby włączyć *tryb inspekcji* i kliknij przycisk na pasku nawigacyjnym. Po prawej stronie kodu HTML, w okienku style zostanie wyświetlona lista ze stylami CSS stosowane do wybranego elementu.
+
+    > [!NOTE]
+    > ponieważ nagłówek jest częścią układu witryny, narzędzie Page Inspector również otworzyć plik Site.Master i zaznacz segment kodu, których to dotyczy.
 
     ![DiscoveringstylesWebForms](using-page-inspector-in-visual-studio-2012/_static/image32.png "odnajdywanie stylów i pliki źródłowe zaznaczonego elementu")
 
     *Odnajdywanie stylów i pliki źródłowe zaznaczonego elementu*
-11. Wskaźnikiem Przełącz inspekcji włączone Przenieś wskaźnik myszy poniżej paska menu, a następnie kliknij przycisk pusty okrąg połowa.
+11. Wskaźnikiem Przełącz Inspekcja włączona umieść kursor myszy poniżej paska menu, a następnie kliknij przycisk puste Półokrąg.
 
-    ![Wybranie elementu](using-page-inspector-in-visual-studio-2012/_static/image33.png "zaznaczenie elementu")
+    ![Wybieranie elementu](using-page-inspector-in-visual-studio-2012/_static/image33.png "zaznaczenie elementu")
 
-    *Wybranie elementu*
-12. W okienku style zlokalizować **obraz tła** elementu w obszarze **.main zawartości** grupy. **Usuń zaznaczenie pola wyboru** **obraz tła** i zobacz, co się stanie. Można zauważyć, że przeglądarki zmienienia natychmiast i okręgu jest ukryty.
+    *Wybieranie elementu*
+12. W okienku style zlokalizować **obraz tła** w obszarze **.main zawartości** grupy. **Usuń zaznaczenie pola wyboru** **obraz tła** i zobacz, co się dzieje. Zauważysz, że przeglądarki w celu zmienienia natychmiast i koła jest ukryty.
 
     > [!NOTE]
-    > Zmiany, które należy zastosować na karcie Strona inspektora style nie wpływają na oryginalnym arkusza stylów. Możesz usunąć zaznaczenie pola wyboru style lub zmieniać tyle razy, ale będzie można przywrócić po odświeżeniu strony.
+    > Zmiany, które można zastosować na karcie Style Inspektor strony nie wpływają na oryginalny arkusza stylów. Można usunąć zaznaczenie style lub zmienić ich wartości jako tyle razy, ile chcesz, ale zostanie przywrócona po odświeżeniu strony.
 
-    ![Włączanie i wyłączanie CSS styles2](using-page-inspector-in-visual-studio-2012/_static/image34.png "Włączanie i wyłączanie stylów CSS")
+    ![Włączanie i wyłączanie CSS styles2](using-page-inspector-in-visual-studio-2012/_static/image34.png "Włączanie i wyłączanie style CSS")
 
-    *Włączanie i wyłączanie stylów CSS*
-13. Teraz, kliknij przycisk "**Twojego** **logo tutaj"** tekst w nagłówku przy użyciu trybu inspekcji.
-14. W **style** zlokalizuj **rozmiar czcionki** atrybutu CSS w obszarze **.site tytuł** grupy. Kliknij dwukrotnie ten atrybut raz do edycji jej wartości. Zamień 2.3em wartości z **3em**, a następnie naciśnij klawisz ENTER. Zwróć uwagę, że tytuł wygląda większy.
+    *Włączanie i wyłączanie style CSS*
+13. Teraz, kliknij pozycję "**swoje** **logo"** tekstu na nagłówek, przy użyciu trybu inspekcji.
+14. W **style** kartę, odszukaj **rozmiar czcionki** CSS atrybutu w ramach **.site tytuł** grupy. Kliknij dwukrotnie raz atrybutu do edycji jej wartości. Zastąp 2.3em wartość z **3em**, a następnie naciśnij klawisz ENTER. Należy zauważyć, że tytuł wygląda większe.
 
-    ![Zmiana wartości CSS w Inspector2 strony](using-page-inspector-in-visual-studio-2012/_static/image35.png "wartości zmiana CSS w narzędzie Page Inspector")
+    ![Zmiana wartości CSS w Inspector2 strony](using-page-inspector-in-visual-studio-2012/_static/image35.png "wartości zmiana CSS w narzędzia Page Inspector")
 
-    *Zmiana wartości CSS w narzędzie Page Inspector*
-15. Kliknij przycisk **style śledzenia** kartę, znajduje się w okienku po prawej stronie narzędzie Page Inspector. Jest to alternatywny sposób, aby wyświetlić wszystkie style, które są stosowane do zaznaczenia, uporządkowanych według nazwy atrybutu.
+    *Zmiana wartości CSS w narzędzia Page Inspector*
+15. Kliknij przycisk **— śledzenie stylów** karcie znajduje się w prawym okienku narzędzia Page Inspector. Jest to alternatywny sposób, aby zobaczyć wszystkie style, które są stosowane do wyboru, uporządkowane według nazwy atrybutu.
 
-    ![Śledzenie style CSS wybranego elementu](using-page-inspector-in-visual-studio-2012/_static/image36.png "śledzenie style CSS wybranego elementu")
+    ![Śledzenie stylów CSS zaznaczonego elementu](using-page-inspector-in-visual-studio-2012/_static/image36.png "śledzenie stylów CSS zaznaczonego elementu")
 
-    *Śledzenie style CSS wybranego elementu*
-16. Inna funkcja narzędzie Page Inspector to okienko układu. Przy użyciu trybu inspekcji, wybierz na pasku nawigacyjnym, a następnie kliknij przycisk **układu** karty w okienku po prawej stronie. Zostanie wyświetlone rozmiarze wybranego elementu, a także rozmiaru przesunięcie, margines i Wypełnienie obramowania. Należy zauważyć, że wartości w tym widoku można również zmodyfikować.
+    *Śledzenie stylów CSS zaznaczonego elementu*
+16. Kolejną funkcją narzędzia Page Inspector jest okienko układu. Tryb inspekcji, zaznacz pasek nawigacyjny, a następnie kliknij przycisk **układ** karty w okienku po prawej stronie. Zostanie wyświetlony dokładny rozmiar wybranego elementu, a także jego rozmiar przesunięcie, marża, uzupełnienie i obramowanie. Należy zauważyć, że wartości w tym widoku można również zmodyfikować.
 
-    ![Elementu układu w narzędzie Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image37.png "układu elementu w narzędzie Page Inspector")
+    ![Układ elementów w narzędzia Page Inspector](using-page-inspector-in-visual-studio-2012/_static/image37.png "układ elementów w narzędzia Page Inspector")
 
-    *Elementu układu w narzędzie Page Inspector*
+    *Układ elementów w narzędzia Page Inspector*
 
 <a id="Ex2Task2"></a>
 
 <a id="Task_2_-_Finding_and_Fixing_Style_Issues_in_the_Photo_Gallery"></a>
 #### <a name="task-2---finding-and-fixing-style-issues-in-the-photo-gallery"></a>Zadanie 2 — Znajdowanie i rozwiązywanie problemów stylu w Galerii fotografii
 
-Jak można zdiagnozować problemy stron sieci Web z poprzednich wersji programu Visual Studio? Jesteś prawdopodobnie znane z narzędzia debugowania, które są uruchomione spoza programu Visual Studio IDE, takich jak narzędzi deweloperskich programu Internet Explorer lub Firebug sieci web. Przeglądarki tylko zrozumieć HTML, skryptów i stylów, podczas gdy podstawowej struktury generuje kod HTML, który będzie renderowany. Z tego powodu często konieczne wdrażanie całej lokacji, aby zobaczyć, jak wyglądają stron sieci web.
+Jak możesz zdiagnozować problemów stron sieci Web we wcześniejszych wersjach programu Visual Studio? To jest prawdopodobnie masz narzędzia debugowania, które są uruchomione spoza programu Visual Studio IDE, takich jak narzędzia dla deweloperów programu Internet Explorer lub Firebug w sieci web. Przeglądarek tylko zrozumienie kodu HTML, skryptów i stylów, podczas gdy podstawowej struktury generuje kod HTML, który będzie renderowany. Z tego powodu często konieczne do wdrożenia w całej lokacji, aby zobaczyć, jak wyglądało stron sieci web.
 
-Przy Wykryj i napraw problem w witrynie sieci web ma prawdopodobnie zostały wykonane następujące kroki:
+Ma prawdopodobnie wykonano następujące kroki, gdy chcesz wykryć i naprawić problem w witrynie sieci web:
 
-1. Uruchom rozwiązania z programu Visual Studio, albo wdrożyć strony na serwerze sieci web.
-2. W przeglądarce otwórz narzędzi deweloperskich używanie lub po prostu otworzyć kodu źródłowego i style i podjąć próbę dopasowania problem. Znajdź pliki związane, możesz korzystać z &quot;wyszukiwania&quot; lub &quot;wyszukiwania w plikach&quot; funkcji o nazwie klasy stylów.
-3. Po wykryciu błąd zatrzymania przeglądarki sieci Web a serwerem.
-4. Wyczyścić pamięć podręczną przeglądarki.
+1. Uruchom rozwiązanie za pomocą programu Visual Studio lub Wdróż strony na serwerze sieci web.
+2. W przeglądarce otwórz narzędzia programistyczne używane, lub po prostu otwórz kod źródłowy i stylów i podjąć próbę dopasowania problem. Aby znaleźć pliki związane, użyto &quot;wyszukiwania&quot; lub &quot;wyszukiwania w plikach&quot; funkcji o nazwie klasy stylów.
+3. Po wykryciu błędu, należy zatrzymać przeglądarki sieci Web a serwerem.
+4. Wyczyść pamięć podręczną przeglądarki.
 5. Wróć do programu Visual Studio, aby zastosować poprawkę. Powtórz kroki, aby przetestować.
 
-Jako nie ma nie rzeczywistym WYSIWYG w formularzy sieci Web ASP.NET, niektóre problemy dotyczące stylu są wykrywane na późniejszym etapie, po uruchomiona lub wdrażania. Teraz z narzędziem Page Inspector jest możliwe do podglądu dowolną stronę bez uruchamiania rozwiązania.
+Ponieważ nie ma nie rzeczywiste WYSIWYG w formularzy sieci Web platformy ASP.NET, niektóre problemy dotyczące stylu są wykrywane na późniejszym etapie, po uruchomiona lub jest wdrażanie. Teraz za pomocą narzędzia Page Inspector to możliwe bez konieczności uruchamiania rozwiązania w wersji zapoznawczej dowolnej strony.
 
-W tym zadaniu użyjesz narzędzie Page inspector ustalania problemy aplikacji galerii fotografii. W poniższych krokach wykryje i szybko rozwiązać problem niektóre style proste w nagłówku.
+W tym zadaniu można będzie używać narzędzia Page inspector rozwiązywanie niektórych problemów aplikacji z galerii fotografii. W poniższych krokach będą wykrywa i szybko rozwiązać jakiś problem proste style w nagłówku.
 
-1. Za pomocą kontroli strony zlokalizować **zarejestrować** i **dziennika w** linki po lewej stronie nagłówka.
+1. Za pomocą strony kontroli, zlokalizuj **zarejestrować** i **logowanie** linki po lewej stronie nagłówka.
 
-    Należy zauważyć, że łącze nie jest wyświetlany w oczekiwanym miejscu po prawej stronie. Teraz zostanie Dopasuj łącza po prawej stronie i restyle go odpowiednio.
+    Należy zauważyć, że link nie jest wyświetlany w oczekiwanym miejscu po prawej stronie. Będzie teraz wyrównać łącza z prawej strony i w związku z tym zmienianie stylu.
 
-    ![Zaloguj się za łącze znajduje się po lewej stronie](using-page-inspector-in-visual-studio-2012/_static/image38.png "logowania łącze znajduje się po lewej stronie")
+    ![Zaloguj się łącze umieszczone po lewej stronie](using-page-inspector-in-visual-studio-2012/_static/image38.png "Zaloguj się łącze umieszczone po lewej stronie")
 
-    *Dziennik w łącze znajduje się po lewej stronie*
-2. Przełącz wybrane w trybie inspekcji wybierz łącze Zaloguj, aby otworzyć jego kod.
+    *Dziennik łącze umieszczone po lewej stronie*
+2. Przełącz tryb inspekcji wybrana wybierz łącze Zaloguj, aby otworzyć jego kodu.
 
-    Należy zauważyć, że kod źródłowy łącze znajduje się w **Site.Master** pliku, na stronie Default.aspx, która jest miejscem, może wyglądać na pierwszym miejscu; możesz znajdować się bezpośrednio w pliku poprawnego źródła.
-3. W **style** , zlokalizuj i kliknij  **&lt;sekcji&gt; #login** elementu, który jest kontenerem HTML dla tych łączy.
+    Należy zauważyć, że kod źródłowy link znajduje się w **Site.Master** pliku, na stronie Default.aspx, która jest miejscem, w którym może wyglądać na pierwszym miejscu; zostanie umieszczone bezpośrednio w pliku poprawnego źródła.
+3. W **style** kartę, zlokalizuj i kliknij  **&lt;sekcji&gt; #login** elementu, który jest kontenerem HTML, aby te łącza.
 
-    Zwróć uwagę, że **#login** styl automatycznie znajduje się w **Site.css** po kliknięciu przycisku. Ponadto jest teraz wyróżniony kod.
+    Należy zauważyć, że **#login** styl automatycznie znajduje się w **Site.css** po kliknięciu przycisku. Ponadto ten kod jest podświetlona.
 
-    ![Wybieranie stylów CSS](using-page-inspector-in-visual-studio-2012/_static/image39.png "wybranie style CSS")
+    ![Wybieranie style CSS](using-page-inspector-in-visual-studio-2012/_static/image39.png "wybierając style CSS")
 
-    *Wybieranie stylów CSS*
-4. Usuń znaczniki komentarza **wyrównanie tekstu** atrybutu w wyróżniony kod przez usunięcie otwarcia i zamknięcia znaków i zapisać **Site.css** pliku.
+    *Wybieranie style CSS*
+4. Usuń znaczniki komentarza **text-align** atrybutu w wyróżniony kod, usuwając otwierającym i zamykającym znaków i zapisać **Site.css** pliku.
 
-    Narzędzie Page Inspector zna wszystkie pliki różnych tworzące bieżącej strony i wykrywa zmiany dowolnego z tych plików. Generuje alert w każdym przypadku, gdy nie jest zsynchronizowana z plików źródłowych bieżącej strony w przeglądarce.
-5. W przeglądarce narzędzie Page Inspector kliknij pasek znajdujący się poniżej paska adresu, aby zapisać zmiany i ponownie załaduj stronę.
+    Narzędzie Page Inspector zna wszystkie różnych plików wchodzących w skład bieżącej strony i może wykryć, gdy zmienią się któryś z tych plików. Generuje alert w każdym przypadku, gdy nie jest zsynchronizowany z plikami źródłowymi bieżącej strony w przeglądarce.
+5. W przeglądarce narzędzia Page Inspector kliknij pasek znajdujący się poniżej paska adresu, aby zapisać zmiany i ponownie załaduj stronę.
 
     ![Reloadingthepage](using-page-inspector-in-visual-studio-2012/_static/image40.png)
 
-    *Ponowne ładowanie strony*
+    *Ponownie załadować stronę*
 
-    Łącza są teraz po prawej, ale nadal wyglądają listy punktowanej. Teraz spowoduje usunięcie punktory i wyrównanie w poziomie łącza przez użytkownika.
+    Linki są teraz z prawej strony, ale nadal wyglądają listy punktowanej. Teraz spowoduje usunięcie punktory i wyrównanie w poziomie łącza przez użytkownika.
 
-    ![Zaktualizowane strony](using-page-inspector-in-visual-studio-2012/_static/image41.png)
+    ![Zaktualizowana strona](using-page-inspector-in-visual-studio-2012/_static/image41.png)
 
-    *Zaktualizowane strony*
-6. Przy użyciu trybu inspekcji, wybierz dowolne **&lt;li&gt;** elementów, które zawierają &quot;zarejestrować&quot; i &quot;Zaloguj&quot; łącza. Następnie kliknij przycisk  **&lt;sekcji&gt; #login** element, aby uzyskać dostęp do **Styles.css** kodu.
+    *Zaktualizowana strona*
+6. Przy użyciu trybu inspekcji, wybierz dowolne z **&lt;li&gt;** elementów, które zawierają &quot;zarejestrować&quot; i &quot;Zaloguj&quot; łącza. Następnie kliknij przycisk  **&lt;sekcji&gt; #login** element, aby uzyskać dostęp do **Styles.css** kodu.
 
-    ![Znajdowanie styl](using-page-inspector-in-visual-studio-2012/_static/image42.png "znajdowanie styl")
+    ![Znajdowanie styl](using-page-inspector-in-visual-studio-2012/_static/image42.png "znajdowanie stylu")
 
     *Znajdowanie stylu*
-7. W **Style.css**, usuń znaczniki komentarza kod **#login li** elementów. Styl, który dodajesz Ukryj punktor, a następnie Wyświetl elementy w poziomie.
+7. W **Style.css**, Usuń komentarz w kodzie **#login li** elementów. Styl, który dodajesz spowoduje Ukryj punktor i wyświetlanie elementów w poziomie.
 
     ![Restyling łącza logowania](using-page-inspector-in-visual-studio-2012/_static/image43.png "Restyling łącza logowania")
 
     *Restyling łącza logowania*
-8. Zapisz **Style.css** plików i kliknij jeden raz na pasku znajduje się pod adresem ponowne załadowanie tej strony. Należy zauważyć, że łącza są wyświetlane poprawnie.
+8. Zapisz **Style.css** plików i kliknij jeden raz, na pasku znajdujący się poniżej adres, aby ponownie załadować stronę. Należy zauważyć, że łącza są poprawnie wyświetlane.
 
-    ![Łącza wyrównany do prawej strony](using-page-inspector-in-visual-studio-2012/_static/image44.png "łącza wyrównany do prawej strony")
+    ![Łącza są wyrównane do prawej strony](using-page-inspector-in-visual-studio-2012/_static/image44.png "łącza wyrównany do prawej")
 
-    *Łącza wyrównany do prawej strony*
-9. Na koniec zostanie zmieniony tytuł nagłówka. Zamiast wyszukiwanie "**tutaj znak logo"** tekstu w plikach w trybie inspekcji kliknij tekst i uzyskać dostęp do kodu źródłowego, który generuje go.
+    *Linki wyrównany do prawej*
+9. Na koniec będzie zmienić tytuł nagłówka. Zamiast wyszukiwać "**Twoje logo"** tekst we wszystkich plikach w trybie inspekcji kliknij tekst i uzyskać dostęp do kodu źródłowego, który generuje go.
 
-    ![Znajdowanie nazwy lokacji](using-page-inspector-in-visual-studio-2012/_static/image45.png "znajdowanie tytuł witryny")
+    ![Tytuł witryny znajdowanie](using-page-inspector-in-visual-studio-2012/_static/image45.png "wyszukiwanie tytuł witryny")
 
-    *Znajdowanie nazwy lokacji*
-10. Teraz znajdują się w **Site.Master**, zastąp "**tutaj znak logo**"tekst z"**galerii fotografii**". Zapisz i zaktualizuj przeglądarkę narzędzia Page Inspector.
+    *Znajdowanie tytuł witryny*
+10. Teraz znajdują się w **Site.Master**, zastąp "**Twoje logo**"tekstem"**Galeria fotografii**". Zapisz i zaktualizować przeglądarkę narzędzia Page Inspector.
 
-    ![Zaktualizowane strony galerii fotografii](using-page-inspector-in-visual-studio-2012/_static/image46.png "strony galerii fotografii zaktualizowane")
+    ![Strona Galeria fotografii zaktualizowane](using-page-inspector-in-visual-studio-2012/_static/image46.png "stronę Galeria fotografii zaktualizowane")
 
-    *Zaktualizowane strony galerii fotografii*
-11. Na koniec naciśnij **F5** do uruchomienia aplikacji wyewidencjonowanie wszystkie zmiany działać zgodnie z oczekiwaniami.
+    *Strona Galeria fotografii zaktualizowane*
+11. Na koniec zaznacz **F5** do uruchomienia aplikacji, sprawdź wszystkie zmiany działają zgodnie z oczekiwaniami.
 
 * * *
 
@@ -468,28 +467,28 @@ W tym zadaniu użyjesz narzędzie Page inspector ustalania problemy aplikacji ga
 <a id="Summary"></a>
 ## <a name="summary"></a>Podsumowanie
 
-Wykonując tego laboratorium Hands-On ma doświadczeń jak narzędzie Page Inspector umożliwia podgląd aplikacji sieci Web bez konieczności ponownie skompilować i uruchomić witrynę sieci Web w przeglądarce. Ponadto zostały wcześniej jak szybko znaleźć i naprawić błędy uzyskując bezpośrednio z przetworzonych wyników do kodu źródłowego.
+Przez ukończenie tego laboratorium praktyczne, masz dzięki modelom uczenia jak wyświetlić podgląd aplikacji sieci Web bez konieczności ponownego kompilowania i uruchamiania witryny sieci Web w przeglądarce za pomocą narzędzia Page Inspector. Ponadto zostały wcześniej jak szybkie znalezienie i naprawienie usterek, uzyskując bezpośrednio w wyniku renderowania do kodu źródłowego.
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Dodatek A: Instalowanie programu Visual Studio Express 2012 for Web
 
-Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe instrukcje przedstawiono czynności wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
+Możesz zainstalować **programu Microsoft Visual Studio Express 2012 for Web** lub inne &quot;Express&quot; przy użyciu wersji **[Instalatora platformy sieci Web firmy Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Poniższe wskazówki ułatwiają kroki wymagane do zainstalowania *programu Visual studio Express 2012 for Web* przy użyciu *Instalatora platformy sieci Web firmy Microsoft*.
 
-1. Przejdź do [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli została już zainstalowana Instalatora platformy sieci Web, można otworzyć go i Wyszukaj produkt &quot; <em>programu Visual Studio Express 2012 for Web z zestawem Windows Azure SDK</em>&quot;.
-2. Polecenie **teraz zainstalować**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
+1. Przejdź do [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Alternatywnie, jeśli już zainstalowano Instalatora platformy sieci Web, możesz otworzyć go i Wyszukaj produkt &quot; <em>Visual Studio Express 2012 for Web z zestawem Windows Azure SDK</em>&quot;.
+2. Kliknij pozycję **Zainstaluj teraz**. Jeśli nie masz **Instalatora platformy sieci Web** nastąpi przekierowanie do pobrania i zainstalowania go najpierw.
 3. Raz **Instalatora platformy sieci Web** jest otwarty, kliknij przycisk **zainstalować** można uruchomić Instalatora.
 
-    ![Instalowanie programu Visual Studio Express](using-page-inspector-in-visual-studio-2012/_static/image47.png "instalacji programu Visual Studio Express")
+    ![Zainstaluj program Visual Studio Express](using-page-inspector-in-visual-studio-2012/_static/image47.png "zainstalować program Visual Studio Express")
 
-    *Instalowanie programu Visual Studio Express*
-4. Odczytywanie wszystkich produktów licencji i warunków, a następnie kliknij przycisk **akceptuję** aby kontynuować.
+    *Zainstaluj program Visual Studio Express*
+4. Odczytywanie wszystkich produktów licencji oraz warunki, a następnie kliknij przycisk **akceptuję** aby kontynuować.
 
     ![Akceptowanie umowy licencyjnej](using-page-inspector-in-visual-studio-2012/_static/image48.png)
 
     *Akceptowanie umowy licencyjnej*
-5. Poczekaj na zakończenie procesu pobierania i instalacji.
+5. Zaczekaj, aż do zakończenia procesu pobierania i instalacji.
 
     ![Postęp instalacji](using-page-inspector-in-visual-studio-2012/_static/image49.png)
 
@@ -499,8 +498,8 @@ Można zainstalować **Microsoft Visual Studio Express 2012 for Web** lub innym 
     ![Instalacja została zakończona](using-page-inspector-in-visual-studio-2012/_static/image50.png)
 
     *Instalacja została zakończona*
-7. Kliknij przycisk **zakończenia** aby zamknąć Instalatora platformy sieci Web.
-8. Aby otworzyć program Visual Studio Express for Web, przejdź do **Start** ekranu i zacznij pisać &quot; **VS Express**&quot;, następnie kliknij polecenie **VS Express for Web** Kafelek.
+7. Kliknij przycisk **zakończenia** zamknąć Instalatora platformy sieci Web.
+8. Aby otworzyć program Visual Studio Express for Web, przejdź do **Start** ekranu, a następnie zacznij pisać &quot; **VS Express**&quot;, następnie kliknij pozycję **VS Express for Web** Kafelek.
 
     ![VS Express for Web kafelka](using-page-inspector-in-visual-studio-2012/_static/image51.png)
 

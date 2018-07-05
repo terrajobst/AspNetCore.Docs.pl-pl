@@ -1,44 +1,43 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
-title: Przy użyciu DynamicPopulate z formantu użytkownika i kodu JavaScript (C#) | Dokumentacja firmy Microsoft
+title: Używanie kontrolki DynamicPopulate z kontrolką użytkownika i kodu JavaScript (C#) | Dokumentacja firmy Microsoft
 author: wenz
-description: Formant DynamicPopulate w zestawie narzędzi programu ASP.NET AJAX kontroli wywołania usługi sieci web (lub metoda strony) i wypełnia wartość wynikową w formancie docelowym t...
+description: Kontrolki DynamicPopulate w ASP.NET AJAX Control Toolkit wywołuje usługę sieci web (lub metody korzystającej ze strony) i wypełnia wynikowej wartości do formantu docelowego t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: 38ac8250-8854-444c-b9ab-8998faa41c5a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cced645733375de7ab6235efa46b8d20ed262e50
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cba1647e69cbaebf0accb745278590e357d8c2c1
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879572"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370422"
 ---
-<a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>Przy użyciu DynamicPopulate z formantu użytkownika i kodu JavaScript (C#)
+<a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>Używanie kontrolki DynamicPopulate z kontrolką użytkownika i kodu JavaScript (C#)
 ====================
-przez [Wenz Chrześcijańskie](https://github.com/wenz)
+przez [Christian Wenz](https://github.com/wenz)
 
-[Pobierz kod](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate2.cs.zip) lub [pobierania plików PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate2CS.pdf)
+[Pobierz program Code](http://download.microsoft.com/download/d/8/f/d8f2f6f9-1b7c-46ad-9252-e1fc81bdea3e/dynamicpopulate2.cs.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dynamicpopulate2CS.pdf)
 
-> DynamicPopulate formantu w zestawie narzędzi programu ASP.NET AJAX kontroli wywołanie usługi sieci web (lub metoda strony) i wypełnia wynikowej wartości do formantu docelowego na stronie bez odświeżania strony. Istnieje również możliwość do wyzwolenia populacji przy użyciu niestandardowego kodu JavaScript po stronie klienta. Jednak szczególną uwagę brane rozszerzeń znajduje się w formancie użytkownika.
+> Kontrolki DynamicPopulate w ASP.NET AJAX Control Toolkit wywołuje usługę sieci web (lub metody korzystającej ze strony) i wprowadza wartość wynikową do formantu docelowego na stronie bez odświeżania strony. Istnieje również możliwość wyzwalania populacji przy użyciu niestandardowego kodu JavaScript po stronie klienta. Jednak szczególną uwagę należy podjąć, gdy urządzenie extender znajduje się w kontrolce użytkownika.
 
 
 ## <a name="overview"></a>Omówienie
 
-`DynamicPopulate` Formantu w zestawie narzędzi programu ASP.NET AJAX kontroli wywołania usługi sieci web (lub metoda strony) i wypełnia wynikowej wartości do formantu docelowego na stronie bez odświeżania strony. Istnieje również możliwość do wyzwolenia populacji przy użyciu niestandardowego kodu JavaScript po stronie klienta. Jednak szczególną uwagę brane rozszerzeń znajduje się w formancie użytkownika.
+`DynamicPopulate` Kontrola w ASP.NET AJAX Control Toolkit wywołuje usługę sieci web (lub metody korzystającej ze strony) i wprowadza wartość wynikową do formantu docelowego na stronie bez odświeżania strony. Istnieje również możliwość wyzwalania populacji przy użyciu niestandardowego kodu JavaScript po stronie klienta. Jednak szczególną uwagę należy podjąć, gdy urządzenie extender znajduje się w kontrolce użytkownika.
 
 ## <a name="steps"></a>Kroki
 
-Przede wszystkim należy usługi sieci Web ASP.NET, która implementuje metodę do wywołania przez `DynamicPopulateExtender` formantu. Usługa sieci web implementuje metody `getDate()` spodziewa się jeden argument typu String, nazywany `contextKey`, ponieważ `DynamicPopulate` kontroli wysyła jednej kontekstu informacji z każdego wywołania usługi sieci web. Oto kod (plik `DynamicPopulate.cs.asmx`) która pobiera bieżącą datę w jednym z trzech formatów:
+Po pierwsze, potrzebujesz usługi sieci Web ASP.NET, która implementuje metodę można wywoływać za pomocą `DynamicPopulateExtender` kontroli. Usługa sieci web implementuje metodę `getDate()` który oczekuje jednego argumentu typu ciąg, o nazwie `contextKey`, ponieważ `DynamicPopulate` kontroli wysyła jeden fragment informacje o kontekście przy każdym wywołaniem usługi sieci web. Oto kod (plik `DynamicPopulate.cs.asmx`) które pobiera bieżącą datę w jednym z trzech formatów:
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample1.aspx)]
 
-W następnym kroku należy utworzyć nowy formant użytkownika (`.ascx` pliku), są oznaczane przez następujące oświadczenie w jego pierwszego wiersza:
+W następnym kroku, Utwórz nową kontrolkę użytkownika (`.ascx` pliku), są oznaczane przez następującą deklarację w jej pierwszy wiersz:
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample2.aspx)]
 
@@ -46,34 +45,34 @@ A &lt; `label` &gt; element będzie używany do wyświetlania danych z serwera.
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample3.aspx)]
 
-Również w pliku sterowania użytkownika, użyjemy trzy przyciski radiowe, każdą z nich reprezentujące jedną z trzech formatów daty możliwe obsługiwane przez usługę sieci web. Gdy użytkownik kliknie jeden z przycisków radiowych, przeglądarka będzie wykonywał kodu JavaScript, która wygląda następująco:
+Również w pliku kontrolki użytkownika, firma Microsoft użyje trzy przyciski radiowe, każdy z nich reprezentuje jeden z trzech formatów możliwych Data obsługiwana przez usługę sieci web. Gdy użytkownik kliknie na jeden z przycisków radiowych, przeglądarka będzie wykonywać kod JavaScript, która wygląda następująco:
 
 [!code-powershell[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample4.ps1)]
 
-Ten kod uzyskuje dostęp do `DynamicPopulateExtender` (nie martw się o identyfikatorze dziwne jeszcze, to będzie uwzględnione w przyszłości) i wyzwala dynamiczne populacji z danymi. W kontekście bieżącego przycisku radiowego `this.value` odwołuje się do jego wartość, która jest `format1`, `format2` lub `format3` dokładnie co metoda sieci web oczekuje.
+Ten kod uzyskuje dostęp do `DynamicPopulateExtender` (nie martw się o identyfikatorze dziwne, ale, zostanie to opisane w dalszej) i wyzwala dynamiczne wypełnianie danymi. W kontekście bieżącego przycisk radiowy `this.value` odwołuje się do jego wartość, która jest `format1`, `format2` lub `format3` dokładnie metody sieci web oczekiwaniom.
 
-Jedyną operacją, brak jeszcze w formancie użytkownika jest `DynamicPopulateExtender` kontroli, która łączy przyciski radiowe z usługą sieci web.
+Jedyną czynnością, brakuje w kontrolce użytkownika jeszcze jest `DynamicPopulateExtender` kontrolowanie linki przycisków radiowych do usługi sieci web.
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample5.aspx)]
 
-Ponownie należy zaznaczyć dziwne identyfikator używany w formancie: `mcd1$myDate` zamiast `myDate`. Wcześniej, kod JavaScript używane `mcd1_dpe1` dostępu `DynamicPopulateExtender` zamiast `dpe1`. Ta strategia nazewnictwa jest szczególne wymagania w przypadku używania `DynamicPopulateExtender` w formancie użytkownika. Ponadto należy osadzić kontroli użytkownika w określony sposób, aby było to działa. Tworzenie nowej strony ASP.NET i zarejestrować prefiksu tagu kontrolki użytkownika, które zostały zaimplementowane:
+Ponownie należy zaznaczyć otrzymano nieoczekiwany identyfikator używany w kontrolce: `mcd1$myDate` zamiast `myDate`. Wcześniej kod JavaScript używany `mcd1_dpe1` dostęp do `DynamicPopulateExtender` zamiast `dpe1`. Ta strategia nazewnictwa jest specjalnych wymagań, korzystając z `DynamicPopulateExtender` znajdujących się pod kontrolą użytkownika. Ponadto należy osadzić kontroli użytkownika w określony sposób, aby umożliwić jej pracę. Tworzenie nowej strony programu ASP.NET i zarejestrować prefiksu tagu kontrolki użytkownika, które zostało zaimplementowane:
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample6.aspx)]
 
-Następnie wprowadzić ASP.NET AJAX `ScriptManager` kontrolki w nowej strony:
+Następnie wprowadzić ASP.NET AJAX `ScriptManager` kontroli na nowej stronie:
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample7.aspx)]
 
-Na koniec Dodaj kontrolkę użytkownika do strony. Należy ustawić jego `ID` atrybutu (i `runat="server"`, oczywiście), ale również ma ustawioną nazwę: `mcd1` ponieważ jest to prefiks używany w formancie użytkownika dostępu do niej przy użyciu języka JavaScript.
+Na koniec Dodaj formant użytkownika do strony. Musisz ustawić jego `ID` atrybutu (i `runat="server"`, oczywiście), ale należy również ustawić ją na określonej nazwy: `mcd1` to prefiks używany w kontrolce użytkownika dostępu do niego przy użyciu języka JavaScript.
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-cs/samples/sample8.aspx)]
 
-I to już wszystko! Strona działa zgodnie z oczekiwaniami: użytkownik kliknie jeden z przycisków radiowych, formantu w zestawie narzędzi programu wywołania usługi sieci web i wyświetla bieżącą datę w wybranym formacie.
+I to wszystko! Strona zachowuje się zgodnie z oczekiwaniami: użytkownik kliknie na jeden z przycisków radiowych, formant w zestawie narzędzi wywołuje usługę sieci web i wyświetla bieżącą datę w wybranym formacie.
 
 
-[![Przyciski radiowe znajdują się w formancie użytkownika](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)
+[![Przyciski radiowe znajdują się w kontrolce użytkownika](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image1.png)
 
-Przyciski radiowe znajdują się w formancie użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image3.png))
+Przyciski radiowe znajdują się w kontrolce użytkownika ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](dynamically-populating-a-control-using-javascript-code-cs.md)

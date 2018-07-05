@@ -1,116 +1,115 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
-title: Rozproszonej pamięci podręcznej (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft
+title: Rozproszonej pamięci podręcznej (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
+description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/20/2015
 ms.topic: article
 ms.assetid: 406518e9-3817-49ce-8b90-e82bc461e2c0
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: 3600200f9bb705ccf66c859547668bdf8e89d97a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f92d9a00ce3cc723643f4f8077bb4308f5d8089e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868675"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365649"
 ---
-<a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Rozproszone buforowania (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
+<a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Rozproszonej pamięci podręcznej (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Dykstra niestandardowy](https://github.com/tdykstra)
+przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie napraw projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę E](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Tworzenia rzeczywistych aplikacji w chmurze platformy Azure** Książka elektroniczna opiera się na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i wskazówki, które mogą pomóc Ci się pomyślnie, tworzenie aplikacji sieci web dla chmury. Informacje o Książka elektroniczna, zobacz [pierwszy rozdział](introduction.md).
+> **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
 
 
-Poprzedni rozdział przeglądał obsługi błędu przejściowego i wymienionych buforowanie jako strategii wyłącznika. Ten rozdział zawiera więcej informacji uzupełniających na temat buforowania, tym, kiedy należy używać go typowe wzorce dotyczących korzystania z niego oraz sposób jej wdrożeniu na platformie Azure.
+Poprzednim rozdziale przyjrzano obsługi błędów przejściowych i wymienione w pamięci podręcznej jako strategii wyłącznika. Ten rozdział zapewnia większej ilości informacji kontekstowych dotyczących buforowania, łącznie z ich używać i często używane wzorce dotyczące korzystania z niego i sposobie jego implementowania na platformie Azure.
 
-## <a name="what-is-distributed-caching"></a>Co to jest dystrybuowane buforowanie
+## <a name="what-is-distributed-caching"></a>Co to jest rozproszonej pamięci podręcznej
 
-Pamięć podręczną zapewnia wysokiej przepływności, małych opóźnieniach dostępu do danych aplikacji powszechnie używanych przez przechowywanie danych w pamięci. Dla aplikacji w chmurze najbardziej przydatne typ pamięci podręcznej jest rozproszonej pamięci podręcznej, co oznacza dane nie są przechowywane w pamięci serwera poszczególnych sieci web, ale od innych zasobów w chmurze, a buforowane dane będą dostępne dla wszystkich serwerów sieci web aplikacji (lub innych usług w chmurze maszyn wirtualnych tej ar e używany przez aplikację).
+Pamięć podręczna zapewnia wysoką przepływność, małe opóźnienia dostępu do danych najczęściej używanych aplikacji, za przechowywanie danych w pamięci. Dla aplikacji w chmurze najbardziej przydatne typ pamięci podręcznej jest rozproszonej pamięci podręcznej, co oznacza dane nie są przechowywane w pamięci serwera internetowego, ale od innych zasobów w chmurze, a dane w pamięci podręcznej będą dostępne dla wszystkich serwerów sieci web aplikacji (lub inne chmury maszyn wirtualnych tego ar e używanych przez aplikację).
 
-![Diagram przedstawiający wielu serwerów sieci web podczas uzyskiwania dostępu do tych samych serwerów pamięci podręcznej](distributed-caching/_static/image1.png)
+![Diagram przedstawiający wielu serwerów sieci web, uzyskiwanie dostępu do tych samych serwerów pamięci podręcznej](distributed-caching/_static/image1.png)
 
-Gdy aplikacja skaluje przez dodawanie lub usuwanie serwerów lub gdy serwery są zastępowane z powodu uaktualnienia lub błędy, pamięci podręcznej dane pozostają dostępne dla każdego serwera, który uruchamia aplikację.
+Gdy aplikacja jest skalowana, dodając lub usuwając serwerów lub serwerów są zastępowane z powodu uaktualnienia lub błędy, dane w pamięci podręcznej pozostaje dostępna na każdym serwerze, który uruchamia aplikację.
 
-Dzięki unikaniu duże opóźnienia dostępu do danych magazynu danych, buforowanie mogą znacznie zwiększyć czas odpowiedzi aplikacji. Na przykład pobieranie danych z pamięci podręcznej jest znacznie szybsza niż z relacyjnej bazy danych.
+Unikając duże opóźnienia dostępu do danych w trwałym magazynie danych, buforowanie może znacznie zwiększyć czas odpowiedzi aplikacji. Na przykład podczas pobierania danych z pamięci podręcznej jest znacznie szybsze niż z relacyjnej bazy danych.
 
-Zaletą po stronie buforowanie jest zmniejszenie ruchu w magazynie danych, co może spowodować obniżenie kosztów, gdy istnieją wyjście danych opłaty za magazyn danych.
+Zaletą po stronie buforowania jest krótszy ruch do magazynu trwałego danych, co może spowodować obniżenie kosztów, gdy istnieją wyjście danych opłaty są pobierane za trwałym magazynie danych.
 
-## <a name="when-to-use-distributed-caching"></a>Kiedy należy używać buforowania rozproszonego
+## <a name="when-to-use-distributed-caching"></a>Kiedy należy używać rozproszonej pamięci podręcznej
 
-Buforowanie działa najlepiej dla obciążeń aplikacji, który nie odczytu więcej niż zapisywanie danych i gdy modelu danych obsługuje organizacja klucz/wartość, która umożliwia przechowywanie i pobieranie danych w pamięci podręcznej. Jest również bardziej przydatne w przypadku aplikacji użytkownicy udostępniają wiele wspólnych danych; na przykład pamięci podręcznej nie będzie zapewniają jako wiele korzyści, jeśli każdy użytkownik zwykle pobiera dane unikatowe dla tego użytkownika. Przykład gdy buforowanie może być bardzo przydatne jest katalog produktów, ponieważ dane nie zmienia się często i szukasz wszystkich klientów w tych samych danych.
+Buforowanie działa najlepiej w przypadku obciążeń aplikacji, wykonaj odczytu więcej niż zapisywania danych, a gdy model danych obsługuje organizacji klucz/wartość, która umożliwia przechowywanie i pobieranie danych w pamięci podręcznej. Jest również bardziej użyteczny, gdy użytkownicy aplikacji udostępniają wiele wspólnych danych; na przykład pamięć podręczna nie zapewnia korzyści tyle Jeśli każdy użytkownik zwykle pobiera dane, które użytkownik. Przykładem, gdzie pamięć podręczna może być bardzo korzystne jest katalog produktów, ponieważ dane nie zmieniają się często i wszyscy klienci są spojrzenie na te same dane.
 
-Zaletą buforowania staje się coraz bardziej mierzalnych skaluje więcej aplikacji, jak limity przepustowości i opóźnień opóźnienia magazynu trwałego danych stanie więcej limit na ogólną wydajnością. Jednak zaimplementować, buforowanie innego powodu niż również wydajności. Dla danych, które nie muszą być dokładnie aktualne, gdy pokazywana użytkownikowi dostępu do pamięci podręcznej może służyć jako wyłącznika, dla, gdy magazyn danych jest odpowiadać lub jest niedostępny.
+Zaletą korzystania z pamięci podręcznej staje się coraz bardziej mierzalne bardziej umożliwia skalowanie aplikacji miarę limity przepływności i opóźnień opóźnienia magazynu trwałego danych więcej ograniczenie wydajności ogólnej aplikacji. Jednak zaimplementować, buforowanie innych powodów niż również pod względem wydajności. Dla danych, które nie musi być doskonale aktualne, gdy wyświetlane użytkownikowi dostępu do pamięci podręcznej może służyć jako wyłącznik po trwałym magazynie danych, nie odpowiada lub jest niedostępna.
 
-## <a name="popular-cache-population-strategies"></a>Strategie populacji popularnych pamięci podręcznej
+## <a name="popular-cache-population-strategies"></a>Strategie populacji popularnej pamięci podręcznej
 
-Aby można było pobierać dane z pamięci podręcznej, należy go przechowywać najpierw. Istnieje kilka strategii pobierania danych, które są potrzebne do pamięci podręcznej:
+Aby można było pobierać dane z pamięci podręcznej, musisz zapisać ją tam najpierw. Istnieje kilka strategii w celu uzyskania danych, które są potrzebne do pamięci podręcznej:
 
-- Na żądanie / pamięci podręcznej Zarezerwuj
+- Na żądanie / pamięci podręcznej Aside
 
-    Aplikacja próbuje pobrać dane z pamięci podręcznej, a gdy pamięci podręcznej nie ma danych ("Chybienia"), aplikacja przechowuje dane w pamięci podręcznej, dzięki czemu będzie on dostępny przy następnym. Znajdzie przy następnym aplikacja próbuje pobrać te same dane co szuka w pamięci podręcznej ("trafienie"). Aby uniknąć pobierania buforowane dane, które uległy zmianie w bazie danych, unieważnienie pamięci podręcznej podczas wprowadzania zmian w magazynie danych.
+    Aplikacja podejmie próbę pobrania danych z pamięci podręcznej, a jeśli pamięci podręcznej nie ma danych ("Chybienia"), aplikacja przechowuje dane w pamięci podręcznej, więc, że będzie on dostępny przy następnym. Przy następnym aplikacja podejmie próbę uzyskania tych samych danych, znajdzie czego szukać w pamięci podręcznej ("Strzał"). Aby uniknąć pobierania dane w pamięci podręcznej, które uległy zmianie w bazie danych, unieważnienia pamięci podręcznej podczas wprowadzania zmian w magazynie danych.
 - Wypychanie danych w tle
 
-    Usługi w tle wypychanie danych do pamięci podręcznej w regularnych odstępach czasu i aplikacji zawsze ściąga z pamięci podręcznej. To podejście Wielkiej współpracuje ze źródłami danych duże opóźnienia, które nie wymagają zawsze zwraca najnowsze dane.
-- Wyłącznika
+    Usługi w tle wypychanie danych do pamięci podręcznej w regularnych odstępach czasu i aplikacja zawsze ściąga z pamięci podręcznej. To świetnie działa podejście ze źródłami danych duże opóźnienie, które nie wymagają zawsze zwraca najnowsze dane.
+- Wyłącznik
 
-    Aplikacji zwykle komunikuje się bezpośrednio z magazynem danych, ale gdy magazyn danych ma problemów z dostępnością, aplikacja pobiera dane z pamięci podręcznej. Dane może umieścić w pamięci podręcznej przy użyciu pamięci podręcznej Odłóż lub strategii wypychania danych tła. Jest to błąd obsługi strategii zamiast strategii zwiększenie wydajności.
+    Aplikacja zazwyczaj komunikuje się bezpośrednio z trwałym magazynie danych, ale gdy problemów z dostępnością znajdują się w trwałym magazynie danych, aplikacja pobiera dane z pamięci podręcznej. Dane mogą umieścić w pamięci podręcznej przy użyciu pamięci podręcznej specjalnie lub strategii wypychania danych w tle. Jest to błąd obsługi strategii, a nie strategii zwiększanie wydajności.
 
-Aby aktualność danych w pamięci podręcznej, można usunąć wpisy w pamięci podręcznej powiązane, gdy aplikacja tworzy aktualizacje, lub usuwa dane. Jeśli tak jest czasami pobrać dane, które są nieco nieaktualne aplikacji, może polegać na czas wygaśnięcia można skonfigurować, aby ustawić limit wiek pamięci podręcznej, dane mogą być.
+Aby zachować bieżące dane w pamięci podręcznej, można usunąć wpisy w pamięci podręcznej powiązane, gdy aplikacja tworzy, aktualizacji lub usuwa dane. Jeśli tak jest dla aplikacji, aby otrzymywać czasami dane, które są nieco nieaktualne, możesz polegać na czas wygaśnięcia można skonfigurować, aby ustawić limit pamięci podręcznej wiek, dane mogą być.
 
-Można skonfigurować wygaśnięcia bezwzględne (ilość czasu od czasu utworzenia elementu pamięci podręcznej) lub przedłużanie ważności (ilość czasu od czasu ostatniego dostępu do niego element pamięci podręcznej). Bezwzględna wygaśnięcia jest używany, gdy są zależnie od mechanizmu wygaśnięcia pamięci podręcznej, aby zapobiec dane zbyt stare. W aplikacji napraw go firma Microsoft będzie ręcznie Wyklucz elementy starych pamięci podręcznej i użyjemy wygaśniecie do najbardziej aktualne dane są przechowywane w pamięci podręcznej. Niezależnie od zasady wygasania, możesz wybrać pamięci podręcznej zostanie automatycznie Wyklucz najstarsze elementy (najmniej ostatnio używane lub LRU) po osiągnięciu limitu pamięci podręcznej.
+Możesz skonfigurować wygaśnięcie bezwzględne (ilość czasu od momentu utworzenia elementu pamięci podręcznej) lub przedłużanie ważności (ilość czasu od czasu ostatniego, do których uzyskano dostęp do elementu pamięci podręcznej). Bezwzględna wygaśnięcia jest używany, gdy są zależności na mechanizmie wygaśnięcia pamięci podręcznej, aby zapobiec danych stają się zbyt stare. W aplikacji napraw go firma Microsoft będzie ręcznie wykluczyć elementy starych pamięci podręcznej, a następnie użyjemy wygaśniecie, aby zapewnić najbardziej aktualne dane w pamięci podręcznej. Niezależnie od zasady wygasania, które wybierzesz pamięci podręcznej zostanie automatycznie eksmitować najstarsze elementy (co najmniej ostatnio używane lub LRU) po osiągnięciu limitu pamięci pamięci podręcznej.
 
-## <a name="sample-cache-aside-code-for-fix-it-app"></a>Przykładowy kod Zarezerwuj pamięć podręczna poprawka aplikacji
+## <a name="sample-cache-aside-code-for-fix-it-app"></a>Przykładowy kod odkładania do pamięci podręcznej dla aplikacji poprawka
 
-W poniższym przykładowym kodzie sprawdzamy pamięci podręcznej najpierw podczas pobierania zadania napraw go. Jeśli zadanie zostanie znaleziony w pamięci podręcznej, zostanie zwrócona Jeśli nie zostanie znaleziony, możemy pobrać go z bazy danych i umieść ją w pamięci podręcznej. Czy wprowadzone zmiany do dodania, buforowanie, aby `FindTaskByIdAsync` wyróżniono metody.
+W poniższym przykładowym kodzie możemy sprawdzić pamięci podręcznej najpierw podczas pobierania zadania rozwiązać go. Jeśli zadanie zostanie znaleziony w pamięci podręcznej, zostanie zwrócona. Jeśli nie zostanie znaleziony, możemy pobrać go w bazie danych i zapisz go w pamięci podręcznej. Czy wprowadzone zmiany do dodania w pamięci podręcznej w celu `FindTaskByIdAsync` metody są wyróżnione.
 
 [!code-csharp[Main](distributed-caching/samples/sample1.cs?highlight=5,9-11,13-15,19)]
 
-Podczas aktualizacji lub usunięcia zadania napraw go, masz unieważnić zadań (Usuń) zapisane w pamięci podręcznej. W przeciwnym razie przyszłości próbuje odczytać się, że to zadanie będzie nadal mieć stare dane z pamięci podręcznej.
+Podczas aktualizacji lub usunięcia zadania rozwiązać go masz unieważnienie (Usuń) buforowane zadanie. W przeciwnym razie przyszłość próbuje odczytać, że to zadanie będzie w dalszym ciągu uzyskać stare dane z pamięci podręcznej.
 
 [!code-csharp[Main](distributed-caching/samples/sample2.cs?highlight=7)]
 
-Oto przykłady ilustrujący prostego kodu buforowania; buforowanie nie została zaimplementowana do pobrania poprawka projektu.
+Oto przykłady ilustrują prostego kodu buforowania; pamięć podręczna nie została zaimplementowana do pobrania rozwiązać go projektu.
 
-## <a name="azure-caching-services"></a>Buforowanie usług Azure
+## <a name="azure-caching-services"></a>Pamięci podręcznej usługi Azure
 
-Platforma Azure oferuje następujące usługi buforowania: [pamięć podręczna Redis Azure](https://msdn.microsoft.com/library/dn690523.aspx) i [Azure zarządzanych w pamięci podręcznej](https://msdn.microsoft.com/library/dn386094.aspx). Pamięć podręczna Redis Azure jest oparta na popularnych [Otwórz źródło pamięci podręcznej Redis](http://redis.io/) i jest pierwszy wybór dla większości scenariuszy buforowania.
+Platforma Azure oferuje następujące usługi pamięci podręcznej: [usługi Azure Redis Cache](https://msdn.microsoft.com/library/dn690523.aspx) i [Azure Managed Cache](https://msdn.microsoft.com/library/dn386094.aspx). Usługa Azure Redis cache jest oparty na popularnej ["open source Redis Cache"](http://redis.io/) i jest pierwszym wyborem dla większości scenariuszy buforowania.
 
 <a id="sessionstate"></a>
-## <a name="aspnet-session-state-using-a-cache-provider"></a>Stan sesji ASP.NET przy użyciu dostawcy pamięci podręcznej
+## <a name="aspnet-session-state-using-a-cache-provider"></a>Za pomocą pamięci podręcznej dostawcy stanu sesji platformy ASP.NET
 
-Jak wspomniano w [sieci web development najlepszych rozwiązań rozdział](web-development-best-practices.md), najlepszym rozwiązaniem jest unikać stanu sesji. Jeśli aplikacja wymaga stanu sesji, dalej najlepszym rozwiązaniem jest unikać domyślnego dostawcy w pamięci, ponieważ nie umożliwiających skalowania w poziomie (wielu wystąpień serwera sieci web). Dostawca stanu sesji ASP.NET SQL Server umożliwia lokacji, która działa na wielu serwerach sieci web do korzystania ze stanu sesji, ale wiąże się z kosztami duże opóźnienie w porównaniu do dostawcy w pamięci. Najlepszym rozwiązaniem, jeśli zajdzie potrzeba korzystania ze stanu sesji jest użycie dostawcy pamięci podręcznej, takich jak [dostawcę stanu sesji dla usługi pamięć podręczna Azure](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx).
+Jak wspomniano w [sieci web development najlepsze rozwiązania w zakresie rozdział](web-development-best-practices.md), najlepszym rozwiązaniem jest unikać stanu sesji. Jeśli aplikacja wymaga stanu sesji, dalej najlepszym rozwiązaniem jest unikać domyślnego dostawcę w pamięci, ponieważ nie umożliwiających skalowanie w poziomie (wielu wystąpień serwera sieci web). Dostawca stanu sesji ASP.NET programu SQL Server umożliwia lokacji, która działa na wielu serwerach sieci web, aby używać stanu sesji, ale wiąże się koszt duże opóźnienie w porównaniu do dostawcy usługi w pamięci. Najlepszym rozwiązaniem w przypadku używania stan sesji jest użycie dostawcy pamięci podręcznej, takich jak [dostawca stanu sesji dla usługi Azure Cache](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx).
 
 ## <a name="summary"></a>Podsumowanie
 
-Przedstawiono sposób aplikacji Usuń można zaimplementować buforowanie, aby zwiększyć czas reakcji i skalowalność i aby umożliwić aplikacji nadal jest elastyczny dla operacji odczytu, gdy baza danych jest niedostępny. W [następnego rozdziału](queue-centric-work-pattern.md) zostanie omówiony sposób dodatkowo poprawić skalowalność i aplikacji w dalszym ciągu odpowiadać dla operacji zapisu.
+Przedstawiono sposób aplikacji naprawić implementacji buforowania, aby poprawić czas odpowiedzi i skalowalność i umożliwia korzystanie z aplikacji w dalszym ciągu można szybko reagujących operacji odczytu, gdy baza danych jest niedostępne. W [następny rozdział](queue-centric-work-pattern.md) pokażemy sposób dodatkowo poprawić skalowalność i aplikacji, nadal odpowiadać za operacje zapisu.
 
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
 Aby uzyskać więcej informacji na temat buforowania zobacz następujące zasoby.
 
 Dokumentacja
 
-- [Azure Cache](https://msdn.microsoft.com/library/gg278356.aspx). Oficjalnej dokumentacji MSDN na buforowanie na platformie Azure.
-- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wskazówki buforowanie i wzorzec Zarezerwuj pamięci podręcznej.
-- [Przed uszkodzeniami: Wskazówki dotyczące architektury chmury odporność](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument Mercuri wytłoków, Ulrich Homann i Andrew Townhill. Zobacz sekcję dotyczącą buforowanie.
-- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę na usług w chmurze Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. Oficjalny dokument przez moduły SIMM znaku i Michael Thomassy. Zobacz sekcję dotyczącą systemy buforowania rozproszonego.
-- [Rozproszone buforowanie na ścieżkę do skalowalność](https://msdn.microsoft.com/magazine/dd942840.aspx). Starsze artykuł MSDN Magazine (2009), ale wyraźnie napisane wprowadzenie do buforowania rozproszonego ogólnie; przechodzi w stan głębokość więcej niż sekcji buforowania oficjalne dokumenty przed uszkodzeniami i najlepsze rozwiązania.
+- [Azure Cache](https://msdn.microsoft.com/library/gg278356.aspx). Oficjalna dokumentacja MSDN na temat buforowania na platformie Azure.
+- [Microsoft Patterns and Practices — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wskazówki dotyczące buforowania i wzorzec z odkładaniem do pamięci podręcznej.
+- [Przed uszkodzeniami: Wskazówki dotyczące architektury na temat odporności chmury](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Oficjalny dokument, Marc Mercuri, Ulrich Homann i Andrew Townhill. Zobacz sekcję dotyczącą pamięci podręcznej.
+- [Najlepsze rozwiązania dotyczące projektowania usług na dużą skalę w usługach Azure Cloud Services](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. Oficjalny dokument — Markiem Simmsem i Michael Thomassy. Zobacz sekcję dotyczącą rozproszonej pamięci podręcznej.
+- [Rozproszonej pamięci podręcznej w ścieżce na skalowalność](https://msdn.microsoft.com/magazine/dd942840.aspx). Starsze artykuł w MSDN Magazine (2009), ale wyraźnego pisemnego wprowadzenie do rozproszonego buforowania w całości. Przechodzi do bardziej szczegółowe niż buforowania sekcje oficjalne dokumenty przed uszkodzeniami i najlepszych rozwiązań.
 
 Wideo
 
-- [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalności, odporności](https://channel9.msdn.com/Series/FailSafe). Seria dziewięć części Ulrich Homann, Mercuri wytłoków i moduły SIMM znaku. Przedstawia widok poziomu 400 sposobu projektowania aplikacji w chmurze. Ta seria skupia się na teorii i powodów, dla których Dlaczego; szczegółowe instrukcje Zobacz budynku Big serii przez moduły SIMM znaku. Zawiera omówienie buforowania w epizodu 3, zaczynając od 1:24:14.
-- [Big budynku: Wnioski uzyskane od klientów platformy Azure — część I](https://channel9.msdn.com/Events/Build/2012/3-029). Davies Simona omówiono rozproszonej pamięci podręcznej zaczynając od 46:00. Podobnie jak seria przed uszkodzeniami, ale przechodzi w szczegółowe instrukcje. Prezentacji podano 31 października 2012 r., więc nie obejmują usługi buforowania aplikacji sieci Web w usłudze Azure App Service, który został wprowadzony w 2013.
+- [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalne, odporne](https://channel9.msdn.com/Series/FailSafe). Dziewięć serii Ulrich Homann, Marc Mercuri i — Markiem Simmsem. Przedstawia widok 400-level jak zaprojektować aplikacje w chmurze. Ta seria skupia się na teorii i powodów dlaczego; szczegółowe instrukcje Zobacz Tworzenie dużych szeregi według — Markiem Simmsem. Zobacz Omówienie buforowania w odcinek 3 zaczynając od 1:24:14.
+- [Tworzenie Big: Wnioski wyciągnięte z klientów platformy Azure — część I](https://channel9.msdn.com/Events/Build/2012/3-029). Simona Davies w tym artykule omówiono rozproszonej pamięci podręcznej zaczynając od 46:00. Podobnie jak przed uszkodzeniami serii, ale zbliża się bardziej szczegółowe informacje z instrukcjami. Prezentacja podano 31 października 2012 r., więc nie obejmuje ona usługę buforowania w funkcji Web Apps w usłudze Azure App Service, która została wprowadzona w 2013.
 
 Przykładowy kod
 
-- [Podstawy usługi na platformie Azure w chmurze](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowej aplikacji, która implementuje systemy buforowania rozproszonego. Zobacz wpis w blogu towarzyszący [podstawy usługi w chmurze — podstawy buforowanie](https://blogs.msdn.com/b/windowsazure/archive/2013/10/03/cloud-service-fundamentals-caching-basics.aspx).
+- [Podstawy usługi na platformie Azure w chmurze](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Przykładowa aplikacja, która implementuje rozproszonej pamięci podręcznej. Zobacz wpis w blogu towarzyszący [podstawy usługi chmury — podstawy buforowania](https://blogs.msdn.com/b/windowsazure/archive/2013/10/03/cloud-service-fundamentals-caching-basics.aspx).
 
 > [!div class="step-by-step"]
 > [Poprzednie](transient-fault-handling.md)

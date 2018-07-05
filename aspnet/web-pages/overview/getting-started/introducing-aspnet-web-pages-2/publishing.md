@@ -1,224 +1,223 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
-title: Wprowadzenie do składnika ASP.NET Web Pages — publikowania lokacji za pomocą programu WebMatrix | Dokumentacja firmy Microsoft
+title: Wprowadzenie do składnika ASP.NET Web Pages — publikowanie witryny za pomocą programu WebMatrix | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: W tym samouczku jest ostatnim rat w zestawie Samouczek wprowadzający stron ASP.NET Web Pages i programu Microsoft WebMatrix. Zawarto informacje, jak opublikować witrynę t...
+description: Niniejszy samouczek jest ostateczny PAYG w zestawie samouczków, która wprowadza stron ASP.NET Web Pages i programu Microsoft WebMatrix. Omówiono w nim sposób publikowania witryny t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
 ms.topic: article
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 7b9bffac5cc72e1bea3f1b211cc03be2ccb8e499
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: c6fa7692527b7aa65e93cd57ed5bd56f42e54bd6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "30899593"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373490"
 ---
-<a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Wprowadzenie do strony sieci Web ASP.NET - publikowania lokacji za pomocą programu WebMatrix
+<a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Wprowadzenie do wzorca ASP.NET Web Pages — publikowanie witryny za pomocą programu WebMatrix
 ====================
-przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
+przez [Tom FitzMacken](https://github.com/tfitzmac)
 
-> W tym samouczku jest ostatnim rat w zestawie Samouczek wprowadzający stron ASP.NET Web Pages i programu Microsoft WebMatrix. Zawarto informacje, jak opublikowanie witryny z Internetem, tak aby inne osoby mogą pracować z nim. Przyjęto założenie, że zostały wykonane serii za pomocą [tworzenie spójny wygląd witryn stron sieci Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251585).
+> Niniejszy samouczek jest ostateczny PAYG w zestawie samouczków, która wprowadza stron ASP.NET Web Pages i programu Microsoft WebMatrix. Omówiono w nim sposób publikowania witryny z Internetem, aby inne osoby mogą pracować z nim. Przyjęto założenie, że zostały wykonane serii za pośrednictwem [tworzenia spójnego wyszukiwania do witryn stron sieci Web platformy ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251585).
 > 
 > Dowiesz się, jak opublikować swoją witrynę przy użyciu:
 > 
 > - Microsoft Azure
-> - Firmy hostingu sieci Web
+> - Firma hostingu w sieci Web
 
 
 ## <a name="about-publishing-your-site"></a>Publikowanie witryny — informacje
 
-Do chwili wykonaniu całą pracę na komputerze lokalnym, łącznie z testowaniem stron. Do uruchomienia programu<em>.cshtml</em> stron, użytych serwera sieci web, wbudowany w program WebMatrix, to znaczy usług IIS Express. Jednak oczywiście nie zobaczyć, witryny, do której został utworzony, chyba że użytkownik. Aby inni pracować z witryny, należy opublikować go w Internecie.
+Do chwili obecnej należy wykonać całą pracę na komputerze lokalnym, w tym Testowanie stron internetowych. Aby uruchomić usługi<em>.cshtml</em> stron, użytych serwera sieci web, która jest wbudowana w program WebMatrix, a mianowicie usług IIS Express. Ale oczywiście nie widać witryny, do której został utworzony, chyba że użytkownik. Aby inni pracować z witryny, należy opublikować ją w Internecie.
 
-Jeśli nie masz już dostępu do serwera sieci web publiczne, publikowanie oznacza, że konto z *platformy w chmurze* lub *dostawcy hostingu*. Platformy w chmurze, takich jak Microsoft Azure oferuje infrastrukturę na żądanie do aplikacji. Dostawca usług hostingowych jest firmy, który jest właścicielem serwerów sieci web publicznie i który będzie można wynajmować miejsce dla witryny. Hosting planów wykonywania z kilku kwoty miesięcznie (lub nawet wolnego) dla małych witryn do wielu tysięcy dolarów miesięcznie dla dużych komercyjnych witryn sieci Web.
+Jeśli nie masz już dostępu do serwera sieci web publicznych, publikowanie oznacza, że musisz mieć konto w *platforma usług w chmurze* lub *dostawcy usług hostingowych*. Platforma w chmurze, takich jak Microsoft Azure stanowi infrastrukturę na żądanie dla aplikacji. Dostawca hostingu jest firmy, który jest właścicielem serwerów sieci web dostępny publicznie i który będzie wynajmowanie możesz miejsca dla danej witryny. Plany, uruchom go z kilka dolarów miesięcznie (lub nawet bezpłatne) hostingu dla małych witryn do kilkuset dolarów miesięcznie dla dużej liczby komercyjnych witryn sieci Web.
 
 > [!NOTE]
-> Może mieć dostęp do serwera sieci web publicznych za pośrednictwem usługodawcy internetowego (ISP) używanego do pobrania w domu usługi internet. Jednak Twój dostawca hostingu musi obsługiwać stron ASP.NET Web Pages. Nie wielu usługodawców internetowych, ale warto zawsze sprawdzania.
+> Możesz mieć dostępu do serwera internetowego publicznej za pośrednictwem dostawcy usług internetowych (ISP), który umożliwia uzyskiwanie usługi internetowe w domu. Jednak Twój dostawca hostingu musi obsługiwać stron ASP.NET Web Pages. Nie wielu usługodawców internetowych, ale warto zawsze sprawdzania.
 
 
-W tym samouczku przedstawimy omówienie sposobu publikowania. Nie jest praktyczne podanie szczegółowymi wszystko, ponieważ proces różni się nieco dla każdego dostawcy hostingu. Ale otrzymasz dobrze działania procesu.
+W tym samouczku przedstawimy omówienie sposobu publikowania. Nie jest praktyczne zapewnienie szczegółowymi informacjami na temat do wszystkiego, ponieważ proces różni się nieco dla każdego dostawcy hostingu. Ale zapewnisz sobie dobrze, jak działa ten proces.
 
 Ten samouczek zawiera cztery sekcje:
 
 1. [Konfigurowanie domyślnej strony](#defaultpage)
 2. Publikowanie (wybierz jedną z następujących)  
- a. [Publikowanie witryny Microsoft Azure](#azure)  
+ a. [Publikowanie witryny w systemie Microsoft Azure](#azure)  
  b. [Publikowanie witryny firmy hostingu w sieci Web](#host)
-3. [Aktualizowanie na żywo witryny: ponowne publikowanie](#update)
+3. [Aktualizowanie w działającej witrynie: ponowne publikowanie](#update)
 
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Konfigurowanie domyślnej strony
 
-Gdy użytkownik przechodzi do podstawowego adresu witryny sieci web, domyślnej strony w witrynie jest wyświetlany użytkownikowi. Na przykład gdy Default.htm jest ustawiona jako stronę domyślną witryny w www.contoso.com, następnie przejść do obszaru <strong>www.contoso.com</strong> jest taka sama jak przejść do obszaru <strong>www.contoso.com/Default.htm</strong>.
+Gdy użytkownik przechodzi do adres podstawowy dla witryny sieci web, do użytkownika jest wyświetlona domyślna strona dla danej witryny. Na przykład, gdy Default.htm jest ustawiona jako domyślna strona dla tej witryny w www.contoso.com, przechodząc do <strong>www.contoso.com</strong> jest taka sama jak przejść do <strong>www.contoso.com/Default.htm</strong>.
 
-Obecnie Twoja witryna wymaga **Default.cshtml** jako domyślnej strony. Ta strona jest poprawnie domyślnej strony, ale w tym samouczku nie dodano żadnej zawartości do tej strony, będzie wyświetlany w pustej strony. Otwórz Default.cshtml i Zastąp zawartość następującym kodem.
+Obecnie Twoja witryna wymaga **Default.cshtml** jako domyślnej strony. Ta strona jest w dobrym stanie, domyślnej strony, ale w tym samouczku nie dodano żadnej zawartości do tej strony, będzie wyświetlany w pustej strony. Otwórz Default.cshtml i Zastąp zawartość następującym kodem.
 
 [!code-cshtml[Main](publishing/samples/sample1.cshtml)]
 
-Teraz ta lokacja jest gotowa do opublikowania. Po pierwsze zobaczysz, jak wdrożyć witrynę Azure, a następnie wdrożyć go hostingu firmy w sieci web. Każda opcja działa dla witryny sieci web, a tylko konieczne wykonaj jedną z opcji wdrażania.
+Teraz Twoja witryna jest gotowy do publikacji. Po pierwsze zobaczysz, jak wdrożyć witrynę na platformie Azure, a następnie wdrożyć go w sieci web firma zapewniająca hosting. Albo działa opcja dla witryny sieci web, a wystarczy wykonać jedną z opcji wdrażania.
 
 <a id="azure"></a>
-## <a name="publishing-your-site-to-microsoft-azure"></a>Publikowanie witryny Microsoft Azure
+## <a name="publishing-your-site-to-microsoft-azure"></a>Publikowanie witryny w systemie Microsoft Azure
 
-W tym samouczku najpierw opisano sposób wdrażania witryny Microsoft Azure. Logując się za pomocą konta Microsoft, można utworzyć maksymalnie 10 bezpłatnych witryn na platformie Azure. Witryny wolnego te zapewniają wygodny sposób testowania witryny. Ten przykład witryny później, aby uniknąć używania wszystkich witryn wolnego zawsze można usunąć. Można utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać więcej informacji, zobacz [bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+W tym samouczku zostanie najpierw pokazano, jak do wdrożenia witryny w systemie Microsoft Azure. Logując się przy użyciu konta Microsoft, można utworzyć maksymalnie 10 bezpłatnych witryn na platformie Azure. Witryny te bezpłatne zapewniają wygodny sposób testowania lokacje. Zawsze możesz usunąć ten przykład witryny później, aby unikać wszystkich bezpłatnych witryn. Można utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać więcej informacji, zobacz [bezpłatnej wersji próbnej Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
-Na wstążce programu WebMatrix, kliknij przycisk **publikowania** przycisku.
+Na wstążce programu WebMatrix kliknij **Publikuj** przycisku.
 
-![Przycisk "Publikuj" wstążce programu WebMatrix](publishing/_static/image1.png)
+![Przycisk "Publikuj" na wstążce programu WebMatrix](publishing/_static/image1.png)
 
-**Publikowania witryny** zostanie wyświetlone okno dialogowe. Jeśli użytkownik nie ma zalogowany do konta Microsoft, okno dialogowe będzie zawierać **Rozpoczynanie pracy z platformą Azure** łącza. Kliknięcie tego łącza.
+**Publikowanie witryny za** zostanie wyświetlone okno dialogowe. Jeśli nie zarejestrowano do Twojego konta Microsoft, okno dialogowe będzie zawierać **Rozpoczynanie pracy z usługą Azure** łącza. Kliknięcie tego łącza.
 
 ![Publikowanie witryny](publishing/_static/image2.png)
 
-Jeśli użytkownik nie ma zalogowany do konta Microsoft, podane są ponownie podpisać. Możesz zalogować się do konta Microsoft do publikowania witryny na platformie Azure.
+Jeśli nie masz logowanie do konta Microsoft możesz są ponownie możliwość do logowania. Musisz się zarejestrować się do konta Microsoft do opublikowania witryny na platformie Azure.
 
 ![Rejestrowanie](publishing/_static/image3.png)
 
-Po zalogowaniu się do swojego konta Microsoft, okno dialogowe zawiera łącza do tworzenia nowej witryny na platformie Azure lub połączyć się z jedną z istniejących witryn na platformie Azure.
+Po zalogowaniu się do swojego konta Microsoft, okno dialogowe zawiera łącza do tworzenia nowej witryny na platformie Azure lub połącz się z jednym z istniejących witryn na platformie Azure.
 
 ![Utwórz nową witrynę](publishing/_static/image4.png)
 
 Wybierz **Utwórz nową witrynę**.
 
-Jeśli nazwa projektu jest **WebPagesMovies**, będzie domyślna nazwa witryny **webpagesmovies.azurewebsites.net**. Ta nazwa domyślna to najprawdopodobniej nie jest dostępny, wskazywany przez czerwony wykrzyknik.
+Jeśli nazwa projektu jest **WebPagesMovies**, będzie domyślna nazwa witryny **webpagesmovies.azurewebsites.net**. Ta nazwa domyślna jest najprawdopodobniej nie jest dostępny, wskazane przez czerwony wykrzyknik.
 
 ![Domyślna nazwa witryny sieci Web](publishing/_static/image5.png)
 
-Zmień nazwę lokacji do zasobu, który jest dostępny i wybierz lokalizację, która znajduje się w pobliżu lokalizacji.
+Zmień nazwę lokacji coś, który jest dostępny, a następnie wybierz lokalizację, która znajduje się w pobliżu danej lokalizacji.
 
 ![Nazwa witryny zmienione](publishing/_static/image6.png)
 
 Kliknij przycisk **OK**.
 
-Program WebMatrix performss test, aby określić, czy serwer jest zgodny z witryną.
+Program WebMatrix performss test, aby określić, czy serwer jest zgodny z witryny.
 
 ![test zgodności](publishing/_static/image7.png)
 
-Wybierz **kontynuować**.
+Wybierz **nadal**.
 
 Wyniki testowania zgodności są wyświetlane.
 
 ![wynik zgodności](publishing/_static/image8.png)
 
-Wybierz **kontynuować**.
+Wybierz **nadal**.
 
-Program WebMatrix Wyświetla plików i baz danych, które zostaną opublikowane w witrynie. Ponieważ jest to w przypadku publikowania lokacji po raz pierwszy, wszystkie pliki są wyświetlane. Można usunąć zaznaczenie pola wyboru pliku, który nie jest gotowy do opublikowania. W kolejnych publikacji będą wyświetlane tylko te pliki, które zostały zmienione. Zobacz [aktualizowanie na żywo witryny: ponowne publikowanie](#update).
+Program WebMatrix Wyświetla pliki i bazy danych, które mają zostać opublikowane w witrynie. Ponieważ jest to publikujesz witrynę po raz pierwszy, są wyświetlane wszystkie pliki. Możesz usunąć zaznaczenie pliku, który nie jest gotowa do opublikowania. W kolejnej publikacji będą wyświetlane tylko te pliki, które uległy zmianie. Zobacz [aktualizowania witryny na żywo: ponowne publikowanie](#update).
 
-![wyświetlić podglądu publikowania](publishing/_static/image9.png)
+![Podgląd publikacji](publishing/_static/image9.png)
 
-Wybierz **kontynuować**.
+Wybierz **nadal**.
 
-Po wdrożeniu witryny na platformie Azure, zostanie wyświetlony komunikat, który wskazuje, że wdrożenie zostało ukończone.
+Po wdrożeniu witryny na platformie Azure, zostanie wyświetlony komunikat, który wskazuje, że wdrożenie zostało zakończone.
 
 ![Publikowanie ukończone](publishing/_static/image10.png)
 
-Z lokacji i bazą danych została opublikowana na platformie Azure i są teraz dostępne do publicznego. Kliknij link w komunikacie wskazujący publikowania zostało ukończone i znajduje się teraz wdrożonej witryny. Ani osób z dostępem do Internetu, można dodać lub zmodyfikować rekordy w bazie danych.
+Witryny i bazy danych zostały opublikowane na platformie Azure, a teraz są dostępne publicznie. Kliknij link w komunikacie wskazujący publikowanie zostało zakończone i zostanie wyświetlona witryna wdrożone. Użytkownik lub każda osoba mająca dostęp do Internetu można dodawać lub modyfikować rekordy w bazie danych.
 
 ![](publishing/_static/image11.png)
 
 <a id="host"></a>
 ## <a name="publishing-your-site-to-a-web-hosting-company"></a>Publikowanie witryny firmy hostingu w sieci Web
 
-Jeśli zdecydujesz się nie publikowanie na platformie Azure, zamiast tego można opublikować witryny firmy hostingu w sieci web.
+Jeśli zdecydujesz się nie publikować na platformie Azure, zamiast tego można opublikować witryny firmy hostingu w sieci web.
 
-Kliknij przycisk **znaleźć usługi hostingu sieci web** łącza.
+Kliknij przycisk **znaleźć hostingu internetowego** łącza.
 
-![Przycisk "Znajdź hostingu sieci web" w oknie Ustawienia publikowania](publishing/_static/image12.png)
+![Przycisk "Znajdź hosting sieci web" w oknie dialogowym Ustawienia publikowania](publishing/_static/image12.png)
 
 Przejdź do strony w witrynie firmy Microsoft, który zawiera listę dostawców hostingu, które obsługują aplikacje ASP.NET.
 
-![W witrynie firmy Microsoft, który wyświetla listę dostawców usług hostingu](publishing/_static/image13.png)
+![Strony w witrynie firmy Microsoft, zawierającego dostawców usług hostingu](publishing/_static/image13.png)
 
-Oczywiście może być trudne teraz wiedzieć dokładnie funkcje hostingu mogą wymagać w dłuższym okresie. Oto kilka rzeczy, które należy wziąć pod uwagę:
+Oczywiście może być trudne, teraz wiedzieć dokładnie funkcjach hostingu mogą być wymagane przez długi czas. Oto kilka rzeczy, które należy wziąć pod uwagę:
 
-- Do celów WebPagesMovies lokacji nie trzeba mieć osobne dodatek dla programu SQL Server, który często koszty dodatkowe. W witrynie używasz programu SQL Server Compact Edition, która jest niezależna. Jednak może być konieczne dostęp do serwera SQL dla niektórych pracy przyszłych witryny sieci Web, które należy wykonać. Jeśli uważasz, że możesz, upewnij się, że możliwości programu SQL Server można dodać później.
-- Sprawdź, czy dostawca hostingu obsługuje protokół publikowania narzędzia Web Deploy. Można opublikować za pomocą protokołu FTP, ale jest bardziej wygodne użycie narzędzia Web Deploy.
+- Na potrzeby witryny WebPagesMovies nie trzeba mieć osobne dodatek dla programu SQL Server, które często kosztów dodatkowych. W witrynie usługi używasz programu SQL Server Compact Edition, która jest niezależna. Jednak może być konieczne dostępu do serwera SQL dla niektórych pracy przyszłości witryny sieci Web, co możesz zrobić. Jeśli uważasz, że być może, upewnij się, że później możesz dodać możliwości programu SQL Server.
+- Sprawdź, czy dostawca hostingu obsługuje protokół publikowania narzędzia Web Deploy. Można opublikować za pomocą protokołu FTP, ale jest to bardziej wygodne użyć narzędzia Web Deploy.
 
-Niektóre witryny oferują bezpłatny okres próbny. Bezpłatna wersja próbna jest dobrym sposobem spróbuj publikowania i hosting czasie jest nadal eksperymentowanie z programu WebMatrix i stron ASP.NET Web Pages.
+Niektóre witryny oferuje bezpłatny okres próbny. Bezpłatna wersja próbna jest dobrym sposobem na spróbuj opublikować i hostingu podczas one nadal eksperymentować z programu WebMatrix i stron ASP.NET Web Pages.
 
-Klucz, który chcesz wybrać. W tym samouczku wybrano DiscountASP.NET, ponieważ podczas możemy zostały tworzenia tego samouczka, przedsiębiorstwo podwyższania poziomu, które umożliwiają użytkownikom hosta lokację przez kilka miesięcy.
+Taki, który chcesz pobrać. W tym samouczku wybrano DiscountASP.NET, ponieważ gdy firma Microsoft tworzenia tego samouczka, tej firmy podwyższania poziomu, które umożliwiają użytkownikom hostować lokację w ciągu kilku miesięcy.
 
 > [!NOTE]
-> Nasz wybór dostawcy hostingu, w tym samouczku nie powinny być rozumiane jako poręczenia tej firmy za pośrednictwem innych. Ale było konieczne pobranie jednej ilustracyjną i DiscountASP.NET jest jednym z wielu firm, które obsługuje stron sieci Web ASP.NET i protokołu Web Deploy do opublikowania.
+> Nasz wybór dostawcy hostingu, w tym samouczku nie powinien interpretowane jako poręczenia tej firmy za pośrednictwem innych. Ale musimy wybrać jeden z nich do celów ilustracyjnych i DiscountASP.NET jest jednym z wielu firm, które obsługuje stron ASP.NET Web Pages i protokołu Web Deploy dla publikowania.
 
 
-Zazwyczaj po zarejestrowaniu się z dostawcą hostingu, przedsiębiorstwo wysyła wiadomość e-mail, która zawiera nazwę użytkownika i hasło, adres URL serwera sieci web i tak dalej. Jeśli firma obsługuje protokołu Web Deploy, może wysyłać należy plik, który zawiera ustawienia publikowania lub pozwalają na pobranie jednej. Plik ustawień publikowania upraszcza proces dla Ciebie.
+Zazwyczaj po zalogowaniu przy użyciu dostawcy hostingu, przedsiębiorstwo wyśle do Ciebie wiadomość e-mail, który zawiera nazwę użytkownika i hasło, adres URL serwera sieci web i tak dalej. Jeśli firmy hostingowej obsługuje protokołu Web Deploy, może wysyłać należy plik, który zawiera ustawienia publikowania lub umożliwiają pobieranie jeden. Plik ustawień publikowania upraszcza proces.
 
-Gdy jest zapisany i jest gotowy do opublikowania, kliknij przycisk **publikowania** przycisk na wstążce programu WebMatrix. **Ustawień publikowania** zostanie wyświetlone okno dialogowe.
+Jeśli zarejestrowano się i jest gotowe do opublikowania, kliknij przycisk **Publikuj** przycisk na wstążce programu WebMatrix. **Ustawień publikowania** zostanie wyświetlone okno dialogowe.
 
-Jeśli dostawca hostingu wysyłane plik ustawień publikowania, kliknij przycisk **importowanie ustawień publikowania** link i zaimportuj plik. Jeśli nie masz plik ustawień publikowania, wypełnij pola przy użyciu wartości, które hostingu firmy wysyłane w wiadomościach e-mail. Oto, co **ustawień publikowania** okno dialogowe może wyglądać po zakończeniu:
+Jeśli dostawca hostingu przesłany plik ustawień publikowania, kliknij przycisk **importowanie ustawień publikowania** link i zaimportuj plik. Jeśli nie masz plik ustawień publikowania, wypełnij pola za pomocą wartości, które firmy hostingowej wysłać w wiadomości e-mail. Oto, co **ustawień publikowania** okno dialogowe może wyglądać po wykonaniu tych czynności:
 
 ![Ustawienia publikowania wprowadzone w oknie dialogowym Ustawienia publikowania](publishing/_static/image14.png)
 
-Kliknij przycisk **Weryfikacja połączenia z**. Jeśli wszystko jest prawidłowy, okno dialogowe Raporty **Połączono pomyślnie**, co oznacza, że może komunikować się z serwerem dostawcy hostingu.
+Kliknij przycisk **sprawdzanie poprawności połączenia**. Wszystko, co jest dobrym, okno dialogowe Raporty **pomyślnie połączono z**, co oznacza, że może komunikować się z serwerem dostawcy hostingu.
 
-![Powodzenie komunikatów, jeśli publikowanie ustawienia są prawidłowe](publishing/_static/image15.png)
+![Powodzenie komunikat, jeśli publikowanie ustawienia są poprawne](publishing/_static/image15.png)
 
-W przypadku problemu program WebMatrix zapewnia największą informujące o tym, co to jest problem:
+W przypadku problemu program WebMatrix wykonuje doskonale informujące o tym, co to jest problem:
 
-![Komunikat o błędzie w przypadku problemu z ustawienia publikowania](publishing/_static/image16.png)
+![Komunikat o błędzie, jeśli występuje problem z ustawień publikowania](publishing/_static/image16.png)
 
-Kliknij przycisk **zapisać** Aby zapisać ustawienia. Program WebMatrix udostępnia wykonać test, aby upewnić się, że może komunikować się poprawnie w witrynie hostingu:
+Kliknij przycisk **Zapisz** można zapisać ustawień. Program WebMatrix udostępnia wykonać test, aby upewnić się, że może komunikować się poprawnie w witrynie hostingu:
 
-![Komunikat oferty wykonać test proces publikowania](publishing/_static/image17.png)
+![Komunikat, oferty wykonać test proces publikowania](publishing/_static/image17.png)
 
-Kliknij przycisk **Tak**. Program WebMatrix przekazywać niektóre przykładowe pliki do dostawcy hostingu. Po zakończeniu testowania zgodności programu WebMatrix raportuje wyniki:
+Kliknij przycisk **Tak**. Program WebMatrix przekazuje niektóre pliki przykładowe do dostawcy hostingu. Po zakończeniu testowania zgodności programu WebMatrix zgłasza wyniki:
 
 ![Wyniki testu publikowania](publishing/_static/image18.png)
 
-Jeśli wszystko jest gotowe, przejdź dalej i kliknij przycisk **Kontynuuj** rzeczywistym uruchomić proces publikowania. Program WebMatrix danych liczbowych co pliki znajdują się w witrynie i znajdują się już na serwerze hosta (od razu, none) i Podgląd proces publikowania:
+Jeśli jesteś gotowy, przejdź dalej i kliknij przycisk **Kontynuuj** aby rozpocząć proces publikowania rzeczywistych. Program WebMatrix wpadł na pomysł co pliki znajdują się w witrynie znajdują się już na serwerze hosta (od razu, none) i wyświetlany jest podgląd proces publikowania:
 
-![Jakie pliki, które przekaże proces publikowania w wersji zapoznawczej](publishing/_static/image19.png)
+![Jakie przekazujących proces publikowania plików w wersji zapoznawczej](publishing/_static/image19.png)
 
-Lista plików do opublikowania zawiera stron sieci web, które po utworzeniu, takich jak *Movies.cshtml*. Lista zawiera także pliki dla wątków, które po zainstalowaniu, pliki, aby uruchomić bazy danych programu SQL Server Compact Edition i tak dalej. W związku z tym początkowej publikowania procesu może być istotne.
+Lista plików do opublikowania w tym stron sieci web, które zostały utworzone, takich jak *Movies.cshtml*. Lista zawiera również pliki dla wątków, które po zainstalowaniu, pliki, aby uruchomić program SQL Server Compact Edition dla bazy danych i tak dalej. Co w efekcie początkowego publikowania procesu mogą być istotne.
 
-Kliknij przycisk **Kontynuuj**. Program WebMatrix kopiuje pliki na serwer dostawcy hostingu. Po zakończeniu, wyniki są zgłaszane w pasku stanu:
+Kliknij przycisk **Kontynuuj**. Program WebMatrix kopiuje pliki do serwera dostawcy hostingu. Gdy wszystko będzie gotowe, wyniki są zgłaszane w pasku stanu:
 
-![Komunikat paska stanu, gdy proces publikowania zakończy się pomyślnie](publishing/_static/image20.png)
+![Komunikat pasek stanu, gdy proces publikowania zakończy się pomyślnie](publishing/_static/image20.png)
 
-Aby wyświetlić witryny na żywo, kliknij łącze w pasku stanu. Dodaj *filmy* do adresu URL, i zobaczysz *Movies.cshtml* utworzony plik:
+Aby wyświetlić witryny na żywo, kliknij link na pasku stanu. Dodaj *filmy* do adresu URL, a zobaczysz *Movies.cshtml* pliku, który został utworzony:
 
-![Działającą witrynę przedstawiający stronę filmy](publishing/_static/image21.png)
+![Witryna na żywo, przedstawiający stronę filmy](publishing/_static/image21.png)
 
 <a id="update"></a>
-## <a name="updating-the-live-site-republishing"></a>Aktualizowanie na żywo witryny: ponowne publikowanie
+## <a name="updating-the-live-site-republishing"></a>Aktualizowanie w działającej witrynie: ponowne publikowanie
 
-Po opublikowaniu witryny (do platformy Azure lub hostingu sieci web), są dwie kopie &mdash; wersja na komputerze oraz wersja dostawcy usługi. Prawdopodobnie należy kontynuować tworzenie lokacji (jeśli nic, jako część zestawu samouczek dalej). Po wykonaniu czynności należy ponownie opublikować witrynę, aby umożliwić kopiowanie zmian z komputera z dostawcą usług. Proces publikowania w programie WebMatrix można określić, co pliki zostały zmienione w witrynie i publikowanie tylko tych plików.
+Po opublikowaniu lokacji (do platformy Azure lub hostingu firmy), istnieją dwie kopie &mdash; wersji na komputerze i wersji na dostawcę usług. Prawdopodobnie będziesz chciał kontynuować tworzenie lokacji (jeśli niczego, w ramach następnego zestawu samouczków). Po wykonaniu, należy ponownie opublikować witrynę w celu kopiowania zmian z komputera do dostawcy usług. Proces publikowania w programie WebMatrix można określić, jakie pliki zostały zmienione w witrynie i opublikować tylko te pliki.
 
-Aby zobaczyć, jak działa ponownego publikowania, otwórz *Movies.cshtml* lokacji, niektóre zmiany małe, a następnie zapisz plik. Na przykład zmień tytuł, aby `Movies - Updated`.
+Aby zobaczyć, jak ponowne publikowanie działa, otwórz *Movies.cshtml* lokacji, wprowadzić zmianę niektórych mała liczba godzin, a następnie zapisz plik. Na przykład zmień tytuł na `Movies - Updated`.
 
-Kliknij przycisk **publikowania** przycisk na Wstążce. Program WebMatrix Określa, co zostało zmienione i pokazuje podgląd plików, które będą go opublikować.
+Kliknij przycisk **Publikuj** przycisk na Wstążce. Program WebMatrix Określa, co zostało zmienione i pokazuje podgląd plików, który będzie publikować uprawnienia.
 
-![Okno dialogowe "Publikuj" przedstawiający zmienione pliki gotowe do ponownego publikowania](publishing/_static/image22.png)
+![Okno dialogowe "Publikuj", przedstawiający zmienione pliki gotowe do ponownego publikowania](publishing/_static/image22.png)
 
 > [!IMPORTANT] 
 > 
-> Domyślnie program WebMatrix publikowanie bazy danych (*sdf* pliku) tylko po raz pierwszy, należy opublikować witrynę. Po opublikowaniu lokacji i osób pracuje z witryny sieci Web, bazy danych lokacji na żywo zwykle ma prawdziwe dane z lokacji. Masz bardzo nie można więc zastąpienia bazy danych na żywo z *sdf* pliku znajdującego się na tym komputerze, który zwykle zawiera tylko dane testowe. Dlatego zostanie wyświetlone ostrzeżenie **publikowania spowoduje zastąpienie wszelkich zdalnymi bazami danych**, oraz Dlaczego pole wyboru dla *WebPagesMovies.sdf* jest domyślnie wyczyszczone.
+> Domyślnie program WebMatrix publikowanie bazy danych (*.sdf* pliku) tylko po raz pierwszy, należy opublikować witrynę. Po opublikowaniu lokacji i osób wchodzą w interakcje z witryny sieci Web, bazy danych w aktywnej witrynie zwykle zawiera rzeczywiste dane lokacji. Masz bardzo nie podawaj zastąpienia bazy danych na żywo za pomocą *.sdf* pliku, który znajduje się na tym komputerze, który zwykle zawiera tylko dane testowe. Dlatego zapoznaj się z ostrzeżeniem **publikowania spowoduje zastąpienie wszelkich zdalnych baz danych**, i dlaczego pole wyboru dla *WebPagesMovies.sdf* jest domyślnie wyczyszczone.
 
 
-Kliknij przycisk **Kontynuuj**. Program WebMatrix publikuje zmienione pliki i zawiera komunikat z potwierdzeniem, tak, jak został opublikowany po raz pierwszy.
+Kliknij przycisk **Kontynuuj**. Program WebMatrix publikuje zmienionych plików i zostanie wyświetlony komunikat o powodzeniu, tak, jak został opublikowany po raz pierwszy.
 
-Przejdź do witryny na żywo (można kliknąć link w komunikacie Powodzenie Jeśli nadal jest wyświetlany) i upewnij się, że ta zmiana została opublikowana.
+Przejdź do aktywnej witryny (można kliknąć link w komunikat o powodzeniu, jeśli jest nadal wyświetlana) i sprawdź, czy zmiany zostały opublikowane.
 
 > [!TIP] 
 > 
 > **Zdalne edytowanie plików**
 > 
-> Alternatywą wobec zmiana witryny i ponowne opublikowanie można edytować pliki zdalne bezpośrednio w programie WebMatrix. W tym scenariuszu Otwórz plik, który znajduje się w dostawcy usług, a program WebMatrix pobierze kopii do edycji. Za każdym razem, gdy zapiszesz plik programu WebMatrix przesyła zmiany do lokacji.
+> Jako alternatywę do zmiany lokacji i ponowne opublikowanie możesz edytować pliki zdalne bezpośrednio w programie WebMatrix. W tym scenariuszu możesz otworzyć plik, który znajduje się na dostawcę usług, a program WebMatrix pobierze jej kopię do edycji. Za każdym razem, gdy plik zostanie zapisany, program WebMatrix wysyła zmiany do witryny.
 > 
-> Zdalne edytowanie jest prosty sposób, aby wprowadzić zmiany dotyczące witryny na żywo. Jednak zmiany wprowadzone w ten sposób nie są zsynchronizowane z plikami w lokalnej witrynie. Aby zsynchronizować lokalnych plików z lokacji zdalnej, możesz pobrać pliki zdalne. Ten proces działa podobne jak w przypadku publikowania, z wyjątkiem odwrotnie.
+> Zdalnie edytować to prosty sposób, aby wprowadzić zmiany w działającej witryny. Jednak zmiany wprowadzone w ten sposób nie są zsynchronizowane z plikami w lokacji lokalnej. Aby zsynchronizować pliki lokalne z lokacji zdalnej, możesz pobrać pliki zdalne. Ten proces działa podobnie do publikowania, z wyjątkiem w odwrotnej kolejności.
 > 
-> Nie możemy opisano więcej o edycji zdalnego i zdalnego pobierania funkcji programu WebMatrix w tym miejscu. Są one bardzo przydatne, jeśli wiele osób muszą pracować na tym samym miejscu na różnych komputerach. Aby uzyskać więcej informacji, zobacz [publikowania i edytować lokacją zdalną z wersji Beta 2 programu WebMatrix](https://go.microsoft.com/fwlink/?LinkId=251591).
+> Firma Microsoft nie będzie Opisz bardziej edycji zdalnego i zdalnego pobierania urządzeń programu WebMatrix w tym miejscu. Są one bardzo przydatne, gdy wiele osób ponosi do pracy w tej samej lokacji, na różnych komputerach. Aby uzyskać więcej informacji, zobacz [publikowania i edytować lokacji zdalnej za pomocą programu WebMatrix 2 Beta](https://go.microsoft.com/fwlink/?LinkId=251591).
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Forum programu WebMatrix ASP.NET Web Pages platformy ASP.NET](https://forums.asp.net/1224.aspx/1?WebMatrix+and+ASP+NET+Web+Pages), doskonałym miejscem do zadawania pytań i odpowiedzi.
+- [Forum programu WebMatrix składnika ASP.NET Web Pages platformy ASP.NET](https://forums.asp.net/1224.aspx/1?WebMatrix+and+ASP+NET+Web+Pages)doskonałym miejscem do zadawania pytań i odpowiedzi.
 
 > [!div class="step-by-step"]
 > [Poprzednie](layouts.md)

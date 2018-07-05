@@ -1,89 +1,88 @@
 ---
 uid: web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
-title: Uwierzytelnianie i autoryzacja w składniku ASP.NET Web API | Dokumentacja firmy Microsoft
+title: Uwierzytelnianie i autoryzacja w interfejsie Web API platformy ASP.NET | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: Zawiera ogólne omówienie uwierzytelniania i autoryzacji w interfejsie API sieci Web ASP.NET.
+description: Zawiera ogólne omówienie uwierzytelniania i autoryzacji w interfejsie API sieci Web platformy ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/27/2012
 ms.topic: article
 ms.assetid: 6dfb51ea-9f4d-4e70-916c-8ef8344a88d6
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 9d7cbb9505afb6461ba4c2087d57e9ea0da38ede
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 981eebeaa1daaf85cb90a52f073c88cb71099edb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29726761"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365623"
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Uwierzytelnianie i autoryzacja w składniku ASP.NET Web API
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
-Po utworzeniu interfejsu API sieci web, ale teraz chcesz kontrolować dostęp do niego. W tej serii artykułów przyjrzymy kilka opcji zabezpieczanie interfejsu API sieci web przed nieautoryzowanymi użytkownikami. Ta seria obejmuje zarówno uwierzytelniania i autoryzacji.
+Internetowy interfejs API został utworzony, ale teraz chcesz kontrolować dostęp do niego. W tej serii artykułów przyjrzymy niektóre opcje zabezpieczania internetowego interfejsu API przed nieautoryzowanymi użytkownikami. W tej serii opisano zarówno uwierzytelniania i autoryzacji.
 
-- *Uwierzytelnianie* jest znajomość tożsamości użytkownika. Na przykład Alicja zaloguje się za pomocą swojej nazwy użytkownika i hasła, a serwer używa hasła do uwierzytelnienia Alicji.
-- *Autoryzacji* decyduje, czy użytkownik może wykonać akcję. Na przykład Alicja ma uprawnienia do uzyskać zasobu, ale nie tworzenia zasobu.
+- *Uwierzytelnianie* jest wiedza, tożsamość użytkownika. Na przykład Alicja zaloguje się za pomocą swojej nazwy użytkownika i hasła i hasło używane do uwierzytelniania Alicji.
+- *Autoryzacja* decyduje, czy użytkownik może wykonać akcję. Na przykład gdy Alicja ma uprawnienia do pobieranie zasobu, ale nie tworzenie zasobu.
 
-Pierwszy artykuł z serii zawiera ogólne omówienie uwierzytelniania i autoryzacji w interfejsie API sieci Web ASP.NET. Innych tematach opisano typowe scenariusze uwierzytelniania dla interfejsu API sieci Web.
+Pierwszy artykuł z serii zapewnia ogólne omówienie uwierzytelniania i autoryzacji w interfejsie API sieci Web platformy ASP.NET. Innych tematach opisano typowe scenariusze uwierzytelniania dla interfejsu API sieci Web.
 
 > [!NOTE]
-> Dzięki użyciu osoby sprawdzone tej serii i podać swojej opinii: Rick Anderson, Levi Broderick, Dorrans Marcin, Dykstra Tomasz, Hongmei Ge, Matson Dominik, Roth Danielowi, Teebken Timowi.
+> Dzięki gotowej do osoby w tej serii przeglądu i udostępniane opinii: Rick Anderson Levi Broderick, Barry Dorrans, Tom Dykstra, Hongmei Ge, David Matson, Daniel Roth, Tim Teebken.
 
 
 ## <a name="authentication"></a>Uwierzytelnianie
 
-Interfejs API sieci Web zakłada, że tego uwierzytelnianie odbywa się na hoście. Dla hostingu sieci web hosta jest usług IIS do uwierzytelniania używa moduły HTTP. Można skonfigurować pod kątem używania dowolnych moduły uwierzytelniania wbudowanej w usługi IIS lub ASP.NET projekt lub napisać własny moduł HTTP, aby wykonać niestandardowe uwierzytelnianie.
+Interfejsu API sieci Web przyjęto założenie, że uwierzytelnianie odbywa się na hoście. Dla hostingu w sieci web hosta jest usług IIS, które są używane moduły HTTP do uwierzytelniania. Można skonfigurować projekt do żadnych modułów uwierzytelniania wbudowanej w program IIS lub ASP.NET lub napisać własny moduł HTTP, aby wykonać niestandardowe uwierzytelnianie.
 
-Gdy host uwierzytelnia użytkownika, tworzy *główna*, która jest [IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx) obiekt, który reprezentuje kontekstu zabezpieczeń, w którym wykonywany jest kod. Host dołącza podmiotu zabezpieczeń bieżącego wątku przez ustawienie **Thread.CurrentPrincipal**. Podmiot zabezpieczeń zawiera skojarzone **tożsamości** obiekt, który zawiera informacje o użytkowniku. Jeśli użytkownik jest uwierzytelniony, **Identity.IsAuthenticated** zwraca **true**. W przypadku żądań anonimowych **IsAuthenticated** zwraca **false**. Aby uzyskać więcej informacji na temat podmiotów zabezpieczeń, zobacz [opartej na rolach zabezpieczeń](https://msdn.microsoft.com/library/shz8h065.aspx).
+Gdy host uwierzytelnia użytkownika, tworzy *jednostki*, czyli [IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx) obiekt, który reprezentuje kontekstu zabezpieczeń, w którym kod działa. Host dołącza podmiotu zabezpieczeń bieżącego wątku, ustawiając **SE vlastnost Thread.CurrentPrincipal**. Podmiot zabezpieczeń zawiera skojarzoną **tożsamości** obiekt, który zawiera informacje o użytkowniku. Jeśli użytkownik jest uwierzytelniony, **Identity.IsAuthenticated** właściwość zwraca **true**. W przypadku żądań anonimowych **właściwości** zwraca **false**. Aby uzyskać więcej informacji na temat jednostek, zobacz [opartej na rolach zabezpieczeń](https://msdn.microsoft.com/library/shz8h065.aspx).
 
-### <a name="http-message-handlers-for-authentication"></a>Programy obsługi komunikatów HTTP do uwierzytelniania
+### <a name="http-message-handlers-for-authentication"></a>Programy obsługi komunikatów HTTP na potrzeby uwierzytelniania
 
-Zamiast używać hosta na potrzeby uwierzytelniania, które można wprowadzić logika uwierzytelniania do [Obsługa komunikatów HTTP](../advanced/http-message-handlers.md). W takim przypadku program obsługi komunikatów sprawdza, czy żądanie HTTP i ustawia podmiot zabezpieczeń.
+Zamiast używania hosta na potrzeby uwierzytelniania, mogą umieścić logiki uwierzytelniania do [program obsługi komunikatów HTTP](../advanced/http-message-handlers.md). W takim przypadku program obsługi komunikatów sprawdza żądania HTTP i ustawia podmiot zabezpieczeń.
 
-Kiedy korzystać z obsługi komunikatów do uwierzytelniania? Poniżej przedstawiono niektóre wady i zalety:
+Kiedy należy używać obsługi komunikatów do uwierzytelniania? Poniżej przedstawiono niektóre wady i zalety:
 
 - Moduł HTTP widzi wszystkie żądania, które przechodzą przez potoku ASP.NET. Program obsługi komunikatów widoczny jest tylko żądania kierowane do interfejsu API sieci Web.
-- Można określić, programy obsługi komunikatów dla trasy, który pozwala na zastosowanie schematu uwierzytelniania do określonej trasy.
-- Moduły HTTP są specyficzne dla usług IIS. Programy obsługi komunikatów są pochodzącego od dowolnego hosta, dzięki mogą być używane z hostingu sieci web i własnym hostingu.
-- Moduły HTTP uczestniczyć w rejestrowanie usług IIS, inspekcji i tak dalej.
-- Uruchom moduły HTTP wcześniej w potoku. Jeśli obsługiwać uwierzytelnianie programu obsługi wiadomości, podmiot zabezpieczeń nie pobrać ustawiona, dopóki program obsługi jest uruchamiany. Ponadto podmiot zabezpieczeń powróci do poprzedniego podmiot zabezpieczeń podczas odpowiedzi pozostawia program obsługi komunikatów.
+- Można ustawić programy obsługi komunikatów dla trasy, które można stosować schematu uwierzytelniania do określonej trasy.
+- Moduły HTTP są specyficzne dla usług IIS. Programy obsługi komunikatów są pochodzącego od dowolnego hosta, więc można ich używać z hostingu w sieci web i własnym hostingu.
+- Moduły HTTP uczestniczyć w rejestrowania w usługach IIS, inspekcji i tak dalej.
+- Uruchom moduły HTTP wcześniej w potoku. Jeśli możesz obsługiwać uwierzytelnianie programu obsługi wiadomości, podmiot zabezpieczeń nie uzyskać ustawiony, dopóki program obsługi jest uruchamiany. Ponadto główny powróci do poprzedniej nazwy głównej gdy odpowiedź pozostawia program obsługi komunikatów.
 
-Ogólnie rzecz biorąc nie należy do obsługi hostingu samodzielnego HTTP jest lepszym rozwiązaniem. Jeśli potrzebujesz do obsługi hostingu samodzielnego, należy wziąć pod uwagę program obsługi komunikatów.
+Ogólnie rzecz biorąc Jeśli nie potrzebujesz do obsługi hostingu samodzielnego modułu HTTP jest lepszym rozwiązaniem. Jeśli potrzebujesz do obsługi hostingu samodzielnego, należy wziąć pod uwagę program obsługi komunikatów.
 
-### <a name="setting-the-principal"></a>Ustawianie podmiotu zabezpieczeń
+### <a name="setting-the-principal"></a>Ustawienie podmiotu zabezpieczeń
 
-Jeśli aplikacja przeprowadza wszelka logika uwierzytelniania niestandardowego, należy ustawić podmiot zabezpieczeń w dwóch miejscach:
+Jeśli Twoja aplikacja działa wszelka logika uwierzytelniania niestandardowego, musisz ustawić podmiot zabezpieczeń w dwóch miejscach:
 
-- **Thread.CurrentPrincipal**. Ta właściwość jest standardowym sposobem, aby ustawić podmiot wątku w .NET.
+- **SE vlastnost Thread.CurrentPrincipal**. Ta właściwość jest standardowym sposobem, aby ustawić podmiot wątku na platformie .NET.
 - **HttpContext.Current.User**. Ta właściwość jest specyficzne dla platformy ASP.NET.
 
 Poniższy kod przedstawia sposób ustawić podmiot:
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample1.cs)]
 
-Hostingu sieci web, należy ustawić podmiot zabezpieczeń w obu miejscach; w przeciwnym razie kontekstu zabezpieczeń może stać się niespójna. Dla hostingu samodzielnego, jednak **właściwość HttpContext.Current** ma wartość null. Aby upewnić się, kod jest niezależny od hosta, w związku z tym Wyszukaj null przed przypisaniem do **właściwość HttpContext.Current**, jak pokazano.
+Hosting sieci web należy ustawić podmiot zabezpieczeń w obu miejscach; w przeciwnym razie kontekstu zabezpieczeń może stać się niespójna. Dla hostingu samodzielnego, jednak **HttpContext.Current** ma wartość null. Aby upewnić się, Twój kod jest niezależny od hosta, w związku z tym, sprawdzaj wartość null przed przypisaniem do **HttpContext.Current**, jak pokazano.
 
 ## <a name="authorization"></a>Autoryzacja
 
-Autoryzacja odbywa się później w potoku, zbliżonej do kontrolera. Gwarantowaną bardziej szczegółowego wyborów podczas udzielania dostępu do zasobów.
+Autoryzacja odbywa się później w potoku, bliżej kontrolera. Który umożliwia podejmowanie bardziej szczegółowego wyborów, gdy udzielisz jej dostępu do zasobów.
 
-- *Filtry autoryzacji* uruchamiane przed akcji kontrolera. Jeśli żądanie nie jest autoryzowane, filtr zwraca odpowiedź o błędzie, a nie wywołaniu akcji.
-- W ramach akcji kontrolera, możesz uzyskać bieżący podmiot zabezpieczeń z **ApiController.User** właściwości. Na przykład można filtrować listę zasobów na podstawie nazwy użytkownika zwracanie tylko tych zasobów, które należą do tego użytkownika.
+- *Filtry autoryzacji* uruchamiane przed akcji kontrolera. Jeśli żądanie nie jest autoryzowane, filtr zwraca odpowiedź na błąd i akcja nie jest wywoływany.
+- W ramach akcji kontrolera, można uzyskać bieżący podmiot zabezpieczeń z **ApiController.User** właściwości. Na przykład można filtrować listę zasobów, w oparciu o nazwę użytkownika, zwracanie tylko tych zasobów, które należą do tego użytkownika.
 
 ![](authentication-and-authorization-in-aspnet-web-api/_static/image1.png)
 
 <a id="auth3"></a>
 ### <a name="using-the-authorize-attribute"></a>Przy użyciu [autoryzować] atrybutu
 
-Interfejs API sieci Web udostępnia filtr autoryzacji wbudowanych [klasy AuthorizeAttribute](https://msdn.microsoft.com/library/system.web.http.authorizeattribute.aspx). Ten filtr sprawdza, czy użytkownik jest uwierzytelniony. W przeciwnym razie zwraca kod stanu HTTP 401 (bez autoryzacji), bez wywoływania akcji.
+Interfejs API sieci Web zawiera filtr autoryzacji wbudowanych [klasy AuthorizeAttribute](https://msdn.microsoft.com/library/system.web.http.authorizeattribute.aspx). Ten filtr sprawdza, czy użytkownik jest uwierzytelniony. W przeciwnym razie zwraca kod stanu HTTP 401 (bez autoryzacji) bez wywoływania akcji.
 
-Można zastosować filtr globalny, na poziomie kontrolera lub na poziomie poszczególnych działań.
+Można zastosować filtr, na całym świecie, na poziomie kontrolera lub na poziomie poszczególnych działań.
 
-**Globalny**: Aby ograniczyć dostęp dla każdego kontrolera interfejsu API sieci Web, Dodaj **klasy AuthorizeAttribute** filtr do listy filtrów globalnych:
+**Globalnie**: Aby ograniczyć dostęp dla każdego kontrolera interfejsu API sieci Web, należy dodać **klasy AuthorizeAttribute** filtr do listy filtrów globalnych:
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample2.cs)]
 
@@ -95,32 +94,32 @@ Można zastosować filtr globalny, na poziomie kontrolera lub na poziomie poszcz
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample4.cs)]
 
-Alternatywnie można ograniczyć kontrolera i następnie zezwolić na dostęp anonimowy do określonych akcji za pomocą `[AllowAnonymous]` atrybutu. W poniższym przykładzie `Post` metody jest ograniczona, ale `Get` metody zezwala na dostęp anonimowy.
+Alternatywnie, można ograniczyć kontrolera i następnie zezwolić na dostęp anonimowy do określonych akcji za pomocą `[AllowAnonymous]` atrybutu. W poniższym przykładzie `Post` metodą jest ograniczona, ale `Get` metoda zezwala na dostęp anonimowy.
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample5.cs)]
 
-W poprzednich przykładach filtr zezwala każdemu użytkownikowi uwierzytelniony dostęp ograniczony metod; do tylko użytkownicy anonimowi są przechowywane. Można również ograniczyć dostęp dla określonych użytkowników lub dla użytkowników w określonych ról:
+W poprzednich przykładach filtr zezwala każdemu uwierzytelnionemu użytkownikowi na dostęp do metod ograniczone; tylko użytkownicy anonimowi są przechowywane w. Można również ograniczyć dostęp do określonych użytkowników lub dla użytkowników w określonych ról:
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample6.cs)]
 
 > [!NOTE]
-> **Klasy AuthorizeAttribute** filtru dla kontrolerów interfejsu API sieci Web znajduje się w **System.Web.Http** przestrzeni nazw. Ma podobnych filtru dla kontrolerów MVC w **System.Web.Mvc** przestrzeni nazw, które nie są zgodne z kontrolerów interfejsu API sieci Web.
+> **Klasy AuthorizeAttribute** filtr dla kontrolerów internetowych interfejsów API znajduje się w **System.Web.Http** przestrzeni nazw. Ma podobnych filtru dla kontrolerów MVC w **System.Web.Mvc** przestrzeń nazw, która nie jest zgodny z kontrolerów internetowych interfejsów API.
 
 
 ### <a name="custom-authorization-filters"></a>Filtry autoryzacji niestandardowej
 
-Aby zapisać filtr autoryzacji niestandardowej, pochodzi z jednego z następujących typów:
+Aby zapisać filtr autoryzacja niestandardowa, pochodzi z jednego z następujących typów:
 
-- **Klasy AuthorizeAttribute**. Rozszerzenia tej klasy do wykonywania logiki autoryzacji na podstawie bieżącego użytkownika i ról użytkownika.
-- **AuthorizationFilterAttribute**. Rozszerzenia tej klasy do wykonywania logiki synchroniczne autoryzacji, które nie jest zawsze oparty na bieżący użytkownik lub rola.
-- **IAuthorizationFilter**. Implementuje ten interfejs do wykonywania asynchronicznych autoryzacji logiki; na przykład, jeśli logiki autoryzacji wywołań asynchronicznych We/Wy lub sieci. (Jeśli logika autoryzacji jest związany z Procesora, jest łatwiejsze pochodzi od **AuthorizationFilterAttribute**, ponieważ wówczas nie trzeba zapisać metody asynchronicznej.)
+- **Klasy AuthorizeAttribute**. Rozszerzenia tej klasy w celu wykonania logiki autoryzacji na podstawie bieżącego użytkownika i ról użytkownika.
+- **AuthorizationFilterAttribute**. Rozszerzenia tej klasy w celu wykonania logiki synchroniczne autoryzacji, który nie zawsze jest oparty na bieżący użytkownik lub rola.
+- **IAuthorizationFilter**. Implementować ten interfejs w celu wykonania logiki asynchronicznego autoryzacji; na przykład, jeśli logika autoryzacji sprawia, że wywołania asynchroniczne operacje We/Wy lub sieci. (Jeśli logika autoryzacji jest zależne od Procesora CPU, jest łatwiejsze w dziedziczyć **AuthorizationFilterAttribute**, ponieważ wówczas nie trzeba napisać metodę asynchroniczną.)
 
-Na poniższym diagramie przedstawiono hierarchii klas dla **klasy AuthorizeAttribute** klasy.
+Poniższy diagram przedstawia hierarchii klas dla **klasy AuthorizeAttribute** klasy.
 
 ![](authentication-and-authorization-in-aspnet-web-api/_static/image2.png)
 
-### <a name="authorization-inside-a-controller-action"></a>Autoryzacja w akcji kontrolera
+### <a name="authorization-inside-a-controller-action"></a>Autoryzacja wewnątrz akcji kontrolera
 
-W niektórych przypadkach mogą zezwalać żądanie, aby kontynuować, ale należy zmienić to zachowanie, oparte na podmiot zabezpieczeń. Na przykład można zwrócić informacje może zmieniać się w zależności od roli użytkownika. W metodzie kontrolera, możesz uzyskać bieżące zasady z **ApiController.User** właściwości.
+W niektórych przypadkach może być Zezwalaj na żądanie, aby kontynuować, ale zmienia zachowanie w zależności od podmiotu zabezpieczeń. Na przykład można zwrócić informacje mogą ulec zmianie w zależności od roli użytkownika. Wewnątrz metody kontrolera, można uzyskać bieżące zasady z **ApiController.User** właściwości.
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample7.cs)]

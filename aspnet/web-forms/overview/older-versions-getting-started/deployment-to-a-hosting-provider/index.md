@@ -1,38 +1,37 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/index
-title: ASP.NET 4 - wdrożenia sieci Web przy użyciu programu Visual Studio programu SQL Server Compact | Dokumentacja firmy Microsoft
+title: ASP.NET 4 — wdrażanie w Internecie przy użyciu programu SQL Server Compact przy użyciu programu Visual Studio | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Ta seria samouczek pokazuje, jak utworzyć aplikację sieci web platformy ASP.NET, który używa programu SQL Server Compact dostępne w Internecie przez wdrożenie jej h innych firm...
+description: W tej serii samouczków pokazano, jak utworzyć aplikację sieci web platformy ASP.NET, która używa programu SQL Server Compact dostępne za pośrednictwem Internetu przez wdrożenie jej h firm...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/29/2011
 ms.topic: article
 ms.assetid: 6798c7e4-f08e-4802-9fa5-443f67d5df62
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider
 msc.type: chapter
-ms.openlocfilehash: 2674550e6e69c2b8b9f463c5e9cb2d1d3e0713af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 899c55526eec068663e390e11973afc300828b6b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26569735"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368161"
 ---
-<a name="aspnet-4---web-deployment-with-sql-server-compact-using-visual-studio"></a>ASP.NET 4 - wdrożenia sieci Web przy użyciu programu Visual Studio programu SQL Server Compact
+<a name="aspnet-4---web-deployment-with-sql-server-compact-using-visual-studio"></a>ASP.NET 4 — wdrażanie w Internecie przy użyciu programu SQL Server Compact przy użyciu programu Visual Studio
 ====================
-> Ten samouczek serii pokazano, jak utworzyć aplikację sieci web platformy ASP.NET, który używa programu SQL Server Compact dostępne w Internecie przez wdrożenie jej do innego dostawcy hostingu. Wymaga programu Visual Studio 2012 RC i Visual Studio 2010. Więcej aktualne informacje dotyczące wdrażania funkcji lub informacji o sposobie wdrażania wersjach programu SQL Server innych niż SQL Server Compact, zobacz [wdrożenia sieci Web ASP.NET przy użyciu programu Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
+> W tej serii samouczków pokazano, jak utworzyć aplikację sieci web platformy ASP.NET, która używa programu SQL Server Compact dostępne za pośrednictwem Internetu przez wdrożenie jej u dostawcy hostingu innych firm. Wymaga programu Visual Studio 2012 RC lub Visual Studio 2010. Więcej aktualności informacji na temat funkcji wdrażania lub informacji o sposobie wdrażania wersjach programu SQL Server, innym niż SQL Server Compact, zobacz [wdrażanie aplikacji internetowych ASP.NET przy użyciu programu Visual Studio](../../deployment/visual-studio-web-deployment/introduction.md).
 
 
-- [Wdrażanie sieci Web programu Visual Studio za pomocą programu SQL Server Compact — wprowadzenie](deployment-to-a-hosting-provider-introduction-1-of-12.md)
-- [Wdrażanie sieci Web programu Visual Studio z CD - wdrażanie programu SQL Server Compact baza danych serwera SQL](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
-- [Wdrażanie sieci Web programu Visual Studio za pomocą programu SQL Server Compact - przekształcenia pliku Web.Config](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)
-- [Wdrażanie sieci Web programu Visual Studio za pomocą programu SQL Server Compact — Konfigurowanie właściwości projektu](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)
-- [Wdrażanie sieci Web programu Visual Studio z SQL Server Compact - wdrażanie usług IIS jako środowisko testowe](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)
-- [Wdrażanie sieci Web programu Visual Studio za pomocą programu SQL Server Compact — Ustawianie uprawnień folderów](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
-- [Wdrażanie sieci Web programu Visual Studio za pomocą programu SQL Server Compact - wdrażania w środowisku produkcyjnym](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)
-- [Wdrażanie sieci Web programu Visual Studio za pomocą programu SQL Server Compact - wdrażanie aktualizacji tylko kod](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)
-- [Wdrażanie sieci Web programu Visual Studio za pomocą programu SQL Server Compact - wdrażanie aktualizacji bazy danych](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
-- [Wdrażanie sieci Web programu Visual Studio za pomocą programu SQL Server Compact - migracji do programu SQL Server](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)
-- [Wdrażanie sieci Web programu Visual Studio za pomocą programu SQL Server Compact - wdrażanie aktualizacji bazy danych serwera SQL](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
-- [Wdrażanie sieci Web programu Visual Studio z programem SQL Server Compact - rozwiązywania problemów](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)
+- [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Wprowadzenie](deployment-to-a-hosting-provider-introduction-1-of-12.md)
+- [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Wdrażanie baz danych programu SQL Server Compact](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+- [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Przekształcenia pliku Web.Config](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)
+- [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Konfigurowanie właściwości projektu](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)
+- [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Wdrażanie w usługach IIS jako środowisku testowym](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)
+- [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Ustawianie uprawnień do folderu](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
+- [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Wdrażanie w środowisku produkcyjnym](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)
+- [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Wdrażanie aktualizacji tylko kodu](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)
+- [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Wdrażanie aktualizacji bazy danych](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
+- [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Migracja do programu SQL Server](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md)
+- [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Wdrażanie aktualizacji bazy danych programu SQL Server](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+- [Wdrażanie w Internecie z użyciem programów SQL Server Compact i Visual Studio — Rozwiązywanie problemów](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)

@@ -1,29 +1,29 @@
 ---
-title: Tworzenie interfejsów API z platformy ASP.NET Core sieci web
+title: Tworzenie interfejsów API za pomocą platformy ASP.NET Core w sieci web
 author: scottaddie
-description: Więcej informacji na temat funkcji dostępnych do tworzenia składnika web API platformy ASP.NET Core i jest odpowiednie do użycia w każdej funkcji.
+description: Informacje o funkcjach dostępnych podczas tworzenia internetowego interfejsu API w programie ASP.NET Core i moment jest właściwy użyć każdej funkcji.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/24/2018
 uid: web-api/index
 ms.openlocfilehash: ab672667d1ca349d80c4ca80f8d1f32f4871c7e6
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
+ms.lasthandoff: 07/04/2018
 ms.locfileid: "36274969"
 ---
-# <a name="build-web-apis-with-aspnet-core"></a>Tworzenie interfejsów API z platformy ASP.NET Core sieci web
+# <a name="build-web-apis-with-aspnet-core"></a>Tworzenie interfejsów API za pomocą platformy ASP.NET Core w sieci web
 
 Przez [Scott Addie](https://github.com/scottaddie)
 
-[Wyświetlić lub pobrać przykładowy kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/define-controller/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
+[Wyświetlanie lub pobieranie przykładowego kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/define-controller/samples) ([sposobu pobierania](xref:tutorials/index#how-to-download-a-sample))
 
-Tym dokumencie opisano sposób tworzenia składnika web API platformy ASP.NET Core i jest najbardziej odpowiednie do użycia w każdej funkcji.
+W tym dokumencie wyjaśniono, jak tworzenie internetowego interfejsu API w programie ASP.NET Core i jest najbardziej odpowiednie do użycia każdej funkcji.
 
-## <a name="derive-class-from-controllerbase"></a>Klasa wyprowadzona z ControllerBase
+## <a name="derive-class-from-controllerbase"></a>Dziedziczyć klasy ControllerBase
 
-Dziedzicz [ControllerBase](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase) klasy w kontrolerze, które mają służyć jako interfejs API sieci web. Na przykład:
+Dziedzicz [ControllerBase](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase) klasy w kontrolerze, który ma pełnić rolę interfejsu API sieci web. Na przykład:
 
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
@@ -32,82 +32,82 @@ Dziedzicz [ControllerBase](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase) 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
 ::: moniker-end
 
-`ControllerBase` Klasy zapewnia dostęp do wielu właściwości i metody. W poprzednim przykładzie, niektóre z tych metod uwzględnić [element BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest) i [CreatedAtAction](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction). Te metody są wywoływane w ramach metod akcji, aby zwrócić HTTP 400 i kodów stanu 201, odpowiednio. [ModelState](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.modelstate) właściwości w nim również podane przez `ControllerBase`, jest dostępny do wykonania żądania weryfikacji modelu.
+`ControllerBase` Klasy zapewnia dostęp do wielu właściwości i metody. W powyższym przykładzie obejmują niektóre z tych metod [element BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest) i [CreatedAtAction](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction). Te metody są wywoływane w ramach metod akcji do zwrócenia HTTP 400 i 201 kodów stanu, odpowiednio. [ModelState](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.modelstate) także podana przez właściwość `ControllerBase`, jest dostępny do wykonania żądania weryfikacji modelu.
 
 ::: moniker range=">= aspnetcore-2.1"
-## <a name="annotate-class-with-apicontrollerattribute"></a>Dodawanie adnotacji z ApiControllerAttribute — klasa
+## <a name="annotate-class-with-apicontrollerattribute"></a>Dodawanie adnotacji do klasy za pomocą ApiControllerAttribute
 
-Platformy ASP.NET Core 2.1 wprowadzono [[klasy ApiController]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) atrybut określający Klasa kontrolera interfejsu API sieci web. Na przykład:
+Platforma ASP.NET Core 2.1 wprowadzono [[klasy ApiController]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) atrybutu do oznaczania klasa formantu API sieci web. Na przykład:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=2)]
 
-Ten atrybut jest często połączone z `ControllerBase` do uzyskania dostępu do właściwości i metod przydatne. `ControllerBase` zapewnia dostęp do metod, takich jak [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) i [pliku](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.file).
+Ten atrybut często jest sprzężona z `ControllerBase` do uzyskania dostępu do użytecznych metod i właściwości. `ControllerBase` zapewnia dostęp do metod, takich jak [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) i [pliku](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.file).
 
-Innym rozwiązaniem jest utworzenie klasy podstawowej kontrolera niestandardowego opatrzoną `[ApiController]` atrybutu:
+Innym rozwiązaniem jest utworzenie klasy niestandardowej kontrolera podstawowego, oznaczony za pomocą `[ApiController]` atrybutu:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/MyBaseController.cs?name=snippet_ControllerSignature)]
 
-W poniższych sekcjach opisano funkcje wygody dodane przez atrybut.
+W poniższych sekcjach opisano wygodnych funkcji dodane przez atrybut.
 
 ### <a name="automatic-http-400-responses"></a>Automatyczne odpowiedzi HTTP 400
 
-Błędy sprawdzania poprawności automatycznie wyzwoli odpowiedź HTTP 400. Poniższy kod staje się niepotrzebne w akcji:
+Błędy sprawdzania poprawności automatycznie wyzwoli odpowiedź HTTP 400. Poniższy kod staje się niepotrzebne w swoje działania:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?range=46-49)]
 
-To domyślne zachowanie jest wyłączona w następującym kodem *Startup.ConfigureServices*:
+To zachowanie domyślne jest wyłączona w następującym kodem *Startup.ConfigureServices*:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
 
-### <a name="binding-source-parameter-inference"></a>Powiązania źródła parametru wnioskowania
+### <a name="binding-source-parameter-inference"></a>Powiązanie źródła parametru wnioskowania
 
-Atrybut źródłowy powiązanie definiuje lokalizacji, w którym znajduje się wartość parametru akcji. Istnieją następujące atrybuty źródło powiązania:
+Atrybut źródłowy powiązania Określa lokalizację, w którym znajduje się wartość parametru akcji. Istnieją następujące atrybuty źródło powiązania:
 
-|Atrybut|Powiązania źródła |
+|Atrybut|Źródło wiążące |
 |---------|---------|
 |**[[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute)**     | Treść żądania |
 |**[[FromForm]](/dotnet/api/microsoft.aspnetcore.mvc.fromformattribute)**     | Dane formularza w treści żądania |
 |**[[FromHeader]](/dotnet/api/microsoft.aspnetcore.mvc.fromheaderattribute)** | Nagłówek żądania |
 |**[[FromQuery]](/dotnet/api/microsoft.aspnetcore.mvc.fromqueryattribute)**   | Parametr ciągu zapytania żądania |
 |**[[FromRoute]](/dotnet/api/microsoft.aspnetcore.mvc.fromrouteattribute)**   | Dane trasy z bieżącego żądania |
-|**[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)** | Usługa żądania dodane jako parametru akcji |
+|**[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)** | Usługa żądania wprowadzony jako parametru akcji |
 
 > [!NOTE]
-> Czy **nie** użyj `[FromRoute]` po wartości mogą zawierać `%2f` (to znaczy `/`) ponieważ `%2f` nie unescaped do `/`. Użyj `[FromQuery]` Jeśli ta wartość może zawierać `%2f`.
+> Czy **nie** użyj `[FromRoute]` po wartości mogą zawierać `%2f` (to znaczy `/`) ponieważ `%2f` nie unescaped do `/`. Użyj `[FromQuery]` Jeśli wartość może zawierać `%2f`.
 
-Bez `[ApiController]` atrybut powiązania źródła jawnie zdefiniowanych atrybutów. W poniższym przykładzie `[FromQuery]` atrybut wskazuje, że `discontinuedOnly` wartość parametru jest podana w ciągu zapytania w adresie URL żądania:
+Bez `[ApiController]` atrybutu, powiązanie źródła jawnie zdefiniowanych atrybutów. W poniższym przykładzie `[FromQuery]` atrybut wskazuje, że `discontinuedOnly` podano wartość parametru ciągu zapytania adresu URL żądania:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=2)]
 
-Zasady wnioskowania są stosowane dla źródeł danych domyślne parametry akcji. Te reguły Konfigurowanie źródeł powiązania, które w przeciwnym razie prawdopodobnie ręcznie zastosować do parametrów akcji. Atrybuty źródło powiązania zachowują się w następujący sposób:
+Zasady wnioskowania są stosowane dla źródeł danych domyślne parametry akcji. Te reguły Konfigurowanie źródeł powiązania, które w przeciwnym razie prawdopodobnie ręcznie zastosować do parametrów akcji. Powiązania atrybutów źródłowych zachowują się w następujący sposób:
 
-* **[FromBody]**  jest wywnioskowany dla parametrów typu złożonego. Wyjątek od tej reguły jest dowolnego typu złożonego, wbudowane o specjalnym znaczeniu, takie jak [IFormCollection](/dotnet/api/microsoft.aspnetcore.http.iformcollection) i [CancellationToken](/dotnet/api/system.threading.cancellationtoken). Wnioskowanie kod źródłowy powiązanie ignoruje te typy specjalne. Jeśli akcja ma więcej niż jeden parametr jawnie określony (za pośrednictwem `[FromBody]`) lub wywnioskować jako powiązane z treści żądania, jest zgłaszany wyjątek. Na przykład następujące podpisy akcji może spowodować wyjątek:
+* **[FromBody]**  jest wnioskowany dla parametrów typu złożonego. Wyjątkiem od tej reguły jest dowolny typ złożony, wbudowane o specjalnym znaczeniu, takich jak [IFormCollection](/dotnet/api/microsoft.aspnetcore.http.iformcollection) i [CancellationToken](/dotnet/api/system.threading.cancellationtoken). Wnioskowanie o kodzie źródłowym powiązania ignoruje te typy specjalne. Kiedy akcja ma więcej niż jeden parametr określony jawnie (za pośrednictwem `[FromBody]`) lub wywnioskowane jako powiązanej z treści żądania, zgłaszany jest wyjątek. Na przykład następujące podpisy akcji może spowodować wyjątek:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/TestController.cs?name=snippet_ActionsCausingExceptions)]
 
-* **[FromForm]**  jest wywnioskowane dla parametrów akcji typu [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) i [IFormFileCollection](/dotnet/api/microsoft.aspnetcore.http.iformfilecollection). Nie jest wywnioskować dla wszystkich typów prostych lub zdefiniowanej przez użytkownika.
-* **[FromRoute]**  jest wywnioskowany dla dowolnej nazwy parametru akcji pasującej do parametru w szablonie trasy. Gdy wiele tras zgodne z parametrem akcji, wartości trasy jest uznawany za `[FromRoute]`.
-* **[FromQuery]**  jest wywnioskowany dla innych parametrów akcji.
+* **[FromForm]**  jest wnioskowany dla parametrach akcji danego typu [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) i [IFormFileCollection](/dotnet/api/microsoft.aspnetcore.http.iformfilecollection). Nie wynika dla wszystkich typów prostych lub zdefiniowanych przez użytkownika.
+* **[FromRoute]**  jest wnioskowany dla dowolnej nazwy parametru akcji parametrowi w szablonie trasy. Gdy wiele tras zgodnych z parametrem akcji, wartości trasy jest uważany za `[FromRoute]`.
+* **[FromQuery]**  jest wnioskowany dla innych parametrów akcji.
 
-Zasady wnioskowania domyślne są wyłączone w następującym kodem *Startup.ConfigureServices*:
+Reguły wnioskowania domyślne są wyłączone w następującym kodem *Startup.ConfigureServices*:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=4)]
 
-### <a name="multipartform-data-request-inference"></a>Wnioskowanie multipart/dane formularza żądania
+### <a name="multipartform-data-request-inference"></a>Wnioskowanie multipart/formularza data żądania
 
-Jeśli parametr akcji jest oznaczony za pomocą [[FromForm]](/dotnet/api/microsoft.aspnetcore.mvc.fromformattribute) atrybutu `multipart/form-data` żądania jest wywnioskowany typ zawartości.
+Gdy parametr akcji jest oznaczony za pomocą [[FromForm]](/dotnet/api/microsoft.aspnetcore.mvc.fromformattribute) atrybutu `multipart/form-data` żądania jest wnioskowany typ zawartości.
 
 Domyślnym zachowaniem jest wyłączona w następującym kodem *Startup.ConfigureServices*:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3)]
 
-### <a name="attribute-routing-requirement"></a>Atrybut wymaganie routingu
+### <a name="attribute-routing-requirement"></a>Wymagania routingu atrybutu
 
-Atrybut routingu staje się wymagania. Na przykład:
+Routing atrybutu staje się wymagania. Na przykład:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=1)]
 
-Akcje są niedostępne za pośrednictwem [trasy z konwencjonalnej](xref:mvc/controllers/routing#conventional-routing) zdefiniowane w [UseMvc](/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions.usemvc#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvc_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Action_Microsoft_AspNetCore_Routing_IRouteBuilder__) lub [UseMvcWithDefaultRoute](/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions.usemvcwithdefaultroute#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) w *Startup.Configure*.
+Akcje są niedostępne za pośrednictwem [konwencjonalne trasy](xref:mvc/controllers/routing#conventional-routing) zdefiniowane w [UseMvc](/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions.usemvc#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvc_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Action_Microsoft_AspNetCore_Routing_IRouteBuilder__) lub [UseMvcWithDefaultRoute](/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions.usemvcwithdefaultroute#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) w *Startup.Configure*.
 ::: moniker-end
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby

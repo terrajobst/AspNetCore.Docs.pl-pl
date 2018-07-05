@@ -1,36 +1,35 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/index
-title: Starsze wersje — program ASP.NET 2.0 | Dokumentacja firmy Microsoft
+title: Starsze wersje — ASP.NET 2.0 | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Jak przeprowadzić migrację aplikacji 1.x ASP.NET do programu ASP.NET 2.0.
+description: Jak przeprowadzić migrację aplikacji 1.x ASP.NET do ASP.NET 2.0.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
 ms.topic: article
 ms.assetid: d4287e40-272a-412f-b0e9-59a5d97421bd
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20
 msc.type: chapter
-ms.openlocfilehash: bccb47a23b4a43ccc02e1bbc8b5fb480c24fd0af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3519809a34fc720db2b3f1f95552f080c75aa329
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26569312"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369397"
 ---
-<a name="older-versions---aspnet-20"></a>Starsze wersje — program ASP.NET 2.0
+<a name="older-versions---aspnet-20"></a>Starsze wersje — ASP.NET 2.0
 ====================
-> Jak przeprowadzić migrację aplikacji 1.x ASP.NET do programu ASP.NET 2.0.
+> Jak przeprowadzić migrację aplikacji 1.x ASP.NET do ASP.NET 2.0.
 
 
 - [Ulepszenia w programie Visual Studio 2005](improvements-in-visual-studio-2005.md)
-- [Model 2.0 strony ASP.NET](the-asp-net-2-0-page-model.md)
-- [Formanty serwera](server-controls.md)
-- [Strony wzorcowej](master-pages.md)
+- [Model strony platformy ASP.NET 2.0](the-asp-net-2-0-page-model.md)
+- [Kontrolki serwera](server-controls.md)
+- [Strony wzorcowe](master-pages.md)
 - [Kontrolki źródła danych](data-source-controls.md)
-- [Kontrolki powiązane dane](data-bound-controls.md)
+- [Kontrolki powiązania danych](data-bound-controls.md)
 - [Buforowanie](caching.md)
 - [Członkostwo](membership.md)
-- [Konfiguracja i Instrumentacji](configuration-and-instrumentation.md)
-- [Profile, kompozycje i części sieci Web](profiles-themes-and-web-parts.md)
+- [Konfiguracja i instrumentacja](configuration-and-instrumentation.md)
+- [Profile, motywy i składniki Web Part](profiles-themes-and-web-parts.md)

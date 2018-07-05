@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-make-greater-use-of-caching
-title: '[Jak i.] Większa wykorzystują buforowanie? | Dokumentacja firmy Microsoft'
+title: '[Jak mogę] Utwórz większe wykorzystanie buforowania? | Microsoft Docs'
 author: microsoft
-description: Obejrzyj pokaz buforowanie danych wyjściowych stron częściowych, następuje przegląd interfejsu API w pamięci podręcznej, który demonstruje sposób wydajnie powiązać prezentacji danych...
+description: Obejrzyj pokaz buforowania danych wyjściowych części strony, a następnie omówienie interfejsu API pamięci podręcznej, który demonstruje, jak można efektywnie powiązać prezentacji danych...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
 ms.topic: article
 ms.assetid: 39ad66b4-30f3-48da-b157-b7ffe65b671b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-make-greater-use-of-caching
 msc.type: video
-ms.openlocfilehash: 843b8f49373777feab8f38fbc6fe9a297da5ea2a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 85b2693c07f0c864af69f5d4233de60098c0be35
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572240"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385966"
 ---
-<a name="how-do-i-make-greater-use-of-caching"></a>[Jak i.] Większa wykorzystują buforowanie?
+<a name="how-do-i-make-greater-use-of-caching"></a>[Jak mogę] Utwórz większe wykorzystanie buforowania?
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-Obejrzyj pokaz buforowanie danych wyjściowych stron częściowych, następuje przegląd interfejsu API w pamięci podręcznej, który demonstruje sposób wydajnie bind formant prezentacji danych do pliku XML.
+Obejrzyj pokaz buforowania danych wyjściowych części strony, a następnie omówienie interfejsu API pamięci podręcznej, który demonstruje, jak można efektywnie powiązać kontrolki prezentacji danych do pliku XML.
 
-[&#9654; Obejrzyj klip wideo (15 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-make-greater-use-of-caching)
+[&#9654;Obejrzyj film wideo (15 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-make-greater-use-of-caching)

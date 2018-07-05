@@ -9,18 +9,17 @@ ms.date: 07/23/2014
 ms.topic: article
 ms.assetid: b9005f8f-1dbc-4414-abe1-dae4816141e1
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-cycle
 msc.type: folder
-ms.openlocfilehash: c7bba3b9ee9c839fc870b7a2af5331851144d65e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bc1d3efee9273a5fe9242dfc16e8539736c46bba
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26563114"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366601"
 ---
 <a name="jquery-cycle"></a>jQuery cyklu
 ====================
-- [jQuery 2.99 cyklu](cdnjquerycycle299.md)
-- [jQuery 2,94 cyklu](cdnjquerycycle294.md)
-- [jQuery 2,88 cyklu](cdnjquerycycle288.md)
+- [jQuery Cycle 2.99](cdnjquerycycle299.md)
+- [jQuery Cycle 2.94](cdnjquerycycle294.md)
+- [jQuery Cycle 2.88](cdnjquerycycle288.md)

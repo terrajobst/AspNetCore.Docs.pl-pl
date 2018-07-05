@@ -1,82 +1,81 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
-title: Konfigurowanie serwera Team Foundation Server Web Deployment | Dokumentacja firmy Microsoft
+title: Konfigurowanie serwera Team Foundation Server dla wdrażania w sieci Web | Dokumentacja firmy Microsoft
 author: jrjlee
-description: Ten samouczek przedstawia sposób konfigurowania Team Foundation Server (TFS) 2010 do tworzenia rozwiązań i wdrażania zawartości sieci web do różnych środowiskach docelowych. To...
+description: Ten samouczek przedstawia sposób konfigurowania Team Foundation Server (TFS) 2010 do tworzenia rozwiązań i wdrażania zawartości sieci web w różnych środowiskach docelowych. To...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
 ms.topic: article
 ms.assetid: ff55233a-e795-4007-a4fc-861fe1bb590b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: c4cfac333c9400d9ee613ba88520b0b0439873f5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6430a96a8e430a8a30d062ec22868de829680806
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30892650"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365344"
 ---
-<a name="configuring-team-foundation-server-for-web-deployment"></a>Konfigurowanie serwera Team Foundation Server Web Deployment
+<a name="configuring-team-foundation-server-for-web-deployment"></a>Konfigurowanie serwera Team Foundation Server dla wdrażania w sieci Web
 ====================
-przez [Lewandowski Jason](https://github.com/jrjlee)
+przez [Jason Lee](https://github.com/jrjlee)
 
 [Pobierz plik PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Ten samouczek przedstawia sposób konfigurowania Team Foundation Server (TFS) 2010 do tworzenia rozwiązań i wdrażania zawartości sieci web do różnych środowiskach docelowych. W tym scenariuszy ciągłej integracji (CI), gdzie wdrażania zawartości automatycznie każdorazowego dewelopera dokona zmian. Może również obejmować ręczne wyzwalacza scenariuszy, w którym administrator może wykonać aby wyzwolić wdrożenie określonej kompilacji w środowisku przemieszczania po kompilacji została zweryfikowana i zweryfikowane w środowisku testowym. Tematy w tym samouczku przeprowadzi Cię przez proces całą konfigurację, w tym:
+> Ten samouczek przedstawia sposób konfigurowania Team Foundation Server (TFS) 2010 do tworzenia rozwiązań i wdrażania zawartości sieci web w różnych środowiskach docelowych. Dotyczy to również scenariuszach ciągłej integracji (CI), gdzie wdrażania zawartości automatycznie za każdym razem, gdy deweloper wprowadza zmianę. Może również obejmować wyzwalacza ręcznego scenariuszy, w którym administrator może wykonać wyzwalacza wdrażanie określonej kompilacji w środowisku przejściowym, gdy kompilacja zostanie zweryfikowane i sprawdzone w środowisku testowym. Tematy w tym samouczku przeprowadzi Cię przez proces całą konfigurację, w tym:
 > 
 > - Sposób tworzenia nowego projektu zespołowego w programie TFS.
-> - Jak dodać zawartości do kontroli źródła.
-> - Jak skonfigurować serwer kompilacji obsługuje elementu konfiguracji i wdrażania.
-> - Jak utworzyć definicję kompilacji, która zawiera logikę wdrożenia.
+> - Jak dodawać zawartość do kontroli źródła.
+> - Jak skonfigurować serwer kompilacji do obsługi ciągłej integracji i wdrażania.
+> - Jak utworzyć definicję kompilacji, który zawiera logikę wdrożenia.
 > - Jak skonfigurować uprawnienia dla automatycznego wdrażania.
 > 
-> Włoska translacji tego samouczka, odwiedź stronę [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
+> Włoska tłumaczenia w tych samouczkach, odwiedź stronę [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
-Ten samouczek zakłada, że zainstalowano TFS 2010 i utworzyć kolekcję projektów zespołowych w trakcie procesu konfiguracji początkowej. [Team Foundation podręczniku instalacji programu Visual Studio 2010](https://go.microsoft.com/?linkid=9805132) zawiera kompleksowe wskazówki na temat tych zadań.
+Ten samouczek zakłada, że zainstalowano TFS 2010 i utworzyć kolekcję projektów zespołowych w ramach procesu konfiguracji początkowej. [Team Foundation podręczniku instalacji programu Visual Studio 2010](https://go.microsoft.com/?linkid=9805132) zapewnia kompleksowe wskazówki na temat tych zadań.
 
 ## <a name="context"></a>Kontekst
 
-To jest częścią serii samouczków oparte na wymaganiach dotyczących wdrożenia enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tego samouczka serii&#x2014; [kontaktów Menedżerze](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) rozwiązania&#x2014;do reprezentowania aplikacji sieci web z realistyczne poziom złożoności, w tym aplikacji ASP.NET MVC 3, Windows Communication Usługa Foundation (WCF), a projekt bazy danych.
+To jest częścią serii samouczków, w oparciu o wymagania dotyczące wdrażania enterprise fikcyjnej firmy o nazwie firmy Fabrikam, Inc. Przykładowe rozwiązanie korzysta z tej serii samouczków&#x2014; [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) rozwiązania&#x2014;do reprezentowania aplikacji sieci web przy użyciu realistycznej stopień złożoności, łącznie z aplikacją ASP.NET MVC 3 komunikacji Windows Usługa Foundation (WCF), a projekt bazy danych.
 
-Istotą te samouczki metody wdrażania opiera się na podejście pliku projektu podziału opisane w [opis procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md), w którym jest kontrolowany przez proces kompilacji dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i dysk zawierający ustawienia kompilacji i wdrożenia określonego środowiska. W czasie kompilacji pliku projektu określonego środowiska jest scalany pliku projektu niezależny od środowiska pełny zestaw instrukcji kompilacji.
+Metody wdrażania w ramach tego samouczka opiera się na podejście pliku projektu Podziel opisane w [objaśnienie procesu kompilacji](../web-deployment-in-the-enterprise/understanding-the-build-process.md), w którym proces kompilacji jest kontrolowana przez dwa pliki projektu&#x2014;jeden zawierający Tworzenie instrukcji, które mają zastosowanie do każdego środowiska docelowego i jeden zawierający ustawienia specyficzne dla środowiska kompilacji i wdrażania. W czasie kompilacji pliku projektu specyficznymi dla środowiska jest scalana w pliku projektu niezależnego od środowiska w celu utworzenia kompletny zestaw instrukcji kompilacji.
 
 ## <a name="scenario-overview"></a>Omówienie scenariusza
 
-Scenariusz wysokiego poziomu te samouczki jest opisany w [wdrożenia sieci Web w przedsiębiorstwie: omówienie scenariusza](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md). Firma Microsoft zaleca, przejrzyj ten temat przed rozpoczęciem tego samouczka.
+Scenariusz wysokiego poziomu w tych samouczkach opisano w [wdrażania sieci Web w przedsiębiorstwie: omówienie scenariusza](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md). Firma Microsoft zaleca, przejrzyj ten temat przed rozpoczęciem tego samouczka.
 
-## <a name="how-to-use-this-tutorial"></a>Jak używać tego samouczka
+## <a name="how-to-use-this-tutorial"></a>Jak korzystać z tego samouczka
 
-Jeśli po raz pierwszy zostały wykonane zadania opisane w tym samouczku, lub jeśli chcesz wykonać przykłady za pomocą rozwiązania próbki, powinny działać z samouczka tematami w kolejności. Alternatywnie można użyć tematy jako wskazówki do wykonywania określonych zadań. W tym samouczku omówiono następujące zagadnienia:
+Jeśli po raz pierwszy zostały wykonane zadania opisane w tym samouczku, lub jeśli chcesz pracować z przykładami, za pomocą przykładowe rozwiązanie możesz powinni skorzystać z samouczka tematów w kolejności. Alternatywnie można użyć poszczególnych tematów jako wskazówkę do wykonywania określonych zadań. Ten samouczek obejmuje następujące tematy:
 
-- [Tworzenie nowego projektu zespołowego w programie TFS](creating-a-team-project-in-tfs.md). Projekt zespołowy jest jednostka core kontroli źródła, zarządzanie procesem i kompilacji w programie TFS. Musisz utworzyć projektu zespołowego, zanim będzie można dodać zawartości do kontroli źródła lub Utwórz definicje kompilacji.
-- [Dodawanie zawartości do kontroli źródła](adding-content-to-source-control.md). Po utworzeniu projektu zespołowego, można uruchomić Dodawanie zawartości do kontroli źródła. Należy dodać swoje projekty i rozwiązania, oraz wszelkie zależności zewnętrzne, aby rozpocząć konfigurowanie kompilacji.
-- [Konfigurowanie TFS kompilacji serwera sieci Web wdrożenia](configuring-a-tfs-build-server-for-web-deployment.md). Jeśli chcesz utworzyć zawartości projektu zespołowego, musisz skonfigurować serwer kompilacji. W większości przypadków powinien to być na osobnym komputerze z programem TFS instalacji. Aby skonfigurować serwer kompilacji, należy zainstalować i skonfigurować usługę kompilacji TFS, zainstaluj program Visual Studio 2010, tworzenie kontrolerów kompilacji i agentów kompilacji, zainstalować wszystkie produkty lub składniki, które kodu wymaga, aby pomyślnie kompilacji i zainstaluj Internetowe usługi informacyjne (IIS w) sieci Web narzędzia Deployment (Web Deploy).
-- [Tworzenie definicji kompilacji, który obsługuje wdrażanie](creating-a-build-definition-that-supports-deployment.md). Przed uruchomieniem usługi kolejkowania wiadomości lub wyzwalania kompilacji w programie TFS, musisz utworzyć co najmniej jednej kompilacji definicji dla projektu zespołowego. Definicja kompilacji definiuje każdego aspektu kompilacji, łącznie z czynności, które powinny być uwzględnione w kompilacji, jakie zdarzenia powinny wywoływać kompilacji i gdzie Team Build wysłać dane wyjściowe kompilacji. Można skonfigurować definicję kompilacji do uruchamiania niestandardowych plików projektu Microsoft kompilacji Engine (MSBuild), który pozwala umieścić w kompilacjach zautomatyzowanych logiki wdrożenia.
-- [Wdrażanie określonej kompilacji](deploying-a-specific-build.md). W wiele scenariuszy należy wdrożyć określonej kompilacji zamiast ostatniej kompilacji w środowisku docelowym. W takim przypadku można skonfigurować definicję kompilacji, która wdraża zawartość z listy określonego folderu.
-- [Wdrożenie kompilacji konfigurowania uprawnień dla zespołu](configuring-permissions-for-team-build-deployment.md). W przypadku usługi kompilacji do wdrażania zawartości w ramach procesu kompilacji zautomatyzowane, musisz różne uprawnienia dla konta usługi kompilacji na docelowej serwerów sieci web i serwery baz danych.
+- [Tworzenie projektu zespołowego w TFS](creating-a-team-project-in-tfs.md). Projekt zespołowy jest jednostką core kontroli źródła, zarządzanie procesem i kompilacji w programie TFS. Należy utworzyć projekt zespołowy, aby można było dodać zawartość do kontroli źródła lub Utwórz definicje kompilacji.
+- [Dodawanie zawartości do kontroli źródła](adding-content-to-source-control.md). Po utworzeniu projektu zespołowego, możesz rozpocząć dodawanie zawartości do kontroli źródła. Musisz dodać swoje projekty i rozwiązania, wraz z wszelkich zależności zewnętrznych, przed rozpoczęciem konfigurowania kompilacji.
+- [Konfigurowanie TFS serwer kompilacji dla wdrażania w Internecie](configuring-a-tfs-build-server-for-web-deployment.md). Jeśli chcesz skompilować zawartości projektu zespołowego, należy skonfigurować serwer kompilacji. W większości przypadków powinno to być na osobnym komputerze z instalacji programu TFS. Aby skonfigurować serwer kompilacji, należy zainstalować i skonfigurować usługę kompilacji serwera TFS, zainstaluj program Visual Studio 2010, tworzenie kontrolerów kompilacji i agentów kompilacji, zainstalowanie produktów lub składniki, których potrzebuje Twój kod, aby można było pomyślnie przeprowadzać kompilacje i zainstaluj Internetowe usługi informacyjne (IIS w) sieci Web narzędzia Deployment (Web Deploy).
+- [Tworzenie definicji kompilacji, który obsługuje wdrażanie](creating-a-build-definition-that-supports-deployment.md). Przed rozpoczęciem kolejkowania lub wyzwolenie kompilacji w programie TFS, musisz utworzyć co najmniej jedną definicję kompilacji dla projektu zespołowego. Definicja kompilacji definiuje każdy aspekt kompilacji, w tym rzeczy, które powinny być uwzględnione w kompilacji, jakie zdarzenia powinny wywoływać kompilacji i gdzie Team Build wysłać dane wyjściowe kompilacji. Można skonfigurować definicję kompilacji do uruchamiania niestandardowych plików projektu aparatu Microsoft Build Engine (MSBuild), który pozwala umieścić logiki wdrożenia w kompilacjach zautomatyzowanych.
+- [Wdrażanie określonej kompilacji](deploying-a-specific-build.md). Wiele scenariuszy warto wdrożyć konkretnej kompilacji, zamiast najnowszej kompilacji do środowiska docelowego. W takim przypadku można skonfigurować definicję kompilacji, która wdraża zawartość z folderu wrzucania określone.
+- [Konfigurowanie uprawnień dla zespołu wdrożenia kompilacji](configuring-permissions-for-team-build-deployment.md). W przypadku usługi kompilacji do wdrażania zawartości w ramach zautomatyzowanego procesu kompilacji, należy przyznać różne uprawnienia do konta usługi kompilacji na serwerach docelowych z sieci web i serwery baz danych.
 
 ## <a name="key-technologies"></a>Kluczowe technologie
 
-Ten samouczek koncentruje się na temat korzystania z tych produktów i technologii do obsługi automatycznych kompilowanie i wdrażanie w sieci web:
+Ten samouczek koncentruje się na temat korzystania z tych produktów i technologii umożliwiających automatyczne kompilowanie i wdrażanie w Internecie:
 
 - Visual Studio Team Foundation Server 2010
-- Team Build i MSBuild
+- Kompilacja zespołowa i MSBuild
 - Web Deploy
 
-Samouczek dotyka również przy użyciu systemu Windows Server 2008 R2, IIS 7.5, SQL Server 2008 R2, programu ASP.NET 4.0 i ASP.NET MVC 3.
+Samouczek styka się również przy użyciu systemu Windows Server 2008 R2, IIS 7.5, SQL Server 2008 R2, programu ASP.NET 4.0 i ASP.NET MVC 3.
 
-## <a name="other-tutorials-in-this-series"></a>Innych samouczków w tej serii
+## <a name="other-tutorials-in-this-series"></a>Inne samouczki w tej serii
 
-To jest częścią serii samouczków pięć w skali przedsiębiorstwa wdrożenia sieci web. Są to innych samouczków z serii:
+To jest częścią serii samouczków pięć w skali przedsiębiorstwa wdrażanie w Internecie. Poniżej przedstawiono inne samouczki z serii:
 
-- [Wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md). Ta zawartość wprowadzające udostępnia kontekstowe tła serii samouczka. Opisuje samouczek scenariusza i przedstawia, jak zadania i wskazówki, które opisano w całym serii pasuje do szerszego procesu zarządzania cyklem życia aplikacji (ALM).
-- [Narzędzie Web Deployment w przedsiębiorstwie](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Ten samouczek zawiera koncepcyjnej wprowadzenie do plików projektów MSBuild, Web potok publikowania (WPP), narzędzie Web Deploy i innych technologii pokrewnych. Wyjaśniono sposób korzystania tych narzędzi wspólnie do zarządzania procesami złożone wdrożenia.
-- [Konfigurowanie środowisk serwera sieci Web wdrożenia](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). W tym samouczku opisano sposób konfigurowania serwerów systemu Windows do obsługi różnych scenariuszy wdrażania, w tym wdrażania pakietu sieci web do zdalnego przy użyciu usługi sieci Web wdrożenia Agent (agent zdalnego) lub program obsługi wdrażania w sieci Web i wdrożenia zdalnej bazy danych. Go znajdują się wskazówki dotyczące wybierania metody wdrażania właściwe dla własnego środowiska i przedstawiono sposób używać struktury farmy sieci Web (WFF) w celu replikowania wdrożonych aplikacji sieci web na wszystkich serwerach sieci web w farmie serwerów.
-- [Zaawansowane wdrażanie w przedsiębiorstwie sieci Web](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Ten przewodnik opisuje sposób wykonywania różnych bardziej zaawansowanych zadań wdrażania, jak dostosowywanie wdrożenia bazy danych w wielu środowiskach, z wyjątkiem plików i folderów z wdrożenia i pobieranie aplikacji sieci web w trybie offline podczas procesu wdrażania .
+- [Wdrażanie aplikacji sieci Web w scenariuszach dla przedsiębiorstw](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md). Ta zawartość wprowadzające zapewnia kontekstowe tła serii samouczków. Scenariusz samouczka opisano w nim, a następnie pokazano, jak zadania i wskazówki, które opisano w całej serii mieści się w szerszym procesu zarządzania cyklem życia aplikacji (ALM).
+- [Narzędzie Web Deployment w przedsiębiorstwie](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Ten samouczek zawiera ogólne wprowadzenie do plików projektu MSBuild, sieci Web potok publikowania (WPP), narzędzie Web Deploy i inne powiązane technologie. Jej wyjaśnia, jak można używać tych narzędzi wspólnie do zarządzania procesami złożonego wdrożenia.
+- [Konfigurowanie środowisk serwera na potrzeby wdrażania w Internecie](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). W tym samouczku opisano sposób konfigurowania serwerów Windows do obsługi różnych scenariuszy wdrażania, w tym wdrażania pakietu sieci web do zdalnego za pomocą usługi sieci Web Deployment Agent (agent zdalny) lub program obsługi wdrażania w sieci Web oraz zdalnej bazy danych wdrażania. Zwraca uwagę na wybór metody wdrożenia odpowiednie dla Twojego środowiska i opisano w nim sposób używania struktury farmy sieci Web (WFF) do replikacji wdrożonych aplikacji sieci web na wszystkich serwerach sieci web w farmie serwerów.
+- [Zaawansowane wdrażanie w Internecie Enterprise](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). W tym samouczku opisano sposób wykonywania różnych bardziej zaawansowanych zadań wdrażania, takich jak dostosowywanie wdrożeń bazy danych w wielu środowiskach, wykluczanie plików i folderów z wdrożenia i przełączania w tryb offline w aplikacjach sieci web podczas procesu wdrażania .
 
 > [!div class="step-by-step"]
 > [Next](creating-a-team-project-in-tfs.md)

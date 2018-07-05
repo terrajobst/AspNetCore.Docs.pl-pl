@@ -1,153 +1,152 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
-title: Magazyn obiektów Blob bez struktury (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft
+title: Magazyn obiektów Blob bez struktury (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
+description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/30/2015
 ms.topic: article
 ms.assetid: 9f05ccb1-2004-4661-ad8b-c370e6c09c8e
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: c2c82a579feb586287c40bb82eba53c5f84afaba
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1840bea3b4183838ffdfe710e987b864a05d53fb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872575"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364187"
 ---
-<a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>Magazyn obiektów Blob bez struktury (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
+<a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>Magazyn obiektów Blob bez struktury (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Dykstra niestandardowy](https://github.com/tdykstra)
+przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie napraw projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę E](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Tworzenia rzeczywistych aplikacji w chmurze platformy Azure** Książka elektroniczna opiera się na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i wskazówki, które mogą pomóc Ci się pomyślnie, tworzenie aplikacji sieci web dla chmury. Informacje o Książka elektroniczna, zobacz [pierwszy rozdział](introduction.md).
+> **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
 
 
-W poprzednim rozdziale nasz przeglądał partycjonowania schematy i wyjaśniono, jak aplikacji Usuń magazyny obrazów w usługi obiektu Blob magazynu Azure i innych danych zadania w bazie danych SQL Azure. W tym rozdziale możemy przejść głębiej do usługi Blob i pokazać, jak jest zaimplementowana w poprawka kod projektu.
+W poprzednim rozdziale firma Microsoft przyjrzano się poszczególne schematy partycjonowania i wyjaśniono, jak aplikacja naprawić obrazy będą przechowywane w usługi Azure Storage Blob i innych danych zadania usługi Azure SQL Database. W tym rozdziale możemy bardziej szczegółowo omawiają na usługę Blob service i pokazują, jak zaimplementowano w kodzie projektu rozwiązać go.
 
 ## <a name="what-is-blob-storage"></a>Co to jest magazyn obiektów Blob?
 
-Usługa obiektu Blob magazynu Azure udostępnia sposób przechowywania plików w chmurze. Usługa Blob ma kilka zalet w porównaniu z przechowywanie plików w sieci lokalnej systemu plików:
+Usługa Azure Storage Blob umożliwia przechowywanie plików w chmurze. Usługa Blob ma kilka zalet w stosunku do przechowywania plików w systemie plików sieci lokalnej:
 
-- Jest to wysoce skalowalna. Jedno konto magazynu może przechowywać [kilkuset terabajtów](https://msdn.microsoft.com/library/windowsazure/dn249410.aspx), i może zawierać wiele kont magazynu. Niektóre z najważniejszych klientów platformy Azure przechowują setki petabajtów. Microsoft SkyDrive korzysta z magazynu obiektów blob.
-- Jest trwały. Wszystkie pliki, które są przechowywane w usłudze obiektów Blob jest automatycznie do kopii zapasowej.
-- Zapewnia wysoką dostępność. [Magazyn — umowa SLA](https://go.microsoft.com/fwlink/p/?linkid=159705&amp;clcid=0x409) czas działania ze zobowiązania 99,9% lub 99,99%, w zależności od opcji nadmiarowość geograficzna wybierz.
-- Jest funkcją platforma jako usługa (PaaS) platformy Azure, co oznacza tylko przechowywania i pobierania plików, zwracając tylko w przypadku rzeczywista ilość magazynu, i Azure automatycznie odpowiada on za konfigurowanie i zarządzanie wszystkich maszyn wirtualnych i dysków wymaganych do Usługa.
-- Za pomocą interfejsu API REST lub przy użyciu języka programowania interfejsu API można uzyskać dostępu do usługi Blob. Dla platformy .NET, Java, Ruby i innych dostępnych zestawów SDK.
-- Gdy plik jest przechowywany w usłudze obiektów Blob, można łatwo udostępnić go publicznie w Internecie.
-- Możesz zabezpieczyć pliki w obiekcie Blob uzyskać dostępu do usługi, mogą one tylko przez autoryzowanych użytkowników lub zapewniają tokeny tymczasowego dostępu, które udostępnia je do innej tylko na pewien czas.
+- Jest to o wysokim stopniu skalowalności. Jedno konto magazynu może przechowywać [setki terabajtów](https://msdn.microsoft.com/library/windowsazure/dn249410.aspx), i może mieć wielu kont magazynu. Niektóre z największych klientów platformy Azure przechowywać setki petabajtów. Microsoft SkyDrive korzysta z magazynu obiektów blob.
+- Jest trwały. Każdy plik, które są przechowywane w usłudze obiektów Blob jest automatycznie do kopii zapasowej.
+- Zapewnia wysoką dostępność. [Magazyn — umowa SLA](https://go.microsoft.com/fwlink/p/?linkid=159705&amp;clcid=0x409) obietnic co najmniej 99,9% dostępność przez 99,99% czasu, w zależności od wybranej opcji nadmiarowości geograficznej wybierzesz.
+- Jest funkcją platforma jako usługa (PaaS) platformy Azure, co oznacza po prostu przechowywania i pobierania plików, aby płacić tylko za rzeczywiste ilość miejsca, możesz użyć, a platforma Azure automatycznie zajmie się konfiguracji i wszystkich maszyn wirtualnych i dysków wymaganych do zarządzania Usługa.
+- Za pomocą interfejsu API REST lub przy użyciu interfejsu API języka programowania, aby uzyskać dostęp usługi obiektów Blob. Zestawy SDK są dostępne dla platformy .NET, Java, Ruby i innych.
+- Gdy plik jest przechowywany w usłudze obiektów Blob, można łatwo udostępnić je publicznie za pośrednictwem Internetu.
+- Możesz zabezpieczyć pliki w obiekcie Blob service, dzięki czemu mogą oni dostępny tylko dla autoryzowanych użytkowników lub można podać tokeny tymczasowego dostępu, które udostępnia je do innej tylko przez ograniczony okres czasu.
 
-W dowolnym momencie tworzysz aplikację na platformie Azure i przechowywania dużych ilości danych, które w środowisku lokalnym przejdzie w plikach — na przykład obrazów, klipów wideo, plików PDF, arkusze kalkulacyjne, itd. — należy wziąć pod uwagę usługi Blob.
+W dowolnym czasie w przypadku tworzenia aplikacji dla platformy Azure, a użytkownik chce przechowują duże ilości danych w środowisku lokalnym przejdzie w plikach — takich jak obrazy, wideo, pliki PDF, arkusze kalkulacyjne itd. — należy wziąć pod uwagę na usługę Blob service.
 
 ## <a name="creating-a-storage-account"></a>Tworzenie konta magazynu
 
-Aby rozpocząć pracę z usługą Blob Utwórz konto magazynu na platformie Azure. W portalu kliknij **nowy** -- **usług danych** -- **magazynu** -- **szybkie tworzenie**, a następnie wprowadź adres URL i lokalizację centrum danych. Lokalizacja centrum danych powinna być taka sama jak aplikacji sieci web.
+Aby rozpocząć pracę z usługą Blob należy utworzyć konto magazynu na platformie Azure. W portalu, kliknij przycisk **New** -- **usług danych** -- **magazynu** -- **szybkie tworzenie**, a następnie wprowadź adres URL i lokalizację centrum danych. Lokalizacja centrum danych powinna być taka sama, jak Twoja aplikacja sieci web.
 
 ![Tworzenie konta magazynu](unstructured-blob-storage/_static/image1.png)
 
-Wybierz regionu podstawowego, której chcesz umieścić zawartość, a jeśli wybierzesz [— replikacja geograficzna](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx#_Geo_Redundant_Storage) opcji Azure tworzy replik wszystkich danych w centrum danych w innym regionie kraju. Na przykład jeśli Centrum danych zachodnie stany USA, gdy plik, który przechodzi ona zachodnie stany USA centrum danych, ale w tle Azure również są przechowywane kopiuje go do jednego z innych Stanów Zjednoczonych centrów danych. W przypadku awarii w jednym regionie kraju, dane są nadal bezpieczne.
+Wybierz region podstawowy, którym chcesz umieścić zawartość, a jeśli wybierzesz [geografickou replikaci](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx#_Geo_Redundant_Storage) opcji, platforma Azure tworzy replik wszystkich danych w centrum danych w innym regionie kraju. Na przykład jeśli wybierzesz centrum danych regionie zachodnie stany USA, gdy zapisujesz plik, który zostanie wprowadzona do centrum danych w regionie zachodnie stany USA, ale w tle Azure również kopiuje go do innego centrum danych USA. W przypadku awarii w jednym regionie w kraju, Twoje dane są nadal bezpiecznego.
 
-Azure będą replikowane danych poza granicami politycznej geo: w przypadku lokalizacji głównej w Stanach Zjednoczonych, pliki są replikowane tylko na innego regionu w Stanach Zjednoczonych; lokalizacji głównej w przypadku klientów w Australii, plików są replikowane tylko na innym centrum danych w Australii.
+Azure nie będzie replikować dane granice polityczne geograficznej: Jeśli lokalizacji głównej znajduje się w Stanach Zjednoczonych, pliki tylko są replikowane do innego regionu na terenie Stanów Zjednoczonych; Jeśli lokalizacji głównej jest Australia, pliki są tylko replikowane do innego centrum danych w Australii.
 
 Oczywiście możesz można również utworzyć konto magazynu, wykonując polecenia ze skryptu, jak widzieliśmy wcześniej. Poniżej przedstawiono polecenia programu Windows PowerShell, aby utworzyć konto magazynu:
 
 [!code-powershell[Main](unstructured-blob-storage/samples/sample1.ps1)]
 
-Po utworzeniu konta magazynu, można od razu rozpocząć przechowywanie plików w usłudze obiektów Blob.
+Po utworzeniu konta magazynu, możesz od razu zacząć, przechowywanie plików w usłudze obiektów Blob.
 
-## <a name="using-blob-storage-in-the-fix-it-app"></a>W aplikacji rozwiązać przy użyciu magazynu obiektów Blob
+## <a name="using-blob-storage-in-the-fix-it-app"></a>W aplikacji rozwiązać za pomocą magazynu obiektów Blob
 
-Poprawka aplikacji umożliwia przekazywanie zdjęć.
+Aplikacja naprawić umożliwia przekazywanie zdjęć.
 
 ![Utwórz zadanie poprawka](unstructured-blob-storage/_static/image2.png)
 
-Po kliknięciu **automatyczne tworzenie**, aplikacja przekazuje określony plik obrazu i zapisuje go w usłudze obiektów Blob.
+Po kliknięciu **automatyczne tworzenie**, aplikacja przekazuje plik określony obraz i zapisuje go w usłudze obiektów Blob.
 
 ### <a name="set-up-the-blob-container"></a>Konfigurowanie kontenera obiektów Blob
 
-Aby przechowywać plik w usłudze obiektów Blob należy *kontenera* Zapisz go w. Kontener usługi Blob odpowiada folderu systemu plików. Skryptów tworzenia środowiska, które firma Microsoft sprawdzone w [zautomatyzować wszystko rozdział](automate-everything.md) utworzyć konto magazynu, ale nie ich utworzenia kontenera. Dlatego celem `CreateAndConfigure` metody `PhotoService` klasy jest aby utworzyć kontener, jeśli jeszcze nie istnieje. Ta metoda jest wywoływana z `Application_Start` metody w *Global.asax*.
+Aby można było przechowywać plik w usłudze obiektów Blob, należy *kontenera* Zapisz go w. Kontener obiektów Blob usługi odnosi się do folderu systemu plików. Skryptów tworzenia środowiska, które zapoznaliśmy się w [Automatyzowanie wszystkiego rozdział](automate-everything.md) Tworzenie konta magazynu, ale nie mogą tworzyć kontener. Dlatego celem `CreateAndConfigure` metody `PhotoService` klasy jest utworzyć kontener, jeśli jeszcze nie istnieje. Ta metoda jest wywoływana z `Application_Start` method in Class metoda *Global.asax*.
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample2.cs)]
 
-Klucz nazwy i dostępu do konta magazynu są przechowywane w `appSettings` Kolekcja *Web.config* pliku, a kod w `StorageUtils.StorageAccount` metoda wykorzystuje te wartości do utworzenia parametrów połączenia i nawiązania połączenia:
+Klucz nazwy i dostęp do konta magazynu są przechowywane w `appSettings` zbiór *Web.config* plików i kodu w `StorageUtils.StorageAccount` metoda używa tych wartości do tworzenia parametrów połączenia i nawiązania połączenia:
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample3.cs)]
 
-`CreateAndConfigureAsync` Metoda tworzy następnie obiekt, który reprezentuje usługa Blob, a obiekt, który reprezentuje kontener (folder) o nazwie "obrazy" w usłudze obiektów Blob:
+`CreateAndConfigureAsync` Metoda następnie tworzy obiekt, który reprezentuje usługę Blob service, a obiekt, który reprezentuje kontener (folder) o nazwie "obrazy" w usłudze obiektów Blob:
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample4.cs)]
 
-Jeśli kontener o nazwie "obrazy" jeszcze nie istnieje — będą spełnione przy pierwszym uruchomieniu aplikacji do nowego konta magazynu — kod tworzy kontener i ustawia uprawnienia, aby. (Domyślnie nowe kontenery obiektów blob są prywatne i są dostępne tylko dla użytkowników, którzy mają uprawnienia do uzyskania dostępu do konta magazynu)
+Jeśli kontener o nazwie "obrazy" nie istnieje jeszcze — będzie znajdował się pierwszym uruchomieniu aplikacji na nowe konto magazynu — kod tworzy kontener i ustawia uprawnienia do Zmień ją na publiczną. (Domyślnie nowe kontenery obiektów blob są prywatne i są dostępne tylko dla użytkowników, którzy mają uprawnienia dostępu do konta magazynu.)
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample5.cs)]
 
-### <a name="store-the-uploaded-photo-in-blob-storage"></a>Przekazane zdjęcie w magazynie obiektów Blob magazynu
+### <a name="store-the-uploaded-photo-in-blob-storage"></a>Store przekazanego zdjęcia w magazynie obiektów Blob
 
-Aby przekazać i Zapisz plik obrazu, aplikacja używa `IPhotoService` interfejsu i implementację interfejsu w `PhotoService` klasy. *PhotoService.cs* plik zawiera wszystkie kodu w poprawka aplikacji, która komunikuje się z usługą obiektów Blob.
+Aby przekazać, a następnie zapisz plik obrazu, ta aplikacja używa `IPhotoService` interfejsu i implementację interfejsu w `PhotoService` klasy. *PhotoService.cs* plik zawiera cały kod w poprawka aplikacji, która komunikuje się z usługą Blob.
 
-Następujące metody kontrolera MVC jest wywoływana, gdy użytkownik kliknie **automatyczne tworzenie**. W tym kodzie `photoService` odwołuje się do wystąpienia `PhotoService` klasy, a `fixittask` odwołuje się do wystąpienia `FixItTask` klasy jednostka, która przechowuje dane dla nowego zadania.
+Następujące metody kontrolera MVC jest wywoływana, gdy użytkownik kliknie **automatyczne tworzenie**. W tym kodzie `photoService` odwołuje się do wystąpienia `PhotoService` klasy, a `fixittask` odwołuje się do wystąpienia `FixItTask` Klasa jednostki, która przechowuje dane dla nowego zadania.
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample6.cs?highlight=8)]
 
-`UploadPhotoAsync` Metoda `PhotoService` klasy przechowuje przekazanego pliku w usłudze obiektów Blob i zwraca adres URL wskazujący do nowego obiektu blob.
+`UploadPhotoAsync` Method in Class metoda `PhotoService` klasy przekazanego pliku są przechowywane w usłudze obiektów Blob i zwraca adres URL, który wskazuje na nowy obiekt blob.
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample7.cs)]
 
-Podobnie jak w `CreateAndConfigure` metody kod łączy się z kontem magazynu i tworzy obiekt, który reprezentuje kontener obiektów blob "obrazy", z wyjątkiem w tym miejscu zakłada kontener już istnieje.
+Podobnie jak w `CreateAndConfigure` metody kod nawiązuje połączenie z kontem magazynu i tworzy obiekt, który reprezentuje kontener obiektów blob "obrazy", z wyjątkiem tutaj przyjęto założenie, kontener już istnieje.
 
-Następnie tworzy unikatowy identyfikator obrazu do przekazania, łącząc wartość identyfikatora GUID z rozszerzeniem pliku:
+Następnie tworzy unikatowy identyfikator obrazu, który ma zostać przekazany przez złączenie nową wartość identyfikatora GUID z rozszerzeniem pliku:
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample8.cs)]
 
-Następnie kod używa obiektu kontenera obiektów blob i nowy unikatowy identyfikator można utworzyć obiektu blob, ustawia atrybut z tym obiektem, wskazującą, jakiego rodzaju pliku jest, a następnie używa obiektu blob do przechowywania pliku w magazynie obiektów blob.
+Następnie kod używa obiektu kontenera obiektów blob i nowy unikatowy identyfikator, aby utworzyć obiekt blob, ustawia atrybut obiektu, na którym wskazujący rodzaj pliku ona jest, a następnie używa obiektu blob do przechowywania pliku w magazynie obiektów blob.
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample9.cs)]
 
-Na koniec pobiera adres URL, który odwołuje się do obiektu blob. Ten adres URL będzie przechowywana w bazie danych i pozwala na stronach sieci web napraw go wyświetlić załadowanego obrazu.
+Na koniec pobiera adres URL, który odwołuje się do obiektu blob. Ten adres URL będą przechowywane w bazie danych i pozwala na stronach sieci web rozwiązać go wyświetlić przekazanego obrazu.
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample10.cs)]
 
-Ten adres URL jest przechowywana w bazie danych jako jedna z kolumn tabeli FixItTask.
+Ten adres URL są przechowywane w bazie danych jako jedna z kolumn tabeli FixItTask.
 
 [!code-csharp[Main](unstructured-blob-storage/samples/sample11.cs?highlight=10)]
 
-Tylko adres URL w bazie danych i obrazów w magazynie obiektów Blob aplikacji Usuń zachowuje bazy danych mały, skalowalna i niedrogie, gdy obrazy są przechowywane w przypadku magazynu tanie i może obsługiwać terabajtów lub petabajtów. Jedno konto magazynu może przechowywać kilkuset terabajtów poprawka zdjęć i płacisz tylko za można użyć. Aby można było rozpocząć małych płatniczych centów 9 pierwszy gigabajtach i dodać więcej obrazów dla pojedynczych groszy za gigabajt dodatkowe.
+Przy użyciu tylko adresu URL w bazie danych i obrazów w magazynie obiektów Blob aplikacji naprawić przechowuje bazy danych małe, skalowalne i tanie, gdy obrazy są przechowywane w którym magazyn to tania i może obsługiwać terabajtów lub petabajtów. Jedno konto magazynu może przechowywać setki terabajtów zdjęcia napraw go, i płacisz tylko za rzeczywiste użycie. Aby można było rozpocząć małych płatniczej centów 9 pierwszy gigabajtach i dodać więcej obrazów dla ułamków monet za każdy gigabajt dodatkowe.
 
-### <a name="display-the-uploaded-file"></a>Wyświetl przekazanego pliku
+### <a name="display-the-uploaded-file"></a>Przekazany plik do wyświetlenia
 
-Aplikacji Usuń Wyświetla plik załadowanego obrazu, gdy Wyświetla szczegóły zadania.
+Plik przekazany obraz jest wyświetlany w aplikacji rozwiązać, gdy Wyświetla szczegóły zadania.
 
 ![Poprawka szczegóły zadania ze zdjęciem](unstructured-blob-storage/_static/image3.png)
 
-Do wyświetlania obrazu, związana z widoku MVC jest obejmują `PhotoUrl` wartość w formacie HTML, wysyłany do przeglądarki. Serwer sieci web i bazy danych nie jest cykle używany do wyświetlania obrazu, są one tylko obsługująca się kilka bajtów na adres URL obrazu. W poniższym kodzie Razor `Model` odwołuje się do wystąpienia `FixItTask` klasy jednostka.
+Aby wyświetlić obraz, musi wykonać widoku MVC wystarczy obejmują `PhotoUrl` wartość w formacie HTML, wysyłany do przeglądarki. Serwer sieci web i baza danych nie korzystają z cykle do wyświetlania obrazu, tylko używasz się kilka bajtów do adresu URL obrazu. W poniższym kodzie Razor `Model` odwołuje się do wystąpienia `FixItTask` Klasa jednostki.
 
 [!code-cshtml[Main](unstructured-blob-storage/samples/sample12.cshtml?highlight=11)]
 
-W kodzie HTML strony, która wyświetla, możesz zobaczyć adresie URL wskazującym bezpośrednio do obrazu w magazynie obiektów blob coś w następujący sposób:
+Jeśli spojrzysz na kod HTML strony, w której są wyświetlane, zostanie wyświetlony adres URL wskazujący bezpośrednio do obrazu w usłudze blob storage, podobnie do następującej:
 
 [!code-cshtml[Main](unstructured-blob-storage/samples/sample13.cshtml?highlight=11)]
 
 ## <a name="summary"></a>Podsumowanie
 
-Przedstawiono sposób aplikacji Usuń przechowuje obrazów w usługa Blob i tylko URL obrazu w bazie danych SQL. Przy użyciu usługi obiektów Blob przechowuje znacznie mniejszym zakresie niż go w przeciwnym razie będzie umożliwia skalowanie do niemal nieograniczoną liczbę zadań i mogą być przeprowadzane bez zapisywania dużej ilości kodu bazy danych SQL.
+Wiesz, jak aplikacja naprawić obrazy będą przechowywane w usłudze obiektów Blob i tylko URL obrazu w usłudze SQL database. Przy użyciu usługi obiektów Blob przechowuje bazy danych SQL znacznie mniejszym zakresie niż go w przeciwnym razie byłyby umożliwia skalowanie w górę do niemal nieograniczoną liczbę zadań i może odbywać się bez konieczności pisania duże ilości kodu.
 
-Konto magazynu może zawierać kilkuset terabajtów, a koszt magazynowania jest znacznie mniej kosztowne niż w przypadku magazynu bazy danych SQL, zaczynając od około 3 centów za gigabajt na miesiąc oraz opłat małych transakcji. I należy pamiętać, że użytkownik nie opłaca maksymalną pojemność, ale tylko dla kwoty faktycznie przechowywane, tak że aplikacja jest gotowa do skalowania, ale nie opłaca na wszystkie te dodatkowej pojemności.
+Masz setki terabajtów na koncie magazynu, a koszt magazynowania jest znacznie mniej kosztowne niż w przypadku magazynu bazy danych SQL, zaczynając od około 3 centów za gigabajt na miesiąc plus opłata małych transakcji. I należy pamiętać, że jesteś bez poświęcania maksymalną pojemność, ale tylko w przypadku kwotę, które faktycznie są przechowywane, dzięki czemu aplikacja jest gotowa do skalowania, ale nie opłaca dla dodatkowej pojemności.
 
-W [następnego rozdziału](design-to-survive-failures.md) będzie omawianiu znaczenie podejmowania może bezpiecznie obsługiwać błędów aplikacji w chmurze.
+W [następny rozdział](design-to-survive-failures.md) omówimy znaczenie podejmowania zdolne do poprawnego działania obsługi błędów aplikacji w chmurze.
 
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
-- [Wprowadzenie do magazynu obiektów BLOB Azure](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/). Blog przez drewna Jan.
-- [Jak używać usługi magazynu obiektów Blob Azure w programie .NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Oficjalna dokumentacja w witrynie MicrosoftAzure.com. Krótkie wprowadzenie do obiektu blob magazynu przykłady kodu, pokazujący sposób nawiązywania połączenia z magazynu obiektów blob, a następnie utworzyć kontenerów, przekazywanie i pobrać obiekty BLOB itp.
-- [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalności, odporności](https://channel9.msdn.com/Series/FailSafe). Seria filmów dziewięć części Ulrich Homann, Mercuri wytłoków i moduły SIMM znaku. Przedstawia informacje o szczegółowo pojęcia i architektury zasad w sposób bardzo dostępny i interesujące z wątków z doświadczenia zespół Advisory klienta firmy Microsoft (CAT) z konkretnymi klientami. Omówienie usługi Azure Storage i obiektów blob Zobacz epizodu 5, zaczynając od 35:13.
-- [Microsoft Patterns and Practices - Azure wskazówki](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz klucza Valet wzorca.
+- [Wprowadzenie do usługi Azure BLOB Storage](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/). Blog przez Mike'a drewna.
+- [Jak używać usługi Azure Blob Storage na platformie .NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Oficjalna dokumentacja w witrynie MicrosoftAzure.com. Krótkie wprowadzenie do usługi blob storage, przykłady kodu, w którym pokazano, jak połączyć się z magazynu obiektów blob, a następnie utworzyć kontenery, przekazywanie i pobieranie obiektów blob itp.
+- [Przed uszkodzeniami: Tworzenie usługi w chmurze skalowalne, odporne](https://channel9.msdn.com/Series/FailSafe). Seria filmów dziewięć części Ulrich Homann, Marc Mercuri i — Markiem Simmsem. Przedstawia informacje o szczegółowo pojęcia i zasady dotyczące architektury w sposób bardzo dostępny i interesujące z historii z doświadczenia zespołu doradczego klientów firmy Microsoft (CAT) z klientów. Omówienie usługi Azure Storage i obiektów blob Zobacz odcinek 5 zaczynając od 35:13.
+- [Microsoft Patterns and Practices — wskazówki dotyczące platformy Azure](https://msdn.microsoft.com/library/dn568099.aspx). Zobacz wzorzec klucza Portiera.
 
 > [!div class="step-by-step"]
 > [Poprzednie](data-partitioning-strategies.md)

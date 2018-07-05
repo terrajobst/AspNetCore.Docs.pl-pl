@@ -1,63 +1,83 @@
 ---
-title: Przekazywanie plików do Razor strony platformy ASP.NET Core
+title: Przekazywanie plików na stronę Razor programu ASP.NET Core
 author: guardrex
 description: Dowiedz się, jak przekazać pliki do strony Razor.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/12/2017
+ms.date: 07/03/2018
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 43268e24b67279b57c990a6289922ae38d883221
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 62e20ef33e2da44657aba19dab938913147d9bfe
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275960"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37433922"
 ---
-# <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików do Razor strony platformy ASP.NET Core
+# <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Przekazywanie plików na stronę Razor programu ASP.NET Core
 
 Przez [Luke Latham](https://github.com/guardrex)
 
-W tej sekcji przedstawiono przekazywania plików ze stroną Razor.
+W tej sekcji przedstawiono przekazywanie plików za pomocą strony Razor.
 
-[Filmu stron Razor Przykładowa aplikacja](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) w ten samouczek używa modelu prostego powiązania Aby przekazać pliki, które działa dobrze w przypadku przekazywania małych plików. Aby uzyskać informacje na przesyłanie strumieniowe dużych plików, zobacz [przekazywania dużych plików z przesyłania strumieniowego](xref:mvc/models/file-uploads#uploading-large-files-with-streaming).
+[Filmu stron Razor przykładową aplikację](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) w ten samouczek używa prostego modelu powiązanie, aby przekazać pliki, które sprawdza się w przypadku przekazywania plików na małe. Aby uzyskać informacje na przesyłanie strumieniowe dużych plików, zobacz [przekazywanie dużych plików z przesyłaniem strumieniowym](xref:mvc/models/file-uploads#uploading-large-files-with-streaming).
 
-W poniższych krokach funkcji przekazywania pliku harmonogramu film jest dodawany do przykładowej aplikacji. Harmonogram film jest reprezentowana przez `Schedule` klasy. Klasa zawiera dwie wersje harmonogramu. Jednej wersji są przekazywane klientom, `PublicSchedule`. Druga wersja jest używana dla pracowników firmy `PrivateSchedule`. Każda wersja jest przekazany jako oddzielny plik. Samouczek pokazuje, jak wykonać dwa przekazywania plików ze strony z jednego wpisu na serwerze.
+W poniższych krokach funkcji przekazywania plików harmonogram film zostanie dodany do przykładowej aplikacji. Harmonogram film jest reprezentowany przez `Schedule` klasy. Klasa zawiera dwie wersje harmonogramu. Jedna wersja są przekazywane klientom, `PublicSchedule`. Druga wersja jest używana w przypadku pracowników firmy `PrivateSchedule`. Każda wersja jest przekazywany jako oddzielny plik. Samouczek pokazuje, jak wykonać dwie operacje przekazywania plików ze strony za pomocą pojedynczego wpisu do serwera.
 
 ## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
-Należy zachować ostrożność podczas zapewniając użytkownikom możliwość przekazywania plików do serwera. Osoby atakujące mogą wykonywać ["odmowa usługi"](/windows-hardware/drivers/ifs/denial-of-service) i inne ataki w systemie. Niektóre kroki zabezpieczeń, które zmniejszyć prawdopodobieństwo udanego ataku są:
+Należy zachować ostrożność przy zapewnieniu użytkownikom możliwość przekazywania plików na serwerze. Może być wykonywane przez osoby atakujące ["odmowa usługi"](/windows-hardware/drivers/ifs/denial-of-service) i inne ataki na system. Niektóre czynności zabezpieczeń, które zmniejszają prawdopodobieństwo udanego ataku są następujące:
 
-* Przekazywanie plików do obszaru przekazywania dedykowanych plików w systemie, co ułatwia nałożyć środków bezpieczeństwa w przekazanym zawartości. Podczas umożliwiający przekazywania plików, upewnij się, że uprawnienia do wykonywania są wyłączone w lokalizacji przekazywania.
+* Przekazywanie plików do obszaru przekazywania pliku dedykowanych w systemie, dzięki czemu łatwiej można nałożyć środków bezpieczeństwa w systemach przekazana zawartość. Podczas pozwalające przekazywania plików, upewnij się, że uprawnienia do wykonywania są wyłączone w lokalizacji przekazywania.
 * Użyj nazwy plików bezpieczne określane przez aplikację, a nie z danych wejściowych użytkownika lub nazwę pliku przekazanego pliku.
-* Zezwalaj tylko na określonych rozszerzeń plików zatwierdzone.
-* Sprawdź, czy po stronie klienta są sprawdzane na serwerze. Testy po stronie klienta są łatwe do obejścia.
+* Zezwalaj na tylko określony zestaw rozszerzeń plików zatwierdzone.
+* Sprawdź, czy po stronie klienta są sprawdzane na serwerze. Sprawdzanie klienta są łatwe do obejścia.
 * Sprawdź rozmiar przekazywania i uniemożliwić przekazywanie większych niż oczekiwano.
-* Uruchom skanera przed wirusami i złośliwym oprogramowaniem w przekazanym zawartości.
+* Uruchomić skanera przed wirusami i złośliwym oprogramowaniem na przekazana zawartość.
 
 > [!WARNING]
-> Przekazywanie złośliwego kodu do systemu jest często pierwszy krok w celu wykonywania kodu, który można:
-> * Całkowicie przejęcia pamięci.
-> * Przeciążenia systemu, w wyniku czego system całkowicie zakończy się niepowodzeniem.
-> * Naruszenia danych użytkownika lub systemu.
+> Przekazywanie złośliwego kodu do systemu często jest pierwszym krokiem do wykonywania kodu, która może być:
+> * Całkowicie przejęcia w systemie.
+> * Przeciążenia systemu, w wyniku czego system całkowicie nie powiedzie się.
+> * Naruszyć bezpieczeństwo danych użytkownika lub systemu.
 > * Zastosowanie graffiti do interfejsu publicznego.
 
-## <a name="add-a-fileupload-class"></a>Dodaj klasę przekazywaniem plików
+## <a name="add-a-fileupload-class"></a>Dodaj klasę FileUpload
 
-Utwórz stronę Razor do obsługi parę przekazywania plików. Dodaj `FileUpload` klasy, która jest powiązana ze stroną uzyskać dane harmonogramu. Kliknij prawym przyciskiem myszy *modele* folderu. Wybierz **dodać** > **klasy**. Nazwa klasy **przekazywaniem plików** i dodaj następujące właściwości:
+Utwórz stronę Razor do obsługi parę przekazywania plików. Dodaj `FileUpload` klasy, który jest powiązany do strony, aby uzyskać dane tabeli schedule. Kliknij prawym przyciskiem myszy *modeli* folderu. Wybierz **Dodaj** > **klasy**. Nazwa klasy **FileUpload** i dodaj następujące właściwości:
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/FileUpload.cs)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
 
-Klasa ma właściwość tytułu harmonogramu i właściwości dla każdego z dwóch wersji harmonogramu. Wszystkie trzy właściwości są wymagane, i tytuł musi wynosić 3 – 60 znaków.
+::: moniker-end
 
-## <a name="add-a-helper-method-to-upload-files"></a>Dodaj metodę pomocnika, aby przekazać pliki
+Klasa ma właściwość Tytuł harmonogram i właściwości dla każdego z dwóch wersji harmonogramu. Wymagane są wszystkie trzy właściwości, a tytuł musi zawierać 3-60 znaków.
 
-Aby uniknąć zduplikowania kodu do przetwarzania plików przekazane harmonogramu, najpierw Dodaj metodę pomocnika statycznych. Utwórz *narzędzia* folderu w aplikacji i Dodaj *FileHelpers.cs* pliku o następującej zawartości. Metoda pomocnika `ProcessFormFile`, przyjmuje [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) i [ModelStateDictionary](/api/microsoft.aspnetcore.mvc.modelbinding.modelstatedictionary) i zwraca ciąg zawierający rozmiar pliku i jego zawartości. Typ zawartości i długości są sprawdzane. Jeśli plik nie przeszły sprawdzanie poprawności, błąd jest dodawany do `ModelState`.
+## <a name="add-a-helper-method-to-upload-files"></a>Dodaj metodę pomocnika do przekazywania plików
+
+Aby uniknąć zduplikowania kodu do przetwarzania plików przekazanych harmonogram, najpierw Dodaj metodę pomocnika statyczne. Tworzenie *narzędzia* folderu w aplikacji i Dodaj *FileHelpers.cs* pliku o następującej zawartości. Metoda pomocnika `ProcessFormFile`, przyjmuje [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) i [ModelStateDictionary](/api/microsoft.aspnetcore.mvc.modelbinding.modelstatedictionary) i zwraca ciąg zawierający rozmiar i zawartości pliku. Typ zawartości i długość są sprawdzane. Jeśli plik nie przeszły sprawdzanie poprawności, błąd jest dodawany do `ModelState`.
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Utilities/FileHelpers.cs)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Utilities/FileHelpers.cs)]
 
+::: moniker-end
+
 ### <a name="save-the-file-to-disk"></a>Zapisz plik na dysku
 
-Przykładowa aplikacja zapisuje pliki przekazana do pola bazy danych. Aby zapisać plik na dysku, należy użyć [FileStream](/dotnet/api/system.io.filestream). Poniższy przykładowy kod kopiuje plik posiadaniu `FileUpload.UploadPublicSchedule` do `FileStream` w `OnPostAsync` metody. `FileStream` Zapisuje plik na dysku na `<PATH-AND-FILE-NAME>` podane:
+Przykładowa aplikacja zapisuje przekazywanych plików w polach bazy danych. Aby zapisać plik na dysku, należy użyć [FileStream](/dotnet/api/system.io.filestream). Poniższy przykład służy do kopiowania pliku w posiadaniu `FileUpload.UploadPublicSchedule` do `FileStream` w `OnPostAsync` metody. `FileStream` Zapisuje plik na dysku w `<PATH-AND-FILE-NAME>` podane:
 
 ```csharp
 public async Task<IActionResult> OnPostAsync()
@@ -82,27 +102,49 @@ public async Task<IActionResult> OnPostAsync()
 Proces roboczy musi mieć uprawnienia do zapisu w lokalizacji określonej przez `filePath`.
 
 > [!NOTE]
-> `filePath` *Musi* obejmują nazwę pliku. Jeśli nazwa pliku nie został podany, [unauthorizedaccessexception —](/dotnet/api/system.unauthorizedaccessexception) jest zgłaszany w czasie wykonywania.
+> `filePath` *Musi* można umieszczać nazwy pliku. Jeśli nie podasz nazwy pliku, [unauthorizedaccessexception —](/dotnet/api/system.unauthorizedaccessexception) jest generowany w czasie wykonywania.
 
 > [!WARNING]
-> Nigdy nie będą się powtarzać przekazane pliki w tym samym drzewie katalogu co aplikacja.
+> Nigdy nie są zachowywane przekazywanych plików w tym samym drzewie katalogu, co aplikacja.
 >
-> Przykładowy kod nie zapewnia po stronie serwera ochrony przed przekazywania złośliwych plików. Aby uzyskać informacje na zmniejszenie powierzchni ataku, akceptując pliki od użytkowników zobacz następujące zasoby:
+> Przykładowy kod zawiera nie ochrony po stronie serwera przed przekazywania złośliwych plików. Instrukcje dotyczące zmniejszenie obszaru powierzchni ataku, akceptując pliki użytkowników zobacz następujące zasoby:
 >
 > * [Przekazywanie pliku bez ograniczeń](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * [Zabezpieczeń platformy Azure: Upewnij się, że odpowiednie formanty w miejscu akceptując pliki użytkowników](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Zabezpieczenia platformy Azure: Upewnij się, że odpowiednie formanty są stosowane podczas akceptowania plików od użytkowników](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
-### <a name="save-the-file-to-azure-blob-storage"></a>Zapisz plik do magazynu obiektów Blob Azure
+### <a name="save-the-file-to-azure-blob-storage"></a>Zapisz plik w usłudze Azure Blob Storage
 
-Aby przekazać zawartość pliku do magazynu obiektów Blob Azure, zobacz [Rozpoczynanie pracy z magazynem obiektów Blob Azure przy użyciu platformy .NET](/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Temacie przedstawiono sposób użycia [UploadFromStream](/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromstreamasync) zapisać [FileStream](/dotnet/api/system.io.filestream) do magazynu obiektów blob.
+Aby przekazać zawartość pliku do usługi Azure Blob Storage, zobacz [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Temat demonstruje sposób skorzystania [UploadFromStream](/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromstreamasync) można zapisać [FileStream](/dotnet/api/system.io.filestream) do magazynu obiektów blob.
 
 ## <a name="add-the-schedule-class"></a>Dodaj klasę harmonogramu
 
-Kliknij prawym przyciskiem myszy *modele* folderu. Wybierz **dodać** > **klasy**. Nazwa klasy **harmonogram** i dodaj następujące właściwości:
+Kliknij prawym przyciskiem myszy *modeli* folderu. Wybierz **Dodaj** > **klasy**. Nazwa klasy **harmonogram** i dodaj następujące właściwości:
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/Schedule.cs)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/Schedule.cs)]
 
-Używa klasy `Display` i `DisplayFormat` atrybuty, które przyjazną tytułów i formatowania podczas renderowania danych harmonogramu.
+::: moniker-end
+
+Ta klasa używa `Display` i `DisplayFormat` atrybuty, które generuje przyjazna tytułów i formatowania podczas renderowania dane tabeli schedule.
+
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="update-the-razorpagesmoviecontext"></a>Aktualizacja RazorPagesMovieContext
+
+Określ `DbSet` w `RazorPagesMovieContext` (*Data/RazorPagesMovieContext.cs*) dla harmonogramów:
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Data/RazorPagesMovieContext.cs?highlight=17)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 ## <a name="update-the-moviecontext"></a>Aktualizacja MovieContext
 
@@ -110,13 +152,15 @@ Określ `DbSet` w `MovieContext` (*Models/MovieContext.cs*) dla harmonogramów:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
 
-## <a name="add-the-schedule-table-to-the-database"></a>Dodaj tabelę harmonogramu do bazy danych
+::: moniker-end
+
+## <a name="add-the-schedule-table-to-the-database"></a>Dodaj tabelę harmonogram do bazy danych
 
 Otwórz konsolę Menedżera pakietów (PMC): **narzędzia** > **Menedżera pakietów NuGet** > **Konsola Menedżera pakietów**.
 
-![PMC menu](../first-mvc-app/adding-model/_static/pmc.png)
+![Menu konsoli zarządzania Pakietami](../first-mvc-app/adding-model/_static/pmc.png)
 
-W kryterium wykonaj następujące polecenia. Te polecenia powodują dodanie `Schedule` tabeli w bazie danych:
+W konsoli zarządzania Pakietami wykonaj następujące polecenia. Te polecenia Dodaj `Schedule` tabeli w bazie danych:
 
 ```powershell
 Add-Migration AddScheduleTable
@@ -125,87 +169,186 @@ Update-Database
 
 ## <a name="add-a-file-upload-razor-page"></a>Dodaj stronę Razor przekazywania pliku
 
-W *stron* folderu, Utwórz *harmonogramy* folderu. W *harmonogramy* folderu, Utwórz stronę o nazwie *Index.cshtml* o przekazywaniu harmonogram o następującej treści:
+W *stron* folderze utwórz *harmonogramy* folderu. W *harmonogramy* folderu, Utwórz stronę o nazwie *Index.cshtml* przekazywania harmonogram o następującej zawartości:
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie21/Pages/Schedules/Index.cshtml)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml)]
 
-Każda grupa formularz zawiera  **\<Etykieta >** który wyświetla nazwę każda właściwość klasy. `Display` Atrybutów w `FileUpload` modelu Podaj wartości wyświetlania etykiet. Na przykład `UploadPublicSchedule` nazwy wyświetlanej właściwości ustawiono `[Display(Name="Public Schedule")]` i w związku z tym Wyświetla "Harmonogram publiczny" w etykiecie podczas renderowania formularza.
+::: moniker-end
 
-Każda grupa formularz zawiera weryfikacji  **\<span >**. Jeśli użytkownik wejściowych nie spełniają atrybuty właściwości ustawione `FileUpload` klasy lub jeśli któryś z `ProcessFormFile` sprawdzanie poprawności pliku metody kończyć się niepowodzeniem, model kończy się niepowodzeniem do sprawdzania poprawności. Podczas sprawdzania poprawności modelu nie powiedzie się, komunikat dotyczący sprawdzania poprawności pomocne jest renderowany do użytkownika. Na przykład `Title` właściwość jest oznaczona przy `[Required]` i `[StringLength(60, MinimumLength = 3)]`. Jeśli użytkownik nie może podać tytuł, otrzymają komunikat informujący, że wymagana jest wartość. Jeśli użytkownik wprowadzi wartość mniej niż 3 znaków ani więcej niż 60 znaków, otrzymają komunikat informujący, że wartość ma nieprawidłową długość. Jeśli plik jest pod warunkiem, że nie ma zawartości, zostanie wyświetlony komunikat, że plik jest pusty.
+Każda grupa formularz zawiera  **\<Etykieta >** wyświetlającą nazwa każdej właściwości klasy. `Display` Atrybutów w `FileUpload` modelu podanie wartości wyświetlania etykiet. Na przykład `UploadPublicSchedule` nazwy wyświetlania właściwości została ustawiona za pomocą `[Display(Name="Public Schedule")]` i dlatego wyświetla "Harmonogram publiczny" w etykiecie, gdy powoduje wyświetlenie formularza.
+
+Każda grupa formularz zawiera weryfikacji  **\<span >**. Jeśli użytkownik wejściowych nie spełniają atrybuty właściwości ustawione w `FileUpload` klasy lub jeśli któryś z `ProcessFormFile` sprawdzanie poprawności pliku metoda kończyć się niepowodzeniem, modelu nie powiedzie się sprawdzić poprawność. Podczas sprawdzania poprawności modelu nie powiedzie się, komunikat dotyczący sprawdzania poprawności pomocne jest renderowany do użytkownika. Na przykład `Title` właściwość jest oznaczona za pomocą `[Required]` i `[StringLength(60, MinimumLength = 3)]`. Jeśli użytkownik nie może wpisać tytuł, otrzyma komunikat informujący, że wartość jest wymagana. Jeśli użytkownik wprowadzi wartości, mniej niż trzy znaki lub więcej niż 60 znaków, otrzyma komunikat informujący, że wartość ma niepoprawną długość. Jeśli plik jest pod warunkiem, że nie ma zawartości, zostanie wyświetlony komunikat, że plik jest pusty.
 
 ## <a name="add-the-page-model"></a>Dodawanie modelu strony
 
 Dodawanie modelu strony (*Index.cshtml.cs*) do *harmonogramy* folderu:
 
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Schedules/Index.cshtml.cs)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs)]
+
+::: moniker-end
 
 Model strony (`IndexModel` w *Index.cshtml.cs*) wiąże `FileUpload` klasy:
 
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index21.cshtml.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet1)]
 
-Model korzysta również z listą harmonogramy (`IList<Schedule>`) do wyświetlenia przechowywanych w bazie danych na stronie harmonogramów:
+::: moniker-end
+
+Model wykorzystuje także listę harmonogramy (`IList<Schedule>`) aby wyświetlić harmonogramy przechowywanych w bazie danych na stronie:
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index21.cshtml.cs?name=snippet2)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 [!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet2)]
 
-Załadowanie strony z `OnGetAsync`, `Schedules` jest wypełnione z bazy danych i używane do generowania tabeli HTML załadować harmonogramów:
+::: moniker-end
+
+Jeśli strona ładuje się za pomocą `OnGetAsync`, `Schedules` jest wypełniana z bazy danych i używany do generowania tabeli HTML załadować harmonogramów:
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index21.cshtml.cs?name=snippet3)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 [!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
 
-Gdy formularz jest przesyłana do serwera, `ModelState` jest zaznaczony. Jeśli jest to nieprawidłowa `Schedule` odbudowaniu i renderuje stronę z jednego lub więcej komunikatów dotyczących sprawdzania poprawności, podając, dlaczego nie można sprawdzić poprawności strony. Jeśli jest prawidłowa, `FileUpload` właściwości są używane w *OnPostAsync* aby zakończyć przekazywanie plików dla obu wersji harmonogramu i utworzyć nową `Schedule` obiektu do przechowywania danych. Harmonogram jest następnie zapisywana w bazie danych:
+::: moniker-end
+
+Po opublikowaniu formularza z serwerem `ModelState` jest zaznaczone. Jeśli jest to nieprawidłowa `Schedule` zostanie ponownie skompilowany, i strony, renderowanie przy użyciu jednego lub więcej komunikatów dotyczących sprawdzania poprawności informacją, dlaczego strony Weryfikacja nie powiodła się. Jeśli są one prawidłowe, `FileUpload` właściwości są używane w *OnPostAsync* aby zakończyć przekazywanie pliku dla obu wersji harmonogram i Utwórz nową `Schedule` obiektu do przechowywania danych. Harmonogram jest następnie zapisywany w bazie danych:
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index21.cshtml.cs?name=snippet4)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 [!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
 
-## <a name="link-the-file-upload-razor-page"></a>Link przekazywania pliku Razor strony
+::: moniker-end
 
-Otwórz *_Layout.cshtml* i dodać łącze do paska nawigacyjnego, aby przejść do strony przekazywania plików:
+## <a name="link-the-file-upload-razor-page"></a>Link przekazywania pliku strony Razor
 
-[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=31-38&highlight=4)]
+Otwórz *Pages/Shared/_Layout.cshtml* i dodać link na pasku nawigacyjnym, aby dotrzeć do strony harmonogramów:
+
+```cshtml
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li><a asp-page="/Index">Home</a></li>
+        <li><a asp-page="/Schedules/Index">Schedules</a></li>
+        <li><a asp-page="/About">About</a></li>
+        <li><a asp-page="/Contact">Contact</a></li>
+    </ul>
+</div>
+```
 
 ## <a name="add-a-page-to-confirm-schedule-deletion"></a>Dodaj stronę, aby potwierdzić usunięcie harmonogramu
 
-Gdy użytkownik kliknie przycisk, aby usunąć harmonogram, znajduje się możliwość anulowania operacji. Dodaj stronę potwierdzenia usunięcia (*Delete.cshtml*) do *harmonogramy* folderu:
+Gdy użytkownik kliknie przycisk, aby usunąć harmonogram, znajduje się szansę, aby anulować operację. Dodaj stronę potwierdzenia usunięcia (*Delete.cshtml*) do *harmonogramy* folderu:
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie21/Pages/Schedules/Delete.cshtml)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
-Model strony (*Delete.cshtml.cs*) ładuje jeden harmonogram identyfikowane przez `id` w danych trasy żądania. Dodaj *Delete.cshtml.cs* pliku *harmonogramy* folderu:
+::: moniker-end
+
+Model strony (*Delete.cshtml.cs*) ładuje identyfikowane za pomocą jednego harmonogramu `id` w danych trasy żądania. Dodaj *Delete.cshtml.cs* plik *harmonogramy* folderu:
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Schedules/Delete.cshtml.cs)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs)]
 
-`OnPostAsync` Obsługuje metoda usuwania harmonogramu przez jego `id`:
+::: moniker-end
+
+`OnPostAsync` Obsługiwała usuwanie harmonogram, według jego `id`:
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Delete21.cshtml.cs?name=snippet1&highlight=8,12-13)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 [!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs?name=snippet1&highlight=8,12-13)]
 
-Po pomyślnym usunięciu harmonogram, `RedirectToPage` wysyła użytkownika z powrotem do harmonogramów *Index.cshtml* strony.
+::: moniker-end
 
-## <a name="the-working-schedules-razor-page"></a>Pracy harmonogramy Razor strony
+Po pomyślnym usunięciu harmonogramu, `RedirectToPage` wysyła użytkownika harmonogramy *Index.cshtml* strony.
 
-Podczas ładowania strony, etykiety i dane wejściowe dla tytułu harmonogram harmonogram publicznego i prywatnego harmonogramu są renderowane z przycisk przesyłania:
+## <a name="the-working-schedules-razor-page"></a>Strona Razor harmonogramy dni roboczych
 
-![Planuje Razor strony, jak pokazano na ładowania początkowego bez błędów weryfikacji i puste pola](uploading-files/_static/browser1.png)
+Po załadowaniu strony, etykiety i dane wejściowe dla tytułu harmonogramu, harmonogram publicznych i prywatnych harmonogramu są renderowane przy użyciu przycisku Prześlij:
 
-Wybieranie **przekazać** przycisk bez wypełniania pól narusza `[Required]` atrybutów w modelu. `ModelState` Jest nieprawidłowy. Komunikatów o błędach są wyświetlane dla użytkownika:
+![Planuje strony Razor, jak pokazano na ładowania początkowego bez błędów sprawdzania poprawności i puste pola](uploading-files/_static/browser1.png)
 
-![Komunikatów o błędach są wyświetlane obok każdej kontrolki wprowadzania](uploading-files/_static/browser2.png)
+Wybieranie **przekazywanie** przycisk bez żadnego pola wypełnianie narusza `[Required]` atrybutów w modelu. `ModelState` Jest nieprawidłowy. Komunikaty o błędach weryfikacji są wyświetlane dla użytkownika:
 
-Wpisz dwie litery w **tytuł** pola. Sprawdzanie poprawności zmienia się na wskazują, czy tytuł musi należeć do zakresu od 3 do 60 znaków:
+![Komunikaty o błędach weryfikacji pojawiają się obok każdej kontrolki wprowadzania](uploading-files/_static/browser2.png)
 
-![Tytuł komunikatu weryfikacji zmienione](uploading-files/_static/browser3.png)
+Wpisz dwie litery w **tytuł** pola. Komunikat sprawdzania poprawności zmienia się do wskazania, że tytuł musi mieć od 3 – 60 znaków:
 
-Po przekazaniu co najmniej jeden harmonogram **załadować harmonogramy** sekcji renderuje załadować harmonogramów:
+![Zmienić komunikat weryfikacji tytuł](uploading-files/_static/browser3.png)
 
-![Daty UTC, rozmiar pliku publicznej wersji i rozmiar pliku w prywatnej wersji przekazać tabeli załadować harmonogramy, przedstawiający tytuł każdy z harmonogramów](uploading-files/_static/browser4.png)
+Przekazywane co najmniej jeden harmonogram **załadowane harmonogramy** sekcji renderuje załadować harmonogramów:
 
-Użytkownik może kliknąć **usunąć** łącza z tego miejsca do widoku potwierdzenie usunięcia, które mają możliwość potwierdzenia lub anulowania operacji usuwania.
+![Tabela załadować harmonogramy, przedstawiający tytuł każdy z harmonogramów przekazany daty UTC, rozmiar pliku w publicznej wersji i rozmiar pliku w prywatnej wersji](uploading-files/_static/browser4.png)
+
+Użytkownik może kliknąć **Usuń** link z tego miejsca nawiązać widoku potwierdzenie usunięcia, które mają możliwość potwierdzenia lub anulować operację usuwania.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Aby uzyskać informacje o rozwiązywaniu problemów z `IFormFile` przekazywania, zobacz [przekazywania plików w ASP.NET Core: Rozwiązywanie problemów z](xref:mvc/models/file-uploads#troubleshooting).
+Aby uzyskać informacje o rozwiązywaniu problemów z `IFormFile` przekazywania, zobacz [przekazywania plików z platformy ASP.NET Core: Rozwiązywanie problemów z](xref:mvc/models/file-uploads#troubleshooting).
 
-Dziękujemy za korzystanie z wprowadzenia do stron Razor. Dziękujemy za opinię. [Rozpoczynanie pracy z MVC i podstawowe EF](xref:data/ef-mvc/intro) jest doskonałym uzupełnianie w tym samouczku.
+Dziękujemy za wypełnienie tego wprowadzenia do stron Razor. Dziękujemy za opinię. [Wprowadzenie do MVC i programem EF Core](xref:data/ef-mvc/intro) jest doskonałym uzupełnianie w tym samouczku.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [W przypadku platformy ASP.NET Core przekazywania plików](xref:mvc/models/file-uploads)
+* [Przekazywanie plików z platformy ASP.NET Core](xref:mvc/models/file-uploads)
 * [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile)
 
 > [!div class="step-by-step"]

@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/vs-2005/how-do-i-run-unit-tests-against-a-deployed-database
-title: '[Jak i.] Uruchom testy jednostkowe dla wdrożonej bazy danych? | Microsoft Docs'
+title: '[Jak mogę] Uruchamianie testów jednostkowych dla wdrożonej bazy danych? | Microsoft Docs'
 author: pjhacker
-description: Jeśli aplikacja ASP.NET jest skonfigurowany do wdrażania bazy danych wraz z witryny sieci Web, jak można można sprawdzić, wdrożono wystąpienie prawidłową bazę danych?
+description: Jeśli Twoja aplikacja ASP.NET jest skonfigurowany do wdrożenia bazy danych wraz z witryny sieci Web, jak można należy sprawdzić, wdrożono wystąpienie prawidłową bazę danych?
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/22/2007
 ms.topic: article
 ms.assetid: 83792674-f769-4c9a-889b-701cfc52de8b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-run-unit-tests-against-a-deployed-database
 msc.type: video
-ms.openlocfilehash: 6e06046b9d0b70de89628c804c4429ed5c9134e4
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c82222a2ab77e6821af631d90be051cec0ac73cf
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30893525"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374598"
 ---
-<a name="how-do-i-run-unit-tests-against-a-deployed-database"></a>[Jak i.] Uruchom testy jednostkowe dla wdrożonej bazy danych?
+<a name="how-do-i-run-unit-tests-against-a-deployed-database"></a>[Jak mogę] Uruchamianie testów jednostkowych dla wdrożonej bazy danych?
 ====================
-przez [haker Pawła](https://github.com/pjhacker)
+przez [hakerom Paul](https://github.com/pjhacker)
 
-Jeśli aplikacja ASP.NET jest skonfigurowany do wdrażania bazy danych wraz z witryny sieci Web, jak można można sprawdzić wdrożono wystąpienie prawidłową bazę danych? To wideo możemy sposób do uruchamiania testów jednostkowych dla wdrożonej bazy danych, zostanie istnienie wartość, która jest uznany za zgodny w wystąpieniach bazy danych.
+Jeśli Twoja aplikacja ASP.NET jest skonfigurowany do wdrażanie bazy danych wraz z witryny sieci Web, jak można upewnieniu się, czy wystąpienie prawidłową bazą danych został pomyślnie wdrożony? W tym filmie pokazano możemy Dowiedz się, jak uruchamianie testów jednostkowych dla wdrożonej bazy danych potwierdzające istnienie wartości, który jest znany, aby zachować spójność między wystąpieniami bazy danych.
 
-[&#9654;Obejrzyj klip wideo (3 minuty)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-run-unit-tests-against-a-deployed-database)
+[&#9654;Obejrzyj film wideo, (3 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-run-unit-tests-against-a-deployed-database)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-deploy-a-web-application-during-a-team-build.md)

@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-site-navigation-in-aspnet
-title: '[Jak i.] Wdrożenie lokacji nawigacji w programie ASP.NET? | Dokumentacja firmy Microsoft'
+title: '[Jak mogę] Implementowanie nawigacji po witrynie na platformie ASP.NET? | Microsoft Docs'
 author: rick-anderson
-description: To wideo możemy Dowiedz się, jak zdefiniować sitemap i używać go z formantami serwera Menu, TreeView i mapy witryny. Przedstawia sposób użycia sitemap strony wzorcowej...
+description: W tym filmie pokazano możemy Dowiedz się, jak zdefiniować mapy witryny i używać jej z formantami serwera Menu widoku drzewa i mapy witryny. Zobaczymy, jak używać mapy witryny na stronę wzorcową...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/18/2007
 ms.topic: article
 ms.assetid: 889e8100-a80c-41c0-bfeb-7d466c754548
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-site-navigation-in-aspnet
 msc.type: video
-ms.openlocfilehash: 1dc3386d8ba15aadca11cc624938120dd4cc51a6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dd11d5b44e44f56e6268838c918dd12e448cdb19
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572012"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374772"
 ---
-<a name="how-do-i-implement-site-navigation-in-aspnet"></a>[Jak i.] Wdrożenie lokacji nawigacji w programie ASP.NET?
+<a name="how-do-i-implement-site-navigation-in-aspnet"></a>[Jak mogę] Implementowanie nawigacji po witrynie na platformie ASP.NET?
 ====================
-przez [Pels Krzysztof](https://twitter.com/chrispels)
+przez [Chris pikseli](https://twitter.com/chrispels)
 
-To wideo możemy Dowiedz się, jak zdefiniować sitemap i używać go z formantami serwera Menu, TreeView i mapy witryny. Przedstawiono sposób użycia sitemap strony wzorcowej dla całej lokacji menu oraz jak będziemy mieć jeden lub wiele map na stronie. Ponadto są wyświetlane sposobu integracji mapy witryny z ról ASP.NET przy użyciu "Przycinanie zabezpieczeń" dynamicznie Pokaż lub Ukryj opcje menu dla użytkowników mających różne poziomy dostępu.
+W tym filmie pokazano możemy Dowiedz się, jak zdefiniować mapy witryny i używać jej z formantami serwera Menu widoku drzewa i mapy witryny. Zobaczymy, jak używać mapy witryny na stronę wzorcową dla całej lokacji, menu i jak firma Microsoft może mieć jednego lub wielu mapy witryny dla wyszukiwarki na stronie. Ponadto, są wyświetlane jak zintegrować mapy witryny przy użyciu ról ASP.NET za pomocą "dostosowanie do zabezpieczeń" dynamicznie pokazać lub ukryć opcje menu dla użytkowników mających różne poziomy dostępu.
 
-[&#9654; Obejrzyj klip wideo (minuty 29)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-site-navigation-in-aspnet)
+[&#9654;Obejrzyj film wideo (minuty 29)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-site-navigation-in-aspnet)

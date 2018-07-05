@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-35/visual-studio-editor/multi-targeting-support-in-visual-studio-2008
-title: Obsługa wielu elementów docelowych pomocy technicznej w programie Visual Studio 2008 | Dokumentacja firmy Microsoft
+title: Obsługa w programie Visual Studio 2008 Wielowersyjności kodu | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: Zostanie zilustrować MultiTarget funkcji programu Visual Studio 2008. W przeszłości była wybierz wersję programu Visual Studio, aby dopasować docelowe versi .NET...
+description: Czy mogę przedstawiają MultiTarget funkcji programu Visual Studio 2008. W przeszłości trzeba było wybrać wersję programu Visual Studio, aby dopasować docelowych versi .NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2007
 ms.topic: article
 ms.assetid: 297bd67d-10d9-406d-9c6e-9db0bbe35491
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/multi-targeting-support-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: e1e16946761939876ff95bf92e483ca1b43e3a10
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 468fe1b3560d87c274785ac64d0fda74b7afaa1d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30884288"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374892"
 ---
-<a name="multi-targeting-support-in-visual-studio-2008"></a>Obsługa wielu elementów docelowych pomocy technicznej w programie Visual Studio 2008
+<a name="multi-targeting-support-in-visual-studio-2008"></a>Obsługa w programie Visual Studio 2008 Wielowersyjności kodu
 ====================
 przez [Stagner Jan](https://github.com/JoeStagner)
 
-Zostanie zilustrować MultiTarget funkcji programu Visual Studio 2008. W przeszłości trzeba było wybrać wersję programu Visual Studio, aby dopasować docelowej wersji platformy .NET. Na przykład programu Visual Studio 2005 doświadczenie z .NET 2.5. Teraz program Visual Studio 2008, można wybrać wersji platformy .NET odpowiedni dla twojej aplikacji.
+Czy mogę przedstawiają MultiTarget funkcji programu Visual Studio 2008. W przeszłości trzeba było wybrać wersję programu Visual Studio, aby dopasować wersji docelowej platformy .NET. Na przykład programu Visual Studio 2005 pracował przy użyciu platformy .NET 2.5. Teraz za pomocą programu Visual Studio 2008, można wybrać wersji programu .NET, które są odpowiednie dla twojej aplikacji.
 
-[&#9654;Obejrzyj klip wideo (5 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/multi-targeting-support-in-visual-studio-2008)
+[&#9654;Obejrzyj film wideo (5 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/multi-targeting-support-in-visual-studio-2008)
 
 > [!div class="step-by-step"]
 > [Poprzednie](javascript-debugging-in-visual-studio-2008.md)

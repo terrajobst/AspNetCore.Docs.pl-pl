@@ -1,71 +1,70 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/data-bound-controls
-title: Kontrolki powiązane dane | Dokumentacja firmy Microsoft
+title: Kontrolki powiązania danych | Dokumentacja firmy Microsoft
 author: microsoft
-description: Większość aplikacji ASP.NET polegają na pewien stopień prezentację danych ze źródła danych zaplecza. Formanty powiązane z danymi zostały istotną częścią wchodzącymi w interakcje w...
+description: Większość aplikacji ASP.NET, zależy od pewien stopień prezentację danych ze źródła danych zaplecza. Formanty powiązane z danymi zostały pivotal część w interakcje...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
 ms.topic: article
 ms.assetid: 0e23ff32-646d-43f3-8bec-6b2313d3abd6
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-bound-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 5c3f6aad4b87450149189352e86106f46c765fb8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: adaf8a40c1877db4181e1b1c7a74a2ecbaa373ad
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30892000"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368262"
 ---
-<a name="data-bound-controls"></a>Kontrolki powiązane dane
+<a name="data-bound-controls"></a>Kontrolki powiązania danych
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-> Większość aplikacji ASP.NET polegają na pewien stopień prezentację danych ze źródła danych zaplecza. Formanty powiązane z danymi zostały istotną częścią interakcji z danymi w dynamicznych aplikacji sieci Web. Platforma ASP.NET 2.0 wprowadzono niektóre istotne ulepszenia formantów powiązanych z danymi, w tym nową klasę BaseDataBoundControl i składni deklaratywnej.
+> Większość aplikacji ASP.NET, zależy od pewien stopień prezentację danych ze źródła danych zaplecza. Formanty powiązane z danymi zostały pivotal część interakcji z danymi w dynamicznych aplikacji sieci Web. Program ASP.NET 2.0 wprowadzono znaczne ulepszenia do formantów powiązanych z danymi, w tym nową klasę BaseDataBoundControl i składni deklaratywnej.
 
 
-Większość aplikacji ASP.NET polegają na pewien stopień prezentację danych ze źródła danych zaplecza. Formanty powiązane z danymi zostały istotną częścią interakcji z danymi w dynamicznych aplikacji sieci Web. Platforma ASP.NET 2.0 wprowadzono niektóre istotne ulepszenia formantów powiązanych z danymi, w tym nową klasę BaseDataBoundControl i składni deklaratywnej.
+Większość aplikacji ASP.NET, zależy od pewien stopień prezentację danych ze źródła danych zaplecza. Formanty powiązane z danymi zostały pivotal część interakcji z danymi w dynamicznych aplikacji sieci Web. Program ASP.NET 2.0 wprowadzono znaczne ulepszenia do formantów powiązanych z danymi, w tym nową klasę BaseDataBoundControl i składni deklaratywnej.
 
-BaseDataBoundControl działa jako klasę podstawową dla obiekt DataBoundControl klasa i klasy element HierarchicalDataBoundControl. W tym module omówimy następujące klasy, które pochodzą z DataBoundControl:
+BaseDataBoundControl działa jako klasę bazową dla klasy DataBoundControl i klasy HierarchicalDataBoundControl. W tym module omówimy następujące klasy, które wynikają z DataBoundControl:
 
 - AdRotator
-- Formanty listy
+- Kontrolki listy
 - GridView
 - FormView
-- Widoku DetailsView
+- DetailsView
 
-Również omówimy następujące klasy, które pochodzi z klasy element HierarchicalDataBoundControl:
+Omówimy również następujące klasy, które pochodzą z klasy HierarchicalDataBoundControl:
 
 - TreeView
 - Menu
 - SiteMapPath
 
-## <a name="databoundcontrol-class"></a>Obiekt DataBoundControl — klasa
+## <a name="databoundcontrol-class"></a>Klasa DataBoundControl
 
-Klasa DataBoundControl jest klasą abstrakcyjną (oznaczony MustInherit w języku VB) służy do interakcji z tabelarycznym lub dane styl listy. Następujące sterowniki są niektóre formanty, które pochodzą z DataBoundControl.
+Klasa DataBoundControl jest klasą abstrakcyjną (oznaczonych MustInherit w języku Visual Basic) używane do interakcji z tabelarycznych lub danych styl listy. Następujące elementy sterujące są niektóre formanty, które wynikają z DataBoundControl.
 
 ## <a name="adrotator"></a>AdRotator
 
-Sterowanie AdRotator umożliwia wyświetlanie transparentu grafiki na stronie sieci Web, która jest połączona z określonym adresem URL. Grafika, która jest wyświetlana jest obracana przy użyciu właściwości formantu. Można skonfigurować częstotliwość wyświetlania ad określonej na stronie, używając **wrażenia** właściwości i reklam można filtrować przy użyciu słowa kluczowego filtrowania.
+Sterowanie AdRotator umożliwia wyświetlanie transparentu grafiki na stronie sieci Web, która jest połączona z określonych adresów URL. Obraca się grafiki, która jest wyświetlana przy użyciu właściwości formantu. Częstotliwość wyświetlania ad określonego na stronie można skonfigurować za pomocą **wyświetleń** właściwości i pokazywania reklam można filtrować przy użyciu słowa kluczowego filtrowania.
 
-AdRotator formantów za pomocą pliku XML lub tabeli w bazie danych. Następujące atrybuty są używane w plikach XML do konfigurowania kontroli AdRotator.
+Formanty AdRotator na użytek pliku XML lub tabeli w bazie danych. Następujące atrybuty są używane w plikach XML do konfigurowania kontroli AdRotator.
 
 ### <a name="imageurl"></a>ImageUrl
-Adres URL obrazu do wyświetlenia dla usługi ad.
+Adres URL obrazu do wyświetlenia dla usług ad.
 
 ### <a name="navigateurl"></a>NavigateUrl
-Adres URL, który użytkownik należy podjąć w celu po kliknięciu ad. Powinno to być zakodowane w adresie URL.
+Adres URL, który użytkownik należy podjąć w celu po kliknięciu ad. Powinna to być zakodowane w adresie URL.
 
 ### <a name="alternatetext"></a>AlternateText
-Tekst alternatywny wyświetlany w etykietce narzędzia i odczytywane przez czytników ekranu. Również wyświetlana, gdy nie jest określony przez ImageUrl obrazu.
+Alternatywny tekst, który jest wyświetlany w etykietce narzędzia i odczytany przez czytniki zawartości ekranu. Wyświetla się również, gdy obraz określony przez ImageUrl nie jest dostępna.
 
-### <a name="keyword"></a>Keyword
-Definiuje — słowo kluczowe, które mogą być używane podczas filtrowania — słowo kluczowe. Jeśli jest określony, będą wyświetlane tylko reklam ze słowem kluczowym zgodny z filtrem — słowo kluczowe.
+### <a name="keyword"></a>Słowo kluczowe
+Definiuje słowo kluczowe, które mogą być używane podczas filtrowania — słowo kluczowe. Jeśli zostanie określony, będą wyświetlane tylko reklam ze słowem kluczowym zgodnych z filtrem — słowo kluczowe.
 
-### <a name="impressions"></a>Odciski
-Liczba wagi, która określa, jak często określonego ad prawdopodobnie są wyświetlane. Jest względną wrażenie innych reklam, w tym samym pliku. Wartość maksymalna zbiorowe odcisków dla wszystkich ogłoszeń w pliku XML jest 2,048,000,000 1.
+### <a name="impressions"></a>Wyświetleń
+Liczba wagi, która określa, jak często określonego ad prawdopodobnie są wyświetlane. Jest ona określana względem wrażenie innych reklam, w tym samym pliku. Maksymalna wartość zbiorowe wrażenia dla wszystkich ogłoszeń w pliku XML jest 2,048,000,000 1.
 
 ### <a name="height"></a>Wysokość
 Wysokość ad w pikselach.
@@ -75,533 +74,533 @@ Szerokość ad w pikselach.
 
 
 > [!NOTE]
-> Atrybuty wysokości i szerokości przesłonić wysokość i szerokość dla AdRotator formancie.
+> Atrybuty wysokość i szerokość przesłonić wysokość i szerokość dla samej kontrolce AdRotator.
 
 
-Typowy pliku XML może wyglądać następująco:
+Typowy plik XML może wyglądać następująco:
 
 [!code-xml[Main](data-bound-controls/samples/sample1.xml)]
 
-W powyższym przykładzie ad "contoso" prawdopodobnie dwukrotnie jako są wyświetlane jako ad dla witryny sieci Web platformy ASP.NET z powodu wartość atrybutu wrażenia.
+W powyższym przykładzie ad "contoso" prawdopodobnie dwukrotnie jak są traktowane jako ad dla witryny sieci Web ASP.NET z powodu wartość atrybutu wyświetleń.
 
-Aby wyświetlić reklam z tego pliku XML, Dodaj formant AdRotator do strony i ustaw **AdvertisementFile** właściwości, aby wskazywał na plik XML, jak pokazano poniżej:
+Aby wyświetlić reklam z pliku XML powyżej, Dodaj do strony formant AdRotator i ustaw **AdvertisementFile** właściwości, aby wskazać plik XML, jak pokazano poniżej:
 
 [!code-aspx[Main](data-bound-controls/samples/sample2.aspx)]
 
-Jeśli chcesz użyć tabeli bazy danych jako źródło danych dla formantu AdRotator, należy najpierw konfigurowania bazy danych przy użyciu następującego schematu:
+Jeśli zdecydujesz się użyć tabeli bazy danych jako źródła danych dla kontrolki AdRotator, należy najpierw skonfigurować bazę danych przy użyciu następującego schematu:
 
 | **Nazwa kolumny** | **Typ danych** | **Opis** |
 | --- | --- | --- |
 | ID | int | Klucz podstawowy. W tej kolumnie mogą mieć dowolną nazwę. |
-| ImageUrl | nvarchar (*długość*) | Względny lub bezwzględny adres URL obrazu do wyświetlenia dla usługi ad. |
-| NavigateUrl | nvarchar (*długość*) | Docelowy adres URL dla usługi ad. Jeśli wartość nie zostanie określona, usługi ad nie jest hiperłącze. |
-| AlternateText | nvarchar (*długość*) | Tekst wyświetlany, jeśli nie można odnaleźć obrazu. W niektórych przeglądarkach tekst jest wyświetlany jako etykietka narzędzia. Tekst alternatywny służy także do ułatwień dostępu, aby użytkownicy, którzy nie widzi grafiki słyszalny opis Czytaj na głos. |
-| Keyword | nvarchar (*długość*) | Kategoria usług AD, w którym można filtrować strony. |
-| Odciski | int(4) | Liczba, która określa prawdopodobieństwo częstotliwość ad jest wyświetlany. Im większa liczba, częściej ad będzie wyświetlany. Sumę wszystkich wartości wrażenia w pliku XML nie może przekraczać 2,048,000,000-1. |
+| ImageUrl | nvarchar (*długość*) | Względny lub bezwzględny adres URL obrazu do wyświetlenia dla usług ad. |
+| NavigateUrl | nvarchar (*długość*) | Docelowy adres URL dla usług ad. Jeśli wartość nie zostanie określona, ad nie jest hiperłącze. |
+| AlternateText | nvarchar (*długość*) | Tekst wyświetlany, jeśli nie można odnaleźć obrazu. W niektórych przeglądarkach tekst jest wyświetlany jako etykietka narzędzia. Tekst alternatywny służy także do ułatwień dostępu, aby użytkownicy, którzy nie są widoczne grafiki słyszalny jego opis, Czytaj na głos. |
+| Słowo kluczowe | nvarchar (*długość*) | Kategoria dla usługi ad, w którym można filtrować strony. |
+| Wyświetleń | int(4) | Liczba, która określa prawdopodobieństwo częstotliwość ad jest wyświetlana. Im większa liczba im częściej ad będzie wyświetlany. Suma wszystkich wartości wyświetleń pliku XML nie może przekraczać 2,048,000,000-1. |
 | Szerokość | int(4) | Szerokość obrazu w pikselach. |
 | Wysokość | int(4) | Wysokość obrazu w pikselach. |
 
-W przypadkach, gdy masz już bazę danych z innym schematem, można użyć **AlternateTextField**, **ImageUrlField**, i **NavigateUrlField** właściwości do mapowania AdRotator atrybuty do istniejącej bazy danych. Aby wyświetlić dane z bazy danych w formancie AdRotator, dodać formantu źródła danych do strony, skonfigurować parametry połączenia dla formantu źródła danych wskazywał bazy danych i ustawianie formantu AdRotator **DataSourceID** Właściwość ID formantu źródła danych. W przypadkach, gdy istnieje potrzeba programowe Konfigurowanie AdRotator reklam przy użyciu zdarzenia AdCreated. Zdarzenie AdCreated przyjmuje dwa parametry; jeden obiekt, a inne wystąpienia AdCreatedEventArgs. AdCreatedEventArgs jest odwołanie do usługi ad, która jest tworzona.
+W przypadkach, gdy masz już bazę danych z innym schematem, można użyć **AlternateTextField**, **ImageUrlField**, i **NavigateUrlField** właściwości do mapowania Funkce AdRotator atrybuty do istniejącej bazy danych. Aby wyświetlić dane z bazy danych w formancie AdRotator, na stronie Dodaj kontrolę źródła danych, skonfigurować parametry połączenia do kontroli źródła danych wskazywał bazy danych i ustawić kontrolkę AdRotator **DataSourceID** Właściwość Identyfikator formantu źródła danych. W przypadkach, gdy istnieje potrzeba programowe Konfigurowanie AdRotator reklam przy użyciu zdarzenia AdCreated. Zdarzenie AdCreated przyjmuje dwa parametry; jeden obiekt, a inne wystąpienia AdCreatedEventArgs. AdCreatedEventArgs jest odwołanie do usługi ad, która jest tworzona.
 
-Poniższy fragment kodu ustawia ImageUrl, NavigateUrl i AlternateText ad programowo:
+Poniższy fragment kodu ustawia ImageUrl NavigateUrl i AlternateText dla usługi ad programowe:
 
 [!code-csharp[Main](data-bound-controls/samples/sample3.cs)]
 
-## <a name="list-controls"></a>Formanty listy
+## <a name="list-controls"></a>Kontrolki listy
 
-Formanty listy obejmują ListBox, DropDownList, CheckBoxList, RadioButtonList i listy BulletedList. Każdy z tych kontrolek może być danymi powiązanymi ze źródłem danych. Użyj jedno pole w źródle danych jako tekst wyświetlany, a drugie pole Opcjonalnie można użyć jako wartości elementu. Elementy można również dodać statycznie w czasie projektowania i można łączyć elementów statycznych i dynamicznych elementów dodanych ze źródła danych.
+Kontrolki listy zawierają pola listy, DropDownList, CheckBoxList, RadioButtonList i BulletedList. Każda z tych kontrolek można dane powiązane ze źródłem danych. Użyj jedno pole w źródle danych tekstem, a opcjonalnie można użyć drugiego pola jako wartość elementu. Elementy mogą być również dodawane statycznie w czasie projektowania, a można łączyć elementy statyczne i dynamiczne elementy dodane źródła danych.
 
-Dane bind formant listy, na stronie Dodaj formant źródła danych. Określ polecenie SELECT do kontroli źródła danych, a następnie ustaw właściwości DataSourceID kontrolki listy identyfikator formantu źródła danych. Użyj **DataTextField** i **DataValueField** właściwości, aby zdefiniować wyświetlany tekst i wartość dla formantu. Ponadto można użyć **DataTextFormatString** właściwości, aby sterować wyglądem wyświetlania tekstu w następujący sposób:
+Dane powiązać kontrolkę listy, na stronie Dodaj kontrolę źródła danych. Określ polecenie SELECT do kontroli źródła danych, a następnie ustaw właściwość DataSourceID formantu listy identyfikator formantu źródła danych. Użyj **DataTextField** i **DataValueField** właściwości, aby określić tekst wyświetlany i wartość dla formantu. Ponadto można użyć **DataTextFormatString** właściwość, aby sterować wyglądem wyświetlania tekstu w następujący sposób:
 
-| **Expression** | **Opis** |
+| **Wyrażenie** | **Opis** |
 | --- | --- |
-| Cena: {0: c} | Aby uzyskać dane liczbowe/dziesiętnych. Wyświetla literału "Cena:" następuje liczb w formacie waluty. Formacie waluty zależy od ustawienia kultury określonej w atrybucie kultury na **strony** dyrektywy lub w pliku Web.config. |
-| {0:D4} | Dla danych liczb całkowitych. Nie można używać z liczb dziesiętnych. Liczby całkowite są wyświetlane w dopełniane zero pola, które jest cztery znaki dwubajtowe. |
-| {0:N2}% | Aby uzyskać dane liczbowe. Wyświetla liczbę o 2 dziesiętnego dokładności następuje literał "%". |
-| {0:000.0} | Aby uzyskać dane liczbowe/dziesiętnych. Numery są zaokrąglane do jednego miejsca dziesiętnego. Liczby mniejsze niż trzech cyfr. dopełniane zero. |
-| {0:D} | Dla danych daty/godziny. Format daty długiej Wyświetla ("czwartek 06 sierpnia 1996"). Format daty zależy od ustawienia kulturowe strony lub pliku Web.config. |
-| {0:d} | Dla danych daty/godziny. Data krótka Wyświetla formatu ("12/31/99"). |
-| {0:yy-MM-dd} | Dla danych daty/godziny. Wyświetla datę w formacie liczbowym rok, miesiąc, dzień (96-08-06) |
+| Cena: {0:C} | Aby uzyskać dane liczbowe/dziesiętnych. Wyświetla literału "Cena:" następują cyfry w formacie waluty. Format waluty zależy od ustawień kultury określonej w atrybucie kultury na **strony** dyrektywy lub w pliku Web.config. |
+| {0:D4} | Dla danych liczb całkowitych. Nie można używać z liczb dziesiętnych. Liczby całkowite są wyświetlane w polu o zerowej, która jest cztery znaki dwubajtowe. |
+| {0:N2}% | Aby uzyskać dane liczbowe. Wyświetla liczbę, stosując miejsce dziesiętne 2 dokładności następuje literału "%". |
+| {0:000.0} | Aby uzyskać dane liczbowe/dziesiętnych. Liczby są zaokrąglane do jednego miejsca dziesiętnego. Liczby od mniej niż trzy cyfry są wypełniane przez zera. |
+| {0:D} | Aby uzyskać dane daty/godziny. Wyświetla format daty długiej ("czwartek, 06 sierpnia 1996"). Format daty, zależy od ustawienia kulturowe strony lub pliku Web.config. |
+| {0:d} | Aby uzyskać dane daty/godziny. Wyświetla daty krótkiej formatu ("12/31/99"). |
+| {0:yy-MM-dd} | Aby uzyskać dane daty/godziny. Wyświetla datę w formacie liczbowym rok, miesiąc, dzień (96-08-06) |
 
 ## <a name="gridview"></a>GridView
 
-Formant widoku GridView umożliwia wyświetlanie danych tabelarycznych i edytowanie za pomocą metody deklaratywne i zastępuje formantu DataGrid. Następujące funkcje są dostępne w kontrolce GridView.
+W kontrolce GridView umożliwia dane tabelaryczne wyświetlania i edytowania, przy użyciu podejścia deklaratywnego i jest następcą programu Formant DataGrid. Następujące funkcje są dostępne w kontrolce GridView.
 
 - Powiązanie z danymi kontroli źródła, takich jak SqlDataSource.
 - Wbudowane funkcje sortowania.
-- Wbudowane aktualizowania i usuwania możliwości.
-- Wbudowane funkcje stronicowania.
-- Możliwości wyboru wbudowanych wiersza.
-- Programowy dostęp do modelu obiektu GridView dynamicznie ustawiania właściwości, obsługi zdarzeń i tak dalej.
-- Używanie wielu pól kluczy.
-- Wiele pól danych dla kolumny hiperłącza.
+- Wbudowane aktualizowanie i usuwanie możliwości.
+- Wbudowane możliwości stronicowania.
+- Wiersz wbudowanej możliwości wyboru.
+- Dostęp programowy do modelu obiektu GridView, aby dynamicznie ustawić właściwości, obsługa zdarzeń i tak dalej.
+- Wiele pól kluczy.
+- Wiele pól danych w kolumnach hiperłącze.
 - Można dostosować wygląd za pośrednictwem kompozycje i style.
 
 **Pola kolumn**
 
-Każdej kolumny w widoku GridView kontrolki jest reprezentowana przez obiekt DataControlField. Domyślnie ma ustawioną właściwość AutoGenerateColumns miała właściwości **true**, która tworzy obiekt AutoGeneratedField dla każdego pola w źródle danych. Każde pole jest następnie renderowane jako kolumny w widoku GridView formantu w kolejności, w wyświetlonym każde pole w źródle danych. Można również ręcznie kontrolować kolumny, które pola są wyświetlane w **widoku GridView** kontroli przez ustawienie **właściwość AutoGenerateColumns miała** właściwości **false** , a następnie własne Kolekcja pola kolumny. Typy pól innej kolumny określają zachowanie kolumn w formancie.
+Każda kolumna w kontrolce GridView jest reprezentowany przez obiekt DataControlField. Domyślnie ustawiono właściwość właściwość AutoGenerateColumns miała **true**, która tworzy obiekt AutoGeneratedField dla każdego pola w źródle danych. Każde pole jest następnie renderowany jako kolumny w kontrolce GridView w kolejności każde pole pojawia się w źródle danych. Można też ręcznie kontrolować kolumny, które pola są wyświetlane w **GridView** kontroli przez ustawienie **właściwość AutoGenerateColumns miała** właściwości **false** , a następnie własne Kolekcja pól kolumn. Typy pól innej kolumny określają zachowanie kolumn w formancie.
 
-W poniższej tabeli wymieniono typy pól innej kolumny, które mogą być używane.
+W poniższej tabeli wymieniono typy pól innej kolumny, których można użyć.
 
 | **Typ pola kolumn** | **Opis** |
 | --- | --- |
-| Pole BoundField | Wyświetla wartość pola w źródle danych. Jest to domyślny typ kolumny formantu widoku GridView. |
-| ButtonField | Przedstawia przycisk polecenia dla każdego elementu w kontrolce GridView. Dzięki temu można utworzyć kolumny formantów przycisk niestandardowe, takie jak dodawanie lub przycisk Usuń. |
-| Pole CheckBoxField | Wyświetla pole wyboru dla każdego elementu w kontrolce GridView. Ten typ pola kolumny często jest używany do wyświetlania pola z wartością logiczną. |
-| CommandField | Wyświetla wstępnie zdefiniowane przyciski poleceń do wykonania, wybierając, edytowanie lub usuwanie operacji. |
-| Pole hiperłącza HyperLinkField | Wyświetla wartość pola w źródle danych jako hiperłącze. Ten typ pola kolumny umożliwia tworzenie powiązań drugie pole do adresu URL hiperłącza. |
+| Elementu BoundField | Wyświetla wartość pola w źródle danych. Jest to domyślny typ kolumny kontrolki GridView. |
+| ButtonField | Wyświetla przycisk polecenia dla każdego elementu w kontrolce GridView. Dzięki temu można utworzyć kolumnę formanty przycisków niestandardowych, takich jak dodawanie lub przycisk Usuń. |
+| CheckBoxField | Wyświetla pole wyboru dla każdego elementu w kontrolce GridView. Ten typ pola kolumny najczęściej jest używana do wyświetlania pól z wartością logiczną. |
+| CommandField | Zawiera wstępnie zdefiniowane przycisków poleceń do wykonania, wybierając, edytowanie lub usuwanie operacji. |
+| Pole hiperłącza HyperLinkField | Wyświetla wartość pola w źródle danych jako hiperłącze. Ten typ pola kolumny pozwala powiązać drugie pole adresu URL hiperłącza. |
 | ImageField | Wyświetla obraz dla każdego elementu w kontrolce GridView. |
-| Pole TemplateField | Wyświetla zawartość zdefiniowane przez użytkownika dla każdego elementu w kontrolce GridView zgodnie z określonego szablonu. Ten typ pola kolumny służy do tworzenia pole niestandardowe kolumny. |
+| TemplateField | Wyświetla zawartość zdefiniowanych przez użytkownika dla każdego elementu w kontrolce GridView, zgodnie z określonym szablonem. Ten typ pola kolumny umożliwia tworzenie pola kolumny niestandardowej. |
 
-Aby zdefiniować deklaratywnie kolekcji pól kolumn, najpierw dodać otwierające i zamykające **&lt;kolumn&gt;** tagi pomiędzy otwierającym, a zamykającym tagiem kontrolki widoku siatki. Następnie na liście pól kolumn, które chcesz uwzględnić między otwarcia i zamknięcia **&lt;kolumn&gt;** tagów. Kolumny określone są dodawane do kolekcji kolumn w podanej kolejności. **Kolumn** kolekcji przechowywane są wszystkie kolumny pola w formancie i można programowo zarządzać pola kolumn w kontrolce GridView.
+Aby zdefiniować sposób deklaratywny kolekcji pól kolumn, najpierw dodać otwierające i zamykające **&lt;kolumn&gt;** tagi między otwierającym i zamykającym tagiem kontrolki GridView. Następnie na liście pól kolumn, które chcesz uwzględnić między otwierającym i zamykającym **&lt;kolumn&gt;** tagów. Kolumny określone są dodawane do kolekcji kolumny w podanej kolejności. **Kolumn** kolekcja przechowuje wszystkie kolumny pola w kontrolce i umożliwia programistyczne Zarządzanie pola kolumn w kontrolce GridView.
 
-Pola jawnie zadeklarowana kolumn mogą być wyświetlane w połączeniu z kolumny automatycznie wygenerowanego pola. Gdy są używane, jawnie zadeklarowane kolumny pola mają być renderowane najpierw następuje pola automatycznie generowanych kolumn.
+W połączeniu z pola kolumn automatycznie generowanych, mogą być wyświetlane pola kolumn zadeklarowany w sposób jawny. Gdy używane są obie, zadeklarowany w sposób jawny kolumny są renderowane pola najpierw następuje pola kolumn automatycznie generowanych.
 
 ## <a name="binding-to-data"></a>Wiązanie z danymi
 
-Kontrolki widoku siatki może być powiązana z kontrolą źródła danych (takich jak **SqlDataSource**, **ObjectDataSource**i tak dalej), oraz jak dowolnego źródła danych, który implementuje System.Collections.IEnumerable Interfejs (na przykład System.Data.DataView, System.Collections.ArrayList lub System.Collections.Hashtable). Do wiązania kontrolki GridView typowi źródła danych, użyj jednej z następujących metod:
+Kontrolki GridView może być powiązana z kontroli źródła danych (takich jak **SqlDataSource**, **ObjectDataSource**i tak dalej), jak również wszelkie źródła danych, który implementuje System.Collections.IEnumerable Interfejs (na przykład System.Data.DataView System.Collections.ArrayList lub System.Collections.Hashtable). Do wiązania kontrolki GridView typ źródła danych, użyj jednej z następujących metod:
 
-- Aby powiązać z kontroli źródła danych, ustawioną właściwość DataSourceID formantu widoku GridView wartości Identyfikatora formantu źródła danych. Kontrolki widoku siatki wiąże określone dane kontroli źródła i automatycznie korzystać ze źródła danych funkcje formantu, aby wykonać sortowania, aktualizowanie, usuwanie i funkcje stronicowania. Jest to preferowana metoda można powiązać z danymi.
-- Aby powiązać ze źródłem danych, który implementuje interfejs System.Collections.IEnumerable, programowo ustaw właściwość formantu widoku GridView ze źródłem danych, a następnie wywołaj metodę DataBind. Przy użyciu tej metody, kontrolki widoku siatki nie zawiera wbudowane sortowanie, aktualizowanie, usuwanie i stronicowania funkcji. Należy podać tę funkcję, samodzielnie.
+- Aby powiązać formant źródła danych, ustaw właściwość DataSourceID kontrolki GridView wartości Identyfikatora do kontroli źródła danych. W kontrolce GridView wiąże określone dane do kontroli źródła i automatycznie korzystać z zalet źródła danych kontrolki możliwości sortowania, aktualizowanie, usuwanie i funkcje stronicowania. Jest to preferowana metoda można powiązać z danymi.
+- Aby powiązać ze źródłem danych, który implementuje interfejs System.Collections.IEnumerable, programowo ustawić właściwości DataSource kontrolki GridView ze źródłem danych, a następnie wywołać metodę powiązań danych. Przy użyciu tej metody, w kontrolce GridView nie zapewnia wbudowanego sortowanie, aktualizowanie, usuwanie i stronicowanie funkcji. Musisz podać tę funkcję samodzielnie.
 
 ## <a name="data-operations"></a>Operacje na danych
 
-Kontrolki widoku siatki udostępnia wiele wbudowanych możliwości, które umożliwiają użytkownikom sortowania, aktualizacji, usuwania, wybierz i przeglądania elementów w formancie. Gdy formant widoku GridView jest powiązana z kontroli źródła danych, kontrolki widoku siatki można wykorzystać źródła danych funkcje formantu i zapewnić automatyczne sortowanie, aktualizowanie i usuwanie funkcji.
+W kontrolce GridView udostępnia wiele wbudowanych możliwości, które umożliwiają użytkownikowi sortowania, aktualizowanie, usuwanie, wybierz i strony za pomocą elementów w formancie. Po powiązaniu formantu GridView do kontroli źródła danych, kontrolki GridView można korzystać z zalet źródła danych funkcje formantu i zapewnia automatyczne sortowanie, aktualizowanie i usuwanie funkcji.
 
 > [!NOTE]
-> Kontrolki widoku siatki można zapewnić obsługę sortowania, aktualizowanie i usuwanie z innych typów źródeł danych; jednak należy zapewnić program obsługi zdarzeń odpowiedniej implementacji dla tych operacji.
+> W kontrolce GridView można zapewnić obsługę sortowania, aktualizowanie i usuwanie przy użyciu innych typów źródeł danych; należy jednak zapewnić program obsługi zdarzeń odpowiedniej implementacji dla tych operacji.
 
 
-Sortowanie pozwala użytkownikowi do sortowania elementów w kontrolce GridView w odniesieniu do określonej kolumny przez kliknięcie nagłówka kolumny. Aby włączyć sortowanie, ustaw właściwość AllowSorting **true**.
+Sortowanie umożliwia użytkownikowi sortowanie elementów w kontrolce GridView w odniesieniu do określonej kolumny, klikając nagłówek kolumny. Aby włączyć sortowanie, ustaw właściwość AllowSorting na **true**.
 
-Funkcje automatyczne aktualizowanie, usuwanie i zaznaczenia jest włączone, gdy przycisk w **ButtonField** lub **TemplateField** pole kolumny o nazwie polecenia "Edytuj", "Delete" i "Wybierz" odpowiednio zostanie kliknięty. Kontrolki widoku siatki można automatycznie dodać **CommandField** kolumny pola edycji, usuwania lub przycisk wyboru, jeśli właściwość AutoGenerateEditButton, AutoGenerateDeleteButton lub AutoGenerateSelectButton jest ustawiona na **true**odpowiednio.
+Funkcje automatyczne aktualizowanie, usuwanie i wybór są włączone, gdy przycisk w **ButtonField** lub **TemplateField** pole kolumny o nazwie polecenie "Edytuj", "Delete" i "Wybierz" odpowiednio kliknięciu. W kontrolce GridView może automatycznie dodać **CommandField** pole kolumny z Edytuj, usuń lub wybierz przycisk, jeśli ustawiono właściwość AutoGenerateEditButton, AutoGenerateDeleteButton lub AutoGenerateSelectButton **true**odpowiednio.
 
 > [!NOTE]
-> Wstawianie rekordów do źródła danych nie jest bezpośrednio obsługiwana przez formant widoku GridView. Jednak jest możliwe do wstawiania rekordów za pomocą kontrolki widoku siatki w połączeniu z widoku DetailsView lub formant FormView.
+> Wstawianie rekordów do źródła danych nie są bezpośrednio obsługiwane przez kontrolki GridView. Jednak jest możliwe wstawianie rekordów przy użyciu kontrolki GridView w połączeniu z DetailsView lub FormView kontroli.
 
 
-Zamiast wyświetlanie wszystkie rekordy w źródle danych, w tym samym czasie, kontrolki widoku siatki można automatycznie podzielić rekordy na strony. Aby włączyć stronicowanie, ustaw właściwość właściwość AllowPaging **true**.
+Zamiast wyświetlania wszystkich rekordów w źródle danych, w tym samym czasie, kontrolki GridView automatycznie rozbić rekordy na stronach. Aby włączyć stronicowania, ustaw właściwość właściwość AllowPaging na **true**.
 
 ## <a name="customizing-the-user-interface"></a>Personalizowanie interfejsu użytkownika
 
-Można dostosować wygląd formantu widoku GridView przez ustawienie właściwości stylu dla różnych części kontrolki. W poniższej tabeli wymieniono właściwości inny styl.
+Przez ustawienie właściwości stylu dla różnych części kontrolki, można dostosować wygląd kontrolki GridView. W poniższej tabeli wymieniono właściwości innego stylu.
 
 | **Właściwości stylu** | **Opis** |
 | --- | --- |
-| AlternatingRowStyle | Ustawienia stylu dla przemiennych wierszy danych w kontrolce GridView. Gdy ta właściwość jest ustawiona, wiersze danych są wyświetlane przemian ustawienia RowStyle i **AlternatingRowStyle** ustawienia. |
-| EditRowStyle | Ustawienia stylu dla wiersza edytowanej w kontrolce GridView. |
-| EmptyDataRowStyle | Ustawienia stylu dla pustym wierszu danych wyświetlanych w formancie GridView, gdy źródło danych nie zawiera żadnych rekordów. |
-| FooterStyle | Ustawienia stylu dla wierszy stopkę formantu widoku GridView. |
-| HeaderStyle | Ustawienia stylu dla formantu widoku GridView wiersz nagłówka. |
-| PagerStyle | Ustawienia stylu dla wierszy pagera formantu widoku GridView. |
-| RowStyle | Ustawienia stylu dla wierszy danych w kontrolce GridView. Gdy **AlternatingRowStyle** właściwość również jest ustawiona, wiersze danych są wyświetlane przemian **RowStyle** ustawienia i **AlternatingRowStyle** ustawienia. |
+| AlternatingRowStyle | Ustawienia stylu przemiennych wierszy danych w kontrolce GridView. Gdy ta właściwość jest ustawiona, wiersze danych są wyświetlane przemian ustawienia RowStyle i **AlternatingRowStyle** ustawienia. |
+| EditRowStyle | Ustawienia stylu dla wierszy edytowany w kontrolce GridView. |
+| EmptyDataRowStyle | Ustawienia stylu dla wiersza danych puste, wyświetlany w kontrolce GridView, gdy źródło danych nie zawiera żadnych rekordów. |
+| FooterStyle | Ustawienia stylu dla wierszy stopce kontrolki GridView. |
+| HeaderStyle | Ustawienia stylu dla wiersza nagłówka w kontrolce GridView. |
+| PagerStyle | Ustawienia stylu dla wiersza pagera w kontrolce GridView. |
+| RowStyle | Ustawienia stylu dla wierszy danych w kontrolce GridView. Gdy **AlternatingRowStyle** właściwość jest również ustawiona, wiersze danych są wyświetlane na przemian **RowStyle** ustawienia i **AlternatingRowStyle** ustawienia. |
 | SelectedRowStyle | Ustawienia stylu dla wybranego wiersza w kontrolce GridView. |
 
-Możesz również wyświetlić lub ukryć różnych części kontrolki. W poniższej tabeli wymieniono właściwości, które kontrolują, które fragmenty są pokazywane lub ukryte.
+Możesz pokazać lub ukryć różnych części kontrolki. W poniższej tabeli wymieniono właściwości, które kontrolują, części, które zostaną pokazane lub ukryte.
 
-| **Właściwość** | **Opis** |
+| **Property** | **Opis** |
 | --- | --- |
-| ShowFooter | Pokazuje lub ukrywa stopce kontrolki widoku siatki. |
-| ShowHeader | Pokazuje lub ukrywa sekcji nagłówka kontrolki widoku siatki. |
+| ShowFooter | Pokazuje lub ukrywa stopce kontrolki GridView. |
+| ShowHeader | Pokazuje lub ukrywa sekcji nagłówka w kontrolce GridView. |
 
 ### <a name="events"></a>Zdarzenia
 
-Kontrolki widoku siatki udostępnia kilka zdarzeń, które można zaprogramować przed. Pozwala na uruchamianie procedury niestandardowe, przy każdym wystąpieniu zdarzenia. W poniższej tabeli wymieniono zdarzenia obsługiwane przez formant widoku GridView.
+Formant widoku GridView zapewnia kilka zdarzeń, które można programować względem. Dzięki temu można uruchomić procedury niestandardowe zawsze wtedy, gdy wystąpi zdarzenie. W poniższej tabeli wymieniono zdarzenia obsługiwane przez kontrolki GridView.
 
-| **Zdarzenia** | **Opis** |
+| **Event** | **Opis** |
 | --- | --- |
-| PageIndexChanged | Występuje, gdy jeden z przycisków modułu stronicowania zostanie kliknięty, ale po kontrolki widoku siatki obsługuje stronicowanie. To zdarzenie to powszechnie używane, gdy trzeba wykonać zadanie po użytkownik przechodzi do innej strony w formancie. |
-| PageIndexChanging | Występuje, gdy jeden z przycisków modułu stronicowania zostanie kliknięty, ale przed widoku GridView formantu obsługuje stronicowanie. To zdarzenie jest często używane do anulowania operacji stronicowania. |
-| RowCancelingEdit | Występuje po kliknięciu przycisku Anuluj wiersza, ale przed kontrolki widoku siatki zamyka tryb edycji. To zdarzenie jest często używane, aby zatrzymać operację anulowania. |
-| RowCommand | Występuje, gdy przycisk zostanie kliknięty w kontrolce GridView. To zdarzenie jest często używany do wykonywania zadań, gdy przycisk zostanie kliknięty w formancie. |
-| RowCreated | Występuje po utworzeniu nowego wiersza w kontrolce GridView. To zdarzenie jest często używane do modyfikowania zawartości wiersza, podczas tworzenia wiersza. |
-| RowDataBound | Występuje, gdy wiersz danych jest powiązany z danymi w kontrolce GridView. To zdarzenie jest często używane do modyfikowania zawartości wiersza, gdy wiersz jest powiązany z danymi. |
-| RowDeleted | Występuje, gdy zostanie kliknięty przycisk usuwania wiersza, ale po kontrolki widoku siatki usuwa rekord ze źródła danych. To zdarzenie jest często używana do sprawdzania wyniki operacji usuwania. |
-| RowDeleting | Występuje, gdy zostanie kliknięty przycisk usuwania wiersza, ale przed widoku GridView kontroli usuwa rekord ze źródła danych. To zdarzenie jest często używane, aby anulować operację usuwania. |
-| RowEditing | Występuje, gdy zostanie kliknięty przycisk Edytuj wiersz, ale przed widoku GridView formant przechodzi do trybu edycji. To zdarzenie jest często używane, aby anulować operację edycji. |
-| RowUpdated | Występuje po kliknięciu przycisku Aktualizuj wiersza, ale po kontrolki widoku siatki aktualizacji wiersza. To zdarzenie jest często używana do sprawdzania wyników operacji aktualizacji. |
-| RowUpdating | Występuje po kliknięciu przycisku Aktualizuj wiersza, ale przed widoku GridView kontroli aktualizuje wiersza. To zdarzenie jest często używane do anulowania operacji aktualizacji. |
-| SelectedIndexChanged | Występuje po kliknięciu przycisku Wybierz wiersza, ale po operacji select obsługuje kontrolki widoku siatki. To zdarzenie jest często używany do wykonywania zadań, po wybraniu wiersza w formancie. |
-| SelectedIndexChanging | Występuje, gdy zostanie kliknięty przycisk Wybierz wiersza, ale przed widoku GridView kontroli obsługi operacji select. To zdarzenie jest często używane do anulowania operacji wyboru. |
-| Sortowane | Występuje po kliknięciu hiperłącze, aby posortować kolumnę, ale po kontrolki widoku siatki obsługi operacji sortowania. To zdarzenie jest najczęściej używany do wykonywania zadań po użytkownik klika hiperłącze, aby posortować kolumnę. |
-| Sortowanie | Występuje, gdy zostanie kliknięty hiperłącze, aby posortować kolumnę, ale przed widoku GridView kontroli obsługi operacji sortowania. To zdarzenie jest często używane, aby anulować operację sortowania lub wykonać niestandardowe procedury sortowania. |
+| PageIndexChanged | Występuje po kliknięciu jednego z przyciski pagera, ale po kontrolki GridView obsługuje stronicowanie. To zdarzenie jest często używane, gdy trzeba wykonać zadanie po użytkownik przechodzi do innej strony w formancie. |
+| PageIndexChanging | Występuje po kliknięciu jednego z przyciski pagera, ale przed widoku GridView kontroli obsługuje stronicowanie. To zdarzenie jest często używane do anulowania operacji stronicowania. |
+| RowCancelingEdit | Występuje, gdy kliknięto przycisk Anuluj wiersza, ale przed kontrolki GridView zamyka tryb edycji. To zdarzenie jest często używana do zatrzymywania anulowania operacji. |
+| RowCommand | Występuje po kliknięciu przycisku w kontrolce GridView. To zdarzenie jest często używane do wykonywania zadań, po kliknięciu przycisku w formancie. |
+| RowCreated | Występuje po utworzeniu nowego wiersza w kontrolce GridView. To zdarzenie jest często używane do modyfikowania zawartości wiersza po utworzeniu wiersza. |
+| RowDataBound | Występuje, gdy wiersz danych jest powiązany z danymi w kontrolce GridView. To zdarzenie jest często używane do modyfikowania zawartości wiersz po wierszu jest powiązany z danymi. |
+| RowDeleted | Występuje po kliknięciu przycisku usuwania wiersza, ale po kontrolki GridView usuwa rekord ze źródła danych. To zdarzenie jest często używane, aby sprawdzić wyniki operacji usuwania. |
+| RowDeleting | Występuje, gdy kliknięto przycisk usuwania wiersza, ale przed widoku GridView kontroli usuwa rekord ze źródła danych. To zdarzenie jest często używane, aby anulować operację usuwania. |
+| RowEditing | Występuje, gdy kliknięto przycisk Edytuj wiersz, ale przed widoku GridView kontrola przechodzi do trybu edycji. To zdarzenie jest często używane do anulowania operacji edycji. |
+| RowUpdated | Występuje, gdy kliknięto przycisk Aktualizuj wiersz, ale po kontrolki GridView aktualizacji wiersza. To zdarzenie jest często używane do sprawdzania wyników operacji aktualizacji. |
+| — RowUpdating | Występuje, gdy kliknięto przycisk Aktualizuj wiersz, ale przed widoku GridView kontroli aktualizuje wiersz. To zdarzenie jest często używane do anulowania operacji aktualizacji. |
+| Selectedindexchanged. | Występuje po kliknięciu przycisku Wybierz wiersz, ale po kontrolki GridView obsługuje operacji wyboru. To zdarzenie jest często używane do wykonywania zadań, po wybraniu wiersza w formancie. |
+| SelectedIndexChanging | Występuje, gdy kliknięto przycisk Zaznacz wiersz, ale przed widoku GridView uchwyty operacji wyboru. To zdarzenie jest często używane do anulowania operacji zaznaczenia. |
+| Sortowane | Występuje po kliknięciu hiperlinku, aby posortować kolumnę, ale po kontrolki GridView obsługuje operacji sortowania. To zdarzenie najczęściej jest używana do wykonywania zadań, po użytkownik kliknie hiperlink, aby posortować kolumnę. |
+| Sortowanie | Występuje po kliknięciu hiperlinku, aby posortować kolumnę, ale przed widoku GridView uchwyty operacji sortowania. To zdarzenie jest często używane, aby anulować operację sortowania lub wykonać niestandardowe procedury sortowania. |
 
 ## <a name="formview"></a>FormView
 
-Formant FormView służy do wyświetlania pojedynczego rekordu ze źródła danych. Jest on podobny do formantu widoku DetailsView, z wyjątkiem Wyświetla zdefiniowane przez użytkownika szablonów, zamiast pola wiersza. Tworzenie własnych szablonów zapewnia większą elastyczność kontroli, jak dane są wyświetlane. Formant FormView obsługuje następujące funkcje:
+Kontrolka FormView służy do wyświetlenia pojedynczy rekord ze źródła danych. Jest on podobny do kontrolce DetailsView, z wyjątkiem Wyświetla zdefiniowanych przez użytkownika szablonów, zamiast pola wiersza. Tworzenie własnych szablonów zapewnia większą elastyczność w kontrolowaniu, jak dane są wyświetlane. Kontrolka FormView obsługuje następujące funkcje:
 
-- Powiązanie z danymi kontroli źródła, takie jak SqlDataSource i ObjectDataSource.
+- Powiązanie z danymi kontrolki źródła, takich jak SqlDataSource i kontrolki ObjectDataSource.
 - Wbudowane możliwości Wstawianie.
-- Wbudowane aktualizowania i usuwania możliwości.
-- Wbudowane funkcje stronicowania.
-- Programowy dostęp do modelu obiektu FormView dynamicznie ustawiania właściwości, obsługi zdarzeń i tak dalej.
+- Wbudowane aktualizowanie i usuwanie możliwości.
+- Wbudowane możliwości stronicowania.
+- Programowy dostęp do modelu obiektów FormView, aby dynamicznie ustawić właściwości, obsługa zdarzeń i tak dalej.
 - Można dostosować wygląd za pomocą szablonów zdefiniowanych przez użytkownika, kompozycje i style.
 
 ## <a name="templates"></a>Szablony
 
-Kontrolki widoku FormView do wyświetlania zawartości należy utworzyć szablony dla różnych części kontrolki. Większość szablonów jest opcjonalna. jednak należy utworzyć szablon dla tryb, w którym skonfigurowano formantu. Na przykład FormView formant, który obsługuje Wstawianie rekordów musi mieć zdefiniowanego szablonu elementu insert. W poniższej tabeli wymieniono różne szablony, które można utworzyć.
+Dla formantu FormView do wyświetlania zawartości należy utworzyć szablony dla różnych części kontrolki. Większość szablonów są opcjonalne; Jednakże należy utworzyć szablonu tryb, w którym skonfigurowano formantu. Na przykład formant FormView, który obsługuje Wstawianie rekordów musi mieć zdefiniowany szablon elementu insert. W poniższej tabeli wymieniono różne szablony, które można utworzyć.
 
 | **Typ szablonu** | **Opis** |
 | --- | --- |
-| EditItemTemplate | Definiuje zawartość wiersza danych, gdy formant FormView jest w trybie edycji. Ten szablon zawiera zwykle kontrolki wejściowe i przyciski poleceń, z którą użytkownik może edytować istniejącego rekordu. |
-| EmptyDataTemplate | Określa zawartość pustym wierszu danych wyświetlane, gdy kontrolka FormView jest powiązana ze źródłem danych, która nie zawiera żadnych rekordów. Ten szablon zawiera zwykle zawartości, aby ostrzec użytkownika, że źródło danych nie zawiera żadnych rekordów. |
-| Elementu FooterTemplate | Określa zawartość wiersza stopki. Ten szablon zawiera zwykle dodatkowej zawartości, którą chcesz wyświetlić w wierszu stopki. Alternatywnie można po prostu określić tekst do wyświetlenia w wierszu stopki przez ustawienie właściwości FooterText. |
-| Właściwość HeaderTemplate | Określa zawartość nagłówka wiersza. Ten szablon zawiera zwykle dodatkowej zawartości, którą chcesz wyświetlić w wierszu nagłówka. Alternatywnie można po prostu określić tekst do wyświetlenia w wierszu nagłówka, ustawiając właściwość HeaderText. |
-| ItemTemplate | Definiuje zawartość wiersza danych, gdy formant FormView jest w trybie tylko do odczytu. Ten szablon zawiera zwykle zawartości do wyświetlania wartości istniejącego rekordu. |
-| InsertItemTemplate | Definiuje zawartość wiersza danych, gdy formant FormView jest w trybie wstawiania. Ten szablon zawiera zwykle kontrolki wejściowe i przyciski poleceń, z którą użytkownik może dodać nowy rekord. |
-| PagerTemplate | Definiuje zawartość wiersza pagera wyświetlane, gdy jest włączona funkcja stronicowania (Jeśli właściwość AllowPaging właściwości jest równa **true**). Ten szablon zawiera zazwyczaj formanty, z którymi użytkownik można przejść do innego rekordu. |
+| EditItemTemplate | Definiuje zawartość wiersza danych, jeśli formant FormView jest w trybie edycji. Ten szablon zawiera zazwyczaj kontrolek wejściowych oraz przyciski poleceń, z którą użytkownik może edytować istniejący rekord. |
+| EmptyDataTemplate | Definiuje zawartość pustym wierszu danych wyświetlane, gdy kontrolka FormView jest powiązana ze źródłem danych, który nie zawiera żadnych rekordów. Ten szablon zawiera zazwyczaj zawartości, aby ostrzec użytkownika, że źródło danych nie zawiera żadnych rekordów. |
+| FooterTemplate | Definiuje zawartość wiersza stopki. Ten szablon zawiera zazwyczaj dodatkowej zawartości, którą chcesz wyświetlić w wierszu stopki. Jako alternatywę można po prostu określić tekst do wyświetlenia w wierszu stopki, ustawiając właściwość FooterText. |
+| HeaderTemplate | Definiuje zawartość wiersza nagłówka. Ten szablon zawiera zazwyczaj dodatkowej zawartości, które mają być wyświetlane w wierszu nagłówka. Jako alternatywę można po prostu określić tekst do wyświetlenia w wierszu nagłówka ustawiając właściwość HeaderText. |
+| Właściwości ItemTemplate | Definiuje zawartość wiersza danych, gdy kontrolka FormView jest w trybie tylko do odczytu. Ten szablon zawiera zazwyczaj zawartość, aby wyświetlić wartości istniejącego rekordu. |
+| InsertItemTemplate | Definiuje zawartość wiersza danych, jeśli formant FormView jest w trybie wstawiania. Ten szablon zawiera zazwyczaj kontrolek wejściowych oraz przyciski poleceń, z którym użytkownik może dodać nowy rekord. |
+| PagerTemplate | Definiuje zawartość wiersza pagera, wyświetlane po włączeniu funkcji stronicowania (Jeśli ustawiono właściwość właściwość AllowPaging **true**). Ten szablon zawiera zazwyczaj formantów, z którymi użytkownik może przejść do innego rekordu. |
 
-Kontrolki wejściowe w pliku szablonu elementu edycji i Wstaw szablon elementu może być powiązana z polami źródła danych przy użyciu wyrażenia powiązania dwukierunkowego. Umożliwia to kontrolę FormView automatycznie Wyodrębnij wartości kontrolki wprowadzania aktualizacji lub operacji wstawiania. Wiązanie dwukierunkowe wyrażenia również umożliwić kontrolki wejściowe w edycji szablonu elementów do wyświetlenia automatycznie oryginalnej wartości pól.
+Kontrolek wejściowych w edycji szablonu elementu i Wstaw szablon elementu może być powiązana z polami źródła danych za pomocą wyrażenia określają powiązanie dwukierunkowe. Umożliwia to kontrolę FormView automatycznie wyodrębnić wartości kontrolki wprowadzania aktualizacji lub operacji wstawiania. Wyrażenia określają powiązanie dwukierunkowe również umożliwiać kontrolek wejściowych w szablonie elementu edycji, aby automatycznie wyświetlać oryginalnej wartości pól.
 
 ### <a name="binding-to-data"></a>Wiązanie z danymi
 
-Formant FormView może być powiązany do kontroli źródła danych (takich jak **SqlDataSource**, AccessDataSource, **ObjectDataSource** i tak dalej), lub do dowolnego źródła danych, który implementuje Interfejsu System.Collections.IEnumerable (na przykład System.Data.DataView, System.Collections.ArrayList i System.Collections.Hashtable). Do wiązania kontrolki FormView typowi źródła danych, użyj jednej z następujących metod:
+Formant FormView może być powiązany do kontroli źródła danych (takich jak **SqlDataSource**, AccessDataSource, **ObjectDataSource** i tak dalej), lub do żadnego źródła danych, który implementuje Interfejsu System.Collections.IEnumerable (na przykład System.Data.DataView System.Collections.ArrayList i System.Collections.Hashtable). Użyj jednej z następujących metod, aby powiązać formant FormView typ źródła danych:
 
-- Aby powiązać z kontroli źródła danych, ustawioną właściwość DataSourceID formantu FormView wartości Identyfikatora formantu źródła danych. Formant FormView wiąże określone dane kontroli źródła i automatycznie korzystać ze źródła danych funkcje formantu do wykonania, wstawianie, aktualizowanie, usuwanie i funkcje stronicowania. Jest to preferowana metoda można powiązać z danymi.
-- Aby powiązać ze źródłem danych, który implementuje **System.Collections.IEnumerable** interfejsu programowo ustaw właściwość formantu FormView ze źródłem danych, a następnie wywołaj metodę DataBind. Przy użyciu tej metody, formancie FormView nie zawiera wbudowane Wstawianie, aktualizowanie, usuwanie i funkcje stronicowania. Musisz podać te funkcje przy użyciu odpowiedniego zdarzenia.
+- Aby powiązać formant źródła danych, ustaw właściwość DataSourceID formantu FormView wartości Identyfikatora do kontroli źródła danych. Formant widoku FormView wiąże określone dane do kontroli źródła i automatycznie korzystać z zalet źródła danych kontrolki możliwości w celu określenia, wstawianie, aktualizowanie, usuwanie i funkcje stronicowania. Jest to preferowana metoda można powiązać z danymi.
+- Aby powiązać ze źródłem danych, który implementuje **System.Collections.IEnumerable** interfejsu, programowo ustaw właściwość formantu FormView ze źródłem danych, a następnie wywołać metodę powiązań danych. Przy użyciu tej metody, formant FormView nie zawiera wbudowane Wstawianie, aktualizowanie, usuwanie i funkcje stronicowania. Musisz podać tę funkcję za pomocą odpowiedniego zdarzenia.
 
 ## <a name="data-operations"></a>Operacje na danych
 
-Formant FormView udostępnia wiele wbudowanych możliwości, które umożliwiają użytkownikom aktualizacji, usuwanie, wstawić i przeglądania elementów w formancie. Gdy kontrolka FormView jest powiązana z kontroli źródła danych, kontroli FormView można wykorzystać źródła danych funkcje formantu i zapewnić automatyczne aktualizowanie, usuwanie, wstawiania i stronicowania funkcji. Formant FormView można zapewnić obsługę update, delete, insert i operacji stronicowania z innych typów źródeł danych; jednak należy podać program obsługi zdarzeń odpowiednie z implementacją tych operacji.
+Formant widoku FormView udostępnia wiele wbudowanych możliwości, które pozwalają użytkownikowi na aktualizowanie, usuwanie, Wstaw i strony za pomocą elementów w formancie. Gdy formant FormView jest powiązany do kontroli źródła danych, kontroli FormView można zalet źródła danych funkcje formantu i zapewnia automatyczne aktualizowanie, usuwanie, wstawianie i stronicowanie funkcji. Formant widoku FormView można zapewnić obsługę update, delete, insert i operacje stronicowania przy użyciu innych typów źródeł danych; Jednak program obsługi zdarzeń odpowiednie użytkownik musi podać implementacja dla tych operacji.
 
-Ponieważ w formancie FormView korzysta z szablonów, nie ma sposób automatycznego generowania przyciski poleceń do wykonania, aktualizowanie, usuwanie i wstawianie operacji. Należy ręcznie dołączyć te przyciski poleceń w odpowiedni szablon. Formant FormView rozpoznaje niektórych przycisków, które mają ich **CommandName** właściwości mają określone wartości. W poniższej tabeli wymieniono przycisków poleceń, które rozpoznaje formancie FormView.
+Ponieważ kontroli FormView korzysta z szablonów, nie zapewnia możliwości automatycznego generowania przycisków poleceń do wykonania, aktualizowanie, usuwanie lub operacje wstawiania. Przyciski te polecenia musisz ręcznie dołączyć odpowiedni szablon. Kontrolka FormView rozpoznaje określone przyciski, które mają ich **CommandName** równa określonej wartości właściwości. Poniższa tabela zawiera listę przycisków poleceń, które rozpoznaje kontroli FormView.
 
 | **Przycisk** | **Wartość CommandName** | **Opis** |
 | --- | --- | --- |
-| Anuluj | "Cancel" | Używane w aktualizacji lub operacji wstawiania, aby anulować operację i odrzucić wartości wprowadzonej przez użytkownika. Formant FormView następnie powraca do trybu określoną przez właściwość właściwości DefaultMode. |
-| Usuwanie | "Delete" | Używane w operacji usuwania wyświetlanych usunięty ze źródła danych. Informuje o zdarzeniach ItemDeleting i ItemDeleted. |
-| Edytowanie | "Edit" | Używane w aktualizacji operacji put formancie FormView w trybie edycji. Zawartość określona w **EditItemTemplate** właściwość jest wyświetlana dla wiersza danych. |
-| Insert | "Insert" | Używane w operacji wstawiania, aby wstawić nowy rekord w źródle danych, używając wartości podanego przez użytkownika. Informuje o zdarzeniach ItemInserting i ItemInserted. |
-| New | "New" | Używane w Wstawianie operacje put w trybie wstawiania w formancie FormView. Zawartość określona w **InsertItemTemplate** właściwość jest wyświetlana dla wiersza danych. |
-| Strona | "Page" | Używana w operacjach stronicowania do reprezentowania przycisk w wierszu pagera, który wykonuje stronicowania. Aby określić stronicowanie, ustaw **CommandArgument** właściwość przycisk "Dalej", "Prev", "Pierwszy", "Ostatni" lub indeks strony, do którego należy przejść. Informuje o zdarzeniach PageIndexChanging i PageIndexChanged. |
-| Aktualizacja | "Update" | Używane podczas operacji aktualizowania aby podjąć próbę zaktualizowania rekordu wyświetlanych w źródle danych przy użyciu wartości podanego przez użytkownika. Informuje o zdarzeniach ItemUpdating i ItemUpdated. |
+| Anuluj | "Cancel" | Używane w aktualizacji lub operacji wstawiania, aby anulować operację i odrzucić wartości wprowadzonej przez użytkownika. Formant widoku FormView powraca do trybu określony przez wartość właściwości DefaultMode. |
+| Usuwanie | "Delete" | Używany podczas operacji usuwania, można usunąć wyświetlany rekord ze źródła danych. Wywołuje zdarzenia ItemDeleting i ItemDeleted. |
+| Edytowanie | "Edit" | Umożliwia podczas aktualizowania operacji put kontroli FormView w trybie edycji. Zawartości określona w **EditItemTemplate** właściwości są wyświetlane dla wiersza danych. |
+| Insert | "Insert" | Używane w operacji wstawiania, aby wstawić nowy rekord w źródle danych przy użyciu wartości dostarczone przez użytkownika. Wywołuje zdarzenia ItemInserting i ItemInserted. |
+| New | "New" | Używana w operacji wstawiania do umieścić formant FormView w trybie wstawiania. Zawartości określona w **InsertItemTemplate** właściwości są wyświetlane dla wiersza danych. |
+| Strona | "Page" | Używana w operacjach stronicowania do reprezentowania przycisku w wierszu pagera, który wykonuje stronicowania. Aby określić stronicowanie, ustaw **Właściwość CommandArgument** właściwości przycisku "Dalej", "Wstecz", "First", "Last" lub indeks strony, dla której chcesz przejść. Wywołuje zdarzenia PageIndexChanging i PageIndexChanged. |
+| Aktualizacja | "Aktualizuj" | Używany podczas aktualizowania operacji próbuje zaktualizować wyświetlany rekord w źródle danych przy użyciu wartości podanych przez użytkownika. Wywołuje zdarzenia ItemUpdating i ItemUpdated. |
 
-W przeciwieństwie do usunięcia przycisku (które powoduje usunięcie rekordu wyświetlany natychmiast), po kliknięciu przycisku Edytuj lub nowy FormView formant przechodzi do edycji lub tryb wstawiania odpowiednio. W trybie edycji zawartości znajdujących się w **EditItemTemplate** właściwość jest wyświetlana dla bieżącego elementu danych. Zazwyczaj Edytuj szablon elementu jest zdefiniowany tak, aby przycisk Edytuj jest zastępowany aktualizację, a przycisk Anuluj. Wartość pola użytkownik może zmodyfikować również zazwyczaj są wyświetlane kontrolki wejściowe, które są odpowiednie dla typu danych w polu (np. pola tekstowego lub kontrolkę pola wyboru). Kliknięcie przycisku Aktualizuj aktualizacji rekordu w źródle danych, a kliknięcie przycisku Anuluj odstępuje wszelkie zmiany.
+W przeciwieństwie do usuwania przycisk (który usuwa wyświetlany rekord natychmiast), po kliknięciu przycisku edycji lub nowy FormView kontrola przechodzi do edycji lub trybie wstawiania odpowiednio. W trybie edycji zawartości znajdujących się w **EditItemTemplate** właściwości są wyświetlane dla bieżącego elementu danych. Edytuj szablon elementu zdefiniowano zazwyczaj taki sposób, że przycisk Edytuj została zastąpiona aktualizacja i przycisk Anuluj. Kontrolki wejściowe, które są odpowiednie dla typu danych pola (na przykład pola tekstowego lub formantu CheckBox) są wyświetlane również zazwyczaj wartość pola użytkownik może go zmodyfikować. Klikając przycisk Aktualizuj aktualizacji rekordu w źródle danych, a kliknięcie przycisku Anuluj porzuca wszystkie zmiany.
 
-Podobnie, zawartość w **InsertItemTemplate** wyświetlane właściwości elementu danych, gdy formant jest w trybie wstawiania. Wstaw szablon elementu jest zazwyczaj definiowane w taki sposób, że nowy przycisk jest zastępowany Insert i przycisk Anuluj, a pusty kontrolki wejściowe są wyświetlane dla użytkownika o wprowadzenie wartości w nowym rekordzie. Kliknięcie przycisku Wstaw w źródle danych wstawia rekordu, a kliknięcie przycisku Anuluj odstępuje wszelkie zmiany.
+Podobnie, zawartość w **InsertItemTemplate** właściwości jest wyświetlana dla elementu danych, gdy kontrolka jest w trybie wstawiania. Wstaw szablon elementu zwykle jest zdefiniowany w taki sposób, że nowy przycisk zostaje zastąpiona opcją wstawiania i przycisk Anuluj, a pusty kontrolki wejściowe są wyświetlane dla użytkownika o podanie wartości dla nowego rekordu. Kliknięcie przycisku Wstaw wstawia rekord w źródle danych, a kliknięcie przycisku Anuluj porzuca wszystkie zmiany.
 
-Kontrola FormView zapewnia funkcji stronicowania, który umożliwia użytkownikowi nawigację do innych rekordów w źródle danych. Po włączeniu wiersza pagera jest wyświetlany w formancie FormView, który zawiera formanty nawigacji strony. Aby włączyć stronicowanie, ustaw **właściwość AllowPaging** właściwości **true**. Przez ustawienie właściwości obiektów zawartych w PagerStyle i właściwości PagerSettings można dostosować wiersza modułu stronicowania. Zamiast używać wiersza pagera wbudowanego interfejsu użytkownika, można tworzyć własnego interfejsu użytkownika przy użyciu **PagerTemplate** właściwości.
+Formant FormView udostępnia funkcję stronicowania, dzięki czemu można przejść do innych rekordów w źródle danych. Po włączeniu w kontrolce FormView, który zawiera formanty nawigacji na stronie wyświetlany jest wiersz pager. Aby włączyć stronicowania, ustaw **właściwość AllowPaging** właściwości **true**. Przez ustawienie właściwości obiektów zawartych w PagerStyle i właściwości PagerSettings, można dostosować wiersz pager. Zamiast korzystać z wiersza pagera wbudowanego interfejsu użytkownika, można utworzyć własnego interfejsu użytkownika przy użyciu **PagerTemplate** właściwości.
 
 ## <a name="customizing-the-user-interface"></a>Personalizowanie interfejsu użytkownika
 
-Przez ustawienie właściwości stylu dla różnych części formantu można dostosować wygląd formantu FormView. W poniższej tabeli wymieniono właściwości inny styl.
+Można dostosować wygląd formantu FormView przez ustawienie właściwości stylu dla różnych części kontrolki. W poniższej tabeli wymieniono właściwości innego stylu.
 
 | **Właściwości stylu** | **Opis** |
 | --- | --- |
-| EditRowStyle | Ustawienia stylu dla wiersza danych, gdy formant FormView jest w trybie edycji. |
-| EmptyDataRowStyle | Ustawienia stylu dla pustym wierszu danych wyświetlanych w formancie FormView, gdy źródło danych nie zawiera żadnych rekordów. |
-| FooterStyle | Ustawienia stylu dla wierszy stopkę formantu FormView. |
-| HeaderStyle | Ustawienia stylu dla wiersza nagłówka w formancie FormView. |
-| InsertRowStyle | Ustawienia stylu dla wiersza danych, gdy formant FormView jest w trybie wstawiania. |
-| PagerStyle | Ustawienia stylu dla wierszy pagera wyświetlanych w formancie FormView po włączeniu funkcji stronicowania. |
-| RowStyle | Ustawienia stylu dla wiersza danych, gdy formant FormView jest w trybie tylko do odczytu. |
+| EditRowStyle | Ustawienia stylu dla wiersza danych, gdy kontrolka FormView jest w trybie edycji. |
+| EmptyDataRowStyle | Ustawienia stylu dla wiersza danych puste, wyświetlany w kontrolce FormView, gdy źródło danych nie zawiera żadnych rekordów. |
+| FooterStyle | Ustawienia stylu dla wiersza stopce kontrolki FormView. |
+| HeaderStyle | Ustawienia stylu wiersz nagłówka kontrolki FormView. |
+| InsertRowStyle | Ustawienia stylu dla wiersza danych, gdy kontrolka FormView jest w trybie wstawiania. |
+| PagerStyle | Ustawienia stylu dla wierszy pagera, wyświetlany w kontrolce FormView po włączeniu funkcji stronicowania. |
+| RowStyle | Ustawienia stylu dla wiersza danych, gdy kontrolka FormView jest w trybie tylko do odczytu. |
 
 ## <a name="events"></a>Zdarzenia
 
-Kontrola FormView zapewnia kilka zdarzeń, które można zaprogramować przed. Pozwala na uruchamianie procedury niestandardowe, przy każdym wystąpieniu zdarzenia. W poniższej tabeli wymieniono zdarzenia jest obsługiwana przez kontrolkę FormView.
+Formant widoku FormView zapewnia kilka zdarzeń, które można programować względem. Dzięki temu można uruchomić procedury niestandardowe zawsze wtedy, gdy wystąpi zdarzenie. W poniższej tabeli wymieniono zdarzenia obsługiwane przez kontrolkę FormView.
 
-| **Zdarzenia** | **Opis** |
+| **Event** | **Opis** |
 | --- | --- |
-| ItemCommand | Występuje, gdy kliknięto przycisk w formancie FormView. To zdarzenie jest często używany do wykonywania zadań, gdy przycisk zostanie kliknięty w formancie. |
-| ItemCreated | Występuje po utworzeniu wszystkie obiekty FormViewRow w formancie FormView. To zdarzenie jest często używane do modyfikowania wartości rekordu, przed wyświetleniem. |
-| ItemDeleted | Występuje, gdy przycisk Usuń (przycisk z jego **CommandName** właściwość "Delete") zostanie kliknięty, ale po formancie FormView usuwa rekord ze źródła danych. To zdarzenie jest często używana do sprawdzania wyniki operacji usuwania. |
-| ItemDeleting | Występuje, gdy zostanie kliknięty przycisk Usuń, ale przed FormView kontroli usuwa rekord ze źródła danych. To zdarzenie jest często używane, aby anulować operację usuwania. |
-| ItemInserted | Występuje, gdy przycisk Wstaw (przycisk z jego **CommandName** właściwość "Insert") zostanie kliknięty, ale po formancie FormView wstawia rekordu. To zdarzenie jest często używana do sprawdzania wyniki operacji insert. |
-| ItemInserting | Występuje, gdy zostanie kliknięty przycisk Wstaw, ale przed FormView kontroli wstawia rekordu. To zdarzenie jest często używane do anulowania operacji insert. |
-| ItemUpdated | Występuje, gdy przycisk Aktualizuj (przycisk z jego **CommandName** właściwość "Update") zostanie kliknięty, ale po formancie FormView aktualizacji wiersza. To zdarzenie jest często używana do sprawdzania wyników operacji aktualizacji. |
-| ItemUpdating | Występuje, gdy zostanie kliknięty przycisk Aktualizuj, ale przed FormView kontroli aktualizacji rekordu. To zdarzenie jest często używane do anulowania operacji aktualizacji. |
-| ModeChanged | Występuje po formancie FormView zmian tryby (w celu edycji, wstawiania lub w trybie tylko do odczytu). To zdarzenie jest często używane do wykonywania zadań zmiany tryby w formancie FormView. |
-| ModeChanging | Występuje przed formancie FormView zmienia tryby (w celu edycji, wstawiania lub w trybie tylko do odczytu). To zdarzenie jest często używana Anuluj zmiany trybu. |
-| PageIndexChanged | Występuje, gdy jeden z przycisków modułu stronicowania zostanie kliknięty, ale po formancie FormView obsługuje stronicowanie. To zdarzenie to powszechnie używane, gdy trzeba wykonać zadanie po użytkownik przechodzi do innego rekordu w formancie. |
-| PageIndexChanging | Występuje, gdy jeden z przycisków modułu stronicowania zostanie kliknięty, ale przed FormView formantu obsługuje stronicowanie. To zdarzenie jest często używane do anulowania operacji stronicowania. |
+| ItemCommand | Występuje, gdy kliknięto przycisk w kontrolce FormView. To zdarzenie jest często używane do wykonywania zadań, po kliknięciu przycisku w formancie. |
+| ItemCreated | Występuje po wszystkich obiektów FormViewRow są tworzone w kontrolce FormView. To zdarzenie jest często używane do modyfikowania wartości rekordu, przed wyświetleniem. |
+| ItemDeleted | Występuje, gdy przycisk Usuń (przycisk z jego **CommandName** właściwość ustawioną na "Delete") po kliknięciu, ale po kontroli FormView usuwa rekord ze źródła danych. To zdarzenie jest często używane, aby sprawdzić wyniki operacji usuwania. |
+| ItemDeleting | Występuje, gdy kliknięto przycisk Usuń, ale przed FormView kontroli usuwa rekord ze źródła danych. To zdarzenie jest często używane, aby anulować operację usuwania. |
+| ItemInserted | Występuje, gdy przycisk Wstaw (przycisk z jego **CommandName** właściwość ustawioną na "Insert") po kliknięciu, ale po kontroli FormView wstawia rekordu. To zdarzenie jest często używane, aby sprawdzić wyniki operacji wstawiania. |
+| ItemInserting | Występuje, gdy kliknięto przycisk Wstaw, ale przed FormView kontroli wstawia rekordu. To zdarzenie jest często używane do anulowania operacji wstawiania. |
+| ItemUpdated | Występuje, gdy przycisk Aktualizuj (przycisk z jego **CommandName** właściwość ustawioną na "Aktualizuj") po kliknięciu, ale po kontroli FormView aktualizacji wiersza. To zdarzenie jest często używane do sprawdzania wyników operacji aktualizacji. |
+| ItemUpdating | Występuje, gdy kliknięto przycisk aktualizacji, ale przed FormView kontroli aktualizuje rekord. To zdarzenie jest często używane do anulowania operacji aktualizacji. |
+| ModeChanged | Występuje po tryby zmienia się kontrolka FormView (w celu edycji, wstawiania lub w trybie tylko do odczytu). To zdarzenie jest często używane do wykonywania zadań w trybach zmianach kontroli FormView. |
+| ModeChanging | Występuje przed tryby zmienia się kontrolka FormView (w celu edycji, wstawiania lub w trybie tylko do odczytu). To zdarzenie jest często używane do anulowania zmiany trybu. |
+| PageIndexChanged | Występuje po kliknięciu jednego z przyciski pagera, ale po kontroli FormView obsługuje stronicowanie. To zdarzenie jest często używane, gdy trzeba wykonać zadanie po użytkownik przechodzi do innego rekordu w kontrolce. |
+| PageIndexChanging | Występuje po kliknięciu jednego z przyciski pagera, ale przed FormView kontroli obsługuje stronicowanie. To zdarzenie jest często używane do anulowania operacji stronicowania. |
 
-## <a name="detailsview"></a>Widoku DetailsView
+## <a name="detailsview"></a>DetailsView
 
-Formant widoku DetailsView jest używany do wyświetlania pojedynczego rekordu ze źródła danych w tabeli, którym każdego pola rekordu jest wyświetlana w wierszu tabeli. Można można użyć w połączeniu z kontrolki widoku siatki w scenariuszach główny szczegółowy. Formant widoku DetailsView obsługuje następujące funkcje:
+W kontrolce DetailsView służy do wyświetlania pojedynczy rekord ze źródła danych w tabeli, gdzie każde pole rekordu jest wyświetlany w wierszu tabeli. Może służyć w połączeniu z kontrolki GridView wzorzec / szczegół scenariuszach. W kontrolce DetailsView obsługuje następujące funkcje:
 
 - Powiązanie z danymi kontroli źródła, takich jak SqlDataSource.
 - Wbudowane możliwości Wstawianie.
-- Wbudowane aktualizowania i usuwania możliwości.
-- Wbudowane funkcje stronicowania.
-- Programowy dostęp do widoku DetailsView modelu obiektu dynamicznie ustawiania właściwości, obsługi zdarzeń i tak dalej.
+- Wbudowane aktualizowanie i usuwanie możliwości.
+- Wbudowane możliwości stronicowania.
+- Programowy dostęp do modelu obiektów DetailsView, aby dynamicznie ustawić właściwości, obsługa zdarzeń i tak dalej.
 - Można dostosować wygląd za pośrednictwem kompozycje i style.
 
 ## <a name="row-fields"></a>Pola wierszy
 
-Każdy wiersz danych w formancie widoku DetailsView jest tworzony przez zadeklarowanie formantu pola. Typy pól innego wiersza określają zachowanie wierszy w formancie. Formanty pól pochodzić od DataControlField. W poniższej tabeli wymieniono typy pól innego wiersza, które mogą być używane.
+Każdy wiersz danych w kontrolce DetailsView jest tworzony przez zadeklarowanie formantu pola. Typy pól innego wiersza określają zachowanie wierszy w formancie. Formanty pól pochodzi od DataControlField. W poniższej tabeli wymieniono typy pól innego wiersza, których można użyć.
 
 | **Typ pola kolumn** | **Opis** |
 | --- | --- |
-| Pole BoundField | Wyświetla wartość pola w źródle danych jako tekst. |
-| ButtonField | Przedstawia przycisk polecenia w kontrolce widoku DetailsView. Dzięki temu można pobierać za pomocą formantu przycisku niestandardowe, takie jak dodawanie lub przycisk Usuń. |
-| Pole CheckBoxField | Wyświetla pole wyboru w formancie widoku DetailsView. Ten typ pola wiersza często służy do wyświetlania pola z wartością logiczną. |
-| CommandField | Wyświetla wbudowanego polecenia przycisków przeprowadzenie edycji, wstawiania lub usuwania operacji w kontrolce widoku DetailsView. |
-| Pole hiperłącza HyperLinkField | Wyświetla wartość pola w źródle danych jako hiperłącze. Ten typ pola wiersza, umożliwia tworzenie powiązań drugie pole do adresu URL hiperłącza. |
-| ImageField | Wyświetla obraz w formancie widoku DetailsView. |
-| Pole TemplateField | Wyświetla zawartość zdefiniowane przez użytkownika dla wiersza w kontrolce widoku DetailsView zgodnie z określonego szablonu. Ten typ pola wiersza, umożliwia tworzenie pole niestandardowe wiersza. |
+| Elementu BoundField | Wyświetla wartość pola w źródle danych jako tekst. |
+| ButtonField | Wyświetla przycisk polecenia w kontrolce DetailsView. Dzięki temu można pobierać za pomocą kontrolki przycisku niestandardowe, takie jak dodawanie lub przycisk Usuń. |
+| CheckBoxField | Wyświetla pole wyboru w kontrolce DetailsView. Ten typ pola wiersza najczęściej jest używana do wyświetlania pól z wartością logiczną. |
+| CommandField | Wyświetla wbudowanego polecenia przycisków, aby wykonać edycji, wstawiania lub usuwania operacji w kontrolce DetailsView. |
+| Pole hiperłącza HyperLinkField | Wyświetla wartość pola w źródle danych jako hiperłącze. Ten typ pola wiersza, pozwala powiązać drugie pole adresu URL hiperłącza. |
+| ImageField | Wyświetla obraz w kontrolce DetailsView. |
+| TemplateField | Wyświetla zawartość zdefiniowanych przez użytkownika na podstawie wiersza w kontrolce DetailsView zgodnie z określonym szablonem. Ten typ wiersza, pole umożliwia tworzenie pola niestandardowego wiersza. |
 
-Domyślnie ma ustawioną właściwość AutoGenerateRows **true**, który automatycznie generuje obiekt pola powiązanego wiersza dla każdego pola, które można powiązać typu źródła danych. Prawidłowe typy powiązania to ciąg, DateTime, Decimal, identyfikator Guid i zestawu typów pierwotnych. Każde pole jest następnie wyświetlane w wierszu jako tekst w kolejności, w której każde pole pojawia się w źródle danych.
+Domyślnie ustawiono właściwość AutoGenerateRows **true**, która automatycznie generuje obiekt pola powiązanego wiersza dla każdego pola, które można powiązać typu w źródle danych. Prawidłowe typy możliwej do wiązania to ciąg, daty i godziny, Decimal, identyfikator Guid i zestawów typów podstawowych. Każde pole jest wyświetlony w wierszu jako tekst w kolejności, w którym każde pole pojawia się w źródle danych.
 
-Automatyczne generowanie wiersze zapewnia szybki i łatwy sposób wyświetlania każdego pola w rekordzie. Aby użyć widoku DetailsView formantu zaawansowanych funkcji, musisz jawnie zadeklarować pól wierszy do uwzględnienia w kontrolce widoku DetailsView. Aby zadeklarować pól wierszy, najpierw ustaw **AutoGenerateRows** właściwości **false**. Następnie dodaj otwierające i zamykające **&lt;pola&gt;** tagi pomiędzy otwierającym, a zamykającym tagiem formantu widoku DetailsView. Na koniec listy pól wierszy, które chcesz uwzględnić między otwarcia i zamknięcia **&lt;pola&gt;** tagów. Określone pola wiersza są dodawane do kolekcji pól w podanej kolejności. **Pola** kolekcji umożliwia programowego zarządzania pola wiersza w kontrolce widoku DetailsView.
+Automatyczne generowanie wiersze zapewnia szybki i łatwy sposób wyświetlania każdego pola w rekordzie. Aby użyć DetailsView kontrolki zaawansowane możliwości musi jawnie deklarować polami wierszy do uwzględnienia w kontrolce DetailsView. Aby zadeklarować polami wierszy, najpierw ustawić **AutoGenerateRows** właściwości **false**. Następnie dodaj otwierające i zamykające **&lt;pola&gt;** tagi między otwierającym i zamykającym tagiem kontrolce DetailsView. Na koniec listy pól wierszy, które chcesz uwzględnić między otwierającym i zamykającym **&lt;pola&gt;** tagów. Pola wierszy określone są dodawane do kolekcji pól w podanej kolejności. **Pola** kolekcji umożliwia programowe zarządzanie polami wierszy w kontrolce DetailsView.
 
 > [!NOTE]
-> Automatycznie generowane pola nie są dodawane do kolekcji pól wiersza.
+> Automatycznie generowane przez Ciebie pola nie są dodawane do kolekcji pól wiersz.
 
 
 ## <a name="binding-to-data"></a>Wiązanie z danymi
 
-Formant widoku DetailsView może być powiązana do kontroli źródła danych, takich jak **SqlDataSource** lub AccessDataSource, lub do dowolnego źródła danych, który implementuje interfejs System.Collections.IEnumerable, takich jak System.Data.DataView, System.Collections.ArrayList i System.Collections.Hashtable.
+W kontrolce DetailsView może być powiązana do kontroli źródła danych, takich jak **SqlDataSource** lub AccessDataSource, lub do żadnego źródła danych, który implementuje interfejs System.Collections.IEnumerable, takich jak System.Data.DataView, System.Collections.ArrayList i System.Collections.Hashtable.
 
-Do wiązania kontrolki widoku DetailsView typowi źródła danych, użyj jednej z następujących metod:
+Użyj jednej z następujących metod, aby powiązać kontrolce DetailsView typ źródła danych:
 
-- Aby powiązać z kontroli źródła danych, ustawioną właściwość DataSourceID formantu widoku DetailsView wartości Identyfikatora formantu źródła danych. Kontrolki widoku szczegółów automatycznie wiąże określone dane kontroli źródła. Jest to preferowana metoda można powiązać z danymi.
-- Aby powiązać ze źródłem danych, który implementuje **System.Collections.IEnumerable** interfejsu programowo ustaw właściwość formantu widoku DetailsView ze źródłem danych, a następnie wywołaj metodę DataBind.
+- Aby powiązać formant źródła danych, ustaw właściwość DataSourceID w kontrolce DetailsView wartości Identyfikatora do kontroli źródła danych. W kontrolce DetailsView automatycznie wiąże określone dane do kontroli źródła. Jest to preferowana metoda można powiązać z danymi.
+- Aby powiązać ze źródłem danych, który implementuje **System.Collections.IEnumerable** interfejsu, programowo ustawić właściwości źródła danych w kontrolce DetailsView ze źródłem danych, a następnie wywołać metodę powiązań danych.
 
 ## <a name="security"></a>Zabezpieczenia
 
-Ten formant może służyć do wyświetlania danych wejściowych użytkownika, która może obejmować skryptu złośliwego klienta. Sprawdź wszystkie informacje, które są wysyłane z klienta do pliku wykonywalnego skrypt, instrukcji SQL lub inny kod przed wyświetleniem go w aplikacji. Program ASP.NET udostępnia funkcję sprawdzania poprawności żądanie wejściowe do bloku skryptu, jak i HTML w danych wejściowych użytkownika.
+Ten formant może służyć do wyświetlania danych wejściowych użytkownika, która może obejmować skrypt po stronie klienta złośliwe. Sprawdź wszystkie informacje, które są wysyłane przez klienta dla pliku wykonywalnego skrypt, instrukcji SQL lub inny kod przed wyświetleniem go w aplikacji. Program ASP.NET zapewnia funkcję weryfikacji danych wejściowych żądania bloku skryptu i HTML w danych wejściowych użytkownika.
 
 ## <a name="data-operations"></a>Operacje na danych
 
-Kontrolki widoku szczegółów oferuje wbudowane funkcje, które umożliwiają użytkownikom aktualizacji, usuwanie, wstawić i przeglądania elementów w formancie. Gdy formant widoku DetailsView jest powiązana z kontroli źródła danych, formantu widoku DetailsView można wykorzystać źródła danych funkcje formantu i zapewnić automatyczne aktualizowanie, usuwanie, wstawiania i stronicowania funkcji.
+W kontrolce DetailsView zapewnia wbudowane możliwości, które pozwalają użytkownikowi na aktualizowanie, usuwanie, Wstaw i strony za pomocą elementów w formancie. Gdy kontrolce DetailsView jest powiązana z kontroli źródła danych, kontrolce DetailsView można korzystać z zalet źródła danych funkcje formantu i zapewnia automatyczne aktualizowanie, usuwanie, wstawianie i stronicowanie funkcji.
 
-Formant widoku DetailsView można zapewnić obsługę update, delete, insert i operacji stronicowania z innych typów źródeł danych; jednak musi zapewniać implementację dla tych operacji w obsłudze zdarzeń odpowiednie.
+W kontrolce DetailsView można zapewnić obsługę update, delete, insert i operacje stronicowania przy użyciu innych typów źródeł danych; jednak należy podać implementacja dla tych operacji w obsłudze zdarzeń odpowiednie.
 
-Formant widoku DetailsView może automatycznie dodać **CommandField** wiersza pola edycji, usuwania lub nowy przycisk przez ustawienie właściwości AutoGenerateEditButton, AutoGenerateDeleteButton lub AutoGenerateInsertButton do **true**odpowiednio. W przeciwieństwie do Usuń przycisk (który spowoduje usunięcie wybranego rekordu natychmiast), po kliknięciu przycisku Edytuj lub nowego widoku DetailsView formant przechodzi do edycji lub trybie, wstawiania odpowiednio. W trybie edycji przycisk Edytuj jest zastępowany aktualizację, a przycisk Anuluj. Wartość pola użytkownik może zmodyfikować są wyświetlane kontrolki wejściowe, które są odpowiednie dla typu danych w polu (np. pola tekstowego lub kontrolkę pola wyboru). Kliknięcie przycisku Aktualizuj aktualizacji rekordu w źródle danych, a kliknięcie przycisku Anuluj odstępuje wszelkie zmiany. Podobnie w trybie wstawiania nowy przycisk jest zastępowany Insert i przycisk Anuluj, a pusty kontrolki wejściowe są wyświetlane dla użytkownika o wprowadzenie wartości w nowym rekordzie.
+W kontrolce DetailsView może automatycznie dodać **CommandField** pola wiersza, edytowania, usuwania lub nowy przycisk przez ustawienie właściwości AutoGenerateEditButton, AutoGenerateDeleteButton lub AutoGenerateInsertButton do **true**odpowiednio. W przeciwieństwie do usunięcia przycisku (które powoduje usunięcie wybranego rekordu natychmiast), po kliknięciu przycisku edycji lub New DetailsView kontrola przechodzi do edycji lub Wstaw tryb, odpowiednio. W trybie edycji przycisk Edytuj jest zastępowany aktualizacji i przycisk Anuluj. Kontrolki wejściowe, które są odpowiednie dla typu danych pola (na przykład pola tekstowego lub formantu CheckBox) są wyświetlane wartość pola użytkownik może go zmodyfikować. Klikając przycisk Aktualizuj aktualizacji rekordu w źródle danych, a kliknięcie przycisku Anuluj porzuca wszystkie zmiany. Podobnie w trybie wstawiania nowego przycisku zostaje zastąpiona opcją wstawiania i przycisk Anuluj, a pusty kontrolki wejściowe są wyświetlane dla użytkownika o wprowadzenie wartości dla nowego rekordu.
 
-Kontrolki widoku szczegółów zapewnia funkcji stronicowania, który umożliwia użytkownikowi nawigację do innych rekordów w źródle danych. Po włączeniu formantów nawigacji strony są wyświetlane w wierszu modułu stronicowania. Aby włączyć stronicowanie, ustaw właściwość właściwość AllowPaging **true**. Wiersz pagera można dostosować za pomocą właściwości PagerStyle i PagerSettings.
+W kontrolce DetailsView udostępnia funkcję stronicowanie, dzięki czemu można przejść do innych rekordów w źródle danych. Po włączeniu formanty nawigacji na stronie są wyświetlane w wierszu pager. Aby włączyć stronicowania, ustaw właściwość właściwość AllowPaging na **true**. Za pomocą właściwości PagerStyle i PagerSettings można dostosować wiersz pager.
 
 ## <a name="customizing-the-user-interface"></a>Personalizowanie interfejsu użytkownika
 
-Przez ustawienie właściwości stylu dla różnych części formantu można dostosować wygląd formantu widoku DetailsView. W poniższej tabeli wymieniono właściwości inny styl.
+Można dostosować wygląd kontrolce DetailsView przez ustawienie właściwości stylu dla różnych części kontrolki. W poniższej tabeli wymieniono właściwości innego stylu.
 
 | **Właściwości stylu** | **Opis** |
 | --- | --- |
-| AlternatingRowStyle | Ustawienia stylu dla przemiennych wierszy danych w formancie widoku DetailsView. Gdy ta właściwość jest ustawiona, wiersze danych są wyświetlane przemian ustawienia RowStyle i **AlternatingRowStyle** ustawienia. |
-| CommandRowStyle | Ustawienia stylu dla wierszy zawierających wbudowanego polecenia przycisków w formancie widoku DetailsView. |
-| EditRowStyle | Ustawienia stylu dla wierszy danych, gdy formant widoku DetailsView jest w trybie edycji. |
-| EmptyDataRowStyle | Ustawienia stylu dla pustym wierszu danych wyświetlanych w formancie widoku DetailsView, gdy źródło danych nie zawiera żadnych rekordów. |
-| FooterStyle | Ustawienia stylu dla wierszy stopkę formantu widoku DetailsView. |
-| HeaderStyle | Ustawienia stylu dla formantu widoku DetailsView wiersz nagłówka. |
-| InsertRowStyle | Ustawienia stylu dla wierszy danych, gdy formant widoku DetailsView jest w trybie wstawiania. |
-| PagerStyle | Ustawienia stylu dla wierszy pagera formantu widoku DetailsView. |
-| RowStyle | Ustawienia stylu dla wierszy danych w formancie widoku DetailsView. Gdy **AlternatingRowStyle** właściwość również jest ustawiona, wiersze danych są wyświetlane przemian **RowStyle** ustawienia i **AlternatingRowStyle** ustawienia. |
-| FieldHeaderStyle | Ustawienia styl nagłówka kolumny formantu widoku DetailsView. |
+| AlternatingRowStyle | Ustawienia stylu przemiennych wierszy danych w kontrolce DetailsView. Gdy ta właściwość jest ustawiona, wiersze danych są wyświetlane przemian ustawienia RowStyle i **AlternatingRowStyle** ustawienia. |
+| CommandRowStyle | Ustawienia stylu wiersza zawierającego wbudowanego polecenia przycisków w kontrolce DetailsView. |
+| EditRowStyle | Ustawienia stylu dla wierszy danych, gdy kontrolce DetailsView jest w trybie edycji. |
+| EmptyDataRowStyle | Ustawienia stylu dla wiersza danych puste, wyświetlany w kontrolce DetailsView, gdy źródło danych nie zawiera żadnych rekordów. |
+| FooterStyle | Ustawienia stylu dla wiersza stopki w kontrolce DetailsView. |
+| HeaderStyle | Ustawienia stylu dla wiersza nagłówka w kontrolce DetailsView. |
+| InsertRowStyle | Ustawienia stylu dla wierszy danych, gdy znajduje się w kontrolce DetailsView trybu wstawiania. |
+| PagerStyle | Ustawienia stylu dla wiersza pagera w kontrolce DetailsView. |
+| RowStyle | Ustawienia stylu dla wierszy danych w kontrolce DetailsView. Gdy **AlternatingRowStyle** właściwość jest również ustawiona, wiersze danych są wyświetlane na przemian **RowStyle** ustawienia i **AlternatingRowStyle** ustawienia. |
+| FieldHeaderStyle | Ustawienia stylu dla nagłówka kolumny w kontrolce DetailsView. |
 
 ## <a name="events"></a>Zdarzenia
 
-Formant widoku DetailsView udostępnia kilka zdarzeń, które można zaprogramować przed. Pozwala na uruchamianie procedury niestandardowe, przy każdym wystąpieniu zdarzenia. W poniższej tabeli wymieniono zdarzenia obsługiwane przez formant widoku DetailsView. Kontrolki widoku szczegółów dziedziczy także te zdarzenia z jej klas podstawowych: wiązania danych, z danymi usunięty, Init, Load, PreRender i renderowania.
+W kontrolce DetailsView udostępnia kilka zdarzeń, które można programować względem. Dzięki temu można uruchomić procedury niestandardowe zawsze wtedy, gdy wystąpi zdarzenie. W poniższej tabeli wymieniono zdarzenia objęte kontrolce DetailsView. W kontrolce DetailsView dziedziczy także te zdarzenia z jej klas bazowych: powiązanie danych z danymi, Disposed, Init, obciążenia, PreRender i renderowania.
 
-| **Zdarzenia** | **Opis** |
+| **Event** | **Opis** |
 | --- | --- |
-| ItemCommand | Występuje, gdy przycisk zostanie kliknięty w formancie widoku DetailsView. |
-| ItemCreated | Występuje, gdy wszystkie obiekty DetailsViewRow są tworzone w kontrolce widoku DetailsView. To zdarzenie jest często używane do modyfikowania wartości rekordu, przed wyświetleniem. |
-| ItemDeleted | Występuje, gdy zostanie kliknięty przycisk Usuń, ale po formantu widoku DetailsView usuwa rekord ze źródła danych. To zdarzenie jest często używana do sprawdzania wyniki operacji usuwania. |
-| ItemDeleting | Występuje, gdy zostanie kliknięty przycisk Usuń, ale przed widoku DetailsView kontroli usuwa rekord ze źródła danych. To zdarzenie jest często używane, aby anulować operację usuwania. |
-| ItemInserted | Występuje, gdy zostanie kliknięty przycisk Wstaw, ale po formantu widoku DetailsView wstawia rekordu. To zdarzenie jest często używana do sprawdzania wyniki operacji insert. |
-| ItemInserting | Występuje, gdy zostanie kliknięty przycisk Wstaw, ale przed widoku DetailsView kontroli wstawia rekordu. To zdarzenie jest często używane do anulowania operacji insert. |
-| ItemUpdated | Występuje po kliknięciu przycisku Aktualizuj, ale po formantu widoku DetailsView aktualizacji wiersza. To zdarzenie jest często używana do sprawdzania wyników operacji aktualizacji. |
-| ItemUpdating | Występuje, gdy zostanie kliknięty przycisk Aktualizuj, ale przed widoku DetailsView kontroli aktualizacji rekordu. To zdarzenie jest często używane do anulowania operacji aktualizacji. |
-| ModeChanged | Występuje, gdy formant widoku DetailsView zmienia tryby (Edycja, wstawiania lub trybie tylko do odczytu). To zdarzenie jest często używane do wykonywania zadań tryby zmianie formantu widoku DetailsView. |
-| ModeChanging | Występuje, zanim formant widoku DetailsView zmienia tryby (Edycja, wstawiania lub trybie tylko do odczytu). To zdarzenie jest często używana Anuluj zmiany trybu. |
-| PageIndexChanged | Występuje, gdy jeden z przycisków modułu stronicowania zostanie kliknięty, ale po formantu widoku DetailsView obsługuje stronicowanie. To zdarzenie to powszechnie używane, gdy trzeba wykonać zadanie po użytkownik przechodzi do innego rekordu w formancie. |
-| PageIndexChanging | Występuje, gdy jeden z przycisków modułu stronicowania zostanie kliknięty, ale przed widoku DetailsView formantu obsługuje stronicowanie. To zdarzenie jest często używane do anulowania operacji stronicowania. |
+| ItemCommand | Występuje po kliknięciu przycisku w kontrolce DetailsView. |
+| ItemCreated | Występuje po wszystkich obiektów DetailsViewRow są tworzone w kontrolce DetailsView. To zdarzenie jest często używane do modyfikowania wartości rekordu, przed wyświetleniem. |
+| ItemDeleted | Występuje, gdy kliknięto przycisk Usuń, ale po kontrolce DetailsView usuwa rekord ze źródła danych. To zdarzenie jest często używane, aby sprawdzić wyniki operacji usuwania. |
+| ItemDeleting | Występuje, gdy kliknięto przycisk Usuń, ale przed DetailsView kontroli usuwa rekord ze źródła danych. To zdarzenie jest często używane, aby anulować operację usuwania. |
+| ItemInserted | Występuje, gdy kliknięto przycisk Wstaw, ale po kontrolce DetailsView wstawia rekordu. To zdarzenie jest często używane, aby sprawdzić wyniki operacji wstawiania. |
+| ItemInserting | Występuje, gdy kliknięto przycisk Wstaw, ale przed DetailsView kontroli wstawia rekordu. To zdarzenie jest często używane do anulowania operacji wstawiania. |
+| ItemUpdated | Występuje, gdy kliknięto przycisk aktualizacji, ale po kontrolce DetailsView aktualizacji wiersza. To zdarzenie jest często używane do sprawdzania wyników operacji aktualizacji. |
+| ItemUpdating | Występuje, gdy kliknięto przycisk aktualizacji, ale przed DetailsView kontroli aktualizuje rekord. To zdarzenie jest często używane do anulowania operacji aktualizacji. |
+| ModeChanged | Występuje po kontrolce DetailsView zmian tryby (Edycja, Wstaw lub trybie tylko do odczytu). To zdarzenie jest często używane do wykonywania zadań w trybach zmianach w kontrolce DetailsView. |
+| ModeChanging | Występuje, zanim zmieni się w kontrolce DetailsView tryby (Edycja, Wstaw lub trybie tylko do odczytu). To zdarzenie jest często używane do anulowania zmiany trybu. |
+| PageIndexChanged | Występuje po kliknięciu jednego z przyciski pagera, ale po kontrolce DetailsView obsługuje stronicowanie. To zdarzenie jest często używane, gdy trzeba wykonać zadanie po użytkownik przechodzi do innego rekordu w kontrolce. |
+| PageIndexChanging | Występuje po kliknięciu jednego z przyciski pagera, ale przed DetailsView kontroli obsługuje stronicowanie. To zdarzenie jest często używane do anulowania operacji stronicowania. |
 
 ## <a name="the-menu-control"></a>Formant Menu
 
-Formant Menu w programie ASP.NET 2.0 została zaprojektowana jako system kompletne nawigacji. Może być powiązany z danymi łatwo ze źródłami danych hierarchiczne, takich jak SiteMapDataSource.
+Formant Menu w programie ASP.NET 2.0 została zaprojektowana jako system nawigacji w pełni funkcjonalne. Może być powiązana z danymi, łatwe do źródeł danych hierarchicznych, takich jak SiteMapDataSource.
 
-Struktura kontrolek Menu można definiować deklaratywnie lub dynamicznie i składa się na jednym węźle głównym i dowolną liczbę węzłów podrzędnych. Poniższy kod definiuje deklaratywnie menu dla Menu formantu.
+Struktura kontrolki Menu mogą być definiowane w sposób deklaratywny lub dynamicznie i składa się z jednym węźle głównym i dowolną liczbę węzłów podrzędnych. Poniższy kod definiuje sposób deklaratywny menu kontrolki Menu.
 
 [!code-aspx[Main](data-bound-controls/samples/sample4.aspx)]
 
-W powyższym przykładzie węzeł Home.aspx jest węzła głównego. Wszystkie inne węzły są zagnieżdżone w obrębie węzła głównego na różnych poziomach.
+W powyższym przykładzie węzeł Home.aspx jest węzeł główny. Wszystkie inne węzły są zagnieżdżone w obrębie węzła głównego na różnych poziomach.
 
-Istnieją dwa typy menu, które kontrolki Menu umożliwiający renderowanie; menu statycznych i dynamicznych menu. Menu statyczne składają się z elementów menu, które są zawsze widoczne. Menu dynamiczne składają się z elementów menu, które są widoczne tylko gdy użytkownik przesuwa się nad nimi przy użyciu myszy. Klienci mogą często należy mylić menu statyczne z menu zdefiniowane deklaratywnie i menu dynamiczne z menu, które są z danymi w czasie wykonywania. W rzeczywistości dynamiczną i statyczną menu są związane z metodą wypełniania. Warunki *statycznych* i *dynamiczne* odwoływać się tylko do tego, czy menu jest wyświetlane domyślnie czy tylko wyświetlane, gdy użytkownik wykona akcję.
+Istnieją dwa typy menu, które można renderować formant Menu; menu statycznych i dynamicznych menu. Menu statyczne składają się z elementów menu, które są zawsze widoczne. Menu dynamiczne składają się z elementów menu, które są widoczne tylko wtedy, gdy użytkownik przesuwa się nad nimi za pomocą myszy. Klienci często może mylić statyczne menu z menu zdefiniowane w sposób deklaratywny i menu dynamiczne z menu, które są z danymi w czasie wykonywania. W rzeczywistości menu statycznych i dynamicznych są powiązane z metody populacji. Warunki *statyczne* i *dynamiczne* dotyczy tylko tego, czy menu jest statycznie wyświetlane domyślnie lub tylko wyświetlane, gdy użytkownik wykona akcję.
 
-**Wartości StaticDisplayLevels** właściwość jest używana do konfigurowania, ile poziomów w menu są statyczne i dlatego jest wyświetlane domyślnie. W powyższym przykładzie ustawienie **wartości StaticDisplayLevels** właściwości na wartość 2 spowodowałoby menu statycznie wyświetlić głównej węzła, węzeł utworów muzycznych i węzła filmów. Wszystkie inne węzły będzie wyświetlana dynamicznie, gdy użytkownik znajduje się nad węzła nadrzędnego.
+**Wartości StaticDisplayLevels** właściwość jest używana do konfigurowania, ile poziomów menu są statyczne i w związku z tym wyświetlane domyślnie. W powyższym przykładzie ustawienie **wartości StaticDisplayLevels** właściwości na wartość 2 spowodowałoby menu do wyświetlenia statycznie, węzeł głównej, węzeł utworów muzycznych i języka node filmów. Wszystkie inne węzły będzie dynamicznie wyświetlana po umieszczeniu wskaźnika węzła nadrzędnego.
 
-**MaximumDynamicDisplayLevels** właściwość konfiguruje maksymalną liczbę poziomów dynamiczna jest umożliwiająca wyświetlanie menu. Wszelkie menu dynamiczne na poziomie wyższym niż wartość określoną przez **MaximumDynamicDisplayLevels** właściwości zostaną odrzucone.
+**MaximumDynamicDisplayLevels** właściwość konfiguruje maksymalną liczbę poziomów dynamicznych jest umożliwiająca wyświetlanie menu. Wszelkie menu dynamiczne na poziomie wyższym niż wartość określoną przez **MaximumDynamicDisplayLevels** właściwości są odrzucane.
 
 > [!NOTE]
-> Jest niemal pewność, że mogą wystąpić sytuacje, gdy menu nie są wyświetlane do renderowania z powodu właściwości MaximumDynamicDisplayLevels. W takich przypadkach upewnij się, że właściwość jest ustawiona wystarczająco, aby umożliwić wyświetlanie menu klientów.
+> Jest prawie pewne, że mogą wystąpić sytuacje, gdy menu nie pojawiają się do renderowania ze względu na właściwość MaximumDynamicDisplayLevels. W takich przypadkach upewnij się, że dla właściwości ustawiono wystarczająco, aby umożliwić wyświetlanie menu klientów.
 
 
-## <a name="data-binding-the-menu-control"></a>Formant Menu powiązanie danych
+## <a name="data-binding-the-menu-control"></a>Formant Menu powiązania danych
 
-Formant Menu może być powiązana do dowolnego źródła danych hierarchiczne, takie jak SiteMapDataSource lub formantu XMLDataSource. SiteMapDataSource jest najczęściej używane metody do wiązania danych formantu Menu go źródła poza pliku Web.sitemap, ponieważ jego schemat zawiera znane interfejsu API do kontrolki Menu. Lista poniżej zawiera prostego pliku Web.sitemap.
+Formant Menu można powiązać każde źródło danych hierarchicznych, takich jak SiteMapDataSource lub elementu XMLDataSource. SiteMapDataSource jest najczęściej używane metody dla powiązania danych z kontrolką Menu jego źródła zniżki w stosunku do pliku Web.sitemap, ponieważ jego schemat zawiera znany interfejs API, aby formant Menu. Lista poniżej zawiera prosty plik Web.sitemap.
 
 [!code-xml[Main](data-bound-controls/samples/sample5.xml)]
 
-Należy zauważyć, że istnieje tylko jeden siteMapNode element główny, w tym przypadku element głównej. Dla każdego elementu siteMapNode można skonfigurować kilka atrybutów. Najczęściej używane atrybuty:
+Należy zauważyć, że istnieje tylko jeden siteMapNode element główny, w tym przypadku element głównej. Dla każdego siteMapNode można skonfigurować kilka atrybutów. Najczęściej używane atrybuty są:
 
-- **adres URL** Określa adres URL wyświetlany, gdy użytkownik kliknie elementu menu. Jeśli ten atrybut nie jest obecny, węzeł po prostu zostanie wysłany ponownie po kliknięciu.
-- **Tytuł** Określa tekst, który jest wyświetlany w elemencie menu.
-- **Opis elementu** użyty jako dokumentacji dla węzła. Również wyświetlane jako etykietka narzędzia, gdy wskaźnik myszy znajduje się myszy nad węzłem.
-- **siteMapFile** zezwala na zagnieżdżone map. Ten atrybut musi wskazywać poprawnie sformułowany plik mapy witryny ASP.NET.
-- **role** umożliwia wyglądu węzła kontrolowany przez przycinanie zabezpieczeń platformy ASP.NET.
+- **adres URL** Określa adres URL do wyświetlenia, gdy użytkownik kliknie element menu. Jeśli ten atrybut nie jest obecny, węzeł po prostu opublikuje ponownie, po kliknięciu.
+- **Tytuł** Określa tekst, który jest wyświetlany na element menu.
+- **Opis** używany jako dokumentacji dla węzła. Wyświetla również jako etykietka narzędzia gdy wskaźnik myszy jest aktywowany nad węzłem.
+- **siteMapFile** umożliwia zagnieżdżonych mapy witryny dla wyszukiwarki. Ten atrybut musi wskazywać na poprawnie sformułowany plik mapy witryny ASP.NET.
+- **role** umożliwia wygląd węzła kontrolowany przez dostosowanie do zabezpieczeń platformy ASP.NET.
 
-Należy pamiętać, że te atrybuty są wszystkie opcjonalne, zachowania menu nie mogą być oczekiwano, jeśli nie określono. Na przykład jeśli *adres url* atrybut został określony, ale *opis* nie jest atrybutem, węzeł nie będzie widoczny i nie będzie można przejść na adres URL określony.
+Należy pamiętać, że te atrybuty są wszystkie opcjonalne, zachowania menu nie mogą być powinien, jeśli nie zostały określone. Na przykład jeśli *adresu url* atrybut jest określony, ale *opis* atrybut nie jest, węzeł nie będzie widoczny i nie będzie można przejść do adresu URL określony.
 
 ## <a name="controlling-a-menus-operation"></a>Kontrolowanie operacji menu
 
-Istnieje kilka właściwości, które wpływają na działanie kontrolkę ASP.NET Menu; **orientacji** właściwość **DisappearAfter** właściwość **StaticItemFormatString** właściwości oraz **StaticPopoutImageUrl**właściwości to tylko niektóre z nich.
+Istnieje kilka właściwości, które wpływają na działanie formant ASP.NET Menu; **orientacji** właściwości **DisappearAfter** właściwości **StaticItemFormatString** właściwości i **StaticPopoutImageUrl**właściwość to tylko niektóre z nich.
 
-- **Orientacji** może być ustawiona jako *poziome* lub *pionowy* i określa, czy statycznych elementów menu są ułożone poziomo w wierszu, czy w pionie i skumulowany po siebie nawzajem. Ta właściwość nie ma wpływu na menu dynamiczne.
-- **DisappearAfter** właściwość określa, jak długo menu dynamiczne powinny być widoczne, po myszy odsunąć od go. Wartość jest określona w milisekundach, a wartość domyślna to 500. Ustawienie tej właściwości na wartość -1 spowoduje, że nigdy nie znikają automatycznie w menu. W takim przypadku menu zniknie tylko gdy użytkownik kliknie poza menu.
-- **StaticItemFormatString** właściwości ułatwia Obsługa spójny sposób wyrażania w systemie menu. Podczas określania tej właściwości *{0}* powinny być wprowadzane zamiast opis, który w źródle danych. Na przykład aby mieć element menu z powiedzieć ćwiczenie 1 odwiedź nasz strony produktów, itp., należy określić odwiedź stronę StaticItemFormatString {0}. W czasie wykonywania ASP.NET spowoduje zastąpienie wszelkich wystąpienie {0} prawidłowy opis elementu menu.
-- **StaticPopoutImageUrl** właściwość określa obrazu, który służy do wskazywania, czy węzeł określonego menu ma węzły podrzędne, które mogą być udostępniane przez umieszczenie na nim wskaźnika. Menu dynamiczne będzie w dalszym ciągu korzystać z domyślnego obrazu.
+- **Orientacji** może być ustawiony na *poziomy* lub *pionowe* i określa, czy statycznych elementów menu jest rozmieszczony w poziomie w wierszu lub w pionie i skumulowane siebie nawzajem. Właściwość ta nie wpływa na menu dynamiczne.
+- **DisappearAfter** właściwość konfiguruje się, jak długo menu dynamiczne pozostają widoczne po myszy przeniesiony poza. Wartość jest określona w milisekund, a wartość domyślna to 500. Ustawienie tej właściwości na wartość -1 spowoduje, że menu aby nigdy nie znika automatycznie. W takim przypadku menu tylko znikną, gdy użytkownik kliknie poza menu.
+- **StaticItemFormatString** właściwości można łatwo utrzymać spójny sposób wyrażania w Twoim systemie menu. Po określeniu tej właściwości *{0}* powinny być wprowadzane zamiast opis, który pojawia się w źródle danych. Na przykład, aby mogła mieć element menu z say ćwiczenie 1 odwiedź nasze strony produktów, itp., możesz określić odwiedź nasze {0} strona StaticItemFormatString. W czasie wykonywania, ASP.NET zastąpi wszystkie wystąpienia {0} prawidłowy opis elementu menu.
+- **StaticPopoutImageUrl** właściwość określa obraz, który jest używany do wskazania, że węzeł określonego menu ma węzły podrzędne, które mogą być udostępniane przez zatrzymanie wskaźnika myszy nad nim. Menu dynamiczne, będą w dalszym ciągu używać domyślnego obrazu.
 
-## <a name="templated-menu-controls"></a>Formanty Menu opartego na szablonie
+## <a name="templated-menu-controls"></a>Formanty oparte na szablonach Menu
 
-Formant Menu jest kontrolki z szablonem i pozwala na dwóch różnych elementów; StaticItemTemplate i DynamicItemTemplate. Za pomocą tych szablonów, można łatwo dodać kontrolki serwera lub kontrolki użytkownika do menu.
+Formant Menu jest formantem z szablonem i pozwala na dwóch różnych elementów; StaticItemTemplate i DynamicItemTemplate. Za pomocą tych szablonów, można łatwo dodać formanty serwera lub kontrolki użytkownika do menu.
 
-Aby edytować szablony w programie Visual Studio .NET, kliknij przycisk tagów inteligentnych menu i albo włączyć Edytuj szablony. Następnie można wybrać edycji StaticItemTemplate lub DynamicItemTemplate.
+Aby edytować szablony w programie Visual Studio .NET, kliknij przycisk tagu inteligentnego w menu i wybrać opcję Edytuj szablony. Następnie można wybrać edycji StaticItemTemplate lub DynamicItemTemplate.
 
-Wszystkie formanty dodane do StaticItemTemplate będą wyświetlane w menu statyczne podczas ładowania strony. Wszystkie formanty dodane do DynamicItemTemplate będą wyświetlane na wszystkich menu podręczne.
+Wszystkie formanty dodane do StaticItemTemplate pojawi się w menu statyczne podczas ładowania strony. Wszystkie formanty dodane do DynamicItemTemplate pojawi się na wszystkich menu podręcznego.
 
 ## <a name="menu-events"></a>Zdarzenia menu
 
 Formant Menu ma dwa zdarzenia, które są unikatowe **MenuItemClicked** i **MenuItemDatabound** zdarzeń.
 
-MenuItemClicked zdarzenie jest wywoływane po kliknięciu elementu menu. MenuItemDatabound zdarzenie jest wywoływane, gdy element menu jest powiązany z danymi. **MenuEventArgs** przekazanego do zdarzenia obsługi zapewnia dostęp do elementu menu za pomocą właściwości elementu.
+MenuItemClicked zdarzenie jest wywoływane po kliknięciu elementu menu. Zdarzenie MenuItemDatabound jest wywoływane, gdy element menu jest powiązana z danymi. **MenuEventArgs** przekazana na zdarzenie obsługi zapewnia dostęp do elementów menu za pomocą właściwości elementu.
 
 ## <a name="controlling-a-menus-appearance"></a>Kontrolowanie wyglądu menu
 
-Można również na wygląd formantu menu przy użyciu co najmniej jednego z wielu stylów dostępne w menu format. Należą do nich **StaticMenuStyle**, **DynamicMenuStyle**, **DynamicMenuItemStyle**, **DynamicSelectedStyle**i **DynamicHoverStyle**. Te właściwości są konfigurowane przy użyciu standardowego ciągu stylu w kodzie HTML. Na przykład następujące wpłynie na styl menu dynamiczne.
+Może również wpływać na wygląd kontrolki menu przy użyciu co najmniej jedną z wielu stylów dostępne do menu format. Wśród nich znalazły się **StaticMenuStyle**, **DynamicMenuStyle**, **DynamicMenuItemStyle**, **DynamicSelectedStyle**i **DynamicHoverStyle**. Te właściwości są skonfigurowane przy użyciu standardowego ciągu stylu w kodzie HTML. Na przykład następujące wpłynie na styl menu dynamiczne.
 
 [!code-aspx[Main](data-bound-controls/samples/sample6.aspx)]
 
 > [!NOTE]
-> Jeśli używasz Styl przesuwania, należy dodać &lt;head&gt; element na stronę z *runat* element ustawiony na wartość *serwera*.
+> Jeśli używasz styl po wskazaniu wskaźnikiem, należy dodać &lt;head&gt; element na stronę z *runat* element ustawiony na wartość *serwera*.
 
 
-Formanty menu obsługują również kompozycji ASP.NET 2.0.
+Formanty menu obsługują także korzystanie z motywów programu ASP.NET 2.0.
 
-## <a name="the-treeview-control"></a>TreeView — formant
+## <a name="the-treeview-control"></a>TreeView — kontrolka
 
-TreeView — kontrolka wyświetla dane w strukturze drzewa. Podobnie jak w przypadku kontrolka Menu będzie można łatwo danymi powiązanymi z dowolnego źródła hierarchiczne dane, takie jak SiteMapDataSource.
+TreeView — kontrolka wyświetla dane w strukturze drzewa. Podobnie jak w przypadku kontrolki Menu, można go łatwo dane powiązane z dowolnego źródła danych hierarchicznych, takich jak SiteMapDataSource.
 
-Pierwsze pytanie, którego klienci mogą poprosić informacje o formancie TreeView w programie ASP.NET 2.0 jest, czy powiązany TreeView WebControl programu Internet Explorer, która była dostępna dla platformy ASP.NET 1.x. Nie jest. Kontrolki ASP.NET 2.0 TreeView został napisany od podstaw i oferuje znaczne ulepszenia w stosunku do TreeView WebControl programu Internet Explorer, która wcześniej była dostępna.
+Pierwsze pytanie, na który klienci prawdopodobnie może poprosić o kontrolce widoku drzewa w programie ASP.NET 2.0 jest, czy jest powiązany z widoku drzewa WebControl programu Internet Explorer, która była dostępna dla platformy ASP.NET 1.x. Nie jest dostępne. Kontrolki ASP.NET 2.0 TreeView została napisana od podstaw i zapewnia istotnej poprawy w porównaniu TreeView WebControl programu Internet Explorer, która wcześniej była dostępna.
 
-Nie można przejść do szczegółów jak powiązać TreeView — formant do mapy witryny, ponieważ jest wykonywane w taki sam sposób, jak kontrolka Menu. TreeView — kontrolka ma jednak pewne różnice distinct w taki sposób, który działa.
+Nie będzie można przejść do szczegółów jak powiązać kontrolki TreeView do mapy witryny sieci Web, ponieważ jest wykonywana w taki sam sposób, jak formant Menu. TreeView — kontrolka ma jednak pewne różnice distinct w taki sposób, że działa.
 
-TreeView — kontrolka pojawia się domyślnie rozwinięty. Aby zmienić poziom rozwinięcia podczas ładowania początkowego, zmodyfikuj **ExpandDepth** właściwości formantu. Jest to szczególnie ważne w przypadku elementu TreeView z danymi po rozwinięciu określonych węzłów.
+Domyślnie kontrolki TreeView pojawia się w pełni rozwinięte. Aby zmienić poziom rozwijania podczas ładowania początkowego, zmodyfikuj **ExpandDepth** właściwości formantu. Jest to szczególnie ważne w przypadkach, gdy jest powiązana z danymi na rozwijanie określonych węzłów w widoku drzewa.
 
-## <a name="databinding-the-treeview-control"></a>Powiązania danych w formancie TreeView
+## <a name="databinding-the-treeview-control"></a>Powiązanie danych kontrolki TreeView
 
-W przeciwieństwie do sterowania Menu element TreeView jest przydatna do obsługi dużych ilości danych. W związku z tym oprócz wiązania z danymi SiteMapDataSource lub elementu XMLDataSource, element TreeView jest często dane powiązane z zestawu danych lub innych danych relacyjnych. W przypadkach, gdy kontrolka TreeView jest powiązana z dużych ilości danych najlepiej powiązać tylko z danych, które są rzeczywiście widoczne w formancie. Mogą być następnie danych powiązać do dodatkowych danych, ponieważ są rozwinięte węzły elementu TreeView.
+W odróżnieniu od formant Menu widoku drzewa pozwala również na obsługi dużych ilości danych. W związku z tym oprócz powiązanie danych z SiteMapDataSource lub elementu XMLDataSource, widoku drzewa jest często dane powiązane z zestawu danych lub innych danych relacyjnych. W przypadkach, gdy kontrolka widoku drzewa jest powiązana z dużych ilości danych najlepiej powiązać tylko z danymi, które są faktycznie widoczne w formancie. Następnie możesz powiązać dane z dodatkowych danych, ponieważ zostaną rozwinięte węzły w widoku drzewa.
 
-W takich przypadkach **PopulateOnDemand** powinien mieć ustawioną właściwość elementu TreeView *true*. Następnie musisz określić implementację **TreeNodePopulate** metody.
+W takich przypadkach **PopulateOnDemand** właściwości widoku drzewa powinna być równa *true*. Następnie należy podać implementacja dla **TreeNodePopulate** metody.
 
 ## <a name="data-binding-without-postback"></a>Powiązanie bez odświeżania danych
 
-Zauważyć, że po rozwinięciu węzła w poprzednim przykładzie po raz pierwszy, strony powrotem zapisuje a odświeża. Thats nie ma problemu, w tym przykładzie, ale można Załóżmy, że może być w środowisku produkcyjnym z dużą ilością danych. Byłoby lepsze scenariusz w którym element TreeView będzie nadal dynamicznie wypełnić jego węzłów, ale bez post z powrotem do serwera.
+Zwróć uwagę, czy po rozwinięciu węzła w poprzednim przykładzie po raz pierwszy, na stronie publikuje Wstecz i odświeża. Thats nie ma problemu, w tym przykładzie, ale można Wyobraź sobie, że może być w środowisku produkcyjnym z dużą ilością danych. Scenariusz lepiej byłoby jeden w którym widoku drzewa będzie nadal dynamicznie wypełnienia jego węzłów, ale bez wpis z powrotem do serwera.
 
-Przez ustawienie **PopulateNodesFromClient** i **PopulateOnDemand** właściwości na wartość true, formantu ASP.NET TreeView będzie dynamicznie zapełniać węzły bez ogłaszanie zwrotne. Po rozwinięciu węzła nadrzędnego XMLHttp żądań od klienta i OnTreeNodePopulate zdarzenie jest wywoływane. Serwer odpowiada przy Wyspy danych XML, który jest następnie używany do danych powiązania węzłów podrzędnych.
+Ustawiając **PopulateNodesFromClient** i **PopulateOnDemand** właściwości na wartość true, kontrolki ASP.NET TreeView wypełni dynamicznie węzłów bez wpis ponownie. Po rozwinięciu węzła nadrzędnego XMLHttp żądania z klienta i jest wyzwalane zdarzenie OnTreeNodePopulate. Serwer odpowiada przy Wyspy danych XML, który jest następnie używany do danych powiązania węzłów podrzędnych.
 
-Program ASP.NET tworzy dynamicznie kodu klienta, który implementuje tę funkcję. &lt;Skryptu&gt; tagi, które zawierają skrypt są generowane, wskazując plik AXD. Na przykład lista poniżej zawiera skrypt łącza dla kodu skryptu, który generuje żądanie XMLHttp.
+ASP.NET dynamicznie tworzy kod klienta, który implementuje tę funkcję. &lt;Skryptu&gt; znaczników, które zawierają skryptu są generowane, wskazując plik AXD. Na przykład lista poniżej zawiera skrypt łącza dla kodu skryptu, który generuje żądanie XMLHttp.
 
 [!code-html[Main](data-bound-controls/samples/sample7.html)]
 
-Jeśli wyszukiwanie w pliku AXD powyżej w przeglądarce i otwórz go, zobaczysz kod, który implementuje XMLHttp żądania. Ta metoda uniemożliwia klientom modyfikowania pliku skryptu.
+Jeśli przejść pliku AXD powyżej w przeglądarce i otwórz go, pojawi się kod, który implementuje żądania XMLHttp. Ta metoda uniemożliwia klientom modyfikowanie pliku skryptu.
 
-## <a name="controlling-the-operation-of-the-treeview-control"></a>Kontrolowanie operacji formantu TreeView
+## <a name="controlling-the-operation-of-the-treeview-control"></a>Kontrolowanie operacji kontrolki TreeView
 
-TreeView — kontrolka ma kilka właściwości, które wpływają na działanie formantu. Najbardziej oczywisty właściwości są **ShowCheckBoxes**, **ShowExpandCollapse**, i **ShowLines**.
+TreeView — kontrolka ma kilka właściwości, które wpływają na działanie kontrolki. Najbardziej typowe właściwości są **ShowCheckBoxes**, **ShowExpandCollapse**, i **ShowLines**.
 
-**ShowCheckBoxes** właściwość ma wpływ na, czy węzły wyświetlane pole wyboru, gdy są renderowane. Prawidłowe wartości dla tej właściwości to **Brak**, **głównego**, **nadrzędnej**, **liścia**, i **wszystkich**. Wpływają one na formancie TreeView w następujący sposób:
+**ShowCheckBoxes** właściwość ma wpływ na informację określającą, czy węzły wyświetlają pola wyboru podczas renderowania. Prawidłowe wartości dla tej właściwości to **Brak**, **głównego**, **nadrzędnego**, **liścia**, i **wszystkich**. Mają one wpływu na formancie TreeView w następujący sposób:
 
-| **Wartość właściwości** | **Effect** |
+| **Wartość właściwości** | **Efekt** |
 | --- | --- |
-| Brak | Element CheckBoxes nie są wyświetlane na żadnych węzłów. To jest ustawienie domyślne. |
-| główny | Pole wyboru jest wyświetlane tylko dla węzła głównego. |
-| Nadrzędny | Pole wyboru jest wyświetlane tylko na tych węzłach, które mają węzłów podrzędnych. Te węzły podrzędne może być węzłów nadrzędnych lub węzłów liści. |
-| Liścia | Pole wyboru jest wyświetlane tylko na tych węzłach, które mają bez węzłów podrzędnych. |
+| Brak | Pola wyboru nie są wyświetlane na wszystkie węzły. To jest ustawienie domyślne. |
+| Główny | Pole wyboru jest wyświetlana tylko dla węzła głównego. |
+| Nadrzędny | Pole wyboru jest wyświetlana tylko w ramach tych węzłów, które mają węzłów podrzędnych. Węzły nadrzędne lub węzły liści, może być tych węzłów podrzędnych. |
+| Typu liść | Pole wyboru jest wyświetlane tylko w ramach tych węzłów, które mają bez węzłów podrzędnych. |
 | Wszystkie | Pole wyboru jest wyświetlane we wszystkich węzłach. |
 
-W przypadku używania pola wyboru **CheckedNodes** właściwość, którą będzie zwracać kolekcję TreeView węzłów, które są sprawdzane podczas ogłaszania zwrotnego.
+Gdy używane są pola wyboru, **CheckedNodes** właściwość zwraca kolekcję węzłów w widoku drzewa, które są sprawdzane podczas odświeżania.
 
-**ShowExpandCollapse** właściwość określa wygląd obrazu Rozwiń/Zwiń obok węzłów głównych i nadrzędnej. Jeśli ta właściwość jest ustawiona na **false**, węzły elementu TreeView są renderowane jako hiperłącze i są rozwinięte zwinięte, klikając łącze.
+**ShowExpandCollapse** właściwość kontroluje wygląd obrazu Rozwiń/Zwiń obok węzłów głównych i element nadrzędny. Jeśli ta właściwość jest ustawiona **false**, węzły w widoku drzewa są renderowane jako hiperłącza i jest rozwinięty/zwinięty, klikając link.
 
-**ShowLines** właściwość określa, czy są wyświetlane linie łączące węzły nadrzędne do węzłów podrzędnych. Gdy **false** (ustawienie domyślne), są wyświetlane żadne wiersze. Gdy **true**, TreeView — kontrolka będzie używać obrazów wierszy w folderze określonym przez **LineImagesFolder** właściwości.
+**ShowLines** właściwość określa, czy wiersze są wyświetlane węzły nadrzędne nawiązywania połączenia z węzłami podrzędnymi. Gdy **false** (ustawienie domyślne), są wyświetlane żadne wiersze. Gdy **true**, kontrolki TreeView użyje wiersze obrazów w folderze określonym przez **LineImagesFolder** właściwości.
 
-Aby dostosować wygląd TreeView wiersze, Visual Studio .NET 2005 zawiera narzędzie projektanta wiersza. Można uzyskać dostępu do tego narzędzia, za pomocą przycisku tagów inteligentnych w formancie TreeView jako poniżej.
+Dostosowywanie wyglądu wierszy w widoku drzewa, Visual Studio .NET w wersji 2005 zawiera narzędzie wiersza projektanta. Można uzyskać dostęp do tego narzędzia, za pomocą przycisku tagu inteligentnego w kontrolce TreeView jako poniżej.
 
 
 ![](data-bound-controls/_static/image1.jpg)
 
-**Rysunek 1**
+**Rysunek 1.**
 
 
-Po **dostosować obrazy liniowe** opcji menu narzędzia Projektant wiersza zostanie uruchomiona, umożliwiając konfigurowanie wyglądu wierszy w elemencie TreeView.
+Po wybraniu pozycji **dostosować obrazy liniowe** opcji menu, narzędzie Projektant wiersza zostanie uruchomiony, umożliwiając konfigurowanie wyglądu wierszy w widoku drzewa.
 
-## <a name="treeview-events"></a>Zdarzenia TreeView
+## <a name="treeview-events"></a>Zdarzenia w widoku drzewa
 
 TreeView — kontrolka ma unikatowy następujące zdarzenia:
 
 - Na podstawie SelectedNodeChanged występuje po wybraniu węzła **SelectAction** właściwości.
-- TreeNodeCheckChanged występuje, gdy stan checkboxs węzłów zostanie zmieniona.
+- TreeNodeCheckChanged występuje, gdy stan checkboxs węzłów jest zmieniany.
 - Na podstawie TreeNodeExpanded występuje, gdy węzeł jest rozwinięty **SelectAction** właściwości.
-- TreeNodeCollapsed występuje, gdy węzeł jest zwinięty.
-- TreeNodeDataBound występuje, gdy węzeł ma dane powiązane.
-- TreeNodePopulate występuje, gdy węzeł zostanie wypełnione.
+- TreeNodeCollapsed występuje, gdy węzeł jest zwinięta.
+- TreeNodeDataBound występuje, gdy odpowiedni węzeł stanie danych powiązane.
+- TreeNodePopulate występuje, gdy węzeł zostanie wypełniony.
 
-**SelectAction** właściwości można skonfigurować, które zdarzenie jest wywoływane po wybraniu węzła. Właściwość SelectAction zapewnia następujące akcje:
+**SelectAction** Właściwość pozwala na skonfigurowanie, które jest wywoływane po wybraniu węzła. Właściwość SelectAction zawiera następujące akcje:
 
 - TreeNodeSelectAction.Expand zgłasza TreeNodeExpanded po wybraniu węzła.
-- TreeNodeSelectAction.None zgłasza nie zdarzenie po wybraniu węzła.
+- TreeNodeSelectAction.None zgłasza żadne zdarzenie po wybraniu węzła.
 - TreeNodeSelectAction.Select wywołuje zdarzenie SelectedNodeChanged po wybraniu węzła.
-- TreeNodeSelectAction.SelectExpand zgłasza zarówno SelectedNodeChanged zdarzeń i TreeNodeExpanded po wybraniu węzła.
+- TreeNodeSelectAction.SelectExpand zgłasza zdarzenie SelectedNodeChanged i zdarzenia TreeNodeExpanded po wybraniu węzła.
 
-## <a name="controlling-appearance-with-styles"></a>Kontrolowanie wyglądu przy użyciu stylów
+## <a name="controlling-appearance-with-styles"></a>Kontrolowanie wyglądu ze stylami
 
-TreeView — formant zawiera wiele właściwości sterujące wyglądu formantu przy użyciu stylów. Dostępne są następujące właściwości.
+TreeView — kontrolka zawiera wiele właściwości do kontrolowania wyglądu formantu przy użyciu stylów. Dostępne są następujące właściwości.
 
 | **Nazwa właściwości** | **Kontrolki** |
 | --- | --- |
-| HoverNodeStyle | Kontroluje styl węzłów, gdy wskaźnik myszy znajduje się myszy nad nimi. |
-| LeafNodeStyle | Określa styl węzłów liści. |
-| NodeStyle | Określa styl dla wszystkich węzłów. Style określonego węzła (na przykład LeafNodeStyle) musi zostać zastąpiona tym stylem. |
+| HoverNodeStyle | Określa styl węzłów, gdy wskaźnik myszy jest aktywowany nad nimi. |
+| LeafNodeStyle | Określa styl węzłów liścia. |
+| NodeStyle | Określa styl dla wszystkich węzłów. Style określonego węzła (np. LeafNodeStyle) musi zostać zastąpiona tego stylu. |
 | ParentNodeStyle | Określa styl dla wszystkich węzłów nadrzędnych. |
-| RootNodeStyle | Określa styl węzła głównego. |
+| RootNodeStyle | Określa styl dla węzła głównego. |
 | SelectedNodeStyle | Określa styl dla wybranego węzła. |
 
-Każdy z tych właściwości jest tylko do odczytu. Jednak zostaną każdorazowym **TreeNodeStyle** obiekt i właściwości tego obiektu może zostać zmodyfikowany za pomocą *podwłaściwości właściwości* format. Na przykład, aby ustawić **ForeColor** właściwość **SelectedNodeStyle**, należy użyć następującej składni:
+Każda z tych właściwości jest tylko do odczytu. Jednak będą oni mogli każdy zwracany **TreeNodeStyle** obiektów i właściwości tego obiektu można modyfikować za pomocą *wykorzystanie właściwości* formatu. Na przykład, aby ustawić **ForeColor** właściwość **SelectedNodeStyle**, należy użyć następującej składni:
 
 [!code-aspx[Main](data-bound-controls/samples/sample8.aspx)]
 
-Zwróć uwagę, nie zamknięto tagu powyżej. Wynika to z podczas za pomocą składni deklaratywnej pokazane, można dołączyć węzły TreeViews również kodu HTML.
+Należy zauważyć, że nie zamknięto tagu powyżej. To, ponieważ gdy za pomocą składni deklaratywnej pokazano poniżej, można dołączyć węzły TreeViews w kodzie HTML, jak również.
 
-Właściwości stylu można również określić za pomocą kodu *property.subproperty* format. Na przykład, aby ustawić **ForeColor** właściwość **RootNodeStyle** w kodzie, może użyć następującej składni:
+Można również określić ponownego obliczenia właściwości stylu kodu przy użyciu *property.subproperty* formatu. Na przykład, aby ustawić **ForeColor** właściwość **RootNodeStyle** w kodzie, można użyć następującej składni:
 
 [!code-csharp[Main](data-bound-controls/samples/sample9.cs)]
 
 > [!NOTE]
-> Aby uzyskać pełną listę właściwości innego stylu w dokumentacji MSDN w obiekcie TreeNodeStyle.
+> Aby uzyskać pełną listę właściwości innego stylu zobacz dokumentację MSDN w obiekcie TreeNodeStyle.
 
 
 ## <a name="the-sitemappath-control"></a>Kontrolki ścieżki mapy witryny
 
-Kontrolki ścieżki mapy witryny udostępnia kontrolkę nawigacji Okruchy chleb dla deweloperów platformy ASP.NET. Podobnie jak inne formanty nawigacji można go łatwo danych powiązany z danymi hierarchicznymi źródeł, takich jak SiteMapDataSource lub elementu XmlDataSource.
+Kontrolki ścieżki mapy witryny zawiera formant linki do stron nadrzędnych nawigacji dla deweloperów platformy ASP.NET. Podobnie jak inne formanty nawigacji może to być łatwo dane powiązane z danymi hierarchicznymi źródeł, takich jak SiteMapDataSource lub elementu XmlDataSource.
 
-Kontrolki ścieżki mapy witryny składa się z SiteMapNodeItem obiektów. Istnieją trzy typy węzłów; węzeł główny, węzły nadrzędne i bieżącego węzła. Węzeł główny jest węzłem w górnej części strukturze hierarchicznej. Bieżący węzeł reprezentuje bieżącej strony. Wszystkie inne węzły są węzłów nadrzędnych.
+Kontrolki ścieżki mapy witryny składa się z SiteMapNodeItem obiektów. Istnieją trzy typy węzłów węzeł główny i węzły nadrzędne, bieżącego węzła. Węzeł główny jest węzłem w górnej części hierarchicznej struktury. Bieżący węzeł reprezentuje bieżącą stronę. Wszystkie inne węzły są węzły nadrzędne.
 
 ## <a name="controlling-the-operation-of-the-sitemappath-control"></a>Kontrolowanie operacji kontrolki ścieżki mapy witryny
 
-Właściwości służące do sterowania działaniem kontrolki ścieżki mapy witryny, są następujące:
+Właściwości służące do sterowania działaniem kontrolki ścieżki mapy witryny są następujące:
 
-| **Właściwość** | **Opis właściwości** |
+| **Property** | **Opis właściwości** |
 | --- | --- |
-| ParentLevelsDisplayed | Określa, jak wiele węzłów nadrzędnych są wyświetlane. Wartość domyślna to -1, która nakłada nie ograniczenia liczby wyświetlane węzły nadrzędne. |
+| ParentLevelsDisplayed | Określa, ile węzły nadrzędne są wyświetlane. Wartość domyślna to -1, która nakłada żadnych ograniczeń liczby węzłów nadrzędnych wyświetlane. |
 | PathDirection | Określa kierunek ścieżki mapy witryny. Prawidłowe wartości to RootToCurrent (ustawienie domyślne) i CurrentToRoot. |
 | PathSeparator | Ciąg, który określa znak oddzielający węzłów kontrolki ścieżki mapy witryny. Wartość domyślna to:. |
-| RenderCurrentNodeAsLink | Wartość logiczna, która kontroluje, czy bieżący węzeł jest traktowany jako łącze. Wartość domyślna to False. |
-| SkipLinkText | Ułatwia utrzymanie ułatwień dostępu, gdy strona zostanie wyświetlony czytników ekranu. Ta właściwość umożliwia czytników ekranu pominąć kontrolki ścieżki mapy witryny. Aby wyłączyć tę funkcję, ustaw właściwość String.Empty. |
+| RenderCurrentNodeAsLink | Wartość logiczna, która kontroluje, czy bieżący węzeł jest renderowany jako link. Wartość domyślna to False. |
+| SkipLinkText | Ułatwia utrzymanie ułatwienia dostępu podczas wyświetlania strony przez czytniki zawartości ekranu. Ta właściwość umożliwia czytniki zawartości ekranu pominąć kontrolki ścieżki mapy witryny. Aby wyłączyć tę funkcję, należy ustawić właściwość do String.Empty. |
 
-## <a name="templated-sitemappath-controls"></a>Kontrolki ścieżki mapy witryny opartego na szablonie
+## <a name="templated-sitemappath-controls"></a>Formanty SiteMapPath oparte na szablonach
 
-SiteMapControl jest kontrolki z szablonem, a w efekcie można zdefiniować różne szablony do użycia w wyświetlanie formantu. Aby edytować szablony formantu ścieżki mapy witryny, kliknij przycisk tagów inteligentnych w formancie i wybierz polecenie Edytuj szablony w menu. Wyświetla SiteMapTasks menu, jak pokazano poniżej której można wybrać różne dostępne szablony.
+SiteMapControl jest formantem z szablonem, a w efekcie można zdefiniować różne szablony do użycia w trakcie wyświetlania kontrolki. Aby edytować szablony w kontrolki ścieżki mapy witryny, kliknij przycisk tagu inteligentnego w kontrolce menu i wybierz opcję Edytuj szablony. Wyświetla SiteMapTasks menu, jak pokazano poniżej, gdzie można wybrać różne szablony dostępne.
 
 
 ![](data-bound-controls/_static/image2.jpg)
@@ -609,15 +608,15 @@ SiteMapControl jest kontrolki z szablonem, a w efekcie można zdefiniować róż
 **Rysunek 2**
 
 
-**NodeTemplate** szablonu odwołuje się do dowolnego węzła w ścieżki mapy witryny. Jeśli węzeł jest węzłem głównym lub bieżącego węzła oraz **RootNodeTemplate** lub **CurrentNodeTemplate** jest skonfigurowany, NodeTemplate zostanie zastąpiona.
+**NodeTemplate** szablon, który odwołuje się do dowolnego węzła w ścieżki mapy witryny. Jeśli węzeł jest węzłem głównym lub bieżącego węzła i a **RootNodeTemplate** lub **CurrentNodeTemplate** jest skonfigurowany, NodeTemplate zostanie zastąpiona.
 
 ## <a name="sitemappath-events"></a>Zdarzenia ścieżki mapy witryny
 
-Kontrolki ścieżki mapy witryny ma dwa zdarzenia, które nie pochodzą z klasy formantu; **ItemCreated** zdarzeń i **ItemDataBound** zdarzeń. ItemCreated zdarzenie jest wywoływane po utworzeniu elementu ścieżki mapy witryny. ItemDataBound jest wywoływane, gdy wywoływana jest metoda DataBind, podczas tworzenia powiązań danych z węzłem ścieżki mapy witryny. A **SiteMapNodeItemEventArgs** obiektu zapewnia dostęp do określonych SiteMapNodeItem za pomocą właściwości elementu.
+Kontrolki ścieżki mapy witryny ma dwa zdarzenia, które nie pochodzą z klasy kontrolek; **ItemCreated** zdarzeń i **ItemDataBound** zdarzeń. Zdarzenie ItemCreated jest wywoływane, gdy tworzony jest element ścieżki mapy witryny. ItemDataBound jest wywoływane, gdy wywoływana jest metoda powiązań danych, podczas tworzenia powiązań danych węzła ścieżki mapy witryny. A **SiteMapNodeItemEventArgs** obiekt umożliwia dostęp do określonych SiteMapNodeItem za pomocą właściwości elementu.
 
-## <a name="controlling-appearance-with-styles"></a>Kontrolowanie wyglądu przy użyciu stylów
+## <a name="controlling-appearance-with-styles"></a>Kontrolowanie wyglądu ze stylami
 
-Następujące style są dostępne dla kontrolki ścieżki mapy witryny.
+Następujące style są dostępne dla formatowanie kontrolki ścieżki mapy witryny.
 
 | **Nazwa właściwości** | **Kontrolki** |
 | --- | --- |
@@ -625,108 +624,108 @@ Następujące style są dostępne dla kontrolki ścieżki mapy witryny.
 | RootNodeStyle | Określa styl tekstu dla węzła głównego. |
 | NodeStyle | Określa styl tekstu dla wszystkich węzłów, przy założeniu, że CurrentNodeStyle lub RootNodeStyle nie ma zastosowania. |
 
-Właściwość NodeStyle zostanie zastąpiona przez CurrentNodeStyle lub RootNodeStyle. Każdej z tych właściwości jest tylko do odczytu i zwraca **styl** obiektu. Wpływ na wygląd węzła przy użyciu jednej z tych właściwości, należy ustawić właściwości obiektu styl, który jest zwracany. Na przykład poniższy kod zmienia właściwości forecolor bieżącego węzła.
+Właściwość NodeStyle zostanie zastąpiona przez CurrentNodeStyle lub RootNodeStyle. Każda z tych właściwości jest tylko do odczytu i zwraca **styl** obiektu. Wpływ na wygląd węzła przy użyciu jednej z tych właściwości, należy ustawić właściwości obiektu styl, który jest zwracany. Na przykład poniższy kod zmienia forecolor właściwość bieżącego węzła.
 
 [!code-aspx[Main](data-bound-controls/samples/sample10.aspx)]
 
-Właściwości można zastosować też programowo w następujący sposób:
+Właściwości mogą być stosowane również programowo w następujący sposób:
 
 [!code-csharp[Main](data-bound-controls/samples/sample11.cs)]
 
 > [!NOTE]
-> Jeśli szablon jest stosowany, styl nie będą stosowane.
+> Jeśli szablon jest stosowany, nie można zastosować styl.
 
 
-## <a name="lab-1-configuring-an-aspnet-menu-control"></a>Laboratorium 1: Konfigurowanie kontrolkę ASP.NET Menu
+## <a name="lab-1-configuring-an-aspnet-menu-control"></a>Laboratorium 1: Konfigurowanie formant Menu platformy ASP.NET
 
 1. Utwórz nową witrynę sieci Web.
-2. Dodaj plik mapy witryny, wybierając plik, nowy, pliku i wybierając pozycję mapy witryny z listy szablonów pliku.
-3. Otwórz mapy witryny (Web.sitemap domyślnie) i zmodyfikuj go, aby wygląda jak poniżej listy. Strony, na którym jest nawiązywane połączenie, w pliku mapy witryny naprawdę nie istnieją, ale które nie będą problemem w przypadku tego ćwiczenia.
+2. Dodaj plik mapy witryny, wybierając plik, nowy, plików i pozycję mapy witryny z listy szablonów pliku.
+3. Otwórz mapy witryny (Web.sitemap domyślnie) i zmodyfikuj go tak, aby wygląda jak poniżej listy. Strony, do których prowadzi Link w pliku mapy witryny tak naprawdę nie istnieją, ale który nie będzie to problem dla tego ćwiczenia.
 
     [!code-xml[Main](data-bound-controls/samples/sample12.xml)]
 4. Otwórz domyślnego formularza sieci Web w widoku Projekt.
-5. W sekcji nawigacji przybornika należy dodać nowy formant Menu do strony.
-6. W sekcji danych przybornika dodać nowe SiteMapDataSource. SiteMapDataSource automatycznie zostanie użyty plik Web.sitemap w witrynie. (Plik Web.sitemap *musi* znajdować się w folderze głównym witryny.)
-7. Kliknij Menu sterowania, a następnie kliknij przycisk tagów inteligentnych, aby wyświetlić okno dialogowe Menu zadania.
+5. W sekcji nawigacji w przyborniku należy dodać nowy formant Menu do strony.
+6. W sekcji danych przybornika dodać SiteMapDataSource nowe. SiteMapDataSource będzie automatycznie używać pliku Web.sitemap w Twojej lokacji. (Plik Web.sitemap *musi* znajdować się w folderze głównym lokacji.)
+7. Kliknij formant Menu, a następnie kliknij przycisk tagu inteligentnego, aby wyświetlić okno dialogowe Menu zadania.
 8. Na liście rozwijanej wybierz źródło danych wybierz SiteMapDataSource1.
-9. Kliknij łącze Autoformatowanie, a następnie wybierz format menu.
-10. W okienku właściwości ustaw **wartości StaticDisplayLevels** właściwości do 2. Formant Menu teraz powinien być wyświetlany węzeł głównej, produktów i usług w projektancie.
-11. Przejdź na stronę w przeglądarce, aby skorzystać z menu. (Ponieważ strony był dodany do mapy witryny faktycznie nie istnieje, zobaczysz wystąpił błąd podczas próby przeglądania ich.)
+9. Kliknij łącze AutoFormat, a następnie wybierz format menu.
+10. W okienku właściwości ustaw **wartości StaticDisplayLevels** właściwość 2. Formant Menu powinien być teraz ustawiony węzeł głównej, produktów i usług w projektancie.
+11. Przeglądaj stronę w przeglądarce, aby skorzystać z menu. (Ponieważ strony był dodane do mapy witryny faktycznie nie istnieją, zobaczysz błąd podczas próby przeglądania ich.)
 
-Eksperymentować zmiana wartości StaticDisplayLevels i właściwości MaximumDynamicDisplayLevels i ich wpływ na sposób menu jest renderowany w temacie.
+Eksperymentować, zmieniając wartości StaticDisplayLevels i właściwości MaximumDynamicDisplayLevels i zobacz ich wpływ na sposób renderowania menu.
 
-## <a name="lab-2-dynamically-binding-a-treeview-control"></a>Laboratorium 2: Dynamiczne powiązanie formantu TreeView
+## <a name="lab-2-dynamically-binding-a-treeview-control"></a>Laboratorium 2: Dynamiczne powiązanie kontrolki TreeView
 
-Tym ćwiczeniu przyjęto założenie, że program SQL Server działa lokalnie i że bazy danych Northwind jest dostępny w wystąpieniu programu SQL Server. Jeśli te warunki nie są spełnione, Zmień parametry połączenia w próbce. Należy pamiętać, że może być również konieczne Określ uwierzytelniania programu SQL Server zamiast zaufanego połączenia.
+To ćwiczenie przyjęto założenie, że masz serwer SQL działa lokalnie i czy bazy danych Northwind jest dostępny w wystąpieniu programu SQL Server. Jeśli te warunki nie są spełnione, Zmień parametry połączenia w próbce. Należy pamiętać o tym, czy też konieczne może być określ uwierzytelnianie programu SQL Server zamiast zaufanego połączenia.
 
 1. Utwórz nową witrynę sieci Web.
-2. Przełącz do widoku kodu dla Default.aspx i Zastąp cały kod z kodem wymienionych poniżej. 
+2. Przełącz do widoku kodu na Default.aspx i Zastąp cały kod kod przedstawiony poniżej. 
 
     [!code-aspx[Main](data-bound-controls/samples/sample13.aspx)]
-3. Zapisz strony jako treeview.aspx.
+3. Zapisz stronę jako treeview.aspx.
 4. Przejdź na stronę.
-5. Po wyświetleniu strony Wyświetl źródło strony w przeglądarce. Należy pamiętać, że tylko widoczne węzły zostały wysłane do klienta.
+5. Gdy ta strona jest wyświetlana po raz pierwszy, Wyświetl źródło strony w przeglądarce. Należy zauważyć, że tylko widoczne węzły zostały wysłane do klienta.
 6. Kliknij znak plus obok każdego węzła.
-7. Wyświetl źródło na stronie ponownie. Zwróć uwagę, czy nowo wyświetlane węzły są obecne.
+7. Wyświetl źródło na stronie ponownie. Należy zauważyć, że nowo wyświetlanego węzłów występują teraz.
 
-## <a name="lab-3-details-view-and-editing-data-using-a-gridview-and-detailsview"></a>Laboratorium 3: Szczegóły wyświetlanie i edytowanie danych przy użyciu widoku GridView i widoku DetailsView
+## <a name="lab-3-details-view-and-editing-data-using-a-gridview-and-detailsview"></a>Laboratorium 3: Szczegółowe informacje, wyświetlanie i edytowanie danych przy użyciu GridView i DetailsView
 
 1. Utwórz nową witrynę sieci Web.
-2. Dodaj nowy plik web.config witryny sieci Web.
+2. Dodaj nowy plik web.config w witrynie sieci Web.
 3. Dodaj parametry połączenia do pliku web.config, jak pokazano poniżej: 
 
     [!code-xml[Main](data-bound-controls/samples/sample14.xml)]
 
     > [!NOTE]
-    > Może być konieczna zmiana parametry połączenia oparte na środowisku.
+    > Może być konieczna zmiana parametrów połączenia, w zależności od środowiska.
 4. Zapisz i zamknij plik web.config.
-5. Otwórz plik Default.aspx i dodać nową kontrolkę SqlDataSource.
-6. Zmień identyfikator formantu SqlDataSource **produkty**.
-7. W **zadania SqlDataSource** menu, kliknij przycisk **skonfiguruj źródło danych**.
+5. Otwórz Default.aspx i Dodaj nową kontrolkę kontrolką SqlDataSource.
+6. Zmień identyfikator kontrolki SqlDataSource **produktów**.
+7. W **zadania SqlDataSource** menu, kliknij przycisk **skonfigurować źródło danych**.
 8. Wybierz **Northwind** na liście rozwijanej połączeń i kliknij przycisk Dalej.
-9. Wybierz **produktów** z **nazwa** listy rozwijanej i sprawdź **ProductID**, **ProductName**, **UnitPrice**, i **StanMagazynu** pola wyboru, jak pokazano poniżej. 
+9. Wybierz **produktów** z **nazwa** listy rozwijanej i sprawdź **ProductID**, **ProductName**, **UnitPrice**, i **UnitsInStock** pola wyboru, jak pokazano poniżej. 
 
 ![](data-bound-controls/_static/image3.jpg)
 
     **Figure 3**
 10. Kliknij przycisk **Dalej**.
 11. Kliknij przycisk **Zakończ**.
-12. Przejdź do widoku źródłowego i sprawdź, czy kod, który został wygenerowany. Powiadomienie **SelectCommand**, **elementu DeleteCommand**, **InsertCommand**, i **UpdateCommand** do SqlDataSource dodano formant. Ponadto parametrów, które zostały dodane.
+12. Przełącz na widok źródła, a następnie sprawdzić kod, który został wygenerowany. Zwróć uwagę **SelectCommand**, **elementu DeleteCommand**, **element InsertCommand**, i **elementu UpdateCommand** do SqlDataSource dodano formant. Ponadto parametry, które zostały dodane.
 13. Przełącz do widoku projektu i dodać nowe kontrolki widoku siatki do strony.
 14. Wybierz **produktów** z **wybierz źródło danych** listy rozwijanej.
-15. Sprawdź **włączyć stronicowanie** i **Włącz zaznaczanie** jak pokazano poniżej. 
+15. Sprawdź **Włączanie stronicowania** i **Włącz zaznaczanie** jak pokazano poniżej. 
 
 ![](data-bound-controls/_static/image4.jpg)
 
     **Figure 4**
-16. Kliknij przycisk **Edytowanie kolumn** łącza i upewnij się, że **automatycznie wygenerować pola** jest zaznaczony.
+16. Kliknij przycisk **Edytowanie kolumn** link i upewnij się, że **automatyczne generowanie pól** jest zaznaczone.
 17. Kliknij przycisk **OK**.
-18. Za pomocą formantu widoku GridView zaznaczone, kliknij przycisk **DataKeyNames** właściwości w okienku właściwości.
-19. Wybierz **ProductID** z **dostępnych polach danych** listy i kliknij przycisk **&gt;** przycisk, aby dodać go.
+18. Za pomocą kontrolki GridView zaznaczone, kliknij przycisk **DataKeyNames** właściwości w okienku właściwości.
+19. Wybierz **ProductID** z **dostępne pola danych** listy, a następnie kliknij przycisk **&gt;** przycisk, aby ją dodać.
 20. Kliknij przycisk OK.
-21. Dodaj nową kontrolkę SqlDataSource do strony.
-22. Zmień identyfikator formantu SqlDataSource **szczegóły**.
-23. Z menu zadania SqlDataSource wybierz **skonfiguruj źródło danych**.
-24. Wybierz **Northwind** z listy rozwijanej i kliknij przycisk **dalej**.
-25. Wybierz <strong>produktów</strong> z <strong>nazwa</strong> listy rozwijanej i sprawdź <strong> \</ strong > * checkbox w <strong>kolumn</strong> listbox.
+21. Dodaj nowe kontrolki SqlDataSource ze stroną.
+22. Zmień identyfikator kontrolki SqlDataSource **szczegóły**.
+23. Wybierz z menu zadania SqlDataSource **skonfigurować źródło danych**.
+24. Wybierz **Northwind** z listy rozwijanej, a następnie kliknij przycisk **dalej**.
+25. Wybierz <strong>produktów</strong> z <strong>nazwa</strong> listy rozwijanej i sprawdź <strong> \</ strong > * pola wyboru w <strong>kolumn</strong> listbox.
 26. Kliknij przycisk **gdzie** przycisku.
 27. Wybierz **ProductID** z **kolumny** listy rozwijanej.
 28. Wybierz **=** na liście rozwijanej operatora.
 29. Wybierz **kontroli** z **źródła** listy rozwijanej.
-30. Wybierz **GridView1** z **Identyfikatora formantu** listy rozwijanej.
-31. Kliknij przycisk **Dodaj** przycisk, aby dodać klauzuli WHERE.
+30. Wybierz **GridView1** z **identyfikator formantu** listy rozwijanej.
+31. Kliknij przycisk **Dodaj** przycisk, aby dodać klauzulę WHERE.
 32. Kliknij przycisk **OK**.
-33. Kliknij przycisk **zaawansowane** przycisk i sprawdź **Generuj instrukcje INSERT, UPDATE i DELETE** wyboru.
+33. Kliknij przycisk **zaawansowane** znajdujący się i sprawdź **instrukcje generowania INSERT, UPDATE i DELETE** pola wyboru.
 34. Kliknij przycisk **OK**.
 35. Kliknij przycisk **dalej** i kliknij przycisk **Zakończ**.
-36. Na stronie Dodaj formant widoku DetailsView.
+36. Na stronie, Dodaj kontrolce DetailsView.
 37. W **wybierz źródło danych** listy rozwijanej wybierz **szczegóły**.
 38. Sprawdź **Włącz edytowanie** pole wyboru, jak pokazano poniżej. 
 
 ![](data-bound-controls/_static/image1.gif)
 
     **Figure 5**
-39. Strony i Przeglądaj Default.aspx.
-40. Kliknij przycisk **wybierz** link obok różnych rekordów w celu wyświetlenia aktualizacji widoku DetailsView automatycznie.
-41. Kliknij przycisk **Edytuj** łącze w kontrolce widoku DetailsView.
-42. Zmiany w rekordzie, a następnie kliknij przycisk **aktualizacji**.
+39. Zapisanie strony i Przeglądaj Default.aspx.
+40. Kliknij przycisk **wybierz** łącze obok różnych rekordów w celu wyświetlenia aktualizacji DetailsView automatycznie.
+41. Kliknij przycisk **Edytuj** łącze w kontrolce DetailsView.
+42. Wprowadź zmiany w rekordzie, a następnie kliknij przycisk **aktualizacji**.

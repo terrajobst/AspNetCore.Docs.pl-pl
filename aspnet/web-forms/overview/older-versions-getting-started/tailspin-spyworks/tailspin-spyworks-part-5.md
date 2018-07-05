@@ -2,65 +2,64 @@
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
 title: 'Część 5: Logika biznesowa | Dokumentacja firmy Microsoft'
 author: JoeStagner
-description: Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 5 dodaje niektórych logiki biznesowej.
+description: W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 5 dodaje niektóre logiki biznesowej.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
 ms.topic: article
 ms.assetid: eaef475a-ca91-47ea-a4a7-d074005ed80c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: e4342e634ef8c4bcf4e0085650a28f414ab23736
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 719d56e0764e2f66b8813c9487119bbc700d738c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885084"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37377989"
 ---
 <a name="part-5-business-logic"></a>Część 5: Logika biznesowa
 ====================
 przez [Stagner Jan](https://github.com/JoeStagner)
 
-> Tailspin Spyworks pokazano, jak bardzo proste jest tworzenie zaawansowanych, skalowalnych aplikacji dla platformy .NET. Przedstawia on poza jak nowe, fantastyczne funkcje programu ASP.NET 4 do tworzenia sklepu online, łącznie z zakupów, wyewidencjonowania i administracji.
+> Tailspin Spyworks pokazuje, jak bardzo łatwo jest tworzyć zaawansowane, skalowalne aplikacje dla platformy .NET. Przedstawia on poza sposób użycia wspaniałych nowych funkcjach w ASP.NET 4 do tworzenia sklep online, m.in. zakupy wyewidencjonowanie i Administracja.
 > 
-> Ta seria samouczek zawiera szczegóły dotyczące wszystkich kroków kompilacji Tailspin Spyworks przykładowej aplikacji. Część 5 dodaje niektórych logiki biznesowej.
+> W tej serii samouczków zawiera szczegóły wszystkich kroków kompilacji Przykładowa aplikacja Tailspin Spyworks. Część 5 dodaje niektóre logiki biznesowej.
 
 
-## <a id="_Toc260221671"></a>  Dodanie niektórych logika biznesowa
+## <a id="_Toc260221671"></a>  Dodawanie logiki biznesowej
 
-Chcemy wiemy z doświadczenia zakupów mają być dostępne, gdy ktoś odwiedzi witryny sieci web. Osoby odwiedzające będą mogli przeglądania i Dodaj elementy do koszyka, nawet jeśli nie są zarejestrowane lub zalogowany. Gdy są one gotowe do wyewidencjonowania otrzymają oni możliwość uwierzytelnienia i jeśli nie są jeszcze elementy członkowskie będą oni mogli utworzyć konto.
+Chcemy, aby nasze środowisko zakupów były dostępne w każdym przypadku, gdy ktoś odwiedza witryny sieci web. Osoby odwiedzające będzie przeglądanie i dodawanie elementów do koszyka, nawet jeśli nie są zarejestrowane lub zalogowany. Gdy są one gotowe do wyewidencjonowania otrzymają oni możliwość uwierzytelniania i jeśli nie są jeszcze Członkowie będą mogli utworzyć konto.
 
-Oznacza to, że musimy zaimplementować logiki można przekonwertować koszyka z anonimowego stanu na stan "Zarejestrowany użytkownik".
+Oznacza to, że firma Microsoft będzie należy zaimplementować logikę do przekonwertowania koszyk sklepowy z anonimowych stanu do stanu "Zarejestrowany użytkownik".
 
-Teraz Utwórz katalog o nazwie "Klasy", a następnie kliknij prawym przyciskiem myszy w folderze i utworzyć nowe "Class" pliku o nazwie MyShoppingCart.cs
+Teraz Utwórz katalog o nazwie "Klasy", a następnie kliknij prawym przyciskiem myszy w folderze i utworzyć nowy plik "Class" o nazwie MyShoppingCart.cs
 
 ![](tailspin-spyworks-part-5/_static/image1.jpg)
 
 ![](tailspin-spyworks-part-5/_static/image1.png)
 
-Jak wcześniej wspomniano, firma Microsoft będzie rozszerzenie klasy, która implementuje stronę MyShoppingCart.aspx i firma Microsoft będzie to zrobić przy użyciu. Konstrukcja zaawansowane "klasy częściowej" przez sieć.
+Jak wcześniej wspomniano, będziemy rozszerzać klasy, która implementuje stronę MyShoppingCart.aspx i zrobimy to za pomocą. Konstrukcja zaawansowane "klasy częściowej" NET firmy.
 
-Wywołanie wygenerowany dla naszych pliku MyShoppingCart.aspx.cf wygląda następująco.
+Wygenerowany wywołania dla naszego pliku MyShoppingCart.aspx.cf wygląda następująco.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample1.cs)]
 
-Zwróć uwagę na użycie słowa kluczowego "częściowej".
+Zwróć uwagę na użycie "partial" — słowo kluczowe.
 
-Plik klasy, który mamy wygenerował wygląda następująco.
+Plik klasy, które właśnie wygenerowaną wygląda następująco.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample2.cs)]
 
-Firma Microsoft zostaną scalone naszych implementacje przez dodanie do tego pliku, a także partial — słowo kluczowe.
+Firma Microsoft spowoduje scalenie naszej implementacji, dodając partial-słowo kluczowe do tego pliku.
 
-Naszego nowego pliku klasy teraz wygląda następująco.
+Nasz nowy plik klasy wygląda teraz następująco.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample3.cs)]
 
-Pierwsza metoda, który zostanie dodany do naszej klasy jest metoda "AddItem". Jest to metoda, który ostatecznie zostanie wywołany, gdy użytkownik kliknie łącza "Dodaj do grafik" strony Lista produktów i szczegółowe informacje.
+Pierwsza metoda, która zostanie dodany do naszych klasy jest metodą "AddItem". Jest to metoda, który ostatecznie zostanie wywołana, gdy użytkownik kliknie w łączach "Dodaj do grafikę" na stronach listy produktów oraz szczegóły produktów.
 
-Dołącz do przy użyciu następujących instrukcji w górnej części strony.
+Dołącz następujący ciąg do przy użyciu instrukcji w górnej części strony.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample4.cs)]
 
@@ -68,125 +67,125 @@ I Dodaj tę metodę do klasy MyShoppingCart.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample5.cs)]
 
-Aby zobaczyć, czy element jest już koszyka korzystamy LINQ to Entities. Jeśli tak, możemy zaktualizować ilość zamówienia elementu, w przeciwnym razie utworzymy nowy wpis dla wybranego elementu
+Używamy składnik LINQ to Entities, aby zobaczyć, czy element jest już w koszyku. Jeśli tak, możemy zaktualizować ilość zamówienia elementu, w przeciwnym razie firma Microsoft tworzy nowy wpis dla wybranego elementu
 
-Aby można było wywołać tę metodę wprowadzimy strony AddToCart.aspx nie tylko klasy tej metody, ale następnie wyświetlane bieżące koszyka = po dodaniu elementu.
+Aby wywołać tę metodę wdrażamy strony AddToCart.aspx, który nie tylko metody tej klasy, ale następnie wyświetlone bieżące koszyk = po dodaniu elementu.
 
-Kliknij prawym przyciskiem myszy nazwę rozwiązania w Eksploratorze rozwiązań i Dodaj i nową stronę o nazwie AddToCart.aspx, jak firma Microsoft wcześniej zrobione.
+Kliknij prawym przyciskiem myszy nazwę rozwiązania w Eksploratorze rozwiązań i Dodaj i nową stronę o nazwie AddToCart.aspx, jak firma Microsoft wcześniej robione.
 
-Gdy ta strona może służy do wyświetlania wyników pośrednich niski problemów standardowych itd., w naszym implementacji, strony rzeczywiście renderowania, ale raczej wywoła logiki "Dodaj" i przekierowania.
+Gdy firma Microsoft może używać tej strony do wyświetlenia wyników pośrednich, takich jak niska podstawowych problemów itp., w naszej implementacji, strony bez faktycznego renderowania, ale raczej wywoła logiki "Add" i przekierowania.
 
-W tym celu dodamy poniższy kod do strony\_zdarzeń obciążenia.
+W tym celu dodamy poniższy kod do strony\_załadowane zdarzenie.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample6.cs)]
 
 Należy pamiętać, że trwa pobieranie produktu do dodania do koszyka parametr QueryString i wywołanie metody AddItem klasy Nasze.
 
-Zakładając, że żadne błędy nie zostaną napotkane kontrola jest przekazywana do strony SHoppingCart.aspx, która pełni wprowadzimy w polu. Jeśli ma to być błąd możemy Zgłoś wyjątek.
+Zakładając, że żadne błędy nie zostaną napotkane kontrola jest przekazywana do strony SHoppingCart.aspx, który będzie w pełni wdrażamy obok. Jeśli ma to być błąd możemy zgłosić wyjątek.
 
-Obecnie firma Microsoft ma nie zaimplementowano jeszcze obsługi błędów ogólnych tego wyjątku przejdzie nieobsługiwany przez naszą aplikację, ale firma Microsoft będzie wkrótce to rozwiązać.
+Obecnie mamy jeszcze nie zaimplementowano globalna procedura obsługi błędów, więc będzie nieobsłużony wyjątek przez naszą aplikację, ale firma Microsoft będzie rozwiązać ten problem wkrótce.
 
-Należy też zauważyć, użyj instrukcji Debug.Fail() (dostępne za pośrednictwem `using System.Diagnostics;)`
+Ponadto Zwróć uwagę na użycie instrukcji Debug.Fail() (dostępne za pośrednictwem `using System.Diagnostics;)`
 
-Jest aplikacja jest uruchomiona w debugerze, ta metoda wyświetli okno dialogowe szczegółowe informacje o stanie aplikacji oraz komunikat o błędzie, który jest określona.
+To aplikacja jest uruchomiona w debugerze, ta metoda spowoduje wyświetlenie okna dialogowego szczegółowe informacje na temat stanu aplikacji oraz komunikat o błędzie, który określamy.
 
-Podczas pracy w środowisku produkcyjnym instrukcji Debug.Fail() jest ignorowana.
+Podczas uruchamiania w środowisku produkcyjnym instrukcji Debug.Fail() jest ignorowany.
 
-Można zauważyć w kodzie powyżej wywołanie do metody w naszym zakupów nazw klas koszyka "GetShoppingCartId".
+Można zauważyć w kodzie powyżej wywołanie metody w naszym zakupów nazw klas koszyka "GetShoppingCartId".
 
-Dodaj kod, aby zaimplementować metodę w następujący sposób.
+Dodaj kod, aby wdrożyć metodę w następujący sposób.
 
-Należy pamiętać, że również dodaliśmy przyciski aktualizacji i wyewidencjonowania i etykiety, której można wyświetlić koszyka "Suma".
+Należy pamiętać, że dodaliśmy również aktualizacji i wyewidencjonowywania przycisków i etykiet, gdzie możemy wyświetlić koszyk "łącznie".
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample7.cs)]
 
-Można teraz dodać elementy do naszego koszyka, ale nie wdrożonych logikę do wyświetlenia koszyka, po dodaniu produktu.
+Teraz możemy dodać elementy do naszego koszyka, ale nie zaimplementowano rozwiązania tlp logikę do wyświetlenia w koszyku po dodaniu produktu.
 
-Tak na stronie MyShoppingCart.aspx dodamy formantem obiektu EntityDataSource i GridVire w następujący sposób.
+Tak na stronie MyShoppingCart.aspx dodamy kontrolkę EntityDataSource i kontroli GridVire w następujący sposób.
 
 [!code-aspx[Main](tailspin-spyworks-part-5/samples/sample8.aspx)]
 
-Wywołanie formularza w projektancie, dzięki czemu można dwukrotnie kliknij przycisk Aktualizuj koszyk i generowanie obsługi zdarzeń kliknięcia, który określono w deklaracji w znaczniku.
+Wywołaj formularza w projektancie, dzięki czemu można dwukrotnie kliknij przycisk Aktualizuj koszyk i wygenerować program obsługi zdarzeń kliknięcie, który jest określony w deklaracji w znaczniku.
 
-Firma Microsoft będzie później zaimplementować szczegóły, ale w ten sposób zostanie Daj nam kompilowanie i uruchamianie aplikacji bez błędów.
+Szczegółowe informacje będą później wdrażamy, ale w ten sposób będzie nam skompilować i uruchomić naszą aplikację bez błędów.
 
-Po uruchomieniu aplikacji i Dodaj element do koszyka zobaczysz to.
+Po uruchomieniu aplikacji i Dodaj element do koszyka zobaczysz następujący.
 
 ![](tailspin-spyworks-part-5/_static/image2.jpg)
 
-Należy pamiętać, że firma Microsoft odpowiadają regułom z widoku siatki "domyślne" zaimplementowanie trzy kolumny niestandardowe.
+Należy pamiętać, że firma Microsoft odpowiadają regułom z widoku siatki "domyślna" poprzez implementację trzy kolumny niestandardowej.
 
-Pierwsza to edytowalna, pole "Powiązane" ilość:
+Pierwszy jest edytowalna, pole "Związane" ilość:
 
 [!code-aspx[Main](tailspin-spyworks-part-5/samples/sample9.aspx)]
 
-Następne jest kolumnę "obliczeniową", która wyświetla całkowitą element wiersza (element koszt razy może zostać określona ilość):
+Następne jest kolumnę "obliczeniową", która powoduje wyświetlenie elementu wiersz całkowitej (element kosztów razy ilość do zamówienia):
 
 [!code-aspx[Main](tailspin-spyworks-part-5/samples/sample10.aspx)]
 
-Na koniec mamy niestandardowych kolumny, która zawiera formant wyboru, który użytkownik zostanie służy do wskazywania, czy można usunąć elementu z planu zakupów.
+Na koniec mamy kolumnę niestandardową, która zawiera formant pola wyboru, który użytkownik będzie używany do wskazania, że element powinny zostać usunięte z wykresu zakupów.
 
 [!code-aspx[Main](tailspin-spyworks-part-5/samples/sample11.aspx)]
 
 ![](tailspin-spyworks-part-5/_static/image3.jpg)
 
-Jak widać, zamówienia, więc warto całkowita wiersz jest pusty Dodaj logikę można obliczyć całkowitą kolejności.
+Jak widać, zamówienia, więc wiersz podsumowania jest pusty dodać logikę do obliczania całkowitego zamówienia.
 
-Firma Microsoft będzie najpierw implementacji metody "GetTotal" do naszej klasy MyShoppingCart.
+Firma Microsoft będzie najpierw zaimplementować metodę "GetTotal" do naszych MyShoppingCart klasy.
 
-W pliku MyShoppingCart.cs Dodaj poniższy kod.
+W pliku MyShoppingCart.cs Dodaj następujący kod.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample12.cs)]
 
-Następnie na stronie\_można Zadzwonimy naszych GetTotal — metoda obsługi zdarzeń obciążenia. W tym samym czasie dodamy test, aby sprawdzić, czy koszyk jest pusty i odpowiednio wyświetlania, jeśli jest.
+Następnie na stronie\_firma Microsoft będzie metodę można wywołać nasz GetTotal program obsługi zdarzeń obciążenia. W tym samym czasie dodamy test, aby sprawdzić, czy koszyka jest pusta i odpowiednio dostosować ekran, jeśli jest.
 
-Obecnie Jeśli koszyk jest pusty uzyskujemy to:
+Teraz Jeśli koszyka jest pusta uzyskujemy to:
 
 ![](tailspin-spyworks-part-5/_static/image4.jpg)
 
-A jeśli nie, widzimy naszych razem.
+A jeśli nie, widzimy naszych łącznie.
 
 ![](tailspin-spyworks-part-5/_static/image5.jpg)
 
 Jednak ta strona nie jest jeszcze ukończone.
 
-Potrzebujemy dodatkową logikę ponownego obliczenia koszyka przez usunięcie elementów, które zostały oznaczone do usunięcia i określając nowe wartości ilości jako część mogły zostać zmienione w siatce przez użytkownika.
+Musimy dodatkowej logiki, aby ponownie obliczyć koszyka, usuwając elementy, które zostały oznaczone do usunięcia i określając nowe wartości ilości, ponieważ niektóre mogły zostać zmienione w siatce przez użytkownika.
 
-Umożliwia dodawanie metody "RemoveItem" do klasy Nasze koszyka zakupów w MyShoppingCart.cs do obsługi w przypadku, gdy użytkownik oznacza element do usunięcia.
+Umożliwia, Dodaj metodę "RemoveItem" do klasy Nasze koszyka zakupów w MyShoppingCart.cs, aby obsłużyć przypadek, gdy użytkownik oznaczenie elementu do usunięcia.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample13.cs)]
 
-Teraz załóżmy ad metody obsługi sytuacji, gdy użytkownik po prostu zmienia jakości może zostać określona w widoku GridView.
+Teraz sklonujemy ad metodę, aby obsłużyć sytuacji, gdy użytkownik po prostu zmienia jakości do zamówienia w widoku GridView.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample14.cs)]
 
-Z podstawowymi funkcjami aktualizacja i usuwanie w miejscu możemy wdrożyć logikę, która faktycznie aktualizuje koszyk w bazie danych. (In MyShoppingCart.cs)
+Za pomocą podstawowych funkcji Remove i aktualizację w miejscu można zaimplementować logikę, która faktycznie aktualizuje koszyka zakupów w bazie danych. (In MyShoppingCart.cs)
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample15.cs)]
 
-Będzie należy pamiętać, że ta metoda oczekuje dwóch parametrów. Jeden element jest koszyk Id, a drugi jest Tablica obiektów typu zdefiniowanego przez użytkownika.
+Należy zauważyć, że że ta metoda oczekuje dwóch parametrów. Jeden jest koszyka Id, a drugi jest Tablica obiektów typu zdefiniowanego przez użytkownika.
 
-Aby zminimalizować zależności logiki szczegółowych interfejsu użytkownika, firma Microsoft zdefiniowaniu struktury danych, które firma Microsoft może używać do przekazywania elementy koszyka zakupów do naszego kodu bez naszych metody konieczności bezpośredni dostęp do kontrolki widoku siatki.
+Aby zminimalizować zależności naszych logiki szczegółowych interfejsu użytkownika, zdefiniowaliśmy struktury danych, które możemy użyć, aby przekazać elementy koszyka zakupów do naszego kodu bez naszych metoda konieczności uzyskania bezpośredniego dostępu do kontrolki GridView.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample16.cs)]
 
-W naszym pliku MyShoppingCart.aspx.cs możemy użyć tej struktury w naszym obsługi zdarzeń kliknij przycisk aktualizacji w następujący sposób. Należy pamiętać, że oprócz aktualizowanie koszyka przeprowadzimy aktualizację do całości koszyka.
+W naszym pliku MyShoppingCart.aspx.cs firma Microsoft może używać tej struktury w naszej obsługi zdarzeń kliknij przycisk aktualizacji w następujący sposób. Należy pamiętać, że oprócz aktualizowanie koszyka zaktualizujemy również Suma koszyka.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample17.cs)]
 
-Należy pamiętać o szczególne znaczenie ten wiersz kodu:
+Należy zwrócić uwagę przy użyciu szczególne znaczenie w odniesieniu ten wiersz kodu:
 
 [!code-javascript[Main](tailspin-spyworks-part-5/samples/sample18.js)]
 
-GetValues() jest funkcja pomocnika specjalne wprowadzimy w MyShoppingCart.aspx.cs w następujący sposób.
+GetValues() to funkcja pomocnika specjalne, który wprowadzimy w MyShoppingCart.aspx.cs w następujący sposób.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample19.cs)]
 
-To zapewnia czystą sposób uzyskać dostęp do wartości elementów powiązania w naszym kontrolki widoku siatki. Ponieważ naszych formant wyboru "Usuń element" nie jest powiązany firma Microsoft będzie do niego dostęp za pomocą metody FindControl().
+Zapewnia to czyste możliwość dostępu do wartości elementów powiązania w naszym kontrolki GridView. Ponieważ naszych formant pola wyboru "Usuń element" nie jest powiązana firma Microsoft będzie do niego dostęp za pomocą metody FindControl().
 
-Na tym etapie tworzenia projektu przygotowujemy się do realizacji procesu realizacji transakcji.
+Na tym etapie, podczas tworzenia projektu przygotowujemy się do zaimplementowania rozpoczęcie procesu realizowania zamówienia.
 
-Przed dokonaniem teraz użyć programu Visual Studio do generowania bazy danych członkostwa i dodać użytkownika do repozytorium członkostwa.
+Przed ten sposób możemy należy użyć programu Visual Studio, aby wygenerować członkowskiej bazie danych, a następnie dodanie użytkownika do repozytorium członkostwa.
 
 > [!div class="step-by-step"]
 > [Poprzednie](tailspin-spyworks-part-4.md)

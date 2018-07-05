@@ -1,28 +1,27 @@
 ---
 uid: mvc/videos/mvc-3/index
-title: PROGRAM ASP.NET MVC 3 | Dokumentacja firmy Microsoft
+title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
-description: Szybkie trafień platformy ASP.NET MVC 3
+description: Trafienia szybkiego platformy ASP.NET MVC 3
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
 ms.topic: article
 ms.assetid: b3384347-2f88-4fb4-a775-7b96bf88b9d8
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-3
 msc.type: chapter
-ms.openlocfilehash: e5388ba664e50bd3786b1ce3f923f20dfab80972
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c598dd541cfb44bfca1b1ac58f5d9fd4690e23a7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26565364"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376515"
 ---
-<a name="aspnet-mvc-3"></a>PROGRAM ASP.NET MVC 3
+<a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
-> Szybkie trafień platformy ASP.NET MVC 3
+> Trafienia szybkiego platformy ASP.NET MVC 3
 
 
-- [MVC 3 - aparatu widoku Razor](mvc-3-razor-view-engine.md)
-- [MVC 3 - pomocników Razor](mvc-3-razor-helpers.md)
+- [MVC 3 — aparat widoku Razor](mvc-3-razor-view-engine.md)
+- [MVC 3 - pomocnicy Razor](mvc-3-razor-helpers.md)

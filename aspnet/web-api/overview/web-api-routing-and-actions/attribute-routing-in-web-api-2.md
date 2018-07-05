@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
-title: Atrybut routingu w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft
+title: Atrybut routingu we wzorcu ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,129 +9,128 @@ ms.date: 01/20/2014
 ms.topic: article
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 173add73a150d3e13ae243d6548463da912dadee
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: e15f89ba98acef68279e51b278e3c7045569607a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "28038052"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373233"
 ---
-<a name="attribute-routing-in-aspnet-web-api-2"></a>Atrybut routingu w składniku ASP.NET Web API 2
+<a name="attribute-routing-in-aspnet-web-api-2"></a>Atrybut routingu we wzorcu ASP.NET Web API 2
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
-*Routing* jest sposób interfejsu API sieci Web odpowiada identyfikatora URI do akcji. Składnik Web API 2 obsługuje nowy typ routingu, nazywany *trasami atrybutów*. Jak wskazuje nazwę, trasami atrybutów używa atrybutów do definiowania trasy. Atrybut routingu zapewnia większą kontrolę nad identyfikatory URI w interfejsie API sieci web. Na przykład można łatwo utworzyć identyfikatory URI, które opisują hierarchie zasobów.
+*Routing* jest jak internetowy interfejs API dopasowuje się do identyfikatora URI do akcji. Składnik Web API 2 obsługuje nowy typ routingu, o nazwie *trasowanie atrybutów*. Jak wskazuje nazwa, routing atrybutu używa atrybutów do definiowania trasy. Trasowanie atrybutów zapewnia większą kontrolę nad identyfikatory URI w interfejsie API sieci web. Na przykład można łatwo utworzyć identyfikatory URI, które opisują hierarchie zasobów.
 
-Wcześniejszych styl routingu, o nazwie opartych na konwencjach routingu, jest nadal w pełni obsługiwane. W rzeczywistości można łączyć obie techniki, w tym samym projekcie.
+Wcześniej styl routingu o nazwie oparty na Konwencji routingu jest nadal w pełni obsługiwane. W rzeczywistości można łączyć z obu tych technik, w tym samym projekcie.
 
-W tym temacie pokazano, jak włączyć routing atrybutu i zawiera opis różnych opcji trasami atrybutów. Samouczek end-to-end, który używa atrybutu routingu, zobacz [utworzyć interfejs API REST z atrybutu routingu w sieci Web API 2](create-a-rest-api-with-attribute-routing.md).
+W tym temacie przedstawiono sposób włączania trasowanie atrybutów, a w tym artykule opisano różne opcje trasowanie atrybutów. Aby uzyskać samouczek end-to-end, który używa trasowanie atrybutów, zobacz [Tworzenie interfejsu API REST przy użyciu atrybutu routingu w sieci Web API 2](create-a-rest-api-with-attribute-routing.md).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional lub Enterprise Edition
+[Program Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional lub Enterprise Edition
 
-Można również użyć Menedżera pakietów NuGet w celu zainstalowania wymaganych pakietów. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżer pakietów biblioteki**, a następnie wybierz pozycję **Konsola Menedżera pakietów**. Wprowadź następujące polecenie w oknie konsoli Menedżera pakietów:
+Można również użyć Menedżera pakietów NuGet, aby zainstalować wymagane pakiety. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. Wprowadź następujące polecenie w oknie Konsola Menedżera pakietów:
 
 `Install-Package Microsoft.AspNet.WebApi.WebHost`
 
 <a id="why"></a>
 ## <a name="why-attribute-routing"></a>Dlaczego atrybutu routingu?
 
-Pierwszą wersję interfejsu API sieci Web używany *opartych na konwencjach* routingu. W tym typie routingu należy zdefiniować lub więcej szablonów tras, które są po prostu sparametryzowana ciągów. Gdy w ramach odbiera żądanie, odpowiada identyfikator URI dla szablonu trasy. (Aby uzyskać więcej informacji na temat opartych na konwencjach routingu, zobacz [routingu na platformie ASP.NET Web API](routing-in-aspnet-web-api.md).
+Pierwsza wersja interfejsu API sieci Web używane *oparty na Konwencji* routingu. W tym typie routingu należy zdefiniować jedną lub więcej szablonów tras, które są po prostu sparametryzowane ciągów. Struktura odbiera żądanie, jest zgodna identyfikator URI dla szablonu trasy. (Aby uzyskać więcej informacji na temat routingu opartego na Konwencji zobacz [routingu ASP.NET Web API](routing-in-aspnet-web-api.md).
 
-Jedną z zalet opartych na konwencjach routingu jest szablonów są definiowane w jednym miejscu, czy spójnego stosowania reguły routingu przez wszystkie kontrolery. Niestety opartych na konwencjach routingu utrudnia obsługę niektórych wzorców identyfikatora URI, które są często używane w interfejsy API RESTful. Na przykład zasoby często zawierają zasoby podrzędne: klienci mają zleceń, filmy ma uczestników, książek ma autorzy i tak dalej. Jest fizyczne do utworzenia identyfikatorów URI odzwierciedlenia tych relacji:
+Jedną z zalet routing oparty na Konwencji jest szablonów są definiowane w jednym miejscu i reguły routingu są stosowane spójnie we wszystkich kontrolerów. Niestety routing oparty na Konwencji utrudnia do obsługi niektórych wzorców identyfikatora URI, które są wspólne w interfejsów API RESTful. Na przykład zasoby często zawierają zasoby podrzędne: klienci mają zamówienia, filmy mają aktorów, książki mają autorzy i tak dalej. Jest naturalnym do tworzenia identyfikatorów URI, które odzwierciedlają te relacje:
 
 `/customers/1/orders`
 
-Ten typ identyfikatora URI jest trudne do utworzenia przy użyciu opartych na konwencjach routingu. Mimo że mogą to robić, wyniki nie skalować dobrze, jeśli masz wiele kontrolerów lub typów zasobów.
+Tego rodzaju identyfikatora URI jest trudne do utworzenia przy użyciu routingu opartego na Konwencji. Mimo że można to zrobić, wyniki nie skalują się dobrze, jeśli masz wiele kontrolerów lub typów zasobów.
 
-W przypadku routingu atrybutu jest prosta do definiowania trasy dla tego identyfikatora URI. Atrybut jest po prostu Dodaj do akcji kontrolera:
+Za pomocą atrybutu routingu jest prosta, aby zdefiniować trasę dla tego identyfikatora URI. Możesz po prostu dodaj atrybut do akcji kontrolera:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample1.cs)]
 
-Poniżej przedstawiono niektóre wzorców, które atrybutu routingu umożliwia łatwe.
+Poniżej przedstawiono niektóre wzorce, które atrybutu routingu powoduje, że łatwo.
 
 **Przechowywanie wersji interfejsu API**
 
-W tym przykładzie "/ api/v1/produktów" może być kierowany do kontrolera innego niż "/ api/v2/produktów".
+W tym przykładzie "/ api/v1/produktów" byłaby przekierowane do innego kontrolera niż "/ api/2/produktów".
 
 `/api/v1/products`  
 `/api/v2/products`
 
-**Przeciążone segmentów identyfikatora URI**
+**Przeciążona segmentów identyfikatora URI**
 
-W tym przykładzie "1" jest numer zamówienia, ale mapuje "oczekujące" do kolekcji.
+W tym przykładzie "1" jest numer zamówienia, ale "pending" mapuje do kolekcji.
 
 `/orders/1`  
 `/orders/pending`
 
-**Wiele typów parametru**
+**Wieloma typami parametrów**
 
-W tym przykładzie "1" jest numer zamówienia, ale "2013 06/16" Określa datę.
+W tym przykładzie "1" jest numer zamówienia, ale "06/2013/16" Określa wartość typu date.
 
 `/orders/1`  
 `/orders/2013/06/16`
 
 <a id="enable"></a>
-## <a name="enabling-attribute-routing"></a>Włączanie trasami atrybutów
+## <a name="enabling-attribute-routing"></a>Włączanie trasowanie atrybutów
 
-Aby włączyć routing atrybutu, należy wywołać **MapHttpAttributeRoutes** podczas konfiguracji. Ta metoda rozszerzenia jest zdefiniowany w **System.Web.Http.HttpConfigurationExtensions** klasy.
+Aby włączyć routing atrybutów, należy wywołać **MapHttpAttributeRoutes** podczas konfiguracji. Ta metoda rozszerzenia jest zdefiniowany w **System.Web.Http.HttpConfigurationExtensions** klasy.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample2.cs)]
 
-Atrybut routingu można łączyć z [opartych na konwencjach](routing-in-aspnet-web-api.md) routingu. Aby zdefiniować na podstawie Konwencji tras, należy wywołać **MapHttpRoute** metody.
+Routing atrybut może być łączone z [oparty na Konwencji](routing-in-aspnet-web-api.md) routingu. Aby zdefiniować oparty na Konwencji tras, należy wywołać **MapHttpRoute** metody.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample3.cs)]
 
-Aby uzyskać więcej informacji o konfigurowaniu interfejsu API sieci Web, zobacz [Konfigurowanie ASP.NET Web API 2](../advanced/configuring-aspnet-web-api.md).
+Aby uzyskać więcej informacji na temat konfigurowania interfejsu API sieci Web, zobacz [Konfigurowanie wzorca ASP.NET Web API 2](../advanced/configuring-aspnet-web-api.md).
 
 <a id="config"></a>
-### <a name="note-migrating-from-web-api-1"></a>Uwaga: Migracja z 1 interfejs API sieci Web
+### <a name="note-migrating-from-web-api-1"></a>Uwaga: Migrowanie z interfejsu Web API 1
 
-Przed 2 interfejsu API sieci Web Szablony projektu interfejsu API sieci Web wygenerowanego kodu następująco:
+Przed Web API 2 szablony projektu interfejsu API sieci Web wygenerowany kod w następujący sposób:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample4.cs)]
 
-Jeśli atrybut routing jest włączony, ten kod spowoduje zgłoszenie wyjątku. Jeżeli uaktualnisz istniejący projekt interfejsu API sieci Web, aby korzystać z routingu atrybut, upewnij się, że zaktualizuj kod tej konfiguracji do następującego:
+Jeśli atrybut routing jest włączony, ten kod spowoduje zgłoszenie wyjątku. Jeśli uaktualnisz istniejący projekt interfejsu API sieci Web do użycia trasowanie atrybutów, upewnij się zaktualizować ten kod konfiguracji do następujących:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample5.cs?highlight=4)]
 
 > [!NOTE]
-> Aby uzyskać więcej informacji, zobacz [Konfigurowanie interfejsu API sieci Web z hostingu ASP.NET](../advanced/configuring-aspnet-web-api.md#webhost).
+> Aby uzyskać więcej informacji, zobacz [Konfigurowanie internetowego interfejsu API z hostingu platformy ASP.NET](../advanced/configuring-aspnet-web-api.md#webhost).
 
 
 <a id="add-routes"></a>
-## <a name="adding-route-attributes"></a>Dodawanie tras atrybutów
+## <a name="adding-route-attributes"></a>Dodawanie atrybutów trasy
 
-Oto przykład trasy zdefiniowane przy użyciu atrybutu:
+Oto przykład trasy definiowane przy użyciu atrybutu:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample6.cs)]
 
-Ciąg &quot;klienci / {customerId} / porządkuje&quot; jest szablon identyfikatora URI dla trasy. Interfejs API sieci Web próbuje pasuje do identyfikatora URI żądania do tego szablonu. W tym przykładzie "klienci" i "zamówienia" są segmenty literału i "{customerId}" jest parametrem zmiennej. Następujące identyfikatory URI spowoduje dopasowanie tego szablonu:
+Ciąg &quot;klientów / {customerId} / orders&quot; jest szablon identyfikatora URI dla danej trasy. Interfejs API sieci Web próbuje dopasować identyfikatora URI żądania do szablonu. W tym przykładzie "klientów" i "orders" to segmentów literału, a "{customerId}" jest parametrem zmiennej. Następujące identyfikatory URI będzie odpowiadać tego szablonu:
 
 - `http://localhost/customers/1/orders`
 - `http://localhost/customers/bob/orders`
 - `http://localhost/customers/1234-5678/orders`
 
-Można ograniczyć przy użyciu odpowiedniego [ograniczenia](#constraints), które zostały opisane w dalszej części tego tematu.
+Można ograniczyć za pomocą dopasowywania [ograniczenia](#constraints), które zostały opisane w dalszej części tego tematu.
 
-Zwróć uwagę, że &quot;{customerId}&quot; parametru w szablonie trasy odpowiada nazwie *customerId* parametru w metodzie. Gdy interfejs API sieci Web wywołuje akcji kontrolera, próbuje wiązania parametrów trasy. Na przykład, jeśli identyfikator URI jest `http://example.com/customers/1/orders`, interfejsu API sieci Web próbuje powiązać wartość "1" *customerId* parametru tej akcji.
+Należy zauważyć, że &quot;{customerId}&quot; parametrów w szablonie trasy jest zgodna z nazwą *customerId* parametru w metodzie. Gdy internetowy interfejs API wywołuje akcji kontrolera, próbuje powiązania parametrów trasy. Na przykład, jeśli identyfikator URI jest `http://example.com/customers/1/orders`, interfejs API sieci Web próbuje można powiązać wartości "1" *customerId* parametru w akcji.
 
 Szablon identyfikatora URI może mieć kilka parametrów:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample7.cs)]
 
-Wszystkie metody kontrolera, które nie mają atrybutu trasy korzystać z opartych na konwencjach routingu. W ten sposób można połączyć oba rodzaje routingu w tym samym projekcie.
+Wszystkimi metodami kontrolera, które nie mają atrybutu trasy Użyj, routing oparty na Konwencji. W ten sposób można połączyć oba rodzaje routingu w tym samym projekcie.
 
 ## <a name="http-methods"></a>Metody HTTP
 
-Interfejs API sieci Web wybiera także działania na podstawie metody HTTP żądania (GET, POST itp.). Domyślnie interfejsu API sieci Web wygląda bez uwzględniania wielkości liter dopasowanie z początku nazwy metody kontrolera. Na przykład metoda kontrolera o nazwie `PutCustomers` dopasowuje żądanie HTTP PUT.
+Interfejs API sieci Web również wybiera akcje na podstawie metody HTTP żądania (GET, POST itp.). Domyślnie internetowy interfejs API wygląda dopasowanie bez uwzględniania wielkości liter z początku nazwy metody kontrolera. Na przykład metody kontroler o nazwie `PutCustomers` dopasowuje żądanie HTTP PUT.
 
-Można zastąpić tę Konwencję dekoracji metoda ze wszystkimi następującymi atrybutami:
+Możesz zastąpić tę Konwencję przez urządzanie metody z dowolnym następujące atrybuty:
 
 - **[HttpDelete]**
 - **[HttpGet]**
@@ -141,26 +140,26 @@ Można zastąpić tę Konwencję dekoracji metoda ze wszystkimi następującymi 
 - **[HttpPost]**
 - **[HttpPut]**
 
-Poniższy przykład mapuje CreateBook metoda żądania HTTP POST.
+Poniższy przykład mapuje metoda CreateBook żądania HTTP POST.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample8.cs)]
 
-W przypadku wszystkich innych metod HTTP, łącznie z metod niestandardowych, użycie **AcceptVerbs** atrybut, który przyjmuje listę metod HTTP.
+Wszystkie inne metody HTTP, łącznie z metod niestandardowych do używania **AcceptVerbs** atrybut, który przyjmuje listę metod HTTP.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample9.cs)]
 
 <a id="prefixes"></a>
 ## <a name="route-prefixes"></a>Prefiksy trasy
 
-Często trasy w kontrolerze wszystkie rozpoczyna się od tego samego prefiksu. Na przykład:
+Często trasy w kontrolerze wszystkie identyfikatory rozpoczynają się przy użyciu tego samego prefiksu. Na przykład:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample10.cs)]
 
-Należy określić Wspólny prefiks dla całego kontrolera przy użyciu **[RoutePrefix]** atrybutu:
+Możesz ustawić Wspólny prefiks dla całego kontrolera, używając **[RoutePrefix]** atrybutu:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample11.cs)]
 
-Użyj tyldy (~) na atrybut method, aby przesłonić prefiks trasy:
+Użyj tyldy (~) dla atrybutu metody, aby przesłonić prefiks trasy:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample12.cs)]
 
@@ -171,40 +170,40 @@ Prefiks trasy może zawierać parametry:
 <a id="constraints"></a>
 ## <a name="route-constraints"></a>Ograniczenia trasy
 
-Ograniczenia trasy pozwalają ograniczyć, jak są dopasowywane parametry w szablonie trasy. Ogólna składnia jest &quot;{ograniczenia parametru}:&quot;. Na przykład:
+Ograniczenia trasy pozwalają na określenie, jak są dopasowywane parametry w szablonie trasy. Ogólna składnia jest &quot;{parametr: ograniczenie}&quot;. Na przykład:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample14.cs)]
 
-W tym miejscu trasy pierwszy będzie można wybrać tylko jeśli &quot;identyfikator&quot; segmencie identyfikatora URI jest liczbą całkowitą. W przeciwnym razie zostanie wybrany drugi trasy.
+W tym miejscu pierwsza trasa będzie można wybrać tylko jeśli &quot;identyfikator&quot; segmencie identyfikatora URI jest liczbą całkowitą. W przeciwnym razie zostanie wybrany druga trasa.
 
 W poniższej tabeli wymieniono ograniczenia, które są obsługiwane.
 
 | Ograniczenia | Opis | Przykład |
 | --- | --- | --- |
-| Alpha | Dopasowań wielkie lub małe litery alfabetu łacińskiego (a – z, A-Z) | {x: alfa} |
+| alfa | Dopasowuje wielkie lub małe litery alfabetu łacińskiego (a – z, A – Z) | {x: alfa} |
 | bool | Dopasowuje wartość logiczną. | {x:bool} |
-| datetime | Dopasowań **DateTime** wartość. | {x: datetime} |
-| decimal | Odpowiada wartości dziesiętnej. | {x: decimal} |
-| double | Odpowiada wartość 64-bitowych liczb zmiennoprzecinkowych. | {x:double} |
-| float | Dopasowuje wartości zmiennoprzecinkowej 32-bitowych. | {x: float} |
-| Identyfikator GUID | Dopasowuje wartości identyfikatora GUID. | {x:guid} |
-| int | Zgodna z wartością 32-bitową liczbę całkowitą. | {x:int} |
-| length | Dopasowuje ciąg znaków o określonej długości lub zakresu określonej długości. | {x: length(6)} {x: length(1,20)} |
-| long | Odpowiada wartość 64-bitową liczbę całkowitą. | {x:long} |
-| max | Dopasowuje typu integer o wartości maksymalnej. | {x:max(10)} |
+| datetime | Dopasowuje **daty/godziny** wartość. | {x: Data i godzina} |
+| decimal | Dopasowuje wartość dziesiętną. | {x: dziesiętne} |
+| double | Dopasowuje wartość zmiennoprzecinkową 64-bitowych. | {x:double} |
+| float | Dopasowuje wartość zmiennoprzecinkowa 32-bitowych. | {x: float} |
+| Identyfikator GUID | Dopasowuje wartość identyfikatora GUID. | {x:guid} |
+| int | Odpowiada wartości 32-bitową liczbę całkowitą. | {x:int} |
+| length | Dopasowuje ciąg znaków o określonej długości lub w określonym zakresie długości. | {x: length(6)} {x: length(1,20)} |
+| long | Dopasowuje wartość 64-bitową liczbę całkowitą. | {x:long} |
+| max | Reprezentuje liczbą całkowitą, przy czym wartość maksymalna. | {x:max(10)} |
 | Element MaxLength | Dopasowuje ciąg o maksymalnej długości. | {x:maxlength(10)} |
-| min | Dopasowuje jako liczba całkowita, wartość minimalna. | {x:min(10)} |
-| Element MinLength | Dopasowuje ciąg o minimalnej długości. | {x:minlength(10)} |
-| range | Dopasowuje całkowitą w zakresie wartości. | {x: range(10,50)} |
-| wyrażenia regularnego | Pasuje do wyrażenia regularnego. | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
+| min | Reprezentuje liczbą całkowitą o określonej wartości minimalnej. | {x:min(10)} |
+| Element MinLength | Dopasowuje ciąg o długości minimalnej. | {x:minlength(10)} |
+| range | Pasuje do liczby całkowitej mającej zakresu wartości. | {x: range(10,50)} |
+| wyrażenie regularne | Pasuje do wyrażenia regularnego. | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
 
-Powiadomienie niektórych ograniczeń, takich jak &quot;min&quot;, przyjmuje argumentów w nawiasach. Można stosować wiele ograniczeń do parametru, oddzielone dwukropkiem.
+Zwróć uwagę niektórych ograniczeń, takich jak &quot;min&quot;, przyjmują argumentów w nawiasach. Można zastosować wiele ograniczeń za pomocą parametru oddzieloną dwukropkiem.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample15.cs)]
 
 ### <a name="custom-route-constraints"></a>Ograniczenia trasy niestandardowe
 
-Można utworzyć ograniczenia trasy niestandardowe zaimplementowanie **IHttpRouteConstraint** interfejsu. Na przykład następujące ograniczenia ogranicza parametr na wartość niezerową liczbą całkowitą.
+Można utworzyć ograniczenia trasy niestandardowe, implementując **IHttpRouteConstraint** interfejsu. Na przykład następujące ograniczenia ogranicza parametr na wartość całkowitą od zera.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample16.cs)]
 
@@ -216,64 +215,64 @@ Teraz można zastosować ograniczenia trasy:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample18.cs)]
 
-Można również zastąpić całą **DefaultInlineConstraintResolver** klasy zaimplementowanie **IInlineConstraintResolver** interfejsu. W ten sposób spowoduje zastąpienie wszystkich wbudowane ograniczenia, chyba że implementacji **IInlineConstraintResolver** specjalnie dodaje je.
+Możesz również zastąpić całą **DefaultInlineConstraintResolver** klasy przez zaimplementowanie **IInlineConstraintResolver** interfejsu. To spowoduje zastąpienie wszystkie wbudowane ograniczenia, chyba że implementacja **IInlineConstraintResolver** specjalnie dodaje je.
 
 <a id="optional"></a>
-## <a name="optional-uri-parameters-and-default-values"></a>Parametry opcjonalne identyfikatora URI i wartości domyślnych
+## <a name="optional-uri-parameters-and-default-values"></a>Parametry opcjonalne identyfikatora URI i wartości domyślne
 
-Możesz wprowadzić parametr URI opcjonalne, dodając znak zapytania do parametru trasy. Jeśli parametr trasy jest opcjonalny, należy zdefiniować wartości domyślnej dla parametru metody.
+Istnieje możliwość parametru identyfikatora URI opcjonalne, dodając znak zapytania do parametru trasy. Jeśli parametr trasy jest opcjonalny, zdefiniuj wartość domyślną dla parametru metody.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample19.cs)]
 
-W tym przykładzie `/api/books/locale/1033` i `/api/books/locale` zwrócić tego samego zasobu.
+W tym przykładzie `/api/books/locale/1033` i `/api/books/locale` zwracać ten sam zasób.
 
-Alternatywnie można określić wartość domyślną w szablonie trasy w następujący sposób:
+Alternatywnie można określić wartość domyślną wewnątrz szablonu trasy w następujący sposób:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample20.cs)]
 
-To jest prawie takie same, co w poprzednim przykładzie, ale istnieje niewielka różnica zachowania, gdy wartością domyślną jest stosowany.
+Jest prawie taki sam, jak w poprzednim przykładzie, ale istnieje niewielka różnica zachowanie po zastosowaniu wartość domyślną.
 
-- W pierwszym przykładzie ("{lcid?}") wartość domyślna 1033 jest przypisywane bezpośrednio do parametru metody, tak aby było to dokładną wartość parametru.
-- W drugim przykładzie ("{lcid = 1033}"), wartość domyślna "1033" przechodzi przez proces tworzenia powiązania modelu. Wartość liczbowa 1033 przekonwertuje "1033" domyślnego-integratora modelu. Można jednak dodatku niestandardowego integratora modelu, co może zrobić coś innego.
+- W pierwszym przykładzie ("{lcid?}") wartość domyślna 1033, to przypisać bezpośrednio do parametru metody, tak aby było to dokładna wartość parametru.
+- W drugim przykładzie ("{lcid = 1033}"), wartość domyślna "1033" przechodzi przez proces wiązania modelu. Integrator modelu domyślne przekonwertuje "1033" na wartość liczbową 1033. Można jednak dodatku niestandardowego integratora modelu, który może zrobić coś inaczej.
 
-(W większości przypadków, chyba że masz integratorów modeli niestandardowych w potoku sieci dwa formularze będą równoważne).
+(W większości przypadków, chyba że masz niestandardowe integratorów modeli w potoku, dwa formularze będą równoważne).
 
 <a id="route-names"></a>
 ## <a name="route-names"></a>Nazwy tras
 
-W składniku Web API każdy ma nazwę. Nazwy trasy są przydatne podczas generowania łączy, tak, aby można uwzględnić łącze w odpowiedzi HTTP.
+W interfejsie API sieci Web co trasy o nazwie. Nazwy tras przydają się podczas generowania łączy, tak że można uwzględnić łącze w odpowiedzi HTTP.
 
-Aby określić nazwę trasy, ustaw **nazwa** właściwości atrybutu. Poniższy przykład przedstawia sposób ustawiania nazwy trasy i sposobu użycia nazwy trasy podczas generowania łącza.
+Aby określić nazwę trasy, ustaw **nazwa** właściwości w atrybucie. Poniższy przykład pokazuje, jak ustawić nazwę trasy, a także jak używać nazwy trasy podczas generowania łącza.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample21.cs)]
 
 <a id="order"></a>
 ## <a name="route-order"></a>Kolejność trasy
 
-Próba URI trasa pasuje przez platformę oblicza trasy w określonej kolejności. Aby określić kolejność, ustaw **RouteOrder** właściwość atrybut trasy. Niższe wartości są sprawdzane jako pierwsze. Wartość domyślna kolejności wynosi zero.
+Kiedy struktura próbuje dopasować identyfikatora URI z trasą, ocenia trasy w określonej kolejności. Aby określić kolejność, ustaw **RouteOrder** właściwość atrybut trasy. Niższe wartości są obliczane jako pierwsze. Wartość domyślna kolejności wynosi zero.
 
-Oto, jak całkowita kolejność jest określana:
+Poniżej przedstawiono sposób ustalania kolejności, łączna liczba:
 
-1. Porównaj **RouteOrder** właściwości atrybutu trasy.
-2. Szukaj w każdym segmencie identyfikatora URI w szablonie trasy. Dla każdego segmentu kolejność w następujący sposób: 
+1. Porównaj **RouteOrder** właściwość atrybut trasy.
+2. Spójrz na każdym segmencie identyfikatora URI w szablonie trasy. Dla każdego segmentu kolejność w następujący sposób: 
 
-    1. Literał segmentów.
+    1. Literał segmenty.
     2. Parametry trasy z ograniczeniami.
     3. Parametry trasy bez ograniczeń.
-    4. Symboli wieloznacznych parametrem segmentów z ograniczeniami.
-    5. Symbol wieloznaczny parametrów segmenty bez ograniczeń.
-3. W przypadku zostanie rozwiązany, trasy są uporządkowane według porównania ciągów porządkowych bez uwzględniania wielkości liter ([OrdinalIgnoreCase](https://msdn.microsoft.com/library/system.stringcomparer.ordinalignorecase.aspx)) szablonu trasy.
+    4. Symbol wieloznaczny parametr segmentów z ograniczeniami.
+    5. Symbol wieloznaczny segmenty parametru bez ograniczeń.
+3. W przypadku tie trasy są uporządkowane według porównania bez uwzględniania wielkości liter ciągu porządkowe ([OrdinalIgnoreCase](https://msdn.microsoft.com/library/system.stringcomparer.ordinalignorecase.aspx)) szablonu trasy.
 
-Oto przykład. Załóżmy, że zdefiniujesz następujący kontroler:
+Oto przykład. Załóżmy, że należy zdefiniować następujące kontrolera:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample22.cs)]
 
-Te trasy są sortowane w następujący sposób.
+Te trasy są uporządkowane w następujący sposób.
 
 1. Szczegóły/zamówień
 2. zamówienia / {id}
 3. zamówienia / {customerName}
-4. zamówienia / {\*Data}
+4. zamówienia / {\*date}
 5. zamówienia / oczekujące
 
-Powiadomienie, że "szczegóły" jest segmentem literału i pojawia się przed "{id}", ale "oczekujące" pojawia się ostatnio ponieważ **RouteOrder** właściwość jest 1. (W tym przykładzie przyjęto założenie, są Brak odbiorców o nazwie "szczegóły" lub "oczekujące". Ogólnie rzecz biorąc należy unikać niejednoznaczne trasy. W tym przykładzie lepsze szablon trasy dla `GetByCustomer` jest "klienci / {customerName}")
+Zwróć uwagę, że "szczegóły" jest literał segmentu i pojawia się przed "{id}", ale "oczekujące" pojawia się ostatnio ponieważ **RouteOrder** właściwość ma wartość 1. (W tym przykładzie przyjęto założenie, są nie klientów o nazwie "szczegóły" lub "pending". Ogólnie rzecz biorąc Staraj się unikać niejednoznaczne trasy. W tym przykładzie lepsze szablon trasy dla `GetByCustomer` jest "klientów / {customerName}")

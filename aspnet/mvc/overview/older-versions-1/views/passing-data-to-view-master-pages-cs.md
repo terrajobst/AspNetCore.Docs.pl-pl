@@ -1,40 +1,39 @@
 ---
 uid: mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-cs
-title: Przekazywanie danych do strony wzorcowej widoku (C#) | Dokumentacja firmy Microsoft
+title: Przekazywanie danych do stron wzorcowych widoku (C#) | Dokumentacja firmy Microsoft
 author: microsoft
-description: Celem tego samouczka jest wyjaśnienie, jak można przekazać dane z kontrolera do widoku strony wzorcowej. Omówione dwie strategie przekazywania danych do widoku m...
+description: Celem tego samouczka jest wyjaśniają, jak przekazać dane za pomocą kontrolera widoku strony wzorcowej. Sprawdzamy pomocy dwóch strategii przekazywania danych do widoku m...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
 ms.topic: article
 ms.assetid: 5fee879b-8bde-42a9-a434-60ba6b1cf747
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bfb58cbe0c415c092f3a41e518281a7461d2803c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 02586f145de9c6d654c5d815291a340fd037cc6f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869845"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37397749"
 ---
-<a name="passing-data-to-view-master-pages-c"></a>Przekazywanie danych do strony wzorcowej widoku (C#)
+<a name="passing-data-to-view-master-pages-c"></a>Przekazywanie danych do stron wzorcowych widoku (C#)
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_13_CS.pdf)
 
-> Celem tego samouczka jest wyjaśnienie, jak można przekazać dane z kontrolera do widoku strony wzorcowej. Omówione dwie strategie przekazywania danych do strony wzorcowej widoku. Najpierw omówimy łatwe rozwiązania, który daje w aplikacji, która jest trudne w utrzymaniu. Następnie omówione dużo lepszym rozwiązaniem, które wymaga nieco więcej pracy początkowej, ale powoduje utrzymaniu znacznie więcej aplikacji.
+> Celem tego samouczka jest wyjaśniają, jak przekazać dane za pomocą kontrolera widoku strony wzorcowej. Sprawdzamy pomocy dwóch strategii przekazywania danych do strony wzorcowej widoku. Po pierwsze omówimy prostemu rozwiązaniu, powstałego w aplikacji, która jest trudne w utrzymaniu. Następnie omówiony dużo lepszym rozwiązaniem, która wymaga nieco więcej pracy początkowej, ale wyniki w aplikacji będzie znacznie łatwiejszy w utrzymaniu.
 
 
-## <a name="passing-data-to-view-master-pages"></a>Przekazywanie danych do strony wzorcowej widoku
+## <a name="passing-data-to-view-master-pages"></a>Przekazywanie danych do stron wzorcowych widoku
 
-Celem tego samouczka jest wyjaśnienie, jak można przekazać dane z kontrolera do widoku strony wzorcowej. Omówione dwie strategie przekazywania danych do strony wzorcowej widoku. Najpierw omówimy łatwe rozwiązania, który daje w aplikacji, która jest trudne w utrzymaniu. Następnie omówione dużo lepszym rozwiązaniem, które wymaga nieco więcej pracy początkowej, ale powoduje utrzymaniu znacznie więcej aplikacji.
+Celem tego samouczka jest wyjaśniają, jak przekazać dane za pomocą kontrolera widoku strony wzorcowej. Sprawdzamy pomocy dwóch strategii przekazywania danych do strony wzorcowej widoku. Po pierwsze omówimy prostemu rozwiązaniu, powstałego w aplikacji, która jest trudne w utrzymaniu. Następnie omówiony dużo lepszym rozwiązaniem, która wymaga nieco więcej pracy początkowej, ale wyniki w aplikacji będzie znacznie łatwiejszy w utrzymaniu.
 
-### <a name="the-problem"></a>Problem
+### <a name="the-problem"></a>Ten Problem
 
-Załóżmy, że tworzysz filmu aplikacji bazy danych i mają być wyświetlane na liście kategorii filmu na każdej stronie w aplikacji (zobacz rysunek 1). Załóżmy, ponadto, czy lista kategorii film jest przechowywana w bazie danych. W takim przypadku powinna mieć do pobrania kategorii z bazy danych i renderowania listy kategorii filmu w widoku strony wzorcowej.
+Wyobraź sobie, że tworzysz aplikacji bazy danych filmów i mają być wyświetlane na liście kategorii filmu na każdej stronie w aplikacji (patrz rysunek 1). Wyobraź sobie, co więcej, że na liście kategorii filmu są przechowywane w tabeli bazy danych. W takiej sytuacji sensowne będzie do pobrania kategorii z bazy danych i renderowania na liście kategorii filmu w obrębie strony wzorcowej widoku.
 
 
 [![Wyświetlanie kategorii filmu w widoku strony wzorcowej](passing-data-to-view-master-pages-cs/_static/image2.png)](passing-data-to-view-master-pages-cs/_static/image1.png)
@@ -42,79 +41,79 @@ Załóżmy, że tworzysz filmu aplikacji bazy danych i mają być wyświetlane n
 **Rysunek 01**: wyświetlanie kategorii filmu w widoku strony wzorcowej ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](passing-data-to-view-master-pages-cs/_static/image3.png))
 
 
-Oto problem. Sposób pobierania listy kategorii filmu z strony wzorcowej? Jest kuszące bezpośrednio wywołać metody klasach modeli na stronie głównej. Innymi słowy jest kuszące, aby uwzględnić kod do pobierania danych z prawej stronie głównej bazy danych. Jednak pomijanie kontrolerów MVC dostęp do bazy danych naruszyłoby czyste rozdzielenie dotyczy jest jednym z podstawowych zalet tworzenia aplikacji MVC.
+Poniżej przedstawiono ten problem. Sposób pobierania listy kategorii filmu na stronie głównej? Jest to wydawać się bezpośrednio wywoływać metod w klasach modeli strony wzorcowej. Innymi słowy jest kuszące Dołączanie kodu do pobierania danych z bazy danych po prawej stronie na stronie głównej. Jednak Twoja kontrolerów MVC, dostęp do bazy danych z pominięciem naruszyłoby czyste rozdzielenie problemów, które jest jednym z podstawowych zalet kompilowania aplikacji MVC.
 
-W aplikacji MVC ma wszystkie interakcje między widoków MVC i modelu MVC, które mają być obsługiwane przez kontrolerów MVC. Powoduje to separacji w utrzymaniu, dostosowywalne i testować aplikacji.
+W aplikacji MVC chcesz, aby wszystkie interakcje między widoków MVC i modelu MVC, które mają być obsługiwane przez Twoje kontrolerów MVC. Powoduje to separacji w obsłudze, dostosowywalne i testowaniu aplikacji.
 
-W aplikacji MVC wszystkie dane przekazywane do widoku — w tym widoku strony wzorcowej — powinny być przekazywane do widoku przez akcji kontrolera. Ponadto dane powinien zostać przekazany dzięki wykorzystaniu danych widoku. W pozostałej części tego samouczka I Sprawdź na dwa sposoby przekazywania danych widoku do strony wzorcowej widoku.
+W aplikacji MVC wszystkie dane przekazywane do widoku — w tym widoku strony wzorcowej — powinien być przekazywany do widoku przez akcji kontrolera. Ponadto danych powinien być przekazywany przez wykorzystanie danych widoku. W pozostałej części tego samouczka I Sprawdź dwie metody przekazywania danych widoku strony wzorcowej widoku.
 
-### <a name="the-simple-solution"></a>Prostym rozwiązaniem
+### <a name="the-simple-solution"></a>Proste rozwiązanie
 
-Zacznijmy z Najprostszym rozwiązaniem w celu przekazywania danych widoku z kontrolera do widoku strony wzorcowej. Najprostszym rozwiązaniem jest przekazywanie danych widoku dla strony wzorcowej każdej akcji kontrolera.
+Zacznijmy z Najprostszym rozwiązaniem do przekazywania wyświetlanie danych za pomocą kontrolera widoku strony wzorcowej. Jest najprostszym rozwiązaniu do przekazania danych widoku dla strony wzorcowej w każdej akcji kontrolera.
 
-Należy wziąć pod uwagę kontrolera 1 wyświetlania. Udostępnia ona dwie akcje o nazwie `Index()` i `Details()`. `Index()` Metoda akcji zwraca co film filmy tabeli bazy danych. `Details()` Metoda akcji zwraca co filmu w filmu określonej kategorii.
+Należy wziąć pod uwagę kontrolera w ofercie 1. Udostępnia ona dwie akcje o nazwie `Index()` i `Details()`. `Index()` Metoda akcji zwraca każdego filmu w tabeli bazy danych filmów. `Details()` Metoda akcji zwraca każdego filmu w kategorii konkretnego filmu.
 
 **1 — Lista `Controllers\HomeController.cs`**
 
 [!code-csharp[Main](passing-data-to-view-master-pages-cs/samples/sample1.cs)]
 
-Należy zauważyć, że zarówno indeks() i akcje Details() dodać dwóch elementów do wyświetlania danych. Akcja indeks() dodaje dwa klucze: kategorie i filmy. Klucz kategorie reprezentuje listę filmu kategorie wyświetlane w widoku strony wzorcowej. Klucz filmy reprezentuje listę filmów wyświetlanych przez indeks strony widoku.
+Należy zauważyć, że indeks() i akcje Details() dodać dwa elementy, aby wyświetlić dane. Akcja indeks() dodaje dwa klucze: kategorie i filmy. Klucz kategorie reprezentuje listę kategorii filmu wyświetlane przez strony wzorcowej widoku. Klucz filmy reprezentuje listę filmów wyświetlane przez indeks strony widoku.
 
-Akcja Details() dodaje również dwa klucze o nazwie kategorii i filmy. Klucz kategorie jeszcze raz reprezentuje listę filmu kategorie wyświetlane w widoku strony wzorcowej. Klucz filmy reprezentuje listę filmów w określonej kategorii wyświetlanych przez strony widoku szczegółów (patrz rysunek 2).
+Akcja Details() również dodaje dwa klucze o nazwie kategorie i filmy. Klucz kategorie reprezentuje jeszcze raz na liście kategorii filmu wyświetlane przez strony wzorcowej widoku. Klucz filmy reprezentuje listę filmów w określonej kategorii wyświetlanych przez strony widoku szczegółów (patrz rysunek 2).
 
 
-[![W widoku szczegółów](passing-data-to-view-master-pages-cs/_static/image5.png)](passing-data-to-view-master-pages-cs/_static/image4.png)
+[![Widok szczegółów](passing-data-to-view-master-pages-cs/_static/image5.png)](passing-data-to-view-master-pages-cs/_static/image4.png)
 
 **Rysunek 02**: widok szczegółów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](passing-data-to-view-master-pages-cs/_static/image6.png))
 
 
-Widok indeks znajduje się w wyświetlania 2. Iteruje po prostu Lista filmów reprezentowany przez element filmów w widoku danych.
+Widok indeksu są zawarte w ofercie 2. Iteruje po prostu listy filmów reprezentowanego przez element filmów w widoku danych.
 
 **2 — Lista `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-cs/samples/sample2.aspx)]
 
-Strony wzorcowej widoku znajduje się w 3 wyświetlania. Widok strony wzorcowej iteracje i renderuje wszystkie kategorie filmu reprezentowany przez element kategorii z danymi widoku.
+Strony wzorcowej widoku znajduje się w ofercie 3. Strony wzorcowej widoku dokonuje iteracji i renderuje wszystkie kategorie filmu, reprezentowane przez element kategorii z danymi widoku.
 
 **3 — lista `Views\Shared\Site.master`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-cs/samples/sample3.aspx)]
 
-Wszystkie dane są przekazywane do widoku oraz widoku strony wzorcowej za pośrednictwem widoku danych. To jest prawidłowy sposób, aby przekazać dane do strony wzorcowej.
+Wszystkie dane jest przekazywane do widoku oraz widoku strony wzorcowej widoku danych. To prawidłowy sposób, aby przekazać dane do strony wzorcowej.
 
-Tak co to jest problem z tego rozwiązania? Problem polega na tym, że to rozwiązanie narusza zasady suchej (nie powtarzaj siebie). Każdy akcji kontrolera należy dodać tej samej listy kategorii film, aby wyświetlić dane. Mające zduplikowany kod w aplikacji utrudnia aplikacji znacznie Obsługa dostosowania i modyfikować.
+W związku czym jest problem za pomocą tego rozwiązania? Problem polega na tym, że to rozwiązanie narusza zasadę PRÓBNEGO (nie należy powtórzyć samodzielnie). Każdej akcji kontrolera należy dodać bardzo ta sama lista kategorii filmu, aby wyświetlić dane. Posiadanie kodu zduplikowanego w aplikacji sprawia, że aplikacja dużo bardziej skomplikowane, obsługa, dostosowania i modyfikowania.
 
-### <a name="the-good-solution"></a>Dobre rozwiązanie
+### <a name="the-good-solution"></a>Dobrym rozwiązaniem
 
-W tej sekcji omówione alternatywnych i lepsze, rozwiązanie do przekazywania danych z akcji kontrolera do widoku strony wzorcowej. Zamiast opcji dodawania kategorii filmu dla strony wzorcowej w każdej akcji kontrolera, możemy dodać filmu kategorie do widoku danych tylko raz. Wszystkie dane widoku, używany przez strony wzorcowej widoku jest dodawany do kontrolera aplikacji.
+W tej sekcji omówiony rozwiązanie alternatywne i lepsze, do przekazywania danych z akcji kontrolera widoku strony wzorcowej. Zamiast opcji dodawania kategorii filmu dla strony wzorcowej w każdej akcji kontrolera, możemy dodać film kategorie wyświetlanie danych tylko raz. Wszystkie dane widoku, używane przez strony wzorcowej widoku jest dodawany do kontrolera aplikacji.
 
-Klasa ApplicationController znajduje się w listę 4.
+Klasa ApplicationController znajduje się w ofercie 4.
 
-**Wyświetlanie listy 4. `Controllers\ApplicationController.cs`**
+**4 — lista `Controllers\ApplicationController.cs`**
 
 [!code-csharp[Main](passing-data-to-view-master-pages-cs/samples/sample4.cs)]
 
-Istnieją trzy elementy, które powinny uwagi dotyczące kontrolera aplikacji na wyświetlanie 4. Najpierw należy zauważyć, że klasa dziedziczy z klasy podstawowej System.Web.Mvc.Controller. Kontroler aplikacji jest klasy kontrolera.
+Istnieją trzy czynności, które użytkownik zauważy o kontrolera aplikacji w ofercie 4. Najpierw zwróć uwagę, że klasa dziedziczy z klasy bazowej System.Web.Mvc.Controller. Kontroler aplikacji jest klasa kontrolera.
 
-Po drugie Zwróć uwagę, że klasa kontrolera aplikacji jest klasą abstrakcyjną. Klasy abstrakcyjnej jest klasa, która musi być implementowana przez konkretną klasę. Ponieważ kontrolera aplikacji jest klasą abstrakcyjną, nie można wywołać nie wszystkie metody zdefiniowanej w klasie bezpośrednio. Jeśli będziesz próbować wywołać klasy aplikacji bezpośrednio następnie zostanie wyświetlony komunikat o błędzie nie można odnaleźć zasobu.
+Po drugie Zwróć uwagę, że klasa kontrolera aplikacji jest klasą abstrakcyjną. Abstrakcyjna klasa to klasa, która musi być implementowana przez klasy konkretnej. Ponieważ kontroler aplikacji jest klasą abstrakcyjną, nie może nie wywoływać wszelkie metody zdefiniowane w klasie bezpośrednio. Jeśli użytkownik podejmie próbę bezpośrednio wywołać klasy aplikacji następnie otrzymasz komunikat o błędzie nie można odnaleźć zasobu.
 
-Trzecie Zwróć uwagę, że kontroler aplikacji zawiera konstruktora, który dodaje listy kategorii film, aby wyświetlić dane. Każda klasa kontrolera, który dziedziczy z kontrolera aplikacji automatycznie wywołuje konstruktor kontrolera aplikacji. Zawsze, gdy wywoływana żadnych działań na każdym kontrolerze, który dziedziczy z kontrolera aplikacji, kategorie film jest dołączony do danych widoku automatycznie.
+Po trzecie Zwróć uwagę, że kontroler aplikacji zawiera konstruktora, który dodaje listę kategorii filmu, aby wyświetlić dane. Każda klasa kontrolera, który dziedziczy z kontrolera aplikacji, które automatycznie wywołuje konstruktora kontrolera aplikacji. Zawsze, gdy chcesz wywołać dowolną akcję na żadnym kontrolerze, który dziedziczy z kontrolera aplikacji, kategorie filmu znajduje się w widoku danych automatycznie.
 
-Kontroler filmów w listę 5 dziedziczy kontrolera aplikacji.
+Kontroler filmów w ofercie 5 dziedziczy kontrolera aplikacji.
 
-**Wyświetlanie listy 5 — `Controllers\MoviesController.cs`**
+**5 — lista `Controllers\MoviesController.cs`**
 
 [!code-csharp[Main](passing-data-to-view-master-pages-cs/samples/sample5.cs)]
 
-Kontroler filmów, podobnie jak kontrolera głównej opisanych w poprzedniej sekcji, udostępnia dwie metody akcji, o nazwie `Index()` i `Details()`. Należy zauważyć, że na liście kategorii filmu wyświetlanych przez strony wzorcowej widoku nie jest dodawane do wyświetlania danych w jednym `Index()` lub `Details()` metody. Ponieważ kontrolera filmy dziedziczy kontrolera aplikacji, lista kategorii film jest dodawana do wyświetlania danych automatycznie.
+Kontroler filmy, podobnie jak kontrolera głównego opisanych w poprzedniej sekcji udostępnia dwie metody akcji, o nazwie `Index()` i `Details()`. Należy zauważyć, że na liście kategorii filmu wyświetlane przez strony wzorcowej widoku nie jest dodawane do wyświetlania danych w jednym `Index()` lub `Details()` metody. Ponieważ kontroler filmy dziedziczy kontroler aplikacji, na liście kategorii film jest dodawany do wyświetlania danych automatycznie.
 
-Zwróć uwagę, to rozwiązanie w celu dodanie danych widoku dla strony wzorcowej widoku nie narusza zasady suchej (nie powtarzaj siebie). Kod do dodawania listy kategorii film, aby wyświetlić dane znajduje się w lokalizacji tylko jeden: Konstruktor kontrolera aplikacji.
+Zwróć uwagę, to rozwiązanie do dodawania danych widoku dla strony wzorcowej widoku naruszają zasady PRÓBNEGO (nie należy powtórzyć samodzielnie). Kod do dodawania listy kategorii film do wyświetlania danych znajduje się w lokalizacji tylko jeden: konstruktor dla kontrolera aplikacji.
 
 ### <a name="summary"></a>Podsumowanie
 
-W tym samouczku omówiono dwa podejścia do przekazywania danych widoku z kontrolera do widoku strony wzorcowej. Po pierwsze firma Microsoft zbadać prostą, ale trudne w utrzymaniu podejście. W pierwszej sekcji omówiono sposób dodawania danych widoku dla strony wzorcowej widoku w każdej akcji każdego kontrolera w aplikacji. Możemy stwierdzić, było nieprawidłowe podejście ponieważ narusza on zasady suchej (nie powtarzaj samodzielnie).
+W tym samouczku Omówiliśmy dwa podejścia do przekazywania danych Widok z kontrolera do widoku strony wzorcowej. Po pierwsze zbadaliśmy prosta, ale trudne w utrzymaniu podejście. W pierwszej sekcji omówiono, jak dodać dane widoku dla strony wzorcowej widoku w każdej kontrolera akcji w aplikacji. Firma Microsoft stwierdzono, było to zły podejście ponieważ narusza zasadę PRÓBNEGO (nie należy powtórzyć samodzielnie).
 
-Następnie możemy się zbadana znacznie lepszą strategię dodawania danych do wyświetlania danych wymagane przez strony wzorcowej widoku. Zamiast opcji dodawania danych widoku w każdej akcji kontrolera, dodaliśmy danych widoku tylko raz w ramach kontrolera aplikacji. W ten sposób można uniknąć zduplikowanych kodu podczas przekazywania danych do strony wzorcowej widoku w aplikacji platformy ASP.NET MVC.
+Następnie zbadaliśmy znacznie lepszą strategię Dodawanie danych do wyświetlenia danych wymagany przez strony wzorcowej widoku. Zamiast opcji dodawania danych widoku w każdej akcji kontrolera, dodaliśmy dane widoku, tylko jeden raz w ramach kontrolera aplikacji. Dzięki temu można uniknąć kodu zduplikowanego przy przekazywaniu danych do strony wzorcowej widoku w aplikacji ASP.NET MVC.
 
 > [!div class="step-by-step"]
 > [Poprzednie](creating-page-layouts-with-view-master-pages-cs.md)

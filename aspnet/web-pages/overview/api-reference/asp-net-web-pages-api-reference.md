@@ -1,33 +1,32 @@
 ---
 uid: web-pages/overview/api-reference/asp-net-web-pages-api-reference
-title: Strony sieci Web platformy ASP.NET (Razor) interfejsu API szybkie odwołanie | Dokumentacja firmy Microsoft
+title: ASP.NET Web Pages (Razor) interfejsu API krótki przewodnik | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: Ta strona zawiera listę wraz z przykładami krótki najczęściej używanych obiektów, właściwości i metody dla programowania w języku ASP.NET Web Pages o składni Razor.
+description: Ta strona zawiera listę wraz z przykładami krótki najczęściej używanych obiektów, właściwości i metod programowania stron ASP.NET Web Pages o składni Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
 ms.topic: article
 ms.assetid: 4001cb9b-3bfd-4ace-8a89-1561d8421e2c
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/api-reference/asp-net-web-pages-api-reference
 msc.type: authoredcontent
-ms.openlocfilehash: 5f9d84f4d453583d7d4eae12e4fc510275255616
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3bf706cefe5302cf1085e0f814dc6654e42ae917
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897587"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37378666"
 ---
-<a name="aspnet-web-pages-razor-api-quick-reference"></a>Strony sieci Web platformy ASP.NET (Razor) interfejsu API szybkie odwołanie
+<a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web Pages (Razor) interfejsu API krótki przewodnik
 ====================
-przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
+przez [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Ta strona zawiera listę wraz z przykładami krótki najczęściej używanych obiektów, właściwości i metody dla programowania w języku ASP.NET Web Pages o składni Razor.
+> Ta strona zawiera listę wraz z przykładami krótki najczęściej używanych obiektów, właściwości i metod programowania stron ASP.NET Web Pages o składni Razor.
 > 
-> Opisy oznaczonej jako "(v2)" zostały wprowadzone w programie ASP.NET Web Pages w wersji 2.
+> Opisy oznaczone "(wersja 2)" zostały wprowadzone w programie ASP.NET Web Pages w wersji 2.
 > 
-> Dla dokumentacji interfejsu API, zobacz [ASP.NET Web Pages dokumentacji](https://go.microsoft.com/fwlink/?LinkId=208659) w witrynie MSDN.
+> Aby uzyskać dokumentację referencyjną interfejsu API, zobacz [ASP.NET Web Pages dokumentacja](https://go.microsoft.com/fwlink/?LinkId=208659) w witrynie MSDN.
 > 
 > ## <a name="software-versions"></a>Wersje oprogramowania
 > 
@@ -35,7 +34,7 @@ przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
 > - ASP.NET Web Pages (Razor) 3
 >   
 > 
-> W tym samouczku współdziała również z ASP.NET Web Pages 2 i stron sieci Web ASP.NET w wersji 1.0 (z wyjątkiem funkcji oznaczone v2).
+> W tym samouczku współpracuje również z wzorca ASP.NET Web Pages 2 i stron sieci Web platformy ASP.NET w wersji 1.0 (z wyjątkiem funkcji oznaczone v2).
 
 
 Ta strona zawiera informacje dotyczące następujących czynności:
@@ -50,31 +49,31 @@ Ta strona zawiera informacje dotyczące następujących czynności:
 
 ### `AppState[key], AppState[index],App`
 
-Zawiera dane, które mogą być współużytkowane przez wszystkich stron w aplikacji. Można użyć dynamicznej `App` właściwości dostępu do danych sam, jak w poniższym przykładzie:
+Zawiera dane, które mogą być współużytkowane przez wszystkich stron w aplikacji. Możesz użyć dynamicznego `App` właściwość, aby uzyskiwać dostęp do tych samych danych, jak w poniższym przykładzie:
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample1.html)]
 
 ### `AsBool(), AsBool(true|false)`
 
-Konwertuje wartość ciągu na wartość logiczną (PRAWDA/FAŁSZ). Zwraca wartość false lub określoną wartość, jeśli ciąg nie reprezentuje PRAWDA/FAŁSZ.
+Konwertuje wartość ciągu na wartość logiczną (true/false). Zwraca wartość false lub określoną wartość, jeśli ciąg nie reprezentuje PRAWDA/FAŁSZ.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample2.cs)]
 
 ### `AsDateTime(), AsDateTime(value)`
 
-Konwertuje wartość ciągu do daty/godziny. Zwraca `DateTime.MinValue` lub określoną wartość, jeśli ciąg nie reprezentuje daty/godziny.
+Konwertuje wartość ciągu daty/godziny. Zwraca `DateTime.MinValue` lub określoną wartość, jeśli ciąg nie reprezentuje daty/godziny.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample3.cs)]
 
 ### `AsDecimal(), AsDecimal(value)`
 
-Konwertuje wartość ciągu o wartości dziesiętnej. Zwraca 0,0 lub określoną wartość, jeśli ciąg nie reprezentuje wartości dziesiętnej.
+Konwertuje wartość ciągu na wartość dziesiętną. Zwraca wartość 0,0 lub określoną wartość, jeśli ciąg nie reprezentuje wartość dziesiętną.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample4.cs)]
 
 ### `AsFloat(), AsFloat(value)`
 
-Konwertuje wartość ciągu na typ float. Zwraca 0,0 lub określoną wartość, jeśli ciąg nie reprezentuje wartości dziesiętnej.
+Konwertuje wartość ciągu na format zmiennoprzecinkowy. Zwraca wartość 0,0 lub określoną wartość, jeśli ciąg nie reprezentuje wartość dziesiętną.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample5.cs)]
 
@@ -86,62 +85,62 @@ Konwertuje wartość ciągu na liczbę całkowitą. Zwraca wartość 0 lub okre�
 
 ### `Href(path [, param1 [, param2]])`
 
-Tworzy adres URL przeglądarki zgodnej z ścieżkę do pliku lokalnego, z części opcjonalne dodatkowe ścieżki.
+Tworzy adres URL przeglądarki zgodnej z lokalną ścieżką pliku, z części opcjonalne dodatkowe ścieżki.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample7.cshtml)]
 
 ### `Html.Raw(value)`
 
-Renderuje *wartość* jako kod znaczników HTML zamiast renderowaniem go jako zakodowany w formacie HTML danych wyjściowych.
+Renderuje *wartość* jako kod znaczników HTML zamiast renderowaniem go jako zakodowany w formacie HTML dane wyjściowe.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample8.cshtml)]
 
 ### `IsBool(), IsDateTime(), IsDecimal(), IsFloat(), IsInt()`
 
-Zwraca wartość PRAWDA, jeśli można przekonwertować daną wartość ciągu do określonego typu.
+Zwraca wartość PRAWDA, jeśli można przekonwertować wartości z ciągu do określonego typu.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample9.cs)]
 
 ### `IsEmpty()`
 
-Zwraca wartość PRAWDA, jeśli obiektu lub zmienna nie ma wartości.
+Zwraca wartość PRAWDA, jeśli obiekt lub zmienna nie ma wartości.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample10.cs)]
 
 ### `IsPost`
 
-Zwraca wartość PRAWDA, jeśli żądanie jest żądaniem POST. (Początkowej żądań są zazwyczaj GET).
+Zwraca wartość PRAWDA, jeśli żądanie jest żądaniem POST. (Początkowego żądania są zazwyczaj GET).
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample11.cs)]
 
 ### `Layout`
 
-Określa ścieżkę strony układu do zastosowania do tej strony.
+Określa ścieżkę do zastosowania do tej strony, strony układu.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample12.html)]
 
 ### `PageData[key], PageData[index],Page`
 
-Zawiera dane w bieżącym żądaniu współużytkowane przez strony, strony układu i strony częściowe. Można użyć dynamicznej `Page` właściwości dostępu do danych sam, jak w poniższym przykładzie:
+Zawiera dane w bieżącym żądaniu współużytkowane przez strony, strony układu i strony częściowe. Możesz użyć dynamicznego `Page` właściwość, aby uzyskiwać dostęp do tych samych danych, jak w poniższym przykładzie:
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample13.html)]
 
 ### `RenderBody()`
 
-(Układ strony) Renderuje zawartość strony zawartości, której nie ma żadnych nazwanych sekcji.
+(Układ stron) Renderuje zawartość strony zawartości, która nie ma żadnych nazwanej sekcji.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample14.cs)]
 
 ### `RenderPage(path, values)`  
 `RenderPage(path[,param1 [, param2]])`
 
-Renderuje stronę zawartości przy użyciu określonej ścieżki i opcjonalne dodatkowe dane. Można uzyskać wartości dodatkowych parametrów z `PageData` za pomocą pozycji (przykład: 1) lub klucza (przykład 2).
+Renderuje stronę zawartości przy użyciu określonej ścieżki i opcjonalnie dodatkowe dane. Można uzyskać wartości dodatkowe parametry, z `PageData` za pomocą pozycji (np. 1) lub klucza (np. 2).
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample15.js)]
 
 ### `RenderSection(sectionName [, required = true|false])`
 
-(Układ strony) Renderuje zawartość sekcji o nazwie. Ustaw *wymagane* na wartość false powoduje, że sekcja opcjonalne.
+(Układ stron) Renderuje sekcji zawartości o takiej nazwie. Ustaw *wymagane* na wartość false powoduje, że sekcja opcjonalne.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample16.js)]
 
@@ -159,20 +158,20 @@ Pobiera pliki, które zostały przekazane w bieżącym żądaniu.
 
 ### `Request.Form[key]`
 
-Pobiera dane, która była umieszczona w formie (jako ciąg). `Request[key]` sprawdza zarówno `Request.Form` i `Request.QueryString` kolekcji.
+Pobiera dane, który został opublikowany w postaci (jako ciąg). `Request[key]` sprawdza, czy oba `Request.Form` i `Request.QueryString` kolekcji.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample19.cs)]
 
 ### `Request.QueryString[key]`
 
-Pobiera dane, która została określona w zapytaniu URL. `Request[key]` sprawdza zarówno `Request.Form` i `Request.QueryString` kolekcji.
+Pobiera dane, która została określona w ciągu zapytania adresu URL. `Request[key]` sprawdza, czy oba `Request.Form` i `Request.QueryString` kolekcji.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample20.cs)]
 
 ### `Request.Unvalidated(key)`  
 `Request.Unvalidated().QueryString|Form|Cookies|Headers[key]`
 
-Selektywnie wyłącza żądanie weryfikacji dla elementu form, wartość ciągu kwerendy, pliku cookie lub wartość nagłówka. Weryfikacja żądania jest domyślnie włączona i uniemożliwia użytkownikom przesyłanie znaczników lub inne potencjalnie niebezpieczną zawartość.
+Selektywnie wyłącza żądanie weryfikacji element formularza, wartości ciągu zapytania, pliku cookie lub wartości nagłówka. Weryfikacja żądania jest domyślnie włączona i uniemożliwia użytkownikom publikowanie znaczników lub inne potencjalnie niebezpieczną zawartość.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample21.cs)]
 
@@ -184,7 +183,7 @@ Dodaje do odpowiedzi nagłówek serwera HTTP.
 
 ### `Response.OutputCache(seconds [, sliding] [, varyByParams])`
 
-Przechowuje dane wyjściowe strony w wyznaczonym czasie. Opcjonalnie ustawić *przedłużanie* zresetować limitu czasu na dostęp do każdej strony i *varyByParams* celu buforowania różnych wersji strony dla każdego ciągu innego zapytania w żądaniu strony.
+Zapisuje w pamięci podręcznej danych wyjściowych strony przez wyznaczony czas. Opcjonalnie ustawić *kroczącym* zresetować limitu czasu na dostęp do poszczególnych stron i *varyByParams* celu buforowania różnych wersji strony dla każdego ciągu z innego zapytania w żądaniu strony.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample23.js)]
 
@@ -196,13 +195,13 @@ Przekierowuje żądanie do nowej lokalizacji.
 
 ### `Response.SetStatus(httpStatusCode)`
 
-Ustawia kod stanu HTTP wysyłany do przeglądarki.
+Ustawia kod stanu HTTP, które są wysyłane do przeglądarki.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample25.cs)]
 
 ### `Response.WriteBinary(data [, mimetype])`
 
-Zapisuje zawartość *danych* do odpowiedzi z typem MIME opcjonalne.
+Zapisuje zawartość *danych* odpowiedzi za pomocą opcjonalnych typ MIME.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample26.js)]
 
@@ -214,7 +213,7 @@ Zapisuje zawartość pliku do odpowiedzi.
 
 ### `@section(sectionName) {content }`
 
-(Układ strony) Definiuje sekcję zawartości o nazwie.
+(Układ stron) Definiuje sekcję zawartości o takiej nazwie.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample28.cshtml)]
 
@@ -226,7 +225,7 @@ Dekoduje ciąg, który ma kodowania HTML.
 
 ### `Server.HtmlEncode(text)`
 
-Koduje ciąg w celu renderowania w kod znaczników HTML.
+Koduje ciąg za renderowaniem w kod znaczników HTML.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample30.cs)]
 
@@ -244,7 +243,7 @@ Dekoduje adresu URL.
 
 ### `Server.UrlEncode(text)`
 
-Koduje tekst w adresie URL.
+Koduje tekst do umieszczenia w adresie URL.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample33.cs)]
 
@@ -256,7 +255,7 @@ Pobiera lub ustawia wartość, która istnieje do momentu zamknięcia przegląda
 
 ### `ToString()`
 
-Wyświetla wartość obiektu reprezentację ciągu.
+Wyświetla ciąg reprezentujący wartość obiektu.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample35.html)]
 
@@ -274,33 +273,33 @@ Zmienia hasło dla określonego użytkownika.
 
 ### `WebSecurity.ConfirmAccount(accountConfirmationToken)`
 
-Potwierdzenie konta za pomocą tokenu potwierdzenia konta.
+Potwierdzenie konta przy użyciu tokenu potwierdzenia konta.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample38.cs)]
 
 ### `WebSecurity.CreateAccount(userName, password`  
  `[, requireConfirmationToken = true|false])`
 
-Tworzy nowe konto użytkownika przy użyciu określonej nazwy użytkownika i hasła. Aby wymagać tokenu potwierdzenia, przekazać wartość true dla *requireConfirmationToken.*
+Tworzy nowe konto użytkownika przy użyciu określonej nazwy użytkownika i hasła. Aby włączyć wymaganie tokenu potwierdzenia, przekazać wartość true dla *requireConfirmationToken.*
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample39.cs)]
 
 ### `WebSecurity.CurrentUserId`
 
-Pobiera identyfikator całkowitą dla obecnie zalogowanego użytkownika.
+Pobiera identyfikator liczby całkowitej dla obecnie zalogowanego użytkownika.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample40.cs)]
 
 ### `WebSecurity.CurrentUserName`
 
-Pobiera nazwę dla obecnie zalogowanego użytkownika.
+Pobiera nazwę aktualnie zalogowanego użytkownika.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample41.cs)]
 
 ### `WebSecurity.GeneratePasswordResetToken(username`  
  `[, tokenExpirationInMinutesFromNow])`
 
-Generuje token resetowania hasła, który można wysłać w wiadomości e-mail do użytkownika, aby zresetować hasło użytkownika.
+Generuje token resetowania hasła, który można wysłać w wiadomości e-mail do użytkownika, dzięki czemu użytkownik może zresetować hasło.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample42.cs)]
 
@@ -318,7 +317,7 @@ Zwraca wartość PRAWDA, jeśli bieżący użytkownik jest zalogowany.
 
 ### `WebSecurity.IsConfirmed(userName)`
 
-Zwraca wartość PRAWDA, jeśli użytkownik został potwierdzony (na przykład za pomocą wiadomość e-mail z potwierdzeniem).
+Zwraca wartość PRAWDA, jeśli użytkownik został potwierdzony (na przykład za pomocą wiadomości e-mail z potwierdzeniem).
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample45.cs)]
 
@@ -330,38 +329,38 @@ Zwraca wartość PRAWDA, jeśli nazwa bieżącego użytkownika jest zgodna z okr
 
 ### `WebSecurity.Login(userName,password[, persistCookie])`
 
-Rejestruje użytkownika przez ustawienie token uwierzytelniania w pliku cookie.
+Rejestruje użytkownika przez ustawienie tokenu uwierzytelniania w pliku cookie.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample47.cs)]
 
 ### `WebSecurity.Logout()`
 
-Limit loguje użytkownika przez usunięcie tokenu pliku cookie uwierzytelniania.
+Rejestruje użytkownik się przez usunięcie tokenu pliku cookie uwierzytelniania.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample48.css)]
 
 ### `WebSecurity.RequireAuthenticatedUser()`
 
-Jeśli użytkownik nie jest uwierzytelniony, ustawia stan HTTP na wartość 401 (bez autoryzacji).
+Jeśli użytkownik nie jest uwierzytelniony, ustawia stan HTTP 401 (bez autoryzacji).
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample49.css)]
 
 ### `WebSecurity.RequireRoles(roles)`
 
-Jeśli bieżący użytkownik nie jest członkiem jednej z określonych ról, ustawia stan HTTP na wartość 401 (bez autoryzacji).
+Jeśli bieżący użytkownik nie jest członkiem jednej z określonych ról, ustawia stan HTTP 401 (bez autoryzacji).
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample50.html)]
 
 ### `WebSecurity.RequireUser(userId)`  
 `WebSecurity.RequireUser(userName)`
 
-Jeśli bieżący użytkownik nie jest określony przez użytkownika *username*, ustawia stan HTTP na wartość 401 (bez autoryzacji).
+Jeśli bieżący użytkownik nie jest użytkownika określonego przez *username*, ustawia stan HTTP na wartość 401 (bez autoryzacji).
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample51.css)]
 
 ### `WebSecurity.ResetPassword(passwordResetToken,newPassword)`
 
-Jeśli token resetowania hasła jest prawidłowy, zmiany hasła nowe hasło.
+Jeśli token resetowania hasła jest prawidłowy, zmiany hasła użytkownika nowe hasło.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample52.css)]
 
@@ -370,7 +369,7 @@ Jeśli token resetowania hasła jest prawidłowy, zmiany hasła nowe hasło.
 
 ### `Database.Execute(SQLstatement [,parameters]`
 
-Wykonuje *SQLstatement* (z parametrami opcjonalnymi), takich jak wstawianie, DELETE lub UPDATE i zwraca liczbę uwzględnionych rekordów.
+Wykonuje *SQLstatement* (z opcjonalnymi parametrami) takich jak wstawianie, DELETE lub UPDATE i zwraca liczbę uwzględnionych rekordów.
 
 [!code-sql[Main](asp-net-web-pages-api-reference/samples/sample53.sql)]
 
@@ -383,31 +382,31 @@ Zwraca kolumnę tożsamości ostatnio wstawionego wiersza.
 ### `Database.Open(filename)`  
 `Database.Open(connectionStringName)`
 
-Otwiera określony plik bazy danych lub baza danych określona przy użyciu parametrów połączenia nazwanego w *Web.config* pliku.
+Otwiera określony plik bazy danych lub baza danych określona za pomocą nazwanych parametrów połączenia z *Web.config* pliku.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample55.cs)]
 
 ### `Database.OpenConnectionString(connectionString)`
 
-Otwiera bazę danych przy użyciu parametrów połączenia. (To zachowanie różni się od `Database.Open`, który używa nazwy ciągu połączenia.)
+Zostanie otwarty przy użyciu parametrów połączenia bazy danych. (To zachowanie różni się od `Database.Open`, który używa nazwa parametrów połączenia.)
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample56.cs)]
 
 ### `Database.Query(SQLstatement[,parameters])`
 
-Wysyła zapytanie do bazy danych, za pomocą *SQLstatement* (opcjonalnie przekazywanie parametrów) i zwraca wynik jako kolekcja.
+Wysyła zapytanie do bazy danych przy użyciu *SQLstatement* (opcjonalnie przekazuje parametry) i zwraca wyniki w postaci kolekcji.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample57.html)]
 
 ### `Database.QuerySingle(SQLstatement [, parameters])`
 
-Wykonuje *SQLstatement* (z parametrami opcjonalnymi) i zwraca pojedynczy rekord.
+Wykonuje *SQLstatement* (z opcjonalnymi parametrami) i zwraca jeden rekord.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample58.cs)]
 
 ### `Database.QueryValue(SQLstatement [, parameters])`
 
-Wykonuje *SQLstatement* (z parametrami opcjonalnymi) i zwraca pojedynczą wartość.
+Wykonuje *SQLstatement* (z opcjonalnymi parametrami) i zwraca pojedynczą wartość.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample59.cs)]
 
@@ -416,7 +415,7 @@ Wykonuje *SQLstatement* (z parametrami opcjonalnymi) i zwraca pojedynczą warto�
 
 ### `Analytics.GetGoogleHtml(webPropertyId)`
 
-Renderuje Google Analytics JavaScript dla określonego identyfikatora.
+Renderuje kod Google Analytics JavaScript dla określonego identyfikatora.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample60.js)]
 
@@ -434,7 +433,7 @@ Renderuje kod Yahoo Analytics JavaScript dla określonego konta.
 
 ### `Bing.SearchBox([boxWidth])`
 
-Przekazuje wyszukiwania usługi Bing. Aby określić lokację do wyszukiwania i tytuł pola wyszukiwania, można ustawić `Bing.SiteUrl` i `Bing.SiteTitle` właściwości. Zwykle ustaw te właściwości  *\_AppStart* strony.
+Przekazuje wyszukiwania do usługi Bing. Aby określić witrynę do wyszukiwania i tytuł pola wyszukiwania, można ustawić `Bing.SiteUrl` i `Bing.SiteTitle` właściwości. Zwykle po ustawieniu tych właściwości  *\_AppStart* strony.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample63.html)]
 
@@ -463,7 +462,7 @@ Dodaje szereg wartości do wykresu.
 ### `Crypto.Hash(string [, algorithm])`  
 `Crypto.Hash(bytes [, algorithm])`
 
-Zwraca wartość skrótu dla określonych danych. Domyślnym algorytmem jest `sha256`.
+Zwraca wartość skrótu dla określonych danych. Domyślny algorytm to `sha256`.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample68.html)]
 
@@ -477,20 +476,20 @@ Umożliwia użytkownikom usługi Facebook, utworzyć połączenie do stron.
 ### `FileUpload.GetHtml([initialNumberOfFiles] [, allowMoreFilesToBeAdded]`  
  `[, includeFormTag] [, addText] [, uploadText])`
 
-Renderuje interfejsu użytkownika dla przekazywania plików.
+Renderuje interfejsu użytkownika służącego do przekazywania plików.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample70.html)]
 
 ### `GamerCard.GetHtml(gamerTag)`
 
-Renderuje określony tag graczy Xbox.
+Renderuje podany tag gracza konsoli Xbox.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample71.js)]
 
 ### `Gravatar.GetHtml(email [, imageSize] [, defaultImage] [, rating]`  
  `[, imageExtension] [, attributes])`
 
-Renderuje obraz Gravatar określony adres e-mail.
+Renderuje obraz Gravatar na określony adres e-mail.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample72.css)]
 
@@ -502,32 +501,32 @@ Konwertuje obiekt danych na ciąg w formacie JavaScript Object Notation (JSON).
 
 ### `Json.Decode(string)`
 
-Konwertuje ciąg wejściowy zakodowane w formacie JSON na obiekt danych, które mogą przejść przez lub wstawienia do bazy danych.
+Konwertuje ciąg wejściowy zakodowane w formacie JSON na obiekt danych, który może być iteracja lub wstawiania do bazy danych.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample74.cs)]
 
 ### `LinkShare.GetHtml(pageTitle[, pageLinkBack] [, twitterUserName]`  
  `[, additionalTweetText] [, linkSites])`
 
-Renderuje społecznościowych łączy sieciowych przy użyciu określonego tytułu i opcjonalnie adresu URL.
+Renderuje społecznościowych łącza sieci przy użyciu określonego tytułu i opcjonalnie adresu URL.
 
 [!code-xml[Main](asp-net-web-pages-api-reference/samples/sample75.xml)]
 
 ### `ModelStateDictionary.AddError(key, errorMessage)`
 
-Komunikat o błędzie zostanie skojarzony z polem formularza. Użyj `ModelState` pomocy można uzyskać dostępu do tego elementu członkowskiego.
+Komunikat o błędzie zostanie skojarzony z polem formularza. Użyj `ModelState` element pomocniczy służący do dostępu do tego elementu członkowskiego.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample76.cs)]
 
 ### `ModelStateDictionary.AddFormError(errorMessage)`
 
-Kojarzy komunikat o błędzie z formularza. Użyj `ModelState` pomocy można uzyskać dostępu do tego elementu członkowskiego.
+Kojarzy komunikat o błędzie z formularza. Użyj `ModelState` element pomocniczy służący do dostępu do tego elementu członkowskiego.
 
 [!code-powershell[Main](asp-net-web-pages-api-reference/samples/sample77.ps1)]
 
 ### `ModelStateDictionary.IsValid`
 
-Zwraca wartość PRAWDA, jeśli nie ma żadnych błędów sprawdzania poprawności. Użyj `ModelState` pomocy można uzyskać dostępu do tego elementu członkowskiego.
+Zwraca wartość PRAWDA, jeśli nie ma żadnych błędów sprawdzania poprawności. Użyj `ModelState` element pomocniczy służący do dostępu do tego elementu członkowskiego.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample78.cs)]
 
@@ -546,7 +545,7 @@ Renderuje reCAPTCHA testu weryfikacji.
 ### `ReCaptcha.PublicKey`  
  `ReCaptcha.PrivateKey`
 
-Ustawia klucze publiczne i prywatne dla usługi reCAPTCHA. Zwykle ustaw te właściwości  *\_AppStart* strony.
+Ustawia klucze publiczne i prywatne dla usługi reCAPTCHA. Zwykle po ustawieniu tych właściwości  *\_AppStart* strony.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample81.css)]
 
@@ -576,37 +575,37 @@ Renderuje strumienia usługi Twitter dla określony tekst wyszukiwania.
 
 ### `Video.Flash(filename [, width, height])`
 
-Renderuje Flash player wideo dla określonego pliku z opcjonalne szerokości i wysokości.
+Renderuje Flash odtwarzacz wideo dla określonego pliku za pomocą opcjonalnych szerokość i wysokość.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample86.cshtml)]
 
 ### `Video.MediaPlayer(filename [, width, height])`
 
-Renderuje programu Windows Media player dla określonego pliku z opcjonalne szerokości i wysokości.
+Renderuje Windows Media player dla określonego pliku za pomocą opcjonalnych szerokość i wysokość.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample87.cshtml)]
 
 ### `Video.Silverlight(filename, width, height)`
 
-Renderuje odtwarzacza Silverlight dla określonego *XAP* pliku wymagane szerokości i wysokości.
+Renderuje odtwarzacz Silverlight dla określonego *.xap* pliku wymagana szerokość i wysokość.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample88.cshtml)]
 
 ### `WebCache.Get(key)`
 
-Zwraca obiekt określony przez *klucza*, lub wartość null, jeśli nie znaleziono obiektu.
+Zwraca obiekt określony przez *klucz*, lub wartość null, jeśli obiekt nie zostanie znaleziony.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample89.cs)]
 
 ### `WebCache.Remove(key)`
 
-Usuwa obiekt określony przez *klucza* z pamięci podręcznej.
+Usuwa określony przez obiekt *klucz* z pamięci podręcznej.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample90.cs)]
 
 ### `WebCache.Set(key, value [, minutesToCache] [, slidingExpiration])`
 
-Umieszcza *wartość* do pamięci podręcznej o nazwie określonej przez *klucza*.
+Umieszcza *wartość* w pamięci podręcznej w obszarze nazwy określonej przez *klucz*.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample91.html)]
 
@@ -630,19 +629,19 @@ Renderuje pagera dla `WebGrid` obiektu.
 
 ### `WebImage(path)`
 
-Ładuje obraz z podanej ścieżki.
+Ładuje obraz z określonej ścieżki.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample95.cs)]
 
 ### `WebImage.AddImagesWatermark(image)`
 
-Dodaje określony obraz znaku wodnego.
+Dodaje określony obraz jako znaku wodnego.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample96.cs)]
 
 ### `WebImage.AddTextWatermark(text)`
 
-Dodaje określony tekst do obrazu.
+Dodaje określony tekst w obrazie.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample97.cs)]
 
@@ -655,7 +654,7 @@ Odwraca obraz w poziomie lub pionie.
 
 ### `WebImage.GetImageFromRequest()`
 
-Ładuje obraz, gdy obraz jest przesyłana do strony podczas przekazywania pliku.
+Ładuje obraz, gdy obraz zostanie opublikowana na stronie podczas przekazywania pliku.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample99.cs)]
 
@@ -668,19 +667,19 @@ Zmienia rozmiar obrazu.
 ### `WebImage.RotateLeft()`  
 `WebImage.RotateRight()`
 
-Obraca obraz w lewo lub w prawo.
+Obraca obraz w lewo lub prawo.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample101.css)]
 
 ### `WebImage.Save(path [, imageFormat])`
 
-Zapisuje obraz w określonej ścieżce.
+Zapisuje obraz do określonej ścieżki.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample102.js)]
 
 ### `WebMail.Password`
 
-Ustawia hasło dla serwera SMTP. Zwykle tę właściwość można ustawić w  *\_AppStart* strony.
+Określa hasło dla serwera SMTP. Zazwyczaj ta właściwość jest ustawiona  *\_AppStart* strony.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample103.cs)]
 
@@ -693,13 +692,13 @@ Wysyła wiadomość e-mail.
 
 ### `WebMail.SmtpServer`
 
-Ustawia nazwę serwera SMTP. Zwykle tę właściwość można ustawić w<em>\_AppStart</em> strony.
+Określa nazwę serwera SMTP. Zazwyczaj ta właściwość jest ustawiona<em>\_AppStart</em> strony.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample105.html)]
 
 ### `WebMail.UserName`
 
-Ustawia nazwę użytkownika dla serwera SMTP. Zwykle tę właściwość należy ustawić w  *\_AppStart* strony.
+Ustawia nazwę użytkownika dla serwera SMTP. Zwykle należy ustawić tę właściwość w  *\_AppStart* strony.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample106.html)]
 
@@ -726,19 +725,19 @@ Ustawia nazwę użytkownika dla serwera SMTP. Zwykle tę właściwość należy 
 
 ### `Validation.ClassFor(field)`
 
-(v2) Dynamicznie renderuje atrybuty klasy CSS do weryfikacji po stronie klienta, dzięki czemu można sformatować komunikatów o błędach weryfikacji. (Wymaga odwoływania bibliotek odpowiedni skrypt klienta i zdefiniowanie klas CSS).
+(v2) Dynamicznie renderuje atrybuty klasy CSS do weryfikacji po stronie klienta, dzięki czemu można formatować komunikatów o błędach weryfikacji. (Wymaga odwołania do tego bibliotek odpowiedni skrypt klienta i zdefiniowania klasy CSS).
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample110.html)]
 
 ### `Validation.For(field)`
 
-(v2) Umożliwia weryfikację pola wejściowego użytkownika po stronie klienta. (Wymaga odwoływania bibliotek odpowiedni skrypt klienta).
+(v2) Umożliwia weryfikację po stronie klienta dla pola danych wejściowych użytkownika. (Wymaga odwołania do tego bibliotek odpowiedniego skryptu klienta).
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample111.html)]
 
 ### `Validation.IsValid()`
 
-(v2) Zwraca wartość PRAWDA, jeśli wszystkich elementów wejściowych użytkownika, które są zarejestrowanych składników do weryfikacji zawierają prawidłowe wartości.
+(v2) Zwraca wartość PRAWDA, jeśli wszystkie elementy danych wejściowych użytkownika, które są zarejestrowanych składników do sprawdzania poprawności zawierają prawidłowe wartości.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample112.cs)]
 
@@ -765,6 +764,6 @@ Ustawia nazwę użytkownika dla serwera SMTP. Zwykle tę właściwość należy 
 `Validator.StringLength(length)`  
 `Validator.Url([error message])`
 
-(v2) Określa test weryfikacji, korzystając z `Validation.Add` metody.
+(v2) Określa test weryfikacji, gdy używasz `Validation.Add` metody.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample115.js)]

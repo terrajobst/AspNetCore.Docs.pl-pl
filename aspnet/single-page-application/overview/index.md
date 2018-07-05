@@ -1,34 +1,33 @@
 ---
 uid: single-page-application/overview/index
-title: Pojedynczy strony aplikacji — omówienie | Dokumentacja firmy Microsoft
+title: Pojedyncza strona aplikacji — omówienie | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: 'Jest to opis projekt JEDNOSTRONICOWEJ: ASP.NET jednej strony aplikacji JEDNOSTRONICOWEJ to nowa funkcja w wersji beta MVC 4. Zapewnia lepszą end-to-end e...'
+description: 'Jest to opis projekt SPA: ASP.NET jednej strony aplikacji (SPA) to nowa funkcja w wersji beta MVC 4 w wersji zapoznawczej. Zapewnia lepszą end-to-end e...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2012
 ms.topic: article
 ms.assetid: a17452c8-35fc-4ac2-811e-16d29f647cf7
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview
 msc.type: book
-ms.openlocfilehash: 5456349b9773469d570450d196c965bfae41117d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9bf6b85919e745c76eaad58a0c531ce90fb93f51
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566030"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395475"
 ---
-<a name="single-page-application-overview"></a>Omówienie aplikacji jednej strony
+<a name="single-page-application-overview"></a>Omówienie aplikacji jednostronicowej
 ====================
 - [Wprowadzenie](introduction/index.md)
 
-    - [Jednej strony aplikacji: Szablon elementami KnockoutJS](introduction/knockoutjs-template.md)
-    - [Sprawdzić biblioteki innego niż odcinania?](introduction/other-libraries.md)
+    - [Aplikacja jednostronicowa: szablon KnockoutJS](introduction/knockoutjs-template.md)
+    - [Znasz biblioteki inne niż Knockout?](introduction/other-libraries.md)
 - [Szablony](templates/index.md)
 
-    - [Szablon sieci szkieletowej](templates/backbonejs-template.md)
-    - [Błyskawicznie/kątową szablonu](templates/breezeangular-template.md)
-    - [Błyskawicznie/odcinania szablonu](templates/breezeknockout-template.md)
+    - [Szablon Backbone](templates/backbonejs-template.md)
+    - [Szablon Breeze/Angular](templates/breezeangular-template.md)
+    - [Szablon Breeze/Knockout](templates/breezeknockout-template.md)
     - [Szablon EmberJS](templates/emberjs-template.md)
-    - [Hot ręczników szablonu](templates/hottowel-template.md)
+    - [Szablon Hot Towel](templates/hottowel-template.md)

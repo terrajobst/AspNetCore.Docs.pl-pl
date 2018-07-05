@@ -1,239 +1,238 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs
-title: Ochrona parametry połączenia i inne informacje o konfiguracji (C#) | Dokumentacja firmy Microsoft
+title: Ochrona parametrów połączeń i innych informacji o konfiguracji (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Aplikacja ASP.NET zwykle przechowuje informacje o konfiguracji w pliku Web.config. Niektóre z tych informacji jest poufne i gwarantuje ochrony. Przez domyślny.
+description: Aplikacja ASP.NET zazwyczaj przechowuje informacje o konfiguracji w pliku Web.config. Niektóre z tych informacji jest wielkość liter i gwarantuje ochronę. Przez def....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
 ms.topic: article
 ms.assetid: ad8dd396-30f7-4abe-ac02-a0b84422e5be
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 20a18a36cb5d1621b0b718f87c05eb3175110143
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e5ce4459a1b62fe851ce8a4cae50aed798f0d508
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30876972"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37378978"
 ---
-<a name="protecting-connection-strings-and-other-configuration-information-c"></a>Ochrona parametry połączenia i inne informacje o konfiguracji (C#)
+<a name="protecting-connection-strings-and-other-configuration-information-c"></a>Ochrona parametrów połączeń i innych informacji o konfiguracji (C#)
 ====================
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
-[Pobierz kod](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_73_CS.zip) lub [pobierania plików PDF](protecting-connection-strings-and-other-configuration-information-cs/_static/datatutorial73cs1.pdf)
+[Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_73_CS.zip) lub [Pobierz plik PDF](protecting-connection-strings-and-other-configuration-information-cs/_static/datatutorial73cs1.pdf)
 
-> Aplikacja ASP.NET zwykle przechowuje informacje o konfiguracji w pliku Web.config. Niektóre z tych informacji jest poufne i gwarantuje ochrony. Domyślnie ten plik nie zostanie obsłużona do odwiedzający witrynę sieci Web, ale administrator lub haker może uzyskać dostęp do systemu plików serwera sieci Web i wyświetlić zawartość pliku. W tym samouczku będziemy Dowiedz się, ASP.NET 2.0 umożliwia firmie Microsoft w celu ochrony poufnych informacji przez szyfrowanie sekcji w pliku Web.config.
+> Aplikacja ASP.NET zazwyczaj przechowuje informacje o konfiguracji w pliku Web.config. Niektóre z tych informacji jest wielkość liter i gwarantuje ochronę. Domyślnie ten plik będzie nie być udostępniane odwiedzający witrynę sieci Web, ale administrator lub haker może uzyskać dostęp do systemu plików na serwerze sieci Web i wyświetlić zawartość pliku. W tym samouczku dowie się, że program ASP.NET 2.0 pozwala nam chronić poufne informacje, szyfrując sekcji w pliku Web.config.
 
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Informacje o konfiguracji dla aplikacji ASP.NET jest często przechowywane w pliku XML o nazwie `Web.config`. W trakcie tego samouczka zostały zaktualizowane `Web.config` kilka razy. Podczas tworzenia `Northwind` wpisane zestaw danych z [pierwszy samouczek](../introduction/creating-a-data-access-layer-cs.md), na przykład informacje o parametrach połączenia została automatycznie dodana do `Web.config` w `<connectionStrings>` sekcji. W dalszej [stron wzorcowych i nawigacji w witrynie](../introduction/master-pages-and-site-navigation-cs.md) samouczek, ręcznie Zaktualizowaliśmy `Web.config`, dodając `<pages>` elementu oznacza, że wszystkie strony ASP.NET w naszym projektu należy użyć `DataWebControls` motywu.
+Informacje o konfiguracji dla aplikacji ASP.NET jest zazwyczaj przechowywane w pliku XML o nazwie `Web.config`. W miarę upływu tych samouczków Zaktualizowaliśmy `Web.config` kilka razy. Podczas tworzenia `Northwind` wpisana zestawu danych w [pierwszego samouczka dotyczącego](../introduction/creating-a-data-access-layer-cs.md), na przykład informacje o parametrach połączenia została automatycznie dodana do `Web.config` w `<connectionStrings>` sekcji. W dalszej części [strony wzorcowe i nawigacja w witrynie](../introduction/master-pages-and-site-navigation-cs.md) samouczku ręcznie Zaktualizowaliśmy `Web.config`, dodając `<pages>` element wskazujący wszystkie strony ASP.NET w projekcie należy użyć `DataWebControls` motywu.
 
-Ponieważ `Web.config` mogą zawierać poufne dane, takie jak parametry połączenia, ważne jest, że zawartość `Web.config` bezpieczne i ukrytych z nieautoryzowanym użytkownikom. Domyślnie wszystkie HTTP żądanie do pliku z `.config` rozszerzenia jest obsługiwany przez aparat programu ASP.NET, która zwraca *ten typ strony nie został obsłużony* komunikat pokazany na rysunku 1. Oznacza to, że osoby odwiedzające nie można wyświetlić z `Web.config` plików zawartości s po prostu wprowadzając http://www.YourServer.com/Web.config do ich na pasku adresu przeglądarki s.
-
-
-[![Odwiedzający Web.config za pośrednictwem przeglądarki zwraca to typ strony nie został obsłużony wiadomości](protecting-connection-strings-and-other-configuration-information-cs/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image1.png)
-
-**Rysunek 1**: odwiedzający `Web.config` za pośrednictwem przeglądarki zwraca to typ strony nie został obsłużony komunikatu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image3.png))
+Ponieważ `Web.config` mogą zawierać poufne dane, takie jak parametry połączeń, ważne jest, zawartość `Web.config` bezpieczne i ukrytych z nieautoryzowanych osób przeglądających. Domyślnie wszystkie żądania HTTP do pliku za pomocą `.config` rozszerzenia odbywa się przez aparat programu ASP.NET, która zwraca *nie jest obsługiwany przez ten typ strony* komunikat przedstawionej na rysunku 1. Oznacza to, że goście nie można wyświetlić swoje `Web.config` zawartość s pliku po prostu wpisując http://www.YourServer.com/Web.config do ich paska adresu przeglądarki s.
 
 
-Ale co zrobić, jeśli osoba atakująca może znaleźć inne wykorzystać, które umożliwia jej wyświetlanie Twojej `Web.config` s zawartość pliku? Co można atakujący z tymi informacjami, i poznać kroki, jakie można podjąć w celu jeszcze lepiej chronić poufne informacje w ramach `Web.config`? Na szczęście większość części `Web.config` nie zawierają informacji poufnych. Co można osoba atakująca bardzo jeśli znają nazwy domyślnego motywu używanego przez stron ASP.NET?
+[![Odwiedzający Web.config za pośrednictwem przeglądarki zwraca to typ strony nie został obsłużony, wiadomości](protecting-connection-strings-and-other-configuration-information-cs/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image1.png)
 
-Niektóre `Web.config` sekcje, jednak zawierają poufne informacje, które mogą zawierać parametrów połączenia, nazwy użytkowników, hasła, nazwy serwerów, kluczy szyfrowania i tak dalej. Te informacje zazwyczaj znajduje się w następujących `Web.config` sekcje:
+**Rysunek 1**: odwiedzający `Web.config` za pośrednictwem przeglądarki zwraca to typ strony nie został obsłużony, komunikat ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image3.png))
+
+
+Ale co zrobić, jeśli osoba atakująca może znaleźć inne luki, które umożliwia jej wyświetlanie Twojej `Web.config` s zawartość pliku? Co można osoba atakująca dzięki tym informacjom, i poznać kroki, jakie można podjąć w celu jeszcze lepiej chronić informacje poufne, w ramach `Web.config`? Na szczęście większości sekcji w `Web.config` nie zawierają informacji poufnych. Co można osoba atakująca bardzo jeśli znają nazwy domyślnego motywu używanego przez strony ASP.NET?
+
+Niektóre `Web.config` sekcje, jednak zawierają poufne informacje, które mogą zawierać parametrów połączenia, nazwy użytkownika, hasła, nazwy serwerów, klucze szyfrowania i tak dalej. Te informacje zazwyczaj znajduje się w następującym `Web.config` sekcje:
 
 - `<appSettings>`
 - `<connectionStrings>`
 - `<identity>`
 - `<sessionState>`
 
-W tym samouczku przedstawiono techniki takich informacji poufnych konfiguracji ochrony. Jak zostanie wyświetlone, .NET Framework w wersji 2.0 obejmuje systemu chronionego konfiguracji, który sprawia, że sekcje wybranej konfiguracji programowo szyfrowania i odszyfrowywania błyskawicznie.
+W tym samouczku przyjrzymy się technik ochrony takie informacje poufne dane konfiguracyjne. Jak widać, .NET Framework w wersji 2.0 obejmuje system konfiguracji chronionych, który sprawia, że sekcje wybranej konfiguracji programowo szyfrowanie i odszyfrowywanie szybka i bezproblemowa.
 
 > [!NOTE]
-> Ten samouczek zawiera wyglądu w Microsoft s zalecenia dotyczące połączenia z bazą danych z aplikacji ASP.NET. Oprócz szyfrowania parametry połączenia, możesz pomóc zabezpieczyć systemu zapewniając, że łączysz się z bazą danych w sposób bezpieczny.
+> W tym samouczku kończy się za pomocą przyjrzeć się zalecenia s firmy Microsoft do łączenia z bazą danych z aplikacji ASP.NET. Oprócz szyfrowania parametry połączenia, mogą pomóc utrwalanie systemu poprzez zapewnienie, że łączysz się z bazą danych w bezpieczny sposób.
 
 
-## <a name="step-1-exploring-aspnet-20-s-protected-configuration-options"></a>Krok 1: Eksploracji ASP.NET 2.0 s chronione opcje konfiguracji
+## <a name="step-1-exploring-aspnet-20-s-protected-configuration-options"></a>Krok 1: Poznawanie platformy ASP.NET 2.0 s chronione opcje konfiguracji
 
-Platforma ASP.NET 2.0 zawiera system konfiguracji chronionych do szyfrowania i odszyfrowywania informacji o konfiguracji. Dotyczy to również metody w programie .NET Framework, który może służyć do programowego zaszyfrować lub odszyfrować informacje o konfiguracji. System konfiguracji chronionych za pomocą [modelu dostawcy](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), który umożliwia deweloperom wybierz, jakie implementacji usług kryptograficznych jest używany.
+Platforma ASP.NET 2.0 obejmuje system konfiguracji chronionej do szyfrowania i odszyfrowywania informacje o konfiguracji. Dotyczy to metod w .NET Framework, która może służyć do programowego zaszyfrować lub odszyfrować informacje o konfiguracji. System konfiguracji chronionych używa [modelu dostawca](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), które umożliwia deweloperom wybierz, jakie kryptograficznych implementacja jest użyta.
 
-.NET Framework jest dostarczany z dwóch dostawców chronionych konfiguracji:
+.NET Framework jest dostarczany z dwóch dostawców konfiguracji chronionych:
 
 - [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx) -używa asymetrycznego [algorytmu RSA](http://en.wikipedia.org/wiki/Rsa) do szyfrowania i odszyfrowywania.
-- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx) -korzysta z systemu Windows [interfejsu API ochrony danych (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) do szyfrowania i odszyfrowywania.
+- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx) -Windows używa [interfejsu API ochrony danych (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) do szyfrowania i odszyfrowywania.
 
-Ponieważ system konfiguracji chronionych implementuje wzorzec projektowy dostawcy, jest możliwość tworzenia własnego dostawcę konfiguracji chronionych i podłącz go do aplikacji. Zobacz [implementacja dostawcę konfiguracji chronione](https://msdn.microsoft.com/library/wfc2t3az(VS.80).aspx) Aby uzyskać więcej informacji na temat tego procesu.
+Ponieważ system konfiguracji chroniony implementuje wzorzec projektowy dostawcy, jest możliwość utworzenia własnego dostawcę konfiguracji chronionych i podłącz go do aplikacji. Zobacz [Implementowanie dostawcę konfiguracji chronionych](https://msdn.microsoft.com/library/wfc2t3az(VS.80).aspx) Aby uzyskać więcej informacji na temat tego procesu.
 
-RSA i DPAPI dostawcami używać kluczy dla procedury ich szyfrowania i odszyfrowywania, a te klucze mogą być przechowywane w maszyny - lub -poziomie użytkownika. Poziom maszyny klucze są idealne rozwiązanie w przypadku scenariuszy, w którym działa aplikacja sieci web dedykowany serwer lub jeśli istnieje wiele aplikacji na serwerze, na które należy udostępnić zaszyfrowane informacji. Na poziomie użytkownika klucze są bezpieczniejsze w udostępnionych środowiskach hostingu, gdy inne aplikacje na tym samym serwerze nie należy może odszyfrować s chronione sekcje konfiguracji aplikacji.
+Dostawcy algorytmu RSA, a DPAPI używają kluczy dla procedur ich szyfrowania i odszyfrowywania, a te klucze mogą być przechowywane na maszynie lub użytkownika poziomie. Klucze maszyn na poziomie są doskonałe dla scenariuszy, w którym działa aplikacja sieci web na swój własny dedykowany serwer lub jeśli jest wiele aplikacji na serwerze, który należy udostępnić zaszyfrowane informacje. Poziom użytkownika klucze są bezpieczniejsze w udostępnionych środowiskach hostingu, gdzie inne aplikacje na tym samym serwerze nie należy może odszyfrować sekcji konfiguracji s chronione Twojej aplikacji.
 
-W tym samouczku naszych przykładach użyje DPAPI dostawcy i klucze poziom maszyny. W szczególności zajmiemy szyfrowania `<connectionStrings>` sekcji `Web.config`, chociaż system konfiguracji chronionych można używać do szyfrowania większości żadnego `Web.config` sekcji. Informacje na przy użyciu poziomu użytkownika lub dostawca RSA można znaleźć zasobów w sekcji dalsze odczyty na końcu tego samouczka.
+W tym samouczku naszych przykładach użyje DPAPI dostawcy i klucze poziomie komputera. W szczególności przyjrzymy się zaszyfrowanie `<connectionStrings>` sekcji `Web.config`, mimo że system konfiguracji chronionych może służyć do szyfrowania, większość dowolne `Web.config` sekcji. Informacji na temat przy użyciu kluczy na poziomie użytkownika, czy dostawca RSA można znaleźć w sekcji odczyty dalsze zasoby na końcu tego samouczka.
 
 > [!NOTE]
-> `RSAProtectedConfigurationProvider` i `DPAPIProtectedConfigurationProvider` dostawcy są zarejestrowani w `machine.config` pliku z nazwami dostawców `RsaProtectedConfigurationProvider` i `DataProtectionConfigurationProvider`odpowiednio. Podczas szyfrowania lub odszyfrowywania firma Microsoft będzie konieczne podanie nazwy dostawcy odpowiednie informacje o konfiguracji (`RsaProtectedConfigurationProvider` lub `DataProtectionConfigurationProvider`) zamiast nazwy typu rzeczywistego (`RSAProtectedConfigurationProvider` i `DPAPIProtectedConfigurationProvider`). Można znaleźć `machine.config` w pliku `$WINDOWS$\Microsoft.NET\Framework\version\CONFIG` folderu.
+> `RSAProtectedConfigurationProvider` i `DPAPIProtectedConfigurationProvider` dostawcy są zarejestrowane w usłudze `machine.config` pliku przy użyciu nazwy dostawcy `RsaProtectedConfigurationProvider` i `DataProtectionConfigurationProvider`, odpowiednio. Podczas szyfrowania lub odszyfrowywania informacje o konfiguracji, firma Microsoft będzie należy podać nazwę odpowiedniego dostawcy (`RsaProtectedConfigurationProvider` lub `DataProtectionConfigurationProvider`) zamiast nazwą rzeczywistego typu (`RSAProtectedConfigurationProvider` i `DPAPIProtectedConfigurationProvider`). Możesz znaleźć `machine.config` w pliku `$WINDOWS$\Microsoft.NET\Framework\version\CONFIG` folderu.
 
 
 ## <a name="step-2-programmatically-encrypting-and-decrypting-configuration-sections"></a>Krok 2: Programowe szyfrowanie i odszyfrowywanie sekcji konfiguracji
 
-Przy użyciu kilku wierszy kodu możemy szyfrowania lub odszyfrowywania sekcji określoną konfigurację przy użyciu określonego dostawcy. Kod, jak firma Microsoft będzie wkrótce, po prostu musi odwoływać się do programowo sekcji odpowiednia konfiguracja wywołać jej `ProtectSection` lub `UnprotectSection` metody, a następnie wywołania `Save` metodę, aby utrwalić zmiany. Ponadto .NET Framework zawiera narzędzia pomocne wiersza polecenia, który można szyfrowania i odszyfrowywania informacji o konfiguracji. Przeanalizujemy to narzędzie wiersza polecenia w kroku 3.
+Przy użyciu kilku wierszy kodu firma Microsoft może szyfrowania lub odszyfrowywania sekcji szczególną konfigurację przy użyciu określonego dostawcy. Kod, jak firma Microsoft pojawi się wkrótce, po prostu musi odwoływać się do programowego sekcji odpowiednia konfiguracja wywołać jej `ProtectSection` lub `UnprotectSection` metody, a następnie wywołania `Save` metodę, aby utrwalić zmiany. Ponadto program .NET Framework zawiera narzędzie przydatne wiersza polecenia, który może szyfrowanie i odszyfrowywanie informacji o konfiguracji. Przeanalizujemy to narzędzie wiersza polecenia w kroku 3.
 
-Aby zilustrować programowo ochrona informacji o konfiguracji, umożliwiają s Tworzenie strony platformy ASP.NET, która zawiera przyciski do szyfrowania i odszyfrowywania `<connectionStrings>` sekcji `Web.config`.
+Aby zilustrować programowo ochronę informacji o konfiguracji, s umożliwiają tworzenie strony ASP.NET, który zawiera przyciski do szyfrowania i odszyfrowywania `<connectionStrings>` sekcji `Web.config`.
 
-Uruchamianie przez otwarcie `EncryptingConfigSections.aspx` strony `AdvancedDAL` folderu. Przeciągnij kontrolki pola tekstowego z przybornika do projektanta, ustawienie jej `ID` właściwości `WebConfigContents`, jego `TextMode` właściwości `MultiLine`i jego `Width` i `Rows` właściwości 95% i 15, odpowiednio. Tego formantu TextBox wyświetli zawartość `Web.config` pozwalając nam szybko sprawdzić, czy zawartość są szyfrowane, czy nie. Oczywiście w rzeczywistej aplikacji nigdy nie należy wyświetlić zawartość `Web.config`.
+Zacznij od otwarcia `EncryptingConfigSections.aspx` stronie `AdvancedDAL` folderu. Przeciągnij formant TextBox z przybornika w projektancie, ustawiając jego `ID` właściwości `WebConfigContents`, jego `TextMode` właściwości `MultiLine`i jego `Width` i `Rows` właściwości do 95% i 15, odpowiednio. Ten formant TextBox wyświetli zawartość `Web.config` może szybko sprawdzić, jeśli zawartość jest zaszyfrowane, czy nie. Oczywiście w rzeczywistej aplikacji nigdy nie chcesz wyświetlać zawartość `Web.config`.
 
-Poniżej pola tekstowego, dodaj dwa formanty przycisk o nazwie `EncryptConnStrings` i `DecryptConnStrings`. Ustaw właściwości ich tekst na parametry połączenia z szyfrowania i odszyfrowywania parametry połączenia.
+Poniżej pola tekstowego, należy dodać dwie kontrolki przycisku o nazwie `EncryptConnStrings` i `DecryptConnStrings`. Ustawiać ich właściwości tekstu, aby parametry połączenia szyfrowanie i odszyfrowywanie ciągów połączenia.
 
-W tym momencie ekranie powinien wyglądać podobnie do rysunku 2.
-
-
-[![Dodaj pole tekstowe i dwóch przycisk formantów sieci Web do strony](protecting-connection-strings-and-other-configuration-information-cs/_static/image5.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image4.png)
-
-**Rysunek 2**: na stronie Dodaj pole tekstowe i dwóch formantów sieci Web przycisk ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image6.png))
+W tym momencie ekran powinien wyglądać podobnie jak na rysunku 2.
 
 
-Następnie należy napisać kod, który ładuje i wyświetla zawartość `Web.config` w `WebConfigContents` pole tekstowe, gdy strona zostanie załadowana. Dodaj następujący kod do klasy związane z kodem s strony. Ten kod dodaje metodę o nazwie `DisplayWebConfig` i wywołuje ona z `Page_Load` obsługi zdarzeń podczas `Page.IsPostBack` jest `false`:
+[![Na stronie Dodaj pole tekstowe oraz dwóch przycisków umieszczonych w sieci Web](protecting-connection-strings-and-other-configuration-information-cs/_static/image5.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image4.png)
+
+**Rysunek 2**: Dodaj pole tekstowe oraz dwie kontrolki sieci Web przycisku do strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image6.png))
+
+
+Następnie należy napisać kod, który ładuje i wyświetla zawartość `Web.config` w `WebConfigContents` pole tekstowe, gdy strona zostanie załadowana. Dodaj następujący kod do klasy CodeBehind s strony. Ten kod dodaje metodę o nazwie `DisplayWebConfig` i określa je z `Page_Load` programu obsługi zdarzeń podczas `Page.IsPostBack` jest `false`:
 
 
 [!code-csharp[Main](protecting-connection-strings-and-other-configuration-information-cs/samples/sample1.cs)]
 
-`DisplayWebConfig` Używa metody [ `File` klasy](https://msdn.microsoft.com/library/system.io.file.aspx) otworzyć s aplikacji `Web.config` pliku [ `StreamReader` klasy](https://msdn.microsoft.com/library/system.io.streamreader.aspx) Aby przeczytać jego zawartość do ciągu i [ `Path` klasy](https://msdn.microsoft.com/library/system.io.path.aspx) do ścieżki fizycznej do generowania `Web.config` pliku. Te trzy klasy zostały znalezione w [ `System.IO` przestrzeni nazw](https://msdn.microsoft.com/library/system.io.aspx). W związku z tym, należy dodać `using` `System.IO` instrukcji u góry klasy związane z kodem, lub te klasy nazw z prefiksem `System.IO.` .
+`DisplayWebConfig` Metoda używa [ `File` klasy](https://msdn.microsoft.com/library/system.io.file.aspx) otworzyć s aplikacji `Web.config` pliku [ `StreamReader` klasy](https://msdn.microsoft.com/library/system.io.streamreader.aspx) odczytanie jego zawartości w ciągu i [ `Path` klasy](https://msdn.microsoft.com/library/system.io.path.aspx) do generowania ścieżkę fizyczną do `Web.config` pliku. Te trzy klasy zostaną znalezione w [ `System.IO` przestrzeni nazw](https://msdn.microsoft.com/library/system.io.aspx). W związku z tym, należy dodać `using` `System.IO` instrukcji na górze z kodem klasę lub alternatywnie, te klasy nazw z prefiksem `System.IO.` .
 
-Następnie należy dodać obsługę zdarzeń dla dwóch formantów przycisk `Click` zdarzeń i Dodaj kod niezbędne do szyfrowania i odszyfrowywania `<connectionStrings>` sekcji przy użyciu klucza na poziomie maszyny z dostawcą DPAPI. Przy użyciu projektanta, kliknij dwukrotnie przycisków, aby dodać `Click` obsługi zdarzeń w CodeBehind klasy, a następnie dodaj następujący kod:
+Następnie należy dodać obsługę zdarzeń dla dwóch kontrolek przycisku `Click` zdarzeń i dodać niezbędny kod do szyfrowania i odszyfrowywania `<connectionStrings>` sekcji przy użyciu klucza poziomie komputera za pomocą dostawcy DPAPI. Przy użyciu projektanta, kliknij dwukrotnie listę przycisków, aby dodać `Click` programu obsługi zdarzeń w związanym z kodem klasę, a następnie dodaj następujący kod:
 
 
 [!code-csharp[Main](protecting-connection-strings-and-other-configuration-information-cs/samples/sample2.cs)]
 
-Kod używany w obsłudze dwa zdarzenia jest niemal identyczna. Oba uruchomić pobieranie informacji na temat bieżącego s aplikacji `Web.config` plików za pomocą [ `WebConfigurationManager` klasy](https://msdn.microsoft.com/library/system.web.configuration.webconfigurationmanager.aspx) s [ `OpenWebConfiguration` metody](https://msdn.microsoft.com/library/system.web.configuration.webconfigurationmanager.openwebconfiguration.aspx). Ta metoda zwraca pliku konfiguracji sieci web dla określonej ścieżki wirtualnej. Następnie `Web.config` pliku s `<connectionStrings>` części jest dostępny za pośrednictwem [ `Configuration` klasy](https://msdn.microsoft.com/library/system.configuration.configuration.aspx) s [ `GetSection(sectionName)` — metoda](https://msdn.microsoft.com/library/system.configuration.configuration.getsection.aspx), która zwraca wartość [ `ConfigurationSection` ](https://msdn.microsoft.com/library/system.configuration.configurationsection.aspx) obiektu.
+Kod używany w procedurze obsługi dwóch zdarzeń jest niemal identyczne. Obaj użytkownicy od zebrania informacji o bieżącym s aplikacji `Web.config` plików za pośrednictwem [ `WebConfigurationManager` klasy](https://msdn.microsoft.com/library/system.web.configuration.webconfigurationmanager.aspx) s [ `OpenWebConfiguration` metoda](https://msdn.microsoft.com/library/system.web.configuration.webconfigurationmanager.openwebconfiguration.aspx). Ta metoda zwraca plik konfiguracji sieci web dla określonej ścieżki wirtualnej. Następnie `Web.config` pliku s `<connectionStrings>` sekcji jest dostępna za pośrednictwem [ `Configuration` klasy](https://msdn.microsoft.com/library/system.configuration.configuration.aspx) s [ `GetSection(sectionName)` metoda](https://msdn.microsoft.com/library/system.configuration.configuration.getsection.aspx), co powoduje zwrócenie [ `ConfigurationSection` ](https://msdn.microsoft.com/library/system.configuration.configurationsection.aspx) obiektu.
 
-`ConfigurationSection` Obiekt zawiera [ `SectionInformation` właściwość](https://msdn.microsoft.com/library/system.configuration.configurationsection.sectioninformation.aspx) zapewnia dodatkowe informacje i funkcje dotyczące sekcji konfiguracji. Jako kod powyżej przedstawiono, możemy określić, czy sekcja konfiguracji jest szyfrowany przez sprawdzenie `SectionInformation` właściwości s `IsProtected` właściwości. Ponadto można zaszyfrowanie lub odszyfrowanie za pośrednictwem sekcji `SectionInformation` właściwości s `ProtectSection(provider)` i `UnprotectSection` metody.
+`ConfigurationSection` Obiekt zawiera [ `SectionInformation` właściwość](https://msdn.microsoft.com/library/system.configuration.configurationsection.sectioninformation.aspx) zapewnia dodatkowe informacje i funkcje dotyczące sekcji konfiguracji. Jak kod powyżej przedstawiono, możemy określić, czy sekcja konfiguracji ma być zaszyfrowany, sprawdzając `SectionInformation` właściwości s `IsProtected` właściwości. Ponadto sekcji mogą być szyfrowane lub odszyfrować za pośrednictwem `SectionInformation` właściwości s `ProtectSection(provider)` i `UnprotectSection` metody.
 
-`ProtectSection(provider)` Metoda przyjmuje jako dane wejściowe ciąg określający nazwę dostawcy konfiguracji chronionych używanego do szyfrowania. W `EncryptConnString` przekazywana DataProtectionConfigurationProvider do obsługi zdarzeń przycisk s `ProtectSection(provider)` metody, aby dostawca DPAPI jest używany. `UnprotectSection` Metody można określić dostawcę, który został użyty do zaszyfrowania sekcji konfiguracji i w związku z tym nie wymaga żadnego parametrów wejściowych.
+`ProtectSection(provider)` Metoda przyjmuje jako dane wejściowe ciąg określający nazwę dostawcy konfiguracji chronionej do szyfrowania. W `EncryptConnString` przekazujemy DataProtectionConfigurationProvider do obsługi zdarzeń przycisku s `ProtectSection(provider)` metody, aby dostawca DPAPI jest używany. `UnprotectSection` Metoda można określić dostawcę, który został użyty do zaszyfrowania sekcji konfiguracji i w związku z tym nie wymaga żadnego parametrów wejściowych.
 
-Po wywołaniu `ProtectSection(provider)` lub `UnprotectSection` metody należy wywołać `Configuration` obiektu s [ `Save` metody](https://msdn.microsoft.com/library/system.configuration.configuration.save.aspx) aby utrwalić zmiany. Gdy został zaszyfrowany lub odszyfrować informacje o konfiguracji i zmiany zapisane, nazywamy `DisplayWebConfig` załadować zaktualizowane `Web.config` zawartości w formancie TextBox.
+Po wywołaniu `ProtectSection(provider)` lub `UnprotectSection` metody, należy wywołać `Configuration` obiektu s [ `Save` metoda](https://msdn.microsoft.com/library/system.configuration.configuration.save.aspx) aby utrwalić zmiany. Po szyfrowane lub odszyfrować informacje konfiguracji i zmiany zostały zapisane, nazywamy `DisplayWebConfig` załadować zaktualizowane `Web.config` zawartości w formancie pola tekstowego.
 
-Po wprowadzeniu kodu powyżej, przetestować go odwiedzając `EncryptingConfigSections.aspx` strony za pośrednictwem przeglądarki. Powinny pojawić początkowo strona, która wyświetla zawartość `Web.config` z `<connectionStrings>` sekcji wyświetlany w postaci zwykłego tekstu (patrz rysunek 3).
-
-
-[![Dodaj pole tekstowe i dwóch przycisk formantów sieci Web do strony](protecting-connection-strings-and-other-configuration-information-cs/_static/image8.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image7.png)
-
-**Rysunek 3**: na stronie Dodaj pole tekstowe i dwóch formantów sieci Web przycisk ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image9.png))
+Po wprowadzeniu powyższego kodu, możesz go przetestować, przechodząc `EncryptingConfigSections.aspx` strony za pośrednictwem przeglądarki. Początkowo wyświetlony strona, która wyświetla zawartość `Web.config` z `<connectionStrings>` sekcji wyświetlane w postaci zwykłego tekstu (zobacz rysunek 3).
 
 
-Teraz kliknij przycisk szyfrowania parametrów połączenia. Jeśli weryfikacja żądania jest włączona, znaczników odesłana `WebConfigContents` utworzy pole tekstowe `HttpRequestValidationException`, która wyświetla komunikat potencjalnie niebezpiecznych `Request.Form` wartość Wykryto od klienta. Sprawdzanie poprawności żądań, które jest domyślnie włączona w programie ASP.NET 2.0, zabrania ogłaszania zwrotnego obejmujących cofanie zakodowany w formacie HTML i ma na celu zapobieganie atakom uruchomienie skryptu. Na stronie - lub -poziomie aplikacji można wyłączyć ten test. Aby ją wyłączyć na tej stronie, ustaw `ValidateRequest` ustawienie `false` w `@Page` dyrektywy. `@Page` Dyrektywy znajduje się w górnej części s deklaratywne znaczników.
+[![Na stronie Dodaj pole tekstowe oraz dwóch przycisków umieszczonych w sieci Web](protecting-connection-strings-and-other-configuration-information-cs/_static/image8.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image7.png)
+
+**Rysunek 3**: Dodaj pole tekstowe oraz dwie kontrolki sieci Web przycisku do strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image9.png))
+
+
+Teraz kliknij przycisk szyfrowania parametrów połączenia. Jeśli weryfikacja żądania jest włączona, znaczniki odesłana `WebConfigContents` pola tekstowego powoduje wygenerowanie `HttpRequestValidationException`, powoduje wyświetlenie komunikatu, potencjalnie niebezpiecznych `Request.Form` wartość została wykryta przez klienta. Sprawdzanie poprawności żądań, które jest domyślnie włączona w programie ASP.NET 2.0, zabrania ogłaszania zwrotnego, które zawierają HTML usunięcie zakodowanym i ma na celu zapobieganie atakom uruchomienie skryptu. Na stronie - lub -poziomie aplikacji można wyłączyć ten test. Aby ją wyłączyć dla tej strony, należy ustawić `ValidateRequest` ustawienie `false` w `@Page` dyrektywy. `@Page` Dyrektywy znajduje się w górnej części oznaczeniu deklaracyjnym strony s.
 
 
 [!code-aspx[Main](protecting-connection-strings-and-other-configuration-information-cs/samples/sample3.aspx)]
 
-Więcej informacji o weryfikacji żądań, jej celem ją wyłączyć w strony - i -poziomie aplikacji, jak oraz do formatu HTML kodowania znaczników, zobacz [weryfikacji żądań - zapobieganie atakom skryptu](../../../../whitepapers/request-validation.md).
+Aby uzyskać więcej informacji na temat weryfikacji żądań, jego przeznaczenie, wyłącz ją na stronie aplikacji poziomie i, jak oraz w formacie HTML kodowanie znaczników, zobacz [żądanie weryfikacji — zapobieganie atakom skryptów](../../../../whitepapers/request-validation.md).
 
-Wyłączenie sprawdzania poprawności żądania na stronie, a następnie spróbuj ponowne kliknięcie przycisku szyfrowania parametrów połączenia. Strony, będzie dostępna w pliku konfiguracji i jego `<connectionStrings>` sekcji zaszyfrowane za pomocą dostawcy DPAPI. Pole tekstowe jest następnie aktualizowany, aby wyświetlić nowe `Web.config` zawartości. Jak pokazano na rysunku 4, `<connectionStrings>` informacji jest teraz zaszyfrowana.
-
-
-[![Kliknięcie przycisku szyfrowanie połączenia ciągi przycisk szyfruje &lt;connectionString&gt; sekcji](protecting-connection-strings-and-other-configuration-information-cs/_static/image11.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image10.png)
-
-**Rysunek 4**: kliknięcie przycisku szyfrowanie połączenia ciągi przycisk szyfruje `<connectionString>` sekcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image12.png))
+Po wyłączeniu weryfikację żądań dla strony, spróbuj ponowne kliknięcie przycisku Szyfruj parametry połączenia. Na odświeżenie strony, będzie dostępna w pliku konfiguracji i jego `<connectionStrings>` sekcji szyfrowane przy użyciu dostawcy DPAPI. Pole tekstowe jest następnie zaktualizowany i będzie pokazywał nowe `Web.config` zawartości. Jak pokazano na rysunku 4, `<connectionStrings>` informacje są teraz szyfrowane.
 
 
-Zaszyfrowanego `<connectionStrings>` sekcji generowane na tym komputerze jest zgodny, mimo że niektóre zawartości w `<CipherData>` element został usunięty w celu jego skrócenia:
+[![Kliknięcie przycisku Szyfruj połączenie ciągów przycisk szyfruje &lt;connectionString&gt; sekcji](protecting-connection-strings-and-other-configuration-information-cs/_static/image11.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image10.png)
+
+**Rysunek 4**: kliknięcie przycisku Szyfruj połączenie ciągów przycisk szyfruje `<connectionString>` sekcji ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image12.png))
+
+
+Wybrany zaszyfrowany `<connectionStrings>` poniżej sekcji generowane na tym komputerze, ale część zawartości w `<CipherData>` element został usunięty w celu skrócenia programu:
 
 
 [!code-xml[Main](protecting-connection-strings-and-other-configuration-information-cs/samples/sample4.xml)]
 
 > [!NOTE]
-> `<connectionStrings>` Element określa dostawcę, który umożliwia wykonanie szyfrowania (`DataProtectionConfigurationProvider`). Te informacje są używane przez `UnprotectSection` metody po kliknięciu przycisku odszyfrować parametry połączenia.
+> `<connectionStrings>` Element określa dostawcę używanego do szyfrowania (`DataProtectionConfigurationProvider`). Te informacje są używane przez `UnprotectSection` metody, gdy kliknięto przycisk odszyfrować parametry połączenia.
 
 
-Jeśli informacje o parametrach połączenia jest dostępny z `Web.config` — za pomocą kodu możemy zapisać z formantu SqlDataSource lub automatycznie wygenerowany kod z TableAdapters w naszym wpisanych zestawów danych - jest automatycznie odszyfrowany. Krótko mówiąc, firma Microsoft nie trzeba dodawać żaden dodatkowy kod lub logiki można odszyfrować zaszyfrowanego `<connectionString>` sekcji. Aby to wykazać, odwiedź jedną z wcześniej samouczków w tej chwili, takich jak z podstawowym raportowaniem sekcji samouczka proste wyświetlania (`~/BasicReporting/SimpleDisplay.aspx`). Jak pokazano na rysunku nr 5, samouczka działa dokładnie tak, jak firma Microsoft mogą spodziewać, wskazujący, że zaszyfrowanego ciągu połączenia jest automatycznie odszyfrowywany za pomocą stron ASP.NET.
+Gdy informacje o parametrach połączenia jest dostępny z `Web.config` — za pomocą kodu pisania, z kontrolki SqlDataSource lub automatycznie wygenerowany kod z TableAdapters w naszym wpisanych zestawów danych — jest automatycznie odszyfrowany. Krótko mówiąc, nie musimy dodać dowolnego dodatkowego kodu lub logiki można odszyfrować zaszyfrowanego `<connectionString>` sekcji. Aby to wykazać, można znaleźć w jednym z samouczków wcześniej w tej chwili, takich jak samouczek proste wyświetlana w sekcji podstawowe Raportowanie (`~/BasicReporting/SimpleDisplay.aspx`). Jak pokazano na rysunku 5, samouczek działa dokładnie tak, czy oczekujemy, wskazujący, że informacje o parametrach połączenia szyfrowanego jest automatycznie odszyfrowywany przez strony ASP.NET.
 
 
-[![Warstwa dostępu do danych automatycznie odszyfrowuje ciągu połączenia](protecting-connection-strings-and-other-configuration-information-cs/_static/image14.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image13.png)
+[![Warstwa dostępu do danych automatycznie odszyfrowuje informacje o parametrach połączenia](protecting-connection-strings-and-other-configuration-information-cs/_static/image14.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image13.png)
 
-**Rysunek 5**: Warstwa dostępu do danych automatycznie odszyfrowuje ciągu połączenia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image15.png))
+**Rysunek 5**: Warstwa dostępu do danych automatycznie odszyfrowuje informacje o parametrach połączenia ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](protecting-connection-strings-and-other-configuration-information-cs/_static/image15.png))
 
 
-Aby przywrócić `<connectionStrings>` sekcji do jej reprezentacji w postaci zwykłego tekstu, kliknij przycisk odszyfrować parametry połączenia. Strony powinna zostać wyświetlona parametry połączenia w `Web.config` w postaci zwykłego tekstu. W tym momencie ekranie powinna wyglądać tak, jak podczas odwiedzania najpierw tej strony (patrz rysunek 3).
+Aby przywrócić `<connectionStrings>` sekcji jego reprezentację w postaci zwykłego tekstu, kliknij przycisk odszyfrować parametry połączenia. Na zwrot powinien zostać wyświetlony parametry połączenia w `Web.config` w postaci zwykłego tekstu. W tym momencie ekran powinien wyglądać tak, jak podczas odwiedzania najpierw na tej stronie (zobacz rysunek 3).
 
-## <a name="step-3-encrypting-configuration-sections-usingaspnetregiisexe"></a>Krok 3: Szyfrowanie przy użyciu sekcji konfiguracji`aspnet_regiis.exe`
+## <a name="step-3-encrypting-configuration-sections-usingaspnetregiisexe"></a>Krok 3: Szyfrowanie sekcji konfiguracji za pomocą`aspnet_regiis.exe`
 
-.NET Framework zawiera szereg narzędzi wiersza polecenia w `$WINDOWS$\Microsoft.NET\Framework\version\` folderu. W [przy użyciu zależności buforu SQL](../caching-data/using-sql-cache-dependencies-cs.md) samouczek, na przykład, analizujemy przy użyciu `aspnet_regsql.exe` narzędzia wiersza polecenia, aby dodać infrastrukturę niezbędną do zależności buforu SQL. Kolejnym narzędziem wiersza polecenia przydatne w tym folderze jest [narzędzie rejestracji programu ASP.NET w usługach IIS (`aspnet_regiis.exe`)](https://msdn.microsoft.com/library/k6h9cz8h(VS.80).aspx). Jak jego nazwa wskazuje, narzędzie rejestracji programu ASP.NET w usługach IIS głównie służy do rejestrowania aplikacji programu ASP.NET 2.0 z serwera sieci Web Microsoft s klasy professional, usługi IIS. Oprócz jego funkcji związanych z usługami IIS, narzędzie rejestracji programu ASP.NET w usługach IIS można również zaszyfrować lub odszyfrować sekcji konfiguracji określonej w `Web.config`.
+Program .NET Framework zawiera szereg narzędzi wiersza polecenia w `$WINDOWS$\Microsoft.NET\Framework\version\` folderu. W [przy użyciu zależności pamięci podręcznej SQL](../caching-data/using-sql-cache-dependencies-cs.md) samouczek, na przykład analizujemy przy użyciu `aspnet_regsql.exe` narzędzia wiersza polecenia, aby dodać infrastrukturę niezbędną do zależności pamięci podręcznej SQL. Kolejnym narzędziem przydatne w wierszu polecenia w tym folderze jest [narzędzie rejestracji programu ASP.NET w usługach IIS (`aspnet_regiis.exe`)](https://msdn.microsoft.com/library/k6h9cz8h(VS.80).aspx). Jak sugeruje jej nazwa, narzędzie rejestracji programu ASP.NET w usługach IIS przede wszystkim służy do rejestrowania aplikacji programu ASP.NET 2.0 Microsoft s profesjonalne serwera sieci Web usług IIS. Oprócz jej funkcji związanych z usługami IIS, narzędzie rejestracji programu ASP.NET w usługach IIS można również zaszyfrować lub odszyfrować sekcje określonej konfiguracji w `Web.config`.
 
-Następująca instrukcja przedstawiono składnię ogólne używany do szyfrowania sekcji konfiguracji z `aspnet_regiis.exe` narzędzia wiersza polecenia:
+Poniższa instrukcja pokazuje składnię ogólną używany do szyfrowania sekcji konfiguracji, za pomocą `aspnet_regiis.exe` narzędzia wiersza polecenia:
 
 
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-cs/samples/sample5.cmd)]
 
-*sekcja* jest sekcja konfiguracyjna do szyfrowania (na przykład connectionStrings), *fizycznych\_katalogu* jest pełna, fizyczną ścieżkę do katalogu głównego aplikacji s sieci web i *dostawcy*  jest nazwą dostawcy chronionych konfiguracji do użycia (na przykład DataProtectionConfigurationProvider). Alternatywnie w aplikacji sieci web jest zarejestrowana w usługach IIS można wprowadzić ścieżkę wirtualną zamiast ścieżki fizycznej, używając następującej składni:
+*sekcja* sekcję konfiguracji do szyfrowania (na przykład connectionStrings) *fizycznych\_katalogu* jest pełna, fizyczną ścieżkę do katalogu głównego aplikacji s sieci web i *dostawcy*  jest nazwą dostawcy konfiguracji chronionej do użycia (na przykład DataProtectionConfigurationProvider). Alternatywnie w aplikacji sieci web jest zarejestrowana w usługach IIS można wprowadzić ścieżkę wirtualną zamiast ścieżki fizycznej przy użyciu następującej składni:
 
 
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-cs/samples/sample6.cmd)]
 
-Następujące `aspnet_regiis.exe` szyfruje przykład `<connectionStrings>` sekcji przy użyciu dostawcy DPAPI przy użyciu klucza na poziomie komputera:
+Następujące `aspnet_regiis.exe` szyfruje przykład `<connectionStrings>` sekcji przy użyciu dostawcy interfejsu DPAPI z kluczem poziomie komputera:
 
 
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-cs/samples/sample7.cmd)]
 
-Podobnie `aspnet_regiis.exe` narzędzia wiersza polecenia może służyć do odszyfrowywania sekcji konfiguracyjnych. Zamiast `-pef` przełącznika, użyj `-pdf` (lub zamiast `-pe`, użyj `-pd`). Należy również zauważyć, że nazwa dostawcy nie jest konieczne podczas odszyfrowywania.
+Podobnie `aspnet_regiis.exe` narzędzia wiersza polecenia może służyć do odszyfrowywania sekcji konfiguracji. Zamiast używania `-pef` przełącznika, użyj `-pdf` (lub zamiast `-pe`, użyj `-pd`). Należy również zauważyć, że nazwa dostawcy nie jest konieczne, podczas odszyfrowywania.
 
 
 [!code-console[Main](protecting-connection-strings-and-other-configuration-information-cs/samples/sample8.cmd)]
 
 > [!NOTE]
-> Ponieważ używamy dostawcy DPAPI, która używa kluczy specyficzne dla komputera, należy uruchomić `aspnet_regiis.exe` z tym samym komputerze, z którego są obsługiwane na stronach sieci web. Na przykład jeśli uruchomienia tego programu wiersza polecenia z komputera lokalnego programowanie, a następnie przekaż zaszyfrowany plik Web.config na serwerze produkcyjnym, serwer produkcyjny nie będzie może odszyfrować ciągu połączenia, ponieważ został on zaszyfrowany przy użyciu kluczy określonych na komputerze deweloperskim. Dostawca RSA nie ma tego ograniczenia, jak można wyeksportować kluczy RSA do innej maszyny.
+> Ponieważ używamy dostawcy DPAPI, który korzysta z kluczami specyficzne dla komputera, należy uruchomić `aspnet_regiis.exe` z tym samym komputerze, z którego są obsługiwane na stronach sieci web. Na przykład jeśli uruchamiaj ten program wiersza polecenia z lokalnej maszynie do programowania, a następnie przekaż zaszyfrowanego pliku Web.config na serwerze produkcyjnym, serwer produkcyjny nie będzie można odszyfrować informacje o parametrach połączenia, ponieważ został on zaszyfrowany przy użyciu kluczy określonych na maszynie deweloperskiej. Dostawca RSA nie ma tego ograniczenia, ponieważ jest możliwe do eksportowania kluczy RSA do innego komputera.
 
 
-## <a name="understanding-database-authentication-options"></a>Opcje uwierzytelniania opis bazy danych
+## <a name="understanding-database-authentication-options"></a>Opcje uwierzytelniania bazy danych opis
 
-Przed dowolnej aplikacji, można wystawiać `SELECT`, `INSERT`, `UPDATE`, lub `DELETE` najpierw zapytania do bazy danych programu Microsoft SQL Server, bazy danych należy określić obiekt żądający. Ten proces jest nazywany *uwierzytelniania* i SQL Server udostępnia dwie metody uwierzytelniania:
+Zanim każda aplikacja może wystawiać `SELECT`, `INSERT`, `UPDATE`, lub `DELETE` zapytań w bazie danych programu Microsoft SQL Server, bazy danych należy najpierw należy zidentyfikować osoby zgłaszającej żądanie. Ten proces jest nazywany *uwierzytelniania* i programu SQL Server udostępnia dwie metody uwierzytelniania:
 
-- **Uwierzytelnianie systemu Windows** — proces, na którym uruchomiono aplikację jest używany do komunikacji z bazą danych. Podczas uruchamiania aplikacji ASP.NET przy użyciu programu Visual Studio 2005 s ASP.NET Development Server, aplikacja ASP.NET zakłada tożsamości aktualnie zalogowanego użytkownika. Dla aplikacji ASP.NET w programie Microsoft Internet Information Server (IIS), aplikacji programu ASP.NET zwykle przyjąć tożsamość `domainName``\MachineName` lub `domainName``\NETWORK SERVICE`, mimo to można dostosować.
-- **Uwierzytelnianie SQL** -wartości ID i hasło użytkownika są określane jako poświadczeń do uwierzytelniania. Z uwierzytelnianiem SQL identyfikator użytkownika i hasło są zawarte w parametrach połączenia.
+- **Uwierzytelnianie Windows** — proces, w którym aplikacja jest uruchomiona, jest używany do komunikacji z bazą danych. Podczas uruchamiania aplikacji ASP.NET przy użyciu programu Visual Studio 2005 s ASP.NET Development Server, aplikacja ASP.NET zakłada tożsamości aktualnie zalogowanego użytkownika. W przypadku aplikacji ASP.NET w Microsoft Internet Information Server (IIS) aplikacji ASP.NET zwykle przyjąć tożsamość `domainName``\MachineName` lub `domainName``\NETWORK SERVICE`, chociaż mogą być dostosowywane.
+- **Uwierzytelnianie SQL** — wartości Identyfikatora i hasła użytkownika są dostarczane jako poświadczeń do uwierzytelniania. Przy użyciu uwierzytelniania SQL identyfikator użytkownika i hasło są dostarczane w parametrach połączenia.
 
-Uwierzytelnianie systemu Windows jest preferowana przez uwierzytelnianie SQL, ponieważ jest bardziej bezpieczne. Z uwierzytelnianiem systemu Windows ciąg połączenia jest wolny od nazwy użytkownika i hasła i jeśli serwer sieci web i serwera bazy danych znajdują się na dwóch różnych komputerach, poświadczenia nie są wysyłane przez sieć jako zwykły tekst. Z uwierzytelnianiem SQL jednak poświadczenia uwierzytelniania są zakodowane na stałe w parametrach połączenia i są przesyłane z serwera sieci web na serwerze bazy danych w postaci zwykłego tekstu.
+Uwierzytelnianie Windows jest preferowane niż w przypadku uwierzytelniania programu SQL, ponieważ jest bardziej bezpieczne. Przy użyciu uwierzytelniania Windows parametry połączenia są wolne od nazwy użytkownika i hasła, a jeśli serwer sieci web a serwerem bazy danych znajdują się na dwóch różnych komputerach, poświadczenia nie są wysyłane przez sieć w postaci zwykłego tekstu. Przy użyciu uwierzytelniania SQL jednak poświadczenia uwierzytelniania są zakodowane w parametrach połączenia i są przesyłane z serwera sieci web na serwerze bazy danych w postaci zwykłego tekstu.
 
-Te samouczki były używane uwierzytelnianie systemu Windows. Można ustalić trybu uwierzytelniania jest używany przez badanie parametry połączenia. Parametry połączenia w `Web.config` dla naszych samouczków został:
+Te samouczki, że używasz uwierzytelniania Windows. Aby sprawdzić, jakie tryb uwierzytelniania jest używany, sprawdzając parametry połączenia. Parametry połączenia w `Web.config` dla naszych samouczków:
 
 `Data Source=.\SQLEXPRESS; AttachDbFilename=|DataDirectory|\NORTHWND.MDF; Integrated Security=True; User Instance=True`
 
-Zintegrowane zabezpieczenia = True i braku nazwy użytkownika i hasła wskazują, że jest używane uwierzytelnianie systemu Windows. Niektóre połączenia ciągi termin zaufanego połączenia = Yes "lub" Integrated Security = SSPI jest używany zamiast Integrated Security = True, ale wszystkie trzy wskazuje używanie uwierzytelniania systemu Windows.
+Zabezpieczenia zintegrowane = True i braku nazwy użytkownika i hasła wskazują, że jest używane uwierzytelnianie Windows. W połączeniu z niektóre ciągi termin zaufanych połączeń = Yes lub zabezpieczenia zintegrowane = SSPI jest używana zamiast zabezpieczenia zintegrowane = True, ale wszystkich trzech wskazują korzystanie z uwierzytelniania Windows.
 
-W poniższym przykładzie przedstawiono parametry połączenia, które korzysta z uwierzytelniania SQL. Należy zwrócić uwagę, poświadczenia osadzone w ciągu połączenia:
+Poniższy przykład przedstawia parametry połączenia, który używa uwierzytelniania SQL. Należy zwrócić uwagę, poświadczenia osadzone w ciągu połączenia:
 
 `Server=serverName; Database=Northwind; uid=userID; pwd=password`
 
-Załóżmy, że osoba atakująca jest możliwość wyświetlania s Twojej aplikacji `Web.config` pliku. Jeśli używane jest uwierzytelnianie SQL do połączenia z bazą danych, który jest dostępny w Internecie, osoba atakująca można użyć tego ciągu połączenia do połączenia z bazą danych przy użyciu programu SQL Management Studio lub ze stron ASP.NET na własne witryny sieci Web. Aby ułatwić uniknięcie tego zagrożenia, należy zaszyfrować ciągu połączenia w `Web.config` przy użyciu systemu konfiguracji chronionych.
+Wyobraź sobie, że osoba atakująca jest możliwość wyświetlania s Twojej aplikacji `Web.config` pliku. Jeśli używasz uwierzytelniania SQL nawiązać połączenia z bazą danych, który jest dostępny za pośrednictwem Internetu, osoba atakująca służy te parametry połączenia do łączenia z bazą danych programu SQL Management Studio lub ze strony ASP.NET na własnej witryny sieci Web. Aby ułatwić uniknięcie tego zagrożenia, szyfrowanie informacje o parametrach połączenia w `Web.config` przy użyciu systemu konfiguracji chronionych.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji na temat różnych typów uwierzytelniania dostępnych w programie SQL Server, zobacz [tworzenie zabezpieczanie aplikacji ASP.NET: uwierzytelnianie, autoryzację i bezpieczna komunikacja](https://msdn.microsoft.com/library/aa302392.aspx). Dalsze połączenia ciąg przykłady ilustrujące różnice między składni uwierzytelniania systemu Windows i SQL, można znaleźć w temacie [ConnectionStrings.com](http://www.connectionstrings.com/).
+> Aby uzyskać więcej informacji na temat różnych typów uwierzytelniania dostępnych w programie SQL Server, zobacz [tworzenie zabezpieczanie aplikacji ASP.NET: uwierzytelniania, autoryzacji i bezpieczna komunikacja](https://msdn.microsoft.com/library/aa302392.aspx). Dodatkowo połączenia ciągu przykłady ilustrujące różnic między składnią uwierzytelnianie SQL i Windows, można znaleźć [ConnectionStrings.com](http://www.connectionstrings.com/).
 
 
 ## <a name="summary"></a>Podsumowanie
 
-Domyślnie pliki z `.config` nie można uzyskać dostępu do rozszerzenia w aplikacji ASP.NET za pośrednictwem przeglądarki. Nie są zwracane tych typów plików, ponieważ mogą zawierać poufne informacje, takie jak parametry połączenia bazy danych, nazwy użytkowników i hasła i tak dalej. System konfiguracji chronionych w .NET 2.0 pomaga jeszcze lepiej chronić informacje poufne, zezwalając sekcje określoną konfigurację do zaszyfrowania. Dwóch dostawców wbudowanych konfiguracji chronionych:, który używa algorytmu RSA, a drugi używa interfejsu API ochrony danych systemu Windows (DPAPI).
+Domyślnie pliki z `.config` rozszerzenia w aplikacji ASP.NET nie są dostępne za pośrednictwem przeglądarki. Te typy plików nie są zwracane, ponieważ mogą one zawierać poufne informacje, takie jak parametry połączenia bazy danych, nazwy użytkowników i hasła i tak dalej. System konfiguracji chronionych w programie .NET 2.0 pomaga jeszcze lepiej chronić informacje poufne, umożliwiając sekcji określonego konfiguracji szyfrowania. Istnieją dwa dostawców wbudowanych konfiguracji chronionych: jeden, który używa algorytmu RSA i jedną, która używa interfejsu API ochrony danych Windows (DPAPI).
 
-W tym samouczku analizujemy jak do szyfrowania i odszyfrowywania przy użyciu dostawcy DPAPI ustawienia konfiguracji. Można to osiągnąć programowo, jak widzieliśmy w kroku 2, jak również jako za pomocą `aspnet_regiis.exe` narzędzia wiersza polecenia, które zostało omówione w kroku 3. Aby uzyskać więcej informacji na przy użyciu poziomu użytkownika lub dostawca RSA zamiast tego Zobacz zasoby w sekcji dalsze informacje.
+W tym samouczku zobaczyliśmy, jak szyfrowanie i odszyfrowywanie ustawienia konfiguracji przy użyciu dostawcy DPAPI. Można to zrobić programowo, zgodnie z widzieliśmy w kroku 2, jak również za pośrednictwem `aspnet_regiis.exe` narzędzia wiersza polecenia, co zostało omówione w kroku 3. Aby uzyskać więcej informacji na temat przy użyciu kluczy na poziomie użytkownika, czy dostawca RSA zamiast tego Zobacz zasoby przedstawione w sekcji dalsze informacje.
 
-Programowanie przyjemność!
+Wszystkiego najlepszego programowania!
 
 ## <a name="further-reading"></a>Dalsze informacje
 
-Więcej informacji dotyczących tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
+Więcej informacji na tematów omówionych w tym samouczku można znaleźć w następujących zasobach:
 
-- [Tworzenie aplikacji ASP.NET bezpiecznego: Uwierzytelniania, autoryzacji i bezpiecznej komunikacji](https://msdn.microsoft.com/library/aa302392.aspx)
+- [Tworzenie aplikacji bezpiecznego ASP.NET: Uwierzytelniania, autoryzacji i bezpiecznej komunikacji](https://msdn.microsoft.com/library/aa302392.aspx)
 - [Szyfrowanie informacji o konfiguracji w programie ASP.NET 2.0 aplikacji](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
-- [Szyfrowanie `Web.config` wartości w programie ASP.NET 2.0](https://weblogs.asp.net/scottgu/archive/2006/01/09/434893.aspx)
-- [Porady: Szyfrowanie sekcji konfiguracyjnych w programie ASP.NET 2.0 przy użyciu DPAPI](https://msdn.microsoft.com/library/ms998280.aspx)
-- [Porady: Szyfrowanie sekcji konfiguracyjnych w programie ASP.NET 2.0 przy użyciu RSA](https://msdn.microsoft.com/library/ms998283.aspx)
-- [Interfejs API konfiguracji w programie .NET 2.0](http://www.odetocode.com/Articles/418.aspx)
-- [Ochrona danych systemu Windows](https://msdn.microsoft.com/library/ms995355.aspx)
+- [Szyfrowanie `Web.config` wartości na platformie ASP.NET 2.0](https://weblogs.asp.net/scottgu/archive/2006/01/09/434893.aspx)
+- [Instrukcje: Szyfrowanie sekcji konfiguracyjnych w programie ASP.NET 2.0 przy użyciu interfejsu DPAPI](https://msdn.microsoft.com/library/ms998280.aspx)
+- [Instrukcje: Szyfrowanie sekcji konfiguracyjnych w programie ASP.NET 2.0 przy użyciu RSA](https://msdn.microsoft.com/library/ms998283.aspx)
+- [Konfiguracja interfejsu API na platformie .NET w wersji 2.0](http://www.odetocode.com/Articles/418.aspx)
+- [Ochrona danych Windows](https://msdn.microsoft.com/library/ms995355.aspx)
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
-Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Teresa Murphy i Randy Schmidt. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku zostały Teresa Murphy i Randy Schmidt. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)

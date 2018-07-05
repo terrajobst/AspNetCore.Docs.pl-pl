@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-javascript-to-an-aspnet-page
-title: '[Jak i.] Dodawanie kodu JavaScript do strony ASP.NET | Dokumentacja firmy Microsoft'
+title: '[Jak mogę] Dodawanie kodu JavaScript do strony ASP.NET | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: To wideo Pels Krzysztof będzie pokazują, jak dołączyć JavaScript do strony ASP.NET do użycia na stronie klienta, aby zapewnić bardziej rozbudowane i bardziej niezawodne środowisko...
+description: W tym filmie pokazano pikseli Chris pokazują, jak dołączyć JavaScript do strony ASP.NET na stronie klienta, aby zapewnić bogatsze i bardziej niezawodne środowisko do użytku...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
 ms.topic: article
 ms.assetid: 55439d0f-e555-4537-97f3-0a7bc0a4bf5b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-add-javascript-to-an-aspnet-page
 msc.type: video
-ms.openlocfilehash: b75fca1153c7e13532780ed56717d551b2a67453
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 54742dbac5663e704db3eecbae0bfbc7151c356b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26571970"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364591"
 ---
-<a name="how-do-i-add-javascript-to-an-aspnet-page"></a>[Jak i.] Dodawanie kodu JavaScript do strony platformy ASP.NET
+<a name="how-do-i-add-javascript-to-an-aspnet-page"></a>[Jak mogę] Dodawanie kodu JavaScript do strony ASP.NET
 ====================
-przez [Pels Krzysztof](https://twitter.com/chrispels)
+przez [Chris pikseli](https://twitter.com/chrispels)
 
-To wideo Pels Krzysztof będzie pokazują, jak dołączyć JavaScript do strony ASP.NET do użycia na stronie klienta, aby zapewnić bardziej rozbudowane i bardziej niezawodne środowisko. Zobacz, jak obejmują JavaScript bezpośrednio wewnątrz strony ASP.NET i referencyjne skrypt w elementach strony HTML. Następnie zobacz, jak abstrakcyjnej JavaScript do zewnętrznego pliku JavaScript, co daje możliwość buforowana przez przeglądarkę i mogą być używane przez wiele stron. Ponadto Dowiedz się, jak dodać obsługę języka JavaScript do strony dynamicznie w czasie wykonywania, które ma tę zaletę skryptu dla konkretnej sytuacji, w tym lub gdzie informacje, takie jak identyfikator formantu nie jest znany do środowiska wykonawczego. Jako część dynamicznego skryptu przykładowe Zobacz, jak dodać obsługę języka JavaScript, które mogą być automatycznie wykonywane podczas ładowania strony, a także zdarzenie kliknięcia kontrolki przycisku (przycisk, LinkButton i ImageButton).
+W tym filmie pokazano pikseli Chris pokazują, jak dołączyć JavaScript do strony ASP.NET na stronie klienta, aby zapewnić bogatsze i bardziej niezawodne środowisko do użytku. Po pierwsze Zobacz, jak dołączyć języka JavaScript bezpośrednio z poziomu strony ASP.NET i odwoływać się do skryptu w ramach elementy strony HTML. Następnie zobacz, jak tworzących warstwę abstrakcji kod JavaScript do zewnętrznego pliku JavaScript, co daje możliwość buforowania przez przeglądarkę i mogą być używane przez wiele stron. Ponadto Dowiedz się, jak dodać obsługę języka JavaScript do strony dynamicznie w czasie wykonywania, który ma tę zaletę, skrypt dla konkretnej sytuacji, w tym lub gdzie informacje, takie jak identyfikator kontrolki nie jest znany aż do czasu. Jako część dynamicznego skrypt przykładowy Zobacz, jak dodać obsługę języka JavaScript, która może być automatycznie wykonywana po załadowaniu strony, a także zdarzenie kliknięcia dla przycisku kontrolki (Button, element LinkButton i ImageButton).
 
-[&#9654; Obejrzyj klip wideo (minuty 24)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-add-javascript-to-an-aspnet-page)
+[&#9654;Obejrzyj film wideo (24 w minutach)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-add-javascript-to-an-aspnet-page)

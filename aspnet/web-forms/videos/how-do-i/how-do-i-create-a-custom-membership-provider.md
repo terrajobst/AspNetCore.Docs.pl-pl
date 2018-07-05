@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-membership-provider
-title: '[Jak i.] Utwórz dostawcę członkostwa niestandardowych? | Dokumentacja firmy Microsoft'
+title: '[Jak mogę] Tworzenie niestandardowego dostawcy członkostwa? | Microsoft Docs'
 author: rick-anderson
-description: Dostawca członkostwa umożliwia aplikacji sieci web do przechowywania i pobierania danych o członkostwie dla użytkownika i wstępnie zdefiniować standardowe używa dostawcy członkostwa ASP.NET...
+description: Dostawca członkostwa umożliwia aplikacji sieci web do przechowywania i pobierania danych o członkostwie dla użytkownika, a Standardowa używa dostawcy członkostwa platformy ASP.NET Pre-define...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007
 ms.topic: article
 ms.assetid: a250a97d-e04d-403a-816e-cd6efda396cd
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-custom-membership-provider
 msc.type: video
-ms.openlocfilehash: 6984e848f64243313c10352eb4eb7d1ca9298e39
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 732a996f1c73c7fdaeed5dde355a5c242de8b7c6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26571961"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37372650"
 ---
-<a name="how-do-i-create-a-custom-membership-provider"></a>[Jak i.] Utwórz dostawcę członkostwa niestandardowych?
+<a name="how-do-i-create-a-custom-membership-provider"></a>[Jak mogę] Tworzenie niestandardowego dostawcy członkostwa?
 ====================
-przez [Pels Krzysztof](https://twitter.com/chrispels)
+przez [Chris pikseli](https://twitter.com/chrispels)
 
-Dostawca członkostwa umożliwia aplikacji sieci web do przechowywania i pobierania danych o członkostwie dla użytkownika, a standardowego dostawcy członkostwa ASP.NET używa wstępnie zdefiniowanych tabel programu SQL Server. W tym wideo możemy Dowiedz się, jak utworzyć dostawcę członkostwa niestandardowych, który używa niestandardowych tabel programu SQL Server, niezależnie od wstępnie zdefiniowanych tabel używanych przez standardowego dostawcy. Objęte wideo zasady będą stosowane do tworzenie dostawców niestandardowych członkostwa przy użyciu innych baz danych, takich jak dostęp lub Oracle. Po uczenia utworzyć dostawcę członkostwa niestandardowych, możemy Dowiedz się, jak skonfigurować dostawcę w aplikacji sieci web i wyświetlić pokaz tworzenia nowego użytkownika i nowego użytkownika z członkostwa niestandardowego dostawcy uwierzytelniania.
+Dostawca członkostwa umożliwia aplikacji sieci web do przechowywania i pobierania danych o członkostwie dla użytkownika, a standardowego dostawcy członkostwa ASP.NET używa wstępnie zdefiniowanych tabel programu SQL Server. W tym filmie pokazano możemy Dowiedz się, jak utworzyć niestandardowego dostawcy członkostwa, która używa niestandardowych tabel programu SQL Server, niezależnie od wstępnie zdefiniowane tabele używane przez standardowego dostawcy. Zasady omówione w trakcie filmu wideo będzie dotyczyć tworzenie dostawców niestandardowych członkostwa przy użyciu innych baz danych, takich jak dostęp lub Oracle. Po wiedzę utworzyć niestandardowego dostawcy członkostwa, firma Microsoft Dowiedz się, jak skonfigurować dostawcę usług w aplikacji sieci web i zobacz pokaz tworzenia nowego użytkownika i uwierzytelnianie nowego użytkownika za pomocą niestandardowego dostawcy członkostwa.
 
-[&#9654; Obejrzyj klip wideo (minuty 29)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-membership-provider)
+[&#9654;Obejrzyj film wideo (minuty 29)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-membership-provider)

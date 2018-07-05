@@ -1,58 +1,57 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
-title: Utworzenie ograniczenia trasy niestandardowe (VB) | Dokumentacja firmy Microsoft
+title: Tworzenie niestandardowego ograniczenia trasy (VB) | Dokumentacja firmy Microsoft
 author: StephenWalther
-description: Stephen Walther przedstawiono sposób tworzenia tras niestandardowych ograniczenia. Możemy wdrożyć prosty ograniczenie niestandardowych, które zapobiega trasę dopasowywane w...
+description: 'Autor: Stephen Walther pokazuje, jak można utworzyć ograniczenia trasy niestandardowej. Wdrożymy prosty niestandardowe ograniczenia, które uniemożliwia trasę dopasowywane w...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
 ms.topic: article
 ms.assetid: 892edb27-1cc2-4eaf-8314-dbc2efc6228a
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 094077fa0cb546f4cc91dbf074f8014e62b3b19c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cc30cfd49402b10274e22eb27abba73329811b7e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867502"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385498"
 ---
-<a name="creating-a-custom-route-constraint-vb"></a>Utworzenie ograniczenia trasy niestandardowe (VB)
+<a name="creating-a-custom-route-constraint-vb"></a>Tworzenie niestandardowego ograniczenia trasy (VB)
 ====================
-przez [Stephen Walther](https://github.com/StephenWalther)
+przez [Walther Autor: Stephen](https://github.com/StephenWalther)
 
-> Stephen Walther przedstawiono sposób tworzenia tras niestandardowych ograniczenia. Wdrożymy proste ograniczenie niestandardowych, które zapobiega trasę filtrowanego, gdy żądanie przeglądarki na komputerze zdalnym.
+> Autor: Stephen Walther pokazuje, jak można utworzyć ograniczenia trasy niestandardowej. Firma Microsoft zaimplementowania proste ograniczenie niestandardowych, które uniemożliwia trasy są dopasowywane, gdy żądanie przeglądarki na komputerze zdalnym.
 
 
-Celem tego samouczka jest aby zademonstrować, jak można utworzyć ograniczenia tras niestandardowych. Ograniczenia trasy niestandardowe umożliwia uniemożliwić filtrowanego, chyba że niektóre warunek niestandardowy jest dopasowywany trasy.
+Celem tego samouczka jest pokazują, jak można utworzyć ograniczenia trasy niestandardowej. Ograniczenia trasy niestandardowej można uniemożliwić trasy są dopasowywane, chyba że jakiś warunek niestandardowy jest zgodny.
 
-W tym samouczku utworzymy ograniczenia trasy Localhost. Ograniczenia trasy Localhost zgodny tylko żądań z komputera lokalnego. Żądania zdalne z Internetu są niezgodne.
+W tym samouczku utworzymy Localhost ograniczenia trasy. Ograniczenia trasy Localhost jest zgodny tylko żądań wysyłanych z komputera lokalnego. Żądania zdalne z przez Internet nie zostały dopasowane.
 
-Ograniczenia trasy niestandardowe można wdrożyć przy implementującej interfejs interfejs IRouteConstraint. Jest to bardzo proste interfejsu, który opisuje metodę pojedynczego:
+Implementując interfejs IRouteConstraint implementowania ograniczenia trasy niestandardowej. Jest to bardzo prosty interfejs, który opisuje pojedynczej metody:
 
 [!code-vb[Main](creating-a-custom-route-constraint-vb/samples/sample1.vb)]
 
-Metoda zwraca wartość logiczną. Jeśli zwróci wartość False, skojarzonych z ograniczeniem trasy nie pasuje do żądania przeglądarki.
+Metoda zwraca wartość logiczną. Po powrocie False trasy skojarzonych z ograniczeniem nie będzie zgodne żądanie przeglądarki.
 
-Ograniczenie Localhost znajduje się w 1 wyświetlania.
+Ograniczenie Localhost znajduje się w ofercie 1.
 
 **Listing 1 - LocalhostConstraint.vb**
 
 [!code-vb[Main](creating-a-custom-route-constraint-vb/samples/sample2.vb)]
 
-Ograniczenia w 1 wyświetlania korzysta z właściwości IsLocal udostępniane przez klasę HttpRequest. Ta właściwość zwraca wartość true, gdy adres IP żądania jest albo 127.0.0.1 lub adres IP żądania jest taki sam jak adres IP serwera.
+Ograniczenia w ofercie 1 korzysta z właściwości IsLocal udostępnianych przez klasy HttpRequest. Ta właściwość zwraca wartość true, gdy adres IP żądania jest albo 127.0.0.1 lub adres IP żądania jest taka sama jak adres IP serwera.
 
-Możesz użyć niestandardowego ograniczenia w obrębie trasy zdefiniowane w pliku Global.asax. Plik Global.asax wyświetlania 2 używa ograniczenia Localhost aby uniemożliwić osobom żądania strony administratora, chyba że finalizowania żądania z lokalnego serwera. Na przykład żądania /Admin/DeleteAll zakończy się niepowodzeniem, gdy na serwerze zdalnym.
+Możesz użyć niestandardowego ograniczenia w obrębie trasy zdefiniowanej w pliku Global.asax. Plik Global.asax w ofercie 2 używa ograniczenie Localhost, aby uniemożliwić osobom żądania na stronie administratora, chyba że dokonają żądania z serwera lokalnego. Na przykład żądanie /Admin/DeleteAll zakończy się niepowodzeniem, gdy na serwerze zdalnym.
 
-**Wyświetlanie listy 2 - pliku Global.asax**
+**Wyświetlanie listy 2 - w pliku Global.asax**
 
 [!code-vb[Main](creating-a-custom-route-constraint-vb/samples/sample3.vb)]
 
-Warunek ograniczający Localhost jest używany w definicji trasy administratora. Nie można dopasować tej trasy przez żądanie przeglądarki zdalnego. Należy pamiętać, jednak, że innych tras zdefiniowanych w pliku Global.asax może pasuje do tego samego żądania. Należy zrozumieć ograniczenie uniemożliwia określonej trasy dopasowywanie na żądanie, a nie wszystkich tras określonych w pliku Global.asax.
+Ograniczenie Localhost jest używane w definicji trasy administratora. Ta trasa nie będzie można dopasować do podwyrażenia żądania zdalnego przeglądarki. Należy pamiętać, jednak czy innych tras zdefiniowanych w pliku Global.asax może pasuje do tego samego żądania. Jest ważne dowiedzieć się, że ograniczenie zapobiega określonej trasy pasujące żądanie i nie wszystkie trasy zdefiniowanej w pliku Global.asax.
 
-Zwróć uwagę, że trasy domyślnej zostały oznaczone komentarzami z pliku Global.asax wyświetlania 2. Jeśli dołączysz trasa domyślna trasa domyślna umożliwi dopasowanie żądania dla administratora kontrolera. W takim przypadku użytkownicy zdalni nadal może wywołać akcji kontrolera administratora, nawet jeśli ich żądania nie pasuje trasy administratora.
+Należy zauważyć, że domyślna trasa zostały oznaczone komentarzami w pliku Global.asax w ofercie 2. Jeśli uwzględniony trasa domyślna trasa domyślna umożliwi dopasowanie żądania dla kontrolera administratora. W takim przypadku użytkownicy zdalni nadal może wywołać akcji kontrolera administratora, nawet jeśli ich żądania nie odpowiada trasy administratora.
 
 > [!div class="step-by-step"]
 > [Poprzednie](creating-a-route-constraint-vb.md)

@@ -9,15 +9,14 @@ ms.date: 02/25/2011
 ms.topic: article
 ms.assetid: 7245123a-244d-4665-bff4-5238d5ad3427
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/working-with-files
 msc.type: video
-ms.openlocfilehash: 09c133abe4915450e07ab6a4d7e124cec6c6714a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ebdc1898f6958aa311391ac576f6eeb95ad9e807
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30895106"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385777"
 ---
 <a name="working-with-files"></a>Praca z plikami
 ====================
@@ -25,7 +24,7 @@ przez [Stagner Jan](https://github.com/JoeStagner)
 
 Dodatek wideo do pracy z samouczkiem plików
 
-[&#9654;Obejrzyj klip wideo (minuty 23)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-files)
+[&#9654;Obejrzyj film wideo (23 minuty)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-files)
 
 > [!div class="step-by-step"]
 > [Poprzednie](displaying-data-in-a-chart-part-2.md)

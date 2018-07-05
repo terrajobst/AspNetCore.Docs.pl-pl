@@ -1,88 +1,87 @@
 ---
 uid: identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
-title: Należy zmienić wartość klucza podstawowego dla użytkowników w produkcie ASP.NET Identity | Dokumentacja firmy Microsoft
+title: Zmiana klucza podstawowego dla użytkowników w produkcie ASP.NET Identity | Dokumentacja firmy Microsoft
 author: tfitzmac
-description: W programie Visual Studio 2013 domyślnej aplikacji sieci web używa wartości ciągu klucza dla konta użytkownika. ASP.NET Identity umożliwia zmianę typu...
+description: W programie Visual Studio 2013 domyślnej aplikacji sieci web używa wartość ciągu dla klucza dla kont użytkowników. ASP.NET Identity umożliwia zmianę typu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/30/2014
 ms.topic: article
 ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 79812efb4de2461fad3765d6005bbd20393e62b2
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 20e6b86f50a6ea62f188ae592e0b302c7ef77177
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "26563774"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373331"
 ---
-<a name="change-primary-key-for-users-in-aspnet-identity"></a>Należy zmienić wartość klucza podstawowego dla użytkowników w produkcie ASP.NET Identity
+<a name="change-primary-key-for-users-in-aspnet-identity"></a>Zmiana klucza podstawowego dla użytkowników w produkcie ASP.NET Identity
 ====================
-przez [FitzMacken niestandardowy](https://github.com/tfitzmac)
+przez [Tom FitzMacken](https://github.com/tfitzmac)
 
-> W programie Visual Studio 2013 domyślnej aplikacji sieci web używa wartości ciągu klucza dla konta użytkownika. ASP.NET Identity umożliwia zmianę typu klucza zgodnie z wymaganiami danych. Na przykład można zmienić typu klucza z ciągu na liczbę całkowitą.
+> W programie Visual Studio 2013 domyślnej aplikacji sieci web używa wartość ciągu dla klucza dla kont użytkowników. ASP.NET Identity umożliwia zmianę typu klucza, aby spełnić wymagania dotyczące danych. Na przykład można zmienić typ klucza z ciągu na liczbę całkowitą.
 > 
-> W tym temacie przedstawiono, jak zacząć domyślnej aplikacji sieci web i zmienić wartość klucza konta użytkownika na liczbę całkowitą. Te same zmiany można użyć do wykonania dowolnego typu klucza w projekcie. Demonstracja do wprowadzenia tych zmian w domyślnej aplikacji sieci web, ale można zastosować zmian podobne do niestandardowych aplikacji. Przedstawia on zmiany podczas pracy z MVC i formularzy sieci Web.
+> W tym temacie pokazano, jak zacząć domyślną aplikację sieci web i zmienić klucz konta użytkownika na liczbę całkowitą. Te same modyfikacje można użyć do wdrożenia dowolnego typu klucza w projekcie. Pokazuje sposób wprowadzania tych zmian w domyślnej aplikacji sieci web, ale można zastosować zmiany podobne do niestandardowych aplikacji. Pokazuje zmiany wymagane podczas pracy z MVC i formularzy sieci Web.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 > 
 > 
-> - Visual Studio 2013 Update 2 (lub nowszy)
+> - Visual Studio 2013 z aktualizacją Update 2 (lub nowszym)
 > - ASP.NET Identity 2.1 lub nowszej
 
 
-Aby wykonać kroki opisane w tym samouczku, musi mieć Visual Studio 2013 Update 2 (lub nowszego) i aplikacji sieci web utworzone na podstawie szablonu aplikacji sieci Web platformy ASP.NET. Szablon zmienione w aktualizacji Update 3. W tym temacie pokazano, jak zmienić szablonu w Update 2 i Update 3.
+Aby wykonać kroki opisane w tym samouczku, konieczne jest posiadanie programu Visual Studio 2013 Update 2 (lub nowszego) i aplikacji sieci web utworzone za pomocą szablonu aplikacji sieci Web ASP.NET. Szablon zmienione w wersji Update 3. W tym temacie pokazano, jak zmienić szablon w aktualizacji 2 i Update 3.
 
 Ten temat zawiera następujące sekcje:
 
-- [Zmień typ klucza w klasie tożsamości użytkownika](#userclass)
-- [Dodania niestandardowych klas tożsamości, korzystających z typu klucza](#customclass)
-- [Zmienianie menedżera użytkownika oraz klasy kontekstu do użycia z typem klucza](#context)
-- [Zmień konfigurację uruchamiania, aby użyć klucza typu](#startup)
-- [Dla platformy MVC z Update 2 można zmienić elementu AccountController przekazać typ klucza](#mvcupdate2)
-- [Dla platformy MVC z aktualizacją Update 3 Zmień elementu AccountController oraz ManageController przekazywanie typu klucza](#mvcupdate3)
-- [Dla formularzy sieci Web z Update 2 Zmień konto strony do przekazania typu klucza](#webformsupdate2)
-- [Dla formularzy sieci Web z aktualizacją Update 3 Zmień konto strony do przekazania typu klucza](#webformsupdate3)
+- [Zmień typ klucza w tożsamości klasy użytkownika](#userclass)
+- [Dodaj niestandardowe klasy tożsamości, które używają typu klucza](#customclass)
+- [Zmienianie menedżera użytkownika oraz klasy kontekstu do użycia typ klucza](#context)
+- [Zmień konfigurację uruchamiania, aby używać kluczy typu](#startup)
+- [Dla platformy MVC z aktualizacją Update 2 można zmienić elementu AccountController przekazać typ klucza](#mvcupdate2)
+- [Dla platformy MVC z aktualizacją Update 3 Zmień elementu AccountController i ManageController, aby przekazać typ klucza](#mvcupdate3)
+- [W przypadku formularzy sieci Web z aktualizacją Update 2 zmienić konto strony do przekazania z typem klucza](#webformsupdate2)
+- [W przypadku formularzy sieci Web z aktualizacją Update 3 zmienić konto strony do przekazania z typem klucza](#webformsupdate3)
 - [Uruchamianie aplikacji](#run)
 - [Inne zasoby](#other)
 
 <a id="userclass"></a>
-## <a name="change-the-type-of-the-key-in-the-identity-user-class"></a>Zmień typ klucza w klasie tożsamości użytkownika
+## <a name="change-the-type-of-the-key-in-the-identity-user-class"></a>Zmień typ klucza w tożsamości klasy użytkownika
 
-W projekcie utworzone na podstawie szablonu aplikacji sieci Web platformy ASP.NET należy określić, że klasy ApplicationUser używa całkowitą klucza dla konta użytkownika. W IdentityModels.cs, zmień klasy ApplicationUser odziedziczone IdentityUser, który ma typ **int** dla parametru ogólnego TKey. Możesz również przekazać nazwy trzy dostosowane klasy, które nie zostało jeszcze zaimplementowane.
+W projekcie, utworzone na podstawie szablonu aplikacji sieci Web ASP.NET należy określić, że klasy ApplicationUser używa całkowitą dla klucza dla kont użytkowników. W IdentityModels.cs, zmień klasy ApplicationUser odziedziczone IdentityUser, który ma typ **int** dla parametru generycznego TKey. Możesz też przekazać nazwy trzy niestandardowe klasy, która nie zostało jeszcze zaimplementowane.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample1.cs?highlight=1-2)]
 
-Zmieniono typ klucza, ale domyślnie reszty aplikacji nadal przyjęto założenie, że klucz jest ciąg. Jawnie musi wskazywać typ klucza w kodzie, który przyjmuje ciąg.
+Zmieniono typ klucza, ale domyślnie pozostałe części aplikacji nadal przyjęto założenie, że klucz jest ciąg. Należy jawnie wskazać typ klucza w kodzie, który przyjmuje ciąg.
 
-W **ApplicationUser** klasy, zmień **GenerateUserIdentityAsync** metodę w celu uwzględnienia int, jak pokazano w poniższym kodzie zaznaczony. Ta zmiana nie jest niezbędna dla projektów formularzy sieci Web przy użyciu szablonu Update 3.
+W **ApplicationUser** klasy, zmienić **GenerateUserIdentityAsync** metodę, aby uwzględnić int, jak pokazano w poniższym kodzie wyróżnione. Ta zmiana nie jest konieczne w przypadku projektów formularzy sieci Web za pomocą szablonu aktualizacji 3.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample2.cs?highlight=2)]
 
 <a id="customclass"></a>
-## <a name="add-customized-identity-classes-that-use-the-key-type"></a>Dodania niestandardowych klas tożsamości, korzystających z typu klucza
+## <a name="add-customized-identity-classes-that-use-the-key-type"></a>Dodaj niestandardowe klasy tożsamości, które używają typu klucza
 
-Inne klasy tożsamości, takie jak IdentityUserRole IdentityUserClaim, IdentityUserLogin, IdentityRole, magazynie UserStore, elemencie RoleStore, są nadal skonfigurowane do użycia klucza ciągu. Utwórz nowe wersje tych klas, które określają całkowitą dla klucza. Nie trzeba podać kod wiele implementacji w tych klas, przede wszystkim tylko ustawieniu int jako klucz.
+Inne klasy tożsamości, takich jak IdentityUserRole IdentityUserClaim, IdentityUserLogin, IdentityRole, magazynie UserStore, elemencie RoleStore, nadal są konfigurowane do użycia klucza typu ciąg. Utwórz nowe wersje tych klas, które określają całkowitą dla klucza. Nie należy podać wiele kod implementacji w ramach tych zajęć, przede wszystkim właśnie przeprowadzasz int jako klucz.
 
-Dodaj następujące klasy w pliku IdentityModels.cs.
+Dodaj następujące klasy do pliku IdentityModels.cs.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample3.cs)]
 
 <a id="context"></a>
-## <a name="change-the-context-class-and-user-manager-to-use-the-key-type"></a>Zmienianie menedżera użytkownika oraz klasy kontekstu do użycia z typem klucza
+## <a name="change-the-context-class-and-user-manager-to-use-the-key-type"></a>Zmienianie menedżera użytkownika oraz klasy kontekstu do użycia typ klucza
 
-W IdentityModels.cs, Zmień definicję **ApplicationDbContext** klasę, aby użyć nowego dostosowane klas i **int** klucza, jak pokazano w wyróżniony kod.
+W IdentityModels.cs, należy zmienić definicję **ApplicationDbContext** nowej klasy dostosowane klasy i **int** klucza, jak pokazano na wyróżniony kod.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample4.cs?highlight=1-2)]
 
-Parametr ThrowIfV1Schema nie jest już prawidłowy w konstruktorze. Zmień konstruktora, aby nie zostały spełnione wartości ThrowIfV1Schema.
+Parametr ThrowIfV1Schema nie jest już prawidłowy w konstruktorze. Zmień konstruktora, aby nie mogła przekazywać wartość ThrowIfV1Schema.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample5.cs)]
 
-Otwórz IdentityConfig.cs i zmień **ApplicationUserManger** klasę, aby użyć nowego użytkownika przechowywania klasy trwałych danych i **int** dla klucza.
+Otwórz IdentityConfig.cs i zmień **ApplicationUserManger** klasy nowy użytkownik przechowywania klasę utrwalanie danych i **int** dla klucza.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample6.cs?highlight=1,3,12,14,32,37,48)]
 
@@ -91,27 +90,27 @@ W szablonie Update 3 możesz zmienić klasy ApplicationSignInManager.
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample7.cs?highlight=1)]
 
 <a id="startup"></a>
-## <a name="change-start-up-configuration-to-use-the-key-type"></a>Zmień konfigurację uruchamiania, aby użyć klucza typu
+## <a name="change-start-up-configuration-to-use-the-key-type"></a>Zmień konfigurację uruchamiania, aby używać kluczy typu
 
-W Startup.Auth.cs Zastąp kod element OnValidateIdentity, jak wyróżniono poniżej. Zwróć uwagę, że definicja getUserIdCallback analizuje wartość ciągu na liczbę całkowitą.
+W Startup.Auth.cs Zastąp kod element OnValidateIdentity, jak wyróżniono poniżej. Należy zauważyć, że definicja getUserIdCallback analizuje wartości ciągu na liczbę całkowitą.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample8.cs?highlight=7-12)]
 
-Jeśli projekt nie rozpoznaje ogólną implementację **metodę GetUserId** metody, konieczne może być pakietu ASP.NET Identity NuGet aktualizacji do wersji 2.1
+Jeśli projekt nie może rozpoznać ogólną implementację **metodę GetUserId** metody, konieczne może być aktualizacja pakietu NuGet tożsamości ASP.NET do wersji 2.1
 
-Wprowadzono wiele zmian dla klasy infrastruktury używane przez program ASP.NET Identity. Podczas kompilowania projektu można zauważyć wiele błędów. Na szczęście pozostałe błędy są podobne. Klasa tożsamości oczekuje liczby całkowitej dla klucza, ale kontrolera (lub formularza sieci Web) jest przekazanie wartości ciągu. W każdym przypadku należy przekonwertować ciąg i liczby całkowitej przez wywołanie metody **metodę GetUserId&lt;int&gt;**. Możesz skorzystać z listy błędów z kompilacji lub wykonaj poniższe zmiany.
+Wprowadzono wiele zmian do klas infrastruktury posługują się produktu ASP.NET Identity. Jeśli spróbujesz kompilowania projektu, można zauważyć wiele błędów. Na szczęście pozostałe błędy są podobne. Klasa tożsamości oczekuje całkowitą dla klucza, ale kontroler (lub formularza sieci Web) przekazuje wartość ciągu. W obu przypadkach należy przekonwertować ciąg i liczba całkowita, wywołując **metodę GetUserId&lt;int&gt;**. Możesz pracować za pośrednictwem listy błędów z kompilacji lub wykonaj poniższe zmiany.
 
-Pozostałe zmiany są zależne od typu projektu tworzenia i aktualizacji, które zainstalowano w programie Visual Studio. Można przejść bezpośrednio do odpowiedniej sekcji za pomocą poniższych łączy
+Pozostałe zmiany są zależne od typu projektu, tworzenia i aktualizacji, które zostały zainstalowane w programie Visual Studio. Możesz przejść bezpośrednio do odpowiedniej sekcji za pomocą poniższych łączy
 
-- [Dla platformy MVC z Update 2 można zmienić elementu AccountController przekazać typ klucza](#mvcupdate2)
-- [Dla platformy MVC z aktualizacją Update 3 Zmień elementu AccountController oraz ManageController przekazywanie typu klucza](#mvcupdate3)
-- [Dla formularzy sieci Web z Update 2 Zmień konto strony do przekazania typu klucza](#webformsupdate2)
-- [Dla formularzy sieci Web z aktualizacją Update 3 Zmień konto strony do przekazania typu klucza](#webformsupdate3)
+- [Dla platformy MVC z aktualizacją Update 2 można zmienić elementu AccountController przekazać typ klucza](#mvcupdate2)
+- [Dla platformy MVC z aktualizacją Update 3 Zmień elementu AccountController i ManageController, aby przekazać typ klucza](#mvcupdate3)
+- [W przypadku formularzy sieci Web z aktualizacją Update 2 zmienić konto strony do przekazania z typem klucza](#webformsupdate2)
+- [W przypadku formularzy sieci Web z aktualizacją Update 3 zmienić konto strony do przekazania z typem klucza](#webformsupdate3)
 
 <a id="mvcupdate2"></a>
-## <a name="for-mvc-with-update-2-change-the-accountcontroller-to-pass-the-key-type"></a>Dla platformy MVC z Update 2 można zmienić elementu AccountController przekazać typ klucza
+## <a name="for-mvc-with-update-2-change-the-accountcontroller-to-pass-the-key-type"></a>Dla platformy MVC z aktualizacją Update 2 można zmienić elementu AccountController przekazać typ klucza
 
-Otwórz plik AccountController.cs. Musisz zmienić z następujących metod.
+Otwórz plik AccountController.cs. Musisz zmienić następujących metod.
 
 **ConfirmEmail** — metoda
 
@@ -137,10 +136,10 @@ Otwórz plik AccountController.cs. Musisz zmienić z następujących metod.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample14.cs?highlight=3)]
 
-Możesz teraz [uruchomić aplikację](#run) i zarejestrować nowego użytkownika.
+Możesz teraz [uruchomić aplikację](#run) i rejestrowanie nowego użytkownika.
 
 <a id="mvcupdate3"></a>
-## <a name="for-mvc-with-update-3-change-the-accountcontroller-and-managecontroller-to-pass-the-key-type"></a>Dla platformy MVC z aktualizacją Update 3 Zmień elementu AccountController oraz ManageController przekazywanie typu klucza
+## <a name="for-mvc-with-update-3-change-the-accountcontroller-and-managecontroller-to-pass-the-key-type"></a>Dla platformy MVC z aktualizacją Update 3 Zmień elementu AccountController i ManageController, aby przekazać typ klucza
 
 Otwórz plik AccountController.cs. Musisz zmienić następującą metodę.
 
@@ -152,7 +151,7 @@ Otwórz plik AccountController.cs. Musisz zmienić następującą metodę.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample16.cs?highlight=4)]
 
-Otwórz plik ManageController.cs. Musisz zmienić z następujących metod.
+Otwórz plik ManageController.cs. Musisz zmienić następujących metod.
 
 **Indeks** — metoda
 
@@ -182,11 +181,11 @@ Otwórz plik ManageController.cs. Musisz zmienić z następujących metod.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample23.cs?highlight=3,8)]
 
-**Element ChangePassword** — metoda
+**ChangePassword** — metoda
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample24.cs?highlight=10,13)]
 
-**UstawianieHasła** — metoda
+**SetPassword** — metoda
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample25.cs?highlight=5,8)]
 
@@ -206,12 +205,12 @@ Otwórz plik ManageController.cs. Musisz zmienić z następujących metod.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample29.cs?highlight=3)]
 
-Możesz teraz [uruchomić aplikację](#run) i zarejestrować nowego użytkownika.
+Możesz teraz [uruchomić aplikację](#run) i rejestrowanie nowego użytkownika.
 
 <a id="webformsupdate2"></a>
-## <a name="for-web-forms-with-update-2-change-account-pages-to-pass-the-key-type"></a>Dla formularzy sieci Web z Update 2 Zmień konto strony do przekazania typu klucza
+## <a name="for-web-forms-with-update-2-change-account-pages-to-pass-the-key-type"></a>W przypadku formularzy sieci Web z aktualizacją Update 2 zmienić konto strony do przekazania z typem klucza
 
-Formularze sieci Web z Update 2 należy zmienić następujące strony.
+Formularze sieci Web z aktualizacją Update 2 należy zmienić na następujących stronach.
 
 **Confirm.aspx.CX**
 
@@ -225,12 +224,12 @@ Formularze sieci Web z Update 2 należy zmienić następujące strony.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample32.cs?highlight=3,22,47,52,69,85,93,98)]
 
-Możesz teraz [uruchomić aplikację](#run) i zarejestrować nowego użytkownika.
+Możesz teraz [uruchomić aplikację](#run) i rejestrowanie nowego użytkownika.
 
 <a id="webformsupdate3"></a>
-## <a name="for-web-forms-with-update-3-change-account-pages-to-pass-the-key-type"></a>Dla formularzy sieci Web z aktualizacją Update 3 Zmień konto strony do przekazania typu klucza
+## <a name="for-web-forms-with-update-3-change-account-pages-to-pass-the-key-type"></a>W przypadku formularzy sieci Web z aktualizacją Update 3 zmienić konto strony do przekazania z typem klucza
 
-W przypadku formularzy sieci Web z aktualizacją Update 3 musisz zmienić następujących stron.
+Formularze sieci Web z aktualizacją Update 3 należy zmienić na następujących stronach.
 
 **Confirm.aspx.CX**
 
@@ -267,16 +266,16 @@ W przypadku formularzy sieci Web z aktualizacją Update 3 musisz zmienić nastę
 <a id="run"></a>
 ## <a name="run-application"></a>Uruchamianie aplikacji
 
-Zakończono wszystkie wymagane zmiany domyślnego szablonu aplikacji sieci Web. Uruchom aplikację i zarejestrować nowego użytkownika. Po zarejestrowaniu użytkownika, można zauważyć, że tabela AspNetUsers zawiera identyfikator kolumny, która jest liczbą całkowitą.
+Zakończono wszystkie zmiany wymagane w celu domyślnego szablonu aplikacji sieci Web. Uruchom aplikację i zarejestrować nowego użytkownika. Po zarejestrowaniu użytkownika, zauważysz, że tabela AspNetUsers zawiera kolumny identyfikatora, który jest liczbą całkowitą.
 
 ![nowy klucz podstawowy](change-primary-key-for-users-in-aspnet-identity/_static/image1.png)
 
-Jeśli wcześniej utworzono ASP.NET Identity tabel za pomocą innego klucza podstawowego, należy wprowadzić kilka dodatkowych zmian. Jeśli to możliwe można usunąć istniejącą bazę danych. Bazy danych zostanie ponownie utworzony z poprawny projekt, po uruchomieniu aplikacji sieci web i dodać nowego użytkownika. Jeśli usunięcia nie jest możliwe, uruchom migracje code first, aby zmienić tabel. Jednakże nowy klucz podstawowy całkowitą nie zostanie ustawiona jako właściwość SQL IDENTITY w bazie danych. W kolumnie Identyfikator musi ręcznie Ustaw jako tożsamości.
+Jeśli wcześniej utworzono produktu ASP.NET Identity tabel przy użyciu innego klucza podstawowego, należy wprowadzić pewne dodatkowe zmiany. Jeśli to możliwe można usunąć istniejącej bazy danych. Po uruchomieniu aplikacji sieci web i dodać nowego użytkownika będzie ponownie utworzony przy użyciu poprawny projekt bazy danych. Jeśli usuwanie nie jest możliwe, uruchom migracje code first, aby zmienić w tabelach. Jednakże nowy klucz podstawowy dla liczby całkowitej nie zostanie ustawiona jako właściwość SQL IDENTITY w bazie danych. Jako tożsamość, należy ręcznie ustawić kolumny identyfikatora.
 
 <a id="other"></a>
 ## <a name="other-resources"></a>Inne zasoby
 
 - [Omówienie niestandardowych dostawców magazynu dla produktu ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md)
 - [Migrowanie istniejącej witryny internetowej z członkostwa SQL do produktu ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [Migrowanie danych uniwersalnych dostawcy członkostwa i profilów użytkownika dla tożsamości ASP.NET](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
-- [Przykładowa aplikacja](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/ChangePK/readme.txt) z zmienione klucza podstawowego
+- [Migrowanie danych uniwersalnego dostawcy dotyczących członkostwa i profilów użytkowników do produktu ASP.NET Identity](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+- [Przykładowa aplikacja](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/ChangePK/readme.txt) przy użyciu zmienionego klucz podstawowy

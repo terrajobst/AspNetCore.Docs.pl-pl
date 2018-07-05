@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-validation-controls-in-aspnet
-title: '[Jak i.]  Formanty walidacji w programie ASP.NET? | Dokumentacja firmy Microsoft'
+title: '[Jak mogę]  Korzystanie z kontrolek walidacji na platformie ASP.NET? | Microsoft Docs'
 author: rick-anderson
-description: To wideo pokazuje sposób użycia formanty walidacji dostępnych w programie ASP.NET do implementacji sprawdzania poprawności na stronach sieci web. Wszystkie główne weryfikacji formanty takie...
+description: W tym filmie pokazano Dowiedz się, jak zaimplementować weryfikację stron sieci web za pomocą kontrolek weryfikacji dostępnych w programie ASP.NET. Wszystkie główne weryfikacji kontroluje takich...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/26/2007
 ms.topic: article
 ms.assetid: 1f2e5f5b-8be1-4acc-ae36-a2e0d140251a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-validation-controls-in-aspnet
 msc.type: video
-ms.openlocfilehash: 2972cfe22a0e4dac8c33bfc50fff9dfebe272d20
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: accaa482e80aacf0a00dbc5f8eadf741f0cbd91c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572090"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384884"
 ---
-<a name="how-do-i--use-validation-controls-in-aspnet"></a>[Jak i.]  Formanty walidacji w programie ASP.NET?
+<a name="how-do-i--use-validation-controls-in-aspnet"></a>[Jak mogę]  Korzystanie z kontrolek walidacji na platformie ASP.NET?
 ====================
-przez [Pels Krzysztof](https://twitter.com/chrispels)
+przez [Chris pikseli](https://twitter.com/chrispels)
 
-To wideo pokazuje sposób użycia formanty walidacji dostępnych w programie ASP.NET do implementacji sprawdzania poprawności na stronach sieci web. Wszystkie główne weryfikacji Określa, takie jak RequiredFieldValidator i RegularExpressionValidator zostanie omówiony. Ponadto Dowiedz się, jak używać CustomValidator, gdy jeden z standardowe moduły weryfikacji nie spełnia potrzeby. Zarówno serwera, jak i opcji weryfikacji po stronie klienta są wyświetlane. Informacje o jednym walidacji formantu interfejsu użytkownika, a także wiele operacji sprawdzania poprawności.
+W tym filmie pokazano Dowiedz się, jak zaimplementować weryfikację stron sieci web za pomocą kontrolek weryfikacji dostępnych w programie ASP.NET. Wszystkie główne weryfikacji określa takie, jak RequiredFieldValidator i RegularExpressionValidator zostanie dokładnie omówione. Ponadto Dowiedz się, jak używać CustomValidator, gdy jeden z standardowych modułów weryfikacji nie spełnia Twoich potrzeb. Opcje weryfikacji po stronie klienta i serwera są wyświetlane. Zobacz, jak pojedynczy walidacji na kontrolkę interfejsu użytkownika, a także wielokrotnego sprawdzania poprawności.
 
-[&#9654; Obejrzyj klip wideo (minuty 31)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-validation-controls-in-aspnet)
+[&#9654;Obejrzyj film wideo (minuty 31)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-validation-controls-in-aspnet)

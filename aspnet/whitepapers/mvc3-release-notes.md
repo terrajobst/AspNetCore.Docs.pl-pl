@@ -9,86 +9,85 @@ ms.date: 10/06/2010
 ms.topic: article
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 0bfe9cdc215226457ccfafff2b85ace87325b91b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fe3536f3a40f3a74df47bcc1ca0d0b8416895169
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30899106"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37381681"
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
 - [Omówienie](#overview)
-- [Informacje o instalacji](#installation-notes)
+- [Uwagi dotyczące instalacji](#installation-notes)
 - [Wymagania dotyczące oprogramowania](#software-requirements)
 - [Dokumentacja](#documentation)
 - [Obsługa](#support)
-- [Uaktualnianie projektów programu ASP.NET MVC 2 do platformy ASP.NET MVC 3 narzędzia aktualizacji](#upgrading)
+- [Uaktualnianie projektu ASP.NET MVC 2 do wzorca ASP.NET MVC 3 Tools Update](#upgrading)
 - [ASP.NET MVC 3 Tools Update (April 12, 2011)](#tu-changes)
 
-    - [Okno dialogowe "Dodaj kontroler" można teraz utworzyć szkielet kontrolerów z kodem dostępu do widoków i danych](#tu-AddControllerDialog)
-    - [Ulepszenia "platformy ASP.NET MVC 3 nowego projektu" — okno dialogowe](#tu-ImprovementsNewDialogBox)
-    - [Szablony projektów zawierają teraz Modernizr 1.7](#tu-Modernizr)
-    - [Szablony projektu obejmują zaktualizowane wersje jQuery, interfejsu użytkownika jQuery i jQuery sprawdzania poprawności](#tu-UpdatedJQuery)
-    - [Szablony projektów zawierają teraz ADO.NET Entity Framework 4.1 jako wstępnie zainstalowany pakiet NuGet](#tu-EF)
-    - [Szablony projektu obejmują bibliotek JavaScript jako wstępnie zainstalowane pakiety NuGet](#tu-JavaScriptLibsNuget)
+    - [Okno dialogowe "Dodaj kontroler" można teraz tworzenia szkieletu kontrolerów z kodem dostępu do widoków i danych](#tu-AddControllerDialog)
+    - [Ulepszenia "platformy ASP.NET MVC 3 nowego projektu" okno dialogowe](#tu-ImprovementsNewDialogBox)
+    - [Szablony projektów obejmują teraz Modernizr 1.7](#tu-Modernizr)
+    - [Szablony projektu obejmują zaktualizowane wersje jQuery, interfejs użytkownika jQuery i jQuery sprawdzania poprawności](#tu-UpdatedJQuery)
+    - [Szablony projektów obejmują teraz ADO.NET Entity Framework 4.1 jako wstępnie zainstalowany pakiet NuGet](#tu-EF)
+    - [Szablony projektów zawierają biblioteki JavaScript jako wstępnie zainstalowanych pakietów NuGet](#tu-JavaScriptLibsNuget)
     - [Znane problemy](#tu-KI)
 - [ASP.NET MVC 3 RTM (January 13, 2011)](#MVC3RTM)
 
-    - [Zmień: Zaktualizowana wersja interfejsu użytkownika jQuery do 1.8.7](#RTM-1)
-    - [Zmień: Zmieniono domyślny ModelMetadataProvider z powrotem do DataAnnotationsModelMetadataProvider](#RTM-2)
-    - [Stały: Wklejanie części wyrażenia Razor zawierający wyników odstępu, w tym zostały zamienione](#RTM-3)
-    - [Stałym: Zmiana nazwy pliku Razor, który jest otwarty w edytorze wyłącza kolorowanie składni i IntelliSense](#RTM-4)
+    - [Zmiana: Zaktualizowanej wersji interfejs użytkownika jQuery, aby 1.8.7](#RTM-1)
+    - [Zmiana: Zmienić domyślną ModelMetadataProvider z powrotem do DataAnnotationsModelMetadataProvider](#RTM-2)
+    - [Naprawiono: Wklejanie część wyrażenia Razor, zawierającego wyniki białe znaki w nim zostały zamienione](#RTM-3)
+    - [Poprawiono: Zmiana nazwy pliku Razor, który jest otwierany w edytorze powoduje wyłączenie kolorowania składni i technologii IntelliSense](#RTM-4)
     - [Znane problemy](#RTM-KI)
     - [Fundamentalne zmiany](#RTM-BC)
-- [ASP.NET MVC 3 Release Candidate 2 (December 10, 2010)](#_Toc2)
+- [Program ASP.NET MVC 3 w wersji Release Candidate 2 (10 grudnia 2010)](#_Toc2)
 
-    - [Zmieniać szablonów projektu o jQuery 1.4.4, 1.7 weryfikacji jQuery i jQuery 1.8.6y interfejsu użytkownika 1.8.6 interfejsu użytkownika](#_Toc2_1)
+    - [Zmienić szablony projektu do uwzględnienia jQuery 1.4.4, jQuery 1.7 sprawdzania poprawności i interfejs użytkownika 1.8.6y 1.8.6 interfejsu użytkownika jQuery](#_Toc2_1)
     - [Klasa dodano "AdditionalMetadataAttribute"](#_Toc2_2)
-    - [Ulepszone widoku szkieletów](#_Toc2_3)
+    - [Tworzenie szkieletu ulepszone widoku](#_Toc2_3)
     - [Dodano Html.Raw — metoda](#_Toc2_3)
-    - [Właściwości zmieniono nazwę "Controller.ViewModel" i "Widok" do "Obiekt ViewBag."](#_Toc2_4)
+    - [Właściwości zmieniono nazwę "Controller.ViewModel" i "View" do "Obiekt ViewBag."](#_Toc2_4)
     - [Zmieniono nazwę "ControllerSessionStateAttribute" klasy "SessionStateAttribute"](#_Toc2_5)
-    - [Zmieniono nazwę RemoteAttribute "Pola" właściwości "AdditionalFields"](#_Toc2_6)
-    - [Zmieniona "SkipRequestValidationAttribute" do "AllowHtmlAttribute"](#_Toc2_7)
-    - [Metoda zmienione "Html.ValidationMessage" w celu wyświetlenia pierwszy przydatne komunikat](#_Toc2_8)
-    - [Stałe @model deklaracji nie dodać odstępu do dokumentu](#_Toc2_9)
-    - [Dodano "FileExtensions" dla właściwości aparatów widoków do obsługi nazw plików specyficznych dla aparatu](#_Toc2_10)
-    - [Pomocnik stałej "LabelFor" Aby emitować poprawną wartość dla atrybutu "For"](#_Toc2_11)
-    - [Metody stałej "RenderAction" pierwszeństwo jawne wartości podczas tworzenia powiązania modelu](#_Toc2_12)
+    - [Zmieniono nazwę RemoteAttribute "Fields" właściwości "AdditionalFields"](#_Toc2_6)
+    - [Zmieniono nazwę "SkipRequestValidationAttribute" do "AllowHtmlAttribute"](#_Toc2_7)
+    - [Metoda zmienione "Html.ValidationMessage" w celu wyświetlenia pierwszy komunikat o błędzie przydatne](#_Toc2_8)
+    - [Naprawiono @model deklaracji, nie należy dodawać spacji do dokumentu](#_Toc2_9)
+    - [Dodano "FileExtensions" właściwość aparatów widoków do obsługi nazw plików specyficzne dla aparatu](#_Toc2_10)
+    - [Naprawiono "LabelFor" element pomocniczy służący do emisji poprawną wartość dla atrybutu "For"](#_Toc2_11)
+    - [Naprawiono "RenderAction" metodę, aby nadać priorytet jawne wartości podczas wiązania modelu](#_Toc2_12)
     - [Fundamentalne zmiany](#_Toc2_BC)
     - [Znane problemy](#_Toc2_KI)
-- [ASP.NET MVC 3 Release Candidate (Nov 9, 2010)](#TOC_ASP_NET_3_RC)
+- [Program ASP.NET MVC 3 w wersji Release Candidate (9 listopada 2010 r.)](#TOC_ASP_NET_3_RC)
 
-    - [Nowe funkcje w wersji platformy ASP.NET MVC 3 RC](#_Toc276711785)
+    - [Nowe funkcje w wersji RC platformy ASP.NET MVC 3](#_Toc276711785)
     - [NuGet Package Manager](#_Toc276711786)
-    - [Ulepszone "Nowego projektu" — okno dialogowe](#_Toc276711787)
+    - [Ulepszone "Nowego projektu" okno dialogowe](#_Toc276711787)
     - [Bezsesyjne kontrolerów](#_Toc276711788)
     - [Nowe atrybuty weryfikacji](#_Toc276711789)
-    - [Nowe przeciążenia metod "LabelForModel" i "LabelFor"](#_Toc276711790)
-    - [Akcja podrzędna buforowanie danych wyjściowych](#_Toc276711791)
-    - ["Dodaj widok" ulepszenia — okno dialogowe](#_Toc276711792)
-    - [Sprawdzanie poprawności żądań szczegółowego](#_Toc276711793)
+    - [Nowe przeciążenia dla metod "LabelForModel" i "LabelFor"](#_Toc276711790)
+    - [Akcja podrzędna buforowania danych wyjściowych](#_Toc276711791)
+    - ["Dodaj widok" ulepszenia okno dialogowe](#_Toc276711792)
+    - [Weryfikacja żądania szczegółowe](#_Toc276711793)
     - [Fundamentalne zmiany](#_Toc276711794)
     - [Znane problemy](#_Toc276711795)
-- [ŚRODOWISKO ASP. Informacje o wersji Beta MVC 3 (6 Oct 2010)](#TOC_ASP_NET_3_Beta)
+- [ASP. Informacje o wersji Beta MVC 3 (6 października 2010)](#TOC_ASP_NET_3_Beta)
 
     - [Nowe funkcje w wersji Beta programu ASP.NET MVC 3](#0.1__Toc274034215)
     - [NuPack Package Manager](#0.1__Toc274034216)
     - [Ulepszone okno dialogowe Nowy projekt](#0.1__Toc274034217)
-    - [Uproszczony sposób określania silnie wpisana modeli widokami Razor](#0.1__Toc274034218)
-    - [Obsługa nowej metody pomocnicze stron sieci Web ASP.NET](#0.1__Toc274034219)
+    - [Uproszczony sposób na określenie silnie wpisany modeli w widokami Razor](#0.1__Toc274034218)
+    - [Obsługa nowych stron ASP.NET Web Pages metody pomocnika](#0.1__Toc274034219)
     - [Obsługa iniekcji zależności dodatkowe](#0.1__Toc274034220)
-    - [Nowa funkcja obsługi dyskretnego kodu na podstawie jQuery Ajax](#0.1__Toc274034221)
+    - [Nowa funkcja obsługi dyskretnego kodu Ajax opartych na technologii jQuery](#0.1__Toc274034221)
     - [Nowa funkcja obsługi dyskretnego kodu jQuery sprawdzania poprawności](#0.1__Toc274034222)
-    - [Nowe flagi całej aplikacji dla weryfikacji klienta i dyskretny kod JavaScript](#0.1__Toc274034223)
-    - [Nowa funkcja obsługi kodu uruchamianego przed uruchomieniem widoków](#0.1__Toc274034224)
+    - [Nowe flagi całej aplikacji do sprawdzania poprawności klienckich i dyskretny kod JavaScript](#0.1__Toc274034223)
+    - [Nowa funkcja obsługi kodu, który jest uruchamiany przed uruchomieniem widoków](#0.1__Toc274034224)
     - [Nowa funkcja obsługi VBHTML składni Razor](#0.1__Toc274034225)
-    - [Bardziej szczegółową kontrolę nad atrybut ValidateInputAttribute](#0.1__Toc274034226)
-    - [Pomocnicy konwertowania podkreślenia łączniki do nazwy atrybutu HTML określony przy użyciu anonimowego obiektów](#0.1__Toc274034227)
+    - [Bardziej precyzyjną kontrolę nad atrybut ValidateInputAttribute](#0.1__Toc274034226)
+    - [Pomocnicy przekonwertować podkreślenia łączniki dla atrybutu HTML nazw określony za pomocą anonimowego obiektów](#0.1__Toc274034227)
     - [Poprawki błędów](#0.1__Toc274034228)
     - [Fundamentalne zmiany](#0.1__Toc274034229)
     - [Znane problemy](#0.1__Toc274034230)
@@ -97,436 +96,436 @@ ms.locfileid: "30899106"
 <a id="overview"></a>
 ## <a name="overview"></a>Omówienie
 
-Ten dokument zawiera opis wersji RTM programu ASP.NET MVC 3 dla programu Visual Studio 2010. ASP.NET MVC to platforma do tworzenia aplikacji sieci Web, która korzysta ze wzorca Model-widok-kontroler (MVC). Instalator programu ASP.NET MVC 3 obejmuje następujące składniki:
+Ten dokument zawiera opis wersji RTM programu ASP.NET MVC 3 dla programu Visual Studio 2010. ASP.NET MVC to platforma do tworzenia aplikacji sieci Web, która używa wzorca Model-View-Controller (MVC). Instalator programu ASP.NET MVC 3 obejmuje następujące składniki:
 
-- Składniki wykonawcze platformy ASP.NET MVC 3
-- ASP.NET MVC 3 Visual Studio 2010 tools
-- Składniki wykonawcze stron sieci Web ASP.NET
-- ASP.NET Web Pages Visual Studio 2010 tools
-- Menedżer pakietów dla platformy .NET (NuGet)
+- Składniki środowiska uruchomieniowego platformy ASP.NET MVC 3
+- Narzędzia programu ASP.NET MVC 3 programu Visual Studio 2010
+- Składniki czasu wykonywania stron sieci Web platformy ASP.NET
+- Narzędzia Visual Studio 2010 stron sieci Web platformy ASP.NET
+- Menedżer pakietów firmy Microsoft dla platformy .NET (NuGet)
 - Aktualizacja dla programu Visual Studio 2010, który umożliwia obsługę składni Razor. (Aby uzyskać więcej informacji, zobacz artykuł bazy wiedzy 2483190).
 
-Pełny zestaw informacje o wersji dla każdej wersji wstępnej programu ASP.NET MVC 3 można znaleźć w witrynie internetowej platformy ASP.NET z następującego adresu URL:
+Pełny zestaw informacje o wersji dla każdej wersji wstępnej programu ASP.NET MVC 3, można znaleźć w witrynie internetowej platformy ASP.NET pod adresem URL:
 
 https://www.asp.net/learn/whitepapers/mvc3-release-notes
 
 <a id="installation-notes"></a>
-## <a name="installation-notes"></a>Informacje o instalacji
+## <a name="installation-notes"></a>Uwagi dotyczące instalacji
 
 Aby zainstalować program ASP.NET MVC 3 RTM za pomocą Instalatora platformy sieci Web (Web PI), odwiedź następującą stronę:
 
 [https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3](https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3)
 
-Alternatywnie można pobrać Instalatora RTM programu ASP.NET MVC 3 dla programu Visual Studio 2010 z następującej strony:
+Alternatywnie możesz pobrać Instalator RTM programu ASP.NET MVC 3 dla programu Visual Studio 2010 z następującej strony:
 
 https://go.microsoft.com/fwlink/?LinkID=208140
 
-ASP.NET MVC 3 można zainstalować i uruchomić side-by-side z platformy ASP.NET MVC 2.
+ASP.NET MVC 3 można zainstalować i uruchomić side-by-side przy użyciu wzorca ASP.NET MVC 2.
 
 <a id="software-requirements"></a>
 ## <a name="software-requirements"></a>Wymagania programowe
 
-Składniki wykonawcze ASP.NET MVC 3 wymagają następującego oprogramowania:
+ASP.NET MVC 3 składniki czasu wykonywania wymaga następującego oprogramowania:
 
 - .NET framework w wersji 4. 
 
-    ASP.NET MVC 3 programu Visual Studio 2010 narzędzia wymagają następującego oprogramowania:
+    ASP.NET MVC 3 programu Visual Studio 2010 tools wymagają następującego oprogramowania:
 - Visual Studio 2010 ani Visual Web Developer 2010 Express.
 
 <a id="documentation"></a>
 ## <a name="documentation"></a>Dokumentacja
 
-Dokumentacja dla platformy ASP.NET MVC jest dostępna w witrynie sieci Web MSDN pod adresem URL:
+Dokumentacja platformy ASP.NET MVC jest dostępna w witrynie sieci Web MSDN pod adresem URL:
 
 [https://go.microsoft.com/fwlink/?LinkId=205717](https://go.microsoft.com/fwlink/?LinkId=205717)
 
-Samouczki i inne informacje o platformie ASP.NET MVC są dostępne na stronie MVC witryny sieci Web ASP.NET z następującego adresu URL:
+W samouczkach i innych informacji na temat platformy ASP.NET MVC są dostępne na stronie MVC witryny sieci Web ASP.NET pod adresem URL:
 
 [https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
 ## <a name="support"></a>Obsługa
 
-Jest to pełnej wersji. Informacje o uzyskiwaniu pomocy technicznej można znaleźć w folderze [witryny sieci Web Microsoft Support](https://support.microsoft.com/).
+To jest w pełni obsługiwana wersja. Informacje dotyczące uzyskiwania pomocy technicznej znajduje się w temacie [witryny sieci Web Microsoft Support](https://support.microsoft.com/).
 
-Możesz również post pytania dotyczące tej wersji na forum platformy ASP.NET MVC, w których często można zapewnić obsługę nieformalne są członkami społeczności programu ASP.NET:
+Możesz także publikowanie pytań dotyczących tej wersji na forum platformy ASP.NET MVC, w których często w stanie zapewnić obsługę nieformalne członków społeczności platformy ASP.NET:
 
 [https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)
 
 <a id="upgrading"></a>
-## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>Uaktualnianie projektów programu ASP.NET MVC 2 do platformy ASP.NET MVC 3 narzędzia aktualizacji
+## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>Uaktualnianie projektu ASP.NET MVC 2 do wzorca ASP.NET MVC 3 Tools Update
 
-ASP.NET MVC 3 można zainstalować równolegle program ASP.NET MVC 2 na tym samym komputerze, który zapewnia elastyczność w wyborze, gdy do uaktualniania aplikacji ASP.NET MVC 2 platformy ASP.NET MVC 3.
+ASP.NET MVC 3 można zainstalować równolegle z programem ASP.NET MVC 2 na tym samym komputerze, co daje elastyczności w wyborze kiedy aktualizować aplikację ASP.NET MVC 2 do ASP.NET MVC 3.
 
 Aby ręcznie uaktualnić istniejącą aplikację ASP.NET MVC 2 do wersji 3, wykonaj następujące czynności:
 
-1. Utwórz nowy pusty projekt ASP.NET MVC 3 na komputerze. Ten projekt będzie zawierać pliki, które są wymagane do uaktualnienia.
-2. Skopiuj następujące pliki z projektu programu ASP.NET MVC 3 w odpowiedniej lokalizacji projektu programu ASP.NET MVC 2. Należy zaktualizować wszystkie odwołania do biblioteki jQuery w celu uwzględnienia nowej nazwy pliku (jQuery 1.5.1.js): 
+1. Utwórz nowy pusty projekt ASP.NET MVC 3 na komputerze. Projekt ten będzie zawierał niektóre pliki, które są wymagane do uaktualnienia.
+2. Skopiuj następujące pliki z projektu ASP.NET MVC 3 do odpowiedniej lokalizacji projektu ASP.NET MVC 2. Należy zaktualizować wszystkie odwołania do biblioteki jQuery w celu uwzględnienia nowej nazwy pliku (jQuery 1.5.1.js): 
 
     - /Views/Web.config
     - /packages.config
-    - /scripts/\*.js
-    - /Zawartości/motywów/\*.\*
-3. Kopiuj *pakiety* folderu w folderze głównym puste rozwiązanie projektu programu ASP.NET MVC 3, w folderze głównym Twojego rozwiązania, które znajduje się w katalogu, w którym znajduje się plik .sln rozwiązania.
-4. Jeśli projekt platformy ASP.NET MVC 2 zawiera obszary, skopiować plik /Views/Web.config *widoków* folderu każdego obszaru.
-5. W obu plikach Web.config w projekcie platformy ASP.NET MVC 2 globalnie wyszukiwania i zamieniania wersji platformy ASP.NET MVC. Znajdź następujące czynności: 
+    - /scripts/\*js
+    - /Zawartości/motywy/\*.\*
+3. Kopiuj *pakietów* folder w katalogu głównym puste rozwiązanie projektu ASP.NET MVC 3 do głównego folderu do rozwiązania, w którym znajduje się w katalogu, w którym znajduje się w rozwiązaniu pliku .sln.
+4. Jeśli projekt programu ASP.NET MVC 2 zawiera obszary, należy skopiować plik /Views/Web.config *widoków* folderu każdego obszaru.
+5. W obu plikach Web.config w projekcie ASP.NET MVC 2 globalnie wyszukiwania i zamieniania wersji platformy ASP.NET MVC. Znajdź następujące czynności: 
 
     [!code-console[Main](mvc3-release-notes/samples/sample1.cmd)]
 
-    Zastąp go z następujących czynności:
+    Zastąp go następujące czynności:
 
     [!code-console[Main](mvc3-release-notes/samples/sample2.cmd)]
-6. W Eksploratorze rozwiązań, Usuń odwołanie do *System.Web.Mvc* (który wskazuje plik DLL, z wersji 2), a następnie dodaj odwołanie do *System.Web.Mvc* (v3.0.0.0).
-7. Dodaj odwołanie do System.Web.WebPages.dll i System.Web.Helpers.dll. Te zestawy znajdują się w następujących folderach: 
+6. W Eksploratorze rozwiązań, usunięcie odwołania do *System.Web.Mvc* (które punkty do biblioteki DLL w wersji 2), a następnie dodaj odwołanie do *System.Web.Mvc* (v3.0.0.0).
+7. Dodaj odwołanie do System.Web.WebPages.dll i System.Web.Helpers.dll. Te zestawy znajdują się w następujących folderów: 
 
     - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET MVC 3\Assemblies
     - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET Web Pages\v1.0\Assemblies
-8. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu i wybierz Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę projektu i wybierz polecenie Edytuj *ProjectName*.csproj.
-9. Zlokalizuj *ProjectTypeGuids* elementu i zastępowanie {F85E285D-A4E0-4152-9332-AB1D724D3325} z {E53F8FEA-EAE0-44A6-8774-FFD645390401}.
-10. Zapisać zmiany, kliknij prawym przyciskiem myszy projekt i wybierz pozycję Załaduj ponownie projekt.
+8. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy nazwę projektu, a następnie wybierz Zwolnij projekt. Następnie ponownie kliknij prawym przyciskiem myszy nazwę projektu i wybierz pozycję Edytuj *ProjectName*csproj.
+9. Znajdź *ProjectTypeGuids* i Zastąp ciąg {F85E285D-A4E0-4152-9332-AB1D724D3325} z {E53F8FEA-EAE0-44A6-8774-FFD645390401}.
+10. Zapisz zmiany, kliknij prawym przyciskiem myszy projekt i następnie wybierz pozycję Załaduj ponownie projekt.
 11. W pliku Web.config katalogu głównego aplikacji, Dodaj następujące ustawienia, aby *zestawy* sekcji. 
 
     [!code-xml[Main](mvc3-release-notes/samples/sample3.xml)]
-12. Jeśli projekt odwołuje się do żadnych bibliotek innych firm, które są kompilowane przy użyciu platformy ASP.NET MVC 2, Dodaj następujący wyróżniony *bindingRedirect* elementu do pliku Web.config w katalogu głównym aplikacji, w obszarze  *Konfiguracja* sekcji: 
+12. Jeśli projekt odwołuje się do żadnych bibliotek innych firm, które są kompilowane przy użyciu wzorca ASP.NET MVC 2, Dodaj następujący wyróżniony *bindingRedirect* elementu do pliku Web.config w katalogu głównym aplikacji, w obszarze  *Konfiguracja* sekcji: 
 
     [!code-xml[Main](mvc3-release-notes/samples/sample4.xml)]
 
 <a id="tu-changes"></a>
-## <a name="changes-in-aspnet-mvc-3-tools-update"></a>Changes in ASP.NET MVC 3 Tools Update
+## <a name="changes-in-aspnet-mvc-3-tools-update"></a>Zmiany we wzorcu ASP.NET MVC 3 Tools Update
 
-This section describes changes made in the ASP.NET MVC 3 Tools Update release since the ASP.NET MVC 3 RTM release.
+W tej sekcji opisano zmiany wprowadzone w wersji platformy ASP.NET MVC 3 Tools Update od czasu wersji RTM programu ASP.NET MVC 3.
 
 <a id="tu-AddControllerDialog"></a>
-### <a name="add-controller-dialog-box-can-now-scaffold-controllers-with-views-and-data-access-code"></a>Okno dialogowe "Dodaj kontroler" można teraz utworzyć szkielet kontrolerów z kodem dostępu do widoków i danych
+### <a name="add-controller-dialog-box-can-now-scaffold-controllers-with-views-and-data-access-code"></a>Okno dialogowe "Dodaj kontroler" można teraz tworzenia szkieletu kontrolerów z kodem dostępu do widoków i danych
 
-Funkcja szkieletów jest pozwala szybko Generowanie kontrolera i widoków dla aplikacji. Po wygenerowaniu kodu można edytować go, aby spełnić wymagania dotyczące projektu.
+Tworzenie szkieletu to sposób szybkiego generowania kontrolera i widoki dla aplikacji. Po wygenerowaniu kodu można edytować go do wymagań projektu.
 
-Aby uruchomić *Dodaj kontroler* okno dialogowe w programie ASP.NET MVC 3, kliknij prawym przyciskiem myszy *kontrolerów* folderu w *Eksploratora rozwiązań*, kliknij przycisk *Dodaj*, a następnie kliknij przycisk *kontrolera*. Okno dialogowe rozszerzono szkieletów dodatkowych opcji.
+Aby uruchomić *Dodaj kontroler* okno dialogowe na platformie ASP.NET MVC 3, kliknij prawym przyciskiem myszy *kontrolerów* folderu w *Eksploratora rozwiązań*, kliknij przycisk *Dodaj*, a następnie kliknij przycisk *kontrolera*. Okno dialogowe zostało ulepszone, aby szkieletu dodatkowych opcji.
 
 ![](mvc3-release-notes/_static/image1.png)
 
-Domyślnie dostępne są trzy szablony szkieletów.
+Domyślnie dostępne są trzy szablony do tworzenia szkieletów.
 
 #### <a name="empty-controller"></a>Pusty kontroler
 
-Ten szablon zostanie wygenerowany plik pusty kontroler. Ten szablon jest odpowiednikiem nie sprawdza *Dodawanie akcji do tworzenia, edytowania, szczegóły, Usuń scenariusze* w poprzednich wersjach programu ASP.NET MVC. Jeśli wybierzesz, są dostępne żadne dodatkowe opcje.
+Ten szablon generuje plik pusty kontroler. Ten szablon jest odpowiednikiem nie sprawdza *dodać akcje w przypadku tworzenia, edytowania, szczegółowe informacje, Usuń scenariusze* w poprzednich wersjach programu ASP.NET MVC. Jeśli wybierzesz, nie dalsze opcje są dostępne.
 
 #### <a name="controller-with-empty-readwrite-actions"></a>Kontroler z akcjami odczytu/zapisu pusty
 
-Ten szablon generuje plik kontrolera, który zawiera wszystkie metody niezbędne czynności, ale żaden kod implementacji metod. Ten szablon jest odpowiednikiem sprawdzanie *Dodawanie akcji do tworzenia, edytowania, szczegóły, Usuń scenariusze* w poprzednich wersjach programu ASP.NET MVC. Jeśli wybierzesz, są dostępne żadne dodatkowe opcje.
+Ten szablon generuje plik kontrolera, który ma wszystkie metody niezbędne czynności, ale żaden kod implementacji w metodach. Ten szablon jest odpowiednikiem sprawdzanie *dodać akcje w przypadku tworzenia, edytowania, szczegółowe informacje, Usuń scenariusze* w poprzednich wersjach programu ASP.NET MVC. Jeśli wybierzesz, nie dalsze opcje są dostępne.
 
 #### <a name="controller-with-readwrite-actions-and-views-using-entity-framework"></a>Kontroler z akcjami odczytu/zapisu i widokami używający narzędzia Entity Framework
 
-Ten szablon umożliwia szybkie tworzenie interfejsu użytkownika pracy wprowadzania danych. Generuje kod, który obsługuje szereg typowych wymagań i scenariusze, takie jak następujące:
+Ten szablon umożliwia szybkie tworzenie interfejsu użytkownika wprowadzania danych pracy. Generuje kod, który obsługuje szereg typowych wymagań i scenariusze, takie jak następujące:
 
-- *Dostęp do danych*. Wygenerowany kod odczytuje i zapisuje jednostek w bazie danych. Po wybraniu istniejącej klasy kontekstu danych, lub jeśli umożliwisz wygenerować nowy szablon działa z podejścia Entity Framework Code First *DbContext* klasy. Współdziała również z podejścia Entity Framework bazy danych First lub Model First wybranie istniejącego *ObjectContext* klasy.
-- *Sprawdzanie poprawności*. Wygenerowany kod używa wiązania modelu platformy ASP.NET MVC i funkcje metadanych, przesyłanie formularza są weryfikowane zgodnie z regułami zadeklarowana w klasie modelu. Obejmuje to wbudowane reguły sprawdzania poprawności, takich jak *wymagane* i *StringLength* atrybuty i niestandardowych reguł walidacji.
-- *Relacje jeden do wielu*. W przypadku definiowania relacji klucza obcego jeden do wielu między klasach modeli, wygenerowany kod spowoduje utworzenie listy rozwijane wyboru powiązanych jednostek. Na przykład można zdefiniować następujące klasy modelu Entity Framework Code First konwencjami: 
+- *Dostęp do danych*. Wygenerowany kod odczytuje i zapisuje jednostek w bazie danych. Współdziała ona z podejściem Entity Framework Code First wybranie istniejącej klasy kontekstu danych lub jeśli wybierzesz szablon wygenerować nowy *DbContext* klasy. Współdziała również z podejścia First platformy Entity Framework bazy danych lub pierwszy Model Jeśli wybierzesz istniejącą *ObjectContext* klasy.
+- *Sprawdzanie poprawności*. Wygenerowany kod używa wiązania modelu programu ASP.NET MVC i metadanych funkcji tak, aby formularz zgłoszenia są weryfikowane zgodnie z regułami zadeklarowanych w klasie modelu. Obejmuje to wbudowane reguły sprawdzania poprawności, takie jak *wymagane* i *StringLength* atrybuty i niestandardowe reguły sprawdzania poprawności.
+- *Relacje jeden do wielu*. Jeśli zdefiniujesz relacje klucza obcego jeden do wielu między klasach modeli wygenerowanego kodu powoduje wygenerowanie list rozwijanych służąca do wybierania powiązanych jednostek. Na przykład można zdefiniować następujące klasy modelu Entity Framework Code First konwencjami: 
 
     [!code-csharp[Main](mvc3-release-notes/samples/sample5.cs)]
 
-    Po utworzeniu szkieletu następnie kontrolera dla *produktu* klasy, widokach umożliwi użytkownikom wybór *kategorii* obiekt dla każdego *produktu* wystąpienia.
+    Kiedy należy następnie tworzenia szkieletu kontrolera dla *produktu* klasy, widokach pozwoli użytkownikom na wybór *kategorii* obiekt dla każdego *produktu* wystąpienia.
 
-    Ten szablon umożliwia dodatkowe opcje w *Dodaj kontroler* okno dialogowe. Aby uzyskać *klasa modelu*, można wybrać dowolną klasę modelu w rozwiązaniu, który określa typ danych, które użytkownicy będą mogli tworzyć lub edytować:
-- Jeśli chcesz użyć programu Entity Framework Code First, można wybrać dowolną klasę modelu.
-- Jeśli korzystasz z programu Entity Framework bazy danych First lub Entity Framework Model First, należy wybrać klasę jednostek zdefiniowanych w modelu koncepcyjnym.
+    Ten szablon umożliwia dodatkowe opcje w *Dodaj kontroler* okno dialogowe. Aby uzyskać *klasa modelu*, możesz wybrać dowolną klasę modelu w Twoim rozwiązaniu, który określa typ danych, które użytkownicy będą mogli tworzyć lub edytować:
+- Jeśli chcesz używać programu Entity Framework Code First, można wybrać dowolną klasę modelu.
+- Jeśli używasz First platformy Entity Framework bazy danych lub First platformy Entity Framework modelu, pamiętaj wybrać klasę jednostki, zdefiniowane w model koncepcyjny.
 
 Aby uzyskać *klasy kontekstu danych*, można wybrać następujące opcje:
 
-- Jeśli chcesz używać Code First i mają kontekstu danych istniejącej klasy, wybierz ** nowy kontekst danych **. Klasa kontekstu danych następnie zostanie wygenerowany dla Ciebie.
-- Jeśli chcesz używać Code First i mają istniejącej klasy kontekstu danych, wybierz go tutaj. Będzie można zaktualizować do utrwalenia klasy modelu, który wybrano.
-- Jeśli korzystasz z pierwszego bazy danych lub Model First, należy wybrać klasy kontekstu obiektów.
+- Jeśli chcesz użyć Code First i istniejącego kontekstu danych klasy, wybierz pozycję ** nowy kontekst danych **. Klasa kontekstu danych następnie zostanie wygenerowany dla Ciebie.
+- Jeśli chcesz użyć Code First i istniejącej klasy kontekstu danych, wybierz go tutaj. Zostanie zaktualizowana do utrwalenia klasy modelu, który wybrano.
+- Jeśli używasz pierwszej bazy danych lub pierwszy Model Wybierz klasy kontekstu obiektów.
 
-W widokach wybierz aparat widoku, który ma być używany, lub wybierz wyrażenie None, jeśli nie chcesz utworzyć szkielet żadnych widoków.
+W widokach wybierz aparat widoku, którego chcesz użyć, lub wybierz wyrażenie None, jeśli nie chcesz utworzyć szkielet żadnych widoków.
 
-Możesz wybrać zaawansowane Optionsto określić dodatkowe opcje wygenerowanych widoków. Można na przykład, układu i strony wzorcowej do użycia.
+Możesz wybrać zaawansowane Optionsto określić dodatkowe opcje wygenerowanych widoków. Można na przykład wybierz układ lub strony wzorcowej do użycia.
 
 <a id="tu-ImprovementsNewDialogBox"></a>
-### <a name="improvements-to-the-aspnet-mvc-3-new-project-dialog-box"></a>Ulepszenia "platformy ASP.NET MVC 3 nowego projektu" — okno dialogowe
+### <a name="improvements-to-the-aspnet-mvc-3-new-project-dialog-box"></a>Ulepszenia "platformy ASP.NET MVC 3 nowego projektu" okno dialogowe
 
-Okno dialogowe, które służy do tworzenia nowych projektów programu ASP.NET MVC 3 zawiera wiele ulepszeń wymienione poniżej.
+Okno dialogowe, którego używasz do tworzenia nowych projektów platformy ASP.NET MVC 3 zawiera wiele ulepszeń wymienione poniżej.
 
 ![](mvc3-release-notes/_static/image2.png)
 
 #### <a name="new-intranet-project-template"></a>Nowy szablon "Projekt Intranet"
 
-Lista szablon projektu zawiera nowy szablon aplikacji w sieci Intranet. Ten szablon zawiera ustawienia umożliwiające tworzenie aplikacji sieci web przy użyciu uwierzytelniania systemu Windows zamiast uwierzytelniania formularzy. Ponieważ aplikacja intranet wymaga niektóre ustawienia usług IIS, które nie są umieszczane w szablonie projektu, szablon zawiera plik readme z instrukcjami, jak szablon projektu w programie IIS działają. Dokumentacja szablonu aplikacji sieci Intranet jest dostępna w witrynie MSDN pod adresem URL:
+Lista szablonów projektu obejmuje nowy szablon aplikacji intranetowych. Ten szablon zawiera ustawienia umożliwiające tworzenie aplikacji sieci web przy użyciu uwierzytelniania Windows zamiast uwierzytelniania formularzy. Aplikacji intranetowych wymagają niektórych ustawień usług IIS, które nie są umieszczane w szablonie projektu, dlatego szablon zawiera plik readme z instrukcjami, jak utworzyć szablon projektu, pracy w usługach IIS. Dokumentacja dla nowego szablonu aplikacji sieci Intranet jest dostępny w witrynie MSDN pod adresem URL:
 
 [https://msdn.microsoft.com/library/gg703322(VS.98).aspx](https://msdn.microsoft.com/library/gg703322(VS.98).aspx)
 
-#### <a name="project-templates-are-now-html5-enabled"></a>Szablony projektu są teraz włączone HTML5
+#### <a name="project-templates-are-now-html5-enabled"></a>Szablony projektów są teraz włączone HTML5
 
-Okno dialogowe Nowy projekt zawiera teraz opcję, aby dodać funkcje specyficzne dla HTML5 szablonów projektu. Wybranie opcji powoduje, że widoki ma zostać wygenerowane, które zawierają nowe HTML5 `<header>`, `<footer>`, i `<navigation>` elementy.
+Okno dialogowe Nowy projekt zawiera teraz opcję, aby dodać funkcje specyficzne dla języka HTML5 do szablonów projektu. Wybranie opcji powoduje, że widoki zostanie wygenerowany, które zawierają nowe HTML5 `<header>`, `<footer>`, i `<navigation>` elementów.
 
-Pamiętaj, że starsze wersje przeglądarek nie obsługują tagów specyficznych dla HTML5. Aby rozwiązać ten limit, szablony projektu HTML5 zawierają odwołanie do biblioteki Modernizr. (Zobacz następną sekcję).
+Należy pamiętać, starsze wersje przeglądarek nie obsługują tagów specyficznych dla języka HTML5. Aby spełnić tego ograniczenia, szablony projektów HTML5 dołączyć odwołanie do biblioteki Modernizr. (Zobacz następną sekcję).
 
 <a id="tu-Modernizr"></a>
-### <a name="project-templates-now-include-modernizr-17"></a>Szablony projektów zawierają teraz Modernizr 1.7
+### <a name="project-templates-now-include-modernizr-17"></a>Szablony projektów obejmują teraz Modernizr 1.7
 
-Modernizr jest biblioteka języka JavaScript, która umożliwia obsługę CSS 3 oraz HTML5 w przeglądarkach, które jeszcze nie obsługuje te funkcje. Ta biblioteka jest uwzględniona jako wstępnie zainstalowany pakiet NuGet w szablonach dla projektów ASP.NET MVC 3. Aby uzyskać więcej informacji o Modernizr, zobacz [ http://www.modernizr.com/ ](http://www.modernizr.com/).
+Modernizr jest biblioteki JavaScript, która umożliwia obsługę CSS 3 i HTML5 w przeglądarkach, które jeszcze nie obsługują tych funkcji. Ta biblioteka jest uwzględniane jako pakiet NuGet wstępnie zainstalowanych szablonów dla projektów ASP.NET MVC 3. Aby uzyskać więcej informacji na temat Modernizr zobacz [ http://www.modernizr.com/ ](http://www.modernizr.com/).
 
 <a id="tu-UpdatedJQuery"></a>
-### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>Szablony projektu obejmują zaktualizowane wersje jQuery, interfejsu użytkownika jQuery i jQuery sprawdzania poprawności
+### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>Szablony projektu obejmują zaktualizowane wersje jQuery, interfejs użytkownika jQuery i jQuery sprawdzania poprawności
 
-Szablony projektów zawierają teraz skryptów jQuery następujące wersje:
+Szablony projektów zawierają teraz następujące wersje skrypty jQuery:
 
 - jQuery 1.5.1
-- 1.8 weryfikacji jQuery
+- jQuery 1.8 sprawdzania poprawności
 - jQuery UI 1.8.11
 
-Te biblioteki są dołączone jako wstępnie zainstalowane pakiety NuGet.
+Biblioteki te są dołączone jako wstępnie zainstalowanych pakietów NuGet.
 
 <a id="tu-EF"></a>
-### <a name="project-templates-now-include-adonet-entity-framework-41-as-a-pre-installed-nuget-package"></a>Szablony projektów zawierają teraz ADO.NET Entity Framework 4.1 jako wstępnie zainstalowany pakiet NuGet
+### <a name="project-templates-now-include-adonet-entity-framework-41-as-a-pre-installed-nuget-package"></a>Szablony projektów obejmują teraz ADO.NET Entity Framework 4.1 jako wstępnie zainstalowany pakiet NuGet
 
-4.1 ADO.NET Entity Framework zawiera funkcję Code First. Kod jest najpierw nowy wzorzec programowanie ADO.NET Entity Framework, który stanowi alternatywę dla istniejących wzorców pierwszy bazy danych i Model First.
+ADO.NET Entity Framework 4.1 obejmuje funkcję Code First. Kod jest najpierw nowy wzorzec projektowania dla ADO.NET Entity Framework, który stanowi alternatywę dla istniejących wzorców pierwszej bazy danych i modelu pierwszy.
 
-Kod najpierw koncentruje się wokół Definiowanie modelu za pomocą klasy POCO ("zwykły starego CLR obiekty"), napisany w języku Visual Basic lub C#. Te klasy można mapować do istniejącej bazy danych lub używane do generowania schematu bazy danych. Dodatkowej konfiguracji mogą być dostarczane za pomocą *DataAnnotations* atrybuty lub przy użyciu interfejsów API fluent.
+Kod najpierw koncentruje się wokół definiowania modelu przy użyciu klas POCO ("zwykłych starych obiektów CLR") w języku Visual Basic lub C#. Te klasy można mapować do istniejącej bazy danych lub służyć do generowania schemat bazy danych. Dodatkowe czynności konfiguracyjne, mogą być dostarczane za pomocą *DataAnnotations* atrybutów lub przy użyciu interfejsów API fluent.
 
-Dokumentacji przy użyciu kodu Firstwith ASP.NET MVC jest dostępna w witrynie sieci Web programu ASP.NET, w następujących adresów URL:
+Dokumentacja korzystania z kodu Firstwith platformy ASP.NET MVC jest dostępna w witrynie internetowej platformy ASP.NET na następujące adresy URL:
 
 [https://www.asp.net/mvc/tutorials/getting-started-with-mvc3-part1-cs](../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) [https://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application](../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 
 <a id="tu-JavaScriptLibsNuget"></a>
-### <a name="project-templates-include-javascript-libraries-as-pre-installed-nuget-packages"></a>Szablony projektu obejmują bibliotek JavaScript jako wstępnie zainstalowane pakiety NuGet
+### <a name="project-templates-include-javascript-libraries-as-pre-installed-nuget-packages"></a>Szablony projektów zawierają biblioteki JavaScript jako wstępnie zainstalowanych pakietów NuGet
 
-Podczas tworzenia nowego projektu platformy ASP.NET MVC 3, projekt zawiera już wspomniano pliki JavaScript (na przykład biblioteki Modernizr), instalując je przy użyciu narzędzia NuGet zamiast bezpośrednio dodawania skryptów w folderze skryptów w szablonie projektu zawartość. Umożliwia to użycie narzędzia NuGet można zaktualizować skrypty do najnowszej wersji, po udostępnieniu nowej wersji skryptów.
+Podczas tworzenia nowego projektu ASP.NET MVC 3, projekt zawiera już wspomniano pliki JavaScript (na przykład biblioteki Modernizr) przez zainstalowanie ich za pomocą narzędzia NuGet zamiast bezpośrednio dodawania skryptów do folderu skryptów w szablonie projektu zawartość. Dzięki temu można użyć NuGet, aby zaktualizować skrypty do najnowszej wersji, gdy wydawane są nowe wersje skryptów.
 
-Na przykład, biorąc pod uwagę częstotliwość nowych wersji jQuery, wersja jQuery zawarte w szablonie projektu w pewnym momencie będzie nieaktualny. Jednak ponieważ jQuery jest uwzględniona jako zainstalowanego pakietu NuGet, użytkownik otrzyma powiadomienie w oknie dialogowym NuGet po są dostępne nowsze wersje jQuery.
+Na przykład biorąc pod uwagę częstotliwość nowe wersje jQuery, wersja jQuery zawarte w szablonie projektu w pewnym momencie będzie nieaktualna. Jednak ponieważ jQuery jest dołączony jako zainstalowanego pakietu NuGet, otrzymasz powiadomienie w oknie dialogowym NuGet, gdy są dostępne nowsze wersje jQuery.
 
-Ponieważ jQuery zawiera numeru wersji w nazwie pliku, aktualizowanie do najnowszej wersji jQuery również wymaga zaktualizowania `<script>` tag, który odwołuje się do pliku jQuery do użycia nowej nazwy pliku. Inne biblioteki dołączony skryptu nie zawierają numer wersji w polu Nazwa skryptu, dlatego może być łatwiej aktualizowana do swoich najnowszej wersji.
+Ponieważ jQuery zawiera numer wersji w nazwie pliku, aktualizowanie jQuery do najnowszej wersji wymaga również aktualizowanie `<script>` tag, który odwołuje się do pliku jQuery na użycie nowej nazwy pliku. Inne biblioteki uwzględniony skrypt nie zawierają numer wersji w polu Nazwa skryptu, dlatego mogą być łatwiejsze aktualizowane do ich najnowszych wersji.
 
 <a id="tu-KI"></a>
 ## <a name="known-issues"></a>Znane problemy
 
-- W niektórych przypadkach instalacja może zakończyć się błąd komunikat "Instalacja nie powiodła się z kodem błędu (0x80070643)". Aby uzyskać informacje dotyczące sposobu obejścia tego problemu, zobacz [artykule bazy wiedzy 2531566](https://support.microsoft.com/kb/2531566).
-- Funkcja szkieletów dodawania kontrolera nie szkieletu podmiotom wykorzystać zalety jednostki dziedziczenia w ramach programu Entity Framework. Przykładowo, podana podstawowej *osoby* klasy, która jest dziedziczona przez *uczniowie* klasy tworzenia szkieletu *uczniowie* klasy spowoduje wygenerowany kod, który nie kompiluje się.
-- Tworzenie nowego projektu platformy ASP.NET MVC 3 w folderze rozwiązania przyczyny *NullReferenceException* błędu. Obejście jest utworzenie projektu programu ASP.NET MVC 3 w folderze głównym rozwiązania, a następnie przenieś go do folderu rozwiązania.
-- IntelliSense dla składni Razor nie działa, gdy ReSharper jest zainstalowany. Jeśli masz zainstalowany ReSharper i chcesz skorzystać obsługę funkcji IntelliSense Razor ASP.NET MVC 3, zobacz wpis [Razor Intellisense i ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) na blogu Hadi Hariri, który opisano sposoby użyć ich razem dzisiaj.
-- Podczas instalacji postanowienia licencyjne wyświetlone okno dialogowe akceptacji umowy licencyjnej w oknie, która jest mniejsza niż zamierzony.
-- Podczas edytowania widoku Razor (cshtml lub. *vbhtml* pliku), widoki. ASP.NET MVC 3 nie obejmuje wszystkie fragmenty widokami Razor. przedstawia fragmenty aspxselecting fragment kodu dla platformy ASP.NET MVC
-- Jeśli instalowanie platformy ASP.NET MVC 3 dla programu Visual Web Developer Express na komputerze, na którym nie zainstalowano programu Visual Studio, a następnie zainstalować program Visual Studio, należy ponownie zainstalować program ASP.NET MVC 3. Udostępnianie składników, które są uaktualniane przez Instalator programu ASP.NET MVC 3, Visual Studio i Visual Web Developer Express. Ten sam problem w przypadku zainstalowania programu ASP.NET MVC 3 programu Visual Studio na komputerze, które nie mają Visual Web Developer Express, a następnie został zainstalowany program Visual Web Developer Express.
+- W niektórych przypadkach instalacja może zakończyć się błąd komunikat "Instalacja nie powiodła się z kodem błędu (0x80070643)". Aby uzyskać informacje dotyczące sposobu obejścia tego problemu, zobacz [artykuł bazy wiedzy 2531566](https://support.microsoft.com/kb/2531566).
+- Tworzenie szkieletu dodawania kontrolera nie tworzenia szkieletu jednostek, które wykorzystują Obsługa dziedziczenia jednostek w ramach programu Entity Framework. Na przykład, biorąc pod uwagę podstawowej *osoby* klasę, która jest dziedziczona przez *uczniów* klasy tworzenia szkieletów *uczniów* klasy spowoduje wygenerowany kod, który nie można skompilować.
+- Tworzenie nowego projektu ASP.NET MVC 3, wewnątrz folderu rozwiązania powoduje, że *obiektu NullReferenceException* błędu. Obejście polega na tworzenie projektu ASP.NET MVC 3 w katalogu głównym rozwiązania, a następnie przenieś go do folderu rozwiązania.
+- Funkcja IntelliSense dla składni Razor nie działa po zainstalowaniu ReSharper. Jeśli masz zainstalowanym rozszerzeniem ReSharper i wykorzystać obsługę funkcji IntelliSense Razor programu ASP.NET MVC 3, zobacz wpis [Razor Intellisense i ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) na blogu Hadi Hariri omówiono sposoby używania ich ze sobą już dziś.
+- Podczas instalacji okno dialogowe akceptacji umowy licencyjnej wyświetla postanowienia licencyjne w oknie, która jest mniejsza niż planowano.
+- Podczas edytowania widoku Razor (cshtml lub. *vbhtml* pliku), widoki. ASP.NET MVC 3 nie zawiera żadnych fragmentów dla widokami Razor... aspxselecting fragment kodu dla platformy ASP.NET MVC zostanie wyświetlone fragmenty kodu dla
+- Jeśli Zainstaluj ASP.NET MVC 3 dla programu Visual Web Developer Express na komputerze, na których nie zainstalowano programu Visual Studio, a następnie zainstalować program Visual Studio, należy ponownie zainstalować program ASP.NET MVC 3. Program Visual Studio i Visual Web Developer Express udostępniać składniki, które są uaktualniane przez Instalatora programu ASP.NET MVC 3. Ten sam problem w przypadku zainstalowania programu ASP.NET MVC 3 dla programu Visual Studio na komputerze, na które nie mają Visual Web Developer Express, a następnie później zainstalować Visual Web Developer Express.
 
 <a id="MVC3RTM"></a>
 ## <a name="changes-in-aspnet-mvc-3-rtm"></a>Zmiany w wersji RTM programu ASP.NET MVC 3
 
-W tej sekcji opisano zmiany i poprawki wprowadzone w wersji RTM programu ASP.NET MVC 3 od czasu wydania RC2.
+W tej sekcji opisano zmiany i poprawki błędów wprowadzonych w wersji RTM programu ASP.NET MVC 3 od wersji RC2.
 
 <a id="RTM-1"></a>
-### <a name="change-updated-the-version-of-jquery-ui-to-187"></a>Zmień: Zaktualizowana wersja interfejsu użytkownika jQuery do 1.8.7
+### <a name="change-updated-the-version-of-jquery-ui-to-187"></a>Zmiana: Zaktualizowanej wersji interfejs użytkownika jQuery, aby 1.8.7
 
-Szablony projektów programu ASP.NET MVC dla programu Visual Studio zostały zaktualizowane do najnowszej wersji biblioteki interfejsu użytkownika jQuery dołączenia. Szablony zawierają również minimalny zestaw plików zasobów wymaganych przez jQuery interfejsu użytkownika, takie jak skojarzone CSS i pliki obrazów.
+Szablony projektów programu ASP.NET MVC dla programu Visual Studio zostały zaktualizowane, aby uwzględnić najnowszą wersję biblioteki interfejsu użytkownika jQuery. Szablony zawierają również minimalny zestaw plików zasobów wymaganych przez interfejs użytkownika, takie jak skojarzone CSS i pliki obrazów jQuery.
 
 <a id="RTM-2"></a>
-### <a name="change-changed-the-default-modelmetadataprovider-back-to-dataannotationsmodelmetadataprovider"></a>Zmień: Zmieniono domyślny ModelMetadataProvider z powrotem do DataAnnotationsModelMetadataProvider
+### <a name="change-changed-the-default-modelmetadataprovider-back-to-dataannotationsmodelmetadataprovider"></a>Zmiana: Zmienić domyślną ModelMetadataProvider z powrotem do DataAnnotationsModelMetadataProvider
 
-Wydanie RC2 programu ASP.NET MVC 3 wprowadzono *CachedDataAnnotationsMetadataProvider* zapewnianej buforowanie na istniejące klasy *DataAnnotationsModelMetadataProvider* klasy zwiększenie wydajności. Jednak niektóre usterki, były zgłaszane z tą implementacją, więc zmiany został przywrócony i przenoszony do projektu prognozy MVC, który znajduje się w temacie [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack).
+W wersji RC2 ASP.NET MVC 3 wprowadzono *CachedDataAnnotationsMetadataProvider* podanym buforowania na podstawie istniejącej klasy *DataAnnotationsModelMetadataProvider* klasy poprawa wydajności. Jednak pewne błędy zostały zgłoszone za pomocą tej implementacji, aby zmiana została przywrócona i przenoszony do projektu MVC prognoz, który znajduje się w temacie [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack).
 
 <a id="RTM-3"></a>
-### <a name="fixed-pasting-part-of-a-razor-expression-that-contains-whitespace-results-in-it-being-reversed"></a>Stały: Wklejanie części wyrażenia Razor zawierający wyników odstępu, w tym zostały zamienione
+### <a name="fixed-pasting-part-of-a-razor-expression-that-contains-whitespace-results-in-it-being-reversed"></a>Naprawiono: Wklejanie część wyrażenia Razor, zawierającego wyniki białe znaki w nim zostały zamienione
 
-W wersji wstępnych programu ASP.NET MVC 3 podczas wklejania część wyrażenia Razor zawierający odstępu w pliku Razor wynikowe wyrażenie została odwrócona. Rozważmy na przykład następujący blok kodu Razor:
+W wersji wstępnych programu ASP.NET MVC 3 podczas wklejania części wyrażenia Razor, który zawiera białe znaki w pliku Razor, wyrażenie wynikowe została odwrócona. Na przykład rozważmy następujący blok kodu Razor:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample6.cshtml)]
 
-Jeśli zaznacz tekst "param pierwszy" w metodzie pierwszy i wklej go jako argument do drugiej metody, wynik jest następujący:
+Jeśli wybierzesz tekst "param pierwszy" w przypadku pierwszej metody i wklej go jako argument do drugiej metody, wynik jest następujący:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample7.cshtml)]
 
-Poprawne zachowanie jest, że operacja wklejania powinno spowodować następujące:
+Poprawne zachowanie jest czy operacji wklejania powinna być rozwiązywana WE następujące czynności:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample8.cshtml)]
 
-Ten problem został rozwiązany w wersji RTM, aby wyrażenie poprawnie są zachowywane w trakcie operacji wklejania.
+Ten problem został rozwiązany w wersji RTM, tak aby wyrażenie poprawnie są zachowywane w trakcie operacji wklejania.
 
 <a id="RTM-4"></a>
-### <a name="fixed-renaming-a-razor-file-that-is-opened-in-the-editor-disables-syntax-colorization-and-intellisense"></a>Stałym: Zmiana nazwy pliku Razor, który jest otwarty w edytorze wyłącza kolorowanie składni i IntelliSense
+### <a name="fixed-renaming-a-razor-file-that-is-opened-in-the-editor-disables-syntax-colorization-and-intellisense"></a>Poprawiono: Zmiana nazwy pliku Razor, który jest otwierany w edytorze powoduje wyłączenie kolorowania składni i technologii IntelliSense
 
-Zmiana nazwy pliku Razor przy użyciu Eksploratora rozwiązań, gdy plik jest otwarty w oknie edytora powoduje wyróżnianie składni i IntelliSense przestanie działać dla tego pliku. Ten problem został naprawiony, dzięki czemu wyróżnianie i IntelliSense mają być przechowywane po zmiany nazwy.
+Zmiana nazwy pliku Razor przy użyciu Eksploratora rozwiązań, gdy plik jest otwarty w oknie edytora powoduje wyróżnianie składni czy funkcja IntelliSense, przestaną działać dla tego pliku. Ten problem został rozwiązany, tak aby wyróżniania i technologii IntelliSense są zachowywane po zmianie nazwy.
 
 <a id="RTM-KI"></a>
 ## <a name="known-issues"></a>Znane problemy
 
-- Jeśli zamkniesz programu Visual Studio 2010 z dodatkiem SP1 Beta otwarciu konsoli Menedżera pakietów NuGet, Visual Studio ulega awarii i podejmie próbę ponownego uruchomienia. Ten problem zostanie rozwiązany w wersji RTM programu Visual Studio 2010 z dodatkiem SP1.
-- Instalator programu ASP.NET MVC 3 może tylko zainstalować początkowa wersja Menedżera pakietów NuGet. Po zainstalowaniu wersji początkowej NuGet można zainstalować i zaktualizować przy użyciu Menedżera rozszerzeń programu Visual Studio. Jeśli masz już zainstalowany NuGet, przejdź do galerii rozszerzeń programu Visual Studio do aktualizacji do najnowszej wersji programu NuGet.
-- Tworzenie nowego projektu platformy ASP.NET MVC 3 w folderze rozwiązania przyczyny *NullReferenceException* błędu. Obejście jest utworzenie projektu programu ASP.NET MVC 3 w folderze głównym rozwiązania, a następnie przenieś go do folderu rozwiązania.
-- Instalator może trwać dłużej niż w poprzednich wersjach programu ASP.NET MVC, aby zakończyć. Jest to spowodowane aktualizuje składników programu Visual Studio 2010.
-- IntelliSense dla składni Razor nie działa, gdy ReSharper jest zainstalowany. Jeśli masz zainstalowany ReSharper i chcesz skorzystać obsługę funkcji IntelliSense Razor ASP.NET MVC 3, zobacz wpis [Razor Intellisense i ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) na blogu Hadi Hariri, który opisano sposoby użyć ich razem dzisiaj.
-- Widoki CCSHTML i VBHTML utworzone za pomocą wersji Beta programu ASP.NET MVC 3 ma ich akcji kompilacji ustawione poprawnie, w wyniku czego wyświetlić te typy zostały pominięte, gdy projekt zostanie opublikowany. "Zawartość" powinien mieć ustawioną wartość Akcja kompilacji dla tych plików. RTM programu ASP.NET MVC 3 rozwiązuje ten problem dla nowych plików, ale nie poprawne ustawienie dla istniejących plików projektu utworzonych za pomocą wersji wstępnej.
+- Jeśli zamkniesz programu Visual Studio 2010 z dodatkiem SP1 Beta, gdy konsola Menedżera pakietów NuGet jest otwarty, Visual Studio ulega awarii i podejmie próbę ponownego uruchomienia. Ten problem zostanie rozwiązany w wersji RTM programu Visual Studio 2010 SP1.
+- Instalator programu ASP.NET MVC 3 jest tylko można instalować wstępną wersję Menedżera pakietów NuGet. Po zainstalowaniu pierwszej wersji NuGet można zainstalować i zaktualizować przy użyciu Menedżera rozszerzeń programu Visual Studio. Jeśli masz jeszcze zainstalowanego Menedżera NuGet, przejdź do galerii Visual Studio rozszerzenia do aktualizacji do najnowszej wersji pakietu NuGet.
+- Tworzenie nowego projektu ASP.NET MVC 3, wewnątrz folderu rozwiązania powoduje, że *obiektu NullReferenceException* błędu. Obejście polega na tworzenie projektu ASP.NET MVC 3 w katalogu głównym rozwiązania, a następnie przenieś go do folderu rozwiązania.
+- Instalator może zająć więcej czasu niż w poprzednich wersjach programu ASP.NET MVC, aby zakończyć. Jest tak, ponieważ powoduje zaktualizowanie składniki programu Visual Studio 2010.
+- Funkcja IntelliSense dla składni Razor nie działa po zainstalowaniu ReSharper. Jeśli masz zainstalowanym rozszerzeniem ReSharper i wykorzystać obsługę funkcji IntelliSense Razor programu ASP.NET MVC 3, zobacz wpis [Razor Intellisense i ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) na blogu Hadi Hariri omówiono sposoby używania ich ze sobą już dziś.
+- Widoki CCSHTML i VBHTML utworzone przy użyciu wersji Beta programu ASP.NET MVC 3 ma ich akcji kompilacji poprawnie, w wyniku czego wyświetlić te typy zostały pominięte podczas publikowania projektu. Wartość akcji kompilacji dla tych plików powinna być równa "Treści". ASP.NET MVC 3 RTM rozwiązuje ten problem dla nowych plików, ale nie rozwiąże to ustawienie dla istniejących plików projektu utworzonych za pomocą wersji wstępnej.
 - ![](mvc3-release-notes/_static/image3.png)
-- Podczas instalacji postanowienia licencyjne wyświetlone okno dialogowe akceptacji umowy licencyjnej w oknie, która jest mniejsza niż zamierzony.
-- Podczas edytowania widoku Razor (cshtml plik), przejdź do kontrolera elementu menu w programie Visual Studio nie będą dostępne, a nie ma żadnych wstawki kodu.
-- Jeśli instalowanie platformy ASP.NET MVC 3 dla programu Visual Web Developer Express na komputerze, na którym nie zainstalowano programu Visual Studio, a następnie zainstalować program Visual Studio, należy ponownie zainstalować program ASP.NET MVC 3. Udostępnianie składników, które są uaktualniane przez Instalator programu ASP.NET MVC 3, Visual Studio i Visual Web Developer Express. Ten sam problem w przypadku zainstalowania programu ASP.NET MVC 3 programu Visual Studio na komputerze, które nie mają Visual Web Developer Express, a następnie został zainstalowany program Visual Web Developer Express.
+- Podczas instalacji okno dialogowe akceptacji umowy licencyjnej wyświetla postanowienia licencyjne w oknie, która jest mniejsza niż planowano.
+- Podczas edytowania widoku Razor (cshtml plik), przejdź do kontrolera elementu menu w programie Visual Studio nie będą dostępne, i nie Brak fragmentów kodu.
+- Jeśli Zainstaluj ASP.NET MVC 3 dla programu Visual Web Developer Express na komputerze, na których nie zainstalowano programu Visual Studio, a następnie zainstalować program Visual Studio, należy ponownie zainstalować program ASP.NET MVC 3. Program Visual Studio i Visual Web Developer Express udostępniać składniki, które są uaktualniane przez Instalatora programu ASP.NET MVC 3. Ten sam problem w przypadku zainstalowania programu ASP.NET MVC 3 dla programu Visual Studio na komputerze, na które nie mają Visual Web Developer Express, a następnie później zainstalować Visual Web Developer Express.
 
 <a id="RTM-BC"></a>
 ## <a name="breaking-changes"></a>Fundamentalne zmiany
 
-- W poprzednich wersjach programu ASP.NET MVC działania, które są następujące filtry tworzenie na żądanie z wyjątkiem w niektórych przypadkach. To zachowanie nie zostały zachowanie gwarantuje, ale tylko szczegóły implementacji i kontraktu dla filtrów była wziąć pod uwagę ich bezstanowych. W programie ASP.NET MVC 3 filtry są buforowane bardziej agresywnie. W związku z tym wszystkie filtry akcji niestandardowej, które nieprawidłowo przechowują stan wystąpienia może być uszkodzona.
-- Kolejność wykonywania filtrów wyjątków została zmieniona dla filtry wyjątków, które mają taki sam *kolejności* wartość. W programie ASP.NET MVC 2 i starszych wyjątek filtry na kontrolerze, który ma takie same *kolejności* wartość jak te na metody akcji są wykonywane przed filtry wyjątków dla metody akcji. Zazwyczaj można sytuacji, gdy są stosowane filtry wyjątków bez określonej *kolejności* wartość. W programie ASP.NET MVC 3 ta kolejność została wycofana tak, aby najpierw wykonana specyficzny obsługi wyjątków. Jak w starszych wersjach Jeśli *kolejności* jawnie określono właściwość, filtry są uruchamiane w określonej kolejności.
-- Nowe właściwości o nazwie *FileExtensions* został dodany do *VirtualPathProviderViewEngine* klasy podstawowej. Gdy ASP.NET wyszukuje widoku za pomocą ścieżki (a nie według nazwy), są traktowane jako tylko widoki z rozszerzeniem zawarte na liście określonej przez tę właściwość nowe. W przypadku, gdy dostawca niestandardowej kompilacji jest zarejestrowany w celu umożliwienia rozszerzenie pliku niestandardowych widoków formularza sieci Web, a dostawca odwołuje się do tych widoków przy użyciu pełnej ścieżki, a nie nazwę jest istotne zmiany w aplikacjach. Należy zmodyfikować wartość *FileExtensions* właściwości do niestandardowego pliku rozszerzenia.
-- Implementacje fabryka kontrolera niestandardowego, bezpośrednio implementujących *IControllerFactory* interfejs musi zapewniać implementację nowej *GetControllerSessionBehavior* metody dodaje do interfejsu w tej wersji. Ogólnie rzecz biorąc, zaleca się, możesz nie implementuje ten interfejs bezpośrednio i pochodzi z klasy *DefaultControllerFactory*.
+- W poprzednich wersjach programu ASP.NET MVC działań, które są filtry tworzenie na żądanie z wyjątkiem sytuacji, w niektórych przypadkach. To zachowanie nigdy nie było gwarantowane działanie, ale jedynie szczegółowo opisuje implementacja i kontrakt dla filtrów było należy wziąć pod uwagę ich bezstanowe. W programie ASP.NET MVC 3 filtry są buforowane bardziej agresywne. W związku z tym wszelkie filtry akcji niestandardowej, które nieprawidłowo przechowują stan wystąpienia może nie działać.
+- Kolejność wykonywania filtrów wyjątek został zmieniony na filtry wyjątków, które mają taki sam *kolejności* wartość. W programie ASP.NET MVC 2 i starszych wyjątek filtrów na kontrolerze, które mają taką samą *kolejności* wartości, ponieważ osoby korzystające z metody akcji są wykonywane przed filtry wyjątków dla metody akcji. Zazwyczaj można tak, gdy są stosowane filtry wyjątków bez określonej *kolejności* wartość. W programie ASP.NET MVC 3 to zamówienie została wycofana, aby najpierw wykonana bardziej konkretny od pozostałych obsługi wyjątków. Tak jak w starszych wersjach Jeśli *kolejności* właściwość jest jawnie określona, filtry są uruchamiane w określonej kolejności.
+- Nową właściwość o nazwie *FileExtensions* została dodana do *VirtualPathProviderViewEngine* klasy bazowej. Gdy ASP.NET wyszukuje widoku przy użyciu ścieżki (a nie według nazwy), są traktowane jako widoki tylko z rozszerzeniem pliku zawarte w określonej przez tę właściwość nowej listy. W przypadku, gdy dostawca niestandardowej kompilacji jest zarejestrowany, aby włączyć rozszerzenie pliku niestandardowe widoki formularzy sieci Web, a w przypadku, gdy dostawca odwołuje się do tych widoków przy użyciu pełnej ścieżki, a nie nazwę jest istotną zmianę w aplikacjach. Obejście polega na zmodyfikowanie wartości *FileExtensions* właściwość, aby dołączyć rozszerzenie niestandardowego pliku.
+- Niestandardowe kontrolera fabryki implementacji, które bezpośrednio zaimplementować *IControllerFactory* interfejs musi dostarczyć implementację nowej *GetControllerSessionBehavior* metody dodane do interfejsu w tej wersji. Ogólnie rzecz biorąc, zaleca się, możesz nie bezpośrednio zaimplementować niniejszy interfejs i pochodzi od klasy *DefaultControllerFactory*.
 
 <a id="_Toc2"></a>
-## <a name="changes-in-aspnet-mvc-3-rc2"></a>Zmiany w platformie ASP.NET MVC 3 RC2
+## <a name="changes-in-aspnet-mvc-3-rc2"></a>Zmiany w wersji RC2 platformy ASP.NET MVC 3
 
-W tej sekcji opisano zmiany (nowe funkcje i poprawki błędów) w wersji platformy ASP.NET MVC 3 RC2 od wersji RC.
+W tej sekcji opisano zmiany (nowe funkcje i poprawki błędów) w wersji platformy ASP.NET MVC 3 RC2 od czasu wersji RC.
 
 <a id="_Toc2_1"></a>
-### <a name="project-templates-changed-to-include-jquery-144-jquery-validation-17-and-jquery-ui-186"></a>Zmieniać szablonów projektu o jQuery 1.4.4, 1.7 weryfikacji jQuery i jQuery 1.8.6 interfejsu użytkownika
+### <a name="project-templates-changed-to-include-jquery-144-jquery-validation-17-and-jquery-ui-186"></a>Zmienić szablony projektu do uwzględnienia jQuery 1.4.4, jQuery 1.7 sprawdzania poprawności i interfejs użytkownika jQuery 1.8.6
 
-Szablony projektów programu ASP.NET MVC 3 zawierają teraz najnowsze wersje jQuery, weryfikacji jQuery i jQuery interfejsu użytkownika. jQuery interfejsu użytkownika jest nowe uzupełnienie szablony projektów i zawiera elementy widget interfejsu użytkownika użyteczne. Aby uzyskać więcej informacji na temat interfejsu użytkownika jQuery, odwiedź stronę ich strony głównej: [ http://jqueryui.com/ ](http://jqueryui.com/).
+Szablony projektów dla platformy ASP.NET MVC 3 obejmują teraz najnowsze wersje jQuery, jQuery, weryfikacji i jQuery interfejsu użytkownika. jQuery interfejsu użytkownika to nowy dodatek do szablonów projektu i zapewnia przydatnych widżetów interfejsu. Aby uzyskać więcej informacji na temat interfejs użytkownika jQuery, odwiedź stronę ich strony głównej: [ http://jqueryui.com/ ](http://jqueryui.com/).
 
 <a id="_Toc2_2"></a>
 ### <a name="added-additionalmetadataattribute-class"></a>Klasa dodano "AdditionalMetadataAttribute"
 
-Można użyć *AdditionalMetadataAttribute* klasę, aby wypełnić *ModelMetadata.AdditionalValues* słownika właściwości modelu.
+Możesz użyć *AdditionalMetadataAttribute* klasy do wypełniania *ModelMetadata.AdditionalValues* słownik właściwości modelu.
 
-Na przykład załóżmy, że model widoku ma właściwości, które powinny być wyświetlane tylko dla administratora. Modelu mogą być adnotowany przy nowy atrybut, używając AdminOnly jako klucz i wartość true jako wartość, jak w poniższym przykładzie:
+Na przykład załóżmy, że model widoku ma właściwości, które powinny być wyświetlane tylko dla administratora. Modelu mogą być adnotowane przy użyciu nowego atrybutu przy użyciu AdminOnly jako klucz i wartość true, jako wartość, jak w poniższym przykładzie:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample9.cs)]
 
-Te metadane były dostępne dla dowolnego szablonu ekranu lub edytorze podczas renderowania widoku modelu produktu. Od użytkownika jest Deweloper aplikacji, aby zinterpretować informacji o metadanych.
+Te metadane ma zostać udostępnione dowolnego szablonu ekranu lub edytorze, po wyrenderowaniu modelu widoku produktu. Jest do Ciebie jako Deweloper aplikacji do interpretacji informacji o metadanych.
 
 <a id="_Toc2_3"></a>
-### <a name="improved-view-scaffolding"></a>Ulepszone widoku szkieletów
+### <a name="improved-view-scaffolding"></a>Tworzenie szkieletu ulepszone widoku
 
-Szablony T4 używany dla widoki szkieletów teraz wygenerowania wywołania metody pomocnicze szablonu, taką jak *EditorFor* zamiast pomocników, takich jak *TextBoxFor*. Modyfikacja ta poprawia obsługę metadanych modelu w postaci atrybuty adnotacji danych, gdy okno dialogowe dodawania widoku generuje widoku.
+Szablony T4, używany do tworzenia szkieletów widoków teraz wygenerowania wywołania metody pomocnika szablonu, taką jak *EditorFor* zamiast pomocników, takich jak *TextBoxFor*. Ta zmiana zwiększa obsługę metadanych modelu w postaci atrybuty adnotacji danych okno dialogowe dodawania widoku generuje widoku.
 
-Dodaj widok szkieletu także ulepszone wykrywania i użycia informacje o kluczu podstawowym w modelu, na podstawie Konwencji. Na przykład okno dialogowe dodawania widoku używa tych informacji, aby upewnić się, że wartości klucza podstawowego nie jest szkieletu jako pola formularza można edytować.
+Dodaj widok szkieletu także ulepszone wykrywanie i użycia informacje o kluczu podstawowym na modelu na podstawie Konwencji. Na przykład okno dialogowe dodawania widoku używa tych informacji, aby upewnić się, że wartość klucza podstawowego nie jest szkieletu jako pole edytowalnego formularza.
 
-Domyślne edycji i Utwórz szablony zawierają odwołań do skryptów jQuery potrzebne dla weryfikacji klienta.
+Domyślnie edytowanie i tworzenie szablonów zawierają odwołania do skryptów jQuery potrzebnych do przeprowadzenia weryfikacji klienta.
 
 <a id="_Toc2_4"></a>
 ### <a name="added-htmlraw-method"></a>Dodano Html.Raw — metoda
 
-Domyślnie Razor wyświetlić aparat koduje HTML wszystkie wartości. Na przykład poniższy fragment kodu koduje HTML w zmiennej pozdrowienia, tak aby był wyświetlany na stronie jako `<strong>Hello World!</strong>`.
+Domyślnie Razor przeglądać aparatu koduje HTML wszystkie wartości. Na przykład poniższy fragment kodu koduje HTML wewnątrz zmiennej powitanie, tak aby był wyświetlany na stronie jako `<strong>Hello World!</strong>`.
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample10.cshtml)]
 
-Nowy *Html.Raw* metoda zapewnia prosty sposób wyświetlania niekodowany kod HTML, gdy zawartość jest znana jako bezpieczne. W poniższym przykładzie przedstawiono te same parametry, ale ten ciąg jest renderowany jako kod znaczników:
+Nowy *Html.Raw* metoda zapewnia prosty sposób wyświetlania niekodowany kod HTML, gdy zawartość jest znane jako bezpieczne. Poniższy przykład wyświetla te same parametry, ale ten ciąg jest renderowany jako kod znaczników:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample11.cshtml)]
 
 <a id="_Toc2_5"></a>
-### <a name="renamed-controllerviewmodel-property-and-the-view-property-to-viewbag"></a>Właściwości zmieniono nazwę "Controller.ViewModel" i "Widok" do "Obiekt ViewBag."
+### <a name="renamed-controllerviewmodel-property-and-the-view-property-to-viewbag"></a>Właściwości zmieniono nazwę "Controller.ViewModel" i "View" do "Obiekt ViewBag."
 
-Wcześniej *ViewModel* właściwość *kontrolera* zgodnych do *widoku* właściwości widoku. Obie te właściwości umożliwiają dostęp do wartości *ViewDataDictionary* przy użyciu składni metody dostępu właściwości dynamicznych. Obie właściwości, że zmieniono być takie same, aby uniknąć pomyłek i być bardziej spójny.
+Wcześniej *ViewModel* właściwość *kontrolera* zgodnych do *widoku* właściwości widoku. Obie te właściwości umożliwiają dostęp do wartości *ViewDataDictionary* przy użyciu składni metody dostępu właściwości dynamicznych. Obie te właściwości została zmieniona na być takie same, aby uniknąć nieporozumień i są bardziej spójne.
 
 <a id="_Toc2_6"></a>
 ### <a name="renamed-controllersessionstateattribute-class-to-sessionstateattribute"></a>Zmieniono nazwę "ControllerSessionStateAttribute" klasy "SessionStateAttribute"
 
-*ControllerSessionStateAttribute* klasy została wprowadzona w wersji RC programu ASP.NET MVC 3. Właściwość została zmieniona na musi być bardziej zwięzły.
+*ControllerSessionStateAttribute* klasa została wprowadzona w wersji RC programu ASP.NET MVC 3. Właściwości została zmieniona na musi być bardziej zwięzły.
 
 <a id="_Toc2_7"></a>
-### <a name="renamed-remoteattribute-fields-property-to-additionalfields"></a>Zmieniono nazwę RemoteAttribute "Pola" właściwości "AdditionalFields"
+### <a name="renamed-remoteattribute-fields-property-to-additionalfields"></a>Zmieniono nazwę RemoteAttribute "Fields" właściwości "AdditionalFields"
 
-*RemoteAttribute* klasy *pola* właściwości spowodowała dezorientację wśród użytkowników. Zmiana nazwy tę właściwość, aby *AdditionalFields* wyjaśnia jej celem.
+*RemoteAttribute* klasy *pola* właściwości spowodowała wystąpienia pewnych niejasności między użytkownikami. Zmiana nazwy tej właściwości, aby *AdditionalFields* wyjaśnia przeznaczeniem.
 
 <a id="_Toc2_8"></a>
-### <a name="renamed-skiprequestvalidationattribute-to-allowhtmlattribute"></a>Zmieniona "SkipRequestValidationAttribute" do "AllowHtmlAttribute"
+### <a name="renamed-skiprequestvalidationattribute-to-allowhtmlattribute"></a>Zmieniono nazwę "SkipRequestValidationAttribute" do "AllowHtmlAttribute"
 
-*SkipRequestValidationAttribute* atrybutu została zmieniona na *AllowHtmlAttribute* do reprezentowania lepiej jego przeznaczenia.
+*SkipRequestValidationAttribute* atrybut została zmieniona na *AllowHtmlAttribute* lepiej odpowiada jego przeznaczenia.
 
 <a id="_Toc2_9"></a>
-### <a name="changed-htmlvalidationmessage-method-to-display-the-first-useful-error-message"></a>Metoda zmienione "Html.ValidationMessage" w celu wyświetlenia pierwszy przydatne komunikat
+### <a name="changed-htmlvalidationmessage-method-to-display-the-first-useful-error-message"></a>Metoda zmienione "Html.ValidationMessage" w celu wyświetlenia pierwszy komunikat o błędzie przydatne
 
-*Html.ValidationMessage* metody został rozwiązany pokazanie pierwszy komunikat przydatne o błędzie zamiast po prostu wyświetlanie pierwszego błędu.
+*Html.ValidationMessage* metoda został naprawiony pokazanie pierwszy komunikat o błędzie przydatne, a nie po prostu wyświetlanie pierwszego błędu.
 
-Podczas wiązania modelu *ModelState* słownika można wypełniać z wielu źródeł z komunikatów o błędach dotyczących właściwości, w tym samym modelu (jeśli implementuje *IValidatableObject* ), z atrybutów weryfikacji właściwości i wyjątki zgłaszane, gdy właściwość jest dostępny.
+Podczas wiązania modelu *ModelState* słownika można wypełnić z wielu źródeł, z komunikatami o błędach dotyczące właściwości, w tym samym modelu (jeśli implementuje *IValidatableObject* ), z atrybutów sprawdzania poprawności stosowany do właściwości i wyjątki zgłaszane, gdy uzyskano dostęp do właściwości.
 
-Gdy *Html.ValidationMessage* metoda wyświetla komunikat dotyczący sprawdzania poprawności, pomija wpisów stanu modelu, które obejmują: exception, ponieważ te zwykle nie są przeznaczone dla użytkownika końcowego. Zamiast tego metoda szuka pierwszy komunikat weryfikacji, który nie jest skojarzony z powodu wyjątku i wyświetla ten komunikat. Jeśli taki komunikat nie zostanie znaleziony, domyślnie ogólny komunikat o błędzie skojarzony z pierwszy wyjątek.
+Gdy *Html.ValidationMessage* metoda wyświetla komunikat dotyczący sprawdzania poprawności, pomija wpisów stanów modelu, które obejmują: exception, ponieważ te zwykle nie są przeznaczone dla użytkownika końcowego. Zamiast tego metody wyszukuje pierwszy komunikat sprawdzania poprawności, który nie jest skojarzony z powodu wyjątku i wyświetla ten komunikat. Jeśli zostanie znaleziony żaden taki komunikat, domyślnie ogólny komunikat, który jest skojarzony z pierwszy wyjątek.
 
 <a id="_Toc2_10"></a>
-### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>Stałe @model deklaracji nie dodać odstępu do dokumentu
+### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>Naprawiono @model deklaracji, nie należy dodawać spacji do dokumentu
 
-We wcześniejszych wersjach <em>@model</em> deklaracji w górnej części widoku dodany pusty wiersz do renderowanej danych wyjściowych HTML. Ten został rozwiązany, aby deklaracji nie wprowadza odstępu.
+We wcześniejszych wersjach <em>@model</em> deklaracji w górnej części widoku dodać pusty wiersz do wyniku renderowania kodu HTML. Ten problem został rozwiązany, tak, aby deklaracji nie wprowadza białe znaki.
 
 <a id="_Toc2_11"></a>
-### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>Dodano "FileExtensions" dla właściwości aparatów widoków do obsługi nazw plików specyficznych dla aparatu
+### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>Dodano "FileExtensions" właściwość aparatów widoków do obsługi nazw plików specyficzne dla aparatu
 
-Aparat widoku można zwrócić widok przy użyciu ścieżki widoku jawne, jak w poniższym przykładzie:
+Aparat widoku może zwrócić widok przy użyciu ścieżki widoku jawne, jak w poniższym przykładzie:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample12.cs)]
 
-Aparat widoku pierwszy próbuje zawsze renderowania widoku. Domyślnie aparat widoku formularzy sieci Web jest pierwszy aparat widoku; ponieważ aparat formularzy sieci Web nie można renderować widoku Razor, występuje błąd. Aparaty widoku mają teraz *FileExtensions* obsługują właściwości, która pozwala określić listę rozszerzeń plików. Ta właściwość jest sprawdzana podczas ASP.NET określa, czy aparat widoku umożliwiający renderowanie pliku. Jest to istotne zmiany, a także bardziej szczegółowe informacje znajdują się w [fundamentalne zmiany](#_Toc2_BC) sekcji tego dokumentu.
+Pierwszy aparat widoku zawsze próbuje do renderowania widoku. Domyślnie aparat widoku w formularzach sieci Web jest pierwszym aparat widoku; ponieważ aparat formularzy sieci Web nie można renderować widoku Razor, wystąpi błąd. Aparaty widoku mają teraz *FileExtensions* właściwość, która służy do określania rozszerzeń plików, które obsługują. Ta właściwość jest sprawdzana podczas ASP.NET określa, czy aparat widoku umożliwiający renderowanie pliku. To jest zmianą przerywającą i szczegółowe informacje znajdują się w [fundamentalne zmiany](#_Toc2_BC) części tego dokumentu.
 
 <a id="_Toc2_12"></a>
-### <a name="fixed-labelfor-helper-to-emit-the-correct-value-for-the-for-attribute"></a>Pomocnik stałej "LabelFor" Aby emitować poprawną wartość dla atrybutu "For"
+### <a name="fixed-labelfor-helper-to-emit-the-correct-value-for-the-for-attribute"></a>Naprawiono "LabelFor" element pomocniczy służący do emisji poprawną wartość dla atrybutu "For"
 
-Usterki został rozwiązany, gdzie *LabelFor* renderowane — metoda *dla* atrybut, który odpowiada *wejściowych* elementu *nazwa* zamiast tego atrybutu jej identyfikatora. Zgodnie z W3C *dla* atrybutu powinna być zgodna *wejściowych* identyfikator elementu.
+Usunięto usterkę gdzie *LabelFor* metody renderowania *dla* atrybut, który pasuje *wejściowych* elementu *nazwa* zamiast tego atrybutu jego identyfikatora. Zgodnie z W3C *dla* atrybut powinien być zgodny *wejściowych* identyfikatora elementu.
 
 <a id="_Toc2_13"></a>
-### <a name="fixed-renderaction-method-to-give-explicit-values-precedence-during-model-binding"></a>Metody stałej "RenderAction" pierwszeństwo jawne wartości podczas tworzenia powiązania modelu
+### <a name="fixed-renderaction-method-to-give-explicit-values-precedence-during-model-binding"></a>Naprawiono "RenderAction" metodę, aby nadać priorytet jawne wartości podczas wiązania modelu
 
-W starszych wersjach, jawne wartości, które zostały przekazane do *RenderAction* — metoda zostały zostanie zignorowany na rzecz bieżące wartości formularza podczas wiązania modelu w akcji podrzędnej. Poprawka gwarantuje, że jawne wartości pierwszeństwo podczas wiązania modelu.
+We wcześniejszych wersjach, jawne wartości, które zostały przekazane do *RenderAction* metody zostały on zignorowany na rzecz bieżących wartości formularza podczas wiązania modelu w akcji podrzędnej. Poprawka gwarantuje, że jawne wartości mają pierwszeństwo podczas wiązania modelu.
 
 <a id="_Toc2_BC"></a>
 ## <a name="breaking-changes"></a>Fundamentalne zmiany
 
-- W poprzednich wersjach programu ASP.NET MVC filtry akcji zostały utworzone na żądanie, chyba że w niektórych przypadkach. To zachowanie nie zostały zachowanie gwarantuje, ale tylko szczegóły implementacji i kontraktu dla filtrów była wziąć pod uwagę ich bezstanowych. W programie ASP.NET MVC 3 filtry są buforowane bardziej agresywnie. W związku z tym wszystkie filtry akcji niestandardowej, które nieprawidłowo przechowują stan wystąpienia może być uszkodzona.
-- Kolejność wykonywania filtrów wyjątków została zmieniona dla filtry wyjątków, które mają taki sam *kolejności* wartość. W programie ASP.NET MVC 2 i starszych wyjątek filtry na kontrolerze, który ma takie same *kolejności* wartość jak te na metody akcji zostały wykonane przed filtrami wyjątek w metodzie akcji. Zwykle można sytuacji, gdy zostały zastosowane filtry wyjątków bez określonej *kolejności* wartość. W programie ASP.NET MVC 3 ta kolejność została wycofana tak, aby najpierw wykonana specyficzny obsługi wyjątków. Jak w starszych wersjach Jeśli *kolejności* jawnie określono właściwość, filtry są uruchamiane w określonej kolejności.
-- Nowe właściwości o nazwie *FileExtensions* został dodany do *VirtualPathProviderViewEngine* klasy podstawowej. Gdy ASP.NET wyszukuje widoku za pomocą ścieżki (a nie według nazwy), są traktowane jako tylko widoki z rozszerzeniem zawarte na liście określonej przez tę właściwość nowe. W przypadku, gdy dostawca niestandardowej kompilacji jest zarejestrowany w celu umożliwienia rozszerzenie pliku niestandardowych widoków formularza sieci Web, a dostawca odwołuje się do tych widoków przy użyciu pełnej ścieżki, a nie nazwę jest istotne zmiany w aplikacjach. Należy zmodyfikować wartość *FileExtensions* właściwości do niestandardowego pliku rozszerzenia.
-- Implementacje fabryka kontrolera niestandardowego, bezpośrednio implementujących <em>IControllerFactory</em> interfejs musi zapewniać implementację nowej <em>GetControllerSessionBehavior</em>  <em>Metoda, która została dodana do interfejsu w tej wersji</em>. Ogólnie rzecz biorąc, zaleca się, możesz nie implementuje ten interfejs bezpośrednio i pochodzi z klasy <em>DefaultControllerFactory</em>.
+- W poprzednich wersjach platformy ASP.NET MVC filtry akcji zostały utworzone na żądanie z wyjątkiem sytuacji, w niektórych przypadkach. To zachowanie nigdy nie było gwarantowane działanie, ale jedynie szczegółowo opisuje implementacja i kontrakt dla filtrów było należy wziąć pod uwagę ich bezstanowe. W programie ASP.NET MVC 3 filtry są buforowane bardziej agresywne. W związku z tym wszelkie filtry akcji niestandardowej, które nieprawidłowo przechowują stan wystąpienia może nie działać.
+- Kolejność wykonywania filtrów wyjątek został zmieniony na filtry wyjątków, które mają taki sam *kolejności* wartość. W programie ASP.NET MVC 2 i starszych wyjątek filtrów na kontrolerze, który miał takie same *kolejności* wartości, ponieważ osoby korzystające z metody akcji był wykonywany przed filtry wyjątków dla metody akcji. Zazwyczaj można tak, gdy zostały zastosowane filtry wyjątków bez określonej *kolejności* wartość. W programie ASP.NET MVC 3 to zamówienie została wycofana, aby najpierw wykonana bardziej konkretny od pozostałych obsługi wyjątków. Tak jak w starszych wersjach Jeśli *kolejności* właściwość jest jawnie określona, filtry są uruchamiane w określonej kolejności.
+- Nową właściwość o nazwie *FileExtensions* została dodana do *VirtualPathProviderViewEngine* klasy bazowej. Gdy ASP.NET wyszukuje widoku przy użyciu ścieżki (a nie według nazwy), są traktowane jako widoki tylko z rozszerzeniem pliku zawarte w określonej przez tę właściwość nowej listy. W przypadku, gdy dostawca niestandardowej kompilacji jest zarejestrowany, aby włączyć rozszerzenie pliku niestandardowe widoki formularzy sieci Web, a w przypadku, gdy dostawca odwołuje się do tych widoków przy użyciu pełnej ścieżki, a nie nazwę jest istotną zmianę w aplikacjach. Obejście polega na zmodyfikowanie wartości *FileExtensions* właściwość, aby dołączyć rozszerzenie niestandardowego pliku.
+- Niestandardowe kontrolera fabryki implementacji, które bezpośrednio zaimplementować <em>IControllerFactory</em> interfejs musi dostarczyć implementację nowej <em>GetControllerSessionBehavior</em>  <em>Metoda, która została dodana do interfejsu w tej wersji</em>. Ogólnie rzecz biorąc, zaleca się, możesz nie bezpośrednio zaimplementować niniejszy interfejs i pochodzi od klasy <em>DefaultControllerFactory</em>.
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>Znane problemy
 
-- Instalator programu ASP.NET MVC 3 może tylko zainstalować początkowa wersja Menedżera pakietów NuGet. Po zainstalowaniu wersji początkowej NuGet można zainstalować i zaktualizować przy użyciu Menedżera rozszerzeń programu Visual Studio. Jeśli masz już zainstalowany NuGet, przejdź do galerii rozszerzeń programu Visual Studio do aktualizacji do najnowszej wersji programu NuGet.
-- Tworzenie nowego projektu platformy ASP.NET MVC 3 w folderze rozwiązania przyczyny *NullReferenceException* błędu. Obejście jest utworzenie projektu programu ASP.NET MVC 3 w folderze głównym rozwiązania, a następnie przenieś go do folderu rozwiązania.
-- Instalator może trwać dłużej niż w poprzednich wersjach programu ASP.NET MVC, aby zakończyć. Jest to spowodowane aktualizuje składników programu Visual Studio 2010.
-- IntelliSense dla składni Razor nie działa, gdy ReSharper jest zainstalowany. Jeśli masz zainstalowany ReSharper i chcesz skorzystać obsługę funkcji IntelliSense Razor platformy ASP.NET MVC 3 RC2, zobacz wpis [Razor Intellisense i ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) na blogu Hadi Hariri, który opisano sposoby użyć ich razem dzisiaj.
-- Widoki CSHTML i VBHTML utworzone za pomocą wersji Beta programu ASP.NET MVC 3 ma ich akcji kompilacji ustawione poprawnie, w wyniku czego wyświetlić te typy zostały pominięte, gdy projekt zostanie opublikowany. *Akcja kompilacji* wartość dla tych plików należy ustawić na zawartość ". ASP.NET MVC 3 RC2 rozwiązuje ten problem dla nowych plików, ale nie poprawne ustawienie dla istniejących plików projektu utworzonych za pomocą wersji Beta.![](mvc3-release-notes/_static/image4.png)
-- Podczas instalacji postanowienia licencyjne wyświetlone okno dialogowe akceptacji umowy licencyjnej w oknie, która jest mniejsza niż zamierzony.
-- Podczas edytowania widoku Razor (cshtml plik), przejdź do kontrolera elementu menu w programie Visual Studio nie będą dostępne, a nie ma żadnych wstawki kodu.
-- Jeśli instalowanie platformy ASP.NET MVC 3 dla programu Visual Web Developer Express na komputerze, na którym nie zainstalowano programu Visual Studio, a następnie zainstalować program Visual Studio, należy ponownie zainstalować program ASP.NET MVC 3. Udostępnianie składników, które są uaktualniane przez Instalator programu ASP.NET MVC 3, Visual Studio i Visual Web Developer Express. Ten sam problem w przypadku zainstalowania programu ASP.NET MVC 3 programu Visual Studio na komputerze, które nie mają Visual Web Developer Express, a następnie został zainstalowany program Visual Web Developer Express.
-- Instalowanie platformy ASP.NET MVC 3 RC 2 nie powoduje aktualizacji NuGet, jeśli masz już zainstalowany. Aby uaktualnić program NuGet, przejdź do Menedżera rozszerzenia usługi Visual Studio i powinny być widoczne jako dostępna aktualizacja. Można uaktualnić narzędzie NuGet do najnowszej wersji z tego miejsca.
+- Instalator programu ASP.NET MVC 3 jest tylko można instalować wstępną wersję Menedżera pakietów NuGet. Po zainstalowaniu pierwszej wersji NuGet można zainstalować i zaktualizować przy użyciu Menedżera rozszerzeń programu Visual Studio. Jeśli masz jeszcze zainstalowanego Menedżera NuGet, przejdź do galerii Visual Studio rozszerzenia do aktualizacji do najnowszej wersji pakietu NuGet.
+- Tworzenie nowego projektu ASP.NET MVC 3, wewnątrz folderu rozwiązania powoduje, że *obiektu NullReferenceException* błędu. Obejście polega na tworzenie projektu ASP.NET MVC 3 w katalogu głównym rozwiązania, a następnie przenieś go do folderu rozwiązania.
+- Instalator może zająć więcej czasu niż w poprzednich wersjach programu ASP.NET MVC, aby zakończyć. Jest tak, ponieważ powoduje zaktualizowanie składniki programu Visual Studio 2010.
+- Funkcja IntelliSense dla składni Razor nie działa po zainstalowaniu ReSharper. Jeśli masz zainstalowanym rozszerzeniem ReSharper i wykorzystać obsługę funkcji IntelliSense Razor programu ASP.NET MVC 3 RC2, zobacz wpis [Razor Intellisense i ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) na blogu Hadi Hariri omówiono sposoby używania ich ze sobą już dziś.
+- Widoki CSHTML i VBHTML utworzone przy użyciu wersji Beta programu ASP.NET MVC 3 ma ich akcji kompilacji poprawnie, w wyniku czego wyświetlić te typy zostały pominięte podczas publikowania projektu. *Build Action* wartość dla tych plików powinna być ustawiona na zawartość ". ASP.NET MVC 3 RC2 rozwiązuje ten problem dla nowych plików, ale nie rozwiąże to ustawienie dla istniejących plików projektu utworzonych za pomocą wersji Beta.![](mvc3-release-notes/_static/image4.png)
+- Podczas instalacji okno dialogowe akceptacji umowy licencyjnej wyświetla postanowienia licencyjne w oknie, która jest mniejsza niż planowano.
+- Podczas edytowania widoku Razor (cshtml plik), przejdź do kontrolera elementu menu w programie Visual Studio nie będą dostępne, i nie Brak fragmentów kodu.
+- Jeśli Zainstaluj ASP.NET MVC 3 dla programu Visual Web Developer Express na komputerze, na których nie zainstalowano programu Visual Studio, a następnie zainstalować program Visual Studio, należy ponownie zainstalować program ASP.NET MVC 3. Program Visual Studio i Visual Web Developer Express udostępniać składniki, które są uaktualniane przez Instalatora programu ASP.NET MVC 3. Ten sam problem w przypadku zainstalowania programu ASP.NET MVC 3 dla programu Visual Studio na komputerze, na które nie mają Visual Web Developer Express, a następnie później zainstalować Visual Web Developer Express.
+- Instalowanie platformy ASP.NET MVC 3 RC 2 nie powoduje aktualizacji NuGet, jeśli masz już zainstalowany. Uaktualnij NuGet, przejdź do Menedżera rozszerzenia Visual Studio i powinno stanowić dostępnej aktualizacji. NuGet można uaktualnić do najnowszej wersji, w tym miejscu.
 
 <a id="TOC_ASP_NET_3_RC"></a>
-## <a name="aspnet-mvc-3-release-candidate"></a>ASP.NET MVC 3 Release Candidate
+## <a name="aspnet-mvc-3-release-candidate"></a>Program ASP.NET MVC 3 w wersji Release Candidate
 
-ASP.NET MVC w wersji Release Candidate 9 listopada 2010 został wydany.
+ASP.NET MVC w wersji Release Candidate została wydana 9 listopada 2010 r.
 
 <a id="_Toc276711785"></a>
-## <a name="new-features-in-aspnet-mvc-3-rc"></a>Nowe funkcje w wersji platformy ASP.NET MVC 3 RC
+## <a name="new-features-in-aspnet-mvc-3-rc"></a>Nowe funkcje w wersji RC platformy ASP.NET MVC 3
 
 W tej sekcji opisano funkcje, które zostały wprowadzone w wersji platformy ASP.NET MVC 3 RC od czasu wydania Beta.
 
 <a id="_Toc276711786"></a>
 ### <a name="nuget-package-manager"></a>Menedżer pakietów NuGet
 
-Platforma ASP.NET MVC 3 zawiera Menedżera pakietów NuGet (wcześniej znane jako NuPack), który jest zintegrowany pakiet narzędzia do zarządzania dodawania biblioteki i narzędzia do projektów programu Visual Studio. To narzędzie automatyzuje czynności, które deweloperzy obecnie wykonać próba pobrania biblioteki do drzewa ich źródła.
+Platforma ASP.NET MVC 3 zawiera Menedżera pakietów NuGet (wcześniej znane jako NuPack), czyli narzędzia do zarządzania pakietami zintegrowane dodawania biblioteki i narzędzia do projektów programu Visual Studio. To narzędzie automatyzuje kroki, które deweloperzy dziś wykonać, aby pobrać bibliotekę do ich drzewa źródłowego.
 
-Możesz pracować z programem NuGet jako narzędzie wiersza polecenia, w oknie konsoli zintegrowane, Visual Studio 2010, z menu kontekstowego programu Visual Studio i jako zestaw poleceń cmdlet programu PowerShell.
+Narzędzie wiersza polecenia, jako okno zintegrowana konsola, Visual Studio 2010, z menu kontekstowego programu Visual Studio oraz zestawu poleceń cmdlet programu PowerShell, można pracować z NuGet.
 
-Aby uzyskać więcej informacji na temat narzędzia NuGet, przeczytaj [dokumentacji Nuget](https://docs.microsoft.com/nuget/).
+Aby uzyskać więcej informacji na temat programu NuGet, przeczytaj [dokumentacja programu Nuget](https://docs.microsoft.com/nuget/).
 
 <a id="_Toc276711787"></a>
-### <a name="improved-new-project-dialog-box"></a>Ulepszone "Nowego projektu" — okno dialogowe
+### <a name="improved-new-project-dialog-box"></a>Ulepszone "Nowego projektu" okno dialogowe
 
-Podczas tworzenia nowego projektu, okno dialogowe Nowy projekt teraz pozwala określić aparat widoku, jak również typ projektu programu ASP.NET MVC.
+Podczas tworzenia nowego projektu w oknie dialogowym Nowy projekt teraz umożliwia określenie aparat widoku, a także typu projektu MVC programu ASP.NET.
 
 ![](mvc3-release-notes/_static/image5.png)
 
-Do modyfikowania listy szablonów i widokiem wymienionym aparaty w oknie dialogowym są obsługiwane w tej wersji.
+Obsługa modyfikowania listę szablonów i widokiem aparatów wymienionym w oknie dialogowym znajduje się w tej wersji.
 
 Domyślne szablony są następujące:
 
-Pusta. Zawiera minimalnego zestawu plików dla projektu programu ASP.NET MVC, w tym domyślnej struktury katalogów dla projektów ASP.NET MVC pliku Site.css, zawierający domyślne style ASP.NET MVC i katalog skryptów, który zawiera domyślne pliki JavaScript.
+Pusty. Zawiera minimalny zestaw plików dla projektu platformy ASP.NET MVC, w tym domyślna struktura katalogów dla projektów platformy ASP.NET MVC pliku Site.css, który zawiera domyślne style platformy ASP.NET MVC i katalogu skryptów, który zawiera domyślne pliki JavaScript.
 
-Aplikacja Internet. Zawiera funkcji przykładowych pokazano, jak użyć dostawcy członkostwa z platformą ASP.NET MVC.
+Aplikację internetową. Zawiera przykładowe funkcji pokazuje sposób użycia dostawcy członkostwa ASP.NET MVC.
 
-Lista Szablony projektów, która jest wyświetlana w oknie dialogowym jest określona w rejestrze systemu Windows.
+Listy szablonów projektu, który jest wyświetlany w oknie dialogowym jest określona w rejestrze systemu Windows.
 
 <a id="_Toc276711788"></a>
 ### <a name="sessionless-controllers"></a>Bezsesyjne kontrolerów
 
-Nowy *ControllerSessionStateAttribute* zapewnia większą kontrolę nad zachowanie stanu sesji dla kontrolerów, określając [System.Web.SessionState.SessionStateBehavior](https://msdn.microsoft.com/library/system.web.sessionstate.sessionstatebehavior.aspx) wartości wyliczenia.
+Nowy *ControllerSessionStateAttribute* daje większą kontrolę nad zachowaniem stanu sesji dla kontrolerów, określając [System.Web.SessionState.SessionStateBehavior](https://msdn.microsoft.com/library/system.web.sessionstate.sessionstatebehavior.aspx) wartość wyliczenia.
 
 Poniższy przykład pokazuje, jak wyłączyć stanu sesji dla wszystkich żądań do kontrolera.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample13.cs)]
 
-Poniższy przykład pokazuje, jak ustawić stan sesji tylko do odczytu dla wszystkich żądań do kontrolera.
+Poniższy przykład pokazuje, jak można ustawić stanu sesji w trybie tylko do odczytu dla wszystkich żądań do kontrolera.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample14.cs)]
 
@@ -535,35 +534,35 @@ Poniższy przykład pokazuje, jak ustawić stan sesji tylko do odczytu dla wszys
 
 #### <a name="compareattribute"></a>CompareAttribute
 
-Nowy *CompareAttribute* atrybut weryfikacji umożliwia porównanie wartości z dwóch różnych właściwości modelu. W poniższym przykładzie *ComparePassword* musi odpowiadać właściwości *hasło* pola, aby był prawidłowy.
+Nowy *CompareAttribute* atrybut weryfikacji umożliwia porównanie wartości dwóch różnych właściwości obiektu modelu. W poniższym przykładzie *ComparePassword* właściwość musi być zgodna *hasło* pola, aby był prawidłowy.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample15.cs)]
 
 #### <a name="remoteattribute"></a>RemoteAttribute
 
-Nowy *RemoteAttribute* atrybut weryfikacji korzysta z jQuery weryfikacji plug w zdalnego modułu weryfikacji, który umożliwia weryfikację po stronie klienta do wywołania metody na serwerze, który wykonuje logiki rzeczywista weryfikacja.
+Nowy *RemoteAttribute* atrybut weryfikacji wykorzystuje jQuery weryfikacji wtyczki w zdalnego modułu weryfikacji, który umożliwia weryfikację po stronie klienta do wywołania metody na serwerze, który wykonuje logiki rzeczywista weryfikacja.
 
-W poniższym przykładzie *UserName* ma właściwość *RemoteAttribute* zastosowane. Podczas edycji tej właściwości w widoku edycji, sprawdzanie poprawności klienta wywoła akcję o nazwie *UserNameAvailable* na *UsersController* klasy do weryfikacji w tym polu.
+W poniższym przykładzie *UserName* właściwość ma *RemoteAttribute* stosowane. Podczas edycji tej właściwości w widoku do edycji, sprawdzanie poprawności klienta wywoła akcję o nazwie *UserNameAvailable* na *UsersController* klasy w celu zweryfikowania tego pola.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample16.cs)]
 
-W poniższym przykładzie przedstawiono odpowiedniego kontrolera.
+Poniższy przykład pokazuje odpowiedniego kontrolera.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample17.cs)]
 
-Domyślnie nazwy właściwości, która dotyczy ten atrybut jest wysyłane do metody akcji jako parametr ciągu zapytania.
+Domyślnie nazwa właściwości, który jest stosowany do są wysyłane do metody akcji, jako parametr ciągu zapytania.
 
 <a id="_Toc276711790"></a>
-### <a name="new-overloads-for-labelfor-and-labelformodel-methods"></a>Nowe przeciążenia metod "LabelForModel" i "LabelFor"
+### <a name="new-overloads-for-labelfor-and-labelformodel-methods"></a>Nowe przeciążenia dla metod "LabelForModel" i "LabelFor"
 
-Dodano nowe przeciążenia *LabelFor* i *LabelForModel* metod, które pozwalają określić tekst etykiety. Poniższy przykład przedstawia sposób użycia tych przeciążenia.
+Dodano nowe przeciążenia *LabelFor* i *LabelForModel* metod, które pozwalają na określenie tekstu etykiety. Poniższy przykład przedstawia sposób użycia tych przeciążeń.
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample18.cshtml)]
 
 <a id="_Toc276711791"></a>
-### <a name="child-action-output-caching"></a>Akcja podrzędna buforowanie danych wyjściowych
+### <a name="child-action-output-caching"></a>Akcja podrzędna buforowania danych wyjściowych
 
-*OutputCacheAttribute* obsługuje buforowanie danych wyjściowych akcji podrzędnych, które są wywoływane przy użyciu *Html.RenderAction* lub *Html.Action* metody pomocnicze. W poniższym przykładzie przedstawiono widok wywołujący inną akcję.
+*OutputCacheAttribute* obsługuje buforowanie danych wyjściowych akcji podrzędnych, które są wywoływane przy użyciu *Html.RenderAction* lub *Html.Action* metody pomocnika. Poniższy przykład przedstawia widok, który wywołuje inną akcję.
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample19.cshtml)]
 
@@ -571,64 +570,64 @@ Dodano nowe przeciążenia *LabelFor* i *LabelForModel* metod, które pozwalają
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample20.cs)]
 
-Po uruchomieniu tego kodu wynik wywołania Html.Action("GetDate") są buforowane na 100 sekund.
+Po uruchomieniu ten kod wyniku wywołania metody Html.Action("GetDate") jest buforowana na 100 sekund.
 
 <a id="_Toc276711792"></a>
-### <a name="add-view-dialog-box-improvements"></a>"Dodaj widok" ulepszenia — okno dialogowe
+### <a name="add-view-dialog-box-improvements"></a>"Dodaj widok" ulepszenia okno dialogowe
 
-Po dodaniu silnie typizowanego widoku, okno dialogowe dodawania widoku odfiltrowuje teraz więcej typów nie dotyczy niż w poprzednich wersjach, takich jak wiele podstawowych typów .NET Framework. Ponadto lista jest sortowana teraz według nazwy klasy, a nie w pełni kwalifikowaną nazwę typu, co ułatwia znajdowanie typów. Na przykład nazwa typu jest teraz wyświetlone jak w poniższym przykładzie:
+Po dodaniu silnie typizowanego widoku, okno dialogowe dodawania widoku odfiltrowuje teraz większą liczbę typów nieodpowiednich niż w poprzednich wersjach, takich jak wiele typów programu .NET Framework core. Ponadto lista jest sortowana teraz według nazwy klasy, a nie przez w pełni kwalifikowana nazwa typu, co ułatwia znajdowanie typów. Na przykład nazwa typu jest teraz wyświetlane jak w poniższym przykładzie:
 
 ClassName (przestrzeń nazw)
 
-We wcześniejszych wersjach to czy zostały wyświetlone następujące parametry:
+We wcześniejszych wersjach to będzie wyświetlany jako następujące czynności:
 
 ObszarNazw.NazwaKlasy
 
 <a id="_Toc276711793"></a>
-### <a name="granular-request-validation"></a>Sprawdzanie poprawności żądań szczegółowego
+### <a name="granular-request-validation"></a>Weryfikacja żądania szczegółowe
 
-*Wykluczyć* właściwość *atrybut ValidateInputAttribute* już nie istnieje. Aby weryfikacji żądania właściwości specyficzne dla modelu pominięte podczas tworzenia powiązania modelu, użyj nowej *SkipRequestValidationAttribute*.
+*Wykluczyć* właściwość *atrybut ValidateInputAttribute* już nie istnieje. Aby Weryfikacja żądania pomijana dla określonej właściwości modelu podczas wiązania modelu, użyj nowej *SkipRequestValidationAttribute*.
 
-Na przykład załóżmy, że metoda akcji jest używany do edytowania wpisu w blogu:
+Na przykład załóżmy, że metody akcji jest używany do edytowania wpisu w blogu:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample21.cs)]
 
-Poniższy przykład przedstawia model widoku dla wpisu w blogu.
+Poniższy przykład pokazuje model widoku dla wpisu w blogu.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample22.cs)]
 
-Gdy użytkownik prześle niektórych kod znaczników dla właściwości Description, tworzenia powiązania modelu zakończy się niepowodzeniem z powodu weryfikacji żądań. Aby wyłączyć sprawdzanie poprawności żądań podczas wiązania modelu dla blogu opis, zastosuj *SkipRequpestValidationAttribute* do właściwości, jak pokazano w poniższym przykładzie:.
+Gdy użytkownik przesyła niektóre kod znaczników dla właściwości Description, wiązanie modelu zakończy się niepowodzeniem z powodu weryfikacji żądań. Aby wyłączyć weryfikację żądań podczas wiązania modelu dla wpisu w blogu opis, zastosuj *SkipRequpestValidationAttribute* do właściwości, jak pokazano w poniższym przykładzie:.
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample23.cs)]
 
-Można również wyłączyć weryfikację żądań dla każdej właściwości w modelu, zastosować *atrybut ValidateInputAttribute* o wartości *false* do metody akcji:
+Alternatywnie, aby wyłączyć weryfikację żądań dla każdej właściwości w modelu, należy zastosować *atrybut ValidateInputAttribute* o wartości *false* do metody akcji:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample24.cs)]
 
 <a id="_Toc276711794"></a>
 ## <a name="breaking-changes"></a>Fundamentalne zmiany
 
-- Kolejność wykonywania filtrów wyjątków została zmieniona dla filtry wyjątków, które mają taki sam *kolejności* wartość. W programie ASP.NET MVC 2 i starszych wyjątek filtry na kontrolerze, który ma takie same *kolejności* zgodnie z tymi w metody akcji zostały wykonane przed filtrami wyjątek w metodzie akcji. Zwykle można sytuacji, gdy zostały zastosowane filtry wyjątków bez określonej *kolejności* wartość. W programie ASP.NET MVC 3 ta kolejność została wycofana tak, aby najpierw wykonana specyficzny obsługi wyjątków. Jak w starszych wersjach Jeśli *kolejności* jawnie określono właściwość, filtry są uruchamiane w określonej kolejności.
-- Dodaje nową właściwość o nazwie *FileExtensions* do *VirtualPathProviderViewEngine* klasy podstawowej. Podczas wyszukiwania widoku przez ścieżki (a nie przez nazwę), tylko widoków z rozszerzeniem zawartych w określonej przez tę właściwość nowej listy jest traktowany jako. Jest to istotne zmiany osób zarejestrować dostawcę niestandardowej kompilacji, aby włączyć rozszerzenie pliku niestandardowych widoków formularza sieci web i odwołują się do tych widoków przy użyciu pełnej ścieżki, a nie nazwę. Należy zmodyfikować wartość *FileExtensions* właściwości do niestandardowego pliku rozszerzenia.
+- Kolejność wykonywania filtrów wyjątek został zmieniony na filtry wyjątków, które mają taki sam *kolejności* wartość. W programie ASP.NET MVC 2 i starszych wyjątek filtrów na kontrolerze, który miał takie same *kolejności* jako osoby korzystające z metody akcji był wykonywany przed filtry wyjątków dla metody akcji. Zazwyczaj można tak, gdy zostały zastosowane filtry wyjątków bez określonej *kolejności* wartość. W programie ASP.NET MVC 3 to zamówienie została wycofana, aby najpierw wykonana bardziej konkretny od pozostałych obsługi wyjątków. Tak jak w starszych wersjach Jeśli *kolejności* właściwość jest jawnie określona, filtry są uruchamiane w określonej kolejności.
+- Dodaje nową właściwość o nazwie *FileExtensions* do *VirtualPathProviderViewEngine* klasy bazowej. Podczas wyszukiwania widoku przy użyciu ścieżki (a nie według nazwy) tylko widoki z rozszerzeniem pliku zawarte w określonej przez tę właściwość nowej listy jest traktowany jako. Jest to istotnej zmiany dla tych, którzy Zarejestruj dostawcę niestandardowej kompilacji, aby włączyć rozszerzenie pliku niestandardowe widoki formularzy sieci web i odwołują się do tych widoków przy użyciu pełnej ścieżki, a nie nazwę. Obejście polega na zmodyfikowanie wartości *FileExtensions* właściwość, aby dołączyć rozszerzenie niestandardowego pliku.
 
 <a id="_Toc276711795"></a>
 ## <a name="known-issues"></a>Znane problemy
 
-- Instalator może trwać znacznie dłużej niż w poprzednich wersjach programu ASP.NET MVC, aby zakończyć, ponieważ powoduje zaktualizowanie składników programu Visual Studio 2010.
-- Dodaj widok funkcja szkieletów, wybierając astrongly uwzględniających typy właściwości tylko do zapisu rusztowania widoku. Te powinny zawsze być ignorowane przez funkcję szkieletów. Okno dialogowe dodawania widoku również rusztowania właściwości tylko do odczytu podczas generowania widoku "Edit" lub "Utwórz". Właściwości tylko do odczytu powinny być szkieletu tylko wyświetlania i listy widoki.
-- Debugowanie nie działa, po zainstalowaniu programu ASP.NET MVC 3 obok CTP asynchronicznego. ASP.NET MVC 3 nie może być zainstalowane obok siebie z CTP asynchronicznego. Odinstaluj CTP Async naprawić debugowania. Aby uzyskać więcej informacji, przeczytaj [ten wpis w blogu](http://drew-prog.blogspot.com/2010/11/how-to-uninstall-microsoft-aspnet-mvc-3.html) o odinstalowywaniu wszystkich części programu ASP.NET MVC 3 RC.
-- Razor Intellisense nie działa, gdy Resharper jest zainstalowany. Jeśli masz zainstalowany ReSharper i chcesz skorzystać obsługę funkcji intellisense Razor ASP.NET MVC 3 RC, przeczytaj [ten wpis w blogu](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) z JetBrains, w którym omówiono sposoby użyć ich razem dzisiaj.
-- Widoki CSHTML i VBHTML utworzone za pomocą wersji Beta programu ASP.NET MVC 3 nie mają swoje działania kompilacji poprawnie które pomija je z publikowania. *Akcja kompilacji* dla tych plików należy ustawić na "Zawartość". ASP.NET MVC 3 RC rozwiązuje ten problem dla nowych plików, ale nie poprawne ustawienie dla istniejących plików projektu utworzonych za pomocą wersji Beta.
-- Instalator może trwać znacznie dłużej niż w poprzednich wersjach programu ASP.NET MVC, aby zakończyć, ponieważ powoduje zaktualizowanie składników programu Visual Studio 2010.
-- Właściwości tylko do odczytu szkieletów Dodaj widok, gdy zaznaczenie "Edit" silnie wpisywane rusztowania widoku. Podobnie właściwości tylko do zapisu są szkieletu dla widoków "Display".
-- Podczas instalacji postanowienia licencyjne wyświetlone okno dialogowe akceptacji umowy licencyjnej w oknie, która jest mniejsza niż zamierzony.
-- Instalowanie programu Visual Studio Async CTP powoduje konflikt z wersji Razor, który jest częścią programu ASP.NET MVC 3 instalacji narzędzi. Upewnij się, że należy próbować zainstalować zarówno programu Visual Studio Async CTP, jak i wersji aparatu Razor na tym samym komputerze.
-- Podczas edytowania widoku Razor (cshtml plik), przejdź do kontrolera elementu menu w programie Visual Studio nie będą dostępne, a nie ma żadnych wstawki kodu.
+- Instalator może zająć więcej czasu niż w poprzednich wersjach programu ASP.NET MVC, aby zakończyć, ponieważ powoduje zaktualizowanie składniki programu Visual Studio 2010.
+- Dodaj widok szkieletu podczas wybierania astrongly wpisane szkielety mechanizmów Wyświetl właściwości tylko do zapisu. Powinny one zawsze ignorowane przez tworzenie szkieletów. Okno dialogowe dodawania widoku również szkielety mechanizmów właściwości tylko do odczytu podczas generowania widoku "Edit" lub "Utwórz". Właściwości tylko do odczytu powinny tylko szkieletu w liście i wyświetlanie widoków.
+- Debugowanie nie działa w przypadku platformy ASP.NET MVC 3 jest instalowany obok Async CTP. ASP.NET MVC 3 nie może być zainstalowane obok siebie wersją Async CTP. Odinstaluj CTP Async naprawić debugowania. Aby uzyskać więcej informacji, przeczytaj [ten wpis w blogu](http://drew-prog.blogspot.com/2010/11/how-to-uninstall-microsoft-aspnet-mvc-3.html) o odinstalowaniu wszystkich części programu ASP.NET MVC 3 RC.
+- Razor Intellisense nie działa po zainstalowaniu Resharper. Jeśli masz zainstalowanym rozszerzeniem ReSharper i wykorzystać obsługę funkcji intellisense Razor programu ASP.NET MVC 3 RC, przeczytaj [ten wpis w blogu](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) firmy JetBrains, w którym omówiono sposoby używania ich ze sobą już dziś.
+- Widoki CSHTML i VBHTML utworzone przy użyciu wersji Beta programu ASP.NET MVC 3 nie mają swoje działania kompilacji poprawnie które pomija je z publikacji. *Build Action* dla tych plików powinna być ustawiona na "Treści". ASP.NET MVC 3 RC rozwiązuje ten problem dla nowych plików, ale nie rozwiąże to ustawienie dla istniejących plików projektu utworzonych za pomocą wersji Beta.
+- Instalator może zająć więcej czasu niż w poprzednich wersjach programu ASP.NET MVC, aby zakończyć, ponieważ powoduje zaktualizowanie składniki programu Visual Studio 2010.
+- Dodaj widok szkieletu podczas wybierając "Edit" silnie wpisany szkielety mechanizmów widoku właściwości tylko do odczytu. Podobnie właściwości tylko do zapisu czy szkielet dla widoków "Display".
+- Podczas instalacji okno dialogowe akceptacji umowy licencyjnej wyświetla postanowienia licencyjne w oknie, która jest mniejsza niż planowano.
+- Instalowanie programu Visual Studio CTP Async powoduje konflikt z wersji Razor, który jest częścią programu ASP.NET MVC 3, Instalacja narzędzi. Upewnij się, że należy próbować zainstalować zarówno w Visual Studio Async CTP, jak i w wersji aparatu Razor na tym samym komputerze.
+- Podczas edytowania widoku Razor (cshtml plik), przejdź do kontrolera elementu menu w programie Visual Studio nie będą dostępne, i nie Brak fragmentów kodu.
 
 <a id="TOC_ASP_NET_3_Beta"></a>
-## <a name="aspnet-mvc-3-beta"></a>ASP.NET MVC 3 Beta
+## <a name="aspnet-mvc-3-beta"></a>ASP.NET MVC 3 w wersji Beta
 
-Platforma ASP.NET MVC 3 Beta 6 października 2010 został wydany. Poniższe uwagi są specyficzne dla wersji Beta i podlegają aktualizacje lub zmiany w powyższej sekcji platformy ASP.NET MVC 3 Release Candidate.
+ASP.NET MVC 3 w wersji Beta została wydana 6 października 2010. Poniższe informacje o są specyficzne dla wersji Beta i podlegają one wszystkich aktualizacji lub zmiany w powyższej sekcji platformy ASP.NET MVC 3 Release Candidate.
 
 ## <a id="0.1__Toc274034215"></a>  Nowe Featuresin platformy ASP.NET MVC 3 w wersji Beta
 
@@ -636,29 +635,29 @@ Platforma ASP.NET MVC 3 Beta 6 października 2010 został wydany. Poniższe uwag
 
 ### <a id="0.1__Toc274034216"></a>  Menedżer pakietów NuGet
 
-Platforma ASP.NET MVC 3 zawiera Menedżera pakietów NuGet, który jest zintegrowany pakiet narzędzia do zarządzania Dodawanie bibliotek i narzędzia do projektów programu Visual Studio. W większości przypadków jest to automatyzacja czynności, które deweloperzy obecnie wykonać próba pobrania biblioteki do drzewa ich źródła.
+Platforma ASP.NET MVC 3 zawiera Menedżer pakietów NuGet, czyli narzędzia do zarządzania pakietami zintegrowane Dodawanie bibliotek i narzędzi do projektów programu Visual Studio. W większości przypadków automatyzuje kroki, które deweloperzy dziś wykonać, aby pobrać bibliotekę do ich drzewa źródłowego.
 
-Możesz pracować z programem NuGet jako narzędzie wiersza polecenia, w oknie konsoli zintegrowane, Visual Studio 2010, z menu kontekstowego programu Visual Studio i jako zestaw poleceń cmdlet programu PowerShell.
+Możesz pracować z NuGet jako narzędzie wiersza polecenia, jako okno zintegrowana konsola, Visual Studio 2010, z menu kontekstowego programu Visual Studio oraz zestawu poleceń cmdlet programu PowerShell.
 
-Aby uzyskać więcej informacji na temat narzędzia NuGet, przeczytaj [dokumentacji NuGet](https://docs.microsoft.com/nuget/).
+Aby uzyskać więcej informacji na temat programu NuGet, przeczytaj [dokumentacja programu NuGet](https://docs.microsoft.com/nuget/).
 
 ### <a id="0.1__Toc274034217"></a>  Ulepszone okno dialogowe Nowy projekt
 
-Podczas tworzenia nowego projektu, okno dialogowe Nowy projekt teraz pozwala określić aparat widoku, jak również typ projektu programu ASP.NET MVC.
+Podczas tworzenia nowego projektu w oknie dialogowym Nowy projekt teraz umożliwia określenie aparat widoku, a także typu projektu MVC programu ASP.NET.
 
 ![](mvc3-release-notes/_static/image6.png)
 
-Obsługa modyfikowania listy szablonów i widokiem wymienionym aparaty w oknie dialogowym jest niedostępna w tej wersji.
+Obsługa modyfikowania listę szablonów i widokiem aparatów wymienionym w oknie dialogowym nie znajduje się w tej wersji.
 
 Domyślne szablony są następujące:
 
-Pusta. Zawiera minimalnego zestawu plików w projekcie platformy ASP.NET MVC, łącznie z domyślną strukturą katalogów dla projektów ASP.NET MVC mały plik Site.css zawierający domyślne style ASP.NET MVC i katalog skryptów, który zawiera domyślne pliki JavaScript.
+Pusty. Zawiera minimalny zestaw plików dla projektu platformy ASP.NET MVC, w tym domyślna struktura katalogów dla projektów platformy ASP.NET MVC, mały plik Site.css, który zawiera domyślne style platformy ASP.NET MVC i katalogu skryptów, który zawiera domyślne pliki JavaScript.
 
-Aplikacja Internet. Zawiera funkcji przykładowych pokazano, jak korzystać z dostawcy członkostwa w ramach platformy ASP.NET MVC.
+Aplikację internetową. Zawiera przykładowe funkcji pokazuje sposób użycia dostawcy członkostwa, w ramach platformy ASP.NET MVC.
 
-### <a id="0.1__Toc274034218"></a>  Uproszczony sposób określania silnie wpisana modeli widokami Razor
+### <a id="0.1__Toc274034218"></a>  Uproszczony sposób na określenie silnie wpisany modeli w widokami Razor
 
-Jest teraz prostszy sposób Określ typ modelu jednoznacznie widokami Razor przy użyciu nowej @model dyrektywy CSHTML widoków i @ModelType dyrektywy w ramach VBHTML widoków. We wcześniejszych wersjach programu ASP.NET MVC należy określić, że jednoznacznie modelu dla elementu Razor widoków w ten sposób:
+Został uproszczony sposób, aby określić typ modelu do silnie typizowane widoki Razor za pomocą nowego @model dyrektywy CSHTML widoków i @ModelType dyrektywy VBHTML widoków. We wcześniejszych wersjach programu ASP.NET MVC należy określić, że silnie typizowany model dla elementu Razor widoków w ten sposób:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample25.cshtml)]
 
@@ -666,205 +665,205 @@ W tej wersji można użyć następującej składni:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample26.cshtml)]
 
-### <a id="0.1__Toc274034219"></a>  Obsługa nowej metody pomocnicze stron sieci Web ASP.NET
+### <a id="0.1__Toc274034219"></a>  Obsługa nowych stron ASP.NET Web Pages metody pomocnika
 
-Nowej technologii ASP.NET Web Pages zawiera zestaw metody pomocnicze, które są przydatne w przypadku dodawania najczęściej używane funkcje do widoków i kontrolerów. ASP.NET MVC 3 obsługuje przy użyciu tych metod pomocnika, w ramach kontrolery i widoki (w razie potrzeby). Te metody są zawarte w zestawie System.Web.Helpers. W poniższej tabeli wymieniono kilka stron ASP.NET Web Pages metody pomocnicze.
+Technologia nowego składnika ASP.NET Web Pages zawiera zbiór metody pomocnika, które są przydatne podczas dodawania funkcji często używane do widoków i kontrolerów. ASP.NET MVC 3 obsługuje, za pomocą te metody pomocnika, w ramach widoków i kontrolerów (w razie potrzeby). Te metody są zawarte w zestawie System.Web.Helpers. W poniższej tabeli wymieniono kilka metod pomocniczych stron ASP.NET Web Pages.
 
 | **Pomocnik** | **Opis** |
 | --- | --- |
-| Wykres | Renderuje wykresu w widoku. Zawiera metody, takie jak Chart.ToWebImage, Chart.Save i Chart.Write. |
-| Kryptograficznego | Używa algorytmów, aby prawidłowo utworzyć mieszania ciągu inicjującego i wartość skrótu hasła. |
-| WebGrid | Renderuje kolekcji obiektów (zazwyczaj dane z bazy danych) jako siatkę. Obsługuje stronicowania i sortowania. |
-| Obiekt WebImage | Renderuje obraz. |
+| Wykres | Renderowanie wykresu w widoku. Zawiera metody takie jak Chart.ToWebImage, Chart.Save i Chart.Write. |
+| Kryptograficznego | Algorytmy, aby utworzyć poprawnie wyznaczania wartości skrótu ciągu inicjującego i skrótu hasła. |
+| WebGrid | Renderuje kolekcji obiektów (zazwyczaj dane z bazy danych) jako siatkę. Obsługuje stronicowanie i sortowanie. |
+| WebImage | Renderuje obraz. |
 | Poczty w sieci Web | Wysyła wiadomość e-mail. |
 
-Temat krótki przewodnik zawierający listę pomocników i podstawowa składnia jest dostępna jako część składni ASP.NET Razor dokumentacji pod adresem URL:
+Temat krótki przewodnik, który wyświetla listę wątków i podstawowa składnia jest dostępny jako część dokumentacji składni ASP.NET Razor następującego adresu URL:
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-api-reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 
 ### <a id="0.1__Toc274034220"></a>  Obsługa iniekcji zależności dodatkowe
 
-Korzystając z wersji platformy ASP.NET MVC 3 Preview 1, bieżącej wersji obejmuje dodanie obsługi dwóch nowych usług oraz cztery istniejących usług i lepszą obsługę rozpoznawania zależności i wspólnego lokalizatora usług.
+Tworzenie wersji platformy ASP.NET MVC 3 w wersji zapoznawczej 1, bieżąca wersja obejmuje dodano obsługę dwie nowe usługi i cztery istniejących usług i ulepszona obsługa rozdzielczości zależnościach i wspólnego lokalizatora usług.
 
-#### <a name="new-icontrolleractivator-interface-for-fine-grained-controller-instantiation"></a>Nowy interfejs IControllerActivator dla szczegółowych kontrolera podczas tworzenia wystąpienia
+#### <a name="new-icontrolleractivator-interface-for-fine-grained-controller-instantiation"></a>Nowy interfejs IControllerActivator dla wystąpienia szczegółowych kontrolera
 
-Nowy interfejs IControllerActivator zapewnia bardziej precyzyjną kontrolę nad jak kontrolery są tworzone za pomocą iniekcji zależności. W poniższym przykładzie przedstawiono interfejsu:
+Nowy interfejs IControllerActivator zapewnia bardziej precyzyjną kontrolę nad jak kontrolery są tworzone za pomocą iniekcji zależności. Poniższy kod przedstawia interfejs:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample27.cs)]
 
-Natomiast to rola fabryki kontrolerów. Fabryka kontrolera jest implementacją interfejsu IControllerFactory, która odpowiada zarówno do lokalizowania typ kontrolera, jak i dla instancji typu kontrolera.
+Natomiast to do roli fabryki kontrolerów. Fabryki kontrolerów jest implementacją interfejsu IControllerFactory, który jest odpowiedzialny za zarówno lokalizowanie typ kontrolera i instancji tego typu kontrolera.
 
-Aktywatory kontrolerów są odpowiedzialne tylko dla instancji typu kontrolera. Nie należy wykonywać wyszukiwanie typu kontrolera. Po zlokalizowaniu typu prawidłowego kontrolera, fabryki kontrolerów powinny delegować do wystąpienia IControllerActivator do obsługi rzeczywistych podczas tworzenia wystąpienia kontrolera.
+Aktywatory są odpowiedzialne wyłącznie instancji typu kontrolera. Nie należy wykonywać wyszukiwanie typu kontrolera. Po zlokalizowaniu typu odpowiedniego kontrolera, fabryki kontrolerów powinny delegować metody do wystąpienia IControllerActivator do obsługi rzeczywistych podczas tworzenia wystąpienia kontrolera.
 
-Klasa DefaultControllerFactory ma nowego Konstruktora akceptującego wystąpienia IControllerFactory. Dzięki temu można zastosować iniekcji zależności do zarządzania tym aspektem tworzenia kontrolera bez konieczności zastąpić domyślne zachowanie wyszukiwania Typ kontrolera.
+Klasa DefaultControllerFactory ma nowego konstruktora, który akceptuje IControllerFactory wystąpienia. Dzięki temu można zastosować wstrzykiwanie zależności do zarządzania tym aspektem tworzenia kontrolera bez konieczności zastąpić domyślne zachowanie wyszukiwania typu kontrolera.
 
-#### <a name="iservicelocator-interface-replaced-with-idependencyresolver"></a>Interfejs IServiceLocator zastąpione elementu IDependencyResolver
+#### <a name="iservicelocator-interface-replaced-with-idependencyresolver"></a>Interfejs IServiceLocator zastępowane elementu IDependencyResolver
 
-Oparte na opinii społeczności, wersji Beta programu ASP.NET MVC 3 zastąpiło Użyj interfejsu IServiceLocator z interfejsem elementu IDependencyResolver slimmed rozwijanej określonych na potrzeby platformy ASP.NET MVC. W poniższym przykładzie przedstawiono nowego interfejsu:
+Na podstawie opinii społeczności, wersji platformy ASP.NET MVC 3 w wersji Beta została wymieniona korzystanie z interfejsu IServiceLocator z interfejsem elementu IDependencyResolver slimmed szczegółów określonych na potrzeby platformy ASP.NET MVC. Poniższy przykład przedstawia nowy interfejs:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample28.cs)]
 
-W ramach tej zmiany klasa ServiceLocator również został zastąpiony w klasie klasy DependencyResolver. Rejestracja rozpoznawania zależności jest podobny do wcześniejszych wersji platformy ASP.NET MVC:
+W ramach tej zmiany klasa ServiceLocator również zostało zastąpione klasy klasy DependencyResolver. Rejestracja mechanizmu rozpoznawania zależności jest podobna we wcześniejszych wersjach programu ASP.NET MVC:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample29.cs)]
 
-Implementacje tego interfejsu po prostu powinny być delegowane do odpowiedniego kontenera iniekcji zależności do udostępnienia zarejestrowanej usługi dla żądanego typu.
+Implementacje tego interfejsu powinny być po prostu delegowane do odpowiedniego kontenera iniekcji zależności w celu udostępnienia zarejestrowanej usługi dla żądanego typu.
 
-Jeśli nie ma żadnych zarejestrowanych usług żądanego typu, ASP.NET MVC oczekuje, że implementacje tego interfejsu, aby zwrócić wartość null z elementu GetService i aby zwrócić pustą kolekcję z metodę GetServices.
+W przypadku braku zarejestrowanych usług żądanego typu platformy ASP.NET MVC oczekuje, że implementacje tego interfejsu, aby zwrócić wartość null z GetService i zwrócić pustą kolekcję z funkcji GetServices.
 
-Nowa klasa klasy DependencyResolver umożliwia rejestrowanie klas implementujących interfejs wspólnego lokalizatora usług (IServiceLocator) albo znajduje się nowy interfejs elementu IDependencyResolver. Aby uzyskać więcej informacji o wspólnym lokalizatorze usług, zobacz [CommonServiceLocator w serwisie GitHub](https://github.com/unitycontainer/commonservicelocator).
+Nowa klasa klasy DependencyResolver umożliwia rejestrowanie klasy, które implementują interfejs wspólnego lokalizatora usług (IServiceLocator) albo znajduje się nowy interfejs elementu IDependencyResolver. Aby uzyskać więcej informacji o wspólnym lokalizatorze usług, zobacz [CommonServiceLocator w serwisie GitHub](https://github.com/unitycontainer/commonservicelocator).
 
 <a id="0.1__Breaking_Changes"></a>
 
-#### <a name="new-iviewactivator-interface-for-fine-grained-view-page-instantiation"></a>Nowy interfejs IViewActivator dla szczegółowych widoku strony podczas tworzenia wystąpienia
+#### <a name="new-iviewactivator-interface-for-fine-grained-view-page-instantiation"></a>Nowy interfejs IViewActivator dla szczegółowych widoku strony wystąpienia
 
-Nowy interfejs IViewPageActivator zapewnia bardziej precyzyjną kontrolę nad jak utworzyć widok strony wystąpienia za pomocą iniekcji zależności. Dotyczy to zarówno wystąpień WebFormView i RazorView wystąpień. W poniższym przykładzie przedstawiono nowego interfejsu:
+Nowy interfejs IViewPageActivator zapewnia bardziej precyzyjną kontrolę nad jak widoku strony są tworzone za pomocą iniekcji zależności. Dotyczy to zarówno w przypadku wystąpienia WebFormView, jak i wystąpienia RazorView. Poniższy przykład przedstawia nowy interfejs:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample30.cs)]
 
-Te klasy teraz akceptuje argumentu konstruktora IViewPageActivator pozwalającej umożliwia iniekcji zależności kontroli, jak utworzyć typy ViewPage, ViewUserControl i WebViewPage wystąpienia.
+W ramach tych zajęć akceptują teraz argument konstruktora IViewPageActivator pozwalającej używasz wstrzykiwanie zależności do kontrolowania, jak ViewPage, ViewUserControl i WebViewPage typy są tworzone.
 
-#### <a name="new-dependency-resolver-support-for-existing-services"></a>Nowa funkcja obsługi mechanizmu rozpoznawania zależności dla istniejących usług
+#### <a name="new-dependency-resolver-support-for-existing-services"></a>Obsługa nowych mechanizmu rozpoznawania zależności dla istniejących usług
 
 Nowe wydanie obejmuje obsługę rozpoznawania zależności dla następujących usług:
 
-- Dostawców weryfikacji modelu. Klasy, które implementują ModelValidatorProvider może być zarejestrowany w mechanizmu rozpoznawania zależności, a system będzie używać ich do obsługi sprawdzania poprawności strony klienta i serwera.
-- Dostawca metadanych modelu. Jednej klasy, która implementuje ModelMetadataProvider może być zarejestrowany w mechanizmu rozpoznawania zależności, a system zostanie użyty do udostępnienia metadanych dla systemów tworzenia szablonów i sprawdzania poprawności.
-- Dostawców wartości. Klasy, które implementują ValueProviderFactory może być zarejestrowany w mechanizmu rozpoznawania zależności, a system zostanie użyte do tworzenia dostawców wartości, które są używane przez kontroler i podczas tworzenia powiązania modelu.
-- Integratorów modeli. Klasy, które implementują IModelBinderProvider może być zarejestrowany w mechanizmu rozpoznawania zależności, a system zostanie użyte do tworzenia integratorów modeli, które są używane przez system powiązania modelu.
+- Dostawców weryfikacji modelu. Klasy, które implementują ModelValidatorProvider mogą być rejestrowane w mechanizmu rozpoznawania zależności, a system użyje ich do obsługi sprawdzania poprawności strony klienta i serwera.
+- Dostawca metadanych modelu. Jedną klasę, która implementuje ModelMetadataProvider mogą być rejestrowane w mechanizmu rozpoznawania zależności, a system użyje go do udostępnienia metadanych dla systemów tworzenia szablonów i sprawdzania poprawności.
+- Dostawców wartości. Klasy, które implementują ValueProviderFactory mogą być rejestrowane w mechanizmu rozpoznawania zależności, a system będzie używać ich do tworzenia dostawców wartości, które są używane przez kontroler i podczas wiązania modelu.
+- Integratorów modelu. Klasy, które implementują IModelBinderProvider mogą być rejestrowane w mechanizmu rozpoznawania zależności, a system będzie używać ich do tworzenia integratorów modeli, które są używane przez system powiązania modelu.
 
-### <a id="0.1__Toc274034221"></a>  Nowa funkcja obsługi dyskretnego kodu na podstawie jQuery Ajax
+### <a id="0.1__Toc274034221"></a>  Nowa funkcja obsługi dyskretnego kodu Ajax opartych na technologii jQuery
 
-Platforma ASP.NET MVC zawiera metody pomocnicze Ajax, takie jak następujące:
+Platforma ASP.NET MVC zawiera metody pomocnika technologii Ajax, takie jak następujące:
 
 - Ajax.ActionLink
 - Ajax.RouteLink
 - Ajax.BeginForm
 - Ajax.BeginRouteForm
 
-Te metody używany język JavaScript do wywołania metody akcji na serwerze, a nie przy użyciu pełnego ogłaszania zwrotnego. Ta funkcja została zaktualizowana przeprowadzać jQuery w sposób dyskretny kod. Zamiast intrusively emitowanie wbudowane skrypty klienta, te metody pomocnicze do rozdzielania zachowanie z znaczników emitowanie atrybutów HTML5 przy użyciu *danych ajax* prefiks. Zachowanie jest następnie stosowany znaczników odwołując odpowiednie pliki JavaScript. Upewnij się, że odwołują się następujące pliki JavaScript:
+Metody te za pomocą języka JavaScript do wywołania metody akcji na serwerze, a nie przy użyciu pełnego zwrotu. Ta funkcja został zaktualizowany tak, aby móc korzystać z technologii jQuery w sposób dyskretny kod. Zamiast intrusively emitowania wbudowanych skryptach klienta, te metody pomocnika oddzielić zachowanie z kodu znaczników emitowanie atrybutów HTML5 przy użyciu *danych ajax* prefiks. Zachowanie jest następnie stosowane do języka znaczników, odwołując się do odpowiednich plików JavaScript. Upewnij się, że odwołuje się następujące pliki JavaScript:
 
 - jquery-1.4.1.js
 - jquery.unobtrusive.ajax.js
 
-Ta funkcja jest domyślnie włączone w pliku Web.config w nowych szablonów projektu programu ASP.NET MVC 3, ale jest domyślnie wyłączona dla istniejących projektów. Aby uzyskać więcej informacji, zobacz [dodać flag całej aplikacji dla weryfikacji klienta i dyskretny kod JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) dalszej części tego dokumentu.
+Ta funkcja jest domyślnie włączone w pliku Web.config w nowe szablony projektów programu ASP.NET MVC 3, ale jest domyślnie wyłączona dla istniejących projektów. Aby uzyskać więcej informacji, zobacz [dodano flagi całej aplikacji do sprawdzania poprawności klienckich i dyskretny kod JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) w dalszej części tego dokumentu.
 
 ### <a id="0.1__Toc274034222"></a>  Nowa funkcja obsługi dyskretnego kodu jQuery sprawdzania poprawności
 
-Domyślnie platforma ASP.NET MVC 3 Beta używa weryfikacji jQuery w sposób dyskretny kod w celu sprawdzenia poprawności po stronie klienta. Aby włączyć sprawdzanie poprawności dyskretnego kodu klienta, należy wykonać wywołania podobnie do następującej od w widoku:
+Domyślnie program ASP.NET MVC 3 w wersji Beta używa dotyczącą weryfikacji jQuery w sposób dyskretny kod w celu sprawdzenia poprawności po stronie klienta. Aby włączyć sprawdzanie poprawności dyskretnego kodu klienta, wywoływania podobnie do poniższego z w widoku:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample31.cs)]
 
-Wymaga to, że właściwość ViewContext.UnobtrusiveJavaScriptEnabled jest ustawiona na wartość true, co można zrobić za pomocą następujących wywołania:
+Wymaga to, że ViewContext.UnobtrusiveJavaScriptEnabled właściwość jest ustawiona na wartość true, co można zrobić, wprowadzając następujące wywołanie:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample32.cs)]
 
-Upewnij się, że odwołują się następujące pliki JavaScript.
+Ponadto upewnij się, że następujące pliki JavaScript są przywoływane.
 
 - jquery-1.4.1.js
 - jquery.validate.js
 - jquery.validate.unobtrusive.js
 
-Ta funkcja jest domyślnie włączone na w pliku Web.config w nowych szablonów projektu programu ASP.NET MVC 3, ale jest domyślnie wyłączona dla istniejących projektów. Aby uzyskać więcej informacji, zobacz [nowe flagi całej aplikacji dla weryfikacji klienta i dyskretny kod JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) dalszej części tego dokumentu.
+Ta funkcja jest włączona domyślnie w pliku Web.config w nowe szablony projektów programu ASP.NET MVC 3, ale jest domyślnie wyłączona dla istniejących projektów. Aby uzyskać więcej informacji, zobacz [nowe flagi całej aplikacji do sprawdzania poprawności klienckich i dyskretny kod JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) w dalszej części tego dokumentu.
 
 <a id="0.1__Toc274034223"></a>
 
-### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>  Nowe flagi całej aplikacji dla weryfikacji klienta i dyskretny kod JavaScript
+### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>  Nowe flagi całej aplikacji do sprawdzania poprawności klienckich i dyskretny kod JavaScript
 
 Można włączyć lub wyłączyć sprawdzanie poprawności klienta i dyskretny kod JavaScript za pomocą statyczne elementy członkowskie klasy HtmlHelper, jak w poniższym przykładzie:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample33.cs)]
 
-Domyślnych szablonów projektu włącza dyskretny kod JavaScript domyślnie. Można również włączyć lub wyłączyć te funkcje w głównym pliku Web.config aplikacji przy użyciu następujących ustawień:
+Domyślne szablony projektów włącza dyskretny kod JavaScript domyślnie. Można również włączyć lub wyłączyć tych funkcji w głównym pliku Web.config swoją aplikację przy użyciu następujących ustawień:
 
 [!code-xml[Main](mvc3-release-notes/samples/sample34.xml)]
 
-Ponieważ te funkcje umożliwiają domyślnie, nowe przeciążenia zostały wprowadzone do klasy HtmlHelper, które umożliwiają zastępują ustawienia domyślne, jak pokazano w poniższych przykładach:
+Ponieważ te funkcje można włączyć domyślnie, nowe przeciążenia zostały wprowadzone do klasy HtmlHelper, które umożliwiają zastępują ustawienia domyślne, jak pokazano w poniższych przykładach:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample35.cs)]
 
-Zgodność z poprzednimi wersjami obie te funkcje są domyślnie wyłączone.
+Zgodność ze starszymi wersjami obie te funkcje są domyślnie wyłączone.
 
-### <a id="0.1__Toc274034224"></a>  Nowa funkcja obsługi kodu uruchamianego przed uruchomieniem widoków
+### <a id="0.1__Toc274034224"></a>  Nowa funkcja obsługi kodu, który jest uruchamiany przed uruchomieniem widoków
 
-Teraz możesz umieścić plik o nazwie \_viewstart.cshtml (lub \_viewstart.vbhtml) w katalogu widoki i Dodaj do niej, która będzie współdzielona przez wiele widoków w tym katalogu i jego podkatalogach kod. Na przykład może stanowić następujący kod do \_viewstart.cshtml strony w folderze ~/Views:
+Możesz teraz umieścić plik o nazwie \_viewstart.cshtml (lub \_viewstart.vbhtml) w katalogu Views i dodać do niego, który będzie współdzielona przez wielu widoków w tym katalogu i jego podkatalogach kod. Na przykład możesz umieścić następujący kod do \_viewstart.cshtml strony w folderze ~/Views:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample36.cshtml)]
 
-To ustawienie strony układu dla każdego widoku w folderze Widoki i rekursywnie wszystkie jego podfoldery. Gdy widok jest renderowany, kod w \_viewstart.cshtml plik jest uruchamiany przed uruchomieniem kodu widoku. \_Viewstart.cshtml kod ma zastosowanie do każdego widoku w tym folderze.
+Spowoduje to ustawienie strony układu dla każdego widoku w folderze Widoki i wszystkie jego podfoldery cyklicznie. Jeśli widok jest renderowany, kod w \_viewstart.cshtml plik jest uruchamiany przed uruchomieniem Wyświetl kod. \_Viewstart.cshtml kod ma zastosowanie do każdego widoku w tym folderze.
 
-Domyślnie ten kod w \_viewstart.cshtml plików mają zastosowanie również do widoków w dowolnym podfolderze. Jednak poszczególnych podfolderów może mieć własną wersję z \_viewstart.cshtml pliku; w tym przypadku lokalnej wersji ma pierwszeństwo. Na przykład, aby uruchomić kod, który jest wspólny dla wszystkich widoków dla HomeController, umieść \_viewstart.cshtml pliku w folderze ~/Views/Home.
+Domyślnie, kod w \_viewstart.cshtml plik ma również zastosowanie do widoków w dowolnego podfolderu. Jednak poszczególnych podfolderów może mieć własną wersję programu \_viewstart.cshtml pliku; w tym przypadku wersja lokalna ma pierwszeństwo. Na przykład, aby uruchomić kod, który jest wspólny dla wszystkich widoków dla HomeController, należy umieścić \_viewstart.cshtml pliku w folderze ~/Views/Home.
 
 ### <a id="0.1__Toc274034225"></a>  Nowa funkcja obsługi VBHTML składni Razor
 
-W poprzedniej wersji zapoznawczej programu ASP.NET MVC uwzględnione obsługę widoków przy użyciu składni Razor oparty na języku C#. Widoki te używają z rozszerzeniem cshtml. W ramach trwającej pracy do obsługi Razor ASP.NET MVC 3 Beta wprowadzono obsługę składni Razor w języku Visual Basic, który korzysta z rozszerzeniem .vbhtml.
+Poprzedniej wersji zapoznawczej platformy ASP.NET MVC uwzględnione Obsługa widoków przy użyciu składni Razor na podstawie języka C#. Widoki te używają z rozszerzeniem cshtml. Jako część pracy w toku do obsługi Razor ASP.NET MVC 3 Beta wprowadzono obsługę składni Razor w języku Visual Basic, wykorzystują rozszerzenie pliku .vbhtml.
 
-Aby obejrzeć wprowadzenie do przy użyciu składni języka Visual Basic na stronach VBHTML zobacz samouczek z następującego adresu URL:
+Wprowadzenie do przy użyciu składni języka Visual Basic na stronach VBHTML zobacz samouczek następującego adresu URL:
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-visual-basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
 
-### <a id="0.1__Toc274034226"></a>  Bardziej szczegółową kontrolę nad atrybut ValidateInputAttribute
+### <a id="0.1__Toc274034226"></a>  Bardziej precyzyjną kontrolę nad atrybut ValidateInputAttribute
 
-ASP.NET MVC ma zawsze dołączane atrybut ValidateInputAttribute klasy, która wywołuje infrastruktury weryfikacji żądania ASP.NET core aby upewnić się, czy przychodzące żądanie nie zawiera potencjalnie złośliwych danych. Sprawdzania poprawności danych wejściowych jest domyślnie włączone. Istnieje możliwość wyłączono weryfikację żądań przy użyciu atrybutu atrybut ValidateInputAttribute, jak w poniższym przykładzie:
+ASP.NET MVC ma zawsze włączone klasy atrybut ValidateInputAttribute, która wywołuje infrastruktury sprawdzania poprawności żądania ASP.NET core aby upewnić się, czy przychodzące żądanie nie zawiera potencjalnie złośliwych danych. Domyślnie sprawdzenie poprawności danych wejściowych jest włączona. Istnieje możliwość wyłączyć sprawdzanie poprawności żądań za pomocą atrybutu atrybut ValidateInputAttribute, jak w poniższym przykładzie:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample37.cs)]
 
-Jednak wiele aplikacji sieci web ma poszczególne pola muszą zezwalać na HTML, podczas gdy pozostałe pola nie powinny. Klasa atrybut ValidateInputAttribute umożliwia teraz określenie listy pól, które nie powinny znajdować się w weryfikacji żądań.
+Jednak wiele aplikacji sieci web ma pojedynczych pól formularza, które muszą zezwalać na języku HTML, podczas gdy pozostałe pola nie powinna. Klasa atrybut ValidateInputAttribute umożliwia teraz określenie listy pól, które nie powinny znajdować się w weryfikacji żądań.
 
-Na przykład jeśli tworzysz aparat blogu można umożliwić znacznik, w polach treści i podsumowanie. Tych pól może być reprezentowany przez dwa element input, każde z nich atrybutu nazwy odpowiadającej nazwie właściwości ("Treść" i "Summary"). Aby wyłączyć żądania weryfikacji dla tych pól tylko, określ nazwy (rozdzielanych przecinkami) we właściwości Wyklucz klasy ValidateInput, jak w poniższym przykładzie:
+Na przykład jeśli tworzysz aparatu blogu można umożliwić znacznik, w polu treści i podsumowanie. Te pola może być reprezentowany przez dwa element input, każdy atrybut nazwy odpowiadającej nazwie właściwości ("Treść" i "Summary"). Aby wyłączyć żądania weryfikacji dla tych pól Podaj tylko nazwy, (przecinkami) we właściwości wykluczania klasy ValidateInput, jak w poniższym przykładzie:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample38.cs)]
 
-### <a id="0.1__Toc274034227"></a>  Pomocnicy konwertowania podkreślenia łączniki do nazwy atrybutu HTML określony przy użyciu anonimowego obiektów
+### <a id="0.1__Toc274034227"></a>  Pomocnicy przekonwertować podkreślenia łączniki dla atrybutu HTML nazw określony za pomocą anonimowego obiektów
 
-Metody pomocnicze umożliwiają określenie atrybutu pary nazwa/wartość, przy użyciu obiektu anonimowego, jak w poniższym przykładzie:
+Metody pomocników umożliwiają określenie atrybutu pary nazwa/wartość, przy użyciu obiektu anonimowego, jak w poniższym przykładzie:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample39.cs)]
 
-Takie podejście nie umożliwiają używanie łączników w nazwie atrybutu, ponieważ łącznik nie może służyć do nazwy właściwości w programie ASP.NET. Łączniki są jednak istotne dla atrybutów niestandardowych HTML5; na przykład HTML5 używa prefiksu "data-".
+To podejście nie umożliwiają używanie łączników w nazwę atrybutu, ponieważ nie można używać łącznika dla nazwy właściwości w programie ASP.NET. Jednak łączniki są ważne w przypadku atrybutów niestandardowych HTML5; na przykład HTML5 używa prefiksu "data-".
 
-W tym samym czasie znaki podkreślenia nie można używać dla atrybutu nazwy w formacie HTML, ale są prawidłowe w nazw właściwości. W związku z tym Jeśli określisz atrybutów przy użyciu obiektu anonimowego i nazwy atrybutu zawierać znaku podkreślenia,, metody pomocnicze przekonwertuje podkreślenia łączniki. Na przykład następującej składni pomocnika używa znaku podkreślenia:
+W tym samym czasie znaki podkreślenia nie można używać nazw atrybutów w formacie HTML, ale są prawidłowe w nazwy właściwości. W związku z tym Jeśli określisz atrybutów przy użyciu obiektu anonimowego i nazwy atrybutu zawierają znaku podkreślenia,, metody pomocnika przekonwertuje podkreślenia łączników. Na przykład następująca składnia pomocnika używa znaku podkreślenia:
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample40.cs)]
 
-Poprzedni przykład renderuje kod znaczników następujące po uruchomieniu pomocnika:
+Poprzedni przykład renderuje następujące znaczniki, po uruchomieniu elementu pomocniczego:
 
 [!code-html[Main](mvc3-release-notes/samples/sample41.html)]
 
 ## <a id="0.1__Toc274034228"></a>  Poprawki błędów
 
-Domyślny szablon obiektu dla pomocników szablonu EditorFor i DisplayFor obsługuje teraz porządkowania określonego we właściwości DisplayAttribute.Order. (W poprzednich wersjach, ustawienie kolejności nie użyto.)
+Domyślny szablon obiektu dla pomocników szablonu EditorFor i DisplayFor obsługuje teraz porządkowanie określony we właściwości DisplayAttribute.Order. (W poprzednich wersjach, ustawienie kolejności nie był używany.)
 
-Teraz sprawdzanie poprawności klienta obsługuje weryfikacji zastąpione właściwości, które mają zastosowanie atrybutów sprawdzania poprawności.
+Teraz sprawdzanie poprawności klienta obsługuje walidację zastąpione właściwości, które mają atrybuty weryfikacji.
 
 JsonValueProviderFactory teraz jest zarejestrowana domyślnie.
 
 ## <a id="0.1__Toc274034229"></a>  Fundamentalne zmiany
 
-Kolejność wykonywania filtrów wyjątków została zmieniona dla filtry wyjątków, które mają taką samą wartość kolejności. W programie ASP.NET MVC 2 i starszych wyjątek filtruje na kontrolerze o takiej samej kolejności jak te na metody akcji zostały wykonane przed filtrami wyjątek w metodzie akcji. Zwykle będzie to wielkość liter podczas zostały zastosowane filtry wyjątków bez określoną wartość kolejności. W programie ASP.NET MVC 3 ta kolejność została wycofana tak, aby najpierw wykonana specyficzny obsługi wyjątków. Jak w starszych wersjach Jeśli właściwość kolejności jawnie określono, filtry są uruchamiane w określonej kolejności.
+Kolejność wykonywania filtrów wyjątek został zmieniony na filtry wyjątków, które mają taką samą wartość kolejności. W programie ASP.NET MVC 2 i starszych wyjątek służy do przefiltrowania na kontrolerze o takiej samej kolejności jak osoby korzystające z metody akcji był wykonywany przed filtry wyjątków dla metody akcji. Zwykle będzie to wymagane podczas zastosowane filtry wyjątków bez określonej wartości kolejności. W programie ASP.NET MVC 3 to zamówienie została wycofana, aby najpierw wykonana bardziej konkretny od pozostałych obsługi wyjątków. Tak jak w starszych wersjach Jeśli właściwość kolejność jest jawnie określona, filtry są uruchamiane w określonej kolejności.
 
 ## <a id="0.1__Toc274034230"></a>  Znane problemy
 
-Podczas instalacji postanowienia licencyjne wyświetlone okno dialogowe akceptacji umowy licencyjnej w oknie, która jest mniejsza niż zamierzony.
+Podczas instalacji okno dialogowe akceptacji umowy licencyjnej wyświetla postanowienia licencyjne w oknie, która jest mniejsza niż planowano.
 
-Nie masz widokami razor, obsługę funkcji IntelliSense, ani wyróżnianie składni. Przewiduje się, że Obsługa składni Razor w programie Visual Studio będą dołączane jako część nowszej wersji.
+Nie masz widokami razor, obsługę funkcji IntelliSense, ani wyróżniania składni. Przewidywany jest Obsługa składni Razor w programie Visual Studio będą dołączane jako część nowszej wersji.
 
-Podczas edytowania widoku Razor (CSHTML plik), <a id="0.1__Toc224729061"> </a> <a id="0.1__Toc238051347"> </a> przejdź do kontrolera elementu menu w programie Visual Studio nie będą dostępne i nie ma żadnych wstawki kodu.
+Podczas edytowania widoku Razor (CSHTML plik), <a id="0.1__Toc224729061"> </a> <a id="0.1__Toc238051347"> </a> przejdź do kontrolera elementu menu w programie Visual Studio nie będą dostępne, a istnieją nie fragmentów kodu.
 
-Korzystając z @model wyświetlić składnię, aby określić jednoznacznie CSHTML, specyficzny dla języka skróty typów nie są rozpoznawane. Na przykład @model int nie będzie działać, ale @model Int32 będzie działać. Rozwiązania dla tego błędu jest używać nazwy typu rzeczywistego po określeniu typu modelu.
+Korzystając z @model składnia określająca silnie typizowaną CSHTML służy do wyświetlania, skróty charakterystyczny dla typów nie są rozpoznawane. Na przykład @model int nie będzie działać, ale @model Int32 będzie działać. Obejście dla tej usterki dotyczy użycia nazwą rzeczywistego typu, podczas określania typu modelu.
 
-Korzystając z @model składni, aby określić silnie typizowanego widoku CSHTML (lub @ModelType do określenia silnie typizowanego widoku VBHTML), typy dopuszczające wartości zerowe i deklaracje tablicy nie są obsługiwane. Na przykład @model int? nie jest obsługiwane. Zamiast tego należy użyć `@model Nullable<Int32>`. Składnia @model ciąg [] nie jest także obsługiwane; zamiast tego należy użyć `@model IList<string>`.
+Korzystając z @model składnia określająca silnie typizowanego widoku CSHTML (lub @ModelType do określenia silnie typizowanego widoku VBHTML), typy dopuszczające wartości zerowe i deklaracje tablic nie są obsługiwane. Na przykład @model int? nie jest obsługiwane. Zamiast tego należy użyć `@model Nullable<Int32>`. Składnia @model ciąg [] nie jest również obsługiwany; zamiast tego należy użyć `@model IList<string>`.
 
-Po uaktualnieniu projektu programu ASP.NET MVC 2 platformy ASP.NET MVC 3, upewnij się, że Dodaj następującą wartość do sekcji appSettings w pliku Web.config:
+Kiedy uaktualniasz projekt platformy ASP.NET MVC 2 do ASP.NET MVC 3, upewnij się, że Dodaj następujący element do sekcji appSettings pliku Web.config:
 
 [!code-xml[Main](mvc3-release-notes/samples/sample42.xml)]
 
-Jest to znany problem, który powoduje, że uwierzytelnianie formularzy zawsze przekierowywania nieuwierzytelnionych użytkowników ~/Account/logowania, ignorowanie ustawienia uwierzytelniania formularzy, które są używane w pliku Web.config. Obejście polega na Dodaj następujące ustawienie aplikacji.
+Istnieje znany problem, który powoduje, że uwierzytelnianie formularzy zawsze przekierowywania nieuwierzytelnionych użytkowników do ~/Account lub identyfikator logowania, ignorowanie ustawienia uwierzytelniania formularzy, które są używane w pliku Web.config. Obejście polega na Dodaj następujące ustawienie aplikacji.
 
 [!code-xml[Main](mvc3-release-notes/samples/sample43.xml)]
 
 ## <a id="0.1__Toc274034231"></a>  Zrzeczenie odpowiedzialności
 
-© 2011 Microsoft Corporation. Wszelkie prawa zastrzeżone. Niniejszy dokument jest udostępniany "jako — jest." Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i inne odsyłacze do witryn internetowych, mogą ulec zmianie bez uprzedzenia. Użytkownik ponosi ryzyko związane z użyciem jej.
+© 2011 Microsoft Corporation. Wszelkie prawa zastrzeżone. Niniejszy dokument jest udostępniany "jako-to." Informacje i poglądy wyrażone w tym dokumencie, w tym adresy URL i inne odniesienia do witryn internetowych, mogą ulec zmianie bez powiadomienia. Użytkownik jest odpowiedzialny za jej pomocą.
 
-Ten dokument nie daje użytkownikowi żadnych praw do jakiejkolwiek własności intelektualnej związanej z jakimkolwiek produktem firmy Microsoft. Można kopiować i używać tego dokumentu do wewnętrznych celów referencyjnych.
+W tym dokumencie nie umożliwiają żadnych praw do własności intelektualnej w jakimkolwiek produkcie firmy Microsoft. Można kopiować i używać tego dokumentu do wewnętrznych celów referencyjnych.

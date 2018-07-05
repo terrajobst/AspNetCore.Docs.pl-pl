@@ -1,89 +1,88 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/batch-deleting-cs
-title: Wsadowe usuwania (C#) | Dokumentacja firmy Microsoft
+title: Batch usuwania (C#) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Dowiedz się, jak usunąć wiele rekordów bazy danych w ramach jednej operacji. Warstwę interfejsu użytkownika firma Microsoft rozbudowanie rozszerzonego widoku GridView utworzony we wcześniejszej tut...
+description: Dowiedz się, jak usunąć wiele rekordów bazy danych w ramach jednej operacji. W warstwie interfejsu użytkownika możemy bazują na rozszerzonego widoku GridView utworzone we wcześniejszej tut...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
 ms.topic: article
 ms.assetid: ac6916d0-a5ab-4218-9760-7ba9e72d258c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 59c90dcf373d19aad42250ee6dedba5f09f833b5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c6d792519d4a9c30f8d28497a74bc45b00197169
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891870"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365308"
 ---
-<a name="batch-deleting-c"></a>Wsadowe usuwania (C#)
+<a name="batch-deleting-c"></a>Batch usuwania (C#)
 ====================
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
-[Pobierz kod](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_65_CS.zip) lub [pobierania plików PDF](batch-deleting-cs/_static/datatutorial65cs1.pdf)
+[Pobierz program Code](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_65_CS.zip) lub [Pobierz plik PDF](batch-deleting-cs/_static/datatutorial65cs1.pdf)
 
-> Dowiedz się, jak usunąć wiele rekordów bazy danych w ramach jednej operacji. Warstwę interfejsu użytkownika firma Microsoft zależą rozszerzonego widoku GridView utworzonej w samouczku wcześniej. W warstwie dostępu do danych Firma Microsoft zawijać wielu operacji usuwania w ramach transakcji, aby upewnić się, że wszystkie operacje usuwania powiedzie się lub wycofać wszystkie operacje usuwania.
+> Dowiedz się, jak usunąć wiele rekordów bazy danych w ramach jednej operacji. W warstwie interfejsu użytkownika możemy bazują na rozszerzonego widoku GridView utworzoną w samouczku wcześniej. W warstwie dostępu do danych Firma opakować wiele operacji usuwania w ramach transakcji, aby upewnić się, że wszystkie operacje usuwania powiedzie się lub wszystkie operacje usuwania są przywracane.
 
 
 ## <a name="introduction"></a>Wprowadzenie
 
-[Poprzedniego samouczek](batch-updating-cs.md) przedstawione w sposób tworzenia partii edycji interfejs przy użyciu w pełni edytowalne widoku GridView. W sytuacjach, gdy użytkownicy często edytowania wielu rekordów jednocześnie partii edycji interfejsu będzie wymagać mniej ogłaszania zwrotnego i mysz klawiatury kontekstu przełączników, zwiększając wydajność s użytkownika końcowego. Ta metoda przydaje się podobnie do strony, gdzie jest często dla użytkowników usunąć wielu rekordów w jednym Przejdź.
+[Poprzedni Samouczek](batch-updating-cs.md) zbadano sposób tworzenia partii edycji interfejs przy użyciu GridView pełni edytowalne. W sytuacjach, gdzie użytkownicy często edytowania wielu rekordów naraz, partii edytowanie interfejsu wymaga znacznie mniejszej liczby ogłaszania zwrotnego i mysz klawiatury kontekstu przełączników, a więc poprawa wydajności s użytkownika końcowego. Ta metoda przydaje się podobnie dla stron, gdzie jest typowe dla użytkowników usunąć wiele rekordów w jednym z rzeczywistym użyciem.
 
-Każdy użytkownik, który został użyty w kliencie poczty e-mail w trybie online jest już zapoznać się z jednym z najbardziej typowych partii usuwanie interfejsów: przycisk wyboru w każdym wierszu w siatce z odpowiedniego Usuń wszystkie zaznaczone elementy (zobacz rysunek 1). W tym samouczku jest raczej krótka ponieważ firma Microsoft kolejnych już przeprowadzone wszystkie Praca w poprzednim samouczkach w opracowaniu zarówno interfejs sieci web, jak i metody, można usunąć serii rekordów jako pojedynczej Atomowej operacji. W [dodanie kolumny widoku GridView pola wyboru](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) samouczek utworzyliśmy Element GridView z kolumną pola wyboru, w [zawijania modyfikacje bazy danych w ramach transakcji](wrapping-database-modifications-within-a-transaction-cs.md) utworzyliśmy metody w samouczku logiki warstwy Biznesowej, który użyje transakcji, aby usunąć `List<T>` z `ProductID` wartości. W tym samouczku nasz zależą od i scal naszych poprzednich środowiska do tworzenia partii pracy usuwanie przykład.
-
-
-[![Każdy wiersz zawiera pole wyboru](batch-deleting-cs/_static/image1.gif)](batch-deleting-cs/_static/image1.png)
-
-**Rysunek 1**: każdy wiersz zawiera pole wyboru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image2.png))
+Każdy, kto został użyty w kliencie poczty e-mail w trybie online jest już znane z jednym z najbardziej typowych partii usuwanie interfejsów: pole wyboru w każdym wierszu w siatce z odpowiedniego Usuń wszystkie zaznaczone elementy przycisku (patrz rysunek 1). W tym samouczku jest raczej krótkie ponieważ możemy ve ustanowionego wszystkie trudną pracę w poprzednich samouczkach w tworzeniu interfejsu opartego na sieci web i metodę, aby usunąć serii rekordów w jednej niepodzielnej operacji. W [Dodawanie kolumny pól wyboru do kontrolki GridView](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) samouczku utworzyliśmy GridView z kolumny pól wyboru, a w polu [opakowywanie modyfikacji bazy danych w ramach transakcji](wrapping-database-modifications-within-a-transaction-cs.md) samouczku utworzyliśmy metody w LOGIKI, która będzie używać transakcji można usunąć `List<T>` z `ProductID` wartości. W tym samouczku Zapoznamy bazują na i scalić naszych doświadczeń poprzedniej, aby utworzyć instancję pracy usuwania przykład.
 
 
-## <a name="step-1-creating-the-batch-deleting-interface"></a>Krok 1: Tworzenie partii Usuwanie interfejsu
+[![Każdy wiersz zawiera pola wyboru](batch-deleting-cs/_static/image1.gif)](batch-deleting-cs/_static/image1.png)
 
-Ponieważ utworzyliśmy Usuwanie interfejsu w partii [dodanie kolumny widoku GridView pola wyboru](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) samouczek, firma Microsoft może po prostu skopiuj go do `BatchDelete.aspx` zamiast tworzenia go od początku. Uruchamianie przez otwarcie `BatchDelete.aspx` strony `BatchData` folderu i `CheckBoxField.aspx` strony `EnhancedGridView` folderu. Z `CheckBoxField.aspx` strony, przejdź do widoku źródła i skopiuj kod znaczników między `<asp:Content>` tagów, jak pokazano na rysunku 2.
-
-
-[![Skopiuj kod deklaratywne znaczników CheckBoxField.aspx do Schowka](batch-deleting-cs/_static/image2.gif)](batch-deleting-cs/_static/image3.png)
-
-**Rysunek 2**: kopiowanie deklaratywne oznakowanie `CheckBoxField.aspx` do Schowka ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image4.png))
+**Rysunek 1**: każdy wiersz zawiera pola wyboru ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image2.png))
 
 
-Następnie przejdź do widoku źródła w `BatchDelete.aspx` i Wklej zawartość Schowka w `<asp:Content>` tagów. Skopiować i wkleić kod z klasy związane z kodem w `CheckBoxField.aspx.cs` do należące do klasy związane z kodem w `BatchDelete.aspx.cs` ( `DeleteSelectedProducts` przycisk s `Click` program obsługi zdarzeń, `ToggleCheckState` metody i `Click` procedury obsługi zdarzeń Aby uzyskać `CheckAll` i `UncheckAll` przycisków). Po skopiowaniu przez tę zawartość `BatchDelete.aspx` klasy związane z kodem strony s powinna zawierać następujący kod:
+## <a name="step-1-creating-the-batch-deleting-interface"></a>Krok 1: Tworzenie usługi Batch, usuwanie interfejsu
+
+Ponieważ utworzyliśmy partii Usuwanie interfejsu w [Dodawanie kolumny pól wyboru do kontrolki GridView](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) samouczek, możemy po prostu skopiować go do `BatchDelete.aspx` zamiast go utworzyć od podstaw. Zacznij od otwarcia `BatchDelete.aspx` strony w `BatchData` folder i `CheckBoxField.aspx` stronie `EnhancedGridView` folderu. Z `CheckBoxField.aspx` strony, przejdź do widoku źródła i skopiuj znaczników między `<asp:Content>` tagów, jak pokazano na rysunku 2.
+
+
+[![Skopiuj oznaczeniu deklaracyjnym CheckBoxField.aspx do Schowka](batch-deleting-cs/_static/image2.gif)](batch-deleting-cs/_static/image3.png)
+
+**Rysunek 2**: Skopiuj oznaczeniu deklaracyjnym `CheckBoxField.aspx` do Schowka ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image4.png))
+
+
+Następnie przejdź do widoku źródła `BatchDelete.aspx` i Wklej zawartość Schowka w ramach `<asp:Content>` tagów. Skopiować i wkleić kod z w obrębie klasy związane z kodem w `CheckBoxField.aspx.cs` do w klasie CodeBehind w `BatchDelete.aspx.cs` ( `DeleteSelectedProducts` przycisk s `Click` programu obsługi zdarzeń `ToggleCheckState` metody i `Click` procedury obsługi zdarzeń Aby uzyskać `CheckAll` i `UncheckAll` przyciski). Po skopiowaniu za pośrednictwem tej zawartości, `BatchDelete.aspx` klasy CodeBehind strony s powinna zawierać następujący kod:
 
 
 [!code-csharp[Main](batch-deleting-cs/samples/sample1.cs)]
 
-Po skopiowaniu na deklaratywne znaczników i kodu źródłowego, Poświęć chwilę, aby przetestować `BatchDelete.aspx` wyświetlając go za pośrednictwem przeglądarki. Powinien zostać wyświetlony element GridView wyświetlanie pierwszych dziesięciu produktów w widoku GridView z każdym wierszem listę nazw produktów s, kategorii i cen wraz z wyboru. Powinien być trzy przyciski: Zaznacz wszystko, usuń zaznaczenie wszystkich i usunąć wybrane produkty. Kliknięcie przycisku Sprawdź wszystkie wybiera wszystkie pola wyboru, gdy Usuń zaznaczenie wszystkich czyści wszystkie pola wyboru. Klikając polecenie Usuń wybrane produkty wyświetla komunikat, który zawiera listę `ProductID` wartości zaznaczonych produktów, ale faktycznie nie powoduje usunięcia produktów.
+Po skopiowaniu w oznaczeniu deklaracyjnym i kod źródłowy, Poświęć chwilę na testowanie `BatchDelete.aspx` , wyświetlając go za pośrednictwem przeglądarki. Powinien zostać wyświetlony GridView zawierającą listę pierwszych dziesięciu produktów w GridView, przy czym każdy wiersz ofercie nazwa produktu s, kategorii i cenę wraz z pola wyboru. Powinna istnieć trzy przyciski: Sprawdź wszystkie, usuń zaznaczenie wszystkich i usunąć wybrane produkty. Kliknięcie przycisku Sprawdź wszystkie wybiera wszystkie pola wyboru, podczas gdy Usuń zaznaczenie wszystkich czyści wszystkie pola wyboru. Klikając polecenie Usuń wybrane produkty wyświetla komunikat, który zawiera listę `ProductID` wartości wybranych produktów, ale faktycznie nie usuwa produktów.
 
 
-[![Interfejs z CheckBoxField.aspx został przeniesiony do BatchDeleting.aspx](batch-deleting-cs/_static/image3.gif)](batch-deleting-cs/_static/image5.png)
+[![Interfejs z CheckBoxField.aspx została przeniesiona do BatchDeleting.aspx](batch-deleting-cs/_static/image3.gif)](batch-deleting-cs/_static/image5.png)
 
-**Rysunek 3**: interfejs z `CheckBoxField.aspx` został przeniesiony do `BatchDeleting.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image6.png))
+**Rysunek 3**: interfejs z `CheckBoxField.aspx` została przeniesiona do `BatchDeleting.aspx` ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image6.png))
 
 
-## <a name="step-2-deleting-the-checked-products-using-transactions"></a>Krok 2: Usuwanie zaznaczonych produktów, przy użyciu transakcji
+## <a name="step-2-deleting-the-checked-products-using-transactions"></a>Krok 2: Usuwanie produktów zaznaczone, przy użyciu transakcji
 
-Z partii, usuwanie interfejsu pomyślnie kopiowane do `BatchDeleting.aspx`, wszystkie pozostaje ma zaktualizuj kod, aby przycisk Usuń wybrane produkty Usuwa zaznaczone produktów za pomocą `DeleteProductsWithTransaction` metody w `ProductsBLL` klasy. Ta metoda dodane w [zawijania modyfikacje bazy danych w ramach transakcji](wrapping-database-modifications-within-a-transaction-cs.md) samouczek, przyjmuje jako dane wejściowe `List<T>` z `ProductID` wartości i usuwa każdego odpowiadającego `ProductID` w zakresie transakcja.
+Za pomocą usługi batch, usuwanie pomyślnie kopiowane do interfejsu `BatchDeleting.aspx`, wszystkie, że pozostaje tylko zaktualizować kod, tak aby przycisk Usuń wybrane produkty Usuwa zaznaczony produkty, za pomocą `DeleteProductsWithTransaction` method in Class metoda `ProductsBLL` klasy. Ta metoda dodane w [opakowywanie modyfikacji bazy danych w ramach transakcji](wrapping-database-modifications-within-a-transaction-cs.md) samouczek, przyjmuje jako dane wejściowe `List<T>` z `ProductID` wartości i usuwa poszczególnych `ProductID` w zakresie transakcja.
 
-`DeleteSelectedProducts` Przycisk s `Click` obsługi zdarzeń obecnie są używane następujące `foreach` pętli do iteracji każdego wiersza w widoku GridView:
+`DeleteSelectedProducts` Przycisk s `Click` programu obsługi zdarzeń aktualnie używa następujących `foreach` pętli do iteracji przez każdego wiersza w widoku GridView:
 
 
 [!code-csharp[Main](batch-deleting-cs/samples/sample2.cs)]
 
-Dla każdego wiersza `ProductSelector` programowo odwołuje się formant wyboru sieci Web. Jeśli jest ono zaznaczone, wiersz s `ProductID` są pobierane z `DataKeys` kolekcji i `DeleteResults` etykiety s `Text` właściwość została zaktualizowana do komunikat wskazujący, że wiersz został wybrany do usunięcia.
+Dla każdego wiersza `ProductSelector` programowo odwołuje się do kontrolki pola wyboru w sieci Web. Jeśli jest ono zaznaczone, wiersz s `ProductID` jest pobierana z `DataKeys` kolekcji i `DeleteResults` etykiety s `Text` właściwość zostanie zaktualizowany i będzie zawierać komunikat wskazujący, że wiersz został wybrany do usunięcia.
 
-Powyższy kod rzeczywistości nie usuwa żadnych rekordów co wywołanie `ProductsBLL` klasy s `Delete` metoda są oznaczone jako komentarz. Zostały tę logikę delete ma zostać zastosowany, kod usunie produktów, ale nie w niepodzielną operację. Oznacza to jeśli pierwszy usuwa kilka w sekwencji zakończyło się pomyślnie, ale późniejszą nie powiodło się (np. z powodu naruszenia ograniczenia klucza obcego), może zostać zgłoszony wyjątek, ale pozostają usunięto tych produktów już usunięty.
+Powyższy kod nie usuwa wszystkie rekordy co wywołanie `ProductsBLL` klasy s `Delete` metody jest opatrzona komentarzem. Były tę logikę usuwania mają być stosowane, kod może usunąć produktów, ale nie w obrębie operacją niepodzielną. Oznacza to jeśli pierwszy usuwa kilka w sekwencji zakończyło się pomyślnie, ale późniejszy go nie powiodło się (np. z powodu naruszenia ograniczenia klucza obcego), czy zgłoszony wyjątek, ale tych produktów, które już usunięte pozostają usunięte.
 
-Aby upewnić się, że niepodzielność, należy zamiast tego użyć `ProductsBLL` klasy s `DeleteProductsWithTransaction` metody. Ponieważ ta metoda przyjmuje listę `ProductID` wartości, należy najpierw skompilować tę listę z siatki i przekaż go jako parametr. Najpierw utworzymy wystąpienia `List<T>` typu `int`. W ramach `foreach` pętli musimy dodać wybrane produkty `ProductID` wartości tej `List<T>`. Po pętli to `List<T>` muszą być przekazywane do `ProductsBLL` klasy s `DeleteProductsWithTransaction` metody. Aktualizacja `DeleteSelectedProducts` przycisk s `Click` program obsługi zdarzeń z następującym kodem:
+Aby zapewnić niepodzielność, należy zamiast tego użyć `ProductsBLL` klasy s `DeleteProductsWithTransaction` metody. Ponieważ ta metoda przyjmuje listę `ProductID` wartości, należy najpierw skompilować tę listę z siatki, a następnie przekazać go jako parametr. Należy najpierw utworzyć wystąpienie `List<T>` typu `int`. W ramach `foreach` pętli, musimy dodać wybrane produkty `ProductID` wartości tej `List<T>`. Po pętli to `List<T>` muszą zostać przekazane do `ProductsBLL` klasy s `DeleteProductsWithTransaction` metody. Aktualizacja `DeleteSelectedProducts` przycisk s `Click` program obsługi zdarzeń z następującym kodem:
 
 
 [!code-csharp[Main](batch-deleting-cs/samples/sample3.cs)]
 
-Zaktualizowany kod tworzy `List<T>` typu `int` (`productIDsToDelete`) i wypełnia je z `ProductID` wartości do usunięcia. Po `foreach` pętli, jeśli istnieje co najmniej jeden produkt zaznaczone, `ProductsBLL` klasy s `DeleteProductsWithTransaction` metoda jest wywoływana i przekazany do tej listy. `DeleteResults` Jest również wyświetlana etykieta i dane odbitych do widoku GridView (tak, aby nowo usunięte rekordy nie występują jako wiersze w siatce).
+Zaktualizowano kod tworzy `List<T>` typu `int` (`productIDsToDelete`) i wypełnia ją za pomocą `ProductID` wartości do usunięcia. Po `foreach` pętli, jeśli istnieje co najmniej jeden produkt z wybraniu `ProductsBLL` klasy s `DeleteProductsWithTransaction` metoda jest nazywana i przekazywana tej listy. `DeleteResults` Także jest wyświetlana etykieta i dane odbitych do kontrolki GridView (tak, aby nowo usunięte rekordy są już wyświetlane jako wiersze w siatce).
 
-Na rysunku 4 przedstawiono widoku GridView po wybrano liczbę wierszy do usunięcia. Rysunek 5. pokazuje ekranu natychmiast po kliknął przycisk Usuń zaznaczone produktów. Należy pamiętać, że na rysunku 5 `ProductID` wartości usunięte rekordy są wyświetlane w etykiecie poniżej widoku GridView i te wiersze nie są już w widoku GridView.
+Rysunek 4 przedstawia widoku GridView po liczbę wierszy zostały wybrane do usunięcia. Rysunek 5. pokazuje ekranu natychmiast, po kliknięciu przycisku Usuń wybrane produkty. Należy pamiętać, że na rysunku 5 `ProductID` wartości usunięte rekordy są wyświetlane w etykiecie poniżej kontrolki GridView i tych wierszy nie są już w widoku GridView.
 
 
 [![Wybrane produkty zostaną usunięte.](batch-deleting-cs/_static/image4.gif)](batch-deleting-cs/_static/image7.png)
@@ -91,30 +90,30 @@ Na rysunku 4 przedstawiono widoku GridView po wybrano liczbę wierszy do usunię
 **Rysunek 4**: wybrane produkty zostaną usunięte ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image8.png))
 
 
-[![Wartości usunięte ProductID produktów to wymienione poniżej widoku GridView](batch-deleting-cs/_static/image5.gif)](batch-deleting-cs/_static/image9.png)
+[![Wartości usunięte ProductID produkty są wymienione poniżej GridView](batch-deleting-cs/_static/image5.gif)](batch-deleting-cs/_static/image9.png)
 
-**Rysunek 5**: produkty usunięte `ProductID` wartości to wymienione poniżej widok GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image10.png))
+**Rysunek 5**: Usunięto produktów `ProductID` wartości są wymienione poniżej kontrolki GridView ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](batch-deleting-cs/_static/image10.png))
 
 
 > [!NOTE]
-> Aby przetestować `DeleteProductsWithTransaction` niepodzielność metody s ręcznie dodaj wpis dla produktu `Order Details` tabeli, a następnie spróbuj usunąć tego produktu (wraz z innymi). Naruszenie ograniczenia klucza obcego zostanie wyświetlony podczas próby usunięcia produktu z skojarzone zamówienia, ale należy zwrócić uwagę, jak inne Usuwanie zaznaczonych produktów są przywracane.
+> Aby przetestować `DeleteProductsWithTransaction` niepodzielność metoda s, ręcznie dodaj wpis dla produktu w `Order Details` tabeli, a następnie spróbuj usunąć produktu (wraz z innymi). Naruszenie ograniczenia klucza obcego zostanie wyświetlony podczas próby usunąć produkt przy użyciu skojarzonego zamówienia, ale należy pamiętać, jak inne usunięcia wybrane produkty zostaną wycofane.
 
 
 ## <a name="summary"></a>Podsumowanie
 
-Tworzenie partii Usuwanie interfejsu obejmuje Dodawanie widoku GridView z kolumną pola wyboru i Web przycisk kontrolować, po kliknięciu, Usuń wszystkie zaznaczone wiersze jako pojedynczej Atomowej operacji. W tym samouczku budujemy taki interfejs przez piecing razem pracować w dwóch poprzednich samouczki, [dodanie kolumny widoku GridView pola wyboru](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) i [zawijania modyfikacje bazy danych w ramach transakcji](wrapping-database-modifications-within-a-transaction-cs.md). W pierwszym samouczku utworzyliśmy Element GridView z kolumną pola wyboru, a w tym ostatnim zaimplementowano metody w logiki warstwy Biznesowej, po upływie `List<T>` z `ProductID` wartości, usunąć je w zakresie transakcji.
+Tworzenie partii Usuwanie interfejsu obejmuje dodawanie kolumny pól wyboru z GridView i kontrolkę przycisku w sieci Web, która, po kliknięciu, Usuń wszystkie zaznaczone wiersze jako jednej niepodzielnej operacji. W tym samouczku utworzyliśmy taki interfejs przez zszywania pracy wykonanej w dwóch poprzednich samouczkach [Dodawanie kolumny pól wyboru do kontrolki GridView](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs.md) i [opakowywanie modyfikacji bazy danych w ramach transakcji](wrapping-database-modifications-within-a-transaction-cs.md). W pierwszym samouczku utworzyliśmy GridView z kolumny pól wyboru, a w drugim wdrożyliśmy metody w LOGIKI, gdy przekazywane `List<T>` z `ProductID` wartości, usunąć je wszystkie w zakresie transakcji.
 
 W następnym samouczku utworzymy interfejs służący do wykonywania operacji wstawiania wsadowego.
 
-Programowanie przyjemność!
+Wszystkiego najlepszego programowania!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
-Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Prowadzić osób dokonujących przeglądu, w tym samouczku zostały Hilton Giesenow i Teresa Murphy. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Wiodące osób dokonujących przeglądu, w tym samouczku zostały Hilton Giesenow i Teresa Murphy. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](batch-updating-cs.md)

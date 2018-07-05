@@ -1,102 +1,101 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
-title: Zawartości dynamicznej buforowana strona (VB) | Dokumentacja firmy Microsoft
+title: Dodawanie zawartości dynamicznej do buforowanej strony (VB) | Dokumentacja firmy Microsoft
 author: microsoft
-description: Dowiedz się, jak mieszać zawartości dynamicznej i pamięci podręcznej w tej samej stronie. Podstawianie po pamięci podręcznej umożliwia wyświetlanie zawartości dynamicznej, takie jak transparent anonsów o...
+description: Dowiedz się, jak łączyć zawartości dynamicznej i pamięci podręcznej w tej samej stronie. Podstawianie po pamięci podręcznej umożliwia wyświetlanie zawartości dynamicznej, takiej jak transparent anonsów o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
 ms.topic: article
 ms.assetid: 68acd884-fb57-4486-a1be-aaa93e380780
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 89421b4bec2170e408ded87ccc918a7a16844a98
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a1747733b190048cac1cb9695dbc1ac24570ee42
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879767"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375354"
 ---
-<a name="adding-dynamic-content-to-a-cached-page-vb"></a>Zawartości dynamicznej buforowana strona (VB)
+<a name="adding-dynamic-content-to-a-cached-page-vb"></a>Dodawanie zawartości dynamicznej do buforowanej strony (VB)
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-> Dowiedz się, jak mieszać zawartości dynamicznej i pamięci podręcznej w tej samej stronie. Podstawianie po pamięci podręcznej umożliwia wyświetlanie zawartości dynamicznej, takie jak Anonse transparent lub wiadomości, na stronie zostały wyjściowych w pamięci podręcznej.
+> Dowiedz się, jak łączyć zawartości dynamicznej i pamięci podręcznej w tej samej stronie. Podstawianie po pamięci podręcznej umożliwia wyświetlanie zawartości dynamicznej, takie jak Anonse transparentu lub elementy wiadomości, w ramach strony została wyjściowych w pamięci podręcznej.
 
 
-Dzięki wykorzystaniu buforowanie danych wyjściowych, może znacznie poprawić wydajność aplikacji platformy ASP.NET MVC. Zamiast ponownego generowania strony poszczególnych czas, żądanej strony, strony umożliwia generowanie raz i są przechowywane w pamięci dla wielu użytkowników.
+Korzystając z buforowania danych wyjściowych, można znacznie zwiększyć wydajność aplikacji ASP.NET MVC. Zamiast ponownego generowania strony razem każdym żądaniu strony, strony można generowane raz i są przechowywane w pamięci dla wielu użytkowników.
 
-Występuje problem. Co zrobić, jeśli należy wyświetlić zawartość dynamiczną, na stronie? Załóżmy na przykład chcesz wyświetlić anonsu transparencie na stronie. Nie chcesz anonsu transparent można buforować, dzięki czemu każdy użytkownik będzie widział anonsu tej samej. Nie należy pieniędzy w ten sposób!
+Występuje problem. Co zrobić, jeśli należy wyświetlić zawartość dynamiczna na tej stronie? Załóżmy na przykład, chcesz wyświetlić anonsu banerze na stronie. Nie chcesz, aby anonsu transparent buforowane, dzięki czemu każdy użytkownik będzie widział tej samej anonsu. W takich sytuacjach przydałaby upewnij pieniędzy w ten sposób.
 
-Na szczęście jest łatwe rozwiązania. Można skorzystać z funkcji platformy ASP.NET o nazwie *po pamięci podręcznej podstawienia*. Podstawianie po pamięci podręcznej umożliwia Zastąp zawartość dynamiczną, na stronie, które ma w pamięci podręcznej.
+Na szczęście jest prostemu rozwiązaniu. Możesz korzystać z zalet funkcji struktury programu ASP.NET o nazwie *po utworzeniu pamięci podręcznej podstawienia*. Podstawianie po pamięci podręcznej umożliwia Zastąp zawartość dynamiczna, na stronie, która ma w pamięci podręcznej.
 
 
-Zwykle podczas wyprowadzania pamięci podręcznej strony za pomocą &lt;OutputCache&gt; atrybutu, strony są buforowane na serwerze i kliencie (przeglądarki sieci web). Użycie pamięci podręcznej po podstawienia, strony są buforowane tylko na serwerze.
+Zwykle podczas wyprowadzania pamięci podręcznej strony za pomocą &lt;OutputCache&gt; atrybutu, strona jest buforowana na serwera i klienta (przeglądarki sieci web). Gdy używasz podstawienia po pamięci podręcznej, jest ona buforowana tylko na serwerze.
 
 
 #### <a name="using-post-cache-substitution"></a>Using Post-Cache Substitution
 
-Przy użyciu pamięci podręcznej po podstawienia wymaga wykonania dwóch kroków. Najpierw należy zdefiniować metody, która zwraca ciąg reprezentujący zawartość dynamiczną, które mają być wyświetlane na stronie pamięci podręcznej. Następnie należy wywołać metodę HttpResponse.WriteSubstitution() iniekcję zawartość dynamiczną do strony.
+Korzystanie z pamięci podręcznej po podstawienia wymaga dwóch kroków. Najpierw należy zdefiniować metodę, która zwraca ciąg reprezentujący zawartości dynamicznej, która ma być wyświetlany na stronie pamięci podręcznej. Następnie możesz wywołać metodę HttpResponse.WriteSubstitution() iniekcję zawartości dynamicznej do strony.
 
-Załóżmy, na przykład, że mają losowo w celu wyświetlenia wiadomości różnych elementów stronę z pamięci podręcznej. Klasa w 1 lista przedstawia jedną metodę o nazwie RenderNews(), który losowo zwraca jeden element wiadomości z listy elementów trzy wiadomości.
+Wyobraź sobie, na przykład chcesz losowo wyświetlać elementy inne kanały aktualności w stronę z pamięci podręcznej. Klasa w ofercie 1 przedstawia jedną metodę o nazwie RenderNews(), który losowo zwraca jeden element wiadomości z listy elementów trzy wiadomości.
 
 **Wyświetlanie listy 1 – Models\News.vb**
 
 [!code-vb[Main](adding-dynamic-content-to-a-cached-page-vb/samples/sample1.vb)]
 
-Aby móc korzystać z pamięci podręcznej po podstawienia, należy wywołać metodę HttpResponse.WriteSubstitution(). Metoda WriteSubstitution() ustawia kodu Zamień obszaru buforowana strona zawartości dynamicznej. Metoda WriteSubstitution() jest używana do wyświetlania elementu losowe wiadomości w widoku wyświetlania 2.
+Aby móc korzystać z pamięci podręcznej po podstawienia, należy wywołać metodę HttpResponse.WriteSubstitution(). Metoda WriteSubstitution() konfiguruje kod, aby zastąpić region buforowane strony z zawartością dynamiczną. Metoda WriteSubstitution() jest używana do wyświetlania elementu losowego wiadomości w widoku w ofercie 2.
 
 **Wyświetlanie listy 2 — Views\Home\Index.aspx**
 
 [!code-aspx[Main](adding-dynamic-content-to-a-cached-page-vb/samples/sample2.aspx)]
 
-Metoda RenderNews jest przekazywany do metody WriteSubstitution(). Zwróć uwagę, nie wywołano metody RenderNews. Zamiast tego odwołania do metody jest przekazywany do WriteSubstitution() za pomocą operatora AddressOf.
+Metoda RenderNews jest przekazywany do metody WriteSubstitution(). Należy zauważyć, że metoda RenderNews nie jest wywoływana. Zamiast tego odwołania do metody jest przekazywany do WriteSubstitution() za pomocą AddressOf — operator.
 
-Widok indeksu są buforowane. Widok jest zwracana przez kontroler w 3 wyświetlania. Należy zauważyć, że akcja indeks() zostanie nadany &lt;OutputCache&gt; atrybut, który powoduje, że widok indeksu można buforować przez 60 sekund.
+Widok indeksu są buforowane. Widok jest zwracany przez kontroler w ofercie 3. Należy zauważyć, że akcja indeks() zostanie nadany &lt;OutputCache&gt; atrybut, który powoduje, że widok indeksu przechowywanie w pamięci podręcznej przez 60 sekund.
 
 **Wyświetlanie listy 3 — Controllers\HomeController.vb**
 
 [!code-vb[Main](adding-dynamic-content-to-a-cached-page-vb/samples/sample3.vb)]
 
-Mimo że widoku indeksu są buforowane, różnych losowe wiadomości są wyświetlane podczas żądania strony indeksu. Podczas żądania strony indeksu, wyświetlany przez stronę czas nie ulega zmianie przez 60 sekund (zobacz rysunek 1). Fakt, że nie zmienia czas potwierdza, że strony są buforowane. Jednak zawartość wstrzyknięte przez zmiany metody — element losowe wiadomości — WriteSubstitution() z każdym żądaniem.
+Mimo że widoku indeksu są buforowane, inne kanały aktualności losowego mają być wyświetlane w przypadku żądania strony indeksu. W przypadku żądania strony indeksu, wyświetlany przez stronę czas nie zmienia się 60 sekund (patrz rysunek 1). Fakt, że nie zmienia czas okazuje się, że strona jest buforowana. Jednakże zawartość wstrzyknięte przez zmiany metody — element losowy wiadomości — WriteSubstitution() z każdym żądaniem.
 
-**Rysunek 1 — wstrzyknięcie elementów dynamicznych wiadomości w stronę z pamięci podręcznej**
+**Rysunek 1 — wprowadzanie elementów dynamicznych wiadomości w stronę z pamięci podręcznej**
 
 ![clip_image002](adding-dynamic-content-to-a-cached-page-vb/_static/image1.jpg)
 
-#### <a name="using-post-cache-substitution-in-helper-methods"></a>Przy użyciu pamięci podręcznej po podstawienia w metody pomocnicze
+#### <a name="using-post-cache-substitution-in-helper-methods"></a>Przy użyciu pamięci podręcznej po podstawienia w metody pomocnika
 
-Łatwiejszy sposób, aby móc korzystać z pamięci podręcznej po podstawienia jest Hermetyzowanie wywołanie do metody WriteSubstitution() w metodzie niestandardowego elementu pomocniczego. Takie podejście jest zilustrowane w listę 4 metody pomocnika.
+Jest łatwiejszy sposób, aby móc korzystać z pamięci podręcznej po podstawienia do hermetyzacji wywołanie metody WriteSubstitution() wewnątrz metody niestandardowego elementu pomocniczego. To podejście jest zilustrowany przez metody pomocniczej w ofercie 4.
 
 **Wyświetlanie listy 4 — Helpers\AdHelper.vb**
 
 [!code-vb[Main](adding-dynamic-content-to-a-cached-page-vb/samples/sample4.vb)]
 
-Wyświetlanie listy 4 zawiera moduł Visual Basic, który udostępnia dwie metody: RenderBanner() i RenderBannerInternal(). Metoda RenderBanner() reprezentuje metodę pomocnika rzeczywistych. Ta metoda jest rozszerzeniem standardowe klasy ASP.NET MVC HtmlHelper, dzięki czemu można wywołać Html.RenderBanner() w widoku, podobnie jak inne metody pomocnika.
+Wyświetlanie listy 4 zawiera module języka Visual Basic, który udostępnia dwie metody: RenderBanner() i RenderBannerInternal(). Metoda RenderBanner() reprezentuje metodę pomocnika rzeczywistych. Ta metoda jest rozszerzeniem standardowa klasy ASP.NET MVC HtmlHelper dzięki czemu można wywołać Html.RenderBanner() w widoku, podobnie jak każda inna metoda pomocnika.
 
-Metoda RenderBanner() wywołuje metodę HttpResponse.WriteSubstitution() przekazywanie metody RenderBannerInternal() do metody WriteSubsitution().
+Metoda RenderBanner() wywołuje metodę HttpResponse.WriteSubstitution(), przekazując RenderBannerInternal() metody do metody WriteSubsitution().
 
-Metoda RenderBannerInternal() jest metoda prywatna. Ta metoda nie będą widoczne jako metody pomocnika. Metoda RenderBannerInternal() losowo zwraca jeden obraz anonsu transparentu z listy trzy obrazy anonsu transparent.
+Metoda RenderBannerInternal() jest metody prywatnej. Ta metoda nie będzie widoczne jako metody pomocnika. Metoda RenderBannerInternal() losowo zwraca jeden obraz anonsu transparent z listy trzy obrazy anonsu baner.
 
-Zmodyfikowany widok indeksu listę 5 przedstawiono, jak można użyć metody pomocniczej RenderBanner(). Zwróć uwagę, że dodatkowe &lt;% @ importu %&gt; dyrektywy znajduje się w górnej części Widok do zaimportowania MvcApplication1.Helpers przestrzeni nazw. Pominięcie zaimportować tej przestrzeni nazw, metoda RenderBanner() nie będą wyświetlane jako metoda we właściwości Html.
+Zmodyfikowany widok indeksu w ofercie 5 ilustruje, jak można użyć metody pomocniczej RenderBanner(). Należy zauważyć, że dodatkowy &lt;% @ % importu&gt; dyrektywa jest uwzględniony w górnej części Widok do zaimportowania MvcApplication1.Helpers przestrzeni nazw. Pominięcie można zaimportować tej przestrzeni nazw, metoda RenderBanner() nie są wyświetlane jako metodę dla właściwości Html.
 
-**Wyświetlanie listy 5 — Views\Home\Index.aspx (za pomocą metody RenderBanner())**
+**Wyświetlanie listy 5 — Views\Home\Index.aspx (przy użyciu metody RenderBanner())**
 
 [!code-aspx[Main](adding-dynamic-content-to-a-cached-page-vb/samples/sample5.aspx)]
 
-W przypadku żądania strony renderowany przez widok w listę 5, anons różnych transparentu jest wyświetlany przy każdym żądaniu (patrz rysunek 2). Strony są buforowane, ale anonsu transparent jest dynamicznie wstrzyknięte przez metodę pomocnika RenderBanner().
+Żądając strony renderowany przez widok w ofercie 5 anonsu różnych transparent jest wyświetlany z każdym żądaniem (patrz rysunek 2). Strony są buforowane, ale reklama transparencie są wstrzykiwane dynamicznie przez metodę pomocnika RenderBanner().
 
-**Rysunek 2 — widok indeksu wyświetlanie anonsu losowe transparentu**
+**Rysunek 2 — widok indeksu, wyświetlając ogłoszenie losowe transparentu**
 
 ![clip_image004](adding-dynamic-content-to-a-cached-page-vb/_static/image2.jpg)
 
 #### <a name="summary"></a>Podsumowanie
 
-W tym samouczku wyjaśniono, jak dynamicznie Aktualizuj zawartość w pamięci podręcznej strony. Przedstawiono sposób użycia metody HttpResponse.WriteSubstitution(), aby umożliwić dynamiczne zawartość można wprowadzić w stronę z pamięci podręcznej. Przedstawiono również sposób Hermetyzowanie wywołanie do metody WriteSubstitution() wewnątrz metody pomocnika kodu HTML.
+W tym samouczku wyjaśniono, jak może dynamicznie aktualizować zawartość w pamięci podręcznej strony. Pokazaliśmy ci, jak użyć metody HttpResponse.WriteSubstitution() Włączanie zawartości dynamicznej ich wstrzyknięcie w stronę z pamięci podręcznej. Przedstawiono również sposób hermetyzacji wywołanie metody WriteSubstitution() wewnątrz metody pomocnika kodu HTML.
 
-Korzystać z pamięci podręcznej, jeśli to możliwe — go może mieć znaczący wpływ na wydajność aplikacji sieci web. Zgodnie z objaśnieniem w tym samouczku, możesz korzystać z pamięci podręcznej, nawet wtedy, gdy konieczne jest wyświetlenie zawartość dynamiczna na swoich stronach.
+Skorzystaj z zalet pamięci podręcznej, jeśli to możliwe — może mieć znaczący wpływ na wydajność aplikacji sieci web. Jak wyjaśniono w ramach tego samouczka, możesz korzystać z pamięci podręcznej, nawet wtedy, gdy trzeba wyświetlić zawartość dynamiczna na stronach sieci.
 
 > [!div class="step-by-step"]
 > [Poprzednie](improving-performance-with-output-caching-vb.md)

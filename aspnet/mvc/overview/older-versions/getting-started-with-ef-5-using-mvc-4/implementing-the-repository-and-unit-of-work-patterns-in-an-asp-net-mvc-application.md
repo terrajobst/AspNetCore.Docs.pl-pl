@@ -1,99 +1,98 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
-title: Implementowanie repozytorium i jednostki pracy w aplikacji platformy ASP.NET MVC (9, 10) | Dokumentacja firmy Microsoft
+title: Wdrażanie z repozytorium i jednostki pracy w aplikacji ASP.NET MVC (9, 10) | Dokumentacja firmy Microsoft
 author: tdykstra
-description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i Visual Studio...
+description: Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i programu Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
 ms.topic: article
 ms.assetid: 44761193-04ba-4990-9f90-145d3c10a716
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 1f870b61658686769304a7809bde62e66da3bd0c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0ca67c67b763d003e5f395ddd4bac0c5ec28f1f1
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30875880"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366372"
 ---
-<a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Implementowanie repozytorium i jednostki pracy w aplikacji platformy ASP.NET MVC (9, 10)
+<a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Wdrażanie z repozytorium i jednostki pracy w aplikacji ASP.NET MVC (9, 10)
 ====================
-Przez [Dykstra niestandardowy](https://github.com/tdykstra)
+przez [Tom Dykstra](https://github.com/tdykstra)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i programu Visual Studio 2012. Informacje o samouczek serii, zobacz [pierwszy samouczek z tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Samouczek serii można uruchomić od początku lub [pobrać projekt starter w tym rozdziale](building-the-ef5-mvc4-chapter-downloads.md) i zacznij tutaj.
+> Przykładową aplikację sieci web firmy Contoso University przedstawia sposób tworzenia aplikacji ASP.NET MVC 4 przy użyciu Entity Framework 5 Code First i programu Visual Studio 2012. Aby uzyskać informacji na temat tej serii samouczka, zobacz [pierwszym samouczku tej serii](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Można uruchomić tej serii samouczka od początku lub [pobrać projekt startowy w tym rozdziale](building-the-ef5-mvc4-chapter-downloads.md) i zacznij tutaj.
 > 
 > > [!NOTE] 
 > > 
-> > Jeśli napotkasz problem, nie można rozwiązać, [Pobieranie ukończone rozdział](building-the-ef5-mvc4-chapter-downloads.md) i próba odtworzenia problemu. Rozwiązanie tego problemu można znaleźć ogólnie porównując swój kod kompletny kod. Dla niektórych typowych błędów i sposobu rozwiązania tych problemów, zobacz [błędów i rozwiązania problemu.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
+> > Jeśli napotkasz problem, nie można rozpoznać [Pobieranie ukończone rozdział](building-the-ef5-mvc4-chapter-downloads.md) i spróbuj odtworzyć problem. Rozwiązanie tego problemu można znaleźć zwykle porównując swój kod, aby kompletny kod. Niektóre typowe błędy i sposobu rozwiązania tych problemów można znaleźć [błędów i rozwiązania problemu.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
 
-W poprzednich instrukcji używane dziedziczenie Aby zmniejszyć nadmiarowy kod w `Student` i `Instructor` klas jednostek. W tym samouczku zobaczysz niektóre sposoby korzystania z repozytorium i jednostki pracy dla operacji CRUD. Jak w poprzednim samouczek w tym jednym będzie zmienić sposób kod działa ze stronami możesz już utworzone, a nie tworzenie nowych stron.
+W poprzednim samouczku użyto dziedziczenia zmniejszyć nadmiarowy kod w `Student` i `Instructor` klas jednostek. W tym samouczku zobaczysz niektóre sposoby korzystania z repozytorium i jednostki pracy wzorce dla operacji CRUD. Tak jak w poprzednim samouczku w tym jednym poznasz, jak zmienić sposób działania swojego kodu za pomocą stron można już utworzyć zamiast tworzenia nowych stron.
 
 ## <a name="the-repository-and-unit-of-work-patterns"></a>Repozytorium i jednostki pracy
 
-Repozytorium i jednostki pracy są przeznaczone do tworzenia warstwy abstrakcji między Warstwa dostępu do danych i warstwy logiki biznesowej aplikacji. Implementacja tych wzorców może pomóc zabezpieczyć aplikacji od zmian w magazynie danych i może ułatwić automatyczne testy jednostkowe lub projektowanie oparte na (testach TDD).
+Repozytorium i jednostki pracy wzorce są przeznaczone do tworzenia warstwę abstrakcji od warstwy dostępu do danych i warstwy logiki biznesowej aplikacji. Implementacji tych wzorców może pomóc ochronić aplikację przed zmianami w magazynie danych i może ułatwić automatyczne testy jednostkowe i Programowanie oparte na testach (TDD).
 
-W tym samouczku będziesz zaimplementować klasę repozytorium dla poszczególnych typów jednostek. Aby uzyskać `Student` utworzysz interfejsu repozytorium i klasę repozytorium typu jednostki. Gdy w kontrolerze tworzenia wystąpienia repozytorium, będzie używać interfejsu tak, aby kontroler przyjmuje odwołanie do każdego obiektu, który implementuje interfejs repozytorium. Po uruchomieniu na serwerze sieci web kontroler odbierze repozytorium, który działa z programu Entity Framework. Po uruchomieniu kontroler w obszarze klasę testów jednostkowych odbiera repozytorium, który działa z danych przechowywanych w taki sposób, aby łatwo można manipulować do testowania, takie jak pamięci w pamięci.
+W tym samouczku będziesz implementuje klasę repozytorium dla każdego typu jednostki. Aby uzyskać `Student` typu jednostki, utworzysz interfejs repozytorium i klasę repozytorium. Podczas tworzenia wystąpienia repozytorium w kontrolerze użyjesz interfejsu tak, aby kontroler będzie akceptować odwołania do dowolnego obiektu, który implementuje interfejs repozytorium. Po uruchomieniu na serwerze sieci web kontrolera odbiera repozytorium, która współdziała z programu Entity Framework. Po uruchomieniu kontroler w obszarze klasę testu jednostkowego odbiera repozytorium, który działa z danymi przechowywanymi w taki sposób, że możesz łatwo manipulować do testowania, takie jak pamięci w pamięci.
 
-W dalszej części tego samouczka użyjesz wielu repozytoriów i jednostki pracy klasy dla `Course` i `Department` typy jednostek w `Course` kontrolera. Klasa pracy jednostki koordynuje pracy wielu repozytoriów za tworzenie współużytkowane przez wszystkie klasy kontekstu pojedynczej bazy danych. Jeśli chcesz mogą wykonywać testy jednostkowe automatycznych, czy tworzenie i używać interfejsów dla tych klas w taki sam sposób jak w `Student` repozytorium. Jednak aby samouczka proste, będzie tworzenie i używanie tych klas bez interfejsów.
+W dalszej części tego samouczka użyjesz wielu repozytoriów i jednostki pracy klasa `Course` i `Department` wpisuje jednostki `Course` kontrolera. Klasa pracy jednostki koordynuje pracy z wieloma repozytoriami, tworząc pojedynczą bazę danych klasy kontekstu, współużytkowane przez wszystkie z nich. Jeśli chcesz mieć możliwość wykonania automatycznych testów jednostkowych, można będzie tworzenie i używanie interfejsów dla tych klas w taki sam sposób jak w `Student` repozytorium. Jednak w celu uproszczenia tego samouczka można tworzyć i używać tych klas bez interfejsów.
 
-Na poniższej ilustracji przedstawiono jeden ze sposobów conceptualize relacje między kontrolerem i klasy kontekst, w porównaniu do nie używa repozytorium lub jednostki pracy wzorca w ogóle.
+Poniższa ilustracja przedstawia sposób wyobrażenie relacje między kontrolerem i klasy kontekst, w porównaniu do nie używa repozytorium lub jednostki wzorzec pracy na wszystkich.
 
 ![Repository_pattern_diagram](https://asp.net/media/2578149/Windows-Live-Writer_8c4963ba1fa3_CE3B_Repository_pattern_diagram_1df790d3-bdf2-4c11-9098-946ddd9cd884.png)
 
-W tym samouczku nie tworzenia testów jednostkowych. Aby obejrzeć wprowadzenie do TDD przy użyciu aplikacji MVC, który korzysta ze wzorca repozytorium, zobacz [wskazówki: przy użyciu TDD z platformą ASP.NET MVC](https://msdn.microsoft.com/library/ff847525.aspx). Aby uzyskać więcej informacji na temat wzorca repozytorium zobacz następujące zasoby:
+Testy jednostkowe nie utworzy w tej serii samouczków. Aby zapoznać się z TDD z aplikacją MVC, która używa wzorca repozytorium, zobacz [Instruktaż: przy użyciu TDD ze wzorca ASP.NET MVC](https://msdn.microsoft.com/library/ff847525.aspx). Aby uzyskać więcej informacji na temat wzorca repozytorium zobacz następujące zasoby:
 
 - [Wzorzec repozytorium](https://msdn.microsoft.com/library/ff649690.aspx) w witrynie MSDN.
-- [Przy użyciu wzorców repozytorium i jednostki pracy z programu Entity Framework 4.0](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) na blogu zespołu programu Entity Framework.
-- [Elastyczne Entity Framework 4 repozytorium](http://thedatafarm.com/blog/data-access/agile-entity-framework-4-repository-part-1-model-and-poco-classes/) serii wpisach w blogu Julie Lerman.
-- [Tworzenie konta w aplikacji HTML5/jQuery oka](https://weblogs.asp.net/dwahlin/archive/2011/08/15/building-the-account-at-a-glance-html5-jquery-application.aspx) na blogu Dan Wahlin.
+- [Przy użyciu wzorców repozytorium i jednostki pracy za pomocą programu Entity Framework 4.0](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) na blogu zespołu programu Entity Framework.
+- [Agile Entity Framework 4 repozytorium](http://thedatafarm.com/blog/data-access/agile-entity-framework-4-repository-part-1-model-and-poco-classes/) serię wpisów w blogu Julie Lerman.
+- [Tworzenie konta w aplikacji HTML5/jQuery pierwszy rzut oka](https://weblogs.asp.net/dwahlin/archive/2011/08/15/building-the-account-at-a-glance-html5-jquery-application.aspx) na blogu Dan Wahlin.
 
 > [!NOTE]
-> Istnieje wiele sposobów, aby zaimplementować repozytorium i jednostki pracy. Można użyć klasy repozytorium, z lub bez jednostki pracy klasy. Można zaimplementować jednym repozytorium dla wszystkich typów jednostek lub po jednej dla każdego typu. W przypadku zastosowania po jednej dla każdego typu, można użyć osobnych klas, ogólny klasy podstawowej i klasy pochodne lub abstrakcyjna klasa podstawowa i klas pochodnych. Można uwzględnić logiki biznesowej w repozytorium lub ograniczyć jego logika dostępu do danych. Można także utworzyć warstwę abstrakcji do własnej klasy kontekstu bazy danych, za pomocą [IDbSet](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx) interfejsy zamiast [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) typy z zestawów jednostek. Podejście do implementowania warstwy abstrakcji przedstawiona w tym samouczku jest jedną z opcji należy rozważyć, nie zalecamy dla wszystkich scenariuszach i środowiskach.
+> Istnieje wiele sposobów implementowania repozytorium i jednostki pracy. Można użyć klasy repozytorium, z lub bez niego jednostkę pracy klasy. Możesz zaimplementować pojedynczego repozytorium na potrzeby wszystkie typy jednostek i jeden dla każdego typu. W przypadku zastosowania dla każdego typu można użyć osobnych klas, rodzajowego klasy podstawowej i klasy pochodne lub abstrakcyjną klasę bazową i klasach pochodnych. Można uwzględnić logikę biznesową w repozytorium lub ograniczyć jego logiką dostępu do danych. Można również wbudować warstwę abstrakcji do klasy kontekstu bazy danych, za pomocą [IDbSet](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx) interfejsy istnieje zamiast [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) typów dla zestawów jednostek. Podejścia do wdrażania warstwę abstrakcji przedstawiona w tym samouczku jest jedną z opcji należy rozważyć nie zalecenie dla wszystkich scenariuszach i środowiskach.
 
 
-## <a name="creating-the-student-repository-class"></a>Tworzenie klasy repozytorium dla użytkowników domowych
+## <a name="creating-the-student-repository-class"></a>Tworzenie klasy repozytorium dla uczniów
 
-W *DAL* folderu, Utwórz plik klasy o nazwie *IStudentRepository.cs* i Zastąp istniejący kod następującym kodem:
+W *DAL* folderze utwórz plik klasy o nazwie *IStudentRepository.cs* i Zastąp istniejący kod następującym kodem:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-Ten kod deklaruje typowy zestaw metod CRUD, w tym dwie metody odczytu —, który zwraca wszystkie `Student` jednostek i który znajduje się jeden `Student` jednostki według identyfikatora.
+Ten kod deklaruje typowy zestaw metod CRUD, w tym dwie metody odczytu — taki, który zwraca wszystkie `Student` jednostki a, który umożliwia znalezienie jednej `Student` jednostki według identyfikatora.
 
-W *DAL* folderu, Utwórz plik klasy o nazwie *StudentRepository.cs* pliku. Zamień istniejący kod następujący kod, który implementuje `IStudentRepository` interfejsu:
+W *DAL* folderze utwórz plik klasy o nazwie *StudentRepository.cs* pliku. Zastąp istniejący kod poniższym kodem, który implementuje `IStudentRepository` interfejsu:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-Kontekst bazy danych jest zdefiniowany w zmiennej klasy i konstruktora oczekuje obiektu wywołującego umożliwia przekazywanie wystąpienia kontekstu:
+Kontekst bazy danych jest zdefiniowany w zmiennej klasy i konstruktora oczekuje, że obiekt wywołujący, aby przekazać wystąpienia kontekstu:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample3.cs)]
 
-Można utworzyć wystąpienia nowy kontekst w repozytorium, ale następnie użycie wielu repozytoriów w jeden kontroler każdego pojawiłyby się oddzielny kontekst. Później będzie używać wielu repozytoriów w `Course` kontrolera, pojawi się jak jednostki pracy klasy można zagwarantować, że wszystkie repozytoria używać tego samego kontekstu.
+Można utworzyć wystąpienia nowy kontekst w repozytorium, ale następnie użycie wielu repozytoriów w jednym kontrolerze każdego pojawiłyby się oddzielny kontekst. Później użyjesz wielu repozytoriów w `Course` kontrolera, a zobaczysz, jak jednostki pracy klasy można zagwarantować, że wszystkie repozytoria przy użyciu ten sam kontekst.
 
-Implementuje repozytorium [IDisposable](https://msdn.microsoft.com/library/system.idisposable.aspx) i usuwa kontekst bazy danych, jak widać wcześniej w kontrolerze, a jego metody CRUD wykonywania wywołań do kontekstu bazy danych w taki sam sposób, który był wyświetlany poprzednio.
+Implementuje repozytorium [interfejsu IDisposable](https://msdn.microsoft.com/library/system.idisposable.aspx) i usuwa kontekst bazy danych, jak zanotowane wcześniej z kontrolera, a jego metod CRUD wykonywać wywołania kontekst bazy danych w taki sam sposób, który wcześniej.
 
-## <a name="change-the-student-controller-to-use-the-repository"></a>Zmień kontroler uczniów do użytku w repozytorium
+## <a name="change-the-student-controller-to-use-the-repository"></a>Zmień kontroler uczniów do użycia w repozytorium
 
-W *StudentController.cs*, Zastąp kod w klasie z następującym kodem. Zmiany zostały wyróżnione.
+W *StudentController.cs*, Zastąp kod aktualnie w klasie, z następującym kodem. Zmiany są wyróżnione.
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=13-18,44,75,77,102-103,120,137-138,159,172-174,186)]
 
-Kontroler teraz deklaruje zmienną klasy dla obiekt, który implementuje `IStudentRepository` interfejsu zamiast klasy kontekstu:
+Kontroler teraz deklaruje zmienną klasy dla obiektu, który implementuje `IStudentRepository` interfejsu, a nie z klasy kontekstu:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample5.cs)]
 
-Domyślnego (bezparametrowego) konstruktora tworzy nowe wystąpienie kontekstu i opcjonalnie konstruktor umożliwia obiekt wywołujący, aby przekazać wystąpienia kontekstu.
+Domyślnego (bezparametrowego) konstruktora tworzy nowe wystąpienie kontekstu i opcjonalnie konstruktor umożliwia obiektowi wywołującemu Przekaż wystąpienie kontekstu.
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
-(Jeśli były używane *iniekcji zależności*, lub Podpisane, nie potrzebujesz konstruktora domyślnego ponieważ oprogramowania Podpisane czy upewnij się, że zawsze można dostarczyć obiektu poprawnego repozytorium.)
+(Jeśli używano *wstrzykiwanie zależności*, lub DI, nie należy konstruktora domyślnego, ponieważ oprogramowanie DI będzie upewnij się, obiekt poprawnego repozytorium zawsze będą dostarczane.)
 
-W metodach CRUD nazywane są teraz repozytorium zamiast kontekstu:
+W metodach CRUD repozytorium jest teraz nazywana zamiast kontekstu:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample7.cs)]
 
@@ -105,15 +104,15 @@ W metodach CRUD nazywane są teraz repozytorium zamiast kontekstu:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-I `Dispose` metoda usuwa teraz repozytorium zamiast kontekstu:
+I `Dispose` metoda teraz usuwa repozytorium zamiast kontekstu:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample12.cs)]
 
-Uruchom witrynę i kliknij przycisk **studentów** kartę.
+Uruchamianie witryny, a następnie kliknij przycisk **studentów** kartę.
 
 ![Students_Index_page](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/_static/image1.png)
 
-Strona wygląda i działa tak samo jak przed zmiany kodu do repozytorium i innych stron uczniów również działać w identyczny sposób. Istnieje jednak istotną różnicą w ten sposób `Index` kontrolera jest filtrowanie i kolejność. Z oryginalną wersją tej metody zawiera następujący kod:
+Strona wygląda i działa tak samo jak przed zmieniony kod, aby użyć repozytorium i innych stron dla uczniów również działać tak samo. Dostępna jest ważna różnica w sposobie `Index` metody kontrolera jest filtrowanie i kolejności. Oryginalną wersję tej metody zawiera następujący kod:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample13.cs?highlight=1)]
 
@@ -123,68 +122,68 @@ Zaktualizowany interfejs `Index` metoda zawiera następujący kod:
 
 Wyróżniony kod został zmieniony.
 
-W wersji oryginalnej kodu `students` jest typu `IQueryable` obiektu. Zapytanie nie zostanie wysłany do bazy danych, aż zostanie przekonwertowany do kolekcji przy użyciu metody, takie jak `ToList`, który nie występuje aż widok indeksu uzyskuje dostęp do modelu studenta. `Where` Staje się w powyższym kodzie oryginalnej metody `WHERE` klauzuli w zapytanie SQL, które są wysyłane do bazy danych. Z kolei oznacza to, że tylko wybranych obiektów są zwracane przez bazę danych. Jednak w wyniku zmiany `context.Students` do `studentRepository.GetStudents()`, `students` zmiennej po tej instrukcji `IEnumerable` kolekcję zawierającą wszystkie studentów w bazie danych. W rezultacie stosowania `Where` metody jest taki sam, ale teraz praca jest wykonywana w pamięci na serwerze sieci web, a nie przez bazę danych. Dla zapytań, które zwracają dużych ilości danych może to być mało wydajne.
+W pierwotnej wersji kodu `students` jest `IQueryable` obiektu. Zapytanie nie jest wysyłana do bazy danych, aż zostanie przekonwertowany do kolekcji przy użyciu metody, takie jak `ToList`, która nie występuje aż widok indeksu uzyskuje dostęp do modelu dla uczniów. `Where` Staje się metody w powyższym kodzie oryginalnym `WHERE` klauzuli w kwerendzie SQL, które są wysyłane do bazy danych. Z kolei oznacza, że tylko wybrane jednostki są zwracane przez bazę danych. Jednak w wyniku zmiany `context.Students` do `studentRepository.GetStudents()`, `students` zmiennej po tej instrukcji `IEnumerable` kolekcję zawierającą wszystkich studentów w bazie danych. Efekt zastosowania `Where` metoda jest taka sama, ale teraz praca odbywa się w pamięci na serwerze sieci web, a nie przez bazę danych. Dla zapytań zwracających duże ilości danych może to być mało wydajne.
 
 > [!TIP]
 > 
-> **IQueryable vs. IEnumerable**
+> **Element IQueryable programu vs. IEnumerable**
 > 
-> Po zaimplementowaniu repozytorium w sposób pokazany poniżej, nawet jeśli coś po wprowadzeniu **wyszukiwania** pole zapytań wysyłanych do serwera SQL zwraca wszystkie wiersze dla użytkowników domowych, ponieważ nie ma wśród nich kryteria wyszukiwania:
+> Po zaimplementowaniu repozytorium jak pokazano poniżej, nawet wtedy, gdy element wprowadź **wyszukiwania** okno zapytania wysyłane do programu SQL Server zwraca wszystkie wiersze dla uczniów, ponieważ nie zawiera kryteria wyszukiwania:
 > 
 > ![](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/_static/image2.png)
 > 
 > [!code-sql[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample15.sql)]
 > 
-> Ta kwerenda zwraca wszystkie dane dla użytkowników domowych, ponieważ repozytorium wykonane zapytanie bez wiedzy kryteria wyszukiwania. Proces sortowania, zastosowanie kryteriów wyszukiwania i wybierając podzbiór danych dla stronicowania (w tym przypadku przedstawiający tylko 3 wiersze) odbywa się w pamięci w przypadku nowszych `ToPagedList` wywoływana jest metoda `IEnumerable` kolekcji.
+> To zapytanie zwraca wszystkie dane dla uczniów, ponieważ repozytorium wykonywane zapytanie, nie wiedząc o tym dotyczącą kryteriów wyszukiwania. Proces sortowania, stosując kryteria wyszukiwania i wybierając podzbiór danych dla stronicowania (w tym przypadku wyświetlanie tylko 3 wiersze) odbywa się w pamięci po późniejszym `ToPagedList` wywoływana jest metoda `IEnumerable` kolekcji.
 > 
-> W poprzedniej wersji kodu (przed zastosowaniem repozytorium), zapytania nie są wysyłane do bazy danych dopiero po zastosowaniu kryteriów wyszukiwania podczas `ToPagedList` jest wywoływana na `IQueryable` obiektu.
+> W poprzedniej wersji kodu (przed zastosowaniem repozytorium), zapytania nie są wysyłane do bazy danych, aż po zastosowaniu kryteriów wyszukiwania podczas `ToPagedList` jest wywoływana w `IQueryable` obiektu.
 > 
 > ![](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/_static/image3.png)
 > 
-> Gdy wywołano ToPagedList `IQueryable` obiekt zapytanie wysyłane do programu SQL Server określa ciąg wyszukiwania i w związku z tym są zwracane tylko wiersze spełniające kryteria wyszukiwania, a nie filtrowania niezbędne w pamięci.
+> Gdy wywoływana jest ToPagedList `IQueryable` obiekt zapytania wysyłane do programu SQL Server określa ciąg wyszukiwania, w wyniku zwracane są tylko wiersze, które spełniają kryteria wyszukiwania i filtrowanie nie musi odbywać się w pamięci.
 > 
 > [!code-sql[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample16.sql)]
 > 
-> (Następujące samouczek wyjaśnia, jak zbadać zapytań wysyłanych do serwera SQL).
+> (Następującego samouczka wyjaśniono, jak sprawdzić zapytania wysyłane do programu SQL Server).
 
 
-Poniższa sekcja przedstawia sposób implementować metody repozytorium, które pozwalają określić, że praca ta ma się odbywać przez bazę danych.
+W poniższej sekcji pokazano, jak implementować metody repozytorium, które umożliwiają określenie, że ta praca ma się odbywać przez bazę danych.
 
-Teraz po utworzeniu warstwy abstrakcji między kontrolerem i kontekst bazy danych programu Entity Framework. Jeśli zostały będą przeprowadzać automatyczne testy jednostkowe za pomocą tej aplikacji, można utworzyć klasy alternatywnych repozytorium w jednostkowy projekt testowy, który implementuje `IStudentRepository` *.* Zamiast kontaktować się z kontekstem do odczytywania i zapisywania danych, ta klasa zasymulować repozytorium można manipulować kolekcje w pamięci w celu przetestowania funkcje kontrolera.
+Utworzono warstwę abstrakcji między kontrolerem i kontekst bazy danych programu Entity Framework. Jeśli zostały zamierza przeprowadzić zautomatyzowane testy jednostkowe za pomocą tej aplikacji, można utworzyć klasę alternatywnych repozytorium w projekcie testu jednostki, która implementuje `IStudentRepository` *.* Zamiast wywoływania kontekst do odczytu i zapisu danych, ta klasa makiety repozytorium można manipulować kolekcji w pamięci w celu przetestowania funkcje kontrolera.
 
-## <a name="implement-a-generic-repository-and-a-unit-of-work-class"></a>Implementowanie ogólnego repozytorium i jednostki pracy — klasa
+## <a name="implement-a-generic-repository-and-a-unit-of-work-class"></a>Implementowanie ogólnego repozytorium i jednostki pracy, klasa
 
-Tworzenie klasy repozytorium dla poszczególnych typów jednostek może skutkować dużą nadmiarowy kod i może skutkować częściowej aktualizacji. Załóżmy na przykład, że trzeba zaktualizować dwa typy inną jednostkę w ramach tej samej transakcji. Jeśli każda używa wystąpienia kontekstu oddzielnej bazy danych, co może się powieść i innych może zakończyć się niepowodzeniem. Jednym ze sposobów zminimalizować nadmiarowy kod jest użycie ogólnego repozytorium i jednym ze sposobów upewnij się, że wszystkie repozytoria używać tego samego kontekstu bazy danych (i w związku z tym koordynować aktualizacje wszystkich) jest użycie jednostki pracy klasy.
+Tworzenie klasy repozytorium dla każdego typu jednostki może spowodować wiele nadmiarowy kod, a może to spowodować aktualizacje częściowe. Na przykład załóżmy, że musisz zaktualizować dwa typy różne jednostki w ramach tej samej transakcji. Jeśli każda używa wystąpienie kontekstu oddzielnej bazy danych, jeden może się powieść, a druga może zakończyć się niepowodzeniem. Jednym ze sposobów, aby zminimalizować nadmiarowy kod jest użycie ogólnego repozytorium i jednym ze sposobów, aby upewnić się, że wszystkie repozytoria używać ten sam kontekst bazy danych (a zatem skoordynować wszystkie aktualizacje) jest użycie jednostki pracy klasy.
 
-W tej części samouczka utworzysz `GenericRepository` klasy i `UnitOfWork` klasy, a następnie używać ich w `Course` kontrolera dostęp zarówno do `Department` i `Course` zestawów jednostek. Zgodnie z opisem, aby zachować tę część samouczka prosty, możesz nie są Tworzenie interfejsów dla tych klas. Ale jeśli zostały będą z nich korzystać w celu ułatwienia TDD, czy zwykle ich wdrożeniem z interfejsami tak samo jak `Student` repozytorium.
+W tej części samouczka utworzysz `GenericRepository` klasy i `UnitOfWork` klasy i używać ich w `Course` kontrolera dostęp zarówno do `Department` i `Course` zestawy jednostek. Jak wyjaśniono wcześniej, w celu uproszczenia tej części samouczka, możesz nie są Tworzenie interfejsów dla tych klas. Ale były ma być używane do ułatwienia TDD, można będzie zazwyczaj wdrożyć je przy użyciu interfejsów taki sam sposób jak `Student` repozytorium.
 
-### <a name="create-a-generic-repository"></a>Tworzenie ogólnych repozytorium
+### <a name="create-a-generic-repository"></a>Tworzenie ogólnego repozytorium
 
-W *DAL* folderu, Utwórz *GenericRepository.cs* i Zastąp istniejący kod następującym kodem:
+W *DAL* folderze utwórz *GenericRepository.cs* i Zastąp istniejący kod następującym kodem:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample17.cs)]
 
-Zmienne klasy są deklarowane jako kontekst bazy danych i zestaw jednostek, który jest skonkretyzowany repozytorium:
+Zmienne klasy są deklarowane w kontekście bazy danych, a dla zestawu jednostek, który jest skonkretyzowany repozytorium:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample18.cs)]
 
-Konstruktor akceptuje wystąpienia kontekstu bazy danych i inicjuje jednostki zmiennej zestawu:
+Konstruktor akceptuje wystąpienie kontekstu bazy danych i inicjuje zmienną zestaw jednostek:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample19.cs)]
 
-`Get` Metoda używa wyrażenia lambda do wywołującego kodu do określania warunku filtru i kolejność wyniki według kolumny, a parametr typu string umożliwia wywołującego Podaj rozdzielana przecinkami lista właściwości nawigacji dla ładowania wczesny:
+`Get` Metoda używa wyrażenia lambda, aby umożliwić kod wywołujący, aby określić warunek filtru i kolumny, aby uporządkować wyniki według, a parametr ciągu umożliwia obiekt wywołujący, podaj rozdzielana przecinkami lista właściwości nawigacji dla wczesne ładowanie:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample20.cs)]
 
-Kod `Expression<Func<TEntity, bool>> filter` oznacza element wywołujący zapewnia wyrażenia lambda na podstawie `TEntity` typu i to wyrażenie będzie zwracać wartość logiczną. Na przykład, jeśli repozytorium jest tworzone dla `Student` typu jednostki, kod w metodzie wywołujący może określać `student => student.LastName == "Smith` &quot; dla `filter` parametru.
+Kod `Expression<Func<TEntity, bool>> filter` oznacza, że obiekt wywołujący zapewni Wyrażenie lambda, na podstawie `TEntity` typu, a to wyrażenie zwróci wartość logiczną. Na przykład, jeśli repozytorium jest skonkretyzowany `Student` typu jednostki, kod w metodzie wywołujący może określić `student => student.LastName == "Smith` &quot; dla `filter` parametru.
 
-Kod `Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy` również oznacza element wywołujący zapewnia wyrażenia lambda. Ale w takim przypadku danych wejściowych w wyrażeniu `IQueryable` obiekt do `TEntity` typu. Wyrażenie będzie zwracać uporządkowanej wersji tego `IQueryable` obiektu. Na przykład, jeśli repozytorium jest tworzone dla `Student` typu jednostki, kod w metodzie wywołujący może określać `q => q.OrderBy(s => s.LastName)` dla `orderBy` parametru.
+Kod `Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy` oznacza również, że obiekt wywołujący zapewni wyrażenia lambda. Ale w tym przypadku dane wejściowe używając wyrażenia `IQueryable` dla obiektu `TEntity` typu. Wyrażenie zwróci uporządkowane wersję tego `IQueryable` obiektu. Na przykład, jeśli repozytorium jest skonkretyzowany `Student` typu jednostki, kod w metodzie wywołujący może określić `q => q.OrderBy(s => s.LastName)` dla `orderBy` parametru.
 
-Kod w `Get` metoda tworzy `IQueryable` obiekt, a następnie stosuje wyrażenie filtru, jeśli istnieje:
+Kod w `Get` metoda tworzy `IQueryable` obiektu, a następnie stosuje wyrażenie filtru, jeśli istnieje:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample21.cs)]
 
-Następnie stosuje wyrażenia eager ładowania po analizie rozdzielana przecinkami lista:
+Następnie stosuje wyrażeń eager ładowania po analizie rozdzielana przecinkami lista:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample22.cs)]
 
@@ -192,63 +191,63 @@ Na koniec stosuje `orderBy` wyrażenia, jeśli istnieje i zwraca wyniki; w przec
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample23.cs)]
 
-Podczas wywoływania `Get` metody może wykonać filtrowanie i sortowanie `IEnumerable` kolekcji zwracany przez metodę zamiast podając parametrami dla tych funkcji. Ale sortowania i filtrowania pracy następnie będą wykonywane w pamięci na serwerze sieci web. Korzystając z tych parametrów, sprawdź, czy praca jest wykonywana w bazie danych, a nie na serwerze sieci web. Alternatywą jest tworzenie klas pochodnych typów jednostek określonych i dodaj specjalne `Get` metod, takich jak `GetStudentsInNameOrder` lub `GetStudentsByName`. Jednak w aplikacji złożonych, może to spowodować dużej liczby takich klas pochodnych i specjalne metody, które może być więcej pracy do obsługi.
+Gdy wywołujesz `Get` metody, można było przeprowadzać filtrowanie i sortowanie zawartości `IEnumerable` kolekcji zwróconej przez metodę zamiast podawać parametrów dla tych funkcji. Ale sortowanie i filtrowanie następnie będą wykonywane w pamięci na serwerze sieci web. Za pomocą tych parametrów, należy upewnić się, prace wykonywane przez bazy danych, a nie na serwerze sieci web. Alternatywą jest tworzenie klas pochodnych dla typów w określonej jednostce i dodaj specjalne `Get` metod, takich jak `GetStudentsInNameOrder` lub `GetStudentsByName`. Jednak w złożonych aplikacji, może to spowodować dużej liczby takich klas pochodnych i specjalne metody, które może być więcej pracy do obsługi.
 
-Kod w `GetByID`, `Insert`, i `Update` metody jest podobny do był wyświetlany w repozytorium nierodzajową. (Nie udostępnia parametru wczesny ładowania w `GetByID` podpisu, ponieważ nie można wykonać ładowania wczesny z `Find` metody.)
+Kod w `GetByID`, `Insert`, i `Update` metody jest podobny do przedstawionego w repozytorium nieogólnego. (Nie są podając parametr wczesne ładowanie w `GetByID` podpisu, ponieważ nie można tego zrobić wczesne ładowanie z `Find` metody.)
 
-Dwa przeciążenia są dostępne dla `Delete` metody:
+Dwa przeciążenia są dostarczane dla `Delete` metody:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample24.cs)]
 
-Jeden z tych pozwala przekazać tylko identyfikator jednostki do usunięcia, a wyższy wystąpienia jednostki. Jak przedstawiono w [Obsługa współbieżności](../../getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md) samouczka możesz Obsługa współbieżności wymaga `Delete` metody pobierającej wystąpienia jednostki, która obejmuje oryginalnej wartości właściwości śledzenia.
+Jedną z tych umożliwia przekazanej tylko identyfikator obiektu do usunięcia, a jedno wykorzystuje wystąpienia jednostki. Jak widać w [Obsługa współbieżności](../../getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md) samouczek, należy możesz Obsługa współbieżności `Delete` metody, która przyjmuje wystąpienie jednostki, która obejmuje oryginalnej wartości właściwości śledzenia.
 
-To repozytorium ogólnego obsłuży typowe wymagania CRUD. Gdy typem danego podmiotu ma specjalne wymagania, na przykład bardziej złożonych filtrowania lub kolejności, można utworzyć klasy pochodnej, która ma dodatkowe metody dla tego typu.
+Ten ogólny repozytorium będzie obsługiwać typowych wymagań CRUD. Gdy typ określonego obiektu ma specjalne wymagania, takie jak bardziej złożone filtrowanie lub kolejności, można utworzyć klasy pochodnej, która ma dodatkowe metody dla tego typu.
 
-## <a name="creating-the-unit-of-work-class"></a>Tworzenie jednostki pracy — klasa
+## <a name="creating-the-unit-of-work-class"></a>Tworzenie jednostki pracy klasy
 
-Jednostka pracy klasy służy jednemu celowi: aby upewnij się, że gdy używasz wielu repozytoriów, mają kontekstu pojedynczej bazy danych. W ten sposób po zakończeniu jednostka pracy można wywołać `SaveChanges` metody w tym wystąpieniu kontekstu i mieć pewność, wszystkie powiązane zmiany zostaną skoordynowany sposób. Wszystkie opcje, które jest potrzeb klasy `Save` metody i właściwości dla każdego repozytorium. Każda właściwość repozytorium Zwraca wystąpienie repozytorium, które zostały utworzone przy użyciu tego samego wystąpienia kontekstu bazy danych, co inne wystąpienia repozytorium.
+Klasa pracy jednostki służy jeden cel: aby upewnić się, korzystając z wieloma repozytoriami, współużytkują one kontekstu pojedynczej bazy danych. Po zakończeniu jednostka pracy w ten sposób można wywołać `SaveChanges` metody, w tym wystąpieniu kontekstu i mieć pewność, wszystkie powiązane zmiany zostaną skoordynowany. Wszystko to jest klasa potrzeb `Save` metod i właściwości dla każdego repozytorium. Każda właściwość repozytorium Zwraca wystąpienie repozytorium, które zostały utworzone przy użyciu tego samego wystąpienia bazy danych w kontekście co inne wystąpienia repozytorium.
 
-W *DAL* folderu, Utwórz plik klasy o nazwie *UnitOfWork.cs* i Zastąp kod szablonu z następującym kodem:
+W *DAL* folderze utwórz plik klasy o nazwie *UnitOfWork.cs* i Zastąp kod szablonu poniższym kodem:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample25.cs)]
 
-Kod tworzy zmienne klasy dla kontekstu bazy danych i każdego repozytorium. Aby uzyskać `context` zmiennej, zostanie uruchomiony nowy kontekst:
+Ten kod tworzy zmienne klasy kontekstu bazy danych i każdego repozytorium. Aby uzyskać `context` zmiennej, zostanie uruchomiony nowy kontekst:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample26.cs)]
 
-Każda właściwość repozytorium sprawdza, czy repozytorium już istnieje. Jeśli nie, metoda tworzy repozytorium, przekazując wystąpienia kontekstu. W związku z tym wszystkie repozytoria współużytkują to samo wystąpienie kontekstu.
+Każda właściwość repozytorium sprawdza, czy repozytorium już istnieje. W przeciwnym razie metoda tworzy repozytorium, przekazując to wystąpienie kontekstu. W rezultacie wszystkie repozytoria współużytkują to samo wystąpienie kontekstu.
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample27.cs)]
 
 `Save` Wywołania metody `SaveChanges` w kontekście bazy danych.
 
-Wszystkie klasy, która tworzy kontekst bazy danych w zmiennej klasy, takich jak `UnitOfWork` klasa implementuje `IDisposable` i usuwa kontekstu.
+Wszystkie klasy, która tworzy w zmiennej klasy kontekstu bazy danych, takich jak `UnitOfWork` klasy implementuje `IDisposable` i usuwa kontekst.
 
-### <a name="changing-the-course-controller-to-use-the-unitofwork-class-and-repositories"></a>Zmienianie kontrolera kursu do korzystania z klasy UnitOfWork i repozytoriów
+### <a name="changing-the-course-controller-to-use-the-unitofwork-class-and-repositories"></a>Zmiana kontroler kurs klasy UnitOfWork i repozytoriów
 
-Zastąp kod aktualnie zainstalowana w *CourseController.cs* następującym kodem:
+Zastąp kod w *CourseController.cs* następującym kodem:
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample28.cs?highlight=15,20,22,31,54-55,70,85-86,101-102,122-124,130)]
 
-Ten kod dodaje zmienną klasy `UnitOfWork` klasy. (Jeśli były używane interfejsów w tym miejscu, nie należy zainicjować zmiennej tutaj; zamiast tego, czy implementuje wzorzec dwa konstruktory tak samo, jak została `Student` repozytorium.)
+Ten kod dodaje zmienną klasy `UnitOfWork` klasy. (Jeśli była używana interfejsów w tym miejscu, w takich sytuacjach przydałaby zainicjować zmienną, w tym miejscu; zamiast tego możesz również zaimplementować wzorzec dwa konstruktory tak, jak została ona `Student` repozytorium.)
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample29.cs)]
 
-W pozostałej części klasy, wszystkie odwołania do kontekstu bazy danych są zastępowane przez odwołania do odpowiednich repozytorium przy użyciu `UnitOfWork` właściwości, które mają dostęp do repozytorium. `Dispose` Metoda usuwa `UnitOfWork` wystąpienia.
+W pozostałej części klasy, wszystkie odwołania do kontekstu bazy danych są zastępowane przez odwołania do odpowiedniego repozytorium przy użyciu `UnitOfWork` właściwości, aby uzyskać dostępu do repozytorium. `Dispose` Usuwa metoda `UnitOfWork` wystąpienia.
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample30.cs)]
 
-Uruchom witrynę i kliknij przycisk **kursów** kartę.
+Uruchamianie witryny, a następnie kliknij przycisk **kursów** kartę.
 
 ![Courses_Index_page](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/_static/image4.png)
 
-Strona wygląda i działa tak samo, jak poprzednio wprowadzone zmiany i innych stron kursu również działać w identyczny sposób.
+Strona wygląda i działa tak samo jak wcześniej zmiany i innych stron kurs również działać tak samo.
 
 ## <a name="summary"></a>Podsumowanie
 
-Teraz zaimplementowano repozytorium i jednostki pracy. Użyto wyrażenia lambda jako parametry metody w ogólnym repozytorium. Aby uzyskać więcej informacji o sposobie używania tych wyrażeń z `IQueryable` obiektów, zobacz [IQueryable(T) interfejsu (System.Linq)](https://msdn.microsoft.com/library/bb351562.aspx) w bibliotece MSDN. W następnej samouczka, dowiesz się, jak obsługiwać niektórych zaawansowanych scenariuszy.
+Udało Ci się teraz wdrożyć repozytorium i jednostki pracy. Wyrażenia lambda używanych jako parametry metody w ogólnego repozytorium. Aby uzyskać więcej informacji o sposobie używania tych wyrażeń z `IQueryable` obiektu, zobacz [IQueryable(T) interfejsu (System.Linq)](https://msdn.microsoft.com/library/bb351562.aspx) w bibliotece MSDN. W następnym samouczku dowiesz się, jak obsługiwać niektórych zaawansowanych scenariuszy.
 
-Linki do innych zasobów programu Entity Framework, można znaleźć w [Mapa zawartości dostępu do danych programu ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
+Linki do innych zasobów platformy Entity Framework można znaleźć w [Mapa zawartości dostępu do danych ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 > [!div class="step-by-step"]
 > [Poprzednie](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)

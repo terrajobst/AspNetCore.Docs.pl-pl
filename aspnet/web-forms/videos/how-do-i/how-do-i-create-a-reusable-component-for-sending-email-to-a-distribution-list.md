@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list
-title: '[Jak i.] Utwórz komponentów wielokrotnego użytku do wysyłania wiadomości E-mail do listy dystrybucyjnej | Dokumentacja firmy Microsoft'
+title: '[Jak mogę] Tworzenie składników wielokrotnego użytku dla wysyłania wiadomości E-mail do listy dystrybucyjnej | Dokumentacja firmy Microsoft'
 author: rick-anderson
-description: W tym wideo Pels Krzysztof pokazano, jak utworzyć składnik używany w wielu stron sieci web i witryn sieci web wysyłanej wiadomości e-mail do listy adresatów. Firs...
+description: W tym wideo pikseli Chris pokazuje, jak utworzyć składnik, który może być używany na wielu stronach sieci web i witryn sieci web, która wysyła wiadomości e-mail do listy adresatów. Firs...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/04/2008
 ms.topic: article
 ms.assetid: 13dd3a26-c210-432e-91fe-355c979060b3
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list
 msc.type: video
-ms.openlocfilehash: 06a2dd7bbcd3087d8d2566f1015eccb8bc7ec8aa
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b67ab5a7ced1eb731eb71b98956e53ae2e067e1b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26571955"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384254"
 ---
-<a name="how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list"></a>[Jak i.] Utwórz komponentów wielokrotnego użytku do wysyłania wiadomości E-mail do listy dystrybucyjnej
+<a name="how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list"></a>[Jak mogę] Tworzenie składników wielokrotnego użytku dla wysyłania wiadomości E-mail do listy dystrybucyjnej
 ====================
-przez [Pels Krzysztof](https://twitter.com/chrispels)
+przez [Chris pikseli](https://twitter.com/chrispels)
 
-W tym wideo Pels Krzysztof pokazano, jak utworzyć składnik używany w wielu stron sieci web i witryn sieci web wysyłanej wiadomości e-mail do listy adresatów. Po pierwsze, witryny sieci web ASP.NET zostanie skonfigurowany do wysyłania wiadomości e-mail przy użyciu &lt;mailSettings&gt; w pliku web.config. Klasy i kilka metod są tworzone na odczytywanie listy adresatów ze źródła danych (bazy danych, XML itp.) i wysłać wiadomość e-mail do wszystkich adresatów za pomocą klasy System.Net.Mail. W ramach tego wyjątku proces obsługi jest dołączony. Ponadto interfejs użytkownika jest tworzona umożliwia użytkownikowi określenie elementy takie jak adres od podmiotu, Dodaj załącznik itp.
+W tym wideo pikseli Chris pokazuje, jak utworzyć składnik, który może być używany na wielu stronach sieci web i witryn sieci web, która wysyła wiadomości e-mail do listy adresatów. Po pierwsze, witryny sieci web platformy ASP.NET zostanie skonfigurowana w celu wysyłania wiadomości e-mail przy użyciu &lt;mailSettings&gt; w pliku web.config. Klasa i kilka metod są tworzone na odczytywanie listy adresatów ze źródła danych (bazy danych, XML itp.) i Wyślij wiadomość e-mail do wszystkich odbiorców za pomocą klasy System.Net.Mail. Wyjątek ten proces w ramach obsługi jest dołączony. Ponadto interfejs użytkownika zostanie utworzona umożliwia użytkownikowi określić elementy, takie jak adres nadawcy podmiotu, należy dodać załącznik, itp.
 
-[&#9654; Obejrzyj klip wideo (minuty 35)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list)
+[&#9654;Obejrzyj film wideo (35 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list)

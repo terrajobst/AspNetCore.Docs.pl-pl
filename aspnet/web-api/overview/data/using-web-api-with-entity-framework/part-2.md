@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-2
-title: Dodaj modele i kontrolerów | Dokumentacja firmy Microsoft
+title: Dodawanie modeli i kontrolerów | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,88 +9,87 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: 88908ff8-51a9-40eb-931c-a8139128b680
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 015bb9698d81387d03ea8f9629316fb53232e708
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f127f239bcc665f71976bb34f6d3387f8e0b72a7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879585"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393153"
 ---
-<a name="add-models-and-controllers"></a>Dodaj modele i kontrolerów
+<a name="add-models-and-controllers"></a>Dodawanie modeli i kontrolerów
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
 [Pobieranie ukończone projektu](https://github.com/MikeWasson/BookService)
 
-W tej sekcji dodasz klasy modeli, które definiują jednostki bazy danych. Następnie należy dodać kontrolerów interfejsu API sieci Web, które wykonują operacje CRUD na tych jednostek.
+W tej sekcji dodasz klasy modeli, które definiują jednostek bazy danych. Następnie dodasz kontrolerów internetowych interfejsów API, które wykonują operacje CRUD na tych jednostkach.
 
-## <a name="add-model-classes"></a>Dodawanie klasy modeli
+## <a name="add-model-classes"></a>Dodawanie klasy modelu
 
-W tym samouczku utworzymy bazy danych przy użyciu "Code First" podejście do Entity Framework (EF). Code First zapisu klas C#, które odpowiadają w tabelach bazy danych i EF utworzy bazę danych. (Aby uzyskać więcej informacji, zobacz [Entity Framework programowanie podejścia](https://msdn.microsoft.com/library/ms178359%28v=vs.110%29.aspx#dbfmfcf).)
+W tym samouczku utworzymy bazy danych przy użyciu podejścia "Code First", aby Entity Framework (EF). Code First zapisu klas języka C#, które odnoszą się do tabel bazy danych i EF tworzy bazę danych. (Aby uzyskać więcej informacji, zobacz [podejścia do projektowania struktury jednostki](https://msdn.microsoft.com/library/ms178359%28v=vs.110%29.aspx#dbfmfcf).)
 
-Firma Microsoft Rozpocznij od zdefiniowania naszych obiektów domeny jako POCOs (stary zwykły obiektów CLR). Utworzymy POCOs następujące:
+Rozpoczniemy pracę przez zdefiniowanie naszych obiektów domeny jako POCOs (stary zwykły obiektów CLR). Utworzymy POCOs następujące:
 
 - Autor
-- Book
+- Książki
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy kliknij folder modeli. Wybierz **Dodaj**, a następnie wybierz pozycję **klasy**. Nazwa klasy `Author`.
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy kliknij folder modeli. Wybierz **Dodaj**, a następnie wybierz **klasy**. Nazwa klasy `Author`.
 
 ![](part-2/_static/image1.png)
 
-Zamień wszystkie schematyczny kod w Author.cs poniższy kod.
+Zamień wszystkie schematyczny kod w Author.cs następujący kod.
 
 [!code-csharp[Main](part-2/samples/sample1.cs)]
 
-Dodaj kolejną klasę o nazwie `Book`, z następującym kodem.
+Dodaj klasę o nazwie `Book`, używając następującego kodu.
 
 [!code-csharp[Main](part-2/samples/sample2.cs)]
 
-Entity Framework użyje tych modeli w celu tworzenia tabel bazy danych. Dla każdego modelu `Id` Właściwości staną się kolumna klucza podstawowego tabeli bazy danych.
+Entity Framework użyje tych modeli do tworzenia tabel bazy danych. Dla każdego modelu `Id` Właściwości staną się kolumna klucza podstawowego w tabeli bazy danych.
 
-W klasie książki `AuthorId` definiuje klucza obcego do `Author` tabeli. (Dla uproszczenia I używam przy założeniu, że każdy książki ma jednego autora.) Klasa book zawiera także właściwości nawigacji do pokrewnych `Author`. Właściwość nawigacji umożliwia dostęp do pokrewny `Author` w kodzie. Coś więcej o właściwości nawigacji w część 4, [relacjami jednostek obsługi](part-4.md).
+W klasie książki `AuthorId` definiuje klucz obcy do `Author` tabeli. (Dla uproszczenia I jestem przy założeniu, że poszczególne książki ma jednego autora.) Klasa książki zawiera także właściwości nawigacji w celu powiązane `Author`. Właściwość nawigacji umożliwia dostęp do odnośnych `Author` w kodzie. Więcej informacji na temat właściwości nawigacji, część 4, mówię [Obsługa relacji jednostek](part-4.md).
 
 ## <a name="add-web-api-controllers"></a>Dodaj kontrolery interfejsu API sieci Web
 
-W tej sekcji dodamy kontrolery interfejsu API sieci Web, które obsługują operacje CRUD (tworzenia, odczytu, aktualizacji i usuwania). Kontrolery użyje Entity Framework do komunikowania się z warstwy bazy danych.
+W tej sekcji dodamy kontrolerów internetowych interfejsów API, które obsługują operacje CRUD (tworzenia, odczytu, aktualizacji i usuwania). Kontrolery będzie używać programu Entity Framework do komunikowania się z warstwą bazy danych.
 
-Po pierwsze można usunąć pliku Controllers/ValuesController.cs. Ten plik zawiera przykład kontroler interfejsu API sieci Web, ale nie będzie potrzebny w tym samouczku.
+Po pierwsze można usunąć pliku Controllers/ValuesController.cs. Ten plik zawiera przykład kontroler interfejsu API sieci Web, ale nie są potrzebne w tym samouczku.
 
 ![](part-2/_static/image2.png)
 
-Następnie należy skompilować projekt. Funkcja szkieletów interfejsu API sieci Web używa odbicia można znaleźć klasy modeli, dlatego potrzebuje skompilowanego zestawu.
+Następnie Skompiluj projekt. Tworzenie szkieletu interfejsu API sieci Web używa odbicia, można znaleźć klasy modeli, dlatego potrzebuje skompilowanym zestawie.
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder kontrolery. Wybierz **Dodaj**, a następnie wybierz pozycję **kontrolera**.
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder kontrolerów. Wybierz **Dodaj**, a następnie wybierz **kontrolera**.
 
 ![](part-2/_static/image3.png)
 
-W **Dodawanie szkieletu** okno dialogowe, wybierz opcję "składnika Web API 2 kontroler z akcjami używający narzędzia Entity Framework". Kliknij przycisk **Dodaj**.
+W **Dodawanie szkieletu** okno dialogowe, wybierz opcję "Web API 2 kontroler z akcjami używający narzędzia Entity Framework". Kliknij przycisk **Dodaj**.
 
 ![](part-2/_static/image4.png)
 
 W **Dodaj kontroler** okna dialogowego, wykonaj następujące czynności:
 
-1. W **klasa modelu** listy rozwijanej wybierz `Author` klasy. (Jeśli nie widzisz wyświetlane na liście rozwijanej, upewnij się, że zostały utworzone w projekcie.)
+1. W **klasa modelu** listy rozwijanej wybierz `Author` klasy. (Jeśli widzisz go na liście rozwijanej, upewnij się, że utworzony projekt.)
 2. Sprawdź "Użyj asynchronicznych akcji kontrolera".
-3. Pozostaw nazwę kontrolera jako &quot;AuthorsController&quot;.
-4. Kliknij przycisk plus (+) obok przycisku **klasa kontekstu danych**.
+3. Pozostaw nazwę kontrolera &quot;AuthorsController&quot;.
+4. Kliknij przycisk plus (+) znajdujący się obok **klasa kontekstu danych**.
 
 ![](part-2/_static/image5.png)
 
-W **nowy kontekst danych** okna dialogowego, pozostaw nazwę domyślną, a następnie kliknij przycisk **Dodaj**.
+W **nowy kontekst danych** okno dialogowe, pozostaw nazwę domyślną, a następnie kliknij przycisk **Dodaj**.
 
 ![](part-2/_static/image6.png)
 
-Kliknij przycisk **Dodaj** do ukończenia **Dodaj kontroler** okna dialogowego. Okno dialogowe dodaje dwie klasy do projektu:
+Kliknij przycisk **Dodaj** do ukończenia **Dodaj kontroler** okna dialogowego. Okno dialogowe powoduje dodanie dwóch klas do projektu:
 
 - `AuthorsController` Definiuje kontrolera interfejsu API sieci Web. Kontroler implementuje interfejs API REST, używanego przez klientów w celu wykonywania operacji CRUD na liście autorów.
-- `BookServiceContext` zarządza obiekty obiektów w czasie wykonywania, obejmujące wypełnianie obiekty z danymi z bazy danych, śledzenie zmian i trwałych danych do bazy danych. Dziedziczy on z `DbContext`.
+- `BookServiceContext` zarządza obiekty jednostki w czasie wykonywania, zawierającą wypełnianie obiektów przy użyciu danych z bazy danych, śledzenie zmian i przechowywanie danych w bazie danych. Dziedziczy `DbContext`.
 
 ![](part-2/_static/image7.png)
 
-W tym momencie ponownie skompilować projekt. Teraz przejdź przez te same kroki, aby dodać Kontroler interfejsu API dla `Book` jednostek. Teraz, wybierz opcję `Book` dla klasy modelu i wybierz istniejącą `BookServiceContext` klasy dla klasy kontekstu danych. (Nie tworzy nowy kontekst danych). Kliknij przycisk **Dodaj** Aby dodać kontroler.
+W tym momencie ponownie skompiluj projekt. Teraz przechodzić przez te same kroki, aby dodać Kontroler interfejsu API dla `Book` jednostek. Tym razem wybierz pozycję `Book` klasy modelu, a następnie wybierz istniejący `BookServiceContext` klasy dla klasy kontekstu danych. (Nie twórz nowy kontekst danych). Kliknij przycisk **Dodaj** można dodać kontrolera.
 
 ![](part-2/_static/image8.png)
 

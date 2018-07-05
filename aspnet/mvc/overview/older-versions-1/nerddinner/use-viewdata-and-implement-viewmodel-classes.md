@@ -1,132 +1,131 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
-title: Użyj ViewData i wdrożenie ViewModel klasy | Dokumentacja firmy Microsoft
+title: Korzystanie z podejścia ViewData i Implementowanie klas ViewModel | Dokumentacja firmy Microsoft
 author: microsoft
-description: Krok 6 przedstawia jak włączyć obsługę bardziej zaawansowane funkcje edycji scenariuszach formularza i omówiono również dwie metody, które mogą służyć do przekazywania danych z kontrolerów z widokami:...
+description: Krok 6 przedstawia jak włączyć obsługę formularza bardziej zaawansowane edytowanie scenariuszy, a także w tym artykule omówiono dwie metody, które mogą służyć do przekazywania danych z kontrolerów do widoków:...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
 ms.topic: article
 ms.assetid: 5755ec4c-60f1-4057-9ec0-3a5de3a20e23
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
 msc.type: authoredcontent
-ms.openlocfilehash: 9ba8758bd6524f3e300f3fd91ef68cfe8a3587a7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: edc62246cdc5e5df51c369a70b47dab92c9ecc1c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879429"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365126"
 ---
-<a name="use-viewdata-and-implement-viewmodel-classes"></a>Użyj ViewData i wdrożenie ViewModel klasy
+<a name="use-viewdata-and-implement-viewmodel-classes"></a>Korzystanie z podejścia ViewData i Implementowanie klas ViewModel
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
 [Pobierz plik PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Jest to krok 6 bezpłatny ["NerdDinner" samouczek aplikacji](introducing-the-nerddinner-tutorial.md) który przeszukiwań przez proces kompilacji mały, ale ukończyć, aplikacji sieci web przy użyciu platformy ASP.NET MVC 1.
+> Jest to krok 6 z BEZPŁATNEJ [samouczek aplikacji "NerdDinner"](introducing-the-nerddinner-tutorial.md) , przeszukiwania — szczegółowe instrukcje dotyczące tworzenia małych, ale ukończyć, aplikacji sieci web przy użyciu platformy ASP.NET MVC 1.
 > 
-> Krok 6 przedstawia jak włączyć obsługę bardziej zaawansowane funkcje edycji scenariuszach formularza i omówiono również dwie metody, które mogą służyć do przekazywania danych z kontrolerów z widokami: ViewData i ViewModel.
+> Pokazuje krok 6, jak włączyć obsługę formularza bardziej zaawansowane edytowanie scenariuszy, a także w tym artykule omówiono dwie metody, które mogą służyć do przekazywania danych z kontrolerów do widoków: z podejścia ViewData i ViewModel.
 > 
-> Jeśli używasz programu ASP.NET MVC 3, zaleca się wykonanie [pobierania uruchomiona z MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [magazynu utworów muzycznych MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) samouczki.
+> Jeśli używasz programu ASP.NET MVC 3, zaleca się wykonać [Rozpoczynanie pracy z MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) lub [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) samouczków.
 
 
-## <a name="nerddinner-step-6-viewdata-and-viewmodel"></a>NerdDinner krok 6: ViewData i ViewModel
+## <a name="nerddinner-step-6-viewdata-and-viewmodel"></a>NerdDinner krok 6: Z podejścia ViewData i ViewModel
 
-Wprowadzeniu pasuje do wielu operacji post formularza i opisano sposób wykonania tworzenia, aktualizacji i usuwania (CRUD) w pomocy technicznej. Firma Microsoft będzie teraz wykonywanie dodatkowych implementacja naszej DinnersController i włączyć obsługę bardziej zaawansowane funkcje edycji scenariuszy formularza. Podczas w ten sposób przedstawimy dwa podejścia, które mogą służyć do przekazywania danych z kontrolerów z widokami: ViewData i ViewModel.
+Firma Microsoft została wchodzi w zakres różnych scenariuszy post formularza i omówiono sposób implementacji tworzenia, aktualizacji i usuwania (CRUD) w pomocy technicznej. Teraz utworzymy podjęcie dalszych naszej implementacji DinnersController i włączyć obsługę formularza bardziej zaawansowane edytowanie scenariuszy. Podczas wykonywania tego omówimy dwie metody, które mogą służyć do przekazywania danych z kontrolerów do widoków: z podejścia ViewData i ViewModel.
 
 ### <a name="passing-data-from-controllers-to-view-templates"></a>Przekazywanie danych z kontrolerów do widoku szablonów
 
-Definiowanie właściwości wzorca MVC jest strict "separacji" pomaga wymuszania między poszczególnymi składnikami aplikacji. Modele, kontrolery i widoki każdej dobrze zdefiniowane role i obowiązki i komunikują się między sobą w sposób jasno określone. Pomaga to podwyższyć poziom kontroli i ponowne użycie kodu.
+Jedną z właściwości definiujące wzorzec MVC jest ścisłym "separacji" ułatwia wymuszanie między różnymi składnikami aplikacji. Modeli, widoków i kontrolerów każdego mają dobrze zdefiniowane role i obowiązki i komunikują się między sobą w sposób dobrze zdefiniowane. Dzięki temu promowania testowania i ponowne użycie kodu.
 
-Klasy kontrolera decyduje o tym, do renderowania odpowiedzi HTML z powrotem do klienta, jest odpowiedzialny za jawnie przekazywanie do szablonu widoku wszystkie dane wymagane do renderowania odpowiedzi. Wyświetl szablony nigdy nie należy wykonywać żadnych danych lub pobieranie aplikacji logiki — i zamiast tego należy ograniczyć się znajdować renderowania kodu, który jest wymuszany wylogowuje modelu danych przekazanego przez kontroler.
+Klasa kontrolera zdecyduje się do renderowania odpowiedzi HTML z powrotem do klienta, jest odpowiedzialny za jawnie przekazywanie z szablonem widoku wszystkie dane wymagane do renderowania odpowiedzi. Wyświetl szablony nigdy nie należy wykonywać żadnych danych lub pobieranie aplikacji logiki — i zamiast tego należy ograniczyć samodzielnie, aby tylko kod renderowania, który jest wymuszany w modelu danych przekazanego przez kontroler.
 
-W tej chwili modelu danych przekazywanych przez naszych DinnersController klasy naszym szablony widoku jest prosty i proste — listę obiektów obiad w przypadku indeks() oraz obiad pojedynczy obiekt w przypadku Details(), Edit(), Create() i Delete(). Jak możemy dodać więcej możliwości interfejsu użytkownika do naszej aplikacji, zamierzamy często muszą podawać więcej niż tylko te dane do renderowania odpowiedzi HTML w naszym szablony widoku. Na przykład może chcemy zmiany w polu "Kraju" w ramach naszych edycji i tworzyć widoki przed polu tekstowym HTML dropdownlist. Zamiast kodowane listy rozwijanej kraj nazw wyświetlanie szablonu chcemy może generować go z listy obsługiwanych krajach, które wypełnimy dynamicznie. Firma Microsoft będzie muszą mieć możliwość przekazania obiektu obiad *i* listę obsługiwanych krajach z kontrolera naszym szablony widoku.
+Teraz modelu danych przekazywanych przez naszych DinnersController klasy do naszych szablonów widok jest prosty i proste — listę obiektów obiad w przypadku indeks() i obiad pojedynczy obiekt w przypadku Details(), Edit(), Create() i Delete(). Ponieważ nieustannie dodajemy więcej możliwości interfejsu użytkownika do naszej aplikacji są często użyjemy muszą podawać więcej niż tylko te dane do renderowania odpowiedzi HTML w ramach naszych szablonów widoku. Na przykład może być chcemy Zmień wartość pola "Kraj" w ramach naszych edycji i tworzyć widoki miałyby polu tekstowym HTML kontrolki dropdownlist. Zamiast trwale kodować listy rozwijanej kraj nazw Wyświetl szablon firma Microsoft może być wygenerowany na podstawie listy obsługiwane kraje, które wypełnimy dynamicznie. Firma Microsoft będzie należy sposób przekazania obiektu obiad *i* listę obsługiwanych krajów z kontrolera do naszych szablonów widoku.
 
 Przyjrzyjmy się firma Microsoft będzie można to zrobić na dwa sposoby.
 
 ### <a name="using-the-viewdata-dictionary"></a>Za pomocą słownika ViewData
 
-Klasa podstawowa kontrolera udostępnia właściwości słownika "ViewData", który może służyć do przekazywania danych dodatkowe elementy z kontrolerów z widokami.
+Klasa bazowa kontrolera udostępnia "ViewData" słownika właściwości, który może służyć do przekazania dodatkowych danych elementów z kontrolerów do widoków.
 
-Na przykład do obsługi scenariusza, w którym chcemy się zmienić pole tekstowe "Kraju" w ramach naszych widoku edycji przed polu tekstowym HTML dropdownlist, zaktualizowania naszych Edit() metody akcji do przekazania (oprócz obiekt obiad) obiektu SelectList, który może służyć jako m odelu dropdownlist krajach.
+Na przykład aby móc obsługiwać scenariusz, w której chcemy to zmienić w polu tekstowym "Kraj", w ramach naszych widoku edycji miałyby polu tekstowym HTML kontrolki dropdownlist, można aktualizujemy nasze metody akcji Edit() do przekazania (oprócz obiektu obiad) obiekt SelectList, który może służyć jako m odelu dropdownlist krajach.
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample1.cs)]
 
-Konstruktor SelectList powyżej przyjmuje listę powiatów do wypełnienia listy downlist do z, a także obecnie wybranej wartości.
+Konstruktor SelectList powyżej akceptuje listę hrabstwa do wypełniania listy downlist do z, a także obecnie wybranej wartości.
 
-Następnie mogą zaktualizować naszych Edit.aspx wyświetlanie szablonu przy użyciu metody pomocnika Html.DropDownList() zamiast metody pomocnika Html.TextBox() użyliśmy wcześniej:
+Firma Microsoft można zaktualizować szablon widoku Edit.aspx przy użyciu metody pomocnika Html.DropDownList() zamiast metody pomocnika Html.TextBox(), która była używana wcześniej:
 
 [!code-aspx[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample2.aspx)]
 
-Metoda pomocnika Html.DropDownList() powyżej przyjmuje dwa parametry. Pierwsza to nazwa elementu formularza HTML do danych wyjściowych. Drugim jest przekazane za pomocą słownika ViewData modelu "SelectList". Użyto C# — "słowo kluczowe jako" można rzutować typu w słowniku jako SelectList.
+Powyższej metody pomocnika Html.DropDownList() przyjmuje dwa parametry. Pierwszy jest nazwy elementu formularza HTML w danych wyjściowych. Drugim jest model "SelectList" przekazanych za pośrednictwem słownika ViewData. Użyto języka C# — "słowo kluczowe jako" rzutowanie typu w słowniku jako SelectList.
 
-I teraz możemy uruchomienia naszych aplikacji i dostępu */Dinners/Edit/1* adres URL w naszej przeglądarki zajmiemy się tym, że nasze edycji interfejsu użytkownika został zaktualizowany do wyświetlenia dropdownlist krajów zamiast pole tekstowe:
+A teraz możemy uruchamiania naszych aplikacji i dostępu */Dinners/Edit/1* adresu URL w ramach przeglądarki zobaczymy, że naszych edycji interfejsu użytkownika został zaktualizowany do wyświetlania kontrolki dropdownlist krajach zamiast pole tekstowe:
 
 ![](use-viewdata-and-implement-viewmodel-classes/_static/image1.png)
 
-Ponieważ firma Microsoft również renderowania Edytuj szablon widoku z metody POST protokołu HTTP Edytuj (w scenariuszach, w przypadku wystąpienia błędów), chcemy upewnij się, że firma Microsoft również zaktualizować tę metodę, aby dodać SelectList do ViewData podczas renderowania szablonu widoku w scenariuszach błąd:
+Ponieważ renderować możemy również Edytuj szablon widoku z metody POST protokołu HTTP, Edytuj (w scenariuszach, w przypadku wystąpienia błędów), chcemy upewnić się, czy też aktualizujemy tę metodę, aby dodać SelectList ViewData, gdy szablon widoku jest wyświetlana w scenariuszach błąd:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample3.cs)]
 
-I w naszym scenariuszu edycji DinnersController obsługuje teraz DropDownList.
+A teraz obsługuje kontrolki DropDownList w naszym scenariuszu edycji DinnersController.
 
 ### <a name="using-a-viewmodel-pattern"></a>Przy użyciu wzorca ViewModel
 
-Metody słownika ViewData jest zaletą jest dość szybki i łatwy do zaimplementowania. Niektórzy deweloperzy nie odpowiada za pomocą oparte na ciągach słowników, ponieważ literówki może prowadzić do błędów, które nie zostanie przechwycony w czasie kompilacji. Wyrażeniami bez typu słownika ViewData wymaga również za pomocą operatora "as" lub Rzutowanie, korzystając z języka jednoznacznie takich jak C# w szablonie widoku.
+Słownik podejścia ViewData ma tę zaletę dość szybkie i łatwe do wdrożenia. Niektórzy deweloperzy nie podoba przy użyciu opartego na ciągach słowników, jednak ponieważ literówki może prowadzić do błędów, które nie zostanie przechwycony w czasie kompilacji. Niezaznaczone typizowanego słownika ViewData wymaga również za pomocą operatora "as" lub rzutowania w przypadku korzystania z językiem jednoznacznym takich jak C# w szablonie widoku.
 
-Alternatywne metody, która może używamy jest jednym często określany jako wzorzec "ViewModel". Korzystając z tego wzorca utworzymy jednoznacznie klas, które są zoptymalizowane pod kątem scenariuszami określony widok, a które udostępniają właściwości dla zawartości dynamicznej, wartości/wymagane przez naszym szablony widoku. Nasze klasy kontrolera można wypełnić i przekazać te klasy zoptymalizowanych pod kątem widoku do naszej Wyświetl szablon do użycia. Umożliwia to zabezpieczenie typów, sprawdzanie kompilacji i Edytor intellisense w widoku szablonów.
+Alternatywne podejście, które firma Microsoft może używać to jedna często nazywany wzorcem "ViewModel". Korzystając z tego wzorca, możemy utworzyć silnie typizowanych klas, które są zoptymalizowane pod kątem scenariuszy określonego widoku, a które udostępnianie właściwości dla zawartości dynamicznej, wartości/wymagane przez naszych szablonów widoku. Naszych zajęć kontrolera można wypełnić i przekazać te zoptymalizowane pod kątem widoku klasy do naszych Wyświetl szablon do użycia. Dzięki temu, bezpieczeństwo typów, sprawdzanie w czasie kompilacji i Edytor intellisense w szablonach widoku.
 
-Na przykład, aby włączyć formularz obiad edycji scenariusze można utworzyć "DinnerFormViewModel" klas takich jak poniżej, który udostępnia dwa jednoznacznie właściwości: obiekt obiad oraz model SelectList potrzebnych do wypełnienia dropdownlist krajach:
+Na przykład, aby włączyć formularza obiad edycji scenariusze, możemy utworzyć "DinnerFormViewModel" klasy takie jak poniżej, który udostępnia dwa silnie typizowane właściwości: obiekt obiad i model SelectList potrzebnych do wypełnienia kontrolki dropdownlist krajach:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample4.cs)]
 
-Firma Microsoft następnie zaktualizuj naszych Edit() metodę akcji w celu utworzenia DinnerFormViewModel przy użyciu obiektu obiad, do którego możemy pobrać z naszym repozytorium, a następnie przekaż go do naszego szablon widoku:
+Firma Microsoft następnie zaktualizuj naszych Edit() metodę akcji w celu utworzenia DinnerFormViewModel za pomocą obiektu obiad, które możemy pobierać z repozytorium, a następnie przekazać go do szablonu widoku:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample5.cs)]
 
-Wyślemy wiadomość, a następnie aktualizacji naszych Wyświetl szablon, którego nie oczekuje "DinnerFormViewModel" zamiast "Obiad" obiekt zmieniając atrybut "inherits" w górnej części strony edit.aspx w następujący sposób:
+Wyślemy wiadomość, a następnie aktualizację naszej Wyświetl szablon, tak że oczekuje "DinnerFormViewModel" zamiast "Obiad" obiektu przez zmianę atrybutu "inherits" w górnej części strony edit.aspx w następujący sposób:
 
 [!code-cshtml[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample6.cshtml)]
 
-Po możemy to zrobić, intellisense właściwości "Modelu" w szablonie naszych widoku zostaną zaktualizowane do uwzględnienia model obiektów typu DinnerFormViewModel, które firma Microsoft jest przekazanie jej przez:
+Po możemy to zrobić, aby odzwierciedlały model obiektu typu DinnerFormViewModel, które firma Microsoft jest przekazanie jej zostaną zaktualizowane funkcję intellisense właściwości "Model" w ramach naszych Wyświetl szablon:
 
 ![](use-viewdata-and-implement-viewmodel-classes/_static/image2.png)
 
 ![](use-viewdata-and-implement-viewmodel-classes/_static/image3.png)
 
-Firma Microsoft następnie aktualizować naszego kodu widoku do pracy wylogowuje go. Uwaga poniżej sposób firma Microsoft nie zmienia nazwy elementów wejściowych tworzymy (elementów formularza będzie nadal nosić nazwy "Title", "Kraju") — ale aktualizujemy metody pomocnika kodu HTML do pobierania wartości przy użyciu klasy DinnerFormViewModel:
+Firma Microsoft jest następnie zaktualizuj naszego kodu widok do pracy z nich. Ogłoszenie poniżej jak firma Microsoft nie zmieniają się nazwami elementów wejściowych tworzymy (elementów formularza będzie nadal miała "Title", "Kraj") — ale będziemy aktualizować metody pomocnika kodu HTML do pobierania wartości przy użyciu klasy DinnerFormViewModel:
 
 [!code-aspx[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample7.aspx)]
 
-Ponadto będziemy informować naszych edycji metody post do użycia klasy DinnerFormViewModel podczas renderowania błędów:
+Zaktualizujemy również naszych edycji metody post, aby użyć klasy DinnerFormViewModel podczas renderowania błędów:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample8.cs)]
 
-Aktualizacje mogą również naszych Create() metod akcji ponownego używania dokładnie takie same *DinnerFormViewModel* klasę, aby włączyć krajów DropDownList w ramach tych również. Poniżej znajdują się implementacja GET protokołu HTTP:
+Aktualizacje mogą również naszych Create() metody akcji, ponownego używania dokładnie takie same *DinnerFormViewModel* klasy, aby włączyć krajów DropDownList w nich także. Poniżej przedstawiono implementację GET protokołu HTTP:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample9.cs)]
 
-Poniżej znajdują się implementacja metody POST protokołu HTTP, Utwórz:
+Poniżej przedstawiono implementację metody POST protokołu HTTP, Utwórz:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample10.cs)]
 
-Teraz naszych edycji i tworzenie ekranów obsługę oraz rozwijanych pobrania kraju.
+I naszych Edit and Create ekrany obsługują teraz rozwijanych dla pobrania kraju.
 
-### <a name="custom-shaped-viewmodel-classes"></a>W kształcie niestandardowej klasy ViewModel
+### <a name="custom-shaped-viewmodel-classes"></a>W kształcie niestandardowych klas ViewModel
 
-W powyższym scenariuszu klasy Nasze DinnerFormViewModel bezpośrednio udostępnia obiekt modelu obiad jako właściwość, wraz z właściwością modelu SelectList obsługi. Ta metoda działa prawidłowo w scenariuszach, w którym interfejsu użytkownika HTML chcemy, aby utworzyć w naszym Wyświetl szablon odpowiada stosunkowo ściśle naszych obiektami modelu domeny.
+W powyższym scenariuszu klasy Nasze DinnerFormViewModel zapewnia bezpośredni dostęp obiekt modelu obiad jako właściwość, wraz z właściwością modelu SelectList pomocniczych. Ta metoda działa prawidłowo w scenariuszach, gdzie interfejsu użytkownika HTML, chcemy utworzyć w ramach naszych Wyświetl szablon odpowiada względnie ściśle naszych obiektami modelu domeny.
 
-W scenariuszach, w którym nie jest przypadek, jedną opcję, która służy jest utworzenie klasy ViewModel w kształcie niestandardowy model obiektów, których więcej zoptymalizowana pod kątem użycia przez widok — i może wyglądać całkowicie różni się od źródłowego obiektu modelu domeny. Na przykład może potencjalnie spowodować narażenie inną właściwość nazwy i/lub agregacji właściwości zebranych z wielu obiektów modelu.
+W scenariuszach, w której nie jest to tak, jedną z opcji, możesz użyć, jest do tworzenia klas ViewModel ukształtowane niestandardowy model obiektu, którego jest bardziej zoptymalizowane pod kątem do użycia przez widok — i może wyglądać całkowicie różni się od obiektu źródłowego modelu domeny. Na przykład może potencjalnie uwidaczniać inną właściwość nazwy i/lub agregacji właściwości zebranych z wielu obiektów modelu.
 
-W kształcie niestandardowej klasy ViewModel mogą być używane zarówno do przekazywania danych z kontrolerów z widokami do renderowania, które dodatkowo ułatwią obsługę danych formularza z powrotem do metody akcji kontrolera. W tym scenariuszu nowsze może być aktualizowanie obiektu ViewModel zaksięgowany formularza danymi, a następnie użyć wystąpienia ViewModel mapujące lub pobrać obiekt modelu domeny rzeczywiste metody akcji.
+W kształcie niestandardowych klas ViewModel może być używany zarówno do przekazywania danych z kontrolerów z widokami renderowania, a także pomóc, obsługi danych formularza z powrotem do metody akcji kontrolera. W tym scenariuszu nowsze Niewykluczone, że metody akcji, aktualizowanie obiektu ViewModel danymi opublikowane w formularzu, a następnie użyć wystąpienia ViewModel mapowania lub pobrać obiekt modelu domeny rzeczywistych.
 
-W kształcie niestandardowej klasy ViewModel zapewniają dużą elastyczność i są coś do sprawdzania, czy możesz znaleźć kodu renderowania w szablonach widoku lub kod księgowej formularza wewnątrz metody akcji uruchamiania uzyskanie zbyt skomplikowane, za każdym razem. Jest to często logowania, że modeli domeny prawidłowo nie odnoszą się do interfejsu użytkownika jest generowany i ułatwiają klasa pośrednicząca ViewModel w kształcie niestandardowe.
+W kształcie niestandardowych klas ViewModel zapewniają dużą elastyczność i są do badania w dowolnym momencie możesz znaleźć kod renderowania w widoku szablonów lub kodu formularza ogłaszania wewnątrz metody akcji uruchamiania uzyskać zbyt skomplikowany. Jest to często logowania, że modeli domeny nie pozostawia żadnych śladów nie odnoszą się do interfejsu użytkownika jest generowany i ułatwiają klasa pośrednicząca ViewModel ukształtowane niestandardowe.
 
 ### <a name="next-step"></a>Następny krok
 
-Teraz Przyjrzyjmy się jak możemy użyć częściowe i stron wzorcowych do ponownego użycia i udostępniać interfejsu użytkownika w naszej aplikacji.
+Teraz Spójrzmy na zastosowanie częściowych i stronami wzorcowymi ponowne używanie i udostępnianie interfejsu użytkownika w naszej aplikacji.
 
 > [!div class="step-by-step"]
 > [Poprzednie](provide-crud-create-read-update-delete-data-form-entry-support.md)

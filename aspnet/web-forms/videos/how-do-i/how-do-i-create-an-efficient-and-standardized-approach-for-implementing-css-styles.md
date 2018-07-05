@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles
-title: 'Jak: utworzyć podejście wydajne i standardowej implementacji style CSS? | Dokumentacja firmy Microsoft'
+title: 'Jak: tworzenie wydajnego i standardowego podejścia do implementowania stylów CSS? | Microsoft Docs'
 author: rick-anderson
-description: W tym wideo Pels Krzysztof pokazuje, jak organizowanie i stosowanie stylów CSS, które zapewniają standardowe wyglądu i działania witryny sieci web. Ponadto style są...
+description: W tym wideo pikseli Chris pokazuje, jak organizować i zaimplementować style CSS, zawierających standardowe wyglądu i działania do witryny sieci web. Ponadto są stylów...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/15/2010
 ms.topic: article
 ms.assetid: 1d902492-c6a3-4ab8-8e3d-57384ac893d5
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles
 msc.type: video
-ms.openlocfilehash: be55f23b94dd014a049e7cbb3f70d3e7b194ae6c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1e2068bbf6e88182094c08b829ec00b0ff4c7749
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26570875"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379611"
 ---
-<a name="how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles"></a>Jak: utworzyć podejście wydajne i standardowej implementacji style CSS?
+<a name="how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles"></a>Jak: tworzenie wydajnego i standardowego podejścia do implementowania stylów CSS?
 ====================
-przez [Pels Krzysztof](https://twitter.com/chrispels)
+przez [Chris pikseli](https://twitter.com/chrispels)
 
-W tym wideo Pels Krzysztof pokazuje, jak organizowanie i stosowanie stylów CSS, które zapewniają standardowe wyglądu i działania witryny sieci web. Ponadto style są zorganizowane w celu zapewnienia maksymalnej elastyczność i możliwość ponownego wykorzystania. Tworzony jest zestaw stylów, który koncentruje się na wygląd witryny. Po pierwsze przykładowej witryny sieci web jest tworzony z pliku CSS przykładową stronę. Pierwszy grupy stylów są ukierunkowane na zapewnienie kontenery zawartości w całej lokacji. Następnie zestaw style są dodawane skupiających się na wyświetlanie "stan" elementy interfejsu użytkownika. Ponadto zestaw style podpowiedzi interakcji użytkownika są tworzone. Style są używane z elementami HTML na stronie próbki. Istnieje również dyskusji o za pomocą tej samej metody wdrażania style układ elementu tego formantu w witrynie.
+W tym wideo pikseli Chris pokazuje, jak organizować i zaimplementować style CSS, zawierających standardowe wyglądu i działania do witryny sieci web. Ponadto style są zorganizowane w celu zapewnienia maksymalnej elastyczności i możliwości ponownego użycia. Utworzono zestaw stylów, która koncentruje się na wygląd witryny. Po pierwsze utworzono przykładową witrynę sieci web przy użyciu pliku CSS dla przykładowej strony. Pierwszy grupy stylów są ukierunkowane na zapewnienie kontenerów zawartości w całej lokacji. Następnie zestaw stylów są dodawane koncentrujących się na wyświetlanie "stan" elementy interfejsu użytkownika. Na koniec zestaw stylów podpowiedzi interakcji użytkownika są tworzone. Poszczególne style jest używana z elementów kodu HTML na stronie próbki. Brak dyskusji na temat przy użyciu tej samej metody wdrażania dla style układ elementów tej kontrolki na stronie.
 
-[&#9654; Obejrzyj klip wideo (minuty 27)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles)
+[&#9654;Obejrzyj film wideo (27 min)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles)

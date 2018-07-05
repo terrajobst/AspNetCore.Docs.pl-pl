@@ -9,61 +9,60 @@ ms.date: 05/28/2015
 ms.topic: article
 ms.assetid: 276552b5-f349-4fcf-8f40-6d042f7aa88e
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: b3ef871c4d7627a03c8f0fd8cce9d3e97fc1a4ba
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 98b6693b07e4da318a649494649d9da83fe8a7d3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867453"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365139"
 ---
 <a name="adding-a-model"></a>Dodawanie modelu
 ====================
-przez [Rick Anderson](https://github.com/Rick-Anderson)
+Przez [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
-W tej sekcji dodasz niektóre klasy zarządzania filmów w bazie danych. Te klasy będzie &quot;modelu&quot; częścią aplikacji ASP.NET MVC.
+W tej sekcji dodasz niektóre klasy zarządzania filmów w bazie danych. Te klasy będzie &quot;modelu&quot; wchodzi w skład aplikacji ASP.NET MVC.
 
-Użyjesz technologii dostępu do danych .NET Framework, znany jako [Entity Framework](https://docs.microsoft.com/ef/) do definiowania i pracy z tych klas modelu. Obsługuje programu Entity Framework (nazywanej często EF) o nazwie modelu programowania *Code First*. Kod umożliwia najpierw utworzyć obiekty modelu pisząc proste klasy. (Te są nazywane także klasy POCO z &quot;obiektów CLR starego zwykłego.&quot;) Następnie możesz wybrać bazy danych na bieżąco z klas, dzięki czemu bardzo czyste i szybkie programowanie przepływu pracy. Jeśli musisz najpierw utworzyć bazę danych, można wykonać w tym samouczku, aby dowiedzieć się więcej o rozwoju aplikacji MVC i EF. Następnie można wykonać Tomasz Fizmakens [szkieletów ASP.NET](xref:visual-studio/overview/2013/aspnet-scaffolding-overview) samouczek, która obejmuje pierwszym sposobem bazy danych.
+Użyjesz technologii dostępu do danych .NET Framework, znane jako [Entity Framework](https://docs.microsoft.com/ef/) do definiowania i pracować z tych klas modelu. Obsługuje platformy Entity Framework (często określanymi jako EF) o nazwie paradygmat programowania *Code First*. Najpierw kod pozwala na tworzenie obiektów modelu, pisząc proste klas. (Te są również nazywane klasami POCO z &quot;obiektów CLR zwykły stary.&quot;) Można następnie skonfigurować bazę danych, tworzone na bieżąco z klas, co umożliwia przepływ pracy tworzenia bardzo szybkie i przejrzysty. Jeśli musisz najpierw utworzyć bazę danych, możesz wykonać ten samouczek, aby dowiedzieć się więcej o programowaniu aplikacji MVC i programem EF. Następnie można wykonać Tom Fizmakens [funkcja tworzenia szkieletu ASP.NET](xref:visual-studio/overview/2013/aspnet-scaffolding-overview) samouczka, który dotyczy pierwszego podejścia bazy danych.
 
-## <a name="adding-model-classes"></a>Dodawanie klas modelu
+## <a name="adding-model-classes"></a>Dodawanie klasy modelu
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *modele* folderu, wybierz opcję **Dodaj**, a następnie wybierz **klasy**.
+W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy *modeli* folderu, wybierz **Dodaj**, a następnie wybierz pozycję **klasy**.
 
 ![](adding-a-model/_static/image1.png)
 
-Wprowadź *klasy* nazwa &quot;film&quot;.
+Wprowadź *klasy* nazwa &quot;filmu&quot;.
 
 Dodaj następujące właściwości pięć `Movie` klasy:
 
 [!code-csharp[Main](adding-a-model/samples/sample1.cs)]
 
-Użyjemy `Movie` klasy do reprezentowania filmów w bazie danych. Każde wystąpienie `Movie` obiektu odpowiada wiersz w tabeli bazy danych, a każda właściwość `Movie` klasy przypisze do kolumny w tabeli.
+Użyjemy `Movie` klasy do reprezentowania filmów w bazie danych. Każde wystąpienie `Movie` obiektu odnoszą się do wiersza w tabeli bazy danych, a każda właściwość `Movie` klasy będzie zmapowana do kolumny w tabeli.
 
-Uwaga: Aby można było używać System.Data.Entity i powiązanymi klasami, musisz zainstalować [pakietu NuGet programu Entity Framework](https://www.nuget.org/packages/EntityFramework/). Skorzystaj z łącza, aby uzyskać dalsze instrukcje.
+Uwaga: Aby można było używać System.Data.Entity i pokrewne klasy, należy zainstalować [pakietu NuGet programu Entity Framework](https://www.nuget.org/packages/EntityFramework/). Kliknij link, aby uzyskać dalsze instrukcje.
 
-W tym samym pliku Dodaj następujące `MovieDBContext` klasy:
+W tym samym pliku Dodaj następujący kod `MovieDBContext` klasy:
 
 [!code-csharp[Main](adding-a-model/samples/sample2.cs?highlight=2,15-18)]
 
-`MovieDBContext` Klasa reprezentuje kontekst bazy danych programu Entity Framework film, który obsługuje pobieranie, przechowywania i aktualizowania `Movie` klasy wystąpień w bazie danych. `MovieDBContext` Pochodną `DbContext` pochodzącymi z programu Entity Framework w klasie podstawowej.
+`MovieDBContext` Klasa reprezentuje kontekst bazy danych programu Entity Framework film, który obsługuje pobieranie, przechowywania i aktualizowania `Movie` klasy wystąpień w bazie danych. `MovieDBContext` Pochodzi od klasy `DbContext` dostarczane przez program Entity Framework klasy bazowej.
 
-Aby można było odwołać `DbContext` i `DbSet`, należy dodać następujące `using` instrukcji w górnej części pliku:
+Aby można było odwoływać się do `DbContext` i `DbSet`, należy dodać następujące `using` instrukcji w górnej części pliku:
 
 [!code-csharp[Main](adding-a-model/samples/sample3.cs)]
 
-Można to zrobić przez ręczne dodanie przy użyciu instrukcji, lub umieść kursor nad czerwoną linie dowolnym kształcie, kliknij przycisk `Show potential fixes` i kliknij przycisk `using System.Data.Entity;`
+Można to zrobić przez ręczne dodanie do przy użyciu instrukcji lub należy umieść kursor nad czerwonych falistych linii, kliknij przycisk `Show potential fixes` i kliknij przycisk `using System.Data.Entity;`
 
 ![](adding-a-model/_static/image2.png)
 
-Uwaga: Niektóre nieużywane `using` instrukcje zostały usunięte. Visual Studio wyświetli nieużywane zależności jako szary. Możesz usunąć nieużywane zależności, ustawiając kursor nad szarego zależności, kliknij przycisk `Show potential fixes` i kliknij przycisk **Usuń nieużywane deklaracje Using.**
+Uwaga: Kilka nieużywane `using` instrukcje zostały usunięte. Program Visual Studio wyświetli nieużywane zależności jako szary. Możesz usunąć nieużywane zależności, ustawiając kursor nad szarego zależności, kliknij przycisk `Show potential fixes` i kliknij przycisk **Usuń nieużywane deklaracje Using.**
 
 ![](adding-a-model/_static/image3.png)
 
-Na koniec dodaliśmy modelu (M MVC). W następnej sekcji będzie współpracować parametry połączenia bazy danych.
+Na koniec dodaliśmy modelu (M MVC). W następnej sekcji, którą będziesz pracować parametry połączenia bazy danych.
 
 > [!div class="step-by-step"]
 > [Poprzednie](adding-a-view.md)

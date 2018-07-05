@@ -1,50 +1,49 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: Wprowadzenie do składnika ASP.NET Web API 2 (C#)
+title: Wprowadzenie do wzorca ASP.NET Web API 2 (C#)
 author: MikeWasson
-description: HTTP nie jest po prostu wysyłaniu stron sieci web. Istnieje również zaawansowane platformę do tworzenia interfejsów API, który ujawnia usług i danych. HTTP jest prosty i elastyczny i ubiq...
+description: Protokół HTTP nie jest dostępne tylko dla wysyłaniu stron sieci web. Ponadto jest to zaawansowana platforma do tworzenia interfejsów API, które udostępniają dane i usługi. Protokół HTTP jest proste, elastyczne i ubiq...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/28/2017
 ms.topic: article
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: d881563cdb6449aada444ef0528061581113a925
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: adda92a6a06bc30b9217d440bbd38066ef9ea24f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/15/2018
-ms.locfileid: "29905039"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368867"
 ---
-<a name="get-started-with-aspnet-web-api-2-c"></a>Wprowadzenie do składnika ASP.NET Web API 2 (C#)
+<a name="get-started-with-aspnet-web-api-2-c"></a>Wprowadzenie do wzorca ASP.NET Web API 2 (C#)
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
 [Pobieranie ukończone projektu](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
 
-HTTP nie jest po prostu wysyłaniu stron sieci web. HTTP jest również zaawansowane platformę do tworzenia interfejsów API, który ujawnia usług i danych. HTTP jest proste, elastyczne i uniwersalnych. Prawie każdego platformy, które można traktować ma biblioteki HTTP, więc usług HTTP może korzystać szeroka gama klientów, takich jak przeglądarki, urządzeń przenośnych i tradycyjnych aplikacji klasycznych.
+Protokół HTTP nie jest dostępne tylko dla wysyłaniu stron sieci web. Protokół HTTP, również jest to zaawansowana platforma do tworzenia interfejsów API, które udostępniają dane i usługi. Protokół HTTP jest proste, elastyczne i uniwersalnych. Niemal dowolną platformą, która można traktować ma biblioteki HTTP, więc usług HTTP można dotrzeć do szerokiej gamy klientów, w tym przeglądarek i urządzeń przenośnych, tradycyjne aplikacje komputerowe.
  
-Interfejs API sieci Web platformy ASP.NET to platforma do tworzenia interfejsów API na programie .NET Framework w sieci web. W tym samouczku użyjesz interfejsu API sieci Web platformy ASP.NET można utworzyć składnika web API, które zwraca listę produktów.
+Web API platformy ASP.NET to architektura służąca do tworzenia interfejsów API w programie .NET Framework w sieci web. W tym samouczku użyjesz interfejsu API sieci Web platformy ASP.NET do tworzenia internetowego interfejsu API, które zwraca listę produktów.
 
  
- ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
+ ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
   
  - [Visual Studio 2017](https://www.visualstudio.com/downloads/)
  - Składnik Web API 2
 
-Zobacz [Tworzenie składnika web API platformy ASP.NET Core i Visual Studio dla systemu Windows](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api) jest dostępna nowsza wersja tego samouczka.
+Zobacz [Tworzenie internetowego interfejsu API za pomocą platformy ASP.NET Core i Visual Studio for Windows](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api) jest dostępna nowsza wersja tego samouczka.
 
-## <a name="create-a-web-api-project"></a>Utwórz projekt interfejsu API sieci Web
+## <a name="create-a-web-api-project"></a>Utwórz projekt internetowego interfejsu API
 
-W tym samouczku użyjesz interfejsu API sieci Web platformy ASP.NET można utworzyć składnika web API, które zwraca listę produktów. Strony sieci web frontonu używa jQuery, aby wyświetlić wyniki.
+W tym samouczku użyjesz interfejsu API sieci Web platformy ASP.NET do tworzenia internetowego interfejsu API, które zwraca listę produktów. Strony sieci web frontonu używa jQuery, aby wyświetlić wyniki.
 
 ![](tutorial-your-first-web-api/_static/image1.png)
 
-Uruchom program Visual Studio i wybierz **nowy projekt** z **Start** strony. Lub z **pliku** menu, wybierz opcję **nowy** , a następnie **projektu**.
+Uruchom program Visual Studio i wybierz **nowy projekt** z **Start** strony. Lub z **pliku** menu, wybierz opcję **New** i następnie **projektu**.
 
-W **szablony** okienku wybierz **zainstalowane szablony** i rozwiń **Visual C#** węzła. W obszarze **Visual C#**, wybierz pozycję **Web**. Na liście szablony projektów, wybierz **aplikacji sieci Web ASP.NET**. Nazwij projekt "ProductsApp", a następnie kliknij przycisk **OK**.
+W **szablony** okienku wybierz **zainstalowane szablony** i rozwiń **Visual C#** węzła. W obszarze **Visual C#**, wybierz opcję **Web**. Na liście szablonów projektu wybierz **aplikacji sieci Web ASP.NET**. Nadaj projektowi nazwę "ProductsApp", a następnie kliknij przycisk **OK**.
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
@@ -53,113 +52,113 @@ W **nowy projekt ASP.NET** okno dialogowe, wybierz opcję **pusty** szablonu. W 
 ![](tutorial-your-first-web-api/_static/image3.png)
 
 > [!NOTE]
-> Można również utworzyć projekt interfejsu API sieci Web za pomocą &quot;interfejsu API sieci Web&quot; szablonu. Szablon interfejsu API sieci Web używa platformy ASP.NET MVC, aby zapewnić strony pomocy interfejsu API. Używam programu pustego szablonu w tym samouczku, ponieważ chcę wyświetlić interfejs API sieci Web bez MVC. Ogólnie rzecz biorąc nie trzeba znać ASP.NET MVC można użyć interfejsu API sieci Web.
+> Można również utworzyć projekt interfejsu API sieci Web za pomocą &quot;interfejsu API sieci Web&quot; szablonu. Szablon interfejsu API sieci Web używa platformy ASP.NET MVC w celu zapewnienia stron pomocy interfejsu API. Używam pustego szablonu na potrzeby tego samouczka ponieważ chcę pokazać interfejs API sieci Web bez MVC. Ogólnie rzecz biorąc nie trzeba znać platformy ASP.NET MVC w celu korzystania z interfejsu API sieci Web.
 
 
 ## <a name="adding-a-model"></a>Dodawanie modelu
 
-A *modelu* jest obiekt, który reprezentuje dane w aplikacji. Interfejs API sieci Web platformy ASP.NET można automatycznie serializuj model do formatu JSON, XML lub niektóre inny format, a następnie wpisz dane serializowane w treści komunikatu odpowiedzi HTTP. Tak długo, jak długo klient może odczytywać format serializacji, może wykonywać deserializację obiektu. Większość klientów może przeanalizować składni XML lub JSON. Ponadto klienta można wskazać, który format chce przez ustawienie nagłówek Accept w komunikacie żądania HTTP.
+A *modelu* jest obiektem, który reprezentuje dane w aplikacji. ASP.NET Web API może automatycznie serializuj model do formatu JSON, XML lub innym formacie, a następnie wpisz dane serializowane w treści komunikatu odpowiedzi HTTP. Tak długo, jak długo klient może odczytywać format serializacji, może wykonywać deserializację obiektu. Większość klientów może przeanalizować, XML lub JSON. Ponadto klient może wskazywać formatu, który chce, ustawiając nagłówek Accept w komunikacie żądania HTTP.
 
 Zacznijmy od utworzenia prostego modelu, który reprezentuje produkt.
 
-Jeśli w Eksploratorze rozwiązań nie jest widoczny, kliknij przycisk **widoku** menu i wybierz **Eksploratora rozwiązań**. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folder modeli. Wybierz z menu kontekstowego **Dodaj** następnie wybierz **klasy**.
+Eksplorator rozwiązań nie jest jeszcze widoczny, kliknij przycisk **widoku** menu, a następnie wybierz **Eksploratora rozwiązań**. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy folderu modeli. Z menu kontekstowego wybierz **Dodaj** polecenie **klasy**.
 
 ![](tutorial-your-first-web-api/_static/image4.png)
 
-Nazwa klasy &quot;produktu&quot;. Dodaj następujące właściwości `Product` klasy.
+Nazwa klasy &quot;produktu&quot;. Dodaj następujące właściwości do `Product` klasy.
 
 [!code-csharp[Main](tutorial-your-first-web-api/samples/sample1.cs)]
 
 ## <a name="adding-a-controller"></a>Dodawanie kontrolera
 
-W składniku Web API *kontrolera* jest obiekt, który obsługuje żądania HTTP. Dodamy kontrolera, które może zwracać listę produktów lub jeden produkt określony przez identyfikator.
+W interfejsie API sieci Web *kontrolera* jest obiektem, który obsługuje żądania HTTP. Dodamy kontroler, który może zwrócić listę produktów lub jednego produktu, określonego przez identyfikator.
 
 > [!NOTE]
-> Użycie programu ASP.NET MVC znasz już kontrolerów. Kontrolery interfejsu API sieci Web są podobne do kontrolerów MVC, ale dziedziczą **klasy ApiController** klasy zamiast **kontrolera** klasy.
+> Jeśli używasz platformy ASP.NET MVC, znasz już kontrolerów. Interfejs API sieci Web kontrolery są podobne do kontrolerów MVC, ale dziedziczą **klasy ApiController** klasy zamiast **kontrolera** klasy.
 
-W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy folder kontrolery. Wybierz **Dodaj** , a następnie wybierz **kontrolera**.
+W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy folder kontrolerów. Wybierz **Dodaj** , a następnie wybierz **kontrolera**.
 
 ![](tutorial-your-first-web-api/_static/image5.png)
 
-W **Dodawanie szkieletu** okno dialogowe, wybierz opcję **kontrolera interfejsu API sieci Web — pusty**. Kliknij przycisk **Dodaj**.
+W **Dodawanie szkieletu** okno dialogowe, wybierz opcję **kontroler internetowego interfejsu API — pusty**. Kliknij przycisk **Dodaj**.
 
 ![](tutorial-your-first-web-api/_static/image6.png)
 
-W **Dodaj kontroler** okna dialogowego, nazwy kontrolera &quot;ProductsController&quot;. Kliknij przycisk **Dodaj**.
+W **Dodaj kontroler** okno dialogowe, nazwy kontrolera &quot;ProductsController&quot;. Kliknij przycisk **Dodaj**.
 
 ![](tutorial-your-first-web-api/_static/image7.png)
 
-Rusztowania tworzy plik o nazwie ProductsController.cs w folderze kontrolerów.
+Szkieletu tworzy plik o nazwie ProductsController.cs w folderze kontrolerów.
 
 ![](tutorial-your-first-web-api/_static/image8.png)
 
 > [!NOTE]
-> Nie trzeba umieścić kontrolerów w folderze o nazwie kontrolerów. Nazwa folderu jest po prostu wygodny sposób organizowania plików źródłowych.
+> Nie ma potrzeby kontrolerach należy umieścić w folderze o nazwie kontrolerów. Nazwa folderu jest po prostu wygodny sposób organizowania plików źródłowych.
 
 
-Jeśli ten plik nie jest jeszcze otwarty, kliknij dwukrotnie plik, aby go otworzyć. Zastąp kod w tym pliku z następujących czynności:
+Jeśli ten plik nie jest jeszcze otwarty, kliknij dwukrotnie plik, aby go otworzyć. Zastąp kod w tym pliku następujących czynności:
 
 [!code-csharp[Main](tutorial-your-first-web-api/samples/sample2.cs)]
 
-Aby zachować prosty przykład, produkty są przechowywane w tablicy o ustalonym wewnątrz klasy kontrolera. Oczywiście w rzeczywistej aplikacji, czy zapytanie dotyczące bazy danych lub użyj innego źródła danych zewnętrznych.
+W celu uproszczenia w przykładzie produkty są przechowywane w tablicy o stałym wewnątrz klasy kontrolera. Oczywiście w rzeczywistej aplikacji, czy zapytanie dotyczące bazy danych lub użyj innego źródła danych zewnętrznych.
 
 Kontroler definiuje dwie metody, które zwracają produktów:
 
 - `GetAllProducts` Metoda zwraca całą listę produktów jako **IEnumerable&lt;produktu&gt;**  typu.
-- `GetProduct` Metody wyszukuje pojedynczy produkt przez jego identyfikator.
+- `GetProduct` Metoda odwołuje się do jednego produktu za pomocą jego identyfikatora.
 
-To już wszystko! Masz pracy składnika web API. Każda metoda na kontrolerze odnosi się do co najmniej jeden identyfikator URI:
+To wszystko! Masz pracy internetowego interfejsu API. Każda metoda na kontrolerze odnosi się do jednego lub więcej identyfikatorów URI:
 
-| Kontroler — metoda | Identyfikator URI |
+| Metoda kontrolera | Identyfikator URI |
 | --- | --- |
 | GetAllProducts | / api/produktów |
-| GetProduct | /API/produkty/*id* |
+| GetProduct | / InterfejsAPI/produkty/*identyfikator* |
 
-Aby uzyskać `GetProduct` metody *identyfikator* w identyfikatorze URI to symbol zastępczy. Na przykład, aby uzyskać produktu o identyfikatorze 5, identyfikator URI jest `api/products/5`.
+Aby uzyskać `GetProduct` metody *identyfikator* w identyfikatorze URI jest symbolem zastępczym. Na przykład, aby uzyskać produkt o identyfikatorze 5, identyfikator URI jest `api/products/5`.
 
-Aby uzyskać więcej informacji dotyczących sposobu interfejsu API sieci Web kieruje żądania HTTP do metod kontrolera, zobacz [routingu na platformie ASP.NET Web API](../web-api-routing-and-actions/routing-in-aspnet-web-api.md).
+Aby uzyskać więcej informacji na temat sposobu kierowania żądań HTTP interfejsu API sieci Web do metod kontrolera, zobacz [routingu ASP.NET Web API](../web-api-routing-and-actions/routing-in-aspnet-web-api.md).
 
-## <a name="calling-the-web-api-with-javascript-and-jquery"></a>Wywołanie interfejsu API sieci Web z Javascript i jQuery
+## <a name="calling-the-web-api-with-javascript-and-jquery"></a>Wywoływanie interfejsu API sieci Web za pomocą języka Javascript i jQuery
 
-W tej sekcji dodamy strona HTML, która używa technologii AJAX do wywołania interfejsu API sieci web. Użyjemy jQuery wywołań AJAX i aktualizowanie strony z wynikami.
+W tej sekcji dodamy strona HTML, która używa technologii AJAX w celu wywołania interfejsu API sieci web. Użyjemy jQuery wykonywanie wywołań AJAX, a także do aktualizacji strony z wynikami.
 
-W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj**, a następnie wybierz pozycję **nowy element**.
+W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj**, a następnie wybierz **nowy element**.
 
 ![](tutorial-your-first-web-api/_static/image9.png)
 
-W **Dodaj nowy element** okno dialogowe, wybierz opcję **sieci Web** węźle **Visual C#**, a następnie wybierz **strony HTML** elementu. Nazwa strony &quot;index.html&quot;.
+W **Dodaj nowy element** okno dialogowe, wybierz opcję **Web** węzeł w węźle **Visual C#**, a następnie wybierz pozycję **strony HTML** elementu. Nazwij stronę &quot;index.html&quot;.
 
 ![](tutorial-your-first-web-api/_static/image10.png)
 
-Zastąp wszystkie elementy w tym pliku następujące czynności:
+Zamień wszystko, co w tym pliku następujące czynności:
 
 [!code-html[Main](tutorial-your-first-web-api/samples/sample3.html)]
 
-Istnieje kilka sposobów, aby uzyskać jQuery. W tym przykładzie używany [Microsoft Ajax CDN](../../../ajax/cdn/overview.md). Można również pobrać ją z [ http://jquery.com/ ](http://jquery.com/)i ASP.NET "Interfejsu API sieci Web" szablon projektu zawiera również jQuery.
+Istnieje kilka sposobów uzyskania jQuery. W tym przykładzie używany [Microsoft Ajax CDN](../../../ajax/cdn/overview.md). Można również pobrać go z [ http://jquery.com/ ](http://jquery.com/)i programu ASP.NET "Interfejs API sieci Web" szablon projektu obejmuje także jQuery.
 
 ### <a name="getting-a-list-of-products"></a>Pobieranie listy produktów
 
-Aby uzyskać listę produktów, Wyślij żądanie HTTP GET do &quot;produkty/api/&quot;.
+Aby uzyskać listę produktów, Wyślij żądanie HTTP GET do &quot;/api/produktów&quot;.
 
-JQuery [getJSON](http://api.jquery.com/jQuery.getJSON/) funkcja wysyła żądanie AJAX. Odpowiedź zawiera tablicę obiektów JSON. `done` Funkcja określa wywołania zwrotnego, która jest wywoływana, gdy żądanie zakończy się pomyślnie. Wywołanie zwrotne możemy zaktualizować modelu DOM z informacji o produkcie.
+JQuery [getJSON](http://api.jquery.com/jQuery.getJSON/) funkcja wysyła żądanie AJAX. Odpowiedź zawiera tablicę obiektów JSON. `done` Określa funkcja wywołania zwrotnego, która jest wywołana, jeśli żądanie zakończy się pomyślnie. Wywołanie zwrotne firma Microsoft aktualizuje modelu DOM przy użyciu informacji o produkcie.
 
 [!code-html[Main](tutorial-your-first-web-api/samples/sample4.html)]
 
-### <a name="getting-a-product-by-id"></a>Uzyskiwanie produktu według Identyfikatora
+### <a name="getting-a-product-by-id"></a>Pobieranie produktu według Identyfikatora
 
-Aby uzyskać produktu przez identyfikator, Wyślij żądanie HTTP GET do &quot;/api/produkty/*identyfikator*&quot;, gdzie *identyfikator* jest identyfikatora produktu.
+Aby uzyskać produkt za pomocą Identyfikatora, Wyślij żądanie HTTP GET do &quot;/interfejs API/produkty/*identyfikator*&quot;, gdzie *identyfikator* jest identyfikator produktu.
 
 [!code-javascript[Main](tutorial-your-first-web-api/samples/sample5.js)]
 
-Nadal nazywamy `getJSON` do wysłania żądania AJAX, ale tym razem testujemy identyfikator w identyfikatorze URI żądania. Odpowiedź z tym żądaniem jest reprezentacja JSON jeden produkt.
+Firma Microsoft wciąż wywołać `getJSON` Aby wysłać żądanie AJAX, ale tym razem utworzona Państwu identyfikator w identyfikatorze URI żądania. Odpowiedź z tym żądaniem jest reprezentacja JSON jednego produktu.
 
 ## <a name="running-the-application"></a>Uruchamianie aplikacji
 
-Naciśnij klawisz F5, aby rozpocząć debugowania aplikacji. Strony sieci web powinien wyglądać następująco:
+Naciśnij klawisz F5, aby rozpocząć debugowanie aplikacji. Strony sieci web powinna wyglądać następująco:
 
 ![](tutorial-your-first-web-api/_static/image11.png)
 
-Uzyskanie produktu przez identyfikator, wprowadź identyfikator, a następnie kliknij przycisk wyszukiwania:
+Aby uzyskać produkt za pomocą Identyfikatora, wprowadź identyfikator, a następnie kliknij przycisk wyszukiwania:
 
 ![](tutorial-your-first-web-api/_static/image12.png)
 
@@ -167,31 +166,31 @@ Jeśli wprowadzisz nieprawidłowy identyfikator, serwer zwraca błąd HTTP:
 
 ![](tutorial-your-first-web-api/_static/image13.png)
 
-## <a name="using-f12-to-view-the-http-request-and-response"></a>Aby wyświetlić żądania HTTP i odpowiedzi przy użyciu F12
+## <a name="using-f12-to-view-the-http-request-and-response"></a>Za pomocą F12, aby wyświetlić żądania HTTP i odpowiedzi
 
-Podczas pracy z usługą HTTP, może być bardzo przydatne zobaczyć żądania HTTP i żądania wiadomości. Można to zrobić za pomocą narzędzi deweloperskich F12 w programie Internet Explorer 9. Internet Explorer 9, naciśnij klawisze **F12** można otworzyć narzędzia. Kliknij przycisk **sieci** kartę i naciśnij klawisz **Start Przechwytywanie**. Teraz przejdź do strony sieci web i naciśnij klawisz **F5** ponowne załadowanie tej strony sieci web. Program Internet Explorer będzie przechwytywać ruchu HTTP między przeglądarką a serwerem sieci web. Widok podsumowania przedstawia cały ruch sieciowy dla strony:
+Podczas pracy z usługą HTTP może być bardzo przydatne zobaczyć żądania HTTP i żądania wiadomości. Można to zrobić przy użyciu narzędzi deweloperskich F12 w programie Internet Explorer 9. Z programu Internet Explorer 9, naciśnij klawisz **F12** można otworzyć narzędzia. Kliknij przycisk **sieci** kartę, a następnie naciśnij klawisz **Rozpocznij przechwytywanie**. Teraz wróć do strony sieci web i naciśnij klawisz **F5** ponowne załadowanie strony sieci web. Program Internet Explorer będzie przechwytywać ruch HTTP między przeglądarką a serwerem sieci web. Widok podsumowania przedstawia cały ruch sieciowy dla strony:
 
 ![](tutorial-your-first-web-api/_static/image14.png)
 
-Znajdź wpis dla względnego identyfikatora URI "produkty/api /". Wybierz tę pozycję, a następnie kliknij przycisk **przejdź do widoku szczegółowe**. W widoku szczegółów istnieją karty, aby wyświetlić nagłówki żądań i odpowiedzi i treść. Na przykład, jeśli klikniesz przycisk **nagłówki żądań** karcie widać, że klient żądał &quot;application/json&quot; w nagłówku Accept.
+Zlokalizuj wpis dla względny identyfikator URI "interfejsu api/produkty /". Wybierz ten wpis, a następnie kliknij przycisk **przejdź do widoku szczegółowym**. W widoku szczegółów istnieją karty, aby wyświetlić żądanie i odpowiedź nagłówki i treść. Na przykład jeśli klikniesz **nagłówki żądań** karcie widać, że klient zażądał &quot;application/json&quot; w nagłówku Accept.
 
 ![](tutorial-your-first-web-api/_static/image15.png)
 
-Jeśli klikniesz kartę treść odpowiedzi widać, jak lista produktów została wykonana serializacja do formatu JSON. Inne przeglądarki mają podobną funkcjonalność. Inne przydatne narzędzie jest [Fiddler](http://www.fiddler2.com/fiddler2/), debugowanie serwera proxy sieci web. Służy Fiddler do wyświetlania ruchu HTTP i tworzą żądania HTTP, co pozwala na pełną kontrolę nad nagłówków HTTP w żądaniu.
+Jeśli klikniesz kartę treść odpowiedzi, zostanie wyświetlony, jak lista produktów został wydany do formatu JSON. Inne przeglądarki mają podobne funkcje. Inne przydatne narzędzie jest [Fiddler](http://www.fiddler2.com/fiddler2/), internetowy serwer proxy debugowania. Służy narzędzia Fiddler do wyświetlania ruchu HTTP, a także do tworzenia żądań HTTP, co daje pełną kontrolę nad nagłówków HTTP żądania.
 
 ## <a name="see-this-app-running-on-azure"></a>Zobacz tej aplikacji działających na platformie Azure
 
-Czy chcesz w witrynie Zakończono uruchomione jako aplikacji sieci web? Pełną wersję aplikacji można wdrożyć do konta platformy Azure w celu wystarczy kliknąć poniższy przycisk.
+Czy chcesz w witrynie Zakończono działającego jako aplikacja sieci web? Pełną wersję aplikacji można wdrożyć do konta platformy Azure, po prostu kliknąć poniższy przycisk.
 
 [![](http://azuredeploy.net/deploybutton.png)](https://deploy.azure.com/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/WebAPI-ProductsApp#/form/setup)
 
-Potrzebujesz konta platformy Azure, aby wdrożyć to rozwiązanie do platformy Azure. Jeśli nie masz już konto, dostępne są następujące opcje:
+Potrzebujesz konta platformy Azure, aby wdrożyć to rozwiązanie na platformie Azure. Jeśli nie masz już konto, masz następujące opcje:
 
-- [Otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymasz kredyt służy do wypróbowania płatnych usług Azure, a nawet po wyczerpaniu kredytu możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
-- [Aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -subskrypcji Your MSDN otrzymasz kredyt, co miesiąc, używanego programu płatnych usług Azure.
+- [Otworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) — otrzymasz kredyt służy do wypróbowania płatnych usług platformy Azure, a nawet w przypadku, po ich wyczerpaniu nawet możesz zachować konto i korzystać z bezpłatnych usług platformy Azure.
+- [Aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -ramach subskrypcji MSDN daje środki na korzystanie z każdego miesiąca, używanego do płatne usługi platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby bardziej szczegółowy przykład usługi HTTP, która obsługuje operacje POST, PUT i DELETE i zapisuje do bazy danych, zobacz [przy użyciu sieci Web API 2 z programu Entity Framework 6](../data/using-web-api-with-entity-framework/part-1.md).
-- Aby uzyskać więcej informacji na temat tworzenia aplikacji sieci web płynne i szybkie ponad usługą HTTP, zobacz [aplikacji jednej strony ASP.NET](../../../single-page-application/index.md).
-- Aby uzyskać informacje dotyczące wdrażania projektu sieci web programu Visual Studio w usłudze Azure App Service, zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
+- Aby uzyskać bardziej szczegółowy przykład usługi HTTP, która obsługuje operacje POST, PUT i DELETE i zapisuje je do bazy danych, zobacz [przy użyciu Web API 2 przy użyciu platformy Entity Framework 6](../data/using-web-api-with-entity-framework/part-1.md).
+- Aby uzyskać więcej informacji o tworzeniu aplikacji sieci web płynne i szybkie działanie na podstawie usługi HTTP, zobacz [aplikacji jednostronicowej ASP.NET](../../../single-page-application/index.md).
+- Aby uzyskać informacje o sposobie wdrażania projektu sieci web programu Visual Studio w usłudze Azure App Service, zobacz [tworzenie aplikacji sieci web platformy ASP.NET w usłudze Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).

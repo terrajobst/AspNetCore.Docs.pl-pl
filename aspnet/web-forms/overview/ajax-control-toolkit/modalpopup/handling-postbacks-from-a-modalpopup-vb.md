@@ -1,67 +1,66 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/modalpopup/handling-postbacks-from-a-modalpopup-vb
-title: Obsługa ogłaszania zwrotnego z ModalPopup (VB) | Dokumentacja firmy Microsoft
+title: Obsługa ogłaszania zwrotnego w kontrolce ModalPopup (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: Formant ModalPopup w zestawie narzędzi kontroli AJAX pozwala w prosty sposób utworzyć modalnego okna podręcznego przy użyciu środków po stronie klienta. Specjalne należy zachować ostrożność podczas pos...
+description: Kontrolki ModalPopup na zestawu narzędzi AJAX Control Toolkit oferuje prosty sposób utworzyć modalnego okna podręcznego, za pomocą oznacza, że po stronie klienta. Specjalne należy zachować ostrożność podczas pos...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: f70ac2b3-900f-40fa-858f-ab057904506b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/handling-postbacks-from-a-modalpopup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1aa2c42deb67015dd0b35edf4ba72d8d667ec88c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e37c26b149c14855574ea777eae49fc40ea83899
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874213"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382669"
 ---
-<a name="handling-postbacks-from-a-modalpopup-vb"></a>Obsługa ogłaszania zwrotnego z ModalPopup (VB)
+<a name="handling-postbacks-from-a-modalpopup-vb"></a>Obsługa ogłaszania zwrotnego w kontrolce ModalPopup (VB)
 ====================
-przez [Wenz Chrześcijańskie](https://github.com/wenz)
+przez [Christian Wenz](https://github.com/wenz)
 
-[Pobierz kod](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup3.vb.zip) lub [pobierania plików PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup3VB.pdf)
+[Pobierz program Code](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup3.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup3VB.pdf)
 
-> Formant ModalPopup w zestawie narzędzi kontroli AJAX pozwala w prosty sposób utworzyć modalnego okna podręcznego przy użyciu środków po stronie klienta. Specjalne należy uważać podczas odświeżania strony na podstawie w podręcznym.
+> Kontrolki ModalPopup na zestawu narzędzi AJAX Control Toolkit oferuje prosty sposób utworzyć modalnego okna podręcznego, za pomocą oznacza, że po stronie klienta. Specjalne należy uważać podczas tworzenia ogłaszania zwrotnego z w ramach menu podręcznego.
 
 
 ## <a name="overview"></a>Omówienie
 
-Formant ModalPopup w zestawie narzędzi kontroli AJAX pozwala w prosty sposób utworzyć modalnego okna podręcznego przy użyciu środków po stronie klienta. Specjalne należy uważać podczas odświeżania strony na podstawie w podręcznym.
+Kontrolki ModalPopup na zestawu narzędzi AJAX Control Toolkit oferuje prosty sposób utworzyć modalnego okna podręcznego, za pomocą oznacza, że po stronie klienta. Specjalne należy uważać podczas tworzenia ogłaszania zwrotnego z w ramach menu podręcznego.
 
 ## <a name="steps"></a>Kroki
 
-W celu aktywowania funkcji programu ASP.NET AJAX i Toolkit kontroli `ScriptManager` formant musi znajdować się dowolne miejsce na stronie (ale poziomu `<form>` element):
+W celu włączenia funkcji ASP.NET AJAX i zestaw narzędzi do sterowania `ScriptManager` kontroli muszą znajdować się gdziekolwiek na stronie (ale poziomu `<form>` elementu):
 
 [!code-aspx[Main](handling-postbacks-from-a-modalpopup-vb/samples/sample1.aspx)]
 
-Następnie dodaj panel, która służy jako modalnych menu podręczne. Użytkownik może wprowadzić nazwę i adres e-mail. Przycisk służy do menu podręcznego. Zamknij i Zapisz informacje. Należy pamiętać, że `OnClick` atrybutu jest ustawiona, dzięki czemu odświeżania strony występuje po kliknięciu tego przycisku:
+Następnie dodaj panel, który służy jako modalnego okna podręcznego. Użytkownik może wprowadzić nazwę i adres e-mail. Przycisk służy do Zamknij okno podręczne i Zapisz informacje. Należy pamiętać, że `OnClick` atrybut jest ustawiony tak, aby ogłaszania zwrotnego występuje po kliknięciu tego przycisku:
 
 [!code-aspx[Main](handling-postbacks-from-a-modalpopup-vb/samples/sample2.aspx)]
 
-Sama strona zawiera dwie etykiety dla tych samych informacji: Nazwa i adres e-mail. Przycisk służy do wyzwalania modalnych menu podręczne:
+Sama strona składa się z dwóch etykiet dla dokładnie te same informacje: Nazwa i adres e-mail. Przycisk służy do wyzwalania modalnego okna podręcznego:
 
 [!code-aspx[Main](handling-postbacks-from-a-modalpopup-vb/samples/sample3.aspx)]
 
-Aby wprowadzić podręcznego są wyświetlane, Dodaj `ModalPopupExtender` formantu. Ustaw `PopupControlID` atrybutu ID panelu i `TargetControlID` przycisku ID:
+Aby było wyświetlane wyskakujące okienko, Dodaj `ModalPopupExtender` kontroli. Ustaw `PopupControlID` atrybutu ID panelu i `TargetControlID` identyfikatorowi przycisku:
 
 [!code-aspx[Main](handling-postbacks-from-a-modalpopup-vb/samples/sample4.aspx)]
 
-Teraz przy każdym `Save` kliknięciu przycisku w podręcznym modalnej po stronie serwera `SaveData()` metoda jest wykonywana. Istnieje można zapisać wprowadzonych danych w magazynie danych. Dla uproszczenia nowych danych jest tylko dane wyjściowe w etykiecie:
+Teraz zawsze, gdy `Save` w ramach modalnego okna podręcznego przycisku, po stronie serwera `SaveData()` metoda jest wykonywana. Można zapisać wprowadzonych danych w magazynie danych. Dla uproszczenia nowe dane po prostu znajdują się dane wyjściowe w etykiecie:
 
 [!code-vb[Main](handling-postbacks-from-a-modalpopup-vb/samples/sample5.vb)]
 
-Ponadto kontrolki textbox w podręcznym modalne powinno być wypełnione z bieżącym nazwę i adres e-mail. Jednak jest to konieczne tylko po wystąpieniu nie ogłaszania zwrotnego. W przypadku odświeżania strony, funkcja viewstate programu ASP.NET spowoduje automatyczne wypełnienie pola tekstowe z odpowiednimi wartościami.
+Ponadto kontrolki pola tekstowego, w ramach modalnego okna podręcznego powinny być widoczne bieżącą nazwę i adres e-mail. Jednak jest to konieczne tylko po wystąpieniu nie zwrotu. W przypadku zwrot funkcji viewstate programu ASP.NET spowoduje automatyczne wypełnienie pól tekstowych odpowiednimi wartościami.
 
 [!code-vb[Main](handling-postbacks-from-a-modalpopup-vb/samples/sample6.vb)]
 
 
-[![Modalne podręcznego powoduje odświeżenie strony](handling-postbacks-from-a-modalpopup-vb/_static/image2.png)](handling-postbacks-from-a-modalpopup-vb/_static/image1.png)
+[![Modalne okno podręczne powoduje odświeżenie strony](handling-postbacks-from-a-modalpopup-vb/_static/image2.png)](handling-postbacks-from-a-modalpopup-vb/_static/image1.png)
 
-Modalne podręcznego powoduje odświeżenie strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-postbacks-from-a-modalpopup-vb/_static/image3.png))
+Modalne okno podręczne powoduje odświeżenie strony ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](handling-postbacks-from-a-modalpopup-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](using-modalpopup-with-a-repeater-control-vb.md)

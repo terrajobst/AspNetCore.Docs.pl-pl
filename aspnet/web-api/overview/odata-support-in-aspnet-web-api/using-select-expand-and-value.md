@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value
-title: Przy użyciu $select, rozwinąć $ i $value w programie ASP.NET Web API 2 OData | Dokumentacja firmy Microsoft
+title: Za pomocą $select, $expand and $value w programie ASP.NET Web API 2 OData | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,45 +9,44 @@ ms.date: 10/11/2013
 ms.topic: article
 ms.assetid: 43279a80-a96c-4564-b6ea-ad992a2d6828
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value
 msc.type: authoredcontent
-ms.openlocfilehash: f229cdbd8850a787dd3585e0640e8e66f6109331
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f7e70bd76668f2af9215d57ee1cc9e7d41948c67
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566723"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384767"
 ---
-<a name="using-select-expand-and-value-in-aspnet-web-api-2-odata"></a>Przy użyciu $select, rozwinąć $ i $value w programie ASP.NET Web API 2 OData
+<a name="using-select-expand-and-value-in-aspnet-web-api-2-odata"></a>Za pomocą $select, $expand and $value w programie ASP.NET Web API 2 OData
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
-Składnik Web API 2 dodaje obsługę dla $rozwiń $select i opcje OData $value. Te opcje Zezwalaj klientowi kontrolować reprezentacją go otrzymuje w odpowiedzi z serwera.
+Składnik Web API 2 dodaje obsługę dla $expand, $select i opcje $value w protokole OData. Te opcje umożliwiają klientowi do kontrolowania reprezentacji, która go ponownie z serwera.
 
-- **Rozwiń węzeł $** powoduje, że powiązanych jednostek jako wbudowany uwzględniony w odpowiedzi.
-- **$select** wybiera podzbiór właściwości do uwzględnienia w odpowiedzi.
+- **$expand** powoduje, że z powiązanymi obiektami być wbudowane w odpowiedzi.
+- **$select** wybierze podzbiór właściwości do uwzględnienia w odpowiedzi.
 - **$value** pobiera nieprzetworzonej wartości właściwości.
 
 ## <a name="example-schema"></a>Przykład schematu
 
-W tym artykule, można użyć usługi OData, który definiuje trzy jednostki: produktu, dostawca i kategorii. Każdy produkt ma jedną kategorię i jeden dostawca.
+W tym artykule, będziesz używać usługi OData, który definiuje trzy jednostki: produktów, dostawcy i kategorii. Każdy produkt ma jedną kategorię i jednego dostawcy.
 
 ![](using-select-expand-and-value/_static/image1.png)
 
-Poniżej przedstawiono definiujące modeli entity klas C#:
+Poniżej przedstawiono klasy C#, które definiują modeli jednostki:
 
 [!code-csharp[Main](using-select-expand-and-value/samples/sample1.cs)]
 
-Zwróć uwagę, że `Product` klasa definiuje właściwości nawigacji dla `Supplier` i `Category`. `Category` Klasa definiuje właściwości nawigacji dla produktów w każdej kategorii.
+Należy zauważyć, że `Product` klasy definiuje właściwości nawigacji dla `Supplier` i `Category`. `Category` Klasa definiuje właściwość nawigacji dla produktów w każdej kategorii.
 
-Aby utworzyć punkt końcowy OData do tego schematu, użyj szkieletów programu Visual Studio 2013, zgodnie z opisem w [tworzenia punktu końcowego OData w ASP.NET Web API](odata-v3/creating-an-odata-endpoint.md). Dodaj oddzielne kontrolerów produktu, kategorii i dostawcy.
+Aby utworzyć punkt końcowy OData dla tego schematu, użyj szkieletu programu Visual Studio 2013, zgodnie z opisem w [Tworzenie punktu końcowego OData w interfejsie API sieci Web platformy ASP.NET](odata-v3/creating-an-odata-endpoint.md). Dodaj kontrolery oddzielny produkt, kategoria i dostawcy.
 
 ## <a name="enabling-expand-and-select"></a>Włączanie $Rozwiń i $select
 
-W programie Visual Studio 2013 rusztowania Web API OData tworzy kontrolerem tej automatycznie obsługuje Rozwiń $ i $select. Odwołania, poniżej przedstawiono wymagania dotyczące obsługi $Rozwiń i $select w kontrolerze.
+W programie Visual Studio 2013 rusztowania Web API OData tworzy kontroler, automatycznie obsługuje $expand i $select. Odwołanie, poniżej przedstawiono wymagania dotyczące obsługi $Rozwiń i $select w kontrolerze.
 
-Kolekcje kontrolera w `Get` metoda musi zwracać **IQueryable**.
+Dla kolekcji, kontroler firmy `Get` metoda musi zwracać **IQueryable**.
 
 [!code-csharp[Main](using-select-expand-and-value/samples/sample2.cs)]
 
@@ -55,94 +54,94 @@ W przypadku pojedynczych jednostek zwracają **SingleResult&lt;T&gt;**, gdzie T 
 
 [!code-csharp[Main](using-select-expand-and-value/samples/sample3.cs)]
 
-Ponadto dekoracji Twojej `Get` metod **[Queryable]** atrybutu, jak pokazano w poprzednim wstawki kodu. Można również wywołać **EnableQuerySupport** na **HttpConfiguration** obiektu podczas uruchamiania. (Aby uzyskać więcej informacji, zobacz [włączenie opcji zapytania OData](supporting-odata-query-options.md#enable).)
+Ponadto dekoracji swoje `Get` metod z **[Queryable]** atrybutu, jak pokazano w poprzednich fragmentach kodu. Alternatywnie wywołać **EnableQuerySupport** na **HttpConfiguration** obiektu podczas uruchamiania. (Aby uzyskać więcej informacji, zobacz [włączenie opcji zapytania OData](supporting-odata-query-options.md#enable).)
 
-## <a name="using-expand"></a>Przy użyciu $rozwiń
+## <a name="using-expand"></a>Rozwiń przy użyciu ciągu $
 
-Określona w zapytaniu OData jednostkę lub kolekcji, domyślny nie ma powiązanych jednostek. Na przykład w tym miejscu jest domyślny dla zestawu jednostek kategorii:
+Kiedy wykonujesz zapytanie OData jednostki lub kolekcji, domyślną odpowiedź nie zawiera powiązanych jednostek. Na przykład poniżej przedstawiono odpowiedź domyślną dla zestawu jednostek kategorie:
 
 [!code-console[Main](using-select-expand-and-value/samples/sample4.cmd)]
 
-Jak widać, odpowiedzi nie zawiera wszystkie produkty, nawet jeśli jednostka kategorii ma łącze nawigacyjne produktów. Jednak klient może używać $Rozwiń, aby uzyskać listę produktów dla każdej kategorii. Opcji $expand $ przechodzi w ciągu zapytania żądania:
+Jak widać, odpowiedź nie obejmuje wszystkie produkty, nawet jeśli jednostka kategoria zawiera łącze nawigacyjne produktów. Jednak klient może używać $Rozwiń, aby uzyskać listę produktów dla każdej kategorii. $Expand opcja znajduje się w ciągu zapytania żądania:
 
 [!code-console[Main](using-select-expand-and-value/samples/sample5.cmd)]
 
-Teraz serwer będzie zawierać produktów dla każdej kategorii, wbudowany z kategorii. Oto ładunku odpowiedzi:
+Teraz serwer będzie zawierać produktów dla każdej kategorii, wbudowany z kategorii. Oto ładunek odpowiedzi:
 
 [!code-console[Main](using-select-expand-and-value/samples/sample6.cmd)]
 
-Zwróć uwagę, że każdy wpis w tablicy "wartość" zawiera listę produktów.
+Należy zauważyć, że każdy wpis w tablicy "wartość" zawiera listę produktów.
 
-$Rozwiń opcję przyjmuje rozdzielone przecinkami lista właściwości nawigacyjne do rozszerzenia. Następujące żądania rozszerza zarówno kategorii i dostawcy dla produktu.
+$Rozwiń opcję przyjmuje rozdzielonych przecinkami lista właściwości nawigacyjne do rozszerzenia. Następujące żądanie rozwija kategorii i dostawcy dla produktu.
 
 [!code-console[Main](using-select-expand-and-value/samples/sample7.cmd)]
 
-Oto treść odpowiedzi:
+Oto treści odpowiedzi:
 
 [!code-console[Main](using-select-expand-and-value/samples/sample8.cmd)]
 
-Można rozwinąć więcej niż jeden poziom elementów właściwości nawigacji. Poniższy przykład zawiera wszystkich produktów dla kategorii, a także dostawcy dla każdego produktu.
+Możesz rozwinąć więcej niż jednego poziomu właściwości nawigacji. Poniższy przykład obejmuje wszystkie produkty dla kategorii, a także dostawcy dla każdego produktu.
 
 [!code-console[Main](using-select-expand-and-value/samples/sample9.cmd)]
 
-Oto treść odpowiedzi:
+Oto treści odpowiedzi:
 
 [!code-console[Main](using-select-expand-and-value/samples/sample10.cmd)]
 
-Domyślnie interfejsu API sieci Web ogranicza głębokość rozszerzenia maksymalną 2. Który zapobiega wysyłaniu złożonych żądań, takich jak przez klienta `$expand=Orders/OrderDetails/Product/Supplier/Region`, może być nieefektywne do wykonywania kwerend i tworzenie dużych odpowiedzi. Aby zastąpić domyślną, ustaw **MaxExpansionDepth** właściwość **[Queryable]** atrybutu.
+Domyślnie interfejs API sieci Web ogranicza głębokość rozszerzenia maksymalną na 2. Która zapobiega wysyłaniu złożonych żądań, takich jak przez klienta `$expand=Orders/OrderDetails/Product/Supplier/Region`, który może być nieefektywne w celu wykonywania zapytań i tworzenia dużych odpowiedzi. Aby zastąpić domyślne, należy ustawić **MaxExpansionDepth** właściwość **[Queryable]** atrybutu.
 
 [!code-csharp[Main](using-select-expand-and-value/samples/sample11.cs)]
 
-Aby uzyskać więcej informacji na temat $ opcji $expand, zobacz [rozwiń węzeł systemu opcji zapytania ($expand)](http://www.odata.org/documentation/odata-v2-documentation/uri-conventions/#46_Expand_System_Query_Option_expand) w oficjalnej dokumentacji OData.
+Aby uzyskać więcej informacji na temat $ rozwiń węzeł opcji, zobacz [rozwiń System stosowanie opcji zapytania ($expand)](http://www.odata.org/documentation/odata-v2-documentation/uri-conventions/#46_Expand_System_Query_Option_expand) w oficjalnej dokumentacji OData.
 
-## <a name="using-select"></a>Przy użyciu $select
+## <a name="using-select"></a>Za pomocą $select
 
-Opcja $select określa podzbiór właściwości, aby uwzględnić w treści odpowiedzi. Na przykład aby uzyskać tylko nazwę i ceny każdego produktu, należy użyć następującej kwerendy:
+Opcja $select określa podzbiór właściwości do uwzględnienia w treści odpowiedzi. Na przykład można pobrać tylko nazwa i cena każdego produktu, należy użyć następującej kwerendy:
 
 [!code-console[Main](using-select-expand-and-value/samples/sample12.cmd)]
 
-Oto treść odpowiedzi:
+Oto treści odpowiedzi:
 
 [!code-console[Main](using-select-expand-and-value/samples/sample13.cmd)]
 
-Możesz łączyć $select i $rozwiń w jednym zapytaniu. Upewnij się, że będą zawierać właściwości rozszerzonej w opcji $select. Na przykład następujące żądania pobiera nazwę produktu i dostawcy.
+Można połączyć $select i $expand w jednym zapytaniu. Upewnij się, że będą zawierać właściwości rozszerzonej w opcji $select. Na przykład następujące żądanie pobiera nazwę produktu i dostawcy.
 
 [!code-console[Main](using-select-expand-and-value/samples/sample14.cmd)]
 
-Oto treść odpowiedzi:
+Oto treści odpowiedzi:
 
 [!code-console[Main](using-select-expand-and-value/samples/sample15.cmd)]
 
-Możesz również wybrać właściwości w rozszerzonych właściwości. Następujące żądania rozszerza produktów i wybiera nazwy kategorii i nazwa produktu.
+Możesz również wybrać właściwości w ramach właściwości rozszerzonej. Następujące żądanie rozwija produktów i wybiera nazwę kategorii, a także nazwę produktu.
 
 [!code-console[Main](using-select-expand-and-value/samples/sample16.cmd)]
 
-Oto treść odpowiedzi:
+Oto treści odpowiedzi:
 
 [!code-console[Main](using-select-expand-and-value/samples/sample17.cmd)]
 
 Aby uzyskać więcej informacji na temat opcji $select, zobacz [wybierz opcję zapytania systemu ($select)](http://www.odata.org/documentation/odata-v2-documentation/uri-conventions/#48_Select_System_Query_Option_select) w oficjalnej dokumentacji OData.
 
-## <a name="getting-individual-properties-of-an-entity-value"></a>Pobieranie poszczególnych właściwości jednostki ($value)
+## <a name="getting-individual-properties-of-an-entity-value"></a>Pobieranie właściwości poszczególne jednostki ($value)
 
-Istnieją dwa sposoby dla klienta można pobrać wybranej właściwości z jednostką OData. Klienta można pobrać wartości w formacie OData lub pobrać nieprzetworzonej wartości właściwości.
+Istnieją dwa sposoby dla klienta OData można pobrać wybranej właściwości z jednostką. Klienta można uzyskać wartość w formacie OData lub uzyskaj nieprzetworzonej wartości właściwości.
 
-Następujące żądania pobiera właściwości w formacie OData.
+Następujące żądanie pobiera właściwości w formacie OData.
 
 [!code-console[Main](using-select-expand-and-value/samples/sample18.cmd)]
 
-Oto przykład odpowiedzi w formacie JSON:
+Poniżej przedstawiono przykładową odpowiedź w formacie JSON:
 
 [!code-console[Main](using-select-expand-and-value/samples/sample19.cmd)]
 
-Aby uzyskać nieprzetworzonej wartości właściwości, Dołącz $value do identyfikatora URI:
+Aby uzyskać nieprzetworzonej wartości właściwości, należy dołączyć $value do identyfikatora URI:
 
 [!code-console[Main](using-select-expand-and-value/samples/sample20.cmd)]
 
-Poniżej przedstawiono odpowiedzi. Zwróć uwagę, że typ zawartości "text/plain" nie jest JSON.
+Poniżej przedstawiono odpowiedzi. Należy zauważyć, że typ zawartości "text/plain" nie jest kodem JSON.
 
 [!code-console[Main](using-select-expand-and-value/samples/sample21.cmd)]
 
-Aby obsługiwać te zapytania w kontrolerze OData, Dodaj metodę o nazwie `GetProperty`, gdzie `Property` jest nazwą właściwości. Na przykład metoda get właściwości Name będą miały postać `GetName`. Metoda powinna zwrócić wartość tej właściwości:
+Aby obsługiwać te zapytania w kontrolerze OData, Dodaj metodę o nazwie `GetProperty`, gdzie `Property` jest nazwą właściwości. Na przykład, czy nazwę metody pobierania właściwości Name `GetName`. Metoda powinna zwrócić wartość tej właściwości:
 
 [!code-csharp[Main](using-select-expand-and-value/samples/sample22.cs)]

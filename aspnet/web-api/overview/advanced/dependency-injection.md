@@ -1,127 +1,126 @@
 ---
 uid: web-api/overview/advanced/dependency-injection
-title: Iniekcji zależności w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft
+title: Wstrzykiwanie zależności we wzorcu ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: W tym samouczku przedstawiono sposób wstrzyknięcia zależności w kontrolerze interfejsu API sieci Web platformy ASP.NET. Wersje oprogramowania używany w samouczek zablokowanych witryn sieci Web API 2 platformy Unity aplikacji...
+description: W tym samouczku pokazano, jak wstrzykiwanie zależności do poziomu kontrolera interfejsu API sieci Web platformy ASP.NET. Wersje oprogramowania używanych w samouczek zablokowanych witryn sieci Web API 2 Unity aplikacji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
 ms.topic: article
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 7f64cc83e36c80b0ffd53edfc629557c0847b200
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 92ce5eadc7f371540295c1c4279f817dba09f8e3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036518"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369175"
 ---
-<a name="dependency-injection-in-aspnet-web-api-2"></a>Iniekcji zależności w składniku ASP.NET Web API 2
+<a name="dependency-injection-in-aspnet-web-api-2"></a>Wstrzykiwanie zależności we wzorcu ASP.NET Web API 2
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
 [Pobieranie ukończone projektu](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-468ee148)
 
-> W tym samouczku przedstawiono sposób wstrzyknięcia zależności w kontrolerze interfejsu API sieci Web platformy ASP.NET.
+> W tym samouczku pokazano, jak wstrzykiwanie zależności do poziomu kontrolera interfejsu API sieci Web platformy ASP.NET.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Używane w samouczku wersje oprogramowania
+> ## <a name="software-versions-used-in-the-tutorial"></a>Wersje oprogramowania używanego w tym samouczku
 > 
 > 
 > - Składnik Web API 2
-> - [Blokowanie aplikacji Unity](https://www.nuget.org/packages/Unity/)
+> - [Blok aplikacji Unity](https://www.nuget.org/packages/Unity/)
 > - Entity Framework 6 (działa także w wersji 5)
 
 
-## <a name="what-is-dependency-injection"></a>Co to jest iniekcji zależności?
+## <a name="what-is-dependency-injection"></a>Co to jest wstrzykiwanie zależności?
 
-A *zależności* jest dowolny obiekt, który wymaga innego obiektu. Na przykład jest często do definiowania [repozytorium](http://martinfowler.com/eaaCatalog/repository.html) obsługująca dostęp do danych. Załóżmy przedstawiono przykład. Po pierwsze zdefiniujemy modelu domeny:
+A *zależności* jest dowolny obiekt, który wymaga innego obiektu. Na przykład, jest często zdefiniować [repozytorium](http://martinfowler.com/eaaCatalog/repository.html) obsługująca dostęp do danych. Teraz pokazują z przykładem. Po pierwsze zdefiniujemy modelu domeny:
 
 [!code-csharp[Main](dependency-injection/samples/sample1.cs)]
 
-Oto prosty repozytorium klasę, która przechowuje elementy w bazie danych przy użyciu programu Entity Framework.
+W tym miejscu jest klasą prostego repozytorium, która przechowuje elementy w bazie danych przy użyciu platformy Entity Framework.
 
 [!code-csharp[Main](dependency-injection/samples/sample2.cs)]
 
-Teraz zdefiniujmy kontrolera interfejsu API sieci Web, która obsługuje żądania GET `Product` jednostek. (I używam pomijając POST i innych metod dla uproszczenia.) W tym miejscu jest pierwsza próba:
+Teraz czynnością jest zdefiniowanie kontroler Web API, który obsługuje żądania GET `Product` jednostek. (Czy mam pomijając POST i innych metod dla uproszczenia.) W tym miejscu jest pierwsza próba:
 
 [!code-csharp[Main](dependency-injection/samples/sample3.cs)]
 
-Należy zauważyć, że klasa kontrolera jest zależny od `ProductRepository`, możemy są co kontroler, Utwórz `ProductRepository` wystąpienia. Jednak jest dobrym pomysłem twardych kodu zależności w ten sposób z kilku powodów.
+Należy zauważyć, że klasa kontrolera jest zależna od `ProductRepository`, i zawiadamiamy kontroler tworzenia `ProductRepository` wystąpienia. Jednak jest to zły pomysł kodowi twardych zależności w ten sposób z kilku powodów.
 
-- Jeśli chcesz zamienić `ProductRepository` z implementacją innego, należy również zmodyfikować klasy kontrolera.
-- Jeśli `ProductRepository` ma zależności, należy skonfigurować wewnątrz kontrolera. Dla dużych projektów z wielu kontrolerów kodu konfiguracji staje się znajdują się na projekt.
-- Trudno jest testu jednostkowego, ponieważ kontroler jest ustalony na zapytanie bazy danych. Dla testu jednostkowego należy użyć makiety lub stub repozytorium, co nie jest możliwe w projekcie currect.
+- Jeśli chcesz zastąpić `ProductRepository` z inną implementacją, trzeba będzie również zmodyfikować klasy kontrolera.
+- Jeśli `ProductRepository` ma zależności, należy skonfigurować w kontrolerze. Dla dużego projektu za pomocą wielu kontrolerów kodu konfiguracji staje się rozproszone w projekcie.
+- Ciężko jest testy jednostkowe, ponieważ kontroler jest ustalony do wykonywania zapytań w bazie danych. Dla testu jednostkowego należy użyć pozorny ani klas zastępczych repozytorium, które nie jest możliwe z projektem currect.
 
-Można rozwiązać te problemy przez *wstrzyknięcie* repozytorium do kontrolera. Po pierwsze, Refaktoryzuj `ProductRepository` klasy w interfejsie:
+Można rozwiązać te problemy, zapewniając *wprowadza* repozytorium do kontrolera. Po pierwsze, Refaktoryzuj `ProductRepository` klasy w interfejsie:
 
 [!code-csharp[Main](dependency-injection/samples/sample4.cs)]
 
-Następnie podaj `IProductRepository` jako parametru konstruktora:
+Następnie podaj `IProductRepository` jako parametr konstruktora:
 
 [!code-csharp[Main](dependency-injection/samples/sample5.cs)]
 
-W tym przykładzie użyto [iniekcji konstruktora](http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection). Można również użyć *iniekcji metody ustawiającej*, których wartość zależności za pomocą metody ustawiającej lub właściwości.
+W tym przykładzie użyto [iniekcji konstruktora](http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection). Można również użyć *iniekcji metody ustawiającej*, gdzie ustawiasz zależności za pomocą metody ustawiającej lub właściwości.
 
-Ale teraz występuje problem, ponieważ aplikacja nie bezpośrednio tworzy kontroler. Interfejs API sieci Web tworzy kontroler, gdy kieruje żądanie i interfejsu API sieci Web nie ma żadnych informacji dotyczących `IProductRepository`. Jest to, gdzie mechanizmu rozpoznawania zależności interfejsu API sieci Web jest dostarczany.
+Ale teraz występuje problem, ponieważ aplikacja nie tworzy kontroler bezpośrednio. Interfejs API sieci Web tworzy kontroler, kieruje żądanie, gdy interfejs API sieci Web nie nic wiedzieć o `IProductRepository`. Jest to, gdzie mechanizmu rozpoznawania zależności interfejsu API sieci Web jest dostępna w.
 
 ## <a name="the-web-api-dependency-resolver"></a>Mechanizm rozpoznawania zależności interfejsu API sieci Web
 
-Definiuje interfejs API sieci Web **elementu IDependencyResolver** interfejs do rozpoznawania zależności. W tym miejscu znajduje się definicja interfejsu:
+Definiuje interfejs API sieci Web **elementu IDependencyResolver** interfejs służący do rozpoznawania zależności. Oto definicja interfejsu:
 
 [!code-csharp[Main](dependency-injection/samples/sample6.cs)]
 
-**IDependencyScope** interfejs ma dwóch metod:
+**IDependencyScope** interfejs ma dwie metody:
 
-- **Funkcja GetService** tworzy jedno wystąpienie typu.
-- **Metodę GetServices** tworzy kolekcję obiektów określonego typu.
+- **GetService** tworzy jedno wystąpienie typu.
+- **Funkcji GetServices** tworzy kolekcję obiektów określonego typu.
 
-**Elementu IDependencyResolver** dziedziczy metody **IDependencyScope** i dodaje **BeginScope** metody. Będzie porozmawiać o zakresach w dalszej części tego samouczka.
+**Elementu IDependencyResolver** dziedziczy metodę **IDependencyScope** i dodaje **BeginScope** metody. Omówię zakresów w dalszej części tego samouczka.
 
-Gdy interfejs API sieci Web tworzy wystąpienie kontrolera, najpierw wywołuje **IDependencyResolver.GetService**, przekazując typ kontrolera. Tego punktu zaczepienia rozszerzalności umożliwia utworzenie kontrolera, rozpoznawania zależności. Jeśli **GetService** zwraca wartość null, interfejsu API sieci Web szuka konstruktora dla klasy kontrolera.
+Kiedy internetowy interfejs API tworzy wystąpienie kontrolera, najpierw wywołuje **IDependencyResolver.GetService**, przekazując typ kontrolera. Tego punktu zaczepienia rozszerzalności umożliwia tworzenie kontrolera, rozwiązywanie wszelkich zależności. Jeśli **GetService** zwraca wartość null, internetowy interfejs API szuka konstruktorem klasy kontrolera.
 
-## <a name="dependency-resolution-with-the-unity-container"></a>Rozpoznawanie zależności z kontenerem Unity
+## <a name="dependency-resolution-with-the-unity-container"></a>Rozpoznawanie zależności za pomocą kontenera aparatu Unity
 
-Mimo że można zapisać pełnego **elementu IDependencyResolver** implementacji od początku, interfejs naprawdę jest przeznaczony do działania jako mostka między interfejsu API sieci Web i istniejące kontenery Inwersja kontroli.
+Mimo że można napisać kompletna **elementu IDependencyResolver** wdrożenia od zera, interfejs naprawdę jest przeznaczony do działania jako Most między interfejsu API sieci Web i istniejące kontenery IoC.
 
-Kontenera IoC to składnik oprogramowania, który jest odpowiedzialny za zarządzanie zależności. Zarejestrować typy z kontenerem, a następnie użyć do tworzenia obiektów kontenera. Kontener danych liczbowych automatycznie limit relacji zależności. Również wiele kontenerów Inwersja kontroli pozwala na kontrolowanie okres istnienia obiektów i zakresu.
+Kontenera IoC jest składnikiem oprogramowania, który jest odpowiedzialny za zarządzanie zależnościami. Rejestrowanie typów z kontenerem, a następnie użyć do tworzenia obiektów kontenera. Kontener automatycznie wpadł na pomysł relacji zależności. Wiele kontenerów IoC umożliwiają także kontrolowanie elementów, takich jak okres istnienia obiektów i zakresu.
 
 > [!NOTE]
-> "IoC" oznacza "Inwersja kontroli", która jest wzorzec ogólne gdzie to struktura wywołuje kod aplikacji. Kontenera IoC tworzy obiekty, które zwykle przepływu sterowania "odwraca".
+> "IoC" oznacza "Inwersja kontroli", który jest ogólny wzorzec gdzie struktura wywołuje kod aplikacji. Kontenera IoC tworzy obiekty, które zwykle przepływu sterowania "odwraca".
 
 
-W tym samouczku, użyjemy [Unity](https://msdn.microsoft.com/library/ff647202.aspx) z Microsoft Patterns &amp; rozwiązania. (Obejmują innych popularnych bibliotek [Windsor zamku](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Ninject](http://www.ninject.org/), i [StructureMap ](http://docs.structuremap.net/).) Menedżer pakietów NuGet służy do instalowania Unity. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżer pakietów biblioteki**, a następnie wybierz pozycję **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wpisz następujące polecenie:
+W tym samouczku użyjemy [Unity](https://msdn.microsoft.com/library/ff647202.aspx) z Microsoft Patterns &amp; rozwiązania. (Obejmują innych popularnych bibliotek [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Ninject](http://www.ninject.org/), i [StructureMap ](http://docs.structuremap.net/).) Menedżer pakietów NuGet można użyć do zainstalowania aparatu Unity. Z **narzędzia** menu w programie Visual Studio, wybierz **Menedżer pakietów biblioteki**, a następnie wybierz **Konsola Menedżera pakietów**. W oknie Konsola Menedżera pakietów wpisz następujące polecenie:
 
 [!code-console[Main](dependency-injection/samples/sample7.cmd)]
 
-W tym miejscu jest implementacją **elementu IDependencyResolver** który opakowuje kontenera Unity.
+Oto implementacja **elementu IDependencyResolver** wszystko w kontenerze aparatu Unity.
 
 [!code-csharp[Main](dependency-injection/samples/sample8.cs)]
 
 > [!NOTE]
-> Jeśli **GetService** metody nie można rozpoznać typu, powinny zwrócić **null**. Jeśli **metodę GetServices** metody nie można rozpoznać typu, powinien zostać zwrócony obiekt pustej kolekcji. Nie zgłaszają wyjątki dla nieznanych typów.
+> Jeśli **GetService** metody nie można rozpoznać typu, powinna zwrócić **null**. Jeśli **funkcji GetServices** metody nie można rozpoznać typu, powinien zostać zwrócony obiekt pustą kolekcję. Nie zgłaszają wyjątki dla nieznanego typu.
 
 
 ## <a name="configuring-the-dependency-resolver"></a>Konfigurowanie mechanizmu rozpoznawania zależności
 
-Ustaw mechanizmu rozpoznawania zależności na **klasy DependencyResolver** właściwości globalne **HttpConfiguration** obiektu.
+Nastavit mechanizmu rozpoznawania zależności **klasy DependencyResolver** właściwości globalnego **HttpConfiguration** obiektu.
 
-Poniższy kod rejestruje `IProductRepository` interfejsu z Unity, a następnie tworzy `UnityResolver`.
+Poniższy kod rejestruje `IProductRepository` interfejs za pomocą aparatu Unity, a następnie tworzy `UnityResolver`.
 
 [!code-csharp[Main](dependency-injection/samples/sample9.cs)]
 
 ## <a name="dependency-scope-and-controller-lifetime"></a>Zakres zależności i okresem istnienia kontrolera
 
-Kontrolery są tworzone na żądanie. Aby zarządzać okresy istnienia obiektu, **elementu IDependencyResolver** korzysta z koncepcji *zakres*.
+Kontrolery są tworzone na żądanie. Do zarządzania okresy istnienia obiektu, **elementu IDependencyResolver** korzysta z koncepcji *zakres*.
 
-Mechanizm rozpoznawania zależności dołączony do **HttpConfiguration** obiekt ma zasięg globalny. Gdy interfejs API sieci Web tworzy kontrolera, wywołuje **BeginScope**. Ta metoda zwraca **IDependencyScope** reprezentujący zakresie podrzędnym.
+Mechanizm rozpoznawania zależności dołączone do **HttpConfiguration** obiekt ma zakres globalny. Kiedy internetowy interfejs API tworzy kontroler, wywołuje **BeginScope**. Ta metoda zwraca **IDependencyScope** reprezentujący zakresem podrzędnym.
 
-Następnie wywołuje interfejs API sieci Web **GetService** w zakresie podrzędnym, aby utworzyć kontroler. Po zakończeniu żądania wywołania interfejsu API sieci Web **Dispose** w zakresie podrzędnym. Użyj **Dispose** metody zlikwidować zależności kontrolera.
+Następnie wywołuje internetowy interfejs API **GetService** w zakresie podrzędnym, aby utworzyć kontroler. Po zakończeniu żądania wywołania interfejsu API sieci Web **Dispose** w zakresie podrzędnym. Użyj **Dispose** metodę dispose zależności kontrolera.
 
-Jak zaimplementować **BeginScope** zależy kontenera IoC. W przypadku Unity zakres odpowiada kontenera podrzędnego:
+Jak zaimplementować **BeginScope** zależy od kontenera IoC. Zakres dla aparatu Unity, odnosi się do kontenerów podrzędnych:
 
 [!code-csharp[Main](dependency-injection/samples/sample10.cs)]
 
-Większość kontenerów Inwersja kontroli mają podobne odpowiedniki.
+Większość kontenery IoC mają podobne odpowiedniki.

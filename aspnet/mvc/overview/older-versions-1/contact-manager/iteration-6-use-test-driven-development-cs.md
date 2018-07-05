@@ -1,138 +1,137 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
-title: 'Iteracja #6 — użyj test-driven development, (C#) | Dokumentacja firmy Microsoft'
+title: 'Iteracja #6 — korzystanie z projektowania opartego na testach (C#) | Dokumentacja firmy Microsoft'
 author: microsoft
-description: W tym szóstego iteracji dodania nowych funkcji do naszej aplikacji najpierw pisania testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji...
+description: W tym szóstego iteracji dodamy nowe funkcje do naszej aplikacji, najpierw pisanie testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
 ms.topic: article
 ms.assetid: 013c3c26-7dc3-41d1-8064-f233c86008b5
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 94502625f66d3eb08a24b8f2a369bf456a3367b1
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 2b3b0dc38d933f7ff8922b6642f904e4bb40cfe1
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30876296"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379092"
 ---
-<a name="iteration-6--use-test-driven-development-c"></a>Iteracja #6 — użyj test-driven development, (C#)
+<a name="iteration-6--use-test-driven-development-c"></a>Iteracja #6 — korzystanie z projektowania opartego na testach (C#)
 ====================
 przez [firmy Microsoft](https://github.com/microsoft)
 
-[Pobierz kod](iteration-6-use-test-driven-development-cs/_static/contactmanager_6_cs1.zip)
+[Pobierz program Code](iteration-6-use-test-driven-development-cs/_static/contactmanager_6_cs1.zip)
 
-> W tym szóstego iteracji dodania nowych funkcji do naszej aplikacji najpierw pisania testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji dodamy grup kontaktów.
+> W tym szóstego iteracji dodamy nowe funkcje do naszej aplikacji, najpierw pisanie testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji dodamy grup kontaktów.
 
 
-## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Tworzenie aplikacji platformy ASP.NET MVC kontaktu administracyjnego (C#)
+## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Tworzenie aplikacji zarządzania kontaktami platformy ASP.NET MVC (C#)
   
 
-W tej serii samouczków budujemy całej aplikacji zarządzania skontaktuj się z od początku do zakończenia. Aplikacji skontaktuj się z Menedżera umożliwia przechowywanie informacji kontaktowych - nazwy, numerów telefonów i adresów e-mail — lista osób.
+W tej serii samouczków wbudowujemy całej aplikacji zarządzania skontaktuj się z od początku do zakończenia. Aplikacja Contact Manager umożliwia przechowywanie informacji kontaktowych — nazwy, numerów telefonów i adresów e-mail — lista osób.
 
-Firma Microsoft kompilowania aplikacji za pośrednictwem przejść przez wiele iteracji. Przy każdej iteracji firma Microsoft stopniowego zwiększenia aplikacji. Celem tego podejścia wiele iteracji jest ułatwia zrozumienie przyczyn, dla każdej zmiany.
+Firma Microsoft tworzy aplikację za pośrednictwem wiele iteracji. Z każdą iteracją można stopniowo ulepszyć aplikację. Celem tego wielu podejścia iteracji jest, aby umożliwić Ci zrozumienie przyczyn wprowadzenia poszczególnych zmian.
 
-- Iteracja #1 — Tworzenie aplikacji. W pierwszej iteracji utworzymy menedżera kontaktu w najprostszym sposobem możliwe. Możemy dodać obsługę operacji podstawowej bazy danych: tworzenia, odczytu, aktualizacji i usuwania (CRUD).
+- Iteracja #1 — Tworzenie aplikacji. W pierwszej iteracji utworzymy Contact Manager w najprostszym sposobem możliwe. Dodano obsługę operacji podstawowej bazy danych: tworzenia, odczytu, aktualizacji i usuwania (CRUD).
 
-- Iteracji #2 — należy Szukaj nieuprzywilejowany aplikacji. W tym iteracji możemy ulepszyć wyglądu aplikacji przez zmodyfikowanie domyślnych strony wzorcowej widoku programu ASP.NET MVC i kaskadowych arkuszy stylów.
+- Iteracja 2 # — należy wyglądu nieuprzywilejowany aplikacji. W tej iteracji możemy poprawić wygląd aplikacji przez zmodyfikowanie domyślnych strony wzorcowej widoku platformy ASP.NET MVC i kaskadowych arkuszy stylów.
 
-- Iteracja #3 — Dodawanie walidacji formularza. W trzecim iteracji dodamy podstawowej postaci weryfikacji. Firma Microsoft uniemożliwiać przesyłanie formularza nie kończą działania wymaganych pól formularza. Możemy zweryfikować adresy e-mail i numerów telefonów.
+- Iteracja #3 — Dodawanie weryfikacji formularza. W trzecim iteracji dodamy weryfikacji formularza podstawowego. Firma Microsoft ochronić przed przesłaniem formularza nie kończą działania wymaganych pól formularza. Możemy zweryfikować adresy e-mail oraz numerów telefonów.
 
-- Iteracji #4 — należy luźno powiązane z aplikacji. W tym trzeci iteracji możemy korzystać z kilku wzorce projektowe oprogramowania do ułatwiają obsługiwanie i modyfikowanie aplikacji Menedżera skontaktuj się z pomocą. Na przykład firma Microsoft Refaktoryzuj naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
+- Iteracja 4 # — należy luźne sprzężenie aplikacji. W tym trzeci iteracji możemy skorzystać z kilku wzorców projektowych oprogramowania, aby ułatwić konserwację i modyfikowanie aplikacji Contact Manager. Na przykład możemy refaktoryzować naszej aplikacji do korzystania z wzorca repozytorium i wzorzec iniekcji zależności.
 
-- Iteracja #5 - tworzenia testów jednostkowych. W piątym iteracji możemy ułatwić naszej aplikacji obsługiwanie i modyfikowanie przez dodanie testów jednostkowych. Firma Microsoft mock naszej klasy modelu danych i tworzenie testów jednostkowych dla naszych kontrolerów i logiki sprawdzania poprawności.
+- Iteracja #5 — Tworzenie testów jednostkowych. W piątej iteracji ułatwiamy naszej aplikacji ułatwia konserwację i modyfikowanie, dodając testów jednostkowych. Firma Microsoft testowanie naszych zajęć modelu danych i tworzenie testów jednostkowych dla naszych kontrolery i logikę weryfikacji.
 
-- Iteracja #6 - użyj test-driven development. W tym szóstego iteracji dodania nowych funkcji do naszej aplikacji najpierw pisania testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji dodamy grup kontaktów.
+- Iteracja #6 — korzystanie z projektowania opartego na testach. W tym szóstego iteracji dodamy nowe funkcje do naszej aplikacji, najpierw pisanie testów jednostkowych i pisanie kodu dla testów jednostkowych. W tym iteracji dodamy grup kontaktów.
 
-- Iteracja #7 - dodawania funkcjonalności interfejsu Ajax. Siódmego iteracji możemy ulepszyć czas reakcji i wydajności aplikacji, dodając obsługę technologii Ajax.
+- Iteracja #7 — dodawanie funkcji Ajax. W siódmej iteracji można ulepszyć czas odpowiedzi i wydajności naszych aplikacji przez dodanie obsługi technologii AJAX.
 
 ## <a name="this-iteration"></a>Tej iteracji
 
-W poprzedniej iteracji aplikacji menedżera kontaktu utworzyliśmy testów jednostkowych do zapewnienia zabezpieczenie na naszego kodu. Motywacją do tworzenia testów jednostkowych było naszego kodu bardziej odporne na zmiany. Testy jednostkowe w miejscu możemy happily wprowadzenie zmian do naszego kodu i od razu wiedzieć, czy możemy przerwane istniejące funkcje.
+W poprzedniej iteracji aplikacji Contact Manager utworzyliśmy testów jednostkowych w celu zapewnienia zabezpieczenie naszego kodu. Motywacją do tworzenia testów jednostkowych było naszego kodu bardziej odporne na zmiany. Przy użyciu testów jednostkowych w miejscu możemy trafem korzysta wprowadzać zmian do naszego kodu i od razu wiedzieć, czy możemy przerwane istniejących funkcji.
 
-W tym iteracji używamy testów jednostkowych w zupełnie innego celu. W tej iteracji, testy jednostkowe używany jako część aplikacji zasady projektowania klas o nazwie *test-driven development,*. Ćwiczenie test-driven development, należy najpierw zapisać testy i następnie pisać kod dla testów.
+W tej iteracji testów jednostkowych jest używana w zupełnie innego celu. W tej iteracji używamy testy jednostkowe, jako część filozofia projektowania aplikacji o nazwie *programowania sterowanego testami*. Podczas programowania sterowanego testami praktyczne w sytuacji, należy najpierw pisania testów, a następnie napisz kod dla testów.
 
-Ściślej, gdy ćwiczenia test-driven development, istnieją trzy kroki, które zostaną wykonane podczas tworzenia kodu (czerwony / zielony/Zrefaktoryzuj):
+Mówiąc ściślej, gdy ćwiczenia programowania sterowanego testami, istnieją trzy kroki, które zostaną wykonane podczas tworzenia kodu (czerwony / zielony/Zrefaktoryzuj):
 
-1. Zapis testu jednostkowego, który zakończy się niepowodzeniem (czerwony)
-2. Pisanie kodu, który przekazuje testu jednostkowego (zielony)
-3. Zrefaktoryzuj kod (Zrefaktoryzuj)
+1. Napisać test jednostkowy, który zakończy się niepowodzeniem (czerwony)
+2. Napisać kod, który przekazuje testu jednostkowego (zielony)
+3. Refaktoryzacja kodu (Refaktoryzacja)
 
-Najpierw należy zapisać testu jednostkowego. Test jednostkowy powinien express zamiaru zachowanie dla jak ma być kodu. Po utworzeniu testu jednostkowego testu jednostkowego powinna zakończyć się niepowodzeniem. Test powinna zakończyć się niepowodzeniem, ponieważ nie zostały jeszcze zapisane kodu aplikacji, który spełnia testu.
+Po pierwsze można napisać test jednostkowy. Test jednostkowy powinien wyrażać zamiaru dla jak oczekujesz, że Twój kod będzie działać. Po utworzeniu testu jednostkowego test jednostkowy powinna zakończyć się niepowodzeniem. Test powinna zakończyć się niepowodzeniem, ponieważ nie zostały jeszcze zapisane wszelki kod aplikacji, który spełnia testu.
 
-Następnie należy napisać kod wystarczającego w kolejności dla testu jednostkowego do przekazania. Celem jest pisanie kodu w sposób laziest, sloppiest oraz najszybciej możliwe. Należy nie marnować czas planowania architektury aplikacji. Zamiast tego należy skoncentrować się na zapisywanie minimalnej ilości kodu niezbędne do spełnienia zamiar wyrażonych przez test jednostkowy.
+Następnie zapisz wystarczający tylko kod, aby test jednostkowy do przekazania. Celem jest pisanie kodu w sposób laziest, sloppiest i najszybszych możliwe. Należy nie tracić czasu myśleć o architekturze aplikacji. Zamiast tego należy skoncentrować się na pisaniu minimalnej ilości kodu, które są niezbędne do spełnienia zamiar wyrażona przez test jednostkowy.
 
-Na koniec po wystarczającej ilości kodu zostały zapisane, możesz ponownie krok i należy wziąć pod uwagę ogólna Architektura aplikacji. W tym kroku przepisywania (zrefaktoryzuj) kodu dzięki wykorzystaniu projektowania oprogramowania wzorce — takich jak wzorzec repozytorium — tak, aby kod jest łatwy w obsłudze więcej. Kod w tym kroku można przepisać fearlessly, ponieważ kod jest objęta testów jednostkowych.
+Na koniec po napisaniu wystarczającej ilości kodu można krok do tyłu i należy wziąć pod uwagę ogólna Architektura aplikacji. W tym kroku edycji (Refaktoryzacja) kodu, wykorzystując projektowania oprogramowania wzorców — takich jak wzorzec repozytorium — tak, aby Twój kod będzie łatwiejszy w utrzymaniu. Odważnie można przepisać kod w tym kroku, ponieważ kodu jest objęta testów jednostkowych.
 
-Istnieje wiele korzyści wynikających z test-driven development, korzystających z metodologii. Po pierwsze, test-driven development wymusza pozwala skupić się na kod, który faktycznie do zapisania. Ponieważ są stale koncentruje się na właśnie pisanie wystarczającej ilości kodu do przekazania poszczególnego testu, będą mogli wandering do gąszcz i zapisywanie olbrzymich ilości kodu, który nigdy nie będzie używany.
+Istnieje wiele korzyści wynikających z ćwiczenia programowania sterowanego testami. Po pierwsze, oparte na testach programowanie wymusza pozwala skupić się na kod, który faktycznie potrzebny do zapisania. Ponieważ są stale koncentruje się na tylko pisania wystarczającej ilości kodu do przekazania konkretnego testu, będą mogli się wandering do gąszcz i zapisywanie ogromnych ilości kodu, który nigdy nie będą używane.
 
-Po drugie metodologię projektowania "test najpierw" wymusza napisać kod z punktu widzenia użycia kodu. Innymi słowy gdy ćwiczenia test-driven development, stale pisania testów z punktu widzenia użytkownika. W związku z tym test-driven development, może spowodować czyszczący i bardziej zrozumiałe interfejsów API.
+Po drugie metodologię projektowania "test najpierw" wymusza pisanie kodu pod względem sposobu użycia kodu. Innymi słowy gdy ćwiczenia programowania sterowanego testami, stale pisania testów z punktu widzenia użytkownika. W związku z tym programowania sterowanego testami może spowodować bardziej przejrzyste i bardziej zrozumiały interfejsów API.
 
-Na koniec test-driven development, wymusza pisać testy jednostkowe w ramach normalnego procesu pisania aplikacji. Jak zbliża się termin projektu testowania jest zwykle najpierw, który jest przesyłany okno. Podczas ćwiczeń test-driven development z drugiej strony, możesz są bardziej prawdopodobną virtuous temat pisania testów jednostkowych, ponieważ test-driven development, sprawia, że testy jednostkowe centralnej do procesu tworzenia aplikacji.
+Na koniec programowania sterowanego testami wymusza pisanie testów jednostkowych w ramach normalnego procesu pisania aplikacji. Jak zbliża się termin projektu badania jest zazwyczaj pierwszą rzeczą, która trafia do okna. Podczas ćwiczeń programowania sterowanego testami z drugiej strony, należy prawdopodobnie bardziej składa dotyczące pisania testów jednostkowych, ponieważ programowania sterowanego testami sprawia, że testy jednostkowe centralnej do procesu tworzenia aplikacji.
 
 > [!NOTE] 
 > 
-> Aby dowiedzieć się więcej na temat test-driven development, I zaleca się przeczytanie książki piór Michael **pracy skutecznie z kodem starszych**.
+> Aby dowiedzieć się więcej na temat programowania sterowanego testami, I zaleca się przeczytanie książki Michael Feathers **działa wydajnie z kodem Legacy**.
 
 
-W tym iteracji dodania do naszej aplikacji Menedżera skontaktuj się z nowej funkcji. Możemy dodać obsługę skontaktuj się z grupy. Można użyć, skontaktuj się z grup do organizowania na kategorie, takie jak firm kontaktów i grup Friend.
+W tym iteracji dodamy nową funkcję do naszej aplikacji Contact Manager. Dodajemy obsługę skontaktuj się z grup. Można użyć, skontaktuj się z grup w celu zorganizowania kontaktów na kategorie, takie jak firmy i grupy Friend.
 
-Ta nowa funkcja zostanie dodany do naszej aplikacji w procesie projektowania opartego na test. Firma Microsoft będzie najpierw zapisać Nasze testy jednostkowe i firma Microsoft będzie zapisanie wszystkich naszego kodu względem tych testów.
+Dodamy tej nowej funkcji do naszej aplikacji postępując zgodnie z procesem programowania sterowanego testami. Nasze testy jednostkowe będziemy pisać najpierw oboje będziemy pisać wszystkich naszych kodować te testy.
 
-## <a name="what-gets-tested"></a>Pobiera co przetestowane
+## <a name="what-gets-tested"></a>Co pobiera przetestowane
 
-Jak wspomniano w poprzedniej iteracji, zwykle nie pisania testów jednostkowych dla logika dostępu do danych lub wyświetlić logiki. Zrobisz testów jednostkowych zapisu t logika dostępu do danych, ponieważ uzyskanie dostępu do bazy danych jest stosunkowo wolne działanie. Zrobisz testów jednostkowych zapisu t logiki widoku, ponieważ dostęp do widoku wymaga Obracająca się z serwerem sieci web, który jest stosunkowo wolne działanie. T nie powinien zapisać testu jednostkowego, chyba że testu mogą być wykonywane wielokrotnie bardzo szybkiej
+Jak wspomniano w poprzedniej iteracji, zazwyczaj nie pisać testy jednostkowe dla logiką dostępu do danych ani wyświetlić logiki. Komputer t pisanie testów jednostkowych logiką dostępu do danych, ponieważ dostęp do bazy danych jest stosunkowo wolne działanie. Komputer testów jednostkowych zapisu t logiki widoku, ponieważ uzyskanie dostępu do widoku wymaga uruchamiając serwera sieci web, która jest stosunkowo wolne działanie. T nie powinien napisać test jednostkowy, chyba że testu mogą być wykonywane wielokrotnie bardzo szybko
 
-Ponieważ test-driven development, wynikają z testów jednostkowych, możemy skupić się początkowo o pisaniu kontrolera i logiki biznesowej. Firma Microsoft nie dotknięcie bazy danych lub widoków. Firma Microsoft kupione t modyfikacji bazy danych lub Utwórz widoki naszych aż do zakończenia bardzo tego samouczka. Możemy zaczynać co można przetestować.
+Ponieważ programowania sterowanego testami jest wymuszany przez testy jednostkowe, możemy skoncentrować się początkowo na pisaniu kontrolera i logiki biznesowej. Firma Microsoft należy unikać modyfikowania bazy danych lub widoki. Zdobyliśmy t modyfikacji bazy danych lub Utwórz naszych widoków do bardzo końca tego samouczka. Rozpoczniemy pracę co mogą być testowane.
 
 ## <a name="creating-user-stories"></a>Tworzenie przypadków użycia
 
-Podczas ćwiczeń test-driven development, należy zawsze uruchomić pisząc testu. Natychmiast zgłasza to pytanie: jak użytkownik zdecyduje jakie test, aby najpierw zapisać? Aby odpowiedzieć na to pytanie, należy zapisać zestaw [ **scenariuszy użytkownika**](http://en.wikipedia.org/wiki/User_stories).
+Podczas ćwiczeń programowania sterowanego testami należy zawsze rozpoczyna się od pisania testu. Natychmiast generuje to pytanie: decyzja dotycząca określenia jakiego test, aby najpierw zapisać? Aby odpowiedzieć na to pytanie, należy napisać zestaw [ **przypadków**](http://en.wikipedia.org/wiki/User_stories).
 
-Scenariusza użytkownika jest bardzo krótki opis wymaganie dotyczące oprogramowania (zazwyczaj jedno zdanie). Należy go nietechnicznych opis wymagań zapisywane z punktu widzenia użytkownika.
+Scenariusz użycia jest bardzo krótki opis (zwykle w jednym zdaniu) wymagania dotyczące oprogramowania. Powinna to być Nietechniczne opis wymaganie zapisywane z punktu widzenia użytkownika.
 
-S zbiór scenariuszy użytkownika, które opisują funkcje wymagane przez nowe funkcje grupy skontaktuj się z tutaj:
+Oto s zestaw przypadków użycia, które opisano funkcje wymagane przez nowe funkcje skontaktuj się z grupy:
 
-1. Użytkownika można wyświetlić listę grup kontaktów.
-2. Użytkownik może utworzyć nowej grupy kontaktów.
-3. Użytkownik może usunąć istniejącą grupę kontaktu.
+1. Użytkownik może wyświetlić listę grup kontaktów.
+2. Użytkownik może utworzyć nową grupę skontaktuj się z pomocą.
+3. Użytkownik może usunąć istniejącą grupę skontaktuj się z pomocą.
 4. Użytkownik może wybrać grupy kontaktów, podczas tworzenia nowego kontaktu.
 5. Użytkownik może wybrać grupy kontaktów podczas edycji istniejącego kontaktu.
-6. Lista grup kontaktów jest wyświetlany w widoku indeksu.
-7. Gdy użytkownik kliknie grupy kontaktów, zostanie wyświetlona lista zgodnych kontaktów.
+6. Lista grup skontaktuj się z pomocą jest wyświetlany w widoku indeksu.
+7. Gdy użytkownik kliknie skontaktuj się z grupy, zostanie wyświetlona lista pasujących kontaktów.
 
-Należy zauważyć, że ta lista scenariuszy użytkownika jest całkowicie zrozumiały dla klienta. Nie ma nie wymieniono szczegóły implementacji technicznej.
+Należy zauważyć, że ta lista historii użytkowników jest całkowicie zrozumiały dla klienta. Nie ma żadnych informację o szczegóły implementacji technicznej.
 
-Gdy podczas tworzenia aplikacji, zestaw scenariuszy użytkownika może stać się bardziej precyzyjnych. Wiele wątków (wymagania) może podzielić scenariusza użytkownika. Na przykład można zdecydować, że utworzenie nowej grupy kontaktów powinny obejmować sprawdzania poprawności. Przesyłanie grupy kontaktów bez nazwy powinien zwrócić błąd sprawdzania poprawności.
+Gdy procesie tworzenia aplikacji, zestaw przypadków użycia może stać się bardziej precyzyjnych. Scenariusz użycia może podzielić na wiele wątków (wymagania). Na przykład można zdecydować, czy tworzenie nowej grupy skontaktuj się z pomocą powinny obejmować sprawdzania poprawności. Przesyłanie skontaktuj się z grupy bez nazwy powinien zwrócić błąd sprawdzania poprawności.
 
-Po utworzeniu listę scenariuszy użytkownika, możesz przystąpić do pisania Twojego pierwszego testu jednostkowego. Zaczniemy od utworzenia testu jednostkowego do wyświetlania na liście grup kontaktów.
+Po utworzeniu listy historii użytkowników, można przystąpić do pisania pierwszego testu jednostkowego. Zaczniemy od utworzenia testu jednostkowego do wyświetlania listy grup skontaktuj się z pomocą.
 
 ## <a name="listing-contact-groups"></a>Wyświetlanie listy grup kontaktów
 
-Nasze pierwszego scenariusza użytkownika to, czy użytkownik powinien móc wyświetlić listę grup kontaktów. Musimy express tego wątku z testem.
+Nasz pierwszy Historia użytkownika jest, czy użytkownik powinien móc wyświetlić listę grup kontaktów. Musimy express tego wątku z testem.
 
-Tworzenie nowego testu jednostkowego, klikając prawym przyciskiem myszy folder kontrolery w projekcie ContactManager.Tests wybranie **Add, przetestuj nowe**i wybierając **testu jednostkowego** szablonu (zobacz rysunek 1). Nazwa nowej jednostki testowanie GroupControllerTest.cs i kliknij przycisk **OK** przycisku.
+Tworzenie nowego testu jednostkowego, klikając prawym przyciskiem myszy folder kontrolerów w projekcie ContactManager.Tests wybierając **Dodaj, testowanie nowych**i wybierając polecenie **testów jednostkowych** szablonu (patrz rysunek 1). Nazwa nowej jednostki testowania GroupControllerTest.cs i kliknij przycisk **OK** przycisku.
 
 
 [![Dodawanie testu jednostkowego GroupControllerTest](iteration-6-use-test-driven-development-cs/_static/image1.jpg)](iteration-6-use-test-driven-development-cs/_static/image1.png)
 
-**Rysunek 01**: Dodawanie testu jednostkowego GroupControllerTest ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image2.png))
+**Rysunek 01**: Dodawanie GroupControllerTest testu jednostkowego ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image2.png))
 
 
-Nasze pierwszego testu jednostkowego znajduje się w 1 wyświetlania. Ten test sprawdza, czy metoda indeks() kontrolera grupy zwraca zbiór grup. Test sprawdza, czy kolekcję grup, jest zwracany w widoku danych.
+Pierwszy test jednostki znajduje się w ofercie 1. Ten test sprawdza, czy metoda indeks() kontrolera grupy zwraca zbiór grup. Ten test sprawdza, czy zbiór grup jest zwracany w widoku danych.
 
 **Wyświetlanie listy 1 - Controllers\GroupControllerTest.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample1.cs)]
 
-Podczas wpisywania tekstu najpierw kod w wyświetlania 1 programu Visual Studio, uzyskasz dużo czerwoną linie dowolnym kształcie. Nie utworzono klasy GroupController lub grupy.
+Podczas wpisywania tekstu najpierw kod w ofercie 1 w programie Visual Studio, zapewnisz sobie wiele czerwoną linią falistą. Nie utworzono GroupController lub grupę klas.
 
-W tym momencie możesz nawet kompilacji t naszej aplikacji, dlatego firma Microsoft można wykonać naszych pierwszego testu jednostkowego. Tego dobrej s. Który traktowana jako niepowodzenie testu. W związku z tym teraz mamy uprawnień, aby rozpocząć pisanie kodu aplikacji. Należy zapisać za mało kod do wykonania naszym teście.
+W tym momencie możemy kompilacji nawet t naszej aplikacji, dzięki czemu możemy t wykonać pierwszy test jednostki. Tego s jest dobra. Który jest traktowany jako niepowodzenie testu. W związku z tym, w efekcie powstał uprawnienia do rozpoczęcia pisania kodu aplikacji. Potrzebujemy do zapisu do wykonania naszym teście wystarczającej ilości kodu.
 
-Klasa kontrolera grupy wyświetlania 2 zawiera podstawowe czynności kod wymagany do przekazania testu jednostkowego. Akcja indeks() zwraca listę statycznie kodowane grupy (klasy grupy jest zdefiniowany w wyświetlania 3).
+Klasa kontrolera grupy w ofercie 2 zawiera absolutnego minimum wymagane do przekazania testu jednostkowego kodu. Akcja indeks() zwraca statycznie kodowane listę grup (Klasa grupy jest zdefiniowana w ofercie 3).
 
 **Wyświetlanie listy 2 - Controllers\GroupController.cs**
 
@@ -142,47 +141,47 @@ Klasa kontrolera grupy wyświetlania 2 zawiera podstawowe czynności kod wymagan
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample3.cs)]
 
-Po dodamy klasy GroupController i grupy do naszej projektu naszych pierwszego testu jednostkowego zakończy się pomyślnie (patrz rysunek 2). Firma Microsoft to zostało zrobione minimalna pracy wymaganej w celu przekazania testu. Nadszedł czas udanej sprzedaży.
+Po dodamy klasy GroupController i grupy do naszego projektu pierwszy test jednostki zakończy się pomyślnie (patrz rysunek 2). Wykonaliśmy minimalne pracę wymaganą do przekazania do testu. Nadszedł czas na Świętuj.
 
 
-[![Powodzenie!](iteration-6-use-test-driven-development-cs/_static/image2.jpg)](iteration-6-use-test-driven-development-cs/_static/image3.png)
+[![SUKCES!](iteration-6-use-test-driven-development-cs/_static/image2.jpg)](iteration-6-use-test-driven-development-cs/_static/image3.png)
 
-**Rysunek 02**: sukcesu! () [Kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image4.png))
+**Rysunek 02**: Sukces! () [Kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image4.png))
 
 
 ## <a name="creating-contact-groups"></a>Tworzenie grup kontaktów
 
-Teraz możesz teraz przystąpić do drugiego scenariusza użytkownika. Potrzebujemy można było tworzyć nowe grupy kontaktów. Musimy express zamiar z testem.
+Teraz można przystąpić do drugiego wątku użytkownika. Potrzebujemy można było tworzyć nowe grupy skontaktuj się z pomocą. Musimy express zamiar testu.
 
-Testu w listę 4 sprawdza, czy wywołanie Create() metody z nową grupą dodaje do listy grup zwracany przez metodę indeks() grupę. Innymi słowy Jeśli I utworzyć nową grupę następnie I powinien móc odzyskać nową grupę z listy grup zwracany przez metodę indeks().
+Testowanie w ofercie 4 — sprawdza, czy wywołanie Create() metody za pomocą nowej grupy dodaje do listy grup zwracany przez metodę indeks() grupę. Oznacza to czy jeśli utworzę nową grupę następnie I powinno być możliwe do wrócić nową grupę z listy grup zwracany przez metodę indeks().
 
 **Wyświetlanie listy 4 - Controllers\GroupControllerTest.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample4.cs)]
 
-Testu w listę 4 wywołuje kontrolera grupy Create() metody za pomocą nowego skontaktuj się z grupą. Następnie testu sprawdza, czy wywołanie kontrolera grupy indeks() — metoda zwraca nową grupę w widoku danych.
+Testowanie w ofercie 4 wywołuje kontrolera grupy Create() metody za pomocą nowego kontaktu grupy. Następnie ten test sprawdza, wywołanie kontrolera grupy metoda indeks() nową grupę w zwracanych danych widoku.
 
-Zmodyfikowane kontrolera grupy w listę 5 zawiera podstawowe czynności zmiany wymagane do przekazania nowego testu.
+Zmodyfikowane kontrolera grupy w ofercie 5 zawiera podstawowe czynności zmiany wymagane w celu przekazania nowego testu.
 
 **Wyświetlanie listy 5 - Controllers\GroupController.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample5.cs)]
 
-## <a name="the-group-controller-in-listing-5-has-a-new-create-action-this-action-adds-a-group-to-a-collection-of-groups-notice-that-the-index-action-has-been-modified-to-return-the-contents-of-the-collection-of-groups"></a>Kontroler grupy w listę 5 ma nową akcję Create(). Ta akcja dodaje grupę do kolekcji grup. Zwróć uwagę, że akcja indeks() został zmodyfikowany w celu zwrócenia zawartości kolekcję grup.
+## <a name="the-group-controller-in-listing-5-has-a-new-create-action-this-action-adds-a-group-to-a-collection-of-groups-notice-that-the-index-action-has-been-modified-to-return-the-contents-of-the-collection-of-groups"></a>Kontroler grupy w ofercie 5 ma nową akcję Create(). Ta akcja dodaje grupę na kolekcję grup. Należy zauważyć, że akcja indeks() została zmodyfikowana, aby zwrócić zawartość kolekcję grup.
 
-Ponownie firma Microsoft wykonali systemu od zera minimalna ilość pracy wymaganej w celu przekazania testu jednostkowego. Po możemy wprowadzić te zmiany do kontrolera grupy, wszystkie jednostki Nasze testy przebiegu.
+Jeszcze raz zostały wykonane bez minimalnej ilości pracy wymaganej do przekazania test jednostkowy. Po możemy wprowadzić te zmiany do kontrolera grupy, wszystkie jednostki Nasze testy zostaną zaliczone.
 
 ## <a name="adding-validation"></a>Dodawanie walidacji
 
-To wymaganie nie zostało określone jawnie w scenariusza użytkownika. Istnieje uzasadnione wymagają, aby grupa miał nazwę. W przeciwnym razie organizowanie kontakty do grupy nie będzie bardzo przydatne.
+To wymaganie nie zostało podane jawnie w historii użytkownika. Jednak jest uzasadnione wymagają, że grupa ma nazwy. W przeciwnym razie organizowanie kontaktów w grupach nie byłoby bardzo przydatne.
 
-Wyświetlanie listy 6 zawiera określającym zamiar nowego testu. Ten test sprawdza, czy próby utworzenia grupy bez podawania nazwy spowoduje komunikat o błędzie weryfikacji w stanie modelu.
+Wyświetlanie listy 6 zawiera nowy test, który wyraża swój zamiar. Ten test sprawdza, czy próba utworzenia grupy bez podawania nazwy skutkuje komunikat o błędzie weryfikacji w stanie modelu.
 
 **Wyświetlanie listy 6 - Controllers\GroupControllerTest.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample6.cs)]
 
-W celu spełnienia tego testu, należy dodać właściwość nazwy do klasy nasze grupy (zobacz listę 7). Ponadto należy dodać niewielki rozmiar nieco logikę weryfikacji do kontrolera grupy s Create() akcji (patrz lista 8).
+Aby spełnić wymagania tego testu, musimy dodać właściwość Nazwa klasy naszej grupy (zobacz listę 7). Ponadto należy dodać bitu niewielką logikę walidacji do kontrolera grupy s Create() akcji (patrz lista 8).
 
 **Wyświetlanie listy 7 - Models\Group.cs**
 
@@ -192,83 +191,83 @@ W celu spełnienia tego testu, należy dodać właściwość nazwy do klasy nasz
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample8.cs)]
 
-Należy zauważyć, że kontroler grupy akcji Create() teraz zawiera logikę zarówno sprawdzania poprawności, jak i bazy danych. Obecnie bazy danych używanej przez grupę kontroler składa się z nic więcej niż kolekcji w pamięci.
+Należy zauważyć, że kontroler grupy akcji Create() teraz zawiera logikę weryfikacji i bazy danych. Obecnie usługa bazy danych używane przez kontroler grupy składa się z nic więcej niż kolekcji w pamięci.
 
-## <a name="time-to-refactor"></a>Czas do refaktoryzacji
+## <a name="time-to-refactor"></a>Czas, Refaktoryzacja
 
-Trzeci krok w Zrefaktoryzuj-czerwony/zielony jest częścią refaktoryzacji. W tym momencie musimy kroku z naszego kodu i należy wziąć pod uwagę, jak firma Microsoft Refaktoryzuj naszej aplikacji, aby zwiększyć jego projekt. W ramach refaktoryzacji jest na etapie, jaką naszym zdaniem twardym o najlepszym sposobem stosowania zasad projektowania oprogramowania i wzorce.
+Trzeci krok w czerwony/zielony/Zrefaktoryzuj jest częścią refaktoryzacji. W tym momencie należy kroku powrót po awarii z naszego kodu i należy wziąć pod uwagę, jak możemy refaktoryzować naszej aplikacji, aby zwiększyć jego zamysłem. Etap Zrefaktoryzuj jest etapu, jaką uważamy, że twarde o najlepszym sposobem stosowania zasad projektowania oprogramowania i wzorce.
 
-Firma Microsoft mogą zmodyfikować naszego kodu w żaden sposób wybranego zwiększające projekt kodu. Mamy zabezpieczenie testów jednostkowych, które uniemożliwiają nam fundamentalne istniejące funkcje.
+Jesteśmy swobodnie modyfikować naszego kodu w dowolny sposób, którego możemy poprawić projektu kodu. Mamy projektowi testów jednostkowych, które uniemożliwiają nam przed przerwaniem działania istniejących funkcji.
 
-Teraz, kontrolera grupy jest bałagan z punktu widzenia dobre projektu. Kontroler grupy zawiera plątaniną bałagan sprawdzania i kod dostępu do danych. Aby uniknąć naruszenia jednej zasady odpowiedzialności, musimy podzielić te problemy na różnych klas.
+W tej chwili, kontrolera grupy Miasto jest zakorkowane. z punktu widzenia projektowania oprogramowania dobre. Kontroler grupa zawiera plątaniną MES sprawdzania i kod dostępu do danych. Aby uniknąć naruszenia jednej zasady odpowiedzialności, należy rozdzielić te problemy na różnych klas.
 
-Klasy kontrolera nasze refactored grupy znajduje się w wyświetlania 9. Kontroler został zmodyfikowany w celu użycia ContactManager warstwy usługi. Jest to tej samej warstwie usługi korzystające z skontaktuj się z kontrolerem.
+Nasze refaktoryzować klasy kontrolera grupy znajduje się w ofercie 9. Kontroler został zmodyfikowany w celu użycia ContactManager warstwy usług. Jest to ten sam warstwy usług korzystających z skontaktuj się z kontrolerem.
 
-Wyświetlanie listy 10 zawiera nowych metod dodane do warstwy usług ContactManager do obsługi sprawdzania poprawności, wyświetlania i tworzenia grup. Interfejs IContactManagerService został zaktualizowano w celu uwzględnienia nowych metod.
+Wyświetlanie listy 10 zawiera nowe metody, które są dodawane do warstwy usług ContactManager do obsługi sprawdzania poprawności, wyświetlanie listy i tworzenia grup. Interfejs IContactManagerService został zaktualizowany w celu uwzględnienia nowych metod.
 
-Wyświetlanie listy 11 zawiera nową klasę FakeContactManagerRepository, który implementuje interfejs IContactManagerRepository. W odróżnieniu od klasy EntityContactManagerRepository, który też implementuje interfejs IContactManagerRepository naszej nowej klasy FakeContactManagerRepository nie komunikują się z bazą danych. Klasa FakeContactManagerRepository korzysta z kolekcji w pamięci, a jako serwer proxy dla bazy danych. Użyjemy tej klasy w naszych testów jednostkowych jako warstwa fałszywych repozytorium.
+Wyświetlanie listy 11 zawiera nową klasę FakeContactManagerRepository, który implementuje interfejs IContactManagerRepository. W odróżnieniu od klasy EntityContactManagerRepository, który także implementuje interfejs IContactManagerRepository naszej nowej klasy FakeContactManagerRepository nie komunikuje się z bazą danych. Klasa FakeContactManagerRepository korzysta z kolekcji w pamięci, a jako serwer proxy dla bazy danych. Użyjemy tej klasy w naszych testach jednostkowych jako warstwa fałszywych repozytorium.
 
 **Wyświetlanie listy 9 - Controllers\GroupController.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample9.cs)]
 
-**Wyświetlanie listy 10 - Controllers\ContactManagerService.cs**
+**Lista 10 - Controllers\ContactManagerService.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample10.cs)]
 
-**Wyświetlanie listy 11 - Controllers\FakeContactManagerRepository.cs**
+**Wyświetlanie listy 11 — Controllers\FakeContactManagerRepository.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample11.cs)]
 
-Modyfikowanie IContactManagerRepository wymaga interfejsu używać do implementowania CreateGroup() i ListGroups() metody w klasie EntityContactManagerRepository. Laziest i najszybszym sposobem na tym jest dodawanie szkieletu metody, które wyglądają następująco:   
+Modyfikowanie IContactManagerRepository wymaga interfejsu przy użyciu metody CreateGroup() i ListGroups() w klasie EntityContactManagerRepository. Laziest i najszybszy sposób to zrobić, jest Dodaj metody klasy zastępczej, które wyglądają następująco:   
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample12.cs)]
 
 
-Ponadto te zmiany do projektu aplikacji wymagają nam w tworzeniu modyfikacji niektórych testów jednostkowych. Teraz musisz użyć FakeContactManagerRepository podczas przeprowadzania testów jednostkowych. Zaktualizowano klasy GroupControllerTest znajduje się w wyświetlania 12.
+Na koniec te zmiany w naszej aplikacji wymagać wprowadzenie pewnych zmian do naszych testów jednostkowych przez firmę Microsoft. Teraz musisz użyć FakeContactManagerRepository podczas przeprowadzania testów jednostkowych. Zaktualizowano klasy GroupControllerTest znajduje się w ofercie 12.
 
 **Wyświetlanie listy 12 - Controllers\GroupControllerTest.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample13.cs)]
 
-Po wykonujemy wszystkie te zmiany, ponownie, wszystkich naszych przebiegu testów jednostkowych. Firma Microsoft zakończył cały cykl Zrefaktoryzuj-czerwony/zielony. Wdrożyliśmy pierwszy dwóch scenariuszy. Mamy teraz obsługi testów jednostkowych dla wymagań wyrażone w scenariuszy użytkownika. Wdrażanie w pozostałej części scenariuszy użytkownika obejmuje powtarzające się tego samego cyklu Zrefaktoryzuj-czerwony/zielony.
+Po wszystkich tych udostępnimy zmienia, jeszcze raz wszystkich naszych przebieg testów jednostkowych. Ukończyliśmy całego cyklu czerwony/zielony/refaktoryzacji. Zaimplementowano rozwiązania tlp pierwsze dwa przypadki. W efekcie powstał Obsługa testów jednostkowych dla wymagań wyrażony w historii użytkowników. Implementowanie w pozostałej części przypadków użycia obejmuje powtarzające się tego samego cyklu czerwony/zielony/refaktoryzacji.
 
-## <a name="modifying-our-database"></a>Modyfikowanie naszej bazie danych
+## <a name="modifying-our-database"></a>Modyfikowanie w naszej bazie danych
 
-Niestety mimo że firma Microsoft zostały spełnione wszystkie wymagania dotyczące wyrażonych przez nasze testy jednostek, pracę nie została wykonana. Nadal trzeba zmodyfikować naszej bazie danych.
+Niestety mimo że firma Microsoft zostały spełnione wszystkie wymagania dotyczące wyrażona przez nasze testy jednostkowe, praca odbywa się. Firma Microsoft nadal należy zmodyfikować w naszej bazie danych.
 
 Należy utworzyć nową tabelę bazy danych grupy. Wykonaj następujące kroki:
 
 1. W oknie Eksploratora serwera, kliknij prawym przyciskiem myszy folder Tabele i wybierz opcję menu **Dodaj nową tabelę**.
-2. Wprowadź dwie kolumny opisane poniżej w Projektancie tabel.
-3. Oznacz jako klucz podstawowy i kolumny tożsamości w kolumnie identyfikator.
-4. Zapisz nową tabelę przy użyciu nazwy grup, klikając ikonę dyskietek.
+2. Wprowadź dwie kolumny, które są opisane poniżej w Projektancie tabel.
+3. Oznacz jako klucz podstawowy i kolumny tożsamości kolumny identyfikatora.
+4. Zapisz nową tabelę przy użyciu grup nazwy, klikając ikonę dyskietek.
 
 <a id="0.11_table01"></a>
 
 
-| **Nazwa kolumny** | **Typ danych** | **Dopuszcza wartości null** |
+| **Nazwa kolumny** | **Typ danych** | **Zezwalaj na wartości null** |
 | --- | --- | --- |
 | Id | int | False |
 | Nazwa | nvarchar(50) | False |
 
 
-Następnie należy usunąć wszystkie dane z tabeli kontaktów (w przeciwnym razie możemy won t można utworzyć relacji między tabelami kontaktów i grup). Wykonaj następujące kroki:
+Następnie należy usunąć wszystkie dane z tabeli kontaktów (w przeciwnym razie zdobyliśmy t można było utworzyć relację między tabelami kontaktów i grup). Wykonaj następujące kroki:
 
 1. Kliknij prawym przyciskiem myszy tabeli kontaktów i wybierz opcję menu **Pokaż dane tabeli**.
 2. Usuń wszystkie wiersze.
 
-Następnie należy zdefiniować relacji między tabelą bazy danych grupy i istniejącej tabeli kontaktów w bazie danych. Wykonaj następujące kroki:
+Następnie należy zdefiniować relacje między grupami tabeli bazy danych i istniejącej tabeli kontaktów w bazie danych. Wykonaj następujące kroki:
 
-1. Kliknij dwukrotnie tabelę Kontakty w oknie Eksploratora serwera, aby otworzyć projektanta tabel.
-2. Dodaj nową kolumnę całkowitą do tabeli kontaktów o nazwie identyfikatora grupy.
-3. Kliknij przycisk relacji, aby otworzyć okno dialogowe relacje klucza obcego (patrz rysunek 3).
+1. Kliknij dwukrotnie tabeli kontaktów w oknie Eksploratora serwera, aby otworzyć projektanta tabel.
+2. Dodaj nowe kolumna liczb całkowitych do tabeli kontaktów, o nazwie GroupId.
+3. Kliknij przycisk relacji, aby otworzyć okno dialogowe relacje klucza obcego (zobacz rysunek 3).
 4. Kliknij przycisk Dodaj.
-5. Kliknij przycisk wielokropka obok przycisku tabeli i specyfikacja kolumn.
-6. W oknie dialogowym tabele i kolumny wybierz grupę jako tabeli klucza podstawowego i identyfikator jako kolumna klucza podstawowego. Wybierz kontakty jako tabela klucza obcego i GroupId jako kolumna klucza obcego (patrz rysunek 4). Kliknij przycisk OK.
+5. Kliknij przycisk wielokropka, który pojawia się obok przycisku tabel i kolumn specyfikacji.
+6. W oknie dialogowym tabele i kolumny wybierz grupy jako tabeli klucza podstawowego i identyfikator jako kolumna klucza podstawowego. Wybierz kontakty jako tabela klucza obcego i GroupId jako kolumna klucza obcego (zobacz rysunek 4). Kliknij przycisk OK.
 7. W obszarze **INSERT i UPDATE specyfikacji**, wybierz wartość **Cascade** dla **Usuń regułę**.
 8. Kliknij przycisk Zamknij, aby zamknąć okno dialogowe relacje klucza obcego.
-9. Kliknij przycisk Zapisz, aby zapisać zmiany w tabeli kontaktów.
+9. Kliknij przycisk Zapisz, aby zapisać zmiany do tabeli kontaktów.
 
 
 [![Tworzenie relacji tabeli bazy danych](iteration-6-use-test-driven-development-cs/_static/image3.jpg)](iteration-6-use-test-driven-development-cs/_static/image5.png)
@@ -281,43 +280,43 @@ Następnie należy zdefiniować relacji między tabelą bazy danych grupy i istn
 **Rysunek 04**: Określanie relacji między tabelami ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image8.png))
 
 
-### <a name="updating-our-data-model"></a>Aktualizowanie modelu danych
+### <a name="updating-our-data-model"></a>Aktualizowanie nasz Model danych
 
 Następnie należy zaktualizować nasz model danych do reprezentowania nowej tabeli bazy danych. Wykonaj następujące kroki:
 
-1. Kliknij dwukrotnie plik ContactManagerModel.edmx w folderze modele, aby otworzyć program Entity Designer.
-2. Kliknij prawym przyciskiem myszy powierzchnię projektanta i wybierz opcję menu **modelu aktualizacji z bazy danych**.
-3. W Kreatorze aktualizacji wybierz grupy tabeli i kliknij przycisk Zakończ przycisk (patrz rysunek 5).
-4. Kliknij prawym przyciskiem myszy obiekt grupy, a następnie wybierz opcję menu **zmienić**. Zmień nazwę *grup* jednostki do *grupy* (w liczbie pojedynczej).
-5. Kliknij prawym przyciskiem myszy właściwość nawigacji grupy, która pojawia się w dolnej części obiektu Kontakt. Zmień nazwę *grup* właściwości nawigacji do *grupy* (w liczbie pojedynczej).
+1. Kliknij dwukrotnie plik ContactManagerModel.edmx w folderze modele, aby otworzyć projektanta jednostek.
+2. Kliknij prawym przyciskiem myszy na powierzchnię projektanta i wybierz opcję menu **Model aktualizacji z bazy danych**.
+3. W Kreatorze aktualizacji wybierz grupy tabeli i kliknij przycisk Zakończ przycisku (zobacz rysunek 5).
+4. Kliknij prawym przyciskiem myszy jednostkę grupy, a następnie wybierz opcję menu **Zmień nazwę**. Zmień nazwę *grup* jednostki do *grupy* (pojedynczą).
+5. Kliknij prawym przyciskiem myszy właściwość nawigacji grupy, która pojawia się w dolnej części jednostki Contact. Zmień nazwę *grup* właściwość nawigacji do *grupy* (pojedynczą).
 
 
-[![Aktualizowanie modelu programu Entity Framework z bazy danych](iteration-6-use-test-driven-development-cs/_static/image5.jpg)](iteration-6-use-test-driven-development-cs/_static/image9.png)
+[![Aktualizowanie modelu Entity Framework z bazy danych](iteration-6-use-test-driven-development-cs/_static/image5.jpg)](iteration-6-use-test-driven-development-cs/_static/image9.png)
 
-**Rysunek 05**: aktualizowanie modelu programu Entity Framework z bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image10.png))
-
-
-Po wykonaniu tych kroków modelu danych będzie reprezentować kontaktów i grup tabel. Obie te jednostki powinny być widoczne w programie Entity Designer (patrz rysunek 6).
+**Rysunek 05**: aktualizowanie modelu Entity Framework z bazy danych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image10.png))
 
 
-[![Wyświetlanie grupy i skontaktuj się z programu Entity Designer](iteration-6-use-test-driven-development-cs/_static/image6.jpg)](iteration-6-use-test-driven-development-cs/_static/image11.png)
-
-**Rysunek 06**: wyświetlanie grupy i skontaktuj się z programu Entity Designer ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image12.png))
+Po wykonaniu tych kroków, od modelu danych będzie reprezentować tabel kontaktów i grup. W Projektancie jednostki powinny być widoczne oba jednostki (patrz rysunek 6).
 
 
-### <a name="creating-our-repository-classes"></a>Tworzenie klas naszym repozytorium
+[![Projektant ekranu, wyświetlania grupy i skontaktuj się z](iteration-6-use-test-driven-development-cs/_static/image6.jpg)](iteration-6-use-test-driven-development-cs/_static/image11.png)
 
-Następnie należy zaimplementować klasy nasze repozytorium. W trakcie tej iteracji dodano kilka nowych metod interfejsu IContactManagerRepository podczas pisania kodu do zaspokojenia naszych testów jednostkowych. Z ostateczną wersją interfejsu IContactManagerRepository znajduje się w wyświetlania 14.
+**Rysunek 06**: Projektant jednostki wyświetlania grupy i skontaktuj się z pomocą ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image12.png))
+
+
+### <a name="creating-our-repository-classes"></a>Tworzenie klas w naszym repozytorium
+
+Następnie należy do zaimplementowania klasy nasze repozytorium. W trakcie tej iteracji dodaliśmy kilka nowych metod interfejsu IContactManagerRepository podczas pisania kodu do zaspokojenia Nasze testy jednostkowe. Ostateczna wersja interfejsu IContactManagerRepository znajduje się w ofercie 14.
 
 **Wyświetlanie listy 14 - Models\IContactManagerRepository.cs**
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample14.cs)]
 
-Firma Microsoft był t faktycznie zaimplementowana dowolnej z metod powiązany z pracą z grup kontaktów. Klasa EntityContactManagerRepository ma obecnie, metod klasy zastępczej dla każdej z metod grupy kontaktów wyświetlane w interfejsie IContactManagerRepository. Na przykład metoda ListGroups() obecnie wygląda następująco:
+Firma Microsoft haven t faktycznie implementowany dowolnej z metod związanych z pracą z grup kontaktów. Obecnie klasy EntityContactManagerRepository ma metody klasy zastępczej dla wszystkich metod kontaktu grupy wyświetlane w interfejsie IContactManagerRepository. Na przykład metoda ListGroups() obecnie wygląda następująco:
 
 [!code-csharp[Main](iteration-6-use-test-driven-development-cs/samples/sample15.cs)]
 
-Metody klasy zastępczej włączone nam kompilowania aplikacji i przekazania testów jednostkowych. Jednak teraz nadszedł czas na faktycznie zaimplementować te metody. Z ostateczną wersją klasy EntityContactManagerRepository znajduje się w 13 wyświetlania.
+Metody klasy zastępczej pomogła nam do kompilowania aplikacji i przekazać testów jednostkowych. Jednak teraz nadszedł czas na faktycznego wdrażania tych metod. Ostateczna wersja klasy EntityContactManagerRepository znajduje się w ofercie 13.
 
 **Wyświetlanie listy 13 - Models\EntityContactManagerRepository.cs**
 
@@ -325,17 +324,17 @@ Metody klasy zastępczej włączone nam kompilowania aplikacji i przekazania tes
 
 ### <a name="creating-the-views"></a>Tworzenie widoków
 
-Aplikacji ASP.NET MVC, korzystając z domyślny aparat widoku programu ASP.NET. Tak ADAM t tworzyć widoki w odpowiedzi na test określonej jednostki. Jednakże, ponieważ aplikacja będzie bezużyteczny bez widoków, możemy t zakończyć bez tworzenia i modyfikowania widoków zawartych w aplikacji Menedżera skontaktuj się z tą iterację.
+Aplikacja platformy ASP.NET MVC, korzystając z domyślny aparat widoku programu ASP.NET. Tak don t tworzyć widoki w odpowiedzi na test określonej jednostki. Jednakże, ponieważ aplikacja będzie bezużyteczne, widoki, możemy t ukończyć tę iterację bez tworzenia i modyfikowania widoków zawartych w aplikacji Contact Manager.
 
-Należy utworzyć następujące nowe widoki zarządzania grup kontaktów (patrz rysunek 7):
+Należy utworzyć następujące nowych widoków do zarządzania grupami kontaktu (zobacz rysunek 7):
 
-- Views\Group\Index.aspx - Wyświetla listę grup kontaktów
-- Views\Group\Delete.aspx - Wyświetla formularza Potwierdzenie usuwania grupy kontaktów
+- Views\Group\Index.aspx — Wyświetla listę grup kontaktów
+- Views\Group\Delete.aspx - Wyświetla formularz potwierdzenia związanych z usuwaniem grup kontaktu
 
 
-[![Widok indeksu grupy](iteration-6-use-test-driven-development-cs/_static/image7.jpg)](iteration-6-use-test-driven-development-cs/_static/image13.png)
+[![Wyświetl indeks grupy](iteration-6-use-test-driven-development-cs/_static/image7.jpg)](iteration-6-use-test-driven-development-cs/_static/image13.png)
 
-**Rysunek 07**: widok indeksu grupy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image14.png))
+**Rysunek 07**: indeks grupy widoku ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image14.png))
 
 
 Należy zmodyfikować następujące istniejących widoków, aby zawierały grup kontaktów:
@@ -344,21 +343,21 @@ Należy zmodyfikować następujące istniejących widoków, aby zawierały grup 
 - Views\Home\Edit.aspx
 - Views\Home\Index.aspx
 
-Widać zmodyfikowanych widoków analizując aplikacji Visual Studio, dołączony w tym samouczku. Na przykład rysunku 8 przedstawiono widok indeksu kontaktów.
+Możesz zobaczyć zmodyfikowanych widoków, analizując aplikacji programu Visual Studio, który towarzyszy w tym samouczku. Na przykład rysunek 8 przedstawia widok skontaktuj się z indeksu.
 
 
 [![Widok indeksu kontaktów](iteration-6-use-test-driven-development-cs/_static/image8.jpg)](iteration-6-use-test-driven-development-cs/_static/image15.png)
 
-**Rysunek 08**: widok indeksu kontaktów ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image16.png))
+**Rysunek 08**: widoku indeksu kontaktu ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](iteration-6-use-test-driven-development-cs/_static/image16.png))
 
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym iteracji dodaliśmy nowe funkcje do naszej aplikacji kontaktów Menedżerze wykonując test-driven development, metodologię projektowania aplikacji. Możemy uruchomić dzięki utworzeniu zestawu scenariuszy użytkownika. Utworzono zestaw testów jednostkowych zgodne z wymogami wyrażona scenariuszy użytkownika. Na koniec napisaliśmy wystarczającego kodu by spełnić ich wymagań wyrażonych przez testy jednostkowe.
+W tej iteracji dodaliśmy nowe funkcje do naszej aplikacji Contact Manager postępując zgodnie z metodologii programowania sterowanego testami projektowania aplikacji. Zaczęliśmy, tworząc zestaw przypadków użycia. Utworzyliśmy zestaw testów jednostkowych, który odnosi się do wymagań wyrażone według przypadków użycia. Na koniec napisaliśmy wystarczający tylko kod w celu spełnienia wymagań wyrażony przez testy jednostek.
 
-Po zakończeniu pisania kodu za mało by spełnić ich wymagań wyrażonych przez testy jednostek, możemy zaktualizować bazę danych i widoków. Możemy dodać nową tabelę grup do naszej bazie danych i zaktualizować naszych modelu danych programu Entity Framework. Możemy również tworzone i modyfikowane zestaw widoków.
+Po zakończeniu pisania wystarczającej ilości kodu w celu spełnienia wymagań wyrażony przez testy jednostek, Zaktualizowaliśmy bazę danych i widoków. Firma Microsoft dodano nową tabelę grup do naszej bazie danych i naszym modelu danych Entity Framework zaktualizowane. Możemy również tworzone i modyfikowane zestaw widoków.
 
-W następnej iteracji — iteracji końcowego--możemy przepisywania naszej aplikacji, aby móc korzystać z technologii Ajax. Dzięki wykorzystaniu technologii Ajax, możemy zwiększyć czas reakcji i wydajności aplikacji, skontaktuj się z Menedżera.
+W następnej iteracji — iteracji końcowego--możemy napisać ponownie naszej aplikacji, aby móc korzystać z technologii Ajax. Dzięki wykorzystaniu technologii Ajax, możemy poprawić czas odpowiedzi i wydajność aplikacji Contact Manager.
 
 > [!div class="step-by-step"]
 > [Poprzednie](iteration-5-create-unit-tests-cs.md)

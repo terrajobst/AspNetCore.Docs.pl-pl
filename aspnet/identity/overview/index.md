@@ -1,6 +1,6 @@
 ---
 uid: identity/overview/index
-title: Omówienie tożsamości ASP.NET | Dokumentacja firmy Microsoft
+title: Omówienie produktu ASP.NET Identity | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,36 +9,35 @@ ms.date: 10/02/2013
 ms.topic: article
 ms.assetid: d3972a0e-9ff6-4de1-bf4d-c94943cab048
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /identity/overview
 msc.type: book
-ms.openlocfilehash: deea9b9172f7da0483a31617b1f1c0d3e9fc2e21
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 55fe899140d62e02eb33a9283936d430964290d5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26563684"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389523"
 ---
-<a name="aspnet-identity-overview"></a>Tożsamość platformy ASP.NET — omówienie
+<a name="aspnet-identity-overview"></a>Omówienie produktu ASP.NET Identity
 ====================
-- [Wprowadzenie do korzystania z tożsamości platformy ASP.NET](getting-started/index.md)
+- [Wprowadzenie do korzystania z produktu ASP.NET Identity](getting-started/index.md)
 
-    - [Wprowadzenie do tożsamości platformy ASP.NET](getting-started/introduction-to-aspnet-identity.md)
-    - [ASP.NET Identity zalecane zasobów](getting-started/aspnet-identity-recommended-resources.md)
-    - [Dodawanie ASP.NET Identity pusta lub istniejącej sieci Web Forms projektu](getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
-    - [Tworzenie aplikacji ASP.NET w usłudze Azure Active Directory](getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-    - [Tożsamość platformy ASP.NET: Przy użyciu magazynu MySQL przy użyciu dostawcy EntityFramework MySQL (C#)](getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+    - [Wprowadzenie do produktu ASP.NET Identity](getting-started/introduction-to-aspnet-identity.md)
+    - [ASP.NET Identity — zalecane zasoby](getting-started/aspnet-identity-recommended-resources.md)
+    - [Dodawanie produktu ASP.NET Identity do pustego lub istniejącego projektu Web Forms](getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
+    - [Tworzenie aplikacji ASP.NET z wykorzystaniem usługi Azure Active Directory](getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
+    - [ASP.NET Identity: używanie usługi MySQL Storage z dostawcą MySQL programu EntityFramework (C#)](getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
 - [Funkcje i interfejs API](features-api/index.md)
 
-    - [Najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych do platformy ASP.NET i usługi Azure App Service](features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
-    - [Potwierdzenie konta i hasło odzyskiwania za pomocą tożsamości platformy ASP.NET (C#)](features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
-    - [Uwierzytelnianie dwuskładnikowe przy użyciu programu SMS i wiadomości e-mail z tożsamości platformy ASP.NET](features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
+    - [Najlepsze rozwiązania dotyczące wdrażania haseł i innych poufnych danych na platformie ASP.NET i w usłudze Azure App Service](features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
+    - [Potwierdzenie konta i odzyskiwanie hasła w produkcie ASP.NET Identity (C#)](features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
+    - [Uwierzytelnianie dwuskładnikowe za pomocą wiadomości SMS i wiadomości e-mail w produkcie ASP.NET Identity](features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
 - [Rozszerzalność](extensibility/index.md)
 
-    - [Przegląd dostawców magazynu niestandardowego dla tożsamości ASP.NET](extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
-    - [Implementacja dostawcy magazynu tożsamości ASP.NET MySQL niestandardowych](extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
-    - [Należy zmienić wartość klucza podstawowego dla użytkowników w produkcie ASP.NET Identity](extensibility/change-primary-key-for-users-in-aspnet-identity.md)
+    - [Omówienie niestandardowych dostawców magazynu dla produktu ASP.NET Identity](extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
+    - [Implementowanie niestandardowego dostawcy magazynu MySQL dla produktu ASP.NET Identity](extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
+    - [Zmiana klucza podstawowego dla użytkowników w produkcie ASP.NET Identity](extensibility/change-primary-key-for-users-in-aspnet-identity.md)
 - [Migracje](migrations/index.md)
 
-    - [Migrowanie istniejącej witryny sieci Web z członkostwa SQL do tożsamości platformy ASP.NET](migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-    - [Migrowanie danych uniwersalnych dostawcy dla członkostwa i profilów użytkownika dla tożsamości ASP.NET (C#)](migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+    - [Migrowanie istniejącej witryny internetowej z członkostwa SQL do produktu ASP.NET Identity](migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+    - [Migrowanie danych uniwersalnego dostawcy dotyczących członkostwa i profilów użytkowników do produktu ASP.NET Identity (C#)](migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)

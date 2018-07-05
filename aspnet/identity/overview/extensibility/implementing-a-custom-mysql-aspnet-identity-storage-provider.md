@@ -1,151 +1,150 @@
 ---
 uid: identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
-title: Implementacja dostawcy magazynu tożsamości ASP.NET MySQL niestandardowych | Dokumentacja firmy Microsoft
+title: Implementowanie dostawcy magazynu MySQL niestandardowe produktu ASP.NET Identity | Dokumentacja firmy Microsoft
 author: raquelsa
-description: ASP.NET Identity jest rozszerzalny system, co pozwala na tworzenie własnego dostawcę magazynu i podłącz go do aplikacji bez ponownego pracy nazwę...
+description: ASP.NET Identity jest rozszerzalny system, co pozwala na tworzenie własnego dostawcę magazynu i podłącz go do aplikacji bez ponownego pracy likacji...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
 ms.topic: article
 ms.assetid: 248f5fe7-39ba-40ea-ab1e-71a69b0bd649
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 msc.type: authoredcontent
-ms.openlocfilehash: d843b31e011fe520aad6cfdab0beca2d12477f12
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 44c21b749377c5df445a20deee3f1b689c7c84c0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872741"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37381130"
 ---
-<a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>Implementacja dostawcy magazynu tożsamości ASP.NET MySQL niestandardowych
+<a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>Implementowanie dostawcy magazynu MySQL niestandardowe produktu ASP.NET Identity
 ====================
-przez [Raquel Soares De Almeida](https://github.com/raquelsa), [Suhas Joshi](https://github.com/suhasj), [FitzMacken niestandardowy](https://github.com/tfitzmac)
+przez [Raquel Soares De Almeida](https://github.com/raquelsa), [Suhas Joshi](https://github.com/suhasj), [Tom FitzMacken](https://github.com/tfitzmac)
 
-> ASP.NET Identity jest rozszerzalny system, co pozwala na tworzenie własnego dostawcę magazynu i podłącz go do aplikacji bez ponownego pracy aplikacji. W tym temacie opisano sposób tworzenia dostawcy magazynu MySQL dla tożsamości ASP.NET. Omówienie tworzenia dostawców niestandardowych magazynu, zobacz [omówienie z niestandardowego dostawcy magazynu dla tożsamości ASP.NET](overview-of-custom-storage-providers-for-aspnet-identity.md).
+> ASP.NET Identity jest rozszerzalny system, co pozwala na tworzenie własnego dostawcę magazynu i podłącz go do aplikacji bez ponownego pracy aplikacji. W tym temacie opisano sposób tworzenia dostawcy magazynu MySQL dla produktu ASP.NET Identity. Aby zapoznać się z omówieniem Tworzenie niestandardowych dostawców magazynu, zobacz [przegląd z niestandardowych dostawców magazynu dla produktu ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md).
 > 
-> Do ukończenia tego samouczka, musi mieć programu Visual Studio 2013 Update 2.
+> Do ukończenia tego samouczka, musi mieć programu Visual Studio 2013 z aktualizacją Update 2.
 > 
-> W tym samouczku obejmują:
+> W tym samouczku wykonują następujące czynności:
 > 
-> - Pokazują, jak utworzyć wystąpienie bazy danych MySQL na platformie Azure.
-> - W tym temacie opisano tworzenie tabel i zarządzanie nimi zdalnej bazy danych na platformie Azure za pomocą narzędzia klienta MySQL (MySQL Workbench).
-> - Pokaż jak zastąpić domyślny Wdrażanie magazynu ASP.NET Identity naszych implementacja niestandardowa na projekt aplikacji MVC.
+> - W tym temacie opisano tworzenie wystąpienia bazy danych MySQL na platformie Azure.
+> - Pokazują, jak tworzyć tabele oraz zarządzanie zdalne bazy danych na platformie Azure za pomocą narzędzia klienta MySQL (MySQL Workbench).
+> - Pokazują, jak zastąpić domyślną implementację magazynu tożsamości ASP.NET przy użyciu naszej implementacji niestandardowych w projekcie aplikacji MVC.
 > 
-> W tym samouczku pierwotnie zapisał Raquel Soares De Almeida i Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ). Przykładowy projekt został zaktualizowany na potrzeby 2.0 tożsamości przez Suhas Joshi. Temat został zaktualizowany na potrzeby 2.0 tożsamości przez FitzMacken niestandardowego.
+> W tym samouczku pierwotnie został napisany przez Raquel Soares De Almeida i Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ). Przykładowy projekt został zaktualizowany na potrzeby tożsamości w wersji 2.0, Suhas Joshi. Temat został zaktualizowany na potrzeby tożsamości w wersji 2.0, Tom FitzMacken.
 
 
-## <a name="download-completed-project"></a>Pobieranie ukończone projektu
+## <a name="download-completed-project"></a>Zakończono pobieranie projektu
 
-Na końcu tego samouczka należy projekt aplikacji dla platformy MVC ASP.NET Identity pracy z bazy danych MySQL hostowanej na platformie Azure.
+Na końcu tego samouczka będziesz mieć projekt aplikacji MVC w produkcie ASP.NET Identity Praca z bazy danych MySQL hostowanej na platformie Azure.
 
-Możesz pobrać ukończone dostawcy magazynu MySQL w [AspNet.Identity.MySQL (CodePlex)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/).
+Możesz pobrać zakończone dostawcy magazynu MySQL w [AspNet.Identity.MySQL (CodePlex)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/).
 
-## <a name="the-steps-you-will-perform"></a>Czynności, które ma zostać wykonane
+## <a name="the-steps-you-will-perform"></a>Kroki, które należy wykonać
 
-W tym samouczku obejmują:
+W tym samouczku wykonasz następujące czynności:
 
-1. Utwórz bazę danych MySQL na platformie Azure
-2. Tworzenie tabel ASP.NET Identity w MySQL
-3. Tworzenie aplikacji MVC i skonfigurować go do używania dostawcy programu MySQL
+1. Tworzenie bazy danych MySQL na platformie Azure
+2. Tworzenie tabel w bazie danych MySQL produktu ASP.NET Identity
+3. Tworzenie aplikacji MVC i skonfigurować go do używania dostawcy bazy danych MySQL
 4. Uruchamianie aplikacji
 
-W tym temacie nie opisano architektury ASP.NET Identity i decyzje, które należy wykonać podczas implementowania dostawcy magazynu klienta. Informacje, zobacz [omówienie z niestandardowego dostawcy magazynu dla tożsamości ASP.NET](overview-of-custom-storage-providers-for-aspnet-identity.md).
+W tym temacie nie opisano architektury produktu ASP.NET Identity i decyzje, które należy wykonać podczas implementowania dostawcy magazynu klienta. Aby uzyskać te informacje, zobacz [przegląd z niestandardowego dostawcy magazynu dla produktu ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md).
 
 ## <a name="review-mysql-storage-provider-classes"></a>Przegląd klasy dostawcy magazynu MySQL
 
-Przed przeskakiwanie do kroki, aby utworzyć dostawcę magazynu MySQL, Przyjrzyjmy się klasy, które tworzą dostawcę magazynu. Konieczne będzie klas, które zarządzają operacje bazy danych i klasy, które są nazywane z aplikacji do zarządzania użytkownikami i rolami.
+Zanim przejdziemy do kroki, aby utworzyć dostawcy magazynu MySQL, Przyjrzyjmy się klasy, które tworzą dostawcę magazynu. Konieczne będzie klas, które zarządzają operacji bazy danych i klas, które są wywoływane z poziomu aplikacji do zarządzania użytkownikami i rolami.
 
 ### <a name="storage-classes"></a>Klasy magazynu
 
-- [IdentityUser](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/IdentityUser.cs) — zawiera właściwości dla użytkownika.
+- [IdentityUser](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/IdentityUser.cs) — zawiera właściwości użytkownika.
 - [Magazynie UserStore](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserStore.cs) — zawiera operacje dodawania, aktualizowania i pobierania użytkowników.
 - [IdentityRole](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/IdentityRole.cs) — zawiera właściwości dla ról.
 - [Elemencie RoleStore](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleStore.cs) — zawiera operacje dodawania, usuwania, aktualizowania i pobierania ról.
 
 ### <a name="data-access-layer-classes"></a>Klasy warstwy dostępu do danych
 
-Na przykład klasy warstwy dostępu do danych zawierają instrukcje SQL do pracy z tabel. Jednak w kodzie można używać mapowania obiektów relacyjnych (ORM) takie jak Entity Framework lub NHibernate. W szczególności aplikacji mogą wystąpić pogorszenie wydajności bez ORM opóźnionego ładowania i buforowania obiektów. Aby uzyskać więcej informacji, zobacz [ASP.NET 2.0 tożsamości bez programu Entity Framework?](https://aspnetidentity.codeplex.com/discussions/561828)
+W tym przykładzie klasy warstwy dostępu do danych zawierają instrukcje SQL do pracy z tabel. Jednak w kodzie można używać mapowania obiektowo relacyjny (ORM), takich jak Entity Framework lub NHibernate. W szczególności aplikacji może wystąpić spadek wydajności bez ORM, obejmującą powolne ładowanie i buforowania obiektów. Aby uzyskać więcej informacji, zobacz [bez programu Entity Framework w wersji 2.0 tożsamości ASP.NET?](https://aspnetidentity.codeplex.com/discussions/561828)
 
-- [MySQLDatabase](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLDatabase.cs) — zawiera połączenia z bazą danych MySQL i metody do wykonywania operacji bazy danych. Magazynie UserStore i elemencie RoleStore są oba utworzona przy użyciu wystąpienia tej klasy.
+- [MySQLDatabase](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLDatabase.cs) — zawiera metody służące do wykonywania operacji w bazie danych i połączenie z bazą danych MySQL. Magazynie UserStore i elemencie RoleStore są zarówno tworzone przy użyciu wystąpienia tej klasy.
 - [RoleTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleTable.cs) — zawiera operacje bazy danych dla tabeli, która przechowuje role.
 - [UserClaimsTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserClaimsTable.cs) — zawiera operacje bazy danych dla tabeli, która przechowuje oświadczenia użytkownika.
-- [UserLoginsTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserLoginsTable.cs) — zawiera operacje bazy danych dla tabeli, która przechowuje informacje logowania użytkownika.
-- [UserRoleTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserRoleTable.cs) — zawiera operacje bazy danych dla tabeli, która przechowuje użytkowników, którzy są przypisane do ról.
+- [UserLoginsTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserLoginsTable.cs) — zawiera operacje bazy danych dla tabeli, która przechowuje dane logowania użytkownika.
+- [UserRoleTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserRoleTable.cs) — zawiera operacje bazy danych dla tabeli, który przechowuje, czyli użytkownicy przypisani do ról.
 - [UserTable](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/UserTable.cs) — zawiera operacje bazy danych dla tabeli, która przechowuje użytkowników.
 
-## <a name="create-a-mysql-database-instance-on-azure"></a>Utwórz wystąpienie bazy danych MySQL na platformie Azure
+## <a name="create-a-mysql-database-instance-on-azure"></a>Tworzenie wystąpienia bazy danych MySQL na platformie Azure
 
-1. Zaloguj się do [portalu Azure](https://manage.windowsazure.com/).
+1. Zaloguj się do [witryny Azure Portal](https://manage.windowsazure.com/).
 2. Kliknij przycisk **+ nowy** w dolnej części strony, a następnie wybierz **MAGAZYNU**.  
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image1.png)
-3. W **wybierz i dodatek** kreatora wybierz **baza danych ClearDB MySQL** i kliknij przycisk Dalej strzałkę w prawym dolnym rogu okna dialogowego.  
+3. W **wybierz i dodatek** kreatora wybierz **bazy danych MySQL ClearDB** i kliknij strzałkę dalej w prawym dolnym rogu okna dialogowego.  
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image2.png)
-4. Zachowaj ustawienie domyślne **wolne** zaplanować i zmienić **nazwa** do **IdentityMySQLDatabase**. Wybierz region najbliższego, a następnie kliknij strzałkę dalej.  
+4. Zachowaj wartość domyślną **bezpłatna** planowania i zmienić **nazwa** do **IdentityMySQLDatabase**. Wybierz region najbliższą, a następnie kliknij strzałkę dalej.  
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image3.png)
 5. Kliknij znacznik wyboru, aby zakończyć tworzenie bazy danych.  
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image4.png)
-6. Po utworzeniu bazy danych, można zarządzać nim z **dodatki** kartę w portalu zarządzania.   
+6. Po utworzeniu bazy danych można zarządzać nim z **dodatki** karta w portalu zarządzania.   
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image5.png)
-7. Informacje dotyczące połączenia bazy danych można uzyskać, klikając **informacje o połączeniu** w dolnej części strony.  
+7. Informacje o połączeniu bazy danych można uzyskać, klikając **informacje o połączeniu** w dolnej części strony.  
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image6.png)
-8. Skopiuj parametry połączenia, klikając przycisk Kopiuj i zapisz go, dzięki czemu można użyć później w aplikacji MVC.   
+8. Skopiuj parametry połączenia, klikając przycisk kopiowania i zapisz go, aby można było używać później w aplikacji MVC.   
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image7.png)
 
-## <a name="create-the-aspnet-identity-tables-in-a-mysql-database"></a>Tworzenie tabel w bazie danych MySQL tożsamości platformy ASP.NET
+## <a name="create-the-aspnet-identity-tables-in-a-mysql-database"></a>Tworzenie produktu ASP.NET Identity tabel w bazie danych MySQL
 
-### <a name="install-mysql-workbench-tool-to-connect-and-manage-mysql-database"></a>Zainstaluj narzędzia MySQL Workbench, aby połączyć i zarządzanie bazą danych MySQL
+### <a name="install-mysql-workbench-tool-to-connect-and-manage-mysql-database"></a>Zainstaluj narzędzie MySQL Workbench do nawiązywania połączeń i zarządzania bazą danych MySQL
 
-1. Zainstaluj **MySQL Workbench** narzędzia z [MySQL pobiera strony](http://dev.mysql.com/downloads/windows/installer/)
-2. Uruchom aplikację i Dodaj kliknij na **MySQLConnections +** przycisk, aby dodać nowe połączenie. Użyj danych parametry połączenia skopiowane z bazy danych MySQL na platformie Azure, utworzony wcześniej w tym samouczku.
-3. Po ustanowieniu połączenia, Otwórz nowe **zapytania** karcie; Wklej poleceń z [MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql) w zapytaniu i wykonaj go w celu tworzenia tabel bazy danych.
-4. Masz teraz wszystkie ASP.NET Identity niezbędne tabele utworzone w bazie danych MySQL hostowanej na platformie Azure, jak pokazano poniżej.  
+1. Zainstaluj **połączenia aplikacji MySQL Workbench** narzędzia z [strony pobierania MySQL](http://dev.mysql.com/downloads/windows/installer/)
+2. Uruchom aplikację i dodać kliknij na **MySQLConnections +** przycisk, aby dodać nowe połączenie. Przy użyciu danych parametry połączenia skopiowane z bazy danych Azure MySQL utworzonej we wcześniejszej części tego samouczka.
+3. Po ustanowieniu połączenia, otwórz nowy **zapytania** karcie; Wklej poleceń z [MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql) do zapytania i uruchomić go w celu tworzenia tabel bazy danych.
+4. Masz teraz wszystkie produktu ASP.NET Identity niezbędne tabele utworzone w bazie danych programu MySQL hostowanej na platformie Azure, jak pokazano poniżej.  
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image1.jpg)
 
-## <a name="create-an-mvc-application-project-from-template-and-configure-it-to-use-mysql-provider"></a>Utwórz projekt aplikacji dla platformy MVC z szablonu i skonfigurować go do używania dostawcy MySQL
+## <a name="create-an-mvc-application-project-from-template-and-configure-it-to-use-mysql-provider"></a>Tworzenie projektu aplikacji MVC za pomocą szablonu i skonfigurować go do używania dostawcy bazy danych MySQL
 
-W razie potrzeby zainstaluj program [programu Visual Studio Express 2013 for Web](https://go.microsoft.com/fwlink/?LinkId=299058) lub [programu Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566) z Update 2.
+Jeśli to konieczne, zainstaluj albo [Visual Studio Express 2013 for Web](https://go.microsoft.com/fwlink/?LinkId=299058) lub [programu Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566) z aktualizacją Update 2.
 
-### <a name="download-the-aspnetidentitymysql-project-from-codeplex"></a>Pobierz projekt ASP.NET.Identity.MySQL w witrynie CodePlex
+### <a name="download-the-aspnetidentitymysql-project-from-codeplex"></a>Pobieranie projektu ASP.NET.Identity.MySQL z witryny CodePlex
 
-1. Przejdź do adresu URL repozytorium w [AspNet.Identity.MySQL (CodePlex)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/).
+1. Przejdź do adresu URL repozytorium na [AspNet.Identity.MySQL (CodePlex)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/).
 2. Pobierz kod źródłowy.
 3. Wyodrębnij plik zip do folderu lokalnego.
-4. Otwórz rozwiązanie AspNet.Identity.MySQL i skompiluj go.
+4. Otwórz rozwiązanie AspNet.Identity.MySQL i skompiluj je.
 
-### <a name="create-a-new-mvc-application-project-from-template"></a>Utwórz nowy projekt aplikacji MVC z szablonu
+### <a name="create-a-new-mvc-application-project-from-template"></a>Utwórz nowy projekt aplikacji MVC za pomocą szablonu
 
 1. Kliknij prawym przyciskiem myszy **AspNet.Identity.MySQL** rozwiązania i **Dodaj**, **nowy projekt**
-2. W **Dodawanie nowego projektu** oknie dialogowym wybierz pozycję **Visual C#** po lewej stronie, następnie **Web** , a następnie wybierz **aplikacji sieci Web ASP.NET**. Nazwij swój projekt **IdentityMySQLDemo**; a następnie kliknij przycisk OK.  
+2. W **Dodaj nowy projekt** okna dialogowego wybierz **Visual C#** po lewej stronie, następnie **Web** , a następnie wybierz **aplikacji sieci Web ASP.NET**. Nazwij swój projekt **IdentityMySQLDemo**; a następnie kliknij przycisk OK.  
   
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image2.jpg)
-3. W **nowy projekt ASP.NET** okna dialogowego, wybierz szablon MVC przy użyciu opcji domyślnej (który obejmuje **indywidualnych kont użytkowników** jako metody uwierzytelniania) i kliknij przycisk **OK** .![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image3.jpg)
-4. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt IdentityMySQLDemo i wybierz **Zarządzaj pakietami NuGet**. W oknie dialogowym pole wyszukiwania tekstu wpisz **Identity.EntityFramework**. Wybierz z listy wyników tego pakietu, a następnie kliknij przycisk **Odinstaluj**. Pojawi się monit dezinstalacji zależności pakietu platformy EntityFramework. Kliknij Tak, jak firma Microsoft nie będą już tego pakietu do tej aplikacji.
-5. Kliknij prawym przyciskiem myszy projekt IdentityMySQLDemo, wybierz **Dodaj**, **odwołania, rozwiązania, projekty;** wybierz projekt AspNet.Identity.MySQL, a następnie kliknij przycisk **OK**.
-6. W projekcie IdentityMySQLDemo Zamień wszystkie odwołania do  
+3. W **nowy projekt ASP.NET** okno dialogowe, wybierz szablon MVC, z opcjami domyślnymi (który zawiera **indywidualne konta użytkowników** jako metodę uwierzytelniania) i kliknij przycisk **OK** .![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image3.jpg)
+4. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt IdentityMySQLDemo, a następnie wybierz **Zarządzaj pakietami NuGet**. W oknie dialogowym pole tekstowe wyszukiwania wpisz **Identity.EntityFramework**. Wybierz ten pakiet na liście wyników i kliknij przycisk **Odinstaluj**. Zostanie wyświetlony monit Odinstaluj pakiet zależności platformy EntityFramework. Kliknij Tak, jak firma Microsoft nie będą już ten pakiet w tej aplikacji.
+5. Kliknij prawym przyciskiem myszy projekt IdentityMySQLDemo, wybierz **Dodaj**, **odwołania, rozwiązania, projekty;** zaznacz projekt AspNet.Identity.MySQL, a następnie kliknij przycisk **OK**.
+6. W projekcie IdentityMySQLDemo Zastąp wszystkie odwołania do  
     `using Microsoft.AspNet.Identity.EntityFramework;`  
    with  
      `using AspNet.Identity.MySQL;`
-7. W IdentityModels.cs, ustaw **ApplicationDbContext** pochodzić z **MySqlDatabase** i obejmują contructor, który przyjmować jeden parametr o nazwie połączenia.  
+7. W IdentityModels.cs, ustaw **ApplicationDbContext** wyprowadzenia z **MySqlDatabase** i zawierać konstruktora, który przyjmować jeden parametr o nazwie połączenia.  
 
     [!code-csharp[Main](implementing-a-custom-mysql-aspnet-identity-storage-provider/samples/sample1.cs)]
-8. Otwórz plik IdentityConfig.cs. W **ApplicationUserManager.Create** metoda, Zastąp uruchamianiu interfejs UserManager następującym kodem:  
+8. Otwórz plik IdentityConfig.cs. W **ApplicationUserManager.Create** metody, Zastąp wystąpienia menedżera UserManager następującym kodem:  
 
     [!code-csharp[Main](implementing-a-custom-mysql-aspnet-identity-storage-provider/samples/sample2.cs)]
-9. Otwórz plik web.config i Zastąp ciąg połączenia DefaultConnection tego wpisu, zastępując wartości wyróżnione parametry połączenia bazy danych MySQL utworzonej w poprzednich krokach:  
+9. Otwórz plik web.config i Zastąp ciąg DefaultConnection ten wpis, zastępując wartości wyróżnione parametry połączenia bazy danych MySQL, który został utworzony w poprzednich krokach:  
 
     [!code-xml[Main](implementing-a-custom-mysql-aspnet-identity-storage-provider/samples/sample3.xml?highlight=2)]
 
-## <a name="run-the-app-and-connect-to-the-mysql-db"></a>Uruchom aplikację i nawiąż połączenie z bazą danych MySQL
+## <a name="run-the-app-and-connect-to-the-mysql-db"></a>Uruchom aplikację i Połącz z bazą danych MySQL
 
-1. Kliknij prawym przyciskiem myszy **IdentityMySQLDemo** projekt i wybierz **Ustaw jako projekt startowy**
-2. Naciśnij klawisz **Ctrl + F5** Aby skompilować i uruchomić aplikację.
-3. Polecenie **zarejestrować** kartę w górnej części strony.
+1. Kliknij prawym przyciskiem myszy **IdentityMySQLDemo** projektu, a następnie wybierz **Ustaw jako projekt startowy**
+2. Naciśnij klawisz **klawiszy Ctrl + F5** Aby skompilować i uruchomić aplikację.
+3. Kliknij pozycję **zarejestrować** kartę w górnej części strony.
 4. Wprowadź nową nazwę użytkownika i hasło, a następnie kliknij polecenie **zarejestrować**.  
   
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image8.png)
-5. Nowy użytkownik jest teraz zarejestrowane i zalogowany.  
+5. Nowy użytkownik jest teraz zarejestrowany i zalogowany.  
   
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image9.png)
 6. Wróć do narzędzia MySQL Workbench i sprawdzić **IdentityMySQLDatabase** zawartości tabeli. Tabela użytkowników zapisów należy sprawdzić, jak zarejestrować nowych użytkowników.  
@@ -154,6 +153,6 @@ W razie potrzeby zainstaluj program [programu Visual Studio Express 2013 for Web
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji o sposobie włączania innych metod uwierzytelniania, w tym aplikacji, zapoznaj się [tworzenie aplikacji ASP.NET MVC 5 z usługi Facebook i Google OAuth2 i OpenID logowania jednokrotnego](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
+Aby uzyskać więcej informacji o sposobie włączania innych metod uwierzytelniania, w tej aplikacji, zapoznaj się [tworzenie aplikacji platformy ASP.NET MVC 5 za pomocą usługi Facebook i Google OAuth2 i OpenID logowanie jednokrotne](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
 
-Aby dowiedzieć się, jak zintegrować z bazy danych z OAuth i konfigurować role, aby ograniczyć dostęp użytkowników do aplikacji, zobacz [wdrażanie aplikacji bezpiecznego ASP.NET MVC 5 z członkostwa, OAuth i bazy danych SQL Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data).
+Aby dowiedzieć się, jak zintegrować swoje bazy danych z uwierzytelnianiem OAuth i konfigurowanie ról, aby ograniczyć dostęp użytkowników do aplikacji, zobacz [wdrażanie aplikacji bezpiecznego ASP.NET MVC 5 z członkostwa, uwierzytelnianiem OAuth i bazą danych SQL na platformie Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data).

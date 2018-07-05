@@ -1,142 +1,141 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
-title: 'Część 10: Końcowe aktualizacje do nawigacji i lokacja, zawarcia | Dokumentacja firmy Microsoft'
+title: 'Część 10: Końcowe aktualizacje nawigacji i projektu witryny, podsumowanie | Dokumentacja firmy Microsoft'
 author: jongalloway
-description: Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 10 obejmuje końcowe aktualizacje do nawigacji i S...
+description: W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 10 obejmuje końcowe aktualizacje nawigacji i S...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
 ms.topic: article
 ms.assetid: 0c6e4c2f-fcdb-4978-9656-1990c6f15727
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: b40d194c4d08f3564da59bacde4b5d3d7663373a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a5b1d02d268530d6288ed2bc502679336d06d403
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878597"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366323"
 ---
-<a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Część 10: Końcowe aktualizacje nawigacji i lokacja, zawarcia
+<a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Część 10: Końcowe aktualizacje nawigacji i projektu witryny, podsumowanie
 ====================
-przez [Galloway Jan](https://github.com/jongalloway)
+przez [Galloway'em Jon](https://github.com/jongalloway)
 
-> Magazyn utworów muzycznych MVC jest samouczek aplikacji, które wprowadzono i opisano krok po kroku, jak używać do tworzenia aplikacji sieci web platformy ASP.NET MVC i Visual Studio.  
+> MVC Music Store jest aplikacją z samouczka, który wprowadzono i opisano krok po kroku, jak używać platformy ASP.NET MVC i programu Visual Studio do tworzenia aplikacji internetowych.  
 >   
-> Magazyn utworów muzycznych MVC jest implementacja magazynu lekkie próbki, co sprzedaje albumów muzycznych w trybie online i implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
+> MVC Music Store jest uproszczone przykładową implementację magazynu sprzedaje utworów muzycznych albumy online, która implementuje podstawowej witryny administracji, logowania użytkownika i funkcje koszyka zakupów.  
 >   
-> Ten samouczek serii zawiera szczegóły dotyczące wszystkich kroków tworzenia przykładowej aplikacji ASP.NET MVC utworów muzycznych magazynu. Część 10 obejmuje końcowe aktualizacje do nawigacji i lokacja, zawarcia.
+> W tej serii samouczków szczegółowo opisuje wszystkie etapy, tworzenie przykładowej aplikacji platformy ASP.NET MVC Music Store. Część 10 obejmuje końcowe aktualizacje nawigacji i projektu witryny, podsumowanie.
 
 
-Najważniejsze funkcje została ukończona dla witryny, ale wciąż istnieje niektóre funkcje do dodania do nawigacji w witrynie, strony głównej i strony Przeglądaj magazynu.
+Najważniejsze funkcje została ukończona w naszej witrynie, ale wciąż istnieje pewne funkcje do dodania do nawigacji w witrynie, strony głównej i stronie przeglądanie Store.
 
-## <a name="creating-the-shopping-cart-summary-partial-view"></a>Tworzenie zakupów Podsumowanie widoku częściowego koszyka
+## <a name="creating-the-shopping-cart-summary-partial-view"></a>Tworzenie zakupów podsumowania widoku częściowego koszyka
 
-Chcemy ujawniać liczba elementów w koszyku użytkownika w całej lokacji.
+Chcemy udostępnić liczba elementów w koszyku użytkownika w całej lokacji.
 
 ![](mvc-music-store-part-10/_static/image1.png)
 
-Firma Microsoft to łatwo zaimplementować przez utworzenie widoku częściowego, która jest dodawana do naszej Site.master.
+Firma Microsoft można łatwo zaimplementować to przez utworzenie widoku częściowego, który zostanie dodany do naszych Site.master.
 
-Jak pokazano wcześniej, kontrolera ShoppingCart obejmuje CartSummary metody akcji, która zwraca widok częściowy:
+Jak pokazano wcześniej, kontroler ShoppingCart obejmuje CartSummary metody akcji, która zwraca widok częściowy:
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample1.cs)]
 
-Aby utworzyć widok częściowy CartSummary, kliknij prawym przyciskiem folder widoków/ShoppingCart i wybierz polecenie Dodaj widok. Nazwa widoku CartSummary i zaznacz pole wyboru "Utwórz widok częściowy", jak pokazano poniżej.
+Aby utworzyć widok częściowy CartSummary, kliknij prawym przyciskiem myszy w folderze Widoki/ShoppingCart i wybierz pozycję Dodaj widok. Nazwa widoku CartSummary i zaznacz pole wyboru "Utwórz widok częściowy", jak pokazano poniżej.
 
 ![](mvc-music-store-part-10/_static/image2.png)
 
-Widok częściowy CartSummary jest naprawdę proste — jest tylko łącze do widoku ShoppingCart indeksu, który zawiera liczbę elementów w koszyka. Kompletny kod dla CartSummary.cshtml wygląda następująco:
+Widok częściowy CartSummary jest bardzo proste — jest tylko łącze do widoku ShoppingCart indeksu, który pokazuje liczbę elementów w koszyku. Kompletny kod dla CartSummary.cshtml jest następująca:
 
 [!code-cshtml[Main](mvc-music-store-part-10/samples/sample2.cshtml)]
 
-Firma Microsoft może zawierać widoku częściowego w dowolnej strony w witrynie, w tym wzorcu lokacji przy użyciu metody Html.RenderAction. RenderAction wymaga firmie Microsoft w celu określenia nazwy akcji ("CartSummary") i nazwy kontrolera ("ShoppingCart") jako poniżej.
+Firma Microsoft może zawierać widoku częściowego w dowolnej stronie w witrynie, łącznie z lokacji głównej, przy użyciu metody Html.RenderAction. RenderAction wymaga od nas określić nazwę akcji ("CartSummary") i nazwy kontrolera ("ShoppingCart") jako poniżej.
 
 [!code-cshtml[Main](mvc-music-store-part-10/samples/sample3.cshtml)]
 
-Przed dodaniem to do lokacji układu, zostaną również utworzone Genre Menu, firma Microsoft może wprowadzać wszystkich naszych Site.master aktualizacji w tym samym czasie.
+Przed dodaniem to lokacja układu, zostaną również utworzone Menu gatunku umożliwia wykonywanie wszystkich naszych Site.master aktualizacji w tym samym czasie.
 
-## <a name="creating-the-genre-menu-partial-view"></a>Tworzenie widoku częściowego Menu Genre
+## <a name="creating-the-genre-menu-partial-view"></a>Tworzenie widoku częściowego Menu gatunku
 
-Firma Microsoft może ułatwić znacznie naszych użytkowników poruszać się po magazynie przez dodanie Menu Genre, w której znajduje się lista wszystkich gatunki dostępne w naszym magazynie.
+Firma Microsoft może ułatwić partii dla naszych użytkowników przejść w sklepie, dodając Menu gatunku, która zawiera listę wszystkich gatunki dostępne w naszym Sklepie.
 
 ![](mvc-music-store-part-10/_static/image3.png)
 
-Firma Microsoft będzie taka sama wykonaj kroki również utworzyć GenreMenu widoku częściowego, a następnie możemy Dodaj oba te do poziomu głównego witryny. Najpierw dodaj następujące akcji kontrolera GenreMenu do StoreController:
+Firma Microsoft będzie należy wykonać takie same kroki również utworzyć widok częściowy GenreMenu, a następnie możemy Dodaj oba te do gałęzi głównej witryny. Najpierw dodaj następujące akcji kontrolera GenreMenu do StoreController:
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample4.cs)]
 
-Ta akcja zwraca listę gatunkami muzyki, które będą wyświetlane przez widok częściowy, który zostanie utworzony obok.
+Ta akcja zwraca listę gatunki, które będą wyświetlane przez widok częściowy, który zostanie następnie utworzymy.
 
-*Uwaga: Dodano atrybut [ChildActionOnly] do tej akcji kontrolera, co oznacza, że chcemy tylko tę akcję do użycia w widoku częściowego. Ten atrybut uniemożliwi wstrzymywane przechodząc do /Store/GenreMenu akcji kontrolera. Nie jest to wymagane dla widoków częściowych, ale jest dobrym rozwiązaniem, ponieważ chcemy upewnić się, że nasze akcji kontrolera są używane jako mamy zamierzają. Możemy również zwróconego PartialView zamiast widoku, który umożliwia aparat widoku wiedzieć, że nie należy używać układu dla tego widoku, jest on dołączony w innych widokach.*
+*Uwaga: Tej akcji kontrolera, co oznacza, że ma być uruchamiany tylko ta akcja ma być używany z widoku częściowego dodaliśmy atrybutu [ChildActionOnly]. Ten atrybut zapobiega wykonywana, przechodząc do /Store/GenreMenu tej akcji kontrolera. Nie jest to wymagane dla widoków częściowych, ale jest dobrym rozwiązaniem, ponieważ chcemy się upewnić, że nasze akcji kontrolera są używane jako Chcieliśmy. Możemy również zwróconego PartialView zamiast widoku, który umożliwia aparat widoku, nazywa się czy nie należy używać układu dla tego widoku jest uwzględniane w innych widokach.*
 
-Kliknij prawym przyciskiem myszy na GenreMenu akcji kontrolera oraz tworzenia widoku częściowego o nazwie GenreMenu, który jest silnie typizowane za pomocą klasy Genre widoku danych, jak pokazano poniżej.
+Kliknij prawym przyciskiem myszy na GenreMenu akcji kontrolera oraz tworzenia widoku częściowego o nazwie GenreMenu, który jest silnie typizowane przy użyciu klasy gatunku widoku danych, jak pokazano poniżej.
 
 ![](mvc-music-store-part-10/_static/image4.png)
 
-Zaktualizuj kod widok GenreMenu widoku częściowego do wyświetlenia elementów przy użyciu nieuporządkowaną listę w następujący sposób.
+Aktualizowanie kodu widoku GenreMenu widoku częściowego do wyświetlenia elementów przy użyciu nieuporządkowaną listę w następujący sposób.
 
 [!code-cshtml[Main](mvc-music-store-part-10/samples/sample5.cshtml)]
 
-## <a name="updating-site-layout-to-display-our-partial-views"></a>Aktualizowanie lokacji układ do wyświetlenia naszych widoki częściowe
+## <a name="updating-site-layout-to-display-our-partial-views"></a>Trwa aktualizowanie układu witryny do wyświetlenia naszych widoki częściowe
 
-W układzie lokacji można dodać nasze widoki częściowe (/widoki/Shared/\_Layout.cshtml) przez wywołanie metody Html.RenderAction(). Dodamy je w, a także pewne dodatkowe znaczników do wyświetlania, jak pokazano poniżej:
+Możemy dodać naszych widoki częściowe do układu witryny (/widoków/Shared/\_Layout.cshtml) przez wywołanie metody Html.RenderAction(). Dodamy ich obu w, a także niektóre dodatkową marżę do wyświetlania, jak pokazano poniżej:
 
 [!code-cshtml[Main](mvc-music-store-part-10/samples/sample6.cshtml)]
 
-Teraz uruchamianych aplikacji, zostanie wyświetlone Genre w obszarze nawigacji po lewej stronie i Podsumowanie koszyka u góry.
+Teraz gdy możemy uruchomić aplikację, zobaczymy gatunku w obszarze nawigacji po lewej stronie i Podsumowanie koszyka u góry.
 
-## <a name="update-to-the-store-browse-page"></a>Aktualizowanie do magazynu Przeglądaj strony
+## <a name="update-to-the-store-browse-page"></a>Aktualizuj stronę Przeglądaj Store
 
-Strona magazynu Przeglądaj będzie działać, ale wygląda bardzo dobre. Firma Microsoft może zaktualizować strony, aby pokazać albumów w układzie lepsze, aktualizując widoku kodu (znajdujący się w /Views/Store/Browse.cshtml) w następujący sposób:
+Na stronie przeglądania Store będzie działać, ale nie wygląda bardzo dobra. Firma Microsoft może aktualizować strony Aby pokazać albumów w lepszego układu, aktualizując widok kodu (znajdujący się w /Views/Store/Browse.cshtml) w następujący sposób:
 
 [!code-cshtml[Main](mvc-music-store-part-10/samples/sample7.cshtml)]
 
-W tym miejscu są czynione Użyj Url.Action zamiast Html.ActionLink, dzięki czemu można zastosować, specjalne formatowanie do łącza obejmują kompozycji albumu.
+W tym miejscu wprowadzamy użytkowania Url.Action zamiast Html.ActionLink, dzięki czemu można zastosować specjalne formatowanie łącza do uwzględnienia kompozycji albumu.
 
-*Uwaga: Firma Microsoft wyświetlanie tytułowych albumu ogólnych, dla tych albumów. Te informacje są przechowywane w bazie danych i można edytować za pomocą Menedżera magazynu. Jesteś Zapraszamy dodać własne kompozycji.*
+*Uwaga: Firma Microsoft wyświetlanie tytułowych albumu ogólny, dla tych albumów. Te informacje są przechowywane w bazie danych i można edytować za pomocą Menedżera Store. Zachęcamy do dodania własnej kompozycji.*
 
-Teraz, gdy firma Microsoft przejdź do określonego rodzaju, zostanie wyświetlone albumów siatką z kompozycji albumu.
+Teraz gdy możemy przejść do określonego rodzaju, zobaczymy albumów wyświetlane w siatce z w kompozycją albumu.
 
 ![](mvc-music-store-part-10/_static/image5.png)
 
-## <a name="updating-the-home-page-to-show-top-selling-albums"></a>Aktualizowanie strony głównej pokazanie Top albumów sprzedaży
+## <a name="updating-the-home-page-to-show-top-selling-albums"></a>Aktualizowanie stronę główną, aby pokazać albumów sprzedaży w górnej
 
-Chcemy funkcji naszych sprzedających albumów na stronie głównej zwiększenie sprzedaży. Wybierzemy niektórych aktualizacji do naszej HomeController dojście, którego i dodać niektóre dodatkowe grafiki.
+Chcemy są wyposażone w naszym najlepiej sprzedających się ze zdjęciami, na stronie głównej, aby zwiększyć sprzedaż. Wybierzemy niektórych aktualizacji do naszych HomeController obsługiwały, a następnie dodaj niektóre dodatkowe grafiki.
 
-Najpierw dodamy właściwości nawigacji do naszej klasy albumu tak, aby EntityFramework wie, że są powiązane. Kilka ostatnich wierszy z naszych **albumu** klasa powinna wyglądać następująco:
+Najpierw dodamy właściwość nawigacji do klasy Nasze albumu tak, aby EntityFramework wie, że są one skojarzone. Kilka ostatnich wierszy z naszych **albumu** klasy powinna teraz wyglądać następująco:
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample8.cs)]
 
-*Uwaga: Wymaga to dodawanie przy użyciu instrukcji przenieść system.Collections.Generic — przestrzeń nazw.*
+*Uwaga: Wymaga to dodanie przy użyciu instrukcji w przestrzeni nazw System.Collections.Generic.*
 
-Najpierw dodamy pola storeDB i MvcMusicStore.Models przy użyciu instrukcje, jak naszym kontrolerów. Następnie dodamy następującą metodę do HomeController, który wysyła zapytanie do naszej bazie danych można znaleźć górny albumów sprzedaży według SzczegółyZamówień.
+Najpierw dodamy, pole storeDB i MvcMusicStore.Models przy użyciu instrukcji, tak jak w naszych innych kontrolerów. Następnie dodamy następującą metodę do HomeController, który sprawdza naszej bazie danych, odnaleźć najważniejsze albumów sprzedaży według OrderDetails.
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample9.cs)]
 
-Jest to metoda prywatna, ponieważ nie chcemy udostępnić go jako akcji kontrolera. Firma Microsoft zawierają w HomeController dla uproszczenia, ale zaleca się przenieść logiki biznesowej do klasy oddzielne usługi zgodnie z potrzebami.
+Jest to metoda prywatna, ponieważ nie chcemy udostępnić go jako akcji kontrolera. Firma Microsoft jest uwzględniania go w HomeController dla uproszczenia, ale zaleca się przeniesienie logikę biznesową do klasy osobną usługą zgodnie z potrzebami.
 
-Z tym w miejscu możemy zaktualizować akcji kontrolera indeksu wyszukiwania 5 najlepiej sprzedających albumów i zwraca je do widoku.
+Mając to na miejscu możemy zaktualizować akcji kontrolera indeks zapytania 5 najlepiej sprzedających się ze zdjęciami i przywrócić je do widoku.
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample10.cs)]
 
-Kompletny kod dla zaktualizowanej HomeController jest, jak pokazano poniżej.
+Kompletny kod dla zaktualizowanego HomeController to, jak pokazano poniżej.
 
 [!code-csharp[Main](mvc-music-store-part-10/samples/sample11.cs)]
 
-Na koniec musimy zaktualizować naszych widoku indeksu Narzędzia główne, tak, aby go wyświetlić listę albumów aktualizowanie typu modelu i dodawania listy albumu w dół. Teraz nastąpi przekierowanie do tej możliwości, aby również dodać nagłówek i sekcja podwyższanie poziomu do strony.
+Na koniec musimy aktualizacja naszych widoku Home indeks, tak, aby go wyświetlić listę albumów aktualizowanie typu modelu i dodając listy albumu do dołu. Firma Microsoft będzie okazji można również dodać nagłówek i sekcja promocji do strony.
 
 [!code-cshtml[Main](mvc-music-store-part-10/samples/sample12.cshtml)]
 
-Uruchamianych aplikacji, firma Microsoft będzie widoczny naszych zaktualizowanej strony głównej z najwyższym albumów sprzedaży i promocyjne wiadomości.
+Teraz gdy możemy uruchomić aplikację, zobaczymy zaktualizowane strony głównej z najważniejszych sprzedaży ze zdjęciami i naszej promocyjne wiadomości.
 
 ![](mvc-music-store-part-10/_static/image1.jpg)
 
 ## <a name="conclusion"></a>Wniosek
 
-Firma Microsoft w tym samouczku czy ASP.NET MVC ułatwia można tworzyć zaawansowane witryny sieci Web z dostępem do bazy danych, członkostwa, AJAX, itp. bardzo szybko. Miejmy nadzieję, że w tym samouczku przyznał Ci narzędzia, które należy rozpocząć tworzenie własnych ASP.NET MVC aplikacji!
+Zobaczyliśmy, że ASP.NET MVC można łatwo utworzyć zaawansowane witryny sieci Web z dostępu do bazy danych, członkostwo w technologii AJAX, itp. bardzo szybko. Miejmy nadzieję w tym samouczku przyznał Ci narzędzia, których potrzebujesz do rozpoczęcia tworzenia własnych platformy ASP.NET MVC aplikacji!
 
 
 > [!div class="step-by-step"]

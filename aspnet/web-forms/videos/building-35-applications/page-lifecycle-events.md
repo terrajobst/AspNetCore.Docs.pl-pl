@@ -2,27 +2,26 @@
 uid: web-forms/videos/building-35-applications/page-lifecycle-events
 title: Zdarzenia cyklu życia strony | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: ASP.NET udostępnia mechanizm obsługi zdarzeń bardzo zaawansowane z punkty zaczepienia do wszystkie ważne wystąpienia chronologicznej w cyklu życia strony ASP.NET. Ten film będzie wyliczenia...
+description: ASP.NET udostępnia mechanizm bardzo zaawansowanych obsługi zdarzeń za pomocą punktów zaczepienia do wszystkie ważne wystąpienia chronologicznym w cyklu życia strony ASP.NET. Ten film wideo będzie wyliczenia...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
 ms.topic: article
 ms.assetid: 11237821-220e-4357-9fa6-38245084e093
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/building-35-applications/page-lifecycle-events
 msc.type: video
-ms.openlocfilehash: 548475c695b3e043f9b12b37945c3abd8d4d5947
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cf71807ae564a75191576251da10c490773b49d2
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26570785"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379780"
 ---
 <a name="page-lifecycle-events"></a>Zdarzenia cyklu życia strony
 ====================
 przez [Stagner Jan](https://github.com/JoeStagner)
 
-ASP.NET udostępnia mechanizm obsługi zdarzeń bardzo zaawansowane z punkty zaczepienia do wszystkie ważne wystąpienia chronologicznej w cyklu życia strony ASP.NET. Ten film wylicza wiele typowych zdarzenia cyklu życia, ich kolejności uruchamiania i rodzaje rzeczy, którzy mogą korzystać z każdego zdarzenia.
+ASP.NET udostępnia mechanizm bardzo zaawansowanych obsługi zdarzeń za pomocą punktów zaczepienia do wszystkie ważne wystąpienia chronologicznym w cyklu życia strony ASP.NET. Ten film wideo będzie wyliczyć wiele typowych zdarzeń cyklu życia, ich kolejności uruchomieniu którego i rodzajów rzeczy, których można użyć każdego zdarzenia dla.
 
-[&#9654; Obejrzyj klip wideo (minuty 12)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/page-lifecycle-events)
+[&#9654;Obejrzyj film wideo (12 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/page-lifecycle-events)

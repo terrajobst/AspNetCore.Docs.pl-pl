@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/cdnajax4
-title: Formularze sieci Web ASP.NET i Ajax 4 | Dokumentacja firmy Microsoft
+title: ASP.NET Web Forms i Ajax 4 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,17 +9,16 @@ ms.date: 07/28/2014
 ms.topic: article
 ms.assetid: cced3924-251c-4c77-bef0-7992acbac106
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/cdnajax4
 msc.type: content
-ms.openlocfilehash: c312b2d721de7dc29576d0cd509eb4ec5791420e
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: cff084e82a820881bd9fa1544f12bf61f1e070d0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30070693"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364096"
 ---
-<a name="aspnet-web-forms-and-ajax-4"></a>Formularze sieci Web ASP.NET i Ajax 4
+<a name="aspnet-web-forms-and-ajax-4"></a>ASP.NET Web Forms i Ajax 4
 ====================
 Następujące pliki znajdują się w sieci CDN:
 

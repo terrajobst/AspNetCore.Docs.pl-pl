@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-validate/cdnjqueryvalidate17
-title: Wersja jquery.Validate 1.7 | Dokumentacja firmy Microsoft
+title: jquery.Validate wersja 1.7 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,17 +9,16 @@ ms.date: 07/23/2014
 ms.topic: article
 ms.assetid: cef6b8be-ac1a-4661-85e3-8e444782ad88
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate17
 msc.type: content
-ms.openlocfilehash: 977ace1e4f4d1c62e0aaf96d1d524d0010e89ada
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 24d391dec1df3b110849b2ffa01497d5ae41d915
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077446"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368686"
 ---
-<a name="jqueryvalidate-version-17"></a>Wersja jquery.Validate 1.7
+<a name="jqueryvalidate-version-17"></a>jquery.Validate wersja 1.7
 ====================
 Następujące pliki znajdują się w sieci CDN:
 

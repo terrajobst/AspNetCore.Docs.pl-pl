@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-implement-the-persistent-communications-pattern-with-the-updatepanel
-title: '[Jak i.] Implementowanie wzorca trwałe komunikacji z UpdatePanel? | Microsoft Docs'
+title: '[Jak mogę] Implementowanie wzorca trwałej komunikacji przy użyciu kontrolki UpdatePanel? | Microsoft Docs'
 author: JoeStagner
-description: W witrynie sieci Web tradycyjnych przeglądarkę i serwer nie obsługują stałą łączność, ale komunikować się tylko w odpowiedzi na jakiejś czynności użytkownika...
+description: W witrynie sieci Web tradycyjnych przeglądarką a serwerem nie obsługują utrzymują stałą łączność, ale komunikują się tylko w odpowiedzi na użytkownika wykonującego działanie...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/01/2007
 ms.topic: article
 ms.assetid: 49c7a74d-dce7-4d5c-8282-c7846f478e11
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-the-persistent-communications-pattern-with-the-updatepanel
 msc.type: video
-ms.openlocfilehash: b7572369b461e5261e549c260648dafa6254e246
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3812b41085f6ad0e08bd37599af845cfa4ff08e8
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886397"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380555"
 ---
-<a name="how-do-i-implement-the-persistent-communications-pattern-with-the-updatepanel"></a>[Jak i.] Implementowanie wzorca trwałe komunikacji z UpdatePanel?
+<a name="how-do-i-implement-the-persistent-communications-pattern-with-the-updatepanel"></a>[Jak mogę] Implementowanie wzorca trwałej komunikacji przy użyciu kontrolki UpdatePanel?
 ====================
 przez [Stagner Jan](https://github.com/JoeStagner)
 
-W witrynie sieci Web tradycyjnych przeglądarkę i serwer nie obsługują stałą łączność, ale komunikować się tylko w odpowiedzi na użytkownika wykonującego akcję. W nowoczesnych witryny sieci Web, gdy strona staje się kontenerem aplikacji może być korzystne dla przeglądarki i serwera do obsługi komunikacji trwającą tak, aby strona aktualizacji może wystąpić bez wykonywania akcji przez użytkownika. Jest to nazywane stałe wzorzec komunikacji dla technologii AJAX. ASP.NET AJAX udostępnia dwa sposoby głównego dla deweloperów sieci Web implementacji klienta wzorca trwałe komunikacji. To wideo pokazuje prosty sposób jest użycie ASP.NET AJAX UpdatePanel jako podstawa operacji wdrożenia. Później wideo firma Microsoft będzie sposób implementacji tego samego wzorca bez użycia elementu ASP.NET AJAX UpdatePanel.
+W witrynie sieci Web tradycyjnych przeglądarką a serwerem nie obsługują utrzymują stałą łączność, ale komunikują się tylko w odpowiedzi na użytkownika wykonującego akcję. W nowoczesnych witryny sieci Web, gdy strona staje się kontener aplikacji może być korzystne dla przeglądarki i serwera, aby zachować utrzymują stałą łączność aktualizacji stron mogła zaistnieć bez użytkownika wykonującego akcję. Jest to nazywane wzorca trwałej komunikacji technologii AJAX. ASP.NET AJAX zawiera dwa główne sposoby dla deweloperów sieci Web w celu zaimplementowania wzorca trwałej komunikacji. Ten film pokazuje prosty sposób polega na użyciu kontrolki UpdatePanel ASP.NET AJAX jako punktu wyjścia dla wdrożenia. W dalszej części wideo firma Microsoft będzie Dowiedz się, jak zaimplementować tego samego wzorca bez kontrolki UpdatePanel ASP.NET AJAX.
 
-[&#9654;Obejrzyj klip wideo (minuty 12)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-the-persistent-communications-pattern-with-the-updatepanel)
+[&#9654;Obejrzyj film wideo (12 minut)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-the-persistent-communications-pattern-with-the-updatepanel)
 
 > [!div class="step-by-step"]
 > [Poprzednie](how-do-i-use-the-conditional-updatemode-of-the-updatepanel.md)

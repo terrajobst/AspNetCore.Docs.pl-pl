@@ -1,68 +1,68 @@
 ---
 title: Host platformy ASP.NET Core w systemie Linux z Apache
-description: Dowiedz się, jak ustawić Apache jako zwrotny serwer proxy serwera na CentOS, aby przekierować ruch HTTP do aplikacji sieci web platformy ASP.NET Core systemem Kestrel.
+description: Dowiedz się, jak skonfigurować przekierowywanie ruchu HTTP do aplikacji sieci web platformy ASP.NET Core uruchomionych na Kestrel Apache jako zwrotny serwer proxy serwera na CentOS.
 author: spboyer
 ms.author: spboyer
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: c46c0aa578867ce306adc67a2e0d8b650b5fa5bd
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: d02fbd82be37e6d67214a9a0bf5851662b577cb9
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960895"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37433977"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Host platformy ASP.NET Core w systemie Linux z Apache
 
 Przez [Shayne Boyer](https://github.com/spboyer)
 
-Przy użyciu tego przewodnika, Dowiedz się, jak skonfigurować [Apache](https://httpd.apache.org/) jako zwrotny serwer proxy serwera na [CentOS 7](https://www.centos.org/) przekierowywanie ruchu HTTP do aplikacji sieci web platformy ASP.NET Core systemem [Kestrel](xref:fundamentals/servers/kestrel). [Rozszerzenia mod_proxy](http://httpd.apache.org/docs/2.4/mod/mod_proxy.html) i powiązane moduły Utwórz zwrotny serwer proxy serwera.
+Za pomocą tego przewodnika, Dowiedz się, jak skonfigurować [Apache](https://httpd.apache.org/) jako zwrotny serwer proxy serwera na [CentOS 7](https://www.centos.org/) przekierowywania ruchu HTTP do aplikacji sieci web platformy ASP.NET Core uruchomionej na [Kestrel](xref:fundamentals/servers/kestrel). [Rozszerzenia mod_proxy](http://httpd.apache.org/docs/2.4/mod/mod_proxy.html) i powiązane moduły Utwórz zwrotny serwer proxy serwera.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Serwer z systemem CentOS 7 przy użyciu konta użytkowników standardowych z uprawnieniem sudo.
-1. Zainstaluj środowisko uruchomieniowe .NET Core na serwerze.
-   1. Odwiedź stronę [.NET Core wszystkie pliki do pobrania strony](https://www.microsoft.com/net/download/all).
-   1. Wybierz z listy w obszarze najnowsze środowisko uruchomieniowe-preview **środowiska uruchomieniowego**.
-   1. Wybierz i postępuj zgodnie z instrukcjami dotyczącymi CentOS/Oracle.
-1. Istniejącej aplikacji platformy ASP.NET Core.
+1. Serwer z systemem CentOS 7 przy użyciu konta użytkownika standardowego przy użyciu uprawnień "sudo".
+1. Na serwerze, należy zainstalować środowisko uruchomieniowe platformy .NET Core.
+   1. Odwiedź stronę [.NET Core wszystkie strony plików do pobrania](https://www.microsoft.com/net/download/all).
+   1. Z listy w obszarze wybierz najnowsze środowisko uruchomieniowe — wersja zapoznawcza **środowiska uruchomieniowego**.
+   1. Wybierz, a następnie postępuj zgodnie z instrukcjami na oprogramowanie Oracle, CentOS /.
+1. Istniejącą aplikację ASP.NET Core.
 
-## <a name="publish-and-copy-over-the-app"></a>Publikowanie i skopiuj przez aplikację
+## <a name="publish-and-copy-over-the-app"></a>Publikowanie i skopiuj aplikacji
 
-Konfigurowanie aplikacji na potrzeby [wdrożenia zależne od framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd).
+Konfigurowanie aplikacji na potrzeby [wdrożenia zależny od struktury](/dotnet/core/deploying/#framework-dependent-deployments-fdd).
 
-Uruchom [publikowania dotnet](/dotnet/core/tools/dotnet-publish) z Środowisko deweloperskie do tworzenia pakietów aplikacji w katalogu (na przykład *bin i wersji/&lt;target_framework_moniker&gt;/ publish*) który można Uruchom na serwerze:
+Uruchom [publikowania dotnet](/dotnet/core/tools/dotnet-publish) ze środowiska projektowego, aby utworzyć pakiet aplikacji do katalogu (na przykład *bin/wydawania/&lt;target_framework_moniker&gt;/ publish*), można Uruchom na serwerze:
 
 ```console
 dotnet publish --configuration Release
 ```
 
-Aplikacja również mogą być publikowane jako [niezależne wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) nie, aby obsługa środowiska uruchomieniowego .NET Core na serwerze.
+Aplikację można także publikować jako [niezależna wdrożenia](/dotnet/core/deploying/#self-contained-deployments-scd) Jeśli wolisz nie zachować środowisko uruchomieniowe platformy .NET Core na serwerze.
 
-Skopiuj aplikacji platformy ASP.NET Core do serwera przy użyciu narzędzia, która integruje się z przepływu organizacji (na przykład punkt połączenia usługi, SFTP). Często można znaleźć aplikacji sieci web w obszarze *var* katalog (na przykład *var/aspnetcore/hellomvc*).
+Skopiuj aplikacji ASP.NET Core na serwer przy użyciu narzędzia, która integruje się z przepływu pracy w organizacji, (na przykład punkt połączenia usługi, SFTP). Często do lokalizowania aplikacji sieci web w obszarze *var* katalog (na przykład *aspnetcore/var/hellomvc*).
 
 > [!NOTE]
-> W przypadku wdrożenia produkcyjnego ciągłej integracji przepływu pracy wykonuje pracę publikowania aplikacji i kopiowanie zasoby na serwerze.
+> W przypadku wdrożenia produkcyjnego przepływu pracy ciągłej integracji działa publikowania aplikacji i kopiowanie zasobów do serwera.
 
 ## <a name="configure-a-proxy-server"></a>Konfiguracja serwera proxy
 
-Zwrotny serwer proxy jest typowe dla obsługi aplikacji sieci web dynamicznych. Zwrotny serwer proxy kończy żądanie HTTP i przekazuje je do aplikacji ASP.NET.
+Zwrotny serwer proxy jest wspólne dla aplikacji sieci web dynamicznego obsługująca. Zwrotny serwer proxy kończy żądanie HTTP i przekazuje je do aplikacji platformy ASP.NET.
 
-Serwer proxy to taki, który przekazuje żądania klienta do innego serwera zamiast samego spełnienie żądania. Zwrotny serwer proxy przekazuje do stałej miejsca docelowego, zwykle w imieniu dowolnego klientów. W tym przewodniku Apache jest skonfigurowana jako zwrotny serwer proxy, uruchomione na tym samym serwerze, że Kestrel służy aplikacji platformy ASP.NET Core.
+Serwer proxy jest jedną, która przekazuje żądania klienta do innego serwera, a nie sam wypełniania żądań. Zwrotny serwer proxy przekazuje do środka miejsca docelowego, zazwyczaj w imieniu dowolnego klientów. W tym przewodniku Apache jest skonfigurowany jako zwrotny serwer proxy, uruchomione na tym samym serwerze, że Kestrel działa jako aplikacja platformy ASP.NET Core.
 
-Ponieważ żądania są przekazywane przez zwrotny serwer proxy, należy użyć [przekazywane oprogramowanie pośredniczące nagłówki](xref:host-and-deploy/proxy-load-balancer) z [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) pakietu. Aktualizacje oprogramowania pośredniczącego `Request.Scheme`za pomocą `X-Forwarded-Proto` nagłówka, więc poprawne działanie tego przekierowania URI i innymi zasadami zabezpieczeń.
+Ponieważ żądania są przekazywane przez zwrotny serwer proxy, należy użyć [przekazywane oprogramowania pośredniczącego nagłówki](xref:host-and-deploy/proxy-load-balancer) z [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) pakietu. Aktualizacje oprogramowania pośredniczącego `Request.Scheme`przy użyciu `X-Forwarded-Proto` nagłówka, więc działanie tego identyfikatory URI przekierowań i innych zasad zabezpieczeń.
 
-Każdego składnika, który jest zależny od systemu, takich jak uwierzytelnianie, generowanie konsolidacji przekierowania i używanie funkcji geolokalizacji, muszą znajdować się po wywołaniu przez oprogramowanie pośredniczące przekazane nagłówków. Ogólną zasadą przekazywane oprogramowanie pośredniczące nagłówków należy uruchomić przed innym oprogramowaniu pośredniczącym, z wyjątkiem diagnostyki i obsługi oprogramowania pośredniczącego błędów. Ta kolejność zapewnia, że oprogramowanie pośredniczące polegania na informacje przekazywane nagłówków może używać wartości nagłówka do przetwarzania.
+Dowolny składnik, który jest zależny od systemu, takie jak uwierzytelnianie, generowanie konsolidacji, przekierowań i geolokalizacja, muszą być umieszczone po wywołaniu oprogramowanie pośredniczące przekazane nagłówków. Zgodnie z ogólną zasadą przekazywane oprogramowania pośredniczącego nagłówki należy uruchomić przed innym oprogramowaniu pośredniczącym, z wyjątkiem diagnostyki i obsługi oprogramowania pośredniczącego błędów. Ta kolejność gwarantuje, że oprogramowanie pośredniczące, opierając się na nagłówki przekazywane informacje mogą wykorzystywać wartości nagłówka do przetworzenia.
 
 ::: moniker range=">= aspnetcore-2.0"
 > [!NOTE]
-> Albo konfiguracji&mdash;z lub bez zwrotnego serwera proxy&mdash;jest prawidłowa i obsługiwanych konfiguracji hostingu dla platformy ASP.NET Core w wersji 2.0 lub nowszej aplikacji. Aby uzyskać więcej informacji, zobacz [użycie Kestrel z zwrotny serwer proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+> Każda konfiguracja&mdash;z lub bez serwera proxy odwrotnej&mdash;jest prawidłowy i obsługiwanych konfiguracji hostingu dla platformy ASP.NET Core 2.0 lub nowszej aplikacje. Aby uzyskać więcej informacji, zobacz [kiedy należy używać Kestrel przy użyciu zwrotnego serwera proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 ::: moniker-end
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Wywołanie [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) metody w `Startup.Configure` przed wywołaniem [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication) lub podobne oprogramowanie pośredniczące schematu uwierzytelniania. Konfigurowanie oprogramowania pośredniczącego do przekazywania `X-Forwarded-For` i `X-Forwarded-Proto` nagłówki:
+Wywoływanie [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) method in Class metoda `Startup.Configure` przed wywołaniem [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication) lub podobne oprogramowanie pośredniczące schematu uwierzytelniania. Konfigurowanie oprogramowania pośredniczącego, aby przekazywać `X-Forwarded-For` i `X-Forwarded-Proto` nagłówków:
 
 ```csharp
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -75,7 +75,7 @@ app.UseAuthentication();
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Wywołanie [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) metody w `Startup.Configure` przed wywołaniem [UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity) i [UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication) lub podobne schemat uwierzytelniania oprogramowanie pośredniczące. Konfigurowanie oprogramowania pośredniczącego do przekazywania `X-Forwarded-For` i `X-Forwarded-Proto` nagłówki:
+Wywoływanie [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) method in Class metoda `Startup.Configure` przed wywołaniem [UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity) i [UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication) lub podobne schematu uwierzytelniania oprogramowanie pośredniczące. Konfigurowanie oprogramowania pośredniczącego, aby przekazywać `X-Forwarded-For` i `X-Forwarded-Proto` nagłówków:
 
 ```csharp
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -93,19 +93,19 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 ---
 
-Jeśli nie [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) są określone przez oprogramowanie pośredniczące są domyślne nagłówki do przekazywania `None`.
+Jeśli nie [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) są określone oprogramowanie pośredniczące, są domyślne nagłówki do przekazywania `None`.
 
-Dodatkowa konfiguracja może być wymagane dla aplikacji hostowanych serwerów proxy i moduły równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie platformy ASP.NET Core do pracy z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
+Dodatkowa konfiguracja może być wymagane dla aplikacji hostowanych za serwery proxy i moduły równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer).
 
 ### <a name="install-apache"></a>Zainstaluj Apache
 
-Pakietów CentOS aktualizacji w celu ich najnowsze wersje stabilna:
+Aktualizowanie pakietów CentOS do ich najnowszej stabilnej wersji:
 
 ```bash
 sudo yum update -y
 ```
 
-Zainstaluj serwer sieci web Apache na CentOS za pomocą jednej `yum` polecenia:
+Instalowanie serwera internetowego Apache na CentOS, za pomocą jednego `yum` polecenia:
 
 ```bash
 sudo yum -y install httpd mod_ssl
@@ -130,11 +130,11 @@ Complete!
 ```
 
 > [!NOTE]
-> W tym przykładzie danych wyjściowych odzwierciedla httpd.86_64, ponieważ wersja CentOS 7 jest 64-bitowym. Aby sprawdzić, w którym zainstalowano Apache, uruchom `whereis httpd` z wiersza polecenia.
+> W tym przykładzie dane wyjściowe odzwierciedla httpd.86_64, ponieważ wersja CentOS 7 jest 64-bitowych. Aby sprawdzić, w którym zainstalowano Apache, uruchom `whereis httpd` z poziomu wiersza polecenia.
 
-### <a name="configure-apache"></a>Skonfiguruj Apache
+### <a name="configure-apache"></a>Skonfigurowania serwera Apache
 
-Pliki konfiguracji Apache znajdują się w `/etc/httpd/conf.d/` katalogu. Dowolne pliki z *.conf* rozszerzenia są przetwarzane w kolejności alfabetycznej oprócz plików konfiguracji modułu w `/etc/httpd/conf.modules.d/`, który zawiera żadnej konfiguracji pliki niezbędne do ładowania modułów.
+Pliki konfiguracji Apache znajdują się w `/etc/httpd/conf.d/` katalogu. Każdy plik z *.conf* rozszerzenia są przetwarzane w kolejności alfabetycznej, oprócz plików konfiguracji modułu w `/etc/httpd/conf.modules.d/`, który zawiera żadnej konfiguracji pliki niezbędne do ładowania modułów.
 
 Utwórz plik konfiguracji o nazwie *hellomvc.conf*, dla aplikacji:
 
@@ -154,20 +154,20 @@ Utwórz plik konfiguracji o nazwie *hellomvc.conf*, dla aplikacji:
 </VirtualHost>
 ```
 
-`VirtualHost` Bloku może pojawić się wiele razy w jeden lub więcej plików na serwerze. W pliku konfiguracyjnym poprzedniego Apache akceptuje publicznego ruch na porcie 80. Domena `www.example.com` obsługiwanej jest i `*.example.com` Usuwa alias do tej samej witryny sieci Web. Zobacz [obsługi na podstawie nazwy hostów wirtualnych](https://httpd.apache.org/docs/current/vhosts/name-based.html) Aby uzyskać więcej informacji. Żądania są przekazywane przez serwer proxy w katalogu głównym, aby port 5000 serwera na 127.0.0.1. Dla komunikacja dwukierunkowa `ProxyPass` i `ProxyPassReverse` są wymagane.
+`VirtualHost` Bloku mogą pojawić się wiele razy w jeden lub więcej plików na serwerze. W poprzednim pliku konfiguracji Apache akceptuje publicznych ruch na porcie 80. Domena `www.example.com` obsługiwanych danych, a `*.example.com` aliasu jest rozpoznawany jako ten sam witryny sieci Web. Zobacz [obsługi na podstawie nazwy hosta wirtualnego](https://httpd.apache.org/docs/current/vhosts/name-based.html) Aby uzyskać więcej informacji. Żądania są przekierowywane w katalogu głównym na porcie 5000 serwer pod adresem 127.0.0.1. Do komunikacji dwukierunkowej `ProxyPass` i `ProxyPassReverse` są wymagane. Aby zmienić port adresu IP firmy Kestrel, zobacz [Kestrel: Konfiguracja punktu końcowego](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 > [!WARNING]
-> Błąd w celu określenia odpowiedniego [dyrektywy ServerName](https://httpd.apache.org/docs/current/mod/core.html#servername) w **VirtualHost** blokowy przedstawia aplikacji luk w zabezpieczeniach. Powiązanie symbolu wieloznacznego domeny podrzędnej (na przykład `*.example.com`) nie stanowić to zagrożenie bezpieczeństwa, jeśli kontrolować domeny nadrzędnej cały (w przeciwieństwie do `*.com`, której występuje). Zobacz [rfc7230 sekcji-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) Aby uzyskać więcej informacji.
+> Błąd, aby określić poprawną [dyrektywy ServerName](https://httpd.apache.org/docs/current/mod/core.html#servername) w **VirtualHost** bloku ujawnia luki w zabezpieczeniach aplikacji. Powiązanie symbol wieloznaczny domeny podrzędnej (na przykład `*.example.com`) nie stanowić to zagrożenie bezpieczeństwa, jeśli możesz kontrolować domenę nadrzędną całego (w przeciwieństwie do `*.com`, który jest narażony). Zobacz [rfc7230 sekcji-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) Aby uzyskać więcej informacji.
 
-Można skonfigurować rejestrowania `VirtualHost` przy użyciu `ErrorLog` i `CustomLog` dyrektywy. `ErrorLog` Lokalizacja, w którym serwer rejestruje błędy, i `CustomLog` ustawia nazwę pliku i format pliku dziennika. W tym przypadku jest to, gdzie jest rejestrowane informacje o żądaniu. Istnieje jeden wiersz dla każdego żądania.
+Można skonfigurować rejestrowanie `VirtualHost` przy użyciu `ErrorLog` i `CustomLog` dyrektywy. `ErrorLog` jest to lokalizacja, w których dzienniki błędów serwera i `CustomLog` ustawia nazwę pliku i format pliku dziennika. W tym przypadku jest to, gdzie jest rejestrowane informacje o żądaniu. Istnieje jeden wiersz dla każdego żądania.
 
-Zapisz plik i Przetestuj konfigurację. Jeśli wszystko przebiegnie pomyślnie, powinien być odpowiedzi `Syntax [OK]`.
+Zapisz plik i wykonaj test konfiguracji. Jeśli wszystko przebiegnie pomyślnie, odpowiedź powinna wyglądać `Syntax [OK]`.
 
 ```bash
 sudo service httpd configtest
 ```
 
-Uruchom ponownie Apache:
+Uruchom ponownie usługę Apache:
 
 ```bash
 sudo systemctl restart httpd
@@ -176,9 +176,9 @@ sudo systemctl enable httpd
 
 ## <a name="monitoring-the-app"></a>Monitorowanie aplikacji
 
-Apache jest teraz skonfigurowana do przekazywania żądań wysyłanych do `http://localhost:80` do aplikacji platformy ASP.NET Core systemem Kestrel na `http://127.0.0.1:5000`.  Apache Konfigurowanie nie jest jednak do zarządzania procesem Kestrel. Użyj *systemd* i utworzenie pliku usługi, aby uruchomić i monitorować podstawowej aplikacji sieci web. *systemd* to system init zapewnia wiele zaawansowanych funkcji uruchamianie, zatrzymywanie oraz procesy zarządzania. 
+Apache jest teraz Instalatora w celu przekazywania żądań kierowanych do `http://localhost:80` do aplikacji platformy ASP.NET Core uruchomionych na Kestrel na `http://127.0.0.1:5000`.  Apache skonfigurować nie jest jednak do zarządzania procesem Kestrel. Użyj *systemd* i Utwórz plik usługi, aby uruchomić i monitorować podstawowej aplikacji sieci web. *systemd* to system init, który zapewnia wiele funkcji zaawansowanych uruchamianie, zatrzymywanie oraz zarządzanie procesami. 
 
-### <a name="create-the-service-file"></a>Tworzenie pliku usługi
+### <a name="create-the-service-file"></a>Utwórz plik usługi
 
 Tworzenie pliku definicji usługi:
 
@@ -207,10 +207,10 @@ WantedBy=multi-user.target
 ```
 
 > [!NOTE]
-> **Użytkownik** &mdash; Jeśli użytkownik *apache* nie jest używany przez tę konfigurację, użytkownik musi najpierw utworzyć i podane odpowiednie własność plików.
+> **Użytkownik** &mdash; Jeśli użytkownik *apache* nie jest używany przez tę konfigurację, użytkownik musi najpierw utworzyć i biorąc pod uwagę odpowiednie prawa własności plików.
 
 > [!NOTE]
-> Niektóre wartości (na przykład parametry połączenia SQL), należy użyć znaków ucieczki dla dostawców konfiguracji można odczytać zmiennych środowiskowych. Użyj następującego polecenia, aby wygenerować prawidłowo zmienionym wartość do użycia w pliku konfiguracji:
+> Niektóre wartości (na przykład parametry połączenia SQL), należy użyć znaków ucieczki dla dostawców konfiguracji można odczytać zmienne środowiskowe. Użyj następującego polecenia do generowania prawidłowo o zmienionym znaczeniu wartości do użycia w pliku konfiguracji:
 >
 > ```console
 > systemd-escape "<value-to-escape>"
@@ -236,7 +236,7 @@ Main PID: 9021 (dotnet)
             └─9021 /usr/local/bin/dotnet /var/aspnetcore/hellomvc/hellomvc.dll
 ```
 
-Przy użyciu zwrotnego serwera proxy skonfigurowane i Kestrel zarządzanych za pomocą *systemd*, aplikacji sieci web jest w pełni skonfigurowane i dostępne w przeglądarce na komputerze lokalnym w `http://localhost`. Zapoznanie się nagłówki odpowiedzi **serwera** nagłówek wskazuje, że aplikacja platformy ASP.NET Core jest obsługiwana przez Kestrel:
+Przy użyciu zwrotnego serwera proxy, skonfigurowane i Kestrel zarządzane za pośrednictwem *systemd*, aplikacji sieci web jest w pełni skonfigurowane i dostępne za pomocą przeglądarki na komputerze lokalnym w `http://localhost`. Inspekcja nagłówki odpowiedzi **serwera** nagłówek wskazuje, że aplikacja platformy ASP.NET Core jest obsługiwana przez Kestrel:
 
 ```
 HTTP/1.1 200 OK
@@ -247,15 +247,15 @@ Connection: Keep-Alive
 Transfer-Encoding: chunked
 ```
 
-### <a name="viewing-logs"></a>Przeglądanie dzienników
+### <a name="viewing-logs"></a>Wyświetlanie dzienników
 
-Ponieważ aplikacja sieci web przy użyciu Kestrel odbywa się przy użyciu *systemd*, scentralizowane dziennika są rejestrowane zdarzenia i procesów. Jednak ten dziennik zawiera wpisy dla wszystkich usług i procesów zarządza *systemd*. Aby wyświetlić `kestrel-hellomvc.service`— określone elementy, użyj następującego polecenia:
+Ponieważ aplikacja sieci web przy użyciu Kestrel odbywa się przy użyciu *systemd*, scentralizowane dziennika są rejestrowane zdarzenia i procesów. Jednak ten dziennik zawiera wpisy dla wszystkich usług i procesów, które zarządza *systemd*. Aby wyświetlić `kestrel-hellomvc.service`— określone elementy, użyj następującego polecenia:
 
 ```bash
 sudo journalctl -fu kestrel-hellomvc.service
 ```
 
-Potrzeby filtrowania czasu, określ opcje czasu przy użyciu polecenia. Na przykład użyć `--since today` filtrowania dla bieżącego dnia lub `--until 1 hour ago` wyświetlić wpisy poprzedniej godziny. Aby uzyskać więcej informacji, zobacz [man stronę journalctl](https://www.unix.com/man-page/centos/1/journalctl/).
+Filtrowanie czasu, określ opcje czasu za pomocą polecenia. Na przykład użyć `--since today` do filtrowania dla bieżącego dnia lub `--until 1 hour ago` Aby wyświetlić wpisy poprzedniej godziny. Aby uzyskać więcej informacji, zobacz [man strona journalctl](https://www.unix.com/man-page/centos/1/journalctl/).
 
 ```bash
 sudo journalctl -fu kestrel-hellomvc.service --since "2016-10-18" --until "2016-10-18 04:00"
@@ -265,20 +265,20 @@ sudo journalctl -fu kestrel-hellomvc.service --since "2016-10-18" --until "2016-
 
 ### <a name="configure-firewall"></a>Konfigurowanie zapory
 
-*Firewalld* jest demon dynamiczne zarządzanie zaporą z obsługą stref sieci. Porty i filtrowanie pakietów można nadal będą zarządzane przez iptables. *Firewalld* powinny być instalowane domyślnie. `yum` może służyć do zainstalowania pakietu lub sprawdź, czy jest zainstalowany.
+*Firewalld* jest dynamiczna demona się zarządzać zaporą z obsługą stref sieci. Porty i filtrowanie pakietów nadal mogą być zarządzane przez iptables. *Firewalld* powinny być instalowane domyślnie. `yum` może służyć do zainstalowania pakietu lub upewnij się, że jest ona zainstalowana.
 
 ```bash
 sudo yum install firewalld -y
 ```
 
-Użyj `firewalld` można otworzyć tylko te porty, które są wymagane dla aplikacji. W takim przypadku portu 80 i 443 są używane. Porty 80 i 443, aby otworzyć na stałe ustawiony program następujące polecenia:
+Użyj `firewalld` można otworzyć tylko te porty, które są potrzebne dla aplikacji. W tym przypadku port 80 i 443 są używane. Porty 80 i 443, aby otworzyć można trwale ustawione w następujących poleceń:
 
 ```bash
 sudo firewall-cmd --add-port=80/tcp --permanent
 sudo firewall-cmd --add-port=443/tcp --permanent
 ```
 
-Ponowne załadowanie ustawień zapory. Sprawdź dostępnych usług i portów w strefie domyślnej. Opcje są dostępne, sprawdzając `firewall-cmd -h`.
+Załaduj ponownie ustawienia zapory. Sprawdź dostępnych usług i portów w strefie domyślnej. Opcje są dostępne, sprawdzając `firewall-cmd -h`.
 
 ```bash
 sudo firewall-cmd --reload
@@ -299,19 +299,19 @@ rich rules:
 
 ### <a name="ssl-configuration"></a>Konfiguracja protokołu SSL
 
-Aby skonfigurować Apache dla protokołu SSL, *mod_ssl* moduł jest używany. Gdy *host z wieloma adresami* moduł został zainstalowany, *mod_ssl* modułu również został zainstalowany. Jeśli nie została zainstalowana za pomocą `yum` Aby dodać je do konfiguracji.
+Do skonfigurowania serwera Apache dla protokołu SSL, *mod_ssl* moduł jest używany. Gdy *host z wieloma adresami* moduł został zainstalowany, *mod_ssl* również został zainstalowany moduł. Jeśli nie została zainstalowana za pomocą `yum` Aby dodać go do konfiguracji.
 
 ```bash
 sudo yum install mod_ssl
 ```
 
-Aby wymusić protokołu SSL, należy zainstalować `mod_rewrite` modułu, aby umożliwić ponowne zapisywanie adresów URL:
+Aby Wymuszanie protokołu SSL, należy zainstalować `mod_rewrite` modułu, aby umożliwić ponownego zapisywania adresów URL:
 
 ```bash
 sudo yum install mod_rewrite
 ```
 
-Modyfikowanie *hellomvc.conf* plik, aby umożliwić ponowne zapisywanie adresów URL i zabezpieczania komunikacji na porcie 443:
+Modyfikowanie *hellomvc.conf* plik, aby włączyć ponownego zapisywania adresów URL i zabezpieczają komunikację na porcie 443:
 
 ```
 <VirtualHost *:*>
@@ -339,15 +339,15 @@ Modyfikowanie *hellomvc.conf* plik, aby umożliwić ponowne zapisywanie adresów
 ```
 
 > [!NOTE]
-> W tym przykładzie używa certyfikatu, generowany lokalnie. **SSLCertificateFile** powinien być plikiem podstawowego certyfikatu dla nazwy domeny. **SSLCertificateKeyFile** powinny być pliku klucza generowane po utworzeniu renderowanie po stronie klienta. **SSLCertificateChainFile** powinien być pliku certyfikatu pośredniego (jeśli istnieją) podane przez urząd certyfikacji.
+> W tym przykładzie używa lokalnie wygenerowany certyfikat. **SSLCertificateFile** powinien być plik certyfikatu podstawowego dla nazwy domeny. **SSLCertificateKeyFile** powinny być plik klucza generowane podczas tworzenia żądania CSR. **SSLCertificateChainFile** powinien być pliku pośredniego certyfikatu (jeśli istnieje) który został dostarczony przez urząd certyfikacji.
 
-Zapisz plik i testowanie konfiguracji:
+Zapisz plik i wykonaj test konfiguracji:
 
 ```bash
 sudo service httpd configtest
 ```
 
-Uruchom ponownie Apache:
+Uruchom ponownie usługę Apache:
 
 ```bash
 sudo systemctl restart httpd
@@ -355,17 +355,17 @@ sudo systemctl restart httpd
 
 ## <a name="additional-apache-suggestions"></a>Dodatkowe sugestie Apache
 
-### <a name="additional-headers"></a>Dodatkowych nagłówków
+### <a name="additional-headers"></a>Dodatkowe nagłówki
 
-Aby zabezpieczyć przed atakami, istnieje kilka nagłówki, które powinny być zmodyfikowany lub dodane. Upewnij się, że `mod_headers` moduł jest zainstalowany:
+Aby zabezpieczyć się przed złośliwymi atakami, istnieje kilka nagłówki, które powinny być zmodyfikowany lub dodane. Upewnij się, że `mod_headers` zainstalowany moduł:
 
 ```bash
 sudo yum install mod_headers
 ```
 
-#### <a name="secure-apache-from-clickjacking-attacks"></a>Zabezpieczenia przed atakami porywaniu kliknięć Apache
+#### <a name="secure-apache-from-clickjacking-attacks"></a>Zabezpieczanie Apache przed atakami porywaniu kliknięć
 
-[Porywaniu kliknięć](https://blog.qualys.com/securitylabs/2015/10/20/clickjacking-a-common-implementation-mistake-that-can-put-your-websites-in-danger), znanej także jako *interfejsu użytkownika odszkodowania ataku*, jest złośliwymi atakami, gdy obiekt odwiedzający witrynę sieci Web jest zachęceni do kliknięcia łącza lub przycisku na innej stronie, nie są one obecnie odwiedzający. Użyj `X-FRAME-OPTIONS` do zabezpieczenia witryny.
+[Porywaniu kliknięć](https://blog.qualys.com/securitylabs/2015/10/20/clickjacking-a-common-implementation-mistake-that-can-put-your-websites-in-danger), znane również jako *interfejsu użytkownika odszkodowania ataku*, jest złośliwymi atakami, gdzie zwiódł już obiekt odwiedzający witrynę sieci Web do kliknięcia łącza lub przycisku na innej stronie nie są one obecnie odwiedzający. Użyj `X-FRAME-OPTIONS` na zabezpieczenie witryny.
 
 Edytuj *httpd.conf* pliku:
 
@@ -375,7 +375,7 @@ sudo nano /etc/httpd/conf/httpd.conf
 
 Dodaj wiersz `Header append X-FRAME-OPTIONS "SAMEORIGIN"`. Zapisz plik. Uruchom ponownie Apache.
 
-#### <a name="mime-type-sniffing"></a>Wykrywanie typ MIME
+#### <a name="mime-type-sniffing"></a>Wykrywanie typu MIME
 
 `X-Content-Type-Options` Nagłówka uniemożliwia programowi Internet Explorer z *wykrywanie MIME* (Określanie pliku `Content-Type` z zawartości pliku). Jeśli serwer ustawia `Content-Type` nagłówka do `text/html` z `nosniff` zestaw opcji, program Internet Explorer renderuje zawartość jako `text/html` niezależnie od zawartości pliku.
 
@@ -389,13 +389,13 @@ Dodaj wiersz `Header set X-Content-Type-Options "nosniff"`. Zapisz plik. Uruchom
 
 ### <a name="load-balancing"></a>Równoważenie obciążenia
 
-W tym przykładzie przedstawiono sposób instalacji i konfiguracji Apache CentOS 7 i Kestrel na tym samym komputerze wystąpienia. Aby można było ma pojedynczego punktu awarii; przy użyciu *mod_proxy_balancer* i modyfikowanie **VirtualHost** umożliwiałyby zarządzania wiele wystąpień aplikacji sieci web za serwerem proxy Apache.
+W tym przykładzie pokazano, jak zainstalować i skonfigurować Apache CentOS 7 i Kestrel na tym samym komputerze wystąpienia. Aby można było ma pojedynczy punkt awarii; za pomocą *mod_proxy_balancer* i modyfikowanie **VirtualHost** pozwalają na zarządzanie wielu wystąpień funkcji web apps za serwerem proxy Apache.
 
 ```bash
 sudo yum install mod_proxy_balancer
 ```
 
-W pliku konfiguracyjnym pokazano poniżej, dodatkowego wystąpienia `hellomvc` aplikacji jest skonfigurowana do uruchamiania na porcie 5001. *Proxy* sekcji ustawiono na potrzeby równoważenia obciążenia z konfiguracją modułu równoważenia z dwóch członków *byrequests*.
+W pliku konfiguracyjnym pokazano poniżej, dodatkowe wystąpienia `hellomvc` aplikacja jest skonfigurowana do uruchamiania na porcie 5001. *Proxy* sekcji została ustawiona za pomocą konfiguracji usługi równoważenia, za pomocą dwóch członków do równoważenia obciążenia *byrequests*.
 
 ```
 <VirtualHost *:*>
@@ -435,12 +435,12 @@ W pliku konfiguracyjnym pokazano poniżej, dodatkowego wystąpienia `hellomvc` a
 
 ### <a name="rate-limits"></a>Limity szybkości
 
-Przy użyciu *mod_ratelimit*, który znajduje się w *host z wieloma adresami* moduł, może być ograniczona przepustowość klientów:
+Za pomocą *mod_ratelimit*, który znajduje się w *host z wieloma adresami* modułu, może być ograniczona przepustowość klientów:
 
 ```bash
 sudo nano /etc/httpd/conf.d/ratelimit.conf
 ```
-Przykładowy plik ogranicza przepustowość jako 600 KB/s w lokalizacji głównej:
+Przykładowy plik ogranicza przepustowość jako 600 KB/s, w obszarze Katalog główny:
 
 ```
 <IfModule mod_ratelimit.c>
@@ -453,4 +453,4 @@ Przykładowy plik ogranicza przepustowość jako 600 KB/s w lokalizacji główne
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Konfigurowanie platformy ASP.NET Core do pracy z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer)
+* [Konfigurowanie platformy ASP.NET Core pracować z serwerów proxy i moduły równoważenia obciążenia](xref:host-and-deploy/proxy-load-balancer)

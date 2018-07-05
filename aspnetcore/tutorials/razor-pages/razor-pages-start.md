@@ -5,12 +5,12 @@ description: Poznaj podstawy tworzenia aplikacji sieci web programu ASP.NET Core
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 7148f2d944bd1978b1a83278dfed9051f192e4dd
-ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
+ms.openlocfilehash: 10e9174b0bf094f7a4ea820a5afcf2705f900327
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37144940"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37433909"
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>Rozpoczynanie pracy ze stronami Razor w programie ASP.NET Core
 
@@ -38,7 +38,7 @@ Istnieją trzy wersje tego samouczka:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[! OBEJMUJĄ [] (~/includes/net-core-prereqs-windows.md) [](~/includes/net-core-prereqs-windows.md)]
+[!INCLUDE [Prerequisites](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="create-a-razor-web-app"></a>Tworzenie aplikacji sieci web Razor
 
@@ -72,7 +72,7 @@ Na poniższej ilustracji przedstawiono aplikację po zaakceptowaniu śledzenia:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[! OBEJMUJĄ [] (~/includes/net-core-prereqs-windows.md) [](~/includes/net-core-prereqs-windows.md)]
+[!INCLUDE [Prerequisites](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="create-a-razor-web-app"></a>Tworzenie aplikacji sieci web Razor
 

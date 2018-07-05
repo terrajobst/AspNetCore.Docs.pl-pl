@@ -1,6 +1,6 @@
 ---
 uid: visual-studio/overview/2013/index
-title: ASP.NET i Visual Studio 2013 | Dokumentacja firmy Microsoft
+title: Program ASP.NET i programu Visual Studio 2013 | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: Visual Studio 2013
 ms.author: aspnetcontent
@@ -9,17 +9,16 @@ ms.date: 06/25/2013
 ms.topic: article
 ms.assetid: 646edfc7-dc62-4fa0-84c2-926996c92aeb
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013
 msc.type: chapter
-ms.openlocfilehash: fad379374814c794754605a2aab193ec625e2182
-ms.sourcegitcommit: 3625e4f7a667641b058d23126f0d9d1844fee886
+ms.openlocfilehash: fb80ba2657e9a43b6cc7c0669f823fba1882eca5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
-ms.locfileid: "27980166"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370842"
 ---
-<a name="aspnet-and-visual-studio-2013"></a>ASP.NET i Visual Studio 2013
+<a name="aspnet-and-visual-studio-2013"></a>Program ASP.NET i programu Visual Studio 2013
 ====================
 > Tworzenie aplikacji sieci web ASP.NET za pomocą programu Visual Studio 2013
 
@@ -35,6 +34,6 @@ ms.locfileid: "27980166"
 - [Funkcja tworzenia szkieletu ASP.NET w programie Visual Studio 2013](aspnet-scaffolding-overview.md)
 - [Łączność z przeglądarkami](using-browser-link.md)
 - [Platforma ASP.NET i narzędzia Web Tools dla programu Visual Studio 2013 — informacje o wersji](release-notes.md)
-- [ASP.NET i narzędzia sieci Web 2013.2 dla programu Visual Studio 2013 informacje o wersji](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes.md)
+- [Program ASP.NET i narzędzia Web Tools 2013.2 dla programu Visual Studio 2013 Release Notes](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes.md)
 - [Warsztaty: narzędzia Web Tools dla programu Visual Studio 2013](visual-studio-2013-web-tools.md)
 - [Warsztaty: One ASP.NET: integrowanie wzorca ASP.NET Web Forms, MVC i Web API](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api.md)

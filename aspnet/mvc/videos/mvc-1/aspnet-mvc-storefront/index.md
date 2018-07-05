@@ -1,27 +1,26 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/index
-title: ASP.NET MVC sklepu | Dokumentacja firmy Microsoft
+title: ASP.NET MVC Storefront | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Zestaw startowy sklepu platformy ASP.NET MVC
+description: ASP.NET MVC StoreFront — Starter Kit
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
 ms.topic: article
 ms.assetid: 296b3a7a-483d-4937-ba2f-3f9c1319616a
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront
 msc.type: chapter
-ms.openlocfilehash: 78b42135d38918fb1d5c1d7a9dcdae1da9b660f1
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 9dcd17dc7599e9a38ebf72b32c1cb1df63ad1973
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 02/12/2018
-ms.locfileid: "29153245"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368549"
 ---
-<a name="aspnet-mvc-storefront"></a>Sklepu platformy ASP.NET MVC
+<a name="aspnet-mvc-storefront"></a>ASP.NET MVC Storefront
 ====================
-> Zestaw startowy sklepu platformy ASP.NET MVC
+> ASP.NET MVC StoreFront — Starter Kit
 
 
 - [ASP.NET MVC Storefront — część 1: omówienie architektury](aspnet-mvc-storefront-part-1-architectural-discussion-and-overview.md)
@@ -42,7 +41,7 @@ ms.locfileid: "29153245"
 - [ASP.NET MVC Storefront — część 16: ponowne wprowadzenie członkostwa z użyciem OpenID](aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
 - [ASP.NET MVC Storefront — część 17: finalizacja zakupu z Jeffem Atwoodem](aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
 - [ASP.NET MVC Storefront — część 18: tworzenie środowiska](aspnet-mvc-storefront-part-18-creating-an-experience.md)
-- [Część sklepu platformy ASP.NET MVC 19: Przetwarzanie zamówień z przepływu pracy systemu Windows](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+- [ASP.NET MVC Storefront — część 19: przetwarzanie zamówień za pomocą programu Windows Workflow](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
 - [ASP.NET MVC Storefront — część 19a: dalsze czynności w programie Windows Workflow](aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
 - [ASP.NET MVC Storefront — część 20: rejestrowanie](aspnet-mvc-storefront-part-20-logging.md)
 - [ASP.NET MVC Storefront — część 21: menedżer zamówień i personalizacja](aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)

@@ -2,22 +2,21 @@
 uid: signalr/overview/older-versions/troubleshooting
 title: Rozwiązywanie problemów z SignalR (SignalR 1.x) | Dokumentacja firmy Microsoft
 author: pfletcher
-description: W tym artykule opisano często występujące problemy z opracowywanie aplikacji SignalR.
+description: W tym artykule opisano typowe problemy z programowaniem aplikacji SignalR.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/05/2013
 ms.topic: article
 ms.assetid: 347210ba-c452-4feb-886f-b51d89f58971
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: eb739f806eb57d09008fa0bf04b5a40721dab73d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 94b7ec44fbe54b114baef6240f303a1e3b706741
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566051"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37372429"
 ---
 <a name="signalr-troubleshooting-signalr-1x"></a>Rozwiązywanie problemów z SignalR (SignalR 1.x)
 ====================
@@ -28,90 +27,90 @@ przez [Patrick Fletcher](https://github.com/pfletcher)
 
 Ten dokument zawiera następujące sekcje.
 
-- [Wywoływanie metody między klientem i serwerem dyskretnie kończy się niepowodzeniem](#connection)
+- [Podczas wywoływania metody między klientem i serwerem dyskretnie kończy się niepowodzeniem](#connection)
 - [Inne problemy z połączeniem](#other)
 - [Błędy kompilacji i po stronie serwera](#server)
-- [Problemy z usługą Visual Studio](#vs)
+- [Problemy z programu Visual Studio](#vs)
 - [Problemy z internetowych usług informacyjnych](#iis)
-- [Problemy z platformy Azure](#azure)
+- [Problemy dotyczące platformy Azure](#azure)
 
 <a id="connection"></a>
 
-## <a name="calling-methods-between-the-client-and-server-silently-fails"></a>Wywoływanie metody między klientem i serwerem dyskretnie kończy się niepowodzeniem
+## <a name="calling-methods-between-the-client-and-server-silently-fails"></a>Podczas wywoływania metody między klientem i serwerem dyskretnie kończy się niepowodzeniem
 
-W tej sekcji opisano możliwe przyczyny wywołania metody między klientem i serwerem niepowodzenie bez komunikat o błędzie łatwy do rozpoznania. W aplikacji SignalR serwer nie ma informacji o metod, które implementuje w kliencie; gdy serwer wywołuje metodę klienta, dane nazwy i parametru metody są wysyłane do klienta, a metoda jest wykonywana tylko wtedy, gdy istnieje w formacie, który określony serwer. Jeśli odpowiadającej metody znajduje się na kliencie, nic się nie dzieje i żaden komunikat o błędzie nie jest zgłaszany na serwerze.
+W tej sekcji opisano możliwe przyczyny między klientem i serwerem niepowodzenie bez komunikatów zrozumiałego błędu w wywołaniu metody. W przypadku aplikacji SignalR serwera nie ma informacji o metodach, które implementuje klienta; gdy serwer wywołuje metodę klienta, dane nazwy i parametru metody są wysyłane do klienta, a metoda jest wykonywana tylko wtedy, gdy istnieje w formacie, który określony serwer. Jeśli żadna metoda dopasowania zostanie znaleziony na komputerze klienckim, nic się nie dzieje, i bez komunikatu o błędzie jest wywoływane na serwerze.
 
-W celu dalszego badania nie pobierania wywoływać metody klienta, można włączyć rejestrowanie przed wywołaniem metody start koncentratora, aby zobaczyć, jakie wywołania pochodzą z serwera. Aby włączyć rejestrowanie w aplikacji JavaScript, zobacz [włączania rejestrowania po stronie klienta (wersja klienta JavaScript)](../guide-to-the-api/hubs-api-guide-javascript-client.md#logging). Aby włączyć rejestrowanie w aplikacji klienckiej .NET, zobacz [włączania rejestrowania po stronie klienta (wersja klienta .NET)](../guide-to-the-api/hubs-api-guide-net-client.md#logging).
+Aby badać nie wprowadzenie wywoływanych metod klienta, można włączyć rejestrowanie przed wywołaniem metody start koncentratora, aby zobaczyć, jakie wywołuje pochodzą z serwera. Aby włączyć rejestrowanie w aplikacji w języku JavaScript, zobacz [włączania rejestrowania po stronie klienta (wersja klienta JavaScript)](../guide-to-the-api/hubs-api-guide-javascript-client.md#logging). Aby włączyć rejestrowanie w aplikacji klienckiej platformy .NET, zobacz [włączania rejestrowania po stronie klienta (w wersji klienta platformy .NET)](../guide-to-the-api/hubs-api-guide-net-client.md#logging).
 
-### <a name="misspelled-method-incorrect-method-signature-or-incorrect-hub-name"></a>Błędnie — metoda, podpis metody nieprawidłowe lub nazwa nieprawidłowa koncentratora
+### <a name="misspelled-method-incorrect-method-signature-or-incorrect-hub-name"></a>Błędnie napisane metody, podpis metody niepoprawne lub nazwa nieprawidłowa Centrum
 
-Jeśli w nazwie lub podpisie metody wywoływanego jest dokładnie zgodny odpowiedniej metody na kliencie, wywołanie zakończy się niepowodzeniem. Sprawdź, czy nazwa metody wywoływane przez serwer zgodna Nazwa metody na kliencie. Ponadto SignalR tworzy serwera proxy koncentratora, za pomocą metody formatu — z uwzględnieniem wielkości liter, jest odpowiednie w języku JavaScript, więc wywołana metoda `SendMessage` na serwerze może być wywoływana `sendMessage` na serwerze proxy klienta. Jeśli używasz `HubName` atrybutu w kodzie po stronie serwera, sprawdź, czy nazwa używana zgodna z nazwą pozwala utworzyć koncentratora na kliencie. Jeśli nie używasz `HubName` atrybutu, sprawdzić, czy nazwa koncentratora na kliencie JavaScript jest formatu — z uwzględnieniem wielkości liter, takie jak chatHub zamiast ChatHub.
+Nazwa lub podpis metody o nazwie nie jest dokładnie dopasowana odpowiedniej metody na kliencie, wywołanie zakończy się niepowodzeniem. Sprawdź, czy nazwa metody wywoływane przez serwer odpowiada nazwę metody na kliencie. Ponadto SignalR tworzy serwer proxy koncentratora, za pomocą metod formacie camelcase, jest odpowiednie w języku JavaScript, więc wywołana metoda `SendMessage` na serwerze może być wywoływana `sendMessage` na serwerze proxy klienta. Jeśli używasz `HubName` atrybutu w kodzie po stronie serwera, upewnij się, że nazwa używana odpowiada nazwa służąca do tworzenia koncentratora na kliencie. Jeśli nie używasz `HubName` atrybutu, sprawdź, czy nazwa koncentratora na kliencie JavaScript — w formacie camelcase, takich jak chatHub zamiast ChatHub.
 
 ### <a name="duplicate-method-name-on-client"></a>Zduplikowana nazwa metody na kliencie
 
-Sprawdź, czy nie zduplikowaną metodę na kliencie, który różni się tylko wielkością liter. Jeśli aplikacja kliencka ma metodę o nazwie `sendMessage`, sprawdź, czy nie ma również metody o nazwie `SendMessage` również.
+Sprawdź, czy ma zduplikowaną metodę na komputerze klienckim, który różni się tylko wielkością liter. Jeśli Twoja aplikacja kliencka ma metodę o nazwie `sendMessage`, sprawdź, czy nie ma również metodę o nazwie `SendMessage` również.
 
-### <a name="missing-json-parser-on-the-client"></a>Brak analizator JSON na kliencie
+### <a name="missing-json-parser-on-the-client"></a>Brak analizatora JSON na komputerze klienckim
 
-SignalR wymaga analizatora składni JSON do serializacji połączeń między serwerem a klientem. Jeśli klient nie ma wbudowanej analizatora składni JSON (takich jak program Internet Explorer 7), należy uwzględnić w aplikacji. Możesz pobrać analizatora składni JSON [tutaj](http://nuget.org/packages/json2).
+SignalR wymaga analizatora składni JSON do serializacji wywołań między serwerem a klientem. Jeśli Twój klient nie ma wbudowanych analizatora składni JSON (np. programu Internet Explorer 7), należy podać jeden w aplikacji. Możesz pobrać analizatora składni JSON [tutaj](http://nuget.org/packages/json2).
 
-### <a name="mixing-hub-and-persistentconnection-syntax"></a>Mieszanie koncentratora i klasy PersistentConnection składni
+### <a name="mixing-hub-and-persistentconnection-syntax"></a>Łączenie Centrum i PersistentConnection składni
 
-Biblioteka SignalR używa dwóch modeli komunikacji: koncentratorów i PersistentConnections. Składnia wywoływania tych dwóch komunikacji modeli różni się w kodzie klienta. Jeśli koncentrator został dodany w kodzie serwera, Sprawdź cały kod klienta jest używana składnia prawidłowego koncentratora.
+SignalR używa dwóch modeli komunikacji: koncentratorów i PersistentConnections. Składnia wywoływania modele te dwa komunikacji różni się w kodzie klienta. Jeśli koncentrator zostały dodane w kodzie serwera, należy sprawdzić, cały kod klienta jest używana składnia odpowiedniego koncentratora.
 
-**Kod klienta JavaScript, który tworzy klasy PersistentConnection w kliencie JavaScript**
+**Kod klienta JavaScript, który tworzy PersistentConnection klient JavaScript**
 
 [!code-javascript[Main](troubleshooting/samples/sample1.js)]
 
-**Kod JavaScript klienta, która tworzy Proxy koncentratora na kliencie Javascript**
+**Kod klienta JavaScript, który tworzy serwer Proxy koncentratora klienta Javascript**
 
 [!code-javascript[Main](troubleshooting/samples/sample2.js)]
 
-**C# serwera kod, który mapuje trasę do klasy PersistentConnection**
+**C# serwera kod, który mapuje trasę PersistentConnection**
 
 [!code-csharp[Main](troubleshooting/samples/sample3.cs)]
 
-**C# serwera kod, który mapuje trasy z koncentratorem lub do wielu koncentratorów, jeśli masz wiele aplikacji**
+**C# serwera kod, który mapuje trasę koncentratora lub wielu centrów, jeśli masz wiele aplikacji**
 
 [!code-csharp[Main](troubleshooting/samples/sample4.cs)]
 
-### <a name="connection-started-before-subscriptions-are-added"></a>Połączenie zostało uruchomione przed subskrypcje są dodawane
+### <a name="connection-started-before-subscriptions-are-added"></a>Połączenia pracy przed subskrypcje są dodawane
 
-Jeśli połączenie koncentratora jest uruchomiona, zanim metod, które mogą być wywoływane z serwera zostaną dodane do serwera proxy, nie można odebrać wiadomości. Następujący kod JavaScript nie zostanie prawidłowo uruchomić Centrum:
+Jeśli połączenie koncentratora jest uruchomiona, zanim metod, które mogą być wywoływane z serwera zostaną dodane do serwera proxy, nie można odebrać wiadomości. Następujący kod JavaScript nie będą prawidłowo uruchomić Centrum:
 
-**Niepoprawny kod klienta JavaScript nie zezwala na komunikaty koncentratory do odebrania**
+**Nieprawidłowy kod klienta JavaScript nie pozwoli na Hubs komunikaty do odbioru**
 
 [!code-javascript[Main](troubleshooting/samples/sample5.js)]
 
-Zamiast tego dodać subskrypcji metoda przed wywołaniem metody Start:
+Zamiast tego Dodaj subskrypcje metoda przed wywołaniem rozpoczęcia:
 
-**Kod klienta JavaScript poprawnie dodające subskrypcji z koncentratorem**
+**Kod klienta JavaScript, który poprawnie dodaje subskrypcji do koncentratora**
 
 [!code-javascript[Main](troubleshooting/samples/sample6.js)]
 
 ### <a name="missing-method-name-on-the-hub-proxy"></a>Brak nazwy metody dla serwera proxy koncentratora
 
-Upewnij się, że metoda, zdefiniowanego na serwerze jest subskrybentem na kliencie. Nawet jeśli serwer definiuje metodę, nadal należy dodać do serwera proxy klienta. Metody można dodać do serwera proxy klienta w następujący sposób (należy pamiętać, że metoda jest dodawana do `client` elementu członkowskiego koncentratora, a nie bezpośrednio koncentratora):
+Upewnij się, że metoda, zdefiniowana na serwerze jest subskrybowana na komputerze klienckim. Mimo, że serwer definiuje metodę, nadal należy dodać do serwera proxy klienta. Metody można dodać do serwera proxy klienta w następujący sposób (należy pamiętać, że metoda jest dodawana do `client` członkiem Centrum, a nie bezpośrednio Centrum):
 
-**Kod JavaScript klienta, który dodaje metody do serwera proxy koncentratora**
+**Kod klienta JavaScript, który dodaje metody do serwera proxy koncentratora**
 
 [!code-javascript[Main](troubleshooting/samples/sample7.js)]
 
-### <a name="hub-or-hub-methods-not-declared-as-public"></a>Centrum i metod koncentratorów nie jest zadeklarowany jako publiczny
+### <a name="hub-or-hub-methods-not-declared-as-public"></a>Koncentrator lub metod koncentratora, które nie jest zadeklarowany jako publiczny
 
-Aby były widoczne na kliencie, implementacji koncentratora i metody musi być zadeklarowany jako `public`.
+Mają być wyświetlane na komputerze klienckim, implementacji koncentratora i metody musi być zadeklarowany jako `public`.
 
 ### <a name="accessing-hub-from-a-different-application"></a>Uzyskiwanie dostępu do Centrum z innej aplikacji
 
-Koncentratory SignalR można uzyskać tylko za pośrednictwem aplikacji, które implementują klientów SignalR. SignalR nie może współpracować z innymi bibliotekami komunikacji (np. SOAP lub WCF usługi sieci web.) Jeśli nie jest dostępny dla danej platformy docelowej nie klienta SignalR, nie masz dostępu do serwera punktu końcowego bezpośrednio.
+Koncentratory SignalR zostać oceniony jedynie przez aplikacje, które implementują klientów SignalR. SignalR nie może współpracować z innymi bibliotekami komunikacji (na przykład protokołu SOAP usług WCF i sieci web.) Jeśli nie klienta SignalR jest dostępna dla danej platformy docelowej, nie masz dostępu do punktu końcowego serwera bezpośrednio.
 
 ### <a name="manually-serializing-data"></a>Ręcznie serializacja danych
 
-SignalR będą automatycznie używać JSON do serializacji metodę parametry tam nie ma potrzeby zrobić samodzielnie.
+SignalR będzie automatycznie używać JSON do serializacji metodę parametry tam nie ma potrzeby zrobić to samodzielnie.
 
-### <a name="remote-hub-method-not-executed-on-client-in-ondisconnected-function"></a>Nie wykonano na kliencie w funkcji ondisconnected elementu zdalnym metody koncentratora
+### <a name="remote-hub-method-not-executed-on-client-in-ondisconnected-function"></a>Zdalne metody koncentratora, które nie zostały wykonane na komputerze klienckim w funkcji ondisconnected elementu
 
-To zachowanie jest celowe. Gdy `OnDisconnected` jest wywoływana, koncentratora został już wprowadzony `Disconnected` stanu, który nie zezwala na dalsze można wywołać metody koncentratora.
+To zachowanie jest celowe. Gdy `OnDisconnected` jest wywoływana, koncentrator został już wprowadzone `Disconnected` stanu, który nie zezwala na dalsze można wywołać metody koncentratora.
 
 **C# serwera kod, który prawidłowo wykonuje kod w zdarzeniu ondisconnected elementu**
 
@@ -119,17 +118,17 @@ To zachowanie jest celowe. Gdy `OnDisconnected` jest wywoływana, koncentratora 
 
 ### <a name="connection-limit-reached"></a>Osiągnięto limit połączeń
 
-Korzystając z pełną wersję programu IIS w systemie operacyjnym klienta, takich jak Windows 7, nakłada się limit 10 połączeń. Podczas korzystania z systemu operacyjnego klienta, użyj programu IIS Express w celu uniknięcia tego limitu.
+Korzystając z pełnej wersji programu IIS w systemie operacyjnym klienta, takich jak Windows 7, nakłada się limit 10 połączeń. Korzystając z system operacyjny klienta, użyj usług IIS Express w celu uniknięcia tego limitu.
 
-### <a name="cross-domain-connection-not-set-up-properly"></a>Połączenie między domenami nie zostało prawidłowo skonfigurowane
+### <a name="cross-domain-connection-not-set-up-properly"></a>Połączenia między domenami nie są poprawnie ustawione
 
-Jeśli połączenie między domenami (połączenie dla którego SignalR adres URL nie jest w tej samej domenie co stronę hostingu) nie jest skonfigurowane poprawnie, połączenie może zakończyć się niepowodzeniem bez komunikatu o błędzie. Aby uzyskać informacje na temat włączania komunikacji między domenami, zobacz [jak nawiązać połączenie między domenami](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
+Jeśli połączenie między domenami (dla której SignalR adres URL nie jest w tej samej domenie co strona macierzysta połączenia) nie jest skonfigurowany poprawnie, połączenie może zakończyć się niepowodzeniem bez komunikatu o błędzie. Aby uzyskać informacje na temat włączania komunikacji między domenami, zobacz [jak nawiązać połączenie między domenami](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
 
-### <a name="connection-using-ntlm-active-directory-not-working-in-net-client"></a>Połączenia przy użyciu protokołu NTLM (Active Directory), nie będzie działać w klienta .NET
+### <a name="connection-using-ntlm-active-directory-not-working-in-net-client"></a>Połączenie przy użyciu metod NTLM (Active Directory) nie działa w klienta platformy .NET
 
-Połączenie w aplikacji klienta .NET, która używa zabezpieczeń domeny może zakończyć się niepowodzeniem, jeśli połączenie nie jest prawidłowo skonfigurowany. Aby użyć SignalR w środowisku domeny, należy ustawić właściwość wymagane połączenia w następujący sposób:
+Połączenia w aplikacji klienckiej platformy .NET, która używa zabezpieczenia domeny może zakończyć się niepowodzeniem, jeśli połączenie nie jest prawidłowo skonfigurowany. Aby używanie biblioteki SignalR w środowisku domeny, należy ustawić właściwość wymagane połączenie w następujący sposób:
 
-**C# klienta kod, który implementuje poświadczeń dla połączenia**
+**C# kod klienta, który implementuje poświadczenia połączenia**
 
 [!code-csharp[Main](troubleshooting/samples/sample9.cs)]
 
@@ -137,171 +136,171 @@ Połączenie w aplikacji klienta .NET, która używa zabezpieczeń domeny może 
 
 ## <a name="other-connection-issues"></a>Inne problemy z połączeniem
 
-W tej sekcji opisano przyczyny i rozwiązania symptomy lub komunikaty o błędach, jakie występują podczas połączenia.
+W tej sekcji opisano przyczyny i rozwiązania dla symptomy lub komunikaty o błędach, które występują podczas połączenia.
 
 ### <a name="start-must-be-called-before-data-can-be-sent-error"></a>Błąd "Start musi zostać wywołana przed wysłaniem danych"
 
-Ten błąd występuje często, jeśli kod odwołuje się do obiektów SignalR przed rozpoczęciem połączenia. Wireup dla programów obsługi i podobnych czy będzie wywołania metody, zdefiniowanego na serwerze należy dodać po zakończeniu połączenia. Należy pamiętać, że wywołanie `Start` jest asynchroniczne, więc zakończeniu kod po wywołaniu mogą być wykonywane przed. Dodaj programy obsługi, połączenie zostanie całkowicie rozpoczęta najlepiej do funkcji wywołania zwrotnego, która jest przekazywana jako parametr do metody uruchamiania:
+Ten błąd występuje często, jeśli kod odwołuje się do obiektów SignalR przed rozpoczęciem połączenia. Wireup dla programów obsługi i podobne że zostanie wywołania metod, zdefiniowanych na serwerze należy dodać po zakończeniu połączenie. Należy pamiętać, że wywołanie `Start` jest asynchroniczna, więc kończy się kod po wywołaniu mogą być wykonywane przed. Najlepszym sposobem dodania obsługi po connection rozpoczyna się całkowicie jest umieść je w funkcji wywołania zwrotnego, który jest przekazywany jako parametr do metody uruchamiania:
 
-**Kod klienta JavaScript poprawnie dodające procedury obsługi zdarzeń, które odwołują się obiekty SignalR**
+**Kod klienta JavaScript, który dodaje poprawnie procedury obsługi zdarzeń, które odwołują się obiekty SignalR**
 
 [!code-javascript[Main](troubleshooting/samples/sample10.js?highlight=1)]
 
-Ten błąd będzie także wystąpić, jeśli połączenie zostanie zatrzymana, gdy SignalR obiekty są nadal odwołuje.
+Ten błąd będzie widoczny także w przypadku, gdy połączenie zatrzymuje się podczas SignalR obiekty są nadal odwołuje.
 
-### <a name="301-moved-permanently-or-302-moved-temporarily-error"></a>"301 Przeniesiono trwale" lub "302 został tymczasowo przeniesiony" błędu
+### <a name="301-moved-permanently-or-302-moved-temporarily-error"></a>Błąd "302 został tymczasowo przeniesiony" lub "301 przeniesiony trwale"
 
-Ten błąd może wystąpić, jeśli projekt zawiera folder o nazwie SignalR, który będzie zakłócać proxy tworzone automatycznie. Aby uniknąć tego błędu, nie należy używać folder o nazwie `SignalR` w aplikacji, lub Włącz automatyczną serwera proxy generowania off. Zobacz [Proxy generowany i jakie operacje dla Ciebie](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy) więcej szczegółów.
+Ten błąd może zobaczyć, jeśli projekt zawiera folder o nazwie SignalR, który będzie zakłócać proxy tworzone automatycznie. Aby uniknąć tego błędu, nie należy używać w folderze o nazwie `SignalR` w aplikacji lub Wyłącz automatyczną serwera proxy generation wyłączone. Zobacz [serwera Proxy, które są generowane i robi dla Ciebie](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy) Aby uzyskać więcej informacji.
 
-### <a name="403-forbidden-error-in-net-or-silverlight-client"></a>Błąd "403 zabroniony" w kliencie .NET lub Silverlight
+### <a name="403-forbidden-error-in-net-or-silverlight-client"></a>"403 Dostęp zabroniony" Błąd w kliencie .NET lub Silverlight
 
-Ten błąd może wystąpić w środowiskach międzydomenowego, gdzie komunikacji między domenami nie jest prawidłowo włączone. Aby uzyskać informacje na temat włączania komunikacji między domenami, zobacz [jak nawiązać połączenie między domenami](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain). Aby nawiązać połączenie między domenami w kliencie programu Silverlight, zobacz [międzydomenowego połączenia od klientów programu Silverlight](../guide-to-the-api/hubs-api-guide-net-client.md#slcrossdomain).
+Ten błąd może wystąpić w środowiskach między domenami gdzie komunikacji między domenami nie jest prawidłowo włączone. Aby uzyskać informacje na temat włączania komunikacji między domenami, zobacz [jak nawiązać połączenie między domenami](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain). Aby nawiązać połączenie między domenami w klienta Silverlight, zobacz [połączenia między domenami od klientów programu Silverlight](../guide-to-the-api/hubs-api-guide-net-client.md#slcrossdomain).
 
-### <a name="404-not-found-error"></a>Błąd "nie można odnaleźć 404"
+### <a name="404-not-found-error"></a>Błąd "404 Nie znaleziono"
 
 Istnieje kilka przyczyn tego problemu. Sprawdź wszystkie z następujących czynności:
 
-- **Odwołanie do adresu serwera proxy koncentratora nieprawidłowo sformatowana:** ten błąd często jest widoczny, gdy odwołanie do wygenerowanego Centrum adres serwera proxy nie jest prawidłowo sformatowany. Upewnij się, że adres centrum odniesienia poprawnie. Zobacz [jak odwołuje się dynamicznie generowanym obiektu pośredniczącego](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) szczegółowe informacje.
-- **Dodawanie tras do aplikacji przed dodaniem trasę koncentratora:** Jeśli aplikacja korzysta z innych tras, sprawdź, czy trasa pierwszy dodawane wywołania `MapHubs`.
+- **Odwołanie do adresu serwera proxy koncentratora niepoprawny format:** tego błędu jest częsta, jeśli odwołanie do Centrum wygenerowany adres serwera proxy nie jest poprawnie sformatowany. Sprawdź, czy adres centrum odniesienia prawidłowo. Zobacz [jak odwoływać się do serwera proxy w dynamicznie generowanym](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Aby uzyskać szczegółowe informacje.
+- **Dodawanie tras do aplikacji przed dodaniem trasę koncentratora:** Jeśli aplikacja korzysta z innych tras, sprawdź, czy pierwsza trasa dodano wywołanie `MapHubs`.
 
 ### <a name="500-internal-server-error"></a>"500 Wewnętrzny błąd serwera"
 
-Jest to bardzo ogólny błąd, który może występować wiele różnych przyczyn. Szczegóły błędu powinny być wyświetlane w dzienniku zdarzeń serwera lub znajduje się za pomocą debugowania serwera. Bardziej szczegółowe informacje o błędzie można uzyskać poprzez włączenie szczegółowe błędy na serwerze. Aby uzyskać więcej informacji, zobacz [sposób obsługi błędów w klasie Centrum](../guide-to-the-api/hubs-api-guide-server.md#handleErrors).
+Jest to bardzo ogólny błąd, który może mieć różnych przyczyn. Szczegółowe informacje o błędzie powinien zostać wyświetlony w dzienniku zdarzeń serwera lub znajduje się za pośrednictwem serwera debugowania. Bardziej szczegółowe informacje o błędzie można uzyskać, włączając szczegółowe błędy na serwerze. Aby uzyskać więcej informacji, zobacz [sposób obsługi błędów w klasie Centrum](../guide-to-the-api/hubs-api-guide-server.md#handleErrors).
 
 ### <a name="typeerror-lthubtypegt-is-undefined-error"></a>"TypeError: &lt;hubType&gt; zdefiniowano" Błąd
 
-Spowoduje to błąd wywołania `MapHubs` nie zostało utworzone prawidłowo. Zobacz [jak zarejestrować trasy SignalR i skonfigurować opcje SignalR](../guide-to-the-api/hubs-api-guide-server.md#route) Aby uzyskać więcej informacji.
+Spowoduje to błąd, jeśli wywołanie `MapHubs` nie jest wykonywana prawidłowo. Zobacz [jak się zarejestrować trasę SignalR i skonfiguruj opcje SignalR](../guide-to-the-api/hubs-api-guide-server.md#route) Aby uzyskać więcej informacji.
 
-### <a name="jsonserializationexception-was-unhandled-by-user-code"></a>JsonSerializationException został obsłużony przez kod użytkownika
+### <a name="jsonserializationexception-was-unhandled-by-user-code"></a>JsonSerializationException nie został obsłużony przez kod użytkownika
 
-Sprawdź parametry, których wysyłanie do metody nie dołączaj do serializacji typów (na przykład dojścia do plików lub połączenia z bazą danych). Jeśli musisz użyć elementów członkowskich w obiekcie po stronie serwera, który nie ma do wysłania do klienta (lub zabezpieczeń ze względu na serializacji), użyj `JSONIgnore` atrybutu.
+Upewnij się, że parametry, z których możesz wysłać do metody nie zawierają nieprzeznaczone do typów (takich jak dojścia do plików lub połączenia z bazą danych). Jeśli musisz używać elementów członkowskich w obiekcie po stronie serwera, który nie ma do wysłania do klienta, (zarówno dla zabezpieczeń i powodów serializacji), użyj `JSONIgnore` atrybutu.
 
-### <a name="protocol-error-unknown-transport-error"></a>"Błąd protokołu: nieznany transport" Błąd
+### <a name="protocol-error-unknown-transport-error"></a>"Błąd protokołu: nieznany transportu" Błąd
 
-Ten błąd może wystąpić, jeśli klient nie obsługuje transportów, które korzysta z SignalR. Zobacz [transportu i przejścia](../getting-started/introduction-to-signalr.md#transports) informacje, na którym przeglądarki może być używany z SignalR.
+Ten błąd może wystąpić, jeśli klient nie obsługuje transportów, które korzysta z biblioteki SignalR. Zobacz [transportu i planów awaryjnych](../getting-started/introduction-to-signalr.md#transports) informacji, na którym przeglądarki mogą być używane z SignalR.
 
-### <a name="javascript-hub-proxy-generation-has-been-disabled"></a>"Generowanie serwera proxy elementu Hub w języku JavaScript zostało wyłączone."
+### <a name="javascript-hub-proxy-generation-has-been-disabled"></a>"Generowania serwera proxy koncentratora języka JavaScript została wyłączona."
 
-Ten błąd wystąpi, jeśli `DisableJavaScriptProxies` ustawiono podczas także w tym odwołania na dynamicznie generowanym serwer proxy na `signalr/hubs`. Aby uzyskać więcej informacji na temat tworzenia serwer proxy ręcznie, zobacz [wygenerowany serwer proxy i jakie operacje dla Ciebie](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy).
+Ten błąd wystąpi, jeśli `DisableJavaScriptProxies` ustawiono podczas dotyczy to również odwołanie na dynamicznie generowanym serwer proxy na `signalr/hubs`. Aby uzyskać więcej informacji na temat ręcznego tworzenia serwera proxy, zobacz [wygenerowany serwer proxy i przeznaczenie dla Ciebie](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy).
 
-### <a name="the-connection-id-is-in-the-incorrect-format-or-the-user-identity-cannot-change-during-an-active-signalr-connection-error"></a>"Identyfikator połączenia, który ma niepoprawny format" lub "tożsamości użytkownika nie można zmieniać podczas aktywnego połączenia SignalR" Błąd
+### <a name="the-connection-id-is-in-the-incorrect-format-or-the-user-identity-cannot-change-during-an-active-signalr-connection-error"></a>"Identyfikator połączenia, który jest w niepoprawnym formacie" lub "tożsamość użytkownika nie można zmienić podczas aktywnego połączenia SignalR" Błąd
 
-Ten błąd może wystąpić, jeśli jest używane uwierzytelnianie, a klient wylogowaniu przed połączenie zostanie zatrzymana. Rozwiązaniem jest zatrzymanie połączenia SignalR, przed zalogowaniem klienta.
+Ten błąd może być widoczny, gdy jest używane uwierzytelnianie, a klient jest wylogowanie, zanim połączenie zostanie zatrzymana. Rozwiązaniem jest zatrzymanie połączenia SignalR przed wylogowanie klienta.
 
-### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"Nieprzechwyconego błędu: SignalR: nie można odnaleźć jQuery. Upewnij się, że jQuery odwołuje się do pliku SignalR.js"Błąd
+### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"Błąd nieprzechwycony: SignalR: nie można odnaleźć jQuery. Upewnij się, że jQuery odwołuje się do pliku SignalR.js"Błąd
 
-Klient programu SignalR JavaScript wymaga jQuery do uruchomienia. Sprawdź, czy odwołania do jQuery jest poprawna, czy ścieżki jest prawidłowa i czy odniesienie do jQuery jest przed odwołanie do biblioteki SignalR.
+Klient SignalR JavaScript wymaga jQuery do uruchomienia. Sprawdź, czy której można się odwołać do technologii jQuery jest poprawna, czy ścieżki jest prawidłowa i czy odwołanie do technologii jQuery jest przed odwołanie do biblioteki SignalR.
 
-### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Nieprzechwyconego TypeError: nie można odczytać właściwości"&lt;właściwości&gt;"undefined" Błąd
+### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Nieprzechwycony TypeError: nie można odczytać właściwości"&lt;właściwość&gt;"undefined" Błąd
 
-Ten błąd wynika z nie posiadają jQuery lub serwera proxy koncentratory odpowiednie odwołania. Sprawdź, czy odwołania do jQuery i koncentratory serwera proxy jest poprawna, czy ścieżki jest prawidłowa i czy odniesienie do jQuery jest przed odwołanie do serwera proxy koncentratorów. Domyślne odwołanie do serwera proxy koncentratory powinna wyglądać następująco:
+Ten błąd wynika z nie posiadają jQuery lub serwer proxy koncentratory odpowiednie odwołania. Sprawdź, czy odwołania do jQuery i koncentratory serwer proxy jest prawidłowy, czy ścieżki jest prawidłowa i czy odwołanie do technologii jQuery jest przed odwołanie do serwera proxy koncentratorów. Domyślne odwołanie do serwera proxy koncentratory powinien wyglądać następująco:
 
-**Kod HTML po stronie klienta, która poprawnie odwołuje się do serwera proxy koncentratory**
+**Kod po stronie klienta HTML, która poprawnie odwołuje się do serwera proxy koncentratory**
 
 [!code-html[Main](troubleshooting/samples/sample11.html)]
 
-### <a name="runtimebinderexception-was-unhandled-by-user-code-error"></a>Błąd "RuntimeBinderException został obsłużony przez kod użytkownika"
+### <a name="runtimebinderexception-was-unhandled-by-user-code-error"></a>Błąd "RuntimeBinderException nie został obsłużony przez kod użytkownika"
 
-Ten błąd może wystąpić, gdy niepoprawne przeciążenia `Hub.On` jest używany. Jeśli metoda ma wartość zwracaną, zwracany typ musi być określona jako parametr typu ogólnego:
+Ten błąd może wystąpić, gdy niepoprawne przeciążenia `Hub.On` jest używany. Jeśli metoda nie zwraca wartości, zwracanym typem musi być określona jako parametr typu ogólnego:
 
-**Metody zdefiniowane na kliencie (bez wygenerowany serwer proxy)**
+**Metody zdefiniowane na komputerze klienckim (bez wygenerowany serwer proxy)**
 
 [!code-html[Main](troubleshooting/samples/sample12.html?highlight=1)]
 
-### <a name="connection-id-is-inconsistent-or-connection-breaks-between-page-loads"></a>Identyfikator połączenia jest niespójna lub przerywa połączenia między elementami strony
+### <a name="connection-id-is-inconsistent-or-connection-breaks-between-page-loads"></a>Identyfikator połączenia jest niezgodny lub zerwania połączenia między ładowań strony
 
-To zachowanie jest celowe. Ponieważ obiekt koncentratora znajduje się w obiekcie strony, koncentratora zostanie zniszczony po odświeżeniu strony. Aplikacji wielostronicowych musi zachować skojarzenia między użytkownikami a identyfikatorów połączeń, dzięki czemu będą one spójne ładunków strona. Identyfikatorów połączeń mogą być przechowywane na serwerze w jednej `ConcurrentDictionary` obiektu lub bazy danych.
+To zachowanie jest celowe. Od czasu w obiekcie strony znajduje się obiekt koncentratora, koncentratora jest niszczony, kiedy odświeżeniu strony. Aplikacja wielostronicowych musi zachować skojarzenia między użytkownikami i identyfikatorów połączeń, tak aby były one wspólne dla ładowań strony. Identyfikatorów połączeń mogą być przechowywane na serwerze albo `ConcurrentDictionary` obiektu lub bazy danych.
 
-### <a name="value-cannot-be-null-error"></a>Błąd "Wartości nie może mieć wartości null"
+### <a name="value-cannot-be-null-error"></a>Błąd "Wartość nie może mieć wartości null"
 
-Po stronie serwera metody z opcjonalnymi parametrami nie są obecnie obsługiwane; opcjonalny parametr zostanie pominięty, metoda zakończy się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [następujące parametry opcjonalne](https://github.com/SignalR/SignalR/issues/324).
+Metod po stronie serwera z opcjonalnymi parametrami nie są obecnie obsługiwane; opcjonalny parametr zostanie pominięty, metoda zakończy się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [następujące parametry opcjonalne](https://github.com/SignalR/SignalR/issues/324).
 
-### <a name="firefox-cant-establish-a-connection-to-the-server-at-ltaddressgt-error-in-firebug"></a>"Firefox nie może nawiązać połączenie z serwerem przy &lt;adres&gt;" Wystąpił błąd podczas Firebug
+### <a name="firefox-cant-establish-a-connection-to-the-server-at-ltaddressgt-error-in-firebug"></a>"Firefox nie może nawiązać połączenia z serwerem w &lt;adres&gt;" Błąd Firebug
 
-Ten komunikat o błędzie może być widoczny w Firebug w przypadku awarii negocjacji protokołu WebSocket transportu i zamiast niego jest używana innego transportu. To zachowanie jest celowe.
+Ten komunikat o błędzie są widoczne w Firebug, jeśli negocjacji protokołu WebSocket transport zakończy się niepowodzeniem, a innego transportu jest używana zamiast tego. To zachowanie jest celowe.
 
-### <a name="the-remote-certificate-is-invalid-according-to-the-validation-procedure-error-in-net-client-application"></a>Błąd "jest nieprawidłowa przy uwzględnieniu procedurę sprawdzania poprawności certyfikatu zdalnego" w aplikacji klienta .NET
+### <a name="the-remote-certificate-is-invalid-according-to-the-validation-procedure-error-in-net-client-application"></a>Błąd "jest nieprawidłowy według procedury weryfikacji certyfikatu zdalnego" w aplikacji klienckiej platformy .NET
 
-Jeśli serwer wymaga certyfikatów klienta, a następnie dodać x509certificate do połączenia przed dokonaniem żądania. Dodawanie certyfikatu do połączenia za pomocą `Connection.AddClientCertificate`.
+Jeśli serwer wymaga certyfikatów klienta, a następnie dodać x509certificate do połączenia przed wykonaniem żądania. Dodaj certyfikat do połączenia przy użyciu `Connection.AddClientCertificate`.
 
-### <a name="connection-drops-after-authentication-times-out"></a>Porzuca połączenia po upływie limitu czasu uwierzytelniania
+### <a name="connection-drops-after-authentication-times-out"></a>Połączenie spada po upłynie limit czasu uwierzytelniania
 
-To zachowanie jest celowe. Nie można zmodyfikować poświadczenia uwierzytelniania, gdy połączenie jest aktywne; Aby odświeżyć poświadczenia, połączenie musi zatrzymana i uruchomiona ponownie.
+To zachowanie jest celowe. Poświadczenia uwierzytelniania nie może być modyfikowany, gdy połączenie jest aktywne; Aby odświeżyć poświadczenia, połączenie musi być zatrzymana i uruchomiona ponownie.
 
-### <a name="onconnected-gets-called-twice-when-using-jquery-mobile"></a>OnConnected jest wywoływana dwukrotnie przy użyciu jQuery Mobile
+### <a name="onconnected-gets-called-twice-when-using-jquery-mobile"></a>Onconnected elementu jest wywoływana dwa razy, gdy przy użyciu technologii jQuery Mobile
 
-jQuery Mobile `initializePage` funkcja wymusza skryptów na każdej stronie, które mają być wykonane ponownie, co powoduje utworzenie drugiego połączenia. Rozwiązania tego problemu obejmują:
+jQuery Mobile `initializePage` funkcja wymusza skrypty na każdej stronie, aby ponownie uruchomił, co tworzy drugie połączenie. Rozwiązania tego problemu obejmują:
 
-- Zawiera odniesienie do przed plik JavaScript, jQuery Mobile.
-- Wyłącz `initializePage` funkcja przez ustawienie `$.mobile.autoInitializePage = false`.
-- Poczekaj na stronie, aby zakończyć inicjowanie przed rozpoczęciem połączenia.
+- Zawierać odwołanie do technologii jQuery Mobile przed pliku JavaScript.
+- Wyłącz `initializePage` funkcji, ustawiając `$.mobile.autoInitializePage = false`.
+- Poczekaj, aż strony Aby zakończyć inicjowanie przed rozpoczęciem połączenia.
 
-### <a name="messages-are-delayed-in-silverlight-applications-using-server-sent-events"></a>Komunikaty są opóźnione w aplikacji Silverlight przy użyciu zdarzenia wysyłane serwera
+### <a name="messages-are-delayed-in-silverlight-applications-using-server-sent-events"></a>Komunikaty są opóźnione w aplikacji Silverlight, przy użyciu serwera wysyłane zdarzenia
 
-Przy użyciu serwera wysyłane zdarzenia na Silverlight opóźnienia wiadomości. Aby wymusić długi sondowania zamiast tego należy użyć, należy użyć następującego po rozpoczęciu połączenia:
+Wiadomości są opóźnione, gdy za pomocą serwera wysyłane zdarzenia na dodatku Silverlight. Aby wymusić długim sondowaniem ma być używany w zamian, należy użyć następującego po zainicjowanie połączenia:
 
 [!code-css[Main](troubleshooting/samples/sample13.css)]
 
-### <a name="permission-denied-using-forever-frame-protocol"></a>Nieskończona "Odmowa uprawnienia" za pomocą ramki protokołu
+### <a name="permission-denied-using-forever-frame-protocol"></a>Nieskończoność "Odmowa uprawnień" za pomocą ramki protokołu
 
-Jest to znany problem opisano [tutaj](https://github.com/SignalR/SignalR/issues/1963). Objawem tego mogą być widoczne za pomocą najnowszej biblioteki JQuery; Obejście polega na starszą wersję aplikacji JQuery 1.8.2.
+Jest to znany problem opisany [tutaj](https://github.com/SignalR/SignalR/issues/1963). Mogą być widoczne symptomami przy użyciu najnowszej biblioteki JQuery; Obejście polega na starszą wersję aplikacji do technologii JQuery 1.8.2.
 
 <a id="server"></a>
 
 ## <a name="compilation-and-server-side-errors"></a>Błędy kompilacji i po stronie serwera
 
- Poniższa sekcja zawiera możliwych rozwiązań kompilatora i błędy podczas wykonywania po stronie serwera. 
+ Poniższa sekcja zawiera możliwe rozwiązania kompilatora oraz błędów środowiska uruchomieniowego po stronie serwera. 
 
 ### <a name="reference-to-hub-instance-is-null"></a>Odwołanie do wystąpienia Centrum ma wartość null
 
-Ponieważ wystąpienie koncentratora jest tworzony dla każdego połączenia, nie można utworzyć wystąpienia koncentratora w kodzie użytkownika. Aby wywołać metod w koncentratorze z poza samego koncentratora, zobacz [jak wywoływać metod klienta i zarządzanie grupami z poza klasą Centrum](../guide-to-the-api/hubs-api-guide-server.md#callfromoutsidehub) dotyczące sposobu uzyskania odwołania do kontekst koncentratora.
+Ponieważ wystąpienie koncentratora jest tworzony dla każdego połączenia, nie można utworzyć wystąpienie koncentratora w kodzie użytkownika. Wywoływanie metod koncentratora z poza Centrum, samego, zobacz [jak wywołać metody klienta grup i zarządzanie nimi z poza klasy koncentratora](../guide-to-the-api/hubs-api-guide-server.md#callfromoutsidehub) dotyczące sposobu uzyskania odwołania do kontekst koncentratora.
 
 ### <a name="httpcontextcurrentsession-is-null"></a>HTTPContext.Current.Session ma wartość null
 
-To zachowanie jest celowe. SignalR nie obsługuje stanu sesji ASP.NET, ponieważ włączenie stanu sesji spowoduje przerwanie dupleksowy do obsługi komunikatów.
+To zachowanie jest celowe. SignalR nie obsługuje stanu sesji programu ASP.NET, ponieważ Włączanie stanu sesji zaburzyłaby dwukierunkowego komunikatów.
 
 ### <a name="no-suitable-method-to-override"></a>Nie odpowiedniej metody do przesłonięcia
 
-Ten błąd może być wyświetlana, jeśli używasz kodu ze starszą dokumentacją lub blogów. Sprawdź, czy użytkownik nie odwołują się do nazwy metody, które zostały zmienione lub przestarzałe (takie jak `OnConnectedAsync`).
+Może zostać wyświetlony ten błąd, jeśli używasz kodu z ze starszą dokumentacją lub blogów. Sprawdź, czy użytkownik nie odwołują się do nazw metod, które zostały zmienione lub przestarzałe (takich jak `OnConnectedAsync`).
 
 ### <a name="hostcontextextensionswebsocketserverurl-is-null"></a>HostContextExtensions.WebSocketServerUrl ma wartość null
 
-To zachowanie jest celowe. Ten element członkowski jest przestarzały i nie powinna być używana.
+To zachowanie jest celowe. Ta składowa jest przestarzała i nie powinna być używana.
 
-### <a name="a-route-named-signalrhubs-is-already-in-the-route-collection-error"></a>Trasa o nazwie "signalr.hubs" błąd "jest już w kolekcji tras"
+### <a name="a-route-named-signalrhubs-is-already-in-the-route-collection-error"></a>Trasę o nazwie "signalr.hubs" błąd "jest już w kolekcji trasę"
 
-Ten błąd będzie widoczny, gdy `MapHubs` jest wywoływana dwukrotnie przez aplikację. Niektóre przykładowe aplikacje wywołania `MapHubs` bezpośrednio w pliku globalnego aplikacji; innymi wywoływania klasy otoki. Upewnij się, że aplikacja nie wykonać obie czynności.
+Ten błąd będzie widoczny, gdy `MapHubs` jest wywoływana dwa razy przez aplikację. Niektóre wywołania aplikacji przykład `MapHubs` bezpośrednio w pliku globalnej aplikacji; innymi wywoływania klasy otoki. Upewnij się, że aplikacja nie wykonać obie czynności.
 
 <a id="vs"></a>
 
-## <a name="visual-studio-issues"></a>Problemy z usługą Visual Studio
+## <a name="visual-studio-issues"></a>Problemy z programu Visual Studio
 
-W tej sekcji opisano problemy w programie Visual Studio.
+W tej sekcji opisano problemy napotkane w programie Visual Studio.
 
-### <a name="script-documents-node-does-not-appear-in-solution-explorer"></a>W Eksploratorze rozwiązań nie ma węzła dokumentów skryptu
+### <a name="script-documents-node-does-not-appear-in-solution-explorer"></a>Nie ma węzła dokumenty skryptów w Eksploratorze rozwiązań
 
-Niektóre z naszymi samouczkami kierujące do węzła "Dokumentach skryptów" w Eksploratorze rozwiązań podczas debugowania. Ten węzeł jest generowany przez debuger JavaScript i zostanie wyświetlony tylko podczas debugowania klientów w przeglądarkach w programie Internet Explorer; węzeł nie będą wyświetlane, jeśli są używane Chrome lub Firefox. Debuger JavaScript również nie będzie działać, jeśli jest uruchomiony inny debuger klienta, takich jak debugera Silverlight.
+Niektóre z naszych samouczków przekierowanie do węzła "Dokumenty skryptów" w Eksploratorze rozwiązań podczas debugowania. Ten węzeł jest generowany przez debuger JavaScript, a zostanie wyświetlony tylko podczas debugowania na komputerach klienckich w programie Internet Explorer; węzeł nie będą wyświetlane, jeśli używane są przeglądarki Chrome lub Firefox. Debuger JavaScript również nie będzie działać, jeśli jest uruchomiony inny debuger klienta, takich jak Silverlight debugger.
 
-### <a name="signalr-does-not-work-on-visual-studio-2008-or-earlier"></a>SignalR nie działa w programie Visual Studio 2008 lub starszym
+### <a name="signalr-does-not-work-on-visual-studio-2008-or-earlier"></a>SignalR nie działa w programie Visual Studio 2008 lub starszej
 
-To zachowanie jest celowe. SignalR wymaga programu .NET Framework 4 lub nowszy; wymaga to opracowanych aplikacji SignalR w Visual Studio 2010 lub nowszej.
+To zachowanie jest celowe. SignalR wymaga programu .NET Framework 4 lub nowszy; wymaga to, że aplikacji SignalR być opracowane w programie Visual Studio 2010 lub nowszej.
 
 <a id="iis"></a>
 
-## <a name="iis-issues"></a>Problemy z usług IIS
+## <a name="iis-issues"></a>Problemy dotyczące usług IIS
 
-Ta sekcja zawiera problemy z internetowych usług informacyjnych.
+Ta sekcja zawiera problemy związane z internetowych usług informacyjnych.
 
-### <a name="web-site-crashes-after-maphubs-call"></a>Witryna sieci Web ulegnie awarii po MapHubs wywołania
+### <a name="web-site-crashes-after-maphubs-call"></a>Witryny sieci Web ulegnie awarii po MapHubs wywołania
 
-Ten problem został rozwiązany w najnowszej wersji biblioteki signalr. Sprawdź, że używasz najnowszej wersji biblioteki signalr, aktualizując instalacji przy użyciu narzędzia NuGet.
+Ten problem został rozwiązany w najnowszej wersji biblioteki SignalR. Sprawdź, że używasz najnowszej wersji biblioteki SignalR, aktualizując instalację za pomocą narzędzia NuGet.
 
 <a id="azure"></a>
 
-## <a name="azure-issues"></a>Problemy z platformy Azure
+## <a name="azure-issues"></a>Problemy dotyczące platformy Azure
 
-Ta sekcja zawiera problemy w systemie Microsoft Azure.
+Ta sekcja zawiera problemów z platformą Microsoft Azure.
 
-### <a name="messages-are-not-received-through-the-azure-backplane-after-altering-topic-names"></a>Komunikaty nie są odbierane za pośrednictwem usługi Azure płyty montażowej po zmieniania nazwy tematów
+### <a name="messages-are-not-received-through-the-azure-backplane-after-altering-topic-names"></a>Komunikaty nie są odbierane za pośrednictwem platformy Azure płyty montażowej po zmieniania nazwy tematów
 
-Tematy używane przez usługi Azure płyty montażowej nie są przeznaczone do można konfigurować użytkownika.
+Tematy używana przez Azure płyty montażowej nie są przeznaczone do można skonfigurować dla użytkownika.

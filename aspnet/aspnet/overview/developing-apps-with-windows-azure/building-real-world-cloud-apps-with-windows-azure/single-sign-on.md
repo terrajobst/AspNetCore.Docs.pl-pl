@@ -1,198 +1,197 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
-title: Logowanie jednokrotne (kompilowanie praktyczne aplikacje w chmurze platformy Azure) | Dokumentacja firmy Microsoft
+title: Logowanie jednokrotne (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure) | Dokumentacja firmy Microsoft
 author: MikeWasson
-description: Kompilowanie rzeczywistych World aplikacje w chmurze z Azure Książka elektroniczna jest oparta na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i rozwiązań, które może on...
+description: Tworzenie rzeczywistych aplikacji w chmurze za pomocą platformy Azure Książka elektroniczna jest oparta na prezentacji, opracowane przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które może on...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 82f2f99154d94074b03d580a0f491053d6f53bde
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 213b8fe091bcac7f55fd62ab305c77fcbc5a77ad
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873888"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374383"
 ---
-<a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Logowanie jednokrotne (kompilowanie praktyczne aplikacje w chmurze platformy Azure)
+<a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Logowanie jednokrotne (tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure)
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Dykstra niestandardowy](https://github.com/tdykstra)
+przez [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[Pobieranie napraw projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę E](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[Pobierz go naprawić projektu](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) lub [Pobierz książkę elektroniczną](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Tworzenia rzeczywistych aplikacji w chmurze platformy Azure** Książka elektroniczna opiera się na prezentacji opracowane przez Scott Guthrie. Wyjaśniono 13 wzorców i wskazówki, które mogą pomóc Ci się pomyślnie, tworzenie aplikacji sieci web dla chmury. Informacje o Książka elektroniczna, zobacz [pierwszy rozdział](introduction.md).
+> **Tworzenie rzeczywistych aplikacji w chmurze dzięki platformie Azure** Książka elektroniczna jest oparta na prezentacji opracowany przez Scotta Guthrie. Wyjaśniono 13 wzorców i praktyk, które mogą pomóc Ci odnieść sukces, tworzenie aplikacji sieci web w chmurze. Aby uzyskać informacji o książce elektronicznej, zobacz [pierwszy rozdział](introduction.md).
 
 
-Istnieje wiele problemów z zabezpieczeniami można traktować Jeśli projektujesz aplikacji w chmurze, ale dla tej serii firma Microsoft będzie skupić się na co najmniej jeden: logowanie jednokrotne. Często dotyczy osób zapytania to: "I używam przede wszystkim tworzenia aplikacji dla pracowników firmy; sposób obsługi tych aplikacji w chmurze i nadal włączyć je do korzystania z tego samego modelu zabezpieczeń, który Moje pracowników i używanych w środowisku lokalnym, gdy te są uruchomione aplikacje który znajdują się wewnątrz niej?" Jednym ze sposobów włączyć obsługi tego scenariusza jest nazywany usługi Azure Active Directory (Azure AD). Usługi Azure AD pozwala udostępnić enterprise — biznesowych (LOB) aplikacji w Internecie, i umożliwia udostępnia swoim partnerom tych aplikacji.
+Istnieje wiele problemów z zabezpieczeniami zastanowić się, gdy tworzysz aplikację w chmurze, ale w tej serii samouczków skupimy się na co najmniej jeden: logowanie jednokrotne. Osoby pytania często pytają, czy to: "czy jestem przede wszystkim tworzenia aplikacji dla pracowników firmy; jak obsługiwać te aplikacje w chmurze i włączyć je do korzystania z tego samego modelu zabezpieczeń, która Moje pracowników znasz i użyj w środowisku lokalnym, jeśli są one uruchamiane aplikacje, są hostowane wewnątrz zapory?" Jednym ze sposobów, możemy włączyć ten scenariusz jest nazywany usługi Azure Active Directory (Azure AD). Usługa Azure AD umożliwia udostępnienia enterprise line of business (LOB) aplikacji w Internecie i umożliwia udostępnienie tych aplikacji swoim partnerom.
 
 ## <a name="introduction-to-azure-ad"></a>Wprowadzenie do usługi Azure AD
 
-[Usługi Azure AD](https://docs.microsoft.com/azure/active-directory/) zapewnia [usługi Active Directory](https://msdn.microsoft.com/library/windows/desktop/aa746492.aspx) w chmurze. Najważniejsze funkcje obejmują:
+[Usługa Azure AD](https://docs.microsoft.com/azure/active-directory/) zapewnia [usługi Active Directory](https://msdn.microsoft.com/library/windows/desktop/aa746492.aspx) w chmurze. Najważniejsze funkcje obejmują następujące czynności:
 
-- Umożliwia integrację z lokalnej usługi Active Directory.
+- Integruje się z usługą Active Directory w środowisku lokalnym.
 - Umożliwia logowanie jednokrotne z aplikacjami.
-- Obsługuje on otwarty standardy, takie jak [SAML](http://en.wikipedia.org/wiki/SAML_2.0), [WS-Fed](http://en.wikipedia.org/wiki/WS-Federation), i [OAuth 2.0](http://oauth.net/2/).
-- Obsługuje ona Enterprise [interfejsu API REST wykresu](https://msdn.microsoft.com/library/hh974476.aspx).
+- Obsługuje on otwartych standardów, takich jak [SAML](http://en.wikipedia.org/wiki/SAML_2.0), [WS-Fed](http://en.wikipedia.org/wiki/WS-Federation), i [OAuth 2.0](http://oauth.net/2/).
+- Obsługuje ona Enterprise [interfejsu API REST programu Graph](https://msdn.microsoft.com/library/hh974476.aspx).
 
-Załóżmy, że masz środowiska usługi Active Directory systemu Windows Server lokalnego, który umożliwia pracownikom zalogować się do aplikacji w sieci Intranet:
+Załóżmy, że istnieje w lokalnym środowisku usługi Active Directory systemu Windows Server, która umożliwia pracownikom zalogować się do aplikacji intranetowych:
 
 ![](single-sign-on/_static/image1.png)
 
-Co usługi Azure AD umożliwia wykonanie jest tworzenie katalogu w chmurze. Jest funkcją wolnego i łatwo skonfigurować.
+Usługa Azure AD umożliwia wykonywanie jest Utwórz katalog w chmurze. Jest bezpłatną funkcją i są łatwe do skonfigurowania.
 
-Może być całkowicie niezależna od lokalnej usługi Active Directory; Możesz też zaznaczyć każda osoba, która ma w niej i uwierzytelniania je w aplikacjach internetowych.
+Może być całkowicie niezależna od swojej lokalnej usługi Active Directory; Możesz umieścić każdy użytkownik ma w nim i uwierzytelniaj je w aplikacjach internetowych.
 
 ![Windows Azure Active Directory](single-sign-on/_static/image2.png)
 
-Lub zintegrować ją z lokalnej usługi AD.
+Możesz też zintegrować przy użyciu lokalnej usługi AD.
 
-![Usługi AD i integracja z drewna](single-sign-on/_static/image3.png)
+![Usługi AD i integracji WAAD](single-sign-on/_static/image3.png)
 
-Teraz wszystkich pracowników, którzy mogą uwierzytelniać lokalnymi mogą również uwierzytelniać za pośrednictwem Internetu — bez konieczności otwarcie zapory lub wdrażanie nowych serwerów w centrum danych. Można nadal korzystać z wszystkich istniejącego środowiska usługi Active Directory, który znasz i użyj już dziś, aby nadać jednokrotnego Twojej aplikacji wewnętrznych funkcję.
+Teraz wszyscy pracownicy, którzy mogą uwierzytelniać się w środowisku lokalnym może także uwierzytelnić się za pośrednictwem Internetu — bez konieczności otwierania zapory lub wdrażanie nowych serwerów w centrum danych. Można nadal korzystać z wszystkich istniejącego środowiska usługi Active Directory, który znasz i użyj już dziś, aby nadać usługi logowania jednokrotnego aplikacji wewnętrznych na możliwości.
 
-Po wprowadzeniu tego połączenia między AD i Azure AD, można również włączyć aplikacji sieci web i urządzeniach przenośnych, aby uwierzytelniać pracowników w chmurze i można włączyć aplikacji innych firm, takich jak aplikacje pakietu Office 365, witryny SalesForce.com lub Google, aby zaakceptować użytkownika poświadczenia pracowników. Jeśli używasz usługi Office 365, użytkownik jest już skonfigurowane z usługą Azure AD ponieważ usługi Office 365 używa usługi Azure AD do uwierzytelniania i autoryzacji.
+Po dokonaniu to połączenie między AD i Azure AD, można również włączyć aplikacji sieci web i urządzeń przenośnych do uwierzytelnienia pracowników w chmurze i można włączyć aplikacji innych firm, takich jak aplikacje usługi Office 365 i SalesForce.com, Google, aby zaakceptować Twoje poświadczenia pracowników. Jeśli używasz usługi Office 365, możesz już skonfigurowano Cię z usługą Azure AD, ponieważ usługi Office 365 używa usługi Azure AD do uwierzytelniania i autoryzacji.
 
 ![aplikacje firm 3](single-sign-on/_static/image4.png)
 
-Zaletą tej metody jest dowolnym momencie organizacji dodaje lub usuwa użytkownika, lub użytkownik zmieni hasło, użyj tego samego procesu, używaną obecnie w środowisku lokalnym. Wszystkie z lokalnej usługi AD zmiany są automatycznie propagowane do środowiska chmury.
+Zaletą tego podejścia jest ilekroć organizacji dodaje lub usuwa użytkownika, lub użytkownik zmieni hasło, użyj tego samego procesu używanego obecnie w środowisku w środowisku lokalnym. Wszystkie z lokalnej usługi AD zmiany są automatycznie propagowane do środowiska chmury.
 
-Jeśli firma jest przy użyciu lub przechodzenia do usługi Office 365 szczęście jest to, że masz usługi Azure AD — konfiguracja automatycznie, ponieważ usługi Office 365 do uwierzytelniania używa usługi Azure AD. Aby można było łatwo korzystać w własnych aplikacji tego samego uwierzytelniania, który korzysta z usługi Office 365.
+Jeśli firma korzysta z lub przechodzenia do usługi Office 365, dobra wiadomość jest fakt, że masz skonfigurowane automatycznie, ponieważ usługi Office 365 używa usługi Azure AD do uwierzytelniania z usługi Azure AD. Aby można było łatwo używać w swoich własnych aplikacji tego samego uwierzytelniania, która korzysta z usługi Office 365.
 
-## <a name="set-up-an-azure-ad-tenant"></a>Konfigurowanie dzierżawa usługi Azure AD
+## <a name="set-up-an-azure-ad-tenant"></a>Konfigurowanie dzierżawę usługi Azure AD
 
-katalog usługi Azure AD jest nazywany usługi Azure AD [dzierżawy](https://technet.microsoft.com/library/jj573650.aspx), i skonfigurowanie dzierżawcy jest bardzo prosty. Poniżej opisano jak jest wykonywane w portalu zarządzania Azure w celu zilustrowania koncepcji, ale oczywiście podobnie jak inne funkcje portalu również należy go za pomocą skryptów lub interfejsu API zarządzania.
+katalog usługi Azure AD jest nazywany moduł usługi Azure AD [dzierżawy](https://technet.microsoft.com/library/jj573650.aspx), i konfigurowania dzierżawy jest całkiem proste. Pokażemy ci jak jest wykonywane w portalu zarządzania systemu Azure w celu zilustrowania koncepcji podanych, ale oczywiście podobnie jak inne funkcje portalu możesz także zrobić go za pomocą skryptu lub interfejsu API zarządzania.
 
-W portalu zarządzania na karcie usługi Active Directory.
+W portalu zarządzania, kliknij kartę usługi Active Directory.
 
-![DREWNA w portalu](single-sign-on/_static/image5.png)
+![WAAD w portalu](single-sign-on/_static/image5.png)
 
-Automatycznie mieć jednej dzierżawy usługi Azure AD dla konta platformy Azure, a kliknięcie **Dodaj** znajdujący się u dołu strony, aby utworzyć dodatkowe katalogi. Na przykład może być jeden dla środowiska testowego i jeden do produkcji. Należy dobrze przemyśleć co nazwa nowego katalogu. Jeśli używasz nazwę katalogu, a następnie użyty nazwę ponownie dla użytkowników, które mogą być mylące.
+Automatycznie ma jedną dzierżawę usługi Azure AD dla konta platformy Azure i możesz kliknąć pozycję **Dodaj** znajdujący się u dołu strony Aby utworzyć dodatkowe katalogi. Możesz chcieć jedno dla środowiska testowego i jedno dla środowiska produkcyjnego, na przykład. Należy dobrze przemyśleć co nazwa nowego katalogu. Jeśli używasz nazwę katalogu, a następnie użyć swoją nazwę ponownie dla jednego z użytkowników, które mogą być mylące.
 
 ![Dodaj katalog](single-sign-on/_static/image6.png)
 
-Portal ma pełną obsługę tworzenia, usuwania i zarządzanie użytkownikami, w tym środowisku. Na przykład, aby dodać użytkownika wybierz **użytkowników** i kliknij polecenie **Dodaj użytkownika** przycisku.
+Portal udostępnia pełną obsługę tworzenia, usuwania i zarządzanie użytkownikami, w tym środowisku. Na przykład, aby dodać użytkownika przejdź do **użytkowników** kartę, a następnie kliknij przycisk **Dodaj użytkownika** przycisku.
 
 ![Przycisk Dodaj użytkownika](single-sign-on/_static/image7.png)
 
-![Dodaj użytkownika okna dialogowego](single-sign-on/_static/image8.png)
+![Dodaj okno dialogowe użytkownik](single-sign-on/_static/image8.png)
 
-Można utworzyć nowego użytkownika, który istnieje tylko w tym katalogu, lub możesz zarejestrować Account Microsoft jako użytkownik w tym katalogu lub rejestru lub z innego katalogu usługi Azure AD jako użytkownik w tym katalogu. (W katalogu prawdziwe, domena domyślna będzie ContosoTest.onmicrosoft.com. Umożliwia także domeny wybranej przez użytkownika, takie jak contoso.com.)
+Można utworzyć nowego użytkownika, który istnieje tylko w tym katalogu lub zarejestrowaniem Account Microsoft jako użytkownika w tym katalogu lub Zarejestruj się lub użytkownik z innego katalogu usługi Azure AD jako użytkownik w tym katalogu. (W rzeczywistych katalogu, domyślna domena jest ContosoTest.onmicrosoft.com. Umożliwia także domeny wybranej przez użytkownika, np. contoso.com.)
 
 ![Typy użytkownika](single-sign-on/_static/image9.png)
 
-![Dodaj użytkownika okna dialogowego](single-sign-on/_static/image10.png)
+![Dodaj okno dialogowe użytkownik](single-sign-on/_static/image10.png)
 
-Użytkownika można przypisać do roli.
+Można przypisać użytkownika do roli.
 
 ![Profil użytkownika](single-sign-on/_static/image11.png)
 
-I, konto zostanie utworzone hasło tymczasowe.
+A konto zostanie utworzone hasło tymczasowe.
 
 ![Hasło tymczasowe](single-sign-on/_static/image12.png)
 
-Użytkownicy w ten sposób można utworzyć natychmiast zalogować się do aplikacji sieci web przy użyciu tego katalogu w chmurze.
+Użytkownicy, tworzysz w ten sposób natychmiast zalogować się do aplikacji sieci web za pomocą tego katalogu w chmurze.
 
-Co to jest doskonały dla przedsiębiorstwa logowania jednokrotnego, jednak jest **integracji katalogów** karty:
+Co to jest bardzo przydatne na potrzeby logowania jednokrotnego dla firm, jednak jest **integracji katalogu** karty:
 
 ![Karta Integracja katalogu](single-sign-on/_static/image13.png)
 
-Po włączeniu Integracja katalogu i [Pobierz narzędzie](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx), można zsynchronizować ten katalog chmury z istniejącej lokalnej usługi Active Directory już używany wewnątrz organizacji. Następnie wszystkich użytkowników przechowywanych w katalogu zostaną wyświetlone w tym katalogu w chmurze. Aplikacje w chmurze może teraz uwierzytelniać wszystkich pracowników przy użyciu swoich istniejących poświadczeń usługi Active Directory. Oraz o wolnym wszystko, co to jest — narzędzie synchronizacji i usługi Azure AD sama.
+Po włączeniu Integracja katalogu i [Pobierz narzędzie](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx), można zsynchronizować tego katalogu w chmurze przy użyciu istniejącej lokalnej usługi Active Directory, już używasz wewnątrz organizacji. Następnie wszystkich użytkowników, przechowywane w katalogu pojawią się tego katalogu w chmurze. Aplikacje w chmurze może teraz uwierzytelniać wszystkich pracowników za pomocą istniejących poświadczeń usługi Active Directory. I wszystko, co to jest bezpłatne — narzędzia do synchronizacji i samej usługi Azure AD.
 
-Narzędzie to jest kreatora, który jest łatwy w użyciu, jak widać w te zrzuty ekranu. Nie są kompletne instrukcje, tylko przykładem zastosowania podstawowy proces. Aby uzyskać szczegółowe informacje o how-do-it, zobacz linki w [zasobów](#resources) sekcji na końcu działu.
+To narzędzie jest Kreator, który jest łatwy w użyciu, jak widać na te zrzuty ekranu. Nie są pełne instrukcje, przykładowe zawierająca podstawowy proces. Aby uzyskać szczegółowe informacje jak-to-it, skorzystaj z łączy w [zasobów](#resources) sekcji na końcu rozdziale.
 
-![Kreator konfiguracji narzędzia synchronizacji drewna](single-sign-on/_static/image14.png)
+![Kreator konfiguracji narzędzia synchronizacji WAAD](single-sign-on/_static/image14.png)
 
 Kliknij przycisk **dalej**, a następnie wprowadź swoje poświadczenia usługi Azure Active Directory.
 
-![Kreator konfiguracji narzędzia synchronizacji drewna](single-sign-on/_static/image15.png)
+![Kreator konfiguracji narzędzia synchronizacji WAAD](single-sign-on/_static/image15.png)
 
-Kliknij przycisk **dalej**, a następnie wprowadź lokalnej poświadczeń AD.
+Kliknij przycisk **dalej**, a następnie wprowadź lokalne poświadczenia usługi AD.
 
-![Kreator konfiguracji narzędzia synchronizacji drewna](single-sign-on/_static/image16.png)
+![Kreator konfiguracji narzędzia synchronizacji WAAD](single-sign-on/_static/image16.png)
 
-Kliknij przycisk **dalej**, a następnie wskaż, jeśli chcesz Przechowywanie skrótów haseł usługi AD w chmurze.
+Kliknij przycisk **dalej**, a następnie wskaż, jeśli chcesz Przechowywanie skrótów haseł w usłudze AD w chmurze.
 
-![Kreator konfiguracji narzędzia synchronizacji drewna](single-sign-on/_static/image17.png)
+![Kreator konfiguracji narzędzia synchronizacji WAAD](single-sign-on/_static/image17.png)
 
-Wartość skrótu hasła, które mogą być przechowywane w chmurze jest skrót jednokierunkowy; rzeczywiste hasła nigdy nie są przechowywane w usłudze Azure AD. Jeśli zdecydujesz się na przechowywanie skrótów w chmurze, musisz użyć [Active Directory Federation Services](https://technet.microsoft.com/library/hh831502.aspx) (AD FS). Dostępne są także [inne czynniki, które należy wziąć pod uwagę podczas wybierania, czy należy używać usług AD FS](https://technet.microsoft.com/library/jj573653.aspx). Opcja usług AD FS wymaga kilka dodatkowych czynności konfiguracyjnych.
+Wartość skrótu hasła, które mogą być przechowywane w chmurze to jednokierunkowe skróty; bieżące hasła nigdy nie są przechowywane w usłudze Azure AD. Jeśli zdecydujesz się na przechowywanie skrótów w chmurze, musisz użyć [Active Directory Federation Services](https://technet.microsoft.com/library/hh831502.aspx) (ADFS). Dostępne są także [inne czynniki do rozważenia podczas wybierania, czy należy użyć usług AD FS](https://technet.microsoft.com/library/jj573653.aspx). Opcja usług AD FS wymaga kilku dodatkowych czynności konfiguracyjnych.
 
-Jeśli zdecydujesz się przechowywać skróty w chmurze, wszystko gotowe i uruchamia narzędzie synchronizacji katalogów po kliknięciu **dalej**.
+Jeśli zdecydujesz się przechowywać skrótów w chmurze, wszystko będzie gotowe i rozpoczyna synchronizację katalogów, po kliknięciu **dalej**.
 
-![Kreator konfiguracji narzędzia synchronizacji drewna](single-sign-on/_static/image18.png)
+![Kreator konfiguracji narzędzia synchronizacji WAAD](single-sign-on/_static/image18.png)
 
 I w ciągu kilku minut wszystko będzie gotowe.
 
-![Kreator konfiguracji narzędzia synchronizacji drewna](single-sign-on/_static/image19.png)
+![Kreator konfiguracji narzędzia synchronizacji WAAD](single-sign-on/_static/image19.png)
 
-Trzeba uruchomić na jeden kontroler domeny w organizacji, w systemie Windows 2003 lub nowszy. I ponownego uruchamiania. Gdy wszystko będzie gotowe, wszyscy użytkownicy są w chmurze i mogą wykonywać rejestracji jednokrotnej z sieci web lub aplikacji mobilnej, przy użyciu SAML, OAuth lub WS Fed.
+Musisz uruchomić na jednym kontrolerze domeny w organizacji, w systemie Windows 2003 lub nowszy. I to bez konieczności ponownego uruchomienia. Gdy wszystko będzie gotowe, wszyscy użytkownicy znajdują się w chmurze i mogą wykonywać logowanie jednokrotne z sieci web lub aplikacji mobilnej, za pomocą protokołu SAML, OAuth i WS-Fed.
 
-Czasami uzyskać możemy zadawane, o jak bezpieczne jest — Microsoft używa go do ich własnych poufnych danych? I tak, nie. Na przykład, jeśli przejdziesz do wewnętrznej witryny Microsoft SharePoint na [ https://microsoft.sharepoint.com/ ](https://microsoft.sharepoint.com/), zostanie wyświetlony monit, aby się zalogować.
+Czasami firma Microsoft pytanie o jak bezpieczne jest — Microsoft używa go dla ich własnych poufnych danych biznesowych? I tak, jaką robimy. Na przykład, jeśli przejdziesz do wewnętrznej witryny SharePoint firmy Microsoft w [ https://microsoft.sharepoint.com/ ](https://microsoft.sharepoint.com/), zostanie wyświetlony monit, aby zalogować się.
 
-![Logowania usługi Office 365](single-sign-on/_static/image20.png)
+![Logowanie w usłudze Office 365](single-sign-on/_static/image20.png)
 
-Microsoft ma włączoną obsługę usług AD FS, więc po wprowadzeniu Identyfikatora Microsoft następuje przekierowanie do strony logowania usług AD FS.
+Microsoft włączył usług AD FS, więc po wprowadzeniu Identyfikatora firmy Microsoft, możesz pobrać przekierowanie do strony logowania usług AD FS.
 
 ![Logowania usług AD FS](single-sign-on/_static/image21.png)
 
-I po wprowadzeniu poświadczeń przechowywanych w wewnętrzne konto Microsoft AD mają dostęp do tej aplikacji wewnętrznych.
+I po wprowadzeniu poświadczeń przechowywanych na koncie Microsoft AD wewnętrznego, masz dostęp do tej aplikacji wewnętrznych.
 
 ![Witryna MS SharePoint](single-sign-on/_static/image22.png)
 
-Używamy serwera logowanie AD głównie, ponieważ już było ustawić przed usługi Azure AD stały się dostępne, ale przechodzi przez katalog usługi Azure AD w chmurze procesu logowania usług AD FS. Możemy umieścić naszych ważnych dokumentów, kontroli źródła, pliki zarządzania wydajności, raporty ze sprzedaży i więcej, w chmurze i przy użyciu tego dokładnie tego samego rozwiązania do zabezpieczenia.
+Używamy serwera logowania usługi AD, przede wszystkim, ponieważ Musieliśmy usług AD FS, skonfigurować usługę Azure AD stały się dostępne, ale proces logowania przechodzi katalog usługi Azure AD w chmurze. Firma Microsoft może umieścić naszych ważnych dokumentów, kontroli źródła, plików zarządzania wydajnością, raporty dotyczące sprzedaży i więcej w chmurze, a następnie za pomocą tego dokładnie tego samego rozwiązania je zabezpieczyć.
 
-## <a name="create-an-aspnet-app-that-uses-azure-ad-for-single-sign-on"></a>Tworzenie aplikacji platformy ASP.NET, która używa usługi Azure AD dla rejestracji jednokrotnej
+## <a name="create-an-aspnet-app-that-uses-azure-ad-for-single-sign-on"></a>Tworzenie aplikacji platformy ASP.NET używająca usługi Azure AD na potrzeby logowania jednokrotnego
 
-Visual Studio ułatwia naprawdę do tworzenia aplikacji, która używa usługi Azure AD dla logowania jednokrotnego, jak widać w kilku zrzutów ekranu.
+Program Visual Studio sprawia, że bardzo łatwo jest tworzyć aplikację, która używa usługi Azure AD na potrzeby logowania jednokrotnego, jak widać na kilka zrzutów ekranu.
 
-Podczas tworzenia nowej aplikacji ASP.NET, MVC i formularzy sieci Web, domyślną metodą uwierzytelniania jest tożsamości ASP.NET. Aby zmienić do usługi Azure AD, możesz kliknąć przycisk **Zmień uwierzytelnianie** przycisku.
+Podczas tworzenia nowej aplikacji platformy ASP.NET MVC i formularzy sieci Web, domyślną metodą uwierzytelniania jest tożsamości ASP.NET. Aby zmienić do usługi Azure AD, możesz kliknąć przycisk **Zmień uwierzytelnianie** przycisku.
 
-![Zmienianie uwierzytelniania](single-sign-on/_static/image23.png)
+![Zmień uwierzytelnianie](single-sign-on/_static/image23.png)
 
-Wybierz konta organizacyjne, wpisz nazwę domeny, a następnie wybierz rejestracji jednokrotnej.
+Wybierz konta organizacyjne, wprowadź nazwę domeny, a następnie wybierz logowanie jednokrotne.
 
-![Skonfiguruj dialog uwierzytelniania](single-sign-on/_static/image24.png)
+![Konfigurowanie okna dialogowego uwierzytelniania](single-sign-on/_static/image24.png)
 
-Możesz też udzielić aplikacji odczytu i odczytu/zapisu uprawnień do katalogu danych. Jeśli możesz to zrobić, można użyć [interfejsu API REST wykres Azure](https://msdn.microsoft.com/library/windowsazure/hh974476.aspx) aby wyszukać użytkowników numer telefonu, dowiedzieć się, jeśli są one w pakiecie office, podczas ich ostatniego logowania na itp.
+Można również nadać odczytu aplikacji lub uprawnienia dla katalogu danych odczytu i zapisu. Jeśli to zrobisz, można użyć [interfejsu API REST usługi Azure Graph](https://msdn.microsoft.com/library/windowsazure/hh974476.aspx) aby wyszukać użytkowników, numer telefonu, Dowiedz się, jeśli są one w pakiecie office, kiedy się logowali się ostatnio na itp.
 
-To wszystko, co trzeba zrobić — Visual Studio poprosi o podanie poświadczeń administratora dzierżawy usługi Azure AD, a następnie konfiguruje zarówno projektu i dzierżawy usługi Azure AD dla nowej aplikacji.
+To wszystko, co należy zrobić — Visual Studio Wyświetla prośbę o poświadczenia administratora dla dzierżawy usługi Azure AD, a następnie skonfiguruje projekt i dzierżawy usługi Azure AD dla nowej aplikacji.
 
-Po uruchomieniu projektu, zostanie wyświetlona strona logowania i aby móc zalogować się przy użyciu poświadczeń użytkownika w katalogu usługi Azure AD.
+Kiedy uruchamiasz projekt, zostanie wyświetlona strona logowania, a następnie możesz zalogować się przy użyciu poświadczeń użytkownika katalogu usługi Azure AD.
 
 ![Logowanie konta organizacji](single-sign-on/_static/image25.png)
 
 ![Zalogowany](single-sign-on/_static/image26.png)
 
-Podczas wdrażania aplikacji na platformie Azure, wszystkie wystarczy, że jest zaznaczona **Włączanie uwierzytelniania organizacyjnego** pole wyboru, a następnie ponownie Visual Studio odpowiedzialna za całą konfigurację za Ciebie.
+Podczas wdrażania aplikacji na platformie Azure, musisz wykonać wystarczy wybierz **Włączanie uwierzytelniania organizacyjnego** pole wyboru, a następnie ponownie program Visual Studio zajmuje się całą konfigurację za Ciebie.
 
 ![Publikowanie w sieci Web](single-sign-on/_static/image27.png)
 
-Te zrzuty ekranu pochodzą z pełną samouczek krok po kroku, pokazujący sposób tworzenia aplikacji korzystającej z uwierzytelniania usługi Azure AD: [tworzenie aplikacji ASP.NET w usłudze Azure Active Directory](../../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md).
+Te zrzuty ekranu pochodzą kompletny samouczek krok po kroku, który pokazuje, jak utworzyć aplikację, która korzysta z uwierzytelniania usługi Azure AD: [opracowywanie aplikacji ASP.NET w usłudze Azure Active Directory](../../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md).
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym rozdziale widać, że usługi Azure Active Directory, Visual Studio i ASP.NET, ułatwiają konfigurowanie logowania jednokrotnego w aplikacjach internetowych dla użytkowników w organizacji. Użytkownicy mogą logowania w aplikacjach internetowych przy użyciu tych samych poświadczeń, których używają do logowania przy użyciu usługi Active Directory w sieci wewnętrznej.
+W tym rozdziale pokazano, że usługi Azure Active Directory, program Visual Studio i platformy ASP.NET, ułatwiają konfigurowanie logowania jednokrotnego w aplikacjach internetowych dla użytkowników w organizacji. Użytkownicy zalogować się aplikacje internetowe przy użyciu tych samych poświadczeń, których używają do logowania się na korzystanie z usługi Active Directory w sieci wewnętrznej.
 
-[Następnego rozdziału](data-storage-options.md) analizuje opcje magazynowania danych dostępnych dla aplikacji w chmurze.
+[Następny rozdział](data-storage-options.md) porównaniem opcji magazynowania danych dostępnych dla aplikacji w chmurze.
 
 <a id="resources"></a>
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
 Aby uzyskać więcej informacji, zobacz następujące zasoby:
 
-- [Dokumentacja usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Strona Portal dokumentacji usługi Azure AD w witrynie windowsazure.com. Samouczki krok po kroku, zobacz **opracowanie** sekcji.
-- [Usługa Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/). Strona Portal dokumentacji na temat uwierzytelniania wieloskładnikowego na platformie Azure.
-- [Opcje uwierzytelniania konto organizacyjne](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauthoptions). Wyjaśnienie opcje uwierzytelniania usługi Azure AD w oknie dialogowym Nowy projekt programu Visual Studio 2013.
-- [Microsoft Patterns and Practices — wzorzec tożsamości federacyjnych](https://msdn.microsoft.com/library/dn589790.aspx).
-- [Porada: Zainstaluj narzędzie do synchronizacji usługi Azure Active Directory](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx).
-- [Active Directory Federation Services 2.0 Mapa zawartości](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx). Łącza do dokumentacji usług AD FS 2.0.
-- [Autoryzacji opartej na rolach i na podstawie listy ACL w aplikacji systemu Windows Azure AD](https://code.msdn.microsoft.com/Role-Based-and-ACL-Based-86ad71a1). Przykładowa aplikacja.
-- [Blog Azure Active Directory interfejsu API Graph](https://blogs.msdn.com/b/aadgraphteam/).
-- [Kontrola dostępu w modelu BYOD i integracji katalogu hybrydowej infrastruktury tożsamości](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/PCIT-B213#fbid=). Techniczna Ed 2014 sesji wideo przez Gayana Bagdasaryan.
+- [Dokumentacja usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Strona Portal dokumentacji usługi Azure AD w witrynie w witrynie windowsazure.com. Samouczki krok po kroku, zobacz **programowanie** sekcji.
+- [Usługa Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/). Strona portalu dokumentację dotyczącą usługi uwierzytelnianie wieloskładnikowe na platformie Azure.
+- [Opcje uwierzytelniania konto organizacyjne](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauthoptions). Wyjaśnienie opcje uwierzytelniania usługi Azure AD, w oknie dialogowym Nowy projekt programu Visual Studio 2013.
+- [Microsoft Patterns and Practices - federacyjne wzorzec tożsamości](https://msdn.microsoft.com/library/dn589790.aspx).
+- [Porady: Instalowanie narzędzi usługi Azure Active Directory Sync](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx).
+- [2.0 Mapa zawartości usług federacyjnych Active Directory](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx). Zawiera łącza do dokumentacji usług AD FS 2.0.
+- [Autoryzacja oparta na rolach i na podstawie listy ACL w aplikacji Windows Azure AD](https://code.msdn.microsoft.com/Role-Based-and-ACL-Based-86ad71a1). Przykładowa aplikacja.
+- [Blog usługi Azure Active Directory interfejsu API programu Graph](https://blogs.msdn.com/b/aadgraphteam/).
+- [Kontrola dostępu w modelu BYOD i Integracja katalogu w hybrydowej infrastruktury tożsamości](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/PCIT-B213#fbid=). Tech Ed 2014 sesji wideo przez Gayana Bagdasaryan.
 
 > [!div class="step-by-step"]
 > [Poprzednie](web-development-best-practices.md)

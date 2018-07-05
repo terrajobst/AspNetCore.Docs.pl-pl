@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/authentication/validating-users-manually
-title: Walidacja użytkowników ręcznie | Dokumentacja firmy Microsoft
+title: Ręczne weryfikowanie użytkowników | Dokumentacja firmy Microsoft
 author: JoeStagner
-description: W tym wideo Stagner Jan przedstawiono sposób ręcznie utworzyć własne formularza sieci web i proces żądania uwierzytelnienia. Aby uzyskać dodatkowe informacje o tym vi...
+description: W tym wideo Stagner Jan pokazano, jak ręcznie utworzyć własne formularz sieci web i proces żądania uwierzytelnienia. Aby uzyskać dodatkowe informacje na temat tego vi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/22/2008
 ms.topic: article
 ms.assetid: c11eec26-25a2-41fb-9330-ddc123c0423a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/validating-users-manually
 msc.type: video
-ms.openlocfilehash: ea517ff56297a085282a554ed4834f12eafc1f93
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c8bcdd44558d982ba6e7e60639c0e43f8cc3b883
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885513"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376125"
 ---
-<a name="validating-users-manually"></a>Walidacja użytkowników ręcznie
+<a name="validating-users-manually"></a>Ręczne weryfikowanie użytkowników
 ====================
 przez [Stagner Jan](https://github.com/JoeStagner)
 
-W tym wideo Stagner Jan przedstawiono sposób ręcznie utworzyć własne formularza sieci web i proces żądania uwierzytelnienia. Aby uzyskać dodatkowe informacje o tym wideo, przeczytaj samouczek zabezpieczeń "Sprawdzanie poprawności poświadczeń przed członkostwa użytkownika magazynu użytkowników" ([C#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).
+W tym wideo Stagner Jan pokazano, jak ręcznie utworzyć własne formularz sieci web i proces żądania uwierzytelnienia. Aby uzyskać dodatkowe informacje na temat ten film wideo, przeczytaj samouczek zabezpieczeń "Sprawdzanie poprawności użytkownika poświadczeń względem członkostwa użytkownika Store" ([C#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).
 
-[&#9654;Obejrzyj klip wideo (minuty 13)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/validating-users-manually)
+[&#9654;Obejrzyj film wideo (minuty 13)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/validating-users-manually)
 
 > [!div class="step-by-step"]
 > [Poprzednie](creating-user-accounts-programmatically.md)

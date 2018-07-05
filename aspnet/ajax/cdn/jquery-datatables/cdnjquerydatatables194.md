@@ -9,19 +9,18 @@ ms.date: 07/23/2014
 ms.topic: article
 ms.assetid: f117b38e-38b9-4f3c-911b-21c1621a7797
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-datatables/cdnjquerydatatables194
 msc.type: content
-ms.openlocfilehash: ea4449a248aa7c1ebbb61bad6c142009b8d9bb2c
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: 07f669c8d3f9830e492e858a58dca79490d07758
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2018
-ms.locfileid: "30071197"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364219"
 ---
 <a name="jquery-datatables-194"></a>jQuery DataTables pytanie 1.9.4
 ====================
-Następujące pliki jquery wtyczek DataTables znajdują się w sieci CDN:
+Następujące pliki w bibliotece jQuery wtyczek DataTable znajdują się w sieci CDN:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.js
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js

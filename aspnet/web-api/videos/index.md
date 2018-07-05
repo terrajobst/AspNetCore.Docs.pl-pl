@@ -1,6 +1,6 @@
 ---
 uid: web-api/videos/index
-title: Filmy wideo interfejsu API sieci Web programu ASP.NET | Dokumentacja firmy Microsoft
+title: ASP.NET Web API wideo | Dokumentacja firmy Microsoft
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,24 +9,23 @@ ms.date: 02/16/2012
 ms.topic: article
 ms.assetid: 8ed7e133-707b-43e6-bce4-e9d266935573
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/videos
 msc.type: book
-ms.openlocfilehash: cd78a8d3849c80730c6820115944c429f86116df
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cd71ac21e156224efa61baf8c83f3974b1ab4fb9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26567035"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389526"
 ---
-<a name="aspnet-web-api-videos"></a>Filmy wideo z interfejsu API sieci Web ASP.NET
+<a name="aspnet-web-api-videos"></a>ASP.NET Web API, filmy wideo
 ====================
 - [Omówienie i wprowadzenie](getting-started/index.md)
 
-    - [Interfejs API sieci Web ASP.NET](getting-started/aspnet-web-api.md)
-    - [ASP.NET Web API, część 1: Pierwszy interfejs API sieci Web](getting-started/your-first-web-api.md)
-    - [Interfejs API sieci Web ASP.NET, część 2: Pobieranie danych](getting-started/getting-data.md)
-    - [Interfejs API sieci Web ASP.NET, część 3: Usuwania i aktualizacji](getting-started/delete-and-update.md)
-    - [Interfejs API sieci Web ASP.NET, część 4: Stronicowania i zapytań](getting-started/paging-and-querying.md)
-    - [ASP.NET Web API, część 5: Walidacji niestandardowej](getting-started/custom-validation.md)
-    - [ASP.NET Web API, część 6: autoryzacji](getting-started/authorization.md)
+    - [ASP.NET Web API](getting-started/aspnet-web-api.md)
+    - [ASP.NET Web API, część 1: Twój pierwszy interfejs Web API](getting-started/your-first-web-api.md)
+    - [ASP.NET Web API, część 2: pobieranie danych](getting-started/getting-data.md)
+    - [ASP.NET Web API, część 3: usuwanie i aktualizowanie](getting-started/delete-and-update.md)
+    - [ASP.NET Web API, część 4: stronicowanie i zapytania](getting-started/paging-and-querying.md)
+    - [ASP.NET Web API, część 5: weryfikacja niestandardowa](getting-started/custom-validation.md)
+    - [ASP.NET Web API, część 6: autoryzacja](getting-started/authorization.md)

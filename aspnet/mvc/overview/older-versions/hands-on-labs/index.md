@@ -1,27 +1,26 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/index
-title: ASP.NET MVC 4 przekazuje na Labs | Dokumentacja firmy Microsoft
+title: Platforma ASP.NET MVC 4 — Ćwiczenia praktyczne | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Dowiedz się, jak tworzyć aplikacje za pomocą platformy ASP.NET MVC z tych laboratoriów w ręce
+description: Dowiedz się, jak tworzyć aplikacje za pomocą platformy ASP.NET MVC za pomocą tych Labs w ręce
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
 ms.topic: article
 ms.assetid: eb23eb99-bfca-4043-9b48-2cf7838dd754
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs
 msc.type: chapter
-ms.openlocfilehash: bfdab4cfd3945401213bcc0b6f282dd5ffbedc5d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d9c125b60bd9e1fbfb392e95ffa927e6ed426c0b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29727174"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390964"
 ---
-# <a name="aspnet-mvc-4-hands-on-labs"></a>Platforma ASP.NET MVC 4 przekazuje na Labs
+# <a name="aspnet-mvc-4-hands-on-labs"></a>Platforma ASP.NET MVC 4 — Ćwiczenia praktyczne
 
-Dowiedz się, jak tworzyć aplikacje za pomocą platformy ASP.NET MVC z tych laboratoriów w ręce
+Dowiedz się, jak tworzyć aplikacje za pomocą platformy ASP.NET MVC za pomocą tych Labs w ręce
 
 - [Co nowego we wzorcu ASP.NET MVC 4](whats-new-in-aspnet-mvc-4.md)
 - [ASP.NET MVC 4 — podstawy](aspnet-mvc-4-fundamentals.md)

@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-health-monitoring-for-an-aspnet-application
-title: '[Jak i.]  Wdrożenie, monitorowanie kondycji aplikacji ASP.NET aplikację? | Dokumentacja firmy Microsoft'
+title: '[Jak mogę]  Implementowanie monitorowania kondycji dla aplikacji ASP.NET? | Microsoft Docs'
 author: rick-anderson
-description: W tym wideo Pels Krzysztof wyświetli implementowania kondycji monitorowanie, aby uzyskać szczegółowe informacje czasu wykonywania dla aplikacji ASP.NET. Dowiedz się zaawansowanego i...
+description: W tym wideo pikseli Chris pokazują, jak zaimplementować kondycji monitorowania, aby uzyskać szczegółowe informacje o czasie wykonywania dla aplikacji ASP.NET. Dowiedz się, zaawansowanego i...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/05/2007
 ms.topic: article
 ms.assetid: b3abd282-840a-42e3-ac27-cddbb22c5e33
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-health-monitoring-for-an-aspnet-application
 msc.type: video
-ms.openlocfilehash: d10640b131d4b169a256cfb5314f5b5d10d260a8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 35ee802f1a349f29ee3c038ad3e668c123ef48ea
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572180"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379640"
 ---
-<a name="how-do-i--implement-health-monitoring-for-an-aspnet-application"></a>[Jak i.]  Wdrożenie, monitorowanie kondycji aplikacji ASP.NET aplikację?
+<a name="how-do-i--implement-health-monitoring-for-an-aspnet-application"></a>[Jak mogę]  Implementowanie monitorowania kondycji dla aplikacji ASP.NET?
 ====================
-przez [Pels Krzysztof](https://twitter.com/chrispels)
+przez [Chris pikseli](https://twitter.com/chrispels)
 
-W tym wideo Pels Krzysztof wyświetli implementowania kondycji monitorowanie, aby uzyskać szczegółowe informacje czasu wykonywania dla aplikacji ASP.NET. Dowiedz się więcej opcji konfiguracji wydajny i elastyczny monitorowania, w tym kondycji kondycji monitorowanie zdarzeń, alias zdarzeń sieci web, dostawców na potrzeby przechowywania danych, reguły mapowania zdarzeń na dostawców, profile dla często używanych ustawień i buffermode w celu optymalizacji kondycję monitorowania w celu uzyskania najlepszej wydajności. Następnie zobacz przykładowej aplikacji sieci web w akcji z monitorowanie kondycji włączone zapisywania zdarzeń w dzienniku zdarzeń systemu Windows.
+W tym wideo pikseli Chris pokazują, jak zaimplementować kondycji monitorowania, aby uzyskać szczegółowe informacje o czasie wykonywania dla aplikacji ASP.NET. Dowiedz się więcej opcji konfiguracji wydajną i elastyczną monitorowania, w tym kondycji zdarzeń, alias zdarzenia sieci web, dostawców na potrzeby przechowywania danych i reguł mapowania zdarzeń z dostawcami, monitorowania kondycji profilów dla często używanych ustawień i buffermode do optymalizacji monitorowania w celu uzyskania najlepszej wydajności kondycji. Zobacz przykładową aplikację sieci web w akcji w przypadku monitorowania kondycji włączone zapisywanie zdarzeń w dzienniku zdarzeń Windows.
 
-[&#9654; Obejrzyj klip wideo (minuty 21)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-health-monitoring-for-an-aspnet-application)
+[&#9654;Obejrzyj film wideo (minuty 21)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-health-monitoring-for-an-aspnet-application)

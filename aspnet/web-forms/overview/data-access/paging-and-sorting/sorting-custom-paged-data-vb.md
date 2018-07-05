@@ -1,100 +1,99 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-vb
-title: Sortowanie niestandardowe stronicowanej danych (VB) | Dokumentacja firmy Microsoft
+title: Sortowanie niestandardowo stronicowanych danych (VB) | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: W poprzednich samouczku opisano implementowania stronicowania niestandardowego, gdy presentating danych na stronie sieci web. W tym samouczku przedstawiono sposób rozszerzyć poprzedniego...
+description: W poprzednim samouczku dowiedzieliśmy sposób implementacji niestandardowych stronicowania, gdy presentating danych na stronie sieci web. W tym samouczku zobaczymy, jak rozszerzyć poprzednią...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
 ms.topic: article
 ms.assetid: 4823a186-caaf-4116-a318-c7ff4d955ddc
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e144b434bd759c4253065e365b1337a3eca82fa7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9921b541e0160054f080ff08468ddfc5cc92373b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30883069"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37363656"
 ---
-<a name="sorting-custom-paged-data-vb"></a>Sortowanie niestandardowe stronicowanej danych (VB)
+<a name="sorting-custom-paged-data-vb"></a>Sortowanie niestandardowo stronicowanych danych (VB)
 ====================
 przez [Bento Scott](https://twitter.com/ScottOnWriting)
 
-[Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_26_VB.exe) lub [pobierania plików PDF](sorting-custom-paged-data-vb/_static/datatutorial26vb1.pdf)
+[Pobierz przykładową aplikację](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_26_VB.exe) lub [Pobierz plik PDF](sorting-custom-paged-data-vb/_static/datatutorial26vb1.pdf)
 
-> W poprzednich samouczku opisano implementowania stronicowania niestandardowego, gdy presentating danych na stronie sieci web. W tym samouczku przedstawiono sposób rozszerzyć w poprzednim przykładzie, aby uwzględnić obsługę stronicowania niestandardowego sortowania.
+> W poprzednim samouczku dowiedzieliśmy sposób implementacji niestandardowych stronicowania, gdy presentating danych na stronie sieci web. W tym samouczku widzimy, jak rozszerzyć poprzedni przykład obsługę sortowanie stronicowania niestandardowego.
 
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W porównaniu do stronicowania domyślne stronicowania niestandardowego może poprawić wydajność stronicowania danych przez wiele rzędów, tworzenie niestandardowych stronicowania faktyczne Wybór implementacji stronicowania podczas stronicowania za pośrednictwem dużych ilości danych. Implementowanie stronicowania niestandardowego jest bardziej skomplikowane niż Implementowanie stronicowania domyślne, jednak szczególnie w przypadku dodawania sortowania z różnymi. W tym samouczku będziemy rozszerzać przykład z poprzednim elementem obsługują sortowanie *i* stronicowania niestandardowego.
+W porównaniu do stronicowania domyślne stronicowania niestandardowego można poprawić wydajność stronicować dane przez wiele rzędów, tworzenie niestandardowych, stronicowanie de facto Wybór implementacji stronicowania, gdy stronicowanie dużych ilości danych. Implementowanie stronicowania niestandardowego jest bardziej skomplikowane niż liczba implementacji domyślnej stronicowanie, jednak, szczególnie w przypadku dodawania sortowanie do mieszanki. W tym samouczku będziemy rozszerzać przykład z elementem po poprzednim obejmują obsługę sortowanie *i* stronicowania niestandardowego.
 
 > [!NOTE]
-> Ponieważ w tym samouczku opisano mieszanego, przed rozpoczęciem Poświęć chwilę, aby skopiować składni deklaratywnej w `<asp:Content>` element z poprzedniej strony sieci web samouczek s (`EfficientPaging.aspx`) i wklej go między `<asp:Content>` element `SortParameter.aspx` strony. Odwołaj się do kroku 1 [dodawanie formantów weryfikacji do edycji i wstawianie interfejsy](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) samouczka bardziej szczegółowe omówienie na replikowanie funkcji jedną stronę ASP.NET do innego.
+> Ponieważ ten samouczek opiera się na poprzednim jeden, przed początku Poświęć chwilę, aby skopiować składni deklaratywnej w ramach `<asp:Content>` elementu z poprzedniego samouczka s strony sieci web (`EfficientPaging.aspx`) i wklej go między `<asp:Content>` element `SortParameter.aspx` strony. Odwołaj się do kroku 1 [Dodawanie kontrolek weryfikacji do edycji i wstawiania interfejsy](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) samouczka, aby uzyskać bardziej szczegółowe omówienie dotyczące replikowania funkcjonalność co strona ASP.NET do innego.
 
 
-## <a name="step-1-reexamining-the-custom-paging-technique"></a>Krok 1: Rewidowanie niestandardowych technika stronicowania
+## <a name="step-1-reexamining-the-custom-paging-technique"></a>Krok 1: Rewidowanie niestandardowe technika stronicowania
 
-Firma Microsoft stronicowania niestandardowego działało poprawnie, musisz zaimplementować niektóre metody, która wydajnie chwycić konkretnego podzestawu rekordów podane parametry Start indeks wiersza i maksymalna liczba wierszy. Istnieje kilka metod, które mogą służyć do osiągnięcia tego celu. W poprzednim samouczka analizujemy realizacji tego zadania przy użyciu programu Microsoft SQL Server 2005 s nowe `ROW_NUMBER()` Klasyfikacja funkcji. Krótko mówiąc `ROW_NUMBER()` Klasyfikacja funkcja przypisuje numeru wiersza do każdego wiersza zwróconych przez kwerendę, która jest określana przez kolejność sortowania określona. Odpowiednie podzestaw następnie są uzyskiwane przez zwrócenie określonej sekcji numerowane wyników. Następujące zapytanie ilustruje sposób użycia tej metody w celu uzyskania tych produktów numerowane 11 do 20, gdy klasyfikacja wyniki w kolejności alfabetycznej przez `ProductName`:
+Niestandardowe stronicowanie działało poprawnie, musimy zaimplementować niektórych technika, która może efektywnie Pobierz konkretnego podzbioru rekordów podanymi jako parametry Rozpocznij indeks wiersza i maksymalna liczba wierszy. Istnieje kilka technik, które mogą służyć do osiągnięcia tego celu. W poprzednim samouczku przyjrzeliśmy się to za pomocą programu Microsoft SQL Server 2005 s nowego `ROW_NUMBER()` funkcji klasyfikacja. Krótko mówiąc `ROW_NUMBER()` funkcji Klasyfikacja przypisuje numer wiersza każdy wiersz zwrócony przez zapytanie, które są uszeregowane według określonego sortowania. Następnie uzyskuje się w, zwracając określonej sekcji numerowane wyników odpowiednich podzestaw rekordów. Następujące zapytanie pokazano, jak użyć tej techniki w celu zwracania tych produktów numerowane 11 do 20, gdy klasyfikacja wyniki uporządkowane alfabetycznie według `ProductName`:
 
 
 [!code-sql[Main](sorting-custom-paged-data-vb/samples/sample1.sql)]
 
-Ta metoda sprawdza się w przypadku stronicowania przy użyciu określonego sortowania (`ProductName` sortowana alfabetycznie, w tym przypadku), ale zapytania można zmodyfikować, aby wyświetlić wyniki posortowane według wyrażenie sortowania. W idealnym przypadku powyższym zapytaniu może ulegną można użyć parametru w `OVER` klauzuli, w następujący sposób:
+Ta metoda sprawdza się w przypadku stronicowania przy użyciu określonego sortowania (`ProductName` sortowana alfabetycznie, w tym przypadku), ale zapytanie musi zostać zmodyfikowana, aby wyświetlić wyniki posortowane według wyrażenie sortowania. W idealnym przypadku powyższym zapytaniu można dopasować do użycia parametru w `OVER` klauzuli w następujący sposób:
 
 
 [!code-sql[Main](sorting-custom-paged-data-vb/samples/sample2.sql)]
 
-Niestety, sparametryzowana `ORDER BY` klauzule są niedozwolone. Zamiast tego należy utworzyć procedury przechowywanej, która akceptuje `@sortExpression` parametru wejściowego, ale używa jednego z poniższych rozwiązań:
+Niestety, sparametryzowane `ORDER BY` klauzule są niedozwolone. Zamiast tego należy utworzyć procedurę składowaną, która akceptuje `@sortExpression` parametr wejściowy, ale używa jednego z następujących rozwiązań:
 
-- Pisać zapytania ustalony dla każdego z wyrażenia sortowania, które mogą być używane; następnie należy użyć `IF/ELSE` instrukcje T-SQL, aby określić, które zapytania do wykonania.
-- Użyj `CASE` instrukcji, aby zapewnić dynamiczne `ORDER BY` na podstawie wyrażenia `@sortExpressio` n parametr wejściowy; Zobacz używane w sekcji dynamicznie sortowania wyników zapytania [Power SQL `CASE` instrukcje](http://www.4guysfromrolla.com/webtech/102704-1.shtml) Aby uzyskać więcej informacji.
-- Jednostki właściwe zapytania jako ciąg w procedurze składowanej, a następnie użyj [ `sp_executesql` procedury składowanej systemu](https://msdn.microsoft.com/library/ms188001.aspx) można wykonać zapytania dynamicznego.
+- Pisanie zapytań ustaloną dla każdego z wyrażenia sortowania, które mogą być używane; następnie należy użyć `IF/ELSE` instrukcje języka T-SQL, aby określić, która kwerenda do wykonania.
+- Użyj `CASE` instrukcję, aby zapewnić dynamiczne `ORDER BY` na podstawie wyrażenia `@sortExpressio` n parametr wejściowy; Zobacz używane w sekcji dynamicznie sortowanie wyników zapytania [Power SQL `CASE` instrukcji](http://www.4guysfromrolla.com/webtech/102704-1.shtml) Aby uzyskać więcej informacji.
+- Utwórz odpowiednie zapytanie jako ciąg w procedurze składowanej, a następnie użyj [ `sp_executesql` systemowej procedury składowanej](https://msdn.microsoft.com/library/ms188001.aspx) do wykonania dynamicznego zapytania.
 
-Każda z tych rozwiązań ma niektóre wady. Pierwsza opcja nie jest jako utrzymaniu jako dwa inne, ponieważ wymaga ona utworzenie zapytania dla każdego wyrażenia sortowania możliwe. W związku z tym jeśli później zdecydujesz się dodać nowe, sortowanie pola do widoku GridView będzie również należy wrócić i zaktualizować procedury składowanej. Drugi podejście charakteryzuje się niektóre precyzyjnie wprowadzenie problemów z wydajnością podczas sortowania według kolumn innych niż ciąg bazy danych, które również odczuwa te same kwestie utrzymanie jako pierwszy. I trzecią, używający dynamiczne SQL wprowadza ryzykiem w przypadku ataku polegającego na iniekcji SQL, jeśli osoba atakująca może wykonać procedurę składowaną, przekazując ich wybieranie wartości parametru wejściowego.
+Każda z tych obejść ma pewne wady. Pierwsza opcja nie jest jak obsłudze jako pozostałe dwa, ponieważ wymaga tworzenia kwerendy dla każdego wyrażenia sortowania możliwe. W związku z tym jeśli później zdecydujesz się dodać nowy, sortowanie pola do widoku GridView również należy wrócić i zaktualizować procedury składowanej. Drugie podejście ma pewne precyzyjnie, które wprowadzają problemów z wydajnością, gdy sortowanie według kolumny bazy danych innych niż ciąg, a także cierpi z tych samych problemów, łatwość konserwacji jako pierwszy. I trzecią, która używa dynamiczny język SQL, wprowadza ryzyko ataku polegającego na iniekcji SQL, jeśli osoba atakująca może wykonać procedurę składowaną w wartości parametru wejściowego atakującego.
 
-Gdy żaden z tych metod nie jest idealne, myślę, że trzecia opcja to najlepszy trzech. Z jego użyciem SQL dynamicznej oferuje poziom elastyczności, które nie zawierają innych dwa. Ponadto ataku polegającego na iniekcji SQL może być wykorzystywana tylko jeśli atakujący jest w stanie wykonać procedurę składowaną przekazywanie w parametrach wejściowych przez siebie. Ponieważ warstwy DAL korzysta z zapytań sparametryzowanych, ADO.NET będzie chronić tych parametrów, które są wysyłane do bazy danych za pomocą architektury, co oznacza, że SQL iniekcji luki w zabezpieczeniach istnieje tylko jeśli osoba atakująca może bezpośrednio wykonywania procedury składowanej.
+Gdy żaden z tych metod jest doskonałym rozwiązaniem, myślę, że trzecia opcja to najlepsze trzy. Przy jej użyciu dynamiczny język SQL oferuje stopień elastyczności, które nie obsługują pozostałe dwa. Ponadto ataku polegającego na iniekcji SQL można wykorzystać tylko jeśli atakujący jest w stanie wykonać procedurę składowaną, przekazując parametrów wejściowych przez siebie. Ponieważ warstwy DAL używa sparametryzowanych zapytań, ADO.NET będzie chronić te parametry, które są wysyłane do bazy danych przy użyciu architektury, co oznacza, że atak wstrzyknięcie kodu SQL istnieje tylko jeśli osoba atakująca może bezpośrednie wykonywanie procedury składowanej.
 
-Aby zaimplementować tę funkcję, należy utworzyć nową procedurę składowaną w bazie danych Northwind o nazwie `GetProductsPagedAndSorted`. Tę procedurę składowaną powinna obsługiwać trzy parametry wejściowe: `@sortExpression`, parametru wejściowego typu `nvarchar(100`) określa, jak mają być sortowane wyniki i wstrzykuje się bezpośrednio po `ORDER BY` tekst w `OVER` klauzul; i `@startRowIndex` i `@maximumRows`, tej samej całkowitą dwóch parametrów wejściowych z `GetProductsPaged` w poprzednim samouczek procedury składowanej. Utwórz `GetProductsPagedAndSorted` przechowywane procedury przy użyciu następującego skryptu:
+Aby zaimplementować tę funkcję, należy utworzyć nową procedurę składowaną w bazie danych Northwind, o nazwie `GetProductsPagedAndSorted`. Tę procedurę składowaną, należy zaakceptować trzy parametry wejściowe: `@sortExpression`, parametr wejściowy typu `nvarchar(100`) określający, jak wyniki powinny być sortowane i są wstrzykiwane bezpośrednio po `ORDER BY` tekstu w `OVER` klauzula; i `@startRowIndex` i `@maximumRows`, te same parametry wejściowe dwie liczby całkowitej z `GetProductsPaged` badany w poprzednim samouczku procedury składowanej. Utwórz `GetProductsPagedAndSorted` przechowywane procedury przy użyciu następującego skryptu:
 
 
 [!code-sql[Main](sorting-custom-paged-data-vb/samples/sample3.sql)]
 
-Procedura składowana uruchamia się za zapewnienie, że wartość `@sortExpression` został określony parametr. Jeśli jest on niedostępny, wyniki są uporządkowane według `ProductID`. Następnie jest tworzony dynamiczne zapytania SQL. Należy pamiętać, że dynamiczne kwerendę SQL w tym miejscu różni się nieco od naszych poprzednich zapytań używane do pobierania wszystkich wierszy z tabeli Produkty. W poprzednich przykładach możemy uzyskać każdej kategorii skojarzona produktu s s i dostawcy nazwy s przy użyciu podzapytania. Ta decyzja została wprowadzona w [tworzenie Warstwa dostępu do danych](../introduction/creating-a-data-access-layer-vb.md) samouczka i wykonano zamiast za pomocą `JOIN` s ponieważ TableAdapter nie można automatycznie utworzyć skojarzone wstawiania, aktualizowania i usuwania metod dla takich zapytania. `GetProductsPagedAndSorted` Procedury składowanej, musi jednak używać `JOIN` s dla wyników można porządkować według nazw kategorii lub dostawcy.
+Procedura składowana rozpoczyna się poprzez zapewnienie, że wartość `@sortExpression` określono parametr. Jeśli go brakuje, wyniki są uporządkowane według `ProductID`. Następnie jest tworzony dynamicznego zapytania SQL. Należy zauważyć, że dynamiczne kwerendę SQL w tym miejscu różni się nieco od naszego poprzedniego zapytania używane do pobierania wszystkich wierszy z tabeli Produkty. W poprzednich przykładach możemy uzyskać każdej kategorii skojarzona produktów s s i dostawcy s nazwy podzapytania. Tę decyzję podjęliśmy w [Tworzenie warstwy dostępu do danych](../introduction/creating-a-data-access-layer-vb.md) samouczek i zostało to zrobione, zamiast przy użyciu `JOIN` s ponieważ TableAdapter nie można automatycznie utworzyć skojarzone Wstawianie, aktualizowanie i usuwanie metody dla takich zapytania. `GetProductsPagedAndSorted` Procedury składowanej, musi jednak używać `JOIN` pod kątem wyników, które mają być uporządkowane według nazw kategorii lub dostawcę.
 
-To zapytanie dynamiczny jest tworzony przez łączenie części zapytania statyczne i `@sortExpression`, `@startRowIndex`, i `@maximumRows` parametrów. Ponieważ `@startRowIndex` i `@maximumRows` parametrów liczba całkowita, muszą zostać przekonwertowane na nvarchars Aby zostać poprawnie połączony. Po to dynamiczny zapytanie SQL zostały utworzone, jest wykonywane przy użyciu `sp_executesql`.
+To zapytanie dynamiczne jest tworzony przez złączenie części zapytania statycznych i `@sortExpression`, `@startRowIndex`, i `@maximumRows` parametrów. Ponieważ `@startRowIndex` i `@maximumRows` parametrów liczby całkowitej, muszą zostać przekonwertowane na nvarchars aby można było poprawnie był połączone. Gdy to zapytanie dynamiczne SQL został skonstruowany, jest wykonywane przy użyciu `sp_executesql`.
 
-Poświęć chwilę, aby przetestować tę procedurę składowaną z różnymi wartościami dla `@sortExpression`, `@startRowIndex`, i `@maximumRows` parametrów. Z poziomu Eksploratora serwera kliknij prawym przyciskiem myszy nazwę procedury składowanej i wybierz polecenie Execute. Zostanie wyświetlone okno dialogowe Uruchom procedurę składowaną, w którym można wprowadzać parametry wejściowe (zobacz rysunek 1). Aby posortować wyników według nazwy kategorii, użyj CategoryName dla `@sortExpression` wartość parametru; Aby sortować według nazwy firmy dostawcy s, użyj NazwaFirmy. Po podaniu wartości parametrów, kliknij przycisk OK. Wyniki są wyświetlane w oknie danych wyjściowych. Na rysunku 2 przedstawiono wyniki, gdy zwracanie produktów uszeregowane 11 do 20 w przypadku porządkowania według `UnitPrice` w kolejności malejącej.
+Poświęć chwilę, aby przetestować tę procedurę składowaną z różnymi wartościami dla `@sortExpression`, `@startRowIndex`, i `@maximumRows` parametrów. Z poziomu Eksploratora serwera kliknij prawym przyciskiem myszy nazwę procedury składowanej i wybierz polecenie Execute. Zostanie wyświetlone okno dialogowe Uruchom procedurę składowaną, w którym możesz wprowadzić parametry wejściowe (patrz rysunek 1). Aby posortować wyników według nazwy kategorii, należy użyć CategoryName dla `@sortExpression` wartość parametru; Aby sortować według nazwy firmy dostawcy s, użyj CompanyName. Po podaniu wartości parametrów, kliknij przycisk OK. Wyniki są wyświetlane w oknie danych wyjściowych. Na rysunku 2 przedstawiono wyniki, podczas zwracania produktów randze spośród wszystkich dokumentów 11 do 20 przypadku porządkowania według `UnitPrice` w kolejności malejącej.
 
 
-![Spróbuj różne wartości dla procedury składowanej s trzech parametrów wejściowych](sorting-custom-paged-data-vb/_static/image1.png)
+![Wypróbuj różne wartości dla parametrów procedury składowanej s trzech danych wejściowych](sorting-custom-paged-data-vb/_static/image1.png)
 
-**Rysunek 1**: spróbuj różne wartości dla parametrów wejściowych procedury składowanej s trzy
+**Rysunek 1**: Wypróbuj różne wartości dla parametrów wejściowych procedury składowanej s trzy
 
 
 [![S procedury składowanej wyniki są wyświetlane w oknie danych wyjściowych](sorting-custom-paged-data-vb/_static/image3.png)](sorting-custom-paged-data-vb/_static/image2.png)
 
-**Rysunek 2**: s procedury składowanej wyniki są wyświetlane w oknie danych wyjściowych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](sorting-custom-paged-data-vb/_static/image4.png))
+**Rysunek 2**: procedura składowana s wyniki są wyświetlane w oknie danych wyjściowych ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](sorting-custom-paged-data-vb/_static/image4.png))
 
 
 > [!NOTE]
-> Gdy klasyfikacja wyniki według określonego `ORDER BY` kolumny w `OVER` klauzuli, programu SQL Server musi sortowania wyników. To jest szybkie działanie, jeśli istnieje indeks klastrowany kolumn na liście wyników jest porządkowana przez lub jeśli istnieje pokryciem indeksu, ale może być bardziej kosztowne inaczej. Aby poprawić wydajność kwerend wystarczająco duże, należy rozważyć dodanie indeks nieklastrowany za pomocą której wyniki są uporządkowane według kolumny. Zapoznaj się [funkcji klasyfikacji i wydajności w programie SQL Server 2005](http://www.sql-server-performance.com/ak_ranking_functions.asp) więcej szczegółów.
+> Gdy klasyfikacja wyniki wg określonego `ORDER BY` kolumny w `OVER` klauzuli programu SQL Server należy sortować wyniki. To to szybka operacja, w przypadku indeksu klastrowanego za pośrednictwem kolumn na liście wyników są szeregowane, lub jeśli jest pokryciem indeksu, ale może być bardziej kosztowne w przeciwnym razie. Aby poprawić wydajność zapytań wystarczająco duże, należy rozważyć dodanie indeksu nieklastrowanego dla kolumny, według której wyniki są uporządkowane według. Zapoznaj się [funkcji Klasyfikacja i wydajności w programie SQL Server 2005](http://www.sql-server-performance.com/ak_ranking_functions.asp) Aby uzyskać więcej informacji.
 
 
-## <a name="step-2-augmenting-the-data-access-and-business-logic-layers"></a>Krok 2: Rozbudować dostęp do danych i warstwy logiki biznesowej
+## <a name="step-2-augmenting-the-data-access-and-business-logic-layers"></a>Krok 2: Rozszerzając dostępu do danych i warstwy logiki biznesowej
 
-Z `GetProductsPagedAndSorted` tworzenia procedury składowanej, naszych następnym krokiem jest zapewnienie środków do wykonania tej procedury składowanej za pośrednictwem Nasza architektura aplikacji. Powoduje to dodanie odpowiedniej metody do warstwy DAL i logiki warstwy Biznesowej. Let s, Rozpocznij od dodania metodę z warstwą dal. Otwórz `Northwind.xsd` wpisane zestawu danych, kliknij prawym przyciskiem myszy `ProductsTableAdapter`i wybierz opcję Dodaj zapytanie z menu kontekstowego. Jak robiliśmy w poprzednim samouczek chcemy się skonfigurować tej nowej metody warstwy DAL do użycia istniejącą procedurę składowaną - `GetProductsPagedAndSorted`, w tym przypadku. Rozpocznij od wskazujący, że chcesz nowy obiekt TableAdapter metodę istniejącą procedurę składowaną.
-
-
-![Wybierz istniejącą procedurę składowaną](sorting-custom-paged-data-vb/_static/image5.png)
-
-**Rysunek 3**: Wybierz istniejącą procedurę składowaną
+Za pomocą `GetProductsPagedAndSorted` tworzenia procedury składowanej, naszym następnym krokiem jest zapewnienie oznacza, że do wykonania tej procedury składowanej za pośrednictwem naszej architektury aplikacji. Powoduje to dodanie odpowiedniej metody do warstwy DAL i LOGIKI. Pozwól, s, Rozpocznij od dodania metody z warstwą dal. Otwórz `Northwind.xsd` wpisana zestawu danych, kliknij prawym przyciskiem myszy `ProductsTableAdapter`i wybierz opcję Dodaj zapytanie z menu kontekstowego. Ile My mieliśmy w poprzednim samouczku, firma Microsoft chce skonfigurować ta nowa metoda warstwy DAL do użycia istniejącą procedurę składowaną - `GetProductsPagedAndSorted`, w tym przypadku. Rozpocznij, wskazując, ma nową metodę TableAdapter do użycia istniejącą procedurę składowaną.
 
 
-Aby określić procedurę składowaną do użycia, zaznacz `GetProductsPagedAndSorted` przechowywane procedury z listy rozwijanej na następnym ekranie.
+![Wybrać istniejącą procedurę składowaną](sorting-custom-paged-data-vb/_static/image5.png)
+
+**Rysunek 3**: wybrać istniejącą procedurę składowaną
+
+
+Aby określić procedurę przechowywaną, aby użyć, wybierz `GetProductsPagedAndSorted` przechowywane procedury z listy rozwijanej na następnym ekranie.
 
 
 ![Użyj GetProductsPagedAndSorted procedury składowanej](sorting-custom-paged-data-vb/_static/image6.png)
@@ -102,7 +101,7 @@ Aby określić procedurę składowaną do użycia, zaznacz `GetProductsPagedAndS
 **Rysunek 4**: Użyj GetProductsPagedAndSorted procedury składowanej
 
 
-Tę procedurę składowaną zwraca zestaw rekordów, zgodnie z jego wyniki tak, na następnym ekranie wskazują zwraca dane tabelaryczne.
+Tę procedurę składowaną zwraca zestaw rekordów, jego wyniki tak, na następnym ekranie wskazują, że zwraca ona dane tabelaryczne.
 
 
 ![Wskazuje, że procedura składowana ma zwracać dane tabelaryczne](sorting-custom-paged-data-vb/_static/image7.png)
@@ -110,7 +109,7 @@ Tę procedurę składowaną zwraca zestaw rekordów, zgodnie z jego wyniki tak, 
 **Rysunek 5**: wskazuje, że procedura składowana ma zwracać dane tabelaryczne
 
 
-Na koniec Utwórz DAL metody, które używają obu wypełnienia DataTable i zwraca DataTable w przypadku wzorców nazewnictwa metody `FillPagedAndSorted` i `GetProductsPagedAndSorted`odpowiednio.
+Na koniec utwórz metody DAL, które używają zarówno wypełnienia DataTable i zwraca DataTable wzorców nazewnictwa metody `FillPagedAndSorted` i `GetProductsPagedAndSorted`, odpowiednio.
 
 
 ![Wybierz nazwy metod](sorting-custom-paged-data-vb/_static/image8.png)
@@ -118,35 +117,35 @@ Na koniec Utwórz DAL metody, które używają obu wypełnienia DataTable i zwra
 **Rysunek 6**: Wybierz nazwy metod
 
 
-Teraz tego możemy kolejnych rozszerzony DAL, możemy re gotowe, aby włączyć się do logiki warstwy Biznesowej. Otwórz `ProductsBLL` klasy plik i dodać nową metodę `GetProductsPagedAndSorted`. Ta metoda musi akceptować trzy parametry wejściowe `sortExpression`, `startRowIndex`, i `maximumRows` i po prostu powinny wywoływać w do DAL s `GetProductsPagedAndSorted` metody, w następujący sposób:
+Obecnie ten wykonujemy ve rozszerzone DAL, możemy ponownie gotowe, aby włączyć do LOGIKI. Otwórz `ProductsBLL` klasy plików i Dodaj nową metodę `GetProductsPagedAndSorted`. Ta metoda musi zaakceptować, trzech parametrów wejściowych `sortExpression`, `startRowIndex`, i `maximumRows` i po prostu wywołać w dół do DAL s `GetProductsPagedAndSorted` metody, w następujący sposób:
 
 
 [!code-vb[Main](sorting-custom-paged-data-vb/samples/sample4.vb)]
 
-## <a name="step-3-configuring-the-objectdatasource-to-pass-in-the-sortexpression-parameter"></a>Krok 3: Konfigurowanie ObjectDataSource przebiegu w parametrze SortExpression
+## <a name="step-3-configuring-the-objectdatasource-to-pass-in-the-sortexpression-parameter"></a>Krok 3: Konfigurowanie kontrolki ObjectDataSource przebiegu w parametrze SortExpression
 
-O rozszerzony DAL i logiki warstwy Biznesowej, aby uwzględnić metody wykorzystujące `GetProductsPagedAndSorted` procedury składowanej, wszystkie który pozostaje jest skonfigurowanie ObjectDataSource w `SortParameter.aspx` strony do używania nowej metody logiki warstwy Biznesowej i przekaż `SortExpression` na podstawie parametru kolumny, która zażądała Sortuj wyniki według użytkownika.
+O rozszerzonych DAL i LOGIKI zawierają metody, które wykorzystują `GetProductsPagedAndSorted` procedury składowanej, wszystkie pozostające jest skonfigurowanie ObjectDataSource w `SortParameter.aspx` strony do używania nowej metody LOGIKI i przekazać `SortExpression` na podstawie parametrów Kolumna, która użytkownik zażądał Sortuj wyniki według.
 
-Najpierw zmienić ObjectDataSource s `SelectMethod` z `GetProductsPaged` do `GetProductsPagedAndSorted`. Można to zrobić za pomocą kreatora Konfigurowanie źródła danych z okna właściwości lub bezpośrednio za pomocą składni deklaratywnej. Następnie należy podać wartość dla elementu ObjectDataSource s [ `SortParameterName` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx). Jeśli ta właściwość jest ustawiona, element ObjectDataSource podejmuje próbę przekazania w widoku GridView s `SortExpression` właściwości `SelectMethod`. W szczególności ObjectDataSource szuka parametr wejściowy, którego nazwa jest równa wartości `SortParameterName` właściwości. Ponieważ s logiki warstwy Biznesowej `GetProductsPagedAndSorted` metoda ma parametr wejściowy wyrażenie sortowania, o nazwie `sortExpression`, ustaw ObjectDataSource s `SortExpression` sortExpression dla właściwości.
+Rozpocznij od zmiany ObjectDataSource s `SelectMethod` z `GetProductsPaged` do `GetProductsPagedAndSorted`. Można to zrobić za pomocą Kreatora konfigurowania źródła danych, w oknie właściwości lub bezpośrednio za pomocą składni deklaratywnej. Następnie należy podać wartość dla ObjectDataSource s [ `SortParameterName` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx). Jeśli ta właściwość jest ustawiona, kontrolki ObjectDataSource spróbuje przekazać GridView s `SortExpression` właściwość `SelectMethod`. W szczególności kontrolki ObjectDataSource sprawdza, czy parametr wejściowy, którego nazwa jest równa wartości `SortParameterName` właściwości. Ponieważ s LOGIKI `GetProductsPagedAndSorted` metoda ma parametr wejściowy wyrażenia sortowania, o nazwie `sortExpression`, ustaw ObjectDataSource s `SortExpression` właściwość sortExpression.
 
-Po wprowadzeniu tych zmian dwóch składni deklaratywnej s ObjectDataSource powinien wyglądać podobny do następującego:
+Po wprowadzeniu tych dwóch zmian, składni deklaratywnej s ObjectDataSource powinien wyglądać podobnie do poniższej:
 
 
 [!code-aspx[Main](sorting-custom-paged-data-vb/samples/sample5.aspx)]
 
 > [!NOTE]
-> Zgodnie z poprzednim samouczka, upewnij się, że element ObjectDataSource jest *nie* obejmują sortExpression, startRowIndex lub maximumRows parametry wejściowe w jego SelectParameters kolekcji.
+> Zgodnie z poprzedniego samouczka, upewnij się, że nie kontrolki ObjectDataSource *nie* dołączyć parametry wejściowe sortExpression, startRowIndex lub maximumRows jego SelectParameters kolekcji.
 
 
-Aby włączyć sortowanie w widoku GridView, po prostu zaznacz pole wyboru Włącz sortowania w widoku GridView s tagu inteligentnego, który ustawia GridView s `AllowSorting` właściwości `true` , powodując tekst nagłówka dla każdej kolumny do renderowania jako element LinkButton. Gdy użytkownik końcowy kliknie jeden z nagłówków LinkButtons, ensues odświeżania strony i orzeczona następujące czynności:
+Aby włączyć sortowanie w widoku GridView, po prostu zaznacz pole wyboru Włącz sortowania w widoku GridView s tagu inteligentnego, który ustawia GridView s `AllowSorting` właściwość `true` i powodują, że tekst nagłówka dla każdej kolumny mógł być renderowany jako element LinkButton. Gdy użytkownik końcowy kliknie jeden nagłówek LinkButtons, ensues odświeżenie strony i orzeczona następujące czynności:
 
-1. Aktualizacje GridView jego [ `SortExpression` właściwości](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) wartość `SortExpression` pola, którego łącze nagłówek został kliknięty
-2. Element ObjectDataSource wywołuje s logiki warstwy Biznesowej `GetProductsPagedAndSorted` metody, przekazując GridView s `SortExpression` właściwość jako wartość metody s `sortExpression` parametru wejściowego (wraz z odpowiednią `startRowIndex` i `maximumRows` wartości parametrów wejściowych)
-3. Logiki warstwy Biznesowej wywołuje DAL s `GetProductsPagedAndSorted` — metoda
-4. Wykonuje warstwy DAL `GetProductsPagedAndSorted` przechowywane procedury, przekazywanie w `@sortExpression` parametr (wraz z `@startRowIndex` i `@maximumRows` wartości parametrów wejściowych)
-5. Procedura składowana zwraca odpowiednie podzbiór danych do logiki warstwy Biznesowej, które zwraca go do elementu ObjectDataSource; te dane są następnie powiązany z widoku GridView, renderowane w kodzie HTML i przesyłany do użytkownika końcowego
+1. Aktualizacje GridView jego [ `SortExpression` właściwość](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) wartość `SortExpression` pola, do którego łącze nagłówek został kliknięty
+2. Kontrolki ObjectDataSource wywołuje s LOGIKI `GetProductsPagedAndSorted` metody, przekazując GridView s `SortExpression` właściwość jako wartość dla metody s `sortExpression` parametr wejściowy (wraz z odpowiednim `startRowIndex` i `maximumRows` wartości parametrów wejściowych)
+3. LOGIKI wywołuje DAL s `GetProductsPagedAndSorted` — metoda
+4. Wykonuje warstwy DAL `GetProductsPagedAndSorted` procedurą składowaną, zakończone powodzeniem w `@sortExpression` parametru (wraz z `@startRowIndex` i `@maximumRows` wartości parametrów wejściowych)
+5. Procedura składowana ma zwracać odpowiedniego podzestawu danych do LOGIKI, która zwraca go do elementu ObjectDataSource; te dane są następnie powiązany z kontrolki GridView, renderowane w kodzie HTML i wysyłane do użytkownika końcowego
 
-Rysunek nr 7 przedstawia pierwszej strony wyników, gdy posortowane według `UnitPrice` w kolejności rosnącej.
+Rysunek nr 7 przedstawia pierwszej strony wyniki, gdy są sortowane według `UnitPrice` w kolejności rosnącej.
 
 
 [![Wyniki są sortowane według UnitPrice](sorting-custom-paged-data-vb/_static/image10.png)](sorting-custom-paged-data-vb/_static/image9.png)
@@ -154,42 +153,42 @@ Rysunek nr 7 przedstawia pierwszej strony wyników, gdy posortowane według `Uni
 **Rysunek 7**: wyniki są sortowane według UnitPrice ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](sorting-custom-paged-data-vb/_static/image11.png))
 
 
-Gdy bieżąca implementacja poprawnie można sortować wyniki według nazwy produktu, nazwa kategorii, ilość na jednostkę oraz cenie jednostkowej, próby kolejności wyników przez dostawcę wyniki nazwa wyjątek czasu wykonywania (patrz rysunek 8).
+Gdy bieżąca implementacja parametru poprawnie można sortować wyniki według nazwy produktu, nazwa kategorii, ilość na jednostkę oraz ceny jednostkowej, próby kolejność wyników przez dostawcę nazwy wyniki w wyjątek czasu wykonywania (zobacz rysunek 8).
 
 
-![Podjęto próbę Sortuj wyniki według dostawcy skutkuje następujący wyjątek czasu wykonywania](sorting-custom-paged-data-vb/_static/image12.png)
+![Podjęto próbę Sortuj wyniki według dostawca skutkuje następujący wyjątek czasu wykonywania](sorting-custom-paged-data-vb/_static/image12.png)
 
-**Rysunek 8**: Podjęto próbę Sortuj wyniki według dostawcy skutkuje następujący wyjątek czasu wykonywania
-
-
-Ten wyjątek spowodowany `SortExpression` s GridView `SupplierName` ma ustawioną wartość elementu BoundField `SupplierName`. Jednak nazwy dostawcy s `Suppliers` faktycznie nosi nazwę tabeli `CompanyName` byliśmy aliasem tej nazwy kolumny jako `SupplierName`. Jednak `OVER` klauzuli używane przez `ROW_NUMBER()` funkcji nie można użyć aliasu i muszą używać nazwy kolumny rzeczywistych. W związku z tym zmienić `SupplierName` s elementu BoundField `SortExpression` z NazwaDostawcy do NazwaFirmy (patrz rysunek 9). Jak pokazano na rysunku nr 10, ta zmiana może być sortowane wyniki przez dostawcę.
+**Rysunek 8**: Podjęto próbę Sortuj wyniki według dostawca skutkuje następujący wyjątek czasu wykonywania
 
 
-![Zmień SortExpression s elementu BoundField NazwaDostawcy NazwaFirmy](sorting-custom-paged-data-vb/_static/image13.png)
-
-**Rysunek 9**: Zmień SortExpression s elementu BoundField NazwaDostawcy NazwaFirmy
+Ten wyjątek występuje, ponieważ `SortExpression` s GridView `SupplierName` elementu BoundField jest ustawiona na `SupplierName`. Jednak nazwy dostawcy s `Suppliers` faktycznie nosi nazwę tabeli `CompanyName` byliśmy aliasem nazwy tej kolumny jako `SupplierName`. Jednak `OVER` klauzuli posługują się `ROW_NUMBER()` funkcji nie można użyć aliasu i należy użyć nazwy kolumny rzeczywistych. Dlatego też zmienić `SupplierName` s elementu BoundField `SortExpression` z NazwaDostawcy do CompanyName (patrz rysunek 9). Jak pokazano na rysunku nr 10, po tej zmianie wyniki można sortować przez dostawcę.
 
 
-[![Teraz można posortować wyników przez dostawcę](sorting-custom-paged-data-vb/_static/image15.png)](sorting-custom-paged-data-vb/_static/image14.png)
+![Zmień SortExpression s elementu BoundField NazwaDostawcy CompanyName](sorting-custom-paged-data-vb/_static/image13.png)
+
+**Rysunek 9**: Zmień SortExpression s elementu BoundField NazwaDostawcy CompanyName
+
+
+[![Teraz można posortować wyników według dostawcy](sorting-custom-paged-data-vb/_static/image15.png)](sorting-custom-paged-data-vb/_static/image14.png)
 
 **Na rysunku nr 10**: można teraz można posortować wyników według dostawcy ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](sorting-custom-paged-data-vb/_static/image16.png))
 
 
 ## <a name="summary"></a>Podsumowanie
 
-Implementacja niestandardowa stronicowania, który mamy się zbadana w poprzednim samouczek wymagane określenia kolejności za pomocą której wyniki były mają być sortowane w czasie projektowania. Krótko mówiąc oznacza to, że implementacja niestandardowa stronicowania, które wprowadziliśmy można, w tym samym czasie, zapewniają funkcje sortowania. W tym samouczku będziemy overcame to ograniczenie przez rozszerzenie procedury składowanej od pierwszego do uwzględnienia `@sortExpression` parametru wejściowego, w którym może być sortowane wyniki.
+Implementacja niestandardowa stronicowania, który zbadaliśmy w poprzednim samouczku wymaga określenia kolejności za pomocą której wyniki zostały posortowane w czasie projektowania. Krótko mówiąc oznaczało to, że implementacja niestandardowa stronicowania, którą wdrożyliśmy nie może, w tym samym czasie dostarczyć funkcje sortowania. W tym samouczku będziemy overcame to ograniczenie, rozszerzając procedury składowanej od pierwszego do uwzględnienia `@sortExpression` parametr wejściowy, za pomocą którego można sortować wyniki.
 
-Po to tworzenie przechowywane procedury i tworzenie nowych metod w DAL i logiki warstwy Biznesowej, możemy możliwość wdrożenia Element GridView oferowane zarówno sortowania i niestandardowych stronicowania przez skonfigurowanie elementu ObjectDataSource do przekazania w widoku GridView s bieżącego `SortExpression` właściwości logiki warstwy Biznesowej `SelectMethod`.
+Po tworzenia tego przechowywane procedury i tworzenie nowych metod w DAL i LOGIKI, byliśmy w stanie stosować GridView oferowane zarówno sortowania i niestandardowe, stronicowania, konfigurując ObjectDataSource podawać GridView s bieżącego `SortExpression` właściwość LOGIKI `SelectMethod`.
 
-Programowanie przyjemność!
+Wszystkiego najlepszego programowania!
 
 ## <a name="about-the-author"></a>Informacje o autorze
 
-[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autora siedmiu książek ASP/ASP.NET i twórcę z [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracuje z technologii Microsoft Web od 1998. Scott działa jako niezależnego konsultanta trainer i składnika zapisywania. Jest jego najnowszej książki [ *Sams nauczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Piotr można uzyskać pod adresem [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blog, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Bento](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor siedem ASP/ASP.NET książek i założycielem [4GuysFromRolla.com](http://www.4guysfromrolla.com), pracował nad przy użyciu technologii Microsoft Web od 1998 r. Scott działa jako niezależny Konsultant, trainer i składnika zapisywania. Jego najnowszą książkę Stephena [ *Sams uczyć się ASP.NET 2.0 w ciągu 24 godzin*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). ADAM można z Tobą skontaktować w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) lub za pośrednictwem jego blogu, który znajduje się w temacie [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Specjalne podziękowania dla
 
-Ten samouczek serii zostało sprawdzone przez wiele recenzentów przydatne. Recenzenta realizacji w tym samouczku został Santos Artur. Zainteresowani recenzowania Moje nadchodzących artykuły MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+W tej serii samouczków został zrecenzowany przez wielu recenzentów pomocne. Weryfikacja potencjalnych klientów w ramach tego samouczka został Carlos Santos. Zainteresowani zapoznaniem Moje kolejnych artykułów MSDN? Jeśli tak, Porzuć mnie linii w [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Poprzednie](efficiently-paging-through-large-amounts-of-data-vb.md)

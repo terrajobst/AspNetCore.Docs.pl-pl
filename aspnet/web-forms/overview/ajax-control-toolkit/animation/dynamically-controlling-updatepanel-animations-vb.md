@@ -1,70 +1,69 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-vb
-title: Dynamicznie kontrolowanie UpdatePanel animacji (VB) | Dokumentacja firmy Microsoft
+title: Dynamiczne kontrolowanie animacji kontrolki UpdatePanel (VB) | Dokumentacja firmy Microsoft
 author: wenz
-description: Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Zawartości...
+description: Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Dla zawartości...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: bea66072-59b6-42b4-98fa-211812f5925f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ff2853b4457a83a7367b4d1072d21929c40a3ed2
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 79a256f5d5c62123184beffce3365ade0ac13e46
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871548"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365944"
 ---
-<a name="dynamically-controlling-updatepanel-animations-vb"></a>Dynamicznie kontrolowanie UpdatePanel animacji (VB)
+<a name="dynamically-controlling-updatepanel-animations-vb"></a>Dynamiczne kontrolowanie animacji kontrolki UpdatePanel (VB)
 ====================
-przez [Wenz Chrześcijańskie](https://github.com/wenz)
+przez [Christian Wenz](https://github.com/wenz)
 
-[Pobierz kod](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation2.vb.zip) lub [pobierania plików PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation2VB.pdf)
+[Pobierz program Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation2.vb.zip) lub [Pobierz plik PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation2VB.pdf)
 
-> Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Zawartość elementu UpdatePanel, rozszerzający specjalne umożliwiającą odgrywa framework animacji: UpdatePanelAnimation. Można go także używać razem z wyzwalaczy elementu UpdatePanel.
+> Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Dla zawartości UpdatePanel specjalne urządzenia extender istnieje silnie zależy od ram animacji: UpdatePanelAnimation. Może również współdziałać, wraz z wyzwalaczy UpdatePanel.
 
 
 ## <a name="overview"></a>Omówienie
 
-Formantu animacji w zestawie narzędzi programu ASP.NET AJAX formantu nie jest po prostu formantu, ale całego framework do Dodawanie animacji do formantu. Zawartości `UpdatePanel`, rozszerzający specjalne umożliwiającą odgrywa framework animacji: `UpdatePanelAnimation`. Można go także używać razem z `UpdatePanel` wyzwalaczy.
+Kontrolki animacji w programie ASP.NET AJAX Control Toolkit nie jest po prostu kontrolki, ale cała struktura Dodawanie animacji do kontrolki. Dla zawartości `UpdatePanel`, specjalne urządzenia extender istnieje która intensywnie korzysta z framework animacji: `UpdatePanelAnimation`. Może również współpracować wraz z `UpdatePanel` wyzwalaczy.
 
 ## <a name="steps"></a>Kroki
 
-Pierwszym krokiem jest normalnie obejmują `ScriptManager` na stronie, aby biblioteka ASP.NET AJAX została załadowana i można go używać zestawu narzędzi kontroli:
+Pierwszym krokiem jest jak zwykle obejmują `ScriptManager` na stronie, aby biblioteka ASP.NET AJAX jest ładowany i można go używać razem sterowania:
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-vb/samples/sample1.aspx)]
 
-Animacja w tym scenariuszu zostaną zastosowane do wyświetlenia bieżącego czasu. Te informacje mogą być zapisywane w etykiecie przy użyciu `Page_Load()` metody, lub (dla uproszczenia należy) jest używany następujący kod wbudowany:
+Animacja w tym scenariuszu zostaną zastosowane do wyświetlenia bieżącej godziny. Te informacje mogą być zapisywane w etykiecie, używając `Page_Load()` metodę, lub (dla uproszczenia należy) jest używany następujący kod wbudowany:
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-vb/samples/sample2.aspx)]
 
-Ponadto jest tworzony przycisk, aby wyzwolić aktualizowanie czas:
+Ponadto jest tworzony przycisk do wyzwalania aktualizacji w czasie:
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-vb/samples/sample3.aspx)]
 
-Ten kod jest następnie poddane `<ContentTemplate>` sekcji `UpdatePanel` elementu. Panelu `UpdateMode` atrybut musi być ustawiony na `"Conditional"`, ponieważ tylko wyzwalaczy może zaktualizować zawartość panelu. W `<Triggers>` sekcji `UpdatePanel`, wyzwalacz odświeżania strony asynchroniczne jest tworzony i powiązane `Click` zdarzeń przycisku. W związku z tym, gdy użytkownik kliknie przycisk, `UpdatePanel` zostanie odświeżony. Oto kod znaczników dla `UpdatePanel` sterowania:
+Następnie umieść ten kod `<ContentTemplate>` części `UpdatePanel` elementu. Panel `UpdateMode` atrybutu musi być równa `"Conditional"`, ponieważ tylko wyzwalaczy może aktualizować zawartość panelu. W `<Triggers>` części `UpdatePanel`, asynchronicznego zwrotu wyzwalacza jest tworzony i powiązane `Click` zdarzenia przycisku. Dlatego, jeśli użytkownik kliknie przycisk, `UpdatePanel` jest odświeżane. Oto znaczniki dla `UpdatePanel` sterowania:
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-vb/samples/sample4.aspx)]
 
-Na koniec `UpdatePanelAnimationExtender` musi być skonfigurowany: Ustaw `TargetControlID` atrybutu ID panelu, a także definiują animacji w rozszerzeń. Zanikania w ułatwia wykrywanie, który tworzy nieuprzywilejowany visual nacisk położono na czas zaktualizowane. Z rozszerzeń znaczników może następnie wyglądać następująco:
+Na koniec `UpdatePanelAnimationExtender` musi być skonfigurowany: Ustaw `TargetControlID` atrybutu ID panelu i zdefiniuj animacji w ramach urządzenia extender. Rozjaśnianie sprawia, że sens, co powoduje utworzenie nieuprzywilejowany visual większym naciskiem na czas aktualizacji. Rozszerzenia znaczników może następnie wyglądać następująco:
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-vb/samples/sample5.aspx)]
 
-Uruchom plik w przeglądarce. Po kliknięciu przycisku bieżący czas jest wyświetlany w panelu zawsze zanikania czasie trwania jednej sekundzie.
+Uruchom plik w przeglądarce. Zawsze, gdy klikniesz przycisk, bieżący czas jest wyświetlany w panelu zawsze zanikania przy czasie trwania jednej sekundy.
 
 
-[![Bieżący czas jest zanikania](dynamically-controlling-updatepanel-animations-vb/_static/image2.png)](dynamically-controlling-updatepanel-animations-vb/_static/image1.png)
+[![Stopniowe bieżący czas](dynamically-controlling-updatepanel-animations-vb/_static/image2.png)](dynamically-controlling-updatepanel-animations-vb/_static/image1.png)
 
-Bieżący czas jest zanikania ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](dynamically-controlling-updatepanel-animations-vb/_static/image3.png))
+Bieżący czas jest stopniowe ([kliknij, aby wyświetlić obraz w pełnym rozmiarze](dynamically-controlling-updatepanel-animations-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Poprzednie](animating-an-updatepanel-control-vb.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/formats-and-model-binding/bson-support-in-web-api-21
-title: Obsługa formatu BSON w składniku ASP.NET Web API 2.1 | Dokumentacja firmy Microsoft
+title: Obsługa formatu BSON we wzorcu ASP.NET Web API 2.1 | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,35 +9,34 @@ ms.date: 01/20/2014
 ms.topic: article
 ms.assetid: ce11b017-0ca6-4376-aa9d-a7f3288101de
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/bson-support-in-web-api-21
 msc.type: authoredcontent
-ms.openlocfilehash: 53ad705fad6d2225cecca4d73355bd6ebfcf56d5
-ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
+ms.openlocfilehash: 7c5e763d92295a83b3431e9ec6e305b07f8a64d2
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984586"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370497"
 ---
-<a name="bson-support-in-aspnet-web-api-21"></a>Obsługa formatu BSON w składniku ASP.NET Web API 2.1
+<a name="bson-support-in-aspnet-web-api-21"></a>Obsługa formatu BSON we wzorcu ASP.NET Web API 2.1
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
-Składnik Web API 2.1 wprowadzono obsługę formatu BSON. W tym temacie pokazano, jak używać formatu BSON w kontrolerze interfejsu API sieci Web (po stronie serwera) i w aplikacji klienta .NET.
+Składnik Web API 2.1 wprowadzono obsługę formatu BSON. W tym temacie pokazano, jak używać formatu BSON w kontrolerze interfejsu API sieci Web (po stronie serwera) i w aplikacji klienckiej .NET.
 
 ## <a name="what-is-bson"></a>Co to jest BSON?
 
-[BSON](http://bsonspec.org/) to format serializacji binarnej. "BSON" oznacza "Binary JSON", ale są bardzo inaczej serializowane formatu BSON i JSON. Jest BSON "JSON przypominającej", ponieważ obiekty są reprezentowane jako pary nazwa wartość, podobny do formatu JSON. W przeciwieństwie do formatu JSON numeryczne typy danych są przechowywane w postaci bajtów, nie ciągów
+[BSON](http://bsonspec.org/) to binarny format serializacji. "BSON" oznacza "Binarny JSON", ale są bardzo różny sposób serializacji formatu BSON i JSON. Jest BSON "Notacji JSON", ponieważ obiekty są reprezentowane jako pary nazwa wartość, podobny do formatu JSON. W przeciwieństwie do formatu JSON numeryczne typy danych są przechowywane w postaci bajtów, a nie ciągi
 
-BSON został opracowany jako lekkie, łatwo przeglądać i szybkie do kodowania dekodowania.
+BSON został zaprojektowany tak, to lekki, łatwość skanowania oraz szybkość kodowania dekodowania.
 
-- BSON jest porównywalna o rozmiarze do formatu JSON. W zależności od danych ładunku BSON może być mniejsza lub większa od ładunek JSON. Dla serializacji danych binarnych, takich jak plik obrazu BSON jest mniejszy niż JSON, ponieważ dane binarne nie jest kodowany w formacie base64.
-- Dokumenty BSON są łatwe do skanowania, ponieważ elementy są poprzedzane prefiksem długość pola, więc analizatorem przejść elementów bez ich dekodowania.
-- Kodowania i dekodowania są wydajne, ponieważ numeryczne typy danych są przechowywane w postaci liczb i ciągów nie.
+- BSON jest porównywalny rozmiar do formatu JSON. W zależności od danych ładunek BSON może być mniejszy lub większy od ładunku JSON. Dla serializacji danych binarnych, takich jak plik obrazu BSON jest mniejszy niż JSON, dane, ponieważ dane binarne nie jest zakodowany w formacie base64.
+- BSON dokumenty są łatwe do skanowania, ponieważ elementy mają prefiks pola długości, dlatego analizatorem przejść elementów bez ich dekodowania.
+- Kodowania i dekodowania są wydajne, ponieważ typy danych liczbowych są przechowywane jako liczby, ciągi nie.
 
-Natywny klientów, takich jak aplikacje klienta .NET, mogą korzystać z formatu BSON zamiast formatów tekstowym, takich jak JSON i XML. Dla klientów w przeglądarkach prawdopodobnie można przestrzegaj JSON, ponieważ usługa języka JavaScript bezpośrednio można przekonwertować ładunek JSON.
+Natywne klientów, takich jak aplikacje klienckie .NET, mogą korzystać z formatu BSON zamiast oparte na tekście formatów, takich jak JSON lub XML. Dla klientów w przeglądarkach prawdopodobnie można działać zgodnie z formatu JSON, ponieważ usługa języka JavaScript bezpośrednio można przekonwertować ładunek JSON.
 
-Na szczęście używa interfejsu API sieci Web [negocjowanie zawartości](content-negotiation.md), więc interfejsu API można obsługuje zarówno formaty i umożliwić klientowi wybierz.
+Na szczęście usługa korzysta z interfejsu API sieci Web [negocjacji zawartości](content-negotiation.md), więc może obsługiwać obu formatów i zezwala komputerom, wybierz interfejsu API.
 
 ## <a name="enabling-bson-on-the-server"></a>Włączanie BSON na serwerze
 
@@ -45,19 +44,19 @@ W konfiguracji interfejsu API sieci Web, Dodaj **BsonMediaTypeFormatter** do kol
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample1.cs)]
 
-Teraz Jeśli klient żąda "application/bson", interfejsu API sieci Web zostanie użyty element formatujący formatu BSON.
+Teraz jeśli zażąda "application/bson" interfejsu API sieci Web zostanie użyty program formatujący formatu BSON.
 
-Aby skojarzyć BSON z innych typów nośników, należy je dodać do kolekcji SupportedMediaTypes. Poniższy kod dodaje "application/vnd.contoso" do typów nośników obsługiwanych:
+Aby skojarzyć BSON z innych typów nośników, należy dodać je do kolekcji SupportedMediaTypes. Poniższy kod dodaje "application/vnd.contoso" do typów nośników obsługiwanych:
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample2.cs)]
 
 ## <a name="example-http-session"></a>Przykład sesji HTTP
 
-W tym przykładzie użyjemy następującej klasy modelu oraz proste kontrolera interfejsu API sieci Web:
+W tym przykładzie użyjemy następujące klasy modelu, a także proste kontrolera interfejsu API sieci Web:
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample3.cs)]
 
-Klient może wysyłać następujące żądania HTTP:
+Klient może wysłać poniższe żądanie HTTP:
 
 [!code-console[Main](bson-support-in-web-api-21/samples/sample4.cmd)]
 
@@ -65,15 +64,15 @@ Poniżej przedstawiono odpowiedzi:
 
 [!code-console[Main](bson-support-in-web-api-21/samples/sample5.cmd)]
 
-W tym miejscu zostały zastąpione danych binarnych z &quot;.&quot; znaków. Zrzut ekranu następujące z pokazuje Fiddler nieprzetworzonej wartości szesnastkowych.
+W tym miejscu został zastąpiony danymi binarnymi o &quot;.&quot; znaków. Zrzut ekranu z następujących z programu Fiddler pokazuje pierwotne wartości szesnastkowych.
 
 [![](bson-support-in-web-api-21/_static/image2.png)](bson-support-in-web-api-21/_static/image1.png)
 
 ## <a name="using-bson-with-httpclient"></a>Przy użyciu formatu BSON z HttpClient
 
-Aplikacje klientów .NET mogą używać element formatujący BSON **HttpClient**. Aby uzyskać więcej informacji na temat **HttpClient**, zobacz [wywoływania sieci Web interfejsu API z klienta programu .NET](../advanced/calling-a-web-api-from-a-net-client.md).
+Aplikacje klientów platformy .NET mogą używać formatu BSON element formatujący **HttpClient**. Aby uzyskać więcej informacji na temat **HttpClient**, zobacz [wywołania sieci Web interfejsu API z klienta programu .NET](../advanced/calling-a-web-api-from-a-net-client.md).
 
-Poniższy kod wysyła żądanie GET, który akceptuje BSON, a następnie deserializuje ładunku BSON w odpowiedzi.
+Poniższy kod wysyła żądanie GET, które akceptuje formatu BSON i deserializuje ładunek BSON w odpowiedzi.
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample6.cs)]
 
@@ -81,34 +80,34 @@ Aby zażądać BSON z serwera, ustawić nagłówek Accept do "application/bson":
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample7.cs)]
 
-Aby deserializacji treści odpowiedzi, należy użyć **BsonMediaTypeFormatter**. Ten program formatujący nie jest w domyślnej kolekcji elementów formatujących, dlatego należy określić podczas odczytu treści odpowiedzi:
+Do deserializacji treści odpowiedzi, należy użyć **BsonMediaTypeFormatter**. Ten program formatujący nie jest w domyślnej kolekcji elementów formatujących, więc trzeba je wprowadzić podczas odczytu treści odpowiedzi:
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample8.cs)]
 
-Kolejnym przykładzie pokazano, jak można wysłać żądania POST, który zawiera BSON.
+Następny przykład przedstawia sposób wysłania żądania POST, która zawiera formatu BSON.
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample9.cs)]
 
-Większość tego kodu jest taka sama, co w poprzednim przykładzie. Jednak **PostAsync** metody, określ **BsonMediaTypeFormatter** jako element formatujący:
+Większość tego kodu jest taka sama, jak w poprzednim przykładzie. Ale w **PostAsync** metody, określ **BsonMediaTypeFormatter** jako element formatujący:
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample10.cs)]
 
-## <a name="serializing-top-level-primitive-types"></a>Serializacja najwyższego poziomu typy pierwotne
+## <a name="serializing-top-level-primitive-types"></a>Serializacja typów pierwotnych najwyższego poziomu
 
-Każdy dokument BSON znajduje się lista par klucz/wartość. Specyfikacja BSON nie definiuje składni dla serializacji jednego nieprzetworzonej wartości, takich jak integer lub string.
+Każdy dokument BSON jest listą par klucz/wartość. Specyfikacja formatu BSON nie definiuje składni dla serializacji pojedynczej wartości pierwotnych, takich jak typu integer lub string.
 
-Aby obejść to ograniczenie **BsonMediaTypeFormatter** traktuje typów pierwotnych w szczególnych przypadkach. Przed rozpoczęciem serializacji, konwertuje wartość na parę klucz wartość z kluczem "Value". Na przykład załóżmy, że dany kontroler interfejsu API zwraca liczbę całkowitą:
+Aby obejść to ograniczenie **BsonMediaTypeFormatter** traktuje typów pierwotnych w szczególnych przypadkach. Przed rozpoczęciem serializacji, konwertuje wartość w parę klucza i wartości z kluczem "Value". Na przykład załóżmy, że dany kontroler interfejsu API zwraca liczbę całkowitą:
 
 [!code-csharp[Main](bson-support-in-web-api-21/samples/sample11.cs)]
 
-Przed rozpoczęciem serializacji, element formatujący BSON konwertuje to z następującą parą klucza i wartości:
+Przed rozpoczęciem serializacji, element formatujący BSON konwertuje to następujące pary klucz/wartość:
 
 [!code-json[Main](bson-support-in-web-api-21/samples/sample12.json)]
 
-Podczas deserializacji, element formatujący konwertuje je do oryginalnej wartości. Jednak klientów przy użyciu różnych analizatora BSON należy obsługiwać ten przypadek, jeśli interfejs API sieci web zwraca wartości w wierszach. Ogólnie rzecz biorąc należy rozważyć zwracanie wartości w wierszach, a nie dane strukturalne.
+Podczas deserializacji, element formatujący konwertuje je do oryginalnej wartości. Jednak jeśli internetowy interfejs API zwraca wartości w wierszach klientów przy użyciu innego analizatora BSON należy się do obsługi tej sprawy. Ogólnie rzecz biorąc należy rozważyć, zwracając ustrukturyzowanych danych, a nie wartości w wierszach.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-[Przykładowe BSON interfejsu API sieci Web](https://aspnet.codeplex.com/SourceControl/latest#Samples/WebApi/BSONSample/)
+[Przykład formatu BSON interfejsu API sieci Web](https://aspnet.codeplex.com/SourceControl/latest#Samples/WebApi/BSONSample/)
 
 [Programy formatujące multimedia](media-formatters.md)

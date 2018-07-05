@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
-title: Obsługa opcje zapytania OData w składniku ASP.NET Web API 2 | Dokumentacja firmy Microsoft
+title: Obsługa opcji zapytań protokołu OData, we wzorcu ASP.NET Web API 2 | Dokumentacja firmy Microsoft
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,140 +9,139 @@ ms.date: 02/04/2013
 ms.topic: article
 ms.assetid: 50e6e62b-e72e-4a29-8293-4b67377bd21f
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
 msc.type: authoredcontent
-ms.openlocfilehash: 004c029db6f01627f7cadff26aaf5554ce2b93a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3ce2b38a13e8684a88bb0ce6183671fae98795c7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566711"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380846"
 ---
-<a name="supporting-odata-query-options-in-aspnet-web-api-2"></a>Obsługa opcje zapytania OData w składniku ASP.NET Web API 2
+<a name="supporting-odata-query-options-in-aspnet-web-api-2"></a>Obsługa opcji zapytań protokołu OData we wzorcu ASP.NET Web API 2
 ====================
-przez [Wasson Jan](https://github.com/MikeWasson)
+przez [Mike Wasson](https://github.com/MikeWasson)
 
-OData definiuje parametry, które mogą służyć do modyfikowania zapytania OData. Klient wysyła te parametry w ciągu zapytania identyfikatora URI żądania. Na przykład aby sortować wyniki, klient używa parametru $orderby:
+Usługa OData definiuje parametry, które mogą służyć do modyfikowania zapytanie OData. Klient wysyła te parametry do ciągu zapytania identyfikatora URI żądania. Na przykład aby posortować wyniki, klient używa parametru $orderby:
 
 `http://localhost/Products?$orderby=Name`
 
-Specyfikację OData wywołuje te parametry *opcje kwerendy*. Można włączyć opcji zapytania OData dla każdego kontrolera interfejsu API sieci Web w projekcie & #8212; kontroler nie musi być punkt końcowy OData. Zapewnia to wygodny sposób, aby dodać funkcje, takie jak filtrowanie i sortowanie do dowolnej aplikacji interfejsu API sieci Web.
+Specyfikacja protokołu OData wywołuje te parametry *opcje kwerendy*. Można włączyć opcji zapytania OData dla każdego kontrolera interfejsu API sieci Web w projekcie &#8212; kontrolera musi być punktu końcowego OData. Zapewnia wygodny sposób dodawania funkcji, takich jak filtrowanie i sortowanie do dowolnej aplikacji interfejsu API sieci Web.
 
-Przed włączeniem opcje zapytania, przeczytaj temat [wskazówki dotyczące zabezpieczeń OData](odata-security-guidance.md).
+Przed włączeniem opcji zapytań, przeczytaj temat [wskazówki dotyczące zabezpieczeń OData](odata-security-guidance.md).
 
-- [Włączanie opcji zapytania OData](#enable)
+- [Włączenie opcji zapytań protokołu OData](#enable)
 - [Przykładowe zapytania](#examples)
-- [Stronicowania obsługiwanego przez serwer](#server-paging)
-- [Ograniczanie opcje zapytania](#limiting_query_options)
-- [Bezpośrednie wywoływanie opcje zapytania](#ODataQueryOptions)
+- [Stronicowania opartych na serwerze](#server-paging)
+- [Ograniczanie opcje kwerendy](#limiting_query_options)
+- [Bezpośrednie wywoływanie opcje kwerendy](#ODataQueryOptions)
 - [Sprawdzanie poprawności zapytań](#query-validation)
 
 <a id="enable"></a>
-## <a name="enabling-odata-query-options"></a>Włączanie opcji zapytania OData
+## <a name="enabling-odata-query-options"></a>Włączenie opcji zapytań protokołu OData
 
-Interfejs API sieci Web obsługuje następujące opcje zapytania OData:
+Internetowy interfejs API obsługuje następujące opcje zapytania OData:
 
 | Opcja | Opis |
 | --- | --- |
-| Rozwiń węzeł $ | Rozwija wbudowanego powiązanych jednostek. |
-| $filter | Filtruje wyniki, w oparciu o warunek typu Boolean. |
-| $inlinecount | Określa, że serwer do uwzględnienia w odpowiedzi łączna liczba zgodnych jednostek. (Przydatne w przypadku stronicowania po stronie serwera.) |
-| $orderby | Wyniki są sortowane. |
-| $select | Wybiera właściwości, które do uwzględnienia w odpowiedzi. |
-| $skip | Pomija pierwsze n wyniki. |
+| $expand | Rozszerza wbudowany powiązanych jednostek. |
+| $filter | Służy do przefiltrowania wyników, w oparciu o warunek logiczny. |
+| $inlinecount | Informuje serwer, które mają zostać objęte łączna liczba zgodnych jednostek odpowiedzi. (Przydatne w przypadku stronicowania po stronie serwera.) |
+| $orderby | Sortuje wyniki. |
+| $select | Wybiera właściwości do uwzględnienia w odpowiedzi. |
+| $skip | Pomija pierwszych n wyników. |
 | $top | Zwraca pierwsze n wyniki. |
 
-Aby użyć opcji zapytania OData, należy je jawnie włączyć. Możesz je włączyć globalnie dla całej aplikacji lub włączyć je do określonych kontrolerów lub określonych akcji.
+Aby użyć opcji zapytania OData, należy je jawnie włączyć. Można je włączyć ją globalnie dla całej aplikacji, lub włączyć je do określonych kontrolery lub konkretne akcje.
 
-Aby włączyć globalnie opcje zapytania OData, należy wywołać **EnableQuerySupport** na **HttpConfiguration** klasy podczas uruchamiania:
+Aby włączyć ją globalnie opcje zapytania OData, należy wywołać **EnableQuerySupport** na **HttpConfiguration** klasy przy uruchamianiu:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample1.cs)]
 
-**EnableQuerySupport** metoda zapewnia opcje zapytania globalnie dla każdej akcji kontrolera, która zwraca **IQueryable** typu. Jeśli nie chcesz, aby opcje zapytania włączony dla całej aplikacji, można włączyć je do akcji kontrolera określonej przez dodanie **[Queryable]** atrybut do metody akcji.
+**EnableQuerySupport** metoda zapewnia opcje zapytania globalnie dla każdej akcji kontrolera, które zwraca **IQueryable** typu. Jeśli nie chcesz, aby opcje zapytania włączone dla całej aplikacji, można je włączyć dla akcji określonego kontrolera, dodając **[Queryable]** atrybutu do metody akcji.
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample2.cs)]
 
 <a id="examples"></a>
 ## <a name="example-queries"></a>Przykładowe zapytania
 
-W tej sekcji przedstawiono typy zapytań, które są możliwe przy użyciu opcji zapytania OData. Aby uzyskać szczegółowe informacje na temat opcji zapytania, zapoznaj się z dokumentacją OData, w [www.odata.org](http://www.odata.org/).
+W tej sekcji przedstawiono typów kwerend, które są możliwe przy użyciu opcji zapytania OData. Aby uzyskać szczegółowe informacje na temat opcji zapytania, zapoznaj się z dokumentacją OData na [www.odata.org](http://www.odata.org/).
 
-Informacje o $Rozwiń i $select, zobacz [przy użyciu $select, rozwinąć $ i $value w programie ASP.NET Web API OData](using-select-expand-and-value.md).
+W przypadku informacji na temat $Rozwiń i $select, zobacz [przy użyciu $select, $expand and $value w protokole OData składnika Web API platformy ASP.NET](using-select-expand-and-value.md).
 
-**Stronicowania obsługiwanego przez klienta**
+**Stronicowania opartych na klienta**
 
-Dla zestawów duża jednostka klienta mogą chcieć ograniczyć liczbę wyników. Na przykład klienta mogą być wyświetlane wpisy 10 jednocześnie, wraz z łączami "dalej" do pobrania następnej strony wyników. Aby to zrobić, klient używa opcji $top i $skip.
+Dla zestawów dużych jednostek klient chcieć ograniczyć liczbę wyników. Na przykład klient może wyświetlać 10 wpisów w czasie, wraz z łączami "dalej", aby uzyskać następnej strony wyników. Aby to zrobić, klient używa opcji $top i $skip.
 
 `http://localhost/Products?$top=10&$skip=20`
 
-Opcja $top zapewnia maksymalna liczba wpisów do zwrócenia, a opcja $skip zapewnia liczba wpisów, aby pominąć. Poprzedni przykład pobiera wpisy 21 do 30.
+Opcja $top zapewnia maksymalną liczbę zwracanych pozycji, a opcja $skip zapewnia liczba wpisów do pominięcia. Poprzedni przykład pobiera wpisy 21 do 30.
 
 **Filtrowanie**
 
-Opcji $filter umożliwia klientowi filtrować wyniki, stosując wyrażenie logiczne. Wyrażenia filtru są bardzo zaawansowane; obejmują one operatorów logicznych i arytmetyczne, ciąg funkcji i funkcji daty.
+Opcja $filter umożliwia klientowi filtrowanie wyników za pomocą wyrażenia logicznego. Wyrażenia filtru są bardzo wydajny; obejmują one operatory logiczne i arytmetyczne, parametry funkcji i funkcji daty.
 
-| Zwróć wszystkie produkty z kategorii jest równa "Toys". | `http://localhost/Products?$filter=Category`EQ "Toys" |
+| Zwróć wszystkie produkty z kategorii jest równa "Zabawki". | `http://localhost/Products?$filter=Category` EQ "Zabawki" |
 | --- | --- |
-| Zwróć wszystkie produkty z cen mniej niż 10. | `http://localhost/Products?$filter=Price`lt 10 |
-| Operatory logiczne: zwraca wszystkie produkty gdzie ceny > = 5 i cen < = 15. | `http://localhost/Products?$filter=Price`GE 5 i cen le 15 |
+| Zwróć wszystkie produkty z ceną mniej niż 10. | `http://localhost/Products?$filter=Price` lt 10 |
+| Operatory logiczne: zwraca wszystkie produkty których cena > = 5, a cena < = 15. | `http://localhost/Products?$filter=Price` GE 5 i le ceny 15 |
 | Funkcje ciągów: zwraca wszystkie produkty z "zz" w nazwie. | `http://localhost/Products?$filter=substringof('zz',Name)` |
-| Funkcje daty: zwraca wszystkie produkty z ReleaseDate po 2005. | `http://localhost/Products?$filter=year(ReleaseDate)`gt 2005 |
+| Funkcje daty: zwraca wszystkie produkty z ReleaseDate po 2005. | `http://localhost/Products?$filter=year(ReleaseDate)` gt 2005 |
 
 **Sortowanie**
 
-Sortowanie wyników, użyj filtru $orderby.
+Aby posortować wyniki, użyj filtru $orderby.
 
 | Sortuj według ceny. | `http://localhost/Products?$orderby=Price` |
 | --- | --- |
-| Sortuj według cen w porządku malejącym (najwyższy malejąco). | `http://localhost/Products?$orderby=Price desc` |
-| Sortuj według kategorii, a następnie sortować cen malejąco według kategorii. | `http://localhost/odata/Products?$orderby=Category,Price desc` |
+| Sortuj według ceny w kolejności (od najwyższej do najniższej). | `http://localhost/Products?$orderby=Price desc` |
+| Sortuj według kategorii, a następnie Sortuj według ceny w porządku malejącym w kategoriach. | `http://localhost/odata/Products?$orderby=Category,Price desc` |
 
 <a id="server-paging"></a>
-## <a name="server-driven-paging"></a>Stronicowania obsługiwanego przez serwer
+## <a name="server-driven-paging"></a>Stronicowania opartych na serwerze
 
-Jeśli baza danych zawiera miliony rekordów, nie chcesz wysłać ich wszystkich w jednym ładunku. Aby tego uniknąć, serwer może ograniczyć liczbę wpisów, które wysyła w pojedynczą odpowiedź. Aby włączyć stronicowania na serwerze, należy ustawić **PageSize** właściwości w **Queryable** atrybutu. Wartość jest maksymalna liczba wpisów do zwrócenia.
+Jeśli baza danych zawiera miliony rekordów, nie chcesz wysyłać je wszystkie w jednym ładunku. Aby tego uniknąć, serwer można ograniczyć liczbę wpisów, które wysyła w jednej odpowiedzi. Aby włączyć stronicowania serwera, należy ustawić **PageSize** właściwość **Queryable** atrybutu. Wartość jest maksymalna liczba wpisów do zwrócenia.
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample3.cs)]
 
-Jeśli kontroler zwraca OData format, treść odpowiedzi będzie zawierać łącze do następnej strony danych:
+Jeśli kontroler zwraca OData format, treść odpowiedzi będzie zawierać link do następnej strony danych:
 
 [!code-json[Main](supporting-odata-query-options/samples/sample4.json?highlight=8)]
 
-Klient może używać to łącze do pobrania następnej strony. Aby dowiedzieć się liczba wpisów w zestawie wyników, klienta można ustawić o wartości opcji zapytania $inlinecount "allpages".
+Klient może używać tego łącza do pobrania następnej strony. Aby dowiedzieć się, łączna liczba wpisów w zestawie wyników, klienta można ustawić za pomocą wartości opcji zapytania $inlinecount "allpages".
 
 `http://localhost/Products?$inlinecount=allpages`
 
-Wartość "allpages" informuje serwer do uwzględnienia w odpowiedzi łączna liczba:
+Wartość "allpages" informuje serwera, które mają zostać objęte łączna liczba odpowiedzi:
 
 [!code-json[Main](supporting-odata-query-options/samples/sample5.json?highlight=3)]
 
 > [!NOTE]
-> Łącza do następnej strony i liczbę inlinecount wymaga OData. Przyczyną jest to, że OData definiuje specjalne pola w treści odpowiedzi, aby pomieścić link i liczba.
+> Następna strona łącza i liczbę inlinecount wymaga formatu OData. Przyczyną jest to, że usługa OData definiuje specjalne pola w treści odpowiedzi na potrzeby przechowywania łącze i liczba.
 
 
-W przypadku formatów OData z systemem innym niż jest nadal możliwe do obsługi liczby łącza i wbudowanego następnej strony zawijania wyniki zapytania w **element PageResult&lt;T&gt;**  obiektu. Jednak wymaga nieco więcej kodu. Oto przykład:
+W przypadku formatów OData bez jest nadal możliwe do obsługi liczby linków i wbudowane Następna strona opakowując wyniki zapytania w **PageResult&lt;T&gt;**  obiektu. Jednak wymaga nieco więcej kodu. Oto przykład:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample6.cs)]
 
-Oto przykład JSON odpowiedzi:
+Oto przykład odpowiedź w formacie JSON:
 
 [!code-json[Main](supporting-odata-query-options/samples/sample7.json)]
 
 <a id="limiting_query_options"></a>
-## <a name="limiting-the-query-options"></a>Ograniczanie opcje zapytania
+## <a name="limiting-the-query-options"></a>Ograniczanie opcje kwerendy
 
-Opcje zapytania nadaj klienta dużo kontrolę nad zapytania, który jest uruchamiany na serwerze. W niektórych przypadkach można ograniczyć dostępne opcje ze względów bezpieczeństwa ani wydajności. **[Queryable]** atrybutu są niektóre wbudowane właściwości dla tego. Oto kilka przykładów.
+Opcje zapytania zaoferować klientowi produkt szczegółową kontrolę nad zapytanie, które jest uruchamiane na serwerze. W niektórych przypadkach możesz chcieć ograniczyć opcje dostępne ze względów bezpieczeństwa ani wydajności. **[Queryable]** atrybut ma niektórych wbudowanych właściwości dla tego. Poniżej przedstawiono kilka przykładów.
 
-Zezwalaj tylko $skip ani $top, do obsługi stronicowania i nic innego:
+Zezwalaj na tylko $skip i $top, do obsługi stronicowania i od niczego więcej:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample8.cs)]
 
-Kolejność tylko przez niektóre właściwości zapobiec sortowania dla właściwości, które nie są indeksowane w bazie danych:
+Zezwalaj na porządkowanie tylko przez określonych właściwości zapobiec sortowanie według właściwości, które nie są indeksowane w bazie danych:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample9.cs)]
 
-Zezwalaj na funkcję logicznych "eq", ale inne funkcje logiczne:
+Zezwalaj na funkcję logiczną "eq", ale inne funkcje logiczne:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample10.cs)]
 
@@ -150,29 +149,29 @@ Nie zezwalaj na wszystkie operatory arytmetyczne:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample11.cs)]
 
-Można ograniczyć opcje globalnie tworząc **klasie QueryableAttribute** wystąpienia i przekazanie jej do **EnableQuerySupport** funkcji:
+Opcje można ograniczyć globalnie tworząc **klasie QueryableAttribute** wystąpienia i przekazanie jej do **EnableQuerySupport** funkcji:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample12.cs)]
 
 <a id="ODataQueryOptions"></a>
-## <a name="invoking-query-options-directly"></a>Bezpośrednie wywoływanie opcje zapytania
+## <a name="invoking-query-options-directly"></a>Bezpośrednie wywoływanie opcje kwerendy
 
-Zamiast **[Queryable]** atrybutu, opcji zapytania można wywoływać bezpośrednio w kontrolerze. Aby to zrobić, należy dodać **ODataQueryOptions** parametru do metody kontrolera. W takim przypadku nie trzeba **[Queryable]** atrybutu.
+Zamiast używania **[Queryable]** atrybut, można wywołać opcje zapytania bezpośrednio w kontrolerze. Aby to zrobić, Dodaj **ODataQueryOptions** parametr do metody kontrolera. W takim przypadku nie ma potrzeby **[Queryable]** atrybutu.
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample13.cs)]
 
-Interfejs API sieci Web wypełnia **ODataQueryOptions** z identyfikatora URI z ciągu zapytania. Aby zastosować zapytanie, należy przekazać **IQueryable** do **metody ApplyTo** metody. Metoda zwraca innego **IQueryable**.
+Internetowy interfejs API wypełnia **ODataQueryOptions** ciąg zapytania z identyfikatora URI. Stosuje zapytanie, polega na przekazaniu **IQueryable** do **ApplyTo** metody. Metoda ta zwraca innego **IQueryable**.
 
-Dla zaawansowanych scenariuszy, jeśli nie masz **IQueryable** zapytanie do dostawcy, można sprawdzić **ODataQueryOptions** i odpowiednie opcje zapytania do innego formularza. (Na przykład, zobacz RaghuRam Nadiminti blogu [zapytań tłumaczenia OData do HQL](https://blogs.msdn.com/b/webdev/archive/2013/02/25/translating-odata-queries-to-hql.aspx), który obejmuje również [próbki](http://aspnet.codeplex.com/SourceControl/changeset/view/75a56ec99968#Samples/WebApi/NHibernateQueryableSample/Readme.txt).)
+W przypadku zaawansowanych scenariuszy, jeśli nie masz **IQueryable** dostawcę zapytań, można sprawdzić **ODataQueryOptions** i tłumaczyć opcje zapytania do innego formularza. (Na przykład, zobacz wpis w blogu RaghuRam Nadiminti [tłumaczenie zapytań protokołu OData do HQL](https://blogs.msdn.com/b/webdev/archive/2013/02/25/translating-odata-queries-to-hql.aspx), który zawiera również [przykładowe](http://aspnet.codeplex.com/SourceControl/changeset/view/75a56ec99968#Samples/WebApi/NHibernateQueryableSample/Readme.txt).)
 
 <a id="query-validation"></a>
 ## <a name="query-validation"></a>Sprawdzanie poprawności zapytań
 
-**[Queryable]** atrybutu weryfikuje zapytanie przed jej wykonanie. Krok sprawdzania poprawności jest wykonywane w **QueryableAttribute.ValidateQuery** metody. Można również dostosować procesu weryfikacji.
+**[Queryable]** atrybut weryfikuje zapytanie przed jej wykonanie. W kroku sprawdzania poprawności jest wykonywane w **QueryableAttribute.ValidateQuery** metody. Można również dostosować proces sprawdzania poprawności.
 
 Zobacz też [wskazówki dotyczące zabezpieczeń OData](odata-security-guidance.md).
 
-Najpierw zastąpienie jednego modułu sprawdzania poprawności klasy czyli zdefiniowane w **Web.Http.OData.Query.Validators** przestrzeni nazw. Na przykład następujące klasy modułu sprawdzania poprawności wyłącza opcję "opis" dla opcji $orderby.
+Najpierw zastąpienie jeden moduł weryfikacji to znaczy klas zdefiniowanych w **Web.Http.OData.Query.Validators** przestrzeni nazw. Na przykład następujące klasy modułu sprawdzania poprawności wyłącza opcję "desc" dla opcji $orderby.
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample14.cs)]
 
@@ -180,10 +179,10 @@ Podklasy **[Queryable]** atrybutu, aby zastąpić **ValidateQuery** metody.
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample15.cs)]
 
-Następnie ustaw atrybut niestandardowy albo globalnie lub na kontrolerze:
+Następnie ustaw niestandardowy atrybut albo globalnie lub na kontrolerze:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample16.cs)]
 
-Jeśli używasz **ODataQueryOptions** bezpośrednio, ustaw modułu sprawdzania poprawności opcji:
+Jeśli używasz **ODataQueryOptions** bezpośrednio, ustaw modułu sprawdzania poprawności na temat opcji:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample17.cs)]

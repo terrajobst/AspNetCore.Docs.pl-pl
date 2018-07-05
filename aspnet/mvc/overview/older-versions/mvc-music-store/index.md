@@ -1,36 +1,35 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/index
-title: Magazyn utworów muzycznych platformy ASP.NET MVC 3 | Dokumentacja firmy Microsoft
+title: Program ASP.NET MVC 3 Music Store | Dokumentacja firmy Microsoft
 author: rick-anderson
-description: Jak utworzyć aplikację sklep muzyczny MVC, przykładowej aplikacji, która sprzedaje albumów muzycznych w trybie online i implementującej Administracja witryny logowanie użytkowników,...
+description: Jak utworzyć aplikację MVC Music Store, przykładową aplikację, która sprzedaje utworów muzycznych albumy online i implementującej administrowania lokacją w użytkownika logowania...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
 ms.topic: article
 ms.assetid: f016a6b4-2a38-4e83-8c34-f6d7f2b49ba2
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store
 msc.type: chapter
-ms.openlocfilehash: b8fc43d8a8803a5b4cacfe46b55282e8dfd988c8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 90bde36af9f30634218e024dc18a35376fab9bfe
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26565040"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37363952"
 ---
-<a name="aspnet-mvc-3-music-store"></a>Magazyn utworów muzycznych platformy ASP.NET MVC 3
+<a name="aspnet-mvc-3-music-store"></a>Program ASP.NET MVC 3 Music Store
 ====================
-> Jak utworzyć aplikację sklep muzyczny MVC, przykładowej aplikacji, która sprzedaje albumów muzycznych w trybie online i implementującej administrowania lokacją, logowania użytkownika i funkcji koszyka zakupów.
+> Jak utworzyć aplikację MVC Music Store, przykładową aplikację, która sprzedaje utworów muzycznych albumy online i który implementuje administrowania lokacją logowania użytkowników i zakupów funkcji koszyka.
 
 
-- [Część 1: Omówienie i plik -> Nowy projekt](mvc-music-store-part-1.md)
-- [Część 2: kontrolerów](mvc-music-store-part-2.md)
-- [Część 3: Widoki i ViewModels](mvc-music-store-part-3.md)
-- [Część 4: Modele i dostęp do danych](mvc-music-store-part-4.md)
-- [Część 5: Formularze edycji i tworzenia szablonów](mvc-music-store-part-5.md)
-- [Część 6: Przy użyciu adnotacje danych na potrzeby sprawdzania poprawności modelu](mvc-music-store-part-6.md)
-- [Część 7: Członkostwa i autoryzacji](mvc-music-store-part-7.md)
-- [Część 8: Koszyku z aktualizacje interfejsu Ajax](mvc-music-store-part-8.md)
-- [Część 9: Rejestracja i wyewidencjonowania](mvc-music-store-part-9.md)
-- [Część 10: Końcowe aktualizacje nawigacji i lokacja, zawarcia](mvc-music-store-part-10.md)
+- [Część 1: omówienie i Plik->Nowy projekt](mvc-music-store-part-1.md)
+- [Część 2: kontrolery](mvc-music-store-part-2.md)
+- [Część 3: widoki i modele widoków](mvc-music-store-part-3.md)
+- [Część 4: modele i dostęp do danych](mvc-music-store-part-4.md)
+- [Część 5: edycja formularzy i tworzenie szablonów](mvc-music-store-part-5.md)
+- [Część 6: używanie adnotacji do danych na potrzeby weryfikacji modelu](mvc-music-store-part-6.md)
+- [Część 7: członkostwo i autoryzacja](mvc-music-store-part-7.md)
+- [Część 8: koszyk z aktualizacjami Ajax](mvc-music-store-part-8.md)
+- [Część 9: rejestracja i finalizacja zakupu](mvc-music-store-part-9.md)
+- [Część 10: końcowe aktualizacje nawigacji i projektu witryny, podsumowanie](mvc-music-store-part-10.md)

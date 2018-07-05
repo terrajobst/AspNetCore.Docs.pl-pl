@@ -9,28 +9,27 @@ ms.date: 12/11/2012
 ms.topic: article
 ms.assetid: bb38add0-5223-4b04-9b12-245911af865a
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security
 msc.type: chapter
-ms.openlocfilehash: 2006e672aab83a508bcaf44b6c7c276d4b1f3342
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 325535ba6cd92fdf8c998b2a5108737f3193bb5b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566732"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375042"
 ---
 <a name="security-authentication-and-authorization-in-aspnet-web-api"></a>Zabezpieczenia, uwierzytelnianie i autoryzacja w składniku ASP.NET Web API
 ====================
 > Problemy z bezpieczeństwem dotyczące interfejsu API sieci Web.
 
 
-- [Uwierzytelnianie i autoryzacja w składniku Web API](authentication-and-authorization-in-aspnet-web-api.md)
-- [Zabezpieczanie interfejsu API z indywidualnych kont w składniku Web API 2.2 sieci Web](individual-accounts-in-web-api.md)
-- [Zewnętrznych usług uwierzytelniania z interfejsu API sieci Web (C#)](external-authentication-services.md)
-- [Zapobieganie Cross-Site (CSRF) Fałszerstwie żądania w składniku Web API](preventing-cross-site-request-forgery-csrf-attacks.md)
-- [Włączanie żądań Cross-Origin w składniku Web API 2](enabling-cross-origin-requests-in-web-api.md)
-- [Filtry uwierzytelniania w składniku Web API 2](authentication-filters.md)
-- [Uwierzytelnianie podstawowe w składniku Web API](basic-authentication.md)
-- [Uwierzytelnianie formularzy w składniku Web API](forms-authentication.md)
+- [Uwierzytelnianie i autoryzacja w interfejsie Web API](authentication-and-authorization-in-aspnet-web-api.md)
+- [Zabezpieczanie interfejsu Web API za pomocą indywidualnych kont w interfejsie Web API 2.2](individual-accounts-in-web-api.md)
+- [Zewnętrzne usługi uwierzytelniania dla interfejsu Web API (C#)](external-authentication-services.md)
+- [Zapobieganie atakom polegającym na fałszowaniu żądań międzywitrynowych w interfejsie Web API](preventing-cross-site-request-forgery-csrf-attacks.md)
+- [Włączanie żądań Cross-Origin w interfejsie Web API 2](enabling-cross-origin-requests-in-web-api.md)
+- [Filtry uwierzytelniania w interfejsie Web API 2](authentication-filters.md)
+- [Uwierzytelnianie podstawowe w interfejsie Web API](basic-authentication.md)
+- [Uwierzytelnianie formularzy w interfejsie Web API](forms-authentication.md)
 - [Zintegrowane uwierzytelnianie systemu Windows](integrated-windows-authentication.md)
 - [Praca z protokołem SSL](working-with-ssl-in-web-api.md)
